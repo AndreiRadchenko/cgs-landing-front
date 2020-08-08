@@ -1,8 +1,8 @@
 import styled from 'styled-components';  
 
 export const CardWraper = styled('div')`
-    width:378px;
-    height:521px;
+    width:100%;
+    height:100%;
     box-sizing: border-box;
     position: relative;
     display: flex;
@@ -37,7 +37,6 @@ export const CardHeader = styled('div')`
     }
 
     &>.description{
-        font-weight: 700;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -78,7 +77,7 @@ export const CardTechnologies = styled('div')`
         align-items: center;
         height: 70%;
 
-        &>.Img{
+        &>.technology-img{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -86,7 +85,7 @@ export const CardTechnologies = styled('div')`
             height: 70%;
         }
 
-        &>.nameTechnology{
+        &>.technology-name{
             padding-top: 5%;
             height: 30%;
             font-size: 1em;
