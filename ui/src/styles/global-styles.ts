@@ -15,7 +15,10 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     min-width: 100%;
   }
-
+  .main-wraper{
+    padding: 1em 4em;
+    width: 100vw; 
+  }
   p,
   label {
     font-family: Georgia, Times, 'Times New Roman', serif;
@@ -25,5 +28,10 @@ export const GlobalStyle = createGlobalStyle`
   input, select {
     font-family: inherit;
     font-size: inherit;
+  }
+  a{
+    text-decoration: none;
+    color:inherit;
+    cursor: pointer;
   }
 `;
