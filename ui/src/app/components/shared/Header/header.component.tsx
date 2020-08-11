@@ -15,17 +15,18 @@ const Header = ({ socialList, navigation, fill }) => {
       <Styled.HeaderNav>
         {navigation &&
           navigation.map((item, index) => (
-            <Link
+            <a
+              href={item.link}
               key={uuidv4()}
-              to={item.link}
-              onClick={() => {
+              onClick={e => {
+                e.preventDefault();
                 setActiveLink(index);
               }}
             >
               <Styled.NavItem className={index === activeLink ? 'active' : ''}>
                 {item.title}
               </Styled.NavItem>
-            </Link>
+            </a>
           ))}
       </Styled.HeaderNav>
       <Styled.HeaderItem>
@@ -34,9 +35,9 @@ const Header = ({ socialList, navigation, fill }) => {
             <Link to={item.link} key={uuidv4()}>
               <Styled.SocialWrap>
                 <svg
-                  width="33"
                   height="32"
-                  viewBox="0 0 33 32"
+                  width="45"
+                  viewBox="0 0 45 32"
                   fill={fill === 'white' ? '#0C1033' : 'white'}
                   xmlns="http://www.w3.org/2000/svg"
                 >

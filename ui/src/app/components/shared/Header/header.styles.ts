@@ -27,9 +27,8 @@ export const HeaderLogo = styled('img')`
   height: 43px;
 `;
 export const SocialWrap = styled('div')`
-  height: 25px;
-  margin: 0 1em;
-  width: 25px;
+  margin: 0 0.5em;
+  width: fit-content;
 `;
 export const SocialLogo = styled('img')`
   width: 100%;

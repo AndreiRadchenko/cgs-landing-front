@@ -1,17 +1,75 @@
 import React from 'react';
+import { Field, Formik } from 'formik';
 import * as Styled from './form.styles';
 import Input from '../Input/input.commponent';
 import Textarea from '../Textarea/textarea.component';
 import Button from '../Button/button.component';
+import { registrationFormSchema } from '../../../../helpers/validation';
 
 const Form = () => {
   return (
-    <Styled.FormWrapper>
-      <Input placeholder="Name" type="text" name="name" />
-      <Input placeholder="Email" type="email" name="email" />
-      <Textarea placeholder="Enter your message..." />
-      <Button type="submit" text="Send" />
-    </Styled.FormWrapper>
+    <Formik
+      // validate={null}
+      validationSchema={registrationFormSchema}
+      initialValues={{
+        name: '',
+        email: '',
+        message: '',
+      }}
+      onSubmit={values => {
+        console.log(values);
+      }}
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+
+        isSubmitting,
+        validateField,
+        setErrors,
+        onSubmit,
+      }) => {
+        return (
+          <Styled.FormWrapper>
+            <Input
+              placeholder="Name"
+              type="text"
+              name="name"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.name}
+              errors={errors}
+              touched={touched}
+            />
+            <Input
+              placeholder="Email"
+              type="email"
+              name="email"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.email}
+              errors={errors}
+              touched={touched}
+            />
+            <Textarea
+              placeholder="Enter your message..."
+              name="message"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.message}
+              errors={errors}
+              touched={touched}
+            />
+            {console.log('touched: ', touched)}
+            <Button type="submit" text="Send" onClick={handleSubmit} />
+          </Styled.FormWrapper>
+        );
+      }}
+    </Formik>
   );
 };
 export default Form;
