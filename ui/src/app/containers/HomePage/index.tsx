@@ -13,6 +13,7 @@ import Mobile from '../../img/mobile.svg';
 import Backend from '../../img/backend.svg';
 import UIUX from '../../img/ui-ux.svg';
 
+
 export function HomePage() {
   const technologies = [
     {
@@ -158,3 +159,5 @@ incididunt ut labore et dolore magna aliqua. "
     </>
   );
 }
+/* Mockups-03 */
+
