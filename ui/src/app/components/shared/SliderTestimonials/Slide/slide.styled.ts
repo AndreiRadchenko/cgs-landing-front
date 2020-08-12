@@ -129,3 +129,44 @@ export const HorizantalSep = styled('div')`
     width: 23px;
   }
 `;
+
+export const TopRightDotsContainer = styled('div')`
+  position: absolute;
+  width: 10%;
+  height: 22%;
+  top: -4.5%;
+  right: -3.8%;
+  display: flex;
+  flex-wrap: wrap;
+  &>span{
+      width: 20%;
+      height: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+        &>img{
+          width:50%;
+          height:50%;
+        }
+    }
+`
+export const BottomLeftDotsContainer = styled('div')`
+  position: absolute;
+  width: 4%;
+  height: 22%;
+  bottom: 50px;
+  left: -4.5%;
+  display: flex;
+  flex-wrap: wrap;
+  &>span{
+      width: 50%;
+      height: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+        &>img{
+          width:50%;
+          height:50%;
+        }
+    }
+`

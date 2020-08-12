@@ -42,60 +42,24 @@ const Slide: React.FC<
           </div>
         )}
       </div>
-      <div
-        style={{
-          position: 'absolute',
-          width: '10%',
-          height: '22%',
-          top: '-4.5%',
-          right: '-3.8%',
-          display: 'flex',
-          flexWrap: 'wrap',
-        }}
-      >
+      <Style.TopRightDotsContainer>
         {Array(25).fill(" ").map(_ => {
           return (
-            <span
-              style={{
-                width: '20%',
-                height: '20%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <img width="50%" height="50%" src={dotWhite}></img>
+            <span>
+              <img src={dotWhite}></img>
             </span>
           );
         })}
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          width: '4%',
-          height: '22%',
-          bottom: '50px',
-          left: '-4.5%',
-          display: 'flex',
-          flexWrap: 'wrap',
-        }}
-      >
+      </Style.TopRightDotsContainer>
+      <Style.BottomLeftDotsContainer>
         {Array(10).fill(" ").map((_) => {
           return (
-            <span
-              style={{
-                width: '50%',
-                height: '20%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <img width="50%" height="50%" src={dotBlue}></img>
+            <span>
+              <img src={dotBlue}></img>
             </span>
           );
         })}
-      </div>
+      </Style.BottomLeftDotsContainer>
     </Style.SlideContainer>
   );
 };

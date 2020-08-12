@@ -123,7 +123,8 @@ export function HomePage() {
           title="Our code"
           desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua. "
-          children={<SliderTestimonials>
+        />
+        <SliderTestimonials>
                 <Slide
                 person1={{
                   name: 'Alexei Samoilenko',
@@ -150,15 +151,14 @@ export function HomePage() {
                   '"Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et doloremagna aliqua. Ut enim ad minim veniam."'
                 }
               />
-          </SliderTestimonials>}
-        />
+          </SliderTestimonials>
         <Article
           id="portfolio"
           title="Portfolio"
           desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua. "
-          children={
-            <Slider>
+        />
+         <Slider>
               <ProjectCard
                 title={'HomeWork1'}
                 projectImg={{ img: Web, width: '100%' }}
@@ -209,8 +209,6 @@ export function HomePage() {
                 <span>BLACK JAVA</span>
               </ProjectCard>
             </Slider>
-          }
-        />
         <Article
           id="technologies"
           title="Technologies"

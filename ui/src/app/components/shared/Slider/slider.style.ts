@@ -39,7 +39,7 @@ export const SliderContainer = styled.div`
     margin: auto;
     width: ${widthProjectCard};
     @media screen and (max-width: 400px) {
-      width: 280px;
+      width: 300px;
     }
   }
 
