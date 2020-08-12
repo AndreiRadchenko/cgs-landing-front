@@ -130,90 +130,90 @@ export function HomePage() {
           incididunt ut labore et dolore magna aliqua. "
         />
         <SliderTestimonials>
-                <Slide
-                person1={{
-                  name: 'Alexei Samoilenko',
-                  position: 'Senior',
-                  img: slides.developer1,
-                }}
-                person2={{
-                  name: 'Alexei Timoshenko',
-                  position: 'Middle',
-                  img: slides.developer2,
-                }}
-                background={'#0C1033'}
-                title={'Our javascript developers'}
-              />
-              <Slide
-                person1={{
-                  name: 'Alexei Samoilenko',
-                  position: 'Middle',
-                  img: slides.boss,
-                }}
-                background={'#0C1033'}
-                title={'Our javascript developers'}
-                description={
-                  '"Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et doloremagna aliqua. Ut enim ad minim veniam."'
-                }
-              />
-          </SliderTestimonials>
+          <Slide
+            person1={{
+              name: 'Alexei Samoilenko',
+              position: 'Senior',
+              img: slides.developer1,
+            }}
+            person2={{
+              name: 'Alexei Timoshenko',
+              position: 'Middle',
+              img: slides.developer2,
+            }}
+            background={'#0C1033'}
+            title={'Our javascript developers'}
+          />
+          <Slide
+            person1={{
+              name: 'Alexei Samoilenko',
+              position: 'Middle',
+              img: slides.boss,
+            }}
+            background={'#0C1033'}
+            title={'Our javascript developers'}
+            description={
+              '"Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et doloremagna aliqua. Ut enim ad minim veniam."'
+            }
+          />
+        </SliderTestimonials>
         <Article
           id="portfolio"
           title="Portfolio"
           desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua. "
         />
-         <Slider>
-              <ProjectCard
-                title={'HomeWork1'}
-                projectImg={{ img: Web, width: '100%' }}
-                technologies={['React', 'Node']}
-                background={'#42a5f5'}
-              >
-                <span>JONI NODEJS</span>
-                <span>HELLO JONI</span>
-              </ProjectCard>
+        <Slider>
+          <ProjectCard
+            title={'HomeWork1'}
+            projectImg={{ img: Web, width: '100%' }}
+            technologies={['React', 'Node']}
+            background={'#42a5f5'}
+          >
+            <span>JONI NODEJS</span>
+            <span>HELLO JONI</span>
+          </ProjectCard>
 
-              <ProjectCard
-                title={'HomeWork2'}
-                projectImg={{ img: Web, width: '100%' }}
-                technologies={['React', 'Node']}
-                background={'pink'}
-              >
-                <span>DANA NODEJS</span>
-                <span>HELLO DANA</span>
-              </ProjectCard>
+          <ProjectCard
+            title={'HomeWork2'}
+            projectImg={{ img: Web, width: '100%' }}
+            technologies={['React', 'Node']}
+            background={'pink'}
+          >
+            <span>DANA NODEJS</span>
+            <span>HELLO DANA</span>
+          </ProjectCard>
 
-              <ProjectCard
-                title={'LiveOff'}
-                projectImg={{ img: Web, width: '100%' }}
-                technologies={['React', 'Node']}
-                background={'yellow'}
-              >
-                <span>JAVA NODEJS</span>
-                <span>HELLO JAVA</span>
-              </ProjectCard>
+          <ProjectCard
+            title={'LiveOff'}
+            projectImg={{ img: Web, width: '100%' }}
+            technologies={['React', 'Node']}
+            background={'yellow'}
+          >
+            <span>JAVA NODEJS</span>
+            <span>HELLO JAVA</span>
+          </ProjectCard>
 
-              <ProjectCard
-                title={'Technologies'}
-                projectImg={{ img: Web, width: '100%' }}
-                technologies={['React', 'Node']}
-                background={'green'}
-              >
-                <span>PONI NODEJS</span>
-                <span>PONI JAVA</span>
-              </ProjectCard>
+          <ProjectCard
+            title={'Technologies'}
+            projectImg={{ img: Web, width: '100%' }}
+            technologies={['React', 'Node']}
+            background={'green'}
+          >
+            <span>PONI NODEJS</span>
+            <span>PONI JAVA</span>
+          </ProjectCard>
 
-              <ProjectCard
-                title={'SunPower'}
-                projectImg={{ img: Web, width: '100%' }}
-                technologies={['React', 'Node']}
-                background={'black'}
-              >
-                <span>PONI NODEJS</span>
-                <span>BLACK JAVA</span>
-              </ProjectCard>
-            </Slider>
+          <ProjectCard
+            title={'SunPower'}
+            projectImg={{ img: Web, width: '100%' }}
+            technologies={['React', 'Node']}
+            background={'black'}
+          >
+            <span>PONI NODEJS</span>
+            <span>BLACK JAVA</span>
+          </ProjectCard>
+        </Slider>
         <Article
           id="technologies"
           title="Technologies"

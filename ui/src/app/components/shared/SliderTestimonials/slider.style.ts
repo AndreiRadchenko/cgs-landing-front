@@ -84,7 +84,7 @@ export const SliderContainer = styled.div`
 
   & .slick-dots {
     & > li > button::before {
-      margin-top:12px;
+      margin-top: 12px;
       opacity: 1;
       color: #97c3f9;
     }

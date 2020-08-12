@@ -7,7 +7,10 @@ import { slides } from './slides';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
-  const rightVector = (props.slideCount - props.currentSlide===1) ? slides.RightBlueVector : slides.RightVector
+  const rightVector =
+    props.slideCount - props.currentSlide === 1
+      ? slides.RightBlueVector
+      : slides.RightVector;
   return (
     <Styled.SliderNext className={className} onClick={onClick}>
       <img src={rightVector} alt="prevVector" />
@@ -17,7 +20,8 @@ function SampleNextArrow(props) {
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
-  const leftVector = props.currentSlide===0 ? slides.LeftBlueVector : slides.LeftVector
+  const leftVector =
+    props.currentSlide === 0 ? slides.LeftBlueVector : slides.LeftVector;
   return (
     <Styled.SliderPrev className={className} onClick={onClick}>
       <img src={leftVector} alt="prevVector" />
@@ -25,7 +29,9 @@ function SamplePrevArrow(props) {
   );
 }
 
-const SliderTestimonials:React.FC<{children:React.ReactNodeArray}> = ({children}) => {
+const SliderTestimonials: React.FC<{ children: React.ReactNodeArray }> = ({
+  children,
+}) => {
   let settings = {
     dots: true,
     infinite: false,
@@ -40,9 +46,7 @@ const SliderTestimonials:React.FC<{children:React.ReactNodeArray}> = ({children}
     <Styled.SliderContainer
       style={{ marginBottom: '100px', width: '100%', height: '420px' }}
     >
-      <Slider {...settings}>
-        {children.map(slide=>slide)}
-      </Slider>
+      <Slider {...settings}>{children.map(slide => slide)}</Slider>
     </Styled.SliderContainer>
   );
 };

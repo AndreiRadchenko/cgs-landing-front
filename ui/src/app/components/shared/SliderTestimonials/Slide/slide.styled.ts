@@ -138,18 +138,18 @@ export const TopRightDotsContainer = styled('div')`
   right: -3.8%;
   display: flex;
   flex-wrap: wrap;
-  &>span{
-      width: 20%;
-      height: 20%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-        &>img{
-          width:50%;
-          height:50%;
-        }
+  & > span {
+    width: 20%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > img {
+      width: 50%;
+      height: 50%;
     }
-`
+  }
+`;
 export const BottomLeftDotsContainer = styled('div')`
   position: absolute;
   width: 4%;
@@ -158,15 +158,15 @@ export const BottomLeftDotsContainer = styled('div')`
   left: -4.5%;
   display: flex;
   flex-wrap: wrap;
-  &>span{
+  & > span {
+    width: 50%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > img {
       width: 50%;
-      height: 20%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-        &>img{
-          width:50%;
-          height:50%;
-        }
+      height: 50%;
     }
-`
+  }
+`;
