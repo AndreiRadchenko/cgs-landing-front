@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Styled from './menu.styles';
+import classNames from 'classnames';
 
 const Menu = ({ children }) => {
   const [activeMenu, setMenuState] = React.useState(false);
@@ -19,7 +20,7 @@ const Menu = ({ children }) => {
         </svg>
       </Styled.MenuContainer>
       <Styled.DropDown
-        className={`drop-down ${activeMenu ? 'show-sub-menu' : ''}`}
+        className={classNames('drop-down', { showSubMenu: activeMenu })}
       >
         {children}
       </Styled.DropDown>

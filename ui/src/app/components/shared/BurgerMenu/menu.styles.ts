@@ -5,10 +5,9 @@ export const BurgerMenu = styled('div')`
   position: relative;
   @media screen and (max-width: 1013px) {
     width: auto;
-    & > div.drop-down.show-sub-menu {
+    & > div.drop-down.showSubMenu {
       transition: all 1.5s cubic-bezier(0.25, 1.65, 0.78, 0.65);
       width: 300px;
-      flex-wrap: nowrap;
       box-shadow: -1px 3px 9px silver;
       height: auto;
       padding: 1em;
@@ -16,7 +15,7 @@ export const BurgerMenu = styled('div')`
         display: flex;
       }
     }
-    & > div.show-sub-menu::before {
+    & > div.showSubMenu::before {
       content: '';
       position: absolute;
       width: 10px;
