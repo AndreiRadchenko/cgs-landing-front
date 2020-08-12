@@ -21,7 +21,7 @@ const Menu: React.FC<IMenu> = ({ children }) => {
         </svg>
       </Styled.MenuContainer>
       <Styled.DropDown
-        className={classNames('drop-down', { showSubMenu: activeMenu })}
+        className={`drop-down ${activeMenu ? 'show-sub-menu' : ''}`}
       >
         {children}
       </Styled.DropDown>

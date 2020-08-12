@@ -14,8 +14,17 @@ import { GlobalStyle } from 'styles/global-styles';
 
 import { HomePage } from './containers/HomePage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
+import ReactGA from 'react-ga';
+import { useEffect } from 'react';
 
 export function App() {
+  useEffect(() => {
+    ReactGA.initialize(
+      '94263033274-a554q7vhgs0ac5hij8vitia6kk94de4p.apps.googleusercontent.com',
+    );
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  });
+
   return (
     <BrowserRouter>
       <Helmet

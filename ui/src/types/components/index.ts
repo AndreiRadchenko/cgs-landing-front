@@ -43,7 +43,7 @@ export interface IArticle {
   id?: string;
   desc?: string;
   title: string;
-  children: React.ReactNode;
+  //   children: React.ReactNode;
 }
 
 export interface IHome {
@@ -88,4 +88,17 @@ export interface ITextArea {
   value?: string;
   errors?: object;
   touched?: any;
+}
+export interface SlidePersonType {
+  name: string;
+  position: string;
+  img: string;
+}
+
+export interface SlideType {
+  person1: SlidePersonType;
+  person2?: SlidePersonType;
+  description?: string;
+  background: string;
+  title: string;
 }
