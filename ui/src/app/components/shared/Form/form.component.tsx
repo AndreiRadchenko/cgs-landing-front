@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, Formik } from 'formik';
+import { Formik } from 'formik';
 import * as Styled from './form.styles';
 import Input from '../Input/input.commponent';
 import Textarea from '../Textarea/textarea.component';
@@ -31,7 +31,6 @@ const Form = () => {
         isSubmitting,
         validateField,
         setErrors,
-        onSubmit,
       }) => {
         return (
           <Styled.FormWrapper>

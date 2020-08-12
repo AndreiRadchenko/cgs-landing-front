@@ -6,6 +6,12 @@ export const HomeWrapper = styled('div')`
   & > * {
     width: 47%;
   }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    & > * {
+      width: 100%;
+    }
+  }
 `;
 export const ContentBlock = styled('article')`
   display: flex;
@@ -14,6 +20,16 @@ export const ContentBlock = styled('article')`
   justify-content: space-evenly;
   & > p {
     opacity: 0.5;
+  }
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    text-align: center;
+    & > h2 {
+      margin: 1em 0;
+    }
+    & > a {
+      margin: 1em 0 1em 0;
+    }
   }
 `;
 export const Ilustration = styled('img')`

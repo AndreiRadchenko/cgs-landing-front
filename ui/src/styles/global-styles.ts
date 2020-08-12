@@ -19,6 +19,21 @@ export const GlobalStyle = createGlobalStyle`
     padding: 1em 4em;
     width: 100vw; 
   }
+  @media screen and (max-width: 768px) {
+    header, footer, .main-wraper{
+      padding: 1em 2em!important;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    header, footer, .main-wraper{
+      padding: 1em 1em!important;
+    }
+  }
+  
+  a.anchor{
+    width:0;
+    height:0;
+  }
   p,
   label {
     font-family: Georgia, Times, 'Times New Roman', serif;

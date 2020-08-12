@@ -13,7 +13,6 @@ import Mobile from '../../img/mobile.svg';
 import Backend from '../../img/backend.svg';
 import UIUX from '../../img/ui-ux.svg';
 
-
 export function HomePage() {
   const technologies = [
     {
@@ -125,7 +124,7 @@ export function HomePage() {
 incididunt ut labore et dolore magna aliqua. "
           children={
             <div
-              style={{ width: ' 500px', height: '500px', background: 'pink' }}
+              style={{ width: ' 50px', height: '500px', background: 'pink' }}
             >
               Akuna Matata
             </div>
@@ -139,7 +138,7 @@ incididunt ut labore et dolore magna aliqua. "
           children={
             <div
               style={{
-                width: ' 500px',
+                width: ' 50px',
                 height: '500px',
                 background: 'lightgreen',
               }}
@@ -160,4 +159,3 @@ incididunt ut labore et dolore magna aliqua. "
   );
 }
 /* Mockups-03 */
-
