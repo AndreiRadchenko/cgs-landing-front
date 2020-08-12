@@ -112,7 +112,7 @@ export const SlideContainer = styled.div`
       font-size: 20px;
       color: gray;
       margin-left: 25px;
-      @media screen and (max-width: 500px) {
+      @media screen and (max-width: 760px) {
         font-size: 14px;
       }
     }
@@ -125,7 +125,7 @@ export const HorizantalSep = styled('div')`
   background: #fff;
   border-radius: 5px;
   margin-top: 10px;
-  @media screen and (max-width: 500px) {
-    width: 22px;
+  @media screen and (max-width: 760px) {
+    width: 23px;
   }
 `;

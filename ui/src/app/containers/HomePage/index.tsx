@@ -135,7 +135,6 @@ export function HomePage() {
                   position: 'Middle',
                   img: slides.developer2,
                 }}
-                description={undefined}
                 background={'#0C1033'}
                 title={'Our javascript developers'}
               />
@@ -145,7 +144,6 @@ export function HomePage() {
                   position: 'Middle',
                   img: slides.boss,
                 }}
-                person2={undefined}
                 background={'#0C1033'}
                 title={'Our javascript developers'}
                 description={

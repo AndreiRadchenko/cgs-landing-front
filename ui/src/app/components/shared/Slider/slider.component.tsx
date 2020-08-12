@@ -1,4 +1,4 @@
-import React, { ReactNodeArray } from 'react';
+import React from 'react';
 import * as Styled from './slider.style';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -24,7 +24,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-const SliderComponent: React.FC<{ children: ReactNodeArray }> = ({
+const SliderComponent: React.FC<{ children: React.ReactNodeArray }> = ({
   children,
 }) => {
   let settings = {

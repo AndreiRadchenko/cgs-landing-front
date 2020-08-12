@@ -38,7 +38,7 @@ const SliderTestimonials:React.FC<{children:React.ReactNodeArray}> = ({children}
 
   return (
     <Styled.SliderContainer
-      style={{ marginBottom: '100px', width: '100%', height: '450px' }}
+      style={{ marginBottom: '100px', width: '100%', height: '420px' }}
     >
       <Slider {...settings}>
         {children.map(slide=>slide)}

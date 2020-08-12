@@ -30,7 +30,7 @@ const Slide: React.FC<
           <div className="description">
             <p>{description}</p>
           </div>
-        ) : (
+        ) : person2 && (
           <div className="person">
             <div className="person-photo">
               <img src={person2.img} alt="personPhoto"></img>

@@ -11,16 +11,18 @@ export interface ProjectCardType {
   children: React.ReactNode;
 }
 
+
 export interface SlidePersonType{
   name:string,
   position:string,
   img:string
 }
 
+
 export interface SlideType{
   person1: SlidePersonType;
-  person2: any;
-  description: string|undefined;
+  person2?:  SlidePersonType;
+  description?: string;
   background: string;
   title: string;
 }
