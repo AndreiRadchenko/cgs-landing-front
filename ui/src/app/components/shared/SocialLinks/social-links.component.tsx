@@ -2,8 +2,9 @@ import React from 'react';
 import * as Styled from './social-links.styles';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { ISocial } from '../../../../types/components/index';
 
-const SocialLinks = ({ socialList, fill }) => {
+const SocialLinks: React.FC<ISocial> = ({ socialList, fill }) => {
   return (
     <Styled.HeaderLinks>
       {socialList &&
@@ -18,25 +19,21 @@ const SocialLinks = ({ socialList, fill }) => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 {item.src &&
-                  item.src.map((path, index, arr) =>
-                    arr.length === 3 && index > 0 ? (
-                      <path
-                        key={uuidv4()}
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d={path}
-                        fill="inherit"
-                      />
-                    ) : (
-                      <path
-                        key={uuidv4()}
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d={path}
-                        fill={fill}
-                      />
-                    ),
-                  )}
+                  item.src.map(data => (
+                    <path
+                      key={uuidv4()}
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d={data.path}
+                      fill={
+                        fill === 'white'
+                          ? fill === data.fill
+                            ? 'inherit'
+                            : fill
+                          : data.fill
+                      }
+                    />
+                  ))}
               </svg>
             </Styled.SocialWrap>
           </Link>

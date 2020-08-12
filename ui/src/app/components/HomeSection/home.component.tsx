@@ -4,8 +4,9 @@ import * as Styled from './home.styles';
 import Ilustration from '../../img/illustration.svg';
 
 import Button from '../shared/Button/button.component';
+import { IHome } from '../../../types/components/index';
 
-const Home = props => {
+const Home: React.FC<IHome> = props => {
   return (
     <Styled.HomeWrapper>
       <a className="anchor" id={props.id} />
