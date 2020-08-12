@@ -1,11 +1,27 @@
 import React from 'react';
 import * as Styled from './textarea.styles';
 
-const Textarea = props => {
+const Textarea = ({
+  placeholder,
+  name,
+  onChange,
+  value,
+  onBlur,
+  errors,
+  touched,
+}) => {
   return (
     <Styled.TextWrapper>
-      <Styled.Text placeholder={props.placeholder} name={props.name} />
-      <Styled.Error>{props.error}</Styled.Error>
+      <Styled.Text
+        placeholder={placeholder}
+        name={name}
+        onChange={onChange}
+        value={value}
+        // onBlur={onBlur}
+        // errors={props.errors}
+        // touched={touched}
+      />
+      <Styled.Error>{errors?.[name]}</Styled.Error>
     </Styled.TextWrapper>
   );
 };

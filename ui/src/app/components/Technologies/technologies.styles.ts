@@ -5,11 +5,22 @@ export const Wrapper = styled('div')`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  & > div:nth-child(even) {
+    flex-direction: row-reverse;
+    margin-bottom: 1em;
+    & > div:first-child,
+    & ul {
+      align-items: flex-end;
+    }
+  }
 `;
 export const TechnoContainer = styled('div')`
   display: flex;
   width: 47%;
   justify-content: space-between;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
   & > div {
     width: 49%;
     & > img {

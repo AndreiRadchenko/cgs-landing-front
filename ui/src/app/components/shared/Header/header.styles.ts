@@ -5,33 +5,19 @@ export const HeaderWrapper = styled('header')`
   width: 100vw;
   justify-content: space-between;
   align-items: center;
-  backgraund: white;
+  background: white;
   padding: 1em 4em;
 `;
 export const HeaderItem = styled('div')`
   display: flex;
   justify-content: space-between;
 `;
-export const HeaderNav = styled(HeaderItem)`
-  width: auto;
-  & .active {
-    opacity: 1;
+export const HeaderLinks = styled(HeaderItem)`
+  @media screen and (max-width: 1013px) {
+    display: none;
   }
 `;
-export const NavItem = styled('div')`
-  margin: 0 1em;
-  min-width: max-content;
-  opacity: 0.5;
-`;
+
 export const HeaderLogo = styled('img')`
   height: 43px;
-`;
-export const SocialWrap = styled('div')`
-  height: 25px;
-  margin: 0 1em;
-  width: 25px;
-`;
-export const SocialLogo = styled('img')`
-  width: 100%;
-  height: 100%;
 `;

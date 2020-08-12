@@ -7,7 +7,8 @@ import Button from '../shared/Button/button.component';
 
 const Home = props => {
   return (
-    <Styled.HomeWrapper id={props.id}>
+    <Styled.HomeWrapper>
+      <a className="anchor" id={props.id} />
       <Styled.ContentBlock>
         <h2>Trust only professionals</h2>
         <p>

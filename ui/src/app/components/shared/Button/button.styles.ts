@@ -8,4 +8,12 @@ export const Button = styled('button')`
   border: 0;
   color: white;
   min-width: 200px;
+  &:hover {
+    background: #0c1033;
+    opacity: 0.4;
+  }
+  &:active {
+    background: #0c1033;
+    opacity: 0.7;
+  }
 `;
