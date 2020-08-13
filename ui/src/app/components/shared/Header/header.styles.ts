@@ -7,6 +7,7 @@ export const HeaderWrapper = styled('header')`
   align-items: center;
   background: white;
   padding: 1em 4em;
+  margin-bottom: 1em;
 `;
 export const HeaderItem = styled('div')`
   display: flex;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 export const HomeWrapper = styled('div')`
   display: flex;
+  position: relative;
   width: 100%;
   justify-content: space-between;
   & > * {
@@ -13,6 +14,15 @@ export const HomeWrapper = styled('div')`
     }
   }
 `;
+
+export const Dots = styled('img')`
+  width: 80px;
+  height: 70px;
+  position: absolute;
+  top: -1.1em;
+  left: -6em;
+`;
+
 export const ContentBlock = styled('article')`
   display: flex;
   flex-direction: column;
@@ -28,7 +38,7 @@ export const ContentBlock = styled('article')`
       margin: 1em 0;
     }
     & > a {
-      margin: 1em 0 1em 0;
+      margin: 1em 0 2em 0;
     }
   }
 `;
