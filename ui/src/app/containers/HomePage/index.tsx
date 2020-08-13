@@ -7,24 +7,22 @@ import Form from '../../components/shared/Form/form.component';
 import Article from '../../components/Article/article.component';
 import Technologies from '../../components/Technologies/technologies.component';
 
-import SliderTestimonials from "../../components/shared/SliderTestimonials/slider.component";
-import Slide from "../../components/shared/SliderTestimonials/Slide/slide.component";
-import {slides} from "../../components/shared/SliderTestimonials/slides";
-import SliderPortfolio from "../../components/shared/SliderPartfolio/slider.component";
-import SlideProjectCard from "../../components/shared/ProjectCard/projectCard.component";
+import SliderTestimonials from '../../components/shared/SliderTestimonials/slider.component';
+import Slide from '../../components/shared/SliderTestimonials/Slide/slide.component';
+import { slides } from '../../img';
+import SliderPortfolio from '../../components/shared/SliderPortfolio/slider.component';
 
 import Web from '../../img/web.svg';
 import Mobile from '../../img/mobile.svg';
 import Backend from '../../img/backend.svg';
 import UIUX from '../../img/ui-ux.svg';
-import {scrollEA} from '../../../services/event';
+import { scrollEA } from '../../../services/event';
 
 export function HomePage() {
-  
- React.useEffect(()=>{
-  scrollEA('data-scroll')
- },[])
- 
+  React.useEffect(() => {
+    scrollEA('data-scroll');
+  }, []);
+
   const technologies = [
     {
       type: 'Web',
@@ -131,28 +129,60 @@ export function HomePage() {
           desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua."
         >
-        <SliderTestimonials>
-            <Slide person1={{name:"Alexei Samoilenko",position:"Big Boss",img:slides.boss}}
-              description={"“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”"}
-              background={"#0C1033"}
-              title={"The main principle"}
+          <SliderTestimonials>
+            <Slide
+              person1={{
+                name: 'Alexei Samoilenko',
+                position: 'Big Boss',
+                img: slides.boss,
+              }}
+              description={
+                '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”'
+              }
+              background={'#0C1033'}
+              title={'The main principle'}
             />
-            <Slide person1={{name:"1st Fullstack hero",position:"Senior",img:slides.developer1}}
-              person2={{name:"2nd React wizard",position:"Middle",img:slides.developer2}}
-              background={"#0C1033"}
-              title={"Our javascript developers"}
+            <Slide
+              person1={{
+                name: '1st Fullstack hero',
+                position: 'Senior',
+                img: slides.developer1,
+              }}
+              person2={{
+                name: '2nd React wizard',
+                position: 'Middle',
+                img: slides.developer2,
+              }}
+              background={'#0C1033'}
+              title={'Our javascript developers'}
             />
-            <Slide person1={{name:"Alexei Samoilenko",position:"Big Boss",img:slides.boss}}
-              description={"“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”"}
-              background={"#0C1033"}
-              title={"The main principle"}
+            <Slide
+              person1={{
+                name: 'Alexei Samoilenko',
+                position: 'Big Boss',
+                img: slides.boss,
+              }}
+              description={
+                '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”'
+              }
+              background={'#0C1033'}
+              title={'The main principle'}
             />
-            <Slide person1={{name:"1st Fullstack hero",position:"Senior",img:slides.developer1}}
-              person2={{name:"2nd React wizard",position:"Middle",img:slides.developer2}}
-              background={"#0C1033"}
-              title={"Our javascript developers"}
+            <Slide
+              person1={{
+                name: '1st Fullstack hero',
+                position: 'Senior',
+                img: slides.developer1,
+              }}
+              person2={{
+                name: '2nd React wizard',
+                position: 'Middle',
+                img: slides.developer2,
+              }}
+              background={'#0C1033'}
+              title={'Our javascript developers'}
             />
-        </SliderTestimonials>
+          </SliderTestimonials>
         </Article>
         <Article
           id="portfolio"
@@ -160,40 +190,7 @@ export function HomePage() {
           desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua. "
         >
-        <SliderPortfolio>
-            <SlideProjectCard title={"New Project"} projectImg={{img:slides.boss,width:'50%'}} technologies={["React","Node"]} background={"pink"}>
-                <span>
-                    Big Boss
-                </span>
-                <span>
-                    Middle
-                </span>
-            </SlideProjectCard>
-            <SlideProjectCard title={"New Project"} projectImg={{img:slides.slide1,width:'100%'}} technologies={["React","Node"]} background={"yellow"}>
-                <span>
-                    Project
-                </span>
-                <span>
-                    Our Project
-                </span>
-            </SlideProjectCard>
-            <SlideProjectCard title={"New Project"} projectImg={{img:slides.boss,width:'50%'}} technologies={["React","Node"]} background={"pink"}>
-                <span>
-                    Big Boss
-                </span>
-                <span>
-                    Middle
-                </span>
-            </SlideProjectCard>
-            <SlideProjectCard title={"New Project"} projectImg={{img:slides.slide1,width:'100%'}} technologies={["React","Node"]} background={"yellow"}>
-                <span>
-                    Project
-                </span>
-                <span>
-                    Our Project
-                </span>
-            </SlideProjectCard>
-        </SliderPortfolio>
+          <SliderPortfolio />
         </Article>
         <Article
           data-scrolling="technologies"
@@ -201,34 +198,67 @@ export function HomePage() {
           title="Technologies"
           children={<Technologies technologies={technologies} />}
         />
-          <Article
+        <Article
           id="Testimonials"
           title="Testimonials"
           desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua."
         >
-        <SliderTestimonials>
-            <Slide person1={{name:"John Doe",position:"Happy client",img:slides.clientSpain,country:{name:'Spain',img:slides.flagSpain}}}
-              description={"“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”"}
-              background={"#0C1033"}
-              title={"First testimonial"}
+          <SliderTestimonials>
+            <Slide
+              person1={{
+                name: 'John Doe',
+                position: 'Happy client',
+                img: slides.clientSpain,
+                country: { name: 'Spain', img: slides.flagSpain },
+              }}
+              description={
+                '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”'
+              }
+              background={'#0C1033'}
+              title={'First testimonial'}
             />
-            <Slide person1={{name:"1st Fullstack hero",position:"Senior",img:slides.developer1}}
-              person2={{name:"2nd React wizard",position:"Middle",img:slides.developer2}}
-              background={"#0C1033"}
-              title={"Our javascript developers"}
+            <Slide
+              person1={{
+                name: '1st Fullstack hero',
+                position: 'Senior',
+                img: slides.developer1,
+              }}
+              person2={{
+                name: '2nd React wizard',
+                position: 'Middle',
+                img: slides.developer2,
+              }}
+              background={'#0C1033'}
+              title={'Our javascript developers'}
             />
-            <Slide person1={{name:"Alexei Samoilenko",position:"Big Boss",img:slides.boss}}
-              description={"“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”"}
-              background={"#0C1033"}
-              title={"The main principle"}
+            <Slide
+              person1={{
+                name: 'Alexei Samoilenko',
+                position: 'Big Boss',
+                img: slides.boss,
+              }}
+              description={
+                '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”'
+              }
+              background={'#0C1033'}
+              title={'The main principle'}
             />
-            <Slide person1={{name:"1st Fullstack hero",position:"Senior",img:slides.developer1}}
-              person2={{name:"2nd React wizard",position:"Middle",img:slides.developer2}}
-              background={"#0C1033"}
-              title={"Our javascript developers"}
+            <Slide
+              person1={{
+                name: '1st Fullstack hero',
+                position: 'Senior',
+                img: slides.developer1,
+              }}
+              person2={{
+                name: '2nd React wizard',
+                position: 'Middle',
+                img: slides.developer2,
+              }}
+              background={'#0C1033'}
+              title={'Our javascript developers'}
             />
-        </SliderTestimonials>
+          </SliderTestimonials>
         </Article>
         <Article id="form" title="Contact" children={<Form />} />
       </div>
@@ -237,4 +267,3 @@ export function HomePage() {
   );
 }
 /* Mockups-03 */
-

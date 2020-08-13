@@ -14,7 +14,7 @@ export const SlideContainer = styled.div`
   border-radius: 10px;
 
   & .article {
-    font-weight:700;
+    font-weight: 700;
     color: #fff;
     height: 30%;
     display: flex;
@@ -46,7 +46,7 @@ export const SlideContainer = styled.div`
     display: flex;
     width: 50%;
     height: 100%;
-    margin-right:2px;
+    margin-right: 2px;
     @media screen and (max-width: 760px) {
       width: 100%;
       margin-bottom: 40px;
@@ -59,8 +59,8 @@ export const SlideContainer = styled.div`
       align-items: center;
       margin-right: 20px;
       @media screen and (max-width: 760px) {
-        width:auto;
-        margin-left:1.5em;
+        width: auto;
+        margin-left: 1.5em;
         margin-right: 15px;
       }
       & > img {
@@ -82,42 +82,42 @@ export const SlideContainer = styled.div`
       color: #fff;
       align-items: flex-start;
       justify-content: center;
-        & .person-name {
-          font-size: 22px;
-          font-weight: 700;
-          color: #fff;
-          @media screen and (max-width: 500px) {
-            font-size: 14px;
-          }
+      & .person-name {
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+        @media screen and (max-width: 500px) {
+          font-size: 14px;
         }
-        & .person-position {
+      }
+      & .person-position {
+        font-size: 18px;
+        color: gray;
+        @media screen and (max-width: 500px) {
+          font-size: 12px;
+        }
+      }
+      & .person-country {
+        margin-top: 5%;
+        display: flex;
+        align-items: center;
+        & > span {
+          margin-right: 6px;
           font-size: 18px;
           color: gray;
           @media screen and (max-width: 500px) {
             font-size: 12px;
           }
         }
-        & .person-country{
-          margin-top:5%;
-          display:flex;
-          align-items:center;
-          &>span{
-            margin-right:6px;
-            font-size: 18px;
-            color: gray;
-            @media screen and (max-width: 500px) {
-            font-size: 12px;
-            }
-          }
-          &>img{
-            width:42px;
-            height:26px;
-            @media screen and (max-width: 500px) {
-              width:30px;
-              height:16px;
-            }
+        & > img {
+          width: 42px;
+          height: 26px;
+          @media screen and (max-width: 500px) {
+            width: 30px;
+            height: 16px;
           }
         }
+      }
     }
   }
 

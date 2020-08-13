@@ -28,12 +28,12 @@ const Slide: React.FC<SlideType> = ({
           <div className="person-info">
             <div className="person-name">{person1.name}</div>
             <div className="person-position">{person1.position}</div>
-            {person1.country &&
-             <div className="person-country">
+            {person1.country && (
+              <div className="person-country">
                 <span>{person1.country.name}</span>
-                <img src={person1.country.img} alt="country"/>
-             </div>
-            }
+                <img src={person1.country.img} alt="country" />
+              </div>
+            )}
           </div>
         </div>
         {description ? (
@@ -57,10 +57,10 @@ const Slide: React.FC<SlideType> = ({
       <Style.TopRightDotsContainer>
         {Array(25)
           .fill(' ')
-          .map((_,i) => {
+          .map((_, i) => {
             return (
               <span key={i}>
-                <img src={dotWhite}></img>
+                <img src={dotWhite} alt="dotWhite"></img>
               </span>
             );
           })}
@@ -68,10 +68,10 @@ const Slide: React.FC<SlideType> = ({
       <Style.BottomLeftDotsContainer>
         {Array(10)
           .fill(' ')
-          .map((_,i) => {
+          .map((_, i) => {
             return (
               <span key={i}>
-                <img src={dotBlue}></img>
+                <img src={dotBlue} alt="dotBlue"></img>
               </span>
             );
           })}

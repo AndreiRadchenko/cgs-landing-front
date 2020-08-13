@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const CardWraper = styled('div')`
   width: 100%;
+  max-width: 450px;
   height: 100%;
   box-sizing: border-box;
   position: relative;
@@ -24,7 +25,7 @@ export const CardHeader = styled('div')`
   justify-content: center;
   color: #fff;
   text-align: center;
- 
+
   & > .title {
     font-weight: bold;
     font-size: 2em;
@@ -32,7 +33,7 @@ export const CardHeader = styled('div')`
     height: 40%;
     padding-top: 10%;
     font-weight: 700;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
   }
@@ -49,20 +50,19 @@ export const CardHeader = styled('div')`
 `;
 
 export const ProjectImg = styled('div')`
-  background:red;
   z-index: 999;
   width: 100%;
-  height: 43%;
+  height: 44%;
   & > img {
     position: absolute;
-    top: 34, 5%;
+    top: 34%;
     height: 40.85%;
+    right: 0;
     left: 0;
   }
 `;
 
 export const CardTechnologies = styled('div')`
-
   width: 100%;
   height: 23.4%;
   display: flex;

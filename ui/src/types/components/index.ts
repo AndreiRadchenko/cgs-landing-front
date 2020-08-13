@@ -14,7 +14,7 @@ export interface ProjectCardType {
 export interface SlidePersonType {
   name: string;
   position: string;
-  country?:{name:string,img:string};
+  country?: { name: string; img: string };
   img: string;
 }
 

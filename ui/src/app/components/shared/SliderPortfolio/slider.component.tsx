@@ -3,39 +3,35 @@ import * as Styled from './slider.style';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import LeftVector from '../../../img/leftVector.svg';
-import RightVector from '../../../img/rightVector.svg';
-import {onChangeSlideEA} from '../../../../services/event';
+import { onChangeSlideEA } from '../../../../services/event';
+import { slides } from '../../../img/index';
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
     <Styled.SliderNext className={className} onClick={onClick}>
-      <img src={RightVector} alt="prevVector" />
+      <img src={slides.RightVector} alt="prevVector" />
     </Styled.SliderNext>
   );
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
     <Styled.SliderPrev className={className} onClick={onClick}>
-      <img src={LeftVector} alt="prevVector" />
+      <img src={slides.LeftVector} alt="prevVector" />
     </Styled.SliderPrev>
   );
 }
 
-const SliderComponent: React.FC<{ children: React.ReactNodeArray }> = ({
-  children,
-}) => {
+const SliderComponent: React.FC = () => {
   let settings = {
-    //dots: true,
-    //infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    afterChange: current => onChangeSlideEA({sliderName:"Partfolio",slide:current}),
+    afterChange: current =>
+      onChangeSlideEA({ sliderName: 'Partfolio', slide: current }),
     //autoplay: true,
     //autoplaySpeed: 4000,
     responsive: [
@@ -46,7 +42,7 @@ const SliderComponent: React.FC<{ children: React.ReactNodeArray }> = ({
         },
       },
       {
-        breakpoint: 900,
+        breakpoint: 1000,
         settings: {
           slidesToShow: 1,
         },
@@ -54,12 +50,23 @@ const SliderComponent: React.FC<{ children: React.ReactNodeArray }> = ({
     ],
     className: 'slides',
   };
-
+  const projectSlides = [
+    slides.project1,
+    slides.project2,
+    slides.project3,
+    slides.project4,
+    slides.project5,
+    slides.project6,
+    slides.project7,
+  ];
   return (
-    <Styled.SliderContainer style={{width: '100%', height: '520px' }}>
+    <Styled.SliderContainer style={{ width: '100%', height: '520px' }}>
       <Slider {...settings}>
-        {children.map(project => (
-          <div className="project-container">{project}</div>
+        {projectSlides.map(slide => (
+          <div>
+            {' '}
+            <img width="378px" height="520px" src={slide} alt="Project" />
+          </div>
         ))}
       </Slider>
     </Styled.SliderContainer>

@@ -4,20 +4,24 @@ import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import ReactGA from 'react-ga';
 
-const clickSocialLinkEA = (link)=> {
+const clickSocialLinkEA = link => {
   ReactGA.event({
     category: 'Social Link',
     action: 'clickToSocialLink',
-    label: `${link}`
+    label: `${link}`,
   });
-}
+};
 
 const SocialLinks = ({ socialList, fill }) => {
   return (
     <Styled.HeaderLinks>
       {socialList &&
         socialList.map((item, index) => (
-          <Link onClick={()=>clickSocialLinkEA(item.link)} to={item.link} key={uuidv4()}>
+          <Link
+            onClick={() => clickSocialLinkEA(item.link)}
+            to={item.link}
+            key={uuidv4()}
+          >
             <Styled.SocialWrap>
               <svg
                 height="32"
