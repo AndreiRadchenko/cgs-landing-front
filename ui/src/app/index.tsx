@@ -21,6 +21,7 @@ export function App() {
   useEffect(() => {
     ReactGA.initialize(
       '94263033274-a554q7vhgs0ac5hij8vitia6kk94de4p.apps.googleusercontent.com',
+      {debug:true}
     );
     ReactGA.pageview(window.location.pathname + window.location.search);
   });

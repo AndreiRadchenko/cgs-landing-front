@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import LeftVector from '../../../img/leftVector.svg';
 import RightVector from '../../../img/rightVector.svg';
+import {onChangeSlideEA} from '../../../../services/event';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -34,6 +35,7 @@ const SliderComponent: React.FC<{ children: React.ReactNodeArray }> = ({
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    afterChange: current => onChangeSlideEA({sliderName:"Partfolio",slide:current}),
     //autoplay: true,
     //autoplaySpeed: 4000,
     responsive: [
@@ -54,7 +56,7 @@ const SliderComponent: React.FC<{ children: React.ReactNodeArray }> = ({
   };
 
   return (
-    <Styled.SliderContainer style={{ width: '100%', height: '520px' }}>
+    <Styled.SliderContainer style={{width: '100%', height: '520px' }}>
       <Slider {...settings}>
         {children.map(project => (
           <div className="project-container">{project}</div>

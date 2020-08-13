@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { slides } from './slides';
+import {onChangeSlideEA} from '../../../../services/event';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -39,12 +40,13 @@ const SliderTestimonials: React.FC<{ children: React.ReactNodeArray }> = ({
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    afterChange: current => onChangeSlideEA({sliderName:"Our Code",slide:current}),
     className: 'slides',
   };
 
   return (
     <Styled.SliderContainer
-      style={{ marginBottom: '100px', width: '100%', height: '420px' }}
+      style={{ width: '100%', height: '420px' }}
     >
       <Slider {...settings}>{children.map(slide => slide)}</Slider>
     </Styled.SliderContainer>

@@ -24,18 +24,17 @@ export const CardHeader = styled('div')`
   justify-content: center;
   color: #fff;
   text-align: center;
-
+ 
   & > .title {
     font-weight: bold;
-    font-size: 2.2em;
+    font-size: 2em;
     width: 100%;
     height: 40%;
     padding-top: 10%;
-    text-align: center;
     font-weight: 700;
-    @media screen and (max-width: 700px) {
-      font-size: 1.4em;
-    }
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   & > .description {
@@ -50,6 +49,7 @@ export const CardHeader = styled('div')`
 `;
 
 export const ProjectImg = styled('div')`
+  background:red;
   z-index: 999;
   width: 100%;
   height: 43%;
@@ -62,6 +62,7 @@ export const ProjectImg = styled('div')`
 `;
 
 export const CardTechnologies = styled('div')`
+
   width: 100%;
   height: 23.4%;
   display: flex;

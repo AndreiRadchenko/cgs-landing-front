@@ -14,14 +14,28 @@ const Arrow = styled.div`
   & img {
     width: 100%;
     height: 100%;
+    @media screen and (max-width: 500px) {
+      width: 70%;
+      height: 70%;
+    }
   }
 `;
 export const SliderPrev = styled(Arrow)`
   left: -50px !important;
+  @media screen and (max-width: 500px) {
+        margin:15px;
+        top:100% !important;
+        left: 70px !important;
+    }
 `;
 
 export const SliderNext = styled(Arrow)`
   right: -50px !important;
+  @media screen and (max-width: 500px) {
+        margin:15px;
+        top:100% !important;
+        right: 50px !important;
+    }
 `;
 
 export const SliderContainer = styled.div`
@@ -30,7 +44,7 @@ export const SliderContainer = styled.div`
 
   & .slick-slider {
     margin: 0 5em;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 500px) {
       margin: 0;
     }
   }
@@ -38,9 +52,6 @@ export const SliderContainer = styled.div`
   & .slick-slide > div > div {
     margin: auto;
     width: ${widthProjectCard};
-    @media screen and (max-width: 400px) {
-      width: 300px;
-    }
   }
 
   & .slick-slider {

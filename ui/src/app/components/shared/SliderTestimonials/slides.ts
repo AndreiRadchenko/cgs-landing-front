@@ -6,6 +6,8 @@ import LeftBlueVector from '../../../img/leftVectorTestimonials.svg';
 import LeftVector from '../../../img/leftVector.svg';
 import RightVector from '../../../img/rightVector.svg';
 import RightBlueVector from '../../../img/rightBlueVector.svg';
+import clientSpain from '../../../img/client.svg';
+import flagSpain from '../../../img/flagSpain.svg';
 
 export const slides = {
   slide1,
@@ -16,4 +18,6 @@ export const slides = {
   LeftVector,
   RightVector,
   RightBlueVector,
+  clientSpain,
+  flagSpain
 };
