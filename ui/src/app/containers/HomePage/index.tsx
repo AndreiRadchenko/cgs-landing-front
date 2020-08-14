@@ -11,14 +11,16 @@ import Technologies from '../../components/Technologies/technologies.component';
 
 import SliderTestimonials from '../../components/shared/SliderTestimonials/Slider.component';
 import Slide from '../../components/shared/SliderTestimonials/Slide/slide.component';
-import { slides } from '../../components/shared/SliderTestimonials/slides';
-import Slider from '../../components/shared/SliderPartfolio/slider.component';
-import ProjectCard from '../../components/shared/ProjectCard/projectCard.component';
+import { slides } from '../../img';
+import SliderPortfolio from '../../components/shared/SliderPortfolio/slider.component';
 
-import Web from '../../img/web.svg';
-import Test from '../../img/illustrationTest.svg';
+import { scrollEA } from '../../../services/event';
 
 export function HomePage() {
+  React.useEffect(() => {
+    scrollEA('data-scroll');
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -39,11 +41,23 @@ export function HomePage() {
             <Slide
               person1={{
                 name: 'Alexei Samoilenko',
+                position: 'Big Boss',
+                img: slides.boss,
+              }}
+              description={
+                '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”'
+              }
+              background={'#0C1033'}
+              title={'The main principle'}
+            />
+            <Slide
+              person1={{
+                name: '1st Fullstack hero',
                 position: 'Senior',
                 img: slides.developer1,
               }}
               person2={{
-                name: 'Alexei Timoshenko',
+                name: '2nd React wizard',
                 position: 'Middle',
                 img: slides.developer2,
               }}
@@ -53,14 +67,28 @@ export function HomePage() {
             <Slide
               person1={{
                 name: 'Alexei Samoilenko',
-                position: 'Middle',
+                position: 'Big Boss',
                 img: slides.boss,
+              }}
+              description={
+                '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”'
+              }
+              background={'#0C1033'}
+              title={'The main principle'}
+            />
+            <Slide
+              person1={{
+                name: '1st Fullstack hero',
+                position: 'Senior',
+                img: slides.developer1,
+              }}
+              person2={{
+                name: '2nd React wizard',
+                position: 'Middle',
+                img: slides.developer2,
               }}
               background={'#0C1033'}
               title={'Our javascript developers'}
-              description={
-                '"Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et doloremagna aliqua. Ut enim ad minim veniam."'
-              }
             />
           </SliderTestimonials>
         </Article>
@@ -70,62 +98,77 @@ export function HomePage() {
           desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua. "
         >
-          <Slider>
-            <ProjectCard
-              title={'HomeWork1'}
-              projectImg={{ img: Web, width: '100%' }}
-              technologies={['React', 'Node']}
-              background={'#42a5f5'}
-            >
-              <span>JONI NODEJS</span>
-              <span>HELLO JONI</span>
-            </ProjectCard>
-
-            <ProjectCard
-              title={'HomeWork2'}
-              projectImg={{ img: slides.slide1, width: '100%' }}
-              technologies={['React', 'Node']}
-              background={'pink'}
-            >
-              <span>DANA NODEJS</span>
-              <span>HELLO DANA</span>
-            </ProjectCard>
-
-            <ProjectCard
-              title={'LiveOff'}
-              projectImg={{ img: Test, width: '100%' }}
-              technologies={['React', 'Node']}
-              background={'yellow'}
-            >
-              <span>JAVA NODEJS</span>
-              <span>HELLO JAVA</span>
-            </ProjectCard>
-
-            <ProjectCard
-              title={'Technologies'}
-              projectImg={{ img: Web, width: '100%' }}
-              technologies={['React', 'Node']}
-              background={'green'}
-            >
-              <span>PONI NODEJS</span>
-              <span>PONI JAVA</span>
-            </ProjectCard>
-
-            <ProjectCard
-              title={'SunPower'}
-              projectImg={{ img: Web, width: '100%' }}
-              technologies={['React', 'Node']}
-              background={'black'}
-            >
-              <span>PONI NODEJS</span>
-              <span>BLACK JAVA</span>
-            </ProjectCard>
-          </Slider>
+          <SliderPortfolio />
         </Article>
-        <Article id="technologies" title="Technologies">
-          <Technologies technologies={Technology} />
+        <Article
+          data-scrolling="technologies"
+          id="technologies"
+          title="Technologies"
+          children={<Technologies technologies={Technology} />}
+        />
+        <Article
+          id="Testimonials"
+          title="Testimonials"
+          desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
+          incididunt ut labore et dolore magna aliqua."
+        >
+          <SliderTestimonials>
+            <Slide
+              person1={{
+                name: 'John Doe',
+                position: 'Happy client',
+                img: slides.clientSpain,
+                country: { name: 'Spain', img: slides.flagSpain },
+              }}
+              description={
+                '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”'
+              }
+              background={'#0C1033'}
+              title={'First testimonial'}
+            />
+            <Slide
+              person1={{
+                name: '1st Fullstack hero',
+                position: 'Senior',
+                img: slides.developer1,
+              }}
+              person2={{
+                name: '2nd React wizard',
+                position: 'Middle',
+                img: slides.developer2,
+              }}
+              background={'#0C1033'}
+              title={'Our javascript developers'}
+            />
+            <Slide
+              person1={{
+                name: 'Alexei Samoilenko',
+                position: 'Big Boss',
+                img: slides.boss,
+              }}
+              description={
+                '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”'
+              }
+              background={'#0C1033'}
+              title={'The main principle'}
+            />
+            <Slide
+              person1={{
+                name: '1st Fullstack hero',
+                position: 'Senior',
+                img: slides.developer1,
+              }}
+              person2={{
+                name: '2nd React wizard',
+                position: 'Middle',
+                img: slides.developer2,
+              }}
+              background={'#0C1033'}
+              title={'Our javascript developers'}
+            />
+          </SliderTestimonials>
         </Article>
-        <Article id="form" title="Contact">
+        <Article title="Contacts">
           <Form />
         </Article>
       </div>

@@ -17,9 +17,13 @@ const ProjectCard: React.FC<ProjectCardType> = ({
           <div className={'title'}>{title}</div>
           <div className={'description'}>{children}</div>
         </Styled.CardHeader>
-        <Styled.ProjectImg>
+        <Styled.ProjectImg
+          style={{
+            left: `${projectImg.width !== '100%' && '25%'}`,
+            width: `${projectImg.width !== '100%' && '50%'}`,
+          }}
+        >
           <img
-            style={{ left: `${projectImg.width !== '100%' && '25%'}` }}
             width={`${projectImg.width !== '100%' ? '50%' : projectImg.width}`}
             src={projectImg.img}
             alt="img-project"

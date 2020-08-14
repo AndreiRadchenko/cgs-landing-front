@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import SocialLinks from '../SocialLinks/social-links.component';
 import { IFooter } from '../../../../types/components/index';
+import { clickSocialLinkEA } from '../../../../services/event';
 
 const Footer: React.FC<IFooter> = ({ socialList, fill }) => {
   return (

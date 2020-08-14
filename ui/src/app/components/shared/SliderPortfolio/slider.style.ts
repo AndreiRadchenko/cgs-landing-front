@@ -5,8 +5,6 @@ const imgSize = {
   h: '50px',
 };
 
-const widthProjectCard = '378px';
-
 const Arrow = styled.div`
   position: absolute;
   width: ${imgSize.w} !important;
@@ -14,27 +12,23 @@ const Arrow = styled.div`
   & img {
     width: 100%;
     height: 100%;
-    @media screen and (max-width: 500px) {
-      width: 70%;
-      height: 70%;
-    }
   }
 `;
 export const SliderPrev = styled(Arrow)`
   left: -50px !important;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 650px) {
     margin: 15px;
     top: 100% !important;
-    left: 70px !important;
+    left: 20% !important;
   }
 `;
 
 export const SliderNext = styled(Arrow)`
   right: -50px !important;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 650px) {
     margin: 15px;
     top: 100% !important;
-    right: 50px !important;
+    right: 20% !important;
   }
 `;
 
@@ -43,17 +37,28 @@ export const SliderContainer = styled.div`
   height: 100%;
 
   & .slick-slider {
-    margin: 0 5em;
-    @media screen and (max-width: 500px) {
+    margin: 0 1em;
+    @media screen and (max-width: 1000px) {
+      margin: 0 5em;
+    }
+    @media screen and (max-width: 650px) {
       margin: 0;
     }
   }
 
-  & .slick-slide > div > div {
+  & .slick-slide > div > div > img {
     margin: auto;
-    width: ${widthProjectCard};
+    @media screen and (max-width: 450px) {
+      width: 300px;
+    }
+    @media screen and (max-width: 350px) {
+      width: 280px;
+    }
+    @media screen and (max-width: 320px) {
+      width: 100%;
+    }
   }
-
+  /*
   & .slick-slider {
     height: 100%;
     & .slick-list {
@@ -68,7 +73,7 @@ export const SliderContainer = styled.div`
         }
       }
     }
-  }
+  } */
 
   & .slides *:focus {
     outline: 0;

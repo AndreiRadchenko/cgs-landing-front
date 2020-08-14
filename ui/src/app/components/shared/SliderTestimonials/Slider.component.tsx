@@ -3,11 +3,11 @@ import * as Styled from './slider.style';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { slides } from './slides';
+import { slides } from '../../../img/';
 import { onChangeSlideEA } from '../../../../services/event';
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   const rightVector =
     props.slideCount - props.currentSlide === 1
       ? slides.RightBlueVector
@@ -20,7 +20,7 @@ function SampleNextArrow(props) {
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   const leftVector =
     props.currentSlide === 0 ? slides.LeftBlueVector : slides.LeftVector;
   return (

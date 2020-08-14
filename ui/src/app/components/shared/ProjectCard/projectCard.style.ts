@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const CardWraper = styled('div')`
   width: 100%;
+  max-width: 450px;
   height: 100%;
   box-sizing: border-box;
   position: relative;
@@ -27,39 +28,45 @@ export const CardHeader = styled('div')`
 
   & > .title {
     font-weight: bold;
-    font-size: 2em;
+    font-size: 2.2em;
     width: 100%;
     height: 40%;
-    padding-top: 10%;
+    padding-top: 12%;
     font-weight: 700;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @media screen and (max-width: 500px) {
+      font-size: 1.8em;
+    }
   }
 
   & > .description {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 1em;
+    font-size: 1.3em;
     width: 100%;
     height: 60%;
     text-align: center;
+    @media screen and (max-width: 500px) {
+      font-size: 1em;
+    }
   }
 `;
 
 export const ProjectImg = styled('div')`
-  background: red;
   z-index: 999;
-  //my pos
-  position: relative;
   width: 130%;
-  left: -15%;
   height: 43%;
-
+  position: relative;
+  left: -15%;
   & > img {
-    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
+    width: 100%;
   }
 `;
 
