@@ -6,20 +6,32 @@ import Textarea from '../Textarea/textarea.component';
 import Button from '../Button/button.component';
 import { registrationFormSchema } from '../../../../helpers/validation';
 import { sendFormEA } from '../../../../services/event';
+import mailgun from 'mailgun-js';
+//Change APIKEY
+const DOMAIN = 'sandboxe95adc3c72384cb7846b08665716864f.mailgun.org';
+const mg = mailgun({
+  // apiKey: '',
+  domain: DOMAIN,
+});
 
 const Form = () => {
   return (
     <Formik
-      // validate={null}
       validationSchema={registrationFormSchema}
       initialValues={{
         name: '',
         email: '',
         message: '',
       }}
-      onSubmit={values => {
+      onSubmit={async values => {
         sendFormEA(values);
-        console.log(values);
+        //CHANGE EMAIL
+        await mg.messages().send({
+          from: `${values.name} <${values.email}>`,
+          to: '',
+          subject: 'Contacts',
+          text: values.message,
+        });
       }}
     >
       {({
@@ -29,7 +41,7 @@ const Form = () => {
         handleChange,
         handleBlur,
         handleSubmit,
-
+        setFieldTouched,
         isSubmitting,
         validateField,
         setErrors,

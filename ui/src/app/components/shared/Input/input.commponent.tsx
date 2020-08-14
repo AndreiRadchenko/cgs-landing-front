@@ -9,6 +9,7 @@ const Input: React.FC<IInput> = ({
   onChange,
   value,
   errors,
+  touched,
 }) => {
   return (
     <Styled.InputWrapper>
@@ -20,7 +21,7 @@ const Input: React.FC<IInput> = ({
         value={value}
         // onBlur={props.onBlur}
         // error={props.errors}
-        // touched={props.touched}
+        // touched={touched}
       />
       <Styled.Error>{name && errors?.[name]}</Styled.Error>
     </Styled.InputWrapper>
