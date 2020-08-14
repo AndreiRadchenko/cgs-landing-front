@@ -1,14 +1,13 @@
 import React from 'react';
 import * as Styled from './textarea.styles';
+import { ITextArea } from '../../../../types/components/index';
 
-const Textarea = ({
+const Textarea: React.FC<ITextArea> = ({
   placeholder,
   name,
   onChange,
   value,
-  onBlur,
   errors,
-  touched,
 }) => {
   return (
     <Styled.TextWrapper>
@@ -21,7 +20,7 @@ const Textarea = ({
         // errors={props.errors}
         // touched={touched}
       />
-      <Styled.Error>{errors?.[name]}</Styled.Error>
+      <Styled.Error>{name && errors?.[name]}</Styled.Error>
     </Styled.TextWrapper>
   );
 };

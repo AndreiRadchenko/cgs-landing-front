@@ -2,14 +2,16 @@ import React from 'react';
 
 import * as Styled from './home.styles';
 import Ilustration from '../../img/illustration.svg';
+import Dots from '../../img/dots.svg';
 
 import Button from '../shared/Button/button.component';
+import { IHome } from '../../../types/components/index';
 import { startProjectEA } from '../../../services/event';
 
-const Home = props => {
+const Home: React.FC<IHome> = props => {
   return (
-    <Styled.HomeWrapper>
-      <a className="anchor" id={props.id} />
+    <Styled.HomeWrapper id={props.id}>
+      <Styled.Dots src={Dots} />
       <Styled.ContentBlock>
         <h2>Trust only professionals</h2>
         <p>

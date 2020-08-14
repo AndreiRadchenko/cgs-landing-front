@@ -7,8 +7,9 @@ import Logo from '../../../img/logo.svg';
 import Categories from '../Categories/categories.component';
 import SocialLinks from '../SocialLinks/social-links.component';
 import Menu from '../BurgerMenu/menu.component';
+import { IHeader } from '../../../../types/components/index';
 
-const Header = ({ socialList, navigation, fill }) => {
+const Header: React.FC<IHeader> = ({ socialList, navigation, fill }) => {
   return (
     <Styled.HeaderWrapper>
       <Styled.HeaderItem>
@@ -20,11 +21,6 @@ const Header = ({ socialList, navigation, fill }) => {
       </Menu>
     </Styled.HeaderWrapper>
   );
-};
-Header.propTypes = {
-  socialList: PropTypes.arrayOf(Object).isRequired,
-  navigation: PropTypes.arrayOf(Object).isRequired,
-  fill: PropTypes.string,
 };
 Header.defaultProps = {
   fill: '#0C1033',

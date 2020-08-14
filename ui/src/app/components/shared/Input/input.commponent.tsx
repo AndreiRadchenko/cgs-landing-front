@@ -1,20 +1,28 @@
 import React from 'react';
 import * as Styled from './input.styles';
+import { IInput } from '../../../../types/components/index';
 
-const Input = ({ errors, name, ...props }) => {
+const Input: React.FC<IInput> = ({
+  name,
+  type,
+  placeholder,
+  onChange,
+  value,
+  errors,
+}) => {
   return (
     <Styled.InputWrapper>
       <Styled.Input
-        placeholder={props.placeholder}
-        type={props.type}
+        placeholder={placeholder}
+        type={type}
         name={name}
-        onChange={props.onChange}
-        value={props.value}
+        onChange={onChange}
+        value={value}
         // onBlur={props.onBlur}
         // error={props.errors}
         // touched={props.touched}
       />
-      <Styled.Error>{errors?.[name]}</Styled.Error>
+      <Styled.Error>{name && errors?.[name]}</Styled.Error>
     </Styled.InputWrapper>
   );
 };

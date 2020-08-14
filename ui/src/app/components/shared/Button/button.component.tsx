@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { IButton } from '../../../../types/components/index';
 
 import * as Styled from './button.styles';
 import { Link } from 'react-router-dom';
+
 const Button = ({ type, text, link, onClick }) => {
   return (
     <Link to={link}>

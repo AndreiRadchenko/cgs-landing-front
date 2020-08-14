@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const FooterWrapper = styled('footer')`
   width: 100vw;
+  max-width: 1200px;
   background: #0c1033;
   display: flex;
   padding: 1em 4em;
@@ -19,15 +20,9 @@ export const FooterWrapper = styled('footer')`
     }
   }
 `;
-export const Item = styled('div')`
+export const Wrapper = styled('div')`
+  background: #0c1033;
   display: flex;
-  justify-content: space-between;
-`;
-export const SocialWrap = styled('div')`
-  margin: 0 0.5em;
-  width: fit-content;
-`;
-export const SocialLogo = styled('img')`
-  width: 100%;
-  height: 100%;
+  justify-content: center;
+  width: 100vw;
 `;

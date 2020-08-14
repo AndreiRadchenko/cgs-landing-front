@@ -1,28 +1,25 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-  // html,
-  // body {
-  //   height: 100%;
-  //   width: 100%;
-  // }
-  
-  #root{
-    max-width: 100vw; 
-    overflow-x:hidden;
-  }
-
+// @font-face {
+//   font-family: 'MulaRegular';
+//   src: url('./fonts/Muli/Muli-Regular.ttf') format('truetype');
+// }
+@import "http://fonts.fontstorage.com/import/muli.css";
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Muli;
   }
-
-  // #root {
-  //   min-height: 100%;
-  //   min-width: 100%;
-  // }
+  #root{
+    max-width:100vw;
+    overflow-x:hidden;
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+  }
   .main-wraper{
     padding: 1em 4em;
     width: 100vw; 
+    max-width:1200px;
   }
   
   @media screen and (max-width: 768px) {
@@ -35,14 +32,9 @@ export const GlobalStyle = createGlobalStyle`
       padding: 1em 1em!important;
     }
   }
-  
-  a.anchor{
-    width:0;
-    height:0;
-  }
   p,
   label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family: Muli;
     line-height: 1.5em;
   }
 

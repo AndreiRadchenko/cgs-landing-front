@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Styled from './technologies.styles';
 import { v4 as uuidv4 } from 'uuid';
+import Dots from '../../img/dots.svg';
 
 const Technologies = ({ technologies }) => {
   return (
@@ -23,6 +24,8 @@ const Technologies = ({ technologies }) => {
             </div>
           </Styled.TechnoContainer>
         ))}
+      <Styled.Dots src={Dots} />
+      <Styled.DotsSecond src={Dots} />
     </Styled.Wrapper>
   );
 };

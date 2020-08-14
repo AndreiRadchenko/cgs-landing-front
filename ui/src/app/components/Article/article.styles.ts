@@ -14,6 +14,7 @@ export const Wrapper = styled('article')`
   flex-direction: column;
   align-items: center;
   padding: 1em 0;
+  margin: 5em 0;
   & > p {
     text-align: center;
     opacity: 0.5;

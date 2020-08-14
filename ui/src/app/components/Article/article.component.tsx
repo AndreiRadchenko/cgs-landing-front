@@ -1,10 +1,10 @@
 import React from 'react';
 import * as Styled from './article.styles';
+import { IArticle } from '../../../types/components/index';
 
-const Article = props => {
+const Article: React.FC<IArticle> = props => {
   return (
-    <Styled.Wrapper data-scroll={props.title}>
-      <a className="anchor" id={props.id} />
+    <Styled.Wrapper id={props.id}>
       <h2>{props.title}</h2>
       <Styled.HorizantalSep />
       {props.desc && <p>{props.desc}</p>}

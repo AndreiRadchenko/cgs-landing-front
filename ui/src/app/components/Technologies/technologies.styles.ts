@@ -2,31 +2,60 @@ import styled from 'styled-components';
 
 export const Wrapper = styled('div')`
   width: 100%;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  & > div:nth-child(even) {
-    flex-direction: row-reverse;
-    margin-bottom: 1em;
-    & > div:first-child,
-    & ul {
-      align-items: flex-end;
+  @media screen and (max-width: 768px) {
+    & > div {
+      flex-direction: row-reverse;
+      margin-bottom: 1em;
+      & > div:first-child,
+      & ul {
+        align-items: flex-start;
+      }
     }
+  }
+`;
+export const Dots = styled('img')`
+  width: 80px;
+  height: 100px;
+  position: absolute;
+  top: -1em;
+  left: -4em;
+`;
+export const DotsSecond = styled(Dots)`
+  top: 50%;
+  right: -3em;
+  left: unset;
+  @media screen and (max-width: 476px) {
+    display: none;
   }
 `;
 export const TechnoContainer = styled('div')`
   display: flex;
   width: 47%;
   justify-content: space-between;
+  flex-direction: row-reverse;
+  @media screen and (min-width: 769px) {
+    &:nth-child(3n - 3),
+    &:nth-child(4n - 4) {
+      flex-direction: row;
+      margin-top: 2em;
+    }
+  }
   @media screen and (max-width: 768px) {
     width: 100%;
   }
-  & > div {
-    width: 49%;
+  & > div:last-child {
+    width: 60%;
     & > img {
-      width: 100%;
-      height: 100%;
+      width: 78%;
+      height: 92%;
     }
+  }
+  & > div:first-child {
+    width: 33%;
   }
 `;
 export const DescContainer = styled('div')`
