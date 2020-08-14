@@ -28,37 +28,45 @@ export const CardHeader = styled('div')`
 
   & > .title {
     font-weight: bold;
-    font-size: 2em;
+    font-size: 2.2em;
     width: 100%;
     height: 40%;
-    padding-top: 10%;
+    padding-top: 12%;
     font-weight: 700;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @media screen and (max-width: 500px) {
+      font-size: 1.8em;
+    }
   }
 
   & > .description {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 1em;
+    font-size: 1.3em;
     width: 100%;
     height: 60%;
     text-align: center;
+    @media screen and (max-width: 500px) {
+      font-size: 1em;
+    }
   }
 `;
 
 export const ProjectImg = styled('div')`
   z-index: 999;
-  width: 100%;
-  height: 44%;
+  width: 130%;
+  height: 43%;
+  position: relative;
+  left: -15%;
   & > img {
     position: absolute;
-    top: 34%;
-    height: 40.85%;
-    right: 0;
+    top: 0;
     left: 0;
+    height: 100%;
+    width: 100%;
   }
 `;
 

@@ -3,6 +3,7 @@ import * as Style from './slide.styled';
 import dotWhite from '../../../../img/dot.svg';
 import dotBlue from '../../../../img/dotBlue.svg';
 import { SlideType } from '../../../../../types/components/index';
+import { v4 as uuidv4 } from 'uuid';
 
 const Slide: React.FC<SlideType> = ({
   person1,
@@ -57,9 +58,9 @@ const Slide: React.FC<SlideType> = ({
       <Style.TopRightDotsContainer>
         {Array(25)
           .fill(' ')
-          .map((_, i) => {
+          .map(_ => {
             return (
-              <span key={i}>
+              <span key={uuidv4()}>
                 <img src={dotWhite} alt="dotWhite"></img>
               </span>
             );
@@ -68,9 +69,9 @@ const Slide: React.FC<SlideType> = ({
       <Style.BottomLeftDotsContainer>
         {Array(10)
           .fill(' ')
-          .map((_, i) => {
+          .map(_ => {
             return (
-              <span key={i}>
+              <span key={uuidv4()}>
                 <img src={dotBlue} alt="dotBlue"></img>
               </span>
             );

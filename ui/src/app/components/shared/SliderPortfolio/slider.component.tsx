@@ -4,7 +4,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { onChangeSlideEA } from '../../../../services/event';
-import { slides } from '../../../img/index';
+import { slides, portfolioSlides } from '../../../img/index';
+import { v4 as uuidv4 } from 'uuid';
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -50,21 +51,12 @@ const SliderComponent: React.FC = () => {
     ],
     className: 'slides',
   };
-  const projectSlides = [
-    slides.project1,
-    slides.project2,
-    slides.project3,
-    slides.project4,
-    slides.project5,
-    slides.project6,
-    slides.project7,
-  ];
+
   return (
     <Styled.SliderContainer style={{ width: '100%', height: '520px' }}>
       <Slider {...settings}>
-        {projectSlides.map(slide => (
-          <div>
-            {' '}
+        {Object.values(portfolioSlides).map(slide => (
+          <div key={uuidv4()}>
             <img width="378px" height="520px" src={slide} alt="Project" />
           </div>
         ))}

@@ -27,6 +27,9 @@ export const slides = {
   RightBlueVector,
   clientSpain,
   flagSpain,
+};
+
+export const portfolioSlides = {
   project1,
   project2,
   project3,
