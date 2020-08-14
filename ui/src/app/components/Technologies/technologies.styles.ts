@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled('div')`
   width: 100%;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -14,6 +15,21 @@ export const Wrapper = styled('div')`
         align-items: flex-start;
       }
     }
+  }
+`;
+export const Dots = styled('img')`
+  width: 80px;
+  height: 100px;
+  position: absolute;
+  top: -1em;
+  left: -4em;
+`;
+export const DotsSecond = styled(Dots)`
+  top: 50%;
+  right: -3em;
+  left: unset;
+  @media screen and (max-width: 476px) {
+    display: none;
   }
 `;
 export const TechnoContainer = styled('div')`

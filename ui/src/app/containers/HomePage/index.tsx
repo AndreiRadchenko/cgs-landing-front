@@ -9,13 +9,14 @@ import Form from '../../components/shared/Form/form.component';
 import Article from '../../components/Article/article.component';
 import Technologies from '../../components/Technologies/technologies.component';
 
-import Slider from '../../components/shared/Slider/slider.component';
-import ProjectCard from '../../components/shared/ProjectCard/projectCard.component';
 import SliderTestimonials from '../../components/shared/SliderTestimonials/Slider.component';
 import Slide from '../../components/shared/SliderTestimonials/Slide/slide.component';
 import { slides } from '../../components/shared/SliderTestimonials/slides';
+import Slider from '../../components/shared/SliderPartfolio/slider.component';
+import ProjectCard from '../../components/shared/ProjectCard/projectCard.component';
 
 import Web from '../../img/web.svg';
+import Test from '../../img/illustrationTest.svg';
 
 export function HomePage() {
   return (
@@ -26,9 +27,10 @@ export function HomePage() {
       </Helmet>
       <Header socialList={SocialList} navigation={Nav}></Header>
       <div className="main-wraper">
+        {/* <span>HomePage container1</span> */}
         <Home id="home" />
         <Article
-          id="code"
+          id="our-code"
           title="Our code"
           desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. "
@@ -81,7 +83,7 @@ export function HomePage() {
 
             <ProjectCard
               title={'HomeWork2'}
-              projectImg={{ img: Web, width: '100%' }}
+              projectImg={{ img: slides.slide1, width: '100%' }}
               technologies={['React', 'Node']}
               background={'pink'}
             >
@@ -91,7 +93,7 @@ export function HomePage() {
 
             <ProjectCard
               title={'LiveOff'}
-              projectImg={{ img: Web, width: '100%' }}
+              projectImg={{ img: Test, width: '100%' }}
               technologies={['React', 'Node']}
               background={'yellow'}
             >

@@ -7,6 +7,7 @@ export const HorizantalSep = styled('div')`
   border-radius: 5px;
   margin: 2em 0 !important;
 `;
+
 export const Wrapper = styled('article')`
   width: 100%;
   display: flex;

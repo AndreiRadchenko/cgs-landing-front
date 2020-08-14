@@ -14,6 +14,7 @@ export const SlideContainer = styled.div`
   border-radius: 10px;
 
   & .article {
+    font-weight: 700;
     color: #fff;
     height: 30%;
     display: flex;
@@ -21,12 +22,11 @@ export const SlideContainer = styled.div`
     align-items: center;
     padding-top: 40px;
     font-size: 30px;
-
-    @media screen and (max-width: 600px) {
-      font-size: 18px;
+    @media screen and (max-width: 760px) {
+      font-size: 25px;
     }
-    @media screen and (max-width: 400px) {
-      font-size: 12px;
+    @media screen and (max-width: 500px) {
+      font-size: 16px;
     }
   }
 
@@ -46,6 +46,7 @@ export const SlideContainer = styled.div`
     display: flex;
     width: 50%;
     height: 100%;
+    margin-right: 2px;
     @media screen and (max-width: 760px) {
       width: 100%;
       margin-bottom: 40px;
@@ -56,9 +57,11 @@ export const SlideContainer = styled.div`
       height: 100%;
       justify-content: flex-end;
       align-items: center;
-      margin-right: 25px;
-      @media screen and (max-width: 768px) {
-        margin-right: 5px;
+      margin-right: 20px;
+      @media screen and (max-width: 760px) {
+        width: auto;
+        margin-left: 1.5em;
+        margin-right: 15px;
       }
       & > img {
         border: 5px solid #fff;
@@ -68,7 +71,7 @@ export const SlideContainer = styled.div`
           width: 110px;
         }
         @media screen and (max-width: 400px) {
-          width: 80px;
+          width: 90px;
         }
       }
     }
@@ -83,15 +86,36 @@ export const SlideContainer = styled.div`
         font-size: 22px;
         font-weight: 700;
         color: #fff;
-        @media screen and (max-width: 760px) {
+        @media screen and (max-width: 500px) {
           font-size: 14px;
         }
       }
       & .person-position {
         font-size: 18px;
         color: gray;
-        @media screen and (max-width: 760px) {
+        @media screen and (max-width: 500px) {
           font-size: 12px;
+        }
+      }
+      & .person-country {
+        margin-top: 5%;
+        display: flex;
+        align-items: center;
+        & > span {
+          margin-right: 6px;
+          font-size: 18px;
+          color: gray;
+          @media screen and (max-width: 500px) {
+            font-size: 12px;
+          }
+        }
+        & > img {
+          width: 42px;
+          height: 26px;
+          @media screen and (max-width: 500px) {
+            width: 30px;
+            height: 16px;
+          }
         }
       }
     }
@@ -125,7 +149,7 @@ export const HorizantalSep = styled('div')`
   background: #fff;
   border-radius: 5px;
   margin-top: 10px;
-  @media screen and (max-width: 760px) {
+  @media screen and (max-width: 500px) {
     width: 23px;
   }
 `;

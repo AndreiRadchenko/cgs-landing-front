@@ -27,15 +27,14 @@ export const CardHeader = styled('div')`
 
   & > .title {
     font-weight: bold;
-    font-size: 2.2em;
+    font-size: 2em;
     width: 100%;
     height: 40%;
     padding-top: 10%;
-    text-align: center;
     font-weight: 700;
-    @media screen and (max-width: 700px) {
-      font-size: 1.4em;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   & > .description {
@@ -50,14 +49,17 @@ export const CardHeader = styled('div')`
 `;
 
 export const ProjectImg = styled('div')`
+  background: red;
   z-index: 999;
-  width: 100%;
+  //my pos
+  position: relative;
+  width: 130%;
+  left: -15%;
   height: 43%;
+
   & > img {
-    position: absolute;
-    top: 34, 5%;
-    height: 40.85%;
-    left: 0;
+    width: 100%;
+    height: 100%;
   }
 `;
 

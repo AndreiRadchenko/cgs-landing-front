@@ -7,11 +7,13 @@ import { IFooter } from '../../../../types/components/index';
 
 const Footer: React.FC<IFooter> = ({ socialList, fill }) => {
   return (
-    <Styled.FooterWrapper>
-      <p>loremipsum@mail.com</p>
-      <p>Copyright 2020</p>
-      <SocialLinks socialList={socialList} fill={fill} />
-    </Styled.FooterWrapper>
+    <Styled.Wrapper>
+      <Styled.FooterWrapper data-scroll={'Social'}>
+        <p>loremipsum@mail.com</p>
+        <p>Copyright 2020</p>
+        <SocialLinks socialList={socialList} fill={fill} />
+      </Styled.FooterWrapper>
+    </Styled.Wrapper>
   );
 };
 export default Footer;

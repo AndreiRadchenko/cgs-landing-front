@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const FooterWrapper = styled('footer')`
   width: 100vw;
+  max-width: 1200px;
   background: #0c1033;
   display: flex;
   padding: 1em 4em;
@@ -18,4 +19,10 @@ export const FooterWrapper = styled('footer')`
       border-top: 1px solid white;
     }
   }
+`;
+export const Wrapper = styled('div')`
+  background: #0c1033;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
 `;

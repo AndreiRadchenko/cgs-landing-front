@@ -6,6 +6,7 @@ import Dots from '../../img/dots.svg';
 
 import Button from '../shared/Button/button.component';
 import { IHome } from '../../../types/components/index';
+import { startProjectEA } from '../../../services/event';
 
 const Home: React.FC<IHome> = props => {
   return (
@@ -17,7 +18,11 @@ const Home: React.FC<IHome> = props => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <Button text="Start a project" type="button" />
+        <Button
+          onClick={() => startProjectEA()}
+          text="Start a project"
+          type="button"
+        />
       </Styled.ContentBlock>
       <div>
         <Styled.Ilustration src={Ilustration} />
