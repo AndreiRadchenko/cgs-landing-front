@@ -4,6 +4,7 @@ import * as Styled from './home.styles';
 import Ilustration from '../../img/illustration.svg';
 
 import Button from '../shared/Button/button.component';
+import { startProjectEA } from '../../../services/event';
 
 const Home = props => {
   return (
@@ -15,7 +16,11 @@ const Home = props => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <Button text="Start a project" type="button" />
+        <Button
+          onClick={() => startProjectEA()}
+          text="Start a project"
+          type="button"
+        />
       </Styled.ContentBlock>
       <div>
         <Styled.Ilustration src={Ilustration} />

@@ -3,6 +3,7 @@ import * as Style from './slide.styled';
 import dotWhite from '../../../../img/dot.svg';
 import dotBlue from '../../../../img/dotBlue.svg';
 import { SlideType } from '../../../../../types/components/index';
+import { v4 as uuidv4 } from 'uuid';
 
 const Slide: React.FC<SlideType> = ({
   person1,
@@ -28,6 +29,12 @@ const Slide: React.FC<SlideType> = ({
           <div className="person-info">
             <div className="person-name">{person1.name}</div>
             <div className="person-position">{person1.position}</div>
+            {person1.country && (
+              <div className="person-country">
+                <span>{person1.country.name}</span>
+                <img src={person1.country.img} alt="country" />
+              </div>
+            )}
           </div>
         </div>
         {description ? (
@@ -53,8 +60,8 @@ const Slide: React.FC<SlideType> = ({
           .fill(' ')
           .map(_ => {
             return (
-              <span>
-                <img src={dotWhite}></img>
+              <span key={uuidv4()}>
+                <img src={dotWhite} alt="dotWhite"></img>
               </span>
             );
           })}
@@ -64,8 +71,8 @@ const Slide: React.FC<SlideType> = ({
           .fill(' ')
           .map(_ => {
             return (
-              <span>
-                <img src={dotBlue}></img>
+              <span key={uuidv4()}>
+                <img src={dotBlue} alt="dotBlue"></img>
               </span>
             );
           })}

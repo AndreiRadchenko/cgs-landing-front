@@ -5,6 +5,7 @@ import Input from '../Input/input.commponent';
 import Textarea from '../Textarea/textarea.component';
 import Button from '../Button/button.component';
 import { registrationFormSchema } from '../../../../helpers/validation';
+import { sendFormEA } from '../../../../services/event';
 
 const Form = () => {
   return (
@@ -17,6 +18,7 @@ const Form = () => {
         message: '',
       }}
       onSubmit={values => {
+        sendFormEA(values);
         console.log(values);
       }}
     >

@@ -6,6 +6,11 @@ export const GlobalStyle = createGlobalStyle`
   //   height: 100%;
   //   width: 100%;
   // }
+  
+  #root{
+    max-width: 100vw; 
+    overflow-x:hidden;
+  }
 
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -19,6 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 1em 4em;
     width: 100vw; 
   }
+  
   @media screen and (max-width: 768px) {
     header, footer, .main-wraper{
       padding: 1em 2em!important;

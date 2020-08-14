@@ -2,16 +2,21 @@ import React from 'react';
 import * as Styled from './footer.styles';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { clickSocialLinkEA } from '../../../../services/event';
 
 const Footer = ({ socialList, fill }) => {
   return (
-    <Styled.FooterWrapper>
+    <Styled.FooterWrapper data-scroll={'Social'}>
       <p>loremipsum@mail.com</p>
       <p>Copyright 2020</p>
       <Styled.Item>
         {socialList &&
           socialList.map((item, index) => (
-            <Link to={item.link} key={uuidv4()}>
+            <Link
+              to={item.link}
+              key={uuidv4()}
+              onClick={() => clickSocialLinkEA(item.link)}
+            >
               <Styled.SocialWrap>
                 <svg
                   width="45"

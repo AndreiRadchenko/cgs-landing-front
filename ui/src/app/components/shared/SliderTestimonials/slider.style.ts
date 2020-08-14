@@ -21,8 +21,11 @@ export const SliderPrev = styled(Arrow)`
   cursor: pointer;
   top: 100% !important;
   left: 40% !important;
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1200px) {
     left: 35% !important;
+  }
+  @media screen and (max-width: 900px) {
+    left: 30% !important;
   }
   @media screen and (max-width: 650px) {
     left: 25% !important;
@@ -39,8 +42,11 @@ export const SliderNext = styled(Arrow)`
   top: 100% !important;
   right: 40% !important;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1200px) {
     right: 35% !important;
+  }
+  @media screen and (max-width: 900px) {
+    right: 30% !important;
   }
   @media screen and (max-width: 650px) {
     right: 25% !important;
