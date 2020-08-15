@@ -5,11 +5,11 @@ import { IButton } from '../../../../types/components/index';
 import * as Styled from './button.styles';
 import { Link } from 'react-router-dom';
 
-const Button = ({ type, text, link, onClick }) => {
+const Button = ({ type, link, onClick, children }) => {
   return (
     <Link to={link}>
       <Styled.Button type={type} onClick={onClick}>
-        {text}
+        {children}
       </Styled.Button>
     </Link>
   );
@@ -17,7 +17,6 @@ const Button = ({ type, text, link, onClick }) => {
 Button.propTypes = {
   link: PropTypes.string,
   type: PropTypes.string,
-  text: PropTypes.string.isRequired,
   onClick: PropTypes.func,
 };
 Button.defaultProps = {

@@ -15,6 +15,8 @@ import { slides } from '../../img';
 import SliderPortfolio from '../../components/shared/SliderPortfolio/slider.component';
 
 import { scrollEA } from '../../../services/event';
+import unknown from '../../img/unknown.jpeg';
+import americaFlag from '../../img/americaFlag.jpg';
 
 export function HomePage() {
   React.useEffect(() => {
@@ -27,68 +29,50 @@ export function HomePage() {
         <title>Home Page</title>
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
-      <Header socialList={SocialList} navigation={Nav}></Header>
+      <Header socialList={SocialList} navigation={Nav} />
       <div className="main-wraper">
         {/* <span>HomePage container1</span> */}
         <Home id="home" />
         <Article
-          id="our-code"
-          title="Our code"
-          desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. "
+          id="code"
+          title="Our Team"
+          desc="We do not just hire employees. We bring talent and professionalism together."
         >
           <SliderTestimonials>
             <Slide
               person1={{
-                name: 'Alexei Samoilenko',
-                position: 'Big Boss',
-                img: slides.boss,
+                name: 'Oleksii Samoilenko',
+                position: 'CEO',
+                img: slides.CEO,
               }}
               description={
-                '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”'
+                '“It is highly important to understand that a person who needs your service is not just a customer. It is all about trust and reliability.\n' +
+                'You should support your client in all the possible aspects, from initial requirements to final testing.”'
               }
               background={'#0C1033'}
               title={'The main principle'}
             />
             <Slide
               person1={{
-                name: '1st Fullstack hero',
-                position: 'Senior',
-                img: slides.developer1,
+                name: 'Danyyl Kuchkov',
+                position: 'CTO',
+                img: slides.CTO,
               }}
-              person2={{
-                name: '2nd React wizard',
-                position: 'Middle',
-                img: slides.developer2,
-              }}
+              description={`“High level product is not something, that comes from a plain code writing. It is all about combining experience, skills and passion.
+                  Be professionals from the first line of code to the final deployment.”`}
               background={'#0C1033'}
-              title={'Our javascript developers'}
+              title={'Quality'}
             />
             <Slide
               person1={{
-                name: 'Alexei Samoilenko',
-                position: 'Big Boss',
-                img: slides.boss,
+                name: 'Khrystyna Vysochina',
+                position: 'Chief Project Manager',
+                img: slides.CPM,
               }}
-              description={
-                '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”'
-              }
+              description={`“Reputation is built through enormous efforts. Every detail, every action makes its own contribution into the whole picture.
+                  Always do your best, to be proud of the final result.”`}
               background={'#0C1033'}
-              title={'The main principle'}
-            />
-            <Slide
-              person1={{
-                name: '1st Fullstack hero',
-                position: 'Senior',
-                img: slides.developer1,
-              }}
-              person2={{
-                name: '2nd React wizard',
-                position: 'Middle',
-                img: slides.developer2,
-              }}
-              background={'#0C1033'}
-              title={'Our javascript developers'}
+              title={'Reputation'}
             />
           </SliderTestimonials>
         </Article>
@@ -108,67 +92,54 @@ export function HomePage() {
         />
         <Article
           id="Testimonials"
-          title="Testimonials"
-          desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
-          incididunt ut labore et dolore magna aliqua."
+          title="Feedbacks"
+          desc="The most recent feedbacks from our clients"
         >
           <SliderTestimonials>
             <Slide
               person1={{
-                name: 'John Doe',
+                name: 'RabI Boundi',
                 position: 'Happy client',
-                img: slides.clientSpain,
+                img: slides.unknown,
                 country: { name: 'Spain', img: slides.flagSpain },
               }}
               description={
-                '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”'
+                '“Excellent work! Good communication in English, all requirements were correctly implemented, on time, and according to the specification.\n' +
+                'Will hire again in the future. Highly recommended!”'
               }
               background={'#0C1033'}
-              title={'First testimonial'}
+              title={'Space Impulse'}
             />
             <Slide
               person1={{
-                name: '1st Fullstack hero',
-                position: 'Senior',
-                img: slides.developer1,
-              }}
-              person2={{
-                name: '2nd React wizard',
-                position: 'Middle',
-                img: slides.developer2,
-              }}
-              background={'#0C1033'}
-              title={'Our javascript developers'}
-            />
-            <Slide
-              person1={{
-                name: 'Alexei Samoilenko',
-                position: 'Big Boss',
-                img: slides.boss,
+                name: 'Pratibha Sharma',
+                position: 'Happy client',
+                img: slides.unknown,
+                country: { name: 'India', img: slides.indiaFlag },
               }}
               description={
-                '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”'
+                '“Very sincere, professional and cooperative team. Analyses the business requirements and provides on time feedback and support to improve features. They have done a good job so far and looking forward to rehiring them again.”'
               }
               background={'#0C1033'}
-              title={'The main principle'}
+              title={'LiveOfficially'}
             />
+
             <Slide
               person1={{
-                name: '1st Fullstack hero',
-                position: 'Senior',
-                img: slides.developer1,
+                name: 'Vincent McLoughlin',
+                position: 'Happy client',
+                img: slides.unknown,
+                country: { name: 'USA', img: slides.americaFlag },
               }}
-              person2={{
-                name: '2nd React wizard',
-                position: 'Middle',
-                img: slides.developer2,
-              }}
+              description={
+                '“It was such a pleasure to work with them. I did not even expect to get such a beatiful work!”'
+              }
               background={'#0C1033'}
-              title={'Our javascript developers'}
+              title={'CIVIQ'}
             />
           </SliderTestimonials>
         </Article>
-        <Article title="Contacts">
+        <Article id="Contacts" title="Contacts">
           <Form />
         </Article>
       </div>

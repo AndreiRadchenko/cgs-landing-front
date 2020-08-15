@@ -27,16 +27,17 @@ export const ContentBlock = styled('article')`
   display: flex;
   flex-direction: column;
   align-itens: flex-start;
-  justify-content: space-evenly;
+  justify-content: center;
   & > p {
     opacity: 0.5;
+    margin: 2em 0;
+  }
+  & > h1 {
+    margin: 0;
   }
   @media screen and (max-width: 768px) {
     justify-content: center;
     text-align: center;
-    & > h2 {
-      margin: 1em 0;
-    }
     & > a {
       margin: 1em 0 2em 0;
     }

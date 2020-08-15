@@ -7,22 +7,31 @@ import Dots from '../../img/dots.svg';
 import Button from '../shared/Button/button.component';
 import { IHome } from '../../../types/components/index';
 import { startProjectEA } from '../../../services/event';
+import { Link } from 'react-scroll';
 
 const Home: React.FC<IHome> = props => {
   return (
     <Styled.HomeWrapper id={props.id}>
       <Styled.Dots src={Dots} />
       <Styled.ContentBlock>
-        <h2>Trust only professionals</h2>
+        <h1>Trust only professionals</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Our expertise is Web, Mobile and Server development.
+          <br />
+          We do not just build projects, we bring your idea to life, do not let
+          it to die inside your mind let`s implement it together.
         </p>
-        <Button
-          onClick={() => startProjectEA()}
-          text="Start a project"
-          type="button"
-        />
+        <Link
+          onClick={() => {
+            startProjectEA();
+          }}
+          to="Contacts"
+          spy={true}
+          smooth={true}
+          duration={900}
+        >
+          <Button type="button">Start a project</Button>
+        </Link>
       </Styled.ContentBlock>
       <div>
         <Styled.Ilustration src={Ilustration} />

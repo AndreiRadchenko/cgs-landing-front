@@ -7,12 +7,7 @@ import Button from '../Button/button.component';
 import { registrationFormSchema } from '../../../../helpers/validation';
 import { sendFormEA } from '../../../../services/event';
 import mailgun from 'mailgun-js';
-//Change APIKEY
-const DOMAIN = 'sandboxe95adc3c72384cb7846b08665716864f.mailgun.org';
-const mg = mailgun({
-  // apiKey: '',
-  domain: DOMAIN,
-});
+import emailjs from 'emailjs-com';
 
 const Form = () => {
   return (
@@ -26,12 +21,12 @@ const Form = () => {
       onSubmit={async values => {
         sendFormEA(values);
         //CHANGE EMAIL
-        await mg.messages().send({
-          from: `${values.name} <${values.email}>`,
-          to: '',
-          subject: 'Contacts',
-          text: values.message,
-        });
+        await emailjs.send(
+          'codegeneration_mailer',
+          'template_KGDwZVct',
+          values,
+          'user_R7zZ3MbmqMfj3XOcxRdqM',
+        );
       }}
     >
       {({
@@ -77,8 +72,9 @@ const Form = () => {
               errors={errors}
               touched={touched}
             />
-            {console.log('touched: ', touched)}
-            <Button type="submit" text="Send" onClick={handleSubmit} />
+            <Button type="submit" onClick={handleSubmit}>
+              Send
+            </Button>
           </Styled.FormWrapper>
         );
       }}

@@ -10,7 +10,7 @@ const Footer: React.FC<IFooter> = ({ socialList, fill }) => {
   return (
     <Styled.Wrapper>
       <Styled.FooterWrapper data-scroll={'Social'}>
-        <p>loremipsum@mail.com</p>
+        <p>sales.codegeneration@gmail.com</p>
         <p>Copyright 2020</p>
         <SocialLinks socialList={socialList} fill={fill} />
       </Styled.FooterWrapper>

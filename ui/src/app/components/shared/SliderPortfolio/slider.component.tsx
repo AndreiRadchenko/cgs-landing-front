@@ -33,8 +33,8 @@ const SliderComponent: React.FC = () => {
     prevArrow: <SamplePrevArrow />,
     afterChange: current =>
       onChangeSlideEA({ sliderName: 'Partfolio', slide: current }),
-    //autoplay: true,
-    //autoplaySpeed: 4000,
+    autoplay: true,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 1300,
@@ -56,8 +56,8 @@ const SliderComponent: React.FC = () => {
     <Styled.SliderContainer style={{ width: '100%', height: '520px' }}>
       <Slider {...settings}>
         {Object.values(portfolioSlides).map(slide => (
-          <div key={uuidv4()}>
-            <img width="378px" height="520px" src={slide} alt="Project" />
+          <div key={uuidv4()} className="slide-container">
+            <img width="350px" height="520px" src={slide} alt="Project" />
           </div>
         ))}
       </Slider>

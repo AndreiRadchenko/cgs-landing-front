@@ -66,12 +66,16 @@ export const SlideContainer = styled.div`
       & > img {
         border: 5px solid #fff;
         border-radius: 50%;
+        object-fit: cover;
         width: 142px;
+        height: 142px;
         @media screen and (max-width: 850px) {
           width: 110px;
+          height: 110px;
         }
         @media screen and (max-width: 400px) {
           width: 90px;
+          height: 90px;
         }
       }
     }
@@ -110,6 +114,8 @@ export const SlideContainer = styled.div`
           }
         }
         & > img {
+          border: 2px solid #fff;
+          border-radius: 5px;
           width: 42px;
           height: 26px;
           @media screen and (max-width: 500px) {
@@ -136,6 +142,9 @@ export const SlideContainer = styled.div`
       font-size: 20px;
       color: gray;
       margin-left: 25px;
+      @media screen and (max-width: 992px) {
+        font-size: 16px;
+      }
       @media screen and (max-width: 760px) {
         font-size: 14px;
       }

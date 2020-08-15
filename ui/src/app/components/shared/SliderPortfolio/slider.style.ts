@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const imgSize = {
-  w: '50px',
-  h: '50px',
+  w: '35px',
+  h: '35px',
 };
 
 const Arrow = styled.div`
@@ -17,18 +17,22 @@ const Arrow = styled.div`
 export const SliderPrev = styled(Arrow)`
   left: -50px !important;
   @media screen and (max-width: 650px) {
-    margin: 15px;
-    top: 100% !important;
-    left: 20% !important;
+    //margin: 15px;
+    //top: 100% !important;
+    //left: 20% !important;
+    opacity: 0;
+    display: none;
   }
 `;
 
 export const SliderNext = styled(Arrow)`
   right: -50px !important;
   @media screen and (max-width: 650px) {
-    margin: 15px;
-    top: 100% !important;
-    right: 20% !important;
+    //margin: 15px;
+    //top: 100% !important;
+    //right: 20% !important;
+    opacity: 0;
+    display: none;
   }
 `;
 
@@ -46,6 +50,9 @@ export const SliderContainer = styled.div`
     }
   }
 
+  //& .slide-container {
+  //  margin: 0 5%;
+  //}
   & .slick-slide > div > div > img {
     margin: auto;
     @media screen and (max-width: 450px) {

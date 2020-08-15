@@ -23,9 +23,12 @@ const Slide: React.FC<SlideType> = ({
       </div>
       <div className="body">
         <div className="person">
-          <div className="person-photo">
-            <img src={person1.img} alt="personPhoto"></img>
-          </div>
+          {person1.img && (
+            <div className="person-photo">
+              <img src={person1.img} alt="personPhoto" />
+            </div>
+          )}
+
           <div className="person-info">
             <div className="person-name">{person1.name}</div>
             <div className="person-position">{person1.position}</div>
@@ -45,7 +48,7 @@ const Slide: React.FC<SlideType> = ({
           person2 && (
             <div className="person">
               <div className="person-photo">
-                <img src={person2.img} alt="personPhoto"></img>
+                <img src={person2.img} alt="personPhoto" />
               </div>
               <div className="person-info">
                 <div className="person-name">{person2.name}</div>

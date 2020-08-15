@@ -18,15 +18,16 @@ const SocialLinks: React.FC<ISocial> = ({ socialList, fill }) => {
     <Styled.HeaderLinks>
       {socialList &&
         socialList.map((item, index) => (
-          <Link
+          <a
             onClick={() => clickSocialLinkEA(item.link)}
-            to={item.link}
+            target="_blank"
+            href={item.link}
             key={uuidv4()}
           >
             <Styled.SocialWrap>
               <svg
-                height="32"
-                width="45"
+                height="25"
+                width="38"
                 viewBox="0 0 45 32"
                 fill={fill === 'white' ? '#0C1033' : 'white'}
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +50,7 @@ const SocialLinks: React.FC<ISocial> = ({ socialList, fill }) => {
                   ))}
               </svg>
             </Styled.SocialWrap>
-          </Link>
+          </a>
         ))}
     </Styled.HeaderLinks>
   );

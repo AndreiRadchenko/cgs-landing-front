@@ -47,7 +47,7 @@ export const Technology = [
 export const SocialList: ISocialInside[] = [
   {
     title: 'github',
-    link: 'github.com',
+    link: 'https://github.com/CodeGeneration-2020/code-generation-package',
     src: [
       {
         path:
@@ -58,7 +58,7 @@ export const SocialList: ISocialInside[] = [
   },
   {
     title: 'upwork',
-    link: 'upwork.com',
+    link: 'https://www.upwork.com/agencies/~01a24f185f6fd7afd0',
     src: [
       {
         path:
@@ -68,24 +68,8 @@ export const SocialList: ISocialInside[] = [
     ],
   },
   {
-    title: 'circleci',
-    link: 'circleci.com',
-    src: [
-      {
-        path:
-          'M21.7601 22.7419C20.1602 24.2036 18.0799 25.0156 15.8401 25.0156C10.72 25.0156 7.03986 21.2797 7.03986 15.9198C7.03986 10.5598 10.72 6.98637 15.8401 6.98637C18.0799 6.98637 20.1602 7.63599 21.7601 9.26005L22.88 10.2345L27.68 5.36176L26.5601 4.22492C23.5199 1.62751 19.8402 0.00290676 15.8401 0.00290676C6.71989 -0.159499 0 6.4997 0 15.9203C0 25.0162 6.87988 32.0002 15.8401 32.0002C20.0002 32.0002 23.8399 30.5385 26.8801 27.7771L28 26.6402L22.88 21.4427L21.7601 22.7419Z',
-        fill: '#0C1033',
-      },
-      {
-        path:
-          'M15.5201 21.4436C18.4362 21.4436 20.8002 19.0439 20.8002 16.0837C20.8002 13.1235 18.4362 10.7237 15.5201 10.7237C12.6041 10.7237 10.2401 13.1235 10.2401 16.0837C10.2401 19.0439 12.6041 21.4436 15.5201 21.4436Z',
-        fill: '#0C1033',
-      },
-    ],
-  },
-  {
     title: 'linkedin',
-    link: 'linledin.com',
+    link: 'https://www.linkedin.com/company/code-generation-software',
     src: [
       {
         path:
@@ -124,6 +108,6 @@ export const Nav = [
   },
   {
     title: 'Contact',
-    link: '#form',
+    link: '#Contacts',
   },
 ];

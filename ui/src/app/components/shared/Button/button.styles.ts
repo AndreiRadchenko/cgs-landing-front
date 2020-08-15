@@ -8,9 +8,14 @@ export const Button = styled('button')`
   border: 0;
   color: white;
   min-width: 200px;
+  cursor: pointer;
+  transition: background 0.2s ease-in;
+  & * {
+    width: 100%;
+    height: 100%;
+  }
   &:hover {
     background: #0c1033;
-    opacity: 0.4;
   }
   &:active {
     background: #0c1033;

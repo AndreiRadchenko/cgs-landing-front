@@ -12,7 +12,7 @@ export const Text = styled('textarea')`
   padding: 10px 12px;
   border: 1px solid #0c1033;
   border-radius: 4px;
-  min-height: 50px;
+  min-height: 100px;
 `;
 
 export const Error = styled('div')`
