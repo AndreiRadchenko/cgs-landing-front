@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled('button')`
-  background: #97c3f9;
+  background: #0c1033;
   border-radius: 2em;
   padding: 0.7em 2em;
   outline: none;
@@ -15,7 +15,7 @@ export const Button = styled('button')`
     height: 100%;
   }
   &:hover {
-    background: #0c1033;
+    background: #97c3f9;
   }
   &:active {
     background: #0c1033;

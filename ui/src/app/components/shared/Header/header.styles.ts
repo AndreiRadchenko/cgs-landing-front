@@ -9,6 +9,9 @@ export const HeaderWrapper = styled('header')`
   padding: 1em 4em;
   margin-bottom: 1em;
   max-width: 1200px;
+  @media screen and (max-width: 600px) {
+    margin-bottom: 0;
+  }
 `;
 export const HeaderItem = styled('div')`
   display: flex;

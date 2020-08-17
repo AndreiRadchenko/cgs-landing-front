@@ -1,13 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-// @font-face {
-//   font-family: 'MulaRegular';
-//   src: url('./fonts/Muli/Muli-Regular.ttf') format('truetype');
-// }
-@import "http://fonts.fontstorage.com/import/muli.css";
+@font-face {
+  font-family: 'MulaRegular';
+  src: url(./fonts/Muli/Muli-Regular.ttf) format('truetype');
+}
+// @import "http://fonts.fontstorage.com/import/muli.css";
   body {
-    font-family: Muli;
+    font-family: MulaRegular;
   }
   #root{
     max-width:100vw;
@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   p,
   label {
-    font-family: Muli;
+    font-family: MulaRegular;
     line-height: 1.5em;
   }
 

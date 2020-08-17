@@ -40,11 +40,11 @@ export const slides = {
 };
 
 export const portfolioSlides = {
-  project1,
-  project7,
-  project2,
-  project5,
   project4,
-  project3,
+  project5,
   project6,
+  project7,
+  project1,
+  project3,
+  project2,
 };
