@@ -5,6 +5,13 @@ import { IMenu } from '../../../../types/components/index';
 
 const Menu: React.FC<IMenu> = ({ children }) => {
   const [activeMenu, setMenuState] = React.useState(false);
+  React.useEffect(() => {
+    document.addEventListener('click', e => {
+      if ((e.target as Element).tagName !== 'svg') {
+        setMenuState(false);
+      }
+    });
+  }, []);
   return (
     <Styled.BurgerMenu>
       <Styled.MenuContainer

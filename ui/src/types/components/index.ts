@@ -58,6 +58,7 @@ export interface IButton {
   type?: string;
   text: string;
   link?: string;
+  id?: string;
   onClick?: () => {
     return: any;
   };

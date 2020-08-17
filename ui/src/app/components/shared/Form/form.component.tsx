@@ -20,7 +20,6 @@ const Form = () => {
       }}
       onSubmit={async values => {
         sendFormEA(values);
-        //CHANGE EMAIL
         await emailjs.send(
           'codegeneration_mailer',
           'template_KGDwZVct',

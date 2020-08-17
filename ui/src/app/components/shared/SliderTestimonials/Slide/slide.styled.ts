@@ -24,6 +24,8 @@ export const SlideContainer = styled.div`
     font-size: 30px;
     @media screen and (max-width: 760px) {
       font-size: 25px;
+      justify-content: center;
+      padding: 0;
     }
     @media screen and (max-width: 500px) {
       font-size: 16px;
@@ -38,7 +40,7 @@ export const SlideContainer = styled.div`
     @media screen and (max-width: 760px) {
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
     }
   }
 
@@ -49,7 +51,8 @@ export const SlideContainer = styled.div`
     margin-right: 2px;
     @media screen and (max-width: 760px) {
       width: 100%;
-      margin-bottom: 40px;
+      margin-bottom: 1.5em;
+      height: auto;
     }
     & .person-photo {
       display: flex;

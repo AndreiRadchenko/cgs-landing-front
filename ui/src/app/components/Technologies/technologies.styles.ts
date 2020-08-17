@@ -9,7 +9,7 @@ export const Wrapper = styled('div')`
   @media screen and (max-width: 768px) {
     & > div {
       flex-direction: row-reverse;
-      margin-bottom: 1em;
+      margin-bottom: 2em;
       & > div:first-child,
       & ul {
         align-items: flex-start;
@@ -49,9 +49,15 @@ export const TechnoContainer = styled('div')`
   }
   & > div:last-child {
     width: 60%;
+    @media screen and (max-width: 768px) {
+      padding-top: 2em;
+    }
     & > img {
       width: 78%;
       height: 92%;
+      @media screen and (max-width: 768px) {
+        height: auto;
+      }
     }
   }
   & > div:first-child {
