@@ -52,7 +52,7 @@ export const ContentBlock = styled('article')`
     & > a {
       margin: 1em 0 2em 0;
       @media screen and (max-width: 650px) {
-        margin: 0 0 1em 0;
+        margin: 0 0 1.5em 0;
       }
     }
   }

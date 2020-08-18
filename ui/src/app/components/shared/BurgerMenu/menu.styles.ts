@@ -25,8 +25,8 @@ export const BurgerMenu = styled('div')`
       z-index: 3;
       top: -5px;
       right: 5px;
-      border-top: 1px solid silver;
-      border-left: 1px solid silver;
+      border-bottom: 1px solid silver;
+      border-right: 1px solid silver;
     }
   }
 `;

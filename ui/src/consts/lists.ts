@@ -95,7 +95,7 @@ export const Nav = [
     link: '#home',
   },
   {
-    title: 'Our Code',
+    title: 'Our Team',
     link: '#code',
   },
   {
@@ -105,6 +105,10 @@ export const Nav = [
   {
     title: 'Technologies',
     link: '#technologies',
+  },
+  {
+    title: 'Feedbacks',
+    link: '#feedback',
   },
   {
     title: 'Contact',

@@ -34,6 +34,49 @@ export function HomePage() {
         {/* <span>HomePage container1</span> */}
         <Home id="home" />
         <Article
+          id="code"
+          title="Our Team"
+          desc="We do not just hire employees. We bring talent and professionalism together."
+        >
+          <SliderTestimonials>
+            <Slide
+              person1={{
+                name: 'Oleksii Samoilenko',
+                position: 'CEO',
+                img: slides.CEO,
+              }}
+              description={
+                '“It is highly important to understand that a person who needs your service is not just a customer. It is all about trust and reliability.\n' +
+                'You should support your client in all the possible aspects, from initial requirements to final testing.”'
+              }
+              background={'#0C1033'}
+              title={'The main principle'}
+            />
+            <Slide
+              person1={{
+                name: 'Danyyl Kuchkov',
+                position: 'CTO',
+                img: slides.CTO,
+              }}
+              description={`“High level product is not something, that comes from a plain code writing. It is all about combining experience, skills and passion.
+                  Be professionals from the first line of code to the final deployment.”`}
+              background={'#0C1033'}
+              title={'Quality'}
+            />
+            <Slide
+              person1={{
+                name: 'Khrystyna Vysochyna',
+                position: 'Chief Project Manager',
+                img: slides.CPM,
+              }}
+              description={`“Every action has a reaction.”`}
+              background={'#0C1033'}
+              title={'Reputation'}
+            />
+          </SliderTestimonials>
+        </Article>
+
+        <Article
           id="portfolio"
           title="Portfolio"
           desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
@@ -41,6 +84,7 @@ export function HomePage() {
         >
           <SliderPortfolio />
         </Article>
+
         <Article
           data-scrolling="technologies"
           id="technologies"
@@ -48,7 +92,7 @@ export function HomePage() {
           children={<Technologies technologies={Technology} />}
         />
         <Article
-          id="Testimonials"
+          id="feedback"
           title="Feedbacks"
           desc="The most recent feedbacks from our clients"
         >
@@ -93,48 +137,6 @@ export function HomePage() {
               }
               background={'#0C1033'}
               title={'CIVIQ'}
-            />
-          </SliderTestimonials>
-        </Article>
-        <Article
-          id="code"
-          title="Our Team"
-          desc="We do not just hire employees. We bring talent and professionalism together."
-        >
-          <SliderTestimonials>
-            <Slide
-              person1={{
-                name: 'Oleksii Samoilenko',
-                position: 'CEO',
-                img: slides.CEO,
-              }}
-              description={
-                '“It is highly important to understand that a person who needs your service is not just a customer. It is all about trust and reliability.\n' +
-                'You should support your client in all the possible aspects, from initial requirements to final testing.”'
-              }
-              background={'#0C1033'}
-              title={'The main principle'}
-            />
-            <Slide
-              person1={{
-                name: 'Danyyl Kuchkov',
-                position: 'CTO',
-                img: slides.CTO,
-              }}
-              description={`“High level product is not something, that comes from a plain code writing. It is all about combining experience, skills and passion.
-                  Be professionals from the first line of code to the final deployment.”`}
-              background={'#0C1033'}
-              title={'Quality'}
-            />
-            <Slide
-              person1={{
-                name: 'Khrystyna Vysochyna',
-                position: 'Chief Project Manager',
-                img: slides.CPM,
-              }}
-              description={`“Every action has a reaction.”`}
-              background={'#0C1033'}
-              title={'Reputation'}
             />
           </SliderTestimonials>
         </Article>
