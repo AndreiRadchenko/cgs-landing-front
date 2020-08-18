@@ -9,6 +9,9 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: MulaRegular;
   }
+  textarea {
+    font-family: MulaRegular;
+  }
   #root{
     max-width:100vw;
     overflow-x:hidden;

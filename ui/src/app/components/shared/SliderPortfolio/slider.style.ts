@@ -50,18 +50,20 @@ export const SliderContainer = styled.div`
     }
   }
 
-  //& .slide-container {
-  //  margin: 0 5%;
-  //}
+  & .slick-slide {
+    display: flex;
+    justify-content: center;
+  }
+  & .slide-container {
+    display: flex !important;
+    justify-content: center;
+  }
   & .slick-slide > div > div > img {
     margin: auto;
     @media screen and (max-width: 450px) {
-      width: 300px;
+      width: 355px;
     }
     @media screen and (max-width: 350px) {
-      width: 280px;
-    }
-    @media screen and (max-width: 320px) {
       width: 100%;
     }
   }

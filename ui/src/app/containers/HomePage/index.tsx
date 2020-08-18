@@ -69,7 +69,8 @@ export function HomePage() {
                 position: 'Chief Project Manager',
                 img: slides.CPM,
               }}
-              description={`“Every action has a reaction.”`}
+              description={`“Reputation is built through enormous efforts. Every detail, every action has a reaction.
+                  Always do your best, to be proud of the final result.”`}
               background={'#0C1033'}
               title={'Reputation'}
             />

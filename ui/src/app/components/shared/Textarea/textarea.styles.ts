@@ -9,6 +9,7 @@ export const TextWrapper = styled('div')`
   }
 `;
 export const Text = styled('textarea')`
+  font-size: 16px;
   padding: 10px 12px;
   border: 1px solid #0c1033;
   border-radius: 4px;

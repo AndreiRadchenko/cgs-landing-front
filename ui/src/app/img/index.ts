@@ -13,7 +13,7 @@ import flagSpain from './spainFlag.jpg';
 import indiaFlag from './indiaFlag.jpg';
 import americaFlag from './americaFlag.jpg';
 import project1 from './project1.png';
-import project2 from './projetc2.png';
+import project2 from './project2.png';
 import project3 from './project3.png';
 import project4 from './project4.png';
 import project5 from './project5.png';
@@ -40,11 +40,11 @@ export const slides = {
 };
 
 export const portfolioSlides = {
+  project1,
+  project2,
+  project3,
   project4,
   project5,
   project6,
   project7,
-  project1,
-  project3,
-  project2,
 };
