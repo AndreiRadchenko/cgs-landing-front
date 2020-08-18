@@ -80,8 +80,7 @@ export function HomePage() {
         <Article
           id="portfolio"
           title="Portfolio"
-          desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
-          incididunt ut labore et dolore magna aliqua. "
+          desc="Our projects are our pride. For each one we put maximum efforts and knowledges, to provide the highest quality result."
         >
           <SliderPortfolio />
         </Article>

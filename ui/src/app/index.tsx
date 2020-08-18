@@ -27,9 +27,9 @@ export function App() {
     <BrowserRouter>
       <Helmet
         titleTemplate="Code Generation Software"
-        defaultTitle="React Boilerplate"
+        defaultTitle="Code Generation Software"
       >
-        <meta name="description" content="A React Boilerplate application" />
+        <meta name="description" content="Code Generation Software" />
       </Helmet>
 
       <Switch>
