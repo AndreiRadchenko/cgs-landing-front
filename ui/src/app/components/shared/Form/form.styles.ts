@@ -5,6 +5,7 @@ export const FormWrapper = styled('div')`
   flex-direction: column;
   justify-conntent: space-between;
   align-items: center;
+
   & > div {
     width: 100%;
     margin-bottom: 1em;
@@ -15,4 +16,13 @@ export const FormWrapper = styled('div')`
   @media screen and (max-width: 500px) {
     width: 95%;
   }
+`;
+
+export const SuccessMessageContainer = styled('div')`
+  min-height: 2.9em;
+  color: #97c3f9;
+  font-size: 0.9em;
+  text-align: center;
+  position: relative;
+  top: 2em;
 `;

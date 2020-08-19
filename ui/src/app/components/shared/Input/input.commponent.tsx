@@ -19,11 +19,9 @@ const Input: React.FC<IInput> = ({
         name={name}
         onChange={onChange}
         value={value}
-        // onBlur={props.onBlur}
-        // error={props.errors}
-        // touched={touched}
+        onFocus={() => (touched[name] = true)}
       />
-      <Styled.Error>{name && errors?.[name]}</Styled.Error>
+      <Styled.Error>{name && touched[name] && errors?.[name]}</Styled.Error>
     </Styled.InputWrapper>
   );
 };

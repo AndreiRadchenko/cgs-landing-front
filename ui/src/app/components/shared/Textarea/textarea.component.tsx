@@ -8,6 +8,7 @@ const Textarea: React.FC<ITextArea> = ({
   onChange,
   value,
   errors,
+  touched,
 }) => {
   return (
     <Styled.TextWrapper>
@@ -16,11 +17,9 @@ const Textarea: React.FC<ITextArea> = ({
         name={name}
         onChange={onChange}
         value={value}
-        // onBlur={onBlur}
-        // errors={props.errors}
-        // touched={touched}
+        onFocus={() => (touched[name] = true)}
       />
-      <Styled.Error>{name && errors?.[name]}</Styled.Error>
+      <Styled.Error>{name && touched[name] && errors?.[name]}</Styled.Error>
     </Styled.TextWrapper>
   );
 };

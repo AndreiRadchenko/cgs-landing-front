@@ -10,13 +10,18 @@ export const Button = styled('button')`
   color: white;
   min-width: 200px;
   cursor: pointer;
-  transition: background 0.2s ease-in;
+  transition: all 0.3s ease-in;
+
   & * {
     width: 100%;
     height: 100%;
   }
   &:hover {
-    background: #97c3f9;
+    background: ${props => (props.disabled ? '#0c1033' : '#97c3f9')};
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.2;
   }
   &:active {
     background: #0c1033;

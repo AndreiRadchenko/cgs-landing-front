@@ -21,7 +21,7 @@ export const messageSchema = yup
   .required('This field is required')
   .trim()
   .nullable(true)
-  .min(10, 'Please, Describe your thoughts complicatable');
+  .min(10, 'Please, Describe your thoughts complicatable. Minimum 10 symbols');
 
 export const registrationFormSchema = yup.object().shape({
   name: fullNameSchema,

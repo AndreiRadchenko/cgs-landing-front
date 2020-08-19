@@ -17,6 +17,7 @@ export const Text = styled('textarea')`
 `;
 
 export const Error = styled('div')`
+  min-height: 16px;
   margin-top: 0.5em;
   color: red;
   font-size: 0.7em;

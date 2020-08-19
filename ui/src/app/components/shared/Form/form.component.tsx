@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Styled from './form.styles';
 import Input from '../Input/input.commponent';
@@ -10,6 +10,11 @@ import mailgun from 'mailgun-js';
 import emailjs from 'emailjs-com';
 
 const Form = () => {
+  const [isSubmitted, setSubmitted] = useState(false);
+
+  const isEmptyObject = obj => {
+    return JSON.stringify(obj) === '{}';
+  };
   return (
     <Formik
       validationSchema={registrationFormSchema}
@@ -20,12 +25,15 @@ const Form = () => {
       }}
       onSubmit={async values => {
         sendFormEA(values);
+
         await emailjs.send(
-          'codegeneration_mailer',
-          'template_KGDwZVct',
+          'code_generation_sales',
+          'template_63y7U3ol',
           values,
-          'user_R7zZ3MbmqMfj3XOcxRdqM',
+          'user_qBEngbKseuGY8AfrTEa7E',
         );
+
+        setSubmitted(true);
       }}
     >
       {({
@@ -35,10 +43,7 @@ const Form = () => {
         handleChange,
         handleBlur,
         handleSubmit,
-        setFieldTouched,
         isSubmitting,
-        validateField,
-        setErrors,
       }) => {
         return (
           <Styled.FormWrapper>
@@ -71,9 +76,23 @@ const Form = () => {
               errors={errors}
               touched={touched}
             />
-            <Button type="submit" onClick={handleSubmit}>
+            <Button
+              type="submit"
+              disabled={
+                isEmptyObject(touched) || !isEmptyObject(errors) || isSubmitting
+              }
+              onClick={handleSubmit}
+            >
               Send
             </Button>
+            <Styled.SuccessMessageContainer>
+              {isSubmitted && (
+                <p className="success-message">
+                  Your message has been successfully delivered. Our Sales team
+                  will contact with you.
+                </p>
+              )}
+            </Styled.SuccessMessageContainer>
           </Styled.FormWrapper>
         );
       }}

@@ -73,7 +73,7 @@ export interface ICategories {
 
 export interface IInput {
   value?: string;
-  name?: string;
+  name: string;
   type: string;
   placeholder: string;
   onChange?: any;
@@ -83,7 +83,7 @@ export interface IInput {
 }
 export interface ITextArea {
   placeholder: string;
-  name?: string;
+  name: string;
   onChange?: any;
   onBlur?: any;
   value?: string;
