@@ -136,6 +136,9 @@ export const SlideContainer = styled.div`
     @media screen and (max-width: 760px) {
       width: 100%;
       margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      flex: 1;
     }
     & > p {
       width: 75%;
