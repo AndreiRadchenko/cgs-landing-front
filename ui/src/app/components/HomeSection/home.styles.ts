@@ -49,6 +49,7 @@ export const ContentBlock = styled('article')`
   @media screen and (max-width: 768px) {
     justify-content: center;
     text-align: center;
+    margin-bottom: 24px;
     & > a {
       margin: 1em 0 2em 0;
       @media screen and (max-width: 650px) {

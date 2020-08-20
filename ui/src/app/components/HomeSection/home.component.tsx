@@ -8,7 +8,6 @@ import Button from '../shared/Button/button.component';
 import { IHome } from '../../../types/components/index';
 import { startProjectEA } from '../../../services/event';
 import { Link } from 'react-scroll';
-import Form from '../shared/Form/form.component';
 
 const Home: React.FC<IHome> = props => {
   return (

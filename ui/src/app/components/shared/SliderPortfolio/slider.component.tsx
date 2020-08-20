@@ -31,10 +31,10 @@ const SliderComponent: React.FC = () => {
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    // afterChange: current =>
-    //   onChangeSlideEA({ sliderName: 'Partfolio', slide: current }),
+    afterChange: current =>
+      onChangeSlideEA({ sliderName: 'Partfolio', slide: current }),
     // autoplay: true,
-    autoplaySpeed: 2000,
+    // autoplaySpeed: 2000, - becomes inconvenient with manual switching, better to turn it off with portfolio
     responsive: [
       {
         breakpoint: 1300,

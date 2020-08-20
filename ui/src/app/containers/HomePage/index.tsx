@@ -15,8 +15,6 @@ import { slides } from '../../img';
 import SliderPortfolio from '../../components/shared/SliderPortfolio/slider.component';
 
 import { scrollEA } from '../../../services/event';
-import unknown from '../../img/unknown.jpeg';
-import americaFlag from '../../img/americaFlag.jpg';
 
 export function HomePage() {
   React.useEffect(() => {
@@ -31,7 +29,6 @@ export function HomePage() {
       </Helmet>
       <Header socialList={SocialList} navigation={Nav} />
       <div className="main-wraper">
-        {/* <span>HomePage container1</span> */}
         <Home id="home" />
         <Article
           id="code"

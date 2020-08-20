@@ -17,22 +17,38 @@ const Arrow = styled.div`
 export const SliderPrev = styled(Arrow)`
   left: -50px !important;
   @media screen and (max-width: 650px) {
-    //margin: 15px;
-    //top: 100% !important;
-    //left: 20% !important;
-    opacity: 0;
-    display: none;
+    margin: 15px;
+    top: 105% !important;
+    left: 20% !important;
+  }
+  @media screen and (max-width: 560px) {
+    margin: 15px;
+    top: 105% !important;
+    left: 18% !important;
+  }
+  @media screen and (max-width: 560px) {
+    margin: 15px;
+    top: 105% !important;
+    left: 16% !important;
   }
 `;
 
 export const SliderNext = styled(Arrow)`
   right: -50px !important;
   @media screen and (max-width: 650px) {
-    //margin: 15px;
-    //top: 100% !important;
-    //right: 20% !important;
-    opacity: 0;
-    display: none;
+    margin: 15px;
+    top: 105% !important;
+    right: 20% !important;
+  }
+  @media screen and (max-width: 560px) {
+    margin: 15px;
+    top: 105% !important;
+    right: 18% !important;
+  }
+  @media screen and (max-width: 500px) {
+    margin: 15px;
+    top: 105% !important;
+    right: 16% !important;
   }
 `;
 

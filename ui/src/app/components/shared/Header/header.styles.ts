@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const HeaderWrapper = styled('header')`
+interface Props {
+  isFixed?: boolean;
+}
+
+export const HeaderWrapper = styled.header<Props>`
   display: flex;
   width: 100vw;
   justify-content: space-between;
@@ -8,19 +12,17 @@ export const HeaderWrapper = styled('header')`
   background: white;
   padding: 1em 4em;
   margin-bottom: 1em;
-  max-width: 1200px;
+  flex: 1;
+  max-width: 100%;
   @media screen and (max-width: 600px) {
     margin-bottom: 0;
   }
+  ${({ isFixed }) => isFixed && 'position: fixed; z-index: 1000;'}
 `;
+
 export const HeaderItem = styled('div')`
   display: flex;
   justify-content: space-between;
-`;
-export const HeaderLinks = styled(HeaderItem)`
-  @media screen and (max-width: 1013px) {
-    display: none;
-  }
 `;
 
 export const HeaderLogo = styled('img')`
