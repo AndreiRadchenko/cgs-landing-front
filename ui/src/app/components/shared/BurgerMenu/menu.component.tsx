@@ -1,7 +1,6 @@
 import React from 'react';
 import * as Styled from './menu.styles';
-import classNames from 'classnames';
-import { IMenu } from '../../../../types/components/index';
+import { IMenu } from '../../../../types/components';
 
 const Menu: React.FC<IMenu> = ({ children }) => {
   const [activeMenu, setMenuState] = React.useState(false);

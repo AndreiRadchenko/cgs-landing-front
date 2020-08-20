@@ -1,8 +1,7 @@
 import React from 'react';
 import * as Styled from './social-links.styles';
-import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { ISocial } from '../../../../types/components/index';
+import { ISocial } from '../../../../types/components';
 import ReactGA from 'react-ga';
 
 const clickSocialLinkEA = link => {
@@ -21,6 +20,7 @@ const SocialLinks: React.FC<ISocial> = ({ socialList, fill }) => {
           <a
             onClick={() => clickSocialLinkEA(item.link)}
             target="_blank"
+            rel="noopener noreferrer"
             href={item.link}
             key={uuidv4()}
           >
