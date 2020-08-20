@@ -17,7 +17,6 @@ export const HeaderWrapper = styled.header<Props>`
   @media screen and (max-width: 600px) {
     margin-bottom: 0;
   }
-  ${({ isFixed }) => isFixed && 'position: fixed; z-index: 1000;'}
 `;
 
 export const HeaderItem = styled('div')`
