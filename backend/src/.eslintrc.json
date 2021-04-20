@@ -1,4 +1,7 @@
 {
+  "env": {
+    "node": true
+  },
   "extends": [
     "airbnb-base",
     "plugin:import/errors",
@@ -10,6 +13,8 @@
       "props": false
     }],
     "no-continue": "off",
-    "no-restricted-syntax": "off"
+    "no-await-in-loop": "off",
+    "no-restricted-syntax": "off",
+    "arrow-body-style": "off"
   }
 }
