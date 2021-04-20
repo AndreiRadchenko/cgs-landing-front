@@ -5,7 +5,7 @@
 yarn-error.log
 
 # Upload directory
-public/uploads/*
+/public/uploads/*
 
 # Keep .gitkeep files
 !/**/.gitkeep
