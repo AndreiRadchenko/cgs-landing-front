@@ -1,3 +1,5 @@
+const { resolve: pathResolve } = require('path');
+
 const config = {
   server: {
     host: '0.0.0.0',
@@ -5,6 +7,9 @@ const config = {
   },
   database: {
     uri: 'mongodb://code_generation_landing:bGcc9352aAawcwvE2cm9@95.181.157.142:52068/code_generation_landing',
+  },
+  files: {
+    storagePath: pathResolve(__dirname, '../public/uploads'),
   },
 };
 
