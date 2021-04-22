@@ -1,5 +1,7 @@
 const yup = require('yup');
 
+const { assignExistProperties } = require('../../utils/helpers');
+
 const { Slogan } = require('../../database');
 
 const { mapSloganToResponse } = require('./utils/mappers');
@@ -37,7 +39,11 @@ const sloganUpdate = {
       return;
     }
 
-    Object.assign(slogan, body);
+    assignExistProperties(slogan, body, [
+      'title',
+      'text',
+      'selected',
+    ]);
 
     await slogan.save();
 
