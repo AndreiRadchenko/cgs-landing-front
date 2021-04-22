@@ -1,22 +1,27 @@
+const yup = require('yup');
+
 const { resolve: pathResolve } = require('path');
 
 const { remove: removeFile } = require('fs-extra');
 
-const { File } = require('../../database');
 const { config } = require('../../config');
 
-const { fileByIdSchema } = require('./utils/validators');
+const { File } = require('../../database');
 
 const fileDelete = {
-  path: '/delete/:id',
+  path: '/:id',
   method: 'DELETE',
   validate: {
-    params: fileByIdSchema,
+    params: {
+      schema: yup.object({
+        id: yup.objectId().required(),
+      }),
+    },
   },
   handler: async (context) => {
     const { params } = context.request;
 
-    const file = await File.findById(params.id);
+    const file = await File.findByIdAndDelete(params.id);
 
     if (!file) {
       context.status = 404;
@@ -27,8 +32,6 @@ const fileDelete = {
 
       return;
     }
-
-    await file.delete();
 
     const path = pathResolve(config.files.storagePath, file.savedAs);
 

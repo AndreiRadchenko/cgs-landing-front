@@ -1,29 +1,34 @@
+const yup = require('yup');
+
 const { File } = require('../../database');
 
 const { mapFileToResponse } = require('./utils/mappers');
 
 const fileGet = {
-  path: '/get/:id',
+  path: '/:id?',
   method: 'GET',
+  validate: {
+    params: {
+      schema: yup.object({
+        id: yup.objectId().optional(),
+      }),
+    },
+  },
   handler: async (context) => {
     const { params } = context.request;
 
-    const file = await File.findById(params.id);
+    const query = File.find();
 
-    if (!file) {
-      context.status = 404;
-
-      context.body = {
-        response: null,
-      };
-
-      return;
+    if (params.id !== undefined) {
+      query.where('_id', params.id);
     }
+
+    const files = await query.exec();
 
     context.status = 200;
 
     context.body = {
-      response: mapFileToResponse(file),
+      response: files.map(mapFileToResponse),
     };
   },
 };

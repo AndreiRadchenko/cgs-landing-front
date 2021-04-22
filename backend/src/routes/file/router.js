@@ -1,17 +1,15 @@
-const createRouter = require('koa-joi-router');
+const { YupRouter } = require('../../yup-router');
 
 const { fileGet } = require('./get');
-const { fileGetAll } = require('./get-all');
 const { fileUpload } = require('./upload');
 const { fileDelete } = require('./delete');
 
-const fileRouter = createRouter();
+const fileRouter = new YupRouter();
 
 fileRouter.prefix('/file');
 
-fileRouter.route([
+fileRouter.addRoutes([
   fileGet,
-  fileGetAll,
   fileUpload,
   fileDelete,
 ]);

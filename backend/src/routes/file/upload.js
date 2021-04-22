@@ -1,31 +1,27 @@
-const { uploadFiles } = require('../../middlewares');
+const { config } = require('../../config');
 
 const { File } = require('../../database');
 
-const {
-  mapFilesToResponse,
-  mapLocalFileToFile,
-} = require('./utils/mappers');
+const { mapFileToResponse } = require('./utils/mappers');
 
 const fileUpload = {
   path: '/upload',
   method: 'POST',
-  pre: uploadFiles,
+  validate: {
+    body: {
+      type: 'multipart',
+      options: {
+        uploadDir: config.files.storagePath,
+      },
+    },
+  },
   handler: async (context) => {
-    const { files: localFiles } = context.request;
-
-    const files = await Promise.all(
-      localFiles.map((localFile) => {
-        const doc = mapLocalFileToFile(localFile);
-
-        return File.create(doc);
-      }),
-    );
+    const files = await File.insertMany(context.request.files);
 
     context.status = 201;
 
     context.body = {
-      response: mapFilesToResponse(files),
+      response: files.map(mapFileToResponse),
     };
   },
 };
