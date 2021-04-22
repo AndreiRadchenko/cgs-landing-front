@@ -11,7 +11,11 @@ const createDeferred = () => {
 
 exports.createDeferred = createDeferred;
 
-const assignExistProperties = (target, source, properties) => {
+const assignExistProperties = (
+  target,
+  source,
+  properties = Object.keys(target),
+) => {
   for (const property of properties) {
     const value = source[property];
 
