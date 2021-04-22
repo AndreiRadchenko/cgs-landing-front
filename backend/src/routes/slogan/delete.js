@@ -1,26 +1,21 @@
-const { Joi } = require('koa-joi-router');
+const yup = require('yup');
 
 const { Slogan } = require('../../database');
 
-const deleteSlogan = {
+const sloganDelete = {
   path: '/:id',
   method: 'DELETE',
   validate: {
     params: {
-      id: Joi.objectId(),
-    },
-    output: {
-      404: {
-        body: {
-          response: Joi.equal(null),
-        },
-      },
+      schema: yup.object({
+        id: yup.string().required(),
+      }),
     },
   },
   handler: async (context) => {
     const { params } = context.request;
 
-    const slogan = await Slogan.findById(params.id);
+    const slogan = await Slogan.findByIdAndDelete(params.id);
 
     if (!slogan) {
       context.status = 404;
@@ -32,10 +27,8 @@ const deleteSlogan = {
       return;
     }
 
-    await slogan.delete();
-
     context.status = 204;
   },
 };
 
-exports.deleteSlogan = deleteSlogan;
+exports.sloganDelete = sloganDelete;

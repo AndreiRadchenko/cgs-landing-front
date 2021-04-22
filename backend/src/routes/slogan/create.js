@@ -1,28 +1,20 @@
-const { Joi } = require('koa-joi-router');
+const yup = require('yup');
 
 const { Slogan } = require('../../database');
 
-const createSlogan = {
+const { mapSloganToResponse } = require('./utils/mappers');
+
+const sloganCreate = {
   path: '/',
   method: 'POST',
   validate: {
     body: {
-      title: Joi.string().required(),
-      text: Joi.string().required(),
-      selected: Joi.boolean().optional(),
-    },
-    type: 'json',
-    output: {
-      201: {
-        body: {
-          response: Joi.object({
-            id: Joi.objectId(),
-            title: Joi.string().required(),
-            text: Joi.string().required(),
-            selected: Joi.boolean().required(),
-          }),
-        },
-      },
+      type: 'json',
+      schema: yup.object({
+        title: yup.string().required(),
+        text: yup.string().required(),
+        selected: yup.boolean().optional(),
+      }),
     },
   },
   handler: async (context) => {
@@ -37,14 +29,9 @@ const createSlogan = {
     context.status = 201;
 
     context.body = {
-      response: {
-        id: slogan.id,
-        title: slogan.title,
-        text: slogan.text,
-        selected: slogan.selected,
-      },
+      response: mapSloganToResponse(slogan),
     };
   },
 };
 
-exports.createSlogan = createSlogan;
+exports.sloganCreate = sloganCreate;

@@ -1,51 +1,36 @@
-const { Joi } = require('koa-joi-router');
+const yup = require('yup');
 
 const { Slogan } = require('../../database');
 
-const getSlogan = {
-  path: '/',
+const { mapSloganToResponse } = require('./utils/mappers');
+
+const sloganGet = {
+  path: '/:id?',
   method: 'GET',
   validate: {
-    output: {
-      200: {
-        body: {
-          response: Joi.object({
-            title: Joi.string().required(),
-            text: Joi.string().required(),
-          }),
-        },
-      },
-      404: {
-        body: {
-          response: Joi.equal(null),
-        },
-      },
+    params: {
+      schema: yup.object({
+        id: yup.objectId().optional(),
+      }),
     },
   },
   handler: async (context) => {
-    const slogan = await Slogan.findOne({
-      selected: true,
-    });
+    const { params } = context.request;
 
-    if (!slogan) {
-      context.status = 404;
+    const query = Slogan.find();
 
-      context.body = {
-        response: null,
-      };
-
-      return;
+    if (params.id !== undefined) {
+      query.where('_id', params.id);
     }
+
+    const slogans = await query.exec();
 
     context.status = 200;
 
     context.body = {
-      response: {
-        title: slogan.title,
-        text: slogan.text,
-      },
+      response: slogans.map(mapSloganToResponse),
     };
   },
 };
 
-exports.getSlogan = getSlogan;
+exports.sloganGet = sloganGet;

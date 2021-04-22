@@ -1,44 +1,43 @@
-const { Joi } = require('koa-joi-router');
+const yup = require('yup');
 
 const { Slogan } = require('../../database');
 
-const { assignExistProperties } = require('../../utils/helpers');
+const { mapSloganToResponse } = require('./utils/mappers');
 
-const updateSlogan = {
+const sloganUpdate = {
   path: '/:id',
   method: 'PUT',
   validate: {
     params: {
-      id: Joi.objectId(),
+      schema: yup.object({
+        id: yup.objectId().required(),
+      }),
     },
     body: {
-      title: Joi.string().optional(),
-      text: Joi.string().optional(),
-      selected: Joi.boolean().optional(),
-    },
-    type: 'json',
-    output: {
-      200: {
-        body: {
-          response: Joi.object({
-            id: Joi.objectId(),
-            title: Joi.string().required(),
-            text: Joi.string().required(),
-            selected: Joi.boolean().required(),
-          }),
-        },
-      },
-      404: {
-        body: {
-          response: Joi.equal(null),
-        },
-      },
+      type: 'json',
+      schema: yup.object({
+        title: yup.string().optional(),
+        text: yup.string().optional(),
+        selected: yup.boolean().optional(),
+      }),
     },
   },
   handler: async (context) => {
     const { params, body } = context.request;
 
-    const slogan = await Slogan.findById(params.id);
+    const slogan = await Slogan.updateOne(
+      {
+        id: params.id,
+      },
+      {
+        title: body.title,
+        text: body.text,
+        selected: body.selected,
+      },
+      {
+        new: true,
+      },
+    );
 
     if (!slogan) {
       context.status = 404;
@@ -50,21 +49,12 @@ const updateSlogan = {
       return;
     }
 
-    assignExistProperties(slogan, body, ['title', 'text', 'selected']);
-
-    await slogan.save();
-
     context.status = 200;
 
     context.body = {
-      response: {
-        id: slogan.id,
-        title: slogan.title,
-        text: slogan.text,
-        selected: slogan.selected,
-      },
+      response: mapSloganToResponse(slogan),
     };
   },
 };
 
-exports.updateSlogan = updateSlogan;
+exports.sloganUpdate = sloganUpdate;

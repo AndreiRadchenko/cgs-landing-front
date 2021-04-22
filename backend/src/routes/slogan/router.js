@@ -1,19 +1,19 @@
-const createRouter = require('koa-joi-router');
+const { YupRouter } = require('../../yup-router');
 
-const { createSlogan } = require('./create');
-const { getSlogan } = require('./get');
-const { updateSlogan } = require('./update');
-const { deleteSlogan } = require('./delete');
+const { sloganGet } = require('./get');
+const { sloganCreate } = require('./create');
+const { sloganUpdate } = require('./update');
+const { sloganDelete } = require('./delete');
 
-const sloganRouter = createRouter();
+const sloganRouter = new YupRouter();
 
 sloganRouter.prefix('/slogan');
 
-sloganRouter.route([
-  createSlogan,
-  getSlogan,
-  updateSlogan,
-  deleteSlogan,
+sloganRouter.addRoutes([
+  sloganGet,
+  sloganCreate,
+  sloganUpdate,
+  sloganDelete,
 ]);
 
 exports.sloganRouter = sloganRouter;
