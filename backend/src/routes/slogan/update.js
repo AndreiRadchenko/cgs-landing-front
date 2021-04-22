@@ -25,19 +25,7 @@ const sloganUpdate = {
   handler: async (context) => {
     const { params, body } = context.request;
 
-    const slogan = await Slogan.updateOne(
-      {
-        id: params.id,
-      },
-      {
-        title: body.title,
-        text: body.text,
-        selected: body.selected,
-      },
-      {
-        new: true,
-      },
-    );
+    const slogan = await Slogan.findById(params.id);
 
     if (!slogan) {
       context.status = 404;
@@ -48,6 +36,10 @@ const sloganUpdate = {
 
       return;
     }
+
+    Object.assign(slogan, body);
+
+    await slogan.save();
 
     context.status = 200;
 
