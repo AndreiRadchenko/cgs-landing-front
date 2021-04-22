@@ -18,8 +18,8 @@ const sloganUpdate = {
     body: {
       type: 'json',
       schema: yup.object({
-        title: yup.string().optional(),
-        text: yup.string().optional(),
+        title: yup.string().min(1).optional(),
+        text: yup.string().min(1).optional(),
         selected: yup.boolean().optional(),
       }),
     },
