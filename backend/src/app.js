@@ -1,9 +1,7 @@
-require('./patch-joi');
-
 const Koa = require('koa');
 
-const { router } = require('./routes');
 const { config } = require('./config');
+const { router } = require('./routes');
 
 const { logger } = require('./utils/logger');
 const { createDeferred } = require('./utils/helpers');
@@ -16,7 +14,8 @@ app.use((context, next) => {
   return next();
 });
 
-app.use(router.middleware());
+app.use(router.routes());
+app.use(router.allowedMethods());
 
 const run = async () => {
   const deferred = createDeferred();
