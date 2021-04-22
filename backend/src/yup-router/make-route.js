@@ -20,14 +20,12 @@ const makeRoute = (rawRoute) => {
     if (rawRoute.validate.body !== undefined) {
       const bodyTypeValidator = makeBodyTypeValidator(rawRoute.validate.body.type);
 
-      middlewares.unshift(bodyTypeValidator);
-
       const bodyParser = makeBodyParser(
         rawRoute.validate.body.type,
         rawRoute.validate.body.options,
       );
 
-      middlewares.push(bodyParser);
+      middlewares.unshift(bodyTypeValidator, bodyParser);
     }
 
     route.handlers.unshift(...middlewares);
