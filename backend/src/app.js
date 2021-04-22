@@ -17,6 +17,10 @@ app.use((context, next) => {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
+for (const route of router.stack) {
+  logger.log(`Route ${route.path} ${route.methods.join(', ')}`);
+}
+
 const run = async () => {
   const deferred = createDeferred();
 
