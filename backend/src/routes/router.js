@@ -1,6 +1,7 @@
 const Router = require('@koa/router');
 
 const { homeRouter } = require('./home');
+const { factRouter } = require('./fact');
 const { fileRouter } = require('./file');
 const { sloganRouter } = require('./slogan');
 const { projectRouter } = require('./project');
@@ -11,6 +12,7 @@ const router = new Router();
 
 router.use(
   homeRouter.middleware(),
+  factRouter.middleware(),
   fileRouter.middleware(),
   sloganRouter.middleware(),
   projectRouter.middleware(),
