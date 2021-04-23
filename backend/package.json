@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {},
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "eslint": "^7.24.0",
+    "formidable": "^1.2.2",
+    "fs-extra": "^9.1.0",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "mime-types": "^2.1.30",
+    "mongoose": "^5.12.4",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}

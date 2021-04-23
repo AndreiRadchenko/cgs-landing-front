@@ -1,0 +1,11 @@
+# Dependency directories
+/node_modules
+
+# Error logs
+yarn-error.log
+
+# Upload directory
+/public/uploads/*
+
+# Keep .gitkeep files
+!/**/.gitkeep
