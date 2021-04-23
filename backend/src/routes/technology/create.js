@@ -1,6 +1,7 @@
 const yup = require('yup');
 
 const { TechnologyType } = require('../../utils/constants');
+const { assignExistProperties } = require('../../utils/helpers');
 
 const { Technology } = require('../../database');
 
@@ -22,11 +23,16 @@ const technologyCreate = {
   handler: async (context) => {
     const { body } = context.request;
 
-    let technology = await Technology.create({
-      name: body.name,
+    let technology = new Technology({
       iconFile: body.iconFileId,
-      category: body.category,
     });
+
+    assignExistProperties(technology, body, [
+      'name',
+      'category',
+    ]);
+
+    await technology.save();
 
     technology.populate({
       path: 'iconFile',

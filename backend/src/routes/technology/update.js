@@ -1,7 +1,6 @@
 const yup = require('yup');
 
 const { TechnologyType } = require('../../utils/constants');
-
 const { assignExistProperties } = require('../../utils/helpers');
 
 const { Technology } = require('../../database');
@@ -41,10 +40,13 @@ const technologyUpdate = {
       return;
     }
 
+    if (body.iconFileId !== undefined) {
+      technology.iconFile = body.iconFileId;
+    }
+
     assignExistProperties(technology, body, [
       'name',
       'category',
-      'iconFileId',
     ]);
 
     await technology.save();
