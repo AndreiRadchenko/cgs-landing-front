@@ -16,6 +16,10 @@ const definition = {
     ref: 'file',
     required: true,
   },
+  showOnMainPage: {
+    type: SchemaTypes.Boolean,
+    default: false,
+  },
 };
 
 const schema = new Schema(definition, {
