@@ -16,7 +16,7 @@ const definition = {
     ref: 'file',
     required: true,
   },
-  showOnMainPage: {
+  showOnHomePage: {
     type: SchemaTypes.Boolean,
     default: false,
   },
