@@ -10,10 +10,14 @@ export const HeaderWrapper = styled.header<Props>`
   justify-content: space-between;
   align-items: center;
   background: white;
-  padding: 1em 4em;
+  padding: 1em 2em;
+
   margin-bottom: 1em;
   flex: 1;
   max-width: 100%;
+  @media screen and (max-width: 1023px) {
+    padding: 1em 4em;
+  }
   @media screen and (max-width: 600px) {
     margin-bottom: 0;
   }
@@ -25,5 +29,11 @@ export const HeaderItem = styled('div')`
 `;
 
 export const HeaderLogo = styled('img')`
-  height: 43px;
+  height: 87px;
+  @media screen and (max-width: 1023px) {
+    height: 67px;
+  }
+  @media screen and (max-width: 425px) {
+    height: 47px;
+  }
 `;

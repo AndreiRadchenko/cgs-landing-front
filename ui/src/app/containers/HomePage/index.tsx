@@ -27,7 +27,6 @@ export function HomePage() {
         <title>Home Page</title>
         <meta name="description" content="A Boilerplate application homepage" />
       </Helmet>
-      <Header socialList={SocialList} navigation={Nav} />
       <div className="main-wraper">
         <Home id="home" />
         <Article

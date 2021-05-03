@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from 'styled-components';\nexport const HeaderLinks = styled('div')`\n  display: flex;\n  justify-content: space-between;\n`;\nexport const SocialWrap = styled('div')`\n  margin: 0.5em 0.5em;\n  width: fit-content;\n`;\nexport const SocialLogo = styled('img')`\n  width: 100%;\n  height: 100%;\n`;","map":null,"metadata":{},"sourceType":"module"}

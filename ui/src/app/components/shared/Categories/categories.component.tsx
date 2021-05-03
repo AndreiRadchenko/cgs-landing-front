@@ -1,31 +1,31 @@
 import React from 'react';
-import * as Styled from './categories.styles';
 import { v4 as uuidv4 } from 'uuid';
 import { ICategories } from '../../../../types/components/index';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
+import './style.css';
 
-const Categories: React.FC<ICategories> = ({ navigation }) => {
-  const [activeLink, setActiveLink] = React.useState(0);
+const Categories: React.FC<ICategories> = ({
+  navigation,
+  activeIndex,
+  setActiveIndex,
+}) => {
   return (
-    <Styled.HeaderNav>
+    <div className="nav-container">
       {navigation &&
         navigation.map((item, index) => (
-          <Link
-            to={item.link.slice(1)}
-            spy={true}
-            smooth={true}
-            duration={500}
-            key={uuidv4()}
-            onClick={e => {
-              setActiveLink(index);
-            }}
-          >
-            <Styled.NavItem className={index === activeLink ? 'active' : ''}>
-              {item.title}
-            </Styled.NavItem>
-          </Link>
+          <div className="small-margin">
+            <Link
+              to={item.link}
+              key={uuidv4()}
+              onClick={() => setActiveIndex(index)}
+            >
+              <div className={index === activeIndex ? 'active-item' : 'item'}>
+                {item.title}
+              </div>
+            </Link>
+          </div>
         ))}
-    </Styled.HeaderNav>
+    </div>
   );
 };
 export default Categories;

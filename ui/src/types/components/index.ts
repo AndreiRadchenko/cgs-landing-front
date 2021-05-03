@@ -18,6 +18,8 @@ export interface IHeader {
   socialList: Array<ISocialInside>;
   fill?: string;
   navigation: Array<ICategoriesInside>;
+  activeIndex: number;
+  setActiveIndex: any;
 }
 export interface ISvgData {
   path: string;
@@ -28,6 +30,8 @@ export interface ISocialInside {
   title: string;
   link: string;
   src: Array<ISvgData>;
+  width: number;
+  height: number;
 }
 export interface ISocial {
   socialList: Array<ISocialInside>;
@@ -52,6 +56,8 @@ export interface IHome {
 
 export interface IMenu {
   children: React.ReactNode;
+  setMenuState: (value: boolean) => void;
+  activeMenu: boolean;
 }
 
 export interface IButton {
@@ -69,6 +75,8 @@ export interface ICategoriesInside {
 }
 export interface ICategories {
   navigation: Array<ICategoriesInside>;
+  activeIndex: number;
+  setActiveIndex: any;
 }
 
 export interface IInput {

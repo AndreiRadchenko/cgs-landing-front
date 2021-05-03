@@ -1,0 +1,16 @@
+.footer-dis {
+    display: none;
+}
+
+.footer-act {
+    display: flex;
+}
+
+@media screen and (min-width: 1024px) {
+    .footer-dis {
+        display: flex;
+    }
+    .footer-act {
+        display: none;
+    }
+} 

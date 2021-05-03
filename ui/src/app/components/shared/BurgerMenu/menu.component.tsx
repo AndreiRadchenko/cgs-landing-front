@@ -1,36 +1,85 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Styled from './menu.styles';
 import { IMenu } from '../../../../types/components';
+import './style.css';
+import dayjs from 'dayjs';
+import SocialLinks from '../SocialLinks/social-links.component';
+import { MobileSocialList, Nav } from '../../../../consts/lists';
+import BurgerIcon from './burger.icon';
+import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 
-const Menu: React.FC<IMenu> = ({ children }) => {
-  const [activeMenu, setMenuState] = React.useState(false);
-  React.useEffect(() => {
-    document.addEventListener('click', e => {
-      if ((e.target as Element).tagName !== 'svg') {
-        setMenuState(false);
-      }
-    });
-  }, []);
+const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
+  const [enterAnimate, setEnterAnimate] = useState(true);
+
   return (
     <Styled.BurgerMenu>
       <Styled.MenuContainer
         className="menu"
-        onClick={() => setMenuState(!activeMenu)}
+        onClick={() => {
+          !activeMenu &&
+            window.scroll({
+              top: 0,
+              left: 0,
+              behavior: 'smooth',
+            });
+          if (!activeMenu) {
+            setMenuState(true);
+            setEnterAnimate(true);
+          } else {
+            setEnterAnimate(false);
+            setTimeout(() => {
+              setMenuState(false);
+            }, 400);
+          }
+        }}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
-        </svg>
+        <BurgerIcon />
       </Styled.MenuContainer>
+
       <Styled.DropDown
         className={`drop-down ${activeMenu ? 'show-sub-menu' : ''}`}
       >
-        {children}
+        <div className="lg-menu">{children}</div>
+        {activeMenu && (
+          <div
+            className={`drop-box-container animate__animated animate__faster ${
+              enterAnimate ? 'animate__fadeInLeft' : 'animate__fadeOutLeft'
+            }`}
+          >
+            <div className="drop-box-main">
+              {Nav.map((item, index) => (
+                <Link
+                  to={item.link}
+                  key={uuidv4()}
+                  onClick={() => setMenuState(false)}
+                >
+                  <p
+                    className={
+                      // index === 0 ? 'drop-box-item' : 'drop-box-item__active'
+                      'drop-box-item'
+                    }
+                  >
+                    {item.burgerTitle}
+                  </p>
+                </Link>
+              ))}
+            </div>
+            <div className="drop-box-footer">
+              <p className="drop-box-footer-text">
+                <a href="mailto:sales.codegeneration@gmail.com">
+                  sales.codegeneration@gmail.com
+                </a>
+              </p>
+              <SocialLinks socialList={MobileSocialList} />
+              <p className="drop-box-footer-text">
+                Copyright {dayjs().format('YYYY')}
+              </p>
+            </div>
+          </div>
+        )}
       </Styled.DropDown>
+      <Styled.GlobalStyle activeMenu={activeMenu} />
     </Styled.BurgerMenu>
   );
 };

@@ -1,0 +1,47 @@
+import React from "react";
+import * as Style from "./slide.styled";
+import { SlideType } from "../../../../../types/components/index";
+import { v4 as uuidv4 } from "uuid";
+
+const Slide: React.FC<SlideType> = ({ item }) => {
+  console.log(item);
+  return (
+    <Style.SlideContainer
+      key={item.id}
+      className="testimonials-slide-container"
+      style={{ width: "100%", height: "100%" }}
+    >
+      <div className="slider-content">
+        <div className="slider-header">
+          <p className="slider-header__title">{item.name}</p>
+          <img className="slider-header__img" src="/spainFlag.png" />
+          <span className="slider-header__country">Spain</span>
+        </div>
+        <p className="slider-subtitle">{item.shortDescription}</p>
+        <p className="slider-description">{item.fullDescription}</p>
+        <div className="slider-technologies">
+          {item.technologies.map((tech) => (
+            <div className="slider-technology">
+              <img
+                className="slider-technology__img"
+                key={tech.id}
+                src={tech.iconUrl ? tech.iconUrl : "./node.svg"}
+              />
+              <span className="slider-technology__text">{tech.name}</span>
+            </div>
+          ))}
+        </div>
+        {item?.link && (
+          <a href={item?.link} target="_blank" className="slider-link">
+            <button className="slider-technologies__button" type="button">
+              Project link
+            </button>
+          </a>
+        )}
+      </div>
+      <img className="slider-picture" src="/techImage.svg" />
+    </Style.SlideContainer>
+  );
+};
+
+export default Slide;
