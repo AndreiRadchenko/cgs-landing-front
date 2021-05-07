@@ -3,6 +3,11 @@
 @import '../src/app/components/shared/Footer/style.css';
 @import '../src/app/components/HomeSection/styles.css';
 @import '../src/app/components/shared/SliderTestimonials/Slide/style.css';
+@import '../src//app/components/AboutUs/styles.css';
+@import '../src//app/components/Facts/styles.css';
+@import '../src//app/components/Testimonials/styles.css';
+@import '../src//app/components/Testimonials/rating/styles.css';
+
 @font-face {
   font-family: 'MulaRegular';
   src: url(./fonts/Muli/Muli-Regular.ttf) format('truetype');
@@ -12,7 +17,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -31,27 +38,33 @@ textarea {
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 768px) {
-  header, footer, .main-wraper {
-    padding: 1em 2em!important;
+  header,
+  footer,
+  .main-wraper {
+    padding: 1em 2em !important;
   }
 }
 
 @media screen and (max-width: 600px) {
-  header, footer, .main-wraper {
-    padding: 1em 1em!important;
+  header,
+  footer,
+  .main-wraper {
+    padding: 1em 1em !important;
   }
 }
 
-p, label {
+p,
+label {
   font-family: MulaRegular;
   line-height: 1.5em;
 }
 
-input, select {
+input,
+select {
   font-family: inherit;
   font-size: inherit;
 }

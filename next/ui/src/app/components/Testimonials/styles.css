@@ -1,0 +1,5 @@
+@import '../../../../styles/variables.css';
+
+.testimonials__position {
+  background-color: var(--disactive-buttons-bg-color);
+}

@@ -1,11 +1,14 @@
 import React from 'react';
-import * as Styled from './slider.style';
+import * as Styled from '../shared/Slider/slider.style';
+import { SlideWrapper } from './AboutUs.styles';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { onChangeSlideEA } from '../../../../services/event';
-import { slides, portfolioSlides } from '../../../img/index';
+import { onChangeSlideEA } from '../../../services/event';
+import { slides } from '../../img/index';
 import { v4 as uuidv4 } from 'uuid';
+import AboutUs from './AboutUs.component';
+import { Employees } from 'consts/lists';
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -27,12 +30,14 @@ function SamplePrevArrow(props) {
 
 const SliderComponent: React.FC = () => {
   let settings = {
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     afterChange: (current) =>
-      onChangeSlideEA({ sliderName: 'Partfolio', slide: current }),
+      onChangeSlideEA({ sliderName: 'AboutUs', slide: current }),
+    // autoplay: true,
+    // autoplaySpeed: 2000, - becomes inconvenient with manual switching, better to turn it off with portfolio
     responsive: [
       {
         breakpoint: 1300,
@@ -49,16 +54,15 @@ const SliderComponent: React.FC = () => {
     ],
     className: 'slides',
   };
-
   return (
-    <Styled.SliderContainer style={{ width: '100%', height: '520px' }}>
-      <Slider {...settings}>
-        {Object.values(portfolioSlides).map((slide) => (
-          <div key={uuidv4()} className="slide-container">
-            <img height="520px" width="360px" src={slide} alt="Project" />
-          </div>
-        ))}
-      </Slider>
+    <Styled.SliderContainer style={{ width: '100%' }}>
+      <SlideWrapper>
+        <Slider {...settings} key={uuidv4()}>
+          {Employees.map((employee) => (
+            <AboutUs employee={employee} />
+          ))}
+        </Slider>
+      </SlideWrapper>
     </Styled.SliderContainer>
   );
 };

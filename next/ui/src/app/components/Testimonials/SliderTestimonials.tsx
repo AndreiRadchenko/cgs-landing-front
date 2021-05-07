@@ -1,11 +1,13 @@
 import React from 'react';
-import * as Styled from './slider.style';
+import * as Styled from './Testimonials.styles';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { onChangeSlideEA } from '../../../../services/event';
-import { slides, portfolioSlides } from '../../../img/index';
+import { onChangeSlideEA } from '../../../services/event';
+import { slides, portfolioSlides } from '../../img/index';
 import { v4 as uuidv4 } from 'uuid';
+import { TestimonialsList } from 'consts/lists';
+import Testimonials from './Testimonials.component';
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -25,7 +27,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-const SliderComponent: React.FC = () => {
+const SliderTestimonials: React.FC = () => {
   let settings = {
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -37,7 +39,7 @@ const SliderComponent: React.FC = () => {
       {
         breakpoint: 1300,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
       {
@@ -53,14 +55,12 @@ const SliderComponent: React.FC = () => {
   return (
     <Styled.SliderContainer style={{ width: '100%', height: '520px' }}>
       <Slider {...settings}>
-        {Object.values(portfolioSlides).map((slide) => (
-          <div key={uuidv4()} className="slide-container">
-            <img height="520px" width="360px" src={slide} alt="Project" />
-          </div>
+        {TestimonialsList.map((el) => (
+          <Testimonials testimonial={el}></Testimonials>
         ))}
       </Slider>
     </Styled.SliderContainer>
   );
 };
 
-export default SliderComponent;
+export default SliderTestimonials;
