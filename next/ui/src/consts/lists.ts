@@ -315,9 +315,6 @@ export const TestimonialsList = [
 
 export const FeaturedList = [
   {
-    title: 'Mobile',
-    name: 'React Native',
-    img: '/react.svg',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse posuere, augue eu tristique congue, velit ex lacinia est, fermentum faucibus quam ex a sapien. Vivamus eu enim ac augue ultricies aliquet nec dapibus urna. Integer in ultricies ipsum.',
   },
@@ -416,5 +413,21 @@ export const Works = [
     link: 'https://vk.com/',
     imageUrl:
       'https://code-generation-landing-bucket.s3.amazonaws.com/608a884218729b114dc20e98.jpg',
+  },
+];
+
+export const FeaturedTech = [
+  {
+    name: 'React Native',
+    title: 'Mobile',
+    img: '/react.svg',
+  },
+  {
+    name: 'Node',
+    title: 'Server',
+  },
+  {
+    name: 'React',
+    title: 'Web',
   },
 ];

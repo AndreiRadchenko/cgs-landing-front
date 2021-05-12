@@ -8,51 +8,57 @@ const imgSize = {
 const Arrow = styled.div`
   position: absolute;
   z-index: 100;
-  background-color: #fff !important;
-  width: ${imgSize.w} !important;
-  height: 36% !important;
+  background-color: #fff;
+  width: ${imgSize.w};
+  height: 36%;
 
   & img {
     width: 100%;
     height: 100%;
   }
   @media screen and (max-width: 769px) {
-    height: 32% !important;
+    height: 32%;
     margin-bottom: 20px;
   }
   @media screen and (max-width: 500px) {
-    height: 30% !important;
-    top: 10% !important;
+    height: 30%;
+    top: 10%;
     margin: 10px 0;
   }
   @media screen and (min-width: 1149px) {
-    background-color: transparent !important;
-    top: 50% !important;
+    background-color: transparent;
+    top: 50%;
+  }
+  &.slick-prev:hover,
+  &.slick-prev:focus,
+  &.slick-next:hover,
+  &.slick-next:focus {
+    background-color: #fff;
   }
 `;
 export const SliderPrev = styled(Arrow)`
-  top: 15% !important;
-  left: 5% !important;
+  top: 15%;
+  left: 5%;
   @media screen and (max-width: 500px) {
-    left: 0 !important;
+    left: 0;
   }
   @media screen and (min-width: 1149px) {
-    background-color: transparent !important;
-    top: 50% !important;
+    background-color: transparent;
+    top: 50%;
   }
   @media screen and (min-width: 1149px) {
-    left: 1% !important;
+    left: 1%;
   }
 `;
 
 export const SliderNext = styled(Arrow)`
-  top: 15% !important;
-  right: 5% !important;
+  top: 15%;
+  right: 5%;
   @media screen and (max-width: 500px) {
-    right: 0 !important;
+    right: 0;
   }
   @media screen and (min-width: 1149px) {
-    right: 1% !important;
+    right: 1%;
   }
 `;
 
@@ -69,7 +75,7 @@ export const SliderContainer = styled.div`
       width: 100%;
     }
     @media screen and (min-width: 1024px) {
-      width: calc((100% - 116px) / 3) !important;
+      width: calc((100% - 116px) / 3);
     }
   }
 

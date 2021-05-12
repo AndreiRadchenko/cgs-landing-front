@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Technology = ({ technology, index }) => {
   return (
-    <>
+    <React.Fragment>
       {
         <Styled.TechnoContainer key={uuidv4()} className={index}>
           <Styled.DescContainer>
@@ -22,7 +22,7 @@ const Technology = ({ technology, index }) => {
           </div>
         </Styled.TechnoContainer>
       }
-    </>
+    </React.Fragment>
   );
 };
 

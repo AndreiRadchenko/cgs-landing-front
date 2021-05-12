@@ -8,35 +8,42 @@ const imgSize = {
 const Arrow = styled.div`
   position: absolute;
   z-index: 100;
-  background-color: #fff !important;
-  width: ${imgSize.w} !important;
-  height: 50% !important;
+  background-color: #fff;
+  width: ${imgSize.w};
+  height: 50%;
 
   & img {
     width: 100%;
     height: 100%;
   }
   @media screen and (max-width: 769px) {
-    height: 40% !important;
+    top: 10%;
+    height: 45%;
     margin-top: 20px;
   }
   @media screen and (max-width: 500px) {
-    height: 30% !important;
+    height: 30%;
     margin-top: 10px;
-    top: 15% !important;
+    top: 15%;
   }
   @media screen and (min-width: 1024px) {
     display: none;
   }
+  &.slick-prev:hover,
+  &.slick-prev:focus,
+  &.slick-next:hover,
+  &.slick-next:focus {
+    background-color: #fff;
+  }
 `;
 export const SliderPrev = styled(Arrow)`
-  top: 20% !important;
-  left: 5% !important;
+  top: 20%;
+  left: 5%;
 `;
 
 export const SliderNext = styled(Arrow)`
-  top: 20% !important;
-  right: 5% !important;
+  top: 20%;
+  right: 5%;
 `;
 
 export const SliderContainer = styled.div`

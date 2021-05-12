@@ -46,7 +46,7 @@ const SliderComponent: React.FC = () => {
     className: 'slides',
   };
   return (
-    <Styled.SliderContainer style={{ width: '100%' }}>
+    <Styled.SliderContainer>
       <Styled.SlideWrapper>
         <Slider {...settings} key={uuidv4()}>
           {Employees.map((employee) => (

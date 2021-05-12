@@ -7,9 +7,9 @@ const imgSize = {
 const Arrow = styled.div`
   position: absolute;
   z-index: 100;
-  background-color: #fff !important;
-  width: ${imgSize.w} !important;
-  height: 50% !important;
+  background-color: #fff;
+  width: ${imgSize.w};
+  height: 50%;
   margin-top: 20px;
 
   & img {
@@ -17,47 +17,27 @@ const Arrow = styled.div`
     height: 100%;
   }
   @media screen and (max-width: 769px) {
-    height: 40% !important;
+    height: 40%;
   }
   @media screen and (min-width: 1024px) {
     display: none;
   }
+  &.slick-prev:hover,
+  &.slick-prev:focus,
+  &.slick-next:hover,
+  &.slick-next:focus {
+    background-color: #fff;
+  }
 `;
 export const SliderPrev = styled(Arrow)`
-  top: 15% !important;
-  left: 4% !important;
+  top: 15%;
+  left: 4%;
 `;
 
 export const SliderNext = styled(Arrow)`
-  top: 15% !important;
-  right: 4% !important;
+  top: 15%;
+  right: 4%;
 `;
-// const Arrow = styled.div`
-//   position: absolute;
-//   width: ${imgSize.w} !important;
-//   height: ${imgSize.h} !important;
-//   & img {
-//     width: 100%;
-//     height: 100%;
-//   }
-// `;
-// export const SliderPrev = styled(Arrow)`
-//   left: 10px !important;
-//   @media screen and (max-width: 650px) {
-//     margin: 15px;
-//     top: 15% !important;
-//     left: 5% !important;
-//   }
-// `;
-
-// export const SliderNext = styled(Arrow)`
-//   right: 10px !important;
-//   @media screen and (max-width: 650px) {
-//     margin: 15px;
-//     top: 15% !important;
-//     right: 5% !important;
-//   }
-// `;
 
 export const SliderContainer = styled.div`
   width: 100%;
