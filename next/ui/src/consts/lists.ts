@@ -1,6 +1,6 @@
 import { ISocialInside } from '../types/components/index';
 
-export const Technology = [
+export const Technologies = [
   {
     type: 'Web',
     technologies: ['React', 'Angular', 'Vue'],
@@ -211,6 +211,13 @@ export const Employees = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
+  {
+    name: 'Danyyl Kuchnov',
+    avatar: '/photo_2020-08-15 20.18.02.png',
+    position: 'CTO',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  },
 ];
 
 export const FactsList = [
@@ -261,7 +268,7 @@ export const TestimonialsList = [
     flag: '/spainFlag.png',
     text:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    rating_clutch: '3.0',
+    rating_clutch: '5.0',
     rating_upwork: '',
   },
   {
@@ -272,7 +279,7 @@ export const TestimonialsList = [
     text:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     rating_clutch: '',
-    rating_upwork: '5.0',
+    rating_upwork: '4.0',
   },
   {
     name: 'Vincent McLoughlin',
@@ -303,5 +310,111 @@ export const TestimonialsList = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     rating_clutch: '4.6',
     rating_upwork: '4.6',
+  },
+];
+
+export const FeaturedList = [
+  {
+    title: 'Mobile',
+    name: 'React Native',
+    img: '/react.svg',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse posuere, augue eu tristique congue, velit ex lacinia est, fermentum faucibus quam ex a sapien. Vivamus eu enim ac augue ultricies aliquet nec dapibus urna. Integer in ultricies ipsum.',
+  },
+  {
+    title: 'Server',
+    name: 'Node',
+    img: '/nodeWord.svg',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse posuere, augue eu tristique congue, velit ex lacinia est, fermentum faucibus quam ex a sapien. Vivamus eu enim ac augue ultricies aliquet nec dapibus urna. Integer in ultricies ipsum.',
+  },
+  {
+    title: 'Web',
+    name: 'React',
+    img: '/react.svg',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse posuere, augue eu tristique congue, velit ex lacinia est, fermentum faucibus quam ex a sapien. Vivamus eu enim ac augue ultricies aliquet nec dapibus urna. Integer in ultricies ipsum.',
+  },
+];
+
+export const Works = [
+  {
+    id: '608fa463b4441800a5bfe93d',
+    name: 'VKsadfasdf',
+    countryCode: 'RU',
+    shortDescription: 'Short description about VK',
+    fullDescription:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus. Maecenas iaculis, erat id dapibus euismod, lorem magna suscipit nisl, nec vestibulum sapien urna quis turpis. Pellentesque eleifend tortor sit amet lectus consectetur ultricies.',
+    technologies: [
+      {
+        id: '608a882e18729b114dc20e97',
+        name: 'JavaScript',
+        iconUrl:
+          'https://code-generation-landing-bucket.s3.amazonaws.com/608a86ac18729b114dc20e96.png',
+      },
+      {
+        id: '608a882e18729b114dc20e97',
+        name: 'JavaScript',
+        iconUrl:
+          'https://code-generation-landing-bucket.s3.amazonaws.com/608a86ac18729b114dc20e96.png',
+      },
+    ],
+    link: 'https://vk.com/',
+    imageUrl:
+      'https://code-generation-landing-bucket.s3.amazonaws.com/608a884218729b114dc20e98.jpg',
+  },
+  {
+    id: '608fa463b4441800a5bfe93d',
+    name: 'VK11111',
+    countryCode: 'RU',
+    shortDescription: 'Short description about VK',
+    fullDescription: 'Full description about VK',
+    technologies: [
+      {
+        id: '608a882e18729b114dc20e97',
+        name: 'JavaScript',
+        iconUrl:
+          'https://code-generation-landing-bucket.s3.amazonaws.com/608a86ac18729b114dc20e96.png',
+      },
+    ],
+    link: 'https://vk.com/',
+    imageUrl:
+      'https://code-generation-landing-bucket.s3.amazonaws.com/608a884218729b114dc20e98.jpg',
+  },
+  {
+    id: '608fa463b4441800a5bfe93d',
+    name: 'VKffffff',
+    countryCode: 'RU',
+    shortDescription: 'Short description about VK',
+    fullDescription: 'Full description about VK',
+    technologies: [
+      {
+        id: '608a882e18729b114dc20e97',
+        name: 'JavaScript',
+        iconUrl:
+          'https://code-generation-landing-bucket.s3.amazonaws.com/608a86ac18729b114dc20e96.png',
+      },
+    ],
+    link: 'https://vk.com/',
+    imageUrl:
+      'https://code-generation-landing-bucket.s3.amazonaws.com/608a884218729b114dc20e98.jpg',
+  },
+  {
+    id: '608fa463b4441800a5bfe93d',
+    name: 'VK000000',
+    countryCode: 'RU',
+    shortDescription: 'Short description about VK',
+    fullDescription: 'Full description about VK',
+    technologies: [
+      {
+        id: '608a882e18729b114dc20e97',
+        name: 'JavaScript',
+        iconUrl:
+          'https://code-generation-landing-bucket.s3.amazonaws.com/608a86ac18729b114dc20e96.png',
+      },
+    ],
+    link: 'https://vk.com/',
+    imageUrl:
+      'https://code-generation-landing-bucket.s3.amazonaws.com/608a884218729b114dc20e98.jpg',
   },
 ];

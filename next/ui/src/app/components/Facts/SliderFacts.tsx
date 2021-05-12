@@ -1,5 +1,4 @@
 import React from 'react';
-// import * as Styled from '../shared/Slider/slider.style';
 import * as Styled from './Facts.styles';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -40,7 +39,7 @@ const SliderFacts: React.FC = () => {
     // autoplaySpeed: 2000, - becomes inconvenient with manual switching, better to turn it off with portfolio
     responsive: [
       {
-        breakpoint: 1000,
+        breakpoint: 1023,
         settings: {
           slidesToShow: 1,
         },

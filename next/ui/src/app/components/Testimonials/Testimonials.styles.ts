@@ -7,28 +7,52 @@ const imgSize = {
 
 const Arrow = styled.div`
   position: absolute;
+  z-index: 100;
+  background-color: #fff !important;
   width: ${imgSize.w} !important;
-  height: ${imgSize.h} !important;
+  height: 36% !important;
+
   & img {
     width: 100%;
     height: 100%;
   }
+  @media screen and (max-width: 769px) {
+    height: 32% !important;
+    margin-bottom: 20px;
+  }
+  @media screen and (max-width: 500px) {
+    height: 30% !important;
+    top: 10% !important;
+    margin: 10px 0;
+  }
+  @media screen and (min-width: 1149px) {
+    background-color: transparent !important;
+    top: 50% !important;
+  }
 `;
 export const SliderPrev = styled(Arrow)`
-  left: 10px !important;
-  @media screen and (max-width: 650px) {
-    margin: 15px;
-    top: 15% !important;
-    left: 5% !important;
+  top: 15% !important;
+  left: 5% !important;
+  @media screen and (max-width: 500px) {
+    left: 0 !important;
+  }
+  @media screen and (min-width: 1149px) {
+    background-color: transparent !important;
+    top: 50% !important;
+  }
+  @media screen and (min-width: 1149px) {
+    left: 1% !important;
   }
 `;
 
 export const SliderNext = styled(Arrow)`
-  right: 10px !important;
-  @media screen and (max-width: 650px) {
-    margin: 15px;
-    top: 15% !important;
-    right: 5% !important;
+  top: 15% !important;
+  right: 5% !important;
+  @media screen and (max-width: 500px) {
+    right: 0 !important;
+  }
+  @media screen and (min-width: 1149px) {
+    right: 1% !important;
   }
 `;
 
@@ -41,10 +65,10 @@ export const SliderContainer = styled.div`
   }
 
   & .slick-slide {
-    @media screen and (max-width: 350px) {
+    @media screen and (max-width: 1023px) {
       width: 100%;
     }
-    @media screen and (min-width: 1001px) {
+    @media screen and (min-width: 1024px) {
       width: calc((100% - 116px) / 3) !important;
     }
   }
@@ -67,7 +91,6 @@ export const TestimonialContainer = styled('div')`
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  font-family: Mulish;
 
   & .titleWrapper {
     margin: 4px 0 5px;
@@ -109,7 +132,7 @@ export const TestimonialContainer = styled('div')`
     margin: 0 0 0 8px;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1023px) {
     align-items: center;
     text-align: center;
     & .testimonials__text {

@@ -45,7 +45,7 @@ const SliderWorks: React.FC<{ children: React.ReactNodeArray }> = ({
   };
 
   return (
-    <Styled.SliderContainer style={{ width: '90%', minHeight: '420px' }}>
+    <Styled.SliderContainer style={{ width: '90%' }}>
       <Slider {...settings}>{children.map((slide) => slide)}</Slider>
     </Styled.SliderContainer>
   );

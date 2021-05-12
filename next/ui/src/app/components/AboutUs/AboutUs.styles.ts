@@ -1,5 +1,81 @@
 import styled from 'styled-components';
 
+const imgSize = {
+  w: '35px',
+  h: '35px',
+};
+
+const Arrow = styled.div`
+  position: absolute;
+  z-index: 100;
+  background-color: #fff !important;
+  width: ${imgSize.w} !important;
+  height: 85% !important;
+  margin-top: 30px;
+
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+  @media screen and (max-width: 769px) {
+    height: 50% !important;
+    margin-top: 30px;
+    top: 15% !important;
+  }
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
+`;
+export const SliderPrev = styled(Arrow)`
+  top: 20% !important;
+  left: 5% !important;
+`;
+
+export const SliderNext = styled(Arrow)`
+  top: 20% !important;
+  right: 5% !important;
+`;
+
+export const SliderContainer = styled.div`
+  width: 100%;
+  height: 100%;
+
+  & .slick-slider {
+    margin: 0 1em;
+
+    @media screen and (max-width: 1023px) {
+      margin: 0 5em;
+    }
+    @media screen and (max-width: 650px) {
+      margin: 0;
+    }
+  }
+  & .slick-slide {
+    display: flex;
+    justify-content: center;
+  }
+  & .slide-container {
+    display: flex !important;
+    justify-content: center;
+  }
+  & .slick-slide > div > div > img {
+    margin: auto;
+    @media screen and (max-width: 1023px) {
+      width: 100%;
+    }
+  }
+
+  & .slides *:focus {
+    outline: 0;
+    outline: none;
+  }
+
+  & .slick-next:before,
+  & .slick-prev:before {
+    content: none;
+  }
+`;
+
 export const Wrapper = styled('div')`
   width: 100%;
   position: relative;
@@ -35,7 +111,7 @@ export const AboutUsContainer = styled('div')`
     opacity: 0.5;
   }
 
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 1024px) {
     &:not(:last-child) {
       margin-right: 162px;
     }
@@ -59,7 +135,7 @@ export const SlideWrapper = styled('div')`
   & .slick-track {
     display: flex;
   }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 1024px) {
     & .slick-slide:not(:last-child) {
       margin-right: 162px;
     }

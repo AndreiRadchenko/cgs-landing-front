@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SlideContainer = styled.div`
   width: 90%;
@@ -12,7 +12,7 @@ export const SlideContainer = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     flex-direction: column-reverse;
     align-items: center;
   }
@@ -26,7 +26,7 @@ export const SlideContainer = styled.div`
     align-items: center;
     padding-top: 40px;
     font-size: 30px;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       font-size: 25px;
       justify-content: center;
       padding: 0;
@@ -41,7 +41,7 @@ export const SlideContainer = styled.div`
     width: 100%;
     display: flex;
 
-    @media screen and (max-width: 760px) {
+    @media screen and (max-width: 1024px) {
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
@@ -53,7 +53,7 @@ export const SlideContainer = styled.div`
     width: 50%;
     height: 100%;
     margin-right: 2px;
-    @media screen and (max-width: 760px) {
+    @media screen and (max-width: 1024px) {
       width: 100%;
       margin-bottom: 1.5em;
       height: auto;
@@ -65,7 +65,7 @@ export const SlideContainer = styled.div`
       justify-content: flex-end;
       align-items: center;
       margin-right: 20px;
-      @media screen and (max-width: 760px) {
+      @media screen and (max-width: 1024px) {
         width: auto;
         margin-left: 1.5em;
         margin-right: 15px;
@@ -76,7 +76,7 @@ export const SlideContainer = styled.div`
         object-fit: cover;
         width: 142px;
         height: 142px;
-        @media screen and (max-width: 850px) {
+        @media screen and (max-width: 1024px) {
           width: 110px;
           height: 110px;
         }
@@ -137,7 +137,7 @@ export const SlideContainer = styled.div`
   & .description {
     display: flex;
     width: 50%;
-    @media screen and (max-width: 760px) {
+    @media screen and (max-width: 1024px) {
       width: 100%;
       margin-bottom: 40px;
       display: flex;
@@ -152,7 +152,7 @@ export const SlideContainer = styled.div`
       font-size: 20px;
       color: gray;
       margin-left: 25px;
-      @media screen and (max-width: 992px) {
+      @media screen and (max-width: 1024px) {
         font-size: 16px;
       }
       @media screen and (max-width: 760px) {
@@ -162,7 +162,7 @@ export const SlideContainer = styled.div`
   }
 `;
 
-export const HorizantalSep = styled("div")`
+export const HorizantalSep = styled('div')`
   width: 55px;
   height: 2px;
   background: #fff;
@@ -173,7 +173,7 @@ export const HorizantalSep = styled("div")`
   }
 `;
 
-export const TopRightDotsContainer = styled("div")`
+export const TopRightDotsContainer = styled('div')`
   position: absolute;
   width: 10%;
   height: 22%;
@@ -193,7 +193,7 @@ export const TopRightDotsContainer = styled("div")`
     }
   }
 `;
-export const BottomLeftDotsContainer = styled("div")`
+export const BottomLeftDotsContainer = styled('div')`
   position: absolute;
   width: 4%;
   height: 22%;

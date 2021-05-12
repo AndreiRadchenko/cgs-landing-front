@@ -1,12 +1,13 @@
 import React from 'react';
-import * as Styled from './Testimonials.styles';
+import * as Styled from './technologies.styles';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { onChangeSlideEA } from '../../../services/event';
 import { slides } from '../../img/index';
-import { TestimonialsList } from 'consts/lists';
-import Testimonials from './Testimonials.component';
+import { v4 as uuidv4 } from 'uuid';
+import Technology from './technologies.component';
+import { Technologies } from 'consts/lists';
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -26,17 +27,17 @@ function SamplePrevArrow(props) {
   );
 }
 
-const SliderTestimonials: React.FC = () => {
+const SliderTechnologies: React.FC = () => {
   let settings = {
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     afterChange: (current) =>
-      onChangeSlideEA({ sliderName: 'Partfolio', slide: current }),
+      onChangeSlideEA({ sliderName: 'AboutUs', slide: current }),
     responsive: [
       {
-        breakpoint: 1149,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 1,
         },
@@ -44,16 +45,15 @@ const SliderTestimonials: React.FC = () => {
     ],
     className: 'slides',
   };
-
   return (
     <Styled.SliderContainer style={{ width: '100%' }}>
-      <Slider {...settings}>
-        {TestimonialsList.map((el) => (
-          <Testimonials testimonial={el}></Testimonials>
+      <Slider {...settings} key={uuidv4()}>
+        {Technologies.map((technology, index) => (
+          <Technology technology={technology} index={index} />
         ))}
       </Slider>
     </Styled.SliderContainer>
   );
 };
 
-export default SliderTestimonials;
+export default SliderTechnologies;

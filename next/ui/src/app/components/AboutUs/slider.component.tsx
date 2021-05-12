@@ -1,6 +1,5 @@
 import React from 'react';
-import * as Styled from '../shared/Slider/slider.style';
-import { SlideWrapper } from './AboutUs.styles';
+import * as Styled from './AboutUs.styles';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -36,17 +35,9 @@ const SliderComponent: React.FC = () => {
     prevArrow: <SamplePrevArrow />,
     afterChange: (current) =>
       onChangeSlideEA({ sliderName: 'AboutUs', slide: current }),
-    // autoplay: true,
-    // autoplaySpeed: 2000, - becomes inconvenient with manual switching, better to turn it off with portfolio
     responsive: [
       {
-        breakpoint: 1300,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 1000,
+        breakpoint: 1023,
         settings: {
           slidesToShow: 1,
         },
@@ -56,13 +47,13 @@ const SliderComponent: React.FC = () => {
   };
   return (
     <Styled.SliderContainer style={{ width: '100%' }}>
-      <SlideWrapper>
+      <Styled.SlideWrapper>
         <Slider {...settings} key={uuidv4()}>
           {Employees.map((employee) => (
             <AboutUs employee={employee} />
           ))}
         </Slider>
-      </SlideWrapper>
+      </Styled.SlideWrapper>
     </Styled.SliderContainer>
   );
 };

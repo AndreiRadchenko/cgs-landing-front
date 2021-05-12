@@ -5,7 +5,7 @@ import Rating from './rating/Rating';
 
 const Testimonials = ({ testimonial }) => {
   return (
-    <Styled.TestimonialContainer className="about-us__slide" key={uuidv4()}>
+    <Styled.TestimonialContainer key={uuidv4()}>
       <div className="titleWrapper">
         <h2>{testimonial.name}</h2>
         <img

@@ -7,29 +7,36 @@ const imgSize = {
 
 const Arrow = styled.div`
   position: absolute;
+  z-index: 100;
+  background-color: #fff !important;
   width: ${imgSize.w} !important;
-  height: ${imgSize.h} !important;
+  height: 50% !important;
+
   & img {
     width: 100%;
     height: 100%;
   }
+  @media screen and (max-width: 769px) {
+    height: 40% !important;
+    margin-top: 20px;
+  }
+  @media screen and (max-width: 500px) {
+    height: 30% !important;
+    margin-top: 10px;
+    top: 15% !important;
+  }
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
 `;
 export const SliderPrev = styled(Arrow)`
-  left: 10px !important;
-  @media screen and (max-width: 650px) {
-    margin: 15px;
-    top: 15% !important;
-    left: 5% !important;
-  }
+  top: 20% !important;
+  left: 5% !important;
 `;
 
 export const SliderNext = styled(Arrow)`
-  right: 10px !important;
-  @media screen and (max-width: 650px) {
-    margin: 15px;
-    top: 15% !important;
-    right: 5% !important;
-  }
+  top: 20% !important;
+  right: 5% !important;
 `;
 
 export const SliderContainer = styled.div`
@@ -43,7 +50,7 @@ export const SliderContainer = styled.div`
     flex-wrap: wrap;
   }
 
-  @media screen and (min-width: 1001px) {
+  @media screen and (min-width: 1024px) {
     & .slick-slide {
       margin: 0;
       width: calc((100% - 120px) / 2) !important;
@@ -57,7 +64,7 @@ export const SliderContainer = styled.div`
   }
 
   & .slick-slide > div > div > img {
-    @media screen and (max-width: 350px) {
+    @media screen and (max-width: 1023px) {
       width: 100%;
     }
   }
@@ -80,7 +87,6 @@ export const FactContainer = styled('div')`
   align-items: flex-start;
   justify-content: space-between;
   text-align: justify;
-  font-family: Mulish;
 
   & .titleWrapper {
     margin: 4px 0 5px;
@@ -107,7 +113,7 @@ export const FactContainer = styled('div')`
     color: #fff;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1023px) {
     align-items: center;
     text-align: center;
     & .fact__text {

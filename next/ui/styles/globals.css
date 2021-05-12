@@ -7,6 +7,8 @@
 @import '../src//app/components/Facts/styles.css';
 @import '../src//app/components/Testimonials/styles.css';
 @import '../src//app/components/Testimonials/rating/styles.css';
+@import '../src//app/components/FeaturedTechnologies/styles.css';
+@import '../src//app/components/shared/Form/styles.css';
 
 @font-face {
   font-family: 'MulaRegular';
