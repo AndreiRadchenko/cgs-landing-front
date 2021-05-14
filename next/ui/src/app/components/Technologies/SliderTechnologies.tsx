@@ -7,7 +7,7 @@ import { onChangeSlideEA } from '../../../services/event';
 import { slides } from '../../img/index';
 import { v4 as uuidv4 } from 'uuid';
 import Technology from './technologies.component';
-import { Technologies } from 'consts/lists';
+import { ITechnology } from '../../../types/components/index';
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -27,9 +27,12 @@ function SamplePrevArrow(props) {
   );
 }
 
-const SliderTechnologies: React.FC = () => {
+const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
+  technologies,
+}) => {
+  const slidesToShow = technologies.length < 4 ? technologies.length : 4;
   let settings = {
-    slidesToShow: 4,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -48,9 +51,10 @@ const SliderTechnologies: React.FC = () => {
   return (
     <Styled.SliderContainer style={{ width: '100%' }}>
       <Slider {...settings} key={uuidv4()}>
-        {Technologies.map((technology, index) => (
-          <Technology technology={technology} index={index} />
-        ))}
+        {technologies &&
+          technologies.map((technology, index) => (
+            <Technology key={uuidv4()} technology={technology} index={index} />
+          ))}
       </Slider>
     </Styled.SliderContainer>
   );

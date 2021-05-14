@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import * as Styled from "./header.styles";
-import Categories from "../Categories/categories.component";
-import SocialLinks from "../SocialLinks/social-links.component";
-import Menu from "../BurgerMenu/menu.component";
-import { IHeader } from "../../../../types/components";
+import React, { useEffect } from 'react';
+import * as Styled from './header.styles';
+import Categories from '../Categories/categories.component';
+import SocialLinks from '../SocialLinks/social-links.component';
+import Menu from '../BurgerMenu/menu.component';
+import { IHeader } from '../../../../types/components';
 
 interface LocationState {
   from: {
@@ -31,7 +31,7 @@ const Header: React.FC<IHeader> = ({
       <Styled.HeaderWrapper>
         <Styled.HeaderItem>
           <a href="/">
-            <Styled.HeaderLogo src={"/logo.svg"} />
+            <Styled.HeaderLogo src="/logo.svg" />
           </a>
         </Styled.HeaderItem>
         <Menu activeMenu={activeMenu} setMenuState={setMenuState}>
@@ -47,6 +47,6 @@ const Header: React.FC<IHeader> = ({
   );
 };
 Header.defaultProps = {
-  fill: "#0C1033",
+  fill: '#0C1033',
 };
 export default Header;

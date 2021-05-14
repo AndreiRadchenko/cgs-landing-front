@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as Styled from './Testimonials.styles';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { onChangeSlideEA } from '../../../services/event';
 import { slides } from '../../img/index';
-import { TestimonialsList } from 'consts/lists';
 import Testimonials from './Testimonials.component';
+import { ITestimonial } from '../../../types/components/index';
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -26,14 +26,16 @@ function SamplePrevArrow(props) {
   );
 }
 
-const SliderTestimonials: React.FC = () => {
+const SliderTestimonials: React.FC<{ testimonials: ITestimonial[] }> = ({
+  testimonials,
+}) => {
   let settings = {
     slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     afterChange: (current) =>
-      onChangeSlideEA({ sliderName: 'Partfolio', slide: current }),
+      onChangeSlideEA({ sliderName: 'Portfolio', slide: current }),
     responsive: [
       {
         breakpoint: 1149,
@@ -46,14 +48,18 @@ const SliderTestimonials: React.FC = () => {
   };
 
   return (
-    <Styled.SliderContainer style={{ width: '100%' }}>
+    <Styled.SliderContainer>
       <Slider {...settings}>
-        {TestimonialsList.map((el) => (
-          <Testimonials testimonial={el}></Testimonials>
-        ))}
+        {testimonials &&
+          testimonials.map((el) => (
+            <Testimonials key={el.id} testimonial={el}></Testimonials>
+          ))}
       </Slider>
     </Styled.SliderContainer>
   );
 };
 
 export default SliderTestimonials;
+function data(data: any, arg1: (any: any) => any) {
+  throw new Error('Function not implemented.');
+}

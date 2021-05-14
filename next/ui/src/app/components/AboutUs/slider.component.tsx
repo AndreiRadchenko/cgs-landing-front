@@ -8,6 +8,7 @@ import { slides } from '../../img/index';
 import { v4 as uuidv4 } from 'uuid';
 import AboutUs from './AboutUs.component';
 import { Employees } from 'consts/lists';
+import { IWorker } from 'types/components';
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -27,7 +28,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-const SliderComponent: React.FC = () => {
+const SliderComponent: React.FC<{ workers: IWorker[] }> = ({ workers }) => {
   let settings = {
     slidesToShow: 2,
     slidesToScroll: 1,
@@ -49,8 +50,8 @@ const SliderComponent: React.FC = () => {
     <Styled.SliderContainer>
       <Styled.SlideWrapper>
         <Slider {...settings} key={uuidv4()}>
-          {Employees.map((employee) => (
-            <AboutUs employee={employee} />
+          {workers.map((employee) => (
+            <AboutUs key={employee.id} employee={employee} />
           ))}
         </Slider>
       </Styled.SlideWrapper>

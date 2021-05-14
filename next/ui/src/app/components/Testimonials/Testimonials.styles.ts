@@ -110,8 +110,8 @@ export const TestimonialContainer = styled('div')`
   }
 
   & .testimonials__flag {
-    border: 1px solid black;
-    border-radius: 5px;
+    /* border: 1px solid black;
+    border-radius: 5px; */
   }
 
   & .testimonials__company {

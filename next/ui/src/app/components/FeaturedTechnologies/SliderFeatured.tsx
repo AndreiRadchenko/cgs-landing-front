@@ -8,6 +8,7 @@ import { slides } from '../../img/index';
 import { v4 as uuidv4 } from 'uuid';
 import { FeaturedList, FeaturedTech } from 'consts/lists';
 import Featured from './FeaturedTechnologies.component';
+import { IFeaturedTechnology } from 'types/components';
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -27,7 +28,9 @@ function SamplePrevArrow(props) {
   );
 }
 
-const SliderFeatured: React.FC = () => {
+const SliderFeatured: React.FC<{
+  featuredTechnologies: IFeaturedTechnology[];
+}> = ({ featuredTechnologies }) => {
   let settings = {
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -49,8 +52,8 @@ const SliderFeatured: React.FC = () => {
   return (
     <Styled.SliderContainer>
       <Slider {...settings}>
-        {FeaturedList.map((el, index) => (
-          <Featured tech={el} FeaturedTech={FeaturedTech[index]}></Featured>
+        {featuredTechnologies.map((el) => (
+          <Featured featuredTech={el} key={el.id}></Featured>
         ))}
       </Slider>
     </Styled.SliderContainer>
