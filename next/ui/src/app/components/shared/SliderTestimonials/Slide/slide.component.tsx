@@ -2,6 +2,7 @@ import React from 'react';
 import * as Style from './slide.styled';
 import { IProject } from '../../../../../types/components/index';
 import { v4 as uuidv4 } from 'uuid';
+import IMAGES from '../../../../../consts/Images';
 
 const Slide: React.FC<IProject> = ({ item }) => {
   return (
@@ -23,7 +24,7 @@ const Slide: React.FC<IProject> = ({ item }) => {
               <img
                 className="slider-technology__img"
                 key={tech.id}
-                src={tech.iconUrl ? tech.iconUrl : './node.svg'}
+                src={tech.iconUrl ? tech.iconUrl : IMAGES.NODE}
               />
               <span className="slider-technology__text">{tech.name}</span>
             </div>

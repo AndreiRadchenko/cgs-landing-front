@@ -1,8 +1,9 @@
+import Button from './Button';
 import React from 'react';
 import * as Styled from './StyledRating';
 const Rating = ({ testimonial }) => {
-  const upwork = testimonial.platforms.filter((el) => el.type === 'upwork')[0];
-  const clutch = testimonial.platforms.filter((el) => el.type === 'clutch')[0];
+  const upwork = testimonial.platforms.find((el) => el.type === 'upwork');
+  const clutch = testimonial.platforms.find((el) => el.type === 'clutch');
   const arr = ['', '', '', '', ''];
   const starsClutch = [
     ...arr.map((_, index) => {
@@ -31,9 +32,7 @@ const Rating = ({ testimonial }) => {
               <img src="/clutch.svg" width="58" height="16" alt="" />
               <p>{clutch.rate.toFixed(1)}</p>
             </Styled.Rating>
-            <a href={clutch.link} className="rating__button--small">
-              Read More
-            </a>
+            <Button link={clutch.link} small={true} />
           </Styled.RatingItem>
 
           <Styled.RatingItem className="testimonials__rating-upwork">
@@ -43,9 +42,7 @@ const Rating = ({ testimonial }) => {
                 {upwork.rate.toFixed(1)}
               </p>
             </Styled.Rating>
-            <a href={upwork.link} className="rating__button--small">
-              Read More
-            </a>
+            <Button link={clutch.link} small={true} />
           </Styled.RatingItem>
         </Styled.RatingWrapper>
       ) : clutch ? (
@@ -55,9 +52,7 @@ const Rating = ({ testimonial }) => {
             <p>{clutch.rate.toFixed(1)}</p>
             <Styled.Stars>{starsClutch.map((el) => el)}</Styled.Stars>
           </Styled.Rating>
-          <a href={clutch.link} className="rating__button">
-            Read More
-          </a>
+          <Button link={clutch.link} />
         </React.Fragment>
       ) : (
         upwork && (
@@ -67,9 +62,7 @@ const Rating = ({ testimonial }) => {
               <p>{upwork.rate.toFixed(1)}</p>
               <Styled.Stars>{starsUpwork.map((el) => el)}</Styled.Stars>
             </Styled.Rating>
-            <a href={clutch.link} className="rating__button">
-              Read More
-            </a>
+            <Button link={clutch.link} />
           </React.Fragment>
         )
       )}

@@ -26,7 +26,7 @@ const Testimonials = ({ testimonial }) => {
           </div>
         )}
         <p className="testimonials__country">
-          {country?.split(' ').length < 2 ? country : testimonial.countryCode}
+          {country?.split(' ').length < 3 ? country : testimonial.countryCode}
         </p>
       </div>
       <p className="testimonials__company">{testimonial.companyName}</p>

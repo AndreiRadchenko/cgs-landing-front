@@ -4,7 +4,7 @@ import Categories from '../Categories/categories.component';
 import SocialLinks from '../SocialLinks/social-links.component';
 import Menu from '../BurgerMenu/menu.component';
 import { IHeader } from '../../../../types/components';
-
+import IMAGES from '../../../../consts/Images';
 interface LocationState {
   from: {
     pathname: string;
@@ -31,7 +31,7 @@ const Header: React.FC<IHeader> = ({
       <Styled.HeaderWrapper>
         <Styled.HeaderItem>
           <a href="/">
-            <Styled.HeaderLogo src="/logo.svg" />
+            <Styled.HeaderLogo src={IMAGES.LOGO} />
           </a>
         </Styled.HeaderItem>
         <Menu activeMenu={activeMenu} setMenuState={setMenuState}>

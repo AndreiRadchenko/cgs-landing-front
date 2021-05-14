@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL: string = 'https://cg-landing-backend.herokuapp.com/';
+const BASE_URL: string | undefined = process.env.BASE_URL;
 
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.params = {};

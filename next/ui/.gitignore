@@ -17,6 +17,7 @@ yarn-error.log*21000000
 .env.development.local
 .env.test.local
 .env.production.local
+.env.local
 
 # boilerplate internals
 generated-cra-app
