@@ -2,8 +2,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle<{ activeMenu: boolean }>`
   body {
-    height : ${props => (props.activeMenu ? '100%' : 'auto')};
-    overflow: ${props => (props.activeMenu ? 'hidden' : 'visible')};
+    height : ${(props) => (props.activeMenu ? '100%' : 'auto')};
+    overflow: ${(props) => (props.activeMenu ? 'hidden' : 'visible')};
   }
 `;
 

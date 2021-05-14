@@ -3,7 +3,7 @@ export const FormWrapper = styled('div')`
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-conntent: space-between;
+  justify-content: space-between;
   align-items: center;
 
   & > div {

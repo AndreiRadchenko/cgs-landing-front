@@ -1,22 +1,26 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const imgSize = {
-  w: "30px",
-  h: "30px",
+  w: '30px',
+  h: '30px',
 };
 
 const Arrow = styled.div`
   position: absolute;
   width: ${imgSize.w} !important;
   height: ${imgSize.h} !important;
+
   & img {
     width: 100%;
     height: 100%;
   }
+  @media screen and (max-width: 1024px) {
+    top: 25%;
+  }
 `;
 
 export const SliderPrev = styled(Arrow)`
-  z-index: 999;
+  z-index: 2;
   cursor: pointer;
   /* @media screen and (max-width: 1200px) { */
   /* left: 35% !important; */
