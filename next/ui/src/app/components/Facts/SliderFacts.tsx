@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import * as Styled from './Facts.styles';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -7,9 +7,8 @@ import { onChangeSlideEA } from '../../../services/event';
 import { slides } from '../../img/index';
 import { v4 as uuidv4 } from 'uuid';
 import Facts from './Facts.component';
-import { FactsList } from 'consts/lists';
-import { getFacts } from 'services/api/api';
-import { IFact } from 'services/api/ComponentTypes';
+
+import { IFact } from '../../../types/components/index';
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -30,10 +29,6 @@ function SamplePrevArrow(props) {
 }
 
 const SliderFacts: React.FC<{ facts: IFact[] }> = ({ facts }) => {
-  // const [facts, setFacts] = useState<IFact[] | null>([]);
-  // useEffect(() => {
-  //   getFacts().then((data: IFact[]) => setFacts(data));
-  // }, []);
   let settings = {
     slidesToShow: 6,
     slidesToScroll: 1,

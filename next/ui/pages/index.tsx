@@ -1,22 +1,26 @@
 import { HomePage } from '../src/app/containers/HomePage/';
+import { getData } from '../src/services/api/api';
 import {
-  getFacts,
-  getTestimonials,
-  getTechnologies,
-  getHomeDetails,
-  getProjects,
-  getWorkers,
-  getFeaturedTechnologies,
-} from '../src/services/api/api';
+  IProject,
+  IFact,
+  ISlogan,
+  ITechnology,
+  ITestimonial,
+  IWorker,
+  IFeaturedTechnology,
+} from '../src/types/components/index';
+
 export async function getServerSideProps() {
   try {
-    const testimonials = await getTestimonials();
-    const facts = await getFacts();
-    const technologies = await getTechnologies();
-    const slogan = await getHomeDetails();
-    const projects = await getProjects();
-    const workers = await getWorkers();
-    const featuredTechnologies = await getFeaturedTechnologies();
+    const featuredTechnologies: IFeaturedTechnology[] = await getData(
+      'featuredTechnologies'
+    );
+    const testimonials: ITestimonial[] = await getData('testimonials');
+    const facts: IFact[] = await getData('facts');
+    const technologies: ITechnology[] = await getData('technologies');
+    const slogan: ISlogan[] = await getData('slogan');
+    const projects: IProject[] = await getData('projects');
+    const workers: IWorker[] = await getData('workers');
     return {
       props: {
         testimonials,

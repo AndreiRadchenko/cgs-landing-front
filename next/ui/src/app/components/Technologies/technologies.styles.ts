@@ -39,7 +39,7 @@ export const SliderContainer = styled.div`
 
   & .slick-track {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     flex-wrap: wrap;
   }
 
@@ -47,15 +47,15 @@ export const SliderContainer = styled.div`
     width: 100%;
     position: relative;
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
+    justify-content: center;
+    align-items: center;
   }
 
   @media screen and (min-width: 1024px) {
     margin-top: 90px;
     & .slick-slide {
       margin: 0;
-      /* justify-content: space-between; */
+      justify-content: space-between;
       width: calc((100% - 15%) / 2) !important;
     }
 
@@ -106,7 +106,7 @@ export const TechnoContainer = styled('div')`
 
   @media screen and (max-width: 1024px) {
     flex-direction: column;
-    /* align-items: center; */
+    align-items: center;
 
     & div:last-child {
       order: -1;
@@ -125,9 +125,9 @@ export const TechnoContainer = styled('div')`
     }
   }
   @media screen and (min-width: 1024px) {
-    /* justify-content: space-between; */
+    justify-content: space-between;
     flex-direction: row-reverse;
-    /* align-items: flex-end; */
+    align-items: flex-end;
 
     .slick-slide:nth-child(3n - 3) &,
     .slick-slide:nth-child(4n - 4) & {

@@ -7,7 +7,6 @@ import { onChangeSlideEA } from '../../../services/event';
 import { slides } from '../../img/index';
 import { v4 as uuidv4 } from 'uuid';
 import AboutUs from './AboutUs.component';
-import { Employees } from 'consts/lists';
 import { IWorker } from 'types/components';
 
 function SampleNextArrow(props) {

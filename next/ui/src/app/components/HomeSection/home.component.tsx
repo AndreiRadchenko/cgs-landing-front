@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Styled from './home.styles';
-import { ISlogan } from 'services/api/ComponentTypes';
+import { ISlogan } from '../../../types/components/index';
 
 const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => {
   return (
