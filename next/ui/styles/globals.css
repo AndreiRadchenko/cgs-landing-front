@@ -9,6 +9,8 @@
 @import '../src//app/components/Testimonials/rating/styles.css';
 @import '../src//app/components/FeaturedTechnologies/styles.css';
 @import '../src//app/components/shared/Form/styles.css';
+@import '../src//app/components/BlogArticle/styles.css';
+@import '../src//app/components/shared/LinkButton/Button.css';
 
 @font-face {
   font-family: 'MulaRegular';

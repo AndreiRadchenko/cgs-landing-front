@@ -18,8 +18,6 @@ export interface IHeader {
   socialList: Array<ISocialInside>;
   fill?: string;
   navigation: Array<ICategoriesInside>;
-  activeIndex: number;
-  setActiveIndex: any;
 }
 export interface ISvgData {
   path: string;
@@ -47,7 +45,7 @@ export interface IArticle {
   id?: string;
   desc?: string;
   title: string;
-  //   children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export interface IHome {
@@ -75,8 +73,6 @@ export interface ICategoriesInside {
 }
 export interface ICategories {
   navigation: Array<ICategoriesInside>;
-  activeIndex: number;
-  setActiveIndex: any;
 }
 
 export interface IInput {
@@ -171,4 +167,19 @@ export interface IFeaturedTechnology {
   name: string;
   text: string;
   imageUrl: string;
+}
+
+export interface IBlogArticle {
+  id?: string;
+  content?: string;
+  title: string;
+  author?: string;
+  imageFileUrl?: string;
+  tags?: IBlogArticleTag[];
+  date?: Date;
+}
+
+interface IBlogArticleTag {
+  id: string;
+  name: string;
 }

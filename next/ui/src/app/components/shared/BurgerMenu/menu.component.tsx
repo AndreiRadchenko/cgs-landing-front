@@ -6,6 +6,7 @@ import SocialLinks from '../SocialLinks/social-links.component';
 import { MobileSocialList, Nav } from '../../../../consts/lists';
 import BurgerIcon from './burger.icon';
 import { v4 as uuidv4 } from 'uuid';
+import Link from 'next/link';
 
 const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
   const onBurger = () => {
@@ -31,16 +32,11 @@ const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
           <div className="drop-box-container">
             <div className="drop-box-main">
               {Nav.map((item, index) => (
-                <a href={item.link} key={uuidv4()}>
-                  <p
-                    className={
-                      // index === 0 ? 'drop-box-item' : 'drop-box-item__active'
-                      'drop-box-item'
-                    }
-                  >
-                    {item.burgerTitle}
-                  </p>
-                </a>
+                <Link href={item.link} key={uuidv4()}>
+                  <a>
+                    <p className={'drop-box-item'}>{item.burgerTitle}</p>
+                  </a>
+                </Link>
               ))}
             </div>
             <div className="drop-box-footer">

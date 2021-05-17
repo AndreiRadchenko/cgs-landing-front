@@ -17,13 +17,7 @@ const NavigationMapper = {
   Contact: 2,
 };
 
-const Header: React.FC<IHeader> = ({
-  socialList,
-  navigation,
-  fill,
-  setActiveIndex,
-  activeIndex,
-}) => {
+const Header: React.FC<IHeader> = ({ socialList, navigation, fill }) => {
   const [activeMenu, setMenuState] = React.useState(false);
 
   return (
@@ -35,11 +29,7 @@ const Header: React.FC<IHeader> = ({
           </a>
         </Styled.HeaderItem>
         <Menu activeMenu={activeMenu} setMenuState={setMenuState}>
-          <Categories
-            setActiveIndex={setActiveIndex}
-            activeIndex={activeIndex}
-            navigation={navigation}
-          />
+          <Categories navigation={navigation} />
           <SocialLinks socialList={socialList} fill={fill} />
         </Menu>
       </Styled.HeaderWrapper>

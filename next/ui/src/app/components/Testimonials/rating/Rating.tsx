@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button from '../../shared/LinkButton/Button';
 import React from 'react';
 import * as Styled from './StyledRating';
 const Rating = ({ testimonial }) => {
@@ -32,7 +32,11 @@ const Rating = ({ testimonial }) => {
               <img src="/clutch.svg" width="58" height="16" alt="" />
               <p>{clutch.rate.toFixed(1)}</p>
             </Styled.Rating>
-            <Button link={clutch.link} small={true} />
+            <Button
+              text="Read More"
+              link={clutch.link}
+              className="rating__button--small"
+            />
           </Styled.RatingItem>
 
           <Styled.RatingItem className="testimonials__rating-upwork">
@@ -42,7 +46,11 @@ const Rating = ({ testimonial }) => {
                 {upwork.rate.toFixed(1)}
               </p>
             </Styled.Rating>
-            <Button link={clutch.link} small={true} />
+            <Button
+              text="Read More"
+              link={upwork.link}
+              className="rating__button--small"
+            />
           </Styled.RatingItem>
         </Styled.RatingWrapper>
       ) : clutch ? (
@@ -52,7 +60,11 @@ const Rating = ({ testimonial }) => {
             <p>{clutch.rate.toFixed(1)}</p>
             <Styled.Stars>{starsClutch.map((el) => el)}</Styled.Stars>
           </Styled.Rating>
-          <Button link={clutch.link} />
+          <Button
+            text="Read More"
+            link={clutch.link}
+            className="rating__button"
+          />
         </React.Fragment>
       ) : (
         upwork && (
@@ -62,7 +74,11 @@ const Rating = ({ testimonial }) => {
               <p>{upwork.rate.toFixed(1)}</p>
               <Styled.Stars>{starsUpwork.map((el) => el)}</Styled.Stars>
             </Styled.Rating>
-            <Button link={clutch.link} />
+            <Button
+              text="Read More"
+              link={upwork.link}
+              className="rating__button"
+            />
           </React.Fragment>
         )
       )}

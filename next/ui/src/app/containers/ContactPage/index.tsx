@@ -14,6 +14,7 @@ import { slides } from '../../img';
 import SliderPortfolio from '../../components/shared/SliderPortfolio/slider.component';
 
 import { scrollEA } from '../../../services/event';
+import MainLayout from 'app/components/Layout/Layout';
 
 export function ContactPage() {
   const [activeIndex, setActiveIndex] = React.useState(2);
@@ -23,16 +24,8 @@ export function ContactPage() {
   }, []);
 
   return (
-    <>
-      <div className="main-wraper">
-        <Header
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          socialList={SocialList}
-          navigation={Nav}
-        />
-      </div>
-      <Footer socialList={SocialList} fill="white" />
-    </>
+    <MainLayout>
+      <></>
+    </MainLayout>
   );
 }
