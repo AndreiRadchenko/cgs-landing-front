@@ -1,15 +1,14 @@
-import React from "react";
-import * as Style from "./slide.styled";
-import { SlideType } from "../../../../../types/components/index";
-import { v4 as uuidv4 } from "uuid";
+import React from 'react';
+import * as Style from './slide.styled';
+import { IProject } from '../../../../../types/components/index';
+import { v4 as uuidv4 } from 'uuid';
+import IMAGES from '../../../../../consts/Images';
 
-const Slide: React.FC<SlideType> = ({ item }) => {
-  console.log(item);
+const Slide: React.FC<IProject> = ({ item }) => {
   return (
     <Style.SlideContainer
       key={item.id}
       className="testimonials-slide-container"
-      style={{ width: "100%", height: "100%" }}
     >
       <div className="slider-content">
         <div className="slider-header">
@@ -21,11 +20,11 @@ const Slide: React.FC<SlideType> = ({ item }) => {
         <p className="slider-description">{item.fullDescription}</p>
         <div className="slider-technologies">
           {item.technologies.map((tech) => (
-            <div className="slider-technology">
+            <div className="slider-technology" key={uuidv4()}>
               <img
                 className="slider-technology__img"
                 key={tech.id}
-                src={tech.iconUrl ? tech.iconUrl : "./node.svg"}
+                src={tech.iconUrl ? tech.iconUrl : IMAGES.NODE}
               />
               <span className="slider-technology__text">{tech.name}</span>
             </div>

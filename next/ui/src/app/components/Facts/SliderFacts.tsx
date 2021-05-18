@@ -7,7 +7,8 @@ import { onChangeSlideEA } from '../../../services/event';
 import { slides } from '../../img/index';
 import { v4 as uuidv4 } from 'uuid';
 import Facts from './Facts.component';
-import { FactsList } from 'consts/lists';
+
+import { IFact } from '../../../types/components/index';
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
@@ -27,7 +28,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-const SliderFacts: React.FC = () => {
+const SliderFacts: React.FC<{ facts: IFact[] }> = ({ facts }) => {
   let settings = {
     slidesToShow: 6,
     slidesToScroll: 1,
@@ -35,8 +36,6 @@ const SliderFacts: React.FC = () => {
     prevArrow: <SamplePrevArrow />,
     afterChange: (current) =>
       onChangeSlideEA({ sliderName: 'AboutUs', slide: current }),
-    // autoplay: true,
-    // autoplaySpeed: 2000, - becomes inconvenient with manual switching, better to turn it off with portfolio
     responsive: [
       {
         breakpoint: 1023,
@@ -50,9 +49,10 @@ const SliderFacts: React.FC = () => {
   return (
     <Styled.SliderContainer>
       <Slider {...settings} key={uuidv4()}>
-        {FactsList.map((fact, index) => (
-          <Facts fact={fact} number={index + 1} />
-        ))}
+        {facts &&
+          facts.map((fact, index) => (
+            <Facts fact={fact} number={index + 1} key={fact.id} />
+          ))}
       </Slider>
     </Styled.SliderContainer>
   );

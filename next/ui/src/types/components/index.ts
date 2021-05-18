@@ -1,5 +1,5 @@
-import { StringSchema } from "yup";
-import { FormikHandlers } from "formik/dist/types";
+import { StringSchema } from 'yup';
+import { FormikHandlers } from 'formik/dist/types';
 
 export interface ProjectImgStyle {
   img: string;
@@ -105,21 +105,70 @@ export interface SlidePersonType {
   img: string;
 }
 
-export interface SlideType {
+export interface IProject {
   item: {
     id: string;
     name: string;
     countryCode: string;
     shortDescription: string;
     fullDescription: string;
-    technologies: Array<SlideTechType>;
+    technologies: Array<IProjectTechType>;
     link: string;
     imageUrl: string;
   };
 }
 
-interface SlideTechType {
+interface IProjectTechType {
   id: string;
   name: string;
   iconUrl?: string;
+}
+
+export interface ITestimonial {
+  id: string | number;
+  customerName: string;
+  countryCode: string;
+  companyName: string;
+  customerPosition: string;
+  feedback: string;
+  platforms: IPlatform[];
+}
+
+interface IPlatform {
+  id: string | number;
+  type: string;
+  rate: number;
+  link: string;
+}
+
+export interface ITechnology {
+  type: string;
+  technologies: string[];
+}
+
+export interface IFact {
+  id: string | number;
+  title: string;
+  text: string;
+  iconUrl: string;
+}
+
+export interface ISlogan {
+  title: string;
+  text: string;
+}
+
+export interface IWorker {
+  id: string | number;
+  name: string;
+  position: string;
+  text: string;
+  imageUrl: string;
+}
+
+export interface IFeaturedTechnology {
+  id: string | number;
+  name: string;
+  text: string;
+  imageUrl: string;
 }

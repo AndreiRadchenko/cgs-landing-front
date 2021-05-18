@@ -1,6 +1,6 @@
-import "../styles/globals.css";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-
+import '../styles/globals.css';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import theme from '../styles/theme';
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -8,12 +8,6 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 `;
-
-const theme = {
-  colors: {
-    primary: "#0070f3",
-  },
-};
 
 function MyApp({ Component, pageProps }) {
   return (

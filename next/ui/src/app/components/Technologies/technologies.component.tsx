@@ -1,14 +1,14 @@
 import React from 'react';
 import * as Styled from './technologies.styles';
 import { v4 as uuidv4 } from 'uuid';
-
+import { TECHNOLOGIES } from '../../../consts/Technologies';
 const Technology = ({ technology, index }) => {
   return (
     <React.Fragment>
       {
         <Styled.TechnoContainer key={uuidv4()} className={index}>
           <Styled.DescContainer>
-            <h2>{technology.type}</h2>
+            <h2>{TECHNOLOGIES[index].title}</h2>
             <Styled.HorizontalSep />
             <ul>
               {technology.technologies &&
@@ -18,7 +18,7 @@ const Technology = ({ technology, index }) => {
             </ul>
           </Styled.DescContainer>
           <div>
-            <img src={technology.image} alt={technology.type} />
+            <img src={TECHNOLOGIES[index].image} alt={technology.type} />
           </div>
         </Styled.TechnoContainer>
       }

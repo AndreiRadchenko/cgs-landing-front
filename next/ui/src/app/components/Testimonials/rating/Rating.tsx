@@ -1,10 +1,13 @@
+import Button from './Button';
 import React from 'react';
 import * as Styled from './StyledRating';
 const Rating = ({ testimonial }) => {
+  const upwork = testimonial.platforms.find((el) => el.type === 'upwork');
+  const clutch = testimonial.platforms.find((el) => el.type === 'clutch');
   const arr = ['', '', '', '', ''];
   const starsClutch = [
     ...arr.map((_, index) => {
-      if (parseInt(testimonial.rating_clutch) > index) {
+      if (parseInt(clutch.rate) > index) {
         return <img src="/star1.svg" width="17" height="16" alt="" />;
       } else {
         return <img src="/star2.svg" width="17" height="16" alt="" />;
@@ -13,7 +16,7 @@ const Rating = ({ testimonial }) => {
   ];
   const starsUpwork = [
     ...arr.map((_, index) => {
-      if (parseInt(testimonial.rating_upwork) > index) {
+      if (parseInt(upwork.rate) > index) {
         return <img src="/star1.svg" width="17" height="16" alt="" />;
       } else {
         return <img src="/star2.svg" width="17" height="16" alt="" />;
@@ -22,52 +25,44 @@ const Rating = ({ testimonial }) => {
   ];
   return (
     <React.Fragment>
-      {testimonial.rating_clutch && testimonial.rating_upwork ? (
+      {testimonial.platforms.length === 2 ? (
         <Styled.RatingWrapper>
           <Styled.RatingItem className="testimonials__rating-clutch">
             <Styled.Rating>
               <img src="/clutch.svg" width="58" height="16" alt="" />
-              <p>{testimonial.rating_clutch}</p>
+              <p>{clutch.rate.toFixed(1)}</p>
             </Styled.Rating>
-            <button type="button" className="rating__button--small">
-              Read More
-            </button>
+            <Button link={clutch.link} small={true} />
           </Styled.RatingItem>
 
           <Styled.RatingItem className="testimonials__rating-upwork">
             <Styled.Rating>
               <img src="/upworkWord.svg" width="58" height="18" alt="" />
               <p className="testimonials__rating-clutch">
-                {testimonial.rating_upwork}
+                {upwork.rate.toFixed(1)}
               </p>
             </Styled.Rating>
-            <button type="button" className="rating__button--small">
-              Read More
-            </button>
+            <Button link={clutch.link} small={true} />
           </Styled.RatingItem>
         </Styled.RatingWrapper>
-      ) : testimonial.rating_clutch ? (
+      ) : clutch ? (
         <React.Fragment>
           <Styled.Rating className="testimonials__rating-clutch">
             <img src="/clutch.svg" width="58" height="16" alt="" />
-            <p>{testimonial.rating_clutch}</p>
+            <p>{clutch.rate.toFixed(1)}</p>
             <Styled.Stars>{starsClutch.map((el) => el)}</Styled.Stars>
           </Styled.Rating>
-          <button type="button" className="rating__button">
-            Read More
-          </button>
+          <Button link={clutch.link} />
         </React.Fragment>
       ) : (
-        testimonial.rating_upwork && (
+        upwork && (
           <React.Fragment>
             <Styled.Rating className="testimonials__rating-upwork">
               <img src="/upworkWord.svg" width="58" height="18" alt="" />
-              <p>{testimonial.rating_upwork}</p>
+              <p>{upwork.rate.toFixed(1)}</p>
               <Styled.Stars>{starsUpwork.map((el) => el)}</Styled.Stars>
             </Styled.Rating>
-            <button type="button" className="rating__button">
-              Read More
-            </button>
+            <Button link={clutch.link} />
           </React.Fragment>
         )
       )}

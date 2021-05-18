@@ -1,5 +1,5 @@
 import React from 'react';
-import { SocialList, Nav, Works } from '../../../consts/lists';
+import { SocialList, Nav } from '../../../consts/lists';
 import Header from '../../components/shared/Header/header.component';
 import Footer from '../../components/shared/Footer/footer.component';
 import Home from '../../components/HomeSection/home.component';
@@ -14,13 +14,11 @@ import SliderTestimonials from 'app/components/Testimonials/SliderTestimonials';
 import SliderFeatured from 'app/components/FeaturedTechnologies/SliderFeatured';
 import SliderTechnologies from 'app/components/Technologies/SliderTechnologies';
 
-export function HomePage() {
+export function HomePage({ props }) {
   const [activeIndex, setActiveIndex] = React.useState(0);
-
   React.useEffect(() => {
     scrollEA('data-scroll');
   }, []);
-
   return (
     <>
       <div className="main-wraper">
@@ -30,66 +28,72 @@ export function HomePage() {
           socialList={SocialList}
           navigation={Nav}
         />
-        <Home id="home" />
-        <Article
-          id="code"
-          title="Our Latest Works"
-          desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
+        {props.slogan && <Home id="home" slogan={props.slogan} />}
+        {props.projects && (
+          <Article
+            id="code"
+            title="Our Latest Works"
+            desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua. "
-        >
-          <SliderWorks>
-            {Works.map((item) => (
-              <Slide item={item} />
-            ))}
-          </SliderWorks>
-        </Article>
-
-        <Article
-          id="aboutUs"
-          title="About Us"
-          desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
+          >
+            <SliderWorks>
+              {props.projects.map((item) => (
+                <Slide item={item} key={item.id} />
+              ))}
+            </SliderWorks>
+          </Article>
+        )}
+        {props.workers && (
+          <Article
+            id="aboutUs"
+            title="About Us"
+            desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua."
-        >
-          <SliderAboutUs />
-        </Article>
-
-        <Article
-          id="facts"
-          title="Some interesting facts"
-          desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
+          >
+            <SliderAboutUs workers={props.workers} />
+          </Article>
+        )}
+        {props.facts && (
+          <Article
+            id="facts"
+            title="Some interesting facts"
+            desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua."
-        >
-          <SliderFacts />
-        </Article>
-
-        <Article
-          data-scrolling="technologies"
-          id="technologies"
-          title="Technologies"
-          desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
+          >
+            <SliderFacts facts={props.facts} />
+          </Article>
+        )}
+        {props.technologies && (
+          <Article
+            data-scrolling="technologies"
+            id="technologies"
+            title="Technologies"
+            desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua."
-        >
-          <SliderTechnologies />
-        </Article>
-
-        <Article
-          id="tetimonials"
-          title="Testimonials"
-          desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
+          >
+            <SliderTechnologies technologies={props.technologies} />
+          </Article>
+        )}
+        {props.testimonials && (
+          <Article
+            id="tetimonials"
+            title="Testimonials"
+            desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua."
-        >
-          <SliderTestimonials />
-        </Article>
-
-        <Article
-          id="featured"
-          title="Featured Technologies"
-          desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
+          >
+            <SliderTestimonials testimonials={props.testimonials} />
+          </Article>
+        )}
+        {props.featuredTechnologies && (
+          <Article
+            id="featured"
+            title="Featured Technologies"
+            desc="Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua."
-        >
-          <SliderFeatured />
-        </Article>
-
+          >
+            <SliderFeatured featuredTechnologies={props.featuredTechnologies} />
+          </Article>
+        )}
         <Article id="Contacts" title="Contacts">
           <Form />
         </Article>
