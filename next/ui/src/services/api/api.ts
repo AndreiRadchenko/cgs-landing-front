@@ -16,45 +16,13 @@ const API_ROUTES = {
   testimonials: '/home/get-testimonials',
   slogan: `/home/get-slogan`,
   articles: '/blog/',
-  article: '/blog/id',
+  article: '/blog/',
+  similarArticles: '/blog/similar-articles/',
 };
 
-export const getData = async (route: string) => {
+export const getData = async (route: string, id?: string | undefined) => {
   try {
-    const { data } = await axios.get(API_ROUTES[route]);
-    const response = data.response;
-    return response;
-  } catch (error) {
-    console.log('error', { error });
-    return null;
-  }
-};
-
-export const getArticlesData = async () => {
-  try {
-    const { data } = await axios.get(`/blog/`);
-    const response = data.response;
-    return response;
-  } catch (error) {
-    console.log('error', { error });
-    return null;
-  }
-};
-
-export const getArticleData = async (id: string) => {
-  try {
-    const { data } = await axios.get(`/blog/${id}`);
-    const response = data.response;
-    return response;
-  } catch (error) {
-    console.log('error', { error });
-    return null;
-  }
-};
-
-export const getSimilarArticlesData = async (id: string) => {
-  try {
-    const { data } = await axios.get(`/blog/similar-articles/${id}`);
+    const { data } = await axios.get(API_ROUTES[route] + (id ? id : ''));
     const response = data.response;
     return response;
   } catch (error) {

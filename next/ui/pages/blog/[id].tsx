@@ -1,16 +1,14 @@
 import Article from '../../src/app/components/Article/article.component';
 import MainLayout from '../../src/app/components/Layout/Layout';
 import BlogArticleFull from '../../src/app/components/BlogArticle/BlogArticleFull/BlogArticleFull';
-import {
-  getArticleData,
-  getSimilarArticlesData,
-} from '../../src/services/api/api';
+import { getData } from '../../src/services/api/api';
 import { IBlogArticle } from '../../src/types/components';
 import SimilarArticles from '../../src/app/components/BlogArticle/SimilarArticles/SimilarArticles';
-import * as Styled from '../../src/app/components/BlogArticle/BlogArticle.styles';
 import Button from '../../src/app/components/shared/LinkButton/Button';
+import * as Styled from '../../src/app/components/BlogArticle/BlogArticleFull/BlogArticleFull.styles';
 
 export default function BlogArticlePage({ article, similarArticles }) {
+  //mock content
   article.content = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lacus lorem, euismod sed mauris sed, rhoncus scelerisque nibh. Phasellus consectetur rutrum est, vitae ultrices felis luctus quis. Suspendisse et laoreet leo. Nam orci leo, lacinia in tristique bibendum, rhoncus sed turpis. Morbi eleifend neque purus, et imperdiet risus vestibulum consequat. Fusce ultricies, dui non feugiat fermentum, nisl augue dignissim ex, eu sagittis libero neque sed dui. Sed vel mollis felis. Phasellus et ligula convallis, euismod nunc quis, tempor lectus. Pellentesque rutrum, ipsum sed tincidunt convallis, turpis justo scelerisque leo, nec vestibulum diam lectus nec augue.
 
 Proin accumsan sapien vitae rhoncus placerat. Integer cursus laoreet nibh, at ornare dui sodales in. Praesent laoreet mattis ipsum, mollis maximus sapien pharetra a. Maecenas vestibulum eros sed mollis consectetur. Suspendisse vel posuere sapien. Donec accumsan orci quis consequat molestie. Praesent eu posuere ligula. Sed efficitur at purus et tincidunt. Pellentesque tempus augue nec lectus condimentum, quis gravida tortor consequat. Vestibulum euismod nisi non leo fringilla suscipit. Fusce sit amet dolor in neque ornare bibendum. Aenean quis sapien ac nulla mattis pretium.
@@ -23,15 +21,19 @@ Nullam suscipit ultricies lorem, vel pretium purus iaculis ut. Maecenas ultricie
   return (
     <MainLayout>
       <div className="main-wraper">
-        <Article title={article.title}>
-          <BlogArticleFull article={article} />
-        </Article>
-        <Article title="Other articles">
-          <SimilarArticles similarArticles={similarArticles}></SimilarArticles>
-        </Article>
-        <div className="articleButton">
-          <Button link="/blog/" text="Back to blog"></Button>
-        </div>
+        <Styled.Wrapper>
+          <Article title={article.title}>
+            <BlogArticleFull article={article} />
+          </Article>
+          <Article title="Other articles">
+            <SimilarArticles
+              similarArticles={similarArticles}
+            ></SimilarArticles>
+          </Article>
+          <div className="articleButton">
+            <Button link="/blog/" text="Back to blog"></Button>
+          </div>
+        </Styled.Wrapper>
       </div>
     </MainLayout>
   );
@@ -40,8 +42,11 @@ Nullam suscipit ultricies lorem, vel pretium purus iaculis ut. Maecenas ultricie
 export async function getServerSideProps({ query }) {
   const id = query.id;
   try {
-    const article: IBlogArticle = await getArticleData(id);
-    const similarArticles = await getSimilarArticlesData(id);
+    const article: IBlogArticle = await getData('article', id);
+    const similarArticles: IBlogArticle[] = await getData(
+      'similarArticles',
+      id
+    );
     return {
       props: {
         article,

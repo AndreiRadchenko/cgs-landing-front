@@ -1,6 +1,6 @@
 import MainLayout from '../../src/app/components/Layout/Layout';
 import { BlogPage } from '../../src/app/containers/BlogPage';
-import { getArticlesData } from '../../src/services/api/api';
+import { getData } from '../../src/services/api/api';
 import { IArticle } from '../../src/types/components';
 
 export default function Blog({ articles }) {
@@ -13,7 +13,7 @@ export default function Blog({ articles }) {
 
 export async function getServerSideProps() {
   try {
-    const articles: IArticle[] = await getArticlesData();
+    const articles: IArticle[] = await getData('articles');
     return {
       props: {
         articles,
