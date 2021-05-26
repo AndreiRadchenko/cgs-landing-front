@@ -32,7 +32,7 @@ const Testimonial: React.FC<{
         </ul>
       </Styled.Item>
       <ItemButtons
-        deleteItem={() => deleteItem('slogan', testimonial.id)}
+        deleteItem={() => deleteItem('testimonial', testimonial.id)}
         openModal={openModal}
         item={testimonial}
       ></ItemButtons>

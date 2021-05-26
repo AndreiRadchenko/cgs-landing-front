@@ -15,7 +15,6 @@ const Article: React.FC<{
           <li>ID: {article.id} </li>
           <li>Title: {article.title} </li>
           <li>Author: {article.author} </li>
-          <li>Content: {article.content} </li>
           <li>Created: {article.createdAt} </li>
           <li>
             Tags:

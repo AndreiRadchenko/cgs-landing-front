@@ -5,7 +5,7 @@ import {
   deleteAdminData,
 } from '../../../services/api/adminApi';
 import axios from 'axios';
-import * as Styled from '../AdminPage/Admin.styles';
+import * as Styled from '../../components/Admin/Admin.styles';
 import Fact from '../../components/Admin/Facts/Facts';
 import Slogan from '../../components/Admin/Slogan/Slogan';
 import Worker from '../../components/Admin/Worker/Worker';
@@ -50,6 +50,7 @@ const AdminPage: React.FC = () => {
   const [isArticlesShown, setIsArticlesShown] = useState(false);
   const [isImagesShown, setIsImagesShown] = useState(false);
   const [editItem, seteditItem] = useState<any>(null);
+  const [activeMenu, setActiveMenu] = useState('');
 
   useEffect(() => {
     axios.defaults.headers.Authorization = `Bearer ${token}`;
@@ -59,7 +60,7 @@ const AdminPage: React.FC = () => {
   }, [token]);
 
   useEffect(() => {
-    loadData();
+    loadData(activeMenu);
   }, [isModal]);
 
   async function loadData(data = 'all') {
@@ -175,41 +176,76 @@ const AdminPage: React.FC = () => {
         <Styled.Menu>
           <h3>Items</h3>
           <Styled.MenuList>
-            <li id="facts" onClick={(event) => handleOpenMenu(event)}>
+            <li
+              id="facts"
+              onClick={(event) => handleOpenMenu(event)}
+              className={isFactsShown ? 'activeMenuItem' : ''}
+            >
               Facts
             </li>
-            <li id="slogan" onClick={(event) => handleOpenMenu(event)}>
+            <li
+              id="slogan"
+              onClick={(event) => handleOpenMenu(event)}
+              className={isSloganShown ? 'activeMenuItem' : ''}
+            >
               Slogan
             </li>
-            <li id="worker" onClick={(event) => handleOpenMenu(event)}>
+            <li
+              id="worker"
+              onClick={(event) => handleOpenMenu(event)}
+              className={isWorkersShown ? 'activeMenuItem' : ''}
+            >
               Workers
             </li>
-            <li id="project" onClick={(event) => handleOpenMenu(event)}>
+            <li
+              id="project"
+              onClick={(event) => handleOpenMenu(event)}
+              className={isProjectsShown ? 'activeMenuItem' : ''}
+            >
               Project
             </li>
-            <li id="article" onClick={(event) => handleOpenMenu(event)}>
+            <li
+              id="article"
+              onClick={(event) => handleOpenMenu(event)}
+              className={isArticlesShown ? 'activeMenuItem' : ''}
+            >
               Article
             </li>
-            <li id="technology" onClick={(event) => handleOpenMenu(event)}>
+            <li
+              id="technology"
+              onClick={(event) => handleOpenMenu(event)}
+              className={isTechnologiesShown ? 'activeMenuItem' : ''}
+            >
               Technology
             </li>
             <li
               id="featuredTechnology"
               onClick={(event) => handleOpenMenu(event)}
+              className={isfeaturedTechnologiesShown ? 'activeMenuItem' : ''}
             >
               Featured Technology
             </li>
-            <li id="testimonial" onClick={(event) => handleOpenMenu(event)}>
+            <li
+              id="testimonial"
+              onClick={(event) => handleOpenMenu(event)}
+              className={isTestimonialsShown ? 'activeMenuItem' : ''}
+            >
               Testimonial
             </li>
-            <li id="images" onClick={(event) => handleOpenMenu(event)}>
+            <li
+              id="images"
+              onClick={(event) => handleOpenMenu(event)}
+              className={isImagesShown ? 'activeMenuItem' : ''}
+            >
               Images
             </li>
-            <li>BlogTag</li>
           </Styled.MenuList>
         </Styled.Menu>
         <Styled.InfoWrapper>
-          {(isFactsShown || isSloganShown || isWorkersShown) && (
+          {(isFactsShown ||
+            isSloganShown ||
+            isWorkersShown ||
+            isTestimonialsShown) && (
             <button
               className="button"
               type="button"

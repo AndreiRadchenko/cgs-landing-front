@@ -28,7 +28,6 @@ export const login = async () => {
   try {
     const { data } = await axios.post('/auth/login', user);
     const token = data.response.accessToken;
-    console.log('Login');
     return token;
   } catch (error) {
     console.log('error', { error });
@@ -40,7 +39,6 @@ export const getAdminData = async (route: string) => {
   try {
     const { data } = await axios.get(API_ROUTES[route]);
     const response = data.response;
-    console.log(response);
     return response;
   } catch (error) {
     console.log('error', { error });
@@ -52,7 +50,6 @@ export const createAdminData = async (route: string, obj: any) => {
   try {
     const { data } = await axios.post(API_ROUTES[route], JSON.stringify(obj));
     const response = data.response;
-    console.log(response);
     return response;
   } catch (error) {
     console.log('error', { error });
@@ -69,7 +66,6 @@ export const uploadImage = async (file: any) => {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
     const response = data.response;
-    console.log(response);
     return response;
   } catch (error) {
     console.log('error', { error });
@@ -84,7 +80,6 @@ export const updateAdminData = async (route: string, id: string, obj: any) => {
       JSON.stringify(obj)
     );
     const response = data.response;
-    console.log(response);
     return response;
   } catch (error) {
     console.log('error', { error });
@@ -96,7 +91,6 @@ export const deleteAdminData = async (route: string, id: string) => {
   try {
     const { data } = await axios.delete(API_ROUTES[route] + id);
     const response = data.response;
-    console.log(response);
     return response;
   } catch (error) {
     console.log('error', { error });

@@ -60,7 +60,7 @@ export interface IFeaturedTechnology {
 }
 
 export interface ITestimonial {
-  id: string;
+  id?: string;
   customerName: string;
   countryCode: string;
   companyName: string;
@@ -69,8 +69,8 @@ export interface ITestimonial {
   platforms: IPlatform[];
 }
 
-interface IPlatform {
-  id: string;
+export interface IPlatform {
+  id?: string;
   type: string;
   rate: number;
   link: string;

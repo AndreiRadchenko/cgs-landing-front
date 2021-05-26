@@ -13,7 +13,15 @@ const BlogArticleFull: React.FC<{ article: IBlogArticle }> = ({ article }) => {
         <img src={article.imageFileUrl} alt={article.title} />
       )}
 
-      {article.content && <Styled.Content>{article.content}</Styled.Content>}
+      {article.content && (
+        <Styled.Content>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: article.content,
+            }}
+          ></div>
+        </Styled.Content>
+      )}
       <Styled.TagList>
         {article.tags &&
           article.tags.map((tag) => (

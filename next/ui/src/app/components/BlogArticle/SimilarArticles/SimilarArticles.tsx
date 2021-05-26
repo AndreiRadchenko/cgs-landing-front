@@ -12,21 +12,25 @@ const SimilarArticles: React.FC<SimilarArticlesProps> = ({
   return (
     <Styled.Wrapper>
       <ul>
-        {similarArticles.map((article) => (
-          <Styled.SimilarArticle>
-            <Link
-              href={`/blog/[id]`}
-              as={`/blog/${article.id}`}
-              key={article.id}
-            >
-              <a>
-                <img src={article.imageFileUrl} alt={article.title} />
-                <h2>{article.title}</h2>
-                <p>{clipString(article.content)}</p>
-              </a>
-            </Link>
-          </Styled.SimilarArticle>
-        ))}
+        {similarArticles.map((article, index) => {
+          if (index < 2) {
+            return (
+              <Styled.SimilarArticle>
+                <Link
+                  href={`/blog/[id]`}
+                  as={`/blog/${article.id}`}
+                  key={article.id}
+                >
+                  <a>
+                    <img src={article.imageFileUrl} alt={article.title} />
+                    <h2>{article.title}</h2>
+                    <p>{clipString(article.content)}</p>
+                  </a>
+                </Link>
+              </Styled.SimilarArticle>
+            );
+          }
+        })}
       </ul>
     </Styled.Wrapper>
   );

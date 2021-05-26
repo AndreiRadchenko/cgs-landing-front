@@ -7,7 +7,7 @@ const Rating = ({ testimonial }) => {
   const arr = ['', '', '', '', ''];
   const starsClutch = [
     ...arr.map((_, index) => {
-      if (parseInt(clutch.rate) > index) {
+      if (parseInt(clutch?.rate) > index) {
         return <img src="/star1.svg" width="17" height="16" alt="" />;
       } else {
         return <img src="/star2.svg" width="17" height="16" alt="" />;
@@ -16,7 +16,7 @@ const Rating = ({ testimonial }) => {
   ];
   const starsUpwork = [
     ...arr.map((_, index) => {
-      if (parseInt(upwork.rate) > index) {
+      if (parseInt(upwork?.rate) > index) {
         return <img src="/star1.svg" width="17" height="16" alt="" />;
       } else {
         return <img src="/star2.svg" width="17" height="16" alt="" />;

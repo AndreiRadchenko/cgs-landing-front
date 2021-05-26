@@ -18,6 +18,7 @@ export const Wrapper = styled('div')`
     padding: 0;
     display: flex;
     justify-content: space-between;
+
     @media screen and (max-width: 1024px) {
       margin-top: 39px;
       flex-direction: column;
@@ -29,6 +30,7 @@ export const Wrapper = styled('div')`
 
 export const SimilarArticle = styled('li')`
   width: calc((100% - 120px) / 2);
+
   @media screen and (max-width: 1024px) {
     width: 100%;
     text-align: center;

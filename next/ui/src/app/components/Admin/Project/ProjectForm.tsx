@@ -40,8 +40,6 @@ const ProjectForm: React.FC<{
       technologyIds,
     };
 
-    console.log(newProject);
-
     project
       ? updateAdminData('project', project.id, newProject).then(() => close())
       : createAdminData('project', newProject).then(() => close());

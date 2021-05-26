@@ -13,7 +13,8 @@ export const Overlay = styled('div')`
 `;
 
 export const Modal = styled('div')`
+  overflow-y: auto;
   background-color: #fff;
-  width: calc(100vw - 48px);
-  height: calc(100vh - 24px);
+  width: calc(100vw - 100px);
+  height: calc(100vh - 50px);
 `;

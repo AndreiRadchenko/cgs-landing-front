@@ -1,39 +1,67 @@
 import { useState } from 'react';
 import { createAdminData, updateAdminData } from 'services/api/adminApi';
 
-import { ITestimonial } from '../types';
+import { ITestimonial, IPlatform } from '../types';
 import * as Styled from '../Form.styles';
+import { useInput } from '../Hooks';
 
 const TestimonialForm: React.FC<{
   testimonial?: ITestimonial | undefined;
   close: Function;
 }> = ({ testimonial, close }) => {
-  const [customerName, setCustomerName] = useState(
-    testimonial?.customerName || ''
+  const clutch: IPlatform | undefined = testimonial?.platforms.find(
+    (item) => item.type === 'clutch'
   );
-  const [companyName, setCcompanyName] = useState(
-    testimonial?.companyName || ''
+  const upwork: IPlatform | undefined = testimonial?.platforms.find(
+    (item) => item.type === 'upwork'
   );
-  const [countryCode, seCountryCode] = useState(testimonial?.countryCode || '');
-  const [customerPosition, setCustomerPosition] = useState(
-    testimonial?.customerPosition || ''
-  );
-  const [feedback, seFeedback] = useState(testimonial?.feedback || '');
+  const clutchLinkInput = useInput(clutch?.link);
+  const upworkLinkInput = useInput(upwork?.link);
+  const clutchRateInput = useInput(clutch?.rate);
+  const upworkRateInput = useInput(upwork?.rate);
+  const customerName = useInput(testimonial?.customerName);
+  const companyName = useInput(testimonial?.companyName);
+  const countryCode = useInput(testimonial?.countryCode);
+  const customerPosition = useInput(testimonial?.customerPosition);
+  const feedback = useInput(testimonial?.feedback);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const newtestimonial = {
-      customerName,
-      customerPosition,
-      companyName,
-      countryCode,
-      feedback,
+    const clutch =
+      clutchLinkInput.value || clutchRateInput.value
+        ? {
+            type: 'clutch',
+            link: clutchLinkInput.value,
+            rate: clutchRateInput.value,
+          }
+        : null;
+    const upwork =
+      upworkLinkInput.value || upworkRateInput.value
+        ? {
+            type: 'upwork',
+            link: upworkLinkInput.value,
+            rate: upworkRateInput.value,
+          }
+        : null;
+    const newtestimonial: ITestimonial = {
+      customerName: customerName.value,
+      customerPosition: customerPosition.value,
+      companyName: companyName.value,
+      countryCode: countryCode.value,
+      feedback: feedback.value,
+      platforms: [],
     };
+    if (clutch) {
+      newtestimonial.platforms = [...newtestimonial.platforms, clutch];
+    }
+    if (upwork) {
+      newtestimonial.platforms = [...newtestimonial.platforms, upwork];
+    }
 
     testimonial
       ? updateAdminData(
           'testimonial',
-          testimonial.id,
+          testimonial?.id!,
           newtestimonial
         ).then(() => close())
       : createAdminData('testimonial', newtestimonial).then(() => close());
@@ -49,65 +77,45 @@ const TestimonialForm: React.FC<{
         )}
         <label>
           Customer Name:
-          <input
-            className="form__title"
-            type="text"
-            value={customerName}
-            onChange={({ target: { value } }) => setCustomerName(value)}
-          />
+          <input className="form__title" type="text" {...customerName} />
         </label>
         <label>
           Company Name:
-          <input
-            className="form__title"
-            type="text"
-            value={companyName}
-            onChange={({ target: { value } }) => setCcompanyName(value)}
-          />
+          <input className="form__title" type="text" {...companyName} />
         </label>
         <label>
           Country Code:
-          <input
-            className="form__title"
-            type="text"
-            value={countryCode}
-            onChange={({ target: { value } }) => seCountryCode(value)}
-          />
+          <input className="form__title" type="text" {...countryCode} />
         </label>
         <label>
           Customer Position:
-          <input
-            className="form__title"
-            type="text"
-            value={customerPosition}
-            onChange={({ target: { value } }) => setCustomerPosition(value)}
-          />
+          <input className="form__title" type="text" {...customerPosition} />
         </label>
         <label>
           Feedback:
-          <textarea
-            className="form__text"
-            value={feedback}
-            onChange={({ target: { value } }) => seFeedback(value)}
-          />
+          <textarea className="form__text" {...feedback} />
         </label>
-        {testimonial?.platforms.map((platform) => (
-          <div>
-            <input type="text" value={platform.link} />
-            <input type="text" value={platform.rate} />
-            <input type="text" value={platform.type} />
-          </div>
-        ))}
+        <div>
+          <p>Clutch</p>
+          <input type="text" {...clutchLinkInput} />
+          <input type="number" min="1" max="5" {...clutchRateInput} />
+        </div>
+        <div>
+          <p>Upwork</p>
+          <input type="text" {...upworkLinkInput} />
+          <input type="number" min="1" max="5" {...upworkRateInput} />
+        </div>
+
         <div className="buttons">
           <button
             type="submit"
             disabled={
               !(
-                customerName &&
-                customerPosition &&
-                companyName &&
-                countryCode &&
-                feedback
+                customerName.value &&
+                customerPosition.value &&
+                companyName.value &&
+                countryCode.value &&
+                feedback.value
               )
             }
           >

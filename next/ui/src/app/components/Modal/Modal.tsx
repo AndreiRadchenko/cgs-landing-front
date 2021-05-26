@@ -13,11 +13,11 @@ const Modal: React.FC<{ children: any; closeModal: Function }> = ({
     };
   }, []);
 
-  function handleOverlayClick(event) {
-    if (event.currentTarget === event.target) {
-      closeModal();
-    }
-  }
+  // function handleOverlayClick(event) {
+  //   if (event.currentTarget === event.target) {
+  //     closeModal();
+  //   }
+  // }
 
   function handleKeyDown(event) {
     if (event.code === 'Escape') {
@@ -27,7 +27,7 @@ const Modal: React.FC<{ children: any; closeModal: Function }> = ({
   const modalRoot = document.getElementById('modal-root') as HTMLElement;
 
   return ReactDOM.createPortal(
-    <Styled.Overlay className="Overlay" onClick={handleOverlayClick}>
+    <Styled.Overlay className="Overlay">
       <Styled.Modal className="Modal">{children}</Styled.Modal>
     </Styled.Overlay>,
     modalRoot

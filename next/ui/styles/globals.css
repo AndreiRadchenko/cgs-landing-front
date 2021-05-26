@@ -11,6 +11,8 @@
 @import '../src//app/components/shared/Form/styles.css';
 @import '../src//app/components/BlogArticle/styles.css';
 @import '../src//app/components/shared/LinkButton/Button.css';
+@import '../node_modules/suneditor/dist/css/suneditor.min.css';
+@import '../src/app/components/Admin/admin.styles.css';
 
 @font-face {
   font-family: 'MulaRegular';

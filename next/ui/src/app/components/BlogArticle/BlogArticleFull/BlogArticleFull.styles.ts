@@ -7,8 +7,8 @@ export const Wrapper = styled('div')`
     & article:first-child h2 {
       margin: 0;
     }
-    & .articleButton {
-      margin-bottom: 48px;
+    & .articleButton a {
+      margin: 0 auto;
     }
 
     & .articleButton a {
