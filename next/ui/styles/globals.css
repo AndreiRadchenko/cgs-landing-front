@@ -38,7 +38,7 @@ textarea {
 }
 
 .main-wraper {
-  max-width: 1450px;
+  max-width: 1350px;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;

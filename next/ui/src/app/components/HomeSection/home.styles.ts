@@ -6,6 +6,7 @@ export const HomeWrapper = styled("div")`
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
+  padding:0 0 80px;
   & > * {
     width: 47%;
   }

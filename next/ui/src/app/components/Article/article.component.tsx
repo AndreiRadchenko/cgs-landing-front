@@ -7,7 +7,7 @@ const Article: React.FC<IArticle> = (props) => {
     <Styled.Wrapper id={props.id}>
       <Styled.Title>{props.title}</Styled.Title>
       <Styled.HorizantalSep />
-      {props.desc && <p>{props.desc}</p>}
+      {props.desc && <Styled.SubTitle>{props.desc}</Styled.SubTitle>}
       {props.children}
     </Styled.Wrapper>
   );

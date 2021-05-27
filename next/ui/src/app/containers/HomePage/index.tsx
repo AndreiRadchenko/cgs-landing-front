@@ -91,7 +91,7 @@ export function HomePage({ props }) {
               />
             </Article>
           )}
-          <Article id="Contacts" title="Contacts">
+          <Article id="Contacts" title="New text for contact form">
             <Form />
           </Article>
         </div>

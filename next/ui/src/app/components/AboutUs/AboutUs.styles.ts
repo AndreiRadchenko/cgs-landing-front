@@ -47,7 +47,7 @@ export const SliderContainer = styled.div`
   & .slick-slider {
     margin: 0 1em;
     @media screen and (max-width: 1023px) {
-      margin: 0 5em;
+      margin: 0 2em;
     }
     @media screen and (max-width: 650px) {
       margin: 0;
@@ -133,7 +133,7 @@ export const SlideWrapper = styled('div')`
   }
   @media screen and (min-width: 1024px) {
     & .slick-slide:not(:last-child) {
-      margin-right: 162px;
+      padding:0 81px;
     }
   }
 `;

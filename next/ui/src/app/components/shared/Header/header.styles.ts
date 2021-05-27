@@ -11,8 +11,7 @@ export const HeaderWrapper = styled.header<Props>`
   align-items: center;
   background: white;
   padding: 1em 4em;
-
-  margin-bottom: 1em;
+  margin-bottom: 3em;
   flex: 1;
   @media screen and (max-width: 1023px) {
     padding: 1em 2em;
