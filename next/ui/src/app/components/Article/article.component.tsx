@@ -1,6 +1,6 @@
-import React from "react";
-import * as Styled from "./article.styles";
-import { IArticle } from "../../../types/components/index";
+import React from 'react';
+import * as Styled from './article.styles';
+import { IArticle } from '../../../types/components/index';
 
 const Article: React.FC<IArticle> = (props) => {
   return (
