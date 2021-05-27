@@ -1,0 +1,20 @@
+@import '../../../../styles/variables.css';
+
+.testimonials__position {
+  background-color: var(--disactive-buttons-bg-color);
+}
+
+.testimonials__flag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 24px;
+  object-fit: cover;
+}
+
+.testimonials__flag img {
+  object-fit: cover;
+  border: 2px solid black;
+  border-radius: 5px;
+}

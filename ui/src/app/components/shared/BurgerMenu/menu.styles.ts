@@ -1,37 +1,26 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle<{ activeMenu: boolean }>`
+  body {
+    height : ${props => (props.activeMenu ? '100%' : 'auto')};
+    overflow: ${props => (props.activeMenu ? 'hidden' : 'visible')};
+  }
+`;
 
 export const BurgerMenu = styled('div')`
   width: calc(100% - 110px);
   position: relative;
-  @media screen and (max-width: 1013px) {
+  @media screen and (max-width: 1023px) {
     width: auto;
     & > div.drop-down.show-sub-menu {
-      transition: all 1.5s cubic-bezier(0.25, 1.65, 0.78, 0.65);
-      width: 300px;
-      box-shadow: -1px 3px 9px silver;
-      height: auto;
-      padding: 1em;
-      & > * {
-        display: flex;
-      }
-    }
-    & > div.show-sub-menu::before {
-      content: '';
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      transform: rotate(225deg);
-      background: white;
-      z-index: 3;
-      top: -5px;
-      right: 5px;
-      border-bottom: 1px solid silver;
-      border-right: 1px solid silver;
+      width: 100vw;
+      height: calc(100vh - 120px);
     }
   }
 `;
 export const MenuContainer = styled('div')`
-  @media screen and (min-width: 1014px) {
+  cursor: pointer;
+  @media screen and (min-width: 1024px) {
     display: none;
   }
 `;
@@ -44,20 +33,17 @@ export const DropDown = styled('div')`
   & > div:first-child {
     margin: auto;
   }
-  @media screen and (max-width: 1013px) {
+
+  @media screen and (max-width: 1023px) {
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     width: 0px;
     height: 0px;
     padding: 0;
-    border: 1px solid silver;
     background: white;
     right: 0;
-    top: 30px;
+    top: 120px;
     z-index: 2;
-    & > * {
-      display: none;
-    }
     & > div:first-child {
       flex-direction: column;
       width: 100%;
@@ -65,8 +51,6 @@ export const DropDown = styled('div')`
     }
     & > div:last-child {
       flex-wrap: wrap;
-      padding-top: 1em;
-      border-top: 1px solid silver;
     }
   }
 `;

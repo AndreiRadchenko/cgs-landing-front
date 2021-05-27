@@ -6,6 +6,15 @@ export const GlobalStyle = createGlobalStyle`
   src: url(./fonts/Muli/Muli-Regular.ttf) format('truetype');
 }
 // @import "http://fonts.fontstorage.com/import/muli.css";
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
   body {
     font-family: MulaRegular;
   }
@@ -13,11 +22,13 @@ export const GlobalStyle = createGlobalStyle`
     font-family: MulaRegular;
   }
   #root{
-    max-width:100vw;
+    max-width:1450px;
     overflow-x:hidden;
     display: flex;
     flex-direction:column;
     align-items:center;
+    padding-top: 30px;
+    margin : 0 auto
   }
   .main-wraper{
     padding: 1em 4em;
