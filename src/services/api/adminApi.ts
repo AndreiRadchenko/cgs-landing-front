@@ -40,6 +40,7 @@ export const getAdminData = async (route: string) => {
     const { data } = await axios.get(API_ROUTES[route]);
     const response = data.response;
     return response;
+
   } catch (error) {
     console.log('error', { error });
     return [];
