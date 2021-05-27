@@ -1,0 +1,78 @@
+@import '../../../../styles/variables.css';
+.home-section__title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.home-section__subtitle {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.home-section__button {
+    background-color: var(--disactive-buttons-bg-color);
+    border-radius: 2em;
+    padding: 0.7em;
+    outline: none;
+    font-weight: 700;
+    border: 0;
+    color: white;
+    min-width: 200px;
+    width: fit-content;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.home-section__button:hover {
+    background: #0c1033;
+}
+
+.home-section__img--mobile {
+    width: 65%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.home-section__button--mob {
+    background-color: var(--disactive-buttons-bg-color);
+    border-radius: 2em;
+    padding: 0.7em;
+    outline: none;
+    font-weight: 700;
+    border: 0;
+    color: white;
+    min-width: 200px;
+    width: fit-content;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.home-section__button--mob:hover {
+    background: #0c1033;
+}
+
+@media screen and (min-width: 769px) {
+    .home-section__img--mobile {
+        display: none;
+    }
+    .home-section__title {
+        font-size: 64px;
+    }
+    .home-section__subtitle {
+        font-size: 20px;
+    }
+    .home-section__button--mob {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home-section__button {
+        display: none;
+    }
+}
