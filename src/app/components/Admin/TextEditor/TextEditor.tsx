@@ -67,7 +67,7 @@ const TextEditor = ({ content, setArticleContent, setIsEditorOpen }) => {
         onChange={handleChange}
         hideToolbar={false}
       />
-      <button type="button" onClick={() => handleSave}>
+      <button type="button" onClick={() => handleSave()}>
         Save
       </button>
       <button type="button" onClick={() => setIsEditorOpen(false)}>

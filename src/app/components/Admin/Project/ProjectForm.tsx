@@ -19,10 +19,13 @@ const ProjectForm: React.FC<{
   );
   const [countryCode, setCountryCode] = useState(project?.countryCode || '');
   const [link, setLink] = useState(project?.link || '');
-  const [showOnPage, setshowOnPage] = useState(
+  const [showOnHomePage, setShowOnHomePage] = useState(
     project?.showOnHomePage || false
   );
+
   const [imageFile, setImageFile] = useState(project?.imageFile.id || '');
+
+
   const [technologyIds, setTechnologyIds] = useState(
     project?.technologies.map((tech) => tech.id) || []
   );
@@ -38,7 +41,7 @@ const ProjectForm: React.FC<{
       shortDescription,
       countryCode,
       link,
-      showOnPage,
+      showOnHomePage,
       imageFileId: imageFile,
       technologyIds,
     };
@@ -115,8 +118,8 @@ const ProjectForm: React.FC<{
           Show on page:
           <input
             type="checkbox"
-            checked={showOnPage}
-            onChange={({ target: { checked } }) => setshowOnPage(checked)}
+            checked={showOnHomePage}
+            onChange={({ target: { checked } }) => setShowOnHomePage(checked)}
           />
         </label>
         <>
