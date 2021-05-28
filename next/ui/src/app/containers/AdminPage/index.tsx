@@ -177,25 +177,11 @@ const AdminPage: React.FC = () => {
           <h3>Items</h3>
           <Styled.MenuList>
             <li
-              id="facts"
-              onClick={(event) => handleOpenMenu(event)}
-              className={isFactsShown ? 'activeMenuItem' : ''}
-            >
-              Facts
-            </li>
-            <li
               id="slogan"
               onClick={(event) => handleOpenMenu(event)}
               className={isSloganShown ? 'activeMenuItem' : ''}
             >
               Slogan
-            </li>
-            <li
-              id="worker"
-              onClick={(event) => handleOpenMenu(event)}
-              className={isWorkersShown ? 'activeMenuItem' : ''}
-            >
-              Workers
             </li>
             <li
               id="project"
@@ -205,11 +191,18 @@ const AdminPage: React.FC = () => {
               Project
             </li>
             <li
-              id="article"
+              id="worker"
               onClick={(event) => handleOpenMenu(event)}
-              className={isArticlesShown ? 'activeMenuItem' : ''}
+              className={isWorkersShown ? 'activeMenuItem' : ''}
             >
-              Article
+              Workers
+            </li>
+            <li
+              id="facts"
+              onClick={(event) => handleOpenMenu(event)}
+              className={isFactsShown ? 'activeMenuItem' : ''}
+            >
+              Facts
             </li>
             <li
               id="technology"
@@ -219,6 +212,13 @@ const AdminPage: React.FC = () => {
               Technology
             </li>
             <li
+              id="testimonial"
+              onClick={(event) => handleOpenMenu(event)}
+              className={isTestimonialsShown ? 'activeMenuItem' : ''}
+            >
+              Testimonial
+            </li>
+            <li
               id="featuredTechnology"
               onClick={(event) => handleOpenMenu(event)}
               className={isfeaturedTechnologiesShown ? 'activeMenuItem' : ''}
@@ -226,11 +226,11 @@ const AdminPage: React.FC = () => {
               Featured Technology
             </li>
             <li
-              id="testimonial"
+              id="article"
               onClick={(event) => handleOpenMenu(event)}
-              className={isTestimonialsShown ? 'activeMenuItem' : ''}
+              className={isArticlesShown ? 'activeMenuItem' : ''}
             >
-              Testimonial
+              Article
             </li>
             <li
               id="images"
