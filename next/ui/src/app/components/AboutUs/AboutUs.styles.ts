@@ -21,9 +21,6 @@ const Arrow = styled.div`
     margin-top: 30px;
     top: 15%;
   }
-  @media screen and (min-width: 1024px) {
-    display: none;
-  }
   &.slick-prev:hover,
   &.slick-prev:focus,
   &.slick-next:hover,

@@ -15,7 +15,9 @@ const ArticleForm: React.FC<{
   const [content, setContent] = useState(article?.content || '');
   const [tags, setTags] = useState(article?.tags || []);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
-  const [iconFileId, setIconFileId] = useState(article?.imageFile.id || '');
+  const [imageFileId, setimageFileId] = useState(article?.imageFile.id || '');
+
+
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -24,16 +26,17 @@ const ArticleForm: React.FC<{
       author,
       content,
       tagIds: tags,
-      iconFileId,
+      imageFileId,
     };
 
+
     article
-      ? updateAdminData('article', article.id, newArticle).then(() => close())
+      ? updateAdminData('article', article.id, newArticle).then((res) => close())
       : createAdminData('article', newArticle).then(() => close());
   }
 
   function getImageId(id) {
-    setIconFileId(id);
+    setimageFileId(id);
   }
 
   return (
@@ -85,7 +88,7 @@ const ArticleForm: React.FC<{
           <div className="buttons">
             <button
               type="submit"
-              disabled={!(title && author && content && iconFileId)}
+              disabled={!(title && author && content && imageFileId)}
             >
               Save Changes
             </button>

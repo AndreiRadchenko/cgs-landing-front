@@ -6,12 +6,14 @@ export const HomeWrapper = styled("div")`
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-  padding:0 0 80px;
+  padding:0 55px 80px;
+
   & > * {
     width: 47%;
   }
   @media screen and (max-width: 768px) {
     flex-direction: column;
+    padding:0;
     & > * {
       width: 90%;
     }
@@ -38,6 +40,7 @@ export const ContentBlock = styled("article")`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width:413px;
   & > p {
     opacity: 0.5;
     margin: 1em 0;
