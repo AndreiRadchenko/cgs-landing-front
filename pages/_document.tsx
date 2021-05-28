@@ -1,35 +1,44 @@
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-} from 'next/document';
-
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-interface MyDocumentProps {
-  styleTags: any;
-}
-
-export default class MyDocument extends Document<MyDocumentProps> {
-  static getInitialProps({ renderPage }) {
+export default class MyDocument extends Document {
+  static async getInitialProps(context) {
     const sheet = new ServerStyleSheet();
 
-    const page = renderPage((App) => {
-      return (props) => {
-        return sheet.collectStyles(<App {...props} />);
-      };
-    });
+    const originalRenderPage = context.renderPage;
 
-    const styleTags = sheet.getStyleElement();
+    context.renderPage = () => (
+      originalRenderPage({
+        enhanceApp(App) {
+          return (props) => (
+            sheet.collectStyles(<App {...props} />)
+          );
+        }
+      })
+    );
 
-    return { ...page, styleTags };
+    const initialProps = await Document.getInitialProps(context);
+
+    const styleElement = sheet.getStyleElement();
+
+    sheet.seal();
+
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          {styleElement}
+        </>
+      ),
+    };
   }
 
   render() {
     return (
       <Html>
-        <Head>{this.props.styleTags}</Head>
+        <Head>
+        </Head>
         <body>
           <Main />
           <NextScript />
