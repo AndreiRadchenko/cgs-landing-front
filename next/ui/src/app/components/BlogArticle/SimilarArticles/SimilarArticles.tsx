@@ -24,7 +24,7 @@ const SimilarArticles: React.FC<SimilarArticlesProps> = ({
                   <a>
                     <img src={article.imageFileUrl} alt={article.title} />
                     <h2>{article.title}</h2>
-                    <p>{clipString(article.content)}</p>
+                    <p dangerouslySetInnerHTML={  {__html:clipString(article.content)}  } /> 
                   </a>
                 </Link>
               </Styled.SimilarArticle>

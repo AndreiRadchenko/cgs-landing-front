@@ -122,6 +122,10 @@ export const Avatar = styled('div')`
   height: 180px;
   border-radius: 50%;
   overflow: hidden;
+  display: flex;
+  & > img {
+    object-fit:cover;
+  }
 `;
 
 
