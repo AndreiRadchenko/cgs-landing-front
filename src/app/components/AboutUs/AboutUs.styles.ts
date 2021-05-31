@@ -124,6 +124,17 @@ export const Avatar = styled('div')`
   overflow: hidden;
 `;
 
+
+export const AboutUsText = styled('p')`
+  max-width:344px;
+  font-family: Mulish;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: center;
+`;
+
 export const SlideWrapper = styled('div')`
   & .slick-track {
     display: flex;
@@ -134,3 +145,5 @@ export const SlideWrapper = styled('div')`
     }
   }
 `;
+
+

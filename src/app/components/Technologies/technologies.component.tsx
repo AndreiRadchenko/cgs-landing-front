@@ -18,7 +18,7 @@ const Technology = ({ technology, index }) => {
             </ul>
           </Styled.DescContainer>
           <div>
-            <img src={TECHNOLOGIES[index].image} alt={technology.type} />
+            <Styled.TechnoImage src={TECHNOLOGIES[index].image} alt={technology.type} />
           </div>
         </Styled.TechnoContainer>
       }

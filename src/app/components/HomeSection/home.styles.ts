@@ -7,7 +7,6 @@ export const HomeWrapper = styled("div")`
   align-items: center;
   margin-top: 20px;
   padding:0 55px 80px;
-
   & > * {
     width: 47%;
   }
@@ -17,6 +16,9 @@ export const HomeWrapper = styled("div")`
     & > * {
       width: 90%;
     }
+  }
+  @media screen and (max-width: 900px) {
+    padding:0 15px 80px;
   }
 `;
 
