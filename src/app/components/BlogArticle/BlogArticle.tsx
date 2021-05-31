@@ -17,7 +17,7 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
           <div className="article__content">
             <Styled.Title>{article.title}</Styled.Title>
             {article.content && (
-              <Styled.Content dangerouslySetInnerHTML={{ __html: clipString(article.content) }} />
+              <Styled.Content dangerouslySetInnerHTML={{ __html: clipString(article.content)! }} />
             )}
             <Styled.TagList>
               {article.tags &&
