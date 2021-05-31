@@ -13,7 +13,6 @@ const Testimonials = ({ testimonial }) => {
         <h2>{testimonial.customerName}</h2>
         {country && (
           <div className="testimonials__flag">
-            (
             <ReactCountryFlag
               countryCode={testimonial.countryCode}
               svg
@@ -22,7 +21,6 @@ const Testimonials = ({ testimonial }) => {
                 height: '100%',
               }}
             />
-            )
           </div>
         )}
         <p className="testimonials__country">

@@ -127,7 +127,7 @@ export const TechnoContainer = styled('div')`
   @media screen and (min-width: 1024px) {
     justify-content: space-between;
     flex-direction: row-reverse;
-    align-items: flex-end;
+    align-items: flex-start;
 
     .slick-slide:nth-child(3n - 3) &,
     .slick-slide:nth-child(4n - 4) & {
@@ -209,3 +209,8 @@ export const HorizontalSep = styled('div')`
     margin: 1em 0 !important;
   }
 `;
+
+export const TechnoImage = styled('img')`
+  padding-top:30px;
+`;
+
