@@ -7,17 +7,27 @@ const Slogan: React.FC<{
   slogan: ISlogan;
   openModal: Function;
   deleteItem: Function;
-}> = ({ slogan, openModal, deleteItem }) => {
+  setIsModal: Function
+}> = ({ slogan, openModal, deleteItem, setIsModal }) => {
   return (
     <Styled.Wrapper>
+        <Styled.Title>Slogan</Styled.Title>
+      <button
+              className="button"
+              type="button"
+              onClick={() => setIsModal(true)}
+            >
+              Create new entry
+      </button>
       <Styled.Item>
-        <ul>
-          <li>ID: {slogan.id} </li>
-          <li>Title: {slogan.title} </li>
-          <li>Text: {slogan.text} </li>
-          <li>Selected: {slogan.selected ? 'true' : 'false'} </li>
-        </ul>
+        <Styled.List>
+          <Styled.ListItem><span>Title:</span> <span>{slogan.title}</span> </Styled.ListItem>
+          <Styled.ListItem><span>Text:</span> <span>{slogan.text}</span> </Styled.ListItem>
+          <Styled.ListItem><span>Selected:</span> <span>{slogan.selected ? 'true' : 'false'}</span> </Styled.ListItem>
+        </Styled.List>
       </Styled.Item>
+
+
       <ItemButtons
         openModal={openModal}
         item={slogan}

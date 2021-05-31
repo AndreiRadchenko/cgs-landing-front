@@ -125,7 +125,7 @@ export const Avatar = styled('div')`
 `;
 
 
-export const AboutUsText = styled('p')`
+export const AboutText = styled('p')`
   max-width:344px;
   font-family: Mulish;
   font-size: 19px;
