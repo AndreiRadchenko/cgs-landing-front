@@ -122,10 +122,14 @@ export const Avatar = styled('div')`
   height: 180px;
   border-radius: 50%;
   overflow: hidden;
+  display: flex;
+  & > img {
+    object-fit:cover;
+  }
 `;
 
 
-export const AboutUsText = styled('p')`
+export const AboutText = styled('p')`
   max-width:344px;
   font-family: Mulish;
   font-size: 19px;

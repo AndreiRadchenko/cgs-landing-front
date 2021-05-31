@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
           return (props) => (
             sheet.collectStyles(<App {...props} />)
           );
-        }
+        },
       })
     );
 

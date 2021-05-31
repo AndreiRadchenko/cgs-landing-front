@@ -25,6 +25,8 @@ import FeaturedTechologyForm from 'app/components/Admin/FeaturedTechnology/Featu
 import TestimonialForm from 'app/components/Admin/Testimonial/TestimonialForm';
 import ArticleForm from 'app/components/Admin/Article/ArticleForm';
 import ImagesPage from 'app/components/Admin/ImagesPage/ImagesPage';
+import IMAGES from 'consts/Images';
+// import Footer from 'app/components/shared/Footer/footer.component';
 
 const AdminPage: React.FC = () => {
   const [token, setToken] = useState('');
@@ -172,7 +174,17 @@ const AdminPage: React.FC = () => {
   return (
     <Styled.Wrapper>
       <Styled.ContentWrapper>
-        <h2> Admin Page</h2>
+          <Styled.HeaderWrapper>
+           <Styled.HeaderItem>
+                <a href="/">
+                  <Styled.HeaderLogo src={IMAGES.LOGO} />
+                </a>
+            </Styled.HeaderItem>
+            <Styled.HeaderItem>
+                <h2> Admin Page</h2>
+            </Styled.HeaderItem>
+            </Styled.HeaderWrapper>
+      <Styled.Sidebar>
         <Styled.Menu>
           <h3>Items</h3>
           <Styled.MenuList>
@@ -241,9 +253,10 @@ const AdminPage: React.FC = () => {
             </li>
           </Styled.MenuList>
         </Styled.Menu>
+      </Styled.Sidebar>
+
         <Styled.InfoWrapper>
           {(isFactsShown ||
-            isSloganShown ||
             isWorkersShown ||
             isTestimonialsShown) && (
             <button
@@ -265,6 +278,7 @@ const AdminPage: React.FC = () => {
               <Slogan
                 slogan={slogan}
                 openModal={openModal}
+                setIsModal={setIsModal}
                 deleteItem={deleteItem}
               ></Slogan>
             ))}
@@ -325,6 +339,7 @@ const AdminPage: React.FC = () => {
           {isImagesShown && <ImagesPage></ImagesPage>}
         </Styled.InfoWrapper>
       </Styled.ContentWrapper>
+      {/* <Footer/> */}
       {isModal && (
         <Modal closeModal={closeModal}>
           {isFactsShown && <FactsForm fact={editItem} close={closeModal} />}
