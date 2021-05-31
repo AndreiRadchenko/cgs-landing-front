@@ -23,9 +23,8 @@ const TestimonialForm: React.FC<{
     (item) => item.type === 'upwork'
     );
 
-  
-  
-  const [countryCode,setCountyCode] = useState(testimonial?.countryCode)
+
+  const countryCode = useInput(testimonial?.countryCode);
   const clutchLinkInput = useInput(clutch?.link);
   const upworkLinkInput = useInput(upwork?.link);
   const clutchRateInput = useInput(clutch?.rate);
@@ -57,7 +56,7 @@ const TestimonialForm: React.FC<{
       customerName: customerName.value,
       customerPosition: customerPosition.value,
       companyName: companyName.value,
-      countryCode,
+      countryCode:countryCode.value,
       feedback: feedback.value,
       platforms: [],
     };
@@ -78,11 +77,7 @@ const TestimonialForm: React.FC<{
   }
 
 
-  const CountryCodesKeys = Object.keys(CountryCodes);  
-
-  let handleFlagSelect = ({currentTarget}) => {
-    setCountyCode(currentTarget.value)
-  }
+  const CountryNameKey = Object.keys(CountryCodes);  
 
   return (
     <Styled.Wrapper>
@@ -102,13 +97,17 @@ const TestimonialForm: React.FC<{
         </label>
         <label>
           Country Code:
-          <select className="form__title" onChange={handleFlagSelect}>
-          {CountryCodesKeys.map(countyKey => {
+          <select className="form__title" {...countryCode}>
+
+
+          {CountryNameKey.map(codeValue => {
           return(
-            <option selected={CountryCodes[countyKey] === countryCode} value={CountryCodes[countyKey]} key={countyKey}>
-              {countyKey}
+            <option selected={codeValue === countryCode.value} value={codeValue} key={codeValue}>
+              {CountryCodes[codeValue]}
             </option>)
             })})
+
+
           </select>
         </label>
         <label>

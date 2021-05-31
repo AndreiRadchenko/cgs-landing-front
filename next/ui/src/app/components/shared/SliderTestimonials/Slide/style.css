@@ -84,7 +84,8 @@
 }
 
 .slider-picture {
-  width: 56%;
+  width: 56% ;
+  padding-right: 10px;
 }
 
 .slider-technology {
