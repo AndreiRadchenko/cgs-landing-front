@@ -30,12 +30,12 @@ const Arrow = styled.div`
   }
 `;
 export const SliderPrev = styled(Arrow)`
-  top: 15%;
+  top: 10%;
   left: 4%;
 `;
 
 export const SliderNext = styled(Arrow)`
-  top: 15%;
+  top: 10%;
   right: 4%;
 `;
 

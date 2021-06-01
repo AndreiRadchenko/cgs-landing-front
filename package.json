@@ -112,11 +112,6 @@
       "prettier --write"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run checkTs && lint-staged"
-    }
-  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
@@ -139,6 +134,7 @@
     "@types/yup": "0.29.4",
     "css-loader": "5.2.4",
     "file-loader": "6.2.0",
+    "postcss": "8.3.0",
     "url-loader": "4.1.1"
   }
 }

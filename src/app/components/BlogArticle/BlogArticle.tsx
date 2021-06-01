@@ -1,8 +1,8 @@
-import React from 'react';
-import * as Styled from './BlogArticle.styles';
-import { IBlogArticle } from '../../../types/components/index';
-import Link from 'next/link';
-import clipString from '../../../helpers/clipString';
+import React from "react";
+import * as Styled from "./BlogArticle.styles";
+import { IBlogArticle } from "../../../types/components/index";
+import Link from "next/link";
+import clipString from "../../../helpers/clipString";
 
 const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
   return (
@@ -17,7 +17,11 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
           <div className="article__content">
             <Styled.Title>{article.title}</Styled.Title>
             {article.content && (
-              <Styled.Content dangerouslySetInnerHTML={{ __html: clipString(article.content)! }} />
+              <Styled.Content
+                dangerouslySetInnerHTML={{
+                  __html: clipString(article.content)!,
+                }}
+              />
             )}
             <Styled.TagList>
               {article.tags &&
