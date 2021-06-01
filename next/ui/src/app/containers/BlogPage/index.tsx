@@ -1,29 +1,36 @@
-import usePagination from 'app/components/Admin/Hooks';
-import Article from 'app/components/Article/article.component';
-import BlogArticle from 'app/components/BlogArticle/BlogArticle';
-import Pagination from 'app/components/shared/Pagination/pagination.component';
-import React from 'react';
-import { IBlogArticle } from 'types/components';
-import { scrollEA } from '../../../services/event';
-import * as Styled from '../../components/BlogArticle/BlogArticle.styles';
+import usePagination from "app/components/Admin/Hooks";
+import Article from "app/components/Article/article.component";
+import BlogArticle from "app/components/BlogArticle/BlogArticle";
+import Pagination from "app/components/shared/Pagination/pagination.component";
+import React from "react";
+import { IBlogArticle } from "types/components";
+import { scrollEA } from "../../../services/event";
+import * as Styled from "../../components/BlogArticle/BlogArticle.styles";
 
 export function BlogPage({ articles }: { articles: IBlogArticle[] }) {
   React.useEffect(() => {
-    scrollEA('data-scroll');
+    scrollEA("data-scroll");
   }, []);
 
-  const [paginatedDataMarkUp, curentPage, handleDecrease, handleIncrease, numberOfPages, paginationArray, setCurrentPage] = usePagination(articles,5)
-
-  const mapToProps= {
+  const [
     paginatedDataMarkUp,
     curentPage,
     handleDecrease,
     handleIncrease,
     numberOfPages,
     paginationArray,
-    setCurrentPage
-  }
+    setCurrentPage,
+  ]: any = usePagination(articles, 5);
 
+  const mapToProps = {
+    paginatedDataMarkUp,
+    curentPage,
+    handleDecrease,
+    handleIncrease,
+    numberOfPages,
+    paginationArray,
+    setCurrentPage,
+  };
 
   return (
     <div className="main-wraper">
@@ -48,9 +55,9 @@ export function BlogPage({ articles }: { articles: IBlogArticle[] }) {
                 );
               }
             })}
-            <div>
+          <div>
             <Pagination {...mapToProps} />
-            </div>
+          </div>
         </Styled.Wrapper>
       </Article>
     </div>
