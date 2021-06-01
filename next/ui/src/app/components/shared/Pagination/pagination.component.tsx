@@ -1,0 +1,40 @@
+import React from 'react';
+import * as Styled from './pagination.styles'
+
+function Pagination({curentPage,handleDecrease,paginationArray,setCurrentPage,numberOfPages,handleIncrease}) {
+    return (
+        <nav className="pagination">
+              <Styled.PaginationList> 
+                {curentPage > 1 && (
+                    <Styled.PageLink onClick={handleDecrease}>
+                      <a>
+                        Prev
+                      </a>
+                    </Styled.PageLink>
+                  )}
+                  {paginationArray.map((_, i) => {
+                    return (
+                      <Styled.PageLink
+                        key={i}
+                        onClick={() => setCurrentPage(i + 1)}
+                        active={curentPage === i + 1}
+                      >
+                        <a>
+                          {i + 1}
+                        </a>
+                      </Styled.PageLink>
+                    );
+                  })}
+                  {curentPage < numberOfPages && (
+                    <Styled.PageLink onClick={handleIncrease}>
+                      <a>
+                        next
+                      </a>
+                    </Styled.PageLink>
+                  )}
+              </Styled.PaginationList>
+          </nav>
+    )
+}
+
+export default Pagination;
