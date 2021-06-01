@@ -42,8 +42,8 @@
   width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding-left: 10px;
+  justify-content: center;
+  padding: 0 10px;
 }
 
 .slider-technologies {
@@ -84,8 +84,8 @@
 }
 
 .slider-picture {
-  width: 56% ;
-  padding:0 10px;
+  width: 56%;
+  padding: 0 10px;
 }
 
 .slider-technology {
