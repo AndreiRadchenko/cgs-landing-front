@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const imgSize = {
-  w: '30px',
-  h: '30px',
+  w: "30px",
+  h: "30px",
 };
 
 const Arrow = styled.div`
@@ -16,6 +16,9 @@ const Arrow = styled.div`
   }
   @media screen and (max-width: 1024px) {
     top: 25%;
+  }
+  @media screen and (max-width: 600px) {
+    top: 20%;
   }
 `;
 
@@ -99,6 +102,7 @@ export const SliderContainer = styled.div`
   }
   & .slider-picture {
     height:500px;
+    object-fit: contain;
     @media screen and (max-width: 1025px) { 
         height:400px;
     }

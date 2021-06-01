@@ -30,7 +30,7 @@ const Pagination = ({
         })}
         {curentPage < numberOfPages && (
           <Styled.PageLink onClick={handleIncrease}>
-            <a>next</a>
+            <a>Next</a>
           </Styled.PageLink>
         )}
       </Styled.PaginationList>

@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { createAdminData, updateAdminData } from 'services/api/adminApi';
-import { ISlogan } from '../types';
-import * as Styled from '../Form.styles';
+import { useState } from "react";
+import { createAdminData, updateAdminData } from "services/api/adminApi";
+import { ISlogan } from "../types";
+import * as Styled from "../Form.styles";
 
 const SloganForm: React.FC<{
   slogan?: ISlogan | undefined;
   close: Function;
 }> = ({ slogan, close }) => {
-  const [title, setTitle] = useState(slogan?.title || '');
-  const [text, setText] = useState(slogan?.text || '');
+  const [title, setTitle] = useState(slogan?.title || "");
+  const [text, setText] = useState(slogan?.text || "");
   const [selected, setSelected] = useState(slogan?.selected || false);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -20,44 +20,54 @@ const SloganForm: React.FC<{
     };
 
     slogan
-      ? updateAdminData('slogan', slogan.id, newSlogan).then(() => close())
-      : createAdminData('slogan', newSlogan).then(() => close());
+      ? updateAdminData("slogan", slogan.id, newSlogan).then(() => close())
+      : createAdminData("slogan", newSlogan).then(() => close());
   }
 
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
-        {slogan ? <h2>Edit slogan ID: {slogan.id}</h2> : <h2>Create slogan</h2>}
-        <label>
-          Slogan title
-          <input
+        {slogan ? <h2>Edit slogan</h2> : <h2>Create new slogan</h2>}
+        <Styled.Label>
+          <span>Slogan title</span>
+          <Styled.AdminTextInput
             type="text"
             value={title}
             onChange={({ target: { value } }) => setTitle(value)}
+            placeholder="Write slogan here"
           />
-        </label>
-        <label>
-          Slogan text
-          <input
-            type="text"
+        </Styled.Label>
+        <Styled.Label>
+          <span> Slogan text</span>
+          <Styled.AdminTextArea
             value={text}
             onChange={({ target: { value } }) => setText(value)}
+            placeholder="Write some text here"
           />
-        </label>
-        <label>
-          Selected
-          <input
-            type="checkbox"
-            checked={selected}
-            onChange={({ target: { checked } }) => setSelected(checked)}
-          />
-        </label>
-        <button type="submit" disabled={!(title && text)}>
-          Save Changes
-        </button>
-        <button type="button" onClick={() => close()}>
-          Cancel
-        </button>
+        </Styled.Label>
+        <Styled.CheckboxContainer>
+          <div>Selected</div>
+          <Styled.CheckboxLabel selected={selected}>
+            <input
+              className="checkbox"
+              type="checkbox"
+              checked={selected}
+              onChange={({ target: { checked } }) => setSelected(checked)}
+            />
+          </Styled.CheckboxLabel>
+        </Styled.CheckboxContainer>
+        <Styled.ButtonWrapper>
+          <Styled.Button
+            type="submit"
+            empty={!slogan}
+            disabled={!(title && text)}
+          >
+            {slogan ? "Save" : "Create"}
+          </Styled.Button>
+          <Styled.Button type="button" onClick={() => close()}>
+            Cancel
+          </Styled.Button>
+        </Styled.ButtonWrapper>
       </Styled.Form>
     </Styled.Wrapper>
   );
