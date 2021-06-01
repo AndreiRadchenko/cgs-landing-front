@@ -67,6 +67,7 @@ export const SliderContainer = styled.div`
     height: 100%;
     & .slick-list,
     & .slick-list .slick-track {
+      display:flex;
       width: 100%;
       height: 100%;
       & > div > div {
@@ -95,5 +96,13 @@ export const SliderContainer = styled.div`
     & .slick-active {
       color: #0c1033;
     }
+  }
+  & .slider-picture {
+    height:500px;
+    @media screen and (max-width: 1025px) { 
+        height:400px;
+    }
+    @media screen and (max-width: 650px) { 
+      height:230px;
   }
 `;

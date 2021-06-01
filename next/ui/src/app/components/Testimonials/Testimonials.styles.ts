@@ -116,6 +116,9 @@ export const TestimonialContainer = styled('div')`
     margin: 0;
     margin-right: 12px;
     font-size: 22px;
+    @media screen and (max-width: 415px) {
+      width: min-content;
+    }
   }
 
   & .testimonials__flag {

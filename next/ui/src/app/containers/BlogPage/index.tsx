@@ -1,5 +1,7 @@
+import usePagination from 'app/components/Admin/Hooks';
 import Article from 'app/components/Article/article.component';
 import BlogArticle from 'app/components/BlogArticle/BlogArticle';
+import Pagination from 'app/components/shared/Pagination/pagination.component';
 import React from 'react';
 import { IBlogArticle } from 'types/components';
 import { scrollEA } from '../../../services/event';
@@ -10,6 +12,19 @@ export function BlogPage({ articles }: { articles: IBlogArticle[] }) {
     scrollEA('data-scroll');
   }, []);
 
+  const [paginatedDataMarkUp, curentPage, handleDecrease, handleIncrease, numberOfPages, paginationArray, setCurrentPage] = usePagination(articles,5)
+
+  const mapToProps= {
+    paginatedDataMarkUp,
+    curentPage,
+    handleDecrease,
+    handleIncrease,
+    numberOfPages,
+    paginationArray,
+    setCurrentPage
+  }
+
+
   return (
     <div className="main-wraper">
       <Article
@@ -17,8 +32,8 @@ export function BlogPage({ articles }: { articles: IBlogArticle[] }) {
         desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       >
         <Styled.Wrapper>
-          {articles &&
-            articles.map((article, index) => {
+          {paginatedDataMarkUp &&
+            paginatedDataMarkUp.map((article, index) => {
               if (index === 0) {
                 return (
                   <Styled.FeaturedArticle>
@@ -33,6 +48,9 @@ export function BlogPage({ articles }: { articles: IBlogArticle[] }) {
                 );
               }
             })}
+            <div>
+            <Pagination {...mapToProps} />
+            </div>
         </Styled.Wrapper>
       </Article>
     </div>

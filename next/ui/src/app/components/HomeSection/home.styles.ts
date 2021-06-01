@@ -10,15 +10,15 @@ export const HomeWrapper = styled("div")`
   & > * {
     width: 47%;
   }
+  @media screen and (max-width: 900px) {
+    padding:0 15px 80px;
+  }
   @media screen and (max-width: 768px) {
     flex-direction: column;
     padding:0;
     & > * {
       width: 90%;
     }
-  }
-  @media screen and (max-width: 900px) {
-    padding:0 15px 80px;
   }
 `;
 

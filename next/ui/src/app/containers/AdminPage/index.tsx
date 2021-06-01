@@ -26,7 +26,7 @@ import TestimonialForm from 'app/components/Admin/Testimonial/TestimonialForm';
 import ArticleForm from 'app/components/Admin/Article/ArticleForm';
 import ImagesPage from 'app/components/Admin/ImagesPage/ImagesPage';
 import IMAGES from 'consts/Images';
-// import Footer from 'app/components/shared/Footer/footer.component';
+import Footer from 'app/components/shared/Footer/footer.component';
 
 const AdminPage: React.FC = () => {
   const [token, setToken] = useState('');
@@ -339,7 +339,7 @@ const AdminPage: React.FC = () => {
           {isImagesShown && <ImagesPage></ImagesPage>}
         </Styled.InfoWrapper>
       </Styled.ContentWrapper>
-      {/* <Footer/> */}
+      <Footer/>
       {isModal && (
         <Modal closeModal={closeModal}>
           {isFactsShown && <FactsForm fact={editItem} close={closeModal} />}
