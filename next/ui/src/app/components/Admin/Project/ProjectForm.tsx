@@ -19,29 +19,36 @@ const ProjectForm: React.FC<{
   );
   const [countryCode, setCountryCode] = useState(project?.countryCode || '');
   const [link, setLink] = useState(project?.link || '');
-  const [showOnPage, setshowOnPage] = useState(
+  const [showOnHomePage, setShowOnHomePage] = useState(
     project?.showOnHomePage || false
   );
+
   const [imageFile, setImageFile] = useState(project?.imageFile.id || '');
+
+
   const [technologyIds, setTechnologyIds] = useState(
     project?.technologies.map((tech) => tech.id) || []
   );
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+
+
     const newProject = {
       name,
       fullDescription,
       shortDescription,
       countryCode,
       link,
-      showOnPage,
+      showOnHomePage,
       imageFileId: imageFile,
       technologyIds,
     };
 
+
     project
-      ? updateAdminData('project', project.id, newProject).then(() => close())
+      ? updateAdminData('project', project.id, newProject).then(() =>close()  )
       : createAdminData('project', newProject).then(() => close());
   }
 
@@ -111,8 +118,8 @@ const ProjectForm: React.FC<{
           Show on page:
           <input
             type="checkbox"
-            checked={showOnPage}
-            onChange={({ target: { checked } }) => setshowOnPage(checked)}
+            checked={showOnHomePage}
+            onChange={({ target: { checked } }) => setShowOnHomePage(checked)}
           />
         </label>
         <>

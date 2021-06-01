@@ -21,9 +21,6 @@ const Arrow = styled.div`
     margin-top: 30px;
     top: 15%;
   }
-  @media screen and (min-width: 1024px) {
-    display: none;
-  }
   &.slick-prev:hover,
   &.slick-prev:focus,
   &.slick-next:hover,
@@ -47,7 +44,7 @@ export const SliderContainer = styled.div`
   & .slick-slider {
     margin: 0 1em;
     @media screen and (max-width: 1023px) {
-      margin: 0 5em;
+      margin: 0 2em;
     }
     @media screen and (max-width: 650px) {
       margin: 0;
@@ -125,6 +122,21 @@ export const Avatar = styled('div')`
   height: 180px;
   border-radius: 50%;
   overflow: hidden;
+  display: flex;
+  & > img {
+    object-fit:cover;
+  }
+`;
+
+
+export const AboutText = styled('p')`
+  max-width:344px;
+  font-family: Mulish;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: center;
 `;
 
 export const SlideWrapper = styled('div')`
@@ -133,7 +145,9 @@ export const SlideWrapper = styled('div')`
   }
   @media screen and (min-width: 1024px) {
     & .slick-slide:not(:last-child) {
-      margin-right: 162px;
+      padding:0 81px;
     }
   }
 `;
+
+

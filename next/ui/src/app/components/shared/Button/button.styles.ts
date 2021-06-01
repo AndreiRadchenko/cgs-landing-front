@@ -11,7 +11,7 @@ export const Button = styled('button')`
   min-width: 200px;
   cursor: pointer;
   transition: all 0.3s ease-in;
-
+  font-size: 18px;
   & * {
     width: 100%;
     height: 100%;

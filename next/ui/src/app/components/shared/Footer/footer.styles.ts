@@ -38,5 +38,4 @@ export const Wrapper = styled("div")`
   background: #0c1033;
   display: flex;
   justify-content: center;
-  width: 100vw;
 `;

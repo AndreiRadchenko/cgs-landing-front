@@ -1,7 +1,7 @@
-import clipString from '../../../../helpers/clipString';
-import Link from 'next/link';
-import { IBlogArticle } from '../../../../types/components';
-import * as Styled from './SimilarArticles.styles';
+import clipString from "../../../../helpers/clipString";
+import Link from "next/link";
+import { IBlogArticle } from "../../../../types/components";
+import * as Styled from "./SimilarArticles.styles";
 export interface SimilarArticlesProps {
   similarArticles: IBlogArticle[];
 }
@@ -24,7 +24,11 @@ const SimilarArticles: React.FC<SimilarArticlesProps> = ({
                   <a>
                     <img src={article.imageFileUrl} alt={article.title} />
                     <h2>{article.title}</h2>
-                    <p>{clipString(article.content)}</p>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: clipString(article.content)!,
+                      }}
+                    />
                   </a>
                 </Link>
               </Styled.SimilarArticle>

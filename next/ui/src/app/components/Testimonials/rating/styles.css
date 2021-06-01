@@ -39,3 +39,10 @@
 .rating__--mob:hover {
   background: #0c1033;
 }
+
+@media screen and (max-width: 450px) {
+  .rating__button--small {
+    min-width: auto;
+  }
+
+}

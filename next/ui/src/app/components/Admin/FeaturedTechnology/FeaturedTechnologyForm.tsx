@@ -11,17 +11,21 @@ const FeaturedTechologyForm: React.FC<{
 }> = ({ featuredTechnology, close }) => {
   const [name, setName] = useState(featuredTechnology?.name || '');
   const [text, setCategory] = useState(featuredTechnology?.text || '');
-  const [iconFileId, setIconFileId] = useState(
+  const [imageFileId, setImageFileId] = useState(
     featuredTechnology?.imageFile.id || ''
   );
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+
+    
     const newFeaturedTechnology = {
       name,
       text,
-      imageFileId: iconFileId,
+      imageFileId: setImageFileId,
     };
+
 
     featuredTechnology
       ? updateAdminData(
@@ -35,7 +39,7 @@ const FeaturedTechologyForm: React.FC<{
   }
 
   function getImageId(id) {
-    setIconFileId(id);
+    setImageFileId(id);
   }
 
   return (
@@ -70,7 +74,7 @@ const FeaturedTechologyForm: React.FC<{
           getImageId={getImageId}
         ></Images>
         <div className="buttons">
-          <button type="submit" disabled={!(name && text && iconFileId)}>
+          <button type="submit" disabled={!(name && text && imageFileId)}>
             Save Changes
           </button>
           <button type="button" onClick={() => close()}>

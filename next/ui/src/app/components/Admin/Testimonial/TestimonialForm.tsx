@@ -5,6 +5,13 @@ import { ITestimonial, IPlatform } from '../types';
 import * as Styled from '../Form.styles';
 import { useInput } from '../Hooks';
 
+import CountryCodes from './countyCodes.json'
+
+
+
+
+
+
 const TestimonialForm: React.FC<{
   testimonial?: ITestimonial | undefined;
   close: Function;
@@ -14,14 +21,16 @@ const TestimonialForm: React.FC<{
   );
   const upwork: IPlatform | undefined = testimonial?.platforms.find(
     (item) => item.type === 'upwork'
-  );
+    );
+
+
+  const countryCode = useInput(testimonial?.countryCode);
   const clutchLinkInput = useInput(clutch?.link);
   const upworkLinkInput = useInput(upwork?.link);
   const clutchRateInput = useInput(clutch?.rate);
   const upworkRateInput = useInput(upwork?.rate);
   const customerName = useInput(testimonial?.customerName);
   const companyName = useInput(testimonial?.companyName);
-  const countryCode = useInput(testimonial?.countryCode);
   const customerPosition = useInput(testimonial?.customerPosition);
   const feedback = useInput(testimonial?.feedback);
 
@@ -47,7 +56,7 @@ const TestimonialForm: React.FC<{
       customerName: customerName.value,
       customerPosition: customerPosition.value,
       companyName: companyName.value,
-      countryCode: countryCode.value,
+      countryCode:countryCode.value,
       feedback: feedback.value,
       platforms: [],
     };
@@ -67,6 +76,9 @@ const TestimonialForm: React.FC<{
       : createAdminData('testimonial', newtestimonial).then(() => close());
   }
 
+
+  const CountryNameKey = Object.keys(CountryCodes);  
+
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
@@ -85,7 +97,18 @@ const TestimonialForm: React.FC<{
         </label>
         <label>
           Country Code:
-          <input className="form__title" type="text" {...countryCode} />
+          <select className="form__title" {...countryCode}>
+
+
+          {CountryNameKey.map(codeValue => {
+          return(
+            <option selected={codeValue === countryCode.value} value={codeValue} key={codeValue}>
+              {CountryCodes[codeValue]}
+            </option>)
+            })})
+
+
+          </select>
         </label>
         <label>
           Customer Position:
@@ -114,7 +137,7 @@ const TestimonialForm: React.FC<{
                 customerName.value &&
                 customerPosition.value &&
                 companyName.value &&
-                countryCode.value &&
+                countryCode &&
                 feedback.value
               )
             }

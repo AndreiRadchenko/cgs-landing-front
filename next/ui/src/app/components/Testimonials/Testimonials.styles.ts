@@ -68,9 +68,17 @@ export const SliderContainer = styled.div`
   & .slick-track {
     display: flex;
     justify-content: space-between;
+    min-height:388px;
   }
 
   & .slick-slide {
+    
+    height:auto;
+
+    & > div {
+      height:100%
+    }
+
     @media screen and (max-width: 1023px) {
       width: 100%;
     }
@@ -91,11 +99,12 @@ export const SliderContainer = styled.div`
 `;
 
 export const TestimonialContainer = styled('div')`
+  height: 100%;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   text-align: center;
 
   & .titleWrapper {
@@ -107,6 +116,9 @@ export const TestimonialContainer = styled('div')`
     margin: 0;
     margin-right: 12px;
     font-size: 22px;
+    @media screen and (max-width: 415px) {
+      width: min-content;
+    }
   }
 
   & .testimonials__flag {
@@ -124,6 +136,7 @@ export const TestimonialContainer = styled('div')`
     margin-bottom: 30px;
     font-size: 18px;
     line-height: 1.67;
+    flex-grow:1;
   }
 
   & .testimonials__position {

@@ -1,5 +1,5 @@
-import { StringSchema } from 'yup';
-import { FormikHandlers } from 'formik/dist/types';
+import { StringSchema } from "yup";
+import { FormikHandlers } from "formik/dist/types";
 
 export interface ProjectImgStyle {
   img: string;
@@ -37,7 +37,7 @@ export interface ISocial {
 }
 
 export interface IFooter {
-  socialList: Array<ISocialInside>;
+  socialList?: Array<ISocialInside>;
   fill?: string;
 }
 

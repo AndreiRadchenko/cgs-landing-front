@@ -5,14 +5,15 @@ interface Props {
 }
 
 export const HeaderWrapper = styled.header<Props>`
-  display: flex;
+display: flex;
+margin:0 auto;
+max-width:1238px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   background: white;
-  padding: 1em 4em;
-
-  margin-bottom: 1em;
+  padding: 1em 10px;
+  margin-bottom: 3em;
   flex: 1;
   @media screen and (max-width: 1023px) {
     padding: 1em 2em;

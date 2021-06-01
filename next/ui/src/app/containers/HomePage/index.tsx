@@ -1,23 +1,23 @@
-import React from 'react';
-import { SocialList, Nav } from '../../../consts/lists';
-import Header from '../../components/shared/Header/header.component';
-import Footer from '../../components/shared/Footer/footer.component';
-import Home from '../../components/HomeSection/home.component';
-import Form from '../../components/shared/Form/form.component';
-import Article from '../../components/Article/article.component';
-import SliderWorks from '../../components/shared/SliderTestimonials/Slider.component';
-import Slide from '../../components/shared/SliderTestimonials/Slide/slide.component';
-import { scrollEA } from '../../../services/event';
-import SliderAboutUs from 'app/components/AboutUs/slider.component';
-import SliderFacts from 'app/components/Facts/SliderFacts';
-import SliderTestimonials from 'app/components/Testimonials/SliderTestimonials';
-import SliderFeatured from 'app/components/FeaturedTechnologies/SliderFeatured';
-import SliderTechnologies from 'app/components/Technologies/SliderTechnologies';
-import MainLayout from 'app/components/Layout/Layout';
+import React from "react";
+import { SocialList, Nav } from "../../../consts/lists";
+import Header from "../../components/shared/Header/header.component";
+import Footer from "../../components/shared/Footer/footer.component";
+import Home from "../../components/HomeSection/home.component";
+import Form from "../../components/shared/Form/form.component";
+import Article from "../../components/Article/article.component";
+import SliderWorks from "../../components/shared/SliderTestimonials/Slider.component";
+import Slide from "../../components/shared/SliderTestimonials/Slide/slide.component";
+import { scrollEA } from "../../../services/event";
+import SliderAboutUs from "app/components/AboutUs/slider.component";
+import SliderFacts from "app/components/Facts/SliderFacts";
+import SliderTestimonials from "app/components/Testimonials/SliderTestimonials";
+import SliderFeatured from "app/components/FeaturedTechnologies/SliderFeatured";
+import SliderTechnologies from "app/components/Technologies/SliderTechnologies";
+import MainLayout from "app/components/Layout/Layout";
 
 export function HomePage({ props }) {
   React.useEffect(() => {
-    scrollEA('data-scroll');
+    scrollEA("data-scroll");
   }, []);
   return (
     <>
@@ -91,7 +91,7 @@ export function HomePage({ props }) {
               />
             </Article>
           )}
-          <Article id="Contacts" title="Contacts">
+          <Article id="Contacts" title="New text for contact form">
             <Form />
           </Article>
         </div>

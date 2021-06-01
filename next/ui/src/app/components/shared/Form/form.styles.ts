@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 export const FormWrapper = styled('div')`
-  width: 50%;
+  max-width:433px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-top:47px;
 
   & > div {
     width: 100%;

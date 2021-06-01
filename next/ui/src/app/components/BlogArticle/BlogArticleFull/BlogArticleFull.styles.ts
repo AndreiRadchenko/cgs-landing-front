@@ -20,13 +20,17 @@ export const Wrapper = styled('div')`
 `;
 
 export const ArticleWrapper = styled('div')`
-  width: 50%;
+  max-width:800px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 1em 0;
   margin: 0;
+  &  img {
+    width:100% !important;
+  }
   @media screen and (max-width: 1024px) {
     width: 100%;
     padding: 0 32px 30px;

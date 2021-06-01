@@ -10,7 +10,7 @@ const AboutUs = ({ employee }) => {
       </Styled.Avatar>
       <h2>{employee.name}</h2>
       <p className="about-us__position">{employee.position}</p>
-      <q className="about-us__text">{employee.text}</q>
+      <Styled.AboutText className="about-us__text">{employee.text}</Styled.AboutText>
     </Styled.AboutUsContainer>
   );
 };

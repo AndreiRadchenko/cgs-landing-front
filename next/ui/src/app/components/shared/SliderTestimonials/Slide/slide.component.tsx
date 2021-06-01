@@ -38,7 +38,7 @@ const Slide: React.FC<IProject> = ({ item }) => {
           </a>
         )}
       </div>
-      <img className="slider-picture" src="/techImage.svg" />
+      <img className="slider-picture" src={item.imageUrl} alt={item.shortDescription} />
     </Style.SlideContainer>
   );
 };
