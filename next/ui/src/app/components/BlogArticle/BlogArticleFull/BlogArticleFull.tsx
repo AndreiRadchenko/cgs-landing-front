@@ -1,6 +1,6 @@
-import React from 'react';
-import * as Styled from './BlogArticleFull.styles';
-import { IBlogArticle } from '../../../../types/components/index';
+import React from "react";
+import * as Styled from "./BlogArticleFull.styles";
+import { IBlogArticle } from "../../../../types/components/index";
 
 const BlogArticleFull: React.FC<{ article: IBlogArticle }> = ({ article }) => {
   return (

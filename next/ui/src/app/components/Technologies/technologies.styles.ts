@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const imgSize = {
-  w: '35px',
-  h: '35px',
+  w: "35px",
+  h: "35px",
 };
 
 const Arrow = styled.div`
@@ -85,7 +85,7 @@ export const SliderContainer = styled.div`
   }
 `;
 
-export const Dots = styled('img')`
+export const Dots = styled("img")`
   width: 80px;
   height: 100px;
   position: absolute;
@@ -100,7 +100,7 @@ export const DotsSecond = styled(Dots)`
     display: none;
   }
 `;
-export const TechnoContainer = styled('div')`
+export const TechnoContainer = styled("div")`
   display: flex;
   width: 100%;
 
@@ -143,7 +143,7 @@ export const TechnoContainer = styled('div')`
     }
   }
 `;
-export const DescContainer = styled('div')`
+export const DescContainer = styled("div")`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -163,6 +163,9 @@ export const DescContainer = styled('div')`
   & h2 {
     margin: 20px 0 0;
     font-size: 36px;
+    @media screen and (max-width: 768px) {
+      font-size: 24px;
+    }
   }
   @media screen and (min-width: 1024px) and (max-width: 1060px) {
     & h2 {
@@ -199,7 +202,7 @@ export const DescContainer = styled('div')`
     }
   }
 `;
-export const HorizontalSep = styled('div')`
+export const HorizontalSep = styled("div")`
   width: 55px !important;
   height: 2px;
   background: #0c1033;
@@ -210,7 +213,6 @@ export const HorizontalSep = styled('div')`
   }
 `;
 
-export const TechnoImage = styled('img')`
-  padding-top:30px;
+export const TechnoImage = styled("img")`
+  padding-top: 30px;
 `;
-

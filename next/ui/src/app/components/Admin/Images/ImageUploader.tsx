@@ -1,22 +1,22 @@
-import { useState } from 'react';
-import { uploadImage } from 'services/api/adminApi';
-import * as Styled from './ImagesUploader.style';
+import { useState } from "react";
+import { uploadImage } from "services/api/adminApi";
+import * as Styled from "./ImagesUploader.style";
 
 const ImageUploader: React.FC<{ setIsUploaded: Function }> = ({
   setIsUploaded,
 }) => {
-  const [file, setFile] = useState('');
+  const [file, setFile] = useState("");
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     uploadImage(file).then(() => setIsUploaded(true));
-  }
+  };
 
-  function handleImageChange(e) {
+  const handleImageChange = (e) => {
     e.preventDefault();
     let file = e.target.files[0];
     setFile(file);
-  }
+  };
 
   return (
     <Styled.Wrapper>

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-export const Wrapper = styled('div')``;
+import styled from "styled-components";
+export const Wrapper = styled("div")``;
 
-export const ImagesWrapper = styled('div')`
+export const ImagesWrapper = styled("div")`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -15,7 +15,7 @@ export const ImagesWrapper = styled('div')`
     object-fit: cover;
   }
 
-  & input[type='radio']:checked + img {
+  & input[type="radio"]:checked + img {
     border: 3px solid black;
     height: 70px;
   }

@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { deleteAdminData, getAdminData } from 'services/api/adminApi';
-import { IIconFile } from '../types';
-import ImageUploader from '../Images/ImageUploader';
+import { useEffect, useState } from "react";
+import { deleteAdminData, getAdminData } from "services/api/adminApi";
+import { IIconFile } from "../types";
+import ImageUploader from "../Images/ImageUploader";
 
 const ImagesPage: React.FC<{}> = () => {
   const [images, setImages] = useState<IIconFile[]>([]);
@@ -18,13 +18,14 @@ const ImagesPage: React.FC<{}> = () => {
     getImages();
   }, []);
 
-  async function getImages() {
-    const images = await getAdminData('file');
+  const getImages = async () => {
+    const images = await getAdminData("file");
     setImages(images);
-  }
-  function deleteImage(id: string) {
-    deleteAdminData('file', id).then(() => setIsUpdated(true));
-  }
+  };
+
+  const deleteImage = (id: string) => {
+    deleteAdminData("file", id).then(() => setIsUpdated(true));
+  };
 
   return (
     <>

@@ -1,39 +1,39 @@
-import { useState } from 'react';
-import { createAdminData, updateAdminData } from 'services/api/adminApi';
-import Images from '../Images/Images';
+import { useState } from "react";
+import { createAdminData, updateAdminData } from "services/api/adminApi";
+import Images from "../Images/Images";
 
-import { IProject, ITechnology } from '../types';
-import * as Styled from '../Form.styles';
+import { IProject, ITechnology } from "../types";
+import * as Styled from "../Form.styles";
 
 const ProjectForm: React.FC<{
   project?: IProject | undefined;
   close: Function;
   technologies: ITechnology[];
 }> = ({ project, close, technologies }) => {
-  const [name, setName] = useState(project?.name || '');
+  const [name, setName] = useState(project?.name || "");
+
   const [fullDescription, setFullDescription] = useState(
-    project?.fullDescription || ''
+    project?.fullDescription || ""
   );
   const [shortDescription, setShortDescription] = useState(
-    project?.shortDescription || ''
+    project?.shortDescription || ""
   );
-  const [countryCode, setCountryCode] = useState(project?.countryCode || '');
-  const [link, setLink] = useState(project?.link || '');
+  const [countryCode, setCountryCode] = useState(project?.countryCode || "");
+
+  const [link, setLink] = useState(project?.link || "");
+
   const [showOnHomePage, setShowOnHomePage] = useState(
     project?.showOnHomePage || false
   );
 
-  const [imageFile, setImageFile] = useState(project?.imageFile.id || '');
-
+  const [imageFile, setImageFile] = useState(project?.imageFile.id || "");
 
   const [technologyIds, setTechnologyIds] = useState(
     project?.technologies.map((tech) => tech.id) || []
   );
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-
 
     const newProject = {
       name,
@@ -46,23 +46,24 @@ const ProjectForm: React.FC<{
       technologyIds,
     };
 
-
     project
-      ? updateAdminData('project', project.id, newProject).then(() =>close()  )
-      : createAdminData('project', newProject).then(() => close());
-  }
+      ? updateAdminData("project", project.id, newProject).then(() => close())
+      : createAdminData("project", newProject).then(() => close());
+  };
 
-  function getImageId(id) {
+  const getImageId = (id) => {
     setImageFile(id);
-  }
-  function handleTechChange(event, id) {
+  };
+
+  const handleTechChange = (event, id) => {
     if (event.target.checked) {
       setTechnologyIds([...technologyIds, id]);
     }
     if (!event.target.checked) {
       setTechnologyIds(technologyIds.filter((tech) => tech !== id));
     }
-  }
+  };
+
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>

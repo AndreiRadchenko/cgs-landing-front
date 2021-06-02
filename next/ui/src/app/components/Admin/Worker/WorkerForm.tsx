@@ -1,21 +1,21 @@
-import { useState } from 'react';
-import { createAdminData, updateAdminData } from 'services/api/adminApi';
-import Images from '../Images/Images';
+import { useState } from "react";
+import { createAdminData, updateAdminData } from "services/api/adminApi";
+import Images from "../Images/Images";
 
-import { IWorker } from '../types';
-import * as Styled from './WorkerForm.style';
+import { IWorker } from "../types";
+import * as Styled from "./WorkerForm.style";
 
 const WorkerForm: React.FC<{
   worker?: IWorker | undefined;
   close: Function;
 }> = ({ worker, close }) => {
-  const [name, setName] = useState(worker?.name || '');
-  const [position, setPosition] = useState(worker?.position || '');
-  const [text, setText] = useState(worker?.text || '');
+  const [name, setName] = useState(worker?.name || "");
+  const [position, setPosition] = useState(worker?.position || "");
+  const [text, setText] = useState(worker?.text || "");
   const [showOnPage, setshowOnPage] = useState(worker?.showOnHomePage || false);
-  const [iconFileId, setIconFileId] = useState(worker?.imageFile.id || '');
+  const [iconFileId, setIconFileId] = useState(worker?.imageFile.id || "");
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newWorker = {
       name,
@@ -26,12 +26,12 @@ const WorkerForm: React.FC<{
     };
 
     worker
-      ? updateAdminData('worker', worker.id, newWorker).then(() => close())
-      : createAdminData('worker', newWorker).then(() => close());
-  }
-  function getImageId(id) {
+      ? updateAdminData("worker", worker.id, newWorker).then(() => close())
+      : createAdminData("worker", newWorker).then(() => close());
+  };
+  const getImageId = (id) => {
     setIconFileId(id);
-  }
+  };
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>

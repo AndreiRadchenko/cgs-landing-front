@@ -1,7 +1,7 @@
-import ItemButtons from '../ItemButtons/ItemButtons';
-import * as Styled from '../Item.styles';
-import { IArticle } from '../types';
-import { link } from 'fs';
+import ItemButtons from "../ItemButtons/ItemButtons";
+import * as Styled from "../Item.styles";
+import { IArticle } from "../types";
+import { link } from "fs";
 
 const Article: React.FC<{
   article: IArticle;
@@ -32,7 +32,7 @@ const Article: React.FC<{
         />
       </Styled.Item>
       <ItemButtons
-        deleteItem={() => deleteItem('slogan', article.id)}
+        deleteItem={() => deleteItem("slogan", article.id)}
         openModal={openModal}
         item={article}
       ></ItemButtons>

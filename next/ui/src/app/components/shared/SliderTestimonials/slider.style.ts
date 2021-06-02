@@ -1,14 +1,18 @@
 import styled from "styled-components";
 
 const imgSize = {
-  w: "30px",
-  h: "30px",
+  w: "35px",
+  h: "35px",
 };
 
 const Arrow = styled.div`
   position: absolute;
-  width: ${imgSize.w} !important;
-  height: ${imgSize.h} !important;
+  width: ${imgSize.w};
+  height: ${imgSize.h};
+  @media (max-width: 420px) {
+    width: 25px;
+    height: 25px;
+  }
 
   & img {
     width: 100%;
@@ -25,36 +29,13 @@ const Arrow = styled.div`
 export const SliderPrev = styled(Arrow)`
   z-index: 2;
   cursor: pointer;
-  /* @media screen and (max-width: 1200px) { */
-  /* left: 35% !important; */
-  /* } */
-  /* @media screen and (max-width: 900px) { */
-  /* left: 30% !important; */
-  /* } */
-  /* @media screen and (max-width: 650px) { */
-  /* left: 25% !important; */
-  /* } */
-  /* @media screen and (max-width: 450px) { */
-  /* left: 10% !important; */
-  /* } */
+  left: 0;
 `;
 
 export const SliderNext = styled(Arrow)`
   z-index: 999;
   cursor: pointer;
-
-  /* @media screen and (max-width: 1200px) { */
-  /* right: 35% !important; */
-  /* } */
-  /* @media screen and (max-width: 900px) { */
-  /* right: 30% !important; */
-  /* } */
-  /* @media screen and (max-width: 650px) { */
-  /* right: 25% !important; */
-  /* } */
-  /* @media screen and (max-width: 450px) { */
-  /* right: 10% !important; */
-  /* } */
+  right: 0%;
 `;
 
 export const SliderContainer = styled.div`

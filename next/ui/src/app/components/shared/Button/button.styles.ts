@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Button = styled('button')`
+export const Button = styled("button")`
   background: #0c1033;
   border-radius: 2em;
   box-shadow: 0 4px 9px rgba(151, 195, 249, 1);
@@ -17,7 +17,7 @@ export const Button = styled('button')`
     height: 100%;
   }
   &:hover {
-    background: ${props => (props.disabled ? '#0c1033' : '#97c3f9')};
+    background: ${(props) => (props.disabled ? "#0c1033" : "#97c3f9")};
   }
   &:disabled {
     cursor: not-allowed;

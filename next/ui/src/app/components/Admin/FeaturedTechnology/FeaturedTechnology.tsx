@@ -1,6 +1,6 @@
-import { IFeaturedTechnology } from '../types';
-import ItemButtons from '../ItemButtons/ItemButtons';
-import * as Styled from '../Item.styles';
+import { IFeaturedTechnology } from "../types";
+import ItemButtons from "../ItemButtons/ItemButtons";
+import * as Styled from "../Item.styles";
 
 const FeaturedTechology: React.FC<{
   featuredTechnology: IFeaturedTechnology;
@@ -23,7 +23,7 @@ const FeaturedTechology: React.FC<{
       <ItemButtons
         openModal={openModal}
         item={featuredTechnology}
-        deleteItem={() => deleteItem('slogan', featuredTechnology.id)}
+        deleteItem={() => deleteItem("slogan", featuredTechnology.id)}
       ></ItemButtons>
     </Styled.Wrapper>
   );

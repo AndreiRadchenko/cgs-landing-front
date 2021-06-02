@@ -1,8 +1,8 @@
-import React from 'react';
-import * as Style from './slide.styled';
-import { IProject } from '../../../../../types/components/index';
-import { v4 as uuidv4 } from 'uuid';
-import IMAGES from '../../../../../consts/Images';
+import React from "react";
+import * as Style from "./slide.styled";
+import { IProject } from "../../../../../types/components/index";
+import { v4 as uuidv4 } from "uuid";
+import IMAGES from "../../../../../consts/Images";
 
 const Slide: React.FC<IProject> = ({ item }) => {
   return (
@@ -10,14 +10,18 @@ const Slide: React.FC<IProject> = ({ item }) => {
       key={item.id}
       className="testimonials-slide-container"
     >
-      <div className="slider-content">
-        <div className="slider-header">
-          <p className="slider-header__title">{item.name}</p>
-          <img className="slider-header__img" src="/spainFlag.png" />
+      <Style.SliderContent>
+        <Style.SliderHeader>
+          <Style.SliderHeaderTitle>{item.name}</Style.SliderHeaderTitle>
+          <Style.SliderHeaderImg src="/spainFlag.png" />
           <span className="slider-header__country">Spain</span>
-        </div>
-        <p className="slider-subtitle">{item.shortDescription}</p>
-        <p className="slider-description">{item.fullDescription}</p>
+        </Style.SliderHeader>
+        <Style.SliderHeaderSubtitle>
+          {item.shortDescription}
+        </Style.SliderHeaderSubtitle>
+        <Style.SliderDescription>
+          {item.fullDescription}
+        </Style.SliderDescription>
         <div className="slider-technologies">
           {item.technologies.map((tech) => (
             <div className="slider-technology" key={uuidv4()}>
@@ -37,8 +41,12 @@ const Slide: React.FC<IProject> = ({ item }) => {
             </button>
           </a>
         )}
-      </div>
-      <img className="slider-picture" src={item.imageUrl} alt={item.shortDescription} />
+      </Style.SliderContent>
+      <Style.SliderPicture
+        className="slider-picture"
+        src={item.imageUrl}
+        alt={item.shortDescription}
+      />
     </Style.SlideContainer>
   );
 };

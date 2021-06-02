@@ -1,6 +1,6 @@
-import React from 'react';
-import * as Styled from './textarea.styles';
-import { ITextArea } from '../../../../types/components/index';
+import React from "react";
+import * as Styled from "./textarea.styles";
+import { ITextArea } from "../../../../types/components/index";
 
 const Textarea: React.FC<ITextArea> = ({
   placeholder,

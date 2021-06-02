@@ -1,5 +1,5 @@
-import * as Styled from '../Item.styles';
-import { IFact } from '../types';
+import * as Styled from "../Item.styles";
+import { IFact } from "../types";
 
 const Facts: React.FC<{ fact: IFact; openModal: Function }> = ({
   fact,
@@ -12,7 +12,7 @@ const Facts: React.FC<{ fact: IFact; openModal: Function }> = ({
           <li>ID: {fact.id} </li>
           <li>Title: {fact.title} </li>
           <li>Text: {fact.text} </li>
-          <li>Show on HomePage: {fact.showOnHomePage ? 'true' : 'false'} </li>
+          <li>Show on HomePage: {fact.showOnHomePage ? "true" : "false"} </li>
         </ul>
         <img src={fact.iconFile.s3FileUrl} alt={fact.iconFile.s3FileUrl} />
       </Styled.Item>

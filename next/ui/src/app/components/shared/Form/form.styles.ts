@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-export const FormWrapper = styled('div')`
-  max-width:433px;
+import styled from "styled-components";
+export const FormWrapper = styled("div")`
+  max-width: 433px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-top:47px;
+  margin-top: 47px;
 
   & > div {
     width: 100%;
@@ -20,7 +20,7 @@ export const FormWrapper = styled('div')`
   }
 `;
 
-export const SuccessMessageContainer = styled('div')`
+export const SuccessMessageContainer = styled("div")`
   min-height: 2.9em;
   color: #97c3f9;
   font-size: 0.9em;

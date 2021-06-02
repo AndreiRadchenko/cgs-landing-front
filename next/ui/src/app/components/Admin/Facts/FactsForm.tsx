@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import { createAdminData, updateAdminData } from 'services/api/adminApi';
-import Images from '../Images/Images';
+import { useState } from "react";
+import { createAdminData, updateAdminData } from "services/api/adminApi";
+import Images from "../Images/Images";
 
-import { IFact } from '../types';
-import * as Styled from './FactsForm.styles';
+import { IFact } from "../types";
+import * as Styled from "./FactsForm.styles";
 
 const FactsForm: React.FC<{
   fact?: IFact | undefined;
   close: Function;
 }> = ({ fact, close }) => {
-  const [title, setTitle] = useState(fact?.title || '');
-  const [text, setText] = useState(fact?.text || '');
+  const [title, setTitle] = useState(fact?.title || "");
+  const [text, setText] = useState(fact?.text || "");
   const [showOnPage, setshowOnPage] = useState(fact?.showOnHomePage || false);
-  const [iconFileId, setIconFileId] = useState(fact?.iconFile.id || '');
+  const [iconFileId, setIconFileId] = useState(fact?.iconFile.id || "");
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newFact = {
       title,
@@ -24,12 +24,14 @@ const FactsForm: React.FC<{
     };
 
     fact
-      ? updateAdminData('facts', fact.id, newFact).then(() => close())
-      : createAdminData('facts', newFact).then(() => close());
-  }
-  function getImageId(id) {
+      ? updateAdminData("facts", fact.id, newFact).then(() => close())
+      : createAdminData("facts", newFact).then(() => close());
+  };
+
+  const getImageId = (id) => {
     setIconFileId(id);
-  }
+  };
+
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>

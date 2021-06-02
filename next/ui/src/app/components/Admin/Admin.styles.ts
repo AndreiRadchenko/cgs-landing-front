@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
+interface Props {
+  active?: boolean;
+}
+
 export const Wrapper = styled("div")`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  /* padding: 30px; */
   & > h2 {
     text-align: center;
   }
@@ -48,18 +51,21 @@ export const Menu = styled("div")`
 export const MenuList = styled("div")`
   padding: 0;
   list-style: none;
+`;
 
-  & li {
-    padding: 20px 0;
-    cursor: pointer;
-  }
-  & li:hover {
+export const MenuListItem = styled("li")<Props>`
+  padding: 20px 0;
+  cursor: pointer;
+  &:hover {
     transform: scale(1.1);
   }
-  & li.active {
+  &:active {
     color: black;
   }
+  color: ${(props) =>
+    props.active ? props.theme.colors.buttonBgColor : "white"};
 `;
+
 export const InfoWrapper = styled("div")`
   grid-area: Table;
 `;

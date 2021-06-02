@@ -26,9 +26,7 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
             <Styled.TagList>
               {article.tags &&
                 article.tags.map((tag) => (
-                  <li className="article-tag" key={tag.id}>
-                    {tag.name}
-                  </li>
+                  <Styled.ArticleTag key={tag.id}>{tag.name}</Styled.ArticleTag>
                 ))}
             </Styled.TagList>
           </div>

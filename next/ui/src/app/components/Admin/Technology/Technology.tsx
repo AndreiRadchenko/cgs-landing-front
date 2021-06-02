@@ -1,6 +1,6 @@
-import ItemButtons from '../ItemButtons/ItemButtons';
-import * as Styled from '../Item.styles';
-import { ITechnology } from '../types';
+import ItemButtons from "../ItemButtons/ItemButtons";
+import * as Styled from "../Item.styles";
+import { ITechnology } from "../types";
 
 const Techology: React.FC<{
   technology: ITechnology;
@@ -21,7 +21,7 @@ const Techology: React.FC<{
         />
       </Styled.Item>
       <ItemButtons
-        deleteItem={() => deleteItem('slogan', technology.id)}
+        deleteItem={() => deleteItem("slogan", technology.id)}
         openModal={openModal}
         item={technology}
       ></ItemButtons>

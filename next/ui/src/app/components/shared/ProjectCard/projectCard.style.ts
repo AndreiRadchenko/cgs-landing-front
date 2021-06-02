@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const CardWraper = styled('div')`
+export const CardWraper = styled("div")`
   width: 100%;
   max-width: 450px;
   height: 100%;
@@ -11,13 +11,13 @@ export const CardWraper = styled('div')`
   justify-content: center;
 `;
 
-export const CardContainer = styled('div')`
+export const CardContainer = styled("div")`
   border-radius: 15px;
   width: 75%;
   height: 95%;
 `;
 
-export const CardHeader = styled('div')`
+export const CardHeader = styled("div")`
   width: 100%;
   height: 33.6%;
   display: flex;
@@ -55,7 +55,7 @@ export const CardHeader = styled('div')`
   }
 `;
 
-export const ProjectImg = styled('div')`
+export const ProjectImg = styled("div")`
   z-index: 999;
   width: 130%;
   height: 43%;
@@ -70,7 +70,7 @@ export const ProjectImg = styled('div')`
   }
 `;
 
-export const CardTechnologies = styled('div')`
+export const CardTechnologies = styled("div")`
   width: 100%;
   height: 23.4%;
   display: flex;

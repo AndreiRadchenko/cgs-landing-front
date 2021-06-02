@@ -11,7 +11,7 @@ const SloganForm: React.FC<{
   const [text, setText] = useState(slogan?.text || "");
   const [selected, setSelected] = useState(slogan?.selected || false);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newSlogan = {
       title,
@@ -22,7 +22,7 @@ const SloganForm: React.FC<{
     slogan
       ? updateAdminData("slogan", slogan.id, newSlogan).then(() => close())
       : createAdminData("slogan", newSlogan).then(() => close());
-  }
+  };
 
   return (
     <Styled.Wrapper>

@@ -1,7 +1,7 @@
-import React, { Children } from 'react';
-import { useRouter } from 'next/router';
-import cx from 'classnames';
-import Link, { LinkProps } from 'next/link';
+import React, { Children } from "react";
+import { useRouter } from "next/router";
+import Link, { LinkProps } from "next/link";
+import { Item, ActiveItem } from "./NavLink.style";
 
 type NavLinkProps = React.PropsWithChildren<LinkProps> & {
   activeClassName?: string;
@@ -10,26 +10,24 @@ type NavLinkProps = React.PropsWithChildren<LinkProps> & {
 
 export const NavLink = ({
   children,
-  activeClassName = 'active-item',
-  notActiveClassName = 'item',
+  activeClassName = "active-item",
+  notActiveClassName = "item",
   ...props
 }: NavLinkProps) => {
   const { asPath } = useRouter();
+
   const child = Children.only(children) as React.ReactElement;
-  const childClassName = child.props.className || '';
+
   const matchedPath =
-    asPath.split('/').indexOf(props.href.toString().substring(1)) === 1;
+    asPath.split("/").indexOf(props.href.toString().substring(1)) === 1;
+
   const isActive = asPath === props.href || asPath === props.as || matchedPath;
-  const className = cx(childClassName, {
-    [activeClassName]: isActive,
-    [notActiveClassName]: !isActive,
-  });
+
+  const Wrapper = isActive ? ActiveItem : Item;
 
   return (
-    <Link {...props}>
-      {React.cloneElement(child, {
-        className: className || null,
-      })}
-    </Link>
+    <Wrapper>
+      <Link {...props}>{React.cloneElement(child)}</Link>
+    </Wrapper>
   );
 };

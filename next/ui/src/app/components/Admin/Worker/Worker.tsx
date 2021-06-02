@@ -1,6 +1,6 @@
-import ItemButtons from '../ItemButtons/ItemButtons';
-import { IWorker } from '../types';
-import * as Styled from '../Item.styles';
+import ItemButtons from "../ItemButtons/ItemButtons";
+import { IWorker } from "../types";
+import * as Styled from "../Item.styles";
 
 const Worker: React.FC<{
   worker: IWorker;
@@ -15,7 +15,7 @@ const Worker: React.FC<{
           <li>Title: {worker.name} </li>
           <li>Position: {worker.position} </li>
           <li>Text: {worker.text} </li>
-          <li>Show on HomePage: {worker.showOnHomePage ? 'true' : 'false'} </li>
+          <li>Show on HomePage: {worker.showOnHomePage ? "true" : "false"} </li>
         </ul>
         <img
           src={worker.imageFile.s3FileUrl}
@@ -23,7 +23,7 @@ const Worker: React.FC<{
         />
       </Styled.Item>
       <ItemButtons
-        deleteItem={() => deleteItem('slogan', worker.id)}
+        deleteItem={() => deleteItem("slogan", worker.id)}
         openModal={openModal}
         item={worker}
       ></ItemButtons>

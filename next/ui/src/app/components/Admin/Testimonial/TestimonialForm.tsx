@@ -1,28 +1,23 @@
-import { useState } from 'react';
-import { createAdminData, updateAdminData } from 'services/api/adminApi';
+import { useState } from "react";
+import { createAdminData, updateAdminData } from "services/api/adminApi";
 
-import { ITestimonial, IPlatform } from '../types';
-import * as Styled from '../Form.styles';
-import { useInput } from '../Hooks';
+import { ITestimonial, IPlatform } from "../types";
+import * as Styled from "../Form.styles";
+import { useInput } from "../Hooks";
 
-import CountryCodes from './countyCodes.json'
-
-
-
-
-
+import CountryCodes from "./countyCodes.json";
 
 const TestimonialForm: React.FC<{
   testimonial?: ITestimonial | undefined;
   close: Function;
 }> = ({ testimonial, close }) => {
   const clutch: IPlatform | undefined = testimonial?.platforms.find(
-    (item) => item.type === 'clutch'
+    (item) => item.type === "clutch"
   );
-  const upwork: IPlatform | undefined = testimonial?.platforms.find(
-    (item) => item.type === 'upwork'
-    );
 
+  const upwork: IPlatform | undefined = testimonial?.platforms.find(
+    (item) => item.type === "upwork"
+  );
 
   const countryCode = useInput(testimonial?.countryCode);
   const clutchLinkInput = useInput(clutch?.link);
@@ -34,12 +29,12 @@ const TestimonialForm: React.FC<{
   const customerPosition = useInput(testimonial?.customerPosition);
   const feedback = useInput(testimonial?.feedback);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const clutch =
       clutchLinkInput.value || clutchRateInput.value
         ? {
-            type: 'clutch',
+            type: "clutch",
             link: clutchLinkInput.value,
             rate: clutchRateInput.value,
           }
@@ -47,7 +42,7 @@ const TestimonialForm: React.FC<{
     const upwork =
       upworkLinkInput.value || upworkRateInput.value
         ? {
-            type: 'upwork',
+            type: "upwork",
             link: upworkLinkInput.value,
             rate: upworkRateInput.value,
           }
@@ -56,7 +51,7 @@ const TestimonialForm: React.FC<{
       customerName: customerName.value,
       customerPosition: customerPosition.value,
       companyName: companyName.value,
-      countryCode:countryCode.value,
+      countryCode: countryCode.value,
       feedback: feedback.value,
       platforms: [],
     };
@@ -69,15 +64,14 @@ const TestimonialForm: React.FC<{
 
     testimonial
       ? updateAdminData(
-          'testimonial',
+          "testimonial",
           testimonial?.id!,
           newtestimonial
         ).then(() => close())
-      : createAdminData('testimonial', newtestimonial).then(() => close());
-  }
+      : createAdminData("testimonial", newtestimonial).then(() => close());
+  };
 
-
-  const CountryNameKey = Object.keys(CountryCodes);  
+  const CountryNameKey = Object.keys(CountryCodes);
 
   return (
     <Styled.Wrapper>
@@ -98,16 +92,18 @@ const TestimonialForm: React.FC<{
         <label>
           Country Code:
           <select className="form__title" {...countryCode}>
-
-
-          {CountryNameKey.map(codeValue => {
-          return(
-            <option selected={codeValue === countryCode.value} value={codeValue} key={codeValue}>
-              {CountryCodes[codeValue]}
-            </option>)
-            })})
-
-
+            {CountryNameKey.map((codeValue) => {
+              return (
+                <option
+                  selected={codeValue === countryCode.value}
+                  value={codeValue}
+                  key={codeValue}
+                >
+                  {CountryCodes[codeValue]}
+                </option>
+              );
+            })}
+            )
           </select>
         </label>
         <label>

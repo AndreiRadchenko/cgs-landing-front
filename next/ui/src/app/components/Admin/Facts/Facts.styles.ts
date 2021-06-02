@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Wrapper = styled('div')`
+export const Wrapper = styled("div")`
   width: 90%;
   margin: 0 auto;
   display: flex;
@@ -21,7 +21,7 @@ export const Wrapper = styled('div')`
     }
   }
 `;
-export const FactItem = styled('div')`
+export const FactItem = styled("div")`
   display: flex;
   align-items: center;
   justify-content: center;

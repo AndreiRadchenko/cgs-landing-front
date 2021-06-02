@@ -1,33 +1,35 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const imgSize = {
-  w: '35px',
-  h: '35px',
+  w: "35px",
+  h: "35px",
 };
+
+interface Props {
+  top?: number;
+}
 
 const Arrow = styled.div`
   position: absolute;
-  width: ${imgSize.w} !important;
-  height: ${imgSize.h} !important;
+  width: ${imgSize.w};
+  height: ${imgSize.h};
+  @media (max-width: 420px) {
+    width: 25px;
+    height: 25px;
+  }
   & img {
     width: 100%;
     height: 100%;
   }
 `;
-export const SliderPrev = styled(Arrow)`
-  @media screen and (max-width: 650px) {
-    margin: 15px;
-    top: 15% !important;
-    left: 5% !important;
-  }
+export const SliderPrev = styled(Arrow)<Props>`
+  left: 5%;
+  top: ${(props) => `${props.top}% `};
 `;
 
-export const SliderNext = styled(Arrow)`
-  @media screen and (max-width: 650px) {
-    margin: 15px;
-    top: 15% !important;
-    right: 5% !important;
-  }
+export const SliderNext = styled(Arrow)<Props>`
+  right: 5% !important;
+  top: ${(props) => `${props.top}% `};
 `;
 
 export const SliderContainer = styled.div`
@@ -44,7 +46,7 @@ export const SliderContainer = styled.div`
     }
   }
   & .slick-list {
-    background-color: 'red';
+    background-color: "red";
   }
   & .slick-slide {
     display: flex;
@@ -63,22 +65,6 @@ export const SliderContainer = styled.div`
       width: 100%;
     }
   }
-  /*
-  & .slick-slider {
-    height: 100%;
-    & .slick-list {
-      height: 100%;
-      & .slick-track {
-        height: 100%;
-        & > div > div {
-          height: 100%;
-          & > div {
-            height: 100%;
-          }
-        }
-      }
-    }
-  } */
 
   & .slides *:focus {
     outline: 0;
