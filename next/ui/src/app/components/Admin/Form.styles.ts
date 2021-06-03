@@ -81,8 +81,21 @@ export const AdminTextArea = styled("textarea")`
   padding: 14px 36px;
 `;
 
+export const Select = styled("select")`
+  border: 2px solid #1f5a7b;
+  color: #1f5a7b;
+  box-sizing: border-box;
+  border-radius: 20px;
+  max-width: 635px;
+  width: 100%;
+  padding: 14px 36px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+`;
+
 export const Label = styled("label")`
-  display: grid;
+  display: ${(props) => (props.double ? "flex" : "grid")};
   grid-template-columns: minmax(50px, 120px) 1fr;
   align-items: center;
   & > span {
@@ -91,6 +104,12 @@ export const Label = styled("label")`
     font-size: 14px;
     font-weight: 700;
     line-height: 32px;
+    flex-basis: ${(props) => (props.double ? "180px" : "")};
+    flex-shrink: ${(props) => (props.double ? "1" : "")};
+  }
+  & > input:nth-child(3) {
+    flex-basis: 170px;
+    margin-left: 20px;
   }
 `;
 

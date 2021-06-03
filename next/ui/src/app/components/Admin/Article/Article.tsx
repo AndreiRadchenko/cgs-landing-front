@@ -11,25 +11,39 @@ const Article: React.FC<{
   return (
     <Styled.Wrapper>
       <Styled.Item>
-        <ul>
-          <li>ID: {article.id} </li>
-          <li>Title: {article.title} </li>
-          <li>Author: {article.author} </li>
-          <li>Created: {article.createdAt} </li>
-          <li>
-            Tags:
+        <Styled.List>
+          <Styled.ListItem>
+            <span>Title:</span>
+            <span>{article.title}</span>
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Author: </span>
+            <span>{article.author}</span>
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Created: </span>
+            <span>{article.createdAt} </span>
+          </Styled.ListItem>
+
+          <Styled.ListItem>
+            <span> Tags: </span>
             <ul>
               {article.tags.map((tag) => (
                 <li>{tag.name}</li>
               ))}
             </ul>
-          </li>
-          <li>Views: {article.views} </li>
-        </ul>
-        <img
-          src={article.imageFile.s3FileUrl}
-          alt={article.imageFile.s3FileUrl}
-        />
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Views:</span> {article.views}
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Picture:</span>
+            <Styled.Image
+              src={article.imageFile.s3FileUrl}
+              alt={article.imageFile.s3FileUrl}
+            />
+          </Styled.ListItem>
+        </Styled.List>
       </Styled.Item>
       <ItemButtons
         deleteItem={() => deleteItem("slogan", article.id)}

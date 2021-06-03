@@ -31,7 +31,7 @@ export const Item = styled("div")`
   margin-top: 60px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   border: 2px solid #1f5a7b;
   border-radius: 20px;
   font-size: 14px;

@@ -36,41 +36,46 @@ const TechnologyForm: React.FC<{
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
         {technology ? (
-          <h2>Edit technology ID: {technology?.id}</h2>
+          <h2>Edit technology </h2>
         ) : (
-          <h2>Create a technology</h2>
+          <h2>Create new technology</h2>
         )}
-        <label>
-          technology Name:
-          <input
+        <Styled.Label>
+          <span>Name:</span>
+          <Styled.AdminTextInput
+            placeholder={technology ? "" : "Write name here"}
             className="form__title"
             type="text"
             value={name}
             onChange={({ target: { value } }) => setName(value)}
           />
-        </label>
+        </Styled.Label>
 
-        <label>
-          Country Code:
-          <input
+        <Styled.Label>
+          <span>Title:</span>
+          <Styled.AdminTextInput
+            placeholder={technology ? "" : "Choose category"}
             className="form__title"
             type="text"
             value={category}
             onChange={({ target: { value } }) => setCategory(value)}
           />
-        </label>
-        <Images
-          activeImage={technology?.iconFile}
-          getImageId={getImageId}
-        ></Images>
-        <div className="buttons">
-          <button type="submit" disabled={!(name && category && iconFileId)}>
-            Save Changes
-          </button>
-          <button type="button" onClick={() => close()}>
+        </Styled.Label>
+        <Styled.PicturesWrapper>
+          <span>Pictures:</span>
+          <Images activeImage={technology?.iconFile} getImageId={getImageId} />
+        </Styled.PicturesWrapper>
+        <Styled.ButtonWrapper>
+          <Styled.Button
+            type="submit"
+            disabled={!(name && category && iconFileId)}
+          >
+            {technology ? "Save" : "Changes"}
+          </Styled.Button>
+          <Styled.Button type="button" onClick={() => close()}>
             Cancel
-          </button>
-        </div>
+          </Styled.Button>
+        </Styled.ButtonWrapper>
       </Styled.Form>
     </Styled.Wrapper>
   );

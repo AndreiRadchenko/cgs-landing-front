@@ -69,6 +69,9 @@ export const SliderContainer = styled.div`
     display: flex;
     justify-content: space-between;
     min-height: 388px;
+    @media (min-width: 1025px) {
+      padding: 0 40px;
+    }
   }
 
   & .slick-slide {
@@ -115,6 +118,9 @@ export const TestimonialContainer = styled("div")`
     margin: 0;
     margin-right: 12px;
     font-size: 22px;
+    @media screen and (min-width: 1025px) {
+      white-space: nowrap;
+    }
     @media screen and (max-width: 415px) {
       width: min-content;
     }
