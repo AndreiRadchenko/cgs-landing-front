@@ -29,7 +29,7 @@ export const ContentWrapper = styled("div")`
 `;
 
 export const Menu = styled("div")`
-  padding: 40px 61px;
+  padding: 30px 61px;
   background-color: #0c1033;
   border-radius: 55px;
   font-size: 1.5em;
@@ -37,7 +37,7 @@ export const Menu = styled("div")`
   text-align: center;
   color: #fff;
   & h3 {
-    margin: 0 0 50px;
+    margin: 0 0 10px;
     font-family: Mulish;
     font-size: 36px;
     font-weight: 700;
@@ -54,7 +54,7 @@ export const MenuList = styled("div")`
 `;
 
 export const MenuListItem = styled("li")<Props>`
-  padding: 20px 0;
+  padding: 15px 0;
   cursor: pointer;
   &:hover {
     transform: scale(1.1);
@@ -73,7 +73,7 @@ export const InfoWrapper = styled("div")`
 //
 
 export const HeaderWrapper = styled("div")`
-  min-height: 260px;
+  min-height: 160px;
   grid-area: Header;
   display: flex;
   margin: 0 auto;

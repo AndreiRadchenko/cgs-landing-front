@@ -44,17 +44,13 @@ const Projects: React.FC<{
             {project.showOnHomePage ? "true" : "false"}
           </Styled.ListItem>
           <Styled.ListItem>
-            <span>Show on HomePage:</span>
-            <img
+            <span>Picture:</span>
+            <Styled.Image
               src={project.imageFile.s3FileUrl}
               alt={project.imageFile.s3FileUrl}
             />
           </Styled.ListItem>
         </Styled.List>
-        <img
-          src={project.imageFile.s3FileUrl}
-          alt={project.imageFile.s3FileUrl}
-        />
       </Styled.Item>
       <ItemButtons
         deleteItem={() => deleteItem("slogan", project.id)}

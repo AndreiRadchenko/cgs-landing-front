@@ -3,7 +3,9 @@ import { createAdminData, updateAdminData } from "services/api/adminApi";
 import Images from "../Images/Images";
 
 import { IWorker } from "../types";
-import * as Styled from "./WorkerForm.style";
+// import * as Styled from "./WorkerForm.style";
+import * as Styled from "../Form.styles";
+import { slides } from "app/img";
 
 const WorkerForm: React.FC<{
   worker?: IWorker | undefined;
@@ -35,57 +37,60 @@ const WorkerForm: React.FC<{
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
-        {worker ? (
-          <h2>Edit worker ID: {worker?.id}</h2>
-        ) : (
-          <h2>Create a worker</h2>
-        )}
-        <label>
-          Worker name
-          <input
+        {worker ? <h2>Edit worker </h2> : <h2>Create a worker</h2>}
+        <Styled.Label>
+          <span> Worker name</span>
+          <Styled.AdminTextInput
             className="form__input"
             type="text"
             value={name}
             onChange={({ target: { value } }) => setName(value)}
           />
-        </label>
-        <label>
-          Worker position
-          <input
+        </Styled.Label>
+        <Styled.Label>
+          <span>Worker position</span>
+          <Styled.AdminTextInput
             className="form__input"
             type="text"
             value={position}
             onChange={({ target: { value } }) => setPosition(value)}
           />
-        </label>
-        <label>
-          Worker text
-          <textarea
+        </Styled.Label>
+        <Styled.Label>
+          <span>Worker text</span>
+          <Styled.AdminTextArea
             className="form__text"
             value={text}
             onChange={({ target: { value } }) => setText(value)}
           />
-        </label>
-        <label className="form__checkbox">
-          Show on Home Page
-          <input
-            type="checkbox"
-            checked={showOnPage}
-            onChange={({ target: { checked } }) => setshowOnPage(checked)}
-          />
-        </label>
-        <Images
-          activeImage={worker?.imageFile}
-          getImageId={getImageId}
-        ></Images>
-        <div className="buttons">
-          <button type="submit" disabled={!(name && text && iconFileId)}>
-            Save Changes
-          </button>
-          <button type="button" onClick={() => close()}>
+        </Styled.Label>
+        <Styled.PicturesWrapper>
+          <span>Pictures:</span>
+          <Images activeImage={worker?.imageFile} getImageId={getImageId} />
+        </Styled.PicturesWrapper>
+        <Styled.CheckboxContainer>
+          <div>Show on page</div>
+          <Styled.CheckboxLabel selected={showOnPage}>
+            <input
+              type="checkbox"
+              name="TechOption"
+              checked={showOnPage}
+              onChange={({ target: { checked } }) => setshowOnPage(checked)}
+            />
+            <Styled.CustomCheckbox selected={showOnPage}>
+              <img src={slides.Check} alt="checkbox" />
+            </Styled.CustomCheckbox>
+          </Styled.CheckboxLabel>
+        </Styled.CheckboxContainer>
+
+        <Styled.ButtonWrapper>
+          <Styled.Button type="submit" disabled={!(name && text && iconFileId)}>
+            {worker ? "Save" : "Create"}
+          </Styled.Button>
+          <Styled.Button type="button" onClick={() => close()}>
             Cancel
-          </button>
-        </div>
+          </Styled.Button>
+        </Styled.ButtonWrapper>
       </Styled.Form>
     </Styled.Wrapper>
   );

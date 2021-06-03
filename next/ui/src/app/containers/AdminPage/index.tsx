@@ -265,7 +265,11 @@ const AdminPage: React.FC = () => {
           {isFactsShown && facts && !isModal && (
             <SectionLayout title="Fact" setIsModal={setIsModal}>
               {facts.map((fact) => (
-                <Fact fact={fact} openModal={openModal}></Fact>
+                <Fact
+                  fact={fact}
+                  openModal={openModal}
+                  deleteItem={deleteItem}
+                ></Fact>
               ))}
             </SectionLayout>
           )}
@@ -338,10 +342,7 @@ const AdminPage: React.FC = () => {
             <TechnologyForm technology={editItem} close={closeModal} />
           )}
           {isTechnologiesShown && technologies && !isModal && (
-            <SectionLayout
-              title="Featured Technologies"
-              setIsModal={setIsModal}
-            >
+            <SectionLayout title="Technologies" setIsModal={setIsModal}>
               {technologies.map((technology) => (
                 <Technology
                   openModal={openModal}
@@ -374,7 +375,7 @@ const AdminPage: React.FC = () => {
             />
           )}
           {isfeaturedTechnologiesShown && featuredTechnologies && !isModal && (
-            <SectionLayout title="Slogan" setIsModal={setIsModal}>
+            <SectionLayout title="Featured Techologies" setIsModal={setIsModal}>
               {featuredTechnologies.map((featuredTechnology) => (
                 <FeaturedTechology
                   openModal={openModal}

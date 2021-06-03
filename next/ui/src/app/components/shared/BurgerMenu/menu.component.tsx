@@ -34,7 +34,12 @@ const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
               {Nav.map((item, index) => (
                 <Link href={item.link} key={uuidv4()}>
                   <a>
-                    <p className={"drop-box-item"}>{item.burgerTitle}</p>
+                    <p
+                      onClick={() => setMenuState(!activeMenu)}
+                      className={"drop-box-item"}
+                    >
+                      {item.burgerTitle}
+                    </p>
                   </a>
                 </Link>
               ))}

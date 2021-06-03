@@ -1,25 +1,37 @@
 import * as Styled from "../Item.styles";
 import { IFact } from "../types";
+import ItemButtons from "../ItemButtons/ItemButtons";
 
-const Facts: React.FC<{ fact: IFact; openModal: Function }> = ({
-  fact,
-  openModal,
-}) => {
+const Facts: React.FC<{
+  fact: IFact;
+  openModal: Function;
+  deleteItem: Function;
+}> = ({ fact, openModal, deleteItem }) => {
   return (
     <Styled.Wrapper>
       <Styled.Item>
-        <ul>
-          <li>ID: {fact.id} </li>
-          <li>Title: {fact.title} </li>
-          <li>Text: {fact.text} </li>
-          <li>Show on HomePage: {fact.showOnHomePage ? "true" : "false"} </li>
-        </ul>
-        <img src={fact.iconFile.s3FileUrl} alt={fact.iconFile.s3FileUrl} />
+        <Styled.List>
+          <Styled.ListItem>
+            <span>Title:</span> <span>{fact.title}</span>
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Text:</span> <span>{fact.text}</span>
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span> Show:</span>
+            <span>{fact.showOnHomePage ? "true" : "false"}</span>
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Picture:</span>
+            <img src={fact.iconFile.s3FileUrl} alt={fact.iconFile.s3FileUrl} />
+          </Styled.ListItem>
+        </Styled.List>
       </Styled.Item>
-      <div className="buttons">
-        <button onClick={() => openModal(fact)}>Edit</button>
-        <button>Delete</button>
-      </div>
+      <ItemButtons
+        openModal={openModal}
+        item={fact}
+        deleteItem={() => deleteItem("fact", fact.id)}
+      ></ItemButtons>
     </Styled.Wrapper>
   );
 };

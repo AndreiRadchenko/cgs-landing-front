@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface Props {
   empty?: boolean;
   selected?: boolean;
+  big?: boolean;
 }
 
 export const Wrapper = styled("div")``;
@@ -10,33 +11,30 @@ export const Wrapper = styled("div")``;
 export const Form = styled("form")`
   width: 100%;
   max-width: 760px;
-  display: flex;
+  text-align: center;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   color: #1f5a7b;
+  & > h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 56px;
+  }
   & > label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     text-align: center;
     margin: 0 0 15px;
-    @media screen and (max-width: 1024px) {
-      width: 70%;
-    }
     @media screen and (max-width: 700px) {
       flex-direction: column;
     }
   }
   & .form__text,
   .form__input {
-    width: 70%;
-    padding: 5px;
+    width: 100%;
+    padding: 14px 36px;
   }
   & .form__text {
-    resize: none;
-    min-height: 100px;
   }
   & .form__checkbox {
     justify-content: center;
@@ -57,28 +55,37 @@ export const AdminTextInput = styled("input")`
   color: #1f5a7b;
   box-sizing: border-box;
   border-radius: 20px;
-  max-width: 645px;
+  max-width: 635px;
   width: 100%;
   padding: 14px 36px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
 `;
 
 export const AdminTextArea = styled("textarea")`
+  flex-grow: 1;
   border: 2px solid #1f5a7b;
   box-sizing: border-box;
   border-radius: 20px;
-  max-width: 645px;
+  max-width: 635px;
   width: 100%;
   padding: 14px 36px;
   min-height: 130px;
   resize: none;
   color: #1f5a7b;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+  padding: 14px 36px;
 `;
 
 export const Label = styled("label")`
-  display: flex;
-  max-width: 760px;
-  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(50px, 120px) 1fr;
+  align-items: center;
   & > span {
+    text-align: start;
     color: #0c1033;
     font-size: 14px;
     font-weight: 700;
@@ -87,8 +94,13 @@ export const Label = styled("label")`
 `;
 
 export const CheckboxContainer = styled("div")`
-  width: 100%;
+  /* width: 100%; */
   margin-top: 28px;
+  align-self: flex-start;
+  padding-right: 137px;
+  &:last-child {
+    padding-right: 0;
+  }
   & > div {
     margin-right: 100px;
     color: #0c1033;
@@ -109,18 +121,23 @@ export const CheckboxContainer = styled("div")`
   }
 `;
 
+export const CustomCheckbox = styled("div")`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #1f5a7b;
+  background-color: ${(props) => (props.selected ? "#1f5a7b" : "")};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: ${(props) => (props.sliderLabel ? "" : "20%")};
+  right: ${(props) => (props.sliderLabel ? "5px" : "")};
+  bottom: ${(props) => (props.sliderLabel ? "-3px" : "")};
+  position: absolute;
+`;
+
 export const CheckboxLabel = styled("label")<Props>`
   position: relative;
-  &::after {
-    content: "";
-    width: 20px;
-    height: 20px;
-    border: 2px solid #1f5a7b;
-    background-color: ${(props) => (props.selected ? "#1f5a7b" : "")};
-    border-radius: 50%;
-    position: absolute;
-    left: 0;
-  }
   & > input {
     border: 0;
     clip: rect(0 0 0 0);
@@ -141,8 +158,8 @@ export const ButtonWrapper = styled("div")`
 `;
 
 export const Button = styled("button")<Props>`
-  width: 170px;
-  max-height: 40px;
+  width: ${(props) => (props.big ? "200px" : "170px")};
+  max-height: ${(props) => (props.big ? "60px" : "40px")};
   border-radius: 55px;
   border: 0;
   background: ${(props) => (props.empty ? "" : "#1f5a7b")};
@@ -152,4 +169,23 @@ export const Button = styled("button")<Props>`
   color: ${(props) => (props.empty ? "#1F5A7B" : "#ffffff")};
   cursor: pointer;
   border: ${(props) => (props.empty ? "2px solid #1F5A7B" : "none")};
+`;
+
+export const Row = styled("div")`
+  display: flex;
+  margin-left: -10px;
+`;
+
+export const PicturesWrapper = styled("div")`
+  display: flex;
+  margin-top: 28px;
+  max-width: 760px;
+  width: 100%;
+  min-height: 135px;
+  & > span {
+    color: #0c1033;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 32px;
+  }
 `;

@@ -38,10 +38,10 @@ export const Item = styled("div")`
   line-height: 32px;
   font-weight: 700;
   color: #1f5a7b;
-  & img {
+  /* & img {
     margin-left: 30px;
     width: 100px;
-  }
+  } */
 `;
 
 export const List = styled("ul")`
@@ -58,4 +58,18 @@ export const ListItem = styled("li")`
     padding-right: 20px;
     text-align: end;
   }
+  & > ul {
+    padding: 0;
+    list-style: none;
+  }
+  & > img {
+    height: 120px;
+    width: auto;
+  }
+`;
+
+export const Image = styled("img")`
+  max-height: 170px;
+  max-width: 170px;
+  object-fit: contain;
 `;
