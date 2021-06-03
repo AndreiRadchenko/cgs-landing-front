@@ -5,6 +5,7 @@ interface Props {
   selected?: boolean;
   big?: boolean;
   sliderLabel?: boolean;
+  double?: boolean;
 }
 
 export const Wrapper = styled("div")``;
@@ -94,7 +95,7 @@ export const Select = styled("select")`
   line-height: 32px;
 `;
 
-export const Label = styled("label")`
+export const Label = styled("label")<Props>`
   display: ${(props) => (props.double ? "flex" : "grid")};
   grid-template-columns: minmax(50px, 120px) 1fr;
   align-items: center;
@@ -192,7 +193,8 @@ export const Button = styled("button")<Props>`
 `;
 
 export const Row = styled("div")`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   margin-left: -10px;
 `;
 

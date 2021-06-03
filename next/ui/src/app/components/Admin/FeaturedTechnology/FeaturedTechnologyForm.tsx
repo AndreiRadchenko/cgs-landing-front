@@ -50,7 +50,6 @@ const FeaturedTechologyForm: React.FC<{
         <Styled.Label>
           <span> Featured Technology Name:</span>
           <Styled.AdminTextInput
-            className="form__title"
             type="text"
             value={name}
             onChange={({ target: { value } }) => setName(value)}
@@ -59,7 +58,6 @@ const FeaturedTechologyForm: React.FC<{
         <Styled.Label>
           <span> Featured Technology text:</span>
           <Styled.AdminTextArea
-            className="form__text"
             value={text}
             onChange={({ target: { value } }) => setCategory(value)}
           />

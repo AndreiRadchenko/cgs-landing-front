@@ -51,7 +51,6 @@ const SloganForm: React.FC<{
           <div>Selected</div>
           <Styled.CheckboxLabel>
             <input
-              className="checkbox"
               type="checkbox"
               checked={selected}
               onChange={({ target: { checked } }) => setSelected(checked)}

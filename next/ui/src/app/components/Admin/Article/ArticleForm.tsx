@@ -56,7 +56,6 @@ const ArticleForm: React.FC<{
           <Styled.Label>
             <span>Article Title:</span>
             <Styled.AdminTextInput
-              className="form__title"
               type="text"
               value={title}
               onChange={({ target: { value } }) => setTitle(value)}
@@ -65,7 +64,6 @@ const ArticleForm: React.FC<{
           <Styled.Label>
             <span> Author:</span>
             <Styled.AdminTextInput
-              className="form__title"
               type="text"
               value={author}
               onChange={({ target: { value } }) => setAuthor(value)}
