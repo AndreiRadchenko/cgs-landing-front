@@ -221,6 +221,9 @@ export const SliderHeaderTitle = styled("p")`
   @media screen and (max-width: 1024px) {
     font-size: 24px;
   }
+  @media screen and (max-width: 380px) {
+    font-size: 14px;
+  }
 `;
 
 export const SliderHeaderSubtitle = styled("p")`
@@ -231,6 +234,9 @@ export const SliderHeaderSubtitle = styled("p")`
   @media screen and (max-width: 1024px) {
     display: none;
   }
+  @media screen and (max-width: 380px) {
+    font-size: 14px;
+  }
 `;
 
 export const SliderHeader = styled("div")`
@@ -239,6 +245,9 @@ export const SliderHeader = styled("div")`
   & .slider-header__country {
     font-size: 18px;
     font-weight: 400;
+    @media screen and (max-width: 380px) {
+      font-size: 14px;
+    }
   }
 `;
 
