@@ -21,7 +21,7 @@ const FeaturedTechologyForm: React.FC<{
     const newFeaturedTechnology = {
       name,
       text,
-      imageFileId: setImageFileId,
+      imageFileId: imageFileId,
     };
 
     featuredTechnology

@@ -4,6 +4,7 @@ interface Props {
   empty?: boolean;
   selected?: boolean;
   big?: boolean;
+  sliderLabel?: boolean;
 }
 
 export const Wrapper = styled("div")``;
@@ -121,7 +122,7 @@ export const CheckboxContainer = styled("div")`
   }
 `;
 
-export const CustomCheckbox = styled("div")`
+export const CustomCheckbox = styled("div")<Props>`
   width: 20px;
   height: 20px;
   border-radius: 50%;
