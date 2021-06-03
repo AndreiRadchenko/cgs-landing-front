@@ -1,46 +1,43 @@
-import { useState } from 'react';
-import { createAdminData, updateAdminData } from 'services/api/adminApi';
-import Images from '../Images/Images';
+import { useState } from "react";
+import { createAdminData, updateAdminData } from "services/api/adminApi";
+import Images from "../Images/Images";
 
-import { IFeaturedTechnology } from '../types';
-import * as Styled from '../Form.styles';
+import { IFeaturedTechnology } from "../types";
+import * as Styled from "../Form.styles";
 
 const FeaturedTechologyForm: React.FC<{
   featuredTechnology?: IFeaturedTechnology | undefined;
   close: Function;
 }> = ({ featuredTechnology, close }) => {
-  const [name, setName] = useState(featuredTechnology?.name || '');
-  const [text, setCategory] = useState(featuredTechnology?.text || '');
+  const [name, setName] = useState(featuredTechnology?.name || "");
+  const [text, setCategory] = useState(featuredTechnology?.text || "");
   const [imageFileId, setImageFileId] = useState(
-    featuredTechnology?.imageFile.id || ''
+    featuredTechnology?.imageFile.id || ""
   );
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-
-    
     const newFeaturedTechnology = {
       name,
       text,
-      imageFileId: setImageFileId,
+      imageFileId,
     };
-
 
     featuredTechnology
       ? updateAdminData(
-          'featuredTechnology',
+          "featuredTechnology",
           featuredTechnology.id,
           newFeaturedTechnology
         ).then(() => close())
-      : createAdminData('featuredTechnology', newFeaturedTechnology).then(() =>
+      : createAdminData("featuredTechnology", newFeaturedTechnology).then(() =>
           close()
         );
-  }
+  };
 
-  function getImageId(id) {
+  const getImageId = (id) => {
     setImageFileId(id);
-  }
+  };
 
   return (
     <Styled.Wrapper>

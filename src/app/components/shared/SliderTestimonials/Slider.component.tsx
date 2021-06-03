@@ -32,8 +32,8 @@ const SliderWorks: React.FC<{ children: React.ReactNodeArray }> = ({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow top={30} />,
+    prevArrow: <SamplePrevArrow top={30} />,
     afterChange: (current) =>
       onChangeSlideEA({ sliderName: "Our Code", slide: current }),
     className: "slides",

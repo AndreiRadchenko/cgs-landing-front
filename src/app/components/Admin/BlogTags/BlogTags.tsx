@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   createAdminData,
   deleteAdminData,
   getAdminData,
-} from 'services/api/adminApi';
-import { ITag } from '../types';
+} from "services/api/adminApi";
+import { ITag } from "../types";
 
 const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
   currentTags,
@@ -12,7 +12,8 @@ const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
 }) => {
   const [tags, setTags] = useState<ITag[]>([]);
   const [tagIds, setTagIds] = useState(currentTags?.map((el) => el.id) || []);
-  const [newTag, setNewTag] = useState('');
+  const [newTag, setNewTag] = useState("");
+
   useEffect(() => {
     getAllTags();
   }, []);
@@ -21,29 +22,33 @@ const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
     getTags(tagIds);
   }, [tagIds]);
 
-  async function getAllTags() {
-    const tags = await getAdminData('blogTag');
+  const getAllTags = async () => {
+    const tags = await getAdminData("blogTag");
     setTags(tags);
-  }
-  async function addTag() {
-    createAdminData('blogTag', { name: newTag }).then(() => {
+  };
+
+  const addTag = async () => {
+    createAdminData("blogTag", { name: newTag }).then(() => {
       getAllTags();
-      setNewTag('');
+      setNewTag("");
     });
-  }
-  async function deleteTag(id) {
-    deleteAdminData('blogTag', id).then(() => {
+  };
+
+  const deleteTag = (id) => {
+    deleteAdminData("blogTag", id).then(() => {
       getAllTags();
     });
-  }
-  function handleTagChange(event, id) {
+  };
+
+  const handleTagChange = (event, id) => {
     if (event.target.checked) {
       setTagIds([...tagIds, id]);
     }
+
     if (!event.target.checked) {
       setTagIds(tagIds.filter((tech) => tech !== id));
     }
-  }
+  };
 
   return (
     <>

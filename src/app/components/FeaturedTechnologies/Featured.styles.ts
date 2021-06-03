@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const imgSize = {
-  w: '35px',
-  h: '35px',
+  w: "35px",
+  h: "35px",
 };
 const Arrow = styled.div`
   position: absolute;
@@ -75,7 +75,7 @@ export const SliderContainer = styled.div`
   }
 `;
 
-export const FeaturedContainer = styled('div')`
+export const FeaturedContainer = styled("div")`
   max-width: 660px;
   display: flex;
   align-items: stretch;
@@ -133,7 +133,7 @@ export const ImageContainer = styled.div`
   align-items: center;
   justify-content: center;
   color: #fff;
-
+  background: ${(props) => props.theme.colors.buttonBgColor};
   & img {
     margin-bottom: 19px;
   }

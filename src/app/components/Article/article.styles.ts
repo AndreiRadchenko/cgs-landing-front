@@ -23,7 +23,7 @@ export const Wrapper = styled("article")`
     padding: 0 3em;
     @media screen and (max-width: 768px) {
       font-size: 14px;
-      margin-bottom:1em;
+      margin-bottom: 1em;
     }
   }
   @media screen and (max-width: 768px) {
@@ -41,7 +41,6 @@ export const Title = styled("h2")`
   }
 `;
 
-
 export const SubTitle = styled("p")`
-  max-width:800px;
+  max-width: 800px;
 `;

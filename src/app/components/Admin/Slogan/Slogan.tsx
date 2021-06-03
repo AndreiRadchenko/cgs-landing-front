@@ -13,14 +13,14 @@ const Slogan: React.FC<{
       <Styled.Item>
         <Styled.List>
           <Styled.ListItem>
-            <span>Title:</span> <span>{slogan.title}</span>{" "}
+            <span>Title:</span> <span>{slogan.title}</span>
           </Styled.ListItem>
           <Styled.ListItem>
-            <span>Text:</span> <span>{slogan.text}</span>{" "}
+            <span>Text:</span> <span>{slogan.text}</span>
           </Styled.ListItem>
           <Styled.ListItem>
-            <span>Selected:</span>{" "}
-            <span>{slogan.selected ? "true" : "false"}</span>{" "}
+            <span>Selected:</span>
+            <span>{slogan.selected ? "true" : "false"}</span>
           </Styled.ListItem>
         </Styled.List>
       </Styled.Item>

@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { createAdminData, updateAdminData } from 'services/api/adminApi';
-import Images from '../Images/Images';
+import { useState } from "react";
+import { createAdminData, updateAdminData } from "services/api/adminApi";
+import Images from "../Images/Images";
 
-import { ITechnology } from '../types';
-import * as Styled from '../Form.styles';
+import { ITechnology } from "../types";
+import * as Styled from "../Form.styles";
 
 const TechnologyForm: React.FC<{
   technology?: ITechnology | undefined;
   close: Function;
 }> = ({ technology, close }) => {
-  const [name, setName] = useState(technology?.name || '');
-  const [category, setCategory] = useState(technology?.category || '');
-  const [iconFileId, setIconFileId] = useState(technology?.iconFile.id || '');
+  const [name, setName] = useState(technology?.name || "");
+  const [category, setCategory] = useState(technology?.category || "");
+  const [iconFileId, setIconFileId] = useState(technology?.iconFile.id || "");
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newTechnology = {
       name,
@@ -22,15 +22,15 @@ const TechnologyForm: React.FC<{
     };
 
     technology
-      ? updateAdminData('technology', technology.id, newTechnology).then(() =>
+      ? updateAdminData("technology", technology.id, newTechnology).then(() =>
           close()
         )
-      : createAdminData('technology', newTechnology).then(() => close());
-  }
+      : createAdminData("technology", newTechnology).then(() => close());
+  };
 
-  function getImageId(id) {
+  const getImageId = (id) => {
     setIconFileId(id);
-  }
+  };
 
   return (
     <Styled.Wrapper>

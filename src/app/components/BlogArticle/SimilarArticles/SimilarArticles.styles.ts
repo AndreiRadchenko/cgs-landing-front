@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Wrapper = styled('div')`
-  max-width:800px;
+export const Wrapper = styled("div")`
+  max-width: 800px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ export const Wrapper = styled('div')`
   }
 `;
 
-export const SimilarArticle = styled('li')`
+export const SimilarArticle = styled("li")`
   width: calc((100% - 120px) / 2);
 
   @media screen and (max-width: 1024px) {

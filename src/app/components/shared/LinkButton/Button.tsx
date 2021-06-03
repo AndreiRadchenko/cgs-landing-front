@@ -1,12 +1,14 @@
-const Button: React.FC<{ link: string; className?: string; text: string }> = ({
+import * as Styles from "./Button.style";
+
+const Button: React.FC<{ link: string; text: string; small?: boolean }> = ({
   link,
-  className = 'button',
   text,
+  small = false,
 }) => {
   return (
-    <a href={link} className={className}>
+    <Styles.Button small={small} href={link}>
       {text}
-    </a>
+    </Styles.Button>
   );
 };
 

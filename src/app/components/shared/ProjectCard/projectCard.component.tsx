@@ -1,7 +1,7 @@
-import React from 'react';
-import * as Styled from './projectCard.style';
-import { technologiesImg } from './technologiesImg/importTechnologyImg';
-import { ProjectCardType } from '../../../../types/components/index';
+import React from "react";
+import * as Styled from "./projectCard.style";
+import { technologiesImg } from "./technologiesImg/importTechnologyImg";
+import { ProjectCardType } from "../../../../types/components/index";
 
 const ProjectCard: React.FC<ProjectCardType> = ({
   title,
@@ -14,33 +14,33 @@ const ProjectCard: React.FC<ProjectCardType> = ({
     <Styled.CardWraper>
       <Styled.CardContainer style={{ background: `${background}` }}>
         <Styled.CardHeader>
-          <div className={'title'}>{title}</div>
-          <div className={'description'}>{children}</div>
+          <div className={"title"}>{title}</div>
+          <div className={"description"}>{children}</div>
         </Styled.CardHeader>
         <Styled.ProjectImg
           style={{
-            left: `${projectImg.width !== '100%' && '25%'}`,
-            width: `${projectImg.width !== '100%' && '50%'}`,
+            left: `${projectImg.width !== "100%" && "25%"}`,
+            width: `${projectImg.width !== "100%" && "50%"}`,
           }}
         >
           <img
-            width={`${projectImg.width !== '100%' ? '50%' : projectImg.width}`}
+            width={`${projectImg.width !== "100%" ? "50%" : projectImg.width}`}
             src={projectImg.img}
             alt="img-project"
           />
         </Styled.ProjectImg>
         <Styled.CardTechnologies>
-          {technologies.map(technology => {
+          {technologies.map((technology) => {
             return (
               <div
-                className={'technology'}
+                className={"technology"}
                 style={{ width: `${100 / technologies.length}%` }}
               >
-                <div className={'technology-img'}>
+                <div className={"technology-img"}>
                   <img
                     src={technologiesImg[technology]}
-                    width={'70%'}
-                    height={'70%'}
+                    width={"70%"}
+                    height={"70%"}
                   />
                 </div>
                 <div className="technology-name">{technology}</div>

@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
-import * as Styled from './header.styles';
-import Categories from '../Categories/categories.component';
-import SocialLinks from '../SocialLinks/social-links.component';
-import Menu from '../BurgerMenu/menu.component';
-import { IHeader } from '../../../../types/components';
-import IMAGES from '../../../../consts/Images';
+import React, { useEffect } from "react";
+import * as Styled from "./header.styles";
+import Categories from "../Categories/categories.component";
+import SocialLinks from "../SocialLinks/social-links.component";
+import Menu from "../BurgerMenu/menu.component";
+import { IHeader } from "../../../../types/components";
+import IMAGES from "../../../../consts/Images";
+
 interface LocationState {
   from: {
     pathname: string;
@@ -37,6 +38,6 @@ const Header: React.FC<IHeader> = ({ socialList, navigation, fill }) => {
   );
 };
 Header.defaultProps = {
-  fill: '#0C1033',
+  fill: "#0C1033",
 };
 export default Header;

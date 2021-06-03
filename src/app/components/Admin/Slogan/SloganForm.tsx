@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createAdminData, updateAdminData } from "services/api/adminApi";
 import { ISlogan } from "../types";
 import * as Styled from "../Form.styles";
+import { slides } from "app/img";
 
 const SloganForm: React.FC<{
   slogan?: ISlogan | undefined;
@@ -11,7 +12,7 @@ const SloganForm: React.FC<{
   const [text, setText] = useState(slogan?.text || "");
   const [selected, setSelected] = useState(slogan?.selected || false);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newSlogan = {
       title,
@@ -22,7 +23,7 @@ const SloganForm: React.FC<{
     slogan
       ? updateAdminData("slogan", slogan.id, newSlogan).then(() => close())
       : createAdminData("slogan", newSlogan).then(() => close());
-  }
+  };
 
   return (
     <Styled.Wrapper>
@@ -45,15 +46,19 @@ const SloganForm: React.FC<{
             placeholder="Write some text here"
           />
         </Styled.Label>
+
         <Styled.CheckboxContainer>
           <div>Selected</div>
-          <Styled.CheckboxLabel selected={selected}>
+          <Styled.CheckboxLabel>
             <input
               className="checkbox"
               type="checkbox"
               checked={selected}
               onChange={({ target: { checked } }) => setSelected(checked)}
             />
+            <Styled.CustomCheckbox selected={selected}>
+              <img src={slides.Check} alt="checkbox" />
+            </Styled.CustomCheckbox>
           </Styled.CheckboxLabel>
         </Styled.CheckboxContainer>
         <Styled.ButtonWrapper>

@@ -1,7 +1,7 @@
-import React from 'react';
-import * as Styled from './technologies.styles';
-import { v4 as uuidv4 } from 'uuid';
-import { TECHNOLOGIES } from '../../../consts/Technologies';
+import React from "react";
+import * as Styled from "./technologies.styles";
+import { v4 as uuidv4 } from "uuid";
+import { TECHNOLOGIES } from "../../../consts/Technologies";
 const Technology = ({ technology, index }) => {
   return (
     <React.Fragment>
@@ -18,7 +18,10 @@ const Technology = ({ technology, index }) => {
             </ul>
           </Styled.DescContainer>
           <div>
-            <Styled.TechnoImage src={TECHNOLOGIES[index].image} alt={technology.type} />
+            <Styled.TechnoImage
+              src={TECHNOLOGIES[index].image}
+              alt={technology.type}
+            />
           </div>
         </Styled.TechnoContainer>
       }

@@ -1,14 +1,20 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Wrapper = styled('div')``;
+export const Wrapper = styled("div")``;
 
-export const Form = styled('form')`
+export const Form = styled("form")`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  color: ${(props) => props.theme.colors.buttonBgColor};
+  & > h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 56px;
+  }
   & > label {
     display: flex;
     justify-content: space-between;

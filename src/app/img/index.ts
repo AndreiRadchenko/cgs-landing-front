@@ -14,6 +14,9 @@ export const slides = {
   indiaFlag: "/indiaFlag.jpg",
   americaFlag: "/americaFlag.png",
   unknown: "/unknown.png",
+  AdminVectorRight: "/rightAdminVector.svg",
+  AdminVectorLeft: "/LeftAdminVector.svg",
+  Check: "/Check.svg",
 };
 
 export const portfolioSlides = {

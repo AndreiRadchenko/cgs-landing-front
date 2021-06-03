@@ -1,13 +1,19 @@
 import React from "react";
 import * as Styled from "./sectionLayout.style";
+import { Button } from "../Form.styles";
 
 const SectionLayout = ({ title, children, setIsModal }) => {
   return (
     <Styled.Wrapper>
       <Styled.Title>{title}</Styled.Title>
-      <button className="button" type="button" onClick={() => setIsModal(true)}>
+      <Button
+        big
+        className="button"
+        type="button"
+        onClick={() => setIsModal(true)}
+      >
         Create new entry
-      </button>
+      </Button>
       {children}
     </Styled.Wrapper>
   );

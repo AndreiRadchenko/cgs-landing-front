@@ -1,20 +1,22 @@
-import { useState } from 'react';
-import { createAdminData, updateAdminData } from 'services/api/adminApi';
-import Images from '../Images/Images';
+import { useState } from "react";
+import { createAdminData, updateAdminData } from "services/api/adminApi";
+import Images from "../Images/Images";
 
-import { IFact } from '../types';
-import * as Styled from './FactsForm.styles';
+import { IFact } from "../types";
+// import * as Styled from "./FactsForm.styles";
+import * as Styled from "../Form.styles";
+import { slides } from "app/img";
 
 const FactsForm: React.FC<{
   fact?: IFact | undefined;
   close: Function;
 }> = ({ fact, close }) => {
-  const [title, setTitle] = useState(fact?.title || '');
-  const [text, setText] = useState(fact?.text || '');
+  const [title, setTitle] = useState(fact?.title || "");
+  const [text, setText] = useState(fact?.text || "");
   const [showOnPage, setshowOnPage] = useState(fact?.showOnHomePage || false);
-  const [iconFileId, setIconFileId] = useState(fact?.iconFile.id || '');
+  const [iconFileId, setIconFileId] = useState(fact?.iconFile.id || "");
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newFact = {
       title,
@@ -24,50 +26,73 @@ const FactsForm: React.FC<{
     };
 
     fact
-      ? updateAdminData('facts', fact.id, newFact).then(() => close())
-      : createAdminData('facts', newFact).then(() => close());
-  }
-  function getImageId(id) {
+      ? updateAdminData("facts", fact.id, newFact).then(() => close())
+      : createAdminData("facts", newFact).then(() => close());
+  };
+
+  const getImageId = (id) => {
     setIconFileId(id);
-  }
+  };
+
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
-        {fact ? <h2>Edit Fact ID: {fact?.id}</h2> : <h2>Create a fact</h2>}
-        <label>
-          Fact title
-          <input
+        {fact ? <h2>Edit Fact</h2> : <h2>Create new fact</h2>}
+        <Styled.Label>
+          <span>Fact title</span>
+          <Styled.AdminTextInput
             className="form__title"
             type="text"
             value={title}
             onChange={({ target: { value } }) => setTitle(value)}
           />
-        </label>
-        <label>
-          Fact text
-          <textarea
+        </Styled.Label>
+        <Styled.Label>
+          <span>Fact text</span>
+          <Styled.AdminTextArea
             className="form__text"
             value={text}
             onChange={({ target: { value } }) => setText(value)}
           />
-        </label>
-        <label>
-          Show on Home Page
+        </Styled.Label>
+        <Styled.CheckboxContainer>
+          <div>Show on page</div>
+          <Styled.CheckboxLabel>
+            <input
+              type="checkbox"
+              name="TechOption"
+              checked={showOnPage}
+              onChange={({ target: { checked } }) => setshowOnPage(checked)}
+            />
+            <Styled.CustomCheckbox selected={showOnPage}>
+              <img src={slides.Check} alt="checkbox" />
+            </Styled.CustomCheckbox>
+          </Styled.CheckboxLabel>
+        </Styled.CheckboxContainer>
+        {/* <Styled.Label>
+          <span> Show on Home Page</span>
           <input
             type="checkbox"
             checked={showOnPage}
             onChange={({ target: { checked } }) => setshowOnPage(checked)}
           />
-        </label>
-        <Images activeImage={fact?.iconFile} getImageId={getImageId}></Images>
-        <div className="buttons">
-          <button type="submit" disabled={!(title && text && iconFileId)}>
-            Save Changes
-          </button>
-          <button type="button" onClick={() => close()}>
+        </Styled.Label> */}
+        <Styled.PicturesWrapper>
+          <span>Pictures:</span>
+          <Images activeImage={fact?.iconFile} getImageId={getImageId} />
+        </Styled.PicturesWrapper>
+
+        <Styled.ButtonWrapper>
+          <Styled.Button
+            type="submit"
+            disabled={!(title && text && iconFileId)}
+          >
+            {fact ? "Save" : "Create"}
+          </Styled.Button>
+          <Styled.Button type="button" onClick={() => close()}>
             Cancel
-          </button>
-        </div>
+          </Styled.Button>
+        </Styled.ButtonWrapper>
       </Styled.Form>
     </Styled.Wrapper>
   );

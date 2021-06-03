@@ -1,30 +1,12 @@
-import React from 'react';
-import * as Styled from './Featured.styles';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { onChangeSlideEA } from '../../../services/event';
-import { slides } from '../../img/index';
-import Featured from './FeaturedTechnologies.component';
-import { IFeaturedTechnology } from 'types/components';
-
-function SampleNextArrow(props) {
-  const { className, onClick } = props;
-  return (
-    <Styled.SliderNext className={className} onClick={onClick}>
-      <img src={slides.RightVector} alt="prevVector" />
-    </Styled.SliderNext>
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, onClick } = props;
-  return (
-    <Styled.SliderPrev className={className} onClick={onClick}>
-      <img src={slides.LeftVector} alt="prevVector" />
-    </Styled.SliderPrev>
-  );
-}
+import React from "react";
+import * as Styled from "./Featured.styles";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { onChangeSlideEA } from "../../../services/event";
+import Featured from "./FeaturedTechnologies.component";
+import { IFeaturedTechnology } from "types/components";
+import { SampleNextArrow, SamplePrevArrow } from "../shared/Slider/arrows";
 
 const SliderFeatured: React.FC<{
   featuredTechnologies: IFeaturedTechnology[];
@@ -32,10 +14,10 @@ const SliderFeatured: React.FC<{
   let settings = {
     slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow top={10} />,
+    prevArrow: <SamplePrevArrow top={10} />,
     afterChange: (current) =>
-      onChangeSlideEA({ sliderName: 'Partfolio', slide: current }),
+      onChangeSlideEA({ sliderName: "Partfolio", slide: current }),
     responsive: [
       {
         breakpoint: 1024,
@@ -44,7 +26,7 @@ const SliderFeatured: React.FC<{
         },
       },
     ],
-    className: 'slides',
+    className: "slides",
   };
 
   return (

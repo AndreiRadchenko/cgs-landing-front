@@ -1,23 +1,21 @@
-import { useState } from 'react';
-import { createAdminData, updateAdminData } from 'services/api/adminApi';
-import Images from '../Images/Images';
-import { IArticle } from '../types';
-import * as Styled from '../Form.styles';
-import BlogTags from '../BlogTags/BlogTags';
-import TextEditor from '../TextEditor/TextEditor';
+import { useState } from "react";
+import { createAdminData, updateAdminData } from "services/api/adminApi";
+import Images from "../Images/Images";
+import { IArticle } from "../types";
+import * as Styled from "../Form.styles";
+import BlogTags from "../BlogTags/BlogTags";
+import TextEditor from "../TextEditor/TextEditor";
 
 const ArticleForm: React.FC<{
   article?: IArticle | undefined;
   close: Function;
 }> = ({ article, close }) => {
-  const [title, setTitle] = useState(article?.title || '');
-  const [author, setAuthor] = useState(article?.author || '');
-  const [content, setContent] = useState(article?.content || '');
+  const [title, setTitle] = useState(article?.title || "");
+  const [author, setAuthor] = useState(article?.author || "");
+  const [content, setContent] = useState(article?.content || "");
   const [tags, setTags] = useState(article?.tags || []);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
-  const [imageFileId, setimageFileId] = useState(article?.imageFile.id || '');
-
-
+  const [imageFileId, setimageFileId] = useState(article?.imageFile.id || "");
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -29,15 +27,16 @@ const ArticleForm: React.FC<{
       imageFileId,
     };
 
-
     article
-      ? updateAdminData('article', article.id, newArticle).then((res) => close())
-      : createAdminData('article', newArticle).then(() => close());
+      ? updateAdminData("article", article.id, newArticle).then((res) =>
+          close()
+        )
+      : createAdminData("article", newArticle).then(() => close());
   }
 
-  function getImageId(id) {
+  const getImageId = (id) => {
     setimageFileId(id);
-  }
+  };
 
   return (
     <Styled.Wrapper>

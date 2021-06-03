@@ -1,6 +1,6 @@
-import ItemButtons from '../ItemButtons/ItemButtons';
-import * as Styled from '../Item.styles';
-import { ITestimonial } from '../types';
+import ItemButtons from "../ItemButtons/ItemButtons";
+import * as Styled from "../Item.styles";
+import { ITestimonial } from "../types";
 
 const Testimonial: React.FC<{
   testimonial: ITestimonial;
@@ -32,7 +32,7 @@ const Testimonial: React.FC<{
         </ul>
       </Styled.Item>
       <ItemButtons
-        deleteItem={() => deleteItem('testimonial', testimonial.id)}
+        deleteItem={() => deleteItem("testimonial", testimonial.id)}
         openModal={openModal}
         item={testimonial}
       ></ItemButtons>

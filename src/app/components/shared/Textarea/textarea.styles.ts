@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const TextWrapper = styled('div')`
+export const TextWrapper = styled("div")`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -8,8 +8,8 @@ export const TextWrapper = styled('div')`
     width: 100%;
   }
 `;
-export const Text = styled('textarea')`
-  resize: none; 
+export const Text = styled("textarea")`
+  resize: none;
   font-size: 16px;
   padding: 10px 12px;
   border: 1px solid #0c1033;
@@ -17,7 +17,7 @@ export const Text = styled('textarea')`
   min-height: 100px;
 `;
 
-export const Error = styled('div')`
+export const Error = styled("div")`
   min-height: 16px;
   margin-top: 0.5em;
   color: red;

@@ -8,22 +8,22 @@ import dayjs from "dayjs";
 const Footer: React.FC<IFooter> = ({ socialList, fill }) => {
   return (
     <Styled.Wrapper>
-      <div className="drop-box-footer" data-scroll={"Social"}>
+      <Styled.DropBoxFooter className="drop-box-footer" data-scroll={"Social"}>
         <p className="drop-box-footer-text">
           <a href="mailto:sales.codegeneration@gmail.com">
             sales.codegeneration@gmail.com
           </a>
         </p>
-        <div className="footer-act">
+        <Styled.FooterAct>
           <SocialLinks socialList={MobileSocialList} />
-        </div>
+        </Styled.FooterAct>
         <p className="drop-box-footer-text">
           Copyright {dayjs().format("YYYY")}
         </p>
-        <div className="footer-dis">
+        <Styled.FooterDis>
           <SocialLinks socialList={MobileSocialList} />
-        </div>
-      </div>
+        </Styled.FooterDis>
+      </Styled.DropBoxFooter>
     </Styled.Wrapper>
   );
 };

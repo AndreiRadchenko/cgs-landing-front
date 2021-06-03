@@ -15,10 +15,11 @@ import SliderFeatured from "app/components/FeaturedTechnologies/SliderFeatured";
 import SliderTechnologies from "app/components/Technologies/SliderTechnologies";
 import MainLayout from "app/components/Layout/Layout";
 
-export function HomePage({ props }) {
+export const HomePage = ({ props }) => {
   React.useEffect(() => {
     scrollEA("data-scroll");
   }, []);
+
   return (
     <>
       <MainLayout title="Home">
@@ -98,4 +99,4 @@ export function HomePage({ props }) {
       </MainLayout>
     </>
   );
-}
+};

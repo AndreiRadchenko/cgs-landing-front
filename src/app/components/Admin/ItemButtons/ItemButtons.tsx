@@ -1,4 +1,4 @@
-import * as Styled from './ItemButtons.styles';
+import * as Styled from "./ItemButtons.styles";
 
 const ItemButtons: React.FC<{
   openModal: Function;
