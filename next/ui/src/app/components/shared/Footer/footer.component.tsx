@@ -5,7 +5,7 @@ import { IFooter } from "../../../../types/components";
 import { MobileSocialList } from "../../../../consts/lists";
 import dayjs from "dayjs";
 
-const Footer: React.FC<IFooter> = ({ socialList, fill }) => {
+const Footer: React.FC<IFooter> = () => {
   return (
     <Styled.Wrapper>
       <Styled.DropBoxFooter className="drop-box-footer" data-scroll={"Social"}>

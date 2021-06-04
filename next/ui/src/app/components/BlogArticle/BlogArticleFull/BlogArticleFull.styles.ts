@@ -60,10 +60,9 @@ export const Content = styled("p")`
   font-weight: 400;
   line-height: 1.66;
   text-align: justify;
-
+  color: ${(props) => props.theme.colors.greyText};
   @media screen and (max-width: 1024px) {
     font-size: 14px;
-    opacity: 0.5;
   }
 `;
 

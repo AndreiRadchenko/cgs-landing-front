@@ -21,15 +21,13 @@ const SimilarArticles: React.FC<SimilarArticlesProps> = ({
                   as={`/blog/${article.id}`}
                   key={article.id}
                 >
-                  <a>
-                    <img src={article.imageFileUrl} alt={article.title} />
-                    <h2>{article.title}</h2>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: clipString(article.content)!,
-                      }}
-                    />
-                  </a>
+                  <img src={article.imageFileUrl} alt={article.title} />
+                  <h2>{article.title}</h2>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: clipString(article.content)!,
+                    }}
+                  />
                 </Link>
               </Styled.SimilarArticle>
             );

@@ -24,15 +24,17 @@ const FeaturedTechologyForm: React.FC<{
       imageFileId: imageFileId,
     };
 
-    featuredTechnology
-      ? updateAdminData(
-          "featuredTechnology",
-          featuredTechnology.id,
-          newFeaturedTechnology
-        ).then(() => close())
-      : createAdminData("featuredTechnology", newFeaturedTechnology).then(() =>
-          close()
-        );
+    if (featuredTechnology) {
+      updateAdminData(
+        "featuredTechnology",
+        featuredTechnology.id,
+        newFeaturedTechnology
+      ).then(() => close());
+    } else if (!featuredTechnology) {
+      createAdminData("featuredTechnology", newFeaturedTechnology).then(() =>
+        close()
+      );
+    }
   };
 
   const getImageId = (id) => {

@@ -23,6 +23,7 @@ const Arrow = styled.div`
     height: 100%;
   }
 `;
+
 export const SliderPrev = styled(Arrow)<Props>`
   left: ${(props) => (props.forWorks ? "0" : "5%")};
   top: ${(props) => `${props.top}% `};
