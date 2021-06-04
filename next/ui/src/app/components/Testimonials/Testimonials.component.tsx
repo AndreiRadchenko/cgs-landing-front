@@ -7,6 +7,15 @@ import { getName } from "country-list";
 
 const Testimonials = ({ testimonial }) => {
   const country = getName(testimonial.countryCode);
+
+  const flagStyle = {
+    width: "100%",
+    height: "100%",
+  };
+
+  const testimoniaToRender =
+    country?.split(" ").length < 3 ? country : testimonial.countryCode;
+
   return (
     <Styled.TestimonialContainer key={uuidv4()}>
       <div className="titleWrapper">
@@ -16,16 +25,11 @@ const Testimonials = ({ testimonial }) => {
             <ReactCountryFlag
               countryCode={testimonial.countryCode}
               svg
-              style={{
-                width: "100%",
-                height: "100%",
-              }}
+              style={flagStyle}
             />
           </Styled.TestimonialFlag>
         )}
-        <p className="testimonials__country">
-          {country?.split(" ").length < 3 ? country : testimonial.countryCode}
-        </p>
+        <p className="testimonials__country">{testimoniaToRender}</p>
       </div>
       <p className="testimonials__company">{testimonial.companyName}</p>
       <Styled.TestimonialPosition>

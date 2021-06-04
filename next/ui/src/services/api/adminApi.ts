@@ -19,6 +19,7 @@ const API_ROUTES = {
   file: "/file/",
   fileUpload: "/file/upload",
 };
+
 export const login = async () => {
   const user = {
     username: "admin",

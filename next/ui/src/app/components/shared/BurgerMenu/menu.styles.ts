@@ -18,12 +18,14 @@ export const BurgerMenu = styled("div")`
     }
   }
 `;
+
 export const MenuContainer = styled("div")`
   cursor: pointer;
   @media screen and (min-width: 1024px) {
     display: none;
   }
 `;
+
 export const DropDown = styled("div")`
   display: flex;
   width: 100%;

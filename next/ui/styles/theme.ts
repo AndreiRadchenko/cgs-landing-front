@@ -4,6 +4,7 @@ export default {
     footer: "#0c1033",
     buttonBgColor: "#1f5a7b",
     buttonBgColorActive: "#0C1033",
-    mainBgColor: "white",
+    mainBgColor: "#fff",
+    greyText: "#0C1033",
   },
 };

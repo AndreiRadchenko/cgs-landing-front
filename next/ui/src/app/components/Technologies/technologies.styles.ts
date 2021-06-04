@@ -35,6 +35,11 @@ export const SliderNext = styled(Arrow)`
 `;
 export const SliderContainer = styled.div`
   width: 100%;
+  @media (min-width: 1025px) {
+    padding: 0 70px;
+  }
+
+  width: 100%;
   height: 100%;
 
   & .slick-track {

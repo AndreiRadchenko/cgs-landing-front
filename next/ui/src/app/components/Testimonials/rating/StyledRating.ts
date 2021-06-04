@@ -13,6 +13,9 @@ export const RatingItem = styled.div`
 
   &:not(:only-child):last-child {
     margin-left: 28px;
+    @media (max-width: 420px) {
+      margin-left: 15px;
+    }
   }
 `;
 
@@ -21,6 +24,9 @@ export const Rating = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 28px;
+  @media (max-width: 420px) {
+    font-size: 14px;
+  }
   & img {
     margin-right: 9px;
   }

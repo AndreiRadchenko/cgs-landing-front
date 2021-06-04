@@ -2,13 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 
-@font-face {
-  font-family: "Mulish";
-  src: url(./fonts/Mulish/Mulish-Regular.ttf) format("truetype"),
-    url(./fonts/Mulish/Mulish-Bold.ttf) format("truetype"),
-    url(./fonts/Mulish/Mulish-Light.ttf) format("truetype");
-}
-
 html {
   box-sizing: border-box;
   font-family:Mulish;

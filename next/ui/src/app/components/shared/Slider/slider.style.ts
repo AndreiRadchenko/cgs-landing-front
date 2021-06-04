@@ -6,7 +6,8 @@ const imgSize = {
 };
 
 interface Props {
-  top?: number;
+  top: number;
+  forWorks?: boolean;
 }
 
 const Arrow = styled.div`
@@ -22,14 +23,35 @@ const Arrow = styled.div`
     height: 100%;
   }
 `;
+
 export const SliderPrev = styled(Arrow)<Props>`
-  left: 5%;
+  left: ${(props) => (props.forWorks ? "0" : "5%")};
   top: ${(props) => `${props.top}% `};
+  @media (min-width: 1025px) {
+    top: ${(props) => (props.forWorks ? "50%" : "")};
+  }
+  @media (max-width: 650px) {
+    top: ${(props) => (props.forWorks ? `${props.top - 10}% ` : "")};
+  }
+  @media (max-width: 420px) {
+    top: ${(props) => (props.forWorks ? "15%" : "")};
+    left: ${(props) => (props.forWorks ? "-5%" : "0")};
+  }
 `;
 
 export const SliderNext = styled(Arrow)<Props>`
-  right: 5% !important;
+  right: ${(props) => (props.forWorks ? "0" : "5%")};
   top: ${(props) => `${props.top}% `};
+  @media (min-width: 1025px) {
+    top: ${(props) => (props.forWorks ? "50%" : "")};
+  }
+  @media (max-width: 650px) {
+    top: ${(props) => (props.forWorks ? `${props.top - 10}% ` : "")};
+  }
+  @media (max-width: 420px) {
+    top: ${(props) => (props.forWorks ? "15%" : "")};
+    right: ${(props) => (props.forWorks ? "-5%" : "0")};
+  }
 `;
 
 export const SliderContainer = styled.div`

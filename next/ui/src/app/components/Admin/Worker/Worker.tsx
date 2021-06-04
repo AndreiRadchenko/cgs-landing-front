@@ -7,23 +7,36 @@ const Worker: React.FC<{
   openModal: Function;
   deleteItem: Function;
 }> = ({ worker, openModal, deleteItem }) => {
+  console.log(worker);
   return (
     <Styled.Wrapper>
       <Styled.Item>
-        <ul>
-          <li>ID: {worker.id} </li>
-          <li>Title: {worker.name} </li>
-          <li>Position: {worker.position} </li>
-          <li>Text: {worker.text} </li>
-          <li>Show on HomePage: {worker.showOnHomePage ? "true" : "false"} </li>
-        </ul>
-        <img
-          src={worker.imageFile.s3FileUrl}
-          alt={worker.imageFile.s3FileUrl}
-        />
+        <Styled.List>
+          <Styled.ListItem>
+            <span>Name: </span>
+            <span>{worker.name}</span>
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Position:</span> <span>{worker.position}</span>
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Text:</span> <span>{worker.text}</span>
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Show:</span>
+            <span>{worker.showOnHomePage ? "true" : "false"}</span>
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Picture:</span>
+            <img
+              src={worker.imageFile.s3FileUrl}
+              alt={worker.imageFile.s3FileUrl}
+            />
+          </Styled.ListItem>
+        </Styled.List>
       </Styled.Item>
       <ItemButtons
-        deleteItem={() => deleteItem("slogan", worker.id)}
+        deleteItem={() => deleteItem("worker", worker.id)}
         openModal={openModal}
         item={worker}
       ></ItemButtons>

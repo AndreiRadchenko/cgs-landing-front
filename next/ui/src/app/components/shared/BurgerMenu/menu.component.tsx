@@ -23,7 +23,6 @@ const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
       <Styled.MenuContainer className="menu" onClick={onBurger}>
         <BurgerIcon />
       </Styled.MenuContainer>
-
       <Styled.DropDown
         className={`drop-down ${activeMenu ? "show-sub-menu" : ""}`}
       >
@@ -31,11 +30,14 @@ const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
         {activeMenu && (
           <Styled.DropBoxContainer>
             <Styled.DropBoxMain>
-              {Nav.map((item, index) => (
+              {Nav.map((item) => (
                 <Link href={item.link} key={uuidv4()}>
-                  <a>
-                    <p className={"drop-box-item"}>{item.burgerTitle}</p>
-                  </a>
+                  <p
+                    onClick={() => setMenuState(!activeMenu)}
+                    className="drop-box-item"
+                  >
+                    {item.burgerTitle}
+                  </p>
                 </Link>
               ))}
             </Styled.DropBoxMain>

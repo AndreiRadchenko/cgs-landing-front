@@ -10,18 +10,25 @@ const Techology: React.FC<{
   return (
     <Styled.Wrapper>
       <Styled.Item>
-        <ul>
-          <li>ID: {technology.id} </li>
-          <li>Name: {technology.name} </li>
-          <li>Category: {technology.category} </li>
-        </ul>
-        <img
-          src={technology.iconFile.s3FileUrl}
-          alt={technology.iconFile.s3FileUrl}
-        />
+        <Styled.List>
+          <Styled.ListItem>
+            <span>Name:</span> <span>{technology.name}</span>
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Category:</span> <span>{technology.category}</span>
+          </Styled.ListItem>
+
+          <Styled.ListItem>
+            <span>Picture:</span>
+            <Styled.Image
+              src={technology.iconFile.s3FileUrl}
+              alt={technology.iconFile.s3FileUrl}
+            />
+          </Styled.ListItem>
+        </Styled.List>
       </Styled.Item>
       <ItemButtons
-        deleteItem={() => deleteItem("slogan", technology.id)}
+        deleteItem={() => deleteItem("technology", technology.id)}
         openModal={openModal}
         item={technology}
       ></ItemButtons>

@@ -22,6 +22,7 @@ export const Button = styled("a")<Props>`
     background-color: ${(props) => props.theme.colors.buttonBgColorActive};
   }
   @media (max-width: 420px) {
-    min-width: ${(props) => (props.small ? "120px" : "177px")};
+    min-width: ${(props) => (props.small ? "90px" : "120px")};
+    font-size: 14px;
   }
 `;

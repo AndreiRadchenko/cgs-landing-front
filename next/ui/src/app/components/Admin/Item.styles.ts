@@ -31,17 +31,13 @@ export const Item = styled("div")`
   margin-top: 60px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   border: 2px solid #1f5a7b;
   border-radius: 20px;
   font-size: 14px;
   line-height: 32px;
   font-weight: 700;
   color: #1f5a7b;
-  & img {
-    margin-left: 30px;
-    width: 100px;
-  }
 `;
 
 export const List = styled("ul")`
@@ -58,4 +54,21 @@ export const ListItem = styled("li")`
     padding-right: 20px;
     text-align: end;
   }
+  & > ul {
+    padding: 0;
+    list-style: none;
+  }
+  & > img {
+    height: 120px;
+    width: auto;
+  }
+  & > span::first-letter {
+    text-transform: uppercase;
+  }
+`;
+
+export const Image = styled("img")`
+  max-height: 170px;
+  max-width: 170px;
+  object-fit: contain;
 `;

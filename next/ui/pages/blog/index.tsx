@@ -3,13 +3,11 @@ import { BlogPage } from "../../src/app/containers/BlogPage";
 import { getData } from "../../src/services/api/api";
 import { IArticle } from "../../src/types/components";
 
-const Blog = ({ articles }) => {
-  return (
-    <MainLayout title="Blog">
-      <BlogPage articles={articles} />
-    </MainLayout>
-  );
-};
+const Blog = ({ articles }) => (
+  <MainLayout title="Blog">
+    <BlogPage articles={articles} />
+  </MainLayout>
+);
 
 export const getServerSideProps = async () => {
   try {

@@ -6,27 +6,33 @@ const FeaturedTechology: React.FC<{
   featuredTechnology: IFeaturedTechnology;
   openModal: Function;
   deleteItem: Function;
-}> = ({ featuredTechnology, openModal, deleteItem }) => {
-  return (
-    <Styled.Wrapper>
-      <Styled.Item>
-        <ul>
-          <li>ID: {featuredTechnology.id} </li>
-          <li>Name: {featuredTechnology.name} </li>
-          <li>Text: {featuredTechnology.text} </li>
-        </ul>
-        <img
-          src={featuredTechnology.imageFile.s3FileUrl}
-          alt={featuredTechnology.imageFile.s3FileUrl}
-        />
-      </Styled.Item>
-      <ItemButtons
-        openModal={openModal}
-        item={featuredTechnology}
-        deleteItem={() => deleteItem("slogan", featuredTechnology.id)}
-      ></ItemButtons>
-    </Styled.Wrapper>
-  );
-};
+}> = ({ featuredTechnology, openModal, deleteItem }) => (
+  <Styled.Wrapper>
+    <Styled.Item>
+      <Styled.List>
+        <Styled.ListItem>
+          <span>Name: </span>
+          <span>{featuredTechnology.name}</span>
+        </Styled.ListItem>
+        <Styled.ListItem>
+          <span>Text: </span>
+          <span>{featuredTechnology.text}</span>
+        </Styled.ListItem>
+        <Styled.ListItem>
+          <span>Picture:</span>
+          <Styled.Image
+            src={featuredTechnology.imageFile.s3FileUrl}
+            alt={featuredTechnology.imageFile.s3FileUrl}
+          />
+        </Styled.ListItem>
+      </Styled.List>
+    </Styled.Item>
+    <ItemButtons
+      openModal={openModal}
+      item={featuredTechnology}
+      deleteItem={() => deleteItem("featuredTechnology", featuredTechnology.id)}
+    ></ItemButtons>
+  </Styled.Wrapper>
+);
 
 export default FeaturedTechology;

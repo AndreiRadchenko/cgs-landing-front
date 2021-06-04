@@ -4,7 +4,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { onChangeSlideEA } from "../../../services/event";
-import { slides } from "../../img/index";
 import { v4 as uuidv4 } from "uuid";
 import Facts from "./Facts.component";
 import { IFact } from "../../../types/components/index";

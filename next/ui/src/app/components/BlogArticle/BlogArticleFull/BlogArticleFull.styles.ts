@@ -60,14 +60,14 @@ export const Content = styled("p")`
   font-weight: 400;
   line-height: 1.66;
   text-align: justify;
-
+  color: ${(props) => props.theme.colors.greyText};
   @media screen and (max-width: 1024px) {
     font-size: 14px;
-    opacity: 0.5;
   }
 `;
 
 export const TagList = styled("ul")`
+  width: 100%;
   @media screen and (min-width: 1024px) {
     display: none;
   }
@@ -85,12 +85,15 @@ export const TagList = styled("ul")`
   padding: 0 3em;
 
   & li {
+    white-space: nowrap;
+    margin-bottom: 10px;
     padding: 1px 15px;
     border-radius: 5px;
     color: #fff;
+    background-color: ${(props) => props.theme.colors.buttonBgColor};
   }
   & li:not(:last-child) {
-    margin-right: 18px;
+    margin-right: 10px;
   }
 `;
 

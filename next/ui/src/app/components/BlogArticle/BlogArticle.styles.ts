@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const Wrapper = styled("div")`
   width: 72.2%;
   @media screen and (max-width: 1024px) {
@@ -16,7 +17,7 @@ export const ArticleWrapper = styled("div")`
       padding-top: 30px;
     }
   }
-  & a {
+  & > a {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -147,6 +148,9 @@ export const Title = styled("h2")`
   @media screen and (max-width: 1024px) {
     font-size: 24px;
   }
+  @media screen and (max-width: 420px) {
+    font-size: 18px;
+  }
 `;
 
 export const Content = styled("p")`
@@ -180,6 +184,9 @@ export const TagList = styled("ul")`
     border-radius: 5px;
     color: #fff;
     margin-bottom: 10px;
+    @media (max-width: 420px) {
+      font-size: 14px;
+    }
   }
   & li:not(:last-child) {
     margin-right: 18px;
@@ -212,4 +219,13 @@ export const HorizantalSep = styled("div")`
 
 export const ArticleTag = styled("li")`
   background-color: ${(props) => props.theme.colors.buttonBgColor};
+`;
+
+export const ImageContainer = styled("div")`
+  @media (max-width: 420px) {
+    & > img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
 `;
