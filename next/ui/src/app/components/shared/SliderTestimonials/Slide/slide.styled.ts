@@ -301,6 +301,10 @@ export const SliderContent = styled("div")`
     font-weight: 400;
   }
   & .slider-technologies__button {
+    @media (max-width: 420px) {
+      width: 120px;
+      font-size: 14px;
+    }
     background-color: ${(props) => props.theme.colors.buttonBgColor};
     border-radius: 2em;
     padding: 0.7em;
@@ -308,8 +312,7 @@ export const SliderContent = styled("div")`
     font-weight: 700;
     border: 0;
     color: white;
-    min-width: 200px;
-    width: fit-content;
+    width: 200px;
     cursor: pointer;
     transition: all 0.3s ease-in;
     font-size: 18px;

@@ -5,6 +5,8 @@ import {
   getAdminData,
 } from "services/api/adminApi";
 import { ITag } from "../types";
+import * as Styled from "../Form.styles";
+import { slides } from "../../../img/";
 
 const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
   currentTags,
@@ -52,30 +54,42 @@ const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
 
   return (
     <>
-      {tags.map((tag) => (
-        <>
-          <label>
-            {tag.name}
-            <input
-              type="checkbox"
-              name="tagOption"
-              checked={tagIds.some((el) => el === tag.id)}
-              onChange={(event) => handleTagChange(event, tag.id)}
-            />
-          </label>
-          <button type="button" onClick={() => deleteTag(tag.id)}>
-            Delete Tag
-          </button>
-        </>
-      ))}
-      <input
-        placeholder="Tag Name"
-        type="text"
-        onChange={({ target: { value } }) => setNewTag(value)}
-      />
-      <button onClick={addTag} type="button">
-        Add new Tag
-      </button>
+      <Styled.BlogTextWrapper>
+        {tags.map((tag) => (
+          <Styled.CheckboxContainer>
+            <div>{tag.name}</div>
+            <Styled.CheckboxLabel>
+              <input
+                type="checkbox"
+                name="tagOption"
+                checked={tagIds.some((el) => el === tag.id)}
+                onChange={(event) => handleTagChange(event, tag.id)}
+              />
+              <Styled.CustomCheckbox
+                selected={tagIds.some((el) => el === tag.id)}
+              >
+                <img src={slides.Check} alt="checkbox" />
+              </Styled.CustomCheckbox>
+            </Styled.CheckboxLabel>
+            <Styled.DeleteTagButton
+              type="button"
+              onClick={() => deleteTag(tag.id)}
+            >
+              <img src={slides.deleteIcon} alt="delete tag button" />
+            </Styled.DeleteTagButton>
+          </Styled.CheckboxContainer>
+        ))}
+      </Styled.BlogTextWrapper>
+      <Styled.TagInputWrapper>
+        <Styled.AdminTextInput
+          placeholder="Tag Name"
+          type="text"
+          onChange={({ target: { value } }) => setNewTag(value)}
+        />
+        <Styled.Button onClick={addTag} type="button">
+          Create
+        </Styled.Button>
+      </Styled.TagInputWrapper>
     </>
   );
 };

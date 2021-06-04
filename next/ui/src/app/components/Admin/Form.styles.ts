@@ -116,11 +116,13 @@ export const Label = styled("label")<Props>`
 
 export const CheckboxContainer = styled("div")`
   /* width: 100%; */
+  position: relative;
   margin-top: 28px;
   align-self: flex-start;
   padding-right: 137px;
   &:last-child {
     padding-right: 0;
+    max-width: 220px;
   }
   & > div {
     margin-right: 100px;
@@ -128,6 +130,7 @@ export const CheckboxContainer = styled("div")`
     font-size: 14px;
     font-weight: 700;
     line-height: 32px;
+    white-space: nowrap;
   }
   display: flex;
   & input {
@@ -171,6 +174,15 @@ export const CheckboxLabel = styled("label")<Props>`
   }
 `;
 
+export const DeleteTagButton = styled("button")<Props>`
+  background-color: transparent;
+  border: 0;
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
 export const ButtonWrapper = styled("div")`
   margin-top: 40px;
   display: flex;
@@ -210,4 +222,18 @@ export const PicturesWrapper = styled("div")`
     font-weight: 700;
     line-height: 32px;
   }
+`;
+
+export const TagInputWrapper = styled("div")`
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+`;
+
+export const BlogTextWrapper = styled("div")`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: -10px;
+  min-height: 120px;
 `;

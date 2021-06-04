@@ -38,10 +38,6 @@ export const Item = styled("div")`
   line-height: 32px;
   font-weight: 700;
   color: #1f5a7b;
-  /* & img {
-    margin-left: 30px;
-    width: 100px;
-  } */
 `;
 
 export const List = styled("ul")`

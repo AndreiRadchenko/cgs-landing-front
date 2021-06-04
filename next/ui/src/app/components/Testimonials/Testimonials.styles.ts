@@ -123,6 +123,7 @@ export const TestimonialContainer = styled("div")`
     }
     @media screen and (max-width: 415px) {
       width: min-content;
+      font-size: 14px;
     }
   }
 
@@ -142,6 +143,9 @@ export const TestimonialContainer = styled("div")`
     font-size: 18px;
     line-height: 1.67;
     flex-grow: 1;
+    @media (max-width: 420px) {
+      font-size: 14px;
+    }
   }
 
   & .testimonials__position {
@@ -154,6 +158,7 @@ export const TestimonialContainer = styled("div")`
 
   & .testimonials__country {
     margin: 0 0 0 8px;
+    font-size: 14px;
   }
 
   @media screen and (max-width: 1023px) {

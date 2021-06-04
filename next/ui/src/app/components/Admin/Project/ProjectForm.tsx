@@ -2,7 +2,6 @@ import { useState } from "react";
 import { createAdminData, updateAdminData } from "services/api/adminApi";
 import Images from "../Images/Images";
 import { slides } from "../../../img/";
-
 import { IProject, ITechnology } from "../types";
 import * as Styled from "../Form.styles";
 
