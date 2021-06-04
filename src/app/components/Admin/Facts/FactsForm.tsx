@@ -41,7 +41,6 @@ const FactsForm: React.FC<{
         <Styled.Label>
           <span>Fact title</span>
           <Styled.AdminTextInput
-            className="form__title"
             type="text"
             value={title}
             onChange={({ target: { value } }) => setTitle(value)}
@@ -50,7 +49,6 @@ const FactsForm: React.FC<{
         <Styled.Label>
           <span>Fact text</span>
           <Styled.AdminTextArea
-            className="form__text"
             value={text}
             onChange={({ target: { value } }) => setText(value)}
           />
@@ -69,14 +67,7 @@ const FactsForm: React.FC<{
             </Styled.CustomCheckbox>
           </Styled.CheckboxLabel>
         </Styled.CheckboxContainer>
-        {/* <Styled.Label>
-          <span> Show on Home Page</span>
-          <input
-            type="checkbox"
-            checked={showOnPage}
-            onChange={({ target: { checked } }) => setshowOnPage(checked)}
-          />
-        </Styled.Label> */}
+
         <Styled.PicturesWrapper>
           <span>Pictures:</span>
           <Images activeImage={fact?.iconFile} getImageId={getImageId} />

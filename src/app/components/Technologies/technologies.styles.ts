@@ -34,6 +34,10 @@ export const SliderNext = styled(Arrow)`
   right: 5% !important;
 `;
 export const SliderContainer = styled.div`
+  @media (min-width: 1025px) {
+    padding: 0 70px;
+  }
+
   width: 100%;
   height: 100%;
 

@@ -1,18 +1,18 @@
 export const TECHNOLOGIES = [
   {
-    title: 'Web',
-    image: '/web.svg',
+    title: "Web",
+    image: "/web.svg",
   },
   {
-    title: 'Mobile',
-    image: '/mobile.svg',
+    title: "Mobile",
+    image: "/mobile.svg",
   },
   {
-    title: 'Backend',
-    image: '/backend.svg',
+    title: "Backend",
+    image: "/backend.svg",
   },
   {
-    title: 'UI/UX',
-    image: '/ui-ux.svg',
+    title: "UI/UX",
+    image: "/ui-ux.svg",
   },
 ];

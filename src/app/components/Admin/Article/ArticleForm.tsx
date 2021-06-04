@@ -5,6 +5,7 @@ import { IArticle } from "../types";
 import * as Styled from "../Form.styles";
 import BlogTags from "../BlogTags/BlogTags";
 import TextEditor from "../TextEditor/TextEditor";
+import { Button } from "app/components/shared/LinkButton/Button.style";
 
 const ArticleForm: React.FC<{
   article?: IArticle | undefined;
@@ -50,51 +51,53 @@ const ArticleForm: React.FC<{
         </>
       ) : (
         <Styled.Form onSubmit={handleSubmit}>
-          {article ? (
-            <h2>Edit article ID: {article?.id}</h2>
-          ) : (
-            <h2>Create an article</h2>
-          )}
-          <button type="button" onClick={() => setIsEditorOpen(true)}>
-            Edit content
-          </button>
-          <label>
-            Article Title:
-            <input
-              className="form__title"
+          {article ? <h2>Edit article</h2> : <h2>Create new article</h2>}
+
+          <Styled.Label>
+            <span>Article Title:</span>
+            <Styled.AdminTextInput
               type="text"
               value={title}
               onChange={({ target: { value } }) => setTitle(value)}
             />
-          </label>
-          <label>
-            Author:
-            <input
-              className="form__title"
+          </Styled.Label>
+          <Styled.Label>
+            <span> Author:</span>
+            <Styled.AdminTextInput
               type="text"
               value={author}
               onChange={({ target: { value } }) => setAuthor(value)}
             />
-          </label>
+          </Styled.Label>
+
+          <Styled.Label>
+            <span>Text</span>
+            <Button type="button" onClick={() => setIsEditorOpen(true)}>
+              Edit content
+            </Button>
+          </Styled.Label>
+
           <BlogTags
             currentTags={article?.tags || []}
             getTags={setTags}
           ></BlogTags>
-          <Images
-            activeImage={article?.imageFile}
-            getImageId={getImageId}
-          ></Images>
-          <div className="buttons">
-            <button
+
+          <Styled.PicturesWrapper>
+            <span>Pictures:</span>
+            <Images activeImage={article?.imageFile} getImageId={getImageId} />
+          </Styled.PicturesWrapper>
+
+          <Styled.ButtonWrapper>
+            <Styled.Button
               type="submit"
               disabled={!(title && author && content && imageFileId)}
             >
-              Save Changes
-            </button>
-            <button type="button" onClick={() => close()}>
+              {article ? "Save" : "Create"}
+            </Styled.Button>
+            <Styled.Button type="button" onClick={() => close()}>
               Cancel
-            </button>
-          </div>
+            </Styled.Button>
+          </Styled.ButtonWrapper>
         </Styled.Form>
       )}
     </Styled.Wrapper>

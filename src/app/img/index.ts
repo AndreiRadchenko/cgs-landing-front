@@ -17,6 +17,7 @@ export const slides = {
   AdminVectorRight: "/rightAdminVector.svg",
   AdminVectorLeft: "/LeftAdminVector.svg",
   Check: "/Check.svg",
+  deleteIcon: "/deleteIcon.svg",
 };
 
 export const portfolioSlides = {

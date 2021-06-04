@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { uploadImage } from "services/api/adminApi";
+import { Button } from "../Form.styles";
 import * as Styled from "./ImagesUploader.style";
 
 const ImageUploader: React.FC<{ setIsUploaded: Function }> = ({
@@ -20,18 +21,20 @@ const ImageUploader: React.FC<{ setIsUploaded: Function }> = ({
 
   return (
     <Styled.Wrapper>
-      <input
-        className="fileInput"
-        type="file"
-        onChange={(e) => handleImageChange(e)}
-      />
-      <button
+      {!file && (
+        <input
+          className="fileInput"
+          type="file"
+          onChange={(e) => handleImageChange(e)}
+        />
+      )}
+      <Button
         className="submitButton"
         type="button"
         onClick={(e) => handleSubmit(e)}
       >
-        Upload Image
-      </button>
+        Upload new
+      </Button>
     </Styled.Wrapper>
   );
 };

@@ -29,7 +29,7 @@ export const ContentWrapper = styled("div")`
 `;
 
 export const Menu = styled("div")`
-  padding: 30px 61px;
+  padding: 20px 61px;
   background-color: #0c1033;
   border-radius: 55px;
   font-size: 1.5em;
@@ -54,7 +54,7 @@ export const MenuList = styled("div")`
 `;
 
 export const MenuListItem = styled("li")<Props>`
-  padding: 15px 0;
+  padding: 10px 0;
   cursor: pointer;
   &:hover {
     transform: scale(1.1);

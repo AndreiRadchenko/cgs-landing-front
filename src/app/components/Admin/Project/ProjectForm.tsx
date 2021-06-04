@@ -2,7 +2,6 @@ import { useState } from "react";
 import { createAdminData, updateAdminData } from "services/api/adminApi";
 import Images from "../Images/Images";
 import { slides } from "../../../img/";
-
 import { IProject, ITechnology } from "../types";
 import * as Styled from "../Form.styles";
 
@@ -72,7 +71,6 @@ const ProjectForm: React.FC<{
         <Styled.Label>
           <span>Project Name:</span>
           <Styled.AdminTextInput
-            className="form__title"
             type="text"
             value={name}
             onChange={({ target: { value } }) => setName(value)}
@@ -81,7 +79,6 @@ const ProjectForm: React.FC<{
         <Styled.Label>
           <span>Full Description:</span>
           <Styled.AdminTextArea
-            className="form__text"
             value={fullDescription}
             onChange={({ target: { value } }) => setFullDescription(value)}
           />
@@ -89,7 +86,6 @@ const ProjectForm: React.FC<{
         <Styled.Label>
           <span>Short Description:</span>
           <Styled.AdminTextArea
-            className="form__text"
             value={shortDescription}
             onChange={({ target: { value } }) => setShortDescription(value)}
           />
@@ -97,7 +93,6 @@ const ProjectForm: React.FC<{
         <Styled.Label>
           <span>Country Code:</span>
           <Styled.AdminTextInput
-            className="form__title"
             type="text"
             value={countryCode}
             onChange={({ target: { value } }) => setCountryCode(value)}
@@ -106,7 +101,6 @@ const ProjectForm: React.FC<{
         <Styled.Label>
           <span>Link:</span>
           <Styled.AdminTextInput
-            className="form__title"
             type="text"
             value={link}
             onChange={({ target: { value } }) => setLink(value)}

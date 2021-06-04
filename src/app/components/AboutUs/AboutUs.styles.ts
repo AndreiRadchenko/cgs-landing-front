@@ -95,6 +95,14 @@ export const AboutUsContainer = styled("div")`
   & > p {
     margin: 0 0 22px;
     padding: 0 10px;
+    font-family: Mulish;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 32px;
+    text-align: center;
+  }
+  & > .about-us__text {
+    color: #0c1033;
   }
   & > q {
     font-weight: 300;

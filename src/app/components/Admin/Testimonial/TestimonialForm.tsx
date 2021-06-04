@@ -77,21 +77,29 @@ const TestimonialForm: React.FC<{
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
         {testimonial ? (
-          <h2>Edit testimonial ID: {testimonial?.id}</h2>
+          <h2>Edit testimonial </h2>
         ) : (
-          <h2>Create a testimonial</h2>
+          <h2>Create new testimonial</h2>
         )}
-        <label>
-          Customer Name:
-          <input className="form__title" type="text" {...customerName} />
-        </label>
-        <label>
-          Company Name:
-          <input className="form__title" type="text" {...companyName} />
-        </label>
-        <label>
-          Country Code:
-          <select className="form__title" {...countryCode}>
+        <Styled.Label>
+          <span>Customer Name:</span>
+          <Styled.AdminTextInput
+            className="form__title"
+            type="text"
+            {...customerName}
+          />
+        </Styled.Label>
+        <Styled.Label>
+          <span>Company Name:</span>
+          <Styled.AdminTextInput
+            className="form__title"
+            type="text"
+            {...companyName}
+          />
+        </Styled.Label>
+        <Styled.Label>
+          <span> Country Code: </span>
+          <Styled.Select className="form__title" {...countryCode}>
             {CountryNameKey.map((codeValue) => {
               return (
                 <option
@@ -104,29 +112,42 @@ const TestimonialForm: React.FC<{
               );
             })}
             )
-          </select>
-        </label>
-        <label>
-          Customer Position:
-          <input className="form__title" type="text" {...customerPosition} />
-        </label>
-        <label>
-          Feedback:
-          <textarea className="form__text" {...feedback} />
-        </label>
-        <div>
-          <p>Clutch</p>
-          <input type="text" {...clutchLinkInput} />
-          <input type="number" min="1" max="5" {...clutchRateInput} />
-        </div>
-        <div>
-          <p>Upwork</p>
-          <input type="text" {...upworkLinkInput} />
-          <input type="number" min="1" max="5" {...upworkRateInput} />
-        </div>
-
-        <div className="buttons">
-          <button
+          </Styled.Select>
+        </Styled.Label>
+        <Styled.Label>
+          <span> Customer Position: </span>
+          <Styled.AdminTextInput
+            className="form__title"
+            type="text"
+            {...customerPosition}
+          />
+        </Styled.Label>
+        <Styled.Label>
+          <span>Feedback:</span>
+          <Styled.AdminTextArea className="form__text" {...feedback} />
+        </Styled.Label>
+        <Styled.Label double>
+          <span>Clutch</span>
+          <Styled.AdminTextInput type="text" {...clutchLinkInput} />
+          <Styled.AdminTextInput
+            type="number"
+            min="1"
+            max="5"
+            {...clutchRateInput}
+          />
+        </Styled.Label>
+        <Styled.Label double>
+          <span>Upwork</span>
+          <Styled.AdminTextInput type="text" {...upworkLinkInput} />
+          <Styled.AdminTextInput
+            type="number"
+            min="1"
+            max="5"
+            {...upworkRateInput}
+          />
+        </Styled.Label>
+        <Styled.ButtonWrapper>
+          <Styled.Button
             type="submit"
             disabled={
               !(
@@ -138,12 +159,12 @@ const TestimonialForm: React.FC<{
               )
             }
           >
-            Save Changes
-          </button>
-          <button type="button" onClick={() => close()}>
+            {testimonial ? "Save" : "Changes"}
+          </Styled.Button>
+          <Styled.Button type="button" onClick={() => close()}>
             Cancel
-          </button>
-        </div>
+          </Styled.Button>
+        </Styled.ButtonWrapper>
       </Styled.Form>
     </Styled.Wrapper>
   );

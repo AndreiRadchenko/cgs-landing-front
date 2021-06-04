@@ -21,7 +21,7 @@ const FeaturedTechologyForm: React.FC<{
     const newFeaturedTechnology = {
       name,
       text,
-      imageFileId,
+      imageFileId: imageFileId,
     };
 
     featuredTechnology
@@ -43,41 +43,45 @@ const FeaturedTechologyForm: React.FC<{
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
         {featuredTechnology ? (
-          <h2>Edit Featured Technology ID: {featuredTechnology?.id}</h2>
+          <h2>Edit featured technology</h2>
         ) : (
-          <h2>Create a Featured Technology</h2>
+          <h2>Create new featured technology</h2>
         )}
-        <label>
-          Featured Technology Name:
-          <input
-            className="form__title"
+        <Styled.Label>
+          <span> Featured Technology Name:</span>
+          <Styled.AdminTextInput
             type="text"
             value={name}
             onChange={({ target: { value } }) => setName(value)}
           />
-        </label>
-
-        <label>
-          Featured Technology text:
-          <textarea
-            className="form__text"
+        </Styled.Label>
+        <Styled.Label>
+          <span> Featured Technology text:</span>
+          <Styled.AdminTextArea
             value={text}
             onChange={({ target: { value } }) => setCategory(value)}
           />
-        </label>
+        </Styled.Label>
 
-        <Images
-          activeImage={featuredTechnology?.imageFile}
-          getImageId={getImageId}
-        ></Images>
-        <div className="buttons">
-          <button type="submit" disabled={!(name && text && imageFileId)}>
-            Save Changes
-          </button>
-          <button type="button" onClick={() => close()}>
+        <Styled.PicturesWrapper>
+          <span>Pictures:</span>
+          <Images
+            activeImage={featuredTechnology?.imageFile}
+            getImageId={getImageId}
+          />
+        </Styled.PicturesWrapper>
+
+        <Styled.ButtonWrapper>
+          <Styled.Button
+            type="submit"
+            disabled={!(name && text && imageFileId)}
+          >
+            {featuredTechnology ? "Save" : "Create"}
+          </Styled.Button>
+          <Styled.Button type="button" onClick={() => close()}>
             Cancel
-          </button>
-        </div>
+          </Styled.Button>
+        </Styled.ButtonWrapper>
       </Styled.Form>
     </Styled.Wrapper>
   );
