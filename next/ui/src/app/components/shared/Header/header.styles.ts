@@ -5,9 +5,9 @@ interface Props {
 }
 
 export const HeaderWrapper = styled.header<Props>`
-display: flex;
-margin:0 auto;
-max-width:1238px;
+  display: flex;
+  margin: 0 auto;
+  max-width: 1238px;
   width: 100%;
   justify-content: space-between;
   align-items: center;

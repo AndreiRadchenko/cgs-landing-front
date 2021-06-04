@@ -1,5 +1,4 @@
-import React from 'react';
-import { IMenu } from '../../../../types/components';
+import React from "react";
 
 const BurgerIcon = () => {
   return (

@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
-import { deleteAdminData, getAdminData } from 'services/api/adminApi';
-import { IIconFile } from '../types';
-import ImageUploader from '../Images/ImageUploader';
+import { useEffect, useState } from "react";
+import { deleteAdminData, getAdminData } from "services/api/adminApi";
+import { IIconFile } from "../types";
+import ImageUploader from "../Images/ImageUploader";
+import { Wrapper, Title } from "../SectionLayout/sectionLayout.style";
+import * as Styled from "./ImagesPage.style";
+import { slides } from "app/img";
 
 const ImagesPage: React.FC<{}> = () => {
   const [images, setImages] = useState<IIconFile[]>([]);
@@ -18,27 +21,34 @@ const ImagesPage: React.FC<{}> = () => {
     getImages();
   }, []);
 
-  async function getImages() {
-    const images = await getAdminData('file');
+  const getImages = async () => {
+    const images = await getAdminData("file");
     setImages(images);
-  }
-  function deleteImage(id: string) {
-    deleteAdminData('file', id).then(() => setIsUpdated(true));
-  }
+  };
+
+  const deleteImage = (id: string) => {
+    deleteAdminData("file", id).then(() => setIsUpdated(true));
+  };
 
   return (
     <>
-      <ul>
-        {images.map((image) => (
-          <li>
-            <img src={image.s3FileUrl} width="80px"></img>
-            <button type="button" onClick={() => deleteImage(image.id)}>
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
-      <ImageUploader setIsUploaded={setIsUpdated}></ImageUploader>
+      <Wrapper>
+        <Title>Images</Title>
+        <ImageUploader setIsUploaded={setIsUpdated}></ImageUploader>
+        <Styled.List>
+          {images.map((image) => (
+            <li>
+              <img src={image.s3FileUrl} width="80px"></img>
+              <Styled.DeleteButton
+                type="button"
+                onClick={() => deleteImage(image.id)}
+              >
+                <img src={slides.deleteIcon} alt="delete button" />
+              </Styled.DeleteButton>
+            </li>
+          ))}
+        </Styled.List>
+      </Wrapper>
     </>
   );
 };

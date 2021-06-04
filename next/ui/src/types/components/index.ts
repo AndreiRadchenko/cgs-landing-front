@@ -1,6 +1,3 @@
-import { StringSchema } from "yup";
-import { FormikHandlers } from "formik/dist/types";
-
 export interface ProjectImgStyle {
   img: string;
   width: string;

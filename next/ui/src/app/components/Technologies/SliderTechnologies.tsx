@@ -1,43 +1,26 @@
-import React from 'react';
-import * as Styled from './technologies.styles';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { onChangeSlideEA } from '../../../services/event';
-import { slides } from '../../img/index';
-import { v4 as uuidv4 } from 'uuid';
-import Technology from './technologies.component';
-import { ITechnology } from '../../../types/components/index';
-
-function SampleNextArrow(props) {
-  const { className, onClick } = props;
-  return (
-    <Styled.SliderNext className={className} onClick={onClick}>
-      <img src={slides.RightVector} alt="prevVector" />
-    </Styled.SliderNext>
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, onClick } = props;
-  return (
-    <Styled.SliderPrev className={className} onClick={onClick}>
-      <img src={slides.LeftVector} alt="prevVector" />
-    </Styled.SliderPrev>
-  );
-}
+import React from "react";
+import * as Styled from "./technologies.styles";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { onChangeSlideEA } from "../../../services/event";
+import { v4 as uuidv4 } from "uuid";
+import Technology from "./technologies.component";
+import { ITechnology } from "../../../types/components/index";
+import { SampleNextArrow, SamplePrevArrow } from "../shared/Slider/arrows";
 
 const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
   technologies,
 }) => {
   const slidesToShow = technologies.length < 4 ? technologies.length : 4;
+
   let settings = {
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow top={35} />,
+    prevArrow: <SamplePrevArrow top={35} />,
     afterChange: (current) =>
-      onChangeSlideEA({ sliderName: 'AboutUs', slide: current }),
+      onChangeSlideEA({ sliderName: "AboutUs", slide: current }),
     responsive: [
       {
         breakpoint: 1024,
@@ -46,10 +29,11 @@ const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
         },
       },
     ],
-    className: 'slides',
+    className: "slides",
   };
+
   return (
-    <Styled.SliderContainer style={{ width: '100%' }}>
+    <Styled.SliderContainer>
       <Slider {...settings} key={uuidv4()}>
         {technologies &&
           technologies.map((technology, index) => (

@@ -1,7 +1,4 @@
 import React from "react";
-import { SocialList, Nav } from "../../../consts/lists";
-import Header from "../../components/shared/Header/header.component";
-import Footer from "../../components/shared/Footer/footer.component";
 import Home from "../../components/HomeSection/home.component";
 import Form from "../../components/shared/Form/form.component";
 import Article from "../../components/Article/article.component";
@@ -15,10 +12,11 @@ import SliderFeatured from "app/components/FeaturedTechnologies/SliderFeatured";
 import SliderTechnologies from "app/components/Technologies/SliderTechnologies";
 import MainLayout from "app/components/Layout/Layout";
 
-export function HomePage({ props }) {
+export const HomePage = ({ props }) => {
   React.useEffect(() => {
     scrollEA("data-scroll");
   }, []);
+
   return (
     <>
       <MainLayout title="Home">
@@ -98,4 +96,4 @@ export function HomePage({ props }) {
       </MainLayout>
     </>
   );
-}
+};

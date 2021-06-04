@@ -1,28 +1,23 @@
-import { useState } from 'react';
-import { createAdminData, updateAdminData } from 'services/api/adminApi';
+import { useState } from "react";
+import { createAdminData, updateAdminData } from "services/api/adminApi";
 
-import { ITestimonial, IPlatform } from '../types';
-import * as Styled from '../Form.styles';
-import { useInput } from '../Hooks';
+import { ITestimonial, IPlatform } from "../types";
+import * as Styled from "../Form.styles";
+import { useInput } from "../Hooks";
 
-import CountryCodes from './countyCodes.json'
-
-
-
-
-
+import CountryCodes from "./countyCodes.json";
 
 const TestimonialForm: React.FC<{
   testimonial?: ITestimonial | undefined;
   close: Function;
 }> = ({ testimonial, close }) => {
   const clutch: IPlatform | undefined = testimonial?.platforms.find(
-    (item) => item.type === 'clutch'
+    (item) => item.type === "clutch"
   );
-  const upwork: IPlatform | undefined = testimonial?.platforms.find(
-    (item) => item.type === 'upwork'
-    );
 
+  const upwork: IPlatform | undefined = testimonial?.platforms.find(
+    (item) => item.type === "upwork"
+  );
 
   const countryCode = useInput(testimonial?.countryCode);
   const clutchLinkInput = useInput(clutch?.link);
@@ -34,12 +29,12 @@ const TestimonialForm: React.FC<{
   const customerPosition = useInput(testimonial?.customerPosition);
   const feedback = useInput(testimonial?.feedback);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const clutch =
       clutchLinkInput.value || clutchRateInput.value
         ? {
-            type: 'clutch',
+            type: "clutch",
             link: clutchLinkInput.value,
             rate: clutchRateInput.value,
           }
@@ -47,7 +42,7 @@ const TestimonialForm: React.FC<{
     const upwork =
       upworkLinkInput.value || upworkRateInput.value
         ? {
-            type: 'upwork',
+            type: "upwork",
             link: upworkLinkInput.value,
             rate: upworkRateInput.value,
           }
@@ -56,7 +51,7 @@ const TestimonialForm: React.FC<{
       customerName: customerName.value,
       customerPosition: customerPosition.value,
       companyName: companyName.value,
-      countryCode:countryCode.value,
+      countryCode: countryCode.value,
       feedback: feedback.value,
       platforms: [],
     };
@@ -69,68 +64,115 @@ const TestimonialForm: React.FC<{
 
     testimonial
       ? updateAdminData(
-          'testimonial',
+          "testimonial",
           testimonial?.id!,
           newtestimonial
         ).then(() => close())
-      : createAdminData('testimonial', newtestimonial).then(() => close());
-  }
+      : createAdminData("testimonial", newtestimonial).then(() => close());
+  };
 
-
-  const CountryNameKey = Object.keys(CountryCodes);  
+  const CountryNameKey = Object.keys(CountryCodes);
 
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
         {testimonial ? (
-          <h2>Edit testimonial ID: {testimonial?.id}</h2>
+          <h2>Edit testimonial </h2>
         ) : (
-          <h2>Create a testimonial</h2>
+          <h2>Create new testimonial</h2>
         )}
-        <label>
-          Customer Name:
-          <input className="form__title" type="text" {...customerName} />
-        </label>
-        <label>
-          Company Name:
-          <input className="form__title" type="text" {...companyName} />
-        </label>
-        <label>
-          Country Code:
-          <select className="form__title" {...countryCode}>
+        <Styled.Label>
+          <span>Customer Name:</span>
+          <Styled.AdminTextInput
+            className="form__title"
+            type="text"
+            placeholder={
+              testimonial ? "Name Surname" : "Write customer name here"
+            }
+            {...customerName}
+          />
+        </Styled.Label>
+        <Styled.Label>
+          <span>Company Name:</span>
+          <Styled.AdminTextInput
+            className="form__title"
+            type="text"
+            placeholder={testimonial ? "BigCompany" : "Write company name here"}
+            {...companyName}
+          />
+        </Styled.Label>
+        <Styled.Label>
+          <span> Country Code: </span>
+          <Styled.Select
+            className="form__title"
+            {...countryCode}
+            onChange={countryCode.onChange}
+          >
+            {CountryNameKey.map((codeValue) => {
+              return (
+                <option
+                  selected={codeValue === countryCode.value}
+                  value={codeValue}
+                  key={codeValue}
+                >
+                  {CountryCodes[codeValue]}
+                </option>
+              );
+            })}
+            )
+          </Styled.Select>
+        </Styled.Label>
+        <Styled.Label>
+          <span> Customer Position: </span>
+          <Styled.AdminTextInput
+            className="form__title"
+            type="text"
+            placeholder={testimonial ? "CEO" : "Write customer position here"}
+            {...customerPosition}
+          />
+        </Styled.Label>
+        <Styled.Label>
+          <span>Feedback:</span>
+          <Styled.AdminTextArea
+            className="form__text"
+            placeholder="Write customer position here"
+            {...feedback}
+          />
+        </Styled.Label>
+        <Styled.Label double>
+          <span>Upwork</span>
+          <Styled.AdminTextInput
+            type="text"
+            placeholder={testimonial ? "UpWork.com" : "Upwork link"}
+            {...upworkLinkInput}
+          />
+          <Styled.AdminTextInput
+            type="number"
+            min="1"
+            max="5"
+            placeholder={testimonial ? "5" : "Rating"}
+            {...upworkRateInput}
+          />
+        </Styled.Label>
+        <Styled.Label double>
+          <span>Clutch</span>
+          <Styled.AdminTextInput
+            type="text"
+            placeholder={testimonial ? "Clutch.com" : "Clutch link"}
+            {...clutchLinkInput}
+          />
+          <Styled.AdminTextInput
+            type="number"
+            min="1"
+            max="5"
+            placeholder={testimonial ? "5" : "Rating"}
+            {...clutchRateInput}
+          />
+        </Styled.Label>
 
-
-          {CountryNameKey.map(codeValue => {
-          return(
-            <option selected={codeValue === countryCode.value} value={codeValue} key={codeValue}>
-              {CountryCodes[codeValue]}
-            </option>)
-            })})
-
-
-          </select>
-        </label>
-        <label>
-          Customer Position:
-          <input className="form__title" type="text" {...customerPosition} />
-        </label>
-        <label>
-          Feedback:
-          <textarea className="form__text" {...feedback} />
-        </label>
-        <div>
-          <p>Clutch</p>
-          <input type="text" {...clutchLinkInput} />
-          <input type="number" min="1" max="5" {...clutchRateInput} />
-        </div>
-        <div>
-          <p>Upwork</p>
-          <input type="text" {...upworkLinkInput} />
-          <input type="number" min="1" max="5" {...upworkRateInput} />
-        </div>
-
-        <div className="buttons">
-          <button
+        <Styled.ButtonWrapper>
+          <Styled.Button
+            empty={!testimonial}
             type="submit"
             disabled={
               !(
@@ -142,12 +184,12 @@ const TestimonialForm: React.FC<{
               )
             }
           >
-            Save Changes
-          </button>
-          <button type="button" onClick={() => close()}>
+            {testimonial ? "Save" : "Сreate"}
+          </Styled.Button>
+          <Styled.Button type="button" onClick={() => close()}>
             Cancel
-          </button>
-        </div>
+          </Styled.Button>
+        </Styled.ButtonWrapper>
       </Styled.Form>
     </Styled.Wrapper>
   );

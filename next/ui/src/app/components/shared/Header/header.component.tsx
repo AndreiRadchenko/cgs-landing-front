@@ -1,21 +1,10 @@
-import React, { useEffect } from 'react';
-import * as Styled from './header.styles';
-import Categories from '../Categories/categories.component';
-import SocialLinks from '../SocialLinks/social-links.component';
-import Menu from '../BurgerMenu/menu.component';
-import { IHeader } from '../../../../types/components';
-import IMAGES from '../../../../consts/Images';
-interface LocationState {
-  from: {
-    pathname: string;
-  };
-}
-
-const NavigationMapper = {
-  Home: 0,
-  Blog: 1,
-  Contact: 2,
-};
+import React from "react";
+import * as Styled from "./header.styles";
+import Categories from "../Categories/categories.component";
+import SocialLinks from "../SocialLinks/social-links.component";
+import Menu from "../BurgerMenu/menu.component";
+import { IHeader } from "../../../../types/components";
+import IMAGES from "../../../../consts/Images";
 
 const Header: React.FC<IHeader> = ({ socialList, navigation, fill }) => {
   const [activeMenu, setMenuState] = React.useState(false);
@@ -36,7 +25,9 @@ const Header: React.FC<IHeader> = ({ socialList, navigation, fill }) => {
     </React.Fragment>
   );
 };
+
 Header.defaultProps = {
-  fill: '#0C1033',
+  fill: "#0C1033",
 };
+
 export default Header;

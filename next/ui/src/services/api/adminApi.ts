@@ -1,36 +1,37 @@
-import axios from 'axios';
+import axios from "axios";
 
-const BASE_URL: string | undefined = 'https://cg-landing-backend.herokuapp.com';
+const BASE_URL: string | undefined = "https://cg-landing-backend.herokuapp.com";
 
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.params = {};
-axios.defaults.headers = { 'Content-Type': 'application/json' };
+axios.defaults.headers = { "Content-Type": "application/json" };
 
 const API_ROUTES = {
-  facts: '/fact/',
-  slogan: '/slogan/',
-  worker: '/worker/',
-  project: '/project/',
-  article: '/article/',
-  technology: '/technology/',
-  featuredTechnology: '/featured-technology/',
-  testimonial: '/testimonial/',
-  blogTag: '/blog-tag/',
-  file: '/file/',
-  fileUpload: '/file/upload',
+  facts: "/fact/",
+  slogan: "/slogan/",
+  worker: "/worker/",
+  project: "/project/",
+  article: "/article/",
+  technology: "/technology/",
+  featuredTechnology: "/featured-technology/",
+  testimonial: "/testimonial/",
+  blogTag: "/blog-tag/",
+  file: "/file/",
+  fileUpload: "/file/upload",
 };
+
 export const login = async () => {
   const user = {
-    username: 'admin',
-    password: 'admin',
+    username: "admin",
+    password: "admin",
   };
 
   try {
-    const { data } = await axios.post('/auth/login', user);
+    const { data } = await axios.post("/auth/login", user);
     const token = data.response.accessToken;
     return token;
   } catch (error) {
-    console.log('error', { error });
+    console.log("error", { error });
     return [];
   }
 };
@@ -40,9 +41,8 @@ export const getAdminData = async (route: string) => {
     const { data } = await axios.get(API_ROUTES[route]);
     const response = data.response;
     return response;
-
   } catch (error) {
-    console.log('error', { error });
+    console.log("error", { error });
     return [];
   }
 };
@@ -53,7 +53,7 @@ export const createAdminData = async (route: string, obj: any) => {
     const response = data.response;
     return response;
   } catch (error) {
-    console.log('error', { error });
+    console.log("error", { error });
     return [];
   }
 };
@@ -62,14 +62,14 @@ export const uploadImage = async (file: any) => {
   try {
     let formData = new FormData();
 
-    formData.append('file', file);
-    const { data } = await axios.post('/file/upload', formData, {
-      headers: { 'Content-Type': 'multipart/form-data' },
+    formData.append("file", file);
+    const { data } = await axios.post("/file/upload", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
     });
     const response = data.response;
     return response;
   } catch (error) {
-    console.log('error', { error });
+    console.log("error", { error });
     return [];
   }
 };
@@ -83,7 +83,7 @@ export const updateAdminData = async (route: string, id: string, obj: any) => {
     const response = data.response;
     return response;
   } catch (error) {
-    console.log('error', { error });
+    console.log("error", { error });
     return [];
   }
 };
@@ -94,7 +94,7 @@ export const deleteAdminData = async (route: string, id: string) => {
     const response = data.response;
     return response;
   } catch (error) {
-    console.log('error', { error });
+    console.log("error", { error });
     return [];
   }
 };

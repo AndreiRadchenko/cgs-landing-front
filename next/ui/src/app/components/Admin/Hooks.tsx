@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-export function useInput(initialValue) {
+export const useInput = (initialValue) => {
   const [value, setValue] = useState(initialValue);
   const onChange = (event) => {
     setValue(event.target.value);
@@ -10,11 +10,9 @@ export function useInput(initialValue) {
     value,
     onChange,
   };
-}
+};
 
-
-
-function usePagination(givenData,perPage) {
+const usePagination = (givenData, perPage) => {
   const [curentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(perPage);
 
@@ -42,7 +40,15 @@ function usePagination(givenData,perPage) {
     setCurrentPage((page) => page + 1);
   };
 
-  return [paginatedDataMarkUp, curentPage, handleDecrease, handleIncrease, numberOfPages, paginationArray,setCurrentPage ];
-}
+  return [
+    paginatedDataMarkUp,
+    curentPage,
+    handleDecrease,
+    handleIncrease,
+    numberOfPages,
+    paginationArray,
+    setCurrentPage,
+  ];
+};
 
 export default usePagination;

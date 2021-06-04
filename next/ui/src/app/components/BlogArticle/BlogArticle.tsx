@@ -9,11 +9,11 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
     <React.Fragment>
       <Link href={`/blog/[id]`} as={`/blog/${article.id}`} key={article.id}>
         <a>
-          <div className="article__image">
+          <Styled.ImageContainer>
             {article.imageFileUrl && (
               <img src={article.imageFileUrl} alt={article.title} />
             )}
-          </div>
+          </Styled.ImageContainer>
           <div className="article__content">
             <Styled.Title>{article.title}</Styled.Title>
             {article.content && (
@@ -26,9 +26,7 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
             <Styled.TagList>
               {article.tags &&
                 article.tags.map((tag) => (
-                  <li className="article-tag" key={tag.id}>
-                    {tag.name}
-                  </li>
+                  <Styled.ArticleTag key={tag.id}>{tag.name}</Styled.ArticleTag>
                 ))}
             </Styled.TagList>
           </div>

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Wrapper = styled('div')`
-  max-width:800px;
+export const Wrapper = styled("div")`
+  max-width: 800px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ export const Wrapper = styled('div')`
   }
 `;
 
-export const SimilarArticle = styled('li')`
+export const SimilarArticle = styled("li")`
   width: calc((100% - 120px) / 2);
 
   @media screen and (max-width: 1024px) {
@@ -47,6 +47,9 @@ export const SimilarArticle = styled('li')`
     object-fit: cover;
     display: inline-block;
     margin-bottom: 2em;
+    @media (max-width: 1025px) {
+      height: auto;
+    }
   }
   & h2 {
     margin: 0 0 29px;

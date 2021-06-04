@@ -34,8 +34,38 @@ export const FooterWrapper = styled("footer")`
     }
   }
 `;
+
 export const Wrapper = styled("div")`
   background: #0c1033;
   display: flex;
   justify-content: center;
+`;
+
+export const DropBoxFooter = styled("div")`
+  max-width: 1240px;
+  padding: 0 10px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  min-height: 120px;
+  align-items: center;
+  @media screen and (max-width: 1023px) {
+    flex-direction: column;
+  }
+`;
+
+export const FooterDis = styled("div")`
+  display: none;
+  @media (min-width: 1024px) {
+    display: flex;
+  }
+`;
+
+export const FooterAct = styled("div")`
+  display: flex;
+  @media (min-width: 1024px) {
+    display: none;
+  }
 `;

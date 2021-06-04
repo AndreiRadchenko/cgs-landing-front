@@ -1,86 +1,91 @@
-import { useState } from 'react';
-import { createAdminData, updateAdminData } from 'services/api/adminApi';
-import Images from '../Images/Images';
+import { useState } from "react";
+import { createAdminData, updateAdminData } from "services/api/adminApi";
+import Images from "../Images/Images";
 
-import { IFeaturedTechnology } from '../types';
-import * as Styled from '../Form.styles';
+import { IFeaturedTechnology } from "../types";
+import * as Styled from "../Form.styles";
 
 const FeaturedTechologyForm: React.FC<{
   featuredTechnology?: IFeaturedTechnology | undefined;
   close: Function;
 }> = ({ featuredTechnology, close }) => {
-  const [name, setName] = useState(featuredTechnology?.name || '');
-  const [text, setCategory] = useState(featuredTechnology?.text || '');
+  const [name, setName] = useState(featuredTechnology?.name || "");
+  const [text, setCategory] = useState(featuredTechnology?.text || "");
   const [imageFileId, setImageFileId] = useState(
-    featuredTechnology?.imageFile.id || ''
+    featuredTechnology?.imageFile.id || ""
   );
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-
-    
     const newFeaturedTechnology = {
       name,
       text,
-      imageFileId: setImageFileId,
+      imageFileId: imageFileId,
     };
 
+    if (featuredTechnology) {
+      updateAdminData(
+        "featuredTechnology",
+        featuredTechnology.id,
+        newFeaturedTechnology
+      ).then(() => close());
+    } else if (!featuredTechnology) {
+      createAdminData("featuredTechnology", newFeaturedTechnology).then(() =>
+        close()
+      );
+    }
+  };
 
-    featuredTechnology
-      ? updateAdminData(
-          'featuredTechnology',
-          featuredTechnology.id,
-          newFeaturedTechnology
-        ).then(() => close())
-      : createAdminData('featuredTechnology', newFeaturedTechnology).then(() =>
-          close()
-        );
-  }
-
-  function getImageId(id) {
+  const getImageId = (id) => {
     setImageFileId(id);
-  }
+  };
 
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
         {featuredTechnology ? (
-          <h2>Edit Featured Technology ID: {featuredTechnology?.id}</h2>
+          <h2>Edit featured technology</h2>
         ) : (
-          <h2>Create a Featured Technology</h2>
+          <h2>Create new featured technology</h2>
         )}
-        <label>
-          Featured Technology Name:
-          <input
-            className="form__title"
+        <Styled.Label>
+          <span> Name:</span>
+          <Styled.AdminTextInput
             type="text"
             value={name}
+            placeholder="Write name here"
             onChange={({ target: { value } }) => setName(value)}
           />
-        </label>
-
-        <label>
-          Featured Technology text:
-          <textarea
-            className="form__text"
+        </Styled.Label>
+        <Styled.Label>
+          <span> Text:</span>
+          <Styled.AdminTextArea
             value={text}
+            placeholder="Write some text here"
             onChange={({ target: { value } }) => setCategory(value)}
           />
-        </label>
+        </Styled.Label>
 
-        <Images
-          activeImage={featuredTechnology?.imageFile}
-          getImageId={getImageId}
-        ></Images>
-        <div className="buttons">
-          <button type="submit" disabled={!(name && text && imageFileId)}>
-            Save Changes
-          </button>
-          <button type="button" onClick={() => close()}>
+        <Styled.PicturesWrapper>
+          <span>Pictures:</span>
+          <Images
+            activeImage={featuredTechnology?.imageFile}
+            getImageId={getImageId}
+          />
+        </Styled.PicturesWrapper>
+
+        <Styled.ButtonWrapper>
+          <Styled.Button
+            type="submit"
+            disabled={!(name && text && imageFileId)}
+          >
+            {featuredTechnology ? "Save" : "Create"}
+          </Styled.Button>
+          <Styled.Button type="button" onClick={() => close()}>
             Cancel
-          </button>
-        </div>
+          </Styled.Button>
+        </Styled.ButtonWrapper>
       </Styled.Form>
     </Styled.Wrapper>
   );

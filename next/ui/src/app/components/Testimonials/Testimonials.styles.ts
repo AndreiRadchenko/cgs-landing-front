@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const imgSize = {
-  w: '35px',
-  h: '35px',
+  w: "35px",
+  h: "35px",
 };
 
 const Arrow = styled.div`
@@ -68,15 +68,17 @@ export const SliderContainer = styled.div`
   & .slick-track {
     display: flex;
     justify-content: space-between;
-    min-height:388px;
+    min-height: 388px;
+    @media (min-width: 1025px) {
+      padding: 0 40px;
+    }
   }
 
   & .slick-slide {
-    
-    height:auto;
+    height: auto;
 
     & > div {
-      height:100%
+      height: 100%;
     }
 
     @media screen and (max-width: 1023px) {
@@ -98,9 +100,9 @@ export const SliderContainer = styled.div`
   }
 `;
 
-export const TestimonialContainer = styled('div')`
+export const TestimonialContainer = styled("div")`
   height: 100%;
-  padding: 10px;
+  padding: 10px 35px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,14 +118,13 @@ export const TestimonialContainer = styled('div')`
     margin: 0;
     margin-right: 12px;
     font-size: 22px;
+    @media screen and (min-width: 1025px) {
+      white-space: nowrap;
+    }
     @media screen and (max-width: 415px) {
       width: min-content;
+      font-size: 14px;
     }
-  }
-
-  & .testimonials__flag {
-    /* border: 1px solid black;
-    border-radius: 5px; */
   }
 
   & .testimonials__company {
@@ -136,7 +137,10 @@ export const TestimonialContainer = styled('div')`
     margin-bottom: 30px;
     font-size: 18px;
     line-height: 1.67;
-    flex-grow:1;
+    flex-grow: 1;
+    @media (max-width: 420px) {
+      font-size: 14px;
+    }
   }
 
   & .testimonials__position {
@@ -149,6 +153,7 @@ export const TestimonialContainer = styled('div')`
 
   & .testimonials__country {
     margin: 0 0 0 8px;
+    font-size: 14px;
   }
 
   @media screen and (max-width: 1023px) {
@@ -158,4 +163,29 @@ export const TestimonialContainer = styled('div')`
       opacity: 0.5;
     }
   }
+`;
+
+export const TestimonialFlag = styled("div")`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 24px;
+  object-fit: cover;
+
+  & img {
+    object-fit: cover;
+    border: 2px solid black;
+    border-radius: 5px;
+  }
+`;
+
+export const TestimonialPosition = styled("p")`
+  background-color: ${(props) => props.theme.colors.buttonBgColor};
+  border-radius: 5px;
+  margin: 0;
+  margin-bottom: 22px;
+  padding: 2px 8px;
+  border-radius: 5px;
+  color: ${(props) => props.theme.colors.mainBgColor};
 `;

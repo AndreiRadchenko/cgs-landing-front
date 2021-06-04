@@ -1,4 +1,9 @@
 import styled from "styled-components";
+
+interface Props {
+  mobile?: boolean;
+}
+
 export const HomeWrapper = styled("div")`
   display: flex;
   position: relative;
@@ -6,19 +11,32 @@ export const HomeWrapper = styled("div")`
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-  padding:0 55px 80px;
+  padding: 0 55px 80px;
   & > * {
     width: 47%;
   }
   @media screen and (max-width: 900px) {
-    padding:0 15px 80px;
+    padding: 0 15px 80px;
   }
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    padding:0;
+    padding: 0;
     & > * {
       width: 90%;
     }
+  }
+
+  & h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    @media (min-width: 769px) {
+      font-size: 64px;
+    }
+  }
+  & p {
+    font-size: 18px;
+    font-weight: 300;
   }
 `;
 
@@ -42,7 +60,7 @@ export const ContentBlock = styled("article")`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width:413px;
+  max-width: 413px;
   & > p {
     opacity: 0.5;
     margin: 1em 0;
@@ -57,7 +75,7 @@ export const ContentBlock = styled("article")`
     justify-content: center;
     text-align: center;
     margin-bottom: 24px;
-  align-items: center;
+    align-items: center;
 
     & > a {
       margin: 1em 0 2em 0;
@@ -73,4 +91,37 @@ export const Ilustration = styled("img")`
   @media screen and (max-width: 768px) {
     display: none;
   }
+`;
+
+export const ImgMobile = styled("img")`
+  width: 65%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  @media (min-width: 769px) {
+    display: none;
+  }
+`;
+
+export const Button = styled("button")<Props>`
+  background-color: ${(props) => props.theme.colors.buttonBgColor};
+  border-radius: 2em;
+  padding: 0.7em;
+  outline: none;
+  font-weight: 700;
+  border: 0;
+  color: white;
+  min-width: 200px;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  font-size: 18px;
+  margin-top: 10px;
+  &:hover {
+    background: ${(props) => props.theme.colors.buttonBgColorActive};
+  }
+  @media (min-width: 769px) {
+    display: ${(props) => (props.mobile ? "none" : "")};
+  }
+  @media (max-width: 768px) {
+    display:${(props) => (props.mobile ? "" : "none")};
 `;

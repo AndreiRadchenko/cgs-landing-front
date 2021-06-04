@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const imgSize = {
-  w: '35px',
-  h: '35px',
+  w: "35px",
+  h: "35px",
 };
 
 const Arrow = styled.div`
@@ -47,6 +47,9 @@ export const SliderNext = styled(Arrow)`
 `;
 
 export const SliderContainer = styled.div`
+  @media (min-width: 1025px) {
+    padding: 0 60px;
+  }
   width: 100%;
   height: 100%;
   & .slick-track {
@@ -87,7 +90,7 @@ export const SliderContainer = styled.div`
   }
 `;
 
-export const FactContainer = styled('div')`
+export const FactContainer = styled("div")`
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -127,4 +130,9 @@ export const FactContainer = styled('div')`
       opacity: 0.5;
     }
   }
+`;
+
+export const FactTitle = styled("p")`
+  background: ${(props) => props.theme.colors.buttonBgColor};
+  border-radius: 5px;
 `;

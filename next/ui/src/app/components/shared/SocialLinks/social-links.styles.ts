@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const HeaderLinks = styled('div')`
+export const HeaderLinks = styled("div")`
   display: flex;
   justify-content: space-between;
 
@@ -11,11 +11,11 @@ export const HeaderLinks = styled('div')`
     }
   }
 `;
-export const SocialWrap = styled('div')`
+export const SocialWrap = styled("div")`
   margin: 0.5em 0.5em;
   width: fit-content;
 `;
-export const SocialLogo = styled('img')`
+export const SocialLogo = styled("img")`
   width: 100%;
   height: 100%;
 `;

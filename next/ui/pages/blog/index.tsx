@@ -1,26 +1,26 @@
-import MainLayout from '../../src/app/components/Layout/Layout';
-import { BlogPage } from '../../src/app/containers/BlogPage';
-import { getData } from '../../src/services/api/api';
-import { IArticle } from '../../src/types/components';
+import MainLayout from "../../src/app/components/Layout/Layout";
+import { BlogPage } from "../../src/app/containers/BlogPage";
+import { getData } from "../../src/services/api/api";
+import { IArticle } from "../../src/types/components";
 
-export default function Blog({ articles }) {
-  return (
-    <MainLayout title="Blog">
-      <BlogPage articles={articles} />
-    </MainLayout>
-  );
-}
+const Blog = ({ articles }) => (
+  <MainLayout title="Blog">
+    <BlogPage articles={articles} />
+  </MainLayout>
+);
 
-export async function getServerSideProps() {
+export const getServerSideProps = async () => {
   try {
-    const articles: IArticle[] = await getData('articles');
+    const articles: IArticle[] = await getData("articles");
     return {
       props: {
         articles,
       },
     };
   } catch (error) {
-    console.log('error', { error });
+    console.log("error", { error });
     return null;
   }
-}
+};
+
+export default Blog;

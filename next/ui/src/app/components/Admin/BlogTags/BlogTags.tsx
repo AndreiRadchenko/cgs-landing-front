@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   createAdminData,
   deleteAdminData,
   getAdminData,
-} from 'services/api/adminApi';
-import { ITag } from '../types';
+} from "services/api/adminApi";
+import { ITag } from "../types";
+import * as Styled from "../Form.styles";
+import { slides } from "../../../img/";
 
 const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
   currentTags,
@@ -12,7 +14,8 @@ const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
 }) => {
   const [tags, setTags] = useState<ITag[]>([]);
   const [tagIds, setTagIds] = useState(currentTags?.map((el) => el.id) || []);
-  const [newTag, setNewTag] = useState('');
+  const [newTag, setNewTag] = useState("");
+
   useEffect(() => {
     getAllTags();
   }, []);
@@ -21,56 +24,72 @@ const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
     getTags(tagIds);
   }, [tagIds]);
 
-  async function getAllTags() {
-    const tags = await getAdminData('blogTag');
+  const getAllTags = async () => {
+    const tags = await getAdminData("blogTag");
     setTags(tags);
-  }
-  async function addTag() {
-    createAdminData('blogTag', { name: newTag }).then(() => {
+  };
+
+  const addTag = async () => {
+    createAdminData("blogTag", { name: newTag }).then(() => {
       getAllTags();
-      setNewTag('');
+      setNewTag("");
     });
-  }
-  async function deleteTag(id) {
-    deleteAdminData('blogTag', id).then(() => {
+  };
+
+  const deleteTag = (id) => {
+    deleteAdminData("blogTag", id).then(() => {
       getAllTags();
     });
-  }
-  function handleTagChange(event, id) {
+  };
+
+  const handleTagChange = (event, id) => {
     if (event.target.checked) {
       setTagIds([...tagIds, id]);
     }
+
     if (!event.target.checked) {
       setTagIds(tagIds.filter((tech) => tech !== id));
     }
-  }
+  };
 
   return (
     <>
-      {tags.map((tag) => (
-        <>
-          <label>
-            {tag.name}
-            <input
-              type="checkbox"
-              name="tagOption"
-              checked={tagIds.some((el) => el === tag.id)}
-              onChange={(event) => handleTagChange(event, tag.id)}
-            />
-          </label>
-          <button type="button" onClick={() => deleteTag(tag.id)}>
-            Delete Tag
-          </button>
-        </>
-      ))}
-      <input
-        placeholder="Tag Name"
-        type="text"
-        onChange={({ target: { value } }) => setNewTag(value)}
-      />
-      <button onClick={addTag} type="button">
-        Add new Tag
-      </button>
+      <Styled.BlogTextWrapper>
+        {tags.map((tag) => (
+          <Styled.CheckboxContainer>
+            <div>{tag.name}</div>
+            <Styled.CheckboxLabel>
+              <input
+                type="checkbox"
+                name="tagOption"
+                checked={tagIds.some((el) => el === tag.id)}
+                onChange={(event) => handleTagChange(event, tag.id)}
+              />
+              <Styled.CustomCheckbox
+                selected={tagIds.some((el) => el === tag.id)}
+              >
+                <img src={slides.Check} alt="checkbox" />
+              </Styled.CustomCheckbox>
+            </Styled.CheckboxLabel>
+            <Styled.DeleteTagButton
+              type="button"
+              onClick={() => deleteTag(tag.id)}
+            >
+              <img src={slides.deleteIcon} alt="delete tag button" />
+            </Styled.DeleteTagButton>
+          </Styled.CheckboxContainer>
+        ))}
+      </Styled.BlogTextWrapper>
+      <Styled.TagInputWrapper>
+        <Styled.AdminTextInput
+          placeholder="Tag Name"
+          type="text"
+          onChange={({ target: { value } }) => setNewTag(value)}
+        />
+        <Styled.Button onClick={addTag} type="button">
+          Create
+        </Styled.Button>
+      </Styled.TagInputWrapper>
     </>
   );
 };

@@ -3,27 +3,8 @@ import * as Styled from "./slider.style";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { slides } from "../../../img/";
 import { onChangeSlideEA } from "../../../../services/event";
-
-function SampleNextArrow(props) {
-  const { className, onClick } = props;
-
-  return (
-    <Styled.SliderNext className={className} onClick={onClick}>
-      <img src={slides.RightVector} alt="prevVector" />
-    </Styled.SliderNext>
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, onClick } = props;
-  return (
-    <Styled.SliderPrev className={className} onClick={onClick}>
-      <img src={slides.LeftVector} alt="prevVector" />
-    </Styled.SliderPrev>
-  );
-}
+import { SamplePrevArrow, SampleNextArrow } from "../../shared/Slider/arrows";
 
 const SliderWorks: React.FC<{ children: React.ReactNodeArray }> = ({
   children,
@@ -32,8 +13,8 @@ const SliderWorks: React.FC<{ children: React.ReactNodeArray }> = ({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow forWorks top={30} />,
+    prevArrow: <SamplePrevArrow forWorks top={30} />,
     afterChange: (current) =>
       onChangeSlideEA({ sliderName: "Our Code", slide: current }),
     className: "slides",

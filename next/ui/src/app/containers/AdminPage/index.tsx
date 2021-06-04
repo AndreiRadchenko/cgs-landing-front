@@ -9,7 +9,6 @@ import * as Styled from "../../components/Admin/Admin.styles";
 import Fact from "../../components/Admin/Facts/Facts";
 import Slogan from "../../components/Admin/Slogan/Slogan";
 import Worker from "../../components/Admin/Worker/Worker";
-import Modal from "../../components/Modal/Modal";
 import FactsForm from "app/components/Admin/Facts/FactsForm";
 import { IFact } from "app/components/Admin/types";
 import SloganForm from "app/components/Admin/Slogan/SloganForm";
@@ -66,7 +65,7 @@ const AdminPage: React.FC = () => {
     loadData(activeMenu);
   }, [isModal]);
 
-  async function loadData(data = "all") {
+  const loadData = async (data = "all") => {
     switch (data) {
       case "facts":
         const facts = await getAdminData("facts");
@@ -104,8 +103,8 @@ const AdminPage: React.FC = () => {
         getAllData();
         break;
     }
-  }
-  async function getAllData() {
+  };
+  const getAllData = async () => {
     const facts = await getAdminData("facts");
     setFacts(facts);
     const slogan = await getAdminData("slogan");
@@ -122,7 +121,7 @@ const AdminPage: React.FC = () => {
     setFeaturedTechnologies(featuredTechnologies);
     const articles = await getAdminData("article");
     setArticles(articles);
-  }
+  };
 
   useEffect(() => {
     const tokenfromLocalStorage = localStorage.getItem("token");
@@ -139,11 +138,11 @@ const AdminPage: React.FC = () => {
     }
   }, []);
 
-  function deleteItem(route: string, id: string) {
+  const deleteItem = (route: string, id: string) => {
     deleteAdminData(route, id).then(() => loadData(route));
-  }
+  };
 
-  function handleOpenMenu(event) {
+  const handleOpenMenu = (event) => {
     setIsModal(false);
     const id = event.target.id;
     id === "facts" ? setIsFactsShown(true) : setIsFactsShown(false);
@@ -161,17 +160,17 @@ const AdminPage: React.FC = () => {
       ? setIsTestimonialsShown(true)
       : setIsTestimonialsShown(false);
     id === "images" ? setIsImagesShown(true) : setIsImagesShown(false);
-  }
+  };
 
-  function openModal(id: string): void {
+  const openModal = (id: string): void => {
     setIsModal(true);
     seteditItem(id);
-  }
+  };
 
-  function closeModal() {
+  const closeModal = () => {
     setIsModal(false);
     seteditItem(null);
-  }
+  };
 
   return (
     <Styled.Wrapper>
@@ -190,69 +189,71 @@ const AdminPage: React.FC = () => {
           <Styled.Menu>
             <h3>Items</h3>
             <Styled.MenuList>
-              <li
+              <Styled.MenuListItem
                 id="slogan"
                 onClick={(event) => handleOpenMenu(event)}
                 className={isSloganShown ? "activeMenuItem" : ""}
               >
                 Slogan
-              </li>
-              <li
+              </Styled.MenuListItem>
+              <Styled.MenuListItem
                 id="project"
                 onClick={(event) => handleOpenMenu(event)}
-                className={isProjectsShown ? "activeMenuItem" : ""}
+                active={isProjectsShown}
               >
                 Project
-              </li>
-              <li
+              </Styled.MenuListItem>
+              <Styled.MenuListItem
                 id="worker"
                 onClick={(event) => handleOpenMenu(event)}
-                className={isWorkersShown ? "activeMenuItem" : ""}
+                active={isWorkersShown}
               >
                 Workers
-              </li>
-              <li
+              </Styled.MenuListItem>
+
+              <Styled.MenuListItem
                 id="facts"
                 onClick={(event) => handleOpenMenu(event)}
-                className={isFactsShown ? "activeMenuItem" : ""}
+                active={isFactsShown}
               >
                 Facts
-              </li>
-              <li
+              </Styled.MenuListItem>
+
+              <Styled.MenuListItem
                 id="technology"
                 onClick={(event) => handleOpenMenu(event)}
-                className={isTechnologiesShown ? "activeMenuItem" : ""}
+                active={isTechnologiesShown}
               >
                 Technology
-              </li>
-              <li
+              </Styled.MenuListItem>
+              <Styled.MenuListItem
                 id="testimonial"
                 onClick={(event) => handleOpenMenu(event)}
-                className={isTestimonialsShown ? "activeMenuItem" : ""}
+                active={isTestimonialsShown}
               >
                 Testimonial
-              </li>
-              <li
+              </Styled.MenuListItem>
+              <Styled.MenuListItem
                 id="featuredTechnology"
                 onClick={(event) => handleOpenMenu(event)}
-                className={isfeaturedTechnologiesShown ? "activeMenuItem" : ""}
+                active={isfeaturedTechnologiesShown}
               >
                 Featured Technology
-              </li>
-              <li
+              </Styled.MenuListItem>
+              <Styled.MenuListItem
                 id="article"
                 onClick={(event) => handleOpenMenu(event)}
-                className={isArticlesShown ? "activeMenuItem" : ""}
+                active={isArticlesShown}
               >
                 Article
-              </li>
-              <li
+              </Styled.MenuListItem>
+              <Styled.MenuListItem
                 id="images"
                 onClick={(event) => handleOpenMenu(event)}
-                className={isImagesShown ? "activeMenuItem" : ""}
+                active={isImagesShown}
               >
                 Images
-              </li>
+              </Styled.MenuListItem>
             </Styled.MenuList>
           </Styled.Menu>
         </Styled.Sidebar>
@@ -264,7 +265,11 @@ const AdminPage: React.FC = () => {
           {isFactsShown && facts && !isModal && (
             <SectionLayout title="Fact" setIsModal={setIsModal}>
               {facts.map((fact) => (
-                <Fact fact={fact} openModal={openModal}></Fact>
+                <Fact
+                  fact={fact}
+                  openModal={openModal}
+                  deleteItem={deleteItem}
+                ></Fact>
               ))}
             </SectionLayout>
           )}
@@ -337,10 +342,7 @@ const AdminPage: React.FC = () => {
             <TechnologyForm technology={editItem} close={closeModal} />
           )}
           {isTechnologiesShown && technologies && !isModal && (
-            <SectionLayout
-              title="Featured Technologies"
-              setIsModal={setIsModal}
-            >
+            <SectionLayout title="Technologies" setIsModal={setIsModal}>
               {technologies.map((technology) => (
                 <Technology
                   openModal={openModal}
@@ -373,7 +375,7 @@ const AdminPage: React.FC = () => {
             />
           )}
           {isfeaturedTechnologiesShown && featuredTechnologies && !isModal && (
-            <SectionLayout title="Slogan" setIsModal={setIsModal}>
+            <SectionLayout title="Featured Techologies" setIsModal={setIsModal}>
               {featuredTechnologies.map((featuredTechnology) => (
                 <FeaturedTechology
                   openModal={openModal}

@@ -1,5 +1,5 @@
-import { HomePage } from '../src/app/containers/HomePage/';
-import { getData } from '../src/services/api/api';
+import { HomePage } from "../src/app/containers/HomePage/";
+import { getData } from "../src/services/api/api";
 import {
   IProject,
   IFact,
@@ -8,19 +8,19 @@ import {
   ITestimonial,
   IWorker,
   IFeaturedTechnology,
-} from '../src/types/components/index';
+} from "../src/types/components/index";
 
-export async function getServerSideProps() {
+export const getServerSideProps = async () => {
   try {
     const featuredTechnologies: IFeaturedTechnology[] = await getData(
-      'featuredTechnologies'
+      "featuredTechnologies"
     );
-    const testimonials: ITestimonial[] = await getData('testimonials');
-    const facts: IFact[] = await getData('facts');
-    const technologies: ITechnology[] = await getData('technologies');
-    const slogan: ISlogan[] = await getData('slogan');
-    const projects: IProject[] = await getData('projects');
-    const workers: IWorker[] = await getData('workers');
+    const testimonials: ITestimonial[] = await getData("testimonials");
+    const facts: IFact[] = await getData("facts");
+    const technologies: ITechnology[] = await getData("technologies");
+    const slogan: ISlogan[] = await getData("slogan");
+    const projects: IProject[] = await getData("projects");
+    const workers: IWorker[] = await getData("workers");
     return {
       props: {
         testimonials,
@@ -33,11 +33,13 @@ export async function getServerSideProps() {
       },
     };
   } catch (error) {
-    console.log('error', { error });
+    console.log("error", { error });
     return null;
   }
-}
+};
 
-export default function Home(props) {
+const Home = (props) => {
   return <HomePage props={props} />;
-}
+};
+
+export default Home;

@@ -7,7 +7,7 @@ import { IBlogArticle } from "types/components";
 import { scrollEA } from "../../../services/event";
 import * as Styled from "../../components/BlogArticle/BlogArticle.styles";
 
-export function BlogPage({ articles }: { articles: IBlogArticle[] }) {
+export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
   React.useEffect(() => {
     scrollEA("data-scroll");
   }, []);
@@ -62,4 +62,4 @@ export function BlogPage({ articles }: { articles: IBlogArticle[] }) {
       </Article>
     </div>
   );
-}
+};

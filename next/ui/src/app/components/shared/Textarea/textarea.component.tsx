@@ -1,6 +1,6 @@
-import React from 'react';
-import * as Styled from './textarea.styles';
-import { ITextArea } from '../../../../types/components/index';
+import React from "react";
+import * as Styled from "./textarea.styles";
+import { ITextArea } from "../../../../types/components/index";
 
 const Textarea: React.FC<ITextArea> = ({
   placeholder,
@@ -9,18 +9,17 @@ const Textarea: React.FC<ITextArea> = ({
   value,
   errors,
   touched,
-}) => {
-  return (
-    <Styled.TextWrapper>
-      <Styled.Text
-        placeholder={placeholder}
-        name={name}
-        onChange={onChange}
-        value={value}
-        onFocus={() => (touched[name] = true)}
-      />
-      <Styled.Error>{name && touched[name] && errors?.[name]}</Styled.Error>
-    </Styled.TextWrapper>
-  );
-};
+}) => (
+  <Styled.TextWrapper>
+    <Styled.Text
+      placeholder={placeholder}
+      name={name}
+      onChange={onChange}
+      value={value}
+      onFocus={() => (touched[name] = true)}
+    />
+    <Styled.Error>{name && touched[name] && errors?.[name]}</Styled.Error>
+  </Styled.TextWrapper>
+);
+
 export default Textarea;

@@ -1,22 +1,23 @@
-import styled from 'styled-components';
-export const Wrapper = styled('div')`
+import styled from "styled-components";
+
+export const Wrapper = styled("div")`
   width: 72.2%;
   @media screen and (max-width: 1024px) {
     width: 100%;
     padding: 0 24px;
   }
 `;
-export const ArticleWrapper = styled('div')`
+export const ArticleWrapper = styled("div")`
   padding: 0 0;
   width: 100%;
   &:not(:last-child) {
     margin-bottom: 60px;
     @media screen and (max-width: 1024px) {
       margin-bottom: 77px;
-      padding-top:30px;
+      padding-top: 30px;
     }
   }
-  & a {
+  & > a {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -44,7 +45,7 @@ export const ArticleWrapper = styled('div')`
       margin-bottom: 13px;
     }
     @media screen and (max-width: 400px) {
-      width:100%;
+      width: 100%;
     }
   }
   & .article__content {
@@ -82,7 +83,7 @@ export const ArticleWrapper = styled('div')`
     }
   }
 `;
-export const FeaturedArticle = styled('div')`
+export const FeaturedArticle = styled("div")`
   align-self: center;
   margin-bottom: 60px;
   text-align: center;
@@ -130,17 +131,14 @@ export const FeaturedArticle = styled('div')`
 
   & p {
     margin-bottom: 1.72em;
-    @media screen and (max-width: 1024px) {
-      /* text-align: center; */
-    }
   }
 `;
 
-export const InnerWrapper = styled('article')`
+export const InnerWrapper = styled("article")`
   display: flex;
 `;
 
-export const Title = styled('h2')`
+export const Title = styled("h2")`
   margin: 0;
   font-size: 22px;
   font-weight: 700;
@@ -150,9 +148,12 @@ export const Title = styled('h2')`
   @media screen and (max-width: 1024px) {
     font-size: 24px;
   }
+  @media screen and (max-width: 420px) {
+    font-size: 18px;
+  }
 `;
 
-export const Content = styled('p')`
+export const Content = styled("p")`
   text-align: center;
   margin: 0;
   font-size: 18px;
@@ -164,7 +165,7 @@ export const Content = styled('p')`
   }
 `;
 
-export const TagList = styled('ul')`
+export const TagList = styled("ul")`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -182,7 +183,10 @@ export const TagList = styled('ul')`
     padding: 1px 15px;
     border-radius: 5px;
     color: #fff;
-    margin-bottom:10px;
+    margin-bottom: 10px;
+    @media (max-width: 420px) {
+      font-size: 14px;
+    }
   }
   & li:not(:last-child) {
     margin-right: 18px;
@@ -192,12 +196,12 @@ export const TagList = styled('ul')`
     top: -10px;
     left: 50%;
     transform: translate(-50%, -100%);
-    width:100%;
-    padding:0;
+    width: 100%;
+    padding: 0;
   }
 `;
 
-export const HorizantalSep = styled('div')`
+export const HorizantalSep = styled("div")`
   pointer-events: none;
   @media screen and (min-width: 1024px) {
     display: none;
@@ -210,5 +214,18 @@ export const HorizantalSep = styled('div')`
 
   div:last-child > a > & {
     display: none;
+  }
+`;
+
+export const ArticleTag = styled("li")`
+  background-color: ${(props) => props.theme.colors.buttonBgColor};
+`;
+
+export const ImageContainer = styled("div")`
+  @media (max-width: 420px) {
+    & > img {
+      width: 100%;
+      object-fit: cover;
+    }
   }
 `;
