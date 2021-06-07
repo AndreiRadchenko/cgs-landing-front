@@ -86,9 +86,10 @@ const TechnologyForm: React.FC<{
         <Styled.ButtonWrapper>
           <Styled.Button
             type="submit"
+            empty
             disabled={!(name && category && iconFileId)}
           >
-            {technology ? "Save" : "Changes"}
+            {technology ? "Save" : "Create"}
           </Styled.Button>
           <Styled.Button type="button" onClick={() => close()}>
             Cancel

@@ -69,6 +69,7 @@ export const SocialList: ISocialInside[] = [
     height: 37,
   },
 ];
+
 export const MobileSocialList: ISocialInside[] = [
   {
     title: "github",
@@ -156,4 +157,16 @@ export const Nav = [
     link: "/#Contacts",
     burgerTitle: "Contact us",
   },
+];
+
+export const AdminNav = [
+  { name: "Slogan", id: "slogan" },
+  { name: "Project", id: "project" },
+  { name: "Workers", id: "worker" },
+  { name: "Facts", id: "facts" },
+  { name: "Technology", id: "technology" },
+  { name: "Testimonial", id: "testimonial" },
+  { name: "Featured Technology", id: "featuredTechnology" },
+  { name: "Article", id: "article" },
+  { name: "Images", id: "images" },
 ];

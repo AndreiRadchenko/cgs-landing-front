@@ -8,7 +8,7 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
   return (
     <React.Fragment>
       <Link href={`/blog/[id]`} as={`/blog/${article.id}`} key={article.id}>
-        <div>
+        <a>
           <Styled.ImageContainer>
             {article.imageFileUrl && (
               <img src={article.imageFileUrl} alt={article.title} />
@@ -31,7 +31,7 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
             </Styled.TagList>
           </div>
           <Styled.HorizantalSep />
-        </div>
+        </a>
       </Link>
     </React.Fragment>
   );
