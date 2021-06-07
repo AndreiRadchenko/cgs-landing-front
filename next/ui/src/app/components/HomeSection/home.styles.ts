@@ -47,15 +47,18 @@ export const Dots = styled("img")`
   top: -1.1em;
   left: -6em;
 `;
+
 export const ModalTitle = styled("h2")`
   width: 90%;
 `;
+
 export const Сlose = styled("button")`
   outline: none;
   border-radius: 50%;
   width: 32px;
   height: 32px;
 `;
+
 export const ContentBlock = styled("article")`
   display: flex;
   flex-direction: column;
@@ -116,11 +119,9 @@ export const LinkButton = styled("a")<Props>`
   transition: all 0.3s ease-in;
   font-size: 18px;
   margin-top: 10px;
+  display: ${(props) => (props.mobile ? "none" : "")};
   &:hover {
     background: ${(props) => props.theme.colors.buttonBgColorActive};
-  }
-  @media (min-width: 769px) {
-    display: ${(props) => (props.mobile ? "none" : "")};
   }
   @media (max-width: 768px) {
     display:${(props) => (props.mobile ? "" : "none")};
