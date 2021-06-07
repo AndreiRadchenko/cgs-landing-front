@@ -10,7 +10,16 @@ import Fact from "../../components/Admin/Facts/Facts";
 import Slogan from "../../components/Admin/Slogan/Slogan";
 import Worker from "../../components/Admin/Worker/Worker";
 import FactsForm from "app/components/Admin/Facts/FactsForm";
-import { IFact } from "app/components/Admin/types";
+import {
+  ISlogan,
+  IFact,
+  IProject,
+  IWorker,
+  ITechnology,
+  ITestimonial,
+  IFeaturedTechnology,
+  IArticle,
+} from "app/components/Admin/types";
 import SloganForm from "app/components/Admin/Slogan/SloganForm";
 import WorkerForm from "app/components/Admin/Worker/WorkerForm";
 import Projects from "app/components/Admin/Project/Project";
@@ -27,32 +36,38 @@ import ImagesPage from "app/components/Admin/ImagesPage/ImagesPage";
 import IMAGES from "consts/Images";
 import Footer from "app/components/shared/Footer/footer.component";
 import SectionLayout from "app/components/Admin/SectionLayout/sectionLayout.component";
+import { AdminNav } from "../../../consts/lists";
 
 const AdminPage: React.FC = () => {
   const [token, setToken] = useState("");
+  const [slogan, setSlogan] = useState<ISlogan[]>([]);
+  const [projects, setProjects] = useState<IProject[]>([]);
+  const [workers, setWorkers] = useState<IWorker[]>([]);
+  const [facts, setFacts] = useState<IFact[]>([]);
+  const [technologies, setTechnologies] = useState<ITechnology[]>([]);
+  const [testimonials, setTestimonials] = useState<ITestimonial[]>([]);
+  const [featuredTechnologies, setFeaturedTechnologies] = useState<
+    IFeaturedTechnology[]
+  >([]);
+  const [articles, setArticles] = useState<IArticle[]>([]);
   const [isModal, setIsModal] = useState(false);
-  const [facts, setFacts] = useState<IFact[] | undefined>([]);
-  const [slogan, setSlogan] = useState([]);
-  const [workers, setWorkers] = useState([]);
-  const [projects, setProjects] = useState([]);
-  const [testimonials, setTestimonials] = useState([]);
-  const [technologies, setTechnologies] = useState([]);
-  const [featuredTechnologies, setFeaturedTechnologies] = useState([]);
-  const [articles, setArticles] = useState([]);
-  const [isFactsShown, setIsFactsShown] = useState(false);
-  const [isSloganShown, setIsSloganShown] = useState(false);
-  const [isProjectsShown, setIsProjectsShown] = useState(false);
-  const [isTestimonialsShown, setIsTestimonialsShown] = useState(false);
-  const [isTechnologiesShown, setIsTechnologiesShown] = useState(false);
-  const [
-    isfeaturedTechnologiesShown,
-    setIsfeaturedTechnologiesShown,
-  ] = useState(false);
-  const [isWorkersShown, setIsWorkersShown] = useState(false);
-  const [isArticlesShown, setIsArticlesShown] = useState(false);
-  const [isImagesShown, setIsImagesShown] = useState(false);
+  const [categoryOpen, setCategoryOpen] = useState<string | any>(null);
   const [editItem, seteditItem] = useState<any>(null);
-  const [activeMenu, setActiveMenu] = useState("");
+
+  useEffect(() => {
+    const tokenfromLocalStorage = localStorage.getItem("token");
+    const token = tokenfromLocalStorage
+      ? JSON.parse(tokenfromLocalStorage)
+      : null;
+    if (token) {
+      setToken(token);
+    } else {
+      login().then((token) => {
+        localStorage.setItem("token", JSON.stringify(token));
+        setToken(token);
+      });
+    }
+  }, []);
 
   useEffect(() => {
     axios.defaults.headers.Authorization = `Bearer ${token}`;
@@ -62,7 +77,7 @@ const AdminPage: React.FC = () => {
   }, [token]);
 
   useEffect(() => {
-    loadData(activeMenu);
+    loadData(categoryOpen);
   }, [isModal]);
 
   const loadData = async (data = "all") => {
@@ -104,6 +119,7 @@ const AdminPage: React.FC = () => {
         break;
     }
   };
+
   const getAllData = async () => {
     const facts = await getAdminData("facts");
     setFacts(facts);
@@ -123,21 +139,6 @@ const AdminPage: React.FC = () => {
     setArticles(articles);
   };
 
-  useEffect(() => {
-    const tokenfromLocalStorage = localStorage.getItem("token");
-    const token = tokenfromLocalStorage
-      ? JSON.parse(tokenfromLocalStorage)
-      : null;
-    if (token) {
-      setToken(token);
-    } else {
-      login().then((token) => {
-        localStorage.setItem("token", JSON.stringify(token));
-        setToken(token);
-      });
-    }
-  }, []);
-
   const deleteItem = (route: string, id: string) => {
     deleteAdminData(route, id).then(() => loadData(route));
   };
@@ -145,21 +146,7 @@ const AdminPage: React.FC = () => {
   const handleOpenMenu = (event) => {
     setIsModal(false);
     const id = event.target.id;
-    id === "facts" ? setIsFactsShown(true) : setIsFactsShown(false);
-    id === "slogan" ? setIsSloganShown(true) : setIsSloganShown(false);
-    id === "worker" ? setIsWorkersShown(true) : setIsWorkersShown(false);
-    id === "project" ? setIsProjectsShown(true) : setIsProjectsShown(false);
-    id === "article" ? setIsArticlesShown(true) : setIsArticlesShown(false);
-    id === "technology"
-      ? setIsTechnologiesShown(true)
-      : setIsTechnologiesShown(false);
-    id === "featuredTechnology"
-      ? setIsfeaturedTechnologiesShown(true)
-      : setIsfeaturedTechnologiesShown(false);
-    id === "testimonial"
-      ? setIsTestimonialsShown(true)
-      : setIsTestimonialsShown(false);
-    id === "images" ? setIsImagesShown(true) : setIsImagesShown(false);
+    setCategoryOpen(id);
   };
 
   const openModal = (id: string): void => {
@@ -189,80 +176,25 @@ const AdminPage: React.FC = () => {
           <Styled.Menu>
             <h3>Items</h3>
             <Styled.MenuList>
-              <Styled.MenuListItem
-                id="slogan"
-                onClick={(event) => handleOpenMenu(event)}
-                className={isSloganShown ? "activeMenuItem" : ""}
-              >
-                Slogan
-              </Styled.MenuListItem>
-              <Styled.MenuListItem
-                id="project"
-                onClick={(event) => handleOpenMenu(event)}
-                active={isProjectsShown}
-              >
-                Project
-              </Styled.MenuListItem>
-              <Styled.MenuListItem
-                id="worker"
-                onClick={(event) => handleOpenMenu(event)}
-                active={isWorkersShown}
-              >
-                Workers
-              </Styled.MenuListItem>
-
-              <Styled.MenuListItem
-                id="facts"
-                onClick={(event) => handleOpenMenu(event)}
-                active={isFactsShown}
-              >
-                Facts
-              </Styled.MenuListItem>
-
-              <Styled.MenuListItem
-                id="technology"
-                onClick={(event) => handleOpenMenu(event)}
-                active={isTechnologiesShown}
-              >
-                Technology
-              </Styled.MenuListItem>
-              <Styled.MenuListItem
-                id="testimonial"
-                onClick={(event) => handleOpenMenu(event)}
-                active={isTestimonialsShown}
-              >
-                Testimonial
-              </Styled.MenuListItem>
-              <Styled.MenuListItem
-                id="featuredTechnology"
-                onClick={(event) => handleOpenMenu(event)}
-                active={isfeaturedTechnologiesShown}
-              >
-                Featured Technology
-              </Styled.MenuListItem>
-              <Styled.MenuListItem
-                id="article"
-                onClick={(event) => handleOpenMenu(event)}
-                active={isArticlesShown}
-              >
-                Article
-              </Styled.MenuListItem>
-              <Styled.MenuListItem
-                id="images"
-                onClick={(event) => handleOpenMenu(event)}
-                active={isImagesShown}
-              >
-                Images
-              </Styled.MenuListItem>
+              {AdminNav.map(({ id, name }) => (
+                <Styled.MenuListItem
+                  id={id}
+                  onClick={(event) => handleOpenMenu(event)}
+                  active={categoryOpen === id}
+                >
+                  {name}
+                </Styled.MenuListItem>
+              ))}
             </Styled.MenuList>
           </Styled.Menu>
         </Styled.Sidebar>
 
         <Styled.InfoWrapper>
-          {isModal && isFactsShown && (
+          {isModal && categoryOpen === "facts" && (
             <FactsForm fact={editItem} close={closeModal} />
           )}
-          {isFactsShown && facts && !isModal && (
+
+          {categoryOpen === "facts" && facts && !isModal && (
             <SectionLayout title="Fact" setIsModal={setIsModal}>
               {facts.map((fact) => (
                 <Fact
@@ -274,10 +206,11 @@ const AdminPage: React.FC = () => {
             </SectionLayout>
           )}
 
-          {isModal && isSloganShown && (
+          {isModal && categoryOpen === "slogan" && (
             <SloganForm slogan={editItem} close={closeModal} />
           )}
-          {isSloganShown && slogan && !isModal && (
+
+          {categoryOpen === "slogan" && slogan && !isModal && (
             <SectionLayout title="Slogan" setIsModal={setIsModal}>
               {slogan.map((slogan) => (
                 <Slogan
@@ -289,10 +222,11 @@ const AdminPage: React.FC = () => {
             </SectionLayout>
           )}
 
-          {isModal && isWorkersShown && (
+          {isModal && categoryOpen === "worker" && (
             <WorkerForm worker={editItem} close={closeModal} />
           )}
-          {isWorkersShown && workers && !isModal && (
+
+          {categoryOpen === "worker" && workers && !isModal && (
             <SectionLayout title="Workers" setIsModal={setIsModal}>
               {workers.map((worker) => (
                 <Worker
@@ -304,14 +238,15 @@ const AdminPage: React.FC = () => {
             </SectionLayout>
           )}
 
-          {isModal && isProjectsShown && (
+          {isModal && categoryOpen === "project" && (
             <ProjectForm
               project={editItem}
               technologies={technologies}
               close={closeModal}
             />
           )}
-          {isProjectsShown && projects && !isModal && (
+
+          {categoryOpen === "project" && projects && !isModal && (
             <SectionLayout title="Projects" setIsModal={setIsModal}>
               {projects.map((project) => (
                 <Projects
@@ -323,10 +258,11 @@ const AdminPage: React.FC = () => {
             </SectionLayout>
           )}
 
-          {isModal && isTestimonialsShown && (
+          {isModal && categoryOpen === "testimonial" && (
             <TestimonialForm testimonial={editItem} close={closeModal} />
           )}
-          {isTestimonialsShown && testimonials && !isModal && (
+
+          {categoryOpen === "testimonial" && testimonials && !isModal && (
             <SectionLayout title="Testimonials" setIsModal={setIsModal}>
               {testimonials.map((testimonial) => (
                 <Testimonial
@@ -338,10 +274,11 @@ const AdminPage: React.FC = () => {
             </SectionLayout>
           )}
 
-          {isModal && isTechnologiesShown && (
+          {isModal && categoryOpen === "technology" && (
             <TechnologyForm technology={editItem} close={closeModal} />
           )}
-          {isTechnologiesShown && technologies && !isModal && (
+
+          {categoryOpen === "technology" && technologies && !isModal && (
             <SectionLayout title="Technologies" setIsModal={setIsModal}>
               {technologies.map((technology) => (
                 <Technology
@@ -353,10 +290,11 @@ const AdminPage: React.FC = () => {
             </SectionLayout>
           )}
 
-          {isModal && isArticlesShown && (
+          {isModal && categoryOpen === "article" && (
             <ArticleForm article={editItem} close={closeModal} />
           )}
-          {isArticlesShown && articles && !isModal && (
+
+          {categoryOpen === "article" && articles && !isModal && (
             <SectionLayout title="Article" setIsModal={setIsModal}>
               {articles.map((article) => (
                 <Article
@@ -368,25 +306,31 @@ const AdminPage: React.FC = () => {
             </SectionLayout>
           )}
 
-          {isModal && isfeaturedTechnologiesShown && (
+          {isModal && categoryOpen === "featuredTechnology" && (
             <FeaturedTechologyForm
               featuredTechnology={editItem}
               close={closeModal}
             />
           )}
-          {isfeaturedTechnologiesShown && featuredTechnologies && !isModal && (
-            <SectionLayout title="Featured Techologies" setIsModal={setIsModal}>
-              {featuredTechnologies.map((featuredTechnology) => (
-                <FeaturedTechology
-                  openModal={openModal}
-                  featuredTechnology={featuredTechnology}
-                  deleteItem={deleteItem}
-                ></FeaturedTechology>
-              ))}
-            </SectionLayout>
-          )}
 
-          {isImagesShown && <ImagesPage></ImagesPage>}
+          {categoryOpen === "featuredTechnology" &&
+            featuredTechnologies &&
+            !isModal && (
+              <SectionLayout
+                title="Featured Techologies"
+                setIsModal={setIsModal}
+              >
+                {featuredTechnologies.map((featuredTechnology) => (
+                  <FeaturedTechology
+                    openModal={openModal}
+                    featuredTechnology={featuredTechnology}
+                    deleteItem={deleteItem}
+                  ></FeaturedTechology>
+                ))}
+              </SectionLayout>
+            )}
+
+          {categoryOpen === "images" && <ImagesPage></ImagesPage>}
         </Styled.InfoWrapper>
       </Styled.ContentWrapper>
       <Footer />

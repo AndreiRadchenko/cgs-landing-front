@@ -3,12 +3,9 @@ import dynamic from "next/dynamic";
 import * as Styled from "./TextEditor.styles";
 import { ButtonWrapper, Button } from "../Form.styles";
 
-const SunEditor = dynamic(
-  () => import("../../../../../node_modules/suneditor-react"),
-  {
-    ssr: false,
-  }
-);
+const SunEditor = dynamic(() => import("suneditor-react"), {
+  ssr: false,
+});
 
 const TextEditor = ({ content, setArticleContent, setIsEditorOpen }) => {
   const [articleMarkUpContent, setArticleMarkUpContent] = useState(
@@ -22,65 +19,69 @@ const TextEditor = ({ content, setArticleContent, setIsEditorOpen }) => {
     setIsEditorOpen(false);
   };
   return (
-    <Styled.Wrapper>
-      <span>Title</span>
-      <div>
-        <SunEditor
-          setOptions={{
-            toolbarContainer: "editorToolbar",
-            stickyToolbar: "-1",
-            buttonList: [
-              [
-                "undo",
-                "redo",
-                "font",
-                "fontSize",
-                "formatBlock",
-                "paragraphStyle",
-                "blockquote",
-                "bold",
-                "underline",
-                "italic",
-                "strike",
-                "subscript",
-                "superscript",
-                "fontColor",
-                "hiliteColor",
-                "textStyle",
-                "removeFormat",
-                "outdent",
-                "indent",
-                "align",
-                "horizontalRule",
-                "list",
-                "lineHeight",
-                "table",
-                "link",
-                "image",
-                "imageGallery",
-                "fullScreen",
-                "showBlocks",
-                "codeView",
-                "preview",
-                "template",
+    <>
+      <Styled.Title>Edit article</Styled.Title>
+      <Styled.Wrapper>
+        <span>Title</span>
+        <div>
+          <SunEditor
+            placeholder="Write article here"
+            setOptions={{
+              toolbarContainer: "editorToolbar",
+              stickyToolbar: "-1",
+              buttonList: [
+                [
+                  "undo",
+                  "redo",
+                  "font",
+                  "fontSize",
+                  "formatBlock",
+                  "paragraphStyle",
+                  "blockquote",
+                  "bold",
+                  "underline",
+                  "italic",
+                  "strike",
+                  "subscript",
+                  "superscript",
+                  "fontColor",
+                  "hiliteColor",
+                  "textStyle",
+                  "removeFormat",
+                  "outdent",
+                  "indent",
+                  "align",
+                  "horizontalRule",
+                  "list",
+                  "lineHeight",
+                  "table",
+                  "link",
+                  "image",
+                  "imageGallery",
+                  "fullScreen",
+                  "showBlocks",
+                  "codeView",
+                  "preview",
+                  "template",
+                ],
               ],
-            ],
-          }}
-          setDefaultStyle="height: 100%; font-size: 30px"
-          setContents={content}
-          onChange={handleChange}
-          hideToolbar={false}
-        />
-        <ButtonWrapper>
-          <Button empty type="button" onClick={() => handleSave()}>
-            Create
-          </Button>
-          <Button type="button" onClick={() => setIsEditorOpen(false)}>
-            Cancel
-          </Button>
-        </ButtonWrapper>
-      </div>
-    </Styled.Wrapper>
+            }}
+            setDefaultStyle="height: 100%; font-size: 30px"
+            setContents={content}
+            onChange={handleChange}
+            hideToolbar={false}
+          />
+          <ButtonWrapper>
+            <Button empty type="button" onClick={() => handleSave()}>
+              Create
+            </Button>
+            <Button type="button" onClick={() => setIsEditorOpen(false)}>
+              Cancel
+            </Button>
+          </ButtonWrapper>
+        </div>
+      </Styled.Wrapper>
+    </>
   );
 };
 export default TextEditor;

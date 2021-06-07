@@ -36,7 +36,7 @@ const Worker: React.FC<{
         </Styled.List>
       </Styled.Item>
       <ItemButtons
-        deleteItem={() => deleteItem("slogan", worker.id)}
+        deleteItem={() => deleteItem("worker", worker.id)}
         openModal={openModal}
         item={worker}
       ></ItemButtons>

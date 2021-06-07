@@ -34,6 +34,7 @@ export const FooterWrapper = styled("footer")`
     }
   }
 `;
+
 export const Wrapper = styled("div")`
   background: #0c1033;
   display: flex;

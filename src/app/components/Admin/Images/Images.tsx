@@ -8,6 +8,10 @@ import "slick-carousel/slick/slick-theme.css";
 import { slides } from "../../../img/";
 import { onChangeSlideEA } from "../../../../services/event";
 import { CheckboxLabel, CustomCheckbox } from "../Form.styles";
+import {
+  SampleNextArrow,
+  SamplePrevArrow,
+} from "app/components/shared/Slider/arrows";
 
 const Images: React.FC<{
   activeImage?: IIconFile | undefined;
@@ -31,31 +35,16 @@ const Images: React.FC<{
     getImageId(id);
   };
 
-  function SampleNextArrow(props) {
-    const { className, onClick } = props;
-
-    return (
-      <Styled.SliderNext className={className} onClick={onClick}>
-        <img src={slides.AdminVectorRight} alt="prevVector" />
-      </Styled.SliderNext>
-    );
-  }
-
-  function SamplePrevArrow(props) {
-    const { className, onClick } = props;
-    return (
-      <Styled.SliderPrev className={className} onClick={onClick}>
-        <img src={slides.AdminVectorLeft} alt="prevVector" />
-      </Styled.SliderPrev>
-    );
-  }
-
   let settings = {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: (
+      <SampleNextArrow img={slides.AdminVectorRight} forWorks top={50} />
+    ),
+    prevArrow: (
+      <SamplePrevArrow img={slides.AdminVectorLeft} forWorks top={50} />
+    ),
     afterChange: (current) =>
       onChangeSlideEA({ sliderName: "Our Code", slide: current }),
     className: "slides",

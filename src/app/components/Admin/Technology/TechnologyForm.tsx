@@ -13,6 +13,8 @@ const TechnologyForm: React.FC<{
   const [category, setCategory] = useState(technology?.category || "");
   const [iconFileId, setIconFileId] = useState(technology?.iconFile.id || "");
 
+  console.log(technology);
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newTechnology = {
@@ -31,6 +33,15 @@ const TechnologyForm: React.FC<{
   const getImageId = (id) => {
     setIconFileId(id);
   };
+
+  let options = {
+    Mobile: "mobile",
+    UIUX: "ui_ux",
+    Backend: "backend",
+    Web: "web",
+  };
+
+  const keys = Object.keys(options);
 
   return (
     <Styled.Wrapper>
@@ -52,14 +63,21 @@ const TechnologyForm: React.FC<{
         </Styled.Label>
 
         <Styled.Label>
-          <span>Title:</span>
-          <Styled.AdminTextInput
-            placeholder={technology ? "" : "Choose category"}
-            className="form__title"
-            type="text"
-            value={category}
-            onChange={({ target: { value } }) => setCategory(value)}
-          />
+          <span> Country Code: </span>
+          <Styled.Select className="form__title">
+            {keys.map((key) => {
+              return (
+                <option
+                  selected={technology?.category === options[key]}
+                  value={options[key]}
+                  key={key}
+                >
+                  {key}
+                </option>
+              );
+            })}
+            )
+          </Styled.Select>
         </Styled.Label>
         <Styled.PicturesWrapper>
           <span>Pictures:</span>
@@ -68,9 +86,10 @@ const TechnologyForm: React.FC<{
         <Styled.ButtonWrapper>
           <Styled.Button
             type="submit"
+            empty
             disabled={!(name && category && iconFileId)}
           >
-            {technology ? "Save" : "Changes"}
+            {technology ? "Save" : "Create"}
           </Styled.Button>
           <Styled.Button type="button" onClick={() => close()}>
             Cancel

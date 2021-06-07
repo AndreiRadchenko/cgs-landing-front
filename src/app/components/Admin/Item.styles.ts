@@ -62,6 +62,9 @@ export const ListItem = styled("li")`
     height: 120px;
     width: auto;
   }
+  & > span::first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 export const Image = styled("img")`

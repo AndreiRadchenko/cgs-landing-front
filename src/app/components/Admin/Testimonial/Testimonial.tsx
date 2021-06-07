@@ -15,31 +15,22 @@ const Testimonial: React.FC<{
             <span>Customer Name:</span>
             <span>{testimonial.customerName}</span>
           </Styled.ListItem>
-
           <Styled.ListItem>
             <span>Company name:</span>
             <span>{testimonial.companyName} </span>
           </Styled.ListItem>
-
+          <Styled.ListItem>
+            <span>Country code:</span>
+            <span>{testimonial.countryCode} </span>
+          </Styled.ListItem>
           <Styled.ListItem>
             <span>Customer Position:</span>
             <span>{testimonial.customerPosition} </span>
           </Styled.ListItem>
-
           <Styled.ListItem>
             <span>Feedback</span>
             <span>{testimonial.feedback} </span>
           </Styled.ListItem>
-
-          {/* <ul>
-              {testimonial.platforms.map((platform) => (
-                <li>
-                  <p>{platform.link}</p>
-                  <p>{platform.rate}</p>
-                  <p>{platform.type}</p>
-                </li>
-              ))}
-            </ul> */}
           {testimonial.platforms.map((platform) => (
             <>
               <Styled.ListItem>

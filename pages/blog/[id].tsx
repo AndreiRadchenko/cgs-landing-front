@@ -15,7 +15,7 @@ const BlogArticlePage = ({ article, similarArticles }) => (
           <BlogArticleFull article={article} />
         </Article>
         <Article title="Other articles">
-          <SimilarArticles similarArticles={similarArticles}></SimilarArticles>
+          <SimilarArticles similarArticles={similarArticles} />
         </Article>
         <Styled.ArticleButtonContainer>
           <Button link="/blog/" text="Back to blog"></Button>

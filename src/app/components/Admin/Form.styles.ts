@@ -63,6 +63,7 @@ export const AdminTextInput = styled("input")`
   font-size: 14px;
   font-weight: 700;
   line-height: 32px;
+  outline: none;
 `;
 
 export const AdminTextArea = styled("textarea")`
@@ -80,6 +81,7 @@ export const AdminTextArea = styled("textarea")`
   font-weight: 700;
   line-height: 32px;
   padding: 14px 36px;
+  outline: none;
 `;
 
 export const Select = styled("select")`

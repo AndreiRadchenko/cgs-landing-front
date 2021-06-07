@@ -47,6 +47,9 @@ export const SimilarArticle = styled("li")`
     object-fit: cover;
     display: inline-block;
     margin-bottom: 2em;
+    @media (max-width: 1025px) {
+      height: auto;
+    }
   }
   & h2 {
     margin: 0 0 29px;

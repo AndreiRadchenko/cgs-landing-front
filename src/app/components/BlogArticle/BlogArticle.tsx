@@ -9,11 +9,11 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
     <React.Fragment>
       <Link href={`/blog/[id]`} as={`/blog/${article.id}`} key={article.id}>
         <a>
-          <div className="article__image">
+          <Styled.ImageContainer>
             {article.imageFileUrl && (
               <img src={article.imageFileUrl} alt={article.title} />
             )}
-          </div>
+          </Styled.ImageContainer>
           <div className="article__content">
             <Styled.Title>{article.title}</Styled.Title>
             {article.content && (

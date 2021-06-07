@@ -24,15 +24,17 @@ const FeaturedTechologyForm: React.FC<{
       imageFileId: imageFileId,
     };
 
-    featuredTechnology
-      ? updateAdminData(
-          "featuredTechnology",
-          featuredTechnology.id,
-          newFeaturedTechnology
-        ).then(() => close())
-      : createAdminData("featuredTechnology", newFeaturedTechnology).then(() =>
-          close()
-        );
+    if (featuredTechnology) {
+      updateAdminData(
+        "featuredTechnology",
+        featuredTechnology.id,
+        newFeaturedTechnology
+      ).then(() => close());
+    } else if (!featuredTechnology) {
+      createAdminData("featuredTechnology", newFeaturedTechnology).then(() =>
+        close()
+      );
+    }
   };
 
   const getImageId = (id) => {
@@ -48,17 +50,19 @@ const FeaturedTechologyForm: React.FC<{
           <h2>Create new featured technology</h2>
         )}
         <Styled.Label>
-          <span> Featured Technology Name:</span>
+          <span> Name:</span>
           <Styled.AdminTextInput
             type="text"
             value={name}
+            placeholder="Write name here"
             onChange={({ target: { value } }) => setName(value)}
           />
         </Styled.Label>
         <Styled.Label>
-          <span> Featured Technology text:</span>
+          <span> Text:</span>
           <Styled.AdminTextArea
             value={text}
+            placeholder="Write some text here"
             onChange={({ target: { value } }) => setCategory(value)}
           />
         </Styled.Label>

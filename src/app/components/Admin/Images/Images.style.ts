@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const Wrapper = styled("div")`
   margin-left: 70px;
 `;
@@ -16,40 +17,8 @@ export const ImagesWrapper = styled("div")`
     width: 150px;
     height: 120px;
     object-fit: contain;
+    padding: 0 20px;
   }
-`;
-
-const Arrow = styled.div`
-  position: absolute;
-  width: 20px;
-  height: 30px;
-  @media (max-width: 420px) {
-    width: 25px;
-    height: 25px;
-  }
-
-  & img {
-    width: 100%;
-    height: 100%;
-  }
-  @media screen and (max-width: 1024px) {
-    top: 25%;
-  }
-  @media screen and (max-width: 600px) {
-    top: 20%;
-  }
-`;
-
-export const SliderPrev = styled(Arrow)`
-  z-index: 2;
-  cursor: pointer;
-  left: -5%;
-`;
-
-export const SliderNext = styled(Arrow)`
-  z-index: 999;
-  cursor: pointer;
-  right: -5%;
 `;
 
 export const SliderContainer = styled.div`

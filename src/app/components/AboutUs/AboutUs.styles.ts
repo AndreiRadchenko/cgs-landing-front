@@ -1,15 +1,10 @@
 import styled from "styled-components";
 
-const imgSize = {
-  w: "35px",
-  h: "35px",
-};
-
 const Arrow = styled.div`
   position: absolute;
   z-index: 100;
   background-color: #fff;
-  width: ${imgSize.w};
+  width: "35px";
   height: 85%;
   margin-top: 30px;
   & img {
