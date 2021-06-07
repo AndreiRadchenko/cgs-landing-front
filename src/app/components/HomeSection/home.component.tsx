@@ -12,10 +12,10 @@ const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => (
       <h1 className="home-section__title">{slogan.title}</h1>
       <p className="home-section__subtitle">{slogan.text}</p>
 
-      <Styled.Button type="button">Start a project</Styled.Button>
-      <Styled.Button mobile type="button">
+      <Styled.LinkButton href="#Contacts">Start a project</Styled.LinkButton>
+      <Styled.LinkButton href="#Contacts" mobile type="button">
         Contact us
-      </Styled.Button>
+      </Styled.LinkButton>
     </Styled.ContentBlock>
     <div>
       <Styled.Ilustration src={"/illustration.svg"} />

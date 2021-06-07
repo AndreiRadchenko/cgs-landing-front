@@ -29,7 +29,7 @@ const Facts: React.FC<{
     <ItemButtons
       openModal={openModal}
       item={fact}
-      deleteItem={() => deleteItem("fact", fact.id)}
+      deleteItem={() => deleteItem("facts", fact.id)}
     ></ItemButtons>
   </Styled.Wrapper>
 );

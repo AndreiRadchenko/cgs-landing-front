@@ -44,7 +44,7 @@ const Article: React.FC<{
       </Styled.List>
     </Styled.Item>
     <ItemButtons
-      deleteItem={() => deleteItem("slogan", article.id)}
+      deleteItem={() => deleteItem("article", article.id)}
       openModal={openModal}
       item={article}
     />

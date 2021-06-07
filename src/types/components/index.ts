@@ -173,7 +173,7 @@ export interface IBlogArticle {
   author?: string;
   imageFileUrl?: string;
   tags?: IBlogArticleTag[];
-  date?: Date;
+  createdAt?: Date;
 }
 
 interface IBlogArticleTag {

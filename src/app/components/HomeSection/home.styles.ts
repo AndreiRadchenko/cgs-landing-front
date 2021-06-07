@@ -20,7 +20,7 @@ export const HomeWrapper = styled("div")`
   }
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    padding: 0;
+    padding: 0 0 25px;
     & > * {
       width: 90%;
     }
@@ -102,11 +102,11 @@ export const ImgMobile = styled("img")`
   }
 `;
 
-export const Button = styled("button")<Props>`
+export const LinkButton = styled("a")<Props>`
+  text-align:center;
   background-color: ${(props) => props.theme.colors.buttonBgColor};
   border-radius: 2em;
   padding: 0.7em;
-  outline: none;
   font-weight: 700;
   border: 0;
   color: white;

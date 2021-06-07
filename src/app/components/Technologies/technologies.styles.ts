@@ -88,6 +88,18 @@ export const SliderContainer = styled.div`
   & .slick-prev:before {
     content: none;
   }
+
+  & .slick-next {
+    @media (max-width: 420px) {
+      right: 20px;
+    }
+  }
+
+  & .slick-prev {
+    @media (max-width: 420px) {
+      left: 20px;
+    }
+  }
 `;
 
 export const Dots = styled("img")`
@@ -127,6 +139,10 @@ export const TechnoContainer = styled("div")`
     & div:last-child img {
       width: 100%;
       height: 100%;
+      @media (max-width: 420px) {
+        width: 80%;
+        margin: 0 auto;
+      }
     }
   }
   @media screen and (min-width: 1024px) {

@@ -1,7 +1,8 @@
-import clipString from "../../../../helpers/clipString";
 import Link from "next/link";
 import { IBlogArticle } from "../../../../types/components";
 import * as Styled from "./SimilarArticles.styles";
+import HTMLEllipsis from "react-lines-ellipsis/lib/html";
+
 export interface SimilarArticlesProps {
   similarArticles: IBlogArticle[];
 }
@@ -23,10 +24,11 @@ const SimilarArticles: React.FC<SimilarArticlesProps> = ({
                 <div>
                   <img src={article.imageFileUrl} alt={article.title} />
                   <h2>{article.title}</h2>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: clipString(article.content)!,
-                    }}
+                  <HTMLEllipsis
+                    unsafeHTML={article.content}
+                    maxLine="2"
+                    ellipsis="..."
+                    basedOn="words"
                   />
                 </div>
               </Link>

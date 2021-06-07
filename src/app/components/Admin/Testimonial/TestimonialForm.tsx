@@ -55,9 +55,11 @@ const TestimonialForm: React.FC<{
       feedback: feedback.value,
       platforms: [],
     };
+
     if (clutch) {
       newtestimonial.platforms = [...newtestimonial.platforms, clutch];
     }
+
     if (upwork) {
       newtestimonial.platforms = [...newtestimonial.platforms, upwork];
     }
