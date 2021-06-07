@@ -11,7 +11,9 @@ const FactsForm: React.FC<{
 }> = ({ fact, close }) => {
   const [title, setTitle] = useState(fact?.title || "");
   const [text, setText] = useState(fact?.text || "");
-  const [showOnPage, setshowOnPage] = useState(fact?.showOnHomePage || false);
+  const [showOnHomePage, setShowOnHomePage] = useState(
+    fact?.showOnHomePage || false
+  );
   const [iconFileId, setIconFileId] = useState(fact?.iconFile.id || "");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -19,7 +21,7 @@ const FactsForm: React.FC<{
     const newFact = {
       title,
       text,
-      showOnPage,
+      showOnHomePage,
       iconFileId,
     };
 
@@ -57,10 +59,10 @@ const FactsForm: React.FC<{
             <input
               type="checkbox"
               name="TechOption"
-              checked={showOnPage}
-              onChange={({ target: { checked } }) => setshowOnPage(checked)}
+              checked={showOnHomePage}
+              onChange={({ target: { checked } }) => setShowOnHomePage(checked)}
             />
-            <Styled.CustomCheckbox selected={showOnPage}>
+            <Styled.CustomCheckbox selected={showOnHomePage}>
               <img src={slides.Check} alt="checkbox" />
             </Styled.CustomCheckbox>
           </Styled.CheckboxLabel>

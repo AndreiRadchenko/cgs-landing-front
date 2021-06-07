@@ -47,6 +47,10 @@ export const ArticleWrapper = styled("div")`
   }
   & .article__author,
   .article__date {
+    font-size: 21px;
+    font-weight: 300;%
+    line-height: 32px;
+    margin: 0;
     opacity: 0.5;
     @media screen and (max-width: 1024px) {
       display: none;

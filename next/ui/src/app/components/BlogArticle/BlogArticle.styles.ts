@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled("div")`
-  width: 72.2%;
+  max-width: 1067px;
+  padding: 0 10px;
+  width: 100%;
   @media screen and (max-width: 1024px) {
     width: 100%;
     padding: 0 24px;
@@ -40,12 +42,16 @@ export const ArticleWrapper = styled("div")`
     object-fit: cover;
     @media screen and (max-width: 1024px) {
       margin: 0 auto;
-      width: auto;
-      height: 166px;
+      width: 60%;
+      height: auto;
       margin-bottom: 13px;
+    }
+    @media screen and (max-width: 768px) {
+      width: 90%;
     }
     @media screen and (max-width: 400px) {
       width: 100%;
+      height: 166px;
     }
   }
   & .article__content {
@@ -54,8 +60,21 @@ export const ArticleWrapper = styled("div")`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    & .LinesEllipsis {
+      font-size: 18px;
+      line-height: 30px;
+      & p {
+        color: rgba(12, 16, 51, 0.5);
+      }
+    }
+
     @media screen and (max-width: 1024px) {
-      width: 100%;
+      width: 65%;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 765px) {
+      width: 90%;
+      margin: 0 auto;
     }
   }
   & h2 {
@@ -84,6 +103,8 @@ export const ArticleWrapper = styled("div")`
   }
 `;
 export const FeaturedArticle = styled("div")`
+  margin: 0 auto;
+  max-width: 800px;
   align-self: center;
   margin-bottom: 60px;
   text-align: center;
@@ -110,13 +131,13 @@ export const FeaturedArticle = styled("div")`
     }
   }
   & img {
-    width: 65%;
+    width: 100%;
     display: inline-block;
     margin-bottom: 60px;
     @media screen and (max-width: 1024px) {
       margin: 0 auto;
-      width: auto;
-      height: 166px;
+      width: 90%;
+      height: auto;
       margin-bottom: 13px;
     }
   }

@@ -31,6 +31,11 @@ export const Wrapper = styled("div")`
 
 export const SimilarArticle = styled("li")`
   width: calc((100% - 120px) / 2);
+  & .LinesEllipsis {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+  }
 
   @media screen and (max-width: 1024px) {
     width: 100%;

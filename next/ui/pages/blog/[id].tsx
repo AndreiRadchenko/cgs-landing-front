@@ -33,6 +33,7 @@ export const getServerSideProps = async ({ query }) => {
       "similarArticles",
       id
     );
+
     return {
       props: {
         article,

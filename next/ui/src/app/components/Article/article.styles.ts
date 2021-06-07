@@ -12,8 +12,8 @@ export const Wrapper = styled("article")`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1em 0;
-  margin: 3em 0;
+  padding: 0;
+  margin: 1em 0 3em;
   & > p {
     text-align: center;
     opacity: 0.5;
@@ -25,9 +25,6 @@ export const Wrapper = styled("article")`
       font-size: 14px;
       margin-bottom: 1em;
     }
-  }
-  @media screen and (max-width: 768px) {
-    margin: 0;
   }
 `;
 
