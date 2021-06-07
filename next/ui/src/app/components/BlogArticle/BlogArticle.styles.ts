@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const Wrapper = styled("div")`
   width: 72.2%;
   @media screen and (max-width: 1024px) {
@@ -16,7 +17,7 @@ export const ArticleWrapper = styled("div")`
       padding-top: 30px;
     }
   }
-  & a {
+  & > a {
     position: relative;
     display: flex;
     flex-direction: row;

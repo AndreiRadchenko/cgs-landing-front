@@ -8,19 +8,19 @@ export interface SimilarArticlesProps {
 
 const SimilarArticles: React.FC<SimilarArticlesProps> = ({
   similarArticles,
-}) => {
-  return (
-    <Styled.Wrapper>
-      <ul>
-        {similarArticles.map((article, index) => {
-          if (index < 2) {
-            return (
-              <Styled.SimilarArticle>
-                <Link
-                  href={`/blog/[id]`}
-                  as={`/blog/${article.id}`}
-                  key={article.id}
-                >
+}) => (
+  <Styled.Wrapper>
+    <ul>
+      {similarArticles.map((article, index) => {
+        if (index < 2) {
+          return (
+            <Styled.SimilarArticle>
+              <Link
+                href={`/blog/[id]`}
+                as={`/blog/${article.id}`}
+                key={article.id}
+              >
+                <div>
                   <img src={article.imageFileUrl} alt={article.title} />
                   <h2>{article.title}</h2>
                   <p
@@ -28,14 +28,14 @@ const SimilarArticles: React.FC<SimilarArticlesProps> = ({
                       __html: clipString(article.content)!,
                     }}
                   />
-                </Link>
-              </Styled.SimilarArticle>
-            );
-          }
-        })}
-      </ul>
-    </Styled.Wrapper>
-  );
-};
+                </div>
+              </Link>
+            </Styled.SimilarArticle>
+          );
+        }
+      })}
+    </ul>
+  </Styled.Wrapper>
+);
 
 export default SimilarArticles;

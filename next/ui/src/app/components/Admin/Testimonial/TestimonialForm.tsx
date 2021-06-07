@@ -86,6 +86,9 @@ const TestimonialForm: React.FC<{
           <Styled.AdminTextInput
             className="form__title"
             type="text"
+            placeholder={
+              testimonial ? "Name Surname" : "Write customer name here"
+            }
             {...customerName}
           />
         </Styled.Label>
@@ -94,12 +97,17 @@ const TestimonialForm: React.FC<{
           <Styled.AdminTextInput
             className="form__title"
             type="text"
+            placeholder={testimonial ? "BigCompany" : "Write company name here"}
             {...companyName}
           />
         </Styled.Label>
         <Styled.Label>
           <span> Country Code: </span>
-          <Styled.Select className="form__title" {...countryCode}>
+          <Styled.Select
+            className="form__title"
+            {...countryCode}
+            onChange={countryCode.onChange}
+          >
             {CountryNameKey.map((codeValue) => {
               return (
                 <option
@@ -119,35 +127,52 @@ const TestimonialForm: React.FC<{
           <Styled.AdminTextInput
             className="form__title"
             type="text"
+            placeholder={testimonial ? "CEO" : "Write customer position here"}
             {...customerPosition}
           />
         </Styled.Label>
         <Styled.Label>
           <span>Feedback:</span>
-          <Styled.AdminTextArea className="form__text" {...feedback} />
-        </Styled.Label>
-        <Styled.Label double>
-          <span>Clutch</span>
-          <Styled.AdminTextInput type="text" {...clutchLinkInput} />
-          <Styled.AdminTextInput
-            type="number"
-            min="1"
-            max="5"
-            {...clutchRateInput}
+          <Styled.AdminTextArea
+            className="form__text"
+            placeholder="Write customer position here"
+            {...feedback}
           />
         </Styled.Label>
         <Styled.Label double>
           <span>Upwork</span>
-          <Styled.AdminTextInput type="text" {...upworkLinkInput} />
+          <Styled.AdminTextInput
+            type="text"
+            placeholder={testimonial ? "UpWork.com" : "Upwork link"}
+            {...upworkLinkInput}
+          />
           <Styled.AdminTextInput
             type="number"
             min="1"
             max="5"
+            placeholder={testimonial ? "5" : "Rating"}
             {...upworkRateInput}
           />
         </Styled.Label>
+        <Styled.Label double>
+          <span>Clutch</span>
+          <Styled.AdminTextInput
+            type="text"
+            placeholder={testimonial ? "Clutch.com" : "Clutch link"}
+            {...clutchLinkInput}
+          />
+          <Styled.AdminTextInput
+            type="number"
+            min="1"
+            max="5"
+            placeholder={testimonial ? "5" : "Rating"}
+            {...clutchRateInput}
+          />
+        </Styled.Label>
+
         <Styled.ButtonWrapper>
           <Styled.Button
+            empty={!testimonial}
             type="submit"
             disabled={
               !(
@@ -159,7 +184,7 @@ const TestimonialForm: React.FC<{
               )
             }
           >
-            {testimonial ? "Save" : "Changes"}
+            {testimonial ? "Save" : "Сreate"}
           </Styled.Button>
           <Styled.Button type="button" onClick={() => close()}>
             Cancel

@@ -14,6 +14,7 @@ const Form = () => {
   const isEmptyObject = (obj) => {
     return JSON.stringify(obj) === "{}";
   };
+
   return (
     <Formik
       validationSchema={registrationFormSchema}
