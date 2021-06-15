@@ -21,7 +21,7 @@ const ProjectForm: React.FC<{
     project?.shortDescription || ""
   );
 
-  const countryCode = useInput(project?.countryCode);
+  const countryCode = useInput(project?.countryCode || "GB");
 
   const [link, setLink] = useState(project?.link || "");
 
@@ -29,10 +29,10 @@ const ProjectForm: React.FC<{
     project?.showOnHomePage || false
   );
 
-  const [imageFile, setImageFile] = useState(project?.imageFile.id || "");
+  const [imageFile, setImageFile] = useState(project?.imageFile?.id || "");
 
   const [technologyIds, setTechnologyIds] = useState(
-    project?.technologies.map((tech) => tech.id) || []
+    project?.technologies?.map((tech) => tech.id) || []
   );
 
   const CountryNameKey = Object.keys(CountryCodes);
@@ -44,7 +44,7 @@ const ProjectForm: React.FC<{
       name,
       fullDescription,
       shortDescription,
-      countryCode,
+      countryCode: countryCode.value,
       link,
       showOnHomePage,
       imageFileId: imageFile,
@@ -72,13 +72,14 @@ const ProjectForm: React.FC<{
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
-        {project ? <h2>Edit Project</h2> : <h2>Create a Project</h2>}
+        {project ? <h2>Edit Project</h2> : <h2>Create new project</h2>}
         <Styled.Label>
           <span>Project Name:</span>
           <Styled.AdminTextInput
             type="text"
             value={name}
             onChange={({ target: { value } }) => setName(value)}
+            placeholder="Write name here"
           />
         </Styled.Label>
         <Styled.Label>
@@ -86,6 +87,7 @@ const ProjectForm: React.FC<{
           <Styled.AdminTextArea
             value={fullDescription}
             onChange={({ target: { value } }) => setFullDescription(value)}
+            placeholder="Write a pair of sentences here"
           />
         </Styled.Label>
         <Styled.Label>
@@ -93,6 +95,7 @@ const ProjectForm: React.FC<{
           <Styled.AdminTextArea
             value={shortDescription}
             onChange={({ target: { value } }) => setShortDescription(value)}
+            placeholder="Write a pair of words"
           />
         </Styled.Label>
         <Styled.Label>
@@ -101,6 +104,7 @@ const ProjectForm: React.FC<{
             className="form__title"
             {...countryCode}
             onChange={countryCode.onChange}
+            placeholder="Write country code here"
           >
             {CountryNameKey.map((codeValue) => {
               return (
@@ -122,6 +126,7 @@ const ProjectForm: React.FC<{
             type="text"
             value={link}
             onChange={({ target: { value } }) => setLink(value)}
+            placeholder="Put link here"
           />
         </Styled.Label>
 

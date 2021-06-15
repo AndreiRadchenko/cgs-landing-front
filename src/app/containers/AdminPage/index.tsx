@@ -179,7 +179,10 @@ const AdminPage: React.FC = () => {
               {AdminNav.map(({ id, name }) => (
                 <Styled.MenuListItem
                   id={id}
-                  onClick={(event) => handleOpenMenu(event)}
+                  onClick={(event) => {
+                    handleOpenMenu(event);
+                    closeModal();
+                  }}
                   active={categoryOpen === id}
                 >
                   {name}

@@ -10,10 +10,8 @@ const TechnologyForm: React.FC<{
   close: Function;
 }> = ({ technology, close }) => {
   const [name, setName] = useState(technology?.name || "");
-  const [category, setCategory] = useState(technology?.category || "");
+  const [category, setCategory] = useState(technology?.category || "mobile");
   const [iconFileId, setIconFileId] = useState(technology?.iconFile.id || "");
-
-  console.log(technology);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,6 +30,10 @@ const TechnologyForm: React.FC<{
 
   const getImageId = (id) => {
     setIconFileId(id);
+  };
+
+  const handleCategory = (category) => {
+    setCategory(category);
   };
 
   let options = {
@@ -64,7 +66,12 @@ const TechnologyForm: React.FC<{
 
         <Styled.Label>
           <span> Country Code: </span>
-          <Styled.Select className="form__title">
+          <Styled.Select
+            onChange={({ target }) => {
+              handleCategory(target.value);
+            }}
+            className="form__title"
+          >
             {keys.map((key) => {
               return (
                 <option

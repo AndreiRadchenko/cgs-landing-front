@@ -63,8 +63,6 @@ const TestimonialForm: React.FC<{
       newtestimonial.platforms = [...newtestimonial.platforms, upwork];
     }
 
-    console.log(newtestimonial); //
-
     testimonial
       ? updateAdminData(
           "testimonial",
