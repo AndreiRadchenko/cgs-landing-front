@@ -54,17 +54,19 @@ const ArticleForm: React.FC<{
         <Styled.Form onSubmit={handleSubmit}>
           {article ? <h2>Edit article</h2> : <h2>Create new article</h2>}
           <Styled.Label>
-            <span>Article Title:</span>
+            <span>Title:</span>
             <Styled.AdminTextInput
               type="text"
+              placeholder="Write article title here"
               value={title}
               onChange={({ target: { value } }) => setTitle(value)}
             />
           </Styled.Label>
           <Styled.Label>
-            <span> Author:</span>
+            <span>Author:</span>
             <Styled.AdminTextInput
               type="text"
+              placeholder="Write author’s name here"
               value={author}
               onChange={({ target: { value } }) => setAuthor(value)}
             />

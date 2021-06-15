@@ -73,6 +73,18 @@ export const SliderContainer = styled.div`
   & .slick-prev:before {
     content: none;
   }
+
+  & .slick-next {
+    @media (max-width: 420px) {
+      right: 20px;
+    }
+  }
+
+  & .slick-prev {
+    @media (max-width: 420px) {
+      left: 20px !important;
+    }
+  }
 `;
 
 export const FeaturedContainer = styled("div")`

@@ -4,6 +4,8 @@ import Images from "../Images/Images";
 import { slides } from "../../../img/";
 import { IProject, ITechnology } from "../types";
 import * as Styled from "../Form.styles";
+import CountryCodes from "./../Testimonial/countyCodes.json";
+import { useInput } from "../Hooks";
 
 const ProjectForm: React.FC<{
   project?: IProject | undefined;
@@ -18,7 +20,8 @@ const ProjectForm: React.FC<{
   const [shortDescription, setShortDescription] = useState(
     project?.shortDescription || ""
   );
-  const [countryCode, setCountryCode] = useState(project?.countryCode || "");
+
+  const countryCode = useInput(project?.countryCode);
 
   const [link, setLink] = useState(project?.link || "");
 
@@ -31,6 +34,8 @@ const ProjectForm: React.FC<{
   const [technologyIds, setTechnologyIds] = useState(
     project?.technologies.map((tech) => tech.id) || []
   );
+
+  const CountryNameKey = Object.keys(CountryCodes);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -92,11 +97,24 @@ const ProjectForm: React.FC<{
         </Styled.Label>
         <Styled.Label>
           <span>Country Code:</span>
-          <Styled.AdminTextInput
-            type="text"
-            value={countryCode}
-            onChange={({ target: { value } }) => setCountryCode(value)}
-          />
+          <Styled.Select
+            className="form__title"
+            {...countryCode}
+            onChange={countryCode.onChange}
+          >
+            {CountryNameKey.map((codeValue) => {
+              return (
+                <option
+                  selected={codeValue === countryCode.value}
+                  value={codeValue}
+                  key={codeValue}
+                >
+                  {CountryCodes[codeValue]}
+                </option>
+              );
+            })}
+            )
+          </Styled.Select>
         </Styled.Label>
         <Styled.Label>
           <span>Link:</span>

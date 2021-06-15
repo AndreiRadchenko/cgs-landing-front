@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { createAdminData, updateAdminData } from "services/api/adminApi";
 
 import { ITestimonial, IPlatform } from "../types";
@@ -19,7 +18,7 @@ const TestimonialForm: React.FC<{
     (item) => item.type === "upwork"
   );
 
-  const countryCode = useInput(testimonial?.countryCode);
+  const countryCode = useInput(testimonial?.countryCode || "GB");
   const clutchLinkInput = useInput(clutch?.link);
   const upworkLinkInput = useInput(upwork?.link);
   const clutchRateInput = useInput(clutch?.rate);
@@ -55,9 +54,11 @@ const TestimonialForm: React.FC<{
       feedback: feedback.value,
       platforms: [],
     };
+
     if (clutch) {
       newtestimonial.platforms = [...newtestimonial.platforms, clutch];
     }
+
     if (upwork) {
       newtestimonial.platforms = [...newtestimonial.platforms, upwork];
     }
@@ -169,7 +170,6 @@ const TestimonialForm: React.FC<{
             {...clutchRateInput}
           />
         </Styled.Label>
-
         <Styled.ButtonWrapper>
           <Styled.Button
             empty={!testimonial}

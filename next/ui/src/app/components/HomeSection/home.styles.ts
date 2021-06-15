@@ -20,7 +20,7 @@ export const HomeWrapper = styled("div")`
   }
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    padding: 0;
+    padding: 0 0 25px;
     & > * {
       width: 90%;
     }
@@ -47,15 +47,18 @@ export const Dots = styled("img")`
   top: -1.1em;
   left: -6em;
 `;
+
 export const ModalTitle = styled("h2")`
   width: 90%;
 `;
+
 export const Сlose = styled("button")`
   outline: none;
   border-radius: 50%;
   width: 32px;
   height: 32px;
 `;
+
 export const ContentBlock = styled("article")`
   display: flex;
   flex-direction: column;
@@ -102,11 +105,11 @@ export const ImgMobile = styled("img")`
   }
 `;
 
-export const Button = styled("button")<Props>`
+export const LinkButton = styled("a")<Props>`
+  text-align:center;
   background-color: ${(props) => props.theme.colors.buttonBgColor};
   border-radius: 2em;
   padding: 0.7em;
-  outline: none;
   font-weight: 700;
   border: 0;
   color: white;
@@ -116,11 +119,9 @@ export const Button = styled("button")<Props>`
   transition: all 0.3s ease-in;
   font-size: 18px;
   margin-top: 10px;
+  display: ${(props) => (props.mobile ? "none" : "")};
   &:hover {
     background: ${(props) => props.theme.colors.buttonBgColorActive};
-  }
-  @media (min-width: 769px) {
-    display: ${(props) => (props.mobile ? "none" : "")};
   }
   @media (max-width: 768px) {
     display:${(props) => (props.mobile ? "" : "none")};

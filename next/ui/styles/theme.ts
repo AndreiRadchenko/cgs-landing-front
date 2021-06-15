@@ -5,6 +5,6 @@ export default {
     buttonBgColor: "#1f5a7b",
     buttonBgColorActive: "#0C1033",
     mainBgColor: "#fff",
-    greyText: "#0C1033",
+    greyText: "rgba(12, 15, 50, 0.5)",
   },
 };

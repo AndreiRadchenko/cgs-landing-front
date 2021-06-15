@@ -1,15 +1,17 @@
 import React from "react";
 import * as Styled from "./BlogArticleFull.styles";
 import { IBlogArticle } from "../../../../types/components/index";
+import dayjs from "dayjs";
 
 const BlogArticleFull: React.FC<{ article: IBlogArticle }> = ({ article }) => (
   <Styled.ArticleWrapper>
-    {article.author && <p className="article__author">{article.author}</p>}
-    {article.date && <p className="article__date">{article.date.getDate()}</p>}
+    <p className="article__author">Author: {article.author}</p>
+    <p className="article__date">
+      {dayjs(article.createdAt).format("DD MMMM YYYY")}
+    </p>
     {article.imageFileUrl && (
       <img src={article.imageFileUrl} alt={article.title} />
     )}
-
     {article.content && (
       <Styled.Content>
         <div

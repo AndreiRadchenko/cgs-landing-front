@@ -2,13 +2,13 @@ import React from "react";
 import * as Styled from "./BlogArticle.styles";
 import { IBlogArticle } from "../../../types/components/index";
 import Link from "next/link";
-import clipString from "../../../helpers/clipString";
+import HTMLEllipsis from "react-lines-ellipsis/lib/html";
 
 const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
   return (
     <React.Fragment>
       <Link href={`/blog/[id]`} as={`/blog/${article.id}`} key={article.id}>
-        <div>
+        <a>
           <Styled.ImageContainer>
             {article.imageFileUrl && (
               <img src={article.imageFileUrl} alt={article.title} />
@@ -17,10 +17,11 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
           <div className="article__content">
             <Styled.Title>{article.title}</Styled.Title>
             {article.content && (
-              <Styled.Content
-                dangerouslySetInnerHTML={{
-                  __html: clipString(article.content)!,
-                }}
+              <HTMLEllipsis
+                unsafeHTML={article.content}
+                maxLine="2"
+                ellipsis="..."
+                basedOn="words"
               />
             )}
             <Styled.TagList>
@@ -31,7 +32,7 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
             </Styled.TagList>
           </div>
           <Styled.HorizantalSep />
-        </div>
+        </a>
       </Link>
     </React.Fragment>
   );

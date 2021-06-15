@@ -26,7 +26,6 @@ export const SlideContainer = styled.div`
     font-size: 30px;
     @media screen and (max-width: 1024px) {
       font-size: 25px;
-      justify-content: center;
       padding: 0;
     }
     @media screen and (max-width: 500px) {
@@ -289,6 +288,9 @@ export const SliderContent = styled("div")`
     flex-direction: row;
     margin: 20px 0;
     flex-wrap: wrap;
+    @media (max-width: 1025px) {
+      justify-content: center;
+    }
   }
   & .slider-technology__img {
     max-height: 50px;

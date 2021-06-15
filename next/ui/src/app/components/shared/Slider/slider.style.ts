@@ -25,6 +25,7 @@ const Arrow = styled.div`
 `;
 
 export const SliderPrev = styled(Arrow)<Props>`
+  z-index: 1000;
   left: ${(props) => (props.forWorks ? "0" : "5%")};
   top: ${(props) => `${props.top}% `};
   @media (min-width: 1025px) {
@@ -40,6 +41,7 @@ export const SliderPrev = styled(Arrow)<Props>`
 `;
 
 export const SliderNext = styled(Arrow)<Props>`
+  z-index: 1000;
   right: ${(props) => (props.forWorks ? "0" : "5%")};
   top: ${(props) => `${props.top}% `};
   @media (min-width: 1025px) {
