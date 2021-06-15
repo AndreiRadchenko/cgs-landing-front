@@ -44,6 +44,7 @@ const FactsForm: React.FC<{
             type="text"
             value={title}
             onChange={({ target: { value } }) => setTitle(value)}
+            placeholder="Write title here"
           />
         </Styled.Label>
         <Styled.Label>
@@ -51,6 +52,7 @@ const FactsForm: React.FC<{
           <Styled.AdminTextArea
             value={text}
             onChange={({ target: { value } }) => setText(value)}
+            placeholder="Write some text here"
           />
         </Styled.Label>
         <Styled.CheckboxContainer>
