@@ -20,7 +20,7 @@ const TextEditor = ({ content, setArticleContent, setIsEditorOpen }) => {
   };
   return (
     <>
-      <Styled.Title>Edit article</Styled.Title>
+      <Styled.Title>Content of articles</Styled.Title>
       <Styled.Wrapper>
         <span>Title</span>
         <div>
