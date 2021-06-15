@@ -195,7 +195,7 @@ const AdminPage: React.FC = () => {
           )}
 
           {categoryOpen === "facts" && facts && !isModal && (
-            <SectionLayout title="Fact" setIsModal={setIsModal}>
+            <SectionLayout title="Facts" setIsModal={setIsModal}>
               {facts.map((fact) => (
                 <Fact
                   fact={fact}

@@ -29,6 +29,8 @@ export const ContentWrapper = styled("div")`
 `;
 
 export const Menu = styled("div")`
+  position: sticky;
+  top: 10px;
   padding: 20px 61px;
   background-color: #0c1033;
   border-radius: 55px;
