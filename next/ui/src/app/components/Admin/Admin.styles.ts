@@ -16,11 +16,11 @@ export const ContentWrapper = styled("div")`
   flex-grow: 1;
   max-width: 1140px;
   width: 100%;
-  margin: 0 auto 80px;
+  margin: 0 auto 1px;
   padding: 0 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 1fr 1fr;
+  grid-template-rows: 200px 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "Header Header Header Header"
