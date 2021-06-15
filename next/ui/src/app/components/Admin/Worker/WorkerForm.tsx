@@ -15,7 +15,7 @@ const WorkerForm: React.FC<{
   const [position, setPosition] = useState(worker?.position || "");
   const [text, setText] = useState(worker?.text || "");
   const [showOnPage, setshowOnPage] = useState(worker?.showOnHomePage || false);
-  const [iconFileId, setIconFileId] = useState(worker?.imageFile.id || "");
+  const [iconFileId, setIconFileId] = useState(worker?.imageFile?.id || "");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -37,7 +37,7 @@ const WorkerForm: React.FC<{
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
-        {worker ? <h2>Edit worker </h2> : <h2>Create a worker</h2>}
+        {worker ? <h2>Edit worker </h2> : <h2>Create new worker</h2>}
         <Styled.Label>
           <span> Worker name</span>
           <Styled.AdminTextInput
@@ -45,6 +45,7 @@ const WorkerForm: React.FC<{
             type="text"
             value={name}
             onChange={({ target: { value } }) => setName(value)}
+            placeholder="Write name/surname here"
           />
         </Styled.Label>
         <Styled.Label>
@@ -54,6 +55,7 @@ const WorkerForm: React.FC<{
             type="text"
             value={position}
             onChange={({ target: { value } }) => setPosition(value)}
+            placeholder="Write worker’s position here"
           />
         </Styled.Label>
         <Styled.Label>
@@ -62,6 +64,7 @@ const WorkerForm: React.FC<{
             className="form__text"
             value={text}
             onChange={({ target: { value } }) => setText(value)}
+            placeholder="Write some text here"
           />
         </Styled.Label>
         <Styled.PicturesWrapper>
