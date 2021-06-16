@@ -5,6 +5,7 @@ export const HorizantalSep = styled("div")`
   height: 2px;
   background: #0c1033;
   border-radius: 5px;
+  margin-bottom: 33px;
 `;
 
 export const Wrapper = styled("article")`
@@ -21,6 +22,7 @@ export const Wrapper = styled("article")`
     font-size: 18px;
     font-weight: 300;
     padding: 0 3em;
+    line-height: 32px;
     @media screen and (max-width: 768px) {
       font-size: 14px;
       margin-bottom: 1em;
@@ -32,7 +34,7 @@ export const Title = styled("h2")`
   font-size: 36px;
   text-align: center;
   font-weight: 700;
-  margin-bottom: 0.6em;
+  margin-bottom: 40px;
   @media screen and (max-width: 768px) {
     font-size: 24px;
   }
