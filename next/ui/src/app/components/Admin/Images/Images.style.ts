@@ -66,7 +66,7 @@ export const SliderContainer = styled.div`
     }
   }
   & .slider-picture {
-    height:500px;
+    height:100%;
     object-fit: contain;
     @media screen and (max-width: 1025px) { 
         height:400px;

@@ -51,9 +51,9 @@ export const SliderContainer = styled.div`
     height: 100%;
     & .slick-list,
     & .slick-list .slick-track {
-      display:flex;
+      display:flex;      
       width: 100%;
-      height: 100%;
+      min-height: 100%;
       & > div > div {
         width: 100%;
         height: 100%;
@@ -82,7 +82,7 @@ export const SliderContainer = styled.div`
     }
   }
   & .slider-picture {
-    height:500px;
+    height:100%;
     object-fit: contain;
     @media screen and (max-width: 1025px) { 
         height:400px;
