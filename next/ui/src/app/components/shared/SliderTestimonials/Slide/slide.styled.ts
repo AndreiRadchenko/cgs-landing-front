@@ -226,7 +226,7 @@ export const SliderHeaderTitle = styled("p")`
 export const SliderHeaderSubtitle = styled("p")`
   font-size: 18px;
   font-weight: 400;
-  margin-bottom: 12px;
+  margin-bottom: 21px;
   margin-top: 5px;
   @media screen and (max-width: 1024px) {
     display: none;
@@ -239,12 +239,17 @@ export const SliderHeaderSubtitle = styled("p")`
 export const SliderHeader = styled("div")`
   display: flex;
   align-items: center;
+  text-align: center;
   & .slider-header__country {
     font-size: 18px;
     font-weight: 400;
     @media screen and (max-width: 380px) {
       font-size: 14px;
     }
+  }
+  @media screen and (max-width: 1024px) {
+    justify-content: center;
+    margin-bottom: 15px;
   }
 `;
 
@@ -270,6 +275,7 @@ export const SliderDescription = styled("p")`
     opacity: 0.5;
     font-size: 14px;
     font-weight: 300;
+    line-height: 32px;
   }
 `;
 
@@ -277,7 +283,7 @@ export const SliderContent = styled("div")`
   width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0 10px;
   @media screen and (max-width: 1024px) {
     width: 100%;
@@ -286,7 +292,7 @@ export const SliderContent = styled("div")`
   & .slider-technologies {
     display: flex;
     flex-direction: row;
-    margin: 20px 0;
+    margin: 20px 0 30px 0;
     flex-wrap: wrap;
     @media (max-width: 1025px) {
       justify-content: center;
@@ -302,8 +308,8 @@ export const SliderContent = styled("div")`
   }
   & .slider-technologies__button {
     @media (max-width: 420px) {
-      width: 120px;
-      font-size: 14px;
+      width: 140px;
+      font-size: 16px;
     }
     background-color: ${(props) => props.theme.colors.buttonBgColor};
     border-radius: 2em;
@@ -336,3 +342,11 @@ export const SliderPicture = styled("img")`
     width: 100%;
   }
 `;
+
+export const ReferenceWrapper = styled.div`
+  @media screen and (max-width: 1024px) {
+    text-align: center;
+  }
+`;
+
+export const ContentWrapper = styled.div``;
