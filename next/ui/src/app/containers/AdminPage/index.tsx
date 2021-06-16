@@ -54,6 +54,17 @@ const AdminPage: React.FC = () => {
   const [categoryOpen, setCategoryOpen] = useState<string | any>(null);
   const [editItem, seteditItem] = useState<any>(null);
 
+  const apiParams = [
+    { facts: setFacts },
+    { slogan: setSlogan },
+    { worker: setWorkers },
+    { project: setProjects },
+    { testimonial: setTestimonials },
+    { technology: setTechnologies },
+    { featuredTechnology: setFeaturedTechnologies },
+    { article: setArticles },
+  ];
+
   useEffect(() => {
     const tokenfromLocalStorage = localStorage.getItem("token");
     const token = tokenfromLocalStorage
@@ -80,63 +91,24 @@ const AdminPage: React.FC = () => {
     loadData(categoryOpen);
   }, [isModal]);
 
-  const loadData = async (data = "all") => {
-    switch (data) {
-      case "facts":
-        const facts = await getAdminData("facts");
-        setFacts(facts);
-        break;
-      case "slogan":
-        const slogan = await getAdminData("slogan");
-        setSlogan(slogan);
-        break;
-      case "worker":
-        const workers = await getAdminData("worker");
-        setWorkers(workers);
-        break;
-      case "project":
-        const projects = await getAdminData("project");
-        setProjects(projects);
-        break;
-      case "testimonial":
-        const testimonials = await getAdminData("testimonial");
-        setTestimonials(testimonials);
-        break;
-      case "technology":
-        const technologies = await getAdminData("technology");
-        setTechnologies(technologies);
-        break;
-      case "featuredTechnology":
-        const featuredTechnologies = await getAdminData("featuredTechnology");
-        setFeaturedTechnologies(featuredTechnologies);
-        break;
-      case "article":
-        const articles = await getAdminData("article");
-        setArticles(articles);
-        break;
-      default:
+  const loadData = (data = "all") => {
+    apiParams.forEach(async (e) => {
+      const [name, set] = Object.entries(e).flat();
+      if (name === data) {
+        const result = await getAdminData(data);
+        result && set(result);
+      } else {
         getAllData();
-        break;
-    }
+      }
+    });
   };
 
-  const getAllData = async () => {
-    const facts = await getAdminData("facts");
-    setFacts(facts);
-    const slogan = await getAdminData("slogan");
-    setSlogan(slogan);
-    const workers = await getAdminData("worker");
-    setWorkers(workers);
-    const projects = await getAdminData("project");
-    setProjects(projects);
-    const testimonials = await getAdminData("testimonial");
-    setTestimonials(testimonials);
-    const technologies = await getAdminData("technology");
-    setTechnologies(technologies);
-    const featuredTechnologies = await getAdminData("featuredTechnology");
-    setFeaturedTechnologies(featuredTechnologies);
-    const articles = await getAdminData("article");
-    setArticles(articles);
+  const getAllData = () => {
+    apiParams.forEach(async (e) => {
+      const [name, set] = Object.entries(e).flat();
+      const data = await getAdminData(name);
+      data && set(data);
+    });
   };
 
   const deleteItem = (route: string, id: string) => {
