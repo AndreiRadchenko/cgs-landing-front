@@ -12,7 +12,7 @@ export const Button = styled("a")<Props>`
   font-weight: 700;
   border: 0;
   color: white;
-  min-width: ${(props) => (props.small ? "144px" : "177px")};
+  min-width: ${(props) => (props.small ? "120px" : "177px")};
   width: fit-content;
   cursor: pointer;
   transition: all 0.3s ease-in;
