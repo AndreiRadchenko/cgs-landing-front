@@ -12,10 +12,11 @@ const SliderFeatured: React.FC<{
   featuredTechnologies: IFeaturedTechnology[];
 }> = ({ featuredTechnologies }) => {
   let settings = {
-    slidesToShow: 3,
+    infinite: false,
+    slidesToShow: featuredTechnologies.length,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow top={10} />,
-    prevArrow: <SamplePrevArrow top={10} />,
+    nextArrow: <SampleNextArrow top={20} />,
+    prevArrow: <SamplePrevArrow top={20} />,
     afterChange: (current) =>
       onChangeSlideEA({ sliderName: "Partfolio", slide: current }),
     responsive: [
@@ -23,6 +24,8 @@ const SliderFeatured: React.FC<{
         breakpoint: 1024,
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
         },
       },
     ],
