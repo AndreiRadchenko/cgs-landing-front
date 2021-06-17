@@ -88,7 +88,7 @@ export const SliderContainer = styled.div`
 `;
 
 export const FeaturedContainer = styled("div")`
-  max-width: 660px;
+  max-width: 800px;
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -107,6 +107,7 @@ export const FeaturedContainer = styled("div")`
     align-items: center;
     text-align: left;
     flex-direction: column-reverse;
+    padding: 0 35px;
   }
 `;
 
@@ -117,7 +118,7 @@ export const TextContainer = styled.div`
   }
   & .featured__description {
     margin: 0;
-    line-height: 2.29;
+    line-height: 1.67;
     opacity: 0.5;
   }
   @media screen and (min-width: 1024px) {

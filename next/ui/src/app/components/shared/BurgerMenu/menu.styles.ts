@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle<{ activeMenu: boolean }>`
 export const BurgerMenu = styled("div")`
   width: calc(100% - 110px);
   position: relative;
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1024px) {
     width: auto;
     & > div.drop-down.show-sub-menu {
       width: 100vw;

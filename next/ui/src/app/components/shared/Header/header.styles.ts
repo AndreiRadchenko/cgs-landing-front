@@ -12,9 +12,9 @@ export const HeaderWrapper = styled.header<Props>`
   justify-content: space-between;
   align-items: center;
   background: white;
-  padding: 1em 10px;
-  /* margin-bottom: 3em; */
+  padding: 1em 55px;
   flex: 1;
+
   @media screen and (max-width: 1023px) {
     padding: 1em 2em;
   }

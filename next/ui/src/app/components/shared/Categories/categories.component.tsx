@@ -8,13 +8,11 @@ const Categories: React.FC<ICategories> = ({ navigation }) => (
   <Styled.NavContainer>
     {navigation &&
       navigation.map((item) => (
-        <div key={uuidv4()} className="small-margin">
-          <NavLink href={item.link}>
-            <a>
-              <div>{item.title}</div>
-            </a>
-          </NavLink>
-        </div>
+        <NavLink href={item.link} key={uuidv4()}>
+          <a>
+            <div>{item.title}</div>
+          </a>
+        </NavLink>
       ))}
   </Styled.NavContainer>
 );
