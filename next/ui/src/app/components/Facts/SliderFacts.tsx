@@ -11,7 +11,8 @@ import { SampleNextArrow, SamplePrevArrow } from "../shared/Slider/arrows";
 
 const SliderFacts: React.FC<{ facts: IFact[] }> = ({ facts }) => {
   let settings = {
-    slidesToShow: 6,
+    slidesToShow: facts.length,
+    infinite: false,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow top={20} />,
     prevArrow: <SamplePrevArrow top={20} />,
@@ -19,9 +20,10 @@ const SliderFacts: React.FC<{ facts: IFact[] }> = ({ facts }) => {
       onChangeSlideEA({ sliderName: "AboutUs", slide: current }),
     responsive: [
       {
-        breakpoint: 1023,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 1,
+          infinite: true,
         },
       },
     ],
