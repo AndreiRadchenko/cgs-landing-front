@@ -35,7 +35,7 @@ const ProjectForm: React.FC<{
     project?.technologies?.map((tech) => tech.id) || []
   );
 
-  const CountryNameKey = Object.keys(CountryCodes);
+  const countryKeys = Object.keys(CountryCodes);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -106,7 +106,7 @@ const ProjectForm: React.FC<{
             onChange={countryCode.onChange}
             placeholder="Write country code here"
           >
-            {CountryNameKey.map((codeValue) => {
+            {countryKeys.map((codeValue) => {
               return (
                 <option
                   selected={codeValue === countryCode.value}

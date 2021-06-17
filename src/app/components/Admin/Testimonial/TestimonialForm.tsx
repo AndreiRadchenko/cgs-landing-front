@@ -72,7 +72,7 @@ const TestimonialForm: React.FC<{
       : createAdminData("testimonial", newtestimonial).then(() => close());
   };
 
-  const CountryNameKey = Object.keys(CountryCodes);
+  const countryKeys = Object.keys(CountryCodes);
 
   return (
     <Styled.Wrapper>
@@ -109,7 +109,7 @@ const TestimonialForm: React.FC<{
             {...countryCode}
             onChange={countryCode.onChange}
           >
-            {CountryNameKey.map((codeValue) => {
+            {countryKeys.map((codeValue) => {
               return (
                 <option
                   selected={codeValue === countryCode.value}

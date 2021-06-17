@@ -40,14 +40,20 @@ textarea {
   header,
   footer,
   .main-wraper {
-    padding: 1em 2em !important;
+    padding: 1em 1em !important;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .main-wraper {
+    padding: 1em 0 !important;
   }
 }
 
 @media screen and (max-width: 600px) {
   header,
   footer,
-  .main-wraper {
+   {
     padding: 1em 1em !important;
   }
 }

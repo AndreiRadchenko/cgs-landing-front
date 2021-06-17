@@ -1,7 +1,5 @@
 import AdminPage from "../src/app/containers/AdminPage";
 
-const Admin = () => {
-  return <AdminPage></AdminPage>;
-};
+const Admin = () => <AdminPage />;
 
 export default Admin;
