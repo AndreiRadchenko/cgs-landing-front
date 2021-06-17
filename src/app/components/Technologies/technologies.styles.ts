@@ -36,7 +36,7 @@ export const SliderNext = styled(Arrow)`
 export const SliderContainer = styled.div`
   width: 100%;
   @media (min-width: 1025px) {
-    padding: 0 70px;
+    padding: 0 30px;
   }
 
   width: 100%;
@@ -65,7 +65,7 @@ export const SliderContainer = styled.div`
     }
 
     & .slick-slide:nth-child(1) {
-      margin-left: 15%;
+      margin-left: 5%;
     }
   }
   @media screen and (min-width: 1024px) and (max-width: 1060px) {
@@ -193,7 +193,27 @@ export const DescContainer = styled("div")`
       font-size: 32px;
     }
   }
+
   @media screen and (min-width: 1024px) {
+    .slick-slide:nth-child(1) & {
+      margin-left: 0px;
+    }
+    .slick-slide:nth-child(2) & {
+      margin-left: 15px;
+    }
+    .slick-slide:nth-child(3) & {
+      margin-right: 5px;
+    }
+    .slick-slide:nth-child(4) & {
+      margin-right: 5px;
+    }
+
+    & > ul li {
+      white-space: nowrap;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
     .slick-slide:nth-child(1) & {
       margin-left: 105px;
     }
@@ -205,6 +225,10 @@ export const DescContainer = styled("div")`
     }
     .slick-slide:nth-child(4) & {
       margin-right: 60px;
+    }
+
+    & > ul li {
+      white-space: nowrap;
     }
   }
 
@@ -234,6 +258,10 @@ export const HorizontalSep = styled("div")`
   }
 `;
 
-export const TechnoImage = styled("img")`
-  padding-top: 30px;
+export const TechnoImage = styled("img")<Record<any, any>>`
+  padding-top: ${(props) => (props.index > 1 ? "140px" : "30px")};
+
+  @media screen and (max-width: 1024px) {
+    padding-top: 30px;
+  }
 `;

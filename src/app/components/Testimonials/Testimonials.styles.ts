@@ -113,14 +113,22 @@ export const TestimonialContainer = styled("div")`
     margin: 4px 0 5px;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+
+  & .infoWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   & h2 {
     margin: 0;
-    margin-right: 12px;
     font-size: 22px;
-    @media screen and (min-width: 1025px) {
-      white-space: nowrap;
-    }
+    max-width: 100%;
+    word-wrap: break-word;
+    white-space: normal;
+
     @media screen and (max-width: 415px) {
       width: min-content;
       font-size: 14px;
@@ -152,7 +160,7 @@ export const TestimonialContainer = styled("div")`
   }
 
   & .testimonials__country {
-    margin: 0 0 0 8px;
+    margin: 0 0 5px 0px;
     font-size: 14px;
   }
 

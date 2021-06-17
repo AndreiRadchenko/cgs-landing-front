@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Item = styled("div")`
+  cursor: pointer;
   min-width: max-content;
   background-color: #1f5a7b;
-  padding: 10px;
   min-height: 50px;
   min-width: 120px;
   border-radius: 40px;
@@ -13,6 +13,14 @@ export const Item = styled("div")`
   font-size: 24px;
   font-weight: 700;
   color: #fff;
+  & a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const ActiveItem = styled("div")`

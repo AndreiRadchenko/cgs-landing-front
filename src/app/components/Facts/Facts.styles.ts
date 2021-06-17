@@ -102,6 +102,9 @@ export const FactContainer = styled("div")`
     margin: 4px 0 5px;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 1023px) {
+      align-self: center;
+    }
   }
   & h2 {
     margin: 0;
@@ -112,7 +115,7 @@ export const FactContainer = styled("div")`
   & .fact__text {
     margin: 0;
     font-size: 18px;
-    line-height: 1.22;
+    line-height: 1.67;
   }
 
   & .fact__title {
@@ -123,11 +126,12 @@ export const FactContainer = styled("div")`
     color: #fff;
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1024px) {
     align-items: center;
-    text-align: center;
+    text-align: start;
     & .fact__text {
       opacity: 0.5;
+      padding: 0 30px;
     }
   }
 `;

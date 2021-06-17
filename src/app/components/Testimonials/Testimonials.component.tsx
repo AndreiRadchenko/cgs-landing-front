@@ -20,6 +20,8 @@ const Testimonials = ({ testimonial }) => {
     <Styled.TestimonialContainer key={uuidv4()}>
       <div className="titleWrapper">
         <h2>{testimonial.customerName}</h2>
+      </div>
+      <div className="infoWrapper">
         {country && (
           <Styled.TestimonialFlag>
             <ReactCountryFlag

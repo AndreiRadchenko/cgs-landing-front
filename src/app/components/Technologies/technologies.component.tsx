@@ -22,6 +22,7 @@ const Technology = ({ technology, index }) => {
             <Styled.TechnoImage
               src={TECHNOLOGIES[index].image}
               alt={technology.type}
+              index={index}
             />
           </div>
         </Styled.TechnoContainer>
