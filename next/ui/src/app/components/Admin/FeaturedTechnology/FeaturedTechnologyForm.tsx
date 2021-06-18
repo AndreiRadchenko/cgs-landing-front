@@ -78,6 +78,7 @@ const FeaturedTechologyForm: React.FC<{
         <Styled.ButtonWrapper>
           <Styled.Button
             type="submit"
+            empty={true}
             disabled={!(name && text && imageFileId)}
           >
             {featuredTechnology ? "Save" : "Create"}
