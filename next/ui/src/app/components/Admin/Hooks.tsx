@@ -28,7 +28,7 @@ const usePagination = (givenData, perPage) => {
   if (givenData) {
     paginatedDataMarkUp = givenData.slice(
       (curentPage - 1) * postsPerPage,
-      curentPage * postsPerPage - 1
+      curentPage * postsPerPage
     );
   }
 
