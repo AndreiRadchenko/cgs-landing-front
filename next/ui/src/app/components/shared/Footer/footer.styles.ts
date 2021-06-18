@@ -53,6 +53,13 @@ export const DropBoxFooter = styled("div")`
   align-items: center;
   @media screen and (max-width: 1023px) {
     flex-direction: column;
+    & p:nth-of-type(1) {
+      margin-top: 7px;
+    }
+
+    & p:nth-of-type(2) {
+      margin-bottom: 7px;
+    }
   }
 `;
 

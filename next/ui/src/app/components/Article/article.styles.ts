@@ -26,6 +26,7 @@ export const Wrapper = styled("article")`
     @media screen and (max-width: 768px) {
       font-size: 14px;
       margin-bottom: 1em;
+      padding: 0 10vw;
     }
   }
 `;
@@ -35,8 +36,13 @@ export const Title = styled("h2")`
   text-align: center;
   font-weight: 700;
   margin-bottom: 40px;
+  padding: 0 15vw;
+  @media screen and (max-width: 1024px) {
+    padding: 0 110px;
+  }
   @media screen and (max-width: 768px) {
     font-size: 24px;
+    padding: 0 95px;
   }
 `;
 

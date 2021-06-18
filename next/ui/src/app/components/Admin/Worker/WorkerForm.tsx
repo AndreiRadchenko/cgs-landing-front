@@ -87,7 +87,11 @@ const WorkerForm: React.FC<{
         </Styled.CheckboxContainer>
 
         <Styled.ButtonWrapper>
-          <Styled.Button type="submit" disabled={!(name && text && iconFileId)}>
+          <Styled.Button
+            type="submit"
+            empty={true}
+            disabled={!(name && text && iconFileId)}
+          >
             {worker ? "Save" : "Create"}
           </Styled.Button>
           <Styled.Button type="button" onClick={() => close()}>

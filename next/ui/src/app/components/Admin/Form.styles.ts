@@ -190,6 +190,7 @@ export const ButtonWrapper = styled("div")`
   display: flex;
   justify-content: center;
   gap: 115px;
+  margin-bottom: 15px;
 `;
 
 export const Button = styled("button")<Props>`

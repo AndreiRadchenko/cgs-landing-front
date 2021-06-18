@@ -103,7 +103,7 @@ export const FeaturedContainer = styled("div")`
     }
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1024px) {
     align-items: center;
     text-align: left;
     flex-direction: column-reverse;
@@ -156,7 +156,7 @@ export const ImageContainer = styled.div`
     bottom: 19px;
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1024px) {
     width: 144px;
     height: 155px;
     margin-bottom: 31.5px;

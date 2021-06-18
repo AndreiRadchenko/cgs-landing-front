@@ -20,7 +20,7 @@ export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
     numberOfPages,
     paginationArray,
     setCurrentPage,
-  ]: any = usePagination(articles, 5);
+  ]: any = usePagination(articles, 4);
 
   const mapToProps = {
     paginatedDataMarkUp,

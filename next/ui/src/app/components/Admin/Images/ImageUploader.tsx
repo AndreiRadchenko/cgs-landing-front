@@ -22,19 +22,26 @@ const ImageUploader: React.FC<{ setIsUploaded: Function }> = ({
   return (
     <Styled.Wrapper>
       {!file && (
-        <input
-          className="fileInput"
-          type="file"
-          onChange={(e) => handleImageChange(e)}
-        />
+        <Styled.InputWrapper>
+          <input
+            className="fileInput"
+            id="input__file"
+            type="file"
+            onChange={(e) => handleImageChange(e)}
+          />
+          <label htmlFor="input__file">Choose the file</label>
+        </Styled.InputWrapper>
       )}
-      <Button
-        className="submitButton"
-        type="button"
-        onClick={(e) => handleSubmit(e)}
-      >
-        Upload new
-      </Button>
+      <Styled.ButtonWrapper>
+        <Button
+          big={false}
+          className="submitButton"
+          type="button"
+          onClick={(e) => handleSubmit(e)}
+        >
+          Upload new
+        </Button>
+      </Styled.ButtonWrapper>
     </Styled.Wrapper>
   );
 };

@@ -15,6 +15,7 @@ export const List = styled("ul")`
 
 export const DeleteButton = styled("button")`
   height: 25px;
+  width: 25px;
   border: 2px solid #1f5a7b;
   border-radius: 50%;
   background-color: transparent;

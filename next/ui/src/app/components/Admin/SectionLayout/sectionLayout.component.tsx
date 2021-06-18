@@ -12,7 +12,7 @@ const SectionLayout = ({ title, children, setIsModal }) => {
         type="button"
         onClick={() => setIsModal(true)}
       >
-        Create new entry
+        Create new
       </Button>
       {children}
     </Styled.Wrapper>

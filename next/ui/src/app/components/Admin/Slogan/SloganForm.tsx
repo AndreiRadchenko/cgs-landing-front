@@ -61,11 +61,7 @@ const SloganForm: React.FC<{
           </Styled.CheckboxLabel>
         </Styled.CheckboxContainer>
         <Styled.ButtonWrapper>
-          <Styled.Button
-            type="submit"
-            empty={!slogan}
-            disabled={!(title && text)}
-          >
+          <Styled.Button type="submit" empty={true} disabled={!(title && text)}>
             {slogan ? "Save" : "Create"}
           </Styled.Button>
           <Styled.Button type="button" onClick={() => close()}>
