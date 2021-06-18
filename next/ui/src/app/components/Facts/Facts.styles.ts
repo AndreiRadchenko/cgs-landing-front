@@ -116,6 +116,7 @@ export const FactContainer = styled("div")`
     margin: 0;
     font-size: 18px;
     line-height: 1.67;
+    text-align: justify;
   }
 
   & .fact__title {

@@ -13,6 +13,9 @@ export const PaginationList = styled("ul")`
   padding: 0;
   width: 50%;
   margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const PageLink = styled("li")<Props>`

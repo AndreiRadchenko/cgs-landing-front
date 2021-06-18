@@ -36,7 +36,7 @@ export const SliderPrev = styled(Arrow)<Props>`
   }
   @media (max-width: 420px) {
     top: ${(props) => (props.forWorks ? "15%" : "")};
-    left: ${(props) => (props.forWorks ? "-5%" : "0")};
+    left: ${(props) => (props.forWorks ? "-5%" : "5")};
   }
 `;
 
@@ -52,7 +52,7 @@ export const SliderNext = styled(Arrow)<Props>`
   }
   @media (max-width: 420px) {
     top: ${(props) => (props.forWorks ? "15%" : "")};
-    right: ${(props) => (props.forWorks ? "-5%" : "0")};
+    right: ${(props) => (props.forWorks ? "-5%" : "5%")};
   }
 `;
 
