@@ -84,6 +84,7 @@ const ArticleForm: React.FC<{
           </Styled.PicturesWrapper>
           <Styled.ButtonWrapper>
             <Styled.Button
+              empty={true}
               type="submit"
               disabled={!(title && author && content && imageFileId)}
             >

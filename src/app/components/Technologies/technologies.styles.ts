@@ -258,7 +258,11 @@ export const HorizontalSep = styled("div")`
   }
 `;
 
-export const TechnoImage = styled("img")<Record<any, any>>`
+interface TechnoImageParams {
+  index: number;
+}
+
+export const TechnoImage = styled("img")<TechnoImageParams>`
   padding-top: ${(props) => (props.index > 1 ? "140px" : "30px")};
 
   @media screen and (max-width: 1024px) {

@@ -49,7 +49,7 @@ export const SimilarArticle = styled("li")`
   & img {
     width: 100%;
     height: 166px;
-    object-fit: cover;
+    object-fit: contain;
     display: inline-block;
     margin-bottom: 2em;
     @media (max-width: 1025px) {

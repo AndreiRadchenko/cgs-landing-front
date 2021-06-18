@@ -77,6 +77,7 @@ const FactsForm: React.FC<{
 
         <Styled.ButtonWrapper>
           <Styled.Button
+            empty={true}
             type="submit"
             disabled={!(title && text && iconFileId)}
           >

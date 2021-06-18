@@ -172,7 +172,7 @@ const TestimonialForm: React.FC<{
         </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button
-            empty={!testimonial}
+            empty={true}
             type="submit"
             disabled={
               !(

@@ -93,7 +93,7 @@ const TechnologyForm: React.FC<{
         <Styled.ButtonWrapper>
           <Styled.Button
             type="submit"
-            empty
+            empty={true}
             disabled={!(name && category && iconFileId)}
           >
             {technology ? "Save" : "Create"}

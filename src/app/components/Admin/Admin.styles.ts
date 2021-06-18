@@ -31,13 +31,18 @@ export const ContentWrapper = styled("div")`
 export const Menu = styled("div")`
   position: sticky;
   top: 10px;
-  padding: 20px 61px;
+  padding: 20px 50px;
   background-color: #0c1033;
   border-radius: 55px;
   font-size: 1.5em;
   font-weight: 700;
   text-align: center;
   color: #fff;
+  margin-bottom: 15px;
+
+  @media screen and (max-width: 500px) {
+    padding: 20px 25px;
+  }
   & h3 {
     margin: 0 0 10px;
     font-family: Mulish;
@@ -123,4 +128,11 @@ export const HeaderItem = styled("div")`
 export const Sidebar = styled("div")`
   grid-area: Menu;
   margin-right: 95px;
+  @media screen and (max-width: 768px) {
+    margin-right: 35px;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin-right: 10px;
+  }
 `;

@@ -103,6 +103,15 @@ export const AboutUsContainer = styled("div")`
     font-family: Mulish;
     font-weight: 300;
     text-align: center;
+    @media screen and (max-width: 1025px) {
+      font-size: 18px;
+    }
+  }
+
+  & > p:nth-of-type(2) {
+    @media screen and (max-width: 1025px) {
+      opacity: 0.5;
+    }
   }
   & > .about-us__text {
     color: #0c1033;

@@ -4,6 +4,10 @@ export const Wrapper = styled("div")`
   max-width: 1067px;
   padding: 0 10px;
   width: 100%;
+  @media screen and (max-width: 1200px) {
+    width: 100%;
+    padding: 0 55px;
+  }
   @media screen and (max-width: 1024px) {
     width: 100%;
     padding: 0 24px;
@@ -69,7 +73,7 @@ export const ArticleWrapper = styled("div")`
     }
 
     @media screen and (max-width: 1024px) {
-      width: 65%;
+      width: 60%;
       margin: 0 auto;
     }
     @media screen and (max-width: 765px) {
@@ -147,11 +151,15 @@ export const FeaturedArticle = styled("div")`
     @media screen and (max-width: 1024px) {
       text-align: center;
       margin-bottom: 13px;
+      padding: 0 8vw;
     }
   }
 
   & p {
     margin-bottom: 1.72em;
+    @media screen and (max-width: 1024px) {
+      padding: 0 8vw;
+    }
   }
 `;
 

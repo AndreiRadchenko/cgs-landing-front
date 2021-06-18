@@ -172,6 +172,7 @@ const ProjectForm: React.FC<{
         <Styled.ButtonWrapper>
           <Styled.Button
             type="submit"
+            empty={true}
             disabled={
               !(
                 name &&
@@ -183,7 +184,7 @@ const ProjectForm: React.FC<{
               )
             }
           >
-            Save Changes
+            {project ? "Save" : "Create"}
           </Styled.Button>
           <Styled.Button type="button" onClick={() => close()}>
             Cancel
