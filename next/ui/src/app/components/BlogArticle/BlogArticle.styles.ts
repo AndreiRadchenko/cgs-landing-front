@@ -11,6 +11,10 @@ export const Wrapper = styled("div")`
   @media screen and (max-width: 1024px) {
     width: 100%;
     padding: 0 24px;
+
+    & div:nth-of-type(4) a div:nth-of-type(3) {
+      display: none;
+    }
   }
 `;
 export const ArticleWrapper = styled("div")`
@@ -46,12 +50,15 @@ export const ArticleWrapper = styled("div")`
     object-fit: cover;
     @media screen and (max-width: 1024px) {
       margin: 0 auto;
-      width: 60%;
+      width: 90%;
       height: auto;
       margin-bottom: 13px;
+      max-width: 720px;
     }
+
     @media screen and (max-width: 768px) {
       width: 90%;
+      max-width: 720px;
     }
     @media screen and (max-width: 400px) {
       width: 100%;
@@ -230,19 +237,18 @@ export const TagList = styled("ul")`
   }
 `;
 
-export const HorizantalSep = styled("div")`
+export const HorizontalSep = styled("div")`
   pointer-events: none;
   @media screen and (min-width: 1024px) {
     display: none;
   }
   width: 55px;
-  height: 2px;
+  height: 3px;
   background: #0c1033;
   border-radius: 5px;
   margin: 27px auto 0;
 
   div:last-child > a > & {
-    display: none;
   }
 `;
 
