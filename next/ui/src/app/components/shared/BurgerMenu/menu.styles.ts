@@ -8,14 +8,19 @@ export const GlobalStyle = createGlobalStyle<{ activeMenu: boolean }>`
 `;
 
 export const BurgerMenu = styled("div")`
-  width: calc(100% - 110px);
+  @media screen and (min-width: 1024px) {
+    width: calc(100% - 110px);
+  }
+
   position: relative;
-  @media screen and (max-width: 1024px) {
-    width: auto;
+  @media screen and (max-width: 1023px) {
+    width: 100%;
     & > div.drop-down.show-sub-menu {
       width: 100vw;
       height: calc(100vh - 102px);
+      text-align: right;
     }
+    width: auto;
   }
 `;
 
