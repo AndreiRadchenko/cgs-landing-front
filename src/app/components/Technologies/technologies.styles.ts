@@ -121,7 +121,9 @@ export const TechnoContainer = styled("div")`
   display: flex;
   width: 100%;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
+    display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
 
@@ -134,7 +136,7 @@ export const TechnoContainer = styled("div")`
       flex-direction: row;
     }
     & div:last-child {
-      height: 200px;
+      height: auto;
     }
     & div:last-child img {
       width: 100%;
@@ -232,7 +234,7 @@ export const DescContainer = styled("div")`
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     align-items: center;
     & > ul {
       padding: 0 15px;
@@ -263,9 +265,10 @@ interface TechnoImageParams {
 }
 
 export const TechnoImage = styled("img")<TechnoImageParams>`
-  padding-top: ${(props) => (props.index > 1 ? "140px" : "30px")};
-
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 1024px) {
+    padding-top: ${(props) => (props.index > 1 ? "140px" : "30px")};
+  }
+  @media screen and (max-width: 1023.5px) {
     padding-top: 30px;
   }
 `;
