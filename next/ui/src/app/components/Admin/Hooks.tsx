@@ -13,10 +13,9 @@ export const useInput = (initialValue) => {
 };
 
 const usePagination = (givenData, perPage) => {
-  const [curentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(perPage);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const numberOfPages = Math.ceil(givenData.length / postsPerPage);
+  const numberOfPages = Math.ceil(givenData.length / perPage);
   let paginationArray = Array(numberOfPages).fill("");
 
   let paginatedDataMarkUp;
@@ -27,8 +26,8 @@ const usePagination = (givenData, perPage) => {
 
   if (givenData) {
     paginatedDataMarkUp = givenData.slice(
-      (curentPage - 1) * postsPerPage,
-      curentPage * postsPerPage
+      (currentPage - 1) * perPage,
+      currentPage * perPage
     );
   }
 
@@ -42,7 +41,7 @@ const usePagination = (givenData, perPage) => {
 
   return [
     paginatedDataMarkUp,
-    curentPage,
+    currentPage,
     handleDecrease,
     handleIncrease,
     numberOfPages,
