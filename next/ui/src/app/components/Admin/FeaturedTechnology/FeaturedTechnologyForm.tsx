@@ -5,7 +5,7 @@ import Images from "../Images/Images";
 import { IFeaturedTechnology } from "../types";
 import * as Styled from "../Form.styles";
 
-const FeaturedTechologyForm: React.FC<{
+const FeaturedTechnologyForm: React.FC<{
   featuredTechnology?: IFeaturedTechnology | undefined;
   close: Function;
 }> = ({ featuredTechnology, close }) => {
@@ -92,4 +92,4 @@ const FeaturedTechologyForm: React.FC<{
   );
 };
 
-export default FeaturedTechologyForm;
+export default FeaturedTechnologyForm;

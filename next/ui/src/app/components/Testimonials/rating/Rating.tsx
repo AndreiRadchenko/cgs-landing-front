@@ -1,6 +1,7 @@
 import Button from "../../shared/LinkButton/Button";
 import React from "react";
 import * as Styled from "./StyledRating";
+import { v4 as uuidv4 } from "uuid";
 
 const Rating = ({ testimonial }) => {
   const upwork = testimonial.platforms.find((el) => el.type === "upwork");
@@ -10,9 +11,13 @@ const Rating = ({ testimonial }) => {
   const starsClutch = [
     ...arr.map((_, index) => {
       if (parseInt(clutch?.rate) > index) {
-        return <img src="/star1.svg" width="17" height="16" alt="" />;
+        return (
+          <img key={uuidv4()} src="/star1.svg" width="17" height="16" alt="" />
+        );
       } else {
-        return <img src="/star2.svg" width="17" height="16" alt="" />;
+        return (
+          <img key={uuidv4()} src="/star2.svg" width="17" height="16" alt="" />
+        );
       }
     }),
   ];
@@ -20,9 +25,13 @@ const Rating = ({ testimonial }) => {
   const starsUpwork = [
     ...arr.map((_, index) => {
       if (parseInt(upwork?.rate) > index) {
-        return <img src="/star1.svg" width="17" height="16" alt="" />;
+        return (
+          <img key={uuidv4()} src="/star1.svg" width="17" height="16" alt="" />
+        );
       } else {
-        return <img src="/star2.svg" width="17" height="16" alt="" />;
+        return (
+          <img key={uuidv4()} src="/star2.svg" width="17" height="16" alt="" />
+        );
       }
     }),
   ];

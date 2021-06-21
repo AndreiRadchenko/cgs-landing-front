@@ -31,7 +31,7 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
                 ))}
             </Styled.TagList>
           </div>
-          <Styled.HorizantalSep />
+          <Styled.HorizontalSep />
         </a>
       </Link>
     </React.Fragment>

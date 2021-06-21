@@ -5,7 +5,7 @@ import { TECHNOLOGIES } from "../../../consts/Technologies";
 
 const Technology = ({ technology, index }) => {
   return (
-    <React.Fragment>
+    <>
       {
         <Styled.TechnoContainer key={uuidv4()} className={index}>
           <Styled.DescContainer>
@@ -27,7 +27,7 @@ const Technology = ({ technology, index }) => {
           </div>
         </Styled.TechnoContainer>
       }
-    </React.Fragment>
+    </>
   );
 };
 

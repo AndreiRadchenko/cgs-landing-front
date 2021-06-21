@@ -159,7 +159,7 @@ export const SlideContainer = styled.div`
   }
 `;
 
-export const HorizantalSep = styled("div")`
+export const HorizontalSep = styled("div")`
   width: 55px;
   height: 2px;
   background: #fff;
