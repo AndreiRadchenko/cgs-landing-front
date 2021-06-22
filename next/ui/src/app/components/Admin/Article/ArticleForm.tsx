@@ -16,7 +16,7 @@ const ArticleForm: React.FC<{
   const [content, setContent] = useState(article?.content || "");
   const [tags, setTags] = useState(article?.tags || []);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
-  const [imageFileId, setimageFileId] = useState(article?.imageFile.id || "");
+  const [imageFileId, setImageFileId] = useState(article?.imageFile?.id || "");
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -36,7 +36,7 @@ const ArticleForm: React.FC<{
   }
 
   const getImageId = (id) => {
-    setimageFileId(id);
+    setImageFileId(id);
   };
 
   return (

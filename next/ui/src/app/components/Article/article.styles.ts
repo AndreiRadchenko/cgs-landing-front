@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
-export const HorizantalSep = styled("div")`
+export const HorizontalSep = styled("div")`
   width: 55px !important;
   height: 2px;
   background: #0c1033;
   border-radius: 5px;
   margin-bottom: 33px;
+  @media screen and (max-width: 1023.5px) {
+    display: none;
+  }
 `;
 
 export const Wrapper = styled("article")`
@@ -23,7 +26,8 @@ export const Wrapper = styled("article")`
     font-weight: 300;
     padding: 0 3em;
     line-height: 32px;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1023.5px) {
+      display: none;
       font-size: 14px;
       margin-bottom: 1em;
       padding: 0 10vw;

@@ -31,6 +31,7 @@ export const Wrapper = styled("div")`
 
 export const SimilarArticle = styled("li")`
   width: calc((100% - 120px) / 2);
+  cursor: pointer;
   & .LinesEllipsis {
     font-size: 18px;
     font-weight: 400;
