@@ -5,14 +5,14 @@ import Images from "../Images/Images";
 import { IFeaturedTechnology } from "../types";
 import * as Styled from "../Form.styles";
 
-const FeaturedTechologyForm: React.FC<{
+const FeaturedTechnologyForm: React.FC<{
   featuredTechnology?: IFeaturedTechnology | undefined;
   close: Function;
 }> = ({ featuredTechnology, close }) => {
   const [name, setName] = useState(featuredTechnology?.name || "");
   const [text, setCategory] = useState(featuredTechnology?.text || "");
   const [imageFileId, setImageFileId] = useState(
-    featuredTechnology?.imageFile.id || ""
+    featuredTechnology?.imageFile?.id || ""
   );
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -92,4 +92,4 @@ const FeaturedTechologyForm: React.FC<{
   );
 };
 
-export default FeaturedTechologyForm;
+export default FeaturedTechnologyForm;

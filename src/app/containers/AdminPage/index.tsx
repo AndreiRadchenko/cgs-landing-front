@@ -27,9 +27,9 @@ import ProjectForm from "../../components/Admin/Project/ProjectForm";
 import Technology from "../../components/Admin/Technology/Technology";
 import TechnologyForm from "../../components/Admin/Technology/TechnologyForm";
 import Testimonial from "app/components/Admin/Testimonial/Testimonial";
-import FeaturedTechology from "app/components/Admin/FeaturedTechnology/FeaturedTechnology";
+import FeaturedTechnology from "app/components/Admin/FeaturedTechnology/FeaturedTechnology";
 import Article from "../../components/Admin/Article/Article";
-import FeaturedTechologyForm from "app/components/Admin/FeaturedTechnology/FeaturedTechnologyForm";
+import FeaturedTechnologyForm from "app/components/Admin/FeaturedTechnology/FeaturedTechnologyForm";
 import TestimonialForm from "app/components/Admin/Testimonial/TestimonialForm";
 import ArticleForm from "app/components/Admin/Article/ArticleForm";
 import ImagesPage from "app/components/Admin/ImagesPage/ImagesPage";
@@ -37,6 +37,7 @@ import IMAGES from "consts/Images";
 import Footer from "app/components/shared/Footer/footer.component";
 import SectionLayout from "app/components/Admin/SectionLayout/sectionLayout.component";
 import { AdminNav } from "../../../consts/lists";
+import { v4 as uuidv4 } from "uuid";
 
 const AdminPage: React.FC = () => {
   const [token, setToken] = useState("");
@@ -52,7 +53,7 @@ const AdminPage: React.FC = () => {
   const [articles, setArticles] = useState<IArticle[]>([]);
   const [isModal, setIsModal] = useState(false);
   const [categoryOpen, setCategoryOpen] = useState<string | any>(null);
-  const [editItem, seteditItem] = useState<any>(null);
+  const [editItem, setEditItem] = useState<any>(null);
 
   const apiParams = [
     { facts: setFacts },
@@ -66,9 +67,9 @@ const AdminPage: React.FC = () => {
   ];
 
   useEffect(() => {
-    const tokenfromLocalStorage = localStorage.getItem("token");
-    const token = tokenfromLocalStorage
-      ? JSON.parse(tokenfromLocalStorage)
+    const tokenFromLocalStorage = localStorage.getItem("token");
+    const token = tokenFromLocalStorage
+      ? JSON.parse(tokenFromLocalStorage)
       : null;
     if (token) {
       setToken(token);
@@ -123,12 +124,12 @@ const AdminPage: React.FC = () => {
 
   const openModal = (id: string): void => {
     setIsModal(true);
-    seteditItem(id);
+    setEditItem(id);
   };
 
   const closeModal = () => {
     setIsModal(false);
-    seteditItem(null);
+    setEditItem(null);
   };
 
   return (
@@ -150,6 +151,7 @@ const AdminPage: React.FC = () => {
             <Styled.MenuList>
               {AdminNav.map(({ id, name }) => (
                 <Styled.MenuListItem
+                  key={uuidv4()}
                   id={id}
                   onClick={(event) => {
                     handleOpenMenu(event);
@@ -173,6 +175,7 @@ const AdminPage: React.FC = () => {
             <SectionLayout title="Facts" setIsModal={setIsModal}>
               {facts.map((fact) => (
                 <Fact
+                  key={uuidv4()}
                   fact={fact}
                   openModal={openModal}
                   deleteItem={deleteItem}
@@ -189,6 +192,7 @@ const AdminPage: React.FC = () => {
             <SectionLayout title="Slogan" setIsModal={setIsModal}>
               {slogan.map((slogan) => (
                 <Slogan
+                  key={uuidv4()}
                   slogan={slogan}
                   openModal={openModal}
                   deleteItem={deleteItem}
@@ -205,6 +209,7 @@ const AdminPage: React.FC = () => {
             <SectionLayout title="Workers" setIsModal={setIsModal}>
               {workers.map((worker) => (
                 <Worker
+                  key={uuidv4()}
                   openModal={openModal}
                   worker={worker}
                   deleteItem={deleteItem}
@@ -225,6 +230,7 @@ const AdminPage: React.FC = () => {
             <SectionLayout title="Projects" setIsModal={setIsModal}>
               {projects.map((project) => (
                 <Projects
+                  key={uuidv4()}
                   openModal={openModal}
                   project={project}
                   deleteItem={deleteItem}
@@ -241,6 +247,7 @@ const AdminPage: React.FC = () => {
             <SectionLayout title="Testimonials" setIsModal={setIsModal}>
               {testimonials.map((testimonial) => (
                 <Testimonial
+                  key={uuidv4()}
                   openModal={openModal}
                   testimonial={testimonial}
                   deleteItem={deleteItem}
@@ -257,6 +264,7 @@ const AdminPage: React.FC = () => {
             <SectionLayout title="Technologies" setIsModal={setIsModal}>
               {technologies.map((technology) => (
                 <Technology
+                  key={uuidv4()}
                   openModal={openModal}
                   technology={technology}
                   deleteItem={deleteItem}
@@ -273,6 +281,7 @@ const AdminPage: React.FC = () => {
             <SectionLayout title="Article" setIsModal={setIsModal}>
               {articles.map((article) => (
                 <Article
+                  key={uuidv4()}
                   openModal={openModal}
                   article={article}
                   deleteItem={deleteItem}
@@ -282,7 +291,7 @@ const AdminPage: React.FC = () => {
           )}
 
           {isModal && categoryOpen === "featuredTechnology" && (
-            <FeaturedTechologyForm
+            <FeaturedTechnologyForm
               featuredTechnology={editItem}
               close={closeModal}
             />
@@ -296,11 +305,12 @@ const AdminPage: React.FC = () => {
                 setIsModal={setIsModal}
               >
                 {featuredTechnologies.map((featuredTechnology) => (
-                  <FeaturedTechology
+                  <FeaturedTechnology
+                    key={uuidv4()}
                     openModal={openModal}
                     featuredTechnology={featuredTechnology}
                     deleteItem={deleteItem}
-                  ></FeaturedTechology>
+                  ></FeaturedTechnology>
                 ))}
               </SectionLayout>
             )}

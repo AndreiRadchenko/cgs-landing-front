@@ -2,7 +2,7 @@ import { IFeaturedTechnology } from "../types";
 import ItemButtons from "../ItemButtons/ItemButtons";
 import * as Styled from "../Item.styles";
 
-const FeaturedTechology: React.FC<{
+const FeaturedTechnology: React.FC<{
   featuredTechnology: IFeaturedTechnology;
   openModal: Function;
   deleteItem: Function;
@@ -35,4 +35,4 @@ const FeaturedTechology: React.FC<{
   </Styled.Wrapper>
 );
 
-export default FeaturedTechology;
+export default FeaturedTechnology;

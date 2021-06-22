@@ -2,7 +2,7 @@ import React from "react";
 import * as Styled from "./pagination.styles";
 
 const Pagination = ({
-  curentPage,
+  currentPage,
   handleDecrease,
   paginationArray,
   setCurrentPage,
@@ -11,7 +11,7 @@ const Pagination = ({
 }) => (
   <nav className="pagination">
     <Styled.PaginationList>
-      {curentPage > 1 && (
+      {currentPage > 1 && (
         <Styled.PageLink onClick={handleDecrease}>
           <a>Prev</a>
         </Styled.PageLink>
@@ -21,13 +21,13 @@ const Pagination = ({
           <Styled.PageLink
             key={i}
             onClick={() => setCurrentPage(i + 1)}
-            active={curentPage === i + 1}
+            active={currentPage === i + 1}
           >
             <a>{i + 1}</a>
           </Styled.PageLink>
         );
       })}
-      {curentPage < numberOfPages && (
+      {currentPage < numberOfPages && (
         <Styled.PageLink onClick={handleIncrease}>
           <a>Next</a>
         </Styled.PageLink>

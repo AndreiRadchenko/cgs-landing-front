@@ -3,12 +3,12 @@ import Header from "../shared/Header/header.component";
 import { SocialList, Nav } from "../../../../src/consts/lists";
 import Head from "next/head";
 
-interface LayaoutProps {
+interface LayoutProps {
   children: any;
   title?: string;
 }
 
-const MainLayout: React.FC<LayaoutProps> = ({ children, title }) => {
+const MainLayout: React.FC<LayoutProps> = ({ children, title }) => {
   return (
     <>
       <Head>

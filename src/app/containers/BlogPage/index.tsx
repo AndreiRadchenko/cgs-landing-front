@@ -6,6 +6,7 @@ import React from "react";
 import { IBlogArticle } from "types/components";
 import { scrollEA } from "../../../services/event";
 import * as Styled from "../../components/BlogArticle/BlogArticle.styles";
+import { v4 as uuidv4 } from "uuid";
 
 export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
   React.useEffect(() => {
@@ -14,7 +15,7 @@ export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
 
   const [
     paginatedDataMarkUp,
-    curentPage,
+    currentPage,
     handleDecrease,
     handleIncrease,
     numberOfPages,
@@ -24,7 +25,7 @@ export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
 
   const mapToProps = {
     paginatedDataMarkUp,
-    curentPage,
+    currentPage,
     handleDecrease,
     handleIncrease,
     numberOfPages,
@@ -43,13 +44,13 @@ export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
             paginatedDataMarkUp.map((article, index) => {
               if (index === 0) {
                 return (
-                  <Styled.FeaturedArticle>
+                  <Styled.FeaturedArticle key={uuidv4()}>
                     <BlogArticle article={article} />
                   </Styled.FeaturedArticle>
                 );
               } else {
                 return (
-                  <Styled.ArticleWrapper>
+                  <Styled.ArticleWrapper key={uuidv4()}>
                     <BlogArticle article={article} />
                   </Styled.ArticleWrapper>
                 );

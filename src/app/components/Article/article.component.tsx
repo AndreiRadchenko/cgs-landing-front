@@ -5,7 +5,7 @@ import { IArticle } from "../../../types/components/index";
 const Article: React.FC<IArticle> = (props) => (
   <Styled.Wrapper id={props.id}>
     <Styled.Title>{props.title}</Styled.Title>
-    <Styled.HorizantalSep />
+    <Styled.HorizontalSep />
     {props.desc && <Styled.SubTitle>{props.desc}</Styled.SubTitle>}
     {props.children}
   </Styled.Wrapper>
