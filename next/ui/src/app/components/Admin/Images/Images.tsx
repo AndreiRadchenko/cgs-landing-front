@@ -55,7 +55,7 @@ const Images: React.FC<{
       <Styled.ImagesWrapper>
         <Styled.SliderContainer>
           <Slider {...settings}>
-            {images.map((image) => (
+            {images?.map((image) => (
               <CheckboxLabel>
                 <input
                   type="radio"
@@ -65,7 +65,7 @@ const Images: React.FC<{
                 />
                 <img className="slide-image" src={image?.s3FileUrl}></img>
                 <CustomCheckbox sliderLabel selected={imageID === image?.id}>
-                  <img src={slides.Check} alt={slides?.Check} />
+                  <img src={slides?.Check} alt={slides?.Check} />
                 </CustomCheckbox>
               </CheckboxLabel>
             ))}

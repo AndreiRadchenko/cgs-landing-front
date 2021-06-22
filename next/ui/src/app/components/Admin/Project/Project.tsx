@@ -53,10 +53,10 @@ const Projects: React.FC<{
         </Styled.List>
       </Styled.Item>
       <ItemButtons
-        deleteItem={() => deleteItem("project", project.id)}
+        deleteItem={() => deleteItem("project", project?.id)}
         openModal={openModal}
         item={project}
-      ></ItemButtons>
+      />
     </Styled.Wrapper>
   );
 };

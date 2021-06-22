@@ -33,7 +33,6 @@ const FactsForm: React.FC<{
   const getImageId = (id) => {
     setIconFileId(id);
   };
-
   const closeWindow = () => close();
 
   return (

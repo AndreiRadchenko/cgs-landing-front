@@ -7,27 +7,29 @@ import HTMLEllipsis from "react-lines-ellipsis/lib/html";
 const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
   return (
     <React.Fragment>
-      <Link href={`/blog/[id]`} as={`/blog/${article.id}`} key={article.id}>
+      <Link href={`/blog/[id]`} as={`/blog/${article?.id}`} key={article?.id}>
         <a>
           <Styled.ImageContainer>
-            {article.imageFileUrl && (
-              <img src={article.imageFileUrl} alt={article.title} />
+            {article?.imageFileUrl && (
+              <img src={article?.imageFileUrl} alt={article?.title} />
             )}
           </Styled.ImageContainer>
           <div className="article__content">
-            <Styled.Title>{article.title}</Styled.Title>
-            {article.content && (
+            <Styled.Title>{article?.title}</Styled.Title>
+            {article?.content && (
               <HTMLEllipsis
-                unsafeHTML={article.content}
+                unsafeHTML={article?.content}
                 maxLine="2"
                 ellipsis="..."
                 basedOn="words"
               />
             )}
             <Styled.TagList>
-              {article.tags &&
-                article.tags.map((tag) => (
-                  <Styled.ArticleTag key={tag.id}>{tag.name}</Styled.ArticleTag>
+              {article?.tags &&
+                article?.tags?.map((tag) => (
+                  <Styled.ArticleTag key={tag?.id}>
+                    {tag?.name}
+                  </Styled.ArticleTag>
                 ))}
             </Styled.TagList>
           </div>

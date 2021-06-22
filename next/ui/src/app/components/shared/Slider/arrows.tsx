@@ -7,8 +7,8 @@ export const SamplePrevArrow = (props) => {
 
   return (
     <Styled.SliderPrev
-      forWorks={props.forWorks}
-      top={props.top}
+      forWorks={props?.forWorks}
+      top={props?.top}
       className={className}
       onClick={onClick}
     >
@@ -21,8 +21,8 @@ export const SampleNextArrow = (props) => {
   const { className, onClick, img } = props;
   return (
     <Styled.SliderNext
-      top={props.top}
-      forWorks={props.forWorks}
+      top={props?.top}
+      forWorks={props?.forWorks}
       className={className}
       onClick={onClick}
     >

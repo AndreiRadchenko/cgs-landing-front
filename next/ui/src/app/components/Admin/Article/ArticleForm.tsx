@@ -18,6 +18,9 @@ const ArticleForm: React.FC<{
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [imageFileId, setImageFileId] = useState(article?.imageFile?.id || "");
 
+  const closeWindow = () => close();
+  const editContent = () => setIsEditorOpen(true);
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const newArticle = {
@@ -29,16 +32,13 @@ const ArticleForm: React.FC<{
     };
 
     article
-      ? updateAdminData("article", article.id, newArticle).then(() => close())
-      : createAdminData("article", newArticle).then(() => close());
+      ? updateAdminData("article", article.id, newArticle).then(closeWindow)
+      : createAdminData("article", newArticle).then(closeWindow);
   }
 
   const getImageId = (id) => {
     setImageFileId(id);
   };
-
-  const closeWindow = () => close();
-  const editContent = () => setIsEditorOpen(true);
 
   return (
     <Styled.Wrapper>

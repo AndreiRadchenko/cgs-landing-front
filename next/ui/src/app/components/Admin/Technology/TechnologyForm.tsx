@@ -74,7 +74,7 @@ const TechnologyForm: React.FC<{
             }}
             className="form__title"
           >
-            {keys.map((key) => {
+            {keys?.map((key) => {
               return (
                 <option
                   selected={technology?.category === options[key]}

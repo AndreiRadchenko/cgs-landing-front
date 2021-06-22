@@ -7,10 +7,10 @@ import * as Styled from "./header.styles";
 const Categories: React.FC<ICategories> = ({ navigation }) => (
   <Styled.NavContainer>
     {navigation &&
-      navigation.map((item) => (
-        <NavLink href={item.link} key={uuidv4()}>
+      navigation?.map((item) => (
+        <NavLink href={item?.link} key={uuidv4()}>
           <a>
-            <div>{item.title}</div>
+            <div>{item?.title}</div>
           </a>
         </NavLink>
       ))}
