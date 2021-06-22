@@ -11,7 +11,6 @@ export const Wrapper = styled("div")`
   @media screen and (max-width: 1024px) {
     width: 100%;
     padding: 0 24px;
-
     & div:nth-of-type(4) a div:nth-of-type(3) {
       display: none;
     }
@@ -41,8 +40,7 @@ export const ArticleWrapper = styled("div")`
       flex-direction: column;
     }
   }
-  .article__image {
-  }
+
   & img {
     display: block;
     width: 338px;
@@ -62,7 +60,6 @@ export const ArticleWrapper = styled("div")`
     }
     @media screen and (max-width: 400px) {
       width: 100%;
-      height: 166px;
     }
   }
   & .article__content {

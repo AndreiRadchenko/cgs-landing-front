@@ -1,8 +1,5 @@
 import styled from "styled-components";
-
-interface Props {
-  active?: boolean;
-}
+import { PropsAdminWrapper } from "types/components/index";
 
 export const Wrapper = styled("div")`
   display: flex;
@@ -60,7 +57,7 @@ export const MenuList = styled("div")`
   list-style: none;
 `;
 
-export const MenuListItem = styled("li")<Props>`
+export const MenuListItem = styled("li")<PropsAdminWrapper>`
   padding: 10px 0;
   cursor: pointer;
   &:hover {

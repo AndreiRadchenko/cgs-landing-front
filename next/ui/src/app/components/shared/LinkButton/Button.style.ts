@@ -1,10 +1,7 @@
 import styled from "styled-components";
+import { PropsButton } from "types/components/index";
 
-interface Props {
-  small?: boolean;
-}
-
-export const Button = styled("a")<Props>`
+export const Button = styled("a")<PropsButton>`
   background-color: ${(props) => props.theme.colors.buttonBgColor};
   border-radius: 2em;
   padding: 0.7em;

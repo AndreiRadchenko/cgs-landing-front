@@ -48,16 +48,16 @@ const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
     }
 
     if (!event.target.checked) {
-      setTagIds(tagIds.filter((tech) => tech !== id));
+      setTagIds(tagIds?.filter((tech) => tech !== id));
     }
   };
 
   return (
     <>
       <Styled.BlogTextWrapper>
-        {tags.map((tag) => (
+        {tags?.map((tag) => (
           <Styled.CheckboxContainer>
-            <div>{tag.name}</div>
+            <div>{tag?.name}</div>
             <Styled.CheckboxLabel>
               <input
                 type="checkbox"
@@ -66,14 +66,14 @@ const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
                 onChange={(event) => handleTagChange(event, tag.id)}
               />
               <Styled.CustomCheckbox
-                selected={tagIds.some((el) => el === tag.id)}
+                selected={tagIds?.some((el) => el === tag.id)}
               >
                 <img src={slides.Check} alt="checkbox" />
               </Styled.CustomCheckbox>
             </Styled.CheckboxLabel>
             <Styled.DeleteTagButton
               type="button"
-              onClick={() => deleteTag(tag.id)}
+              onClick={() => deleteTag(tag?.id)}
             >
               <img src={slides.deleteIcon} alt="delete tag button" />
             </Styled.DeleteTagButton>

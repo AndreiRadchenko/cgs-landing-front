@@ -12,17 +12,17 @@ const FeaturedTechnology: React.FC<{
       <Styled.List>
         <Styled.ListItem>
           <span>Name: </span>
-          <span>{featuredTechnology.name}</span>
+          <span>{featuredTechnology?.name}</span>
         </Styled.ListItem>
         <Styled.ListItem>
           <span>Text: </span>
-          <span>{featuredTechnology.text}</span>
+          <span>{featuredTechnology?.text}</span>
         </Styled.ListItem>
         <Styled.ListItem>
           <span>Picture:</span>
           <Styled.Image
-            src={featuredTechnology.imageFile.s3FileUrl}
-            alt={featuredTechnology.imageFile.s3FileUrl}
+            src={featuredTechnology?.imageFile?.s3FileUrl}
+            alt={featuredTechnology?.imageFile?.s3FileUrl}
           />
         </Styled.ListItem>
       </Styled.List>
@@ -30,8 +30,10 @@ const FeaturedTechnology: React.FC<{
     <ItemButtons
       openModal={openModal}
       item={featuredTechnology}
-      deleteItem={() => deleteItem("featuredTechnology", featuredTechnology.id)}
-    ></ItemButtons>
+      deleteItem={() =>
+        deleteItem("featuredTechnology", featuredTechnology?.id)
+      }
+    />
   </Styled.Wrapper>
 );
 

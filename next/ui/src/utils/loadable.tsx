@@ -1,8 +1,6 @@
 import React, { lazy, Suspense } from "react";
+import { Opts } from "../types/components/index";
 
-interface Opts {
-  fallback: React.ReactNode;
-}
 type Unpromisify<T> = T extends Promise<infer P> ? P : never;
 
 export const lazyLoad = <

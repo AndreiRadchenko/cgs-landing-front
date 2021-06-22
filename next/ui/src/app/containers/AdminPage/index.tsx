@@ -40,7 +40,7 @@ import { AdminNav } from "../../../consts/lists";
 import { v4 as uuidv4 } from "uuid";
 
 const AdminPage: React.FC = () => {
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState<string | any>("");
   const [slogan, setSlogan] = useState<ISlogan[]>([]);
   const [projects, setProjects] = useState<IProject[]>([]);
   const [workers, setWorkers] = useState<IWorker[]>([]);
@@ -51,7 +51,7 @@ const AdminPage: React.FC = () => {
     IFeaturedTechnology[]
   >([]);
   const [articles, setArticles] = useState<IArticle[]>([]);
-  const [isModal, setIsModal] = useState(false);
+  const [isModal, setIsModal] = useState<boolean>(false);
   const [categoryOpen, setCategoryOpen] = useState<string | any>(null);
   const [editItem, setEditItem] = useState<any>(null);
 
@@ -65,6 +65,127 @@ const AdminPage: React.FC = () => {
     { featuredTechnology: setFeaturedTechnologies },
     { article: setArticles },
   ];
+
+  const openModal = (id: string): void => {
+    setIsModal(true);
+    setEditItem(id);
+  };
+
+  const deleteItem = (route: string, id: string) => {
+    deleteAdminData(route, id).then(() => loadData(route));
+  };
+
+  const handleOpenMenu = (event) => {
+    setIsModal(false);
+    const id = event.target.id;
+    setCategoryOpen(id);
+  };
+
+  const closeModal = () => {
+    setIsModal(false);
+    setEditItem(null);
+  };
+
+  const renderMenuItems = (id, name) => {
+    return (
+      <Styled.MenuListItem
+        key={uuidv4()}
+        id={id}
+        onClick={(event) => {
+          handleOpenMenu(event);
+          closeModal();
+        }}
+        active={categoryOpen === id}
+      >
+        {name}
+      </Styled.MenuListItem>
+    );
+  };
+
+  const renderFactItem = (fact) => {
+    return (
+      <Fact
+        key={uuidv4()}
+        fact={fact}
+        openModal={openModal}
+        deleteItem={deleteItem}
+      />
+    );
+  };
+
+  const renderSloganItem = (slogan) => {
+    return (
+      <Slogan
+        key={uuidv4()}
+        slogan={slogan}
+        openModal={openModal}
+        deleteItem={deleteItem}
+      />
+    );
+  };
+
+  const renderWorkerItem = (worker) => {
+    return (
+      <Worker
+        key={uuidv4()}
+        openModal={openModal}
+        worker={worker}
+        deleteItem={deleteItem}
+      />
+    );
+  };
+  const renderProjectItem = (project) => {
+    return (
+      <Projects
+        key={uuidv4()}
+        openModal={openModal}
+        project={project}
+        deleteItem={deleteItem}
+      />
+    );
+  };
+
+  const renderTestimonialItem = (testimonial) => {
+    return (
+      <Testimonial
+        key={uuidv4()}
+        openModal={openModal}
+        testimonial={testimonial}
+        deleteItem={deleteItem}
+      />
+    );
+  };
+  const renderTechnologyItem = (technology) => {
+    return (
+      <Technology
+        key={uuidv4()}
+        openModal={openModal}
+        technology={technology}
+        deleteItem={deleteItem}
+      />
+    );
+  };
+  const renderArticleItem = (article) => {
+    return (
+      <Article
+        key={uuidv4()}
+        openModal={openModal}
+        article={article}
+        deleteItem={deleteItem}
+      />
+    );
+  };
+
+  const renderFeaturedItem = (featuredTechnology) => {
+    return (
+      <FeaturedTechnology
+        key={uuidv4()}
+        openModal={openModal}
+        featuredTechnology={featuredTechnology}
+        deleteItem={deleteItem}
+      />
+    );
+  };
 
   useEffect(() => {
     const tokenFromLocalStorage = localStorage.getItem("token");
@@ -112,26 +233,6 @@ const AdminPage: React.FC = () => {
     });
   };
 
-  const deleteItem = (route: string, id: string) => {
-    deleteAdminData(route, id).then(() => loadData(route));
-  };
-
-  const handleOpenMenu = (event) => {
-    setIsModal(false);
-    const id = event.target.id;
-    setCategoryOpen(id);
-  };
-
-  const openModal = (id: string): void => {
-    setIsModal(true);
-    setEditItem(id);
-  };
-
-  const closeModal = () => {
-    setIsModal(false);
-    setEditItem(null);
-  };
-
   return (
     <Styled.Wrapper>
       <Styled.ContentWrapper>
@@ -142,26 +243,14 @@ const AdminPage: React.FC = () => {
             </a>
           </Styled.HeaderItem>
           <Styled.HeaderItem>
-            <h2> Admin Page</h2>
+            <h2>Admin Page</h2>
           </Styled.HeaderItem>
         </Styled.HeaderWrapper>
         <Styled.Sidebar>
           <Styled.Menu>
             <h3>Items</h3>
             <Styled.MenuList>
-              {AdminNav.map(({ id, name }) => (
-                <Styled.MenuListItem
-                  key={uuidv4()}
-                  id={id}
-                  onClick={(event) => {
-                    handleOpenMenu(event);
-                    closeModal();
-                  }}
-                  active={categoryOpen === id}
-                >
-                  {name}
-                </Styled.MenuListItem>
-              ))}
+              {AdminNav.map(({ id, name }) => renderMenuItems(id, name))}
             </Styled.MenuList>
           </Styled.Menu>
         </Styled.Sidebar>
@@ -173,14 +262,7 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "facts" && facts && !isModal && (
             <SectionLayout title="Facts" setIsModal={setIsModal}>
-              {facts.map((fact) => (
-                <Fact
-                  key={uuidv4()}
-                  fact={fact}
-                  openModal={openModal}
-                  deleteItem={deleteItem}
-                ></Fact>
-              ))}
+              {facts.map((fact) => renderFactItem(fact))}
             </SectionLayout>
           )}
 
@@ -190,14 +272,7 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "slogan" && slogan && !isModal && (
             <SectionLayout title="Slogan" setIsModal={setIsModal}>
-              {slogan.map((slogan) => (
-                <Slogan
-                  key={uuidv4()}
-                  slogan={slogan}
-                  openModal={openModal}
-                  deleteItem={deleteItem}
-                ></Slogan>
-              ))}
+              {slogan.map((slogan) => renderSloganItem(slogan))}
             </SectionLayout>
           )}
 
@@ -207,14 +282,7 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "worker" && workers && !isModal && (
             <SectionLayout title="Workers" setIsModal={setIsModal}>
-              {workers.map((worker) => (
-                <Worker
-                  key={uuidv4()}
-                  openModal={openModal}
-                  worker={worker}
-                  deleteItem={deleteItem}
-                ></Worker>
-              ))}
+              {workers.map((worker) => renderWorkerItem(worker))}
             </SectionLayout>
           )}
 
@@ -228,14 +296,7 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "project" && projects && !isModal && (
             <SectionLayout title="Projects" setIsModal={setIsModal}>
-              {projects.map((project) => (
-                <Projects
-                  key={uuidv4()}
-                  openModal={openModal}
-                  project={project}
-                  deleteItem={deleteItem}
-                ></Projects>
-              ))}
+              {projects.map((project) => renderProjectItem(project))}
             </SectionLayout>
           )}
 
@@ -245,14 +306,9 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "testimonial" && testimonials && !isModal && (
             <SectionLayout title="Testimonials" setIsModal={setIsModal}>
-              {testimonials.map((testimonial) => (
-                <Testimonial
-                  key={uuidv4()}
-                  openModal={openModal}
-                  testimonial={testimonial}
-                  deleteItem={deleteItem}
-                ></Testimonial>
-              ))}
+              {testimonials.map((testimonial) =>
+                renderTestimonialItem(testimonial)
+              )}
             </SectionLayout>
           )}
 
@@ -262,14 +318,9 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "technology" && technologies && !isModal && (
             <SectionLayout title="Technologies" setIsModal={setIsModal}>
-              {technologies.map((technology) => (
-                <Technology
-                  key={uuidv4()}
-                  openModal={openModal}
-                  technology={technology}
-                  deleteItem={deleteItem}
-                ></Technology>
-              ))}
+              {technologies.map((technology) =>
+                renderTechnologyItem(technology)
+              )}
             </SectionLayout>
           )}
 
@@ -279,14 +330,7 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "article" && articles && !isModal && (
             <SectionLayout title="Article" setIsModal={setIsModal}>
-              {articles.map((article) => (
-                <Article
-                  key={uuidv4()}
-                  openModal={openModal}
-                  article={article}
-                  deleteItem={deleteItem}
-                ></Article>
-              ))}
+              {articles.map((article) => renderArticleItem(article))}
             </SectionLayout>
           )}
 
@@ -304,18 +348,13 @@ const AdminPage: React.FC = () => {
                 title="Featured Techologies"
                 setIsModal={setIsModal}
               >
-                {featuredTechnologies.map((featuredTechnology) => (
-                  <FeaturedTechnology
-                    key={uuidv4()}
-                    openModal={openModal}
-                    featuredTechnology={featuredTechnology}
-                    deleteItem={deleteItem}
-                  ></FeaturedTechnology>
-                ))}
+                {featuredTechnologies.map((featuredTechnology) =>
+                  renderFeaturedItem(featuredTechnology)
+                )}
               </SectionLayout>
             )}
 
-          {categoryOpen === "images" && <ImagesPage></ImagesPage>}
+          {categoryOpen === "images" && <ImagesPage />}
         </Styled.InfoWrapper>
       </Styled.ContentWrapper>
       <Footer />

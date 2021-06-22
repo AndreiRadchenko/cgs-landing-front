@@ -2,10 +2,7 @@ import Link from "next/link";
 import { IBlogArticle } from "../../../../types/components";
 import * as Styled from "./SimilarArticles.styles";
 import HTMLEllipsis from "react-lines-ellipsis/lib/html";
-
-export interface SimilarArticlesProps {
-  similarArticles: IBlogArticle[];
-}
+import { SimilarArticlesProps } from "../../../../types/components/index";
 
 const SimilarArticles: React.FC<SimilarArticlesProps> = ({
   similarArticles,

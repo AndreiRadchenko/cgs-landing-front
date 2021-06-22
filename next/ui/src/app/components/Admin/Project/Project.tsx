@@ -13,41 +13,41 @@ const Projects: React.FC<{
         <Styled.List>
           <Styled.ListItem>
             <span>Name: </span>
-            <span>{project.name}</span>
+            <span>{project?.name}</span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Full Description:</span>
-            <span>{project.fullDescription}</span>
+            <span>{project?.fullDescription}</span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Short Description:</span>
-            <span>{project.shortDescription}</span>
+            <span>{project?.shortDescription}</span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Country Code:</span>
-            <span>{project.countryCode}</span>
+            <span>{project?.countryCode}</span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Link:</span>
-            <span>{project.link}</span>
+            <span>{project?.link}</span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Technologies:</span>
             <ul>
-              {project.technologies.map((tech) => (
-                <li>{tech.name}</li>
+              {project?.technologies?.map((tech) => (
+                <li>{tech?.name}</li>
               ))}
             </ul>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Show on HomePage:</span>
-            {project.showOnHomePage ? "true" : "false"}
+            {project?.showOnHomePage ? "true" : "false"}
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Picture:</span>
             <Styled.Image
-              src={project.imageFile.s3FileUrl}
-              alt={project.imageFile.s3FileUrl}
+              src={project?.imageFile?.s3FileUrl}
+              alt={project?.imageFile?.s3FileUrl}
             />
           </Styled.ListItem>
         </Styled.List>

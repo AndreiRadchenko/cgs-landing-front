@@ -41,21 +41,17 @@ export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
       >
         <Styled.Wrapper>
           {paginatedDataMarkUp &&
-            paginatedDataMarkUp.map((article, index) => {
-              if (index === 0) {
-                return (
-                  <Styled.FeaturedArticle key={uuidv4()}>
-                    <BlogArticle article={article} />
-                  </Styled.FeaturedArticle>
-                );
-              } else {
-                return (
-                  <Styled.ArticleWrapper key={uuidv4()}>
-                    <BlogArticle article={article} />
-                  </Styled.ArticleWrapper>
-                );
-              }
-            })}
+            paginatedDataMarkUp.map((article, index) =>
+              index === 0 ? (
+                <Styled.FeaturedArticle key={uuidv4()}>
+                  <BlogArticle article={article} />
+                </Styled.FeaturedArticle>
+              ) : (
+                <Styled.ArticleWrapper key={uuidv4()}>
+                  <BlogArticle article={article} />
+                </Styled.ArticleWrapper>
+              )
+            )}
           <div>
             <Pagination {...mapToProps} />
           </div>

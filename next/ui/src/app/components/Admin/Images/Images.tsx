@@ -60,12 +60,12 @@ const Images: React.FC<{
                 <input
                   type="radio"
                   name="imageOption"
-                  checked={imageID === image.id}
-                  onChange={() => handleImageChange(image.id)}
+                  checked={imageID === image?.id}
+                  onChange={() => handleImageChange(image?.id)}
                 />
-                <img className="slide-image" src={image.s3FileUrl}></img>
-                <CustomCheckbox sliderLabel selected={imageID === image.id}>
-                  <img src={slides.Check} alt={slides.Check} />
+                <img className="slide-image" src={image?.s3FileUrl}></img>
+                <CustomCheckbox sliderLabel selected={imageID === image?.id}>
+                  <img src={slides.Check} alt={slides?.Check} />
                 </CustomCheckbox>
               </CheckboxLabel>
             ))}

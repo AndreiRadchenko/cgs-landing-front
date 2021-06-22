@@ -111,7 +111,7 @@ export interface IProject {
   };
 }
 
-interface IProjectTechType {
+export interface IProjectTechType {
   id: string;
   name: string;
   iconUrl?: string;
@@ -127,7 +127,7 @@ export interface ITestimonial {
   platforms: IPlatform[];
 }
 
-interface IPlatform {
+export interface IPlatform {
   id: string | number;
   type: string;
   rate: number;
@@ -176,7 +176,61 @@ export interface IBlogArticle {
   createdAt?: string;
 }
 
-interface IBlogArticleTag {
+export interface IBlogArticleTag {
   id: string;
   name: string;
+}
+
+
+export interface TechnoImageParams {
+  index: number;
+}
+
+export interface LayoutProps {
+  children: any;
+  title?: string;
+}
+
+export interface SimilarArticlesProps {
+  similarArticles: IBlogArticle[];
+}
+
+export interface Opts {
+  fallback: React.ReactNode;
+}
+
+export interface PropsPagination {
+  active?: boolean;
+}
+export interface PropsSlider {
+  top: number;
+  forWorks?: boolean;
+}
+
+export interface PropsButton {
+  small?: boolean;
+}
+
+export interface PropsHeader {
+  isFixed?: boolean;
+}
+
+export interface PropsHeaderWrapper {
+  isFixed?: boolean;
+}
+
+export interface PropsHomeWrapper {
+  mobile?: boolean;
+}
+
+export interface PropsFormWrapper {
+  empty?: boolean;
+  selected?: boolean;
+  big?: boolean;
+  sliderLabel?: boolean;
+  double?: boolean;
+}
+
+export interface PropsAdminWrapper {
+  active?: boolean;
 }

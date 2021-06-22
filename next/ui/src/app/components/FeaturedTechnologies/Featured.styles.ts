@@ -120,6 +120,7 @@ export const TextContainer = styled.div`
     margin: 0;
     line-height: 1.67;
     opacity: 0.5;
+    text-align: justify;
   }
   @media screen and (min-width: 1024px) {
     min-width: 410px;

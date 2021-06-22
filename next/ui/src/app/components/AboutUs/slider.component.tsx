@@ -10,7 +10,7 @@ import { IWorker } from "types/components";
 import { SampleNextArrow, SamplePrevArrow } from "../shared/Slider/arrows";
 
 const SliderComponent: React.FC<{ workers: IWorker[] }> = ({ workers }) => {
-  let settings = {
+  const settings = {
     slidesToShow: 2,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow top={20} />,
@@ -27,6 +27,7 @@ const SliderComponent: React.FC<{ workers: IWorker[] }> = ({ workers }) => {
     ],
     className: "slides",
   };
+
   return (
     <Styled.SliderContainer>
       <Styled.SlideWrapper>

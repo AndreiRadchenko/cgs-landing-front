@@ -1,3 +1,4 @@
+import { TechnoImageParams } from "./../../../types/components/index";
 import styled from "styled-components";
 
 const imgSize = {
@@ -259,10 +260,6 @@ export const HorizontalSep = styled("div")`
     margin: 1em 0 !important;
   }
 `;
-
-interface TechnoImageParams {
-  index: number;
-}
 
 export const TechnoImage = styled("img")<TechnoImageParams>`
   @media screen and (min-width: 1024px) {

@@ -28,6 +28,7 @@ const TestimonialForm: React.FC<{
   const customerPosition = useInput(testimonial?.customerPosition);
   const feedback = useInput(testimonial?.feedback);
 
+  const closeWindow = () => close();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const clutch =
@@ -46,7 +47,7 @@ const TestimonialForm: React.FC<{
             rate: upworkRateInput.value,
           }
         : null;
-    const newtestimonial: ITestimonial = {
+    const newTestimonial: ITestimonial = {
       customerName: customerName.value,
       customerPosition: customerPosition.value,
       companyName: companyName.value,
@@ -56,20 +57,18 @@ const TestimonialForm: React.FC<{
     };
 
     if (clutch) {
-      newtestimonial.platforms = [...newtestimonial.platforms, clutch];
+      newTestimonial.platforms = [...newTestimonial.platforms, clutch];
     }
 
     if (upwork) {
-      newtestimonial.platforms = [...newtestimonial.platforms, upwork];
+      newTestimonial.platforms = [...newTestimonial.platforms, upwork];
     }
 
     testimonial
-      ? updateAdminData(
-          "testimonial",
-          testimonial?.id!,
-          newtestimonial
-        ).then(() => close())
-      : createAdminData("testimonial", newtestimonial).then(() => close());
+      ? updateAdminData("testimonial", testimonial?.id!, newTestimonial).then(
+          closeWindow
+        )
+      : createAdminData("testimonial", newTestimonial).then(closeWindow);
   };
 
   const countryKeys = Object.keys(CountryCodes);
@@ -186,7 +185,7 @@ const TestimonialForm: React.FC<{
           >
             {testimonial ? "Save" : "Сreate"}
           </Styled.Button>
-          <Styled.Button type="button" onClick={() => close()}>
+          <Styled.Button type="button" onClick={closeWindow}>
             Cancel
           </Styled.Button>
         </Styled.ButtonWrapper>

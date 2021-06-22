@@ -1,10 +1,7 @@
 import styled from "styled-components";
+import { PropsHeaderWrapper } from "types/components/index";
 
-interface Props {
-  isFixed?: boolean;
-}
-
-export const HeaderWrapper = styled.header<Props>`
+export const HeaderWrapper = styled.header<PropsHeaderWrapper>`
   display: flex;
   width: 100vw;
   justify-content: space-between;

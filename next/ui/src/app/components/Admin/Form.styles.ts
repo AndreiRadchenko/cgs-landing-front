@@ -1,12 +1,5 @@
 import styled from "styled-components";
-
-interface Props {
-  empty?: boolean;
-  selected?: boolean;
-  big?: boolean;
-  sliderLabel?: boolean;
-  double?: boolean;
-}
+import { PropsFormWrapper } from "types/components/index";
 
 export const Wrapper = styled("div")``;
 
@@ -97,7 +90,7 @@ export const Select = styled("select")`
   line-height: 32px;
 `;
 
-export const Label = styled("label")<Props>`
+export const Label = styled("label")<PropsFormWrapper>`
   display: ${(props) => (props.double ? "flex" : "grid")};
   grid-template-columns: minmax(50px, 120px) 1fr;
   align-items: center;
@@ -117,7 +110,6 @@ export const Label = styled("label")<Props>`
 `;
 
 export const CheckboxContainer = styled("div")`
-  /* width: 100%; */
   position: relative;
   margin-top: 28px;
   align-self: flex-start;
@@ -147,7 +139,7 @@ export const CheckboxContainer = styled("div")`
   }
 `;
 
-export const CustomCheckbox = styled("div")<Props>`
+export const CustomCheckbox = styled("div")<PropsFormWrapper>`
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -162,7 +154,7 @@ export const CustomCheckbox = styled("div")<Props>`
   position: absolute;
 `;
 
-export const CheckboxLabel = styled("label")<Props>`
+export const CheckboxLabel = styled("label")<PropsFormWrapper>`
   position: relative;
   & > input {
     border: 0;
@@ -176,7 +168,7 @@ export const CheckboxLabel = styled("label")<Props>`
   }
 `;
 
-export const DeleteTagButton = styled("button")<Props>`
+export const DeleteTagButton = styled("button")<PropsFormWrapper>`
   background-color: transparent;
   border: 0;
   position: absolute;
@@ -193,7 +185,7 @@ export const ButtonWrapper = styled("div")`
   margin-bottom: 15px;
 `;
 
-export const Button = styled("button")<Props>`
+export const Button = styled("button")<PropsFormWrapper>`
   width: ${(props) => (props.big ? "200px" : "170px")};
   max-height: ${(props) => (props.big ? "60px" : "40px")};
   border-radius: 55px;
