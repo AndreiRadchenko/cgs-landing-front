@@ -2,7 +2,7 @@ import ItemButtons from "../ItemButtons/ItemButtons";
 import * as Styled from "../Item.styles";
 import { ITechnology } from "../types";
 
-const Techology: React.FC<{
+const Technology: React.FC<{
   technology: ITechnology;
   openModal: Function;
   deleteItem: Function;
@@ -12,28 +12,28 @@ const Techology: React.FC<{
       <Styled.Item>
         <Styled.List>
           <Styled.ListItem>
-            <span>Name:</span> <span>{technology.name}</span>
+            <span>Name:</span> <span>{technology?.name}</span>
           </Styled.ListItem>
           <Styled.ListItem>
-            <span>Category:</span> <span>{technology.category}</span>
+            <span>Category:</span> <span>{technology?.category}</span>
           </Styled.ListItem>
 
           <Styled.ListItem>
             <span>Picture:</span>
             <Styled.Image
-              src={technology.iconFile.s3FileUrl}
-              alt={technology.iconFile.s3FileUrl}
+              src={technology?.iconFile?.s3FileUrl}
+              alt={technology?.iconFile?.s3FileUrl}
             />
           </Styled.ListItem>
         </Styled.List>
       </Styled.Item>
       <ItemButtons
-        deleteItem={() => deleteItem("technology", technology.id)}
+        deleteItem={() => deleteItem("technology", technology?.id)}
         openModal={openModal}
         item={technology}
-      ></ItemButtons>
+      />
     </Styled.Wrapper>
   );
 };
 
-export default Techology;
+export default Technology;

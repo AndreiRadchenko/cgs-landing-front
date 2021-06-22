@@ -29,15 +29,16 @@ const ArticleForm: React.FC<{
     };
 
     article
-      ? updateAdminData("article", article.id, newArticle).then((res) =>
-          close()
-        )
+      ? updateAdminData("article", article.id, newArticle).then(() => close())
       : createAdminData("article", newArticle).then(() => close());
   }
 
   const getImageId = (id) => {
     setImageFileId(id);
   };
+
+  const closeWindow = () => close();
+  const editContent = () => setIsEditorOpen(true);
 
   return (
     <Styled.Wrapper>
@@ -47,7 +48,7 @@ const ArticleForm: React.FC<{
             content={content}
             setArticleContent={setContent}
             setIsEditorOpen={setIsEditorOpen}
-          ></TextEditor>
+          />
         </>
       )}
       {!isEditorOpen && (
@@ -73,7 +74,7 @@ const ArticleForm: React.FC<{
           </Styled.Label>
           <Styled.Label>
             <span>Text</span>
-            <Button type="button" onClick={() => setIsEditorOpen(true)}>
+            <Button type="button" onClick={editContent}>
               Edit content
             </Button>
           </Styled.Label>
@@ -90,7 +91,7 @@ const ArticleForm: React.FC<{
             >
               {article ? "Save" : "Create"}
             </Styled.Button>
-            <Styled.Button type="button" onClick={() => close()}>
+            <Styled.Button type="button" onClick={closeWindow}>
               Cancel
             </Styled.Button>
           </Styled.ButtonWrapper>

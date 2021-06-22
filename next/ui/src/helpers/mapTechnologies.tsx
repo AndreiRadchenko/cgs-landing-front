@@ -1,5 +1,5 @@
-export const mapTechnologies = (technologies) => {
-  return technologies.map((_, i, arr) => {
+export const mapTechnologies = (technologies) =>
+  technologies.map((_, i, arr) => {
     if (i === 0) {
       return arr.find((el) => el.type === "web");
     }
@@ -13,4 +13,3 @@ export const mapTechnologies = (technologies) => {
       return arr.find((el) => el.type === "ui_ux");
     }
   });
-};

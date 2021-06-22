@@ -34,16 +34,16 @@ const ImagesPage: React.FC<{}> = () => {
     <>
       <Wrapper>
         <Title>Images</Title>
-        <ImageUploader setIsUploaded={setIsUpdated}></ImageUploader>
+        <ImageUploader setIsUploaded={setIsUpdated} />
         <Styled.List>
           {images.map((image) => (
             <li>
-              <img src={image.s3FileUrl} width="80px"></img>
+              <img src={image?.s3FileUrl} width="80px"></img>
               <Styled.DeleteButton
                 type="button"
-                onClick={() => deleteImage(image.id)}
+                onClick={() => deleteImage(image?.id)}
               >
-                <img src={slides.deleteIcon} alt="delete button" />
+                <img src={slides?.deleteIcon} alt="delete button" />
               </Styled.DeleteButton>
             </li>
           ))}

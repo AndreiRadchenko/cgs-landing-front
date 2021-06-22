@@ -6,9 +6,6 @@ export const HorizontalSep = styled("div")`
   background: #0c1033;
   border-radius: 5px;
   margin-bottom: 33px;
-  @media screen and (max-width: 1023.5px) {
-    display: none;
-  }
 `;
 
 export const Wrapper = styled("article")`
@@ -26,12 +23,6 @@ export const Wrapper = styled("article")`
     font-weight: 300;
     padding: 0 3em;
     line-height: 32px;
-    @media screen and (max-width: 1023.5px) {
-      display: none;
-      font-size: 14px;
-      margin-bottom: 1em;
-      padding: 0 10vw;
-    }
   }
 `;
 

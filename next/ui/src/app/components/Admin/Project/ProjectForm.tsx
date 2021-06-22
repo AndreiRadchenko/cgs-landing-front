@@ -35,6 +35,8 @@ const ProjectForm: React.FC<{
     project?.technologies?.map((tech) => tech.id) || []
   );
 
+  const closeWindow = () => close();
+
   const countryKeys = Object.keys(CountryCodes);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -52,8 +54,8 @@ const ProjectForm: React.FC<{
     };
 
     project
-      ? updateAdminData("project", project.id, newProject).then(() => close())
-      : createAdminData("project", newProject).then(() => close());
+      ? updateAdminData("project", project.id, newProject).then(closeWindow)
+      : createAdminData("project", newProject).then(closeWindow);
   };
 
   const getImageId = (id) => {
@@ -186,7 +188,7 @@ const ProjectForm: React.FC<{
           >
             {project ? "Save" : "Create"}
           </Styled.Button>
-          <Styled.Button type="button" onClick={() => close()}>
+          <Styled.Button type="button" onClick={closeWindow}>
             Cancel
           </Styled.Button>
         </Styled.ButtonWrapper>

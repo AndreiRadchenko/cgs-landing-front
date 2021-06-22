@@ -1,10 +1,7 @@
 import styled from "styled-components";
+import { PropsHeader } from "types/components/index";
 
-interface Props {
-  isFixed?: boolean;
-}
-
-export const HeaderWrapper = styled.header<Props>`
+export const HeaderWrapper = styled.header<PropsHeader>`
   display: flex;
   margin: 0 auto;
   max-width: 1238px;

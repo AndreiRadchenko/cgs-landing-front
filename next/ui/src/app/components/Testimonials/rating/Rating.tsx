@@ -20,7 +20,7 @@ const Rating = ({ testimonial }) => {
 
   const starsUpwork = [
     ...arr.map((_, index) => {
-      parseInt(upwork?.rate) > index ? (
+      return parseInt(upwork?.rate) > index ? (
         <img key={uuidv4()} src="/star1.svg" width="17" height="16" alt="" />
       ) : (
         <img key={uuidv4()} src="/star2.svg" width="17" height="16" alt="" />

@@ -1,8 +1,5 @@
 import styled from "styled-components";
-
-interface Props {
-  active?: boolean;
-}
+import { PropsPagination } from "../../../../types/components/index";
 
 export const PaginationList = styled("ul")`
   display: flex;
@@ -18,7 +15,7 @@ export const PaginationList = styled("ul")`
   }
 `;
 
-export const PageLink = styled("li")<Props>`
+export const PageLink = styled("li")<PropsPagination>`
   padding: 1px 15px;
   border-radius: 5px;
   color: #fff;

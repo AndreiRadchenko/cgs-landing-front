@@ -1,7 +1,6 @@
 import { ISlogan } from "../types";
 import * as Styled from "../Item.styles";
 import ItemButtons from "../ItemButtons/ItemButtons";
-import { deleteAdminData } from "services/api/adminApi";
 
 const Slogan: React.FC<{
   slogan: ISlogan;
@@ -13,10 +12,10 @@ const Slogan: React.FC<{
       <Styled.Item>
         <Styled.List>
           <Styled.ListItem>
-            <span>Title:</span> <span>{slogan.title}</span>
+            <span>Title:</span> <span>{slogan?.title}</span>
           </Styled.ListItem>
           <Styled.ListItem>
-            <span>Text:</span> <span>{slogan.text}</span>
+            <span>Text:</span> <span>{slogan?.text}</span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Selected:</span>
@@ -24,7 +23,6 @@ const Slogan: React.FC<{
           </Styled.ListItem>
         </Styled.List>
       </Styled.Item>
-
       <ItemButtons
         openModal={openModal}
         item={slogan}

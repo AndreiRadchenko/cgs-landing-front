@@ -1,14 +1,9 @@
 import styled from "styled-components";
-
+import { PropsSlider } from "../../../../types/components/index";
 const imgSize = {
   w: "35px",
   h: "35px",
 };
-
-interface Props {
-  top: number;
-  forWorks?: boolean;
-}
 
 const Arrow = styled.div`
   position: absolute;
@@ -24,7 +19,7 @@ const Arrow = styled.div`
   }
 `;
 
-export const SliderPrev = styled(Arrow)<Props>`
+export const SliderPrev = styled(Arrow)<PropsSlider>`
   z-index: 1000;
   left: ${(props) => (props.forWorks ? "0" : "5%")};
   top: ${(props) => `${props.top}% `};
@@ -40,7 +35,7 @@ export const SliderPrev = styled(Arrow)<Props>`
   }
 `;
 
-export const SliderNext = styled(Arrow)<Props>`
+export const SliderNext = styled(Arrow)<PropsSlider>`
   z-index: 1000;
   right: ${(props) => (props.forWorks ? "0" : "5%")};
   top: ${(props) => `${props.top}% `};
