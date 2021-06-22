@@ -14,7 +14,7 @@ const FactsForm: React.FC<{
   const [showOnHomePage, setShowOnHomePage] = useState(
     fact?.showOnHomePage || false
   );
-  const [iconFileId, setIconFileId] = useState(fact?.iconFile.id || "");
+  const [iconFileId, setIconFileId] = useState(fact?.iconFile?.id || "");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -26,13 +26,15 @@ const FactsForm: React.FC<{
     };
 
     fact
-      ? updateAdminData("facts", fact.id, newFact).then(() => close())
+      ? updateAdminData("facts", fact?.id, newFact).then(() => close())
       : createAdminData("facts", newFact).then(() => close());
   };
 
   const getImageId = (id) => {
     setIconFileId(id);
   };
+
+  const closeWindow = () => close();
 
   return (
     <Styled.Wrapper>
@@ -83,7 +85,7 @@ const FactsForm: React.FC<{
           >
             {fact ? "Save" : "Create"}
           </Styled.Button>
-          <Styled.Button type="button" onClick={() => close()}>
+          <Styled.Button type="button" onClick={closeWindow}>
             Cancel
           </Styled.Button>
         </Styled.ButtonWrapper>

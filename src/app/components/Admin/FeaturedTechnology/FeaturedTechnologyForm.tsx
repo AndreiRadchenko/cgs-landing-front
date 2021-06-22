@@ -15,6 +15,12 @@ const FeaturedTechnologyForm: React.FC<{
     featuredTechnology?.imageFile?.id || ""
   );
 
+  const getImageId = (id) => {
+    setImageFileId(id);
+  };
+
+  const closeWindow = () => close();
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -29,16 +35,12 @@ const FeaturedTechnologyForm: React.FC<{
         "featuredTechnology",
         featuredTechnology.id,
         newFeaturedTechnology
-      ).then(() => close());
+      ).then(closeWindow);
     } else if (!featuredTechnology) {
-      createAdminData("featuredTechnology", newFeaturedTechnology).then(() =>
-        close()
+      createAdminData("featuredTechnology", newFeaturedTechnology).then(
+        closeWindow
       );
     }
-  };
-
-  const getImageId = (id) => {
-    setImageFileId(id);
   };
 
   return (
@@ -83,7 +85,7 @@ const FeaturedTechnologyForm: React.FC<{
           >
             {featuredTechnology ? "Save" : "Create"}
           </Styled.Button>
-          <Styled.Button type="button" onClick={() => close()}>
+          <Styled.Button type="button" onClick={closeWindow}>
             Cancel
           </Styled.Button>
         </Styled.ButtonWrapper>

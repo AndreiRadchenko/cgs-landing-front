@@ -13,33 +13,33 @@ const Testimonial: React.FC<{
         <Styled.List>
           <Styled.ListItem>
             <span>Customer Name:</span>
-            <span>{testimonial.customerName}</span>
+            <span>{testimonial?.customerName}</span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Company name:</span>
-            <span>{testimonial.companyName} </span>
+            <span>{testimonial?.companyName} </span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Country code:</span>
-            <span>{testimonial.countryCode} </span>
+            <span>{testimonial?.countryCode} </span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Customer Position:</span>
-            <span>{testimonial.customerPosition} </span>
+            <span>{testimonial?.customerPosition} </span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Feedback</span>
-            <span>{testimonial.feedback} </span>
+            <span>{testimonial?.feedback} </span>
           </Styled.ListItem>
-          {testimonial.platforms.map((platform) => (
+          {testimonial?.platforms?.map((platform) => (
             <>
               <Styled.ListItem>
-                <span>{`${platform.type} link`}</span>
-                <span> {platform.link}</span>
+                <span>{`${platform?.type} link`}</span>
+                <span> {platform?.link}</span>
               </Styled.ListItem>
               <Styled.ListItem>
-                <span>{`${platform.type} rating`}</span>
-                <span> {platform.rate}</span>
+                <span>{`${platform?.type} rating`}</span>
+                <span> {platform?.rate}</span>
               </Styled.ListItem>
             </>
           ))}
@@ -49,7 +49,7 @@ const Testimonial: React.FC<{
         deleteItem={() => deleteItem("testimonial", testimonial.id)}
         openModal={openModal}
         item={testimonial}
-      ></ItemButtons>
+      />
     </Styled.Wrapper>
   );
 };

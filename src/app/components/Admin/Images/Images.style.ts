@@ -22,7 +22,7 @@ export const ImagesWrapper = styled("div")`
 `;
 
 export const SliderContainer = styled.div`
-  max-width:605px;
+  max-width: 605px;
   width: 100%;
   height: 100%;
 
@@ -35,7 +35,7 @@ export const SliderContainer = styled.div`
     height: 100%;
     & .slick-list,
     & .slick-list .slick-track {
-      display:flex;
+      display: flex;
       width: 100%;
       height: 100%;
       & > div > div {
@@ -66,12 +66,13 @@ export const SliderContainer = styled.div`
     }
   }
   & .slider-picture {
-    height:100%;
+    height: 100%;
     object-fit: contain;
-    @media screen and (max-width: 1025px) { 
-        height:400px;
+    @media screen and (max-width: 1025px) {
+      height: 400px;
     }
-    @media screen and (max-width: 650px) { 
-      height:230px;
+    @media screen and (max-width: 650px) {
+      height: 230px;
+    }
   }
 `;

@@ -17,6 +17,8 @@ const WorkerForm: React.FC<{
   const [showOnPage, setshowOnPage] = useState(worker?.showOnHomePage || false);
   const [iconFileId, setIconFileId] = useState(worker?.imageFile?.id || "");
 
+  const closeWindow = () => close();
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newWorker = {
@@ -28,8 +30,8 @@ const WorkerForm: React.FC<{
     };
 
     worker
-      ? updateAdminData("worker", worker.id, newWorker).then(() => close())
-      : createAdminData("worker", newWorker).then(() => close());
+      ? updateAdminData("worker", worker.id, newWorker).then(closeWindow)
+      : createAdminData("worker", newWorker).then(closeWindow);
   };
   const getImageId = (id) => {
     setIconFileId(id);
@@ -94,7 +96,7 @@ const WorkerForm: React.FC<{
           >
             {worker ? "Save" : "Create"}
           </Styled.Button>
-          <Styled.Button type="button" onClick={() => close()}>
+          <Styled.Button type="button" onClick={closeWindow}>
             Cancel
           </Styled.Button>
         </Styled.ButtonWrapper>

@@ -1,8 +1,5 @@
 import styled from "styled-components";
-
-interface Props {
-  mobile?: boolean;
-}
+import { PropsHomeWrapper } from "types/components/index";
 
 export const HomeWrapper = styled("div")`
   display: flex;
@@ -105,8 +102,8 @@ export const ImgMobile = styled("img")`
   }
 `;
 
-export const LinkButton = styled("a")<Props>`
-  text-align:center;
+export const LinkButton = styled("a")<PropsHomeWrapper>`
+  text-align: center;
   background-color: ${(props) => props.theme.colors.buttonBgColor};
   border-radius: 2em;
   padding: 0.7em;
@@ -124,5 +121,6 @@ export const LinkButton = styled("a")<Props>`
     background: ${(props) => props.theme.colors.buttonBgColorActive};
   }
   @media (max-width: 768px) {
-    display:${(props) => (props.mobile ? "" : "none")};
+    display: ${(props) => (props.mobile ? "" : "none")};
+  }
 `;

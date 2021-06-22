@@ -11,7 +11,9 @@ const TechnologyForm: React.FC<{
 }> = ({ technology, close }) => {
   const [name, setName] = useState(technology?.name || "");
   const [category, setCategory] = useState(technology?.category || "mobile");
-  const [iconFileId, setIconFileId] = useState(technology?.iconFile.id || "");
+  const [iconFileId, setIconFileId] = useState(technology?.iconFile?.id || "");
+
+  const closeWindow = () => close();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -22,10 +24,10 @@ const TechnologyForm: React.FC<{
     };
 
     technology
-      ? updateAdminData("technology", technology.id, newTechnology).then(() =>
-          close()
+      ? updateAdminData("technology", technology.id, newTechnology).then(
+          closeWindow
         )
-      : createAdminData("technology", newTechnology).then(() => close());
+      : createAdminData("technology", newTechnology).then(closeWindow);
   };
 
   const getImageId = (id) => {
@@ -98,7 +100,7 @@ const TechnologyForm: React.FC<{
           >
             {technology ? "Save" : "Create"}
           </Styled.Button>
-          <Styled.Button type="button" onClick={() => close()}>
+          <Styled.Button type="button" onClick={closeWindow}>
             Cancel
           </Styled.Button>
         </Styled.ButtonWrapper>
