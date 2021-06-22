@@ -12,7 +12,7 @@ const FeaturedTechnologyForm: React.FC<{
   const [name, setName] = useState(featuredTechnology?.name || "");
   const [text, setCategory] = useState(featuredTechnology?.text || "");
   const [imageFileId, setImageFileId] = useState(
-    featuredTechnology?.imageFile.id || ""
+    featuredTechnology?.imageFile?.id || ""
   );
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
