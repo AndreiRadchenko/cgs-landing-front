@@ -54,33 +54,8 @@ const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
 
   return (
     <>
-      <Styled.BlogTextWrapper>
-        {tags?.map((tag) => (
-          <Styled.CheckboxContainer>
-            <div>{tag?.name}</div>
-            <Styled.CheckboxLabel>
-              <input
-                type="checkbox"
-                name="tagOption"
-                checked={tagIds.some((el) => el === tag?.id)}
-                onChange={(event) => handleTagChange(event, tag?.id)}
-              />
-              <Styled.CustomCheckbox
-                selected={tagIds?.some((el) => el === tag?.id)}
-              >
-                <img src={slides.Check} alt="checkbox" />
-              </Styled.CustomCheckbox>
-            </Styled.CheckboxLabel>
-            <Styled.DeleteTagButton
-              type="button"
-              onClick={() => deleteTag(tag?.id)}
-            >
-              <img src={slides.deleteIcon} alt="delete tag button" />
-            </Styled.DeleteTagButton>
-          </Styled.CheckboxContainer>
-        ))}
-      </Styled.BlogTextWrapper>
       <Styled.TagInputWrapper>
+        <span>New tag:</span>
         <Styled.AdminTextInput
           placeholder="Tag Name"
           type="text"
@@ -90,6 +65,39 @@ const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
           Create
         </Styled.Button>
       </Styled.TagInputWrapper>
+      <Styled.WrapperContainer>
+        <span>Tags:</span>
+        <div>
+          <Styled.BlogTextWrapper>
+            {tags?.map((tag) => (
+              <Styled.CheckboxContainer>
+                <div>
+                  {tag?.name}
+                  <Styled.DeleteTagButton
+                    type="button"
+                    onClick={() => deleteTag(tag?.id)}
+                  >
+                    <img src={slides.deleteIcon} alt="delete tag button" />
+                  </Styled.DeleteTagButton>
+                </div>
+                <Styled.CheckboxLabel>
+                  <input
+                    type="checkbox"
+                    name="tagOption"
+                    checked={tagIds.some((el) => el === tag?.id)}
+                    onChange={(event) => handleTagChange(event, tag?.id)}
+                  />
+                  <Styled.CustomCheckbox
+                    selected={tagIds?.some((el) => el === tag?.id)}
+                  >
+                    <img src={slides.Check} alt="checkbox" />
+                  </Styled.CustomCheckbox>
+                </Styled.CheckboxLabel>
+              </Styled.CheckboxContainer>
+            ))}
+          </Styled.BlogTextWrapper>
+        </div>
+      </Styled.WrapperContainer>
     </>
   );
 };

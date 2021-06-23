@@ -90,6 +90,34 @@ export const Select = styled("select")`
   line-height: 32px;
 `;
 
+export const Content = styled("div")`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & span {
+    white-space: nowrap;
+    text-align: start;
+    color: #0c1033;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+
+  & div {
+    width: 635px;
+    border: 2px solid #1f5a7b;
+    border-radius: 20px;
+    max-width: 635px;
+    padding: 14px 36px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 32px;
+    text-align: justify;
+    margin: 0 5px 0 0;
+  }
+`;
+
 export const Label = styled("label")<PropsFormWrapper>`
   display: ${(props) => (props.double ? "flex" : "grid")};
   grid-template-columns: minmax(50px, 120px) 1fr;
@@ -113,18 +141,22 @@ export const CheckboxContainer = styled("div")`
   position: relative;
   margin-top: 28px;
   align-self: flex-start;
-  padding-right: 137px;
+  width: 80px;
+  justify-content: space-between;
   &:last-child {
     padding-right: 0;
-    max-width: 220px;
   }
+
   & > div {
-    margin-right: 100px;
+    margin-right: 30px;
     color: #0c1033;
     font-size: 14px;
     font-weight: 700;
     line-height: 32px;
-    white-space: nowrap;
+
+    max-width: 50px;
+    word-wrap: break-word;
+    position: relative;
   }
   display: flex;
   & input {
@@ -172,7 +204,7 @@ export const DeleteTagButton = styled("button")<PropsFormWrapper>`
   background-color: transparent;
   border: 0;
   position: absolute;
-  left: 30%;
+  right: -20px;
   top: 50%;
   transform: translateY(-50%);
 `;
@@ -186,6 +218,10 @@ export const ButtonWrapper = styled("div")`
 `;
 
 export const Button = styled("button")<PropsFormWrapper>`
+  &:disabled {
+    background-color: #a7c4d4;
+  }
+
   width: ${(props) => (props.big ? "200px" : "170px")};
   max-height: ${(props) => (props.big ? "60px" : "40px")};
   border-radius: 55px;
@@ -211,6 +247,7 @@ export const PicturesWrapper = styled("div")`
   max-width: 760px;
   width: 100%;
   min-height: 135px;
+
   & > span {
     color: #0c1033;
     font-size: 14px;
@@ -219,11 +256,34 @@ export const PicturesWrapper = styled("div")`
   }
 `;
 
+export const WrapperContainer = styled("div")`
+  display: flex;
+  & span {
+    margin-top: 28px;
+    white-space: nowrap;
+    text-align: start;
+    color: #0c1033;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 32px;
+    align-self: flex-start;
+  }
+`;
+
 export const TagInputWrapper = styled("div")`
   margin-top: 30px;
   display: flex;
-  gap: 20px;
+  gap: 40px;
   align-items: center;
+  & span {
+    white-space: nowrap;
+    text-align: start;
+    color: #0c1033;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-right: 20px;
+  }
 `;
 
 export const BlogTextWrapper = styled("div")`
@@ -231,4 +291,11 @@ export const BlogTextWrapper = styled("div")`
   grid-template-columns: 1fr 1fr 1fr;
   margin-left: -10px;
   min-height: 120px;
+  width: 95%;
+  white-space: normal;
+  word-wrap: break-word;
+  margin-left: 100px;
+  padding-right: 30px;
+  grid-column-gap: 130px;
+  text-align: left;
 `;
