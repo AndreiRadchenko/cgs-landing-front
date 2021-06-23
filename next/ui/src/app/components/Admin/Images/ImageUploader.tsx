@@ -11,6 +11,7 @@ const ImageUploader: React.FC<{ setIsUploaded: Function }> = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     uploadImage(file).then(() => setIsUploaded(true));
+    setFile("");
   };
 
   const handleImageChange = (e) => {
@@ -21,23 +22,23 @@ const ImageUploader: React.FC<{ setIsUploaded: Function }> = ({
 
   return (
     <Styled.Wrapper>
-      {!file && (
-        <Styled.InputWrapper>
-          <input
-            className="fileInput"
-            id="input__file"
-            type="file"
-            onChange={(e) => handleImageChange(e)}
-          />
-          <label htmlFor="input__file">Choose the file</label>
-        </Styled.InputWrapper>
-      )}
+      <Styled.InputWrapper>
+        <input
+          className="fileInput"
+          id="input__file"
+          type="file"
+          onChange={(e) => handleImageChange(e)}
+        />
+        <label htmlFor="input__file">Choose the file</label>
+      </Styled.InputWrapper>
+
       <Styled.ButtonWrapper>
         <Button
           big={false}
           className="submitButton"
           type="button"
           onClick={(e) => handleSubmit(e)}
+          disabled={!file}
         >
           Upload new
         </Button>
