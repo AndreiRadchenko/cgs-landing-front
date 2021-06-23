@@ -1,16 +1,15 @@
 const yup = require('yup');
 
-const { resolve: pathResolve } = require('path');
-
-const { remove: removeFile } = require('fs-extra');
-
-const { config } = require('../../config');
+const { StatusCodes } = require('http-status-codes');
 
 const { File } = require('../../database');
+
+const { fileService } = require('../../services');
 
 const fileDelete = {
   path: '/:id',
   method: 'DELETE',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -18,13 +17,13 @@ const fileDelete = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params } = context.request;
 
-    const file = await File.findByIdAndDelete(params.id);
+    const file = await File.findById(params.id);
 
     if (!file) {
-      context.status = 404;
+      context.status = StatusCodes.NOT_FOUND;
 
       context.body = {
         response: null,
@@ -33,11 +32,13 @@ const fileDelete = {
       return;
     }
 
-    const path = pathResolve(config.files.storagePath, file.savedAs);
+    await fileService.delete({
+      id: file.s3FileKey,
+    });
 
-    await removeFile(path);
+    await file.delete();
 
-    context.status = 204;
+    context.status = StatusCodes.NO_CONTENT;
   },
 };
 

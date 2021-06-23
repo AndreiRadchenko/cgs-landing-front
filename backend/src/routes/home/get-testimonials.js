@@ -5,10 +5,8 @@ const { mapTestimonialToResponse } = require('./utils/mappers');
 const getTestimonials = {
   path: '/get-testimonials',
   method: 'GET',
-  handler: async (context) => {
+  async handler(context) {
     const testimonials = await Testimonial.find();
-
-    context.status = 200;
 
     context.body = {
       response: testimonials.map(mapTestimonialToResponse),

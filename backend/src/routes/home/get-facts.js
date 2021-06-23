@@ -5,7 +5,7 @@ const { mapFactToResponse } = require('./utils/mappers');
 const getFacts = {
   path: '/get-facts',
   method: 'GET',
-  handler: async (context) => {
+  async handler(context) {
     const query = Fact.find();
 
     query.where('showOnHomePage', true);
@@ -15,8 +15,6 @@ const getFacts = {
     });
 
     const facts = await query.exec();
-
-    context.status = 200;
 
     context.body = {
       response: facts.map(mapFactToResponse),

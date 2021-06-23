@@ -1,10 +1,13 @@
 const yup = require('yup');
 
+const { StatusCodes } = require('http-status-codes');
+
 const { Testimonial } = require('../../database');
 
 const testimonialDelete = {
   path: '/:id',
   method: 'DELETE',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -12,13 +15,13 @@ const testimonialDelete = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params } = context.request;
 
     const testimonial = await Testimonial.findByIdAndDelete(params.id);
 
     if (!testimonial) {
-      context.status = 404;
+      context.status = StatusCodes.NOT_FOUND;
 
       context.body = {
         response: null,
@@ -27,7 +30,7 @@ const testimonialDelete = {
       return;
     }
 
-    context.status = 204;
+    context.status = StatusCodes.NO_CONTENT;
   },
 };
 

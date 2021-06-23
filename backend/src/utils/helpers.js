@@ -1,3 +1,13 @@
+const normalizeUrl = (url) => {
+  if (!url.startsWith('https')) {
+    url = `https://${url}`;
+  }
+
+  return url;
+};
+
+exports.normalizeUrl = normalizeUrl;
+
 const createDeferred = () => {
   const deferred = {};
 

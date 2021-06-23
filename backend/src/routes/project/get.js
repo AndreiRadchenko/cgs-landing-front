@@ -7,6 +7,7 @@ const { mapProjectToResponse } = require('./utils/mappers');
 const projectGet = {
   path: '/:id?',
   method: 'GET',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -14,7 +15,7 @@ const projectGet = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params } = context.request;
 
     const query = Project.find();
@@ -36,8 +37,6 @@ const projectGet = {
     ]);
 
     const projects = await query.exec();
-
-    context.status = 200;
 
     context.body = {
       response: projects.map(mapProjectToResponse),

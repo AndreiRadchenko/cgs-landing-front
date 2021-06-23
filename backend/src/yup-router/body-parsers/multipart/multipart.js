@@ -1,36 +1,39 @@
-const { IncomingForm } = require('formidable');
+const { callbackify } = require('util');
 
-const { createDeferred } = require('../../../utils/helpers');
+const multer = require('@koa/multer');
 
-const { makeFile } = require('./make-file');
+const { fileService } = require('../../../services/file-service');
 
-const makeMultipartBodyParser = (options) => {
-  const form = new IncomingForm({
-    keepExtensions: true,
-    hash: 'sha256',
+const { kFile, defaultOptions } = require('./constants');
 
-    ...options,
-  });
+const parser = multer({
+  storage: {
+    _handleFile: callbackify(async (req, file) => {
+      req[kFile] = await fileService.upload({
+        filename: file.originalname,
+        mimeType: file.mimetype,
+        body: file.stream,
+      });
+    }),
+    _removeFile: callbackify((req) => {
+      const file = req[kFile];
+
+      return fileService.delete({
+        id: file.s3FileKey,
+      });
+    }),
+  },
+});
+
+const makeMultipartBodyParser = (options = defaultOptions) => {
+  const singleParser = parser.single(options.fieldName);
 
   return async (context, next) => {
-    const deferred = createDeferred();
+    await singleParser(context, () => {
+      context.request.file = context.req[kFile];
 
-    form.parse(context.req, (error, fields, files) => {
-      if (error) {
-        deferred.reject(error);
-
-        return;
-      }
-
-      deferred.resolve({ fields, files });
+      return next();
     });
-
-    const { fields, files } = await deferred.promise;
-
-    context.request.body = fields;
-    context.request.files = Object.values(files).map(makeFile);
-
-    return next();
   };
 };
 

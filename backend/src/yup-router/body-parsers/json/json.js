@@ -1,6 +1,6 @@
 const bodyParser = require('koa-bodyparser');
 
-const makeJsonBodyParser = (options) => {
+const makeJsonBodyParser = (options = {}) => {
   return bodyParser({
     ...options,
 

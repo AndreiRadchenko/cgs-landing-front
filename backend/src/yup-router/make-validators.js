@@ -1,9 +1,11 @@
 const { ValidationError } = require('yup');
 
+const { StatusCodes } = require('http-status-codes');
+
 const propertiesForValidate = ['headers', 'params', 'query', 'body'];
 
 const defaultOptions = {
-  errorStatusCode: 400,
+  errorStatusCode: StatusCodes.BAD_REQUEST,
 };
 
 const makeValidators = (rawRoute, options = defaultOptions) => {
@@ -12,13 +14,13 @@ const makeValidators = (rawRoute, options = defaultOptions) => {
   for (const property of propertiesForValidate) {
     const propertyOptions = rawRoute.validate[property];
 
-    if (propertyOptions === undefined) {
+    if (!propertyOptions) {
       continue;
     }
 
     const { schema } = propertyOptions;
 
-    if (schema === undefined) {
+    if (!schema) {
       continue;
     }
 
@@ -39,7 +41,11 @@ const makeValidators = (rawRoute, options = defaultOptions) => {
 
         context.status = options.errorStatusCode;
 
-        context.body = error.errors;
+        context.body = {
+          error: {
+            message: error.errors,
+          },
+        };
 
         return;
       }

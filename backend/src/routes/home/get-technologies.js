@@ -2,40 +2,48 @@ const { TechnologyType } = require('../../utils/constants');
 
 const { Technology } = require('../../database');
 
-const { mapTechnologyToResponse } = require('./utils/mappers');
+const { mapCategoryToResponse } = require('./utils/mappers');
 
-const technologyTypes = Object.values(TechnologyType);
+const sequence = [
+  TechnologyType.WEB,
+  TechnologyType.MOBILE,
+  TechnologyType.UI_UX,
+  TechnologyType.BACKEND,
+];
 
 const getTechnologies = {
   path: '/get-technologies',
   method: 'GET',
-  handler: async (context) => {
-    const query = Technology.find();
+  async handler(context) {
+    const categories = await Technology.aggregate([
+      {
+        $match: {
+          showOnHomePage: true,
+        },
+      },
+      {
+        $group: {
+          _id: '$category',
+          type: {
+            $first: '$category',
+          },
+          technologies: {
+            $push: '$name',
+          },
+        },
+      },
+    ]);
 
-    query.populate({
-      path: 'iconFile',
+    categories.sort((a, b) => {
+      const aIndex = sequence.findIndex((type) => a.type === type);
+      const bIndex = sequence.findIndex((type) => b.type === type);
+
+      return aIndex - bIndex;
     });
 
-    // TODO: use aggregate or cache this
-    const technologies = await query.exec();
-
-    const response = {};
-
-    for (const type of technologyTypes) {
-      if (response[type] === undefined) {
-        response[type] = [];
-      }
-    }
-
-    for (const technology of technologies) {
-      const object = mapTechnologyToResponse(technology);
-
-      response[technology.category].push(object);
-    }
-
-    context.status = 200;
-
-    context.body = { response };
+    context.body = {
+      response: categories.map(mapCategoryToResponse),
+    };
   },
 };
 

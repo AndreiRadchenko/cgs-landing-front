@@ -24,7 +24,7 @@ const definition = {
     ref: 'technology',
     required: true,
   }],
-  projectLink: {
+  link: {
     type: SchemaTypes.String,
     required: true,
   },
@@ -35,7 +35,7 @@ const definition = {
   },
   showOnHomePage: {
     type: SchemaTypes.Boolean,
-    default: false,
+    default: true,
   },
 };
 

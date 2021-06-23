@@ -13,11 +13,6 @@ const definition = {
     required: true,
   },
 
-  savedAs: {
-    type: SchemaTypes.String,
-    required: true,
-  },
-
   mimeType: {
     type: SchemaTypes.String,
     required: true,
@@ -28,7 +23,12 @@ const definition = {
     required: true,
   },
 
-  hash: {
+  s3FileKey: {
+    type: SchemaTypes.String,
+    required: true,
+  },
+
+  s3FileUrl: {
     type: SchemaTypes.String,
     required: true,
   },

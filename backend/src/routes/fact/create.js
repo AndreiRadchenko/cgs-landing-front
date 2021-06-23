@@ -1,5 +1,7 @@
 const yup = require('yup');
 
+const { StatusCodes } = require('http-status-codes');
+
 const { assignExistProperties } = require('../../utils/helpers');
 
 const { Fact } = require('../../database');
@@ -9,6 +11,7 @@ const { mapFactToResponse } = require('./utils/mappers');
 const factCreate = {
   path: '/',
   method: 'POST',
+  checkAuth: true,
   validate: {
     body: {
       type: 'json',
@@ -20,7 +23,7 @@ const factCreate = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { body } = context.request;
 
     let fact = new Fact({
@@ -41,7 +44,7 @@ const factCreate = {
 
     fact = await fact.execPopulate();
 
-    context.status = 201;
+    context.status = StatusCodes.CREATED;
 
     context.body = {
       response: mapFactToResponse(fact),

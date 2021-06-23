@@ -18,7 +18,7 @@ const definition = {
   },
   showOnHomePage: {
     type: SchemaTypes.Boolean,
-    default: false,
+    default: true,
   },
 };
 

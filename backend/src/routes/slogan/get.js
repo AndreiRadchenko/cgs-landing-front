@@ -7,6 +7,7 @@ const { mapSloganToResponse } = require('./utils/mappers');
 const sloganGet = {
   path: '/:id?',
   method: 'GET',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -14,7 +15,7 @@ const sloganGet = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params } = context.request;
 
     const query = Slogan.find();
@@ -24,8 +25,6 @@ const sloganGet = {
     }
 
     const slogans = await query.exec();
-
-    context.status = 200;
 
     context.body = {
       response: slogans.map(mapSloganToResponse),

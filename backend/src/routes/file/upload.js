@@ -1,27 +1,23 @@
-const { config } = require('../../config');
-
-const { File } = require('../../database');
+const { StatusCodes } = require('http-status-codes');
 
 const { mapFileToResponse } = require('./utils/mappers');
 
 const fileUpload = {
   path: '/upload',
   method: 'POST',
+  checkAuth: true,
   validate: {
     body: {
       type: 'multipart',
-      options: {
-        uploadDir: config.files.storagePath,
-      },
     },
   },
-  handler: async (context) => {
-    const files = await File.insertMany(context.request.files);
+  async handler(context) {
+    const { file } = context.request;
 
-    context.status = 201;
+    context.status = StatusCodes.CREATED;
 
     context.body = {
-      response: files.map(mapFileToResponse),
+      response: mapFileToResponse(file),
     };
   },
 };

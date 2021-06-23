@@ -1,3 +1,5 @@
+const { StatusCodes } = require('http-status-codes');
+
 const { BodyType } = require('./constants');
 
 const bodyTypes = {
@@ -12,22 +14,30 @@ const bodyTypes = {
 };
 
 const defaultOptions = {
-  errorStatusCode: 400,
+  errorStatusCode: StatusCodes.BAD_REQUEST,
 };
 
 const makeBodyTypeValidator = (type, options = defaultOptions) => {
   const bodyType = bodyTypes[type];
 
-  if (bodyType === undefined) {
+  if (!bodyType) {
     throw new Error(`unsupported body type: ${type}`);
   }
 
-  return (context, next) => {
+  return async (context, next) => {
     if (!context.request.is(bodyType.type)) {
-      return context.throw(options.errorStatusCode, bodyType.errorMessage);
+      context.status = options.errorStatusCode;
+
+      context.body = {
+        error: {
+          message: bodyType.errorMessage,
+        },
+      };
+
+      return;
     }
 
-    return next();
+    await next();
   };
 };
 

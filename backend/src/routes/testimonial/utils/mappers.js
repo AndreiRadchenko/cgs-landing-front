@@ -1,3 +1,12 @@
+const mapPlatformToResponse = (platform) => ({
+  id: platform.id,
+  type: platform.type,
+  rate: platform.rate,
+  link: platform.link,
+});
+
+exports.mapPlatformToResponse = mapPlatformToResponse;
+
 const mapTestimonialToResponse = (testimonial) => ({
   id: testimonial.id,
   customerName: testimonial.customerName,
@@ -5,12 +14,7 @@ const mapTestimonialToResponse = (testimonial) => ({
   companyName: testimonial.companyName,
   customerPosition: testimonial.customerPosition,
   feedback: testimonial.feedback,
-  sites: testimonial.sites.map((site) => ({
-    id: site.id,
-    name: site.name,
-    rate: site.rate,
-    link: site.link,
-  })),
+  platforms: testimonial.platforms.map(mapPlatformToResponse),
 });
 
 exports.mapTestimonialToResponse = mapTestimonialToResponse;

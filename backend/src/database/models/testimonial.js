@@ -1,5 +1,7 @@
 const { Schema, SchemaTypes } = require('mongoose');
 
+const { FeedbackPlatformType } = require('../../utils/constants');
+
 const { connection } = require('../connection');
 
 const definition = {
@@ -23,9 +25,10 @@ const definition = {
     type: SchemaTypes.String,
     required: true,
   },
-  sites: [{
-    name: {
+  platforms: [{
+    type: {
       type: SchemaTypes.String,
+      enum: FeedbackPlatformType,
       required: true,
     },
     rate: {

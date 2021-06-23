@@ -1,6 +1,11 @@
 const yup = require('yup');
 
-const { assignExistProperties } = require('../../utils/helpers');
+const { StatusCodes } = require('http-status-codes');
+
+const {
+  normalizeUrl,
+  assignExistProperties,
+} = require('../../utils/helpers');
 
 const { Project } = require('../../database');
 
@@ -9,6 +14,7 @@ const { mapProjectToResponse } = require('./utils/mappers');
 const projectUpdate = {
   path: '/:id',
   method: 'PUT',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -23,19 +29,19 @@ const projectUpdate = {
         shortDescription: yup.string().min(1).optional(),
         fullDescription: yup.string().min(1).optional(),
         technologyIds: yup.array().of(yup.objectId()).min(1).optional(),
-        projectLink: yup.string().min(1).optional(),
+        link: yup.string().transform(normalizeUrl).optional(),
         imageFileId: yup.objectId().optional(),
         showOnHomePage: yup.boolean().optional(),
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params, body } = context.request;
 
     let project = await Project.findById(params.id);
 
     if (!project) {
-      context.status = 404;
+      context.status = StatusCodes.NOT_FOUND;
 
       context.body = {
         response: null,
@@ -57,7 +63,7 @@ const projectUpdate = {
       'countryCode',
       'shortDescription',
       'fullDescription',
-      'projectLink',
+      'link',
       'showOnHomePage',
     ]);
 
@@ -76,8 +82,6 @@ const projectUpdate = {
     ]);
 
     project = await project.execPopulate();
-
-    context.status = 200;
 
     context.body = {
       response: mapProjectToResponse(project),

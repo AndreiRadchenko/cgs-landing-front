@@ -1,5 +1,7 @@
 const yup = require('yup');
 
+const { StatusCodes } = require('http-status-codes');
+
 const { assignExistProperties } = require('../../utils/helpers');
 
 const { Fact } = require('../../database');
@@ -9,6 +11,7 @@ const { mapFactToResponse } = require('./utils/mappers');
 const factUpdate = {
   path: '/:id',
   method: 'PUT',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -25,13 +28,13 @@ const factUpdate = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params, body } = context.request;
 
     let fact = await Fact.findById(params.id);
 
     if (!fact) {
-      context.status = 404;
+      context.status = StatusCodes.NOT_FOUND;
 
       context.body = {
         response: null,
@@ -57,8 +60,6 @@ const factUpdate = {
     });
 
     fact = await fact.execPopulate();
-
-    context.status = 200;
 
     context.body = {
       response: mapFactToResponse(fact),

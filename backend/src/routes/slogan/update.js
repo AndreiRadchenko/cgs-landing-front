@@ -1,5 +1,7 @@
 const yup = require('yup');
 
+const { StatusCodes } = require('http-status-codes');
+
 const { assignExistProperties } = require('../../utils/helpers');
 
 const { Slogan } = require('../../database');
@@ -9,6 +11,7 @@ const { mapSloganToResponse } = require('./utils/mappers');
 const sloganUpdate = {
   path: '/:id',
   method: 'PUT',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -24,13 +27,13 @@ const sloganUpdate = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params, body } = context.request;
 
     const slogan = await Slogan.findById(params.id);
 
     if (!slogan) {
-      context.status = 404;
+      context.status = StatusCodes.NOT_FOUND;
 
       context.body = {
         response: null,
@@ -46,8 +49,6 @@ const sloganUpdate = {
     ]);
 
     await slogan.save();
-
-    context.status = 200;
 
     context.body = {
       response: mapSloganToResponse(slogan),

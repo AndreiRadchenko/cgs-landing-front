@@ -1,5 +1,12 @@
 const yup = require('yup');
 
+const { StatusCodes } = require('http-status-codes');
+
+const {
+  normalizeUrl,
+  assignExistProperties,
+} = require('../../utils/helpers');
+
 const { Project } = require('../../database');
 
 const { mapProjectToResponse } = require('./utils/mappers');
@@ -7,6 +14,7 @@ const { mapProjectToResponse } = require('./utils/mappers');
 const projectCreate = {
   path: '/',
   method: 'POST',
+  checkAuth: true,
   validate: {
     body: {
       type: 'json',
@@ -16,25 +24,30 @@ const projectCreate = {
         shortDescription: yup.string().required(),
         fullDescription: yup.string().required(),
         technologyIds: yup.array().of(yup.objectId()).min(1).required(),
-        projectLink: yup.string().required(),
+        link: yup.string().transform(normalizeUrl).required(),
         imageFileId: yup.objectId().required(),
         showOnHomePage: yup.boolean().optional(),
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { body } = context.request;
 
-    let project = await Project.create({
-      name: body.name,
-      countryCode: body.countryCode,
-      shortDescription: body.shortDescription,
-      fullDescription: body.fullDescription,
-      technologies: body.technologyIds,
-      projectLink: body.projectLink,
+    let project = new Project({
       imageFile: body.imageFileId,
-      showOnHomePage: body.showOnHomePage,
+      technologies: body.technologyIds,
     });
+
+    assignExistProperties(project, body, [
+      'name',
+      'countryCode',
+      'shortDescription',
+      'fullDescription',
+      'link',
+      'showOnHomePage',
+    ]);
+
+    await project.save();
 
     project.populate([
       {
@@ -50,7 +63,7 @@ const projectCreate = {
 
     project = await project.execPopulate();
 
-    context.status = 201;
+    context.status = StatusCodes.CREATED;
 
     context.body = {
       response: mapProjectToResponse(project),

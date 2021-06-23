@@ -7,6 +7,7 @@ const { mapFileToResponse } = require('./utils/mappers');
 const fileGet = {
   path: '/:id?',
   method: 'GET',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -14,7 +15,7 @@ const fileGet = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params } = context.request;
 
     const query = File.find();
@@ -24,8 +25,6 @@ const fileGet = {
     }
 
     const files = await query.exec();
-
-    context.status = 200;
 
     context.body = {
       response: files.map(mapFileToResponse),

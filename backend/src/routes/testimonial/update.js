@@ -1,6 +1,13 @@
 const yup = require('yup');
 
-const { assignExistProperties } = require('../../utils/helpers');
+const { StatusCodes } = require('http-status-codes');
+
+const {
+  normalizeUrl,
+  assignExistProperties,
+} = require('../../utils/helpers');
+
+const { feedbackPlatformTypes } = require('../../utils/constants');
 
 const { Testimonial } = require('../../database');
 
@@ -9,6 +16,7 @@ const { mapTestimonialToResponse } = require('./utils/mappers');
 const testimonialUpdate = {
   path: '/:id',
   method: 'PUT',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -23,13 +31,13 @@ const testimonialUpdate = {
         companyName: yup.string().min(1).optional(),
         customerPosition: yup.string().min(1).optional(),
         feedback: yup.string().min(1).optional(),
-        sites: yup
+        platforms: yup
           .array()
           .of(
             yup.object({
-              name: yup.string().min(1).optional(),
-              rate: yup.number().min(0).max(5).optional(),
-              link: yup.string().url().optional(),
+              type: yup.string().oneOf(feedbackPlatformTypes).required(),
+              rate: yup.number().min(0).max(5).required(),
+              link: yup.string().transform(normalizeUrl).required(),
             }),
           )
           .min(1)
@@ -37,13 +45,13 @@ const testimonialUpdate = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params, body } = context.request;
 
     const testimonial = await Testimonial.findById(params.id);
 
     if (!testimonial) {
-      context.status = 404;
+      context.status = StatusCodes.NOT_FOUND;
 
       context.body = {
         response: null,
@@ -58,12 +66,10 @@ const testimonialUpdate = {
       'companyName',
       'customerPosition',
       'feedback',
-      'sites',
+      'platforms',
     ]);
 
     await testimonial.save();
-
-    context.status = 200;
 
     context.body = {
       response: mapTestimonialToResponse(testimonial),

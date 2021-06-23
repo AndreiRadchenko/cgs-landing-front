@@ -1,3 +1,5 @@
+const { checkAuthorization } = require('../middlewares');
+
 const {
   normalizeMethods,
   normalizeHandlers,
@@ -29,6 +31,10 @@ const makeRoute = (rawRoute) => {
     }
 
     route.handlers.unshift(...middlewares);
+  }
+
+  if (rawRoute.checkAuth) {
+    route.handlers.unshift(checkAuthorization);
   }
 
   return route;

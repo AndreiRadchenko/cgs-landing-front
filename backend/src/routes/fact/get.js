@@ -7,6 +7,7 @@ const { mapFactToResponse } = require('./utils/mappers');
 const factGet = {
   path: '/:id?',
   method: 'GET',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -14,7 +15,7 @@ const factGet = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params } = context.request;
 
     const query = Fact.find();
@@ -28,8 +29,6 @@ const factGet = {
     });
 
     const facts = await query.exec();
-
-    context.status = 200;
 
     context.body = {
       response: facts.map(mapFactToResponse),

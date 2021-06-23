@@ -11,31 +11,42 @@ const mapProjectToResponse = (project) => ({
   countryCode: project.countryCode,
   shortDescription: project.shortDescription,
   fullDescription: project.fullDescription,
-  // eslint-disable-next-line no-use-before-define
-  technologies: project.technologies.map(mapTechnologyToResponse),
-  projectLink: project.projectLink,
-  imageFileSavedAs: project.imageFile.savedAs,
+  technologies: project.technologies.map((technology) => ({
+    id: technology.id,
+    name: technology.name,
+    iconUrl: technology.iconFile?.s3FileUrl ?? null,
+  })),
+  link: project.link,
+  imageUrl: project.imageFile?.s3FileUrl ?? null,
 });
 
 exports.mapProjectToResponse = mapProjectToResponse;
+
+const mapWorkerToResponse = (worker) => ({
+  id: worker.id,
+  name: worker.name,
+  position: worker.position,
+  text: worker.text,
+  imageUrl: worker.imageFile?.s3FileUrl ?? null,
+});
+
+exports.mapWorkerToResponse = mapWorkerToResponse;
 
 const mapFactToResponse = (fact) => ({
   id: fact.id,
   title: fact.title,
   text: fact.text,
-  iconFileSavedAs: fact.iconFile.savedAs,
+  iconUrl: fact.iconFile?.s3FileUrl ?? null,
 });
 
 exports.mapFactToResponse = mapFactToResponse;
 
-const mapTechnologyToResponse = (technology) => ({
-  id: technology.id,
-  name: technology.name,
-  category: technology.category,
-  iconFileSavedAs: technology.iconFile.savedAs,
+const mapCategoryToResponse = (category) => ({
+  type: category.type,
+  technologies: category.technologies,
 });
 
-exports.mapTechnologyToResponse = mapTechnologyToResponse;
+exports.mapCategoryToResponse = mapCategoryToResponse;
 
 const mapTestimonialToResponse = (testimonial) => ({
   id: testimonial.id,
@@ -44,12 +55,21 @@ const mapTestimonialToResponse = (testimonial) => ({
   companyName: testimonial.companyName,
   customerPosition: testimonial.customerPosition,
   feedback: testimonial.feedback,
-  sites: testimonial.sites.map((site) => ({
-    id: site.id,
-    name: site.name,
-    rate: site.rate,
-    link: site.link,
+  platforms: testimonial.platforms.map((platform) => ({
+    id: platform.id,
+    type: platform.type,
+    rate: platform.rate,
+    link: platform.link,
   })),
 });
 
 exports.mapTestimonialToResponse = mapTestimonialToResponse;
+
+const mapFeaturedTechnologyToResponse = (featuredTechnology) => ({
+  id: featuredTechnology.id,
+  name: featuredTechnology.name,
+  text: featuredTechnology.text,
+  imageUrl: featuredTechnology.imageFile?.s3FileUrl ?? null,
+});
+
+exports.mapFeaturedTechnologyToResponse = mapFeaturedTechnologyToResponse;

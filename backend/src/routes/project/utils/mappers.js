@@ -8,8 +8,10 @@ const mapProjectToResponse = (project) => ({
   shortDescription: project.shortDescription,
   fullDescription: project.fullDescription,
   technologies: project.technologies.map(mapTechnologyToResponse),
-  projectLink: project.projectLink,
-  imageFile: mapFileToResponse(project.imageFile),
+  link: project.link,
+  imageFile: project.imageFile
+    ? mapFileToResponse(project.imageFile)
+    : null,
   showOnHomePage: project.showOnHomePage,
 });
 

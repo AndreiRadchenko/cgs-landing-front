@@ -1,5 +1,14 @@
 const yup = require('yup');
 
+const { StatusCodes } = require('http-status-codes');
+
+const {
+  normalizeUrl,
+  assignExistProperties,
+} = require('../../utils/helpers');
+
+const { feedbackPlatformTypes } = require('../../utils/constants');
+
 const { Testimonial } = require('../../database');
 
 const { mapTestimonialToResponse } = require('./utils/mappers');
@@ -7,6 +16,7 @@ const { mapTestimonialToResponse } = require('./utils/mappers');
 const testimonialCreate = {
   path: '/',
   method: 'POST',
+  checkAuth: true,
   validate: {
     body: {
       type: 'json',
@@ -16,13 +26,13 @@ const testimonialCreate = {
         companyName: yup.string().required(),
         customerPosition: yup.string().required(),
         feedback: yup.string().required(),
-        sites: yup
+        platforms: yup
           .array()
           .of(
             yup.object({
-              name: yup.string().required(),
+              type: yup.string().oneOf(feedbackPlatformTypes).required(),
               rate: yup.number().min(0).max(5).required(),
-              link: yup.string().url().required(),
+              link: yup.string().transform(normalizeUrl).required(),
             }),
           )
           .min(1)
@@ -30,10 +40,23 @@ const testimonialCreate = {
       }),
     },
   },
-  handler: async (context) => {
-    const testimonial = await Testimonial.create(context.request.body);
+  async handler(context) {
+    const { body } = context.request;
 
-    context.status = 201;
+    const testimonial = new Testimonial();
+
+    assignExistProperties(testimonial, body, [
+      'customerName',
+      'countryCode',
+      'companyName',
+      'customerPosition',
+      'feedback',
+      'platforms',
+    ]);
+
+    await testimonial.save();
+
+    context.status = StatusCodes.CREATED;
 
     context.body = {
       response: mapTestimonialToResponse(testimonial),

@@ -1,10 +1,13 @@
 const yup = require('yup');
 
+const { StatusCodes } = require('http-status-codes');
+
 const { Fact } = require('../../database');
 
 const factDelete = {
   path: '/:id',
   method: 'DELETE',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -12,13 +15,13 @@ const factDelete = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params } = context.request;
 
     const fact = await Fact.findByIdAndDelete(params.id);
 
     if (!fact) {
-      context.status = 404;
+      context.status = StatusCodes.NOT_FOUND;
 
       context.body = {
         response: null,
@@ -27,7 +30,7 @@ const factDelete = {
       return;
     }
 
-    context.status = 204;
+    context.status = StatusCodes.NO_CONTENT;
   },
 };
 

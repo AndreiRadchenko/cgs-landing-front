@@ -7,6 +7,7 @@ const { mapTestimonialToResponse } = require('./utils/mappers');
 const testimonialGet = {
   path: '/:id?',
   method: 'GET',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -14,7 +15,7 @@ const testimonialGet = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params } = context.request;
 
     const query = Testimonial.find();
@@ -24,8 +25,6 @@ const testimonialGet = {
     }
 
     const testimonials = await query.exec();
-
-    context.status = 200;
 
     context.body = {
       response: testimonials.map(mapTestimonialToResponse),

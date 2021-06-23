@@ -1,6 +1,8 @@
 const yup = require('yup');
 
-const { TechnologyType } = require('../../utils/constants');
+const { StatusCodes } = require('http-status-codes');
+
+const { technologyTypes } = require('../../utils/constants');
 const { assignExistProperties } = require('../../utils/helpers');
 
 const { Technology } = require('../../database');
@@ -10,17 +12,19 @@ const { mapTechnologyToResponse } = require('./utils/mappers');
 const technologyCreate = {
   path: '/',
   method: 'POST',
+  checkAuth: true,
   validate: {
     body: {
       type: 'json',
       schema: yup.object({
         name: yup.string().required(),
-        category: yup.string().oneOf(Object.values(TechnologyType)).required(),
+        category: yup.string().oneOf(technologyTypes).required(),
         iconFileId: yup.objectId().required(),
+        showOnHomePage: yup.boolean().optional(),
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { body } = context.request;
 
     let technology = new Technology({
@@ -30,6 +34,7 @@ const technologyCreate = {
     assignExistProperties(technology, body, [
       'name',
       'category',
+      'showOnHomePage',
     ]);
 
     await technology.save();
@@ -40,7 +45,7 @@ const technologyCreate = {
 
     technology = await technology.execPopulate();
 
-    context.status = 201;
+    context.status = StatusCodes.CREATED;
 
     context.body = {
       response: mapTechnologyToResponse(technology),

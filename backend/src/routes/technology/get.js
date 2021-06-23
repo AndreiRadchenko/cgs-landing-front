@@ -7,6 +7,7 @@ const { mapTechnologyToResponse } = require('./utils/mappers');
 const technologyGet = {
   path: '/:id?',
   method: 'GET',
+  checkAuth: true,
   validate: {
     params: {
       schema: yup.object({
@@ -14,7 +15,7 @@ const technologyGet = {
       }),
     },
   },
-  handler: async (context) => {
+  async handler(context) {
     const { params } = context.request;
 
     const query = Technology.find();
@@ -28,8 +29,6 @@ const technologyGet = {
     });
 
     const technologies = await query.exec();
-
-    context.status = 200;
 
     context.body = {
       response: technologies.map(mapTechnologyToResponse),

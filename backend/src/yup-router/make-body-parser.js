@@ -10,10 +10,10 @@ const factories = {
   [BodyType.MULTIPART]: makeMultipartBodyParser,
 };
 
-const makeBodyParser = (type, options = {}) => {
+const makeBodyParser = (type, options) => {
   const factory = factories[type];
 
-  if (factory === undefined) {
+  if (!factory) {
     throw new Error(`unsupported body type: ${type}`);
   }
 
