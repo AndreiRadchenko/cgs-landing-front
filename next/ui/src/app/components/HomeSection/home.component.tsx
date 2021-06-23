@@ -9,8 +9,8 @@ const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => (
         className="home-section__img--mobile"
         src="/illustration.svg"
       />
-      <h1 className="home-section__title">{slogan.title}</h1>
-      <p className="home-section__subtitle">{slogan.text}</p>
+      <h1 className="home-section__title">{slogan?.title}</h1>
+      <p className="home-section__subtitle">{slogan?.text}</p>
 
       <Styled.LinkButton href="#Contacts">Start a project</Styled.LinkButton>
       <Styled.LinkButton href="#Contacts" mobile type="button">

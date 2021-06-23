@@ -14,10 +14,15 @@ const TextEditor = ({ content, setArticleContent, setIsEditorOpen }) => {
   const handleChange = (formContent) => {
     setArticleMarkUpContent(formContent);
   };
+
   const handleSave = () => {
     setArticleContent(articleMarkUpContent);
     setIsEditorOpen(false);
   };
+
+  const handleEditor = () => handleSave();
+  const handleConditionEditor = () => setIsEditorOpen(false);
+
   return (
     <>
       <Styled.Title>Content of article</Styled.Title>
@@ -72,10 +77,10 @@ const TextEditor = ({ content, setArticleContent, setIsEditorOpen }) => {
             hideToolbar={false}
           />
           <ButtonWrapper>
-            <Button empty type="button" onClick={() => handleSave()}>
+            <Button empty type="button" onClick={handleEditor}>
               Create
             </Button>
-            <Button type="button" onClick={() => setIsEditorOpen(false)}>
+            <Button type="button" onClick={handleConditionEditor}>
               Cancel
             </Button>
           </ButtonWrapper>

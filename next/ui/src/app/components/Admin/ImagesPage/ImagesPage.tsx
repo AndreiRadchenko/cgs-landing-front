@@ -36,7 +36,7 @@ const ImagesPage: React.FC<{}> = () => {
         <Title>Images</Title>
         <ImageUploader setIsUploaded={setIsUpdated} />
         <Styled.List>
-          {images.map((image) => (
+          {images?.map((image) => (
             <li>
               <img src={image?.s3FileUrl} width="80px"></img>
               <Styled.DeleteButton

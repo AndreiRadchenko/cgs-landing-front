@@ -67,7 +67,7 @@ const ProjectForm: React.FC<{
       setTechnologyIds([...technologyIds, id]);
     }
     if (!event.target.checked) {
-      setTechnologyIds(technologyIds.filter((tech) => tech !== id));
+      setTechnologyIds(technologyIds?.filter((tech) => tech !== id));
     }
   };
 
@@ -108,17 +108,15 @@ const ProjectForm: React.FC<{
             onChange={countryCode.onChange}
             placeholder="Write country code here"
           >
-            {countryKeys.map((codeValue) => {
-              return (
-                <option
-                  selected={codeValue === countryCode.value}
-                  value={codeValue}
-                  key={codeValue}
-                >
-                  {CountryCodes[codeValue]}
-                </option>
-              );
-            })}
+            {countryKeys?.map((codeValue) => (
+              <option
+                selected={codeValue === countryCode.value}
+                value={codeValue}
+                key={codeValue}
+              >
+                {CountryCodes[codeValue]}
+              </option>
+            ))}
             )
           </Styled.Select>
         </Styled.Label>
@@ -141,13 +139,13 @@ const ProjectForm: React.FC<{
                   <input
                     type="checkbox"
                     name="TechOption"
-                    checked={technologyIds.some((el) => el === tech.id)}
+                    checked={technologyIds.some((el) => el === tech?.id)}
                     onChange={(event) => handleTechChange(event, tech.id)}
                   />
                   <Styled.CustomCheckbox
-                    selected={technologyIds.some((el) => el === tech.id)}
+                    selected={technologyIds.some((el) => el === tech?.id)}
                   >
-                    <img src={slides.Check} alt="checkbox" />
+                    <img src={slides?.Check} alt="checkbox" />
                   </Styled.CustomCheckbox>
                 </Styled.CheckboxLabel>
               </Styled.CheckboxContainer>

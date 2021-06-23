@@ -39,7 +39,7 @@ const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
     <Styled.SliderContainer>
       <Slider {...settings} key={uuidv4()}>
         {mappedArr &&
-          mappedArr.map((technology, index) => (
+          mappedArr?.map((technology, index) => (
             <Technology key={uuidv4()} technology={technology} index={index} />
           ))}
       </Slider>

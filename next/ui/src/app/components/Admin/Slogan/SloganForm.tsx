@@ -64,7 +64,7 @@ const SloganForm: React.FC<{
           <Styled.Button type="submit" empty={true} disabled={!(title && text)}>
             {slogan ? "Save" : "Create"}
           </Styled.Button>
-          <Styled.Button type="button" onClick={() => close()}>
+          <Styled.Button type="button" onClick={closeWindow}>
             Cancel
           </Styled.Button>
         </Styled.ButtonWrapper>

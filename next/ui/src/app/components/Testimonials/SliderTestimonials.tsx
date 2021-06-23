@@ -33,8 +33,8 @@ const SliderTestimonials: React.FC<{ testimonials: ITestimonial[] }> = ({
     <Styled.SliderContainer>
       <Slider {...settings}>
         {testimonials &&
-          testimonials.map((el) => (
-            <Testimonials key={el.id} testimonial={el}></Testimonials>
+          testimonials?.map((el) => (
+            <Testimonials key={el.id} testimonial={el} />
           ))}
       </Slider>
     </Styled.SliderContainer>

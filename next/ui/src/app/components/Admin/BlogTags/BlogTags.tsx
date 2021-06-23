@@ -62,11 +62,11 @@ const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
               <input
                 type="checkbox"
                 name="tagOption"
-                checked={tagIds.some((el) => el === tag.id)}
-                onChange={(event) => handleTagChange(event, tag.id)}
+                checked={tagIds.some((el) => el === tag?.id)}
+                onChange={(event) => handleTagChange(event, tag?.id)}
               />
               <Styled.CustomCheckbox
-                selected={tagIds?.some((el) => el === tag.id)}
+                selected={tagIds?.some((el) => el === tag?.id)}
               >
                 <img src={slides.Check} alt="checkbox" />
               </Styled.CustomCheckbox>

@@ -30,8 +30,8 @@ const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
         {activeMenu && (
           <Styled.DropBoxContainer>
             <Styled.DropBoxMain>
-              {Nav.map((item) => (
-                <Link href={item.link} key={uuidv4()}>
+              {Nav?.map((item) => (
+                <Link href={item?.link} key={uuidv4()}>
                   <p
                     onClick={() => setMenuState(!activeMenu)}
                     className="drop-box-item"

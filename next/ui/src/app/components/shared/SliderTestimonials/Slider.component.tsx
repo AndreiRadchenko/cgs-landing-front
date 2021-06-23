@@ -9,7 +9,7 @@ import { SamplePrevArrow, SampleNextArrow } from "../../shared/Slider/arrows";
 const SliderWorks: React.FC<{ children: React.ReactNodeArray }> = ({
   children,
 }) => {
-  let settings = {
+  const settings = {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -22,7 +22,7 @@ const SliderWorks: React.FC<{ children: React.ReactNodeArray }> = ({
 
   return (
     <Styled.SliderContainer style={{ width: "90%" }}>
-      <Slider {...settings}>{children.map((slide) => slide)}</Slider>
+      <Slider {...settings}>{children?.map((slide) => slide)}</Slider>
     </Styled.SliderContainer>
   );
 };

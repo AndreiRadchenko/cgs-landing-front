@@ -9,20 +9,20 @@ const SimilarArticles: React.FC<SimilarArticlesProps> = ({
 }) => (
   <Styled.Wrapper>
     <ul>
-      {similarArticles.map((article, index) => {
+      {similarArticles?.map((article, index) => {
         if (index < 2) {
           return (
             <Styled.SimilarArticle>
               <Link
                 href={`/blog/[id]`}
-                as={`/blog/${article.id}`}
-                key={article.id}
+                as={`/blog/${article?.id}`}
+                key={article?.id}
               >
                 <div>
-                  <img src={article.imageFileUrl} alt={article.title} />
-                  <h2>{article.title}</h2>
+                  <img src={article?.imageFileUrl} alt={article?.title} />
+                  <h2>{article?.title}</h2>
                   <HTMLEllipsis
-                    unsafeHTML={article.content}
+                    unsafeHTML={article?.content}
                     maxLine="2"
                     ellipsis="..."
                     basedOn="words"
