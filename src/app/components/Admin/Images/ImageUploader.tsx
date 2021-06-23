@@ -15,7 +15,7 @@ const ImageUploader: React.FC<{ setIsUploaded: Function }> = ({
 
   const handleImageChange = (e) => {
     e.preventDefault();
-    let file = e.target.files[0];
+    const file = e.target.files[0];
     setFile(file);
   };
 

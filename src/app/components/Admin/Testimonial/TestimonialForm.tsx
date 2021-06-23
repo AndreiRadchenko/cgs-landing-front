@@ -10,12 +10,12 @@ const TestimonialForm: React.FC<{
   testimonial?: ITestimonial | undefined;
   close: Function;
 }> = ({ testimonial, close }) => {
-  const clutch: IPlatform | undefined = testimonial?.platforms.find(
-    (item) => item.type === "clutch"
+  const clutch: IPlatform | undefined = testimonial?.platforms?.find(
+    (item) => item?.type === "clutch"
   );
 
-  const upwork: IPlatform | undefined = testimonial?.platforms.find(
-    (item) => item.type === "upwork"
+  const upwork: IPlatform | undefined = testimonial?.platforms?.find(
+    (item) => item?.type === "upwork"
   );
 
   const countryCode = useInput(testimonial?.countryCode || "GB");
@@ -32,7 +32,7 @@ const TestimonialForm: React.FC<{
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const clutch =
-      clutchLinkInput.value || clutchRateInput.value
+      clutchLinkInput?.value || clutchRateInput?.value
         ? {
             type: "clutch",
             link: clutchLinkInput.value,
@@ -40,7 +40,7 @@ const TestimonialForm: React.FC<{
           }
         : null;
     const upwork =
-      upworkLinkInput.value || upworkRateInput.value
+      upworkLinkInput?.value || upworkRateInput?.value
         ? {
             type: "upwork",
             link: upworkLinkInput.value,
@@ -57,11 +57,11 @@ const TestimonialForm: React.FC<{
     };
 
     if (clutch) {
-      newTestimonial.platforms = [...newTestimonial.platforms, clutch];
+      newTestimonial.platforms = [...newTestimonial?.platforms, clutch];
     }
 
     if (upwork) {
-      newTestimonial.platforms = [...newTestimonial.platforms, upwork];
+      newTestimonial.platforms = [...newTestimonial?.platforms, upwork];
     }
 
     testimonial
@@ -106,12 +106,12 @@ const TestimonialForm: React.FC<{
           <Styled.Select
             className="form__title"
             {...countryCode}
-            onChange={countryCode.onChange}
+            onChange={countryCode?.onChange}
           >
-            {countryKeys.map((codeValue) => {
+            {countryKeys?.map((codeValue) => {
               return (
                 <option
-                  selected={codeValue === countryCode.value}
+                  selected={codeValue === countryCode?.value}
                   value={codeValue}
                   key={codeValue}
                 >

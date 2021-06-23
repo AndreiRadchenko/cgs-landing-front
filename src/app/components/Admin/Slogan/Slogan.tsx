@@ -19,15 +19,15 @@ const Slogan: React.FC<{
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Selected:</span>
-            <span>{slogan.selected ? "true" : "false"}</span>
+            <span>{slogan?.selected ? "true" : "false"}</span>
           </Styled.ListItem>
         </Styled.List>
       </Styled.Item>
       <ItemButtons
         openModal={openModal}
         item={slogan}
-        deleteItem={() => deleteItem("slogan", slogan.id)}
-      ></ItemButtons>
+        deleteItem={() => deleteItem("slogan", slogan?.id)}
+      />
     </Styled.Wrapper>
   );
 };

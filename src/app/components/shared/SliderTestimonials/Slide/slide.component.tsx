@@ -5,31 +5,31 @@ import { v4 as uuidv4 } from "uuid";
 import IMAGES from "../../../../../consts/Images";
 
 const Slide: React.FC<IProject> = ({ item }) => (
-  <Style.SlideContainer key={item.id} className="testimonials-slide-container">
+  <Style.SlideContainer key={item?.id} className="testimonials-slide-container">
     <Style.SliderContent>
       <Style.ContentWrapper>
         <Style.SliderHeader>
-          <Style.SliderHeaderTitle>{item.name}</Style.SliderHeaderTitle>
+          <Style.SliderHeaderTitle>{item?.name}</Style.SliderHeaderTitle>
           <Style.SliderHeaderImg src="/spainFlag.png" />
           <span className="slider-header__country">Spain</span>
         </Style.SliderHeader>
         <Style.SliderHeaderSubtitle>
-          {item.shortDescription}
+          {item?.shortDescription}
         </Style.SliderHeaderSubtitle>
         <Style.SliderDescription>
-          {item.fullDescription}
+          {item?.fullDescription}
         </Style.SliderDescription>
       </Style.ContentWrapper>
       <Style.ContentWrapper>
         <div className="slider-technologies">
-          {item.technologies.map((tech) => (
+          {item?.technologies?.map((tech) => (
             <div className="slider-technology" key={uuidv4()}>
               <img
                 className="slider-technology__img"
-                key={tech.id}
-                src={tech.iconUrl ? tech.iconUrl : IMAGES.NODE}
+                key={tech?.id}
+                src={tech?.iconUrl ? tech?.iconUrl : IMAGES?.NODE}
               />
-              <span className="slider-technology__text">{tech.name}</span>
+              <span className="slider-technology__text">{tech?.name}</span>
             </div>
           ))}
         </div>
@@ -46,8 +46,8 @@ const Slide: React.FC<IProject> = ({ item }) => (
     </Style.SliderContent>
     <Style.SliderPicture
       className="slider-picture"
-      src={item.imageUrl}
-      alt={item.shortDescription}
+      src={item?.imageUrl}
+      alt={item?.shortDescription}
     />
   </Style.SlideContainer>
 );

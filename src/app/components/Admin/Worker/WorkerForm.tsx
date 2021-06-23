@@ -30,7 +30,7 @@ const WorkerForm: React.FC<{
     };
 
     worker
-      ? updateAdminData("worker", worker.id, newWorker).then(closeWindow)
+      ? updateAdminData("worker", worker?.id, newWorker).then(closeWindow)
       : createAdminData("worker", newWorker).then(closeWindow);
   };
   const getImageId = (id) => {
@@ -83,7 +83,7 @@ const WorkerForm: React.FC<{
               onChange={({ target: { checked } }) => setshowOnPage(checked)}
             />
             <Styled.CustomCheckbox selected={showOnPage}>
-              <img src={slides.Check} alt="checkbox" />
+              <img src={slides?.Check} alt="checkbox" />
             </Styled.CustomCheckbox>
           </Styled.CheckboxLabel>
         </Styled.CheckboxContainer>

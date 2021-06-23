@@ -5,6 +5,7 @@ import {
   deleteAdminData,
 } from "../../../services/api/adminApi";
 import axios from "axios";
+import { useLocalStorageState } from "use-local-storage-state";
 import * as Styled from "../../components/Admin/Admin.styles";
 import Fact from "../../components/Admin/Facts/Facts";
 import Slogan from "../../components/Admin/Slogan/Slogan";
@@ -38,9 +39,10 @@ import Footer from "app/components/shared/Footer/footer.component";
 import SectionLayout from "app/components/Admin/SectionLayout/sectionLayout.component";
 import { AdminNav } from "../../../consts/lists";
 import { v4 as uuidv4 } from "uuid";
+import { log } from "console";
 
 const AdminPage: React.FC = () => {
-  const [token, setToken] = useState<string | any>("");
+  const [token, setToken] = useLocalStorageState("");
   const [slogan, setSlogan] = useState<ISlogan[]>([]);
   const [projects, setProjects] = useState<IProject[]>([]);
   const [workers, setWorkers] = useState<IWorker[]>([]);
@@ -54,6 +56,7 @@ const AdminPage: React.FC = () => {
   const [isModal, setIsModal] = useState<boolean>(false);
   const [categoryOpen, setCategoryOpen] = useState<string | any>(null);
   const [editItem, setEditItem] = useState<any>(null);
+  const [tokenIsLoaded, setIsLoaded] = useState<any>(false);
 
   const apiParams = [
     { facts: setFacts },
@@ -188,26 +191,26 @@ const AdminPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const tokenFromLocalStorage = localStorage.getItem("token");
-    const token = tokenFromLocalStorage
-      ? JSON.parse(tokenFromLocalStorage)
-      : null;
     if (token) {
-      setToken(token);
-    } else {
-      login().then((token) => {
-        localStorage.setItem("token", JSON.stringify(token));
-        setToken(token);
-      });
+      setIsLoaded(true);
+      return;
     }
+    login().then((token) => {
+      setToken(token);
+      setIsLoaded(true);
+    });
   }, []);
 
   useEffect(() => {
+    console.log(tokenIsLoaded, token);
+    if (!tokenIsLoaded) {
+      return;
+    }
     axios.defaults.headers.Authorization = `Bearer ${token}`;
     if (token) {
       loadData();
     }
-  }, [token]);
+  }, [token, tokenIsLoaded]);
 
   useEffect(() => {
     loadData(categoryOpen);

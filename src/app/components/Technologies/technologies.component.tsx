@@ -9,19 +9,19 @@ const Technology = ({ technology, index }) => {
       {
         <Styled.TechnoContainer key={uuidv4()} className={index}>
           <Styled.DescContainer>
-            <h2>{TECHNOLOGIES[index].title}</h2>
+            <h2>{TECHNOLOGIES[index]?.title}</h2>
             <Styled.HorizontalSep />
             <ul>
-              {technology.technologies &&
-                technology.technologies.map((skill) => (
+              {technology?.technologies &&
+                technology?.technologies?.map((skill) => (
                   <li key={uuidv4()}>{skill}</li>
                 ))}
             </ul>
           </Styled.DescContainer>
           <div>
             <Styled.TechnoImage
-              src={TECHNOLOGIES[index].image}
-              alt={technology.type}
+              src={TECHNOLOGIES[index]?.image}
+              alt={technology?.type}
               index={index}
             />
           </div>

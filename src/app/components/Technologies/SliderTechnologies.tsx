@@ -4,11 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { onChangeSlideEA } from "../../../services/event";
-import { v4 as uuidv4 } from "uuid";
 import Technology from "./technologies.component";
 import { ITechnology } from "../../../types/components/index";
 import { SampleNextArrow, SamplePrevArrow } from "../shared/Slider/arrows";
-import { mapTechnologies } from "helpers/mapTechnologies";
 
 const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
   technologies,
@@ -33,15 +31,12 @@ const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
     className: "slides",
   };
 
-  const mappedArr = mapTechnologies(technologies);
-
   return (
     <Styled.SliderContainer>
-      <Slider {...settings} key={uuidv4()}>
-        {mappedArr &&
-          mappedArr.map((technology, index) => (
-            <Technology key={uuidv4()} technology={technology} index={index} />
-          ))}
+      <Slider {...settings}>
+        {technologies?.map((technology, index) => (
+          <Technology key={technology.type} technology={technology} index={index} />
+        ))}
       </Slider>
     </Styled.SliderContainer>
   );
