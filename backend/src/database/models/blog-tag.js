@@ -6,6 +6,7 @@ const definition = {
   name: {
     type: SchemaTypes.String,
     required: true,
+    unique: true,
   },
 };
 

@@ -1,4 +1,5 @@
 const yup = require('yup');
+const { MongoError } = require('mongodb');
 
 const { StatusCodes } = require('http-status-codes');
 
@@ -27,7 +28,23 @@ const blogTagCreate = {
 
     assignExistProperties(blogTag, body, ['name']);
 
-    await blogTag.save();
+    try {
+      await blogTag.save();
+    } catch (error) {
+      if (error instanceof MongoError && error.code === 11000) {
+        context.status = StatusCodes.CONFLICT;
+
+        context.body = {
+          error: {
+            message: `BlogTag "${blogTag.name}" already exists`,
+          },
+        };
+
+        return;
+      }
+
+      throw error;
+    }
 
     context.status = StatusCodes.CREATED;
 
