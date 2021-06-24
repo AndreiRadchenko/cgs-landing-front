@@ -74,22 +74,23 @@ const WorkerForm: React.FC<{
           <Images activeImage={worker?.imageFile} getImageId={getImageId} />
         </Styled.PicturesWrapper>
         <Styled.Label>
-          <span>Show:</span>
-          <Styled.CheckboxLabel position="static">
-            <input
-              type="checkbox"
-              name="TechOption"
-              checked={showOnPage}
-              onChange={(event) => {
-                setshowOnPage(event.target.checked);
-              }}
-            />
-            <Styled.CustomCheckbox selected={showOnPage}>
-              <img src={slides?.Check} alt="checkbox" />
-            </Styled.CustomCheckbox>
-          </Styled.CheckboxLabel>
+          <span>Show on page:</span>
+          <Styled.SingleCheckboxContainer>
+            <Styled.CheckboxLabel position="static">
+              <input
+                type="checkbox"
+                name="TechOption"
+                checked={showOnPage}
+                onChange={(event) => {
+                  setshowOnPage(event.target.checked);
+                }}
+              />
+              <Styled.CustomCheckbox selected={showOnPage}>
+                <img src={slides?.Check} alt="checkbox" />
+              </Styled.CustomCheckbox>
+            </Styled.CheckboxLabel>
+          </Styled.SingleCheckboxContainer>
         </Styled.Label>
-
         <Styled.ButtonWrapper>
           <Styled.Button
             type="submit"

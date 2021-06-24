@@ -17,7 +17,7 @@ const Facts: React.FC<{
           <span>Text:</span> <span>{fact?.text}</span>
         </Styled.ListItem>
         <Styled.ListItem>
-          <span> Show:</span>
+          <span>Show:</span>
           <span>{fact?.showOnHomePage ? "true" : "false"}</span>
         </Styled.ListItem>
         <Styled.ListItem>

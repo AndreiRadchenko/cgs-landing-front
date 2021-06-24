@@ -182,6 +182,10 @@ export const CheckboxContainer = styled("div")`
   }
 `;
 
+export const SingleCheckboxContainer = styled("div")`
+  margin-left: 20px;
+`;
+
 export const CustomCheckbox = styled("div") <PropsFormWrapper>`
   width: 20px;
   height: 20px;
