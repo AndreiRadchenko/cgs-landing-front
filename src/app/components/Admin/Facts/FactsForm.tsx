@@ -57,18 +57,20 @@ const FactsForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label>
-          <span>Show:</span>
-          <Styled.CheckboxLabel position="static">
-            <input
-              type="checkbox"
-              name="TechOption"
-              checked={showOnHomePage}
-              onChange={({ target: { checked } }) => setShowOnHomePage(checked)}
-            />
-            <Styled.CustomCheckbox selected={showOnHomePage}>
-              <img src={slides.Check} alt="checkbox" />
-            </Styled.CustomCheckbox>
-          </Styled.CheckboxLabel>
+          <span>Show on page:</span>
+          <Styled.SingleCheckboxContainer>
+            <Styled.CheckboxLabel position="static">
+              <input
+                type="checkbox"
+                name="TechOption"
+                checked={showOnHomePage}
+                onChange={({ target: { checked } }) => setShowOnHomePage(checked)}
+              />
+              <Styled.CustomCheckbox selected={showOnHomePage}>
+                <img src={slides.Check} alt="checkbox" />
+              </Styled.CustomCheckbox>
+            </Styled.CheckboxLabel>
+          </Styled.SingleCheckboxContainer>
         </Styled.Label>
         <Styled.PicturesWrapper>
           <span>Pictures:</span>

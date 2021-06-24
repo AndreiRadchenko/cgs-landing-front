@@ -160,17 +160,19 @@ const ProjectForm: React.FC<{
           <Images activeImage={project?.imageFile} getImageId={getImageId} />
         </Styled.PicturesWrapper>
         <Styled.Label>
-          <span>Show:</span>
-          <Styled.CheckboxLabel position="static">
-            <input
-              type="checkbox"
-              checked={showOnHomePage}
-              onChange={({ target: { checked } }) => setShowOnHomePage(checked)}
-            />
-            <Styled.CustomCheckbox selected={showOnHomePage}>
-              <img src={slides.Check} alt="checkbox" />
-            </Styled.CustomCheckbox>
-          </Styled.CheckboxLabel>
+          <span>Show on page:</span>
+          <Styled.SingleCheckboxContainer>
+            <Styled.CheckboxLabel position="static">
+              <input
+                type="checkbox"
+                checked={showOnHomePage}
+                onChange={({ target: { checked } }) => setShowOnHomePage(checked)}
+              />
+              <Styled.CustomCheckbox selected={showOnHomePage}>
+                <img src={slides.Check} alt="checkbox" />
+              </Styled.CustomCheckbox>
+            </Styled.CheckboxLabel>
+          </Styled.SingleCheckboxContainer>
         </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button
