@@ -153,8 +153,10 @@ export const ImageContainer = styled.div`
   }
   & .featured__name {
     margin: 0;
-    position: absolute;
-    bottom: 5px;
+    position: absolute;  
+    bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
   }
 
   @media screen and (max-width: 1023.5px) {
@@ -171,5 +173,6 @@ export const ImageContainer = styled.div`
   }
   @media screen and (min-width: 1024px) {
     min-width: 200px;
+    min-height: 210px;
   }
 `;

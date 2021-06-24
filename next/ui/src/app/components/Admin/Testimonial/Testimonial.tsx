@@ -13,33 +13,48 @@ const Testimonial: React.FC<{
         <Styled.List>
           <Styled.ListItem>
             <span>Customer Name:</span>
-            <span>{testimonial?.customerName}</span>
+            <Styled.ListItemText>
+              <span>{testimonial?.customerName}</span>
+            </Styled.ListItemText>
           </Styled.ListItem>
           <Styled.ListItem>
-            <span>Company name:</span>
-            <span>{testimonial?.companyName} </span>
+            <span>Company Name:</span>
+            <Styled.ListItemText>
+              <span>{testimonial?.companyName} </span>
+            </Styled.ListItemText>
           </Styled.ListItem>
           <Styled.ListItem>
-            <span>Country code:</span>
-            <span>{testimonial?.countryCode} </span>
+            <span>Country Code:</span>
+            <Styled.ListItemText>
+              <span>{testimonial?.countryCode} </span>
+            </Styled.ListItemText>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Customer Position:</span>
-            <span>{testimonial?.customerPosition} </span>
+            <Styled.ListItemText>
+              <span>{testimonial?.customerPosition} </span>
+            </Styled.ListItemText>
           </Styled.ListItem>
           <Styled.ListItem>
-            <span>Feedback</span>
-            <span>{testimonial?.feedback} </span>
+            <span>Feedback:</span>
+            <Styled.ListItemText>
+              <span>{testimonial?.feedback} </span>
+            </Styled.ListItemText>
+
           </Styled.ListItem>
           {testimonial?.platforms?.map((platform) => (
             <>
               <Styled.ListItem>
-                <span>{`${platform?.type} link`}</span>
-                <span> {platform?.link}</span>
+                <span>{`${platform?.type} link:`}</span>
+                <Styled.ListItemText>
+                  <span> {platform?.link}</span>
+                </Styled.ListItemText>
               </Styled.ListItem>
               <Styled.ListItem>
-                <span>{`${platform?.type} rating`}</span>
-                <span> {platform?.rate}</span>
+                <span>{`${platform?.type} rating:`}</span>
+                <Styled.ListItemText>
+                  <span className="red"> {platform?.rate}</span>
+                </Styled.ListItemText>
               </Styled.ListItem>
             </>
           ))}
