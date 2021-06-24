@@ -16,6 +16,10 @@ const definition = {
     ref: 'file',
     required: true,
   },
+  label: {
+    type: SchemaTypes.String,
+    required: true,
+  },
 };
 
 const schema = new Schema(definition, {

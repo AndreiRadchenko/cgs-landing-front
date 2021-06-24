@@ -6,6 +6,7 @@ export const List = styled("ul")`
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  width: 700px;
   & > li {
     padding: 0 20px 20px 0;
     position: relative;

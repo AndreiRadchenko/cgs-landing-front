@@ -16,6 +16,7 @@ export const Form = styled("form")`
     font-size: 36px;
     font-weight: 700;
     line-height: 56px;
+    margin-bottom: 40px;
   }
   & > label {
     text-align: center;
@@ -103,30 +104,28 @@ export const Select = styled("select")`
 `;
 
 export const Content = styled("div")`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  & span {
-    white-space: nowrap;
-    text-align: start;
-    color: #0c1033;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 32px;
-  }
+  max-width: 635px;
+  border: 2px solid #1f5a7b;
+  border-radius: 20px;
+  max-width: 635px;
+  padding: 14px 36px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: justify;
+  margin: 0 5px 0 0;
 
-  & div {
-    width: 635px;
-    border: 2px solid #1f5a7b;
-    border-radius: 20px;
-    max-width: 635px;
-    padding: 14px 36px;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 32px;
-    text-align: justify;
-    margin: 0 5px 0 0;
+  & img {
+    width: 100%;
+  }
+`;
+
+export const ContentWrapper = styled("div")`
+  width: 100%;
+
+  & > ${Content} {
+    max-height: 400px;
+    overflow-y: auto;
   }
 `;
 
@@ -207,7 +206,7 @@ export const CheckboxLabel = styled("label") <PropsFormWrapper>`
     margin: -1px;
     overflow: hidden;
     padding: 0;
-    position: absolute;
+    position: ${(props) => props.position ?? 'absolute'};
     width: 1px;
   }
 `;

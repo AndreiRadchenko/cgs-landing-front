@@ -56,9 +56,9 @@ const FactsForm: React.FC<{
             placeholder="Write some text here"
           />
         </Styled.Label>
-        <Styled.CheckboxContainer>
-          <div>Show on page</div>
-          <Styled.CheckboxLabel>
+        <Styled.Label>
+          <span>Show:</span>
+          <Styled.CheckboxLabel position="static">
             <input
               type="checkbox"
               name="TechOption"
@@ -69,8 +69,7 @@ const FactsForm: React.FC<{
               <img src={slides.Check} alt="checkbox" />
             </Styled.CustomCheckbox>
           </Styled.CheckboxLabel>
-        </Styled.CheckboxContainer>
-
+        </Styled.Label>
         <Styled.PicturesWrapper>
           <span>Pictures:</span>
           <Images activeImage={fact?.iconFile} getImageId={getImageId} />

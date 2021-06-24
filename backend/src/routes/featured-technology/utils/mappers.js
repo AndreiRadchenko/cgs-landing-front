@@ -7,6 +7,7 @@ const mapFeaturedTechnologyToResponse = (featuredTechnology) => ({
   imageFile: featuredTechnology.imageFile
     ? mapFileToResponse(featuredTechnology.imageFile)
     : null,
+  label: featuredTechnology.label,
 });
 
 exports.mapFeaturedTechnologyToResponse = mapFeaturedTechnologyToResponse;

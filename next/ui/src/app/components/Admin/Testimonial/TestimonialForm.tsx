@@ -4,7 +4,7 @@ import { ITestimonial, IPlatform } from "../types";
 import * as Styled from "../Form.styles";
 import { useInput } from "../Hooks";
 
-import CountryCodes from "./countyCodes.json";
+import countryCodes from "../../../../consts/countyCodes.json";
 
 const TestimonialForm: React.FC<{
   testimonial?: ITestimonial | undefined;
@@ -71,7 +71,7 @@ const TestimonialForm: React.FC<{
       : createAdminData("testimonial", newTestimonial).then(closeWindow);
   };
 
-  const countryKeys = Object.keys(CountryCodes);
+  const countryKeys = Object.keys(countryCodes);
 
   return (
     <Styled.Wrapper>
@@ -115,7 +115,7 @@ const TestimonialForm: React.FC<{
                   value={codeValue}
                   key={codeValue}
                 >
-                  {CountryCodes[codeValue]}
+                  {countryCodes[codeValue]}
                 </option>
               );
             })}
