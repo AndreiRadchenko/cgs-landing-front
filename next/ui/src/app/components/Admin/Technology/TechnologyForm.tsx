@@ -99,7 +99,7 @@ const TechnologyForm: React.FC<{
         </Styled.PicturesWrapper>
         </Styled.Label>
         <Styled.Label>
-          <span>Show on page:</span>
+          <span>Show:</span>
           <Styled.CheckboxLabel
             position="static"
             selected={showOnHomePage}

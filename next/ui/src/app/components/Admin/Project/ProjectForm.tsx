@@ -105,15 +105,15 @@ const ProjectForm: React.FC<{
           <span>Country Code:</span>
           <Styled.Select
             className="form__title"
-            {...countryCode}
-            onChange={countryCode.onChange}
+            value={countryCode.value}
             placeholder="Write country code here"
+            onChange={countryCode.onChange}
           >
             {countryKeys?.map((codeValue) => (
               <option
-                selected={codeValue === countryCode.value}
-                value={codeValue}
                 key={codeValue}
+                value={codeValue}
+                selected={codeValue === countryCode.value}
               >
                 {countryCodes[codeValue]}
               </option>
@@ -157,9 +157,9 @@ const ProjectForm: React.FC<{
           <span>Pictures:</span>
           <Images activeImage={project?.imageFile} getImageId={getImageId} />
         </Styled.PicturesWrapper>
-        <Styled.CheckboxContainer>
-          <div>Show on page:</div>
-          <Styled.CheckboxLabel>
+        <Styled.Label>
+          <span>Show:</span>
+          <Styled.CheckboxLabel position="static">
             <input
               type="checkbox"
               checked={showOnHomePage}
@@ -169,7 +169,7 @@ const ProjectForm: React.FC<{
               <img src={slides.Check} alt="checkbox" />
             </Styled.CustomCheckbox>
           </Styled.CheckboxLabel>
-        </Styled.CheckboxContainer>
+        </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button
             type="submit"
