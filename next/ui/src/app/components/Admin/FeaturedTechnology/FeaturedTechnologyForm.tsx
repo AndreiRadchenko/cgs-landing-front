@@ -78,14 +78,15 @@ const FeaturedTechnologyForm: React.FC<{
             onChange={({ target: { value } }) => setLabel(value)}
           />
         </Styled.Label>
-        <Styled.PicturesWrapper>
+        <Styled.Label>
           <span>Pictures:</span>
-          <Images
-            activeImage={featuredTechnology?.imageFile}
-            getImageId={getImageId}
-          />
-        </Styled.PicturesWrapper>
-
+          <Styled.PicturesWrapper>
+            <Images
+              activeImage={featuredTechnology?.imageFile}
+              getImageId={getImageId}
+            />
+          </Styled.PicturesWrapper>
+        </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button
             type="submit"

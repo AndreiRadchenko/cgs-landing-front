@@ -130,8 +130,8 @@ const ProjectForm: React.FC<{
             placeholder="Put link here"
           />
         </Styled.Label>
-
-        <>
+        <Styled.Label>
+          <span>Technology:</span>
           <Styled.WrapperGrid>
             <Styled.Row>
               {technologies.map((tech) => (
@@ -154,11 +154,11 @@ const ProjectForm: React.FC<{
               ))}
             </Styled.Row>
           </Styled.WrapperGrid>
-        </>
-        <Styled.PicturesWrapper>
+        </Styled.Label>
+        <Styled.Label>
           <span>Pictures:</span>
           <Images activeImage={project?.imageFile} getImageId={getImageId} />
-        </Styled.PicturesWrapper>
+        </Styled.Label>
         <Styled.Label>
           <span>Show on page:</span>
           <Styled.SingleCheckboxContainer>
