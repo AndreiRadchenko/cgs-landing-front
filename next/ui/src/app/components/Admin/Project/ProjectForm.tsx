@@ -76,7 +76,7 @@ const ProjectForm: React.FC<{
       <Styled.Form onSubmit={handleSubmit}>
         {project ? <h2>Edit Project</h2> : <h2>Create new project</h2>}
         <Styled.Label>
-          <span>Project Name:</span>
+          <span>Name:</span>
           <Styled.AdminTextInput
             type="text"
             value={name}
@@ -85,19 +85,19 @@ const ProjectForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label>
-          <span>Full Description:</span>
-          <Styled.AdminTextArea
-            value={fullDescription}
-            onChange={({ target: { value } }) => setFullDescription(value)}
-            placeholder="Write a pair of sentences here"
-          />
-        </Styled.Label>
-        <Styled.Label>
           <span>Short Description:</span>
           <Styled.AdminTextArea
             value={shortDescription}
             onChange={({ target: { value } }) => setShortDescription(value)}
             placeholder="Write a pair of words"
+          />
+        </Styled.Label>
+        <Styled.Label>
+          <span>Full Description:</span>
+          <Styled.AdminTextArea
+            value={fullDescription}
+            onChange={({ target: { value } }) => setFullDescription(value)}
+            placeholder="Write a pair of sentences here"
           />
         </Styled.Label>
         <Styled.Label>

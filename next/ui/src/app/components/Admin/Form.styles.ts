@@ -57,6 +57,7 @@ export const AdminTextInput = styled("input")`
   font-weight: 700;
   line-height: 32px;
   outline: none;
+  margin-left: 20px;
 `;
 
 export const AdminTextArea = styled("textarea")`
@@ -75,6 +76,7 @@ export const AdminTextArea = styled("textarea")`
   line-height: 32px;
   padding: 14px 36px;
   outline: none;
+  margin-left: 20px;
 `;
 
 export const Select = styled("select")`
@@ -88,6 +90,16 @@ export const Select = styled("select")`
   font-size: 14px;
   font-weight: 700;
   line-height: 32px;
+  margin-left: 20px;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance:none;
+  background: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='rgb(196, 196, 196)' height='60' viewBox='0 0 24 24' width='60' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 0px;
 `;
 
 export const Content = styled("div")`
@@ -123,7 +135,7 @@ export const Label = styled("label") <PropsFormWrapper>`
   grid-template-columns: minmax(50px, 120px) 1fr;
   align-items: center;
   & > span {
-    text-align: start;
+    text-align: end;
     color: #0c1033;
     font-size: 14px;
     font-weight: 700;

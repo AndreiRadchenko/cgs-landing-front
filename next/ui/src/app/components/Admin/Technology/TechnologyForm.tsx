@@ -25,8 +25,8 @@ const TechnologyForm: React.FC<{
 
     technology
       ? updateAdminData("technology", technology.id, newTechnology).then(
-          closeWindow
-        )
+        closeWindow
+      )
       : createAdminData("technology", newTechnology).then(closeWindow);
   };
 
@@ -67,7 +67,7 @@ const TechnologyForm: React.FC<{
         </Styled.Label>
 
         <Styled.Label>
-          <span> Country Code: </span>
+          <span> Category: </span>
           <Styled.Select
             onChange={({ target }) => {
               handleCategory(target.value);
