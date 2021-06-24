@@ -210,7 +210,7 @@ export const TagList = styled("ul")`
   margin-bottom: 0;
   font-size: 18px;
   font-weight: 300;
-  padding: 0 3em;
+  padding: 0 3em; 
 
   & li {
     padding: 1px 15px;

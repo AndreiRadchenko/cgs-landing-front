@@ -16,12 +16,12 @@ const Projects: React.FC<{
             <span>{project?.name}</span>
           </Styled.ListItem>
           <Styled.ListItem>
-            <span>Full Description:</span>
-            <span>{project?.fullDescription}</span>
-          </Styled.ListItem>
-          <Styled.ListItem>
             <span>Short Description:</span>
             <span>{project?.shortDescription}</span>
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Full Description:</span>
+            <span>{project?.fullDescription}</span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Country Code:</span>
@@ -40,7 +40,7 @@ const Projects: React.FC<{
             </ul>
           </Styled.ListItem>
           <Styled.ListItem>
-            <span>Show on HomePage:</span>
+            <span>Show on page:</span>
             {project?.showOnHomePage ? "true" : "false"}
           </Styled.ListItem>
           <Styled.ListItem>

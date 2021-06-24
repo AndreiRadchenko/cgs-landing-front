@@ -86,12 +86,15 @@ const ArticleForm: React.FC<{
               Edit content
             </Button>
           </Styled.Label>
-
-          <BlogTags currentTags={article?.tags || []} getTags={setTags} />
-          <Styled.PicturesWrapper>
+          <Styled.Label>
+            <BlogTags currentTags={article?.tags || []} getTags={setTags} />
+          </Styled.Label>
+          <Styled.Label>
             <span>Pictures:</span>
-            <Images activeImage={article?.imageFile} getImageId={getImageId} />
-          </Styled.PicturesWrapper>
+            <Styled.PicturesWrapper>
+              <Images activeImage={article?.imageFile} getImageId={getImageId} />
+            </Styled.PicturesWrapper>
+          </Styled.Label>
           <Styled.ButtonWrapper>
             <Styled.Button
               empty={true}

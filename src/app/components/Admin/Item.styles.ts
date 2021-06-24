@@ -27,7 +27,7 @@ export const Wrapper = styled("div")`
 
 export const Item = styled("div")`
   width: 100%;
-  padding: 20px 75px;
+  padding: 20px 20px;
   margin-top: 60px;
   display: flex;
   align-items: center;
@@ -48,15 +48,15 @@ export const List = styled("ul")`
 
 export const ListItem = styled("li")`
   display: grid;
-  grid-template-columns: minmax(auto, 150px) 1fr;
+  grid-template-columns: minmax(auto, 180px) 1fr;
   & > span:nth-child(1) {
     color: #0c1033;
     padding-right: 20px;
-    text-align: end;
+    text-align: end;   
   }
   & > ul {
     padding: 0;
-    list-style: none;
+    list-style: none;  
   }
   & > img {
     height: 120px;
@@ -64,7 +64,12 @@ export const ListItem = styled("li")`
   }
   & > span::first-letter {
     text-transform: uppercase;
-  }
+  } 
+`;
+
+export const ListItemText = styled("span")`
+  max-width: 380px;
+  word-wrap: break-word;
 `;
 
 export const Image = styled("img")`
