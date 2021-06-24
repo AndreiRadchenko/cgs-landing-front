@@ -48,16 +48,18 @@ const SloganForm: React.FC<{
         </Styled.Label>
         <Styled.Label>
           <span>Selected:</span>
-          <Styled.CheckboxLabel position="static">
-            <input
-              type="checkbox"
-              checked={selected}
-              onChange={({ target: { checked } }) => setSelected(checked)}
-            />
-            <Styled.CustomCheckbox selected={selected}>
-              <img src={slides.Check} alt="checkbox" />
-            </Styled.CustomCheckbox>
-          </Styled.CheckboxLabel>
+          <Styled.SingleCheckboxContainer>
+            <Styled.CheckboxLabel position="static">
+              <input
+                type="checkbox"
+                checked={selected}
+                onChange={({ target: { checked } }) => setSelected(checked)}
+              />
+              <Styled.CustomCheckbox selected={selected}>
+                <img src={slides.Check} alt="checkbox" />
+              </Styled.CustomCheckbox>
+            </Styled.CheckboxLabel>
+          </Styled.SingleCheckboxContainer>
         </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button type="submit" empty={true} disabled={!(title && text)}>
