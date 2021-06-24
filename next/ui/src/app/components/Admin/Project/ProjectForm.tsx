@@ -77,7 +77,7 @@ const ProjectForm: React.FC<{
       <Styled.Form onSubmit={handleSubmit}>
         {project ? <h2>Edit Project</h2> : <h2>Create new project</h2>}
         <Styled.Label>
-          <span>Project Name:</span>
+          <span>Name:</span>
           <Styled.AdminTextInput
             type="text"
             value={name}
@@ -101,7 +101,6 @@ const ProjectForm: React.FC<{
             placeholder="Write a pair of sentences here"
           />
         </Styled.Label>
-
         <Styled.Label>
           <span>Country Code:</span>
           <Styled.Select
