@@ -223,6 +223,7 @@ export interface PropsHomeWrapper {
 }
 
 export interface PropsFormWrapper {
+  position?: string;
   empty?: boolean;
   selected?: boolean;
   big?: boolean;

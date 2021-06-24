@@ -17,7 +17,6 @@ const Technology: React.FC<{
           <Styled.ListItem>
             <span>Category:</span> <span>{technology?.category}</span>
           </Styled.ListItem>
-
           <Styled.ListItem>
             <span>Picture:</span>
             <Styled.Image
@@ -25,6 +24,10 @@ const Technology: React.FC<{
               alt={technology?.iconFile?.s3FileUrl}
             />
           </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Show:</span>
+            <span>{technology.showOnHomePage ? "Yes" : "No"}</span>
+        </Styled.ListItem>
         </Styled.List>
       </Styled.Item>
       <ItemButtons
