@@ -30,9 +30,10 @@ const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
   };
 
   const addTag = async () => {
+    setNewTag("");
+
     createAdminData("blogTag", { name: newTag }).then(() => {
       getAllTags();
-      setNewTag("");
     });
   };
 
@@ -59,6 +60,7 @@ const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
         <Styled.AdminTextInput
           placeholder="Tag Name"
           type="text"
+          value={newTag}
           onChange={({ target: { value } }) => setNewTag(value)}
         />
         <Styled.Button onClick={addTag} type="button">
