@@ -19,6 +19,7 @@ const featuredTechnologyCreate = {
         name: yup.string().required(),
         text: yup.string().required(),
         imageFileId: yup.objectId().required(),
+        label: yup.string().required(),
       }),
     },
   },
@@ -32,6 +33,7 @@ const featuredTechnologyCreate = {
     assignExistProperties(featuredTechnology, body, [
       'name',
       'text',
+      'label',
     ]);
 
     await featuredTechnology.save();
