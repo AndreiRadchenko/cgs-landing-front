@@ -73,12 +73,13 @@ const ArticleForm: React.FC<{
             />
           </Styled.Label>
           {content && (
-            <Styled.Content>
+            <Styled.Label>
               <span>Your text</span>
-              <div dangerouslySetInnerHTML={{ __html: content }}></div>
-            </Styled.Content>
+              <Styled.ContentWrapper>
+                <Styled.Content dangerouslySetInnerHTML={{ __html: content }} />
+              </Styled.ContentWrapper>
+            </Styled.Label>
           )}
-
           <Styled.Label>
             <span>Text:</span>
             <Button type="button" onClick={editContent}>
