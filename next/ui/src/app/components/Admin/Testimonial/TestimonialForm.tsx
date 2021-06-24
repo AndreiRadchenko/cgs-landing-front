@@ -140,7 +140,7 @@ const TestimonialForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label double>
-          <span>Upwork</span>
+          <span>Upwork:</span>
           <Styled.AdminTextInput
             type="text"
             placeholder={testimonial ? "UpWork.com" : "Upwork link"}
@@ -155,7 +155,7 @@ const TestimonialForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label double>
-          <span>Clutch</span>
+          <span>Clutch:</span>
           <Styled.AdminTextInput
             type="text"
             placeholder={testimonial ? "Clutch.com" : "Clutch link"}

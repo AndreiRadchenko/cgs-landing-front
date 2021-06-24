@@ -74,7 +74,7 @@ const ArticleForm: React.FC<{
           </Styled.Label>
           {content && (
             <Styled.Label>
-              <span>Your text</span>
+              <span>Your text:</span>
               <Styled.ContentWrapper>
                 <Styled.Content dangerouslySetInnerHTML={{ __html: content }} />
               </Styled.ContentWrapper>

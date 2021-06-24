@@ -30,7 +30,7 @@ const SloganForm: React.FC<{
       <Styled.Form onSubmit={handleSubmit}>
         {slogan ? <h2>Edit slogan</h2> : <h2>Create new slogan</h2>}
         <Styled.Label>
-          <span>Slogan title</span>
+          <span>Slogan title:</span>
           <Styled.AdminTextInput
             type="text"
             value={title}
@@ -39,7 +39,7 @@ const SloganForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label>
-          <span> Slogan text</span>
+          <span> Slogan text:</span>
           <Styled.AdminTextArea
             value={text}
             onChange={({ target: { value } }) => setText(value)}
@@ -47,7 +47,7 @@ const SloganForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label>
-          <span>Selected</span>
+          <span>Selected:</span>
           <Styled.SingleCheckboxContainer>
             <Styled.CheckboxLabel position="static">
               <input

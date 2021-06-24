@@ -6,7 +6,7 @@ import { IProject, ITechnology } from "../types";
 import * as Styled from "../Form.styles";
 import { useInput } from "../Hooks";
 
-import countryCodes from '../../../../consts/countyCodes.json';
+import countryCodes from "../../../../consts/countyCodes.json";
 
 const ProjectForm: React.FC<{
   project?: IProject | undefined;
@@ -132,26 +132,28 @@ const ProjectForm: React.FC<{
         </Styled.Label>
 
         <>
-          <Styled.Row>
-            {technologies.map((tech) => (
-              <Styled.CheckboxContainer>
-                <div>{tech.name}</div>
-                <Styled.CheckboxLabel>
-                  <input
-                    type="checkbox"
-                    name="TechOption"
-                    checked={technologyIds.some((el) => el === tech?.id)}
-                    onChange={(event) => handleTechChange(event, tech.id)}
-                  />
-                  <Styled.CustomCheckbox
-                    selected={technologyIds.some((el) => el === tech?.id)}
-                  >
-                    <img src={slides?.Check} alt="checkbox" />
-                  </Styled.CustomCheckbox>
-                </Styled.CheckboxLabel>
-              </Styled.CheckboxContainer>
-            ))}
-          </Styled.Row>
+          <Styled.WrapperGrid>
+            <Styled.Row>
+              {technologies.map((tech) => (
+                <Styled.CheckboxContainer>
+                  <div>{tech.name}</div>
+                  <Styled.CheckboxLabel>
+                    <input
+                      type="checkbox"
+                      name="TechOption"
+                      checked={technologyIds.some((el) => el === tech?.id)}
+                      onChange={(event) => handleTechChange(event, tech.id)}
+                    />
+                    <Styled.CustomCheckbox
+                      selected={technologyIds.some((el) => el === tech?.id)}
+                    >
+                      <img src={slides?.Check} alt="checkbox" />
+                    </Styled.CustomCheckbox>
+                  </Styled.CheckboxLabel>
+                </Styled.CheckboxContainer>
+              ))}
+            </Styled.Row>
+          </Styled.WrapperGrid>
         </>
         <Styled.PicturesWrapper>
           <span>Pictures:</span>
