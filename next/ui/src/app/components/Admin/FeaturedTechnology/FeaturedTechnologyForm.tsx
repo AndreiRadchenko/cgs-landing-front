@@ -10,6 +10,7 @@ const FeaturedTechnologyForm: React.FC<{
   close: Function;
 }> = ({ featuredTechnology, close }) => {
   const [name, setName] = useState(featuredTechnology?.name || "");
+  const [label, setLabel] = useState(featuredTechnology?.label || "");
   const [text, setCategory] = useState(featuredTechnology?.text || "");
   const [imageFileId, setImageFileId] = useState(
     featuredTechnology?.imageFile?.id || ""
@@ -18,7 +19,6 @@ const FeaturedTechnologyForm: React.FC<{
   const getImageId = (id) => {
     setImageFileId(id);
   };
-
   const closeWindow = () => close();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -28,6 +28,7 @@ const FeaturedTechnologyForm: React.FC<{
       name,
       text,
       imageFileId: imageFileId,
+      label: label,
     };
 
     if (featuredTechnology) {
@@ -68,7 +69,15 @@ const FeaturedTechnologyForm: React.FC<{
             onChange={({ target: { value } }) => setCategory(value)}
           />
         </Styled.Label>
-
+        <Styled.Label>
+          <span> Label:</span>
+          <Styled.AdminTextInput
+            type="text"
+            value={label}
+            placeholder="Write Label here"
+            onChange={({ target: { value } }) => setLabel(value)}
+          />
+        </Styled.Label>
         <Styled.PicturesWrapper>
           <span>Pictures:</span>
           <Images

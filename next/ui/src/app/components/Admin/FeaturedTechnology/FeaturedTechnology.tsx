@@ -19,6 +19,10 @@ const FeaturedTechnology: React.FC<{
           <span>{featuredTechnology?.text}</span>
         </Styled.ListItem>
         <Styled.ListItem>
+          <span>Label: </span>
+          <span>{featuredTechnology?.label}</span>
+        </Styled.ListItem>
+        <Styled.ListItem>
           <span>Picture:</span>
           <Styled.Image
             src={featuredTechnology?.imageFile?.s3FileUrl}
