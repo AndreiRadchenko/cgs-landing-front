@@ -16,6 +16,7 @@ export const Form = styled("form")`
     font-size: 36px;
     font-weight: 700;
     line-height: 56px;
+    margin-bottom: 40px;
   }
   & > label {
     text-align: center;
@@ -57,6 +58,7 @@ export const AdminTextInput = styled("input")`
   font-weight: 700;
   line-height: 32px;
   outline: none;
+  margin-left: 20px;
 `;
 
 export const AdminTextArea = styled("textarea")`
@@ -75,6 +77,7 @@ export const AdminTextArea = styled("textarea")`
   line-height: 32px;
   padding: 14px 36px;
   outline: none;
+  margin-left: 20px;
 `;
 
 export const Select = styled("select")`
@@ -88,42 +91,50 @@ export const Select = styled("select")`
   font-size: 14px;
   font-weight: 700;
   line-height: 32px;
+  margin-left: 20px;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance:none;
+  background: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='rgb(196, 196, 196)' height='60' viewBox='0 0 24 24' width='60' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 0px;
 `;
 
 export const Content = styled("div")`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  & span {
-    white-space: nowrap;
-    text-align: start;
-    color: #0c1033;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 32px;
-  }
+  max-width: 635px;
+  border: 2px solid #1f5a7b;
+  border-radius: 20px;
+  max-width: 635px;
+  padding: 14px 36px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: justify;
+  margin: 0 5px 0 0;
 
-  & div {
-    width: 635px;
-    border: 2px solid #1f5a7b;
-    border-radius: 20px;
-    max-width: 635px;
-    padding: 14px 36px;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 32px;
-    text-align: justify;
-    margin: 0 5px 0 0;
+  & img {
+    width: 100%;
   }
 `;
 
-export const Label = styled("label")<PropsFormWrapper>`
+export const ContentWrapper = styled("div")`
+  width: 100%;
+
+  & > ${Content} {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+`;
+
+export const Label = styled("label") <PropsFormWrapper>`
   display: ${(props) => (props.double ? "flex" : "grid")};
   grid-template-columns: minmax(50px, 120px) 1fr;
   align-items: center;
   & > span {
-    text-align: start;
+    text-align: end;
     color: #0c1033;
     font-size: 14px;
     font-weight: 700;
@@ -171,7 +182,7 @@ export const CheckboxContainer = styled("div")`
   }
 `;
 
-export const CustomCheckbox = styled("div")<PropsFormWrapper>`
+export const CustomCheckbox = styled("div") <PropsFormWrapper>`
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -186,7 +197,7 @@ export const CustomCheckbox = styled("div")<PropsFormWrapper>`
   position: absolute;
 `;
 
-export const CheckboxLabel = styled("label")<PropsFormWrapper>`
+export const CheckboxLabel = styled("label") <PropsFormWrapper>`
   position: relative;
   & > input {
     border: 0;
@@ -195,12 +206,12 @@ export const CheckboxLabel = styled("label")<PropsFormWrapper>`
     margin: -1px;
     overflow: hidden;
     padding: 0;
-    position: absolute;
+    position: ${(props) => props.position ?? 'absolute'};
     width: 1px;
   }
 `;
 
-export const DeleteTagButton = styled("button")<PropsFormWrapper>`
+export const DeleteTagButton = styled("button") <PropsFormWrapper>`
   background-color: transparent;
   border: 0;
   position: absolute;
@@ -213,11 +224,11 @@ export const ButtonWrapper = styled("div")`
   margin-top: 40px;
   display: flex;
   justify-content: center;
-  gap: 115px;
+  gap: 100px;
   margin-bottom: 15px;
 `;
 
-export const Button = styled("button")<PropsFormWrapper>`
+export const Button = styled("button") <PropsFormWrapper>`
   &:disabled {
     background-color: #a7c4d4;
   }
@@ -233,6 +244,7 @@ export const Button = styled("button")<PropsFormWrapper>`
   color: ${(props) => (props.empty ? "#1F5A7B" : "#ffffff")};
   cursor: pointer;
   border: ${(props) => (props.empty ? "2px solid #1F5A7B" : "none")};
+  margin-top: 10px;
 `;
 
 export const Row = styled("div")`

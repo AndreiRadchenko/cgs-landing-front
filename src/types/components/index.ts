@@ -164,6 +164,7 @@ export interface IFeaturedTechnology {
   name: string;
   text: string;
   imageUrl: string;
+  label: string;
 }
 
 export interface IBlogArticle {
@@ -223,6 +224,7 @@ export interface PropsHomeWrapper {
 }
 
 export interface PropsFormWrapper {
+  position?: string;
   empty?: boolean;
   selected?: boolean;
   big?: boolean;

@@ -12,8 +12,8 @@ const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => (
       <h1 className="home-section__title">{slogan?.title}</h1>
       <p className="home-section__subtitle">{slogan?.text}</p>
 
-      <Styled.LinkButton href="#Contacts">Start a project</Styled.LinkButton>
-      <Styled.LinkButton href="#Contacts" mobile type="button">
+      <Styled.LinkButton href="#contact">Start a project</Styled.LinkButton>
+      <Styled.LinkButton href="#contact" mobile type="button">
         Contact us
       </Styled.LinkButton>
     </Styled.ContentBlock>

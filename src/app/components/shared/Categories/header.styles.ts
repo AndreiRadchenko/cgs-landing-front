@@ -33,4 +33,7 @@ export const NavContainer = styled("div")`
   justify-content: space-around;
   max-width: 530px;
   width: 100%;
+  & div:nth-child(3) {
+    min-width: 145px;
+  }
 `;
