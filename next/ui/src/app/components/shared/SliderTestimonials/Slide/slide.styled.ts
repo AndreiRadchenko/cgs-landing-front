@@ -240,6 +240,7 @@ export const SliderHeader = styled("div")`
   display: flex;
   align-items: center;
   text-align: center;
+  column-gap: 10px;
   & .slider-header__country {
     font-size: 18px;
     font-weight: 400;
@@ -263,6 +264,18 @@ export const SliderHeaderImg = styled("img")`
   margin-right: 8px;
   @media (max-width: 400px) {
     margin-left: 10px;
+  }
+`;
+
+export const Flag = styled("div")`
+  width: 40px;
+  height: 24px;
+  object-fit: cover;
+
+  & img {
+    object-fit: cover;
+    border: 2px solid black;
+    border-radius: 5px;
   }
 `;
 
