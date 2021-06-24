@@ -93,10 +93,10 @@ const TechnologyForm: React.FC<{
           </Styled.Select>
         </Styled.Label>
         <Styled.Label>
-        <Styled.PicturesWrapper>
           <span>Pictures:</span>
-          <Images activeImage={technology?.iconFile} getImageId={getImageId} />
-        </Styled.PicturesWrapper>
+          <Styled.PicturesWrapper>
+            <Images activeImage={technology?.iconFile} getImageId={getImageId} />
+          </Styled.PicturesWrapper>
         </Styled.Label>
         <Styled.Label>
           <span>Show on page:</span>

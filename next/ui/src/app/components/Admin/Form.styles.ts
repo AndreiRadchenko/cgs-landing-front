@@ -80,6 +80,14 @@ export const AdminTextArea = styled("textarea")`
   margin-left: 20px;
 `;
 
+export const RatingInputContainer = styled("div")`
+  display: flex;
+
+  & > ${AdminTextInput}:nth-child(2) {
+    max-width: 100px;
+  }
+`;
+
 export const Select = styled("select")`
   border: 2px solid #1f5a7b;
   color: #1f5a7b;
@@ -92,15 +100,17 @@ export const Select = styled("select")`
   font-weight: 700;
   line-height: 32px;
   margin-left: 20px;
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   background: transparent;
   background-image: url("data:image/svg+xml;utf8,<svg fill='rgb(196, 196, 196)' height='60' viewBox='0 0 24 24' width='60' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
   background-repeat: no-repeat;
   background-position-x: 100%;
   background-position-y: 0px;
+
+  &:active, &:hover, &:focus {
+    outline: 0;
+    outline-offset: 0;
+  }
 `;
 
 export const Content = styled("div")`
@@ -131,7 +141,7 @@ export const ContentWrapper = styled("div")`
 
 export const Label = styled("label")<PropsFormWrapper>`
   display: ${(props) => (props.double ? "flex" : "grid")};
-  grid-template-columns: minmax(50px, 120px) 1fr;
+  grid-template-columns: minmax(50px, 130px) 1fr;
   align-items: center;
   & > span {
     text-align: end;
@@ -139,7 +149,6 @@ export const Label = styled("label")<PropsFormWrapper>`
     font-size: 14px;
     font-weight: 700;
     line-height: 32px;
-    margin-right: 13px;
     flex-basis: ${(props) => (props.double ? "180px" : "")};
     flex-shrink: ${(props) => (props.double ? "1" : "")};
   }
@@ -169,8 +178,7 @@ export const CheckboxContainer = styled("div")`
     font-size: 14px;
     font-weight: 700;
     line-height: 32px;
-
-    max-width: 50px;
+    max-width: 70px;
     word-wrap: break-word;
     position: relative;
   }
@@ -272,7 +280,6 @@ export const Row = styled("div")`
 
 export const PicturesWrapper = styled("div")`
   display: flex;
-  margin-top: 28px;
   max-width: 760px;
   width: 100%;
   min-height: 135px;
@@ -288,6 +295,7 @@ export const PicturesWrapper = styled("div")`
 
 export const WrapperContainer = styled("div")`
   display: flex;
+
   & span {
     margin-top: 28px;
     white-space: nowrap;
@@ -302,10 +310,9 @@ export const WrapperContainer = styled("div")`
 `;
 
 export const TagInputWrapper = styled("div")`
-  margin-top: 30px;
   display: flex;
+  align-items: baseline;
 
-  align-items: center;
   & span {
     white-space: nowrap;
     text-align: start;

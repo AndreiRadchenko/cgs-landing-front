@@ -139,35 +139,39 @@ const TestimonialForm: React.FC<{
             {...feedback}
           />
         </Styled.Label>
-        <Styled.Label double>
+        <Styled.Label>
           <span>Upwork:</span>
-          <Styled.AdminTextInput
-            type="text"
-            placeholder={testimonial ? "UpWork.com" : "Upwork link"}
-            {...upworkLinkInput}
-          />
-          <Styled.AdminTextInput
-            type="number"
-            min="1"
-            max="5"
-            placeholder={testimonial ? "5" : "Rating"}
-            {...upworkRateInput}
-          />
+          <Styled.RatingInputContainer>
+            <Styled.AdminTextInput
+              type="text"
+              placeholder={testimonial ? "UpWork.com" : "Upwork link"}
+              {...upworkLinkInput}
+            />
+            <Styled.AdminTextInput
+              type="number"
+              min="1"
+              max="5"
+              placeholder={testimonial ? "5" : "Rating"}
+              {...upworkRateInput}
+            />
+          </Styled.RatingInputContainer>
         </Styled.Label>
-        <Styled.Label double>
+        <Styled.Label>
           <span>Clutch:</span>
-          <Styled.AdminTextInput
-            type="text"
-            placeholder={testimonial ? "Clutch.com" : "Clutch link"}
-            {...clutchLinkInput}
-          />
-          <Styled.AdminTextInput
-            type="number"
-            min="1"
-            max="5"
-            placeholder={testimonial ? "5" : "Rating"}
-            {...clutchRateInput}
-          />
+          <Styled.RatingInputContainer>
+            <Styled.AdminTextInput
+              type="text"
+              placeholder={testimonial ? "Clutch.com" : "Clutch link"}
+              {...clutchLinkInput}
+            />
+            <Styled.AdminTextInput
+              type="number"
+              min="1"
+              max="5"
+              placeholder={testimonial ? "5" : "Rating"}
+              {...clutchRateInput}
+            />
+          </Styled.RatingInputContainer>
         </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button

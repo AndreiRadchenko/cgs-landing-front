@@ -72,11 +72,12 @@ const FactsForm: React.FC<{
             </Styled.CheckboxLabel>
           </Styled.SingleCheckboxContainer>
         </Styled.Label>
-        <Styled.PicturesWrapper>
+        <Styled.Label>
           <span>Pictures:</span>
-          <Images activeImage={fact?.iconFile} getImageId={getImageId} />
-        </Styled.PicturesWrapper>
-
+          <Styled.PicturesWrapper>
+            <Images activeImage={fact?.iconFile} getImageId={getImageId} />
+          </Styled.PicturesWrapper>
+        </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button
             empty={true}
