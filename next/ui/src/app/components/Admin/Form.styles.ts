@@ -16,6 +16,7 @@ export const Form = styled("form")`
     font-size: 36px;
     font-weight: 700;
     line-height: 56px;
+    margin-bottom: 40px;
   }
   & > label {
     text-align: center;

@@ -13,9 +13,10 @@ const Featured = ({ featuredTech }) => (
         className="featured__img"
         src={featuredTech?.imageUrl}
         alt={featuredTech?.name}
-        width="100%"
+        width="180px"
+        height="auto"
       />
-      <p className="featured__name">{featuredTech?.name}</p>
+      <p className="featured__name">{featuredTech?.label}</p>
     </Styled.ImageContainer>
   </Styled.FeaturedContainer>
 );

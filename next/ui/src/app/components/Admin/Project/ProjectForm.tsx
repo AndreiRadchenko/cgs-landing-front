@@ -85,14 +85,6 @@ const ProjectForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label>
-          <span>Full Description:</span>
-          <Styled.AdminTextArea
-            value={fullDescription}
-            onChange={({ target: { value } }) => setFullDescription(value)}
-            placeholder="Write a pair of sentences here"
-          />
-        </Styled.Label>
-        <Styled.Label>
           <span>Short Description:</span>
           <Styled.AdminTextArea
             value={shortDescription}
@@ -100,6 +92,15 @@ const ProjectForm: React.FC<{
             placeholder="Write a pair of words"
           />
         </Styled.Label>
+        <Styled.Label>
+          <span>Full Description:</span>
+          <Styled.AdminTextArea
+            value={fullDescription}
+            onChange={({ target: { value } }) => setFullDescription(value)}
+            placeholder="Write a pair of sentences here"
+          />
+        </Styled.Label>
+
         <Styled.Label>
           <span>Country Code:</span>
           <Styled.Select

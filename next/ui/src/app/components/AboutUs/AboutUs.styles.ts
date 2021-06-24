@@ -159,8 +159,7 @@ export const SlideWrapper = styled("div")`
     display: flex;
   }
   @media screen and (min-width: 1024px) {
-    & .slick-slide:not(:last-child) {
-      padding: 0 81px;
+    & .slick-slide {
     }
   }
 `;
