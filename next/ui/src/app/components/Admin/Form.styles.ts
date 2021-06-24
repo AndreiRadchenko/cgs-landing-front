@@ -193,7 +193,7 @@ export const CheckboxLabel = styled("label") <PropsFormWrapper>`
     margin: -1px;
     overflow: hidden;
     padding: 0;
-    position: absolute;
+    position: ${(props) => props.position ?? 'absolute'};
     width: 1px;
   }
 `;

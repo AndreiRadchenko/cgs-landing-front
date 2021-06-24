@@ -46,10 +46,9 @@ const SloganForm: React.FC<{
             placeholder="Write some text here"
           />
         </Styled.Label>
-
-        <Styled.CheckboxContainer>
-          <div>Selected</div>
-          <Styled.CheckboxLabel>
+        <Styled.Label>
+          <span>Selected</span>
+          <Styled.CheckboxLabel position="static">
             <input
               type="checkbox"
               checked={selected}
@@ -59,7 +58,7 @@ const SloganForm: React.FC<{
               <img src={slides.Check} alt="checkbox" />
             </Styled.CustomCheckbox>
           </Styled.CheckboxLabel>
-        </Styled.CheckboxContainer>
+        </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button type="submit" empty={true} disabled={!(title && text)}>
             {slogan ? "Save" : "Create"}

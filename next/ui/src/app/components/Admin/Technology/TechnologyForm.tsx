@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createAdminData, updateAdminData } from "services/api/adminApi";
 import Images from "../Images/Images";
+import { slides } from "app/img";
 
 import { ITechnology } from "../types";
 import * as Styled from "../Form.styles";
@@ -12,33 +13,36 @@ const TechnologyForm: React.FC<{
   const [name, setName] = useState(technology?.name || "");
   const [category, setCategory] = useState(technology?.category || "mobile");
   const [iconFileId, setIconFileId] = useState(technology?.iconFile?.id || "");
+  const [showOnHomePage, setShowOnHomePage] = useState(technology?.showOnHomePage ?? true);
 
   const closeWindow = () => close();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const newTechnology = {
       name,
       category,
       iconFileId,
+      showOnHomePage,
     };
 
-    technology
-      ? updateAdminData("technology", technology.id, newTechnology).then(
-          closeWindow
-        )
-      : createAdminData("technology", newTechnology).then(closeWindow);
+    if (technology) {
+      updateAdminData("technology", technology.id, newTechnology).then(() => closeWindow());
+    } else {
+      createAdminData("technology", newTechnology).then(() => closeWindow());
+    }
   };
 
-  const getImageId = (id) => {
+  const getImageId = (id: string) => {
     setIconFileId(id);
   };
 
-  const handleCategory = (category) => {
+  const handleCategory = (category: string) => {
     setCategory(category);
   };
 
-  let options = {
+  const options = {
     Mobile: "mobile",
     UIUX: "ui_ux",
     Backend: "backend",
@@ -50,36 +54,36 @@ const TechnologyForm: React.FC<{
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
-        {technology ? (
-          <h2>Edit technology </h2>
-        ) : (
-          <h2>Create new technology</h2>
-        )}
+        {technology
+          ? <h2>Edit technology</h2>
+          : <h2>Create new technology</h2>
+        }
         <Styled.Label>
           <span>Name:</span>
           <Styled.AdminTextInput
-            placeholder={technology ? "" : "Write name here"}
             className="form__title"
             type="text"
             value={name}
-            onChange={({ target: { value } }) => setName(value)}
+            placeholder={technology ? "" : "Write name here"}
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
           />
         </Styled.Label>
-
         <Styled.Label>
           <span> Country Code: </span>
           <Styled.Select
+            className="form__title"
             onChange={({ target }) => {
               handleCategory(target.value);
             }}
-            className="form__title"
           >
-            {keys?.map((key) => {
+            {keys.map((key) => {
               return (
                 <option
-                  selected={technology?.category === options[key]}
-                  value={options[key]}
                   key={key}
+                  value={options[key]}
+                  selected={technology?.category === options[key]}
                 >
                   {key}
                 </option>
@@ -88,10 +92,31 @@ const TechnologyForm: React.FC<{
             )
           </Styled.Select>
         </Styled.Label>
+        <Styled.Label>
         <Styled.PicturesWrapper>
           <span>Pictures:</span>
           <Images activeImage={technology?.iconFile} getImageId={getImageId} />
         </Styled.PicturesWrapper>
+        </Styled.Label>
+        <Styled.Label>
+          <span>Show:</span>
+          <Styled.CheckboxLabel
+            position="static"
+            selected={showOnHomePage}
+          >
+            <input
+              type="checkbox"
+              name="showOnHomePage"
+              checked={showOnHomePage}
+              onChange={(event) => {
+                setShowOnHomePage(event.target.checked);
+              }}
+            />
+            <Styled.CustomCheckbox selected={showOnHomePage}>
+              <img src={slides?.Check} alt="checkbox" />
+            </Styled.CustomCheckbox>
+          </Styled.CheckboxLabel>
+        </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button
             type="submit"
