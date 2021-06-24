@@ -28,7 +28,7 @@ export const ContentWrapper = styled("div")`
 export const Menu = styled("div")`
   position: sticky;
   top: 10px;
-  padding: 20px 50px;
+  padding: 40px 50px;
   background-color: #0c1033;
   border-radius: 55px;
   font-size: 1.5em;
@@ -41,7 +41,7 @@ export const Menu = styled("div")`
     padding: 20px 25px;
   }
   & h3 {
-    margin: 0 0 10px;
+    margin: 10px 0 20px;
     font-family: Mulish;
     font-size: 36px;
     font-weight: 700;
@@ -55,10 +55,12 @@ export const Menu = styled("div")`
 export const MenuList = styled("div")`
   padding: 0;
   list-style: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;
 
-export const MenuListItem = styled("li")<PropsAdminWrapper>`
-  padding: 10px 0;
+export const MenuListItem = styled("li") <PropsAdminWrapper>`
+  padding: 20px 0;
   cursor: pointer;
   &:hover {
     transform: scale(1.1);

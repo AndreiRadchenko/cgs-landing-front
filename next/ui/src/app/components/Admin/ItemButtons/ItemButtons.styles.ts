@@ -15,7 +15,7 @@ export const Button = styled("button")`
 
 export const ButtonsContainer = styled("div")`
   margin-top: 20px;
-  gap: 115px;
+  gap: 100px;
   display: flex;
   width: 100%;
   justify-content: center;
