@@ -8,13 +8,10 @@ import { v4 as uuidv4 } from "uuid";
 import Technology from "./technologies.component";
 import { ITechnology } from "../../../types/components/index";
 import { SampleNextArrow, SamplePrevArrow } from "../shared/Slider/arrows";
-import { mapTechnologies } from "helpers/mapTechnologies";
-
 const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
   technologies,
 }) => {
   const slidesToShow = technologies.length < 4 ? technologies.length : 4;
-
   let settings = {
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
@@ -32,19 +29,14 @@ const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
     ],
     className: "slides",
   };
-
-  const mappedArr = mapTechnologies(technologies);
-
   return (
     <Styled.SliderContainer>
-      <Slider {...settings} key={uuidv4()}>
-        {mappedArr &&
-          mappedArr?.map((technology, index) => (
-            <Technology key={uuidv4()} technology={technology} index={index} />
-          ))}
+      <Slider {...settings}>
+        {technologies?.map((technology, index) => (
+          <Technology key={uuidv4()} technology={technology} index={index} />
+        ))}
       </Slider>
     </Styled.SliderContainer>
   );
 };
-
 export default SliderTechnologies;

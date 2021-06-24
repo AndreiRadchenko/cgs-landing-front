@@ -39,7 +39,7 @@ import Footer from "app/components/shared/Footer/footer.component";
 import SectionLayout from "app/components/Admin/SectionLayout/sectionLayout.component";
 import { AdminNav } from "../../../consts/lists";
 import { v4 as uuidv4 } from "uuid";
-import { log } from "console";
+import { getSpinner } from "../../../helpers/spinner";
 
 const AdminPage: React.FC = () => {
   const [token, setToken] = useLocalStorageState("");
@@ -57,17 +57,18 @@ const AdminPage: React.FC = () => {
   const [categoryOpen, setCategoryOpen] = useState<string | any>(null);
   const [editItem, setEditItem] = useState<any>(null);
   const [tokenIsLoaded, setIsLoaded] = useState<any>(false);
+  const [dataIsLoading, setDataIsLoading] = useState(false);
 
-  const apiParams = [
-    { facts: setFacts },
-    { slogan: setSlogan },
-    { worker: setWorkers },
-    { project: setProjects },
-    { testimonial: setTestimonials },
-    { technology: setTechnologies },
-    { featuredTechnology: setFeaturedTechnologies },
-    { article: setArticles },
-  ];
+  const apiParams = {
+    facts: setFacts,
+    slogan: setSlogan,
+    worker: setWorkers,
+    project: setProjects,
+    testimonial: setTestimonials,
+    technology: setTechnologies,
+    featuredTechnology: setFeaturedTechnologies,
+    article: setArticles,
+  };
 
   const openModal = (id: string): void => {
     setIsModal(true);
@@ -193,8 +194,10 @@ const AdminPage: React.FC = () => {
   useEffect(() => {
     if (token) {
       setIsLoaded(true);
+
       return;
     }
+
     login().then((token) => {
       setToken(token);
       setIsLoaded(true);
@@ -202,39 +205,35 @@ const AdminPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    console.log(tokenIsLoaded, token);
     if (!tokenIsLoaded) {
       return;
     }
+
     axios.defaults.headers.Authorization = `Bearer ${token}`;
-    if (token) {
-      loadData();
-    }
   }, [token, tokenIsLoaded]);
 
+  const loadData = async (category: string) => {
+    setDataIsLoading(true);
+
+    const setResponse = apiParams[category];
+
+    if (!setResponse) {
+      return;
+    }
+
+    const response = await getAdminData(category);
+
+    setResponse(response);
+    setDataIsLoading(false);
+  };
+
   useEffect(() => {
+    if (!tokenIsLoaded) {
+      return;
+    }
+
     loadData(categoryOpen);
-  }, [isModal]);
-
-  const loadData = (data = "all") => {
-    apiParams.forEach(async (e) => {
-      const [name, set] = Object.entries(e).flat();
-      if (name === data) {
-        const result = await getAdminData(data);
-        result && set(result);
-      } else {
-        getAllData();
-      }
-    });
-  };
-
-  const getAllData = () => {
-    apiParams.forEach(async (e) => {
-      const [name, set] = Object.entries(e).flat();
-      const data = await getAdminData(name);
-      data && set(data);
-    });
-  };
+  }, [categoryOpen, tokenIsLoaded]);
 
   return (
     <Styled.Wrapper>
@@ -265,7 +264,9 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "facts" && facts && !isModal && (
             <SectionLayout title="Facts" setIsModal={setIsModal}>
-              {facts.map((fact) => renderFactItem(fact))}
+              {dataIsLoading
+                ? getSpinner()
+                : facts.map((fact) => renderFactItem(fact))}
             </SectionLayout>
           )}
 
@@ -275,7 +276,9 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "slogan" && slogan && !isModal && (
             <SectionLayout title="Slogan" setIsModal={setIsModal}>
-              {slogan.map((slogan) => renderSloganItem(slogan))}
+              {dataIsLoading
+                ? getSpinner()
+                : slogan.map((slogan) => renderSloganItem(slogan))}
             </SectionLayout>
           )}
 
@@ -285,7 +288,9 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "worker" && workers && !isModal && (
             <SectionLayout title="Workers" setIsModal={setIsModal}>
-              {workers.map((worker) => renderWorkerItem(worker))}
+              {dataIsLoading
+                ? getSpinner()
+                : workers.map((worker) => renderWorkerItem(worker))}
             </SectionLayout>
           )}
 
@@ -299,7 +304,9 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "project" && projects && !isModal && (
             <SectionLayout title="Projects" setIsModal={setIsModal}>
-              {projects.map((project) => renderProjectItem(project))}
+              {dataIsLoading
+                ? getSpinner()
+                : projects.map((project) => renderProjectItem(project))}
             </SectionLayout>
           )}
 
@@ -309,9 +316,11 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "testimonial" && testimonials && !isModal && (
             <SectionLayout title="Testimonials" setIsModal={setIsModal}>
-              {testimonials.map((testimonial) =>
-                renderTestimonialItem(testimonial)
-              )}
+              {dataIsLoading
+                ? getSpinner()
+                : testimonials.map((testimonial) =>
+                    renderTestimonialItem(testimonial)
+                  )}
             </SectionLayout>
           )}
 
@@ -321,9 +330,11 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "technology" && technologies && !isModal && (
             <SectionLayout title="Technologies" setIsModal={setIsModal}>
-              {technologies.map((technology) =>
-                renderTechnologyItem(technology)
-              )}
+              {dataIsLoading
+                ? getSpinner()
+                : technologies.map((technology) =>
+                    renderTechnologyItem(technology)
+                  )}
             </SectionLayout>
           )}
 
@@ -333,7 +344,9 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "article" && articles && !isModal && (
             <SectionLayout title="Article" setIsModal={setIsModal}>
-              {articles.map((article) => renderArticleItem(article))}
+              {dataIsLoading
+                ? getSpinner()
+                : articles.map((article) => renderArticleItem(article))}
             </SectionLayout>
           )}
 
@@ -351,9 +364,11 @@ const AdminPage: React.FC = () => {
                 title="Featured Techologies"
                 setIsModal={setIsModal}
               >
-                {featuredTechnologies.map((featuredTechnology) =>
-                  renderFeaturedItem(featuredTechnology)
-                )}
+                {dataIsLoading
+                  ? getSpinner()
+                  : featuredTechnologies.map((featuredTechnology) =>
+                      renderFeaturedItem(featuredTechnology)
+                    )}
               </SectionLayout>
             )}
 

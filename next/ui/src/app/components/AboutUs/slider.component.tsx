@@ -11,6 +11,7 @@ import { SampleNextArrow, SamplePrevArrow } from "../shared/Slider/arrows";
 
 const SliderComponent: React.FC<{ workers: IWorker[] }> = ({ workers }) => {
   const settings = {
+    infinite: workers.length > 2,
     slidesToShow: 2,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow top={20} />,

@@ -12,7 +12,8 @@ const SliderTestimonials: React.FC<{ testimonials: ITestimonial[] }> = ({
   testimonials,
 }) => {
   let settings = {
-    slidesToShow: 3,
+    slidesToShow:
+      testimonials.length > 2 ? 3 : testimonials.length === 2 ? 2 : 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow top={25} />,
     prevArrow: <SamplePrevArrow top={25} />,
