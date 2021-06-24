@@ -4,8 +4,9 @@ import Images from "../Images/Images";
 import { slides } from "../../../img/";
 import { IProject, ITechnology } from "../types";
 import * as Styled from "../Form.styles";
-import CountryCodes from "./../Testimonial/countyCodes.json";
 import { useInput } from "../Hooks";
+
+import countryCodes from '../../../../consts/countyCodes.json';
 
 const ProjectForm: React.FC<{
   project?: IProject | undefined;
@@ -37,7 +38,7 @@ const ProjectForm: React.FC<{
 
   const closeWindow = () => close();
 
-  const countryKeys = Object.keys(CountryCodes);
+  const countryKeys = Object.keys(countryCodes);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -114,7 +115,7 @@ const ProjectForm: React.FC<{
                 value={codeValue}
                 key={codeValue}
               >
-                {CountryCodes[codeValue]}
+                {countryCodes[codeValue]}
               </option>
             ))}
             )
