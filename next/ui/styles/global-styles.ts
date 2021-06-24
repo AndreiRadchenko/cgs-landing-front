@@ -34,6 +34,7 @@ textarea {
   align-items: center;
   padding-top: 30px;
   margin: 0 auto;
+  
 }
 
 @media screen and (max-width: 768px) {
@@ -78,6 +79,12 @@ a {
 
 .slick-list {
   width: 90% !important;
+  margin: 0 auto !important;
+}
+
+ & #aboutUs .slick-list {
+  
+  width: 70% !important;
   margin: 0 auto !important;
 }
 
