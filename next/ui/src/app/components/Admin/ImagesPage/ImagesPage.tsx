@@ -38,7 +38,7 @@ const ImagesPage: React.FC<{}> = () => {
         <Styled.List>
           {images?.map((image) => (
             <li>
-              <img src={image?.s3FileUrl} width="80px"></img>
+              <img src={image?.s3FileUrl} width="120px"></img>
               <Styled.DeleteButton
                 type="button"
                 onClick={() => deleteImage(image?.id)}

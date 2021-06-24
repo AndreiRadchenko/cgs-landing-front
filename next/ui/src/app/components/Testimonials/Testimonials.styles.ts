@@ -119,7 +119,7 @@ export const TestimonialContainer = styled("div")`
 
   & .infoWrapper {
     display: flex;
-    flex-direction: column;
+
     align-items: center;
   }
   & h2 {
@@ -160,7 +160,6 @@ export const TestimonialContainer = styled("div")`
   }
 
   & .testimonials__country {
-    margin: 0 0 5px 0px;
     font-size: 14px;
   }
 
@@ -185,6 +184,7 @@ export const TestimonialFlag = styled("div")`
     object-fit: cover;
     border: 2px solid black;
     border-radius: 5px;
+    margin-right: 5px;
   }
 `;
 

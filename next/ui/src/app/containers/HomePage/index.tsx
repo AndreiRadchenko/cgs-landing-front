@@ -89,7 +89,7 @@ export const HomePage = ({ props }) => {
               />
             </Article>
           )}
-          <Article id="Contacts" title="New text for contact form">
+          <Article id="contact" title="New text for contact form">
             <Form />
           </Article>
         </div>
