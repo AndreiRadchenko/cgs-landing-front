@@ -5,7 +5,7 @@ export const Wrapper = styled("div")``;
 
 export const Form = styled("form")`
   width: 100%;
-  max-width: 760px;
+  max-width: 782px;
   text-align: center;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -95,7 +95,7 @@ export const Select = styled("select")`
 
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance:none;
+  appearance: none;
   background: transparent;
   background-image: url("data:image/svg+xml;utf8,<svg fill='rgb(196, 196, 196)' height='60' viewBox='0 0 24 24' width='60' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
   background-repeat: no-repeat;
@@ -104,10 +104,9 @@ export const Select = styled("select")`
 `;
 
 export const Content = styled("div")`
-  max-width: 635px;
   border: 2px solid #1f5a7b;
   border-radius: 20px;
-  max-width: 635px;
+  max-width: 655px;
   padding: 14px 36px;
   font-size: 14px;
   font-weight: 700;
@@ -126,10 +125,11 @@ export const ContentWrapper = styled("div")`
   & > ${Content} {
     max-height: 400px;
     overflow-y: auto;
+    margin-left: 20px;
   }
 `;
 
-export const Label = styled("label") <PropsFormWrapper>`
+export const Label = styled("label")<PropsFormWrapper>`
   display: ${(props) => (props.double ? "flex" : "grid")};
   grid-template-columns: minmax(50px, 120px) 1fr;
   align-items: center;
@@ -139,8 +139,13 @@ export const Label = styled("label") <PropsFormWrapper>`
     font-size: 14px;
     font-weight: 700;
     line-height: 32px;
+    margin-right: 13px;
     flex-basis: ${(props) => (props.double ? "180px" : "")};
     flex-shrink: ${(props) => (props.double ? "1" : "")};
+  }
+
+  & a {
+    margin-left: 20px;
   }
   & > input:nth-child(3) {
     flex-basis: 170px;
@@ -182,7 +187,7 @@ export const CheckboxContainer = styled("div")`
   }
 `;
 
-export const CustomCheckbox = styled("div") <PropsFormWrapper>`
+export const CustomCheckbox = styled("div")<PropsFormWrapper>`
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -197,7 +202,7 @@ export const CustomCheckbox = styled("div") <PropsFormWrapper>`
   position: absolute;
 `;
 
-export const CheckboxLabel = styled("label") <PropsFormWrapper>`
+export const CheckboxLabel = styled("label")<PropsFormWrapper>`
   position: relative;
   & > input {
     border: 0;
@@ -206,12 +211,12 @@ export const CheckboxLabel = styled("label") <PropsFormWrapper>`
     margin: -1px;
     overflow: hidden;
     padding: 0;
-    position: ${(props) => props.position ?? 'absolute'};
+    position: ${(props) => props.position ?? "absolute"};
     width: 1px;
   }
 `;
 
-export const DeleteTagButton = styled("button") <PropsFormWrapper>`
+export const DeleteTagButton = styled("button")<PropsFormWrapper>`
   background-color: transparent;
   border: 0;
   position: absolute;
@@ -225,10 +230,10 @@ export const ButtonWrapper = styled("div")`
   display: flex;
   justify-content: center;
   gap: 100px;
-  margin-bottom: 15px;
+  margin-bottom: 60px;
 `;
 
-export const Button = styled("button") <PropsFormWrapper>`
+export const Button = styled("button")<PropsFormWrapper>`
   &:disabled {
     background-color: #a7c4d4;
   }
@@ -245,12 +250,20 @@ export const Button = styled("button") <PropsFormWrapper>`
   cursor: pointer;
   border: ${(props) => (props.empty ? "2px solid #1F5A7B" : "none")};
   margin-top: 10px;
+  margin-left: 10px;
+`;
+
+export const WrapperGrid = styled("div")`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 export const Row = styled("div")`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-left: -10px;
+  width: 560px;
+  padding-right: 30px;
 `;
 
 export const PicturesWrapper = styled("div")`
@@ -265,6 +278,7 @@ export const PicturesWrapper = styled("div")`
     font-size: 14px;
     font-weight: 700;
     line-height: 32px;
+    margin-left: 53px;
   }
 `;
 
@@ -279,13 +293,14 @@ export const WrapperContainer = styled("div")`
     font-weight: 700;
     line-height: 32px;
     align-self: flex-start;
+    margin-left: 70px;
   }
 `;
 
 export const TagInputWrapper = styled("div")`
   margin-top: 30px;
   display: flex;
-  gap: 40px;
+
   align-items: center;
   & span {
     white-space: nowrap;
@@ -294,7 +309,8 @@ export const TagInputWrapper = styled("div")`
     font-size: 14px;
     font-weight: 700;
     line-height: 32px;
-    margin-right: 20px;
+    margin-left: 50px;
+    margin-right: 10px;
   }
 `;
 
@@ -306,8 +322,8 @@ export const BlogTextWrapper = styled("div")`
   width: 95%;
   white-space: normal;
   word-wrap: break-word;
-  margin-left: 100px;
+  margin-left: 40px;
   padding-right: 30px;
-  grid-column-gap: 130px;
+  grid-column-gap: 160px;
   text-align: left;
 `;

@@ -1,6 +1,7 @@
 import ItemButtons from "../ItemButtons/ItemButtons";
 import * as Styled from "../Item.styles";
 import { IArticle } from "../types";
+import dayjs from "dayjs";
 
 const Article: React.FC<{
   article: IArticle;
@@ -20,7 +21,7 @@ const Article: React.FC<{
         </Styled.ListItem>
         <Styled.ListItem>
           <span>Created: </span>
-          <span>{article?.createdAt} </span>
+          <span>{dayjs(article?.createdAt).format("YYYY.MM.DD HH:MM")} </span>
         </Styled.ListItem>
 
         <Styled.ListItem>
