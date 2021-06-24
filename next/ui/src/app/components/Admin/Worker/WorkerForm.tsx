@@ -41,7 +41,7 @@ const WorkerForm: React.FC<{
       <Styled.Form onSubmit={handleSubmit}>
         {worker ? <h2>Edit worker </h2> : <h2>Create new worker</h2>}
         <Styled.Label>
-          <span> Worker name</span>
+          <span> Worker name:</span>
           <Styled.AdminTextInput
             className="form__input"
             type="text"
@@ -51,7 +51,7 @@ const WorkerForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label>
-          <span>Worker position</span>
+          <span>Worker position:</span>
           <Styled.AdminTextInput
             className="form__input"
             type="text"
@@ -61,7 +61,7 @@ const WorkerForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label>
-          <span>Worker text</span>
+          <span>Worker text:</span>
           <Styled.AdminTextArea
             className="form__text"
             value={text}

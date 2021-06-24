@@ -40,7 +40,7 @@ const FactsForm: React.FC<{
       <Styled.Form onSubmit={handleSubmit}>
         {fact ? <h2>Edit Fact</h2> : <h2>Create new fact</h2>}
         <Styled.Label>
-          <span>Fact title</span>
+          <span>Fact title:</span>
           <Styled.AdminTextInput
             type="text"
             value={title}
@@ -49,7 +49,7 @@ const FactsForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label>
-          <span>Fact text</span>
+          <span>Fact text:</span>
           <Styled.AdminTextArea
             value={text}
             onChange={({ target: { value } }) => setText(value)}
