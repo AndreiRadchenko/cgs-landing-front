@@ -60,9 +60,11 @@ export const SimilarArticle = styled("li")`
   & h2 {
     margin: 0 0 29px;
     font-size: 22px;
+    text-align: center;
   }
   & p {
     margin: 0;
     line-height: 1.67;
+    text-align: center;
   }
 `;

@@ -60,7 +60,7 @@ export const MenuList = styled("div")`
 `;
 
 export const MenuListItem = styled("li") <PropsAdminWrapper>`
-  padding: 20px 0;
+  padding: 10px 0;
   cursor: pointer;
   &:hover {
     transform: scale(1.1);
