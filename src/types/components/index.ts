@@ -181,7 +181,6 @@ export interface IBlogArticleTag {
   name: string;
 }
 
-
 export interface TechnoImageParams {
   index: number;
 }
@@ -229,6 +228,7 @@ export interface PropsFormWrapper {
   big?: boolean;
   sliderLabel?: boolean;
   double?: boolean;
+  disabled?: boolean;
 }
 
 export interface PropsAdminWrapper {

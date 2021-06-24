@@ -72,12 +72,20 @@ const ArticleForm: React.FC<{
               onChange={({ target: { value } }) => setAuthor(value)}
             />
           </Styled.Label>
+          {content && (
+            <Styled.Content>
+              <span>Your text</span>
+              <div dangerouslySetInnerHTML={{ __html: content }}></div>
+            </Styled.Content>
+          )}
+
           <Styled.Label>
-            <span>Text</span>
+            <span>Text:</span>
             <Button type="button" onClick={editContent}>
               Edit content
             </Button>
           </Styled.Label>
+
           <BlogTags currentTags={article?.tags || []} getTags={setTags} />
           <Styled.PicturesWrapper>
             <span>Pictures:</span>

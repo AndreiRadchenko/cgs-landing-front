@@ -4,15 +4,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { onChangeSlideEA } from "../../../services/event";
+import { v4 as uuidv4 } from "uuid";
 import Technology from "./technologies.component";
 import { ITechnology } from "../../../types/components/index";
 import { SampleNextArrow, SamplePrevArrow } from "../shared/Slider/arrows";
-
 const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
   technologies,
 }) => {
   const slidesToShow = technologies.length < 4 ? technologies.length : 4;
-
   let settings = {
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
@@ -30,16 +29,14 @@ const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
     ],
     className: "slides",
   };
-
   return (
     <Styled.SliderContainer>
       <Slider {...settings}>
         {technologies?.map((technology, index) => (
-          <Technology key={technology.type} technology={technology} index={index} />
+          <Technology key={uuidv4()} technology={technology} index={index} />
         ))}
       </Slider>
     </Styled.SliderContainer>
   );
 };
-
 export default SliderTechnologies;
