@@ -19,4 +19,5 @@ export const ButtonsContainer = styled("div")`
   display: flex;
   width: 100%;
   justify-content: center;
+  margin-bottom: 40px;
 `;

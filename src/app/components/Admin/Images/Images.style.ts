@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled("div")`
-  margin-left: 70px;
+  margin-left: 45px;
 `;
 
 export const ImagesWrapper = styled("div")`
