@@ -137,7 +137,7 @@ export const TestimonialContainer = styled("div")`
 
   & .testimonials__company {
     margin: 0;
-    margin-bottom: 10px;
+    line-height: 48px;
   }
 
   & .testimonials__text {
