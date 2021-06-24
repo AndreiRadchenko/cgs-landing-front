@@ -6,17 +6,23 @@ import * as Styled from "./ImagesUploader.style";
 const ImageUploader: React.FC<{ setIsUploaded: Function }> = ({
   setIsUploaded,
 }) => {
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState<any>(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    uploadImage(file).then(() => setIsUploaded(true));
-    setFile("");
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+
+    uploadImage(file).then(() => {
+      setIsUploaded(true);
+    });
+
+    setFile(null);
   };
 
-  const handleImageChange = (e) => {
-    e.preventDefault();
-    const file = e.target.files[0];
+  const handleImageChange = (event: any) => {
+    event.preventDefault();
+
+    const [file] = event.target.files;
+
     setFile(file);
   };
 
@@ -27,17 +33,18 @@ const ImageUploader: React.FC<{ setIsUploaded: Function }> = ({
           className="fileInput"
           id="input__file"
           type="file"
-          onChange={(e) => handleImageChange(e)}
+          onChange={handleImageChange}
         />
-        <label htmlFor="input__file">Choose the file</label>
+        <label htmlFor="input__file">
+          Choose the file
+        </label>
       </Styled.InputWrapper>
-
       <Styled.ButtonWrapper>
         <Button
           big={false}
           className="submitButton"
           type="button"
-          onClick={(e) => handleSubmit(e)}
+          onClick={handleSubmit}
           disabled={!file}
         >
           Upload new

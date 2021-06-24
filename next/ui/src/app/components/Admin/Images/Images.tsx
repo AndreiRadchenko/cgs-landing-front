@@ -12,6 +12,7 @@ import {
   SampleNextArrow,
   SamplePrevArrow,
 } from "app/components/shared/Slider/arrows";
+import { getSpinner } from 'helpers/spinner';
 
 const Images: React.FC<{
   activeImage?: IIconFile | undefined;
@@ -19,16 +20,20 @@ const Images: React.FC<{
 }> = ({ activeImage, getImageId }) => {
   const [images, setImages] = useState<IIconFile[]>([]);
   const [imageID, setImageID] = useState(activeImage?.id || "");
-  const [isUploaded, setIsUploaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const getImages = async () => {
+    setIsLoading(true);
+
+    const images = await getAdminData("file");
+
+    setImages(images);
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     getImages();
-  }, [isUploaded]);
-
-  const getImages = async () => {
-    const images = await getAdminData("file");
-    setImages(images);
-  };
+  }, []);
 
   const handleImageChange = (id: string) => {
     setImageID(id);
@@ -45,32 +50,34 @@ const Images: React.FC<{
     prevArrow: (
       <SamplePrevArrow img={slides.AdminVectorLeft} forWorks top={50} />
     ),
-    afterChange: (current) =>
-      onChangeSlideEA({ sliderName: "Our Code", slide: current }),
     className: "slides",
   };
+
+  const renderSlider = () => (
+    <Styled.SliderContainer>
+      <Slider {...settings}>
+        {images.map((image) => (
+          <CheckboxLabel key={image.id}>
+            <input
+              type="radio"
+              name="imageOption"
+              checked={imageID === image.id}
+              onChange={() => handleImageChange(image.id)}
+            />
+            <img className="slide-image" src={image.s3FileUrl} />
+            <CustomCheckbox sliderLabel selected={imageID === image.id}>
+              <img src={slides.Check} alt={slides.Check} />
+            </CustomCheckbox>
+          </CheckboxLabel>
+        ))}
+      </Slider>
+    </Styled.SliderContainer>
+  );
 
   return (
     <Styled.Wrapper>
       <Styled.ImagesWrapper>
-        <Styled.SliderContainer>
-          <Slider {...settings}>
-            {images?.map((image) => (
-              <CheckboxLabel>
-                <input
-                  type="radio"
-                  name="imageOption"
-                  checked={imageID === image?.id}
-                  onChange={() => handleImageChange(image?.id)}
-                />
-                <img className="slide-image" src={image?.s3FileUrl}></img>
-                <CustomCheckbox sliderLabel selected={imageID === image?.id}>
-                  <img src={slides?.Check} alt={slides?.Check} />
-                </CustomCheckbox>
-              </CheckboxLabel>
-            ))}
-          </Slider>
-        </Styled.SliderContainer>
+        {isLoading ? getSpinner() : renderSlider()}
       </Styled.ImagesWrapper>
     </Styled.Wrapper>
   );
