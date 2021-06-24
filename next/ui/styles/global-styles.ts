@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
 html {
   box-sizing: border-box;
   font-family:Mulish;
+  scroll-behavior: smooth;
 }
 
 *,
