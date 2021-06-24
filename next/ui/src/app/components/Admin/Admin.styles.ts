@@ -98,6 +98,7 @@ export const HeaderWrapper = styled("div")`
 
 export const HeaderLogo = styled("img")`
   height: 87px;
+  margin-right: 95px;
   @media screen and (max-width: 1023px) {
     height: 67px;
   }

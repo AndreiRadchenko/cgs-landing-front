@@ -164,6 +164,7 @@ export interface IFeaturedTechnology {
   name: string;
   text: string;
   imageUrl: string;
+  label: string;
 }
 
 export interface IBlogArticle {

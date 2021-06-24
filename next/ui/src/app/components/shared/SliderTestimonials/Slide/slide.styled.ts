@@ -313,7 +313,7 @@ export const SliderContent = styled("div")`
   }
   & .slider-technology__img {
     max-height: 50px;
-    margin-right: 15px;
+    margin-right: 5px;
   }
   & .slider-technology__text {
     font-size: 18px;

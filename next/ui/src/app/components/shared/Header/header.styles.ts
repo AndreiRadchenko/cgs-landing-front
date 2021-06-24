@@ -27,6 +27,7 @@ export const HeaderItem = styled("div")`
 
 export const HeaderLogo = styled("img")`
   height: 87px;
+
   @media screen and (max-width: 1023px) {
     height: 67px;
   }

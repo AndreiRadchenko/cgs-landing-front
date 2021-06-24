@@ -231,9 +231,11 @@ const AdminPage: React.FC = () => {
     if (!tokenIsLoaded) {
       return;
     }
-
+    if (isModal) {
+      return;
+    }
     loadData(categoryOpen);
-  }, [categoryOpen, tokenIsLoaded]);
+  }, [categoryOpen, tokenIsLoaded, isModal]);
 
   return (
     <Styled.Wrapper>

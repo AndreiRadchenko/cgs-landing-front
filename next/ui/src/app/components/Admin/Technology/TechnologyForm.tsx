@@ -71,7 +71,7 @@ const TechnologyForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label>
-          <span> Country Code: </span>
+          <span> Category: </span>
           <Styled.Select
             className="form__title"
             onChange={({ target }) => {

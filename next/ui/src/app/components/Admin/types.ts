@@ -58,6 +58,7 @@ export interface IFeaturedTechnology {
   name: string;
   text: string;
   imageFile: IIconFile;
+  label: string;
 }
 
 export interface ITestimonial {
