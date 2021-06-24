@@ -53,7 +53,7 @@ export const SliderContainer = styled.div`
     padding: 6px 0;
 
     &:not(:last-child) {
-      margin-bottom: 48px;
+      margin-bottom: 38px;
     }
 
     @media screen and (max-width: 350px) {
@@ -123,7 +123,7 @@ export const TextContainer = styled.div`
     text-align: justify;
   }
   @media screen and (min-width: 1024px) {
-    min-width: 410px;
+    min-width: 520px;
     .slick-slide:nth-child(2n + 1) & {
       margin-right: 73px;
     }
@@ -131,7 +131,7 @@ export const TextContainer = styled.div`
       margin-left: 73px;
     }
     & .featured__description {
-      line-height: 1.22;
+      line-height: 1.67;
       opacity: 1;
     }
     & h2 {
@@ -149,12 +149,12 @@ export const ImageContainer = styled.div`
   color: #fff;
   background: ${(props) => props.theme.colors.buttonBgColor};
   & img {
-    margin-bottom: 19px;
+    margin: 10px 0px 30px 0px;
   }
   & .featured__name {
     margin: 0;
     position: absolute;
-    bottom: 19px;
+    bottom: 5px;
   }
 
   @media screen and (max-width: 1023.5px) {
@@ -170,6 +170,6 @@ export const ImageContainer = styled.div`
     }
   }
   @media screen and (min-width: 1024px) {
-    min-width: 180px;
+    min-width: 200px;
   }
 `;

@@ -24,6 +24,7 @@ const featuredTechnologyUpdate = {
         name: yup.string().optional(),
         text: yup.string().optional(),
         imageFileId: yup.objectId().optional(),
+        label: yup.string().optional(),
       }),
     },
   },
@@ -43,13 +44,13 @@ const featuredTechnologyUpdate = {
     }
 
     if (body.imageFileId !== undefined) {
-      // Update in github
       featuredTechnology.imageFile = body.imageFileId;
     }
 
     assignExistProperties(featuredTechnology, body, [
       'name',
       'text',
+      'label',
     ]);
 
     await featuredTechnology.save();

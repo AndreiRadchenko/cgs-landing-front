@@ -50,6 +50,7 @@ export interface ITechnology {
   name: string;
   category: string;
   iconFile: IIconFile;
+  showOnHomePage: boolean;
 }
 
 export interface IFeaturedTechnology {
@@ -57,6 +58,7 @@ export interface IFeaturedTechnology {
   name: string;
   text: string;
   imageFile: IIconFile;
+  label: string;
 }
 
 export interface ITestimonial {

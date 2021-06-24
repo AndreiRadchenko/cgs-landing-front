@@ -70,6 +70,7 @@ const mapFeaturedTechnologyToResponse = (featuredTechnology) => ({
   name: featuredTechnology.name,
   text: featuredTechnology.text,
   imageUrl: featuredTechnology.imageFile?.s3FileUrl ?? null,
+  label: featuredTechnology.label,
 });
 
 exports.mapFeaturedTechnologyToResponse = mapFeaturedTechnologyToResponse;

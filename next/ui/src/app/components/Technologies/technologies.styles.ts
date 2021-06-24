@@ -199,7 +199,7 @@ export const DescContainer = styled("div")`
 
   @media screen and (min-width: 1024px) {
     .slick-slide:nth-child(1) & {
-      margin-left: 0px;
+      margin-left: 15px;
     }
     .slick-slide:nth-child(2) & {
       margin-left: 15px;

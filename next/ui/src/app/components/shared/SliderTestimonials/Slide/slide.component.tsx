@@ -1,8 +1,11 @@
 import React from "react";
+import ReactCountryFlag from "react-country-flag";
 import * as Style from "./slide.styled";
 import { IProject } from "../../../../../types/components/index";
 import { v4 as uuidv4 } from "uuid";
 import IMAGES from "../../../../../consts/Images";
+
+import countryCodes from '../../../../../consts/countyCodes.json';
 
 const Slide: React.FC<IProject> = ({ item }) => (
   <Style.SlideContainer key={item?.id} className="testimonials-slide-container">
@@ -10,8 +13,16 @@ const Slide: React.FC<IProject> = ({ item }) => (
       <Style.ContentWrapper>
         <Style.SliderHeader>
           <Style.SliderHeaderTitle>{item?.name}</Style.SliderHeaderTitle>
-          <Style.SliderHeaderImg src="/spainFlag.png" />
-          <span className="slider-header__country">Spain</span>
+          <Style.Flag>
+            <ReactCountryFlag
+              countryCode={item?.countryCode}
+              svg
+              style={{ width: '100%', height: '100%' }}
+            />
+          </Style.Flag>
+          <span className="slider-header__country">
+            {countryCodes[item?.countryCode] ?? item?.countryCode}
+          </span>
         </Style.SliderHeader>
         <Style.SliderHeaderSubtitle>
           {item?.shortDescription}

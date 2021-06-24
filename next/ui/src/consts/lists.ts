@@ -154,7 +154,7 @@ export const Nav = [
   },
   {
     title: "Contact",
-    link: "/#Contacts",
+    link: "/#contact",
     burgerTitle: "Contact us",
   },
 ];

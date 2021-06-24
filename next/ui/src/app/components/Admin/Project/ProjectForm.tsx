@@ -4,8 +4,9 @@ import Images from "../Images/Images";
 import { slides } from "../../../img/";
 import { IProject, ITechnology } from "../types";
 import * as Styled from "../Form.styles";
-import CountryCodes from "./../Testimonial/countyCodes.json";
 import { useInput } from "../Hooks";
+
+import countryCodes from '../../../../consts/countyCodes.json';
 
 const ProjectForm: React.FC<{
   project?: IProject | undefined;
@@ -37,7 +38,7 @@ const ProjectForm: React.FC<{
 
   const closeWindow = () => close();
 
-  const countryKeys = Object.keys(CountryCodes);
+  const countryKeys = Object.keys(countryCodes);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -104,17 +105,17 @@ const ProjectForm: React.FC<{
           <span>Country Code:</span>
           <Styled.Select
             className="form__title"
-            {...countryCode}
-            onChange={countryCode.onChange}
+            value={countryCode.value}
             placeholder="Write country code here"
+            onChange={countryCode.onChange}
           >
             {countryKeys?.map((codeValue) => (
               <option
-                selected={codeValue === countryCode.value}
-                value={codeValue}
                 key={codeValue}
+                value={codeValue}
+                selected={codeValue === countryCode.value}
               >
-                {CountryCodes[codeValue]}
+                {countryCodes[codeValue]}
               </option>
             ))}
             )
@@ -156,9 +157,9 @@ const ProjectForm: React.FC<{
           <span>Pictures:</span>
           <Images activeImage={project?.imageFile} getImageId={getImageId} />
         </Styled.PicturesWrapper>
-        <Styled.CheckboxContainer>
-          <div>Show on page:</div>
-          <Styled.CheckboxLabel>
+        <Styled.Label>
+          <span>Show:</span>
+          <Styled.CheckboxLabel position="static">
             <input
               type="checkbox"
               checked={showOnHomePage}
@@ -168,7 +169,7 @@ const ProjectForm: React.FC<{
               <img src={slides.Check} alt="checkbox" />
             </Styled.CustomCheckbox>
           </Styled.CheckboxLabel>
-        </Styled.CheckboxContainer>
+        </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button
             type="submit"
