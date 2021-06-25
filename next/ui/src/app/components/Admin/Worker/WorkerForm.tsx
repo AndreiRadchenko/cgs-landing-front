@@ -69,10 +69,12 @@ const WorkerForm: React.FC<{
             placeholder="Write some text here"
           />
         </Styled.Label>
-        <Styled.PicturesWrapper>
+        <Styled.Label>
           <span>Pictures:</span>
-          <Images activeImage={worker?.imageFile} getImageId={getImageId} />
-        </Styled.PicturesWrapper>
+          <Styled.PicturesWrapper>
+            <Images activeImage={worker?.imageFile} getImageId={getImageId} />
+          </Styled.PicturesWrapper>
+        </Styled.Label>
         <Styled.Label>
           <span>Show on page:</span>
           <Styled.SingleCheckboxContainer>

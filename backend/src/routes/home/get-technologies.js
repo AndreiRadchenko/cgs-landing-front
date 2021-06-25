@@ -7,8 +7,8 @@ const { mapCategoryToResponse } = require('./utils/mappers');
 const sequence = [
   TechnologyType.WEB,
   TechnologyType.MOBILE,
-  TechnologyType.UI_UX,
   TechnologyType.BACKEND,
+  TechnologyType.UI_UX,
 ];
 
 const getTechnologies = {
