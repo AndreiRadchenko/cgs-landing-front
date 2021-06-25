@@ -183,7 +183,7 @@ export interface IBlogArticleTag {
 }
 
 export interface TechnoImageParams {
-  index: number;
+  isFirst: boolean;
 }
 
 export interface LayoutProps {

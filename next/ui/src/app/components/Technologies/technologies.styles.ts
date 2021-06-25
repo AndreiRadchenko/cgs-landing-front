@@ -263,7 +263,7 @@ export const HorizontalSep = styled("div")`
 
 export const TechnoImage = styled("img")<TechnoImageParams>`
   @media screen and (min-width: 1024px) {
-    padding-top: ${(props) => (props.index > 1 ? "140px" : "30px")};
+    padding-top: ${(props) => (props.isFirst ? "30px" : "140px")};
   }
   @media screen and (max-width: 1023.5px) {
     padding-top: 30px;
