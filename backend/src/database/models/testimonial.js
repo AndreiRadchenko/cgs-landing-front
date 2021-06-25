@@ -37,7 +37,7 @@ const definition = {
     },
     link: {
       type: SchemaTypes.String,
-      required: true,
+      default: null,
     },
   }],
 };
