@@ -153,7 +153,7 @@ const TestimonialForm: React.FC<{
               type="number"
               min="1"
               max="5"
-              placeholder={testimonial ? "5" : "Rating"}
+              placeholder="Rating"
               {...upworkRateInput}
             />
           </Styled.RatingInputContainer>
@@ -170,9 +170,10 @@ const TestimonialForm: React.FC<{
               type="number"
               min="1"
               max="5"
-              placeholder={testimonial ? "5" : "Rating"}
+              placeholder="Rating"
               {...clutchRateInput}
             />
+
           </Styled.RatingInputContainer>
         </Styled.Label>
         <Styled.ButtonWrapper>
