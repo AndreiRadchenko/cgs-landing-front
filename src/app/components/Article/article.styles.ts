@@ -28,19 +28,31 @@ export const Wrapper = styled("article")`
 
 export const Title = styled("h2")`
   font-size: 36px;
+  line-height: 56px;
   text-align: center;
   font-weight: 700;
   margin-bottom: 40px;
-  padding: 0 15vw;
+  padding: 0 15vw;  
   @media screen and (max-width: 1024px) {
     padding: 0 110px;
+    font-size: 24px;
+    line-height: 56px;
   }
   @media screen and (max-width: 768px) {
     font-size: 24px;
-    padding: 0 95px;
+    padding: 0 30px;
+    line-height: 56px;
   }
 `;
 
 export const SubTitle = styled("p")`
-  max-width: 800px;
+  max-width: 800px;  
 `;
+
+export const AdminTextAreaWrapper = styled("div")`
+  padding-top: 2px;
+  width:  97%;
+  margin-left: 20px;
+  border: 2px solid #1f5a7b;
+  border-radius: 20px;
+`

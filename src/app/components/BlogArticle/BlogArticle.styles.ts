@@ -62,7 +62,7 @@ export const ArticleWrapper = styled("div")`
       width: 100%;      
     }
   }
-  & .article__content {
+  & .article__content {    
     width: calc(100% - 378px);
     text-align: left;
     display: flex;
@@ -72,7 +72,7 @@ export const ArticleWrapper = styled("div")`
       font-size: 18px;
       line-height: 30px;
       & p {
-        color: rgba(12, 16, 51, 0.5);
+        opacity: 0.5;
       }
     }
 
@@ -90,6 +90,7 @@ export const ArticleWrapper = styled("div")`
     @media screen and (max-width: 1024px) {
       text-align: center;
       margin-bottom: 13px;
+      font-size: 22px;
     }
   }
 
@@ -152,17 +153,27 @@ export const FeaturedArticle = styled("div")`
 
   & h2 {
     margin-bottom: 1.54em;
+      font-size: 24px;
+      line-height: 54px;
     @media screen and (max-width: 1024px) {
       text-align: center;
       margin-bottom: 13px;
       padding: 0 8vw;
+      font-size: 22px;
+      line-height: 28px;
     }
   }
 
   & p {
     margin-bottom: 1.72em;
+    opacity: 0.5;
+    font-size: 18px;
+    line-height: 32px;    
     @media screen and (max-width: 1024px) {
       padding: 0 8vw;
+      opacity: 0.5;
+      font-size: 18px;
+      line-height: 32px;
     }
   }
 `;
@@ -175,11 +186,12 @@ export const Title = styled("h2")`
   margin: 0;
   font-size: 22px;
   font-weight: 700;
-  line-height: 1.27;
+  line-height: 28px;
   text-align: center;
 
+
   @media screen and (max-width: 1024px) {
-    font-size: 24px;
+    font-size: 18px;
   }
   @media screen and (max-width: 420px) {
     font-size: 18px;
@@ -193,7 +205,7 @@ export const Content = styled("p")`
   font-weight: 400;
   padding: 0 3em;
   @media screen and (max-width: 1024px) {
-    font-size: 14px;
+    font-size: 18px;
     opacity: 0.5;
   }
 `;

@@ -59,7 +59,6 @@ export const AdminTextInput = styled("input")`
   line-height: 32px;
   outline: none;
   margin-left: 20px;
-
 `;
 
 export const AdminTextArea = styled("textarea")`
@@ -82,17 +81,17 @@ export const AdminTextArea = styled("textarea")`
 
 export const AdminTextAreaWrapper = styled("div")`
   padding-top: 2px;
-  width:  97%;
+  width: 97%;
   margin-left: 20px;
   border: 2px solid #1f5a7b;
   border-radius: 20px;
-`
+`;
 
 export const RatingInputContainer = styled("div")`
   display: flex;
 
   & > ${AdminTextInput}:nth-child(2) {
-    max-width: 100px;    
+    max-width: 100px;
     padding-left: 20px;
     padding-right: 10px;
   }
@@ -142,19 +141,38 @@ export const Content = styled("div")`
 `;
 
 export const ContentWrapper = styled("div")`
-  width: 100%;
+  width: 98%;
 
   & > ${Content} {
+    border: none;
+
     max-height: 400px;
-    overflow-y: auto;
-    margin-left: 20px;
+    overflow-y: auto; 
+    padding-right: 10px;
   }
 `;
 
-export const Label = styled("label") <PropsFormWrapper>`
+export const ContentContainerWrapper = styled("div")`
+  width: 98%;
+  border: 2px solid #1f5a7b;
+  border-radius: 20px;
+  max-width: 655px;
+  padding: 14px 36px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: justify;
+  margin: 0 5px 0 20px;
+  padding: 0;
+  margin: 0;
+  margin-left: 20px;
+`;
+
+export const Label = styled("label")<PropsFormWrapper>`
   display: ${(props) => (props.double ? "flex" : "grid")};
   grid-template-columns: minmax(50px, 130px) 1fr;
   align-items: center;
+
   & > span {
     text-align: end;
     color: #0c1033;
@@ -168,6 +186,7 @@ export const Label = styled("label") <PropsFormWrapper>`
   & a {
     margin-left: 20px;
   }
+
   & > input:nth-child(3) {
     flex-basis: 170px;
     margin-left: 20px;
@@ -220,7 +239,7 @@ export const SingleCheckboxContainer = styled("div")`
   margin-left: 20px;
 `;
 
-export const CustomCheckbox = styled("div") <PropsFormWrapper>`
+export const CustomCheckbox = styled("div")<PropsFormWrapper>`
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -235,7 +254,7 @@ export const CustomCheckbox = styled("div") <PropsFormWrapper>`
   position: absolute;
 `;
 
-export const CheckboxLabel = styled("label") <PropsFormWrapper>`
+export const CheckboxLabel = styled("label")<PropsFormWrapper>`
   position: relative;
   & > input {
     border: 0;
@@ -249,7 +268,7 @@ export const CheckboxLabel = styled("label") <PropsFormWrapper>`
   }
 `;
 
-export const DeleteTagButton = styled("button") <PropsFormWrapper>`
+export const DeleteTagButton = styled("button")<PropsFormWrapper>`
   background-color: transparent;
   border: 0;
   position: absolute;
@@ -266,12 +285,12 @@ export const ButtonWrapper = styled("div")`
   margin-bottom: 60px;
 `;
 
-export const Button = styled("button") <PropsFormWrapper>`
+export const Button = styled("button")<PropsFormWrapper>`
   &:disabled {
     background-color: #a7c4d4;
   }
 
-  width: ${(props) => (props.big ? "200px" : "170px")};
+  width: ${(props) => (props.big ? "172px" : "170px")};
   height: ${(props) => (props.big ? "58.33px" : "40px")};
   border-radius: 55px;
   background: ${(props) => (props.empty ? "" : "#1f5a7b")};
@@ -348,7 +367,7 @@ export const TagInputWrapper = styled("div")`
 
 export const BlogTextWrapper = styled("div")`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;  
+  grid-template-columns: 1fr 1fr 1fr;
   min-height: 120px;
   width: 95%;
   white-space: normal;

@@ -6,6 +6,7 @@ import * as Styled from "../Form.styles";
 import BlogTags from "../BlogTags/BlogTags";
 import TextEditor from "../TextEditor/TextEditor";
 import { Button } from "app/components/shared/LinkButton/Button.style";
+import { DatePicker } from "../DatePicker/DatePicker";
 
 const ArticleForm: React.FC<{
   article?: IArticle | undefined;
@@ -13,6 +14,9 @@ const ArticleForm: React.FC<{
 }> = ({ article, close }) => {
   const [title, setTitle] = useState(article?.title || "");
   const [author, setAuthor] = useState(article?.author || "");
+  const [createdAt, setCreatedAt] = useState(() => (
+    article ? new Date(article.createdAt) : new Date()
+  ));
   const [content, setContent] = useState(article?.content || "");
   const [tags, setTags] = useState(article?.tags || []);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
@@ -23,17 +27,25 @@ const ArticleForm: React.FC<{
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     const newArticle = {
       title,
       author,
+      createdAt: createdAt.toISOString(),
       content,
       tagIds: tags,
       imageFileId,
     };
 
-    article
-      ? updateAdminData("article", article.id, newArticle).then(closeWindow)
-      : createAdminData("article", newArticle).then(closeWindow);
+    if (article) {
+      updateAdminData("article", article.id, newArticle).then(() => {
+        closeWindow()
+      });
+    } else {
+      createAdminData("article", newArticle).then(() => {
+        closeWindow()
+      });
+    }    
   }
 
   const getImageId = (id) => {
@@ -43,13 +55,11 @@ const ArticleForm: React.FC<{
   return (
     <Styled.Wrapper>
       {isEditorOpen && (
-        <>
-          <TextEditor
-            content={content}
-            setArticleContent={setContent}
-            setIsEditorOpen={setIsEditorOpen}
-          />
-        </>
+        <TextEditor
+          content={content}
+          setArticleContent={setContent}
+          setIsEditorOpen={setIsEditorOpen}
+        />
       )}
       {!isEditorOpen && (
         <Styled.Form onSubmit={handleSubmit}>
@@ -72,16 +82,30 @@ const ArticleForm: React.FC<{
               onChange={({ target: { value } }) => setAuthor(value)}
             />
           </Styled.Label>
+          <Styled.Label>
+            <span>Created at:</span>
+            <DatePicker
+              locale="ru"
+              dateFormat="yyyy.MM.dd HH:mm"
+              showTimeSelect={true}
+              selected={createdAt}
+              onChange={(date: Date) => {
+                setCreatedAt(date);
+              }}
+            />
+          </Styled.Label>
           {content && (
             <Styled.Label>
-              <span>Your text:</span>
-              <Styled.ContentWrapper>
-                <Styled.Content dangerouslySetInnerHTML={{ __html: content }} />
-              </Styled.ContentWrapper>
+              <span>Preview:</span>
+              <Styled.ContentContainerWrapper>
+                <Styled.ContentWrapper>
+                  <Styled.Content dangerouslySetInnerHTML={{ __html: content }} />
+                </Styled.ContentWrapper>
+              </Styled.ContentContainerWrapper>
             </Styled.Label>
           )}
           <Styled.Label>
-            <span>Text:</span>
+            <span>Content:</span>
             <Button type="button" onClick={editContent}>
               Edit content
             </Button>

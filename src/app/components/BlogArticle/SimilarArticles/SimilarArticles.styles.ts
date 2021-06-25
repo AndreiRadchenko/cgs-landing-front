@@ -52,7 +52,7 @@ export const SimilarArticle = styled("li")`
     height: 166px;
     object-fit: contain;
     display: inline-block;
-    margin-bottom: 2em;
+    margin-bottom: 20px;
     @media (max-width: 1025px) {
       height: auto;
     }
