@@ -92,7 +92,10 @@ const ArticleForm: React.FC<{
           <Styled.Label>
             <span>Pictures:</span>
             <Styled.PicturesWrapper>
-              <Images activeImage={article?.imageFile} getImageId={getImageId} />
+              <Images
+                activeImage={article?.imageFile}
+                getImageId={getImageId}
+              />
             </Styled.PicturesWrapper>
           </Styled.Label>
           <Styled.ButtonWrapper>

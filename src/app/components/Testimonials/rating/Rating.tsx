@@ -39,7 +39,12 @@ const Rating = ({ testimonial }) => {
               <img src="/clutch.svg" width="58" height="16" alt="" />
               <p>{clutch?.rate?.toFixed(1)}</p>
             </Styled.Rating>
-            <Button small text="Read More" link={clutch?.link} />
+            <Button
+              link={clutch?.link}
+              target="_blank"
+              small
+              text="Read More"
+            />
           </Styled.RatingItem>
           <Styled.RatingItem className="testimonials__rating-upwork">
             <Styled.Rating>
@@ -48,7 +53,12 @@ const Rating = ({ testimonial }) => {
                 {upwork?.rate?.toFixed(1)}
               </p>
             </Styled.Rating>
-            <Button small text="Read More" link={upwork?.link} />
+            <Button
+              small
+              text="Read More"
+              link={upwork?.link}
+              target="_blank"
+            />
           </Styled.RatingItem>
         </Styled.RatingWrapper>
       )}
@@ -59,7 +69,7 @@ const Rating = ({ testimonial }) => {
             <p>{clutch?.rate?.toFixed(1)}</p>
             <Styled.Stars>{starsClutch?.map((el) => el)}</Styled.Stars>
           </Styled.Rating>
-          <Button text="Read More" link={clutch?.link} />
+          <Button text="Read More" target="_blank" link={clutch?.link} />
         </React.Fragment>
       )}
       {upwork && !doublePlatforms && (
@@ -69,7 +79,7 @@ const Rating = ({ testimonial }) => {
             <p>{upwork?.rate?.toFixed(1)}</p>
             <Styled.Stars>{starsUpwork?.map((el) => el)}</Styled.Stars>
           </Styled.Rating>
-          <Button text="Read More" link={upwork?.link} />
+          <Button text="Read More" target="_blank" link={upwork?.link} />
         </React.Fragment>
       )}
     </React.Fragment>

@@ -42,7 +42,8 @@ export const ArticleWrapper = styled("div")`
     margin: 52px 0 60px;
     object-fit: cover;
     @media screen and (max-width: 1024px) {
-      margin: 50px 0 00px;
+      margin: 50px 0 0 0px;
+      margin-bottom: 60px;
     }
   }
   & .article__author,

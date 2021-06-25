@@ -49,12 +49,14 @@ const FactsForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label>
-          <span>Fact text:</span>
-          <Styled.AdminTextArea
-            value={text}
-            onChange={({ target: { value } }) => setText(value)}
-            placeholder="Write some text here"
-          />
+          <span>Fact text</span>
+          <Styled.AdminTextAreaWrapper>
+            <Styled.AdminTextArea
+              value={text}
+              onChange={({ target: { value } }) => setText(value)}
+              placeholder="Write some text here"
+            />
+          </Styled.AdminTextAreaWrapper>
         </Styled.Label>
         <Styled.Label>
           <span>Show on page:</span>
