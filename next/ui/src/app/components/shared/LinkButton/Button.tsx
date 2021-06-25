@@ -1,11 +1,9 @@
 import * as Styles from "./Button.style";
 
-const Button: React.FC<{ link: string; text: string; small?: boolean }> = ({
-  link,
-  text,
-  small = false,
-}) => (
-  <Styles.Button small={small} href={link}>
+const Button: React.FC<
+  { text: string; link: string; small?: boolean } & Record<any, any>
+> = ({ link, text, small = false, ...rest }) => (
+  <Styles.Button small={small} href={link} {...rest}>
     {text}
   </Styles.Button>
 );
