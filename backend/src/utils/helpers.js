@@ -1,9 +1,15 @@
 const normalizeUrl = (url) => {
-  if (!url.startsWith('https')) {
-    url = `https://${url}`;
+  if (url == null || url.length === 0) {
+    return null;
   }
 
-  return url;
+  let normalizedUrl = url;
+
+  if (!url.startsWith('https')) {
+    normalizedUrl = `https://${url}`;
+  }
+
+  return normalizedUrl;
 };
 
 exports.normalizeUrl = normalizeUrl;

@@ -117,7 +117,9 @@ export const Select = styled("select")`
   background-position-x: 100%;
   background-position-y: 0px;
 
-  &:active, &:hover, &:focus {
+  &:active,
+  &:hover,
+  &:focus {
     outline: 0;
     outline-offset: 0;
   }
@@ -178,6 +180,15 @@ export const CheckboxContainer = styled("div")`
   align-self: flex-start;
   width: 80px;
   justify-content: space-between;
+  text-align: left;
+
+  & label {
+    position: absolute !important;
+    right: -5px;
+    top: 0;
+    transform: translateY(5px);
+  }
+
   &:last-child {
     padding-right: 0;
   }
@@ -261,7 +272,7 @@ export const Button = styled("button") <PropsFormWrapper>`
   }
 
   width: ${(props) => (props.big ? "200px" : "170px")};
-  max-height: ${(props) => (props.big ? "60px" : "40px")};
+  height: ${(props) => (props.big ? "58.33px" : "40px")};
   border-radius: 55px;
   background: ${(props) => (props.empty ? "" : "#1f5a7b")};
   font-weight: bold;
@@ -283,8 +294,9 @@ export const Row = styled("div")`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-left: -10px;
-  width: 560px;
-  padding-right: 30px;
+  justify-items: center;
+  width: 635px;
+  grid-column-gap: 120px;
 `;
 
 export const PicturesWrapper = styled("div")`

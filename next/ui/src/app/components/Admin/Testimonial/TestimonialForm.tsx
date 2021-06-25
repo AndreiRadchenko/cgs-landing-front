@@ -136,7 +136,7 @@ const TestimonialForm: React.FC<{
           <Styled.AdminTextAreaWrapper>
             <Styled.AdminTextArea
               className="form__text"
-              placeholder="Write customer position here"
+              placeholder="Write feedback here"
               {...feedback}
             />
           </Styled.AdminTextAreaWrapper>

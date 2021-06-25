@@ -35,13 +35,11 @@ const ImageUploader: React.FC<{ setIsUploaded: Function }> = ({
           type="file"
           onChange={handleImageChange}
         />
-        <label htmlFor="input__file">
-          Choose the file
-        </label>
+        <label htmlFor="input__file">Choose the file</label>
       </Styled.InputWrapper>
       <Styled.ButtonWrapper>
         <Button
-          big={false}
+          big={true}
           className="submitButton"
           type="button"
           onClick={handleSubmit}
