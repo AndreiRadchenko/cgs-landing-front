@@ -30,7 +30,7 @@ const SloganForm: React.FC<{
       <Styled.Form onSubmit={handleSubmit}>
         {slogan ? <h2>Edit slogan</h2> : <h2>Create new slogan</h2>}
         <Styled.Label>
-          <span>Slogan title</span>
+          <span>Slogan title:</span>
           <Styled.AdminTextInput
             type="text"
             value={title}
@@ -49,17 +49,19 @@ const SloganForm: React.FC<{
           </Styled.AdminTextAreaWrapper>
         </Styled.Label>
         <Styled.Label>
-          <span>Selected</span>
-          <Styled.CheckboxLabel position="static">
-            <input
-              type="checkbox"
-              checked={selected}
-              onChange={({ target: { checked } }) => setSelected(checked)}
-            />
-            <Styled.CustomCheckbox selected={selected}>
-              <img src={slides.Check} alt="checkbox" />
-            </Styled.CustomCheckbox>
-          </Styled.CheckboxLabel>
+          <span>Selected:</span>
+          <Styled.SingleCheckboxContainer>
+            <Styled.CheckboxLabel position="static">
+              <input
+                type="checkbox"
+                checked={selected}
+                onChange={({ target: { checked } }) => setSelected(checked)}
+              />
+              <Styled.CustomCheckbox selected={selected}>
+                <img src={slides.Check} alt="checkbox" />
+              </Styled.CustomCheckbox>
+            </Styled.CheckboxLabel>
+          </Styled.SingleCheckboxContainer>
         </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button type="submit" empty={true} disabled={!(title && text)}>

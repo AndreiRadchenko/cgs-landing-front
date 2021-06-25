@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import {
   getAdminData,
   login,
@@ -223,17 +223,23 @@ const AdminPage: React.FC = () => {
 
     const response = await getAdminData(category);
 
+    if (category === "project") {
+      await getAdminData("technology").then(setTechnologies);
+    }
+
     setResponse(response);
     setDataIsLoading(false);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!tokenIsLoaded) {
       return;
     }
+
     if (isModal) {
       return;
     }
+
     loadData(categoryOpen);
   }, [categoryOpen, tokenIsLoaded, isModal]);
 

@@ -74,7 +74,7 @@ const ArticleForm: React.FC<{
           </Styled.Label>
           {content && (
             <Styled.Label>
-              <span>Your text</span>
+              <span>Your text:</span>
               <Styled.ContentWrapper>
                 <Styled.Content dangerouslySetInnerHTML={{ __html: content }} />
               </Styled.ContentWrapper>
@@ -86,12 +86,15 @@ const ArticleForm: React.FC<{
               Edit content
             </Button>
           </Styled.Label>
-
-          <BlogTags currentTags={article?.tags || []} getTags={setTags} />
-          <Styled.PicturesWrapper>
+          <Styled.Label>
+            <BlogTags currentTags={article?.tags || []} getTags={setTags} />
+          </Styled.Label>
+          <Styled.Label>
             <span>Pictures:</span>
-            <Images activeImage={article?.imageFile} getImageId={getImageId} />
-          </Styled.PicturesWrapper>
+            <Styled.PicturesWrapper>
+              <Images activeImage={article?.imageFile} getImageId={getImageId} />
+            </Styled.PicturesWrapper>
+          </Styled.Label>
           <Styled.ButtonWrapper>
             <Styled.Button
               empty={true}

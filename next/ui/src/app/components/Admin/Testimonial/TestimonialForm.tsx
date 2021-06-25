@@ -141,35 +141,39 @@ const TestimonialForm: React.FC<{
             />
           </Styled.AdminTextAreaWrapper>
         </Styled.Label>
-        <Styled.Label double>
-          <span>Upwork</span>
-          <Styled.AdminTextInput
-            type="text"
-            placeholder={testimonial ? "UpWork.com" : "Upwork link"}
-            {...upworkLinkInput}
-          />
-          <Styled.AdminTextInput
-            type="number"
-            min="1"
-            max="5"
-            placeholder={testimonial ? "5" : "Rating"}
-            {...upworkRateInput}
-          />
+        <Styled.Label>
+          <span>Upwork:</span>
+          <Styled.RatingInputContainer>
+            <Styled.AdminTextInput
+              type="text"
+              placeholder={testimonial ? "UpWork.com" : "Upwork link"}
+              {...upworkLinkInput}
+            />
+            <Styled.AdminTextInput
+              type="number"
+              min="1"
+              max="5"
+              placeholder={testimonial ? "5" : "Rating"}
+              {...upworkRateInput}
+            />
+          </Styled.RatingInputContainer>
         </Styled.Label>
-        <Styled.Label double>
-          <span>Clutch</span>
-          <Styled.AdminTextInput
-            type="text"
-            placeholder={testimonial ? "Clutch.com" : "Clutch link"}
-            {...clutchLinkInput}
-          />
-          <Styled.AdminTextInput
-            type="number"
-            min="1"
-            max="5"
-            placeholder={testimonial ? "5" : "Rating"}
-            {...clutchRateInput}
-          />
+        <Styled.Label>
+          <span>Clutch:</span>
+          <Styled.RatingInputContainer>
+            <Styled.AdminTextInput
+              type="text"
+              placeholder={testimonial ? "Clutch.com" : "Clutch link"}
+              {...clutchLinkInput}
+            />
+            <Styled.AdminTextInput
+              type="number"
+              min="1"
+              max="5"
+              placeholder={testimonial ? "5" : "Rating"}
+              {...clutchRateInput}
+            />
+          </Styled.RatingInputContainer>
         </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button

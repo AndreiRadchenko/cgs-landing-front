@@ -40,7 +40,7 @@ const FactsForm: React.FC<{
       <Styled.Form onSubmit={handleSubmit}>
         {fact ? <h2>Edit Fact</h2> : <h2>Create new fact</h2>}
         <Styled.Label>
-          <span>Fact title</span>
+          <span>Fact title:</span>
           <Styled.AdminTextInput
             type="text"
             value={title}
@@ -59,24 +59,27 @@ const FactsForm: React.FC<{
           </Styled.AdminTextAreaWrapper>
         </Styled.Label>
         <Styled.Label>
-          <span>Show:</span>
-          <Styled.CheckboxLabel position="static">
-            <input
-              type="checkbox"
-              name="TechOption"
-              checked={showOnHomePage}
-              onChange={({ target: { checked } }) => setShowOnHomePage(checked)}
-            />
-            <Styled.CustomCheckbox selected={showOnHomePage}>
-              <img src={slides.Check} alt="checkbox" />
-            </Styled.CustomCheckbox>
-          </Styled.CheckboxLabel>
+          <span>Show on page:</span>
+          <Styled.SingleCheckboxContainer>
+            <Styled.CheckboxLabel position="static">
+              <input
+                type="checkbox"
+                name="TechOption"
+                checked={showOnHomePage}
+                onChange={({ target: { checked } }) => setShowOnHomePage(checked)}
+              />
+              <Styled.CustomCheckbox selected={showOnHomePage}>
+                <img src={slides.Check} alt="checkbox" />
+              </Styled.CustomCheckbox>
+            </Styled.CheckboxLabel>
+          </Styled.SingleCheckboxContainer>
         </Styled.Label>
-        <Styled.PicturesWrapper>
+        <Styled.Label>
           <span>Pictures:</span>
-          <Images activeImage={fact?.iconFile} getImageId={getImageId} />
-        </Styled.PicturesWrapper>
-
+          <Styled.PicturesWrapper>
+            <Images activeImage={fact?.iconFile} getImageId={getImageId} />
+          </Styled.PicturesWrapper>
+        </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button
             empty={true}

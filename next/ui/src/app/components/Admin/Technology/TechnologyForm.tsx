@@ -93,29 +93,28 @@ const TechnologyForm: React.FC<{
           </Styled.Select>
         </Styled.Label>
         <Styled.Label>
-        <Styled.PicturesWrapper>
           <span>Pictures:</span>
-          <Images activeImage={technology?.iconFile} getImageId={getImageId} />
-        </Styled.PicturesWrapper>
+          <Styled.PicturesWrapper>
+            <Images activeImage={technology?.iconFile} getImageId={getImageId} />
+          </Styled.PicturesWrapper>
         </Styled.Label>
         <Styled.Label>
-          <span>Show:</span>
-          <Styled.CheckboxLabel
-            position="static"
-            selected={showOnHomePage}
-          >
-            <input
-              type="checkbox"
-              name="showOnHomePage"
-              checked={showOnHomePage}
-              onChange={(event) => {
-                setShowOnHomePage(event.target.checked);
-              }}
-            />
-            <Styled.CustomCheckbox selected={showOnHomePage}>
-              <img src={slides?.Check} alt="checkbox" />
-            </Styled.CustomCheckbox>
-          </Styled.CheckboxLabel>
+          <span>Show on page:</span>
+          <Styled.SingleCheckboxContainer>
+            <Styled.CheckboxLabel position="static">
+              <input
+                type="checkbox"
+                name="showOnHomePage"
+                checked={showOnHomePage}
+                onChange={(event) => {
+                  setShowOnHomePage(event.target.checked);
+                }}
+              />
+              <Styled.CustomCheckbox selected={showOnHomePage}>
+                <img src={slides?.Check} alt="checkbox" />
+              </Styled.CustomCheckbox>
+            </Styled.CheckboxLabel>
+          </Styled.SingleCheckboxContainer>
         </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button

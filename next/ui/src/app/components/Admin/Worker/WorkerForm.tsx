@@ -71,27 +71,30 @@ const WorkerForm: React.FC<{
             />
           </Styled.AdminTextAreaWrapper>
         </Styled.Label>
-        <Styled.PicturesWrapper>
-          <span>Pictures:</span>
-          <Images activeImage={worker?.imageFile} getImageId={getImageId} />
-        </Styled.PicturesWrapper>
         <Styled.Label>
-          <span>Show:</span>
-          <Styled.CheckboxLabel position="static">
-            <input
-              type="checkbox"
-              name="TechOption"
-              checked={showOnPage}
-              onChange={(event) => {
-                setshowOnPage(event.target.checked);
-              }}
-            />
-            <Styled.CustomCheckbox selected={showOnPage}>
-              <img src={slides?.Check} alt="checkbox" />
-            </Styled.CustomCheckbox>
-          </Styled.CheckboxLabel>
+          <span>Pictures:</span>
+          <Styled.PicturesWrapper>
+            <Images activeImage={worker?.imageFile} getImageId={getImageId} />
+          </Styled.PicturesWrapper>
         </Styled.Label>
-
+        <Styled.Label>
+          <span>Show on page:</span>
+          <Styled.SingleCheckboxContainer>
+            <Styled.CheckboxLabel position="static">
+              <input
+                type="checkbox"
+                name="TechOption"
+                checked={showOnPage}
+                onChange={(event) => {
+                  setshowOnPage(event.target.checked);
+                }}
+              />
+              <Styled.CustomCheckbox selected={showOnPage}>
+                <img src={slides?.Check} alt="checkbox" />
+              </Styled.CustomCheckbox>
+            </Styled.CheckboxLabel>
+          </Styled.SingleCheckboxContainer>
+        </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button
             type="submit"
@@ -105,7 +108,7 @@ const WorkerForm: React.FC<{
           </Styled.Button>
         </Styled.ButtonWrapper>
       </Styled.Form>
-    </Styled.Wrapper>
+    </Styled.Wrapper >
   );
 };
 
