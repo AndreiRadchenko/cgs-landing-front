@@ -2,6 +2,14 @@ const { Article } = require('../../database');
 
 const { mapArticleToResponse } = require('./utils/mappers');
 
+const getMostViewedArticle = (rawArticles) => {
+  const articles = [...rawArticles];
+
+  articles.sort((a, b) => b.views - a.views);
+
+  return articles[0];
+};
+
 const articlesRoute = {
   path: '/',
   method: 'GET',
@@ -9,7 +17,6 @@ const articlesRoute = {
     const query = Article.find();
 
     query.sort({
-      views: -1,
       createdAt: -1,
     });
 
@@ -22,7 +29,15 @@ const articlesRoute = {
       },
     ]);
 
-    const articles = await query.exec();
+    const allArticles = await query.exec();
+
+    const mostViewedArticlte = getMostViewedArticle(allArticles);
+
+    const articles = [
+      mostViewedArticlte,
+
+      ...allArticles.filter((article) => article.id !== mostViewedArticlte.id),
+    ];
 
     context.body = {
       response: articles.map(mapArticleToResponse),
