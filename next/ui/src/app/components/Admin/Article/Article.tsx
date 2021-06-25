@@ -20,12 +20,11 @@ const Article: React.FC<{
           <span>{article?.author}</span>
         </Styled.ListItem>
         <Styled.ListItem>
-          <span>Created: </span>
-          <span>{dayjs(article?.createdAt).format("YYYY.MM.DD HH:MM")} </span>
+          <span>Created:</span>
+          <span>{dayjs(article?.createdAt).format("YYYY.MM.DD HH:mm")} </span>
         </Styled.ListItem>
-
         <Styled.ListItem>
-          <span> Tags: </span>
+          <span>Tags:</span>
           <ul>
             {article?.tags?.map((tag) => (
               <li>{tag?.name}</li>
