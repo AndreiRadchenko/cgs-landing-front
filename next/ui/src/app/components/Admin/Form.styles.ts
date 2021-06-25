@@ -59,7 +59,6 @@ export const AdminTextInput = styled("input")`
   line-height: 32px;
   outline: none;
   margin-left: 20px;
-
 `;
 
 export const AdminTextArea = styled("textarea")`
