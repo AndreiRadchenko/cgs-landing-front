@@ -22,6 +22,7 @@ const articleCreate = {
         content: yup.string().required(),
         tagIds: yup.array().of(yup.objectId()).min(1).required(),
         views: yup.number().optional(),
+        createdAt: yup.date().optional(),
       }),
     },
   },
@@ -38,6 +39,7 @@ const articleCreate = {
       'author',
       'content',
       'views',
+      'createdAt',
     ]);
 
     await article.save();
