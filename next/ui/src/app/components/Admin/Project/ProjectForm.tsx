@@ -188,7 +188,6 @@ const ProjectForm: React.FC<{
                 fullDescription &&
                 shortDescription &&
                 countryCode &&
-                link &&
                 imageFile
               )
             }
