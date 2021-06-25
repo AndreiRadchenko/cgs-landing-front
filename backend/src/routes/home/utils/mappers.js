@@ -16,7 +16,7 @@ const mapProjectToResponse = (project) => ({
     name: technology.name,
     iconUrl: technology.iconFile?.s3FileUrl ?? null,
   })),
-  link: project.link,
+  link: project.link ?? null,
   imageUrl: project.imageFile?.s3FileUrl ?? null,
 });
 
