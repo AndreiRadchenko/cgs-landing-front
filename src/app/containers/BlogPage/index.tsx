@@ -13,6 +13,8 @@ export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
     scrollEA("data-scroll");
   }, []);
 
+  const [mostViewedArticle, ...otherArticles] = articles;
+
   const [
     paginatedDataMarkUp,
     currentPage,
@@ -21,7 +23,7 @@ export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
     numberOfPages,
     paginationArray,
     setCurrentPage,
-  ]: any = usePagination(articles, 4);
+  ]: any = usePagination(otherArticles, 4);
 
   const mapToProps = {
     paginatedDataMarkUp,
@@ -40,18 +42,14 @@ export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
         desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       >
         <Styled.Wrapper>
-          {paginatedDataMarkUp &&
-            paginatedDataMarkUp.map((article, index) =>
-              index === 0 ? (
-                <Styled.FeaturedArticle key={uuidv4()}>
-                  <BlogArticle article={article} />
-                </Styled.FeaturedArticle>
-              ) : (
-                <Styled.ArticleWrapper key={uuidv4()}>
-                  <BlogArticle article={article} />
-                </Styled.ArticleWrapper>
-              )
-            )}
+          <Styled.FeaturedArticle key={uuidv4()}>
+            <BlogArticle article={mostViewedArticle} />
+          </Styled.FeaturedArticle>
+          {paginatedDataMarkUp.map((article) => (
+            <Styled.ArticleWrapper key={article.id}>
+              <BlogArticle article={article} />
+            </Styled.ArticleWrapper>
+          ))}
           <div>
             <Pagination {...mapToProps} />
           </div>

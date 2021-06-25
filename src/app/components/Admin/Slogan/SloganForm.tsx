@@ -39,12 +39,12 @@ const SloganForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label>
-          <span>Slogan text</span>
+          <span> Slogan text</span>
           <Styled.AdminTextAreaWrapper>
             <Styled.AdminTextArea
               value={text}
               onChange={({ target: { value } }) => setText(value)}
-              placeholder="Write slogan here"
+              placeholder="Write some text here"
             />
           </Styled.AdminTextAreaWrapper>
         </Styled.Label>
