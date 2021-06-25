@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import * as Styled from "./TextEditor.styles";
 import { ButtonWrapper, Button } from "../Form.styles";
+import { uploadImage } from "services/api/adminApi";
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
@@ -11,6 +12,7 @@ const TextEditor = ({ content, setArticleContent, setIsEditorOpen }) => {
   const [articleMarkUpContent, setArticleMarkUpContent] = useState(
     content || ""
   );
+
   const handleChange = (formContent) => {
     setArticleMarkUpContent(formContent);
   };
@@ -73,8 +75,31 @@ const TextEditor = ({ content, setArticleContent, setIsEditorOpen }) => {
             }}
             setDefaultStyle="height: 100%; font-size: 30px"
             setContents={content}
-            onChange={handleChange}
             hideToolbar={false}
+            onChange={handleChange}
+            onImageUploadBefore={async (files, info, uploadHandler) => {
+              let responses: any[];
+
+              try {
+                responses = await Promise.all(files.map(uploadImage));
+              } catch (error) {
+                uploadHandler({
+                  errorMessage: error.message,
+                });
+
+                return;
+              }
+
+              uploadHandler({
+                result: responses.map((response) => {
+                  return {
+                    url: response.s3FileUrl,
+                    name: response.name,
+                    size: response.size,
+                  };
+                })
+              });
+            }}
           />
           <ButtonWrapper>
             <Button empty type="button" onClick={handleEditor}>
