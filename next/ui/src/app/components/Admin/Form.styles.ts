@@ -58,16 +58,17 @@ export const AdminTextInput = styled("input")`
   font-weight: 700;
   line-height: 32px;
   outline: none;
-  margin-left: 20px;
+  margin-left: 20px; 
 `;
 
 export const AdminTextArea = styled("textarea")`
   flex-grow: 1;
-  border: 2px solid #1f5a7b;
+  /* border: 2px solid #1f5a7b; */
+  border: none;
   box-sizing: border-box;
   border-radius: 20px;
   max-width: 635px;
-  width: 100%;
+  width: 98%;
   padding: 14px 36px;
   min-height: 130px;
   resize: none;
@@ -75,10 +76,17 @@ export const AdminTextArea = styled("textarea")`
   font-size: 14px;
   font-weight: 700;
   line-height: 32px;
-  padding: 14px 36px;
+  padding: 14px 32px;
   outline: none;
-  margin-left: 20px;
 `;
+
+export const AdminTextAreaWrapper = styled("div")`
+  padding-top: 2px;
+  width: 100%;
+  margin-left: 20px;
+  border: 2px solid #1f5a7b;
+  border-radius: 20px;
+`
 
 export const Select = styled("select")`
   border: 2px solid #1f5a7b;

@@ -63,11 +63,13 @@ const FeaturedTechnologyForm: React.FC<{
         </Styled.Label>
         <Styled.Label>
           <span> Text:</span>
-          <Styled.AdminTextArea
-            value={text}
-            placeholder="Write some text here"
-            onChange={({ target: { value } }) => setCategory(value)}
-          />
+          <Styled.AdminTextAreaWrapper>
+            <Styled.AdminTextArea
+              value={text}
+              placeholder="Write some text here"
+              onChange={({ target: { value } }) => setCategory(value)}
+            />
+          </Styled.AdminTextAreaWrapper>
         </Styled.Label>
         <Styled.Label>
           <span> Label:</span>
