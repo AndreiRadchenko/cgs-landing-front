@@ -29,12 +29,7 @@ const projectUpdate = {
         shortDescription: yup.string().min(1).optional(),
         fullDescription: yup.string().min(1).optional(),
         technologyIds: yup.array().of(yup.objectId()).min(1).optional(),
-        link: yup
-          .string()
-          .transform(normalizeUrl)
-          .min(1)
-          .nullable()
-          .optional(),
+        link: yup.string().transform(normalizeUrl).min(1).nullable().optional(),
         imageFileId: yup.objectId().optional(),
         showOnHomePage: yup.boolean().optional(),
       }),

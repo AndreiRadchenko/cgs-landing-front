@@ -39,7 +39,7 @@ const getSimilarArticleIds = async (article) => {
 
       let similarity = similarities.get(id);
 
-      if (similarity === undefined) {
+      if (!similarity) {
         similarity = {
           matches: 0,
           articleId: id,

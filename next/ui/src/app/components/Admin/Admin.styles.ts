@@ -5,6 +5,7 @@ export const Wrapper = styled("div")`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow-x: hidden;
   & > h2 {
     text-align: center;
   }
@@ -59,7 +60,7 @@ export const MenuList = styled("div")`
   padding-bottom: 10px;
 `;
 
-export const MenuListItem = styled("li") <PropsAdminWrapper>`
+export const MenuListItem = styled("li")<PropsAdminWrapper>`
   padding: 10px 0;
   cursor: pointer;
   &:hover {

@@ -24,12 +24,7 @@ const projectCreate = {
         shortDescription: yup.string().required(),
         fullDescription: yup.string().required(),
         technologyIds: yup.array().of(yup.objectId()).min(1).required(),
-        link: yup
-          .string()
-          .transform(normalizeUrl)
-          .min(1)
-          .nullable()
-          .optional(),
+        link: yup.string().transform(normalizeUrl).min(1).nullable().optional(),
         imageFileId: yup.objectId().required(),
         showOnHomePage: yup.boolean().optional(),
       }),

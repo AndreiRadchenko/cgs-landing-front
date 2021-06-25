@@ -135,7 +135,7 @@ const ProjectForm: React.FC<{
           />
         </Styled.Label>
         <Styled.Label>
-          <span>Technology:</span>
+          <span>Technologies:</span>
           <Styled.WrapperGrid>
             <Styled.Row>
               {technologies.map((tech) => (
@@ -170,7 +170,9 @@ const ProjectForm: React.FC<{
               <input
                 type="checkbox"
                 checked={showOnHomePage}
-                onChange={({ target: { checked } }) => setShowOnHomePage(checked)}
+                onChange={({ target: { checked } }) =>
+                  setShowOnHomePage(checked)
+                }
               />
               <Styled.CustomCheckbox selected={showOnHomePage}>
                 <img src={slides.Check} alt="checkbox" />
@@ -188,7 +190,6 @@ const ProjectForm: React.FC<{
                 fullDescription &&
                 shortDescription &&
                 countryCode &&
-                link &&
                 imageFile
               )
             }

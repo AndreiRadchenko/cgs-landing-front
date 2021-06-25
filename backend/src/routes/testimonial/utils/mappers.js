@@ -2,7 +2,7 @@ const mapPlatformToResponse = (platform) => ({
   id: platform.id,
   type: platform.type,
   rate: platform.rate,
-  link: platform.link,
+  link: platform.link ?? null,
 });
 
 exports.mapPlatformToResponse = mapPlatformToResponse;
