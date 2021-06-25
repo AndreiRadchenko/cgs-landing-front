@@ -142,14 +142,32 @@ export const Content = styled("div")`
 `;
 
 export const ContentWrapper = styled("div")`
-  width: 100%;
+  width: 98%;
 
   & > ${Content} {
+    border: none;
+
     max-height: 400px;
-    overflow-y: auto;
-    margin-left: 20px;
+    overflow-y: auto; 
+    padding-right: 10px;
   }
 `;
+
+export const ContentContainerWrapper = styled("div")`
+  width: 98%;
+  border: 2px solid #1f5a7b;
+  border-radius: 20px;
+  max-width: 655px;
+  padding: 14px 36px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: justify;
+  margin: 0 5px 0 20px;
+  padding: 0;
+  margin: 0;
+  margin-left: 20px;
+`
 
 export const Label = styled("label") <PropsFormWrapper>`
   display: ${(props) => (props.double ? "flex" : "grid")};
