@@ -31,7 +31,7 @@ export const InputWrapper = styled("div")`
     cursor: pointer;
     border: 2px solid #1f5a7b;
     margin-right: 35px;
-    padding: 6px 23px;
+    padding: 16px 23px;
     @media screen and (max-width: 768px) {
       margin-right: 0;
     }

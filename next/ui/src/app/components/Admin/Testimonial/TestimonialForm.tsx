@@ -135,7 +135,7 @@ const TestimonialForm: React.FC<{
           <span>Feedback:</span>
           <Styled.AdminTextArea
             className="form__text"
-            placeholder="Write customer position here"
+            placeholder="Write feedback here"
             {...feedback}
           />
         </Styled.Label>
