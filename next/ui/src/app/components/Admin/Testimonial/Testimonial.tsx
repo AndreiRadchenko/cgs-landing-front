@@ -40,18 +40,17 @@ const Testimonial: React.FC<{
             <Styled.ListItemText>
               <span>{testimonial?.feedback} </span>
             </Styled.ListItemText>
-
           </Styled.ListItem>
           {testimonial?.platforms?.map((platform) => (
             <>
               <Styled.ListItem>
-                <span>{`${platform?.type} link:`}</span>
+                <span>{`${platform?.type} Link:`}</span>
                 <Styled.ListItemText>
                   <span> {platform?.link}</span>
                 </Styled.ListItemText>
               </Styled.ListItem>
               <Styled.ListItem>
-                <span>{`${platform?.type} rating:`}</span>
+                <span>{`${platform?.type} Rating:`}</span>
                 <Styled.ListItemText>
                   <span className="red"> {platform?.rate}</span>
                 </Styled.ListItemText>

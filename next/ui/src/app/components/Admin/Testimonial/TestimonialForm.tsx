@@ -34,18 +34,18 @@ const TestimonialForm: React.FC<{
     const clutch =
       clutchLinkInput?.value || clutchRateInput?.value
         ? {
-            type: "clutch",
-            link: clutchLinkInput.value,
-            rate: clutchRateInput.value,
-          }
+          type: "clutch",
+          link: clutchLinkInput.value,
+          rate: clutchRateInput.value,
+        }
         : null;
     const upwork =
       upworkLinkInput?.value || upworkRateInput?.value
         ? {
-            type: "upwork",
-            link: upworkLinkInput.value,
-            rate: upworkRateInput.value,
-          }
+          type: "upwork",
+          link: upworkLinkInput.value,
+          rate: upworkRateInput.value,
+        }
         : null;
     const newTestimonial: ITestimonial = {
       customerName: customerName.value,
@@ -66,8 +66,8 @@ const TestimonialForm: React.FC<{
 
     testimonial
       ? updateAdminData("testimonial", testimonial?.id!, newTestimonial).then(
-          closeWindow
-        )
+        closeWindow
+      )
       : createAdminData("testimonial", newTestimonial).then(closeWindow);
   };
 
@@ -133,11 +133,13 @@ const TestimonialForm: React.FC<{
         </Styled.Label>
         <Styled.Label>
           <span>Feedback:</span>
-          <Styled.AdminTextArea
-            className="form__text"
-            placeholder="Write feedback here"
-            {...feedback}
-          />
+          <Styled.AdminTextAreaWrapper>
+            <Styled.AdminTextArea
+              className="form__text"
+              placeholder="Write feedback here"
+              {...feedback}
+            />
+          </Styled.AdminTextAreaWrapper>
         </Styled.Label>
         <Styled.Label>
           <span>Upwork:</span>
@@ -151,7 +153,7 @@ const TestimonialForm: React.FC<{
               type="number"
               min="1"
               max="5"
-              placeholder={testimonial ? "5" : "Rating"}
+              placeholder="Rating"
               {...upworkRateInput}
             />
           </Styled.RatingInputContainer>
@@ -168,9 +170,10 @@ const TestimonialForm: React.FC<{
               type="number"
               min="1"
               max="5"
-              placeholder={testimonial ? "5" : "Rating"}
+              placeholder="Rating"
               {...clutchRateInput}
             />
+
           </Styled.RatingInputContainer>
         </Styled.Label>
         <Styled.ButtonWrapper>
