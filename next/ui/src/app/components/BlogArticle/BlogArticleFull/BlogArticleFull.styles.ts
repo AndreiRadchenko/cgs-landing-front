@@ -39,11 +39,11 @@ export const ArticleWrapper = styled("div")`
   & img {
     width: 100%;
     display: inline-block;
-    margin: 52px 0 60px;
+    margin: 25px 0 25px;
     object-fit: cover;
     @media screen and (max-width: 1024px) {
-      margin: 50px 0 0 0px;
-      margin-bottom: 60px;
+      margin: 25px 0 0 0px;
+      margin-bottom: 25px;
     }
   }
   & .article__author,
@@ -64,10 +64,13 @@ export const Content = styled("p")`
   font-size: 18px;
   font-weight: 400;
   line-height: 1.66;
-  text-align: justify;
+  text-align: justify; 
   color: ${(props) => props.theme.colors.greyText};
+  & p {
+    font-size: 18px;
+  }
   @media screen and (max-width: 1024px) {
-    font-size: 14px;
+    font-size: 18px;
   }
 `;
 
@@ -112,3 +115,8 @@ export const ArticleButtonContainer = styled("div")`
     min-width: 200px;
   }
 `;
+
+export const ArticleTextContainer = styled("p")`
+  font-size: 18px;
+  background-color: red;
+`

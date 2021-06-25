@@ -14,11 +14,7 @@ const BlogArticleFull: React.FC<{ article: IBlogArticle }> = ({ article }) => (
     )}
     {article.content && (
       <Styled.Content>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: article?.content,
-          }}
-        ></div>
+        <div dangerouslySetInnerHTML={{ __html: article?.content }} />
       </Styled.Content>
     )}
     <Styled.TagList>
