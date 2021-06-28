@@ -3,9 +3,9 @@ import { createAdminData, updateAdminData } from "services/api/adminApi";
 import Images from "../Images/Images";
 import { IArticle } from "../types";
 import * as Styled from "../Form.styles";
-import BlogTags from "../BlogTags/BlogTags";
 import TextEditor from "../TextEditor/TextEditor";
 import { Button } from "app/components/shared/LinkButton/Button.style";
+import { BlogTags } from "../BlogTags/BlogTags";
 import { DatePicker } from "../DatePicker/DatePicker";
 
 const ArticleForm: React.FC<{
@@ -18,7 +18,9 @@ const ArticleForm: React.FC<{
     article ? new Date(article.createdAt) : new Date()
   ));
   const [content, setContent] = useState(article?.content || "");
-  const [tags, setTags] = useState(article?.tags || []);
+  const [tagIds, setTagIds] = useState(() => (
+    article ? article.tags.map((tag) => tag.id) : []
+  ));
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [imageFileId, setImageFileId] = useState(article?.imageFile?.id || "");
 
@@ -33,7 +35,7 @@ const ArticleForm: React.FC<{
       author,
       createdAt: createdAt.toISOString(),
       content,
-      tagIds: tags,
+      tagIds,
       imageFileId,
     };
 
@@ -85,7 +87,7 @@ const ArticleForm: React.FC<{
           <Styled.Label>
             <span>Created at:</span>
             <DatePicker
-              locale="ru"
+              locale="ru-RU"
               dateFormat="yyyy.MM.dd HH:mm"
               showTimeSelect={true}
               selected={createdAt}
@@ -111,7 +113,8 @@ const ArticleForm: React.FC<{
             </Button>
           </Styled.Label>
           <Styled.Label>
-            <BlogTags currentTags={article?.tags || []} getTags={setTags} />
+            <span>Tags:</span>
+            <BlogTags tagIds={tagIds} setTagIds={setTagIds} />
           </Styled.Label>
           <Styled.Label>
             <span>Pictures:</span>
