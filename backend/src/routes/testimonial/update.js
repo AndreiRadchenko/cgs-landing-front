@@ -37,7 +37,7 @@ const testimonialUpdate = {
             yup.object({
               type: yup.string().oneOf(feedbackPlatformTypes).required(),
               rate: yup.number().min(0).max(5).required(),
-              link: yup.string().transform(normalizeUrl).required(),
+              link: yup.string().transform(normalizeUrl).min(1).nullable().optional(),
             }),
           )
           .min(1)

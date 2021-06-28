@@ -21,6 +21,9 @@
     "no-restricted-syntax": "off",
     "arrow-body-style": "off",
     "class-methods-use-this": "off",
-    "comma-dangle": ["error", "always-multiline"]
+    "comma-dangle": ["error", "always-multiline"],
+    "newline-per-chained-call": ["error", {
+      "ignoreChainWithDepth": 5
+    }]
   }
 }

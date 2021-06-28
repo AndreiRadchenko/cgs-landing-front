@@ -34,6 +34,7 @@ export const HomeWrapper = styled("div")`
   & p {
     font-size: 18px;
     font-weight: 300;
+    text-align: justify;
   }
 `;
 
@@ -60,7 +61,7 @@ export const ContentBlock = styled("article")`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 413px;
+  max-width: 455px;
   & > p {
     opacity: 0.5;
     margin: 1em 0;
