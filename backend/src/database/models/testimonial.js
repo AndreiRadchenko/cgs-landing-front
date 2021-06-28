@@ -44,6 +44,7 @@ const definition = {
 
 const schema = new Schema(definition, {
   versionKey: false,
+  timestamps: true,
 });
 
 const Testimonial = connection.model('testimonial', schema);
