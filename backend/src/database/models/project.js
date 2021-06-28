@@ -37,10 +37,15 @@ const definition = {
     type: SchemaTypes.Boolean,
     default: true,
   },
+  placeOnHomePage: {
+    type: SchemaTypes.Number,
+    default: 1,
+  },
 };
 
 const schema = new Schema(definition, {
   versionKey: false,
+  timestamps: true,
 });
 
 const Project = connection.model('project', schema);

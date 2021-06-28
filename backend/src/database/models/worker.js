@@ -21,17 +21,22 @@ const schema = new Schema(
       ref: 'file',
       required: true,
     },
-    placeOnHomePage: {
-      type: SchemaTypes.Number,
-      default: 1,
-    },
     showOnHomePage: {
       type: SchemaTypes.Boolean,
       default: true,
     },
+    placeOnHomePage: {
+      type: SchemaTypes.Number,
+      default: 1,
+    },
+    createdAt: {
+      type: SchemaTypes.Date,
+      default: () => Date.now(),
+    },
   },
   {
     versionKey: false,
+    timestamps: true,
   },
 );
 
