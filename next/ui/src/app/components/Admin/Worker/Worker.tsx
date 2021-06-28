@@ -16,20 +16,26 @@ const Worker: React.FC<{
             <span>{worker.name}</span>
           </Styled.ListItem>
           <Styled.ListItem>
-            <span>Position:</span> <span>{worker?.position}</span>
+            <span>Position:</span>
+            <span>{worker.position}</span>
           </Styled.ListItem>
           <Styled.ListItem>
-            <span>Text:</span> <span>{worker?.text}</span>
+            <span>Text:</span>
+            <span>{worker.text}</span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Show:</span>
-            <span>{worker?.showOnHomePage ? "true" : "false"}</span>
+            <span>{worker.showOnHomePage ? "Yes" : "No"}</span>
+          </Styled.ListItem>
+          <Styled.ListItem>
+            <span>Place:</span>
+            <span>{worker.placeOnHomePage}</span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Picture:</span>
             <img
-              src={worker?.imageFile?.s3FileUrl}
-              alt={worker?.imageFile?.s3FileUrl}
+              src={worker.imageFile?.s3FileUrl}
+              alt={worker.imageFile?.s3FileUrl}
             />
           </Styled.ListItem>
         </Styled.List>

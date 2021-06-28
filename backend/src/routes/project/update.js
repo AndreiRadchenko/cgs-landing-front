@@ -32,6 +32,7 @@ const projectUpdate = {
         link: yup.string().transform(normalizeUrl).min(1).nullable().optional(),
         imageFileId: yup.objectId().optional(),
         showOnHomePage: yup.boolean().optional(),
+        placeOnHomePage: yup.number().min(1).optional(),
       }),
     },
   },
@@ -65,6 +66,7 @@ const projectUpdate = {
       'fullDescription',
       'link',
       'showOnHomePage',
+      'placeOnHomePage',
     ]);
 
     await project.save();
