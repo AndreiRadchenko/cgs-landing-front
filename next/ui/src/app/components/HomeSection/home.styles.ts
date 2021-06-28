@@ -61,7 +61,7 @@ export const ContentBlock = styled("article")`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 455px;
+  max-width: 470px;
   & > p {
     opacity: 0.5;
     margin: 1em 0;
@@ -103,7 +103,7 @@ export const ImgMobile = styled("img")`
   }
 `;
 
-export const LinkButton = styled("a")<PropsHomeWrapper>`
+export const LinkButton = styled("a") <PropsHomeWrapper>`
   text-align: center;
   background-color: ${(props) => props.theme.colors.buttonBgColor};
   border-radius: 2em;
@@ -125,3 +125,29 @@ export const LinkButton = styled("a")<PropsHomeWrapper>`
     display: ${(props) => (props.mobile ? "" : "none")};
   }
 `;
+
+
+export const LinkButtonSecond = styled("a")`
+  text-align: center;
+  border-radius: 2em;
+  background-color: ${(props) => props.theme.colors.buttonBgColor};  
+  padding: 0.7em;
+  font-weight: 700;
+  border: 0;
+  color: white;
+  min-width: 230px;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-left: 50px;
+  display: none;
+`
+
+export const LinkButtonsWrapper = styled("div")`
+  display: flex;
+
+`
+
+
