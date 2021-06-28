@@ -3,7 +3,7 @@ import { ISocialInside } from "../types/components/index";
 export const SocialList: ISocialInside[] = [
   {
     title: "github",
-    link: "https://github.com/CodeGeneration-2020/code-generation-package",
+    link: "https://github.com/CodeGeneration-2020/",
     src: [
       {
         path:

@@ -14,32 +14,46 @@ const WorkerForm: React.FC<{
   const [name, setName] = useState(worker?.name || "");
   const [position, setPosition] = useState(worker?.position || "");
   const [text, setText] = useState(worker?.text || "");
-  const [showOnPage, setshowOnPage] = useState(worker?.showOnHomePage || false);
   const [iconFileId, setIconFileId] = useState(worker?.imageFile?.id || "");
+  const [showOnPage, setshowOnPage] = useState(worker?.showOnHomePage || false);
+  const [placeOnHomePage, setPlaceOnHomePage] = useState(worker?.placeOnHomePage ?? 1);
 
   const closeWindow = () => close();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const newWorker = {
       name,
       text,
       position,
-      showOnPage,
       imageFileId: iconFileId,
+      showOnPage,
+      placeOnHomePage,
     };
 
-    worker
-      ? updateAdminData("worker", worker?.id, newWorker).then(closeWindow)
-      : createAdminData("worker", newWorker).then(closeWindow);
+    if (worker) {
+      updateAdminData("worker", worker?.id, newWorker).then(() => {
+        closeWindow();
+      });
+    } else {
+      createAdminData("worker", newWorker).then(() => {
+        closeWindow();
+      });
+    }
   };
+
   const getImageId = (id) => {
     setIconFileId(id);
   };
+
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
-        {worker ? <h2>Edit worker </h2> : <h2>Create new worker</h2>}
+        {worker
+          ? <h2>Edit worker</h2>
+          : <h2>Create new worker</h2>
+        }
         <Styled.Label>
           <span>Name:</span>
           <Styled.AdminTextInput
@@ -94,6 +108,18 @@ const WorkerForm: React.FC<{
               </Styled.CustomCheckbox>
             </Styled.CheckboxLabel>
           </Styled.SingleCheckboxContainer>
+        </Styled.Label>
+        <Styled.Label>
+          <span>Place:</span>
+          <Styled.AdminTextInput
+            type="number"
+            min="1"
+            value={placeOnHomePage}
+            onChange={(event) => {
+              setPlaceOnHomePage(Number(event.target.value));
+            }}
+            placeholder="Place"
+          />
         </Styled.Label>
         <Styled.ButtonWrapper>
           <Styled.Button

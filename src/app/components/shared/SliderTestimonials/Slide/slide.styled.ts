@@ -215,6 +215,7 @@ export const SliderHeaderTitle = styled("p")`
   font-size: 22px;
   font-weight: 700;
   margin: 0;
+  margin-right: 20px;
   @media screen and (max-width: 1024px) {
     font-size: 24px;
   }
@@ -226,8 +227,9 @@ export const SliderHeaderTitle = styled("p")`
 export const SliderHeaderSubtitle = styled("p")`
   font-size: 18px;
   font-weight: 400;
-  margin-bottom: 21px;
-  margin-top: 5px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  opacity: 0.5;
   @media screen and (max-width: 1024px) {
     display: none;
   }
@@ -240,7 +242,7 @@ export const SliderHeader = styled("div")`
   display: flex;
   align-items: center;
   text-align: center;
-  column-gap: 10px;
+  /* column-gap: 20px; */
   & .slider-header__country {
     font-size: 18px;
     font-weight: 400;
@@ -253,6 +255,10 @@ export const SliderHeader = styled("div")`
     margin-bottom: 15px;
   }
 `;
+
+export const SliderHeaderWrap = styled("div")`
+  margin-left: 10px;
+`
 
 export const SliderHeaderImg = styled("img")`
   width: 44px;
@@ -284,11 +290,13 @@ export const SliderDescription = styled("p")`
   font-weight: 400;
   text-align: justify;
   margin-bottom: 5px;
+  min-height: 200px;
   @media screen and (max-width: 1024px) {
     opacity: 0.5;
     font-size: 14px;
     font-weight: 300;
     line-height: 32px;
+    min-height: 100px;
   }
 `;
 
@@ -305,10 +313,11 @@ export const SliderContent = styled("div")`
   & .slider-technologies {
     display: flex;
     flex-direction: row;
-    margin: 20px 0 30px 0;
+    margin: 0 0 0 0;
     flex-wrap: wrap;
     @media (max-width: 1025px) {
       justify-content: center;
+      margin: 0 0 10px 0;
     }
   }
   & .slider-technology__img {
@@ -349,8 +358,9 @@ export const SliderContent = styled("div")`
 `;
 
 export const SliderPicture = styled("img")`
-  width: 56%;
+  width: 62%;
   padding: 0 10px;
+  padding-left: 30px;
   @media screen and (max-width: 1024px) {
     width: 100%;
   }

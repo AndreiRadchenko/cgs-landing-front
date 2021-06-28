@@ -62,7 +62,7 @@ export interface IFeaturedTechnology {
 }
 
 export interface ITestimonial {
-  id?: string;
+  id: string;
   customerName: string;
   countryCode: string | undefined;
   companyName: string;
