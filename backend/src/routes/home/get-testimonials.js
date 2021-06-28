@@ -6,7 +6,13 @@ const getTestimonials = {
   path: '/get-testimonials',
   method: 'GET',
   async handler(context) {
-    const testimonials = await Testimonial.find();
+    const query = Testimonial.find();
+
+    query.sort({
+      createdAt: -1,
+    });
+
+    const testimonials = await query.exec();
 
     context.body = {
       response: testimonials.map(mapTestimonialToResponse),
