@@ -26,17 +26,13 @@ const testimonialCreate = {
         companyName: yup.string().required(),
         customerPosition: yup.string().required(),
         feedback: yup.string().required(),
-        platforms: yup
-          .array()
-          .of(
-            yup.object({
-              type: yup.string().oneOf(feedbackPlatformTypes).required(),
-              rate: yup.number().min(0).max(5).required(),
-              link: yup.string().transform(normalizeUrl).min(1).nullable().optional(),
-            }),
-          )
-          .min(1)
-          .required(),
+        platforms: yup.array().of(
+          yup.object({
+            type: yup.string().oneOf(feedbackPlatformTypes).required(),
+            rate: yup.number().min(0).max(5).required(),
+            link: yup.string().transform(normalizeUrl).min(1).nullable().optional(),
+          }),
+        ),
       }),
     },
   },

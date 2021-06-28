@@ -1,11 +1,12 @@
 import axios from "axios";
 
-const BASE_URL: string | undefined = "https://cg-landing-backend.herokuapp.com";
-
-axios.defaults.baseURL = BASE_URL;
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 axios.defaults.params = {};
-axios.defaults.headers = { "Content-Type": "application/json" };
+axios.defaults.headers = {
+  "Content-Type": "application/json",
+};
 
+console.log(axios.defaults);
 const API_ROUTES = {
   facts: "/fact/",
   slogan: "/slogan/",
