@@ -49,7 +49,7 @@ export const HomePage = ({ props }) => {
           {props.facts && (
             <Article
               id="facts"
-              title="Benefits of working with us"
+              title="Benefits of working with us:"
               desc="The impression we leave is very important to us. 
               That is why we provide our clients with only high quality work, but also with some FREE bonuses."
             >
@@ -80,7 +80,12 @@ export const HomePage = ({ props }) => {
             <Article
               id="featured"
               title="Featured Technologies"
-              desc="We have an enormous experience in software development, so we can implement anything you want us to do!"
+              // desc={<div>
+              //   <span>We have an enormous experience in software development, </span>
+              //   <span>so we can implement anything you want us to do! </span>
+              // </div>}
+              desc="We have an enormous experience in software development,
+              so we can implement anything you want us to do!"
             >
               <SliderFeatured
                 featuredTechnologies={props.featuredTechnologies}
@@ -88,13 +93,13 @@ export const HomePage = ({ props }) => {
             </Article>
           )}
           <Article id="contact"
-            title="Your project is one of the kind and we will never use “templates"
+            title="Your project is one of the kind and we will never use “templates” to build it"
             desc="Just leave your contact info here and we will offer you a personalized solution"
           >
             <Form />
           </Article>
         </div>
-      </MainLayout>
+      </MainLayout >
     </>
   );
 };
