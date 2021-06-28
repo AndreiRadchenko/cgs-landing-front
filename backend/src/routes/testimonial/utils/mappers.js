@@ -15,6 +15,8 @@ const mapTestimonialToResponse = (testimonial) => ({
   customerPosition: testimonial.customerPosition,
   feedback: testimonial.feedback,
   platforms: testimonial.platforms.map(mapPlatformToResponse),
+  createdAt: testimonial.createdAt,
+  updatedAt: testimonial.updatedAt,
 });
 
 exports.mapTestimonialToResponse = mapTestimonialToResponse;

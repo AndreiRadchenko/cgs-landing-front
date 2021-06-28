@@ -16,10 +16,6 @@ const articlesRoute = {
   async handler(context) {
     const query = Article.find();
 
-    query.sort({
-      createdAt: -1,
-    });
-
     query.populate([
       {
         path: 'imageFile',
@@ -28,6 +24,10 @@ const articlesRoute = {
         path: 'tags',
       },
     ]);
+
+    query.sort({
+      createdAt: -1,
+    });
 
     const allArticles = await query.exec();
 
