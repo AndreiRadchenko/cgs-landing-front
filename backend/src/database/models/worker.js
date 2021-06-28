@@ -29,10 +29,6 @@ const schema = new Schema(
       type: SchemaTypes.Number,
       default: 1,
     },
-    createdAt: {
-      type: SchemaTypes.Date,
-      default: () => Date.now(),
-    },
   },
   {
     versionKey: false,
