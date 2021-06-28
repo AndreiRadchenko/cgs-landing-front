@@ -1,105 +1,122 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+
 import {
+  getAdminData,
   createAdminData,
   deleteAdminData,
-  getAdminData,
-} from "services/api/adminApi";
-import { ITag } from "../types";
-import * as Styled from "../Form.styles";
-import { slides } from "../../../img/";
+} from "../../../../services/api/adminApi";
 
-const BlogTags: React.FC<{ currentTags: ITag[]; getTags: Function }> = ({
-  currentTags,
-  getTags,
-}) => {
+import { ITag } from "../types";
+
+import { Option } from "./Option";
+
+import * as Styled from "./BlogTags.styles";
+
+interface OptionType {
+  label: string;
+  value: string;
+}
+
+const makeTagOption = (tag: ITag): OptionType => ({
+  label: tag.name,
+  value: tag.id,
+});
+
+export interface BlogTagsProps {
+  tagIds: string[];
+  setTagIds: Function;
+}
+
+export const BlogTags: React.FC<BlogTagsProps> = ({ tagIds, setTagIds }) => {
   const [tags, setTags] = useState<ITag[]>([]);
-  const [tagIds, setTagIds] = useState(currentTags?.map((el) => el.id) || []);
-  const [newTag, setNewTag] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [tagName, setTagName] = useState("");
+  const [tagOptions, setTagOptions] = useState<OptionType[]>([]);
+  const [selectedTagOptions, setSelectedTagOptions] = useState<OptionType[]>([]);
 
   useEffect(() => {
-    getAllTags();
+    const fetchAllTags = async () => {
+      setIsLoading(true);
+  
+      const newTags = await getAdminData("blogTag");
+      
+      setTags(newTags);
+  
+      setIsLoading(false);
+    };
+
+    fetchAllTags();
   }, []);
 
   useEffect(() => {
-    getTags(tagIds);
-  }, [tagIds]);
+    setTagOptions(tags.map(makeTagOption));
+  }, [tags]);
 
-  const getAllTags = async () => {
-    const tags = await getAdminData("blogTag");
-    setTags(tags);
-  };
-
-  const addTag = async () => {
-    setNewTag("");
-
-    createAdminData("blogTag", { name: newTag }).then(() => {
-      getAllTags();
-    });
-  };
-
-  const deleteTag = (id) => {
-    deleteAdminData("blogTag", id).then(() => {
-      getAllTags();
-    });
-  };
-
-  const handleTagChange = (event, id) => {
-    if (event.target.checked) {
-      setTagIds([...tagIds, id]);
+  useEffect(() => {
+    if (tags.length === 0) {
+      return;
     }
 
-    if (!event.target.checked) {
-      setTagIds(tagIds?.filter((tech) => tech !== id));
+    const newSelectedTagOptions: OptionType[] = [];
+
+    for (const tagId of tagIds) {
+      const tag = tags.find(({ id }) => id === tagId);
+
+      if (!tag) {
+        continue;
+      }
+
+      newSelectedTagOptions.push(makeTagOption(tag));
     }
+
+    setSelectedTagOptions(newSelectedTagOptions);
+  }, [tags, tagIds]);
+
+  const createTag = async () => {
+    setIsLoading(true);
+
+    const payload: Omit<ITag, "id"> = {
+      name: tagName,
+    };
+
+    const newTag = await createAdminData("blogTag", payload);
+
+    setTags([...tags, newTag]);
+    setTagIds([...tagIds, newTag.id]);
+
+    setIsLoading(false);
+  };
+
+  const deleteTag = async (id: any) => {
+    setIsLoading(true);
+
+    await deleteAdminData("blogTag", id);
+
+    setTags(tags.filter((tag) => tag.id !== id));
+    setTagIds(tagIds.filter((tagId) => tagId !== id));
+
+    setIsLoading(false);
   };
 
   return (
-    <>
-      <span>New tag:</span>
-      <Styled.TagInputWrapper>
-        <Styled.AdminTextInput
-          placeholder="Tag Name"
-          type="text"
-          value={newTag}
-          onChange={({ target: { value } }) => setNewTag(value)}
-        />
-        <Styled.Button onClick={addTag} type="button">
-          Create
-        </Styled.Button>
-      </Styled.TagInputWrapper>
-      <span>Tags:</span>
-      <Styled.WrapperContainer>
-        <Styled.BlogTextWrapper>
-          {tags?.map((tag) => (
-            <Styled.CheckboxContainer>
-              <div>
-                {tag?.name}
-                <Styled.DeleteTagButton
-                  type="button"
-                  onClick={() => deleteTag(tag?.id)}
-                >
-                  <img src={slides.deleteIcon} alt="delete tag button" />
-                </Styled.DeleteTagButton>
-              </div>
-              <Styled.CheckboxLabel>
-                <input
-                  type="checkbox"
-                  name="tagOption"
-                  checked={tagIds.some((el) => el === tag?.id)}
-                  onChange={(event) => handleTagChange(event, tag?.id)}
-                />
-                <Styled.CustomCheckbox
-                  selected={tagIds?.some((el) => el === tag?.id)}
-                >
-                  <img src={slides.Check} alt="checkbox" />
-                </Styled.CustomCheckbox>
-              </Styled.CheckboxLabel>
-            </Styled.CheckboxContainer>
-          ))}
-        </Styled.BlogTextWrapper>
-      </Styled.WrapperContainer>
-    </>
+    <Styled.Select
+      components={{
+        Option: (props: any) => (
+          <Option deleteTag={deleteTag} {...props} />
+        ),
+      }}
+      isMulti={true}
+      isClearable={true}
+      isDisabled={isLoading}
+      closeMenuOnSelect={false}
+      options={tagOptions}
+      value={selectedTagOptions}
+      inputValue={tagName}
+      onChange={(options: any) => {
+        setTagIds(options.map((option) => option.value));
+      }}
+      onInputChange={setTagName}
+      onCreateOption={createTag}
+    />
   );
 };
-
-export default BlogTags;

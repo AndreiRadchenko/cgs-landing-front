@@ -172,7 +172,7 @@ const AdminPage: React.FC = () => {
   const renderArticleItem = (article) => {
     return (
       <Article
-        key={uuidv4()}
+        key={article.id}
         openModal={openModal}
         article={article}
         deleteItem={deleteItem}
