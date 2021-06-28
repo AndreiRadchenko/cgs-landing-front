@@ -6,7 +6,6 @@ axios.defaults.headers = {
   "Content-Type": "application/json",
 };
 
-console.log(axios.defaults);
 const API_ROUTES = {
   facts: "/fact/",
   slogan: "/slogan/",
