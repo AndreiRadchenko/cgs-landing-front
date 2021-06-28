@@ -92,7 +92,7 @@ export const RatingInputContainer = styled("div")`
   display: flex;
 
   & > ${AdminTextInput}:nth-child(2) {
-    max-width: 100px;    
+    max-width: 100px;
     padding-left: 20px;
     padding-right: 10px;
   }
