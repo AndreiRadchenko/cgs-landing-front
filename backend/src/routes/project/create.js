@@ -27,6 +27,7 @@ const projectCreate = {
         link: yup.string().transform(normalizeUrl).min(1).nullable().optional(),
         imageFileId: yup.objectId().required(),
         showOnHomePage: yup.boolean().optional(),
+        placeOnHomePage: yup.number().min(1).optional(),
       }),
     },
   },
@@ -45,6 +46,7 @@ const projectCreate = {
       'fullDescription',
       'link',
       'showOnHomePage',
+      'placeOhHomePage',
     ]);
 
     await project.save();
