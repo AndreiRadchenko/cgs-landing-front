@@ -13,6 +13,9 @@ const mapProjectToResponse = (project) => ({
     ? mapFileToResponse(project.imageFile)
     : null,
   showOnHomePage: project.showOnHomePage,
+  placeOnHomePage: project.placeOnHomePage,
+  createdAt: project.createdAt,
+  updatedAt: project.updatedAt,
 });
 
 exports.mapProjectToResponse = mapProjectToResponse;
