@@ -10,12 +10,13 @@ const getWorkersRoute = {
 
     query.where('showOnHomePage', true);
 
-    query.sort({
-      placeOnHomePage: 1,
-    });
-
     query.populate({
       path: 'imageFile',
+    });
+
+    query.sort({
+      placeOnHomePage: 1,
+      createdAt: -1,
     });
 
     const workers = await query.exec();

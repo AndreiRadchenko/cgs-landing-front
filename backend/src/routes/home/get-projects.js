@@ -22,6 +22,11 @@ const getProjects = {
       },
     ]);
 
+    query.sort({
+      placeOnHomePage: 1,
+      createdAt: -1,
+    });
+
     const projects = await query.exec();
 
     context.body = {
