@@ -20,9 +20,11 @@ const Slide: React.FC<IProject> = ({ item }) => (
               style={{ width: '100%', height: '100%' }}
             />
           </Style.Flag>
-          <span className="slider-header__country">
-            {countryCodes[item?.countryCode] ?? item?.countryCode}
-          </span>
+          <Style.SliderHeaderWrap>
+            <span className="slider-header__country">
+              {countryCodes[item?.countryCode] ?? item?.countryCode}
+            </span>
+          </Style.SliderHeaderWrap>
         </Style.SliderHeader>
         <Style.SliderHeaderSubtitle>
           {item?.shortDescription}

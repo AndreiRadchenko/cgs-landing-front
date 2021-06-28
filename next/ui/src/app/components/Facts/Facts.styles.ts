@@ -63,13 +63,13 @@ export const SliderContainer = styled.div`
   @media screen and (min-width: 1024px) {
     & .slick-slide {
       margin: 0;
-      width: calc((100% - 120px) / 2) !important;
+      width: calc((100% - 100px) / 2) !important;
     }
     & .slick-slide:nth-child(2n + 1) {
-      margin-right: 120px;
+      margin-right: 100px;
     }
     & .slick-slide:nth-child(n + 3) {
-      margin-top: 80px;
+      margin-top: 60px;
     }
   }
 
@@ -108,7 +108,7 @@ export const FactContainer = styled("div")`
   }
   & h2 {
     margin: 0;
-    margin-right: 12px;
+    margin-right: 20px;
     font-size: 22px;
   }
 

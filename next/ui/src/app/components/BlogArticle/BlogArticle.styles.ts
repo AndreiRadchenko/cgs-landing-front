@@ -50,7 +50,7 @@ export const ArticleWrapper = styled("div")`
       margin: 0 auto;
       width: 90%;
       height: auto;
-      margin-bottom: 60px;
+      margin-bottom: 13px;
       max-width: 720px;
     }
 
