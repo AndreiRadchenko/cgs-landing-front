@@ -47,7 +47,7 @@ const TestimonialForm: React.FC<{
           rate: upworkRateInput.value,
         }
         : null;
-    const newTestimonial: ITestimonial = {
+    const newTestimonial: Omit<ITestimonial, 'id'> = {
       customerName: customerName.value,
       customerPosition: customerPosition.value,
       companyName: companyName.value,
@@ -64,11 +64,15 @@ const TestimonialForm: React.FC<{
       newTestimonial.platforms = [...newTestimonial?.platforms, upwork];
     }
 
-    testimonial
-      ? updateAdminData("testimonial", testimonial?.id!, newTestimonial).then(
-        closeWindow
-      )
-      : createAdminData("testimonial", newTestimonial).then(closeWindow);
+    if (testimonial) {
+      updateAdminData("testimonial", testimonial?.id, newTestimonial).then(() => {
+        closeWindow();
+      });
+    } else {
+      createAdminData("testimonial", newTestimonial).then(() => {
+        closeWindow();
+      });
+    }
   };
 
   const countryKeys = Object.keys(countryCodes);
@@ -76,11 +80,10 @@ const TestimonialForm: React.FC<{
   return (
     <Styled.Wrapper>
       <Styled.Form onSubmit={handleSubmit}>
-        {testimonial ? (
-          <h2>Edit testimonial </h2>
-        ) : (
-          <h2>Create new testimonial</h2>
-        )}
+        {testimonial
+          ? <h2>Edit testimonial </h2>
+          : <h2>Create new testimonial</h2>
+        }
         <Styled.Label>
           <span>Customer Name:</span>
           <Styled.AdminTextInput
@@ -123,7 +126,7 @@ const TestimonialForm: React.FC<{
           </Styled.Select>
         </Styled.Label>
         <Styled.Label>
-          <span> Customer Position: </span>
+          <span>Customer Position:</span>
           <Styled.AdminTextInput
             className="form__title"
             type="text"
