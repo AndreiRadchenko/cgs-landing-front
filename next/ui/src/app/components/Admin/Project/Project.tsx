@@ -1,6 +1,7 @@
 import ItemButtons from "../ItemButtons/ItemButtons";
 import * as Styled from "../Item.styles";
 import { IProject } from "../types";
+import { addLineBreaks } from "helpers/addLineBreaks";
 
 const Projects: React.FC<{
   project: IProject;
@@ -21,7 +22,7 @@ const Projects: React.FC<{
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Full Description:</span>
-            <span>{project?.fullDescription}</span>
+            <span>{project?.fullDescription && addLineBreaks(project.fullDescription)}</span>
           </Styled.ListItem>
           <Styled.ListItem>
             <span>Country Code:</span>
