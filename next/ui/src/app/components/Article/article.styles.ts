@@ -22,6 +22,10 @@ export const Wrapper = styled("article")`
     font-weight: 300;
     padding: 0 3em;
     line-height: 32px;
+    margin-bottom: 60px;
+    @media screen and (max-width: 1024px) { 
+      margin-bottom: 19px;
+    }
   }
 `;
 
