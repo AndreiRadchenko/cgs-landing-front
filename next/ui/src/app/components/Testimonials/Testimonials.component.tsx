@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import Rating from "./rating/Rating";
 import ReactCountryFlag from "react-country-flag";
 
+import { addLineBreaks } from "helpers/addLineBreaks";
+
 import countryCodes from "../../../consts/countyCodes.json";
 
 const Testimonials = ({ testimonial }) => {
@@ -33,12 +35,7 @@ const Testimonials = ({ testimonial }) => {
       <Styled.TestimonialPosition>
         {testimonial?.customerPosition}
       </Styled.TestimonialPosition>
-      <q className="testimonials__text">{testimonial?.feedback.split('/n').map((item, idx) => (
-        <span key={idx}>
-          {item}
-          <br />
-        </span>
-      ))}</q>
+        <q className="testimonials__text">{testimonial?.feedback && addLineBreaks(testimonial.feedback)}</q>
       <Rating testimonial={testimonial} />
     </Styled.TestimonialContainer>
   );

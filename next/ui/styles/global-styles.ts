@@ -83,9 +83,7 @@ a {
   margin: 0 auto !important;
 }
 
- & #aboutUs .slick-list {
-  
-  width: 70% !important;
+ & #aboutUs .slick-list {  
   margin: 0 auto !important;
 }
 

@@ -305,7 +305,6 @@ export const SliderContent = styled("div")`
   width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 0 10px;
   @media screen and (max-width: 1024px) {
     width: 100%;
