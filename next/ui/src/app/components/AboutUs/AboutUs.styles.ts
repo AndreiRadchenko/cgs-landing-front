@@ -87,7 +87,6 @@ export const AboutUsContainer = styled("div")`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   text-align: center;
   font-family: Mulish;
   & > h2 {
@@ -123,7 +122,7 @@ export const AboutUsContainer = styled("div")`
   }
   @media screen and (min-width: 1024px) {
     &:not(:last-child) {
-      margin-right: 162px;
+      margin-right: 40px;
     }
     & q {
       opacity: 1;

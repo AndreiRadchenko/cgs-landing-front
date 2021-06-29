@@ -177,5 +177,6 @@ export const ImageContainer = styled.div`
   @media screen and (min-width: 1024px) {
     min-width: 200px;
     min-height: 210px;
+    border-radius: 16px;
   }
 `;
