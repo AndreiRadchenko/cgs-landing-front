@@ -7,7 +7,7 @@ import { MobileSocialList, Nav } from "../../../../consts/lists";
 import BurgerIcon from "./burger.icon";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
-import "animate.css/animate.css"
+import "animate.css/animate.css";
 
 const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
   const onBurger = () => {
@@ -35,7 +35,7 @@ const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
                 <Link href={item?.link} key={uuidv4()}>
                   <p
                     onClick={() => setMenuState(!activeMenu)}
-                    className="drop-box-item animate__animated animate__fadeInRight"                  >
+                    className="drop-box-item animate__animated animate__fadeInRight">
                     {item.burgerTitle}
                   </p>
                 </Link>
