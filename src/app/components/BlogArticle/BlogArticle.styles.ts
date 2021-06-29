@@ -34,7 +34,7 @@ export const ArticleWrapper = styled("div")`
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-    padding: 0 0;
+    padding: 3px 8px;
     margin: 0;
     @media screen and (max-width: 1024px) {
       flex-direction: column;
