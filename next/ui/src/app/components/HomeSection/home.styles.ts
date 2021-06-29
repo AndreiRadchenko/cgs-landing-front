@@ -61,7 +61,7 @@ export const ContentBlock = styled("article")`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 470px;
+  max-width: 473px;
   & > p {
     opacity: 0.5;
     margin: 1em 0;

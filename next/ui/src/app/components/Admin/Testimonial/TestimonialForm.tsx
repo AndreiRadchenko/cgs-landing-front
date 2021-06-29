@@ -156,6 +156,7 @@ const TestimonialForm: React.FC<{
               type="number"
               min="1"
               max="5"
+              step="0.01"
               placeholder="Rating"
               {...upworkRateInput}
             />
@@ -173,6 +174,7 @@ const TestimonialForm: React.FC<{
               type="number"
               min="1"
               max="5"
+              step="0.01"
               placeholder="Rating"
               {...clutchRateInput}
             />
