@@ -50,6 +50,9 @@ export const SliderContainer = styled.div`
   @media (min-width: 1025px) {
     padding: 0 60px;
   }
+  & .slick-next, .slick-prev {
+    z-index: 2;
+  }
   width: 100%;
   height: 100%;
   & .slick-track {
@@ -63,10 +66,10 @@ export const SliderContainer = styled.div`
   @media screen and (min-width: 1024px) {
     & .slick-slide {
       margin: 0;
-      width: calc((100% - 100px) / 2) !important;
+      width: calc((100% - 70px) / 2) !important;
     }
     & .slick-slide:nth-child(2n + 1) {
-      margin-right: 100px;
+      margin-right: 70px;
     }
     & .slick-slide:nth-child(n + 3) {
       margin-top: 60px;

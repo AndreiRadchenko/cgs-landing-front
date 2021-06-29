@@ -41,6 +41,9 @@ export const SliderNext = styled(Arrow)`
 
 export const SliderContainer = styled.div`
   width: 100%;
+  & .slick-next, .slick-prev {
+    z-index: 2;
+  }
 
   & .slick-track {
     display: flex;
@@ -174,5 +177,6 @@ export const ImageContainer = styled.div`
   @media screen and (min-width: 1024px) {
     min-width: 200px;
     min-height: 210px;
+    border-radius: 16px;
   }
 `;

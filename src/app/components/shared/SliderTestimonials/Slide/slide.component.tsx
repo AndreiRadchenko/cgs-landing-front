@@ -30,7 +30,12 @@ const Slide: React.FC<IProject> = ({ item }) => (
           {item?.shortDescription}
         </Style.SliderHeaderSubtitle>
         <Style.SliderDescription>
-          {item?.fullDescription}
+          {item?.fullDescription.split('/n').map((item, idx) => (
+            <span key={idx}>
+              {item}
+              <br />
+            </span>
+          ))}
         </Style.SliderDescription>
       </Style.ContentWrapper>
       <Style.ContentWrapper>

@@ -33,7 +33,12 @@ const Testimonials = ({ testimonial }) => {
       <Styled.TestimonialPosition>
         {testimonial?.customerPosition}
       </Styled.TestimonialPosition>
-      <q className="testimonials__text">{testimonial?.feedback}</q>
+      <q className="testimonials__text">{testimonial?.feedback.split('/n').map((item, idx) => (
+        <span key={idx}>
+          {item}
+          <br />
+        </span>
+      ))}</q>
       <Rating testimonial={testimonial} />
     </Styled.TestimonialContainer>
   );

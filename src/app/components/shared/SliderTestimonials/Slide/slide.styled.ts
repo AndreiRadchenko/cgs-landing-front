@@ -253,6 +253,7 @@ export const SliderHeader = styled("div")`
   @media screen and (max-width: 1024px) {
     justify-content: center;
     margin-bottom: 15px;
+    margin-top: 10px;
   }
 `;
 
