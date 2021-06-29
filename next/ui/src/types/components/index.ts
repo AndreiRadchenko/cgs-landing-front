@@ -40,6 +40,8 @@ export interface IFooter {
 
 export interface IArticle {
   id?: string;
+  // desc?: any;
+  // title: any;
   desc?: string;
   title: string;
   children: React.ReactNode;

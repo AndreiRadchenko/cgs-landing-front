@@ -27,13 +27,11 @@ const Arrow = styled.div`
 `;
 
 export const SliderPrev = styled(Arrow)`
-  z-index: 2;
   cursor: pointer;
   left: 0;
 `;
 
 export const SliderNext = styled(Arrow)`
-  z-index: 999;
   cursor: pointer;
   right: 0%;
 `;
@@ -55,7 +53,8 @@ export const SliderContainer = styled.div`
       width: 100%;
       min-height: 100%;
       & > div > div {
-        width: 100%;     
+        width: 100%;
+        height: 100%;     
       }
     }
   }

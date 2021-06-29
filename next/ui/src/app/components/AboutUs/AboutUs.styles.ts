@@ -99,7 +99,7 @@ export const AboutUsContainer = styled("div")`
   }
   & > p {
     margin: 0 0 22px;
-    padding: 0 0px;
+    padding: 2px 8px;
     font-family: Mulish;
     font-weight: 300;
     text-align: center;

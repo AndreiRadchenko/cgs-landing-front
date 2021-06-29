@@ -18,7 +18,6 @@ export const Wrapper = styled("article")`
   & > p {
     text-align: center;
     opacity: 0.5;
-    margin-bottom: 3em;
     font-size: 18px;
     font-weight: 300;
     padding: 0 3em;
