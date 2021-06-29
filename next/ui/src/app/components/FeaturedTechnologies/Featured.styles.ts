@@ -41,6 +41,9 @@ export const SliderNext = styled(Arrow)`
 
 export const SliderContainer = styled.div`
   width: 100%;
+  & .slick-next, .slick-prev {
+    z-index: 2;
+  }
 
   & .slick-track {
     display: flex;

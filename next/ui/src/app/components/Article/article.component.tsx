@@ -6,7 +6,7 @@ const Article: React.FC<IArticle> = (props) => (
   <Styled.Wrapper id={props?.id}>
     <Styled.Title>{props?.title}</Styled.Title>
     <Styled.HorizontalSep />
-    {props?.desc && <Styled.SubTitle>{props?.desc.split('\n').map((item, idx) => (
+    {props?.desc && <Styled.SubTitle>{props?.desc.split('/n').map((item, idx) => (
       <span key={idx}>
         {item}
         <br />
