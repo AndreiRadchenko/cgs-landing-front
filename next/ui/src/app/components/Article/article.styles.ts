@@ -22,7 +22,11 @@ export const Wrapper = styled("article")`
     font-weight: 300;
     padding: 0 3em;
     line-height: 32px;
-  }
+    margin-bottom: 60px;
+    @media screen and (max-width: 1024px) {
+      margin-bottom: 19px;
+    }
+ }
 `;
 
 export const Title = styled("h2")`
@@ -45,7 +49,7 @@ export const Title = styled("h2")`
 `;
 
 export const SubTitle = styled("p")`
-  max-width: 800px;  
+  max-width: 1150px;
 `;
 
 export const AdminTextAreaWrapper = styled("div")`

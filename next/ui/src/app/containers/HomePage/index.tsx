@@ -50,8 +50,8 @@ export const HomePage = ({ props }) => {
             <Article
               id="facts"
               title="Benefits of working with us:"
-              desc="The impression we leave is very important to us. 
-              That is why we provide our clients with only high quality work, but also with some FREE bonuses."
+              desc={`The impression we leave is very important to us. 
+              That is why we provide our clients with only high quality work, but also with some FREE bonuses.`}
             >
               <SliderFacts facts={props.facts} />
             </Article>

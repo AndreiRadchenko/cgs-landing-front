@@ -4,15 +4,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { onChangeSlideEA } from "../../../services/event";
-import { v4 as uuidv4 } from "uuid";
 import AboutUs from "./AboutUs.component";
 import { IWorker } from "types/components";
 import { SampleNextArrow, SamplePrevArrow } from "../shared/Slider/arrows";
 
 const SliderComponent: React.FC<{ workers: IWorker[] }> = ({ workers }) => {
   const settings = {
-    infinite: workers.length > 2,
-    slidesToShow: 2,
+    infinite: workers.length > 3,
+    slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow top={20} />,
     prevArrow: <SamplePrevArrow top={20} />,
@@ -32,7 +31,7 @@ const SliderComponent: React.FC<{ workers: IWorker[] }> = ({ workers }) => {
   return (
     <Styled.SliderContainer>
       <Styled.SlideWrapper>
-        <Slider {...settings} key={uuidv4()}>
+        <Slider {...settings} >
           {workers.map((employee) => (
             <AboutUs key={employee.id} employee={employee} />
           ))}

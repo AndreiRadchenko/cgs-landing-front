@@ -58,7 +58,6 @@ export const SliderContainer = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
-    margin-top: 90px;
     & .slick-slide {
       margin: 0;
       justify-content: space-between;

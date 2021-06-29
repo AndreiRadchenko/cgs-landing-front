@@ -53,8 +53,7 @@ export const SliderContainer = styled.div`
       width: 100%;
       min-height: 100%;
       & > div > div {
-        width: 100%;
-        height: 100%;     
+        width: 100%;      
       }
     }
   }
