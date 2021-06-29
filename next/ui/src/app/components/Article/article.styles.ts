@@ -23,6 +23,7 @@ export const Wrapper = styled("article")`
     padding: 0 3em;
     line-height: 32px;
     margin-bottom: 60px;
+
     @media screen and (max-width: 1024px) {
       margin-bottom: 19px;
     }
