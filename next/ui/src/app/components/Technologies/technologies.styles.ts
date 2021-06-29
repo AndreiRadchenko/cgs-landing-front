@@ -36,11 +36,13 @@ export const SliderNext = styled(Arrow)`
 `;
 export const SliderContainer = styled.div`
   width: 100%;
+  & .slick-next, .slick-prev {
+    z-index: 2;
+  }
   @media (min-width: 1025px) {
     padding: 0 30px;
   }
 
-  width: 100%;
   height: 100%;
 
   & .slick-track {
@@ -58,7 +60,6 @@ export const SliderContainer = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
-    margin-top: 90px;
     & .slick-slide {
       margin: 0;
       justify-content: space-between;
