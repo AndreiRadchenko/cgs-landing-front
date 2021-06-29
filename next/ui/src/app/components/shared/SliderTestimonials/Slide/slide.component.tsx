@@ -7,6 +7,8 @@ import IMAGES from "../../../../../consts/Images";
 
 import countryCodes from '../../../../../consts/countyCodes.json';
 
+import { addLineBreaks } from "helpers/addLineBreaks";
+
 const Slide: React.FC<IProject> = ({ item }) => (
   <Style.SlideContainer key={item?.id} className="testimonials-slide-container">
     <Style.SliderContent>
@@ -30,12 +32,7 @@ const Slide: React.FC<IProject> = ({ item }) => (
           {item?.shortDescription}
         </Style.SliderHeaderSubtitle>
         <Style.SliderDescription>
-          {item?.fullDescription.split('/n').map((item, idx) => (
-            <span key={idx}>
-              {item}
-              <br />
-            </span>
-          ))}
+          {item?.fullDescription && addLineBreaks(item.fullDescription)}
         </Style.SliderDescription>
       </Style.ContentWrapper>
       <Style.ContentWrapper>
