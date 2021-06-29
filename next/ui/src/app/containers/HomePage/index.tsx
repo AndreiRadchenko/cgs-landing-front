@@ -80,13 +80,8 @@ export const HomePage = ({ props }) => {
             <Article
               id="featured"
               title="Featured Technologies"
-              // desc=""
-              //   We have an enormous experience in software development,
-              //   so we can implement anything you want us to do! 
-              // }
-              desc={`We have an enormous experience in software development,
+              desc={`We have an enormous experience in software development, /n
                so we can implement anything you want us to do!`}
-
             >
               <SliderFeatured
                 featuredTechnologies={props.featuredTechnologies}
