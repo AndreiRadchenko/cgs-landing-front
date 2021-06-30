@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Container = styled("div")`
+  width: inherit;
+  height: inherit;
+`;
+
 export const DesktopContainer = styled("div")`
   display: grid;
   width: 80%;
@@ -9,6 +14,15 @@ export const DesktopContainer = styled("div")`
   row-gap: 60px;
 
   @media screen and (max-width: 1024px) {
+    display: none;
+  }
+`;
+
+export const MobileContainer = styled("div")`
+  width: inherit;
+  height: inherit;
+
+  @media screen and (min-width: 1024px) {
     display: none;
   }
 `;
