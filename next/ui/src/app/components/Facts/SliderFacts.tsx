@@ -32,14 +32,17 @@ const SliderFacts: React.FC<{ facts: IFact[] }> = ({ facts }) => {
 
   return (
     <Styled.SliderContainer>
-      <Slider {...settings} key={uuidv4()}>
-        {facts &&
-          facts?.map((fact, index) => (
-            <Facts fact={fact} number={index + 1} key={fact?.id} />
-          ))}
-      </Slider>
+      <Styled.SlideWrapper >
+        <Slider {...settings} key={uuidv4()}>        
+          {facts &&
+            facts?.map((fact, index) => (
+              <Facts fact={fact} number={index + 1} key={fact?.id} />
+            ))}
+        </Slider>
+      </Styled.SlideWrapper>
     </Styled.SliderContainer>
   );
+
 };
 
 export default SliderFacts;

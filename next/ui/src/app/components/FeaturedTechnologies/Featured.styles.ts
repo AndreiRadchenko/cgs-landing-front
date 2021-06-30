@@ -39,56 +39,6 @@ export const SliderNext = styled(Arrow)`
   right: 4%;
 `;
 
-export const SliderContainer = styled.div`
-  width: 100%;
-  & .slick-next, .slick-prev {
-    z-index: 2;
-  }
-
-  & .slick-track {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  & .slick-slide {
-    display: flex;
-    justify-content: center;
-    padding: 6px 0;
-
-    &:not(:last-child) {
-      margin-bottom: 38px;
-    }
-
-    @media screen and (max-width: 350px) {
-      width: 100%;
-    }
-    @media screen and (min-width: 1024px) {
-      width: 100% !important;
-    }
-  }
-
-  & .slides *:focus {
-    outline: 0;
-    outline: none;
-  }
-
-  & .slick-next:before,
-  & .slick-prev:before {
-    content: none;
-  }
-
-  & .slick-next {
-    @media (max-width: 420px) {
-      right: 20px;
-    }
-  }
-
-  & .slick-prev {
-    @media (max-width: 420px) {
-      left: 20px !important;
-    }
-  }
-`;
 
 export const FeaturedContainer = styled("div")`
   max-width: 800px;
@@ -152,7 +102,7 @@ export const ImageContainer = styled.div`
   color: #fff;
   background: ${(props) => props.theme.colors.buttonBgColor};
   & img {
-    margin: 10px 0px 30px 0px;
+    margin: 10px 0px 40px 0px;
   }
   & .featured__name {
     margin: 0;
@@ -181,5 +131,73 @@ export const ImageContainer = styled.div`
   }
   @media screen and (max-width: 1023px) {
     border-radius: 16px;
+  }
+`;
+
+export const SlideWrapper = styled("div")`
+  & .slick-track {
+    display: flex;
+  }
+`;
+
+export const SliderContainer = styled.div`
+  width: 100%;
+  height: 100%; 
+
+  @media screen and (min-width: 1024px) {
+
+     & .slick-track {
+      flex-wrap: wrap;
+     } 
+     & .slick-slide {
+        flex: 51%;
+        padding: 15px;
+        box-sizing: border-box;
+     }  
+  }
+
+  @media screen and (max-width: 1023px) {
+      & .slick-next, .slick-prev {
+      z-index: 2;
+    }
+  }
+  
+  & .slick-slider {
+    @media screen and (max-width: 650px) {
+      margin: 0;
+    }
+  }
+  & .slick-slide {
+    display: flex;
+    justify-content: center;
+  }
+  & .slide-container {
+    display: flex;
+    justify-content: center;
+  }
+  & .slick-slide > div > div > img {
+    margin: auto;
+    @media screen and (max-width: 1023px) {
+      width: 100%;
+    }
+  }  
+
+  & .slides *:focus {
+    outline: 0;
+    outline: none;
+  }
+  & .slick-next:before,
+  & .slick-prev:before {
+    content: none;
+  }
+  & .slick-next {
+    @media (max-width: 420px) {
+      right: 20px;
+    }
+  }
+  & .slick-prev {
+    @media (max-width: 420px) {
+      left: 20px;
+    }
   }
 `;

@@ -46,55 +46,12 @@ export const SliderNext = styled(Arrow)`
   right: 5%;
 `;
 
-export const SliderContainer = styled.div`
-  @media (min-width: 1025px) {
-    padding: 0 60px;
-  }
-  & .slick-next, .slick-prev {
-    z-index: 2;
-  }
-  width: 100%;
-  height: 100%;
-  & .slick-track {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
 
-  @media screen and (min-width: 1024px) {
-    & .slick-slide {
-      margin: 0;
-      width: calc((100% - 70px) / 2) !important;
-    }
-    & .slick-slide:nth-child(2n + 1) {
-      margin-right: 70px;
-    }
-    & .slick-slide:nth-child(n + 3) {
-      margin-top: 60px;
-    }
-  }
 
-  & .slick-slide > div > div > img {
-    @media screen and (max-width: 1023px) {
-      width: 100%;
-    }
-  }
 
-  & .slides *:focus {
-    outline: 0;
-    outline: none;
-  }
-
-  & .slick-next:before,
-  & .slick-prev:before {
-    content: none;
-  }
-`;
 
 export const FactContainer = styled("div")`
-  padding: 10px;
+  /* padding: 10px; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -113,6 +70,7 @@ export const FactContainer = styled("div")`
     margin: 0;
     margin-right: 20px;
     font-size: 22px;
+    margin-bottom: 15px;
   }
 
   & .fact__text {
@@ -143,4 +101,88 @@ export const FactContainer = styled("div")`
 export const FactTitle = styled("p")`
   background: ${(props) => props.theme.colors.buttonBgColor};
   border-radius: 5px;
+`;
+
+
+export const SlideWrapper = styled("div")`
+  & .slick-track {
+    display: flex;   
+  }
+`;
+
+export const SliderContainer = styled.div`
+  width: 100%;
+  height: 100%; 
+
+  @media screen and (min-width: 1024px) {
+
+     & .slick-track {
+      flex-wrap: wrap;
+     } 
+     & .slick-slide {
+        flex: 50%;
+        padding: 40px;
+        box-sizing: border-box;
+     }
+
+     & .slick-slide:nth-child(1) {
+        flex: 49%;
+        box-sizing: border-box;
+     }
+     & .slick-slide:nth-child(3) {
+       padding-bottom: 60px;
+     }
+     & .slick-slide:nth-child(4) {
+       padding-bottom: 60px;
+     }
+     & .slick-slide:nth-child(6) {
+        flex: 49%;
+        box-sizing: border-box;
+     }
+  }
+
+  @media screen and (max-width: 1023px) {
+      & .slick-next, .slick-prev {
+      z-index: 2;
+    }
+  }
+  
+  & .slick-slider {
+    @media screen and (max-width: 650px) {
+      margin: 0;
+    }
+  }
+  & .slick-slide {
+    display: flex;
+    justify-content: center;
+  }
+  & .slide-container {
+    display: flex;
+    justify-content: center;
+  }
+  & .slick-slide > div > div > img {
+    margin: auto;
+    @media screen and (max-width: 1023px) {
+      width: 100%;
+    }
+  }
+  
+  & .slides *:focus {
+    outline: 0;
+    outline: none;
+  }
+  & .slick-next:before,
+  & .slick-prev:before {
+    content: none;
+  }
+  & .slick-next {
+    @media (max-width: 420px) {
+      right: 20px;
+    }
+  }
+  & .slick-prev {
+    @media (max-width: 420px) {
+      left: 20px;
+    }
+  }
 `;
