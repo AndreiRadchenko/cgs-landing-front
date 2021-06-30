@@ -10,7 +10,7 @@ import { SampleNextArrow, SamplePrevArrow } from "../shared/Slider/arrows";
 
 const SliderComponent: React.FC<{ workers: IWorker[] }> = ({ workers }) => {
   const settings = {
-    infinite: workers.length > 3,
+    infinite: workers.length > 3,    
     slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow top={20} />,
@@ -22,6 +22,7 @@ const SliderComponent: React.FC<{ workers: IWorker[] }> = ({ workers }) => {
         breakpoint: 1025,
         settings: {
           slidesToShow: 1,
+          infinite: true,
         },
       },
     ],

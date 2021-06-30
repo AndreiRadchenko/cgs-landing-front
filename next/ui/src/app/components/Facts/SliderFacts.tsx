@@ -1,45 +1,51 @@
 import React from "react";
-import * as Styled from "./Facts.styles";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { onChangeSlideEA } from "../../../services/event";
-import { v4 as uuidv4 } from "uuid";
-import Facts from "./Facts.component";
-import { IFact } from "../../../types/components/index";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { IFact } from "types/components";
 import { SampleNextArrow, SamplePrevArrow } from "../shared/Slider/arrows";
+import Facts from "./Facts.component";
 
-const SliderFacts: React.FC<{ facts: IFact[] }> = ({ facts }) => {
-  let settings = {
-    slidesToShow: facts.length,
-    infinite: false,
-    slidesToScroll: 1,
-    nextArrow: <SampleNextArrow top={20} />,
-    prevArrow: <SamplePrevArrow top={20} />,
-    afterChange: (current) =>
-      onChangeSlideEA({ sliderName: "AboutUs", slide: current }),
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          infinite: true,
-        },
-      },
-    ],
-    className: "slides",
-  };
+import * as Styled from "./SliderFacts.styles";
 
+interface SliderProps {
+  facts: IFact[];
+}
+
+const Slider: React.FC<SliderProps> = ({ facts }) => {
   return (
-    <Styled.SliderContainer>
-      <Slider {...settings} key={uuidv4()}>
-        {facts &&
-          facts?.map((fact, index) => (
-            <Facts fact={fact} number={index + 1} key={fact?.id} />
-          ))}
-      </Slider>
-    </Styled.SliderContainer>
+    <Styled.Container>
+      <Styled.DesktopContainer>
+        {facts.map((fact, index) => (
+          <Facts key={fact.id} fact={fact} number={index + 1} />
+        ))}
+      </Styled.DesktopContainer>
+      <Styled.MobileContainer>
+        <Styled.SliderContainer>
+          <Carousel
+            ssr={true}
+            infinite={true}
+            swipeable={true}
+            draggable={false}
+            responsive={{
+              mobile: {
+                breakpoint: { min: 0, max: Infinity },
+                items: 1,
+                slidesToSlide: 1,
+              }
+            }}
+            customLeftArrow={<SamplePrevArrow top={9} />}
+            customRightArrow={<SampleNextArrow top={9} />}
+          >
+            {facts.map((fact, index) => (
+              <Styled.SlideContainer key={fact.id}>
+                <Facts fact={fact} number={index + 1} />
+              </Styled.SlideContainer>
+            ))}
+          </Carousel>
+        </Styled.SliderContainer>
+      </Styled.MobileContainer>
+    </Styled.Container>
   );
 };
 
-export default SliderFacts;
+export default Slider;

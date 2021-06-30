@@ -313,7 +313,7 @@ export const SliderContent = styled("div")`
   & .slider-technologies {
     display: flex;
     flex-direction: row;
-    margin: 0 0 0 0;
+    margin-bottom: 15px;
     flex-wrap: wrap;
     @media (max-width: 1025px) {
       justify-content: center;
