@@ -30,15 +30,17 @@ const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
   };
   return (
     <Styled.SliderContainer>
-      <Slider {...settings}>
-        {technologies?.map((technology, index) => (
-          <Technology
-            key={technology.type}
-            technology={technology}
-            isFirst={index === 0}
-          />
-        ))}
-      </Slider>
+      <Styled.SlideWrapper >
+        <Slider {...settings}>
+          {technologies?.map((technology, index) => (
+            <Technology
+              key={technology.type}
+              technology={technology}
+              isFirst={index === 0}
+            />
+          ))}
+        </Slider>
+      </Styled.SlideWrapper>
     </Styled.SliderContainer>
   );
 };

@@ -1,18 +1,19 @@
 import styled from "styled-components";
-import { PropsSlider } from "../../../../types/components/index";
-const imgSize = {
-  w: "35px",
-  h: "35px",
-};
+
+import { PropsSlider } from "types/components";
 
 const Arrow = styled.div`
   position: absolute;
-  width: ${imgSize.w};
-  height: ${imgSize.h};
+  width: 35px;
+  height: 35px;
+  outline: none;
+  cursor: pointer;
+
   @media (max-width: 420px) {
     width: 25px;
     height: 25px;
   }
+
   & img {
     width: 100%;
     height: 100%;

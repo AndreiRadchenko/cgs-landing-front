@@ -34,11 +34,13 @@ const SliderFeatured: React.FC<{
 
   return (
     <Styled.SliderContainer>
-      <Slider {...settings}>
-        {featuredTechnologies?.map((el) => (
-          <Featured featuredTech={el} key={el?.id} />
-        ))}
-      </Slider>
+      <Styled.SlideWrapper >
+        <Slider {...settings}>
+          {featuredTechnologies?.map((el) => (
+            <Featured featuredTech={el} key={el?.id} />
+          ))}
+        </Slider>
+      </Styled.SlideWrapper >
     </Styled.SliderContainer>
   );
 };

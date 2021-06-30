@@ -36,6 +36,13 @@ export const SliderNext = styled(Arrow)`
 export const SliderContainer = styled.div`
   width: 100%;
   height: 100%;
+
+  @media screen and (max-width: 1023px) {
+      & .slick-next, .slick-prev {
+      z-index: 2;
+    }
+  }
+  
   & .slick-slider {
     @media screen and (max-width: 650px) {
       margin: 0;
@@ -156,10 +163,6 @@ export const AboutText = styled("p")`
 export const SlideWrapper = styled("div")`
   & .slick-track {
     display: flex;
-  }
-  @media screen and (min-width: 1024px) {
-    & .slick-slide {
-    }
   }
 `;
 

@@ -67,7 +67,9 @@
     "react-helmet-async": "1.0.4",
     "react-i18next": "11.3.4",
     "react-lines-ellipsis": "0.15.0",
+    "react-multi-carousel": "2.6.3",
     "react-redux": "7.2.0",
+    "react-responsive": "8.2.0",
     "react-scripts": "3.4.3",
     "react-scroll": "1.8.1",
     "react-select": "4.3.1",
@@ -137,6 +139,7 @@
   },
   "devDependencies": {
     "@types/react-datepicker": "3.1.8",
+    "@types/react-responsive": "8.0.2",
     "@types/react-select": "4.0.16",
     "@types/yup": "0.29.4",
     "css-loader": "5.2.4",

@@ -34,75 +34,11 @@ export const SliderNext = styled(Arrow)`
   top: 20% !important;
   right: 5% !important;
 `;
-export const SliderContainer = styled.div`
-  width: 100%;
-  & .slick-next, .slick-prev {
-    z-index: 2;
-  }
-  @media (min-width: 1025px) {
-    padding: 0 30px;
-  }
 
-  height: 100%;
 
-  & .slick-track {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
 
-  & .slick-slide {
-    width: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
-  @media screen and (min-width: 1024px) {
-    & .slick-slide {
-      margin: 0;
-      justify-content: space-between;
-      width: calc((100% - 15%) / 2) !important;
-    }
 
-    & .slick-slide:nth-child(1) {
-      margin-left: 5%;
-    }
-  }
-  @media screen and (min-width: 1024px) and (max-width: 1060px) {
-    & .slick-slide:nth-child(1) {
-      margin-left: 0;
-    }
-  }
-  & .slick-slide > div > div > img {
-    @media screen and (max-width: 1023px) {
-      width: 100%;
-    }
-  }
-
-  & .slides *:focus {
-    outline: 0;
-    outline: none;
-  }
-
-  & .slick-next:before,
-  & .slick-prev:before {
-    content: none;
-  }
-
-  & .slick-next {
-    @media (max-width: 420px) {
-      right: 20px;
-    }
-  }
-
-  & .slick-prev {
-    @media (max-width: 420px) {
-      left: 20px;
-    }
-  }
-`;
 
 export const Dots = styled("img")`
   width: 80px;
@@ -268,5 +204,80 @@ export const TechnoImage = styled("img")<TechnoImageParams>`
   }
   @media screen and (max-width: 1023.5px) {
     padding-top: 30px;
+  }
+`;
+
+export const SlideWrapper = styled("div")`
+  & .slick-track {
+    display: flex;
+  }
+`;
+
+export const SliderContainer = styled.div`
+  width: 100%;
+  height: 100%; 
+
+  @media screen and (min-width: 1024px) {
+
+     & .slick-track {
+      flex-wrap: wrap;
+     } 
+     
+     & .slick-slide {
+        flex: 50%;
+        padding: 15px;
+        box-sizing: border-box;
+     }
+
+     & .slick-slide:nth-child(1) {
+        flex: 49%;
+        /* padding: 15px; */
+        box-sizing: border-box;
+     }
+
+     & .slick-slide:nth-child(6) {
+        flex: 49%;
+        /* padding: 15px; */
+        box-sizing: border-box;
+     }
+  }
+
+  @media screen and (max-width: 1023px) {
+      & .slick-next, .slick-prev {
+      z-index: 2;
+    }
+  }
+  
+  & .slick-slider {
+    @media screen and (max-width: 650px) {
+      margin: 0;
+    }
+  }
+  & .slick-slide {
+    display: flex;
+    justify-content: center;
+  }
+  & .slide-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  & .slides *:focus {
+    outline: 0;
+    outline: none;
+  }
+  & .slick-next:before,
+  & .slick-prev:before {
+    content: none;
+  }
+  & .slick-next {
+    @media (max-width: 420px) {
+      right: 20px;
+    }
+  }
+  & .slick-prev {
+    @media (max-width: 420px) {
+      left: 20px;
+    }
   }
 `;

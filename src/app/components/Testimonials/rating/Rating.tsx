@@ -76,7 +76,7 @@ const Rating = ({ testimonial }) => {
         <React.Fragment>
           <Styled.Rating className="testimonials__rating-upwork">
             <img src="/upworkWord.svg" width="58" height="18" alt="" />
-            <p>{upwork?.rate?.toFixed(1)}</p>
+            <p>{upwork?.rate?.toFixed(2)}</p>
             <Styled.Stars>{starsUpwork?.map((el) => el)}</Styled.Stars>
           </Styled.Rating>
           <Button text="Read More" target="_blank" link={upwork?.link} />
