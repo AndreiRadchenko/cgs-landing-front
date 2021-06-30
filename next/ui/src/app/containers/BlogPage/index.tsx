@@ -38,8 +38,8 @@ export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
   return (
     <div className="main-wraper">
       <Article
-        title="Our stories"
-        desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        title="Our articles"
+        desc="Here you can stay in touch with us, knowing all the newest from the world of IT and business!'"
       >
         <Styled.Wrapper>
           <Styled.FeaturedArticle key={uuidv4()}>
