@@ -19,6 +19,7 @@ export const SamplePrevArrow = (props) => {
 
 export const SampleNextArrow = (props) => {
   const { className, onClick, img } = props;
+
   return (
     <Styled.SliderNext
       top={props?.top}
