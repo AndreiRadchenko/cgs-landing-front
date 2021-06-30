@@ -81,7 +81,7 @@ export const DropBoxMain = styled("div")`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 10px 0 76px 0;
+  padding: 30px 0 125px 0;
   & .drop-box-item {
     width: fit-content;
     padding: 10px;

@@ -59,11 +59,13 @@ const Slide: React.FC<IProject> = ({ item }) => (
         </Style.ReferenceWrapper>
       </Style.ContentWrapper>
     </Style.SliderContent>
-    <Style.SliderPicture
-      className="slider-picture"
-      src={item?.imageUrl}
-      alt={item?.shortDescription}
-    />
+    <Style.SliderPictureContainer>
+      <Style.SliderPicture
+        className="slider-picture"
+        src={item?.imageUrl}
+        alt={item?.shortDescription}
+      />
+    </Style.SliderPictureContainer>
   </Style.SlideContainer>
 );
 

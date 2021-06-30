@@ -142,7 +142,7 @@ export const FeaturedArticle = styled("div")`
   & img {
     width: 100%;
     display: inline-block;
-    margin-bottom: 60px;
+    margin-bottom: 15px;
     @media screen and (max-width: 1024px) {
       margin: 0 auto;
       width: 90%;
@@ -152,7 +152,7 @@ export const FeaturedArticle = styled("div")`
   }
 
   & h2 {
-    margin-bottom: 1.54em;
+    margin-bottom: 15px;
       font-size: 24px;
       line-height: 54px;
     @media screen and (max-width: 1024px) {
