@@ -52,13 +52,17 @@ export const SimilarArticle = styled("li")`
     height: 166px;
     object-fit: contain;
     display: inline-block;
-    margin-bottom: 20px;
-    @media (max-width: 1025px) {
+    margin-bottom: 35px;
+    @media screen and (max-width: 1024px) {
+      margin-bottom: 35px;
+    }
+
+    @media (max-width: 1024px) {
       height: auto;
     }
   }
   & h2 {
-    margin: 0 0 29px;
+    margin: 0 0 40px;
     font-size: 22px;
     text-align: center;
   }
