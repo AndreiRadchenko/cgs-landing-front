@@ -357,13 +357,18 @@ export const SliderContent = styled("div")`
   }
 `;
 
-export const SliderPicture = styled("img")`
+export const SliderPictureContainer = styled("div")`
   width: 62%;
   padding: 0 10px;
   padding-left: 30px;
   @media screen and (max-width: 1024px) {
     width: 100%;
   }
+`;
+
+export const SliderPicture = styled("img")`
+  width: 100%;
+  height: 100%;
 `;
 
 export const ReferenceWrapper = styled.div`
