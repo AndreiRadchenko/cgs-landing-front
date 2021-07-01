@@ -24,7 +24,7 @@ const SimilarArticles: React.FC<SimilarArticlesProps> = ({
                   <h2>{article?.title}</h2>
                   <HTMLEllipsis
                     // unsafeHTML={article?.content}
-                    text={he.decode(article?.content.replace(/<\/?[^>]+(>|$)/g, "")) }
+                    text={he.decode(article?.content!.replace(/<\/?[^>]+(>|$)/g, "")) }
                     maxLine="2"
                     ellipsis="..."
                     basedOn="words"
