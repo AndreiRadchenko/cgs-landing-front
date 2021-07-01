@@ -23,7 +23,8 @@ const Form = () => {
         email: "",
         message: "",
       }}
-      onSubmit={async (values) => {
+
+      onSubmit={async (values, { resetForm }) => {
         sendFormEA(values);
 
         await emailjs.send(
@@ -33,6 +34,7 @@ const Form = () => {
           "user_qBEngbKseuGY8AfrTEa7E"
         );
 
+        resetForm({});
         setSubmitted(true);
       }}
     >
