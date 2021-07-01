@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { IBlogArticle } from "../../../../types/components";
 import * as Styled from "./SimilarArticles.styles";
-import HTMLEllipsis from "react-lines-ellipsis/lib/html";
+import HTMLEllipsis from "react-lines-ellipsis";
 import { SimilarArticlesProps } from "../../../../types/components/index";
+import he from "he"
 
 const SimilarArticles: React.FC<SimilarArticlesProps> = ({
   similarArticles,
@@ -22,7 +23,8 @@ const SimilarArticles: React.FC<SimilarArticlesProps> = ({
                   <img src={article?.imageFileUrl} alt={article?.title} />
                   <h2>{article?.title}</h2>
                   <HTMLEllipsis
-                    unsafeHTML={article?.content}
+                    // unsafeHTML={article?.content}
+                    text={he.decode(article?.content.replace(/<\/?[^>]+(>|$)/g, "")) }
                     maxLine="2"
                     ellipsis="..."
                     basedOn="words"
