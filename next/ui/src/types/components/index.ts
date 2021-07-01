@@ -99,16 +99,14 @@ export interface SlidePersonType {
 }
 
 export interface IProject {
-  item: {
-    id: string;
-    name: string;
-    countryCode: string;
-    shortDescription: string;
-    fullDescription: string;
-    technologies: Array<IProjectTechType>;
-    link: string;
-    imageUrl: string;
-  };
+  id: string;
+  name: string;
+  countryCode: string;
+  shortDescription: string;
+  fullDescription: string;
+  technologies: Array<IProjectTechType>;
+  link: string;
+  imageUrl: string;
 }
 
 export interface IProjectTechType {
