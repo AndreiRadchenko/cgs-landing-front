@@ -1,0 +1,24 @@
+import styled from "styled-components";
+
+import { SamplePrevArrow, SampleNextArrow } from "../shared/Slider/arrows";
+
+export const PrevArrow = styled(SamplePrevArrow)`
+  z-index: 100;
+`;
+
+export const NextArrow = styled(SampleNextArrow)`
+  z-index: 100;
+`;
+
+export const Container = styled("div")`
+  display: flex;
+  width: 90%;
+  height: inherit;
+  align-items: center;
+`;
+
+export const SlideContainer = styled("div")`
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+`;

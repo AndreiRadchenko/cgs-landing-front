@@ -1,37 +1,27 @@
 import { HomePage } from "../src/app/containers/HomePage/";
 import { getData } from "../src/services/api/api";
-import {
-  IProject,
-  IFact,
-  ISlogan,
-  ITechnology,
-  ITestimonial,
-  IWorker,
-  IFeaturedTechnology,
-} from "../src/types/components/index";
+
+const categories = [
+  "slogan",
+  "projects",
+  "workers",
+  "facts",
+  "technologies",
+  "testimonials",
+  "featuredTechnologies",
+];
 
 export const getServerSideProps = async () => {
   try {
-    const featuredTechnologies: IFeaturedTechnology[] = await getData(
-      "featuredTechnologies"
-    );
-    const testimonials: ITestimonial[] = await getData("testimonials");
-    const facts: IFact[] = await getData("facts");
-    const technologies: ITechnology[] = await getData("technologies");
-    const slogan: ISlogan[] = await getData("slogan");
-    const projects: IProject[] = await getData("projects");
-    const workers: IWorker[] = await getData("workers");
-    return {
-      props: {
-        testimonials,
-        facts,
-        technologies,
-        slogan,
-        projects,
-        workers,
-        featuredTechnologies,
-      },
-    };
+    const props: Record<string, any> = {};
+
+    const responses = await Promise.all(categories.map((name) => getData(name)));
+
+    categories.forEach((category, index) => {
+      props[category] = responses[index];
+    });
+
+    return { props };
   } catch (error) {
     console.log("error", { error });
     return null;

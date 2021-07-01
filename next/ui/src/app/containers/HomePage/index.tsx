@@ -2,17 +2,14 @@ import React from "react";
 import Home from "../../components/HomeSection/home.component";
 import Form from "../../components/shared/Form/form.component";
 import Article from "../../components/Article/article.component";
-import SliderWorks from "../../components/shared/SliderTestimonials/Slider.component";
-import Slide from "../../components/shared/SliderTestimonials/Slide/slide.component";
 import { scrollEA } from "../../../services/event";
+import { ProjectsSlider } from "app/components/Projects/Slider";
 import SliderAboutUs from "app/components/AboutUs/slider.component";
 import SliderFacts from "app/components/Facts/SliderFacts";
 import SliderTestimonials from "app/components/Testimonials/SliderTestimonials";
 import SliderFeatured from "app/components/FeaturedTechnologies/SliderFeatured";
 import SliderTechnologies from "app/components/Technologies/SliderTechnologies";
 import MainLayout from "app/components/Layout/Layout";
-
-import { addLineBreaks } from "helpers/addLineBreaks";
 
 export const HomePage = ({ props }) => {
   React.useEffect(() => {
@@ -30,11 +27,7 @@ export const HomePage = ({ props }) => {
               title="Our Latest Works"
               desc={"Actions speak louder than words – our completed projects demonstrate our experience and skills the best! Take a look to see it for yourself"}
             >
-              <SliderWorks>
-                {props.projects.map((item) => (
-                  <Slide item={item} key={item.id} />
-                ))}
-              </SliderWorks>
+              <ProjectsSlider projects={props.projects} />
             </Article>
           )}
           {props.workers && (
