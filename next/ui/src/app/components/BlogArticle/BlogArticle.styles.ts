@@ -163,12 +163,10 @@ export const FeaturedArticle = styled("div")`
 
   & p {
     margin-bottom: 1.72em;
-    opacity: 0.5;
     font-size: 18px;
     line-height: 32px;    
     @media screen and (max-width: 1024px) {
       padding: 0 8vw;
-      opacity: 0.5;
       font-size: 18px;
       line-height: 32px;
     }
@@ -244,7 +242,7 @@ export const TagList = styled("ul")`
 
 export const HorizontalSep = styled("div")`
   pointer-events: none;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1025px) {
     display: none;
   }
   width: 55px;
