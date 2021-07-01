@@ -214,10 +214,13 @@ export const BottomLeftDotsContainer = styled("div")`
 export const SliderHeaderTitle = styled("p")`
   font-size: 22px;
   font-weight: 700;
+  @media screen and (min-width: 1025px) and (max-width: 1200px) { 
+    font-size: 19px;
+  }
   margin: 0;
   margin-right: 20px;
   @media screen and (max-width: 1024px) {
-    font-size: 24px;
+    font-size: 24px;    
   }
   @media screen and (max-width: 380px) {
     font-size: 14px;
@@ -225,11 +228,17 @@ export const SliderHeaderTitle = styled("p")`
 `;
 
 export const SliderHeaderSubtitle = styled("p")`
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
-  margin-bottom: 20px;
-  margin-top: 10px;
+  margin-bottom: 18px;
+  margin-top: 8px;
   opacity: 0.5;
+  @media screen and (min-width: 1025px) and (max-width: 1200px) { 
+    font-size: 17px;
+  }
+
+  line-height: 24px;
+
   @media screen and (max-width: 1024px) {
     display: none;
   }
@@ -290,8 +299,15 @@ export const SliderDescription = styled("p")`
   font-size: 18px;
   font-weight: 400;
   text-align: justify;
-  margin-bottom: 5px;
-  min-height: 200px;
+  margin-bottom: 10px;
+  min-height: 170px;
+  line-height: 24px;
+
+  @media screen and (min-width: 1025px) and (max-width: 1200px) { 
+    font-size: 16px;
+  }
+
+
   @media screen and (max-width: 1024px) {
     opacity: 0.5;
     font-size: 14px;
@@ -306,6 +322,7 @@ export const SliderContent = styled("div")`
   display: flex;
   flex-direction: column;
   padding: 0 10px;
+  justify-content: space-between;
   @media screen and (max-width: 1024px) {
     width: 100%;
     align-items: center;
@@ -313,22 +330,23 @@ export const SliderContent = styled("div")`
   & .slider-technologies {
     display: flex;
     flex-direction: row;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
-    @media (max-width: 1025px) {
+    margin-bottom: 30px;
+    flex-wrap: wrap;   
+
+    @media (max-width: 1024px) {
       justify-content: center;
       margin: 0 0 10px 0;
     }
   }
   & .slider-technology__img {
-    max-height: 50px;
+    max-height: 24px;
     margin-right: 5px;
   }
   & .slider-technology__text {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
   }
-  & .slider-technologies__button {
+  & .slider-technologies__button {    
     @media (max-width: 420px) {
       width: 140px;
       font-size: 16px;
@@ -350,7 +368,7 @@ export const SliderContent = styled("div")`
     display: flex;
     align-items: center;
     margin-bottom: 5px;
-    margin-right: 8px;
+    margin-right: 10px;
   }
   & .slider-link {
     display: inline-block;
@@ -370,6 +388,16 @@ export const ReferenceWrapper = styled.div`
   @media screen and (max-width: 1024px) {
     text-align: center;
   }
+  & .hidden-link {
+    min-height: 50px;
+    min-width: 100%;
+  }
 `;
 
 export const ContentWrapper = styled.div``;
+
+export const TechnologiesContainer = styled.div`
+  /* margin-bottom: auto;
+  margin-top: auto; */
+`;
+
