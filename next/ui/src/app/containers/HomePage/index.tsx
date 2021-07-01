@@ -28,7 +28,7 @@ export const HomePage = ({ props }) => {
             <Article
               id="code"
               title="Our Latest Works"
-              desc={"Actions speak louder than words – our completed projects demonstrate our experience and skills the best!\nTake a look to see it for yourself"}
+              desc={"Actions speak louder than words – our completed projects demonstrate our experience and skills the best! Take a look to see it for yourself"}
             >
               <SliderWorks>
                 {props.projects.map((item) => (
@@ -50,7 +50,7 @@ export const HomePage = ({ props }) => {
             <Article
               id="facts"
               title="Benefits of working with us:"
-              desc={"The impression we leave is very important to us.\nThat is why we provide our clients with only high quality work, but also with some FREE bonuses."}
+              desc={"The impression we leave is very important to us. That is why we provide our clients with only high quality work, but also with some FREE bonuses."}
             >
               <SliderFacts facts={props.facts} />
             </Article>

@@ -5,7 +5,7 @@ export const Item = styled("div")`
   min-width: max-content;
   background-color: #1f5a7b;
   min-height: 50px;
-  min-width: 120px;
+  min-width: 118px;
   border-radius: 40px;
   display: flex;
   align-items: center;
@@ -28,7 +28,7 @@ export const ActiveItem = styled("div")`
   background-color: #0c1033;
   padding: 10px;
   min-height: 50px;
-  min-width: 120px;
+  min-width: 118px;
   border-radius: 30px;
   display: flex;
   align-items: center;
