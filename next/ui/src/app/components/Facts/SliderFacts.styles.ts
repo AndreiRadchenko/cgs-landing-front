@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled("div")`
-  width: inherit;
-  height: inherit;
-`;
-
 export const DesktopContainer = styled("div")`
   display: grid;
   width: 80%;
@@ -12,18 +7,27 @@ export const DesktopContainer = styled("div")`
   grid-template-columns: 1fr 1fr;
   column-gap: 80px;
   row-gap: 60px;
-
-  @media screen and (max-width: 1024px) {
-    display: none;
-  }
 `;
 
 export const MobileContainer = styled("div")`
   width: inherit;
   height: inherit;
+`;
+
+export const Container = styled("div")`
+  width: inherit;
+  height: inherit;
 
   @media screen and (min-width: 1024px) {
-    display: none;
+    & > ${MobileContainer} {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 1023.5px) {
+    & > ${DesktopContainer} {
+      display: none;
+    }
   }
 `;
 

@@ -31,7 +31,7 @@ export const Container = styled("div")`
     margin-bottom: 25px;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     align-items: center;
     text-align: start;
   }
@@ -43,8 +43,9 @@ export const Text = styled("div")`
   line-height: 1.67;
   text-align: justify;
 
-  @media screen and (max-width: 1024px) {
-    opacity: 0.5;
-    padding: 0 30px;
+  @media screen and (max-width: 1023.5px) {
+    /* opacity: 0.5; */
+    padding-left: 30px;
+    padding-right: 30px;
   }
 `;
