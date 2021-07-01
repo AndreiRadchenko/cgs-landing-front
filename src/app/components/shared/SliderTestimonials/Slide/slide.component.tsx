@@ -1,3 +1,4 @@
+// GIT
 import React from "react";
 import ReactCountryFlag from "react-country-flag";
 import * as Style from "./slide.styled";
@@ -9,7 +10,7 @@ import countryCodes from '../../../../../consts/countyCodes.json';
 
 import { addLineBreaks } from "helpers/addLineBreaks";
 
-const Slide: React.FC<IProject> = ({ item }) => (
+const Slide: React.FC<IProject> = ({ ...item }) => (
   <Style.SlideContainer key={item?.id} className="testimonials-slide-container">
     <Style.SliderContent>
       <Style.ContentWrapper>

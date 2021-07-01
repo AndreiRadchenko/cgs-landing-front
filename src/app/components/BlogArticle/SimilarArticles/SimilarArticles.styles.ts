@@ -75,7 +75,14 @@ export const SimilarArticle = styled("li")`
     line-height: 1.67;
     text-align: center;
   }
-  & .LinesEllipsis {
-    display: none;
+
+  // GIT
+  @media screen and (max-width: 1023.5px) {
+    margin-bottom: 35px;
+
+    & .LinesEllipsis {
+      display: none;
+    }
   }
+  // GIT
 `;
