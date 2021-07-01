@@ -49,9 +49,10 @@ export const SimilarArticle = styled("li")`
 
   & img {
     width: 100%;
-    height: 166px;
+    display: block;
     object-fit: contain;
     display: inline-block;
+
     margin-bottom: 35px;
     @media screen and (max-width: 1024px) {
       margin-bottom: 35px;
@@ -62,13 +63,19 @@ export const SimilarArticle = styled("li")`
     }
   }
   & h2 {
-    margin: 0 0 40px;
+    margin: 0 0 55px;
     font-size: 22px;
     text-align: center;
+    font-size: 22px;
+    display: block;
+    height: 50px;
   }
   & p {
     margin: 0;
     line-height: 1.67;
     text-align: center;
+  }
+  & .LinesEllipsis {
+    display: none;
   }
 `;
