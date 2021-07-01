@@ -183,10 +183,11 @@ export const DescContainer = styled("div")`
       flex-wrap: wrap;
     }
     & li:not(:last-child) {
-      margin-right: 23px;
+      margin-right: 10px;
     }
   }
 `;
+
 export const HorizontalSep = styled("div")`
   width: 55px !important;
   height: 2px;

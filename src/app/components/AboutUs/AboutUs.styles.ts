@@ -37,7 +37,7 @@ export const SliderContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1024px) {
       & .slick-next, .slick-prev {
       z-index: 2;
     }

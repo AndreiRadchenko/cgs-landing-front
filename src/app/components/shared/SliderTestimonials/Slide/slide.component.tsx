@@ -49,13 +49,14 @@ const Slide: React.FC<IProject> = ({ item }) => (
           ))}
         </div>
         <Style.ReferenceWrapper>
-          {item?.link && (
-            <a href={item?.link} target="_blank" className="slider-link">
-              <button className="slider-technologies__button" type="button">
-                Project link
-              </button>
+          {item?.link ? (
+            <a href={item?.link} target="_blank" className="slider-link">             
+                <button className="slider-technologies__button" type="button">
+                  Project link
+                </button> 
             </a>
-          )}{" "}
+          ) : <div className='hidden-link'></div>}
+          
         </Style.ReferenceWrapper>
       </Style.ContentWrapper>
     </Style.SliderContent>

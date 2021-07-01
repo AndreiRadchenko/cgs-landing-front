@@ -12,8 +12,8 @@ export const Wrapper = styled("div")`
     width: 100%;
     padding: 0 24px;
     & div:nth-of-type(4) a div:nth-of-type(3) {
-      display: none;
-    }
+      
+    }    
   }
 `;
 export const ArticleWrapper = styled("div")`
@@ -70,14 +70,11 @@ export const ArticleWrapper = styled("div")`
     justify-content: space-between;
     & .LinesEllipsis {
       font-size: 18px;
-      line-height: 30px;
-      & p {
-        opacity: 0.5;
-      }
+      line-height: 30px;     
     }
 
     @media screen and (max-width: 1024px) {
-      width: 60%;
+      width: 79%;
       margin: 0 auto;
     }
     @media screen and (max-width: 765px) {
@@ -166,12 +163,10 @@ export const FeaturedArticle = styled("div")`
 
   & p {
     margin-bottom: 1.72em;
-    opacity: 0.5;
     font-size: 18px;
     line-height: 32px;    
     @media screen and (max-width: 1024px) {
       padding: 0 8vw;
-      opacity: 0.5;
       font-size: 18px;
       line-height: 32px;
     }
@@ -215,8 +210,7 @@ export const TagList = styled("ul")`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  list-style: none;
-  padding: 0;
+  list-style: none;  
   text-align: center;
   margin-top: 0;
   margin-bottom: 0;
@@ -225,7 +219,7 @@ export const TagList = styled("ul")`
   padding: 0 3em; 
 
   & li {
-    padding: 1px 15px;
+    padding: 3px 15px;
     border-radius: 5px;
     color: #fff;
     margin-bottom: 10px;
@@ -248,7 +242,7 @@ export const TagList = styled("ul")`
 
 export const HorizontalSep = styled("div")`
   pointer-events: none;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1025px) {
     display: none;
   }
   width: 55px;

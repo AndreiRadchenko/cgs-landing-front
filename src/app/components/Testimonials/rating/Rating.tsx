@@ -9,23 +9,23 @@ const Rating = ({ testimonial }) => {
   const arr = ["", "", "", "", ""];
 
   const starsClutch = [
-    ...arr.map((_, index) =>
-      parseInt(clutch?.rate) > index ? (
+    ...arr.map((_, index) =>  {
+      return Math.ceil(clutch?.rate)  > index ? (
         <img key={uuidv4()} src="/star1.svg" width="17" height="16" alt="" />
       ) : (
         <img key={uuidv4()} src="/star2.svg" width="17" height="16" alt="" />
       )
-    ),
+    }),
   ];
 
   const starsUpwork = [
-    ...arr.map((_, index) =>
-      parseInt(upwork?.rate) > index ? (
+    ...arr.map((_, index) =>  {
+          return Math.ceil(upwork?.rate) > index ? (
         <img key={uuidv4()} src="/star1.svg" width="17" height="16" alt="" />
       ) : (
         <img key={uuidv4()} src="/star2.svg" width="17" height="16" alt="" />
       )
-    ),
+    }),
   ];
 
   const doublePlatforms = testimonial?.platforms?.length === 2;
