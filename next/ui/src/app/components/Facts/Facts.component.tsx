@@ -2,8 +2,6 @@ import React from "react";
 
 import * as Styled from "./Facts.styles";
 
-import { addLineBreaks } from "helpers/addLineBreaks";
-
 const Facts = ({ fact, number }) => (
   <Styled.Container>
     <Styled.Header>
@@ -11,7 +9,9 @@ const Facts = ({ fact, number }) => (
       <img src={fact.iconUrl} alt="fact_image" width="30" />
     </Styled.Header>
     <Styled.Title>{fact.title}</Styled.Title>
-    <Styled.Text>{fact?.text && addLineBreaks(fact.text)}</Styled.Text>
+    <Styled.Text>
+      <div dangerouslySetInnerHTML={{ __html: fact.text}} /> 
+    </Styled.Text>
   </Styled.Container>
 );
 
