@@ -165,11 +165,12 @@ export const TestimonialContainer = styled("div")`
     font-size: 14px;
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1023.5px) {
     align-items: center;
     text-align: center;
     & .testimonials__text {
       opacity: 0.5;
+      font-size: 18px;
     }
   }
 `;
@@ -196,6 +197,5 @@ export const TestimonialPosition = styled("p")`
   margin: 0;
   margin-bottom: 22px;
   padding: 2px 8px;
-  border-radius: 5px;
   color: ${(props) => props.theme.colors.mainBgColor};
 `;
