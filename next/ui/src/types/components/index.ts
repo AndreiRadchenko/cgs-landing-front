@@ -166,13 +166,13 @@ export interface IFeaturedTechnology {
 }
 
 export interface IBlogArticle {
-  id?: string;
-  content?: string;
+  id: string;
+  content: string;
   title: string;
-  author?: string;
+  author: string;
   imageFileUrl?: string;
-  tags?: IBlogArticleTag[];
-  createdAt?: string;
+  tags: IBlogArticleTag[];
+  createdAt: string;
 }
 
 export interface IBlogArticleTag {
