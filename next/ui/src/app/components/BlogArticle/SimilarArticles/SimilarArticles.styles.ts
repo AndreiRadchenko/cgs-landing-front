@@ -38,15 +38,6 @@ export const SimilarArticle = styled("li")`
     line-height: 30px;
   }
 
-  @media screen and (max-width: 1024px) {
-    width: 100%;
-    text-align: center;
-
-    & p {
-      display: none;
-    }
-  }
-
   & img {
     width: 100%;
     display: block;
@@ -75,7 +66,17 @@ export const SimilarArticle = styled("li")`
     line-height: 1.67;
     text-align: center;
   }
-  & .LinesEllipsis {
-    display: none;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    text-align: center;
+
+    & p {
+      display: none;
+    }
+
+    & .LinesEllipsis {
+      display: none;
+    }
   }
 `;
