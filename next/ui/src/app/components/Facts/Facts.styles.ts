@@ -44,8 +44,8 @@ export const Text = styled("div")`
   text-align: justify;
 
   @media screen and (max-width: 1023.5px) {
-    /* opacity: 0.5; */
     padding-left: 30px;
     padding-right: 30px;
+    opacity: 0.5;
   }
 `;
