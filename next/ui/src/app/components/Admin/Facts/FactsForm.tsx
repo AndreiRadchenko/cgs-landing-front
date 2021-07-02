@@ -4,6 +4,10 @@ import Images from "../Images/Images";
 import { IFact } from "../types";
 import * as Styled from "../Form.styles";
 import { slides } from "app/img";
+import { Button } from "app/components/shared/LinkButton/Button.style";
+
+import TextEditor from "../TextEditor/TextEditor";
+
 
 const FactsForm: React.FC<{
   fact?: IFact | undefined;
@@ -15,6 +19,7 @@ const FactsForm: React.FC<{
     fact?.showOnHomePage || false
   );
   const [iconFileId, setIconFileId] = useState(fact?.iconFile?.id || "");
+  const [editContent, setEditContent] = useState(false)  
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -37,6 +42,15 @@ const FactsForm: React.FC<{
 
   return (
     <Styled.Wrapper>
+
+      {editContent ? (
+        <TextEditor
+          content={text}
+          setArticleContent={setText}
+          setIsEditorOpen={setEditContent}
+        />
+      ) : 
+
       <Styled.Form onSubmit={handleSubmit}>
         {fact ? <h2>Edit Fact</h2> : <h2>Create new fact</h2>}
         <Styled.Label>
@@ -59,7 +73,13 @@ const FactsForm: React.FC<{
           </Styled.AdminTextAreaWrapper>
         </Styled.Label>
         <Styled.Label>
-          <span>Show on page:</span>
+            <span>Content:</span>
+            <Button type="button" onClick={() => setEditContent(true)}>
+              Edit content
+          </Button>
+          </Styled.Label>
+        <Styled.Label>
+          <span>Show on page:</span>          
           <Styled.SingleCheckboxContainer>
             <Styled.CheckboxLabel position="static">
               <input
@@ -93,6 +113,7 @@ const FactsForm: React.FC<{
           </Styled.Button>
         </Styled.ButtonWrapper>
       </Styled.Form>
+      }
     </Styled.Wrapper>
   );
 };

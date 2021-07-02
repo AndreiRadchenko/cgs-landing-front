@@ -46,12 +46,14 @@ export const ArticleWrapper = styled("div")`
     width: 338px;
     height: 200px;
     object-fit: cover;
-    @media screen and (max-width: 1024px) {
+    border-radius: 16px;
+    @media screen and (max-width: 1023.5px) {
       margin: 0 auto;
       width: 90%;
       height: auto;
       margin-bottom: 13px;
       max-width: 720px;
+      border-radius: 16px;
     }
 
     @media screen and (max-width: 768px) {
@@ -140,11 +142,13 @@ export const FeaturedArticle = styled("div")`
     width: 100%;
     display: inline-block;
     margin-bottom: 15px;
-    @media screen and (max-width: 1024px) {
+    border-radius: 16px;
+    @media screen and (max-width: 1023.5px) {
       margin: 0 auto;
       width: 90%;
       height: auto;
       margin-bottom: 13px;
+      border-radius: 16px;
     }
   }
 
@@ -217,6 +221,9 @@ export const TagList = styled("ul")`
   font-size: 18px;
   font-weight: 300;
   padding: 0 3em; 
+  @media screen and (max-width: 470px) {
+      margin-top: 15px;    
+    }
 
   & li {
     padding: 3px 15px;
@@ -250,8 +257,9 @@ export const HorizontalSep = styled("div")`
   background: #0c1033;
   border-radius: 5px;
   margin: 27px auto 0;
-
-  div:last-child > a > & {
+    
+  @media screen and (max-width: 470px) {
+    margin-bottom: 15px;
   }
 `;
 

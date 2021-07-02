@@ -25,7 +25,7 @@ export const Wrapper = styled("article")`
     margin-bottom: 60px;
     max-width: 870px;
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       margin-bottom: 19px;
     }
  }
@@ -49,7 +49,8 @@ export const Title = styled("h2")`
     line-height: 56px;    
   }
   @media screen and (max-width: 375px) {
-    font-size: 23px;     
+    font-size: 23px;
+    padding: 0px 10px;
   }
 `;
 

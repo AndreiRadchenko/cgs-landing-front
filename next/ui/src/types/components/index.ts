@@ -43,6 +43,7 @@ export interface IArticle {
   desc?: any;
   title: string;
   children: React.ReactNode;
+  page?: string;
 }
 
 export interface IHome {

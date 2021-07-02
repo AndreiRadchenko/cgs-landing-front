@@ -60,6 +60,7 @@ export const ShortDescription = styled("div")`
   font-size: 17px;
   font-weight: 400;
   line-height: 24px;
+  opacity: 0.5;
 
   @media screen and (max-width: 1023.5px) {
     display: none;
@@ -69,7 +70,7 @@ export const ShortDescription = styled("div")`
 export const FullDescription = styled("p")`
   font-size: 18px;
   font-weight: 400;
-  text-align: justify;
+  text-align: left;
   line-height: 24px;
 
   @media screen and (max-width: 1023.5px) {
@@ -77,6 +78,7 @@ export const FullDescription = styled("p")`
     font-weight: 300;
     line-height: 32px;
     min-height: 100px;
+    opacity: 0.5;
   }
 `;
 
@@ -102,8 +104,8 @@ export const Header = styled("div")`
 export const InfoContainer = styled("div")`
   display: flex;
   flex-direction: column;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
 
   & > ${Header} {
     margin-bottom: 8px;
