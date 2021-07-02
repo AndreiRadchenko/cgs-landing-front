@@ -1,39 +1,30 @@
 import Link from "next/link";
-import { IBlogArticle } from "../../../../types/components";
+import sanitize from "sanitize-html";
+import { SimilarArticlesProps } from "types/components";
+import { Ellipsis } from "../../shared/Ellipsis/Ellipsis";
 import * as Styled from "./SimilarArticles.styles";
-import HTMLEllipsis from "react-lines-ellipsis";
-import { SimilarArticlesProps } from "../../../../types/components/index";
-import he from "he"
 
-const SimilarArticles: React.FC<SimilarArticlesProps> = ({
-  similarArticles,
-}) => (
+const SimilarArticles: React.FC<SimilarArticlesProps> = ({ similarArticles }) => (
   <Styled.Wrapper>
     <ul>
-      {similarArticles?.map((article, index) => {
-        if (index < 2) {
-          return (
-            <Styled.SimilarArticle>
-              <Link
-                href={`/blog/[id]`}
-                as={`/blog/${article?.id}`}
-                key={article?.id}
-              >
-                <div>
-                  <img src={article?.imageFileUrl} alt={article?.title} />
-                  <h2>{article?.title}</h2>
-                  <HTMLEllipsis
-                    // unsafeHTML={article?.content}
-                    text={he.decode(article?.content.replace(/<\/?[^>]+(>|$)/g, "")) }
-                    maxLine="2"
-                    ellipsis="..."
-                    basedOn="words"
-                  />
-                </div>
-              </Link>
-            </Styled.SimilarArticle>
-          );
-        }
+      {similarArticles.slice(0, 2).map((article) => {
+        return (
+          <Styled.SimilarArticle key={article.id}>
+            <Link
+              href={`/blog/[id]`}
+              as={`/blog/${article.id}`}
+            >
+              <div>
+                <img src={article.imageFileUrl} alt={article.title} />
+                <h2>{article.title}</h2>
+                <Ellipsis
+                  text={sanitize(article.content, { allowedTags: [] })}
+                  maxLines={2}
+                />
+              </div>
+            </Link>
+          </Styled.SimilarArticle>
+        );
       })}
     </ul>
   </Styled.Wrapper>
