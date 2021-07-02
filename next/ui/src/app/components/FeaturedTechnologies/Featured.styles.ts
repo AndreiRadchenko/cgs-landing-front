@@ -129,7 +129,7 @@ export const ImageContainer = styled.div`
     min-height: 210px;
     border-radius: 16px;
   }
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1023.5px) {
     border-radius: 16px;
   }
 `;
