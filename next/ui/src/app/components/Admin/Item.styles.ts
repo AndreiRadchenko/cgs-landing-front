@@ -59,7 +59,7 @@ export const ListItem = styled("li")`
     list-style: none;  
   }
   & > img {
-    height: 120px;
+    height: 90px;
     width: auto;
   }
   & > span::first-letter {
