@@ -8,7 +8,11 @@ const Article: React.FC<IArticle> = (props) => (
   <Styled.Wrapper id={props?.id}>
     <Styled.Title>{props?.title}</Styled.Title>
     <Styled.HorizontalSep />
-    {props?.desc && <Styled.SubTitle>{addLineBreaks(props.desc)}</Styled.SubTitle>}
+    {props?.desc && (
+      <Styled.SubTitle>
+        {typeof props.desc === "string" ? addLineBreaks(props.desc) : props.desc}
+      </Styled.SubTitle>
+    )}
     {props?.children}
   </Styled.Wrapper>
 );
