@@ -307,7 +307,6 @@ export const SliderDescription = styled("p")`
     font-size: 16px;
   }
 
-
   @media screen and (max-width: 1024px) {
     opacity: 0.5;
     font-size: 14px;
@@ -401,8 +400,5 @@ export const ReferenceWrapper = styled.div`
 
 export const ContentWrapper = styled.div``;
 
-export const TechnologiesContainer = styled.div`
-  /* margin-bottom: auto;
-  margin-top: auto; */
-`;
+export const TechnologiesContainer = styled.div``;
 
