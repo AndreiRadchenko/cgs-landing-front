@@ -181,10 +181,13 @@ export const DescContainer = styled("div")`
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-    }
+    }    
     & li:not(:last-child) {
       margin-right: 10px;
     }
+  }
+  @media screen and (max-width: 320px) {
+    width: 235px
   }
 `;
 

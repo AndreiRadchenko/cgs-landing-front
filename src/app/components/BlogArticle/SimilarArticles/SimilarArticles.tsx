@@ -1,39 +1,32 @@
-// GIT
+import { Fragment } from "react";
 import Link from "next/link";
+import sanitize from "sanitize-html";
+import { SimilarArticlesProps } from "types/components";
+import { Ellipsis } from "../../shared/Ellipsis/Ellipsis";
 import * as Styled from "./SimilarArticles.styles";
-import LinesEllipsis from "react-lines-ellipsis"
-import responsiveHOC from "react-lines-ellipsis/lib/responsiveHOC"
-import { SimilarArticlesProps } from "../../../../types/components/index";
-import he from "he"
 
-const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
-
-const SimilarArticles: React.FC<SimilarArticlesProps> = ({
-  similarArticles,
-}) => (
+const SimilarArticles: React.FC<SimilarArticlesProps> = ({ similarArticles }) => (
   <Styled.Wrapper>
     <ul>
-      {similarArticles.slice(0, 2).map((article) => {
+      {similarArticles.slice(0, 2).map((article, index, articles) => {
+        const isLast = articles[index + 1] === undefined;
+
         return (
-          <Styled.SimilarArticle key={article.id}>
-            <Link
-              href={`/blog/[id]`}
-              as={`/blog/${article?.id}`}
-            >
-              <div>
-                <img src={article?.imageFileUrl} alt={article?.title} />
-                <h2>{article?.title}</h2>
-                {article?.content && (
-                  <ResponsiveEllipsis
-                    text={he.decode(article?.content.replace(/<\/?[^>]+(>|$)/g, "")) }
-                    maxLine="2"
-                    ellipsis="..."
-                    basedOn="words"
+          <Fragment key={article.id}>
+            <Styled.SimilarArticle>
+              <Link href={`/blog/[id]`} as={`/blog/${article.id}`}>
+                <div>
+                  <img src={article.imageFileUrl} alt={article.title} />
+                  <h2>{article.title}</h2>
+                  <Ellipsis
+                    text={sanitize(article.content, { allowedTags: [] })}
+                    maxLines={2}
                   />
-                )}
-              </div>
-            </Link>
-          </Styled.SimilarArticle>
+                </div>
+              </Link>
+            </Styled.SimilarArticle>
+            {!isLast && <Styled.HorizontalSep />}
+          </Fragment>
         );
       })}
     </ul>

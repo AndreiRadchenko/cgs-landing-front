@@ -1,4 +1,3 @@
-// GIT
 import React from "react";
 import ReactCountryFlag from "react-country-flag";
 import * as Style from "./slide.styled";

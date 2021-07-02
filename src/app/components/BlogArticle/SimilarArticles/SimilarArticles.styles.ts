@@ -38,35 +38,21 @@ export const SimilarArticle = styled("li")`
     line-height: 30px;
   }
 
-  @media screen and (max-width: 1024px) {
-    width: 100%;
-    text-align: center;
-
-    & p {
-      display: none;
-    }
-  }
-
   & img {
     width: 100%;
     display: block;
     object-fit: contain;
     display: inline-block;
-
     margin-bottom: 35px;
-    @media screen and (max-width: 1024px) {
-      margin-bottom: 35px;
-    }
-
+    border-radius: 16px;
     @media (max-width: 1024px) {
       height: auto;
     }
   }
   & h2 {
-    margin: 0 0 55px;
+    margin: 0 0 30px;
     font-size: 22px;
     text-align: center;
-    font-size: 22px;
     display: block;
     height: 50px;
   }
@@ -76,13 +62,33 @@ export const SimilarArticle = styled("li")`
     text-align: center;
   }
 
-  // GIT
-  @media screen and (max-width: 1023.5px) {
-    margin-bottom: 35px;
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    text-align: center;
+
+    & p {
+      display: none;
+    }
 
     & .LinesEllipsis {
       display: none;
     }
   }
-  // GIT
+`;
+
+export const HorizontalSep = styled("li")`
+   pointer-events: none;
+   
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
+  width: 55px;
+  height: 3px;
+  background: #0c1033;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  
+  @media screen and (max-width: 470px) {
+    margin-bottom: 15px;
+  }
 `;

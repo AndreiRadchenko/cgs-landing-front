@@ -65,6 +65,7 @@ export const ContentBlock = styled("article")`
   & > p {
     opacity: 0.5;
     margin: 1em 0;
+    font-weight: 700;
     @media screen and (max-width: 650px) {
       margin: 1em 0;
     }
