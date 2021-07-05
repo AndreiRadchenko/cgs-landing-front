@@ -11,10 +11,12 @@ const Facts: React.FC<{
     <Styled.Item>
       <Styled.List>
         <Styled.ListItem>
-          <span>Title:</span> <span>{fact?.title}</span>
+          <span>Title:</span>
+          <span>{fact?.title}</span>
         </Styled.ListItem>
         <Styled.ListItem>
-          <span>Text:</span> <span>{fact?.text}</span>
+          <span>Text:</span>
+          <div dangerouslySetInnerHTML={{ __html: fact.text}} />          
         </Styled.ListItem>
         <Styled.ListItem>
           <span>Show:</span>

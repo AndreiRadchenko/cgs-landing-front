@@ -51,18 +51,12 @@ export const ArticleWrapper = styled("div")`
       margin: 25px 0 0 0px;
       margin-bottom: 25px;
     }
-    & p div p {
-      @media screen and (max-width: 414px) {    
-        /* width: calc(100% - 70px) !important; */
-        /* background-color: red; */
-      }
-    }   
   }
 
   & .article__author,
   .article__date {
     font-size: 21px;
-    font-weight: 300;%
+    font-weight: 300;
     line-height: 32px;
     margin: 0;
     opacity: 0.5;
@@ -70,15 +64,7 @@ export const ArticleWrapper = styled("div")`
       display: none;
     }
   } 
-
-  /* & p {
-    @media screen and (max-width: 414px) {   
-      display: block; 
-      width: calc(100% - 70px) !important;    
-    }
-  } */
 `;
-
 export const Content = styled("p")`
   margin: 0;
   font-size: 18px;
@@ -88,6 +74,7 @@ export const Content = styled("p")`
   color: ${(props) => props.theme.colors.greyText};
   & p {
     font-size: 18px;
+    color: #333;
   }
   @media screen and (max-width: 1024px) {
     font-size: 18px;
