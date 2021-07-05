@@ -21,7 +21,7 @@ const SliderTestimonials: React.FC<{ testimonials: ITestimonial[] }> = ({
       onChangeSlideEA({ sliderName: "Portfolio", slide: current }),
     responsive: [
       {
-        breakpoint: 1149,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 1,
         },
@@ -32,12 +32,12 @@ const SliderTestimonials: React.FC<{ testimonials: ITestimonial[] }> = ({
 
   return (
     <Styled.SliderContainer>
-      <Slider {...settings}>
-        {testimonials &&
-          testimonials?.map((el) => (
-            <Testimonials key={el.id} testimonial={el} />
-          ))}
-      </Slider>
+        <Slider {...settings}>
+          {testimonials &&
+            testimonials?.map((el) => (
+              <Testimonials key={el.id} testimonial={el} />
+            ))}
+        </Slider>
     </Styled.SliderContainer>
   );
 };
