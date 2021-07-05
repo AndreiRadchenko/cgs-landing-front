@@ -71,9 +71,6 @@ export const SliderContainer = styled.div`
     display: flex;
     justify-content: space-between;
     min-height: 388px;
-    @media (min-width: 1025px) {
-      padding: 0 40px;
-    }
   }
 
   & .slick-slide {

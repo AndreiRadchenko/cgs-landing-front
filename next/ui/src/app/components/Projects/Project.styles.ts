@@ -139,7 +139,6 @@ export const TechnologiesWrapper = styled("div")`
   flex-wrap: wrap;
   margin-top: 20px;
   margin-bottom: 20px;
-  gap: 10px;
 
   @media screen and (max-width: 1023.5px) {
     margin-top: 0;
