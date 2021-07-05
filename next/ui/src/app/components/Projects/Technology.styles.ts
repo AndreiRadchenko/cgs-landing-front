@@ -14,5 +14,6 @@ export const Container = styled("div")`
 
   & > ${Icon} {
     margin-right: 5px;
+    margin-left: 5px;
   }
 `;
