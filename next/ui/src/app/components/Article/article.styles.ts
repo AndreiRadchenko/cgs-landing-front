@@ -48,8 +48,11 @@ export const Title = styled("h2")`
     padding: 0 30px;
     line-height: 56px;    
   }
+  @media screen and (max-width: 378px) {
+    padding: 0px 10px;  
+}
   @media screen and (max-width: 375px) {
-    font-size: 23px;
+    font-size: 22px;
     padding: 0px 10px;
   }
 `;
