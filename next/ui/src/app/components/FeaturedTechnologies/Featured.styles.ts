@@ -75,6 +75,12 @@ export const TextContainer = styled.div`
     opacity: 0.5;
     text-align: justify;
   }
+  @media screen and (max-width: 1023.5px) {
+    & .featured__description {  
+    font-size: 18px;
+  } 
+}
+
   @media screen and (min-width: 1024px) {
     min-width: 520px;
     .slick-slide:nth-child(2n + 1) & {
