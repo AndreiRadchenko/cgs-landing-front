@@ -14,7 +14,7 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
             <img src={article.imageFileUrl} alt={article.title} />
           )}
         </Styled.ImageContainer>
-        <div className="article__content">
+        <Styled.ContentContainer className="article__content"> 
           <Styled.Title>{article.title}</Styled.Title>
           <Ellipsis
             text={sanitize(article.content, { allowedTags: [] })}
@@ -27,7 +27,7 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
               </Styled.ArticleTag>
             ))}
           </Styled.TagList>
-        </div>
+        </Styled.ContentContainer>
         <Styled.HorizontalSep />
       </a>
     </Link>
