@@ -69,20 +69,30 @@ export const ArticleWrapper = styled("div")`
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    & .LinesEllipsis {
+    justify-content: space-between; 
+    & .LinesEllipsis  {
+      font-size: 18px;
+      line-height: 30px;      
+    }
+
+    @media screen and (max-width: 1023.5px) {
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      & .LinesEllipsis  {
       font-size: 18px;
       line-height: 30px;     
     }
-
-    @media screen and (max-width: 1024px) {
-      width: 79%;
+  }
+    @media screen and (max-width: 765px and max-width: 765px) {
       margin: 0 auto;
     }
-    @media screen and (max-width: 765px) {
-      width: 90%;
-      margin: 0 auto;
+    @media screen and (min-device-width: 765px) and (max-device-width: 1023.5px) { 
+      & .article__content,.LinesEllipsis {
+        width: 79%;
+      }
     }
+}
   }
   & h2 {
     text-align: left;
@@ -230,6 +240,11 @@ export const TagList = styled("ul")`
     border-radius: 5px;
     color: #fff;
     margin-bottom: 10px;
+    margin-top: 20px;
+    @media screen and (max-width: 1023.5px) {
+      margin-top: 0px;
+    }
+
     @media (max-width: 420px) {
       font-size: 14px;
     }
@@ -275,3 +290,23 @@ export const ImageContainer = styled("div")`
     }
   }
 `;
+
+export const ContentContainer = styled("div")`
+ & .LinesEllipsis  {
+    font-size: 18px;
+    line-height: 30px;
+      
+  @media screen and (max-width: 1023.5px) {
+    width: 90%;
+    margin: 0 auto;
+    
+  }
+}
+
+  @media screen and (max-width: 470px) {
+      & .LinesEllipsis, .LinesEllipsis--clamped {
+      text-align: center;
+    }
+  }  
+ `
+
