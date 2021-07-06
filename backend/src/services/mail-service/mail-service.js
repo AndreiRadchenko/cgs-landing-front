@@ -32,9 +32,11 @@ class MailService {
       this[kVerifyPromise] = this.transporter.verify();
     }
 
-    await this[kVerifyPromise];
-
-    delete this[kVerifyPromise];
+    try {
+      await this[kVerifyPromise];
+    } finally {
+      delete this[kVerifyPromise];
+    }
 
     this.connected = true;
   }
