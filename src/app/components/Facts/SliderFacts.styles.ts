@@ -10,6 +10,8 @@ export const DesktopContainer = styled("div")`
 `;
 
 export const MobileContainer = styled("div")`
+  display: flex;
+  justify-content: center;
   width: inherit;
   height: inherit;
 `;
