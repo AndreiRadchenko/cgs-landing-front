@@ -18,7 +18,6 @@ export const Container = styled("div")`
 `;
 
 export const SlideContainer = styled("div")`
-  /* width: 90%; */
   margin-left: auto;
   margin-right: auto;
 `;
