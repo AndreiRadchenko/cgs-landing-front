@@ -8,7 +8,7 @@ export const Wrapper = styled("div")`
     width: 100%;
     padding: 0 55px;
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     width: 100%;
     padding: 0 24px;
     & div:nth-of-type(4) a div:nth-of-type(3) {
@@ -21,7 +21,7 @@ export const ArticleWrapper = styled("div")`
   width: 100%;
   &:not(:last-child) {
     margin-bottom: 60px;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       margin-bottom: 77px;
       padding-top: 30px;
     }
@@ -36,8 +36,9 @@ export const ArticleWrapper = styled("div")`
     justify-content: space-between;
     padding: 3px 8px;
     margin: 0;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       flex-direction: column;
+      margin-left: 20px;
     }
   }
 
@@ -96,7 +97,7 @@ export const ArticleWrapper = styled("div")`
   }
   & h2 {
     text-align: left;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       text-align: center;
       margin-bottom: 13px;
       font-size: 22px;
@@ -107,7 +108,7 @@ export const ArticleWrapper = styled("div")`
     text-align: left;
     padding: 0;
     margin: 0;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       text-align: center;
     }
   }
@@ -115,7 +116,7 @@ export const ArticleWrapper = styled("div")`
   & ul {
     justify-content: flex-start;
     padding: 0;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       justify-content: center;
     }
   }
@@ -126,7 +127,7 @@ export const FeaturedArticle = styled("div")`
   align-self: center;
   margin-bottom: 60px;
   text-align: center;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     width: 100%;
     margin-top: 55px;
     margin-bottom: 77px;
@@ -143,7 +144,7 @@ export const FeaturedArticle = styled("div")`
     justify-content: center;
     padding: 1em 0;
     margin: 0;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       position: relative;
       padding: 0 0;
     }
@@ -166,7 +167,7 @@ export const FeaturedArticle = styled("div")`
     margin-bottom: 15px;
       font-size: 24px;
       line-height: 54px;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       text-align: center;
       margin-bottom: 13px;
       padding: 0 8vw;
@@ -179,7 +180,7 @@ export const FeaturedArticle = styled("div")`
     margin-bottom: 1.72em;
     font-size: 18px;
     line-height: 32px;    
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       padding: 0 8vw;
       font-size: 18px;
       line-height: 32px;
@@ -199,7 +200,7 @@ export const Title = styled("h2")`
   text-align: center;
 
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     font-size: 18px;
   }
   @media screen and (max-width: 420px) {
@@ -213,7 +214,7 @@ export const Content = styled("p")`
   font-size: 18px;
   font-weight: 400;
   padding: 0 3em;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     font-size: 18px;
     opacity: 0.5;
   }
@@ -240,7 +241,7 @@ export const TagList = styled("ul")`
     border-radius: 5px;
     color: #fff;
     margin-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 15px;
     @media screen and (max-width: 1023.5px) {
       margin-top: 0px;
     }
@@ -252,7 +253,7 @@ export const TagList = styled("ul")`
   & li:not(:last-child) {
     margin-right: 18px;
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     position: absolute;
     top: -10px;
     left: 50%;
@@ -264,7 +265,7 @@ export const TagList = styled("ul")`
 
 export const HorizontalSep = styled("div")`
   pointer-events: none;
-  @media screen and (min-width: 1025px) {
+  @media screen and (min-width: 1023.5px) {
     display: none;
   }
   width: 55px;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled("div")`
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     & article:first-child h2 + div {
       display: none;
     }
@@ -32,7 +32,7 @@ export const ArticleWrapper = styled("div")`
   & img {
     width: 100% !important; 
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     padding: 0 32px 30px;
   }
 
@@ -47,7 +47,7 @@ export const ArticleWrapper = styled("div")`
     display: inline-block;
     margin: 25px 0 25px;
     object-fit: cover;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       margin: 25px 0 0 0px;
       margin-bottom: 25px;
     }
@@ -60,7 +60,7 @@ export const ArticleWrapper = styled("div")`
     line-height: 32px;
     margin: 0;
     opacity: 0.5;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       display: none;
     }
   } 
@@ -76,7 +76,12 @@ export const Content = styled("p")`
     font-size: 18px;
     color: #333;
   }
-  @media screen and (max-width: 1024px) {
+
+  & a {
+    color: #1F5A7B;
+  }
+
+  @media screen and (max-width: 1023.5px) {
     font-size: 18px;
   }
   @media screen and (max-width: 414px) {
@@ -86,7 +91,7 @@ export const Content = styled("p")`
 
 export const TagList = styled("ul")`
   width: 100%;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1023.5px) {
     display: none;
   }
   display: flex;
