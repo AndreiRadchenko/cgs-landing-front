@@ -31,6 +31,7 @@ export const ArticleWrapper = styled("div")`
   margin: 0;
   & img {
     width: 100% !important; 
+    border-radius: 16px;
   }
   @media screen and (max-width: 1024px) {
     padding: 0 32px 30px;
