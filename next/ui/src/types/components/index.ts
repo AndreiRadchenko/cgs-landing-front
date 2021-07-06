@@ -188,6 +188,7 @@ export interface TechnoImageParams {
 export interface LayoutProps {
   children: any;
   title?: string;
+  description?: string;
 }
 
 export interface SimilarArticlesProps {
