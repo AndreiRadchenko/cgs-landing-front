@@ -10,7 +10,6 @@ export const sendFeedback =  async (value) => {
     try {
         const {data} =  await axios.post("/home/send-feedback", value)
         const response = data.response
-        console.log(response)
         return  response
     } catch (error) {
         console.log("error", { error });
