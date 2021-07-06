@@ -35,11 +35,6 @@ export const SliderNext = styled(Arrow)`
   right: 5% !important;
 `;
 
-
-
-
-
-
 export const Dots = styled("img")`
   width: 80px;
   height: 100px;
@@ -128,13 +123,13 @@ export const DescContainer = styled("div")`
       font-size: 24px;
     }
   }
-  @media screen and (min-width: 1024px) and (max-width: 1060px) {
+  @media screen and (min-width: 1023.5px) and (max-width: 1060px) {
     & h2 {
       font-size: 32px;
     }
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1023.5px) {
     .slick-slide:nth-child(1) & {
       margin-left: 15px;
     }
@@ -203,7 +198,7 @@ export const HorizontalSep = styled("div")`
 `;
 
 export const TechnoImage = styled("img")<TechnoImageParams>`
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1023.5px) {
     padding-top: ${(props) => (props.isFirst ? "30px" : "140px")};
   }
   @media screen and (max-width: 1023.5px) {
@@ -221,7 +216,7 @@ export const SliderContainer = styled.div`
   width: 100%;
   height: 100%; 
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1023.5px) {
 
      & .slick-track {
       flex-wrap: wrap;
@@ -246,9 +241,15 @@ export const SliderContainer = styled.div`
      }
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1023.5px) {
       & .slick-next, .slick-prev {
       z-index: 2;
+    }
+    & .slick-next {
+      right: 5%;
+    }
+    & .slick-prev {
+      left: 5%;
     }
   }
   
