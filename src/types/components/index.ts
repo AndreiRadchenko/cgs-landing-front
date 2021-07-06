@@ -203,10 +203,10 @@ export interface PropsPagination {
   active?: boolean;
 }
 export interface PropsSlider {
-  left?: number;
-  right?: number;
+  left: number;
   top: number;
   forWorks?: boolean;
+  right: number;
 }
 
 export interface PropsButton {

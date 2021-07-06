@@ -6,8 +6,6 @@ html {
   box-sizing: border-box;
   font-family: Mulish;
   scroll-behavior: smooth;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
 }
 
 *,
@@ -55,7 +53,9 @@ textarea {
 }
 
 @media screen and (max-width: 600px) {
-  header, footer {
+  header,
+  footer,
+   {
     padding: 1em 1em !important;
   }
 }

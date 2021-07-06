@@ -12,13 +12,12 @@ export const NextArrow = styled(SampleNextArrow)`
 
 export const Container = styled("div")`
   display: flex;
-  width: 90%;
+  width: 100%;
   height: inherit;
   align-items: center;
 `;
 
 export const SlideContainer = styled("div")`
-  width: 90%;
   margin-left: auto;
   margin-right: auto;
 `;
