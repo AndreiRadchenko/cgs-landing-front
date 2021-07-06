@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle<{ activeMenu: boolean }>`
 `;
 
 export const BurgerMenu = styled("div")`
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1023.5px) {
     width: calc(100% - 110px);
   }
 
@@ -18,7 +18,7 @@ export const BurgerMenu = styled("div")`
     & > div.drop-down.show-sub-menu {
       width: 100vw;
       height: calc(100vh - 102px);
-      text-align: right;
+      text-align: right;    
     }
     width: auto;
   }
@@ -26,7 +26,7 @@ export const BurgerMenu = styled("div")`
 
 export const MenuContainer = styled("div")`
   cursor: pointer;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1023.5px) {
     display: none;
   }
 `;
@@ -69,7 +69,7 @@ export const DropBoxContainer = styled("div")`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  @media (min-width: 1024px) {
+  @media (min-width: 1023.5px) {
     display: none;
   }
 `;
@@ -98,7 +98,7 @@ export const DropBoxFooter = styled("div")`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  @media (min-width: 1024px) {
+  @media (min-width: 1023.5px) {
     flex-direction: row;
     min-height: 120px;
     justify-content: space-between;
@@ -114,7 +114,7 @@ export const DropBoxFooterText = styled("p")`
 
 export const LgMenu = styled("div")`
   display: none;
-  @media (min-width: 1024px) {
+  @media (min-width: 1023.5px) {
     display: flex;
     width: 100%;
     justify-content: flex-end;
