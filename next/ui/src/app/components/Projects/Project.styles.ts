@@ -138,13 +138,7 @@ export const TechnologiesWrapper = styled("div")`
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
-  justify-content: space-between;
   flex-wrap: wrap;
-  
-  @media screen and (max-width: 1330px) {
-    max-width: 250px;
-    justify-content: flex-start;
-  }
 
   @media screen and (max-width: 1023.5px) {
     margin-top: 0;
