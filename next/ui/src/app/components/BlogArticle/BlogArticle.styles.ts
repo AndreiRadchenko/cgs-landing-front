@@ -287,6 +287,7 @@ export const ImageContainer = styled("div")`
     & > img {
       width: 100%;
       object-fit: cover;
+      border-radius: 16px;
     }
   }
 `;
