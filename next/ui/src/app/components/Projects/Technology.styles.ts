@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const Icon = styled("img")`
-  max-height: 40px;
   width: 32.42px;
+  max-height: 40px;
 `;
+
 export const Name = styled("span")`
   font-size: 16px;
   font-weight: 400;

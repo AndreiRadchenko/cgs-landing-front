@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperCore } from "swiper/core";
 
+import { slides } from "../../../app/img";
+
 import { IProject } from "types/components";
 
 import { Project } from "./Project";
@@ -27,12 +29,15 @@ export const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ projects }) => {
 
   return (
     <Styled.Container>
-      <Styled.PrevArrow onClick={onPrevSlide} />
+      <div onClick={onPrevSlide} style={{ paddingRight: '20px' }}>
+        <img src={slides.LeftVector} alt="prev" />
+      </div>
       <Swiper
-        style={{ width: '85%' }}
         loop={true}
         slidesPerView={1}
         onSwiper={setSwiper}
+        preloadImages={false}
+        lazy={true}
       >
         {projects.map((project) => (
           <SwiperSlide key={project.id}>
@@ -42,7 +47,9 @@ export const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ projects }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Styled.NextArrow onClick={onNextSlide} />
+      <div onClick={onNextSlide} style={{ paddingLeft: '20px' }}>
+        <img src={slides.RightVector} alt="next" />
+      </div>
     </Styled.Container>
   );
 };
