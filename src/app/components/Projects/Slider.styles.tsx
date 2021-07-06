@@ -15,6 +15,10 @@ export const Container = styled("div")`
   width: 90%;
   height: inherit;
   align-items: center;
+
+  .swiper-slide {
+    width: 100% !important;
+  }
 `;
 
 export const SlideContainer = styled("div")`
