@@ -24,7 +24,7 @@ export const SlideContainer = styled.div`
     align-items: center;
     padding-top: 40px;
     font-size: 30px;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       font-size: 25px;
       padding: 0;
     }
@@ -38,7 +38,7 @@ export const SlideContainer = styled.div`
     width: 100%;
     display: flex;
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
@@ -50,7 +50,7 @@ export const SlideContainer = styled.div`
     width: 50%;
     height: 100%;
     margin-right: 2px;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       width: 100%;
       margin-bottom: 1.5em;
       height: auto;
@@ -62,7 +62,7 @@ export const SlideContainer = styled.div`
       justify-content: flex-end;
       align-items: center;
       margin-right: 20px;
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 1023.5px) {
         width: auto;
         margin-left: 1.5em;
         margin-right: 15px;
@@ -73,7 +73,7 @@ export const SlideContainer = styled.div`
         object-fit: cover;
         width: 142px;
         height: 142px;
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: 1023.5px) {
           width: 110px;
           height: 110px;
         }
@@ -134,7 +134,7 @@ export const SlideContainer = styled.div`
   & .description {
     display: flex;
     width: 50%;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       width: 100%;
       margin-bottom: 40px;
       display: flex;
@@ -149,7 +149,7 @@ export const SlideContainer = styled.div`
       font-size: 20px;
       color: gray;
       margin-left: 25px;
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 1023.5px) {
         font-size: 16px;
       }
       @media screen and (max-width: 760px) {
@@ -219,7 +219,7 @@ export const SliderHeaderTitle = styled("p")`
   }
   margin: 0;
   margin-right: 20px;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     font-size: 24px;    
   }
   @media screen and (max-width: 380px) {
@@ -239,7 +239,7 @@ export const SliderHeaderSubtitle = styled("p")`
 
   line-height: 24px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     display: none;
   }
   @media screen and (max-width: 380px) {
@@ -251,7 +251,6 @@ export const SliderHeader = styled("div")`
   display: flex;
   align-items: center;
   text-align: center;
-  /* column-gap: 20px; */
   & .slider-header__country {
     font-size: 18px;
     font-weight: 400;
@@ -259,7 +258,7 @@ export const SliderHeader = styled("div")`
       font-size: 14px;
     }
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     justify-content: center;
     margin-bottom: 15px;
     margin-top: 10px;
@@ -307,7 +306,7 @@ export const SliderDescription = styled("p")`
     font-size: 16px;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     opacity: 0.5;
     font-size: 14px;
     font-weight: 300;
@@ -322,7 +321,7 @@ export const SliderContent = styled("div")`
   flex-direction: column;
   padding: 0 10px;
   justify-content: space-between;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     width: 100%;
     align-items: center;
   }
@@ -332,7 +331,7 @@ export const SliderContent = styled("div")`
     margin-bottom: 30px;
     flex-wrap: wrap;   
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1023.5px) {
       justify-content: center;
       margin: 0 0 10px 0;
     }
@@ -378,7 +377,7 @@ export const SliderPictureContainer = styled("div")`
   width: 62%;
   padding: 0 10px;
   padding-left: 30px;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     width: 100%;
   }
 `;
@@ -389,7 +388,7 @@ export const SliderPicture = styled("img")`
 `;
 
 export const ReferenceWrapper = styled.div`
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     text-align: center;
   }
   & .hidden-link {

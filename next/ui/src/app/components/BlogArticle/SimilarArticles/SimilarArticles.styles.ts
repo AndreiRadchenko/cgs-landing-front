@@ -9,7 +9,7 @@ export const Wrapper = styled("div")`
   justify-content: center;
   padding: 1em 0;
   margin: 0;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     width: 100%;
     padding: 0 32px;
   }
@@ -20,7 +20,7 @@ export const Wrapper = styled("div")`
     display: flex;
     justify-content: space-between;
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023.5px) {
       margin-top: 39px;
       flex-direction: column;
       align-items: center;
@@ -45,7 +45,7 @@ export const SimilarArticle = styled("li")`
     display: inline-block;
     margin-bottom: 35px;
     border-radius: 16px;
-    @media (max-width: 1024px) {
+    @media (max-width: 1023.5px) {
       height: auto;
     }
   }
@@ -62,7 +62,7 @@ export const SimilarArticle = styled("li")`
     text-align: center;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1023.5px) {
     width: 100%;
     text-align: center;
 
@@ -79,7 +79,7 @@ export const SimilarArticle = styled("li")`
 export const HorizontalSep = styled("li")`
    pointer-events: none;
    
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1023.5px) {
     display: none;
   }
   width: 55px;

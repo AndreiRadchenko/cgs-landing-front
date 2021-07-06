@@ -4,11 +4,11 @@ import { SocialList, Nav } from "../../../../src/consts/lists";
 import Head from "next/head";
 import { LayoutProps } from "../../../types/components/index";
 
-const MainLayout: React.FC<LayoutProps> = ({ children, title }) => (
+const MainLayout: React.FC<LayoutProps> = ({ children, title, description}) => (
   <>
     <Head>
       <title>{title}</title>
-      <meta name="description" content="Homepage" />
+      {description && <meta name="description" content={description} />}      
     </Head>
     <Header socialList={SocialList} navigation={Nav} />
     <main>{children}</main>

@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
 
 html {
   box-sizing: border-box;
-  font-family:Mulish;
+  font-family: Mulish;
   scroll-behavior: smooth;
 }
 
@@ -79,7 +79,7 @@ a {
 }
 
 .slick-list {
-  width: 90% !important;
+  width: 80% !important;
   margin: 0 auto !important;
 }
 

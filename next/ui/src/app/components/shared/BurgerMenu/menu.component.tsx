@@ -43,8 +43,8 @@ const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
             </Styled.DropBoxMain>
             <Styled.DropBoxFooter>
               <Styled.DropBoxFooterText>
-                <a href="mailto:sales.codegeneration@gmail.com">
-                  sales.codegeneration@gmail.com
+                <a href="mailto:contact@codegenerationsoftware.com">
+                  contact@codegenerationsoftware.com
                 </a>
               </Styled.DropBoxFooterText>
               <SocialLinks socialList={MobileSocialList} />

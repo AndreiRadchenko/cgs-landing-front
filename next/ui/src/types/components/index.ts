@@ -188,6 +188,7 @@ export interface TechnoImageParams {
 export interface LayoutProps {
   children: any;
   title?: string;
+  description?: string;
 }
 
 export interface SimilarArticlesProps {
@@ -202,8 +203,10 @@ export interface PropsPagination {
   active?: boolean;
 }
 export interface PropsSlider {
+  left: number;
   top: number;
   forWorks?: boolean;
+  right: number;
 }
 
 export interface PropsButton {

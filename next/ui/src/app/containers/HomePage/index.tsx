@@ -18,7 +18,10 @@ export const HomePage = ({ props }) => {
 
   return (
     <>
-      <MainLayout title="Home">
+      <MainLayout 
+        title="Code Generation Software | Landing"
+        description="Let's bring your idea into life together"
+      >
         <div className="main-wraper">
           {props.slogan && <Home id="home" slogan={props.slogan} />}
           {props.projects && (
