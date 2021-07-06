@@ -127,7 +127,7 @@ export const TechnologiesWrapper = styled("div")`
   margin-top: 20px;
   margin-bottom: 20px;
   flex-wrap: wrap;
-  justify-content: space-around;
+  column-gap: 12px;
 
   @media screen and (max-width: 1023.5px) {
     margin-top: 0;
