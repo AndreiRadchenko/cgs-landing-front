@@ -94,7 +94,7 @@ export const TextContainer = styled.div`
       opacity: 1;
     }
     & h2 {
-      margin: 0 0 39px 0;
+      margin: 0 0 25px 0;
     }
   }
 `;
@@ -162,10 +162,16 @@ export const SliderContainer = styled.div`
      }  
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1023.5px) {
       & .slick-next, .slick-prev {
       z-index: 2;
     }
+    /* & .slick-next {
+      right: 1.6%;
+    }
+    & .slick-prev {
+      left: 1.6%;
+    } */
   }
   
   & .slick-slider {

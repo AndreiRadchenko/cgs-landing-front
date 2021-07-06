@@ -67,6 +67,12 @@ export const SliderContainer = styled.div`
   & .slick-next, .slick-prev {
     z-index: 2;
   }
+  & .slick-next {
+      right: 5%;
+    }
+    & .slick-prev {
+      left: 5%;
+    }
   & .slick-track {
     display: flex;
     justify-content: space-between;

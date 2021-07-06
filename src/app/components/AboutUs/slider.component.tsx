@@ -19,7 +19,7 @@ const SliderComponent: React.FC<{ workers: IWorker[] }> = ({ workers }) => {
       onChangeSlideEA({ sliderName: "AboutUs", slide: current }),
     responsive: [
       {
-        breakpoint: 1025,
+        breakpoint: 1023,
         settings: {
           slidesToShow: 1,
           infinite: true,

@@ -21,7 +21,7 @@ const SliderTestimonials: React.FC<{ testimonials: ITestimonial[] }> = ({
       onChangeSlideEA({ sliderName: "Portfolio", slide: current }),
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1023,
         settings: {
           slidesToShow: 1,
         },

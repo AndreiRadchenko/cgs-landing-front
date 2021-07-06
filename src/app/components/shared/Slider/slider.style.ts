@@ -8,6 +8,7 @@ const Arrow = styled.div`
   height: 35px;
   outline: none;
   cursor: pointer;
+  /* right: 1.6% !important; */
 
   @media (max-width: 420px) {
     width: 25px;

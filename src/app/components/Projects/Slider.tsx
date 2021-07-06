@@ -29,6 +29,7 @@ export const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ projects }) => {
     <Styled.Container>
       <Styled.PrevArrow onClick={onPrevSlide} />
       <Swiper
+        style={{ width: '85%' }}
         loop={true}
         slidesPerView={1}
         onSwiper={setSwiper}
