@@ -14,7 +14,8 @@ export const Name = styled("p")`
 `;
 
 export const Image = styled("img")`
-  width: inherit;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 
   @media screen and (max-width: 1023.5px) {
@@ -24,13 +25,6 @@ export const Image = styled("img")`
   @media screen and (max-width: 650px) {
     height: 230px;
   }
-`;
-
-export const ImageContainer = styled("div")`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
 `;
 
 export const Container = styled("div")`
