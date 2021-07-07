@@ -5,7 +5,7 @@ import { Slider } from "../Slider";
 import AboutUs from "./AboutUs.component";
 
 export interface ProjectsSliderProps {
-  workers: IWorker[]
+  workers: IWorker[];
 }
 
 const AboutUsSlider: React.FC<ProjectsSliderProps> = ({ workers }) => {
@@ -14,10 +14,11 @@ const AboutUsSlider: React.FC<ProjectsSliderProps> = ({ workers }) => {
       swiperOptions={{
         breakpoints: {
           0: {
+            enabled: workers.length > 1,
             slidesPerView: 1,
           },
           1024: {
-            enabled: false,
+            enabled: workers.length > 3,
             slidesPerView: 3,
           },
         },

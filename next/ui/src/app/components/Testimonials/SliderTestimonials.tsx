@@ -14,9 +14,11 @@ const TestimonialsSlider: React.FC<ProjectsSliderProps> = ({ testimonials }) => 
       swiperOptions={{
         breakpoints: {
           0: {
+            enabled: testimonials.length > 1,
             slidesPerView: 1,
           },
           1024: {
+            enabled: testimonials.length > 3,
             slidesPerView: 3,
           },
         },
