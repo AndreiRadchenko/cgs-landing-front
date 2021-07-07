@@ -8,7 +8,7 @@ export const LoginWrapper = styled("div")`
   align-items: center;
 `;
 
-export const FormWrapper = styled("div")`
+export const FormWrapper = styled("form")`
   max-width: 433px;
   width: 100%;
   display: flex;
@@ -35,4 +35,13 @@ export const SuccessMessageContainer = styled("div")`
   text-align: center;
   position: relative;
   top: 2em;
-`;
+`
+
+export const ErrorMessage = styled("div")`
+  min-height: 2.9em;
+  color: #FF0000;
+  font-size: 0.9em;
+  text-align: center;
+  position: relative;
+  top: 2em;
+`
