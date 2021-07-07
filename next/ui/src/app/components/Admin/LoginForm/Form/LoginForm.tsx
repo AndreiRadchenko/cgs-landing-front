@@ -31,16 +31,15 @@ const LoginForm = () => {
                 try {
                     token = await login(values);
 
-                    setToken(token)
+                    setToken(token);
+                    setError("");
+                    resetForm({});
                     setSubmitted(true);
-                    setError("")
                     Router.push('/admin');
                 } catch (error) {
                     setSubmitted(false);
                     setError(error.response.data.error.message)
-                }
-                
-                resetForm({});
+                }                
             }}
         >
             {({
