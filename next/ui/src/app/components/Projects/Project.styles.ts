@@ -31,16 +31,6 @@ export const ImageContainer = styled("div")`
   align-items: center;
   justify-content: center;
   width: 100%;
-
-  & > ${Image} {
-    padding-right: 10px;
-  }
-
-  @media screen and (max-width: 1023.5px) {
-    & > ${Image} {
-      padding-right: 0;
-    }
-  }
 `;
 
 export const Container = styled("div")`
@@ -104,8 +94,6 @@ export const Header = styled("div")`
 export const InfoContainer = styled("div")`
   display: flex;
   flex-direction: column;
-  padding-left: 25px;
-  padding-right: 25px;
 
   & > ${Header} {
     margin-bottom: 8px;
@@ -139,7 +127,8 @@ export const TechnologiesWrapper = styled("div")`
   margin-top: 20px;
   margin-bottom: 20px;
   flex-wrap: wrap;
-  
+  column-gap: 12px;
+
   @media screen and (max-width: 1023.5px) {
     margin-top: 0;
     justify-content: center;
