@@ -24,7 +24,6 @@ export const Container = styled("div")`
   align-items: center;
   margin-right: 12px;
   width: 120px;
-
   @media screen and (min-width: 1308px) {
     white-space: nowrap;
     width: fit-content;
