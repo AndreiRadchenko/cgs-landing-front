@@ -21,12 +21,14 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
       <Styled.InfoContainer>
         <Styled.Header>
           <Styled.Name>{project.name}</Styled.Name>
-          <Styled.FlagContainer>
-            <CountryFlag code={project.countryCode} />
-          </Styled.FlagContainer>
-          <Styled.Country>
-            {countyCodes[project.countryCode] ?? project.countryCode}
-          </Styled.Country>
+          <Styled.FlagWrapper>
+            <Styled.FlagContainer>
+              <CountryFlag code={project.countryCode} />
+            </Styled.FlagContainer>
+            <Styled.Country>
+              {countyCodes[project.countryCode] ?? project.countryCode}
+            </Styled.Country>
+          </Styled.FlagWrapper>
         </Styled.Header>
         <Styled.ShortDescription>{addLineBreaks(project.shortDescription)}</Styled.ShortDescription>
         <Styled.FullDescription>{addLineBreaks(project.fullDescription)}</Styled.FullDescription>
