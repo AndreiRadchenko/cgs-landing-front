@@ -57,8 +57,8 @@ export const startProjectEA = () => {
 
 export const sendFormEA = (values) => {
   ReactGA.event({
-    category: "Send Form",
-    action: "Send Form",
+    category: "Send LoginForm",
+    action: "Send LoginForm",
     label: `Validation was successful`,
   });
 };

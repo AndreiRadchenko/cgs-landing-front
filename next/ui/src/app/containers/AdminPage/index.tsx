@@ -1,7 +1,6 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import {
   getAdminData,
-  login,
   deleteAdminData,
 } from "../../../services/api/adminApi";
 import axios from "axios";
@@ -40,9 +39,10 @@ import SectionLayout from "app/components/Admin/SectionLayout/sectionLayout.comp
 import { AdminNav } from "../../../consts/lists";
 import { v4 as uuidv4 } from "uuid";
 import { getSpinner } from "../../../helpers/spinner";
+import Router from 'next/router'
 
 const AdminPage: React.FC = () => {
-  const [token, setToken] = useLocalStorageState("");
+  const [token, setToken] = useLocalStorageState("token", "");
   const [slogan, setSlogan] = useState<ISlogan[]>([]);
   const [projects, setProjects] = useState<IProject[]>([]);
   const [workers, setWorkers] = useState<IWorker[]>([]);
@@ -194,14 +194,11 @@ const AdminPage: React.FC = () => {
   useEffect(() => {
     if (token) {
       setIsLoaded(true);
-
       return;
+    } else {
+      Router.push('/admin/login')
     }
 
-    login().then((token) => {
-      setToken(token);
-      setIsLoaded(true);
-    });
   }, []);
 
   useEffect(() => {
@@ -211,6 +208,7 @@ const AdminPage: React.FC = () => {
 
     axios.defaults.headers.Authorization = `Bearer ${token}`;
   }, [token, tokenIsLoaded]);
+
 
   const loadData = async (category: string) => {
     setDataIsLoading(true);

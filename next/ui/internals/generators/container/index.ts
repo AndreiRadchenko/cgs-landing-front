@@ -29,7 +29,7 @@ export const containerGenerator: PlopGenerator = {
       type: 'input',
       name: ContainerProptNames.ComponentName,
       message: 'What should it be called?',
-      default: 'Form',
+      default: 'LoginForm',
       validate: value => {
         if (/.+/.test(value)) {
           return containerExists(value)
