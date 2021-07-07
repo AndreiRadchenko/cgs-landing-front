@@ -75,14 +75,13 @@ export const TechnoContainer = styled("div")`
       width: 100%;
       height: 100%;
       @media (max-width: 420px) {
-        width: 80%;
+        /* width: 80%; */
         margin: 0 auto;
       }
     }
   }
   @media screen and (min-width: 1024px) {
     justify-content: space-between;
-    flex-direction: row-reverse;
     align-items: flex-start;
 
     .slick-slide:nth-child(3n - 3) &,
@@ -197,9 +196,11 @@ export const HorizontalSep = styled("div")`
   }
 `;
 
+const paddingsArray = ['30px', '100px', '140px', '140px']
+
 export const TechnoImage = styled("img")<TechnoImageParams>`
   @media screen and (min-width: 1023.5px) {
-    padding-top: ${(props) => (props.isFirst ? "30px" : "140px")};
+     padding-top: ${ (props) =>  paddingsArray[props.number] };
   }
   @media screen and (max-width: 1023.5px) {
     padding-top: 30px;
@@ -286,3 +287,43 @@ export const SliderContainer = styled.div`
     }
   }
 `;
+
+export const Container = styled("div")`
+  display: flex;
+  width: 100%;   
+`
+
+export const DesktopContainer = styled("div")`
+  display: grid;
+  width: 86%;
+  margin: 0px auto;
+  grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 80px;
+  column-gap: 80px;
+  row-gap: 30px;
+     
+  @media screen and (max-width: 1023.5px) {
+    display: none;   
+  }
+  & > div:nth-child(1) {   
+    flex-direction: row-reverse;
+  }
+  & > div:nth-child(2) {   
+    flex-direction: row-reverse;
+  } 
+`;
+
+export const MobileContainer = styled("div")`
+  @media screen and (min-width: 1024px) {
+    display: none;    
+  }
+
+  display: flex;
+  justify-content: center;
+  width: inherit;
+  height: inherit; 
+
+  & .swiper-slide {
+      width: 100% !important;
+  } 
+`

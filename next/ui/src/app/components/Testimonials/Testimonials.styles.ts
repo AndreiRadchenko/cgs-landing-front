@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const TestimonialContainer = styled("div")`
   height: 100%;
-  padding-left: 35px;
-  padding-right: 35px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +13,7 @@ export const TestimonialContainer = styled("div")`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 100%;
+    max-width: 100%;    
   }
 
   & .infoWrapper {
@@ -32,7 +30,8 @@ export const TestimonialContainer = styled("div")`
 
     @media screen and (max-width: 415px) {
       width: min-content;
-      font-size: 14px;
+      white-space: nowrap;
+      font-size: 17px;
     }
   }
 
