@@ -17,6 +17,4 @@ export const Container = styled("div")`
 
 export const SlideContainer = styled("div")`
   height: 100%;
-  margin-left: 20px;
-  margin-right: 20px;
 `;
