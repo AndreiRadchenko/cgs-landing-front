@@ -20,20 +20,10 @@ const API_ROUTES = {
   fileUpload: "/file/upload",
 };
 
-export const login = async () => {
-  const user = {
-    username: "admin",
-    password: "admin",
-  };
+export const login = async (user) => {
+  const { data } = await axios.post("/auth/login", user);
 
-  try {
-    const { data } = await axios.post("/auth/login", user);
-    const token = data.response.accessToken;
-    return token;
-  } catch (error) {
-    console.log("error", { error });
-    return [];
-  }
+  return data.response.accessToken;
 };
 
 export const getAdminData = async (route: string) => {

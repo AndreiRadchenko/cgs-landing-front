@@ -8,8 +8,8 @@ export const Name = styled("p")`
     font-size: 24px;
   }
 
-  @media screen and (max-width: 380px) {
-    font-size: 14px;
+  @media screen and (max-width: 460px) {
+    font-size: 16px;
   }
 `;
 
@@ -24,6 +24,10 @@ export const Image = styled("img")`
 
   @media screen and (max-width: 650px) {
     height: 230px;
+  }
+  
+  @media screen and (max-width: 380px){
+    height: 150px;
   }
 `;
 
@@ -49,6 +53,10 @@ export const ShortDescription = styled("div")`
   @media screen and (max-width: 1023.5px) {
     display: none;
   }
+  
+  @media screen and (max-width: 380px) {
+    font-size: 14px;
+  }
 `;
 
 export const FullDescription = styled("p")`
@@ -63,6 +71,11 @@ export const FullDescription = styled("p")`
     line-height: 32px;
     min-height: 100px;
     opacity: 0.5;
+    text-align: justify;
+  }
+  
+  @media screen and (max-width: 400px) {
+    text-align: center;
   }
 `;
 
@@ -70,7 +83,17 @@ export const FlagContainer = styled("div")`
   width: 40px;
   height: 24px;
   object-fit: cover;
+  
+  @media screen and (max-width: 460px) {
+    width: 30px;
+    height: 20px;
+  }
 `;
+
+export const FlagWrapper = styled("div")`
+  display: flex;
+  align-items: center;
+`
 
 export const Header = styled("div")`
   display: flex;
@@ -80,8 +103,18 @@ export const Header = styled("div")`
     margin-right: 20px;
   }
 
-  & > ${FlagContainer} {
+  & > ${FlagWrapper} > ${FlagContainer} {
     margin-right: 10px;
+  }
+  
+  @media screen and (max-width: 400px){
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > ${Name} {
+      margin-bottom: 5px;
+      margin-right: 0;
+    }
   }
 `;
 
@@ -111,8 +144,8 @@ export const Country = styled("span")`
   font-size: 18px;
   font-weight: 400;
 
-  @media screen and (max-width: 380px) {
-    font-size: 14px;
+  @media screen and (max-width: 460px) {
+    font-size: 16px;
   }
 `;
 
