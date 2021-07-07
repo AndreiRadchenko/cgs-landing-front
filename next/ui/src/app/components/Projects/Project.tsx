@@ -41,10 +41,12 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
         </Styled.TechnologiesContainer>
         {project.link && <Link link={project.link} />}
       </Styled.InfoContainer>
-      <Styled.Image
-        src={project.imageUrl}
-        alt={project.shortDescription}
-      />
+      <Styled.ImageContainer>
+        <Styled.Image
+          src={project.imageUrl}
+          alt={project.shortDescription}
+        />
+      </Styled.ImageContainer>
     </Styled.Container>
   );
 };
