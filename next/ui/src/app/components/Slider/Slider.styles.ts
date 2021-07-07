@@ -8,10 +8,13 @@ export const Container = styled("div")`
 
   & .swiper-wrapper {
     display: flex;
+    transform-style: preserve-3d;
   }
 
   & .swiper-slide {
     height: auto;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
   }
 `;
 
