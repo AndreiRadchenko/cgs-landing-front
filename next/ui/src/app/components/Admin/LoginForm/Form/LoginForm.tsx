@@ -11,6 +11,7 @@ import {useLocalStorageState} from "use-local-storage-state";
 const LoginForm = () => {
     const [isSubmitted, setSubmitted] = useState(false);
     const [token, setToken] = useLocalStorageState("token", "");
+    const [error, setError] = useState("")
 
     const isEmptyObject = (obj) => {
         return JSON.stringify(obj) === "{}";
@@ -32,10 +33,11 @@ const LoginForm = () => {
 
                     setToken(token)
                     setSubmitted(true);
-
+                    setError("")
                     Router.push('/admin');
                 } catch (error) {
                     setSubmitted(false);
+                    setError(error.response.data.error.message)
                 }
                 
                 resetForm({});
@@ -82,13 +84,16 @@ const LoginForm = () => {
                         >
                             Log in
                         </Button>
-                        <Styled.SuccessMessageContainer>
-                            {isSubmitted && (
-                                <p className="success-message">
-                                    Success
-                                </p>
-                            )}
-                        </Styled.SuccessMessageContainer>
+                        {isSubmitted && (
+                            <Styled.SuccessMessageContainer>
+                                Success
+                            </Styled.SuccessMessageContainer>
+                        )}
+                        {error && (
+                            <Styled.ErrorMessage>
+                                {error}
+                            </Styled.ErrorMessage>
+                        )}
                     </Styled.FormWrapper>
                     </Styled.LoginWrapper>
                 );
