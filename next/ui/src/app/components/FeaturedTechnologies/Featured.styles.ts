@@ -1,60 +1,12 @@
 import styled from "styled-components";
 
-const imgSize = {
-  w: "35px",
-  h: "35px",
-};
-const Arrow = styled.div`
-  position: absolute;
-  z-index: 100;
-  background-color: #fff;
-  width: ${imgSize.w};
-  height: 50%;
-  margin-top: 20px;
-
-  & img {
-    width: 100%;
-    height: 100%;
-  }
-  @media screen and (max-width: 769px) {
-    height: 40%;
-  }
-  @media screen and (min-width: 1024px) {
-    display: none;
-  }
-  &.slick-prev:hover,
-  &.slick-prev:focus,
-  &.slick-next:hover,
-  &.slick-next:focus {
-    background-color: #fff;
-  }
-`;
-export const SliderPrev = styled(Arrow)`
-  top: 10%;
-  left: 4%;
-`;
-
-export const SliderNext = styled(Arrow)`
-  top: 10%;
-  right: 4%;
-`;
-
-
 export const FeaturedContainer = styled("div")`
   max-width: 800px;
   display: flex;
   align-items: stretch;
   justify-content: center;
   text-align: left;
-
-  @media screen and (min-width: 1024px) {
-    .slick-slide:nth-child(2n) & {
-      flex-direction: row-reverse;
-    }
-    .slick-slide:nth-child(2n) & p {
-      text-align: right;
-    }
-  }
+  margin-top: 48px;
 
   @media screen and (max-width: 1023.5px) {
     align-items: center;
@@ -83,12 +35,6 @@ export const TextContainer = styled.div`
 
   @media screen and (min-width: 1024px) {
     min-width: 520px;
-    .slick-slide:nth-child(2n + 1) & {
-      margin-right: 73px;
-    }
-    .slick-slide:nth-child(2n) & {
-      margin-left: 73px;
-    }
     & .featured__description {
       line-height: 1.67;
       opacity: 1;
@@ -108,7 +54,7 @@ export const ImageContainer = styled.div`
   color: #fff;
   background: ${(props) => props.theme.colors.buttonBgColor};
   & img {
-    margin: 10px 0px 40px 0px;
+    margin: 10px 0 40px 0;
   }
   & .featured__name {
     margin: 0;
@@ -140,76 +86,52 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const SlideWrapper = styled("div")`
-  & .slick-track {
-    display: flex;
+
+
+export const DesktopContainer = styled("div")`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  & > ${FeaturedContainer}:nth-child(2n){
+    flex-direction: row-reverse;
+  }
+
+  & > ${FeaturedContainer}:first-child{
+    margin-top: 0;
+  }
+  
+  & > ${FeaturedContainer}:nth-child(2n+1) > ${TextContainer} {
+    margin-right: 73px;
+  }
+  & > ${FeaturedContainer}:nth-child(2n) > ${TextContainer} {
+    margin-left: 73px;
   }
 `;
 
-export const SliderContainer = styled.div`
-  width: 100%;
-  height: 100%; 
+
+export const MobileContainer = styled("div")`
+  display: flex;
+  justify-content: center;
+  width: inherit;
+  height: inherit;
+`;
+
+export const Container = styled("div")`
+  width: inherit;
+  height: inherit;
 
   @media screen and (min-width: 1024px) {
-
-     & .slick-track {
-      flex-wrap: wrap;
-     } 
-     & .slick-slide {
-        flex: 51%;
-        padding: 15px;
-        box-sizing: border-box;
-     }  
+    & > ${MobileContainer} {
+      display: none;
+    }
   }
 
   @media screen and (max-width: 1023.5px) {
-      & .slick-next, .slick-prev {
-      z-index: 2;
-    }
-    /* & .slick-next {
-      right: 1.6%;
-    }
-    & .slick-prev {
-      left: 1.6%;
-    } */
-  }
-  
-  & .slick-slider {
-    @media screen and (max-width: 650px) {
-      margin: 0;
-    }
-  }
-  & .slick-slide {
-    display: flex;
-    justify-content: center;
-  }
-  & .slide-container {
-    display: flex;
-    justify-content: center;
-  }
-  & .slick-slide > div > div > img {
-    margin: auto;
-    @media screen and (max-width: 1023px) {
-      width: 100%;
-    }
-  }  
-
-  & .slides *:focus {
-    outline: 0;
-    outline: none;
-  }
-  & .slick-next:before,
-  & .slick-prev:before {
-    content: none;
-  }
-  & .slick-next {
-    @media (max-width: 420px) {
-      right: 20px;
-    }
-  }
-  & .slick-prev {
-    @media (max-width: 420px) {
-      left: 20px;
+    & > ${DesktopContainer} {
+      display: none;
     }
   }
 `;
