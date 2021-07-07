@@ -194,11 +194,11 @@ const AdminPage: React.FC = () => {
   useEffect(() => {
     if (token) {
       setIsLoaded(true);
+
       return;
     } else {
       Router.push('/admin/login')
     }
-
   }, []);
 
   useEffect(() => {
@@ -240,6 +240,10 @@ const AdminPage: React.FC = () => {
 
     loadData(categoryOpen);
   }, [categoryOpen, tokenIsLoaded, isModal]);
+
+  if (!tokenIsLoaded) {
+    return null;
+  }
 
   return (
     <Styled.Wrapper>
