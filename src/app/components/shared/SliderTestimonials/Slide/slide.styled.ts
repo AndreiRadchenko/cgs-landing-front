@@ -96,6 +96,7 @@ export const SlideContainer = styled.div`
         color: #fff;
         @media screen and (max-width: 500px) {
           font-size: 14px;
+          white-space: nowrap;
         }
       }
       & .person-position {

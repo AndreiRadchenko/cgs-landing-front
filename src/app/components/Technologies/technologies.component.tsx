@@ -3,7 +3,7 @@ import * as Styled from "./technologies.styles";
 import { v4 as uuidv4 } from "uuid";
 import { TECHNOLOGIES } from "../../../consts/Technologies";
 
-const Technology = ({ technology, isFirst }) => {
+const Technology = ({ technology, number }) => {
   return (
     <Styled.TechnoContainer>
       <Styled.DescContainer>
@@ -19,7 +19,7 @@ const Technology = ({ technology, isFirst }) => {
         <Styled.TechnoImage
           src={TECHNOLOGIES[technology.type].image}
           alt={technology?.type}
-          isFirst={isFirst}
+          number={number}        
         />
       </div>
     </Styled.TechnoContainer>

@@ -7,6 +7,10 @@ export const Header = styled("div")`
 
   & > h2 {
     margin-right: 20px;
+    
+    @media screen and (max-width: 400px) {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -15,6 +19,10 @@ export const Title = styled("div")`
   color: white;
   background: ${(props) => props.theme.colors.buttonBgColor};
   border-radius: 5px;
+  
+  @media screen and (max-width: 400px) {
+    font-size: 14px;
+  }
 `;
 
 export const Container = styled("div")`

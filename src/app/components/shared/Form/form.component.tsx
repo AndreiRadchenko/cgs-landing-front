@@ -6,7 +6,6 @@ import Textarea from "../Textarea/textarea.component";
 import Button from "../Button/button.component";
 import { registrationFormSchema } from "../../../../helpers/validation";
 import { sendFormEA } from "../../../../services/event";
-import emailjs from "emailjs-com";
 import {sendFeedback} from "../../../../services/api/sendFeedback";
 
 const Form = () => {
@@ -27,14 +26,6 @@ const Form = () => {
 
       onSubmit={async (values, { resetForm }) => {
         sendFormEA(values);
-
-        // await emailjs.send(
-        //   "code_generation_sales",
-        //   "template_63y7U3ol",
-        //   values,
-        //   "user_qBEngbKseuGY8AfrTEa7E"
-        // );
-        //
         await sendFeedback(values)
 
         resetForm({});

@@ -22,8 +22,20 @@ export const messageSchema = yup
   .nullable(true)
   .min(10, "Please, Describe your thoughts complicatable. Minimum 10 symbols");
 
+export const passwordSchema = yup
+    .string()
+    .required("This field is required")
+    .trim()
+    .min(3,"Password to short")
+
 export const registrationFormSchema = yup.object().shape({
   name: fullNameSchema,
   email: emailSchema,
   message: messageSchema,
 });
+
+
+export const loginFormSchema = yup.object().shape({
+  username: fullNameSchema,
+  password: passwordSchema
+})
