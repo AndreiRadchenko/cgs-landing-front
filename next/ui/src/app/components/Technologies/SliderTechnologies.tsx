@@ -1,47 +1,45 @@
 import React from "react";
-import * as Styled from "./technologies.styles";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { onChangeSlideEA } from "../../../services/event";
+
+import { ITechnology } from "types/components";
+
+import { Slider } from "../Slider";
+
 import Technology from "./technologies.component";
-import { ITechnology } from "../../../types/components/index";
-import { SampleNextArrow, SamplePrevArrow } from "../shared/Slider/arrows";
+
+import * as Styled from "./technologies.styles";
+
+interface SliderProps {
+  technologies: ITechnology[];
+}
+
+
 const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
-  technologies,
+  technologies: rawTechnologies,
 }) => {
-  const slidesToShow = technologies.length < 4 ? technologies.length : 4;
-  let settings = {
-    slidesToShow: slidesToShow,
-    slidesToScroll: 1,
-    nextArrow: <SampleNextArrow top={35} />,
-    prevArrow: <SamplePrevArrow top={35} />,
-    afterChange: (current) =>
-      onChangeSlideEA({ sliderName: "AboutUs", slide: current }),
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-    className: "slides",
-  };
+  const technologies = rawTechnologies.map((technology) => {
+    return {
+      id: technology.type,
+      ...technology,
+    };
+  });
+
   return (
-    <Styled.SliderContainer>
-      <Styled.SlideWrapper >
-        <Slider {...settings}>
-          {technologies?.map((technology, index) => (
-            <Technology
-              key={technology.type}
-              technology={technology}
-              isFirst={index === 0}
-            />
-          ))}
-        </Slider>
-      </Styled.SlideWrapper>
-    </Styled.SliderContainer>
+    <Styled.Container>
+      <Styled.DesktopContainer>
+        {technologies.map((technology, index) => (
+          <Technology key={technology.type} technology={technology} number={index} />
+        ))}
+      </Styled.DesktopContainer>
+      <Styled.MobileContainer>
+        <Slider
+          items={technologies}
+          renderItem={(technology, index) => (
+            <Technology technology={technology}  number={-1} />
+          )}
+        />
+      </Styled.MobileContainer>
+    </Styled.Container>
   );
 };
+
 export default SliderTechnologies;
