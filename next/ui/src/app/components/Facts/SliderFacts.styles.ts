@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DesktopContainer = styled("div")`
   display: grid;
   width: 80%;
-  margin: 0px auto;
+  margin: 0 auto;
   grid-template-columns: 1fr 1fr;
   column-gap: 80px;
   row-gap: 60px;
