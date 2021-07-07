@@ -13,6 +13,9 @@ const AboutUsSlider: React.FC<ProjectsSliderProps> = ({ workers }) => {
     <Slider
       swiperOptions={{
         breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
           1024: {
             enabled: false,
             slidesPerView: 3,
