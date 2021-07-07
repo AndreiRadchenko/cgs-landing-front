@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Formik } from "formik";
+import { Formik, useFormik } from "formik";
 import {loginFormSchema} from "../../../../../helpers/validation";
 import * as Styled from "./LoginForm.style";
 import Input from "../Input/input.commponent";
@@ -25,12 +25,20 @@ const LoginForm = () => {
             }}
 
             onSubmit={async (values, { resetForm }) => {
-                await login(values).then((token) => {
+                let token: string;
+
+                try {
+                    token = await login(values);
+
                     setToken(token)
-                    Router.push('/admin')
-                });
+                    setSubmitted(true);
+
+                    Router.push('/admin');
+                } catch (error) {
+                    setSubmitted(false);
+                }
+                
                 resetForm({});
-                setSubmitted(true);
             }}
         >
             {({
