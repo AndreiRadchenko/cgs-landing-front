@@ -45,14 +45,14 @@ export function Slider<T extends { id: any }>({
       setShowArrows(items.length > options.slidesPerView);
     };
 
-    window.addEventListener('load', onLoad);
+    document.addEventListener("DOMContentLoaded", onLoad);
 
-    swiper.on('breakpoint', onBreakpoint);
+    swiper.on("breakpoint", onBreakpoint);
 
     return () => {
-      window.removeEventListener('load', onLoad);
+      document.removeEventListener("DOMContentLoaded", onLoad);
       
-      swiper.off('breakpoint', onBreakpoint);
+      swiper.off("breakpoint", onBreakpoint);
     };
   }, [swiper, items]);
 
@@ -72,9 +72,8 @@ export function Slider<T extends { id: any }>({
         effect="slide"
         slidesPerView={1}
         onSwiper={setSwiper}
+        resizeObserver={true}
         watchOverflow={true}
-        roundLengths={true}
-        loopFillGroupWithBlank={true}
         {...swiperOptions}
       >
         {items.map((item, index) => (
