@@ -26,7 +26,12 @@ const Form = () => {
 
       onSubmit={async (values, { resetForm }) => {
         sendFormEA(values);
-        await sendFeedback(values)
+
+        await sendFeedback({
+          ...values,
+          
+          message: values.message || " ",
+        });
 
         resetForm({});
         setSubmitted(true);

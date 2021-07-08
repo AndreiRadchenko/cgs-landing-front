@@ -17,10 +17,10 @@ export const emailSchema = yup
 
 export const messageSchema = yup
   .string()
-  .required("This field is required")
+  // .required("This field is required")
   .trim()
   .nullable(true)
-  .min(10, "Please, Describe your thoughts complicatable. Minimum 10 symbols");
+  // .min(10, "Please, Describe your thoughts complicatable. Minimum 10 symbols");
 
 export const passwordSchema = yup
     .string()
