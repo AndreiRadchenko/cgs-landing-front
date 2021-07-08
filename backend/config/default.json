@@ -15,12 +15,12 @@
   },
   "mailer": {
     "server": {
-      "host": "smtp.gmail.com",
-      "port": 587
+      "host": "smtp.mail.ru",
+      "port": 465
     },
     "auth": {
-      "user": "code.generation.landing@gmail.com",
-      "password": "ik6mt$cA&GPZUUeDE9kg"
+      "user": "cg.landing@mail.ru",
+      "password": "&UP6Skc@i^3sbMuUN@9s"
     },
     "bussinesEmail": "contact@codegenerationsoftware.com"
   },
