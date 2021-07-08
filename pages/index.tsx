@@ -97,11 +97,17 @@ const Home = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const onLoad = () => {
-      setIsLoaded(true);
+    const onChange = () => {
+      setIsLoaded(document.readyState === "complete");
     };
 
-    window.onload = onLoad;
+    onChange();
+
+    document.addEventListener("readystatechange", onChange);
+
+    return () => {
+      document.removeEventListener("readystatechange", onChange);
+    };
   }, []);
 
   return (
