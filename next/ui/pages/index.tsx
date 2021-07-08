@@ -32,6 +32,7 @@ export const getServerSideProps = async () => {
   }
 };
 
+// TODO: Move spinner to other place
 const GlobalSpinnerStyle = createGlobalStyle`
   body {
     display: block;
@@ -57,32 +58,32 @@ const SpinnerContainer = styled("div")`
   left: 0;
 `;
 
-
 const AnimationSpinner = styled("div")`
   display: inline-block;
   width: 80px;
   height: 80px;
 
-&:after {
-  content: " ";
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid #113;
-  border-color: #113 transparent #113 transparent;
-  animation: spin 1.2s linear infinite;
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+  &:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #113;
+    border-color: #113 transparent #113 transparent;
+    animation: spin 1.2s linear infinite;
   }
-  100% {
-    transform: rotate(360deg);
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
-}
-`
+`;
 
 const Spinner = () => {
   return (
@@ -96,11 +97,17 @@ const Home = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const onLoad = () => {
-      setIsLoaded(true);
+    const onChange = () => {
+      setIsLoaded(document.readyState === "complete");
     };
 
-    window.onload = onLoad;
+    onChange();
+
+    document.addEventListener("readystatechange", onChange);
+
+    return () => {
+      document.removeEventListener("readystatechange", onChange);
+    };
   }, []);
 
   return (
