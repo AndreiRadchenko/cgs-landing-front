@@ -4,6 +4,8 @@ import * as Styled from "./TextEditor.styles";
 import { ButtonWrapper, Button } from "../Form.styles";
 import { uploadImage } from "services/api/adminApi";
 
+import "suneditor/dist/css/suneditor.min.css";
+
 const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
 });
