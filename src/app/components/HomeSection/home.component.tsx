@@ -1,6 +1,7 @@
 import React from "react";
 import * as Styled from "./home.styles";
 import { ISlogan } from "../../../types/components/index";
+import { clickDiscussTheDitails } from "services/event";
 
 const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => (
   <Styled.HomeWrapper id={id}>
@@ -13,7 +14,12 @@ const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => (
       <p className="home-section__subtitle">{slogan?.text}</p>
 
       <Styled.LinkButtonsWrapper>
-        <Styled.LinkButton href="#contact">Discuss the details</Styled.LinkButton>
+        <Styled.LinkButton 
+          onClick={() => clickDiscussTheDitails("/#contact")}
+          href="#contact"
+        >
+          Discuss the details
+        </Styled.LinkButton>
         <Styled.LinkButtonSecond>Become a partner</Styled.LinkButtonSecond>
       </Styled.LinkButtonsWrapper>
 

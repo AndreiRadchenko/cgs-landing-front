@@ -2,15 +2,7 @@ import React from "react";
 import * as Styled from "./social-links.styles";
 import { v4 as uuidv4 } from "uuid";
 import { ISocial } from "../../../../types/components";
-import ReactGA from "react-ga";
-
-const clickSocialLinkEA = (link) => {
-  ReactGA.event({
-    category: "Social Link",
-    action: "clickToSocialLink",
-    label: `${link}`,
-  });
-};
+import { clickSocialLinkEA } from "services/event";
 
 const SocialLinks: React.FC<ISocial> = ({ socialList, fill }) => (
   <Styled.HeaderLinks>

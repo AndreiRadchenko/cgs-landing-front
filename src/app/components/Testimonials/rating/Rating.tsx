@@ -1,15 +1,8 @@
 import Button from "../../shared/LinkButton/Button";
 import React, { useState } from "react";
 import * as Styled from "./StyledRating";
-import { v4 as uuidv4 } from "uuid";
 
-// import StarRatings from 'react-star-ratings';
-
-import dynamic from "next/dynamic";
-
-const StarRatings: any = dynamic(() => import("react-star-ratings"), {
-  ssr: false,
-});
+import StarRatings from 'react-star-ratings';
 
 const Rating = ({ testimonial }) => {
   const upwork = testimonial?.platforms?.find((el) => el.type === "upwork");
