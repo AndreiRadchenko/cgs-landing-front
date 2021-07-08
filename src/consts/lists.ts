@@ -73,7 +73,7 @@ export const SocialList: ISocialInside[] = [
 export const MobileSocialList: ISocialInside[] = [
   {
     title: "github",
-    link: "https://github.com/CodeGeneration-2020/code-generation-package",
+    link: "https://github.com/CodeGeneration-2020",
     src: [
       {
         path:
