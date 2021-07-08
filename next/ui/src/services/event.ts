@@ -1,4 +1,12 @@
-import ReactGA from "react-ga";
+import ReactGA from 'react-ga';
+
+if (typeof window !== "undefined") {
+  ReactGA.initialize('UA-175242489-1', {
+    debug: true,
+  });
+
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
 
 export function scrollEA(data: string) {
   const scrollToBlockEA = (block) => {
@@ -57,8 +65,40 @@ export const startProjectEA = () => {
 
 export const sendFormEA = (values) => {
   ReactGA.event({
-    category: "Send LoginForm",
-    action: "Send LoginForm",
+    category: "Send Form",
+    action: "Send Form",
     label: `Validation was successful`,
+  });
+};
+
+export const clickDiscussTheDitails = (link) => {
+  ReactGA.event({
+    category: "Click details",
+    action: "Click details",
+    label: `${link}`,
+  });
+};
+
+export const clickNavLinks = (link) => {
+  ReactGA.event({
+    category: "Click navlink",
+    action: "Click navlink",
+    label: `${link}`,
+  });
+};
+
+export const clickProgectLinks = (link) => {
+  ReactGA.event({
+    category: "Click projects button",
+    action: "Click projects button",
+    label: `${link}`,
+  });
+};
+
+export const clickFeedbackButtons = (link) => {
+  ReactGA.event({
+    category: "Click Read more button",
+    action: "Click Read more button",
+    label: `${link}`,
   });
 };
