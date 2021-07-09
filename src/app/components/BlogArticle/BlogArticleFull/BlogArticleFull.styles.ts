@@ -79,7 +79,7 @@ export const Content = styled("p")`
   }
 
   & a {
-    color: #1F5A7B;
+    color: #4fb2ed;
   }
 
   @media screen and (max-width: 1023.5px) {

@@ -9,9 +9,6 @@ import * as Styled from "../../components/BlogArticle/BlogArticle.styles";
 import { v4 as uuidv4 } from "uuid";
 
 export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
-  React.useEffect(() => {
-    scrollEA("data-scroll");
-  }, []);
 
   const [mostViewedArticle, ...otherArticles] = articles;
 

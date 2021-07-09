@@ -108,7 +108,7 @@ export const DropBoxFooter = styled("div")`
 
 export const DropBoxFooterText = styled("p")`
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
 `;
 

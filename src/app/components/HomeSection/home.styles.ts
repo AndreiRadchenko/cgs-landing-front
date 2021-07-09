@@ -108,7 +108,6 @@ export const LinkButton = styled("a") <PropsHomeWrapper>`
   background-color: ${(props) => props.theme.colors.buttonBgColor};
   border-radius: 2em;
   padding: 0.7em;
-  font-weight: 700;
   border: 0;
   color: white;
   min-width: 200px;
