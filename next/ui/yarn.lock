@@ -6918,6 +6918,18 @@ husky@4.2.3:
     slash "^3.0.0"
     which-pm-runs "^1.0.0"
 
+hyphenated-en-us@^1.1.1:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/hyphenated-en-us/-/hyphenated-en-us-1.2.0.tgz#03f9e227de7ad302e9c3ffad6fd9a2dbaae1340e"
+  integrity sha512-Tz9OMog//SSMnIOK18MmRumfI+r0goJZZAAVJ1Itho7r9GSZcGrGiIZNYfScAW1hqvFJLu2yRh7haa0YF+8i/Q==
+
+hyphenated@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/hyphenated/-/hyphenated-1.1.1.tgz#d63c2f938d6a2ea325ce2a036b4acccfd2a01225"
+  integrity sha512-tA9TMjyjDEmjWmkobQa/LlFJ5lhvWbJ1J9V1moemRt51Q6jWOYzpacj8C6CeH/BNM7R7SW69al/1d5a/A7K9yQ==
+  dependencies:
+    hyphenated-en-us "^1.1.1"
+
 i18next-browser-languagedetector@4.0.2:
   version "4.0.2"
   resolved "https://registry.npmjs.org/i18next-browser-languagedetector/-/i18next-browser-languagedetector-4.0.2.tgz"
@@ -11656,6 +11668,13 @@ react-helmet-async@1.0.4:
     prop-types "^15.7.2"
     react-fast-compare "^2.0.4"
     shallowequal "^1.1.0"
+
+react-hyphen@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-hyphen/-/react-hyphen-1.4.0.tgz#5e21701fec28d988a3f90c939df36f9a28782d0f"
+  integrity sha512-jPXdDneiH69fOMVrRhQfPxogsCIh+ju/UqDpvIdEuxzKgXU4DFZht5XyRhTTQoacAahNgujtpnLTLLDguzUacw==
+  dependencies:
+    hyphenated "1.1.1"
 
 react-i18next@11.3.4:
   version "11.3.4"

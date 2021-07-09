@@ -7,13 +7,15 @@ export interface LinkProps {
 
 export const Link: React.FC<LinkProps> = ({ link }) => {
   return (
-    <a href={link} target="_blank">
+    <Styled.Link>
+      <a href={link} target="_blank">
       <Styled.Button 
         onClick={() => clickProgectLinks(link) } 
         type="button"
       >
         Project link
       </Styled.Button>
-    </a>
+      </a>
+    </Styled.Link>    
   );
 };

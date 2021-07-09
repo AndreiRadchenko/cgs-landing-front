@@ -18,3 +18,10 @@ export const Button = styled("button")`
     font-size: 16px;
   }
 `;
+
+export const Link = styled("a")`
+  margin-right: auto;
+  @media screen and (max-width: 1023.5px) {
+    margin-left: auto;
+  }
+`

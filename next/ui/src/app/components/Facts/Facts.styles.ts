@@ -49,11 +49,12 @@ export const Text = styled("div")`
   border-radius: 5px;
   font-size: 18px;
   line-height: 1.67;
-  text-align: justify;
+  text-align: left;
 
   @media screen and (max-width: 1023.5px) {
     padding-left: 30px;
     padding-right: 30px;
+    text-align: justify;
     opacity: 0.5;
   }
 `;

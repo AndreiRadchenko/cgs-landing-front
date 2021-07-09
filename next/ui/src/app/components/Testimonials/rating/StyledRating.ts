@@ -4,7 +4,8 @@ export const RatingWrapper = styled.div`
   align-items: center;
   justify-content: center;
   @media screen and (max-width: 375px) {
-    flex-wrap: wrap;   
+    max-width: 219px;
+    flex-wrap: wrap;
   }
 `;
 
@@ -12,22 +13,23 @@ export const RatingItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
-
+  justify-content: center;
+  max-width: 250px;
 
   &:not(:only-child):last-child {
     margin-left: 10px;
     @media (max-width: 420px) {
       margin-left: 15px;
     }
-    @media screen and (max-width: 375px) {
+  }
+  @media screen and (max-width: 375px) {
       margin-left: 0;
 
       &:nth-child(2) {
         margin-top: 15px;
+        margin-left: 0 !important;
       }
     }
-  }
 `;
 
 export const Rating = styled.div`
