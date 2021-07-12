@@ -27,9 +27,18 @@ export const TextContainer = styled.div`
     opacity: 0.5;
     text-align: justify;
   }
+
   @media screen and (max-width: 1023.5px) {
     & .featured__description {  
     font-size: 18px;
+  }
+}
+
+  @media screen and (max-width: 375px) {
+    & .featured__description {  
+    padding-left: 7px;
+    padding-right: 7px;
+    text-align: center;
   } 
 }
 
@@ -73,7 +82,7 @@ export const ImageContainer = styled.div`
       width: 60%;
     }
     & .featured__name {
-      bottom: 15px;
+      bottom: 15px;      
     }
   }
   @media screen and (min-width: 1024px) {
@@ -116,12 +125,13 @@ export const MobileContainer = styled("div")`
   display: flex;
   justify-content: center;
   width: inherit;
-  height: inherit;
+  height: inherit;  
 `;
 
 export const Container = styled("div")`
   width: inherit;
   height: inherit;
+  
 
   @media screen and (min-width: 1024px) {
     & > ${MobileContainer} {

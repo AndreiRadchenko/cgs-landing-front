@@ -9,14 +9,15 @@ import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 import "animate.css/animate.css";
 
-const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
+const Menu: React.FC<IMenu> = ({ showMenu, setShowMenu, children }) => {
   const onBurger = () => {
     window.scroll({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
-    setMenuState(!activeMenu);
+
+    setShowMenu(!showMenu);
   };
 
   return (
@@ -25,16 +26,16 @@ const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
         <BurgerIcon />
       </Styled.MenuContainer>
       <Styled.DropDown
-        className={`drop-down ${activeMenu ? "show-sub-menu" : ""}`}
+        className={`drop-down ${showMenu ? "show-sub-menu" : ""}`}
       >
         <Styled.LgMenu className="lg-menu">{children}</Styled.LgMenu>
-        {activeMenu && (
+        {showMenu && (
           <Styled.DropBoxContainer>
             <Styled.DropBoxMain>
               {Nav?.map((item) => (
                 <Link href={item?.link} key={uuidv4()}>
                   <p
-                    onClick={() => setMenuState(!activeMenu)}
+                    onClick={() => setShowMenu(!showMenu)}
                     className="drop-box-item animate__animated animate__fadeInRight">
                     {item.burgerTitle}
                   </p>
@@ -55,7 +56,6 @@ const Menu: React.FC<IMenu> = ({ activeMenu, setMenuState, children }) => {
           </Styled.DropBoxContainer>
         )}
       </Styled.DropDown>
-      <Styled.GlobalStyle activeMenu={activeMenu} />
     </Styled.BurgerMenu>
   );
 };

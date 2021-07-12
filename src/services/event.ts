@@ -1,10 +1,7 @@
 import ReactGA from 'react-ga';
 
 if (typeof window !== "undefined") {
-  ReactGA.initialize('UA-175242489-1', {
-    debug: true,
-  });
-
+  ReactGA.initialize('UA-175242489-1');
   ReactGA.pageview(window.location.pathname + window.location.search);
 }
 

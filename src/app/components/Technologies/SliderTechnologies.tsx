@@ -12,13 +12,13 @@ interface SliderProps {
   technologies: ITechnology[];
 }
 
-
-const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
+const SliderTechnologies: React.FC<SliderProps> = ({
   technologies: rawTechnologies,
 }) => {
   const technologies = rawTechnologies.map((technology) => {
     return {
       id: technology.type,
+
       ...technology,
     };
   });
@@ -34,7 +34,7 @@ const SliderTechnologies: React.FC<{ technologies: ITechnology[] }> = ({
         <Slider
           items={technologies}
           renderItem={(technology, index) => (
-            <Technology technology={technology}  number={-1} />
+            <Technology technology={technology} number={-1} />
           )}
         />
       </Styled.MobileContainer>
