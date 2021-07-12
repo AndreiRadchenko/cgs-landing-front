@@ -1,6 +1,14 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, {
+  useMemo,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
+
+import { debounce } from "ts-debounce";
 
 import "swiper/swiper.min.css";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperCore, SwiperOptions } from "swiper/core";
 
@@ -15,66 +23,127 @@ export interface SliderProps<T> {
 }
 
 export function Slider<T extends { id: any }>({
-  swiperOptions,
   items,
   renderItem,
+  swiperOptions,
 }: SliderProps<T>) {
   const [swiper, setSwiper] = useState<SwiperCore | null>(null);
-  const [showArrows, setShowArrows] = useState(true);
+  const [showArrows, setShowArrows] = useState(false);
 
-  useEffect(() => {
-    if (swiper === null || items.length === 0) {
-      return;
-    }
-
-    const slidesPerView = swiper.params?.slidesPerView;
-
-    if (slidesPerView !== undefined) {
-      setShowArrows(items.length > slidesPerView);
-    }
-
-    const onLoad = () => {
-      swiper.update();
-    };
-
-    const onBreakpoint = (swiper, options) => {
-      if (options.slidesPerView === undefined) {
+  useEffect(
+    () => {
+      if (swiper === null || items.length === 0) {
         return;
       }
 
-      setShowArrows(items.length > options.slidesPerView);
-    };
+      setShowArrows(swiper.params.enabled ?? false);
 
-    document.addEventListener("DOMContentLoaded", onLoad);
+      const onBreakpoint = (swiper: SwiperCore, options: SwiperOptions) => {
+        setShowArrows(options.enabled ?? false);
+      };
 
-    swiper.on("breakpoint", onBreakpoint);
+      const updateSwiper = debounce(
+        () => {
+          swiper.update();
+        },
+        300,
+      );
+ 
+      swiper.on("breakpoint", onBreakpoint);
 
-    return () => {
-      document.removeEventListener("DOMContentLoaded", onLoad);
+      window.addEventListener("resize", updateSwiper);
+      document.addEventListener("DOMContentLoaded", updateSwiper);
       
-      swiper.off("breakpoint", onBreakpoint);
-    };
-  }, [swiper, items]);
+      return () => {
+        swiper.off("breakpoint", onBreakpoint);
 
-  const onPrevSlide = useCallback(() => {
-    swiper?.slidePrev();
-  }, [swiper]);
+        window.removeEventListener("resize", updateSwiper);
+        document.removeEventListener("DOMContentLoaded", updateSwiper);
+      };
+    },
+    [swiper, items],
+  );
 
-  const onNextSlide = useCallback(() => {
-    swiper?.slideNext();
-  }, [swiper]);
+  const memoizedOptions = useMemo(
+    () => {
+      if (swiperOptions === undefined) {
+        return undefined;
+      }
+
+      const newSwiperOptions: SwiperOptions = {
+        loop: true,
+        slidesPerView: 1,
+        loopAdditionalSlides: items.length,
+
+        ...swiperOptions,
+      };
+
+      if (swiperOptions.breakpoints !== undefined) {
+        const newBreakpoints: NonNullable<SwiperOptions['breakpoints']> =  {};        
+
+        for (const [ratio, options] of Object.entries(swiperOptions.breakpoints)) {
+          const newBreakpoint: SwiperOptions = { ...options };
+
+          if (options.slidesPerView !== undefined) {
+            const isInfinite = items.length > options.slidesPerView;
+
+            newBreakpoint.enabled = isInfinite;
+            newBreakpoint.allowTouchMove = isInfinite;
+            newBreakpoint.allowSlidePrev = isInfinite;
+            newBreakpoint.allowSlideNext = isInfinite;
+          }
+
+          newBreakpoints[ratio] = newBreakpoint; 
+        }
+
+        newSwiperOptions.breakpoints = newBreakpoints;
+      }
+
+      return newSwiperOptions;
+    },
+    [swiperOptions, items],
+  );
+
+  const onPrevSlide = useCallback(
+    (event: React.MouseEvent<HTMLDivElement>) => {
+      event.preventDefault();
+
+      if (swiper === null) {
+        return;
+      }
+
+      if (swiper.isBeginning && !swiper.params.loop) {
+        return;
+      } 
+
+      swiper.slidePrev();
+    },
+    [swiper],
+  );
+
+  const onNextSlide = useCallback(
+    (event: React.MouseEvent<HTMLDivElement>) => {
+      event.preventDefault();
+
+      if (swiper === null) {
+        return;
+      }
+
+      if (swiper.isEnd && !swiper.params.loop) {
+        return;
+      }
+
+      swiper.slideNext();
+    },
+    [swiper],
+  );
 
   return (
     <Styled.Container>
       <PrevArrow visible={showArrows} onClick={onPrevSlide} />
       <Swiper
-        loop={true}
-        effect="slide"
-        slidesPerView={1}
         onSwiper={setSwiper}
-        resizeObserver={true}
-        watchOverflow={true}
-        {...swiperOptions}
+        {...memoizedOptions}
       >
         {items.map((item, index) => (
           <SwiperSlide key={item.id}>

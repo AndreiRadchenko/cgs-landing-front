@@ -11,22 +11,20 @@ export interface ProjectsSliderProps {
 const AboutUsSlider: React.FC<ProjectsSliderProps> = ({ workers }) => {
   return (
     <Slider
-      swiperOptions={{
-        breakpoints: {
-          0: {
-            enabled: workers.length > 1,
-            slidesPerView: 1,
-          },
-          1024: {
-            enabled: workers.length > 3,
-            slidesPerView: 3,
-          },
-        },
-      }}
       items={workers}
       renderItem={(employee) => (
         <AboutUs employee={employee} />
       )}
+      swiperOptions={{
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      }}
     />
   );
 };
