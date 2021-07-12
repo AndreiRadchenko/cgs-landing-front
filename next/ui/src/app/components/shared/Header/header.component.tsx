@@ -6,9 +6,13 @@ import Menu from "../BurgerMenu/menu.component";
 import { IHeader } from "../../../../types/components";
 import IMAGES from "../../../../consts/Images";
 
-const Header: React.FC<IHeader> = ({ socialList, navigation, fill }) => {
-  const [activeMenu, setMenuState] = React.useState(false);
-
+const Header: React.FC<IHeader> = ({
+  socialList,
+  navigation,
+  showMenu,
+  setShowMenu,
+  fill,
+}) => {
   return (
     <React.Fragment>
       <Styled.HeaderWrapper>
@@ -17,7 +21,7 @@ const Header: React.FC<IHeader> = ({ socialList, navigation, fill }) => {
             <Styled.HeaderLogo src={IMAGES.LOGO} />
           </a>
         </Styled.HeaderItem>
-        <Menu activeMenu={activeMenu} setMenuState={setMenuState}>
+        <Menu showMenu={showMenu} setShowMenu={setShowMenu}>
           <Categories navigation={navigation} />
           <SocialLinks socialList={socialList} fill={fill} />
         </Menu>
