@@ -17,15 +17,15 @@ import { PrevArrow, NextArrow } from "./Arrows";
 import * as Styled from "./Slider.styles";
 
 export interface SliderProps<T> {
-  swiperOptions?: SwiperOptions;
   items: T[];
   renderItem: (item: T, index: number) => JSX.Element;
+  swiperOptions?: SwiperOptions;
 }
 
 export function Slider<T extends { id: any }>({
   items,
   renderItem,
-  swiperOptions,
+  swiperOptions = {},
 }: SliderProps<T>) {
   const [swiper, setSwiper] = useState<SwiperCore | null>(null);
   const [showArrows, setShowArrows] = useState(false);
@@ -64,17 +64,19 @@ export function Slider<T extends { id: any }>({
     [swiper, items],
   );
 
+  const defaultOptions: SwiperOptions = useMemo(
+    () => ({
+      loop: true,
+      slidesPerView: 1,
+      loopAdditionalSlides: items.length,
+    }),
+    [items],
+  );
+
   const memoizedOptions = useMemo(
     () => {
-      if (swiperOptions === undefined) {
-        return undefined;
-      }
-
       const newSwiperOptions: SwiperOptions = {
-        loop: true,
-        slidesPerView: 1,
-        loopAdditionalSlides: items.length,
-
+        ...defaultOptions,
         ...swiperOptions,
       };
 
@@ -101,7 +103,7 @@ export function Slider<T extends { id: any }>({
 
       return newSwiperOptions;
     },
-    [swiperOptions, items],
+    [items, defaultOptions, swiperOptions],
   );
 
   const onPrevSlide = useCallback(
@@ -141,10 +143,7 @@ export function Slider<T extends { id: any }>({
   return (
     <Styled.Container>
       <PrevArrow visible={showArrows} onClick={onPrevSlide} />
-      <Swiper
-        onSwiper={setSwiper}
-        {...memoizedOptions}
-      >
+      <Swiper {...memoizedOptions} onSwiper={setSwiper}>
         {items.map((item, index) => (
           <SwiperSlide key={item.id}>
             <Styled.SlideContainer>
