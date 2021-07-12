@@ -8,8 +8,9 @@ import { scrollEA } from "../../../services/event";
 import * as Styled from "../../components/BlogArticle/BlogArticle.styles";
 import { v4 as uuidv4 } from "uuid";
 
-export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
+import { GlobalNoUserSelectStyle } from "../../../../styles/global-no-user-select";
 
+export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
   const [mostViewedArticle, ...otherArticles] = articles;
 
   const [
@@ -34,9 +35,12 @@ export const BlogPage = ({ articles }: { articles: IBlogArticle[] }) => {
 
   return (
     <div className="main-wraper">
+      <GlobalNoUserSelectStyle />
       <Article
         title="Our articles"
-        desc={"Here you can stay in touch with us, knowing all the newest from\nthe world of IT and business!"}
+        desc={
+          "Here you can stay in touch with us, knowing all the newest from\nthe world of IT and business!"
+        }
       >
         <Styled.Wrapper>
           <Styled.FeaturedArticle key={uuidv4()}>
