@@ -1,4 +1,11 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle<{ activeMenu: boolean }>`
+  body {
+    height : ${(props) => (props.activeMenu ? "100%" : "auto")};
+    overflow: ${(props) => (props.activeMenu ? "hidden" : "visible")};
+  }
+`;
 
 export const BurgerMenu = styled("div")`
   @media screen and (min-width: 1023.5px) {

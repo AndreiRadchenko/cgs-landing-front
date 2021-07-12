@@ -13,14 +13,9 @@ export interface ProjectCardType {
 
 export interface IHeader {
   socialList: Array<ISocialInside>;
-  navigation: Array<ICategoriesInside>;
-  showMenu: boolean;
-  setShowMenu: (value: boolean) => void;
-
-  // DELETE
   fill?: string;
+  navigation: Array<ICategoriesInside>;
 }
-
 export interface ISvgData {
   path: string;
   fill: string;
@@ -56,9 +51,9 @@ export interface IHome {
 }
 
 export interface IMenu {
-  showMenu: boolean;
-  setShowMenu: (value: boolean) => void;
   children: React.ReactNode;
+  setMenuState: (value: boolean) => void;
+  activeMenu: boolean;
 }
 
 export interface IButton {

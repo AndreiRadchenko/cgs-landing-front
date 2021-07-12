@@ -1,36 +1,19 @@
-import React, { useState } from "react";
-import Head from "next/head";
-
 import Footer from "../shared/Footer/footer.component";
 import Header from "../shared/Header/header.component";
 import { SocialList, Nav } from "../../../../src/consts/lists";
+import Head from "next/head";
 import { LayoutProps } from "../../../types/components/index";
 
-import * as Styled from "./Layout.styles";
-
-const MainLayout: React.FC<LayoutProps> = ({ children, title, description}) => {
-  const [showMenu, setShowMenu] = useState(false);
-
-  return (
-    <>
-      <Head>
-        <title>{title}</title>
-        {description && <meta name="description" content={description} />}      
-      </Head>
-      <Header
-        socialList={SocialList}
-        navigation={Nav}
-        showMenu={showMenu}
-        setShowMenu={setShowMenu}
-      />
-      <Styled.MainContainer showMenu={showMenu}>
-        {children}
-      </Styled.MainContainer>
-      <Styled.FooterContainer showMenu={showMenu}>
-        <Footer socialList={SocialList} fill="white" />
-      </Styled.FooterContainer>
-    </>
-  );
-};
+const MainLayout: React.FC<LayoutProps> = ({ children, title, description}) => (
+  <>
+    <Head>
+      <title>{title}</title>
+      {description && <meta name="description" content={description} />}      
+    </Head>
+    <Header socialList={SocialList} navigation={Nav} />
+    <main>{children}</main>
+    <Footer socialList={SocialList} fill="white" />
+  </>
+);
 
 export default MainLayout;
