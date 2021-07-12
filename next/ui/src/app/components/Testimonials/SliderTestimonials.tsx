@@ -11,22 +11,20 @@ export interface ProjectsSliderProps {
 const TestimonialsSlider: React.FC<ProjectsSliderProps> = ({ testimonials }) => {
   return (
     <Slider
+      items={testimonials}
+      renderItem={(testimonial, index) => (
+        <Testimonials testimonial={testimonial} />
+      )}
       swiperOptions={{
         breakpoints: {
           0: {
-            enabled: testimonials.length > 1,
             slidesPerView: 1,
           },
           1024: {
-            enabled: testimonials.length > 3,
             slidesPerView: 3,
           },
         },
       }}
-      items={testimonials}
-      renderItem={(testimonial) => (
-        <Testimonials testimonial={testimonial} />
-      )}
     />
   );
 };
