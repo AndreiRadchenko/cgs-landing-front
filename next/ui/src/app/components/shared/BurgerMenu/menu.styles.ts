@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 export const BurgerMenu = styled("div")`
   @media screen and (min-width: 1023.5px) {
