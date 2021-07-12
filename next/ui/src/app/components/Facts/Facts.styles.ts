@@ -50,11 +50,16 @@ export const Text = styled("div")`
   font-size: 18px;
   line-height: 1.67;
   text-align: left;
-
   @media screen and (max-width: 1023.5px) {
     padding-left: 30px;
     padding-right: 30px;
-    text-align: justify;
+    text-align: center;
     opacity: 0.5;
+  }
+
+  @media (max-width: 375px) {
+    padding-left: 13px;
+    padding-right: 12px;
+    text-align: center;     
   }
 `;
