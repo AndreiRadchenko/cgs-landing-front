@@ -12,9 +12,6 @@ import SliderTechnologies from "app/components/Technologies/SliderTechnologies";
 import MainLayout from "app/components/Layout/Layout";
 
 export const HomePage = ({ props }) => {
-  React.useEffect(() => {
-    scrollEA("data-scroll");
-  }, []);
 
   return (
     <>
@@ -88,7 +85,7 @@ export const HomePage = ({ props }) => {
             </Article>
           )}
           <Article id="contact"
-            title="Your project is one of the kind and we will never use “templates” to build it"
+            title={"Your project is one of the kind and we will\nnever use “templates” to build it"}
             desc="Just leave your contact info here and we will offer you a personalized solution"
           >
             <Form />

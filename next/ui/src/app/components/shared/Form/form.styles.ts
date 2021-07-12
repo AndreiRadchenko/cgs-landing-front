@@ -22,7 +22,7 @@ export const FormWrapper = styled("div")`
 
 export const SuccessMessageContainer = styled("div")`
   min-height: 2.9em;
-  color: #97c3f9;
+  color: #205a7b;
   font-size: 0.9em;
   text-align: center;
   position: relative;

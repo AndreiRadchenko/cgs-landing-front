@@ -1,18 +1,17 @@
 import React from "react";
 import * as Styled from "./Featured.styles";
 import { v4 as uuidv4 } from "uuid";
+import Hyphenated from 'react-hyphen';
 
 const Featured = ({ featuredTech }) => (
 
       <Styled.FeaturedContainer key={uuidv4()}>
+        
         <Styled.TextContainer>
           <h2>{featuredTech?.name}</h2>
-          <p className="featured__description">{featuredTech?.text.split('\n').map((item, idx) => (
-            <span key={idx}>
-              {item}
-              <br />
-            </span>
-          ))}</p>
+          <Hyphenated>
+            <p className="featured__description">{featuredTech?.text}</p>         
+         </Hyphenated>
         </Styled.TextContainer>
         <Styled.ImageContainer>
           <img

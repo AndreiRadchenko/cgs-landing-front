@@ -1,51 +1,42 @@
-import React, { useState } from "react";
-import { Formik } from "formik";
-import * as Styled from "./form.styles";
-import Input from "../Input/input.commponent";
-import Textarea from "../Textarea/textarea.component";
-import Button from "../Button/button.component";
-import { registrationFormSchema } from "../../../../helpers/validation";
-import { sendFormEA } from "../../../../services/event";
-import {sendFeedback} from "../../../../services/api/sendFeedback";
+import React, { useState } from 'react';
+import { Formik } from 'formik';
+import * as Styled from './form.styles';
+import Input from '../Input/input.commponent';
+import Textarea from '../Textarea/textarea.component';
+import Button from '../Button/button.component';
+import { registrationFormSchema } from '../../../../helpers/validation';
+import { sendFormEA } from '../../../../services/event';
+import { sendFeedback } from '../../../../services/api/sendFeedback';
 
 const Form = () => {
   const [isSubmitted, setSubmitted] = useState(false);
 
   const isEmptyObject = (obj) => {
-    return JSON.stringify(obj) === "{}";
+    return JSON.stringify(obj) === '{}';
   };
 
   return (
     <Formik
       validationSchema={registrationFormSchema}
       initialValues={{
-        name: "",
-        email: "",
-        message: "",
+        name: '',
+        email: '',
+        message: '',
       }}
-
       onSubmit={async (values, { resetForm }) => {
         sendFormEA(values);
 
         await sendFeedback({
           ...values,
-          
-          message: values.message || " ",
+
+          message: values.message || ' ',
         });
 
         resetForm({});
         setSubmitted(true);
       }}
     >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-      }) => {
+      {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => {
         return (
           <Styled.FormWrapper>
             <Input
@@ -69,7 +60,7 @@ const Form = () => {
               touched={touched}
             />
             <Textarea
-              placeholder="Enter your message..."
+              placeholder="What is your idea?"
               name="message"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -79,19 +70,14 @@ const Form = () => {
             />
             <Button
               type="submit"
-              disabled={
-                isEmptyObject(touched) || !isEmptyObject(errors) || isSubmitting
-              }
+              disabled={isEmptyObject(touched) || !isEmptyObject(errors) || isSubmitting}
               onClick={handleSubmit}
             >
               Send
             </Button>
             <Styled.SuccessMessageContainer>
               {isSubmitted && (
-                <p className="success-message">
-                  Your message has been successfully delivered. Our Sales team
-                  will contact with you.
-                </p>
+                <p className="success-message">Don’t be bored of waiting, we’ll answer soon!</p>
               )}
             </Styled.SuccessMessageContainer>
           </Styled.FormWrapper>
