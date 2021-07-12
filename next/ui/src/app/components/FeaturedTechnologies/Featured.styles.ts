@@ -12,7 +12,7 @@ export const FeaturedContainer = styled("div")`
     align-items: center;
     text-align: left;
     flex-direction: column-reverse;
-    padding: 0 35px;
+    padding: 0 7px;
   }
 `;
 
@@ -35,9 +35,7 @@ export const TextContainer = styled.div`
 }
 
   @media screen and (max-width: 375px) {
-    & .featured__description {  
-    padding-left: 7px;
-    padding-right: 7px;
+    & .featured__description {
     text-align: center;
   } 
 }
