@@ -243,3 +243,10 @@ export interface PropsFormWrapper {
 export interface PropsAdminWrapper {
   active?: boolean;
 }
+
+export interface IStep {
+  id: string;
+  title: string;
+  text: string;
+  iconUrl: string;
+}

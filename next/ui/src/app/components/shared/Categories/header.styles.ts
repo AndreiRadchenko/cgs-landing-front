@@ -36,4 +36,7 @@ export const NavContainer = styled("div")`
   & div:nth-child(3) {
     min-width: 136px;
   }
+  & div:nth-child(4) {
+    min-width: 149px;   
+  }
 `;
