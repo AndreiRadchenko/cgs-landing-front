@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "NODE_ENV=development node server.js",
+    "build": "NODE_ENV=production next build",
+    "start": "NODE_ENV=production node server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:generators": "ts-node --project=./internals/ts-node.tsconfig.json ./internals/testing/test-generators.ts",
@@ -46,6 +46,7 @@
     "eslint-plugin-prettier": "3.1.2",
     "fontfaceobserver": "2.1.0",
     "formik": "2.1.5",
+    "html-to-react": "1.4.5",
     "husky": "4.2.3",
     "i18next": "19.3.4",
     "i18next-browser-languagedetector": "4.0.2",
@@ -93,6 +94,7 @@
     "suneditor": "2.39.0",
     "suneditor-react": "3.1.0",
     "swiper": "6.7.1",
+    "ts-debounce": "3.0.0",
     "ts-node": "8.8.2",
     "typescript": "4.2.4",
     "use-local-storage-state": "10.0.0",
@@ -150,6 +152,7 @@
     "babel-plugin-styled-components": "1.13.1",
     "css-loader": "5.2.4",
     "file-loader": "6.2.0",
+    "flex-gap-polyfill": "4.0.6",
     "postcss": "8.3.0",
     "url-loader": "4.1.1"
   }

@@ -1,22 +1,26 @@
 import React from "react";
+import Hyphenated from 'react-hyphen';
+import { Parser as HtmlToReactParser } from "html-to-react";
 
 import * as Styled from "./Facts.styles";
 
-import Hyphenated from 'react-hyphen';
+const Facts = ({ fact, number }) => {
+  const parser = new HtmlToReactParser();
 
-const Facts = ({ fact, number }) => (
-  <Styled.Container>
-    <Styled.Header>
-      <h2>Benefit #{number}</h2>
-      <img src={fact.iconUrl} alt="fact_image" width="30" />
-    </Styled.Header>
-    <Styled.Title>{fact.title}</Styled.Title>
-    <Hyphenated>
+  return (
+    <Styled.Container>
+      <Styled.Header>
+        <h2>Benefit #{number}</h2>
+        <img src={fact.iconUrl} alt="fact_image" width="30" />
+      </Styled.Header>
+      <Styled.Title>{fact.title}</Styled.Title>
       <Styled.Text>
-        <div dangerouslySetInnerHTML={{ __html: fact.text}} /> 
+        <Hyphenated>
+          {parser.parse(fact.text)}
+        </Hyphenated>
       </Styled.Text>
-    </Hyphenated>   
-  </Styled.Container>
-);
+    </Styled.Container>
+  );
+};
 
 export default Facts;

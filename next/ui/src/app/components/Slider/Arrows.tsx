@@ -7,7 +7,7 @@ import * as Styled from "./Arrows.styles";
 export interface ArrowProps {
   visible: boolean;
   imageSrc: string;
-  onClick: (...args: any[]) => any;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export const Arrow: React.FC<ArrowProps> = ({
