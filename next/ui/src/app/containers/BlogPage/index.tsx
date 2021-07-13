@@ -4,7 +4,6 @@ import BlogArticle from "app/components/BlogArticle/BlogArticle";
 import Pagination from "app/components/shared/Pagination/pagination.component";
 import React from "react";
 import { IBlogArticle } from "types/components";
-import { scrollEA } from "../../../services/event";
 import * as Styled from "../../components/BlogArticle/BlogArticle.styles";
 import { v4 as uuidv4 } from "uuid";
 
