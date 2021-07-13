@@ -7,12 +7,15 @@ import axios from "axios";
 import { useLocalStorageState } from "use-local-storage-state";
 import * as Styled from "../../components/Admin/Admin.styles";
 import Fact from "../../components/Admin/Facts/Facts";
+import Step from "../../components/Admin/Step/Step";
+import StepForm from "../../components/Admin/Step/StepForm";
 import Slogan from "../../components/Admin/Slogan/Slogan";
 import Worker from "../../components/Admin/Worker/Worker";
 import FactsForm from "app/components/Admin/Facts/FactsForm";
 import {
   ISlogan,
   IFact,
+  IStep,
   IProject,
   IWorker,
   ITechnology,
@@ -21,6 +24,7 @@ import {
   IArticle,
 } from "app/components/Admin/types";
 import SloganForm from "app/components/Admin/Slogan/SloganForm";
+
 import WorkerForm from "app/components/Admin/Worker/WorkerForm";
 import Projects from "app/components/Admin/Project/Project";
 import ProjectForm from "../../components/Admin/Project/ProjectForm";
@@ -47,6 +51,7 @@ const AdminPage: React.FC = () => {
   const [projects, setProjects] = useState<IProject[]>([]);
   const [workers, setWorkers] = useState<IWorker[]>([]);
   const [facts, setFacts] = useState<IFact[]>([]);
+  const [steps, setSteps] = useState<IStep[]>([]);
   const [technologies, setTechnologies] = useState<ITechnology[]>([]);
   const [testimonials, setTestimonials] = useState<ITestimonial[]>([]);
   const [featuredTechnologies, setFeaturedTechnologies] = useState<
@@ -61,6 +66,7 @@ const AdminPage: React.FC = () => {
 
   const apiParams = {
     facts: setFacts,
+    step: setSteps,
     slogan: setSlogan,
     worker: setWorkers,
     project: setProjects,
@@ -76,6 +82,8 @@ const AdminPage: React.FC = () => {
   };
 
   const deleteItem = (route: string, id: string) => {
+    console.log(route, id);
+
     deleteAdminData(route, id).then(() => loadData(route));
   };
 
@@ -116,6 +124,14 @@ const AdminPage: React.FC = () => {
       />
     );
   };
+
+  const renderStepItem = (step: IStep) => (
+    <Step
+      step={step}
+      openModal={openModal}
+      deleteItem={deleteItem}
+    />
+  ); 
 
   const renderSloganItem = (slogan) => {
     return (
@@ -381,6 +397,19 @@ const AdminPage: React.FC = () => {
                     )}
               </SectionLayout>
             )}
+
+          {isModal && categoryOpen === "step" && (
+            <StepForm step={editItem} close={closeModal} />
+          )}
+
+          {categoryOpen === "step" && !isModal && (
+            <SectionLayout title="Steps" setIsModal={setIsModal}>
+              {dataIsLoading
+                ? getSpinner()
+                : steps.map((step) => renderStepItem(step))
+              }
+            </SectionLayout>
+          )}
 
           {categoryOpen === "images" && <ImagesPage />}
         </Styled.InfoWrapper>
