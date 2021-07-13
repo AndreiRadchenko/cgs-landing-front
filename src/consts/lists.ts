@@ -157,11 +157,11 @@ export const Nav = [
     link: "/#contact",
     burgerTitle: "Contact us",
   },
-  {
-    title: "Partners",
-    link: "/partners",
-    burgerTitle: "Partners",
-  },
+  // {
+  //   title: "Partners",
+  //   link: "/partners",
+  //   burgerTitle: "Partners",
+  // },
 ];
 
 export const AdminNav = [
