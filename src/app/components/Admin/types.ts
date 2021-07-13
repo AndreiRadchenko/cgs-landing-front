@@ -5,6 +5,16 @@ export interface IFact {
   iconFile: IIconFile;
   showOnHomePage: boolean;
 }
+
+export interface IStep {
+  id: string,
+  title: string,
+  text: string;
+  iconFile: IIconFile;
+  showOnPartnersPage: boolean;
+  placeOnPartnersPage: number;
+}
+
 export interface IIconFile {
   id: string;
   name: string;

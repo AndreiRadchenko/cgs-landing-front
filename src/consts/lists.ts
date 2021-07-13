@@ -173,5 +173,6 @@ export const AdminNav = [
   { name: "Testimonial", id: "testimonial" },
   { name: "Featured Technology", id: "featuredTechnology" },
   { name: "Article", id: "article" },
+  { name: "Steps", id: "step" },
   { name: "Images", id: "images" },
 ];
