@@ -141,7 +141,6 @@ export const LinkButtonSecond = styled("a")`
   font-size: 18px;
   margin-top: 10px;
   margin-left: 50px;
-  display: none;
 `
 
 export const LinkButtonsWrapper = styled("div")`
