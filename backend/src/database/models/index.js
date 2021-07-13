@@ -1,3 +1,4 @@
+const step = require('./step');
 const fact = require('./fact');
 const file = require('./file');
 const user = require('./user');
@@ -12,6 +13,7 @@ const testimonial = require('./testimonial');
 const featuredTechnology = require('./featured-technology');
 
 module.exports = {
+  ...step,
   ...fact,
   ...file,
   ...user,
