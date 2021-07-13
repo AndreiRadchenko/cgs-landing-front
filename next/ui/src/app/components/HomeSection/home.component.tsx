@@ -9,13 +9,17 @@ const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => (
       <Styled.ImgMobile className="home-section__img--mobile" src="/illustration.svg" />
       <h1 className="home-section__title">{slogan?.title}</h1>
       <p className="home-section__subtitle">{slogan?.text}</p>
-
       <Styled.LinkButtonsWrapper>
         <Styled.LinkButton onClick={() => clickDiscussTheDitails("/#contact")} href="#contact">
           Discuss the details
         </Styled.LinkButton>
 
-        <Styled.LinkButtonSecond>Become a partner</Styled.LinkButtonSecond>
+        <Styled.LinkButtonSecond
+          onClick={() => clickDiscussTheDitails("/partners")}
+          href="partners"
+        >
+          Become a partner
+        </Styled.LinkButtonSecond>
       </Styled.LinkButtonsWrapper>
 
       <Styled.LinkButton href="#contact" mobile type="button">
