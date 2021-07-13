@@ -33,7 +33,6 @@ export const PartnersPage = ({ steps }) => {
           >
             <StepsSlider steps={steps} />
           </Article>
-
           <Article id="contact" title={"Text for contact form"}>
             <Form />
           </Article>
