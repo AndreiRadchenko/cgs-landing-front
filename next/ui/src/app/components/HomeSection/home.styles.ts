@@ -131,21 +131,25 @@ export const LinkButtonSecond = styled("a")`
   border-radius: 2em;
   background-color: ${(props) => props.theme.colors.buttonBgColor};  
   padding: 0.7em;
-  font-weight: 700;
   border: 0;
   color: white;
-  min-width: 230px;
+  min-width: 200px;
   width: fit-content;
   cursor: pointer;
   transition: all 0.3s ease-in;
   font-size: 18px;
   margin-top: 10px;
-  margin-left: 50px;
+  margin-left: 20px;
+  @media screen and (min-width: 1100px) {
+    min-width: 200px;
+  }
+  @media screen and (max-width: 1023.5px) {  
+    display: none;
+  }
 `
 
 export const LinkButtonsWrapper = styled("div")`
   display: flex;
-
-`
-
+  justify-content: space-between;
+`;
 
