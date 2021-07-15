@@ -3,11 +3,9 @@ import styled from "styled-components";
 export const HeaderLinks = styled("div")`
   display: flex;
   justify-content: space-between;
-
   & a:not(:last-child) {
-    margin-right: 15px;
-    @media screen and (min-width: 1100px) {
-      margin-right: 25px;
+    @media screen and (min-width: 1150px) {
+      margin-right: 15px;
     }
   }
 `;

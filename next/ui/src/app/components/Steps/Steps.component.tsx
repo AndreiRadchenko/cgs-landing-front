@@ -10,7 +10,7 @@ const Step = ({ step, number }) => {
   return (
     <Styled.Container>
       <Styled.Header>
-        <h2>Step #{number}</h2>
+        <h2>Benefit #{number}</h2>
         <img src={step.iconUrl} alt={step.title} width="30" />
       </Styled.Header>
       <Styled.Title>{step.title}</Styled.Title>

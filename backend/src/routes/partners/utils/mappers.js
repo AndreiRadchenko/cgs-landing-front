@@ -6,3 +6,10 @@ const mapStepToResponse = (step) => ({
 });
 
 exports.mapStepToResponse = mapStepToResponse;
+
+const mapStepToEarnToResponse = (stepToEarn) => ({
+  id: stepToEarn.id,
+  text: stepToEarn.text,
+});
+
+exports.mapStepToEarnToResponse = mapStepToEarnToResponse;

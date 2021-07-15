@@ -9,8 +9,18 @@ export const HeaderWrapper = styled.header<PropsHeader>`
   justify-content: space-between;
   align-items: center;
   background: white;
-  padding: 1em 55px;
   flex: 1;
+  padding-top: 35px;
+  padding-left: 20px;
+  padding-right: 20px;
+  @media screen and (min-width: 1024px) and (max-width: 1149px) {
+    padding-top: 20px;   
+  }
+
+  @media screen and (max-width: 1023.5px) {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
 `;
 
 export const HeaderItem = styled("div")`
