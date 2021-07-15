@@ -43,7 +43,6 @@ const stepToEarnUpdate = {
     }
 
     assignExistProperties(stepToEarn, body, [
-      'title',
       'text',
       'showOnPartnersPage',
       'placeOnPartnersPage',

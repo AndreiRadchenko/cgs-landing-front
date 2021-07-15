@@ -50,7 +50,9 @@ const makeValidators = (rawRoute, options = defaultOptions) => {
         return;
       }
 
-      context.request[property] = output;
+      Object.defineProperty(context.request, property, {
+        value: output,
+      });
 
       await next();
     };
