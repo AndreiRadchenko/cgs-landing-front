@@ -61,7 +61,6 @@ export const ContentBlock = styled("article")`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 473px;
   & > p {
     opacity: 0.5;
     margin: 1em 0;
@@ -77,6 +76,7 @@ export const ContentBlock = styled("article")`
     text-align: center;
     margin-bottom: 24px;
     align-items: center;
+    width: 90%; 
 
     & > a {
       margin: 1em 0 2em 0;
@@ -120,8 +120,37 @@ export const LinkButton = styled("a") <PropsHomeWrapper>`
   &:hover {
     background: ${(props) => props.theme.colors.buttonBgColorActive};
   }
-  @media (max-width: 768px) {
-    display: ${(props) => (props.mobile ? "" : "none")};
+  
+  @media screen and (max-width: 520px) {
+    min-width: 180px;
+  }
+  @media screen and (max-width: 467px) {  
+    min-width: 150px;
+    font-size: 17px;
+  }
+  @media screen and (max-width: 414px) {  
+    min-width: 150px;
+    font-size: 16px;
+  }
+  @media screen and (max-width: 402px) {  
+    min-width: 150px;
+    font-size: 15px;
+  }
+  @media screen and (max-width: 394px) {  
+    min-width: 140px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 369px) {  
+    min-width: 130px;
+    font-size: 13px;
+  }
+  @media screen and (max-width: 346px) {  
+    min-width: 120px;
+    font-size: 13px;
+  }
+  @media screen and (max-width: 330px) {  
+    min-width: 110px;
+    font-size: 13px;
   }
 `;
 
@@ -143,13 +172,43 @@ export const LinkButtonSecond = styled("a")`
   @media screen and (min-width: 1100px) {
     min-width: 200px;
   }
-  @media screen and (max-width: 1023.5px) {  
-    display: none;
+
+  @media screen and (max-width: 520px) {  
+    min-width: 180px;
+  }
+  @media screen and (max-width: 467px) {  
+    min-width: 150px;
+    font-size: 17px;
+  }
+  @media screen and (max-width: 414px) {  
+    min-width: 150px;
+    font-size: 16px;
+  }
+  @media screen and (max-width: 402px) {  
+    min-width: 150px;
+    font-size: 15px;
+  }
+  @media screen and (max-width: 394px) {  
+    min-width: 140px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 369px) {  
+    min-width: 130px;
+    font-size: 13px;
+  }
+  @media screen and (max-width: 346px) {  
+    min-width: 120px;
+    font-size: 13px;
+  }
+  @media screen and (max-width: 330px) {  
+    min-width: 110px;
+    font-size: 13px;
   }
 `
 
 export const LinkButtonsWrapper = styled("div")`
   display: flex;
   justify-content: space-between;
+  width: 100%;
 `;
 
