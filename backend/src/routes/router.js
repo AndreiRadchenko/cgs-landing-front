@@ -5,6 +5,7 @@ const { blogRouter } = require('./blog');
 const { homeRouter } = require('./home');
 const { partnersRouter } = require('./partners');
 
+const { stepToEarnRouter } = require('./step-to-earn');
 const { stepRouter } = require('./step');
 const { factRouter } = require('./fact');
 const { fileRouter } = require('./file');
@@ -27,6 +28,7 @@ router.use(
 );
 
 router.use(
+  stepToEarnRouter.middleware(),
   stepRouter.middleware(),
   factRouter.middleware(),
   fileRouter.middleware(),
