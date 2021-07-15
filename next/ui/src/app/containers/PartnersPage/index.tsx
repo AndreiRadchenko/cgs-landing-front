@@ -5,6 +5,7 @@ import MainLayout from "app/components/Layout/Layout";
 import * as Styled from "../../components/PartnersArticle/PartnerArticle.styles";
 import { GlobalNoUserSelectStyle } from "../../../../styles/global-no-user-select";
 import StepsSlider from "app/components/Steps/SliderSteps";
+import Interest from "app/components/Interests/Interests";
 
 export const PartnersPage = ({ steps }) => {
   return (
@@ -17,23 +18,31 @@ export const PartnersPage = ({ steps }) => {
         <div className="main-wraper">
           <Article
             id="partner"
-            title="Become our partner"
-            desc={
-              "Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            }
+            title="Your 2000$ are near you!"
+            desc={"Become our partner and earn money passively\nfrom each closed deal!"}
           >
             <Styled.ImgAfterTitle src="/illustrationTitlePartners.svg" />
           </Article>
           <Article
             id="steps"
-            title="Steps of the work"
-            desc={
-              "Lorem ipsum dolor sit amet, consectetur  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            }
+            title="Benefits you may have with us:"
+            // desc={"Become our partner and earn money passively from each closed deal!"}
           >
             <StepsSlider steps={steps} />
           </Article>
-          <Article id="contact" title={"Text for contact form"}>
+          <Article
+            // id="steps"
+            title="How to earn interest with us?"
+            // desc={"Become our partner and earn money passively from each closed deal!"}
+          >
+            <Styled.Wrapper>
+              <Styled.Interests>
+                <Interest />
+                <Styled.ImgAfterBenefits src="/interests.jpg" />
+              </Styled.Interests>
+            </Styled.Wrapper>
+          </Article>
+          <Article id="contact" title={"Just fill up the form to start our partnership!"}>
             <Form />
           </Article>
         </div>

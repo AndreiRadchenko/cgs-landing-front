@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const DesktopContainer = styled("div")`
-  display: flex;
-  width: 50%;
+  display: grid;
+  width: 80%;
   margin: 0 auto;
-  flex-direction: column;
+  grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 80px;
+  column-gap: 80px;
+  row-gap: 60px;
 `;
 
 export const MobileContainer = styled("div")`
