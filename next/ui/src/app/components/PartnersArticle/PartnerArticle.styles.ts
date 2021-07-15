@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
-export const Wrapper = styled("div")`
-`
+export const Wrapper = styled("div")``
 
 export const ImgAfterTitle = styled("img")`
     display: block;
-    width: 60%;
-    height: 100%; 
+    width: 80%;
+	max-height: 400px;
 `
 
 export const ImgAfterBenefits = styled("img")`
@@ -16,4 +15,4 @@ export const ImgAfterBenefits = styled("img")`
     padding: 20px;
 `
 
-export const Interests = styled("div")``
+export const Interests = styled("div")``;

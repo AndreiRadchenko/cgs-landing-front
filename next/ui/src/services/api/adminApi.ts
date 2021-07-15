@@ -18,6 +18,7 @@ const API_ROUTES = {
   blogTag: "/blog-tag/",
   file: "/file/",
   fileUpload: "/file/upload",
+  step: "/step/",
 };
 
 export const login = async (user) => {
