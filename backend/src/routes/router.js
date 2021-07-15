@@ -5,7 +5,6 @@ const { blogRouter } = require('./blog');
 const { homeRouter } = require('./home');
 const { partnersRouter } = require('./partners');
 
-const { stepToEarnRouter } = require('./step-to-earn');
 const { stepRouter } = require('./step');
 const { factRouter } = require('./fact');
 const { fileRouter } = require('./file');
@@ -15,6 +14,7 @@ const { articleRouter } = require('./article');
 const { projectRouter } = require('./project');
 const { blogTagRouter } = require('./blog-tag');
 const { technologyRouter } = require('./technology');
+const { stepToEarnRouter } = require('./step-to-earn');
 const { testimonialRouter } = require('./testimonial');
 const { featuredTechnologyRouter } = require('./featured-technology');
 
@@ -28,7 +28,6 @@ router.use(
 );
 
 router.use(
-  stepToEarnRouter.middleware(),
   stepRouter.middleware(),
   factRouter.middleware(),
   fileRouter.middleware(),
@@ -38,6 +37,7 @@ router.use(
   projectRouter.middleware(),
   blogTagRouter.middleware(),
   technologyRouter.middleware(),
+  stepToEarnRouter.middleware(),
   testimonialRouter.middleware(),
   featuredTechnologyRouter.middleware(),
 );

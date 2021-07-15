@@ -1,4 +1,3 @@
-const stepToEarn = require('./step-to-earn');
 const step = require('./step');
 const fact = require('./fact');
 const file = require('./file');
@@ -10,6 +9,7 @@ const article = require('./article');
 const project = require('./project');
 const blogTag = require('./blog-tag');
 const technology = require('./technology');
+const stepToEarn = require('./step-to-earn');
 const testimonial = require('./testimonial');
 const featuredTechnology = require('./featured-technology');
 
@@ -26,6 +26,7 @@ module.exports = {
   ...project,
   ...blogTag,
   ...technology,
+  ...stepToEarn,
   ...testimonial,
   ...featuredTechnology,
 };
