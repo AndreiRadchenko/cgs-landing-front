@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import {
-  getAdminData,
-  deleteAdminData,
-} from "../../../services/api/adminApi";
+import { getAdminData, deleteAdminData } from "../../../services/api/adminApi";
 import axios from "axios";
 import { useLocalStorageState } from "use-local-storage-state";
 import * as Styled from "../../components/Admin/Admin.styles";
 import Fact from "../../components/Admin/Facts/Facts";
 import Step from "../../components/Admin/Step/Step";
 import StepForm from "../../components/Admin/Step/StepForm";
+import StepToEarn from "../../components/Admin/StepToEarn/StepToEarn";
+import StepToEarnForm from "../../components/Admin/StepToEarn/StepToEarnForm";
 import Slogan from "../../components/Admin/Slogan/Slogan";
 import Worker from "../../components/Admin/Worker/Worker";
 import FactsForm from "app/components/Admin/Facts/FactsForm";
@@ -16,6 +15,7 @@ import {
   ISlogan,
   IFact,
   IStep,
+  IStepToEarn,
   IProject,
   IWorker,
   ITechnology,
@@ -43,7 +43,7 @@ import SectionLayout from "app/components/Admin/SectionLayout/sectionLayout.comp
 import { AdminNav } from "../../../consts/lists";
 import { v4 as uuidv4 } from "uuid";
 import { getSpinner } from "../../../helpers/spinner";
-import Router from 'next/router'
+import Router from "next/router";
 
 const AdminPage: React.FC = () => {
   const [token, setToken] = useLocalStorageState("token", "");
@@ -52,11 +52,10 @@ const AdminPage: React.FC = () => {
   const [workers, setWorkers] = useState<IWorker[]>([]);
   const [facts, setFacts] = useState<IFact[]>([]);
   const [steps, setSteps] = useState<IStep[]>([]);
+  const [stepsToEarn, setStepsToEarn] = useState<IStepToEarn[]>([]);
   const [technologies, setTechnologies] = useState<ITechnology[]>([]);
   const [testimonials, setTestimonials] = useState<ITestimonial[]>([]);
-  const [featuredTechnologies, setFeaturedTechnologies] = useState<
-    IFeaturedTechnology[]
-  >([]);
+  const [featuredTechnologies, setFeaturedTechnologies] = useState<IFeaturedTechnology[]>([]);
   const [articles, setArticles] = useState<IArticle[]>([]);
   const [isModal, setIsModal] = useState<boolean>(false);
   const [categoryOpen, setCategoryOpen] = useState<string | any>(null);
@@ -65,6 +64,7 @@ const AdminPage: React.FC = () => {
   const [dataIsLoading, setDataIsLoading] = useState(false);
 
   const apiParams = {
+    stepToEarn: setStepsToEarn,
     facts: setFacts,
     step: setSteps,
     slogan: setSlogan,
@@ -115,53 +115,27 @@ const AdminPage: React.FC = () => {
   };
 
   const renderFactItem = (fact) => {
-    return (
-      <Fact
-        key={uuidv4()}
-        fact={fact}
-        openModal={openModal}
-        deleteItem={deleteItem}
-      />
-    );
+    return <Fact key={uuidv4()} fact={fact} openModal={openModal} deleteItem={deleteItem} />;
   };
 
   const renderStepItem = (step: IStep) => (
-    <Step
-      step={step}
-      openModal={openModal}
-      deleteItem={deleteItem}
-    />
-  ); 
+    <Step step={step} openModal={openModal} deleteItem={deleteItem} />
+  );
+
+  const renderStepToEarnItem = (stepToEarn: IStepToEarn) => (
+    <StepToEarn stepToEarn={stepToEarn} openModal={openModal} deleteItem={deleteItem} />
+  );
 
   const renderSloganItem = (slogan) => {
-    return (
-      <Slogan
-        key={uuidv4()}
-        slogan={slogan}
-        openModal={openModal}
-        deleteItem={deleteItem}
-      />
-    );
+    return <Slogan key={uuidv4()} slogan={slogan} openModal={openModal} deleteItem={deleteItem} />;
   };
 
   const renderWorkerItem = (worker) => {
-    return (
-      <Worker
-        key={uuidv4()}
-        openModal={openModal}
-        worker={worker}
-        deleteItem={deleteItem}
-      />
-    );
+    return <Worker key={uuidv4()} openModal={openModal} worker={worker} deleteItem={deleteItem} />;
   };
   const renderProjectItem = (project) => {
     return (
-      <Projects
-        key={uuidv4()}
-        openModal={openModal}
-        project={project}
-        deleteItem={deleteItem}
-      />
+      <Projects key={uuidv4()} openModal={openModal} project={project} deleteItem={deleteItem} />
     );
   };
 
@@ -187,12 +161,7 @@ const AdminPage: React.FC = () => {
   };
   const renderArticleItem = (article) => {
     return (
-      <Article
-        key={article.id}
-        openModal={openModal}
-        article={article}
-        deleteItem={deleteItem}
-      />
+      <Article key={article.id} openModal={openModal} article={article} deleteItem={deleteItem} />
     );
   };
 
@@ -213,7 +182,7 @@ const AdminPage: React.FC = () => {
 
       return;
     } else {
-      Router.push('/admin/login')
+      Router.push("/admin/login");
     }
   }, []);
 
@@ -224,7 +193,6 @@ const AdminPage: React.FC = () => {
 
     axios.defaults.headers.Authorization = `Bearer ${token}`;
   }, [token, tokenIsLoaded]);
-
 
   const loadData = async (category: string) => {
     setDataIsLoading(true);
@@ -284,15 +252,11 @@ const AdminPage: React.FC = () => {
         </Styled.Sidebar>
 
         <Styled.InfoWrapper>
-          {isModal && categoryOpen === "facts" && (
-            <FactsForm fact={editItem} close={closeModal} />
-          )}
+          {isModal && categoryOpen === "facts" && <FactsForm fact={editItem} close={closeModal} />}
 
           {categoryOpen === "facts" && facts && !isModal && (
             <SectionLayout title="Facts" setIsModal={setIsModal}>
-              {dataIsLoading
-                ? getSpinner()
-                : facts.map((fact) => renderFactItem(fact))}
+              {dataIsLoading ? getSpinner() : facts.map((fact) => renderFactItem(fact))}
             </SectionLayout>
           )}
 
@@ -302,9 +266,7 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "slogan" && slogan && !isModal && (
             <SectionLayout title="Slogan" setIsModal={setIsModal}>
-              {dataIsLoading
-                ? getSpinner()
-                : slogan.map((slogan) => renderSloganItem(slogan))}
+              {dataIsLoading ? getSpinner() : slogan.map((slogan) => renderSloganItem(slogan))}
             </SectionLayout>
           )}
 
@@ -314,25 +276,17 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "worker" && workers && !isModal && (
             <SectionLayout title="Workers" setIsModal={setIsModal}>
-              {dataIsLoading
-                ? getSpinner()
-                : workers.map((worker) => renderWorkerItem(worker))}
+              {dataIsLoading ? getSpinner() : workers.map((worker) => renderWorkerItem(worker))}
             </SectionLayout>
           )}
 
           {isModal && categoryOpen === "project" && (
-            <ProjectForm
-              project={editItem}
-              technologies={technologies}
-              close={closeModal}
-            />
+            <ProjectForm project={editItem} technologies={technologies} close={closeModal} />
           )}
 
           {categoryOpen === "project" && projects && !isModal && (
             <SectionLayout title="Projects" setIsModal={setIsModal}>
-              {dataIsLoading
-                ? getSpinner()
-                : projects.map((project) => renderProjectItem(project))}
+              {dataIsLoading ? getSpinner() : projects.map((project) => renderProjectItem(project))}
             </SectionLayout>
           )}
 
@@ -344,9 +298,7 @@ const AdminPage: React.FC = () => {
             <SectionLayout title="Testimonials" setIsModal={setIsModal}>
               {dataIsLoading
                 ? getSpinner()
-                : testimonials.map((testimonial) =>
-                    renderTestimonialItem(testimonial)
-                  )}
+                : testimonials.map((testimonial) => renderTestimonialItem(testimonial))}
             </SectionLayout>
           )}
 
@@ -358,9 +310,7 @@ const AdminPage: React.FC = () => {
             <SectionLayout title="Technologies" setIsModal={setIsModal}>
               {dataIsLoading
                 ? getSpinner()
-                : technologies.map((technology) =>
-                    renderTechnologyItem(technology)
-                  )}
+                : technologies.map((technology) => renderTechnologyItem(technology))}
             </SectionLayout>
           )}
 
@@ -370,44 +320,39 @@ const AdminPage: React.FC = () => {
 
           {categoryOpen === "article" && articles && !isModal && (
             <SectionLayout title="Article" setIsModal={setIsModal}>
-              {dataIsLoading
-                ? getSpinner()
-                : articles.map((article) => renderArticleItem(article))}
+              {dataIsLoading ? getSpinner() : articles.map((article) => renderArticleItem(article))}
             </SectionLayout>
           )}
 
           {isModal && categoryOpen === "featuredTechnology" && (
-            <FeaturedTechnologyForm
-              featuredTechnology={editItem}
-              close={closeModal}
-            />
+            <FeaturedTechnologyForm featuredTechnology={editItem} close={closeModal} />
           )}
 
-          {categoryOpen === "featuredTechnology" &&
-            featuredTechnologies &&
-            !isModal && (
-              <SectionLayout
-                title="Featured Techologies"
-                setIsModal={setIsModal}
-              >
-                {dataIsLoading
-                  ? getSpinner()
-                  : featuredTechnologies.map((featuredTechnology) =>
-                      renderFeaturedItem(featuredTechnology)
-                    )}
-              </SectionLayout>
-            )}
-
-          {isModal && categoryOpen === "step" && (
-            <StepForm step={editItem} close={closeModal} />
+          {categoryOpen === "featuredTechnology" && featuredTechnologies && !isModal && (
+            <SectionLayout title="Featured Techologies" setIsModal={setIsModal}>
+              {dataIsLoading
+                ? getSpinner()
+                : featuredTechnologies.map((featuredTechnology) =>
+                    renderFeaturedItem(featuredTechnology)
+                  )}
+            </SectionLayout>
           )}
+
+          {isModal && categoryOpen === "step" && <StepForm step={editItem} close={closeModal} />}
 
           {categoryOpen === "step" && !isModal && (
             <SectionLayout title="Steps" setIsModal={setIsModal}>
-              {dataIsLoading
-                ? getSpinner()
-                : steps.map((step) => renderStepItem(step))
-              }
+              {dataIsLoading ? getSpinner() : steps.map((step) => renderStepItem(step))}
+            </SectionLayout>
+          )}
+
+          {isModal && categoryOpen === "stepToEarn" && (
+            <StepToEarnForm stepToEarn={editItem} close={closeModal} />
+          )}
+
+          {categoryOpen === "stepToEarn" && !isModal && (
+            <SectionLayout title="StepsToEarn" setIsModal={setIsModal}>
+              {dataIsLoading ? getSpinner() : stepsToEarn.map(renderStepToEarnItem)}
             </SectionLayout>
           )}
 
