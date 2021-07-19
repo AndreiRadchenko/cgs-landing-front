@@ -21,10 +21,13 @@ const StepsSlider: React.FC<SliderProps> = ({ steps }) => {
         ))}
       </Styled.DesktopContainer>
       <Styled.MobileContainer>
-        <Slider
+        {steps.map((step, index) => (
+          <Step key={step.id} step={step} number={index + 1} />
+        ))}
+        {/* <Slider
           items={steps}
           renderItem={(step, index) => <Step step={step} number={index + 1} />}
-        />
+        /> */}
       </Styled.MobileContainer>
     </Styled.Container>
   );

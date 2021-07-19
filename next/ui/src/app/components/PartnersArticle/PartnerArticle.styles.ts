@@ -13,6 +13,15 @@ export const ImgAfterBenefits = styled("img")`
     width: 100%;
     height: 100%;
     padding: 20px;
+
+    @media screen and (max-width: 1023.5px) {
+        display: none;
+    }
 `
 
-export const Interests = styled("div")``;
+export const StepToEarn = styled("div")`
+    position: relative;
+    @media screen and (max-width: 1023.5px) {
+        position: static;
+    }
+`;
