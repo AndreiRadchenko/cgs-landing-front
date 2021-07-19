@@ -22,6 +22,7 @@ export const Text = styled("textarea")`
     border: 3px solid #1F5A7B;
     padding: 10px 12px;
     min-height: 235px;
+    text-align: center;
   }
 `;
 

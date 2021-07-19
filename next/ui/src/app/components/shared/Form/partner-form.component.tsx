@@ -6,9 +6,9 @@ import Textarea from "../Textarea/textarea.component";
 import Button from "../Button/button.component";
 import { registrationFormSchema } from "../../../../helpers/validation";
 import { sendFormEA } from "../../../../services/event";
-import { sendFeedback } from "../../../../services/api/sendFeedback";
+import { sendPartnersFeedback } from "../../../../services/api/sendFeedback";
 
-const Form = () => {
+const PartnerForm = () => {
   const [isSubmitted, setSubmitted] = useState(false);
 
   const isEmptyObject = (obj) => {
@@ -26,7 +26,7 @@ const Form = () => {
       onSubmit={async (values, { resetForm }) => {
         sendFormEA(values);
 
-        await sendFeedback(values);
+        await sendPartnersFeedback(values);
 
         resetForm({});
         setSubmitted(true);
@@ -56,7 +56,7 @@ const Form = () => {
               touched={touched}
             />
             <Textarea
-              placeholder="What is your idea?"
+              placeholder="Any ideas?"
               name="message"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -82,4 +82,4 @@ const Form = () => {
     </Formik>
   );
 };
-export default Form;
+export default PartnerForm;

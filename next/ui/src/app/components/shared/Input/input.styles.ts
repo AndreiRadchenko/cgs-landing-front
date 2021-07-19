@@ -17,6 +17,7 @@ export const Input = styled("input")`
     border-radius: 20px;
     border: 3px solid #1F5A7B;
     padding: 15px 12px;
+    text-align: center;
   }
 `;
 
