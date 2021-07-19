@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "../../components/shared/Form/form.component";
+import PartnerForm from "../../components/shared/Form/partner-form.component";
 import Article from "../../components/Article/article.component";
 import MainLayout from "app/components/Layout/Layout";
 import * as Styled from "../../components/PartnersArticle/PartnerArticle.styles";
@@ -28,14 +28,12 @@ export const PartnersPage = ({ steps, stepsToEarn }) => {
           <Article
             id="steps"
             title="Benefits you may have with us:"
-            // desc={"Become our partner and earn money passively from each closed deal!"}
           >
             <StepsSlider steps={steps} />
           </Article>
           <Article
-            // id="steps"
+            id="steps-to-earn"
             title="How to earn interest with us?"
-            // desc={"Become our partner and earn money passively from each closed deal!"}
           >
             <Styled.Wrapper>
               <Styled.StepToEarn>
@@ -47,7 +45,7 @@ export const PartnersPage = ({ steps, stepsToEarn }) => {
             </Styled.Wrapper>
           </Article>
           <Article id="contact" title={"Start our partnership here!"}>
-            <Form />
+            <PartnerForm />
           </Article>
         </div>
       </MainLayout>
