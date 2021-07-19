@@ -25,48 +25,52 @@ export const Title = styled("div")`
   }
 `;
 
-export const Container = styled("div")` 
-  position: absolute;  
+export const Container = styled("div")<{number: number}>`
+  display: flex;
+  position: absolute;
+  padding-top: 80px;
 
-   & > ${Header} {
-    margin-bottom: 5px;
-  }
-
-  & > ${Title} {
-    margin-bottom: 25px;
-  }
-
+  top: ${props => (props.number - 1) * 90}px;  
+ 
   @media screen and (max-width: 1023.5px) {
-    align-items: center;
-    text-align: start;
+    position: static;
+
+    padding-top: 0px;
   }
 `;
 
-export const Wrapper = styled("div")`
+export const Wrapper = styled("div")` 
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-`
+  padding-top: 20px;
+
+  @media screen and (max-width: 1023.5px) {
+    flex-direction: column;
+    padding-top: 0;
+
+  }
+
+  & .image {
+    margin-top:20px;
+    margin-bottom:20px;
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+`;
 
 export const Text = styled("div")`
-  border-radius: 5px;
-  max-width: 500px;
+  max-width: 470px;
   font-size: 18px;
   line-height: 22px;
-  text-align: justify;
   margin-left: 20px;
-  /* @media screen and (max-width: 1023.5px) {
-    padding-left: 30px;
-    padding-right: 30px;
-    text-align: center;
-    opacity: 0.5;
-  } */
+  text-align: center;
+  opacity: 0.5;
 
-  /* @media (max-width: 375px) {
-    padding-left: 13px;
-    padding-right: 12px;
-    text-align: center;     
-  } */
+  @media screen and (max-width: 1023.5px) {
+    max-width: 500px;
+  }
 `;
 
 export const Number = styled("div")`
@@ -75,4 +79,12 @@ export const Number = styled("div")`
   background: #205a7b;
   border-radius: 50%;
   margin-left: 20px;
-`
+  text-align: center;
+  padding-top: 2px;
+  font-size: 36px;
+  color: white;
+
+  @media screen and (max-width: 1023.5px) {
+    display: none;
+  }
+`;

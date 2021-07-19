@@ -8,14 +8,20 @@ import { LayoutProps } from "../../../types/components/index";
 
 import * as Styled from "./Layout.styles";
 
-const MainLayout: React.FC<LayoutProps> = ({ children, title, description}) => {
+const MainLayout: React.FC<LayoutProps> = ({
+  children,
+  title,
+  description,
+  favicon = "/favicon.ico",
+}) => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
     <>
       <Head>
         <title>{title}</title>
-        {description && <meta name="description" content={description} />}      
+        {description && <meta name="description" content={description} />}
+        {favicon && <link rel="icon" href={favicon} />}
       </Head>
       <Header
         socialList={SocialList}
@@ -23,9 +29,7 @@ const MainLayout: React.FC<LayoutProps> = ({ children, title, description}) => {
         showMenu={showMenu}
         setShowMenu={setShowMenu}
       />
-      <Styled.MainContainer showMenu={showMenu}>
-        {children}
-      </Styled.MainContainer>
+      <Styled.MainContainer showMenu={showMenu}>{children}</Styled.MainContainer>
       <Styled.FooterContainer showMenu={showMenu}>
         <Footer socialList={SocialList} fill="white" />
       </Styled.FooterContainer>

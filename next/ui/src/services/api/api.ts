@@ -16,6 +16,7 @@ const API_ROUTES = {
   article: "/blog/",
   similarArticles: "/blog/similar-articles/",
   steps: "/partners/get-steps",
+  stepsToEarn: "/partners/get-steps-to-earn",
 };
 
 export const getData = async (route: string, id?: string | undefined) => {
