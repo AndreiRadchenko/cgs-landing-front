@@ -6,7 +6,7 @@ export const Header = styled("div")`
   height: 35px;
 
   & > h2 {
-    margin-right: 20px;
+    margin-right: 5px;
     
     @media screen and (max-width: 400px) {
       font-size: 20px;
@@ -31,11 +31,7 @@ export const Container = styled("div")`
   padding: 10px;
   align-items: flex-start;
 
-  &:not(:last-child) {
-    margin-bottom: 80px;
-  }
-
-  & > ${Header} {
+   & > ${Header} {
     margin-bottom: 5px;
   }
 

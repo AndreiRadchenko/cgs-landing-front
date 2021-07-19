@@ -13,6 +13,9 @@ export const Item = styled("div")`
   font-size: 24px;
   font-weight: 700;
   color: #fff;
+  @media screen and (min-width: 1024px) and (max-width: 1149px) {
+    font-size: 20px;   
+  }
   & a {
     display: block;
     height: 100%;
@@ -26,9 +29,8 @@ export const Item = styled("div")`
 export const ActiveItem = styled("div")`
   min-width: max-content;
   background-color: #0c1033;
-  padding: 10px;
   min-height: 50px;
-  min-width: 118px;
+  min-width: 85px;
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -36,4 +38,10 @@ export const ActiveItem = styled("div")`
   font-size: 24px;
   font-weight: 700;
   color: #fff;
+  @media screen and (min-width: 1024px) and (max-width: 1149px) {
+    font-size: 20px;  
+  }
+  @media screen and (min-width: 1150px) {
+     min-width: 118px;
+  }
 `;

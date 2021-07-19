@@ -2,8 +2,6 @@ import React from "react";
 
 import { IStep } from "types/components";
 
-import { Slider } from "../Slider";
-
 import Step from "./Steps.component";
 
 import * as Styled from "./SliderSteps.styles";
@@ -21,10 +19,9 @@ const StepsSlider: React.FC<SliderProps> = ({ steps }) => {
         ))}
       </Styled.DesktopContainer>
       <Styled.MobileContainer>
-        <Slider
-          items={steps}
-          renderItem={(step, index) => <Step step={step} number={index + 1} />}
-        />
+        {steps.map((step, index) => (
+          <Step key={step.id} step={step} number={index + 1} />
+        ))}
       </Styled.MobileContainer>
     </Styled.Container>
   );

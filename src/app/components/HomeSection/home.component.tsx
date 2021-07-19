@@ -11,9 +11,8 @@ const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => (
       <p className="home-section__subtitle">{slogan?.text}</p>
       <Styled.LinkButtonsWrapper>
         <Styled.LinkButton onClick={() => clickDiscussTheDitails("/#contact")} href="#contact">
-          Discuss the details
+          Start a project
         </Styled.LinkButton>
-
         {/* <Styled.LinkButtonSecond
           onClick={() => clickDiscussTheDitails("/partners")}
           href="partners"
@@ -21,7 +20,6 @@ const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => (
           Become a partner
         </Styled.LinkButtonSecond> */}
       </Styled.LinkButtonsWrapper>
-
       <Styled.LinkButton href="#contact" mobile type="button">
         Contact us
       </Styled.LinkButton>

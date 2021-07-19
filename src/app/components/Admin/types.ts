@@ -15,6 +15,12 @@ export interface IStep {
   placeOnPartnersPage: number;
 }
 
+export interface IStepToEarn {
+  id: string,
+  text: string;
+  showOnPartnersPage: boolean;
+  placeOnPartnersPage: number;
+}
 export interface IIconFile {
   id: string;
   name: string;

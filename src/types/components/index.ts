@@ -194,6 +194,7 @@ export interface LayoutProps {
   children: any;
   title?: string;
   description?: string;
+  favicon?: string;
 }
 
 export interface SimilarArticlesProps {

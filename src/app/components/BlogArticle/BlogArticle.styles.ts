@@ -38,7 +38,6 @@ export const ArticleWrapper = styled("div")`
     margin: 0;
     @media screen and (max-width: 1023.5px) {
       flex-direction: column;
-      /* margin-left: 20px; */  
     }
   }
 

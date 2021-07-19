@@ -75,7 +75,6 @@ export const TechnoContainer = styled("div")`
       width: 100%;
       height: 100%;
       @media (max-width: 420px) {
-        /* width: 80%; */
         margin: 0 auto;
       }
     }
@@ -231,13 +230,11 @@ export const SliderContainer = styled.div`
 
      & .slick-slide:nth-child(1) {
         flex: 49%;
-        /* padding: 15px; */
         box-sizing: border-box;
      }
 
      & .slick-slide:nth-child(6) {
         flex: 49%;
-        /* padding: 15px; */
         box-sizing: border-box;
      }
   }
