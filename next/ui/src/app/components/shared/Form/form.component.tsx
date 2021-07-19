@@ -1,36 +1,32 @@
-import React, { useState } from 'react';
-import { Formik } from 'formik';
-import * as Styled from './form.styles';
-import Input from '../Input/input.commponent';
-import Textarea from '../Textarea/textarea.component';
-import Button from '../Button/button.component';
-import { registrationFormSchema } from '../../../../helpers/validation';
-import { sendFormEA } from '../../../../services/event';
-import { sendFeedback } from '../../../../services/api/sendFeedback';
+import React, { useState } from "react";
+import { Formik } from "formik";
+import * as Styled from "./form.styles";
+import Input from "../Input/input.commponent";
+import Textarea from "../Textarea/textarea.component";
+import Button from "../Button/button.component";
+import { registrationFormSchema } from "../../../../helpers/validation";
+import { sendFormEA } from "../../../../services/event";
+import { sendFeedback } from "../../../../services/api/sendFeedback";
 
 const Form = () => {
   const [isSubmitted, setSubmitted] = useState(false);
 
   const isEmptyObject = (obj) => {
-    return JSON.stringify(obj) === '{}';
+    return JSON.stringify(obj) === "{}";
   };
 
   return (
     <Formik
       validationSchema={registrationFormSchema}
       initialValues={{
-        name: '',
-        email: '',
-        message: '',
+        name: "",
+        email: "",
+        message: "",
       }}
       onSubmit={async (values, { resetForm }) => {
         sendFormEA(values);
 
-        await sendFeedback({
-          ...values,
-
-          message: values.message || ' ',
-        });
+        await sendFeedback(values);
 
         resetForm({});
         setSubmitted(true);
