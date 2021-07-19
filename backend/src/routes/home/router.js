@@ -7,7 +7,7 @@ const { getProjects } = require('./get-projects');
 const { getTechnologies } = require('./get-technologies');
 const { getTestimonials } = require('./get-testimonials');
 const { getFeaturedTechnologies } = require('./get-featured-technologies');
-const { sendRequest } = require('./send-feedback');
+const { sendFeedback } = require('./send-feedback');
 
 const homeRouter = new YupRouter();
 
@@ -21,7 +21,7 @@ homeRouter.addRoutes([
   getTechnologies,
   getTestimonials,
   getFeaturedTechnologies,
-  sendRequest,
+  sendFeedback,
 ]);
 
 exports.homeRouter = homeRouter;

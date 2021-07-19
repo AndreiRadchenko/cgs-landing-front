@@ -21,7 +21,7 @@ const sendFeedback = {
     await mailService.sendTemplate({
       subject: body.name,
       template: {
-        name: 'feedback',
+        name: 'partner-feedback',
         context: {
           name: body.name,
           email: body.email,
