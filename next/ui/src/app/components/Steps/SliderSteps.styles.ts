@@ -35,15 +35,7 @@ export const MobileContainer = styled("div")`
   @media screen and (min-width: 320px) and (max-width: 399px) {
     width: 85%;
   }
-  /* width: inherit;
-  height: inherit; */
-  /* display: grid;
-  width: 80%;
-  margin: 0 auto;
-  grid-template-columns: 1fr 1fr;
-  -webkit-column-gap: 80px;
-  column-gap: 80px;
-  row-gap: 60px; */
+
   & > h2 {
     margin-right: 0px;
   }
