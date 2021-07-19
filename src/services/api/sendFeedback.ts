@@ -16,3 +16,14 @@ export const sendFeedback =  async (value) => {
         return null;
     }
 }
+
+export const sendPartnersFeedback =  async (value) => {
+    try {
+        const {data} =  await axios.post("/partners/send-feedback", value)
+        const response = data.response
+        return  response
+    } catch (error) {
+        console.log("error", { error });
+        return null;
+    }
+}

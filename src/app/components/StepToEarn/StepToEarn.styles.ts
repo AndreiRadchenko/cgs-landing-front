@@ -61,7 +61,7 @@ export const Wrapper = styled("div")`
 `;
 
 export const Text = styled("div")`
-  max-width: 470px;
+  max-width: 480px;
   font-size: 18px;
   line-height: 22px;
   margin-left: 20px;
