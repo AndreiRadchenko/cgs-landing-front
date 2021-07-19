@@ -1,11 +1,6 @@
-import Document, {
-  Head,
-  Html,
-  Main,
-  NextScript,
-} from 'next/document';
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
-import { ServerStyleSheet } from 'styled-components';
+import { ServerStyleSheet } from "styled-components";
 
 class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -21,13 +16,10 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <link rel="icon" href="/favicon.ico" />
-          {(this.props as any).styleTags}
-        </Head>
+        <Head>{(this.props as any).styleTags}</Head>
         <body>
-          <Main/>
-          <NextScript/>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     );
