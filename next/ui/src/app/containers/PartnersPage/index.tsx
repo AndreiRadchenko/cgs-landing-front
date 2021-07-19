@@ -46,7 +46,7 @@ export const PartnersPage = ({ steps, stepsToEarn }) => {
               </Styled.StepToEarn>
             </Styled.Wrapper>
           </Article>
-          <Article id="contact" title={"Just fill up the form to start our partnership!"}>
+          <Article id="contact" title={"Start our partnership here!"}>
             <Form />
           </Article>
         </div>
