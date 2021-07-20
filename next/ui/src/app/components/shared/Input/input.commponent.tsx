@@ -2,15 +2,7 @@ import React from "react";
 import * as Styled from "./input.styles";
 import { IInput } from "../../../../types/components/index";
 
-const Input: React.FC<IInput> = ({
-  name,
-  type,
-  placeholder,
-  onChange,
-  value,
-  errors,
-  touched,
-}) => {
+const Input: React.FC<IInput> = ({ name, type, placeholder, onChange, value, errors, touched }) => {
   return (
     <Styled.InputWrapper>
       <Styled.Input
