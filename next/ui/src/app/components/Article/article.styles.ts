@@ -31,7 +31,7 @@ export const Wrapper = styled("article")`
     padding: 0 3em;
     line-height: 32px;
     margin-bottom: 30px;
-    max-width: 370px;
+    max-width: 870px;
 
     @media screen and (max-width: 1023.5px) {
       margin-bottom: 19px;
