@@ -5,7 +5,7 @@ import Input from "../Input/input.commponent";
 import Textarea from "../Textarea/textarea.component";
 import Button from "../Button/button.component";
 import { registrationFormSchema } from "../../../../helpers/validation";
-import { sendFormEA } from "../../../../services/event";
+import { sendFormPartnersEA } from "../../../../services/event";
 import { sendPartnersFeedback } from "../../../../services/api/sendFeedback";
 
 const PartnerForm = () => {
@@ -24,7 +24,7 @@ const PartnerForm = () => {
         message: "",
       }}
       onSubmit={async (values, { resetForm }) => {
-        sendFormEA(values);
+        sendFormPartnersEA(values);
 
         await sendPartnersFeedback(values);
 
