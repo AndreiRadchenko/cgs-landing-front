@@ -31,7 +31,7 @@ export const Container = styled("div")<{number: number}>`
   padding-top: 80px;
 
   top: ${props => (props.number - 1) * 90}px;  
- 
+
   @media screen and (max-width: 1023.5px) {
     position: static;
 
@@ -53,8 +53,11 @@ export const Wrapper = styled("div")`
   & .image {
     margin-top:20px;
     margin-bottom:20px;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
     @media screen and (min-width: 1024px) {
-      display: none;
+      display: none;     
     }
   }
 
@@ -64,12 +67,16 @@ export const Text = styled("div")`
   max-width: 480px;
   font-size: 18px;
   line-height: 22px;
-  margin-left: 20px;
-  text-align: center;
-  opacity: 0.5;
+  margin-left: 20px;  
+  text-align: left;
 
   @media screen and (max-width: 1023.5px) {
     max-width: 500px;
+    text-align: center;
+    opacity: 0.5;
+    margin-left: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 `;
 

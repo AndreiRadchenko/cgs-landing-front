@@ -5,7 +5,6 @@ import * as Styled from "./StepToEarn.styles";
 const arrayOfImages = ["1step.svg", "2step.svg", "3step.svg"];
 
 const StepToEarn = ({ stepToEarn, number }) => {
-
   return (
     <Styled.Container number={number}>
       <Styled.Wrapper>
