@@ -16,7 +16,7 @@ export const FormWrapper = styled("div")`
     width: 80%;
   }
   @media screen and (max-width: 500px) {
-    width: 95%;
+    width: 85%;
   }
 `;
 
