@@ -21,20 +21,14 @@ export const PartnersPage = ({ steps, stepsToEarn }) => {
           <Article
             id="partner"
             title="Your 2000$ are near you!"
-            desc={"Become our partner and earn money passively\nfrom each closed deal!"}
+            desc={"Become our partner and earn money passively from each closed deal!"}
           >
             <Styled.ImgAfterTitle src="/illustrationTitlePartners.svg" />
           </Article>
-          <Article
-            id="steps"
-            title="Benefits you may have with us:"
-          >
+          <Article id="steps" title="Benefits you may have with us:">
             <StepsSlider steps={steps} />
           </Article>
-          <Article
-            id="steps-to-earn"
-            title="How to earn interest with us?"
-          >
+          <Article id="steps-to-earn" title="How to earn interest with us?">
             <Styled.Wrapper>
               <Styled.StepToEarn>
                 {stepsToEarn.map((stepToEarn, index) => (
@@ -44,7 +38,7 @@ export const PartnersPage = ({ steps, stepsToEarn }) => {
               </Styled.StepToEarn>
             </Styled.Wrapper>
           </Article>
-          <Article id="contact" title={"Start our partnership here!"}>
+          <Article id="contact" title={"Start our partnership here!"} hideSepOnMobile={true}>
             <PartnerForm />
           </Article>
         </div>
