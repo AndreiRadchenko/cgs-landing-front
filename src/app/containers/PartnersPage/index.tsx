@@ -15,7 +15,6 @@ export const PartnersPage = ({ steps, stepsToEarn }) => {
       <MainLayout
         title="Your 2000$ are near you!"
         description="Become our partner and earn money passively from each closed deal!"
-        favicon="/illustrationTitlePartners.ico"
       >
         <div className="main-wraper">
           <Article

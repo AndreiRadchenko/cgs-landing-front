@@ -15,7 +15,7 @@ export const HomeWrapper = styled("div")`
   @media screen and (max-width: 900px) {
     padding: 0 15px 80px;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1023.5px) {
     flex-direction: column;
     padding: 0 0 25px;
     & > * {
@@ -27,9 +27,6 @@ export const HomeWrapper = styled("div")`
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 10px;
-    @media (min-width: 769px) {
-      font-size: 64px;
-    }
   }
   & p {
     font-size: 18px;
@@ -71,12 +68,13 @@ export const ContentBlock = styled("article")`
   & > h1 {
     margin: 0;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1023.5px) {
     justify-content: center;
     text-align: center;
     margin-bottom: 24px;
     align-items: center;
     width: 90%; 
+    order: 1;
 
     & > a {
       margin: 1em 0 2em 0;
@@ -89,6 +87,11 @@ export const ContentBlock = styled("article")`
 export const Ilustration = styled("img")`
   width: 100%;
   height: 425px;
+
+  @media screen and (min-width: 769px) and (min-width: 1023.5px) {
+     height: 400px;
+  }
+
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -169,6 +172,15 @@ export const LinkButtonSecond = styled("a")`
   font-size: 18px;
   margin-top: 10px;
   margin-left: 20px;
+  
+  @media screen and (min-width: 650px) and (max-width: 1023.5px) {
+    margin-left: 50px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-left: 50px;
+  }
+
   @media screen and (min-width: 1100px) {
     min-width: 200px;
   }
@@ -208,7 +220,13 @@ export const LinkButtonSecond = styled("a")`
 
 export const LinkButtonsWrapper = styled("div")`
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  width: 100%;  
+
+  @media screen and (max-width: 1023.5px) {
+    justify-content: center;
+  }
+  @media screen and (max-width: 600px) {
+    justify-content: space-between;
+  } 
 `;
 
