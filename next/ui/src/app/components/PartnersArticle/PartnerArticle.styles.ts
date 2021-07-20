@@ -13,7 +13,7 @@ export const ImgAfterBenefits = styled("img")`
     width: 100%;
     height: 100%;
     padding: 20px;
-
+    padding-top: 0px;
     @media screen and (max-width: 1023.5px) {
         display: none;
     }

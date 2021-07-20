@@ -351,7 +351,7 @@ const AdminPage: React.FC = () => {
           )}
 
           {categoryOpen === "stepToEarn" && !isModal && (
-            <SectionLayout title="StepsToEarn" setIsModal={setIsModal}>
+            <SectionLayout title="Steps to Earn" setIsModal={setIsModal}>
               {dataIsLoading ? getSpinner() : stepsToEarn.map(renderStepToEarnItem)}
             </SectionLayout>
           )}

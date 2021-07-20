@@ -1,7 +1,7 @@
 import ReactGA from 'react-ga';
 
 if (typeof window !== "undefined") {
-  ReactGA.initialize('UA-175242489-1');
+  ReactGA.initialize( 'UA-175242489-1' );
   ReactGA.pageview(window.location.pathname + window.location.search);
 }
 
@@ -62,8 +62,8 @@ export const startProjectEA = () => {
 
 export const sendFormEA = (values) => {
   ReactGA.event({
-    category: "Send Form",
-    action: "Send Form",
+    category: "Send Home page Form",
+    action: "Send Home page Form",
     label: `Validation was successful`,
   });
 };
@@ -97,5 +97,13 @@ export const clickFeedbackButtons = (link) => {
     category: "Click Read more button",
     action: "Click Read more button",
     label: `${link}`,
+  });
+};
+
+export const sendFormPartnersEA = (values) => {
+  ReactGA.event({
+    category: "Send Partners Form",
+    action: "Send Partners Form",
+    label: `Validation was successful`,
   });
 };

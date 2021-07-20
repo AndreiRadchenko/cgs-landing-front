@@ -15,6 +15,5 @@ export const Title = styled("h2")`
   line-height: 56px;
   letter-spacing: 0em;
   text-align: center;
-  text-transform: uppercase;
   margin-bottom: 15px;
 `;

@@ -2,7 +2,6 @@ import React from "react";
 import Home from "../../components/HomeSection/home.component";
 import Form from "../../components/shared/Form/form.component";
 import Article from "../../components/Article/article.component";
-import { scrollEA } from "../../../services/event";
 import { ProjectsSlider } from "app/components/Projects/Slider";
 import SliderAboutUs from "app/components/AboutUs/slider.component";
 import SliderFacts from "app/components/Facts/SliderFacts";
