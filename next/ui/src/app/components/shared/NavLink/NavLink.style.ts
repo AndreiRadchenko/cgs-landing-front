@@ -13,8 +13,9 @@ export const Item = styled("div")`
   font-size: 24px;
   font-weight: 700;
   color: #fff;
-  @media screen and (min-width: 1024px) and (max-width: 1149px) {
-    font-size: 20px;   
+  @media screen and (min-width: 1024px) and (max-width: 1218px) {
+    font-size: 20px;
+    min-height: 40px;
   }
   & a {
     display: block;
@@ -38,8 +39,9 @@ export const ActiveItem = styled("div")`
   font-size: 24px;
   font-weight: 700;
   color: #fff;
-  @media screen and (min-width: 1024px) and (max-width: 1149px) {
-    font-size: 20px;  
+  @media screen and (min-width: 1024px) and (max-width: 1218px) {
+    font-size: 20px;
+    min-height: 40px;
   }
   @media screen and (min-width: 1150px) {
      min-width: 118px;

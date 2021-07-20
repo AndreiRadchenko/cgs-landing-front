@@ -12,6 +12,13 @@ export const HeaderLinks = styled("div")`
 export const SocialWrap = styled("div")`
   margin: 0.5em 0.5em;
   width: fit-content;
+
+  @media screen and (min-width: 1024px) and (max-width: 1218px) {
+      svg {
+      height: 30px;
+    }
+  }
+ 
 `;
 export const SocialLogo = styled("img")`
   width: 100%;
