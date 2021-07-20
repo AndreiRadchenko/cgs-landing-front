@@ -4,16 +4,14 @@ import { IArticle } from "../../../types/components/index";
 
 import { addLineBreaks } from "helpers/addLineBreaks";
 
-const Article: React.FC<IArticle> = (props) => (
-  <Styled.Wrapper id={props?.id}>
-    <Styled.Title>{props?.title}</Styled.Title>
-    <Styled.HorizontalSep />
-    {props?.desc && (
-      <Styled.SubTitle>
-        {typeof props.desc === "string" ? addLineBreaks(props.desc) : props.desc}
-      </Styled.SubTitle>
+const Article: React.FC<IArticle> = ({ id, title, desc, children, hideSepOnMobile = false }) => (
+  <Styled.Wrapper id={id}>
+    <Styled.Title>{title}</Styled.Title>
+    <Styled.HorizontalSep hideOnMobile={hideSepOnMobile} />
+    {desc && (
+      <Styled.SubTitle>{typeof desc === "string" ? addLineBreaks(desc) : desc}</Styled.SubTitle>
     )}
-    {props?.children}
+    {children}
   </Styled.Wrapper>
 );
 

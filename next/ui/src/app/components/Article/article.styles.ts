@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
-export const HorizontalSep = styled("div")`
+export interface HorizontalSepProps {
+  hideOnMobile?: boolean;
+}
+
+export const HorizontalSep = styled("div")<HorizontalSepProps>`
   width: 55px !important;
   height: 2px;
   background: #0c1033;
   border-radius: 5px;
   margin-bottom: 33px;
+
+  @media screen and (max-width: 1023.5px) {
+    display: ${(props) => props.hideOnMobile && "none"}
+  }
 `;
 
 export const Wrapper = styled("article")`
@@ -23,7 +31,7 @@ export const Wrapper = styled("article")`
     padding: 0 3em;
     line-height: 32px;
     margin-bottom: 30px;
-    max-width: 870px;
+    max-width: 370px;
 
     @media screen and (max-width: 1023.5px) {
       margin-bottom: 19px;
@@ -49,11 +57,10 @@ export const Title = styled("h2")`
     line-height: 56px;    
   }
   @media screen and (max-width: 378px) {
-    padding: 0px 10px;  
+    padding: 0px 10px;
 }
   @media screen and (max-width: 375px) {
-    font-size: 22px;
-    padding: 0px 30px;
+    font-size: 20px; 
   }
 `;
 
