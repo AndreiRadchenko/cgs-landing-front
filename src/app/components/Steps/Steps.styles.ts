@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const Header = styled("div")`
   display: flex;
   align-items: center;
-  height: 35px;
+  height: 35px;   
 
   & > h2 {
     margin-right: 5px;
-    
+    font-size: 22px;
     @media screen and (max-width: 400px) {
       font-size: 20px;
     }

@@ -13,12 +13,12 @@ const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => (
         <Styled.LinkButton onClick={() => clickDiscussTheDitails("/#contact")} href="#contact">
           Start a project
         </Styled.LinkButton>
-        {/* <Styled.LinkButtonSecond
+        <Styled.LinkButtonSecond
           onClick={() => clickDiscussTheDitails("/partners")}
           href="partners"
         >
           Become a partner
-        </Styled.LinkButtonSecond> */}
+        </Styled.LinkButtonSecond>
       </Styled.LinkButtonsWrapper>
       <Styled.LinkButton href="#contact" mobile type="button">
         Contact us

@@ -49,6 +49,7 @@ export interface IArticle {
   title: string;
   children: React.ReactNode;
   page?: string;
+  hideSepOnMobile?: boolean;
 }
 
 export interface IHome {

@@ -157,11 +157,11 @@ export const Nav = [
     link: "/#contact",
     burgerTitle: "Contact us",
   },
-  // {
-  //   title: "Partners",
-  //   link: "/partners",
-  //   burgerTitle: "Partners",
-  // },
+  {
+    title: "Partners",
+    link: "/partners",
+    burgerTitle: "Partners",
+  },
 ];
 
 export const AdminNav = [
@@ -174,6 +174,6 @@ export const AdminNav = [
   { name: "Featured Technology", id: "featuredTechnology" },
   { name: "Article", id: "article" },
   { name: "Steps", id: "step" },
-  { name: "StepsToEarn", id: "stepToEarn" },
+  { name: "Steps to Earn", id: "stepToEarn" },
   { name: "Images", id: "images" },
 ];
