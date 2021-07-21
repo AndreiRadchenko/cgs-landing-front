@@ -215,7 +215,7 @@ export const Content = styled("p")`
   padding: 0 3em;
   @media screen and (max-width: 1023.5px) {
     font-size: 18px;
-    opacity: 0.5;
+    color: #868799;
   }
 `;
 

@@ -45,19 +45,21 @@ export function Slider<T extends { id: any }>({
       const updateSwiper = debounce(
         () => {
           swiper.update();
+
+          window.dispatchEvent(new Event('resize'));
         },
         300,
       );
- 
-      swiper.on("breakpoint", onBreakpoint);
 
-      window.addEventListener("resize", updateSwiper);
+      updateSwiper();
+
+      swiper.on("breakpoint", onBreakpoint);   
+
       document.addEventListener("DOMContentLoaded", updateSwiper);
-      
+
       return () => {
         swiper.off("breakpoint", onBreakpoint);
 
-        window.removeEventListener("resize", updateSwiper);
         document.removeEventListener("DOMContentLoaded", updateSwiper);
       };
     },

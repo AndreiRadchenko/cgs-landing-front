@@ -233,7 +233,7 @@ export const SliderHeaderSubtitle = styled("p")`
   font-weight: 400;
   margin-bottom: 18px;
   margin-top: 8px;
-  opacity: 0.5;
+  color: #868799;
   @media screen and (min-width: 1025px) and (max-width: 1200px) { 
     font-size: 17px;
   }
@@ -308,7 +308,7 @@ export const SliderDescription = styled("p")`
   }
 
   @media screen and (max-width: 1023.5px) {
-    opacity: 0.5;
+    color: #868799;
     font-size: 14px;
     font-weight: 300;
     line-height: 32px;
