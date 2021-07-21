@@ -28,6 +28,10 @@ export const Container = styled("div")`
     white-space: nowrap;
     width: fit-content;
   }
+
+  @media screen and (max-width: 1023.5px) {
+    width: auto;
+  }
   
   & > ${Icon} {
     margin-right: 5px;
