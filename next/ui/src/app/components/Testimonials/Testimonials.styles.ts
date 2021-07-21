@@ -67,7 +67,7 @@ export const TestimonialContainer = styled("div")`
     align-items: center;
     text-align: center;
     & .testimonials__text {
-      opacity: 0.5;
+      color: #868799;
       font-size: 18px;
     }
   }

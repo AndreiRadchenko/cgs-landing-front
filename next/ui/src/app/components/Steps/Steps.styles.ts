@@ -54,7 +54,7 @@ export const Text = styled("div")`
     padding-left: 30px;
     padding-right: 30px;
     text-align: center;
-    opacity: 0.5;
+    color: #868799;
   }
 
   @media (max-width: 375px) {

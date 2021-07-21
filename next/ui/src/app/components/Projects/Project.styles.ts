@@ -60,7 +60,7 @@ export const ShortDescription = styled("div")`
   font-size: 17px;
   font-weight: 400;
   line-height: 24px;
-  opacity: 0.5;
+  color: #868799;
 
   @media screen and (max-width: 1023.5px) {
     display: none;
@@ -82,7 +82,7 @@ export const FullDescription = styled("p")`
     font-weight: 300;
     line-height: 32px;
     min-height: 100px;
-    opacity: 0.5;
+    color: #868799;
     text-align: justify;
   }
   
