@@ -59,7 +59,7 @@ export const ContentBlock = styled("article")`
   flex-direction: column;
   justify-content: center;
   & > p {
-    opacity: 0.5;
+    color: #868799;
     margin: 1em 0;
     @media screen and (max-width: 650px) {
       margin: 1em 0;

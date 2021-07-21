@@ -24,7 +24,7 @@ export const TextContainer = styled.div`
   & .featured__description {
     margin: 0;
     line-height: 1.67;
-    opacity: 0.5;
+    color: #333;
     text-align: justify;
   }
 
@@ -44,7 +44,6 @@ export const TextContainer = styled.div`
     min-width: 520px;
     & .featured__description {
       line-height: 1.67;
-      opacity: 1;
     }
     & h2 {
       margin: 0 0 25px 0;

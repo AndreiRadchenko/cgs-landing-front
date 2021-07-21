@@ -19,6 +19,7 @@ export const HomePage = ({ props }) => {
       <MainLayout
         title="Code Generation Software | Landing"
         description="Let's bring your idea into life together"
+        image="https://code-generation-landing-bucket.s3.amazonaws.com/60f6d6b64a2ff400036de25e.jpg"
       >
         <div className="main-wraper">
           {props.slogan && <Home id="home" slogan={props.slogan} />}

@@ -8,13 +8,13 @@ import StepsSlider from "app/components/Steps/SliderSteps";
 import StepToEarn from "app/components/StepToEarn/StepToEarn";
 
 export const PartnersPage = ({ steps, stepsToEarn }) => {
-  console.log(stepsToEarn);
   return (
     <>
       <GlobalNoUserSelectStyle />
       <MainLayout
         title="Your 2000$ are near you!"
         description="Become our partner and earn money passively from each closed deal!"
+        image="https://code-generation-landing-bucket.s3.amazonaws.com/60f6d8a84a2ff400036de285.jpg"
       >
         <div className="main-wraper">
           <Article
