@@ -73,7 +73,7 @@ export const Text = styled("div")`
   @media screen and (max-width: 1023.5px) {
     max-width: 500px;
     text-align: center;
-    opacity: 0.5;
+    color: #868799;
     margin-left: 0px;
     padding-left: 20px;
     padding-right: 20px;

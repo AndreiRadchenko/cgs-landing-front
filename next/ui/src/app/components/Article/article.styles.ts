@@ -25,13 +25,13 @@ export const Wrapper = styled("article")`
   margin: 1em 0 3em;
   & > p {
     text-align: center;
-    opacity: 0.5;
     font-size: 18px;
     font-weight: 300;
     padding: 0 3em;
     line-height: 32px;
     margin-bottom: 30px;
     max-width: 870px;
+    color: #868799;
 
     @media screen and (max-width: 1023.5px) {
       margin-bottom: 19px;

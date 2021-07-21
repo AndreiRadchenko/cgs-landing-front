@@ -13,6 +13,7 @@ const MainLayout: React.FC<LayoutProps> = ({
   title,
   description,
   favicon = "/favicon.ico",
+  image,
 }) => {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -20,8 +21,15 @@ const MainLayout: React.FC<LayoutProps> = ({
     <>
       <Head>
         <title>{title}</title>
-        {description && <meta name="description" content={description} />}
+        <meta property="og:title" content={title} />
+        {description && (
+          <>
+            <meta name="description" content={description} />
+            <meta property="og:description" content={description} />
+          </>
+        )}
         {favicon && <link rel="icon" href={favicon} />}
+        {image && <meta property="og:image" content={image} />}
       </Head>
       <Header
         socialList={SocialList}

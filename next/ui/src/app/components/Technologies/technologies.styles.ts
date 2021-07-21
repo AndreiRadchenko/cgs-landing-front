@@ -103,8 +103,8 @@ export const DescContainer = styled("div")`
   align-items: flex-start;
   justify-content: flex-start;
   font-size: 18px;
-  & li {
-    opacity: 0.5;
+  & li {  
+    color: #868799;
     line-height: 1.66;
   }
   & > ul {
@@ -295,7 +295,6 @@ export const DesktopContainer = styled("div")`
   width: 86%;
   margin: 0px auto;
   grid-template-columns: 1fr 1fr;
-  -webkit-column-gap: 80px;
   column-gap: 80px;
   row-gap: 30px;
      

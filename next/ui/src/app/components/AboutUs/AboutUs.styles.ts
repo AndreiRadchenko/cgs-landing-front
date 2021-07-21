@@ -27,7 +27,7 @@ export const AboutUsContainer = styled("div")`
 
   & > p:nth-of-type(2) {
     @media screen and (max-width: 1025px) {
-      opacity: 0.5;
+      color: #868799;
     }
   }
   & > .about-us__text {
@@ -36,7 +36,7 @@ export const AboutUsContainer = styled("div")`
   & > q {
     font-weight: 300;
     line-height: 1.68;
-    opacity: 0.5;
+    color: #868799;
   }
   @media screen and (min-width: 1024px) {
     &:not(:last-child) {

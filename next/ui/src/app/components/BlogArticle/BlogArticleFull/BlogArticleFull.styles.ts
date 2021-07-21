@@ -60,7 +60,7 @@ export const ArticleWrapper = styled("div")`
     font-weight: 300;
     line-height: 32px;
     margin: 0;
-    opacity: 0.5;
+    color: #868799;
     @media screen and (max-width: 1023.5px) {
       display: none;
     }
