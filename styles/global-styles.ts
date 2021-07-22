@@ -87,4 +87,7 @@ a {
   margin: 0 auto !important;
 }
 
+    #popup-root .popup-overlay {    
+      background: rgba(12, 16, 51, .75);
+  }
 `;

@@ -7,6 +7,16 @@ export const Wrapper = styled("div")`
     }
     & article:first-child h2 {
       margin: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    @media screen and (max-width: 414px) {
+      & article:first-child h2 {  
+      width: 89%;
+      font-size: 22px;
+      line-height: 40px;
+    }
+     
     }
     & .articleButton a {
       margin: 0 auto;
@@ -52,6 +62,17 @@ export const ArticleWrapper = styled("div")`
       margin: 25px 0 0 0px;
       margin-bottom: 25px;
     }
+    @media screen and (max-width: 414px) {
+      margin: 25px 0 0 0px;
+      margin-bottom: 25px;
+      width: 90% !important;
+    }
+    /* @media screen and (max-width: 360px) { 
+      width: 100% !important;
+    } */
+    @media screen and (min-width: 320px) and (max-width: 360px) { 
+      width: 90% !important;
+    }
   }
 
   & .article__author,
@@ -86,7 +107,15 @@ export const Content = styled("p")`
     font-size: 18px;
   }
   @media screen and (max-width: 414px) {
-    padding: 30px;
+    padding: 20px;
+  }
+  /* @media screen and (max-width: 360px) {
+    padding-left: 5px;
+    padding-right: 5px;
+  } */
+  @media screen and (min-width: 320px) and (max-width: 360px) {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 `;
 

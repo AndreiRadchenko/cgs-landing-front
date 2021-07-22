@@ -22,14 +22,22 @@ const MainLayout: React.FC<LayoutProps> = ({
       <Head>
         <title>{title}</title>
         <meta property="og:title" content={title} />
+        {favicon && <link rel="icon" href={favicon} />}
         {description && (
           <>
             <meta name="description" content={description} />
             <meta property="og:description" content={description} />
           </>
         )}
-        {favicon && <link rel="icon" href={favicon} />}
-        {image && <meta property="og:image" content={image} />}
+        {image && (
+          <>
+            <meta name="image" property="og:image" content={image} />
+            <meta name="twitter:image" content={image} />
+            <meta property="og:image:secure_url" content={image} />
+            <meta property="og:image:width" content="300" />
+            <meta property="og:image:height" content="200" />
+          </>
+        )}
       </Head>
       <Header
         socialList={SocialList}
