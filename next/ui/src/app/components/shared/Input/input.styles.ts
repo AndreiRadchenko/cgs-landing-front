@@ -18,6 +18,7 @@ export const Input = styled("input")`
     border: 3px solid #1F5A7B;
     padding: 15px 12px;
     text-align: center;
+    outline: none;
   }
 `;
 
