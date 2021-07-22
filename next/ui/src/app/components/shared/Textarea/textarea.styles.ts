@@ -6,8 +6,7 @@ export const TextWrapper = styled("div")`
   justify-content: flex-start;
   & > * {
     width: 100%;
-  }
- 
+  } 
 `;
 export const Text = styled("textarea")`
   resize: none;
@@ -23,6 +22,7 @@ export const Text = styled("textarea")`
     padding: 10px 12px;
     min-height: 235px;
     text-align: center;
+    outline: none;
   }
 `;
 

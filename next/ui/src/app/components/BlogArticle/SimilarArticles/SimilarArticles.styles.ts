@@ -48,6 +48,15 @@ export const SimilarArticle = styled("li")`
     @media (max-width: 1023.5px) {
       height: auto;
     }
+    @media (max-width: 414px) {
+      width: 90%;
+    }
+    @media (max-width: 360px) {
+      width: 100%;
+    }
+    @media (min-width: 320px) and (max-width: 360px) {
+      width: 90%;
+    }
   }
   & h2 {
     margin: 0 0 30px;
