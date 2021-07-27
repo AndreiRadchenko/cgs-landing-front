@@ -32,14 +32,11 @@ const SecondGallery = ({ gallery }) => {
         </Styled.Block>
 
         <Styled.WraperForTwoImages>
-          <Styled.Image3>
-            <img className="image" src={gallery.imageUrls[0]} />
-          </Styled.Image3>
           <Styled.Image4>
             <img className="image" src={gallery.imageUrls[1]} />
           </Styled.Image4>
         </Styled.WraperForTwoImages>
-      </Styled.MainWrapperMobile>      
+      </Styled.MainWrapperMobile>
     </>
   );
 };
