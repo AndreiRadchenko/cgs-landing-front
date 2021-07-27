@@ -109,3 +109,11 @@ export interface ITag {
   id: string;
   name: string;
 }
+
+export interface IGallery {
+  id: string;
+  title: string;
+  text: string;
+  imageFiles: IIconFile[];
+  showOnHomePage: boolean;
+}
