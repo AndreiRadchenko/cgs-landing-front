@@ -13,6 +13,7 @@ const categories = [
   "technologies",
   "testimonials",
   "featuredTechnologies",
+  "gallery",
 ];
 
 export const getServerSideProps = async () => {

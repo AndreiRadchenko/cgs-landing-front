@@ -11,6 +11,10 @@ import StepToEarnForm from "../../components/Admin/StepToEarn/StepToEarnForm";
 import Slogan from "../../components/Admin/Slogan/Slogan";
 import Worker from "../../components/Admin/Worker/Worker";
 import FactsForm from "app/components/Admin/Facts/FactsForm";
+
+import Gallery from "../../components/Admin/Gallery/Gallery";
+import GalleryForm from "app/components/Admin/Gallery/GalleryForm";
+
 import {
   ISlogan,
   IFact,
@@ -22,9 +26,9 @@ import {
   ITestimonial,
   IFeaturedTechnology,
   IArticle,
+  IGallery,
 } from "app/components/Admin/types";
 import SloganForm from "app/components/Admin/Slogan/SloganForm";
-
 import WorkerForm from "app/components/Admin/Worker/WorkerForm";
 import Projects from "app/components/Admin/Project/Project";
 import ProjectForm from "../../components/Admin/Project/ProjectForm";
@@ -53,6 +57,7 @@ const AdminPage: React.FC = () => {
   const [facts, setFacts] = useState<IFact[]>([]);
   const [steps, setSteps] = useState<IStep[]>([]);
   const [stepsToEarn, setStepsToEarn] = useState<IStepToEarn[]>([]);
+  const [gallery, setGallery] = useState<IGallery[]>([]);
   const [technologies, setTechnologies] = useState<ITechnology[]>([]);
   const [testimonials, setTestimonials] = useState<ITestimonial[]>([]);
   const [featuredTechnologies, setFeaturedTechnologies] = useState<IFeaturedTechnology[]>([]);
@@ -64,6 +69,7 @@ const AdminPage: React.FC = () => {
   const [dataIsLoading, setDataIsLoading] = useState(false);
 
   const apiParams = {
+    gallery: setGallery,
     stepToEarn: setStepsToEarn,
     facts: setFacts,
     step: setSteps,
@@ -124,6 +130,10 @@ const AdminPage: React.FC = () => {
 
   const renderStepToEarnItem = (stepToEarn: IStepToEarn) => (
     <StepToEarn stepToEarn={stepToEarn} openModal={openModal} deleteItem={deleteItem} />
+  );
+
+  const renderGalleryItem = (gallery: IGallery) => (
+    <Gallery gallery={gallery} openModal={openModal} deleteItem={deleteItem} />
   );
 
   const renderSloganItem = (slogan) => {
@@ -353,6 +363,16 @@ const AdminPage: React.FC = () => {
           {categoryOpen === "stepToEarn" && !isModal && (
             <SectionLayout title="Steps to Earn" setIsModal={setIsModal}>
               {dataIsLoading ? getSpinner() : stepsToEarn.map(renderStepToEarnItem)}
+            </SectionLayout>
+          )}
+
+          {isModal && categoryOpen === "gallery" && (
+            <GalleryForm gallery={editItem} close={closeModal} />
+          )}
+
+          {categoryOpen === "gallery" && !isModal && (
+            <SectionLayout title="Gallery" setIsModal={setIsModal}>
+              {dataIsLoading ? getSpinner() : gallery.map(renderGalleryItem)}
             </SectionLayout>
           )}
 

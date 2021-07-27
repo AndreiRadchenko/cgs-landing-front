@@ -74,3 +74,12 @@ const mapFeaturedTechnologyToResponse = (featuredTechnology) => ({
 });
 
 exports.mapFeaturedTechnologyToResponse = mapFeaturedTechnologyToResponse;
+
+const mapGalleryToResponse = (gallery) => ({
+  id: gallery.id,
+  title: gallery.title,
+  text: gallery.text,
+  imageUrls: gallery.imageFiles.map((imageFile) => imageFile?.s3FileUrl ?? null),
+});
+
+exports.mapGalleryToResponse = mapGalleryToResponse;
