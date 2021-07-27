@@ -175,5 +175,6 @@ export const AdminNav = [
   { name: "Article", id: "article" },
   { name: "Steps", id: "step" },
   { name: "Steps to Earn", id: "stepToEarn" },
+  { name: "Gallery", id: "gallery" },
   { name: "Images", id: "images" },
 ];

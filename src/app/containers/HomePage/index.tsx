@@ -9,9 +9,11 @@ import SliderTestimonials from "app/components/Testimonials/SliderTestimonials";
 import SliderFeatured from "app/components/FeaturedTechnologies/SliderFeatured";
 import SliderTechnologies from "app/components/Technologies/SliderTechnologies";
 import MainLayout from "app/components/Layout/Layout";
-
+import Gallery from "app/components/Gallery/Gallery";
+import SecondGallery from "app/components/Gallery/SecondGallery";
 import { GlobalNoUserSelectStyle } from "../../../../styles/global-no-user-select";
 
+import * as Styled from "./Home.styles";
 export const HomePage = ({ props }) => {
   return (
     <>
@@ -72,6 +74,14 @@ export const HomePage = ({ props }) => {
               <SliderTechnologies technologies={props.technologies} />
             </Article>
           )}
+
+          { props.gallery &&              
+              <Styled.GalleryWrapper>                
+                <Gallery gallery={props.gallery[0]} />
+                <SecondGallery gallery={props.gallery[1]} />
+              </Styled.GalleryWrapper>                        
+            }
+
           {props.testimonials && (
             <Article
               id="tetimonials"

@@ -20,6 +20,7 @@ const API_ROUTES = {
   fileUpload: "/file/upload",
   step: "/step/",
   stepToEarn: "/step-to-earn/",
+  gallery: "/gallery/"
 };
 
 export const login = async (user) => {
