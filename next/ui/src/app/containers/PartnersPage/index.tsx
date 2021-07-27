@@ -12,15 +12,15 @@ export const PartnersPage = ({ steps, stepsToEarn }) => {
     <>
       <GlobalNoUserSelectStyle />
       <MainLayout
-        title="Your 2000$ are near you!"
-        description="Become our partner and earn money passively from each closed deal!"
+        title="Here is your opportunity"
+        description="Become our partner and generate your passive income."
         image="https://code-generation-landing-bucket.s3.amazonaws.com/60f6d8a84a2ff400036de285.jpg"
       >
         <div className="main-wraper">
           <Article
             id="partner"
-            title="Your 2000$ are near you!"
-            desc={"Become our partner and earn money passively from each closed deal!"}
+            title="Here is your opportunity"
+            desc={"Become our partner and generate your passive income"}
           >
             <Styled.ImgAfterTitle src="/illustrationTitlePartners.svg" />
           </Article>
