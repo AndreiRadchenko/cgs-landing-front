@@ -42,10 +42,7 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
         {project.link && <Link link={project.link} />}
       </Styled.InfoContainer>
       <Styled.ImageContainer>
-        <Styled.Image
-          src={project.imageUrl}
-          alt={project.shortDescription}
-        />
+        <Styled.Image src={project.imageUrl} alt={project.shortDescription} loading="lazy" />
       </Styled.ImageContainer>
     </Styled.Container>
   );

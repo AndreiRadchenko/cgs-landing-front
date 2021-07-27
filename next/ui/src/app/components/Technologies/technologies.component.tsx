@@ -19,7 +19,8 @@ const Technology = ({ technology, number }) => {
         <Styled.TechnoImage
           src={TECHNOLOGIES[technology.type].image}
           alt={technology?.type}
-          number={number}        
+          number={number}
+          loading="lazy"        
         />
       </div>
     </Styled.TechnoContainer>
