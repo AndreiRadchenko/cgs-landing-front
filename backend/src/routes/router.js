@@ -17,6 +17,7 @@ const { technologyRouter } = require('./technology');
 const { stepToEarnRouter } = require('./step-to-earn');
 const { testimonialRouter } = require('./testimonial');
 const { featuredTechnologyRouter } = require('./featured-technology');
+const { galleryRouter } = require('./gallery');
 
 const router = new Router();
 
@@ -40,6 +41,7 @@ router.use(
   stepToEarnRouter.middleware(),
   testimonialRouter.middleware(),
   featuredTechnologyRouter.middleware(),
+  galleryRouter.middleware(),
 );
 
 exports.router = router;
