@@ -64,6 +64,11 @@ export const SimilarArticle = styled("li")`
     text-align: center;
     display: block;
     height: 50px;
+    @media (min-width: 320px) and (max-width: 360px) {
+      width: 89%;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
   }
   & p {
     margin: 0;
