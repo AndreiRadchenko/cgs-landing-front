@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 const AboutUs = ({ employee }) => (
   <Styled.AboutUsContainer className="about-us__slide" key={uuidv4()}>
     <Styled.Avatar>
-      <img src={employee?.imageUrl} alt={employee?.name} width="100%" />
+      <img src={employee?.imageUrl} alt={employee?.name} width="100%" loading="lazy" />
     </Styled.Avatar>
     <h2>{employee?.name}</h2>
     <Styled.Position>{employee?.position}</Styled.Position>

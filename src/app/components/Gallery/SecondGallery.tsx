@@ -8,7 +8,7 @@ const SecondGallery = ({ gallery }) => {
       <Styled.MainWrapperForDeckstop>
         <Styled.WraperForFirstImage>
           <Styled.Image1>
-            <img className="image" src={gallery.imageUrls[0]} />
+            <img className="image" src={gallery.imageUrls[0]} loading="lazy" />
           </Styled.Image1>
         </Styled.WraperForFirstImage>
 
@@ -19,7 +19,7 @@ const SecondGallery = ({ gallery }) => {
             <Styled.SubTitle dangerouslySetInnerHTML={{ __html: gallery?.text }}></Styled.SubTitle>
           </Styled.Block>
           <Styled.Image2>
-            <img className="image" src={gallery.imageUrls[1]} />
+            <img className="image" src={gallery.imageUrls[1]} loading="lazy" />
           </Styled.Image2>
         </Styled.WraperForSecondImageAndText>
       </Styled.MainWrapperForDeckstop>
@@ -33,7 +33,7 @@ const SecondGallery = ({ gallery }) => {
 
         <Styled.WraperForTwoImages>
           <Styled.Image4>
-            <img className="image" src={gallery.imageUrls[1]} />
+            <img className="image" src={gallery.imageUrls[1]} loading="lazy" />
           </Styled.Image4>
         </Styled.WraperForTwoImages>
       </Styled.MainWrapperMobile>
