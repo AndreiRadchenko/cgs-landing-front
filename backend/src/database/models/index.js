@@ -12,8 +12,10 @@ const technology = require('./technology');
 const stepToEarn = require('./step-to-earn');
 const testimonial = require('./testimonial');
 const featuredTechnology = require('./featured-technology');
+const gallery = require('./gallery');
 
 module.exports = {
+  ...gallery,
   ...stepToEarn,
   ...step,
   ...fact,
