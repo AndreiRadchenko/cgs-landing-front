@@ -26,6 +26,7 @@ const Testimonials = ({ testimonial }) => {
               countryCode={testimonial.countryCode}
               svg
               style={flagStyle}
+              loading="lazy"
             />
           </Styled.TestimonialFlag>
         )}

@@ -3,10 +3,7 @@ import { getAdminData } from "services/api/adminApi";
 import { IIconFile } from "../types";
 import * as Styled from "./Images.style";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { slides } from "../../../img/";
-import { onChangeSlideEA } from "../../../../services/event";
 import { CheckboxLabel, CustomCheckbox } from "../Form.styles";
 import {
   SampleNextArrow,

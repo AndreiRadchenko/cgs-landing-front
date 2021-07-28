@@ -10,7 +10,7 @@ const StepToEarn = ({ stepToEarn, number }) => {
       <Styled.Wrapper>
         <Styled.Number>{number}</Styled.Number>
         <Styled.Text dangerouslySetInnerHTML={{ __html: stepToEarn.text }} />
-        <img className="image" src={arrayOfImages[number - 1]} />
+        <img className="image" src={arrayOfImages[number - 1]} loading="lazy"/>
       </Styled.Wrapper>
     </Styled.Container>
   );

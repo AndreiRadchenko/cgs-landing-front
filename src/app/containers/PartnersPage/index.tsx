@@ -22,7 +22,7 @@ export const PartnersPage = ({ steps, stepsToEarn }) => {
             title="Here is your opportunity"
             desc={"Become our partner and generate your passive income"}
           >
-            <Styled.ImgAfterTitle src="/illustrationTitlePartners.svg" />
+            <Styled.ImgAfterTitle src="/illustrationTitlePartners.svg" loading="lazy" />
           </Article>
           <Article id="steps" title="Benefits you may have with us:">
             <StepsSlider steps={steps} />
@@ -33,7 +33,7 @@ export const PartnersPage = ({ steps, stepsToEarn }) => {
                 {stepsToEarn.map((stepToEarn, index) => (
                   <StepToEarn key={stepToEarn.id} stepToEarn={stepToEarn} number={index + 1} />
                 ))}
-                <Styled.ImgAfterBenefits src="/steps_web.png  " />
+                <Styled.ImgAfterBenefits src="/steps_web.png" loading="lazy" />
               </Styled.StepToEarn>
             </Styled.Wrapper>
           </Article>
