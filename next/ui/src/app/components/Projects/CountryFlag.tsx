@@ -14,7 +14,7 @@ export interface CountryFlagProps {
 export const CountryFlag: React.FC<CountryFlagProps> = ({ code }) => {
   return (
     <Styled.Container>
-      <ReactCountryFlag svg countryCode={code} style={style} />
+      <ReactCountryFlag svg countryCode={code} style={style} loading="lazy" />
     </Styled.Container>
   );
 };

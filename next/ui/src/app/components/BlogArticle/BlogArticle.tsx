@@ -11,7 +11,7 @@ const BlogArticle: React.FC<{ article: IBlogArticle }> = ({ article }) => {
       <a>
         <Styled.ImageContainer>
           {article.imageFileUrl && (
-            <img src={article.imageFileUrl} alt={article.title} />
+            <img src={article.imageFileUrl} alt={article.title} loading="lazy"/>
           )}
         </Styled.ImageContainer>
         <Styled.ContentContainer className="article__content"> 

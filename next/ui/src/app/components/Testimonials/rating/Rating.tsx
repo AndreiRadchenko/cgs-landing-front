@@ -2,7 +2,7 @@ import Button from "../../shared/LinkButton/Button";
 import React, { useState } from "react";
 import * as Styled from "./StyledRating";
 
-import StarRatings from 'react-star-ratings';
+import StarRatings from "react-star-ratings";
 
 const Rating = ({ testimonial }) => {
   const upwork = testimonial?.platforms?.find((el) => el.type === "upwork");
@@ -16,47 +16,35 @@ const Rating = ({ testimonial }) => {
         <Styled.RatingWrapper>
           <Styled.RatingItem className="testimonials__rating-clutch">
             <Styled.Rating>
-              <img src="/clutch.svg" width="58" height="16" alt="" />
+              <img src="/clutch.svg" width="58" height="16" alt="" loading="lazy" />
               <p>{clutch?.rate?.toFixed(1)}</p>
             </Styled.Rating>
-            <Button
-              link={clutch?.link}
-              target="_blank"
-              small
-              text="Read More"
-            />
+            <Button link={clutch?.link} target="_blank" small text="Read More" />
           </Styled.RatingItem>
           <Styled.RatingItem className="testimonials__rating-upwork">
             <Styled.Rating>
-              <img src="/upworkWord.svg" width="58" height="18" alt="" />
-              <p className="testimonials__rating-clutch">
-                {upwork?.rate?.toFixed(1)}
-              </p>
+              <img src="/upworkWord.svg" width="58" height="18" alt="" loading="lazy" />
+              <p className="testimonials__rating-clutch">{upwork?.rate?.toFixed(1)}</p>
             </Styled.Rating>
-            <Button
-              small
-              text="Read More"
-              link={upwork?.link}
-              target="_blank"
-            />
+            <Button small text="Read More" link={upwork?.link} target="_blank" />
           </Styled.RatingItem>
         </Styled.RatingWrapper>
       )}
       {clutch && !doublePlatforms && (
         <React.Fragment>
           <Styled.Rating className="testimonials__rating-clutch">
-            <img src="/clutch.svg" width="58" height="16" alt="" />
+            <img src="/clutch.svg" width="58" height="16" alt="" loading="lazy" />
             <p>{clutch?.rate?.toFixed(1)}</p>
             <Styled.Stars>
-              <StarRatings                
+              <StarRatings
                 rating={clutch.rate}
                 starRatedColor="#000000"
                 numberOfStars={5}
-                name='rating'
-                starWidthAndHeight='17px'
-                starDimension='17px'
-                starEmptyColor='#cbd3e3'
-                starSpacing='1px'                  
+                name="rating"
+                starWidthAndHeight="17px"
+                starDimension="17px"
+                starEmptyColor="#cbd3e3"
+                starSpacing="1px"
               />
             </Styled.Stars>
           </Styled.Rating>
@@ -66,18 +54,18 @@ const Rating = ({ testimonial }) => {
       {upwork && !doublePlatforms && (
         <React.Fragment>
           <Styled.Rating className="testimonials__rating-upwork">
-            <img src="/upworkWord.svg" width="58" height="18" alt="" />
+            <img src="/upworkWord.svg" width="58" height="18" alt="" loading="lazy" />
             <p>{upwork?.rate?.toFixed(2)}</p>
             <Styled.Stars>
-              <StarRatings                
+              <StarRatings
                 rating={upwork.rate}
                 starRatedColor="#000000"
                 numberOfStars={5}
-                name='rating'
-                starWidthAndHeight='17px'
-                starDimension='17px'
-                starEmptyColor='#cbd3e3'
-                starSpacing='1px'
+                name="rating"
+                starWidthAndHeight="17px"
+                starDimension="17px"
+                starEmptyColor="#cbd3e3"
+                starSpacing="1px"
               />
             </Styled.Stars>
           </Styled.Rating>

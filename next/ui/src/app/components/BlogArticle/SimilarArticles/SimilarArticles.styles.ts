@@ -64,8 +64,13 @@ export const SimilarArticle = styled("li")`
     text-align: center;
     display: block;
     height: 50px;
-    @media (min-width: 320px) and (max-width: 360px) {
+    @media (min-width: 320px) and (max-width: 400px) {
       width: 89%;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+    @media (min-width: 401px) and (max-width: 414px) {
+      width: 90%;
       margin: 0 auto;
       margin-bottom: 30px;
     }
@@ -91,8 +96,8 @@ export const SimilarArticle = styled("li")`
 `;
 
 export const HorizontalSep = styled("li")`
-   pointer-events: none;
-   
+  pointer-events: none;
+
   @media screen and (min-width: 1023.5px) {
     display: none;
   }
@@ -101,7 +106,7 @@ export const HorizontalSep = styled("li")`
   background: #0c1033;
   border-radius: 5px;
   margin-bottom: 50px;
-  
+
   @media screen and (max-width: 470px) {
     margin-bottom: 15px;
   }

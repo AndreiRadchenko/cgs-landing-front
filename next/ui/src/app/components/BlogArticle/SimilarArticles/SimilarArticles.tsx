@@ -16,7 +16,7 @@ const SimilarArticles: React.FC<SimilarArticlesProps> = ({ similarArticles }) =>
             <Styled.SimilarArticle>
               <Link href={`/blog/[id]`} as={`/blog/${article.id}`}>
                 <div>
-                  <img src={article.imageFileUrl} alt={article.title} />
+                  <img src={article.imageFileUrl} alt={article.title} loading="lazy" />
                   <h2>{article.title}</h2>
                   <Ellipsis
                     text={sanitize(article.content, { allowedTags: [] })}
