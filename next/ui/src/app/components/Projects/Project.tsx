@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 import { IProject } from "types/components";
 import { addLineBreaks } from "helpers/addLineBreaks";
@@ -42,7 +43,15 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
         {project.link && <Link link={project.link} />}
       </Styled.InfoContainer>
       <Styled.ImageContainer>
-        <Styled.Image src={project.imageUrl} alt={project.shortDescription} loading="lazy" />
+        <Image
+          src={project.image.url}
+          alt={project.shortDescription}
+          width={project.image.width}
+          height={project.image.height}
+          placeholder="blur"
+          blurDataURL={project.image.blurBase64}
+        />
+        {/* <Styled.Image src={project.imageUrl} alt={project.shortDescription} loading="lazy" /> */}
       </Styled.ImageContainer>
     </Styled.Container>
   );
