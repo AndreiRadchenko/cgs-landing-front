@@ -1,13 +1,13 @@
-import React from "react";
+import Head from "next/head";
+
 import * as Styled from "./notFound.styles";
-import { Helmet } from "react-helmet-async";
 
 export const NotFoundPage = () => (
   <>
-    <Helmet>
+    <Head>
       <title>404 Page Not Found</title>
       <meta name="description" content="Page not found" />
-    </Helmet>
+    </Head>
     <Styled.Wrapper>
       <Styled.Title>
         4
