@@ -1,3 +1,5 @@
+import { getPlaiceholder } from "plaiceholder";
+
 import { HomePage } from "../src/app/containers/HomePage";
 import { SpinnerPage } from "../src/app/components/SpinnerPage";
 import { getData } from "../src/services/api/api";
@@ -13,14 +15,37 @@ const categories = [
   "gallery",
 ];
 
+const injectPlaceholderImage = async (object: Record<string, any>, imageKey: string) => {
+  const imageUrl = object[imageKey];
+
+  const placeholder = await getPlaiceholder(imageUrl, {
+    size: 20,
+  });
+
+  delete object[imageKey];
+
+  Object.assign(object, {
+    image: {
+      url: placeholder.img.src,
+      width: placeholder.img.width,
+      height: placeholder.img.height,
+      blurBase64: placeholder.base64,
+    },
+  });
+};
+
 export const getStaticProps = async () => {
   const props: Record<string, any> = {};
 
   const responses = await Promise.all(categories.map((name) => getData(name)));
-
+  
   categories.forEach((category, index) => {
     props[category] = responses[index];
   });
+
+  await Promise.all(props.projects.map((project) => (
+    injectPlaceholderImage(project, 'imageUrl')
+  )));
 
   return {
     props,

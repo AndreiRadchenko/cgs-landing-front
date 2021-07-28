@@ -14,9 +14,6 @@ export const Name = styled("p")`
 `;
 
 export const Image = styled("img")`
-  width: inherit;
-  object-fit: contain;
-
   @media screen and (max-width: 1023.5px) {
     height: 400px;
   }
