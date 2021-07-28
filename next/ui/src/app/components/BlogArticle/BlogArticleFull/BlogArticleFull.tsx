@@ -10,7 +10,7 @@ const BlogArticleFull: React.FC<{ article: IBlogArticle }> = ({ article }) => (
       {dayjs(article.createdAt).format("DD MMMM YYYY")}
     </p>
     {article.imageFileUrl && (
-      <img src={article?.imageFileUrl} alt={article?.title} />
+      <img src={article?.imageFileUrl} alt={article?.title} loading="lazy" />
     )}
     {article.content && (
       <Styled.Content>
