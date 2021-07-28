@@ -81,7 +81,54 @@ export const ImageContainer = styled.div`
     & .featured__name {
       bottom: 15px;      
     }
+    @media screen and (max-width: 1023.5px) {
+      width: 100%;
+      height: 100%;
+      & .featured__name {
+        bottom: 35px;
+      }    
   }
+  @media screen and (max-width: 900px) {
+    & .featured__name {
+        bottom: 30px;
+      }
+  }
+
+  @media screen and (max-width: 780px) {
+    & .featured__name {
+        bottom: 25px;
+      }
+  }
+
+  @media screen and (max-width: 780px) {
+    & .featured__name {
+        bottom: 23px;
+      }
+  }
+
+  @media screen and (max-width: 630px) {
+    & .featured__name {
+        bottom: 20px;
+      }
+  }
+  @media screen and (max-width: 570px) {
+    & .featured__name {
+        bottom: 18px;
+      }
+  }
+  @media screen and (max-width: 520px) {
+    & .featured__name {
+        bottom: 16px;
+      }
+  }
+  @media screen and (max-width: 414px) {
+    & .featured__name {
+        bottom: 5px;
+      }
+  }
+
+  }
+
   @media screen and (min-width: 1024px) {
     min-width: 200px;
     min-height: 210px;
