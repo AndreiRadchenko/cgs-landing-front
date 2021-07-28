@@ -45,7 +45,7 @@ export const Image2 = styled("div")`
 
 export const Block = styled("div")`
   text-align: center;
-  margin-top: 70px;
+  margin-top: 60px;
   @media screen and (min-width: 1151px) {
     margin-top: 90px;
   }
@@ -71,8 +71,12 @@ export const SubTitle = styled("div")`
   margin-top: 25px;
   color: #868799;
   margin-bottom: 15px;
+  padding-left: 60px;
+  padding-right: 60px;  
   @media screen and (max-width: 1023.5px) {
     font-size: 17px;
+    padding-left: 0;
+    padding-right: 0;  
   }
 `;
 

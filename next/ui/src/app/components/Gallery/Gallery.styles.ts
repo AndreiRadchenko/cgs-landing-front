@@ -220,11 +220,15 @@ export const SubTitle = styled("div")`
   color: #868799;
   text-align: center;
   margin-bottom: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
   & p {
     line-height: 32px;
   }
   @media screen and (max-width: 1023.5px) {
     font-size: 17px;
+    padding-left: 0;
+    padding-right: 0;
   }
 `;
 
