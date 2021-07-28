@@ -48,7 +48,7 @@ export function Slider<T extends { id: any }>({
 
           window.dispatchEvent(new Event('resize'));
         },
-        300,
+        1000,
       );
 
       updateSwiper();

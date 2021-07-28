@@ -113,7 +113,12 @@ export interface IProject {
   fullDescription: string;
   technologies: Array<IProjectTechType>;
   link: string;
-  imageUrl: string;
+  image: {
+    url: string;
+    width: number;
+    height: number;
+    blurBase64: string;
+  };
 }
 
 export interface IProjectTechType {
