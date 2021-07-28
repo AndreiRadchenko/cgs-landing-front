@@ -215,13 +215,16 @@ export const Title = styled("div")`
 `;
 
 export const SubTitle = styled("div")`
-  font-size: 17px;  
+  font-size: 18px;
   margin: 0 auto;
   color: #868799;
   text-align: center;
   margin-bottom: 15px;
   & p {
     line-height: 32px;
+  }
+  @media screen and (max-width: 1023.5px) {
+    font-size: 17px;
   }
 `;
 
