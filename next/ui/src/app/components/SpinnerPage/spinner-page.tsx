@@ -21,6 +21,8 @@ export const SpinnerPage = () => {
 
       setIsLoaded(document.fonts.status === "loaded");
 
+      document.fonts.ready.then(onLoad);
+
       document.fonts.addEventListener("loadingdone", onLoad);
 
       return () => {
