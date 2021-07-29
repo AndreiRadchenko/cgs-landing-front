@@ -48,10 +48,8 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
           alt={project.shortDescription}
           width={project.image.width}
           height={project.image.height}
-          placeholder="blur"
-          blurDataURL={project.image.blurBase64}
+          loading="eager"
         />
-        {/* <Styled.Image src={project.imageUrl} alt={project.shortDescription} loading="lazy" /> */}
       </Styled.ImageContainer>
     </Styled.Container>
   );
