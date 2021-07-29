@@ -20,9 +20,8 @@ const Gallery: React.FC<{
         </Styled.ListItem>
         <Styled.ListItem>
           <span>Show:</span>
-          <span>{gallery?.showOnHomePage ? "true" : "false"}</span>
+          <span>{gallery?.showOnHomePage ? "yes" : "no"}</span>
         </Styled.ListItem>
-
         {gallery?.imageFiles?.map((image, imdex) => (
           <Styled.ListItem>
             <span>Picture {imdex + 1}:</span>
