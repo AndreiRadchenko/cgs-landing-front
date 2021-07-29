@@ -5,6 +5,8 @@ import * as Styled from "./Images.style";
 import Slider from "react-slick";
 import { slides } from "../../../img/";
 import { CheckboxLabel, CustomCheckbox } from "../Form.styles";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import {
   SampleNextArrow,
   SamplePrevArrow,
