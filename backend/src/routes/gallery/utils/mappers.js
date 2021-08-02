@@ -5,8 +5,8 @@ const mapGalleryToResponse = (gallery) => ({
   title: gallery.title,
   text: gallery.text,
   imageFiles: gallery.imageFiles.map(mapFileToResponse),
-  showOnPartnersPage: gallery.showOnPartnersPage,
-  placeOnPartnersPage: gallery.placeOnPartnersPage,
+  showOnHomePage: gallery.showOnHomePage,
+  placeOnHomePage: gallery.placeOnHomePage,
 });
 
 exports.mapGalleryToResponse = mapGalleryToResponse;

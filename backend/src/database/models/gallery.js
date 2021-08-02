@@ -17,11 +17,11 @@ const schema = new Schema(
       ref: 'file',
       required: true,
     }],
-    showOnPartnersPage: {
+    showOnHomePage: {
       type: SchemaTypes.Boolean,
       default: true,
     },
-    placeOnPartnersPage: {
+    placeOnHomePage: {
       type: SchemaTypes.Number,
       default: 1,
     },
