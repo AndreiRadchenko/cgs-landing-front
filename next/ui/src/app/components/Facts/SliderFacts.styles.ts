@@ -1,45 +1,50 @@
 import styled from "styled-components";
 
-export const DesktopContainer = styled("div")`
-  display: grid;
-  width: 80%;
-  margin: 0 auto;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 80px;
-  row-gap: 60px;
-`;
+import {
+  NextArrowContainer,
+  PrevArrowContainer,
+} from "../Slider/Arrows.styles";
 
-export const MobileContainer = styled("div")`
-  display: flex;
-  justify-content: center;
-  width: inherit;
-  height: inherit;
-`;
+import {
+  Container as SliderContainer,
+} from "../Slider/Slider.styles";
 
 export const Container = styled("div")`
+  display: flex;
   width: inherit;
   height: inherit;
+  justify-content: center;
 
   @media screen and (min-width: 1024px) {
-    & > ${MobileContainer} {
+    width: 80%;
+
+    & ${SliderContainer} {
+      width: auto;
+    }
+
+    & ${NextArrowContainer},
+    & ${PrevArrowContainer} {
+      display: none;
+    }
+
+    & .swiper-container {
+      overflow: visible;
+    }
+
+    & .swiper-wrapper {
+      display: grid;
+      transform: none !important;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 60px;
+      column-gap: 80px;
+    }
+
+    & .swiper-slide {
+      width: auto !important;
+    }
+
+    & .swiper-slide-duplicate {
       display: none;
     }
   }
-
-  @media screen and (max-width: 1023.5px) {
-    & > ${DesktopContainer} {
-      display: none;
-    }
-  }
-`;
-
-export const SliderContainer = styled("div")`
-  width: inherit;
-  height: inherit;
-`;
-
-export const SlideContainer = styled("div")`
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
 `;

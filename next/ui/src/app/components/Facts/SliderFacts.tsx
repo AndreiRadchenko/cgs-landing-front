@@ -15,19 +15,12 @@ interface SliderProps {
 const FactsSlider: React.FC<SliderProps> = ({ facts }) => {
   return (
     <Styled.Container>
-      <Styled.DesktopContainer>
-        {facts.map((fact, index) => (
-          <Facts key={fact.id} fact={fact} number={index + 1} />
-        ))}
-      </Styled.DesktopContainer>
-      <Styled.MobileContainer>
-        <Slider
-          items={facts}
-          renderItem={(fact, index) => (
-            <Facts fact={fact} number={index + 1} />
-          )}
-        />
-      </Styled.MobileContainer>
+      <Slider
+        items={facts}
+        renderItem={(fact, index) => (
+          <Facts fact={fact} number={index + 1} />
+        )}
+      />
     </Styled.Container>
   );
 };
