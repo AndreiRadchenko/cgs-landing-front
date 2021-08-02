@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalSpinnerStyle = createGlobalStyle`
   body {
@@ -25,21 +25,50 @@ export const SpinnerContainer = styled("div")`
   left: 0;
 `;
 
-export const AnimationSpinner = styled("div")`
-  display: inline-block;
-  width: 80px;
-  height: 80px;
+export const AnimationSpinner = styled("div")` 
+  font-size: 6px;
+  margin: 50px auto;
+  text-indent: -9999em;
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  background: linear-gradient(to right, #333 10%, rgba(0, 3, 51, 0) 42%);
+  position: relative;
+  animation: spin 1.4s infinite linear;
+  transform: translateZ(0);
+
+  &:before {
+    width: 50%;
+    height: 50%;
+    background: #0f0f0f;
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
 
   &:after {
-    content: " ";
-    display: block;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
+    background: #ffffff;
+    width: 75%;
+    height: 75%;
     border-radius: 50%;
-    border: 6px solid #113;
-    border-color: #113 transparent #113 transparent;
-    animation: spin 1.2s linear infinite;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   @keyframes spin {
