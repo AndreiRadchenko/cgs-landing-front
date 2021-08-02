@@ -8,19 +8,17 @@ const getGallery = {
   async handler(context) {
     const query = Gallery.find();
 
-    query.where('showOnPartnersPage', true);
+    query.where('showOnHomePage', true);
 
     query.populate({
       path: 'imageFiles',
     });
 
     query.sort({
-      placeOnPartnersPage: 1,
+      placeOnHomePage: 1,
     });
 
     const gallery = await query.exec();
-
-    // console.log(gallery)
 
     context.body = {
       response: gallery.map(mapGalleryToResponse),
