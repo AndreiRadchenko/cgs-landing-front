@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalSpinnerStyle = createGlobalStyle`
   body {
@@ -32,67 +32,51 @@ export const AnimationSpinner = styled("div")`
   width: 11em;
   height: 11em;
   border-radius: 50%;
-  background: #0f0f0f;
-  background: linear-gradient(to right, #0f0f0f 10%, rgba(15,15,15, 0) 42%);
+  background: linear-gradient(to right, #333 10%, rgba(0, 3, 51, 0) 42%);
   position: relative;
-  animation: load3 1.4s infinite linear;
+  animation: spin 1.4s infinite linear;
   transform: translateZ(0);
 
   &:before {
-  width: 50%;
-  height: 50%;
-  background: #0f0f0f;
-  border-radius: 100% 0 0 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: '';
-}
+    width: 50%;
+    height: 50%;
+    background: #0f0f0f;
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
+
   &:after {
-  background: #ffffff;
-  width: 75%;
-  height: 75%;
-  border-radius: 50%;
-  content: '';
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-@-webkit-keyframes load3 {
-  0% {
-    transform: rotate(0deg);
+    background: #ffffff;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes load3 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
-@-webkit-keyframes load3 {
-  0% {
-    transform: rotate(0deg);
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes load3 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 `;
