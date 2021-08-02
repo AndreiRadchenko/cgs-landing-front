@@ -19,13 +19,8 @@ const galleryCreate = {
         title: yup.string().required(),
         text: yup.string().required(),
         imageFileIds: yup.array().of(yup.objectId()).min(1).required(),
-
-        // firstHorizontalFile: yup.objectId().required(),
-        // secondHorizontalFile: yup.objectId().required(),
-        // firstVerticalFile: yup.objectId().required(),
-        // secondVerticalFile: yup.objectId().required(),
-        showOnPartnersPage: yup.boolean().optional(),
-        placeOnPartnersPage: yup.number().min(1).optional(),
+        showOnHomePage: yup.boolean().optional(),
+        placeOnHomePage: yup.number().min(1).optional(),
       }),
     },
   },
@@ -34,17 +29,13 @@ const galleryCreate = {
 
     let gallery = new Gallery({
       imageFiles: body.imageFileIds,
-      // firstHorizontalFile: body.iconFileId,
-      // secondHorizontalFile: body.iconFileId,
-      // firstVerticalFile: body.iconFileId,
-      // secondVerticalFile: body.iconFileId,
     });
 
     assignExistProperties(gallery, body, [
       'title',
       'text',
-      'showOnPartnersPage',
-      'placeOnPartnersPage',
+      'showOnHomePage',
+      'placeOnHomePage',
     ]);
 
     await gallery.save();

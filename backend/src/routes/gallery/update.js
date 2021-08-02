@@ -24,8 +24,8 @@ const galleryUpdate = {
         title: yup.string().required(),
         text: yup.string().required(),
         imageFileIds: yup.array().of(yup.objectId()).min(1).required(),
-        showOnPartnersPage: yup.boolean().optional(),
-        placeOnPartnersPage: yup.number().min(1).optional(),
+        showOnHomePage: yup.boolean().optional(),
+        placeOnHomePage: yup.number().min(1).optional(),
       }),
     },
   },
@@ -51,8 +51,8 @@ const galleryUpdate = {
     assignExistProperties(gallery, body, [
       'title',
       'text',
-      'showOnPartnersPage',
-      'placeOnPartnersPage',
+      'showOnHomePage',
+      'placeOnHomePage',
     ]);
 
     await gallery.save();
