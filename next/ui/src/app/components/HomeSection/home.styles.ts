@@ -172,6 +172,9 @@ export const LinkButtonSecond = styled("a")`
   font-size: 18px;
   margin-top: 10px;
   margin-left: 20px;
+  &:hover {
+    background: ${(props) => props.theme.colors.buttonBgColorActive};
+  }
   
   @media screen and (min-width: 650px) and (max-width: 1023.5px) {
     margin-left: 50px;
