@@ -17,7 +17,7 @@ const BlogArticlePage = ({ article, similarArticles }) => (
           <SimilarArticles similarArticles={similarArticles} />
         </Article>
         <Styled.ArticleButtonContainer>
-          <Button link="/blog/" text="Back to blog"></Button>
+          <Button link="/blog/" text="Back to blog" />
         </Styled.ArticleButtonContainer>
       </Styled.Wrapper>
     </div>
