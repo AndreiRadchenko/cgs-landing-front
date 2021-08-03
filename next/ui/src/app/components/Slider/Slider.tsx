@@ -5,8 +5,6 @@ import React, {
   useCallback,
 } from "react";
 
-import { debounce } from "ts-debounce";
-
 import "swiper/swiper.min.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -42,25 +40,10 @@ export function Slider<T extends { id: any }>({
         setShowArrows(options.enabled ?? false);
       };
 
-      const updateSwiper = debounce(
-        () => {
-          swiper.update();
-
-          window.dispatchEvent(new Event('resize'));
-        },
-        1000,
-      );
-
-      updateSwiper();
-
       swiper.on("breakpoint", onBreakpoint);   
-
-      document.addEventListener("DOMContentLoaded", updateSwiper);
 
       return () => {
         swiper.off("breakpoint", onBreakpoint);
-
-        document.removeEventListener("DOMContentLoaded", updateSwiper);
       };
     },
     [swiper, items],
@@ -82,7 +65,7 @@ export function Slider<T extends { id: any }>({
       };
 
       if (swiperOptions.breakpoints !== undefined) {
-        const newBreakpoints: NonNullable<SwiperOptions['breakpoints']> =  {};        
+        const newBreakpoints: NonNullable<SwiperOptions['breakpoints']> = {};        
 
         for (const [ratio, options] of Object.entries(swiperOptions.breakpoints)) {
           const newBreakpoint: SwiperOptions = { ...options };
