@@ -13,28 +13,17 @@ export const Name = styled("p")`
   }
 `;
 
-export const Image = styled("img")`
-  @media screen and (max-width: 1023.5px) {
-    height: 400px;
-  }
-
-  @media screen and (max-width: 650px) {
-    height: 230px;
-  }
-`;
-
 export const ImageContainer = styled("div")`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 
-  & > ${Image} {
+  & > div {
     padding-right: 10px;
-  }
 
-  @media screen and (max-width: 1023.5px) {
-    & > ${Image} {
+    @media screen and (max-width: 1023.5px) {
+      width: 80%;
       padding-right: 0;
     }
   }
