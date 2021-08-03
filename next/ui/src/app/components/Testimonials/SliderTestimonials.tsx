@@ -4,15 +4,19 @@ import { Slider } from "../Slider";
 
 import Testimonials from "./Testimonials.component";
 
+import * as Styled from "./SliderTestimonials.styles";
+
 export interface ProjectsSliderProps {
   testimonials: ITestimonial[];
 }
 
-const TestimonialsSlider: React.FC<ProjectsSliderProps> = ({ testimonials }) => {
-  return (
+const TestimonialsSlider: React.FC<ProjectsSliderProps> = ({
+  testimonials,
+}) => (
+  <Styled.Container>
     <Slider
       items={testimonials}
-      renderItem={(testimonial, index) => (
+      renderItem={(testimonial) => (
         <Testimonials testimonial={testimonial} />
       )}
       swiperOptions={{
@@ -26,7 +30,7 @@ const TestimonialsSlider: React.FC<ProjectsSliderProps> = ({ testimonials }) => 
         },
       }}
     />
-  );
-};
+  </Styled.Container>
+);
 
 export default TestimonialsSlider;
