@@ -28,6 +28,7 @@ const TestimonialsSlider: React.FC<ProjectsSliderProps> = ({
             slidesPerView: 3,
           },
         },
+        loopAdditionalSlides: Math.floor(testimonials.length / 2),
       }}
     />
   </Styled.Container>
