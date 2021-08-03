@@ -1,12 +1,19 @@
 import styled from "styled-components";
 
+import {
+  NextArrowContainer,
+  PrevArrowContainer,
+} from "../Slider/Arrows.styles";
+
+import {
+  Container as SliderContainer,
+} from "../Slider/Slider.styles";
+
 export const FeaturedContainer = styled("div")`
   max-width: 800px;
   display: flex;
-  align-items: stretch;
   justify-content: center;
-  text-align: left;
-  margin-top: 48px;
+  column-gap: 73px;
 
   @media screen and (max-width: 1023.5px) {
     align-items: center;
@@ -71,62 +78,58 @@ export const ImageContainer = styled.div`
   }
 
   @media screen and (max-width: 1023.5px) {
-    width: 144px;
-    height: 155px;
     margin-bottom: 31.5px;
+
     & img {
       margin-bottom: 15px;
       width: 60%;
     }
+
     & .featured__name {
       bottom: 15px;      
     }
-    @media screen and (max-width: 1023.5px) {
-      width: 100%;
-      height: 100%;
+
+    @media screen and (max-width: 900px) {
       & .featured__name {
-        bottom: 35px;
-      }    
-  }
-  @media screen and (max-width: 900px) {
-    & .featured__name {
         bottom: 30px;
       }
-  }
+    }
 
-  @media screen and (max-width: 780px) {
-    & .featured__name {
+    @media screen and (max-width: 780px) {
+      & .featured__name {
         bottom: 25px;
       }
-  }
+    }
 
-  @media screen and (max-width: 780px) {
-    & .featured__name {
+    @media screen and (max-width: 780px) {
+      & .featured__name {
         bottom: 23px;
       }
-  }
+    }
 
-  @media screen and (max-width: 630px) {
-    & .featured__name {
+    @media screen and (max-width: 630px) {
+      & .featured__name {
         bottom: 20px;
       }
-  }
-  @media screen and (max-width: 570px) {
-    & .featured__name {
+    }
+
+    @media screen and (max-width: 570px) {
+      & .featured__name {
         bottom: 18px;
       }
-  }
-  @media screen and (max-width: 520px) {
-    & .featured__name {
+    }
+
+    @media screen and (max-width: 520px) {
+      & .featured__name {
         bottom: 16px;
       }
-  }
-  @media screen and (max-width: 414px) {
-    & .featured__name {
+    }
+
+    @media screen and (max-width: 414px) {
+      & .featured__name {
         bottom: 5px;
       }
-  }
-
+    }
   }
 
   @media screen and (min-width: 1024px) {
@@ -139,53 +142,41 @@ export const ImageContainer = styled.div`
   }
 `;
 
-
-
-export const DesktopContainer = styled("div")`
-  width: 100%;
-  height: 100%;
+export const NewContainer = styled("div")`
   display: flex;
-  flex-wrap: wrap;
+  width: 90%;
   justify-content: center;
-  
-  & > ${FeaturedContainer}:nth-child(2n){
-    flex-direction: row-reverse;
-  }
-
-  & > ${FeaturedContainer}:first-child{
-    margin-top: 0;
-  }
-  
-  & > ${FeaturedContainer}:nth-child(2n+1) > ${TextContainer} {
-    margin-right: 73px;
-  }
-  & > ${FeaturedContainer}:nth-child(2n) > ${TextContainer} {
-    margin-left: 73px;
-  }
-`;
-
-
-export const MobileContainer = styled("div")`
-  display: flex;
-  justify-content: center;
-  width: inherit;
-  height: inherit;  
-`;
-
-export const Container = styled("div")`
-  width: inherit;
-  height: inherit;
-  
 
   @media screen and (min-width: 1024px) {
-    & > ${MobileContainer} {
+    & ${SliderContainer} {
+      width: auto;
+    }
+
+    & ${NextArrowContainer}, & ${PrevArrowContainer} {
       display: none;
     }
-  }
 
-  @media screen and (max-width: 1023.5px) {
-    & > ${DesktopContainer} {
+    & .swiper-container {
+      overflow: visible;
+    }
+
+    & .swiper-wrapper {
+      display: flex;
+      transform: none !important;
+      flex-direction: column;
+      row-gap: 48px;
+    }
+
+    & .swiper-slide {
+      width: auto !important;
+    }
+
+    & .swiper-slide-duplicate {
       display: none;
+    }
+
+    & .swiper-slide[data-swiper-slide-index="1"] ${FeaturedContainer} {
+      flex-direction: row-reverse;
     }
   }
 `;
