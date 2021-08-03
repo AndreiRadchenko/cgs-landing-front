@@ -32,11 +32,14 @@ export const Row = styled("div")`
     object-fit: cover;
   }
 
-  .row-item-description {
+  & .row-item-description {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    @media screen and (max-width: 1023.5px) {
+      width: calc(100% - 10px);
+    }
   }
 
   @media screen and (max-width: 1023.5px) {

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const MainWrapperForDeckstop = styled("div")`
+export const Container = styled("div")`
   display: flex;
   max-width: 1150px;
   margin-top: 140px;
 
   @media screen and (max-width: 1023.5px) {
-    display: none;
+    margin-top: 0;
   }
   @media screen and (min-width: 1024px) and (max-width: 1150px) {
     width: 1000px;
@@ -14,6 +14,9 @@ export const MainWrapperForDeckstop = styled("div")`
 `;
 export const WraperForFirstImage = styled("div")`
   width: 50%;
+  @media screen and (max-width: 1023.5px) {  
+    display: none;
+  } 
 `;
 
 export const WraperForSecondImageAndText = styled("div")`
@@ -21,6 +24,10 @@ export const WraperForSecondImageAndText = styled("div")`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media screen and (max-width: 1023.5px) {
+    width: 79%;
+    margin: 0 auto;
+  }  
 `;
 
 export const Image1 = styled("div")`
@@ -31,6 +38,10 @@ export const Image1 = styled("div")`
     width: inherit;
     object-fit: contain;
   }
+
+  @media screen and (max-width: 1023.5px) {
+    display: none;
+  }  
 `;
 
 export const Image2 = styled("div")`
@@ -40,6 +51,9 @@ export const Image2 = styled("div")`
   .image {
     width: inherit;
     object-fit: contain;
+  }
+  @media screen and (max-width: 1023.5px) {
+   padding: 0;
   }
 `;
 
@@ -90,33 +104,33 @@ export const HorizontalLine = styled("div")`
   margin-bottom: 25px;
 `;
 
-export const MainWrapperMobile = styled("div")`
-  @media screen and (min-width: 1024px) {
-    display: none;
-  }
-  @media screen and (max-width: 1023.5px) {
-    width: 79%;
-    margin: 0 auto;
-    justify-content: center;
-  }
-`;
+// export const MainWrapperMobile = styled("div")`
+//   @media screen and (min-width: 1024px) {
+//     display: none;
+//   }
+//   @media screen and (max-width: 1023.5px) {
+//     width: 79%;
+//     margin: 0 auto;
+//     justify-content: center;
+//   }
+// `;
 
-export const WraperForTwoImages = styled("div")`
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-`;
+// export const WraperForTwoImages = styled("div")`
+//   display: flex;
+//   justify-content: center;
+//   margin: 0 auto;
+// `;
 
-export const Image4 = styled("div")`
-  padding: 10px;
-  width: 100%;
-  .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  @media screen and (max-width: 1023.5px) {
-    padding: 0;
-    height: 50vw;
-  }
-`;
+// export const Image4 = styled("div")`
+//   padding: 10px;
+//   width: 100%;
+//   .image {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//   }
+//   @media screen and (max-width: 1023.5px) {
+//     padding: 0;
+//     height: 50vw;   
+//   }
+// `;
