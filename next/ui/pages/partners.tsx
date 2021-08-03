@@ -6,7 +6,7 @@ import { getData } from "../src/services/api/api";
 const Partners = (props) => (
   <>
     <SpinnerPage />
-    <PartnersPage {...props} />;
+    <PartnersPage {...props} />
   </>
 );
 
