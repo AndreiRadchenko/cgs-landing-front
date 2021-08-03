@@ -12,6 +12,7 @@ export const Container = styled("div")`
     width: 1000px;
   }
 `;
+
 export const WraperForFirstImage = styled("div")`
   width: 50%;
   @media screen and (max-width: 1023.5px) {  
@@ -103,34 +104,3 @@ export const HorizontalLine = styled("div")`
   margin-top: 25px;
   margin-bottom: 25px;
 `;
-
-// export const MainWrapperMobile = styled("div")`
-//   @media screen and (min-width: 1024px) {
-//     display: none;
-//   }
-//   @media screen and (max-width: 1023.5px) {
-//     width: 79%;
-//     margin: 0 auto;
-//     justify-content: center;
-//   }
-// `;
-
-// export const WraperForTwoImages = styled("div")`
-//   display: flex;
-//   justify-content: center;
-//   margin: 0 auto;
-// `;
-
-// export const Image4 = styled("div")`
-//   padding: 10px;
-//   width: 100%;
-//   .image {
-//     width: 100%;
-//     height: 100%;
-//     object-fit: cover;
-//   }
-//   @media screen and (max-width: 1023.5px) {
-//     padding: 0;
-//     height: 50vw;   
-//   }
-// `;
