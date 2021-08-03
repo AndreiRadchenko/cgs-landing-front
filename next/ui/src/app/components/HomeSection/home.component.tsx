@@ -1,7 +1,4 @@
 import React from "react";
-import Image from "next/image";
-
-import illustrationSvg from "../../../../public/illustration.svg";
 
 import * as Styled from "./home.styles";
 import { ISlogan } from "../../../types/components/index";
@@ -28,7 +25,7 @@ const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => (
       </Styled.LinkButton>
     </Styled.ContentBlock>
     <Styled.IllustrationContainer>
-      <Image {...illustrationSvg} />
+      <Styled.Illustration src="/illustration.svg" />
     </Styled.IllustrationContainer>
   </Styled.HomeWrapper>
 );

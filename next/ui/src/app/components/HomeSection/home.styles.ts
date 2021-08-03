@@ -86,22 +86,22 @@ export const ContentBlock = styled("article")`
   }
 `;
 
+export const Illustration = styled("img")`
+  width: 100%;
+  height: 425px;
+
+  @media screen and (min-width: 769px) and (min-width: 1023.5px) {
+     height: 400px;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
 export const IllustrationContainer = styled("div")`
   display: flex;
   justify-content: center;
-
-  & > div {
-    width: 100%;
-    height: 425px;
-
-    @media screen and (min-width: 769px) and (min-width: 1023.5px) {
-      height: 400px;
-    }
-
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
-  }
 `;
 
 export const LinkButton = styled("a") <PropsHomeWrapper>`
