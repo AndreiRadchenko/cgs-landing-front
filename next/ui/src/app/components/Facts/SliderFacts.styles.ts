@@ -11,8 +11,7 @@ import {
 
 export const Container = styled("div")`
   display: flex;
-  width: inherit;
-  height: inherit;
+  width: 90%;
   justify-content: center;
 
   @media screen and (min-width: 1024px) {
