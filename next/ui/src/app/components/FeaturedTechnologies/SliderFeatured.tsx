@@ -9,14 +9,14 @@ import * as Styled from "./Featured.styles"
 const SliderFeatured: React.FC<{
   featuredTechnologies: IFeaturedTechnology[];
 }> = ({ featuredTechnologies }) => (
-  <Styled.NewContainer>
+  <Styled.Container>
     <Slider
       items={featuredTechnologies}
       renderItem={(featuredTech) => (
         <Featured featuredTech={featuredTech}  />
       )}
     />
-  </Styled.NewContainer>
+  </Styled.Container>
 );
 
 export default SliderFeatured;
