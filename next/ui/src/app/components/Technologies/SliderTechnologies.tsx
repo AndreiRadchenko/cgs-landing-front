@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import { ITechnology } from "types/components";
 
@@ -6,7 +6,7 @@ import { Slider } from "../Slider";
 
 import Technology from "./technologies.component";
 
-import * as Styled from "./technologies.styles";
+import * as Styled from "./SliderTechnologies.styles";
 
 interface SliderProps {
   technologies: ITechnology[];
@@ -15,29 +15,28 @@ interface SliderProps {
 const SliderTechnologies: React.FC<SliderProps> = ({
   technologies: rawTechnologies,
 }) => {
-  const technologies = rawTechnologies.map((technology) => {
-    return {
-      id: technology.type,
+  const technologies = useMemo(
+    () => (
+      rawTechnologies.map((technology) => ({
+        id: technology.type,
 
-      ...technology,
-    };
-  });
+        ...technology,
+      }))
+    ),
+    [rawTechnologies],
+  );
 
   return (
     <Styled.Container>
-      <Styled.DesktopContainer>
-        {technologies.map((technology, index) => (
-          <Technology key={technology.type} technology={technology} number={index} />
-        ))}
-      </Styled.DesktopContainer>
-      <Styled.MobileContainer>
-        <Slider
-          items={technologies}
-          renderItem={(technology, index) => (
-            <Technology technology={technology} number={-1} />
-          )}
-        />
-      </Styled.MobileContainer>
+      <Slider
+        items={technologies}
+        renderItem={(technology, index) => (
+          <Technology
+            technology={technology}
+            number={index}
+          />
+        )}
+      />
     </Styled.Container>
   );
 };

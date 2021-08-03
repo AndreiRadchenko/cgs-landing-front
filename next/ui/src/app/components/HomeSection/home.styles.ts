@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { PropsHomeWrapper } from "types/components/index";
 
 export const HomeWrapper = styled("div")`
@@ -84,7 +85,8 @@ export const ContentBlock = styled("article")`
     }
   }
 `;
-export const Ilustration = styled("img")`
+
+export const Illustration = styled("img")`
   width: 100%;
   height: 425px;
 
@@ -97,13 +99,9 @@ export const Ilustration = styled("img")`
   }
 `;
 
-export const ImgMobile = styled("img")`
-  width: 65%;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  @media (min-width: 769px) {
-    display: none;
-  }
+export const IllustrationContainer = styled("div")`
+  display: flex;
+  justify-content: center;
 `;
 
 export const LinkButton = styled("a") <PropsHomeWrapper>`

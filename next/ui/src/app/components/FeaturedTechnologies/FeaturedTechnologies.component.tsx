@@ -1,10 +1,9 @@
-import React from "react";
-import * as Styled from "./Featured.styles";
-import { v4 as uuidv4 } from "uuid";
 import Hyphenated from "react-hyphen";
 
+import * as Styled from "./Featured.styles";
+
 const Featured = ({ featuredTech }) => (
-  <Styled.FeaturedContainer key={uuidv4()}>
+  <Styled.FeaturedContainer>
     <Styled.TextContainer>
       <h2>{featuredTech?.name}</h2>
       <Hyphenated>

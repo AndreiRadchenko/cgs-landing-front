@@ -70,7 +70,6 @@ export function Slider<T extends { id: any }>({
     () => ({
       loop: true,
       slidesPerView: 1,
-      loopAdditionalSlides: Math.floor(items.length / 2),
     }),
     [items],
   );

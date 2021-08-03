@@ -4,12 +4,16 @@ import { Slider } from "../Slider";
 
 import AboutUs from "./AboutUs.component";
 
+import * as Styled from "./slider.styles";
+
 export interface ProjectsSliderProps {
   workers: IWorker[];
 }
 
-const AboutUsSlider: React.FC<ProjectsSliderProps> = ({ workers }) => {
-  return (
+const AboutUsSlider: React.FC<ProjectsSliderProps> = ({
+  workers,
+}) => (
+  <Styled.Container>
     <Slider
       items={workers}
       renderItem={(employee) => (
@@ -26,7 +30,7 @@ const AboutUsSlider: React.FC<ProjectsSliderProps> = ({ workers }) => {
         },
       }}
     />
-  );
-};
+  </Styled.Container>
+);
 
 export default AboutUsSlider;

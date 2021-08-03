@@ -9,20 +9,20 @@ import {
   Container as SliderContainer,
 } from "../Slider/Slider.styles";
 
+import { TechnoContainer } from "./technologies.styles";
+
 export const Container = styled("div")`
   display: flex;
   width: 90%;
   justify-content: center;
 
   @media screen and (min-width: 1024px) {
-    width: 80%;
 
     & ${SliderContainer} {
       width: auto;
     }
 
-    & ${NextArrowContainer},
-    & ${PrevArrowContainer} {
+    & ${NextArrowContainer}, & ${PrevArrowContainer} {
       display: none;
     }
 
@@ -34,7 +34,7 @@ export const Container = styled("div")`
       display: grid;
       transform: none !important;
       grid-template-columns: 1fr 1fr;
-      row-gap: 60px;
+      row-gap: 30px;
       column-gap: 80px;
     }
 
@@ -44,6 +44,11 @@ export const Container = styled("div")`
 
     & .swiper-slide-duplicate {
       display: none;
+    }
+
+    & .swiper-slide[data-swiper-slide-index="0"] ${TechnoContainer},
+    & .swiper-slide[data-swiper-slide-index="1"] ${TechnoContainer} {
+      flex-direction: row-reverse;
     }
   }
 `;

@@ -17,6 +17,6 @@
     "jsx": "preserve",
     "baseUrl": "./src"
   },
-  "include": ["src", "public/img/slides.ts"],
+  "include": ["src", "global.d.ts"],
   "exclude": ["node_modules"]
 }
