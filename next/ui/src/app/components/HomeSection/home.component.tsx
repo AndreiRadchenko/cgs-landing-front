@@ -1,4 +1,8 @@
 import React from "react";
+import Image from "next/image";
+
+import illustrationSvg from "../../../../public/illustration.svg";
+
 import * as Styled from "./home.styles";
 import { ISlogan } from "../../../types/components/index";
 import { clickDiscussTheDitails } from "services/event";
@@ -6,7 +10,6 @@ import { clickDiscussTheDitails } from "services/event";
 const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => (
   <Styled.HomeWrapper id={id}>
     <Styled.ContentBlock>
-      <Styled.ImgMobile className="home-section__img--mobile" src="/illustration.svg" />
       <h1 className="home-section__title">{slogan?.title}</h1>
       <p className="home-section__subtitle">{slogan?.text}</p>
       <Styled.LinkButtonsWrapper>
@@ -24,9 +27,9 @@ const Home: React.FC<{ id: string; slogan: ISlogan }> = ({ id, slogan }) => (
         Contact us
       </Styled.LinkButton>
     </Styled.ContentBlock>
-    <div>
-      <Styled.Ilustration src={"/illustration.svg"} />
-    </div>
+    <Styled.IllustrationContainer>
+      <Image {...illustrationSvg} />
+    </Styled.IllustrationContainer>
   </Styled.HomeWrapper>
 );
 

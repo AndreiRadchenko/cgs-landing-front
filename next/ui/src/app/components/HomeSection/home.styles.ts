@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { PropsHomeWrapper } from "types/components/index";
 
 export const HomeWrapper = styled("div")`
@@ -84,25 +85,22 @@ export const ContentBlock = styled("article")`
     }
   }
 `;
-export const Ilustration = styled("img")`
-  width: 100%;
-  height: 425px;
 
-  @media screen and (min-width: 769px) and (min-width: 1023.5px) {
-     height: 400px;
-  }
+export const IllustrationContainer = styled("div")`
+  display: flex;
+  justify-content: center;
 
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
+  & > div {
+    width: 100%;
+    height: 425px;
 
-export const ImgMobile = styled("img")`
-  width: 65%;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  @media (min-width: 769px) {
-    display: none;
+    @media screen and (min-width: 769px) and (min-width: 1023.5px) {
+      height: 400px;
+    }
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 
