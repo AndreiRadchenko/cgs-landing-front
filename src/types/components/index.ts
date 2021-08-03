@@ -201,7 +201,7 @@ export interface LayoutProps {
   title?: string;
   description?: string;
   favicon?: string;
-  image: string;
+  image?: string;
 }
 
 export interface SimilarArticlesProps {

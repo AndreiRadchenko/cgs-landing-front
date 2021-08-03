@@ -15,14 +15,12 @@ const Technology = ({ technology, number }) => {
           ))}
         </ul>
       </Styled.DescContainer>
-      <div>
-        <Styled.TechnoImage
-          src={TECHNOLOGIES[technology.type].image}
-          alt={technology?.type}
-          number={number}
-          loading="lazy"        
-        />
-      </div>
+      <Styled.TechnoImage
+        src={TECHNOLOGIES[technology.type].image}
+        alt={technology?.type}
+        number={number}
+        loading="lazy"        
+      />
     </Styled.TechnoContainer>
   );
 };

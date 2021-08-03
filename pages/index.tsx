@@ -29,7 +29,6 @@ const injectPlaceholderImage = async (object: Record<string, any>, imageKey: str
       url: placeholder.img.src,
       width: placeholder.img.width,
       height: placeholder.img.height,
-      blurBase64: placeholder.base64,
     },
   });
 };
