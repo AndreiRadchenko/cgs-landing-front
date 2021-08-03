@@ -2,13 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled("div")`
   display: flex;
-  width: 90%;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   align-items: center;
-
-  & .swiper-wrapper {
-    display: flex;
-  }
 
   & .swiper-slide {
     height: auto;
