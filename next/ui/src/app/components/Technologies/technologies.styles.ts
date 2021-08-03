@@ -1,55 +1,6 @@
 import { TechnoImageParams } from "./../../../types/components/index";
 import styled from "styled-components";
 
-const imgSize = {
-  w: "35px",
-  h: "35px",
-};
-
-const Arrow = styled.div`
-  position: absolute;
-  z-index: 100;
-  background-color: #fff !important;
-  width: ${imgSize.w} !important;
-  height: 250px !important;
-
-  & img {
-    width: 100%;
-    height: 100%;
-  }
-  @media screen and (max-width: 769px) {
-    height: 230px !important;
-    margin-top: 20px;
-  }
-  @media screen and (min-width: 1025px) {
-    display: none;
-  }
-`;
-export const SliderPrev = styled(Arrow)`
-  top: 20% !important;
-  left: 5% !important;
-`;
-
-export const SliderNext = styled(Arrow)`
-  top: 20% !important;
-  right: 5% !important;
-`;
-
-export const Dots = styled("img")`
-  width: 80px;
-  height: 100px;
-  position: absolute;
-  top: -1em;
-  left: -4em;
-`;
-export const DotsSecond = styled(Dots)`
-  top: 50%;
-  right: -3em;
-  left: unset;
-  @media screen and (max-width: 476px) {
-    display: none;
-  }
-`;
 export const TechnoContainer = styled("div")`
   display: flex;
   width: 100%;
@@ -82,15 +33,6 @@ export const TechnoContainer = styled("div")`
   @media screen and (min-width: 1024px) {
     justify-content: space-between;
     align-items: flex-start;
-
-    .slick-slide:nth-child(3n - 3) &,
-    .slick-slide:nth-child(4n - 4) & {
-      flex-direction: row;
-      margin-top: 2em;
-    }
-    .slick-slide:nth-child(4) & div:last-child {
-      margin-bottom: 15%;
-    }
 
     & > div:first-child {
       width: 33%;
@@ -128,38 +70,12 @@ export const DescContainer = styled("div")`
   }
 
   @media screen and (min-width: 1023.5px) {
-    .slick-slide:nth-child(1) & {
-      margin-left: 15px;
-    }
-    .slick-slide:nth-child(2) & {
-      margin-left: 15px;
-    }
-    .slick-slide:nth-child(3) & {
-      margin-right: 5px;
-    }
-    .slick-slide:nth-child(4) & {
-      margin-right: 5px;
-    }
-
     & > ul li {
       white-space: nowrap;
     }
   }
 
   @media screen and (min-width: 1200px) {
-    .slick-slide:nth-child(1) & {
-      margin-left: 105px;
-    }
-    .slick-slide:nth-child(2) & {
-      margin-left: 75px;
-    }
-    .slick-slide:nth-child(3) & {
-      margin-right: 75px;
-    }
-    .slick-slide:nth-child(4) & {
-      margin-right: 60px;
-    }
-
     & > ul li {
       white-space: nowrap;
     }
@@ -195,131 +111,14 @@ export const HorizontalSep = styled("div")`
   }
 `;
 
-const paddingsArray = ['30px', '100px', '140px', '140px']
+const paddingsArray = ["30px", "100px", "140px", "140px"];
 
 export const TechnoImage = styled("img")<TechnoImageParams>`
   @media screen and (min-width: 1023.5px) {
-     padding-top: ${ (props) =>  paddingsArray[props.number] };
+    padding-top: ${(props) => paddingsArray[props.number]};
   }
+
   @media screen and (max-width: 1023.5px) {
     padding-top: 30px;
   }
 `;
-
-export const SlideWrapper = styled("div")`
-  & .slick-track {
-    display: flex;
-  }
-`;
-
-export const SliderContainer = styled.div`
-  width: 100%;
-  height: 100%; 
-
-  @media screen and (min-width: 1023.5px) {
-
-     & .slick-track {
-      flex-wrap: wrap;
-     } 
-     
-     & .slick-slide {
-        flex: 50%;
-        padding: 15px;
-        box-sizing: border-box;
-     }
-
-     & .slick-slide:nth-child(1) {
-        flex: 49%;
-        box-sizing: border-box;
-     }
-
-     & .slick-slide:nth-child(6) {
-        flex: 49%;
-        box-sizing: border-box;
-     }
-  }
-
-  @media screen and (max-width: 1023.5px) {
-      & .slick-next, .slick-prev {
-      z-index: 2;
-    }
-    & .slick-next {
-      right: 5%;
-    }
-    & .slick-prev {
-      left: 5%;
-    }
-  }
-  
-  & .slick-slider {
-    @media screen and (max-width: 650px) {
-      margin: 0;
-    }
-  }
-  & .slick-slide {
-    display: flex;
-    justify-content: center;
-  }
-  & .slide-container {
-    display: flex;
-    justify-content: center;
-  }
-
-  & .slides *:focus {
-    outline: 0;
-    outline: none;
-  }
-  & .slick-next:before,
-  & .slick-prev:before {
-    content: none;
-  }
-  & .slick-next {
-    @media (max-width: 420px) {
-      right: 20px;
-    }
-  }
-  & .slick-prev {
-    @media (max-width: 420px) {
-      left: 20px;
-    }
-  }
-`;
-
-export const Container = styled("div")`
-  display: flex;
-  width: 100%;   
-`
-
-export const DesktopContainer = styled("div")`
-  display: grid;
-  width: 86%;
-  margin: 0px auto;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 80px;
-  row-gap: 30px;
-     
-  @media screen and (max-width: 1023.5px) {
-    display: none;   
-  }
-  & > div:nth-child(1) {   
-    flex-direction: row-reverse;
-  }
-  & > div:nth-child(2) {   
-    flex-direction: row-reverse;
-  } 
-`;
-
-export const MobileContainer = styled("div")`
-  @media screen and (min-width: 1024px) {
-    display: none;    
-  }
-
-  display: flex;
-  justify-content: center;
-  width: inherit;
-  height: inherit; 
-
-  & .swiper-slide {
-      width: 100% !important;
-  } 
-`
