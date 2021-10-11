@@ -1,7 +1,7 @@
 import React from "react";
 import Hyphenated from "react-hyphen";
 import { Parser as HtmlToReactParser } from "html-to-react";
-
+import Image from "next/image";
 import * as Styled from "./Steps.styles";
 
 const Step = ({ step, number }) => {
@@ -11,7 +11,12 @@ const Step = ({ step, number }) => {
     <Styled.Container>
       <Styled.Header>
         <h2>Benefit #{number}</h2>
-        <img src={step.iconUrl} alt={step.title} width="30" loading="lazy" />
+        <Image
+          src={step.iconUrl}
+          alt={step.title}
+          width="30"
+          height ="30"
+        />
       </Styled.Header>
       <Styled.Title>{step.title}</Styled.Title>
       <Styled.Text>

@@ -2,8 +2,7 @@ import React from "react";
 import * as Styled from "./Testimonials.styles";
 import { v4 as uuidv4 } from "uuid";
 import Rating from "./rating/Rating";
-import ReactCountryFlag from "react-country-flag";
-
+import Image from "next/image"
 import { addLineBreaks } from "helpers/addLineBreaks";
 
 import countryCodes from "../../../consts/countyCodes.json";
@@ -22,12 +21,12 @@ const Testimonials = ({ testimonial }) => {
       <div className="infoWrapper">
         {testimonial.countryCode && (
           <Styled.TestimonialFlag>
-            <ReactCountryFlag
-              countryCode={testimonial.countryCode}
-              svg
-              style={flagStyle}
-              loading="lazy"
-            />
+              <Image
+                src={"https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/4x3/"+ testimonial.countryCode.toLowerCase() +".svg"}
+                width= "200"
+                height= "150"
+                loading="lazy"
+              />
           </Styled.TestimonialFlag>
         )}
         <p className="testimonials__country">{countryCodes[testimonial.countryCode]}</p>

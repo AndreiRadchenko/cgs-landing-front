@@ -1,4 +1,5 @@
 import Hyphenated from "react-hyphen";
+import Image from "next/image";
 
 import * as Styled from "./Featured.styles";
 
@@ -11,12 +12,12 @@ const Featured = ({ featuredTech }) => (
       </Hyphenated>
     </Styled.TextContainer>
     <Styled.ImageContainer>
-      <img
+      <Image
         className="featured__img"
         src={featuredTech?.imageUrl}
         alt={featuredTech?.name}
-        width="180px"
-        height="auto"
+        width="180"
+        height="180"
         loading="lazy"
       />
       <p className="featured__name">{featuredTech?.label}</p>
