@@ -46,13 +46,13 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
         {project.link && <Link link={project.link} />}
       </Styled.InfoContainer>
       <Styled.ImageContainer>
-        <Image
+        {/* <Image
           src={project.image.url}
           alt={project.shortDescription}
           width={project.image.width}
           height={project.image.height}
           loading="eager"
-        />
+        /> */}
       </Styled.ImageContainer>
     </Styled.Container>
   );
