@@ -86,9 +86,8 @@ export const ContentBlock = styled("article")`
   }
 `;
 
-export const Illustration = styled("img")`
+export const Illustration = styled("div")`
   width: 100%;
-  height: 425px;
 
   @media screen and (min-width: 769px) and (min-width: 1023.5px) {
      height: 400px;

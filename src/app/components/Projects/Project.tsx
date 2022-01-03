@@ -8,7 +8,6 @@ import countyCodes from "consts/countyCodes.json";
 
 import { Link } from "./Link";
 import { Technology } from "./Technology";
-import { CountryFlag } from "./CountryFlag";
 
 import * as Styled from "./Project.styles";
 
@@ -24,7 +23,11 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
           <Styled.Name>{project.name}</Styled.Name>
           <Styled.FlagWrapper>
             <Styled.FlagContainer>
-              <CountryFlag code={project.countryCode} />
+              <Image
+                src={"https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/4x3/"+ project.countryCode.toLowerCase() +".svg"}
+                width= "200"
+                height= "150"
+              />
             </Styled.FlagContainer>
             <Styled.Country>
               {countyCodes[project.countryCode] ?? project.countryCode}
@@ -43,13 +46,13 @@ export const Project: React.FC<ProjectProps> = ({ project }) => {
         {project.link && <Link link={project.link} />}
       </Styled.InfoContainer>
       <Styled.ImageContainer>
-        <Image
+        {/* <Image
           src={project.image.url}
           alt={project.shortDescription}
           width={project.image.width}
           height={project.image.height}
           loading="eager"
-        />
+        /> */}
       </Styled.ImageContainer>
     </Styled.Container>
   );

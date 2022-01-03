@@ -1,4 +1,4 @@
-import ReactCountryFlag from "react-country-flag";
+import Image from "next/image";
 
 import * as Styled from "./CountryFlag.styles";
 
@@ -14,7 +14,11 @@ export interface CountryFlagProps {
 export const CountryFlag: React.FC<CountryFlagProps> = ({ code }) => {
   return (
     <Styled.Container>
-      <ReactCountryFlag svg countryCode={code} style={style} loading="lazy" />
+      <Image
+        src={"https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/4x3/"+ code.toLowerCase() +".svg"}
+        width= "200"
+        height= "150"
+      />
     </Styled.Container>
   );
 };

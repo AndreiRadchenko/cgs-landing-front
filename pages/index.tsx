@@ -1,8 +1,8 @@
 import { getPlaiceholder } from "plaiceholder";
 
 import { HomePage } from "../src/app/containers/HomePage";
-import { SpinnerPage } from "../src/app/components/SpinnerPage";
 import { getData } from "../src/services/api/api";
+import { Maintenance } from "../src/app/containers/MaintenancePage";
 
 const categories = [
   "slogan",
@@ -37,7 +37,7 @@ const categories = [
 //   const props: Record<string, any> = {};
 
 //   const responses = await Promise.all(categories.map((name) => getData(name)));
-  
+
 //   categories.forEach((category, index) => {
 //     props[category] = responses[index];
 //   });
@@ -52,10 +52,9 @@ const categories = [
 //   };
 // };
 
-const Home = (props) => (
+const Home = () => (
   <>
-    <SpinnerPage />
-    <HomePage props={props} />
+    <Maintenance />
   </>
 );
 
