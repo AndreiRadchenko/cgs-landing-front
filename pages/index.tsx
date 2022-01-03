@@ -15,42 +15,42 @@ const categories = [
   "gallery",
 ];
 
-const injectPlaceholderImage = async (object: Record<string, any>, imageKey: string) => {
-  const imageUrl = object[imageKey];
+// const injectPlaceholderImage = async (object: Record<string, any>, imageKey: string) => {
+//   const imageUrl = object[imageKey];
 
-  const placeholder = await getPlaiceholder(imageUrl, {
-    size: 20,
-  });
+//   const placeholder = await getPlaiceholder(imageUrl, {
+//     size: 20,
+//   });
 
-  delete object[imageKey];
+//   delete object[imageKey];
 
-  Object.assign(object, {
-    image: {
-      url: placeholder.img.src,
-      width: placeholder.img.width,
-      height: placeholder.img.height,
-    },
-  });
-};
+//   Object.assign(object, {
+//     image: {
+//       url: placeholder.img.src,
+//       width: placeholder.img.width,
+//       height: placeholder.img.height,
+//     },
+//   });
+// };
 
-export const getStaticProps = async () => {
-  const props: Record<string, any> = {};
+// export const getStaticProps = async () => {
+//   const props: Record<string, any> = {};
 
-  const responses = await Promise.all(categories.map((name) => getData(name)));
+//   const responses = await Promise.all(categories.map((name) => getData(name)));
   
-  categories.forEach((category, index) => {
-    props[category] = responses[index];
-  });
+//   categories.forEach((category, index) => {
+//     props[category] = responses[index];
+//   });
 
-  await Promise.all(props.projects.map((project) => (
-    injectPlaceholderImage(project, 'imageUrl')
-  )));
+//   await Promise.all(props.projects.map((project) => (
+//     injectPlaceholderImage(project, 'imageUrl')
+//   )));
 
-  return {
-    props,
-    revalidate: 30,
-  };
-};
+//   return {
+//     props,
+//     revalidate: 30,
+//   };
+// };
 
 const Home = (props) => (
   <>
