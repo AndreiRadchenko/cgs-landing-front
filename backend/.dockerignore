@@ -1,8 +1,0 @@
-# Dependency directories
-/node_modules
-
-# Error logs
-yarn-error.log
-
-# Keep .gitkeep files
-!/**/.gitkeep
