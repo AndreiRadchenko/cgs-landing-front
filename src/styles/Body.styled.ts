@@ -1,11 +1,8 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
-export const BodyContainer = styled.div`
+export const BodyContainer = styled.section`
   position: relative;
-  height: 100vh;
-
-  overflow: hidden;
 `;
 
 export const BodyDescriptionWrapper = styled.div`

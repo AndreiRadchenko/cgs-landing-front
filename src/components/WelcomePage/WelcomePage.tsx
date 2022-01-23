@@ -2,6 +2,9 @@ import * as StyledThisComp from "../../styles/Body.styled";
 import React from "react";
 import Image from "next/image";
 import mainLogoIMG from "../../../public/mainLogoView.svg";
+import BaseButton from "../BaseButton/BaseButton";
+import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
+import backImg from "../../../public/backButton.svg";
 
 const WelcomePage = () => {
   return (
@@ -17,8 +20,16 @@ const WelcomePage = () => {
           tightest deadlines
         </StyledThisComp.CodeDescription>
 
+        <BaseButton onClick={() => console.log("hover")} src={backImg}>
+          <ButtonTextWrapper>get estimation</ButtonTextWrapper>
+        </BaseButton>
+
         <StyledThisComp.WrapperBgImg>
-          <Image src={mainLogoIMG} alt={"main logo big image"} />
+          <Image
+            src={mainLogoIMG}
+            alt={"main logo big image"}
+            priority={true}
+          />
         </StyledThisComp.WrapperBgImg>
       </StyledThisComp.BodyDescriptionWrapper>
     </>
