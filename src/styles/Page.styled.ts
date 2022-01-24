@@ -6,10 +6,9 @@ interface IButtonTextStyledProps {
 }
 
 export const Page = styled.article`
-  width: 100%;
+  width: 1400px;
   position: relative;
-  padding: ${themes.primary.spacing.headerNavVertical}
-    ${themes.primary.spacing.headerNavHorizontal};
+  margin: ${themes.primary.spacing.headerNavVertical} auto;
 `;
 
 export const ButtonText = styled.span.attrs(
