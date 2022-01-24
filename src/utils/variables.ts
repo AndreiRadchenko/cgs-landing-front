@@ -21,6 +21,12 @@ import astronautIMG from "../../public/astronaut-about-icon.svg";
 import spaceIMG from "../../public/space-about-icon.svg";
 import starIMG from "../../public/star-about-icon.svg";
 
+//technologies
+import technologyLaptopIMG from "../../public/technology-laptop-icon.svg";
+import technologySmartPhoneIMG from "../../public/technology-smartphone-icon.svg";
+import technologyDatabaseIMG from "../../public/technology-database-icon.svg";
+import technologyBlockchainIMG from "../../public/technology-blockchain-icon.svg";
+
 export const routers = {
   home: "/",
   vacancy: "/vacancy",
@@ -96,5 +102,36 @@ export const categoryThemesVars = [
     description:
       "Yep, we are tweaking with all the freshest development trends.",
     url: blockChainIMG,
+  },
+];
+
+export const technologiesArr = [
+  {
+    url: technologyLaptopIMG,
+    title: "web",
+    technologies: ["React", "Angular", "Vue"],
+  },
+  {
+    url: technologySmartPhoneIMG,
+    title: "mobile",
+    technologies: ["React Native", "Dart/Flutter"],
+  },
+  {
+    url: technologyDatabaseIMG,
+    title: "server",
+    technologies: [
+      "Node",
+      "Express",
+      "Sequelize",
+      "AWS",
+      "MongoDB",
+      "MySQL",
+      "Docker",
+    ],
+  },
+  {
+    url: technologyBlockchainIMG,
+    title: "blockchain",
+    technologies: ["NFT", "Smart contracts", "Blockchain", "Solidity", "Web3"],
   },
 ];
