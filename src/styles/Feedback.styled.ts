@@ -3,6 +3,7 @@ import themes from "../utils/themes";
 
 export const FeedbackContainer = styled.section`
   font-family: ${themes.primary.font.family.roboto};
+  margin-top: 200px;
 `;
 
 export const FeedbackSectionTitle = styled.h2`

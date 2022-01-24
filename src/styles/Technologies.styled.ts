@@ -3,7 +3,7 @@ import Decoration from "../components/Decoration/Decoration";
 
 export const TechnologyContainer = styled.section`
   width: 1400px;
-  margin: 0 auto;
+  margin: 200px auto 0 auto;
   user-select: none;
 `;
 

@@ -7,8 +7,8 @@ const Partners = () => {
   return (
     <StyledThisComp.PartnersContainer>
       {partnersArr.map((item, idx) => (
-        <StyledThisComp.PartnerImageWrapper>
-          <Image key={idx} src={item} alt={"alt partners image"} />
+        <StyledThisComp.PartnerImageWrapper key={idx}>
+          <Image src={item} alt={"alt partners image"} />
         </StyledThisComp.PartnerImageWrapper>
       ))}
     </StyledThisComp.PartnersContainer>

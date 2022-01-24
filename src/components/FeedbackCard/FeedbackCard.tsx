@@ -31,6 +31,7 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
           value={rates}
           count={5}
           size={20}
+          char={"★"}
           color2={themes.primary.colors.starActive}
           color1={themes.primary.colors.starDisable}
         />
