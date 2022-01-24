@@ -17,6 +17,7 @@ export const ButtonText = styled.span.attrs(
   })
 )`
   position: relative;
+  z-index: 3;
   display: inline-flex;
   justify-content: center;
   align-items: center;

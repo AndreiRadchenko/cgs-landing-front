@@ -2,8 +2,6 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 export const FeedbackContainer = styled.section`
-  width: 1400px;
-  margin: 0 auto;
   font-family: ${themes.primary.font.family.roboto};
 `;
 
