@@ -19,3 +19,8 @@ export const FeedbackSectionSubTitle = styled.h3`
   margin-top: 12px;
   margin-bottom: 50px;
 `;
+
+export const FeedbackRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
