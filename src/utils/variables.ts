@@ -16,7 +16,6 @@ import trendCommanderIMG from "../../public/trendCommnader-icon.svg";
 import atlassianIMG from "../../public/atlassian-icon.svg";
 import chilliIMG from "../../public/chilli-icon.svg";
 
-
 //about
 import astronautIMG from "../../public/astronaut-about-icon.svg";
 import spaceIMG from "../../public/space-about-icon.svg";
@@ -30,8 +29,20 @@ export const routers = {
 
 export const navigationRoutesNames = ["/home", "/vacancy", "/partners"];
 
-export const partnersArr = [ homeLikeIMG, spaceImpulseIMG, ibmIMG, sunPowerIMG, civiqIMG, growthDayIMG, oneWelcomeIMG, pandemicIMG, wIMG, trendCommanderIMG, atlassianIMG, chilliIMG, ];
-
+export const partnersArr = [
+  homeLikeIMG,
+  spaceImpulseIMG,
+  ibmIMG,
+  sunPowerIMG,
+  civiqIMG,
+  growthDayIMG,
+  oneWelcomeIMG,
+  pandemicIMG,
+  wIMG,
+  trendCommanderIMG,
+  atlassianIMG,
+  chilliIMG,
+];
 
 export const aboutUsContainerVars = [
   {
@@ -51,18 +62,17 @@ export const aboutUsContainerVars = [
   },
 ];
 
-
 export const categoryThemesVars = [
   {
     title: "web",
     description:
-        "More than  30 successfully- executed projects in the last 4 years.",
+      "More than  30 successfully- executed projects in the last 4 years.",
     url: laptopIconIMG,
   },
   {
     title: "mobile",
     description:
-        "We are ready to take care of all: from planning to maintenance processes!",
+      "We are ready to take care of all: from planning to maintenance processes!",
     url: smartphoneIMG,
   },
   {
@@ -73,7 +83,7 @@ export const categoryThemesVars = [
   {
     title: "server",
     description:
-        "Making you sure that your users data is used in a reliable manner.",
+      "Making you sure that your users data is used in a reliable manner.",
     url: serverIMG,
   },
   {
@@ -84,7 +94,7 @@ export const categoryThemesVars = [
   {
     title: "blockchain",
     description:
-        "Yep, we are tweaking with all the freshest development trends.",
+      "Yep, we are tweaking with all the freshest development trends.",
     url: blockChainIMG,
   },
 ];
