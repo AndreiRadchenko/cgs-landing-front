@@ -1,10 +1,33 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 
-export const Page = styled.div`
-  width: 100%;
-  position: relative;
+interface IButtonTextStyledProps {
+  fontSize?: string;
+}
 
-  /* padding: ${themes.primary.spacing.headerNavVertical}
-    ${themes.primary.spacing.headerNavHorizontal}; */
+export const Page = styled.article`
+  width: 1400px;
+  position: relative;
+  margin: ${themes.primary.spacing.headerNavVertical} auto;
+`;
+
+export const ButtonText = styled.span.attrs(
+  ({ fontSize }: IButtonTextStyledProps) => ({
+    fontSize: fontSize,
+  })
+)`
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 500;
+  font-family: ${themes.primary.font.family.roboto};
+  cursor: pointer;
+
+  ${(props) => css`
+    font-size: ${props.fontSize};
+  `}
 `;
