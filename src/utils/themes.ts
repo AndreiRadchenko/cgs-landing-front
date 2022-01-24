@@ -13,17 +13,6 @@ const themes = {
       aboutUsDescription: "8em",
       cardPartners: "14em",
     },
-    colors: {
-      decorationText: "#000000",
-      blue: "#85BEFD",
-      orange: "#FFC061",
-      green: "#B6FD7A",
-      lightTen: {
-        blue: "#A6D0FF",
-        orange: "#FFCE85",
-        green: "#CAFF9D",
-      },
-    },
     font: {
       family: {
         barlow: "'Barlow', sans-serif",
@@ -52,6 +41,14 @@ const themes = {
       starActive: "#FBA446",
       starDisable: "#EEE6DD",
       septenary: "#A9CDF5",
+      blue: "#85BEFD",
+      orange: "#FFC061",
+      green: "#B6FD7A",
+      lighten: {
+        blue: "#A6D0FF",
+        orange: "#FFCE85",
+        green: "#CAFF9D",
+      },
     },
   },
 };

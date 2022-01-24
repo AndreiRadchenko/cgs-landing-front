@@ -23,6 +23,7 @@ export const Container = styled.div<IContainerProps>`
   position: relative;
   display: flex;
   flex-direction: column;
+  color: ${themes.primary.colors.primary};
   background-color: ${(props) => themes.primary.colors[props.backGroundColor]};
   z-index: ${(props) => (props.additionalImgUrl ? "500" : "1")};
 `;
@@ -34,7 +35,7 @@ export const NumberContainer = styled.div`
 `;
 
 export const Number = styled.div<IColorProps>`
-  color: ${(props) => themes.primary.colors.lightTen[props.backGroundColor]};
+  color: ${(props) => themes.primary.colors.lighten[props.backGroundColor]};
   font-size: 26em;
 `;
 
@@ -43,7 +44,7 @@ export const TitleContainer = styled.div``;
 export const Title = styled.div`
   font-size: 2.5em;
   margin-left: 2.4em;
-  color: ${themes.primary.colors.decorationText};
+  color: ${themes.primary.colors.primary};
 `;
 
 export const ContentContainer = styled.div`
@@ -82,12 +83,14 @@ export const ContentTitle = styled.h2`
   max-width: 7em;
   font-size: 4.5em;
   line-height: 1em;
+  color: ${themes.primary.colors.primary};
 `;
 
 export const ContentText = styled.p`
   font-size: 1.7em;
   max-width: 24em;
   line-height: 1.5em;
+  color: ${themes.primary.colors.primary};
 `;
 
 export const AdditionalImgContainer = styled.div`
