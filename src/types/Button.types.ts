@@ -3,7 +3,7 @@ import React from "react";
 export interface IBaseButtonProps {
   children: React.ReactNode;
   type?: string;
-  src?: any;
+  src?: string;
   onClick?: () => void;
   height?: string;
   width?: string;

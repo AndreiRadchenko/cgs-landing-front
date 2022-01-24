@@ -3,7 +3,7 @@ import * as StyledCommon from "../../styles/Page.styled";
 
 interface IButtonTextProps {
   fontSize?: string;
-  children: any;
+  children: React.ReactNode;
 }
 
 const ButtonTextWrapper: FC<IButtonTextProps> = (props) => {
