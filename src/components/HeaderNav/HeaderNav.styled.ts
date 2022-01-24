@@ -21,6 +21,6 @@ export const HeaderNavLinkWrapper = styled.div`
 export const ListItemNav = styled.span`
   font-family: ${themes.primary.font.family.roboto};
   font-weight: ${themes.primary.font.weight.bold};
-  font-size: ${themes.primary.font.size.primary};
+  font-size: ${themes.primary.font.size.linkText};
   margin-left: ${themes.primary.spacing.headerNavHorizontal};
 `;
