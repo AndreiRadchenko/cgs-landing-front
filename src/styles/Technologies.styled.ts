@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Decoration from "../components/Decoration/Decoration";
 
 export const TechnologyContainer = styled.section`
   width: 1400px;
@@ -42,6 +43,8 @@ export const CategoryDescriptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  position: relative;
 `;
 
 export const CategoryTechnologiesWrapper = styled.div``;
@@ -49,6 +52,8 @@ export const CategoryTechnologiesWrapper = styled.div``;
 export const CategoryTitle = styled.h2`
   font-size: 1.8em;
   text-align: center;
+  position: relative;
+  z-index: 1;
 `;
 
 export const CategoryLine = styled.div`
@@ -63,5 +68,32 @@ export const CategoryTechnology = styled.span`
 
   &:first-child {
     margin-top: 1em;
+  }
+`;
+
+export const DecorationTitle = styled(Decoration)`
+  position: absolute;
+  height: 1.2em;
+
+  top: 17%;
+
+  &.web {
+    width: 4.3em;
+  }
+
+  &.mobile {
+    width: 6.5em;
+  }
+
+  &.server {
+    top: 13.5%;
+    left: -5%;
+    width: 6em;
+  }
+
+  &.blockchain {
+    top: 13.8%;
+    left: -5%;
+    width: 10em;
   }
 `;

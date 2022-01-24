@@ -18,6 +18,7 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
       <Image src={url} alt={`technologies description ${title}`} />
       <StyledThisComp.CategoryDescriptionWrapper className="descriptionWrapper">
         <StyledThisComp.CategoryTitle>{title}</StyledThisComp.CategoryTitle>
+        <StyledThisComp.DecorationTitle className={title} />
         <StyledThisComp.CategoryLine />
         <StyledThisComp.CategoryTechnologiesWrapper>
           {technologies.map((technology, idx) => (
