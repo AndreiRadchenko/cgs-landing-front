@@ -27,6 +27,7 @@ import technologySmartPhoneIMG from "../../public/technology-smartphone-icon.svg
 import technologyDatabaseIMG from "../../public/technology-database-icon.svg";
 import technologyBlockchainIMG from "../../public/technology-blockchain-icon.svg";
 
+
 export const routers = {
   home: "/",
   vacancy: "/vacancy",
@@ -105,6 +106,34 @@ export const categoryThemesVars = [
   },
 ];
 
+
+export const feedbackArr = [
+  {
+    name: "Rabl Boundi",
+    company: "Gode Generation Software",
+    position: "CEO",
+    rates: 5,
+    description:
+        "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
+  },
+  {
+    name: "Pratibha Sharma",
+    company: "Company name",
+    position: "CEO",
+    rates: 5,
+    description:
+        "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
+  },
+  {
+    name: "Vincent McLoughlin",
+    company: "Company name",
+    position: "CEO",
+    rates: 4,
+    description:
+        "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
+  },
+];
+
 export const technologiesArr = [
   {
     url: technologyLaptopIMG,
@@ -135,3 +164,4 @@ export const technologiesArr = [
     technologies: ["NFT", "Smart contracts", "Blockchain", "Solidity", "Web3"],
   },
 ];
+
