@@ -1,12 +1,23 @@
 import styled from "styled-components";
+import themes from "../../utils/themes";
 
 export const CategoryContainer = styled.div`
-  width: 20em;
-  height: 340px;
-  margin: 0 27px 27px 27px;
+  width: 19em;
+  height: 21.2em;
+  margin: 0 27px 27px 0;
   border-radius: 6px;
+  flex: 0 1 19em;
+  position: relative;
+  transition: 300ms;
 
-  background-color: #333;
+  &:not(:nth-child(2)):nth-child(2n + 2) {
+    background-color: #ffefd8;
+    border-radius: 60px;
+  }
+
+  &:nth-child(odd) {
+    background-color: #a9cdf5;
+  }
 
   &:nth-child(2) {
     background-color: #c7fb9c;
@@ -16,11 +27,26 @@ export const CategoryContainer = styled.div`
     background-color: #c7fb9c;
   }
 
-  &:nth-child(n + 4) {
-    flex: 0 1 302px;
+  &:hover {
+    transform: rotate(7deg);
   }
+`;
 
-  &:not(:nth-child(1)):nth-child(even) {
-    background-color: #a9cdf5;
-  }
+export const WrapperDescription = styled.div`
+  padding: 26px 24px;
+  height: 100%;
+`;
+
+export const TitleSpecialization = styled.h2`
+  margin: 0 0 0.7em 0;
+`;
+
+export const DescriptionSpecialization = styled.span`
+  font-size: ${themes.primary.font.size.vistaco};
+`;
+
+export const IconWrapperSpecialization = styled.div`
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
 `;
