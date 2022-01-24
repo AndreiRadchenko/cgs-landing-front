@@ -31,7 +31,7 @@ const themes = {
         linkText: "1.125em",
         buttonText: "1.5em",
         secondary: "2em",
-        quaternary: "3em",
+        quaternary: "2.6em",
       },
     },
     colors: {

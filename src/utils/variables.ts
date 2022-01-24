@@ -1,5 +1,3 @@
-
-
 import laptopIconIMG from "../../public/laptop-icon.svg";
 import smartphoneIMG from "../../public/phone-icon.svg";
 import serverIMG from "../../public/database-icon.svg";
@@ -23,6 +21,11 @@ import astronautIMG from "../../public/astronaut-about-icon.svg";
 import spaceIMG from "../../public/space-about-icon.svg";
 import starIMG from "../../public/star-about-icon.svg";
 
+//technologies
+import technologyLaptopIMG from "../../public/technology-laptop-icon.svg";
+import technologySmartPhoneIMG from "../../public/technology-smartphone-icon.svg";
+import technologyDatabaseIMG from "../../public/technology-database-icon.svg";
+import technologyBlockchainIMG from "../../public/technology-blockchain-icon.svg";
 
 
 export const routers = {
@@ -32,7 +35,6 @@ export const routers = {
 };
 
 export const navigationRoutesNames = ["/home", "/vacancy", "/partners"];
-
 
 export const partnersArr = [
   homeLikeIMG,
@@ -71,13 +73,13 @@ export const categoryThemesVars = [
   {
     title: "web",
     description:
-        "More than  30 successfully- executed projects in the last 4 years.",
+      "More than  30 successfully- executed projects in the last 4 years.",
     url: laptopIconIMG,
   },
   {
     title: "mobile",
     description:
-        "We are ready to take care of all: from planning to maintenance processes!",
+      "We are ready to take care of all: from planning to maintenance processes!",
     url: smartphoneIMG,
   },
   {
@@ -88,7 +90,7 @@ export const categoryThemesVars = [
   {
     title: "server",
     description:
-        "Making you sure that your users data is used in a reliable manner.",
+      "Making you sure that your users data is used in a reliable manner.",
     url: serverIMG,
   },
   {
@@ -99,10 +101,11 @@ export const categoryThemesVars = [
   {
     title: "blockchain",
     description:
-        "Yep, we are tweaking with all the freshest development trends.",
+      "Yep, we are tweaking with all the freshest development trends.",
     url: blockChainIMG,
   },
 ];
+
 
 export const feedbackArr = [
   {
@@ -130,3 +133,35 @@ export const feedbackArr = [
         "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
   },
 ];
+
+export const technologiesArr = [
+  {
+    url: technologyLaptopIMG,
+    title: "web",
+    technologies: ["React", "Angular", "Vue"],
+  },
+  {
+    url: technologySmartPhoneIMG,
+    title: "mobile",
+    technologies: ["React Native", "Dart/Flutter"],
+  },
+  {
+    url: technologyDatabaseIMG,
+    title: "server",
+    technologies: [
+      "Node",
+      "Express",
+      "Sequelize",
+      "AWS",
+      "MongoDB",
+      "MySQL",
+      "Docker",
+    ],
+  },
+  {
+    url: technologyBlockchainIMG,
+    title: "blockchain",
+    technologies: ["NFT", "Smart contracts", "Blockchain", "Solidity", "Web3"],
+  },
+];
+
