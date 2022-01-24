@@ -7,6 +7,17 @@ const themes = {
       headerNavVertical: "2.5em",
       headerNavHorizontal: "5em",
     },
+    colors: {
+      decorationText: "#000000",
+      blue: "#85BEFD",
+      orange: "#FFC061",
+      green: "#B6FD7A",
+      lightTen: {
+        blue: "#A6D0FF",
+        orange: "#FFCE85",
+        green: "#CAFF9D",
+      },
+    },
     font: {
       family: {
         barlow: "'Barlow', sans-serif",
