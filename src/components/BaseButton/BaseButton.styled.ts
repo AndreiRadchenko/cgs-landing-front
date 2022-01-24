@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { IStyledButtonProps } from "../../types/Button.types";
+import { IDecorationTextProps } from "../../types/Decoration.types";
 
 export const StyledButton = styled.button.attrs(
   (props: IStyledButtonProps) => ({
@@ -10,11 +11,7 @@ export const StyledButton = styled.button.attrs(
   })
 )`
   position: relative;
-
-  & img {
-    cursor: pointer;
-  }
-
+  cursor: pointer;
   ${(props) => css`
     overflow: hidden;
     width: ${props.width};

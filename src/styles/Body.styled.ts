@@ -34,9 +34,9 @@ export const CodeDescription = styled.span`
 
 export const WrapperBgImg = styled.div`
   position: absolute;
-  right: 0;
-  top: -2%;
-  width: 60%;
+  right: -8%;
+  top: 0;
+  width: 70%;
   overflow: hidden;
 
   transform: rotate(1.5deg);

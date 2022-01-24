@@ -20,3 +20,8 @@ export interface IStyledButtonProps {
   topSpacing?: string;
   letterSpacing: string;
 }
+
+export interface IButtonTextProps {
+  fontSize?: string;
+  children: React.ReactNode;
+}

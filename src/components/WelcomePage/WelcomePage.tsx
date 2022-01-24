@@ -20,8 +20,10 @@ const WelcomePage = () => {
           tightest deadlines
         </StyledThisComp.CodeDescription>
 
-        <BaseButton onClick={() => console.log("hover")} src={backImg}>
-          <ButtonTextWrapper>get estimation</ButtonTextWrapper>
+        <BaseButton onClick={() => {}} src={backImg}>
+          <ButtonTextWrapper fontSize={"1.4em"}>
+            get estimation
+          </ButtonTextWrapper>
         </BaseButton>
 
         <StyledThisComp.WrapperBgImg>
