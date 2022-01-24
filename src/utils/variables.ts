@@ -1,3 +1,7 @@
+import laptopIconIMG from "../../public/laptop-icon.svg";
+import smartphoneIMG from "../../public/phone-icon.svg";
+import serverIMG from "../../public/database-icon.svg";
+import blockChainIMG from "../../public/blockchain-icon.svg";
 //partners
 import homeLikeIMG from "../../public/homeLike-icon.svg";
 import spaceImpulseIMG from "../../public/spaceImpulse-icon.svg";
@@ -55,5 +59,42 @@ export const aboutUsContainerVars = [
     url: spaceIMG,
     description: "status",
     text: "available for hire",
+  },
+];
+
+export const categoryThemesVars = [
+  {
+    title: "web",
+    description:
+      "More than  30 successfully- executed projects in the last 4 years.",
+    url: laptopIconIMG,
+  },
+  {
+    title: "mobile",
+    description:
+      "We are ready to take care of all: from planning to maintenance processes!",
+    url: smartphoneIMG,
+  },
+  {
+    title: "",
+    description: "",
+    url: "",
+  },
+  {
+    title: "server",
+    description:
+      "Making you sure that your users data is used in a reliable manner.",
+    url: serverIMG,
+  },
+  {
+    title: "",
+    description: "",
+    url: "",
+  },
+  {
+    title: "blockchain",
+    description:
+      "Yep, we are tweaking with all the freshest development trends.",
+    url: blockChainIMG,
   },
 ];
