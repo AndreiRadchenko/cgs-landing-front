@@ -38,6 +38,9 @@ const themes = {
       decorationText: "#C7FB9C",
       quinary: "#FFA046",
       primary: "#000",
+      starActive: "#FBA446",
+      starDisable: "#EEE6DD",
+      septenary: "#A9CDF5",
     },
   },
 };

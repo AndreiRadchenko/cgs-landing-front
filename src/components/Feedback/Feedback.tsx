@@ -15,15 +15,18 @@ const Feedback = () => {
       </StyledThisComp.FeedbackSectionSubTitle>
 
       <StyledThisComp.FeedbackRow>
-        {feedbackArr.map(({ name, description, company, position, rates }) => (
-          <FeedbackCard
-            name={name}
-            description={description}
-            company={company}
-            position={position}
-            rates={rates}
-          />
-        ))}
+        {feedbackArr.map(
+          ({ name, description, company, position, rates }, idx) => (
+            <FeedbackCard
+              key={idx}
+              name={name}
+              description={description}
+              company={company}
+              position={position}
+              rates={rates}
+            />
+          )
+        )}
       </StyledThisComp.FeedbackRow>
     </StyledThisComp.FeedbackContainer>
   );
