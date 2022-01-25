@@ -8,6 +8,7 @@ interface ICodeIconProps extends ICodeIcon {
 
 const CodeIcon: FC<ICodeIconProps> = (props) => {
   const { content, ...otherProps } = props;
+
   return (
     <StyledThisComp.CodeIconContent {...otherProps}>
       {content}
