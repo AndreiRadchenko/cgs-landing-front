@@ -26,7 +26,7 @@ export const TextAreaInput = styled.textarea`
   resize: none;
   font-size: ${themes.primary.font.size.linkText};
   padding: 1em 1em;
-  height: 11em;
+  height: 8em;
   outline: none;
   border: 1px solid ${themes.primary.colors.primary};
 `;

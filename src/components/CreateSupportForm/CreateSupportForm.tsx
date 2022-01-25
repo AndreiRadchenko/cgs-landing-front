@@ -30,14 +30,14 @@ const CreateSupportForm = () => {
           handleChange={handleChange}
           name={"name"}
           placeholder={"Name"}
-          errors={errors}
+          errors={errors["name"]}
         />
         <FormInput
           value={values.email}
           handleChange={handleChange}
           name={"email"}
           placeholder={"Email"}
-          errors={errors}
+          errors={errors["email"]}
         />
 
         <FormTextArea
@@ -45,7 +45,7 @@ const CreateSupportForm = () => {
           handleChange={handleChange}
           name={"message"}
           placeholder={"Your message"}
-          errors={errors}
+          errors={errors["message"]}
         />
 
         <StyledThisComp.ButtonRow>

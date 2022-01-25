@@ -4,12 +4,14 @@ export const LestCodeValidation = () => {
   return yup.object({
     name: yup
       .string()
-      .min(1, "Имя слишком короткое")
-      .max(25, "Слишком длинное")
-      .required("Обязательный параметр"),
-    email: yup
+      .min(1, "Name is too short")
+      .max(25, "Name is too large")
+      .required("Required parameter"),
+    email: yup.string().email("Wrong email").required("Required parameter"),
+    message: yup
       .string()
-      .email("ну должен быть эмейл а не эта хуйня")
-      .required("Обязательный параметр"),
+      .min(5, "Message is too short")
+      .max(256, "Message is too large")
+      .required("Required parameter"),
   });
 };

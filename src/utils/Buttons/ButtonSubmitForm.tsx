@@ -4,12 +4,7 @@ import { IBaseButtonProps } from "../../types/Button.types";
 
 const ButtonSubmitForm: FC<IBaseButtonProps> = ({ children }) => {
   return (
-    <BaseButton
-      type={"submit"}
-      width={"14em"}
-      height={"6em"}
-      topSpacing={".3em"}
-    >
+    <BaseButton type={"submit"} width={"14em"} height={"6em"} topSpacing={"0"}>
       {children}
     </BaseButton>
   );

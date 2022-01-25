@@ -3,10 +3,10 @@ import * as StyledThisComp from "./FormInput.styled";
 
 interface IFormTextAreaProps {
   value: string;
-  handleChange: (prop: any) => void;
+  handleChange: (prop: React.ChangeEvent<HTMLTextAreaElement>) => void;
   name: string;
   placeholder: string;
-  errors: any;
+  errors?: string;
 }
 
 const FormTextArea: FC<IFormTextAreaProps> = ({
@@ -25,9 +25,9 @@ const FormTextArea: FC<IFormTextAreaProps> = ({
         value={value}
       />
 
-      {errors[name] && (
+      {errors && (
         <StyledThisComp.ErrorNotification>
-          {errors[name]}
+          {errors}
         </StyledThisComp.ErrorNotification>
       )}
     </StyledThisComp.FormInputWrapper>

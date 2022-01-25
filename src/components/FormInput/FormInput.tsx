@@ -1,13 +1,12 @@
 import React, { FC } from "react";
 import * as StyledThisComp from "./FormInput.styled";
-import { ErrorNotification, FormInputWrapper } from "./FormInput.styled";
 
 interface IFormInputProps {
   value: string;
-  handleChange: (prop: any) => void;
+  handleChange: (prop: React.ChangeEvent<HTMLInputElement>) => void;
   name: string;
   placeholder: string;
-  errors: any;
+  errors?: string;
 }
 
 const FormInput: FC<IFormInputProps> = ({
@@ -26,9 +25,9 @@ const FormInput: FC<IFormInputProps> = ({
         placeholder={placeholder}
       />
 
-      {errors[name] && (
+      {errors && (
         <StyledThisComp.ErrorNotification>
-          {errors[name]}
+          {errors}
         </StyledThisComp.ErrorNotification>
       )}
     </StyledThisComp.FormInputWrapper>
