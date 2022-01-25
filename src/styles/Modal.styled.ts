@@ -16,7 +16,6 @@ export const ModalContainer = styled(Modal)`
   position: fixed;
   z-index: 12;
   overflow-y: scroll;
-
   right: 0;
   bottom: 0;
   top: 0;
@@ -30,11 +29,9 @@ export const ModalContainer = styled(Modal)`
 export const ModalWrapper = styled.div`
   outline: none;
   width: 1290px;
-
   min-height: 600px;
   position: absolute;
   top: 10%;
-
   background-color: #f7f7f7;
   opacity: 1;
 `;
@@ -44,13 +41,10 @@ export const ModalCloseButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-
   background-color: transparent;
   border: none;
-
   width: 0.7em;
   height: 0.7em;
-
   position: absolute;
   right: 2%;
   top: 2%;

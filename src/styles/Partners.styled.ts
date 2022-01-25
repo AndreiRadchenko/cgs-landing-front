@@ -5,7 +5,6 @@ export const PartnersContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-
   margin: 0 auto 10em auto;
 
   & > * {

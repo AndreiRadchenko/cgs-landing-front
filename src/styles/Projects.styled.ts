@@ -11,14 +11,12 @@ export const ProjectsCategoryRow = styled.div`
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-
   max-width: 1350px;
   margin: 0 auto;
 `;
 
 export const ProjectTitleWrapper = styled.div`
   flex: 1 1 25em;
-
   display: inline-block;
 `;
 
@@ -36,7 +34,6 @@ export const DecorationTitle = styled(Decoration)`
   position: absolute;
   top: 8%;
   left: 3.8%;
-
   width: 12.3em;
   height: 1.4em;
 `;

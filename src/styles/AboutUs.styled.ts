@@ -10,7 +10,6 @@ export const AboutUsContainer = styled.section`
 export const AboutUsWrapper = styled.div`
   width: 85%;
   margin: 0 auto;
-
   display: flex;
   justify-content: space-between;
 `;
@@ -35,12 +34,9 @@ export const AboutUsCardContainer = styled.div`
 export const CardDescriptionWrapper = styled.div`
   display: flex;
   justify-content: center;
-
   font-size: ${themes.primary.font.size.buttonText};
   font-family: ${themes.primary.font.family.roboto};
-
   font-weight: 400;
-
   &.columnDescription {
     flex-direction: column;
     align-items: center;
@@ -110,7 +106,6 @@ export const AboutUsDescription = styled.span`
   text-align: center;
   font-weight: 400;
   font-size: 26px;
-
   line-height: 145%;
   margin: 0 auto;
 `;
