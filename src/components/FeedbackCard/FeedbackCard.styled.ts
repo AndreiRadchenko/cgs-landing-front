@@ -2,9 +2,15 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const FeedbackCardContainer = styled.div`
-  width: 30%;
+  width: 27em;
+  height: 100%;
   font-family: ${themes.primary.font.family.roboto};
+
+  display: flex;
+  flex-direction: column;
 `;
+
+export const FeedBackContentWrapper = styled.div``;
 
 export const FeedbackCardWrapper = styled.div`
   display: flex;
@@ -36,5 +42,5 @@ export const FeedbackCardDescription = styled.span`
   font-size: 1.125em;
   line-height: 175%;
 
-  width: 80%;
+  width: 90%;
 `;

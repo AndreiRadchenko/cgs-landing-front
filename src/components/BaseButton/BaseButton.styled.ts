@@ -10,12 +10,14 @@ export const StyledButton = styled.button.attrs(
   })
 )`
   position: relative;
+
   cursor: pointer;
   ${(props) => css`
     overflow: hidden;
     width: ${props.width};
     height: ${props.height};
     margin-top: ${props.marginTop};
+    z-index: 25;
     outline: none;
     border: none;
     background-color: transparent;

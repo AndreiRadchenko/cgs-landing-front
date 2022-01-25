@@ -12,7 +12,7 @@ export const CodeIconContent = styled.span.attrs((props: ICodeIcon) => ({
   font-family: ${themes.primary.font.family.sourceCode};
   font-size: 1.8em;
   display: block;
-  position: fixed;
+  position: absolute;
   z-index: 2;
 
   ${({ color }: ICodeIcon) => css`

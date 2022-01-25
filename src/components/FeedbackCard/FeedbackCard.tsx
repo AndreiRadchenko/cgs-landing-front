@@ -1,17 +1,10 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import * as StyledThisComp from "./FeedbackCard.styled";
 import ReactStars from "react-stars";
 import themes from "../../utils/themes";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import ButtonReadMore from "../../utils/Buttons/ButtonReadMore";
-
-interface IFeedbackCardProps {
-  name: string;
-  company: string;
-  position: string;
-  rates: number;
-  description: string;
-}
+import { IFeedbackCardProps } from "../../types/Feedback.types";
 
 const FeedbackCard: FC<IFeedbackCardProps> = ({
   name,
@@ -20,34 +13,42 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
   rates,
   description,
 }) => {
+  const [isOpenFullFeedBack, setOpenFullFeedback] = useState<boolean>(false);
+
+  const toggleFullFeedbackHandler = () =>
+    setOpenFullFeedback(!isOpenFullFeedBack);
+
   return (
     <StyledThisComp.FeedbackCardContainer>
-      <StyledThisComp.FeedbackCardWrapper>
-        <StyledThisComp.FeedbackCardName>
-          {name}
-        </StyledThisComp.FeedbackCardName>
-        <ReactStars
-          edit={false}
-          value={rates}
-          count={5}
-          size={20}
-          color2={themes.primary.colors.starActive}
-          color1={themes.primary.colors.starDisable}
-        />
-      </StyledThisComp.FeedbackCardWrapper>
+      <StyledThisComp.FeedBackContentWrapper>
+        <StyledThisComp.FeedbackCardWrapper>
+          <StyledThisComp.FeedbackCardName>
+            {name}
+          </StyledThisComp.FeedbackCardName>
+          <ReactStars
+            half={true}
+            edit={false}
+            value={rates}
+            count={5}
+            size={20}
+            color2={themes.primary.colors.starActive}
+            color1={themes.primary.colors.starDisable}
+          />
+        </StyledThisComp.FeedbackCardWrapper>
 
-      <StyledThisComp.FeedbackCardCompany>
-        {company}
-      </StyledThisComp.FeedbackCardCompany>
+        <StyledThisComp.FeedbackCardCompany>
+          {company}
+        </StyledThisComp.FeedbackCardCompany>
 
-      <StyledThisComp.FeedbackCardPosition>
-        {position}
-      </StyledThisComp.FeedbackCardPosition>
-      <StyledThisComp.FeedbackCardDescription>
-        {description}
-      </StyledThisComp.FeedbackCardDescription>
+        <StyledThisComp.FeedbackCardPosition>
+          {position}
+        </StyledThisComp.FeedbackCardPosition>
+        <StyledThisComp.FeedbackCardDescription>
+          {isOpenFullFeedBack ? description : description.slice(0, 115) + "..."}
+        </StyledThisComp.FeedbackCardDescription>
+      </StyledThisComp.FeedBackContentWrapper>
 
-      <ButtonReadMore>
+      <ButtonReadMore onClick={toggleFullFeedbackHandler}>
         <ButtonTextWrapper fontSize={"1.35em"}>read more</ButtonTextWrapper>
       </ButtonReadMore>
     </StyledThisComp.FeedbackCardContainer>
