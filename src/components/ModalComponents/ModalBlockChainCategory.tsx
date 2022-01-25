@@ -14,7 +14,6 @@ const ModalBlockChainCategory: FC<IModalCategoryProps> = ({ title }) => {
           <StyledCategory.CategoryUnderline />
         </StyledCategory.CategoryTitleWrapper>
       </StyledCategory.NavPanel>
-
       <StyledCategory.CategoryProjectsContainer>
         {projectsModalArr.map(({ url, title, description }) => (
           <ModalBlockSpecifyTechnology

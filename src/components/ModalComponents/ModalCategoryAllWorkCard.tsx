@@ -21,7 +21,6 @@ const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
           <StyledCategory.ProjectDescription>
             {description}
           </StyledCategory.ProjectDescription>
-
           <ButtonProjectLink>
             <ButtonTextWrapper fontSize={"1.2em"}>
               project link

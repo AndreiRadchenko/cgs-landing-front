@@ -25,7 +25,6 @@ const ModalAllWorksCategory: FC<IAllCategoriesModalProps> = ({
           <StyledCategory.DecorationTextAllTitle />
           <StyledCategory.CategoryUnderline />
         </StyledCategory.CategoryTitleWrapper>
-
         <StyledCategory.NavigationWrapper>
           {routersNames.map((item) => (
             <StyledCategory.CategoryRouteName
@@ -37,7 +36,6 @@ const ModalAllWorksCategory: FC<IAllCategoriesModalProps> = ({
           ))}
         </StyledCategory.NavigationWrapper>
       </StyledCategory.NavPanel>
-
       <StyledCategory.CategoryProjectsContainer>
         {projectsModalArr.map(({ url, title, description }) => (
           <ModalCategoryAllWorkCard
