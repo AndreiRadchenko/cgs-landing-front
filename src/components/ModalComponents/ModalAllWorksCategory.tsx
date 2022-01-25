@@ -1,6 +1,9 @@
 import React, { FC } from "react";
 import * as StyledCategory from "../../styles/ModalCategory.styled";
-import { projectsModalArr } from "../../utils/variables";
+import {
+  modalNavigationRoutesNames,
+  projectsModalArr,
+} from "../../utils/variables";
 import ModalCategoryAllWorkCard from "./ModalCategoryAllWorkCard";
 import { IAllCategoriesModalProps } from "../../types/ModalCategory.types";
 
@@ -15,8 +18,6 @@ const ModalAllWorksCategory: FC<IAllCategoriesModalProps> = ({
       onSetNewCategory(event.currentTarget.textContent);
   };
 
-  const routersNames = ["web", "mobile", "server", "blockchain"];
-
   return (
     <StyledCategory.Container>
       <StyledCategory.NavPanel>
@@ -26,7 +27,7 @@ const ModalAllWorksCategory: FC<IAllCategoriesModalProps> = ({
           <StyledCategory.CategoryUnderline />
         </StyledCategory.CategoryTitleWrapper>
         <StyledCategory.NavigationWrapper>
-          {routersNames.map((item) => (
+          {modalNavigationRoutesNames.map((item) => (
             <StyledCategory.CategoryRouteName
               key={item}
               onClick={setNewCategoryHandler}

@@ -1,3 +1,11 @@
+export enum ProjectsListType {
+  seeAllWorks = "all work",
+  web = "web",
+  mobile = "mobile",
+  server = "server",
+  blockchain = "blockchain",
+}
+
 export interface IModalCategoryProps {
   title: string;
 }

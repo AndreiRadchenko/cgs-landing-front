@@ -1,10 +1,6 @@
-import React, { FC, useMemo } from "react";
+import React, { FC } from "react";
 import * as StyledThisComp from "../../styles/Modal.styled";
-import ModalAllWorksCategory from "../ModalComponents/ModalAllWorksCategory";
-import ModalWebCategory from "../ModalComponents/ModalWebCategory";
-import ModalMobileCategory from "../ModalComponents/ModalMobileCategory";
-import ModalBlockChainCategory from "../ModalComponents/ModalBlockChainCategory";
-import ModalServerCategory from "../ModalComponents/ModalServerCategory";
+import useModalNavigation from "../../hooks/useModalNavigation";
 
 interface IModalProjectsProps {
   isOpen: boolean;
@@ -13,46 +9,16 @@ interface IModalProjectsProps {
   onSetNewCategory: (category: string) => void;
 }
 
-export enum ProjectsListType {
-  seeAllWorks = "all work",
-  web = "web",
-  mobile = "mobile",
-  server = "server",
-  blockchain = "blockchain",
-}
-
 const ModalProjects: FC<IModalProjectsProps> = ({
   isOpen,
   onToggleModalHandler,
   selectedCategory,
   onSetNewCategory,
 }) => {
-  const CurrentCategoryComponent = useMemo(() => {
-    switch (selectedCategory) {
-      case ProjectsListType.seeAllWorks:
-        return (
-          <ModalAllWorksCategory
-            title={"all work"}
-            onSetNewCategory={onSetNewCategory}
-          />
-        );
-      case ProjectsListType.web:
-        return <ModalWebCategory title={ProjectsListType.web} />;
-      case ProjectsListType.mobile:
-        return <ModalMobileCategory title={ProjectsListType.mobile} />;
-      case ProjectsListType.blockchain:
-        return <ModalBlockChainCategory title={ProjectsListType.blockchain} />;
-      case ProjectsListType.server:
-        return <ModalServerCategory title={ProjectsListType.server} />;
-      default:
-        return (
-          <ModalAllWorksCategory
-            title={"all work"}
-            onSetNewCategory={onSetNewCategory}
-          />
-        );
-    }
-  }, [selectedCategory]);
+  const currentCategoryComponent = useModalNavigation(
+    selectedCategory,
+    onSetNewCategory
+  );
 
   return (
     <StyledThisComp.ModalContainer open={isOpen} onClose={onToggleModalHandler}>
@@ -60,7 +26,7 @@ const ModalProjects: FC<IModalProjectsProps> = ({
         <StyledThisComp.ModalCloseButton onClick={onToggleModalHandler}>
           &#x2715;
         </StyledThisComp.ModalCloseButton>
-        {CurrentCategoryComponent}
+        {currentCategoryComponent}
       </StyledThisComp.ModalWrapper>
     </StyledThisComp.ModalContainer>
   );

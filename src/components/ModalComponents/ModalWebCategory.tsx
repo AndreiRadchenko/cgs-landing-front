@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import * as StyledCategory from "../../styles/ModalCategory.styled";
 import { IModalCategoryProps } from "../../types/ModalCategory.types";
 import { projectsModalArr } from "../../utils/variables";
-import ModalCategoryAllWorkCard from "./ModalCategoryAllWorkCard";
+import ModalBlockSpecifyTechnology from "./ModalBlockSpecifyTechnology";
 
 const ModalWebCategory: FC<IModalCategoryProps> = ({ title }) => {
   return (
@@ -16,7 +16,7 @@ const ModalWebCategory: FC<IModalCategoryProps> = ({ title }) => {
       </StyledCategory.NavPanel>
       <StyledCategory.CategoryProjectsContainer>
         {projectsModalArr.map(({ url, title, description }) => (
-          <ModalCategoryAllWorkCard
+          <ModalBlockSpecifyTechnology
             key={title}
             url={url}
             title={title}

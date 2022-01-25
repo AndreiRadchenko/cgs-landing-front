@@ -18,9 +18,7 @@ const Category: FC<ICategoryProps> = ({
   const openCurrentCategoryHandler = () => onOpenModalHandler(title);
 
   return (
-    <StyledThisComp.CategoryContainer
-      onClick={title ? openCurrentCategoryHandler : () => ""}
-    >
+    <StyledThisComp.CategoryContainer onClick={openCurrentCategoryHandler}>
       <StyledThisComp.WrapperDescription>
         <StyledThisComp.TitleSpecialization>
           {title}
