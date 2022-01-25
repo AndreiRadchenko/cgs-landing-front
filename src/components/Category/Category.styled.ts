@@ -2,11 +2,11 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const CategoryContainer = styled.div`
-  width: 19em;
-  height: 21.2em;
+  width: 304px;
+  height: 340px;
   margin: 0 27px 27px 0;
   border-radius: 6px;
-  flex: 0 1 19em;
+  flex: 0 1 304px;
   position: relative;
   transition: 300ms;
 

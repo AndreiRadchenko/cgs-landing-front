@@ -79,8 +79,8 @@ export const DecorationTextTitle = styled(Decoration)`
 
   &.philosophy {
     top: 8.7%;
-    right: 57%;
-    width: 13em;
+    right: 55%;
+    width: 14em;
   }
 
   &.goal {
