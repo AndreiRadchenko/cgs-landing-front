@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import { IStyledButtonProps } from "../../types/Button.types";
-import { IDecorationTextProps } from "../../types/Decoration.types";
 
 export const StyledButton = styled.button.attrs(
   (props: IStyledButtonProps) => ({
