@@ -13,7 +13,7 @@ const HowWeWorkCard = ({
   imgUrl,
   additionalImgUrl,
 }: IHowWeWorkCardProps) => {
-  console.log(imgUrl);
+
   return (
     <Styles.Container
       backGroundColor={backGroundColor}

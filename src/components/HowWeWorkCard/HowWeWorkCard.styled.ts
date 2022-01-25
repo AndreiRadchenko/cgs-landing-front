@@ -59,6 +59,7 @@ export const ContentContainer = styled.div`
   font-family: ${themes.primary.font.family.roboto};
   flex-grow: 1;
 `;
+
 export const ContentTextContainer = styled.div``;
 
 export const ContentImgContainer = styled.div<IAdditionalImg>`
@@ -98,6 +99,7 @@ export const AdditionalImgContainer = styled.div`
   bottom: -12em;
   right: 0;
 `;
+
 export const AdditionalImg = styled.div`
   position: relative;
   width: 14em;
