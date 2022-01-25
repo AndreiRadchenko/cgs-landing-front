@@ -18,6 +18,7 @@ const themes = {
         barlow: "'Barlow', sans-serif",
         roboto: "'Roboto', sans-serif",
         sourceCode: "'Source Code Pro', monospace",
+        mulish: "'Roboto', sans-serif",
       },
       weight: {
         normal: 400,
