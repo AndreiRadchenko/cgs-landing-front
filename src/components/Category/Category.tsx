@@ -6,11 +6,21 @@ interface ICategoryProps {
   title: string;
   description: string;
   url: string;
+  onOpenModalHandler: (categoryName: string) => void;
 }
 
-const Category: FC<ICategoryProps> = ({ title, description, url }) => {
+const Category: FC<ICategoryProps> = ({
+  title,
+  description,
+  url,
+  onOpenModalHandler,
+}) => {
+  const openCurrentCategoryHandler = () => onOpenModalHandler(title);
+
   return (
-    <StyledThisComp.CategoryContainer>
+    <StyledThisComp.CategoryContainer
+      onClick={title ? openCurrentCategoryHandler : () => ""}
+    >
       <StyledThisComp.WrapperDescription>
         <StyledThisComp.TitleSpecialization>
           {title}

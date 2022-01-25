@@ -27,6 +27,11 @@ import technologySmartPhoneIMG from "../../public/technology-smartphone-icon.svg
 import technologyDatabaseIMG from "../../public/technology-database-icon.svg";
 import technologyBlockchainIMG from "../../public/technology-blockchain-icon.svg";
 
+//projects names
+import REviewIMG from "../../public/review.svg";
+import socialMediaIMG from "../../public/socialMedia.svg";
+import growthdayIMG from "../../public/growthday.svg";
+import chilliProjectIMG from "../../public/chilli.svg";
 
 export const routers = {
   home: "/",
@@ -106,7 +111,6 @@ export const categoryThemesVars = [
   },
 ];
 
-
 export const feedbackArr = [
   {
     name: "Rabl Boundi",
@@ -114,7 +118,7 @@ export const feedbackArr = [
     position: "CEO",
     rates: 5,
     description:
-        "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
+      "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
   },
   {
     name: "Pratibha Sharma",
@@ -122,7 +126,7 @@ export const feedbackArr = [
     position: "CEO",
     rates: 5,
     description:
-        "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
+      "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
   },
   {
     name: "Vincent McLoughlin",
@@ -130,7 +134,7 @@ export const feedbackArr = [
     position: "CEO",
     rates: 4,
     description:
-        "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
+      "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
   },
 ];
 
@@ -165,3 +169,29 @@ export const technologiesArr = [
   },
 ];
 
+export const projectsModalArr = [
+  {
+    url: socialMediaIMG,
+    title: "ScobySocial",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus. ",
+  },
+  {
+    url: REviewIMG,
+    title: "REview",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus.",
+  },
+  {
+    url: growthdayIMG,
+    title: "Growthday",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus.",
+  },
+  {
+    url: chilliProjectIMG,
+    title: "chilli",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus.",
+  },
+];

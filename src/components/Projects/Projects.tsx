@@ -9,8 +9,26 @@ import ModalProjects from "../Modal/ModalProjects";
 
 const Projects = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
 
-  const toggleModalHandler = () => setIsOpen(false);
+  const setNewCategoryHandler = (categoryName: string) => {
+    setSelectedCategory(categoryName);
+  };
+
+  const openModalHandler = (categoryName: string) => {
+    setIsOpen(!isOpen);
+    setSelectedCategory(categoryName);
+  };
+
+  const seeAllWorksHandler = () => {
+    setSelectedCategory("all work");
+    setIsOpen(!isOpen);
+  };
+
+  const closeModalHandler = () => {
+    setIsOpen(false);
+    setSelectedCategory("");
+  };
 
   return (
     <StyledThisComp.ProjectsContainer>
@@ -24,7 +42,7 @@ const Projects = () => {
           </StyledThisComp.ProjectsTitle>
           <StyledThisComp.DecorationTitle />
 
-          <ButtonSeeAllWorks onClick={toggleModalHandler}>
+          <ButtonSeeAllWorks onClick={seeAllWorksHandler}>
             <ButtonTextWrapper fontSize={themes.primary.font.size.linkText}>
               see all work
             </ButtonTextWrapper>
@@ -35,14 +53,16 @@ const Projects = () => {
             key={idx}
             title={title}
             description={description}
+            onOpenModalHandler={openModalHandler}
             url={url}
           />
         ))}
       </StyledThisComp.ProjectsCategoryRow>
-
       <ModalProjects
         isOpen={isOpen}
-        onToggleModalHandler={toggleModalHandler}
+        onSetNewCategory={setNewCategoryHandler}
+        selectedCategory={selectedCategory}
+        onToggleModalHandler={closeModalHandler}
       />
     </StyledThisComp.ProjectsContainer>
   );

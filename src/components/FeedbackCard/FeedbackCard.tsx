@@ -40,7 +40,6 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
       <StyledThisComp.FeedbackCardCompany>
         {company}
       </StyledThisComp.FeedbackCardCompany>
-
       <StyledThisComp.FeedbackCardPosition>
         {position}
       </StyledThisComp.FeedbackCardPosition>
