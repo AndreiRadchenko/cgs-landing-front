@@ -1,7 +1,8 @@
 import React from "react";
 import * as StyledThisComp from "../../styles/Feedback.styled";
 import { feedbackArr } from "../../utils/variables";
-import FeedbackCard from "../FeedbackCard/FeedbackCard";
+
+import CarouselFeedback from "./CarouselFeedback";
 
 const Feedback = () => {
   return (
@@ -15,18 +16,7 @@ const Feedback = () => {
       </StyledThisComp.FeedbackSectionSubTitle>
 
       <StyledThisComp.FeedbackRow>
-        {feedbackArr.map(
-          ({ name, description, company, position, rates }, idx) => (
-            <FeedbackCard
-              key={idx}
-              name={name}
-              description={description}
-              company={company}
-              position={position}
-              rates={rates}
-            />
-          )
-        )}
+        <CarouselFeedback feedback={feedbackArr} />
       </StyledThisComp.FeedbackRow>
     </StyledThisComp.FeedbackContainer>
   );
