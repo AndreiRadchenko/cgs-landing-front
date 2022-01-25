@@ -49,6 +49,7 @@ const themes = {
         orange: "#FFCE85",
         green: "#CAFF9D",
       },
+      errorText: "#ea0000",
     },
   },
 };
