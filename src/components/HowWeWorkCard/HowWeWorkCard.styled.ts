@@ -18,8 +18,8 @@ type IAdditionalImg = {
 
 export const Container = styled.div<IContainerProps>`
   width: 100%;
-  height: 100vh;
-  padding-top: 5em;
+  min-height: 100vh;
+  padding-top: 2em;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -81,17 +81,19 @@ export const ContentImage = styled.div`
 
 export const ContentTitle = styled.h2`
   margin: 0;
-  max-width: 7em;
-  font-size: 4.5em;
+  max-width: 8em;
+  font-size: 4em;
   line-height: 1em;
   color: ${themes.primary.colors.primary};
+  white-space: break-spaces;
 `;
 
 export const ContentText = styled.p`
-  font-size: 1.7em;
-  max-width: 24em;
+  font-size: 1.5em;
+  max-width: 30.5em;
   line-height: 1.5em;
   color: ${themes.primary.colors.primary};
+  white-space: break-spaces;
 `;
 
 export const AdditionalImgContainer = styled.div`
