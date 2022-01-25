@@ -3,7 +3,7 @@ import Decoration from "../components/Decoration/Decoration";
 
 export const TechnologyContainer = styled.section`
   width: 1400px;
-  margin: 0 auto;
+  margin: 200px auto 0 auto;
   user-select: none;
 `;
 
@@ -17,7 +17,6 @@ export const TechnologyRow = styled.div`
 export const CategoryContainer = styled.div`
   display: flex;
   align-items: center;
-
   width: 45%;
 
   &:nth-child(-n + 2) {
@@ -43,7 +42,6 @@ export const CategoryDescriptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
   position: relative;
 `;
 
@@ -74,7 +72,6 @@ export const CategoryTechnology = styled.span`
 export const DecorationTitle = styled(Decoration)`
   position: absolute;
   height: 1.2em;
-
   top: 17%;
 
   &.web {
