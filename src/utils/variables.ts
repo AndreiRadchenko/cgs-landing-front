@@ -27,6 +27,11 @@ import technologySmartPhoneIMG from "../../public/technology-smartphone-icon.svg
 import technologyDatabaseIMG from "../../public/technology-database-icon.svg";
 import technologyBlockchainIMG from "../../public/technology-blockchain-icon.svg";
 
+//ourteam
+import bigOurTeamIMG from "../../public/bigOurTeam.svg";
+import smallOurTeamIMG from "../../public/ourTeam.png";
+
+
 //projects names
 import REviewIMG from "../../public/review.svg";
 import socialMediaIMG from "../../public/socialMedia.svg";
@@ -111,6 +116,7 @@ export const categoryThemesVars = [
   },
 ];
 
+
 export const feedbackArr = [
   {
     name: "Rabl Boundi",
@@ -118,7 +124,7 @@ export const feedbackArr = [
     position: "CEO",
     rates: 5,
     description:
-      "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
+        "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
   },
   {
     name: "Pratibha Sharma",
@@ -126,7 +132,7 @@ export const feedbackArr = [
     position: "CEO",
     rates: 5,
     description:
-      "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
+        "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
   },
   {
     name: "Vincent McLoughlin",
@@ -134,7 +140,7 @@ export const feedbackArr = [
     position: "CEO",
     rates: 4,
     description:
-      "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
+        "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.”",
   },
 ];
 
@@ -169,29 +175,44 @@ export const technologiesArr = [
   },
 ];
 
+export const ourTeamArr = [
+  {
+    url: bigOurTeamIMG,
+    title: "our main goal",
+    description:
+        "We change the World in different areas by delivering the best technical solutions and helping people in turning their dreams into life qualitatively.",
+  },
+  {
+    url: smallOurTeamIMG,
+    title: "our philosophy",
+    description:
+        "Stunning product is a high-quality code delivered in a timely manner. We take on challenges of any complexity and never give up. Thus our clients always get their needs satisfied.",
+  },
+];
+
 export const projectsModalArr = [
   {
     url: socialMediaIMG,
     title: "ScobySocial",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus. ",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus. ",
   },
   {
     url: REviewIMG,
     title: "REview",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus.",
   },
   {
     url: growthdayIMG,
     title: "Growthday",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus.",
   },
   {
     url: chilliProjectIMG,
     title: "chilli",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus.",
   },
 ];

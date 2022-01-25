@@ -7,17 +7,19 @@ import AboutUs from "../components/AboutUs/AboutUs";
 import Partners from "../components/Partners/Partners";
 import Feedback from "../components/Feedback/Feedback";
 import Technologies from "../components/Technologies/Technologies";
+import LetsCode from "../components/LetsCode/LetsCode";
 
 const Home: NextPage = () => {
   return (
     <div>
       <StyledCommon.Page>
-        <Body />
-        <AboutUs />
-        <Partners />
-        <Projects />
-        <Feedback />
-        <Technologies />
+          <Body />
+          <AboutUs />
+          <Partners />
+          <Projects />
+          <Feedback />
+          <Technologies />
+          <LetsCode />
       </StyledCommon.Page>
     </div>
   );

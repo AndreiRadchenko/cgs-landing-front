@@ -41,6 +41,7 @@ const themes = {
       starActive: "#FBA446",
       starDisable: "#EEE6DD",
       septenary: "#A9CDF5",
+      errorText: "#ea0000",
     },
   },
 };
