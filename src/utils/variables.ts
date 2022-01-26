@@ -235,6 +235,14 @@ export const feedbackArr = [
     description:
       "Code Generation is a very professional agency with clear communication channels and strict guidelines. You can count on them for completing your requirements up to standard and as trusted partners.",
   },
+  {
+    name: "Doris Torchia",
+    company: "Social Startup",
+    position: "Co-Founder",
+    rates: "5",
+    description:
+      "After just three months of engagement, the team is able to come close to the client's expected results and meet their requirements. The team's workflow has been very efficient, fixing bugs and issues with agility, and improving its structure as the project develops further.",
+  },
 ];
 
 export const technologiesArr = [
