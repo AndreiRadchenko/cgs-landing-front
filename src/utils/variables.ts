@@ -36,14 +36,15 @@ import REviewIMG from "../../public/review.svg";
 import socialMediaIMG from "../../public/socialMedia.svg";
 import growthdayIMG from "../../public/growthday.svg";
 import chilliProjectIMG from "../../public/chilli.svg";
+import { IFeedbackCardProps } from "../types/Feedback.types";
 
 export const routers = {
   home: "/",
-  vacancy: "/vacancy",
+  careers: "/careers",
   partners: "/partners",
 };
 
-export const navigationRoutesNames = ["/home", "/vacancy", "/partners"];
+export const navigationRoutesNames = ["/home", "/careers", "/partners"];
 
 export const modalNavigationRoutesNames = [
   "web",
@@ -122,11 +123,12 @@ export const categoryThemesVars = [
   },
 ];
 
-export const feedbackArr = [
+export const feedbackArr: IFeedbackCardProps[] = [
   {
     name: "Pratibha Sharma",
     company: "LiveOfficially",
     position: "Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Very sincere, professional and cooperative team. Analyses the business requirements and provides on time feedback and support to improve features. They have done a good job so far and looking forward to rehiring them again. ",
@@ -135,6 +137,7 @@ export const feedbackArr = [
     name: "Rabi Boundi",
     company: "Space Impulse",
     position: "Co-Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Excellent work! Good communication in English, all requirements were correctly implemented, on time, and according to the specification.Will hire again in the future. Highly recommended!",
@@ -143,6 +146,7 @@ export const feedbackArr = [
     name: "Josh M",
     company: "INHouse",
     position: "CEO",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 4.6,
     description:
       "They delivered good work on this development project. Communication was good, deadlines met, and skills were strong. At one point I asked for an additional milestone and he was very forthcoming that the additional work was outside his area of expertise. We found another freelancer to work with on that technicality. An additional milestone was asked and overtime performed to meet deadlines. Communication via Slack. Very professional. Able to take direction and build quickly in this very complicated project.",
@@ -151,6 +155,7 @@ export const feedbackArr = [
     name: "Steven Popovich",
     company: "CIVIQ",
     position: "Co-Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Amazing Job! The entire team at Code Generation was great with communication, timely with all tasks and an overall pleasure to work with. I highly recommend to anyone seeking help with development to contract Code Generation ",
@@ -159,6 +164,7 @@ export const feedbackArr = [
     name: "Steven George",
     company: "Joytec Labs LLC",
     position: "CTO",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Top Upwork team that I will definitely hire again. They were very professional in their work and approach, and I enjoyed working with them on my project.",
@@ -167,6 +173,7 @@ export const feedbackArr = [
     name: "Cameron Ellis",
     company: "Awes Ventures",
     position: "Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "CGS-team is a professional organization and has helped us achieve our launch milestones well within our margin of error! We will continue our work with them.",
@@ -175,6 +182,7 @@ export const feedbackArr = [
     name: "Blake Ogden",
     company: "Wynstn Travel Company, LLC",
     position: "Product Owner",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Great communication, easily able to understand scope of work and consistently in contact to ensure all objectives were met. Will be a return customer and fully recommend.",
@@ -183,6 +191,7 @@ export const feedbackArr = [
     name: "Miriam Vergani",
     company: "KCS Biotech",
     position: "Co-Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 4.8,
     description:
       "They were really competent and delivered what we requested. Recommended a lot! Will definitely work with them in the future.",
@@ -191,6 +200,7 @@ export const feedbackArr = [
     name: "Nick Spasoff",
     company: "GrowthDay",
     position: "Product Manager",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Danyyl from CGS-team possesses exceptional React skills. He works very efficiently and as part of a large scrum team. His code quality and understanding of the technology are exceptional. It was easy to communicate with him and he always managed to deliver on time. We look forward to working with CGS-team again on our next project.",
@@ -199,6 +209,7 @@ export const feedbackArr = [
     name: "Nick Morgan",
     company: "Pandemic Relief Supply",
     position: "Head of Software Development",
+    link: "https://clutch.co/profile/code-generation#reviews",
     rates: 5,
     description:
       "After the features are introduced, the internal team can now manage several operations in a centralized system. Code Generation has allowed the client to focus on a task-based management style to regularly monitors the project’s progress. Moreover, they’ve been impressively meeting the deadlines.",
@@ -207,6 +218,7 @@ export const feedbackArr = [
     name: "Kristof Van Miegem",
     company: "Codifly",
     position: "Co-Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 4.8,
     description:
       "CGS has been trustworthy at every step. The developer has a thorough technical skillset and an up-to-date knowledge on the latest JavaScript trends. He exceeded our expectations by actively being engaged in conversations, discussing and finding solutions to issues. In short: a solid, knowledgable and highly motivated developer.",
@@ -215,6 +227,7 @@ export const feedbackArr = [
     name: "Courtney Robinson",
     company: "RMGXYZ",
     position: "CEO",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "The team provided excellent service in delivering the project. They are intuitive in development and expert in execution. With deep technical knowledge and user-friendly communication, I would definitely recommend. We will be working with them again soon.",
@@ -223,6 +236,7 @@ export const feedbackArr = [
     name: "Bertie I.",
     company: "Reverse Media Group",
     position: "Product Manager",
+    link: "https://clutch.co/profile/code-generation#reviews",
     rates: 5,
     description:
       "CGS-team successfully implemented the solution in just two weeks. During the engagement, their project management and communication were excellent. They were responsive, fast, and cost-effective.",
@@ -231,6 +245,7 @@ export const feedbackArr = [
     name: "Harry Newton",
     company: "Chilli",
     position: "Co-Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Code Generation is a very professional agency with clear communication channels and strict guidelines. You can count on them for completing your requirements up to standard and as trusted partners.",
@@ -239,7 +254,8 @@ export const feedbackArr = [
     name: "Doris Torchia",
     company: "Social Startup",
     position: "Co-Founder",
-    rates: "5",
+    link: "https://clutch.co/profile/code-generation#reviews",
+    rates: 5,
     description:
       "After just three months of engagement, the team is able to come close to the client's expected results and meet their requirements. The team's workflow has been very efficient, fixing bugs and issues with agility, and improving its structure as the project develops further.",
   },

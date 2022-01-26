@@ -2,7 +2,7 @@ import { IHowWeWorkCardProps } from "../components/HowWeWorkCard/types";
 const items: IHowWeWorkCardProps[] = [
   {
     title: "how we work",
-    contentTitle: "Let’s meeteach other!",
+    contentTitle: "Let’s meet \neach other!",
     contentText:
       "First call is really important, because here we discuss your ideas in detail: from all non-tech nuances such as terms, freshest thoughts about project overall, functionality etc. to recommendations about stack we should use to meet all your expectations with an outstanding code quality.",
     rank: 1,

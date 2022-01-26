@@ -14,7 +14,6 @@ const HowWeWorkCard = ({
   additionalImgUrl,
   isFlipImageOnMobile,
 }: IHowWeWorkCardProps) => {
-
   return (
     <Styles.Container
       backGroundColor={backGroundColor}
@@ -24,7 +23,7 @@ const HowWeWorkCard = ({
         <Styles.Number backGroundColor={backGroundColor}>#{rank}</Styles.Number>
       </Styles.NumberContainer>
       <Styles.TitleContainer>
-        <Styles.Title>{"/ / " + title}</Styles.Title>
+        <Styles.Title>{"//" + title}</Styles.Title>
       </Styles.TitleContainer>
       <Styles.ContentContainer>
         <Styles.ContentTextContainer>
