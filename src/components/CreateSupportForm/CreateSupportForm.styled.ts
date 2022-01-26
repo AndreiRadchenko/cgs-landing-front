@@ -12,7 +12,7 @@ export const Container = styled.form`
 
 export const Title = styled.h2`
   font-size: 36px;
-  margin-top: 1.3em;
+  margin: 0.6em 0;
 `;
 
 export const ContentWrapper = styled.div`

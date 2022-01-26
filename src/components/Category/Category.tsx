@@ -15,7 +15,7 @@ const Category: FC<ICategoryProps> = ({
   url,
   onOpenModalHandler,
 }) => {
-  const openCurrentCategoryHandler = () => onOpenModalHandler(title);
+  const openCurrentCategoryHandler = () => title && onOpenModalHandler(title);
 
   return (
     <StyledThisComp.CategoryContainer onClick={openCurrentCategoryHandler}>

@@ -8,21 +8,24 @@ import Partners from "../components/Partners/Partners";
 import Feedback from "../components/Feedback/Feedback";
 import Technologies from "../components/Technologies/Technologies";
 import LetsCode from "../components/LetsCode/LetsCode";
+import OurTeam from "../components/OurTeam/OurTeam";
+import NoMobileScreenSupport from "./NoMobileScreenSupport";
 
 const Home: NextPage = () => {
-
   return (
-    <div>
+    <>
+      <NoMobileScreenSupport />
       <StyledCommon.Page>
         <Body />
         <AboutUs />
         <Partners />
         <Projects />
         <Feedback />
+        <OurTeam />
         <Technologies />
         <LetsCode />
       </StyledCommon.Page>
-    </div>
+    </>
   );
 };
 
