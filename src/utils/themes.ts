@@ -44,6 +44,21 @@ const themes = {
       septenary: "#A9CDF5",
       errorText: "#ea0000",
     },
+    media: {
+      minTabletPortrait: "(min-width: 768px)",
+      minTabletLandScape: "(min-width: 992px)",
+      minLaptop: "(min-width: 1200px)",
+      minPC: "(min-width: 1500px)",
+      minPCFullHD: "(min-width: 1800px)",
+      maxLowScreenMobile: "(max-width: 475px)",
+      maxMobile: "(max-width: 768px)",
+      maxTabletPortrait: "(max-width: 992px)",
+      maxTabletLandScape: "(max-width: 1200px)",
+      maxLaptop: "(max-width: 1500px)",
+      onlyTabletPortrait: "(min-width: 768px) and (max-width: 992px)",
+      onlyTabletLandScape: "(min-width: 992px) and (max-width: 1199px)",
+      onlyLaptop: "(min-width: 1199px) and (max-width: 1500px)",
+    },
   },
 };
 

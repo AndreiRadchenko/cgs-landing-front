@@ -27,12 +27,10 @@ const AboutUs = () => {
           {"<h2>"}
         </StyledThisComp.AboutUsCodeIcon>
         <StyledThisComp.AboutUsDescription>
-          Bug-free code, juicy architecture, codebase optimisation,
-          <br />
-          up-to-date maintenance, outstanding clear communication
-          <br /> and fluent English rolled into one. Imagined that? You don't
-          even
-          <br /> need to imagine this with CGS-team, just see for real!
+          Bug-free code, juicy architecture, codebase optimisation, up-to-date
+          maintenance, outstanding clear communication and fluent English rolled
+          into one. Imagined that? You don't even need to imagine this with
+          CGS-team, just see for real!
         </StyledThisComp.AboutUsDescription>
         <StyledThisComp.AboutUsCodeIcon>
           {"</h2>"}
