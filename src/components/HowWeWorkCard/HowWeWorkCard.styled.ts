@@ -22,19 +22,19 @@ type IImage = {
 
 export const Container = styled.div<IContainerProps>`
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   padding-top: 2em;
   position: relative;
   display: flex;
   flex-direction: column;
   color: ${themes.primary.colors.primary};
   background-color: ${(props) => themes.primary.colors[props.backGroundColor]};
-  z-index: ${(props) => (props.additionalImgUrl ? "500" : "1")};
+  z-index: ${(props) => (props.additionalImgUrl ? "35" : "1")};
 `;
 
 export const NumberContainer = styled.div`
   position: absolute;
-  top: 9em;
+  top: 3em;
   left: -1.5em;
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -51,6 +51,7 @@ export const NumberContainer = styled.div`
 export const Number = styled.div<IColorProps>`
   color: ${(props) => themes.primary.colors.lighten[props.backGroundColor]};
   font-size: 26em;
+  font-weight: 600;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 16em;
@@ -64,9 +65,10 @@ export const Number = styled.div<IColorProps>`
 export const TitleContainer = styled.div``;
 
 export const Title = styled.div`
-  font-size: 2.5em;
+  font-size: 2em;
   margin-left: 2.4em;
   color: ${themes.primary.colors.primary};
+  font-weight: 700;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: fit-content;
@@ -126,7 +128,7 @@ export const ContentImage = styled.div<IImage>`
 export const ContentTitle = styled.h2`
   margin: 0;
   max-width: 8em;
-  font-size: 4em;
+  font-size: 4.5em;
   line-height: 1em;
   color: ${themes.primary.colors.primary};
   white-space: break-spaces;
@@ -137,7 +139,7 @@ export const ContentTitle = styled.h2`
 `;
 
 export const ContentText = styled.p`
-  font-size: 1.5em;
+  font-size: 1.3em;
   max-width: 30.5em;
   line-height: 1.5em;
   color: ${themes.primary.colors.primary};

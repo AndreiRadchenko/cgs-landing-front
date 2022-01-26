@@ -4,8 +4,9 @@ import Decoration from "../components/Decoration/Decoration";
 
 export const OurTeamContainer = styled.section`
   width: 1400px;
-  margin: 0 auto;
+  margin: 0 auto 193px auto;
   position: relative;
+  font-family: ${themes.primary.font.family.roboto};
 `;
 
 export const OurTeamRow = styled.div`

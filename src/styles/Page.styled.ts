@@ -9,7 +9,6 @@ export const Page = styled.article`
   width: 1400px;
   position: relative;
   margin: ${themes.primary.spacing.headerNavVertical} auto;
-  padding: 0 0 0 ${themes.primary.spacing.headerNavVertical};
 `;
 
 export const ButtonText = styled.span.attrs(

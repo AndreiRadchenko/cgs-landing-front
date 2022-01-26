@@ -9,26 +9,40 @@ export const CategoryContainer = styled.div`
   flex: 0 1 304px;
   position: relative;
   transition: 300ms;
-
-  &:not(:nth-child(2)):nth-child(2n + 2) {
-    background-color: #ffefd8;
-    border-radius: 60px;
-  }
+  cursor: pointer;
 
   &:nth-child(odd) {
     background-color: #a9cdf5;
+    &:hover {
+      background-color: ${themes.primary.colors.linkBlue};
+    }
   }
 
   &:nth-child(2) {
     background-color: #c7fb9c;
+    &:hover {
+      background-color: ${themes.primary.colors.cardDarkGreen};
+    }
   }
 
   &:last-child {
     background-color: #c7fb9c;
+    &:hover {
+      background-color: ${themes.primary.colors.cardDarkGreen};
+    }
   }
 
   &:hover {
     transform: rotate(7deg);
+  }
+
+  &:not(:nth-child(2)):nth-child(2n + 2) {
+    background-color: #ffefd8;
+    border-radius: 60px;
+    cursor: default;
+    &:hover {
+      transform: rotate(0deg);
+    }
   }
 `;
 

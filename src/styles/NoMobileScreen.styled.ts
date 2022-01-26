@@ -8,7 +8,12 @@ export const Wrapper = styled.div`
   top: 0;
   left: 0;
   background-color: #f7f7f7;
-  z-index: 33;
+  z-index: 45;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
   @media (min-width: 1401px) {
     display: none;
@@ -25,7 +30,7 @@ export const ImgWrapper = styled.div`
 export const TextContent = styled.span`
   display: block;
   font-family: ${themes.primary.font.family.sourceCode};
-  font-size: ${themes.primary.font.size.tertiary};
+  font-size: ${themes.primary.font.size.secondary};
   padding: 0.5em 1em;
   text-align: center;
 `;

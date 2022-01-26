@@ -15,10 +15,11 @@ const ModalServerCategory: FC<IModalCategoryProps> = ({ title }) => {
         </StyledCategory.CategoryTitleWrapper>
       </StyledCategory.NavPanel>
       <StyledCategory.CategoryProjectsContainer>
-        {projectsModalArr.map(({ url, title, description }) => (
+        {projectsModalArr.map(({ url, title, link, description }) => (
           <ModalBlockSpecifyTechnology
             key={title}
             url={url}
+            link={link}
             title={title}
             description={description}
           />
