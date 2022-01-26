@@ -13,22 +13,10 @@ export const AboutUsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media ${themes.primary.media.onlyLaptop} {
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-  }
-
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     flex-direction: column;
     align-items: center;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
   }
 `;
 
@@ -78,15 +66,6 @@ export const CardDescriptionSubDescription = styled.div`
     padding-left: 1em;
   }
 
-  @media ${themes.primary.media.onlyLaptop} {
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-  }
-
   @media ${themes.primary.media.maxMobile} {
     &.columnDescription {
       text-align: center;
@@ -102,15 +81,6 @@ export const CardDescriptionValueWrapper = styled.div`
   &.columnDescription {
     width: 200px;
     padding-left: 1em;
-  }
-
-  @media ${themes.primary.media.onlyLaptop} {
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -142,14 +112,6 @@ export const DecorationText = styled(Decoration)`
     left: 10%;
   }
   
-  @media ${themes.primary.media.onlyLaptop} {
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-  }
 
   @media ${themes.primary.media.maxMobile} {
     &.var {
@@ -164,6 +126,12 @@ export const CardDescriptionValue = styled.span`
   position: relative;
   z-index: 1;
   display: flex;
+
+  @media ${themes.primary.media.minPC} {
+    &.columnDescription {
+      width: 10em;
+    }
+  }
 
   @media ${themes.primary.media.maxMobile} {
     justify-content: center;
@@ -215,12 +183,10 @@ export const AboutUsDescription = styled.span`
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     padding-left: 1em;
-    text-align: left;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     padding-left: 0.5em;
-    text-align: left;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -235,7 +201,7 @@ export const IllustrationWrapper = styled.div`
   margin-bottom: 5.625em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 6em;
+    margin-top: 10em;
     justify-content: flex-end;
     transform: rotate(-35deg);
   }
