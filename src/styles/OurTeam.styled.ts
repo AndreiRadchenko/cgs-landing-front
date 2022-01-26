@@ -4,8 +4,9 @@ import Decoration from "../components/Decoration/Decoration";
 
 export const OurTeamContainer = styled.section`
   width: 1400px;
-  margin: 0 auto;
+  margin: 0 auto 193px auto;
   position: relative;
+  font-family: ${themes.primary.font.family.roboto};
 `;
 
 export const OurTeamRow = styled.div`
@@ -79,8 +80,8 @@ export const DecorationTextTitle = styled(Decoration)`
 
   &.philosophy {
     top: 8.7%;
-    right: 57%;
-    width: 13em;
+    right: 55%;
+    width: 14em;
   }
 
   &.goal {

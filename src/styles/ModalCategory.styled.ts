@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 import Decoration from "../components/Decoration/Decoration";
+import Link from "next/link";
 
 export const Container = styled.div`
   width: 95%;
@@ -105,6 +106,10 @@ export const DecorationTextBlockChainTitle = styled(Decoration)`
 export const ProjectContainer = styled.div`
   margin: 19px;
   width: 30%;
+  height: 650px;
+
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ProjectSpecifyTechnologyContainer = styled.div`
@@ -126,7 +131,14 @@ export const SpecifyContentImgWrapper = styled.div`
   position: relative;
 `;
 
-export const ContentWrapper = styled.div``;
+export const MainContent = styled.div``;
+
+export const ContentWrapper = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 export const ProjectTitleName = styled.h2`
   font-size: 25px;
@@ -134,6 +146,10 @@ export const ProjectTitleName = styled.h2`
 
 export const ProjectDescription = styled.span`
   display: block;
+  width: 90%;
   font-size: 1em;
   line-height: 145%;
+  white-space: break-spaces;
 `;
+
+export const ProjectLinkWrapper = styled(Link)``;

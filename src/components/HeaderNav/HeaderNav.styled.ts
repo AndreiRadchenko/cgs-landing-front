@@ -23,4 +23,9 @@ export const ListItemNav = styled.span`
   font-weight: ${themes.primary.font.weight.bold};
   font-size: ${themes.primary.font.size.linkText};
   margin-left: ${themes.primary.spacing.headerNavHorizontal};
+  transition: 300ms;
+
+  &:hover {
+    color: ${themes.primary.colors.linkBlue};
+  }
 `;
