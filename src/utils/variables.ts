@@ -31,11 +31,6 @@ import technologyBlockchainIMG from "../../public/technology-blockchain-icon.svg
 import bigOurTeamIMG from "../../public/bigOurTeam.svg";
 import smallOurTeamIMG from "../../public/ourTeam.png";
 
-//projects names
-import REviewIMG from "../../public/review.svg";
-import socialMediaIMG from "../../public/socialMedia.svg";
-import growthdayIMG from "../../public/growthday.svg";
-import chilliProjectIMG from "../../public/chilli.svg";
 import { IFeedbackCardProps } from "../types/Feedback.types";
 
 export const routers = {
@@ -312,7 +307,6 @@ import ResealiseIMG from "../../public/realiseMe.png";
 import myITIMG from "../../public/myIT.png";
 import admyreIMG from "../../public/admyre.png";
 import denizenIMG from "../../public/denizen.png";
-import growthDayCompanyIMG from "../../public/growthday.png";
 import hyypIMG from "../../public/hyyp.png";
 import { IModalProjectCardProps } from "../types/ModalCategory.types";
 
@@ -344,13 +338,6 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://apps.apple.com/ua/app/denizen/id1542599510?l=ru",
     description:
       "Denizen is available in both AppStore and Google Play Store. The app allows to find great locations and places for hosting events or just working in your neighborhood. It is currently available in Kreuzberg and Mitte. The process of booking is simple and will be convenient for any type of user.",
-  },
-  {
-    url: growthDayCompanyIMG,
-    title: "GrowthDay",
-    link: "https://apps.apple.com/be/app/growthday/id1543291315",
-    description:
-      "This is a platform aimed at motivating and increasing self-perception of people who need it by setting personal goals and achievements. The application allows you to track progress of other users and see their own based on the completed tasks.",
   },
   {
     url: hyypIMG,
