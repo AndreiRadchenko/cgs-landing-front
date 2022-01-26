@@ -12,6 +12,7 @@ const HowWeWorkCard = ({
   backGroundColor,
   imgUrl,
   additionalImgUrl,
+  isFlipImageOnMobile,
 }: IHowWeWorkCardProps) => {
 
   return (
@@ -31,7 +32,7 @@ const HowWeWorkCard = ({
           <Styles.ContentText>{contentText}</Styles.ContentText>
         </Styles.ContentTextContainer>
         <Styles.ContentImgContainer additionalImgUrl={additionalImgUrl}>
-          <Styles.ContentImage>
+          <Styles.ContentImage isFlipOnMobile={isFlipImageOnMobile}>
             <Image
               src={imgUrl}
               alt={contentTitle}
