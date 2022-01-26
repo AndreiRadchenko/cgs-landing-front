@@ -8,11 +8,17 @@ import Link from "next/link";
 const HeaderNav = () => {
   return (
     <StyledThisComp.HeaderNavContainer>
-      <StyledThisComp.LogoLinkWrapper href={routers.home} passHref>
-        <a>
-          <Image src={logoIMG} alt={"logo cgs-team"} />
-        </a>
-      </StyledThisComp.LogoLinkWrapper>
+      <Link href={routers.home} passHref>
+        <StyledThisComp.LogoLinkWrapper>
+          <Image
+            src={logoIMG}
+            alt={"logo cgs-team"}
+            quality={100}
+            objectFit={"contain"}
+            layout={"fixed"}
+          />
+        </StyledThisComp.LogoLinkWrapper>
+      </Link>
 
       <StyledThisComp.HeaderNavLinkWrapper>
         {navigationRoutesNames.map((item) => (

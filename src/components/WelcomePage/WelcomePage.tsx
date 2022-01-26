@@ -2,9 +2,8 @@ import * as StyledThisComp from "../../styles/Body.styled";
 import React from "react";
 import Image from "next/image";
 import mainLogoIMG from "../../../public/mainLogoView.svg";
-import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
-import backImg from "../../../public/backButton.svg";
+import BaseButton from "../BaseButton/BaseButton";
 
 const WelcomePage = () => {
   return (
@@ -12,15 +11,15 @@ const WelcomePage = () => {
       <StyledThisComp.BodyDescriptionWrapper>
         <StyledThisComp.BodyTitle>EUREKA!</StyledThisComp.BodyTitle>
         <StyledThisComp.BodySubtitle>
-          The team of sharp-witted <br /> devs is on the brink of you.
+          The team of sharp-witted devs is on the brink of you.
         </StyledThisComp.BodySubtitle>
 
         <StyledThisComp.CodeDescription>
-          {"//"}ready to cope with tasks of any <br /> complexity meeting the
-          tightest deadlines
+          {"//"}ready to cope with tasks of any complexity meeting the tightest
+          deadlines
         </StyledThisComp.CodeDescription>
 
-        <BaseButton onClick={() => {}} src={backImg}>
+        <BaseButton>
           <ButtonTextWrapper fontSize={"1.4em"}>
             get estimation
           </ButtonTextWrapper>
