@@ -165,23 +165,23 @@ export const CardDescriptionValue = styled.span`
   z-index: 1;
   display: flex;
 
-  @media ${themes.primary.media.onlyLaptop} {
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-  }
-
   @media ${themes.primary.media.maxMobile} {
     justify-content: center;
   }
 `;
 
 export const AboutUsInfoSupport = styled.div`
-  width: 55%;
+  width: 65%;
   margin: 5.5em auto 0 auto;
+
+  @media ${themes.primary.media.onlyLaptop} {
+    width: 80%;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    width: 100%;
+    margin: 5em auto 3em auto;
+  }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     width: 100%;
@@ -213,10 +213,9 @@ export const AboutUsDescription = styled.span`
   line-height: 145%;
   margin: 0 auto;
 
-  @media ${themes.primary.media.onlyLaptop} {
-  }
-
   @media ${themes.primary.media.onlyTabletLandScape} {
+    padding-left: 1em;
+    text-align: left;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
