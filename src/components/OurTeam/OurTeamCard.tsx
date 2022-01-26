@@ -14,7 +14,7 @@ const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
       <Image src={url} alt={`our team ${title} img`} quality={100} />
       <StyledThisComp.OurTeamCardContent>
         <StyledThisComp.OurTeamCardTitle>
-          {title}
+          {title}:
         </StyledThisComp.OurTeamCardTitle>
         <StyledThisComp.DecorationTextTitle
           className={`${title.split(" ").reverse()[0]}`}

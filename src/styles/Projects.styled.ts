@@ -16,7 +16,7 @@ export const ProjectsCategoryRow = styled.div`
 `;
 
 export const ProjectTitleWrapper = styled.div`
-  flex: 1 1 25em;
+  flex: 1 1 400px;
   display: inline-block;
 `;
 
@@ -33,7 +33,7 @@ export const ProjectsTitle = styled.span`
 export const DecorationTitle = styled(Decoration)`
   position: absolute;
   top: 8%;
-  left: 3.8%;
+  left: 2.6%;
   width: 12.3em;
   height: 1.4em;
 `;

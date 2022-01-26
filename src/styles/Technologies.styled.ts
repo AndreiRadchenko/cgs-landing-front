@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import Decoration from "../components/Decoration/Decoration";
+import themes from "../utils/themes";
 
 export const TechnologyContainer = styled.section`
   width: 1400px;
   margin: 200px auto 0 auto;
   user-select: none;
+  font-family: ${themes.primary.font.family.roboto};
 `;
 
 export const TechnologyRow = styled.div`

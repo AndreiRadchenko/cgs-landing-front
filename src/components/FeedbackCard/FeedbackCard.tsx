@@ -49,7 +49,9 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
       </StyledThisComp.FeedBackContentWrapper>
 
       <ButtonReadMore onClick={toggleFullFeedbackHandler}>
-        <ButtonTextWrapper fontSize={"1.35em"}>read more</ButtonTextWrapper>
+        <ButtonTextWrapper fontSize={"1.35em"}>
+          read {isOpenFullFeedBack ? "less" : "more"}
+        </ButtonTextWrapper>
       </ButtonReadMore>
     </StyledThisComp.FeedbackCardContainer>
   );
