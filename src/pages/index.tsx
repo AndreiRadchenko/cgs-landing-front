@@ -18,22 +18,22 @@ import Footer from "../components/Footer/Footer";
 const Home: NextPage = () => {
   return (
     <>
-      <NoMobileScreenSupport />
+      {/*<NoMobileScreenSupport />*/}
       <StyledCommon.Page>
-        <Body />
-        <AboutUs />
-        <Partners />
+        {/*<Body />*/}
+        {/*<AboutUs />*/}
+        {/*<Partners />*/}
         <Projects />
-        <Feedback />
-        <Technologies />
-        <OurTeam />
+        {/*<Feedback />*/}
+        {/*<Technologies />*/}
+        {/*<OurTeam />*/}
       </StyledCommon.Page>
-      <HowWeWorkList items={howWeWorksItems} />
-      <YesBegin />
-      <StyledCommon.Page>
-        <LetsCode />
-      </StyledCommon.Page>
-      <Footer />
+      {/*<HowWeWorkList items={howWeWorksItems} />*/}
+      {/*<YesBegin />*/}
+      {/*<StyledCommon.Page>*/}
+      {/*  <LetsCode />*/}
+      {/*</StyledCommon.Page>*/}
+      {/*<Footer />*/}
     </>
   );
 };

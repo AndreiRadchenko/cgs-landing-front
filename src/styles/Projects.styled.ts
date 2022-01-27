@@ -13,11 +13,20 @@ export const ProjectsCategoryRow = styled.div`
   justify-content: flex-end;
   max-width: 1350px;
   margin: 0 auto;
+
+  @media ${themes.primary.media.maxMobile} {
+    justify-content: center;
+  }
 `;
 
 export const ProjectTitleWrapper = styled.div`
   flex: 1 1 400px;
   display: inline-block;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex: initial;
+    margin-bottom: 2em;
+  }
 `;
 
 export const ProjectsTitle = styled.span`
@@ -28,6 +37,11 @@ export const ProjectsTitle = styled.span`
   font-family: ${themes.primary.font.family.roboto};
   position: relative;
   z-index: 2;
+
+  @media ${themes.primary.media.maxMobile} {
+    display: inline-block;
+    width: 100%;
+  }
 `;
 
 export const DecorationTitle = styled(Decoration)`
@@ -36,4 +50,9 @@ export const DecorationTitle = styled(Decoration)`
   left: 3.5%;
   width: 12.6em;
   height: 1.4em;
+
+  @media ${themes.primary.media.maxMobile} {
+    top: 3.5%;
+    left: 55%;
+  }
 `;

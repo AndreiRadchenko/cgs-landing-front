@@ -2,14 +2,18 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const CategoryContainer = styled.div`
-  width: 304px;
-  height: 340px;
+  height: 26em;
   margin: 0 27px 27px 0;
   border-radius: 6px;
-  flex: 0 1 304px;
+  flex: 0 1 20em;
   position: relative;
   transition: 300ms;
   cursor: pointer;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex: 0 1 20em;
+    justify-content: center;
+  }
 
   &:nth-child(odd) {
     background-color: #a9cdf5;
@@ -43,11 +47,21 @@ export const CategoryContainer = styled.div`
     &:hover {
       transform: rotate(0deg);
     }
+
+    @media ${themes.primary.media.maxMobile} {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    flex: 0 1 17em;
+    margin: 20px 0;
   }
 `;
 
 export const WrapperDescription = styled.div`
-  padding: 26px 24px;
+  padding: ${themes.primary.spacing.septenary}
+    ${themes.primary.spacing.tertiary};
   height: 100%;
 `;
 
@@ -57,6 +71,10 @@ export const TitleSpecialization = styled.h2`
 
 export const DescriptionSpecialization = styled.span`
   font-size: ${themes.primary.font.size.vistaco};
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: ${themes.primary.font.size.tertiary};
+  }
 `;
 
 export const IconWrapperSpecialization = styled.div`
