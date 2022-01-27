@@ -4,9 +4,6 @@ import SwiperCore, { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { IFeedbackCardProps } from "../../types/Feedback.types";
 import "swiper/css";
-import * as StyledThisComp from "../../styles/Feedback.styled";
-import Image from "next/image";
-import arrowIMG from "../../../public/arrow.svg";
 
 SwiperCore.use([Navigation]);
 
