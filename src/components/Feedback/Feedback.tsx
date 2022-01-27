@@ -2,7 +2,6 @@ import React from "react";
 import * as StyledThisComp from "../../styles/Feedback.styled";
 import { feedbackArr } from "../../utils/variables";
 import arrowIMG from "../../../public/arrow.svg";
-
 import CarouselFeedback from "./CarouselFeedback";
 import Image from "next/image";
 
