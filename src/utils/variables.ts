@@ -31,7 +31,6 @@ import technologyBlockchainIMG from "../../public/technology-blockchain-icon.svg
 import bigOurTeamIMG from "../../public/bigOurTeam.svg";
 import smallOurTeamIMG from "../../public/ourTeam.png";
 
-
 import { IFeedbackCardProps } from "../types/Feedback.types";
 
 export const routers = {
@@ -303,7 +302,7 @@ export const ourTeamArr = [
   },
 ];
 
-// //projects names
+//projects names
 import companyName1 from "../../public/realiseMe.png";
 import companyName2 from "../../public/myIT.png";
 import companyName3 from "../../public/admyre.png";
