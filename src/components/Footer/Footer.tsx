@@ -14,7 +14,7 @@ const socialLinks = [
     href: "https://github.com/",
   },
   {
-    icoUrl: "/Cicon.svg",
+    icoUrl: "/CIcon.svg",
     href: "https://github.com/",
   },
   {

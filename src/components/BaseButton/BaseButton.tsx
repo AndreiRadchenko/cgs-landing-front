@@ -22,9 +22,9 @@ const BaseButton: FC<IBaseButtonProps> = ({
       type={type}
       width={width}
       height={height}
-      letterSpacing={letterSpacing}
-      topSpacing={topSpacing}
       onClick={onClick}
+      letterSpacing={letterSpacing}
+      marginTop={topSpacing}
     >
       <Image src={src} alt="back image photo" layout="fill" objectFit="cover" />
       {children}
