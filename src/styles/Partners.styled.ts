@@ -8,7 +8,7 @@ export const PartnersContainer = styled.div`
   margin: 0 auto 10em auto;
 
   & > * {
-    flex: 1 1 ${themes.primary.spacing.cardPartners};
+    flex: 1 1 16.6%;
   }
 
   @media (max-width: 1401px) {
