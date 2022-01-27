@@ -31,19 +31,15 @@ import technologyBlockchainIMG from "../../public/technology-blockchain-icon.svg
 import bigOurTeamIMG from "../../public/bigOurTeam.svg";
 import smallOurTeamIMG from "../../public/ourTeam.png";
 
-//projects names
-import REviewIMG from "../../public/review.svg";
-import socialMediaIMG from "../../public/socialMedia.svg";
-import growthdayIMG from "../../public/growthday.svg";
-import chilliProjectIMG from "../../public/chilli.svg";
+import { IFeedbackCardProps } from "../types/Feedback.types";
 
 export const routers = {
   home: "/",
-  vacancy: "/vacancy",
+  careers: "/careers",
   partners: "/partners",
 };
 
-export const navigationRoutesNames = ["/home", "/vacancy", "/partners"];
+export const navigationRoutesNames = ["/home", "/careers", "/partners"];
 
 export const modalNavigationRoutesNames = [
   "web",
@@ -122,11 +118,12 @@ export const categoryThemesVars = [
   },
 ];
 
-export const feedbackArr = [
+export const feedbackArr: IFeedbackCardProps[] = [
   {
     name: "Pratibha Sharma",
     company: "LiveOfficially",
     position: "Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Very sincere, professional and cooperative team. Analyses the business requirements and provides on time feedback and support to improve features. They have done a good job so far and looking forward to rehiring them again. ",
@@ -135,6 +132,7 @@ export const feedbackArr = [
     name: "Rabi Boundi",
     company: "Space Impulse",
     position: "Co-Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Excellent work! Good communication in English, all requirements were correctly implemented, on time, and according to the specification.Will hire again in the future. Highly recommended!",
@@ -143,6 +141,7 @@ export const feedbackArr = [
     name: "Josh M",
     company: "INHouse",
     position: "CEO",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 4.6,
     description:
       "They delivered good work on this development project. Communication was good, deadlines met, and skills were strong. At one point I asked for an additional milestone and he was very forthcoming that the additional work was outside his area of expertise. We found another freelancer to work with on that technicality. An additional milestone was asked and overtime performed to meet deadlines. Communication via Slack. Very professional. Able to take direction and build quickly in this very complicated project.",
@@ -151,6 +150,7 @@ export const feedbackArr = [
     name: "Steven Popovich",
     company: "CIVIQ",
     position: "Co-Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Amazing Job! The entire team at Code Generation was great with communication, timely with all tasks and an overall pleasure to work with. I highly recommend to anyone seeking help with development to contract Code Generation ",
@@ -159,6 +159,7 @@ export const feedbackArr = [
     name: "Steven George",
     company: "Joytec Labs LLC",
     position: "CTO",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Top Upwork team that I will definitely hire again. They were very professional in their work and approach, and I enjoyed working with them on my project.",
@@ -167,6 +168,7 @@ export const feedbackArr = [
     name: "Cameron Ellis",
     company: "Awes Ventures",
     position: "Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "CGS-team is a professional organization and has helped us achieve our launch milestones well within our margin of error! We will continue our work with them.",
@@ -175,6 +177,7 @@ export const feedbackArr = [
     name: "Blake Ogden",
     company: "Wynstn Travel Company, LLC",
     position: "Product Owner",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Great communication, easily able to understand scope of work and consistently in contact to ensure all objectives were met. Will be a return customer and fully recommend.",
@@ -183,6 +186,7 @@ export const feedbackArr = [
     name: "Miriam Vergani",
     company: "KCS Biotech",
     position: "Co-Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 4.8,
     description:
       "They were really competent and delivered what we requested. Recommended a lot! Will definitely work with them in the future.",
@@ -191,6 +195,7 @@ export const feedbackArr = [
     name: "Nick Spasoff",
     company: "GrowthDay",
     position: "Product Manager",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Danyyl from CGS-team possesses exceptional React skills. He works very efficiently and as part of a large scrum team. His code quality and understanding of the technology are exceptional. It was easy to communicate with him and he always managed to deliver on time. We look forward to working with CGS-team again on our next project.",
@@ -199,6 +204,7 @@ export const feedbackArr = [
     name: "Nick Morgan",
     company: "Pandemic Relief Supply",
     position: "Head of Software Development",
+    link: "https://clutch.co/profile/code-generation#reviews",
     rates: 5,
     description:
       "After the features are introduced, the internal team can now manage several operations in a centralized system. Code Generation has allowed the client to focus on a task-based management style to regularly monitors the project’s progress. Moreover, they’ve been impressively meeting the deadlines.",
@@ -207,6 +213,7 @@ export const feedbackArr = [
     name: "Kristof Van Miegem",
     company: "Codifly",
     position: "Co-Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 4.8,
     description:
       "CGS has been trustworthy at every step. The developer has a thorough technical skillset and an up-to-date knowledge on the latest JavaScript trends. He exceeded our expectations by actively being engaged in conversations, discussing and finding solutions to issues. In short: a solid, knowledgable and highly motivated developer.",
@@ -215,6 +222,7 @@ export const feedbackArr = [
     name: "Courtney Robinson",
     company: "RMGXYZ",
     position: "CEO",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "The team provided excellent service in delivering the project. They are intuitive in development and expert in execution. With deep technical knowledge and user-friendly communication, I would definitely recommend. We will be working with them again soon.",
@@ -223,6 +231,7 @@ export const feedbackArr = [
     name: "Bertie I.",
     company: "Reverse Media Group",
     position: "Product Manager",
+    link: "https://clutch.co/profile/code-generation#reviews",
     rates: 5,
     description:
       "CGS-team successfully implemented the solution in just two weeks. During the engagement, their project management and communication were excellent. They were responsive, fast, and cost-effective.",
@@ -231,9 +240,19 @@ export const feedbackArr = [
     name: "Harry Newton",
     company: "Chilli",
     position: "Co-Founder",
+    link: "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
     rates: 5,
     description:
       "Code Generation is a very professional agency with clear communication channels and strict guidelines. You can count on them for completing your requirements up to standard and as trusted partners.",
+  },
+  {
+    name: "Doris Torchia",
+    company: "Social Startup",
+    position: "Co-Founder",
+    link: "https://clutch.co/profile/code-generation#reviews",
+    rates: 5,
+    description:
+      "After just three months of engagement, the team is able to come close to the client's expected results and meet their requirements. The team's workflow has been very efficient, fixing bugs and issues with agility, and improving its structure as the project develops further.",
   },
 ];
 
@@ -283,29 +302,48 @@ export const ourTeamArr = [
   },
 ];
 
-export const projectsModalArr = [
+//projects names
+import ResealiseIMG from "../../public/realiseMe.png";
+import myITIMG from "../../public/myIT.png";
+import admyreIMG from "../../public/admyre.png";
+import denizenIMG from "../../public/denizen.png";
+import hyypIMG from "../../public/hyyp.png";
+import { IModalProjectCardProps } from "../types/ModalCategory.types";
+
+export const projectsModalArr: IModalProjectCardProps[] = [
   {
-    url: socialMediaIMG,
-    title: "ScobySocial",
+    url: ResealiseIMG,
+    title: "RealiseME",
+    link: "https://apps.apple.com/ua/app/realiseme/id1456372856?l=ru",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus. ",
+      "This is a platform that connects teachers (private licensed tutors) and students, who will to prepare for an exam or get help for their homework. The platform is mutually beneficial for students and teachers.",
   },
   {
-    url: REviewIMG,
-    title: "REview",
+    url: myITIMG,
+    title: "myTI",
+    link: "https://apps.apple.com/us/app/myti/id1329792134",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus.",
+      "This is a SaaS medical platform that helps doctors and patients to organize documentation inside and outside the clinic. In fact, this application was made for one specific clinic, but it can accessed anywhere by subscription. ScanBot is a distinguishing feature of the app - an AI network recognizes keywords in a document via smartphone camera.",
   },
   {
-    url: growthdayIMG,
-    title: "Growthday",
+    url: admyreIMG,
+    title: "Admyre",
+    link: "https://play.google.com/store/apps/details?id=com.awesventures.admyre",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus.",
+      "This is an EDU platform that establishes communication between students and tutors. It is designed to help people improve their skills in narrow specialties or to learn something completely new, be it language or any other skill.",
   },
   {
-    url: chilliProjectIMG,
-    title: "chilli",
+    url: denizenIMG,
+    title: "Denizen",
+    link: "https://apps.apple.com/ua/app/denizen/id1542599510?l=ru",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus velit, euismod a lacus fringilla, efficitur convallis mauris. Nam laoreet purus vitae massa interdum, a malesuada lacus luctus.",
+      "Denizen is available in both AppStore and Google Play Store. The app allows to find great locations and places for hosting events or just working in your neighborhood. It is currently available in Kreuzberg and Mitte. The process of booking is simple and will be convenient for any type of user.",
+  },
+  {
+    url: hyypIMG,
+    title: "HYYP",
+    link: "https://play.google.com/store/apps/details?id=com.hyyp247.home",
+    description:
+      "With HYYP you can: \n - manage your alarm system remotely view the live status of your alarm \n - access a live event log \n - control user access to your alarm \n - add visitors to your home, control access rights of employees, all without them ever being given a code to your alarm \n - receive real-time notifications ",
   },
 ];

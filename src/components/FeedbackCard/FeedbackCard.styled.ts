@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 
 export const FeedbackCardContainer = styled.div`
   width: 27em;
-  height: 100%;
+  height: 600px;
   font-family: ${themes.primary.font.family.roboto};
 
   display: flex;
@@ -20,12 +20,19 @@ export const FeedbackCardWrapper = styled.div`
 export const FeedbackCardName = styled.h2`
   margin: 0 22px 0 0;
   font-size: 22px;
+  cursor: default;
 `;
 
-export const FeedbackCardCompany = styled.span`
+export const FeedbackCardCompany = styled.a`
   display: block;
   margin: 0.7em 0 0.7em 0;
   font-size: 1.125em;
+  transition: 300ms;
+  cursor: pointer;
+
+  &:hover {
+    color: ${themes.primary.colors.linkBlue};
+  }
 `;
 
 export const FeedbackCardPosition = styled.span`
@@ -35,12 +42,14 @@ export const FeedbackCardPosition = styled.span`
   background-color: ${themes.primary.colors.septenary};
   border-radius: 5px;
   margin-bottom: 1em;
+  cursor: default;
 `;
 
 export const FeedbackCardDescription = styled.span`
   display: block;
   font-size: 1.125em;
   line-height: 175%;
+  cursor: default;
 
   width: 90%;
 `;

@@ -3,6 +3,9 @@ import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 15em;
+  background-color: ${themes.primary.colors.secondary};
+  height: 120px;
+
   display: flex;
   align-items: center;
 
@@ -12,9 +15,16 @@ export const Container = styled.div`
   }
 `;
 
-export const WebAddressContainer = styled.div``;
+export const Row = styled.div`
+  display: flex;
+`;
 
-export const WebAddress = styled.p`
+export const WebAddressContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const WebAddress = styled.a`
   font-size: 1.4em;
   font-family: ${themes.primary.font.family.mulish};
 
@@ -24,8 +34,8 @@ export const WebAddress = styled.p`
 `;
 
 export const SocialLinksContainer = styled.div`
-  margin-left: 20em;
   display: flex;
+  margin-left: 12em;
   align-items: center;
   height: 4em;
   background-image: url("/footer_icons_bg.png");

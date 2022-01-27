@@ -3,9 +3,10 @@ import { IStyledButtonProps } from "../../types/Button.types";
 
 export const StyledButton = styled.button.attrs(
   (props: IStyledButtonProps) => ({
+    type: props.type,
     width: props.width,
     height: props.height,
-    marginTop: props.topSpacing,
+    marginTop: props.marginTop,
     letterSpacing: props.letterSpacing,
   })
 )`

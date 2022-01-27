@@ -2,33 +2,47 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const CategoryContainer = styled.div`
-  width: 19em;
-  height: 21.2em;
+  width: 304px;
+  height: 340px;
   margin: 0 27px 27px 0;
   border-radius: 6px;
-  flex: 0 1 19em;
+  flex: 0 1 304px;
   position: relative;
   transition: 300ms;
-
-  &:not(:nth-child(2)):nth-child(2n + 2) {
-    background-color: #ffefd8;
-    border-radius: 60px;
-  }
+  cursor: pointer;
 
   &:nth-child(odd) {
     background-color: #a9cdf5;
+    &:hover {
+      background-color: ${themes.primary.colors.linkBlue};
+    }
   }
 
   &:nth-child(2) {
     background-color: #c7fb9c;
+    &:hover {
+      background-color: ${themes.primary.colors.cardDarkGreen};
+    }
   }
 
   &:last-child {
     background-color: #c7fb9c;
+    &:hover {
+      background-color: ${themes.primary.colors.cardDarkGreen};
+    }
   }
 
   &:hover {
     transform: rotate(7deg);
+  }
+
+  &:not(:nth-child(2)):nth-child(2n + 2) {
+    background-color: #ffefd8;
+    border-radius: 60px;
+    cursor: default;
+    &:hover {
+      transform: rotate(0deg);
+    }
   }
 `;
 

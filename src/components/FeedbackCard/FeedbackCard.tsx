@@ -5,11 +5,13 @@ import themes from "../../utils/themes";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import ButtonReadMore from "../../utils/Buttons/ButtonReadMore";
 import { IFeedbackCardProps } from "../../types/Feedback.types";
+import Link from "next/link";
 
 const FeedbackCard: FC<IFeedbackCardProps> = ({
   name,
   company,
   position,
+  link,
   rates,
   description,
 }) => {
@@ -36,9 +38,11 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
           />
         </StyledThisComp.FeedbackCardWrapper>
 
-        <StyledThisComp.FeedbackCardCompany>
-          {company}
-        </StyledThisComp.FeedbackCardCompany>
+        <Link href={link} passHref>
+          <StyledThisComp.FeedbackCardCompany target="_blank">
+            {company}
+          </StyledThisComp.FeedbackCardCompany>
+        </Link>
 
         <StyledThisComp.FeedbackCardPosition>
           {position}
@@ -49,7 +53,9 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
       </StyledThisComp.FeedBackContentWrapper>
 
       <ButtonReadMore onClick={toggleFullFeedbackHandler}>
-        <ButtonTextWrapper fontSize={"1.35em"}>read more</ButtonTextWrapper>
+        <ButtonTextWrapper fontSize={"1.35em"}>
+          read {isOpenFullFeedBack ? "less" : "more"}
+        </ButtonTextWrapper>
       </ButtonReadMore>
     </StyledThisComp.FeedbackCardContainer>
   );
