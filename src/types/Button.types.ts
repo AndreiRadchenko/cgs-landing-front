@@ -17,8 +17,7 @@ export interface IStyledButtonProps {
   type: string;
   height?: string;
   width?: string;
-  src?: string;
-  topSpacing?: string;
+  marginTop?: string;
   letterSpacing: string;
 }
 

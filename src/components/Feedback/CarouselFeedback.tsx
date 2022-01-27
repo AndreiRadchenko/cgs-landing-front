@@ -13,12 +13,13 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({ feedback }) => {
     <Swiper slidesPerView={3} spaceBetween={30}>
       {[...feedback]
         .reverse()
-        .map(({ name, description, company, position, rates }, idx) => (
+        .map(({ name, description, link, company, position, rates }, idx) => (
           <SwiperSlide key={idx}>
             <FeedbackCard
               name={name}
               description={description}
               company={company}
+              link={link}
               position={position}
               rates={rates}
             />

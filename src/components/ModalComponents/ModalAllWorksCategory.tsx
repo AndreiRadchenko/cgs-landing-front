@@ -38,10 +38,11 @@ const ModalAllWorksCategory: FC<IAllCategoriesModalProps> = ({
         </StyledCategory.NavigationWrapper>
       </StyledCategory.NavPanel>
       <StyledCategory.CategoryProjectsContainer>
-        {projectsModalArr.map(({ url, title, description }) => (
+        {projectsModalArr.map(({ url, title, link, description }) => (
           <ModalCategoryAllWorkCard
             key={title}
             url={url}
+            link={link}
             title={title}
             description={description}
           />

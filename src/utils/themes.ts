@@ -39,9 +39,21 @@ const themes = {
       decorationText: "#C7FB9C",
       quinary: "#FFA046",
       primary: "#000",
+      secondary: "#fff",
       starActive: "#FBA446",
       starDisable: "#EEE6DD",
       septenary: "#A9CDF5",
+      blue: "#85BEFD",
+      linkBlue: "#3C95F9",
+      cardDarkGreen: "#90e645",
+      orange: "#FFC061",
+      green: "#B6FD7A",
+      lighten: {
+        blue: "#A6D0FF",
+        orange: "#FFCE85",
+
+        green: "#CAFF9D",
+      },
       errorText: "#ea0000",
     },
     media: {

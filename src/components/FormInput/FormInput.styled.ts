@@ -13,6 +13,7 @@ export const FormInput = styled.input`
   line-height: 145%;
   outline: none;
   border: 1px solid ${themes.primary.colors.primary};
+  font-family: ${themes.primary.font.family.sourceCode};
 
   &::-webkit-input-placeholder:after {
     content: "*";
@@ -29,6 +30,7 @@ export const TextAreaInput = styled.textarea`
   height: 8em;
   outline: none;
   border: 1px solid ${themes.primary.colors.primary};
+  font-family: ${themes.primary.font.family.sourceCode};
 `;
 
 export const ErrorNotification = styled.span`

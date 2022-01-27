@@ -10,6 +10,10 @@ export const PartnersContainer = styled.div`
   & > * {
     flex: 1 1 ${themes.primary.spacing.cardPartners};
   }
+
+  @media (max-width: 1401px) {
+    display: none;
+  }
 `;
 
 export const PartnerImageWrapper = styled.div`

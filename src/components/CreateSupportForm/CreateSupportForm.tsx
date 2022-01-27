@@ -44,7 +44,7 @@ const CreateSupportForm = () => {
           value={values.message}
           handleChange={handleChange}
           name={"message"}
-          placeholder={"Your message"}
+          placeholder={"What's your idea?"}
           errors={errors["message"]}
         />
 

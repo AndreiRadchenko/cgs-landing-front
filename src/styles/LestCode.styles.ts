@@ -7,6 +7,8 @@ export const LetsCodeContainer = styled.section`
   display: flex;
   position: relative;
   margin-top: 60px;
+  height: 650px;
+  font-family: ${themes.primary.font.family.roboto};
 `;
 
 export const LestCodeContent = styled.div`
@@ -20,7 +22,7 @@ export const LetsCodeImageWrapper = styled.div`
 export const CatIconWrapper = styled.div`
   position: absolute;
   right: 5%;
-  top: 26%;
+  top: 24%;
 `;
 
 export const h2CodeIconOpen = styled(CodeIcon).attrs({

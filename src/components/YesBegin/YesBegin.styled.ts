@@ -8,29 +8,35 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   color: ${themes.primary.colors.primary};
+  background-color: ${themes.primary.colors.secondary};
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
 `;
 
 export const Title = styled.h2`
-  font-size: 5em;
+  font-size: 4em;
+  width: 60%;
   text-align: center;
   margin: 0;
 `;
 
 export const SubTitle = styled.h4`
-  font-size: 3em;
+  font-size: 2em;
+  font-weight: 400;
   text-align: center;
   margin: 1em 0 0 0;
 `;
 
 export const ButtonContainer = styled.div`
   position: relative;
+  font-family: ${themes.primary.font.family.sourceCode};
 `;
 
 export const ImageContainer = styled.div`
   position: absolute;
-  width: 6em;
-  height: 7.2em;
-  right: -4em;
-  bottom: -1.9em;
-  z-index: -1;
+  width: 10em;
+  height: 13em;
+  right: -6.5em;
+  bottom: -5.8em;
+  z-index: 10;
 `;

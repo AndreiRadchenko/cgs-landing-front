@@ -23,7 +23,7 @@ const HeaderNav = () => {
       <StyledThisComp.HeaderNavLinkWrapper>
         {navigationRoutesNames.map((item) => (
           <StyledThisComp.ListItemNav key={item}>
-            <Link href={item} passHref>
+            <Link href={item[0]} passHref>
               {item}
             </Link>
           </StyledThisComp.ListItemNav>
