@@ -31,11 +31,7 @@ import technologyBlockchainIMG from "../../public/technology-blockchain-icon.svg
 import bigOurTeamIMG from "../../public/bigOurTeam.svg";
 import smallOurTeamIMG from "../../public/ourTeam.png";
 
-//projects names
-import REviewIMG from "../../public/review.svg";
-import socialMediaIMG from "../../public/socialMedia.svg";
-import growthdayIMG from "../../public/growthday.svg";
-import chilliProjectIMG from "../../public/chilli.svg";
+
 import { IFeedbackCardProps } from "../types/Feedback.types";
 
 export const routers = {
@@ -307,53 +303,55 @@ export const ourTeamArr = [
   },
 ];
 
-//projects names
-import ResealiseIMG from "../../public/realiseMe.png";
-import myITIMG from "../../public/myIT.png";
-import admyreIMG from "../../public/admyre.png";
-import denizenIMG from "../../public/denizen.png";
-import growthDayCompanyIMG from "../../public/growthday.png";
-import hyypIMG from "../../public/hyyp.png";
+// //projects names
+import companyName1 from "../../public/realiseMe.png";
+import companyName2 from "../../public/myIT.png";
+import companyName3 from "../../public/admyre.png";
+import companyName4 from "../../public/denizen.png";
+import companyName5 from "../../public/growthday.png";
+import companyName6 from "../../public/hyyp.png";
+
+
 import { IModalProjectCardProps } from "../types/ModalCategory.types";
 
 export const projectsModalArr: IModalProjectCardProps[] = [
   {
-    url: ResealiseIMG,
+    url: companyName1,
     title: "RealiseME",
     link: "https://apps.apple.com/ua/app/realiseme/id1456372856?l=ru",
     description:
       "This is a platform that connects teachers (private licensed tutors) and students, who will to prepare for an exam or get help for their homework. The platform is mutually beneficial for students and teachers.",
   },
   {
-    url: myITIMG,
+    url: companyName2,
     title: "myTI",
     link: "https://apps.apple.com/us/app/myti/id1329792134",
     description:
       "This is a SaaS medical platform that helps doctors and patients to organize documentation inside and outside the clinic. In fact, this application was made for one specific clinic, but it can accessed anywhere by subscription. ScanBot is a distinguishing feature of the app - an AI network recognizes keywords in a document via smartphone camera.",
   },
   {
-    url: admyreIMG,
+    url: companyName3,
     title: "Admyre",
     link: "https://play.google.com/store/apps/details?id=com.awesventures.admyre",
     description:
       "This is an EDU platform that establishes communication between students and tutors. It is designed to help people improve their skills in narrow specialties or to learn something completely new, be it language or any other skill.",
   },
   {
-    url: denizenIMG,
+    url: companyName4,
     title: "Denizen",
     link: "https://apps.apple.com/ua/app/denizen/id1542599510?l=ru",
     description:
       "Denizen is available in both AppStore and Google Play Store. The app allows to find great locations and places for hosting events or just working in your neighborhood. It is currently available in Kreuzberg and Mitte. The process of booking is simple and will be convenient for any type of user.",
   },
   {
-    url: growthDayCompanyIMG,
+    url: companyName5,
     title: "GrowthDay",
     link: "https://apps.apple.com/be/app/growthday/id1543291315",
     description:
       "This is a platform aimed at motivating and increasing self-perception of people who need it by setting personal goals and achievements. The application allows you to track progress of other users and see their own based on the completed tasks.",
   },
   {
-    url: hyypIMG,
+    url: companyName6,
     title: "HYYP",
     link: "https://play.google.com/store/apps/details?id=com.hyyp247.home",
     description:

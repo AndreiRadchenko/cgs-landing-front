@@ -15,7 +15,7 @@ export interface IAllCategoriesModalProps extends IModalCategoryProps {
 }
 
 export interface IModalProjectCardProps {
-  url: string;
+  url: any;
   title: string;
   link: string;
   description: string;
