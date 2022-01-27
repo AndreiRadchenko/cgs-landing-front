@@ -41,19 +41,28 @@ export const ProjectsTitle = styled.span`
 
   @media ${themes.primary.media.maxMobile} {
     display: inline-block;
+    
     width: 100%;
   }
 `;
 
 export const DecorationTitle = styled(Decoration)`
-  position: fixed;
+  position: absolute;
   top: 8%;
   left: 3.5%;
   width: 12.5em;
   height: 1.7em;
 
+
+
   @media ${themes.primary.media.maxMobile} {
     top: 5.5%;
-    left: 48%;
+    left: calc(63% - 2em);
   }
+  
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    top: 8.5%;
+    left: 45%;
+  }
+
 `;
