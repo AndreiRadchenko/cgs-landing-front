@@ -23,6 +23,7 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+
   return (
     <Styles.Container>
       <Styles.WebAddressContainer>
