@@ -49,10 +49,11 @@ export const BodySubtitle = styled.span`
   font-family: ${themes.primary.font.family.roboto};
   font-size: ${themes.primary.font.size.quaternary};
   font-weight: 500;
+  line-height: 125%;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0.5em;
-    width: calc(95% - 5em);
+    width: calc(95% - 2em);
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -66,11 +67,12 @@ export const CodeDescription = styled.span`
   margin-top: 1em;
   font-weight: 600;
   font-size: 1.5em;
+  line-height: 145%;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.2em;
     width: 100%;
-    width: calc(95% - 5em);
+    width: calc(95% - 2em);
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -96,7 +98,7 @@ export const WrapperBgImg = styled.div`
   @media ${themes.primary.media.onlyTabletPortrait} {
     width: 60%;
     top: 15%;
-    right: -2%;
+    right: -5%;
   }
 
   @media ${themes.primary.media.maxMobile} {

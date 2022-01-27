@@ -8,7 +8,7 @@ export const HeaderNavContainer = styled.div`
   justify-content: space-between;
 `;
 
-export const LogoLinkWrapper = styled(Link)``;
+export const LogoLinkWrapper = styled.a``;
 
 export const HeaderNavLinkWrapper = styled.div`
   display: flex;
