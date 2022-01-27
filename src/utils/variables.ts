@@ -316,34 +316,34 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     title: "RealiseME",
     link: "https://apps.apple.com/ua/app/realiseme/id1456372856?l=ru",
     description:
-      "This is a platform that connects teachers (private licensed tutors) and students, who will to prepare for an exam or get help for their homework. The platform is mutually beneficial for students and teachers.",
+      "A platform that connects teachers (private licensed tutors) with students who are going to prepare for an exam or to get help for their homework. The platform is mutually beneficial for students and teachers both. ",
   },
   {
     url: myITIMG,
     title: "myTI",
     link: "https://apps.apple.com/us/app/myti/id1329792134",
     description:
-      "This is a SaaS medical platform that helps doctors and patients to organize documentation inside and outside the clinic. In fact, this application was made for one specific clinic, but it can accessed anywhere by subscription. ScanBot is a distinguishing feature of the app - an AI network recognizes keywords in a document via smartphone camera.",
+      "SaaS medical platform that helps doctors and patients to organize documentation inside and outside the clinic. ScanBot is a distinguishing feature of the app - an AI network recognizes keywords in a document via smartphone camera.",
   },
   {
     url: admyreIMG,
     title: "Admyre",
     link: "https://play.google.com/store/apps/details?id=com.awesventures.admyre",
     description:
-      "This is an EDU platform that establishes communication between students and tutors. It is designed to help people improve their skills in narrow specialties or to learn something completely new, be it language or any other skill.",
+      "This is an EDU platform that establishes communication between students and tutors. It is designed to help people improve their skills in narrow specialties or to learn something completely new whether it is language or any other skill.",
   },
   {
     url: denizenIMG,
     title: "Denizen",
     link: "https://apps.apple.com/ua/app/denizen/id1542599510?l=ru",
     description:
-      "Denizen is available in both AppStore and Google Play Store. The app allows to find great locations and places for hosting events or just working in your neighborhood. It is currently available in Kreuzberg and Mitte. The process of booking is simple and will be convenient for any type of user.",
+      "The app allows you to find great locations and places for hosting events or just working in your neighborhood. It is currently available in Kreuzberg and Mitte. The process of booking is simple and will be convenient for any type of user.",
   },
   {
     url: hyypIMG,
     title: "HYYP",
     link: "https://play.google.com/store/apps/details?id=com.hyyp247.home",
     description:
-      "With HYYP you can: \n - manage your alarm system remotely view the live status of your alarm \n - access a live event log \n - control user access to your alarm \n - add visitors to your home, control access rights of employees, all without them ever being given a code to your alarm \n - receive real-time notifications ",
+      "Functions such as real-time notifications, control of access rights of users will allow you to manage the alarm system remotely and keep the security of your building under control. Even if you are miles away from it.",
   },
 ];

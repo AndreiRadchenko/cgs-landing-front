@@ -27,7 +27,7 @@ export const Page = styled.article`
       ${themes.primary.spacing.headerNavHorizontal};
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 310px;
+
     padding: 2em 2em;
   }
 `;

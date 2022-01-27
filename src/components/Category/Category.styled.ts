@@ -48,16 +48,29 @@ export const CategoryContainer = styled.div`
       transform: rotate(0deg);
     }
 
-    @media ${themes.primary.media.maxMobile} {
+    @media ${themes.primary.media.maxTabletPortrait} {
       display: none;
     }
   }
+  
+  
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    flex: 0 1 18em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
-    flex: 0 1 16em;
+    flex: 0 1 20em;
     margin: 10px;
   }
+  
+  
+  
+  @media (max-width: 543px) {
+    flex: 0 1 40%;
+    height: 23em;
+  }
 `;
+
 
 export const WrapperDescription = styled.div`
   padding: ${themes.primary.spacing.septenary}
