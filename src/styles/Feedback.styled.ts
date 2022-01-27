@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
+import BaseButton from "../components/BaseButton/BaseButton";
 
 export const FeedbackContainer = styled.section`
   font-family: ${themes.primary.font.family.roboto};
@@ -22,4 +23,40 @@ export const FeedbackSectionSubTitle = styled.h3`
 export const FeedbackRow = styled.div`
   display: flex;
   justify-content: space-between;
+  position: relative;
+`;
+
+export const StyledArrowButton = styled.button`
+  position: absolute;
+  width: 8em;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+  transition: 300ms;
+
+  &:last-child {
+    transform: rotate(180deg);
+    right: -10%;
+    top: 15%;
+  }
+
+  &:first-child {
+    left: -10%;
+    top: 15%;
+  }
+
+  &:hover {
+    &:first-child {
+      left: -12%;
+    }
+
+    &:last-child {
+      right: -12%;
+    }
+  }
 `;
