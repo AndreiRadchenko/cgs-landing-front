@@ -19,6 +19,14 @@ export const FormInput = styled.input`
     content: "*";
     color: ${themes.primary.colors.starActive};
   }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1.3em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.3em;
+  }
 `;
 
 export const TextAreaInput = styled.textarea`
@@ -31,6 +39,14 @@ export const TextAreaInput = styled.textarea`
   outline: none;
   border: 1px solid ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.sourceCode};
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1.5em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5em;
+  }
 `;
 
 export const ErrorNotification = styled.span`
@@ -39,4 +55,12 @@ export const ErrorNotification = styled.span`
 
   padding-top: 0.3em;
   padding-left: 1em;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1.3em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.3em;
+  }
 `;

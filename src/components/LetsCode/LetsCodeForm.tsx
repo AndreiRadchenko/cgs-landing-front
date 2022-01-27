@@ -6,12 +6,12 @@ import CreateSupportForm from "../CreateSupportForm/CreateSupportForm";
 
 const LetsCodeForm = () => {
   return (
-    <StyledThisComp.LetsCodeContainer>
+    <>
       <StyledThisComp.LetsCodeImageWrapper>
         <Image src={FormWrapperIMG} alt={"form wrapper alt img"} />
       </StyledThisComp.LetsCodeImageWrapper>
       <CreateSupportForm />
-    </StyledThisComp.LetsCodeContainer>
+    </>
   );
 };
 
