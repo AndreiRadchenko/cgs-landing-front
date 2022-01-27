@@ -4,13 +4,14 @@ import Decoration from "../components/Decoration/Decoration";
 
 export const AboutUsContainer = styled.section`
   position: relative;
+
   margin-top: 13.5em;
   font-family: ${themes.primary.font.family.roboto};
 `;
 
 export const AboutUsWrapper = styled.div`
   width: 85%;
-  margin: 0 auto;
+  margin: 1em auto;
   display: flex;
   justify-content: space-between;
 
@@ -28,6 +29,7 @@ export const AboutUsTitle = styled.h2`
 `;
 
 export const AboutUsCardContainer = styled.div`
+
   width: ${themes.primary.spacing.aboutUsCard};
   display: flex;
   flex-direction: column;
@@ -42,7 +44,7 @@ export const AboutUsCardContainer = styled.div`
 
   &:nth-child(odd) {
     justify-content: space-between;
-    margin-top: 2em;
+    margin-top: 1em;
   }
 `;
 
@@ -52,10 +54,12 @@ export const CardDescriptionWrapper = styled.div`
   font-size: ${themes.primary.font.size.buttonText};
   font-family: ${themes.primary.font.family.roboto};
   font-weight: 400;
+  margin-top: .2em;
 
   &.columnDescription {
     flex-direction: column;
     align-items: center;
+    margin-top: 0;
   }
 `;
 
