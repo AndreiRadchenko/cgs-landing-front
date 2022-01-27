@@ -21,6 +21,7 @@ export const ProjectsCategoryRow = styled.div`
 
 export const ProjectTitleWrapper = styled.div`
   flex: 1 1 400px;
+  position: relative;
   display: inline-block;
 
   @media ${themes.primary.media.maxMobile} {
@@ -36,7 +37,7 @@ export const ProjectsTitle = styled.span`
   font-weight: 700;
   font-family: ${themes.primary.font.family.roboto};
   position: relative;
-  z-index: 2;
+  z-index: 4;
 
   @media ${themes.primary.media.maxMobile} {
     display: inline-block;
@@ -45,14 +46,14 @@ export const ProjectsTitle = styled.span`
 `;
 
 export const DecorationTitle = styled(Decoration)`
-  position: absolute;
+  position: fixed;
   top: 8%;
   left: 3.5%;
-  width: 12.6em;
-  height: 1.4em;
+  width: 12.5em;
+  height: 1.7em;
 
   @media ${themes.primary.media.maxMobile} {
-    top: 3.5%;
-    left: 55%;
+    top: 5.5%;
+    left: 48%;
   }
 `;

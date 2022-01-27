@@ -54,8 +54,8 @@ export const CategoryContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    flex: 0 1 17em;
-    margin: 20px 0;
+    flex: 0 1 16em;
+    margin: 10px;
   }
 `;
 
@@ -79,6 +79,6 @@ export const DescriptionSpecialization = styled.span`
 
 export const IconWrapperSpecialization = styled.div`
   position: absolute;
-  bottom: 5%;
+  bottom: 3%;
   right: 5%;
 `;
