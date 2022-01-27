@@ -8,6 +8,7 @@ import { IModalProjectCardProps } from "../../types/ModalCategory.types";
 const ModalBlockSpecifyTechnology: FC<IModalProjectCardProps> = ({
   url,
   title,
+  link,
   description,
 }) => {
   return (
@@ -23,17 +24,23 @@ const ModalBlockSpecifyTechnology: FC<IModalProjectCardProps> = ({
       </StyledCategory.SpecifyContentImgWrapper>
       <StyledCategory.SpecifyContentWrapper>
         <StyledCategory.ContentWrapper>
-          <StyledCategory.ProjectTitleName>
-            {title}
-          </StyledCategory.ProjectTitleName>
-          <StyledCategory.ProjectDescription>
-            {description}
-          </StyledCategory.ProjectDescription>
-          <ButtonProjectLink>
-            <ButtonTextWrapper fontSize={"1.2em"}>
-              project link
-            </ButtonTextWrapper>
-          </ButtonProjectLink>
+          <StyledCategory.MainContent>
+            <StyledCategory.ProjectTitleName>
+              {title}
+            </StyledCategory.ProjectTitleName>
+            <StyledCategory.ProjectDescription>
+              {description}
+            </StyledCategory.ProjectDescription>
+          </StyledCategory.MainContent>
+          <StyledCategory.ProjectLinkWrapper href={link} passHref>
+            <a target={"_blank"}>
+              <ButtonProjectLink>
+                <ButtonTextWrapper fontSize={"1.2em"}>
+                  project link
+                </ButtonTextWrapper>
+              </ButtonProjectLink>
+            </a>
+          </StyledCategory.ProjectLinkWrapper>
         </StyledCategory.ContentWrapper>
       </StyledCategory.SpecifyContentWrapper>
     </StyledCategory.ProjectSpecifyTechnologyContainer>

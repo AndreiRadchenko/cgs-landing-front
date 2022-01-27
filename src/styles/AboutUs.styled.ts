@@ -5,6 +5,7 @@ import Decoration from "../components/Decoration/Decoration";
 export const AboutUsContainer = styled.section`
   position: relative;
   margin-top: 13.5em;
+  font-family: ${themes.primary.font.family.roboto};
 `;
 
 export const AboutUsWrapper = styled.div`
