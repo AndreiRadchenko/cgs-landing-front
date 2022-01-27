@@ -303,12 +303,12 @@ export const ourTeamArr = [
 ];
 
 //projects names
-import companyName1 from "../../public/realiseMe.png";
-import companyName2 from "../../public/myIT.png";
-import companyName3 from "../../public/admyre.png";
-import companyName4 from "../../public/denizen.png";
-import companyName5 from "../../public/growthday.png";
-import companyName6 from "../../public/hyyp.png";
+import companyName1 from "../../public/releaseMeZipped.png";
+import companyName2 from "../../public/myITzipped.png";
+import companyName3 from "../../public/admyreZipped.png";
+import companyName4 from "../../public/denizenZipped.png";
+import companyName5 from "../../public/growthDayZipped.png";
+import companyName6 from "../../public/hyypZipped.png";
 
 
 import { IModalProjectCardProps } from "../types/ModalCategory.types";
