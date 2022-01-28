@@ -13,9 +13,13 @@ export const ProjectsCategoryRow = styled.div`
   justify-content: flex-end;
   max-width: 1350px;
   margin: 0 auto;
-  
+
+  @media ${themes.primary.media.minPC} {
+    justify-content: flex-end;
+  }
+
   @media ${themes.primary.media.onlyTabletLandScape} {
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
@@ -32,18 +36,21 @@ export const ProjectTitleWrapper = styled.div`
   position: relative;
   display: inline-block;
 
+  @media ${themes.primary.media.minPC} {
+    flex: 0 1 40em;
+    height: 24em;
+  }
+
   @media ${themes.primary.media.onlyTabletLandScape} {
+    flex: 1 1 300px;
+    margin-bottom: 3em;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
     flex: 1 1 500px;
     margin-bottom: 3em;
   }
 
-  
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    flex: 1 1 460px;
-    margin-bottom: 3em;
-  }
-  
-  
   @media ${themes.primary.media.maxMobile} {
     flex: initial;
     margin-bottom: 2em;
@@ -59,12 +66,17 @@ export const ProjectsTitle = styled.span`
   position: relative;
   z-index: 4;
 
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    width: 30%;
+    font-size: 1.7em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     display: inline-block;
-    width:100%;
+    width: 100%;
   }
-  
-  @media(min-width: 640px) {
+
+  @media (min-width: 640px) {
     width: 80%;
   }
 `;
@@ -75,28 +87,43 @@ export const DecorationTitle = styled(Decoration)`
   left: 28em;
   width: 12.5em;
   height: 1.7em;
-  
+
+  @media ${themes.primary.media.minPC} {
+    top: 15%;
+    left: 4%;
+  }
+
+  @media ${themes.primary.media.onlyLaptop} {
+    top: 5%;
+    left: 48%;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    width: 11em;
+    height: 1.3em;
+    top: 13%;
+    left: 4%;
+  }
+
   @media ${themes.primary.media.onlyTabletPortrait} {
     position: absolute;
     top: 6.5%;
     left: 37.5%;
-    
   }
-  
+
   @media ${themes.primary.media.maxMobile} {
     position: fixed;
     top: 3.7em;
     left: 27.5em;
   }
-  
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     top: 3.3em;
     left: 24.7em;
   }
-  
+
   @media (max-width: 378px) {
     top: 5.6em;
     left: 3.6em;
   }
-  
 `;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Modal } from "@mui/material";
+import themes from "../utils/themes";
 
 export const BackDrop = styled.div`
   z-index: -1;
@@ -34,6 +35,26 @@ export const ModalWrapper = styled.div`
   top: 10%;
   background-color: #f7f7f7;
   opacity: 1;
+
+  @media ${themes.primary.media.onlyLaptop} {
+    width: 1040px;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    width: 80%;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    width: 90%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 90%;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 80%;
+  }
 `;
 
 export const ModalCloseButton = styled.button`

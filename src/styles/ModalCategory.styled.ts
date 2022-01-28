@@ -27,7 +27,7 @@ export const CategoryTitleWrapper = styled.div`
 `;
 
 export const CategoryName = styled.h2`
-  font-size: 30px;
+  font-size: 2.5em;
   margin: 10px 0 15px 0;
   position: relative;
   z-index: 2;
@@ -36,6 +36,10 @@ export const CategoryName = styled.h2`
 export const CategoryUnderline = styled.div`
   width: 4em;
   border: 1px solid #000;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 3em;
+  }
 `;
 
 export const NavigationWrapper = styled.div`
@@ -118,17 +122,67 @@ export const ProjectSpecifyTechnologyContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+
+  @media ${themes.primary.media.onlyLaptop} {
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    flex-direction: column;
+  }
 `;
 
 export const SpecifyContentWrapper = styled.div`
   width: 40%;
   height: 100%;
+
+  @media ${themes.primary.media.onlyLaptop} {
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 100%;
+    height: 250px;
+  }
 `;
 
 export const SpecifyContentImgWrapper = styled.div`
   width: 60%;
   height: 400px;
   position: relative;
+
+  @media ${themes.primary.media.onlyLaptop} {
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 100%;
+    height: 250px;
+  }
 `;
 
 export const MainContent = styled.div``;

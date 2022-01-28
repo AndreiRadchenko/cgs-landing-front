@@ -44,6 +44,7 @@ export const CategoryContainer = styled.div`
     background-color: #ffefd8;
     border-radius: 60px;
     cursor: default;
+
     &:hover {
       transform: rotate(0deg);
     }
@@ -52,8 +53,23 @@ export const CategoryContainer = styled.div`
       display: none;
     }
   }
-  
-  
+
+  &:nth-child(4) {
+    @media ${themes.primary.media.onlyTabletLandScape} {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.minPC} {
+    flex: 0 1 19em;
+    height: 24em;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    flex: 0 1 16em;
+    height: 22em;
+  }
+
   @media ${themes.primary.media.onlyTabletPortrait} {
     flex: 0 1 18em;
   }
@@ -62,15 +78,12 @@ export const CategoryContainer = styled.div`
     flex: 0 1 20em;
     margin: 10px;
   }
-  
-  
-  
+
   @media (max-width: 543px) {
     flex: 0 1 40%;
     height: 23em;
   }
 `;
-
 
 export const WrapperDescription = styled.div`
   padding: ${themes.primary.spacing.septenary}
