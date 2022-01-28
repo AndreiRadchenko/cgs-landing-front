@@ -3,6 +3,7 @@ import themes from "../utils/themes";
 
 export const BodyContainer = styled.section`
   position: relative;
+  // overflow: hidden;
 `;
 
 export const BodyDescriptionWrapper = styled.div`
@@ -34,10 +35,14 @@ export const CodeDescription = styled.span`
 
 export const WrapperBgImg = styled.div`
   position: absolute;
-  right: -8%;
+  right: -3%;
   top: 0;
   width: 70%;
   overflow: hidden;
+  // display: inline-block;
+  // position: relative;
+  // width: 50%;
+  // height: 100%;
 
   transform: rotate(1.5deg);
 `;

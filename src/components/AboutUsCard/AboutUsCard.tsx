@@ -31,8 +31,9 @@ const AboutUsCard: FC<IAboutUsCardProps> = ({ url, description, text }) => {
             className={description !== "quantity" ? "columnDescription" : ""}
           >
             {text}
+            <StyledThisComp.DecorationText className={description} />
           </StyledThisComp.CardDescriptionValue>
-          <StyledThisComp.DecorationText className={description} />
+          
         </StyledThisComp.CardDescriptionValueWrapper>
       </StyledThisComp.CardDescriptionWrapper>
     </StyledThisComp.AboutUsCardContainer>

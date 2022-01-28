@@ -7,9 +7,10 @@ import backImg from "../../../public/back-button.png";
 import ImagePreview from "../Image/ImagePreview";
 import { IWelcomePageProps } from "./types";
 
+
 const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
   return (
-    <>
+    <div>
       <StyledThisComp.BodyDescriptionWrapper>
         <StyledThisComp.BodyTitle>EUREKA!</StyledThisComp.BodyTitle>
         <StyledThisComp.BodySubtitle>
@@ -34,8 +35,10 @@ const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
             priority={true}
           />
         </StyledThisComp.WrapperBgImg>
+
       </StyledThisComp.BodyDescriptionWrapper>
-    </>
+
+    </div>
   );
 };
 

@@ -72,26 +72,25 @@ export const CategoryTechnology = styled.span`
 
 export const DecorationTitle = styled(Decoration)`
   position: absolute;
-  height: 1.2em;
-  top: 17%;
+  z-index: -1;
+  height: .9em;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
 
   &.web {
-    width: 4.3em;
+    width: 4ch;
   }
 
   &.mobile {
-    width: 6.5em;
+    width: 6ch;
   }
 
   &.server {
-    top: 13.5%;
-    left: -5%;
-    width: 6em;
+    width: 6ch;
   }
 
   &.blockchain {
-    top: 13.8%;
-    left: -5%;
-    width: 10em;
+    width: 9.5ch;
   }
 `;

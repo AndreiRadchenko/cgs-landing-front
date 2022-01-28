@@ -71,23 +71,21 @@ export const CardDescriptionValueWrapper = styled.div`
 
 export const DecorationText = styled(Decoration)`
   position: absolute;
-  height: 1.2em;
+  height: 1em;
+  top: 50%;
+  left: -1%;
+  z-index: -1;
 
   &.var {
-    width: 6.7em;
-    top: 47%;
-    left: 10%;
+    width: 11.5ch;
   }
 
   &.quantity {
-    width: 1.7em;
-    top: 40%;
+    width: 3ch;
   }
 
   &.status {
-    width: 7.7em;
-    top: 47%;
-    left: 10%;
+    width: 13.5ch;
   }
 `;
 
