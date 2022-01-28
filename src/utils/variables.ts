@@ -436,7 +436,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
   {
     url: companyName14,
     title: "HomeLike",
-    link: "app.thehomelike.com",
+    link: "https://app.thehomelike.com",
     category: ["web"],
     description:
       "This is a platform for booking apartments in Europe. A distinctive feature of this app is that rental period starts from 3-4 months only. The platform provides renting services for people who travel across Europe for an extended period of time. This project has a complex architecture and was implemented with usage of technologies as Google MAP API / Google maps, PDF parsers, template engines, AI (Artificial Intelligence) and many more.",
@@ -444,7 +444,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
   {
     url: companyName15,
     title: "SpaceImpulse",
-    link: "app.spaceimpulse.com",
+    link: "https://app.spaceimpulse.com",
     category: ["web"],
     description:
       "This is a social platform for people, who work in the space industry, whether they are students, owners of enterprises, manufacturers for space rockets, satellites, drones, etc, analysts, scientists or Elon Musk. The main idea to create a place for communication (via chat) and trading (resale of related parts) in the space industry.",
@@ -452,7 +452,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
   {
     url: companyName16,
     title: "PRS",
-    link: "pandemicreliefsupply.com/",
+    link: "https://www.pandemicreliefsupply.com/",
     category: ["web"],
     description:
       "PRS is a project for COVID-19 vaccination procedure tracking in the USA. More than 12 million people were protected with the help of this site. It has a shop, where you can buy all what is needed for COVID-19 protection: from gloves and masks to air filtration systems.",
@@ -460,7 +460,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
   {
     url: companyName17,
     title: "The Shelf",
-    link: "theshelf.com/",
+    link: "https://theshelf.com/",
     category: ["web"],
     description:
       "Website of marketing agency. It is a comfy environment, where you can find useful info about this creative agency – their projects in portfolio, blog posts. We’ve tried to make it not only comfortable for users, but attractive too, with animations and graphics. Website should be the place with a maximum of info and if you need support on any question – you’re welcome in a pop-up window. Or maybe, you need to schedule a call for building a profitable strategy? No problem, fill in the form and it’s done!",
@@ -468,7 +468,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
   {
     url: companyName18,
     title: "Remetrik inc.",
-    link: "remetrik.com/",
+    link: "https://remetrik.com/",
     category: ["web"],
     description:
       "Remetrik is a perfect solution for record labels, music distributors, and music publishers. It is a cloud-based platform that makes the entire analytic and accounting process more transparent and automated for master and publishing royalties both.",

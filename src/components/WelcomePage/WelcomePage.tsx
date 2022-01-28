@@ -1,12 +1,11 @@
 import * as StyledThisComp from "../../styles/Body.styled";
 import React from "react";
-import mainLogoIMG from "../../../public/mainLogoView.svg";
+import mainLogoIMG from "../../../public/mainLogo.png";
 import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import backImg from "../../../public/back-button.png";
 import ImagePreview from "../Image/ImagePreview";
 import { IWelcomePageProps } from "./types";
-
 
 const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
   return (
@@ -35,9 +34,7 @@ const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
             priority={true}
           />
         </StyledThisComp.WrapperBgImg>
-
       </StyledThisComp.BodyDescriptionWrapper>
-
     </div>
   );
 };

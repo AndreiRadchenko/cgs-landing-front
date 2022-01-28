@@ -2,6 +2,10 @@ import React from "react";
 import * as Styles from "./Footer.styled";
 import FooterIcon from "./FooterIcon";
 import * as StyledCommon from "../../styles/Page.styled";
+import {
+  DecorationFooterLinks,
+  SocialLinksContainerDecoration,
+} from "./Footer.styled";
 
 // TODO temporary solution
 const socialLinks = [
@@ -35,11 +39,12 @@ const Footer = () => {
               contact@codegenerationsoftware.com
             </Styles.WebAddress>
           </Styles.WebAddressContainer>
-          <Styles.SocialLinksContainer>
+          <Styles.SocialLinksContainerDecoration>
             {socialLinks.map((link) => (
               <FooterIcon key={link.href + link.icoUrl} {...link} />
             ))}
-          </Styles.SocialLinksContainer>
+            <Styles.DecorationFooterLinks />
+          </Styles.SocialLinksContainerDecoration>
         </Styles.Row>
       </StyledCommon.Page>
     </Styles.Container>
