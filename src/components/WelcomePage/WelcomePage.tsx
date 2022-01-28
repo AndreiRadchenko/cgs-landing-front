@@ -5,8 +5,10 @@ import mainLogoIMG from "../../../public/mainLogoView.svg";
 import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import backImg from "../../../public/backButton.svg";
+import { IWelcomePageProps } from "./types";
 
-const WelcomePage = () => {
+const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
+
   return (
     <>
       <StyledThisComp.BodyDescriptionWrapper>
@@ -20,7 +22,7 @@ const WelcomePage = () => {
           tightest deadlines
         </StyledThisComp.CodeDescription>
 
-        <BaseButton onClick={() => {}} src={backImg}>
+        <BaseButton onClick={clickHandler} src={backImg}>
           <ButtonTextWrapper fontSize={"1.4em"}>
             get estimation
           </ButtonTextWrapper>
