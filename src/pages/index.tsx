@@ -14,13 +14,16 @@ import HowWeWorkList from "../components/HowWeWorkList/HowWeWorkList";
 import howWeWorksItems from "../mock/HowWeWorkItem";
 import YesBegin from "../components/YesBegin/YesBegin";
 import Footer from "../components/Footer/Footer";
+import { useScrollTo } from "../hooks/useScrollTo";
 
 const Home: NextPage = () => {
+  const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
+
   return (
     <>
       <NoMobileScreenSupport />
       <StyledCommon.Page>
-        <Body />
+        <Body welcomePageButtonHandler={scrollHandler} />
         <AboutUs />
         <Partners />
         <Projects />
@@ -29,9 +32,11 @@ const Home: NextPage = () => {
         <OurTeam />
       </StyledCommon.Page>
       <HowWeWorkList items={howWeWorksItems} />
-      <YesBegin />
+      <YesBegin clickHandler={scrollHandler} />
       <StyledCommon.Page>
-        <LetsCode />
+        <div ref={ref}>
+          <LetsCode />
+        </div>
       </StyledCommon.Page>
       <Footer />
     </>

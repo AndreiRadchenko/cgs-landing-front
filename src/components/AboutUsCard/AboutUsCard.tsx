@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import * as StyledThisComp from "../../styles/AboutUs.styled";
-import Image from "next/image";
+import ImagePreview from "../Image/ImagePreview";
 
 interface IAboutUsCardProps {
-  url: string;
+  url: any;
   description: string;
   text: string;
 }
@@ -11,7 +11,9 @@ interface IAboutUsCardProps {
 const AboutUsCard: FC<IAboutUsCardProps> = ({ url, description, text }) => {
   return (
     <StyledThisComp.AboutUsCardContainer>
-      <Image src={url} alt={`about us icon ${description}`} />
+      <StyledThisComp.WrapperAboutUSIMG>
+        <ImagePreview src={url} alt={`about us icon ${description}`} />
+      </StyledThisComp.WrapperAboutUSIMG>
 
       <StyledThisComp.CardDescriptionWrapper
         className={description !== "quantity" ? "columnDescription" : ""}
@@ -29,8 +31,9 @@ const AboutUsCard: FC<IAboutUsCardProps> = ({ url, description, text }) => {
             className={description !== "quantity" ? "columnDescription" : ""}
           >
             {text}
+            <StyledThisComp.DecorationText className={description} />
           </StyledThisComp.CardDescriptionValue>
-          <StyledThisComp.DecorationText className={description} />
+          
         </StyledThisComp.CardDescriptionValueWrapper>
       </StyledThisComp.CardDescriptionWrapper>
     </StyledThisComp.AboutUsCardContainer>

@@ -1,34 +1,34 @@
-import laptopIconIMG from "../../public/laptop-icon.svg";
-import smartphoneIMG from "../../public/phone-icon.svg";
-import serverIMG from "../../public/database-icon.svg";
-import blockChainIMG from "../../public/blockchain-icon.svg";
+import laptopIconIMG from "../../public/laptop.png";
+import smartphoneIMG from "../../public/mobile.png";
+import serverIMG from "../../public/database.png";
+import blockChainIMG from "../../public/blockchain.png";
 //partners
-import homeLikeIMG from "../../public/homeLike-icon.svg";
-import spaceImpulseIMG from "../../public/spaceImpulse-icon.svg";
-import ibmIMG from "../../public/IBM-icon.svg";
-import sunPowerIMG from "../../public/sunPower-icon.svg";
-import civiqIMG from "../../public/civiq-icon.svg";
-import growthDayIMG from "../../public/growthday-icon.svg";
-import oneWelcomeIMG from "../../public/oneWelcome-icon.svg";
-import pandemicIMG from "../../public/pandemicRelief-icon.svg";
-import wIMG from "../../public/w-icon.svg";
-import trendCommanderIMG from "../../public/trendCommnader-icon.svg";
-import atlassianIMG from "../../public/atlassian-icon.svg";
-import chilliIMG from "../../public/chilli-icon.svg";
+import homeLikeIMG from "../../public/homelike.png";
+import spaceImpulseIMG from "../../public/spaceimpulse.png";
+import ibmIMG from "../../public/ibm.png";
+import sunPowerIMG from "../../public/sunpower.png";
+import civiqIMG from "../../public/civiq.png";
+import growthDayIMG from "../../public/growthDay.png";
+import oneWelcomeIMG from "../../public/onewelcome.png";
+import pandemicIMG from "../../public/pandemic.png";
+import wIMG from "../../public/w-icon.png";
+import trendCommanderIMG from "../../public/trenCommander.png";
+import atlassianIMG from "../../public/atlassian.png";
+import chilliIMG from "../../public/chilli.png";
 
 //about
-import astronautIMG from "../../public/astronaut-about-icon.svg";
-import spaceIMG from "../../public/space-about-icon.svg";
-import starIMG from "../../public/star-about-icon.svg";
+import astronautIMG from "../../public/cosmonaut.png";
+import spaceIMG from "../../public/spaceAbout.png";
+import starIMG from "../../public/starAbout.png";
 
 //technologies
-import technologyLaptopIMG from "../../public/technology-laptop-icon.svg";
-import technologySmartPhoneIMG from "../../public/technology-smartphone-icon.svg";
-import technologyDatabaseIMG from "../../public/technology-database-icon.svg";
-import technologyBlockchainIMG from "../../public/technology-blockchain-icon.svg";
+import technologyLaptopIMG from "../../public/laptop-tech.png";
+import technologySmartPhoneIMG from "../../public/mobileTech.png";
+import technologyDatabaseIMG from "../../public/databaseTech.png";
+import technologyBlockchainIMG from "../../public/blockChainTech.png";
 
 //ourteam
-import bigOurTeamIMG from "../../public/bigOurTeam.svg";
+import bigOurTeamIMG from "../../public/ourTeamBig.png";
 import smallOurTeamIMG from "../../public/ourTeam.png";
 
 import { IFeedbackCardProps } from "../types/Feedback.types";

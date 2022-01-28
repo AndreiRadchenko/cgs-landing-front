@@ -39,8 +39,8 @@ const Projects = () => {
             stack, which means our team <br /> adores Javascript.
             <br /> Furthermore, innovative ideas <br /> and new challenges are
             our passion.
+            <StyledThisComp.DecorationTitle />
           </StyledThisComp.ProjectsTitle>
-          <StyledThisComp.DecorationTitle />
 
           <ButtonSeeAllWorks onClick={seeAllWorksHandler}>
             <ButtonTextWrapper fontSize={themes.primary.font.size.linkText}>
