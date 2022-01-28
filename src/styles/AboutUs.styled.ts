@@ -32,6 +32,12 @@ export const AboutUsCardContainer = styled.div`
   }
 `;
 
+export const WrapperAboutUSIMG = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+`;
+
 export const CardDescriptionWrapper = styled.div`
   display: flex;
   justify-content: center;

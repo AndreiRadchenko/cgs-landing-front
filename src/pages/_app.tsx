@@ -23,7 +23,6 @@ function MyApp({
   emotionCache = clientSideEmotionCache,
   pageProps,
 }: ExtendedAppProps): JSX.Element {
-
   return (
     <>
       <QueryClientProvider client={queryClient}>
@@ -43,7 +42,7 @@ function MyApp({
           <meta property="og:image" content={"/previewLink.png"} />
           <meta property="og:image:width" content="20" />
           <meta property="og:image:height" content="20" />
-          <link rel="icon" href="/favicon.png" />
+          <link rel="icon" href={"/favicon.ico"} />
         </Head>
         <Hydrate state={pageProps.dehydratedState}>
           <CacheProvider value={emotionCache}>

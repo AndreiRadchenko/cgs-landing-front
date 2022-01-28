@@ -1,14 +1,13 @@
 import * as StyledThisComp from "../../styles/Body.styled";
 import React from "react";
-import Image from "next/image";
 import mainLogoIMG from "../../../public/mainLogoView.svg";
 import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
-import backImg from "../../../public/backButton.svg";
+import backImg from "../../../public/back-button.png";
+import ImagePreview from "../Image/ImagePreview";
 import { IWelcomePageProps } from "./types";
 
 const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
-
   return (
     <>
       <StyledThisComp.BodyDescriptionWrapper>
@@ -29,7 +28,7 @@ const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
         </BaseButton>
 
         <StyledThisComp.WrapperBgImg>
-          <Image
+          <ImagePreview
             src={mainLogoIMG}
             alt={"main logo big image"}
             priority={true}

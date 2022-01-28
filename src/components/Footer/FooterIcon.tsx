@@ -1,7 +1,7 @@
 import React from "react";
 import { IconContainer } from "./Footer.styled";
-import Image from "next/image";
 import Link from "next/link";
+import ImagePreview from "../Image/ImagePreview";
 
 type Props = {
   icoUrl: string;
@@ -13,7 +13,7 @@ const FooterIcon = ({ icoUrl, href }: Props) => {
     <Link href={href}>
       <a target="_blank">
         <IconContainer>
-          <Image src={icoUrl} layout="fill" alt={icoUrl} />
+          <ImagePreview src={icoUrl} layout="fill" alt={icoUrl} />
         </IconContainer>
       </a>
     </Link>

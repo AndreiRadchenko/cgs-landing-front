@@ -3,7 +3,7 @@ import * as StyledThisComp from "../../styles/OurTeam.styled";
 import Image from "next/image";
 
 interface IOurTeamCardProps {
-  url: string;
+  url: any;
   title: string;
   description: string;
 }
@@ -11,7 +11,13 @@ interface IOurTeamCardProps {
 const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
   return (
     <StyledThisComp.OurTeamCardContainer>
-      <Image src={url} alt={`our team ${title} img`} quality={100} />
+      <Image
+        src={url}
+        alt={`our team ${title} img`}
+        quality={100}
+        layout={"fixed"}
+        objectFit={"cover"}
+      />
       <StyledThisComp.OurTeamCardContent>
         <StyledThisComp.OurTeamCardTitle>
           {title}:
