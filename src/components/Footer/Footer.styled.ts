@@ -17,6 +17,10 @@ export const Container = styled.div`
 
 export const Row = styled.div`
   display: flex;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    justify-content: center;
+  }
 `;
 
 export const WebAddressContainer = styled.div`
@@ -60,7 +64,7 @@ export const IconContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin: 0 2em;
-    width: 3em;
-    height: 3em;
+    width: 3.1em;
+    height: 3.1em;
   }
 `;

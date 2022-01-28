@@ -24,25 +24,22 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+
   return (
-    <StyledCommon.Page>
-      <Styles.Row>
-        <Styles.Container>
-          <Styles.WebAddressContainer>
-            <Styles.WebAddress
-              href={"mailto:contact@codegenerationsoftware.com"}
-            >
-              contact@codegenerationsoftware.com
-            </Styles.WebAddress>
-          </Styles.WebAddressContainer>
-          <Styles.SocialLinksContainer>
-            {socialLinks.map((link) => (
-              <FooterIcon key={link.href + link.icoUrl} {...link} />
-            ))}
-          </Styles.SocialLinksContainer>
-        </Styles.Container>
-      </Styles.Row>
-    </StyledCommon.Page>
+    <Styles.Row>
+      <Styles.Container>
+        <Styles.WebAddressContainer>
+          <Styles.WebAddress href={"mailto:contact@codegenerationsoftware.com"}>
+            contact@codegenerationsoftware.com
+          </Styles.WebAddress>
+        </Styles.WebAddressContainer>
+        <Styles.SocialLinksContainer>
+          {socialLinks.map((link) => (
+            <FooterIcon key={link.href + link.icoUrl} {...link} />
+          ))}
+        </Styles.SocialLinksContainer>
+      </Styles.Container>
+    </Styles.Row>
   );
 };
 
