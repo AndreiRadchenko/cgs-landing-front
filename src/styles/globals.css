@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 html,
 body {
@@ -8,43 +8,49 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-
-
 body {
-    font-size: 0.7em;
-    background-color: #F7F7F7;
-}
-
-@media(max-width: 1400px) {
-    body {
-        overflow: hidden;
-    }
+  font-size: 0.7em;
+  background-color: #f7f7f7;
 }
 
 @media (max-width: 767px) {
-
+  body {
+    font-size: 0.6em;
+  }
 }
-@media (min-width: 768px) {
+@media (max-width: 767px) {
+  body {
+    font-size: 0.65em;
+  }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) and (max-width: 992px) {
+  body {
+    font-size: 0.75em;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  body {
+    font-size: 0.85em;
+  }
 }
 
 @media (min-width: 1200px) {
-    body {
-        font-size: 0.75em;
-    }
+  body {
+    font-size: 0.75em;
+  }
 }
 @media (min-width: 1500px) {
-    body {
-        font-size: 0.85em;
-    }
+  body {
+    font-size: 0.85em;
+  }
 }
 
 @media (min-width: 1800px) {
-    body {
-        font-size: 1em;
-    }
+  body {
+    font-size: 1em;
+  }
 }
 
 a {
