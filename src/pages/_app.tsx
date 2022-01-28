@@ -8,6 +8,7 @@ import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { EmotionCache } from "@emotion/utils";
 import { CacheProvider } from "@emotion/react";
+import faviconIco from "../../public/favicon.ico";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -39,10 +40,10 @@ function MyApp({
             property="og:description"
             content="Launching successful startups for over 6 years already"
           />
-          <meta property="og:image" content={"/previewLink.png"} />
+          <meta property="og:image" content="/previewLink.png" />
           <meta property="og:image:width" content="20" />
           <meta property="og:image:height" content="20" />
-          <link rel="icon" href={"/favicon.ico"} />
+          <link rel="icon" href="/favicon.ico" />
         </Head>
         <Hydrate state={pageProps.dehydratedState}>
           <CacheProvider value={emotionCache}>

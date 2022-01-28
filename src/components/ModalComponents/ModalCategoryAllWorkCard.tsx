@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import * as StyledCategory from "../../styles/ModalCategory.styled";
-import Image from "next/image";
 import ButtonProjectLink from "../../utils/Buttons/ButtonProjectLink";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import { IModalProjectCardProps } from "../../types/ModalCategory.types";
+import ImagePreview from "../Image/ImagePreview";
 
 const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
   url,
@@ -13,7 +13,12 @@ const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
 }) => {
   return (
     <StyledCategory.ProjectContainer>
-      <Image src={url} alt={"alt image card"} quality={100} />
+      <ImagePreview
+        src={url}
+        placeholder="blur"
+        alt={"alt image card"}
+        quality={100}
+      />
       <StyledCategory.ContentWrapper>
         <StyledCategory.ContentWrapper>
           <StyledCategory.MainContent>

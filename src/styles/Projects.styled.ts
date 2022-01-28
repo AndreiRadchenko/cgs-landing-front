@@ -33,8 +33,8 @@ export const ProjectsTitle = styled.span`
 export const DecorationTitle = styled(Decoration)`
   position: absolute;
   z-index: -1;
-  top: 1.5em;
+  top: 1.9em;
   left: -1%;
   width: 11.2ch;
-  height: .9em;
+  height: 0.7em;
 `;
