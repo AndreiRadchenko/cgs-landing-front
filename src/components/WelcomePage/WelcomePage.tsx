@@ -5,10 +5,11 @@ import mainLogoIMG from "../../../public/mainLogoView.svg";
 import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import backImg from "../../../public/backButton.svg";
+import { relative } from "path/posix";
 
 const WelcomePage = () => {
   return (
-    <>
+    <div>
       <StyledThisComp.BodyDescriptionWrapper>
         <StyledThisComp.BodyTitle>EUREKA!</StyledThisComp.BodyTitle>
         <StyledThisComp.BodySubtitle>
@@ -27,14 +28,16 @@ const WelcomePage = () => {
         </BaseButton>
 
         <StyledThisComp.WrapperBgImg>
-          <Image
-            src={mainLogoIMG}
-            alt={"main logo big image"}
-            priority={true}
-          />
+            <Image
+              src={mainLogoIMG}
+              alt={"main logo big image"}
+              priority={true}
+            />
         </StyledThisComp.WrapperBgImg>
+
       </StyledThisComp.BodyDescriptionWrapper>
-    </>
+
+    </div>
   );
 };
 

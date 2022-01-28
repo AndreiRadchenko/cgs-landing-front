@@ -15,10 +15,11 @@ const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
       <StyledThisComp.OurTeamCardContent>
         <StyledThisComp.OurTeamCardTitle>
           {title}:
-        </StyledThisComp.OurTeamCardTitle>
-        <StyledThisComp.DecorationTextTitle
+          <StyledThisComp.DecorationTextTitle
           className={`${title.split(" ").reverse()[0]}`}
-        />
+          />
+        </StyledThisComp.OurTeamCardTitle>
+
         <StyledThisComp.OurTeamCardDescription>
           {description}
         </StyledThisComp.OurTeamCardDescription>
