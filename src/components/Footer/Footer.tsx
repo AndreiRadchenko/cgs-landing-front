@@ -6,20 +6,20 @@ import * as StyledCommon from "../../styles/Page.styled";
 // TODO temporary solution
 const socialLinks = [
   {
-    icoUrl: "/githubIco.svg",
-    href: "https://github.com/",
+    icoUrl: "/github.svg",
+    href: "https://github.com/CodeGeneration-2020/",
   },
   {
-    icoUrl: "/UPico.svg",
-    href: "https://github.com/",
+    icoUrl: "/upwork.svg",
+    href: "https://www.upwork.com/agencies/~01a24f185f6fd7afd0",
   },
   {
-    icoUrl: "/CIcon.svg",
-    href: "https://github.com/",
+    icoUrl: "/ci.svg",
+    href: "https://clutch.co/profile/code-generation#summary",
   },
   {
-    icoUrl: "/LinkedIn.svg",
-    href: "https://www.linkedin.com/",
+    icoUrl: "/linked.svg",
+    href: "https://www.linkedin.com/company/code-generation-software/?viewAsMember=true",
   },
 ];
 
