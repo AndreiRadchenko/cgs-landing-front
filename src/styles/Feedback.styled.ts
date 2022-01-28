@@ -40,7 +40,7 @@ export const StyledArrowButton = styled.button`
 
   &:last-child {
     transform: rotate(180deg);
-    right: -10%;
+    right: -5%;
     top: 15%;
   }
 
@@ -55,7 +55,7 @@ export const StyledArrowButton = styled.button`
     }
 
     &:last-child {
-      right: -11%;
+      right: -6%;
     }
   }
 `;
