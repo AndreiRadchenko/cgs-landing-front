@@ -15,17 +15,18 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   font-size: 4em;
-  width: 60%;
+  /* width: 60%; */
   text-align: center;
   margin: 0;
+  max-width: 14em;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 4em;
+    max-width: 10em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 3em;
-    max-width: 11em;
+    font-size: 3.1em;
   }
 `;
 
@@ -69,6 +70,6 @@ export const ImageContainer = styled.div`
     width: 13em;
     height: 14.2em;
     right: -4em;
-    bottom: -8.9em;
+    bottom: -8.1em;
   }
 `;
