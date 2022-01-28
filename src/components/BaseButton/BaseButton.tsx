@@ -3,7 +3,8 @@ import * as StyledThisComp from "./BaseButton.styled";
 import themes from "../../utils/themes";
 import Image from "next/image";
 import { IBaseButtonProps } from "../../types/Button.types";
-import backImg from "../../../public/backButton.svg";
+import backImg from "../../../public/back-button.png";
+import ImagePreview from "../Image/ImagePreview";
 
 const BaseButton: FC<IBaseButtonProps> = ({
   type = "button",
@@ -26,7 +27,12 @@ const BaseButton: FC<IBaseButtonProps> = ({
       letterSpacing={letterSpacing}
       marginTop={topSpacing}
     >
-      <Image src={src} alt="back image photo" layout="fill" objectFit="cover" />
+      <ImagePreview
+        src={src}
+        alt="back image photo"
+        layout="fill"
+        objectFit="cover"
+      />
       {children}
     </StyledThisComp.StyledButton>
   );

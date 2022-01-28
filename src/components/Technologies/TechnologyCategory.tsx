@@ -3,7 +3,7 @@ import * as StyledThisComp from "../../styles/Technologies.styled";
 import Image from "next/image";
 
 interface ITechnologyCategoryProps {
-  url: string;
+  url: any;
   title: string;
   technologies: string[];
 }

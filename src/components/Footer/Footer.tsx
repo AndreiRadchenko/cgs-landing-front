@@ -2,23 +2,27 @@ import React from "react";
 import * as Styles from "./Footer.styled";
 import FooterIcon from "./FooterIcon";
 import * as StyledCommon from "../../styles/Page.styled";
+import {
+  DecorationFooterLinks,
+  SocialLinksContainerDecoration,
+} from "./Footer.styled";
 
 // TODO temporary solution
 const socialLinks = [
   {
-    icoUrl: "/githubIco.svg",
+    icoUrl: "/github.svg",
     href: "https://github.com/",
   },
   {
-    icoUrl: "/UPico.svg",
+    icoUrl: "/upwork.svg",
     href: "https://github.com/",
   },
   {
-    icoUrl: "/CIcon.svg",
+    icoUrl: "/ci.svg",
     href: "https://github.com/",
   },
   {
-    icoUrl: "/LinkedIn.svg",
+    icoUrl: "/linked.svg",
     href: "https://www.linkedin.com/",
   },
 ];
@@ -35,11 +39,12 @@ const Footer = () => {
               contact@codegenerationsoftware.com
             </Styles.WebAddress>
           </Styles.WebAddressContainer>
-          <Styles.SocialLinksContainer>
+          <Styles.SocialLinksContainerDecoration>
             {socialLinks.map((link) => (
               <FooterIcon key={link.href + link.icoUrl} {...link} />
             ))}
-          </Styles.SocialLinksContainer>
+            <Styles.DecorationFooterLinks />
+          </Styles.SocialLinksContainerDecoration>
         </Styles.Row>
       </StyledCommon.Page>
     </Styles.Container>

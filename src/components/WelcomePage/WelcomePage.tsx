@@ -1,10 +1,10 @@
 import * as StyledThisComp from "../../styles/Body.styled";
 import React from "react";
-import Image from "next/image";
-import mainLogoIMG from "../../../public/mainLogoView.svg";
+import mainLogoIMG from "../../../public/mainLogo.png";
 import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
-import backImg from "../../../public/backButton.svg";
+import backImg from "../../../public/back-button.png";
+import ImagePreview from "../Image/ImagePreview";
 
 const WelcomePage = () => {
   return (
@@ -27,10 +27,10 @@ const WelcomePage = () => {
         </BaseButton>
 
         <StyledThisComp.WrapperBgImg>
-          <Image
+          <ImagePreview
             src={mainLogoIMG}
-            alt={"main logo big image"}
-            priority={true}
+            placeholder={"blur"}
+            alt={"main logo alt image"}
           />
         </StyledThisComp.WrapperBgImg>
       </StyledThisComp.BodyDescriptionWrapper>
