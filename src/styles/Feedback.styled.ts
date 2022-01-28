@@ -27,8 +27,8 @@ export const FeedbackRow = styled.div`
 
 export const StyledArrowButton = styled.button`
   position: absolute;
-  width: 8em;
-  height: 4em;
+  width: 6em;
+  height: 3em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,11 +51,11 @@ export const StyledArrowButton = styled.button`
 
   &:hover {
     &:first-child {
-      left: -12%;
+      left: -11%;
     }
 
     &:last-child {
-      right: -12%;
+      right: -11%;
     }
   }
 `;
