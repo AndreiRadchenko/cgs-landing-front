@@ -16,6 +16,7 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({ feedback }) => {
     slidesPerView: 3,
     spaceBetween: 30,
     loop: true,
+    allowTouchMove: false,
     navigation: {
       prevEl: ".swiper-button-prev",
       nextEl: ".swiper-button-next",
