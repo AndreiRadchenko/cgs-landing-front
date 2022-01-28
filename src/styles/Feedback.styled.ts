@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
-import BaseButton from "../components/BaseButton/BaseButton";
 
 export const FeedbackContainer = styled.section`
   font-family: ${themes.primary.font.family.roboto};
