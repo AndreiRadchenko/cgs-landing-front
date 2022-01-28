@@ -1,12 +1,13 @@
 import * as StyledThisComp from "../../styles/Body.styled";
 import React from "react";
-import mainLogoIMG from "../../../public/mainLogo.png";
+import mainLogoIMG from "../../../public/mainLogoView.svg";
 import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import backImg from "../../../public/back-button.png";
 import ImagePreview from "../Image/ImagePreview";
+import { IWelcomePageProps } from "./types";
 
-const WelcomePage = () => {
+const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
   return (
     <>
       <StyledThisComp.BodyDescriptionWrapper>
@@ -20,7 +21,7 @@ const WelcomePage = () => {
           tightest deadlines
         </StyledThisComp.CodeDescription>
 
-        <BaseButton onClick={() => {}} src={backImg}>
+        <BaseButton onClick={clickHandler} src={backImg}>
           <ButtonTextWrapper fontSize={"1.4em"}>
             get estimation
           </ButtonTextWrapper>
@@ -29,8 +30,8 @@ const WelcomePage = () => {
         <StyledThisComp.WrapperBgImg>
           <ImagePreview
             src={mainLogoIMG}
-            placeholder={"blur"}
-            alt={"main logo alt image"}
+            alt={"main logo big image"}
+            priority={true}
           />
         </StyledThisComp.WrapperBgImg>
       </StyledThisComp.BodyDescriptionWrapper>
