@@ -301,3 +301,208 @@ export const ourTeamArr = [
       "Stunning product is a high-quality code delivered in a timely manner. We take on challenges of any complexity and never give up. Thus our clients always get their needs satisfied.",
   },
 ];
+
+//projects names
+import companyName1 from "../../public/projects_images/realise_me.jpg";
+import companyName2 from "../../public/projects_images/my_ti.jpg";
+import companyName3 from "../../public/projects_images/admyre.jpg";
+import companyName4 from "../../public/projects_images/denizen.jpg";
+import companyName5 from "../../public/projects_images/growth_day.jpg";
+import companyName6 from "../../public/projects_images/finmix.png";
+import companyName7 from "../../public/projects_images/trend_commander.jpg";
+import companyName8 from "../../public/projects_images/cosuno_ventures.png";
+import companyName9 from "../../public/projects_images/live_art_market.png";
+import companyName10 from "../../public/projects_images/sun_power.jpg";
+import companyName11 from "../../public/projects_images/civiq.jpg";
+import companyName12 from "../../public/projects_images/i_welcome.png";
+import companyName13 from "../../public/projects_images/go_daddy_poynt.png";
+import companyName14 from "../../public/projects_images/homelike.jpg";
+import companyName15 from "../../public/projects_images/space_impulse.jpg";
+import companyName16 from "../../public/projects_images/prs.png";
+import companyName17 from "../../public/projects_images/shelf.png";
+import companyName18 from "../../public/projects_images/remetrik_inc.jpg";
+import companyName19 from "../../public/projects_images/eesel.jpg";
+import companyName20 from "../../public/projects_images/switch.jpg";
+import companyName21 from "../../public/projects_images/scoby_social.png";
+import companyName22 from "../../public/projects_images/review.png";
+
+import { IModalProjectCardProps } from "../types/ModalCategory.types";
+
+export const projectsModalArr: IModalProjectCardProps[] = [
+  {
+    url: companyName1,
+    title: "RealiseME",
+    link: "https://apps.apple.com/ua/app/realiseme/id1456372856?l=ru",
+    category: ["mobile"],
+    description:
+      "This is a platform that connects teachers (private licensed tutors) and students, who will to prepare for an exam or get help for their homework. The platform is mutually beneficial for students and teachers.",
+  },
+  {
+    url: companyName2,
+    title: "myTI",
+    link: "https://apps.apple.com/us/app/myti/id1329792134",
+    category: ["mobile"],
+    description:
+      "This is a SaaS medical platform that helps doctors and patients to organize documentation inside and outside the clinic. In fact, this application was made for one specific clinic, but it can accessed anywhere by subscription. ScanBot is a distinguishing feature of the app - an AI network recognizes keywords in a document via smartphone camera.",
+  },
+  {
+    url: companyName3,
+    title: "Admyre",
+    link: "https://play.google.com/store/apps/details?id=com.awesventures.admyre",
+    category: ["mobile"],
+    description:
+      "This is an EDU platform that establishes communication between students and tutors. It is designed to help people improve their skills in narrow specialties or to learn something completely new, be it language or any other skill.",
+  },
+  {
+    url: companyName4,
+    title: "Denizen",
+    link: "https://apps.apple.com/ua/app/denizen/id1542599510?l=ru",
+    category: ["mobile"],
+    description:
+      "Denizen is available in both AppStore and Google Play Store. The app allows to find great locations and places for hosting events or just working in your neighborhood. It is currently available in Kreuzberg and Mitte. The process of booking is simple and will be convenient for any type of user.",
+  },
+  {
+    url: companyName5,
+    title: "GrowthDay",
+    link: "https://apps.apple.com/be/app/growthday/id1543291315",
+    category: ["mobile", "web"],
+    description:
+      "This is a platform aimed at motivating and increasing self-perception of people who need it by setting personal goals and achievements. The application allows you to track progress of other users and see their own based on the completed tasks.",
+  },
+  {
+    url: companyName6,
+    title: "FinMix",
+    link: "https://www.finmix.com/home",
+    category: ["blockchain", "server", "web"],
+    description:
+      "See your gainz and tendies in one platform. Account is free, you just need to get a referral code and start enjoying the world of crypto and stocks on FinMix!",
+  },
+  {
+    url: companyName7,
+    title: "TrendCommander",
+    link: "https://trendcommander.com/",
+    category: ["server", "web"],
+    description:
+      "This is a platform for tracking stock charts. This is an AI-powered, realtime dashboard to see which companies and products are gaining and losing in popularity with customers. It helps users to discover trending companies and products without having to do lots of research.",
+  },
+  {
+    url: companyName8,
+    title: "Cosuno Ventures GmbH",
+    link: "https://www.cosuno.de/en/",
+    category: ["blockchain", "web"],
+    description:
+      "This is a user-friendly solution for procurement and subcontractor management in the construction industry of Germany. Expand a number of subcontractors from your contacts or find an ideal one in the base of 80000+ candidates. Then – one click and you’ve sent your tender. Simplified procedure saves your time, all thanks to Cosuno.",
+  },
+  {
+    url: companyName9,
+    title: "LiveArt Market inc.",
+    link: "https://liveart.market/",
+    category: ["blockchain", "web"],
+    description:
+      "Buy, sell, and discover art privately. Here, at Live Art Market inc. you can find the missing piece of your masterpiece collection, buy it and don’t worry about payment, logistics and any contracts. All could be handled without leaving the platform.",
+  },
+  {
+    url: companyName10,
+    title: "SunPower",
+    link: "https://us.sunpower.com/",
+    category: ["server", "web"],
+    description:
+      "This is the platform for selling/exchanging/managing solar systems in the United States. The distinguishing feature of this project is 3D rendering of each panel and its location through Python AI. This is an e-commerce platform – a marketplace for solar system owners, where you can leave feedback, view particular systems, participate in discussions, and so on.",
+  },
+  {
+    url: companyName11,
+    title: "CIVIQ",
+    link: "https://www.civiq.com/",
+    category: ["server", "web"],
+    description:
+      "This is a common SaaS (Software as a Service) application, which is aimed at simplifying urban environment for people, who work or study there. This application is not for desktops, nor for smartphones – it is used on specialized stations (large screens) throughout the city. These stations allow you to buy bus, train or other transport tickets, pay utility bills, book some services and much more.",
+  },
+  {
+    url: companyName12,
+    title: "iWelcome",
+    link: "https://www.iwelcome.com/",
+    category: ["server", "web"],
+    description:
+      "iWelcome is Europe's leader in Consumer and B2C IAM solutions, designed with the complexity and security concerns of large organisations in mind. Our European roots guarantee a fully GDPR-compliant platform built with top-class private cloud technology. Millions of consumers and hundreds of thousands of employees - across industries like Financial Services, Energy & Mobility, Media & Publishing, Retail and other industries – rely on iWelcome on a daily basis.",
+  },
+  {
+    url: companyName13,
+    title: "GoDaddy / Poynt",
+    link: "https://uk.godaddy.com",
+    category: ["server", "web"],
+    description:
+      "Who does not know this amazing marketplace? GoDaddy is a platform that helps you to review, select and buy the best online address and hosting for the lowest price! The main idea is to simplify the process of buying and setting up a hosting name.",
+  },
+  {
+    url: companyName14,
+    title: "HomeLike",
+    link: "app.thehomelike.com",
+    category: ["web"],
+    description:
+      "This is a platform for booking apartments in Europe. A distinctive feature of this app is that rental period starts from 3-4 months only. The platform provides renting services for people who travel across Europe for an extended period of time. This project has a complex architecture and was implemented with usage of technologies as Google MAP API / Google maps, PDF parsers, template engines, AI (Artificial Intelligence) and many more.",
+  },
+  {
+    url: companyName15,
+    title: "SpaceImpulse",
+    link: "app.spaceimpulse.com",
+    category: ["web"],
+    description:
+      "This is a social platform for people, who work in the space industry, whether they are students, owners of enterprises, manufacturers for space rockets, satellites, drones, etc, analysts, scientists or Elon Musk. The main idea to create a place for communication (via chat) and trading (resale of related parts) in the space industry.",
+  },
+  {
+    url: companyName16,
+    title: "PRS",
+    link: "pandemicreliefsupply.com/",
+    category: ["web"],
+    description:
+      "PRS is a project for COVID-19 vaccination procedure tracking in the USA. More than 12 million people were protected with the help of this site. It has a shop, where you can buy all what is needed for COVID-19 protection: from gloves and masks to air filtration systems.",
+  },
+  {
+    url: companyName17,
+    title: "The Shelf",
+    link: "theshelf.com/",
+    category: ["web"],
+    description:
+      "Website of marketing agency. It is a comfy environment, where you can find useful info about this creative agency – their projects in portfolio, blog posts. We’ve tried to make it not only comfortable for users, but attractive too, with animations and graphics. Website should be the place with a maximum of info and if you need support on any question – you’re welcome in a pop-up window. Or maybe, you need to schedule a call for building a profitable strategy? No problem, fill in the form and it’s done!",
+  },
+  {
+    url: companyName18,
+    title: "Remetrik inc.",
+    link: "remetrik.com/",
+    category: ["web"],
+    description:
+      "Remetrik is a perfect solution for record labels, music distributors, and music publishers. It is a cloud-based platform that makes the entire analytic and accounting process more transparent and automated for master and publishing royalties both.",
+  },
+  {
+    url: companyName19,
+    title: "Eesel Chrome Extension",
+    link: "https://www.eesel.app/",
+    category: ["web"],
+    description:
+      "Eesel is a tool, that can help to put all your work together in one place. Google docs, Figma designs, social media profiles and other will be saved in your “virtual organizer”, so you never lose something important. Eesel is free and doesn’t compromise on privacy – all your information will be protected.",
+  },
+  {
+    url: companyName20,
+    title: "Switch",
+    link: "https://www.producthunt.com/posts/switch-1-0",
+    category: ["web"],
+    description:
+      "Switch adds a Sidebar to your browser and gives you the tools to switch between your apps, accounts, and workflows in one place. Switch instantly helps you to become more productive.",
+  },
+  {
+    url: companyName21,
+    title: "ScobySocial",
+    link: "https://www.scoby.social",
+    category: ["web"],
+    description:
+      "The world is going live. With Scoby Social, our app for real-time shared experiences, you can put the Creator Economy to work for you. Shared experiences have the power to transform, enlighten, surprise and delight. If you are passionate about your calling, love engaging with others, and are ready to rise to your destiny, you belong with us.g",
+  },
+  {
+    url: companyName22,
+    title: "REView",
+    link: "https://review-app.io/",
+    category: ["web"],
+    description:
+      "When you’re an IT recruiter, you need to be attentive during the whole hiring process. This platform is going to be a helping hand for each recruiter and a comfy place where great professionals can get a pleasant REview for their work.",
+  },
+];

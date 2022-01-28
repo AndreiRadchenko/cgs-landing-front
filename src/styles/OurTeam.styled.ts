@@ -79,7 +79,7 @@ export const DecorationClipIconRight = styled.div`
 export const DecorationTextTitle = styled(Decoration)`
   position: absolute;
   top: 50%;
-  height: .7em;
+  height: 0.7em;
   z-index: -1;
 
   &.philosophy {
