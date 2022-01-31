@@ -197,7 +197,7 @@ export const ProjectContainer = styled.div`
 
   @media ${themes.primary.media.minLaptop} {
     width: 27%;
-    height: 500px;
+    height: 600px;
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
