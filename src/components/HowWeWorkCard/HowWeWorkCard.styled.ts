@@ -137,6 +137,10 @@ export const ContentImage = styled.div<IImage>`
   height: 35em;
   margin-bottom: 20%;
 
+  &:last-child {
+    height: 41em;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 33em;
     height: 35em;

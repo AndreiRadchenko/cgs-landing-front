@@ -35,7 +35,7 @@ const items: IHowWeWorkCardProps[] = [
       "In fact, it is the final call before getting started.\n\nWe clarify all the nuances about our cooperation, sign all the needed docs, provide you with access to flows, documents and resources so you do not need to worry.\n\nJust chill and enjoy the process of development, handled by CGS-team.",
     rank: 4,
     backGroundColor: "blue",
-    imgUrl: "/how_we_work4_bg.png",
+    imgUrl: "/how_we_work4_bg.svg",
     isFlipImageOnMobile: true,
   },
 ];
