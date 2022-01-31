@@ -423,7 +423,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://www.iwelcome.com/",
     category: ["server", "web"],
     description:
-      "iWelcome is Europe's leader in Consumer and B2C IAM solutions, designed with the complexity and security concerns of large organisations in mind. Our European roots guarantee a fully GDPR-compliant platform built with top-class private cloud technology. Millions of consumers and hundreds of thousands of employees - across industries like Financial Services, Energy & Mobility, Media & Publishing, Retail and other industries – rely on iWelcome on a daily basis.",
+      "iWelcome is Europe's leader in Consumer and B2C IAM solutions, designed with the complexity and security concerns of large organisations in mind. Our European roots guarantee a fully GDPR-compliant platform built with top-class private cloud technology.",
   },
   {
     url: companyName13,

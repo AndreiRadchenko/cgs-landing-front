@@ -18,12 +18,18 @@ export const NavPanel = styled.div`
   align-items: baseline;
 `;
 
+export const ButtonContainer = styled.div`
+  margin-left: -2em;
+`;
+
 export const CategoryTitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+  margin-top: 4em;
+  margin-bottom: 2em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.5em;
@@ -183,7 +189,7 @@ export const ProjectContainer = styled.div`
 
   @media ${themes.primary.media.minLaptop} {
     width: 27%;
-    height: 550px;
+    height: 500px;
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {

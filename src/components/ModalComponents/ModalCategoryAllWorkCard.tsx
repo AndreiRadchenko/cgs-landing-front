@@ -31,15 +31,17 @@ const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
             </StyledCategory.ProjectDescription>
           </StyledCategory.MainContent>
 
-          <StyledCategory.ProjectLinkWrapper href={link} passHref>
-            <a target={"_blank"}>
-              <ButtonProjectLink>
-                <StyledCategory.ProjectLinkText>
-                  project link
-                </StyledCategory.ProjectLinkText>
-              </ButtonProjectLink>
-            </a>
-          </StyledCategory.ProjectLinkWrapper>
+          <StyledCategory.ButtonContainer>
+            <StyledCategory.ProjectLinkWrapper href={link} passHref>
+              <a target={"_blank"}>
+                <ButtonProjectLink>
+                  <StyledCategory.ProjectLinkText>
+                    project link
+                  </StyledCategory.ProjectLinkText>
+                </ButtonProjectLink>
+              </a>
+            </StyledCategory.ProjectLinkWrapper>
+          </StyledCategory.ButtonContainer>
         </StyledCategory.ContentWrapper>
       </StyledCategory.ContentWrapper>
     </StyledCategory.ProjectContainer>
