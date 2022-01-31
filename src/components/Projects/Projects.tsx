@@ -35,13 +35,11 @@ const Projects = () => {
       <StyledThisComp.ProjectsCategoryRow>
         <StyledThisComp.ProjectTitleWrapper>
           <StyledThisComp.ProjectsTitle>
-            We provide end-to-end <br /> development using the MERN <br />{" "}
-            stack, which means our team <br /> adores Javascript.
-            <br /> Furthermore, innovative ideas <br /> and new challenges are
-            our passion.
-            <StyledThisComp.DecorationTitle />
+            We provide end-to-end development using the MERN stack, which means
+            our team adores Javascript. Furthermore, innovative ideas and new
+            challenges are our passion.
           </StyledThisComp.ProjectsTitle>
-
+          <StyledThisComp.DecorationTitle />
           <ButtonSeeAllWorks onClick={seeAllWorksHandler}>
             <ButtonTextWrapper fontSize={themes.primary.font.size.linkText}>
               see all work
