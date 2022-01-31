@@ -22,7 +22,7 @@ type IImage = {
 
 export const Container = styled.div<IContainerProps>`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 2em;
   position: relative;
   display: flex;
@@ -37,6 +37,10 @@ export const NumberContainer = styled.div`
   top: 3em;
   left: -1.5em;
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    top: 9em;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     top: 4em;
     left: 66%;
@@ -44,7 +48,7 @@ export const NumberContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     top: 2em;
-    left: 59%;
+    left: 49%;
   }
 `;
 
@@ -53,12 +57,16 @@ export const Number = styled.div<IColorProps>`
   font-size: 26em;
   font-weight: 600;
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 17em;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 16em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 11em;
+    font-size: 14.6em;
   }
 `;
 
@@ -70,9 +78,17 @@ export const Title = styled.div`
   color: ${themes.primary.colors.primary};
   font-weight: 700;
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 1.8em;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     width: fit-content;
     margin-left: 5%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.7em;
   }
 `;
 
@@ -87,6 +103,10 @@ export const ContentContainer = styled.div`
   color: ${themes.primary.colors.decorationText};
   font-family: ${themes.primary.font.family.roboto};
   flex-grow: 1;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-left: 16em;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-left: 2em;
@@ -121,11 +141,16 @@ export const ContentImage = styled.div<IImage>`
     height: 41em;
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    width: 23em;
-    height: ${(props) => (props.isFlipOnMobile ? "34em" : `25em`)};
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 33em;
+    height: 35em;
     transform: ${(props) =>
       props.isFlipOnMobile ? "scale(-1, 1)" : "initial"};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 28em;
+    height: ${(props) => (props.isFlipOnMobile ? "31em" : `29em`)};
   }
 `;
 
@@ -137,8 +162,17 @@ export const ContentTitle = styled.h2`
   color: ${themes.primary.colors.primary};
   white-space: break-spaces;
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 3.6em;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 2em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 2.7em;
+    font-size: 4.3em;
   }
 `;
 
@@ -150,11 +184,13 @@ export const ContentText = styled.p`
   white-space: break-spaces;
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    max-width: 40.5em;
+    max-width: 32em;
+    font-size: 1.8em;
   }
 
   @media ${themes.primary.media.maxMobile} {
     padding-right: 1em;
+    font-size: 1.54em;
   }
 `;
 
