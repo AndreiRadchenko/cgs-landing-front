@@ -3,7 +3,7 @@ import React from "react";
 export interface IBaseButtonProps {
   children: React.ReactNode;
   type?: string;
-  src?: string;
+  src?: any;
   onClick?: () => void;
   height?: string;
   width?: string;
@@ -17,7 +17,7 @@ export interface IStyledButtonProps {
   type: string;
   height?: string;
   width?: string;
-  topSpacing?: string;
+  marginTop?: string;
   letterSpacing: string;
 }
 

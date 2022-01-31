@@ -14,27 +14,32 @@ import HowWeWorkList from "../components/HowWeWorkList/HowWeWorkList";
 import howWeWorksItems from "../mock/HowWeWorkItem";
 import YesBegin from "../components/YesBegin/YesBegin";
 import Footer from "../components/Footer/Footer";
+import { useScrollTo } from "../hooks/useScrollTo";
 
 const Home: NextPage = () => {
+  const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
+
   return (
-      <>
-          <NoMobileScreenSupport />
-          <StyledCommon.Page>
-              <Body />
-              <AboutUs />
-              <Partners />
-              <Projects />
-              <Feedback />
-              <Technologies />
-              <OurTeam />
-          </StyledCommon.Page>
-          <HowWeWorkList items={howWeWorksItems} />
-          <YesBegin />
-          <StyledCommon.Page>
-              <LetsCode />
-          </StyledCommon.Page>
-          <Footer />
-      </>
+    <>
+      <NoMobileScreenSupport />
+      <StyledCommon.Page>
+        <Body welcomePageButtonHandler={scrollHandler} />
+        <AboutUs />
+        <Partners />
+        <Projects />
+        <Feedback />
+        <Technologies />
+        <OurTeam />
+      </StyledCommon.Page>
+      <HowWeWorkList items={howWeWorksItems} />
+      <YesBegin clickHandler={scrollHandler} />
+      <StyledCommon.Page>
+        <div ref={ref}>
+          <LetsCode />
+        </div>
+      </StyledCommon.Page>
+      <Footer />
+    </>
   );
 };
 

@@ -2,8 +2,8 @@ import React from "react";
 import * as StyledThisComp from "../../styles/AboutUs.styled";
 import { aboutUsContainerVars } from "../../utils/variables";
 import AboutUsCard from "../AboutUsCard/AboutUsCard";
-import illustrationIMG from "../../../public/illustration-technology.svg";
-import Image from "next/image";
+import illustrationIMG from "../../../public/illustration-technology.png";
+import ImagePreview from "../Image/ImagePreview";
 
 const AboutUs = () => {
   return (
@@ -38,7 +38,11 @@ const AboutUs = () => {
       </StyledThisComp.AboutUsInfoSupport>
 
       <StyledThisComp.IllustrationWrapper>
-        <Image src={illustrationIMG} alt={"illustration image technology"} />
+        <ImagePreview
+          src={illustrationIMG}
+          placeholder={"blur"}
+          alt={"illustration image technology"}
+        />
       </StyledThisComp.IllustrationWrapper>
     </StyledThisComp.AboutUsContainer>
   );

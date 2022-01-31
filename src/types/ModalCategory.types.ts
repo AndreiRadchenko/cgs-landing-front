@@ -1,3 +1,5 @@
+type Category = "web" | "mobile" | "blockchain" | "server";
+
 export enum ProjectsListType {
   seeAllWorks = "all work",
   web = "web",
@@ -15,8 +17,9 @@ export interface IAllCategoriesModalProps extends IModalCategoryProps {
 }
 
 export interface IModalProjectCardProps {
-  url: string;
+  url: any;
   title: string;
   link: string;
   description: string;
+  category: Category[];
 }

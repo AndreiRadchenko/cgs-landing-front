@@ -36,6 +36,10 @@ export const ModalWrapper = styled.div`
   opacity: 1;
 `;
 
+export const ModalRow = styled.div`
+  position: relative;
+`;
+
 export const ModalCloseButton = styled.button`
   font-size: 2em;
   display: flex;
@@ -47,6 +51,6 @@ export const ModalCloseButton = styled.button`
   height: 0.7em;
   position: absolute;
   right: 2%;
-  top: 2%;
+  top: -0.5%;
   cursor: pointer;
 `;

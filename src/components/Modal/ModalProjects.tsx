@@ -23,10 +23,12 @@ const ModalProjects: FC<IModalProjectsProps> = ({
   return (
     <StyledThisComp.ModalContainer open={isOpen} onClose={onToggleModalHandler}>
       <StyledThisComp.ModalWrapper>
-        <StyledThisComp.ModalCloseButton onClick={onToggleModalHandler}>
-          &#x2715;
-        </StyledThisComp.ModalCloseButton>
-        {currentCategoryComponent}
+        <StyledThisComp.ModalRow>
+          <StyledThisComp.ModalCloseButton onClick={onToggleModalHandler}>
+            &#x2715;
+          </StyledThisComp.ModalCloseButton>
+          {currentCategoryComponent}
+        </StyledThisComp.ModalRow>
       </StyledThisComp.ModalWrapper>
     </StyledThisComp.ModalContainer>
   );

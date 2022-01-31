@@ -4,16 +4,21 @@ import Decoration from "../components/Decoration/Decoration";
 
 export const AboutUsContainer = styled.section`
   position: relative;
-
   margin-top: 13.5em;
   font-family: ${themes.primary.font.family.roboto};
 `;
 
 export const AboutUsWrapper = styled.div`
   width: 85%;
-  margin: 1em auto;
+  margin: 2em auto;
   display: flex;
   justify-content: space-between;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
@@ -29,7 +34,6 @@ export const AboutUsTitle = styled.h2`
 `;
 
 export const AboutUsCardContainer = styled.div`
-
   width: ${themes.primary.spacing.aboutUsCard};
   display: flex;
   flex-direction: column;
@@ -48,15 +52,22 @@ export const AboutUsCardContainer = styled.div`
   }
 `;
 
+export const WrapperAboutUSIMG = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+`;
+
 export const CardDescriptionWrapper = styled.div`
   display: flex;
   justify-content: center;
   font-size: ${themes.primary.font.size.buttonText};
   font-family: ${themes.primary.font.family.roboto};
   font-weight: 400;
-  margin-top: .2em;
-
+  margin-top: 0.3em;
+  
   &.columnDescription {
+    margin-top: 0;
     flex-direction: column;
     align-items: center;
     margin-top: 0;
@@ -65,7 +76,7 @@ export const CardDescriptionWrapper = styled.div`
 
 export const CardDescriptionSubDescription = styled.div`
   font-size: 1.3em;
-
+  
   &.columnDescription {
     width: 200px;
     padding-left: 1em;
@@ -98,33 +109,28 @@ export const CardDescriptionValueWrapper = styled.div`
 
 export const DecorationText = styled(Decoration)`
   position: absolute;
-  height: 1.2em;
+  height: 1em;
+  top: 50%;
+  left: -1%;
+  z-index: -1;
 
   &.var {
-    width: 6.7em;
-    top: 47%;
-    left: 10%;
+    width: 11.5ch;
   }
 
   &.quantity {
-    width: 1.7em;
-    top: 40%;
+    width: 3ch;
   }
 
   &.status {
-    width: 7.7em;
-    top: 47%;
-    left: 10%;
+    width: 13.5ch;
   }
-  
 
   @media ${themes.primary.media.maxMobile} {
     &.var {
       left: 14%;
     }
   }
-  
-\`;
 `;
 
 export const CardDescriptionValue = styled.span`
@@ -179,7 +185,7 @@ export const AboutUsCodeIcon = styled.span`
 
 export const AboutUsDescription = styled.span`
   display: block;
-  width: 100%;
+  width: 827px;
   text-align: center;
   font-weight: 400;
   font-size: 26px;

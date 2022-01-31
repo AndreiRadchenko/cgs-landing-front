@@ -15,15 +15,18 @@ const ModalWebCategory: FC<IModalCategoryProps> = ({ title }) => {
         </StyledCategory.CategoryTitleWrapper>
       </StyledCategory.NavPanel>
       <StyledCategory.CategoryProjectsContainer>
-        {projectsModalArr.map(({ url, title, link, description }) => (
-          <ModalBlockSpecifyTechnology
-            key={title}
-            url={url}
-            link={link}
-            title={title}
-            description={description}
-          />
-        ))}
+        {projectsModalArr
+          .filter(({ category }) => category.includes("web"))
+          .map(({ url, title, link, description, category }) => (
+            <ModalBlockSpecifyTechnology
+              key={title}
+              url={url}
+              link={link}
+              title={title}
+              description={description}
+              category={category}
+            />
+          ))}
       </StyledCategory.CategoryProjectsContainer>
     </StyledCategory.Container>
   );

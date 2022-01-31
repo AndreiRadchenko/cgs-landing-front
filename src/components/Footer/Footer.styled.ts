@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
+import Decoration from "../Decoration/Decoration";
 
 export const Container = styled.div`
   background-color: ${themes.primary.colors.secondary};
@@ -23,22 +24,29 @@ export const WebAddress = styled.a`
   font-family: ${themes.primary.font.family.mulish};
 `;
 
-export const SocialLinksContainer = styled.div`
+export const SocialLinksContainerDecoration = styled.div`
   display: flex;
   margin-left: 12em;
   align-items: center;
-  height: 4em;
-  background-image: url("/footer_icons_bg.png");
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: 100% 50%;
+  height: 3em;
+
+  position: relative;
+`;
+
+export const DecorationFooterLinks = styled(Decoration)`
+  height: 2.3em;
+  width: 22em;
+  position: absolute;
+  top: 45%;
 `;
 
 export const IconContainer = styled.div`
   margin: 0 1.5em;
   position: relative;
+  z-index: 3;
   width: 2.5em;
   height: 2.5em;
+
   &:hover {
     cursor: pointer;
   }
