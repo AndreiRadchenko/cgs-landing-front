@@ -3,6 +3,8 @@ const themes = {
     spacing: {
       small: "0.3em",
       primary: "0.8em",
+      septenary: "1.3em",
+      tertiary: "2em",
       logo: "13em",
       headerNavVertical: "2.5em",
       headerNavHorizontal: "5em",
@@ -21,6 +23,7 @@ const themes = {
         mulish: "'Roboto', sans-serif",
       },
       weight: {
+        light: 300,
         normal: 400,
         bold: 700,
       },

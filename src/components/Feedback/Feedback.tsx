@@ -1,30 +1,30 @@
-import React from "react";
+import React, { useRef } from "react";
 import * as StyledThisComp from "../../styles/Feedback.styled";
 import { feedbackArr } from "../../utils/variables";
-import arrowIMG from "../../../public/arrow.svg";
 import CarouselFeedback from "./CarouselFeedback";
-import Image from "next/image";
+import { useOnScreen } from "../../hooks/useOneScreen";
 
 const Feedback = () => {
+  const feedbackRef = useRef(null);
+  const isFeedbackOnScreen = useOnScreen(feedbackRef);
+
   return (
     <StyledThisComp.FeedbackContainer>
       <StyledThisComp.FeedbackSectionTitle>
         feedback
       </StyledThisComp.FeedbackSectionTitle>
       <StyledThisComp.FeedbackSectionSubTitle>
-        We are proud of what our clients say about us. <br /> These words sound
-        even louder than any others!
+        We are proud of what our clients say about us. These words sound even
+        louder than any others!
       </StyledThisComp.FeedbackSectionSubTitle>
-
-      <StyledThisComp.FeedbackRow>
-        <StyledThisComp.StyledArrowButton className="swiper-button-prev">
-          <Image src={arrowIMG} layout={"fill"} objectFit={"cover"} />
-        </StyledThisComp.StyledArrowButton>
-        <CarouselFeedback feedback={feedbackArr} />
-        <StyledThisComp.StyledArrowButton className="swiper-button-next">
-          <Image src={arrowIMG} layout={"fill"} objectFit={"cover"} />
-        </StyledThisComp.StyledArrowButton>
-      </StyledThisComp.FeedbackRow>
+      <div ref={feedbackRef}>
+        <StyledThisComp.FeedbackRow>
+          <CarouselFeedback
+            feedback={feedbackArr}
+            isFeedbackOnScreen={isFeedbackOnScreen}
+          />
+        </StyledThisComp.FeedbackRow>
+      </div>
     </StyledThisComp.FeedbackContainer>
   );
 };

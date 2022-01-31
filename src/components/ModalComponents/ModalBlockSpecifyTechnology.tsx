@@ -33,15 +33,17 @@ const ModalBlockSpecifyTechnology: FC<IModalProjectCardProps> = ({
               {description}
             </StyledCategory.ProjectDescription>
           </StyledCategory.MainContent>
-          <StyledCategory.ProjectLinkWrapper href={link} passHref>
-            <a target={"_blank"}>
-              <ButtonProjectLink>
-                <ButtonTextWrapper fontSize={"1.2em"}>
-                  project link
-                </ButtonTextWrapper>
-              </ButtonProjectLink>
-            </a>
-          </StyledCategory.ProjectLinkWrapper>
+          <StyledCategory.ButtonContainer>
+            <StyledCategory.ProjectLinkWrapper href={link} passHref>
+              <a target={"_blank"}>
+                <ButtonProjectLink>
+                  <ButtonTextWrapper fontSize={"1.2em"}>
+                    project link
+                  </ButtonTextWrapper>
+                </ButtonProjectLink>
+              </a>
+            </StyledCategory.ProjectLinkWrapper>
+          </StyledCategory.ButtonContainer>
         </StyledCategory.ContentWrapper>
       </StyledCategory.SpecifyContentWrapper>
     </StyledCategory.ProjectSpecifyTechnologyContainer>

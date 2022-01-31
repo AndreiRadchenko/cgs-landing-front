@@ -9,7 +9,8 @@ export const Page = styled.article`
   width: 1400px;
   position: relative;
   margin: ${themes.primary.spacing.headerNavVertical} auto;
-
+  
+  
   @media ${themes.primary.media.onlyLaptop} {
     width: 1100px;
   }
@@ -54,9 +55,4 @@ export const ButtonText = styled.span.attrs(
   ${(props) => css`
     font-size: ${props.fontSize};
   `}
-
-  @media ${themes.primary.media.maxMobile} {
-    font-weight: 700;
-    font-size: 1.1em;
-  }
 `;
