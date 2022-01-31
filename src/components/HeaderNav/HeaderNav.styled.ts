@@ -6,6 +6,8 @@ export const HeaderNavContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 26;
 `;
 
 export const LogoLinkWrapper = styled.a``;
@@ -16,9 +18,20 @@ export const HeaderNavLinkWrapper = styled.div`
 
   position: relative;
   z-index: 2;
+`;
 
-  @media (max-width: 768px) {
-    display: none;
+export const BurgerLinkWrapper = styled.a`
+  transition: 200ms;
+  width: 40%;
+  margin-left: 1.5em;
+  margin-right: auto;
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-top: 0.8462em;
+  cursor: pointer;
+
+  &:hover {
+    color: ${themes.primary.colors.linkBlue};
   }
 `;
 
@@ -35,6 +48,10 @@ export const ListItemNav = styled.span`
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     font-size: 1.45em;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 
   &:hover {

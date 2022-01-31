@@ -8,7 +8,7 @@ import {
 } from "./Footer.styled";
 
 // TODO temporary solution
-const socialLinks = [
+export const socialLinks = [
   {
     icoUrl: "/github.svg",
     href: "https://github.com/CodeGeneration-2020/",

@@ -67,3 +67,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.disableScrollBar {
+    overflow: hidden;
+}
