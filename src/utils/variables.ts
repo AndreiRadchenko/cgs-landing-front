@@ -307,7 +307,7 @@ import companyName1 from "../../public/projects_images/realise_me.jpg";
 import companyName2 from "../../public/projects_images/my_ti.jpg";
 import companyName3 from "../../public/projects_images/admyre.jpg";
 import companyName4 from "../../public/projects_images/denizen.jpg";
-import companyName5 from "../../public/projects_images/growth_day.jpg";
+import companyName5 from "../../public/projects_images/growth_day.png";
 import companyName6 from "../../public/projects_images/finmix.png";
 import companyName7 from "../../public/projects_images/trend_commander.jpg";
 import companyName8 from "../../public/projects_images/cosuno_ventures.png";
@@ -322,7 +322,7 @@ import companyName16 from "../../public/projects_images/prs.png";
 import companyName17 from "../../public/projects_images/shelf.png";
 import companyName18 from "../../public/projects_images/remetrik_inc.jpg";
 import companyName19 from "../../public/projects_images/eesel.jpg";
-import companyName20 from "../../public/projects_images/switch.jpg";
+import companyName20 from "../../public/projects_images/switch.png";
 import companyName21 from "../../public/projects_images/scoby_social.png";
 import companyName22 from "../../public/projects_images/review.png";
 
