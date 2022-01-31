@@ -6,7 +6,6 @@ import SwiperCore, {
   Swiper as SwipperType,
 } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import { nextSlide } from "swiper/core";
 import { IFeedbackCardProps } from "../../types/Feedback.types";
 import "swiper/css";
 import { useEffect, useState } from "react";
