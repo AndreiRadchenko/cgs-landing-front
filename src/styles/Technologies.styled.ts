@@ -40,6 +40,12 @@ export const TechnologyRow = styled.div`
   }
 `;
 
+export const CategoryImgWrapper = styled.div`
+  width: 323px;
+  display: inline-block;
+  text-align: center;
+`;
+
 export const CategoryContainer = styled.div`
   display: flex;
   align-items: center;
@@ -65,7 +71,8 @@ export const CategoryContainer = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 400px;
 
-    &:nth-child(odd), &:nth-child(even) {
+    &:nth-child(odd),
+    &:nth-child(even) {
       justify-content: center;
     }
   }
@@ -106,7 +113,7 @@ export const CategoryTechnology = styled.span`
 export const DecorationTitle = styled(Decoration)`
   position: absolute;
   z-index: -1;
-  height: .9em;
+  height: 0.9em;
   top: 50%;
   left: 50%;
   transform: translateX(-50%);
