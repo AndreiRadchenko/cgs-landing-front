@@ -7,12 +7,67 @@ export const OurTeamContainer = styled.section`
   margin: 0 auto 193px auto;
   position: relative;
   font-family: ${themes.primary.font.family.roboto};
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 100%;
+  }
 `;
 
 export const OurTeamRow = styled.div`
-  display: flex;
+  // display: flex;
 
-  justify-content: space-between;
+  // justify-content: space-between;
+  // width: 1400px;
+  display: grid;
+  gap: 34px;
+  grid-template-columns: 736px 520px;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "main-goal-img philosophy-content"
+    "main-goal-img philosophy-img"
+    "main-goal-content philosophy-img";
+
+  .our-main-goal-img {
+    position: relative;
+    grid-area: main-goal-img;
+    height: 490px;
+  }
+
+  .our-main-goal-content {
+    grid-area: main-goal-content;
+  }
+
+  .our-philosophy-img {
+    position: relative;
+    grid-area: philosophy-img;
+    height: 392px;
+  }
+
+  .our-philosophy-content {
+    grid-area: philosophy-content;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 335px;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+    "main-goal-img"
+    "philosophy-content"
+    "philosophy-img"
+    "main-goal-content";
+
+    .our-main-goal-img, .our-philosophy-img {
+      width: 335px;
+      height: 243px;
+    }
+
+    .our-philosophy-img {
+      height: 251px;
+    }
+  }
 `;
 
 export const OurTeamCardContainer = styled.div`
@@ -63,17 +118,29 @@ export const OurTeamCardDescription = styled.span`
 
 export const DecorationClipIconLeft = styled.div`
   position: absolute;
-  bottom: 15%;
-  left: 40%;
+  bottom: -25%;
+  left: 63%;
   z-index: 3;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    transform: scale(0.5) rotate(65deg);
+    top: -95%;
+    left: -10%;
+  }
 `;
 
 export const DecorationClipIconRight = styled.div`
   position: absolute;
-  bottom: 36%;
-  right: 4%;
+  top: -15%;
+  right: -10%;
   transform: rotate(65deg);
   z-index: 3;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    transform: scale(0.5) rotate(65deg);
+    top: -35%;
+    right: -18%;
+  }
 `;
 
 export const DecorationTextTitle = styled(Decoration)`
