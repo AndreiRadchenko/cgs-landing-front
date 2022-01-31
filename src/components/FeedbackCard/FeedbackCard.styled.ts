@@ -8,6 +8,10 @@ export const FeedbackCardContainer = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: initial;
+  }
 `;
 
 export const FeedBackContentWrapper = styled.div``;
@@ -21,6 +25,10 @@ export const FeedbackCardName = styled.h2`
   margin: 0 22px 0 0;
   font-size: 22px;
   cursor: default;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.8em;
+  }
 `;
 
 export const FeedbackCardCompany = styled.a`
@@ -33,6 +41,10 @@ export const FeedbackCardCompany = styled.a`
   &:hover {
     color: ${themes.primary.colors.linkBlue};
   }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1.6em;
+  }
 `;
 
 export const FeedbackCardPosition = styled.span`
@@ -43,6 +55,10 @@ export const FeedbackCardPosition = styled.span`
   border-radius: 5px;
   margin-bottom: 1em;
   cursor: default;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1.6em;
+  }
 `;
 
 export const FeedbackCardDescription = styled.span`
@@ -52,4 +68,14 @@ export const FeedbackCardDescription = styled.span`
   cursor: default;
 
   width: 90%;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1.6em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.8em;
+    width: initial;
+    max-width: 97%;
+  }
 `;
