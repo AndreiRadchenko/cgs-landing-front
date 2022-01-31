@@ -9,18 +9,16 @@ body {
 }
 
 
-
 body {
     font-size: 0.7em;
     background-color: #F7F7F7;
 }
 
-@media(max-width: 1400px) {
+@media (max-width: 767px) {
     body {
-        overflow: hidden;
+        font-size: 0.6em;
     }
 }
-
 @media (max-width: 767px) {
     body {
         font-size: 0.65em;

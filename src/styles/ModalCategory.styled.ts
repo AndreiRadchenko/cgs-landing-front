@@ -164,7 +164,7 @@ export const SpecifyContentWrapper = styled.div`
 
 export const SpecifyContentImgWrapper = styled.div`
   width: 60%;
-  height: 400px;
+  height: 430px;
   position: relative;
 
   @media ${themes.primary.media.onlyLaptop} {
