@@ -54,4 +54,9 @@ export const ButtonText = styled.span.attrs(
   ${(props) => css`
     font-size: ${props.fontSize};
   `}
+
+  @media ${themes.primary.media.maxMobile} {
+    font-weight: 700;
+    font-size: 1.1em;
+  }
 `;

@@ -21,6 +21,11 @@ body {
 }
 @media (max-width: 767px) {
     body {
+        font-size: 0.6em;
+    }
+}
+@media (max-width: 767px) {
+    body {
         font-size: 0.65em;
     }
 }
@@ -36,6 +41,7 @@ body {
         font-size: 0.85em;
     }
 }
+
 @media (min-width: 1200px) {
     body {
         font-size: 0.75em;
@@ -60,4 +66,8 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.disableScrollBar {
+    overflow: hidden;
 }

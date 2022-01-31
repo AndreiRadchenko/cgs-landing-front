@@ -9,7 +9,7 @@ import { IWelcomePageProps } from "./types";
 
 const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
   return (
-    <div>
+    <>
       <StyledThisComp.BodyDescriptionWrapper>
         <StyledThisComp.BodyTitle>EUREKA!</StyledThisComp.BodyTitle>
         <StyledThisComp.BodySubtitle>
@@ -35,7 +35,7 @@ const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
           />
         </StyledThisComp.WrapperBgImg>
       </StyledThisComp.BodyDescriptionWrapper>
-    </div>
+    </>
   );
 };
 
