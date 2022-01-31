@@ -335,7 +335,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://apps.apple.com/ua/app/realiseme/id1456372856?l=ru",
     category: ["mobile"],
     description:
-      "This is a platform that connects teachers (private licensed tutors) and students, who will to prepare for an exam or get help for their homework. The platform is mutually beneficial for students and teachers.",
+      "A platform that connects teachers (private licensed tutors) with students who are going to prepare for an exam or to get help for their homework. The platform is mutually beneficial for students and teachers both.",
   },
   {
     url: companyName2,
@@ -343,7 +343,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://apps.apple.com/us/app/myti/id1329792134",
     category: ["mobile"],
     description:
-      "This is a SaaS medical platform that helps doctors and patients to organize documentation inside and outside the clinic. In fact, this application was made for one specific clinic, but it can accessed anywhere by subscription. ScanBot is a distinguishing feature of the app - an AI network recognizes keywords in a document via smartphone camera.",
+      "SaaS medical platform that helps doctors and patients to organize documentation inside and outside the clinic. ScanBot is a distinguishing feature of the app - an AI network recognizes keywords in a document via smartphone camera.",
   },
   {
     url: companyName3,
@@ -351,7 +351,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://play.google.com/store/apps/details?id=com.awesventures.admyre",
     category: ["mobile"],
     description:
-      "This is an EDU platform that establishes communication between students and tutors. It is designed to help people improve their skills in narrow specialties or to learn something completely new, be it language or any other skill.",
+      "This is an EDU platform that establishes communication between students and tutors. It is designed to help people improve their skills in narrow specialties or to learn something completely new whether it is language or any other skill.",
   },
   {
     url: companyName4,
@@ -359,7 +359,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://apps.apple.com/ua/app/denizen/id1542599510?l=ru",
     category: ["mobile"],
     description:
-      "Denizen is available in both AppStore and Google Play Store. The app allows to find great locations and places for hosting events or just working in your neighborhood. It is currently available in Kreuzberg and Mitte. The process of booking is simple and will be convenient for any type of user.",
+      "The app allows you to find great locations and places for hosting events or just working in your neighborhood. It is currently available in Kreuzberg and Mitte. The process of booking is simple and will be convenient for any type of user.",
   },
   {
     url: companyName5,
@@ -367,7 +367,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://apps.apple.com/be/app/growthday/id1543291315",
     category: ["mobile", "web"],
     description:
-      "This is a platform aimed at motivating and increasing self-perception of people who need it by setting personal goals and achievements. The application allows you to track progress of other users and see their own based on the completed tasks.",
+      "This platform aimed at motivating and increasing self-perception of people who need it by setting personal goals and achievements. Application allows you to track progress of other users and see your own based on completed tasks.",
   },
   {
     url: companyName6,
@@ -383,7 +383,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://trendcommander.com/",
     category: ["server", "web"],
     description:
-      "This is a platform for tracking stock charts. This is an AI-powered, realtime dashboard to see which companies and products are gaining and losing in popularity with customers. It helps users to discover trending companies and products without having to do lots of research.",
+      "This is an e-commerce platform for tracking stock charts of various companies. It is a dashboard that helps you to track all transactions in real time. So you can see all the live updates.",
   },
   {
     url: companyName8,
@@ -391,7 +391,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://www.cosuno.de/en/",
     category: ["blockchain", "web"],
     description:
-      "This is a user-friendly solution for procurement and subcontractor management in the construction industry of Germany. Expand a number of subcontractors from your contacts or find an ideal one in the base of 80000+ candidates. Then – one click and you’ve sent your tender. Simplified procedure saves your time, all thanks to Cosuno.",
+      "This is a solution for procurement and subcontractor management in the construction industry of Germany. Expand a number of subcontractors from your contacts or find an ideal one in the base of 80000+ candidates. Then – one click and you’ve sent your tender.",
   },
   {
     url: companyName9,
@@ -407,7 +407,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://us.sunpower.com/",
     category: ["server", "web"],
     description:
-      "This is the platform for selling/exchanging/managing solar systems in the United States. The distinguishing feature of this project is 3D rendering of each panel and its location through Python AI. This is an e-commerce platform – a marketplace for solar system owners, where you can leave feedback, view particular systems, participate in discussions, and so on.",
+      "This is the platform for selling/exchanging/managing solar systems in the US. The distinguishing feature of this project is 3D rendering of each panel and its location through Python AI. Here you can leave feedback, participate in discussions etc.",
   },
   {
     url: companyName11,
@@ -415,7 +415,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://www.civiq.com/",
     category: ["server", "web"],
     description:
-      "This is a common SaaS (Software as a Service) application, which is aimed at simplifying urban environment for people, who work or study there. This application is not for desktops, nor for smartphones – it is used on specialized stations (large screens) throughout the city. These stations allow you to buy bus, train or other transport tickets, pay utility bills, book some services and much more.",
+      "SaaS application which is aimed at simplifying the urban environment for people who work or study there. This application is used on specialized stations (large screens) throughout the city to buy a ticket for a bus, for example.",
   },
   {
     url: companyName12,
@@ -439,7 +439,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://app.thehomelike.com",
     category: ["web"],
     description:
-      "This is a platform for booking apartments in Europe. A distinctive feature of this app is that rental period starts from 3-4 months only. The platform provides renting services for people who travel across Europe for an extended period of time. This project has a complex architecture and was implemented with usage of technologies as Google MAP API / Google maps, PDF parsers, template engines, AI (Artificial Intelligence) and many more.",
+      "Platform for booking apartments in Europe.This project has a complex architecture and was implemented with usage of technologies as Google MAP API / Google maps, PDF parsers, template engines, AI (Artificial Intelligence) and many more.",
   },
   {
     url: companyName15,
@@ -447,7 +447,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://app.spaceimpulse.com",
     category: ["web"],
     description:
-      "This is a social platform for people, who work in the space industry, whether they are students, owners of enterprises, manufacturers for space rockets, satellites, drones, etc, analysts, scientists or Elon Musk. The main idea to create a place for communication (via chat) and trading (resale of related parts) in the space industry.",
+      "This is a social platform for people who work in the space industry, whether they are students, owners of enterprises, manufacturers for space rockets, satellites, drones, etc, scientists or Elon Musk. Main ideas – communication and trading.",
   },
   {
     url: companyName16,
@@ -455,7 +455,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://www.pandemicreliefsupply.com/",
     category: ["web"],
     description:
-      "PRS is a project for COVID-19 vaccination procedure tracking in the USA. More than 12 million people were protected with the help of this site. It has a shop, where you can buy all what is needed for COVID-19 protection: from gloves and masks to air filtration systems.",
+      "PRS is a project for COVID-19 vaccination procedure tracking in the USA. 12+ million people were protected with the help of this site. It has a shop, where you can buy all what is needed for COVID-19 protection: from gloves to air filtration systems.",
   },
   {
     url: companyName17,
@@ -463,7 +463,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://theshelf.com/",
     category: ["web"],
     description:
-      "Website of marketing agency. It is a comfy environment, where you can find useful info about this creative agency – their projects in portfolio, blog posts. We’ve tried to make it not only comfortable for users, but attractive too, with animations and graphics. Website should be the place with a maximum of info and if you need support on any question – you’re welcome in a pop-up window. Or maybe, you need to schedule a call for building a profitable strategy? No problem, fill in the form and it’s done!",
+      "It is a site, where you can find useful info about the creative agency – projects in portfolio, blog posts. If you need support – you’re welcome in a pop-up window. Or maybe, you need to schedule a call for building a profitable strategy? No problem, fill in the form and it’s done!",
   },
   {
     url: companyName18,
@@ -479,7 +479,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://www.eesel.app/",
     category: ["web"],
     description:
-      "Eesel is a tool, that can help to put all your work together in one place. Google docs, Figma designs, social media profiles and other will be saved in your “virtual organizer”, so you never lose something important. Eesel is free and doesn’t compromise on privacy – all your information will be protected.",
+      "Tool that can help to put all your work together in one place. Google docs, Figma designs, social media profiles and others will be saved in your “virtual organizer”, so you never lose something important. Eesel is free and doesn’t compromise on privacy – all your info will be protected.",
   },
   {
     url: companyName20,
@@ -487,7 +487,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://www.producthunt.com/posts/switch-1-0",
     category: ["web"],
     description:
-      "Switch adds a Sidebar to your browser and gives you the tools to switch between your apps, accounts, and workflows in one place. Switch instantly helps you to become more productive.",
+      "This is a Browser Extension that adds a Sidebar to your browser and gives you the tools to switch between your apps, accounts, and workflows in one place. Switch instantly helps you to become more productive.",
   },
   {
     url: companyName21,
@@ -495,7 +495,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     link: "https://www.scoby.social",
     category: ["web"],
     description:
-      "The world is going live. With Scoby Social, our app for real-time shared experiences, you can put the Creator Economy to work for you. Shared experiences have the power to transform, enlighten, surprise and delight. If you are passionate about your calling, love engaging with others, and are ready to rise to your destiny, you belong with us.g",
+      "With this app for real-time shared experiences you can put the Creator Economy to work for you. If you are passionate about your calling, love engaging with others, and are ready to rise to your destiny, you belong with the ScobySocial community.",
   },
   {
     url: companyName22,

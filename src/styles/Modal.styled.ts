@@ -35,6 +35,7 @@ export const ModalWrapper = styled.div`
   top: 10%;
   background-color: #f7f7f7;
   opacity: 1;
+  border-radius: 15px;
 
   @media ${themes.primary.media.onlyLaptop} {
     width: 1040px;
@@ -53,7 +54,7 @@ export const ModalWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 80%;
+    width: 90%;
   }
 `;
 
@@ -74,4 +75,34 @@ export const ModalCloseButton = styled.button`
   right: 2%;
   top: -0.5%;
   cursor: pointer;
+
+  @media ${themes.primary.media.minLaptop} {
+    right: 2%;
+    top: -0.3%;
+    font-size: 2.5em;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    right: 2%;
+    top: -0.3%;
+    font-size: 2.5em;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    right: 4%;
+    top: -0.3%;
+    font-size: 3em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    right: 6%;
+    top: 0%;
+    font-size: 3em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    right: 6%;
+    top: -0.1%;
+    font-size: 3em;
+  }
 `;

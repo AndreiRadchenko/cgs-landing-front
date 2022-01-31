@@ -4,6 +4,7 @@ import ButtonProjectLink from "../../utils/Buttons/ButtonProjectLink";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import { IModalProjectCardProps } from "../../types/ModalCategory.types";
 import ImagePreview from "../Image/ImagePreview";
+import { ProjectLinkText } from "../../styles/ModalCategory.styled";
 
 const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
   url,
@@ -33,9 +34,9 @@ const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
           <StyledCategory.ProjectLinkWrapper href={link} passHref>
             <a target={"_blank"}>
               <ButtonProjectLink>
-                <ButtonTextWrapper fontSize={"1.2em"}>
+                <StyledCategory.ProjectLinkText>
                   project link
-                </ButtonTextWrapper>
+                </StyledCategory.ProjectLinkText>
               </ButtonProjectLink>
             </a>
           </StyledCategory.ProjectLinkWrapper>
