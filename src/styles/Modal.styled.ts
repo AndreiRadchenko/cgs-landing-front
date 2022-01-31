@@ -73,24 +73,21 @@ export const ModalCloseButton = styled.button`
   height: 0.7em;
   position: absolute;
   right: 2%;
-  top: -0.5%;
+  top: 0;
   cursor: pointer;
 
   @media ${themes.primary.media.minLaptop} {
     right: 2%;
-    top: -0.3%;
     font-size: 2.5em;
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     right: 2%;
-    top: -0.3%;
     font-size: 2.5em;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     right: 4%;
-    top: -0.3%;
     font-size: 3em;
   }
 
