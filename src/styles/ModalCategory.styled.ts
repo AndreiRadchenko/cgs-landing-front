@@ -20,6 +20,14 @@ export const NavPanel = styled.div`
 
 export const ButtonContainer = styled.div`
   margin-left: -2em;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: -0.7em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-left: -1em;
+  }
 `;
 
 export const CategoryTitleWrapper = styled.div`
@@ -261,7 +269,7 @@ export const SpecifyContentImgWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    height: 350px;
+    height: 250px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {

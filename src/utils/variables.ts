@@ -303,34 +303,34 @@ export const ourTeamArr = [
 ];
 
 //projects names
-import companyName1 from "../../public/projects_images/realise_me.jpg";
-import companyName2 from "../../public/projects_images/my_ti.jpg";
-import companyName3 from "../../public/projects_images/admyre.jpg";
-import companyName4 from "../../public/projects_images/denizen.jpg";
-import companyName5 from "../../public/projects_images/growth_day.png";
-import companyName6 from "../../public/projects_images/finmix.png";
-import companyName7 from "../../public/projects_images/trend_commander.jpg";
-import companyName8 from "../../public/projects_images/cosuno_ventures.png";
-import companyName9 from "../../public/projects_images/live_art_market.png";
-import companyName10 from "../../public/projects_images/sun_power.jpg";
-import companyName11 from "../../public/projects_images/civiq.jpg";
-import companyName12 from "../../public/projects_images/i_welcome.png";
-import companyName13 from "../../public/projects_images/go_daddy_poynt.png";
-import companyName14 from "../../public/projects_images/homelike.jpg";
-import companyName15 from "../../public/projects_images/space_impulse.jpg";
-import companyName16 from "../../public/projects_images/prs.png";
-import companyName17 from "../../public/projects_images/shelf.png";
-import companyName18 from "../../public/projects_images/remetrik_inc.jpg";
-import companyName19 from "../../public/projects_images/eesel.jpg";
-import companyName20 from "../../public/projects_images/switch.png";
-import companyName21 from "../../public/projects_images/scoby_social.png";
-import companyName22 from "../../public/projects_images/review.png";
+import realiseMeImage from "../../public/projects_images/realise_me.jpg";
+import myITImage from "../../public/projects_images/my_ti.jpg";
+import admyreImage from "../../public/projects_images/admyre.jpg";
+import denizenImage from "../../public/projects_images/denizen.jpg";
+import growthDayImage from "../../public/projects_images/growth_day.png";
+import finMixImage from "../../public/projects_images/finmix.png";
+import trenCommanderImage from "../../public/projects_images/trend_commander.jpg";
+import cosunoImage from "../../public/projects_images/cosuno_ventures.png";
+import liveAtMarketImage from "../../public/projects_images/live_art_market.png";
+import sunPowerImage from "../../public/projects_images/sun_power.jpg";
+import civiqImage from "../../public/projects_images/civiq.jpg";
+import iWelcomeImage from "../../public/projects_images/i_welcome.png";
+import goDaddyImage from "../../public/projects_images/go_daddy_poynt.png";
+import homelikeImage from "../../public/projects_images/homelike.jpg";
+import spaceImpulseImage from "../../public/projects_images/space_impulse.jpg";
+import prsImage from "../../public/projects_images/prs.png";
+import shelfImage from "../../public/projects_images/shelf.png";
+import remetikImage from "../../public/projects_images/remetrik_inc.jpg";
+import eeselImage from "../../public/projects_images/eesel.jpg";
+import switchImage from "../../public/projects_images/switch.png";
+import scobySocialImage from "../../public/projects_images/scoby_social.png";
+import reviewImage from "../../public/projects_images/review.png";
 
 import { IModalProjectCardProps } from "../types/ModalCategory.types";
 
 export const projectsModalArr: IModalProjectCardProps[] = [
   {
-    url: companyName1,
+    url: realiseMeImage,
     title: "RealiseME",
     link: "https://apps.apple.com/ua/app/realiseme/id1456372856?l=ru",
     category: ["mobile"],
@@ -338,7 +338,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "A platform that connects teachers (private licensed tutors) with students who are going to prepare for an exam or to get help for their homework. The platform is mutually beneficial for students and teachers both.",
   },
   {
-    url: companyName2,
+    url: myITImage,
     title: "myTI",
     link: "https://apps.apple.com/us/app/myti/id1329792134",
     category: ["mobile"],
@@ -346,7 +346,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "SaaS medical platform that helps doctors and patients to organize documentation inside and outside the clinic. ScanBot is a distinguishing feature of the app - an AI network recognizes keywords in a document via smartphone camera.",
   },
   {
-    url: companyName3,
+    url: admyreImage,
     title: "Admyre",
     link: "https://play.google.com/store/apps/details?id=com.awesventures.admyre",
     category: ["mobile"],
@@ -354,7 +354,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "This is an EDU platform that establishes communication between students and tutors. It is designed to help people improve their skills in narrow specialties or to learn something completely new whether it is language or any other skill.",
   },
   {
-    url: companyName4,
+    url: denizenImage,
     title: "Denizen",
     link: "https://apps.apple.com/ua/app/denizen/id1542599510?l=ru",
     category: ["mobile"],
@@ -362,7 +362,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "The app allows you to find great locations and places for hosting events or just working in your neighborhood. It is currently available in Kreuzberg and Mitte. The process of booking is simple and will be convenient for any type of user.",
   },
   {
-    url: companyName5,
+    url: growthDayImage,
     title: "GrowthDay",
     link: "https://apps.apple.com/be/app/growthday/id1543291315",
     category: ["mobile", "web"],
@@ -370,7 +370,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "This platform aimed at motivating and increasing self-perception of people who need it by setting personal goals and achievements. Application allows you to track progress of other users and see your own based on completed tasks.",
   },
   {
-    url: companyName6,
+    url: finMixImage,
     title: "FinMix",
     link: "https://www.finmix.com/home",
     category: ["blockchain", "server", "web"],
@@ -378,7 +378,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "See your gainz and tendies in one platform. Account is free, you just need to get a referral code and start enjoying the world of crypto and stocks on FinMix!",
   },
   {
-    url: companyName7,
+    url: trenCommanderImage,
     title: "TrendCommander",
     link: "https://trendcommander.com/",
     category: ["server", "web"],
@@ -386,7 +386,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "This is an e-commerce platform for tracking stock charts of various companies. It is a dashboard that helps you to track all transactions in real time. So you can see all the live updates.",
   },
   {
-    url: companyName8,
+    url: cosunoImage,
     title: "Cosuno Ventures GmbH",
     link: "https://www.cosuno.de/en/",
     category: ["blockchain", "web"],
@@ -394,7 +394,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "This is a solution for procurement and subcontractor management in the construction industry of Germany. Expand a number of subcontractors from your contacts or find an ideal one in the base of 80000+ candidates. Then – one click and you’ve sent your tender.",
   },
   {
-    url: companyName9,
+    url: liveAtMarketImage,
     title: "LiveArt Market inc.",
     link: "https://liveart.market/",
     category: ["blockchain", "web"],
@@ -402,7 +402,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "Buy, sell, and discover art privately. Here, at Live Art Market inc. you can find the missing piece of your masterpiece collection, buy it and don’t worry about payment, logistics and any contracts. All could be handled without leaving the platform.",
   },
   {
-    url: companyName10,
+    url: sunPowerImage,
     title: "SunPower",
     link: "https://us.sunpower.com/",
     category: ["server", "web"],
@@ -410,7 +410,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "This is the platform for selling/exchanging/managing solar systems in the US. The distinguishing feature of this project is 3D rendering of each panel and its location through Python AI. Here you can leave feedback, participate in discussions etc.",
   },
   {
-    url: companyName11,
+    url: civiqImage,
     title: "CIVIQ",
     link: "https://www.civiq.com/",
     category: ["server", "web"],
@@ -418,7 +418,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "SaaS application which is aimed at simplifying the urban environment for people who work or study there. This application is used on specialized stations (large screens) throughout the city to buy a ticket for a bus, for example.",
   },
   {
-    url: companyName12,
+    url: iWelcomeImage,
     title: "iWelcome",
     link: "https://www.iwelcome.com/",
     category: ["server", "web"],
@@ -426,7 +426,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "iWelcome is Europe's leader in Consumer and B2C IAM solutions, designed with the complexity and security concerns of large organisations in mind. Our European roots guarantee a fully GDPR-compliant platform built with top-class private cloud technology.",
   },
   {
-    url: companyName13,
+    url: goDaddyImage,
     title: "GoDaddy / Poynt",
     link: "https://uk.godaddy.com",
     category: ["server", "web"],
@@ -434,7 +434,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "Who does not know this amazing marketplace? GoDaddy is a platform that helps you to review, select and buy the best online address and hosting for the lowest price! The main idea is to simplify the process of buying and setting up a hosting name.",
   },
   {
-    url: companyName14,
+    url: homelikeImage,
     title: "HomeLike",
     link: "https://app.thehomelike.com",
     category: ["web"],
@@ -442,7 +442,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "Platform for booking apartments in Europe.This project has a complex architecture and was implemented with usage of technologies as Google MAP API / Google maps, PDF parsers, template engines, AI (Artificial Intelligence) and many more.",
   },
   {
-    url: companyName15,
+    url: spaceImpulseImage,
     title: "SpaceImpulse",
     link: "https://app.spaceimpulse.com",
     category: ["web"],
@@ -450,7 +450,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "This is a social platform for people who work in the space industry, whether they are students, owners of enterprises, manufacturers for space rockets, satellites, drones, etc, scientists or Elon Musk. Main ideas – communication and trading.",
   },
   {
-    url: companyName16,
+    url: prsImage,
     title: "PRS",
     link: "https://www.pandemicreliefsupply.com/",
     category: ["web"],
@@ -458,7 +458,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "PRS is a project for COVID-19 vaccination procedure tracking in the USA. 12+ million people were protected with the help of this site. It has a shop, where you can buy all what is needed for COVID-19 protection: from gloves to air filtration systems.",
   },
   {
-    url: companyName17,
+    url: shelfImage,
     title: "The Shelf",
     link: "https://theshelf.com/",
     category: ["web"],
@@ -466,7 +466,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "It is a site, where you can find useful info about the creative agency – projects in portfolio, blog posts. If you need support – you’re welcome in a pop-up window. Or maybe, you need to schedule a call for building a profitable strategy? No problem, fill in the form and it’s done!",
   },
   {
-    url: companyName18,
+    url: remetikImage,
     title: "Remetrik inc.",
     link: "https://remetrik.com/",
     category: ["web"],
@@ -474,7 +474,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "Remetrik is a perfect solution for record labels, music distributors, and music publishers. It is a cloud-based platform that makes the entire analytic and accounting process more transparent and automated for master and publishing royalties both.",
   },
   {
-    url: companyName19,
+    url: eeselImage,
     title: "Eesel Chrome Extension",
     link: "https://www.eesel.app/",
     category: ["web"],
@@ -482,7 +482,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "Tool that can help to put all your work together in one place. Google docs, Figma designs, social media profiles and others will be saved in your “virtual organizer”, so you never lose something important. Eesel is free and doesn’t compromise on privacy – all your info will be protected.",
   },
   {
-    url: companyName20,
+    url: switchImage,
     title: "Switch",
     link: "https://www.producthunt.com/posts/switch-1-0",
     category: ["web"],
@@ -490,7 +490,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "This is a Browser Extension that adds a Sidebar to your browser and gives you the tools to switch between your apps, accounts, and workflows in one place. Switch instantly helps you to become more productive.",
   },
   {
-    url: companyName21,
+    url: scobySocialImage,
     title: "ScobySocial",
     link: "https://www.scoby.social",
     category: ["web"],
@@ -498,7 +498,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "With this app for real-time shared experiences you can put the Creator Economy to work for you. If you are passionate about your calling, love engaging with others, and are ready to rise to your destiny, you belong with the ScobySocial community.",
   },
   {
-    url: companyName22,
+    url: reviewImage,
     title: "REView",
     link: "https://review-app.io/",
     category: ["web"],
