@@ -47,6 +47,15 @@ export const FeedbackCardCompany = styled.a`
   }
 `;
 
+export const FeedbackButtonContainer = styled.div`
+  position: relative;
+  left: -1em;
+
+  @media ${themes.primary.media.maxLaptop} {
+    left: -1.5em;
+  }
+`;
+
 export const FeedbackCardPosition = styled.span`
   display: inline-block;
   font-size: 1.125em;

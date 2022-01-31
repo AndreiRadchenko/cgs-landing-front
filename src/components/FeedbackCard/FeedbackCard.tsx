@@ -51,12 +51,13 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
           {isOpenFullFeedBack ? description : description.slice(0, 115) + "..."}
         </StyledThisComp.FeedbackCardDescription>
       </StyledThisComp.FeedBackContentWrapper>
-
-      <ButtonReadMore onClick={toggleFullFeedbackHandler}>
-        <ButtonTextWrapper fontSize={"1.35em"}>
-          read {isOpenFullFeedBack ? "less" : "more"}
-        </ButtonTextWrapper>
-      </ButtonReadMore>
+      <StyledThisComp.FeedbackButtonContainer>
+        <ButtonReadMore onClick={toggleFullFeedbackHandler}>
+          <ButtonTextWrapper fontSize={"1.35em"}>
+            read {isOpenFullFeedBack ? "less" : "more"}
+          </ButtonTextWrapper>
+        </ButtonReadMore>
+      </StyledThisComp.FeedbackButtonContainer>
     </StyledThisComp.FeedbackCardContainer>
   );
 };
