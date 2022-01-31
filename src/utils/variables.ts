@@ -291,8 +291,7 @@ export const ourTeamArr = [
   {
     url: bigOurTeamIMG,
     title: "our main goal",
-    description:
-      "We change the World in different areas by delivering the best technical solutions and helping people in turning their dreams into life qualitatively.",
+    description: `We change the World in different areas by delivering the best technical solutions and helping people in turning their dreams   into life qualitatively.`,
   },
   {
     url: smallOurTeamIMG,

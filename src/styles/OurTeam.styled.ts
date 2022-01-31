@@ -54,12 +54,13 @@ export const OurTeamRow = styled.div`
     grid-template-columns: 335px;
     grid-template-rows: auto auto auto auto;
     grid-template-areas:
-    "main-goal-img"
-    "philosophy-content"
-    "philosophy-img"
-    "main-goal-content";
+      "main-goal-img"
+      "philosophy-content"
+      "philosophy-img"
+      "main-goal-content";
 
-    .our-main-goal-img, .our-philosophy-img {
+    .our-main-goal-img,
+    .our-philosophy-img {
       width: 335px;
       height: 243px;
     }
@@ -114,6 +115,7 @@ export const OurTeamCardDescription = styled.span`
   font-size: 26px;
   font-weight: 300;
   opacity: 0.7;
+  white-space: break-spaces;
 `;
 
 export const DecorationClipIconLeft = styled.div`

@@ -13,9 +13,8 @@ interface IOurTeamCardProps {
 const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
   return (
     <>
-    {/* <StyledThisComp.OurTeamCardContainer> */}
-    <div className={title.split(" ").join("-") + "-img"} >
-      <Image
+      <div className={title.split(" ").join("-") + "-img"}>
+        <Image
           src={url}
           alt={`our team ${title} img`}
           quality={100}
@@ -24,7 +23,7 @@ const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
           className={title.split(" ").join("-") + "-img"}
         />
 
-      {title === "our main goal" ? 
+        {title === "our main goal" ? (
           <StyledThisComp.DecorationClipIconLeft>
             <ImagePreview
               src={decorationClipIMG}
@@ -32,7 +31,7 @@ const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
               alt={"alt clip image icon left"}
             />
           </StyledThisComp.DecorationClipIconLeft>
-          :
+        ) : (
           <StyledThisComp.DecorationClipIconRight>
             <ImagePreview
               src={decorationClipIMG}
@@ -40,26 +39,23 @@ const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
               placeholder="blur"
             />
           </StyledThisComp.DecorationClipIconRight>
-      }
+        )}
+      </div>
 
+      <StyledThisComp.OurTeamCardContent
+        className={title.split(" ").join("-") + "-content"}
+      >
+        <StyledThisComp.OurTeamCardTitle>
+          {title}:
+          <StyledThisComp.DecorationTextTitle
+            className={`${title.split(" ").reverse()[0]}`}
+          />
+        </StyledThisComp.OurTeamCardTitle>
 
-
-    </div>
-
-    <StyledThisComp.OurTeamCardContent className={title.split(" ").join("-") + "-content"}>
-      <StyledThisComp.OurTeamCardTitle>
-        {title}:
-        <StyledThisComp.DecorationTextTitle
-        className={`${title.split(" ").reverse()[0]}`}
-        />
-      </StyledThisComp.OurTeamCardTitle>
-
-      <StyledThisComp.OurTeamCardDescription>
-        {description}
-      </StyledThisComp.OurTeamCardDescription>
-    </StyledThisComp.OurTeamCardContent>
-
-    {/* </StyledThisComp.OurTeamCardContainer> */}
+        <StyledThisComp.OurTeamCardDescription>
+          {description}
+        </StyledThisComp.OurTeamCardDescription>
+      </StyledThisComp.OurTeamCardContent>
     </>
   );
 };

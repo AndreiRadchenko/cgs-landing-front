@@ -3,11 +3,9 @@ import * as StyledThisComp from "../../styles/OurTeam.styled";
 import { ourTeamArr } from "../../utils/variables";
 import OurTeamCard from "./OurTeamCard";
 
-
 const OurTeam = () => {
   return (
     <StyledThisComp.OurTeamContainer>
-
       <StyledThisComp.OurTeamRow>
         {ourTeamArr.map(({ url, title, description }) => (
           <OurTeamCard
@@ -18,7 +16,6 @@ const OurTeam = () => {
           />
         ))}
       </StyledThisComp.OurTeamRow>
-
     </StyledThisComp.OurTeamContainer>
   );
 };
