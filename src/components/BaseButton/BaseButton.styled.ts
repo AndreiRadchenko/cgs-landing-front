@@ -2,13 +2,12 @@ import styled, { css } from "styled-components";
 import { IStyledButtonProps } from "../../types/Button.types";
 import themes from "../../utils/themes";
 
-
 export const StyledButton = styled.button.attrs(
   (props: IStyledButtonProps) => ({
     type: props.type,
     width: props.width,
     height: props.height,
-      marginTop: props.marginTop,
+    marginTop: props.marginTop,
     letterSpacing: props.letterSpacing,
   })
 )`
@@ -26,8 +25,7 @@ export const StyledButton = styled.button.attrs(
     background-color: transparent;
     letter-spacing: ${props.letterSpacing};
   `}
-  
-  
+
   @media ${themes.primary.media.onlyTabletLandScape} {
     width: 17em;
     height: 8em;

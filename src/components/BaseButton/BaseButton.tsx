@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import * as StyledThisComp from "./BaseButton.styled";
 import themes from "../../utils/themes";
-import Image from "next/image";
 import { IBaseButtonProps } from "../../types/Button.types";
 import backImg from "../../../public/back-button.png";
 import ImagePreview from "../Image/ImagePreview";
