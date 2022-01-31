@@ -5,6 +5,10 @@ import Decoration from "../components/Decoration/Decoration";
 export const AboutUsContainer = styled.section`
   position: relative;
   margin-top: 13.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   font-family: ${themes.primary.font.family.roboto};
 `;
 
@@ -56,6 +60,13 @@ export const WrapperAboutUSIMG = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    margin-top: 0.5em;
+    &.columnDescription {
+      margin-top: 2em;
+    }
+  }
 `;
 
 export const CardDescriptionWrapper = styled.div`
@@ -65,7 +76,7 @@ export const CardDescriptionWrapper = styled.div`
   font-family: ${themes.primary.font.family.roboto};
   font-weight: 400;
   margin-top: 0.3em;
-  
+
   &.columnDescription {
     margin-top: 0;
     flex-direction: column;
@@ -76,13 +87,14 @@ export const CardDescriptionWrapper = styled.div`
 
 export const CardDescriptionSubDescription = styled.div`
   font-size: 1.3em;
-  
+
   &.columnDescription {
     width: 200px;
     padding-left: 1em;
   }
 
   @media ${themes.primary.media.maxMobile} {
+    font-size: 1.6em;
     &.columnDescription {
       text-align: center;
       padding: 0;
@@ -115,7 +127,7 @@ export const DecorationText = styled(Decoration)`
   z-index: -1;
 
   &.var {
-    width: 11.5ch;
+    width: 12.2ch;
   }
 
   &.quantity {
@@ -128,7 +140,11 @@ export const DecorationText = styled(Decoration)`
 
   @media ${themes.primary.media.maxMobile} {
     &.var {
-      left: 14%;
+      left: 12%;
+    }
+
+    &.status {
+      left: 8.7%;
     }
   }
 `;
@@ -146,6 +162,7 @@ export const CardDescriptionValue = styled.span`
 
   @media ${themes.primary.media.maxMobile} {
     justify-content: center;
+    font-size: 1.2em;
   }
 `;
 
@@ -185,7 +202,7 @@ export const AboutUsCodeIcon = styled.span`
 
 export const AboutUsDescription = styled.span`
   display: block;
-  width: 827px;
+  width: 80%;
   text-align: center;
   font-weight: 400;
   font-size: 26px;
@@ -194,15 +211,20 @@ export const AboutUsDescription = styled.span`
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     padding-left: 1em;
+    text-align: left;
+    width: 90%;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     padding-left: 0.5em;
+    text-align: left;
   }
 
   @media ${themes.primary.media.maxMobile} {
     text-align: initial;
     padding-left: 0.5em;
+    font-size: 1.9em;
+    width: 100%;
   }
 `;
 
