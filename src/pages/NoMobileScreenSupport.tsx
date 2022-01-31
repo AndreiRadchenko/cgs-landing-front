@@ -1,6 +1,6 @@
 import React from "react";
 import * as StyledCommon from "../styles/NoMobileScreen.styled";
-import mainLogoIMG from "../../public/mainLogoView.svg";
+import mainLogoIMG from "../../public/mainLogo.png";
 
 import Image from "next/image";
 

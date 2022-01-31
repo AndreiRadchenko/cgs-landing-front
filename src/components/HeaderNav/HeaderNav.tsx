@@ -2,23 +2,21 @@ import React from "react";
 import * as StyledThisComp from "./HeaderNav.styled";
 import logoIMG from "../../../public/logo.svg";
 import { navigationRoutesNames, routers } from "../../utils/variables";
-import Image from "next/image";
+import ImagePreview from "../Image/ImagePreview";
 import Link from "next/link";
 
 const HeaderNav = () => {
   return (
     <StyledThisComp.HeaderNavContainer>
-      <Link href={routers.home} passHref>
-        <StyledThisComp.LogoLinkWrapper>
-          <Image
-            src={logoIMG}
-            alt={"logo cgs-team"}
-            quality={100}
-            objectFit={"contain"}
-            layout={"fixed"}
-          />
-        </StyledThisComp.LogoLinkWrapper>
-      </Link>
+      <StyledThisComp.LogoLinkWrapper href={routers.home} passHref>
+          <a>
+              <ImagePreview
+                  src={logoIMG}
+                  alt={"logo cgs-team"}
+                  placeholder={"blur"}
+              />
+          </a>
+      </StyledThisComp.LogoLinkWrapper>
 
       <StyledThisComp.HeaderNavLinkWrapper>
         {navigationRoutesNames.map((item) => (

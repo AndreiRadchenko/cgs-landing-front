@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 import * as StyledThisComp from "./Category.styled";
 import Image from "next/image";
+import ImagePreview from "../Image/ImagePreview";
 
 interface ICategoryProps {
   title: string;
   description: string;
-  url: string;
+  url: any;
   onOpenModalHandler: (categoryName: string) => void;
 }
 
@@ -30,7 +31,11 @@ const Category: FC<ICategoryProps> = ({
 
         {url && (
           <StyledThisComp.IconWrapperSpecialization>
-            <Image src={url} alt={`icon alt ${title} specialization`} />
+            <ImagePreview
+              src={url}
+              placeholder={"blur"}
+              alt={`icon alt ${title} specialization`}
+            />
           </StyledThisComp.IconWrapperSpecialization>
         )}
       </StyledThisComp.WrapperDescription>

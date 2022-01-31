@@ -1,32 +1,34 @@
 import * as StyledThisComp from "../../styles/Body.styled";
 import React from "react";
-import Image from "next/image";
-import mainLogoIMG from "../../../public/mainLogoView.svg";
-import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
+import mainLogoIMG from "../../../public/mainLogo.png";
 import BaseButton from "../BaseButton/BaseButton";
+import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
+import backImg from "../../../public/back-button.png";
+import ImagePreview from "../Image/ImagePreview";
+import { IWelcomePageProps } from "./types";
 
-const WelcomePage = () => {
+const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
   return (
     <>
       <StyledThisComp.BodyDescriptionWrapper>
         <StyledThisComp.BodyTitle>EUREKA!</StyledThisComp.BodyTitle>
         <StyledThisComp.BodySubtitle>
-          The team of sharp-witted devs is on the brink of you.
+          The team of sharp-witted <br /> devs is on the brink of you.
         </StyledThisComp.BodySubtitle>
 
         <StyledThisComp.CodeDescription>
-          {"//"}ready to cope with tasks of any complexity meeting the tightest
-          deadlines
+          {"//"}ready to cope with tasks of any <br /> complexity meeting the
+          tightest deadlines
         </StyledThisComp.CodeDescription>
 
-        <BaseButton>
+        <BaseButton onClick={clickHandler} src={backImg}>
           <ButtonTextWrapper fontSize={"1.4em"}>
             get estimation
           </ButtonTextWrapper>
         </BaseButton>
 
         <StyledThisComp.WrapperBgImg>
-          <Image
+          <ImagePreview
             src={mainLogoIMG}
             alt={"main logo big image"}
             priority={true}
