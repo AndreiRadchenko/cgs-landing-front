@@ -10,7 +10,7 @@ export const AboutUsContainer = styled.section`
 
 export const AboutUsWrapper = styled.div`
   width: 85%;
-  margin: 0 auto;
+  margin: 2em auto;
   display: flex;
   justify-content: space-between;
 `;
@@ -28,8 +28,14 @@ export const AboutUsCardContainer = styled.div`
 
   &:nth-child(odd) {
     justify-content: space-between;
-    margin-top: 2em;
+    margin-top: 1em;
   }
+`;
+
+export const WrapperAboutUSIMG = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
 `;
 
 export const CardDescriptionWrapper = styled.div`
@@ -38,7 +44,10 @@ export const CardDescriptionWrapper = styled.div`
   font-size: ${themes.primary.font.size.buttonText};
   font-family: ${themes.primary.font.family.roboto};
   font-weight: 400;
+  margin-top: 0.3em;
+  
   &.columnDescription {
+    margin-top: 0;
     flex-direction: column;
     align-items: center;
   }
@@ -62,23 +71,21 @@ export const CardDescriptionValueWrapper = styled.div`
 
 export const DecorationText = styled(Decoration)`
   position: absolute;
-  height: 1.2em;
+  height: 1em;
+  top: 50%;
+  left: -1%;
+  z-index: -1;
 
   &.var {
-    width: 6.7em;
-    top: 47%;
-    left: 10%;
+    width: 11.5ch;
   }
 
   &.quantity {
-    width: 1.7em;
-    top: 40%;
+    width: 3ch;
   }
 
   &.status {
-    width: 7.7em;
-    top: 47%;
-    left: 10%;
+    width: 13.5ch;
   }
 `;
 

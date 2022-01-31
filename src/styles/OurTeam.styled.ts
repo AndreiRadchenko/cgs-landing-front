@@ -40,7 +40,9 @@ export const OurTeamCardContainer = styled.div`
   }
 `;
 
-export const OurTeamCardContent = styled.div``;
+export const OurTeamCardContent = styled.div`
+  position: relative;
+`;
 
 export const OurTeamCardTitle = styled.h2`
   width: 100%;
@@ -76,16 +78,18 @@ export const DecorationClipIconRight = styled.div`
 
 export const DecorationTextTitle = styled(Decoration)`
   position: absolute;
-  height: 1.7em;
+  top: 50%;
+  height: 0.7em;
+  z-index: -1;
 
   &.philosophy {
-    top: 8.7%;
-    right: 55%;
-    width: 14em;
+    left: 13%;
+    width: 5.4em;
   }
 
   &.goal {
     bottom: 18%;
-    left: 8%;
+    left: 8.5%;
+    width: 5em;
   }
 `;
