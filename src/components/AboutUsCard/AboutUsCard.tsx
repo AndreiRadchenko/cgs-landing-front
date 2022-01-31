@@ -11,7 +11,9 @@ interface IAboutUsCardProps {
 const AboutUsCard: FC<IAboutUsCardProps> = ({ url, description, text }) => {
   return (
     <StyledThisComp.AboutUsCardContainer>
-      <StyledThisComp.WrapperAboutUSIMG>
+      <StyledThisComp.WrapperAboutUSIMG
+        className={description !== "quantity" ? "columnDescription" : ""}
+      >
         <ImagePreview src={url} alt={`about us icon ${description}`} />
       </StyledThisComp.WrapperAboutUSIMG>
 
@@ -33,7 +35,6 @@ const AboutUsCard: FC<IAboutUsCardProps> = ({ url, description, text }) => {
             {text}
             <StyledThisComp.DecorationText className={description} />
           </StyledThisComp.CardDescriptionValue>
-          
         </StyledThisComp.CardDescriptionValueWrapper>
       </StyledThisComp.CardDescriptionWrapper>
     </StyledThisComp.AboutUsCardContainer>
