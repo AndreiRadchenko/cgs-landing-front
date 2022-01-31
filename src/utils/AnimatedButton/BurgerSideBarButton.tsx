@@ -3,22 +3,27 @@ import { CSSTransition } from "react-transition-group";
 import * as StyledHeaderNav from "../../components/HeaderNav/HeaderNav.styled";
 
 export interface IBurgerButtonType {
-  in: boolean;
+  isOpen: boolean;
   timeout: number;
   classNames: string;
   children?: ReactNode;
 }
 
-const BurgerSideBarButton: FC<IBurgerButtonType> = (props) => {
+const BurgerSideBarButton: FC<IBurgerButtonType> = ({
+  timeout,
+  classNames,
+  children,
+  isOpen,
+}) => {
   return (
     <CSSTransition
-      in={props.in}
-      timeout={props.timeout}
-      classNames={props.classNames}
+      in={isOpen}
+      timeout={timeout}
+      classNames={classNames}
       unmountOnExit
     >
       <StyledHeaderNav.BurgerLinkWrapper>
-        {props.children}
+        {children}
       </StyledHeaderNav.BurgerLinkWrapper>
     </CSSTransition>
   );

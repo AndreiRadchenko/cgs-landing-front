@@ -7,12 +7,6 @@ import * as StyledFooter from "../Footer/Footer.styled";
 import * as StyledBurger from "../../styles/Burger.styles";
 import { socialLinks } from "../Footer/Footer";
 import FooterIcon from "../Footer/FooterIcon";
-import {
-  SocialLinksBurgerRow,
-  StyledFooterLink,
-  StyledLinksBurgerDecoration,
-} from "../../styles/Burger.styles";
-import * as Styles from "../Footer/Footer.styled";
 
 interface ILowResolutionNavigation {
   isOpen: boolean;
@@ -30,7 +24,7 @@ const LowResolutionNavigation: FC<ILowResolutionNavigation> = ({
         {navigationRoutesNames.map((item, idx) => (
           <BurgerSideBarButton
             key={item}
-            in={isOpen}
+            isOpen={isOpen}
             timeout={200 * idx + 1}
             classNames={"transition-button"}
           >
