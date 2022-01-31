@@ -214,15 +214,6 @@ export const ProjectSpecifyTechnologyContainer = styled.div`
   flex-direction: row-reverse;
   justify-content: space-between;
 
-  @media ${themes.primary.media.onlyLaptop} {
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-  }
-
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
   }
@@ -235,15 +226,6 @@ export const ProjectSpecifyTechnologyContainer = styled.div`
 export const SpecifyContentWrapper = styled.div`
   width: 40%;
   height: 100%;
-
-  @media ${themes.primary.media.onlyLaptop} {
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
@@ -260,9 +242,6 @@ export const SpecifyContentImgWrapper = styled.div`
   width: 60%;
   height: 430px;
   position: relative;
-
-  @media ${themes.primary.media.onlyLaptop} {
-  }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     width: 60%;
