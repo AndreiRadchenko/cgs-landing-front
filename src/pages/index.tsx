@@ -21,24 +21,24 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <NoMobileScreenSupport />
+      {/*<NoMobileScreenSupport />*/}
       <StyledCommon.Page>
-        <Body welcomePageButtonHandler={scrollHandler} />
-        <AboutUs />
-        <Partners />
+        {/*<Body welcomePageButtonHandler={scrollHandler} />*/}
+        {/*<AboutUs />*/}
+        {/*<Partners />*/}
         <Projects />
-        <Feedback />
-        <Technologies />
-        <OurTeam />
+        {/*<Feedback />*/}
+        {/*<Technologies />*/}
+        {/*<OurTeam />*/}
       </StyledCommon.Page>
-      <HowWeWorkList items={howWeWorksItems} />
-      <YesBegin clickHandler={scrollHandler} />
-      <StyledCommon.Page>
-        <div ref={ref}>
-          <LetsCode />
-        </div>
-      </StyledCommon.Page>
-      <Footer />
+      {/*<HowWeWorkList items={howWeWorksItems} />*/}
+      {/*<YesBegin clickHandler={scrollHandler} />*/}
+      {/*<StyledCommon.Page>*/}
+      {/*  <div ref={ref}>*/}
+      {/*    <LetsCode />*/}
+      {/*  </div>*/}
+      {/*</StyledCommon.Page>*/}
+      {/*<Footer />*/}
     </>
   );
 };

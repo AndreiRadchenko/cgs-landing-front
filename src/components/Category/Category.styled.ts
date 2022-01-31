@@ -61,21 +61,28 @@ export const CategoryContainer = styled.div`
   }
 
   @media ${themes.primary.media.minPC} {
+    flex: 0 1 21em;
+    height: 28em;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
     flex: 0 1 19em;
-    height: 24em;
+    height: 23em;
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
-    flex: 0 1 16em;
+    flex: 0 1 16.5em;
     height: 22em;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
-    flex: 0 1 18em;
+    flex: 0 1 17em;
+    height: 23em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    flex: 0 1 20em;
+    flex: 0 1 19em;
+    height: 27em;
     margin: 10px;
   }
 

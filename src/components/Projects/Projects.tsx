@@ -38,10 +38,8 @@ const Projects = () => {
             We provide end-to-end development using the MERN stack, which means
             our team adores Javascript. Furthermore, innovative ideas and new
             challenges are our passion.
-            <StyledThisComp.DecorationTitle />
           </StyledThisComp.ProjectsTitle>
-
-
+          <StyledThisComp.DecorationTitle />
           <ButtonSeeAllWorks onClick={seeAllWorksHandler}>
             <ButtonTextWrapper fontSize={themes.primary.font.size.linkText}>
               see all work
