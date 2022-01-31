@@ -14,8 +14,11 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
   technologies,
 }) => {
   return (
-    <StyledThisComp.CategoryContainer>
-      <Image src={url} alt={`technologies description ${title}`} />
+    <StyledThisComp.CategoryContainer className={title}>
+      <div style={{width: "323px", display: "inline-block", textAlign: "center"}}>
+        <Image src={url} alt={`technologies description ${title}`}  />
+      </div>
+      
       <StyledThisComp.CategoryDescriptionWrapper className="descriptionWrapper">
         <StyledThisComp.CategoryTitle>
           {title}

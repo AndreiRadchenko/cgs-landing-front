@@ -13,6 +13,31 @@ export const TechnologyRow = styled.div`
   flex-wrap: wrap;
   width: 90%;
   margin: 3em 0 3em auto;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 3em auto 3em auto;
+    width: auto;
+
+    .web {
+      order: 1;
+    }
+
+    .mobile {
+      order: 3;
+    }
+
+    .server {
+      order: 2;
+    }
+
+    .blockchain {
+      order: 4;
+    }
+  }
 `;
 
 export const CategoryContainer = styled.div`
@@ -34,6 +59,14 @@ export const CategoryContainer = styled.div`
 
     .descriptionWrapper {
       margin-right: 2em;
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 400px;
+
+    &:nth-child(odd), &:nth-child(even) {
+      justify-content: center;
     }
   }
 `;
