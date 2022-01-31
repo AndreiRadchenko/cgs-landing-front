@@ -2,14 +2,18 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const CategoryContainer = styled.div`
-  width: 304px;
-  height: 340px;
+  height: 26em;
   margin: 0 27px 27px 0;
   border-radius: 6px;
-  flex: 0 1 304px;
+  flex: 0 1 20em;
   position: relative;
   transition: 300ms;
   cursor: pointer;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex: 0 1 20em;
+    justify-content: center;
+  }
 
   &:nth-child(odd) {
     background-color: #a9cdf5;
@@ -40,14 +44,57 @@ export const CategoryContainer = styled.div`
     background-color: #ffefd8;
     border-radius: 60px;
     cursor: default;
+
     &:hover {
       transform: rotate(0deg);
     }
+
+    @media ${themes.primary.media.maxTabletPortrait} {
+      display: none;
+    }
+  }
+
+  &:nth-child(4) {
+    @media ${themes.primary.media.onlyTabletLandScape} {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.minPC} {
+    flex: 0 1 21em;
+    height: 28em;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    flex: 0 1 19em;
+    height: 23em;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    flex: 0 1 16.5em;
+    height: 22em;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    flex: 0 1 17em;
+    height: 23em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    flex: 0 1 19em;
+    height: 27em;
+    margin: 10px;
+  }
+
+  @media (max-width: 543px) {
+    flex: 0 1 40%;
+    height: 23em;
   }
 `;
 
 export const WrapperDescription = styled.div`
-  padding: 26px 24px;
+  padding: ${themes.primary.spacing.septenary}
+    ${themes.primary.spacing.tertiary};
   height: 100%;
 `;
 
@@ -57,10 +104,14 @@ export const TitleSpecialization = styled.h2`
 
 export const DescriptionSpecialization = styled.span`
   font-size: ${themes.primary.font.size.vistaco};
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: ${themes.primary.font.size.tertiary};
+  }
 `;
 
 export const IconWrapperSpecialization = styled.div`
   position: absolute;
-  bottom: 5%;
+  bottom: 3%;
   right: 5%;
 `;

@@ -31,16 +31,21 @@ export const StyledButton = styled.button.attrs(
     height: 8em;
     margin-top: ${themes.primary.spacing.headerNavVertical};
   }
-
   @media ${themes.primary.media.onlyTabletPortrait} {
-    width: 17em;
-    height: 8em;
+    width: 14em;
+    height: 6em;
     margin-top: ${themes.primary.spacing.headerNavVertical};
   }
-
   @media ${themes.primary.media.maxMobile} {
-    width: 15em;
-    height: 7em;
+    width: 14em;
+    height: 6em;
     margin-top: ${themes.primary.spacing.primary};
+    margin-left: -0.8em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 10em;
+    height: 4em;
+    margin-left: -0.8em;
   }
 `;
