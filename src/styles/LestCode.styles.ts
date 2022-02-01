@@ -11,13 +11,17 @@ export const LetsCodeContainer = styled.section`
   margin-top: 60px;
   font-family: ${themes.primary.font.family.roboto};
 
-  @media ${themes.primary.media.maxTabletPortrait} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
   }
 `;
 
 export const FormContainer = styled.div`
   width: 30.5em;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 335px;
+  }
 `;
 
 export const ImageContainer = styled.section`
@@ -49,6 +53,12 @@ export const LestCodeContent = styled.div`
 
 export const LetsCodeImageWrapper = styled.div`
   position: absolute;
+
+  * {
+    position: relative;
+    left: -5%;
+    top: -5%;
+  }
 `;
 
 export const CatIconWrapper = styled.div`
