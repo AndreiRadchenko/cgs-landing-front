@@ -1,28 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as StyledThisComp from "./HeaderNav.styled";
-import logoIMG from "../../../public/logo.svg";
+import logoIMG from "../../../public/logo.png";
 import { navigationRoutesNames, routers } from "../../utils/variables";
-import Image from "next/image";
+import ImagePreview from "../Image/ImagePreview";
 import Link from "next/link";
+import LowResolutionNavigation from "../LowResolutionNavigation/LowResolutionNavigation";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { disableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 
-const HeaderNav = () => {
+const HeaderNav = (): JSX.Element => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { width } = useWindowDimension();
+
+  const toggleBurgerHandler = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    isOpen && width && width >= 768 && setIsOpen(false);
+  }, [width]);
+
+  disableScrollBarHandler(isOpen);
+
   return (
     <StyledThisComp.HeaderNavContainer>
-      <StyledThisComp.LogoLinkWrapper href={routers.home} passHref>
-        <a>
-          <Image src={logoIMG} alt={"logo cgs-team"} />
-        </a>
+      <StyledThisComp.LogoLinkWrapper href={routers.home}>
+        <ImagePreview
+          src={logoIMG}
+          alt={"logo cgs-team"}
+          placeholder={"blur"}
+        />
       </StyledThisComp.LogoLinkWrapper>
-
-      <StyledThisComp.HeaderNavLinkWrapper>
-        {navigationRoutesNames.map((item) => (
-          <StyledThisComp.ListItemNav key={item}>
-            <Link href={item[0]} passHref>
-              {item}
-            </Link>
-          </StyledThisComp.ListItemNav>
-        ))}
-      </StyledThisComp.HeaderNavLinkWrapper>
     </StyledThisComp.HeaderNavContainer>
   );
 };

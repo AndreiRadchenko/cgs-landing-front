@@ -1,7 +1,7 @@
 import React from "react";
 import * as StyledThisComp from "../../styles/LestCode.styles";
 import Image from "next/image";
-import FormWrapperIMG from "../../../public/FormikWrapper-icon.svg";
+import FormWrapperIMG from "../../../public/formIconWrap.png";
 import CreateSupportForm from "../CreateSupportForm/CreateSupportForm";
 
 const LetsCodeForm = () => {

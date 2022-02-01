@@ -1,8 +1,8 @@
 import React from "react";
 import * as StyledThisComp from "../../styles/LestCode.styles";
-import CatIconIMG from "../../../public/cat-icon.svg";
+import CatIconIMG from "../../../public/catIcon.png";
 import LetsCodeForm from "./LetsCodeForm";
-import Image from "next/image";
+import ImagePreview from "../Image/ImagePreview";
 
 const LetsCode = () => {
 

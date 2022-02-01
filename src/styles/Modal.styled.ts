@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Modal } from "@mui/material";
+import themes from "../utils/themes";
 
 export const BackDrop = styled.div`
   z-index: -1;
@@ -34,6 +35,31 @@ export const ModalWrapper = styled.div`
   top: 10%;
   background-color: #f7f7f7;
   opacity: 1;
+  border-radius: 15px;
+
+  @media ${themes.primary.media.onlyLaptop} {
+    width: 1040px;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    width: 80%;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    width: 90%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 90%;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 90%;
+  }
+`;
+
+export const ModalRow = styled.div`
+  position: relative;
 `;
 
 export const ModalCloseButton = styled.button`
@@ -47,6 +73,33 @@ export const ModalCloseButton = styled.button`
   height: 0.7em;
   position: absolute;
   right: 2%;
-  top: 2%;
+  top: 0;
   cursor: pointer;
+
+  @media ${themes.primary.media.minLaptop} {
+    right: 2%;
+    font-size: 2.5em;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    right: 2%;
+    font-size: 2.5em;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    right: 4%;
+    font-size: 3em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    right: 6%;
+    top: 0%;
+    font-size: 3em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    right: 6%;
+    top: -0.1%;
+    font-size: 3em;
+  }
 `;

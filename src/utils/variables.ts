@@ -1,34 +1,34 @@
-import laptopIconIMG from "../../public/laptop-icon.svg";
-import smartphoneIMG from "../../public/phone-icon.svg";
-import serverIMG from "../../public/database-icon.svg";
-import blockChainIMG from "../../public/blockchain-icon.svg";
+import laptopIconIMG from "../../public/laptop.png";
+import smartphoneIMG from "../../public/mobile.png";
+import serverIMG from "../../public/database.png";
+import blockChainIMG from "../../public/blockchain.png";
 //partners
-import homeLikeIMG from "../../public/homeLike-icon.svg";
-import spaceImpulseIMG from "../../public/spaceImpulse-icon.svg";
-import ibmIMG from "../../public/IBM-icon.svg";
-import sunPowerIMG from "../../public/sunPower-icon.svg";
-import civiqIMG from "../../public/civiq-icon.svg";
-import growthDayIMG from "../../public/growthday-icon.svg";
-import oneWelcomeIMG from "../../public/oneWelcome-icon.svg";
-import pandemicIMG from "../../public/pandemicRelief-icon.svg";
-import wIMG from "../../public/w-icon.svg";
-import trendCommanderIMG from "../../public/trendCommnader-icon.svg";
-import atlassianIMG from "../../public/atlassian-icon.svg";
-import chilliIMG from "../../public/chilli-icon.svg";
+import homeLikeIMG from "../../public/homelike.png";
+import spaceImpulseIMG from "../../public/spaceimpulse.png";
+import ibmIMG from "../../public/ibm.png";
+import sunPowerIMG from "../../public/sunpower.png";
+import civiqIMG from "../../public/civiq.png";
+import growthDayIMG from "../../public/growthDay.png";
+import oneWelcomeIMG from "../../public/onewelcome.png";
+import pandemicIMG from "../../public/pandemic.png";
+import wIMG from "../../public/w-icon.png";
+import trendCommanderIMG from "../../public/trenCommander.png";
+import atlassianIMG from "../../public/atlassian.png";
+import chilliIMG from "../../public/chilli.png";
 
 //about
-import astronautIMG from "../../public/astronaut-about-icon.svg";
-import spaceIMG from "../../public/space-about-icon.svg";
-import starIMG from "../../public/star-about-icon.svg";
+import astronautIMG from "../../public/cosmonaut.png";
+import spaceIMG from "../../public/spaceAbout.png";
+import starIMG from "../../public/starAbout.png";
 
 //technologies
-import technologyLaptopIMG from "../../public/technology-laptop-icon.svg";
-import technologySmartPhoneIMG from "../../public/technology-smartphone-icon.svg";
-import technologyDatabaseIMG from "../../public/technology-database-icon.svg";
-import technologyBlockchainIMG from "../../public/technology-blockchain-icon.svg";
+import technologyLaptopIMG from "../../public/laptop-tech.png";
+import technologySmartPhoneIMG from "../../public/mobileTech.png";
+import technologyDatabaseIMG from "../../public/databaseTech.png";
+import technologyBlockchainIMG from "../../public/blockChainTech.png";
 
 //ourteam
-import bigOurTeamIMG from "../../public/bigOurTeam.svg";
+import bigOurTeamIMG from "../../public/ourTeamBig.png";
 import smallOurTeamIMG from "../../public/ourTeam.png";
 
 import { IFeedbackCardProps } from "../types/Feedback.types";
@@ -291,8 +291,7 @@ export const ourTeamArr = [
   {
     url: bigOurTeamIMG,
     title: "our main goal",
-    description:
-      "We change the World in different areas by delivering the best technical solutions and helping people in turning their dreams into life qualitatively.",
+    description: `We change the World in different areas by delivering the best technical solutions and helping people in turning their dreams   into life qualitatively.`,
   },
   {
     url: smallOurTeamIMG,
@@ -303,47 +302,206 @@ export const ourTeamArr = [
 ];
 
 //projects names
-import ResealiseIMG from "../../public/realiseMe.png";
-import myITIMG from "../../public/myIT.png";
-import admyreIMG from "../../public/admyre.png";
-import denizenIMG from "../../public/denizen.png";
-import hyypIMG from "../../public/hyyp.png";
+import realiseMeImage from "../../public/projects_images/realise_me.jpg";
+import myITImage from "../../public/projects_images/my_ti.jpg";
+import admyreImage from "../../public/projects_images/admyre.jpg";
+import denizenImage from "../../public/projects_images/denizen.jpg";
+import growthDayImage from "../../public/projects_images/growth_day.png";
+import finMixImage from "../../public/projects_images/finmix.png";
+import trenCommanderImage from "../../public/projects_images/trend_commander.jpg";
+import cosunoImage from "../../public/projects_images/cosuno_ventures.png";
+import liveAtMarketImage from "../../public/projects_images/live_art_market.png";
+import sunPowerImage from "../../public/projects_images/sun_power.jpg";
+import civiqImage from "../../public/projects_images/civiq.jpg";
+import iWelcomeImage from "../../public/projects_images/i_welcome.png";
+import goDaddyImage from "../../public/projects_images/go_daddy_poynt.png";
+import homelikeImage from "../../public/projects_images/homelike.jpg";
+import spaceImpulseImage from "../../public/projects_images/space_impulse.jpg";
+import prsImage from "../../public/projects_images/prs.png";
+import shelfImage from "../../public/projects_images/shelf.png";
+import remetikImage from "../../public/projects_images/remetrik_inc.jpg";
+import eeselImage from "../../public/projects_images/eesel.jpg";
+import switchImage from "../../public/projects_images/switch.png";
+import scobySocialImage from "../../public/projects_images/scoby_social.png";
+import reviewImage from "../../public/projects_images/review.png";
+
 import { IModalProjectCardProps } from "../types/ModalCategory.types";
 
 export const projectsModalArr: IModalProjectCardProps[] = [
   {
-    url: ResealiseIMG,
+    url: realiseMeImage,
     title: "RealiseME",
     link: "https://apps.apple.com/ua/app/realiseme/id1456372856?l=ru",
+    category: ["mobile"],
     description:
-      "This is a platform that connects teachers (private licensed tutors) and students, who will to prepare for an exam or get help for their homework. The platform is mutually beneficial for students and teachers.",
+      "A platform that connects teachers (private licensed tutors) with students who are going to prepare for an exam or to get help for their homework. The platform is mutually beneficial for students and teachers both.",
   },
   {
-    url: myITIMG,
+    url: myITImage,
     title: "myTI",
     link: "https://apps.apple.com/us/app/myti/id1329792134",
+    category: ["mobile"],
     description:
-      "This is a SaaS medical platform that helps doctors and patients to organize documentation inside and outside the clinic. In fact, this application was made for one specific clinic, but it can accessed anywhere by subscription. ScanBot is a distinguishing feature of the app - an AI network recognizes keywords in a document via smartphone camera.",
+      "SaaS medical platform that helps doctors and patients to organize documentation inside and outside the clinic. ScanBot is a distinguishing feature of the app - an AI network recognizes keywords in a document via smartphone camera.",
   },
   {
-    url: admyreIMG,
+    url: admyreImage,
     title: "Admyre",
     link: "https://play.google.com/store/apps/details?id=com.awesventures.admyre",
+    category: ["mobile"],
     description:
-      "This is an EDU platform that establishes communication between students and tutors. It is designed to help people improve their skills in narrow specialties or to learn something completely new, be it language or any other skill.",
+      "This is an EDU platform that establishes communication between students and tutors. It is designed to help people improve their skills in narrow specialties or to learn something completely new whether it is language or any other skill.",
   },
   {
-    url: denizenIMG,
+    url: denizenImage,
     title: "Denizen",
     link: "https://apps.apple.com/ua/app/denizen/id1542599510?l=ru",
+    category: ["mobile"],
     description:
-      "Denizen is available in both AppStore and Google Play Store. The app allows to find great locations and places for hosting events or just working in your neighborhood. It is currently available in Kreuzberg and Mitte. The process of booking is simple and will be convenient for any type of user.",
+      "The app allows you to find great locations and places for hosting events or just working in your neighborhood. It is currently available in Kreuzberg and Mitte. The process of booking is simple and will be convenient for any type of user.",
   },
   {
-    url: hyypIMG,
-    title: "HYYP",
-    link: "https://play.google.com/store/apps/details?id=com.hyyp247.home",
+    url: growthDayImage,
+    title: "GrowthDay",
+    link: "https://apps.apple.com/be/app/growthday/id1543291315",
+    category: ["mobile", "web"],
     description:
-      "With HYYP you can: \n - manage your alarm system remotely view the live status of your alarm \n - access a live event log \n - control user access to your alarm \n - add visitors to your home, control access rights of employees, all without them ever being given a code to your alarm \n - receive real-time notifications ",
+      "This platform aimed at motivating and increasing self-perception of people who need it by setting personal goals and achievements. Application allows you to track progress of other users and see your own based on completed tasks.",
+  },
+  {
+    url: finMixImage,
+    title: "FinMix",
+    link: "https://www.finmix.com/home",
+    category: ["blockchain", "server", "web"],
+    description:
+      "See your gainz and tendies in one platform. Account is free, you just need to get a referral code and start enjoying the world of crypto and stocks on FinMix!",
+  },
+  {
+    url: trenCommanderImage,
+    title: "TrendCommander",
+    link: "https://trendcommander.com/",
+    category: ["server", "web"],
+    description:
+      "This is an e-commerce platform for tracking stock charts of various companies. It is a dashboard that helps you to track all transactions in real time. So you can see all the live updates.",
+  },
+  {
+    url: cosunoImage,
+    title: "Cosuno Ventures GmbH",
+    link: "https://www.cosuno.de/en/",
+    category: ["blockchain", "web"],
+    description:
+      "This is a solution for procurement and subcontractor management in the construction industry of Germany. Expand a number of subcontractors from your contacts or find an ideal one in the base of 80000+ candidates. Then – one click and you’ve sent your tender.",
+  },
+  {
+    url: liveAtMarketImage,
+    title: "LiveArt Market inc.",
+    link: "https://liveart.market/",
+    category: ["blockchain", "web"],
+    description:
+      "Buy, sell, and discover art privately. Here, at Live Art Market inc. you can find the missing piece of your masterpiece collection, buy it and don’t worry about payment, logistics and any contracts. All could be handled without leaving the platform.",
+  },
+  {
+    url: sunPowerImage,
+    title: "SunPower",
+    link: "https://us.sunpower.com/",
+    category: ["server", "web"],
+    description:
+      "This is the platform for selling/exchanging/managing solar systems in the US. The distinguishing feature of this project is 3D rendering of each panel and its location through Python AI. Here you can leave feedback, participate in discussions etc.",
+  },
+  {
+    url: civiqImage,
+    title: "CIVIQ",
+    link: "https://www.civiq.com/",
+    category: ["server", "web"],
+    description:
+      "SaaS application which is aimed at simplifying the urban environment for people who work or study there. This application is used on specialized stations (large screens) throughout the city to buy a ticket for a bus, for example.",
+  },
+  {
+    url: iWelcomeImage,
+    title: "iWelcome",
+    link: "https://www.iwelcome.com/",
+    category: ["server", "web"],
+    description:
+      "iWelcome is Europe's leader in Consumer and B2C IAM solutions, designed with the complexity and security concerns of large organisations in mind. Our European roots guarantee a fully GDPR-compliant platform built with top-class private cloud technology.",
+  },
+  {
+    url: goDaddyImage,
+    title: "GoDaddy / Poynt",
+    link: "https://uk.godaddy.com",
+    category: ["server", "web"],
+    description:
+      "Who does not know this amazing marketplace? GoDaddy is a platform that helps you to review, select and buy the best online address and hosting for the lowest price! The main idea is to simplify the process of buying and setting up a hosting name.",
+  },
+  {
+    url: homelikeImage,
+    title: "HomeLike",
+    link: "https://app.thehomelike.com",
+    category: ["web"],
+    description:
+      "Platform for booking apartments in Europe.This project has a complex architecture and was implemented with usage of technologies as Google MAP API / Google maps, PDF parsers, template engines, AI (Artificial Intelligence) and many more.",
+  },
+  {
+    url: spaceImpulseImage,
+    title: "SpaceImpulse",
+    link: "https://app.spaceimpulse.com",
+    category: ["web"],
+    description:
+      "This is a social platform for people who work in the space industry, whether they are students, owners of enterprises, manufacturers for space rockets, satellites, drones, etc, scientists or Elon Musk. Main ideas – communication and trading.",
+  },
+  {
+    url: prsImage,
+    title: "PRS",
+    link: "https://www.pandemicreliefsupply.com/",
+    category: ["web"],
+    description:
+      "PRS is a project for COVID-19 vaccination procedure tracking in the USA. 12+ million people were protected with the help of this site. It has a shop, where you can buy all what is needed for COVID-19 protection: from gloves to air filtration systems.",
+  },
+  {
+    url: shelfImage,
+    title: "The Shelf",
+    link: "https://theshelf.com/",
+    category: ["web"],
+    description:
+      "It is a site, where you can find useful info about the creative agency – projects in portfolio, blog posts. If you need support – you’re welcome in a pop-up window. Or maybe, you need to schedule a call for building a profitable strategy? No problem, fill in the form and it’s done!",
+  },
+  {
+    url: remetikImage,
+    title: "Remetrik inc.",
+    link: "https://remetrik.com/",
+    category: ["web"],
+    description:
+      "Remetrik is a perfect solution for record labels, music distributors, and music publishers. It is a cloud-based platform that makes the entire analytic and accounting process more transparent and automated for master and publishing royalties both.",
+  },
+  {
+    url: eeselImage,
+    title: "Eesel Chrome Extension",
+    link: "https://www.eesel.app/",
+    category: ["web"],
+    description:
+      "Tool that can help to put all your work together in one place. Google docs, Figma designs, social media profiles and others will be saved in your “virtual organizer”, so you never lose something important. Eesel is free and doesn’t compromise on privacy – all your info will be protected.",
+  },
+  {
+    url: switchImage,
+    title: "Switch",
+    link: "https://www.producthunt.com/posts/switch-1-0",
+    category: ["web"],
+    description:
+      "This is a Browser Extension that adds a Sidebar to your browser and gives you the tools to switch between your apps, accounts, and workflows in one place. Switch instantly helps you to become more productive.",
+  },
+  {
+    url: scobySocialImage,
+    title: "ScobySocial",
+    link: "https://www.scoby.social",
+    category: ["web"],
+    description:
+      "With this app for real-time shared experiences you can put the Creator Economy to work for you. If you are passionate about your calling, love engaging with others, and are ready to rise to your destiny, you belong with the ScobySocial community.",
+  },
+  {
+    url: reviewImage,
+    title: "REView",
+    link: "https://review-app.io/",
+    category: ["web"],
+    description:
+      "When you’re an IT recruiter, you need to be attentive during the whole hiring process. This platform is going to be a helping hand for each recruiter and a comfy place where great professionals can get a pleasant REview for their work.",
   },
 ];
