@@ -302,10 +302,10 @@ export const ourTeamArr = [
 ];
 
 //projects names
-import realiseMeImage from "../../public/projects_images/realise_me.jpg";
-import myITImage from "../../public/projects_images/my_ti.jpg";
-import admyreImage from "../../public/projects_images/admyre.jpg";
-import denizenImage from "../../public/projects_images/denizen.jpg";
+import ResealiseIMG from "../../public/projects_images/realise_me.jpg";
+import myITIMG from "../../public/projects_images/my_ti.jpg";
+import admyreIMG from "../../public/projects_images/admyre.jpg";
+import denizenIMG from "../../public/projects_images/denizen.jpg";
 import growthDayImage from "../../public/projects_images/growth_day.png";
 import finMixImage from "../../public/projects_images/finmix.png";
 import trenCommanderImage from "../../public/projects_images/trend_commander.jpg";
@@ -329,7 +329,7 @@ import { IModalProjectCardProps } from "../types/ModalCategory.types";
 
 export const projectsModalArr: IModalProjectCardProps[] = [
   {
-    url: realiseMeImage,
+    url: ResealiseIMG,
     title: "RealiseME",
     link: "https://apps.apple.com/ua/app/realiseme/id1456372856?l=ru",
     category: ["mobile"],
@@ -337,7 +337,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "A platform that connects teachers (private licensed tutors) with students who are going to prepare for an exam or to get help for their homework. The platform is mutually beneficial for students and teachers both.",
   },
   {
-    url: myITImage,
+    url: myITIMG,
     title: "myTI",
     link: "https://apps.apple.com/us/app/myti/id1329792134",
     category: ["mobile"],
@@ -345,7 +345,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "SaaS medical platform that helps doctors and patients to organize documentation inside and outside the clinic. ScanBot is a distinguishing feature of the app - an AI network recognizes keywords in a document via smartphone camera.",
   },
   {
-    url: admyreImage,
+    url: admyreIMG,
     title: "Admyre",
     link: "https://play.google.com/store/apps/details?id=com.awesventures.admyre",
     category: ["mobile"],
@@ -353,7 +353,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "This is an EDU platform that establishes communication between students and tutors. It is designed to help people improve their skills in narrow specialties or to learn something completely new whether it is language or any other skill.",
   },
   {
-    url: denizenImage,
+    url: denizenIMG,
     title: "Denizen",
     link: "https://apps.apple.com/ua/app/denizen/id1542599510?l=ru",
     category: ["mobile"],
