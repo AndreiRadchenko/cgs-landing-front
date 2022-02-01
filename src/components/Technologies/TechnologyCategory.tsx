@@ -1,9 +1,10 @@
 import React, { FC } from "react";
 import * as StyledThisComp from "../../styles/Technologies.styled";
 import Image from "next/image";
+import { CategoryImgWrapper } from "../../styles/Technologies.styled";
 
 interface ITechnologyCategoryProps {
-  url: string;
+  url: any;
   title: string;
   technologies: string[];
 }
@@ -14,11 +15,16 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
   technologies,
 }) => {
   return (
-    <StyledThisComp.CategoryContainer>
-      <Image src={url} alt={`technologies description ${title}`} />
+    <StyledThisComp.CategoryContainer className={title}>
+      <StyledThisComp.CategoryImgWrapper>
+        <Image src={url} alt={`technologies description ${title}`} />
+      </StyledThisComp.CategoryImgWrapper>
+
       <StyledThisComp.CategoryDescriptionWrapper className="descriptionWrapper">
-        <StyledThisComp.CategoryTitle>{title}</StyledThisComp.CategoryTitle>
-        <StyledThisComp.DecorationTitle className={title} />
+        <StyledThisComp.CategoryTitle>
+          {title}
+          <StyledThisComp.DecorationTitle className={title} />
+        </StyledThisComp.CategoryTitle>
 
         <StyledThisComp.CategoryLine />
         <StyledThisComp.CategoryTechnologiesWrapper>

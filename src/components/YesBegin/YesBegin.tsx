@@ -2,9 +2,10 @@ import React from "react";
 import * as Styles from "./YesBegin.styled";
 import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
-import Image from "next/image";
+import ImagePreview from "../Image/ImagePreview";
+import { IYesBeginProps } from "./types";
 
-const YesBegin = () => {
+const YesBegin = ({ clickHandler }: IYesBeginProps) => {
   return (
     <Styles.Container>
       <Styles.Title>
@@ -15,11 +16,11 @@ const YesBegin = () => {
         Do you want to build a rocket with CGS-team?
       </Styles.SubTitle>
       <Styles.ButtonContainer>
-        <BaseButton>
+        <BaseButton onClick={clickHandler}>
           <ButtonTextWrapper fontSize="2em">yes! begin!</ButtonTextWrapper>
         </BaseButton>
         <Styles.ImageContainer>
-          <Image src="/rocket.png" layout="fill" alt="rocket" />
+          <ImagePreview src="/rocket.png" layout="fill" alt="rocket" />
         </Styles.ImageContainer>
       </Styles.ButtonContainer>
     </Styles.Container>

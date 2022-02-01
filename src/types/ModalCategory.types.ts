@@ -1,3 +1,5 @@
+type Category = "web" | "mobile" | "blockchain" | "server";
+
 export enum ProjectsListType {
   seeAllWorks = "all work",
   web = "web",
@@ -19,4 +21,5 @@ export interface IModalProjectCardProps {
   title: string;
   link: string;
   description: string;
+  category: Category[];
 }

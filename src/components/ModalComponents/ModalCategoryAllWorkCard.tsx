@@ -1,9 +1,10 @@
 import React, { FC } from "react";
 import * as StyledCategory from "../../styles/ModalCategory.styled";
-import Image from "next/image";
 import ButtonProjectLink from "../../utils/Buttons/ButtonProjectLink";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import { IModalProjectCardProps } from "../../types/ModalCategory.types";
+import ImagePreview from "../Image/ImagePreview";
+import { ProjectLinkText } from "../../styles/ModalCategory.styled";
 
 const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
   url,
@@ -13,7 +14,12 @@ const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
 }) => {
   return (
     <StyledCategory.ProjectContainer>
-      <Image src={url} alt={"alt image card"} quality={100} />
+      <ImagePreview
+        src={url}
+        placeholder="blur"
+        alt={"alt image card"}
+        quality={100}
+      />
       <StyledCategory.ContentWrapper>
         <StyledCategory.ContentWrapper>
           <StyledCategory.MainContent>
@@ -25,15 +31,17 @@ const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
             </StyledCategory.ProjectDescription>
           </StyledCategory.MainContent>
 
-          <StyledCategory.ProjectLinkWrapper href={link} passHref>
-            <a target={"_blank"}>
-              <ButtonProjectLink>
-                <ButtonTextWrapper fontSize={"1.2em"}>
-                  project link
-                </ButtonTextWrapper>
-              </ButtonProjectLink>
-            </a>
-          </StyledCategory.ProjectLinkWrapper>
+          <StyledCategory.ButtonContainer>
+            <StyledCategory.ProjectLinkWrapper href={link} passHref>
+              <a target={"_blank"}>
+                <ButtonProjectLink>
+                  <StyledCategory.ProjectLinkText>
+                    project link
+                  </StyledCategory.ProjectLinkText>
+                </ButtonProjectLink>
+              </a>
+            </StyledCategory.ProjectLinkWrapper>
+          </StyledCategory.ButtonContainer>
         </StyledCategory.ContentWrapper>
       </StyledCategory.ContentWrapper>
     </StyledCategory.ProjectContainer>

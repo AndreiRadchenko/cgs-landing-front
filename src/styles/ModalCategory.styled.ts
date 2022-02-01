@@ -18,24 +18,50 @@ export const NavPanel = styled.div`
   align-items: baseline;
 `;
 
+export const ButtonContainer = styled.div`
+  margin-left: -2em;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: -0.7em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-left: -1em;
+  }
+`;
+
 export const CategoryTitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+  margin-top: 4em;
+  margin-bottom: 2em;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 1.5em;
+  }
 `;
 
 export const CategoryName = styled.h2`
-  font-size: 30px;
+  font-size: 2.5em;
   margin: 10px 0 15px 0;
   position: relative;
   z-index: 2;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 2em;
+  }
 `;
 
 export const CategoryUnderline = styled.div`
   width: 4em;
   border: 1px solid #000;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 3em;
+  }
 `;
 
 export const NavigationWrapper = styled.div`
@@ -50,12 +76,33 @@ export const CategoryRouteName = styled.span`
   &:last-child {
     margin-right: 0;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.6em;
+    margin-right: 1em;
+  }
 `;
 
 export const CategoryProjectsContainer = styled.div`
   display: flex;
   position: relative;
   flex-wrap: wrap;
+
+  @media ${themes.primary.media.minLaptop} {
+    justify-content: center;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    justify-content: center;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    justify-content: center;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    justify-content: space-evenly;
+  }
 `;
 
 export const DecorationTextAllTitle = styled(Decoration)`
@@ -65,6 +112,26 @@ export const DecorationTextAllTitle = styled(Decoration)`
   left: -5%;
   width: 7.4em;
   fill: ${themes.primary.colors.septenary};
+
+  @media ${themes.primary.media.minLaptop} {
+    width: 10.5em;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    width: 10em;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    width: 10em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 9em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 8em;
+  }
 `;
 
 export const DecorationTextWebTitle = styled(Decoration)`
@@ -72,8 +139,13 @@ export const DecorationTextWebTitle = styled(Decoration)`
   height: 1.5em;
   top: 45%;
   left: 0;
-  width: 4.2em;
+  width: 5em;
   fill: ${themes.primary.colors.septenary};
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    left: -0.5%;
+    width: 4.2em;
+  }
 `;
 
 export const DecorationTextMobileTitle = styled(Decoration)`
@@ -81,8 +153,12 @@ export const DecorationTextMobileTitle = styled(Decoration)`
   height: 1.5em;
   top: 45%;
   left: -5%;
-  width: 6.5em;
+  width: 8.5em;
   fill: ${themes.primary.colors.septenary};
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 7.5em;
+  }
 `;
 
 export const DecorationTextServerTitle = styled(Decoration)`
@@ -90,8 +166,12 @@ export const DecorationTextServerTitle = styled(Decoration)`
   height: 1.5em;
   top: 45%;
   left: -7%;
-  width: 6em;
+  width: 8em;
   fill: ${themes.primary.colors.septenary};
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 7em;
+  }
 `;
 
 export const DecorationTextBlockChainTitle = styled(Decoration)`
@@ -99,8 +179,12 @@ export const DecorationTextBlockChainTitle = styled(Decoration)`
   height: 1.5em;
   top: 45%;
   left: -3.5%;
-  width: 10em;
+  width: 13em;
   fill: ${themes.primary.colors.septenary};
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 11em;
+  }
 `;
 
 export const ProjectContainer = styled.div`
@@ -110,6 +194,31 @@ export const ProjectContainer = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  @media ${themes.primary.media.minLaptop} {
+    width: 27%;
+    height: 600px;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    width: 43%;
+    height: 550px;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    width: 35%;
+    height: 500px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 40%;
+    height: 450px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 39%;
+    height: 400px;
+  }
 `;
 
 export const ProjectSpecifyTechnologyContainer = styled.div`
@@ -118,17 +227,55 @@ export const ProjectSpecifyTechnologyContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    flex-direction: column;
+  }
 `;
 
 export const SpecifyContentWrapper = styled.div`
   width: 40%;
   height: 100%;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    height: 250px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 100%;
+    height: 250px;
+  }
 `;
 
 export const SpecifyContentImgWrapper = styled.div`
   width: 60%;
-  height: 400px;
+  height: 430px;
   position: relative;
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    width: 60%;
+    height: 350px;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    width: 100%;
+    height: 350px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    height: 250px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 100%;
+    height: 200px;
+  }
 `;
 
 export const MainContent = styled.div``;
@@ -142,6 +289,11 @@ export const ContentWrapper = styled.div`
 
 export const ProjectTitleName = styled.h2`
   font-size: 25px;
+  overflow-wrap: anywhere;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1.7em;
+  }
 `;
 
 export const ProjectDescription = styled.span`
@@ -153,3 +305,24 @@ export const ProjectDescription = styled.span`
 `;
 
 export const ProjectLinkWrapper = styled(Link)``;
+
+export const ProjectLinkText = styled.span`
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 500;
+  font-family: ${themes.primary.font.family.roboto};
+  cursor: pointer;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.3em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1em;
+  }
+`;

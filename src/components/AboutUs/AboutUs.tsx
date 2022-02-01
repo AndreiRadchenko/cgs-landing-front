@@ -2,8 +2,8 @@ import React from "react";
 import * as StyledThisComp from "../../styles/AboutUs.styled";
 import { aboutUsContainerVars } from "../../utils/variables";
 import AboutUsCard from "../AboutUsCard/AboutUsCard";
-import illustrationIMG from "../../../public/illustration-technology.svg";
-import Image from "next/image";
+import illustrationIMG from "../../../public/illustration-technology.png";
+import ImagePreview from "../Image/ImagePreview";
 
 const AboutUs = () => {
   return (
@@ -27,12 +27,10 @@ const AboutUs = () => {
           {"<h2>"}
         </StyledThisComp.AboutUsCodeIcon>
         <StyledThisComp.AboutUsDescription>
-          Bug-free code, juicy architecture, codebase optimisation,
-          <br />
-          up-to-date maintenance, outstanding clear communication
-          <br /> and fluent English rolled into one. Imagined that? You don't
-          even
-          <br /> need to imagine this with CGS-team, just see for real!
+          Bug-free code, juicy architecture, codebase optimisation, up-to-date
+          maintenance, outstanding clear communication and fluent English rolled
+          into one. Imagined that? You don't even need to imagine this with
+          CGS-team, just see for real!
         </StyledThisComp.AboutUsDescription>
         <StyledThisComp.AboutUsCodeIcon>
           {"</h2>"}
@@ -40,7 +38,11 @@ const AboutUs = () => {
       </StyledThisComp.AboutUsInfoSupport>
 
       <StyledThisComp.IllustrationWrapper>
-        <Image src={illustrationIMG} alt={"illustration image technology"} />
+        <ImagePreview
+          src={illustrationIMG}
+          placeholder={"blur"}
+          alt={"illustration image technology"}
+        />
       </StyledThisComp.IllustrationWrapper>
     </StyledThisComp.AboutUsContainer>
   );

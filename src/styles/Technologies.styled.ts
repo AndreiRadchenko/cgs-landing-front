@@ -13,6 +13,37 @@ export const TechnologyRow = styled.div`
   flex-wrap: wrap;
   width: 90%;
   margin: 3em 0 3em auto;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 3em auto 3em auto;
+    width: auto;
+
+    .web {
+      order: 1;
+    }
+
+    .mobile {
+      order: 3;
+    }
+
+    .server {
+      order: 2;
+    }
+
+    .blockchain {
+      order: 4;
+    }
+  }
+`;
+
+export const CategoryImgWrapper = styled.div`
+  width: 323px;
+  display: inline-block;
+  text-align: center;
 `;
 
 export const CategoryContainer = styled.div`
@@ -34,6 +65,15 @@ export const CategoryContainer = styled.div`
 
     .descriptionWrapper {
       margin-right: 2em;
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 400px;
+
+    &:nth-child(odd),
+    &:nth-child(even) {
+      justify-content: center;
     }
   }
 `;
@@ -72,26 +112,25 @@ export const CategoryTechnology = styled.span`
 
 export const DecorationTitle = styled(Decoration)`
   position: absolute;
-  height: 1.2em;
-  top: 17%;
+  z-index: -1;
+  height: 0.9em;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
 
   &.web {
-    width: 4.3em;
+    width: 4ch;
   }
 
   &.mobile {
-    width: 6.5em;
+    width: 6ch;
   }
 
   &.server {
-    top: 13.5%;
-    left: -5%;
-    width: 6em;
+    width: 6ch;
   }
 
   &.blockchain {
-    top: 13.8%;
-    left: -5%;
-    width: 10em;
+    width: 9.5ch;
   }
 `;

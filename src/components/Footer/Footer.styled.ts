@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
+import Decoration from "../Decoration/Decoration";
 
 export const Container = styled.div`
   margin-top: 15em;
@@ -37,7 +38,7 @@ export const WebAddress = styled.a`
   }
 `;
 
-export const SocialLinksContainer = styled.div`
+export const SocialLinksContainerDecoration = styled.div`
   display: flex;
   margin-left: 12em;
   align-items: center;
@@ -53,11 +54,20 @@ export const SocialLinksContainer = styled.div`
   }
 `;
 
+export const DecorationFooterLinks = styled(Decoration)`
+  height: 2.3em;
+  width: 22em;
+  position: absolute;
+  top: 45%;
+`;
+
 export const IconContainer = styled.div`
   margin: 0 1.5em;
   position: relative;
+  z-index: 3;
   width: 2.5em;
   height: 2.5em;
+
   &:hover {
     cursor: pointer;
   }
