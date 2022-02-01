@@ -29,21 +29,6 @@ const HeaderNav = (): JSX.Element => {
           placeholder={"blur"}
         />
       </StyledThisComp.LogoLinkWrapper>
-
-      <StyledThisComp.HeaderNavLinkWrapper>
-        {navigationRoutesNames.map((item) => (
-          <StyledThisComp.ListItemNav key={item}>
-            <Link href={item[0]} passHref>
-              {item}
-            </Link>
-          </StyledThisComp.ListItemNav>
-        ))}
-
-        <LowResolutionNavigation
-          isOpen={isOpen}
-          onToggle={toggleBurgerHandler}
-        />
-      </StyledThisComp.HeaderNavLinkWrapper>
     </StyledThisComp.HeaderNavContainer>
   );
 };
