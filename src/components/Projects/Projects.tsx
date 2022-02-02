@@ -35,7 +35,7 @@ const Projects = () => {
       <StyledThisComp.ProjectsCategoryRow>
         <StyledThisComp.ProjectTitleWrapper>
           <StyledThisComp.ProjectsTitle>
-            We provide end-to-end
+            We provide end-to-end{" "}
             <StyledThisComp.ProjectsTitleDecoration>
               development
               <StyledThisComp.DecorationTitle />

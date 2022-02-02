@@ -75,52 +75,9 @@ export const ProjectsTitleDecoration = styled.span`
 
 export const DecorationTitle = styled(Decoration)`
   position: absolute;
-  width: 13em;
-  height: 1.7em;
-  top: 50%;
-  left: -1%;
-
-  @media ${themes.primary.media.minPC} {
-    top: 2%;
-    left: 23.5%;
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    top: 2.3%;
-    left: 27.3%;
-  }
-
-  @media ${themes.primary.media.onlyLaptop} {
-    top: 2%;
-    left: 24.3%;
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    width: 11.3em;
-    height: 1.6em;
-    top: 6.7%;
-    left: -0.5%;
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    position: absolute;
-    top: 2.5%;
-    left: 37.5%;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    position: fixed;
-    top: 3.7em;
-    left: 27.5em;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    top: 3.3em;
-    left: 24.7em;
-  }
-
-  @media (max-width: 400px) {
-    top: 5.6em;
-    left: 3.6em;
-  }
+  z-index: -1;
+  width: 11ch;
+  height: 0.9em;
+  top: 35%;
+  left: -2%;
 `;

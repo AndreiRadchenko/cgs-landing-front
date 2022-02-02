@@ -21,7 +21,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <NoMobileScreenSupport />
+      {/* <NoMobileScreenSupport /> */}
       <StyledCommon.Page>
         <Body welcomePageButtonHandler={scrollHandler} />
         <AboutUs />
