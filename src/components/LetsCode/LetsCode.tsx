@@ -1,11 +1,10 @@
 import React from "react";
 import * as StyledThisComp from "../../styles/LestCode.styles";
-import CatIconIMG from "../../../public/catIcon.png";
 import LetsCodeForm from "./LetsCodeForm";
 import ImagePreview from "../Image/ImagePreview";
+import Image from "next/image";
 
 const LetsCode = () => {
-
   return (
     <StyledThisComp.LetsCodeContainer>
       <StyledThisComp.FormContainer>
@@ -18,7 +17,7 @@ const LetsCode = () => {
           <StyledThisComp.pCodeIcon content={"<p>"} />
         </StyledThisComp.ImageTagsContainer>
         <StyledThisComp.ImageCatContainer>
-          <Image layout="fill" src={CatIconIMG} alt={"img cat icon alt"} />
+          <Image layout="fill" src="/catIcon.png" alt={"img cat icon alt"} />
         </StyledThisComp.ImageCatContainer>
       </StyledThisComp.ImageContainer>
     </StyledThisComp.LetsCodeContainer>

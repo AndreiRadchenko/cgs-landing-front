@@ -7,6 +7,7 @@ export const FormInputWrapper = styled.div`
 
 export const FormInput = styled.input`
   display: block;
+  box-sizing: border-box;
   width: 100%;
   font-size: ${themes.primary.font.size.linkText};
   padding: 0.5em 1em;
@@ -20,17 +21,17 @@ export const FormInput = styled.input`
     color: ${themes.primary.colors.starActive};
   }
 
-  @media ${themes.primary.media.maxTabletPortrait} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.3em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.3em;
+    width: 335px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
 export const TextAreaInput = styled.textarea`
   display: block;
+  box-sizing: border-box;
   width: 100%;
   resize: none;
   font-size: ${themes.primary.font.size.linkText};
@@ -40,12 +41,11 @@ export const TextAreaInput = styled.textarea`
   border: 1px solid ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.sourceCode};
 
-  @media ${themes.primary.media.maxTabletPortrait} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.5em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.5em;
+    width: 335px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
