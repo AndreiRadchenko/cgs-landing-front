@@ -72,6 +72,7 @@ export const DecorationFooterLinks = styled(Decoration)`
 
 export const SocialLinksContainer = styled.div`
   grid-area: footer-social;
+  justify-self: start;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,6 +80,10 @@ export const SocialLinksContainer = styled.div`
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: 100% 50%;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    justify-self: center;
+  }
 `;
 
 export const IconContainer = styled.div`
