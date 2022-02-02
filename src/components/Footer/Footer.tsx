@@ -28,7 +28,6 @@ export const socialLinks = [
 ];
 
 const Footer = () => {
-
   return (
     <Styles.Row>
       <Styles.Container>

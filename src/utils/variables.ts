@@ -498,7 +498,7 @@ export const projectsModalArr: IModalProjectCardProps[] = [
   },
   {
     url: reviewImage,
-    title: "REView",
+    title: "REview",
     link: "https://review-app.io/",
     category: ["web"],
     description:

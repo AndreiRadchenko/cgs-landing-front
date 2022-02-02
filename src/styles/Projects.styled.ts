@@ -69,12 +69,18 @@ export const ProjectsTitle = styled.span`
   }
 `;
 
+export const ProjectsTitleDecoration = styled.span`
+  position: relative;
+`;
+
 export const DecorationTitle = styled(Decoration)`
   position: absolute;
-  top: 1.9em;
-  left: -1%;
+  // top: 1.9em;
+  // left: -1%;
   width: 13em;
   height: 1.7em;
+  top: 50%;
+  left: -1%;
 
   @media ${themes.primary.media.minPC} {
     top: 2%;
