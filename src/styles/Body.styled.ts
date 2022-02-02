@@ -82,7 +82,7 @@ export const CodeDescription = styled.span`
 
 export const WrapperBgImg = styled.div`
   position: absolute;
-  right: -8%;
+  right: 1%;
   top: 0;
   width: 65%;
   transform: rotate(1.5deg);
@@ -102,6 +102,7 @@ export const WrapperBgImg = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    position: relative;
     overflow: hidden;
     width: calc(100% + 10em);
     top: 90%;

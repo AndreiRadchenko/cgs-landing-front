@@ -139,7 +139,7 @@ export const DecorationClipIconLeft = styled.div`
 export const DecorationClipIconRight = styled.div`
   position: absolute;
   top: -15%;
-  right: -10%;
+  right: -3%;
   transform: rotate(65deg);
   z-index: 3;
 
