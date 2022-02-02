@@ -75,8 +75,6 @@ export const ProjectsTitleDecoration = styled.span`
 
 export const DecorationTitle = styled(Decoration)`
   position: absolute;
-  // top: 1.9em;
-  // left: -1%;
   width: 13em;
   height: 1.7em;
   top: 50%;

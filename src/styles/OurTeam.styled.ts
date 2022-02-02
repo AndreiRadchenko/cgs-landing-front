@@ -14,10 +14,6 @@ export const OurTeamContainer = styled.section`
 `;
 
 export const OurTeamRow = styled.div`
-  // display: flex;
-
-  // justify-content: space-between;
-  // width: 1400px;
   display: grid;
   gap: 34px;
   grid-template-columns: 736px 520px;

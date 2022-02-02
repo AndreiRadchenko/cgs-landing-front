@@ -33,7 +33,6 @@ export const WebAddressContainer = styled.div`
   grid-area: footer-address;
   display: flex;
   align-items: center;
-  // padding-left: 75px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     padding-left: 0;
@@ -74,18 +73,12 @@ export const DecorationFooterLinks = styled(Decoration)`
 export const SocialLinksContainer = styled.div`
   grid-area: footer-social;
   display: flex;
-  // margin-left: 12em;
   align-items: center;
   justify-content: center;
-  // height: 4em;
   background-image: url("/footer_icons_bg.png");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: 100% 50%;
-  // @media ${themes.primary.media.maxMobile} {
-  //   margin-left: 0;
-  //   height: 7em;
-  // }
 `;
 
 export const IconContainer = styled.div`
