@@ -134,23 +134,18 @@ export const ContentImage = styled.div<IImage>`
   position: relative;
   z-index: 500;
   width: 33em;
-  height: 35em;
   margin-bottom: 20%;
-
-  &:last-child {
-    height: 41em;
-  }
+  height: ${(props) => (props.isFlipOnMobile ? "41em" : "35em")};
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 33em;
-    height: 35em;
     transform: ${(props) =>
       props.isFlipOnMobile ? "scale(-1, 1)" : "initial"};
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 28em;
-    height: ${(props) => (props.isFlipOnMobile ? "31em" : `29em`)};
+    height: ${(props) => (props.isFlipOnMobile ? "41em" : `29em`)};
   }
 `;
 

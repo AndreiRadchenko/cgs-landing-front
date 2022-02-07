@@ -3,7 +3,6 @@ import themes from "../utils/themes";
 import Decoration from "../components/Decoration/Decoration";
 
 export const OurTeamContainer = styled.section`
-  width: 1400px;
   margin: 0 auto 193px auto;
   position: relative;
   font-family: ${themes.primary.font.family.roboto};
@@ -14,13 +13,9 @@ export const OurTeamContainer = styled.section`
 `;
 
 export const OurTeamRow = styled.div`
-  // display: flex;
-
-  // justify-content: space-between;
-  // width: 1400px;
   display: grid;
   gap: 34px;
-  grid-template-columns: 736px 520px;
+  grid-template-columns: 3fr 2fr;
   grid-template-rows: auto auto auto;
   grid-template-areas:
     "main-goal-img philosophy-content"
@@ -45,6 +40,16 @@ export const OurTeamRow = styled.div`
 
   .our-philosophy-content {
     grid-area: philosophy-content;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    .our-main-goal-img {
+      height: 326px;
+    }
+
+    .our-philosophy-img {
+      height: 261px;
+    }
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -134,7 +139,7 @@ export const DecorationClipIconLeft = styled.div`
 export const DecorationClipIconRight = styled.div`
   position: absolute;
   top: -15%;
-  right: -10%;
+  right: -3%;
   transform: rotate(65deg);
   z-index: 3;
 
