@@ -40,6 +40,7 @@ const Footer = () => {
           {socialLinks.map((link) => (
             <FooterIcon key={link.href + link.icoUrl} {...link} />
           ))}
+          <Styles.DecorationFooterLinks />
         </Styles.SocialLinksContainer>
       </Styles.Container>
     </Styles.Row>

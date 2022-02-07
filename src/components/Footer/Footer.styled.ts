@@ -65,12 +65,13 @@ export const SocialLinksContainerDecoration = styled.div`
 
 export const DecorationFooterLinks = styled(Decoration)`
   height: 2.3em;
-  width: 22em;
+  width: 100%;
   position: absolute;
   top: 45%;
 `;
 
 export const SocialLinksContainer = styled.div`
+  position: relative;
   grid-area: footer-social;
   justify-self: start;
   display: flex;
