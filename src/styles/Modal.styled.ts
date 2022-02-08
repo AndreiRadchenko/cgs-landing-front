@@ -153,7 +153,7 @@ export const ModalBackButtonAnimatedContent = styled.div`
 
   &.close,
   &.back {
-    &:before,
+    &::before,
     &::after {
       content: "";
       display: block;
@@ -169,7 +169,7 @@ export const ModalBackButtonAnimatedContent = styled.div`
   }
 
   &.close {
-    &:before {
+    &::before {
       transform: rotateZ(45deg);
     }
 
@@ -179,19 +179,12 @@ export const ModalBackButtonAnimatedContent = styled.div`
   }
 
   &.back {
-    &:before,
-    &::after {
-      transform-origin: top left;
-    }
-
-    &:before {
-      transform: translateY(-20px);
-      transform: rotateZ(-22.5deg);
+    &::before {
+      transform: translateY(6px) rotateZ(22.5deg);
     }
 
     &::after {
-      transform: translateY(20px);
-      transform: rotateZ(22.5deg);
+      transform: translateY(-6px) rotateZ(-22.5deg);
     }
   }
 `;
