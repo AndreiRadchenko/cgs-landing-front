@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import * as StyledThisComp from "../../styles/Modal.styled";
 import useModalNavigation from "../../hooks/useModalNavigation";
+import ModalBackButton from "./ModalBackButton";
 
 interface IModalProjectsProps {
   isOpen: boolean;
@@ -24,9 +25,10 @@ const ModalProjects: FC<IModalProjectsProps> = ({
     <StyledThisComp.ModalContainer open={isOpen} onClose={onToggleModalHandler}>
       <StyledThisComp.ModalWrapper>
         <StyledThisComp.ModalRow>
-          <StyledThisComp.ModalCloseButton onClick={onToggleModalHandler}>
-            &#x2715;
-          </StyledThisComp.ModalCloseButton>
+          <ModalBackButton
+            onToggleModalHandler={onToggleModalHandler}
+            selectedCategory={selectedCategory}
+          />
           {currentCategoryComponent}
         </StyledThisComp.ModalRow>
       </StyledThisComp.ModalWrapper>
