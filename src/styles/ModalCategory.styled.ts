@@ -85,7 +85,7 @@ export const CategoryRouteName = styled.span`
     width: 100%;
     height: 1px;
     margin: 0 auto;
-    background-color: #000;
+    background-color: black;
   }
 
   &:last-child {
