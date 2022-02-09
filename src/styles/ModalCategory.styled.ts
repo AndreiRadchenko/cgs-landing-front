@@ -73,6 +73,21 @@ export const CategoryRouteName = styled.span`
   margin-right: 72px;
   font-size: 26px;
   cursor: pointer;
+  position: relative;
+  padding-bottom: 15px;
+  width: 100%;
+
+  &:hover::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    margin: 0 auto;
+    background-color: black;
+  }
+
   &:last-child {
     margin-right: 0;
   }
