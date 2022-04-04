@@ -134,7 +134,7 @@ export const ContentImage = styled.div<IImage>`
   position: relative;
   z-index: 500;
   width: 33em;
-  margin-bottom: 20%;
+  margin-bottom: 30%;
   height: ${(props) => (props.isFlipOnMobile ? "41em" : "35em")};
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -191,11 +191,11 @@ export const ContentText = styled.p`
 
 export const AdditionalImgContainer = styled.div`
   position: absolute;
-  bottom: -12em;
+  bottom: -6em;
   right: 0;
 
   @media ${themes.primary.media.maxMobile} {
-    bottom: -7em;
+    bottom: -2em;
   }
 `;
 
