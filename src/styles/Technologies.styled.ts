@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Decoration from "../components/Decoration/Decoration";
-import themes from "../utils/themes";
+import styled from 'styled-components';
+import Decoration from '../components/Decoration/Decoration';
+import themes from '../utils/themes';
 
 export const TechnologyContainer = styled.section`
   user-select: none;
@@ -75,6 +75,9 @@ export const CategoryContainer = styled.div`
     &:nth-child(even) {
       justify-content: center;
     }
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 17.5rem;
   }
 `;
 
