@@ -32,6 +32,7 @@ export const Page = styled.article`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     padding: 2em 2em;
+    overflow: hidden;
   }
 `;
 
