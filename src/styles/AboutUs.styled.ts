@@ -123,7 +123,7 @@ export const CardDescriptionValueWrapper = styled.div`
 export const DecorationText = styled(Decoration)`
   position: absolute;
   height: 1em;
-  top: 50%;
+  top: 40%;
   left: -1%;
   z-index: -1;
 
