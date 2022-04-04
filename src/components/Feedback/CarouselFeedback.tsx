@@ -1,14 +1,18 @@
-import React, { FC } from "react";
-import FeedbackCard from "../FeedbackCard/FeedbackCard";
+import React, { FC } from 'react';
+import { Navigationwrapper } from './Feedback.styled';
+import FeedbackCard from '../FeedbackCard/FeedbackCard';
 import SwiperCore, {
   Autoplay,
   Navigation,
   Swiper as SwipperType,
-} from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { IFeedbackCardProps } from "../../types/Feedback.types";
-import "swiper/css";
-import { useEffect, useState } from "react";
+} from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { IFeedbackCardProps } from '../../types/Feedback.types';
+import 'swiper/css';
+import { useEffect, useState } from 'react';
+import 'swiper/css/bundle';
+import LeftArrow from '../../../public/leftArrow';
+import RightArow from '../../../public/rightArrow';
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -28,10 +32,10 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({
     allowTouchMove: true,
     grabCursor: true,
     navigation: {
-      prevEl: ".swiper-button-prev",
-      nextEl: ".swiper-button-next",
+      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next',
     },
-    focusableElements: "button",
+    focusableElements: 'button',
     breakpoints: {
       320: {
         slidesPerView: 1,
@@ -66,7 +70,7 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({
   }, [swiper, isFeedbackOnScreen, isBeenInitSlideScroll]);
 
   return (
-    <Swiper {...params} onSwiper={(swiper) => setSwiper(swiper)}>
+    <Swiper {...params} onSwiper={swiper => setSwiper(swiper)}>
       {[...feedback]
         .reverse()
         .map(({ name, description, link, company, position, rates }, idx) => (
@@ -81,6 +85,14 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({
             />
           </SwiperSlide>
         ))}
+      <Navigationwrapper>
+        <div className='swiper-button-prev'>
+          <LeftArrow />
+        </div>
+        <div className='swiper-button-next'>
+          <RightArow />
+        </div>
+      </Navigationwrapper>
     </Swiper>
   );
 };
