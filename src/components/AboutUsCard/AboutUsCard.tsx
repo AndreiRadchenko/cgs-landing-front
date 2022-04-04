@@ -23,7 +23,7 @@ const AboutUsCard: FC<IAboutUsCardProps> = ({ url, description, text }) => {
         <StyledThisComp.CardDescriptionSubDescription
           className={description !== "quantity" ? "columnDescription" : ""}
         >
-          {description}:{" "}
+          {`${description}: `}
         </StyledThisComp.CardDescriptionSubDescription>
 
         <StyledThisComp.CardDescriptionValueWrapper

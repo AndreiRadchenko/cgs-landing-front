@@ -87,6 +87,7 @@ export const CardDescriptionWrapper = styled.div`
 
 export const CardDescriptionSubDescription = styled.div`
   font-size: 1.3em;
+  white-space: pre-wrap;
 
   &.columnDescription {
     width: 200px;
