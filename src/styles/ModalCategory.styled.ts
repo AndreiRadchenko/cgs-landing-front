@@ -93,7 +93,7 @@ export const CategoryRouteName = styled.span`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.6em;
+    font-size: 1.5em;
     margin-right: 1em;
   }
 `;
