@@ -123,7 +123,7 @@ export const CardDescriptionValueWrapper = styled.div`
 export const DecorationText = styled(Decoration)`
   position: absolute;
   height: 1em;
-  top: 40%;
+  top: 50%;
   left: -1%;
   z-index: -1;
 
@@ -141,11 +141,11 @@ export const DecorationText = styled(Decoration)`
 
   @media ${themes.primary.media.maxMobile} {
     &.var {
-      left: 12%;
+      left: 8%;
     }
 
     &.status {
-      left: 8.7%;
+      left: 4%;
     }
   }
 `;
