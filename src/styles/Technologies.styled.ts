@@ -76,6 +76,9 @@ export const CategoryContainer = styled.div`
       justify-content: center;
     }
   }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 17.5rem;
+  }
 `;
 
 export const CategoryDescriptionWrapper = styled.div`
