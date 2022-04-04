@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Navigationwrapper } from "./Feedback.styled";
 import FeedbackCard from "../FeedbackCard/FeedbackCard";
 import SwiperCore, {
   Autoplay,
@@ -9,6 +10,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { IFeedbackCardProps } from "../../types/Feedback.types";
 import "swiper/css";
 import { useEffect, useState } from "react";
+import "swiper/css/bundle";
+import LeftArrow from "../../../public/leftArrow";
+import RightArow from "../../../public/rightArrow";
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -66,7 +70,7 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({
   }, [swiper, isFeedbackOnScreen, isBeenInitSlideScroll]);
 
   return (
-    <Swiper {...params} onSwiper={(swiper) => setSwiper(swiper)}>
+    <Swiper {...params} onSwiper={swiper => setSwiper(swiper)}>
       {[...feedback]
         .reverse()
         .map(({ name, description, link, company, position, rates }, idx) => (
@@ -81,6 +85,14 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({
             />
           </SwiperSlide>
         ))}
+      <Navigationwrapper>
+        <div className='swiper-button-prev'>
+          <LeftArrow />
+        </div>
+        <div className='swiper-button-next'>
+          <RightArow />
+        </div>
+      </Navigationwrapper>
     </Swiper>
   );
 };
