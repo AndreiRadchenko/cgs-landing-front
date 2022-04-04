@@ -1,18 +1,18 @@
-import React, { FC } from 'react';
-import { Navigationwrapper } from './Feedback.styled';
-import FeedbackCard from '../FeedbackCard/FeedbackCard';
+import React, { FC } from "react";
+import { Navigationwrapper } from "./Feedback.styled";
+import FeedbackCard from "../FeedbackCard/FeedbackCard";
 import SwiperCore, {
   Autoplay,
   Navigation,
   Swiper as SwipperType,
-} from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { IFeedbackCardProps } from '../../types/Feedback.types';
-import 'swiper/css';
-import { useEffect, useState } from 'react';
-import 'swiper/css/bundle';
-import LeftArrow from '../../../public/leftArrow';
-import RightArow from '../../../public/rightArrow';
+} from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { IFeedbackCardProps } from "../../types/Feedback.types";
+import "swiper/css";
+import { useEffect, useState } from "react";
+import "swiper/css/bundle";
+import LeftArrow from "../../../public/leftArrow";
+import RightArow from "../../../public/rightArrow";
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -32,10 +32,10 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({
     allowTouchMove: true,
     grabCursor: true,
     navigation: {
-      prevEl: '.swiper-button-prev',
-      nextEl: '.swiper-button-next',
+      prevEl: ".swiper-button-prev",
+      nextEl: ".swiper-button-next",
     },
-    focusableElements: 'button',
+    focusableElements: "button",
     breakpoints: {
       320: {
         slidesPerView: 1,
