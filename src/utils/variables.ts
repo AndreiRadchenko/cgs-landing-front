@@ -505,3 +505,34 @@ export const projectsModalArr: IModalProjectCardProps[] = [
       "When you’re an IT recruiter, you need to be attentive during the whole hiring process. This platform is going to be a helping hand for each recruiter and a comfy place where great professionals can get a pleasant REview for their work.",
   },
 ];
+
+//Careers reqirements
+
+export const careersReqierements = [
+  {
+    title: "What would we like to see from a candidate?",
+    arrayOfRequirements: [
+      "The presence of inhuman enthusiasm and dedication :)",
+      "Strong knowledge of JS / React",
+      "Having your own pet-projects on JS / React",
+      "Intermediate level of English",
+      "Knowledge / understanding of NodeJS, React Native will be a huge plus, but not a requirement",
+    ],
+    text: "If you are a back-end developer and want to write a server - that's cool too and we'll be glad to see you in our team!",
+  },
+  {
+    title: "What do we offer?",
+    arrayOfRequirements: [
+      "Competitive and high salary based on interview results",
+      "100% paid webinars / seminars / courses / English",
+      "Personal mentoring for 1 month by Tech. lead and senior developer, who will allow you to significantly upgrade your skills",
+      "Provision of equipment necessary for work (Mac-Mini / MacBook)",
+      "Paid vacation, sick days off, public holidays",
+      "Work-life balance schedule. We focus solely on the result, not on time, and we believe that time trackers are the most nightmarish phenomenon on the planet :)",
+      "0% bureaucracy (no need to go through 7 circles of hell to get equipment, sick leave, etc.)",
+    ],
+    text: "We sincerely believe that you are the one we are looking for! Submit your CV and we will definitely consider it!",
+    footer: "With love, ",
+    subFooter: "CGS-team",
+  },
+];

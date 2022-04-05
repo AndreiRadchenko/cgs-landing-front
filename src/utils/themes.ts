@@ -63,7 +63,7 @@ const themes = {
       minTabletPortrait: "(min-width: 768px)",
       maxTablet: "(max-width: 768px)",
       minTabletLandScape: "(min-width: 992px)",
-      minTablet:"(max-width: 625px)",
+      minTablet: "(max-width: 625px)",
       minLaptop: "(min-width: 1200px)",
       minPC: "(min-width: 1500px)",
       minPCFullHD: "(min-width: 1800px)",
@@ -75,7 +75,6 @@ const themes = {
       onlyTabletPortrait: "(min-width: 768px) and (max-width: 992px)",
       onlyTabletLandScape: "(min-width: 992px) and (max-width: 1199px)",
       onlyLaptop: "(min-width: 1199px) and (max-width: 1500px)",
-
     },
   },
 };
