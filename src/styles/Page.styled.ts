@@ -52,7 +52,7 @@ export const ButtonText = styled.span.attrs(
   font-family: ${themes.primary.font.family.roboto};
   cursor: pointer;
 
-  ${(props) => css`
+  ${props => css`
     font-size: ${props.fontSize};
   `}
 

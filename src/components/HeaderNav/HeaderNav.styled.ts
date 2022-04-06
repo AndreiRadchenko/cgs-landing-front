@@ -58,3 +58,7 @@ export const ListItemNav = styled.span`
     color: ${themes.primary.colors.linkBlue};
   }
 `;
+
+export const NavList = styled.menu`
+  display: flex;
+`;
