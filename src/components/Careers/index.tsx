@@ -4,12 +4,12 @@ import CareersTicket from "../CareersTicket/index";
 import mockData from "../../mock/CareersTickets";
 import HeaderNav from "../HeaderNav/HeaderNav";
 import * as Global from "../../styles/Page.styled";
+
 interface ITicketData {
   imageURL: string;
   vacancy: string;
 }
 const Careers: FC = () => {
-  
   return (
     <Global.Page>
       <HeaderNav />

@@ -5,6 +5,7 @@ export const CareersWrapper = styled.div`
   margin: 2.5em auto;
   width: 1100px;
 `;
+
 export const MainTitle = styled.h1`
   margin-top: 6.75rem;
   margin-bottom: 3.438em;

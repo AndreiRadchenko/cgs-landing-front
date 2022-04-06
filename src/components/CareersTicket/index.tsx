@@ -6,7 +6,6 @@ interface ITicketProps {
   imgUrl: string;
 }
 const CareersTicket: FC<ITicketProps> = ({ vacancy, imgUrl }: ITicketProps) => {
-  
   return (
     <Styled.TicketWrapper>
       <Styled.ImageWrapper>

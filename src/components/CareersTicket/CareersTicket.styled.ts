@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 import TicketButton from "./../TicketButton/index";
 
-interface ImageProps {
+interface IImageProps {
   imgUrl?: string;
 }
 
@@ -28,6 +28,7 @@ export const ImageWrapper = styled.div`
     width: 140px;
   }
 `;
+
 export const BarcodeImg = styled.div`
   background-image: url("/barcode.png");
   width: 20px;
@@ -59,7 +60,8 @@ export const BarcodeText = styled.p`
     font-size: 9px;
   }
 `;
-export const RocketImg = styled.div.attrs(({ imgUrl }: ImageProps) => ({
+
+export const RocketImg = styled.div.attrs(({ imgUrl }: IImageProps) => ({
   imgUrl: imgUrl,
 }))`
   ${props => css`
@@ -95,6 +97,7 @@ export const CareersHeader = styled.div`
     margin-bottom: 0.8rem;
   }
 `;
+
 export const Logo = styled.img`
   width: 7.063rem;
   height: 1.538rem;
@@ -148,12 +151,14 @@ export const BottomTitle = styled.h2`
     margin-bottom: 15px;
   }
 `;
+
 export const BottomText = styled(TicketText)`
   display: flex;
   flex-direction: column;
   padding-right: 0;
   margin-bottom: 5px;
 `;
+
 export const BottomList = styled.div`
   display: flex;
   justify-content: space-between;
@@ -164,6 +169,7 @@ export const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 export const SubTitle = styled.span`
   text-transform: uppercase;
   font-size: ${themes.primary.font.size.quinary};
