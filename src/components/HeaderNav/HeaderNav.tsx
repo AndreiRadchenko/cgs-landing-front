@@ -29,6 +29,17 @@ const HeaderNav = (): JSX.Element => {
           placeholder={"blur"}
         />
       </StyledThisComp.LogoLinkWrapper>
+      <StyledThisComp.NavList>
+        <StyledThisComp.ListItemNav>
+          <Link href={"/"}>/home</Link>
+        </StyledThisComp.ListItemNav>
+        <StyledThisComp.ListItemNav>
+          <Link href={"/careers"}>/careers</Link>
+        </StyledThisComp.ListItemNav>
+        <StyledThisComp.ListItemNav>
+          <Link href={"/partners"}>/partners</Link>
+        </StyledThisComp.ListItemNav>
+      </StyledThisComp.NavList>
     </StyledThisComp.HeaderNavContainer>
   );
 };

@@ -21,6 +21,7 @@ const themes = {
         roboto: "'Roboto', sans-serif",
         sourceCode: "'Source Code Pro', monospace",
         mulish: "'Roboto', sans-serif",
+        gilroy: "'Gilroy', monospace",
       },
       weight: {
         light: 300,
@@ -36,6 +37,7 @@ const themes = {
         buttonText: "1.5em",
         secondary: "2em",
         quaternary: "2.6em",
+        bigTitle: "4.125em",
       },
     },
     colors: {
@@ -51,6 +53,7 @@ const themes = {
       cardDarkGreen: "#90e645",
       orange: "#FFC061",
       green: "#B6FD7A",
+      lightBlue: "#436C9B",
       lighten: {
         blue: "#A6D0FF",
         orange: "#FFCE85",
@@ -63,7 +66,7 @@ const themes = {
       minTabletPortrait: "(min-width: 768px)",
       maxTablet: "(max-width: 768px)",
       minTabletLandScape: "(min-width: 992px)",
-      minTablet:"(max-width: 625px)",
+      minTablet: "(max-width: 625px)",
       minLaptop: "(min-width: 1200px)",
       minPC: "(min-width: 1500px)",
       minPCFullHD: "(min-width: 1800px)",
@@ -75,7 +78,6 @@ const themes = {
       onlyTabletPortrait: "(min-width: 768px) and (max-width: 992px)",
       onlyTabletLandScape: "(min-width: 992px) and (max-width: 1199px)",
       onlyLaptop: "(min-width: 1199px) and (max-width: 1500px)",
-
     },
   },
 };
