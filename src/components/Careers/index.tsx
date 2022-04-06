@@ -3,7 +3,6 @@ import * as Styled from "./Careers.styled";
 import CareersTicket from "../CareersTicket/index";
 import mockData from "../../mock/CareersTickets";
 import HeaderNav from "../HeaderNav/HeaderNav";
-import * as Global from "../../styles/Page.styled";
 
 interface ITicketData {
   imageURL: string;
@@ -11,7 +10,7 @@ interface ITicketData {
 }
 const Careers: FC = () => {
   return (
-    <Global.Page>
+    <>
       <HeaderNav />
       <Styled.MainTitle>
         Take your ticket <br />
@@ -22,7 +21,7 @@ const Careers: FC = () => {
           <CareersTicket vacancy={vacancy} imgUrl={imageURL} key={imageURL} />
         ))}
       </Styled.TicketWrapper>
-    </Global.Page>
+    </>
   );
 };
 
