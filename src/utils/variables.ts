@@ -291,7 +291,7 @@ export const ourTeamArr = [
   {
     url: bigOurTeamIMG,
     title: "our main goal",
-    description: `We change the World in different areas by delivering the best technical solutions and helping people in turning their dreams   into life qualitatively.`,
+    description: `We change the World in different areas by delivering the best technical solutions and helping people in turning their dreams into life qualitatively.`,
   },
   {
     url: smallOurTeamIMG,
@@ -507,9 +507,12 @@ export const projectsModalArr: IModalProjectCardProps[] = [
 ];
 
 //Careers reqirements
-
-export const careersReqierements = [
+import helmetPhoto from "../../public/helmet.png";
+export const careersCardArr = [
   {
+    img: "Photo",
+    header:
+      "We know that finding your first job can be quite nerve-wracking and challenging, especially for young engineers, and therefore we will try our best to make this experience with us as smooth and enjoyable as possible.",
     title: "What would we like to see from a candidate?",
     arrayOfRequirements: [
       "The presence of inhuman enthusiasm and dedication :)",
@@ -521,6 +524,7 @@ export const careersReqierements = [
     text: "If you are a back-end developer and want to write a server - that's cool too and we'll be glad to see you in our team!",
   },
   {
+    img: helmetPhoto,
     title: "What do we offer?",
     arrayOfRequirements: [
       "Competitive and high salary based on interview results",

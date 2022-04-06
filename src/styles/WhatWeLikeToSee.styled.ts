@@ -42,15 +42,16 @@ export const LikeToSeeTextContainer = styled.div`
 `;
 
 export const LikeToSeeHeader = styled.p`
-  width: 80%;
+  width: 90%;
   position: relative;
   left: 2%;
-  font-size: ${themes.primary.font.size.tertiary};
+  font-size: ${themes.primary.font.size.secondary};
   font-weight: ${themes.primary.font.weight.bold};
   @media ${themes.primary.media.maxMobile} {
     left: 6%;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: ${themes.primary.font.size.linkText};
     left: 9%;
   }
 `;
@@ -134,7 +135,7 @@ export const LikeToSeeCardReqirement = styled.div`
   display: flex;
   align-items: center;
   font-weight: ${themes.primary.font.weight.bold};
-  margin: 10px 0;
+  margin: ${themes.primary.spacing.small} 0;
 `;
 export const LikeToSeeCardReqirementText = styled.div`
   margin-left: 5px;
@@ -144,8 +145,9 @@ export const LikeToSeeCardReqirementText = styled.div`
 export const LikeToSeeCardText = styled.p`
   position: relative;
   left: 2%;
-  margin-top: 2rem;
+  margin-top: ${themes.primary.spacing.tertiary};
   font-size: ${themes.primary.font.size.tertiary};
+  font-weight: ${themes.primary.font.weight.bold};
   @media ${themes.primary.media.maxMobile} {
     left: 4%;
   }
@@ -154,7 +156,7 @@ export const LikeToSeeCardText = styled.p`
 export const LikeToSeeCardFooter = styled.div`
   position: relative;
   left: 2%;
-  margin-top: 2rem;
+  margin-top: ${themes.primary.spacing.tertiary};
   font-size: ${themes.primary.font.size.tertiary};
   @media ${themes.primary.media.maxMobile} {
     left: 4%;
