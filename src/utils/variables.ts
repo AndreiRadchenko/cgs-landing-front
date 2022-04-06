@@ -291,7 +291,7 @@ export const ourTeamArr = [
   {
     url: bigOurTeamIMG,
     title: "our main goal",
-    description: `We change the World in different areas by delivering the best technical solutions and helping people in turning their dreams   into life qualitatively.`,
+    description: `We change the World in different areas by delivering the best technical solutions and helping people in turning their dreams into life qualitatively.`,
   },
   {
     url: smallOurTeamIMG,
@@ -503,5 +503,40 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     category: ["web"],
     description:
       "When you’re an IT recruiter, you need to be attentive during the whole hiring process. This platform is going to be a helping hand for each recruiter and a comfy place where great professionals can get a pleasant REview for their work.",
+  },
+];
+
+//Careers reqirements
+import helmetPhoto from "../../public/helmet.png";
+export const careersCardArr = [
+  {
+    img: "Photo",
+    header:
+      "We know that finding your first job can be quite nerve-wracking and challenging, especially for young engineers, and therefore we will try our best to make this experience with us as smooth and enjoyable as possible.",
+    title: "What would we like to see from a candidate?",
+    arrayOfRequirements: [
+      "The presence of inhuman enthusiasm and dedication :)",
+      "Strong knowledge of JS / React",
+      "Having your own pet-projects on JS / React",
+      "Intermediate level of English",
+      "Knowledge / understanding of NodeJS, React Native will be a huge plus, but not a requirement",
+    ],
+    text: "If you are a back-end developer and want to write a server - that's cool too and we'll be glad to see you in our team!",
+  },
+  {
+    img: helmetPhoto,
+    title: "What do we offer?",
+    arrayOfRequirements: [
+      "Competitive and high salary based on interview results",
+      "100% paid webinars / seminars / courses / English",
+      "Personal mentoring for 1 month by Tech. lead and senior developer, who will allow you to significantly upgrade your skills",
+      "Provision of equipment necessary for work (Mac-Mini / MacBook)",
+      "Paid vacation, sick days off, public holidays",
+      "Work-life balance schedule. We focus solely on the result, not on time, and we believe that time trackers are the most nightmarish phenomenon on the planet :)",
+      "0% bureaucracy (no need to go through 7 circles of hell to get equipment, sick leave, etc.)",
+    ],
+    text: "We sincerely believe that you are the one we are looking for! Submit your CV and we will definitely consider it!",
+    footer: "With love, ",
+    subFooter: "CGS-team",
   },
 ];
