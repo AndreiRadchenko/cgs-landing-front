@@ -13,7 +13,6 @@ export const LikeToSeeItem = styled.div`
   display: flex;
   justify-content: space-;
   align-items: center;
-  margin-bottom: 100px;
   &.reverseItem {
     flex-direction: row-reverse;
   }
