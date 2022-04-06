@@ -4,7 +4,7 @@ import * as StyledCommon from "../../styles/Page.styled";
 import WhatWeLikeToSee from "../../components/WhatWeLikeToSee/WhatWeLikeToSee";
 import Footer from "../../components/Footer/Footer";
 
-const letsGo = () => {
+const LetsGo = () => {
   return (
     <>
       <StyledCommon.Page>
@@ -15,4 +15,4 @@ const letsGo = () => {
   );
 };
 
-export default letsGo;
+export default LetsGo;
