@@ -100,6 +100,7 @@ export const CategoryRouteName = styled.span`
 `;
 
 export const CategoryProjectsContainer = styled.div`
+  width: 100%;
   display: flex;
   position: relative;
   flex-wrap: wrap;
@@ -232,7 +233,8 @@ export const ProjectContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 39%;
+    font-size: ${themes.primary.font.size.tertiary};
+    width: 60%;
     height: 400px;
   }
 `;
