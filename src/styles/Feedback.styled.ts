@@ -3,7 +3,7 @@ import themes from "../utils/themes";
 
 export const FeedbackContainer = styled.section`
   font-family: ${themes.primary.font.family.roboto};
-  margin-top: 200px;
+  margin-top: 12.5em;
 `;
 
 export const FeedbackSectionTitle = styled.h2`
@@ -20,7 +20,7 @@ export const FeedbackSectionSubTitle = styled.h3`
   font-weight: 300;
   font-size: 1.65em;
   line-height: 125%;
-  margin-top: 12px;
+  margin-top: 0.75em;
   margin-bottom: 50px;
 
   @media ${themes.primary.media.maxTabletPortrait} {

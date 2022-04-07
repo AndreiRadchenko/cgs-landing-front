@@ -5,7 +5,7 @@ import themes from "../utils/themes";
 export const TechnologyContainer = styled.section`
   user-select: none;
   font-family: ${themes.primary.font.family.roboto};
-  margin-bottom: 200px;
+  margin-bottom: 12.5em;
 `;
 
 export const TechnologyRow = styled.div`
@@ -41,7 +41,7 @@ export const TechnologyRow = styled.div`
 `;
 
 export const CategoryImgWrapper = styled.div`
-  width: 323px;
+  width: 20.188em;
   display: inline-block;
   text-align: center;
 `;
@@ -69,7 +69,7 @@ export const CategoryContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 400px;
+    width: 25em;
 
     &:nth-child(odd),
     &:nth-child(even) {

@@ -50,7 +50,7 @@ export const ListItemNav = styled.span`
     font-size: 1.45em;
   }
 
-  @media (max-width: 768px) {
+  @media ${themes.primary.media.maxTablet} {
     display: none;
   }
 

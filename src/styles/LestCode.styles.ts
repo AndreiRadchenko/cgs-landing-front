@@ -8,7 +8,7 @@ export const LetsCodeContainer = styled.section`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  margin-top: 60px;
+  margin-top: 3.75em;
   font-family: ${themes.primary.font.family.roboto};
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -38,7 +38,7 @@ export const ImageContainer = styled.section`
 
 export const ImageTagsContainer = styled.section`
   position: relative;
-  height: 74px;
+  height: 4.625em;
 `;
 
 export const ImageCatContainer = styled.section`
