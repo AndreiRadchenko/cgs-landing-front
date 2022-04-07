@@ -5,7 +5,7 @@ export const FormTitle = styled.h1`
   font-size: ${themes.primary.font.size.quaternary};
   font-weight: ${themes.primary.font.weight.bold};
   text-align: center;
-  margin-bottom: 65px;
+  margin-bottom: 4rem;
 `;
 
 export const FormWrapper = styled.section`
@@ -16,21 +16,15 @@ export const FormWrapper = styled.section`
   }
 `;
 
-export const MainForm = styled.div`
-  width: 490px;
-  height: 650px;
-  background-color: black;
-`;
-
 export const FormImage = styled.div`
   background-image: url("/searching-for.png");
-  width: 689px;
-  height: 675px;
+  width: 43.063rem;
+  height: 42.188rem;
   background-repeat: space;
   margin-left: 6.125rem;
   @media${themes.primary.media.maxTabletLandScape} {
-    width: 450px;
-    height: 675px;
+    width: 28.125rem;
+    height: 42.188rem;
     background-repeat: round;
     margin-left: 4.125rem;
   }
@@ -41,7 +35,7 @@ export const FormImage = styled.div`
     margin-left: 0;
   }
   @media${themes.primary.media.maxLowScreenMobile} {
-    width: 350px;
-    height: 475px;
+    width: 21.875rem;
+    height: 29.688rem;
   }
 `;

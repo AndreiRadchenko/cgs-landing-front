@@ -9,14 +9,14 @@ interface IFieldProps {
   handleChange: any;
 }
 
-const TextfieldWrapper: FC<IFieldProps> = ({
+const TextFieldWrapper: FC<IFieldProps> = ({
   name,
   label,
   handleChange,
 }: IFieldProps) => {
   const [field, meta] = useField<string>(name);
 
-  const configTextfield: TextFieldProps = {
+  const configTextField: TextFieldProps = {
     ...field,
     label: label,
     fullWidth: true,
@@ -25,15 +25,15 @@ const TextfieldWrapper: FC<IFieldProps> = ({
   };
 
   if (meta && meta.touched && meta.error) {
-    configTextfield.error = true;
-    configTextfield.helperText = meta.error;
+    configTextField.error = true;
+    configTextField.helperText = meta.error;
   }
 
   return (
     <>
-      <Styled.Field {...configTextfield} />
+      <Styled.Field {...configTextField} />
     </>
   );
 };
 
-export default TextfieldWrapper;
+export default TextFieldWrapper;

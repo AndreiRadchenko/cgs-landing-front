@@ -23,7 +23,7 @@ const Form: FC = () => {
   const fileEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
     let name = e.target.value;
     {
-      name ? setCV(true) : setCV(false);
+      name ? setCV(!!name) : setCV(!!name);
     }
     return handleChange(e);
   };
