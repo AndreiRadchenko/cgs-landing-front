@@ -51,7 +51,8 @@ export const CategoryName = styled.h2`
   z-index: 2;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 2em;
+    font-size: 1.5em;
+    margin: 10px 0;
   }
 `;
 
@@ -145,7 +146,7 @@ export const DecorationTextAllTitle = styled(Decoration)`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 8em;
+    width: 5.5em;
   }
 `;
 
