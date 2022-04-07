@@ -3,7 +3,6 @@ import themes from "../../utils/themes";
 
 export const FeedbackCardContainer = styled.div`
   width: 27em;
-  height: 600px;
   font-family: ${themes.primary.font.family.roboto};
 
   display: flex;

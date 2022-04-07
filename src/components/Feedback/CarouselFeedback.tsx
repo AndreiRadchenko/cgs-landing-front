@@ -70,11 +70,14 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({
   }, [swiper, isFeedbackOnScreen, isBeenInitSlideScroll]);
 
   return (
-    <Swiper {...params} onSwiper={swiper => setSwiper(swiper)}>
+    <Swiper
+      {...params}
+      onSwiper={swiper => setSwiper(swiper)}
+      style={{ display: "flex", flexDirection: "column", height: "auto" }}>
       {[...feedback]
         .reverse()
         .map(({ name, description, link, company, position, rates }, idx) => (
-          <SwiperSlide key={idx}>
+          <SwiperSlide key={idx} style={{ height: "auto" }}>
             <FeedbackCard
               name={name}
               description={description}
