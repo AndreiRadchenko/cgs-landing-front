@@ -6,7 +6,7 @@ export const FeedbackContainer = styled.section`
   margin-top: 12.5em;
 `;
 
-export const FeedbackSectionTitle = styled.h2`
+export const FeedbackSectionTitle = styled.h1`
   font-size: 2.5em;
   margin: 0;
 
@@ -37,6 +37,8 @@ export const FeedbackRow = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
+  height: 37.5em;
+  align-items: baseline;
 `;
 
 export const StyledArrowButton = styled.button`

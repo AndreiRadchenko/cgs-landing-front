@@ -2,10 +2,11 @@ import React from "react";
 import Careers from "../components/Careers";
 import CareersForm from "../components/CareersForm/index";
 import { Page } from "../styles/Page.styled";
+import { NextPage } from "next";
 import HeaderNav from "../components/HeaderNav/HeaderNav";
 import Footer from "../components/Footer/Footer";
 
-export default function () {
+const CarrersPage: NextPage = () => {
   return (
     <Page>
       <HeaderNav />
@@ -14,4 +15,6 @@ export default function () {
       <Footer />
     </Page>
   );
-}
+};
+
+export default CarrersPage;

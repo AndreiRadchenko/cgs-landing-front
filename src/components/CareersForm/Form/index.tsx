@@ -47,6 +47,7 @@ const Form: FC = () => {
               className='CV-file'
               onChange={fileEdit}
               id='CV-file'
+              accept='.png,.jpeg,.pdf,.word,.docx'
             />
             <Styled.InputFileLabel htmlFor='CV-file'>
               <Styled.FileButton>
