@@ -10,6 +10,7 @@ export const Field = styled(TextField)`
     font-family: ${themes.primary.font.family.gilroy};
   }
   & input {
-    font-size: 14px;
+    font-size: 0.875em;
   }
+  margin-top: 0.625rem;
 `;

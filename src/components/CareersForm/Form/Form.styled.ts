@@ -15,11 +15,11 @@ export const Form = styled.form`
 export const SubmitButton = styled.button`
   background-image: url("/send-button.png");
   width: 100%;
-  height: 80px;
+  height: 5rem;
   border: none;
   background-color: #f7f7f7;
   cursor: pointer;
-  margin: 17px 0 9px 0;
+  margin: 1.063rem 0 0.563rem 0;
   background-repeat: round;
   @media${themes.primary.media.maxTablet} {
     background-repeat: space;
@@ -34,7 +34,7 @@ export const SubmitButton = styled.button`
 `;
 
 export const BottomText = styled.p`
-  line-height: 26px;
+  line-height: 1.625rem;
   font-family: ${themes.primary.font.family.gilroy};
   font-style: normal;
 `;
@@ -43,7 +43,7 @@ export const FormProvider = styled(FormikProvider)``;
 export const FileContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 35px;
+  margin-top: 2.188rem;
   @media${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
     align-items: center;
@@ -76,7 +76,7 @@ export const FileInputWrapper = styled.div`
   background: none;
 
   width: 20.375rem;
-  padding: 23px 44px;
+  padding: 1.438rem 2.75rem;
   background: white;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
 `;

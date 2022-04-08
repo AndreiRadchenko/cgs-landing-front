@@ -15,7 +15,7 @@ export const Container = styled.form`
 `;
 
 export const Title = styled.h2`
-  font-size: 36px;
+  font-size: 2.25rem;
   margin: 0 0 1em 0;
 
   @media ${themes.primary.media.maxTabletLandScape} {

@@ -45,9 +45,8 @@ const Form: FC = () => {
               name='CV-file'
               type='file'
               className='CV-file'
-              onChange={handleChange}
+              onChange={fileEdit}
               id='CV-file'
-              accept='.png,.jpeg,.pdf,.word,.doc'
             />
             <Styled.InputFileLabel htmlFor='CV-file'>
               <Styled.FileButton>
@@ -60,7 +59,6 @@ const Form: FC = () => {
             {CV ? "file is uploaded" : "file is not uploaded"}
           </Styled.FileLoad>
         </Styled.FileContainer>
-
         <Styled.SubmitButton type='submit' />
         <Styled.BottomText>
           It could be that we won’t answer you. That means our match was

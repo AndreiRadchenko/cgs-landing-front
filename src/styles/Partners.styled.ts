@@ -26,6 +26,6 @@ export const PartnerImageWrapper = styled.div`
   }
 
   &:nth-child(n + 7) {
-    margin-top: 80px;
+    margin-top: 5em;
   }
 `;

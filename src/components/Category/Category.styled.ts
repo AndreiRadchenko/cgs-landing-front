@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 
 export const CategoryContainer = styled.div`
   height: 26em;
-  margin: 0 27px 27px 0;
+  margin: 0 1.688rem 1.688rem 0;
   border-radius: 6px;
   flex: 0 1 20em;
   position: relative;
@@ -83,7 +83,7 @@ export const CategoryContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     flex: 0 1 19em;
     height: 27em;
-    margin: 10px;
+    margin: 0.625rem;
   }
 
   @media (max-width: 543px) {
