@@ -3,12 +3,9 @@ import themes from "../../utils/themes";
 
 export const FeedbackCardContainer = styled.div`
   width: 27em;
-  height: 37.5em;
   font-family: ${themes.primary.font.family.roboto};
-
   display: flex;
   flex-direction: column;
-
   @media ${themes.primary.media.maxMobile} {
     width: initial;
   }
@@ -25,7 +22,6 @@ export const FeedbackCardName = styled.h2`
   margin: 0 1.375rem 0 0;
   font-size: 1.375em;
   cursor: default;
-
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.8em;
   }
@@ -37,11 +33,9 @@ export const FeedbackCardCompany = styled.a`
   font-size: 1.125em;
   transition: 300ms;
   cursor: pointer;
-
   &:hover {
     color: ${themes.primary.colors.linkBlue};
   }
-
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.6em;
   }
@@ -50,7 +44,6 @@ export const FeedbackCardCompany = styled.a`
 export const FeedbackButtonContainer = styled.div`
   position: relative;
   left: -1em;
-
   @media ${themes.primary.media.maxLaptop} {
     left: -1.5em;
   }
@@ -64,7 +57,6 @@ export const FeedbackCardPosition = styled.span`
   border-radius: 5px;
   margin-bottom: 1em;
   cursor: default;
-
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.6em;
   }
@@ -75,13 +67,10 @@ export const FeedbackCardDescription = styled.span`
   font-size: 1.125em;
   line-height: 175%;
   cursor: default;
-
   width: 90%;
-
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.6em;
   }
-
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.8em;
     width: initial;
