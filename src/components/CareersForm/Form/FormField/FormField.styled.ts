@@ -3,6 +3,7 @@ import { TextField } from "@mui/material";
 import themes from "../../../../utils/themes";
 
 export const Field = styled(TextField)`
+  margin-top: 0.7rem;
   & label {
     font-weight: ${themes.primary.font.weight.bold};
     color: #858585;
@@ -11,5 +12,4 @@ export const Field = styled(TextField)`
   & input {
     font-size: 14px;
   }
-  margin-top: 10px;
 `;

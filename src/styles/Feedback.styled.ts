@@ -37,6 +37,10 @@ export const FeedbackRow = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
+  height: 37.5rem;
+  & .swiper-wrapper {
+    height: auto;
+  }
 `;
 
 export const StyledArrowButton = styled.button`
