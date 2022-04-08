@@ -39,7 +39,7 @@ export const Page = styled.article`
 export const ButtonText = styled.span.attrs(
   ({ fontSize }: IButtonTextStyledProps) => ({
     fontSize: fontSize,
-  })
+  }),
 )`
   position: relative;
   z-index: 3;
@@ -52,7 +52,7 @@ export const ButtonText = styled.span.attrs(
   font-family: ${themes.primary.font.family.roboto};
   cursor: pointer;
 
-  ${props => css`
+  ${(props) => css`
     font-size: ${props.fontSize};
   `}
 

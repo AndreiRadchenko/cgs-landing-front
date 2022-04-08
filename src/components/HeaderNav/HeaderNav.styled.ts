@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import Link from "next/link";
 
 export const HeaderNavContainer = styled.div`
   width: 100%;
@@ -15,9 +14,11 @@ export const LogoLinkWrapper = styled.a``;
 export const HeaderNavLinkWrapper = styled.div`
   display: flex;
   align-items: center;
-
   position: relative;
   z-index: 2;
+  &:hover {
+    color: ${themes.primary.colors.linkBlue};
+  }
 `;
 
 export const BurgerLinkWrapper = styled.a`
@@ -29,10 +30,6 @@ export const BurgerLinkWrapper = styled.a`
   font-weight: 700;
   margin-top: 0.8462em;
   cursor: pointer;
-
-  &:hover {
-    color: ${themes.primary.colors.linkBlue};
-  }
 `;
 
 export const ListItemNav = styled.span`
@@ -50,7 +47,7 @@ export const ListItemNav = styled.span`
     font-size: 1.45em;
   }
 
-  @media (max-width: 768px) {
+  @media ${themes.primary.media.maxMobile} {
     display: none;
   }
 
@@ -62,3 +59,5 @@ export const ListItemNav = styled.span`
 export const NavList = styled.menu`
   display: flex;
 `;
+
+export const LinkText = styled.p``;
