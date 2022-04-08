@@ -13,12 +13,12 @@ export const CareerFormValidation = () => {
     telegram: yup.string().required("Required"),
     socialMediaLink: yup
       .string()
-      .min(10, "A link to the social media must contain as least 10 characters")
+      .min(10, "A link to the social media must contain at least 10 characters")
       .required("Required"),
     projectsLink: yup
       .string()
       .required("Required")
-      .min(10, "A link to the project must contain as least 10 characters"),
+      .min(10, "A link to the project must contain at least 10 characters"),
     "CV-file": yup.string().required("Required"),
   });
 };

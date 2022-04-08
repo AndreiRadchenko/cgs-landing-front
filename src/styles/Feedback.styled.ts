@@ -6,7 +6,7 @@ export const FeedbackContainer = styled.section`
   margin-top: 200px;
 `;
 
-export const FeedbackSectionTitle = styled.h2`
+export const FeedbackSectionTitle = styled.h1`
   font-size: 2.5em;
   margin: 0;
 
