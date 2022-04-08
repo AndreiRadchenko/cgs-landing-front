@@ -70,7 +70,10 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({
   }, [swiper, isFeedbackOnScreen, isBeenInitSlideScroll]);
 
   return (
-    <Swiper {...params} onSwiper={swiper => setSwiper(swiper)}>
+    <Swiper
+      {...params}
+      onSwiper={swiper => setSwiper(swiper)}
+      style={{ display: "flex", flexDirection: "column" }}>
       {[...feedback]
         .reverse()
         .map(({ name, description, link, company, position, rates }, idx) => (

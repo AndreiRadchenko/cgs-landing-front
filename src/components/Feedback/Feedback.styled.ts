@@ -1,39 +1,18 @@
-import styled from 'styled-components';
-import themes from '../../utils/themes';
+import styled from "styled-components";
+import themes from "../../utils/themes";
 export const Navigationwrapper = styled.div`
-position: relative;
-bottom: 47%;
-  & svg {
-    position: absolute;
-  }
-  & div :nth-child(1){
-    left: 75%;
-    margin-right: 15%;
-  }
-  & div :nth-child(2){
-    right: 15%
-  }
-  & svg {
-    position: absolute;
-  }
+  display: flex;
+  justify-content: end;
+  margin-top: 3rem;
+
   & div :after {
-    content: none
+    content: none;
   }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    bottom: 37%;
+  & div {
+    position: static;
+    width: auto;
   }
-  @media ${themes.primary.media.maxTabletPortrait}{
-    bottom: 27%;
-    & div :nth-child(1){
-      left: 69%
-    }
-    @media ${themes.primary.media.maxTablet}{
-      bottom: 47%;
-     
-  }
-  @media ${themes.primary.media.minTablet} {
-    & div :nth-child(1){
-      left: 57%
-    }
+  &div: nth-child(1) {
+    margin-right: 2.5rem;
   }
 `;

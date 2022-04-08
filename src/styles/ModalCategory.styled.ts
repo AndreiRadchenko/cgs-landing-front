@@ -100,6 +100,7 @@ export const CategoryRouteName = styled.span`
 `;
 
 export const CategoryProjectsContainer = styled.div`
+  width: 100%;
   display: flex;
   position: relative;
   flex-wrap: wrap;
@@ -207,7 +208,6 @@ export const ProjectContainer = styled.div`
   margin: 1.188em;
   width: 30%;
   height: 40.625em;
-
   display: flex;
   flex-direction: column;
 
