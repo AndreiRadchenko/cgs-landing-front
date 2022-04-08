@@ -207,14 +207,14 @@ export const DecorationTextBlockChainTitle = styled(Decoration)`
 export const ProjectContainer = styled.div`
   margin: 19px;
   width: 30%;
-  height: 650px;
+  height: 600px;
 
   display: flex;
   flex-direction: column;
 
   @media ${themes.primary.media.minLaptop} {
     width: 27%;
-    height: 600px;
+    height: 500px;
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
