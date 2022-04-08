@@ -3,7 +3,7 @@ import { FormikProvider, Field } from "formik";
 import themes from "../../../utils/themes";
 
 export const Form = styled.form`
-  flex-basis: 35%;
+  flex-basis: 38%;
   @media${themes.primary.media.maxTabletLandScape} {
     width: 40%;
   }
