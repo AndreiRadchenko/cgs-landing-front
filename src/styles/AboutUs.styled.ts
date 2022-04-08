@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import themes from "../utils/themes";
 import Decoration from "../components/Decoration/Decoration";
 
@@ -56,10 +56,30 @@ export const AboutUsCardContainer = styled.div`
   }
 `;
 
-export const WrapperAboutUSIMG = styled.div`
+const floatAnimation = keyframes`
+0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-10px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+`;
+
+type imgProps = { delay: number };
+
+export const WrapperAboutUSIMG = styled("div")<imgProps>`
   position: relative;
   display: flex;
   justify-content: center;
+  overflow: visible;
+
+  img {
+    animation: ${floatAnimation} 3s infinite ease-in-out;
+    animation-delay: ${(props) => (props.delay ? props.delay : "5")}s;
+  }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     margin-top: 0.5em;
@@ -229,10 +249,44 @@ export const AboutUsDescription = styled.span`
   }
 `;
 
-export const IllustrationWrapper = styled.div`
+const glassJarAnimation = keyframes`
+ 10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(2px, 0, 0);
+  }
+`;
+
+type imgIllustrationProps = {
+  isScrolled: boolean;
+};
+export const IllustrationWrapper = styled("div")<imgIllustrationProps>`
   display: flex;
   justify-content: center;
   margin-bottom: 5.625em;
+
+  img {
+    animation: ${({ isScrolled }) =>
+      isScrolled
+        ? css`
+            ${glassJarAnimation} 1s
+          `
+        : "none"};
+  }
+
+  span:hover {
+    animation: ${glassJarAnimation} 1s;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 10em;
