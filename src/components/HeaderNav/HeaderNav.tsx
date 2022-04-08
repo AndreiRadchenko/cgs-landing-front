@@ -6,7 +6,6 @@ import ImagePreview from "../Image/ImagePreview";
 import Link from "next/link";
 import BurgerButton from "../BurgerMenu/BurgerButton";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
-import LowResolutionNavigation from "../LowResolutionNavigation/LowResolutionNavigation";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { disableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 
@@ -14,7 +13,9 @@ const HeaderNav = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { width } = useWindowDimension();
 
-  const toggleBurgerHandler = () => setIsOpen(!isOpen);
+  const toggleBurgerHandler = () => {
+    setIsOpen((old) => !old);
+  };
 
   useEffect(() => {
     isOpen && width && width >= 768 && setIsOpen(false);
@@ -24,12 +25,7 @@ const HeaderNav = (): JSX.Element => {
 
   return (
     <StyledThisComp.HeaderNavContainer>
-      <BurgerButton
-        isOpen={isOpen}
-        onToggle={() => {
-          setIsOpen((old) => !old);
-        }}
-      />
+      <BurgerButton isOpen={isOpen} onToggle={toggleBurgerHandler} />
       <BurgerMenu isOpen={isOpen}>
         {navigationRoutesNames.map((name, ind) => (
           <Link key={name + ind} href={name === "/home" ? "/" : name} passHref>
