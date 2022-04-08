@@ -4,7 +4,8 @@ import logoIMG from "../../../public/logo.png";
 import { navigationRoutesNames, routers } from "../../utils/variables";
 import ImagePreview from "../Image/ImagePreview";
 import Link from "next/link";
-import LowResolutionNavigation from "../LowResolutionNavigation/LowResolutionNavigation";
+import BurgerButton from "../BurgerMenu/BurgerButton";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { disableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 
@@ -12,16 +13,26 @@ const HeaderNav = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { width } = useWindowDimension();
 
-  const toggleBurgerHandler = () => setIsOpen(!isOpen);
+  const toggleBurgerHandler = () => {
+    setIsOpen((old) => !old);
+  };
 
   useEffect(() => {
     isOpen && width && width >= 768 && setIsOpen(false);
-  }, [width]);
+  }, [width, isOpen]);
 
   disableScrollBarHandler(isOpen);
 
   return (
     <StyledThisComp.HeaderNavContainer>
+      <BurgerButton isOpen={isOpen} onToggle={toggleBurgerHandler} />
+      <BurgerMenu isOpen={isOpen}>
+        {navigationRoutesNames.map((name, ind) => (
+          <Link key={name + ind} href={name === "/home" ? "/" : name} passHref>
+            <StyledThisComp.LinkText>{name}</StyledThisComp.LinkText>
+          </Link>
+        ))}
+      </BurgerMenu>
       <StyledThisComp.LogoLinkWrapper href={routers.home}>
         <ImagePreview
           src={logoIMG}
@@ -30,15 +41,17 @@ const HeaderNav = (): JSX.Element => {
         />
       </StyledThisComp.LogoLinkWrapper>
       <StyledThisComp.NavList>
-        <StyledThisComp.ListItemNav>
-          <Link href={"/"}>/home</Link>
-        </StyledThisComp.ListItemNav>
-        <StyledThisComp.ListItemNav>
-          <Link href={"/careers"}>/careers</Link>
-        </StyledThisComp.ListItemNav>
-        <StyledThisComp.ListItemNav>
-          <Link href={"/partners"}>/partners</Link>
-        </StyledThisComp.ListItemNav>
+        {navigationRoutesNames.map((name, ind) => (
+          <StyledThisComp.ListItemNav key={name + ind}>
+            <Link
+              key={name + ind}
+              href={name === "/home" ? "/" : name}
+              passHref
+            >
+              <StyledThisComp.LinkText>{name}</StyledThisComp.LinkText>
+            </Link>
+          </StyledThisComp.ListItemNav>
+        ))}
       </StyledThisComp.NavList>
     </StyledThisComp.HeaderNavContainer>
   );

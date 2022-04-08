@@ -29,8 +29,8 @@ export const ModalContainer = styled(Modal)`
 
 export const ModalWrapper = styled.div`
   outline: none;
-  width: 1290px;
-  min-height: 600px;
+  width: 80.625em;
+  min-height: 3.75em;
   position: absolute;
   top: 10%;
   background-color: #f7f7f7;
@@ -148,8 +148,8 @@ export const ModalBackButtonAnimated = styled.button`
 export const ModalBackButtonAnimatedContent = styled.div`
   display: inline-block;
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: 1.875rem;
+  height: 1.875rem;
 
   &.close,
   &.back {

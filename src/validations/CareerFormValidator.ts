@@ -4,11 +4,11 @@ export const CareerFormValidation = () => {
   return yup.object({
     name: yup
       .string()
-      .min(2, "Name is too short")
+      .min(1, "Name is too short")
       .max(25, "Name is too large")
       .required("Required")
       .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
-    aboutCandidate: yup.string().min(1).max(20).required("Required"),
+    aboutCandidate: yup.string().min(2).max(20).required("Required"),
     email: yup.string().email("Invalid email format").required("Required"),
     telegram: yup.string().required("Required"),
     socialMediaLink: yup

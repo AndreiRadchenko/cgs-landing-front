@@ -11,7 +11,7 @@ export const Navigationwrapper = styled.div`
     position: static;
     width: auto;
   }
-  &div: nth-child(1) {
+  & .swiper-button-prev {
     margin-right: 2.5rem;
   }
 `;

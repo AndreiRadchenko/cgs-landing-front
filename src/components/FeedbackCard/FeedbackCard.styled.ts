@@ -19,8 +19,8 @@ export const FeedbackCardWrapper = styled.div`
 `;
 
 export const FeedbackCardName = styled.h2`
-  margin: 0 22px 0 0;
-  font-size: 22px;
+  margin: 0 1.375rem 0 0;
+  font-size: 1.375em;
   cursor: default;
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.8em;

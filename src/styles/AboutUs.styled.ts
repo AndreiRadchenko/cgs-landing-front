@@ -90,7 +90,7 @@ export const CardDescriptionSubDescription = styled.div`
   white-space: pre-wrap;
 
   &.columnDescription {
-    width: 200px;
+    width: 12.5em;
     padding-left: 1em;
   }
 
@@ -108,7 +108,7 @@ export const CardDescriptionValueWrapper = styled.div`
   font-size: 1.3em;
 
   &.columnDescription {
-    width: 200px;
+    width: 12.5em;
     padding-left: 1em;
   }
 
@@ -206,7 +206,7 @@ export const AboutUsDescription = styled.span`
   width: 80%;
   text-align: center;
   font-weight: 400;
-  font-size: 26px;
+  font-size: ${themes.primary.font.size.buttonText};
   line-height: 145%;
   margin: 0 auto;
 

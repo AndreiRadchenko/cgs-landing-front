@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import themes from "../utils/themes";
 
 export const BurgerWrapper = styled.div`
@@ -30,9 +30,21 @@ export const BurgerWrapper = styled.div`
 
 export const BurgerRow = styled.div`
   position: relative;
+  font-size: ${themes.primary.font.size.quaternary};
+  font-weight: ${themes.primary.font.weight.bold};
+  margin-left: ${themes.primary.spacing.primary};
+  max-width: fit-content;
+  height: 70px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  transition: 300ms;
+
+  &:hover {
+    color: ${themes.primary.colors.linkBlue};
+  }
+  &:active {
+    color: ${themes.primary.colors.linkBlue};
+  }
 `;
 
 interface IButtonBurgerProps {
@@ -45,7 +57,7 @@ export const BurgerButtonWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     display: block;
     position: absolute;
-    right: 12%;
+    right: 0;
     top: 7%;
     z-index: 36;
   }
@@ -88,7 +100,6 @@ export const BurgerButton = styled.button<IButtonBurgerProps>`
     }
     &:nth-child(3) {
       transform: ${({ isOpen }) => (isOpen ? "rotate(-45deg)" : "rotate(0)")};
-      width: 100%;
       margin-left: auto;
     }
   }
@@ -96,11 +107,9 @@ export const BurgerButton = styled.button<IButtonBurgerProps>`
 
 export const SocialLinksBurgerRow = styled.div`
   position: fixed;
-  bottom: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
 `;
 
 export const StyledLinksBurgerDecoration = styled.div`

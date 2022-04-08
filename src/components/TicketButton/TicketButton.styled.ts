@@ -5,14 +5,14 @@ export const TicketButton = styled.div`
   background-image: url("/ticket-button.png");
   color: black;
   cursor: pointer;
-  width: 167px;
-  height: 66px;
-  margin-left: -18px;
-  margin-bottom: -17px;
+  width: 14em;
+  height: 4.8em;
+  margin-left: -1.125rem;
+  margin-bottom: -1.063rem;
   @media${themes.primary.media.maxTablet} {
     background-size: contain;
     background-repeat: space;
-    margin-right: -15px;
-    margin-bottom: -20px;
+    margin-right: -0.938rem;
+    margin-bottom: -1.25rem;
   }
 `;

@@ -71,11 +71,11 @@ export const NavigationWrapper = styled.div`
 `;
 
 export const CategoryRouteName = styled.span`
-  margin-right: 72px;
-  font-size: 26px;
+  margin-right: 4.5em;
+  font-size: 1.625em;
   cursor: pointer;
   position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 0.938em;
   width: 100%;
 
   &:hover::after {
@@ -100,6 +100,7 @@ export const CategoryRouteName = styled.span`
 `;
 
 export const CategoryProjectsContainer = styled.div`
+  width: 100%;
   display: flex;
   position: relative;
   flex-wrap: wrap;
@@ -204,41 +205,40 @@ export const DecorationTextBlockChainTitle = styled(Decoration)`
 `;
 
 export const ProjectContainer = styled.div`
-  margin: 19px;
+  margin: 1.188em;
   width: 30%;
-  height: 650px;
-
+  height: 40.625em;
   display: flex;
   flex-direction: column;
 
   @media ${themes.primary.media.minLaptop} {
     width: 27%;
-    height: 600px;
+    height: 37.5em;
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     width: 43%;
-    height: 550px;
+    height: 34.375em;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     width: 35%;
-    height: 500px;
+    height: 31.25em;
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 40%;
-    height: 450px;
+    height: 28.125em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 39%;
-    height: 400px;
+    height: 25em;
   }
 `;
 
 export const ProjectSpecifyTechnologyContainer = styled.div`
-  margin: 19px;
+  margin: 1.188em;
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
@@ -259,38 +259,38 @@ export const SpecifyContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    height: 250px;
+    height: 15.625em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 100%;
-    height: 250px;
+    height: 15.625em;
   }
 `;
 
 export const SpecifyContentImgWrapper = styled.div`
   width: 60%;
-  height: 430px;
+  height: 39.375em;
   position: relative;
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     width: 60%;
-    height: 350px;
+    height: 21.875em;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     width: 100%;
-    height: 350px;
+    height: 21.875em;
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    height: 250px;
+    height: 15.625em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 100%;
-    height: 200px;
+    height: 12.5em;
   }
 `;
 
@@ -304,7 +304,7 @@ export const ContentWrapper = styled.div`
 `;
 
 export const ProjectTitleName = styled.h2`
-  font-size: 25px;
+  font-size: ${themes.primary.font.size.buttonText};
   overflow-wrap: anywhere;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
