@@ -22,8 +22,8 @@ export const Wrapper = styled.div`
 
 export const ImgWrapper = styled.div`
   position: relative;
-  width: 650px;
-  height: 600px;
+  width: 40.625em;
+  height: 37.5em;
   margin: 0 auto;
 `;
 

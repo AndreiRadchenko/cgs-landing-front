@@ -47,6 +47,7 @@ export const ListItemNav = styled.span`
     font-size: 1.45em;
   }
 
+
   @media ${themes.primary.media.maxMobile} {
     display: none;
   }

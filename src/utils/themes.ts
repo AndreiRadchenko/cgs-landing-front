@@ -70,6 +70,7 @@ const themes = {
       minLaptop: "(min-width: 1200px)",
       minPC: "(min-width: 1500px)",
       minPCFullHD: "(min-width: 1800px)",
+      maxPCFullHD: "(max-width: 1800px)",
       maxLowScreenMobile: "(max-width: 475px)",
       maxMobile: "(max-width: 768px)",
       maxTabletPortrait: "(max-width: 992px)",

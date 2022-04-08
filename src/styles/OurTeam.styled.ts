@@ -3,7 +3,7 @@ import themes from "../utils/themes";
 import Decoration from "../components/Decoration/Decoration";
 
 export const OurTeamContainer = styled.section`
-  margin: 0 auto 193px auto;
+  margin: 0 auto 12.063em auto;
   position: relative;
   font-family: ${themes.primary.font.family.roboto};
 
@@ -25,7 +25,7 @@ export const OurTeamRow = styled.div`
   .our-main-goal-img {
     position: relative;
     grid-area: main-goal-img;
-    height: 490px;
+    height: 30.625em;
   }
 
   .our-main-goal-content {
@@ -35,7 +35,7 @@ export const OurTeamRow = styled.div`
   .our-philosophy-img {
     position: relative;
     grid-area: philosophy-img;
-    height: 392px;
+    height: 24.5em;
   }
 
   .our-philosophy-content {
@@ -44,16 +44,16 @@ export const OurTeamRow = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     .our-main-goal-img {
-      height: 326px;
+      height: 20.375em;
     }
 
     .our-philosophy-img {
-      height: 261px;
+      height: 16.313em;
     }
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 330px;
+    width: 20.625em;
     margin-left: auto;
     margin-right: auto;
     grid-template-columns: 335px;

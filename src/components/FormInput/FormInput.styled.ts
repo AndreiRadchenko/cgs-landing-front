@@ -43,7 +43,7 @@ export const TextAreaInput = styled.textarea`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.5em;
-    width: 335px;
+    width: 20.938em;
     margin-left: auto;
     margin-right: auto;
   }
