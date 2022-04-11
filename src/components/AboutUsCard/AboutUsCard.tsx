@@ -9,10 +9,13 @@ interface IAboutUsCardProps {
 }
 
 const AboutUsCard: FC<IAboutUsCardProps> = ({ url, description, text }) => {
+  const delay = Math.random() * 3;
+
   return (
     <StyledThisComp.AboutUsCardContainer>
       <StyledThisComp.WrapperAboutUSIMG
         className={description !== "quantity" ? "columnDescription" : ""}
+        delay={delay}
       >
         <ImagePreview src={url} alt={`about us icon ${description}`} />
       </StyledThisComp.WrapperAboutUSIMG>

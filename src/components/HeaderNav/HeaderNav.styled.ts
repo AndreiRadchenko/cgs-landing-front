@@ -47,7 +47,6 @@ export const ListItemNav = styled.span`
     font-size: 1.45em;
   }
 
-
   @media ${themes.primary.media.maxMobile} {
     display: none;
   }
@@ -61,4 +60,6 @@ export const NavList = styled.menu`
   display: flex;
 `;
 
-export const LinkText = styled.p``;
+export const LinkText = styled.p`
+  cursor: pointer;
+`;

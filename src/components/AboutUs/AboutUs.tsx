@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as StyledThisComp from "../../styles/AboutUs.styled";
 import { aboutUsContainerVars } from "../../utils/variables";
 import AboutUsCard from "../AboutUsCard/AboutUsCard";
@@ -6,6 +6,22 @@ import illustrationIMG from "../../../public/illustration-technology.png";
 import ImagePreview from "../Image/ImagePreview";
 
 const AboutUs = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const illustrationRef = useRef<HTMLDivElement>(null);
+
+  const onScroll = () => {
+    const elTop = illustrationRef?.current?.getBoundingClientRect().top || 0;
+    const scrollY = window.scrollY;
+    if (elTop - 100 <= scrollY) {
+      setIsScrolled(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, true);
+    return window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <StyledThisComp.AboutUsContainer>
       <StyledThisComp.AboutUsTitle>
@@ -37,7 +53,10 @@ const AboutUs = () => {
         </StyledThisComp.AboutUsCodeIcon>
       </StyledThisComp.AboutUsInfoSupport>
 
-      <StyledThisComp.IllustrationWrapper>
+      <StyledThisComp.IllustrationWrapper
+        isScrolled={isScrolled}
+        ref={illustrationRef}
+      >
         <ImagePreview
           src={illustrationIMG}
           placeholder={"blur"}
