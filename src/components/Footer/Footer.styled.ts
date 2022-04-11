@@ -3,13 +3,13 @@ import themes from "../../utils/themes";
 import Decoration from "../Decoration/Decoration";
 
 export const Container = styled.div`
+  /* background-color: ref; */
   margin-top: 15em;
   background-color: ${themes.primary.colors.secondary};
   height: 7.5em;
   width: 100%;
   display: grid;
   justify-items: center;
-  grid-teplate-columns: repeat(3, 1fr);
   grid-template-areas: "footer-address footer-social .";
 
   @media ${themes.primary.media.maxTabletPortrait} {
