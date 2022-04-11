@@ -16,10 +16,12 @@ const AboutUs = () => {
       setIsScrolled(true);
     }
   };
+
   useEffect(() => {
     window.addEventListener("scroll", onScroll, true);
     return window.removeEventListener("scroll", onScroll);
   }, []);
+
   return (
     <StyledThisComp.AboutUsContainer>
       <StyledThisComp.AboutUsTitle>
