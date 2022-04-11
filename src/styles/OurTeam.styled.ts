@@ -3,7 +3,6 @@ import themes from "../utils/themes";
 import Decoration from "../components/Decoration/Decoration";
 
 export const OurTeamContainer = styled.section`
-  margin: 0 auto 12.063em auto;
   position: relative;
   font-family: ${themes.primary.font.family.roboto};
 
@@ -53,7 +52,7 @@ export const OurTeamRow = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 20.625em;
+    width: 25.625em;
     margin-left: auto;
     margin-right: auto;
     grid-template-columns: 335px;
@@ -73,6 +72,14 @@ export const OurTeamRow = styled.div`
     .our-philosophy-img {
       height: 251px;
     }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    grid-template-columns: 100%;
+    .our-main-goal-img,
+    .our-philosophy-img {
+      width: 100%;
+    }
+    width: 17.5rem;
   }
 `;
 
@@ -127,6 +134,7 @@ export const DecorationClipIconLeft = styled.div`
   position: absolute;
   bottom: -25%;
   left: 63%;
+  transform: scale(0.8);
   z-index: 3;
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -138,9 +146,9 @@ export const DecorationClipIconLeft = styled.div`
 
 export const DecorationClipIconRight = styled.div`
   position: absolute;
-  top: -15%;
-  right: -3%;
-  transform: rotate(65deg);
+  top: -45%;
+  right: -15%;
+  transform: scale(0.8) rotate(65deg);
   z-index: 3;
 
   @media ${themes.primary.media.maxTabletPortrait} {
