@@ -24,7 +24,7 @@ export const FormImage = styled.div`
   margin-left: 6.125rem;
   @media${themes.primary.media.maxTabletLandScape} {
     width: 28.125rem;
-    height: 42.188rem;
+    height: 29rem;
     background-repeat: round;
     margin-left: 4.125rem;
   }
@@ -35,7 +35,7 @@ export const FormImage = styled.div`
     margin-left: 0;
   }
   @media${themes.primary.media.maxLowScreenMobile} {
-    width: 21.875rem;
-    height: 29.688rem;
+    width: 22.625rem;
+    height: 23.313rem;
   }
 `;

@@ -11,7 +11,14 @@ export const TicketWrapper = styled.div`
   height: 15.938rem;
   margin-bottom: 4.25rem;
   @media${themes.primary.media.maxLaptop} {
-    margin-bottom: 2.375rem;
+    margin-bottom: 3.375rem;
+  }
+  @media${themes.primary.media.maxTablet} {
+    margin-bottom: 0;
+  }
+  @media${themes.primary.media.maxLowScreenMobile} {
+    height: auto;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -27,6 +34,10 @@ export const ImageWrapper = styled.div`
     background-size: contain;
     width: 8.75rem;
   }
+  @media${themes.primary.media.maxLowScreenMobile} {
+    width: 6.771rem;
+    height: 8.869rem;
+  }
 `;
 
 export const BarcodeImg = styled.div`
@@ -40,6 +51,12 @@ export const BarcodeImg = styled.div`
   @media${themes.primary.media.maxTablet} {
     background-size: contain;
     height: 9.375rem;
+  }
+  @media${themes.primary.media.maxLowScreenMobile} {
+    height: 7.4rem;
+    margin: 0;
+    align-self: center;
+    margin-left: 10px;
   }
 `;
 
@@ -68,6 +85,11 @@ export const BarcodeText = styled.p`
     top: 3.813rem;
     font-size: 0.6rem;
   }
+  @media${themes.primary.media.maxLowScreenMobile} {
+    left: -1.3rem;
+    top: 2.9rem;
+    font-size: 6px;
+  }
 `;
 
 export const RocketImg = styled.div.attrs(({ imgUrl }: IImageProps) => ({
@@ -85,6 +107,9 @@ export const RocketImg = styled.div.attrs(({ imgUrl }: IImageProps) => ({
     width: 5.938rem;
     background-size: contain;
   }
+  @media${themes.primary.media.maxLowScreenMobile} {
+    width: 4.531rem;
+  }
 `;
 
 export const CareersWrapper = styled.div`
@@ -96,6 +121,11 @@ export const CareersWrapper = styled.div`
     width: 20rem;
     background-size: contain;
     background-repeat: no-repeat;
+  }
+  @media${themes.primary.media.maxLowScreenMobile} {
+    width: 15.063rem;
+    height: 8.869rem;
+    padding: 0.55rem;
   }
 `;
 export const CareersHeader = styled.div`
@@ -110,6 +140,10 @@ export const CareersHeader = styled.div`
 export const Logo = styled.img`
   width: 7.063rem;
   height: 1.538rem;
+  @media${themes.primary.media.maxLowScreenMobile} {
+    width: 5rem;
+    height: 1rem;
+  }
 `;
 
 export const HeaderText = styled.p`
@@ -126,6 +160,10 @@ export const TicketText = styled.span`
   padding-top: 0.25rem;
   padding-right: 0.938rem;
   font-weight: ${themes.primary.font.weight.bold};
+  @media${themes.primary.media.maxLowScreenMobile} {
+    margin-bottom: 0.5rem;
+    font-size: 0.413rem;
+  }
 `;
 
 export const BottomContainer = styled.div`
@@ -148,6 +186,10 @@ export const BottomContainer = styled.div`
   @media${themes.primary.media.maxTablet} {
     margin: 0.875rem -1.188rem 0 0;
   }
+  @media${themes.primary.media.maxLowScreenMobile} {
+    margin: 0.3rem -1.188rem 0 0;
+    width: 14.2rem;
+  }
 `;
 
 export const BottomTitle = styled.h2`
@@ -159,6 +201,10 @@ export const BottomTitle = styled.h2`
   @media${themes.primary.media.maxTablet} {
     margin-bottom: 0.938rem;
   }
+  @media${themes.primary.media.maxLowScreenMobile} {
+    margin-bottom: 0.5rem;
+    font-size: 0.7rem;
+  }
 `;
 
 export const BottomText = styled(TicketText)`
@@ -166,6 +212,9 @@ export const BottomText = styled(TicketText)`
   flex-direction: column;
   padding-right: 0;
   margin-bottom: 0.313rem;
+  @media${themes.primary.media.maxLowScreenMobile} {
+    font-size: 0.413rem;
+  }
 `;
 
 export const BottomList = styled.div`
@@ -182,4 +231,7 @@ export const ListWrapper = styled.div`
 export const SubTitle = styled.span`
   text-transform: uppercase;
   font-size: ${themes.primary.font.size.quinary};
+  @media${themes.primary.media.maxLowScreenMobile} {
+    font-size: 0.413rem;
+  }
 `;
