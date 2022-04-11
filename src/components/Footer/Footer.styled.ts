@@ -9,7 +9,6 @@ export const Container = styled.div`
   width: 100%;
   display: grid;
   justify-items: center;
-  grid-teplate-columns: repeat(3, 1fr);
   grid-template-areas: "footer-address footer-social .";
 
   @media ${themes.primary.media.maxTabletPortrait} {

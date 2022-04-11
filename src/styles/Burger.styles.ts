@@ -106,7 +106,7 @@ export const BurgerButton = styled.button<IButtonBurgerProps>`
 `;
 
 export const SocialLinksBurgerRow = styled.div`
-  position: fixed;
+  position: absolute;
   left: 50%;
   bottom: 0px;
   transform: translateX(-50%);
