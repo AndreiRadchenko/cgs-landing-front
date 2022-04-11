@@ -39,13 +39,15 @@ export const LikeToSeePhotoContainer = styled.div`
 
 export const LikeToSeeTextContainer = styled.div`
   width: 60%;
+  @media ${themes.primary.media.maxMobile} {
+    width: 90%;
+  }
 `;
 
 export const LikeToSeeHeader = styled.p`
   width: 90%;
   position: relative;
   left: 2%;
-  font-size: ${themes.primary.font.size.secondary};
   font-weight: ${themes.primary.font.weight.bold};
   @media ${themes.primary.media.maxMobile} {
     left: 6%;
