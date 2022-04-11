@@ -13,19 +13,12 @@ export const AboutUsContainer = styled.section`
 `;
 
 export const AboutUsWrapper = styled.div`
-  width: 85%;
+  width: 100%;
   margin: 2em auto;
   display: flex;
   justify-content: space-between;
 
   @media ${themes.primary.media.maxMobile} {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 100%;
     flex-direction: column;
     align-items: center;
   }
@@ -38,11 +31,14 @@ export const AboutUsTitle = styled.h2`
 `;
 
 export const AboutUsCardContainer = styled.div`
+  margin-left: ${themes.primary.spacing.septenary};
   width: ${themes.primary.spacing.aboutUsCard};
   display: flex;
   flex-direction: column;
 
   @media ${themes.primary.media.maxMobile} {
+    width: ${themes.primary.spacing.aboutUsCardMobile};
+    margin-left: 0;
     margin-bottom: 6em;
 
     &:last-child {
@@ -141,11 +137,11 @@ export const DecorationText = styled(Decoration)`
 
   @media ${themes.primary.media.maxMobile} {
     &.var {
-      left: 8%;
+      left: 17%;
     }
 
     &.status {
-      left: 4%;
+      left: 13%;
     }
   }
 `;
