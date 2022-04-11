@@ -57,7 +57,7 @@ export const AboutUsCardContainer = styled.div`
 `;
 
 const floatAnimation = keyframes`
-0% {
+    0% {
 		transform: translatey(0px);
 	}
 	50% {
