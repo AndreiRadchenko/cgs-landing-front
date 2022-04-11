@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import * as Styled from "./CareersTicket.styled";
+import Link from "next/Link";
 
 interface ITicketProps {
   vacancy: string;
@@ -13,7 +14,11 @@ const CareersTicket: FC<ITicketProps> = ({ vacancy, imgUrl }: ITicketProps) => {
           <Styled.BarcodeText>InSight CGS to Stratosphere</Styled.BarcodeText>
         </Styled.BarcodeImg>
         <Styled.RocketImg imgUrl={imgUrl}>
-          <Styled.Button content='Lets go!' />
+          <Link href='/lets-go'>
+            <a>
+              <Styled.Button content='Lets go!' />
+            </a>
+          </Link>
         </Styled.RocketImg>
       </Styled.ImageWrapper>
       <Styled.CareersWrapper>
