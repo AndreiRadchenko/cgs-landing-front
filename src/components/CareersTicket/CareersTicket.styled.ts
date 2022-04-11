@@ -56,7 +56,7 @@ export const BarcodeImg = styled.div`
     height: 7.4rem;
     margin: 0;
     align-self: center;
-    margin-left: 10px;
+    margin-left: 0.625rem;
   }
 `;
 
@@ -83,12 +83,12 @@ export const BarcodeText = styled.p`
   @media${themes.primary.media.maxTablet} {
     left: -2.5rem;
     top: 3.813rem;
-    font-size: 0.6rem;
+    font-size: ${themes.primary.font.size.septenary};
   }
   @media${themes.primary.media.maxLowScreenMobile} {
     left: -1.3rem;
     top: 2.9rem;
-    font-size: 6px;
+    font-size: ${themes.primary.font.size.hexadecimal};
   }
 `;
 
@@ -162,7 +162,7 @@ export const TicketText = styled.span`
   font-weight: ${themes.primary.font.weight.bold};
   @media${themes.primary.media.maxLowScreenMobile} {
     margin-bottom: 0.5rem;
-    font-size: 0.413rem;
+    font-size: ${themes.primary.font.size.hexadecimal};
   }
 `;
 
@@ -203,7 +203,7 @@ export const BottomTitle = styled.h2`
   }
   @media${themes.primary.media.maxLowScreenMobile} {
     margin-bottom: 0.5rem;
-    font-size: 0.7rem;
+    font-size: ${themes.primary.font.size.quinary};
   }
 `;
 
@@ -213,7 +213,7 @@ export const BottomText = styled(TicketText)`
   padding-right: 0;
   margin-bottom: 0.313rem;
   @media${themes.primary.media.maxLowScreenMobile} {
-    font-size: 0.413rem;
+    font-size: ${themes.primary.font.size.hexadecimal};
   }
 `;
 
@@ -232,6 +232,6 @@ export const SubTitle = styled.span`
   text-transform: uppercase;
   font-size: ${themes.primary.font.size.quinary};
   @media${themes.primary.media.maxLowScreenMobile} {
-    font-size: 0.413rem;
+    font-size: ${themes.primary.font.size.hexadecimal};
   }
 `;
