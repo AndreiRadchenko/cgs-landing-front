@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import * as Styled from "./CareersTicket.styled";
-import Link from "next/Link";
+import Link  from "next/link";
 
 interface ITicketProps {
   vacancy: string;
