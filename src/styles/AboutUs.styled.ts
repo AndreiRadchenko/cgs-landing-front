@@ -1,4 +1,6 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
+
+import { glassJarAnimation, floatAnimation } from "./AnimationsStyled";
 import themes from "../utils/themes";
 import Decoration from "../components/Decoration/Decoration";
 
@@ -50,18 +52,6 @@ export const AboutUsCardContainer = styled.div`
     justify-content: space-between;
     margin-top: 1em;
   }
-`;
-
-const floatAnimation = keyframes`
-    0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-10px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
 `;
 
 type imgProps = { delay: number };
@@ -242,24 +232,6 @@ export const AboutUsDescription = styled.span`
     padding-left: 0.5em;
     font-size: 1.9em;
     width: 100%;
-  }
-`;
-
-const glassJarAnimation = keyframes`
- 10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-2px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(2px, 0, 0);
   }
 `;
 
