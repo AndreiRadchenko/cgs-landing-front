@@ -53,7 +53,7 @@ export const LestCodeContent = styled.div`
 
 export const LetsCodeImageWrapper = styled.div`
   position: absolute;
-
+  transform: translateY(-3rem);
   * {
     position: relative;
     left: -5%;
