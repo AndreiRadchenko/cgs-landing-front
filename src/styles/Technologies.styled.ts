@@ -11,8 +11,8 @@ export const TechnologyContainer = styled.section`
 export const TechnologyRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 90%;
-  margin: 3em 0 3em auto;
+  width: 100%;
+  margin: 3em;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
