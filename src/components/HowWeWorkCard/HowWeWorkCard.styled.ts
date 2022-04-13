@@ -1,7 +1,11 @@
-import styled from "styled-components";
-import themes from "../../utils/themes";
+import styled, { keyframes } from 'styled-components';
+import themes from '../../utils/themes';
 
-type backGroundColor = "blue" | "orange" | "green";
+type backGroundColor = 'blue' | 'orange' | 'green';
+
+type IActive = {
+  active: boolean;
+};
 
 type IContainerProps = {
   backGroundColor: backGroundColor;
@@ -10,6 +14,7 @@ type IContainerProps = {
 
 type IColorProps = {
   backGroundColor: backGroundColor;
+  active: boolean;
 };
 
 type IAdditionalImg = {
@@ -18,18 +23,21 @@ type IAdditionalImg = {
 
 type IImage = {
   isFlipOnMobile?: boolean;
+  active?: boolean;
 };
 
 export const Container = styled.div<IContainerProps>`
   width: 100%;
-  min-height: 100vh;
+  min-height: 53rem;
   padding-top: 2em;
   position: relative;
   display: flex;
   flex-direction: column;
   color: ${themes.primary.colors.primary};
-  background-color: ${(props) => themes.primary.colors[props.backGroundColor]};
-  z-index: ${(props) => (props.additionalImgUrl ? "35" : "1")};
+  background-color: ${props => themes.primary.colors[props.backGroundColor]};
+  z-index: ${props => (props.additionalImgUrl ? '35' : '1')};
+  box-sizing: border-box;
+  overflow: hidden;
 `;
 
 export const NumberContainer = styled.div`
@@ -53,7 +61,7 @@ export const NumberContainer = styled.div`
 `;
 
 export const Number = styled.div<IColorProps>`
-  color: ${(props) => themes.primary.colors.lighten[props.backGroundColor]};
+  color: ${props => themes.primary.colors.lighten[props.backGroundColor]};
   font-size: 26em;
   font-weight: 600;
 
@@ -119,14 +127,13 @@ export const ContentTextContainer = styled.div``;
 
 export const ContentImgContainer = styled.div<IAdditionalImg>`
   display: flex;
-  justify-content: ${(props) =>
-    props.additionalImgUrl ? "flex-end" : "center"};
+  justify-content: ${props => (props.additionalImgUrl ? 'flex-end' : 'center')};
   align-items: center;
   height: 100%;
   flex-grow: 1;
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    align-self: ${(props) => (props.additionalImgUrl ? "flex-end" : "initial")};
+    align-self: ${props => (props.additionalImgUrl ? 'flex-end' : 'initial')};
   }
 `;
 
@@ -135,17 +142,27 @@ export const ContentImage = styled.div<IImage>`
   z-index: 500;
   width: 33em;
   margin-bottom: 30%;
-  height: ${(props) => (props.isFlipOnMobile ? "41em" : "35em")};
+  height: ${props => (props.isFlipOnMobile ? '41em' : '35em')};
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 33em;
-    transform: ${(props) =>
-      props.isFlipOnMobile ? "scale(-1, 1)" : "initial"};
+    transform: ${props => (props.isFlipOnMobile ? 'scale(-1, 1)' : 'initial')};
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 28em;
-    height: ${(props) => (props.isFlipOnMobile ? "41em" : `29em`)};
+    height: ${props => (props.isFlipOnMobile ? '41em' : `29em`)};
+  }
+  animation: ${({ active }) => (active ? 'image 2s' : null)};
+  @keyframes image {
+    0% {
+      margin-right: -10rem;
+      opacity: 0;
+    }
+    100% {
+      margin-right: 0;
+      opacity: 1;
+    }
   }
 `;
 
@@ -171,13 +188,15 @@ export const ContentTitle = styled.h2`
   }
 `;
 
-export const ContentText = styled.p`
+export const ContentTextWrapper = styled.div`
   font-size: 1.3em;
   max-width: 30.5em;
   line-height: 1.5em;
   color: ${themes.primary.colors.primary};
   white-space: break-spaces;
-
+  height: 25rem;
+  overflow: hidden;
+  box-sizing: border-box;
   @media ${themes.primary.media.maxTabletPortrait} {
     max-width: 32em;
     font-size: 1.8em;
@@ -188,12 +207,31 @@ export const ContentText = styled.p`
     font-size: 1.54em;
   }
 `;
+export const ContentText = styled.p<IActive>`
+  animation: ${({ active }) => (active ? 'contentText 1s' : null)};
+  overflow: hidden;
+  box-sizing: border-box;
+  animation-timing-function: linear;
+  margin: 0;
+  margin-top: 15px;
+  @keyframes contentText {
+    0% {
+      margin-top: -10rem;
+      opacity: 0;
+    }
 
-export const AdditionalImgContainer = styled.div`
+    100% {
+      margin-top: 1rem;
+      opacity: 1;
+    }
+  }
+`;
+
+export const AdditionalImgContainer = styled.div<IActive>`
   position: absolute;
   bottom: -6em;
   right: 0;
-
+  animation: ${({ active }) => (active ? 'image 2s' : null)};
   @media ${themes.primary.media.maxMobile} {
     bottom: -2em;
   }

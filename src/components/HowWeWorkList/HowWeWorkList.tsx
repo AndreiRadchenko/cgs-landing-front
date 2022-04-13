@@ -1,9 +1,8 @@
-import React from "react";
-import HowWeWorkCard from "../HowWeWorkCard/HowWeWorkCard";
-import { IHowWeWorkCardProps } from "../HowWeWorkCard/types";
+import React from 'react';
+import HowWeWorkCard from '../HowWeWorkCard/HowWeWorkCard';
+import { IHowWeWorkCardProps } from '../HowWeWorkCard/types';
 
 const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
-
   return (
     <>
       {items.map((item, i) => (
