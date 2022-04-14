@@ -95,7 +95,7 @@ export const BarcodeText = styled.p`
 export const RocketImg = styled.div.attrs(({ imgUrl }: IImageProps) => ({
   imgUrl: imgUrl,
 }))`
-  ${props => css`
+  ${(props) => css`
     background-image: url(${props.imgUrl});
   `}
   width: 8.125rem;

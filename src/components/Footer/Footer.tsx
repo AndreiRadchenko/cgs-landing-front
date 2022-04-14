@@ -1,11 +1,6 @@
 import React from "react";
 import * as Styles from "./Footer.styled";
 import FooterIcon from "./FooterIcon";
-import * as StyledCommon from "../../styles/Page.styled";
-import {
-  DecorationFooterLinks,
-  SocialLinksContainerDecoration,
-} from "./Footer.styled";
 
 // TODO temporary solution
 export const socialLinks = [

@@ -25,7 +25,7 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({
   feedback,
   isFeedbackOnScreen,
 }) => {
-  let params = {
+  const params = {
     slidesPerView: 3,
     spaceBetween: 30,
     loop: true,
@@ -72,8 +72,9 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({
   return (
     <Swiper
       {...params}
-      onSwiper={swiper => setSwiper(swiper)}
-      style={{ display: "flex", flexDirection: "column" }}>
+      onSwiper={(swiper) => setSwiper(swiper)}
+      style={{ display: "flex", flexDirection: "column" }}
+    >
       {[...feedback]
         .reverse()
         .map(({ name, description, link, company, position, rates }, idx) => (
@@ -89,10 +90,10 @@ const CarouselFeedback: FC<ICarouselFeedbackProps> = ({
           </SwiperSlide>
         ))}
       <Navigationwrapper>
-        <div className='swiper-button-prev'>
+        <div className="swiper-button-prev">
           <LeftArrow />
         </div>
-        <div className='swiper-button-next'>
+        <div className="swiper-button-next">
           <RightArow />
         </div>
       </Navigationwrapper>

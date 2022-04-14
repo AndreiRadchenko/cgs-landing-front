@@ -1,7 +1,6 @@
 import React from "react";
 import * as StyledThisComp from "../../styles/LestCode.styles";
 import LetsCodeForm from "./LetsCodeForm";
-import ImagePreview from "../Image/ImagePreview";
 import Image from "next/image";
 
 const LetsCode = () => {
