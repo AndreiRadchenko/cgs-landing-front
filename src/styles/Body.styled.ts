@@ -112,6 +112,6 @@ export const WrapperBgImg = styled.div`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     top: 105%;
-    width: calc(100%);
+    width: 120%;
   }
 `;
