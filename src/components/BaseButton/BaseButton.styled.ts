@@ -9,7 +9,7 @@ export const StyledButton = styled.button.attrs(
     height: props.height,
     marginTop: props.marginTop,
     letterSpacing: props.letterSpacing,
-  }),
+  })
 )`
   position: relative;
 
