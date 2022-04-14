@@ -5,10 +5,10 @@ export default {
   allowTouchMove: true,
   grabCursor: true,
   navigation: {
-    prevEl: '.swiper-button-prev',
-    nextEl: '.swiper-button-next',
+    prevEl: ".swiper-button-prev",
+    nextEl: ".swiper-button-next",
   },
-  focusableElements: 'button',
+  focusableElements: "button",
   breakpoints: {
     320: {
       slidesPerView: 1,
