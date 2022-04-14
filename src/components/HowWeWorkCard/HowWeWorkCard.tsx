@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 
-import * as Styles from './HowWeWorkCard.styled';
-import { IHowWeWorkCardProps } from './types';
-import Image from 'next/image';
-import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+import * as Styles from "./HowWeWorkCard.styled";
+import { IHowWeWorkCardProps } from "./types";
+import Image from "next/image";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const HowWeWorkCard = ({
   title,
@@ -22,14 +22,15 @@ const HowWeWorkCard = ({
   return (
     <Styles.Container
       backGroundColor={backGroundColor}
-      additionalImgUrl={additionalImgUrl}>
+      additionalImgUrl={additionalImgUrl}
+    >
       <Styles.NumberContainer ref={ref}>
         <Styles.Number active={isVisible} backGroundColor={backGroundColor}>
           #{rank}
         </Styles.Number>
       </Styles.NumberContainer>
       <Styles.TitleContainer>
-        <Styles.Title>{'//' + title}</Styles.Title>
+        <Styles.Title>{"//" + title}</Styles.Title>
       </Styles.TitleContainer>
       <Styles.ContentContainer>
         <Styles.ContentTextContainer>
@@ -43,7 +44,8 @@ const HowWeWorkCard = ({
         <Styles.ContentImgContainer additionalImgUrl={additionalImgUrl}>
           <Styles.ContentImage
             isFlipOnMobile={isFlipImageOnMobile}
-            active={isVisible}>
+            active={isVisible}
+          >
             <Image
               src={imgUrl}
               alt={contentTitle}
