@@ -3,7 +3,6 @@ import themes from "../utils/themes";
 
 export const FeedbackContainer = styled.section`
   font-family: ${themes.primary.font.family.roboto};
-  margin-top: 12.5em;
 `;
 
 export const FeedbackSectionTitle = styled.h1`
@@ -21,7 +20,7 @@ export const FeedbackSectionSubTitle = styled.h3`
   font-size: 1.65em;
   line-height: 125%;
   margin-top: 0.75em;
-  margin-bottom: 50px;
+  margin-bottom: 0;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.6em;
@@ -37,8 +36,12 @@ export const FeedbackRow = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
-  height: 37.5em;
+  height: 49rem;
   align-items: baseline;
+  & .swiper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `;
 
 export const StyledArrowButton = styled.button`
