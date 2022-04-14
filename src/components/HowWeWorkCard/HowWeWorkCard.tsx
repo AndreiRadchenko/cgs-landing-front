@@ -31,7 +31,7 @@ const HowWeWorkCard = ({
       <Styles.TitleContainer>
         <Styles.Title>{'//' + title}</Styles.Title>
       </Styles.TitleContainer>
-      <Styles.ContentContainer >
+      <Styles.ContentContainer>
         <Styles.ContentTextContainer>
           <Styles.ContentTitle>{contentTitle}</Styles.ContentTitle>
           <Styles.ContentTextWrapper>
