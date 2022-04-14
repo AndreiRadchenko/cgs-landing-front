@@ -17,6 +17,7 @@ const CreateSupportForm = () => {
     validateOnChange: false,
     validateOnBlur: true,
     validationSchema: LestCodeValidation(),
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     onSubmit: (values) => {},
   });
 

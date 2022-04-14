@@ -23,7 +23,7 @@ export const FormInput = styled.input`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.3em;
-    width: 335px;
+    width: 325px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -43,7 +43,7 @@ export const TextAreaInput = styled.textarea`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.5em;
-    width: 20.938em;
+    width: 20.435rem;
     margin-left: auto;
     margin-right: auto;
   }

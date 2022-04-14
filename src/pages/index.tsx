@@ -5,7 +5,7 @@ import * as StyledCommon from "../styles/Page.styled";
 import Projects from "../components/Projects/Projects";
 import AboutUs from "../components/AboutUs/AboutUs";
 import Partners from "../components/Partners/Partners";
-import Feedback from "../components/Feedback/Feedback";
+import CarouselFeedback from "../components/Feedback/CarouselFeedback";
 import Technologies from "../components/Technologies/Technologies";
 import LetsCode from "../components/LetsCode/LetsCode";
 import OurTeam from "../components/OurTeam/OurTeam";
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
         <AboutUs />
         <Partners />
         <Projects />
-        <Feedback />
+        <CarouselFeedback />
         <Technologies />
         <OurTeam />
       </StyledCommon.Page>

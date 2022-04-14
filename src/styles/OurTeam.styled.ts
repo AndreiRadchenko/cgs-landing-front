@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import * as animations from "./AnimationsStyled";
 import themes from "../utils/themes";
 import Decoration from "../components/Decoration/Decoration";
 
@@ -24,7 +25,7 @@ export const OurTeamRow = styled.div`
   .our-main-goal-img {
     position: relative;
     grid-area: main-goal-img;
-    height: 30.625em;
+    height: 33.625em;
   }
 
   .our-main-goal-content {
@@ -43,7 +44,7 @@ export const OurTeamRow = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     .our-main-goal-img {
-      height: 20.375em;
+      height: 23.375em;
     }
 
     .our-philosophy-img {
@@ -55,7 +56,7 @@ export const OurTeamRow = styled.div`
     width: 25.625em;
     margin-left: auto;
     margin-right: auto;
-    grid-template-columns: 335px;
+    grid-template-columns: 340px;
     grid-template-rows: auto auto auto auto;
     grid-template-areas:
       "main-goal-img"
@@ -65,7 +66,7 @@ export const OurTeamRow = styled.div`
 
     .our-main-goal-img,
     .our-philosophy-img {
-      width: 335px;
+      width: 340px;
       height: 243px;
     }
 
@@ -79,7 +80,7 @@ export const OurTeamRow = styled.div`
     .our-philosophy-img {
       width: 100%;
     }
-    width: 17.5rem;
+    width: 20rem;
   }
 `;
 
@@ -134,27 +135,53 @@ export const DecorationClipIconLeft = styled.div`
   position: absolute;
   bottom: -25%;
   left: 63%;
-  transform: scale(0.8);
   z-index: 3;
+  &:hover {
+    animation: ${animations.rotateAnimationLaptopLeft} 1.5s ease-in-out;
+  }
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    transform: scale(0.65) rotate(65deg);
+    bottom: -30%;
+    &:hover {
+      animation: ${animations.rotateAnimationTabletLeft} 1.5s ease-in-out;
+    }
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    transform: scale(0.5) rotate(65deg);
+    transform: scale(0.65) rotate(65deg);
     top: -95%;
     left: -10%;
+    &:hover {
+      animation: ${animations.rotateAnimationTablerPortraitLeft} 2s ease-in-out;
+    }
   }
 `;
 
 export const DecorationClipIconRight = styled.div`
   position: absolute;
-  top: -45%;
-  right: -15%;
+  top: -25%;
+  right: -5%;
   transform: scale(0.8) rotate(65deg);
   z-index: 3;
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    transform: scale(0.5) rotate(65deg);
+  &:hover {
+    animation: ${animations.rotateAnimationLaptopRight} 2.5s ease-in-out;
+  }
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    transform: scale(0.65) rotate(65deg);
     top: -35%;
     right: -18%;
+    &:hover {
+      animation: ${animations.rotateAnimationTabletRight} 1.5s ease-in-out;
+    }
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    transform: scale(0.65) rotate(65deg);
+    top: -35%;
+    right: -18%;
+    &:hover {
+      animation: ${animations.rotateAnimationTablerPortraitRight} 2.5s
+        ease-in-out;
+    }
   }
 `;
 
