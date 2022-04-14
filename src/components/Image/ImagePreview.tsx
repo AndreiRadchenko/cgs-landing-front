@@ -1,5 +1,5 @@
 import Image, { ImageProps } from "next/image";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { isMobileConnection, defer } from "../../utils/ImagePreview";
 
 const ImagePreview = (props: ImageProps) => {
@@ -11,7 +11,7 @@ const ImagePreview = (props: ImageProps) => {
     }
 
     if (!isMobileConnection()) {
-      let clearDefer: any;
+      let clearDefer: () => void;
       const onLoad = () => {
         clearDefer = defer(() => setLoading("eager"));
       };
@@ -25,7 +25,7 @@ const ImagePreview = (props: ImageProps) => {
     }
   }, [props.loading, props.priority]);
 
-  return <Image loading={loading} {...props} />;
+  return <Image alt={""} loading={loading} {...props} />;
 };
 
 export default ImagePreview;

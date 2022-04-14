@@ -1,11 +1,11 @@
-import React, { FC, useState } from 'react';
-import * as StyledThisComp from './FeedbackCard.styled';
-import themes from '../../utils/themes';
-import ButtonTextWrapper from '../ButtonText/ButtonTextWrapper';
-import ButtonReadMore from '../../utils/Buttons/ButtonReadMore';
-import { IFeedbackCardProps } from '../../types/Feedback.types';
-import Link from 'next/link';
-import StarRatings from 'react-star-ratings';
+import React, { FC, useState } from "react";
+import * as StyledThisComp from "./FeedbackCard.styled";
+import ReactStars from "react-stars";
+import themes from "../../utils/themes";
+import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
+import ButtonReadMore from "../../utils/Buttons/ButtonReadMore";
+import { IFeedbackCardProps } from "../../types/Feedback.types";
+import Link from "next/link";
 
 const FeedbackCard: FC<IFeedbackCardProps> = ({
   name,
@@ -27,12 +27,14 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
           <StyledThisComp.FeedbackCardName>
             {name}
           </StyledThisComp.FeedbackCardName>
-          <StarRatings
-            numberOfStars={5}
-            rating={rates}
-            starRatedColor={themes.primary.colors.starActive}
-            starDimension={'20px'}
-            starSpacing={'2px'}
+          <ReactStars
+            half={true}
+            edit={false}
+            value={rates}
+            count={5}
+            size={20}
+            color2={themes.primary.colors.starActive}
+            color1={themes.primary.colors.starDisable}
           />
         </StyledThisComp.FeedbackCardWrapper>
 
@@ -46,13 +48,13 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
           {position}
         </StyledThisComp.FeedbackCardPosition>
         <StyledThisComp.FeedbackCardDescription>
-          {isOpenFullFeedBack ? description : description.slice(0, 115) + '...'}
+          {isOpenFullFeedBack ? description : description.slice(0, 115) + "..."}
         </StyledThisComp.FeedbackCardDescription>
       </StyledThisComp.FeedBackContentWrapper>
       <StyledThisComp.FeedbackButtonContainer>
         <ButtonReadMore onClick={toggleFullFeedbackHandler}>
-          <ButtonTextWrapper fontSize={'1.35em'}>
-            read {isOpenFullFeedBack ? 'less' : 'more'}
+          <ButtonTextWrapper fontSize={"1.35em"}>
+            read {isOpenFullFeedBack ? "less" : "more"}
           </ButtonTextWrapper>
         </ButtonReadMore>
       </StyledThisComp.FeedbackButtonContainer>

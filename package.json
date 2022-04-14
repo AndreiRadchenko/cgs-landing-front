@@ -6,6 +6,7 @@
     "build": "node_modules/.bin/next build",
     "start": "node_modules/.bin/next start",
     "lint": "node_modules/.bin/next lint",
+    "lint:fix": "node_modules/.bin/next lint --fix",
     "deploy:stage:m1": "docker buildx build --platform linux/amd64 -t cg-landing-frontend . && docker tag cg-landing-frontend registry.heroku.com/cg-landing-frontend/web && docker push registry.heroku.com/cg-landing-frontend/web && heroku container:release web -a cg-landing-frontend"
   },
   "dependencies": {
@@ -38,10 +39,14 @@
     "babel-plugin-styled-components": "^2.0.2",
     "eslint": "8.7.0",
     "eslint-config-next": "12.0.8",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "prettier": "^2.5.1",
     "typescript": "4.5.5"
+  },
+  "prettier": {
+    "singleQuote": false,
+    "jsxSingleQuote": false
   }
 }
