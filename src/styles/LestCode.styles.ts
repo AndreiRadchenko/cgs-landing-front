@@ -58,6 +58,21 @@ export const ImageCatContainer = styled("section")<ImageProps>`
     height: 35em;
     content: url("./catIcon.png");
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    &:hover {
+      position: relative;
+      width: 39em;
+      height: 35em;
+      content: url("./catIconSleep.png");
+    }
+    &:active {
+      position: relative;
+      width: 39em;
+      height: 35em;
+      content: url("./catIcon.png");
+    }
+  }
 `;
 
 export const LestCodeContent = styled.div`
