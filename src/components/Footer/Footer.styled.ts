@@ -51,7 +51,6 @@ export const SocialLinksContainerDecoration = styled.div`
   display: flex;
   align-items: center;
   height: 4em;
-  background-image: url("/footer_icons_bg.png");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: 100% 50%;
@@ -76,7 +75,6 @@ export const SocialLinksContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("/footer_icons_bg.png");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: 100% 50%;
