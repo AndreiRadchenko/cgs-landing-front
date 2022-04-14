@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import * as Styled from "./CareersTicket.styled";
-import Link from "next/Link";
+import Link from "next/link";
 
 interface ITicketProps {
   vacancy: string;
@@ -14,16 +14,16 @@ const CareersTicket: FC<ITicketProps> = ({ vacancy, imgUrl }: ITicketProps) => {
           <Styled.BarcodeText>InSight CGS to Stratosphere</Styled.BarcodeText>
         </Styled.BarcodeImg>
         <Styled.RocketImg imgUrl={imgUrl}>
-          <Link href='/lets-go'>
+          <Link href="/lets-go">
             <a>
-              <Styled.Button content='Lets go!' />
+              <Styled.Button content="Lets go!" />
             </a>
           </Link>
         </Styled.RocketImg>
       </Styled.ImageWrapper>
       <Styled.CareersWrapper>
         <Styled.CareersHeader>
-          <Styled.Logo src='/logo.png' />
+          <Styled.Logo src="/logo.png" />
           <Styled.HeaderText>M2M142989575714</Styled.HeaderText>
         </Styled.CareersHeader>
         <Styled.TicketText>BOARDING PASS: CGS 2022</Styled.TicketText>

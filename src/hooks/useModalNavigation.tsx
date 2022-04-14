@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { ProjectsListType } from "../types/ModalCategory.types";
 import ModalAllWorksCategory from "../components/ModalComponents/ModalAllWorksCategory";
 import ModalWebCategory from "../components/ModalComponents/ModalWebCategory";
-import ModalMobileCategory from "../components/ModalComponents/ModalMobileCategory";
+import ModalMobileCategory from '../components/ModalComponents/ModalMobileCategory';
 import ModalBlockChainCategory from "../components/ModalComponents/ModalBlockChainCategory";
 import ModalServerCategory from "../components/ModalComponents/ModalServerCategory";
 

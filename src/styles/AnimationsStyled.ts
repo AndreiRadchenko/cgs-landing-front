@@ -26,8 +26,8 @@ export const rotateAnimationTabletLeft = keyframes`
       transform: scale(0.65) rotate(65deg);
     }
   `}
-  
 `;
+
 export const rotateAnimationTablerPortraitLeft = keyframes`
   ${css`
     0% {
@@ -69,6 +69,7 @@ export const rotateAnimationTabletRight = keyframes`
     }
   `}
 `;
+
 export const rotateAnimationTablerPortraitRight = keyframes`
   ${css`
     0% {
