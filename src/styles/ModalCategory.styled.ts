@@ -231,7 +231,7 @@ export const ProjectContainer = styled.div`
     height: 42.125em;
   }
 
-  @media ${themes.primary.media.minMobile} {
+  @media ${themes.primary.media.minTablet} {
     width: 43%;
     height: 47.125em;
   }
@@ -296,7 +296,7 @@ export const SpecifyContentImgWrapper = styled.div`
     height: 33.625em;
   }
 
-  @media ${themes.primary.media.minMobile} {
+  @media ${themes.primary.media.minTablet} {
     width: 100%;
     height: 26.625em;
   }
