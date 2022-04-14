@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import themes from '../utils/themes';
+import styled from "styled-components";
+import themes from "../utils/themes";
 
 export const FeedbackContainer = styled.section`
   font-family: ${themes.primary.font.family.roboto};
