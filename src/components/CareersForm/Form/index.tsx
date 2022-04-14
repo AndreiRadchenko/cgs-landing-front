@@ -21,7 +21,7 @@ const Form: FC = () => {
   };
 
   const fileEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let name = e.target.value;
+    const name = e.target.value;
     {
       name ? setCV(!!name) : setCV(!!name);
     }
@@ -42,16 +42,16 @@ const Form: FC = () => {
         <Styled.FileContainer>
           <Styled.FileInputWrapper>
             <Styled.InputFile
-              name='CV-file'
-              type='file'
-              className='CV-file'
+              name="CV-file"
+              type="file"
+              className="CV-file"
               onChange={fileEdit}
-              id='CV-file'
-              accept='.png,.jpeg,.pdf,.word,.docx'
+              id="CV-file"
+              accept=".png,.jpeg,.pdf,.word,.docx"
             />
-            <Styled.InputFileLabel htmlFor='CV-file'>
+            <Styled.InputFileLabel htmlFor="CV-file">
               <Styled.FileButton>
-                <Styled.FileImg src='/clip-file.png' />
+                <Styled.FileImg src="/clip-file.png" />
               </Styled.FileButton>
               <Styled.FileText>a special place for your CV :)</Styled.FileText>
             </Styled.InputFileLabel>
@@ -60,7 +60,7 @@ const Form: FC = () => {
             {CV ? "file is uploaded" : "file is not uploaded"}
           </Styled.FileLoad>
         </Styled.FileContainer>
-        <Styled.SubmitButton type='submit' />
+        <Styled.SubmitButton type="submit" />
         <Styled.BottomText>
           It could be that we won’t answer you. That means our match was
           imperfect today. Keep your head up!

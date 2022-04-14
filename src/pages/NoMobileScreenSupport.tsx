@@ -9,6 +9,7 @@ const NoMobileScreenSupport = () => {
     <StyledCommon.Wrapper>
       <StyledCommon.ImgWrapper>
         <Image
+          alt={""}
           src={mainLogoIMG}
           objectFit={"cover"}
           layout={"fill"}

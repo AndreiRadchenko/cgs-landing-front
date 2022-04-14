@@ -36,7 +36,7 @@ const themes = {
         vistaco: "1.1em",
         tertiary: "1.2em",
         primary: "1em",
-        linkText: "1.125em",
+        linkText: "1.4em",
         buttonText: "1.5em",
         secondary: "2em",
         quaternary: "2.6em",

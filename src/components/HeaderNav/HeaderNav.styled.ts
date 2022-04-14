@@ -58,8 +58,16 @@ export const ListItemNav = styled.span`
 
 export const NavList = styled.menu`
   display: flex;
+  margin-right: 5rem;
+  @media ${themes.primary.media.maxLaptop} {
+    margin-right: 0;
+  }
 `;
 
-export const LinkText = styled.p`
+export const LinkText = styled.span`
+  cursor: pointer;
+`;
+
+export const BurgerLinkText = styled.p`
   cursor: pointer;
 `;

@@ -45,7 +45,7 @@ const AboutUs = () => {
         <StyledThisComp.AboutUsDescription>
           Bug-free code, juicy architecture, codebase optimisation, up-to-date
           maintenance, outstanding clear communication and fluent English rolled
-          into one. Imagined that? You don't even need to imagine this with
+          into one. Imagined that? You don&#39;t even need to imagine this with
           CGS-team, just see for real!
         </StyledThisComp.AboutUsDescription>
         <StyledThisComp.AboutUsCodeIcon>

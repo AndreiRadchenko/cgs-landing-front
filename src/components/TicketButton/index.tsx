@@ -5,7 +5,7 @@ interface IButtonContent {
   content: string;
 }
 const TicketButton: FC<IButtonContent> = ({ content }: IButtonContent) => {
-  return <Styled.TicketButton></Styled.TicketButton>;
+  return <Styled.TicketButton />;
 };
 
 export default TicketButton;

@@ -29,7 +29,9 @@ const HeaderNav = (): JSX.Element => {
       <BurgerMenu isOpen={isOpen}>
         {navigationRoutesNames.map((name, ind) => (
           <Link key={name + ind} href={name === "/home" ? "/" : name} passHref>
-            <StyledThisComp.LinkText>{name}</StyledThisComp.LinkText>
+            <StyledThisComp.BurgerLinkText>
+              {name}
+            </StyledThisComp.BurgerLinkText>
           </Link>
         ))}
       </BurgerMenu>
