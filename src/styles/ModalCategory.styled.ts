@@ -213,32 +213,37 @@ export const ProjectContainer = styled.div`
 
   @media ${themes.primary.media.minLaptop} {
     width: 27%;
-    height: 37.5em;
+    height: 42.5em;
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     width: 43%;
-    height: 34.375em;
+    height: 45.375em;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
-    width: 35%;
-    height: 31.25em;
+    width: 43%;
+    height: 45.25em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 40%;
-    height: 28.125em;
+    width: 43%;
+    height: 42.125em;
+  }
+
+  @media ${themes.primary.media.minMobile} {
+    width: 43%;
+    height: 47.125em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 39%;
-    height: 25em;
+    width: 100%;
+    height: 42em;
   }
 `;
 
 export const ProjectSpecifyTechnologyContainer = styled.div`
-  margin: 1.188em;
+  margin: 1.488em;
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
@@ -254,23 +259,26 @@ export const ProjectSpecifyTechnologyContainer = styled.div`
 `;
 
 export const SpecifyContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 40%;
   height: 100%;
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    height: 15.625em;
+    height: 20.625em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 100%;
-    height: 15.625em;
+    height: 24.625em;
   }
 `;
 
 export const SpecifyContentImgWrapper = styled.div`
   width: 60%;
-  height: 39.375em;
+  height: 30em;
   position: relative;
 
   @media ${themes.primary.media.onlyTabletLandScape} {
@@ -279,18 +287,23 @@ export const SpecifyContentImgWrapper = styled.div`
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
-    width: 100%;
-    height: 21.875em;
+    width: 70%;
+    height: 24.875em;
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    height: 15.625em;
+    height: 33.625em;
+  }
+
+  @media ${themes.primary.media.minMobile} {
+    width: 100%;
+    height: 26.625em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 100%;
-    height: 12.5em;
+    height: 18.5em;
   }
 `;
 
@@ -315,7 +328,7 @@ export const ProjectTitleName = styled.h2`
 export const ProjectDescription = styled.span`
   display: block;
   width: 90%;
-  font-size: 1em;
+  font-size: 1.3em;
   line-height: 145%;
   white-space: break-spaces;
 `;
@@ -333,7 +346,9 @@ export const ProjectLinkText = styled.span`
   font-weight: 500;
   font-family: ${themes.primary.font.family.roboto};
   cursor: pointer;
-
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    font-size: 1.5em;
+  }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.3em;
   }
