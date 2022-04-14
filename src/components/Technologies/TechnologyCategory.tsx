@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import * as StyledThisComp from "../../styles/Technologies.styled";
 import Image from "next/image";
-import { CategoryImgWrapper } from "../../styles/Technologies.styled";
 
 interface ITechnologyCategoryProps {
   url: any;

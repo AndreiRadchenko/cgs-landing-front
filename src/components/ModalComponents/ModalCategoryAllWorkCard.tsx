@@ -1,10 +1,8 @@
 import React, { FC } from "react";
 import * as StyledCategory from "../../styles/ModalCategory.styled";
 import ButtonProjectLink from "../../utils/Buttons/ButtonProjectLink";
-import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import { IModalProjectCardProps } from "../../types/ModalCategory.types";
 import ImagePreview from "../Image/ImagePreview";
-import { ProjectLinkText } from "../../styles/ModalCategory.styled";
 
 const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
   url,
