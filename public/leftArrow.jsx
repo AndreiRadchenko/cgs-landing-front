@@ -1,12 +1,13 @@
 import * as React from "react";
 import styled from "styled-components";
+import themes from "../src/utils/themes";
 
 const ArrowWrapper = styled.div`
-  border: 2px solid black;
+  border: 0.125rem solid ${themes.primary.colors.primary};
   border-radius: 50%;
   display: flex;
   align-items: center;
-  padding: 11px;
+  padding: 0.688rem;
 `;
 
 const SvgComponent = (props) => (
