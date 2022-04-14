@@ -12,10 +12,12 @@ const LetsCodeForm = () => {
   return (
     <>
       <StyledThisComp.LetsCodeImageWrapper>
-        <Image
-          src={width && width >= 1200 ? FormWrapperIMG : FormWrapperIMGMobile}
-          alt={"form wrapper alt img"}
-        />
+        {width && (
+          <Image
+            src={width >= 1200 ? FormWrapperIMG : FormWrapperIMGMobile}
+            alt={"form wrapper alt img"}
+          />
+        )}
       </StyledThisComp.LetsCodeImageWrapper>
       <CreateSupportForm />
     </>

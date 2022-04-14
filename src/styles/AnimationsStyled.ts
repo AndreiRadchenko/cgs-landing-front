@@ -26,7 +26,6 @@ export const rotateAnimationTabletLeft = keyframes`
       transform: scale(0.65) rotate(65deg);
     }
   `}
- 
 `;
 
 export const rotateAnimationTablerPortraitLeft = keyframes`
@@ -41,7 +40,6 @@ export const rotateAnimationTablerPortraitLeft = keyframes`
       transform: scale(0.65) rotate(65deg);
     }
   `}
-  
 `;
 
 export const rotateAnimationLaptopRight = keyframes`
@@ -56,7 +54,6 @@ export const rotateAnimationLaptopRight = keyframes`
       transform: scale(0.8) rotate(65deg);
     }
   `}
-  
 `;
 
 export const rotateAnimationTabletRight = keyframes`
@@ -71,7 +68,6 @@ export const rotateAnimationTabletRight = keyframes`
       transform: scale(0.65) rotate(65deg);
     }
   `}
-  
 `;
 
 export const rotateAnimationTablerPortraitRight = keyframes`
@@ -86,7 +82,6 @@ export const rotateAnimationTablerPortraitRight = keyframes`
       transform: scale(0.65) rotate(65deg);
     }
   `}
-  
 `;
 
 export const floatAnimation = keyframes`
@@ -101,7 +96,6 @@ export const floatAnimation = keyframes`
       transform: translatey(0px);
     }
   `}
-    
 `;
 
 export const glassJarAnimation = keyframes`
@@ -127,5 +121,4 @@ export const glassJarAnimation = keyframes`
       transform: translate3d(2px, 0, 0);
     }
   `}
- 
 `;

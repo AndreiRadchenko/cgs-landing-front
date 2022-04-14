@@ -16,10 +16,14 @@ export const Container = styled.form`
 
 export const Title = styled.h2`
   font-size: 2.25rem;
-  margin: 0 0 1em 0;
+  margin: 0 0 2.5rem 0;
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 3.8em;
+    margin: 0 0 0.5rem 0;
+    font-size: 3em;
+  }
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    margin: 0 0 0.5rem 0;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -32,4 +36,26 @@ export const ContentWrapper = styled.div``;
 export const ButtonRow = styled.div`
   display: flex;
   justify-content: center;
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    button {
+      width: 12em;
+      height: 5em;
+      margin-top: 0;
+    }
+  }
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    button {
+      width: 12em;
+      height: 5em;
+      margin-top: 0;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    button {
+      width: 12em;
+      height: 4em;
+      margin-top: 0;
+    }
+  }
 `;
