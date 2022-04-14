@@ -53,15 +53,17 @@ export const AboutUsCardContainer = styled.div`
 `;
 
 const floatAnimation = keyframes`
-  0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-10px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
+  ${css`
+    0% {
+      transform: translatey(0px);
+    }
+    50% {
+      transform: translatey(-10px);
+    }
+    100% {
+      transform: translatey(0px);
+    }
+  `}
 `;
 
 type imgProps = { delay: number };
