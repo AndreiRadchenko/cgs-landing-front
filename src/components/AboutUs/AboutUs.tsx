@@ -7,6 +7,7 @@ import ImagePreview from "../Image/ImagePreview";
 
 const AboutUs = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
   const illustrationRef = useRef<HTMLDivElement>(null);
 
   const onScroll = () => {
@@ -15,6 +16,11 @@ const AboutUs = () => {
     if (elTop - 100 <= scrollY) {
       setIsScrolled(true);
     }
+  };
+
+  const handleIllustrationClick = () => {
+    setIsClicked(true);
+    setTimeout(() => setIsClicked(false), 1000);
   };
 
   useEffect(() => {
@@ -56,12 +62,16 @@ const AboutUs = () => {
       <StyledThisComp.IllustrationWrapper
         isScrolled={isScrolled}
         ref={illustrationRef}
+        onClick={handleIllustrationClick}
+        className={isClicked ? "mobileAnimation" : undefined}
       >
-        <ImagePreview
-          src={illustrationIMG}
-          placeholder={"blur"}
-          alt={"illustration image technology"}
-        />
+        <StyledThisComp.Wrapper>
+          <ImagePreview
+            src={illustrationIMG}
+            placeholder={"blur"}
+            alt={"illustration image technology"}
+          />
+        </StyledThisComp.Wrapper>
       </StyledThisComp.IllustrationWrapper>
     </StyledThisComp.AboutUsContainer>
   );
