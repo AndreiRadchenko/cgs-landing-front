@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import themes from "../utils/themes";
+import styled from 'styled-components';
+import themes from '../utils/themes';
 
 export const FeedbackContainer = styled.section`
   font-family: ${themes.primary.font.family.roboto};
@@ -38,6 +38,10 @@ export const FeedbackRow = styled.div`
   position: relative;
   height: 49rem;
   align-items: baseline;
+  & .swiper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `;
 
 export const StyledArrowButton = styled.button`
