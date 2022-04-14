@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import CodeIcon from "../components/CodeIcon/CodeIcon";
 import themes from "../utils/themes";
 import { ICodeIcon } from "../components/CodeIcon/CodeIcon.styled";
@@ -41,10 +41,23 @@ export const ImageTagsContainer = styled.section`
   height: 4.625em;
 `;
 
-export const ImageCatContainer = styled.section`
+type ImageProps = { isHovered: boolean };
+
+export const ImageCatContainer = styled("section")<ImageProps>`
   position: relative;
   width: 39em;
   height: 35em;
+  content: ${(props) =>
+    props.isHovered
+      ? css`url("./catIcon.png")`
+      : css`url("./catIconSleep.png")`};
+
+  &:hover {
+    position: relative;
+    width: 39em;
+    height: 35em;
+    content: url("./catIcon.png");
+  }
 `;
 
 export const LestCodeContent = styled.div`

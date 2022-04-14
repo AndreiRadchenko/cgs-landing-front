@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import * as StyledThisComp from "../../styles/LestCode.styles";
 import LetsCodeForm from "./LetsCodeForm";
-import Image from "next/image";
 
 const LetsCode = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <StyledThisComp.LetsCodeContainer>
       <StyledThisComp.FormContainer>
-        <LetsCodeForm />
+        <LetsCodeForm setButtonIsHovered={setIsHovered} />
       </StyledThisComp.FormContainer>
       <StyledThisComp.ImageContainer>
         <StyledThisComp.ImageTagsContainer>
@@ -15,9 +16,7 @@ const LetsCode = () => {
           <StyledThisComp.h2CodeIconClose content={"</h2>"} />
           <StyledThisComp.pCodeIcon content={"<p>"} />
         </StyledThisComp.ImageTagsContainer>
-        <StyledThisComp.ImageCatContainer>
-          <Image layout="fill" src="/catIcon.png" alt={"img cat icon alt"} />
-        </StyledThisComp.ImageCatContainer>
+        <StyledThisComp.ImageCatContainer isHovered={isHovered} />
       </StyledThisComp.ImageContainer>
     </StyledThisComp.LetsCodeContainer>
   );
