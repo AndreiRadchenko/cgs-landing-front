@@ -1,7 +1,11 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import themes from "../../utils/themes";
 
 type backGroundColor = "blue" | "orange" | "green";
+
+type IActive = {
+  active: boolean;
+};
 
 type IContainerProps = {
   backGroundColor: backGroundColor;
@@ -10,6 +14,7 @@ type IContainerProps = {
 
 type IColorProps = {
   backGroundColor: backGroundColor;
+  active: boolean;
 };
 
 type IAdditionalImg = {
@@ -18,6 +23,7 @@ type IAdditionalImg = {
 
 type IImage = {
   isFlipOnMobile?: boolean;
+  active?: boolean;
 };
 
 export const Container = styled.div<IContainerProps>`
@@ -29,6 +35,8 @@ export const Container = styled.div<IContainerProps>`
   color: ${themes.primary.colors.primary};
   background-color: ${(props) => themes.primary.colors[props.backGroundColor]};
   z-index: ${(props) => (props.additionalImgUrl ? "35" : "1")};
+  box-sizing: border-box;
+  overflow: hidden;
 `;
 
 export const NumberContainer = styled.div`
@@ -146,6 +154,17 @@ export const ContentImage = styled.div<IImage>`
     width: 28em;
     height: ${(props) => (props.isFlipOnMobile ? "41em" : `29em`)};
   }
+  animation: ${({ active }) => (active ? "image 2s" : null)};
+  @keyframes image {
+    0% {
+      margin-right: -10rem;
+      opacity: 0;
+    }
+    100% {
+      margin-right: 0;
+      opacity: 1;
+    }
+  }
 `;
 
 export const ContentTitle = styled.h2`
@@ -170,13 +189,15 @@ export const ContentTitle = styled.h2`
   }
 `;
 
-export const ContentText = styled.p`
+export const ContentTextWrapper = styled.div`
   font-size: 1.3em;
   max-width: 3 4.5em;
   line-height: 1.5em;
   color: ${themes.primary.colors.primary};
   white-space: break-spaces;
-
+  height: 25rem;
+  overflow: hidden;
+  box-sizing: border-box;
   @media ${themes.primary.media.maxTabletPortrait} {
     max-width: 32em;
     font-size: 1.8em;
@@ -187,12 +208,31 @@ export const ContentText = styled.p`
     font-size: 1.54em;
   }
 `;
+export const ContentText = styled.p<IActive>`
+  animation: ${({ active }) => (active ? "contentText 1s" : null)};
+  overflow: hidden;
+  box-sizing: border-box;
+  animation-timing-function: linear;
+  margin: 0;
+  margin-top: 15px;
+  @keyframes contentText {
+    0% {
+      margin-top: -10rem;
+      opacity: 0;
+    }
 
-export const AdditionalImgContainer = styled.div`
+    100% {
+      margin-top: 1rem;
+      opacity: 1;
+    }
+  }
+`;
+
+export const AdditionalImgContainer = styled.div<IActive>`
   position: absolute;
   bottom: -6em;
   right: 0;
-
+  animation: ${({ active }) => (active ? "image 2s" : null)};
   @media ${themes.primary.media.maxMobile} {
     bottom: -2em;
   }

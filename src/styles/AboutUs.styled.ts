@@ -238,6 +238,7 @@ export const AboutUsDescription = styled.span`
 type imgIllustrationProps = {
   isScrolled: boolean;
 };
+
 export const IllustrationWrapper = styled("div")<imgIllustrationProps>`
   display: flex;
   justify-content: center;
@@ -251,7 +252,6 @@ export const IllustrationWrapper = styled("div")<imgIllustrationProps>`
           `
         : "none"};
   }
-
   span:hover {
     animation: ${glassJarAnimation} 1s;
   }
@@ -260,5 +260,17 @@ export const IllustrationWrapper = styled("div")<imgIllustrationProps>`
     margin-top: 10em;
     justify-content: flex-end;
     transform: rotate(-35deg);
+
+    &.mobileAnimation {
+      margin-top: 10em;
+      justify-content: flex-end;
+      transform: rotate(-35deg);
+
+      div {
+        animation: ${glassJarAnimation} 1s;
+      }
+    }
   }
 `;
+
+export const Wrapper = styled.div``;
