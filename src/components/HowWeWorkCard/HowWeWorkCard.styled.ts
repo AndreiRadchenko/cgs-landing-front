@@ -22,7 +22,6 @@ type IImage = {
 
 export const Container = styled.div<IContainerProps>`
   width: 100%;
-  min-height: 100vh;
   padding-top: 2em;
   position: relative;
   display: flex;
@@ -173,7 +172,7 @@ export const ContentTitle = styled.h2`
 
 export const ContentText = styled.p`
   font-size: 1.3em;
-  max-width: 30.5em;
+  max-width: 3 4.5em;
   line-height: 1.5em;
   color: ${themes.primary.colors.primary};
   white-space: break-spaces;
