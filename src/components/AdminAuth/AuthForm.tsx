@@ -8,32 +8,36 @@ import { AdminAuthValidation } from "../../validations/AdminAuthValidation";
 import { IAdmin } from "../../types/AdminAuth.types";
 import { useState } from "react";
 import { useMutation } from "react-query";
+import { useRouter } from "next/router";
 
 const AdminAuthForm = () => {
   const adminService = new AdminService();
+  const router = useRouter();
 
   interface IRes {
     data: { accessToken: string };
   }
+  const [errorMessage, setErrorMessage] = useState("");
 
   const { mutateAsync } = useMutation<IRes, any, IAdmin, any>(
     "key",
-    (values: IAdmin) => adminService.authAdmin(values)
+    (values: IAdmin) => adminService.authAdmin(values),
+    {
+      onSuccess: (resp) => {
+        localStorage.setItem("token", resp.data.accessToken);
+        router.push(`${router.pathname}/authorized`);
+      },
+      onError: () => {
+        setErrorMessage("Wrong username or password");
+      },
+    }
   );
-
-  const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmit = async (
     values: IAdmin,
     { resetForm }: { resetForm: VoidFunction }
   ) => {
-    try {
-      setErrorMessage("");
-      const resp: IRes = await mutateAsync(values);
-      localStorage.setItem("token", resp.data.accessToken);
-    } catch (err) {
-      setErrorMessage("Wrong username or password");
-    }
+    await mutateAsync(values);
     resetForm();
   };
 
@@ -55,6 +59,7 @@ const AdminAuthForm = () => {
               name="password"
               label="password"
               handleChange={fprops.handleChange}
+              type="password"
             />
             <AuthFormError>{errorMessage}</AuthFormError>
             <AuthSubmitButton />

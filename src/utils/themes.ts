@@ -7,6 +7,7 @@ const themes = {
       tertiary: "2em",
       logo: "13em",
       headerNavVertical: "2.5em",
+      adminWithinBlocks: "3em",
       headerNavHorizontal: "5em",
       topButtonSpace: "4.5em",
       btnHeight: "10em",
@@ -64,6 +65,9 @@ const themes = {
         green: "#CAFF9D",
       },
       errorText: "#ea0000",
+      grayBack: "#EFEEEE",
+      comment: "#8F8E93",
+      darkedGrayBack: "#DDDBDB",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

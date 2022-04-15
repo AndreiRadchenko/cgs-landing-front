@@ -7,18 +7,21 @@ interface IFieldProps {
   name: string;
   label: string;
   handleChange: any;
+  type?: string;
 }
 
 const TextFieldWrapper: FC<IFieldProps> = ({
   name,
   label,
   handleChange,
+  type,
 }: IFieldProps) => {
   const [field, meta] = useField<string>(name);
 
   const configTextField: TextFieldProps = {
     ...field,
     label: label,
+    type: type,
     fullWidth: true,
     variant: "standard",
     onChange: handleChange,
