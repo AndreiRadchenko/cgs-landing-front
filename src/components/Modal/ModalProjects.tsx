@@ -8,6 +8,7 @@ interface IModalProjectsProps {
   selectedCategory: string;
   onToggleModalHandler: () => void;
   onSetNewCategory: (category: string) => void;
+  closeModalHandler: () => void;
 }
 
 const ModalProjects: FC<IModalProjectsProps> = ({
@@ -15,6 +16,7 @@ const ModalProjects: FC<IModalProjectsProps> = ({
   onToggleModalHandler,
   selectedCategory,
   onSetNewCategory,
+  closeModalHandler,
 }) => {
   const currentCategoryComponent = useModalNavigation(
     selectedCategory,
@@ -28,6 +30,7 @@ const ModalProjects: FC<IModalProjectsProps> = ({
           <ModalBackButton
             onToggleModalHandler={onToggleModalHandler}
             selectedCategory={selectedCategory}
+            closeModalHandler={closeModalHandler}
           />
           {currentCategoryComponent}
         </StyledThisComp.ModalRow>
