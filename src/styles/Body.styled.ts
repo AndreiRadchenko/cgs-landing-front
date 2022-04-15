@@ -1,7 +1,5 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import themes from "../utils/themes";
-import BaseButton from "../components/BaseButton/BaseButton";
-import { IBaseButtonProps } from "../types/Button.types";
 
 export const BodyContainer = styled.section`
   position: relative;
@@ -105,14 +103,24 @@ export const WrapperBgImg = styled.div`
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     overflow: hidden;
-    width: calc(100% + 10em);
+    width: calc(100% + 12em);
     top: 90%;
-    left: 50%;
+    left: 48%;
+    transform: translateX(-50%);
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    position: relative;
+    overflow: hidden;
+    width: calc(100% + 12em);
+    top: 90%;
+    left: 47%;
     transform: translateX(-50%);
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     top: 105%;
-    width: 120%;
+    left: 48%;
+    width: 127%;
   }
 `;
