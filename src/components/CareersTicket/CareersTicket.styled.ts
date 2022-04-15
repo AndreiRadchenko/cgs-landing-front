@@ -81,7 +81,7 @@ export const BarcodeText = styled.p`
     left: -2.688rem;
   }
   @media${themes.primary.media.maxTablet} {
-    left: -2.5rem;
+    left: -1.2rem;
     top: 3.813rem;
     font-size: ${themes.primary.font.size.septenary};
   }
