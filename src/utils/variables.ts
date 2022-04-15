@@ -278,6 +278,8 @@ export const technologiesArr = [
       "MongoDB",
       "MySQL",
       "Docker",
+      "Python (Django / Flask)",
+      "Golang",
     ],
   },
   {

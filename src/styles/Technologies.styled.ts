@@ -11,8 +11,19 @@ export const TechnologyContainer = styled.section`
 export const TechnologyRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 90%;
   margin: 3em;
+  .web {
+    margin-left: -5%;
+  }
+
+  .mobile {
+    margin-left: 10%;
+  }
+
+  .blockchain {
+    margin-left: 5%;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
@@ -24,6 +35,7 @@ export const TechnologyRow = styled.div`
 
     .web {
       order: 1;
+      margin-right: 0;
     }
 
     .mobile {
@@ -32,9 +44,11 @@ export const TechnologyRow = styled.div`
 
     .server {
       order: 2;
+      margin-right: 0;
     }
 
     .blockchain {
+      margin-left: 0;
       order: 4;
     }
   }
@@ -89,13 +103,32 @@ export const CategoryDescriptionWrapper = styled.div`
   position: relative;
 `;
 
-export const CategoryTechnologiesWrapper = styled.div``;
+export const CategoryTechnologiesWrapper = styled.div`
+  /* font-weight: ${themes.primary.font.weight.light};
+  font-size: 1.075rem; */
+`;
 
 export const CategoryTitle = styled.h2`
   font-size: 1.8em;
   text-align: center;
   position: relative;
   z-index: 1;
+
+  &.serverTitle {
+    position: relative;
+    right: 25%;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.serverTitle {
+      right: 20%;
+    }
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.serverTitle {
+      right: 15%;
+    }
+  } ;
 `;
 
 export const CategoryLine = styled.div`
@@ -123,10 +156,12 @@ export const DecorationTitle = styled(Decoration)`
 
   &.web {
     width: 4ch;
+    left: 55%;
   }
 
   &.mobile {
     width: 6ch;
+    left: 40%;
   }
 
   &.server {
@@ -134,6 +169,7 @@ export const DecorationTitle = styled(Decoration)`
   }
 
   &.blockchain {
+    left: 48%;
     width: 9.5ch;
   }
 `;
