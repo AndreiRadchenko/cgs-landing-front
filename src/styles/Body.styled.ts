@@ -80,7 +80,7 @@ export const CodeDescription = styled.span`
 
 export const WrapperBgImg = styled.div`
   position: absolute;
-  right: -4%;
+  right: -2%;
   top: 5%;
   width: 65%;
   transform: rotate(1.5deg);
@@ -101,26 +101,23 @@ export const WrapperBgImg = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    width: calc(100% + 25em);
     position: relative;
     overflow: hidden;
-    width: calc(100% + 12em);
     top: 90%;
     left: 48%;
     transform: translateX(-50%);
   }
 
   @media ${themes.primary.media.minTablet} {
-    position: relative;
-    overflow: hidden;
-    width: calc(100% + 12em);
     top: 90%;
-    left: 47%;
-    transform: translateX(-50%);
+    left: 48%;
+    width: calc(100% + 25em);
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     top: 105%;
     left: 48%;
-    width: 127%;
+    width: 160%;
   }
 `;
