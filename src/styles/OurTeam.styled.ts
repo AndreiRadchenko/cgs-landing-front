@@ -199,13 +199,31 @@ export const DecorationTextTitle = styled(Decoration)`
   z-index: -1;
 
   &.philosophy {
-    left: 13%;
+    left: 12%;
     width: 5.4em;
   }
 
   &.goal {
     bottom: 18%;
-    left: 8.5%;
+    left: 8%;
     width: 5em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.philosophy {
+      left: 18%;
+      width: 5.4em;
+    }
+
+    &.goal {
+      bottom: 18%;
+      left: 13%;
+      width: 5em;
+    }
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    &.goal {
+      left: 17%;
+    }
   }
 `;
