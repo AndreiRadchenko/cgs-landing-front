@@ -25,3 +25,7 @@ export interface IButtonTextProps {
   fontSize?: string;
   children: React.ReactNode;
 }
+
+export type LetsCodeFormPropTypes = {
+  setButtonIsHovered: React.Dispatch<React.SetStateAction<boolean>>;
+};

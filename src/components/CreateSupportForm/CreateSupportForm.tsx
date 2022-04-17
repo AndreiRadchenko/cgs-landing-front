@@ -3,11 +3,12 @@ import { useFormik } from "formik";
 import FormInput from "../FormInput/FormInput";
 import * as StyledThisComp from "./CreateSupportForm.styled";
 import { LestCodeValidation } from "../../validations/LetsCodeValidator";
+import { LetsCodeFormPropTypes } from "../../types/Button.types";
 import ButtonSubmitForm from "../../utils/Buttons/ButtonSubmitForm";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import FormTextArea from "../FormInput/FormTextArea";
 
-const CreateSupportForm = () => {
+const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
   const { handleChange, handleSubmit, values, errors } = useFormik({
     initialValues: {
       name: "",
@@ -20,6 +21,14 @@ const CreateSupportForm = () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     onSubmit: (values) => {},
   });
+
+  const handleHover = () => {
+    setButtonIsHovered(true);
+  };
+
+  const handleLeave = () => {
+    setButtonIsHovered(false);
+  };
 
   return (
     <StyledThisComp.Container onSubmit={handleSubmit}>
@@ -49,7 +58,10 @@ const CreateSupportForm = () => {
           errors={errors["message"]}
         />
 
-        <StyledThisComp.ButtonRow>
+        <StyledThisComp.ButtonRow
+          onMouseEnter={handleHover}
+          onMouseLeave={handleLeave}
+        >
           <ButtonSubmitForm>
             <ButtonTextWrapper fontSize={"1.4em"}>send</ButtonTextWrapper>
           </ButtonSubmitForm>

@@ -82,7 +82,7 @@ export const CodeDescription = styled.span`
 
 export const WrapperBgImg = styled.div`
   position: absolute;
-  right: -4%;
+  right: -2%;
   top: 5%;
   width: 65%;
   transform: rotate(1.5deg);
