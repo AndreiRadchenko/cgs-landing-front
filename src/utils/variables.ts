@@ -36,10 +36,9 @@ import { IFeedbackCardProps } from "../types/Feedback.types";
 export const routers = {
   home: "/",
   careers: "/careers",
-  partners: "/partners",
 };
 
-export const navigationRoutesNames = ["/home", "/careers", "/partners"];
+export const navigationRoutesNames = ["/home", "/careers"];
 
 export const modalNavigationRoutesNames = [
   "web",
