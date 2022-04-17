@@ -19,14 +19,10 @@ export const NavPanel = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-  margin-left: -2em;
+  margin-left: -0.9rem;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-left: -0.7em;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-left: -1em;
+    margin-left: -0.2rem;
   }
 `;
 
@@ -313,7 +309,6 @@ export const ContentWrapper = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 `;
 
 export const ProjectTitleName = styled.h2`
@@ -331,6 +326,10 @@ export const ProjectDescription = styled.span`
   font-size: 1.3em;
   line-height: 145%;
   white-space: break-spaces;
+
+  &.specifyProject {
+    text-align: justify;
+  }
 `;
 
 export const ProjectLinkWrapper = styled(Link)``;
