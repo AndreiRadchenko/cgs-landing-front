@@ -2,6 +2,7 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 export const FeedbackContainer = styled.section`
+  margin-top: 3rem;
   font-family: ${themes.primary.font.family.roboto};
 `;
 
@@ -36,11 +37,20 @@ export const FeedbackRow = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
-  height: 49rem;
+  min-height: 40rem;
+  max-height: 49rem;
   align-items: baseline;
   & .swiper {
     display: flex;
     flex-direction: column-reverse;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    min-height: 40rem;
+    max-height: 52rem;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    min-height: 40rem;
+    max-height: 70rem;
   }
 `;
 

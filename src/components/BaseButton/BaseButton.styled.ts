@@ -27,8 +27,8 @@ export const StyledButton = styled.button.attrs(
   `}
 
   @media ${themes.primary.media.onlyTabletLandScape} {
-    width: 17em;
-    height: 8em;
+    width: 12em;
+    height: 5em;
     margin-top: ${themes.primary.spacing.headerNavVertical};
   }
   @media ${themes.primary.media.onlyTabletPortrait} {
@@ -38,7 +38,7 @@ export const StyledButton = styled.button.attrs(
   }
   @media ${themes.primary.media.maxMobile} {
     width: 14em;
-    height: 6em;
+    height: 5em;
     margin-top: ${themes.primary.spacing.primary};
     margin-left: -0.8em;
   }
