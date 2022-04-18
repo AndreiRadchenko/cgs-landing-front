@@ -64,6 +64,7 @@ const themes = {
 
         green: "#CAFF9D",
       },
+      lightShadows: "lightgray",
       errorText: "#ea0000",
     },
     media: {

@@ -1,5 +1,5 @@
-import {IHttpClient, IHttpConfig} from '../../../types';
-import {storeKeys} from '../constants';
+import {IHttpClient, IHttpConfig} from '../types/Admin';
+import {storeKeys} from '../consts';
 import {HttpService} from './http.service';
 
 export class EnhancedWithAuthHttpService implements IHttpClient {

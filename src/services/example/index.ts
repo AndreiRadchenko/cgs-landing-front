@@ -1,5 +1,10 @@
-import {HttpService} from '../../common/services/http.service';
-import {HttpServiceFactory} from '../../common/services/index';
+import { IResponse } from '../../types/Admin';
+import {HttpService} from '../http.service';
+import {HttpServiceFactory} from '../index';
+
+interface IData {
+  // your interface
+}
 
 export class ExampleService {
   constructor(private httpService: HttpService) {}
@@ -15,14 +20,15 @@ const factory = new HttpServiceFactory();
 export const exampleService = new ExampleService(factory.createHttpService());
 
 //how to use in your component with react-query
-const addExampleMutation = useMutation(
-  ({email, password}: {email: string; password: string}) =>
-    exampleService.examplePost(email, password),
-  {
-    onSuccess: () => {
-      queryClient.invalidateQueries('get_data');
-    },
-  },
-);
+
+// const addExampleMutation = useMutation(
+//   ({email, password}: {email: string; password: string}) =>
+//     exampleService.examplePost(email, password),
+//   {
+//     onSuccess: () => {
+//       queryClient.invalidateQueries('get_data');
+//     },
+//   },
+// );
 
 //code services in a component folder
