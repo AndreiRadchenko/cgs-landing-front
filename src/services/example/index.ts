@@ -1,5 +1,6 @@
-import {HttpService} from '../../common/services/http.service';
-import {HttpServiceFactory} from '../../common/services/index';
+import { IResponse } from '../../types/Admin';
+import {HttpService} from '../http.service';
+import {HttpServiceFactory} from '../index';
 
 export class ExampleService {
   constructor(private httpService: HttpService) {}

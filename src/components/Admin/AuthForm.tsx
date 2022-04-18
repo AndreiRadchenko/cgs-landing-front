@@ -1,35 +1,30 @@
 import { Formik } from "formik";
 import React from "react";
 import TextFieldWrapper from "../CareersForm/Form/FormField";
-import AuthSubmitButton from "./AuthSubmitButton";
+import AuthSubmitButton from "./AuthButton";
 import { AuthFormBlock, AuthFormError } from "../../styles/AdminAuth";
-import { AdminService } from "../../services/AdminService";
 import { AdminAuthValidation } from "../../validations/AdminAuthValidation";
-import { IAdmin } from "../../types/AdminAuth.types";
+import { IAdmin, IRes } from "../../types/Admin/Admin.types";
 import { useState } from "react";
 import { useMutation } from "react-query";
+import { authService } from "../../services/login";
 
 const AdminAuthForm = () => {
-  const adminService = new AdminService();
-
-  interface IRes {
-    data: { accessToken: string };
-  }
-
-  const { mutateAsync } = useMutation<IRes, any, IAdmin, any>(
-    "key",
-    (values: IAdmin) => adminService.authAdmin(values)
-  );
 
   const [errorMessage, setErrorMessage] = useState("");
 
+  const { mutateAsync } = useMutation(
+    "key",
+    (values: IAdmin) => authService.adminAuth(values)
+  );
+
   const onSubmit = async (
     values: IAdmin,
-    { resetForm }: { resetForm: VoidFunction }
+    { resetForm }: { resetForm: VoidFunction },
   ) => {
     try {
       setErrorMessage("");
-      const resp: IRes = await mutateAsync(values);
+      const resp: any = await mutateAsync(values);
       localStorage.setItem("token", resp.data.accessToken);
     } catch (err) {
       setErrorMessage("Wrong username or password");

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {EnhancedWithAuthHttpService} from './http-auth.service';
+import {EnhancedWithAuthHttpService} from './httpAuth.service';
 import {HttpService} from './http.service';
 
 export class HttpServiceFactory {

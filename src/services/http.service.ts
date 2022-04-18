@@ -4,13 +4,13 @@ import {
   IHttpClient,
   IHttpConfig,
   IResponse,
-} from '../../../types';
-import {ErrorMessage} from '../constants';
+} from '../types/Admin';
+import {ErrorMessage} from '../consts';
 
 export class HttpService implements IHttpClient {
   constructor(
     private fetchingService: IHttpClient,
-    private baseUrl = process.env.REACT_APP_SERVER_URL,
+    private baseUrl = "http://localhost:3000",
   ) {}
 
   private getFullApiUrl(url: string) {
