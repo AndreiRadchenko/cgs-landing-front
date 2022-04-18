@@ -10,7 +10,7 @@ import {ErrorMessage} from '../consts';
 export class HttpService implements IHttpClient {
   constructor(
     private fetchingService: IHttpClient,
-    private baseUrl = "http://localhost:3000",
+    private baseUrl = process.env.NEXT_PUBLIC_BASE_URL,
   ) {}
 
   private getFullApiUrl(url: string) {
