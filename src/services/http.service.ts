@@ -17,7 +17,7 @@ export class HttpService implements IHttpClient {
     return `${this.baseUrl}/${url}`;
   }
 
-  public get<T>(url: string, config?: IHttpConfig) {
+  public async get<T>(url: string, config?: IHttpConfig) {
     return this.fetchingService
       .get<IResponse<T>>(this.getFullApiUrl(url), config)
       .then((result) => {
@@ -29,7 +29,7 @@ export class HttpService implements IHttpClient {
       .catch(this.errorHandler);
   }
 
-  public post<T, D>(url: string, data: D, config?: IHttpConfig) {
+  public async post<T, D>(url: string, data: D, config?: IHttpConfig) {
     return this.fetchingService
       .post<IResponse<T>, D>(this.getFullApiUrl(url), data, config)
       .then((result) => {
@@ -41,7 +41,7 @@ export class HttpService implements IHttpClient {
       .catch(this.errorHandler);
   }
 
-  public put<T, D>(url: string, data: D, config?: IHttpConfig) {
+  public async put<T, D>(url: string, data: D, config?: IHttpConfig) {
     return this.fetchingService
       .put<IResponse<T>, D>(this.getFullApiUrl(url), data, config)
       .then((result) => {
@@ -53,7 +53,7 @@ export class HttpService implements IHttpClient {
       .catch(this.errorHandler);
   }
 
-  public delete<T>(url: string, config?: IHttpConfig) {
+  public async delete<T>(url: string, config?: IHttpConfig) {
     return this.fetchingService
       .delete<IResponse<T>>(this.getFullApiUrl(url), config)
       .then((result) => {

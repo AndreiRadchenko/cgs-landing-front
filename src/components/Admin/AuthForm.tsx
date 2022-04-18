@@ -9,6 +9,22 @@ import { useState } from "react";
 import { useMutation } from "react-query";
 import { authService } from "../../services/login";
 
+const onSubmit = async (
+  values: IAdmin,
+  resetForm: VoidFunction,
+  mutateAsync: any,
+  setErrorMessage: (text: string) => void,
+) => {
+  try {
+    setErrorMessage("");
+    const resp: IRes = await mutateAsync(values);
+    localStorage.setItem("token", resp.data.accessToken);
+  } catch (err) {
+    setErrorMessage("Wrong username or password");
+  }
+  resetForm();
+};
+
 const AdminAuthForm = () => {
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -18,25 +34,11 @@ const AdminAuthForm = () => {
     (values: IAdmin) => authService.adminAuth(values)
   );
 
-  const onSubmit = async (
-    values: IAdmin,
-    { resetForm }: { resetForm: VoidFunction },
-  ) => {
-    try {
-      setErrorMessage("");
-      const resp: any = await mutateAsync(values);
-      localStorage.setItem("token", resp.data.accessToken);
-    } catch (err) {
-      setErrorMessage("Wrong username or password");
-    }
-    resetForm();
-  };
-
   return (
     <Formik
       initialValues={{ username: "", password: "" }}
       validationSchema={AdminAuthValidation}
-      onSubmit={onSubmit}
+      onSubmit={(values, {resetForm}) => onSubmit(values, resetForm, mutateAsync, setErrorMessage)}
     >
       {(fprops) => {
         return (
