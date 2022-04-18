@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import * as StyledThisComp from "../../styles/OurTeam.styled";
 import Image from "next/image";
 import decorationClipIMG from "../../../public/clip.png";
@@ -11,6 +11,23 @@ interface IOurTeamCardProps {
 }
 
 const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
+  const [isClicked, setIsCliked] = useState<boolean>(false);
+
+  const playAnimation = (animationDuration: number) => {
+    setIsCliked(true);
+    setTimeout(() => {
+      setIsCliked(false);
+    }, animationDuration);
+  };
+
+  const handleRightClipClick = () => {
+    playAnimation(2500);
+  };
+
+  const handleLeftClipClick = () => {
+    playAnimation(2000);
+  };
+
   return (
     <>
       <div className={title.split(" ").join("-") + "-img"}>
@@ -24,7 +41,10 @@ const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
         />
 
         {title === "our main goal" ? (
-          <StyledThisComp.DecorationClipIconLeft>
+          <StyledThisComp.DecorationClipIconLeft
+            className={isClicked ? "animate" : undefined}
+            onClick={!isClicked ? handleLeftClipClick : undefined}
+          >
             <ImagePreview
               src={decorationClipIMG}
               placeholder="blur"
@@ -32,7 +52,10 @@ const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
             />
           </StyledThisComp.DecorationClipIconLeft>
         ) : (
-          <StyledThisComp.DecorationClipIconRight>
+          <StyledThisComp.DecorationClipIconRight
+            className={isClicked ? "animate" : undefined}
+            onClick={!isClicked ? handleRightClipClick : undefined}
+          >
             <ImagePreview
               src={decorationClipIMG}
               alt={"alt clip image icon right"}
