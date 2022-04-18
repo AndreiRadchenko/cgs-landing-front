@@ -1,5 +1,5 @@
-import AuthAdminHeader from "../../components/AdminAuth/AuthAdminHeader";
-import AdminAuthForm from "../../components/AdminAuth/AuthForm";
+import AuthAdminHeader from "../../components/Admin/AuthHeader";
+import AdminAuthForm from "../../components/Admin/AuthForm";
 import * as Styled from "../../styles/AdminAuth";
 import React from "react";
 

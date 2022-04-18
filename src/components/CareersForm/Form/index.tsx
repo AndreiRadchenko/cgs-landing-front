@@ -1,12 +1,14 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { useFormik, FormikValues } from "formik";
 import * as Styled from "./Form.styled";
 import FormField from "./FormField/index";
 import { CareerFormValidation } from "../../../validations/CareerFormValidator";
 import { fieldData, fieldContent } from "../../../mock/VacancyFieldData";
+import animateCV from "../../../../public/lotties/CVButton.json";
 
 const Form: FC = () => {
   const [CV, setCV] = useState<boolean>(false);
+  const [animate, setAnimate] = useState<boolean>(false);
 
   const formik = useFormik({
     initialValues: fieldData,
@@ -20,11 +22,20 @@ const Form: FC = () => {
     formik.setFieldValue(event.target.name, event.target.value);
   };
 
+  const animateCv = (name: string) => {
+    setAnimate(true);
+    setTimeout(() => {
+      setAnimate(false);
+      setCV(!!name);
+    }, 10000);
+  };
+
   const fileEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.value;
     {
-      name ? setCV(!!name) : setCV(!!name);
+      name ? animateCv(name) : setCV(!!name);
     }
+    animateCv(name);
     return handleChange(e);
   };
 
@@ -40,7 +51,7 @@ const Form: FC = () => {
           />
         ))}
         <Styled.FileContainer>
-          <Styled.FileInputWrapper>
+          <Styled.FileInputWrapper active={animate}>
             <Styled.InputFile
               name="CV-file"
               type="file"
@@ -56,6 +67,12 @@ const Form: FC = () => {
               <Styled.FileText>a special place for your CV :)</Styled.FileText>
             </Styled.InputFileLabel>
           </Styled.FileInputWrapper>
+          {animate && (
+            <Styled.FileContainer>
+              <Styled.LottieButton animationData={animateCV} />
+            </Styled.FileContainer>
+          )}
+
           <Styled.FileLoad>
             {CV ? "file is uploaded" : "file is not uploaded"}
           </Styled.FileLoad>

@@ -29,7 +29,7 @@ const ModalBlockSpecifyTechnology: FC<IModalProjectCardProps> = ({
             <StyledCategory.ProjectTitleName>
               {title}
             </StyledCategory.ProjectTitleName>
-            <StyledCategory.ProjectDescription>
+            <StyledCategory.ProjectDescription className="specifyProject">
               {description}
             </StyledCategory.ProjectDescription>
           </StyledCategory.MainContent>

@@ -1,51 +1,46 @@
 import { Formik } from "formik";
 import React from "react";
 import TextFieldWrapper from "../CareersForm/Form/FormField";
-import AuthSubmitButton from "./AuthSubmitButton";
+import AuthSubmitButton from "./AuthButton";
 import { AuthFormBlock, AuthFormError } from "../../styles/AdminAuth";
-import { AdminService } from "../../services/AdminService";
 import { AdminAuthValidation } from "../../validations/AdminAuthValidation";
-import { IAdmin } from "../../types/AdminAuth.types";
+import { IAdmin, IRes } from "../../types/Admin/Admin.types";
 import { useState } from "react";
 import { useMutation } from "react-query";
-import { useRouter } from "next/router";
+import { authService } from "../../services/login";
+import { initAdmin } from "../../consts";
+import { queryKeys } from "../../consts/queryKeys";
+
+const onSubmit = async (
+  values: IAdmin,
+  resetForm: VoidFunction,
+  mutateAsync: any,
+  setErrorMessage: (text: string) => void,
+) => {
+  try {
+    setErrorMessage("");
+    const resp: IRes = await mutateAsync(values);
+    localStorage.setItem("token", resp.accessToken);
+  } catch (err) {
+    setErrorMessage("Wrong username or password");
+  }
+  resetForm();
+};
 
 const AdminAuthForm = () => {
-  const adminService = new AdminService();
-  const router = useRouter();
 
-  interface IRes {
-    data: { accessToken: string };
-  }
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { mutateAsync } = useMutation<IRes, any, IAdmin, any>(
-    "key",
-    (values: IAdmin) => adminService.authAdmin(values),
-    {
-      onSuccess: (resp) => {
-        localStorage.setItem("token", resp.data.accessToken);
-        router.push(`${router.pathname}/authorized`);
-      },
-      onError: () => {
-        setErrorMessage("Wrong username or password");
-      },
-    }
+  const { mutateAsync } = useMutation(
+    queryKeys.AdminAuth,
+    (values: IAdmin) => authService.adminAuth(values)
   );
-
-  const onSubmit = async (
-    values: IAdmin,
-    { resetForm }: { resetForm: VoidFunction }
-  ) => {
-    await mutateAsync(values);
-    resetForm();
-  };
 
   return (
     <Formik
-      initialValues={{ username: "", password: "" }}
+      initialValues={initAdmin}
       validationSchema={AdminAuthValidation}
-      onSubmit={onSubmit}
+      onSubmit={(values, {resetForm}) => onSubmit(values, resetForm, mutateAsync, setErrorMessage)}
     >
       {(fprops) => {
         return (
@@ -59,7 +54,7 @@ const AdminAuthForm = () => {
               name="password"
               label="password"
               handleChange={fprops.handleChange}
-              type="password"
+              // type="password"
             />
             <AuthFormError>{errorMessage}</AuthFormError>
             <AuthSubmitButton />

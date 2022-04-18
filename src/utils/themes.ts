@@ -33,6 +33,7 @@ const themes = {
       size: {
         hexadecimal: "0.375em",
         septenary: "0.6em",
+        fourteenth: "0.875em",
         quinary: "0.72em",
         vistaco: "1.1em",
         tertiary: "1.2em",

@@ -6,9 +6,14 @@ import Decoration from "../components/Decoration/Decoration";
 export const OurTeamContainer = styled.section`
   position: relative;
   font-family: ${themes.primary.font.family.roboto};
+  margin-bottom: 200px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 100%;
+    margin-bottom: 150px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 100px;
   }
 `;
 
@@ -25,7 +30,7 @@ export const OurTeamRow = styled.div`
   .our-main-goal-img {
     position: relative;
     grid-area: main-goal-img;
-    height: 33.625em;
+    height: 37.625em;
   }
 
   .our-main-goal-content {
@@ -34,8 +39,9 @@ export const OurTeamRow = styled.div`
 
   .our-philosophy-img {
     position: relative;
+    bottom: -21%;
     grid-area: philosophy-img;
-    height: 24.5em;
+    height: 26.5em;
   }
 
   .our-philosophy-content {
@@ -49,6 +55,7 @@ export const OurTeamRow = styled.div`
 
     .our-philosophy-img {
       height: 16.313em;
+      bottom: -17%;
     }
   }
 
@@ -192,13 +199,31 @@ export const DecorationTextTitle = styled(Decoration)`
   z-index: -1;
 
   &.philosophy {
-    left: 13%;
+    left: 12%;
     width: 5.4em;
   }
 
   &.goal {
     bottom: 18%;
-    left: 8.5%;
+    left: 8%;
     width: 5em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.philosophy {
+      left: 18%;
+      width: 5.4em;
+    }
+
+    &.goal {
+      bottom: 18%;
+      left: 13%;
+      width: 5em;
+    }
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    &.goal {
+      left: 17%;
+    }
   }
 `;
