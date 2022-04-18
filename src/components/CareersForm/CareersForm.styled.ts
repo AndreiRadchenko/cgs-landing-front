@@ -10,7 +10,7 @@ export const FormTitle = styled.h1`
 
 export const FormWrapper = styled.section`
   display: flex;
-  @media${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxTablet} {
     flex-direction: column;
     align-items: center;
   }
@@ -22,19 +22,26 @@ export const FormImage = styled.div`
   height: 42.188rem;
   background-repeat: space;
   margin-left: 6.125rem;
-  @media${themes.primary.media.maxTabletLandScape} {
+
+  @media ${themes.primary.media.maxLaptop} {
+    margin-left: 4.125rem;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
     width: 28.125rem;
     height: 29rem;
     background-repeat: round;
     margin-left: 4.125rem;
   }
-  @media${themes.primary.media.maxTabletPortrait} {
+
+  @media ${themes.primary.media.maxTabletPortrait} {
     margin-left: 1.125rem;
   }
-  @media${themes.primary.media.minTablet} {
+
+  @media ${themes.primary.media.minTablet} {
     margin-left: 0;
   }
-  @media${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.maxLowScreenMobile} {
     width: 22.625rem;
     height: 23.313rem;
   }

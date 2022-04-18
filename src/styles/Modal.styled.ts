@@ -112,7 +112,7 @@ export const ModalBackButtonArrow = styled.div`
 `;
 
 export const ModalBackButtonArrowText = styled.span`
-  font-size: 12px;
+  font-size: 0.7rem;
   &:hover {
     text-decoration: underline;
   }
