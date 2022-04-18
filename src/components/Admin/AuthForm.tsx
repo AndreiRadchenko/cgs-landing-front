@@ -8,6 +8,8 @@ import { IAdmin, IRes } from "../../types/Admin/Admin.types";
 import { useState } from "react";
 import { useMutation } from "react-query";
 import { authService } from "../../services/login";
+import { initAdmin } from "../../consts";
+import { queryKeys } from "../../consts/queryKeys";
 
 const onSubmit = async (
   values: IAdmin,
@@ -18,7 +20,7 @@ const onSubmit = async (
   try {
     setErrorMessage("");
     const resp: IRes = await mutateAsync(values);
-    localStorage.setItem("token", resp.data.accessToken);
+    localStorage.setItem("token", resp.accessToken);
   } catch (err) {
     setErrorMessage("Wrong username or password");
   }
@@ -30,13 +32,13 @@ const AdminAuthForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const { mutateAsync } = useMutation(
-    "key",
+    queryKeys.AdminAuth,
     (values: IAdmin) => authService.adminAuth(values)
   );
 
   return (
     <Formik
-      initialValues={{ username: "", password: "" }}
+      initialValues={initAdmin}
       validationSchema={AdminAuthValidation}
       onSubmit={(values, {resetForm}) => onSubmit(values, resetForm, mutateAsync, setErrorMessage)}
     >

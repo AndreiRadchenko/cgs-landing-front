@@ -4,5 +4,5 @@ export interface IAdmin {
 }
 
 export interface IRes {
-  data: { accessToken: string };
+  accessToken: string ;
 }

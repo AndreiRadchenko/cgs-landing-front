@@ -7,3 +7,8 @@ export enum storeKeys {
   role = 'ROLE',
   profile = 'PROFILE',
 }
+
+export const initAdmin = {
+  username: "",
+  password: ""
+}
