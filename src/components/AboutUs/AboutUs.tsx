@@ -62,7 +62,7 @@ const AboutUs = () => {
       <StyledThisComp.IllustrationWrapper
         isScrolled={isScrolled}
         ref={illustrationRef}
-        onClick={handleIllustrationClick}
+        onClick={!isClicked ? handleIllustrationClick : undefined}
         className={isClicked ? "mobileAnimation" : undefined}
       >
         <StyledThisComp.Wrapper>
