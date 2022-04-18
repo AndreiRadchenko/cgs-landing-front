@@ -1,12 +1,13 @@
 import React from "react";
 import * as StyledThisComp from "../../styles/LestCode.styles";
 import Image from "next/image";
+import { LetsCodeFormPropTypes } from "../../types/Button.types";
 import FormWrapperIMG from "../../../public/formIconWrap.png";
 import FormWrapperIMGMobile from "../../../public/formIconWrapMobile.png";
 import CreateSupportForm from "../CreateSupportForm/CreateSupportForm";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 
-const LetsCodeForm = () => {
+const LetsCodeForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
   const { width } = useWindowDimension();
 
   return (
@@ -19,7 +20,7 @@ const LetsCodeForm = () => {
           />
         )}
       </StyledThisComp.LetsCodeImageWrapper>
-      <CreateSupportForm />
+      <CreateSupportForm setButtonIsHovered={setButtonIsHovered} />
     </>
   );
 };

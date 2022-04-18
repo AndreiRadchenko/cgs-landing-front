@@ -43,9 +43,13 @@ export const FeedbackCardCompany = styled.a`
 
 export const FeedbackButtonContainer = styled.div`
   position: relative;
+
   left: -1em;
   @media ${themes.primary.media.maxLaptop} {
-    left: -1.5em;
+    left: -4%;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    left: -1%;
   }
 `;
 

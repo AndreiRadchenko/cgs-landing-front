@@ -36,10 +36,9 @@ import { IFeedbackCardProps } from "../types/Feedback.types";
 export const routers = {
   home: "/",
   careers: "/careers",
-  partners: "/partners",
 };
 
-export const navigationRoutesNames = ["/home", "/careers", "/partners"];
+export const navigationRoutesNames = ["/home", "/careers"];
 
 export const modalNavigationRoutesNames = [
   "web",
@@ -278,6 +277,8 @@ export const technologiesArr = [
       "MongoDB",
       "MySQL",
       "Docker",
+      "Python (Django / Flask)",
+      "Golang",
     ],
   },
   {
@@ -324,6 +325,8 @@ import eeselImage from "../../public/projects_images/eesel.jpg";
 import switchImage from "../../public/projects_images/switch.png";
 import scobySocialImage from "../../public/projects_images/scoby_social.png";
 import reviewImage from "../../public/projects_images/review.png";
+import soCoolImage from "../../public/projects_images/so_cool.png";
+import tokenGearImage from "../../public/projects_images/token_gear.png";
 
 import { IModalProjectCardProps } from "../types/ModalCategory.types";
 
@@ -503,6 +506,22 @@ export const projectsModalArr: IModalProjectCardProps[] = [
     category: ["web"],
     description:
       "When you’re an IT recruiter, you need to be attentive during the whole hiring process. This platform is going to be a helping hand for each recruiter and a comfy place where great professionals can get a pleasant REview for their work.",
+  },
+  {
+    url: soCoolImage,
+    title: "SO-COOL",
+    link: "https://review-app.io/",
+    category: ["blockchain"],
+    description:
+      "This Blockchain DeFi system uses Smart contracts to build a bridge between your web2 social channels and new web3. The core feature: non-crypto users availability. You just need Social / Premium Collectables to get access to the platform channels.",
+  },
+  {
+    url: tokenGearImage,
+    title: "Tokengear",
+    link: "https://review-app.io/",
+    category: ["blockchain"],
+    description:
+      "This marketplace is the Blockchain DeFi system where gamers interact with developers without giving away equity or IP. Usage of Smart contracts and Web3AUTH combined with some cluster work helped us to make it really unique, just see for yourselves!",
   },
 ];
 

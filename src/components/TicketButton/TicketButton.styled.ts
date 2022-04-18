@@ -3,6 +3,7 @@ import themes from "../../utils/themes";
 
 export const TicketButton = styled.div`
   background-image: url("/ticket-button.png");
+  background-repeat: no-repeat;
   color: black;
   cursor: pointer;
   width: 14em;
@@ -14,5 +15,8 @@ export const TicketButton = styled.div`
     background-repeat: space;
     margin-right: -0.938rem;
     margin-bottom: -1.25rem;
+  }
+  @media${themes.primary.media.maxLowScreenMobile} {
+    width: 10.1em;
   }
 `;

@@ -25,6 +25,11 @@ const Projects = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeModalHandler = () => {
+    setIsOpen(false);
+    setSelectedCategory("");
+  };
+
   const backModalHandler = () => {
     if (selectedCategory === "all work") {
       setIsOpen(false);
@@ -68,6 +73,7 @@ const Projects = () => {
         onSetNewCategory={setNewCategoryHandler}
         selectedCategory={selectedCategory}
         onToggleModalHandler={backModalHandler}
+        closeModalHandler={closeModalHandler}
       />
     </StyledThisComp.ProjectsContainer>
   );

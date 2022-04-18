@@ -104,87 +104,65 @@ export const ModalBackButton = styled.button`
   }
 `;
 
-export const ModalBackButtonAnimated = styled.button`
-  font-size: 2em;
+export const ModalBackButtonArrow = styled.div`
+  display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  border: none;
-  width: 0.7em;
-  height: 0.7em;
-  position: absolute;
-  right: 2%;
-  top: 0;
+  width: 8rem;
   cursor: pointer;
+`;
 
-  @media ${themes.primary.media.minLaptop} {
-    right: 2%;
-    font-size: 2.5em;
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    right: 2%;
-    font-size: 2.5em;
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    right: 4%;
-    font-size: 3em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    right: 6%;
-    top: 0%;
-    font-size: 3em;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    right: 6%;
-    top: -0.1%;
-    font-size: 3em;
+export const ModalBackButtonArrowText = styled.span`
+  font-size: 12px;
+  &:hover {
+    text-decoration: underline;
   }
 `;
 
-export const ModalBackButtonAnimatedContent = styled.div`
-  display: inline-block;
-  position: relative;
-  width: 1.875rem;
-  height: 1.875rem;
-
-  &.close,
-  &.back {
-    &::before,
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 50%;
-      border-top: 3px solid black;
-      transform-origin: top center;
-      transition: 700ms all;
-    }
-  }
+export const ModalBackButtonAnimated = styled.div`
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  width: 13rem;
+  height: 3rem;
+  position: absolute;
+  right: 2.5rem;
 
   &.close {
-    &::before {
-      transform: rotateZ(45deg);
-    }
-
-    &::after {
-      transform: rotateZ(-45deg);
-    }
+    align-items: center;
+    justify-content: flex-end;
+  }
+  img {
+    cursor: pointer;
+  }
+  @media ${themes.primary.media.minLaptop} {
+    right: 2.5rem;
+    font-size: 3rem;
   }
 
-  &.back {
-    &::before {
-      transform: translateY(6px) rotateZ(22.5deg);
-    }
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    right: 2.5rem;
+    top: -1rem;
+    font-size: 3rem;
+  }
 
-    &::after {
-      transform: translateY(-6px) rotateZ(-22.5deg);
-    }
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    right: 2.5rem;
+    top: -1rem;
+    font-size: 3rem;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    right: 2.5rem;
+    top: -1rem;
+    font-size: 3rem;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 11rem;
+    right: 2rem;
+    top: -1.2rem;
+    font-size: 3rem;
   }
 `;

@@ -20,7 +20,9 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
       </StyledThisComp.CategoryImgWrapper>
 
       <StyledThisComp.CategoryDescriptionWrapper className="descriptionWrapper">
-        <StyledThisComp.CategoryTitle>
+        <StyledThisComp.CategoryTitle
+          className={title === "server" ? "serverTitle" : undefined}
+        >
           {title}
           <StyledThisComp.DecorationTitle className={title} />
         </StyledThisComp.CategoryTitle>

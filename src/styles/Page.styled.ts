@@ -28,6 +28,7 @@ export const Page = styled.article`
     margin: 0;
     padding: ${themes.primary.spacing.headerNavVertical}
       ${themes.primary.spacing.headerNavHorizontal};
+    overflow: hidden;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -39,7 +40,7 @@ export const Page = styled.article`
 export const ButtonText = styled.span.attrs(
   ({ fontSize }: IButtonTextStyledProps) => ({
     fontSize: fontSize,
-  }),
+  })
 )`
   position: relative;
   z-index: 3;

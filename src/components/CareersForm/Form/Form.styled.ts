@@ -1,7 +1,20 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { FormikProvider, Field } from "formik";
 import themes from "../../../utils/themes";
+import Lottie from "lottie-react";
 
+interface ICVProps {
+  active: boolean;
+}
+
+const opacity = keyframes`
+0% {
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+`;
 export const Form = styled.form`
   flex-basis: 38%;
   @media${themes.primary.media.maxTabletLandScape} {
@@ -9,6 +22,32 @@ export const Form = styled.form`
   }
   @media${themes.primary.media.maxTablet} {
     width: 100%;
+  }
+`;
+
+export const LottieButton = styled(Lottie)`
+  position: relative;
+  & svg {
+    position: absolute;
+    width: 80rem !important;
+    height: 25rem !important;
+    top: -13rem;
+    left: -30rem;
+    box-sizing: border-box;
+  }
+
+  @media${themes.primary.media.maxLaptop} {
+    & svg {
+      width: 37rem !important;
+      height: 30rem !important;
+      top: -16.4rem;
+      left: -18.2rem;
+    }
+  }
+`;
+export const LottieWrapper = styled.div`
+  @media${themes.primary.media.maxLaptop} {
+    margin-top: 2.188rem;
   }
 `;
 
@@ -44,6 +83,11 @@ export const FileContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 2.188rem;
+  margin-bottom: 0;
+  height: 2.8em;
+  @media${themes.primary.media.maxLaptop} {
+    height: auto;
+  }
   @media${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
     align-items: center;
@@ -63,18 +107,20 @@ export const FileContainer = styled.div`
   }
 `;
 
-export const FileLoad = styled.p``;
+export const FileLoad = styled.p`
+  animation: ${opacity} 2.5s forwards;
+`;
 
-export const FileInputWrapper = styled.div`
+export const FileInputWrapper = styled.div<ICVProps>`
   position: relative;
   text-align: center;
   height: 2.8em;
   font-size: 0.75em;
   color: #bdbdbd;
-
+  display: ${({ active }) => (active ? "none;" : "block;")}
   line-height: 1.7;
   background: none;
-
+  animation: ${opacity} 2s;
   width: 20.375rem;
   padding: 1.438rem 2.75rem;
   background: white;
@@ -89,7 +135,7 @@ export const InputFile = styled(Field)`
 export const InputFileLabel = styled.label`
   width: 100%;
   color: black;
-  font-size: 14px;
+  font-size: ${themes.primary.font.size.fourteenth};
   font-weight: 500;
   display: -webkit-box;
   display: -ms-flexbox;
