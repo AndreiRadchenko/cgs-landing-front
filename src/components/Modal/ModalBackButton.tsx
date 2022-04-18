@@ -18,7 +18,7 @@ const ModalBackButton: FC<ModalBackButtonProps> = ({
   const [buttonState, setButtonState] = useState<boolean>(false);
 
   useEffect(() => {
-    setButtonState(selectedCategory === "all work" ? false : true);
+    setButtonState(selectedCategory !== "all work");
   }, [selectedCategory]);
 
   return (

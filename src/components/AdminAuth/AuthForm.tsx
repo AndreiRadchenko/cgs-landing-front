@@ -8,44 +8,37 @@ import { IAdmin, IRes } from "../../types/Admin/Admin.types";
 import { useState } from "react";
 import { useMutation } from "react-query";
 import { authService } from "../../services/login";
-import { initAdmin } from "../../consts";
+import { initAdmin, storeKeys } from "../../consts";
 import { queryKeys } from "../../consts/queryKeys";
 import { NextRouter, useRouter } from "next/router";
 
-const onSubmit = async (
-  values: IAdmin,
-  resetForm: VoidFunction,
-  mutateAsync: any,
-  setErrorMessage: (text: string) => void,
-  router: NextRouter,
-) => {
-  try {
-    setErrorMessage("");
-    const resp: IRes = await mutateAsync(values);
-    localStorage.setItem("token", resp.accessToken);
-    router.push(`AdminPage`)
-  } catch (err) {
-    setErrorMessage("Wrong username or password");
-  }
-  resetForm();
-};
-
 const AdminAuthForm = () => {
-
-  const Router = useRouter();
-
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { mutateAsync } = useMutation(
+  const { mutateAsync } = useMutation<any, IAdmin, any, IRes>(
     queryKeys.AdminAuth,
     (values: IAdmin) => authService.adminAuth(values)
   );
+
+  const onSubmit = async (
+    values: IAdmin,
+    resetForm: VoidFunction,
+  ) => {
+    try {
+      setErrorMessage("");
+      const resp: IRes = await mutateAsync(values);
+      localStorage.setItem(storeKeys.token, resp.accessToken);
+    } catch (err) {
+      setErrorMessage("Wrong username or password");
+    }
+    resetForm();
+  };
 
   return (
     <Formik
       initialValues={initAdmin}
       validationSchema={AdminAuthValidation}
-      onSubmit={(values, {resetForm}) => onSubmit(values, resetForm, mutateAsync, setErrorMessage, Router)}
+      onSubmit={(values, {resetForm}) => onSubmit(values, resetForm)}
     >
       {(fprops) => {
         return (

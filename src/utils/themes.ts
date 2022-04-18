@@ -65,6 +65,7 @@ const themes = {
 
         green: "#CAFF9D",
       },
+      lightShadows: "lightgray",
       errorText: "#ea0000",
       grayBack: "#EFEEEE",
       comment: "#8F8E93",
