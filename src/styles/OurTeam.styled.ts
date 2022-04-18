@@ -143,12 +143,14 @@ export const DecorationClipIconLeft = styled.div`
   bottom: -25%;
   left: 63%;
   z-index: 3;
+
   &:hover {
     animation: ${animations.rotateAnimationLaptopLeft} 1.5s ease-in-out;
   }
   @media ${themes.primary.media.onlyTabletLandScape} {
     transform: scale(0.65) rotate(65deg);
     bottom: -30%;
+
     &:hover {
       animation: ${animations.rotateAnimationTabletLeft} 1.5s ease-in-out;
     }
@@ -158,7 +160,12 @@ export const DecorationClipIconLeft = styled.div`
     transform: scale(0.65) rotate(65deg);
     top: -95%;
     left: -10%;
+
     &:hover {
+      animation: none;
+    }
+
+    &.animate {
       animation: ${animations.rotateAnimationTablerPortraitLeft} 2s ease-in-out;
     }
   }
@@ -170,6 +177,7 @@ export const DecorationClipIconRight = styled.div`
   right: -5%;
   transform: scale(0.8) rotate(65deg);
   z-index: 3;
+
   &:hover {
     animation: ${animations.rotateAnimationLaptopRight} 2.5s ease-in-out;
   }
@@ -177,6 +185,7 @@ export const DecorationClipIconRight = styled.div`
     transform: scale(0.65) rotate(65deg);
     top: -35%;
     right: -18%;
+
     &:hover {
       animation: ${animations.rotateAnimationTabletRight} 1.5s ease-in-out;
     }
@@ -185,7 +194,12 @@ export const DecorationClipIconRight = styled.div`
     transform: scale(0.65) rotate(65deg);
     top: -35%;
     right: -18%;
+
     &:hover {
+      animation: none;
+    }
+
+    &.animate {
       animation: ${animations.rotateAnimationTablerPortraitRight} 2.5s
         ease-in-out;
     }
