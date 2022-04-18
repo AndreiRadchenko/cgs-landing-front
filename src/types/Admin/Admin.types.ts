@@ -6,3 +6,8 @@ export interface IAdmin {
 export interface IRes {
   accessToken: string ;
 }
+
+export interface IPhotoBlock {
+  photo: any,
+  deleteFlag?: boolean,
+}

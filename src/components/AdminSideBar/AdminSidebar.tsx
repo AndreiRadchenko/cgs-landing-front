@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import * as Styled from "../../../styles/AdminPage";
-import logo from "./../../../../public/logo.png";
+import * as Styled from "../../styles/AdminPage";
+import logo from "./../../../public/logo.png";
 import DropDownElement from "./DropDownElement";
 
 const AdminSidebar = () => {

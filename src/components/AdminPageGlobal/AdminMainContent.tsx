@@ -1,7 +1,7 @@
 import React from "react";
 import * as Styled from "../../styles/AdminPage";
-import EditInformationBlock from "./SecondBlock/CompletedBlock";
-import FirstAdminBlock from "./FirstHeaderBlock/CompletedBlock";
+import EditInformationBlock from "../AdminEditInfoBlock/CompletedBlock";
+import FirstAdminBlock from "../AdminFirstHeaderBlock/CompletedBlock";
 
 const AdminMainContent = () => {
   return (

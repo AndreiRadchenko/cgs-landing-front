@@ -1,5 +1,5 @@
 import React from "react";
-import * as Styled from "../../../styles/AdminPage";
+import * as Styled from "../../styles/AdminPage";
 
 const LeftSideBlock = () => {
   return (

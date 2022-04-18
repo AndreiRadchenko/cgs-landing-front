@@ -10,17 +10,20 @@ import { useMutation } from "react-query";
 import { authService } from "../../services/login";
 import { initAdmin } from "../../consts";
 import { queryKeys } from "../../consts/queryKeys";
+import { NextRouter, useRouter } from "next/router";
 
 const onSubmit = async (
   values: IAdmin,
   resetForm: VoidFunction,
   mutateAsync: any,
   setErrorMessage: (text: string) => void,
+  router: NextRouter,
 ) => {
   try {
     setErrorMessage("");
     const resp: IRes = await mutateAsync(values);
     localStorage.setItem("token", resp.accessToken);
+    router.push(`AdminPage`)
   } catch (err) {
     setErrorMessage("Wrong username or password");
   }
@@ -28,6 +31,8 @@ const onSubmit = async (
 };
 
 const AdminAuthForm = () => {
+
+  const Router = useRouter();
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -40,7 +45,7 @@ const AdminAuthForm = () => {
     <Formik
       initialValues={initAdmin}
       validationSchema={AdminAuthValidation}
-      onSubmit={(values, {resetForm}) => onSubmit(values, resetForm, mutateAsync, setErrorMessage)}
+      onSubmit={(values, {resetForm}) => onSubmit(values, resetForm, mutateAsync, setErrorMessage, Router)}
     >
       {(fprops) => {
         return (
@@ -54,7 +59,7 @@ const AdminAuthForm = () => {
               name="password"
               label="password"
               handleChange={fprops.handleChange}
-              // type="password"
+              type="password"
             />
             <AuthFormError>{errorMessage}</AuthFormError>
             <AuthSubmitButton />

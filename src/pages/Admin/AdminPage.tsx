@@ -1,6 +1,6 @@
 import React from "react";
-import AdminMainContent from "../../components/AdminPage/AdminMainContent";
-import AdminSidebar from "../../components/AdminPage/SideBar/AdminSidebar";
+import AdminMainContent from "../../components/AdminPageGlobal/AdminMainContent";
+import AdminSidebar from "../../components/AdminSideBar/AdminSidebar";
 import * as Styled from "../../styles/AdminPage";
 
 const AdminAuthorized = () => {

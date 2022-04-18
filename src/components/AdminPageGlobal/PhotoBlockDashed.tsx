@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import * as Styled from "../../styles/AdminPage";
+import { IPhotoBlock } from "../../types/Admin/Admin.types";
 
-const PhotoBlockDashed = ({ photo }: any) => {
+const PhotoBlockDashed = ({ photo, deleteFlag }: IPhotoBlock) => {
   return (
     <Styled.AdminMainPagePhotoBlock>
       <Styled.AdminMainPhotoGrid>
@@ -14,7 +15,7 @@ const PhotoBlockDashed = ({ photo }: any) => {
       <Styled.AdminMainBlockComment>
         Supports: JPG, PNG
       </Styled.AdminMainBlockComment>
-      <Styled.AdminMainDeleteText>delete image</Styled.AdminMainDeleteText>
+      {deleteFlag ? <Styled.AdminMainDeleteText>delete image</Styled.AdminMainDeleteText> : null}
     </Styled.AdminMainPagePhotoBlock>
   );
 };
