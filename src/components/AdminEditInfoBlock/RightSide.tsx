@@ -6,7 +6,7 @@ import PhotoBlockDashed from "../AdminPageGlobal/PhotoBlockDashed";
 const RightSideBlock = () => {
   return (
     <div>
-      <Styled.AdminBlockSubTitle>Main page photo</Styled.AdminBlockSubTitle>
+      <Styled.AdminSubTitle>Main page photo</Styled.AdminSubTitle>
       <div>
         <PhotoBlockDashed photo={mainPhoto} deleteFlag={true} />
       </div>

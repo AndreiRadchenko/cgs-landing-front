@@ -7,7 +7,7 @@ import { logos } from "./logos";
 const AdminLogosBlock = () => {
   return (
     <Styled.AdminPaddedBlock>
-      <Styled.AdminBlockSubTitle>Logos</Styled.AdminBlockSubTitle>
+      <Styled.AdminSubTitle>Logos</Styled.AdminSubTitle>
 
       <Styled.AdminLogosGrid>
         <AddLogoFrame />

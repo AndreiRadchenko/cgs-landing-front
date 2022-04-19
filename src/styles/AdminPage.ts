@@ -27,12 +27,13 @@ export const AdminSidebarMenuElement = styled.li`
   font-size: ${themes.primary.font.size.menuElement};
   font-family: ${themes.primary.font.family.mulish};
   padding-bottom: ${themes.primary.spacing.primary};
-  font-weight: ${themes.primary.font.weight.normal};
+  font-weight: ${(props) => props.itemProp === props.property ? themes.primary.font.weight.bold : themes.primary.font.weight.normal};
   cursor: pointer;
 `;
 
 export const AdminSidebarHidenElement = styled.div`
   height: 1em;
+  font-weight: ${themes.primary.font.weight.normal};
   padding: ${themes.primary.spacing.small} 0 0 ${themes.primary.spacing.primary};
   display: ${(props) => props.theme};
 `;
@@ -49,20 +50,20 @@ export const AdminPaddedBlock = styled.div`
     props.theme == "dark" ? themes.primary.colors.darkedGrayBack : null};
 `;
 
-export const AdminBlockHeader = styled.h2`
+export const AdminHeader = styled.h2`
   font-size: ${themes.primary.font.size.secondary};
   font-family: ${themes.primary.font.family.mulish};
   margin-bottom: 0.5em;
 `;
 
-export const AdminBlockSubTitle = styled.h3`
+export const AdminSubTitle = styled.h3`
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.mulish};
   font-weight: ${themes.primary.font.weight.bold};
   margin: 0 0 0.4em 0;
 `;
 
-export const AdminBlockComment = styled.p`
+export const AdminComment = styled.p`
   color: ${themes.primary.colors.comment};
   margin: 0;
 `;
@@ -163,6 +164,7 @@ export const AdminDeleteLogo = styled.button`
   background: ${themes.primary.colors.deleteButton};
   color: ${themes.primary.colors.secondary};
   padding: 0 0.2em;
+  cursor: pointer;
 `;
 
 export const AdminAddLogoBlock = styled.div`

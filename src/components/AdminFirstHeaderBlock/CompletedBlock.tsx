@@ -6,8 +6,8 @@ import icon from "../../../public/smallMountain.svg";
 const FirstAdminBlock = () => {
   return (
     <Styled.AdminPaddedBlock>
-      <Styled.AdminBlockHeader>Home</Styled.AdminBlockHeader>
-      <Styled.AdminBlockSubTitle>Upload Logo</Styled.AdminBlockSubTitle>
+      <Styled.AdminHeader>Home</Styled.AdminHeader>
+      <Styled.AdminSubTitle>Upload Logo</Styled.AdminSubTitle>
       <Styled.AdminAddMainLogoBlock>
         <PhotoBlockDashed photo={icon} />
       </Styled.AdminAddMainLogoBlock>

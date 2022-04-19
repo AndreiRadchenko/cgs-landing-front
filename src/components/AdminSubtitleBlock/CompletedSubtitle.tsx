@@ -5,38 +5,33 @@ import star from "../../../public/starAbout.png";
 import cosmonaut from "../../../public/cosmonaut.png";
 import space from "../../../public/spaceAbout.png";
 import bottle from "../../../public/illustration-technology.png";
+import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
+import { ISubtitle } from "../../types/Admin/Admin.types";
+import AdminInputWithImage from "../AdminPageGlobal/AdminInputWithImage";
 
-const elements = [star, cosmonaut, space];
-
-const SubtitleBlock = () => {
+const SubtitleBlock = ({state}: {state: ISubtitle}) => {
   return (
     <>
       <Styled.AdminPaddedBlock>
-        <Styled.AdminBlockSubTitle>Subtitle</Styled.AdminBlockSubTitle>
         <Styled.AdminEditInfoGridBlock>
-          <Styled.AdminInput rows={1} />
+          <div>
+            <SubHeaderWithInput header="Subtitle" inputValue={state.title} onChangeFunction={() => {}} />
+          </div>
         </Styled.AdminEditInfoGridBlock>
         <br />
         <Styled.AdminFlyingElementsBlock>
-          {elements.map((i) => (
-            <Styled.AdminFlyingElement key={Math.random()}>
-              <PhotoBlockDashed photo={i} deleteFlag={true} />
-              <br />
-              <Styled.AdminInput />
-            </Styled.AdminFlyingElement>
-          ))}
+          <AdminInputWithImage photo={star} inputValue={state.elements[0]} onChangeFunction={() => {}} />
+          <AdminInputWithImage photo={cosmonaut} inputValue={state.elements[1]} onChangeFunction={() => {}} />
+          <AdminInputWithImage photo={space} inputValue={state.elements[2]} onChangeFunction={() => {}} />
         </Styled.AdminFlyingElementsBlock>
       </Styled.AdminPaddedBlock>
 
       <Styled.AdminPaddedBlock>
         <Styled.AdminEditInfoGridBlock>
           <div>
-            <Styled.AdminBlockSubTitle children={"Text 2"} />
-            <Styled.AdminInput rows={1} />
-            <Styled.AdminBlockSubTitle children={"Text 3"} />
-            <Styled.AdminInput rows={3} />
-            <Styled.AdminBlockSubTitle children={"Text 2"} />
-            <Styled.AdminInput rows={1} />
+            <SubHeaderWithInput header="Text 2" inputValue={state.firstText2} onChangeFunction={() => {}} />
+            <SubHeaderWithInput header="Text 3" inputValue={state.text3} onChangeFunction={() => {}} />
+            <SubHeaderWithInput header="Text 2" inputValue={state.secondText2} onChangeFunction={() => {}} />
           </div>
           <Styled.AdminTecBottleDiv>
             <PhotoBlockDashed photo={bottle} deleteFlag={true} />

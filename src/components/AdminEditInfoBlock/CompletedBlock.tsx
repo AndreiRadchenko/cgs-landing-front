@@ -1,15 +1,16 @@
 import React from "react";
 import * as Styled from "../../styles/AdminPage";
+import { IEditInformation } from "../../types/Admin/Admin.types";
 import LeftSideBlock from "./LeftSide";
 import RightSideBlock from "./RightSide";
 
-const EditInformationBlock = () => {
+const EditInformationBlock = ({state}: {state: IEditInformation}) => {
   return (
     <Styled.AdminPaddedBlock theme="dark">
-      <Styled.AdminBlockHeader>Edit Information</Styled.AdminBlockHeader>
+      <Styled.AdminHeader>Edit Information</Styled.AdminHeader>
 
       <Styled.AdminEditInfoGridBlock>
-        <LeftSideBlock />
+        <LeftSideBlock state={state} />
         <RightSideBlock />
       </Styled.AdminEditInfoGridBlock>
     </Styled.AdminPaddedBlock>

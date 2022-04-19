@@ -10,7 +10,6 @@ import { useMutation } from "react-query";
 import { authService } from "../../services/login";
 import { initAdmin, storeKeys } from "../../consts";
 import { queryKeys } from "../../consts/queryKeys";
-import { NextRouter, useRouter } from "next/router";
 
 const AdminAuthForm = () => {
   const [errorMessage, setErrorMessage] = useState("");

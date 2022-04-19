@@ -10,10 +10,10 @@ const PhotoBlockDashed = ({ photo, deleteFlag }: IPhotoBlock) => {
         <Image src={photo} />
       </Styled.AdminPhotoGrid>
       <Styled.AdminDashedPositionGrid>
-        <Styled.AdminBlockSubTitle>
+        <Styled.AdminSubTitle>
           Drop new image here
-        </Styled.AdminBlockSubTitle>
-        <Styled.AdminBlockComment>Supports: JPG, PNG</Styled.AdminBlockComment>
+        </Styled.AdminSubTitle>
+        <Styled.AdminComment>Supports: JPG, PNG</Styled.AdminComment>
         {deleteFlag ? (
           <Styled.AdminDeleteText>delete image</Styled.AdminDeleteText>
         ) : null}

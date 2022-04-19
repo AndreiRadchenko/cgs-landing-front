@@ -1,22 +1,14 @@
 import React from "react";
-import * as Styled from "../../styles/AdminPage";
+import { IEditInformation } from "../../types/Admin/Admin.types";
+import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 
-const forms = [
-  { text: "Title", rows: 1 },
-  { text: "Text 1", rows: 2 },
-  { text: "Text 2", rows: 2 },
-  { text: "Button", rows: 1 },
-];
-
-const LeftSideBlock = () => {
+const LeftSideBlock = ({state}: {state: IEditInformation}) => {
   return (
     <div>
-      {forms.map((i) => (
-        <div key={Math.random()}>
-          <Styled.AdminBlockSubTitle>{i.text}</Styled.AdminBlockSubTitle>
-          <Styled.AdminInput rows={i.rows} />
-        </div>
-      ))}
+      <SubHeaderWithInput header="Title" inputValue={state.title} onChangeFunction={() => {}} />
+      <SubHeaderWithInput header="Text 1" inputValue={state.text} onChangeFunction={() => {}} />
+      <SubHeaderWithInput header="Text 2" inputValue={state.text2} onChangeFunction={() => {}} />
+      <SubHeaderWithInput header="Button" inputValue={state.button} onChangeFunction={() => {}} />
     </div>
   );
 };
