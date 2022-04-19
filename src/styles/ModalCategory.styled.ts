@@ -234,8 +234,12 @@ export const ProjectContainer = styled.div`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 100%;
-    height: 42em;
+    height: 45em;
   }
+`;
+
+export const ProjectImg = styled.div`
+  height: fit-content;
 `;
 
 export const ProjectSpecifyTechnologyContainer = styled.div`
