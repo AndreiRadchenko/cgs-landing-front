@@ -1,11 +1,12 @@
 import React, { FC, useState } from "react";
 import * as StyledThisComp from "./FeedbackCard.styled";
-import ReactStars from "react-stars";
-import themes from "../../utils/themes";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import ButtonReadMore from "../../utils/Buttons/ButtonReadMore";
 import { IFeedbackCardProps } from "../../types/Feedback.types";
 import Link from "next/link";
+import StarRatings from "react-star-ratings";
+import themes from "../../utils/themes";
+import ReactStars from "react-stars";
 
 const FeedbackCard: FC<IFeedbackCardProps> = ({
   name,
@@ -16,7 +17,7 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
   description,
 }) => {
   const [isOpenFullFeedBack, setOpenFullFeedback] = useState<boolean>(false);
-
+  const rate = rates;
   const toggleFullFeedbackHandler = () =>
     setOpenFullFeedback(!isOpenFullFeedBack);
 
@@ -25,17 +26,9 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
       <StyledThisComp.FeedBackContentWrapper>
         <StyledThisComp.FeedbackCardWrapper>
           <StyledThisComp.FeedbackCardName>
-            {name}
+            {`${name} ${rate}`}
           </StyledThisComp.FeedbackCardName>
-          <ReactStars
-            half={true}
-            edit={false}
-            value={rates}
-            count={5}
-            size={20}
-            color2={themes.primary.colors.starActive}
-            color1={themes.primary.colors.starDisable}
-          />
+          <StyledThisComp.Stars rate={rate} />
         </StyledThisComp.FeedbackCardWrapper>
 
         <Link href={link} passHref>
