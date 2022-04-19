@@ -326,7 +326,7 @@ export const ProjectTitleName = styled.h2`
 
 export const ProjectDescription = styled.span`
   display: block;
-  width: 90%;
+  width: 100%;
   font-size: 1.3em;
   line-height: 145%;
   white-space: break-spaces;
