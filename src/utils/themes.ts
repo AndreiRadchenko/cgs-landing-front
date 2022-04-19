@@ -16,6 +16,7 @@ const themes = {
       aboutUsCardMobile: "22em",
       aboutUsDescription: "8em",
       cardPartners: "14em",
+      btwLogoAndMenu: "8.5em",
     },
     font: {
       family: {
@@ -40,6 +41,7 @@ const themes = {
         primary: "1em",
         linkText: "1.4em",
         buttonText: "1.5em",
+        menuElement: "1.7em",
         secondary: "2em",
         quaternary: "2.6em",
         bigTitle: "4.125em",
@@ -70,6 +72,7 @@ const themes = {
       grayBack: "#EFEEEE",
       comment: "#8F8E93",
       darkedGrayBack: "#DDDBDB",
+      deleteButton: "#F80909"
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

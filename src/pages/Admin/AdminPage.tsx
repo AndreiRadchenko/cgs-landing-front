@@ -5,10 +5,10 @@ import * as Styled from "../../styles/AdminPage";
 
 const AdminAuthorized = () => {
   return (
-    <Styled.AdminPageWrapper>
+    <Styled.AdminWrapper>
       <AdminSidebar />
       <AdminMainContent />
-    </Styled.AdminPageWrapper>
+    </Styled.AdminWrapper>
   );
 };
 

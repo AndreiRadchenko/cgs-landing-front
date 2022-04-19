@@ -5,16 +5,14 @@ import RightSideBlock from "./RightSide";
 
 const EditInformationBlock = () => {
   return (
-    <Styled.AdminMainPaddedBlock theme="dark">
-      <Styled.AdminMainBlockHeader>
-        Edit Information
-      </Styled.AdminMainBlockHeader>
+    <Styled.AdminPaddedBlock theme="dark">
+      <Styled.AdminBlockHeader>Edit Information</Styled.AdminBlockHeader>
 
-      <Styled.AdminMainEditInfoGridBlock>
+      <Styled.AdminEditInfoGridBlock>
         <LeftSideBlock />
         <RightSideBlock />
-      </Styled.AdminMainEditInfoGridBlock>
-    </Styled.AdminMainPaddedBlock>
+      </Styled.AdminEditInfoGridBlock>
+    </Styled.AdminPaddedBlock>
   );
 };
 

@@ -6,17 +6,17 @@ import DropDownElement from "./DropDownElement";
 
 const AdminSidebar = () => {
   return (
-    <Styled.AdminPageSidebar>
+    <Styled.AdminSidebar>
       <Image src={logo} />
-      <Styled.AdminPageSidebarMenu>
+      <Styled.AdminSidebarMenu>
         {["home", "careers", "partners"].map((i) => (
           <DropDownElement value={i} key={Math.random()} />
         ))}
         <Styled.AdminSidebarMenuElement key={Math.random()}>
           settings
         </Styled.AdminSidebarMenuElement>
-      </Styled.AdminPageSidebarMenu>
-    </Styled.AdminPageSidebar>
+      </Styled.AdminSidebarMenu>
+    </Styled.AdminSidebar>
   );
 };
 
