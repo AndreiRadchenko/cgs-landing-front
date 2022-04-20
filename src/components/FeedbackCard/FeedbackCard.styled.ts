@@ -29,7 +29,7 @@ export const FeedbackCardName = styled.h2`
 type starsProps = { rate: number };
 
 export const Stars = styled("div")<starsProps>`
-  display: inline-block;
+  display: block;
   font-size: 25px;
   font-family: Times;
   line-height: 1;
@@ -40,9 +40,11 @@ export const Stars = styled("div")<starsProps>`
     background: linear-gradient(
       90deg,
       ${themes.primary.colors.starActive}
-        ${(prop) => (prop.rate ? css`calc(${prop.rate} / 5 * 99%)` : css`98%`)},
+        ${(prop) =>
+          prop.rate ? css`calc(${prop.rate} / 5 * 98.5%)` : css`98.5%`},
       ${themes.primary.colors.starDisable}
-        ${(prop) => (prop.rate ? css`calc(${prop.rate} / 5 * 99%)` : css`98%`)}
+        ${(prop) =>
+          prop.rate ? css`calc(${prop.rate} / 5 * 98.5%)` : css`98.5%`}
     );
     background-clip: text;
     -webkit-background-clip: text;
