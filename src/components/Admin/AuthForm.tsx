@@ -19,10 +19,7 @@ const AdminAuthForm = () => {
     (values: IAdmin) => authService.adminAuth(values)
   );
 
-  const onSubmit = async (
-    values: IAdmin,
-    resetForm: VoidFunction,
-  ) => {
+  const onSubmit = async (values: IAdmin, resetForm: VoidFunction) => {
     try {
       setErrorMessage("");
       const resp: IRes = await mutateAsync(values);
@@ -37,7 +34,7 @@ const AdminAuthForm = () => {
     <Formik
       initialValues={initAdmin}
       validationSchema={AdminAuthValidation}
-      onSubmit={(values, {resetForm}) => onSubmit(values, resetForm)}
+      onSubmit={(values, { resetForm }) => onSubmit(values, resetForm)}
     >
       {(fprops) => {
         return (
