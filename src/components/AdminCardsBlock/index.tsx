@@ -24,9 +24,17 @@ const AdminCardsBlock = ({ state }: { state: ICards }) => {
           />
         </div>
         {state.cards.map((card, ind) => {
-          return <div><AdminCard key={Math.random()} subtitle={card.subtitle} image={card.image} text={card.text} number={ind + 1} /></div>
+          return (
+            <div key={ind}>
+              <AdminCard
+                subtitle={card.subtitle}
+                image={card.image}
+                text={card.text}
+                number={ind + 1}
+              />
+            </div>
+          );
         })}
-
       </Styled.AdminCardsGrid>
     </Styled.AdminPaddedBlock>
   );

@@ -15,7 +15,6 @@ import mobileTech from "../public/mobileTech.png";
 import ourTeamBig from "../public/ourTeamBig.png";
 import ourTeam from "../public/ourTeam.png";
 import how_we_work1_box from "../public/how_we_work1_box.png";
-import how_we_work1_mouse from "../public/how_we_work1_mouse.png";
 import how_we_work2_bg from "../public/how_we_work2_bg.png";
 import how_we_work3_bg from "../public/how_we_work3_bg.png";
 import how_we_work4_bg from "../public/how_we_work4_bg.png";
@@ -105,33 +104,49 @@ export const dataResponseImitation = {
     techs: [
       {
         subtitle1: "web",
-        text: "React | Angular | Vue",
+        text: `React
+Angular
+Vue`,
         image: laptopTech,
       },
       {
         subtitle1: "mobile",
-        text: "React Native | Dart/Flutter",
+        text: `React Native
+Dart/Flutter`,
         image: mobileTech,
       },
       {
         subtitle1: "server",
-        text: "Node | Express | Sequelize | AWS | MongoDB | MySQL | Docker",
+        text: `Node
+Express
+Sequelize
+AWS
+MongoDB
+MySQL
+Docker`,
         image: databaseTech,
       },
       {
         subtitle1: "blockchain",
-        text: "HFT | Smart contracts | Blockchain | Solidity | Web3",
+        text: `NFT
+Smart contracts
+Blockchain
+Solidity
+Web3`,
         image: blockChainTech,
       },
     ],
   },
   CorporateBlock: {
     subtitle1: "our main goal:",
-    text1:
-      "We change the World in different areas by delivering the best technical solutions and helping people in turning their dreams into life qualitatively.",
+    text1: `We change the World in different areas by delivering the
+best technical solutions and helping people in turning their
+dreams into life qualitatively.`,
     subtitle2: "our philosophy:",
-    text2:
-      "Stunning product is a high-quality code delivered in a timely manner. We take on challenges of any complexity and never give up. Thus our clients always get their needs satisfied.",
+    text2: `Stunning product is a high-quality code delivered
+in a timely manner.
+We take on challenges of any complexity and never give up.
+Thus our clients always get their needs satisfied.`,
     images: [ourTeamBig, ourTeam],
   },
   HowWeWorkBlock: {
@@ -139,39 +154,56 @@ export const dataResponseImitation = {
     blocks: [
       {
         subtitle: "Let`s meet each other!",
-        text:
-          "First call is really important, because here we discuss your ideas in detail: from all non-tech nuances such as terms, freshest thoughts about project overall, functionality etc. to recommendations about stack we should use to meet all your expectations with an outstanding code quality.",
-        image: [how_we_work1_box, how_we_work1_mouse],
+        text: `First call is really important, because here we
+discuss your ideas in detail: from all non-tech nuances
+such as terms, freshest thoughts about project overall,
+functionality etc. to recommendations about stack we should use
+to meet all your expectations with an outstanding code quality.`,
+        image: how_we_work1_box,
       },
       {
         subtitle: "Accurate estimation",
-        text:
-          "Transparency is always a key to a strong relationship, <br /> even if we develop a project :) <br /> So we write down all the needed processes with a quantity of hrs for each, describing the number of devs needed for effective work and some delicious buns from our company which you will definitely love! ;)",
+        text: `Transparency is always a key to a strong
+relationship, even if we develop a project :)
+
+So we write down all the needed processes with a quantity
+of hrs for each, describing the number of devs needed for
+effective work and some delicious buns from our company which
+you will definitely love! ;)`,
         image: how_we_work2_bg,
       },
       {
-        subtitle:
-          "Build <br />the strongest <br />team you have <br />ever dreamed of!",
-        text:
-          "First call is really important, because here we discuss your ideas in detail: from all non-tech nuances such as terms, freshest thoughts about project overall, functionality etc. to recommendations about stack we should use to meet all your expectations with an outstanding code quality.",
+        subtitle: `Build
+the strongest
+team you have
+ever dreamed of!`,
+        text: `First call is really important, because here we
+discuss your ideas in detail: from all non-tech nuances such as
+terms, freshest thoughts about project overall, functionality etc.
+to recommendations about stack we should use to meet allyour
+expectations with an outstanding code quality.`,
         image: how_we_work3_bg,
       },
       {
         subtitle: "To be continued..!",
-        text:
-          "In fact, it is the final call before getting started. <br /> We clarify all the nuances about our cooperation, sign all the needed docs, provide you with access to flows, documents and resources so you do not need to worry. <br /> Just chill and enjoy the process of development, <br /> handled by CGS-team.",
+        text: `In fact, it is the final call before getting started.
+We clarify all the nuances about our cooperation, sign all 
+the needed docs, provide you with access to flows, documents
+and resources so you do not need to worry. Just chill and
+enjoy the process of development,
+handled by CGS-team.`,
         image: how_we_work4_bg,
       },
     ],
   },
   BuildRocketBlock: {
-    subtitle:
-      "And remember: that`s the only <br /> beginning of one pleasant trip <br /> to the stratosphere :)",
+    subtitle: `And remember: that's the only beginning of one pleasant trip to the stratosphere :)`,
     text: "Do you want to build a rocket with CGS-team?",
     button: "yes! begin!",
   },
   ContactFormBlock: {
     subtitle: "Let`s code!",
+    inputs: ["Name", "E-mail", "Your message"]
   },
   FooterBlock: {
     Email: "sales.codegeneration@gmail.com",

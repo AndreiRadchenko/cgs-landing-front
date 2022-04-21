@@ -10,7 +10,7 @@ const AdminFeedback = ({ feedback }: { feedback: IFeedback }) => {
       <Styled.AdminFeedbackStarsBlock>
         <Styled.AdminSubTitle>{feedback.name}</Styled.AdminSubTitle>
         <Styled.AdminFeedbackStars>
-        <AdminStars value={feedback.stars} />
+          <AdminStars value={feedback.stars} />
         </Styled.AdminFeedbackStars>
       </Styled.AdminFeedbackStarsBlock>
       <Styled.AdminParagraph>{feedback.companyName}</Styled.AdminParagraph>

@@ -7,9 +7,7 @@ const AdminButton = () => {
   return (
     <Styled.AdminButton>
       <Image src={buttonBack} />
-      <Styled.AdminButtonText>
-        read more
-      </Styled.AdminButtonText>
+      <Styled.AdminButtonText>read more</Styled.AdminButtonText>
     </Styled.AdminButton>
   );
 };

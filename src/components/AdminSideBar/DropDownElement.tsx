@@ -11,7 +11,8 @@ const DropDownElement = ({ value, onClick, route }: DropdownPropsInterface) => {
   const [drop, setDrop] = useState(false);
 
   const router = useRouter();
-  const currentPath = router.pathname.split("/")[router.pathname.split("/").length-1]
+  const currentPath =
+    router.pathname.split("/")[router.pathname.split("/").length - 1];
 
   const onArrowClick = (e: any) => {
     e.stopPropagation();
@@ -19,7 +20,11 @@ const DropDownElement = ({ value, onClick, route }: DropdownPropsInterface) => {
   };
 
   return (
-    <Styled.AdminSidebarMenuElement onClick={onClick} itemProp={route} property={currentPath}>
+    <Styled.AdminSidebarMenuElement
+      onClick={onClick}
+      itemProp={route}
+      property={currentPath}
+    >
       {value}{" "}
       {drop ? (
         <span onClick={onArrowClick}>

@@ -4,15 +4,15 @@ import { IEditInformation } from "../../types/Admin/Response.types";
 import LeftSideBlock from "./LeftSide";
 import RightSideBlock from "./RightSide";
 
-const EditInformationBlock = ({state}: {state: IEditInformation}) => {
+const EditInformationBlock = ({ state }: { state: IEditInformation }) => {
   return (
     <Styled.AdminPaddedBlock theme="dark">
       <Styled.AdminHeader>Edit Information</Styled.AdminHeader>
 
-      <Styled.AdminEditInfoGridBlock>
+      <Styled.AdminHalfGrid>
         <LeftSideBlock state={state} />
         <RightSideBlock image={state.image} />
-      </Styled.AdminEditInfoGridBlock>
+      </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>
   );
 };

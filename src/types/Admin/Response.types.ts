@@ -64,7 +64,7 @@ export interface ICorporateBlock {
 export interface IHowBlock {
   subtitle: string;
   text: string;
-  image: any | any[];
+  image: any;
 }
 
 export interface IHowWeWorkBlock {
@@ -80,6 +80,7 @@ export interface IBuildRocketBlock {
 
 export interface IContactFormBlock {
   subtitle: string;
+  inputs: string[];
 }
 
 export interface IFooterBlock {

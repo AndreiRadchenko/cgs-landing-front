@@ -75,7 +75,7 @@ export const AdminAddMainLogoBlock = styled.div`
   width: 38%;
 `;
 
-export const AdminEditInfoGridBlock = styled.div`
+export const AdminHalfGrid = styled.div`
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   column-gap: 3rem;
@@ -105,7 +105,7 @@ export const AdminPhotoBlock = styled.div`
 `;
 
 export const AdminPhotoGrid = styled.div`
-  width: 75%;
+  width: 57%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -264,4 +264,36 @@ export const AdminFeedbackArrows = styled.div`
   justify-content: flex-end;
   padding-top: ${themes.primary.spacing.tertiary};
   gap: ${themes.primary.spacing.tertiary};
+`;
+
+export const AdminPhotoDashedHorizontal = styled.div`
+  display: flex;
+  flex-direcrion: row;
+  border: 2px dashed ${themes.primary.colors.primary};
+  padding: 4em 3.5em;
+`;
+
+export const AdminPhotoDashedHorizontalPositoning = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+`;
+
+export const AdminCenteredDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const AdminHowWeWorkImageSize = styled.div`
+  margin-top: 2.2em;
+`;
+
+export const AdminSocialIcon = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+export const AdminTechWrapper = styled.div`
+  height: 21em;
 `;

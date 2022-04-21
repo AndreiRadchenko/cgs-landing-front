@@ -3,7 +3,7 @@ import * as Styled from "../../styles/AdminPage";
 import AddLogoFrame from "./AddLogoFrame";
 import LogoElement from "./LogoElement";
 
-const AdminLogosBlock = ({state}: {state: any[]}) => {
+const AdminLogosBlock = ({ state }: { state: any[] }) => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminSubTitle>Logos</Styled.AdminSubTitle>

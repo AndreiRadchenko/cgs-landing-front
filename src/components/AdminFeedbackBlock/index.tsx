@@ -11,7 +11,7 @@ import Image from "next/image";
 const AdminFeedbackBlock = ({ state }: { state: IFeedbackBlock }) => {
   return (
     <Styled.AdminPaddedBlock>
-      <Styled.AdminEditInfoGridBlock>
+      <Styled.AdminHalfGrid>
         <div>
           <SubHeaderWithInput
             header="Subtitle"
@@ -33,7 +33,7 @@ const AdminFeedbackBlock = ({ state }: { state: IFeedbackBlock }) => {
             <Image src={arrowAdminFeedbackR} />
           </Styled.AdminFeedbackArrows>
         </div>
-      </Styled.AdminEditInfoGridBlock>
+      </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>
   );
 };
