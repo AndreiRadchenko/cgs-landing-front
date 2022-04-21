@@ -1,17 +1,17 @@
 import React from "react";
-import Image from "next/image";
 import * as Styled from "../../styles/AdminPage";
 import { IPhotoBlock } from "../../types/Admin/Admin.types";
+import AdminImage from "./AdminImage";
 
-const PhotoBlockDashed = ({ photo, deleteFlag }: IPhotoBlock) => {
+const PhotoBlockDashed = ({ photo, deleteFlag, header="Drop new image here" }: IPhotoBlock) => {
   return (
     <Styled.AdminPhotoBlock>
       <Styled.AdminPhotoGrid>
-        <Image src={photo} />
+        <AdminImage image={photo} />
       </Styled.AdminPhotoGrid>
       <Styled.AdminDashedPositionGrid>
         <Styled.AdminSubTitle>
-          Drop new image here
+          {header}
         </Styled.AdminSubTitle>
         <Styled.AdminComment>Supports: JPG, PNG</Styled.AdminComment>
         {deleteFlag ? (

@@ -1,6 +1,6 @@
 import React from "react";
 import * as Styled from "../../styles/AdminPage";
-import { IEditInformation } from "../../types/Admin/Admin.types";
+import { IEditInformation } from "../../types/Admin/Response.types";
 import LeftSideBlock from "./LeftSide";
 import RightSideBlock from "./RightSide";
 
@@ -11,7 +11,7 @@ const EditInformationBlock = ({state}: {state: IEditInformation}) => {
 
       <Styled.AdminEditInfoGridBlock>
         <LeftSideBlock state={state} />
-        <RightSideBlock />
+        <RightSideBlock image={state.image} />
       </Styled.AdminEditInfoGridBlock>
     </Styled.AdminPaddedBlock>
   );

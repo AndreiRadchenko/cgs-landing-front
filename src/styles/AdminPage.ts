@@ -27,7 +27,10 @@ export const AdminSidebarMenuElement = styled.li`
   font-size: ${themes.primary.font.size.menuElement};
   font-family: ${themes.primary.font.family.mulish};
   padding-bottom: ${themes.primary.spacing.primary};
-  font-weight: ${(props) => props.itemProp === props.property ? themes.primary.font.weight.bold : themes.primary.font.weight.normal};
+  font-weight: ${(props) =>
+    props.itemProp === props.property
+      ? themes.primary.font.weight.bold
+      : themes.primary.font.weight.normal};
   cursor: pointer;
 `;
 
@@ -105,6 +108,8 @@ export const AdminPhotoGrid = styled.div`
   width: 75%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100%;
 `;
 
 export const AdminDashedPositionGrid = styled.div`
@@ -173,4 +178,90 @@ export const AdminAddLogoBlock = styled.div`
   align-items: center;
   flex-direction: column;
   border: 2px dashed ${themes.primary.colors.primary};
+`;
+
+export const AdminCardsGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3em;
+  row-gap: 4em;
+`;
+
+export const AdminFeedbackFrame = styled.div`
+  position: relative;
+  border: 1px solid ${themes.primary.colors.primary};
+  padding: 5em 5em 4em 5em;
+`;
+
+export const AdminParagraph = styled.p`
+  font-family: ${themes.primary.font.family.mulish};
+  font-size: ${themes.primary.font.size.tertiary};
+  letter-spacing: 1px;
+`;
+
+export const AdminFeedbackRole = styled.h4`
+  background: ${themes.primary.colors.feedbackRole};
+  border-radius: 5px;
+  font-size: ${themes.primary.font.size.buttonText};
+  font-family: ${themes.primary.font.family.mulish};
+  font-weight: ${themes.primary.font.weight.normal};
+  width: fit-content;
+  padding: 1px 6px;
+  margin: -5px 0 0 0;
+`;
+
+export const AdminButton = styled.button`
+  background: none;
+  border: 0;
+  padding: 0;
+  width: 40%;
+  margin-left: -1.3em;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const AdminButtonText = styled.span`
+  position: absolute;
+  font-size: ${themes.primary.font.size.linkText}
+`;
+
+export const AdminDeleteTextThin = styled.span`
+  position: absolute;
+  color: ${themes.primary.colors.errorText};
+  right: 1.5em;
+  bottom: 1.1em;
+  font-size: ${themes.primary.font.size.tertiary};
+  font-weight: 500;
+`;
+
+export const AdminFeedbackStarsBlock = styled.div`
+  display: flex;
+`;
+
+export const AdminFeedbackStars = styled.div`
+  margin: -0.4em 0 0 2em;
+  height: fit-content;
+`;
+
+export const AdminStarsGrid = styled.div`
+  display: grid;
+  grid-template-columns: 2.3fr 1fr;
+  column-gap: 3em;
+`;
+
+export const AdminBigButton = styled.button`
+  width: 100%;
+  background: ${themes.primary.colors.cardDarkGreen};
+  border: 0;
+  font-size: ${themes.primary.font.size.buttonText};
+  padding: ${themes.primary.spacing.primary};
+`;
+
+export const AdminFeedbackArrows = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding-top: ${themes.primary.spacing.tertiary};
+  gap: ${themes.primary.spacing.tertiary};
 `;

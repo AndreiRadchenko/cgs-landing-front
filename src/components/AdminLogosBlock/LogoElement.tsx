@@ -1,12 +1,12 @@
-import Image from "next/image";
 import React from "react";
 import * as Styled from "../../styles/AdminPage";
+import AdminImage from "../AdminPageGlobal/AdminImage";
 
-const LogoElement = (props: { image: any }) => {
+const LogoElement = ({ image }: { image: any }) => {
   return (
     <Styled.AdminLogoElement>
       <Styled.AdminDeleteLogo>&#10005;</Styled.AdminDeleteLogo>
-      <Image src={props.image} />
+      <AdminImage image={image} />
     </Styled.AdminLogoElement>
   );
 };

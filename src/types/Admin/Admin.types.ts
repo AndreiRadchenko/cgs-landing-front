@@ -10,11 +10,13 @@ export interface IRes {
 export interface IPhotoBlock {
   photo: any;
   deleteFlag?: boolean;
+  header?: string;
 }
 
 export interface InputPropsInterface {
   inputValue: string;
   onChangeFunction: () => void;
+  limit?: number;
 }
 
 export interface DropdownPropsInterface {
@@ -29,24 +31,4 @@ export interface InputWithHeader extends InputPropsInterface {
 
 export interface InputWithImage extends InputPropsInterface {
   photo: any;
-}
-
-export interface IEditInformation {
-  title: string;
-  text: string;
-  text2: string;
-  button: string;
-}
-
-export interface ISubtitle {
-  title: string;
-  elements: string[];
-  firstText2: string;
-  text3: string;
-  secondText2: string;
-}
-
-export interface IDataResponse {
-  EditInformation: IEditInformation;
-  Subtitle: ISubtitle;
 }

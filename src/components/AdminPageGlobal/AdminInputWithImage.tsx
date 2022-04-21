@@ -9,7 +9,7 @@ const AdminInputWithImage = ({photo, inputValue, onChangeFunction}: InputWithIma
       <PhotoBlockDashed photo={photo} deleteFlag={true} />
       <br />
       <div>
-        <Styled.AdminInput value={inputValue} onChange={onChangeFunction} rows={Math.ceil(inputValue.length / 60)} />
+        <Styled.AdminInput value={inputValue} onChange={onChangeFunction} rows={Math.ceil(inputValue.length / 40)} />
       </div>
     </Styled.AdminFlyingElement>
   );

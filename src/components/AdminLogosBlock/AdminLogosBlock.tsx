@@ -2,16 +2,15 @@ import React from "react";
 import * as Styled from "../../styles/AdminPage";
 import AddLogoFrame from "./AddLogoFrame";
 import LogoElement from "./LogoElement";
-import { logos } from "./logos";
 
-const AdminLogosBlock = () => {
+const AdminLogosBlock = ({state}: {state: any[]}) => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminSubTitle>Logos</Styled.AdminSubTitle>
 
       <Styled.AdminLogosGrid>
         <AddLogoFrame />
-        {logos.map((i) => (
+        {state.map((i) => (
           <LogoElement image={i} key={Math.random()} />
         ))}
       </Styled.AdminLogosGrid>

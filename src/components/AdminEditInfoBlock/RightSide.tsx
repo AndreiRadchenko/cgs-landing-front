@@ -1,14 +1,13 @@
 import React from "react";
 import * as Styled from "../../styles/AdminPage";
-import mainPhoto from "../../../public/mainLogo.png";
 import PhotoBlockDashed from "../AdminPageGlobal/PhotoBlockDashed";
 
-const RightSideBlock = () => {
+const RightSideBlock = ({image}: any) => {
   return (
     <div>
       <Styled.AdminSubTitle>Main page photo</Styled.AdminSubTitle>
       <div>
-        <PhotoBlockDashed photo={mainPhoto} deleteFlag={true} />
+        <PhotoBlockDashed photo={image} deleteFlag={true} />
       </div>
       <br />
     </div>

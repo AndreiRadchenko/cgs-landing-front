@@ -1,5 +1,5 @@
 import React from "react";
-import { IEditInformation } from "../../types/Admin/Admin.types";
+import { IEditInformation } from "../../types/Admin/Response.types";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 
 const LeftSideBlock = ({state}: {state: IEditInformation}) => {

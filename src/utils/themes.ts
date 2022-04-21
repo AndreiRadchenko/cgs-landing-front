@@ -64,7 +64,6 @@ const themes = {
       lighten: {
         blue: "#A6D0FF",
         orange: "#FFCE85",
-
         green: "#CAFF9D",
       },
       lightShadows: "lightgray",
@@ -72,7 +71,8 @@ const themes = {
       grayBack: "#EFEEEE",
       comment: "#8F8E93",
       darkedGrayBack: "#DDDBDB",
-      deleteButton: "#F80909"
+      deleteButton: "#F80909",
+      feedbackRole: "#A9CDF5",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",
