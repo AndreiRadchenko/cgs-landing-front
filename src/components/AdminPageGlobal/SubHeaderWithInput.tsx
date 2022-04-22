@@ -8,6 +8,7 @@ const SubHeaderWithInput = ({
   onChangeFunction,
   limit = 60,
   rows,
+  name
 }: InputWithHeader) => {
   return (
     <>
@@ -16,6 +17,7 @@ const SubHeaderWithInput = ({
         value={inputValue}
         onChange={onChangeFunction}
         rows={rows || Math.ceil(inputValue.length / limit)}
+        name={name}
       />
     </>
   );

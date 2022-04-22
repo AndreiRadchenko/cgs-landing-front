@@ -8,20 +8,22 @@ import arrowAdminFeedbackL from "../../../public/arrowAdminFeedbackL.svg";
 import arrowAdminFeedbackR from "../../../public/arrowAdminFeedbackR.svg";
 import Image from "next/image";
 
-const AdminFeedbackBlock = ({ state }: { state: IFeedbackBlock }) => {
+const AdminFeedbackBlock = ({ state, onChangeFunction }: { state: IFeedbackBlock, onChangeFunction: any }) => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
         <div>
           <SubHeaderWithInput
             header="Subtitle"
+            name="FeedbackBlock.subtitle"
             inputValue={state.subtitle}
-            onChangeFunction={() => {}}
+            onChangeFunction={onChangeFunction}
           />
           <SubHeaderWithInput
             header="Text 3"
+            name="FeedbackBlock.text3"
             inputValue={state.text3}
-            onChangeFunction={() => {}}
+            onChangeFunction={onChangeFunction}
           />
         </div>
         <div />

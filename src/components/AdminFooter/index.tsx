@@ -1,28 +1,31 @@
+import { FieldArray } from "formik";
 import React from "react";
 import * as Styled from "../../styles/AdminPage";
 import { IFooterBlock } from "../../types/Admin/Response.types";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
+import AdminFooterLinks from "./AdminFooterLinks";
 import AdminSocialMediaIcon from "./AdminSocialMediaIcon";
 
-const AdminFooterBlock = ({ state }: { state: IFooterBlock }) => {
+const AdminFooterBlock = ({
+  state,
+  onChangeFunction,
+}: {
+  state: IFooterBlock;
+  onChangeFunction: any;
+}) => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
         <div>
           <SubHeaderWithInput
             header="Email adress"
+            name="FooterBlock.Email"
             inputValue={state.Email}
-            onChangeFunction={() => {}}
+            onChangeFunction={onChangeFunction}
           />
-          {state.links.map((i, ind) => (
-            <div key={Math.random()}>
-              <SubHeaderWithInput
-                header={`Add link ${ind + 1}`}
-                inputValue={i}
-                onChangeFunction={() => {}}
-              />
-            </div>
-          ))}
+          <FieldArray name="FooterBlock.links">
+            {() => <AdminFooterLinks state={state.links} onChangeFunction={onChangeFunction} />}
+          </FieldArray>
         </div>
         <Styled.AdminCardsGrid>
           {state.images.map((i, ind) => (

@@ -4,8 +4,10 @@ import PhotoBlockDashed from "../AdminPageGlobal/PhotoBlockDashed";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 import { ISubtitle } from "../../types/Admin/Response.types";
 import AdminInputWithImage from "../AdminPageGlobal/AdminInputWithImage";
+import { FieldArray } from "formik";
+import AdminSubtitleFlyingList from "./AdminSubtitleFlyingList";
 
-const SubtitleBlock = ({ state }: { state: ISubtitle }) => {
+const SubtitleBlock = ({ state, onChangeFunction }: { state: ISubtitle, onChangeFunction: any }) => {
   return (
     <>
       <Styled.AdminPaddedBlock>
@@ -14,23 +16,15 @@ const SubtitleBlock = ({ state }: { state: ISubtitle }) => {
             <SubHeaderWithInput
               header="Subtitle"
               inputValue={state.title}
-              onChangeFunction={() => {}}
+              name="SubtitleBlock.title"
+              onChangeFunction={onChangeFunction}
             />
           </div>
         </Styled.AdminHalfGrid>
         <br />
-        <Styled.AdminFlyingElementsBlock>
-          {state.elements.map((i) => {
-            return (
-              <AdminInputWithImage
-                key={Math.random()}
-                photo={i.image}
-                inputValue={i.text}
-                onChangeFunction={() => {}}
-              />
-            );
-          })}
-        </Styled.AdminFlyingElementsBlock>
+        <FieldArray name="SubtitleBlock.elements">
+          {() => <AdminSubtitleFlyingList state={state} onChangeFunction={onChangeFunction} />}
+        </FieldArray>
       </Styled.AdminPaddedBlock>
 
       <Styled.AdminPaddedBlock>
@@ -38,18 +32,21 @@ const SubtitleBlock = ({ state }: { state: ISubtitle }) => {
           <div>
             <SubHeaderWithInput
               header="Text 2"
+              name="SubtitleBlock.firstText2"
               inputValue={state.firstText2}
-              onChangeFunction={() => {}}
+              onChangeFunction={onChangeFunction}
             />
             <SubHeaderWithInput
               header="Text 3"
+              name="SubtitleBlock.text3"
               inputValue={state.text3}
-              onChangeFunction={() => {}}
+              onChangeFunction={onChangeFunction}
             />
             <SubHeaderWithInput
               header="Text 2"
+              name="SubtitleBlock.secondText2"
               inputValue={state.secondText2}
-              onChangeFunction={() => {}}
+              onChangeFunction={onChangeFunction}
             />
           </div>
           <Styled.AdminTecBottleDiv>

@@ -4,29 +4,30 @@ import * as Styled from "../../styles/AdminPage";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 import { ITech } from "../../types/Admin/Response.types";
 
-const AdminTech = ({ subtitle1, text, image }: ITech) => {
+const AdminTech = ({ info, onChangeFunction, ind }: {info: ITech, onChangeFunction: any, ind: number}) => {
   return (
     <Styled.AdminCardsGrid>
       <div>
         <SubHeaderWithInput
           header="Subtitle 1"
-          inputValue={subtitle1}
-          onChangeFunction={() => {}}
+          name={`TechnologyBlock.techs.${ind}.subtitle1`}
+          inputValue={info.subtitle1}
+          onChangeFunction={onChangeFunction}
           limit={28}
         />
         <SubHeaderWithInput
           header="Text"
-          inputValue={text.replaceAll("|", "")}
-          onChangeFunction={() => {}}
+          name={`TechnologyBlock.techs.${ind}.text`}
+          inputValue={info.text}
+          onChangeFunction={onChangeFunction}
           rows={
-            text.split(`
-`).length
+            info.text.split("\n").length
           }
         />
       </div>
       <Styled.AdminTechWrapper>
         <PhotoBlockDashed
-          photo={image}
+          photo={info.image}
           header="+ Add image here"
           deleteFlag={true}
         />

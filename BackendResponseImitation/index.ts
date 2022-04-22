@@ -104,49 +104,39 @@ export const dataResponseImitation = {
     techs: [
       {
         subtitle1: "web",
-        text: `React
-Angular
-Vue`,
+        text: "React\nAngular\nVue",
         image: laptopTech,
       },
       {
         subtitle1: "mobile",
-        text: `React Native
-Dart/Flutter`,
+        text: "React Native\nDart/Flutter",
         image: mobileTech,
       },
       {
         subtitle1: "server",
-        text: `Node
-Express
-Sequelize
-AWS
-MongoDB
-MySQL
-Docker`,
+        text: "Node\nExpress\nSequelize\nAWS\nMongoDB\nMySQL\nDocker",
         image: databaseTech,
       },
       {
         subtitle1: "blockchain",
-        text: `NFT
-Smart contracts
-Blockchain
-Solidity
-Web3`,
+        text: "NFT\nSmart contracts\nBlockchain\nSolidity\nWeb3",
         image: blockChainTech,
       },
     ],
   },
   CorporateBlock: {
-    subtitle1: "our main goal:",
-    text1: `We change the World in different areas by delivering the
-best technical solutions and helping people in turning their
-dreams into life qualitatively.`,
-    subtitle2: "our philosophy:",
-    text2: `Stunning product is a high-quality code delivered
-in a timely manner.
-We take on challenges of any complexity and never give up.
-Thus our clients always get their needs satisfied.`,
+    blocks: [
+      {
+        subtitle: "our main goal:",
+        text:
+          "We change the World in different areas by delivering the\nbest technical solutions and helping people in turning their\ndreams into life qualitatively.",
+      },
+      {
+        subtitle: "our philosophy:",
+        text:
+          "Stunning product is a high-quality code delivered\nin a timely manner.\nWe take on challenges of any complexity and never give up.\nThus our clients always get their needs satisfied.",
+      },
+    ],
     images: [ourTeamBig, ourTeam],
   },
   HowWeWorkBlock: {
@@ -154,64 +144,47 @@ Thus our clients always get their needs satisfied.`,
     blocks: [
       {
         subtitle: "Let`s meet each other!",
-        text: `First call is really important, because here we
-discuss your ideas in detail: from all non-tech nuances
-such as terms, freshest thoughts about project overall,
-functionality etc. to recommendations about stack we should use
-to meet all your expectations with an outstanding code quality.`,
+        text:
+          "First call is really important, because here we\ndiscuss your ideas in detail: from all non-tech nuances\nsuch as terms, freshest thoughts about project overall,\nfunctionality etc. to recommendations about stack we should use\nto meet all your expectations with an outstanding code quality.",
         image: how_we_work1_box,
       },
       {
         subtitle: "Accurate estimation",
-        text: `Transparency is always a key to a strong
-relationship, even if we develop a project :)
-
-So we write down all the needed processes with a quantity
-of hrs for each, describing the number of devs needed for
-effective work and some delicious buns from our company which
-you will definitely love! ;)`,
+        text:
+          "Transparency is always a key to a strong\nrelationship, even if we develop a project :)\n\nSo we write down all the needed processes with a quantity\nof hrs for each, describing the number of devs needed for\neffective work and some delicious buns from our company which\nyou will definitely love! ;)",
         image: how_we_work2_bg,
       },
       {
-        subtitle: `Build
-the strongest
-team you have
-ever dreamed of!`,
-        text: `First call is really important, because here we
-discuss your ideas in detail: from all non-tech nuances such as
-terms, freshest thoughts about project overall, functionality etc.
-to recommendations about stack we should use to meet allyour
-expectations with an outstanding code quality.`,
+        subtitle: "Build\nthe strongest\nteam you have\never dreamed of!",
+        text:
+          "First call is really important, because here we\ndiscuss your ideas in detail: from all non-tech nuances such as\nterms, freshest thoughts about project overall, functionality etc.\nto recommendations about stack we should use to meet allyour\nexpectations with an outstanding code quality.",
         image: how_we_work3_bg,
       },
       {
         subtitle: "To be continued..!",
-        text: `In fact, it is the final call before getting started.
-We clarify all the nuances about our cooperation, sign all 
-the needed docs, provide you with access to flows, documents
-and resources so you do not need to worry. Just chill and
-enjoy the process of development,
-handled by CGS-team.`,
+        text:
+          "In fact, it is the final call before getting started. \nWe clarify all the nuances about our cooperation, sign all \nthe needed docs, provide you with access to flows, documents\nand resources so you do not need to worry. Just chill and\nenjoy the process of development, \nhandled by CGS-team.",
         image: how_we_work4_bg,
       },
     ],
   },
   BuildRocketBlock: {
-    subtitle: `And remember: that's the only beginning of one pleasant trip to the stratosphere :)`,
+    subtitle:
+      "And remember: that's the only beginning of one pleasant trip to the stratosphere :)",
     text: "Do you want to build a rocket with CGS-team?",
     button: "yes! begin!",
   },
   ContactFormBlock: {
     subtitle: "Let`s code!",
-    inputs: ["Name", "E-mail", "Your message"]
+    inputs: ["Name", "E-mail", "Your message"],
   },
   FooterBlock: {
     Email: "sales.codegeneration@gmail.com",
     links: [
-      "https://www.linkedin.com/company/cgs-team/mycompany/",
-      "https://www.linkedin.com/company/cgs-team/mycompany/",
-      "https://www.linkedin.com/company/cgs-team/mycompany/",
-      "https://www.linkedin.com/company/cgs-team/mycompany/",
+      { value: "https://www.linkedin.com/company/cgs-team/mycompany/" },
+      { value: "https://www.linkedin.com/company/cgs-team/mycompany/" },
+      { value: "https://www.linkedin.com/company/cgs-team/mycompany/" },
+      { value: "https://www.linkedin.com/company/cgs-team/mycompany/" },
     ],
     images: [github, upwork, ci, linked],
   },

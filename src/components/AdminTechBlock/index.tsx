@@ -1,10 +1,17 @@
+import { FieldArray } from "formik";
 import React from "react";
 import * as Styled from "../../styles/AdminPage";
 import { ITechnologyBlock } from "../../types/Admin/Response.types";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
-import AdminTech from "./AdminTech";
+import AdminTechList from "./AdminTechList";
 
-const AdminTechBlock = ({ state }: { state: ITechnologyBlock }) => {
+const AdminTechBlock = ({
+  state,
+  onChangeFunction,
+}: {
+  state: ITechnologyBlock;
+  onChangeFunction: any;
+}) => {
   return (
     <Styled.AdminPaddedBlock theme="dark">
       <Styled.AdminCardsGrid>
@@ -12,21 +19,17 @@ const AdminTechBlock = ({ state }: { state: ITechnologyBlock }) => {
           <SubHeaderWithInput
             header="Subtitle"
             inputValue={state.subtitle}
-            onChangeFunction={() => {}}
+            name="TechnologyBlock.subtitle"
+            onChangeFunction={onChangeFunction}
           />
         </div>
-        <div></div>
-        {state.techs.map((i) => {
-          return (
-            <AdminTech
-              key={Math.random()}
-              subtitle1={i.subtitle1}
-              text={i.text}
-              image={i.image}
-            />
-          );
-        })}
-      </Styled.AdminCardsGrid>
+        </Styled.AdminCardsGrid>
+        <FieldArray name="TechnologyBlock.techs">
+          {() => (
+            <AdminTechList state={state} onChangeFunction={onChangeFunction} />
+          )}
+        </FieldArray>
+      
     </Styled.AdminPaddedBlock>
   );
 };

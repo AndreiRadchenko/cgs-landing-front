@@ -4,24 +4,34 @@ import * as Styled from "../../styles/AdminPage";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 import { ICard } from "../../types/Admin/Response.types";
 
-const AdminCard = ({ subtitle, text, image, number }: ICard) => {
+const AdminCard = ({
+  info,
+  number,
+  onChangeFunction,
+}: {
+  info: ICard;
+  number: number;
+  onChangeFunction: any;
+}) => {
   return (
     <Styled.AdminCardsGrid>
       <div>
         <SubHeaderWithInput
+        name={`CardsBlock.cards.${number-1}.subtitle`}
           header={`${number} Card subtitle`}
-          inputValue={subtitle}
-          onChangeFunction={() => {}}
+          inputValue={info.subtitle}
+          onChangeFunction={onChangeFunction}
           limit={28}
         />
         <SubHeaderWithInput
+        name={`CardsBlock.cards.${number-1}.text`}
           header="Text 5"
-          inputValue={text}
-          onChangeFunction={() => {}}
+          inputValue={info.text}
+          onChangeFunction={onChangeFunction}
           limit={28}
         />
       </div>
-      <PhotoBlockDashed photo={image} header="+ Add Icon" deleteFlag={true} />
+      <PhotoBlockDashed photo={info.image} header="+ Add Icon" deleteFlag={true} />
     </Styled.AdminCardsGrid>
   );
 };

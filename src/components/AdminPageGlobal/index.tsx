@@ -14,25 +14,69 @@ import AdminHowWeWorkBlock from "../AdminHowWeWorkBlock";
 import AdminBuildRocketBlock from "../AdminBuildRocketBlock";
 import AdminContactFormBlock from "../AdminContactBlock";
 import AdminFooterBlock from "../AdminFooter";
+import { Form, Formik } from "formik";
 
 const data: IDataResponse = dataResponseImitation;
 
 const AdminMainContent = () => {
   return (
-    <Styled.AdminContentBlock>
-      <FirstAdminBlock />
-      <EditInformationBlock state={data.EditInformationBlock} />
-      <SubtitleBlock state={data.SubtitleBlock} />
-      <AdminLogosBlock state={data.LogosBlock} />
-      <AdminCardsBlock state={data.CardsBlock} />
-      <AdminFeedbackBlock state={data.FeedbackBlock} />
-      <AdminTechBlock state={data.TechnologyBlock} />
-      <AdminCorporateBlock state={data.CorporateBlock} />
-      <AdminHowWeWorkBlock state={data.HowWeWorkBlock} />
-      <AdminBuildRocketBlock state={data.BuildRocketBlock} />
-      <AdminContactFormBlock state={data.ContactFormBlock} />
-      <AdminFooterBlock state={data.FooterBlock} />
-    </Styled.AdminContentBlock>
+    <Formik
+      initialValues={data}
+      onSubmit={(values) => console.log(values)}
+      validateOnChange={false}
+    >
+      {(props) => {
+        return (
+          <Styled.AdminContentBlock>
+            <Form>
+              <FirstAdminBlock />
+              <EditInformationBlock
+                state={props.values.EditInformationBlock}
+                onChangeFunction={props.handleChange}
+              />
+              <SubtitleBlock
+                state={props.values.SubtitleBlock}
+                onChangeFunction={props.handleChange}
+              />
+              <AdminLogosBlock state={props.values.LogosBlock} />
+              <AdminCardsBlock
+                state={props.values.CardsBlock}
+                onChangeFunction={props.handleChange}
+              />
+              <AdminFeedbackBlock
+                state={props.values.FeedbackBlock}
+                onChangeFunction={props.handleChange}
+              />
+              <AdminTechBlock
+                state={props.values.TechnologyBlock}
+                onChangeFunction={props.handleChange}
+              />
+              <AdminCorporateBlock
+                state={props.values.CorporateBlock}
+                onChangeFunction={props.handleChange}
+              />
+              <AdminHowWeWorkBlock
+                state={props.values.HowWeWorkBlock}
+                onChangeFunction={props.handleChange}
+              />
+              <AdminBuildRocketBlock
+                state={props.values.BuildRocketBlock}
+                onChangeFunction={props.handleChange}
+              />
+              <AdminContactFormBlock
+                state={props.values.ContactFormBlock}
+                onChangeFunction={props.handleChange}
+              />
+              <AdminFooterBlock
+                state={props.values.FooterBlock}
+                onChangeFunction={props.handleChange}
+              />
+              <button type="submit">submit</button>
+            </Form>
+          </Styled.AdminContentBlock>
+        );
+      }}
+    </Formik>
   );
 };
 

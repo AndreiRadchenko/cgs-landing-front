@@ -1,10 +1,17 @@
+import { FieldArray } from "formik";
 import React from "react";
 import * as Styled from "../../styles/AdminPage";
 import { ICards } from "../../types/Admin/Response.types";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
-import AdminCard from "./AdminCard";
+import AdminCardsList from "./AdminCardsList";
 
-const AdminCardsBlock = ({ state }: { state: ICards }) => {
+const AdminCardsBlock = ({
+  state,
+  onChangeFunction,
+}: {
+  state: ICards;
+  onChangeFunction: any;
+}) => {
   return (
     <Styled.AdminPaddedBlock theme={"dark"}>
       <br />
@@ -12,30 +19,28 @@ const AdminCardsBlock = ({ state }: { state: ICards }) => {
         <div>
           <SubHeaderWithInput
             header="Text 4"
+            name="CardsBlock.text4"
             inputValue={state.text4}
-            onChangeFunction={() => {}}
+            onChangeFunction={onChangeFunction}
           />
         </div>
         <div>
           <SubHeaderWithInput
             header="Button"
+            name="CardsBlock.button"
             inputValue={state.button}
-            onChangeFunction={() => {}}
+            onChangeFunction={onChangeFunction}
           />
         </div>
-        {state.cards.map((card, ind) => {
-          return (
-            <div key={ind}>
-              <AdminCard
-                subtitle={card.subtitle}
-                image={card.image}
-                text={card.text}
-                number={ind + 1}
-              />
-            </div>
-          );
-        })}
       </Styled.AdminCardsGrid>
+      <FieldArray name="CardsBlock.cards">
+        {() => (
+          <AdminCardsList
+            state={state.cards}
+            onChangeFunction={onChangeFunction}
+          />
+        )}
+      </FieldArray>
     </Styled.AdminPaddedBlock>
   );
 };

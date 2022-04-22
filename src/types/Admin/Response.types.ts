@@ -19,7 +19,6 @@ export interface ICard {
   subtitle: string;
   text: string;
   image: any;
-  number?: number;
 }
 
 export interface ICards {
@@ -54,10 +53,7 @@ export interface ITechnologyBlock {
 }
 
 export interface ICorporateBlock {
-  subtitle1: string;
-  text1: string;
-  subtitle2: string;
-  text2: string;
+  blocks: { subtitle: string; text: string }[];
   images: any[];
 }
 
@@ -85,7 +81,7 @@ export interface IContactFormBlock {
 
 export interface IFooterBlock {
   Email: string;
-  links: string[];
+  links: { value: string }[];
   images: any[];
 }
 

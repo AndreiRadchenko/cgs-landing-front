@@ -18,6 +18,7 @@ export interface InputPropsInterface {
   onChangeFunction: () => void;
   limit?: number;
   rows?: number;
+  name?: string;
 }
 
 export interface DropdownPropsInterface {
