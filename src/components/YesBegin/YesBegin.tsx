@@ -28,8 +28,8 @@ const YesBegin = ({ clickHandler }: IYesBeginProps) => {
           <ButtonTextWrapper fontSize="2em">yes! begin!</ButtonTextWrapper>
         </BaseButton>
       </Styles.ButtonContainer>
-      <Styles.Circle>
-        <Styles.ImageContainer isClicked={isClicked}>
+      <Styles.Circle isClicked={isClicked}>
+        <Styles.ImageContainer>
           <ImagePreview src="/rocket.png" layout="fill" alt="rocket" />
         </Styles.ImageContainer>
       </Styles.Circle>
