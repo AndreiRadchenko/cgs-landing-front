@@ -81,9 +81,9 @@ const themes = {
       maxTabletPortrait: "(max-width: 992px)",
       maxTabletLandScape: "(max-width: 1200px)",
       maxLaptop: "(max-width: 1500px)",
-      onlyTabletPortrait: "(min-width: 768px) and (max-width: 992px)",
+      onlyTabletPortrait: "(min-width: 768px) and (max-width: 991px)",
       onlyTabletLandScape: "(min-width: 992px) and (max-width: 1199px)",
-      onlyLaptop: "(min-width: 1199px) and (max-width: 1500px)",
+      onlyLaptop: "(min-width: 1200px) and (max-width: 1500px)",
     },
   },
 };
