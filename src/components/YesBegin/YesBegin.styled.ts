@@ -15,7 +15,6 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   font-size: 4em;
-  /* width: 60%; */
   text-align: center;
   margin: 0;
   max-width: 14em;

@@ -24,7 +24,12 @@ export const StyledButton = styled.button.attrs(
     border: none;
     background-color: transparent;
     letter-spacing: ${props.letterSpacing};
+    transition: all 0.3s;
   `}
+
+  &:hover, &:active {
+    transform: scale(1.2);
+  }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     width: 13em;
