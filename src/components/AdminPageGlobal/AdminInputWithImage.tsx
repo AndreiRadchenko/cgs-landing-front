@@ -18,7 +18,6 @@ const AdminInputWithImage = ({
           name={name}
           value={inputValue}
           onChange={onChangeFunction}
-          rows={Math.ceil(inputValue.length / 35)}
         />
       </div>
     </Styled.AdminFlyingElement>

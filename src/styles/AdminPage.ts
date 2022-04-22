@@ -1,3 +1,4 @@
+import { TextareaAutosize } from '@mui/material';
 import styled from "styled-components";
 import themes from "../utils/themes";
 
@@ -81,7 +82,7 @@ export const AdminHalfGrid = styled.div`
   column-gap: 3rem;
 `;
 
-export const AdminInput = styled.textarea`
+export const AdminInput = styled(TextareaAutosize)`
   resize: none;
   width: 100%;
   font-size: ${themes.primary.font.size.linkText};
@@ -214,7 +215,7 @@ export const AdminButton = styled.button`
   background: none;
   border: 0;
   padding: 0;
-  width: 40%;
+  width: 12em;
   margin-left: -1.3em;
   position: relative;
   display: flex;
@@ -224,7 +225,7 @@ export const AdminButton = styled.button`
 
 export const AdminButtonText = styled.span`
   position: absolute;
-  font-size: ${themes.primary.font.size.linkText}
+  font-size: ${themes.primary.font.size.linkText};
 `;
 
 export const AdminDeleteTextThin = styled.span`
@@ -237,18 +238,37 @@ export const AdminDeleteTextThin = styled.span`
 `;
 
 export const AdminFeedbackStarsBlock = styled.div`
-  display: flex;
+  display: block;
+  white-space: nowrap;
+  @media ${themes.primary.media.minLaptop} {
+    display: flex;
+  }
 `;
 
 export const AdminFeedbackStars = styled.div`
-  margin: -0.4em 0 0 2em;
+  @media ${themes.primary.media.minLaptop} {
+    margin: -0.4em 0 0 2em;
+  }
+  margin: 0;
   height: fit-content;
 `;
 
 export const AdminStarsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 2.3fr 1fr;
-  column-gap: 3em;
+  display: flex;
+  gap: 2em;
+`;
+
+export const AdminStarsFlex = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+  width: 28em;
+  @media ${themes.primary.media.minLaptop} {
+    width: 25em;
+  }
+  @media ${themes.primary.media.minPC} {
+    width: 22em;
+  }
 `;
 
 export const AdminBigButton = styled.button`

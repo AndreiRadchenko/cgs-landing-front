@@ -16,8 +16,6 @@ export interface IPhotoBlock {
 export interface InputPropsInterface {
   inputValue: string;
   onChangeFunction: () => void;
-  limit?: number;
-  rows?: number;
   name?: string;
 }
 

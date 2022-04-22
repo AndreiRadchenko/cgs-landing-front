@@ -13,16 +13,12 @@ const AdminTech = ({ info, onChangeFunction, ind }: {info: ITech, onChangeFuncti
           name={`TechnologyBlock.techs.${ind}.subtitle1`}
           inputValue={info.subtitle1}
           onChangeFunction={onChangeFunction}
-          limit={28}
         />
         <SubHeaderWithInput
           header="Text"
           name={`TechnologyBlock.techs.${ind}.text`}
           inputValue={info.text}
           onChangeFunction={onChangeFunction}
-          rows={
-            info.text.split("\n").length
-          }
         />
       </div>
       <Styled.AdminTechWrapper>

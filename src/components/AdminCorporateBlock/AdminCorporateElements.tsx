@@ -24,7 +24,6 @@ const AdminCorporateElements = ({
               name={`CorporateBlock.blocks.${ind}.text`}
               header="Text"
               inputValue={i.text}
-              rows={i.text.split(`\n`).length}
               key={`corporateText${ind}`}
               onChangeFunction={onChangeFunction}
             />

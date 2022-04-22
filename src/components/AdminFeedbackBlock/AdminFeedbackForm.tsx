@@ -6,15 +6,17 @@ const AdminFeedbackForm = () => {
   return (
     <div>
       <Styled.AdminStarsGrid>
-        <Styled.AdminInput rows={1} placeholder="Name" />
+        <Styled.AdminInput placeholder="Name" />
+        <Styled.AdminStarsFlex>
         <AdminStars value={1} size={38} />
+        </Styled.AdminStarsFlex>
       </Styled.AdminStarsGrid>
       <div>
-        <Styled.AdminInput rows={1} placeholder="Company" />
-        <Styled.AdminInput rows={1} placeholder="Position" />
-        <Styled.AdminInput rows={3} placeholder="Text" />
+        <Styled.AdminInput placeholder="Company" />
+        <Styled.AdminInput placeholder="Position" />
+        <Styled.AdminInput placeholder="Text" />
         <Styled.AdminSubTitle>Button</Styled.AdminSubTitle>
-        <Styled.AdminInput placeholder="Text" rows={1} />
+        <Styled.AdminInput placeholder="Text" />
         <Styled.AdminBigButton>Add Review</Styled.AdminBigButton>
       </div>
     </div>

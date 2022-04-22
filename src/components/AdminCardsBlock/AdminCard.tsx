@@ -21,14 +21,12 @@ const AdminCard = ({
           header={`${number} Card subtitle`}
           inputValue={info.subtitle}
           onChangeFunction={onChangeFunction}
-          limit={28}
         />
         <SubHeaderWithInput
         name={`CardsBlock.cards.${number-1}.text`}
           header="Text 5"
           inputValue={info.text}
           onChangeFunction={onChangeFunction}
-          limit={28}
         />
       </div>
       <PhotoBlockDashed photo={info.image} header="+ Add Icon" deleteFlag={true} />

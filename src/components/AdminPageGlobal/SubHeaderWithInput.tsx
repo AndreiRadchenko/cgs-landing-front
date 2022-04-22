@@ -6,8 +6,6 @@ const SubHeaderWithInput = ({
   header,
   inputValue,
   onChangeFunction,
-  limit = 60,
-  rows,
   name
 }: InputWithHeader) => {
   return (
@@ -16,7 +14,6 @@ const SubHeaderWithInput = ({
       <Styled.AdminInput
         value={inputValue}
         onChange={onChangeFunction}
-        rows={rows || Math.ceil(inputValue.length / limit)}
         name={name}
       />
     </>

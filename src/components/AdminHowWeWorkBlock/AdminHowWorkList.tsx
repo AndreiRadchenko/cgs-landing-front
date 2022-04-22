@@ -24,7 +24,6 @@ const AdminHowWorkList = ({
                   name={`HowWeWorkBlock.blocks.${ind}.subtitle`}
                   inputValue={i.subtitle}
                   onChangeFunction={onChangeFunction}
-                  rows={i.subtitle.split(`\n`).length}
                 />
                 <SubHeaderWithInput
                   key={`howWeWorkBlockText${ind}`}
@@ -32,7 +31,6 @@ const AdminHowWorkList = ({
                   name={`HowWeWorkBlock.blocks.${ind}.text`}
                   inputValue={i.text}
                   onChangeFunction={onChangeFunction}
-                  rows={i.text.split(`\n`).length}
                 />
               </div>
               <Styled.AdminHowWeWorkImageSize>

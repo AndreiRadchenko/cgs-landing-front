@@ -17,7 +17,6 @@ const AdminContactInputs = ({
             name={`ContactFormBlock.inputs.${ind}`}
             value={i}
             onChange={onChangeFunction}
-            rows={1}
           />
         );
       })}
