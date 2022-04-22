@@ -12,11 +12,12 @@ SwiperCore.use([Mousewheel, Pagination]);
 const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
   return (
     <Swiper spaceBetween={10} mousewheel={{ releaseOnEdges: true }}>
-      {[...items].map((item, idx) => (
-        <SwiperSlide key={idx}>
-          <HowWeWorkCard key={idx.toString()} {...item} />
-        </SwiperSlide>
-      ))}
+      {items &&
+        [...items].map((item, idx) => (
+          <SwiperSlide key={idx}>
+            <HowWeWorkCard key={idx.toString()} {...item} />
+          </SwiperSlide>
+        ))}
     </Swiper>
   );
 };
