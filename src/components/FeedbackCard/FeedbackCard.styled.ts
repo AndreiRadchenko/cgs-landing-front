@@ -68,13 +68,13 @@ export const FeedbackCardCompany = styled.a`
 
 export const FeedbackButtonContainer = styled.div`
   position: relative;
-
-  left: -1em;
+  bottom: 1rem;
+  left: 0.5%;
   @media ${themes.primary.media.maxLaptop} {
     left: -4%;
   }
   @media ${themes.primary.media.maxMobile} {
-    left: -1%;
+    left: 2%;
   }
 `;
 
