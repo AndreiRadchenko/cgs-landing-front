@@ -27,7 +27,7 @@ export const StyledButton = styled.button.attrs(
   `}
 
   @media ${themes.primary.media.onlyTabletLandScape} {
-    width: 12em;
+    width: 13em;
     height: 5em;
     margin-top: ${themes.primary.spacing.headerNavVertical};
   }
