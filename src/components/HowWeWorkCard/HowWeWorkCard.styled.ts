@@ -28,6 +28,8 @@ type IImage = {
 
 export const Container = styled.div<IContainerProps>`
   width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
   padding-top: 2em;
   position: relative;
   display: flex;
@@ -107,7 +109,6 @@ export const ContentContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: ${themes.primary.colors.decorationText};
   font-family: ${themes.primary.font.family.roboto};
   flex-grow: 1;
 
@@ -117,12 +118,20 @@ export const ContentContainer = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-left: 2em;
-    display: flex;
+  }
+  @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
   }
 `;
 
-export const ContentTextContainer = styled.div``;
+export const ContentTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8rem;
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 0;
+  }
+`;
 
 export const ContentImgContainer = styled.div<IAdditionalImg>`
   display: flex;
@@ -145,12 +154,15 @@ export const ContentImage = styled.div<IImage>`
   height: ${(props) => (props.isFlipOnMobile ? "41em" : "35em")};
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 33em;
+    width: 30em;
     transform: ${(props) =>
       props.isFlipOnMobile ? "scale(-1, 1)" : "initial"};
   }
-
   @media ${themes.primary.media.maxMobile} {
+    width: 28em;
+    height: ${(props) => (props.isFlipOnMobile ? "41em" : `29em`)};
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
     width: 28em;
     height: ${(props) => (props.isFlipOnMobile ? "41em" : `29em`)};
   }
@@ -170,13 +182,15 @@ export const ContentImage = styled.div<IImage>`
 export const ContentTitle = styled.h2`
   margin: 0;
   max-width: 8em;
+  height: fit-content;
   font-size: 4.5em;
   line-height: 1em;
   color: ${themes.primary.colors.primary};
   white-space: break-spaces;
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 3.6em;
+    margin-top: 0.5em;
+    font-size: 3.4em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -184,28 +198,36 @@ export const ContentTitle = styled.h2`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 2.7em;
-    font-size: 4.3em;
+    max-width: 100%;
+    margin-top: 1em;
+    font-size: 2.5em;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 2.3em;
   }
 `;
 
 export const ContentTextWrapper = styled.div`
   font-size: 1.3em;
-  max-width: 3 4.5em;
+  max-width: 28rem;
   line-height: 1.5em;
   color: ${themes.primary.colors.primary};
   white-space: break-spaces;
-  height: 25rem;
   overflow: hidden;
   box-sizing: border-box;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    max-width: 22rem;
+  }
   @media ${themes.primary.media.maxTabletPortrait} {
-    max-width: 32em;
-    font-size: 1.8em;
+    max-width: 24rem;
+    font-size: 1.6em;
   }
 
   @media ${themes.primary.media.maxMobile} {
+    max-width: 35rem;
     padding-right: 1em;
-    font-size: 1.54em;
+    line-height: 1.25em;
+    font-size: 1.15em;
   }
 `;
 export const ContentText = styled.p<IActive>`
@@ -217,12 +239,12 @@ export const ContentText = styled.p<IActive>`
   margin-top: 15px;
   @keyframes contentText {
     0% {
-      margin-top: -10rem;
+      transform: translateY(-10rem);
       opacity: 0;
     }
 
     100% {
-      margin-top: 1rem;
+      transform: translateY(0rem);
       opacity: 1;
     }
   }

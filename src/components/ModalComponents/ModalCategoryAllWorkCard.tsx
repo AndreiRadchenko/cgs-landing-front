@@ -12,12 +12,15 @@ const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
 }) => {
   return (
     <StyledCategory.ProjectContainer>
-      <ImagePreview
-        src={url}
-        placeholder="blur"
-        alt={"alt image card"}
-        quality={100}
-      />
+      <StyledCategory.ProjectImg>
+        <ImagePreview
+          src={url}
+          placeholder="blur"
+          alt={"alt image card"}
+          quality={100}
+        />
+      </StyledCategory.ProjectImg>
+
       <StyledCategory.ContentWrapper>
         <StyledCategory.ContentWrapper>
           <StyledCategory.MainContent>

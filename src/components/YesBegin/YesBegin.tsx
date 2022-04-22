@@ -17,7 +17,7 @@ const YesBegin = ({ clickHandler }: IYesBeginProps) => {
       </Styles.SubTitle>
       <Styles.ButtonContainer>
         <BaseButton onClick={clickHandler}>
-          <ButtonTextWrapper fontSize="2em">yes! begin!</ButtonTextWrapper>
+          <ButtonTextWrapper fontSize="1.8em">yes! begin!</ButtonTextWrapper>
         </BaseButton>
         <Styles.ImageContainer>
           <ImagePreview src="/rocket.png" layout="fill" alt="rocket" />

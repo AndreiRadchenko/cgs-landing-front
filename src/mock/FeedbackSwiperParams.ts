@@ -1,6 +1,4 @@
 export default {
-  slidesPerView: 3,
-  spaceBetween: 30,
   loop: true,
   allowTouchMove: true,
   grabCursor: true,

@@ -17,10 +17,10 @@ const opacity = keyframes`
 `;
 export const Form = styled.form`
   flex-basis: 38%;
-  @media${themes.primary.media.maxTabletLandScape} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     width: 40%;
   }
-  @media${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxTablet} {
     width: 100%;
   }
 `;
@@ -36,7 +36,7 @@ export const LottieButton = styled(Lottie)`
     box-sizing: border-box;
   }
 
-  @media${themes.primary.media.maxLaptop} {
+  @media ${themes.primary.media.maxLaptop} {
     & svg {
       width: 37rem !important;
       height: 30rem !important;
@@ -46,7 +46,7 @@ export const LottieButton = styled(Lottie)`
   }
 `;
 export const LottieWrapper = styled.div`
-  @media${themes.primary.media.maxLaptop} {
+  @media ${themes.primary.media.maxLaptop} {
     margin-top: 2.188rem;
   }
 `;
@@ -60,15 +60,14 @@ export const SubmitButton = styled.button`
   cursor: pointer;
   margin: 1.063rem 0 0.563rem 0;
   background-repeat: round;
-  @media${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxTablet} {
+    background-size: contain;
     background-repeat: space;
     background-position: center;
   }
-  @media${themes.primary.media.maxLowScreenMobile}{
-    background-size: contain;
+  @media ${themes.primary.media.maxLowScreenMobile} {
     background-repeat: no-repeat;
     background-position: top;
-    margin-top;
   }
 `;
 
@@ -85,23 +84,23 @@ export const FileContainer = styled.div`
   margin-top: 2.188rem;
   margin-bottom: 0;
   height: 2.8em;
-  @media${themes.primary.media.maxLaptop} {
+  @media ${themes.primary.media.maxLaptop} {
     height: auto;
   }
-  @media${themes.primary.media.maxTabletLandScape} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
     align-items: center;
   }
-  @media${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxTablet} {
     flex-direction: row;
     align-items: stretch;
     justify-content: space-around;
   }
-  @media${themes.primary.media.minTablet} {
+  @media ${themes.primary.media.minTablet} {
     flex-direction: column;
     align-items: center;
   }
-  @media${themes.primary.media.maxLaptop} {
+  @media ${themes.primary.media.maxLaptop} {
     flex-direction: column;
     align-items: center;
   }
@@ -117,7 +116,7 @@ export const FileInputWrapper = styled.div<ICVProps>`
   height: 2.8em;
   font-size: 0.75em;
   color: #bdbdbd;
-  display: ${({ active }) => (active ? "none;" : "block;")}
+  display: ${({ active }) => (active ? "none;" : "block;")};
   line-height: 1.7;
   background: none;
   animation: ${opacity} 2s;
@@ -126,6 +125,7 @@ export const FileInputWrapper = styled.div<ICVProps>`
   background: white;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
 `;
+
 export const InputFile = styled(Field)`
   opacity: 0;
   visibility: hidden;
@@ -135,7 +135,7 @@ export const InputFile = styled(Field)`
 export const InputFileLabel = styled.label`
   width: 100%;
   color: black;
-  font-size: ${themes.primary.font.size.fourteenth};
+  font-size: ${themes.primary.font.size.buttonText};
   font-weight: 500;
   display: -webkit-box;
   display: -ms-flexbox;
