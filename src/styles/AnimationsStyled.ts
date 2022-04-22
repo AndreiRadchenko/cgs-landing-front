@@ -122,3 +122,273 @@ export const glassJarAnimation = keyframes`
     }
   `}
 `;
+
+export const rocketAnimationPC = keyframes`
+  ${css`
+    0% {
+      right: -6.5em;
+      bottom: -5.8em;
+    }
+    10% {
+      transform: rotate(-0.05turn);
+      right: -20rem;
+      bottom: 10rem;
+    }
+    20% {
+      transform: rotate(-0.1turn);
+      right: -24rem;
+      bottom: 22rem;
+    }
+    30% {
+      transform: scale(0.7) rotate(-0.35turn);
+      right: -15rem;
+      bottom: 31.5rem;
+    }
+    40% {
+      transform: scale(0.7) rotate(-0.45turn);
+      right: 30rem;
+      bottom: 30rem;
+    }
+    50% {
+      transform: rotate(-0.6turn);
+      right: 37rem;
+      bottom: 10rem;
+    }
+    60% {
+      transform: rotate(-0.6turn);
+      right: 37rem;
+      bottom: -20rem;
+    }
+    70% {
+      transform: rotate(-0.6turn);
+      right: 37rem;
+      bottom: -100rem;
+    }
+    80% {
+      transform: rotate(0);
+      right: 37rem;
+      bottom: -79rem;
+    }
+    90% {
+      transform: rotate(0);
+      right: -6.5em;
+      bottom: -5.8em;
+    }
+  `}
+`;
+
+export const rocketAnimationLaptop = keyframes`
+  ${css`
+    0% {
+      right: -6.5em;
+      bottom: -5.8em;
+    }
+    10% {
+      transform: rotate(-0.1turn);
+      /* right: -25rem;
+      bottom: 12rem; */
+    }
+    20% {
+      transform: rotate(-0.2turn);
+      right: -24rem;
+      bottom: 24rem;
+    }
+    30% {
+      transform: scale(0.5) rotate(-0.35turn);
+      right: -23rem;
+      bottom: 30rem;
+    }
+    40% {
+      transform: scale(0.5) rotate(-0.45turn);
+      right: 30rem;
+      bottom: 30rem;
+    }
+    50% {
+      transform: rotate(-0.6turn);
+      right: 37rem;
+      bottom: 10rem;
+    }
+    60% {
+      transform: rotate(-0.6turn);
+      right: 37rem;
+      bottom: -20rem;
+    }
+    70% {
+      transform: rotate(-0.6turn);
+      right: 37rem;
+      bottom: -100rem;
+    }
+    80% {
+      transform: rotate(0);
+      right: 37rem;
+      bottom: -79rem;
+    }
+    90% {
+      transform: rotate(0);
+      right: -6.5em;
+      bottom: -5.8em;
+    }
+  `}
+`;
+
+export const rocketAnimationMaxTablet = keyframes`
+  ${css`
+    0% {
+      right: -6.5rem;
+      bottom: -5.8rem;
+    }
+    10% {
+      transform: rotate(-0.1turn);
+      right: -25rem;
+      bottom: 12rem;
+    }
+    20% {
+      transform: rotate(-0.1turn);
+      right: -24rem;
+      bottom: 24rem;
+    }
+    30% {
+      transform: scale(0.5) rotate(-0.35turn);
+      right: -23rem;
+      bottom: 29rem;
+    }
+    40% {
+      transform: scale(0.5) rotate(-0.45turn);
+      right: 23rem;
+      bottom: 29rem;
+    }
+    50% {
+      transform: rotate(-0.6turn);
+      right: 23rem;
+      bottom: 10rem;
+    }
+    60% {
+      transform: rotate(-0.6turn);
+      right: 23rem;
+      bottom: -20rem;
+    }
+    70% {
+      transform: rotate(-0.6turn);
+      right: 23rem;
+      bottom: -100rem;
+    }
+    80% {
+      transform: rotate(0);
+      right: 23rem;
+      bottom: -79rem;
+    }
+    90% {
+      transform: rotate(0);
+      right: -6.5em;
+      bottom: -5.8em;
+    }
+  `}
+`;
+
+export const rocketAnimationMinTablet = keyframes`
+  ${css`
+    0% {
+      right: -6.5rem;
+      bottom: -5.8rem;
+    }
+    10% {
+      transform: rotate(-0.1turn);
+      right: -20rem;
+      bottom: 12rem;
+    }
+    20% {
+      transform: rotate(-0.1turn);
+      right: -22rem;
+      bottom: 24rem;
+    }
+    30% {
+      transform: scale(0.5) rotate(-0.35turn);
+      right: -22rem;
+      bottom: 32rem;
+    }
+    40% {
+      transform: scale(0.5) rotate(-0.45turn);
+      right: 22rem;
+      bottom: 32rem;
+    }
+    50% {
+      transform: rotate(-0.6turn);
+      right: 22rem;
+      bottom: 10rem;
+    }
+    60% {
+      transform: rotate(-0.6turn);
+      right: 23rem;
+      bottom: -20rem;
+    }
+    70% {
+      transform: rotate(-0.6turn);
+      right: 23rem;
+      bottom: -100rem;
+    }
+    80% {
+      transform: rotate(0);
+      right: 23rem;
+      bottom: -79rem;
+    }
+    90% {
+      transform: rotate(0);
+      right: -6.5em;
+      bottom: -5.8em;
+    }
+  `}
+`;
+
+export const rocketAnimationMaxMobile = keyframes`
+  ${css`
+    0% {
+      right: -6.5rem;
+      bottom: -5.8rem;
+    }
+    10% {
+      transform: rotate(-0.1turn);
+      right: -10rem;
+      bottom: 12rem;
+    }
+    20% {
+      transform: rotate(-0.1turn);
+      right: -10rem;
+      bottom: 24rem;
+    }
+    30% {
+      transform: scale(0.5) rotate(-0.35turn);
+      right: -10rem;
+      bottom: 25rem;
+    }
+    40% {
+      transform: scale(0.5) rotate(-0.45turn);
+      right: 10rem;
+      bottom: 25rem;
+    }
+    50% {
+      transform: rotate(-0.6turn);
+      right: 10rem;
+      bottom: 10rem;
+    }
+    60% {
+      transform: rotate(-0.6turn);
+      right: 10rem;
+      bottom: -20rem;
+    }
+    70% {
+      transform: rotate(-0.6turn);
+      right: 10rem;
+      bottom: -100rem;
+    }
+    80% {
+      transform: rotate(0);
+      right: 10rem;
+      bottom: -79rem;
+    }
+    90% {
+      transform: rotate(0);
+      right: -6.5em;
+      bottom: -5.8em;
+    }
+  `}
+`;
