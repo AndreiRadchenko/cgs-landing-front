@@ -16,7 +16,7 @@ export const Navigationwrapper = styled.div`
   & .swiper-button-prev {
     margin-right: 2.5rem;
   }
-  @media${themes.primary.media.minTablet} {
+  @media ${themes.primary.media.minTablet} {
     flex-direction: column;
     align-items: baseline;
   }
@@ -25,7 +25,7 @@ export const Navigationwrapper = styled.div`
 export const ArrowContainer = styled.div`
   display: flex;
   margin-right: 0.625rem;
-  @media${themes.primary.media.minTablet} {
+  @media ${themes.primary.media.minTablet} {
     margin: 3rem 0 0 0.53rem;
   }
 `;
