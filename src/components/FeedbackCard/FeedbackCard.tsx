@@ -1,7 +1,5 @@
 import React, { FC, useState } from "react";
 import * as StyledThisComp from "./FeedbackCard.styled";
-import ReactStars from "react-stars";
-import themes from "../../utils/themes";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import ButtonReadMore from "../../utils/Buttons/ButtonReadMore";
 import { IFeedbackCardProps } from "../../types/Feedback.types";
@@ -16,7 +14,6 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
   description,
 }) => {
   const [isOpenFullFeedBack, setOpenFullFeedback] = useState<boolean>(false);
-
   const toggleFullFeedbackHandler = () =>
     setOpenFullFeedback(!isOpenFullFeedBack);
 
@@ -27,15 +24,7 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
           <StyledThisComp.FeedbackCardName>
             {name}
           </StyledThisComp.FeedbackCardName>
-          <ReactStars
-            half={true}
-            edit={false}
-            value={rates}
-            count={5}
-            size={20}
-            color2={themes.primary.colors.starActive}
-            color1={themes.primary.colors.starDisable}
-          />
+          <StyledThisComp.Stars rate={rates} />
         </StyledThisComp.FeedbackCardWrapper>
 
         <Link href={link} passHref>

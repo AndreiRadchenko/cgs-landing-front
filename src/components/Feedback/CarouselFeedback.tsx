@@ -25,6 +25,7 @@ const CarouselFeedback: FC = () => {
   const isFeedbackOnScreen = useOnScreen(feedbackRef);
 
   const [swiper, setSwiper] = useState<SwipperType>();
+
   const [isBeenInitSlideScroll, setIsInitSlideScroll] =
     useState<boolean>(false);
 
@@ -50,8 +51,8 @@ const CarouselFeedback: FC = () => {
           description={description}
           company={company}
           link={link}
-          position={position}
           rates={rates}
+          position={position}
         />
       </SwiperSlide>
     ));
