@@ -1,4 +1,8 @@
-export default {
+import { SwiperProps } from "swiper/react";
+
+const data: SwiperProps = {
+  slidesPerView: "auto",
+  spaceBetween: 30,
   loop: true,
   allowTouchMove: true,
   grabCursor: true,
@@ -22,3 +26,5 @@ export default {
     },
   },
 };
+
+export default data;
