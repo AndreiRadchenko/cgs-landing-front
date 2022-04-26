@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { spin } from "../../styles/AnimationsStyled";
+import { spin, scale } from "../../styles/AnimationsStyled";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
@@ -55,6 +55,7 @@ export const ButtonContainer = styled.div`
 `;
 
 type ImageProps = { isClicked: boolean };
+
 export const Circle = styled("div")<ImageProps>`
   position: absolute;
   top: 0;
@@ -69,13 +70,19 @@ export const Circle = styled("div")<ImageProps>`
       : "null"};
 `;
 
-export const ImageContainer = styled.div`
+export const ImageContainer = styled("div")<ImageProps>`
   position: absolute;
   width: 10em;
   height: 13em;
   right: 32%;
   bottom: 2%;
   z-index: 10;
+  animation: ${({ isClicked }) =>
+    isClicked
+      ? css`
+          ${scale} 6s linear
+        `
+      : "null"};
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 11em;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 
 export const FeedbackCardContainer = styled.div`
@@ -26,6 +26,31 @@ export const FeedbackCardName = styled.h2`
     font-size: 1.8em;
   }
 `;
+type starsProps = { rate: number };
+
+export const Stars = styled("div")<starsProps>`
+  display: block;
+  font-size: 25px;
+  font-family: Times;
+  line-height: 1;
+
+  &::before {
+    content: "★★★★★";
+    letter-spacing: 3px;
+    background: linear-gradient(
+      90deg,
+      ${themes.primary.colors.starActive}
+        ${(prop) =>
+          prop.rate ? css`calc(${prop.rate} / 5 * 98.5%)` : css`98.5%`},
+      ${themes.primary.colors.starDisable}
+        ${(prop) =>
+          prop.rate ? css`calc(${prop.rate} / 5 * 98.5%)` : css`98.5%`}
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+`;
 
 export const FeedbackCardCompany = styled.a`
   display: block;
@@ -43,13 +68,13 @@ export const FeedbackCardCompany = styled.a`
 
 export const FeedbackButtonContainer = styled.div`
   position: relative;
-
-  left: -1em;
+  bottom: 1rem;
+  left: 0.5%;
   @media ${themes.primary.media.maxLaptop} {
     left: -4%;
   }
   @media ${themes.primary.media.maxMobile} {
-    left: -1%;
+    left: 2%;
   }
 `;
 

@@ -124,26 +124,39 @@ export const glassJarAnimation = keyframes`
 `;
 
 export const spin = keyframes`	
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform:rotate(0deg);
-  }
-	25% { 
-    -webkit-transform: rotate(-90deg);
-    transform:rotate(-90deg);
-  }
-	50% { 
-    -webkit-transform: rotate(-180deg);
-    transform:rotate(-180deg);
-  }
-	75% { 
-    -webkit-transform: rotate(-270deg);
-    transform: rotate(-270deg);
-  }
-  90% {
-    transform: rotate(-270deg) translate3d(50%, -50%, 0) ;
-  }
-	100% { 
-    -webkit-transform: rotate(-360deg);
-    transform:rotate(-360deg);
-  } `;
+  ${css`
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    25% {
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+    }
+    50% {
+      -webkit-transform: rotate(-180deg);
+      transform: rotate(-180deg);
+    }
+    75% {
+      -webkit-transform: rotate(-270deg);
+      transform: rotate(-270deg);
+    }
+    90% {
+      transform: rotate(-270deg) translate3d(50%, -50%, 0);
+    }
+    100% {
+      -webkit-transform: rotate(-360deg);
+      transform: rotate(-360deg);
+    }
+  `} `;
+
+export const scale = keyframes`
+	${css`
+    30% {
+      transform: scale(0.5);
+    }
+    40% {
+      transform: scale(0.5);
+    }
+  `}
+`;

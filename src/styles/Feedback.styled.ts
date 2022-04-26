@@ -39,6 +39,7 @@ export const FeedbackRow = styled.div`
   position: relative;
   min-height: 40rem;
   max-height: 49rem;
+  margin-bottom: 2rem;
   align-items: baseline;
   & .swiper {
     display: flex;
@@ -51,6 +52,11 @@ export const FeedbackRow = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     min-height: 40rem;
     max-height: 70rem;
+    margin-bottom: 5rem;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-bottom: 7rem;
   }
 `;
 
