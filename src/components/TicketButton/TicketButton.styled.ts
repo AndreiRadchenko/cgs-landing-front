@@ -11,6 +11,13 @@ export const TicketButton = styled.div`
   height: 4.8em;
   margin-left: -1.125rem;
   margin-bottom: -1.063rem;
+  transition: all 0.3s;
+
+  &:hover,
+  &:active {
+    transform: scale(1.2);
+  }
+
   @media ${themes.primary.media.onlyLaptop} {
     width: 11em;
     height: 4.8em;
