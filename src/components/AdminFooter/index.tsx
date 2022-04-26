@@ -19,8 +19,8 @@ const AdminFooterBlock = ({
         <div>
           <SubHeaderWithInput
             header="Email adress"
-            name="FooterBlock.Email"
-            inputValue={state.Email}
+            name="FooterBlock.email"
+            inputValue={state.email}
             onChangeFunction={onChangeFunction}
           />
           <FieldArray name="FooterBlock.links">

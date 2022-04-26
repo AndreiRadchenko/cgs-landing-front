@@ -1,25 +1,36 @@
 import React from "react";
 import { AdminInput } from "../../styles/AdminPage";
+import { IContactFormBlock } from "../../types/Admin/Response.types";
 
 const AdminContactInputs = ({
   state,
   onChangeFunction,
 }: {
-  state: string[];
+  state: IContactFormBlock;
   onChangeFunction: any;
 }) => {
   return (
     <div>
-      {state.map((i, ind) => {
-        return (
-          <AdminInput
-            key={`input${ind}`}
-            name={`ContactFormBlock.inputs.${ind}`}
-            value={i}
+      <AdminInput
+            name={`ContactFormBlock.subtitle`}
+            value={state.subtitle}
             onChange={onChangeFunction}
           />
-        );
-      })}
+          <AdminInput
+            name={`ContactFormBlock.name`}
+            value={state.name}
+            onChange={onChangeFunction}
+          />
+          <AdminInput
+            name={`ContactFormBlock.email`}
+            value={state.email}
+            onChange={onChangeFunction}
+          />
+          <AdminInput
+            name={`ContactFormBlock.message`}
+            value={state.message}
+            onChange={onChangeFunction}
+          />
     </div>
   );
 };

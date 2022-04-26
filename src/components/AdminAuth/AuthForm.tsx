@@ -10,9 +10,12 @@ import { useMutation } from "react-query";
 import { authService } from "../../services/login";
 import { initAdmin, storeKeys } from "../../consts";
 import { queryKeys } from "../../consts/queryKeys";
+import { useRouter } from "next/router";
 
 const AdminAuthForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
+
+  const router = useRouter();
 
   const { mutateAsync } = useMutation<any, IAdmin, any, IRes>(
     queryKeys.AdminAuth,
@@ -24,6 +27,7 @@ const AdminAuthForm = () => {
       setErrorMessage("");
       const resp: IRes = await mutateAsync(values);
       localStorage.setItem(storeKeys.token, resp.accessToken);
+      router.push("AdminPage");
     } catch (err) {
       setErrorMessage("Wrong username or password");
     }

@@ -29,7 +29,7 @@ const AdminFeedbackBlock = ({ state, onChangeFunction }: { state: IFeedbackBlock
         <div />
         <AdminFeedbackForm />
         <div>
-          <AdminFeedback feedback={state.feedbacks[0]} />
+          <AdminFeedback feedback={state.feedBacks[0]} />
           <Styled.AdminFeedbackArrows>
             <Image src={arrowAdminFeedbackL} />
             <Image src={arrowAdminFeedbackR} />

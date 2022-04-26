@@ -1,15 +1,14 @@
 import React from "react";
 import * as Styled from "../../styles/AdminPage";
 import PhotoBlockDashed from "../AdminPageGlobal/PhotoBlockDashed";
-import icon from "../../../public/smallMountain.svg";
 
-const FirstAdminBlock = () => {
+const FirstAdminBlock = ({ state }: { state: { image: { url: string } } }) => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHeader>Home</Styled.AdminHeader>
       <Styled.AdminSubTitle>Upload Logo</Styled.AdminSubTitle>
       <Styled.AdminAddMainLogoBlock>
-        <PhotoBlockDashed photo={icon} />
+        <PhotoBlockDashed photo={state.image} />
       </Styled.AdminAddMainLogoBlock>
     </Styled.AdminPaddedBlock>
   );

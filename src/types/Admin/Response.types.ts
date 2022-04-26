@@ -38,7 +38,7 @@ export interface IFeedback {
 export interface IFeedbackBlock {
   subtitle: string;
   text3: string;
-  feedbacks: IFeedback[];
+  feedBacks: IFeedback[];
 }
 
 export interface ITech {
@@ -76,21 +76,24 @@ export interface IBuildRocketBlock {
 
 export interface IContactFormBlock {
   subtitle: string;
-  inputs: string[];
+  name: string;
+  email: string;
+  message: string;
 }
 
 export interface IFooterBlock {
-  Email: string;
-  links: { value: string }[];
+  email: string;
+  links: { link: string }[];
   images: any[];
 }
 
 // completed
 
 export interface IDataResponse {
+  MainLogoBlock: { image: { url: string } };
   EditInformationBlock: IEditInformation;
   SubtitleBlock: ISubtitle;
-  LogosBlock: any[];
+  LogosBlock: { images: any[] };
   CardsBlock: ICards;
   FeedbackBlock: IFeedbackBlock;
   TechnologyBlock: ITechnologyBlock;

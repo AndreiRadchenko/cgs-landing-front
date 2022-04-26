@@ -1,8 +1,7 @@
-import Image from "next/image";
 import React from "react";
 
 const AdminImage = ({ image }: { image: any }) => {
-  return <Image src={image} />;
+  return <img src={image.url} width="100%" />;
 };
 
 export default AdminImage;

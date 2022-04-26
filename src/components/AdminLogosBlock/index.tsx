@@ -3,14 +3,14 @@ import * as Styled from "../../styles/AdminPage";
 import AddLogoFrame from "./AddLogoFrame";
 import LogoElement from "./LogoElement";
 
-const AdminLogosBlock = ({ state }: { state: any[] }) => {
+const AdminLogosBlock = ({ state }: { state: {images: any[]} }) => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminSubTitle>Logos</Styled.AdminSubTitle>
 
       <Styled.AdminLogosGrid>
         <AddLogoFrame />
-        {state.map((i) => (
+        {state.images.map((i) => (
           <LogoElement image={i} key={Math.random()} />
         ))}
       </Styled.AdminLogosGrid>

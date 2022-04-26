@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import * as Styled from "../../styles/AdminPage";
-import AdminImage from "../AdminPageGlobal/AdminImage";
 import logo from "./../../../public/logo.png";
 import DropDownElement from "./DropDownElement";
 
@@ -10,7 +10,7 @@ const AdminSidebar = () => {
 
   return (
     <Styled.AdminSidebar>
-      <AdminImage image={logo} />
+      <Image src={logo} />
       <Styled.AdminSidebarMenu>
         <DropDownElement
           value="home"

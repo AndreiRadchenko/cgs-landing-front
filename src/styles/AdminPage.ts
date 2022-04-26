@@ -1,4 +1,4 @@
-import { TextareaAutosize } from '@mui/material';
+import { TextareaAutosize } from "@mui/material";
 import styled from "styled-components";
 import themes from "../utils/themes";
 
@@ -74,6 +74,9 @@ export const AdminComment = styled.p`
 
 export const AdminAddMainLogoBlock = styled.div`
   width: 38%;
+  & :last-child img {
+    padding: 20px 0;
+  }
 `;
 
 export const AdminHalfGrid = styled.div`
@@ -277,6 +280,7 @@ export const AdminBigButton = styled.button`
   border: 0;
   font-size: ${themes.primary.font.size.buttonText};
   padding: ${themes.primary.spacing.primary};
+  cursor: pointer;
 `;
 
 export const AdminFeedbackArrows = styled.div`
@@ -316,4 +320,57 @@ export const AdminSocialIcon = styled.div`
 
 export const AdminTechWrapper = styled.div`
   height: 21em;
+`;
+
+export const AdminUploadModuleWrapper = styled.div`
+  margin: 250px auto;
+  background: ${themes.primary.colors.secondary};
+  padding: 2em;
+  width: 50%;
+  position: relative;
+  display: flex;
+`;
+
+export const AdminUploadInput = styled.input`
+`;
+
+export const AdminUploadModuleCloseButton = styled.button`
+  border: 0;
+  position: absolute;
+  background: #fff;
+  font-family: ${themes.primary.font.family.sourceCode};
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  &: hover {
+    color: gray;
+  }
+`;
+
+export const AdminUploadModuleImgDiv = styled.div`
+  width: 300px;
+`;
+
+export const AdminUploadModuleBack = styled.div`
+  position: fixed;
+  background: rgba(0, 0, 0, 0.25);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+`;
+
+export const AdminUnauthorizedModal = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background: ${themes.primary.colors.secondary};
+  font-size: ${themes.primary.font.size.tertiary};
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
 `;
