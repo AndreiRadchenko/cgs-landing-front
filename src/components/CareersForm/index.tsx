@@ -12,6 +12,7 @@ const CareersForm: FC = () => {
       </Styled.FormTitle>
       <Styled.FormWrapper>
         <Form />
+        <Styled.FormRocketImage />
         <Styled.FormImage />
       </Styled.FormWrapper>
     </>
