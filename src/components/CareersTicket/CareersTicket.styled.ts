@@ -74,7 +74,9 @@ export const BarcodeImg = styled.div`
   }
 `;
 
-export const Button = styled(TicketButton)``;
+export const Button = styled(TicketButton)`
+  -webkit-tap-highlight-color: transparent;
+`;
 
 export const BarcodeText = styled.p`
   transform: rotate(-90deg);
