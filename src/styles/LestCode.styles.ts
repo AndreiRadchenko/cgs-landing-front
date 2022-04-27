@@ -43,20 +43,15 @@ export const ImageTagsContainer = styled.section`
 
 type ImageProps = { isHovered: boolean };
 
-export const ImageCatContainer = styled("section")<ImageProps>`
+export const ImageCatContainer = styled.section`
   position: relative;
   width: 39em;
   height: 35em;
-  content: ${(props) =>
-    props.isHovered
-      ? css`url("./catIcon.png")`
-      : css`url("./catIconSleep.png")`};
 
   &:hover {
     position: relative;
     width: 39em;
     height: 35em;
-    content: url("./catIcon.png");
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -64,13 +59,11 @@ export const ImageCatContainer = styled("section")<ImageProps>`
       position: relative;
       width: 39em;
       height: 35em;
-      content: url("./catIconSleep.png");
     }
     &:active {
       position: relative;
       width: 39em;
       height: 35em;
-      content: url("./catIcon.png");
     }
   }
 `;
