@@ -7,7 +7,6 @@ import "swiper/css/mousewheel";
 import HowWeWorkCard from "../HowWeWorkCard/HowWeWorkCard";
 import { IHowWeWorkCardProps } from "../HowWeWorkCard/types";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
-import * as Styles from "./HowWeWorkList.styled";
 
 SwiperCore.use([Mousewheel, Pagination]);
 
@@ -19,7 +18,7 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
   const isVisible = !!entry?.isIntersecting;
 
   return (
-    <Styles.Container ref={ref}>
+    <div ref={ref}>
       {!isVisible ? (
         <HowWeWorkCard {...items[currentSlide]} />
       ) : (
@@ -40,7 +39,7 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
             ))}
         </Swiper>
       )}
-    </Styles.Container>
+    </div>
   );
 };
 

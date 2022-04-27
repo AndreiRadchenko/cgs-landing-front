@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import themes from "../../utils/themes";
 
 type backGroundColor = "blue" | "orange" | "green";
@@ -227,7 +227,7 @@ export const ContentTextWrapper = styled.div`
     max-width: 35rem;
     padding-right: 1em;
     line-height: 1.25em;
-    font-size: 1.15em;
+    font-size: 1.3em;
   }
 `;
 export const ContentText = styled.p<IActive>`
