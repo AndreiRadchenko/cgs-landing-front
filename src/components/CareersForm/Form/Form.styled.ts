@@ -60,6 +60,13 @@ export const SubmitButton = styled.button`
   cursor: pointer;
   margin: 1.063rem 0 0.563rem 0;
   background-repeat: round;
+  transition: all 0.3s;
+
+  &:hover,
+  &:active {
+    transform: scale(1.2);
+  }
+
   @media ${themes.primary.media.maxTablet} {
     background-size: contain;
     background-repeat: space;
