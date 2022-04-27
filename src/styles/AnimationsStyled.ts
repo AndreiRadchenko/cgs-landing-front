@@ -151,7 +151,7 @@ export const spin = keyframes`
   `} `;
 
 export const scale = keyframes`
-	${css`
+  ${css`
     30% {
       transform: scale(0.5);
     }
