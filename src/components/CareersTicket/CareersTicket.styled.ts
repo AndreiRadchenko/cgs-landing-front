@@ -204,10 +204,18 @@ export const BottomContainer = styled.div`
   margin: 1.25rem -1.188rem 0 0;
   &:after {
     content: "";
-    background-image: url("/bottom-ticket.png");
+    background: url("/bottom-ticket.png");
+
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-size: 100% 60%;
+    -webkit-mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0)
+    );
+    -webkit-mask-size: 100% 60%;
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.7;
     top: 0;
     left: 0;
     bottom: 0;
