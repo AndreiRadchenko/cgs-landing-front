@@ -12,8 +12,8 @@ export const StyledButton = styled.button.attrs(
   })
 )`
   position: relative;
-
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   ${(props) => css`
     overflow: hidden;
     width: ${props.width};

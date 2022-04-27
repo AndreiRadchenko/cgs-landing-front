@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { spin, scale } from "../../styles/AnimationsStyled";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
@@ -11,6 +12,8 @@ export const Container = styled.div`
   background-color: ${themes.primary.colors.secondary};
   border-bottom-left-radius: 25%;
   border-bottom-right-radius: 25%;
+  position: relative;
+  overflow: hidden;
 `;
 
 export const Title = styled.h2`
@@ -18,6 +21,7 @@ export const Title = styled.h2`
   text-align: center;
   margin: 0;
   max-width: 14em;
+  z-index: 1000;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 4em;
@@ -50,25 +54,53 @@ export const ButtonContainer = styled.div`
   font-family: ${themes.primary.font.family.sourceCode};
 `;
 
-export const ImageContainer = styled.div`
+type ImageProps = { isClicked: boolean };
+
+export const Circle = styled("div")<ImageProps>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100%;
+  animation: ${({ isClicked }) =>
+    isClicked
+      ? css`
+          ${spin} 6s linear
+        `
+      : "null"};
+`;
+
+export const ImageContainer = styled("div")<ImageProps>`
   position: absolute;
   width: 10em;
   height: 13em;
-  right: -6.5em;
-  bottom: -5.8em;
+  right: 32%;
+  bottom: 2%;
   z-index: 10;
+  animation: ${({ isClicked }) =>
+    isClicked
+      ? css`
+          ${scale} 6s linear
+        `
+      : "null"};
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 11em;
     height: 12.2em;
-    right: -6em;
-    bottom: -4.9em;
+    right: 12rem;
+    bottom: 0;
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 13em;
     height: 14.2em;
-    right: -4em;
-    bottom: -8.1em;
+    right: 8rem;
+    bottom: 7rem;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 13em;
+    height: 14.2em;
+    right: 4rem;
+    bottom: 7rem;
   }
 `;
