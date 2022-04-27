@@ -36,9 +36,7 @@ const HowWeWorkCard = ({
         <Styles.ContentTextContainer>
           <Styles.ContentTitle>{contentTitle}</Styles.ContentTitle>
           <Styles.ContentTextWrapper>
-            <Styles.ContentText active={isVisible}>
-              {contentText}
-            </Styles.ContentText>
+            <Styles.ContentText>{contentText}</Styles.ContentText>
           </Styles.ContentTextWrapper>
         </Styles.ContentTextContainer>
         <Styles.ContentImgContainer additionalImgUrl={additionalImgUrl}>
