@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import themes from "../../utils/themes";
 
 type backGroundColor = "blue" | "orange" | "green";
@@ -227,27 +227,15 @@ export const ContentTextWrapper = styled.div`
     max-width: 35rem;
     padding-right: 1em;
     line-height: 1.25em;
-    font-size: 1.15em;
+    font-size: 1.3em;
   }
 `;
-export const ContentText = styled.p<IActive>`
-  animation: ${({ active }) => (active ? "contentText 1s" : null)};
+export const ContentText = styled.p`
   overflow: hidden;
   box-sizing: border-box;
   animation-timing-function: linear;
   margin: 0;
   margin-top: 15px;
-  @keyframes contentText {
-    0% {
-      transform: translateY(-10rem);
-      opacity: 0;
-    }
-
-    100% {
-      transform: translateY(0rem);
-      opacity: 1;
-    }
-  }
 `;
 
 export const AdditionalImgContainer = styled.div<IActive>`
