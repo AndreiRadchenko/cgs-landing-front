@@ -28,8 +28,8 @@ import technologyDatabaseIMG from "../../public/databaseTech.png";
 import technologyBlockchainIMG from "../../public/blockChainTech.png";
 
 //ourteam
-import bigOurTeamIMG from "../../public/ourTeamBig.png";
-import smallOurTeamIMG from "../../public/ourTeam.png";
+import bigOurTeamIMG from "../../public/ourTeamBig.jpg";
+import smallOurTeamIMG from "../../public/ourTeam.jpg";
 
 import { IFeedbackCardProps } from "../types/Feedback.types";
 
