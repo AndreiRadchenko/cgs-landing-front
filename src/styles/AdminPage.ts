@@ -11,9 +11,16 @@ export const AdminWrapper = styled.div`
 export const AdminSidebar = styled.div`
   background: ${themes.primary.colors.lighten.green};
   border-radius: 0 40px 40px 0;
-  padding: 3.5em 3.7em 0 2.7em;
   display: flex;
   flex-direction: column;
+  padding: 0;
+`;
+
+export const AdminSidebarLogo = styled.div`
+  margin: ${themes.primary.spacing.adminWithinBlocks} auto 0 auto;
+  width: 90%;
+  display: flex;
+  justify-content: center;
 `;
 
 export const AdminSidebarMenu = styled.ul`
@@ -21,7 +28,10 @@ export const AdminSidebarMenu = styled.ul`
   flex-direction: column;
   list-style: none;
   margin: ${themes.primary.spacing.btwLogoAndMenu} 0 0 0;
-  padding: 0;
+  padding-left: ${themes.primary.spacing.tertiary};
+  @media ${themes.primary.media.minLaptop} {
+    padding-left: ${themes.primary.spacing.adminWithinBlocks};
+  }
 `;
 
 export const AdminSidebarMenuElement = styled.li`
@@ -75,7 +85,7 @@ export const AdminComment = styled.p`
 export const AdminAddMainLogoBlock = styled.div`
   width: 38%;
   & :last-child img {
-    padding: 20px 0;
+    padding: ${themes.primary.spacing.primary} 0;
   }
 `;
 
@@ -101,10 +111,10 @@ export const AdminInput = styled(TextareaAutosize)`
 export const AdminPhotoBlock = styled.div`
   border: 2px dashed ${themes.primary.colors.primary};
   display: flex;
-  justify-content: space-between;
+  justify-content: ${props => props.theme === "center" ? "center" : "space-between"};
   align-items: center;
   flex-direction: column;
-  padding: 1em;
+  padding: ${themes.primary.spacing.primary};
   height: 100%;
 `;
 
@@ -143,7 +153,7 @@ export const AdminFlyingElement = styled.div`
 `;
 
 export const AdminTecBottleDiv = styled.div`
-  padding-top: 2.2em;
+  padding-top: 2.3em;
   display: grid;
   grid-template-columns: 1.3fr 1fr;
   max-height: 26em;
@@ -187,7 +197,7 @@ export const AdminAddLogoBlock = styled.div`
 export const AdminCardsGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 3em;
+  column-gap: ${themes.primary.spacing.adminWithinBlocks};
   row-gap: 4em;
 `;
 
@@ -224,6 +234,7 @@ export const AdminButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 export const AdminButtonText = styled.span`
@@ -238,6 +249,7 @@ export const AdminDeleteTextThin = styled.span`
   bottom: 1.1em;
   font-size: ${themes.primary.font.size.tertiary};
   font-weight: 500;
+  cursor: pointer;
 `;
 
 export const AdminFeedbackStarsBlock = styled.div`
@@ -258,7 +270,7 @@ export const AdminFeedbackStars = styled.div`
 
 export const AdminStarsGrid = styled.div`
   display: flex;
-  gap: 2em;
+  gap: ${themes.primary.spacing.tertiary};
 `;
 
 export const AdminStarsFlex = styled.div`
@@ -288,6 +300,11 @@ export const AdminFeedbackArrows = styled.div`
   justify-content: flex-end;
   padding-top: ${themes.primary.spacing.tertiary};
   gap: ${themes.primary.spacing.tertiary};
+`;
+
+export const AdminPointer = styled.div`
+  cursor: pointer;
+  user-select: none;
 `;
 
 export const AdminPhotoDashedHorizontal = styled.div`
@@ -329,9 +346,27 @@ export const AdminUploadModuleWrapper = styled.div`
   width: 50%;
   position: relative;
   display: flex;
+  flex-direction: column;
 `;
 
 export const AdminUploadInput = styled.input`
+  display: none;
+`;
+
+export const AdminUploadModalButton = styled.button`
+  background: ${(props) =>
+    props.theme == "filled"
+      ? themes.primary.colors.cardDarkGreen
+      : themes.primary.colors.secondary};
+  transition-property: background;
+  transition-duration: 1s;
+  height: fit-content;
+  padding: ${themes.primary.spacing.primary} 1.5em;
+  border: 2px solid ${themes.primary.colors.cardDarkGreen};
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: ${themes.primary.spacing.primary};
+  margin-bottom: ${themes.primary.spacing.primary};
 `;
 
 export const AdminUploadModuleCloseButton = styled.button`
@@ -348,7 +383,23 @@ export const AdminUploadModuleCloseButton = styled.button`
 `;
 
 export const AdminUploadModuleImgDiv = styled.div`
-  width: 300px;
+  max-width: 250px;
+  position: relative;
+  &: hover {
+    background: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  &: hover span{
+    display: block;
+  }
+`;
+
+export const AdminUploadInfo = styled.span`
+  display: none;
+  position: absolute;
+  left: 2px;
+  bottom: 2px;
+  font-family: ${themes.primary.font.family.roboto};
 `;
 
 export const AdminUploadModuleBack = styled.div`

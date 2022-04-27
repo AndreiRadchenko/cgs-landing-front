@@ -4,7 +4,13 @@ import { IFeedback } from "../../types/Admin/Response.types";
 import AdminButton from "../AdminPageGlobal/AdminButton";
 import AdminStars from "./AdminStars";
 
-const AdminFeedback = ({ feedback }: { feedback: IFeedback }) => {
+const AdminFeedback = ({
+  feedback,
+  deleteFunc,
+}: {
+  feedback: IFeedback;
+  deleteFunc: () => void;
+}) => {
   return (
     <Styled.AdminFeedbackFrame>
       <Styled.AdminFeedbackStarsBlock>
@@ -17,7 +23,9 @@ const AdminFeedback = ({ feedback }: { feedback: IFeedback }) => {
       <Styled.AdminFeedbackRole>{feedback.role}</Styled.AdminFeedbackRole>
       <Styled.AdminParagraph>{feedback.text}</Styled.AdminParagraph>
       <AdminButton />
-      <Styled.AdminDeleteTextThin>delete review</Styled.AdminDeleteTextThin>
+      <Styled.AdminDeleteTextThin onClick={deleteFunc}>
+        delete review
+      </Styled.AdminDeleteTextThin>
     </Styled.AdminFeedbackFrame>
   );
 };

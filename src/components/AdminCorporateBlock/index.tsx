@@ -4,6 +4,7 @@ import * as Styled from "../../styles/AdminPage";
 import { ICorporateBlock } from "../../types/Admin/Response.types";
 import PhotoBlockDashedHorizontal from "../AdminPageGlobal/PhotoBlockdashedHorizontal";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
+import AdminCorporateImages from "./AdminCorporateImages";
 
 const AdminCorporateBlock = ({
   state,
@@ -45,14 +46,7 @@ const AdminCorporateBlock = ({
             }}
           </FieldArray>
         </div>
-        <div>
-          {state.images.map((i) => (
-            <div key={Math.random()}>
-              <PhotoBlockDashedHorizontal photo={i} />
-              <br />
-            </div>
-          ))}
-        </div>
+        <AdminCorporateImages state={state} />
       </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>
   );

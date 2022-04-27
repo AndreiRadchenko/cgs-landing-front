@@ -10,7 +10,9 @@ const AdminSidebar = () => {
 
   return (
     <Styled.AdminSidebar>
-      <Image src={logo} />
+      <Styled.AdminSidebarLogo>
+        <Image src={logo} />
+      </Styled.AdminSidebarLogo>
       <Styled.AdminSidebarMenu>
         <DropDownElement
           value="home"

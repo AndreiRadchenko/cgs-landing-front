@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const AdminButton = () => {
   return (
-    <Styled.AdminButton>
+    <Styled.AdminButton onClick={(e) => e.preventDefault()}>
       <Image src={buttonBack} />
       <Styled.AdminButtonText>read more</Styled.AdminButtonText>
     </Styled.AdminButton>

@@ -2,11 +2,22 @@ import React from "react";
 import ReactStars from "react-stars";
 import themes from "../../utils/themes";
 
-const AdminStars = ({ value, size = 24 }: { value: number; size?: number }) => {
+const AdminStars = ({
+  value,
+  handleChange,
+  size = 24,
+  edit = false,
+}: {
+  value: number;
+  handleChange?: any;
+  size?: number;
+  edit?: boolean;
+}) => {
   return (
     <ReactStars
       half={true}
-      edit={false}
+      edit={edit}
+      onChange={(newRating) => handleChange(newRating)}
       value={value}
       count={5}
       size={size}

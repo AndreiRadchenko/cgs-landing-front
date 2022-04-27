@@ -3,7 +3,7 @@ import AdminMainContent from "../../components/AdminPageGlobal";
 import AdminSidebar from "../../components/AdminSideBar/AdminSidebar";
 import * as Styled from "../../styles/AdminPage";
 
-const AdminAuthorized = () => {
+const AdminHomePage = () => {
   return (
     <Styled.AdminWrapper>
       <AdminSidebar />
@@ -12,4 +12,4 @@ const AdminAuthorized = () => {
   );
 };
 
-export default AdminAuthorized;
+export default AdminHomePage;

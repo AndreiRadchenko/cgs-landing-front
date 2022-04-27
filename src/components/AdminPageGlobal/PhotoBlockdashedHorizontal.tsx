@@ -3,6 +3,7 @@ import useUploadModal from "../../hooks/useUploadModal";
 import * as Styled from "../../styles/AdminPage";
 import { IPhotoBlock } from "../../types/Admin/Admin.types";
 import AdminUploadModal from "../AdminUploadModal";
+import AdminEmptyImage from "./AdminEmptyImage";
 import AdminImage from "./AdminImage";
 
 const PhotoBlockDashedHorizontal = ({
@@ -10,6 +11,7 @@ const PhotoBlockDashedHorizontal = ({
   header = "Drop new image here",
 }: IPhotoBlock) => {
   const { modal, toggleModal } = useUploadModal();
+  if (photo !== null) {
   return (
     <Styled.AdminPhotoDashedHorizontal>
       {modal ? <AdminUploadModal back={toggleModal} /> : null}
@@ -23,6 +25,9 @@ const PhotoBlockDashedHorizontal = ({
       </Styled.AdminPhotoDashedHorizontalPositoning>
     </Styled.AdminPhotoDashedHorizontal>
   );
+  } else {
+    return <AdminEmptyImage />
+  }
 };
 
 export default PhotoBlockDashedHorizontal;

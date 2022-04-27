@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Styled from "../../styles/AdminPage";
 import { IFeedbackBlock } from "../../types/Admin/Response.types";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
@@ -8,7 +8,34 @@ import arrowAdminFeedbackL from "../../../public/arrowAdminFeedbackL.svg";
 import arrowAdminFeedbackR from "../../../public/arrowAdminFeedbackR.svg";
 import Image from "next/image";
 
-const AdminFeedbackBlock = ({ state, onChangeFunction }: { state: IFeedbackBlock, onChangeFunction: any }) => {
+const AdminFeedbackBlock = ({
+  state,
+  onChangeFunction,
+}: {
+  state: IFeedbackBlock;
+  onChangeFunction: any;
+}) => {
+  const [feedback, setFeedback] = useState(0);
+  const feedbackUpAndDown = (direction: string) => {
+    if (direction === "up") {
+      feedback + 1 < state.feedBacks.length
+        ? setFeedback(feedback + 1)
+        : setFeedback(0);
+    } else if (direction === "down") {
+      feedback > 0
+        ? setFeedback(feedback - 1)
+        : setFeedback(state.feedBacks.length - 1);
+    }
+  };
+
+  const deleteFunc = (id: number) => {
+    state.feedBacks.splice(id, 1);
+    if (id > 0) {
+      setFeedback(id - 1);
+    } else {
+      setFeedback(1);
+    }
+  };
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
@@ -27,12 +54,19 @@ const AdminFeedbackBlock = ({ state, onChangeFunction }: { state: IFeedbackBlock
           />
         </div>
         <div />
-        <AdminFeedbackForm />
+        <AdminFeedbackForm state={state} />
         <div>
-          <AdminFeedback feedback={state.feedBacks[0]} />
+          <AdminFeedback
+            feedback={state.feedBacks[feedback]}
+            deleteFunc={() => deleteFunc(feedback)}
+          />
           <Styled.AdminFeedbackArrows>
-            <Image src={arrowAdminFeedbackL} />
-            <Image src={arrowAdminFeedbackR} />
+            <Styled.AdminPointer onClick={() => feedbackUpAndDown("down")}>
+              <Image src={arrowAdminFeedbackL} />
+            </Styled.AdminPointer>
+            <Styled.AdminPointer onClick={() => feedbackUpAndDown("up")}>
+              <Image src={arrowAdminFeedbackR} />
+            </Styled.AdminPointer>
           </Styled.AdminFeedbackArrows>
         </div>
       </Styled.AdminHalfGrid>

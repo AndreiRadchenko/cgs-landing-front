@@ -24,14 +24,19 @@ const AdminFooterBlock = ({
             onChangeFunction={onChangeFunction}
           />
           <FieldArray name="FooterBlock.links">
-            {() => <AdminFooterLinks state={state.links} onChangeFunction={onChangeFunction} />}
+            {() => (
+              <AdminFooterLinks
+                state={state.links}
+                onChangeFunction={onChangeFunction}
+              />
+            )}
           </FieldArray>
         </div>
         <Styled.AdminCardsGrid>
           {state.images.map((i, ind) => (
             <AdminSocialMediaIcon
               image={i}
-              key={Math.random()}
+              key={ind*99833}
               number={ind + 1}
             />
           ))}

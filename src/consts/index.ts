@@ -12,3 +12,11 @@ export const initAdmin = {
   username: "",
   password: ""
 }
+
+export const feedbackInit = {
+  companyName: "",
+  role: "",
+  text: "",
+  name: "",
+  stars: 1,
+}
