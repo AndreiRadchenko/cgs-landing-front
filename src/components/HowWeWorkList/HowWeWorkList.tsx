@@ -17,6 +17,16 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
   const entry = useIntersectionObserver(ref, { threshold: 0.75 });
   const isVisible = !!entry?.isIntersecting;
 
+  const isReleaseOnEdges = (e: SwiperCore, bool: boolean, time: number) => {
+    setTimeout(() => {
+      if (e.params && e.params.mousewheel) {
+        if (typeof e.params.mousewheel !== "boolean") {
+          e.params.mousewheel.releaseOnEdges = bool;
+        }
+      }
+    }, time);
+  };
+
   return (
     <div ref={ref}>
       {!isVisible ? (
@@ -25,10 +35,15 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
         <Swiper
           observer={true}
           spaceBetween={10}
-          mousewheel={{ releaseOnEdges: true }}
-          speed={700}
+          mousewheel={true}
+          speed={600}
           pagination={{ clickable: true }}
-          onSlideChange={(e) => setCurrentSlide(e.activeIndex)}
+          onSlideChange={(e) => {
+            setCurrentSlide(e.activeIndex);
+            isReleaseOnEdges(e, false, 50);
+          }}
+          onReachBeginning={(e) => isReleaseOnEdges(e, true, 300)}
+          onReachEnd={(e) => isReleaseOnEdges(e, true, 300)}
           initialSlide={currentSlide}
         >
           {items &&
