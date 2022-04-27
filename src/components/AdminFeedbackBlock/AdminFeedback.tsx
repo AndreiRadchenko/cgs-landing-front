@@ -4,13 +4,12 @@ import { IFeedback } from "../../types/Admin/Response.types";
 import AdminButton from "../AdminPageGlobal/AdminButton";
 import AdminStars from "./AdminStars";
 
-const AdminFeedback = ({
-  feedback,
-  deleteFunc,
-}: {
+interface IFeedbackProps {
   feedback: IFeedback;
   deleteFunc: () => void;
-}) => {
+}
+
+const AdminFeedback = ({ feedback, deleteFunc }: IFeedbackProps) => {
   return (
     <Styled.AdminFeedbackFrame>
       <Styled.AdminFeedbackStarsBlock>

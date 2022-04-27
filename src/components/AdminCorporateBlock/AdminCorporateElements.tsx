@@ -1,17 +1,19 @@
 import { ICorporateBlock } from "../../types/Admin/Response.types";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 
+interface ICorporateProps {
+  state: ICorporateBlock;
+  onChangeFunction: any;
+}
+
 const AdminCorporateElements = ({
   state,
   onChangeFunction,
-}: {
-  state: ICorporateBlock;
-  onChangeFunction: any;
-}) => {
+}: ICorporateProps) => {
   return (
     <div>
       {state.blocks.map((i, ind) => (
-        <div key={ind * 119994}>
+        <div key={`Corporate${ind}`}>
           <SubHeaderWithInput
             name={`CorporateBlock.blocks.${ind}.subtitle`}
             header="Subtitle"

@@ -13,30 +13,28 @@ const PhotoBlockDashed = ({
 }: IPhotoBlock) => {
   const { modal, toggleModal } = useUploadModal();
 
-  if (photo !== null) {
-    return (
-      <Styled.AdminPhotoBlock>
-        {modal ? <AdminUploadModal back={toggleModal} /> : null}
-        <Styled.AdminPhotoGrid>
-          <AdminImage image={photo} />
-        </Styled.AdminPhotoGrid>
-        <Styled.AdminDashedPositionGrid>
-          <Styled.AdminSubTitle
-            style={{ cursor: "pointer" }}
-            onClick={toggleModal}
-          >
-            {header}
-          </Styled.AdminSubTitle>
-          <Styled.AdminComment>Supports: JPG, PNG</Styled.AdminComment>
-          {deleteFlag ? (
-            <Styled.AdminDeleteText>delete image</Styled.AdminDeleteText>
-          ) : null}
-        </Styled.AdminDashedPositionGrid>
-      </Styled.AdminPhotoBlock>
-    );
-  } else {
-    return <AdminEmptyImage />;
-  }
+  return photo !== null ? (
+    <Styled.AdminPhotoBlock>
+      {modal ? <AdminUploadModal back={toggleModal} /> : null}
+      <Styled.AdminPhotoGrid>
+        <AdminImage image={photo} />
+      </Styled.AdminPhotoGrid>
+      <Styled.AdminDashedPositionGrid>
+        <Styled.AdminSubTitle
+          style={{ cursor: "pointer" }}
+          onClick={toggleModal}
+        >
+          {header}
+        </Styled.AdminSubTitle>
+        <Styled.AdminComment>Supports: JPG, PNG</Styled.AdminComment>
+        {deleteFlag ? (
+          <Styled.AdminDeleteText>delete image</Styled.AdminDeleteText>
+        ) : null}
+      </Styled.AdminDashedPositionGrid>
+    </Styled.AdminPhotoBlock>
+  ) : (
+    <AdminEmptyImage />
+  );
 };
 
 export default PhotoBlockDashed;

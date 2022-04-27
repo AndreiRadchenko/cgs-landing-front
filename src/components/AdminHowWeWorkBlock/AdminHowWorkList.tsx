@@ -4,18 +4,17 @@ import { IHowBlock } from "../../types/Admin/Response.types";
 import PhotoBlockDashedHorizontal from "../AdminPageGlobal/PhotoBlockdashedHorizontal";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 
-const AdminHowWorkList = ({
-  state,
-  onChangeFunction,
-}: {
+interface IHowWorkProps {
   state: IHowBlock[];
   onChangeFunction: any;
-}) => {
+}
+
+const AdminHowWorkList = ({ state, onChangeFunction }: IHowWorkProps) => {
   return (
     <div>
       {state.map((i, ind) => {
         return (
-          <div key={ind*112121}>
+          <div key={`HowWorkBlockNumb${ind}`}>
             <Styled.AdminHalfGrid>
               <div>
                 <SubHeaderWithInput

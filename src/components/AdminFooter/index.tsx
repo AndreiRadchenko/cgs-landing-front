@@ -6,13 +6,22 @@ import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 import AdminFooterLinks from "./AdminFooterLinks";
 import AdminSocialMediaIcon from "./AdminSocialMediaIcon";
 
-const AdminFooterBlock = ({
-  state,
-  onChangeFunction,
-}: {
+interface IFooterProps {
   state: IFooterBlock;
   onChangeFunction: any;
-}) => {
+}
+
+const renderInputs = ({ state, onChangeFunction }: IFooterProps) => (
+  <AdminFooterLinks state={state.links} onChangeFunction={onChangeFunction} />
+);
+
+const renderMediaIcons = (state: IFooterBlock) => {
+  return state.images.map((i, ind) => (
+    <AdminSocialMediaIcon image={i} key={`MediaIcon${ind}`} number={ind + 1} />
+  ));
+};
+
+const AdminFooterBlock = ({ state, onChangeFunction }: IFooterProps) => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
@@ -24,22 +33,11 @@ const AdminFooterBlock = ({
             onChangeFunction={onChangeFunction}
           />
           <FieldArray name="FooterBlock.links">
-            {() => (
-              <AdminFooterLinks
-                state={state.links}
-                onChangeFunction={onChangeFunction}
-              />
-            )}
+            {() => renderInputs({ state, onChangeFunction })}
           </FieldArray>
         </div>
         <Styled.AdminCardsGrid>
-          {state.images.map((i, ind) => (
-            <AdminSocialMediaIcon
-              image={i}
-              key={ind*99833}
-              number={ind + 1}
-            />
-          ))}
+          {renderMediaIcons(state)}
         </Styled.AdminCardsGrid>
       </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>

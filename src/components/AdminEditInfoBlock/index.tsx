@@ -4,13 +4,12 @@ import { IEditInformation } from "../../types/Admin/Response.types";
 import LeftSideBlock from "./LeftSide";
 import RightSideBlock from "./RightSide";
 
-const EditInformationBlock = ({
-  state,
-  onChangeFunction,
-}: {
+interface IEditInfoProps {
   state: IEditInformation;
   onChangeFunction: any;
-}) => {
+}
+
+const EditInformationBlock = ({ state, onChangeFunction }: IEditInfoProps) => {
   return (
     <Styled.AdminPaddedBlock theme="dark">
       <Styled.AdminHeader>Edit Information</Styled.AdminHeader>

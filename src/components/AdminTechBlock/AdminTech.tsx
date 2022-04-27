@@ -4,15 +4,13 @@ import * as Styled from "../../styles/AdminPage";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 import { ITech } from "../../types/Admin/Response.types";
 
-const AdminTech = ({
-  info,
-  onChangeFunction,
-  ind,
-}: {
+interface ITechProps {
   info: ITech;
   onChangeFunction: any;
   ind: number;
-}) => {
+}
+
+const AdminTech = ({ info, onChangeFunction, ind }: ITechProps) => {
   return (
     <Styled.AdminCardsGrid>
       <div>

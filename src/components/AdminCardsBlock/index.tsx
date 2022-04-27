@@ -5,13 +5,12 @@ import { ICards } from "../../types/Admin/Response.types";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 import AdminCardsList from "./AdminCardsList";
 
-const AdminCardsBlock = ({
-  state,
-  onChangeFunction,
-}: {
+interface ICardsProps {
   state: ICards;
   onChangeFunction: any;
-}) => {
+}
+
+const AdminCardsBlock = ({ state, onChangeFunction }: ICardsProps) => {
   return (
     <Styled.AdminPaddedBlock theme={"dark"}>
       <br />

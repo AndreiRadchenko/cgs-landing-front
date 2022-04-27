@@ -1,37 +1,41 @@
+import { FieldArray } from "formik";
 import React from "react";
 import { AdminInput } from "../../styles/AdminPage";
+import { IRenderInputsProps } from "../../types/Admin/Admin.types";
 import { IContactFormBlock } from "../../types/Admin/Response.types";
+
+interface IContactInputsProps {
+  state: IContactFormBlock;
+  onChangeFunction: any;
+}
+
+const renderInputs = ({
+  props,
+  state,
+  onChangeFunction,
+}: IRenderInputsProps) => (
+  <div>
+    {Object.keys(state).map((i, ind) => {
+      return (
+        <AdminInput
+          key={`inputContact${ind}`}
+          name={`${props.name}.${i}`}
+          value={state[i]}
+          onChange={onChangeFunction}
+        />
+      );
+    })}
+  </div>
+);
 
 const AdminContactInputs = ({
   state,
   onChangeFunction,
-}: {
-  state: IContactFormBlock;
-  onChangeFunction: any;
-}) => {
+}: IContactInputsProps) => {
   return (
-    <div>
-      <AdminInput
-            name={`ContactFormBlock.subtitle`}
-            value={state.subtitle}
-            onChange={onChangeFunction}
-          />
-          <AdminInput
-            name={`ContactFormBlock.name`}
-            value={state.name}
-            onChange={onChangeFunction}
-          />
-          <AdminInput
-            name={`ContactFormBlock.email`}
-            value={state.email}
-            onChange={onChangeFunction}
-          />
-          <AdminInput
-            name={`ContactFormBlock.message`}
-            value={state.message}
-            onChange={onChangeFunction}
-          />
-    </div>
+    <FieldArray name="ContactFormBlock">
+      {(props) => renderInputs({ props, state, onChangeFunction })}
+    </FieldArray>
   );
 };
 

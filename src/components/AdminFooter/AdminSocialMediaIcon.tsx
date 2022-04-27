@@ -2,13 +2,12 @@ import React from "react";
 import * as Styled from "../../styles/AdminPage";
 import PhotoBlockDashed from "../AdminPageGlobal/PhotoBlockDashed";
 
-const AdminSocialMediaIcon = ({
-  image,
-  number,
-}: {
+interface ISocialProps {
   image: any;
   number: number;
-}) => {
+}
+
+const AdminSocialMediaIcon = ({ image, number }: ISocialProps) => {
   return (
     <Styled.AdminSocialIcon>
       <Styled.AdminSubTitle>{number}</Styled.AdminSubTitle>

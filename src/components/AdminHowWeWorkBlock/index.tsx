@@ -5,13 +5,16 @@ import { IHowWeWorkBlock } from "../../types/Admin/Response.types";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 import AdminHowWorkList from "./AdminHowWorkList";
 
-const AdminHowWeWorkBlock = ({
-  state,
-  onChangeFunction,
-}: {
+interface IHowWokrProps {
   state: IHowWeWorkBlock;
   onChangeFunction: any;
-}) => {
+}
+
+const render = ({ state, onChangeFunction }: IHowWokrProps) => (
+  <AdminHowWorkList state={state.blocks} onChangeFunction={onChangeFunction} />
+);
+
+const AdminHowWeWorkBlock = ({ state, onChangeFunction }: IHowWokrProps) => {
   return (
     <Styled.AdminPaddedBlock theme="dark">
       <Styled.AdminHalfGrid>
@@ -26,12 +29,7 @@ const AdminHowWeWorkBlock = ({
       </Styled.AdminHalfGrid>
       <div>
         <FieldArray name="HowWeWorkBlock.blocks">
-          {() => (
-            <AdminHowWorkList
-              state={state.blocks}
-              onChangeFunction={onChangeFunction}
-            />
-          )}
+          {() => render({ state, onChangeFunction })}
         </FieldArray>
       </div>
     </Styled.AdminPaddedBlock>

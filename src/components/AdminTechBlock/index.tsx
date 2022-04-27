@@ -5,13 +5,16 @@ import { ITechnologyBlock } from "../../types/Admin/Response.types";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 import AdminTechList from "./AdminTechList";
 
-const AdminTechBlock = ({
-  state,
-  onChangeFunction,
-}: {
+interface ITechBlockProps {
   state: ITechnologyBlock;
   onChangeFunction: any;
-}) => {
+}
+
+const render = ({ state, onChangeFunction }: ITechBlockProps) => (
+  <AdminTechList state={state} onChangeFunction={onChangeFunction} />
+);
+
+const AdminTechBlock = ({ state, onChangeFunction }: ITechBlockProps) => {
   return (
     <Styled.AdminPaddedBlock theme="dark">
       <Styled.AdminCardsGrid>
@@ -25,9 +28,7 @@ const AdminTechBlock = ({
         </div>
       </Styled.AdminCardsGrid>
       <FieldArray name="TechnologyBlock.techs">
-        {() => (
-          <AdminTechList state={state} onChangeFunction={onChangeFunction} />
-        )}
+        {() => render({ state, onChangeFunction })}
       </FieldArray>
     </Styled.AdminPaddedBlock>
   );

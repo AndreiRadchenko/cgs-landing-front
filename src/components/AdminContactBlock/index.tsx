@@ -3,13 +3,15 @@ import * as Styled from "../../styles/AdminPage";
 import { IContactFormBlock } from "../../types/Admin/Response.types";
 import AdminContactInputs from "./AdminContactsInputs";
 
+interface IContactFormProps {
+  state: IContactFormBlock;
+  onChangeFunction: any;
+}
+
 const AdminContactFormBlock = ({
   state,
   onChangeFunction,
-}: {
-  state: IContactFormBlock;
-  onChangeFunction: any;
-}) => {
+}: IContactFormProps) => {
   return (
     <Styled.AdminPaddedBlock theme="dark">
       <Styled.AdminHalfGrid>

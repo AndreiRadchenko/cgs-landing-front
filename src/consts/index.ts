@@ -1,17 +1,17 @@
 export enum ErrorMessage {
-  DEFAULT = 'Oops, something went wrong!',
+  DEFAULT = "Oops, something went wrong!",
 }
 
 export enum storeKeys {
-  token = 'TOKEN',
-  role = 'ROLE',
-  profile = 'PROFILE',
+  token = "TOKEN",
+  role = "ROLE",
+  profile = "PROFILE",
 }
 
 export const initAdmin = {
   username: "",
-  password: ""
-}
+  password: "",
+};
 
 export const feedbackInit = {
   companyName: "",
@@ -19,4 +19,11 @@ export const feedbackInit = {
   text: "",
   name: "",
   stars: 1,
+};
+
+export enum ROUTE_KEYS {
+  AdminPage = "AdminPage",
+  AdminCareers = "AdminCareers",
+  AdminPartners = "AdminPartners",
+  AdminSettings = "AdminSettings",
 }

@@ -11,7 +11,7 @@ const AddLogoFrame = ({ state }: { state: { images: any[] } }) => {
 
   const addNewLogo = (response: string) => {
     state.images.push(response);
-    queryClient.invalidateQueries(queryKeys.GetFullPage)
+    queryClient.invalidateQueries(queryKeys.GetFullPage);
   };
 
   return (

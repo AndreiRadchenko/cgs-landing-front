@@ -1,32 +1,24 @@
-import React from "react";
+import { FieldArray } from "formik";
+import React, { ChangeEvent } from "react";
 import * as Styled from "../../styles/AdminPage";
 import { IBuildRocketBlock } from "../../types/Admin/Response.types";
-import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
+import { renderInputs } from "../../utils/renderInputs";
 
-const AdminBuildRocketBlock = ({ state, onChangeFunction }: { state: IBuildRocketBlock, onChangeFunction: any }) => {
+interface IBuildRocketProps {
+  state: IBuildRocketBlock;
+  onChangeFunction: (e?: ChangeEvent<any>) => void;
+}
+
+const AdminBuildRocketBlock = ({
+  state,
+  onChangeFunction,
+}: IBuildRocketProps) => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
-        <div>
-          <SubHeaderWithInput
-            header="Subtitle"
-            name="BuildRocketBlock.subtitle"
-            inputValue={state.subtitle}
-            onChangeFunction={onChangeFunction}
-          />
-          <SubHeaderWithInput
-            header="Text"
-            name="BuildRocketBlock.text"
-            inputValue={state.text}
-            onChangeFunction={onChangeFunction}
-          />
-          <SubHeaderWithInput
-            header="Button"
-            name="BuildRocketBlock.button"
-            inputValue={state.button}
-            onChangeFunction={onChangeFunction}
-          />
-        </div>
+        <FieldArray name="BuildRocketBlock">
+          {(props) => renderInputs({ props, state, onChangeFunction })}
+        </FieldArray>
       </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>
   );

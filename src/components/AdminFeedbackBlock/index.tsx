@@ -8,35 +8,28 @@ import arrowAdminFeedbackL from "../../../public/arrowAdminFeedbackL.svg";
 import arrowAdminFeedbackR from "../../../public/arrowAdminFeedbackR.svg";
 import Image from "next/image";
 
+interface IFeedbackBlockProps {
+  state: IFeedbackBlock;
+  onChangeFunction: any;
+}
+
 const AdminFeedbackBlock = ({
   state,
   onChangeFunction,
-}: {
-  state: IFeedbackBlock;
-  onChangeFunction: any;
-}) => {
+}: IFeedbackBlockProps) => {
   const [feedback, setFeedback] = useState(0);
 
-  const feedbackUp = () => {
-    feedback + 1 < state.feedBacks.length
-      ? setFeedback(feedback + 1)
-      : setFeedback(0);
-  };
-  const feedbackDown = () => {
-    feedback > 0
-      ? setFeedback(feedback - 1)
-      : setFeedback(state.feedBacks.length - 1);
-  };
+  const feedbackUp = () =>
+    setFeedback(feedback + 1 < state.feedBacks.length ? feedback + 1 : 0);
+
+  const feedbackDown = () =>
+    setFeedback(feedback > 0 ? feedback - 1 : state.feedBacks.length - 1);
 
   const deleteFunc = (id: number) => {
     state.feedBacks.splice(id, 1);
-    if (id > 0) {
-      setFeedback(id - 1);
-    } else {
-      setFeedback(1);
-    }
+    setFeedback(id > 0 ? id - 1 : 1);
   };
-  
+
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>

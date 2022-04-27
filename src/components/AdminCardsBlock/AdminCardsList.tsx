@@ -2,13 +2,12 @@ import { AdminCardsGrid } from "../../styles/AdminPage";
 import { ICard } from "../../types/Admin/Response.types";
 import AdminCard from "./AdminCard";
 
-const AdminCardsList = ({
-  state,
-  onChangeFunction,
-}: {
+interface ICardsListProps {
   state: ICard[];
   onChangeFunction: any;
-}) => {
+}
+
+const AdminCardsList = ({ state, onChangeFunction }: ICardsListProps) => {
   return (
     <AdminCardsGrid>
       {state.map((card, ind) => {

@@ -1,5 +1,5 @@
 export interface IEditInformation {
-  title: string;
+  [title: string]: string;
   text: string;
   text2: string;
   button: string;
@@ -69,13 +69,13 @@ export interface IHowWeWorkBlock {
 }
 
 export interface IBuildRocketBlock {
-  subtitle: string;
+  [subtitle: string]: string;
   text: string;
   button: string;
 }
 
 export interface IContactFormBlock {
-  subtitle: string;
+  [subtitle: string]: string;
   name: string;
   email: string;
   message: string;

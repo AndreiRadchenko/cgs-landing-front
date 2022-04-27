@@ -9,7 +9,7 @@ const AdminCorporateImages = ({
   return (
     <div>
       {state.images.map((i, ind) => (
-        <div key={ind*123131}>
+        <div key={`CorporateImages${ind}`}>
           <PhotoBlockDashedHorizontal photo={i} />
           <br />
         </div>

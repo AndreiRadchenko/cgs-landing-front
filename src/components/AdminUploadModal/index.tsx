@@ -2,17 +2,15 @@ import React, { useEffect, useState } from "react";
 import { adminGlobalService } from "../../services/adminHomePage";
 import * as Styled from "../../styles/AdminPage";
 
-const AdminUploadModal = ({ back, func = () => {} }: { back: () => void; func?: any }) => {
+interface IUploadProps {
+  back: () => void;
+  func?: any;
+}
+
+const AdminUploadModal = ({ back, func = () => {} }: IUploadProps) => {
   const [image, setImage] = useState<string | undefined>("");
   const [theme, setTheme] = useState("");
   const [file, setFile] = useState<File | null>(null);
-
-  // useEffect(() => {
-  //   document.body.style.overflowY = "hidden";
-  //   return () => {
-  //     document.body.style.overflowY = "auto";
-  //   };
-  // }, []);
 
   const hiddenFileInput = React.useRef<HTMLInputElement>(null);
 
