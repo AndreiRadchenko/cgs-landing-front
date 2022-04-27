@@ -19,10 +19,12 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
 
   const isReleaseOnEdges = (e: SwiperCore, bool: boolean, time: number) => {
     setTimeout(() => {
-      if (e.params && e.params.mousewheel) {
-        if (typeof e.params.mousewheel !== "boolean") {
-          e.params.mousewheel.releaseOnEdges = bool;
-        }
+      if (
+        e.params &&
+        e.params.mousewheel &&
+        typeof e.params.mousewheel !== "boolean"
+      ) {
+        e.params.mousewheel.releaseOnEdges = bool;
       }
     }, time);
   };
