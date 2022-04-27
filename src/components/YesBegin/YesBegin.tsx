@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Styles from "./YesBegin.styled";
 import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
@@ -6,6 +6,14 @@ import ImagePreview from "../Image/ImagePreview";
 import { IYesBeginProps } from "./types";
 
 const YesBegin = ({ clickHandler }: IYesBeginProps) => {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setIsClicked(true);
+    setTimeout(() => setIsClicked(false), 8000);
+    setTimeout(() => clickHandler(), 4000);
+  };
+
   return (
     <Styles.Container>
       <Styles.Title>
@@ -16,13 +24,15 @@ const YesBegin = ({ clickHandler }: IYesBeginProps) => {
         Do you want to build a rocket with CGS-team?
       </Styles.SubTitle>
       <Styles.ButtonContainer>
-        <BaseButton onClick={clickHandler}>
+        <BaseButton onClick={isClicked ? undefined : handleClick}>
           <ButtonTextWrapper fontSize="1.8em">yes! begin!</ButtonTextWrapper>
         </BaseButton>
-        <Styles.ImageContainer>
+      </Styles.ButtonContainer>
+      <Styles.Circle isClicked={isClicked}>
+        <Styles.ImageContainer isClicked={isClicked}>
           <ImagePreview src="/rocket.png" layout="fill" alt="rocket" />
         </Styles.ImageContainer>
-      </Styles.ButtonContainer>
+      </Styles.Circle>
     </Styles.Container>
   );
 };
