@@ -11,6 +11,9 @@ export class AdminHomePageService {
   public updateFullPage(data: IDataResponse) {
     return this.httpService.put("api/form", data);
   }
+  public uploadImage(data: any) {
+    return this.httpService.post("api/upload", data);
+  }
 }
 
 const factory = new HttpServiceFactory();

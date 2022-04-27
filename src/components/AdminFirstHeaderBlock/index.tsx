@@ -8,7 +8,7 @@ const FirstAdminBlock = ({ state }: { state: { image: { url: string } } }) => {
       <Styled.AdminHeader>Home</Styled.AdminHeader>
       <Styled.AdminSubTitle>Upload Logo</Styled.AdminSubTitle>
       <Styled.AdminAddMainLogoBlock>
-        <PhotoBlockDashed photo={state.image} />
+        <PhotoBlockDashed photo={state.image} deleteFlag={true} />
       </Styled.AdminAddMainLogoBlock>
     </Styled.AdminPaddedBlock>
   );

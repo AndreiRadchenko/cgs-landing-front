@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { adminGlobalService } from "../../services/adminHomePage";
 import * as Styled from "../../styles/AdminPage";
 
-const AdminUploadModal = ({ back }: any) => {
+const AdminUploadModal = ({ back, func = () => {} }: { back: () => void; func?: any }) => {
   const [image, setImage] = useState<string | undefined>("");
   const [theme, setTheme] = useState("");
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState<File | null>(null);
 
-  useEffect(() => {
-    document.body.style.overflowY = "hidden";
-    return () => {
-      document.body.style.overflowY = "auto";
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.body.style.overflowY = "hidden";
+  //   return () => {
+  //     document.body.style.overflowY = "auto";
+  //   };
+  // }, []);
 
   const hiddenFileInput = React.useRef<HTMLInputElement>(null);
 
@@ -28,7 +29,7 @@ const AdminUploadModal = ({ back }: any) => {
     };
     try {
       reader.readAsDataURL(loadedFile);
-      setFile(loadedFile.name);
+      setFile(loadedFile);
     } catch (e) {
       setImage("");
       setTheme("");
@@ -42,29 +43,42 @@ const AdminUploadModal = ({ back }: any) => {
     }
   };
 
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
+    try {
+      const formData = new FormData();
+      formData.append("image", file!, file!.name);
+      const response = await adminGlobalService.uploadImage(formData);
+      func(response);
+      back();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <Styled.AdminUploadModuleBack>
       <Styled.AdminUploadModuleWrapper>
         <Styled.AdminUploadModuleCloseButton onClick={back} children="close" />
         <Styled.AdminUploadInput
           type="file"
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange}
           ref={hiddenFileInput}
         />
         <div>
           <Styled.AdminUploadModalButton
             theme="filled"
-            onClick={(e) => handleClickUpload(e)}
+            onClick={handleClickUpload}
           >
             Upload
           </Styled.AdminUploadModalButton>
-          <Styled.AdminUploadModalButton theme={theme}>
+          <Styled.AdminUploadModalButton theme={theme} onClick={handleSubmit}>
             Submit
           </Styled.AdminUploadModalButton>
         </div>
         <Styled.AdminUploadModuleImgDiv>
           <img src={image} width="100%" />
-          <Styled.AdminUploadInfo>{file}</Styled.AdminUploadInfo>
+          <Styled.AdminUploadInfo>{file?.name || null}</Styled.AdminUploadInfo>
         </Styled.AdminUploadModuleImgDiv>
       </Styled.AdminUploadModuleWrapper>
     </Styled.AdminUploadModuleBack>

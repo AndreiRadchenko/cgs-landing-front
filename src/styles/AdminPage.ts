@@ -174,6 +174,7 @@ export const AdminLogoElement = styled.div`
   align-items: center;
   padding: ${themes.primary.spacing.primary};
   position: relative;
+  height: 10em;
 `;
 
 export const AdminDeleteLogo = styled.button`

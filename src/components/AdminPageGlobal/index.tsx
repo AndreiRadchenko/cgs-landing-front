@@ -19,7 +19,6 @@ import { adminGlobalService } from "../../services/adminHomePage";
 import { IDataResponse } from "../../types/Admin/Response.types";
 
 const AdminMainContent = () => {
-  const [isRuning, setIsRunning] = useState(false);
 
   const {
     data,
@@ -36,7 +35,7 @@ const AdminMainContent = () => {
     (data: IDataResponse) => adminGlobalService.updateFullPage(data)
   );
 
-  if (isLoading || isRuning) {
+  if (isLoading) {
     return (
       <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
     );
@@ -46,10 +45,10 @@ const AdminMainContent = () => {
       <Formik
         initialValues={data!}
         onSubmit={async (values) => {
-          setIsRunning(true);
+          document.body.style.cursor = "wait"
           await mutateAsync(values);
           await refetch();
-          setIsRunning(false);
+          document.body.style.cursor = "auto"
         }}
         validateOnChange={false}
       >
