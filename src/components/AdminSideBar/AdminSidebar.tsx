@@ -33,9 +33,8 @@ const AdminSidebar = () => {
           onClick={() => router.push("AdminSettings")}
           itemProp="AdminPage"
           property="AdminSettings"
-        >
-          settings
-        </Styled.AdminSidebarMenuElement>
+          children="settings"
+        />
       </Styled.AdminSidebarMenu>
     </Styled.AdminSidebar>
   );

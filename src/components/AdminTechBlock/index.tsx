@@ -23,13 +23,12 @@ const AdminTechBlock = ({
             onChangeFunction={onChangeFunction}
           />
         </div>
-        </Styled.AdminCardsGrid>
-        <FieldArray name="TechnologyBlock.techs">
-          {() => (
-            <AdminTechList state={state} onChangeFunction={onChangeFunction} />
-          )}
-        </FieldArray>
-      
+      </Styled.AdminCardsGrid>
+      <FieldArray name="TechnologyBlock.techs">
+        {() => (
+          <AdminTechList state={state} onChangeFunction={onChangeFunction} />
+        )}
+      </FieldArray>
     </Styled.AdminPaddedBlock>
   );
 };

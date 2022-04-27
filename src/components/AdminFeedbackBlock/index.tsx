@@ -16,16 +16,16 @@ const AdminFeedbackBlock = ({
   onChangeFunction: any;
 }) => {
   const [feedback, setFeedback] = useState(0);
-  const feedbackUpAndDown = (direction: string) => {
-    if (direction === "up") {
-      feedback + 1 < state.feedBacks.length
-        ? setFeedback(feedback + 1)
-        : setFeedback(0);
-    } else if (direction === "down") {
-      feedback > 0
-        ? setFeedback(feedback - 1)
-        : setFeedback(state.feedBacks.length - 1);
-    }
+
+  const feedbackUp = () => {
+    feedback + 1 < state.feedBacks.length
+      ? setFeedback(feedback + 1)
+      : setFeedback(0);
+  };
+  const feedbackDown = () => {
+    feedback > 0
+      ? setFeedback(feedback - 1)
+      : setFeedback(state.feedBacks.length - 1);
   };
 
   const deleteFunc = (id: number) => {
@@ -36,6 +36,7 @@ const AdminFeedbackBlock = ({
       setFeedback(1);
     }
   };
+  
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
@@ -61,10 +62,10 @@ const AdminFeedbackBlock = ({
             deleteFunc={() => deleteFunc(feedback)}
           />
           <Styled.AdminFeedbackArrows>
-            <Styled.AdminPointer onClick={() => feedbackUpAndDown("down")}>
+            <Styled.AdminPointer onClick={feedbackUp}>
               <Image src={arrowAdminFeedbackL} />
             </Styled.AdminPointer>
-            <Styled.AdminPointer onClick={() => feedbackUpAndDown("up")}>
+            <Styled.AdminPointer onClick={feedbackDown}>
               <Image src={arrowAdminFeedbackR} />
             </Styled.AdminPointer>
           </Styled.AdminFeedbackArrows>

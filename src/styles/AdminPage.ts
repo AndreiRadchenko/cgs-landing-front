@@ -14,6 +14,7 @@ export const AdminSidebar = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0;
+  user-select: none;
 `;
 
 export const AdminSidebarLogo = styled.div`

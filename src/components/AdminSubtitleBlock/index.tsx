@@ -3,11 +3,16 @@ import * as Styled from "../../styles/AdminPage";
 import PhotoBlockDashed from "../AdminPageGlobal/PhotoBlockDashed";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 import { ISubtitle } from "../../types/Admin/Response.types";
-import AdminInputWithImage from "../AdminPageGlobal/AdminInputWithImage";
 import { FieldArray } from "formik";
 import AdminSubtitleFlyingList from "./AdminSubtitleFlyingList";
 
-const SubtitleBlock = ({ state, onChangeFunction }: { state: ISubtitle, onChangeFunction: any }) => {
+const SubtitleBlock = ({
+  state,
+  onChangeFunction,
+}: {
+  state: ISubtitle;
+  onChangeFunction: any;
+}) => {
   return (
     <>
       <Styled.AdminPaddedBlock>
@@ -23,7 +28,12 @@ const SubtitleBlock = ({ state, onChangeFunction }: { state: ISubtitle, onChange
         </Styled.AdminHalfGrid>
         <br />
         <FieldArray name="SubtitleBlock.elements">
-          {() => <AdminSubtitleFlyingList state={state} onChangeFunction={onChangeFunction} />}
+          {() => (
+            <AdminSubtitleFlyingList
+              state={state}
+              onChangeFunction={onChangeFunction}
+            />
+          )}
         </FieldArray>
       </Styled.AdminPaddedBlock>
 

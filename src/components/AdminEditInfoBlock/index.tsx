@@ -14,7 +14,6 @@ const EditInformationBlock = ({
   return (
     <Styled.AdminPaddedBlock theme="dark">
       <Styled.AdminHeader>Edit Information</Styled.AdminHeader>
-
       <Styled.AdminHalfGrid>
         <LeftSideBlock state={state} onChangeFunction={onChangeFunction} />
         <RightSideBlock image={state.image} />

@@ -2,7 +2,6 @@ import { FieldArray } from "formik";
 import React from "react";
 import * as Styled from "../../styles/AdminPage";
 import { ICorporateBlock } from "../../types/Admin/Response.types";
-import PhotoBlockDashedHorizontal from "../AdminPageGlobal/PhotoBlockdashedHorizontal";
 import SubHeaderWithInput from "../AdminPageGlobal/SubHeaderWithInput";
 import AdminCorporateImages from "./AdminCorporateImages";
 

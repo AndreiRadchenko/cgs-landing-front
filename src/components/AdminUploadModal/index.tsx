@@ -64,9 +64,7 @@ const AdminUploadModal = ({ back }: any) => {
         </div>
         <Styled.AdminUploadModuleImgDiv>
           <img src={image} width="100%" />
-          <Styled.AdminUploadInfo>
-            {file}
-          </Styled.AdminUploadInfo>
+          <Styled.AdminUploadInfo>{file}</Styled.AdminUploadInfo>
         </Styled.AdminUploadModuleImgDiv>
       </Styled.AdminUploadModuleWrapper>
     </Styled.AdminUploadModuleBack>
