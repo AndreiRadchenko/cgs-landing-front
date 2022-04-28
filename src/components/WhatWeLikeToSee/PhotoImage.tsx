@@ -3,7 +3,7 @@ import Image from "next/image";
 import * as Styles from "../../styles/WhatWeLikeToSee.styled";
 import clip from "../../../public/clip.png";
 import photoFrame from "../../../public/photoFrame.png";
-import photoPerson from "../../../public/photoPerson.jpg";
+import photoPerson from "../../../public/photoPerson.png";
 
 const PhotoImage = () => {
   return (
