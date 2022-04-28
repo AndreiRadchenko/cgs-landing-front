@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import * as Styled from "../../../styles/AdminPage";
 import { IFeedbackBlock } from "../../../types/Admin/Response.types";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminFeedback from "./AdminFeedback";
 import AdminFeedbackForm from "./AdminFeedbackForm";
 import arrowAdminFeedbackL from "../../../../public/arrowAdminFeedbackL.svg";
 import arrowAdminFeedbackR from "../../../../public/arrowAdminFeedbackR.svg";
 import Image from "next/image";
+import { renderInputs } from "../../../utils/renderInputs";
+import { FieldArray } from "formik";
 
 interface IFeedbackBlockProps {
   state: IFeedbackBlock;
@@ -18,6 +19,7 @@ const AdminFeedbackBlock = ({
   onChangeFunction,
 }: IFeedbackBlockProps) => {
   const [feedback, setFeedback] = useState(0);
+  const renderState = { subtitle: state.subtitle, text3: state.text3 };
 
   const feedbackUp = () =>
     setFeedback(feedback + 1 < state.feedBacks.length ? feedback + 1 : 0);
@@ -29,24 +31,14 @@ const AdminFeedbackBlock = ({
     state.feedBacks.splice(id, 1);
     setFeedback(id > 0 ? id - 1 : 1);
   };
-
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
-        <div>
-          <SubHeaderWithInput
-            header="Subtitle"
-            name="FeedbackBlock.subtitle"
-            inputValue={state.subtitle}
-            onChangeFunction={onChangeFunction}
-          />
-          <SubHeaderWithInput
-            header="Text 3"
-            name="FeedbackBlock.text3"
-            inputValue={state.text3}
-            onChangeFunction={onChangeFunction}
-          />
-        </div>
+        <FieldArray name="FeedbackBlock">
+          {(props) =>
+            renderInputs({ props, state: renderState, onChangeFunction })
+          }
+        </FieldArray>
         <div />
         <AdminFeedbackForm state={state} />
         <div>

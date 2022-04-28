@@ -1,5 +1,9 @@
-import { IBuildRocketBlock, IContactFormBlock, IEditInformation } from './Response.types';
-import { FieldArrayRenderProps } from 'formik';
+import {
+  IBuildRocketBlock,
+  IContactFormBlock,
+  IEditInformation,
+} from "./Response.types";
+import { FieldArrayRenderProps } from "formik";
 export interface IAdmin {
   username: string;
   password: string;
@@ -35,8 +39,13 @@ export interface InputWithImage extends InputPropsInterface {
   photo: any;
 }
 
+export interface IFeedbackRenderState {
+  [subtitle: string]: string;
+  text3: string;
+}
+
 export interface IRenderInputsProps {
   props: FieldArrayRenderProps;
-  state: IBuildRocketBlock | IContactFormBlock | IEditInformation;
+  state: IBuildRocketBlock | IContactFormBlock | IEditInformation | IFeedbackRenderState;
   onChangeFunction: () => void;
 }
