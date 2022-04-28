@@ -1,6 +1,6 @@
 import React from "react";
-import AdminMainContent from "../../components/AdminPageGlobal";
-import AdminSidebar from "../../components/AdminSideBar/AdminSidebar";
+import AdminMainContent from "../../components/Admin/Global";
+import AdminSidebar from "../../components/Admin/SideBar/AdminSidebar";
 import * as Styled from "../../styles/AdminPage";
 
 const AdminHomePage = () => {

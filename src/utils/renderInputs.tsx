@@ -1,6 +1,6 @@
 import { IRenderInputsProps } from "../types/Admin/Admin.types";
 import React from "react";
-import SubHeaderWithInput from "../components/AdminPageGlobal/SubHeaderWithInput";
+import SubHeaderWithInput from "../components/Admin/Global/SubHeaderWithInput";
 import { firstLetterToUpperCase } from "./firstLetterToUpperCase";
 
 export const renderInputs = ({

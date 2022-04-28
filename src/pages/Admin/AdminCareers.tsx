@@ -1,5 +1,5 @@
 import React from "react";
-import AdminSidebar from "../../components/AdminSideBar/AdminSidebar";
+import AdminSidebar from "../../components/Admin/SideBar/AdminSidebar";
 import * as Styled from "../../styles/AdminPage";
 
 const AdminCareersPage = () => {
