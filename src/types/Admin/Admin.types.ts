@@ -1,8 +1,57 @@
+import {
+  IBuildRocketBlock,
+  IContactFormBlock,
+  IEditInformation,
+} from "./Response.types";
+import { FieldArrayRenderProps } from "formik";
 export interface IAdmin {
   username: string;
   password: string;
 }
 
 export interface IRes {
-  accessToken: string ;
+  accessToken: string;
+}
+
+export interface IPhotoBlock {
+  photo: any;
+  deleteFlag?: boolean;
+  header?: string;
+}
+
+export interface InputPropsInterface {
+  inputValue: string;
+  onChangeFunction: () => void;
+  name?: string;
+}
+
+export interface DropdownPropsInterface {
+  value: string;
+  onClick?: () => void;
+  route: string;
+}
+
+export interface InputWithHeader extends InputPropsInterface {
+  header: string;
+}
+
+export interface InputWithImage extends InputPropsInterface {
+  photo: any;
+}
+
+export interface IFeedbackRenderState {
+  [subtitle: string]: string;
+  text3: string;
+}
+
+export interface IRenderInputsProps {
+  props: FieldArrayRenderProps;
+  state: IBuildRocketBlock | IContactFormBlock | IEditInformation | IFeedbackRenderState;
+  onChangeFunction: () => void;
+}
+
+export interface IImage {
+  image: {
+    url: string
+  }
 }

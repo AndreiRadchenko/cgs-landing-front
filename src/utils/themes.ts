@@ -7,6 +7,7 @@ const themes = {
       tertiary: "2em",
       logo: "13em",
       headerNavVertical: "2.5em",
+      adminWithinBlocks: "3em",
       headerNavHorizontal: "5em",
       topButtonSpace: "4.5em",
       btnHeight: "7em",
@@ -15,6 +16,7 @@ const themes = {
       aboutUsCardMobile: "22em",
       aboutUsDescription: "8em",
       cardPartners: "14em",
+      btwLogoAndMenu: "8.5em",
     },
     font: {
       family: {
@@ -39,6 +41,7 @@ const themes = {
         primary: "1em",
         linkText: "1.4em",
         buttonText: "1.5em",
+        menuElement: "1.7em",
         secondary: "2em",
         quaternary: "2.6em",
         bigTitle: "4.125em",
@@ -61,11 +64,15 @@ const themes = {
       lighten: {
         blue: "#A6D0FF",
         orange: "#FFCE85",
-
         green: "#CAFF9D",
       },
       lightShadows: "lightgray",
       errorText: "#ea0000",
+      grayBack: "#EFEEEE",
+      comment: "#8F8E93",
+      darkedGrayBack: "#DDDBDB",
+      deleteButton: "#F80909",
+      feedbackRole: "#A9CDF5",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",
