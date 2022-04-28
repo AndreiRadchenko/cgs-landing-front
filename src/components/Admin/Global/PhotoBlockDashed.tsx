@@ -13,7 +13,7 @@ const PhotoBlockDashed = ({
 }: IPhotoBlock) => {
   const { modal, toggleModal } = useUploadModal();
 
-  return photo !== null ? (
+  return photo !== null && photo !== undefined ? (
     <Styled.AdminPhotoBlock>
       {modal ? <AdminUploadModal back={toggleModal} /> : null}
       <Styled.AdminPhotoGrid>
