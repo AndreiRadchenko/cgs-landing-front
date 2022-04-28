@@ -11,7 +11,7 @@ const PhotoBlockDashedHorizontal = ({
   header = "Drop new image here",
 }: IPhotoBlock) => {
   const { modal, toggleModal } = useUploadModal();
-  return photo !== null ? (
+  return photo !== null && photo !== undefined ? (
     <Styled.AdminPhotoDashedHorizontal>
       {modal ? <AdminUploadModal back={toggleModal} /> : null}
       <Styled.AdminPhotoDashedHorizontalPositoning>
