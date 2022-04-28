@@ -7,7 +7,7 @@ import { ICard } from "../../../types/Admin/Response.types";
 interface ICardProps {
   info: ICard;
   number: number;
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
 }
 
 const AdminCard = ({ info, number, onChangeFunction }: ICardProps) => {

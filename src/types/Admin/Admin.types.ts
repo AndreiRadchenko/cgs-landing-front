@@ -49,3 +49,9 @@ export interface IRenderInputsProps {
   state: IBuildRocketBlock | IContactFormBlock | IEditInformation | IFeedbackRenderState;
   onChangeFunction: () => void;
 }
+
+export interface IImage {
+  image: {
+    url: string
+  }
+}

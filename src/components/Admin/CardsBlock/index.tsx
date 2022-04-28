@@ -7,7 +7,7 @@ import AdminCardsList from "./AdminCardsList";
 
 interface ICardsProps {
   state: ICards;
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
 }
 
 const AdminCardsBlock = ({ state, onChangeFunction }: ICardsProps) => {

@@ -2,22 +2,24 @@ import React from "react";
 import ReactStars from "react-stars";
 import themes from "../../../utils/themes";
 
+interface IStarsProps {
+  value: number;
+  handleChange?: (number: number) => void;
+  size?: number;
+  edit?: boolean;
+}
+
 const AdminStars = ({
   value,
   handleChange,
   size = 24,
   edit = false,
-}: {
-  value: number;
-  handleChange?: any;
-  size?: number;
-  edit?: boolean;
-}) => {
+}: IStarsProps) => {
   return (
     <ReactStars
       half={true}
       edit={edit}
-      onChange={(newRating) => handleChange(newRating)}
+      onChange={(newRating) => handleChange!(newRating)}
       value={value}
       count={5}
       size={size}

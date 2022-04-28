@@ -8,7 +8,7 @@ import AdminSocialMediaIcon from "./AdminSocialMediaIcon";
 
 interface IFooterProps {
   state: IFooterBlock;
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
 }
 
 const renderInputs = ({ state, onChangeFunction }: IFooterProps) => (
@@ -36,9 +36,7 @@ const AdminFooterBlock = ({ state, onChangeFunction }: IFooterProps) => {
             {() => renderInputs({ state, onChangeFunction })}
           </FieldArray>
         </div>
-        <Styled.AdminCardsGrid>
-          {renderMediaIcons(state)}
-        </Styled.AdminCardsGrid>
+        <Styled.AdminCardsGrid>{renderMediaIcons(state)}</Styled.AdminCardsGrid>
       </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>
   );

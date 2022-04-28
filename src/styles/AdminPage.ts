@@ -342,13 +342,14 @@ export const AdminTechWrapper = styled.div`
 `;
 
 export const AdminUploadModuleWrapper = styled.div`
-  margin: 250px auto;
+  margin: 100px auto;
   background: ${themes.primary.colors.secondary};
-  padding: 2em;
-  width: 50%;
+  padding: 3.2em;
+  width: 40%;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 8fr 1fr;
+  border: 2px dashed ${themes.primary.colors.primary};
 `;
 
 export const AdminUploadInput = styled.input`
@@ -375,7 +376,6 @@ export const AdminUploadModuleCloseButton = styled.button`
   border: 0;
   position: absolute;
   background: #fff;
-  font-family: ${themes.primary.font.family.sourceCode};
   right: 10px;
   top: 10px;
   cursor: pointer;
@@ -385,14 +385,15 @@ export const AdminUploadModuleCloseButton = styled.button`
 `;
 
 export const AdminUploadModuleImgDiv = styled.div`
-  max-width: 250px;
+  width: 100%;
+  border: 2px dashed gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
+  margin-bottom: 1em;
   &: hover {
     background: rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-  }
-  &: hover span{
-    display: block;
   }
 `;
 

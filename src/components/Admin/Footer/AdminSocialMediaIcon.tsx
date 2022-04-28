@@ -1,9 +1,10 @@
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
+import { IImage } from "../../../types/Admin/Admin.types";
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 
 interface ISocialProps {
-  image: any;
+  image: IImage;
   number: number;
 }
 

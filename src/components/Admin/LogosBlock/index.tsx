@@ -2,11 +2,12 @@ import React from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import * as Styled from "../../../styles/AdminPage";
-import AddLogoFrame from "./AddLogoFrame";
+import { IImage } from "../../../types/Admin/Admin.types";
+import AddLogoFrame, { ILogosProps } from "./AddLogoFrame";
 import LogoElement from "./LogoElement";
 
 interface ILocalState {
-  images: any[];
+  images: IImage[];
 }
 
 interface IRenderProps {
@@ -24,7 +25,7 @@ const render = ({ state, deleteLogo }: IRenderProps) => {
   ));
 };
 
-const AdminLogosBlock = ({ state }: { state: { images: any[] } }) => {
+const AdminLogosBlock = ({ state }: ILogosProps) => {
   const queryClient = useQueryClient();
 
   const deleteLogo = (id: number) => {

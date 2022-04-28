@@ -6,13 +6,12 @@ import { ISubtitle } from "../../../types/Admin/Response.types";
 import { FieldArray } from "formik";
 import AdminSubtitleFlyingList from "./AdminSubtitleFlyingList";
 
-const SubtitleBlock = ({
-  state,
-  onChangeFunction,
-}: {
+interface ISubTitleProps {
   state: ISubtitle;
-  onChangeFunction: any;
-}) => {
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
+}
+
+const SubtitleBlock = ({ state, onChangeFunction }: ISubTitleProps) => {
   return (
     <>
       <Styled.AdminPaddedBlock>

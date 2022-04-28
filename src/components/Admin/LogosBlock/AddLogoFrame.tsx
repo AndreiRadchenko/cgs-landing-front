@@ -5,11 +5,13 @@ import useUploadModal from "../../../hooks/useUploadModal";
 import * as Styled from "../../../styles/AdminPage";
 import AdminUploadModal from "../UploadModal";
 
-const AddLogoFrame = ({ state }: { state: { images: any[] } }) => {
+export interface ILogosProps { state: { images: any[] } }
+
+const AddLogoFrame = ({ state }: ILogosProps) => {
   const { modal, toggleModal } = useUploadModal();
   const queryClient = useQueryClient();
 
-  const addNewLogo = (response: string) => {
+  const addNewLogo = (response: string | unknown) => {
     state.images.push(response);
     queryClient.invalidateQueries(queryKeys.GetFullPage);
   };

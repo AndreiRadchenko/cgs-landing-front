@@ -6,7 +6,7 @@ import RightSideBlock from "./RightSide";
 
 interface IEditInfoProps {
   state: IEditInformation;
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
 }
 
 const EditInformationBlock = ({ state, onChangeFunction }: IEditInfoProps) => {

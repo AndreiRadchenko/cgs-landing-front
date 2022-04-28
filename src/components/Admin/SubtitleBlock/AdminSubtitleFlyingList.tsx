@@ -5,7 +5,7 @@ import AdminInputWithImage from "../Global/AdminInputWithImage";
 
 interface ISubtitleFlyProps {
   state: ISubtitle;
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
 }
 
 const render = ({ state, onChangeFunction }: ISubtitleFlyProps) =>

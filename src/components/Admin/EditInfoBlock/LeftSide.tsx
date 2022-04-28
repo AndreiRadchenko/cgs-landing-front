@@ -5,7 +5,7 @@ import { renderInputs } from "../../../utils/renderInputs";
 
 interface ILeftSideProps {
   state: IEditInformation;
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
 }
 
 const LeftSideBlock = ({ state, onChangeFunction }: ILeftSideProps) => {

@@ -6,7 +6,7 @@ import { ITech } from "../../../types/Admin/Response.types";
 
 interface ITechProps {
   info: ITech;
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
   ind: number;
 }
 

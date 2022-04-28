@@ -1,11 +1,15 @@
 import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 import React from "react";
 
+interface ICorporateProps {
+  state: {
+    images: { url: string }[]
+  };
+}
+
 const AdminCorporateImages = ({
   state,
-}: {
-  state: { images: { url: string }[] };
-}) => {
+}: ICorporateProps) => {
   return (
     <div>
       {state.images.map((i, ind) => (

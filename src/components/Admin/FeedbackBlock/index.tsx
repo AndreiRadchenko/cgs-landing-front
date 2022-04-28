@@ -11,7 +11,7 @@ import { FieldArray } from "formik";
 
 interface IFeedbackBlockProps {
   state: IFeedbackBlock;
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
 }
 
 const AdminFeedbackBlock = ({

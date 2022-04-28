@@ -3,7 +3,7 @@ import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 interface ICorporateProps {
   state: ICorporateBlock;
-  onChangeFunction: any;
+  onChangeFunction:  (e?: React.ChangeEvent<any>) => void;
 }
 
 const AdminCorporateElements = ({

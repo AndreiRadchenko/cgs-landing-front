@@ -6,7 +6,7 @@ import AdminStars from "./AdminStars";
 
 interface IFeedbackProps {
   feedback: IFeedback;
-  deleteFunc: () => void;
+  deleteFunc: (e?: React.ChangeEvent<any>) => void;
 }
 
 const AdminFeedback = ({ feedback, deleteFunc }: IFeedbackProps) => {

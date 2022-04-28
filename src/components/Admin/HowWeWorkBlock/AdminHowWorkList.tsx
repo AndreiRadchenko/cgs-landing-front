@@ -6,7 +6,7 @@ import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 interface IHowWorkProps {
   state: IHowBlock[];
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
 }
 
 const AdminHowWorkList = ({ state, onChangeFunction }: IHowWorkProps) => {

@@ -5,13 +5,15 @@ import { ICorporateBlock } from "../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminCorporateImages from "./AdminCorporateImages";
 
+interface ICorporateBlockProps {
+  state: ICorporateBlock;
+  onChangeFunction:  (e?: React.ChangeEvent<any>) => void;
+}
+
 const AdminCorporateBlock = ({
   state,
   onChangeFunction,
-}: {
-  state: ICorporateBlock;
-  onChangeFunction: any;
-}) => {
+}: ICorporateBlockProps) => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>

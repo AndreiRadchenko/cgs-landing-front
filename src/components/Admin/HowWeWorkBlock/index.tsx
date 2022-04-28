@@ -7,7 +7,7 @@ import AdminHowWorkList from "./AdminHowWorkList";
 
 interface IHowWokrProps {
   state: IHowWeWorkBlock;
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
 }
 
 const render = ({ state, onChangeFunction }: IHowWokrProps) => (

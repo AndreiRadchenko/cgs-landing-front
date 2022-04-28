@@ -3,7 +3,7 @@ import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 interface IFooterProps {
   state: { link: string }[];
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
 }
 
 const AdminFooterLinks = ({ state, onChangeFunction }: IFooterProps) => {

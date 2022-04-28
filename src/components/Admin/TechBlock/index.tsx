@@ -7,7 +7,7 @@ import AdminTechList from "./AdminTechList";
 
 interface ITechBlockProps {
   state: ITechnologyBlock;
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
 }
 
 const render = ({ state, onChangeFunction }: ITechBlockProps) => (

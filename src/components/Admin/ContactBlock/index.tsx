@@ -5,7 +5,7 @@ import AdminContactInputs from "./AdminContactsInputs";
 
 interface IContactFormProps {
   state: IContactFormBlock;
-  onChangeFunction: any;
+  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
 }
 
 const AdminContactFormBlock = ({
