@@ -37,12 +37,12 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
         <Swiper
           observer={true}
           spaceBetween={10}
-          mousewheel={true}
+          mousewheel={{ releaseOnEdges: true }}
           speed={600}
           pagination={{ clickable: true }}
           onSlideChange={(e) => {
             setCurrentSlide(e.activeIndex);
-            isReleaseOnEdges(e, false, 50);
+            isReleaseOnEdges(e, false, 0);
           }}
           onReachBeginning={(e) => isReleaseOnEdges(e, true, 300)}
           onReachEnd={(e) => isReleaseOnEdges(e, true, 300)}
