@@ -21,8 +21,8 @@ const AdminTechList = () => {
           info={i}
           onChangeFunction={handleChange}
           ind={ind}
-          deleteImage={async () => (await deleteImageFunction)(i)}
-          uploadImage={(image) => uploadImageFunction(image, i)}
+          deleteFunction={async () => (await deleteImageFunction)(i)}
+          uploadFunction={(image) => uploadImageFunction(image, i)}
         />
       ))}
     </AdminCardsGrid>

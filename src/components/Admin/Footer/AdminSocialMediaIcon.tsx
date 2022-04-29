@@ -1,13 +1,12 @@
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
 import { IImage } from "../../../types/Admin/Admin.types";
+import { IPropsWithImage } from "../../../types/Admin/BlockProps";
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 
-interface ISocialProps {
+interface ISocialProps extends IPropsWithImage {
   image: IImage;
   number: number;
-  uploadFunction: (image: any) => void;
-  deleteFunction: () => void;
 }
 
 const AdminSocialMediaIcon = ({

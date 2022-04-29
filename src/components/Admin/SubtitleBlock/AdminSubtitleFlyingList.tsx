@@ -3,22 +3,20 @@ import React from "react";
 import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
 import useUploadImageFunction from "../../../hooks/uploadImageFunction";
 import * as Styled from "../../../styles/AdminPage";
-import { IImage } from "../../../types/Admin/Admin.types";
+import { IPropsWithImage } from "../../../types/Admin/BlockProps";
 import { IDataResponse, ISubtitle } from "../../../types/Admin/Response.types";
 import AdminInputWithImage from "../Global/AdminInputWithImage";
 
-interface ISubtitleFlyProps {
+interface ISubtitleFlyProps extends IPropsWithImage {
   state: ISubtitle;
   onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
-  deleteImageFunction: (state?: IImage) => void;
-  uploadImageFunction: (image: any, state?: IImage) => void;
 }
 
 const render = ({
   state,
   onChangeFunction,
-  deleteImageFunction,
-  uploadImageFunction,
+  deleteFunction,
+  uploadFunction,
 }: ISubtitleFlyProps) =>
   state.elements.map((i, ind) => {
     return (
@@ -28,8 +26,8 @@ const render = ({
         photo={i.image}
         inputValue={i.text}
         onChangeFunction={onChangeFunction}
-        deleteFunction={() => deleteImageFunction(i)}
-        uploadFunction={(image) => uploadImageFunction(image, i)}
+        deleteFunction={() => deleteFunction(i)}
+        uploadFunction={(image) => uploadFunction(image, i)}
       />
     );
   });
@@ -45,8 +43,8 @@ const AdminSubtitleFlyingList = () => {
       {render({
         state: values.SubtitleBlock,
         onChangeFunction: handleChange,
-        deleteImageFunction: async (i) => (await deleteImageFunction)(i),
-        uploadImageFunction,
+        deleteFunction: async (i) => (await deleteImageFunction)(i),
+        uploadFunction: uploadImageFunction,
       })}
     </Styled.AdminFlyingElementsBlock>
   );

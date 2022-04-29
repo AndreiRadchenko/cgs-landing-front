@@ -21,8 +21,10 @@ const AdminCardsList = () => {
               info={card}
               number={ind + 1}
               onChangeFunction={handleChange}
-              uploadImage={uploadImageFunction}
-              deleteImage={async (image: any) => (await deleteImageFunction)(image)}
+              uploadFunction={uploadImageFunction}
+              deleteFunction={async (image: any) =>
+                (await deleteImageFunction)(image)
+              }
             />
           </div>
         );

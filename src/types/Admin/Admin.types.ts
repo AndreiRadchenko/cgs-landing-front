@@ -1,3 +1,4 @@
+import { IPropsWithImage } from './BlockProps';
 import {
   IBuildRocketBlock,
   IContactFormBlock,
@@ -14,12 +15,10 @@ export interface IRes {
   accessToken: string;
 }
 
-export interface IPhotoBlock {
+export interface IPhotoBlock extends IPropsWithImage {
   photo: any;
   deleteFlag?: boolean;
   header?: string;
-  deleteFunction?: () => void;
-  uploadFunction?: (image: any) => void;
 }
 
 export interface InputPropsInterface {
