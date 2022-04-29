@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 95%;
   height: 100%;
   margin: 3em auto;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
 `;
 
 export const NavPanel = styled.div`
@@ -346,8 +346,8 @@ export const ProjectLinkText = styled.span`
   align-items: center;
   width: 100%;
   height: 100%;
-  font-weight: 500;
-  font-family: ${themes.primary.font.family.roboto};
+  font-weight: ${themes.primary.font.weight.light};
+  font-family: ${themes.primary.font.family.gilroy};
   cursor: pointer;
   @media ${themes.primary.media.onlyTabletLandScape} {
     font-size: 1.5em;

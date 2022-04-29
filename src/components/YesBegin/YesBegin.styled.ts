@@ -21,6 +21,7 @@ export const Title = styled.h2`
   text-align: center;
   margin: 0;
   max-width: 14em;
+  font-weight: ${themes.primary.font.weight.extraBold};
   z-index: 1000;
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -35,7 +36,7 @@ export const Title = styled.h2`
 
 export const SubTitle = styled.h4`
   font-size: 2em;
-  font-weight: 400;
+  font-weight: ${themes.primary.font.weight.light};
   text-align: center;
   font-weight: ${themes.primary.font.weight.light};
 

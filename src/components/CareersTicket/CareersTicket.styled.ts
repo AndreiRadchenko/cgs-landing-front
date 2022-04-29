@@ -191,7 +191,7 @@ export const TicketText = styled.span`
   font-size: ${themes.primary.font.size.quinary};
   padding-top: 0.25rem;
   padding-right: 0.938rem;
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-bottom: 0.5rem;
     font-size: ${themes.primary.font.size.hexadecimal};
@@ -240,7 +240,7 @@ export const BottomTitle = styled.h2`
   margin-bottom: 1.938rem;
   text-transform: uppercase;
   font-size: ${themes.primary.font.size.tertiary};
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   font-family: ${themes.primary.font.family.gilroy};
   @media ${themes.primary.media.onlyLaptop} {
     margin-bottom: 0.938rem;

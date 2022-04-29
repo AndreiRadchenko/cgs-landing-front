@@ -144,7 +144,7 @@ export const InputFileLabel = styled.label`
   width: 100%;
   color: black;
   font-size: ${themes.primary.font.size.buttonText};
-  font-weight: 500;
+  font-weight: ${themes.primary.font.weight.light};
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

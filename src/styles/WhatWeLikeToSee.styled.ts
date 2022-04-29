@@ -3,7 +3,7 @@ import themes from "../utils/themes";
 
 export const LikeToSeeContainer = styled.section`
   width: 100%;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.buttonText};
   }
@@ -48,7 +48,7 @@ export const LikeToSeeHeader = styled.p`
   width: 90%;
   position: relative;
   left: 2%;
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   @media ${themes.primary.media.maxMobile} {
     left: 6%;
   }
@@ -103,7 +103,7 @@ export const LikeToSeePhotoClip = styled.div`
 `;
 
 export const LikeToSeePhotoText = styled.div`
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   width: 70%;
   transform: rotate(-1deg);
   position: absolute;
@@ -136,7 +136,7 @@ export const LikeToSeeCardTitle = styled.h2`
 export const LikeToSeeCardReqirement = styled.div`
   display: flex;
   align-items: center;
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   margin: ${themes.primary.spacing.small} 0;
 `;
 export const LikeToSeeCardReqirementText = styled.div`
@@ -149,7 +149,7 @@ export const LikeToSeeCardText = styled.p`
   left: 2%;
   margin-top: ${themes.primary.spacing.tertiary};
   font-size: ${themes.primary.font.size.tertiary};
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   @media ${themes.primary.media.maxMobile} {
     left: 4%;
   }
@@ -169,7 +169,7 @@ export const LikeToSeeCardSubFooter = styled.div`
   position: relative;
   left: 2%;
   margin-top: ${themes.primary.spacing.small};
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   @media ${themes.primary.media.maxMobile} {
     left: 4%;
   }

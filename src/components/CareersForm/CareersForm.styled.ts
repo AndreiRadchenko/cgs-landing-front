@@ -3,7 +3,7 @@ import styled, { keyframes, css } from "styled-components";
 
 export const FormTitle = styled.h1`
   font-size: ${themes.primary.font.size.quaternary};
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   text-align: center;
   margin-bottom: 4rem;
 `;

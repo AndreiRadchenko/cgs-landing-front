@@ -4,7 +4,7 @@ import themes from "../utils/themes";
 
 export const TechnologyContainer = styled.section`
   user-select: none;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
   margin-bottom: 12.5em;
 `;
 
@@ -109,6 +109,7 @@ export const CategoryTechnologiesWrapper = styled.div`
 `;
 
 export const CategoryTitle = styled.h2`
+  font-weight: ${themes.primary.font.weight.extraBold};
   font-size: 1.8em;
   text-align: center;
   position: relative;
@@ -140,6 +141,7 @@ export const CategoryTechnology = styled.span`
   display: block;
   line-height: 175%;
   font-size: 1.125em;
+  font-weight: ${themes.primary.font.weight.light};
 
   &:first-child {
     margin-top: 1em;
