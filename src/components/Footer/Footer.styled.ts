@@ -40,7 +40,8 @@ export const WebAddressContainer = styled.div`
 
 export const WebAddress = styled.a`
   font-size: 1.4em;
-  font-family: ${themes.primary.font.family.mulish};
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.light};
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;

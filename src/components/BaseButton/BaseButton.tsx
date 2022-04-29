@@ -25,6 +25,7 @@ const BaseButton: FC<IBaseButtonProps> = ({
       onClick={onClick}
       letterSpacing={letterSpacing}
       marginTop={topSpacing}
+      className={src === "/careersSendBg.png" ? "big-btn" : ""}
     >
       <ImagePreview
         src={src}

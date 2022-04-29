@@ -15,6 +15,7 @@ export const FormInput = styled.input`
   outline: none;
   border: 1px solid ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.sourceCode};
+  font-weight: ${themes.primary.font.weight.light};
 
   &::-webkit-input-placeholder:after {
     content: "*";
@@ -40,6 +41,7 @@ export const TextAreaInput = styled.textarea`
   outline: none;
   border: 1px solid ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.sourceCode};
+  font-weight: ${themes.primary.font.weight.light};
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.5em;

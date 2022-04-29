@@ -31,7 +31,7 @@ export const BurgerWrapper = styled.div`
 export const BurgerRow = styled.div`
   position: relative;
   font-size: ${themes.primary.font.size.quaternary};
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   margin-left: ${themes.primary.spacing.primary};
   max-width: fit-content;
   height: 70px;

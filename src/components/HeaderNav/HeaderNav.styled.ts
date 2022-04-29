@@ -27,14 +27,14 @@ export const BurgerLinkWrapper = styled.a`
   margin-left: 1.5em;
   margin-right: auto;
   font-size: 2.5em;
-  font-weight: 700;
+  font-weight: ${themes.primary.font.weight.extraBold};
   margin-top: 0.8462em;
   cursor: pointer;
 `;
 
 export const ListItemNav = styled.span`
-  font-family: ${themes.primary.font.family.roboto};
-  font-weight: ${themes.primary.font.weight.bold};
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.extraBold};
   font-size: ${themes.primary.font.size.linkText};
   margin-left: ${themes.primary.spacing.headerNavHorizontal};
   transition: 300ms;

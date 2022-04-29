@@ -1,10 +1,12 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState } from "react";
 import { useFormik, FormikValues } from "formik";
 import * as Styled from "./Form.styled";
 import FormField from "./FormField/index";
 import { CareerFormValidation } from "../../../validations/CareerFormValidator";
 import { fieldData, fieldContent } from "../../../mock/VacancyFieldData";
 import animateCV from "../../../../public/lotties/CVButton.json";
+import BaseButton from "../../BaseButton/BaseButton";
+import ButtonTextWrapper from "../../ButtonText/ButtonTextWrapper";
 
 const Form: FC = () => {
   const [CV, setCV] = useState<boolean>(false);
@@ -77,7 +79,11 @@ const Form: FC = () => {
             {CV ? "file is uploaded" : "file is not uploaded"}
           </Styled.FileLoad>
         </Styled.FileContainer>
-        <Styled.SubmitButton type="submit" />
+        <Styled.SubmitButton>
+          <BaseButton src="/careersSendBg.png" width="22rem" height="4rem">
+            <ButtonTextWrapper fontSize="1.4em">send</ButtonTextWrapper>
+          </BaseButton>
+        </Styled.SubmitButton>
         <Styled.BottomText>
           It could be that we won’t answer you. That means our match was
           imperfect today. Keep your head up!

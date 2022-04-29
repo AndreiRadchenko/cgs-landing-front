@@ -5,7 +5,7 @@ import Decoration from "../components/Decoration/Decoration";
 
 export const OurTeamContainer = styled.section`
   position: relative;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
   margin-bottom: 200px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -95,7 +95,7 @@ export const OurTeamCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
 
   &:nth-child(even) {
     width: 45%;
@@ -125,6 +125,7 @@ export const OurTeamCardTitle = styled.h2`
   display: flex;
   justify-content: flex-start;
   position: relative;
+  font-weight: ${themes.primary.font.weight.extraBold};
   z-index: 2;
 
   font-size: 40px;
@@ -133,7 +134,7 @@ export const OurTeamCardTitle = styled.h2`
 export const OurTeamCardDescription = styled.span`
   display: block;
   font-size: 26px;
-  font-weight: 300;
+  font-weight: ${themes.primary.font.weight.light};
   opacity: 0.7;
   white-space: break-spaces;
 `;

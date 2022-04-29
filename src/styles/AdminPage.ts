@@ -48,7 +48,7 @@ export const AdminSidebarMenuElement = styled.li`
 
 export const AdminSidebarHidenElement = styled.div`
   height: 1em;
-  font-weight: ${themes.primary.font.weight.normal};
+  font-weight: ${themes.primary.font.weight.light};
   padding: ${themes.primary.spacing.small} 0 0 ${themes.primary.spacing.primary};
   display: ${(props) => props.theme};
 `;
@@ -74,7 +74,7 @@ export const AdminHeader = styled.h2`
 export const AdminSubTitle = styled.h3`
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.mulish};
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   margin: 0 0 0.4em 0;
 `;
 
@@ -112,7 +112,8 @@ export const AdminInput = styled(TextareaAutosize)`
 export const AdminPhotoBlock = styled.div`
   border: 2px dashed ${themes.primary.colors.primary};
   display: flex;
-  justify-content: ${props => props.theme === "center" ? "center" : "space-between"};
+  justify-content: ${(props) =>
+    props.theme === "center" ? "center" : "space-between"};
   align-items: center;
   flex-direction: column;
   padding: ${themes.primary.spacing.primary};
@@ -220,7 +221,7 @@ export const AdminFeedbackRole = styled.h4`
   border-radius: 5px;
   font-size: ${themes.primary.font.size.buttonText};
   font-family: ${themes.primary.font.family.mulish};
-  font-weight: ${themes.primary.font.weight.normal};
+  font-weight: ${themes.primary.font.weight.light};
   width: fit-content;
   padding: 1px 6px;
   margin: -5px 0 0 0;
@@ -250,7 +251,7 @@ export const AdminDeleteTextThin = styled.span`
   right: 1.5em;
   bottom: 1.1em;
   font-size: ${themes.primary.font.size.tertiary};
-  font-weight: 500;
+  font-weight: ${themes.primary.font.weight.light};
   cursor: pointer;
 `;
 
@@ -412,7 +413,7 @@ export const AdminUploadInfo = styled.span`
   position: absolute;
   left: 2px;
   bottom: 2px;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
 `;
 
 export const AdminUploadModuleBack = styled.div`

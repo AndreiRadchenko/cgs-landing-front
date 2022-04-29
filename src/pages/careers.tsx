@@ -8,12 +8,14 @@ import Footer from "../components/Footer/Footer";
 
 const CarrersPage: NextPage = () => {
   return (
-    <Page>
-      <HeaderNav />
-      <Careers />
-      <CareersForm />
+    <>
+      <Page>
+        <HeaderNav />
+        <Careers />
+        <CareersForm />
+      </Page>
       <Footer />
-    </Page>
+    </>
   );
 };
 

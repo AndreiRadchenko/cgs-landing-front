@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 95%;
   height: 100%;
   margin: 3em auto;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
 `;
 
 export const NavPanel = styled.div`
@@ -41,6 +41,7 @@ export const CategoryTitleWrapper = styled.div`
 `;
 
 export const CategoryName = styled.h2`
+  font-weight: ${themes.primary.font.weight.extraBold};
   font-size: 2.5em;
   margin: 10px 0 15px 0;
   position: relative;
@@ -262,12 +263,14 @@ export const SpecifyContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-right: 2rem;
   width: 40%;
   height: 100%;
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     height: 20.625em;
+    padding-right: 0;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -317,6 +320,7 @@ export const ContentWrapper = styled.div`
 
 export const ProjectTitleName = styled.h2`
   font-size: ${themes.primary.font.size.buttonText};
+  font-weight: ${themes.primary.font.weight.extraBold};
   overflow-wrap: anywhere;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -346,8 +350,8 @@ export const ProjectLinkText = styled.span`
   align-items: center;
   width: 100%;
   height: 100%;
-  font-weight: 500;
-  font-family: ${themes.primary.font.family.roboto};
+  font-weight: ${themes.primary.font.weight.extraBold};
+  font-family: ${themes.primary.font.family.gilroy};
   cursor: pointer;
   @media ${themes.primary.media.onlyTabletLandScape} {
     font-size: 1.5em;

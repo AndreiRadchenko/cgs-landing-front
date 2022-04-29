@@ -79,34 +79,36 @@ export const Button = styled(TicketButton)`
 `;
 
 export const BarcodeText = styled.p`
+  font-family: ${themes.primary.font.family.gilroy};
   transform: rotate(-90deg);
   position: absolute;
   left: -4.1rem;
   top: 5.125rem;
   width: max-content;
   @media ${themes.primary.media.maxPCFullHD} {
+    top: 5.5rem;
     left: -3.2rem;
   }
   @media ${themes.primary.media.maxLaptop} {
     font-size: 0.6rem;
     top: 3.813rem;
-    left: -2.4rem;
+    left: -2.6rem;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 0.8rem;
-    top: 5.125rem;
-    left: -2.7rem;
+    top: 5.5rem;
+    left: -2.9rem;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    left: -2.688rem;
+    left: -2.888rem;
   }
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     left: -2.2rem;
     top: 3.813rem;
     font-size: 0.55rem;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    left: -1.7rem;
+    left: -2.25rem;
     top: 2.9rem;
     font-size: 0.45rem;
   }
@@ -191,7 +193,7 @@ export const TicketText = styled.span`
   font-size: ${themes.primary.font.size.quinary};
   padding-top: 0.25rem;
   padding-right: 0.938rem;
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-bottom: 0.5rem;
     font-size: ${themes.primary.font.size.hexadecimal};
@@ -240,7 +242,7 @@ export const BottomTitle = styled.h2`
   margin-bottom: 1.938rem;
   text-transform: uppercase;
   font-size: ${themes.primary.font.size.tertiary};
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   font-family: ${themes.primary.font.family.gilroy};
   @media ${themes.primary.media.onlyLaptop} {
     margin-bottom: 0.938rem;

@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 export const FormTitle = styled.h1`
   text-align: center;
   font-size: ${themes.primary.font.size.quaternary};
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   margin-bottom: 3.7rem;
   @media${themes.primary.media.maxTablet} {
     font-size: ${themes.primary.font.size.secondary};
