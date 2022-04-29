@@ -12,6 +12,7 @@ export const TicketButton = styled.div`
   margin-left: -1.125rem;
   margin-bottom: -1.063rem;
   transition: all 0.3s;
+  -webkit-tap-highlight-color: transparent;
 
   &:hover,
   &:active {

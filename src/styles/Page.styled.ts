@@ -48,16 +48,17 @@ export const ButtonText = styled.span.attrs(
   align-items: center;
   width: 100%;
   height: 100%;
-  font-weight: 500;
-  font-family: ${themes.primary.font.family.roboto};
+  font-weight: ${themes.primary.font.weight.extraBold};
+  font-family: ${themes.primary.font.family.gilroy};
   cursor: pointer;
+  color: ${themes.primary.colors.primary};
 
   ${(props) => css`
     font-size: ${props.fontSize};
   `}
 
   @media ${themes.primary.media.maxMobile} {
-    font-weight: 700;
+    font-weight: ${themes.primary.font.weight.extraBold};
     font-size: 1.1em;
   }
 `;

@@ -3,10 +3,12 @@ import themes from "../utils/themes";
 
 export const FeedbackContainer = styled.section`
   margin-top: 3rem;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
 `;
 
 export const FeedbackSectionTitle = styled.h1`
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.extraBold};
   font-size: 2.5em;
   margin: 0;
 
@@ -17,7 +19,7 @@ export const FeedbackSectionTitle = styled.h1`
 
 export const FeedbackSectionSubTitle = styled.h3`
   max-width: 23em;
-  font-weight: 300;
+  font-weight: ${themes.primary.font.weight.light};
   font-size: 1.65em;
   line-height: 125%;
   margin-top: 0.75em;

@@ -64,7 +64,7 @@ export const NumberContainer = styled.div`
 export const Number = styled.div<IColorProps>`
   color: ${(props) => themes.primary.colors.lighten[props.backGroundColor]};
   font-size: 26em;
-  font-weight: 600;
+  font-weight: ${themes.primary.font.weight.extraBold};
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 17em;
@@ -85,7 +85,7 @@ export const Title = styled.div`
   font-size: 2em;
   margin-left: 2.4em;
   color: ${themes.primary.colors.primary};
-  font-weight: 700;
+  font-weight: ${themes.primary.font.weight.bold};
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.8em;
@@ -109,7 +109,7 @@ export const ContentContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
   flex-grow: 1;
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -187,6 +187,7 @@ export const ContentTitle = styled.h2`
   line-height: 1em;
   color: ${themes.primary.colors.primary};
   white-space: break-spaces;
+  font-weight: ${themes.primary.font.weight.extraBold};
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: 0.5em;
@@ -236,6 +237,7 @@ export const ContentText = styled.p`
   animation-timing-function: linear;
   margin: 0;
   margin-top: 15px;
+  font-weight: ${themes.primary.font.weight.light};
 `;
 
 export const AdditionalImgContainer = styled.div<IActive>`

@@ -51,32 +51,9 @@ export const LottieWrapper = styled.div`
   }
 `;
 
-export const SubmitButton = styled.button`
-  background-image: url("/send-button.png");
+export const SubmitButton = styled.div`
   width: 100%;
-  height: 5rem;
-  border: none;
-  background-color: #f7f7f7;
-  cursor: pointer;
-  margin: 1.063rem 0 0.563rem 0;
-  background-repeat: round;
-  -webkit-tap-highlight-color: transparent;
-  transition: all 0.3s;
-
-  &:hover,
-  &:active {
-    transform: scale(1.2);
-  }
-
-  @media ${themes.primary.media.maxTablet} {
-    background-size: contain;
-    background-repeat: space;
-    background-position: center;
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    background-repeat: no-repeat;
-    background-position: top;
-  }
+  text-align: center;
 `;
 
 export const BottomText = styled.p`
@@ -144,7 +121,7 @@ export const InputFileLabel = styled.label`
   width: 100%;
   color: black;
   font-size: ${themes.primary.font.size.buttonText};
-  font-weight: 500;
+  font-weight: ${themes.primary.font.weight.light};
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -179,6 +156,7 @@ export const FileText = styled.span`
   margin-top: 1px;
   margin-left: 5px;
   color: #3c95f9;
+  font-weight: ${themes.primary.font.weight.extraBold};
 `;
 
 export const FileImg = styled.img`

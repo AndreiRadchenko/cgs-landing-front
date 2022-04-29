@@ -100,9 +100,13 @@ export const WrapperDescription = styled.div`
 
 export const TitleSpecialization = styled.h2`
   margin: 0 0 0.7em 0;
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.extraBold};
 `;
 
 export const DescriptionSpecialization = styled.span`
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.light};
   font-size: ${themes.primary.font.size.vistaco};
 
   @media ${themes.primary.media.maxMobile} {

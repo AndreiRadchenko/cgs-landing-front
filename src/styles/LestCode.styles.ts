@@ -9,7 +9,7 @@ export const LetsCodeContainer = styled.section`
   align-items: center;
   position: relative;
   margin-top: 3.75em;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
 
   @media ${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;

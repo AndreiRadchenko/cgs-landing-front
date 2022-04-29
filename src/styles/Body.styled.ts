@@ -29,11 +29,11 @@ export const BodyDescriptionContent = styled.div``;
 export const BodyTitle = styled.span`
   font-size: 6.2em;
   font-family: ${themes.primary.font.family.barlow};
-  font-weight: 600;
+  font-weight: ${themes.primary.font.weight.semiBold};
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 8.3em;
-    font-weight: 700;
+    font-weight: ${themes.primary.font.weight.extraBold};
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -43,14 +43,12 @@ export const BodyTitle = styled.span`
 
 export const BodySubtitle = styled.span`
   display: block;
-  margin-top: 1em;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.light};
   font-size: ${themes.primary.font.size.quaternary};
-  font-weight: 500;
   line-height: 125%;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 0.5em;
     width: calc(95% - 2em);
   }
 
@@ -63,7 +61,7 @@ export const CodeDescription = styled.span`
   font-family: ${themes.primary.font.family.sourceCode};
   display: block;
   margin-top: 1em;
-  font-weight: 600;
+  font-weight: ${themes.primary.font.weight.semiBold};
   font-size: 1.5em;
   line-height: 145%;
 

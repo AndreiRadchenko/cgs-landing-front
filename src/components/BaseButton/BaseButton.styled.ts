@@ -35,22 +35,35 @@ export const StyledButton = styled.button.attrs(
     width: 13em;
     height: 5em;
     margin-top: ${themes.primary.spacing.headerNavVertical};
+    &.big-btn {
+      width: 23rem;
+    }
   }
   @media ${themes.primary.media.onlyTabletPortrait} {
     width: 14em;
     height: 6em;
     margin-top: ${themes.primary.spacing.headerNavVertical};
+    &.big-btn {
+      height: 5em;
+      width: 20rem;
+    }
   }
   @media ${themes.primary.media.maxMobile} {
     width: 14em;
     height: 5em;
     margin-top: ${themes.primary.spacing.primary};
     margin-left: -0.8em;
+    &.big-btn {
+      width: 20rem;
+    }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 10em;
     height: 4em;
     margin-left: -0.8em;
+    &.big-btn {
+      width: 16rem;
+    }
   }
 `;

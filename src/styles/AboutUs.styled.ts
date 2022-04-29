@@ -11,7 +11,7 @@ export const AboutUsContainer = styled.section`
   flex-direction: column;
   justify-content: center;
 
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
 `;
 
 export const AboutUsWrapper = styled.div`
@@ -27,8 +27,9 @@ export const AboutUsWrapper = styled.div`
 `;
 
 export const AboutUsTitle = styled.h2`
-  font-weight: ${themes.primary.font.weight.bold};
-  font-size: ${themes.primary.font.size.quaternary};
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.extraBold};
+  font-size: 3em;
   margin: 0;
 `;
 
@@ -79,8 +80,8 @@ export const CardDescriptionWrapper = styled.div`
   display: flex;
   justify-content: center;
   font-size: ${themes.primary.font.size.buttonText};
-  font-family: ${themes.primary.font.family.roboto};
-  font-weight: 400;
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.light};
   margin-top: 0.3em;
 
   &.columnDescription {
@@ -94,6 +95,7 @@ export const CardDescriptionWrapper = styled.div`
 export const CardDescriptionSubDescription = styled.div`
   font-size: 1.3em;
   white-space: pre-wrap;
+  font-weight: ${themes.primary.font.weight.extraBold};
 
   &.columnDescription {
     width: 12.5em;
@@ -112,6 +114,7 @@ export const CardDescriptionSubDescription = styled.div`
 export const CardDescriptionValueWrapper = styled.div`
   position: relative;
   font-size: 1.3em;
+  font-weight: ${themes.primary.font.weight.extraBold};
 
   &.columnDescription {
     width: 12.5em;
@@ -211,7 +214,7 @@ export const AboutUsDescription = styled.span`
   display: block;
   width: 80%;
   text-align: center;
-  font-weight: 400;
+  font-weight: ${themes.primary.font.weight.light};
   font-size: ${themes.primary.font.size.buttonText};
   line-height: 145%;
   margin: 0 auto;

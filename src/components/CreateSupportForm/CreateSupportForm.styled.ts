@@ -7,7 +7,7 @@ export const Container = styled.form`
   width: 100%;
   height: 100%;
   z-index: 2;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin: 0;
@@ -16,6 +16,7 @@ export const Container = styled.form`
 
 export const Title = styled.h2`
   font-size: 2.25rem;
+  font-weight: ${themes.primary.font.weight.extraBold};
   margin: 0 0 2.5rem 0;
 
   @media ${themes.primary.media.maxTabletLandScape} {

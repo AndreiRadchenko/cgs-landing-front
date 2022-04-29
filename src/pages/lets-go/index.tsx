@@ -13,8 +13,8 @@ const LetsGo: NextPage = () => {
         <HeaderNav />
         <WhatWeLikeToSee />
         <LetsGoForm />
-        <Footer />
       </StyledCommon.Page>
+      <Footer />
     </>
   );
 };

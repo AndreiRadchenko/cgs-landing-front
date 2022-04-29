@@ -47,10 +47,10 @@ export const ProjectTitleWrapper = styled.div`
 
 export const ProjectsTitle = styled.span`
   display: block;
-  margin-left: 1em;
+  margin-right: 13rem;
   font-size: 2em;
-  font-weight: 700;
-  font-family: ${themes.primary.font.family.roboto};
+  font-weight: ${themes.primary.font.weight.extraBold};
+  font-family: ${themes.primary.font.family.gilroy};
   position: relative;
   z-index: 2;
 
@@ -76,7 +76,7 @@ export const ProjectsTitleDecoration = styled.span`
 export const DecorationTitle = styled(Decoration)`
   position: absolute;
   z-index: -1;
-  width: 11ch;
+  width: 10ch;
   height: 0.9em;
   top: 35%;
   left: -2%;

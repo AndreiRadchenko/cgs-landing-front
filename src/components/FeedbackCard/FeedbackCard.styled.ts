@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 
 export const FeedbackCardContainer = styled.div`
   width: 27em;
-  font-family: ${themes.primary.font.family.roboto};
+  font-family: ${themes.primary.font.family.gilroy};
   display: flex;
   flex-direction: column;
   @media ${themes.primary.media.maxMobile} {
@@ -19,6 +19,7 @@ export const FeedbackCardWrapper = styled.div`
 `;
 
 export const FeedbackCardName = styled.h2`
+  font-weight: ${themes.primary.font.weight.extraBold};
   margin: 0 1.375rem 0 0;
   font-size: 1.375em;
   cursor: default;
@@ -53,6 +54,7 @@ export const Stars = styled("div")<starsProps>`
 `;
 
 export const FeedbackCardCompany = styled.a`
+  font-weight: ${themes.primary.font.weight.light};
   display: block;
   margin: 0.7em 0 0.7em 0;
   font-size: 1.125em;
@@ -97,6 +99,7 @@ export const FeedbackCardDescription = styled.span`
   line-height: 175%;
   cursor: default;
   width: 90%;
+  font-weight: ${themes.primary.font.weight.light};
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.6em;
   }
