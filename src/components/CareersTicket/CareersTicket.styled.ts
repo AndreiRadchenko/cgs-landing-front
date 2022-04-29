@@ -79,26 +79,28 @@ export const Button = styled(TicketButton)`
 `;
 
 export const BarcodeText = styled.p`
+  font-family: ${themes.primary.font.family.gilroy};
   transform: rotate(-90deg);
   position: absolute;
   left: -4.1rem;
   top: 5.125rem;
   width: max-content;
   @media ${themes.primary.media.maxPCFullHD} {
+    top: 5.5rem;
     left: -3.2rem;
   }
   @media ${themes.primary.media.maxLaptop} {
     font-size: 0.6rem;
     top: 3.813rem;
-    left: -2.4rem;
+    left: -2.6rem;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 0.8rem;
-    top: 5.125rem;
-    left: -2.7rem;
+    top: 5.5rem;
+    left: -2.9rem;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    left: -2.688rem;
+    left: -2.888rem;
   }
   @media ${themes.primary.media.maxTablet} {
     left: -2.2rem;

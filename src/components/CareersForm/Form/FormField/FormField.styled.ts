@@ -5,7 +5,7 @@ import themes from "../../../../utils/themes";
 export const Field = styled(TextField)`
   margin-top: 1rem;
   & label {
-    font-weight: ${themes.primary.font.weight.extraBold};
+    font-weight: ${themes.primary.font.weight.bold};
     color: #858585;
     font-family: ${themes.primary.font.family.gilroy};
   }

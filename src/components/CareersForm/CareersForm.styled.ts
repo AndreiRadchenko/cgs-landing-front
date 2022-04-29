@@ -3,7 +3,7 @@ import styled, { keyframes, css } from "styled-components";
 
 export const FormTitle = styled.h1`
   font-size: ${themes.primary.font.size.quaternary};
-  font-weight: ${themes.primary.font.weight.extraBold};
+  font-weight: ${themes.primary.font.weight.normal};
   text-align: center;
   margin-bottom: 4rem;
 `;
@@ -27,16 +27,15 @@ export const FormImage = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 28.125rem;
+    width: 32.125rem;
     height: 29rem;
     background-repeat: round;
   }
 
-  @media ${themes.primary.media.maxTabletPortrait} {
+  @media ${themes.primary.media.maxMobile} {
+    width: 29.125rem;
   }
 
-  @media ${themes.primary.media.minTablet} {
-  }
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 22.625rem;
     height: 23.313rem;
