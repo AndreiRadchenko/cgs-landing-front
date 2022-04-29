@@ -102,13 +102,13 @@ export const BarcodeText = styled.p`
   @media ${themes.primary.media.maxTabletPortrait} {
     left: -2.888rem;
   }
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     left: -2.2rem;
     top: 3.813rem;
     font-size: 0.55rem;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    left: -1.7rem;
+    left: -2.25rem;
     top: 2.9rem;
     font-size: 0.45rem;
   }

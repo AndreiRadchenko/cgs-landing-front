@@ -51,6 +51,7 @@ export const ButtonText = styled.span.attrs(
   font-weight: ${themes.primary.font.weight.extraBold};
   font-family: ${themes.primary.font.family.gilroy};
   cursor: pointer;
+  color: ${themes.primary.colors.primary};
 
   ${(props) => css`
     font-size: ${props.fontSize};
