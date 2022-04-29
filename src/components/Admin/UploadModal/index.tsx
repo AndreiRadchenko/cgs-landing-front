@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import * as Styled from "../../../styles/AdminPage";
-import closeModal from "../../../../public/closeMOdal.svg";
+import closeModal from "../../../../public/closeModal.svg";
 
 interface IUploadProps {
   back: () => void;
