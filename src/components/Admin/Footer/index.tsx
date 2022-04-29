@@ -1,27 +1,20 @@
-import { FieldArray } from "formik";
+import { FieldArray, useFormikContext } from "formik";
 import React from "react";
+import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
+import useUploadImageFunction from "../../../hooks/uploadImageFunction";
 import * as Styled from "../../../styles/AdminPage";
-import { IFooterBlock } from "../../../types/Admin/Response.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminFooterLinks from "./AdminFooterLinks";
 import AdminSocialMediaIcon from "./AdminSocialMediaIcon";
 
-interface IFooterProps {
-  state: IFooterBlock;
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
-}
+const AdminFooterBlock = () => {
+  const { values, handleChange, handleSubmit } = useFormikContext<
+    IDataResponse
+  >();
+  const deleteImageFunction = useDeleteImageFunction(values, handleSubmit);
+  const uploadImageFunction = useUploadImageFunction(handleSubmit);
 
-const renderInputs = ({ state, onChangeFunction }: IFooterProps) => (
-  <AdminFooterLinks state={state.links} onChangeFunction={onChangeFunction} />
-);
-
-const renderMediaIcons = (state: IFooterBlock) => {
-  return state.images.map((i, ind) => (
-    <AdminSocialMediaIcon image={i} key={`MediaIcon${ind}`} number={ind + 1} />
-  ));
-};
-
-const AdminFooterBlock = ({ state, onChangeFunction }: IFooterProps) => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
@@ -29,14 +22,29 @@ const AdminFooterBlock = ({ state, onChangeFunction }: IFooterProps) => {
           <SubHeaderWithInput
             header="Email adress"
             name="FooterBlock.email"
-            inputValue={state.email}
-            onChangeFunction={onChangeFunction}
+            inputValue={values.FooterBlock.email}
+            onChangeFunction={handleChange}
           />
           <FieldArray name="FooterBlock.links">
-            {() => renderInputs({ state, onChangeFunction })}
+            {() => (
+              <AdminFooterLinks
+                state={values.FooterBlock.links}
+                onChangeFunction={handleChange}
+              />
+            )}
           </FieldArray>
         </div>
-        <Styled.AdminCardsGrid>{renderMediaIcons(state)}</Styled.AdminCardsGrid>
+        <Styled.AdminCardsGrid>
+          {values.FooterBlock.images.map((i, ind) => (
+            <AdminSocialMediaIcon
+              image={i}
+              key={`MediaIcon${ind}`}
+              number={ind + 1}
+              uploadFunction={(image) => uploadImageFunction(image, i)}
+              deleteFunction={async () => (await deleteImageFunction)(i)}
+            />
+          ))}
+        </Styled.AdminCardsGrid>
       </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>
   );

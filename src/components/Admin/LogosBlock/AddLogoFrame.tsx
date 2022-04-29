@@ -1,18 +1,26 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import useUploadModal from "../../../hooks/useUploadModal";
+import { adminGlobalService } from "../../../services/adminHomePage";
 import * as Styled from "../../../styles/AdminPage";
 import AdminUploadModal from "../UploadModal";
 
-export interface ILogosProps { state: { images: any[] } }
+export interface ILogosProps {
+  state: { images: any[] };
+  submit: () => void;
+}
 
-const AddLogoFrame = ({ state }: ILogosProps) => {
+const AddLogoFrame = ({ state, submit }: ILogosProps) => {
   const { modal, toggleModal } = useUploadModal();
   const queryClient = useQueryClient();
+  const { mutateAsync } = useMutation(queryKeys.uploadImage, (image) =>
+    adminGlobalService.uploadImage(image)
+  );
 
-  const addNewLogo = (response: string | unknown) => {
-    state.images.push(response);
+  const addNewLogo = async (image: any) => {
+    state.images.push(await mutateAsync(image));
+    submit();
     queryClient.invalidateQueries(queryKeys.GetFullPage);
   };
 

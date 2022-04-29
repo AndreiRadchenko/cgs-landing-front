@@ -1,18 +1,21 @@
+import { useFormikContext } from "formik";
 import React from "react";
+import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
+import useUploadImageFunction from "../../../hooks/uploadImageFunction";
 import * as Styled from "../../../styles/AdminPage";
-import { IHowBlock } from "../../../types/Admin/Response.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
 import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
-interface IHowWorkProps {
-  state: IHowBlock[];
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
-}
-
-const AdminHowWorkList = ({ state, onChangeFunction }: IHowWorkProps) => {
+const AdminHowWorkList = () => {
+  const { values, handleChange, handleSubmit } = useFormikContext<
+    IDataResponse
+  >();
+  const uploadImageFunction = useUploadImageFunction(handleSubmit);
+  const deleteImageFunction = useDeleteImageFunction(values, handleSubmit);
   return (
     <div>
-      {state.map((i, ind) => {
+      {values.HowWeWorkBlock.blocks.map((i, ind) => {
         return (
           <div key={`HowWorkBlockNumb${ind}`}>
             <Styled.AdminHalfGrid>
@@ -22,18 +25,22 @@ const AdminHowWorkList = ({ state, onChangeFunction }: IHowWorkProps) => {
                   header="Subtitle"
                   name={`HowWeWorkBlock.blocks.${ind}.subtitle`}
                   inputValue={i.subtitle}
-                  onChangeFunction={onChangeFunction}
+                  onChangeFunction={handleChange}
                 />
                 <SubHeaderWithInput
                   key={`howWeWorkBlockText${ind}`}
                   header="Text"
                   name={`HowWeWorkBlock.blocks.${ind}.text`}
                   inputValue={i.text}
-                  onChangeFunction={onChangeFunction}
+                  onChangeFunction={handleChange}
                 />
               </div>
               <Styled.AdminHowWeWorkImageSize>
-                <PhotoBlockDashedHorizontal photo={i.image} />
+                <PhotoBlockDashedHorizontal
+                  photo={i.image}
+                  uploadFunction={(image) => uploadImageFunction(image, i)}
+                  deleteFunction={async () => (await deleteImageFunction)(i)}
+                />
               </Styled.AdminHowWeWorkImageSize>
             </Styled.AdminHalfGrid>
             <br />

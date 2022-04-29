@@ -347,8 +347,8 @@ export const AdminUploadModuleWrapper = styled.div`
   padding: 3.2em;
   width: 40%;
   position: relative;
-  display: grid;
-  grid-template-rows: 8fr 1fr;
+  display: flex;
+  flex-direction: column;
   border: 2px dashed ${themes.primary.colors.primary};
 `;
 
@@ -365,11 +365,10 @@ export const AdminUploadModalButton = styled.button`
   transition-duration: 1s;
   height: fit-content;
   padding: ${themes.primary.spacing.primary} 1.5em;
-  border: 2px solid ${themes.primary.colors.cardDarkGreen};
-  border-radius: 5px;
+  border: 3px solid ${themes.primary.colors.cardDarkGreen};
+  font-size: ${themes.primary.font.size.linkText};
   cursor: pointer;
-  margin-right: ${themes.primary.spacing.primary};
-  margin-bottom: ${themes.primary.spacing.primary};
+  width: 50%;
 `;
 
 export const AdminUploadModuleCloseButton = styled.button`
@@ -384,8 +383,16 @@ export const AdminUploadModuleCloseButton = styled.button`
   }
 `;
 
+export const AdminUploadButtonsBlock = styled.div`
+  display: flex;
+  width: 100%;
+  gap: 2em;
+  justify-content: space-between;
+`;
+
 export const AdminUploadModuleImgDiv = styled.div`
   width: 100%;
+  height: 300px;
   border: 2px dashed gray;
   display: flex;
   justify-content: center;
@@ -394,6 +401,9 @@ export const AdminUploadModuleImgDiv = styled.div`
   margin-bottom: 1em;
   &: hover {
     background: rgba(0, 0, 0, 0.1);
+  }
+  &: hover span{
+    display: block;
   }
 `;
 

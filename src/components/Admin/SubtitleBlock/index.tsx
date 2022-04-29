@@ -2,16 +2,25 @@ import React from "react";
 import * as Styled from "../../../styles/AdminPage";
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
-import { ISubtitle } from "../../../types/Admin/Response.types";
-import { FieldArray } from "formik";
+import { FieldArray, useFormikContext } from "formik";
 import AdminSubtitleFlyingList from "./AdminSubtitleFlyingList";
+import { IDataResponse } from "../../../types/Admin/Response.types";
+import useUploadImageFunction from "../../../hooks/uploadImageFunction";
+import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
 
-interface ISubTitleProps {
-  state: ISubtitle;
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
-}
-
-const SubtitleBlock = ({ state, onChangeFunction }: ISubTitleProps) => {
+const SubtitleBlock = () => {
+  const { values, handleChange, handleSubmit } = useFormikContext<
+    IDataResponse
+  >();
+  const uploadImageFunction = useUploadImageFunction(
+    handleSubmit,
+    values.SubtitleBlock,
+  );
+  const deleteImageFunction = useDeleteImageFunction(
+    values,
+    handleSubmit,
+    values.SubtitleBlock,
+  );
   return (
     <>
       <Styled.AdminPaddedBlock>
@@ -19,20 +28,15 @@ const SubtitleBlock = ({ state, onChangeFunction }: ISubTitleProps) => {
           <div>
             <SubHeaderWithInput
               header="Subtitle"
-              inputValue={state.title}
+              inputValue={values.SubtitleBlock.title}
               name="SubtitleBlock.title"
-              onChangeFunction={onChangeFunction}
+              onChangeFunction={handleChange}
             />
           </div>
         </Styled.AdminHalfGrid>
         <br />
         <FieldArray name="SubtitleBlock.elements">
-          {() => (
-            <AdminSubtitleFlyingList
-              state={state}
-              onChangeFunction={onChangeFunction}
-            />
-          )}
+          {() => <AdminSubtitleFlyingList />}
         </FieldArray>
       </Styled.AdminPaddedBlock>
 
@@ -42,24 +46,29 @@ const SubtitleBlock = ({ state, onChangeFunction }: ISubTitleProps) => {
             <SubHeaderWithInput
               header="Text 2"
               name="SubtitleBlock.firstText2"
-              inputValue={state.firstText2}
-              onChangeFunction={onChangeFunction}
+              inputValue={values.SubtitleBlock.firstText2}
+              onChangeFunction={handleChange}
             />
             <SubHeaderWithInput
               header="Text 3"
               name="SubtitleBlock.text3"
-              inputValue={state.text3}
-              onChangeFunction={onChangeFunction}
+              inputValue={values.SubtitleBlock.text3}
+              onChangeFunction={handleChange}
             />
             <SubHeaderWithInput
               header="Text 2"
               name="SubtitleBlock.secondText2"
-              inputValue={state.secondText2}
-              onChangeFunction={onChangeFunction}
+              inputValue={values.SubtitleBlock.secondText2}
+              onChangeFunction={handleChange}
             />
           </div>
           <Styled.AdminTecBottleDiv>
-            <PhotoBlockDashed photo={state.image} deleteFlag={true} />
+            <PhotoBlockDashed
+              photo={values.SubtitleBlock.image}
+              deleteFlag={true}
+              uploadFunction={(image) => uploadImageFunction(image)}
+              deleteFunction={async () => (await deleteImageFunction)()}
+            />
           </Styled.AdminTecBottleDiv>
         </Styled.AdminHalfGrid>
       </Styled.AdminPaddedBlock>

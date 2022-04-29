@@ -51,52 +51,22 @@ const AdminMainContent = () => {
       }}
       validateOnChange={false}
     >
-      {(props) => {
+      {() => {
         return (
           <Styled.AdminContentBlock>
             <Form>
-              <FirstAdminBlock state={props.values.MainLogoBlock} />
-              <EditInformationBlock
-                state={props.values.EditInformationBlock}
-                onChangeFunction={props.handleChange}
-              />
-              <SubtitleBlock
-                state={props.values.SubtitleBlock}
-                onChangeFunction={props.handleChange}
-              />
-              <AdminLogosBlock state={props.values.LogosBlock} />
-              <AdminCardsBlock
-                state={props.values.CardsBlock}
-                onChangeFunction={props.handleChange}
-              />
-              <AdminFeedbackBlock
-                state={props.values.FeedbackBlock}
-                onChangeFunction={props.handleChange}
-              />
-              <AdminTechBlock
-                state={props.values.TechnologyBlock}
-                onChangeFunction={props.handleChange}
-              />
-              <AdminCorporateBlock
-                state={props.values.CorporateBlock}
-                onChangeFunction={props.handleChange}
-              />
-              <AdminHowWeWorkBlock
-                state={props.values.HowWeWorkBlock}
-                onChangeFunction={props.handleChange}
-              />
-              <AdminBuildRocketBlock
-                state={props.values.BuildRocketBlock}
-                onChangeFunction={props.handleChange}
-              />
-              <AdminContactFormBlock
-                state={props.values.ContactFormBlock}
-                onChangeFunction={props.handleChange}
-              />
-              <AdminFooterBlock
-                state={props.values.FooterBlock}
-                onChangeFunction={props.handleChange}
-              />
+              <FirstAdminBlock />
+              <EditInformationBlock />
+              <SubtitleBlock />
+              <AdminLogosBlock />
+              <AdminCardsBlock />
+              <AdminFeedbackBlock />
+              <AdminTechBlock />
+              <AdminCorporateBlock />
+              <AdminHowWeWorkBlock />
+              <AdminBuildRocketBlock />
+              <AdminContactFormBlock />
+              <AdminFooterBlock />
               <Styled.AdminPaddedBlock>
                 <Styled.AdminBigButton type="submit" children="Submit" />
               </Styled.AdminPaddedBlock>

@@ -1,25 +1,32 @@
+import { useFormikContext } from "formik";
 import React from "react";
+import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
+import useUploadImageFunction from "../../../hooks/uploadImageFunction";
 import { AdminCardsGrid } from "../../../styles/AdminPage";
-import { ITechnologyBlock } from "../../../types/Admin/Response.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
 import AdminTech from "./AdminTech";
 
-interface ITechListProps {
-  state: ITechnologyBlock;
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
-}
+const AdminTechList = () => {
+  const { values, handleChange, handleSubmit } = useFormikContext<
+    IDataResponse
+  >();
+  const uploadImageFunction = useUploadImageFunction(handleSubmit);
+  const deleteImageFunction = useDeleteImageFunction(values, handleSubmit);
 
-const render = ({ state, onChangeFunction }: ITechListProps) =>
-  state.techs.map((i, ind) => (
-    <AdminTech
-      key={`TechAdmin${ind}`}
-      info={i}
-      onChangeFunction={onChangeFunction}
-      ind={ind}
-    />
-  ));
-
-const AdminTechList = ({ state, onChangeFunction }: ITechListProps) => {
-  return <AdminCardsGrid>{render({ state, onChangeFunction })}</AdminCardsGrid>;
+  return (
+    <AdminCardsGrid>
+      {values.TechnologyBlock.techs.map((i, ind) => (
+        <AdminTech
+          key={`TechAdmin${ind}`}
+          info={i}
+          onChangeFunction={handleChange}
+          ind={ind}
+          deleteImage={async () => (await deleteImageFunction)(i)}
+          uploadImage={(image) => uploadImageFunction(image, i)}
+        />
+      ))}
+    </AdminCardsGrid>
+  );
 };
 
 export default AdminTechList;

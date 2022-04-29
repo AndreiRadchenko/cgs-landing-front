@@ -6,13 +6,25 @@ import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 interface ISocialProps {
   image: IImage;
   number: number;
+  uploadFunction: (image: any) => void;
+  deleteFunction: () => void;
 }
 
-const AdminSocialMediaIcon = ({ image, number }: ISocialProps) => {
+const AdminSocialMediaIcon = ({
+  image,
+  number,
+  uploadFunction,
+  deleteFunction,
+}: ISocialProps) => {
   return (
     <Styled.AdminSocialIcon>
       <Styled.AdminSubTitle>{number}</Styled.AdminSubTitle>
-      <PhotoBlockDashed deleteFlag={true} photo={image} />
+      <PhotoBlockDashed
+        deleteFlag={true}
+        photo={image.image}
+        uploadFunction={(image) => uploadFunction(image)}
+        deleteFunction={deleteFunction}
+      />
     </Styled.AdminSocialIcon>
   );
 };

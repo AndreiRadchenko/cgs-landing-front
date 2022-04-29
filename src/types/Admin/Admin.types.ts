@@ -1,6 +1,7 @@
 import {
   IBuildRocketBlock,
   IContactFormBlock,
+  IDataResponse,
   IEditInformation,
 } from "./Response.types";
 import { FieldArrayRenderProps } from "formik";
@@ -17,11 +18,13 @@ export interface IPhotoBlock {
   photo: any;
   deleteFlag?: boolean;
   header?: string;
+  deleteFunction?: () => void;
+  uploadFunction?: (image: any) => void;
 }
 
 export interface InputPropsInterface {
   inputValue: string;
-  onChangeFunction: () => void;
+  onChangeFunction: (e?: string | React.ChangeEvent<any>) => void;
   name?: string;
 }
 
@@ -37,6 +40,8 @@ export interface InputWithHeader extends InputPropsInterface {
 
 export interface InputWithImage extends InputPropsInterface {
   photo: any;
+  deleteFunction?: () => void;
+  uploadFunction?: (image: any) => void;
 }
 
 export interface IFeedbackRenderState {
@@ -46,12 +51,23 @@ export interface IFeedbackRenderState {
 
 export interface IRenderInputsProps {
   props: FieldArrayRenderProps;
-  state: IBuildRocketBlock | IContactFormBlock | IEditInformation | IFeedbackRenderState;
-  onChangeFunction: () => void;
+  state:
+    | IBuildRocketBlock
+    | IContactFormBlock
+    | IEditInformation
+    | IFeedbackRenderState;
+  onChangeFunction: (e?: string | React.ChangeEvent<any>) => void;
 }
 
 export interface IImage {
   image: {
-    url: string
-  }
+    url: string;
+  } | null;
+}
+
+export interface IDeleteImageData {
+  data: {
+    url: string;
+    data: IDataResponse;
+  };
 }

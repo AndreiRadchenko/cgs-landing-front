@@ -1,9 +1,12 @@
+import { useFormikContext } from "formik";
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
+import { adminGlobalService } from "../../../services/adminHomePage";
 import * as Styled from "../../../styles/AdminPage";
 import { IImage } from "../../../types/Admin/Admin.types";
-import AddLogoFrame, { ILogosProps } from "./AddLogoFrame";
+import { IDataResponse } from "../../../types/Admin/Response.types";
+import AddLogoFrame from "./AddLogoFrame";
 import LogoElement from "./LogoElement";
 
 interface ILocalState {
@@ -25,11 +28,22 @@ const render = ({ state, deleteLogo }: IRenderProps) => {
   ));
 };
 
-const AdminLogosBlock = ({ state }: ILogosProps) => {
+const AdminLogosBlock = () => {
   const queryClient = useQueryClient();
+  const { values, handleSubmit } = useFormikContext<IDataResponse>();
+  const { mutate } = useMutation(queryKeys.deleteImage, (url: string) =>
+    adminGlobalService.deleteImage({
+      data: {
+        url,
+        data: values,
+      },
+    })
+  );
 
   const deleteLogo = (id: number) => {
-    state.images.splice(id, 1);
+    const link = values.LogosBlock.images.splice(id, 1);
+    mutate(link[0].url);
+    handleSubmit();
     queryClient.invalidateQueries(queryKeys.GetFullPage);
   };
 
@@ -37,8 +51,8 @@ const AdminLogosBlock = ({ state }: ILogosProps) => {
     <Styled.AdminPaddedBlock>
       <Styled.AdminSubTitle>Logos</Styled.AdminSubTitle>
       <Styled.AdminLogosGrid>
-        <AddLogoFrame state={state} />
-        {render({ state, deleteLogo })}
+        <AddLogoFrame state={values.LogosBlock} submit={handleSubmit} />
+        {render({ state: values.LogosBlock, deleteLogo })}
       </Styled.AdminLogosGrid>
     </Styled.AdminPaddedBlock>
   );

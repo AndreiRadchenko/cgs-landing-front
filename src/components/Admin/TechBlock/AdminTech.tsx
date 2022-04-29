@@ -6,11 +6,19 @@ import { ITech } from "../../../types/Admin/Response.types";
 
 interface ITechProps {
   info: ITech;
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
+  onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
   ind: number;
+  uploadImage: (image: any) => void;
+  deleteImage: () => void;
 }
 
-const AdminTech = ({ info, onChangeFunction, ind }: ITechProps) => {
+const AdminTech = ({
+  info,
+  onChangeFunction,
+  ind,
+  uploadImage,
+  deleteImage,
+}: ITechProps) => {
   return (
     <Styled.AdminCardsGrid>
       <div>
@@ -29,6 +37,8 @@ const AdminTech = ({ info, onChangeFunction, ind }: ITechProps) => {
       </div>
       <Styled.AdminTechWrapper>
         <PhotoBlockDashed
+          deleteFunction={deleteImage}
+          uploadFunction={(image) => uploadImage(image)}
           photo={info.image}
           header="+ Add image here"
           deleteFlag={true}

@@ -5,7 +5,12 @@ import * as Styled from "../../../styles/AdminPage";
 import { IFeedback, IFeedbackBlock } from "../../../types/Admin/Response.types";
 import AdminStars from "./AdminStars";
 
-const AdminFeedbackForm = ({ state }: { state: IFeedbackBlock }) => {
+interface IFeedbackFormProps {
+  state: IFeedbackBlock;
+  submit: () => void;
+}
+
+const AdminFeedbackForm = ({ state, submit }: IFeedbackFormProps) => {
   const submitFunction = (values: IFeedback) => {
     state.feedBacks.push(values);
   };
@@ -58,7 +63,10 @@ const AdminFeedbackForm = ({ state }: { state: IFeedbackBlock }) => {
                   type="submit"
                   onClick={(e) => {
                     e.preventDefault();
-                    props.submitForm().then(() => props.resetForm());
+                    props
+                      .submitForm()
+                      .then(() => submit())
+                      .then(() => props.resetForm());
                   }}
                 >
                   Add Review

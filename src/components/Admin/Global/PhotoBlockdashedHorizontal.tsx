@@ -9,11 +9,15 @@ import AdminImage from "./AdminImage";
 const PhotoBlockDashedHorizontal = ({
   photo,
   header = "Drop new image here",
+  deleteFunction,
+  uploadFunction,
 }: IPhotoBlock) => {
   const { modal, toggleModal } = useUploadModal();
-  return photo !== null ? (
+  return photo !== null && photo !== undefined ? (
     <Styled.AdminPhotoDashedHorizontal>
-      {modal ? <AdminUploadModal back={toggleModal} /> : null}
+      {modal ? (
+        <AdminUploadModal back={toggleModal} func={uploadFunction} />
+      ) : null}
       <Styled.AdminPhotoDashedHorizontalPositoning>
         <AdminImage image={photo} />
         <Styled.AdminCenteredDiv>
@@ -24,12 +28,14 @@ const PhotoBlockDashedHorizontal = ({
             {header}
           </Styled.AdminSubTitle>
           <Styled.AdminComment>Supports: JPG, PNG</Styled.AdminComment>
-          <Styled.AdminDeleteText>delete image</Styled.AdminDeleteText>
+          <Styled.AdminDeleteText onClick={() => deleteFunction!()}>
+            delete image
+          </Styled.AdminDeleteText>
         </Styled.AdminCenteredDiv>
       </Styled.AdminPhotoDashedHorizontalPositoning>
     </Styled.AdminPhotoDashedHorizontal>
   ) : (
-    <AdminEmptyImage />
+    <AdminEmptyImage func={uploadFunction} />
   );
 };
 

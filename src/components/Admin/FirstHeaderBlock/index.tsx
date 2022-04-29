@@ -1,15 +1,34 @@
+import { useFormikContext } from "formik";
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
-import { IImage } from "../../../types/Admin/Admin.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
+import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
+import useUploadImageFunction from "../../../hooks/uploadImageFunction";
 
-const FirstAdminBlock = ({ state }: { state: IImage }) => {
+const FirstAdminBlock = () => {
+  const { values, handleSubmit } = useFormikContext<IDataResponse>();
+  const deleteImageFunction = useDeleteImageFunction(
+    values,
+    handleSubmit,
+    values.MainLogoBlock
+  );
+  const uploadImageFunction = useUploadImageFunction(
+    handleSubmit,
+    values.MainLogoBlock
+  );
+
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHeader>Home</Styled.AdminHeader>
       <Styled.AdminSubTitle>Upload Logo</Styled.AdminSubTitle>
       <Styled.AdminAddMainLogoBlock>
-        <PhotoBlockDashed photo={state.image} deleteFlag={true} />
+        <PhotoBlockDashed
+          photo={values.MainLogoBlock.image}
+          deleteFlag={true}
+          uploadFunction={(image) => uploadImageFunction(image)}
+          deleteFunction={async () => (await deleteImageFunction)()}
+        />
       </Styled.AdminAddMainLogoBlock>
     </Styled.AdminPaddedBlock>
   );

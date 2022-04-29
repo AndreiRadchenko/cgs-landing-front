@@ -1,24 +1,23 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import { adminGlobalService } from "../../../services/adminHomePage";
 import * as Styled from "../../../styles/AdminPage";
 import closeModal from "../../../../public/closeMOdal.svg";
 
 interface IUploadProps {
   back: () => void;
-  func?: (response?: unknown) => void;
+  func?: (image: any) => void;
 }
 
-const AdminUploadModal = ({ back, func = () => {} }: IUploadProps) => {
+const AdminUploadModal = ({ back, func }: IUploadProps) => {
   const [image, setImage] = useState<string | undefined>("");
   const [theme, setTheme] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const [drag, setDrag] = useState(false);
 
   const hiddenFileInput = React.useRef<HTMLInputElement>(null);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const readerLoad = (loadedFile: any) => {
     const reader = new FileReader();
-    const loadedFile = event.target.files![0];
     reader.onload = () => {
       if (reader.readyState === 2) {
         if (typeof reader.result === "string") {
@@ -36,6 +35,11 @@ const AdminUploadModal = ({ back, func = () => {} }: IUploadProps) => {
     }
   };
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const loadedFile = event.target.files![0];
+    readerLoad(loadedFile);
+  };
+
   const handleClickUpload = (event: React.SyntheticEvent) => {
     event.preventDefault();
     if (hiddenFileInput.current) {
@@ -45,15 +49,32 @@ const AdminUploadModal = ({ back, func = () => {} }: IUploadProps) => {
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    try {
-      const formData = new FormData();
-      formData.append("image", file!, file!.name);
-      const response = await adminGlobalService.uploadImage(formData);
-      func(response);
-      back();
-    } catch (e) {
-      console.log(e);
+    if (file) {
+      try {
+        const formData = new FormData();
+        formData.append("image", file!, file!.name);
+        func!(formData);
+        back();
+      } catch (e) {
+        console.error(e);
+      }
     }
+  };
+
+  const dragStartHandler = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    setDrag(true);
+  };
+
+  const dragLeaveHandler = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    setDrag(false);
+  };
+
+  const onDropHandler = (e: React.DragEvent) => {
+    e.preventDefault();
+    const fileFromDrag = e.dataTransfer!.files[0];
+    readerLoad(fileFromDrag);
   };
 
   return (
@@ -67,16 +88,26 @@ const AdminUploadModal = ({ back, func = () => {} }: IUploadProps) => {
           onChange={handleChange}
           ref={hiddenFileInput}
         />
-        <Styled.AdminUploadModuleImgDiv>
+        <Styled.AdminUploadModuleImgDiv
+          onDragStart={dragStartHandler}
+          onDragLeave={dragLeaveHandler}
+          onDragOver={dragStartHandler}
+          onDrop={onDropHandler}
+        >
           {image ? (
-            <img src={image} width="100%" />
+            <img src={image} style={{ maxWidth: "100%", maxHeight: "100%" }} />
           ) : (
             <Styled.AdminSubTitle>
-              Drag and drop files here (not now)
+              {drag ? (
+                <span>Release files</span>
+              ) : (
+                <span>Drag and drop files here</span>
+              )}
             </Styled.AdminSubTitle>
           )}
+          <Styled.AdminUploadInfo>{file?.name}</Styled.AdminUploadInfo>
         </Styled.AdminUploadModuleImgDiv>
-        <div>
+        <Styled.AdminUploadButtonsBlock>
           <Styled.AdminUploadModalButton
             theme="filled"
             onClick={handleClickUpload}
@@ -86,7 +117,7 @@ const AdminUploadModal = ({ back, func = () => {} }: IUploadProps) => {
           <Styled.AdminUploadModalButton theme={theme} onClick={handleSubmit}>
             Submit
           </Styled.AdminUploadModalButton>
-        </div>
+        </Styled.AdminUploadButtonsBlock>
       </Styled.AdminUploadModuleWrapper>
     </Styled.AdminUploadModuleBack>
   );
