@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import * as Styled from "../../../styles/AdminPage";
-import {
-  IDataResponse,
-  IFeedbackBlock,
-} from "../../../types/Admin/Response.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
 import AdminFeedback from "./AdminFeedback";
 import AdminFeedbackForm from "./AdminFeedbackForm";
 import arrowAdminFeedbackL from "../../../../public/arrowAdminFeedbackL.svg";

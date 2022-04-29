@@ -14,12 +14,12 @@ const SubtitleBlock = () => {
   >();
   const uploadImageFunction = useUploadImageFunction(
     handleSubmit,
-    values.SubtitleBlock,
+    values.SubtitleBlock
   );
   const deleteImageFunction = useDeleteImageFunction(
     values,
     handleSubmit,
-    values.SubtitleBlock,
+    values.SubtitleBlock
   );
   return (
     <>
