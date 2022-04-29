@@ -107,12 +107,12 @@ export const ModalBackButton = styled.button`
 export const ModalBackButtonArrow = styled.div`
   display: flex;
   align-items: center;
-  width: 8rem;
+  width: 9rem;
   cursor: pointer;
 `;
 
 export const ModalBackButtonArrowText = styled.span`
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   &:hover {
     text-decoration: underline;
   }
