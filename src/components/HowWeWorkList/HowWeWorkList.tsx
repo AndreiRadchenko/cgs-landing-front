@@ -19,6 +19,9 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
   const entry = useIntersectionObserver(ref, { threshold: 0.75 });
   const isVisible = !!entry?.isIntersecting;
 
+  if (isVisible && ref.current)
+    window.scrollTo({ behavior: "smooth", top: ref.current.offsetTop });
+
   const isReleaseOnEdges = (e: SwiperCore, bool: boolean, time: number) => {
     setTimeout(() => {
       if (
@@ -40,7 +43,7 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
           observer={true}
           spaceBetween={10}
           mousewheel={{ releaseOnEdges: true }}
-          speed={600}
+          speed={1000}
           pagination={{ clickable: true }}
           onSlideChange={(e) => {
             setCurrentSlide(e.activeIndex);
