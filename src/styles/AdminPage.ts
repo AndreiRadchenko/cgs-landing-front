@@ -51,6 +51,7 @@ export const AdminSidebarHidenElement = styled.div`
   font-weight: ${themes.primary.font.weight.light};
   padding: ${themes.primary.spacing.small} 0 0 ${themes.primary.spacing.primary};
   display: ${(props) => props.theme};
+  text-decoration: underline;
 `;
 
 export const AdminContentBlock = styled.div`
@@ -438,4 +439,14 @@ export const AdminUnauthorizedModal = styled.div`
   top: 0;
   bottom: 0;
   z-index: 1;
+`;
+
+export const AdminCategoryBlock = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 1.6em;
+`;
+
+export const AdminDropDownMenu = styled.div`
+  background: ${themes.primary.colors.secondary};
 `;

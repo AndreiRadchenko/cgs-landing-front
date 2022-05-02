@@ -3,5 +3,6 @@ export const queryKeys = {
   GetFullPage: "GetFullPage",
   PutHomePageData: "PutHomePageData",
   deleteImage: "deleteImage",
-  uploadImage: "uploadImage"
+  uploadImage: "uploadImage",
+  getPortfolio: "getPortfolio"
 }

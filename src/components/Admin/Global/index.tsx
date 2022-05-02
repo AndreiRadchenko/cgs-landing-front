@@ -38,17 +38,19 @@ const AdminMainContent = () => {
     (data: IDataResponse) => adminGlobalService.updateFullPage(data)
   );
 
+  const submitForm = async (values: IDataResponse) => {
+    document.body.style.cursor = "wait";
+    await mutateAsync(values);
+    await refetch();
+    document.body.style.cursor = "auto";
+  };
+
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik
       initialValues={data!}
-      onSubmit={async (values) => {
-        document.body.style.cursor = "wait";
-        await mutateAsync(values);
-        await refetch();
-        document.body.style.cursor = "auto";
-      }}
+      onSubmit={submitForm}
       validateOnChange={false}
     >
       {() => {

@@ -23,6 +23,7 @@ export const feedbackInit = {
 
 export enum ROUTE_KEYS {
   AdminPage = "AdminPage",
+  AdminPortfolio = "/Admin/AdminPortfolio",
   AdminCareers = "AdminCareers",
   AdminPartners = "AdminPartners",
   AdminSettings = "AdminSettings",

@@ -18,6 +18,9 @@ export class AdminHomePageService {
   public deleteImage(data: IDeleteImageData) {
     return this.httpService.delete("api/upload", data);
   }
+  public getPortfolio() {
+    return this.httpService.get("api/portfolio");
+  }
 }
 
 const factory = new HttpServiceFactory();

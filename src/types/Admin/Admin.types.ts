@@ -29,8 +29,8 @@ export interface InputPropsInterface {
 
 export interface DropdownPropsInterface {
   value: string;
-  onClick?: () => void;
   route: string;
+  children?: any;
 }
 
 export interface InputWithHeader extends InputPropsInterface {
