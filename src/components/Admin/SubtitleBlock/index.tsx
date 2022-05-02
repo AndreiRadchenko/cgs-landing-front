@@ -9,18 +9,9 @@ import useUploadImageFunction from "../../../hooks/uploadImageFunction";
 import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
 
 const SubtitleBlock = () => {
-  const { values, handleChange, handleSubmit } = useFormikContext<
-    IDataResponse
-  >();
-  const uploadImageFunction = useUploadImageFunction(
-    handleSubmit,
-    values.SubtitleBlock
-  );
-  const deleteImageFunction = useDeleteImageFunction(
-    values,
-    handleSubmit,
-    values.SubtitleBlock
-  );
+  const { values, handleChange } = useFormikContext<IDataResponse>();
+  const uploadImageFunction = useUploadImageFunction(values.SubtitleBlock);
+  const deleteImageFunction = useDeleteImageFunction(values.SubtitleBlock);
   return (
     <>
       <Styled.AdminPaddedBlock>

@@ -8,16 +8,11 @@ import RightSideBlock from "./RightSide";
 import useUploadImageFunction from "../../../hooks/uploadImageFunction";
 
 const EditInformationBlock = () => {
-  const { values, handleSubmit, handleChange } = useFormikContext<
-    IDataResponse
-  >();
+  const { values, handleChange } = useFormikContext<IDataResponse>();
   const deleteImageFunction = useDeleteImageFunction(
-    values,
-    handleSubmit,
     values.EditInformationBlock
   );
   const uploadImageFunction = useUploadImageFunction(
-    handleSubmit,
     values.EditInformationBlock
   );
 

@@ -16,8 +16,8 @@ const AdminInputWithImage = ({
       <PhotoBlockDashed
         photo={photo}
         deleteFlag={true}
-        uploadFunction={uploadFunction}
-        deleteFunction={deleteFunction}
+        uploadFunction={uploadFunction!}
+        deleteFunction={deleteFunction!}
       />
       <br />
       <div>

@@ -6,9 +6,9 @@ import useUploadImageFunction from "../../../hooks/uploadImageFunction";
 import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
 
 const AdminCorporateImages = () => {
-  const { values, handleSubmit } = useFormikContext<IDataResponse>();
-  const uploadImageFunction = useUploadImageFunction(handleSubmit);
-  const deleteImageFunction = useDeleteImageFunction(values, handleSubmit);
+  const { values } = useFormikContext<IDataResponse>();
+  const uploadImageFunction = useUploadImageFunction();
+  const deleteImageFunction = useDeleteImageFunction();
 
   return (
     <div>

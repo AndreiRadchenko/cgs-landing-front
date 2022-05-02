@@ -6,11 +6,11 @@ import { IDataResponse } from "../../../types/Admin/Response.types";
 import AdminCard from "./AdminCard";
 
 const AdminCardsList = () => {
-  const { values, handleChange, handleSubmit } = useFormikContext<
+  const { values, handleChange } = useFormikContext<
     IDataResponse
   >();
-  const uploadImageFunction = useUploadImageFunction(handleSubmit);
-  const deleteImageFunction = useDeleteImageFunction(values, handleSubmit);
+  const uploadImageFunction = useUploadImageFunction();
+  const deleteImageFunction = useDeleteImageFunction();
 
   return (
     <AdminCardsGrid>
