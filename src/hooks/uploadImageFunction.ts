@@ -1,10 +1,12 @@
+import { useFormikContext } from "formik";
 import { QueryClient, useMutation } from "react-query";
 import { IImage } from "../types/Admin/Admin.types";
 import { queryKeys } from "../consts/queryKeys";
 import { adminGlobalService } from "../services/adminHomePage";
 
-const useUploadImageFunction = (handleSubmit: () => void, state?: IImage) => {
+const useUploadImageFunction = (state?: IImage) => {
   const queryClient = new QueryClient();
+  const { handleSubmit } = useFormikContext();
 
   const upload = async (image: any) => {
     const response = await adminGlobalService.uploadImage(image);

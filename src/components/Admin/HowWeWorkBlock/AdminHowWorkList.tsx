@@ -8,11 +8,9 @@ import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 const AdminHowWorkList = () => {
-  const { values, handleChange, handleSubmit } = useFormikContext<
-    IDataResponse
-  >();
-  const uploadImageFunction = useUploadImageFunction(handleSubmit);
-  const deleteImageFunction = useDeleteImageFunction(values, handleSubmit);
+  const { values, handleChange } = useFormikContext<IDataResponse>();
+  const uploadImageFunction = useUploadImageFunction();
+  const deleteImageFunction = useDeleteImageFunction();
   return (
     <div>
       {values.HowWeWorkBlock.blocks.map((i, ind) => {

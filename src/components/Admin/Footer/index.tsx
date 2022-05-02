@@ -9,11 +9,9 @@ import AdminFooterLinks from "./AdminFooterLinks";
 import AdminSocialMediaIcon from "./AdminSocialMediaIcon";
 
 const AdminFooterBlock = () => {
-  const { values, handleChange, handleSubmit } = useFormikContext<
-    IDataResponse
-  >();
-  const deleteImageFunction = useDeleteImageFunction(values, handleSubmit);
-  const uploadImageFunction = useUploadImageFunction(handleSubmit);
+  const { values, handleChange } = useFormikContext<IDataResponse>();
+  const deleteImageFunction = useDeleteImageFunction();
+  const uploadImageFunction = useUploadImageFunction();
 
   return (
     <Styled.AdminPaddedBlock>

@@ -33,11 +33,9 @@ const render = ({
   });
 
 const AdminSubtitleFlyingList = () => {
-  const { values, handleChange, handleSubmit } = useFormikContext<
-    IDataResponse
-  >();
-  const uploadImageFunction = useUploadImageFunction(handleSubmit);
-  const deleteImageFunction = useDeleteImageFunction(values, handleSubmit);
+  const { values, handleChange } = useFormikContext<IDataResponse>();
+  const uploadImageFunction = useUploadImageFunction();
+  const deleteImageFunction = useDeleteImageFunction();
   return (
     <Styled.AdminFlyingElementsBlock>
       {render({

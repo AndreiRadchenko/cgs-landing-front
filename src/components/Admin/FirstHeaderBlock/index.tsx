@@ -7,16 +7,9 @@ import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import useUploadImageFunction from "../../../hooks/uploadImageFunction";
 
 const FirstAdminBlock = () => {
-  const { values, handleSubmit } = useFormikContext<IDataResponse>();
-  const deleteImageFunction = useDeleteImageFunction(
-    values,
-    handleSubmit,
-    values.MainLogoBlock
-  );
-  const uploadImageFunction = useUploadImageFunction(
-    handleSubmit,
-    values.MainLogoBlock
-  );
+  const { values } = useFormikContext<IDataResponse>();
+  const deleteImageFunction = useDeleteImageFunction(values.MainLogoBlock);
+  const uploadImageFunction = useUploadImageFunction(values.MainLogoBlock);
 
   return (
     <Styled.AdminPaddedBlock>
