@@ -10,9 +10,9 @@ import useDeleteImageFunction from "./deleteImageFunction";
 
 const useSubmitAndDeletePortfolio = (
   setCurrent: (value: number) => void,
-  setIsNewStatus?: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   const { values, handleSubmit } = useFormikContext<IPortfolioResponse>();
+  const [isNewStatus, setIsNewStatus] = useState(true);
   const queryClient = new QueryClient();
   const [isReady, setIsReady] = useState(false);
   const deleteFunction = useDeleteImageFunction();
@@ -56,7 +56,7 @@ const useSubmitAndDeletePortfolio = (
     }
   };
 
-  return { deleteFunc, submitFunc, setIsReady, editFunc };
+  return { deleteFunc, submitFunc, setIsReady, editFunc, isNewStatus, setIsNewStatus };
 };
 
 export default useSubmitAndDeletePortfolio;

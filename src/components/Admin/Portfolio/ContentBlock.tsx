@@ -14,13 +14,14 @@ const AdminPortfolioContentBlock = () => {
     IPortfolioResponse
   >();
   const [current, setCurrent] = useState(0);
-  const [isNewStatus, setIsNewStatus] = useState(true);
   const {
     deleteFunc,
     submitFunc,
     setIsReady,
     editFunc,
-  } = useSubmitAndDeletePortfolio(setCurrent, setIsNewStatus);
+    isNewStatus,
+    setIsNewStatus,
+  } = useSubmitAndDeletePortfolio(setCurrent);
 
   return (
     <Styled.AdminPaddedBlock>

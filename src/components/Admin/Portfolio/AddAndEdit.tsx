@@ -31,24 +31,15 @@ const AddAndEdit = ({
 }: IAddAndEditProps) => {
   const { values } = useFormikContext<IPortfolioResponse>();
 
-  return isNewStatus ? (
+  return (
     <Formik
-      initialValues={newReviewInit}
-      key="NewFormAdd111"
-      onSubmit={submitFunc}
-      validateOnChange={false}
-    >
-      <AddReview
-        categories={values.categories}
-        setIsReady={setIsReady}
-        newFlag={isNewStatus}
-      />
-    </Formik>
-  ) : (
-    <Formik
-      key="EditForm"
-      onSubmit={(values, props) => editFunc(values, props, current)}
-      initialValues={values.reviews[current]}
+      key={`Form${isNewStatus}${current ? current : "null"}`}
+      initialValues={isNewStatus ? newReviewInit : values.reviews[current]}
+      onSubmit={
+        isNewStatus
+          ? submitFunc
+          : (values, props) => editFunc(values, props, current)
+      }
       validateOnChange={false}
     >
       <AddReview
