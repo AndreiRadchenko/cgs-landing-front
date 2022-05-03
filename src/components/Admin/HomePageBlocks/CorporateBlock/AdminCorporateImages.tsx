@@ -1,9 +1,9 @@
-import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
+import PhotoBlockDashedHorizontal from "../../Global/PhotoBlockdashedHorizontal";
 import React from "react";
 import { useFormikContext } from "formik";
-import { IDataResponse } from "../../../types/Admin/Response.types";
-import useUploadImageFunction from "../../../hooks/uploadImageFunction";
-import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
+import { IDataResponse } from "../../../../types/Admin/Response.types";
+import useUploadImageFunction from "../../../../hooks/uploadImageFunction";
+import useDeleteImageFunction from "../../../../hooks/deleteImageFunction";
 
 const AdminCorporateImages = () => {
   const { values } = useFormikContext<IDataResponse>();

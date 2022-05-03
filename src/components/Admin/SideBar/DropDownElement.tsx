@@ -25,12 +25,8 @@ const DropDownElement = ({
   };
 
   return (
-    <Styled.AdminSidebarMenuElement
-      onClick={() => router.push(route)}
-      itemProp={route}
-      property={currentPath}
-    >
-      {value}{" "}
+    <Styled.AdminSidebarMenuElement itemProp={route} property={currentPath}>
+      <span onClick={() => router.push(route)}>{value + " "}</span>
       {isShown ? (
         <span onClick={onArrowClick}>
           <Image src={UpArrow} />

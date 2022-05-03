@@ -1,13 +1,19 @@
-import { useFormikContext } from "formik";
-import React from "react";
+import { FieldArray, Formik, useFormikContext } from "formik";
+import React, { useState } from "react";
+import { newReviewInit } from "../../../consts";
+import useSubmitAndDeletePortfolio from "../../../hooks/submitAndDeletePortfolio";
 import * as Styled from "../../../styles/AdminPage";
 import { IPortfolioResponse } from "../../../types/Admin/AdminPortfolio";
-import AdminDropDown from "../Global/AdminDropDown";
+import AdminCarousel from "../Global/AdminImageCarousel";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+import AddReview from "../PortfolioReview/AddReview";
+import AdminReview from "../PortfolioReview/AdminPortfolioReview";
+import renderPortfolioInputs from "./renderPortfolioInputs";
 
 const AdminPortfolioContentBlock = () => {
-  const { values } = useFormikContext<IPortfolioResponse>();
-  console.log(values);
+  const { values, handleChange } = useFormikContext<IPortfolioResponse>();
+  const [current, setCurrent] = useState(0);
+  const { deleteFunc, submitFunc, setIsReady } = useSubmitAndDeletePortfolio(setCurrent);
 
   return (
     <Styled.AdminPaddedBlock>
@@ -16,19 +22,43 @@ const AdminPortfolioContentBlock = () => {
         <div>
           <SubHeaderWithInput
             header="Subtitle"
-            inputValue="All work"
-            onChangeFunction={() => {}}
+            inputValue={values.subtitle}
+            name="subtitle"
+            onChangeFunction={handleChange}
           />
         </div>
       </Styled.AdminHalfGrid>
       <Styled.AdminSubTitle>Category</Styled.AdminSubTitle>
 
       <Styled.AdminCategoryBlock>
-        {values.categories.map((i, ind) => (
-          <Styled.AdminInput value={i} key={`category${ind}`} />
-        ))}
-        <AdminDropDown menu={values.categories} />
+        <FieldArray name="categories">
+          {() =>
+            renderPortfolioInputs({ state: values.categories, handleChange })
+          }
+        </FieldArray>
       </Styled.AdminCategoryBlock>
+
+      <Styled.AdminHalfGrid>
+        <Formik onSubmit={submitFunc} initialValues={newReviewInit}>
+          <AddReview state={values} setIsReady={setIsReady} />
+        </Formik>
+
+        <Styled.AdminReviewBlock>
+          {values.reviews.length === 0 ? (
+            <Styled.AdminSubTitle>no reviews</Styled.AdminSubTitle>
+          ) : (
+            <AdminReview
+              review={values.reviews[current]}
+              deleteFunc={() => deleteFunc(current)}
+            />
+          )}
+          <AdminCarousel
+            page={current}
+            setPage={setCurrent}
+            length={values.reviews.length}
+          />
+        </Styled.AdminReviewBlock>
+      </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>
   );
 };

@@ -404,7 +404,7 @@ export const AdminUploadModuleImgDiv = styled.div`
   &: hover {
     background: rgba(0, 0, 0, 0.1);
   }
-  &: hover span{
+  &: hover span {
     display: block;
   }
 `;
@@ -449,4 +449,51 @@ export const AdminCategoryBlock = styled.div`
 
 export const AdminDropDownMenu = styled.div`
   background: ${themes.primary.colors.secondary};
+  font-size: ${themes.primary.font.size.linkText};
+  position: relative;
+  z-index: 1;
+`;
+
+export const AdminDropDownMenuElement = styled.div`
+  background: ${themes.primary.colors.secondary};
+  padding: ${themes.primary.spacing.primary};
+  border: 1px solid ${themes.primary.colors.darkedGrayBack};
+  cursor: pointer;
+  &: hover {
+    background: ${themes.primary.colors.darkedGrayBack};
+  }
+`;
+
+export const AdminDropDownMenuBanner = styled.div`
+  background: ${themes.primary.colors.secondary};
+  padding: ${themes.primary.spacing.primary};
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const AdminDropDownMenuList = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+`;
+
+export const AdminReviewBlock = styled.div`
+  margin-top: 2em;
+`;
+
+export const AdminPortfolioImage = styled.div`
+  margin: 1em 0;
+  min-height: 250px;
+  display: grid;
+`;
+
+export const AdminPortfolioReviewContent = styled.div`
+  max-width: 68%;
+`;
+
+export const AdminPortfolioReviewFrame = styled.div`
+  border: 1px solid ${themes.primary.colors.primary};
+  padding: 1.6em;
+  position: relative;
 `;

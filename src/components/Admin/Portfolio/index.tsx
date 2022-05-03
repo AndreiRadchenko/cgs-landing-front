@@ -1,12 +1,10 @@
 import { Formik } from "formik";
 import React from "react";
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminGlobalService } from "../../../services/adminHomePage";
 import * as Styled from "../../../styles/AdminPage";
 import { IPortfolioResponse } from "../../../types/Admin/AdminPortfolio";
-import AdminDropDown from "../Global/AdminDropDown";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminPortfolioContentBlock from "./ContentBlock";
 
 interface IPortfolioData {
@@ -24,11 +22,15 @@ const Portfolio = () => {
     adminGlobalService.getPortfolio()
   );
 
+  const { mutateAsync } = useMutation(
+    queryKeys.updatePortfolio,
+    (data: IPortfolioResponse) => adminGlobalService.updatePortfolio(data)
+  );
+
   const submitForm = async (values: IPortfolioResponse) => {
     document.body.style.cursor = "wait";
-    // await mutateAsync(values);
-    // await refetch();
-    console.log(values);
+    await mutateAsync(values);
+    await refetch();
     document.body.style.cursor = "auto";
   };
 

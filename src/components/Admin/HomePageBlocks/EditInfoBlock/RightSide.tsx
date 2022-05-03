@@ -1,8 +1,8 @@
 import React from "react";
-import * as Styled from "../../../styles/AdminPage";
-import { IImage } from "../../../types/Admin/Admin.types";
-import { IPropsWithImage } from "../../../types/Admin/BlockProps";
-import PhotoBlockDashed from "../Global/PhotoBlockDashed";
+import * as Styled from "../../../../styles/AdminPage";
+import { IImage } from "../../../../types/Admin/Admin.types";
+import { IPropsWithImage } from "../../../../types/Admin/BlockProps";
+import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 
 interface IRightProps extends IPropsWithImage {
   image: IImage;

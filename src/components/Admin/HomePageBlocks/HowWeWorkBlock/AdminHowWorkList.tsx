@@ -1,11 +1,11 @@
 import { useFormikContext } from "formik";
 import React from "react";
-import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
-import useUploadImageFunction from "../../../hooks/uploadImageFunction";
-import * as Styled from "../../../styles/AdminPage";
-import { IDataResponse } from "../../../types/Admin/Response.types";
-import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+import useDeleteImageFunction from "../../../../hooks/deleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/uploadImageFunction";
+import * as Styled from "../../../../styles/AdminPage";
+import { IDataResponse } from "../../../../types/Admin/Response.types";
+import PhotoBlockDashedHorizontal from "../../Global/PhotoBlockdashedHorizontal";
+import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 
 const AdminHowWorkList = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();

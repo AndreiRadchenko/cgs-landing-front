@@ -4,5 +4,6 @@ export const queryKeys = {
   PutHomePageData: "PutHomePageData",
   deleteImage: "deleteImage",
   uploadImage: "uploadImage",
-  getPortfolio: "getPortfolio"
+  getPortfolio: "getPortfolio",
+  updatePortfolio: "updatePortfolio",
 }

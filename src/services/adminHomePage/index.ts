@@ -1,3 +1,4 @@
+import { IPortfolioResponse } from "./../../types/Admin/AdminPortfolio";
 import { IDeleteImageData, IImage } from "./../../types/Admin/Admin.types";
 import { IResponse } from "../../types/Admin";
 import { IDataResponse } from "../../types/Admin/Response.types";
@@ -20,6 +21,9 @@ export class AdminHomePageService {
   }
   public getPortfolio() {
     return this.httpService.get("api/portfolio");
+  }
+  public updatePortfolio(data: IPortfolioResponse) {
+    return this.httpService.put("api/portfolio", data);
   }
 }
 

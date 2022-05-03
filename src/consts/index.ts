@@ -21,6 +21,13 @@ export const feedbackInit = {
   stars: 1,
 };
 
+export const newReviewInit = {
+  image: null,
+  category: "",
+  title: "",
+  text: "",
+}
+
 export enum ROUTE_KEYS {
   AdminPage = "AdminPage",
   AdminPortfolio = "/Admin/AdminPortfolio",

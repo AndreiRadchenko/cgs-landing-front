@@ -1,7 +1,7 @@
 import { FieldArray } from "formik";
 import React from "react";
-import { IEditInformation } from "../../../types/Admin/Response.types";
-import { renderInputs } from "../../../utils/renderInputs";
+import { IEditInformation } from "../../../../types/Admin/Response.types";
+import { renderInputs } from "../../../../utils/renderInputs";
 
 interface ILeftSideProps {
   state: IEditInformation;

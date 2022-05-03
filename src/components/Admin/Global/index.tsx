@@ -1,14 +1,14 @@
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
 import AdminCardsBlock from "../CardsBlock";
-import EditInformationBlock from "../EditInfoBlock";
+import EditInformationBlock from "../HomePageBlocks/EditInfoBlock";
 import FirstAdminBlock from "../FirstHeaderBlock";
 import AdminLogosBlock from "../LogosBlock";
 import SubtitleBlock from "../SubtitleBlock";
 import AdminFeedbackBlock from "../FeedbackBlock";
 import AdminTechBlock from "../TechBlock";
-import AdminCorporateBlock from "../CorporateBlock";
-import AdminHowWeWorkBlock from "../HowWeWorkBlock";
+import AdminCorporateBlock from "../HomePageBlocks/CorporateBlock";
+import AdminHowWeWorkBlock from "../HomePageBlocks/HowWeWorkBlock";
 import AdminBuildRocketBlock from "../RocketBlock";
 import AdminContactFormBlock from "../ContactBlock";
 import AdminFooterBlock from "../Footer";

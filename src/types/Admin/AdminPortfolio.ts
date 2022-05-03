@@ -1,11 +1,9 @@
-import { IImage } from './Admin.types';
-
 export interface IPortfolioReview {
   category: string;
-  image: IImage;
+  image: { url: string } | null;
   text: string;
   title: string;
-  _id: string;
+  _id?: string;
 }
 
 export interface IPortfolioResponse {
