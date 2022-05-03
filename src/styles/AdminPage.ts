@@ -505,3 +505,10 @@ export const AdminPortfolioReviewFrame = styled.div`
   padding: 1.6em;
   position: relative;
 `;
+
+export const AdminEditIcon = styled.span`
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+`;

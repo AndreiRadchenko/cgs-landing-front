@@ -1,8 +1,10 @@
+import Image from "next/image";
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
 import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio";
 import AdminButton from "../Global/AdminButton";
 import AdminImage from "../Global/AdminImage";
+import edit from "../../../../public/editIcon.svg";
 
 interface IReviewProps {
   review: IPortfolioReview;
@@ -22,6 +24,10 @@ const AdminReview = ({ review, deleteFunc }: IReviewProps) => {
       <Styled.AdminDeleteTextThin onClick={deleteFunc}>
         delete review
       </Styled.AdminDeleteTextThin>
+
+      <Styled.AdminEditIcon>
+        <Image src={edit} />
+      </Styled.AdminEditIcon>
     </Styled.AdminPortfolioReviewFrame>
   );
 };
