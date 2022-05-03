@@ -9,6 +9,7 @@ import {
 import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
 import useUploadImageFunction from "../../../hooks/uploadImageFunction";
+import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 interface IAddReviewProps {
   state: IPortfolioResponse;
@@ -42,6 +43,7 @@ const AddReview = ({ state, setIsReady }: IAddReviewProps) => {
       </Styled.AdminCategoryBlock>
       <Styled.AdminPortfolioImage>
         <PhotoBlockDashedHorizontal
+          emptyHeader="Drop banner here"
           photo={values.image}
           deleteFunction={async () => (await deleteFunction)()}
           uploadFunction={(image) => uploadFunction(image)}
@@ -60,6 +62,13 @@ const AddReview = ({ state, setIsReady }: IAddReviewProps) => {
           value={values.text}
           onChange={handleChange}
           name="text"
+        />
+        <SubHeaderWithInput
+          placeholder="Project link"
+          header="Button"
+          inputValue={values.button}
+          onChangeFunction={handleChange}
+          name="button"
         />
         <Styled.AdminBigButton onClick={submitFunction} type="button">
           Add review

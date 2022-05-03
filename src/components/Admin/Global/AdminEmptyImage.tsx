@@ -5,7 +5,12 @@ import Image from "next/image";
 import useUploadModal from "../../../hooks/useUploadModal";
 import AdminUploadModal from "../UploadModal";
 
-const AdminEmptyImage = ({func}: {func?: (image: any) => void}) => {
+interface IEmptyProps {
+  func?: (image: any) => void;
+  header?: string;
+}
+
+const AdminEmptyImage = ({ func, header = "Drop image here" }: IEmptyProps) => {
   const { modal, toggleModal } = useUploadModal();
 
   return (
@@ -17,7 +22,7 @@ const AdminEmptyImage = ({func}: {func?: (image: any) => void}) => {
           onClick={toggleModal}
           style={{ cursor: "pointer" }}
         >
-          Drop image here
+          {header}
         </Styled.AdminSubTitle>
         <Styled.AdminComment>Supports: JPG, PNG</Styled.AdminComment>
       </Styled.AdminDashedPositionGrid>

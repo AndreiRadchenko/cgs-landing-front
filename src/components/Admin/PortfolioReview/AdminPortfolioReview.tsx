@@ -16,7 +16,7 @@ const AdminReview = ({ review, deleteFunc }: IReviewProps) => {
         <AdminImage image={review.image} />
         <Styled.AdminSubTitle>{review.title}</Styled.AdminSubTitle>
         <Styled.AdminParagraph>{review.text}</Styled.AdminParagraph>
-        <AdminButton text="project link" />
+        <AdminButton text="project link" onClick={() => window.location.href = review.button} />
       </Styled.AdminPortfolioReviewContent>
 
       <Styled.AdminDeleteTextThin onClick={deleteFunc}>

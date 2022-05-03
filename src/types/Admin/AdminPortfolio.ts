@@ -4,6 +4,7 @@ export interface IPortfolioReview {
   text: string;
   title: string;
   _id?: string;
+  button: string;
 }
 
 export interface IPortfolioResponse {

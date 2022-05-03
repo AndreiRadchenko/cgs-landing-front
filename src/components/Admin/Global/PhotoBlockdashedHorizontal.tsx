@@ -9,6 +9,7 @@ import AdminImage from "./AdminImage";
 const PhotoBlockDashedHorizontal = ({
   photo,
   header = "Drop new image here",
+  emptyHeader,
   deleteFunction,
   uploadFunction,
 }: IPhotoBlock) => {
@@ -35,7 +36,7 @@ const PhotoBlockDashedHorizontal = ({
       </Styled.AdminPhotoDashedHorizontalPositoning>
     </Styled.AdminPhotoDashedHorizontal>
   ) : (
-    <AdminEmptyImage func={uploadFunction} />
+    <AdminEmptyImage func={uploadFunction} header={emptyHeader} />
   );
 };
 

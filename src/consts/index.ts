@@ -26,6 +26,7 @@ export const newReviewInit = {
   category: "",
   title: "",
   text: "",
+  button: "",
 }
 
 export enum ROUTE_KEYS {
