@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import * as Styled from "../../../styles/AdminPage";
 import { useFormikContext } from "formik";
 import {
-  IPortfolioResponse,
   IPortfolioReview,
 } from "../../../types/Admin/AdminPortfolio";
 import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
@@ -12,15 +11,16 @@ import useUploadImageFunction from "../../../hooks/uploadImageFunction";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 interface IAddReviewProps {
-  state: IPortfolioResponse;
+  categories: string[];
   setIsReady: (value: boolean) => void;
+  newFlag: boolean;
 }
 
-const AddReview = ({ state, setIsReady }: IAddReviewProps) => {
+const AddReview = ({ categories, setIsReady, newFlag }: IAddReviewProps) => {
   const { values, handleSubmit, handleChange } = useFormikContext<
     IPortfolioReview
   >();
-  const [catValue, setCatValue] = useState("");
+  const [catValue, setCatValue] = useState(values.category);
   const deleteFunction = useDeleteImageFunction(values, "");
   const uploadFunction = useUploadImageFunction(values, "");
 
@@ -34,13 +34,13 @@ const AddReview = ({ state, setIsReady }: IAddReviewProps) => {
 
   return (
     <div>
-      <Styled.AdminCategoryBlock>
+      <Styled.AdminHalfGrid>
         <AdminDropDown
-          menu={state.categories}
+          menu={categories}
           value={catValue}
           setValue={setCatValue}
         />
-      </Styled.AdminCategoryBlock>
+      </Styled.AdminHalfGrid>
       <Styled.AdminPortfolioImage>
         <PhotoBlockDashedHorizontal
           emptyHeader="Drop banner here"
@@ -71,7 +71,7 @@ const AddReview = ({ state, setIsReady }: IAddReviewProps) => {
           name="button"
         />
         <Styled.AdminBigButton onClick={submitFunction} type="button">
-          Add review
+          {newFlag ? "Add review" : "Edit review"}
         </Styled.AdminBigButton>
       </div>
     </div>

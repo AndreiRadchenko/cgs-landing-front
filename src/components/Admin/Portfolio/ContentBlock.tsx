@@ -1,13 +1,12 @@
-import { FieldArray, Formik, useFormikContext } from "formik";
+import { FieldArray, useFormikContext } from "formik";
 import React, { useState } from "react";
-import { newReviewInit } from "../../../consts";
 import useSubmitAndDeletePortfolio from "../../../hooks/submitAndDeletePortfolio";
 import * as Styled from "../../../styles/AdminPage";
 import { IPortfolioResponse } from "../../../types/Admin/AdminPortfolio";
 import AdminCarousel from "../Global/AdminImageCarousel";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
-import AddReview from "../PortfolioReview/AddReview";
 import AdminReview from "../PortfolioReview/AdminPortfolioReview";
+import AddAndEdit from "./AddAndEdit";
 import renderPortfolioInputs from "./renderPortfolioInputs";
 
 const AdminPortfolioContentBlock = () => {
@@ -15,9 +14,13 @@ const AdminPortfolioContentBlock = () => {
     IPortfolioResponse
   >();
   const [current, setCurrent] = useState(0);
-  const { deleteFunc, submitFunc, setIsReady } = useSubmitAndDeletePortfolio(
-    setCurrent
-  );
+  const [isNewStatus, setIsNewStatus] = useState(true);
+  const {
+    deleteFunc,
+    submitFunc,
+    setIsReady,
+    editFunc,
+  } = useSubmitAndDeletePortfolio(setCurrent, setIsNewStatus);
 
   return (
     <Styled.AdminPaddedBlock>
@@ -43,17 +46,23 @@ const AdminPortfolioContentBlock = () => {
       </Styled.AdminCategoryBlock>
 
       <Styled.AdminHalfGrid>
-        <Formik onSubmit={submitFunc} initialValues={newReviewInit}>
-          <AddReview state={values} setIsReady={setIsReady} />
-        </Formik>
+        <AddAndEdit
+          current={current}
+          isNewStatus={isNewStatus}
+          setIsReady={setIsReady}
+          editFunc={editFunc}
+          submitFunc={submitFunc}
+        />
 
         <Styled.AdminReviewBlock>
           {values.reviews.length === 0 ? (
             <Styled.AdminSubTitle>no reviews</Styled.AdminSubTitle>
           ) : (
             <AdminReview
+              editFlag={isNewStatus}
               review={values.reviews[current]}
               deleteFunc={() => deleteFunc(current)}
+              editTrigger={setIsNewStatus}
             />
           )}
           <AdminCarousel

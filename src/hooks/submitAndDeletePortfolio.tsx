@@ -8,23 +8,26 @@ import {
 } from "../types/Admin/AdminPortfolio";
 import useDeleteImageFunction from "./deleteImageFunction";
 
-const useSubmitAndDeletePortfolio = (setCurrent: (value: number) => void) => {
+const useSubmitAndDeletePortfolio = (
+  setCurrent: (value: number) => void,
+  setIsNewStatus?: React.Dispatch<React.SetStateAction<boolean>>
+) => {
   const { values, handleSubmit } = useFormikContext<IPortfolioResponse>();
   const queryClient = new QueryClient();
   const [isReady, setIsReady] = useState(false);
   const deleteFunction = useDeleteImageFunction();
 
-  const submitFunc = (
+  const submitFunc = async (
     data: IPortfolioReview,
     props: FormikHelpers<IPortfolioReview>
   ) => {
     if (isReady) {
       values.reviews.push(data);
       handleSubmit();
-      props.resetForm();
-      queryClient.invalidateQueries(queryKeys.getPortfolio);
       setIsReady(false);
+      props.resetForm();
       props.setFieldValue("image", null);
+      await queryClient.invalidateQueries(queryKeys.getPortfolio);
     }
   };
 
@@ -37,7 +40,23 @@ const useSubmitAndDeletePortfolio = (setCurrent: (value: number) => void) => {
     handleSubmit();
   };
 
-  return {deleteFunc, submitFunc, setIsReady}
+  const editFunc = async (
+    data: IPortfolioReview,
+    props: FormikHelpers<IPortfolioReview>,
+    id: number
+  ) => {
+    if (isReady) {
+      values.reviews[id] = data;
+      handleSubmit();
+      setIsReady(false);
+      setIsNewStatus!(true);
+      props.resetForm();
+      props.setFieldValue("image", null);
+      await queryClient.invalidateQueries(queryKeys.getPortfolio);
+    }
+  };
+
+  return { deleteFunc, submitFunc, setIsReady, editFunc };
 };
 
 export default useSubmitAndDeletePortfolio;

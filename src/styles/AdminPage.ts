@@ -8,6 +8,7 @@ export const AdminWrapper = styled.div`
   background: ${themes.primary.colors.grayBack};
   min-height: 100%;
   position: absolute;
+  width: 100%;
 `;
 
 export const AdminSidebar = styled.div`
@@ -191,7 +192,7 @@ export const AdminDeleteLogo = styled.button`
   padding: 0 0.2em;
   cursor: pointer;
   &:hover {
-    background: #AD1313;
+    background: #ad1313;
   }
 `;
 
@@ -303,7 +304,7 @@ export const AdminBigButton = styled.button`
   padding: ${themes.primary.spacing.primary};
   cursor: pointer;
   &:hover {
-    background: #75C92D;
+    background: #75c92d;
   }
 `;
 
@@ -460,6 +461,7 @@ export const AdminDropDownMenu = styled.div`
   font-size: ${themes.primary.font.size.linkText};
   position: relative;
   z-index: 1;
+  margin-right: 10px;
 `;
 
 export const AdminDropDownMenuElement = styled.div`
@@ -480,8 +482,6 @@ export const AdminDropDownMenuBanner = styled.div`
 `;
 
 export const AdminDropDownMenuList = styled.div`
-  display: flex;
-  flex-direction: column;
   position: absolute;
   width: 100%;
 `;

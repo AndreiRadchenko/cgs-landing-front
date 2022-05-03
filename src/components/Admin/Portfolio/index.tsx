@@ -38,11 +38,12 @@ const Portfolio = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik
+      key="globalPortfolioForm"
       initialValues={data!}
       onSubmit={submitForm}
       validateOnChange={false}
     >
-      {() => <AdminPortfolioContentBlock />}
+      <AdminPortfolioContentBlock />
     </Formik>
   ) : (
     <Styled.AdminUnauthorizedModal>

@@ -5,28 +5,43 @@ import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio";
 import AdminButton from "../Global/AdminButton";
 import AdminImage from "../Global/AdminImage";
 import edit from "../../../../public/editIcon.svg";
+import close from "../../../../public/bigClose.svg";
 
 interface IReviewProps {
   review: IPortfolioReview;
   deleteFunc: (e?: React.ChangeEvent<any>) => void;
+  editTrigger: React.Dispatch<React.SetStateAction<boolean>>;
+  editFlag: boolean;
 }
 
-const AdminReview = ({ review, deleteFunc }: IReviewProps) => {
+const AdminReview = ({
+  review,
+  deleteFunc,
+  editTrigger,
+  editFlag,
+}: IReviewProps) => {
+  const editTriggerFunc = () => {
+    editTrigger((prev) => !prev);
+  };
+
   return (
     <Styled.AdminPortfolioReviewFrame>
       <Styled.AdminPortfolioReviewContent>
         <AdminImage image={review.image} />
         <Styled.AdminSubTitle>{review.title}</Styled.AdminSubTitle>
         <Styled.AdminParagraph>{review.text}</Styled.AdminParagraph>
-        <AdminButton text="project link" onClick={() => window.location.href = review.button} />
+        <AdminButton
+          text="project link"
+          onClick={() => (window.location.href = review.button)}
+        />
       </Styled.AdminPortfolioReviewContent>
 
       <Styled.AdminDeleteTextThin onClick={deleteFunc}>
         delete review
       </Styled.AdminDeleteTextThin>
 
-      <Styled.AdminEditIcon>
-        <Image src={edit} />
+      <Styled.AdminEditIcon onClick={editTriggerFunc}>
+        <Image src={editFlag ? edit : close} />
       </Styled.AdminEditIcon>
     </Styled.AdminPortfolioReviewFrame>
   );
