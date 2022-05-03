@@ -11,9 +11,13 @@ import AdminReview from "../PortfolioReview/AdminPortfolioReview";
 import renderPortfolioInputs from "./renderPortfolioInputs";
 
 const AdminPortfolioContentBlock = () => {
-  const { values, handleChange } = useFormikContext<IPortfolioResponse>();
+  const { values, handleChange, handleSubmit } = useFormikContext<
+    IPortfolioResponse
+  >();
   const [current, setCurrent] = useState(0);
-  const { deleteFunc, submitFunc, setIsReady } = useSubmitAndDeletePortfolio(setCurrent);
+  const { deleteFunc, submitFunc, setIsReady } = useSubmitAndDeletePortfolio(
+    setCurrent
+  );
 
   return (
     <Styled.AdminPaddedBlock>
@@ -59,6 +63,11 @@ const AdminPortfolioContentBlock = () => {
           />
         </Styled.AdminReviewBlock>
       </Styled.AdminHalfGrid>
+      <br />
+      <br />
+      <Styled.AdminBigButton type="submit" onClick={() => handleSubmit()}>
+        Save changes
+      </Styled.AdminBigButton>
     </Styled.AdminPaddedBlock>
   );
 };

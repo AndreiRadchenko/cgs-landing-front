@@ -6,6 +6,8 @@ export const AdminWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 4.5fr;
   background: ${themes.primary.colors.grayBack};
+  min-height: 100%;
+  position: absolute;
 `;
 
 export const AdminSidebar = styled.div`
@@ -188,6 +190,9 @@ export const AdminDeleteLogo = styled.button`
   color: ${themes.primary.colors.secondary};
   padding: 0 0.2em;
   cursor: pointer;
+  &:hover {
+    background: #AD1313;
+  }
 `;
 
 export const AdminAddLogoBlock = styled.div`
@@ -297,6 +302,9 @@ export const AdminBigButton = styled.button`
   font-size: ${themes.primary.font.size.buttonText};
   padding: ${themes.primary.spacing.primary};
   cursor: pointer;
+  &:hover {
+    background: #75C92D;
+  }
 `;
 
 export const AdminFeedbackArrows = styled.div`
@@ -335,8 +343,8 @@ export const AdminHowWeWorkImageSize = styled.div`
 `;
 
 export const AdminSocialIcon = styled.div`
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 20px 1fr;
 `;
 
 export const AdminTechWrapper = styled.div`
