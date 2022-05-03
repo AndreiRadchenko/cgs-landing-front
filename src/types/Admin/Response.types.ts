@@ -104,3 +104,48 @@ export interface IDataResponse {
   ContactFormBlock: IContactFormBlock;
   FooterBlock: IFooterBlock;
 }
+
+export interface IPointsData {
+  point: string;
+  _id: string;
+}
+
+export interface IWorkerData {
+  image: { url: string };
+  title: string;
+}
+
+export interface IInfoBlock {
+  text: { title: string; subtitle: string };
+  points: IPointsData[];
+  text2: { title: string };
+  worker: IWorkerData;
+}
+
+export interface IOfferBlock {
+  title: string;
+  points: IPointsData[];
+  text: { title: string };
+  image: { url: string };
+}
+
+export interface IFormBlock {
+  name: string;
+  describe: string;
+  email: string;
+  telegram: string;
+  socialMediaLink: string;
+  linkToProjects: string;
+  CV: { place: string; isSupported: string };
+  text: string;
+  image: { url: string };
+}
+export interface IContactBlock {
+  title: string;
+  form: IFormBlock;
+}
+export interface IDataVacancyResponse {
+  info: IInfoBlock;
+  offer: IOfferBlock;
+  contact: IContactBlock;
+}

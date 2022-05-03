@@ -65,6 +65,12 @@ export const AdminPaddedBlock = styled.div`
     props.theme == "dark" ? themes.primary.colors.darkedGrayBack : null};
 `;
 
+export const AdminPaddedHeaderBlock = styled.div`
+  padding: ${themes.primary.spacing.primary}
+    ${themes.primary.spacing.adminWithinBlocks};
+  background: ${(props) =>
+    props.theme == "dark" ? themes.primary.colors.darkedGrayBack : null};
+`;
 export const AdminHeader = styled.h2`
   font-size: ${themes.primary.font.size.secondary};
   font-family: ${themes.primary.font.family.mulish};
@@ -117,6 +123,7 @@ export const AdminPhotoBlock = styled.div`
   align-items: center;
   flex-direction: column;
   padding: ${themes.primary.spacing.primary};
+  margin-bottom: ${themes.primary.spacing.primary};
   height: 100%;
 `;
 
@@ -403,7 +410,7 @@ export const AdminUploadModuleImgDiv = styled.div`
   &: hover {
     background: rgba(0, 0, 0, 0.1);
   }
-  &: hover span{
+  &: hover span {
     display: block;
   }
 `;
