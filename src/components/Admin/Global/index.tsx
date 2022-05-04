@@ -1,14 +1,14 @@
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
 import AdminCardsBlock from "../CardsBlock";
-import EditInformationBlock from "../EditInfoBlock";
+import EditInformationBlock from "../HomePageBlocks/EditInfoBlock";
 import FirstAdminBlock from "../FirstHeaderBlock";
 import AdminLogosBlock from "../LogosBlock";
 import SubtitleBlock from "../SubtitleBlock";
 import AdminFeedbackBlock from "../FeedbackBlock";
 import AdminTechBlock from "../TechBlock";
-import AdminCorporateBlock from "../CorporateBlock";
-import AdminHowWeWorkBlock from "../HowWeWorkBlock";
+import AdminCorporateBlock from "../HomePageBlocks/CorporateBlock";
+import AdminHowWeWorkBlock from "../HomePageBlocks/HowWeWorkBlock";
 import AdminBuildRocketBlock from "../RocketBlock";
 import AdminContactFormBlock from "../ContactBlock";
 import AdminFooterBlock from "../Footer";
@@ -38,17 +38,19 @@ const AdminMainContent = () => {
     (data: IDataResponse) => adminGlobalService.updateFullPage(data)
   );
 
+  const submitForm = async (values: IDataResponse) => {
+    document.body.style.cursor = "wait";
+    await mutateAsync(values);
+    await refetch();
+    document.body.style.cursor = "auto";
+  };
+
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik
       initialValues={data!}
-      onSubmit={async (values) => {
-        document.body.style.cursor = "wait";
-        await mutateAsync(values);
-        await refetch();
-        document.body.style.cursor = "auto";
-      }}
+      onSubmit={submitForm}
       validateOnChange={false}
     >
       {() => {

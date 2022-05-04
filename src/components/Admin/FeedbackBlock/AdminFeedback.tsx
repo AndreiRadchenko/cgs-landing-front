@@ -1,15 +1,25 @@
+import Image from "next/image";
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
 import { IFeedback } from "../../../types/Admin/Response.types";
 import AdminButton from "../Global/AdminButton";
 import AdminStars from "./AdminStars";
+import edit from "../../../../public/editIcon.svg";
+import close from "../../../../public/bigClose.svg";
 
 interface IFeedbackProps {
   feedback: IFeedback;
   deleteFunc: (e?: React.ChangeEvent<any>) => void;
+  isNewFeedback: boolean;
+  setIsNewFeedback: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AdminFeedback = ({ feedback, deleteFunc }: IFeedbackProps) => {
+const AdminFeedback = ({
+  feedback,
+  deleteFunc,
+  isNewFeedback,
+  setIsNewFeedback,
+}: IFeedbackProps) => {
   return (
     <Styled.AdminFeedbackFrame>
       <Styled.AdminFeedbackStarsBlock>
@@ -25,6 +35,10 @@ const AdminFeedback = ({ feedback, deleteFunc }: IFeedbackProps) => {
       <Styled.AdminDeleteTextThin onClick={deleteFunc}>
         delete review
       </Styled.AdminDeleteTextThin>
+
+      <Styled.AdminEditIcon onClick={() => setIsNewFeedback((prev) => !prev)}>
+        <Image src={isNewFeedback ? edit : close} />
+      </Styled.AdminEditIcon>
     </Styled.AdminFeedbackFrame>
   );
 };

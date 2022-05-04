@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { ROUTE_KEYS } from "../../../consts";
@@ -15,21 +16,22 @@ const AdminSidebar = () => {
         <Image src={logo} />
       </Styled.AdminSidebarLogo>
       <Styled.AdminSidebarMenu>
-        <DropDownElement
-          value="home"
-          onClick={() => router.push(ROUTE_KEYS.AdminPage)}
-          route={ROUTE_KEYS.AdminPage}
-        />
-        <DropDownElement
-          value="careers"
-          onClick={() => router.push(ROUTE_KEYS.AdminCareers)}
-          route={ROUTE_KEYS.AdminCareers}
-        />
-        <DropDownElement
-          value="partners"
-          onClick={() => router.push(ROUTE_KEYS.AdminPartners)}
-          route={ROUTE_KEYS.AdminPartners}
-        />
+        <DropDownElement value="home" route={ROUTE_KEYS.AdminPage}>
+          <Link href={ROUTE_KEYS.AdminPortfolio}>
+            <a>portfolio</a>
+          </Link>
+        </DropDownElement>
+
+        <DropDownElement value="careers" route={ROUTE_KEYS.AdminCareers}>
+          <Link href={ROUTE_KEYS.AdminVacancy}>
+            <a>vacancy info </a>
+          </Link>
+        </DropDownElement>
+
+        <DropDownElement value="partners" route={ROUTE_KEYS.AdminPartners}>
+          no page
+        </DropDownElement>
+
         <Styled.AdminSidebarMenuElement
           onClick={() => router.push(ROUTE_KEYS.AdminSettings)}
           itemProp="AdminPage"

@@ -1,6 +1,6 @@
 import { useFormikContext } from "formik";
-import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
-import useUploadImageFunction from "../../../hooks/uploadImageFunction";
+import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import { AdminCardsGrid } from "../../../styles/AdminPage";
 import { IDataResponse } from "../../../types/Admin/Response.types";
 import AdminCard from "./AdminCard";

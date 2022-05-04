@@ -1,11 +1,11 @@
 import { useFormikContext } from "formik";
 import React from "react";
-import * as Styled from "../../../styles/AdminPage";
-import { IDataResponse } from "../../../types/Admin/Response.types";
-import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
+import * as Styled from "../../../../styles/AdminPage";
+import { IDataResponse } from "../../../../types/Admin/Response.types";
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import LeftSideBlock from "./LeftSide";
 import RightSideBlock from "./RightSide";
-import useUploadImageFunction from "../../../hooks/uploadImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 
 const EditInformationBlock = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();

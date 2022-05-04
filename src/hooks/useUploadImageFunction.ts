@@ -4,7 +4,10 @@ import { IImage } from "../types/Admin/Admin.types";
 import { queryKeys } from "../consts/queryKeys";
 import { adminGlobalService } from "../services/adminHomePage";
 
-const useUploadImageFunction = (state?: IImage) => {
+const useUploadImageFunction = (
+  state?: IImage,
+  key = queryKeys.GetFullPage
+) => {
   const queryClient = new QueryClient();
   const { handleSubmit } = useFormikContext();
 
@@ -26,7 +29,7 @@ const useUploadImageFunction = (state?: IImage) => {
       localState!.image = link!;
     }
     handleSubmit();
-    queryClient.invalidateQueries(queryKeys.GetFullPage);
+    queryClient.invalidateQueries(key);
   };
 
   return uploadImageFunction;
