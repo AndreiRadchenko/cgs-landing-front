@@ -104,3 +104,34 @@ export interface IDataResponse {
   ContactFormBlock: IContactFormBlock;
   FooterBlock: IFooterBlock;
 }
+
+// Careers
+
+export interface ITicket {
+  vacancy: string;
+  image: { url: string };
+  _id?: string;
+}
+
+export interface IForm {
+  link: string;
+  describe: string;
+  email: string;
+  name: string;
+  telegram: string;
+  socialMediaLink: string;
+  linksToProjects: string;
+  CV: { place: string; isSupported: string };
+  text: string;
+  image: { url: string };
+}
+
+export interface IDataCareersResponse {
+  subtitle: string;
+  subtitle2: string;
+  tickets: ITicket[];
+  images: { image: { url: string } }[];
+  url?: string;
+  vacancy?: string;
+  form: IForm;
+}
