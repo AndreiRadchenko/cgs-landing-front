@@ -7,15 +7,20 @@ import "swiper/css/mousewheel";
 import HowWeWorkCard from "../HowWeWorkCard/HowWeWorkCard";
 import { IHowWeWorkCardProps } from "../HowWeWorkCard/types";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 SwiperCore.use([Mousewheel, Pagination]);
 
 const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { width } = useWindowDimension();
 
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, { threshold: 0.75 });
   const isVisible = !!entry?.isIntersecting;
+
+  if (isVisible && ref.current)
+    window.scrollTo({ behavior: "smooth", top: ref.current.offsetTop });
 
   const isReleaseOnEdges = (e: SwiperCore, bool: boolean, time: number) => {
     setTimeout(() => {
@@ -29,7 +34,7 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
     }, time);
   };
 
-  return (
+  return width && width > 768 ? (
     <div ref={ref}>
       {!isVisible ? (
         <HowWeWorkCard {...items[currentSlide]} />
@@ -38,7 +43,7 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
           observer={true}
           spaceBetween={10}
           mousewheel={{ releaseOnEdges: true }}
-          speed={600}
+          speed={1000}
           pagination={{ clickable: true }}
           onSlideChange={(e) => {
             setCurrentSlide(e.activeIndex);
@@ -49,13 +54,18 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
           initialSlide={currentSlide}
         >
           {items &&
-            [...items].map((item, idx) => (
-              <SwiperSlide key={idx}>
-                <HowWeWorkCard key={idx.toString()} {...item} />
+            [...items].map((item) => (
+              <SwiperSlide key={item.rank}>
+                <HowWeWorkCard {...item} />
               </SwiperSlide>
             ))}
         </Swiper>
       )}
+    </div>
+  ) : (
+    <div>
+      {items &&
+        [...items].map((item) => <HowWeWorkCard key={item.rank} {...item} />)}
     </div>
   );
 };
