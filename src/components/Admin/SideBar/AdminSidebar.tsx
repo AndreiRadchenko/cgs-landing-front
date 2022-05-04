@@ -16,13 +16,21 @@ const AdminSidebar = () => {
         <Image src={logo} />
       </Styled.AdminSidebarLogo>
       <Styled.AdminSidebarMenu>
-        
         <DropDownElement value="home" route={ROUTE_KEYS.AdminPage}>
-          <Link href={ROUTE_KEYS.AdminPortfolio}><a>portfolio</a></Link>
+          <Link href={ROUTE_KEYS.AdminPortfolio}>
+            <a>portfolio</a>
+          </Link>
         </DropDownElement>
 
-        <DropDownElement value="careers" route={ROUTE_KEYS.AdminCareers} />
-        <DropDownElement value="partners" route={ROUTE_KEYS.AdminPartners} />
+        <DropDownElement value="careers" route={ROUTE_KEYS.AdminCareers}>
+          <Link href={ROUTE_KEYS.AdminVacancy}>
+            <a>vacancy info </a>
+          </Link>
+        </DropDownElement>
+
+        <DropDownElement value="partners" route={ROUTE_KEYS.AdminPartners}>
+          no page
+        </DropDownElement>
 
         <Styled.AdminSidebarMenuElement
           onClick={() => router.push(ROUTE_KEYS.AdminSettings)}
