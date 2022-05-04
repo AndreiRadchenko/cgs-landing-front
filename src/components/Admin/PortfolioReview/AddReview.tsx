@@ -2,12 +2,10 @@ import AdminDropDown from "../Global/AdminDropDown";
 import React, { useState } from "react";
 import * as Styled from "../../../styles/AdminPage";
 import { useFormikContext } from "formik";
-import {
-  IPortfolioReview,
-} from "../../../types/Admin/AdminPortfolio";
+import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio";
 import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
-import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
-import useUploadImageFunction from "../../../hooks/uploadImageFunction";
+import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 interface IAddReviewProps {

@@ -4,7 +4,7 @@ import buttonBack from "../../../../public/back-button.png";
 import Image from "next/image";
 
 interface IAdminButtonProps {
-  text: string;
+  text?: string;
   onClick?: () => void;
 }
 

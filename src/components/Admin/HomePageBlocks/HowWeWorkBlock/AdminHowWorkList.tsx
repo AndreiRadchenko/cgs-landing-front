@@ -1,7 +1,7 @@
 import { useFormikContext } from "formik";
 import React from "react";
-import useDeleteImageFunction from "../../../../hooks/deleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/uploadImageFunction";
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import * as Styled from "../../../../styles/AdminPage";
 import { IDataResponse } from "../../../../types/Admin/Response.types";
 import PhotoBlockDashedHorizontal from "../../Global/PhotoBlockdashedHorizontal";

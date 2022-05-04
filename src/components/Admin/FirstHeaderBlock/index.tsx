@@ -2,9 +2,9 @@ import { useFormikContext } from "formik";
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
 import { IDataResponse } from "../../../types/Admin/Response.types";
-import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
+import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
-import useUploadImageFunction from "../../../hooks/uploadImageFunction";
+import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 
 const FirstAdminBlock = () => {
   const { values } = useFormikContext<IDataResponse>();

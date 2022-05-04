@@ -4,24 +4,29 @@ import { IDataResponse } from "../../../types/Admin/Response.types";
 import AdminFeedback from "./AdminFeedback";
 import AdminFeedbackForm from "./AdminFeedbackForm";
 import { renderInputs } from "../../../utils/renderInputs";
-import { FieldArray, useFormikContext } from "formik";
+import { FieldArray, Formik, useFormikContext } from "formik";
 import AdminCarousel from "../Global/AdminImageCarousel";
+import { feedbackInit } from "../../../consts";
+import useFeedbackLogic from "../../../hooks/useFeedbackLogic";
 
 const AdminFeedbackBlock = () => {
   const { values, handleChange, handleSubmit } = useFormikContext<
     IDataResponse
   >();
-  const [feedback, setFeedback] = useState(0);
+  const [isNewFeedback, setIsNewFeedback] = useState(true);
+  const {
+    submitFunction,
+    deleteFunction,
+    setFeedback,
+    feedback,
+    editFunction,
+  } = useFeedbackLogic();
+
   const renderState = {
     subtitle: values.FeedbackBlock.subtitle,
     text3: values.FeedbackBlock.text3,
   };
 
-  const deleteFunc = (id: number) => {
-    values.FeedbackBlock.feedBacks.splice(id, 1);
-    setFeedback(id > 0 ? id - 1 : 0);
-    handleSubmit();
-  };
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
@@ -35,14 +40,29 @@ const AdminFeedbackBlock = () => {
           }
         </FieldArray>
         <div />
-        <AdminFeedbackForm state={values.FeedbackBlock} submit={handleSubmit} />
+
+        <Formik
+          key={`feedbackForm${isNewFeedback}`}
+          validateOnChange={false}
+          onSubmit={isNewFeedback ? submitFunction : editFunction}
+          initialValues={
+            isNewFeedback
+              ? JSON.parse(JSON.stringify(feedbackInit))
+              : values.FeedbackBlock.feedBacks[feedback]
+          }
+        >
+          <AdminFeedbackForm submit={handleSubmit} isNewFeedback={isNewFeedback} />
+        </Formik>
+
         <div>
           {values.FeedbackBlock.feedBacks.length === 0 ? (
             <h1>No feedbacks</h1>
           ) : (
             <AdminFeedback
+              setIsNewFeedback={setIsNewFeedback}
+              isNewFeedback={isNewFeedback}
               feedback={values.FeedbackBlock.feedBacks[feedback]}
-              deleteFunc={() => deleteFunc(feedback)}
+              deleteFunc={() => deleteFunction(feedback)}
             />
           )}
           <AdminCarousel

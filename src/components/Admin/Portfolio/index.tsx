@@ -6,12 +6,7 @@ import { adminGlobalService } from "../../../services/adminHomePage";
 import * as Styled from "../../../styles/AdminPage";
 import { IPortfolioResponse } from "../../../types/Admin/AdminPortfolio";
 import AdminPortfolioContentBlock from "./ContentBlock";
-
-interface IPortfolioData {
-  data: IPortfolioResponse | undefined;
-  isLoading: boolean;
-  refetch: () => Promise<IPortfolioData>;
-}
+import { IPortfolioData } from "./Portfolio.types";
 
 const Portfolio = () => {
   const {

@@ -5,8 +5,8 @@ import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { FieldArray, useFormikContext } from "formik";
 import AdminSubtitleFlyingList from "./AdminSubtitleFlyingList";
 import { IDataResponse } from "../../../types/Admin/Response.types";
-import useUploadImageFunction from "../../../hooks/uploadImageFunction";
-import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
+import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
+import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 
 const SubtitleBlock = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();

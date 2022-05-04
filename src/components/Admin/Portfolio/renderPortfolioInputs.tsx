@@ -1,12 +1,11 @@
 import { AdminInput } from "../../../styles/AdminPage";
 import React from "react";
+import { IRenderPortfolioInputsProps } from "./Portfolio.types";
 
-interface IRenderInputsProps {
-  state: string[];
-  handleChange: (e: string | React.ChangeEvent<any>) => void;
-}
-
-const renderPortfolioInputs = ({ state, handleChange }: IRenderInputsProps) => {
+const renderPortfolioInputs = ({
+  state,
+  handleChange,
+}: IRenderPortfolioInputsProps) => {
   return state.map((i, ind) => (
     <AdminInput
       value={i}
