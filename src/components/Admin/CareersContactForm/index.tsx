@@ -2,8 +2,8 @@ import React from "react";
 import { useFormikContext } from "formik";
 
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
-import useDeleteImageFunction from "../../../hooks/deleteImageFunction";
-import useUploadImageFunction from "../../../hooks/uploadImageFunction";
+import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import { IDataCareersResponse } from "../../../types/Admin/Response.types";
 
 import * as Styled from "../../../styles/AdminPage";

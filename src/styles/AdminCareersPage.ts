@@ -78,8 +78,8 @@ export const TicketsButton = styled.button`
 `;
 
 export const TicketContainer = styled.div`
-  width: 476px;
-  height: 348px;
+  /* width: 476px;
+  height: 348px; */
   border: 1px solid black;
 `;
 
@@ -148,4 +148,28 @@ export const FormTextArea = styled.textarea`
   line-height: 19px;
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.normal};
+`;
+
+export const IconBox = styled.div`
+  margin-top: 10px;
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+`;
+
+export const DeleteBtn = styled.div`
+  padding: 5px;
+  margin-left: auto;
+  color: red;
+  width: 110px;
+  font-weight: ${themes.primary.font.weight.semiBold};
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+`;
+
+export const TicketBox = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

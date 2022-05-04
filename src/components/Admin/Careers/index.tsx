@@ -1,11 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Image from "next/image";
 import { useFormikContext } from "formik";
 
-import rocket1 from "../../../../public/tickets_images/Rectangle-75.png";
-import rocket2 from "../../../../public/tickets_images/Rectangle-76.png";
-import rocket3 from "../../../../public/tickets_images/Rectangle-77.png";
-import rocket4 from "../../../../public/tickets_images/Rectangle-78.png";
+import CareersTicket from "../../CareersTicket";
+import AdminCarousel from "../Global/AdminImageCarousel";
+import edit from "../../../../public/editIcon.svg";
+import close from "../../../../public/bigClose.svg";
 import { IDataCareersResponse } from "../../../types/Admin/Response.types";
 
 import * as Styled from "../../../styles/AdminPage";
@@ -18,10 +19,26 @@ import {
   TicketsContainer,
   TicketsLabel,
   TicketsInput,
+  TicketContainer,
   TicketsButton,
+  TicketBox,
+  IconBox,
+  DeleteBtn,
 } from "../../../styles/AdminCareersPage";
 
-const Careers = () => {
+interface ICareers {
+  isNewTicket: boolean;
+  setIsNewTicket: React.Dispatch<React.SetStateAction<boolean>>;
+  ticket: number;
+  setTicket: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const Careers = ({
+  isNewTicket,
+  setIsNewTicket,
+  ticket,
+  setTicket,
+}: ICareers) => {
   const { values, handleChange, handleSubmit } =
     useFormikContext<IDataCareersResponse>();
 
@@ -38,65 +55,77 @@ const Careers = () => {
             value={values.subtitle}
             onChange={handleChange}
           />
-
           <SubTitle>Add a new ticket</SubTitle>
           <VacancyInput
             type="text"
-            name="vacancy"
-            placeholder="Vacancy"
+            name={isNewTicket ? `tickets[${ticket}].vacancy` : "vacancy"}
+            placeholder="vacancy"
+            value={
+              isNewTicket ? values.tickets[ticket].vacancy : values.vacancy
+            }
             onChange={handleChange}
           />
 
           <TicketsContainer>
-            <TicketsLabel>
-              <Image src={rocket1} alt="rocket" width={124} height={212} />
-              <TicketsInput
-                type="radio"
-                name="url"
-                value={values.images[0].image.url}
-                id="rocket1"
-                onChange={handleChange}
-              />
-            </TicketsLabel>
-
-            <TicketsLabel>
-              <Image src={rocket2} alt="rocket" width={124} height={212} />
-              <TicketsInput
-                type="radio"
-                name="url"
-                value={values.images[1].image.url}
-                id="rocket2"
-                onChange={handleChange}
-              />
-            </TicketsLabel>
-
-            <TicketsLabel>
-              <Image src={rocket3} alt="rocket" width={124} height={212} />
-              <TicketsInput
-                type="radio"
-                name="url"
-                value={values.images[2].image.url}
-                id="rocket3"
-                onChange={handleChange}
-              />
-            </TicketsLabel>
-
-            <TicketsLabel>
-              <Image src={rocket4} alt="rocket" width={124} height={212} />
-              <TicketsInput
-                type="radio"
-                name="url"
-                value={values.images[3].image.url}
-                id="rocket4"
-                onChange={handleChange}
-              />
-            </TicketsLabel>
+            {values &&
+              values.images.map((el, idx) => (
+                <TicketsLabel key={idx}>
+                  <img
+                    src={el.image.url}
+                    alt="rocket"
+                    width={124}
+                    height={212}
+                  />
+                  <TicketsInput
+                    type="radio"
+                    name="url"
+                    value={el.image.url}
+                    onChange={handleChange}
+                  />
+                </TicketsLabel>
+              ))}
           </TicketsContainer>
-
           <TicketsButton type="submit" onClick={() => handleSubmit}>
-            Add ticket
+            {isNewTicket ? "Edit ticket" : "Add ticket"}
           </TicketsButton>
         </CareersContainer>
+
+        <TicketBox>
+          <TicketContainer>
+            <IconBox onClick={() => setIsNewTicket((prev) => !prev)}>
+              <Image src={isNewTicket ? close : edit} alt="icon" />
+            </IconBox>
+
+            <CareersTicket
+              route={false}
+              vacancy={values.tickets[ticket].vacancy}
+              imgUrl={
+                isNewTicket && values.url
+                  ? values.url
+                  : values.tickets[ticket].image.url
+              }
+            />
+
+            <DeleteBtn
+              onClick={() => {
+                if (isNewTicket) {
+                  values.tickets.splice(ticket, 1);
+                  values.vacancy = "";
+                  setTicket(0);
+                  handleSubmit();
+                }
+              }}
+            >
+              delete ticket
+            </DeleteBtn>
+          </TicketContainer>
+
+          <AdminCarousel
+            page={ticket}
+            setPage={setTicket}
+            length={values.tickets.length}
+          />
+        </TicketBox>
       </MainContainer>
     </Styled.AdminPaddedBlock>
   );

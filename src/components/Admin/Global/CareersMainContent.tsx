@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Formik } from "formik";
 import { useMutation, useQuery } from "react-query";
 
@@ -17,6 +17,9 @@ interface IMainProps {
 }
 
 const CareersMainContent = () => {
+  const [isNewTicket, setIsNewTicket] = useState(false);
+  const [ticket, setTicket] = useState(0);
+
   const { data, isLoading, refetch }: IMainProps = useQuery(
     queryKeys.GetCareersPage,
     () => adminCareersService.getCareersPage()
@@ -33,10 +36,9 @@ const CareersMainContent = () => {
     <Formik
       initialValues={data}
       onSubmit={async (values) => {
-        const data = createNewData(values);
-        console.log("onSubmit={ > data", data);
-
         document.body.style.cursor = "wait";
+        const data = createNewData(values, ticket, isNewTicket);
+        if (isNewTicket) setIsNewTicket((prev) => !prev);
         if (data) await mutateAsync(data);
         await refetch();
         document.body.style.cursor = "auto";
@@ -47,7 +49,12 @@ const CareersMainContent = () => {
         return (
           <Styled.AdminContentBlock>
             <Form>
-              <Careers />
+              <Careers
+                isNewTicket={isNewTicket}
+                setIsNewTicket={setIsNewTicket}
+                ticket={ticket}
+                setTicket={setTicket}
+              />
               <CareersContactForm />
             </Form>
           </Styled.AdminContentBlock>
