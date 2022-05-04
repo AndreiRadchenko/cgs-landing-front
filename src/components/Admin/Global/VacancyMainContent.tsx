@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import { Formik, Form } from "formik";
 import TextVacancyBlock from "../FirstTextVacancyBlock";
+import VacancyContactBlock from "../VacancyContactBlock";
 import * as Styled from "../../../styles/AdminPage";
 import { adminGlobalService } from "../../../services/adminVacancyPage";
 import { useMutation, useQuery } from "react-query";
@@ -37,26 +38,21 @@ const VacancyMainContent = () => {
     >
       {() => {
         return (
-          <Styled.AdminContentBlock>
-            <Form>
+          <Form>
+            <Styled.AdminContentBlock>
               <Styled.AdminPaddedHeaderBlock>
                 <Styled.AdminHeader>Vacancy (info)</Styled.AdminHeader>
               </Styled.AdminPaddedHeaderBlock>
-              <TextVacancyBlock
-                titleTextBlock={data.info.text}
-                pointsBlockArr={data.info.points}
-                bottomTextBlock={data.info.text2}
-                imageBlock={data.info.worker}
-              />
-              <TextVacancyBlock
-                titleTextBlock={{ title: data.offer.title }}
-                pointsBlockArr={data.offer.points}
-                bottomTextBlock={data.offer.text}
-                imageBlock={data.offer}
-                dark={true}
-              />
-            </Form>
-          </Styled.AdminContentBlock>
+              <TextVacancyBlock name="info" />
+              <TextVacancyBlock name="offer" dark={true} />
+              <VacancyContactBlock />
+              <Styled.AdminPaddedBlock>
+                <Styled.AdminBigButton type="submit">
+                  Submit
+                </Styled.AdminBigButton>
+              </Styled.AdminPaddedBlock>
+            </Styled.AdminContentBlock>
+          </Form>
         );
       }}
     </Formik>

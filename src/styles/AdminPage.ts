@@ -1,4 +1,5 @@
 import { TextareaAutosize } from "@mui/material";
+import { style } from "@mui/system";
 import styled from "styled-components";
 import themes from "../utils/themes";
 
@@ -105,6 +106,8 @@ export const AdminHalfGrid = styled.div`
   grid-template-columns: 1.1fr 1fr;
   column-gap: 3rem;
 `;
+
+export const AdminBlockWrapper = styled.div``;
 
 export const AdminInput = styled(TextareaAutosize)`
   resize: none;

@@ -38,6 +38,7 @@ export interface DropdownPropsInterface {
 export interface InputWithHeader extends InputPropsInterface {
   placeholder?: string;
   header: string;
+  minRows?: number;
 }
 
 export interface InputWithImage extends InputPropsInterface {
@@ -59,6 +60,13 @@ export interface IRenderInputsProps {
     | IEditInformation
     | IFeedbackRenderState
     | IPointsData;
+
+  onChangeFunction: (e?: string | React.ChangeEvent<any>) => void;
+}
+
+export interface IRenderContactInputsProps {
+  props: FieldArrayRenderProps;
+  state: IContactFormBlock;
 
   onChangeFunction: (e?: string | React.ChangeEvent<any>) => void;
 }

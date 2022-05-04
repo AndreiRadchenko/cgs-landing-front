@@ -1,7 +1,7 @@
 import { FieldArray } from "formik";
 import React from "react";
 import { AdminInput } from "../../../styles/AdminPage";
-import { IRenderInputsProps } from "../../../types/Admin/Admin.types";
+import { IRenderContactInputsProps } from "../../../types/Admin/Admin.types";
 import { IContactFormBlock } from "../../../types/Admin/Response.types";
 
 interface IContactInputsProps {
@@ -13,7 +13,7 @@ const renderInputs = ({
   props,
   state,
   onChangeFunction,
-}: IRenderInputsProps) => (
+}: IRenderContactInputsProps) => (
   <div>
     {Object.keys(state).map((i, ind) => {
       return (

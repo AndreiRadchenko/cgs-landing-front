@@ -7,7 +7,8 @@ const SubHeaderWithInput = ({
   inputValue,
   onChangeFunction,
   name,
-  placeholder
+  placeholder,
+  minRows,
 }: InputWithHeader) => {
   return (
     <>
@@ -17,6 +18,7 @@ const SubHeaderWithInput = ({
         value={inputValue}
         onChange={onChangeFunction}
         name={name}
+        minRows={minRows}
       />
     </>
   );

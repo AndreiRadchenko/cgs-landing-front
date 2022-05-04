@@ -5,15 +5,21 @@ import { IPointsData } from "../../../types/Admin/Response.types";
 
 interface IPointsInputsProps {
   state: IPointsData[];
+  name: string;
   onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
 }
 
-const renderInputs = ({ state, onChangeFunction }: IPointsInputsProps) => (
+const renderInputs = ({
+  state,
+  name,
+  onChangeFunction,
+}: IPointsInputsProps) => (
   <div>
-    {state.map((el: IPointsData) => (
+    {state.map((el: IPointsData, ind: number) => (
       <AdminInput
-        key={`inputContact${el.point}`}
-        name={`${el.point}.${el._id}`}
+        minRows={2}
+        key={el._id}
+        name={`${name}.points[${ind}].point`}
         value={el.point}
         onChange={onChangeFunction}
       />
@@ -21,10 +27,14 @@ const renderInputs = ({ state, onChangeFunction }: IPointsInputsProps) => (
   </div>
 );
 
-const PointsTextBlock = ({ state, onChangeFunction }: IPointsInputsProps) => {
+const PointsTextBlock = ({
+  state,
+  onChangeFunction,
+  name,
+}: IPointsInputsProps) => {
   return (
     <FieldArray name="ContactFormBlock">
-      {() => renderInputs({ state, onChangeFunction })}
+      {() => renderInputs({ state, onChangeFunction, name })}
     </FieldArray>
   );
 };
