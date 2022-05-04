@@ -18,6 +18,7 @@ export interface IRes {
 
 export interface IPhotoBlock extends IPropsWithImage {
   photo: any;
+  emptyHeader?: string;
   deleteFlag?: boolean;
   header?: string;
 }
@@ -30,11 +31,12 @@ export interface InputPropsInterface {
 
 export interface DropdownPropsInterface {
   value: string;
-  onClick?: () => void;
   route: string;
+  children?: any;
 }
 
 export interface InputWithHeader extends InputPropsInterface {
+  placeholder?: string;
   header: string;
 }
 

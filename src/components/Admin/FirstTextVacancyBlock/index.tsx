@@ -32,7 +32,6 @@ const TextVacancyBlock = ({
 }: ITextVacancyBlock) => {
   const { values, handleChange, handleSubmit } =
     useFormikContext<IDataVacancyResponse>();
-  console.log(imageBlock);
 
   const deleteImageFunction = useDeleteImageFunction();
   const uploadImageFunction = useUploadImageFunction(imageBlock);

@@ -5,7 +5,10 @@ import { IImage } from "../types/Admin/Admin.types";
 import { adminGlobalService } from "../services/adminHomePage";
 import { IDataResponse } from "../types/Admin/Response.types";
 
-const useDeleteImageFunction = async (state?: IImage) => {
+const useDeleteImageFunction = async (
+  state?: IImage,
+  key = queryKeys.GetFullPage
+) => {
   const queryClient = new QueryClient();
   const { values: data, handleSubmit } = useFormikContext<IDataResponse>();
 
@@ -27,7 +30,7 @@ const useDeleteImageFunction = async (state?: IImage) => {
       localState!.image = null;
     }
     handleSubmit();
-    queryClient.invalidateQueries(queryKeys.GetFullPage);
+    queryClient.invalidateQueries(key);
   };
 
   return deleteImageFunction;

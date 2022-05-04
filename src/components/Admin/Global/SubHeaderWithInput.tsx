@@ -7,11 +7,13 @@ const SubHeaderWithInput = ({
   inputValue,
   onChangeFunction,
   name,
+  placeholder
 }: InputWithHeader) => {
   return (
     <>
       <Styled.AdminSubTitle>{header}</Styled.AdminSubTitle>
       <Styled.AdminInput
+        placeholder={placeholder}
         value={inputValue}
         onChange={onChangeFunction}
         name={name}

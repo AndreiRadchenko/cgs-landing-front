@@ -6,6 +6,9 @@ export const AdminWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 4.5fr;
   background: ${themes.primary.colors.grayBack};
+  min-height: 100%;
+  position: absolute;
+  width: 100%;
 `;
 
 export const AdminSidebar = styled.div`
@@ -51,6 +54,7 @@ export const AdminSidebarHidenElement = styled.div`
   font-weight: ${themes.primary.font.weight.light};
   padding: ${themes.primary.spacing.small} 0 0 ${themes.primary.spacing.primary};
   display: ${(props) => props.theme};
+  text-decoration: underline;
 `;
 
 export const AdminContentBlock = styled.div`
@@ -194,6 +198,9 @@ export const AdminDeleteLogo = styled.button`
   color: ${themes.primary.colors.secondary};
   padding: 0 0.2em;
   cursor: pointer;
+  &:hover {
+    background: #ad1313;
+  }
 `;
 
 export const AdminAddLogoBlock = styled.div`
@@ -303,6 +310,9 @@ export const AdminBigButton = styled.button`
   font-size: ${themes.primary.font.size.buttonText};
   padding: ${themes.primary.spacing.primary};
   cursor: pointer;
+  &:hover {
+    background: #75c92d;
+  }
 `;
 
 export const AdminFeedbackArrows = styled.div`
@@ -341,8 +351,8 @@ export const AdminHowWeWorkImageSize = styled.div`
 `;
 
 export const AdminSocialIcon = styled.div`
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 20px 1fr;
 `;
 
 export const AdminTechWrapper = styled.div`
@@ -445,4 +455,67 @@ export const AdminUnauthorizedModal = styled.div`
   top: 0;
   bottom: 0;
   z-index: 1;
+`;
+
+export const AdminCategoryBlock = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 1.6em;
+`;
+
+export const AdminDropDownMenu = styled.div`
+  background: ${themes.primary.colors.secondary};
+  font-size: ${themes.primary.font.size.linkText};
+  position: relative;
+  z-index: 1;
+  margin-right: 10px;
+`;
+
+export const AdminDropDownMenuElement = styled.div`
+  background: ${themes.primary.colors.secondary};
+  padding: ${themes.primary.spacing.primary};
+  border: 1px solid ${themes.primary.colors.darkedGrayBack};
+  cursor: pointer;
+  &: hover {
+    background: ${themes.primary.colors.darkedGrayBack};
+  }
+`;
+
+export const AdminDropDownMenuBanner = styled.div`
+  background: ${themes.primary.colors.secondary};
+  padding: ${themes.primary.spacing.primary};
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const AdminDropDownMenuList = styled.div`
+  position: absolute;
+  width: 100%;
+`;
+
+export const AdminReviewBlock = styled.div`
+  margin-top: 2em;
+`;
+
+export const AdminPortfolioImage = styled.div`
+  margin: 1em 0;
+  min-height: 250px;
+  display: grid;
+`;
+
+export const AdminPortfolioReviewContent = styled.div`
+  max-width: 68%;
+`;
+
+export const AdminPortfolioReviewFrame = styled.div`
+  border: 1px solid ${themes.primary.colors.primary};
+  padding: 1.6em;
+  position: relative;
+`;
+
+export const AdminEditIcon = styled.span`
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
 `;
