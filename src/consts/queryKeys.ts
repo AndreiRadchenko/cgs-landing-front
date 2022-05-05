@@ -6,6 +6,8 @@ export const queryKeys = {
   PutHomePageData: "PutHomePageData",
   deleteImage: "deleteImage",
   uploadImage: "uploadImage",
+  GetCareersPage: "GetCareersPage",
+  UpdateCareersPage: "UpdateCareersPage",
   getPortfolio: "getPortfolio",
   updatePortfolio: "updatePortfolio",
 };

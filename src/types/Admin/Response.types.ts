@@ -105,6 +105,42 @@ export interface IDataResponse {
   FooterBlock: IFooterBlock;
 }
 
+// Careers
+
+export interface ITicket {
+  vacancy: string;
+  image: { url: string };
+  _id?: string;
+}
+
+export interface IForm {
+  link: string;
+  describe: string;
+  email: string;
+  name: string;
+  telegram: string;
+  socialMediaLink: string;
+  linksToProjects: string;
+  text: string;
+  CV: {
+    isSupported: string;
+    place: string;
+  };
+  image: {
+    url: string;
+  };
+}
+
+export interface IDataCareersResponse {
+  subtitle: string;
+  subtitle2: string;
+  tickets: ITicket[];
+  images: { image: { url: string } }[];
+  url?: string;
+  vacancy?: string;
+  form: IForm;
+}
+
 export interface IPointsData {
   point: string;
   _id: string;
@@ -140,10 +176,12 @@ export interface IFormBlock {
   text: string;
   image: { url: string };
 }
+
 export interface IContactBlock {
   title: string;
   form: IFormBlock;
 }
+
 export interface IDataVacancyResponse {
   info: IInfoBlock;
   offer: IOfferBlock;
