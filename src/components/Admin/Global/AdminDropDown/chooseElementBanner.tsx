@@ -3,18 +3,16 @@ import React from "react";
 import * as Styled from "../../../../styles/AdminPage";
 import UpArrow from "../../../../../public/upArrowSidebar.svg";
 import DownArrow from "../../../../../public/downArrowSidebar.svg";
+import { IMenuProps } from "./dropDownTypes";
 
 const ChooseElementBanner = ({
   text = "category",
   isDropped,
   setIsDropped,
   value,
-}: {
-  text?: string;
-  isDropped: boolean;
-  setIsDropped: (value: boolean) => void;
-  value: string;
-}) => {
+}: IMenuProps) => {
+  const trigger = () => setIsDropped!((prev) => !prev);
+
   return (
     <Styled.AdminDropDownMenuBanner>
       {value ? (
@@ -23,11 +21,11 @@ const ChooseElementBanner = ({
         <Styled.AdminComment>{text}</Styled.AdminComment>
       )}
       {isDropped ? (
-        <Styled.AdminPointer onClick={() => setIsDropped(false)}>
+        <Styled.AdminPointer onClick={trigger}>
           <Image src={UpArrow} />
         </Styled.AdminPointer>
       ) : (
-        <Styled.AdminPointer onClick={() => setIsDropped(true)}>
+        <Styled.AdminPointer onClick={trigger}>
           <Image src={DownArrow} />
         </Styled.AdminPointer>
       )}

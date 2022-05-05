@@ -9,6 +9,7 @@ import DropDownElement from "./DropDownElement";
 
 const AdminSidebar = () => {
   const router = useRouter();
+  const pushSetting = () => router.push(ROUTE_KEYS.AdminSettings);
 
   return (
     <Styled.AdminSidebar>
@@ -33,7 +34,7 @@ const AdminSidebar = () => {
         </DropDownElement>
 
         <Styled.AdminSidebarMenuElement
-          onClick={() => router.push(ROUTE_KEYS.AdminSettings)}
+          onClick={pushSetting}
           itemProp="AdminPage"
           property={ROUTE_KEYS.AdminSettings}
           children="settings"

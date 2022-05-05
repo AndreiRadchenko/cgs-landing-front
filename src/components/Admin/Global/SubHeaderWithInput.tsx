@@ -7,7 +7,7 @@ const SubHeaderWithInput = ({
   inputValue,
   onChangeFunction,
   name,
-  placeholder
+  placeholder,
 }: InputWithHeader) => {
   return (
     <>

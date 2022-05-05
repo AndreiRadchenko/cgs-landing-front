@@ -12,6 +12,10 @@ const SubtitleBlock = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();
   const uploadImageFunction = useUploadImageFunction(values.SubtitleBlock);
   const deleteImageFunction = useDeleteImageFunction(values.SubtitleBlock);
+
+  const uploadFunc = (image: any) => uploadImageFunction(image);
+  const deleteFunc = async () => (await deleteImageFunction)();
+
   return (
     <>
       <Styled.AdminPaddedBlock>
@@ -57,8 +61,8 @@ const SubtitleBlock = () => {
             <PhotoBlockDashed
               photo={values.SubtitleBlock.image}
               deleteFlag={true}
-              uploadFunction={(image) => uploadImageFunction(image)}
-              deleteFunction={async () => (await deleteImageFunction)()}
+              uploadFunction={uploadFunc}
+              deleteFunction={deleteFunc}
             />
           </Styled.AdminTecBottleDiv>
         </Styled.AdminHalfGrid>

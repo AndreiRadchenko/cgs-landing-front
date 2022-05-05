@@ -18,12 +18,11 @@ const AdminEmptyImage = ({ func, header = "Drop image here" }: IEmptyProps) => {
       {modal ? <AdminUploadModal func={func} back={toggleModal} /> : null}
       <Styled.AdminDashedPositionGrid>
         <Image src={smallMountain} />
-        <Styled.AdminSubTitle
-          onClick={toggleModal}
-          style={{ cursor: "pointer" }}
-        >
-          {header}
-        </Styled.AdminSubTitle>
+        <Styled.AdminPointer>
+          <Styled.AdminSubTitle onClick={toggleModal}>
+            {header}
+          </Styled.AdminSubTitle>
+        </Styled.AdminPointer>
         <Styled.AdminComment>Supports: JPG, PNG</Styled.AdminComment>
       </Styled.AdminDashedPositionGrid>
     </Styled.AdminPhotoBlock>

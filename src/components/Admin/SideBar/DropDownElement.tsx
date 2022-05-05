@@ -24,9 +24,11 @@ const DropDownElement = ({
     setIsShown(!isShown);
   };
 
+  const push = () => router.push(route);
+
   return (
     <Styled.AdminSidebarMenuElement itemProp={route} property={currentPath}>
-      <span onClick={() => router.push(route)}>{value + " "}</span>
+      <span onClick={push}>{value + " "}</span>
       {isShown ? (
         <span onClick={onArrowClick}>
           <Image src={UpArrow} />

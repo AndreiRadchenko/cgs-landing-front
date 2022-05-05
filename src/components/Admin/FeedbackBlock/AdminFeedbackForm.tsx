@@ -13,6 +13,8 @@ interface IFeedbackFormProps {
 const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
   const { submitFunc } = usePushFeedback();
   const { values, handleChange } = useFormikContext<IFeedback>();
+  const starsChange = (newValue: number) => (values.stars = newValue);
+  const submitForm = (e: React.SyntheticEvent) => submitFunc(e, submit);
 
   return (
     <Form>
@@ -27,7 +29,7 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
           <Styled.AdminStarsFlex>
             <AdminStars
               value={values.stars}
-              handleChange={(newValue: number) => (values.stars = newValue)}
+              handleChange={starsChange}
               size={38}
               edit={true}
             />
@@ -53,10 +55,7 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
             onChange={handleChange}
           />
 
-          <Styled.AdminBigButton
-            type="submit"
-            onClick={(e) => submitFunc(e, submit)}
-          >
+          <Styled.AdminBigButton type="submit" onClick={submitForm}>
             {isNewFeedback ? "Add Review" : "Save changes"}
           </Styled.AdminBigButton>
         </div>

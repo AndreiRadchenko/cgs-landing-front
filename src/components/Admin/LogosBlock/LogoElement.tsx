@@ -16,9 +16,12 @@ const deleteFunc = (
 };
 
 const LogoElement = ({ image, deleteLogo }: ILogoProps) => {
+  const deleteFunction = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+    deleteFunc(e, deleteLogo);
+
   return (
     <Styled.AdminLogoElement>
-      <Styled.AdminDeleteLogo onClick={(e) => deleteFunc(e, deleteLogo)}>
+      <Styled.AdminDeleteLogo onClick={deleteFunction}>
         &#10005;
       </Styled.AdminDeleteLogo>
       <div>
