@@ -25,12 +25,9 @@ interface IMainProps {
 }
 
 const AdminMainContent = () => {
-  const {
-    data,
-    isLoading,
-    refetch,
-  }: IMainProps = useQuery(queryKeys.GetFullPage, () =>
-    adminGlobalService.getFullPage()
+  const { data, isLoading, refetch }: IMainProps = useQuery(
+    queryKeys.GetFullPage,
+    () => adminGlobalService.getFullPage()
   );
 
   const { mutateAsync } = useMutation(
@@ -70,7 +67,9 @@ const AdminMainContent = () => {
               <AdminContactFormBlock />
               <AdminFooterBlock />
               <Styled.AdminPaddedBlock>
-                <Styled.AdminBigButton type="submit" children="Submit" />
+                <Styled.AdminBigButton type="submit">
+                  Submit
+                </Styled.AdminBigButton>
               </Styled.AdminPaddedBlock>
             </Form>
           </Styled.AdminContentBlock>

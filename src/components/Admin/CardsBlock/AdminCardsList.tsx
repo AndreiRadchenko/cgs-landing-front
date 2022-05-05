@@ -1,3 +1,4 @@
+import React from "react";
 import { useFormikContext } from "formik";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
@@ -6,9 +7,7 @@ import { IDataResponse } from "../../../types/Admin/Response.types";
 import AdminCard from "./AdminCard";
 
 const AdminCardsList = () => {
-  const { values, handleChange } = useFormikContext<
-    IDataResponse
-  >();
+  const { values, handleChange } = useFormikContext<IDataResponse>();
   const uploadImageFunction = useUploadImageFunction();
   const deleteImageFunction = useDeleteImageFunction();
 

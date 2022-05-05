@@ -10,9 +10,8 @@ import { feedbackInit } from "../../../consts";
 import useFeedbackLogic from "../../../hooks/useFeedbackLogic";
 
 const AdminFeedbackBlock = () => {
-  const { values, handleChange, handleSubmit } = useFormikContext<
-    IDataResponse
-  >();
+  const { values, handleChange, handleSubmit } =
+    useFormikContext<IDataResponse>();
   const [isNewFeedback, setIsNewFeedback] = useState(true);
   const {
     submitFunction,
@@ -51,7 +50,10 @@ const AdminFeedbackBlock = () => {
               : values.FeedbackBlock.feedBacks[feedback]
           }
         >
-          <AdminFeedbackForm submit={handleSubmit} isNewFeedback={isNewFeedback} />
+          <AdminFeedbackForm
+            submit={handleSubmit}
+            isNewFeedback={isNewFeedback}
+          />
         </Formik>
 
         <div>

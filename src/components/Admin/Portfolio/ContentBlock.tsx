@@ -10,9 +10,8 @@ import AddAndEdit from "./AddAndEdit";
 import renderPortfolioInputs from "./renderPortfolioInputs";
 
 const AdminPortfolioContentBlock = () => {
-  const { values, handleChange, handleSubmit } = useFormikContext<
-    IPortfolioResponse
-  >();
+  const { values, handleChange, handleSubmit } =
+    useFormikContext<IPortfolioResponse>();
   const [current, setCurrent] = useState(0);
   const {
     deleteFunc,

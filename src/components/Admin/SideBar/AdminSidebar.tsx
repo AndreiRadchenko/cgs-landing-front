@@ -16,9 +16,10 @@ const AdminSidebar = () => {
         <Image src={logo} />
       </Styled.AdminSidebarLogo>
       <Styled.AdminSidebarMenu>
-        
         <DropDownElement value="home" route={ROUTE_KEYS.AdminPage}>
-          <Link href={ROUTE_KEYS.AdminPortfolio}><a>portfolio</a></Link>
+          <Link href={ROUTE_KEYS.AdminPortfolio}>
+            <a>portfolio</a>
+          </Link>
         </DropDownElement>
 
         <DropDownElement value="careers" route={ROUTE_KEYS.AdminCareers} />
@@ -28,8 +29,9 @@ const AdminSidebar = () => {
           onClick={() => router.push(ROUTE_KEYS.AdminSettings)}
           itemProp="AdminPage"
           property={ROUTE_KEYS.AdminSettings}
-          children="settings"
-        />
+        >
+          settings
+        </Styled.AdminSidebarMenuElement>
       </Styled.AdminSidebarMenu>
     </Styled.AdminSidebar>
   );

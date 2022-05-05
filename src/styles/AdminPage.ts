@@ -522,3 +522,8 @@ export const AdminEditIcon = styled.span`
   right: 15px;
   cursor: pointer;
 `;
+
+export const AdminBlockWithoutHeader = styled.div`
+  padding-top: ${themes.primary.spacing.adminWithinBlocks};
+  background-color: ${themes.primary.colors.darkedGrayBack};
+`;

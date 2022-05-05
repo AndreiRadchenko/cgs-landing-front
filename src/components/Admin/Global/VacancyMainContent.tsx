@@ -44,7 +44,9 @@ const VacancyMainContent = () => {
                 <Styled.AdminHeader>Vacancy (info)</Styled.AdminHeader>
               </Styled.AdminPaddedHeaderBlock>
               <TextVacancyBlock name="info" />
-              <TextVacancyBlock name="offer" dark={true} />
+              <Styled.AdminBlockWithoutHeader>
+                <TextVacancyBlock name="offer" dark={true} />
+              </Styled.AdminBlockWithoutHeader>
               <VacancyContactBlock />
               <Styled.AdminPaddedBlock>
                 <Styled.AdminBigButton type="submit">
