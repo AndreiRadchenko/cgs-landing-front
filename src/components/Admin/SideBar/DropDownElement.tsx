@@ -15,9 +15,8 @@ const DropDownElement = ({
   const [isShown, setIsShown] = useState(false);
 
   const router = useRouter();
-  const currentPath = router.pathname.split("/")[
-    router.pathname.split("/").length - 1
-  ];
+  const currentPath =
+    router.pathname.split("/")[router.pathname.split("/").length - 1];
 
   const onArrowClick = (e: any) => {
     e.stopPropagation();

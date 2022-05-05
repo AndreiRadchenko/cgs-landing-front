@@ -25,12 +25,9 @@ interface IMainProps {
 }
 
 const AdminMainContent = () => {
-  const {
-    data,
-    isLoading,
-    refetch,
-  }: IMainProps = useQuery(queryKeys.GetFullPage, () =>
-    adminGlobalService.getFullPage()
+  const { data, isLoading, refetch }: IMainProps = useQuery(
+    queryKeys.GetFullPage,
+    () => adminGlobalService.getFullPage()
   );
 
   const { mutateAsync } = useMutation(

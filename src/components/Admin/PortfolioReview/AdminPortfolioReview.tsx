@@ -24,7 +24,7 @@ const AdminReview = ({
     editTrigger((prev) => !prev);
   };
 
-  const redirect = () => (window.location.href = review.button)
+  const redirect = () => (window.location.href = review.button);
 
   return (
     <Styled.AdminPortfolioReviewFrame>
@@ -32,10 +32,7 @@ const AdminReview = ({
         <AdminImage image={review.image} />
         <Styled.AdminSubTitle>{review.title}</Styled.AdminSubTitle>
         <Styled.AdminParagraph>{review.text}</Styled.AdminParagraph>
-        <AdminButton
-          text="project link"
-          onClick={redirect}
-        />
+        <AdminButton text="project link" onClick={redirect} />
       </Styled.AdminPortfolioReviewContent>
 
       <Styled.AdminDeleteTextThin onClick={deleteFunc}>

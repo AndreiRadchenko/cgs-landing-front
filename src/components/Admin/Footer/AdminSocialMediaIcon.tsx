@@ -16,7 +16,7 @@ const AdminSocialMediaIcon = ({
   deleteFunction,
 }: ISocialProps) => {
   const uploadFunc = (image: any) => uploadFunction(image);
-  
+
   return (
     <Styled.AdminSocialIcon>
       <Styled.AdminSubTitle>{number}</Styled.AdminSubTitle>
