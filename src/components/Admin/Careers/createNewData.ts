@@ -28,7 +28,7 @@ export const createNewData = (
     tickets.push(ticket);
   }
 
-  if (values.vacancy) values.vacancy = "";
+  values.vacancy = "";
 
   return {
     subtitle: values.subtitle,
