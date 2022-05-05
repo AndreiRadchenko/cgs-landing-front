@@ -98,11 +98,7 @@ const AdminUploadModal = ({ back, func }: IUploadProps) => {
             <Styled.AdminFullImage src={image} />
           ) : (
             <Styled.AdminSubTitle>
-              {drag ? (
-                <span>Release files</span>
-              ) : (
-                <span>Drag and drop files here</span>
-              )}
+              <span>{drag ? "Release files" : "Drag and drop files here"}</span>
             </Styled.AdminSubTitle>
           )}
           <Styled.AdminUploadInfo>{file?.name}</Styled.AdminUploadInfo>
