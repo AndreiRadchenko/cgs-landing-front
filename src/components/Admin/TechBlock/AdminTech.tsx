@@ -3,14 +3,23 @@ import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import * as Styled from "../../../styles/AdminPage";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { ITech } from "../../../types/Admin/Response.types";
+import { IPropsWithImage } from "../../../types/Admin/BlockProps";
 
-interface ITechProps {
+interface ITechProps extends IPropsWithImage {
   info: ITech;
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
+  onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
   ind: number;
 }
 
-const AdminTech = ({ info, onChangeFunction, ind }: ITechProps) => {
+const AdminTech = ({
+  info,
+  onChangeFunction,
+  ind,
+  uploadFunction,
+  deleteFunction,
+}: ITechProps) => {
+  const uploadFunc = (image: any) => uploadFunction(image);
+
   return (
     <Styled.AdminCardsGrid>
       <div>
@@ -29,6 +38,8 @@ const AdminTech = ({ info, onChangeFunction, ind }: ITechProps) => {
       </div>
       <Styled.AdminTechWrapper>
         <PhotoBlockDashed
+          deleteFunction={deleteFunction}
+          uploadFunction={uploadFunc}
           photo={info.image}
           header="+ Add image here"
           deleteFlag={true}

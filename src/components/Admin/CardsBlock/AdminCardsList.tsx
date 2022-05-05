@@ -1,22 +1,27 @@
+import { useFormikContext } from "formik";
+import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import { AdminCardsGrid } from "../../../styles/AdminPage";
-import { ICard } from "../../../types/Admin/Response.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
 import AdminCard from "./AdminCard";
 
-interface ICardsListProps {
-  state: ICard[];
-  onChangeFunction:  (e?: React.ChangeEvent<any>) => void;
-}
+const AdminCardsList = () => {
+  const { values, handleChange } = useFormikContext<IDataResponse>();
+  const uploadImageFunction = useUploadImageFunction();
+  const deleteImageFunction = useDeleteImageFunction();
+  const deleteFunc = async (image: any) => (await deleteImageFunction)(image);
 
-const AdminCardsList = ({ state, onChangeFunction }: ICardsListProps) => {
   return (
     <AdminCardsGrid>
-      {state.map((card, ind) => {
+      {values.CardsBlock.cards?.map((card, ind) => {
         return (
           <div key={ind}>
             <AdminCard
               info={card}
               number={ind + 1}
-              onChangeFunction={onChangeFunction}
+              onChangeFunction={handleChange}
+              uploadFunction={uploadImageFunction}
+              deleteFunction={deleteFunc}
             />
           </div>
         );

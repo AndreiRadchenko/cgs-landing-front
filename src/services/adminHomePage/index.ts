@@ -1,3 +1,5 @@
+import { IPortfolioResponse } from "./../../types/Admin/AdminPortfolio";
+import { IDeleteImageData, IImage } from "./../../types/Admin/Admin.types";
 import { IResponse } from "../../types/Admin";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
@@ -11,8 +13,17 @@ export class AdminHomePageService {
   public updateFullPage(data: IDataResponse) {
     return this.httpService.put("api/form", data);
   }
-  public uploadImage(data: any) {
+  public uploadImage(data: any): Promise<{ url: string } | void> {
     return this.httpService.post("api/upload", data);
+  }
+  public deleteImage(data: IDeleteImageData) {
+    return this.httpService.delete("api/upload", data);
+  }
+  public getPortfolio() {
+    return this.httpService.get("api/portfolio");
+  }
+  public updatePortfolio(data: IPortfolioResponse) {
+    return this.httpService.put("api/portfolio", data);
   }
 }
 

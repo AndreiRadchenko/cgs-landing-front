@@ -8,10 +8,17 @@ const AdminInputWithImage = ({
   inputValue,
   onChangeFunction,
   name,
+  uploadFunction,
+  deleteFunction,
 }: InputWithImage) => {
   return (
     <Styled.AdminFlyingElement>
-      <PhotoBlockDashed photo={photo} deleteFlag={true} />
+      <PhotoBlockDashed
+        photo={photo}
+        deleteFlag={true}
+        uploadFunction={uploadFunction!}
+        deleteFunction={deleteFunction!}
+      />
       <br />
       <div>
         <Styled.AdminInput

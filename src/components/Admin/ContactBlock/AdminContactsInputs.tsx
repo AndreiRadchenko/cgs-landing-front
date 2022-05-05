@@ -6,7 +6,7 @@ import { IContactFormBlock } from "../../../types/Admin/Response.types";
 
 interface IContactInputsProps {
   state: IContactFormBlock;
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
+  onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
 }
 
 const renderInputs = ({

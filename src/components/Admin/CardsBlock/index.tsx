@@ -1,16 +1,13 @@
-import { FieldArray } from "formik";
+import { FieldArray, useFormikContext } from "formik";
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
-import { ICards } from "../../../types/Admin/Response.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminCardsList from "./AdminCardsList";
 
-interface ICardsProps {
-  state: ICards;
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
-}
+const AdminCardsBlock = () => {
+  const { values, handleChange } = useFormikContext<IDataResponse>();
 
-const AdminCardsBlock = ({ state, onChangeFunction }: ICardsProps) => {
   return (
     <Styled.AdminPaddedBlock theme={"dark"}>
       <br />
@@ -19,26 +16,21 @@ const AdminCardsBlock = ({ state, onChangeFunction }: ICardsProps) => {
           <SubHeaderWithInput
             header="Text 4"
             name="CardsBlock.text4"
-            inputValue={state.text4}
-            onChangeFunction={onChangeFunction}
+            inputValue={values.CardsBlock.text4}
+            onChangeFunction={handleChange}
           />
         </div>
         <div>
           <SubHeaderWithInput
             header="Button"
             name="CardsBlock.button"
-            inputValue={state.button}
-            onChangeFunction={onChangeFunction}
+            inputValue={values.CardsBlock.button}
+            onChangeFunction={handleChange}
           />
         </div>
       </Styled.AdminCardsGrid>
       <FieldArray name="CardsBlock.cards">
-        {() => (
-          <AdminCardsList
-            state={state.cards}
-            onChangeFunction={onChangeFunction}
-          />
-        )}
+        {() => <AdminCardsList />}
       </FieldArray>
     </Styled.AdminPaddedBlock>
   );

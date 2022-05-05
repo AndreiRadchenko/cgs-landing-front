@@ -1,59 +1,84 @@
 import React, { useState } from "react";
 import * as Styled from "../../../styles/AdminPage";
-import { IFeedbackBlock } from "../../../types/Admin/Response.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
 import AdminFeedback from "./AdminFeedback";
 import AdminFeedbackForm from "./AdminFeedbackForm";
-import arrowAdminFeedbackL from "../../../../public/arrowAdminFeedbackL.svg";
-import arrowAdminFeedbackR from "../../../../public/arrowAdminFeedbackR.svg";
-import Image from "next/image";
 import { renderInputs } from "../../../utils/renderInputs";
-import { FieldArray } from "formik";
+import {
+  FieldArray,
+  FieldArrayRenderProps,
+  Formik,
+  useFormikContext,
+} from "formik";
+import AdminCarousel from "../Global/AdminImageCarousel";
+import { feedbackInit } from "../../../consts";
+import useFeedbackLogic from "../../../hooks/useFeedbackLogic";
 
-interface IFeedbackBlockProps {
-  state: IFeedbackBlock;
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
-}
+const AdminFeedbackBlock = () => {
+  const { values, handleChange, handleSubmit } = useFormikContext<
+    IDataResponse
+  >();
+  const [isNewFeedback, setIsNewFeedback] = useState(true);
+  const {
+    submitFunction,
+    deleteFunction,
+    setFeedback,
+    feedback,
+    editFunction,
+  } = useFeedbackLogic();
 
-const AdminFeedbackBlock = ({
-  state,
-  onChangeFunction,
-}: IFeedbackBlockProps) => {
-  const [feedback, setFeedback] = useState(0);
-  const renderState = { subtitle: state.subtitle, text3: state.text3 };
-
-  const feedbackUp = () =>
-    setFeedback(feedback + 1 < state.feedBacks.length ? feedback + 1 : 0);
-
-  const feedbackDown = () =>
-    setFeedback(feedback > 0 ? feedback - 1 : state.feedBacks.length - 1);
-
-  const deleteFunc = (id: number) => {
-    state.feedBacks.splice(id, 1);
-    setFeedback(id > 0 ? id - 1 : 1);
+  const renderState = {
+    subtitle: values.FeedbackBlock.subtitle,
+    text3: values.FeedbackBlock.text3,
   };
+
+  const render = (props: FieldArrayRenderProps) =>
+    renderInputs({
+      props,
+      state: renderState,
+      onChangeFunction: handleChange,
+    });
+
+    const deleteFunc = () => deleteFunction(feedback)
+
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
-        <FieldArray name="FeedbackBlock">
-          {(props) =>
-            renderInputs({ props, state: renderState, onChangeFunction })
-          }
-        </FieldArray>
+        <FieldArray name="FeedbackBlock">{render}</FieldArray>
         <div />
-        <AdminFeedbackForm state={state} />
-        <div>
-          <AdminFeedback
-            feedback={state.feedBacks[feedback]}
-            deleteFunc={() => deleteFunc(feedback)}
+
+        <Formik
+          key={`feedbackForm${isNewFeedback}`}
+          validateOnChange={false}
+          onSubmit={isNewFeedback ? submitFunction : editFunction}
+          initialValues={
+            isNewFeedback
+              ? JSON.parse(JSON.stringify(feedbackInit))
+              : values.FeedbackBlock.feedBacks[feedback]
+          }
+        >
+          <AdminFeedbackForm
+            submit={handleSubmit}
+            isNewFeedback={isNewFeedback}
           />
-          <Styled.AdminFeedbackArrows>
-            <Styled.AdminPointer onClick={feedbackUp}>
-              <Image src={arrowAdminFeedbackL} />
-            </Styled.AdminPointer>
-            <Styled.AdminPointer onClick={feedbackDown}>
-              <Image src={arrowAdminFeedbackR} />
-            </Styled.AdminPointer>
-          </Styled.AdminFeedbackArrows>
+        </Formik>
+
+        <div>
+          {values.FeedbackBlock.feedBacks.length === 0 ? (
+            <h1>No feedbacks</h1>
+          ) : (
+            <AdminFeedback
+              setIsNewFeedback={setIsNewFeedback}
+              isNewFeedback={isNewFeedback}
+              feedback={values.FeedbackBlock.feedBacks[feedback]}
+              deleteFunc={deleteFunc}
+            />
+          )}
+          <AdminCarousel
+            page={feedback}
+            setPage={setFeedback}
+            length={values.FeedbackBlock.feedBacks.length}
+          />
         </div>
       </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>

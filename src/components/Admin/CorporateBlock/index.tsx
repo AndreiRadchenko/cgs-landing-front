@@ -1,27 +1,21 @@
-import { FieldArray } from "formik";
+import { FieldArray, useFormikContext } from "formik";
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
-import { ICorporateBlock } from "../../../types/Admin/Response.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminCorporateImages from "./AdminCorporateImages";
 
-interface ICorporateBlockProps {
-  state: ICorporateBlock;
-  onChangeFunction:  (e?: React.ChangeEvent<any>) => void;
-}
+const AdminCorporateBlock = () => {
+  const { values, handleChange } = useFormikContext<IDataResponse>();
 
-const AdminCorporateBlock = ({
-  state,
-  onChangeFunction,
-}: ICorporateBlockProps) => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
         <div>
           <FieldArray name="CorporateBlock.blocks">
             {() => {
-              return state.blocks.map((i, ind) => (
-                <div key={ind * 119994}>
+              return values.CorporateBlock.blocks.map((i, ind) => (
+                <div key={`corporatetext${ind}`}>
                   <Styled.AdminCardsGrid>
                     <div>
                       <SubHeaderWithInput
@@ -29,7 +23,7 @@ const AdminCorporateBlock = ({
                         header="Subtitle"
                         inputValue={i.subtitle}
                         key={`corporateTitle${ind}`}
-                        onChangeFunction={onChangeFunction}
+                        onChangeFunction={handleChange}
                       />
                     </div>
                   </Styled.AdminCardsGrid>
@@ -39,7 +33,7 @@ const AdminCorporateBlock = ({
                       header="Text"
                       inputValue={i.text}
                       key={`corporateText${ind}`}
-                      onChangeFunction={onChangeFunction}
+                      onChangeFunction={handleChange}
                     />
                   </div>
                 </div>
@@ -47,7 +41,7 @@ const AdminCorporateBlock = ({
             }}
           </FieldArray>
         </div>
-        <AdminCorporateImages state={state} />
+        <AdminCorporateImages />
       </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>
   );

@@ -1,20 +1,13 @@
-import { FieldArray } from "formik";
+import { FieldArray, useFormikContext } from "formik";
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
-import { IHowWeWorkBlock } from "../../../types/Admin/Response.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminHowWorkList from "./AdminHowWorkList";
 
-interface IHowWokrProps {
-  state: IHowWeWorkBlock;
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
-}
+const AdminHowWeWorkBlock = () => {
+  const {values, handleChange} = useFormikContext<IDataResponse>();
 
-const render = ({ state, onChangeFunction }: IHowWokrProps) => (
-  <AdminHowWorkList state={state.blocks} onChangeFunction={onChangeFunction} />
-);
-
-const AdminHowWeWorkBlock = ({ state, onChangeFunction }: IHowWokrProps) => {
   return (
     <Styled.AdminPaddedBlock theme="dark">
       <Styled.AdminHalfGrid>
@@ -22,14 +15,14 @@ const AdminHowWeWorkBlock = ({ state, onChangeFunction }: IHowWokrProps) => {
           <SubHeaderWithInput
             header="Subtitle"
             name="HowWeWorkBlock.pageSignature"
-            inputValue={state.pageSignature}
-            onChangeFunction={onChangeFunction}
+            inputValue={values.HowWeWorkBlock.pageSignature}
+            onChangeFunction={handleChange}
           />
         </div>
       </Styled.AdminHalfGrid>
       <div>
         <FieldArray name="HowWeWorkBlock.blocks">
-          {() => render({ state, onChangeFunction })}
+          {() => <AdminHowWorkList />}
         </FieldArray>
       </div>
     </Styled.AdminPaddedBlock>

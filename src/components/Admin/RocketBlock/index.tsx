@@ -1,23 +1,23 @@
-import { FieldArray } from "formik";
-import React, { ChangeEvent } from "react";
+import { FieldArray, useFormikContext } from "formik";
+import React from "react";
 import * as Styled from "../../../styles/AdminPage";
-import { IBuildRocketBlock } from "../../../types/Admin/Response.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
 import { renderInputs } from "../../../utils/renderInputs";
 
-interface IBuildRocketProps {
-  state: IBuildRocketBlock;
-  onChangeFunction: (e?: ChangeEvent<any>) => void;
-}
+const AdminBuildRocketBlock = () => {
+  const { values, handleChange } = useFormikContext<IDataResponse>();
 
-const AdminBuildRocketBlock = ({
-  state,
-  onChangeFunction,
-}: IBuildRocketProps) => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
         <FieldArray name="BuildRocketBlock">
-          {(props) => renderInputs({ props, state, onChangeFunction })}
+          {(props) =>
+            renderInputs({
+              props,
+              state: values.BuildRocketBlock,
+              onChangeFunction: handleChange,
+            })
+          }
         </FieldArray>
       </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>

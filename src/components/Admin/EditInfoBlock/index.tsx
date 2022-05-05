@@ -1,21 +1,36 @@
+import { useFormikContext } from "formik";
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
-import { IEditInformation } from "../../../types/Admin/Response.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
+import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import LeftSideBlock from "./LeftSide";
 import RightSideBlock from "./RightSide";
+import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 
-interface IEditInfoProps {
-  state: IEditInformation;
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
-}
+const EditInformationBlock = () => {
+  const { values, handleChange } = useFormikContext<IDataResponse>();
+  const deleteImageFunction = useDeleteImageFunction(
+    values.EditInformationBlock
+  );
+  const uploadImageFunction = useUploadImageFunction(
+    values.EditInformationBlock
+  );
+  const uploadFunc = (image: any) => uploadImageFunction(image);
+  const deleteFunc = async () => (await deleteImageFunction)();
 
-const EditInformationBlock = ({ state, onChangeFunction }: IEditInfoProps) => {
   return (
     <Styled.AdminPaddedBlock theme="dark">
       <Styled.AdminHeader>Edit Information</Styled.AdminHeader>
       <Styled.AdminHalfGrid>
-        <LeftSideBlock state={state} onChangeFunction={onChangeFunction} />
-        <RightSideBlock image={state.image} />
+        <LeftSideBlock
+          state={values.EditInformationBlock}
+          onChangeFunction={handleChange}
+        />
+        <RightSideBlock
+          image={values.EditInformationBlock.image}
+          uploadFunction={uploadFunc}
+          deleteFunction={deleteFunc}
+        />
       </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>
   );

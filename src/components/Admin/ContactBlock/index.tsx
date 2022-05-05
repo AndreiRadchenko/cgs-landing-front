@@ -1,17 +1,12 @@
+import { useFormikContext } from "formik";
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
-import { IContactFormBlock } from "../../../types/Admin/Response.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
 import AdminContactInputs from "./AdminContactsInputs";
 
-interface IContactFormProps {
-  state: IContactFormBlock;
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
-}
+const AdminContactFormBlock = () => {
+  const { values, handleChange } = useFormikContext<IDataResponse>();
 
-const AdminContactFormBlock = ({
-  state,
-  onChangeFunction,
-}: IContactFormProps) => {
   return (
     <Styled.AdminPaddedBlock theme="dark">
       <Styled.AdminHalfGrid>
@@ -19,8 +14,8 @@ const AdminContactFormBlock = ({
           <Styled.AdminHeader>Contact Form</Styled.AdminHeader>
           <Styled.AdminSubTitle>Subtitle</Styled.AdminSubTitle>
           <AdminContactInputs
-            state={state}
-            onChangeFunction={onChangeFunction}
+            state={values.ContactFormBlock}
+            onChangeFunction={handleChange}
           />
         </div>
       </Styled.AdminHalfGrid>

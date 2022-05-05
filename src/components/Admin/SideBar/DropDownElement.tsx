@@ -7,7 +7,11 @@ import Image from "next/image";
 import { DropdownPropsInterface } from "../../../types/Admin/Admin.types";
 import { useRouter } from "next/router";
 
-const DropDownElement = ({ value, onClick, route }: DropdownPropsInterface) => {
+const DropDownElement = ({
+  value,
+  route,
+  children,
+}: DropdownPropsInterface) => {
   const [isShown, setIsShown] = useState(false);
 
   const router = useRouter();
@@ -20,24 +24,16 @@ const DropDownElement = ({ value, onClick, route }: DropdownPropsInterface) => {
     setIsShown(!isShown);
   };
 
+  const push = () => router.push(route);
+
   return (
-    <Styled.AdminSidebarMenuElement
-      onClick={onClick}
-      itemProp={route}
-      property={currentPath}
-    >
-      {value}{" "}
-      {isShown ? (
-        <span onClick={onArrowClick}>
-          <Image src={UpArrow} />
-        </span>
-      ) : (
-        <span onClick={onArrowClick}>
-          <Image src={DownArrow} />
-        </span>
-      )}
+    <Styled.AdminSidebarMenuElement itemProp={route} property={currentPath}>
+      <span onClick={push}>{value + " "}</span>
+      <span onClick={onArrowClick}>
+        <Image src={isShown ? UpArrow : DownArrow} />
+      </span>
       <Styled.AdminSidebarHidenElement theme={isShown ? "block" : "none"}>
-        something
+        {children}
       </Styled.AdminSidebarHidenElement>
     </Styled.AdminSidebarMenuElement>
   );

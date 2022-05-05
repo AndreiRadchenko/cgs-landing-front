@@ -1,3 +1,4 @@
+import { IImage } from "./Admin.types";
 export interface IEditInformation {
   [title: string]: string;
   text: string;
@@ -54,7 +55,7 @@ export interface ITechnologyBlock {
 
 export interface ICorporateBlock {
   blocks: { subtitle: string; text: string }[];
-  images: any[];
+  images: IImage[];
 }
 
 export interface IHowBlock {
@@ -84,13 +85,13 @@ export interface IContactFormBlock {
 export interface IFooterBlock {
   email: string;
   links: { link: string }[];
-  images: any[];
+  images: IImage[];
 }
 
 // completed
 
 export interface IDataResponse {
-  MainLogoBlock: { image: { url: string } };
+  MainLogoBlock: { image: { url: string } | null };
   EditInformationBlock: IEditInformation;
   SubtitleBlock: ISubtitle;
   LogosBlock: { images: any[] };

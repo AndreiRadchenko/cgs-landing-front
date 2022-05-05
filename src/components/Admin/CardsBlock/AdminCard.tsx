@@ -3,14 +3,24 @@ import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import * as Styled from "../../../styles/AdminPage";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { ICard } from "../../../types/Admin/Response.types";
+import { IPropsWithImage } from "../../../types/Admin/BlockProps";
 
-interface ICardProps {
+interface ICardProps extends IPropsWithImage {
   info: ICard;
   number: number;
-  onChangeFunction: (e?: React.ChangeEvent<any>) => void;
+  onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
 }
 
-const AdminCard = ({ info, number, onChangeFunction }: ICardProps) => {
+const AdminCard = ({
+  info,
+  number,
+  onChangeFunction,
+  deleteFunction,
+  uploadFunction,
+}: ICardProps) => {
+  const deleteFun = () => deleteFunction(info);
+  const uploadFunc = (image: any) => uploadFunction(image, info);
+
   return (
     <Styled.AdminCardsGrid>
       <div>
@@ -31,6 +41,8 @@ const AdminCard = ({ info, number, onChangeFunction }: ICardProps) => {
         photo={info.image}
         header="+ Add Icon"
         deleteFlag={true}
+        deleteFunction={deleteFun}
+        uploadFunction={uploadFunc}
       />
     </Styled.AdminCardsGrid>
   );

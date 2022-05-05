@@ -1,74 +1,77 @@
-import { Form, Formik } from "formik";
+import { Form, useFormikContext } from "formik";
 import React from "react";
-import { feedbackInit } from "../../../consts";
+import usePushFeedback from "../../../hooks/usePushFeedback";
 import * as Styled from "../../../styles/AdminPage";
-import { IFeedback, IFeedbackBlock } from "../../../types/Admin/Response.types";
+import { IFeedback } from "../../../types/Admin/Response.types";
+import { firstLetterToUpperCase } from "../../../utils/firstLetterToUpperCase";
 import AdminStars from "./AdminStars";
 
-const AdminFeedbackForm = ({ state }: { state: IFeedbackBlock }) => {
-  const submitFunction = (values: IFeedback) => {
-    state.feedBacks.push(values);
+interface IFeedbackFormProps {
+  submit: () => void;
+  isNewFeedback: boolean;
+}
+
+interface IRenderState {
+  companyName: string;
+  role: string;
+  text: string;
+}
+
+const render = (
+  state: IRenderState,
+  change: (e: string | React.ChangeEvent<any>) => void
+) => {
+  return Object.entries(state).map((i, ind) => (
+    <Styled.AdminInput
+      key={`feedbackFormInputNumb${ind}`}
+      name={i[0]}
+      placeholder={firstLetterToUpperCase(i[0])}
+      value={i[1]}
+      onChange={change}
+    />
+  ));
+};
+
+const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
+  const { submitFunc } = usePushFeedback();
+  const { values, handleChange } = useFormikContext<IFeedback>();
+  const starsChange = (newValue: number) => (values.stars = newValue);
+  const submitForm = (e: React.SyntheticEvent) => submitFunc(e, submit);
+
+  const renderState = {
+    companyName: values.companyName,
+    role: values.role,
+    text: values.text,
   };
 
   return (
-    <Formik onSubmit={submitFunction} initialValues={feedbackInit}>
-      {(props) => {
-        return (
-          <Form>
-            <div>
-              <Styled.AdminStarsGrid>
-                <Styled.AdminInput
-                  name="name"
-                  placeholder="Name"
-                  value={props.values.name}
-                  onChange={props.handleChange}
-                />
-                <Styled.AdminStarsFlex>
-                  <AdminStars
-                    value={props.values.stars}
-                    handleChange={(newValue: number) =>
-                      (props.values.stars = newValue)
-                    }
-                    size={38}
-                    edit={true}
-                  />
-                </Styled.AdminStarsFlex>
-              </Styled.AdminStarsGrid>
-              <div>
-                <Styled.AdminInput
-                  name="companyName"
-                  placeholder="Company"
-                  value={props.values.companyName}
-                  onChange={props.handleChange}
-                />
-                <Styled.AdminInput
-                  name="role"
-                  placeholder="Position"
-                  value={props.values.role}
-                  onChange={props.handleChange}
-                />
-                <Styled.AdminInput
-                  name="text"
-                  placeholder="Text"
-                  value={props.values.text}
-                  onChange={props.handleChange}
-                />
+    <Form>
+      <div>
+        <Styled.AdminStarsGrid>
+          <Styled.AdminInput
+            name="name"
+            placeholder="Name"
+            value={values.name}
+            onChange={handleChange}
+          />
+          <Styled.AdminStarsFlex>
+            <AdminStars
+              value={values.stars}
+              handleChange={starsChange}
+              size={38}
+              edit={true}
+            />
+          </Styled.AdminStarsFlex>
+        </Styled.AdminStarsGrid>
+        <div>
+          {render(renderState, handleChange)}
 
-                <Styled.AdminBigButton
-                  type="submit"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    props.submitForm().then(() => props.resetForm());
-                  }}
-                >
-                  Add Review
-                </Styled.AdminBigButton>
-              </div>
-            </div>
-          </Form>
-        );
-      }}
-    </Formik>
+          <Styled.AdminBigButton type="submit" onClick={submitForm}>
+            {isNewFeedback ? "Add Review" : "Save changes"}
+          </Styled.AdminBigButton>
+        </div>
+      </div>
+    </Form>
   );
 };
 

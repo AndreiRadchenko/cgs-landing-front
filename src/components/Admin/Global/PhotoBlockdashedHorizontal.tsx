@@ -9,27 +9,35 @@ import AdminImage from "./AdminImage";
 const PhotoBlockDashedHorizontal = ({
   photo,
   header = "Drop new image here",
+  emptyHeader,
+  deleteFunction,
+  uploadFunction,
 }: IPhotoBlock) => {
   const { modal, toggleModal } = useUploadModal();
+  const deleteFunc = () => deleteFunction!();
+
   return photo !== null && photo !== undefined ? (
     <Styled.AdminPhotoDashedHorizontal>
-      {modal ? <AdminUploadModal back={toggleModal} /> : null}
+      {modal ? (
+        <AdminUploadModal back={toggleModal} func={uploadFunction} />
+      ) : null}
       <Styled.AdminPhotoDashedHorizontalPositoning>
         <AdminImage image={photo} />
         <Styled.AdminCenteredDiv>
-          <Styled.AdminSubTitle
-            style={{ cursor: "pointer" }}
-            onClick={toggleModal}
-          >
-            {header}
-          </Styled.AdminSubTitle>
+          <Styled.AdminPointer>
+            <Styled.AdminSubTitle onClick={toggleModal}>
+              {header}
+            </Styled.AdminSubTitle>
+          </Styled.AdminPointer>
           <Styled.AdminComment>Supports: JPG, PNG</Styled.AdminComment>
-          <Styled.AdminDeleteText>delete image</Styled.AdminDeleteText>
+          <Styled.AdminDeleteText onClick={deleteFunc}>
+            delete image
+          </Styled.AdminDeleteText>
         </Styled.AdminCenteredDiv>
       </Styled.AdminPhotoDashedHorizontalPositoning>
     </Styled.AdminPhotoDashedHorizontal>
   ) : (
-    <AdminEmptyImage />
+    <AdminEmptyImage func={uploadFunction} header={emptyHeader} />
   );
 };
 
