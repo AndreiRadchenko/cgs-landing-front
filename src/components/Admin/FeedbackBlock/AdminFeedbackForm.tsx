@@ -3,6 +3,7 @@ import React from "react";
 import usePushFeedback from "../../../hooks/usePushFeedback";
 import * as Styled from "../../../styles/AdminPage";
 import { IFeedback } from "../../../types/Admin/Response.types";
+import { firstLetterToUpperCase } from "../../../utils/firstLetterToUpperCase";
 import AdminStars from "./AdminStars";
 
 interface IFeedbackFormProps {
@@ -10,11 +11,38 @@ interface IFeedbackFormProps {
   isNewFeedback: boolean;
 }
 
+interface IRenderState {
+  companyName: string;
+  role: string;
+  text: string;
+}
+
+const render = (
+  state: IRenderState,
+  change: (e: string | React.ChangeEvent<any>) => void
+) => {
+  return Object.entries(state).map((i, ind) => (
+    <Styled.AdminInput
+      key={`feedbackFormInputNumb${ind}`}
+      name={i[0]}
+      placeholder={firstLetterToUpperCase(i[0])}
+      value={i[1]}
+      onChange={change}
+    />
+  ));
+};
+
 const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
   const { submitFunc } = usePushFeedback();
   const { values, handleChange } = useFormikContext<IFeedback>();
   const starsChange = (newValue: number) => (values.stars = newValue);
   const submitForm = (e: React.SyntheticEvent) => submitFunc(e, submit);
+
+  const renderState = {
+    companyName: values.companyName,
+    role: values.role,
+    text: values.text,
+  };
 
   return (
     <Form>
@@ -36,24 +64,7 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
           </Styled.AdminStarsFlex>
         </Styled.AdminStarsGrid>
         <div>
-          <Styled.AdminInput
-            name="companyName"
-            placeholder="Company"
-            value={values.companyName}
-            onChange={handleChange}
-          />
-          <Styled.AdminInput
-            name="role"
-            placeholder="Position"
-            value={values.role}
-            onChange={handleChange}
-          />
-          <Styled.AdminInput
-            name="text"
-            placeholder="Text"
-            value={values.text}
-            onChange={handleChange}
-          />
+          {render(renderState, handleChange)}
 
           <Styled.AdminBigButton type="submit" onClick={submitForm}>
             {isNewFeedback ? "Add Review" : "Save changes"}

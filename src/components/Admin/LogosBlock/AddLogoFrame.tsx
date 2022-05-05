@@ -27,9 +27,11 @@ const AddLogoFrame = ({ state, submit }: ILogosProps) => {
   return (
     <Styled.AdminAddLogoBlock>
       {modal ? <AdminUploadModal back={toggleModal} func={addNewLogo} /> : null}
-      <Styled.AdminSubTitle onClick={toggleModal} style={{ cursor: "pointer" }}>
-        + Add Logo
-      </Styled.AdminSubTitle>
+      <Styled.AdminPointer>
+        <Styled.AdminSubTitle onClick={toggleModal}>
+          + Add Logo
+        </Styled.AdminSubTitle>
+      </Styled.AdminPointer>
       <Styled.AdminComment>Supports: JPG, PNG</Styled.AdminComment>
     </Styled.AdminAddLogoBlock>
   );

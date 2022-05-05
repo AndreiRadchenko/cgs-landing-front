@@ -20,15 +20,9 @@ const ChooseElementBanner = ({
       ) : (
         <Styled.AdminComment>{text}</Styled.AdminComment>
       )}
-      {isDropped ? (
-        <Styled.AdminPointer onClick={trigger}>
-          <Image src={UpArrow} />
-        </Styled.AdminPointer>
-      ) : (
-        <Styled.AdminPointer onClick={trigger}>
-          <Image src={DownArrow} />
-        </Styled.AdminPointer>
-      )}
+      <Styled.AdminPointer onClick={trigger}>
+        <Image src={isDropped ? UpArrow : DownArrow} />
+      </Styled.AdminPointer>
     </Styled.AdminDropDownMenuBanner>
   );
 };
