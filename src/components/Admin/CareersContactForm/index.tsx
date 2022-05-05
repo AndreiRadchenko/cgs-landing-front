@@ -25,6 +25,7 @@ import {
 const CareersContactForm = () => {
   const { values, handleChange } = useFormikContext<IDataCareersResponse>();
 
+  const { CV, image, text, ...otheForm } = values.form;
   const uploadImageFunction = useUploadImageFunction(values.form);
   const deleteImageFunction = useDeleteImageFunction(values.form);
 
@@ -45,73 +46,33 @@ const CareersContactForm = () => {
 
           <ContactFormContainer>
             <FormContainer>
-              <FormInput
-                type="text"
-                name="form.name"
-                value={values.form.name}
-                onChange={handleChange}
-              />
-
-              <FormInput
-                type="text"
-                name="form.describe"
-                value={values.form.describe}
-                onChange={handleChange}
-              />
-
-              <FormInput
-                type="text"
-                name="form.email"
-                value={values.form.email}
-                onChange={handleChange}
-              />
-
-              <FormInput
-                type="text"
-                name="form.socialMediaLink"
-                value={values.form.socialMediaLink}
-                onChange={handleChange}
-              />
-
-              <FormInput
-                type="text"
-                name="form.linksToProjects"
-                value={values.form.linksToProjects}
-                onChange={handleChange}
-              />
+              {Object.entries(otheForm).map((el, idx) => (
+                <FormInput
+                  key={idx}
+                  type="text"
+                  name={`form.${el[0]}`}
+                  value={el[1]}
+                  onChange={handleChange}
+                />
+              ))}
 
               <CvContainer>
-                <CvInput
-                  type="text"
-                  name="form.CV.place"
-                  value={values.form.CV.place}
-                  onChange={handleChange}
-                />
-
-                <FormInput
-                  type="text"
-                  name="form.CV.isSupported"
-                  value={values.form.CV.isSupported}
-                  onChange={handleChange}
-                />
+                {Object.entries(CV).map((el, idx) => (
+                  <CvInput
+                    key={idx}
+                    type="text"
+                    name={`form.CV.${el[0]}`}
+                    value={el[1]}
+                    onChange={handleChange}
+                  />
+                ))}
               </CvContainer>
-
-              <SubTitle>Button</SubTitle>
-
-              <FormInput
-                type="text"
-                name="form.send"
-                value="send"
-                onChange={() => {
-                  console.log("send");
-                }}
-              />
 
               <SubTitle>Text</SubTitle>
 
               <FormTextArea
                 name="form.text"
-                value={values.form.text}
+                value={text}
                 onChange={handleChange}
               />
             </FormContainer>
@@ -120,9 +81,9 @@ const CareersContactForm = () => {
 
         <ImageContainer>
           <PhotoBlockDashed
-            photo={values.form.image}
+            photo={image}
             deleteFlag={true}
-            uploadFunction={(image) => uploadImageFunction(image)}
+            uploadFunction={uploadImageFunction}
             deleteFunction={async () => (await deleteImageFunction)()}
           />
         </ImageContainer>

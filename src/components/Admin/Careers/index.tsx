@@ -42,6 +42,14 @@ const Careers = ({
   const { values, handleChange, handleSubmit } =
     useFormikContext<IDataCareersResponse>();
 
+  const deleteTicket = () => {
+    if (isNewTicket) {
+      values.tickets.splice(ticket, 1);
+      setTicket(0);
+      handleSubmit();
+    }
+  };
+
   return (
     <Styled.AdminPaddedBlock theme="light">
       <Styled.AdminHeader>Careers</Styled.AdminHeader>
@@ -92,7 +100,7 @@ const Careers = ({
 
         <TicketBox>
           <TicketContainer>
-            <IconBox onClick={() => setIsNewTicket((prev) => !prev)}>
+            <IconBox onClick={() => setIsNewTicket(!isNewTicket)}>
               <Image src={isNewTicket ? close : edit} alt="icon" />
             </IconBox>
 
@@ -106,18 +114,7 @@ const Careers = ({
               }
             />
 
-            <DeleteBtn
-              onClick={() => {
-                if (isNewTicket) {
-                  values.tickets.splice(ticket, 1);
-                  values.vacancy = "";
-                  setTicket(0);
-                  handleSubmit();
-                }
-              }}
-            >
-              delete ticket
-            </DeleteBtn>
+            <DeleteBtn onClick={deleteTicket}>delete ticket</DeleteBtn>
           </TicketContainer>
 
           <AdminCarousel

@@ -30,21 +30,19 @@ const CareersMainContent = () => {
     (data: IDataCareersResponse) => adminCareersService.updateCareersPage(data)
   );
 
+  const submitForm = async (values: IDataCareersResponse) => {
+    document.body.style.cursor = "wait";
+    const data = createNewData(values, ticket, isNewTicket);
+    if (isNewTicket) setIsNewTicket(!isNewTicket);
+    if (data) await mutateAsync(data);
+    await refetch();
+    document.body.style.cursor = "auto";
+  };
+
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
-    <Formik
-      initialValues={data}
-      onSubmit={async (values) => {
-        document.body.style.cursor = "wait";
-        const data = createNewData(values, ticket, isNewTicket);
-        if (isNewTicket) setIsNewTicket((prev) => !prev);
-        if (data) await mutateAsync(data);
-        await refetch();
-        document.body.style.cursor = "auto";
-      }}
-      validateOnChange={false}
-    >
+    <Formik initialValues={data} onSubmit={submitForm} validateOnChange={false}>
       {() => {
         return (
           <Styled.AdminContentBlock>
@@ -56,6 +54,11 @@ const CareersMainContent = () => {
                 setTicket={setTicket}
               />
               <CareersContactForm />
+              <Styled.AdminPaddedBlock>
+                <Styled.AdminBigButton type="submit">
+                  Submit
+                </Styled.AdminBigButton>
+              </Styled.AdminPaddedBlock>
             </Form>
           </Styled.AdminContentBlock>
         );
