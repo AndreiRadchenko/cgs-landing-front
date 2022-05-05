@@ -37,8 +37,9 @@ const AdminSidebar = () => {
           onClick={pushSetting}
           itemProp="AdminPage"
           property={ROUTE_KEYS.AdminSettings}
-          children="settings"
-        />
+        >
+          settings
+        </Styled.AdminSidebarMenuElement>
       </Styled.AdminSidebarMenu>
     </Styled.AdminSidebar>
   );

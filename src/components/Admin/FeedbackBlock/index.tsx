@@ -15,9 +15,8 @@ import { feedbackInit } from "../../../consts";
 import useFeedbackLogic from "../../../hooks/useFeedbackLogic";
 
 const AdminFeedbackBlock = () => {
-  const { values, handleChange, handleSubmit } = useFormikContext<
-    IDataResponse
-  >();
+  const { values, handleChange, handleSubmit } =
+    useFormikContext<IDataResponse>();
   const [isNewFeedback, setIsNewFeedback] = useState(true);
   const {
     submitFunction,
@@ -39,7 +38,7 @@ const AdminFeedbackBlock = () => {
       onChangeFunction: handleChange,
     });
 
-    const deleteFunc = () => deleteFunction(feedback)
+  const deleteFunc = () => deleteFunction(feedback);
 
   return (
     <Styled.AdminPaddedBlock>

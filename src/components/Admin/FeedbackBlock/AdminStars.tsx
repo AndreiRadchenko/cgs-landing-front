@@ -16,7 +16,7 @@ const AdminStars = ({
   edit = false,
 }: IStarsProps) => {
   const starsChange = (newRating: number) => handleChange!(newRating);
-  
+
   return (
     <ReactStars
       half={true}

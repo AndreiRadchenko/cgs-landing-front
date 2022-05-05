@@ -13,9 +13,10 @@ const MenuElementsRender = ({ menu, setValue, setIsDropped }: IMenuProps) => {
       {menu!.map((i, ind) => (
         <Styled.AdminDropDownMenuElement
           onClick={select}
-          children={i}
           key={`dropElement${ind}`}
-        />
+        >
+          {i}
+        </Styled.AdminDropDownMenuElement>
       ))}
     </Styled.AdminDropDownMenuList>
   );
