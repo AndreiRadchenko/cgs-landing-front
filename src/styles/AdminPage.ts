@@ -1,4 +1,5 @@
 import { TextareaAutosize } from "@mui/material";
+import { style } from "@mui/system";
 import styled from "styled-components";
 import themes from "../utils/themes";
 
@@ -69,6 +70,12 @@ export const AdminPaddedBlock = styled.div`
     props.theme == "dark" ? themes.primary.colors.darkedGrayBack : null};
 `;
 
+export const AdminPaddedHeaderBlock = styled.div`
+  padding: ${themes.primary.spacing.primary}
+    ${themes.primary.spacing.adminWithinBlocks};
+  background: ${(props) =>
+    props.theme == "dark" ? themes.primary.colors.darkedGrayBack : null};
+`;
 export const AdminHeader = styled.h2`
   font-size: ${themes.primary.font.size.secondary};
   font-family: ${themes.primary.font.family.mulish};
@@ -100,6 +107,8 @@ export const AdminHalfGrid = styled.div`
   column-gap: 3rem;
 `;
 
+export const AdminBlockWrapper = styled.div``;
+
 export const AdminInput = styled(TextareaAutosize)`
   resize: none;
   width: 100%;
@@ -121,6 +130,7 @@ export const AdminPhotoBlock = styled.div`
   align-items: center;
   flex-direction: column;
   padding: ${themes.primary.spacing.primary};
+  margin-bottom: ${themes.primary.spacing.primary};
   height: 100%;
 `;
 
@@ -511,6 +521,11 @@ export const AdminEditIcon = styled.span`
   top: 10px;
   right: 15px;
   cursor: pointer;
+`;
+
+export const AdminBlockWithoutHeader = styled.div`
+  padding-top: ${themes.primary.spacing.adminWithinBlocks};
+  background-color: ${themes.primary.colors.darkedGrayBack};
 `;
 
 export const AdminFullImage = styled.img`
