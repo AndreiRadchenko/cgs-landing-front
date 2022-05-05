@@ -3,6 +3,7 @@ import React from "react";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import { AdminCardsGrid } from "../../../styles/AdminPage";
+import { IImage } from "../../../types/Admin/Admin.types";
 import { IDataResponse } from "../../../types/Admin/Response.types";
 import AdminTech from "./AdminTech";
 
@@ -10,6 +11,10 @@ const AdminTechList = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();
   const uploadImageFunction = useUploadImageFunction();
   const deleteImageFunction = useDeleteImageFunction();
+
+  const deleteFunc = (i: IImage) => async () => (await deleteImageFunction)(i);
+  const uploadFunc = (i: IImage) => (image: any) =>
+    uploadImageFunction(image, i);
 
   return (
     <AdminCardsGrid>
@@ -19,8 +24,8 @@ const AdminTechList = () => {
           info={i}
           onChangeFunction={handleChange}
           ind={ind}
-          deleteFunction={async () => (await deleteImageFunction)(i)}
-          uploadFunction={(image) => uploadImageFunction(image, i)}
+          deleteFunction={deleteFunc(i)}
+          uploadFunction={uploadFunc(i)}
         />
       ))}
     </AdminCardsGrid>

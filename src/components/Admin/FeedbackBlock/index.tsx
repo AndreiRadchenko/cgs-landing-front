@@ -4,7 +4,12 @@ import { IDataResponse } from "../../../types/Admin/Response.types";
 import AdminFeedback from "./AdminFeedback";
 import AdminFeedbackForm from "./AdminFeedbackForm";
 import { renderInputs } from "../../../utils/renderInputs";
-import { FieldArray, Formik, useFormikContext } from "formik";
+import {
+  FieldArray,
+  FieldArrayRenderProps,
+  Formik,
+  useFormikContext,
+} from "formik";
 import AdminCarousel from "../Global/AdminImageCarousel";
 import { feedbackInit } from "../../../consts";
 import useFeedbackLogic from "../../../hooks/useFeedbackLogic";
@@ -26,18 +31,19 @@ const AdminFeedbackBlock = () => {
     text3: values.FeedbackBlock.text3,
   };
 
+  const render = (props: FieldArrayRenderProps) =>
+    renderInputs({
+      props,
+      state: renderState,
+      onChangeFunction: handleChange,
+    });
+
+  const deleteFunc = () => deleteFunction(feedback);
+
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
-        <FieldArray name="FeedbackBlock">
-          {(props) =>
-            renderInputs({
-              props,
-              state: renderState,
-              onChangeFunction: handleChange,
-            })
-          }
-        </FieldArray>
+        <FieldArray name="FeedbackBlock">{render}</FieldArray>
         <div />
 
         <Formik
@@ -64,7 +70,7 @@ const AdminFeedbackBlock = () => {
               setIsNewFeedback={setIsNewFeedback}
               isNewFeedback={isNewFeedback}
               feedback={values.FeedbackBlock.feedBacks[feedback]}
-              deleteFunc={() => deleteFunction(feedback)}
+              deleteFunc={deleteFunc}
             />
           )}
           <AdminCarousel

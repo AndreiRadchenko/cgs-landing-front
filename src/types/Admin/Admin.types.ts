@@ -66,8 +66,7 @@ export interface IRenderInputsProps {
 
 export interface IRenderContactInputsProps {
   props: FieldArrayRenderProps;
-  state: IContactFormBlock;
-
+  state: any;
   onChangeFunction: (e?: string | React.ChangeEvent<any>) => void;
 }
 

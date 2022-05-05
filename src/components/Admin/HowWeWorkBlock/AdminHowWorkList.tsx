@@ -1,16 +1,22 @@
 import { useFormikContext } from "formik";
 import React from "react";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
-import * as Styled from "../../../../styles/AdminPage";
-import { IDataResponse } from "../../../../types/Admin/Response.types";
-import PhotoBlockDashedHorizontal from "../../Global/PhotoBlockdashedHorizontal";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
+import * as Styled from "../../../styles/AdminPage";
+import { IImage } from "../../../types/Admin/Admin.types";
+import { IDataResponse } from "../../../types/Admin/Response.types";
+import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
+import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 const AdminHowWorkList = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();
   const uploadImageFunction = useUploadImageFunction();
   const deleteImageFunction = useDeleteImageFunction();
+
+  const uploadFunc = (i: IImage) => (image: any) =>
+    uploadImageFunction(image, i);
+  const deleteFunc = (i: IImage) => async () => (await deleteImageFunction)(i);
+
   return (
     <div>
       {values.HowWeWorkBlock.blocks.map((i, ind) => {
@@ -36,8 +42,8 @@ const AdminHowWorkList = () => {
               <Styled.AdminHowWeWorkImageSize>
                 <PhotoBlockDashedHorizontal
                   photo={i.image}
-                  uploadFunction={(image) => uploadImageFunction(image, i)}
-                  deleteFunction={async () => (await deleteImageFunction)(i)}
+                  uploadFunction={uploadFunc(i)}
+                  deleteFunction={deleteFunc(i)}
                 />
               </Styled.AdminHowWeWorkImageSize>
             </Styled.AdminHalfGrid>

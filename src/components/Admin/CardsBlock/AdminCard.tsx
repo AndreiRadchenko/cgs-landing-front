@@ -18,6 +18,9 @@ const AdminCard = ({
   deleteFunction,
   uploadFunction,
 }: ICardProps) => {
+  const deleteFun = () => deleteFunction(info);
+  const uploadFunc = (image: any) => uploadFunction(image, info);
+
   return (
     <Styled.AdminCardsGrid>
       <div>
@@ -38,8 +41,8 @@ const AdminCard = ({
         photo={info.image}
         header="+ Add Icon"
         deleteFlag={true}
-        deleteFunction={() => deleteFunction(info)}
-        uploadFunction={(image) => uploadFunction(image, info)}
+        deleteFunction={deleteFun}
+        uploadFunction={uploadFunc}
       />
     </Styled.AdminCardsGrid>
   );

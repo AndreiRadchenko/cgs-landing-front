@@ -22,6 +22,9 @@ const AdminPortfolioContentBlock = () => {
     setIsNewStatus,
   } = useSubmitAndDeletePortfolio(setCurrent);
 
+  const submit = () => handleSubmit();
+  const deleteF = () => deleteFunc(current);
+
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHeader>Portfolio</Styled.AdminHeader>
@@ -61,7 +64,7 @@ const AdminPortfolioContentBlock = () => {
             <AdminReview
               editFlag={isNewStatus}
               review={values.reviews[current]}
-              deleteFunc={() => deleteFunc(current)}
+              deleteFunc={deleteF}
               editTrigger={setIsNewStatus}
             />
           )}
@@ -74,7 +77,7 @@ const AdminPortfolioContentBlock = () => {
       </Styled.AdminHalfGrid>
       <br />
       <br />
-      <Styled.AdminBigButton type="submit" onClick={() => handleSubmit()}>
+      <Styled.AdminBigButton type="submit" onClick={submit}>
         Save changes
       </Styled.AdminBigButton>
     </Styled.AdminPaddedBlock>

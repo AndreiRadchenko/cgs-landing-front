@@ -18,6 +18,8 @@ const AdminTech = ({
   uploadFunction,
   deleteFunction,
 }: ITechProps) => {
+  const uploadFunc = (image: any) => uploadFunction(image);
+
   return (
     <Styled.AdminCardsGrid>
       <div>
@@ -37,7 +39,7 @@ const AdminTech = ({
       <Styled.AdminTechWrapper>
         <PhotoBlockDashed
           deleteFunction={deleteFunction}
-          uploadFunction={(image) => uploadFunction(image)}
+          uploadFunction={uploadFunc}
           photo={info.image}
           header="+ Add image here"
           deleteFlag={true}

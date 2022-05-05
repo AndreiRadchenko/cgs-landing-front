@@ -10,10 +10,11 @@ const AdminCardsList = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();
   const uploadImageFunction = useUploadImageFunction();
   const deleteImageFunction = useDeleteImageFunction();
+  const deleteFunc = async (image: any) => (await deleteImageFunction)(image);
 
   return (
     <AdminCardsGrid>
-      {values.CardsBlock.cards.map((card, ind) => {
+      {values.CardsBlock.cards?.map((card, ind) => {
         return (
           <div key={ind}>
             <AdminCard
@@ -21,9 +22,7 @@ const AdminCardsList = () => {
               number={ind + 1}
               onChangeFunction={handleChange}
               uploadFunction={uploadImageFunction}
-              deleteFunction={async (image: any) =>
-                (await deleteImageFunction)(image)
-              }
+              deleteFunction={deleteFunc}
             />
           </div>
         );

@@ -9,6 +9,7 @@ import DropDownElement from "./DropDownElement";
 
 const AdminSidebar = () => {
   const router = useRouter();
+  const pushSetting = () => router.push(ROUTE_KEYS.AdminSettings);
 
   return (
     <Styled.AdminSidebar>
@@ -22,11 +23,18 @@ const AdminSidebar = () => {
           </Link>
         </DropDownElement>
 
-        <DropDownElement value="careers" route={ROUTE_KEYS.AdminCareers} />
-        <DropDownElement value="partners" route={ROUTE_KEYS.AdminPartners} />
+        <DropDownElement value="careers" route={ROUTE_KEYS.AdminCareers}>
+          <Link href={ROUTE_KEYS.AdminVacancy}>
+            <a>vacancy info </a>
+          </Link>
+        </DropDownElement>
+
+        <DropDownElement value="partners" route={ROUTE_KEYS.AdminPartners}>
+          no page
+        </DropDownElement>
 
         <Styled.AdminSidebarMenuElement
-          onClick={() => router.push(ROUTE_KEYS.AdminSettings)}
+          onClick={pushSetting}
           itemProp="AdminPage"
           property={ROUTE_KEYS.AdminSettings}
         >

@@ -20,6 +20,7 @@ const AdminFeedback = ({
   isNewFeedback,
   setIsNewFeedback,
 }: IFeedbackProps) => {
+  const trigger = () => setIsNewFeedback((prev) => !prev);
   return (
     <Styled.AdminFeedbackFrame>
       <Styled.AdminFeedbackStarsBlock>
@@ -36,7 +37,7 @@ const AdminFeedback = ({
         delete review
       </Styled.AdminDeleteTextThin>
 
-      <Styled.AdminEditIcon onClick={() => setIsNewFeedback((prev) => !prev)}>
+      <Styled.AdminEditIcon onClick={trigger}>
         <Image src={isNewFeedback ? edit : close} />
       </Styled.AdminEditIcon>
     </Styled.AdminFeedbackFrame>

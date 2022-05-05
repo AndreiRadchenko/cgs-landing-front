@@ -15,11 +15,13 @@ const AdminStars = ({
   size = 24,
   edit = false,
 }: IStarsProps) => {
+  const starsChange = (newRating: number) => handleChange!(newRating);
+
   return (
     <ReactStars
       half={true}
       edit={edit}
-      onChange={(newRating) => handleChange!(newRating)}
+      onChange={starsChange}
       value={value}
       count={5}
       size={size}

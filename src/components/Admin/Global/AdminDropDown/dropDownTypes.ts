@@ -1,6 +1,8 @@
 export interface IMenuProps {
-  menu: string[];
+  menu?: string[];
   value?: string;
   setValue?: (value: string) => void;
-  setIsDropped?: (value: boolean) => void;
+  setIsDropped?: React.Dispatch<React.SetStateAction<boolean>>;
+  text?: string;
+  isDropped?: boolean;
 }

@@ -29,6 +29,9 @@ const AddReview = ({ categories, setIsReady, newFlag }: IAddReviewProps) => {
     setCatValue("");
   };
 
+  const deleteFunc = async () => (await deleteFunction)();
+  const uploadFunc = (image: any) => uploadFunction(image);
+
   return (
     <div>
       <Styled.AdminHalfGrid>
@@ -42,8 +45,8 @@ const AddReview = ({ categories, setIsReady, newFlag }: IAddReviewProps) => {
         <PhotoBlockDashedHorizontal
           emptyHeader="Drop banner here"
           photo={values.image}
-          deleteFunction={async () => (await deleteFunction)()}
-          uploadFunction={(image) => uploadFunction(image)}
+          deleteFunction={deleteFunc}
+          uploadFunction={uploadFunc}
         />
       </Styled.AdminPortfolioImage>
       <div>

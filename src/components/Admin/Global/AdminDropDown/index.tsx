@@ -16,13 +16,13 @@ const AdminDropDown = ({ menu, setValue, value }: IMenuProps) => {
           isDropped={isDropped}
           setIsDropped={setIsDropped}
         />
-        {isDropped ? (
+        {isDropped && (
           <MenuElementsRender
             menu={menu}
             setValue={setValue}
             setIsDropped={setIsDropped}
           />
-        ) : null}
+        )}
       </Styled.AdminDropDownMenu>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
-import { ICorporateBlock } from "../../../../types/Admin/Response.types";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import { ICorporateBlock } from "../../../types/Admin/Response.types";
+import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 interface ICorporateProps {
   state: ICorporateBlock;

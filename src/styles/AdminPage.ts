@@ -527,3 +527,8 @@ export const AdminBlockWithoutHeader = styled.div`
   padding-top: ${themes.primary.spacing.adminWithinBlocks};
   background-color: ${themes.primary.colors.darkedGrayBack};
 `;
+
+export const AdminFullImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+`;

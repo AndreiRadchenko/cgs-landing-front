@@ -95,14 +95,10 @@ const AdminUploadModal = ({ back, func }: IUploadProps) => {
           onDrop={onDropHandler}
         >
           {image ? (
-            <img src={image} style={{ maxWidth: "100%", maxHeight: "100%" }} />
+            <Styled.AdminFullImage src={image} />
           ) : (
             <Styled.AdminSubTitle>
-              {drag ? (
-                <span>Release files</span>
-              ) : (
-                <span>Drag and drop files here</span>
-              )}
+              <span>{drag ? "Release files" : "Drag and drop files here"}</span>
             </Styled.AdminSubTitle>
           )}
           <Styled.AdminUploadInfo>{file?.name}</Styled.AdminUploadInfo>

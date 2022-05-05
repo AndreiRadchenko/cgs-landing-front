@@ -3,6 +3,7 @@ import React from "react";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import * as Styled from "../../../styles/AdminPage";
+import { IImage } from "../../../types/Admin/Admin.types";
 import { IDataResponse } from "../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminFooterLinks from "./AdminFooterLinks";
@@ -12,6 +13,10 @@ const AdminFooterBlock = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();
   const deleteImageFunction = useDeleteImageFunction();
   const uploadImageFunction = useUploadImageFunction();
+
+  const uploadFunc = (i: IImage) => (image: any) =>
+    uploadImageFunction(image, i);
+  const deleteFunc = (i: IImage) => async () => (await deleteImageFunction)(i);
 
   return (
     <Styled.AdminPaddedBlock>
@@ -38,8 +43,8 @@ const AdminFooterBlock = () => {
               image={i}
               key={`MediaIcon${ind}`}
               number={ind + 1}
-              uploadFunction={(image) => uploadImageFunction(image, i)}
-              deleteFunction={async () => (await deleteImageFunction)(i)}
+              uploadFunction={uploadFunc(i)}
+              deleteFunction={deleteFunc(i)}
             />
           ))}
         </Styled.AdminCardsGrid>

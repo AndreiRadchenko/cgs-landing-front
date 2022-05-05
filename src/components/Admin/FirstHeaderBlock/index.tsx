@@ -11,6 +11,9 @@ const FirstAdminBlock = () => {
   const deleteImageFunction = useDeleteImageFunction(values.MainLogoBlock);
   const uploadImageFunction = useUploadImageFunction(values.MainLogoBlock);
 
+  const uploadFunc = (image: any) => uploadImageFunction(image);
+  const deleteFunc = async () => (await deleteImageFunction)();
+
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHeader>Home</Styled.AdminHeader>
@@ -19,8 +22,8 @@ const FirstAdminBlock = () => {
         <PhotoBlockDashed
           photo={values.MainLogoBlock.image}
           deleteFlag={true}
-          uploadFunction={(image) => uploadImageFunction(image)}
-          deleteFunction={async () => (await deleteImageFunction)()}
+          uploadFunction={uploadFunc}
+          deleteFunction={deleteFunc}
         />
       </Styled.AdminAddMainLogoBlock>
     </Styled.AdminPaddedBlock>
