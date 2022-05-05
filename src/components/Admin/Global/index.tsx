@@ -67,7 +67,9 @@ const AdminMainContent = () => {
               <AdminContactFormBlock />
               <AdminFooterBlock />
               <Styled.AdminPaddedBlock>
-                <Styled.AdminBigButton type="submit" children="Submit" />
+                <Styled.AdminBigButton type="submit">
+                  Submit
+                </Styled.AdminBigButton>
               </Styled.AdminPaddedBlock>
             </Form>
           </Styled.AdminContentBlock>
