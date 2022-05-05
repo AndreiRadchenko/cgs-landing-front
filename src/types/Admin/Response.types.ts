@@ -121,6 +121,14 @@ export interface IForm {
   telegram: string;
   socialMediaLink: string;
   linksToProjects: string;
+  text: string;
+  CV: {
+    isSupported: string;
+    place: string;
+  };
+  image: {
+    url: string;
+  };
 }
 
 export interface IDataCareersResponse {
