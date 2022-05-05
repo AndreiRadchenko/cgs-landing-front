@@ -512,3 +512,8 @@ export const AdminEditIcon = styled.span`
   right: 15px;
   cursor: pointer;
 `;
+
+export const AdminFullImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+`;

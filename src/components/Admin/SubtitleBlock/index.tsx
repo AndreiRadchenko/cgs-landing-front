@@ -7,11 +7,22 @@ import AdminSubtitleFlyingList from "./AdminSubtitleFlyingList";
 import { IDataResponse } from "../../../types/Admin/Response.types";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
+import { renderInputs } from "../../../utils/renderInputs";
 
 const SubtitleBlock = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();
   const uploadImageFunction = useUploadImageFunction(values.SubtitleBlock);
   const deleteImageFunction = useDeleteImageFunction(values.SubtitleBlock);
+
+  const uploadFunc = (image: any) => uploadImageFunction(image);
+  const deleteFunc = async () => (await deleteImageFunction)();
+
+  const renderState = {
+    firstText2: values.SubtitleBlock.firstText2,
+    text3: values.SubtitleBlock.text3,
+    secondText2: values.SubtitleBlock.secondText2,
+  };
+
   return (
     <>
       <Styled.AdminPaddedBlock>
@@ -34,31 +45,22 @@ const SubtitleBlock = () => {
       <Styled.AdminPaddedBlock>
         <Styled.AdminHalfGrid>
           <div>
-            <SubHeaderWithInput
-              header="Text 2"
-              name="SubtitleBlock.firstText2"
-              inputValue={values.SubtitleBlock.firstText2}
-              onChangeFunction={handleChange}
-            />
-            <SubHeaderWithInput
-              header="Text 3"
-              name="SubtitleBlock.text3"
-              inputValue={values.SubtitleBlock.text3}
-              onChangeFunction={handleChange}
-            />
-            <SubHeaderWithInput
-              header="Text 2"
-              name="SubtitleBlock.secondText2"
-              inputValue={values.SubtitleBlock.secondText2}
-              onChangeFunction={handleChange}
-            />
+            <FieldArray name="SubtitleBlock">
+              {(props) =>
+                renderInputs({
+                  props,
+                  state: renderState,
+                  onChangeFunction: handleChange,
+                })
+              }
+            </FieldArray>
           </div>
           <Styled.AdminTecBottleDiv>
             <PhotoBlockDashed
               photo={values.SubtitleBlock.image}
               deleteFlag={true}
-              uploadFunction={(image) => uploadImageFunction(image)}
-              deleteFunction={async () => (await deleteImageFunction)()}
+              uploadFunction={uploadFunc}
+              deleteFunction={deleteFunc}
             />
           </Styled.AdminTecBottleDiv>
         </Styled.AdminHalfGrid>

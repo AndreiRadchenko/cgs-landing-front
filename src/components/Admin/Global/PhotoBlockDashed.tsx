@@ -14,6 +14,7 @@ const PhotoBlockDashed = ({
   uploadFunction,
 }: IPhotoBlock) => {
   const { modal, toggleModal } = useUploadModal();
+  const deleteFunc = () => deleteFunction!();
 
   return photo !== null && photo !== undefined ? (
     <Styled.AdminPhotoBlock>
@@ -24,15 +25,14 @@ const PhotoBlockDashed = ({
         <AdminImage image={photo} />
       </Styled.AdminPhotoGrid>
       <Styled.AdminDashedPositionGrid>
-        <Styled.AdminSubTitle
-          style={{ cursor: "pointer" }}
-          onClick={toggleModal}
-        >
-          {header}
-        </Styled.AdminSubTitle>
+        <Styled.AdminPointer>
+          <Styled.AdminSubTitle onClick={toggleModal}>
+            {header}
+          </Styled.AdminSubTitle>
+        </Styled.AdminPointer>
         <Styled.AdminComment>Supports: JPG, PNG</Styled.AdminComment>
         {deleteFlag ? (
-          <Styled.AdminDeleteText onClick={() => deleteFunction!()}>
+          <Styled.AdminDeleteText onClick={deleteFunc}>
             delete image
           </Styled.AdminDeleteText>
         ) : null}

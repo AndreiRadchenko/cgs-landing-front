@@ -52,11 +52,7 @@ export interface IFeedbackRenderState {
 
 export interface IRenderInputsProps {
   props: FieldArrayRenderProps;
-  state:
-    | IBuildRocketBlock
-    | IContactFormBlock
-    | IEditInformation
-    | IFeedbackRenderState;
+  state: any;
   onChangeFunction: (e?: string | React.ChangeEvent<any>) => void;
 }
 

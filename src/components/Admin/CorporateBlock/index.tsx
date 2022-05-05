@@ -1,8 +1,8 @@
 import { FieldArray, useFormikContext } from "formik";
 import React from "react";
-import * as Styled from "../../../../styles/AdminPage";
-import { IDataResponse } from "../../../../types/Admin/Response.types";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import * as Styled from "../../../styles/AdminPage";
+import { IDataResponse } from "../../../types/Admin/Response.types";
+import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminCorporateImages from "./AdminCorporateImages";
 
 const AdminCorporateBlock = () => {

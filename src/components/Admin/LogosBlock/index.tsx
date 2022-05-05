@@ -19,7 +19,7 @@ interface IRenderProps {
 }
 
 const render = ({ state, deleteLogo }: IRenderProps) => {
-  return state.images.map((i, ind) => (
+  return state.images?.map((i, ind) => (
     <LogoElement
       image={i}
       key={Math.random()}
