@@ -11,6 +11,7 @@ const BaseButton: FC<IBaseButtonProps> = ({
   onClick = () => ({}),
   height = themes.primary.spacing.btnHeight,
   width = themes.primary.spacing.btnWidth,
+  mobileWidth = "10em",
   topSpacing = themes.primary.spacing.topButtonSpace,
   letterSpacing = "normal",
   src = backImg,
@@ -21,6 +22,7 @@ const BaseButton: FC<IBaseButtonProps> = ({
     <StyledThisComp.StyledButton
       type={type}
       width={width}
+      mobileWidth={mobileWidth}
       height={height}
       onClick={onClick}
       letterSpacing={letterSpacing}

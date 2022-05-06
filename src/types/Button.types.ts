@@ -4,6 +4,7 @@ export interface IBaseButtonProps {
   children: React.ReactNode;
   type?: string;
   src?: any;
+  mobileWidth?: string;
   onClick?: () => void;
   height?: string;
   width?: string;
@@ -17,6 +18,7 @@ export interface IStyledButtonProps {
   type: string;
   height?: string;
   width?: string;
+  mobileWidth: string;
   marginTop?: string;
   letterSpacing: string;
 }
