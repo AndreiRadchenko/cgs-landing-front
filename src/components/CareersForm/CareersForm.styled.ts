@@ -18,8 +18,8 @@ export const FormWrapper = styled.section`
 
 export const FormImage = styled.div`
   background-image: url("/searching-for.png");
-  width: 43.063rem;
-  height: 42.188rem;
+  width: 35.063rem;
+  height: 38.188rem;
   background-repeat: space;
 
   @media ${themes.primary.media.maxLaptop} {
@@ -27,18 +27,23 @@ export const FormImage = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 32.125rem;
+    margin-left: 0;
+    width: 26rem;
     height: 29rem;
     background-repeat: round;
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 17rem;
+  }
+
   @media ${themes.primary.media.maxMobile} {
-    width: 29.125rem;
+    width: 25.125rem;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 22.625rem;
-    height: 23.313rem;
+    width: 16.625rem;
+    height: 20.313rem;
   }
 `;
 
@@ -71,6 +76,10 @@ const rocket = keyframes`
   `}
 `;
 
+export const ImageWrapper = styled.div`
+  display: flex;
+`;
+
 export const FormRocketImage = styled.div`
   display: flex;
   position: relative;
@@ -85,12 +94,16 @@ export const FormRocketImage = styled.div`
   animation: ${rocket} 40s linear;
   animation-iteration-count: infinite;
 
-  @media (min-width: 476px) and (max-width: 767px) {
-    top: 22.5rem;
-    left: -13rem;
-    width: 6.5rem;
-    height: 13rem;
-    background-size: 6.5rem auto;
+  @media ${themes.primary.media.minPC} {
+    left: 4rem;
+  }
+
+  @media ${themes.primary.media.minLaptop} {
+    top: 15rem;
+    left: 4.5rem;
+    width: 10rem;
+    height: 20rem;
+    background-size: 9rem auto;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
@@ -109,15 +122,19 @@ export const FormRocketImage = styled.div`
     background-size: 6rem auto;
   }
 
-  @media ${themes.primary.media.minLaptop} {
-    top: 15rem;
-    left: 6.5rem;
-    width: 10rem;
-    height: 20rem;
-    background-size: 9rem auto;
+  @media (min-width: 476px) and (max-width: 767px) {
+    top: 10rem;
+    left: 3rem;
+    width: 6.5rem;
+    height: 13rem;
+    background-size: 6.5rem auto;
   }
 
-  @media ${themes.primary.media.minPC} {
-    left: 4rem;
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    top: 7rem;
+    left: 2rem;
+    width: 5.5rem;
+    height: 13rem;
+    background-size: 5.5rem auto;
   }
 `;
