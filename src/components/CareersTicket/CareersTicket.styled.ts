@@ -85,6 +85,7 @@ export const BarcodeText = styled.p`
   left: -4.1rem;
   top: 5.125rem;
   width: max-content;
+  text-size-adjust: none;
   @media ${themes.primary.media.maxPCFullHD} {
     top: 5.5rem;
     left: -3.2rem;
@@ -108,9 +109,9 @@ export const BarcodeText = styled.p`
     font-size: 0.55rem;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    left: -2.25rem;
+    font-size: 8px;
+    left: -2.1rem;
     top: 2.9rem;
-    font-size: 0.45rem;
   }
 `;
 
@@ -124,7 +125,6 @@ export const RocketImg = styled.div.attrs(({ imgUrl }: IImageProps) => ({
   background-size: auto;
   background-repeat: no-repeat;
   display: flex;
-  align-items: end;
   @media ${themes.primary.media.onlyLaptop} {
     width: 5.938rem;
     background-size: contain;

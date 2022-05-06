@@ -7,10 +7,10 @@ export const TicketButton = styled.div`
   background-repeat: no-repeat;
   color: black;
   cursor: pointer;
+  transform: translate3d(0, 6.5rem, 0);
   width: 14em;
   height: 4.8em;
   margin-left: -1.125rem;
-  margin-bottom: -1.063rem;
   transition: all 0.3s;
   -webkit-tap-highlight-color: transparent;
 
@@ -25,16 +25,15 @@ export const TicketButton = styled.div`
     background-size: contain;
     background-repeat: space;
     margin-right: -0.938rem;
-    margin-bottom: -1.25rem;
   }
   @media ${themes.primary.media.maxTablet} {
     background-size: contain;
     background-repeat: space;
     margin-right: -0.938rem;
-    margin-bottom: -1.25rem;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
     position: relative;
+
     left: 0.3rem;
     width: 9.5em;
   }
