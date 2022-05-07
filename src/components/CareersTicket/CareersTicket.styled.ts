@@ -28,6 +28,7 @@ export const TicketWrapper = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   justify-content: space-between;
   background-image: url("/white-ticket-bg.png");
