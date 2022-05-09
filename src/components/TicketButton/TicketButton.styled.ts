@@ -7,35 +7,46 @@ export const TicketButton = styled.div`
   background-repeat: no-repeat;
   color: black;
   cursor: pointer;
+  transform: translateY(12rem);
   width: 14em;
   height: 4.8em;
   margin-left: -1.125rem;
-  margin-bottom: -1.063rem;
   transition: all 0.3s;
-  -webkit-tap-highlight-color: transparent;
 
   &:hover,
   &:active {
-    transform: scale(1.2);
+    transform: translateY(12rem) scale(1.2);
   }
 
   @media ${themes.primary.media.onlyLaptop} {
+    transform: translateY(9rem);
     width: 11em;
     height: 4.8em;
     background-size: contain;
     background-repeat: space;
     margin-right: -0.938rem;
-    margin-bottom: -1.25rem;
+    &:hover,
+    &:active {
+      transform: translateY(9rem) scale(1.2);
+    }
   }
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     background-size: contain;
     background-repeat: space;
-    margin-right: -0.938rem;
-    margin-bottom: -1.25rem;
+    transform: translate(0.2rem, 9rem);
+    &:hover,
+    &:active {
+      transform: translate(0.2rem, 9rem) scale(1.2);
+    }
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
     position: relative;
+    transform: translateY(6.5rem);
     left: 0.3rem;
     width: 9.5em;
+    &:hover,
+    &:active {
+      transform: translateY(6.5rem) scale(1.2);
+    }
   }
 `;
