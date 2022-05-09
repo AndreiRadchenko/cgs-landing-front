@@ -22,12 +22,12 @@ const WhatWeLikeToSeeCard = ({
     <>
       <Styles.LikeToSeeCardTitle>{title}</Styles.LikeToSeeCardTitle>
       {arrayOfRequirements.map((el, ind) => (
-        <Styles.LikeToSeeCardReqirement key={`${el}${ind}`}>
+        <Styles.LikeToSeeCardRequirement key={`${el}${ind}`}>
           <ImagePreview src={starIMG} alt={starIMG} height="20" width="20" />
-          <Styles.LikeToSeeCardReqirementText>
+          <Styles.LikeToSeeCardRequirementText>
             {` ${el}`}
-          </Styles.LikeToSeeCardReqirementText>
-        </Styles.LikeToSeeCardReqirement>
+          </Styles.LikeToSeeCardRequirementText>
+        </Styles.LikeToSeeCardRequirement>
       ))}
       <Styles.LikeToSeeCardText>{text}</Styles.LikeToSeeCardText>
       <Styles.LikeToSeeCardFooter>{footer}</Styles.LikeToSeeCardFooter>
