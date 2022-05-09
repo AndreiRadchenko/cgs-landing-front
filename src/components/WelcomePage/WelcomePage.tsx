@@ -21,7 +21,7 @@ const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
           tightest deadlines
         </StyledThisComp.CodeDescription>
 
-        <BaseButton onClick={clickHandler} src={backImg}>
+        <BaseButton onClick={clickHandler} src={backImg} mobileWidth={"11rem"}>
           <ButtonTextWrapper fontSize={"1.4em"}>
             get estimation
           </ButtonTextWrapper>
