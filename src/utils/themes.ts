@@ -78,6 +78,7 @@ const themes = {
       darkedGrayBack: "#DDDBDB",
       deleteButton: "#F80909",
       feedbackRole: "#A9CDF5",
+      black: "#000",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

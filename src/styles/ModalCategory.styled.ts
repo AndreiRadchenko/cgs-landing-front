@@ -352,6 +352,7 @@ export const ProjectLinkText = styled.span`
   height: 100%;
   font-weight: ${themes.primary.font.weight.extraBold};
   font-family: ${themes.primary.font.family.gilroy};
+  color: ${themes.primary.colors.black};
   cursor: pointer;
   @media ${themes.primary.media.onlyTabletLandScape} {
     font-size: 1.5em;
