@@ -12,6 +12,7 @@ export const Container = styled.div`
   grid-template-areas: "footer-address footer-social .";
 
   @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 0;
     grid-teplate-columns: auto;
     grid-teplate-columns: repeat(2, 1fr);
     grid-template-areas:

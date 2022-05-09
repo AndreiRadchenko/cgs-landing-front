@@ -33,7 +33,7 @@ export const LikeToSeePhotoContainer = styled.div`
     width: 60%;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 90%;
+    width: 100%;
   }
 `;
 
@@ -101,10 +101,14 @@ export const LikeToSeePhotoClip = styled.div`
     top: -21%;
     right: -8%;
   }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    top: -18%;
+    right: -6%;
+  }
 `;
 
 export const LikeToSeePhotoText = styled.div`
-  font-weight: ${themes.primary.font.weight.extraBold};
+  font-weight: ${themes.primary.font.weight.medium};
   width: 70%;
   transform: rotate(-1deg);
   position: absolute;
@@ -121,6 +125,7 @@ export const LikeToSeePhotoText = styled.div`
     left: 15%;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 9px;
     left: 15%;
   }
 `;
