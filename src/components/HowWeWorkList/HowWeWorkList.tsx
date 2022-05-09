@@ -52,6 +52,7 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
           onReachBeginning={(e) => isReleaseOnEdges(e, true, 300)}
           onReachEnd={(e) => isReleaseOnEdges(e, true, 300)}
           initialSlide={currentSlide}
+          allowTouchMove={false}
         >
           {items &&
             [...items].map((item) => (

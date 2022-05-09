@@ -89,6 +89,7 @@ export const WrapperBgImg = styled.div`
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
+    right: -10%;
     top: 10%;
   }
 

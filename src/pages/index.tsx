@@ -32,7 +32,7 @@ const Home: NextPage = () => {
       </StyledCommon.Page>
       <HowWeWorkList items={howWeWorksItems} />
       <YesBegin clickHandler={scrollHandler} />
-      <StyledCommon.Page>
+      <StyledCommon.Page className="test">
         <div ref={ref}>
           <LetsCode />
         </div>

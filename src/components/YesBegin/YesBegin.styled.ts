@@ -93,15 +93,13 @@ export const ImageContainer = styled("div")<ImageProps>`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 13em;
-    height: 14.2em;
-    right: 8rem;
-    bottom: 7rem;
+    width: 8em;
+    height: 10em;
+    right: 17%;
+    bottom: 10%;
   }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 13em;
-    height: 14.2em;
-    right: 4rem;
-    bottom: 7rem;
-  }
+  /* @media ${themes.primary.media.maxLowScreenMobile} {
+    right: 17%;
+    bottom: 10%;
+  } */
 `;
