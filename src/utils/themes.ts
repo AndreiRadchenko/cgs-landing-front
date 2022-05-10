@@ -44,6 +44,7 @@ const themes = {
         tertiary: "1.2em",
         primary: "1em",
         linkText: "1.4em",
+        oneAndHalf: "1.5em",
         buttonText: "1.5em",
         menuElement: "1.7em",
         secondary: "2em",
@@ -77,6 +78,7 @@ const themes = {
       darkedGrayBack: "#DDDBDB",
       deleteButton: "#F80909",
       feedbackRole: "#A9CDF5",
+      black: "#000",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

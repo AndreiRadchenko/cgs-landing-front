@@ -16,7 +16,12 @@ const Careers: FC = () => {
       </Styled.MainTitle>
       <Styled.TicketWrapper>
         {mockData.map(({ imageURL, vacancy }: ITicketData) => (
-          <CareersTicket vacancy={vacancy} imgUrl={imageURL} key={imageURL} />
+          <CareersTicket
+            vacancy={vacancy}
+            imgUrl={imageURL}
+            route={true}
+            key={imageURL}
+          />
         ))}
       </Styled.TicketWrapper>
     </>

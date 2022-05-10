@@ -1,15 +1,15 @@
-import React from "react";
+﻿import React from "react";
 import AdminSidebar from "../../components/Admin/SideBar/AdminSidebar";
-import CareersMainContent from "../../components/Admin/Global/CareersMainContent";
+import VacancyMainContent from "../../components/Admin/Global/VacancyMainContent";
 import * as Styled from "../../styles/AdminPage";
 
-const AdminCareersPage = () => {
+const AdminVacancyPage = () => {
   return (
     <Styled.AdminWrapper>
       <AdminSidebar />
-      <CareersMainContent />
+      <VacancyMainContent />
     </Styled.AdminWrapper>
   );
 };
 
-export default AdminCareersPage;
+export default AdminVacancyPage;

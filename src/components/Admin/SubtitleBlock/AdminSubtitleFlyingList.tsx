@@ -39,7 +39,7 @@ const AdminSubtitleFlyingList = () => {
   const deleteImageFunction = useDeleteImageFunction();
   const deleteFunc = async (i: IImage | undefined) =>
     (await deleteImageFunction)(i);
-    
+
   return (
     <Styled.AdminFlyingElementsBlock>
       {render({

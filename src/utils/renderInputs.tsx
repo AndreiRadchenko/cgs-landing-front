@@ -15,11 +15,7 @@ const anyNumbersInHeader = (i: string) => {
       ].join(" ");
 };
 
-export const renderInputs = ({
-  props,
-  state,
-  onChangeFunction,
-}: IRenderInputsProps) => {
+export const renderInputs = ({ props, state, onChangeFunction }: any) => {
   return (
     <div>
       {Object.keys(state).map((i, ind) => {

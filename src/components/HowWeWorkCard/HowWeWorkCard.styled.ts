@@ -232,12 +232,17 @@ export const ContentTextWrapper = styled.div`
   }
 `;
 export const ContentText = styled.p`
+  line-height: 140%;
   overflow: hidden;
   box-sizing: border-box;
   animation-timing-function: linear;
   margin: 0;
   margin-top: 15px;
   font-weight: ${themes.primary.font.weight.light};
+
+  @media ${themes.primary.media.maxMobile} {
+    line-height: 150%;
+  }
 `;
 
 export const AdditionalImgContainer = styled.div<IActive>`

@@ -1,9 +1,10 @@
-import { IPropsWithImage } from './BlockProps';
+import { IPropsWithImage } from "./BlockProps";
 import {
   IBuildRocketBlock,
   IContactFormBlock,
   IDataResponse,
   IEditInformation,
+  IPointsData,
 } from "./Response.types";
 import { FieldArrayRenderProps } from "formik";
 export interface IAdmin {
@@ -37,6 +38,7 @@ export interface DropdownPropsInterface {
 export interface InputWithHeader extends InputPropsInterface {
   placeholder?: string;
   header: string;
+  minRows?: number;
 }
 
 export interface InputWithImage extends InputPropsInterface {
@@ -51,6 +53,18 @@ export interface IFeedbackRenderState {
 }
 
 export interface IRenderInputsProps {
+  props: FieldArrayRenderProps;
+  state:
+    | IBuildRocketBlock
+    | IContactFormBlock
+    | IEditInformation
+    | IFeedbackRenderState
+    | IPointsData;
+
+  onChangeFunction: (e?: string | React.ChangeEvent<any>) => void;
+}
+
+export interface IRenderContactInputsProps {
   props: FieldArrayRenderProps;
   state: any;
   onChangeFunction: (e?: string | React.ChangeEvent<any>) => void;

@@ -6,7 +6,7 @@ export const FormTitle = styled.h1`
   font-size: ${themes.primary.font.size.quaternary};
   font-weight: ${themes.primary.font.weight.extraBold};
   margin-bottom: 3.7rem;
-  @media${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxTablet} {
     font-size: ${themes.primary.font.size.secondary};
     margin-top: 2rem;
   }
@@ -14,7 +14,7 @@ export const FormTitle = styled.h1`
 
 export const FormContainer = styled.div`
   display: flex;
-  @media${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxTablet} {
     flex-direction: column;
     align-items: center;
   }
@@ -27,20 +27,23 @@ export const FormImage = styled.div`
   height: 39.5rem;
   background-image: url("/LetsGo-form.png");
   margin-left: 3.75rem;
-  @media${themes.primary.media.maxLaptop} {
+  @media ${themes.primary.media.maxLaptop} {
     background-size: contain;
     background-repeat: space;
   }
-  @media${themes.primary.media.maxTabletLandScape} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     margin-left: 0;
   }
-  @media${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     margin-top: 4.5rem;
-    width: 100%;
+    width: 130%;
     background-repeat: no-repeat;
     height: 28rem;
   }
-  @media${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    transform: translateX(-4%);
+    width: 135%;
+    margin-top: 2.5rem;
     height: 27rem;
     background-position: center;
   }
@@ -54,25 +57,25 @@ export const FormCodeImg = styled.div`
   background-repeat: space;
   margin-right: -47px;
   margin-top: -30px;
-  @media${themes.primary.media.maxLaptop} {
+  @media ${themes.primary.media.maxLaptop} {
     height: 138px;
     margin-right: -49px;
     margin-top: -20px;
   }
-  @media${themes.primary.media.maxTabletLandScape} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     height: 108px;
   }
-  @media${themes.primary.media.maxTabletPortrait} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     margin-right: -40px;
     margin-top: -37px;
   }
-  @media${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxTablet} {
     margin-right: -40px;
     margin-top: -52px;
     height: 8rem;
     background-repeat: no-repeat;
   }
-  @media${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.maxLowScreenMobile} {
     margin-top: -1%;
     height: 20%;
     width: 62%;

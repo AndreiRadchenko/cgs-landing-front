@@ -59,7 +59,10 @@ export const StyledButton = styled.button.attrs(
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 10em;
+    width: ${({ mobileWidth }) =>
+      css`
+        ${mobileWidth ? mobileWidth : "10em"}
+      `};
     height: 4em;
     margin-left: -0.8em;
     &.big-btn {

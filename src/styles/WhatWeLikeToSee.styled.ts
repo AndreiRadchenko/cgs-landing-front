@@ -33,11 +33,12 @@ export const LikeToSeePhotoContainer = styled.div`
     width: 60%;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 90%;
+    width: 100%;
   }
 `;
 
 export const LikeToSeeTextContainer = styled.div`
+  font-size: ${themes.primary.font.size.oneAndHalf};
   width: 60%;
   @media ${themes.primary.media.maxMobile} {
     width: 90%;
@@ -47,8 +48,8 @@ export const LikeToSeeTextContainer = styled.div`
 export const LikeToSeeHeader = styled.p`
   width: 90%;
   position: relative;
+  font-family: ${themes.primary.font.family.sourceCode};
   left: 2%;
-  font-weight: ${themes.primary.font.weight.extraBold};
   @media ${themes.primary.media.maxMobile} {
     left: 6%;
   }
@@ -100,10 +101,14 @@ export const LikeToSeePhotoClip = styled.div`
     top: -21%;
     right: -8%;
   }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    top: -18%;
+    right: -6%;
+  }
 `;
 
 export const LikeToSeePhotoText = styled.div`
-  font-weight: ${themes.primary.font.weight.extraBold};
+  font-weight: ${themes.primary.font.weight.medium};
   width: 70%;
   transform: rotate(-1deg);
   position: absolute;
@@ -120,10 +125,12 @@ export const LikeToSeePhotoText = styled.div`
     left: 15%;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 9px;
     left: 15%;
   }
 `;
 export const LikeToSeeCardTitle = styled.h2`
+  font-weight: ${themes.primary.font.weight.extraBold};
   position: relative;
   left: 2%;
   @media ${themes.primary.media.maxMobile} {
@@ -133,13 +140,12 @@ export const LikeToSeeCardTitle = styled.h2`
     left: 9%;
   }
 `;
-export const LikeToSeeCardReqirement = styled.div`
+export const LikeToSeeCardRequirement = styled.div`
   display: flex;
   align-items: center;
-  font-weight: ${themes.primary.font.weight.extraBold};
   margin: ${themes.primary.spacing.small} 0;
 `;
-export const LikeToSeeCardReqirementText = styled.div`
+export const LikeToSeeCardRequirementText = styled.div`
   margin-left: 5px;
   width: 90%;
 `;
@@ -149,7 +155,6 @@ export const LikeToSeeCardText = styled.p`
   left: 2%;
   margin-top: ${themes.primary.spacing.tertiary};
   font-size: ${themes.primary.font.size.tertiary};
-  font-weight: ${themes.primary.font.weight.extraBold};
   @media ${themes.primary.media.maxMobile} {
     left: 4%;
   }

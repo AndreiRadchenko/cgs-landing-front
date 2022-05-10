@@ -6,7 +6,7 @@ import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminHowWorkList from "./AdminHowWorkList";
 
 const AdminHowWeWorkBlock = () => {
-  const {values, handleChange} = useFormikContext<IDataResponse>();
+  const { values, handleChange } = useFormikContext<IDataResponse>();
 
   return (
     <Styled.AdminPaddedBlock theme="dark">

@@ -15,9 +15,8 @@ interface IAddReviewProps {
 }
 
 const AddReview = ({ categories, setIsReady, newFlag }: IAddReviewProps) => {
-  const { values, handleSubmit, handleChange } = useFormikContext<
-    IPortfolioReview
-  >();
+  const { values, handleSubmit, handleChange } =
+    useFormikContext<IPortfolioReview>();
   const [catValue, setCatValue] = useState(values.category);
   const deleteFunction = useDeleteImageFunction(values, "");
   const uploadFunction = useUploadImageFunction(values, "");

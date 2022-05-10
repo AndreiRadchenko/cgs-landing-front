@@ -10,7 +10,7 @@ const FirstAdminBlock = () => {
   const { values } = useFormikContext<IDataResponse>();
   const deleteImageFunction = useDeleteImageFunction(values.MainLogoBlock);
   const uploadImageFunction = useUploadImageFunction(values.MainLogoBlock);
-  
+
   const uploadFunc = (image: any) => uploadImageFunction(image);
   const deleteFunc = async () => (await deleteImageFunction)();
 

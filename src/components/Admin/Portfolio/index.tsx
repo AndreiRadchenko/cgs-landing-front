@@ -9,12 +9,9 @@ import AdminPortfolioContentBlock from "./ContentBlock";
 import { IPortfolioData } from "./Portfolio.types";
 
 const Portfolio = () => {
-  const {
-    data,
-    isLoading,
-    refetch,
-  }: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
-    adminGlobalService.getPortfolio()
+  const { data, isLoading, refetch }: IPortfolioData = useQuery(
+    queryKeys.getPortfolio,
+    () => adminGlobalService.getPortfolio()
   );
 
   const { mutateAsync } = useMutation(
