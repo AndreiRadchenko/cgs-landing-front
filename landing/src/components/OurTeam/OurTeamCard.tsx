@@ -3,6 +3,7 @@ import * as StyledThisComp from "../../styles/OurTeam.styled";
 import Image from "next/image";
 import decorationClipIMG from "../../../public/clip.png";
 import ImagePreview from "../Image/ImagePreview";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 interface IOurTeamCardProps {
   url: any;
@@ -69,14 +70,14 @@ const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
         className={title.split(" ").join("-") + "-content"}
       >
         <StyledThisComp.OurTeamCardTitle>
-          {title}:
+          <SplitBrackets text={`${title}:`} />
           <StyledThisComp.DecorationTextTitle
             className={`${title.split(" ").reverse()[0]}`}
           />
         </StyledThisComp.OurTeamCardTitle>
 
         <StyledThisComp.OurTeamCardDescription>
-          {description}
+          <SplitBrackets text={description} />
         </StyledThisComp.OurTeamCardDescription>
       </StyledThisComp.OurTeamCardContent>
     </>

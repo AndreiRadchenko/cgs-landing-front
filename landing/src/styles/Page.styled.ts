@@ -62,3 +62,17 @@ export const ButtonText = styled.span.attrs(
     font-size: 1.1em;
   }
 `;
+
+export const Loading = styled.h2`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background: ${themes.primary.colors.secondary};
+  font-size: ${themes.primary.font.size.tertiary};
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+`;

@@ -1,18 +1,25 @@
 import React from "react";
 import * as StyledThisComp from "../../styles/OurTeam.styled";
-import { ourTeamArr } from "../../utils/variables";
 import OurTeamCard from "./OurTeamCard";
+import { useQueryClient } from "react-query";
+import { queryKeys } from "../../consts/queryKeys";
+import { IDataResponse } from "../../types/Admin/Response.types";
 
 const OurTeam = () => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IDataResponse>(
+    queryKeys.getFullHomePage
+  )?.CorporateBlock;
+
   return (
     <StyledThisComp.OurTeamContainer>
       <StyledThisComp.OurTeamRow>
-        {ourTeamArr.map(({ url, title, description }) => (
+        {data?.blocks.map(({ subtitle, text }, idx) => (
           <OurTeamCard
-            key={title}
-            url={url}
-            title={title}
-            description={description}
+            key={subtitle}
+            url={data.images[idx].image?.url}
+            title={subtitle}
+            description={text}
           />
         ))}
       </StyledThisComp.OurTeamRow>

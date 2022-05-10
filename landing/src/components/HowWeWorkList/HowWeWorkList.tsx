@@ -5,15 +5,26 @@ import "swiper/css";
 import "swiper/css/mousewheel";
 
 import HowWeWorkCard from "../HowWeWorkCard/HowWeWorkCard";
-import { IHowWeWorkCardProps } from "../HowWeWorkCard/types";
+
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { useQueryClient } from "react-query";
+import { queryKeys } from "../../consts/queryKeys";
+import { IDataResponse } from "../../types/Admin/Response.types";
+import { insertHowWeWorkData } from "../../utils/HowWeWorkDataCreator";
 
 SwiperCore.use([Mousewheel, Pagination]);
 
-const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
+const HowWeWorkList = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { width } = useWindowDimension();
+
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IDataResponse>(
+    queryKeys.getFullHomePage
+  )?.HowWeWorkBlock;
+
+  const items = insertHowWeWorkData(data);
 
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, { threshold: 0.75 });
@@ -36,7 +47,7 @@ const HowWeWorkList = ({ items }: { items: IHowWeWorkCardProps[] }) => {
 
   return width && width > 768 ? (
     <div ref={ref}>
-      {!isVisible ? (
+      {!isVisible && items ? (
         <HowWeWorkCard {...items[currentSlide]} />
       ) : (
         <Swiper

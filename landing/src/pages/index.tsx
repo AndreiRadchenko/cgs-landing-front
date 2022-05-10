@@ -10,22 +10,38 @@ import Technologies from "../components/Technologies/Technologies";
 import LetsCode from "../components/LetsCode/LetsCode";
 import OurTeam from "../components/OurTeam/OurTeam";
 import HowWeWorkList from "../components/HowWeWorkList/HowWeWorkList";
-import howWeWorksItems from "../mock/HowWeWorkItem";
 import YesBegin from "../components/YesBegin/YesBegin";
 import Footer from "../components/Footer/Footer";
 import { useScrollTo } from "../hooks/useScrollTo";
 import { useQuery } from "react-query";
 import { queryKeys } from "../consts/queryKeys";
 import { adminGlobalService } from "../services/adminHomePage";
+import { IDataResponse } from "../types/Admin/Response.types";
+import { IPortfolioResponse } from "../types/Admin/AdminPortfolio";
+
+interface IHomeData {
+  data: IDataResponse | undefined;
+  isLoading: boolean;
+}
+
+interface IPortfolioData {
+  data: IPortfolioResponse | undefined;
+  isLoading: boolean;
+}
 
 const Home: NextPage = () => {
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
 
-  const { data, isLoading } = useQuery(queryKeys.getFullHomePage, () =>
+  const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
     adminGlobalService.getFullPage()
   );
 
-  return (
+  const portfolioData: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
+    adminGlobalService.getPortfolio()
+  );
+  return homeData.isLoading ? (
+    <StyledCommon.Loading>LOADING...</StyledCommon.Loading>
+  ) : (
     <>
       <StyledCommon.Page>
         <Body welcomePageButtonHandler={scrollHandler} />
@@ -36,7 +52,7 @@ const Home: NextPage = () => {
         <Technologies />
         <OurTeam />
       </StyledCommon.Page>
-      <HowWeWorkList items={howWeWorksItems} />
+      <HowWeWorkList />
       <YesBegin clickHandler={scrollHandler} />
       <StyledCommon.Page>
         <div ref={ref}>

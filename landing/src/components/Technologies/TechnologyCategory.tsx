@@ -16,7 +16,12 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
   return (
     <StyledThisComp.CategoryContainer className={title}>
       <StyledThisComp.CategoryImgWrapper>
-        <Image src={url} alt={`technologies description ${title}`} />
+        <Image
+          src={url}
+          alt={`technologies description ${title}`}
+          layout="fill"
+          objectFit="contain"
+        />
       </StyledThisComp.CategoryImgWrapper>
 
       <StyledThisComp.CategoryDescriptionWrapper className="descriptionWrapper">

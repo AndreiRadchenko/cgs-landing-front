@@ -13,7 +13,9 @@ const AboutUs = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const illustrationRef = useRef<HTMLDivElement>(null);
-  const data = queryClient.getQueryData<IDataResponse>(queryKeys.getFullHomePage)?.SubtitleBlock;
+  const data = queryClient.getQueryData<IDataResponse>(
+    queryKeys.getFullHomePage
+  )?.SubtitleBlock;
 
   const onScroll = () => {
     const elTop = illustrationRef?.current?.getBoundingClientRect().top || 0;
@@ -35,16 +37,14 @@ const AboutUs = () => {
 
   return (
     <StyledThisComp.AboutUsContainer>
-      <StyledThisComp.AboutUsTitle>
-        {data?.title}
-      </StyledThisComp.AboutUsTitle>
+      <StyledThisComp.AboutUsTitle>{data?.title}</StyledThisComp.AboutUsTitle>
       <StyledThisComp.AboutUsWrapper>
-        {aboutUsContainerVars.map(({ url, description, text }) => ( // here
+        {data?.elements.map((el) => (
           <AboutUsCard
-            key={description}
-            url={url}
-            text={text}
-            description={description}
+            key={el.text}
+            url={el.image.url}
+            text={`${el.text.split(":")[1]}:`}
+            description={`${el.text.split(":")[0]}`}
           />
         ))}
       </StyledThisComp.AboutUsWrapper>
@@ -69,9 +69,11 @@ const AboutUs = () => {
       >
         <StyledThisComp.Wrapper>
           <ImagePreview
-            src={illustrationIMG} // here
-            placeholder={"blur"}
+            src={data?.image.url}
+            // placeholder={"blur"}
             alt={"illustration image technology"}
+            width="130px"
+            height="150px"
           />
         </StyledThisComp.Wrapper>
       </StyledThisComp.IllustrationWrapper>

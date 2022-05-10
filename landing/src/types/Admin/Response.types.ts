@@ -70,7 +70,7 @@ export interface IHowWeWorkBlock {
 }
 
 export interface IBuildRocketBlock {
-  [subtitle: string]: string;
+  subtitle: string;
   text: string;
   button: string;
 }
@@ -94,7 +94,7 @@ export interface IDataResponse {
   MainLogoBlock: { image: { url: string } | null };
   EditInformationBlock: IEditInformation;
   SubtitleBlock: ISubtitle;
-  LogosBlock: { images: any[] };
+  LogosBlock: { images: { url: string }[] };
   CardsBlock: ICards;
   FeedbackBlock: IFeedbackBlock;
   TechnologyBlock: ITechnologyBlock;

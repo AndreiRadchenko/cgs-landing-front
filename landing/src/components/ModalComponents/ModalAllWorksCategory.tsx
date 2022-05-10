@@ -1,9 +1,9 @@
 import React, { FC } from "react";
+import { useQueryClient } from "react-query";
+import { IPortfolioResponse } from "../../types/Admin/AdminPortfolio";
+import { queryKeys } from "../../consts/queryKeys";
 import * as StyledCategory from "../../styles/ModalCategory.styled";
-import {
-  modalNavigationRoutesNames,
-  projectsModalArr,
-} from "../../utils/variables";
+import { projectsModalArr } from "../../utils/variables";
 import ModalCategoryAllWorkCard from "./ModalCategoryAllWorkCard";
 import { IAllCategoriesModalProps } from "../../types/ModalCategory.types";
 
@@ -11,6 +11,12 @@ const ModalAllWorksCategory: FC<IAllCategoriesModalProps> = ({
   title,
   onSetNewCategory,
 }) => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IPortfolioResponse>(
+    queryKeys.getPortfolio
+  );
+
+  const { reviews, categories } = { ...data };
   const setNewCategoryHandler = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
@@ -27,27 +33,37 @@ const ModalAllWorksCategory: FC<IAllCategoriesModalProps> = ({
           <StyledCategory.CategoryUnderline />
         </StyledCategory.CategoryTitleWrapper>
         <StyledCategory.NavigationWrapper>
-          {modalNavigationRoutesNames.map((item) => (
-            <StyledCategory.CategoryRouteName
-              key={item}
-              onClick={setNewCategoryHandler}
-            >
-              {item}
-            </StyledCategory.CategoryRouteName>
-          ))}
+          {categories &&
+            categories.map((item) => (
+              <StyledCategory.CategoryRouteName
+                key={item}
+                onClick={setNewCategoryHandler}
+              >
+                {item}
+              </StyledCategory.CategoryRouteName>
+            ))}
         </StyledCategory.NavigationWrapper>
       </StyledCategory.NavPanel>
       <StyledCategory.CategoryProjectsContainer>
-        {projectsModalArr.map(({ url, title, link, description, category }) => (
-          <ModalCategoryAllWorkCard
-            key={title}
-            url={url}
-            link={link}
-            title={title}
-            description={description}
-            category={category}
-          />
-        ))}
+        {reviews &&
+          reviews.map(
+            ({
+              image,
+              title,
+              //  link = ,
+              text,
+              category,
+            }) => (
+              <ModalCategoryAllWorkCard
+                key={title}
+                url={image && image.url}
+                link={"null"}
+                title={title}
+                description={text}
+                category={[category]}
+              />
+            )
+          )}
       </StyledCategory.CategoryProjectsContainer>
     </StyledCategory.Container>
   );
