@@ -1,4 +1,5 @@
 export const queryKeys = {
+  // admin page
   AdminAuth: "AdminAuth",
   GetFullPage: "GetFullPage",
   PutHomePageData: "PutHomePageData",
@@ -6,4 +7,6 @@ export const queryKeys = {
   uploadImage: "uploadImage",
   getPortfolio: "getPortfolio",
   updatePortfolio: "updatePortfolio",
+  // home page
+  getFullHomePage: "getFullHomePage",
 }
