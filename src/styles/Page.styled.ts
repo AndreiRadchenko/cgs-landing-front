@@ -12,6 +12,10 @@ export const Page = styled.article`
 
   @media ${themes.primary.media.onlyLaptop} {
     width: 1100px;
+
+    &.test {
+      width: 90%;
+    }
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {

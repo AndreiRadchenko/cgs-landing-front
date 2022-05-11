@@ -106,8 +106,7 @@ export const TitleSpecialization = styled.h2`
 
 export const DescriptionSpecialization = styled.span`
   font-family: ${themes.primary.font.family.gilroy};
-  font-weight: ${themes.primary.font.weight.light};
-  font-size: ${themes.primary.font.size.vistaco};
+  font-size: ${themes.primary.font.size.aboutUsCardText};
 
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.tertiary};
