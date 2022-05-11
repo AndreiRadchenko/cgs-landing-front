@@ -159,12 +159,12 @@ export const ContentImage = styled.div<IImage>`
       props.isFlipOnMobile ? "scale(-1, 1)" : "initial"};
   }
   @media ${themes.primary.media.maxMobile} {
-    width: 28em;
-    height: ${(props) => (props.isFlipOnMobile ? "41em" : `29em`)};
+    width: 25em;
+    height: ${(props) => (props.isFlipOnMobile ? "37em" : `26em`)};
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 28em;
-    height: ${(props) => (props.isFlipOnMobile ? "41em" : `29em`)};
+    width: 23em;
+    height: ${(props) => (props.isFlipOnMobile ? "36em" : `22.5em`)};
   }
   animation: ${({ active }) => (active ? "image 2s" : null)};
   @keyframes image {

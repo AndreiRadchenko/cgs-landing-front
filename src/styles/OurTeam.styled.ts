@@ -214,13 +214,13 @@ export const DecorationTextTitle = styled(Decoration)`
   z-index: -1;
 
   &.philosophy {
-    left: 12%;
+    left: 16%;
     width: 5.4em;
   }
 
   &.goal {
     bottom: 18%;
-    left: 8%;
+    left: 11%;
     width: 5em;
   }
 
@@ -237,8 +237,19 @@ export const DecorationTextTitle = styled(Decoration)`
     }
   }
   @media ${themes.primary.media.maxTabletPortrait} {
+    &.philosophy {
+      left: 20%;
+    }
     &.goal {
-      left: 17%;
+      left: 20%;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    &.philosophy {
+      left: 22%;
+    }
+    &.goal {
+      left: 22%;
     }
   }
 `;
