@@ -7,7 +7,9 @@ import { validTokenGlobal } from "../../services/validToken";
 import * as Styled from "../../styles/AdminPage";
 
 const AdminHomePage = () => {
-  const { data } = useQuery(queryKeys.validToken, () => validTokenGlobal.validToken());
+  const { data } = useQuery(queryKeys.validToken, () =>
+    validTokenGlobal.validToken()
+  );
 
   return data ? (
     <Styled.AdminWrapper>
