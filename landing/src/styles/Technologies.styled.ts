@@ -56,8 +56,6 @@ export const TechnologyRow = styled.div`
 
 export const CategoryImgWrapper = styled.div`
   width: 20.188em;
-  height: 250px;
-  position: relative;
   display: inline-block;
   text-align: center;
 `;

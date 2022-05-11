@@ -7,22 +7,8 @@ import { LetsCodeFormPropTypes } from "../../types/Button.types";
 import ButtonSubmitForm from "../../utils/Buttons/ButtonSubmitForm";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import FormTextArea from "../FormInput/FormTextArea";
-import { useQueryClient } from "react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { IDataResponse } from "../../types/Admin/Response.types";
-import { SplitBrackets } from "../../utils/splitBrackets";
 
 const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.ContactFormBlock;
-  const {
-    subtitle = "Let's code!",
-    name = "Name",
-    email = "Email",
-    message = "Your message",
-  } = { ...data };
   const { handleChange, handleSubmit, values, errors } = useFormik({
     initialValues: {
       name: "",
@@ -47,33 +33,28 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
   return (
     <StyledThisComp.Container onSubmit={handleSubmit}>
       <StyledThisComp.ContentWrapper>
-        <StyledThisComp.Title>
-          <SplitBrackets text={subtitle} />
-        </StyledThisComp.Title>
+        <StyledThisComp.Title>Let`s code!</StyledThisComp.Title>
 
         <FormInput
           value={values.name}
           handleChange={handleChange}
-          name={name?.toLowerCase()}
-          placeholder={name}
+          name={"name"}
+          placeholder={"Name"}
           errors={errors["name"]}
         />
         <FormInput
           value={values.email}
           handleChange={handleChange}
-          name={email.toLowerCase()}
-          placeholder={email}
+          name={"email"}
+          placeholder={"Email"}
           errors={errors["email"]}
         />
 
         <FormTextArea
           value={values.message}
           handleChange={handleChange}
-          name={message
-            .split(" ")
-            .map((el) => el.charAt(0).toUpperCase() + el.slice(1))
-            .join("")}
-          placeholder={message}
+          name={"message"}
+          placeholder={"What's your idea?"}
           errors={errors["message"]}
         />
 

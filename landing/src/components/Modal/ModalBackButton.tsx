@@ -5,14 +5,12 @@ import backArrow from "../../../public/backArrow.svg";
 import Image from "next/image";
 
 interface ModalBackButtonProps {
-  subtitle: string;
   selectedCategory: string;
   onToggleModalHandler: () => void;
   closeModalHandler: () => void;
 }
 
 const ModalBackButton: FC<ModalBackButtonProps> = ({
-  subtitle,
   onToggleModalHandler,
   closeModalHandler,
   selectedCategory,
@@ -20,7 +18,7 @@ const ModalBackButton: FC<ModalBackButtonProps> = ({
   const [buttonState, setButtonState] = useState<boolean>(false);
 
   useEffect(() => {
-    setButtonState(selectedCategory !== subtitle);
+    setButtonState(selectedCategory !== "all work");
   }, [selectedCategory]);
 
   return (

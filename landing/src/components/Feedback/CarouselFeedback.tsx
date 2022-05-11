@@ -14,22 +14,15 @@ import LeftArrow from "../../../public/leftArrow";
 import RightArow from "../../../public/rightArrow";
 import Feedback from "./Feedback";
 import { useOnScreen } from "../../hooks/useOneScreen";
+import { feedbackArr } from "../../utils/variables";
 import * as StyledThisComp from "../../styles/Feedback.styled";
 import params from "../../mock/FeedbackSwiperParams";
-import { useQueryClient } from "react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { IDataResponse } from "../../types/Admin/Response.types";
 
 SwiperCore.use([Navigation, Autoplay]);
 
 const CarouselFeedback: FC = () => {
   const feedbackRef = useRef(null);
   const isFeedbackOnScreen = useOnScreen(feedbackRef);
-
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.FeedbackBlock;
 
   const [swiper, setSwiper] = useState<SwipperType>();
 
@@ -49,34 +42,20 @@ const CarouselFeedback: FC = () => {
     }
   }, [swiper, isFeedbackOnScreen, isBeenInitSlideScroll]);
 
-  let feedbacks, renderSliderSlides;
-  if (data?.feedBacks) {
-    feedbacks = data.feedBacks;
-    renderSliderSlides = [...feedbacks].reverse().map(
-      (
-        {
-          name,
-          text,
-          // link = ,
-          companyName,
-          role,
-          stars,
-        },
-        idx
-      ) => (
-        <SwiperSlide key={idx}>
-          <FeedbackCard
-            name={name}
-            description={text}
-            company={companyName}
-            link={"https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/"}
-            rates={stars}
-            position={role}
-          />
-        </SwiperSlide>
-      )
-    );
-  }
+  const renderSliderSlides = [...feedbackArr]
+    .reverse()
+    .map(({ name, description, link, company, position, rates }, idx) => (
+      <SwiperSlide key={idx}>
+        <FeedbackCard
+          name={name}
+          description={description}
+          company={company}
+          link={link}
+          rates={rates}
+          position={position}
+        />
+      </SwiperSlide>
+    ));
 
   return (
     <StyledThisComp.FeedbackContainer>
@@ -84,7 +63,7 @@ const CarouselFeedback: FC = () => {
         <StyledThisComp.FeedbackRow>
           <Swiper {...params} onSwiper={(swiper) => setSwiper(swiper)}>
             <Navigationwrapper>
-              <Feedback title={data?.subtitle} subtitle={data?.text3} />
+              <Feedback />
               <ArrowContainer>
                 <div className="swiper-button-prev">
                   <LeftArrow />

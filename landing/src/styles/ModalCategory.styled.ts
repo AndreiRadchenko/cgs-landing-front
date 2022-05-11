@@ -240,9 +240,7 @@ export const ProjectContainer = styled.div`
 `;
 
 export const ProjectImg = styled.div`
-  position: relative;
-  height: 100%;
-  width: 100%;
+  height: fit-content;
 `;
 
 export const ProjectSpecifyTechnologyContainer = styled.div`

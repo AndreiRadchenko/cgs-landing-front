@@ -10,7 +10,7 @@ import AddLogoFrame from "./AddLogoFrame";
 import LogoElement from "./LogoElement";
 
 interface ILocalState {
-  images: { url: string }[];
+  images: IImage[];
 }
 
 interface IRenderProps {

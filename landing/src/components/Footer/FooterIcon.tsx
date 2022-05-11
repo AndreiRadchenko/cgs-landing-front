@@ -13,12 +13,7 @@ const FooterIcon = ({ icoUrl, href }: Props) => {
     <Link href={href}>
       <a target="_blank">
         <IconContainer>
-          <ImagePreview
-            src={icoUrl}
-            layout="fill"
-            objectFit="contain"
-            alt={icoUrl}
-          />
+          <ImagePreview src={icoUrl} layout="fill" alt={icoUrl} />
         </IconContainer>
       </a>
     </Link>

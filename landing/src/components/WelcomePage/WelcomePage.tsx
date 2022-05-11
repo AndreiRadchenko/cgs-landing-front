@@ -9,7 +9,7 @@ import { IWelcomePageProps } from "./types";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
-import { SplitBrackets } from "../../utils/splitBrackets";
+import { SplitBrackets, splitBrackets } from "../../utils/splitBrackets";
 
 const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
   const queryClient = useQueryClient();
@@ -20,9 +20,7 @@ const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
   return (
     <>
       <StyledThisComp.BodyDescriptionWrapper>
-        <StyledThisComp.BodyTitle>
-          <SplitBrackets text={data?.title} />
-        </StyledThisComp.BodyTitle>
+        <StyledThisComp.BodyTitle>{data?.title}</StyledThisComp.BodyTitle>
         <StyledThisComp.BodySubtitle>
           <SplitBrackets text={data?.text} />
         </StyledThisComp.BodySubtitle>
@@ -40,9 +38,7 @@ const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
 
         <StyledThisComp.WrapperBgImg>
           <ImagePreview
-            src={data?.image.url}
-            width="1000px"
-            height="800px"
+            src={mainLogoIMG} // here
             alt={"main logo big image"}
             priority={true}
           />

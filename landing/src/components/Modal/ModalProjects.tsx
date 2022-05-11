@@ -4,7 +4,6 @@ import useModalNavigation from "../../hooks/useModalNavigation";
 import ModalBackButton from "./ModalBackButton";
 
 interface IModalProjectsProps {
-  subtitle: string;
   isOpen: boolean;
   selectedCategory: string;
   onToggleModalHandler: () => void;
@@ -13,7 +12,6 @@ interface IModalProjectsProps {
 }
 
 const ModalProjects: FC<IModalProjectsProps> = ({
-  subtitle,
   isOpen,
   onToggleModalHandler,
   selectedCategory,
@@ -30,7 +28,6 @@ const ModalProjects: FC<IModalProjectsProps> = ({
       <StyledThisComp.ModalWrapper>
         <StyledThisComp.ModalRow>
           <ModalBackButton
-            subtitle={subtitle}
             onToggleModalHandler={onToggleModalHandler}
             selectedCategory={selectedCategory}
             closeModalHandler={closeModalHandler}

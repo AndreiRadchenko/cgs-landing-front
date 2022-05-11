@@ -4,18 +4,9 @@ import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import ImagePreview from "../Image/ImagePreview";
 import { IYesBeginProps } from "./types";
-import { IDataResponse } from "../../types/Admin/Response.types";
-import { useQueryClient } from "react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { SplitBrackets } from "../../utils/splitBrackets";
 
 const YesBegin = ({ clickHandler }: IYesBeginProps) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
-
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.BuildRocketBlock;
 
   const handleClick = () => {
     setIsClicked(true);
@@ -23,19 +14,18 @@ const YesBegin = ({ clickHandler }: IYesBeginProps) => {
     setTimeout(() => clickHandler(), 4000);
   };
 
-  const { subtitle, text, button } = { ...data };
-
   return (
     <Styles.Container>
       <Styles.Title>
-        <SplitBrackets text={subtitle} />
+        And remember: that’s the only beginning of one pleasant trip <br /> to
+        the stratosphere :)
       </Styles.Title>
       <Styles.SubTitle>
-        <SplitBrackets text={text} />
+        Do you want to build a rocket with CGS-team?
       </Styles.SubTitle>
       <Styles.ButtonContainer>
         <BaseButton onClick={isClicked ? undefined : handleClick}>
-          <ButtonTextWrapper fontSize="1.8em">{button}</ButtonTextWrapper>
+          <ButtonTextWrapper fontSize="1.8em">yes! begin!</ButtonTextWrapper>
         </BaseButton>
       </Styles.ButtonContainer>
       <Styles.Circle isClicked={isClicked}>

@@ -33,8 +33,7 @@ const Category: FC<ICategoryProps> = ({
           <StyledThisComp.IconWrapperSpecialization>
             <ImagePreview
               src={url}
-              height={75}
-              width={75}
+              placeholder={"blur"}
               alt={`icon alt ${title} specialization`}
             />
           </StyledThisComp.IconWrapperSpecialization>
