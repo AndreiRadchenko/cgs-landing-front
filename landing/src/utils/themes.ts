@@ -43,6 +43,7 @@ const themes = {
         vistaco: "1.1em",
         tertiary: "1.2em",
         primary: "1em",
+        aboutUsCardText: "1.3em",
         linkText: "1.4em",
         oneAndHalf: "1.5em",
         buttonText: "1.5em",
