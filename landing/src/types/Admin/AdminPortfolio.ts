@@ -2,6 +2,7 @@ export interface IPortfolioReview {
   category: string;
   image: { url: string } | null;
   text: string;
+  link: string;
   title: string;
   _id?: string;
   button: string;

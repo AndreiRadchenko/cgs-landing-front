@@ -43,6 +43,7 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
     role: values.role,
     text: values.text,
   };
+  console.log(values);
 
   return (
     <Form>

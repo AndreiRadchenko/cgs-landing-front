@@ -1,9 +1,5 @@
 import React, { FC } from "react";
 import * as StyledCategory from "../../styles/ModalCategory.styled";
-import {
-  modalNavigationRoutesNames,
-  projectsModalArr,
-} from "../../utils/variables";
 import ModalCategoryAllWorkCard from "./ModalCategoryAllWorkCard";
 import { IAllCategoriesModalProps } from "../../types/ModalCategory.types";
 
@@ -38,16 +34,17 @@ const ModalAllWorksCategory: FC<IAllCategoriesModalProps> = ({
         </StyledCategory.NavigationWrapper>
       </StyledCategory.NavPanel>
       <StyledCategory.CategoryProjectsContainer>
-        {projectsModalArr.map(({ url, title, link, description, category }) => (
-          <ModalCategoryAllWorkCard
-            key={title}
-            url={url}
-            link={link}
-            title={title}
-            description={description}
-            category={category}
-          />
-        ))}
+        {reviews &&
+          reviews.map(({ image, title, button, text, category }) => (
+            <ModalCategoryAllWorkCard
+              key={title}
+              url={image && image.url}
+              link={button}
+              title={title}
+              description={text}
+              category={[category]}
+            />
+          ))}
       </StyledCategory.CategoryProjectsContainer>
     </StyledCategory.Container>
   );

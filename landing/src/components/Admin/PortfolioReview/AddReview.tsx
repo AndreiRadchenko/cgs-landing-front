@@ -7,6 +7,7 @@ import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+import { IImage } from "../../../types/Admin/Admin.types";
 
 interface IAddReviewProps {
   categories: string[];
@@ -30,7 +31,7 @@ const AddReview = ({ categories, setIsReady, newFlag }: IAddReviewProps) => {
   };
 
   const deleteFunc = async () => (await deleteFunction)();
-  const uploadFunc = (image: any) => uploadFunction(image);
+  const uploadFunc = (image: IImage) => uploadFunction(image);
 
   return (
     <div>

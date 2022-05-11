@@ -21,6 +21,8 @@ const Portfolio = () => {
 
   const submitForm = async (values: IPortfolioResponse) => {
     document.body.style.cursor = "wait";
+    console.log(values);
+
     await mutateAsync(values);
     await refetch();
     document.body.style.cursor = "auto";

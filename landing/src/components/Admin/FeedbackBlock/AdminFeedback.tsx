@@ -38,7 +38,7 @@ const AdminFeedback = ({
       </Styled.AdminDeleteTextThin>
 
       <Styled.AdminEditIcon onClick={trigger}>
-        <Image src={isNewFeedback ? edit : close} />
+        <Image src={isNewFeedback ? edit : close} alt={"new feedback"} />
       </Styled.AdminEditIcon>
     </Styled.AdminFeedbackFrame>
   );

@@ -17,7 +17,6 @@ const ModalBlockSpecifyTechnology: FC<IModalProjectCardProps> = ({
         <ImagePreview
           src={url}
           alt={"alt image card"}
-          placeholder="blur"
           quality={100}
           objectFit={"cover"}
           layout={"fill"}

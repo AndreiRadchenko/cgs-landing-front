@@ -13,7 +13,9 @@ const AboutUs = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const illustrationRef = useRef<HTMLDivElement>(null);
-  const data = queryClient.getQueryData<IDataResponse>(queryKeys.getFullHomePage)?.SubtitleBlock;
+  const data = queryClient.getQueryData<IDataResponse>(
+    queryKeys.getFullHomePage
+  )?.SubtitleBlock;
 
   const onScroll = () => {
     const elTop = illustrationRef?.current?.getBoundingClientRect().top || 0;
@@ -35,11 +37,9 @@ const AboutUs = () => {
 
   return (
     <StyledThisComp.AboutUsContainer>
-      <StyledThisComp.AboutUsTitle>
-        {data?.title}
-      </StyledThisComp.AboutUsTitle>
+      <StyledThisComp.AboutUsTitle>{data?.title}</StyledThisComp.AboutUsTitle>
       <StyledThisComp.AboutUsWrapper>
-        {aboutUsContainerVars.map(({ url, description, text }) => ( // here
+        {aboutUsContainerVars.map(({ url, description, text }) => (
           <AboutUsCard
             key={description}
             url={url}

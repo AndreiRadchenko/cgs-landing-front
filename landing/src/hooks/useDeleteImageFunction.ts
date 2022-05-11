@@ -10,14 +10,11 @@ const useDeleteImageFunction = async (
   key = queryKeys.GetFullPage
 ) => {
   const queryClient = new QueryClient();
-  const { values: data, handleSubmit } = useFormikContext<IDataResponse>();
+  const { handleSubmit } = useFormikContext<IDataResponse>();
 
   const { mutate } = useMutation(queryKeys.deleteImage, (url: string) =>
     adminGlobalService.deleteImage({
-      data: {
-        url,
-        data: data!,
-      },
+      url,
     })
   );
 

@@ -1,7 +1,7 @@
 import {
   IDataCareersResponse,
   ITicket,
-  IForm,
+  IFormBlock,
 } from "../../../types/Admin/Response.types";
 
 export const createNewData = (
@@ -9,7 +9,7 @@ export const createNewData = (
   currentTicket: number,
   isNewTicket: boolean
 ) => {
-  const form: IForm = JSON.parse(JSON.stringify(values.form));
+  const form: IFormBlock = JSON.parse(JSON.stringify(values.form));
   let url, vacancy, ticket: ITicket;
   const tickets = values.tickets;
 

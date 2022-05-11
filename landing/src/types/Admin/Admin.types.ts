@@ -78,10 +78,7 @@ export interface IImage {
 }
 
 export interface IDeleteImageData {
-  data: {
-    url: string;
-    data: IDataResponse;
-  };
+  url: string;
 }
 
 export interface CareersProps {
