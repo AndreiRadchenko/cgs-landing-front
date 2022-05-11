@@ -1,41 +1,38 @@
 import React, { useMemo } from "react";
-import { ProjectsListType } from "../types/ModalCategory.types";
+import { useQueryClient } from "react-query";
+// import { ProjectsListType } from "../types/ModalCategory.types";
 import ModalAllWorksCategory from "../components/ModalComponents/ModalAllWorksCategory";
-import ModalWebCategory from "../components/ModalComponents/ModalWebCategory";
-import ModalMobileCategory from "../components/ModalComponents/ModalMobileCategory";
-import ModalBlockChainCategory from "../components/ModalComponents/ModalBlockChainCategory";
-import ModalServerCategory from "../components/ModalComponents/ModalServerCategory";
+import Modal from "../components/ModalComponents/Modal";
+import { IPortfolioResponse } from "../types/Admin/AdminPortfolio";
+import { queryKeys } from "../consts/queryKeys";
 
 const useModalNavigation = (
   currentNavigation: string,
   onSetNewCategory: (categoryName: string) => void
 ) => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IPortfolioResponse>(
+    queryKeys.getPortfolio
+  );
+  const { subtitle, categories, reviews } = { ...data };
+
   return useMemo(() => {
-    switch (currentNavigation) {
-      case ProjectsListType.seeAllWorks:
-        return (
-          <ModalAllWorksCategory
-            title={"all work"}
-            onSetNewCategory={onSetNewCategory}
-          />
-        );
-      case ProjectsListType.web:
-        return <ModalWebCategory title={ProjectsListType.web} />;
-      case ProjectsListType.mobile:
-        return <ModalMobileCategory title={ProjectsListType.mobile} />;
-      case ProjectsListType.blockchain:
-        return <ModalBlockChainCategory title={ProjectsListType.blockchain} />;
-      case ProjectsListType.server:
-        return <ModalServerCategory title={ProjectsListType.server} />;
-      default:
-        return (
-          <ModalAllWorksCategory
-            title={"all work"}
-            onSetNewCategory={onSetNewCategory}
-          />
-        );
-    }
-  }, [currentNavigation]);
+    let currentCategory = subtitle || "All work";
+    categories?.map((category) => {
+      if (currentNavigation === category) {
+        currentCategory = category;
+      }
+    });
+
+    return currentCategory === subtitle && reviews ? (
+      <ModalAllWorksCategory
+        title={subtitle || ""}
+        onSetNewCategory={onSetNewCategory}
+      />
+    ) : (
+      <Modal title={currentCategory} />
+    );
+  }, [currentNavigation, categories, subtitle, onSetNewCategory, reviews]);
 };
 
 export default useModalNavigation;

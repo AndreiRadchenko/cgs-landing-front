@@ -20,6 +20,9 @@ export const PartnerImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100px;
+  height: 53px;
+  position: relative;
 
   &:nth-child(6n) {
     margin-right: 0;

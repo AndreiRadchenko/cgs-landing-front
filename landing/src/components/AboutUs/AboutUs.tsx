@@ -39,12 +39,12 @@ const AboutUs = () => {
     <StyledThisComp.AboutUsContainer>
       <StyledThisComp.AboutUsTitle>{data?.title}</StyledThisComp.AboutUsTitle>
       <StyledThisComp.AboutUsWrapper>
-        {aboutUsContainerVars.map(({ url, description, text }) => (
+        {data?.elements.map((el) => (
           <AboutUsCard
-            key={description}
-            url={url}
-            text={text}
-            description={description}
+            key={el.text}
+            url={el.image.url}
+            text={`${el.text.split(":")[1]}:`}
+            description={`${el.text.split(":")[0]}`}
           />
         ))}
       </StyledThisComp.AboutUsWrapper>
@@ -69,9 +69,11 @@ const AboutUs = () => {
       >
         <StyledThisComp.Wrapper>
           <ImagePreview
-            src={illustrationIMG} // here
-            placeholder={"blur"}
+            src={data?.image.url}
+            // placeholder={"blur"}
             alt={"illustration image technology"}
+            width="130px"
+            height="150px"
           />
         </StyledThisComp.Wrapper>
       </StyledThisComp.IllustrationWrapper>
@@ -80,10 +82,3 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
-
-// elements: (3) [{…}, {…}, {…}]
-// firstText2: "<h2>"
-// image: {url: 'https://landing-cgs.s3.amazonaws.com/60700a3b-e030-481e-a13e-4ebebc28c3a9.png'}
-// secondText2: "</h2>"
-// text3: "Bug-free code, juicy architecture, codebase optimisation, up-to-date maintenance, outstanding clear communication and fluent English rolled into one. Imagined that? You don't even need to imagine this with CGS-team, just see for real!"
-// title: "3 theses about us"

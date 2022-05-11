@@ -3,7 +3,7 @@ import * as Styled from "../../../../styles/AdminPage";
 import { IMenuProps } from "./dropDownTypes";
 
 const MenuElementsRender = ({ menu, setValue, setIsDropped }: IMenuProps) => {
-  const select = () => (i: string) => {
+  const select = (i: string) => () => {
     setValue!(i);
     setIsDropped!(false);
   };
@@ -12,7 +12,7 @@ const MenuElementsRender = ({ menu, setValue, setIsDropped }: IMenuProps) => {
     <Styled.AdminDropDownMenuList>
       {menu!.map((i, ind) => (
         <Styled.AdminDropDownMenuElement
-          onClick={select}
+          onClick={select(i)}
           key={`dropElement${ind}`}
         >
           {i}

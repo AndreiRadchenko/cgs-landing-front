@@ -42,8 +42,8 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
     companyName: values.companyName,
     role: values.role,
     text: values.text,
+    link: values.link,
   };
-  console.log(values);
 
   return (
     <Form>

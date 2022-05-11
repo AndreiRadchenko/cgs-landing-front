@@ -13,9 +13,7 @@ const useDeleteImageFunction = async (
   const { handleSubmit } = useFormikContext<IDataResponse>();
 
   const { mutate } = useMutation(queryKeys.deleteImage, (url: string) =>
-    adminGlobalService.deleteImage({
-      url,
-    })
+    adminGlobalService.deleteImage(url)
   );
 
   const deleteImageFunction = (localState?: IImage) => {

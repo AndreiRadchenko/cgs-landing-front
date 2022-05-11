@@ -14,6 +14,7 @@ export const initAdmin = {
 };
 
 export const feedbackInit = {
+  link: "",
   companyName: "",
   role: "",
   text: "",
@@ -27,7 +28,7 @@ export const newReviewInit = {
   title: "",
   text: "",
   button: "",
-}
+};
 
 export enum ROUTE_KEYS {
   AdminPage = "AdminPage",
@@ -35,5 +36,5 @@ export enum ROUTE_KEYS {
   AdminCareers = "AdminCareers",
   AdminPartners = "AdminPartners",
   AdminSettings = "AdminSettings",
-  AdminVacancy = "/Admin/AdminVacancy"
+  AdminVacancy = "/Admin/AdminVacancy",
 }

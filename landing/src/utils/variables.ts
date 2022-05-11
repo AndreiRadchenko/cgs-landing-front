@@ -559,3 +559,10 @@ export const careersCardArr = [
     subFooter: "CGS-team",
   },
 ];
+
+export const howWeWorkColor: ("blue" | "orange" | "green")[] = [
+  "blue",
+  "orange",
+  "green",
+  "blue",
+];

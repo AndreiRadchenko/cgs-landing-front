@@ -17,7 +17,12 @@ const AboutUsCard: FC<IAboutUsCardProps> = ({ url, description, text }) => {
         className={description !== "quantity" ? "columnDescription" : ""}
         delay={delay}
       >
-        <ImagePreview src={url} alt={`about us icon ${description}`} />
+        <ImagePreview
+          src={url}
+          alt={`about us icon ${description}`}
+          width={description !== "quantity" ? "290px" : "232px"}
+          height={description !== "quantity" ? "240px" : "240px"}
+        />
       </StyledThisComp.WrapperAboutUSIMG>
 
       <StyledThisComp.CardDescriptionWrapper

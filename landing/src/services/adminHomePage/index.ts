@@ -16,8 +16,8 @@ export class AdminHomePageService {
   public uploadImage(data: any): Promise<{ url: string } | void> {
     return this.httpService.post("api/upload", data);
   }
-  public deleteImage(data: IDeleteImageData) {
-    return this.httpService.delete("api/upload", data);
+  public deleteImage(url: string) {
+    return this.httpService.delete("api/upload", { data: { url } });
   }
   public getPortfolio() {
     return this.httpService.get("api/portfolio");

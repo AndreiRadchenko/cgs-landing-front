@@ -1,15 +1,35 @@
 import React, { useState } from "react";
 import * as StyledThisComp from "../../styles/Projects.styled";
-import { categoryThemesVars } from "../../utils/variables";
 import Category from "../Category/Category";
 import ButtonSeeAllWorks from "../../utils/Buttons/ButtonSeeAllWorks";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import themes from "../../utils/themes";
 import ModalProjects from "../Modal/ModalProjects";
+import { useQueryClient } from "react-query";
+import { queryKeys } from "../../consts/queryKeys";
+import { IDataResponse } from "../../types/Admin/Response.types";
+import { IPortfolioResponse } from "../../types/Admin/AdminPortfolio";
 
 const Projects = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
+
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IDataResponse>(
+    queryKeys.getFullHomePage
+  )?.CardsBlock;
+  const portfolioData = queryClient.getQueryData<IPortfolioResponse>(
+    queryKeys.getPortfolio
+  );
+
+  const blank = { subtitle: "", text: "", image: { url: "" } };
+  if (
+    JSON.stringify(data?.cards[2]) !== JSON.stringify(blank) &&
+    JSON.stringify(data?.cards[4]) !== JSON.stringify(blank)
+  ) {
+    data?.cards.splice(2, 0, blank);
+    data?.cards.splice(4, 0, blank);
+  }
 
   const setNewCategoryHandler = (categoryName: string) => {
     setSelectedCategory(categoryName);
@@ -21,7 +41,7 @@ const Projects = () => {
   };
 
   const seeAllWorksHandler = () => {
-    setSelectedCategory("all work");
+    setSelectedCategory(portfolioData?.subtitle || "");
     setIsOpen(!isOpen);
   };
 
@@ -31,44 +51,46 @@ const Projects = () => {
   };
 
   const backModalHandler = () => {
-    if (selectedCategory === "all work") {
+    if (selectedCategory === portfolioData?.subtitle) {
       setIsOpen(false);
       setSelectedCategory("");
     } else {
-      setSelectedCategory("all work");
+      setSelectedCategory(portfolioData?.subtitle || "");
     }
   };
-
+  const text = data?.text4.split("development");
   return (
     <StyledThisComp.ProjectsContainer>
       <StyledThisComp.ProjectsCategoryRow>
         <StyledThisComp.ProjectTitleWrapper>
           <StyledThisComp.ProjectsTitle>
-            We provide end-to-end{" "}
+            {text && text[0]}
             <StyledThisComp.ProjectsTitleDecoration>
               development
               <StyledThisComp.DecorationTitle />
             </StyledThisComp.ProjectsTitleDecoration>{" "}
-            using the MERN stack, which means our team adores Javascript.
-            Furthermore, innovative ideas and new challenges are our passion.
+            {text && text[1]}
           </StyledThisComp.ProjectsTitle>
           <ButtonSeeAllWorks onClick={seeAllWorksHandler}>
             <ButtonTextWrapper fontSize={themes.primary.font.size.linkText}>
-              see all work
+              {data?.button}
             </ButtonTextWrapper>
           </ButtonSeeAllWorks>
         </StyledThisComp.ProjectTitleWrapper>
-        {categoryThemesVars.map(({ title, description, url }, idx) => (
-          <Category
-            key={idx}
-            title={title}
-            description={description}
-            onOpenModalHandler={openModalHandler}
-            url={url}
-          />
-        ))}
+        {data?.cards.map(({ subtitle, text, image }, idx) => {
+          return (
+            <Category
+              key={idx}
+              title={subtitle}
+              description={text}
+              onOpenModalHandler={openModalHandler}
+              url={image.url}
+            />
+          );
+        })}
       </StyledThisComp.ProjectsCategoryRow>
       <ModalProjects
+        subtitle={portfolioData?.subtitle || "All work"}
         isOpen={isOpen}
         onSetNewCategory={setNewCategoryHandler}
         selectedCategory={selectedCategory}

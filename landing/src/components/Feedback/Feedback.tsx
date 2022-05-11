@@ -1,15 +1,20 @@
 import React, { FC } from "react";
 import * as StyledThisComp from "../../styles/Feedback.styled";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
-const Feedback: FC = () => {
+interface IFeedbackProps {
+  title?: string;
+  subtitle?: string;
+}
+
+const Feedback: FC<IFeedbackProps> = ({ title, subtitle }) => {
   return (
     <StyledThisComp.FeedbackContainer>
       <StyledThisComp.FeedbackSectionTitle>
-        feedback
+        <SplitBrackets text={title} />
       </StyledThisComp.FeedbackSectionTitle>
       <StyledThisComp.FeedbackSectionSubTitle>
-        We are proud of what our clients say about us. These words sound even
-        louder than any others!
+        <SplitBrackets text={subtitle} />
       </StyledThisComp.FeedbackSectionSubTitle>
     </StyledThisComp.FeedbackContainer>
   );
