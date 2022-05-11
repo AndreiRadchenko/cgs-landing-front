@@ -32,12 +32,7 @@ const AdminLogosBlock = () => {
   const queryClient = useQueryClient();
   const { values, handleSubmit } = useFormikContext<IDataResponse>();
   const { mutate } = useMutation(queryKeys.deleteImage, (url: string) =>
-    adminGlobalService.deleteImage({
-      data: {
-        url,
-        data: values,
-      },
-    })
+    adminGlobalService.deleteImage(url)
   );
 
   const deleteLogo = (id: number) => {
