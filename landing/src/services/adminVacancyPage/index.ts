@@ -3,11 +3,13 @@ import { IResponse } from "../../types/Admin";
 import { IDataVacancyResponse } from "../../types/Admin/Response.types";
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
+import { validTokenGlobal } from "../validToken";
 
 export class AdminHCareersPageService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
-  public getFullPage() {
-    return this.httpService.get<IResponse>("api/vacancy");
+  public async getFullPage() {
+    const token = await validTokenGlobal.validToken();
+    if (token) return this.httpService.get<IResponse>("api/vacancy");
   }
   public updateFullPage(data: IDataVacancyResponse) {
     return this.httpService.put("api/vacancy", data);
