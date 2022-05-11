@@ -15,4 +15,6 @@ export const queryKeys = {
   getFullHomePage: "getFullHomePage",
   getCareerPage: "getFullCareerPage",
   getVacancyPage: "getFullVacancyPage",
+  // valid
+  validToken: "validToken"
 };
