@@ -20,11 +20,9 @@
     },
     font: {
       family: {
-        barlow: "'Barlow', sans-serif",
-        roboto: "'Roboto', sans-serif",
+        goldman: "'Goldman', sans-serif",
+        montserrat: "'Montserrat', sans-serif",
         sourceCode: "'Source Code Pro', monospace",
-        mulish: "'Roboto', sans-serif",
-        gilroy: "'Gilroy', sans-serif",
       },
       weight: {
         light: 300,
