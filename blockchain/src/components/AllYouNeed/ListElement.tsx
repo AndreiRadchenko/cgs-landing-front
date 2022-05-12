@@ -1,8 +1,8 @@
 import React from "react";
-import * as Styled from "../../styles/allYouNeed";
+import { Dot } from "../../styles/usefullStyled";
 
 const ListElement = ({text} :{text: string}) => {
-  return <li><Styled.Dot />{text}</li>
+  return <li><Dot />{text}</li>
 };
 
 export default ListElement;

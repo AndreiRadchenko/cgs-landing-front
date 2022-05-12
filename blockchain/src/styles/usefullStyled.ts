@@ -4,6 +4,7 @@ import themes from "../utils/themes";
 export const TitlePlusContentBlock = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
+  margin-bottom: 9em;
 `;
 
 export const DefaultGrid = styled.div`
@@ -21,4 +22,14 @@ export const HeaderBig = styled.h2`
   font-size: 2.9em;
   width: fit-content;
   height: fit-content;
+`;
+
+export const Dot = styled.div`
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #90e745;
+  left: -4px;
+  margin-top: 0.5em;
 `;

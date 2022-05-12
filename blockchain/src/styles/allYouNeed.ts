@@ -35,13 +35,3 @@ export const TechList = styled.ul`
   list-style: none;
   color: #fff;
 `;
-
-export const Dot = styled.div`
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #90e745;
-  left: -4px;
-  margin-top: 0.5em;
-`;

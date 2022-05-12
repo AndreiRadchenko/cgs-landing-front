@@ -7,7 +7,6 @@ interface IButtonTextStyledProps {
 
 export const Page = styled.article`
   width: 1400px;
-  position: relative;
   margin: ${themes.primary.spacing.headerNavVertical} auto;
 
   @media ${themes.primary.media.onlyLaptop} {
@@ -43,7 +42,7 @@ export const Page = styled.article`
 export const ButtonText = styled.span.attrs(
   ({ fontSize }: IButtonTextStyledProps) => ({
     fontSize: fontSize,
-  }),
+  })
 )`
   position: relative;
   z-index: 3;
@@ -53,7 +52,6 @@ export const ButtonText = styled.span.attrs(
   width: 100%;
   height: 100%;
   font-weight: ${themes.primary.font.weight.extraBold};
-  font-family: ${themes.primary.font.family.gilroy};
   cursor: pointer;
   color: ${themes.primary.colors.primary};
 
