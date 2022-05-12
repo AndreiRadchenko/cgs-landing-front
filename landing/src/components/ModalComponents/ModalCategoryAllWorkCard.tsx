@@ -16,8 +16,8 @@ const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
         <ImagePreview
           src={url}
           alt={"alt image card"}
-          layout="fill"
-          objectFit="contain"
+          width="400px"
+          height="275px"
         />
       </StyledCategory.ProjectImg>
 
