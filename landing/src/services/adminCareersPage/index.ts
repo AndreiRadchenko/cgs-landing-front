@@ -6,9 +6,8 @@ import { validTokenGlobal } from "../validToken";
 
 export class AdminCareersService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
-  public async getCareersPage() {
-    const token = await validTokenGlobal.validToken();
-    if (token) return this.httpService.get<IResponse>("api/career ");
+  public getCareersPage() {
+    return this.httpService.get<IResponse>("api/career ");
   }
   public updateCareersPage(data: IDataCareersResponse) {
     return this.httpService.put("api/career ", data);
