@@ -159,7 +159,6 @@ export interface IInfoBlock {
   points: IPointsData[];
   text2: { title: string };
   worker: IWorkerData;
-  id: string;
 }
 
 export interface IOfferBlock {
