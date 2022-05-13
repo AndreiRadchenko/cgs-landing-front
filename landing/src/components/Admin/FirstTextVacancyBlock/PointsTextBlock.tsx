@@ -7,19 +7,21 @@ interface IPointsInputsProps {
   state: IPointsData[];
   name: string;
   onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
+  page: number;
 }
 
 const renderInputs = ({
   state,
   name,
   onChangeFunction,
+  page
 }: IPointsInputsProps) => (
   <div>
     {state.map((el: IPointsData, ind: number) => (
       <AdminInput
         minRows={2}
         key={el._id}
-        name={`${name}.points[${ind}].point`}
+        name={`${name}${name === "info" ? `.${page}` : ""}.points[${ind}].point`}
         value={el.point}
         onChange={onChangeFunction}
       />
@@ -31,10 +33,11 @@ const PointsTextBlock = ({
   state,
   onChangeFunction,
   name,
+  page
 }: IPointsInputsProps) => {
   return (
     <FieldArray name="ContactFormBlock">
-      {() => renderInputs({ state, onChangeFunction, name })}
+      {() => renderInputs({ state, onChangeFunction, name, page })}
     </FieldArray>
   );
 };
