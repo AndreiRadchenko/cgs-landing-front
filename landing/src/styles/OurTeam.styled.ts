@@ -214,42 +214,12 @@ export const DecorationTextTitle = styled(Decoration)`
   z-index: -1;
 
   &.philosophy {
-    left: 16%;
-    width: 5.4em;
+    left: 3.5rem;
+    width: 6em;
   }
 
   &.goal {
-    bottom: 18%;
-    left: 11%;
-    width: 5em;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    &.philosophy {
-      left: 18%;
-      width: 5.4em;
-    }
-
-    &.goal {
-      bottom: 18%;
-      left: 13%;
-      width: 5em;
-    }
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    &.philosophy {
-      left: 20%;
-    }
-    &.goal {
-      left: 20%;
-    }
-  }
-  @media ${themes.primary.media.maxMobile} {
-    &.philosophy {
-      left: 22%;
-    }
-    &.goal {
-      left: 22%;
-    }
+    left: 3.7rem;
+    width: 5.5em;
   }
 `;

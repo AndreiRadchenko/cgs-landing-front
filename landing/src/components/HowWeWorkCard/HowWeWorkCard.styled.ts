@@ -228,7 +228,7 @@ export const ContentTextWrapper = styled.div`
     max-width: 35rem;
     padding-right: 1em;
     line-height: 1.25em;
-    font-size: 1.3em;
+    font-size: 1.4em;
   }
 `;
 export const ContentText = styled.p`
@@ -238,7 +238,6 @@ export const ContentText = styled.p`
   animation-timing-function: linear;
   margin: 0;
   margin-top: 15px;
-  font-weight: ${themes.primary.font.weight.light};
 
   @media ${themes.primary.media.maxMobile} {
     line-height: 150%;

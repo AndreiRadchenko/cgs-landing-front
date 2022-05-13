@@ -27,8 +27,10 @@ const ModalAllWorksCategory: FC<IAllCategoriesModalProps> = ({
     <StyledCategory.Container>
       <StyledCategory.NavPanel>
         <StyledCategory.CategoryTitleWrapper>
-          <StyledCategory.CategoryName>{title}</StyledCategory.CategoryName>
-          <StyledCategory.DecorationTextAllTitle />
+          <div style={{ position: "relative", width: "fit-content" }}>
+            <StyledCategory.CategoryName>{title}</StyledCategory.CategoryName>
+            <StyledCategory.DecorationTextAllTitle />
+          </div>
           <StyledCategory.CategoryUnderline />
         </StyledCategory.CategoryTitleWrapper>
         <StyledCategory.NavigationWrapper>
@@ -47,7 +49,7 @@ const ModalAllWorksCategory: FC<IAllCategoriesModalProps> = ({
         {reviews &&
           reviews.map(({ image, title, button, text, category }) => (
             <ModalCategoryAllWorkCard
-              key={title}
+              key={`${category}.${title}`}
               url={image && image.url}
               link={button}
               title={title}
