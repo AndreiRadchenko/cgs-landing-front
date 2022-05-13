@@ -37,7 +37,7 @@ const CareersMainContent = () => {
 
   const submitForm = async (values: IDataCareersResponse) => {
     document.body.style.cursor = "wait";
-    const data = createNewData(values, ticket, isNewTicket);
+    const data = createNewData(values, ticket, isNewTicket, addVacancy);
     if (isNewTicket) setIsNewTicket(!isNewTicket);
     if (data) await mutateAsync(data);
     await refetch();

@@ -154,6 +154,7 @@ export interface IWorkerData {
 }
 
 export interface IInfoBlock {
+  id: string;
   text: { title: string; subtitle: string };
   points: IPointsData[];
   text2: { title: string };

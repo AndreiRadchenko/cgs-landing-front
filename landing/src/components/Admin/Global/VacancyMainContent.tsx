@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import TextVacancyBlock from "../FirstTextVacancyBlock";
 import VacancyContactBlock from "../VacancyContactBlock";
@@ -14,6 +14,7 @@ interface IVacancyProps {
   refetch: () => Promise<IVacancyProps>;
 }
 const VacancyMainContent = () => {
+  const [page, setPage] = useState(0);
   const { data, isLoading, refetch }: IVacancyProps = useQuery(
     queryKeys.VacancyFullPage,
     () => adminGlobalService.getFullPage()
@@ -43,7 +44,7 @@ const VacancyMainContent = () => {
               <Styled.AdminPaddedHeaderBlock>
                 <Styled.AdminHeader>Vacancy (info)</Styled.AdminHeader>
               </Styled.AdminPaddedHeaderBlock>
-              <TextVacancyBlock name="info" />
+              <TextVacancyBlock name="info" page={page} setPage={setPage} key={`SomeBlockOfVacancy${page}`} />
               <Styled.AdminBlockWithoutHeader>
                 <TextVacancyBlock name="offer" dark={true} />
               </Styled.AdminBlockWithoutHeader>
