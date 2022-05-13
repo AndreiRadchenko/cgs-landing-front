@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as StyledThisComp from "../../styles/AboutUs.styled";
-import { aboutUsContainerVars } from "../../utils/variables";
 import AboutUsCard from "../AboutUsCard/AboutUsCard";
-import illustrationIMG from "../../../public/illustration-technology.png";
 import ImagePreview from "../Image/ImagePreview";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";

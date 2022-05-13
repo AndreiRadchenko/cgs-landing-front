@@ -42,9 +42,8 @@ const Careers = ({
   ticket,
   setTicket,
 }: ICareers) => {
-  const { values, handleChange, handleSubmit } = useFormikContext<
-    IDataCareersResponse
-  >();
+  const { values, handleChange, handleSubmit } =
+    useFormikContext<IDataCareersResponse>();
 
   const { mutateAsync } = useMutation(
     queryKeys.deleteTicketAndVacancy,

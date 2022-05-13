@@ -17,10 +17,10 @@ const Modal: FC<IModalCategoryProps> = ({ title }) => {
     <StyledCategory.Container>
       <StyledCategory.NavPanel>
         <StyledCategory.CategoryTitleWrapper>
-          <div style={{ position: "relative", width: "fit-content" }}>
+          <StyledCategory.DecorationWrapper>
             <StyledCategory.CategoryName>{title}</StyledCategory.CategoryName>
             <StyledCategory.DecorationTextBlockChainTitle />
-          </div>
+          </StyledCategory.DecorationWrapper>
           <StyledCategory.CategoryUnderline />
         </StyledCategory.CategoryTitleWrapper>
       </StyledCategory.NavPanel>

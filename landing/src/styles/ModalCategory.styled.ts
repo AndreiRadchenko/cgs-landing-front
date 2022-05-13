@@ -368,3 +368,8 @@ export const ProjectLinkText = styled.span`
     font-size: 1em;
   }
 `;
+
+export const DecorationWrapper = styled.div`
+  position: "relative";
+  width: "fit-content";
+`;
