@@ -7,6 +7,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
 interface ITicketData {
+  id: string;
   image: { url: string };
   vacancy: string;
 }
@@ -21,8 +22,9 @@ const Careers: FC = () => {
         <SplitBrackets text={data?.subtitle} />
       </Styled.MainTitle>
       <Styled.TicketWrapper>
-        {data?.tickets.map(({ image, vacancy }: ITicketData) => (
+        {data?.tickets.map(({ image, vacancy, id }: ITicketData) => (
           <CareersTicket
+            id={id}
             vacancy={vacancy}
             imgUrl={image.url}
             route={true}

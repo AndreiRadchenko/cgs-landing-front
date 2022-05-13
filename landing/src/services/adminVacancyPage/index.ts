@@ -7,8 +7,8 @@ import { validTokenGlobal } from "../validToken";
 
 export class AdminHCareersPageService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
-  public getFullPage() {
-    return this.httpService.get<IResponse>("api/vacancy");
+  public getFullPage(id: string) {
+    return this.httpService.get<IResponse>(`api/vacancy/${id}`);
   }
   public updateFullPage(data: IDataVacancyResponse) {
     return this.httpService.put("api/vacancy", data);

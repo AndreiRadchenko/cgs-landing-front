@@ -158,6 +158,7 @@ export interface IInfoBlock {
   points: IPointsData[];
   text2: { title: string };
   worker: IWorkerData;
+  id: string;
 }
 
 export interface IOfferBlock {
@@ -185,7 +186,7 @@ export interface IContactBlock {
 }
 
 export interface IDataVacancyResponse {
-  info: IInfoBlock;
+  info: IInfoBlock[];
   offer: IOfferBlock;
   contact: IContactBlock;
 }

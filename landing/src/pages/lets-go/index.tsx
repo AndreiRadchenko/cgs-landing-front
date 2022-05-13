@@ -11,9 +11,10 @@ import { adminGlobalService } from "../../services/adminVacancyPage";
 import { VacancyProps } from "../../types/Admin//AdminVacancy.types";
 
 const LetsGo: NextPage = () => {
+  const id = localStorage.getItem("vacancyId") || "";
   const { data, isLoading }: VacancyProps = useQuery(
     queryKeys.getVacancyPage,
-    () => adminGlobalService.getFullPage()
+    () => adminGlobalService.getFullPage(id)
   );
   const { contact } = { ...data };
   return (
