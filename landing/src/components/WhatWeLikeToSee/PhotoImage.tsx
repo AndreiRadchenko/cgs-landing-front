@@ -21,7 +21,7 @@ const PhotoImage: FC<IPhotoImage> = ({ data }) => {
       </Styles.LikeToSeePhotoFrame>
       <Styles.LikeToSeePhotoPerson>
         <Image
-          src={data.image.url}
+          src={data.image?.url || photoPerson}
           objectFit={"cover"}
           alt={"Photo Person"}
           width="410px"

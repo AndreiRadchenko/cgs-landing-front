@@ -97,7 +97,7 @@ const TextVacancyBlock = ({ name, dark, page, setPage }: ITextVacancyBlock) => {
         <Styled.AdminBlockWrapper>
           <div>
             <PhotoBlockDashed
-              photo={imageBlock.image}
+              photo={imageBlock.image?.url ? imageBlock.image : null}
               deleteFlag={true}
               uploadFunction={handleUpload}
               deleteFunction={() => handleDelete(imageBlock)}

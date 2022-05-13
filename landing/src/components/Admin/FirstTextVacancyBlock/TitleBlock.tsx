@@ -20,7 +20,7 @@ const TitleBlock = ({
         return (
           <AdminInput
             minRows={2}
-            key={`inputContact${ind}`}
+            key={`inputContact${ind}.${page}`}
             name={`${name}${name === "info" ? `.${page}` : ""}.${name === "info" ? "text." : ""}${i[0]}`}
             value={i[1]}
             onChange={handleChange}

@@ -20,7 +20,7 @@ const renderInputs = ({
     {state.map((el: IPointsData, ind: number) => (
       <AdminInput
         minRows={2}
-        key={el._id}
+        key={`${ind}.someKeyOfInputElement.${page}`}
         name={`${name}${name === "info" ? `.${page}` : ""}.points[${ind}].point`}
         value={el.point}
         onChange={onChangeFunction}
