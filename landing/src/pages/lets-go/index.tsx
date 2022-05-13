@@ -15,7 +15,7 @@ const LetsGo: NextPage = () => {
   useEffect(() => {
     id = localStorage.getItem("vacancyId") || "";
   }, []);
-  
+
   const { data, isLoading }: VacancyProps = useQuery(
     queryKeys.getVacancyPage,
     () => adminGlobalService.getFullPage(id)

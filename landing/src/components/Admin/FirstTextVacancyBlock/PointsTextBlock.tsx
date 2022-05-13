@@ -14,14 +14,16 @@ const renderInputs = ({
   state,
   name,
   onChangeFunction,
-  page
+  page,
 }: IPointsInputsProps) => (
   <div>
     {state.map((el: IPointsData, ind: number) => (
       <AdminInput
         minRows={2}
         key={`${ind}.someKeyOfInputElement.${page}`}
-        name={`${name}${name === "info" ? `.${page}` : ""}.points[${ind}].point`}
+        name={`${name}${
+          name === "info" ? `.${page}` : ""
+        }.points[${ind}].point`}
         value={el.point}
         onChange={onChangeFunction}
       />
@@ -33,7 +35,7 @@ const PointsTextBlock = ({
   state,
   onChangeFunction,
   name,
-  page
+  page,
 }: IPointsInputsProps) => {
   return (
     <FieldArray name="ContactFormBlock">

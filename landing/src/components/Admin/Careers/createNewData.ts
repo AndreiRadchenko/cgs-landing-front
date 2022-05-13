@@ -8,7 +8,7 @@ export const createNewData = (
   values: IDataCareersResponse,
   currentTicket: number,
   isNewTicket: boolean,
-  addVacancy: (id: string) => void,
+  addVacancy: (id: string) => void
 ) => {
   const form: IFormBlock = JSON.parse(JSON.stringify(values.form));
   let url, vacancy, ticket: ITicket;

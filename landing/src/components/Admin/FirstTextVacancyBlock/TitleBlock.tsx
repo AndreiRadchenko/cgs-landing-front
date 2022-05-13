@@ -12,7 +12,7 @@ const TitleBlock = ({
   titleTextBlock,
   handleChange,
   name,
-  page
+  page,
 }: ITitleBlockProps) => {
   return (
     <>
@@ -21,7 +21,9 @@ const TitleBlock = ({
           <AdminInput
             minRows={2}
             key={`inputContact${ind}.${page}`}
-            name={`${name}${name === "info" ? `.${page}` : ""}.${name === "info" ? "text." : ""}${i[0]}`}
+            name={`${name}${name === "info" ? `.${page}` : ""}.${
+              name === "info" ? "text." : ""
+            }${i[0]}`}
             value={i[1]}
             onChange={handleChange}
           />

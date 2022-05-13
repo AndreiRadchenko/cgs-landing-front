@@ -44,7 +44,12 @@ const VacancyMainContent = () => {
               <Styled.AdminPaddedHeaderBlock>
                 <Styled.AdminHeader>Vacancy (info)</Styled.AdminHeader>
               </Styled.AdminPaddedHeaderBlock>
-              <TextVacancyBlock name="info" page={page} setPage={setPage} key={`SomeBlockOfVacancy${page}`} />
+              <TextVacancyBlock
+                name="info"
+                page={page}
+                setPage={setPage}
+                key={`SomeBlockOfVacancy${page}`}
+              />
               <Styled.AdminBlockWithoutHeader>
                 <TextVacancyBlock name="offer" dark={true} />
               </Styled.AdminBlockWithoutHeader>
