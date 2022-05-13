@@ -3,7 +3,7 @@ import * as Styled from "./CareersTicket.styled";
 import Link from "next/link";
 
 interface ITicketProps {
-  id: string;
+  id?: string;
   vacancy: string;
   imgUrl: string;
   route: boolean;
