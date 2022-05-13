@@ -24,7 +24,8 @@ export const createNewData = (
   }
 
   if (url && vacancy && !isNewTicket) {
-    ticket = { image: { url }, vacancy };
+    const id = `${Math.random() * 1000000}`;
+    ticket = { image: { url }, vacancy, id };
     tickets.push(ticket);
   }
 

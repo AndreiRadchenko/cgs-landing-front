@@ -1,6 +1,5 @@
 import * as StyledThisComp from "../../styles/Body.styled";
 import React from "react";
-import mainLogoIMG from "../../../public/mainLogo.png";
 import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import backImg from "../../../public/back-button.png";

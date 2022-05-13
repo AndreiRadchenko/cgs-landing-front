@@ -49,6 +49,7 @@ const Careers = ({
       handleSubmit();
     }
   };
+  console.log(values);
 
   return (
     <Styled.AdminPaddedBlock theme="light">
@@ -93,7 +94,12 @@ const Careers = ({
                 </TicketsLabel>
               ))}
           </TicketsContainer>
-          <TicketsButton type="submit" onClick={() => handleSubmit}>
+          <TicketsButton
+            type="submit"
+            onClick={() => {
+              handleSubmit();
+            }}
+          >
             {isNewTicket ? "Edit ticket" : "Add ticket"}
           </TicketsButton>
         </CareersContainer>
@@ -106,11 +112,11 @@ const Careers = ({
 
             <CareersTicket
               route={false}
-              vacancy={values.tickets[ticket].vacancy}
+              vacancy={values.tickets[ticket]?.vacancy}
               imgUrl={
                 isNewTicket && values.url
                   ? values.url
-                  : values.tickets[ticket].image.url
+                  : values.tickets[ticket]?.image?.url
               }
             />
 

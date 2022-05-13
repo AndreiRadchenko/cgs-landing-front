@@ -30,6 +30,11 @@ const CareersMainContent = () => {
     (data: IDataCareersResponse) => adminCareersService.updateCareersPage(data)
   );
 
+  const { mutateAsync: addVacancy } = useMutation(
+    queryKeys.UpdateCareersPage,
+    (id: string) => adminCareersService.addVacancy(id)
+  );
+
   const submitForm = async (values: IDataCareersResponse) => {
     document.body.style.cursor = "wait";
     const data = createNewData(values, ticket, isNewTicket);

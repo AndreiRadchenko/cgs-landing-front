@@ -9,6 +9,9 @@ export class AdminCareersService {
   public getCareersPage() {
     return this.httpService.get<IResponse>("api/career ");
   }
+  public addTicket(id: string) {
+    return this.httpService.post(`api/vacancy/${id}`, {});
+  }
   public updateCareersPage(data: IDataCareersResponse) {
     return this.httpService.put("api/career ", data);
   }

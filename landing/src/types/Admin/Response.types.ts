@@ -109,6 +109,7 @@ export interface IDataResponse {
 // Careers
 
 export interface ITicket {
+  id: string;
   vacancy: string;
   image: { url: string };
   _id?: string;

@@ -32,7 +32,7 @@ const CareersTicket: FC<ITicketProps> = ({
       </Styled.ImageWrapper>
       <Styled.CareersWrapper>
         <Styled.CareersHeader>
-          <Styled.Logo src="/logo.png" />
+          <Styled.Logo src="/logo.svg" />
           <Styled.HeaderText>M2M142989575714</Styled.HeaderText>
         </Styled.CareersHeader>
         <Styled.TicketText>BOARDING PASS: CGS 2022</Styled.TicketText>
