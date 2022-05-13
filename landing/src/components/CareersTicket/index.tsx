@@ -3,15 +3,20 @@ import * as Styled from "./CareersTicket.styled";
 import Link from "next/link";
 
 interface ITicketProps {
+  id?: string;
   vacancy: string;
   imgUrl: string;
   route: boolean;
 }
 const CareersTicket: FC<ITicketProps> = ({
+  id,
   vacancy,
   imgUrl,
   route,
 }: ITicketProps) => {
+  const handleClick = () => {
+    localStorage.setItem("vacancyId", `${id}`);
+  };
   return (
     <Styled.TicketWrapper>
       <Styled.ImageWrapper>
@@ -21,7 +26,7 @@ const CareersTicket: FC<ITicketProps> = ({
         <Styled.RocketImg imgUrl={imgUrl}>
           {route ? (
             <Link href="/lets-go">
-              <a>
+              <a onClick={handleClick}>
                 <Styled.Button content="Lets go!" />
               </a>
             </Link>
@@ -32,7 +37,7 @@ const CareersTicket: FC<ITicketProps> = ({
       </Styled.ImageWrapper>
       <Styled.CareersWrapper>
         <Styled.CareersHeader>
-          <Styled.Logo src="/logo.png" />
+          <Styled.Logo src="/logo.svg" />
           <Styled.HeaderText>M2M142989575714</Styled.HeaderText>
         </Styled.CareersHeader>
         <Styled.TicketText>BOARDING PASS: CGS 2022</Styled.TicketText>

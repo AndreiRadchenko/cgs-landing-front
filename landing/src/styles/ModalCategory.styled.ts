@@ -65,6 +65,9 @@ export const CategoryUnderline = styled.div`
 export const NavigationWrapper = styled.div`
   display: flex;
   align-items: center;
+  @media ${themes.primary.media.maxMobile} {
+    margin-right: 0.5rem;
+  }
 `;
 
 export const CategoryRouteName = styled.span`
@@ -90,9 +93,9 @@ export const CategoryRouteName = styled.span`
     margin-right: 0;
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.5em;
-    margin-right: 1em;
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1.3em;
+    margin-right: 0.5em;
   }
 `;
 
@@ -124,10 +127,10 @@ export const DecorationTextAllTitle = styled(Decoration)`
   height: 1.5em;
   top: 45%;
   left: -5%;
-  width: 7.4em;
+  width: 110%;
   fill: ${themes.primary.colors.septenary};
 
-  @media ${themes.primary.media.minLaptop} {
+  /* @media ${themes.primary.media.minLaptop} {
     width: 10.5em;
   }
 
@@ -145,7 +148,7 @@ export const DecorationTextAllTitle = styled(Decoration)`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 5.5em;
-  }
+  } */
 `;
 
 export const DecorationTextWebTitle = styled(Decoration)`
@@ -193,11 +196,11 @@ export const DecorationTextBlockChainTitle = styled(Decoration)`
   height: 1.5em;
   top: 45%;
   left: -3.5%;
-  width: 13em;
+  width: 110%;
   fill: ${themes.primary.colors.septenary};
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 11em;
+    left: -3%;
   }
 `;
 

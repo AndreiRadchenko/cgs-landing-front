@@ -8,6 +8,10 @@ import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import PointsTextBlock from "./PointsTextBlock";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import TitleBlock from "./TitleBlock";
+import AdminCarousel from "../Global/AdminImageCarousel";
+import { useQuery } from "react-query";
+import { queryKeys } from "../../../consts/queryKeys";
+import { adminCareersService } from "../../../services/adminCareersPage";
 
 interface IImageBlock {
   image: { url: string };
@@ -17,9 +21,11 @@ interface IImageBlock {
 interface ITextVacancyBlock {
   name: string;
   dark?: boolean;
+  page?: number;
+  setPage?: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const TextVacancyBlock = ({ name, dark }: ITextVacancyBlock) => {
+const TextVacancyBlock = ({ name, dark, page, setPage }: ITextVacancyBlock) => {
   const { values, handleChange } = useFormikContext<IDataVacancyResponse>();
   let imageBlock: IImageBlock,
     pointsBlockArr,
@@ -27,17 +33,23 @@ const TextVacancyBlock = ({ name, dark }: ITextVacancyBlock) => {
     bottomTextBlock,
     bottomPhotoText;
   if (name === "info") {
-    imageBlock = values.info.worker;
-    pointsBlockArr = values.info.points;
-    titleTextBlock = values.info.text;
-    bottomTextBlock = values.info.text2;
-    bottomPhotoText = values.info.worker.title;
+    imageBlock = values.info[page!].worker;
+    pointsBlockArr = values.info[page!].points;
+    titleTextBlock = values.info[page!].text;
+    bottomTextBlock = values.info[page!].text2;
+    bottomPhotoText = values.info[page!].worker.title;
   } else {
     imageBlock = values.offer;
     pointsBlockArr = values.offer.points;
     titleTextBlock = { title: values.offer.title };
     bottomTextBlock = values.offer.text;
   }
+  const { data } = useQuery(queryKeys.GetCareersPage, () =>
+    adminCareersService.getCareersPage()
+  );
+  const tickets = data?.tickets;
+  const headerName = tickets?.filter((i) => i.id === values.info[page!]?.id)[0]
+    ?.vacancy;
 
   const deleteImageFunction = useDeleteImageFunction();
   const uploadImageFunction = useUploadImageFunction(imageBlock);
@@ -50,14 +62,22 @@ const TextVacancyBlock = ({ name, dark }: ITextVacancyBlock) => {
     <Styled.AdminPaddedBlock theme={dark ? "dark" : undefined}>
       <Styled.AdminHalfGrid>
         <Styled.AdminBlockWrapper>
+          {name === "info" && (
+            <>
+              <Styled.AdminSubTitle>Ticket: {headerName}</Styled.AdminSubTitle>
+              <br />
+            </>
+          )}
           <Styled.AdminSubTitle>Text</Styled.AdminSubTitle>
           <TitleBlock
+            page={page!}
             titleTextBlock={titleTextBlock}
             name={name}
             handleChange={handleChange}
           />
           <Styled.AdminSubTitle>Points</Styled.AdminSubTitle>
           <PointsTextBlock
+            page={page!}
             state={pointsBlockArr}
             name={name}
             onChangeFunction={handleChange}
@@ -67,7 +87,9 @@ const TextVacancyBlock = ({ name, dark }: ITextVacancyBlock) => {
             header="Text"
             onChangeFunction={handleChange}
             inputValue={bottomTextBlock.title}
-            name={`${name}.${name === "info" ? "text2." : "text."}title`}
+            name={`${name}${name === "info" ? `.${page}` : ""}.${
+              name === "info" ? "text2." : "text."
+            }title`}
             minRows={4}
           />
         </Styled.AdminBlockWrapper>
@@ -75,16 +97,23 @@ const TextVacancyBlock = ({ name, dark }: ITextVacancyBlock) => {
         <Styled.AdminBlockWrapper>
           <div>
             <PhotoBlockDashed
-              photo={imageBlock.image}
+              photo={imageBlock.image?.url ? imageBlock.image : null}
               deleteFlag={true}
               uploadFunction={handleUpload}
               deleteFunction={() => handleDelete(imageBlock)}
             />
-            {bottomPhotoText && (
+            {(name === "info" || bottomPhotoText) && (
               <Styled.AdminInput
-                name={`${name}.worker.title`}
+                name={`${name}.${page}.worker.title`}
                 value={bottomPhotoText}
                 onChange={handleChange}
+              />
+            )}
+            {name === "info" && (
+              <AdminCarousel
+                page={page!}
+                setPage={setPage!}
+                length={values.info.length}
               />
             )}
           </div>
