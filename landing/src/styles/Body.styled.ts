@@ -78,7 +78,7 @@ export const CodeDescription = styled.span`
 
 export const WrapperBgImg = styled.div`
   position: absolute;
-  right: -6%;
+  right: -1%;
   top: 5%;
   width: 65%;
   transform: rotate(1.5deg);
@@ -89,7 +89,7 @@ export const WrapperBgImg = styled.div`
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
-    right: -10%;
+    right: -7.3%;
     top: 10%;
   }
 
