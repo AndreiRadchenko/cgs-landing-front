@@ -1,0 +1,119 @@
+export interface IFact {
+  id: string;
+  title: string;
+  text: string;
+  iconFile: IIconFile;
+  showOnHomePage: boolean;
+}
+
+export interface IStep {
+  id: string,
+  title: string,
+  text: string;
+  iconFile: IIconFile;
+  showOnPartnersPage: boolean;
+  placeOnPartnersPage: number;
+}
+
+export interface IStepToEarn {
+  id: string,
+  text: string;
+  showOnPartnersPage: boolean;
+  placeOnPartnersPage: number;
+}
+export interface IIconFile {
+  id: string;
+  name: string;
+  extension: string;
+  mimeType: string;
+  size: number;
+  s3FileKey: string;
+  s3FileUrl: string;
+  uploadedAt: string;
+}
+
+export interface ISlogan {
+  id: string;
+  title: string;
+  text: string;
+  selected: boolean;
+}
+
+export interface IWorker {
+  id: string;
+  name: string;
+  position: string;
+  text: string;
+  imageFile: IIconFile;
+  showOnHomePage: boolean;
+  placeOnHomePage: number;
+}
+
+export interface IProject {
+  id: string;
+  name: string;
+  countryCode: string;
+  shortDescription: string;
+  fullDescription: string;
+  technologies: ITechnology[];
+  link: string;
+  imageFile: IIconFile;
+  showOnHomePage: boolean;
+}
+
+export interface ITechnology {
+  id: string;
+  name: string;
+  category: string;
+  iconFile: IIconFile;
+  showOnHomePage: boolean;
+}
+
+export interface IFeaturedTechnology {
+  id: string;
+  name: string;
+  text: string;
+  imageFile: IIconFile;
+  label: string;
+}
+
+export interface ITestimonial {
+  id: string;
+  customerName: string;
+  countryCode: string | undefined;
+  companyName: string;
+  customerPosition: string;
+  feedback: string;
+  platforms: IPlatform[];
+}
+
+export interface IPlatform {
+  id?: string;
+  type: string;
+  rate: number;
+  link: string;
+}
+
+export interface IArticle {
+  id: string;
+  title: string;
+  author: string;
+  imageFile: IIconFile;
+  content: string;
+  tags: ITag[];
+  views: 13;
+  createdAt: string;
+}
+
+export interface ITag {
+  id: string;
+  name: string;
+}
+
+export interface IGallery {
+  id: string;
+  title: string;
+  text: string;
+  imageFiles: IIconFile[];
+  showOnHomePage: boolean;
+}

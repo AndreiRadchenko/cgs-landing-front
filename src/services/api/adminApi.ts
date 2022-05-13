@@ -1,0 +1,93 @@
+import axios from "axios";
+
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+axios.defaults.params = {};
+axios.defaults.headers = {
+  "Content-Type": "application/json",
+};
+
+const API_ROUTES = {
+  facts: "/fact/",
+  slogan: "/slogan/",
+  worker: "/worker/",
+  project: "/project/",
+  article: "/article/",
+  technology: "/technology/",
+  featuredTechnology: "/featured-technology/",
+  testimonial: "/testimonial/",
+  blogTag: "/blog-tag/",
+  file: "/file/",
+  fileUpload: "/file/upload",
+  step: "/step/",
+  stepToEarn: "/step-to-earn/",
+  gallery: "/gallery/"
+};
+
+export const login = async (user) => {
+  const { data } = await axios.post("/auth/login", user);
+
+  return data.response.accessToken;
+};
+
+export const getAdminData = async (route: string) => {
+  try {
+    const { data } = await axios.get(API_ROUTES[route]);
+    const response = data.response;
+    return response;
+  } catch (error) {
+    console.log("error", { error });
+    return [];
+  }
+};
+
+export const createAdminData = async (route: string, obj: any) => {
+  try {
+    const { data } = await axios.post(API_ROUTES[route], JSON.stringify(obj));
+    const response = data.response;
+    return response;
+  } catch (error) {
+    console.log("error", { error });
+    return [];
+  }
+};
+
+export const uploadImage = async (file: any) => {
+  try {
+    let formData = new FormData();
+
+    formData.append("file", file);
+    const { data } = await axios.post("/file/upload", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    const response = data.response;
+    return response;
+  } catch (error) {
+    console.log("error", { error });
+    return [];
+  }
+};
+
+export const updateAdminData = async (route: string, id: string, obj: any) => {
+  try {
+    const { data } = await axios.put(
+      API_ROUTES[route] + id,
+      JSON.stringify(obj)
+    );
+    const response = data.response;
+    return response;
+  } catch (error) {
+    console.log("error", { error });
+    return [];
+  }
+};
+
+export const deleteAdminData = async (route: string, id: string) => {
+  try {
+    const { data } = await axios.delete(API_ROUTES[route] + id);
+    const response = data.response;
+    return response;
+  } catch (error) {
+    console.log("error", { error });
+    return [];
+  }
+};
