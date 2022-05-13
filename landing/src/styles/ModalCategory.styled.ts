@@ -229,7 +229,6 @@ export const ProjectContainer = styled.div`
   }
 
   @media ${themes.primary.media.minTablet} {
-    width: 43%;
     height: 47.125em;
   }
 
@@ -241,7 +240,6 @@ export const ProjectContainer = styled.div`
 
 export const ProjectImg = styled.div`
   position: relative;
-  height: 100%;
   width: 100%;
 `;
 
@@ -288,7 +286,7 @@ export const SpecifyContentImgWrapper = styled.div`
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     width: 60%;
-    height: 21.875em;
+    height: 23.875em;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
