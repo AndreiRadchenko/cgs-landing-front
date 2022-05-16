@@ -3,8 +3,9 @@ import themes from "../utils/themes";
 
 export const TitlePlusContentBlock = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  margin-bottom: 9em;
+  grid-template-columns: 1fr 2.9fr;
+  gap: 1em;
+  margin-top: 9em;
 `;
 
 export const DefaultGrid = styled.div`
@@ -22,6 +23,7 @@ export const HeaderBig = styled.h2`
   font-size: 2.9em;
   width: fit-content;
   height: fit-content;
+  margin: 0.6em 0 2em 0;
 `;
 
 export const Dot = styled.div`

@@ -35,3 +35,9 @@ export const TechList = styled.ul`
   list-style: none;
   color: #fff;
 `;
+
+export const ImagesGrid = styled.div`
+  display: grid;
+  grid-template-columns: 3.3fr 2fr 3.1fr;
+  gap: 1.2em;
+`

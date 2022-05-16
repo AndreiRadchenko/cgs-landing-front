@@ -2,34 +2,19 @@ import React from "react";
 import * as UsefullStyled from "../../styles/usefullStyled";
 import * as Styled from "../../styles/evenMore";
 import Image from "next/image";
-import cat from "../../../public/cosmoCat.png";
-import planets from "../../../public/planets.png";
+import blocks from "../../../public/blocks.png";
+import BlocksRender from "./BlocksRender";
 
 const EvenMore = () => {
   return (
     <UsefullStyled.TitlePlusContentBlock>
-      <div>
+      <Styled.LeftSideBlock>
         <UsefullStyled.HeaderBig>even more</UsefullStyled.HeaderBig>
-
-        <Styled.ImagesPositioning>
-          <Styled.CatPositioning>
-            <Image src={cat} />
-            <Styled.PlanetsPositioning>
-              <Image src={planets} />
-            </Styled.PlanetsPositioning>
-          </Styled.CatPositioning>
-        </Styled.ImagesPositioning>
-
-      </div>
-      
-      <div>
-        <Styled.FactsList>
-          <Styled.GreenLineHorizontal>
-            some
-          </Styled.GreenLineHorizontal>
-        </Styled.FactsList>
-
-      </div>
+        <Styled.BlockImageWrapper>
+          <Image src={blocks} />
+        </Styled.BlockImageWrapper>
+      </Styled.LeftSideBlock>
+      <BlocksRender />
     </UsefullStyled.TitlePlusContentBlock>
   );
 };

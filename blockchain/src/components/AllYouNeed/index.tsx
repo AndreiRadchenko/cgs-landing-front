@@ -18,50 +18,50 @@ const AllYouNeed = () => {
     <UsefullStyled.TitlePlusContentBlock>
       <UsefullStyled.HeaderBig>all you need</UsefullStyled.HeaderBig>
       <div>
-      <Styled.TechnologiesGrid>
-        <div>
-          <Styled.GreenSubheader>technologies:</Styled.GreenSubheader>
-          <Styled.HalfGrid>
-            <div>
+        <Styled.TechnologiesGrid>
+          <div>
+            <Styled.GreenSubheader>technologies:</Styled.GreenSubheader>
+            <Styled.HalfGrid>
+              <div>
+                <Styled.GreenLineBlock>
+                  <Styled.TechList>
+                    {firstHalf.map((i, ind) => (
+                      <ListElement text={i} key={`leftSideListElem${ind}`} />
+                    ))}
+                  </Styled.TechList>
+                </Styled.GreenLineBlock>
+              </div>
+              <div>
+                <Styled.GreenLineBlock>
+                  <Styled.TechList>
+                    {secondHalf.map((i, ind) => (
+                      <ListElement text={i} key={`rightSideListElem${ind}`} />
+                    ))}
+                  </Styled.TechList>
+                </Styled.GreenLineBlock>
+              </div>
+            </Styled.HalfGrid>
+          </div>
+
+          <div>
+            <Styled.GreenSubheader>services:</Styled.GreenSubheader>
+            <UsefullStyled.DefaultGrid>
               <Styled.GreenLineBlock>
                 <Styled.TechList>
-                  {firstHalf.map((i, ind) => (
-                    <ListElement text={i} key={`leftSideListElem${ind}`} />
+                  {services.map((i, ind) => (
+                    <ListElement text={i} key={`servicesListElem${ind}`} />
                   ))}
                 </Styled.TechList>
               </Styled.GreenLineBlock>
-            </div>
-            <div>
-              <Styled.GreenLineBlock>
-                <Styled.TechList>
-                  {secondHalf.map((i, ind) => (
-                    <ListElement text={i} key={`rightSideListElem${ind}`} />
-                  ))}
-                </Styled.TechList>
-              </Styled.GreenLineBlock>
-            </div>
-          </Styled.HalfGrid>
-        </div>
+            </UsefullStyled.DefaultGrid>
+          </div>
+        </Styled.TechnologiesGrid>
 
-        <div>
-          <Styled.GreenSubheader>services:</Styled.GreenSubheader>
-          <UsefullStyled.DefaultGrid>
-            <Styled.GreenLineBlock>
-              <Styled.TechList>
-                {services.map((i, ind) => (
-                  <ListElement text={i} key={`servicesListElem${ind}`} />
-                ))}
-              </Styled.TechList>
-            </Styled.GreenLineBlock>
-          </UsefullStyled.DefaultGrid>
-        </div>
-      </Styled.TechnologiesGrid>
-
-      <div>
-        <Image src={first} />
-        <Image src={second} />
-        <Image src={last} />
-      </div>
+        <Styled.ImagesGrid>
+          <Image src={first} />
+          <Image src={second} />
+          <Image src={last} />
+        </Styled.ImagesGrid>
       </div>
     </UsefullStyled.TitlePlusContentBlock>
   );
