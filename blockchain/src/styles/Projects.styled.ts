@@ -11,6 +11,24 @@ export const ProjectItemWrapper = styled.div`
   margin: auto;
   width: 100%;
   height: fit-content;
+  &.rightGradient {
+    img {
+      mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1) 70%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+  }
+  &.leftGradient {
+    img {
+      mask-image: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 1) 70%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+  }
 `;
 
 export const HoverBlock = styled.div``;

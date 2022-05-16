@@ -3,13 +3,20 @@ import React, { useState } from "react";
 import * as Styled from "../../styles/Projects.styled";
 
 interface IProjectProps {
+  ind: string;
   image: { url: any };
   title: string;
   link: string;
   description: string;
 }
 
-const ProjectItem = ({ image, title, link, description }: IProjectProps) => {
+const ProjectItem = ({
+  ind,
+  image,
+  title,
+  link,
+  description,
+}: IProjectProps) => {
   const [isVisible, setIsVisible] = useState(0);
 
   const handleOver = () => {
@@ -21,7 +28,9 @@ const ProjectItem = ({ image, title, link, description }: IProjectProps) => {
   };
 
   return (
-    <Styled.ProjectItemWrapper>
+    <Styled.ProjectItemWrapper
+      className={ind === "active" ? "" : `${ind}Gradient`}
+    >
       <Styled.HoverBlock onMouseOver={handleOver} onMouseLeave={handleLeave}>
         <Styled.ImageWrapper isVisible={isVisible}>
           <Image src={image.url} alt={title} />

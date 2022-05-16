@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useState } from "react";
 import * as Styled from "../../styles/Projects.styled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
@@ -54,11 +54,13 @@ const projectArr = [
 ];
 
 const ProjectCarousel = () => {
+  const [activeInd, setActiveInd] = useState(0);
+
   return (
     <Styled.CarouselWrapper>
       <Swiper
-        onSlideChangeTransitionStart={(slider) => {
-          console.log(slider);
+        onSlideChange={(slider) => {
+          setActiveInd(slider.realIndex);
         }}
         direction="horizontal"
         slidesPerView={3}
@@ -72,8 +74,15 @@ const ProjectCarousel = () => {
         modules={[Navigation]}
       >
         {projectArr.map(({ image, title, link, description }, idx) => (
-          <SwiperSlide key={idx}>
+          <SwiperSlide key={`${idx}-${activeInd}`}>
             <ProjectItem
+              ind={
+                idx === activeInd
+                  ? "left"
+                  : idx === (activeInd + 2) % projectArr.length
+                  ? "right"
+                  : "active"
+              }
               image={image}
               title={title}
               link={link}
