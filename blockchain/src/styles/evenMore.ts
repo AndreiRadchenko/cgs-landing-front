@@ -8,32 +8,32 @@ export const LeftSideBlock = styled.div`
 export const RightSideBlock = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 0.6em;
-  row-gap: 1em;
-  padding-top: 2em;
+  gap: ${themes.primary.spacing.horizontalGap};
+  row-gap: ${themes.primary.spacing.verticalGap};
+  padding-top: ${themes.primary.spacing.tertiary};
   position: relative;
 `;
 
 export const hoverBlock = styled.div`
   &: hover div{
     cursor: pointer;
-    border: 5px solid #90e645;
+    border: 5px solid ${themes.primary.colors.allGreen};
   }
 `;
 
 export const Block = styled.div`
   z-index: 1;
   display: flex;
-  background: #322262;
-  border: 1px solid #fff;
+  background: ${themes.primary.colors.purpleBack};
+  border: 1px solid ${themes.primary.colors.textColor};
   position: relative;
   justify-content: center;
   align-items: center;
   height: 10.5em;
-  font-size: 1.5em;
+  font-size: ${themes.primary.font.size.oneAndHalf};
   font-weight: 600;
   font-family: ${themes.primary.font.family.montserrat};
-  color: #fff;
+  color: ${themes.primary.colors.textColor};
   padding: 1.6em;
   white-space: pre-line;
   & p {
@@ -43,7 +43,7 @@ export const Block = styled.div`
 
 export const Number = styled.div`
   display: flex;
-  border: 1px solid #90e645;
+  border: 1px solid ${themes.primary.colors.allGreen};
   position: absolute;
   justify-content: center;
   align-items: center;
@@ -57,11 +57,11 @@ export const Number = styled.div`
 `;
 
 export const greenText = styled.span`
-  color: #90e645;
+  color: ${themes.primary.colors.allGreen};
 `;
 
 export const LineThrough = styled.div`
-  border-top: 1px solid #fff;
+  border-top: 1px solid ${themes.primary.colors.textColor};
   width: 100%;
   position: absolute;
   top: ${(props) => props.theme + "em"};

@@ -53,7 +53,6 @@ export const ButtonText = styled.span.attrs(
   height: 100%;
   font-weight: ${themes.primary.font.weight.extraBold};
   cursor: pointer;
-  color: ${themes.primary.colors.primary};
 
   ${(props) => css`
     font-size: ${props.fontSize};
@@ -70,7 +69,6 @@ export const Loading = styled.h2`
   align-items: center;
   justify-content: center;
   position: fixed;
-  background: ${themes.primary.colors.secondary};
   font-size: ${themes.primary.font.size.tertiary};
   left: 0;
   right: 0;

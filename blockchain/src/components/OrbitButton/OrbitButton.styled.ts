@@ -12,17 +12,17 @@ export const Button = styled.button`
   position: relative;
   cursor: pointer;
   text-transform: lowercase;
-  background: ${themes.primary.colors.buttonColor};
+  background: ${themes.primary.colors.allGreen};
   font-size: ${themes.primary.font.size.tertiary};
   font-weight: ${themes.primary.font.weight.bold};
   box-shadow: 0 0 0 0.625rem ${themes.primary.colors.purpleBack},
-    0 0 0 0.6875rem ${themes.primary.colors.buttonColor};
+    0 0 0 0.6875rem ${themes.primary.colors.allGreen};
 
   /* &:after {
     content: "";
     width: 0.375rem;
     height: 0.375rem;
-    background-color: ${themes.primary.colors.buttonColor};
+    background-color: ${themes.primary.colors.allGreen};
     position: absolute;
     top: 0;
     bottom: 0;
@@ -36,7 +36,7 @@ export const Button = styled.button`
     content: "";
     width: 0.375rem;
     height: 0.375rem;
-    background-color: ${themes.primary.colors.buttonColor};
+    background-color: ${themes.primary.colors.allGreen};
     position: absolute;
     top: 0;
     bottom: 0;

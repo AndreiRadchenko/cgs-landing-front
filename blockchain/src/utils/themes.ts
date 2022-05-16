@@ -2,8 +2,11 @@
   primary: {
     spacing: {
       small: "0.3em",
+      horizontalGap: "0.6em",
       primary: "0.8em",
+      verticalGap: "1em",
       septenary: "1.3em",
+      oneSix: "1.6em",
       tertiary: "2em",
       logo: "13em",
       headerNavVertical: "2.5em",
@@ -46,16 +49,19 @@
         linkText: "1.4em",
         oneAndHalf: "1.5em",
         buttonText: "1.5em",
+        greenSubheader: "1.6em",
         menuElement: "1.7em",
         secondary: "2em",
         quaternary: "2.6em",
+        bigHeader: "2.9em",
         bigTitle: "5rem",
       },
     },
     colors: {
       textColor: "#fff",
       purpleBack: "#322262",
-      buttonColor: "#90e745",
+      allGreen: "#90e745",
+      headerBorder: "#3a96fb"
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

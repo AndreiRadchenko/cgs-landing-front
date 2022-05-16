@@ -3,8 +3,8 @@ import themes from "../utils/themes";
 
 export const GreenSubheader = styled.h3`
   font-family: ${themes.primary.font.family.goldman};
-  color: #90e745;
-  font-size: 1.6em;
+  color: ${themes.primary.colors.allGreen};
+  font-size: ${themes.primary.font.size.greenSubheader};
 `;
 
 export const TechnologiesGrid = styled.div`
@@ -20,20 +20,20 @@ export const HalfGrid = styled.div`
 `;
 
 export const GreenLineBlock = styled.div`
-  border-left: 1px solid #90e745;
+  border-left: 1px solid ${themes.primary.colors.allGreen};
   display: flex;
   flex-direction: column;
-  margin: 1.6em 0;
+  margin: ${themes.primary.spacing.oneSix} 0;
 `;
 
 export const TechList = styled.ul`
   position: relative;
   padding: 0 0 0 1em;
   font-family: ${themes.primary.font.family.sourceCode};
-  font-size: 1.6em;
+  font-size: ${themes.primary.font.size.greenSubheader};
   margin: -0.7em 0 0 0;
   list-style: none;
-  color: #fff;
+  color: ${themes.primary.colors.textColor};
 `;
 
 export const ImagesGrid = styled.div`

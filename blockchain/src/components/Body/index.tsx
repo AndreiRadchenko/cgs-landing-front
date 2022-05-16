@@ -3,6 +3,7 @@ import { BodyContainer } from "../../styles/Body.styled";
 import AllYouNeed from "../AllYouNeed";
 import EvenMore from "../EvenMore";
 import HeaderNav from "../HeaderNav";
+import TheyTrustUs from "../TheyTrustUs";
 import WelcomeBlock from "../WelcomeBlock";
 
 function Body() {
@@ -12,6 +13,7 @@ function Body() {
       <WelcomeBlock />
       <AllYouNeed />
       <EvenMore />
+      <TheyTrustUs />
     </BodyContainer>
   );
 }
