@@ -33,6 +33,12 @@ export const FooterNav = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  & svg {
+    cursor: pointer;
+  }
+  & svg: hover g path{
+    fill: ${themes.primary.colors.allGreen};
+  }
 `;
 
 export const IconContainer = styled.div`

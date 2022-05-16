@@ -21,7 +21,7 @@ const Footer = () => {
       <Styled.FooterNav>
         <Styled.Email>sales.codegeneration@gmail.com</Styled.Email>
         {socialLinks.map((i) => (
-          <FooterIcon key={i.href} icoUrl={i.icoUrl} href={i.href} />
+          <FooterIcon key={i.href} Icon={i.Icon} href={i.href} />
         ))}
       </Styled.FooterNav>
     </Styled.Wrapper>

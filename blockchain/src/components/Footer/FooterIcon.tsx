@@ -1,24 +1,18 @@
 import React from "react";
 import Link from "next/link";
-import ImagePreview from "../Image/ImagePreview";
 import { IconContainer } from "../../styles/footer";
 
 type Props = {
-  icoUrl: any;
+  Icon: any;
   href: string;
 };
 
-const FooterIcon = ({ icoUrl, href }: Props) => {
+const FooterIcon = ({ Icon, href }: Props) => {
   return (
     <Link href={href}>
       <a target="_blank">
         <IconContainer>
-          <ImagePreview
-            src={icoUrl}
-            layout="fill"
-            objectFit="contain"
-            alt={icoUrl}
-          />
+          <Icon />
         </IconContainer>
       </a>
     </Link>
