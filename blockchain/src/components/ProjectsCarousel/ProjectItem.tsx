@@ -1,0 +1,36 @@
+﻿import Image from "next/image";
+import React, { useState } from "react";
+import * as Styled from "../../styles/Projects.styled";
+
+interface IProjectProps {
+  image: { url: any };
+  title: string;
+  link: string;
+  description: string;
+}
+
+const ProjectItem = ({ image, title, link, description }: IProjectProps) => {
+  const [isVisible, setIsVisible] = useState(0);
+
+  const handleOver = () => {
+    setIsVisible(1);
+  };
+
+  const handleLeave = () => {
+    setIsVisible(0);
+  };
+
+  return (
+    <Styled.ProjectItemWrapper>
+      <Styled.HoverBlock onMouseOver={handleOver} onMouseLeave={handleLeave}>
+        <Styled.ImageWrapper isVisible={isVisible}>
+          <Image src={image.url} alt={title} />
+        </Styled.ImageWrapper>
+        <Styled.PhotoText isVisible={isVisible}>{description}</Styled.PhotoText>
+      </Styled.HoverBlock>
+      <Styled.BottomTitle>{title}</Styled.BottomTitle>
+    </Styled.ProjectItemWrapper>
+  );
+};
+
+export default ProjectItem;
