@@ -1,0 +1,31 @@
+import React from "react";
+import * as Styled from "../../styles/footer";
+import OrbitButton from "../OrbitButton";
+import Image from "next/image";
+import cosmonaut from "../../../public/cosmonautFooter.png";
+import { socialLinks } from "../../utils/footerLinks";
+import FooterIcon from "./FooterIcon";
+
+const Footer = () => {
+  return (
+    <Styled.Wrapper>
+      <Styled.Header>
+        want to receive free audit & consultation <br /> from our technical
+        department?
+      </Styled.Header>
+      <OrbitButton>Book a meeting</OrbitButton>
+      <Styled.ImagePosition>
+        <Image src={cosmonaut} />
+      </Styled.ImagePosition>
+
+      <Styled.FooterNav>
+        <Styled.Email>sales.codegeneration@gmail.com</Styled.Email>
+        {socialLinks.map((i) => (
+          <FooterIcon key={i.href} icoUrl={i.icoUrl} href={i.href} />
+        ))}
+      </Styled.FooterNav>
+    </Styled.Wrapper>
+  );
+};
+
+export default Footer;

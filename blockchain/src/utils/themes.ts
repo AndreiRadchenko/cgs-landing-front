@@ -61,7 +61,7 @@
       textColor: "#fff",
       purpleBack: "#322262",
       allGreen: "#90e745",
-      headerBorder: "#3a96fb"
+      headerBorder: "#3a96fb",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",
