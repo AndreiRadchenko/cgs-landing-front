@@ -1,6 +1,5 @@
 import * as StyledThisComp from "../../styles/Body.styled";
 import React from "react";
-import mainLogoIMG from "../../../public/mainLogo.png";
 import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import backImg from "../../../public/back-button.png";
@@ -41,8 +40,8 @@ const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
         <StyledThisComp.WrapperBgImg>
           <ImagePreview
             src={data?.image.url}
-            width="1000px"
-            height="800px"
+            width={"1000px"}
+            height={"800px"}
             alt={"main logo big image"}
             priority={true}
           />

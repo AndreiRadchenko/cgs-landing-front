@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { ROUTE_KEYS } from "../../../consts";
 import * as Styled from "../../../styles/AdminPage";
-import logo from "./../../../../public/logo.png";
+import logo from "./../../../../public/logo.svg";
 import DropDownElement from "./DropDownElement";
 
 const AdminSidebar = () => {

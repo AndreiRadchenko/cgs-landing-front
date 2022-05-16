@@ -95,11 +95,11 @@ export const ImageContainer = styled("div")<ImageProps>`
   @media ${themes.primary.media.maxMobile} {
     width: 8em;
     height: 10em;
-    right: 17%;
+    right: 25%;
     bottom: 10%;
   }
-  /* @media ${themes.primary.media.maxLowScreenMobile} {
-    right: 17%;
-    bottom: 10%;
-  } */
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    right: 13%;
+    bottom: 19%;
+  }
 `;

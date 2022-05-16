@@ -1,11 +1,9 @@
 ﻿import React from "react";
-
 import Image from "next/image";
 import { useQueryClient } from "react-query";
 import * as Styles from "../../styles/WhatWeLikeToSee.styled";
 import PhotoImage from "./PhotoImage";
 import WhatWeLikeToSeeCard from "./WhatWeLikeToSeeCard";
-import { careersCardArr } from "../../utils/variables";
 import { IDataVacancyResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
@@ -22,16 +20,16 @@ const WhatWeLikeToSee = () => {
       {info && (
         <Styles.LikeToSeeItem>
           <Styles.LikeToSeePhotoContainer>
-            <PhotoImage data={info.worker} />
+            <PhotoImage data={info[0].worker} />
           </Styles.LikeToSeePhotoContainer>
           <Styles.LikeToSeeTextContainer>
             <Styles.LikeToSeeHeader>
-              <SplitBrackets text={info.text.title} />
+              <SplitBrackets text={info[0].text.title} />
             </Styles.LikeToSeeHeader>
             <WhatWeLikeToSeeCard
-              title={info.text.subtitle}
-              arrayOfRequirements={info.points}
-              text={info.text2.title}
+              title={info[0].text.subtitle}
+              arrayOfRequirements={info[0].points}
+              text={info[0].text2.title}
             />
           </Styles.LikeToSeeTextContainer>
         </Styles.LikeToSeeItem>

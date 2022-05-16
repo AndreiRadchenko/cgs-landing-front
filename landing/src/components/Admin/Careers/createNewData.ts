@@ -7,7 +7,8 @@ import {
 export const createNewData = (
   values: IDataCareersResponse,
   currentTicket: number,
-  isNewTicket: boolean
+  isNewTicket: boolean,
+  addVacancy: (id: string) => void
 ) => {
   const form: IFormBlock = JSON.parse(JSON.stringify(values.form));
   let url, vacancy, ticket: ITicket;
@@ -24,8 +25,10 @@ export const createNewData = (
   }
 
   if (url && vacancy && !isNewTicket) {
-    ticket = { image: { url }, vacancy };
+    const id = `${Math.random() * 1000000}`;
+    ticket = { image: { url }, vacancy, id };
     tickets.push(ticket);
+    addVacancy(id);
   }
 
   values.vacancy = "";

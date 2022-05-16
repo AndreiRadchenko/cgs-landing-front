@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useEffect } from "react";
 import * as StyledCommon from "../../styles/Page.styled";
 import WhatWeLikeToSee from "../../components/WhatWeLikeToSee/WhatWeLikeToSee";
 import Footer from "../../components/Footer/Footer";
@@ -11,9 +11,14 @@ import { adminGlobalService } from "../../services/adminVacancyPage";
 import { VacancyProps } from "../../types/Admin//AdminVacancy.types";
 
 const LetsGo: NextPage = () => {
+  let id: string;
+  useEffect(() => {
+    id = localStorage.getItem("vacancyId") || "";
+  }, []);
+
   const { data, isLoading }: VacancyProps = useQuery(
     queryKeys.getVacancyPage,
-    () => adminGlobalService.getFullPage()
+    () => adminGlobalService.getFullPage(id)
   );
   const { contact } = { ...data };
   return (

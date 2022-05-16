@@ -25,6 +25,9 @@ import {
   IconBox,
   DeleteBtn,
 } from "../../../styles/AdminCareersPage";
+import { useMutation } from "react-query";
+import { adminCareersService } from "../../../services/adminCareersPage";
+import { queryKeys } from "../../../consts/queryKeys";
 
 interface ICareers {
   isNewTicket: boolean;
@@ -42,12 +45,17 @@ const Careers = ({
   const { values, handleChange, handleSubmit } =
     useFormikContext<IDataCareersResponse>();
 
+  const { mutateAsync } = useMutation(
+    queryKeys.deleteTicketAndVacancy,
+    (id: string) => adminCareersService.deleteTicketAndVacancy(id)
+  );
+
   const deleteTicket = () => {
-    if (isNewTicket) {
-      values.tickets.splice(ticket, 1);
-      setTicket(0);
-      handleSubmit();
-    }
+    const id = values.tickets[ticket].id;
+    mutateAsync(id);
+    values.tickets.splice(ticket, 1);
+    setTicket(0);
+    handleSubmit();
   };
 
   return (
@@ -93,36 +101,49 @@ const Careers = ({
                 </TicketsLabel>
               ))}
           </TicketsContainer>
-          <TicketsButton type="submit" onClick={() => handleSubmit}>
+          <TicketsButton
+            type="submit"
+            onClick={() => {
+              handleSubmit();
+            }}
+          >
             {isNewTicket ? "Edit ticket" : "Add ticket"}
           </TicketsButton>
         </CareersContainer>
 
-        <TicketBox>
-          <TicketContainer>
-            <IconBox onClick={() => setIsNewTicket(!isNewTicket)}>
-              <Image src={isNewTicket ? close : edit} alt="icon" />
-            </IconBox>
+        {values.tickets.length ? (
+          <TicketBox>
+            <TicketContainer>
+              <IconBox onClick={() => setIsNewTicket(!isNewTicket)}>
+                <Image src={isNewTicket ? close : edit} alt="icon" />
+              </IconBox>
 
-            <CareersTicket
-              route={false}
-              vacancy={values.tickets[ticket].vacancy}
-              imgUrl={
-                isNewTicket && values.url
-                  ? values.url
-                  : values.tickets[ticket].image.url
-              }
+              <CareersTicket
+                route={false}
+                vacancy={values.tickets[ticket]?.vacancy}
+                imgUrl={
+                  isNewTicket && values.url
+                    ? values.url
+                    : values.tickets[ticket]?.image?.url
+                }
+              />
+
+              <DeleteBtn onClick={deleteTicket}>delete ticket</DeleteBtn>
+            </TicketContainer>
+
+            <AdminCarousel
+              page={ticket}
+              setPage={setTicket}
+              length={values.tickets.length}
             />
-
-            <DeleteBtn onClick={deleteTicket}>delete ticket</DeleteBtn>
-          </TicketContainer>
-
-          <AdminCarousel
-            page={ticket}
-            setPage={setTicket}
-            length={values.tickets.length}
-          />
-        </TicketBox>
+          </TicketBox>
+        ) : (
+          <Styled.AdminPhotoGrid>
+            <Styled.AdminCenteredDiv>
+              <Styled.AdminSubTitle>No tickets</Styled.AdminSubTitle>
+            </Styled.AdminCenteredDiv>
+          </Styled.AdminPhotoGrid>
+        )}
       </MainContainer>
     </Styled.AdminPaddedBlock>
   );

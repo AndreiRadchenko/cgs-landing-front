@@ -109,6 +109,7 @@ export interface IDataResponse {
 // Careers
 
 export interface ITicket {
+  id: string;
   vacancy: string;
   image: { url: string };
   _id?: string;
@@ -153,6 +154,7 @@ export interface IWorkerData {
 }
 
 export interface IInfoBlock {
+  id: string;
   text: { title: string; subtitle: string };
   points: IPointsData[];
   text2: { title: string };
@@ -184,7 +186,7 @@ export interface IContactBlock {
 }
 
 export interface IDataVacancyResponse {
-  info: IInfoBlock;
+  info: IInfoBlock[];
   offer: IOfferBlock;
   contact: IContactBlock;
 }

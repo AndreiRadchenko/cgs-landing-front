@@ -78,18 +78,18 @@ export const CodeDescription = styled.span`
 
 export const WrapperBgImg = styled.div`
   position: absolute;
-  right: -2%;
+  right: -1%;
   top: 5%;
   width: 65%;
   transform: rotate(1.5deg);
 
   @media ${themes.primary.media.onlyLaptop} {
     top: 8%;
-    right: 2%;
+    right: -1%;
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
-    right: -10%;
+    right: -7.3%;
     top: 10%;
   }
 
