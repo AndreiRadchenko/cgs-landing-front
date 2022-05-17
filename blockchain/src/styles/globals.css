@@ -7,6 +7,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Gilroy, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   overscroll-behavior-x: none;
+  overflow-x: hidden;
 }
 
 body {

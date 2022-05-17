@@ -3,7 +3,7 @@ import themes from "../utils/themes";
 
 export const CarouselWrapper = styled.div`
   position: relative;
-  margin-top: ${themes.primary.spacing.primaryMarginTop};
+  margin-top: ${themes.primary.spacing.logo};
 `;
 
 export const ProjectItemWrapper = styled.div`
