@@ -6,7 +6,17 @@ interface IOrbitButton {
 }
 
 const OrbitButton = ({ children }: IOrbitButton) => {
-  return <Styled.Button>{children}</Styled.Button>;
+  return (
+    <Styled.Button>
+      <Styled.DotWrapp theme="-2.8s">
+        <Styled.Dot />
+      </Styled.DotWrapp>
+      <Styled.DotWrapp theme="0s">
+        <Styled.Dot />
+      </Styled.DotWrapp>
+      {children}
+    </Styled.Button>
+  );
 };
 
 export default OrbitButton;

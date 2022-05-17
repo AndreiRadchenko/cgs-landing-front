@@ -1,12 +1,13 @@
-﻿import styled from "styled-components";
+﻿import { spin } from "./../../styles/animations";
+import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Button = styled.button`
   outline: none;
-  width: fit-content;
+  width: 190px;
   margin-top: 1rem;
   padding: 1rem 2rem;
-  min-height: 2rem;
+  height: 55px;
   border-radius: 2rem;
   border: 0;
   position: relative;
@@ -17,32 +18,25 @@ export const Button = styled.button`
   font-weight: ${themes.primary.font.weight.bold};
   box-shadow: 0 0 0 0.625rem ${themes.primary.colors.purpleBack},
     0 0 0 0.6875rem ${themes.primary.colors.allGreen};
+`;
 
-  /* &:after {
-    content: "";
-    width: 0.375rem;
-    height: 0.375rem;
-    background-color: ${themes.primary.colors.allGreen};
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 20px;
-    right: 0;
-    margin: auto;
-    border-radius: 50%;
-  } */
+export const Dot = styled.div`
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  background: ${themes.primary.colors.allGreen};
+  border-radius: 50px;
+  top: 0em;
+`;
 
-  /* &:before {
-    content: "";
-    width: 0.375rem;
-    height: 0.375rem;
-    background-color: ${themes.primary.colors.allGreen};
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    border-radius: 50%;
-  } */
+export const DotWrapp = styled.div`
+  height: 85px;
+  width: 85px;
+  top: -15px;
+  left: -15px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  animation: ${spin} 6s linear 0s infinite;
+  animation-delay: ${(props) => props.theme};
 `;
