@@ -15,7 +15,7 @@ const secondHalf = techs.slice(-half);
 
 const AllYouNeed = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const blockRef = useRef(null);
+  const blockRef = useRef<HTMLDivElement>(null);
 
   const onScroll = () => {
     const elTop = blockRef?.current?.getBoundingClientRect().top || 0;
