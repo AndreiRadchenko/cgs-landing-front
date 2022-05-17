@@ -4,7 +4,6 @@ import "../styles/animations.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
-
 import createEmotionCache from "../utils/createEmotionCache";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
