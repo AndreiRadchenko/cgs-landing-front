@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { IconContainer } from "../../styles/footer";
+import { IconContainer } from "../../styles/footer.styled";
 
 type Props = {
   Icon: any;
