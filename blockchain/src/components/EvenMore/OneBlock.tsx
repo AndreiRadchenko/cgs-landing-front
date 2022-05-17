@@ -1,5 +1,5 @@
 import React from "react";
-import * as Styled from "../../styles/evenMore";
+import * as Styled from "../../styles/evenMore.styled";
 
 interface IBlockProps {
   text: string;

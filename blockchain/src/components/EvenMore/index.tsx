@@ -1,6 +1,6 @@
 import React from "react";
-import * as UsefullStyled from "../../styles/usefullStyled";
-import * as Styled from "../../styles/evenMore";
+import * as UsefullStyled from "../../styles/usefull.Styled";
+import * as Styled from "../../styles/evenMore.styled";
 import Image from "next/image";
 import blocks from "../../../public/blocks.png";
 import BlocksRender from "./BlocksRender";

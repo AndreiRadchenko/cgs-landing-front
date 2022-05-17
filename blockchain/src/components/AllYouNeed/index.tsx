@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import * as Styled from "../../styles/allYouNeed";
-import * as UsefullStyled from "../../styles/usefullStyled";
+import * as Styled from "../../styles/allYouNeed.styled";
+import * as UsefullStyled from "../../styles/usefull.Styled";
 import ListElement from "./ListElement";
 import first from "../../../public/firstBlockchain.png";
 import second from "../../../public/secondBlockchain.png";
