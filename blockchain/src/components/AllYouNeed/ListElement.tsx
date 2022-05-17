@@ -1,8 +1,17 @@
 import React from "react";
 import { Dot } from "../../styles/usefullStyled";
 
-const ListElement = ({text} :{text: string}) => {
-  return <li><Dot />{text}</li>
+interface IListelementProps {
+  text: string;
+}
+
+const ListElement = ({ text }: IListelementProps) => {
+  return (
+    <li>
+      <Dot />
+      {text}
+    </li>
+  );
 };
 
 export default ListElement;

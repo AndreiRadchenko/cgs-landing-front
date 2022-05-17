@@ -4,6 +4,7 @@ import AllYouNeed from "../AllYouNeed";
 import EvenMore from "../EvenMore";
 import Footer from "../Footer";
 import HeaderNav from "../HeaderNav";
+import ProjectCarousel from "../ProjectsCarousel";
 import TheyTrustUs from "../TheyTrustUs";
 import WelcomeBlock from "../WelcomeBlock";
 
@@ -14,6 +15,7 @@ function Body() {
       <WelcomeBlock />
       <AllYouNeed />
       <EvenMore />
+      <ProjectCarousel />
       <TheyTrustUs />
       <Footer />
     </BodyContainer>
