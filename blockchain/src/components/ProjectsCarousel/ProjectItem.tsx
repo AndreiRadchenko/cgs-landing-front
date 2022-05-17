@@ -4,7 +4,7 @@ import * as Styled from "../../styles/Projects.styled";
 
 interface IProjectProps {
   ind: string;
-  image: { url: any };
+  image: string;
   title: string;
   link: string;
   description: string;
@@ -33,7 +33,7 @@ const ProjectItem = ({
     >
       <Styled.HoverBlock onMouseOver={handleOver} onMouseLeave={handleLeave}>
         <Styled.ImageWrapper isVisible={isVisible}>
-          <Image src={image.url} alt={title} />
+          <Image src={image} alt={title} layout="fill" objectFit="contain" />
         </Styled.ImageWrapper>
         <Styled.PhotoText isVisible={isVisible}>{description}</Styled.PhotoText>
       </Styled.HoverBlock>

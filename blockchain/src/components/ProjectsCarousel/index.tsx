@@ -82,23 +82,25 @@ const ProjectCarousel = () => {
         grabCursor={true}
         modules={[Navigation]}
       >
-        {projectArr.map(({ image, title, link, description }, idx) => (
-          <SwiperSlide key={`${idx}-${activeInd}`}>
-            <ProjectItem
-              ind={
-                idx === activeInd
-                  ? "left"
-                  : idx === (activeInd + 2) % projectArr.length
-                  ? "right"
-                  : "active"
-              }
-              image={image}
-              title={title}
-              link={link}
-              description={description}
-            />
-          </SwiperSlide>
-        ))}
+        {projectArr.map(({ image, title, link, description }, idx) => {
+          return (
+            <SwiperSlide key={`${idx}-${activeInd}`}>
+              <ProjectItem
+                ind={
+                  idx === activeInd
+                    ? "left"
+                    : idx === (activeInd + 2) % projectArr.length
+                    ? "right"
+                    : "active"
+                }
+                image={image.url.src}
+                title={title}
+                link={link}
+                description={description}
+              />
+            </SwiperSlide>
+          );
+        })}
         <Styled.Arrow className="prev">
           <Image
             src={leftArrow}
