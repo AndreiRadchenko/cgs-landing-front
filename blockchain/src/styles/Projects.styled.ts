@@ -39,8 +39,8 @@ interface IVisibleProps {
 
 export const ImageWrapper = styled("div")<IVisibleProps>`
   position: relative;
-  width: 346px;
-  height: 252px;
+  width: 450px;
+  height: 342px;
 
   &::after {
     content: "";
