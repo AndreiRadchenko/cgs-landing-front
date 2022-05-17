@@ -11,6 +11,7 @@ import cosunoIMG from "../../../public/project_images/cosuno_ventures.png";
 import finmixIMG from "../../../public/project_images/finmix.png";
 import socoolIMG from "../../../public/project_images/so_cool.png";
 import switchIMG from "../../../public/project_images/switch.png";
+import goDaddyIMG from "../../../public/project_images/go_daddy_poynt.png";
 import ProjectItem from "./ProjectItem";
 import Image from "next/image";
 
@@ -51,6 +52,15 @@ const projectArr = [
     description:
       "This is a Browser Extension that adds a Sidebar to your browser and gives you the tools to switch between your apps, accounts, and workflows in one place. Switch instantly helps you to become more productive.",
   },
+  {
+    image: {
+      url: goDaddyIMG,
+    },
+    title: "GoDaddy / Poynt",
+    link: "https://uk.godaddy.com",
+    description:
+      "Who does not know this amazing marketplace? GoDaddy is a platform that helps you to review, select and buy the best online address and hosting for the lowest price! The main idea is to simplify the process of buying and setting up a hosting name.",
+  },
 ];
 
 const ProjectCarousel = () => {
@@ -59,11 +69,10 @@ const ProjectCarousel = () => {
   return (
     <Styled.CarouselWrapper>
       <Swiper
+        slidesPerView={3}
         onSlideChange={(slider) => {
           setActiveInd(slider.realIndex);
         }}
-        direction="horizontal"
-        slidesPerView={3}
         loop={true}
         navigation={{
           prevEl: ".swiper-button-prev",

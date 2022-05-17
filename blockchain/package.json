@@ -6,7 +6,8 @@
     "dev": "node_modules/.bin/next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "node_modules/.bin/next lint --fix"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.25",

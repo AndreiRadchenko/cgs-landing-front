@@ -76,7 +76,8 @@ export const PhotoText = styled("div")<IVisibleProps>`
 `;
 
 export const BottomTitle = styled.h3`
-  color: white;
+  cursor: pointer;
+  color: ${themes.primary.colors.textColor};
   margin-top: 0.5rem;
   text-transform: uppercase;
 `;
@@ -97,3 +98,5 @@ export const Arrow = styled.div`
     right: 0;
   }
 `;
+
+export const TitleLink = styled.a``;

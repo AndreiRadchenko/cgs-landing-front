@@ -37,7 +37,9 @@ const ProjectItem = ({
         </Styled.ImageWrapper>
         <Styled.PhotoText isVisible={isVisible}>{description}</Styled.PhotoText>
       </Styled.HoverBlock>
-      <Styled.BottomTitle>{title}</Styled.BottomTitle>
+      <Styled.TitleLink href={link}>
+        <Styled.BottomTitle>{title}</Styled.BottomTitle>
+      </Styled.TitleLink>
     </Styled.ProjectItemWrapper>
   );
 };
