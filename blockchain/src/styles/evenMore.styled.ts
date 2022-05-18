@@ -15,7 +15,7 @@ export const RightSideBlock = styled.div`
 `;
 
 export const hoverBlock = styled.div`
-  &: hover div{
+  &: hover div {
     cursor: pointer;
     border: 5px solid ${themes.primary.colors.allGreen};
   }
@@ -29,8 +29,9 @@ export const Block = styled.div`
   position: relative;
   justify-content: center;
   align-items: center;
-  height: 10.5em;
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  text-align: center;
+  height: 9em;
+  font-size: ${themes.primary.font.size.linkText};
   font-weight: 600;
   font-family: ${themes.primary.font.family.montserrat};
   color: ${themes.primary.colors.textColor};
@@ -38,6 +39,11 @@ export const Block = styled.div`
   white-space: pre-line;
   & p {
     text-align: center;
+  }
+
+  @media ${themes.primary.media.minLaptop}{
+    height: 10.5em;
+    font-size: ${themes.primary.font.size.oneAndHalf};
   }
 `;
 
@@ -69,7 +75,17 @@ export const LineThrough = styled.div`
 
 export const BlockImageWrapper = styled.div`
   position: absolute;
-  width: 110%;
-  top: 4.6em;
+  width: 120%;
+  top: 11em;
   right: -3em;
+  @media ${themes.primary.media.minTabletLandScape}{
+    top: 6.6em;
+  }
+  @media ${themes.primary.media.minLaptop}{
+    top: 5.2em;
+  }
+  @media ${themes.primary.media.minPC} {
+    width: 110%;
+    top: 4.6em;
+  }
 `;

@@ -20,10 +20,14 @@ export const HeaderBig = styled.h2`
   color: ${themes.primary.colors.textColor};
   border-style: solid none;
   padding: 0 0 5px 0;
-  font-size: ${themes.primary.font.size.bigHeader};
+  font-size: ${themes.primary.font.size.bigHeaderTablet};
   width: fit-content;
   height: fit-content;
   margin: 0.6em 0 2em 0;
+
+  @media ${themes.primary.media.minLaptop}{
+    font-size: ${themes.primary.font.size.bigHeader};
+  }
 `;
 
 export const Dot = styled.div`

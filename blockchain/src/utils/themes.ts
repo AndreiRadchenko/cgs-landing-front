@@ -49,6 +49,7 @@
         greenSubheader: "1.6em",
         menuElement: "1.7em",
         secondary: "2em",
+        bigHeaderTablet: "2.2em",
         quaternary: "2.6em",
         bigHeader: "2.9em",
         bigTitle: "5rem",

@@ -2,8 +2,6 @@
 import themes from "../utils/themes";
 
 export const BodyContainer = styled.section`
-  position: relative;
-
   @media ${themes.primary.media.maxMobile} {
     display: flex;
     flex-direction: column;
