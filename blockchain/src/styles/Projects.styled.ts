@@ -38,6 +38,10 @@ interface IVisibleProps {
 }
 
 export const ImageWrapper = styled("div")<IVisibleProps>`
+  position: relative;
+  width: 346px;
+  height: 252px;
+
   &::after {
     content: "";
     background: rgba(256, 256, 256, 0.8);
@@ -45,7 +49,7 @@ export const ImageWrapper = styled("div")<IVisibleProps>`
     transition: all 0.3s;
     width: 90%;
     height: 80%;
-    top: 5%;
+    top: 9%;
     left: 6%;
     margin-left: -5px;
     border-radius: 0.5rem;
