@@ -58,9 +58,9 @@ const AllYouNeed = () => {
         </Styled.TechnologiesGrid>
 
         <Styled.ImagesGrid>
-          <Image src={first} />
-          <Image src={second} />
-          <Image src={last} />
+          <Image src={first} objectFit="contain" />
+          <Image src={second} objectFit="contain" />
+          <Image src={last} objectFit="contain" />
         </Styled.ImagesGrid>
       </div>
     </UsefullStyled.TitlePlusContentBlock>
