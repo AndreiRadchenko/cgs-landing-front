@@ -15,4 +15,7 @@ export const LogosGrid = styled.div`
     justify-content: center;
     align-items: center;
   }
+  & div img {
+    cursor: pointer;
+  }
 `;

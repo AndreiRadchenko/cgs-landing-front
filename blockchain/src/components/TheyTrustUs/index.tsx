@@ -5,10 +5,30 @@ import Image from "next/image";
 import ufo from "../../../public/ufo.png";
 import { logos } from "../../utils/logos";
 
+interface IRenderItem {
+  i: {
+    image: any;
+    green: any;
+  };
+  ind: number;
+}
+
 const TheyTrustUs = () => {
-  const [isHowered, setIsHowered] = useState(false);
-  const mouseOn = () => setIsHowered(true);
-  const mouseLeave = () => setIsHowered(false);
+  const [isHowered, setIsHowered] = useState(100);
+  const mouseOn = (ind: number) => () => setIsHowered(ind);
+  const mouseLeave = () => setIsHowered(100);
+
+  const renderItem = ({ i, ind }: IRenderItem) => {
+    return (
+      <div key={`theyLogoInd${ind}`}>
+        <Image
+          src={isHowered === ind ? i.green : i.image}
+          onMouseOver={mouseOn(ind)}
+          onMouseLeave={mouseLeave}
+        />
+      </div>
+    );
+  };
 
   return (
     <UsefullStyled.TitlePlusContentBlock>
@@ -18,12 +38,8 @@ const TheyTrustUs = () => {
           <Image src={ufo} />
         </Styled.UfoBlock>
       </div>
-      <Styled.LogosGrid onMouseOver={mouseOn} onMouseLeave={mouseLeave}>
-        {logos.map((i, ind) => (
-          <div key={`theyLogoInd${ind}`}>
-            <Image src={isHowered ? i.green : i.image} key={`theyLogoInd${ind}`} />
-          </div>
-        ))}
+      <Styled.LogosGrid>
+        {logos.map((i, ind) => renderItem({ i, ind }))}
       </Styled.LogosGrid>
     </UsefullStyled.TitlePlusContentBlock>
   );
