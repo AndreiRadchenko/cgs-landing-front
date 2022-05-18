@@ -15,8 +15,7 @@ const BaseButton: FC<IBaseButtonProps> = ({
   topSpacing = themes.primary.spacing.topButtonSpace,
   letterSpacing = "normal",
   src = backImg,
-
-  isLoading,
+  className = "",
 }) => {
   return (
     <StyledThisComp.StyledButton
@@ -27,7 +26,7 @@ const BaseButton: FC<IBaseButtonProps> = ({
       onClick={onClick}
       letterSpacing={letterSpacing}
       marginTop={topSpacing}
-      className={src === "/careersSendBg.png" ? "big-btn" : ""}
+      className={className}
     >
       <ImagePreview
         src={src}

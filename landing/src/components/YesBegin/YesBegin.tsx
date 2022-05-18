@@ -34,7 +34,10 @@ const YesBegin = ({ clickHandler }: IYesBeginProps) => {
         <SplitBrackets text={text} />
       </Styles.SubTitle>
       <Styles.ButtonContainer>
-        <BaseButton onClick={isClicked ? undefined : handleClick}>
+        <BaseButton
+          onClick={isClicked ? undefined : handleClick}
+          className="begin"
+        >
           <ButtonTextWrapper fontSize="1.8em">{button}</ButtonTextWrapper>
         </BaseButton>
       </Styles.ButtonContainer>
