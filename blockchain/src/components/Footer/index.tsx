@@ -1,5 +1,5 @@
 import React from "react";
-import * as Styled from "../../styles/footer";
+import * as Styled from "../../styles/footer.styled";
 import OrbitButton from "../OrbitButton";
 import Image from "next/image";
 import cosmonaut from "../../../public/cosmonautFooter.png";

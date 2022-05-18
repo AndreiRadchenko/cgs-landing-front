@@ -36,7 +36,7 @@ export const FooterNav = styled.div`
   & svg {
     cursor: pointer;
   }
-  & svg: hover g path{
+  & svg:hover g path {
     fill: ${themes.primary.colors.allGreen};
   }
 `;

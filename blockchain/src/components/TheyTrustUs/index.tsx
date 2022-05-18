@@ -1,6 +1,6 @@
 import React from "react";
-import * as UsefullStyled from "../../styles/usefullStyled";
-import * as Styled from "../../styles/theyTrustUs";
+import * as UsefullStyled from "../../styles/usefull.Styled";
+import * as Styled from "../../styles/theyTrustUs.styled";
 import Image from "next/image";
 import ufo from "../../../public/ufo.png";
 import { logos } from "../../utils/logos";
