@@ -15,7 +15,7 @@ export const RightSideBlock = styled.div`
 `;
 
 export const hoverBlock = styled.div`
-  &: hover div{
+  &:hover div {
     cursor: pointer;
     border: 5px solid ${themes.primary.colors.allGreen};
   }

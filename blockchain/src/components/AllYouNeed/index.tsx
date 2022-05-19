@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import * as Styled from "../../styles/allYouNeed.styled";
 import * as UsefullStyled from "../../styles/usefull.Styled";
 import ListElement from "./ListElement";
@@ -14,6 +14,22 @@ const firstHalf = techs.slice(0, half);
 const secondHalf = techs.slice(-half);
 
 const AllYouNeed = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const blockRef = useRef<HTMLDivElement>(null);
+
+  const onScroll = () => {
+    const elTop = blockRef?.current?.getBoundingClientRect().top || 0;
+    const scrollY = window.scrollY;
+    if (elTop - 100 <= scrollY) {
+      setIsScrolled(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, true);
+    return window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <UsefullStyled.TitlePlusContentBlock>
       <UsefullStyled.HeaderBig>all you need</UsefullStyled.HeaderBig>
@@ -58,9 +74,19 @@ const AllYouNeed = () => {
         </Styled.TechnologiesGrid>
 
         <Styled.ImagesGrid>
-          <Image src={first} />
-          <Image src={second} />
-          <Image src={last} />
+          <UsefullStyled.ImageWrapper
+            ref={blockRef}
+            isScrolled={isScrolled}
+            className="first"
+          >
+            <Image src={first} alt="first block" />
+          </UsefullStyled.ImageWrapper>
+          <UsefullStyled.ImageWrapper>
+            <Image src={second} alt="second block" />
+          </UsefullStyled.ImageWrapper>
+          <UsefullStyled.ImageWrapper isScrolled={isScrolled} className="last">
+            <Image src={last} alt="last block" />
+          </UsefullStyled.ImageWrapper>
         </Styled.ImagesGrid>
       </div>
     </UsefullStyled.TitlePlusContentBlock>
