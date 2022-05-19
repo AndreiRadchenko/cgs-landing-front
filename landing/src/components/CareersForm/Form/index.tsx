@@ -88,7 +88,12 @@ const Form: FC<IFormProps> = ({ data }) => {
           </Styled.FileLoad>
         </Styled.FileContainer>
         <Styled.SubmitButton>
-          <BaseButton src="/careersSendBg.png" width="22rem" height="4rem">
+          <BaseButton
+            src="/careersSendBg.png"
+            width="22rem"
+            height="4rem"
+            className="big-btn"
+          >
             <ButtonTextWrapper fontSize="1.4em">send</ButtonTextWrapper>
           </BaseButton>
         </Styled.SubmitButton>

@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
+import { blockLeftAnimation, blockRightAnimation } from "./animations";
 
 export const TitlePlusContentBlock = styled.div`
   display: grid;
@@ -38,4 +39,29 @@ export const Dot = styled.div`
   background: ${themes.primary.colors.allGreen};
   left: -4px;
   margin-top: 0.5em;
+`;
+interface IImageWrapper {
+  isScrolled?: boolean;
+}
+
+export const ImageWrapper = styled("span")<IImageWrapper>`
+  transition: opacity 1s;
+  &.first {
+    opacity: ${({ isScrolled }) => (isScrolled ? 1 : 0)};
+    animation: ${({ isScrolled }) =>
+      isScrolled
+        ? css`
+            ${blockRightAnimation} 2s linear
+          `
+        : "null"};
+  }
+  &.last {
+    opacity: ${({ isScrolled }) => (isScrolled ? 1 : 0)};
+    animation: ${({ isScrolled }) =>
+      isScrolled
+        ? css`
+            ${blockLeftAnimation} 2s linear
+          `
+        : "null"};
+  }
 `;
