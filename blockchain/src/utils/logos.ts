@@ -1,7 +1,7 @@
 import atlassian from "../../public/logos/atlassian.png";
 import benji from "../../public/logos/benji.png";
 import ibm from "../../public/logos/ibm.png";
-import oneWelcome from "../../public/logos/oneWelcome.png";
+import oneWelcome from "../../public/logos/onewelcome.png";
 import socol from "../../public/logos/socol.png";
 import spaceimpulse from "../../public/logos/spaceImpulse.png";
 import prs from "../../public/logos/prs.png";
@@ -14,7 +14,7 @@ import gameStation from "../../public/logos/gameStation.png";
 import atlassianGreen from "../../public/logos/green/atlassian.png";
 import benjiGreen from "../../public/logos/green/benji.png";
 import ibmGreen from "../../public/logos/green/ibm.png";
-import oneWelcomeGreen from "../../public/logos/green/oneWelcome.png";
+import oneWelcomeGreen from "../../public/logos/green/onewelcome.png";
 import socolGreen from "../../public/logos/green/socol.png";
 import spaceimpulseGreen from "../../public/logos/green/spaceImpulse.png";
 import prsGreen from "../../public/logos/green/prs.png";
