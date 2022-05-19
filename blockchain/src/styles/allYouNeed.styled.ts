@@ -30,14 +30,18 @@ export const TechList = styled.ul`
   position: relative;
   padding: 0 0 0 1em;
   font-family: ${themes.primary.font.family.sourceCode};
-  font-size: ${themes.primary.font.size.greenSubheader};
+  font-size: ${themes.primary.font.size.linkText};
   margin: -0.7em 0 0 0;
   list-style: none;
   color: ${themes.primary.colors.textColor};
+
+  @media ${themes.primary.media.minLaptop} {
+    font-size: ${themes.primary.font.size.greenSubheader};
+  }
 `;
 
 export const ImagesGrid = styled.div`
   display: grid;
   grid-template-columns: 3.3fr 2fr 3.1fr;
   gap: 1.2em;
-`
+`;

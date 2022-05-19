@@ -11,17 +11,30 @@ import chili from "../../public/logos/chili.png";
 import sunpower from "../../public/logos/sunpower.png";
 import gameStation from "../../public/logos/gameStation.png";
 
+import atlassianGreen from "../../public/logos/green/atlassian.png";
+import benjiGreen from "../../public/logos/green/benji.png";
+import ibmGreen from "../../public/logos/green/ibm.png";
+import oneWelcomeGreen from "../../public/logos/green/oneWelcome.png";
+import socolGreen from "../../public/logos/green/socol.png";
+import spaceimpulseGreen from "../../public/logos/green/spaceimpulse.png";
+import prsGreen from "../../public/logos/green/prs.png";
+import growthDayGreen from "../../public/logos/green/growthDay.png";
+import finmixGreen from "../../public/logos/green/finmix.png";
+import chiliGreen from "../../public/logos/green/chili.png";
+import sunpowerGreen from "../../public/logos/green/sunpower.png";
+import gameStationGreen from "../../public/logos/green/gameStation.png";
+
 export const logos = [
-  atlassian,
-  benji,
-  ibm,
-  oneWelcome,
-  socol,
-  spaceimpulse,
-  prs,
-  growthDay,
-  finmix,
-  chili,
-  sunpower,
-  gameStation,
+  { image: atlassian, green: atlassianGreen },
+  { image: benji, green: benjiGreen },
+  { image: ibm, green: ibmGreen },
+  { image: oneWelcome, green: oneWelcomeGreen },
+  { image: socol, green: socolGreen },
+  { image: prs, green: prsGreen },
+  { image: growthDay, green: growthDayGreen },
+  { image: finmix, green: finmixGreen },
+  { image: chili, green: chiliGreen },
+  { image: sunpower, green: sunpowerGreen },
+  { image: gameStation, green: gameStationGreen },
+  { image: spaceimpulse, green: spaceimpulseGreen },
 ];
