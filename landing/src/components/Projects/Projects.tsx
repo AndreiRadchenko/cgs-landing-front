@@ -19,13 +19,11 @@ const Projects = () => {
       ? router.query?.category || ""
       : "";
 
-  const portfolioParams =
-    router.query.portfolio === "true" || categoryParams ? true : false;
+  const portfolioParams = router.query.portfolio === "true" || !!categoryParams;
 
   const [isOpen, setIsOpen] = useState<boolean>(portfolioParams);
-  const [selectedCategory, setSelectedCategory] = useState<string>(
-    categoryParams
-  );
+  const [selectedCategory, setSelectedCategory] =
+    useState<string>(categoryParams);
 
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
