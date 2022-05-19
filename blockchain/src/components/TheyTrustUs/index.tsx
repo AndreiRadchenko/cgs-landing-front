@@ -17,7 +17,6 @@ const TheyTrustUs = () => {
   const [mouseY, setMouseY] = useState(100);
   const mouseOn = (ind: number) => () => setMouseY(ind);
   const mouseLeave = () => setMouseY(100);
-
   const renderItem = ({ i, ind }: IRenderItem) => {
     return (
       <div key={`theyLogoInd${ind}`}>
