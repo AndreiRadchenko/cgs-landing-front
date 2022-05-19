@@ -40,12 +40,16 @@ export const StyledButton = styled.button.attrs(
     }
   }
   @media ${themes.primary.media.onlyTabletPortrait} {
-    width: 14em;
-    height: 6em;
-    margin-top: ${themes.primary.spacing.headerNavVertical};
+    width: 13em;
+    height: 5em;
+    margin-top: ${themes.primary.spacing.headerNavVerticalTablet};
     &.big-btn {
       height: 5em;
       width: 20rem;
+    }
+    &.estimation,
+    &.begin {
+      width: 14rem;
     }
   }
   @media ${themes.primary.media.maxMobile} {

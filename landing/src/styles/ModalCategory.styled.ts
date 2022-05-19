@@ -213,17 +213,17 @@ export const ProjectContainer = styled.div`
 
   @media ${themes.primary.media.minLaptop} {
     width: 27%;
-    height: 42.5em;
+    height: 38.5em;
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     width: 43%;
-    height: 45.375em;
+    height: 42.375em;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     width: 43%;
-    height: 45.25em;
+    height: 42em;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -232,7 +232,7 @@ export const ProjectContainer = styled.div`
   }
 
   @media ${themes.primary.media.minTablet} {
-    height: 47.125em;
+    height: 42.125em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -319,6 +319,7 @@ export const ContentWrapper = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const ProjectTitleName = styled.h2`
