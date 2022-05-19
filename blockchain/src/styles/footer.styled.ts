@@ -55,7 +55,9 @@ export const FooterNav = styled.div`
   }
   @media ${themes.primary.media.minLaptop} {
     height: 10em;
-  }
+    & svg:hover g path {
+      fill: ${themes.primary.colors.allGreen};
+    }
 `;
 
 export const IconContainer = styled.div`

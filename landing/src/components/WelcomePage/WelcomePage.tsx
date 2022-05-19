@@ -31,7 +31,12 @@ const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
           <SplitBrackets text={data?.text2} />
         </StyledThisComp.CodeDescription>
 
-        <BaseButton onClick={clickHandler} src={backImg} mobileWidth={"11rem"}>
+        <BaseButton
+          onClick={clickHandler}
+          src={backImg}
+          mobileWidth={"11rem"}
+          className="estimation"
+        >
           <ButtonTextWrapper fontSize={"1.4em"}>
             {data?.button}
           </ButtonTextWrapper>
