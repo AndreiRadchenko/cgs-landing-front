@@ -72,7 +72,6 @@ const AllYouNeed = () => {
             </UsefullStyled.DefaultGrid>
           </div>
         </Styled.TechnologiesGrid>
-
         <Styled.ImagesGrid>
           <UsefullStyled.ImageWrapper
             ref={blockRef}

@@ -14,15 +14,14 @@ interface IRenderItem {
 }
 
 const TheyTrustUs = () => {
-  const [isHowered, setIsHowered] = useState(100);
-  const mouseOn = (ind: number) => () => setIsHowered(ind);
-  const mouseLeave = () => setIsHowered(100);
-
+  const [mouseY, setMouseY] = useState(100);
+  const mouseOn = (ind: number) => () => setMouseY(ind);
+  const mouseLeave = () => setMouseY(100);
   const renderItem = ({ i, ind }: IRenderItem) => {
     return (
       <div key={`theyLogoInd${ind}`}>
         <Image
-          src={isHowered === ind ? i.green : i.image}
+          src={mouseY === ind ? i.green : i.image}
           onMouseOver={mouseOn(ind)}
           onMouseLeave={mouseLeave}
         />
