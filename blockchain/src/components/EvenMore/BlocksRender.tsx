@@ -30,7 +30,7 @@ const BlocksRender = () => {
     <>
       <Styled.RightSideBlock>
         {blocksEvenMore.map((i, ind) => renderItem({ i, ind }))}
-        <Styled.hoverBlock>
+        <Styled.hoverBlock href="/">
           <Styled.Block>Need more proofs?</Styled.Block>
         </Styled.hoverBlock>
       </Styled.RightSideBlock>
