@@ -58,7 +58,6 @@ const AllYouNeed = () => {
               </div>
             </Styled.HalfGrid>
           </div>
-
           <div>
             <Styled.GreenSubheader>services:</Styled.GreenSubheader>
             <UsefullStyled.DefaultGrid>
