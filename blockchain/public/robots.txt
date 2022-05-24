@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://blockchain.cgsteam.io/sitemap.xml
