@@ -34,7 +34,7 @@ function MyApp({
             name="description"
             content="Launching successful startups for over 6 years already"
           />
-          <meta property="og:url" content="http://codegeneration.cc/" />
+          <meta property="og:url" content="https://www.cgsteam.io/" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="CGS-team" />
           <meta
