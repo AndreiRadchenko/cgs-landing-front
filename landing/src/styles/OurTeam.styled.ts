@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import * as animations from "./AnimationsStyled";
 import themes from "../utils/themes";
 import Decoration from "../components/Decoration/Decoration";
