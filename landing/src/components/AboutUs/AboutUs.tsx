@@ -69,8 +69,8 @@ const AboutUs = () => {
           <ImagePreview
             src={data?.image.url}
             alt={"illustration image technology"}
-            width="130px"
-            height="150px"
+            width="140px"
+            height="181px"
           />
         </StyledThisComp.Wrapper>
       </StyledThisComp.IllustrationWrapper>
