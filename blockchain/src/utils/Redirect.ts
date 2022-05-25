@@ -3,7 +3,9 @@
 const getServerSideProps: GetServerSideProps = async (context) => {
   const { req, res } = context;
 
-  if (req.headers.host === "cg-blockchain-fe.herokuapp.com") {
+  const arrOfHosts = ["cg-blockchain-fe.herokuapp.com"];
+
+  if (req.headers.host && arrOfHosts.includes(req.headers.host)) {
     res.setHeader("location", "https://blockchain.cgsteam.io/");
     res.statusCode = 301;
   }
