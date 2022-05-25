@@ -9,6 +9,9 @@ import { useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCareersService } from "../../services/adminCareersPage";
 import { CareersProps } from "../../types/Admin/Admin.types";
+import getServerSideProps from "../../utils/Redirect";
+
+export { getServerSideProps };
 
 const CarrersPage: NextPage = () => {
   const { data, isLoading }: CareersProps = useQuery(

@@ -18,6 +18,7 @@ import { queryKeys } from "../consts/queryKeys";
 import { adminGlobalService } from "../services/adminHomePage";
 import { IDataResponse } from "../types/Admin/Response.types";
 import { IPortfolioResponse } from "../types/Admin/AdminPortfolio";
+import getServerSideProps from "../utils/Redirect";
 
 interface IHomeData {
   data: IDataResponse | undefined;
@@ -28,6 +29,7 @@ interface IPortfolioData {
   data: IPortfolioResponse | undefined;
   isLoading: boolean;
 }
+export { getServerSideProps };
 
 const Home: NextPage = () => {
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
@@ -39,6 +41,7 @@ const Home: NextPage = () => {
   const portfolioData: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
     adminGlobalService.getPortfolio()
   );
+
   return homeData.isLoading ? (
     <StyledCommon.Loading>LOADING...</StyledCommon.Loading>
   ) : (
