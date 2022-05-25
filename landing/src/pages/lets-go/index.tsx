@@ -9,6 +9,9 @@ import { useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminVacancyPage";
 import { VacancyProps } from "../../types/Admin//AdminVacancy.types";
+import getServerSideProps from "../../utils/Redirect";
+
+export { getServerSideProps };
 
 const LetsGo: NextPage = () => {
   let id: string;
