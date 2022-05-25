@@ -2,6 +2,7 @@ import React from "react";
 
 export interface IBaseButtonProps {
   children: React.ReactNode;
+  className?: string;
   type?: string;
   src?: any;
   mobileWidth?: string;

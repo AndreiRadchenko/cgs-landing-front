@@ -15,7 +15,7 @@ const Footer = () => {
       </Styled.Header>
       <OrbitButton>Book a meeting</OrbitButton>
       <Styled.ImagePosition>
-        <Image src={cosmonaut} />
+          <Image src={cosmonaut} />
       </Styled.ImagePosition>
 
       <Styled.FooterNav>

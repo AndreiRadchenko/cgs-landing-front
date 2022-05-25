@@ -19,3 +19,25 @@ ${css`
   }
 `}
 `;
+
+export const blockRightAnimation = keyframes`
+${css`
+  0% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`}
+`;
+
+export const blockLeftAnimation = keyframes`
+${css`
+  0% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`}
+`;

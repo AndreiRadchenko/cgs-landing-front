@@ -39,8 +39,8 @@ interface IVisibleProps {
 
 export const ImageWrapper = styled("div")<IVisibleProps>`
   position: relative;
-  width: 346px;
-  height: 252px;
+  width: 450px;
+  height: 342px;
 
   &::after {
     content: "";
@@ -55,6 +55,16 @@ export const ImageWrapper = styled("div")<IVisibleProps>`
     border-radius: 0.5rem;
     filter: blur(5px);
     opacity: ${({ isVisible }: IVisibleProps) => (isVisible ? isVisible : 0)};
+  }
+
+  @media ${themes.primary.media.maxLaptop} {
+    width: 346px;
+    height: 252px;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 296px;
+    height: 202px;
   }
 `;
 
@@ -77,6 +87,13 @@ export const PhotoText = styled("div")<IVisibleProps>`
   -ms-filter: blur(13px);
   filter: blur(0px);
   opacity: ${({ isVisible }: IVisibleProps) => (isVisible ? isVisible : 0)};
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 246px;
+    height: 152px;
+    left: 7%;
+    top: 8%;
+    font-size: ${themes.primary.font.size.tabletText};
+  }
 `;
 
 export const BottomTitle = styled.h3`

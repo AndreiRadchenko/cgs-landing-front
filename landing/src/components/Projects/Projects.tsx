@@ -9,10 +9,21 @@ import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { IPortfolioResponse } from "../../types/Admin/AdminPortfolio";
+import { useRouter } from "next/router";
 
 const Projects = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const router = useRouter();
+
+  const categoryParams =
+    typeof router.query.category === "string"
+      ? router.query?.category || ""
+      : "";
+
+  const portfolioParams = router.query.portfolio === "true" || !!categoryParams;
+
+  const [isOpen, setIsOpen] = useState<boolean>(portfolioParams);
+  const [selectedCategory, setSelectedCategory] =
+    useState<string>(categoryParams);
 
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
@@ -47,6 +58,9 @@ const Projects = () => {
 
   const closeModalHandler = () => {
     setIsOpen(false);
+    if (portfolioParams) {
+      router.push("/");
+    }
     setSelectedCategory("");
   };
 

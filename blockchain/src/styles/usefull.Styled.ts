@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
+import { blockLeftAnimation, blockRightAnimation } from "./animations";
 
 export const TitlePlusContentBlock = styled.div`
   display: grid;
@@ -20,10 +21,14 @@ export const HeaderBig = styled.h2`
   color: ${themes.primary.colors.textColor};
   border-style: solid none;
   padding: 0 0 5px 0;
-  font-size: ${themes.primary.font.size.bigHeader};
+  font-size: ${themes.primary.font.size.bigHeaderTablet};
   width: fit-content;
   height: fit-content;
   margin: 0.6em 0 2em 0;
+
+  @media ${themes.primary.media.minLaptop}{
+    font-size: ${themes.primary.font.size.bigHeader};
+  }
 `;
 
 export const Dot = styled.div`
@@ -34,4 +39,29 @@ export const Dot = styled.div`
   background: ${themes.primary.colors.allGreen};
   left: -4px;
   margin-top: 0.5em;
+`;
+interface IImageWrapper {
+  isScrolled?: boolean;
+}
+
+export const ImageWrapper = styled("span")<IImageWrapper>`
+  transition: opacity 1s;
+  &.first {
+    opacity: ${({ isScrolled }) => (isScrolled ? 1 : 0)};
+    animation: ${({ isScrolled }) =>
+      isScrolled
+        ? css`
+            ${blockRightAnimation} 2s linear
+          `
+        : "null"};
+  }
+  &.last {
+    opacity: ${({ isScrolled }) => (isScrolled ? 1 : 0)};
+    animation: ${({ isScrolled }) =>
+      isScrolled
+        ? css`
+            ${blockLeftAnimation} 2s linear
+          `
+        : "null"};
+  }
 `;

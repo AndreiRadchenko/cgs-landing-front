@@ -8,6 +8,9 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: -2.5em;
+  position: absolute;
+  right: 0;
+  left: 0;
 `;
 
 export const Header = styled.h2`
@@ -18,15 +21,26 @@ export const Header = styled.h2`
 `;
 
 export const ImagePosition = styled.div`
-  width: 115%;
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 55%;
+  position: relative;
   justify-content: flex-end;
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    grid-template-columns: 62%;
+  }
+  @media ${themes.primary.media.minLaptop} {
+    margin-bottom: -2em;
+  }
+  @media ${themes.primary.media.minPC} {
+    margin-bottom: 0;
+  }
 `;
 
 export const FooterNav = styled.div`
   background: #47367c;
-  height: 10em;
-  width: 115%;
+  height: 8em;
+  width: 100%;
   margin-top: -8em;
   z-index: 1;
   display: flex;
@@ -35,10 +49,15 @@ export const FooterNav = styled.div`
   position: relative;
   & svg {
     cursor: pointer;
+    &: hover g path {
+      fill: ${themes.primary.colors.allGreen};
+    }
   }
-  & svg: hover g path{
-    fill: ${themes.primary.colors.allGreen};
-  }
+  @media ${themes.primary.media.minLaptop} {
+    height: 10em;
+    & svg:hover g path {
+      fill: ${themes.primary.colors.allGreen};
+    }
 `;
 
 export const IconContainer = styled.div`
@@ -66,4 +85,8 @@ export const Email = styled.p`
   font-size: 1.1em;
   font-family: ${themes.primary.font.family.montserrat};
   color: ${themes.primary.colors.textColor};
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    left: 3em;
+  }
 `;
