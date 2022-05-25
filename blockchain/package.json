@@ -10,7 +10,6 @@
     "lint:fix": "node_modules/.bin/next lint --fix"
   },
   "dependencies": {
-    "@next/swc-win32-x64-msvc": "^11.1.2",
     "@types/styled-components": "^5.1.25",
     "next": "^12.1.6",
     "react": "18.1.0",
