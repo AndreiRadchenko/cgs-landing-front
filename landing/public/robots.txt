@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.cgsteam.io/sitemap.xml
+Sitemap: https://cgsteam.io/sitemap.xml
