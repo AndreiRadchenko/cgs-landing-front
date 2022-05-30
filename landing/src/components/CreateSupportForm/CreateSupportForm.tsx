@@ -9,7 +9,10 @@ import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import FormTextArea from "../FormInput/FormTextArea";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { IDataResponse } from "../../types/Admin/Response.types";
+import {
+  IContactFormBlock,
+  IDataResponse,
+} from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
 const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
@@ -33,7 +36,9 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
     validateOnBlur: true,
     validationSchema: LestCodeValidation(),
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      console.log(values);
+    },
   });
 
   const handleHover = () => {
@@ -42,6 +47,15 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
 
   const handleLeave = () => {
     setButtonIsHovered(false);
+  };
+
+  const getKeyByValue = (
+    object: IContactFormBlock | undefined,
+    value: string
+  ) => {
+    return (
+      (object && Object.keys(object).find((key) => object[key] === value)) || ""
+    );
   };
 
   return (
@@ -54,14 +68,14 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
         <FormInput
           value={values.name}
           handleChange={handleChange}
-          name={name?.toLowerCase()}
+          name={getKeyByValue(data, name)}
           placeholder={name}
           errors={errors["name"]}
         />
         <FormInput
           value={values.email}
           handleChange={handleChange}
-          name={email.toLowerCase()}
+          name={getKeyByValue(data, email)}
           placeholder={email}
           errors={errors["email"]}
         />
@@ -69,10 +83,7 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
         <FormTextArea
           value={values.message}
           handleChange={handleChange}
-          name={message
-            .split(" ")
-            .map((el) => el.charAt(0).toUpperCase() + el.slice(1))
-            .join("")}
+          name={getKeyByValue(data, message)}
           placeholder={message}
           errors={errors["message"]}
         />
