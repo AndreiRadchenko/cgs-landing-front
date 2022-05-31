@@ -29,6 +29,9 @@ export const ProjectItemWrapper = styled.div`
       );
     }
   }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 39vh;
+  }
 `;
 
 export const HoverBlock = styled.div``;
@@ -39,12 +42,12 @@ interface IVisibleProps {
 
 export const ImageWrapper = styled("div")<IVisibleProps>`
   position: relative;
-  width: 450px;
+  width: 100%;
   height: 342px;
 
   &::after {
     content: "";
-    background: rgba(256, 256, 256, 0.8);
+    background: rgba(256, 256, 256, 0.95);
     position: absolute;
     transition: all 0.3s;
     width: 90%;
@@ -53,18 +56,39 @@ export const ImageWrapper = styled("div")<IVisibleProps>`
     left: 6%;
     margin-left: -5px;
     border-radius: 0.5rem;
-    filter: blur(5px);
+    filter: blur(10px);
     opacity: ${({ isVisible }: IVisibleProps) => (isVisible ? isVisible : 0)};
+
+    @media ${themes.primary.media.maxTabletLandScape} {
+      top: 12%;
+      height: 75%;
+    }
+
+    @media ${themes.primary.media.minTablet} {
+      top: 22%;
+      height: 55%;
+    }
+    @media ${themes.primary.media.maxLowScreenMobile} {
+      top: 20%;
+      height: 60%;
+    }
   }
 
   @media ${themes.primary.media.maxLaptop} {
-    width: 346px;
     height: 252px;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 296px;
-    height: 202px;
+    height: 242px;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    height: 252px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    height: 352px;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 252px;
   }
 `;
 
@@ -88,11 +112,29 @@ export const PhotoText = styled("div")<IVisibleProps>`
   filter: blur(0px);
   opacity: ${({ isVisible }: IVisibleProps) => (isVisible ? isVisible : 0)};
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 246px;
-    height: 152px;
-    left: 7%;
-    top: 8%;
+    height: 60%;
+    left: 9%;
+    top: 14%;
     font-size: ${themes.primary.font.size.tabletText};
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 296px;
+    height: 202px;
+    left: 6%;
+    top: 8%;
+    font-size: ${themes.primary.font.size.vistaco};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: ${themes.primary.font.size.oneAndHalf};
+    top: 8%;
+    left: 9%;
+    width: 80%;
+    height: 80%;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    top: 5%;
+    font-size: ${themes.primary.font.size.tertiary};
   }
 `;
 
@@ -117,6 +159,10 @@ export const Arrow = styled.div`
   }
   &.next {
     right: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
   }
 `;
 

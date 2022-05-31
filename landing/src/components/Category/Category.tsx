@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import * as StyledThisComp from "./Category.styled";
-import Image from "next/image";
 import ImagePreview from "../Image/ImagePreview";
 
 interface ICategoryProps {

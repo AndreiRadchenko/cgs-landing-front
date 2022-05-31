@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 
 import * as Styles from "./HowWeWorkCard.styled";
 import { IHowWeWorkCardProps } from "./types";
-import Image from "next/image";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const HowWeWorkCard = ({
@@ -22,7 +21,6 @@ const HowWeWorkCard = ({
   return (
     <Styles.Container
       backGroundColor={backGroundColor}
-      additionalImgUrl={additionalImgUrl}
     >
       <Styles.NumberContainer ref={ref}>
         <Styles.Number active={isVisible} backGroundColor={backGroundColor}>
@@ -39,27 +37,17 @@ const HowWeWorkCard = ({
             <Styles.ContentText>{contentText}</Styles.ContentText>
           </Styles.ContentTextWrapper>
         </Styles.ContentTextContainer>
+
         <Styles.ContentImgContainer additionalImgUrl={additionalImgUrl}>
           <Styles.ContentImage
             isFlipOnMobile={isFlipImageOnMobile}
             active={isVisible}
           >
-            <Image
-              src={imgUrl}
-              alt={contentTitle}
-              layout="fill"
-              objectFit="cover"
-            />
+            <img src={imgUrl}
+              alt={contentTitle} />
           </Styles.ContentImage>
         </Styles.ContentImgContainer>
       </Styles.ContentContainer>
-      {additionalImgUrl && (
-        <Styles.AdditionalImgContainer active={isVisible}>
-          <Styles.AdditionalImg>
-            <Image src={additionalImgUrl} alt={contentTitle} layout="fill" />
-          </Styles.AdditionalImg>
-        </Styles.AdditionalImgContainer>
-      )}
     </Styles.Container>
   );
 };
