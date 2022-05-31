@@ -17,7 +17,7 @@ import {
 import { SplitBrackets } from "../../utils/splitBrackets";
 
 interface IEmailBody {
-  name: string;
+  [name: string]: string;
   email: string;
   message: string;
 }
@@ -46,8 +46,8 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
     onSubmit: (values: IEmailBody) => {
       emailjs
         .send(
-          process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID,
-          process.env.NEXT_PUBLIC_HOME_EMAIL_TEMPLATE_ID,
+          process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID || "",
+          process.env.NEXT_PUBLIC_HOME_EMAIL_TEMPLATE_ID || "",
           values,
           process.env.NEXT_PUBLIC_HOME_EMAIL_USER_ID
         )
@@ -108,11 +108,11 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
           onMouseEnter={handleHover}
           onMouseLeave={handleLeave}
         >
-          {/* {sent && (
+          {sent && (
             <StyledThisComp.SentMessage>
               Thank you for your message. It has been sent.
             </StyledThisComp.SentMessage>
-          )} */}
+          )}
           <ButtonSubmitForm>
             <ButtonTextWrapper fontSize={"1.4em"}>send</ButtonTextWrapper>
           </ButtonSubmitForm>
