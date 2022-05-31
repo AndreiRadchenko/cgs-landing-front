@@ -36,6 +36,8 @@ export const ContentWrapper = styled.div``;
 
 export const ButtonRow = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 
   @media ${themes.primary.media.onlyTabletLandScape} {
@@ -59,4 +61,9 @@ export const ButtonRow = styled.div`
       margin-top: 0;
     }
   }
+`;
+
+export const SentMessage = styled.div`
+  font-weight: ${themes.primary.font.weight.bold};
+  color: ${themes.primary.colors.lightBlue};
 `;

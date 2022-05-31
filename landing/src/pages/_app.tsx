@@ -29,17 +29,20 @@ function MyApp({
     <>
       <QueryClientProvider client={queryClient}>
         <Head>
-          <title>CGS - team</title>
+          <title>Custom Software Development | CGS Team</title>
           <meta
             name="description"
-            content="Launching successful startups for over 6 years already"
+            content="CGS Team is a custom software development company with a modern approach and vast experience in web development and mobile software development"
           />
-          <meta property="og:url" content="http://codegeneration.cc/" />
+          <meta property="og:url" content="https://www.cgsteam.io/" />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="CGS-team" />
+          <meta
+            property="og:title"
+            content="Custom Software Development | CGS Team"
+          />
           <meta
             property="og:description"
-            content="Launching successful startups for over 6 years already"
+            content="CGS Team is a custom software development company with a modern approach and vast experience in web development and mobile software development"
           />
           <meta property="og:image" content="/previewLink.png" />
           <meta property="og:image:width" content="20" />

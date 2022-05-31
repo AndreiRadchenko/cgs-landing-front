@@ -7,6 +7,11 @@ export const TitlePlusContentBlock = styled.div`
   grid-template-columns: 1fr 2.9fr;
   gap: 1em;
   margin-top: 10em;
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 2em;
+    grid-template-columns: none;
+    grid-column: 1;
+  }
 `;
 
 export const DefaultGrid = styled.div`
@@ -26,8 +31,14 @@ export const HeaderBig = styled.h2`
   height: fit-content;
   margin: 0.6em 0 2em 0;
 
-  @media ${themes.primary.media.minLaptop}{
+  @media ${themes.primary.media.minLaptop} {
     font-size: ${themes.primary.font.size.bigHeader};
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 2.05em;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    margin: 0.6em 0 1em 0;
   }
 `;
 
