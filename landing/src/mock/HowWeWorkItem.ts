@@ -8,7 +8,7 @@ const items: IHowWeWorkCardProps[] = [
     rank: 1,
     backGroundColor: "blue",
     imgUrl: "/how_we_work1_box.png",
-    additionalImgUrl: "/how_we_work1_mouse.png",
+    additionalImgUrl: true,
   },
   {
     title: "how we work",

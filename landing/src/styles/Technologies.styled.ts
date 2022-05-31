@@ -5,7 +5,7 @@ import themes from "../utils/themes";
 export const TechnologyContainer = styled.section`
   user-select: none;
   font-family: ${themes.primary.font.family.gilroy};
-  margin-bottom: 12.5em;
+  margin-bottom: 8.5em;
 `;
 
 export const TechnologyRow = styled.div`

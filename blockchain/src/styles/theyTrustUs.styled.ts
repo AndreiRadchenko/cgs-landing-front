@@ -17,8 +17,9 @@ export const UfoBlock = styled.div`
     width: 90%;
   }
   @media ${themes.primary.media.maxMobile} {
-    left: calc(50% - 9rem);
-    margin: 4rem 0 1rem;
+    position: relative;
+    left: calc(50% - 11rem);
+    margin: 4rem 0;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 80%;
@@ -38,6 +39,9 @@ export const LogosGrid = styled.div`
   }
   & div img {
     cursor: pointer;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    grid-gap: 1.5rem;
   }
 
   @media ${themes.primary.media.minLaptop} {

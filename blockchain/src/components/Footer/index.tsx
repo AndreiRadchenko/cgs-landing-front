@@ -14,12 +14,14 @@ const Footer = () => {
         department?
       </Styled.Header>
       <OrbitButton>Book a meeting</OrbitButton>
+      <Styled.MarginBlock />
       <Styled.ImagePosition>
-          <Image src={cosmonaut} />
+        <Image src={cosmonaut} alt="footer cosmonaut" />
       </Styled.ImagePosition>
-
       <Styled.FooterNav>
-        <Styled.Email>sales.codegeneration@gmail.com</Styled.Email>
+        <Styled.Email href="mailto:sales.codegeneration@gmail.com">
+          sales.codegeneration@gmail.com
+        </Styled.Email>
         {socialLinks.map((i) => (
           <FooterIcon key={i.href} Icon={i.Icon} href={i.href} />
         ))}
