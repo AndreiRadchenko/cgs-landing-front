@@ -3,13 +3,8 @@ import themes from "../../utils/themes";
 
 type backGroundColor = "blue" | "orange" | "green";
 
-type IActive = {
-  active: boolean;
-};
-
 type IContainerProps = {
   backGroundColor: backGroundColor;
-  additionalImgUrl?: string;
 };
 
 type IColorProps = {
@@ -18,7 +13,7 @@ type IColorProps = {
 };
 
 type IAdditionalImg = {
-  additionalImgUrl?: string;
+  additionalImgUrl?: boolean;
 };
 
 type IImage = {
@@ -36,7 +31,7 @@ export const Container = styled.div<IContainerProps>`
   flex-direction: column;
   color: ${themes.primary.colors.primary};
   background-color: ${(props) => themes.primary.colors[props.backGroundColor]};
-  z-index: ${(props) => (props.additionalImgUrl ? "35" : "1")};
+  z-index: 1;
   box-sizing: border-box;
   overflow: hidden;
 `;
@@ -138,34 +133,33 @@ export const ContentImgContainer = styled.div<IAdditionalImg>`
   justify-content: ${(props) =>
     props.additionalImgUrl ? "flex-end" : "center"};
   align-items: center;
-  height: 100%;
   flex-grow: 1;
+  position: relative;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     align-self: ${(props) => (props.additionalImgUrl ? "flex-end" : "initial")};
   }
+
+  & div {
+    @media ${themes.primary.media.minLaptop} {
+      margin-top: ${(props) => (props.additionalImgUrl ? "11em" : "0")};
+    }
+  }
+
+  & div img {
+    max-height: ${(props) => (props.additionalImgUrl ? "48em" : "40em")};
+  }
 `;
 
 export const ContentImage = styled.div<IImage>`
-  position: relative;
   z-index: 500;
-  width: 35em;
   margin-bottom: 30%;
-  height: ${(props) => (props.isFlipOnMobile ? "41em" : "35em")};
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 30em;
     transform: ${(props) =>
       props.isFlipOnMobile ? "scale(-1, 1)" : "initial"};
   }
-  @media ${themes.primary.media.maxMobile} {
-    width: 25em;
-    height: ${(props) => (props.isFlipOnMobile ? "37em" : `26em`)};
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 23em;
-    height: ${(props) => (props.isFlipOnMobile ? "36em" : `22.5em`)};
-  }
+
   animation: ${({ active }) => (active ? "image 2s" : null)};
   @keyframes image {
     0% {
@@ -241,26 +235,5 @@ export const ContentText = styled.p`
 
   @media ${themes.primary.media.maxMobile} {
     line-height: 150%;
-  }
-`;
-
-export const AdditionalImgContainer = styled.div<IActive>`
-  position: absolute;
-  bottom: -6em;
-  right: 0;
-  animation: ${({ active }) => (active ? "image 2s" : null)};
-  @media ${themes.primary.media.maxMobile} {
-    bottom: -2em;
-  }
-`;
-
-export const AdditionalImg = styled.div`
-  position: relative;
-  width: 14em;
-  height: 48em;
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 9em;
-    height: 30em;
   }
 `;
