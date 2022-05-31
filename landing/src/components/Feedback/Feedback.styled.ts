@@ -24,8 +24,6 @@ export const Navigationwrapper = styled.div`
 
 export const ArrowContainer = styled.div`
   display: flex;
-  margin-right: 0.625rem;
-  @media ${themes.primary.media.minTablet} {
-    margin: 3rem 0 0 0.53rem;
-  }
+  justify-content: space-between;
+  width: 90px;
 `;
