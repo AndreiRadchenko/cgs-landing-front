@@ -162,3 +162,8 @@ export const FileText = styled.span`
 export const FileImg = styled.img`
   margin-top: 4px;
 `;
+
+export const SentMessage = styled.div`
+  font-weight: ${themes.primary.font.weight.bold};
+  color: ${themes.primary.colors.green};
+`;
