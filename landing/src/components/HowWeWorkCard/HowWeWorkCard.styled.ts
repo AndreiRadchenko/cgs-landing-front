@@ -149,7 +149,7 @@ export const ContentImgContainer = styled.div<IAdditionalImg>`
 export const ContentImage = styled.div<IImage>`
   position: relative;
   z-index: 500;
-  width: 33em;
+  width: 35em;
   margin-bottom: 30%;
   height: ${(props) => (props.isFlipOnMobile ? "41em" : "35em")};
 

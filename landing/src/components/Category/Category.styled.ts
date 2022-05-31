@@ -49,13 +49,13 @@ export const CategoryContainer = styled.div`
       transform: rotate(0deg);
     }
 
-    @media ${themes.primary.media.maxTabletPortrait} {
+    @media ${themes.primary.media.maxTabletLandScape} {
       display: none;
     }
   }
 
   &:nth-child(4) {
-    @media ${themes.primary.media.onlyTabletLandScape} {
+    @media ${themes.primary.media.maxTabletLandScape} {
       display: none;
     }
   }
