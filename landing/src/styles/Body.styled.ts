@@ -80,7 +80,7 @@ export const WrapperBgImg = styled.div`
   position: absolute;
   right: -1%;
   top: 5%;
-  width: 65%;
+  width: 63%;
   transform: rotate(1.5deg);
 
   @media ${themes.primary.media.onlyLaptop} {
@@ -89,7 +89,8 @@ export const WrapperBgImg = styled.div`
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
-    right: -7.3%;
+    width: 63%;
+    right: -7%;
     top: 10%;
   }
 
