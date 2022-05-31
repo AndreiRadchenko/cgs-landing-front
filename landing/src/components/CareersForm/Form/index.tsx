@@ -1,6 +1,8 @@
 import React, { FC, useState } from "react";
 import { useFormik, FormikValues } from "formik";
+import * as emailjs from "emailjs-com";
 import * as Styled from "./Form.styled";
+
 import FormField from "./FormField/index";
 import { CareerFormValidation } from "../../../validations/CareerFormValidator";
 import { fieldData } from "../../../mock/VacancyFieldData";
@@ -16,6 +18,7 @@ interface IFormProps {
 const Form: FC<IFormProps> = ({ data }) => {
   const [isCV, setIsCV] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(false);
+  const [sent, setSent] = useState<boolean>(false);
 
   const { CV, image, text, ...fieldContent } = { ...data };
 
@@ -23,6 +26,17 @@ const Form: FC<IFormProps> = ({ data }) => {
     initialValues: fieldData,
     onSubmit: (values: FormikValues) => {
       console.log(values);
+
+      emailjs
+        .send(
+          process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID,
+          process.env.NEXT_PUBLIC_VACANCIES_EMAIL_TEMPLATE_ID,
+          values,
+          process.env.NEXT_PUBLIC_HOME_EMAIL_USER_ID
+        )
+        .then(() => {
+          setSent(true);
+        });
     },
     validationSchema: CareerFormValidation(),
   });
@@ -88,11 +102,17 @@ const Form: FC<IFormProps> = ({ data }) => {
           </Styled.FileLoad>
         </Styled.FileContainer>
         <Styled.SubmitButton>
+          {/* {sent && (
+            <Styled.SentMessage>
+              Thank you for your message. It has been sent.
+            </Styled.SentMessage>
+          )} */}
           <BaseButton
             src="/careersSendBg.png"
             width="22rem"
             height="4rem"
             className="big-btn"
+            type="submit"
           >
             <ButtonTextWrapper fontSize="1.4em">send</ButtonTextWrapper>
           </BaseButton>

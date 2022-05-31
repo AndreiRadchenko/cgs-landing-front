@@ -2,11 +2,11 @@ import { FormikValues } from "formik";
 
 export const fieldData: FormikValues = {
   name: "",
-  aboutCandidate: "",
+  describe: "",
   email: "",
   telegram: "",
   socialMediaLink: "",
-  projectsLink: "",
+  linksToProjects: "",
   "CV-file": "",
 };
 
