@@ -29,8 +29,8 @@ const Form: FC<IFormProps> = ({ data }) => {
 
       emailjs
         .send(
-          process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID,
-          process.env.NEXT_PUBLIC_VACANCIES_EMAIL_TEMPLATE_ID,
+          process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID || "",
+          process.env.NEXT_PUBLIC_VACANCIES_EMAIL_TEMPLATE_ID || "",
           values,
           process.env.NEXT_PUBLIC_HOME_EMAIL_USER_ID
         )
@@ -102,11 +102,11 @@ const Form: FC<IFormProps> = ({ data }) => {
           </Styled.FileLoad>
         </Styled.FileContainer>
         <Styled.SubmitButton>
-          {/* {sent && (
+          {sent && (
             <Styled.SentMessage>
               Thank you for your message. It has been sent.
             </Styled.SentMessage>
-          )} */}
+          )}
           <BaseButton
             src="/careersSendBg.png"
             width="22rem"

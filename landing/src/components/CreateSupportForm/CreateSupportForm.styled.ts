@@ -65,5 +65,5 @@ export const ButtonRow = styled.div`
 
 export const SentMessage = styled.div`
   font-weight: ${themes.primary.font.weight.bold};
-  color: ${themes.primary.colors.green};
+  color: ${themes.primary.colors.lightBlue};
 `;
