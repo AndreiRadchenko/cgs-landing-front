@@ -29,6 +29,9 @@ export const ProjectItemWrapper = styled.div`
       );
     }
   }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 39vh;
+  }
 `;
 
 export const HoverBlock = styled.div``;
@@ -44,7 +47,7 @@ export const ImageWrapper = styled("div")<IVisibleProps>`
 
   &::after {
     content: "";
-    background: rgba(256, 256, 256, 0.8);
+    background: rgba(256, 256, 256, 0.95);
     position: absolute;
     transition: all 0.3s;
     width: 90%;
@@ -53,7 +56,7 @@ export const ImageWrapper = styled("div")<IVisibleProps>`
     left: 6%;
     margin-left: -5px;
     border-radius: 0.5rem;
-    filter: blur(5px);
+    filter: blur(10px);
     opacity: ${({ isVisible }: IVisibleProps) => (isVisible ? isVisible : 0)};
 
     @media ${themes.primary.media.maxTabletLandScape} {

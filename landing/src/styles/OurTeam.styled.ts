@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import * as animations from "./AnimationsStyled";
 import themes from "../utils/themes";
 import Decoration from "../components/Decoration/Decoration";
@@ -30,10 +30,11 @@ export const OurTeamRow = styled.div`
   .our-main-goal-img {
     position: relative;
     grid-area: main-goal-img;
-    height: 37.625em;
+    height: 35.625em;
   }
 
   .our-main-goal-content {
+    position: relative;
     grid-area: main-goal-content;
   }
 
@@ -41,20 +42,31 @@ export const OurTeamRow = styled.div`
     position: relative;
     bottom: -21%;
     grid-area: philosophy-img;
-    height: 26.5em;
+    height: 30.5em;
   }
 
   .our-philosophy-content {
     grid-area: philosophy-content;
   }
 
+  @media ${themes.primary.media.onlyPC} {
+    .our-main-goal-img {
+      height: 40.375em;
+    }
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
+    .our-main-goal-content {
+      top: -1rem;
+    }
+
     .our-main-goal-img {
       height: 23.375em;
+      bottom: -18%;
     }
 
     .our-philosophy-img {
-      height: 16.313em;
+      height: 18.313em;
       bottom: -17%;
     }
   }
@@ -90,6 +102,8 @@ export const OurTeamRow = styled.div`
     width: 20rem;
   }
 `;
+
+export const ImageWrapper = styled.div``;
 
 export const OurTeamCardContainer = styled.div`
   display: flex;
@@ -141,9 +155,10 @@ export const OurTeamCardDescription = styled.span`
 
 export const DecorationClipIconLeft = styled.div`
   position: absolute;
-  bottom: -25%;
+  bottom: -20%;
   left: 63%;
   z-index: 3;
+  transform: scale(0.9);
 
   &:hover {
     animation: ${animations.rotateAnimationLaptopLeft} 1.5s ease-in-out;
@@ -159,7 +174,7 @@ export const DecorationClipIconLeft = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     transform: scale(0.65) rotate(65deg);
-    top: -95%;
+    top: -90%;
     left: -10%;
 
     &:hover {
@@ -167,14 +182,25 @@ export const DecorationClipIconLeft = styled.div`
     }
 
     &.animate {
-      animation: ${animations.rotateAnimationTablerPortraitLeft} 2s ease-in-out;
+      animation: ${animations.rotateAnimationTabletPortraitLeft} 2s ease-in-out;
+    }
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    transform: scale(0.5) rotate(65deg);
+
+    &:hover {
+      animation: none;
+    }
+
+    &.animate {
+      animation: ${animations.rotateAnimationMobileLeft} 2s ease-in-out;
     }
   }
 `;
 
 export const DecorationClipIconRight = styled.div`
   position: absolute;
-  top: -25%;
+  top: -15%;
   right: -5%;
   transform: scale(0.8) rotate(65deg);
   z-index: 3;
@@ -182,20 +208,29 @@ export const DecorationClipIconRight = styled.div`
   &:hover {
     animation: ${animations.rotateAnimationLaptopRight} 2.5s ease-in-out;
   }
-  @media ${themes.primary.media.onlyTabletLandScape} {
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    top: -25%;
+    right: -5%;
+    transform: scale(0.8) rotate(65deg);
+    z-index: 3;
+
+    &:hover {
+      animation: ${animations.rotateAnimationLaptopRight} 2.5s ease-in-out;
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
     transform: scale(0.65) rotate(65deg);
-    top: -35%;
+    top: -45%;
     right: -18%;
 
     &:hover {
       animation: ${animations.rotateAnimationTabletRight} 1.5s ease-in-out;
     }
   }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    transform: scale(0.65) rotate(65deg);
-    top: -35%;
-    right: -18%;
 
+  @media ${themes.primary.media.maxTabletPortrait} {
     &:hover {
       animation: none;
     }

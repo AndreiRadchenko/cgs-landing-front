@@ -28,7 +28,7 @@ export const WelcomeBlockWrapper = styled.div`
 
 export const WrapperBgImg = styled.div`
   position: relative;
-  width: 600px;
+  width: 700px;
   height: 600px;
 
   @media ${themes.primary.media.maxMobile} {
