@@ -20,11 +20,21 @@ const TheyTrustUs = () => {
   const renderItem = ({ i, ind }: IRenderItem) => {
     return (
       <div key={`theyLogoInd${ind}`}>
-        <Image
-          src={mouseY === ind ? i.green : i.image}
-          onMouseOver={mouseOn(ind)}
-          onMouseLeave={mouseLeave}
-        />
+        {mouseY === ind ? (
+          <Image
+            src={i.green}
+            onMouseOver={mouseOn(ind)}
+            onMouseLeave={mouseLeave}
+            alt={`they trus us ${i}`}
+          />
+        ) : (
+          <Image
+            src={i.image}
+            onMouseOver={mouseOn(ind)}
+            onMouseLeave={mouseLeave}
+            alt={`they trus us ${i}`}
+          />
+        )}
       </div>
     );
   };
@@ -34,7 +44,7 @@ const TheyTrustUs = () => {
       <div>
         <UsefullStyled.HeaderBig>they trust us</UsefullStyled.HeaderBig>
         <Styled.UfoBlock>
-          <Image src={ufo} />
+          <Image src={ufo} alt="they trust us ufo" />
         </Styled.UfoBlock>
       </div>
       <Styled.LogosGrid>
