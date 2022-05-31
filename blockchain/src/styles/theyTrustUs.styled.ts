@@ -9,6 +9,15 @@ export const UfoBlock = styled.div`
   @media ${themes.primary.media.minPC} {
     width: 90%;
   }
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    left: calc(50% - 11rem);
+    margin: 4rem 0;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 80%;
+    left: 15%;
+  }
 `;
 
 export const LogosGrid = styled.div`
@@ -24,8 +33,16 @@ export const LogosGrid = styled.div`
   & div img {
     cursor: pointer;
   }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    grid-gap: 1.5rem;
+  }
 
   @media ${themes.primary.media.minLaptop} {
     grid-template-columns: 1fr 1fr 1fr;
   }
+`;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
 `;

@@ -14,10 +14,9 @@ function Body() {
       <HeaderNav />
       <WelcomeBlock />
       <AllYouNeed />
-      <EvenMore />
       <ProjectCarousel />
+      <EvenMore />
       <TheyTrustUs />
-      <Footer />
     </BodyContainer>
   );
 }

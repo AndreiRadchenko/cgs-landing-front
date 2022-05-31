@@ -10,6 +10,10 @@ export const GreenSubheader = styled.h3`
 export const TechnologiesGrid = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
+  @media ${themes.primary.media.maxMobile} {
+    grid-template-columns: none;
+    grid-column: 1 / 3;
+  }
 `;
 
 export const HalfGrid = styled.div`
@@ -37,6 +41,10 @@ export const TechList = styled.ul`
 
   @media ${themes.primary.media.minLaptop} {
     font-size: ${themes.primary.font.size.greenSubheader};
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: ${themes.primary.font.size.mobileGreenSubheader};
   }
 `;
 

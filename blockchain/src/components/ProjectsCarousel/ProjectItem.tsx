@@ -36,7 +36,6 @@ const ProjectItem = ({
           <Image
             src={image}
             alt={title}
-            style={{ textAlign: "start" }}
             layout="fill"
             objectFit="contain"
             priority={true}
