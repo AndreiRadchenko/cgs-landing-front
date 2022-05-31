@@ -14,7 +14,7 @@ export const RightSideBlock = styled.div`
   position: relative;
 `;
 
-export const hoverBlock = styled.div`
+export const hoverBlock = styled.a`
   &:hover div {
     cursor: pointer;
     border: 5px solid ${themes.primary.colors.allGreen};
@@ -41,7 +41,7 @@ export const Block = styled.div`
     text-align: center;
   }
 
-  @media ${themes.primary.media.minLaptop}{
+  @media ${themes.primary.media.minLaptop} {
     height: 10.5em;
     font-size: ${themes.primary.font.size.oneAndHalf};
   }
@@ -78,10 +78,10 @@ export const BlockImageWrapper = styled.div`
   width: 120%;
   top: 11em;
   right: -3em;
-  @media ${themes.primary.media.minTabletLandScape}{
+  @media ${themes.primary.media.minTabletLandScape} {
     top: 6.6em;
   }
-  @media ${themes.primary.media.minLaptop}{
+  @media ${themes.primary.media.minLaptop} {
     top: 5.2em;
   }
   @media ${themes.primary.media.minPC} {
