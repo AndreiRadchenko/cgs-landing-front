@@ -40,13 +40,8 @@ const BlogPage = () => {
         </Styles.PageHeaderWrapper>
       </Page>
       <Styles.BlogItemsWrapper>
-        {blogItems.map(({ title, description, image }, i) => (
-          <BlogItem
-            key={i}
-            title={title}
-            description={description}
-            image={image}
-          />
+        {blogItems.map((props, i) => (
+          <BlogItem key={i} {...props} />
         ))}
       </Styles.BlogItemsWrapper>
       <PaginationBar />

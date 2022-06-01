@@ -12,16 +12,20 @@ const PhotoBlockDashedHorizontal = ({
   emptyHeader,
   deleteFunction,
   uploadFunction,
+  horizontalFlex,
+  maxWidth,
 }: IPhotoBlock) => {
   const { modal, toggleModal } = useUploadModal();
   const deleteFunc = () => deleteFunction!();
 
   return photo !== null && photo !== undefined ? (
-    <Styled.AdminPhotoDashedHorizontal>
+    <Styled.AdminPhotoDashedHorizontal maxWidth={maxWidth}>
       {modal ? (
         <AdminUploadModal back={toggleModal} func={uploadFunction} />
       ) : null}
-      <Styled.AdminPhotoDashedHorizontalPositoning>
+      <Styled.AdminPhotoDashedHorizontalPositoning
+        horizontalFlex={horizontalFlex}
+      >
         <AdminImage image={photo} />
         <Styled.AdminCenteredDiv>
           <Styled.AdminPointer>

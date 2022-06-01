@@ -1,15 +1,20 @@
 import themes from "../../utils/themes";
 import styled from "styled-components";
 
-export const BlogItem = styled.div`
+export const BlogItem = styled.div<{ isAdmin?: boolean }>`
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
   padding: 40px 20px;
+  margin-top: ${(props) => props.isAdmin && "30px"};
+  border: ${(props) =>
+    props.isAdmin ? `1px solid ${themes.primary.colors.black}` : "none"};
   &:hover {
-    background-color: ${themes.primary.colors.decorationText};
+    background-color: ${(props) =>
+      props.isAdmin ? "transparent" : themes.primary.colors.decorationText};
   }
   @media (max-width: 990px) {
     flex-wrap: wrap-reverse;
