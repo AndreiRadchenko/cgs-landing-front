@@ -28,24 +28,6 @@ function MyApp({
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Head>
-          <title>CGS - team</title>
-          <meta
-            name="description"
-            content="Launching successful startups for over 6 years already"
-          />
-          <meta property="og:url" content="http://codegeneration.cc/" />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content="CGS-team" />
-          <meta
-            property="og:description"
-            content="Launching successful startups for over 6 years already"
-          />
-          <meta property="og:image" content="/previewLink.png" />
-          <meta property="og:image:width" content="20" />
-          <meta property="og:image:height" content="20" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
         <Hydrate state={pageProps.dehydratedState}>
           <CacheProvider value={emotionCache}>
             <Component {...pageProps} />
