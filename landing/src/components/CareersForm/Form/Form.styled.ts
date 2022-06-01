@@ -164,6 +164,10 @@ export const FileImg = styled.img`
 `;
 
 export const SentMessage = styled.div`
+  transform: translateY(2rem);
   font-weight: ${themes.primary.font.weight.bold};
   color: ${themes.primary.colors.lightBlue};
+  @media ${themes.primary.media.maxLaptop} {
+    transform: none;
+  }
 `;
