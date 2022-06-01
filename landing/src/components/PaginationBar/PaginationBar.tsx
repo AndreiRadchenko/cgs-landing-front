@@ -14,10 +14,10 @@ const PaginationBar = () => {
         <Styles.PaginationItem>3</Styles.PaginationItem>
       </Styles.PaginationItemsWrapper>
       <ArrowContainer>
-        <Styles.SwiperButton className="swiper-button-prev">
+        <Styles.SwiperButton>
           <LeftArrow />
         </Styles.SwiperButton>
-        <Styles.SwiperButton className="swiper-button-next">
+        <Styles.SwiperButton>
           <RightArow />
         </Styles.SwiperButton>
       </ArrowContainer>

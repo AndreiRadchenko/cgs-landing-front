@@ -8,6 +8,8 @@ import { IDataResponse } from "../../types/Admin/Response.types";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { queryKeys } from "../../consts/queryKeys";
 import PaginationBar from "../../components/PaginationBar/PaginationBar";
+import BlogItem from "../../components/BlogItem/BlogItem";
+import { blogItems } from "../../consts";
 
 import * as Styles from "../../styles/BlogPage.styled";
 
@@ -38,66 +40,14 @@ const BlogPage = () => {
         </Styles.PageHeaderWrapper>
       </Page>
       <Styles.BlogItemsWrapper>
-        <Styles.BlogItem>
-          <Styles.BlogItemInfo>
-            <Styles.BlogItemTitle>
-              What is a project manager?  The key to project success
-            </Styles.BlogItemTitle>
-            <Styles.BlogItemDescription>
-              The role of a project manager is evolving as businesses evolve.
-              The role of a project manager  is evolving as businesses evolve.
-            </Styles.BlogItemDescription>
-          </Styles.BlogItemInfo>
-          <Styles.BlogItemImage src={BannerImage.src} />
-        </Styles.BlogItem>
-        <Styles.BlogItem>
-          <Styles.BlogItemInfo>
-            <Styles.BlogItemTitle>
-              What is a project manager?  The key to project success
-            </Styles.BlogItemTitle>
-            <Styles.BlogItemDescription>
-              The role of a project manager is evolving as businesses evolve.
-              The role of a project manager  is evolving as businesses evolve.
-            </Styles.BlogItemDescription>
-          </Styles.BlogItemInfo>
-          <Styles.BlogItemImage src={BannerImage.src} />
-        </Styles.BlogItem>
-        <Styles.BlogItem>
-          <Styles.BlogItemInfo>
-            <Styles.BlogItemTitle>
-              What is a project manager?  The key to project success
-            </Styles.BlogItemTitle>
-            <Styles.BlogItemDescription>
-              The role of a project manager is evolving as businesses evolve.
-              The role of a project manager  is evolving as businesses evolve.
-            </Styles.BlogItemDescription>
-          </Styles.BlogItemInfo>
-          <Styles.BlogItemImage src={BannerImage.src} />
-        </Styles.BlogItem>
-        <Styles.BlogItem>
-          <Styles.BlogItemInfo>
-            <Styles.BlogItemTitle>
-              What is a project manager?  The key to project success
-            </Styles.BlogItemTitle>
-            <Styles.BlogItemDescription>
-              The role of a project manager is evolving as businesses evolve.
-              The role of a project manager  is evolving as businesses evolve.
-            </Styles.BlogItemDescription>
-          </Styles.BlogItemInfo>
-          <Styles.BlogItemImage src={BannerImage.src} />
-        </Styles.BlogItem>
-        <Styles.BlogItem>
-          <Styles.BlogItemInfo>
-            <Styles.BlogItemTitle>
-              What is a project manager?  The key to project success
-            </Styles.BlogItemTitle>
-            <Styles.BlogItemDescription>
-              The role of a project manager is evolving as businesses evolve.
-              The role of a project manager  is evolving as businesses evolve.
-            </Styles.BlogItemDescription>
-          </Styles.BlogItemInfo>
-          <Styles.BlogItemImage src={BannerImage.src} />
-        </Styles.BlogItem>
+        {blogItems.map(({ title, description, image }, i) => (
+          <BlogItem
+            key={i}
+            title={title}
+            description={description}
+            image={image}
+          />
+        ))}
       </Styles.BlogItemsWrapper>
       <PaginationBar />
       <Footer />
