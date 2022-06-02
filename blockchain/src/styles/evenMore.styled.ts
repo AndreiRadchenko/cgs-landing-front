@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { IImageProps } from "../types/EvenMore.types";
 import themes from "../utils/themes";
+import { opacityAnimation, scaleAnimation } from "./animations";
 
 export const LeftSideBlock = styled.div`
   position: relative;
@@ -113,24 +115,24 @@ export const LineThrough = styled("div")<{
 export const BlockImageWrapper = styled.div`
   position: absolute;
   width: 120%;
-  top: 5em;
   right: -3em;
+  top: 8rem;
+
   @media ${themes.primary.media.maxPCFullHD} {
     width: 110%;
-    top: 4.6em;
-  }
-  @media ${themes.primary.media.maxLaptop} {
-    top: 5.2em;
+    top: 9em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 120%;
-    top: 4.6em;
+    top: 7em;
   }
   @media ${themes.primary.media.maxMobile} {
     position: relative;
-    width: 120%;
-    left: calc(50% - 8rem);
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     margin-bottom: 5rem;
   }
 `;
@@ -138,4 +140,82 @@ export const BlockImageWrapper = styled.div`
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
+`;
+
+export const BlockWrapper = styled.div`
+  z-index: 2;
+  position: absolute;
+  width: 282px;
+  height: 282px;
+  @media ${themes.primary.media.maxLaptop} {
+    width: 232px;
+    height: 232px;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 192px;
+    height: 192px;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 162px;
+    height: 162px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    width: 282px;
+    height: 282px;
+  }
+`;
+
+export const CoinsWrapper = styled("div")<IImageProps>`
+  position: relative;
+  width: 282px;
+  height: 282px;
+  animation: ${({ isScrolled }) =>
+    isScrolled ? css`1.15s ${scaleAnimation} ease-in` : "none"};
+  @media ${themes.primary.media.maxLaptop} {
+    width: 232px;
+    height: 232px;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 192px;
+    height: 192px;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 162px;
+    height: 162px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    width: 282px;
+    height: 282px;
+  }
+`;
+export const ImageWrapper = styled("div")<IImageProps>`
+  transform-origin: 50% bottom;
+  animation: ${({ isScrolled }) =>
+    isScrolled ? css`1.1s ${scaleAnimation} ease-in` : "none"};
+`;
+
+export const LinesWrapper = styled("div")<IImageProps>`
+  position: absolute;
+  left: 11rem;
+  top: 0.3rem;
+  width: 250px;
+  height: 300px;
+  animation: ${({ isScrolled }) =>
+    isScrolled ? css`1.6s ${opacityAnimation} linear` : "none"};
+  @media ${themes.primary.media.maxLaptop} {
+    width: 160px;
+    height: 250px;
+    left: 8rem;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 180px;
+    height: 170px;
+    left: 7rem;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 100px;
+    left: 6rem;
+  }
 `;

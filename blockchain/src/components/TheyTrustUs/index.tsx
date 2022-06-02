@@ -5,6 +5,7 @@ import Image from "next/image";
 import ufo from "../../../public/ufo.png";
 import { logos } from "../../utils/logos";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import UfoImage from "./UfoImage";
 
 interface IRenderItem {
   i: {
@@ -53,7 +54,7 @@ const TheyTrustUs = () => {
           <UsefullStyled.HeaderBig>they trust us</UsefullStyled.HeaderBig>
           <Styled.ContentWrapper>
             <Styled.UfoBlock>
-              <Image src={ufo} alt="they trust us ufo" />
+              <UfoImage />
             </Styled.UfoBlock>
             <Styled.LogosGrid>
               {logos.map((i, ind) => renderItem({ i, ind }))}
@@ -65,7 +66,7 @@ const TheyTrustUs = () => {
           <div>
             <UsefullStyled.HeaderBig>they trust us</UsefullStyled.HeaderBig>
             <Styled.UfoBlock>
-              <Image src={ufo} alt="they trust us ufo" />
+              <UfoImage />
             </Styled.UfoBlock>
           </div>
           <Styled.LogosGrid>
