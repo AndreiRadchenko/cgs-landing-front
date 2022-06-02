@@ -23,6 +23,8 @@ const AdminSidebar = () => {
           </Link>
         </DropDownElement>
 
+        <DropDownElement value="blog" route={ROUTE_KEYS.AdminBlog} />
+
         <DropDownElement value="careers" route={ROUTE_KEYS.AdminCareers}>
           <Link href={ROUTE_KEYS.AdminVacancy}>
             <a>vacancy info </a>

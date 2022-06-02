@@ -24,9 +24,7 @@ const Form: FC<IFormProps> = ({ data }) => {
 
   const formik = useFormik({
     initialValues: fieldData,
-    onSubmit: (values: FormikValues) => {
-      console.log(values);
-
+    onSubmit: (values: FormikValues, { resetForm }) => {
       emailjs
         .send(
           process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID || "",
@@ -36,6 +34,7 @@ const Form: FC<IFormProps> = ({ data }) => {
         )
         .then(() => {
           setSent(true);
+          resetForm();
         });
     },
     validationSchema: CareerFormValidation(),
