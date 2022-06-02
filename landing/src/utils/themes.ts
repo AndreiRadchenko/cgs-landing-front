@@ -52,6 +52,7 @@ const themes = {
         articleSubtitle: "1.6em",
         menuElement: "1.7em",
         articleTagDescription: "1.8em",
+        adminButton: "1.8em",
         secondary: "2em",
         quaternary: "2.6em",
         articleTitle: "3.3em",
