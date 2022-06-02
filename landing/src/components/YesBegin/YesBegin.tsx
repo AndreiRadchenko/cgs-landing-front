@@ -43,7 +43,9 @@ const YesBegin = ({ clickHandler }: IYesBeginProps) => {
       </Styles.ButtonContainer>
       <Styles.Circle isClicked={isClicked}>
         <Styles.ImageContainer isClicked={isClicked}>
-          <ImagePreview src="/rocket.png" layout="fill" alt="rocket" />
+          <Styles.ImageRelativeWrapper>
+            <ImagePreview src="/rocket.png" layout="fill" alt="rocket" />
+          </Styles.ImageRelativeWrapper>
         </Styles.ImageContainer>
       </Styles.Circle>
     </Styles.Container>
