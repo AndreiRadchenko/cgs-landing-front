@@ -12,12 +12,7 @@ type IColorProps = {
   active: boolean;
 };
 
-type IAdditionalImg = {
-  additionalImgUrl?: boolean;
-};
-
 type IImage = {
-  isFlipOnMobile?: boolean;
   active?: boolean;
 };
 
@@ -123,43 +118,101 @@ export const ContentTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 8rem;
+
+  &.first {
+    margin-bottom: 23em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.first {
+      margin-bottom: 15em;
+    }
+  }
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 0;
   }
 `;
 
-export const ContentImgContainer = styled.div<IAdditionalImg>`
+export const ContentImgContainer = styled.div`
   display: flex;
-  justify-content: ${(props) =>
-    props.additionalImgUrl ? "flex-end" : "center"};
+  justify-content: center;
   align-items: center;
   flex-grow: 1;
   position: relative;
 
+  &.first {
+    justify-content: flex-end;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
-    align-self: ${(props) => (props.additionalImgUrl ? "flex-end" : "initial")};
+    &.first {
+      align-items: flex-end;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    &.first {
+      width: 100%;
+      justify-content: flex-end;
+    }
   }
 
   & div {
     @media ${themes.primary.media.minLaptop} {
-      margin-top: ${(props) => (props.additionalImgUrl ? "11em" : "0")};
+      margin-top: 0;
+      &.first {
+        margin-top: 11em;
+      }
     }
   }
 
   & div img {
-    max-height: ${(props) => (props.additionalImgUrl ? "48em" : "40em")};
+    max-height: 40em;
+    margin-top: 0;
+    &.first {
+      margin-top: 11em;
+    }
   }
 `;
 
 export const ContentImage = styled.div<IImage>`
+  position: relative;
   z-index: 500;
+  width: 38em;
   margin-bottom: 30%;
+  height: 35em;
 
-  @media ${themes.primary.media.maxTabletLandScape} {
-    transform: ${(props) =>
-      props.isFlipOnMobile ? "scale(-1, 1)" : "initial"};
+  &.first {
+    width: 36em;
+    height: 42em;
   }
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.first {
+      width: 28em;
+      height: 44em;
+    }
+    height: 30em;
+    width: 30em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 35em;
+    height: 30em;
+
+    &.first {
+      width: 30em;
+      height: 32em;
+    }
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 22em;
+    height: 22em;
+
+    &.first {
+      width: 28em;
+      height: 30em;
+    }
+  }
   animation: ${({ active }) => (active ? "image 2s" : null)};
   @keyframes image {
     0% {

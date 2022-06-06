@@ -4,11 +4,14 @@ import WelcomePage from "../WelcomePage/WelcomePage";
 import HeaderNav from "../HeaderNav/HeaderNav";
 import { IBodyProps } from "./types";
 
-const Body = ({ welcomePageButtonHandler }: IBodyProps) => {
+const Body = ({ welcomePageButtonHandler, setIsClicked }: IBodyProps) => {
   return (
     <StyledThisComp.BodyContainer>
       <HeaderNav />
-      <WelcomePage clickHandler={welcomePageButtonHandler} />
+      <WelcomePage
+        clickHandler={welcomePageButtonHandler}
+        setIsClicked={setIsClicked}
+      />
     </StyledThisComp.BodyContainer>
   );
 };
