@@ -9,6 +9,10 @@ jobs:
   deploy:
     runs-on: self-hosted
 
+    defaults:
+      run:
+        working-directory: ./landing
+
     steps:
       - name: Development Code
         uses: actions/checkout@v2
