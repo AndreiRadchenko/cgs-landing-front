@@ -121,7 +121,7 @@ const Home: NextPage = () => {
         ></script>
       </Head>
       {homeData.isLoading ? (
-        <StyledCommon.Loading>LOADING...</StyledCommon.Loading>
+        <StyledCommon.Loading>LOADING1111...</StyledCommon.Loading>
       ) : (
         <>
           <StyledCommon.Page>
