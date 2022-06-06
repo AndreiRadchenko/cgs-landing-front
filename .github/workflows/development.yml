@@ -29,3 +29,4 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: 'cd-landing-frontend-stg'
           heroku_email: 'contact@codegenerationsoftware.com'
+          stack: "container"
