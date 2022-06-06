@@ -30,4 +30,3 @@ jobs:
           heroku_app_name: 'cd-landing-frontend-stg'
           heroku_email: 'contact@codegenerationsoftware.com'
           appdir: landing
-          env_file: ./.env
