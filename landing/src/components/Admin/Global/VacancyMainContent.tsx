@@ -3,7 +3,7 @@ import { Formik, Form } from "formik";
 import TextVacancyBlock from "../FirstTextVacancyBlock";
 import VacancyContactBlock from "../VacancyContactBlock";
 import * as Styled from "../../../styles/AdminPage";
-import { adminGlobalService } from "../../../services/adminVacancyPage";
+import { adminVacancyService } from "../../../services/adminVacancyPage";
 import { useMutation, useQuery } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { IDataVacancyResponse } from "../../../types/Admin/Response.types";
@@ -17,11 +17,11 @@ const VacancyMainContent = () => {
   const [page, setPage] = useState(0);
   const { data, isLoading, refetch }: IVacancyProps = useQuery(
     queryKeys.VacancyFullPage,
-    () => adminGlobalService.getFullPage()
+    () => adminVacancyService.getFullPage()
   );
   const { mutateAsync } = useMutation(
     queryKeys.PutVacancyFullPage,
-    (data: IDataVacancyResponse) => adminGlobalService.updateFullPage(data)
+    (data: IDataVacancyResponse) => adminVacancyService.updateFullPage(data)
   );
 
   return isLoading ? (
