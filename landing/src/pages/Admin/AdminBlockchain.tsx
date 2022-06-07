@@ -1,4 +1,6 @@
 import React from "react";
+import AdminSidebar from "../../components/Admin/SideBar/AdminSidebar";
+import AdminBlockchainMainContent from "../../components/Admin/Global/AdminBlockchainMainContent";
 import { queryKeys } from "../../consts/queryKeys";
 import { validTokenGlobal } from "../../services/validToken";
 import { useQuery } from "react-query";
@@ -11,9 +13,8 @@ const AdminBlockchain = () => {
   );
   return data ? (
     <Styled.AdminWrapper>
-      {/*
-				components here
-			*/}
+      <AdminSidebar />
+      <AdminBlockchainMainContent />
     </Styled.AdminWrapper>
   ) : (
     <Styled.AdminUnauthorizedModal>
