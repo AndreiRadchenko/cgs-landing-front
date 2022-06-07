@@ -24,6 +24,7 @@ const Careers: FC = () => {
       <Styled.TicketWrapper>
         {data?.tickets.map(({ image, vacancy, id }: ITicketData) => (
           <CareersTicket
+            route={true}
             id={id}
             vacancy={vacancy}
             imgUrl={image.url}
