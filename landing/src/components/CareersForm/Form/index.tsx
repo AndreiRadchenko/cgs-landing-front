@@ -10,6 +10,7 @@ import animateCV from "../../../../public/lotties/CVButton.json";
 import BaseButton from "../../BaseButton/BaseButton";
 import ButtonTextWrapper from "../../ButtonText/ButtonTextWrapper";
 import { IFormBlock } from "../../../types/Admin/Response.types";
+import ModalSentEmail from "../../Modal/ModalSentEmail";
 
 interface IFormProps {
   data?: IFormBlock;
@@ -61,6 +62,10 @@ const Form: FC<IFormProps> = ({ data }) => {
     return handleChange(e);
   };
 
+  const closeHandler = () => {
+    setSent(false);
+  };
+
   return (
     <Styled.FormProvider value={formik}>
       <Styled.Form onSubmit={formik.handleSubmit}>
@@ -101,11 +106,7 @@ const Form: FC<IFormProps> = ({ data }) => {
           </Styled.FileLoad>
         </Styled.FileContainer>
         <Styled.SubmitButton>
-          {sent && (
-            <Styled.SentMessage>
-              Thank you for your message. It has been sent.
-            </Styled.SentMessage>
-          )}
+          {sent && <ModalSentEmail isOpen={sent} closeHandler={closeHandler} />}
           <BaseButton
             src="/careersSendBg.png"
             width="22rem"

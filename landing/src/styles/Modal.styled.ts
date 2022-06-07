@@ -37,6 +37,18 @@ export const ModalWrapper = styled.div`
   opacity: 1;
   border-radius: 15px;
 
+  &.sent-email {
+    top: 0;
+    width: 50%;
+    border-radius: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem;
+  }
+
   @media ${themes.primary.media.onlyLaptop} {
     width: 1040px;
   }
@@ -47,14 +59,18 @@ export const ModalWrapper = styled.div`
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     width: 90%;
+    &.sent-email {
+      width: 60%;
+      min-height: 2rem;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 90%;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 90%;
+    &.sent-email {
+      width: 90%;
+      min-height: 2rem;
+    }
   }
 `;
 
@@ -92,15 +108,11 @@ export const ModalBackButton = styled.button`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    right: 6%;
     top: 0%;
-    font-size: 3em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    right: 6%;
     top: -0.1%;
-    font-size: 3em;
   }
 `;
 
@@ -129,6 +141,11 @@ export const ModalBackButtonAnimated = styled.div`
   position: absolute;
   right: 2.5rem;
 
+  &.sent-email {
+    width: 3rem;
+    top: 0.5rem;
+    right: 0;
+  }
   &.close {
     align-items: center;
     justify-content: flex-end;
@@ -164,5 +181,22 @@ export const ModalBackButtonAnimated = styled.div`
     right: 2rem;
     top: -1.2rem;
     font-size: 3rem;
+  }
+`;
+
+export const SentEmailHeader = styled.h1`
+  position: relative;
+  white-space: break-spaces;
+  font-weight: ${themes.primary.font.weight.extraBold};
+  text-align: center;
+`;
+
+export const SentEmailImageWrapper = styled.div`
+  position: relative;
+  width: 50%;
+  height: 200px;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 100%;
   }
 `;

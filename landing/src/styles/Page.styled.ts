@@ -13,7 +13,7 @@ export const Page = styled.article`
   @media ${themes.primary.media.onlyLaptop} {
     width: 1100px;
 
-    &.test {
+    &.lets-code {
       width: 90%;
     }
   }

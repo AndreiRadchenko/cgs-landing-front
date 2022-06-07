@@ -15,6 +15,7 @@ import {
   IDataResponse,
 } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import ModalSentEmail from "../Modal/ModalSentEmail";
 
 interface IEmailBody {
   [name: string]: string;
@@ -44,6 +45,8 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
     validateOnBlur: true,
     validationSchema: LestCodeValidation(),
     onSubmit: (values: IEmailBody, { resetForm }) => {
+      console.log("here");
+
       emailjs
         .send(
           process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID || "",
@@ -73,6 +76,9 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
     return (
       (object && Object.keys(object).find((key) => object[key] === value)) || ""
     );
+  };
+  const closeHandler = () => {
+    setSent(false);
   };
 
   return (
@@ -109,11 +115,7 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
           onMouseEnter={handleHover}
           onMouseLeave={handleLeave}
         >
-          {sent && (
-            <StyledThisComp.SentMessage>
-              Thank you for your message. It has been sent.
-            </StyledThisComp.SentMessage>
-          )}
+          {sent && <ModalSentEmail isOpen={sent} closeHandler={closeHandler} />}
           <ButtonSubmitForm>
             <ButtonTextWrapper fontSize={"1.4em"}>send</ButtonTextWrapper>
           </ButtonSubmitForm>

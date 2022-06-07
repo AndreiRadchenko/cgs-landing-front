@@ -15,7 +15,11 @@ import { insertHowWeWorkData } from "../../utils/HowWeWorkDataCreator";
 
 SwiperCore.use([Mousewheel, Pagination]);
 
-const HowWeWorkList = () => {
+interface IHowWeWorkProps {
+  isClicked: boolean;
+}
+
+const HowWeWorkList = ({ isClicked }: IHowWeWorkProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { width } = useWindowDimension();
 
@@ -30,7 +34,7 @@ const HowWeWorkList = () => {
   const entry = useIntersectionObserver(ref, { threshold: 0.75 });
   const isVisible = !!entry?.isIntersecting;
 
-  if (isVisible && ref.current)
+  if (!isClicked && isVisible && ref.current)
     window.scrollTo({ behavior: "smooth", top: ref.current.offsetTop });
 
   const isReleaseOnEdges = (e: SwiperCore, bool: boolean, time: number) => {
