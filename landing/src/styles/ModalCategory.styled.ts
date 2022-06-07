@@ -93,6 +93,15 @@ export const CategoryRouteName = styled.span`
     margin-right: 0;
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5em;
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    font-size: 1.4em;
+    margin-right: 2.5em;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 1.3em;
     margin-right: 0.5em;

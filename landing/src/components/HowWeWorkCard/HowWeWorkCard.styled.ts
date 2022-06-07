@@ -182,7 +182,7 @@ export const ContentImage = styled.div<IImage>`
   height: 35em;
 
   &.first {
-    width: 36em;
+    width: 33em;
     height: 42em;
   }
 
@@ -200,7 +200,7 @@ export const ContentImage = styled.div<IImage>`
     height: 30em;
 
     &.first {
-      width: 30em;
+      width: 25em;
       height: 32em;
     }
   }
@@ -209,7 +209,7 @@ export const ContentImage = styled.div<IImage>`
     height: 22em;
 
     &.first {
-      width: 28em;
+      width: 24em;
       height: 30em;
     }
   }
