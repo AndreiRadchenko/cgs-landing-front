@@ -6,13 +6,11 @@ interface ITicketProps {
   id?: string;
   vacancy: string;
   imgUrl: string;
-  route: boolean;
 }
 const CareersTicket: FC<ITicketProps> = ({
   id,
   vacancy,
   imgUrl,
-  route,
 }: ITicketProps) => {
   const handleClick = () => {
     localStorage.setItem("vacancyId", `${id}`);
@@ -24,15 +22,11 @@ const CareersTicket: FC<ITicketProps> = ({
           <Styled.BarcodeText>InSight CGS to Stratosphere</Styled.BarcodeText>
         </Styled.BarcodeImg>
         <Styled.RocketImg imgUrl={imgUrl}>
-          {route ? (
-            <Link href="/lets-go">
-              <a onClick={handleClick}>
-                <Styled.Button content="Lets go!" />
-              </a>
-            </Link>
-          ) : (
-            <Styled.Button content="Lets go!" />
-          )}
+          <Link href="/lets-go">
+            <a onClick={handleClick}>
+              <Styled.Button />
+            </a>
+          </Link>
         </Styled.RocketImg>
       </Styled.ImageWrapper>
       <Styled.CareersWrapper>

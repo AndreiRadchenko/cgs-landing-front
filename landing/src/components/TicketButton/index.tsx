@@ -1,10 +1,7 @@
 import React, { FC } from "react";
 import * as Styled from "./TicketButton.styled";
 
-interface IButtonContent {
-  content: string;
-}
-const TicketButton: FC<IButtonContent> = ({ content }: IButtonContent) => {
+const TicketButton: FC = () => {
   return <Styled.TicketButton />;
 };
 
