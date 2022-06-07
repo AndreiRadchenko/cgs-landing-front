@@ -82,4 +82,5 @@ export enum ROUTE_KEYS {
   AdminSettings = "AdminSettings",
   AdminVacancy = "/Admin/AdminVacancy",
   AdminBlog = "/Admin/AdminBlog",
+  AdminBlockchain = "/Admin/AdminBlockchain",
 }
