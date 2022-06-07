@@ -190,3 +190,16 @@ export interface IDataVacancyResponse {
   offer: IOfferBlock;
   contact: IContactBlock;
 }
+
+export interface IBlockchainProjectBlock {
+  name: string;
+  text: string;
+  image: {
+    url: string;
+  } | null;
+}
+
+export interface IDataBlockchainResponse {
+  projects: IBlockchainProjectBlock[];
+  newProject: IBlockchainProjectBlock;
+}
