@@ -89,3 +89,25 @@ export const ufoFloatAnimation = keyframes`
     }
   `}
 `;
+
+export const scaleAnimation = keyframes`
+${css`
+  0% {
+    transform: scale(0.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+`}
+`;
+
+export const opacityAnimation = keyframes`
+${css`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`}
+`;

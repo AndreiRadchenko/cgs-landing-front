@@ -12,14 +12,13 @@ export const UfoBlock = styled.div`
   @media ${themes.primary.media.onlyTabletPortrait} {
     width: 300px;
   }
-
   @media ${themes.primary.media.minPC} {
     width: 90%;
   }
   @media ${themes.primary.media.maxMobile} {
     position: relative;
-    left: calc(50% - 11rem);
-    margin: 4rem 0;
+    left: calc(50% - 9rem);
+    margin: 4rem 0 1rem;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 80%;
@@ -43,7 +42,6 @@ export const LogosGrid = styled.div`
   @media ${themes.primary.media.maxLowScreenMobile} {
     grid-gap: 1.5rem;
   }
-
   @media ${themes.primary.media.minLaptop} {
     grid-template-columns: 1fr 1fr 1fr;
   }
