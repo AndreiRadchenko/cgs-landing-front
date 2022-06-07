@@ -1,7 +1,13 @@
 import React from "react";
 
 const AdminBlockchainMainContent = () => {
-  return <div />;
+  return (
+    <>
+      {/*
+	components here
+	*/}
+    </>
+  );
 };
 
 export default AdminBlockchainMainContent;
