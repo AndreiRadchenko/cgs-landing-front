@@ -27,7 +27,6 @@ const Careers: FC = () => {
             id={id}
             vacancy={vacancy}
             imgUrl={image.url}
-            route={true}
             key={image.url}
           />
         ))}

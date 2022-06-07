@@ -13,7 +13,7 @@ const PaginationBar = () => {
         <Styles.PaginationItem>2</Styles.PaginationItem>
         <Styles.PaginationItem>3</Styles.PaginationItem>
       </Styles.PaginationItemsWrapper>
-      <ArrowContainer>
+      <ArrowContainer className="blog">
         <Styles.SwiperButton>
           <LeftArrow />
         </Styles.SwiperButton>
