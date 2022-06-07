@@ -1,5 +1,6 @@
 name: Development workflow
 
+
 on:
   push:
     branches:
@@ -30,6 +31,6 @@ jobs:
           heroku_app_name: 'cd-landing-frontend-stg'
           heroku_email: 'contact@codegenerationsoftware.com'
           usedocker: true
-          
+
         env: 
           HD_PROJECT_PATH: "landing"
