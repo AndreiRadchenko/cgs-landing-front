@@ -47,6 +47,10 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
+        <meta
+          name="facebook-domain-verification"
+          content="0k9v3beamz5vi93rnc4uqe17s0ise2"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
