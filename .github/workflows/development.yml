@@ -25,6 +25,7 @@ jobs:
           heroku_app_name: 'cd-landing-frontend-stg'
           heroku_email: 'contact@codegenerationsoftware.com'
           stack: container
+          docker_heroku_process_type: web
           usedocker: true
          
        
