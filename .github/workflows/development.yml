@@ -9,6 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./landing
 
     steps:
       - name: Checkout 
@@ -21,8 +24,15 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-       
-      - name: Build for heroku
-        run: docker buildx build --platform linux/amd64 -t cd-landing-frontend-stg . && docker tag cd-landing-frontend-stg registry.heroku.com/cd-landing-frontend-stg/web && docker push registry.heroku.com/cd-landing-frontend-stg/web && heroku container:release web -a cd-landing-frontend-stg
 
-      
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: ./landing
+          file: ./landing/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
+
+      - name: Release to heroku
+        run:  heroku container:release web -a cd-landing-frontend-stg
+       
