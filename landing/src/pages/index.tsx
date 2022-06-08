@@ -65,6 +65,10 @@ const Home: NextPage = () => {
         <meta property="og:image:width" content="20" />
         <meta property="og:image:height" content="20" />
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="facebook-domain-verification"
+          content="0k9v3beamz5vi93rnc4uqe17s0ise2"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
