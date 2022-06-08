@@ -1,10 +1,9 @@
 import React from "react";
 import * as Styled from "../../styles/footer.styled";
 import OrbitButton from "../OrbitButton";
-import Image from "next/image";
-import cosmonaut from "../../../public/cosmonautFooter.png";
 import { socialLinks } from "../../utils/footerLinks";
 import FooterIcon from "./FooterIcon";
+import CosmonautImage from "./CosmonautImage";
 
 const Footer = () => {
   return (
@@ -14,12 +13,14 @@ const Footer = () => {
         department?
       </Styled.Header>
       <OrbitButton>Book a meeting</OrbitButton>
+      <Styled.MarginBlock />
       <Styled.ImagePosition>
-          <Image src={cosmonaut} />
+        <CosmonautImage />
       </Styled.ImagePosition>
-
       <Styled.FooterNav>
-        <Styled.Email>sales.codegeneration@gmail.com</Styled.Email>
+        <Styled.Email href="mailto:sales.codegeneration@gmail.com">
+          sales.codegeneration@gmail.com
+        </Styled.Email>
         {socialLinks.map((i) => (
           <FooterIcon key={i.href} Icon={i.Icon} href={i.href} />
         ))}

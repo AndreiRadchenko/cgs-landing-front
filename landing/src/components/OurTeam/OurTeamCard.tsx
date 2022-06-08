@@ -31,13 +31,16 @@ const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
 
   return (
     <>
-      <div className={title.split(" ").join("-") + "-img"}>
+      <StyledThisComp.ImageWrapper
+        className={title.split(" ").join("-") + "-img"}
+      >
         <Image
           src={url}
           alt={`our team ${title} img`}
           quality={100}
+          priority
           layout={"fill"}
-          objectFit={"cover"}
+          objectFit={"contain"}
           className={title.split(" ").join("-") + "-img"}
         />
 
@@ -64,7 +67,7 @@ const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
             />
           </StyledThisComp.DecorationClipIconRight>
         )}
-      </div>
+      </StyledThisComp.ImageWrapper>
 
       <StyledThisComp.OurTeamCardContent
         className={title.split(" ").join("-") + "-content"}

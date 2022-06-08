@@ -3,13 +3,8 @@ import themes from "../../utils/themes";
 
 type backGroundColor = "blue" | "orange" | "green";
 
-type IActive = {
-  active: boolean;
-};
-
 type IContainerProps = {
   backGroundColor: backGroundColor;
-  additionalImgUrl?: string;
 };
 
 type IColorProps = {
@@ -17,12 +12,7 @@ type IColorProps = {
   active: boolean;
 };
 
-type IAdditionalImg = {
-  additionalImgUrl?: string;
-};
-
 type IImage = {
-  isFlipOnMobile?: boolean;
   active?: boolean;
 };
 
@@ -36,7 +26,7 @@ export const Container = styled.div<IContainerProps>`
   flex-direction: column;
   color: ${themes.primary.colors.primary};
   background-color: ${(props) => themes.primary.colors[props.backGroundColor]};
-  z-index: ${(props) => (props.additionalImgUrl ? "35" : "1")};
+  z-index: 1;
   box-sizing: border-box;
   overflow: hidden;
 `;
@@ -128,43 +118,103 @@ export const ContentTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 8rem;
+
+  &.first {
+    margin-bottom: 23em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.first {
+      margin-bottom: 15em;
+    }
+  }
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 0;
+    &.first {
+      margin-bottom: 0;
+    }
   }
 `;
 
-export const ContentImgContainer = styled.div<IAdditionalImg>`
+export const ContentImgContainer = styled.div`
   display: flex;
-  justify-content: ${(props) =>
-    props.additionalImgUrl ? "flex-end" : "center"};
+  justify-content: center;
   align-items: center;
-  height: 100%;
   flex-grow: 1;
+  position: relative;
+
+  &.first {
+    justify-content: flex-end;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    align-self: ${(props) => (props.additionalImgUrl ? "flex-end" : "initial")};
+    &.first {
+      align-items: flex-end;
+      margin-top: 8em;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    &.first {
+      width: 100%;
+      justify-content: flex-end;
+      margin-top: 0;
+    }
+  }
+
+  & div {
+    @media ${themes.primary.media.minLaptop} {
+      margin-top: 0;
+      &.first {
+        margin-top: 7em;
+      }
+    }
   }
 `;
 
 export const ContentImage = styled.div<IImage>`
   position: relative;
   z-index: 500;
-  width: 33em;
+  width: 38em;
   margin-bottom: 30%;
-  height: ${(props) => (props.isFlipOnMobile ? "41em" : "35em")};
+  height: 35em;
+
+  &.first {
+    width: 33em;
+    height: 42em;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
+    &.first {
+      width: 28em;
+      height: 44em;
+    }
+    height: 30em;
     width: 30em;
-    transform: ${(props) =>
-      props.isFlipOnMobile ? "scale(-1, 1)" : "initial"};
   }
+
   @media ${themes.primary.media.maxMobile} {
-    width: 25em;
-    height: ${(props) => (props.isFlipOnMobile ? "37em" : `26em`)};
+    width: 35em;
+    height: 30em;
+
+    &.first {
+      width: 35em;
+      height: 50em;
+    }
   }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 23em;
-    height: ${(props) => (props.isFlipOnMobile ? "36em" : `22.5em`)};
+    width: 24em;
+    height: 24em;
+
+    &.first {
+      width: 25em;
+      height: 35em;
+    }
+  }
+
+  @media ${themes.primary.media.maxLowMobileHeight} {
+    width: 22em;
+    height: 22em;
   }
   animation: ${({ active }) => (active ? "image 2s" : null)};
   @keyframes image {
@@ -201,7 +251,7 @@ export const ContentTitle = styled.h2`
   @media ${themes.primary.media.maxMobile} {
     max-width: 100%;
     margin-top: 1em;
-    font-size: 2.5em;
+    font-size: 3em;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 2.3em;
@@ -228,7 +278,7 @@ export const ContentTextWrapper = styled.div`
     max-width: 35rem;
     padding-right: 1em;
     line-height: 1.25em;
-    font-size: 1.4em;
+    font-size: 1.5em;
   }
 `;
 export const ContentText = styled.p`
@@ -239,28 +289,11 @@ export const ContentText = styled.p`
   margin: 0;
   margin-top: 15px;
 
-  @media ${themes.primary.media.maxMobile} {
-    line-height: 150%;
+  @media ${themes.primary.media.maxMobileHeight} {
+    line-height: 100%;
   }
-`;
 
-export const AdditionalImgContainer = styled.div<IActive>`
-  position: absolute;
-  bottom: -6em;
-  right: 0;
-  animation: ${({ active }) => (active ? "image 2s" : null)};
-  @media ${themes.primary.media.maxMobile} {
-    bottom: -2em;
-  }
-`;
-
-export const AdditionalImg = styled.div`
-  position: relative;
-  width: 14em;
-  height: 48em;
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 9em;
-    height: 30em;
+  @media ${themes.primary.media.maxLowMobileHeight} {
+    font-size: 90%;
   }
 `;

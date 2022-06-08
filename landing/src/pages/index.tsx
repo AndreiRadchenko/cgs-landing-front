@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Body from "../components/Body/Body";
@@ -35,6 +35,7 @@ interface IPortfolioData {
 
 const Home: NextPage = () => {
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
+  const [isClicked, setIsClicked] = useState(false);
 
   const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
     adminGlobalService.getFullPage()
@@ -46,29 +47,6 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Custom Software Development | CGS Team</title>
-        <meta
-          name="description"
-          content="CGS Team is a custom software development company with a modern approach and vast experience in web development and mobile software development"
-        />
-        <meta property="og:url" content="https://cgsteam.io" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Custom Software Development | CGS Team"
-        />
-        <meta
-          property="og:description"
-          content="CGS Team is a custom software development company with a modern approach and vast experience in web development and mobile software development"
-        />
-        <meta property="og:image" content="/previewLink.png" />
-        <meta property="og:image:width" content="20" />
-        <meta property="og:image:height" content="20" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="facebook-domain-verification"
-          content="0k9v3beamz5vi93rnc4uqe17s0ise2"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -151,7 +129,10 @@ const Home: NextPage = () => {
       ) : (
         <>
           <StyledCommon.Page>
-            <Body welcomePageButtonHandler={scrollHandler} />
+            <Body
+              welcomePageButtonHandler={scrollHandler}
+              setIsClicked={setIsClicked}
+            />
             <AboutUs />
             <Partners />
             <Projects />
@@ -159,9 +140,9 @@ const Home: NextPage = () => {
             <Technologies />
             <OurTeam />
           </StyledCommon.Page>
-          <HowWeWorkList />
-          <YesBegin clickHandler={scrollHandler} />
-          <StyledCommon.Page className="test">
+          <HowWeWorkList isClicked={isClicked} />
+          <YesBegin clickHandler={scrollHandler} disableScroll={setIsClicked} />
+          <StyledCommon.Page className="lets-code">
             <div ref={ref}>
               <LetsCode />
             </div>

@@ -22,6 +22,8 @@ export interface IPhotoBlock extends IPropsWithImage {
   emptyHeader?: string;
   deleteFlag?: boolean;
   header?: string;
+  horizontalFlex?: boolean;
+  maxWidth?: string;
 }
 
 export interface InputPropsInterface {
@@ -40,6 +42,9 @@ export interface InputWithHeader extends InputPropsInterface {
   placeholder?: string;
   header: string;
   minRows?: number;
+  isBlog?: boolean;
+  height?: string;
+  width?: string;
 }
 
 export interface InputWithImage extends InputPropsInterface {

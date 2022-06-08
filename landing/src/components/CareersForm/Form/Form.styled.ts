@@ -44,6 +44,13 @@ export const LottieButton = styled(Lottie)`
       left: -18.2rem;
     }
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    & svg {
+      left: -16.7rem;
+      width: 33rem !important;
+    }
+  }
 `;
 export const LottieWrapper = styled.div`
   @media ${themes.primary.media.maxLaptop} {
@@ -71,6 +78,8 @@ export const FileContainer = styled.div`
   height: 2.8em;
   @media ${themes.primary.media.maxLaptop} {
     height: auto;
+    flex-direction: column;
+    align-items: center;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
@@ -82,10 +91,6 @@ export const FileContainer = styled.div`
     justify-content: space-around;
   }
   @media ${themes.primary.media.minTablet} {
-    flex-direction: column;
-    align-items: center;
-  }
-  @media ${themes.primary.media.maxLaptop} {
     flex-direction: column;
     align-items: center;
   }
@@ -161,4 +166,13 @@ export const FileText = styled.span`
 
 export const FileImg = styled.img`
   margin-top: 4px;
+`;
+
+export const SentMessage = styled.div`
+  transform: translateY(2rem);
+  font-weight: ${themes.primary.font.weight.bold};
+  color: ${themes.primary.colors.lightBlue};
+  @media ${themes.primary.media.maxLaptop} {
+    transform: none;
+  }
 `;

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import FormInput from "../FormInput/FormInput";
+import * as emailjs from "emailjs-com";
 import * as StyledThisComp from "./CreateSupportForm.styled";
 import { LestCodeValidation } from "../../validations/LetsCodeValidator";
 import { LetsCodeFormPropTypes } from "../../types/Button.types";
@@ -9,14 +10,25 @@ import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import FormTextArea from "../FormInput/FormTextArea";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { IDataResponse } from "../../types/Admin/Response.types";
+import {
+  IContactFormBlock,
+  IDataResponse,
+} from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import ModalSentEmail from "../Modal/ModalSentEmail";
+
+interface IEmailBody {
+  [name: string]: string;
+  email: string;
+  message: string;
+}
 
 const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
   )?.ContactFormBlock;
+  const [sent, setSent] = useState<boolean>(false);
   const {
     subtitle = "Let's code!",
     name = "Name",
@@ -32,8 +44,21 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
     validateOnChange: false,
     validateOnBlur: true,
     validationSchema: LestCodeValidation(),
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onSubmit: (values) => {},
+    onSubmit: (values: IEmailBody, { resetForm }) => {
+      console.log("here");
+
+      emailjs
+        .send(
+          process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID || "",
+          process.env.NEXT_PUBLIC_HOME_EMAIL_TEMPLATE_ID || "",
+          values,
+          process.env.NEXT_PUBLIC_HOME_EMAIL_USER_ID
+        )
+        .then(() => {
+          setSent(true);
+          resetForm();
+        });
+    },
   });
 
   const handleHover = () => {
@@ -42,6 +67,18 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
 
   const handleLeave = () => {
     setButtonIsHovered(false);
+  };
+
+  const getKeyByValue = (
+    object: IContactFormBlock | undefined,
+    value: string
+  ) => {
+    return (
+      (object && Object.keys(object).find((key) => object[key] === value)) || ""
+    );
+  };
+  const closeHandler = () => {
+    setSent(false);
   };
 
   return (
@@ -54,14 +91,14 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
         <FormInput
           value={values.name}
           handleChange={handleChange}
-          name={name?.toLowerCase()}
+          name={getKeyByValue(data, name)}
           placeholder={name}
           errors={errors["name"]}
         />
         <FormInput
           value={values.email}
           handleChange={handleChange}
-          name={email.toLowerCase()}
+          name={getKeyByValue(data, email)}
           placeholder={email}
           errors={errors["email"]}
         />
@@ -69,10 +106,7 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
         <FormTextArea
           value={values.message}
           handleChange={handleChange}
-          name={message
-            .split(" ")
-            .map((el) => el.charAt(0).toUpperCase() + el.slice(1))
-            .join("")}
+          name={getKeyByValue(data, message)}
           placeholder={message}
           errors={errors["message"]}
         />
@@ -81,6 +115,7 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
           onMouseEnter={handleHover}
           onMouseLeave={handleLeave}
         >
+          {sent && <ModalSentEmail isOpen={sent} closeHandler={closeHandler} />}
           <ButtonSubmitForm>
             <ButtonTextWrapper fontSize={"1.4em"}>send</ButtonTextWrapper>
           </ButtonSubmitForm>

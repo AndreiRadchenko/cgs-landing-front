@@ -10,11 +10,19 @@ import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
-const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
+const WelcomePage = ({ clickHandler, setIsClicked }: IWelcomePageProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
   )?.EditInformationBlock;
+
+  const handleClick = () => {
+    setIsClicked(true);
+    clickHandler();
+    setTimeout(() => {
+      setIsClicked(false);
+    }, 1000);
+  };
 
   return (
     <>
@@ -32,7 +40,7 @@ const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
         </StyledThisComp.CodeDescription>
 
         <BaseButton
-          onClick={clickHandler}
+          onClick={handleClick}
           src={backImg}
           mobileWidth={"11rem"}
           className="estimation"
@@ -57,10 +65,3 @@ const WelcomePage = ({ clickHandler }: IWelcomePageProps) => {
 };
 
 export default WelcomePage;
-
-// EditInformationBlock:
-// button: "get estimation"
-// image: {url: 'https://landing-cgs.s3.amazonaws.com/44746f68-f759-40c2-917a-6b7d747449e4.png'}
-// text: "The team of sharp-witted devs is on the brink of you."
-// text2: "ready to cope with tasks of any complexity meeting the tightest deadlines"
-// title: "EUREKA!"

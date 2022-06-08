@@ -1,6 +1,8 @@
 import React, { FC, useState } from "react";
 import { useFormik, FormikValues } from "formik";
+import * as emailjs from "emailjs-com";
 import * as Styled from "./Form.styled";
+
 import FormField from "./FormField/index";
 import { CareerFormValidation } from "../../../validations/CareerFormValidator";
 import { fieldData } from "../../../mock/VacancyFieldData";
@@ -8,6 +10,7 @@ import animateCV from "../../../../public/lotties/CVButton.json";
 import BaseButton from "../../BaseButton/BaseButton";
 import ButtonTextWrapper from "../../ButtonText/ButtonTextWrapper";
 import { IFormBlock } from "../../../types/Admin/Response.types";
+import ModalSentEmail from "../../Modal/ModalSentEmail";
 
 interface IFormProps {
   data?: IFormBlock;
@@ -16,13 +19,24 @@ interface IFormProps {
 const Form: FC<IFormProps> = ({ data }) => {
   const [isCV, setIsCV] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(false);
+  const [sent, setSent] = useState<boolean>(false);
 
   const { CV, image, text, ...fieldContent } = { ...data };
 
   const formik = useFormik({
     initialValues: fieldData,
-    onSubmit: (values: FormikValues) => {
-      console.log(values);
+    onSubmit: (values: FormikValues, { resetForm }) => {
+      emailjs
+        .send(
+          process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID || "",
+          process.env.NEXT_PUBLIC_VACANCIES_EMAIL_TEMPLATE_ID || "",
+          values,
+          process.env.NEXT_PUBLIC_HOME_EMAIL_USER_ID
+        )
+        .then(() => {
+          setSent(true);
+          resetForm();
+        });
     },
     validationSchema: CareerFormValidation(),
   });
@@ -46,6 +60,10 @@ const Form: FC<IFormProps> = ({ data }) => {
     }
     animateCv(name);
     return handleChange(e);
+  };
+
+  const closeHandler = () => {
+    setSent(false);
   };
 
   return (
@@ -88,11 +106,13 @@ const Form: FC<IFormProps> = ({ data }) => {
           </Styled.FileLoad>
         </Styled.FileContainer>
         <Styled.SubmitButton>
+          {sent && <ModalSentEmail isOpen={sent} closeHandler={closeHandler} />}
           <BaseButton
             src="/careersSendBg.png"
             width="22rem"
             height="4rem"
             className="big-btn"
+            type="submit"
           >
             <ButtonTextWrapper fontSize="1.4em">send</ButtonTextWrapper>
           </BaseButton>

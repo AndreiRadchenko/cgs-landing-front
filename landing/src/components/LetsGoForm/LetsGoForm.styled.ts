@@ -28,7 +28,7 @@ export const FormImage = styled("div")<IFormImage>`
   justify-content: end;
   width: 60%;
   height: 39.5rem;
-  background-image: url("/LetsGo-form.png");
+  background-image: url(${({ image }) => image.url});
   margin-left: 3.75rem;
   @media ${themes.primary.media.maxLaptop} {
     background-size: contain;

@@ -49,13 +49,13 @@ export const CategoryContainer = styled.div`
       transform: rotate(0deg);
     }
 
-    @media ${themes.primary.media.maxTabletPortrait} {
+    @media ${themes.primary.media.maxTabletLandScape} {
       display: none;
     }
   }
 
   &:nth-child(4) {
-    @media ${themes.primary.media.onlyTabletLandScape} {
+    @media ${themes.primary.media.maxTabletLandScape} {
       display: none;
     }
   }
@@ -86,7 +86,7 @@ export const CategoryContainer = styled.div`
     margin: 0.625rem;
   }
 
-  @media (max-width: 543px) {
+  @media (max-width: 553px) {
     flex: 0 1 40%;
     height: 23em;
   }

@@ -27,11 +27,11 @@ const CareersTicket: FC<ITicketProps> = ({
           {route ? (
             <Link href="/lets-go">
               <a onClick={handleClick}>
-                <Styled.Button content="Lets go!" />
+                <Styled.Button />
               </a>
             </Link>
           ) : (
-            <Styled.Button content="Lets go!" />
+            <Styled.Button />
           )}
         </Styled.RocketImg>
       </Styled.ImageWrapper>

@@ -123,9 +123,18 @@ export const LikeToSeePhotoText = styled.div`
     top: 77%;
   }
   @media ${themes.primary.media.maxMobile} {
-    font-size: 8px;
+    font-size: 9px;
     left: 15%;
   }
+
+  @media ${themes.primary.media.minTablet} {
+    font-size: 8px;
+  }
+
+  @media ${themes.primary.media.maxMobilePortrait} {
+    font-size: 6.5px;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 9px;
     left: 15%;

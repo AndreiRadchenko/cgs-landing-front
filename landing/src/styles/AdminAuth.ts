@@ -47,7 +47,7 @@ export const AdminAuthButton = styled.button`
 `;
 
 export const AdminAuthButtonText = styled.h3`
-  font-size: 20px; 
+  font-size: 20px;
   position: relative;
   text-align: center;
   top: -3em;

@@ -2,7 +2,6 @@
 import { BodyContainer } from "../../styles/Body.styled";
 import AllYouNeed from "../AllYouNeed";
 import EvenMore from "../EvenMore";
-import Footer from "../Footer";
 import HeaderNav from "../HeaderNav";
 import ProjectCarousel from "../ProjectsCarousel";
 import TheyTrustUs from "../TheyTrustUs";
@@ -14,10 +13,9 @@ function Body() {
       <HeaderNav />
       <WelcomeBlock />
       <AllYouNeed />
-      <EvenMore />
       <ProjectCarousel />
+      <EvenMore />
       <TheyTrustUs />
-      <Footer />
     </BodyContainer>
   );
 }
