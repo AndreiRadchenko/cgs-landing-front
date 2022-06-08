@@ -1,3 +1,4 @@
+import React from "react";
 import Timer from "../../../public/Timer.svg";
 import Author from "../../../public/Author.jpg";
 
