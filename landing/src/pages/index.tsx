@@ -121,7 +121,32 @@ const Home: NextPage = () => {
           }}
         ></script>
       </Head>
-   
+      {homeData.isLoading ? (
+        <StyledCommon.Loading>LOADING...</StyledCommon.Loading>
+      ) : (
+        <>
+          <StyledCommon.Page>
+            <Body
+              welcomePageButtonHandler={scrollHandler}
+              setIsClicked={setIsClicked}
+            />
+            <AboutUs />
+            <Partners />
+            <Projects />
+            <CarouselFeedback />
+            <Technologies />
+            <OurTeam />
+          </StyledCommon.Page>
+          <HowWeWorkList isClicked={isClicked} />
+          <YesBegin clickHandler={scrollHandler} disableScroll={setIsClicked} />
+          <StyledCommon.Page className="lets-code">
+            <div ref={ref}>
+              <LetsCode />
+            </div>
+          </StyledCommon.Page>
+          <Footer />
+        </>
+      )}
     </>
   );
 };
