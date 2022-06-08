@@ -11,6 +11,9 @@ import { adminVacancyService } from "../../services/adminVacancyPage";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { VacancyProps } from "../../types/Admin//AdminVacancy.types";
 import { IHomeData } from "../../types/Admin/Response.types";
+import getServerSideProps from "../../utils/Redirect";
+
+export { getServerSideProps };
 
 const LetsGo: NextPage = () => {
   let id: string;
