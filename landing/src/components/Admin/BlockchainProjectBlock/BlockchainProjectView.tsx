@@ -1,8 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import * as Styled from "../../../styles/AdminBlockchainProject";
-import AdminImage from "../Global/AdminImage";
-import edit from "../../../../public/editIcon.svg";
+import edit from "../../../../public/whiteEditIcon.svg";
 import close from "../../../../public/bigClose.svg";
 import { IDataBlockchainResponse } from "../../../types/Admin/Response.types";
 import { useFormikContext } from "formik";
@@ -13,7 +12,7 @@ interface IReviewProps {
   editFlag: boolean;
 }
 
-const BlockchainProject = ({
+const BlockchainProjectView = ({
   current,
   editTrigger,
   editFlag,
@@ -27,25 +26,27 @@ const BlockchainProject = ({
   };
 
   return (
-    <Styled.AdminBlockchainProjectFrame>
-      <Styled.AdminBlockchainProjectContent>
-        <Styled.ImageWrapper url={project.image?.url}></Styled.ImageWrapper>
-        <Styled.BlockchainProjectParagraph>
-          {project.text}
-        </Styled.BlockchainProjectParagraph>
-        <Styled.AdminSubTitle>{project.name}</Styled.AdminSubTitle>
-      </Styled.AdminBlockchainProjectContent>
+    <Styled.ProjectFrame>
+      <Styled.ProjectContent>
+        <Styled.ImageBlock>
+          <Styled.ProjectImage src={project.image?.url} />
+          <Styled.ProjectDescription>
+            <Styled.ProjectParagraph>{project.text}</Styled.ProjectParagraph>
+          </Styled.ProjectDescription>
+        </Styled.ImageBlock>
+        <Styled.ProjectTitle>{project.name}</Styled.ProjectTitle>
+      </Styled.ProjectContent>
 
-      <Styled.AdminDeleteTextThin>delete</Styled.AdminDeleteTextThin>
+      <Styled.DeleteTextThin>delete</Styled.DeleteTextThin>
 
-      <Styled.AdminEditIcon onClick={editTriggerFunc}>
+      <Styled.EditIcon onClick={editTriggerFunc}>
         <Image
           src={editFlag ? edit : close}
           alt={editFlag ? "edit" : "close"}
         />
-      </Styled.AdminEditIcon>
-    </Styled.AdminBlockchainProjectFrame>
+      </Styled.EditIcon>
+    </Styled.ProjectFrame>
   );
 };
 
-export default BlockchainProject;
+export default BlockchainProjectView;

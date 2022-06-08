@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import * as Styled from "../../../styles/AdminPage";
 import { IDataBlockchainResponse } from "../../../types/Admin/Response.types";
 import AddReview from "./BlockchainProjectEditor";
-import BlockchainProjectReview from "../BlockchainProject/BlockchainProject";
+import BlockchainProjectView from "./BlockchainProjectView";
 import AdminCarousel from "../Global/AdminImageCarousel";
 
 const BlockchainProjectBlock = () => {
@@ -20,7 +20,7 @@ const BlockchainProjectBlock = () => {
           {values.projects.length === 0 ? (
             <Styled.AdminSubTitle>No projects</Styled.AdminSubTitle>
           ) : (
-            <BlockchainProjectReview
+            <BlockchainProjectView
               editFlag={isNewStatus}
               current={current}
               editTrigger={setIsNewStatus}
