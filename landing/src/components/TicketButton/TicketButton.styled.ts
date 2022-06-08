@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 
 export const TicketButton = styled.div`
   outline: none;
-  background-image: url("/ticket-button.png");
+  background-image: url("/ticket-button.svg");
   background-repeat: no-repeat;
   color: black;
   cursor: pointer;

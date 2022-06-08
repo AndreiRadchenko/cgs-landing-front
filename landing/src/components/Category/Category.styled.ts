@@ -86,7 +86,7 @@ export const CategoryContainer = styled.div`
     margin: 0.625rem;
   }
 
-  @media (max-width: 543px) {
+  @media (max-width: 553px) {
     flex: 0 1 40%;
     height: 23em;
   }

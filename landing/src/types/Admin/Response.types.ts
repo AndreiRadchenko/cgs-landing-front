@@ -204,3 +204,8 @@ export interface IDataBlockchainResponse {
   newProject: IBlockchainProjectBlock;
   LogosBlock: { images: { url: string }[] };
 }
+
+export interface IHomeData {
+  data: IDataResponse | undefined;
+  isLoading: boolean;
+}
