@@ -3,6 +3,7 @@ import React from "react";
 import { blockchainProjects } from "../../../consts";
 import { IDataBlockchainResponse } from "../../../types/Admin/Response.types";
 import BlockchainProjectBlock from "../BlockchainProjectBlock/BlockchainProjectBlock";
+import AdminLogosBlock from "../LogosBlock";
 
 const AdminBlockchainMainContent = () => {
   const data: IDataBlockchainResponse = {
@@ -29,6 +30,8 @@ const AdminBlockchainMainContent = () => {
       validateOnChange={false}
     >
       <BlockchainProjectBlock />
+      <AdminLogosBlock />
+      <AdminLogosBlock />
     </Formik>
   );
 };
