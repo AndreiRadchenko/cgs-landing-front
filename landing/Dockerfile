@@ -1,26 +1,26 @@
 FROM node:14.17.0-alpine as dependencies
-WORKDIR /cg-landing-frontend
+WORKDIR /cd-landing-frontend-stg
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
 FROM node:14.17.0-alpine as builder
-WORKDIR /cg-landing-frontend
+WORKDIR /cd-landing-frontend-stg
 COPY . .
-COPY --from=dependencies /cg-landing-frontend/node_modules ./node_modules
+COPY --from=dependencies /cd-landing-frontend-stg/node_modules ./node_modules
 RUN yarn build
 
 FROM node:14.17.0-alpine as runner
-WORKDIR /cg-landing-frontend
+WORKDIR /cd-landing-frontend-stg
 # ENV NODE_ENV production
 # If you are using a custom next.config.js file, uncomment this line.
 
 ARG PORT
 ENV PORT=$PORT
-COPY --from=builder /cg-landing-frontend/next.config.js ./
-COPY --from=builder /cg-landing-frontend/public ./public
-COPY --from=builder /cg-landing-frontend/.next ./.next
-COPY --from=builder /cg-landing-frontend/node_modules ./node_modules
-COPY --from=builder /cg-landing-frontend/package.json ./package.json
+COPY --from=builder /cd-landing-frontend-stg/next.config.js ./
+COPY --from=builder /cd-landing-frontend-stg/public ./public
+COPY --from=builder /cd-landing-frontend-stg/.next ./.next
+COPY --from=builder /cd-landing-frontend-stg/node_modules ./node_modules
+COPY --from=builder /cd-landing-frontend-stg/package.json ./package.json
 
 EXPOSE $PORT
 CMD ["yarn", "start"]
