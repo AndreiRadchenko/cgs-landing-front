@@ -9,7 +9,6 @@ import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { EmotionCache } from "@emotion/utils";
 import { CacheProvider } from "@emotion/react";
-import faviconIco from "../../public/favicon.ico";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
