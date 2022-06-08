@@ -201,6 +201,7 @@ export const ContentImage = styled.div<IImage>`
       height: 50em;
     }
   }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 24em;
     height: 24em;
@@ -209,6 +210,11 @@ export const ContentImage = styled.div<IImage>`
       width: 25em;
       height: 35em;
     }
+  }
+
+  @media ${themes.primary.media.maxLowMobileHeight} {
+    width: 22em;
+    height: 22em;
   }
   animation: ${({ active }) => (active ? "image 2s" : null)};
   @keyframes image {
@@ -283,7 +289,11 @@ export const ContentText = styled.p`
   margin: 0;
   margin-top: 15px;
 
-  @media ${themes.primary.media.maxMobile} {
-    line-height: 150%;
+  @media ${themes.primary.media.maxMobileHeight} {
+    line-height: 100%;
+  }
+
+  @media ${themes.primary.media.maxLowMobileHeight} {
+    font-size: 90%;
   }
 `;
