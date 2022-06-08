@@ -24,3 +24,4 @@ COPY --from=builder /cd-landing-frontend-stg/package.json ./package.json
 
 EXPOSE $PORT
 CMD ["yarn", "start"]
+CMD ["yarn", "deploy:stage:m1"]
