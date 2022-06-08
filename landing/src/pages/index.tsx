@@ -122,7 +122,7 @@ const Home: NextPage = () => {
         ></script>
       </Head>
       {homeData.isLoading ? (
-        <StyledCommon.Loading>LOADING...</StyledCommon.Loading>
+        <StyledCommon.Loading>LOADING22222...</StyledCommon.Loading>
       ) : (
         <>
           <StyledCommon.Page>
