@@ -31,5 +31,4 @@ jobs:
           heroku_email: 'contact@codegenerationsoftware.com'
           usedocker: true
           stack: "container"
-        env: 
-          HD_PROJECT_PATH: "landing"
+       
