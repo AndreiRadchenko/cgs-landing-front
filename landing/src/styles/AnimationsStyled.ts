@@ -3,13 +3,13 @@
 export const rotateAnimationLaptopLeft = keyframes`
   ${css`
     0% {
-      transform: rotate(0deg);
+      transform: scale(0.9) rotate(0deg);
     }
     20% {
-      transform: rotate(-40deg);
+      transform: scale(0.9) rotate(-40deg);
     }
     100% {
-      transform: rotate(0deg);
+      transform: scale(0.9) rotate(0deg);
     }
   `}
 `;
@@ -28,7 +28,7 @@ export const rotateAnimationTabletLeft = keyframes`
   `}
 `;
 
-export const rotateAnimationTablerPortraitLeft = keyframes`
+export const rotateAnimationTabletPortraitLeft = keyframes`
   ${css`
     0% {
       transform: scale(0.65) rotate(65deg);
@@ -38,6 +38,19 @@ export const rotateAnimationTablerPortraitLeft = keyframes`
     }
     100% {
       transform: scale(0.65) rotate(65deg);
+    }
+  `}
+`;
+export const rotateAnimationMobileLeft = keyframes`
+  ${css`
+    0% {
+      transform: scale(0.5) rotate(65deg);
+    }
+    20% {
+      transform: scale(0.5) rotate(80deg);
+    }
+    100% {
+      transform: scale(0.5) rotate(65deg);
     }
   `}
 `;

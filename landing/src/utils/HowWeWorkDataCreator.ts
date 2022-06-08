@@ -11,7 +11,7 @@ export const insertHowWeWorkData = (data?: IHowWeWorkBlock) => {
       rank: idx + 1,
       backGroundColor: howWeWorkColor[idx],
       imgUrl: el.image.url,
-      additionalImgUrl: idx === 0 ? "/how_we_work1_mouse.png" : undefined,
+      additionalImgUrl: idx === 0 ? "first" : undefined,
     };
     return item;
   });

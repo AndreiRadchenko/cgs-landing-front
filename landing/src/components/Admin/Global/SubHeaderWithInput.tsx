@@ -9,16 +9,21 @@ const SubHeaderWithInput = ({
   name,
   placeholder,
   minRows,
+  isBlog = false,
+  height,
+  width,
 }: InputWithHeader) => {
   return (
     <>
-      <Styled.AdminSubTitle>{header}</Styled.AdminSubTitle>
+      <Styled.AdminSubTitle isBlog={isBlog}>{header}</Styled.AdminSubTitle>
       <Styled.AdminInput
         placeholder={placeholder}
         value={inputValue}
         onChange={onChangeFunction}
         name={name}
         minRows={minRows}
+        height={height}
+        width={width}
       />
     </>
   );

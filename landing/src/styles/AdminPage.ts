@@ -82,11 +82,20 @@ export const AdminHeader = styled.h2`
   margin-bottom: 0.5em;
 `;
 
-export const AdminSubTitle = styled.h3`
-  font-size: ${themes.primary.font.size.linkText};
-  font-family: ${themes.primary.font.family.mulish};
-  font-weight: ${themes.primary.font.weight.extraBold};
-  margin: 0 0 0.4em 0;
+export const AdminSubTitle = styled.h3<{ isBlog?: boolean }>`
+  font-size: ${(props) =>
+    props.isBlog
+      ? themes.primary.font.size.menuElement
+      : themes.primary.font.size.linkText};
+  font-family: ${(props) =>
+    props.isBlog
+      ? themes.primary.font.family.gilroy
+      : themes.primary.font.family.mulish};
+  font-weight: ${(props) =>
+    props.isBlog
+      ? themes.primary.font.weight.semiBold
+      : themes.primary.font.weight.extraBold};
+  margin: ${(props) => (props.isBlog ? "30px 0 0.4em 0" : "0 0 0.4em 0")};
 `;
 
 export const AdminComment = styled.p`
@@ -109,13 +118,17 @@ export const AdminHalfGrid = styled.div`
 
 export const AdminBlockWrapper = styled.div``;
 
-export const AdminInput = styled(TextareaAutosize)`
+export const AdminInput = styled(TextareaAutosize)<{
+  height?: string;
+  width?: string;
+}>`
   resize: none;
-  width: 100%;
+  width: ${(props) => (props.width ? props.width : "100%")};
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.mulish};
   padding: ${themes.primary.spacing.primary};
   border: 0;
+  height: ${(props) => props.height} !important;
   margin-bottom: ${themes.primary.spacing.primary};
   &: focus {
     outline: 1px solid gray;
@@ -330,16 +343,21 @@ export const AdminPointer = styled.div`
   user-select: none;
 `;
 
-export const AdminPhotoDashedHorizontal = styled.div`
+export const AdminPhotoDashedHorizontal = styled.div<{ maxWidth?: string }>`
   display: flex;
   flex-direcrion: row;
   border: 2px dashed ${themes.primary.colors.primary};
   padding: 4em 3.5em;
+  max-width: ${(props) => props.maxWidth};
 `;
 
-export const AdminPhotoDashedHorizontalPositoning = styled.div`
-  display: grid;
+export const AdminPhotoDashedHorizontalPositoning = styled.div<{
+  horizontalFlex?: boolean;
+}>`
+  display: ${(props) => (props.horizontalFlex ? "flex" : "grid")};
   grid-template-columns: 1fr 1.6fr;
+  width: ${(props) => props.horizontalFlex && "100%"};
+  justify-content: ${(props) => props.horizontalFlex && "space-around"};
 `;
 
 export const AdminCenteredDiv = styled.div`

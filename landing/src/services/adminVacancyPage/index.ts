@@ -21,6 +21,6 @@ export class AdminHCareersPageService {
 }
 
 const factory = new HttpServiceFactory();
-export const adminGlobalService = new AdminHCareersPageService(
+export const adminVacancyService = new AdminHCareersPageService(
   factory.createAuthHttpService()
 );

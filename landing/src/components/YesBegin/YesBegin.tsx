@@ -9,7 +9,7 @@ import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
-const YesBegin = ({ clickHandler }: IYesBeginProps) => {
+const YesBegin = ({ clickHandler, disableScroll }: IYesBeginProps) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   const queryClient = useQueryClient();
@@ -19,7 +19,9 @@ const YesBegin = ({ clickHandler }: IYesBeginProps) => {
 
   const handleClick = () => {
     setIsClicked(true);
-    setTimeout(() => setIsClicked(false), 8000);
+    setTimeout(() => {
+      setIsClicked(false), disableScroll(false);
+    }, 8000);
     setTimeout(() => clickHandler(), 4000);
   };
 
@@ -34,13 +36,18 @@ const YesBegin = ({ clickHandler }: IYesBeginProps) => {
         <SplitBrackets text={text} />
       </Styles.SubTitle>
       <Styles.ButtonContainer>
-        <BaseButton onClick={isClicked ? undefined : handleClick}>
+        <BaseButton
+          onClick={isClicked ? undefined : handleClick}
+          className="begin"
+        >
           <ButtonTextWrapper fontSize="1.8em">{button}</ButtonTextWrapper>
         </BaseButton>
       </Styles.ButtonContainer>
       <Styles.Circle isClicked={isClicked}>
         <Styles.ImageContainer isClicked={isClicked}>
-          <ImagePreview src="/rocket.png" layout="fill" alt="rocket" />
+          <Styles.ImageRelativeWrapper>
+            <ImagePreview src="/rocket.png" layout="fill" alt="rocket" />
+          </Styles.ImageRelativeWrapper>
         </Styles.ImageContainer>
       </Styles.Circle>
     </Styles.Container>

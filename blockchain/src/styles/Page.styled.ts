@@ -1,9 +1,5 @@
-﻿import styled, { css } from "styled-components";
+﻿import styled from "styled-components";
 import themes from "../utils/themes";
-
-interface IButtonTextStyledProps {
-  fontSize?: string;
-}
 
 export const Page = styled.article`
   width: 1400px;
@@ -11,14 +7,10 @@ export const Page = styled.article`
 
   @media ${themes.primary.media.onlyLaptop} {
     width: 1100px;
-
-    &.test {
-      width: 90%;
-    }
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
-    width: 840px;
+    width: 90%;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {

@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 
 import * as Styles from "./HowWeWorkCard.styled";
 import { IHowWeWorkCardProps } from "./types";
-import Image from "next/image";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import Image from "next/image";
 
 const HowWeWorkCard = ({
   title,
@@ -13,17 +13,13 @@ const HowWeWorkCard = ({
   backGroundColor,
   imgUrl,
   additionalImgUrl,
-  isFlipImageOnMobile,
 }: IHowWeWorkCardProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {});
   const isVisible = !!entry?.isIntersecting;
 
   return (
-    <Styles.Container
-      backGroundColor={backGroundColor}
-      additionalImgUrl={additionalImgUrl}
-    >
+    <Styles.Container backGroundColor={backGroundColor}>
       <Styles.NumberContainer ref={ref}>
         <Styles.Number active={isVisible} backGroundColor={backGroundColor}>
           #{rank}
@@ -33,33 +29,19 @@ const HowWeWorkCard = ({
         <Styles.Title>{"//" + title}</Styles.Title>
       </Styles.TitleContainer>
       <Styles.ContentContainer>
-        <Styles.ContentTextContainer>
+        <Styles.ContentTextContainer className={additionalImgUrl}>
           <Styles.ContentTitle>{contentTitle}</Styles.ContentTitle>
           <Styles.ContentTextWrapper>
             <Styles.ContentText>{contentText}</Styles.ContentText>
           </Styles.ContentTextWrapper>
         </Styles.ContentTextContainer>
-        <Styles.ContentImgContainer additionalImgUrl={additionalImgUrl}>
-          <Styles.ContentImage
-            isFlipOnMobile={isFlipImageOnMobile}
-            active={isVisible}
-          >
-            <Image
-              src={imgUrl}
-              alt={contentTitle}
-              layout="fill"
-              objectFit="cover"
-            />
+
+        <Styles.ContentImgContainer className={additionalImgUrl}>
+          <Styles.ContentImage active={isVisible} className={additionalImgUrl}>
+            <Image src={imgUrl} alt={contentTitle} layout="fill" />
           </Styles.ContentImage>
         </Styles.ContentImgContainer>
       </Styles.ContentContainer>
-      {additionalImgUrl && (
-        <Styles.AdditionalImgContainer active={isVisible}>
-          <Styles.AdditionalImg>
-            <Image src={additionalImgUrl} alt={contentTitle} layout="fill" />
-          </Styles.AdditionalImg>
-        </Styles.AdditionalImgContainer>
-      )}
     </Styles.Container>
   );
 };

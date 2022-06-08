@@ -28,4 +28,12 @@ export const ArrowContainer = styled.div`
   @media ${themes.primary.media.minTablet} {
     margin: 3rem 0 0 0.53rem;
   }
+
+  &.blog {
+    justify-content: space-between;
+    width: 90px;
+    @media ${themes.primary.media.minTablet} {
+      margin: 0;
+    }
+  }
 `;

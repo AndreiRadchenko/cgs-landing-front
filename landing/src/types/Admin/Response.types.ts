@@ -190,3 +190,8 @@ export interface IDataVacancyResponse {
   offer: IOfferBlock;
   contact: IContactBlock;
 }
+
+export interface IHomeData {
+  data: IDataResponse | undefined;
+  isLoading: boolean;
+}

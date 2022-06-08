@@ -18,6 +18,7 @@ const ModalCategoryAllWorkCard: FC<IModalProjectCardProps> = ({
           alt={"alt image card"}
           width="400px"
           height="275px"
+          priority
         />
       </StyledCategory.ProjectImg>
 

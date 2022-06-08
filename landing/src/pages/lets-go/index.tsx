@@ -7,8 +7,10 @@ import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import LetsGoForm from "../../components/LetsGoForm";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { adminGlobalService } from "../../services/adminVacancyPage";
+import { adminVacancyService } from "../../services/adminVacancyPage";
+import { adminGlobalService } from "../../services/adminHomePage";
 import { VacancyProps } from "../../types/Admin//AdminVacancy.types";
+import { IHomeData } from "../../types/Admin/Response.types";
 import getServerSideProps from "../../utils/Redirect";
 
 export { getServerSideProps };
@@ -21,9 +23,15 @@ const LetsGo: NextPage = () => {
 
   const { data, isLoading }: VacancyProps = useQuery(
     queryKeys.getVacancyPage,
-    () => adminGlobalService.getFullPage(id)
+    () => adminVacancyService.getFullPage(id)
   );
+
+  const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
+
   const { contact } = { ...data };
+
   return (
     <>
       {!isLoading && (

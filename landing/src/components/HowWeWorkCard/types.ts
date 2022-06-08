@@ -6,5 +6,4 @@ export type IHowWeWorkCardProps = {
   backGroundColor: "blue" | "orange" | "green";
   imgUrl: string;
   additionalImgUrl?: string;
-  isFlipImageOnMobile?: boolean;
 };

@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           name="description"
           content="CGS Team is the partner to succeed in decentralized solutions thanks to broad blockchain development services and NFT development services"
         />
-        <meta property="og:url" content="https://blockchain.cgsteam.io" />
+        <meta property="og:url" content="https://blockchain.cgsteam.io/" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

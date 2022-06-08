@@ -103,3 +103,9 @@ export const ImageContainer = styled("div")<ImageProps>`
     bottom: 19%;
   }
 `;
+
+export const ImageRelativeWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
