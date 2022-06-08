@@ -19,7 +19,6 @@ interface IRenderProps {
 }
 
 const render = ({ state, deleteLogo }: IRenderProps) => {
-  console.log(state.images);
   return state.images?.map((i, ind) => (
     <LogoElement
       image={i}

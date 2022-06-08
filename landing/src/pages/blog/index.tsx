@@ -23,7 +23,6 @@ const BlogPage = () => {
     adminGlobalService.getFullPage()
   );
 
-  console.log(homeData.data);
   return (
     <Styles.PageWrapper>
       <Page>
