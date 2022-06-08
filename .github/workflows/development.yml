@@ -26,6 +26,6 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
        
       - name: Build for heroku
-        run: docker buildx build --platform linux/amd64 -t cd-landing-frontend-stg . 
+        run: docker buildx build --platform linux/amd64 -t cd-landing-frontend-stg . && docker tag cd-landing-frontend-stg registry.heroku.com/cd-landing-frontend-stg/web 
 
       
