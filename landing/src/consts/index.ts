@@ -53,6 +53,45 @@ export const blogItems = [
   },
 ];
 
+export const blockchainProjectLogos = [
+  {
+    url: "https://landing-cgs.s3.amazonaws.com/63bfb474-00e2-4933-9f2c-a0ee5658c420.png",
+  },
+  {
+    url: "https://landing-cgs.s3.amazonaws.com/16ed2fa4-df56-4d33-9692-d1bff13a5873.png",
+  },
+  {
+    url: "https://landing-cgs.s3.amazonaws.com/c252881a-200f-4fa4-9f93-f02fc57bad4f.png",
+  },
+  {
+    url: "https://landing-cgs.s3.amazonaws.com/2f08902e-9b13-495e-a676-a507e5a64da9.png",
+  },
+  {
+    url: "https://landing-cgs.s3.amazonaws.com/3aebce2c-557b-4414-828b-1778dc92da35.png",
+  },
+  {
+    url: "https://landing-cgs.s3.amazonaws.com/1080bd9e-ec69-43e1-a659-860d27ed6655.png",
+  },
+  {
+    url: "https://landing-cgs.s3.amazonaws.com/454f2a44-59e6-4849-a51c-566f57d14e04.png",
+  },
+  {
+    url: "https://landing-cgs.s3.amazonaws.com/cc8e6de9-8980-49b7-b09c-136d52101712.png",
+  },
+  {
+    url: "https://landing-cgs.s3.amazonaws.com/931f1ee8-7d66-40e0-bc5d-f298def0283a.png",
+  },
+  {
+    url: "https://landing-cgs.s3.amazonaws.com/63f5dd4f-80d7-4edc-8739-b5b59afaa996.png",
+  },
+  {
+    url: "https://landing-cgs.s3.amazonaws.com/4fc784f2-7373-499e-a545-9b2d2343dd1a.png",
+  },
+  {
+    url: "https://landing-cgs.s3.amazonaws.com/f177b111-a372-42a8-9f75-e448089bd37c.png",
+  },
+];
+
 export const blockchainProjects = [
   {
     name: "SO-COL",

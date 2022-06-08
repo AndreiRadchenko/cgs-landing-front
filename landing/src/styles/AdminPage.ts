@@ -82,20 +82,20 @@ export const AdminHeader = styled.h2`
   margin-bottom: 0.5em;
 `;
 
-export const AdminSubTitle = styled.h3<{ isBlog?: boolean }>`
+export const AdminSubTitle = styled.h3<{ secondary?: boolean }>`
   font-size: ${(props) =>
-    props.isBlog
+    props.secondary
       ? themes.primary.font.size.menuElement
       : themes.primary.font.size.linkText};
   font-family: ${(props) =>
-    props.isBlog
+    props.secondary
       ? themes.primary.font.family.gilroy
       : themes.primary.font.family.mulish};
   font-weight: ${(props) =>
-    props.isBlog
+    props.secondary
       ? themes.primary.font.weight.semiBold
       : themes.primary.font.weight.extraBold};
-  margin: ${(props) => (props.isBlog ? "30px 0 0.4em 0" : "0 0 0.4em 0")};
+  margin: ${(props) => (props.secondary ? "30px 0 0.4em 0" : "0 0 0.4em 0")};
 `;
 
 export const AdminComment = styled.p`

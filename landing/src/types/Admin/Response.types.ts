@@ -202,4 +202,5 @@ export interface IBlockchainProjectBlock {
 export interface IDataBlockchainResponse {
   projects: IBlockchainProjectBlock[];
   newProject: IBlockchainProjectBlock;
+  LogosBlock: { images: { url: string }[] };
 }

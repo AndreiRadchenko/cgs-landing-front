@@ -5,6 +5,8 @@ import { IDataBlockchainResponse } from "../../../types/Admin/Response.types";
 import AddReview from "./BlockchainProjectEditor";
 import BlockchainProjectView from "./BlockchainProjectView";
 import AdminCarousel from "../Global/AdminImageCarousel";
+import AddLogoFrame from "../LogosBlock/AddLogoFrame";
+import LogoElement from "../LogosBlock/LogoElement";
 
 const BlockchainProjectBlock = () => {
   const { values } = useFormikContext<IDataBlockchainResponse>();
@@ -13,6 +15,7 @@ const BlockchainProjectBlock = () => {
 
   return (
     <Styled.AdminPaddedBlock>
+      <Styled.AdminHeader>Blockchain</Styled.AdminHeader>
       <Styled.AdminHalfGrid>
         <AddReview current={current} newFlag={isNewStatus} />
 
@@ -33,6 +36,47 @@ const BlockchainProjectBlock = () => {
           />
         </Styled.AdminReviewBlock>
       </Styled.AdminHalfGrid>
+      <br />
+      <br />
+      <Styled.AdminSubTitle secondary>Logos (normal)</Styled.AdminSubTitle>
+      <br />
+      <Styled.AdminLogosGrid>
+        <AddLogoFrame
+          state={values.LogosBlock}
+          submit={() => {
+            console.log("submit");
+          }}
+        />
+        {values.LogosBlock.images?.map((i, ind) => (
+          <LogoElement
+            image={i}
+            key={Math.random()}
+            deleteLogo={() => {
+              console.log("deleteLogo");
+            }}
+          />
+        ))}
+      </Styled.AdminLogosGrid>
+      <br />
+      <Styled.AdminSubTitle secondary>Logos (hover)</Styled.AdminSubTitle>
+      <br />
+      <Styled.AdminLogosGrid>
+        <AddLogoFrame
+          state={values.LogosBlock}
+          submit={() => {
+            console.log("submit");
+          }}
+        />
+        {values.LogosBlock.images?.map((i, ind) => (
+          <LogoElement
+            image={i}
+            key={Math.random()}
+            deleteLogo={() => {
+              console.log("deleteLogo");
+            }}
+          />
+        ))}
+      </Styled.AdminLogosGrid>
     </Styled.AdminPaddedBlock>
   );
 };
