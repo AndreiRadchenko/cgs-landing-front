@@ -9,10 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: landing
-
     steps:
       - name: Login to DockerHub
         uses: docker/login-action@v1 
