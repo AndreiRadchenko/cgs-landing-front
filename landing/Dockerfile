@@ -1,6 +1,6 @@
 FROM node:14.17.0-alpine as dependencies
 WORKDIR /cd-landing-frontend-stg
-COPY package.json 
+COPY package.json .
 RUN yarn install --frozen-lockfile
 
 FROM node:14.17.0-alpine as builder
