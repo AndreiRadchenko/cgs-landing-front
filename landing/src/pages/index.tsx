@@ -41,6 +41,8 @@ const Home: NextPage = () => {
   const portfolioData: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
     adminGlobalService.getPortfolio()
   );
+
+  
   return (
     <>
       <Head>

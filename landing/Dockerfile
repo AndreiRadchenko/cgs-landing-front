@@ -14,6 +14,8 @@ WORKDIR /cd-landing-frontend-stg
 # ENV NODE_ENV production
 # If you are using a custom next.config.js file, uncomment this line.
 
+print(os.getenv('INPUT_TEST_VAR'))
+
 
 COPY --from=builder /cd-landing-frontend-stg/next.config.js ./
 COPY --from=builder /cd-landing-frontend-stg/public ./public
