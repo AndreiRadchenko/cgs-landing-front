@@ -20,11 +20,13 @@ jobs:
             HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
             NEXT_PUBLIC_BASE_URL: https://code-landing-2022.herokuapp.com
           run: heroku container:login 
+
         - name: Build and push
           env:
             HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
             NEXT_PUBLIC_BASE_URL: https://code-landing-2022.herokuapp.com
           run: heroku container:push -a cd-landing-frontend-stg web 
+          
         - name: Release
           env:
             HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
