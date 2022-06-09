@@ -1,4 +1,3 @@
-import os
 FROM node:14.17.0-alpine as dependencies
 WORKDIR /cd-landing-frontend-stg
 COPY package.json yarn.lock ./
@@ -15,9 +14,10 @@ WORKDIR /cd-landing-frontend-stg
 # ENV NODE_ENV production
 # If you are using a custom next.config.js file, uncomment this line.
 
-print(os.getenv('INPUT_TEST_VAR'))
-
-
+ARG PORT
+ENV PORT=$PORT
+ARG NEXT_PUBLIC_BASE_URL
+ENV NEXT_PUBLIC_BASE_URL=INPUT_NEXT_PUBLIC_BASE_URL
 COPY --from=builder /cd-landing-frontend-stg/next.config.js ./
 COPY --from=builder /cd-landing-frontend-stg/public ./public
 COPY --from=builder /cd-landing-frontend-stg/.next ./.next
