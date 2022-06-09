@@ -1,6 +1,7 @@
 FROM node:14.17.0-alpine as dependencies
 WORKDIR /cd-landing-frontend-stg
 COPY package.json yarn.lock ./
+COPY .env ./
 RUN yarn install --frozen-lockfile
 
 FROM node:14.17.0-alpine as builder
@@ -21,7 +22,6 @@ COPY --from=builder /cd-landing-frontend-stg/public ./public
 COPY --from=builder /cd-landing-frontend-stg/.next ./.next
 COPY --from=builder /cd-landing-frontend-stg/node_modules ./node_modules
 COPY --from=builder /cd-landing-frontend-stg/package.json ./package.json
-COPY .env ./
 
 EXPOSE $PORT
 CMD ["yarn", "start"]
