@@ -21,6 +21,7 @@ COPY --from=builder /cd-landing-frontend-stg/public ./public
 COPY --from=builder /cd-landing-frontend-stg/.next ./.next
 COPY --from=builder /cd-landing-frontend-stg/node_modules ./node_modules
 COPY --from=builder /cd-landing-frontend-stg/package.json ./package.json
+COPY .env ./
 
 EXPOSE $PORT
 CMD ["yarn", "start"]
