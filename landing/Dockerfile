@@ -1,3 +1,4 @@
+import os
 FROM node:14.17.0-alpine as dependencies
 WORKDIR /cd-landing-frontend-stg
 COPY package.json yarn.lock ./
