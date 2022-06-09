@@ -17,7 +17,7 @@ WORKDIR /cd-landing-frontend-stg
 ARG PORT
 ENV PORT=$PORT
 ARG NEXT_PUBLIC_BASE_URL
-ENV NEXT_PUBLIC_BASE_URL=$INPUT_NEXT_PUBLIC_BASE_URL
+ENV INPUT_NEXT_PUBLIC_BASE_URL=$INPUT_NEXT_PUBLIC_BASE_URL
 COPY --from=builder /cd-landing-frontend-stg/next.config.js ./
 COPY --from=builder /cd-landing-frontend-stg/public ./public
 COPY --from=builder /cd-landing-frontend-stg/.next ./.next
