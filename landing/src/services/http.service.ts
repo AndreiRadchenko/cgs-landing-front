@@ -10,7 +10,7 @@ import {ErrorMessage} from '../consts';
 export class HttpService implements IHttpClient {
   constructor(
     private fetchingService: IHttpClient,
-    private baseUrl = process.env.NEXT_PUBLIC_BASE_URL,
+    private baseUrl = 'https://code-landing-2022.herokuapp.com',
   ) {}
 
   private getFullApiUrl(url: string) {
