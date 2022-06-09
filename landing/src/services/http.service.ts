@@ -14,6 +14,7 @@ export class HttpService implements IHttpClient {
   ) {}
 
   private getFullApiUrl(url: string) {
+    console.log(process.env)
     return `${this.baseUrl}/${url}`;
   }
 
