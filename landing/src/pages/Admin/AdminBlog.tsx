@@ -18,7 +18,7 @@ const AdminBlog = () => {
     </Styled.AdminWrapper>
   ) : (
     <Styled.AdminUnauthorizedModal>
-      Somethimg went wrong :(
+      Something went wrong :(
     </Styled.AdminUnauthorizedModal>
   );
 };

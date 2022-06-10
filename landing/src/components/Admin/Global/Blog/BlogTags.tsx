@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Plus from "../../../../../public/plus.svg";
 
 import * as Styles from "../../../../styles/BlogTags.styled";
+import ArticleBlock from "../../Blog/ArticleBlock";
 
 const BlogTags = () => {
+  const [tagList, setTagList] = useState([
+    <Styles.Tag key={0}>marketing</Styles.Tag>,
+  ]);
+  const addTagOnClick = () => {
+    setTagList(tagList.concat(<Styles.Tag key={tagList.length} />));
+  };
+
   return (
     <Styles.TagsWrapper>
-      <Styles.Tag>front-end developer</Styles.Tag>
-      <Styles.Tag>marketing</Styles.Tag>
+      {tagList}
       <Styles.AddTag>
-        <Styles.PlusIcon src={Plus.src} />
+        <Styles.PlusIcon src={Plus.src} onClick={addTagOnClick} />
       </Styles.AddTag>
     </Styles.TagsWrapper>
   );

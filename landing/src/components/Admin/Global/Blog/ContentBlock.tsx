@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, useState } from "react";
 import PhotoBlockDashedHorizontal from "../PhotoBlockdashedHorizontal";
 import PhotoBlockDashed from "../PhotoBlockDashed";
 import SubHeaderWithInput from "../SubHeaderWithInput";
@@ -8,10 +8,48 @@ import PublishedArticles from "./PublishedArticles";
 
 import * as Styles from "../../../../styles/AdminBlogPage";
 import * as Styled from "../../../../styles/AdminPage";
+import { useFormikContext } from "formik";
+import { IBlogResponse } from "../../../../types/Admin/Response.types";
+import ArticleBlock from "../../Blog/ArticleBlock";
+import { useMutation } from "react-query";
+import { queryKeys } from "../../../../consts/queryKeys";
+import { adminCareersService } from "../../../../services/adminCareersPage";
+import { adminBlogService } from "../../../../services/adminBlogPage";
 
-const ContentBlock = () => {
-  const uploadFunc = (image: any) => console.log("");
+interface IArticles {
+  isNewArticle: boolean;
+  setIsNewArticle: React.Dispatch<React.SetStateAction<boolean>>;
+  article: number;
+  setArticle: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const ContentBlock: FC<IArticles> = ({
+  isNewArticle,
+  setArticle,
+  article,
+  setIsNewArticle,
+}) => {
+  const { values, handleSubmit, handleChange } =
+    useFormikContext<IBlogResponse>();
+  const uploadFunc = (image: any) => console.log("ф");
   const deleteFunc = async () => console.log("");
+
+  const { mutateAsync } = useMutation(
+    queryKeys.deleteArticle,
+    (dataToUpdate: IBlogResponse) =>
+      adminBlogService.updateBlogPage(dataToUpdate)
+  );
+
+  const deleteArticle = () => {
+    const id = values.articles[article]._id;
+    const dataToUpdate = {
+      articles: [...values.articles.filter((article) => article._id !== id)],
+    } as IBlogResponse;
+    mutateAsync(dataToUpdate);
+    values.articles.splice(article, 1);
+    setArticle(0);
+    handleSubmit();
+  };
 
   return (
     <Styled.AdminPaddedBlock>
@@ -30,21 +68,32 @@ const ContentBlock = () => {
           />
           <SubHeaderWithInput
             header="Title"
-            inputValue="inputValue"
-            name="title"
-            onChangeFunction={() => {
-              console.log("");
-            }}
+            inputValue={
+              isNewArticle
+                ? values.newArticle.title
+                : values.articles[article].title
+            }
+            name={
+              isNewArticle ? "newArticle.title" : `articles[${article}].title`
+            }
+            id="title"
+            onChangeFunction={handleChange}
             isBlog={true}
             height="75px"
           />
           <SubHeaderWithInput
             header="Description"
-            inputValue="inputValue"
-            name="description"
-            onChangeFunction={() => {
-              console.log("");
-            }}
+            inputValue={
+              isNewArticle
+                ? values.newArticle.description
+                : values.articles[article].description
+            }
+            name={
+              isNewArticle
+                ? "newArticle.description"
+                : `articles[${article}].description`
+            }
+            onChangeFunction={handleChange}
             isBlog={true}
             height="75px"
           />
@@ -52,21 +101,31 @@ const ContentBlock = () => {
             <Styles.Column>
               <SubHeaderWithInput
                 header="Author's name"
-                inputValue="inputValue"
-                name="name"
-                onChangeFunction={() => {
-                  console.log("");
-                }}
+                inputValue={
+                  isNewArticle
+                    ? values.newArticle.author.name
+                    : values.articles[article].author.name
+                }
+                name={
+                  isNewArticle
+                    ? "newArticle.author.name"
+                    : `articles[${article}].author.name`
+                }
+                onChangeFunction={handleChange}
                 isBlog={true}
                 height="56px"
               />
               <SubHeaderWithInput
                 header="Date"
-                inputValue="inputValue"
-                name="date"
-                onChangeFunction={() => {
-                  console.log("");
-                }}
+                inputValue={
+                  isNewArticle
+                    ? values.newArticle.date
+                    : values.articles[article].date
+                }
+                name={
+                  isNewArticle ? "newArticle.date" : `articles[${article}].date`
+                }
+                onChangeFunction={handleChange}
                 isBlog={true}
                 height="56px"
               />
@@ -74,21 +133,33 @@ const ContentBlock = () => {
             <Styles.Column>
               <SubHeaderWithInput
                 header="Specialization (writer, other...)"
-                inputValue="inputValue"
-                name="specialization"
-                onChangeFunction={() => {
-                  console.log("");
-                }}
+                inputValue={
+                  isNewArticle
+                    ? values.newArticle.author.specialization
+                    : values.articles[article].author.specialization
+                }
+                name={
+                  isNewArticle
+                    ? "newArticle.author.specialization"
+                    : `articles[${article}].author.specialization`
+                }
+                onChangeFunction={handleChange}
                 isBlog={true}
                 height="56px"
               />
               <SubHeaderWithInput
                 header="Time to read"
-                inputValue="inputValue"
-                name="time"
-                onChangeFunction={() => {
-                  console.log("");
-                }}
+                inputValue={
+                  isNewArticle
+                    ? String(values.newArticle.minutesToRead)
+                    : String(values.articles[article].minutesToRead)
+                }
+                name={
+                  isNewArticle
+                    ? "newArticle.minutesToRead"
+                    : `articles[${article}].minutesToRead`
+                }
+                onChangeFunction={handleChange}
                 isBlog={true}
                 height="56px"
               />
@@ -104,56 +175,21 @@ const ContentBlock = () => {
           maxWidth="324px"
         />
       </Styles.BigWrapper>
-      <Styles.SubHeadersWrapper>
-        <Styles.SubHeaderWrapper>
-          <SubHeaderWithInput
-            header="Subtitle number"
-            inputValue="inputValue"
-            name="subtitleNumber"
-            onChangeFunction={() => {
-              console.log("");
-            }}
-            isBlog={true}
-            height="56px"
-            width="213px"
-          />
-        </Styles.SubHeaderWrapper>
-        <Styles.SubHeaderWrapper>
-          <SubHeaderWithInput
-            header="Subtitle"
-            inputValue="inputValue"
-            name="subtitle"
-            onChangeFunction={() => {
-              console.log("");
-            }}
-            isBlog={true}
-            height="56px"
-            width="865px"
-          />
-        </Styles.SubHeaderWrapper>
-      </Styles.SubHeadersWrapper>
-      <SubHeaderWithInput
-        header="Text"
-        inputValue="inputValue"
-        name="text"
-        onChangeFunction={() => {
-          console.log("");
-        }}
-        isBlog={true}
-        height="473px"
+      <ArticleBlock
+        isNewArticle={isNewArticle}
+        setIsNewArticle={setIsNewArticle}
+        setArticle={setArticle}
+        article={article}
       />
-      <Styles.ButtonsWrapper>
-        <Styles.FooterButton>
-          + Add Subtitle number and Subtitle
-        </Styles.FooterButton>
-        <Styles.FooterButton>+ Add Text</Styles.FooterButton>
-      </Styles.ButtonsWrapper>
       <Styles.AdminSubTitle>Tags</Styles.AdminSubTitle>
       <BlogTags />
       <Styles.SubmitButtonWrapper>
-        <TicketsButton>Post</TicketsButton>
+        <TicketsButton>{isNewArticle ? "Post" : "Edit Article"}</TicketsButton>
       </Styles.SubmitButtonWrapper>
-      <PublishedArticles />
+      <PublishedArticles
+        setArticle={setArticle}
+        setIsNewArticle={setIsNewArticle}
+      />
     </Styled.AdminPaddedBlock>
   );
 };

@@ -190,3 +190,32 @@ export interface IDataVacancyResponse {
   offer: IOfferBlock;
   contact: IContactBlock;
 }
+
+interface IAuthor {
+  name: string;
+  specialization: string;
+  image: { url: string };
+}
+
+interface ITextBlog {
+  text?: string;
+  subNumber?: string;
+  subtitle?: string;
+}
+
+export interface IArticle {
+  _id: string;
+  banner: { url: string };
+  title: string;
+  description: string;
+  author: IAuthor;
+  date: string;
+  minutesToRead: number;
+  content: [ITextBlog];
+  tags: string[];
+}
+
+export interface IBlogResponse {
+  articles: IArticle[];
+  newArticle: IArticle;
+}
