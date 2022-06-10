@@ -33,4 +33,4 @@ jobs:
           heroku_app_name: 'cg-blockchain-fe'
           heroku_email: 'contact@codegenerationsoftware.com'
         env: 
-          HD_PROJECT_PATH: "landing"
+          HD_PROJECT_PATH: "blockchain"
