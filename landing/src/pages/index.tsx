@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Body from "../components/Body/Body";
-import * as StyledCommon from "../styles/Page.styled";
+import { Loading, Page } from "../styles/Page.styled";
 import Projects from "../components/Projects/Projects";
 import AboutUs from "../components/AboutUs/AboutUs";
 import Partners from "../components/Partners/Partners";
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
   const [isClicked, setIsClicked] = useState(false);
 
-  const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
+  const { isLoading }: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
     adminGlobalService.getFullPage()
   );
 
@@ -47,11 +47,13 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
+        <link rel="preconnect" href="https://connect.facebook.net" />
         <meta
           name="facebook-domain-verification"
           content="0k9v3beamz5vi93rnc4uqe17s0ise2"
         />
         <script
+          defer
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -128,11 +130,11 @@ const Home: NextPage = () => {
           }}
         ></script>
       </Head>
-      {homeData.isLoading ? (
-        <StyledCommon.Loading>LOADING...</StyledCommon.Loading>
+      {isLoading ? (
+        <Loading>LOADING...</Loading>
       ) : (
         <>
-          <StyledCommon.Page>
+          <Page>
             <Body
               welcomePageButtonHandler={scrollHandler}
               setIsClicked={setIsClicked}
@@ -143,14 +145,14 @@ const Home: NextPage = () => {
             <CarouselFeedback />
             <Technologies />
             <OurTeam />
-          </StyledCommon.Page>
+          </Page>
           <HowWeWorkList isClicked={isClicked} />
           <YesBegin clickHandler={scrollHandler} disableScroll={setIsClicked} />
-          <StyledCommon.Page className="lets-code">
+          <Page className="lets-code">
             <div ref={ref}>
               <LetsCode />
             </div>
-          </StyledCommon.Page>
+          </Page>
           <Footer />
         </>
       )}

@@ -34,7 +34,7 @@ export const Title = styled.h2`
   }
 `;
 
-export const SubTitle = styled.h4`
+export const SubTitle = styled.h3`
   font-size: 2em;
   font-weight: ${themes.primary.font.weight.light};
   text-align: center;

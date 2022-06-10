@@ -53,8 +53,8 @@ const WelcomePage = ({ clickHandler, setIsClicked }: IWelcomePageProps) => {
         <StyledThisComp.WrapperBgImg>
           <ImagePreview
             src={data?.image.url}
-            width={"1000px"}
-            height={"800px"}
+            width={1000}
+            height={800}
             alt={"main logo big image"}
             priority={true}
           />

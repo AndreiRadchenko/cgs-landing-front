@@ -38,7 +38,6 @@ const OurTeamCard: FC<IOurTeamCardProps> = ({ url, title, description }) => {
           src={url}
           alt={`our team ${title} img`}
           quality={100}
-          priority
           layout={"fill"}
           objectFit={"contain"}
           className={title.split(" ").join("-") + "-img"}
