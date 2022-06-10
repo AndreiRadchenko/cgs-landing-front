@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - staging
+    paths:
+      - landing/**
+    
 
 jobs:
   deploy:
