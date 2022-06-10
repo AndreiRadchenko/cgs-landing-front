@@ -3,14 +3,14 @@ name: Development workflow
 on:
   push:
     branches:
-      - staging
+      - master
     paths:
       - landing/**
     
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     defaults:
       run:
@@ -30,7 +30,7 @@ jobs:
         with:
           args: deploy --dir=build --prod
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: 'cd-landing-frontend-stg'
+          heroku_app_name: 'cg-landing-frontend'
           heroku_email: 'contact@codegenerationsoftware.com'
         env: 
           HD_PROJECT_PATH: "landing"
