@@ -17,6 +17,12 @@ import {
 import { SplitBrackets } from "../../utils/splitBrackets";
 import ModalSentEmail from "../Modal/ModalSentEmail";
 
+declare global {
+  interface Window {
+    dataLayer: Record<string, any>[];
+  }
+}
+
 interface IEmailBody {
   [name: string]: string;
   email: string;
@@ -54,6 +60,14 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
         )
         .then(() => {
           setSent(true);
+          if (typeof window !== "undefined") {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "formSubmission",
+              formType: "Contact us",
+              formPosition: "Footer",
+            });
+          }
           resetForm();
         });
     },

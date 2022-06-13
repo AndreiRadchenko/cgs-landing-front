@@ -39,6 +39,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="preconnect" href="https://www.googletagmanager.com" />
           <link rel="preconnect" href="https://www.google-analytics.com" />
           <link
             rel="preconnect"
@@ -56,6 +57,8 @@ export default class MyDocument extends Document {
           />
           {/* eslint-disable-next-line @next/next/next-script-for-ga */}
           <script
+            type="rocketlazyloadscript"
+            async
             id="google-tag-manager"
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

@@ -37,8 +37,9 @@ const Home: NextPage = () => {
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
   const [isClicked, setIsClicked] = useState(false);
 
-  const { isLoading }: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
-    adminGlobalService.getFullPage()
+  const { data, isLoading }: IHomeData = useQuery(
+    queryKeys.getFullHomePage,
+    () => adminGlobalService.getFullPage()
   );
 
   const portfolioData: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
@@ -53,7 +54,6 @@ const Home: NextPage = () => {
           content="0k9v3beamz5vi93rnc4uqe17s0ise2"
         />
         <script
-          defer
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -138,6 +138,7 @@ const Home: NextPage = () => {
             <Body
               welcomePageButtonHandler={scrollHandler}
               setIsClicked={setIsClicked}
+              heroImg={data?.EditInformationBlock.image.url}
             />
             <AboutUs />
             <Partners />
