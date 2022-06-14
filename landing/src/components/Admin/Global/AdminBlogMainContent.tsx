@@ -4,6 +4,8 @@ import ContentBlock from "./Blog/ContentBlock";
 import { useQuery } from "react-query";
 import { IBlogResponse } from "../../../types/Admin/Response.types";
 import * as Styled from "../../../styles/AdminPage";
+import { queryKeys } from "../../../consts/queryKeys";
+import { adminBlogService } from "../../../services/adminBlogPage";
 
 interface IBlogProps {
   data: IBlogResponse | undefined;
@@ -14,17 +16,16 @@ interface IBlogProps {
 const AdminBlogMainContent = () => {
   const [isNewArticle, setIsNewArticle] = useState(true);
   const [article, setArticle] = useState(0);
-  const submitForm = () => {
-    console.log("");
-  };
-  // const { data, isLoading, refetch } = useQuery(queryKeys.getBlogPage, () =>
-  //   adminBlogService.getBlogPage()
-  // );
 
-  const { isLoading, data, refetch }: IBlogProps = useQuery(
-    "blogData",
-    async () =>
-      await fetch("http://localhost:5000/api/blog").then((res) => res.json())
+  const submitForm = async () => {
+    document.body.style.cursor = "wait";
+    await refetch();
+    document.body.style.cursor = "auto";
+  };
+
+  const { data, isLoading, refetch }: IBlogProps = useQuery(
+    queryKeys.getBlogPage,
+    () => adminBlogService.getBlogPage()
   );
 
   return isLoading ? (
@@ -37,6 +38,7 @@ const AdminBlogMainContent = () => {
       initialValues={data}
     >
       <ContentBlock
+        refetch={() => refetch()}
         isNewArticle={isNewArticle}
         setIsNewArticle={setIsNewArticle}
         article={article}

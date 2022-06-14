@@ -197,21 +197,21 @@ interface IAuthor {
   image: { url: string };
 }
 
-interface ITextBlog {
+export interface ITextBlog {
   text?: string;
   subNumber?: string;
   subtitle?: string;
 }
 
 export interface IArticle {
-  _id: string;
-  banner: { url: string };
+  _id?: string;
+  image: { url: string };
   title: string;
   description: string;
   author: IAuthor;
   date: string;
   minutesToRead: number;
-  content: [ITextBlog];
+  content: ITextBlog[];
   tags: string[];
 }
 

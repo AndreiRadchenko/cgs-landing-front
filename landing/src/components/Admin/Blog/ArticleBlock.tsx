@@ -3,100 +3,115 @@ import * as Styles from "../../../styles/AdminBlogPage";
 import Subtitle from "./Subtitle";
 import ArticleText from "./ArticleText";
 import { useFormikContext } from "formik";
-import { IBlogResponse } from "../../../types/Admin/Response.types";
+import { IBlogResponse, ITextBlog } from "../../../types/Admin/Response.types";
 
 interface IArticleBlock {
   isNewArticle: boolean;
-  setIsNewArticle: React.Dispatch<React.SetStateAction<boolean>>;
   article: number;
-  setArticle: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
-  const { values, handleSubmit, handleChange } =
-    useFormikContext<IBlogResponse>();
+  const { values, handleChange } = useFormikContext<IBlogResponse>();
   const [articleBlockList, setArticleBlockList] = useState<JSX.Element[]>([]);
-  // const addBlockOnClick = (component: any) => {
-  //   setArticleBlockList(articleBlockList.concat(component));
-  // };
+
+  const componentsArray = (content: ITextBlog[]) => {
+    return content.map((obj: ITextBlog, index: number) =>
+      isNewArticle
+        ? obj.hasOwnProperty("text")
+          ? newArticleText(index)
+          : newArticleSubtitle(index)
+        : obj.hasOwnProperty("text")
+        ? editArticleText(index)
+        : editArticleSubtitle(index)
+    );
+  };
 
   useEffect(() => {
-    if (!isNewArticle) {
-      const content = values.articles[article].content;
-      const componentsArray = content.map((obj, index) => {
-        return Object.keys(obj).length < 3 ? (
-          <ArticleText
-            key={index}
-            value={values.articles[article].content[index].text}
-            name={`articles[${article}].content[${index}].text`}
-            handleChange={handleChange}
-          />
-        ) : (
-          <Subtitle
-            key={index}
-            subtitleValue={values.articles[article].content[index].subtitle}
-            subtitleName={`articles[${article}].content[${index}].subtitle`}
-            subNumberValue={values.articles[article].content[index].subNumber}
-            subNumberName={`articles[${article}].content[${index}].subNumber`}
-            handleChange={handleChange}
-          />
-        );
-      });
-      setArticleBlockList(componentsArray);
+    if (isNewArticle) {
+      const content = values.newArticle.content;
+      const result = componentsArray(content);
+      setArticleBlockList(result);
     } else {
-      setArticleBlockList([
-        // <Subtitle
-        //   key={0}
-        //   handleChange={handleChange}
-        //   value={values.newArticle.content[0].subtitle}
-        //   name={`newArticle.content[${0}].subtitle`}
-        // />,
-        // <ArticleText
-        //   key={1}
-        //   handleChange={handleChange}
-        //   value={values.newArticle.content[1].text}
-        //   name={`newArticle.content[${1}].text`}
-        // />,
-      ]);
+      const content = values.articles[article].content;
+      const result = componentsArray(content);
+      setArticleBlockList(result);
     }
-  }, [
-    article,
-    handleChange,
-    isNewArticle,
-    values.articles,
-    values.newArticle.content,
-  ]);
+  }, [article, isNewArticle, values.articles, values.newArticle]);
+
+  const newArticleSubtitle = (index: number): JSX.Element => (
+    <Subtitle
+      key={index}
+      subtitleValue={values.newArticle.content[index].subtitle}
+      subtitleName={`newArticle.content[${index}].subtitle`}
+      subNumberValue={values.newArticle.content[index].subNumber}
+      subNumberName={`newArticle.content[${index}].subNumber`}
+      handleChange={handleChange}
+    />
+  );
+
+  const editArticleSubtitle = (index: number) => (
+    <Subtitle
+      key={index}
+      subtitleValue={values.articles[article].content[index].subtitle}
+      subtitleName={`articles[${article}].content[${index}].subtitle`}
+      subNumberValue={values.articles[article].content[index].subNumber}
+      subNumberName={`articles[${article}].content[${index}].subNumber`}
+      handleChange={handleChange}
+    />
+  );
+
+  const editArticleText = (index: number) => (
+    <ArticleText
+      key={index}
+      value={values.articles[article].content[index].text}
+      name={`articles[${article}].content[${index}].text`}
+      handleChange={handleChange}
+    />
+  );
+
+  const newArticleText = (index: number) => (
+    <ArticleText
+      key={index}
+      value={values.newArticle.content[index].text}
+      name={`newArticle.content[${index}].text`}
+      handleChange={handleChange}
+    />
+  );
+
+  const addTextBlockOnClick = () => {
+    if (isNewArticle && !article) {
+      values.newArticle.content.push({ text: "" });
+      const index = values.newArticle.content.length - 1;
+      setArticleBlockList(articleBlockList.concat(newArticleText(index)));
+    } else {
+      values.articles[article].content.push({ text: "" });
+      const index = values.articles[article].content.length - 1;
+      setArticleBlockList(articleBlockList.concat(editArticleText(index)));
+    }
+  };
+
+  const addSubtitleBlockOnClick = () => {
+    if (isNewArticle && !article) {
+      values.newArticle.content.push({ subtitle: "", subNumber: "" });
+      const index = values.newArticle.content.length - 1;
+      const subtitle = newArticleSubtitle(index);
+      setArticleBlockList((oldList) => oldList.concat(subtitle));
+    } else {
+      values.articles[article].content.push({ subtitle: "", subNumber: "" });
+      const index = values.newArticle.content.length - 1;
+      const subtitle = editArticleSubtitle(index);
+      setArticleBlockList((oldList) => oldList.concat(subtitle));
+    }
+  };
 
   return (
     <>
       {articleBlockList}
       <Styles.ButtonsWrapper>
-        <Styles.FooterButton
-        // onClick={() =>
-        //   addBlockOnClick(
-        //     <Subtitle
-        //       key={articleBlockList.length + 1}
-        //       handleChange={handleChange}
-        //       name={}
-        //       value={}
-        //     />
-        //   )
-        // }
-        >
+        <Styles.FooterButton onClick={addSubtitleBlockOnClick}>
           + Add Subtitle number and Subtitle
         </Styles.FooterButton>
-        <Styles.FooterButton
-        // onClick={() =>
-        //   addBlockOnClick(
-        //     <ArticleText
-        //       key={articleBlockList.length + 1}
-        //       handleChange={handleChange}
-        //       name={}
-        //       value={}
-        //     />
-        //   )
-        // }
-        >
+        <Styles.FooterButton onClick={addTextBlockOnClick}>
           + Add Text
         </Styles.FooterButton>
       </Styles.ButtonsWrapper>

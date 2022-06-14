@@ -5,7 +5,7 @@ import * as Styles from "./BlogItem.styled";
 interface IBlogItemProps {
   title: string;
   description: string;
-  image: string;
+  image?: string;
   isAdmin?: boolean;
   children?: React.ReactNode;
 }

@@ -9,12 +9,14 @@ export const Wrapper = styled.div`
 `;
 
 export const ChangeIcon = styled.img`
+  cursor: pointer;
   position: absolute;
   top: 16px;
   right: 15px;
 `;
 
 export const DeleteButton = styled.div`
+  cursor: pointer;
   position: absolute;
   right: 15px;
   bottom: 15px;

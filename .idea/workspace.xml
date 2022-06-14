@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e6240693-3b84-4cfd-956c-e195f5332c61" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/landing/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/landing/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/landing/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Blog/ArticleBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Blog/ArticleBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Blog/ArticleText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Blog/ArticleText.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Blog/Subtitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Blog/Subtitle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Global/AdminBlogMainContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Global/AdminBlogMainContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/BlogTags.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/BlogTags.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/ContentBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/ContentBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/PublishedArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/PublishedArticles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/BlogItem/BlogItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/BlogItem/BlogItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/hooks/useUploadImageFunction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/hooks/useUploadImageFunction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/styles/AdminPage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/styles/AdminPage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/styles/BlogPublishedArticles.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/styles/BlogPublishedArticles.styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/styles/BlogTags.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/styles/BlogTags.styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/types/Admin/Response.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/types/Admin/Response.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/landing/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2ACWnEKzxrMkPHfhHexcrmDwYZt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "C:\\Users\\vikto\\WebstormProjects\\code-generation-landing\\blockchain\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e6240693-3b84-4cfd-956c-e195f5332c61" name="Changes" comment="" />
+      <created>1654514212447</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654514212447</updated>
+      <workItem from="1654514213729" duration="1934000" />
+      <workItem from="1654518903191" duration="6309000" />
+      <workItem from="1654582580270" duration="26233000" />
+      <workItem from="1654629362995" duration="17000" />
+      <workItem from="1654671643040" duration="2397000" />
+      <workItem from="1654687562415" duration="1107000" />
+      <workItem from="1654689529253" duration="8393000" />
+      <workItem from="1654757647939" duration="26136000" />
+      <workItem from="1654837936310" duration="33059000" />
+      <workItem from="1654875397690" duration="1558000" />
+      <workItem from="1654886925225" duration="8313000" />
+      <workItem from="1655053784500" duration="3312000" />
+      <workItem from="1655096676947" duration="18995000" />
+      <workItem from="1655119551226" duration="3269000" />
+      <workItem from="1655123135038" duration="17479000" />
+      <workItem from="1655189492476" duration="23826000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

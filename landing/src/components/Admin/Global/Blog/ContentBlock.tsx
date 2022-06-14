@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import PhotoBlockDashedHorizontal from "../PhotoBlockdashedHorizontal";
 import PhotoBlockDashed from "../PhotoBlockDashed";
 import SubHeaderWithInput from "../SubHeaderWithInput";
@@ -13,14 +13,17 @@ import { IBlogResponse } from "../../../../types/Admin/Response.types";
 import ArticleBlock from "../../Blog/ArticleBlock";
 import { useMutation } from "react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
-import { adminCareersService } from "../../../../services/adminCareersPage";
 import { adminBlogService } from "../../../../services/adminBlogPage";
+import { IImage } from "../../../../types/Admin/Admin.types";
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 
 interface IArticles {
   isNewArticle: boolean;
   setIsNewArticle: React.Dispatch<React.SetStateAction<boolean>>;
   article: number;
   setArticle: React.Dispatch<React.SetStateAction<number>>;
+  refetch: () => Promise<any>;
 }
 
 const ContentBlock: FC<IArticles> = ({
@@ -28,11 +31,10 @@ const ContentBlock: FC<IArticles> = ({
   setArticle,
   article,
   setIsNewArticle,
+  refetch,
 }) => {
-  const { values, handleSubmit, handleChange } =
+  const { values, handleSubmit, handleChange, resetForm } =
     useFormikContext<IBlogResponse>();
-  const uploadFunc = (image: any) => console.log("ф");
-  const deleteFunc = async () => console.log("");
 
   const { mutateAsync } = useMutation(
     queryKeys.deleteArticle,
@@ -40,16 +42,58 @@ const ContentBlock: FC<IArticles> = ({
       adminBlogService.updateBlogPage(dataToUpdate)
   );
 
-  const deleteArticle = () => {
-    const id = values.articles[article]._id;
-    const dataToUpdate = {
-      articles: [...values.articles.filter((article) => article._id !== id)],
-    } as IBlogResponse;
-    mutateAsync(dataToUpdate);
-    values.articles.splice(article, 1);
+  const updateArticle = async () => {
+    await mutateAsync(values);
     setArticle(0);
+    setIsNewArticle(true);
     handleSubmit();
+    resetForm();
+    await refetch();
   };
+
+  const createArticle = async () => {
+    const articleToAdd = values.newArticle;
+    values.articles.push(articleToAdd);
+    values.newArticle = {
+      content: [{ subtitle: "", subNumber: "" }, { text: "" }],
+      title: "",
+      image: { url: "" },
+      author: { name: "", image: { url: "" }, specialization: "" },
+      description: "",
+      tags: [""],
+      date: "",
+      minutesToRead: 0,
+    };
+    mutateAsync(values);
+    setArticle(0);
+    setIsNewArticle(true);
+    handleSubmit();
+    resetForm();
+    await refetch();
+  };
+
+  const deleteNewAuthor = useDeleteImageFunction(values.newArticle.author, "");
+  const uploadNewAuthor = useUploadImageFunction(values.newArticle.author, "");
+  const deleteNewBanner = useDeleteImageFunction(values.newArticle, "");
+  const uploadNewBanner = useUploadImageFunction(values.newArticle, "");
+  const deleteEditAuthor = useDeleteImageFunction(
+    values.articles[article].author,
+    ""
+  );
+  const uploadEditAuthor = useUploadImageFunction(
+    values.articles[article].author,
+    ""
+  );
+  const deleteEditBanner = useDeleteImageFunction(values.articles[article], "");
+  const uploadEditBanner = useUploadImageFunction(values.articles[article], "");
+  const deleteNewAuthorFunc = async () => (await deleteNewAuthor)();
+  const uploadNewAuthorFunc = (image: IImage) => uploadNewAuthor(image);
+  const deleteNewBannerFunc = async () => (await deleteNewBanner)();
+  const uploadNewBannerFunc = (image: IImage) => uploadNewBanner(image);
+  const deleteEditAuthorFunc = async () => (await deleteEditAuthor)();
+  const uploadEditAuthorFunc = (image: IImage) => uploadEditAuthor(image);
+  const deleteEditBannerFunc = async () => (await deleteEditBanner)();
+  const uploadEditBannerFunc = (image: IImage) => uploadEditBanner(image);
 
   return (
     <Styled.AdminPaddedBlock>
@@ -58,10 +102,22 @@ const ContentBlock: FC<IArticles> = ({
       <Styles.BigWrapper>
         <Styles.SmallWrapper>
           <PhotoBlockDashedHorizontal
-            photo={""}
+            photo={
+              isNewArticle
+                ? values.newArticle.image?.url.length
+                  ? values.newArticle.image
+                  : null
+                : values.articles[article].image?.url.length
+                ? values.articles[article].image
+                : null
+            }
             deleteFlag={true}
-            uploadFunction={uploadFunc}
-            deleteFunction={deleteFunc}
+            uploadFunction={
+              isNewArticle ? uploadNewBannerFunc : uploadEditBannerFunc
+            }
+            deleteFunction={
+              isNewArticle ? deleteNewBannerFunc : deleteEditBannerFunc
+            }
             horizontalFlex={true}
             maxWidth="745px"
             header="Drop banner here"
@@ -167,26 +223,40 @@ const ContentBlock: FC<IArticles> = ({
           </Styles.ColumnsWrapper>
         </Styles.SmallWrapper>
         <PhotoBlockDashed
-          photo={""}
+          photo={
+            isNewArticle
+              ? values.newArticle.author.image?.url.length
+                ? values.newArticle.author.image
+                : null
+              : values.articles[article].author.image?.url.length
+              ? values.articles[article].author.image
+              : null
+          }
           deleteFlag={true}
-          uploadFunction={uploadFunc}
-          deleteFunction={deleteFunc}
+          uploadFunction={
+            isNewArticle ? uploadNewAuthorFunc : uploadEditAuthorFunc
+          }
+          deleteFunction={
+            isNewArticle ? deleteNewAuthorFunc : deleteEditAuthorFunc
+          }
           horizontalFlex={true}
           maxWidth="324px"
         />
       </Styles.BigWrapper>
-      <ArticleBlock
-        isNewArticle={isNewArticle}
-        setIsNewArticle={setIsNewArticle}
-        setArticle={setArticle}
-        article={article}
-      />
+      <ArticleBlock isNewArticle={isNewArticle} article={article} />
       <Styles.AdminSubTitle>Tags</Styles.AdminSubTitle>
-      <BlogTags />
+      <BlogTags isNewArticle={isNewArticle} article={article} />
       <Styles.SubmitButtonWrapper>
-        <TicketsButton>{isNewArticle ? "Post" : "Edit Article"}</TicketsButton>
+        <TicketsButton
+          type={"submit"}
+          onClick={isNewArticle ? createArticle : updateArticle}
+        >
+          {isNewArticle ? "Post" : "Edit Article"}
+        </TicketsButton>
       </Styles.SubmitButtonWrapper>
       <PublishedArticles
+        isNewArticle={isNewArticle}
+        article={article}
         setArticle={setArticle}
         setIsNewArticle={setIsNewArticle}
       />
