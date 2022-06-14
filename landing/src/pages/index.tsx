@@ -1,18 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Body from "../components/Body/Body";
-import * as StyledCommon from "../styles/Page.styled";
+import { Loading, Page } from "../styles/Page.styled";
 import Projects from "../components/Projects/Projects";
 import AboutUs from "../components/AboutUs/AboutUs";
-import Partners from "../components/Partners/Partners";
-import CarouselFeedback from "./../components/Feedback/CarouselFeedback";
-import Technologies from "../components/Technologies/Technologies";
-import LetsCode from "../components/LetsCode/LetsCode";
-import OurTeam from "../components/OurTeam/OurTeam";
-import HowWeWorkList from "../components/HowWeWorkList/HowWeWorkList";
-import YesBegin from "../components/YesBegin/YesBegin";
-import Footer from "../components/Footer/Footer";
+const Partners = lazy(() => import("../components/Partners/Partners"));
+const CarouselFeedback = lazy(
+  () => import("./../components/Feedback/CarouselFeedback")
+);
+const Technologies = lazy(
+  () => import("../components/Technologies/Technologies")
+);
+const LetsCode = lazy(() => import("../components/LetsCode/LetsCode"));
+const OurTeam = lazy(() => import("../components/OurTeam/OurTeam"));
+const HowWeWorkList = lazy(
+  () => import("../components/HowWeWorkList/HowWeWorkList")
+);
+const YesBegin = lazy(() => import("../components/YesBegin/YesBegin"));
+const Footer = lazy(() => import("../components/Footer/Footer"));
 import { useScrollTo } from "../hooks/useScrollTo";
 import { useQuery } from "react-query";
 import { queryKeys } from "../consts/queryKeys";
@@ -37,8 +43,9 @@ const Home: NextPage = () => {
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
   const [isClicked, setIsClicked] = useState(false);
 
-  const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
-    adminGlobalService.getFullPage()
+  const { data, isLoading }: IHomeData = useQuery(
+    queryKeys.getFullHomePage,
+    () => adminGlobalService.getFullPage()
   );
 
   const portfolioData: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
@@ -47,6 +54,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
+        <link rel="preconnect" href="https://connect.facebook.net" />
         <meta
           name="facebook-domain-verification"
           content="0k9v3beamz5vi93rnc4uqe17s0ise2"
@@ -128,30 +136,52 @@ const Home: NextPage = () => {
           }}
         ></script>
       </Head>
-      {homeData.isLoading ? (
-        <StyledCommon.Loading>LOADING...</StyledCommon.Loading>
+      {isLoading ? (
+        <Loading>LOADING...</Loading>
       ) : (
         <>
-          <StyledCommon.Page>
+          <Page>
             <Body
               welcomePageButtonHandler={scrollHandler}
               setIsClicked={setIsClicked}
+              heroImg={data?.EditInformationBlock.image.url}
             />
             <AboutUs />
-            <Partners />
-            <Projects />
-            <CarouselFeedback />
-            <Technologies />
-            <OurTeam />
-          </StyledCommon.Page>
-          <HowWeWorkList isClicked={isClicked} />
-          <YesBegin clickHandler={scrollHandler} disableScroll={setIsClicked} />
-          <StyledCommon.Page className="lets-code">
+            <Suspense fallback={<div>Loading...</div>}>
+              <Partners />
+            </Suspense>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Projects />
+            </Suspense>
+            <Suspense fallback={<div>Loading...</div>}>
+              <CarouselFeedback />
+            </Suspense>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Technologies />
+            </Suspense>
+            <Suspense fallback={<div>Loading...</div>}>
+              <OurTeam />
+            </Suspense>
+          </Page>
+          <Suspense fallback={<div>Loading...</div>}>
+            <HowWeWorkList isClicked={isClicked} />
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
+            <YesBegin
+              clickHandler={scrollHandler}
+              disableScroll={setIsClicked}
+            />
+          </Suspense>
+          <Page className="lets-code">
             <div ref={ref}>
-              <LetsCode />
+              <Suspense fallback={<div>Loading...</div>}>
+                <LetsCode />
+              </Suspense>
             </div>
-          </StyledCommon.Page>
-          <Footer />
+          </Page>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Footer />
+          </Suspense>
         </>
       )}
     </>

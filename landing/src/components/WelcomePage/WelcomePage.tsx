@@ -10,7 +10,11 @@ import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
-const WelcomePage = ({ clickHandler, setIsClicked }: IWelcomePageProps) => {
+const WelcomePage = ({
+  clickHandler,
+  setIsClicked,
+  heroImg,
+}: IWelcomePageProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
@@ -52,9 +56,9 @@ const WelcomePage = ({ clickHandler, setIsClicked }: IWelcomePageProps) => {
 
         <StyledThisComp.WrapperBgImg>
           <ImagePreview
-            src={data?.image.url}
-            width={"1000px"}
-            height={"800px"}
+            src={heroImg}
+            width={1000}
+            height={800}
             alt={"main logo big image"}
             priority={true}
           />

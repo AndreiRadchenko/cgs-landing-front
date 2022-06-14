@@ -17,7 +17,7 @@ export const FeedbackSectionTitle = styled.h1`
   }
 `;
 
-export const FeedbackSectionSubTitle = styled.h3`
+export const FeedbackSectionSubTitle = styled.h2`
   max-width: 23em;
   font-weight: ${themes.primary.font.weight.light};
   font-size: 1.65em;
