@@ -1,5 +1,5 @@
+import React, { ChangeEvent } from "react";
 import { Form, useFormikContext } from "formik";
-import React from "react";
 import usePushFeedback from "../../../hooks/usePushFeedback";
 import * as Styled from "../../../styles/AdminPage";
 import { IFeedback } from "../../../types/Admin/Response.types";
@@ -19,7 +19,7 @@ interface IRenderState {
 
 const render = (
   state: IRenderState,
-  change: (e: string | React.ChangeEvent<any>) => void
+  change: (e: string | ChangeEvent<HTMLElement>) => void
 ) => {
   return Object.entries(state).map((i, ind) => (
     <Styled.AdminInput

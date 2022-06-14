@@ -1,3 +1,4 @@
+import React from "react";
 import { Page } from "../../styles/Page.styled";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import BannerImage from "../../../public/blog-banner.jpg";

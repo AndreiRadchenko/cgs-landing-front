@@ -1,4 +1,5 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
+import { IImage } from "../../../types/Admin/Admin.types";
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import * as Styled from "../../../styles/AdminPage";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
@@ -8,7 +9,7 @@ import { IPropsWithImage } from "../../../types/Admin/BlockProps";
 interface ICardProps extends IPropsWithImage {
   info: ICard;
   number: number;
-  onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
+  onChangeFunction: (e?: ChangeEvent<HTMLInputElement> | string) => void;
 }
 
 const AdminCard = ({
@@ -19,7 +20,7 @@ const AdminCard = ({
   uploadFunction,
 }: ICardProps) => {
   const deleteFun = () => deleteFunction(info);
-  const uploadFunc = (image: any) => uploadFunction(image, info);
+  const uploadFunc = (image: IImage) => uploadFunction(image, info);
 
   return (
     <Styled.AdminCardsGrid>

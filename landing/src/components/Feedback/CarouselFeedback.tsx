@@ -1,5 +1,4 @@
 import React, { FC, useRef } from "react";
-import { Navigationwrapper, ArrowContainer } from "./Feedback.styled";
 import FeedbackCard from "../FeedbackCard/FeedbackCard";
 import SwiperCore, {
   Autoplay,
@@ -10,15 +9,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useEffect, useState } from "react";
 import "swiper/css/bundle";
-import LeftArrow from "../../../public/leftArrow";
-import RightArow from "../../../public/rightArrow";
-import Feedback from "./Feedback";
 import { useOnScreen } from "../../hooks/useOneScreen";
 import * as StyledThisComp from "../../styles/Feedback.styled";
 import params from "../../mock/FeedbackSwiperParams";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
+import NavigationCarouselWrapper from "./NavigationCarouselWrapper";
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -73,17 +70,7 @@ const CarouselFeedback: FC = () => {
       <div ref={feedbackRef}>
         <StyledThisComp.FeedbackRow>
           <Swiper {...params} onSwiper={(swiper) => setSwiper(swiper)}>
-            <Navigationwrapper>
-              <Feedback title={data?.subtitle} subtitle={data?.text3} />
-              <ArrowContainer>
-                <div className="swiper-button-prev">
-                  <LeftArrow />
-                </div>
-                <div className="swiper-button-next">
-                  <RightArow />
-                </div>
-              </ArrowContainer>
-            </Navigationwrapper>
+            <NavigationCarouselWrapper data={data} />
             {renderSliderSlides}
           </Swiper>
         </StyledThisComp.FeedbackRow>
