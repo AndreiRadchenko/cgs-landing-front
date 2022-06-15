@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, memo, useState } from "react";
 import * as StyledThisComp from "./FeedbackCard.styled";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import ButtonReadMore from "../../utils/Buttons/ButtonReadMore";
@@ -51,4 +51,4 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
   );
 };
 
-export default FeedbackCard;
+export default memo(FeedbackCard);

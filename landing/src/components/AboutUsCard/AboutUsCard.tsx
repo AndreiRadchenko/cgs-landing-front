@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import * as StyledThisComp from "../../styles/AboutUs.styled";
 import ImagePreview from "../Image/ImagePreview";
 
@@ -49,4 +49,4 @@ const AboutUsCard: FC<IAboutUsCardProps> = ({ url, description, text }) => {
   );
 };
 
-export default AboutUsCard;
+export default memo(AboutUsCard);
