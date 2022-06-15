@@ -1,4 +1,6 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type IYesBeginProps = {
   clickHandler: () => void;
-  disableScroll: React.Dispatch<React.SetStateAction<boolean>>;
+  disableScroll: Dispatch<SetStateAction<boolean>>;
 };

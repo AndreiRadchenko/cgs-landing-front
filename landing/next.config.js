@@ -3,6 +3,7 @@ const nextConfig = {
   images: {
     domains: ["landing-cgs.s3.amazonaws.com"],
   },
+  compress: true,
   routes: [
     {
       src: "/GilroyFont/(.*)",

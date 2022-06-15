@@ -1,6 +1,5 @@
 import React from "react";
 import { useFormikContext } from "formik";
-
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";

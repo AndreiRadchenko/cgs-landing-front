@@ -7,25 +7,12 @@ import ArticleDescription from "../../components/ArticleDescription/ArticleDescr
 import ShareOn from "../../components/ShareOn/ShareOn";
 import ArticleTags from "../../components/ArticleTags/ArticleTags";
 import Footer from "../../components/Footer/Footer";
-import { useQuery } from "react-query";
-import { IDataResponse } from "../../types/Admin/Response.types";
-import { adminGlobalService } from "../../services/adminHomePage";
-import { queryKeys } from "../../consts/queryKeys";
 import ArrowBack from "../../../public/arrowBack.svg";
 
 import * as Styles from "../../styles/ArticlePage.styled";
 import ArticleReadMore from "../../components/ArticleReadMore/ArticleReadMore";
 
-interface IHomeData {
-  data: IDataResponse | undefined;
-  isLoading: boolean;
-}
-
 const ArticlePage = () => {
-  const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
-    adminGlobalService.getFullPage()
-  );
-
   return (
     <Page>
       <HeaderNav />

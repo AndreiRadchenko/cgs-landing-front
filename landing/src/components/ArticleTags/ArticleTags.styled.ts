@@ -23,7 +23,7 @@ export const TagItem = styled.div`
   margin-right: 20px;
 
   &:last-child {
-    margin-right: 0px;
+    margin-right: 0;
   }
 
   &:hover {
