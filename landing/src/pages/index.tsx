@@ -24,18 +24,12 @@ import { useQuery } from "react-query";
 import { queryKeys } from "../consts/queryKeys";
 import { adminGlobalService } from "../services/adminHomePage";
 import { IDataResponse } from "../types/Admin/Response.types";
-import { IPortfolioResponse } from "../types/Admin/AdminPortfolio";
 import getServerSideProps from "../utils/Redirect";
 
 export { getServerSideProps };
 
 interface IHomeData {
   data: IDataResponse | undefined;
-  isLoading: boolean;
-}
-
-interface IPortfolioData {
-  data: IPortfolioResponse | undefined;
   isLoading: boolean;
 }
 
@@ -48,9 +42,6 @@ const Home: NextPage = () => {
     () => adminGlobalService.getFullPage()
   );
 
-  const portfolioData: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
-    adminGlobalService.getPortfolio()
-  );
   return (
     <>
       <Head>
