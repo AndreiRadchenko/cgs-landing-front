@@ -47,6 +47,23 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
+        <title key="title">Custom Software Development | CGS-team</title>
+        <meta
+          key="description"
+          name="description"
+          content="CGS-team is a custom software development company with a modern approach and vast experience in web development and mobile software development"
+        />
+        <link key="icon" rel="icon" href="/favicon.ico" />
+        <meta property="og:url" content="https://cgsteam.io/" />
+
+        <meta
+          property="og:title"
+          content="Custom Software Development | CGS-team"
+        />
+        <meta
+          property="og:description"
+          content="CGS-team is a custom software development company with a modern approach and vast experience in web development and mobile software development"
+        />
         <meta
           name="facebook-domain-verification"
           content="0k9v3beamz5vi93rnc4uqe17s0ise2"
@@ -67,7 +84,7 @@ const Home: NextPage = () => {
                     "https://clutch.co/profile/code-generation#summary",
                     "https://ua.linkedin.com/company/cgs-team",
                   ],
-                  name: "CGS - team",
+                  name: "CGS-team",
                   subOrganization: "https://cgs-blockchain.io",
                   review: [
                     {
@@ -97,7 +114,7 @@ const Home: NextPage = () => {
                   ],
                   contactPoint: {
                     "@type": "ContactPoint",
-                    email: "sales.codegeneration@gmail.com",
+                    email: "tech.development@cgsteam.io",
                   },
                   logo: [
                     {
@@ -107,18 +124,18 @@ const Home: NextPage = () => {
                       url: "https://cgsteam.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.2fb87f81.svg&w=640&q=75",
                       width: 200,
                       height: 41,
-                      caption: "CGS - team",
+                      caption: "CGS-team",
                     },
                   ],
                   slogan:
                     "The team of sharp-witted devs is on the brink of you.",
-                  legalName: "CGS - team",
+                  legalName: "CGS-team",
                 },
                 {
                   "@type": "WebSite",
                   "@id": "https://cgsteam.io/#website",
                   url: "https://cgsteam.io",
-                  name: "CGS - team",
+                  name: "CGS-team",
                   description:
                     "We provide end-to-end development using the MERN stack, which means our team adores Javascript. Furthermore, innovative ideas and new challenges are our passion.",
                   publisher: { "@id": "https://cgsteam.io" },
