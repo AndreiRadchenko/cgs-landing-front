@@ -96,7 +96,7 @@ const Home: NextPage = () => {
                   ],
                   contactPoint: {
                     "@type": "ContactPoint",
-                    email: "sales.codegeneration@gmail.com",
+                    email: "tech.development@cgsteam.io",
                   },
                   logo: [
                     {

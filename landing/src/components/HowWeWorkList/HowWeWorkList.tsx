@@ -1,19 +1,15 @@
-import React, { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Mousewheel, Pagination } from "swiper";
-import "swiper/css";
-import "swiper/css/mousewheel";
+import React, { useRef, useState, useCallback, useEffect } from "react";
+import Slider from "react-slick";
 
 import HowWeWorkCard from "../HowWeWorkCard/HowWeWorkCard";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { insertHowWeWorkData } from "../../utils/HowWeWorkDataCreator";
-
-SwiperCore.use([Mousewheel, Pagination]);
 
 interface IHowWeWorkProps {
   isClicked: boolean;
@@ -22,6 +18,18 @@ interface IHowWeWorkProps {
 const HowWeWorkList = ({ isClicked }: IHowWeWorkProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { width } = useWindowDimension();
+  const settings = {
+    dots: true,
+    infinite: false,
+    initialSlide: 0,
+    speed: 500,
+    arrows: false,
+    adaptiveHeight: true,
+    beforeChange: (current: number, next: number) => {
+      setCurrentSlide(next);
+    },
+  };
+  const sliderRef = useRef<Slider>(null);
 
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
@@ -37,51 +45,34 @@ const HowWeWorkList = ({ isClicked }: IHowWeWorkProps) => {
   if (!isClicked && isVisible && ref.current)
     window.scrollTo({ behavior: "smooth", top: ref.current.offsetTop });
 
-  const isReleaseOnEdges = (e: SwiperCore, bool: boolean, time: number) => {
-    setTimeout(() => {
-      if (
-        e.params &&
-        e.params.mousewheel &&
-        typeof e.params.mousewheel !== "boolean"
-      ) {
-        e.params.mousewheel.releaseOnEdges = bool;
+  const scroll = useCallback(
+    (y) => {
+      if (y > 0) {
+        return sliderRef?.current?.slickNext();
+      } else {
+        return sliderRef?.current?.slickPrev();
       }
-    }, time);
-  };
+    },
+    [sliderRef]
+  );
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.addEventListener("wheel", (e) => {
+        scroll(e.deltaY);
+      });
+    }
+  }, [scroll]);
 
-  return width && width > 768 ? (
+  return (
     <div ref={ref}>
-      {!isVisible && items ? (
-        <HowWeWorkCard {...items[currentSlide]} />
-      ) : (
-        <Swiper
-          observer={true}
-          spaceBetween={10}
-          mousewheel={{ releaseOnEdges: true }}
-          speed={1000}
-          pagination={{ clickable: true }}
-          onSlideChange={(e) => {
-            setCurrentSlide(e.activeIndex);
-            isReleaseOnEdges(e, false, 0);
-          }}
-          onReachBeginning={(e) => isReleaseOnEdges(e, true, 300)}
-          onReachEnd={(e) => isReleaseOnEdges(e, true, 300)}
-          initialSlide={currentSlide}
-          allowTouchMove={false}
-        >
-          {items &&
-            [...items].map((item) => (
-              <SwiperSlide key={item.rank}>
-                <HowWeWorkCard {...item} />
-              </SwiperSlide>
-            ))}
-        </Swiper>
-      )}
-    </div>
-  ) : (
-    <div>
-      {items &&
-        [...items].map((item) => <HowWeWorkCard key={item.rank} {...item} />)}
+      <Slider {...settings} ref={sliderRef}>
+        {items &&
+          [...items].map((item) => (
+            <div key={item.rank}>
+              <HowWeWorkCard {...item} />
+            </div>
+          ))}
+      </Slider>
     </div>
   );
 };

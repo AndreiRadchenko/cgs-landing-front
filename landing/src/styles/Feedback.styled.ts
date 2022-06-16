@@ -36,17 +36,9 @@ export const FeedbackSectionSubTitle = styled.h2`
 `;
 
 export const FeedbackRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  min-height: 40rem;
-  max-height: 49rem;
-  margin-bottom: 2rem;
-  align-items: baseline;
-  & .swiper {
-    display: flex;
-    flex-direction: column-reverse;
-  }
+  padding: 40px;
+  /* background: #419be0; */
+
   @media ${themes.primary.media.maxTabletLandScape} {
     min-height: 40rem;
     max-height: 52rem;

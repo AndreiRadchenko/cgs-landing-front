@@ -29,6 +29,10 @@ export const Container = styled.div<IContainerProps>`
   z-index: 1;
   box-sizing: border-box;
   overflow: hidden;
+
+  & .slider {
+    overflow: initial;
+  }
 `;
 
 export const NumberContainer = styled.div`

@@ -1,30 +1,12 @@
-import { SwiperProps } from "swiper/react";
-
-const data: SwiperProps = {
-  slidesPerView: "auto",
-  spaceBetween: 30,
-  loop: true,
-  allowTouchMove: true,
-  grabCursor: true,
-  navigation: {
-    prevEl: ".swiper-button-prev",
-    nextEl: ".swiper-button-next",
-  },
-  focusableElements: "button",
-  breakpoints: {
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 20,
-    },
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 30,
-    },
-    1200: {
-      slidesPerView: 3,
-      spaceBetween: 30,
-    },
-  },
+const data = {
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  arrows: false,
+  responsive: [
+    { breakpoint: 1200, settings: { slidesToShow: 2 } },
+    { breakpoint: 768, settings: { slidesToShow: 1 } },
+  ],
 };
 
 export default data;
