@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import themes from "../src/utils/themes";
+import themes from "../../utils/themes";
 
 const ArrowWrapper = styled.div`
   border: 0.125rem solid ${themes.primary.colors.primary};

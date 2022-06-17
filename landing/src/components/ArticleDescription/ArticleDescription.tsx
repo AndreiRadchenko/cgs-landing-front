@@ -1,3 +1,4 @@
+import React from "react";
 import * as Styles from "./ArticleDescription.styled";
 
 const ArticleDescription = () => {

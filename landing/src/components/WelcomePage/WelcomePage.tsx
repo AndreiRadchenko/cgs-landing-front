@@ -1,9 +1,9 @@
-import * as StyledThisComp from "../../styles/Body.styled";
 import React from "react";
+import Image from "next/image";
+import * as StyledThisComp from "../../styles/Body.styled";
 import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import backImg from "../../../public/back-button.png";
-import ImagePreview from "../Image/ImagePreview";
 import { IWelcomePageProps } from "./types";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
@@ -55,12 +55,12 @@ const WelcomePage = ({
         </BaseButton>
 
         <StyledThisComp.WrapperBgImg>
-          <ImagePreview
+          <Image
             src={heroImg}
             width={1000}
             height={800}
             alt={"main logo big image"}
-            priority={true}
+            loading="eager"
           />
         </StyledThisComp.WrapperBgImg>
       </StyledThisComp.BodyDescriptionWrapper>

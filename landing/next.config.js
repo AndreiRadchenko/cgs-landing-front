@@ -1,8 +1,18 @@
+const withPlugins = require("next-compose-plugins");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     domains: ["landing-cgs.s3.amazonaws.com"],
   },
+  experimental: {
+    concurrentFeatures: true,
+  },
+  optimizeFonts: true,
+  optimization: {
+    minimize: true,
+  },
+  compress: true,
   routes: [
     {
       src: "/GilroyFont/(.*)",
@@ -29,4 +39,6 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+const plugins = [];
+
+module.exports = withPlugins(plugins, nextConfig);

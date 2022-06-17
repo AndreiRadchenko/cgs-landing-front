@@ -3,7 +3,6 @@ import { IResponse } from "../../types/Admin";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
-import { validTokenGlobal } from "../validToken";
 
 export class AdminHomePageService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}

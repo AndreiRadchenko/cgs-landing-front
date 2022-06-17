@@ -24,18 +24,18 @@ import { useQuery } from "react-query";
 import { queryKeys } from "../consts/queryKeys";
 import { adminGlobalService } from "../services/adminHomePage";
 import { IDataResponse } from "../types/Admin/Response.types";
-import { IPortfolioResponse } from "../types/Admin/AdminPortfolio";
 import getServerSideProps from "../utils/Redirect";
+import { IPortfolioResponse } from "../types/Admin/AdminPortfolio";
 
 export { getServerSideProps };
 
-interface IHomeData {
-  data: IDataResponse | undefined;
+interface IPortfolioData {
+  data: IPortfolioResponse | undefined;
   isLoading: boolean;
 }
 
-interface IPortfolioData {
-  data: IPortfolioResponse | undefined;
+interface IHomeData {
+  data: IDataResponse | undefined;
   isLoading: boolean;
 }
 
@@ -47,7 +47,6 @@ const Home: NextPage = () => {
     queryKeys.getFullHomePage,
     () => adminGlobalService.getFullPage()
   );
-
   const portfolioData: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
     adminGlobalService.getPortfolio()
   );
@@ -105,7 +104,7 @@ const Home: NextPage = () => {
                   ],
                   contactPoint: {
                     "@type": "ContactPoint",
-                    email: "sales.codegeneration@gmail.com",
+                    email: "tech.development@cgsteam.io",
                   },
                   logo: [
                     {
