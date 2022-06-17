@@ -1,8 +1,5 @@
 import React, { useRef } from "react";
 import FeedbackCard from "../FeedbackCard/FeedbackCard";
-
-import LeftArrow from "./leftArrow";
-import RightArow from "./rightArrow";
 import Feedback from "./Feedback";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,6 +10,8 @@ import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { ArrowContainer, Navigationwrapper } from "./Feedback.styled";
+import LeftArrow from "./LeftArrow";
+import RightArrow from "./RightArrow";
 
 const CarouselFeedback = () => {
   const feedbackRef = useRef(null);
@@ -60,7 +59,7 @@ const CarouselFeedback = () => {
                 <LeftArrow />
               </div>
               <div onClick={handleNextClick}>
-                <RightArow />
+                <RightArrow />
               </div>
             </ArrowContainer>
           </Navigationwrapper>

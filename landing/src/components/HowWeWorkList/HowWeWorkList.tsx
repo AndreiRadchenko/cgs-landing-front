@@ -46,7 +46,7 @@ const HowWeWorkList = ({ isClicked }: IHowWeWorkProps) => {
     window.scrollTo({ behavior: "smooth", top: ref.current.offsetTop });
 
   const scroll = useCallback(
-    (y) => {
+    (y: number) => {
       if (y > 0) {
         return sliderRef?.current?.slickNext();
       } else {

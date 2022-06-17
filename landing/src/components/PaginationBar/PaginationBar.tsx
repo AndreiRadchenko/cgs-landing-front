@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowContainer } from "../Feedback/Feedback.styled";
-import LeftArrow from "../Feedback/leftArrow";
-import RightArow from "../Feedback/rightArrow";
+import LeftArrow from "../Feedback/LeftArrow";
+import RightArrow from "../Feedback/RightArrow";
 
 import * as Styles from "./PaginationBar.styled";
 
@@ -18,7 +18,7 @@ const PaginationBar = () => {
           <LeftArrow />
         </Styles.SwiperButton>
         <Styles.SwiperButton>
-          <RightArow />
+          <RightArrow />
         </Styles.SwiperButton>
       </ArrowContainer>
     </Styles.PaginationWrapper>
