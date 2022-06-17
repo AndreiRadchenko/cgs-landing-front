@@ -39,6 +39,10 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta property="og:type" content="website" />
+          <meta property="og:image" content="/previewLink.png" />
+          <meta property="og:image:width" content="20" />
+          <meta property="og:image:height" content="20" />
           <link rel="preconnect" href="https://www.googletagmanager.com" />
           <link rel="preconnect" href="https://www.google-analytics.com" />
           <link
