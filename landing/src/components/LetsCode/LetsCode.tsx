@@ -1,5 +1,5 @@
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import * as StyledThisComp from "../../styles/LestCode.styles";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import catIconSleep from "/public/catIconSleep.png";

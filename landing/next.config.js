@@ -1,8 +1,25 @@
+const withPlugins = require("next-compose-plugins");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     domains: ["landing-cgs.s3.amazonaws.com"],
   },
+  experimental: {
+    concurrentFeatures: true,
+  },
+  optimizeFonts: true,
+  optimization: {
+    minimize: true,
+  },
+  compress: true,
+  routes: [
+    {
+      src: "/GilroyFont/(.*)",
+      headers: { "cache-control": "s-maxage=31536000" },
+      dest: "/GilroyFont/$1",
+    },
+  ],
   reactStrictMode: true,
   eslint: {
     // Warning: This allows production builds to successfully complete even if
@@ -16,6 +33,12 @@ const nextConfig = {
     // !! WARN !!
     // ignoreBuildErrors: true,
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
 };
 
-module.exports = nextConfig;
+const plugins = [];
+
+module.exports = withPlugins(plugins, nextConfig);

@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { useQueryClient } from "react-query";
-// import { ProjectsListType } from "../types/ModalCategory.types";
 import ModalAllWorksCategory from "../components/ModalComponents/ModalAllWorksCategory";
 import Modal from "../components/ModalComponents/Modal";
 import { IPortfolioResponse } from "../types/Admin/AdminPortfolio";

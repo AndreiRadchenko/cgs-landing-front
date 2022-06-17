@@ -1,6 +1,6 @@
 import React from "react";
-import AdminSidebar from "../../components/Admin/SideBar/AdminSidebar";
 import CareersMainContent from "../../components/Admin/Global/CareersMainContent";
+import AdminSidebar from "../../components/Admin/SideBar/AdminSidebar";
 import { queryKeys } from "../../consts/queryKeys";
 import { validTokenGlobal } from "../../services/validToken";
 import { useQuery } from "react-query";

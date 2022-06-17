@@ -1,6 +1,7 @@
-import { useFormikContext } from "formik";
 import React from "react";
+import { useFormikContext } from "formik";
 import * as Styled from "../../../styles/AdminPage";
+import { IImage } from "../../../types/Admin/Admin.types";
 import { IDataResponse } from "../../../types/Admin/Response.types";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import LeftSideBlock from "./LeftSide";
@@ -15,7 +16,7 @@ const EditInformationBlock = () => {
   const uploadImageFunction = useUploadImageFunction(
     values.EditInformationBlock
   );
-  const uploadFunc = (image: any) => uploadImageFunction(image);
+  const uploadFunc = (image: IImage) => uploadImageFunction(image);
   const deleteFunc = async () => (await deleteImageFunction)();
 
   return (

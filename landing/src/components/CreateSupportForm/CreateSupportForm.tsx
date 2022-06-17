@@ -19,7 +19,7 @@ import ModalSentEmail from "../Modal/ModalSentEmail";
 
 declare global {
   interface Window {
-    dataLayer: Record<string, any>[];
+    dataLayer: Record<string, string>[];
   }
 }
 
