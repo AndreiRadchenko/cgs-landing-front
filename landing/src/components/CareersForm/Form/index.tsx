@@ -2,7 +2,6 @@ import React, { FC, useState } from "react";
 import { useFormik, FormikValues } from "formik";
 import * as emailjs from "emailjs-com";
 import * as Styled from "./Form.styled";
-
 import FormField from "./FormField/index";
 import { CareerFormValidation } from "../../../validations/CareerFormValidator";
 import { fieldData } from "../../../mock/VacancyFieldData";
@@ -90,7 +89,7 @@ const Form: FC<IFormProps> = ({ data }) => {
             />
             <Styled.InputFileLabel htmlFor="CV-file">
               <Styled.FileButton>
-                <Styled.FileImg src="/clip-file.png" />
+                <Styled.FileImg src="/clip-file.png" alt="alt clip image" />
               </Styled.FileButton>
               <Styled.FileText>{CV?.place}</Styled.FileText>
             </Styled.InputFileLabel>
