@@ -10,8 +10,8 @@ import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { ArrowContainer, Navigationwrapper } from "./Feedback.styled";
-import LeftArrow from "./LeftArrow";
-import RightArrow from "./RightArrow";
+import LeftArrow from "./leftArrow";
+import RightArrow from "./rightArrow";
 
 const CarouselFeedback = () => {
   const feedbackRef = useRef(null);

@@ -60,7 +60,6 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:url" content="https://cgsteam.io/" />
-
         <meta
           property="og:title"
           content="Custom Software Development | CGS-team"

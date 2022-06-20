@@ -30,7 +30,7 @@ const CarrersPage: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:url" content="https://cgsteam.io/careers" />
-
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="Careers | CGS-team" />
         <meta
           property="og:description"

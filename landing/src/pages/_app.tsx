@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/globals.css";
 import "../styles/animations.css";
 import type { AppProps } from "next/app";
+
 import createEmotionCache from "../utils/createEmotionCache";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
