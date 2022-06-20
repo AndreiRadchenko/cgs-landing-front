@@ -1,6 +1,6 @@
-import React, { lazy, Suspense } from "react";
-const Careers = lazy(() => import("../../components/Careers"));
-const CareersForm = lazy(() => import("../../components/CareersForm/index"));
+import React from "react";
+import Careers from "../../components/Careers";
+import CareersForm from "../../components/CareersForm/index";
 import { Page } from "../../styles/Page.styled";
 import { NextPage } from "next";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
@@ -20,7 +20,7 @@ const CarrersPage: NextPage = () => {
     () => adminCareersService.getCareersPage()
   );
 
-  return !isLoading ? (
+  return (
     <>
       <Head>
         <title>Careers | CGS-team</title>
@@ -41,19 +41,17 @@ const CarrersPage: NextPage = () => {
         <meta property="og:image:width" content="20" />
         <meta property="og:image:height" content="20" />
       </Head>
-      <Page>
-        <HeaderNav />
-        <Suspense fallback={<div>Loading...</div>}>
-          <Careers />
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          <CareersForm data={data} />
-        </Suspense>
-      </Page>
-      <Footer />
+      {!isLoading && (
+        <>
+          <Page>
+            <HeaderNav />
+            <Careers />
+            <CareersForm data={data} />
+          </Page>
+          <Footer />
+        </>
+      )}
     </>
-  ) : (
-    <></>
   );
 };
 
