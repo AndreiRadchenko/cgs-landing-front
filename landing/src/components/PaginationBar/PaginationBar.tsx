@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowContainer } from "../Feedback/Feedback.styled";
-import LeftArrow from "../Feedback/LeftArrow";
-import RightArrow from "../Feedback/RightArrow";
+import LeftArrow from "../Feedback/leftArrow";
+import RightArrow from "../Feedback/rightArrow";
 
 import * as Styles from "./PaginationBar.styled";
 
