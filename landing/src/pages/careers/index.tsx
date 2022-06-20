@@ -23,13 +23,12 @@ const CarrersPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title key="title">Careers | CGS-team</title>
+        <title>Careers | CGS-team</title>
         <meta
-          key="description"
           name="description"
           content="CGS-team is looking for young talents to join our team and help us build future proof software; checkout our new job postings"
         />
-        <link key="icon" rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
         <meta property="og:url" content="https://cgsteam.io/careers" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Careers | CGS-team" />
@@ -37,6 +36,10 @@ const CarrersPage: NextPage = () => {
           property="og:description"
           content="CGS-team is looking for young talents to join our team and help us build future proof software; checkout our new job postings"
         />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/previewLink.png" />
+        <meta property="og:image:width" content="20" />
+        <meta property="og:image:height" content="20" />
       </Head>
       {!isLoading && (
         <>

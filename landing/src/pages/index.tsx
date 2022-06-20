@@ -53,15 +53,13 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title key="title">Custom Software Development | CGS-team</title>
+        <title>Custom Software Development | CGS-team</title>
         <meta
-          key="description"
           name="description"
           content="CGS-team is a custom software development company with a modern approach and vast experience in web development and mobile software development"
         />
-        <link key="icon" rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
         <meta property="og:url" content="https://cgsteam.io/" />
-
         <meta
           property="og:title"
           content="Custom Software Development | CGS-team"
@@ -70,6 +68,10 @@ const Home: NextPage = () => {
           property="og:description"
           content="CGS-team is a custom software development company with a modern approach and vast experience in web development and mobile software development"
         />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/previewLink.png" />
+        <meta property="og:image:width" content="20" />
+        <meta property="og:image:height" content="20" />
         <link rel="preconnect" href="https://connect.facebook.net" />
         <meta
           name="facebook-domain-verification"
