@@ -1,24 +1,34 @@
 import Timer from "../../../public/Timer.svg";
-import Author from "../../../public/Author.jpg";
-
+import React, { FC } from "react";
 import * as Styles from "./ArticleAuthor.styled";
+import { IAuthor } from "../../types/Admin/Response.types";
 
-const ArticleAuthor = () => {
+interface IArticleAuthor {
+  author: IAuthor;
+  date: string;
+  time: number;
+}
+
+const ArticleAuthor: FC<IArticleAuthor> = ({ author, date, time }) => {
+  const formatDate = (date: string) => {
+    return date.split("-").reverse().join(".");
+  };
+
   return (
     <Styles.Wrapper>
       <Styles.AuthorWrapper>
-        <Styles.AuthorImage src={Author.src} />
+        <Styles.AuthorImage src={author.image.url} />
         <Styles.AuthorInfoWrapper>
           <Styles.AuthorNameWrapper>
-            <Styles.AuthorName>By Alex Alex</Styles.AuthorName>
-            <Styles.AuthorType> / writer</Styles.AuthorType>
+            <Styles.AuthorName>By {author.name}</Styles.AuthorName>
+            <Styles.AuthorType> / {author.specialization}</Styles.AuthorType>
           </Styles.AuthorNameWrapper>
-          <Styles.AuthorDate>22.05.2022</Styles.AuthorDate>
+          <Styles.AuthorDate>{formatDate(date)}</Styles.AuthorDate>
         </Styles.AuthorInfoWrapper>
       </Styles.AuthorWrapper>
       <Styles.TimeWrapper>
         <Styles.TimerImage src={Timer.src} />
-        <Styles.Time>2 min</Styles.Time>
+        <Styles.Time>&nbsp;{time} min</Styles.Time>
       </Styles.TimeWrapper>
     </Styles.Wrapper>
   );

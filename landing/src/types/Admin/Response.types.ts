@@ -191,7 +191,7 @@ export interface IDataVacancyResponse {
   contact: IContactBlock;
 }
 
-interface IAuthor {
+export interface IAuthor {
   name: string;
   specialization: string;
   image: { url: string };

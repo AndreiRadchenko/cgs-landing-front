@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FC } from "react";
-import TextEditor from "../../TextEditor/TextEditor";
-import { useFormikContext } from "formik";
+import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 interface IArticleText {
   value?: string;
@@ -9,23 +8,15 @@ interface IArticleText {
 }
 
 const ArticleText: FC<IArticleText> = ({ value, handleChange, name }) => {
-  const { setFieldValue } = useFormikContext();
   return (
-    <>
-      <TextEditor
-        header="Text"
-        setFieldValue={(val) => setFieldValue(name, val)}
-        value={value as string}
-      />
-      {/*<SubHeaderWithInput*/}
-      {/*  header="Text"*/}
-      {/*  inputValue={value as string}*/}
-      {/*  name={name}*/}
-      {/*  onChangeFunction={handleChange}*/}
-      {/*  isBlog={true}*/}
-      {/*  height="473px"*/}
-      {/*/>*/}
-    </>
+    <SubHeaderWithInput
+      header="Text"
+      inputValue={value as string}
+      name={name}
+      onChangeFunction={handleChange}
+      isBlog={true}
+      height="473px"
+    />
   );
 };
 

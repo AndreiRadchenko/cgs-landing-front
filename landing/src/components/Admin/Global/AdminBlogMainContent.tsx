@@ -36,9 +36,10 @@ const AdminBlogMainContent = () => {
       validateOnChange={false}
       onSubmit={submitForm}
       initialValues={data}
+      validateOnBlur
     >
       <ContentBlock
-        refetch={() => refetch()}
+        data={data}
         isNewArticle={isNewArticle}
         setIsNewArticle={setIsNewArticle}
         article={article}

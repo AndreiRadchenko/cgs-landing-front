@@ -1,48 +1,61 @@
 import themes from "../../utils/themes";
 import styled from "styled-components";
 
-export const BlogItem = styled.div<{ isAdmin?: boolean }>`
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 40px 20px;
-  margin-top: ${(props) => props.isAdmin && "30px"};
-  border: ${(props) =>
-    props.isAdmin ? `1px solid ${themes.primary.colors.black}` : "none"};
-  &:hover {
-    background-color: ${(props) =>
-      props.isAdmin ? "transparent" : themes.primary.colors.decorationText};
-  }
-  @media (max-width: 990px) {
-    flex-wrap: wrap-reverse;
-  }
-`;
-
-export const BlogItemTitle = styled.p`
-  max-width: 400px;
-  font-weight: ${themes.primary.font.weight.semiBold};
-  font-size: ${themes.primary.font.size.quaternary};
-`;
-
 export const BlogItemDescription = styled.p`
-  max-width: 494px;
+  max-width: 500px;
   font-weight: ${themes.primary.font.weight.normal};
   font-size: ${themes.primary.font.size.menuElement};
 `;
 
+export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  &:hover {
+    background-color: ${(props) => (props.isAdmin ? "transparent" : "#5869DD")};
+    color: ${(props) => (props.isAdmin ? "black" : "#fff")};
+  }
+  &:hover ${BlogItemDescription} {
+    color: ${(props) => (props.isAdmin ? "black" : "#BDC4FA")};
+  }
+`;
+
+export const BlogItem = styled.div<{ isAdmin?: boolean }>`
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: ${(props) => (props.isAdmin ? "1160px" : "950px")};
+  padding: ${(props) => (props.isAdmin ? "57px 70px" : "40px 0")};
+  margin-top: ${(props) => props.isAdmin && "30px"};
+  border: ${(props) =>
+    props.isAdmin ? `1px solid ${themes.primary.colors.black}` : "none"};
+  @media (max-width: 990px) {
+    flex-wrap: wrap-reverse;
+    padding: ${(props) => (props.isAdmin ? "57px 70px" : "40px 20px 0")};
+  }
+`;
+
+export const BlogItemTitle = styled.p<{ isAdmin?: boolean }>`
+  max-width: 500px;
+  font-weight: ${themes.primary.font.weight.semiBold};
+  font-size: ${themes.primary.font.size.quaternary};
+  &:hover {
+    cursor: ${(props) => (props.isAdmin === false ? "pointer" : "default")};
+  }
+`;
+
 export const BlogItemImage = styled.img`
   object-fit: contain;
-  max-width: 410px;
+  width: 410px;
   height: 220px;
-  margin-left: 40px;
 
   @media (max-width: 990px) {
-    margin-left: 0;
-    max-width: 335px;
+    max-width: 370px;
     height: 220px;
+    margin: auto;
+    padding: 0;
   }
 `;
 

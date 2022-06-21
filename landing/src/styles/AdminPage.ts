@@ -1,5 +1,4 @@
 import { TextareaAutosize } from "@mui/material";
-import { style } from "@mui/system";
 import styled from "styled-components";
 import themes from "../utils/themes";
 
@@ -417,7 +416,7 @@ export const AdminUploadModuleCloseButton = styled.button`
   right: 10px;
   top: 10px;
   cursor: pointer;
-  &: hover {
+  &:hover {
     color: gray;
   }
 `;
@@ -438,10 +437,10 @@ export const AdminUploadModuleImgDiv = styled.div`
   align-items: center;
   position: relative;
   margin-bottom: 1em;
-  &: hover {
+  &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
-  &: hover span {
+  &:hover span {
     display: block;
   }
 `;
@@ -497,7 +496,7 @@ export const AdminDropDownMenuElement = styled.div`
   padding: ${themes.primary.spacing.primary};
   border: 1px solid ${themes.primary.colors.darkedGrayBack};
   cursor: pointer;
-  &: hover {
+  &:hover {
     background: ${themes.primary.colors.darkedGrayBack};
   }
 `;

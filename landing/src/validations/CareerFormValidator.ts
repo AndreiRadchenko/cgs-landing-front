@@ -2,9 +2,9 @@ import * as yup from "yup";
 
 export const CareerFormValidation = () => {
   return yup.object({
-    name: yup
+    date: yup
       .string()
-      .min(1, "Name is too short")
+      .min(3, "Name is too short")
       .max(25, "Name is too large")
       .required("Required")
       .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),

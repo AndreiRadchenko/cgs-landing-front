@@ -50,6 +50,7 @@ export const FooterButton = styled.div`
   font-size: ${themes.primary.font.size.adminButton};
   font-weight: ${themes.primary.font.weight.semiBold};
   font-family: ${themes.primary.font.family.gilroy};
+  margin-top: 30px;
 `;
 
 export const SubmitButtonWrapper = styled.div`

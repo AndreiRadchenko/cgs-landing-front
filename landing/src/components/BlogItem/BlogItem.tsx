@@ -1,6 +1,7 @@
 import React from "react";
 
 import * as Styles from "./BlogItem.styled";
+import Link from "next/link";
 
 interface IBlogItemProps {
   title: string;
@@ -8,6 +9,7 @@ interface IBlogItemProps {
   image?: string;
   isAdmin?: boolean;
   children?: React.ReactNode;
+  id?: string;
 }
 
 const BlogItem = ({
@@ -16,16 +18,27 @@ const BlogItem = ({
   image,
   isAdmin = false,
   children,
+  id,
 }: IBlogItemProps) => {
   return (
-    <Styles.BlogItem isAdmin={isAdmin}>
-      <Styles.BlogItemInfo>
-        <Styles.BlogItemTitle>{title}</Styles.BlogItemTitle>
-        <Styles.BlogItemDescription>{description}</Styles.BlogItemDescription>
-      </Styles.BlogItemInfo>
-      <Styles.BlogItemImage src={image} />
-      {children}
-    </Styles.BlogItem>
+    <Styles.BlogItemContainer isAdmin={isAdmin}>
+      <Styles.BlogItem isAdmin={isAdmin}>
+        <Styles.BlogItemInfo>
+          {!isAdmin ? (
+            <Link href={`/blog/articles/${id}`} passHref>
+              <Styles.BlogItemTitle isAdmin={isAdmin}>
+                {title}
+              </Styles.BlogItemTitle>
+            </Link>
+          ) : (
+            <Styles.BlogItemTitle>{title}</Styles.BlogItemTitle>
+          )}
+          <Styles.BlogItemDescription>{description}</Styles.BlogItemDescription>
+        </Styles.BlogItemInfo>
+        <Styles.BlogItemImage src={image} />
+        {children}
+      </Styles.BlogItem>
+    </Styles.BlogItemContainer>
   );
 };
 

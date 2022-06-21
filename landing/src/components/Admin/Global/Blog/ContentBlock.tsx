@@ -17,13 +17,14 @@ import { adminBlogService } from "../../../../services/adminBlogPage";
 import { IImage } from "../../../../types/Admin/Admin.types";
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+import InputWithType from "../../../Inputs/InputWithType";
 
 interface IArticles {
   isNewArticle: boolean;
   setIsNewArticle: React.Dispatch<React.SetStateAction<boolean>>;
   article: number;
   setArticle: React.Dispatch<React.SetStateAction<number>>;
-  refetch: () => Promise<any>;
+  data: IBlogResponse;
 }
 
 const ContentBlock: FC<IArticles> = ({
@@ -31,9 +32,9 @@ const ContentBlock: FC<IArticles> = ({
   setArticle,
   article,
   setIsNewArticle,
-  refetch,
+  data,
 }) => {
-  const { values, handleSubmit, handleChange, resetForm } =
+  const { values, handleSubmit, handleChange } =
     useFormikContext<IBlogResponse>();
 
   const { mutateAsync } = useMutation(
@@ -47,15 +48,13 @@ const ContentBlock: FC<IArticles> = ({
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
-    resetForm();
-    await refetch();
   };
 
   const createArticle = async () => {
     const articleToAdd = values.newArticle;
     values.articles.push(articleToAdd);
     values.newArticle = {
-      content: [{ subtitle: "", subNumber: "" }, { text: "" }],
+      content: [],
       title: "",
       image: { url: "" },
       author: { name: "", image: { url: "" }, specialization: "" },
@@ -64,12 +63,10 @@ const ContentBlock: FC<IArticles> = ({
       date: "",
       minutesToRead: 0,
     };
-    mutateAsync(values);
+    await mutateAsync(values);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
-    resetForm();
-    await refetch();
   };
 
   const deleteNewAuthor = useDeleteImageFunction(values.newArticle.author, "");
@@ -77,11 +74,11 @@ const ContentBlock: FC<IArticles> = ({
   const deleteNewBanner = useDeleteImageFunction(values.newArticle, "");
   const uploadNewBanner = useUploadImageFunction(values.newArticle, "");
   const deleteEditAuthor = useDeleteImageFunction(
-    values.articles[article].author,
+    values.articles[article]?.author,
     ""
   );
   const uploadEditAuthor = useUploadImageFunction(
-    values.articles[article].author,
+    values.articles[article]?.author,
     ""
   );
   const deleteEditBanner = useDeleteImageFunction(values.articles[article], "");
@@ -94,7 +91,6 @@ const ContentBlock: FC<IArticles> = ({
   const uploadEditAuthorFunc = (image: IImage) => uploadEditAuthor(image);
   const deleteEditBannerFunc = async () => (await deleteEditBanner)();
   const uploadEditBannerFunc = (image: IImage) => uploadEditBanner(image);
-
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHeader>Blog</Styled.AdminHeader>
@@ -171,19 +167,18 @@ const ContentBlock: FC<IArticles> = ({
                 isBlog={true}
                 height="56px"
               />
-              <SubHeaderWithInput
-                header="Date"
-                inputValue={
+              <InputWithType
+                name={
+                  isNewArticle ? "newArticle.date" : `articles[${article}].date`
+                }
+                value={
                   isNewArticle
                     ? values.newArticle.date
                     : values.articles[article].date
                 }
-                name={
-                  isNewArticle ? "newArticle.date" : `articles[${article}].date`
-                }
-                onChangeFunction={handleChange}
-                isBlog={true}
-                height="56px"
+                onChange={handleChange}
+                header={"Date"}
+                type={"date"}
               />
             </Styles.Column>
             <Styles.Column>
@@ -203,21 +198,20 @@ const ContentBlock: FC<IArticles> = ({
                 isBlog={true}
                 height="56px"
               />
-              <SubHeaderWithInput
-                header="Time to read"
-                inputValue={
-                  isNewArticle
-                    ? String(values.newArticle.minutesToRead)
-                    : String(values.articles[article].minutesToRead)
-                }
+              <InputWithType
                 name={
                   isNewArticle
                     ? "newArticle.minutesToRead"
                     : `articles[${article}].minutesToRead`
                 }
-                onChangeFunction={handleChange}
-                isBlog={true}
-                height="56px"
+                value={
+                  isNewArticle
+                    ? String(values.newArticle.minutesToRead)
+                    : String(values.articles[article].minutesToRead)
+                }
+                onChange={handleChange}
+                header={"Time to read"}
+                type={"number"}
               />
             </Styles.Column>
           </Styles.ColumnsWrapper>
@@ -255,11 +249,17 @@ const ContentBlock: FC<IArticles> = ({
         </TicketsButton>
       </Styles.SubmitButtonWrapper>
       <PublishedArticles
+        data={data}
         isNewArticle={isNewArticle}
         article={article}
         setArticle={setArticle}
         setIsNewArticle={setIsNewArticle}
       />
+      <Styles.SubmitButtonWrapper>
+        <TicketsButton type={"submit"} onClick={updateArticle}>
+          {"Update order"}
+        </TicketsButton>
+      </Styles.SubmitButtonWrapper>
     </Styled.AdminPaddedBlock>
   );
 };

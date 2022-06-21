@@ -10,6 +10,9 @@ export class AdminBlogPage {
   public updateBlogPage(data: IBlogResponse) {
     return this.httpService.put("api/blog", data);
   }
+  public getArticleById(id: string) {
+    return this.httpService.get<IBlogResponse>(`api/blog/${id}`);
+  }
 }
 
 const factory = new HttpServiceFactory();

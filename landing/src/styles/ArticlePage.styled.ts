@@ -6,7 +6,8 @@ export const Title = styled.p`
   font-weight: ${themes.primary.font.weight.bold};
   font-family: ${themes.primary.font.family.openSans};
   margin: 0 auto;
-  max-width: 200px;
+  max-width: 945px;
+  text-align: center;
 `;
 
 export const SubTitle = styled.p`
@@ -43,6 +44,9 @@ export const ShareTagsWrapper = styled.div`
 `;
 
 export const ArrowBackButton = styled.img`
+  &:hover {
+    cursor: pointer;
+  }
   position: absolute;
   top: 100px;
   left: 0px;

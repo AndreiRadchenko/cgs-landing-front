@@ -13,6 +13,12 @@ export const Text = styled.div`
   font-weight: ${themes.primary.font.weight.bold};
 `;
 
+export const IconImage = styled.img`
+  max-width: 26px;
+  max-height: 26px;
+  object-fit: contain;
+`;
+
 export const IconBlock = styled.div`
   border: 0.6px solid rgba(0, 0, 0, 0.25);
   width: 52px;
@@ -22,12 +28,11 @@ export const IconBlock = styled.div`
   align-items: center;
 
   &:hover {
-    border: 3px solid ${themes.primary.colors.cardDarkGreen};
+    background-color: ${themes.primary.colors.primary};
+    cursor: pointer;
   }
-`;
-
-export const IconImage = styled.img`
-  max-width: 26px;
-  max-height: 26px;
-  object-fit: contain;
+  &:hover ${IconImage} {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(205deg)
+      brightness(111%) contrast(101%);
+  }
 `;

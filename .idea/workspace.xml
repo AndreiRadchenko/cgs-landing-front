@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6240693-3b84-4cfd-956c-e195f5332c61" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/landing/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/landing/package-lock.json" afterDir="false" />
+    <list default="true" id="e6240693-3b84-4cfd-956c-e195f5332c61" name="Changes" comment="feature:quill editor">
+      <change afterPath="$PROJECT_DIR$/landing/src/components/Inputs/InputWithType.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/landing/src/hooks/usePagination.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/landing/src/pages/blog/tags/[tag].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/landing/src/styles/Inputs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/landing/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/public/leftArrow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/public/leftArrow.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/public/rightArrow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/public/rightArrow.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Blog/ArticleBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Blog/ArticleBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Blog/ArticleText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Blog/ArticleText.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Blog/Subtitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Blog/Subtitle.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Global/AdminBlogMainContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Global/AdminBlogMainContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/BlogTags.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/BlogTags.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/ContentBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/ContentBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/PublishedArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/PublishedArticles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/ArticleAuthor/ArticleAuthor.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/ArticleAuthor/ArticleAuthor.styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/ArticleAuthor/ArticleAuthor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/ArticleAuthor/ArticleAuthor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/ArticleDescription/ArticleDescription.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/ArticleDescription/ArticleDescription.styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/ArticleDescription/ArticleDescription.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/ArticleDescription/ArticleDescription.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/ArticleReadMore/ArticleReadMore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/ArticleReadMore/ArticleReadMore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/ArticleReadMoreItem/ArticleReadMoreItem.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/ArticleReadMoreItem/ArticleReadMoreItem.styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/ArticleReadMoreItem/ArticleReadMoreItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/ArticleReadMoreItem/ArticleReadMoreItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/ArticleTags/ArticleTags.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/ArticleTags/ArticleTags.styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/ArticleTags/ArticleTags.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/ArticleTags/ArticleTags.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/BlogItem/BlogItem.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/BlogItem/BlogItem.styled.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/components/BlogItem/BlogItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/BlogItem/BlogItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/src/hooks/useUploadImageFunction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/hooks/useUploadImageFunction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/PaginationBar/PaginationBar.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/PaginationBar/PaginationBar.styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/PaginationBar/PaginationBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/PaginationBar/PaginationBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/ShareOn/ShareOn.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/ShareOn/ShareOn.styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/ShareOn/ShareOn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/ShareOn/ShareOn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/TextEditor/TextEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/TextEditor/TextEditor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/pages/blog/articles/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/pages/blog/articles/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/pages/blog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/services/adminBlogPage/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/services/adminBlogPage/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/styles/AdminBlogPage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/styles/AdminBlogPage.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/styles/AdminPage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/styles/AdminPage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/src/styles/BlogPublishedArticles.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/styles/BlogPublishedArticles.styled.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/src/styles/BlogTags.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/styles/BlogTags.styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/styles/ArticlePage.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/styles/ArticlePage.styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/styles/BlogPage.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/styles/BlogPage.styled.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/types/Admin/Response.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/types/Admin/Response.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/validations/CareerFormValidator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/validations/CareerFormValidator.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/landing/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,10 +69,18 @@
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "ts.external.directory.path": "C:\\Users\\vikto\\WebstormProjects\\code-generation-landing\\blockchain\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vikto\WebstormProjects\code-generation-landing\landing\src\pages\blog\articles" />
+      <recent name="C:\Users\vikto\WebstormProjects\code-generation-landing\landing\src\pages\blog\tags" />
+      <recent name="C:\Users\vikto\WebstormProjects\code-generation-landing\landing\src\pages\blog" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -70,7 +104,16 @@
       <workItem from="1655096676947" duration="18995000" />
       <workItem from="1655119551226" duration="3269000" />
       <workItem from="1655123135038" duration="17479000" />
-      <workItem from="1655189492476" duration="23826000" />
+      <workItem from="1655189492476" duration="25094000" />
+      <workItem from="1655273626518" duration="41296000" />
+      <workItem from="1655374254718" duration="14985000" />
+      <workItem from="1655449567701" duration="25081000" />
+      <workItem from="1655540634950" duration="589000" />
+      <workItem from="1655550788792" duration="15048000" />
+      <workItem from="1655622524406" duration="20210000" />
+      <workItem from="1655665923475" duration="5525000" />
+      <workItem from="1655704247363" duration="31654000" />
+      <workItem from="1655795872574" duration="7976000" />
     </task>
     <servers />
   </component>
@@ -87,5 +130,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="git commit -m 'feature:quill editor'" />
+    <MESSAGE value="feature:quill editor" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature:quill editor" />
   </component>
 </project>

@@ -1,21 +1,20 @@
-import { Page } from "../../styles/Page.styled";
-import HeaderNav from "../../components/HeaderNav/HeaderNav";
-import ArticleAuthor from "../../components/ArticleAuthor/ArticleAuthor";
-import ArticleDescription from "../../components/ArticleDescription/ArticleDescription";
-import ShareOn from "../../components/ShareOn/ShareOn";
-import ArticleTags from "../../components/ArticleTags/ArticleTags";
-import Footer from "../../components/Footer/Footer";
+import { Page } from "../../../styles/Page.styled";
+import HeaderNav from "../../../components/HeaderNav/HeaderNav";
+import ArticleAuthor from "../../../components/ArticleAuthor/ArticleAuthor";
+import ArticleDescription from "../../../components/ArticleDescription/ArticleDescription";
+import ShareOn from "../../../components/ShareOn/ShareOn";
+import ArticleTags from "../../../components/ArticleTags/ArticleTags";
+import Footer from "../../../components/Footer/Footer";
 import { useQuery } from "react-query";
-import { IArticle, IBlogResponse } from "../../types/Admin/Response.types";
-import { queryKeys } from "../../consts/queryKeys";
-import ArrowBack from "../../../public/arrowBack.svg";
+import { IArticle, IBlogResponse } from "../../../types/Admin/Response.types";
+import { queryKeys } from "../../../consts/queryKeys";
+import ArrowBack from "../../../../public/arrowBack.svg";
 import React, { useEffect, useState } from "react";
-import * as Styles from "../../styles/ArticlePage.styled";
-import ArticleReadMore from "../../components/ArticleReadMore/ArticleReadMore";
+import * as Styles from "../../../styles/ArticlePage.styled";
+import ArticleReadMore from "../../../components/ArticleReadMore/ArticleReadMore";
 import { useRouter } from "next/router";
-import { adminBlogService } from "../../services/adminBlogPage";
-import Link from "next/link";
-import * as Styled from "../../styles/AdminPage";
+import { adminBlogService } from "../../../services/adminBlogPage";
+import * as Styled from "../../../styles/AdminPage";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
@@ -54,17 +53,16 @@ const ArticlePage = () => {
     }
   }, [data]);
 
-  console.log(readMore);
-
   return (
     <>
       {isSuccess && article && readMore ? (
         <Page>
           <HeaderNav />
           <Styles.PageWrapper>
-            <Link href={"/blog"}>
-              <Styles.ArrowBackButton src={ArrowBack.src} />
-            </Link>
+            <Styles.ArrowBackButton
+              src={ArrowBack.src}
+              onClick={() => router.back()}
+            />
             <Styles.Title>{article.title}</Styles.Title>
             <Styles.SubTitle>{article.description}</Styles.SubTitle>
             <Styles.BannerImage src={article.image.url} />
@@ -75,7 +73,7 @@ const ArticlePage = () => {
             />
             <ArticleDescription content={article.content} />
             <Styles.ShareTagsWrapper>
-              <ShareOn />
+              <ShareOn image={article.image} title={article.title} />
               <ArticleTags tags={article.tags} />
             </Styles.ShareTagsWrapper>
             <ArticleReadMore readMore={readMore} />
