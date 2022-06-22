@@ -554,14 +554,18 @@ export const TextEditorContainer = styled.div<{
   height?: string;
   width?: string;
 }>`
+  .ql-editor {
+    font-size: ${themes.primary.font.size.linkText};
+    font-family: ${themes.primary.font.family.mulish};
+  }
   background-color: #fff;
   resize: none;
+  min-height: 417px;
+  height: auto;
   width: ${(props) => (props.width ? props.width : "100%")};
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.mulish};
-  padding: ${themes.primary.spacing.primary};
   border: 0;
-  height: ${(props) => props.height} !important;
   margin-bottom: ${themes.primary.spacing.primary};
   &:focus-within {
     outline: 1px solid gray;

@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6240693-3b84-4cfd-956c-e195f5332c61" name="Changes" comment="feature:quill editor">
+    <list default="true" id="e6240693-3b84-4cfd-956c-e195f5332c61" name="Changes" comment="fix:quill editor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/landing/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Blog/ArticleBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Blog/ArticleBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/ContentBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/ContentBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/PublishedArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/PublishedArticles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/HowWeWorkCard/HowWeWorkCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/HowWeWorkCard/HowWeWorkCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/landing/src/components/TextEditor/TextEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/TextEditor/TextEditor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/styles/AdminPage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/styles/AdminPage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/yarn.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +49,34 @@
       <recent name="C:\Users\vikto\WebstormProjects\code-generation-landing\landing\src\pages\blog" />
     </key>
   </component>
+  <component name="RunManager" selected="npm.build">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/landing/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint:fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/landing/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint:fix" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.lint:fix" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -77,7 +110,7 @@
       <workItem from="1655665923475" duration="5525000" />
       <workItem from="1655704247363" duration="31654000" />
       <workItem from="1655795872574" duration="13490000" />
-      <workItem from="1655881809888" duration="2776000" />
+      <workItem from="1655881809888" duration="10430000" />
     </task>
     <task id="LOCAL-00001" summary="feature:quill editor">
       <created>1655809151102</created>
@@ -86,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655809151102</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix:quill editor">
+      <created>1655886166814</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1655886166814</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +146,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="git commit -m 'feature:quill editor'" />
     <MESSAGE value="feature:quill editor" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature:quill editor" />
+    <MESSAGE value="fix:quill editor" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:quill editor" />
   </component>
 </project>

@@ -19,9 +19,7 @@ const HowWeWorkCard = ({
   const isVisible = !!entry?.isIntersecting;
 
   return (
-    <Styles.Container
-      backGroundColor={backGroundColor}
-    >
+    <Styles.Container backGroundColor={backGroundColor}>
       <Styles.NumberContainer ref={ref}>
         <Styles.Number active={isVisible} backGroundColor={backGroundColor}>
           #{rank}
@@ -43,8 +41,7 @@ const HowWeWorkCard = ({
             isFlipOnMobile={isFlipImageOnMobile}
             active={isVisible}
           >
-            <img src={imgUrl}
-              alt={contentTitle} />
+            <img src={imgUrl} alt={contentTitle} />
           </Styles.ContentImage>
         </Styles.ContentImgContainer>
       </Styles.ContentContainer>

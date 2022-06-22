@@ -28,6 +28,11 @@ interface IArticles {
   data: IBlogResponse;
 }
 
+interface IArticleItem {
+  item: IArticle;
+  i: number;
+}
+
 const PublishedArticles: FC<IArticles> = ({
   setIsNewArticle,
   setArticle,
@@ -67,6 +72,7 @@ const PublishedArticles: FC<IArticles> = ({
   };
 
   const handleDragEnd = (param: DropResult) => {
+    if (!isNewArticle) return;
     const srcIndex = param.source.index;
     const desIndex: number | undefined = param.destination?.index;
     if (typeof desIndex === "number") {
@@ -85,6 +91,31 @@ const PublishedArticles: FC<IArticles> = ({
     }
   };
 
+  const ArticleItem = ({ item, i }: IArticleItem) => {
+    return (
+      <BlogItem
+        isAdmin={true}
+        image={item.image?.url}
+        description={item.description}
+        title={item.title}
+      >
+        <Styles.ChangeIcon
+          src={
+            isNewArticle
+              ? ChangeIconImg.src
+              : !isNewArticle && article === i
+              ? close.src
+              : ""
+          }
+          onClick={() => toggleEditPost(item, i)}
+        />
+        <Styles.DeleteButton onClick={() => deleteArticle(i)}>
+          delete articles
+        </Styles.DeleteButton>
+      </BlogItem>
+    );
+  };
+
   return (
     <Styles.Wrapper>
       <AdminSubTitle>Published articles</AdminSubTitle>
@@ -92,45 +123,23 @@ const PublishedArticles: FC<IArticles> = ({
         <Droppable droppableId={"droppable-1"}>
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
-              {values.articles.map((item: IArticle, i) => (
-                <Draggable
-                  draggableId={"draggable-" + i}
-                  index={i}
-                  key={`${i}${item.title}`}
-                >
-                  {(provided) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                    >
-                      <BlogItem
-                        isAdmin={true}
-                        image={item.image?.url}
-                        description={item.description}
-                        title={item.title}
+              {values.articles.map((item: IArticle, i) =>
+                isNewArticle ? (
+                  <Draggable draggableId={"draggable-" + i} index={i} key={i}>
+                    {(provided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
                       >
-                        <Styles.ChangeIcon
-                          src={
-                            isNewArticle
-                              ? ChangeIconImg.src
-                              : !isNewArticle && article === i
-                              ? close.src
-                              : ""
-                            // !isNewArticle && article === i
-                            //   ? close.src
-                            //   : ChangeIconImg.src
-                          }
-                          onClick={() => toggleEditPost(item, i)}
-                        />
-                        <Styles.DeleteButton onClick={() => deleteArticle(i)}>
-                          delete articles
-                        </Styles.DeleteButton>
-                      </BlogItem>
-                    </div>
-                  )}
-                </Draggable>
-              ))}
+                        <ArticleItem item={item} i={i} />
+                      </div>
+                    )}
+                  </Draggable>
+                ) : (
+                  <ArticleItem item={item} i={i} key={i} />
+                )
+              )}
               {provided.placeholder}
             </div>
           )}
