@@ -4,13 +4,19 @@ import Subtitle from "./Subtitle";
 import { useFormikContext } from "formik";
 import { IBlogResponse } from "../../../types/Admin/Response.types";
 import TextEditor from "../../TextEditor/TextEditor";
+import ArticleText from "./ArticleText";
 
 interface IArticleBlock {
   isNewArticle: boolean;
   article: number;
+  isUpdating: boolean;
 }
 
-const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
+const ArticleBlock: FC<IArticleBlock> = ({
+  isNewArticle,
+  article,
+  isUpdating,
+}) => {
   const { values, handleChange } = useFormikContext<IBlogResponse>();
   const [blocks, setBlocks] = useState<JSX.Element[]>([]);
 
@@ -85,10 +91,12 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
   const editArticleText = (index: number) => (
     <TextEditor
       isBlog={true}
+      // isUpdating={isUpdating}
       key={index}
       header="Text"
       value={values.articles[article].content[index].text}
       name={`articles[${article}].content[${index}].text`}
+      // index={index}
       handleChange={handleChange}
     />
     // <ArticleText
@@ -102,10 +110,12 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
   const newArticleText = (index: number) => (
     <TextEditor
       isBlog={true}
+      // isUpdating={isUpdating}
       key={index}
       value={values.newArticle.content[index].text}
       header="Text"
       name={`newArticle.content[${index}].text`}
+      // index={index}
       handleChange={handleChange}
     />
     // <ArticleText

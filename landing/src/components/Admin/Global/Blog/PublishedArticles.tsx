@@ -52,9 +52,6 @@ const PublishedArticles: FC<IArticles> = ({
     handleSubmit();
   };
 
-  console.log("values", values.articles[article].title);
-  console.log("data", data.articles[article].title);
-
   const toggleEditPost = (item: IArticle, i: number) => {
     if (isNewArticle) {
       setIsNewArticle(false);
@@ -115,9 +112,14 @@ const PublishedArticles: FC<IArticles> = ({
                       >
                         <Styles.ChangeIcon
                           src={
-                            !isNewArticle && article === i
+                            isNewArticle
+                              ? ChangeIconImg.src
+                              : !isNewArticle && article === i
                               ? close.src
-                              : ChangeIconImg.src
+                              : ""
+                            // !isNewArticle && article === i
+                            //   ? close.src
+                            //   : ChangeIconImg.src
                           }
                           onClick={() => toggleEditPost(item, i)}
                         />

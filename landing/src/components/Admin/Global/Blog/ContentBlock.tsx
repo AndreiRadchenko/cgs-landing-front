@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import PhotoBlockDashedHorizontal from "../PhotoBlockdashedHorizontal";
 import PhotoBlockDashed from "../PhotoBlockDashed";
 import SubHeaderWithInput from "../SubHeaderWithInput";
@@ -37,6 +37,8 @@ const ContentBlock: FC<IArticles> = ({
   const { values, handleSubmit, handleChange } =
     useFormikContext<IBlogResponse>();
 
+  const [isUpdating, setIsUpdating] = useState<boolean>(false);
+
   const { mutateAsync } = useMutation(
     queryKeys.deleteArticle,
     (dataToUpdate: IBlogResponse) =>
@@ -44,10 +46,12 @@ const ContentBlock: FC<IArticles> = ({
   );
 
   const updateArticle = async () => {
+    setIsUpdating(true);
     await mutateAsync(values);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
+    setIsUpdating(false);
   };
 
   const createArticle = async () => {
@@ -237,7 +241,11 @@ const ContentBlock: FC<IArticles> = ({
           maxWidth="324px"
         />
       </Styles.BigWrapper>
-      <ArticleBlock isNewArticle={isNewArticle} article={article} />
+      <ArticleBlock
+        isNewArticle={isNewArticle}
+        article={article}
+        isUpdating={isUpdating}
+      />
       <Styles.AdminSubTitle>Tags</Styles.AdminSubTitle>
       <BlogTags isNewArticle={isNewArticle} article={article} />
       <Styles.SubmitButtonWrapper>

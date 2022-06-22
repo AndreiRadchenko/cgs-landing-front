@@ -1,3 +1,77 @@
+// import React, { useEffect, useState } from "react";
+// import dynamic from "next/dynamic";
+// const Editor = dynamic<EditorProps>(
+//   () => import("react-draft-wysiwyg").then((mod) => mod.Editor),
+//   { ssr: false }
+// );
+// import { EditorProps } from "react-draft-wysiwyg";
+// import { ContentState, convertToRaw, EditorState } from "draft-js";
+// import draftToHtml from "draftjs-to-html";
+// import htmlToDraft from "html-to-draftjs";
+// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+// import * as Styled from "../../styles/AdminPage";
+// import { useFormikContext } from "formik";
+//
+// interface ITextEditorProps {
+//   value?: string;
+//   // setFieldValue: (val: string) => void;
+//   header: string;
+//   name: string;
+//   index: number;
+//   isUpdating: boolean;
+// }
+//
+// export const TextEditor = ({
+//   value,
+//   header,
+//   index,
+//   name,
+//   isUpdating,
+// }: ITextEditorProps) => {
+//   const [editorState, setEditorState] = useState<EditorState>(
+//     value
+//       ? EditorState.createWithContent(
+//           ContentState.createFromBlockArray(htmlToDraft(value).contentBlocks)
+//         )
+//       : EditorState.createEmpty()
+//   );
+//   const { setFieldValue } = useFormikContext();
+//   const setValue = (value: string) => setFieldValue(name, value);
+//   const prepareDraft = (value: string): EditorState | undefined => {
+//     const draft = htmlToDraft(value);
+//     const contentState = ContentState.createFromBlockArray(draft.contentBlocks);
+//     return EditorState.createWithContent(contentState);
+//   };
+//
+//   const onEditorStateChange = (editorState: EditorState) => {
+//     if (isUpdating) {
+//       const forFormik = draftToHtml(
+//         convertToRaw(editorState.getCurrentContent())
+//       );
+//       console.log(forFormik);
+//       setValue(forFormik);
+//     }
+//     setEditorState(editorState);
+//   };
+//
+//   return (
+//     <>
+//       <Styled.AdminSubTitle isBlog={true}>{header}</Styled.AdminSubTitle>
+//       <Styled.TextEditorContainer>
+//         <Editor
+//           editorState={editorState}
+//           editorStyle={{
+//             overflowWrap: "break-word",
+//           }}
+//           onEditorStateChange={onEditorStateChange}
+//         />
+//       </Styled.TextEditorContainer>
+//     </>
+//   );
+// };
+//
+// export default TextEditor;
+
 import React, { ChangeEvent } from "react";
 import dynamic from "next/dynamic";
 const QuillNoSSRWrapper = dynamic(import("react-quill"), {
