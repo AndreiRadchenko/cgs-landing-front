@@ -5,6 +5,5 @@ export type IHowWeWorkCardProps = {
   rank: number;
   backGroundColor: "blue" | "orange" | "green";
   imgUrl: string;
-  additionalImgUrl?: boolean;
-  isFlipImageOnMobile?: boolean;
+  additionalImgUrl?: string;
 };

@@ -15,7 +15,6 @@ import goDaddyIMG from "../../../public/project_images/go_daddy_poynt.png";
 import prs from "../../../public/project_images/prs.png";
 import ProjectItem from "./ProjectItem";
 import Image from "next/image";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const projectArr = [
   {

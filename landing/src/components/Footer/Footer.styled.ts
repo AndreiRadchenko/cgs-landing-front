@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 import Decoration from "../Decoration/Decoration";
 
 export const Container = styled.div`
-  margin-top: 15em;
+  margin-top: 7em;
   background-color: ${themes.primary.colors.secondary};
   height: 7.5em;
   width: 100%;

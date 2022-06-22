@@ -1,6 +1,6 @@
 import React from "react";
 import * as StyledThisComp from "./HeaderNav.styled";
-import logoIMG from "../../../public/logo.svg";
+import logoIMG from "/public/logo.svg";
 import { routers } from "../../utils/variables";
 import ImagePreview from "../Image/ImagePreview";
 

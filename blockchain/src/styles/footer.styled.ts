@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
+import { floatAnimation } from "./animations";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -52,7 +53,6 @@ export const FooterNav = styled.div`
   background: #47367c;
   height: 8em;
   width: 100%;
-  margin-top: -8em;
   z-index: 1;
   display: flex;
   justify-content: center;
@@ -128,4 +128,64 @@ export const MarginBlock = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 5rem;
   }
+`;
+
+export const CosmonautBgWrapper = styled.div`
+  width: 100%;
+  height: 600px;
+  bottom: 0;
+  position: absolute;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    height: 500px;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    height: 450px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    width: 90%;
+    left: 10%;
+    height: 600px;
+  }
+  @media ${themes.primary.media.minTablet} {
+    height: 500px;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 300px;
+  }
+`;
+
+export const CosmonautWrapper = styled.div`
+  position: relative;
+  width: 500px;
+  height: 600px;
+  top: 8%;
+  left: 25%;
+  animation: ${floatAnimation} 5s infinite ease-in-out;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 450px;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    top: 13%;
+    width: 400px;
+    height: 500px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    left: calc(35% - 1rem);
+    width: 500px;
+    height: 700px;
+  }
+  @media ${themes.primary.media.minTablet} {
+    left: calc(40% - 4rem);
+    width: 400px;
+    height: 550px;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    top: 10%;
+    width: 300px;
+    height: 350px;
+  }
+`;
+export const ImageWrapper = styled.div`
+  position: relative;
 `;

@@ -12,12 +12,7 @@ type IColorProps = {
   active: boolean;
 };
 
-type IAdditionalImg = {
-  additionalImgUrl?: boolean;
-};
-
 type IImage = {
-  isFlipOnMobile?: boolean;
   active?: boolean;
 };
 
@@ -123,43 +118,104 @@ export const ContentTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 8rem;
+
+  &.first {
+    margin-bottom: 23em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.first {
+      margin-bottom: 15em;
+    }
+  }
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 0;
+    &.first {
+      margin-bottom: 0;
+    }
   }
 `;
 
-export const ContentImgContainer = styled.div<IAdditionalImg>`
+export const ContentImgContainer = styled.div`
   display: flex;
-  justify-content: ${(props) =>
-    props.additionalImgUrl ? "flex-end" : "center"};
+  justify-content: center;
   align-items: center;
   flex-grow: 1;
   position: relative;
 
+  &.first {
+    justify-content: flex-end;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
-    align-self: ${(props) => (props.additionalImgUrl ? "flex-end" : "initial")};
+    &.first {
+      align-items: flex-end;
+      margin-top: 8em;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    &.first {
+      width: 100%;
+      justify-content: flex-end;
+      margin-top: 0;
+    }
   }
 
   & div {
     @media ${themes.primary.media.minLaptop} {
-      margin-top: ${(props) => (props.additionalImgUrl ? "11em" : "0")};
+      margin-top: 0;
+      &.first {
+        margin-top: 7em;
+      }
     }
-  }
-
-  & div img {
-    max-height: ${(props) => (props.additionalImgUrl ? "48em" : "40em")};
   }
 `;
 
 export const ContentImage = styled.div<IImage>`
+  position: relative;
   z-index: 500;
+  width: 38em;
   margin-bottom: 30%;
+  height: 35em;
 
-  @media ${themes.primary.media.maxTabletLandScape} {
-    transform: ${(props) =>
-      props.isFlipOnMobile ? "scale(-1, 1)" : "initial"};
+  &.first {
+    width: 33em;
+    height: 42em;
   }
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.first {
+      width: 28em;
+      height: 44em;
+    }
+    height: 30em;
+    width: 30em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 35em;
+    height: 30em;
+
+    &.first {
+      width: 35em;
+      height: 50em;
+    }
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 24em;
+    height: 24em;
+
+    &.first {
+      width: 25em;
+      height: 35em;
+    }
+  }
+
+  @media ${themes.primary.media.maxLowMobileHeight} {
+    width: 22em;
+    height: 22em;
+  }
   animation: ${({ active }) => (active ? "image 2s" : null)};
   @keyframes image {
     0% {
@@ -195,7 +251,7 @@ export const ContentTitle = styled.h2`
   @media ${themes.primary.media.maxMobile} {
     max-width: 100%;
     margin-top: 1em;
-    font-size: 2.5em;
+    font-size: 3em;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 2.3em;
@@ -222,7 +278,7 @@ export const ContentTextWrapper = styled.div`
     max-width: 35rem;
     padding-right: 1em;
     line-height: 1.25em;
-    font-size: 1.4em;
+    font-size: 1.5em;
   }
 `;
 export const ContentText = styled.p`
@@ -233,7 +289,11 @@ export const ContentText = styled.p`
   margin: 0;
   margin-top: 15px;
 
-  @media ${themes.primary.media.maxMobile} {
-    line-height: 150%;
+  @media ${themes.primary.media.maxMobileHeight} {
+    line-height: 100%;
+  }
+
+  @media ${themes.primary.media.maxLowMobileHeight} {
+    font-size: 90%;
   }
 `;

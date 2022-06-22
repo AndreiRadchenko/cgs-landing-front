@@ -1,5 +1,6 @@
 ﻿import styled from "styled-components";
 import themes from "../utils/themes";
+import { floatAnimation } from "./animations";
 
 export const BodyContainer = styled.section`
   @media ${themes.primary.media.maxMobile} {
@@ -14,7 +15,6 @@ export const WelcomeBlockWrapper = styled.div`
   display: flex;
   padding: 0 4rem;
   width: 100%;
-
   @media ${themes.primary.media.maxLaptop} {
     padding: 0 2rem;
   }
@@ -30,10 +30,9 @@ export const WrapperBgImg = styled.div`
   position: relative;
   width: 700px;
   height: 600px;
-
+  animation: ${floatAnimation} 5s infinite ease-in-out;
   @media ${themes.primary.media.maxMobile} {
-    transform: translateY(-15%);
-    top: 0;
+    top: -10vh;
     left: -23%;
     width: 150%;
     height: 600px;
@@ -55,11 +54,9 @@ export const Title = styled.h2`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tabletTitle};
   }
-
   @media ${themes.primary.media.maxMobile} {
     font-size: 4.2rem;
   }
-
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 3rem;
   }
@@ -73,7 +70,6 @@ export const Subtitle = styled.div`
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.secondary};
   }
-
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: ${themes.primary.font.size.oneAndHalf};
   }
@@ -84,14 +80,12 @@ export const BottomText = styled.div`
   font-family: ${themes.primary.font.family.montserrat};
   font-weight: ${themes.primary.font.weight.light};
   font-size: ${themes.primary.font.size.oneAndHalf};
-
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tertiary};
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.oneAndHalf};
   }
-
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: ${themes.primary.font.size.tertiary};
   }
