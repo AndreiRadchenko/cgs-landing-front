@@ -61,7 +61,6 @@ export default class MyDocument extends Document {
           />
           {/* eslint-disable-next-line @next/next/next-script-for-ga */}
           <script
-            type="rocketlazyloadscript"
             async
             id="google-tag-manager"
             dangerouslySetInnerHTML={{
