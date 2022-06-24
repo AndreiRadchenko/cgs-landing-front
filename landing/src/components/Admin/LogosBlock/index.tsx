@@ -1,5 +1,5 @@
 import { useFormikContext } from "formik";
-import React from "react";
+import React, { FC } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminGlobalService } from "../../../services/adminHomePage";
@@ -28,7 +28,11 @@ const render = ({ state, deleteLogo }: IRenderProps) => {
   ));
 };
 
-const AdminLogosBlock = () => {
+interface AdminLogosBlockProps {
+  typeOfLogo?: "normal" | "hover";
+}
+
+const AdminLogosBlock: FC<AdminLogosBlockProps> = ({ typeOfLogo }) => {
   const queryClient = useQueryClient();
   const { values, handleSubmit } = useFormikContext<IDataResponse>();
   const { mutate } = useMutation(queryKeys.deleteImage, (url: string) =>
@@ -44,7 +48,9 @@ const AdminLogosBlock = () => {
 
   return (
     <Styled.AdminPaddedBlock>
-      <Styled.AdminSubTitle>Logos</Styled.AdminSubTitle>
+      <Styled.AdminSubTitle>
+        Logos {typeOfLogo ? `(${typeOfLogo})` : null}
+      </Styled.AdminSubTitle>
       <Styled.AdminLogosGrid>
         <AddLogoFrame state={values.LogosBlock} submit={handleSubmit} />
         {render({ state: values.LogosBlock, deleteLogo })}

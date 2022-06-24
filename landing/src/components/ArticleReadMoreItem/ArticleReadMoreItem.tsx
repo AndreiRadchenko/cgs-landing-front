@@ -1,3 +1,4 @@
+import React from "react";
 import BannerImage from "../../../public/blog-banner.jpg";
 
 import * as Styles from "./ArticleReadMoreItem.styled";

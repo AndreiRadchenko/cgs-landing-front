@@ -191,6 +191,20 @@ export interface IDataVacancyResponse {
   contact: IContactBlock;
 }
 
+export interface IBlockchainProjectBlock {
+  name: string;
+  text: string;
+  image: {
+    url: string;
+  } | null;
+}
+
+export interface IDataBlockchainResponse {
+  projects: IBlockchainProjectBlock[];
+  newProject: IBlockchainProjectBlock;
+  LogosBlock: { images: { url: string }[] };
+}
+
 export interface IHomeData {
   data: IDataResponse | undefined;
   isLoading: boolean;
