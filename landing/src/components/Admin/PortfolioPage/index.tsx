@@ -2,24 +2,26 @@ import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
-import { adminGlobalService } from "../../../services/adminHomePage";
 import * as Styled from "../../../styles/AdminPage";
-import { IPortfolioResponse } from "../../../types/Admin/AdminPortfolio";
 import AdminPortfolioContentBlock from "./ContentBlock";
-import { IPortfolioData } from "./Portfolio.types";
+import {
+  IPortfolioData,
+  IPortfolioResponse,
+} from "../../../types/Admin/AdminPortfolioPage.types";
+import { adminPortfolioPageService } from "../../../services/adminPortfolioPage";
 
 const PortfolioPage = () => {
-  const { data, isLoading, refetch }: IPortfolioData = useQuery(
+  const { data, isLoading, refetch }: IPortfolioResponse = useQuery(
     queryKeys.getPortfolio,
-    () => adminGlobalService.getPortfolio()
+    () => adminPortfolioPageService.getPortfolio()
   );
 
   const { mutateAsync } = useMutation(
     queryKeys.updatePortfolio,
-    (data: IPortfolioResponse) => adminGlobalService.updatePortfolio(data)
+    (data: IPortfolioData) => adminPortfolioPageService.updatePortfolio(data)
   );
 
-  const submitForm = async (values: IPortfolioResponse) => {
+  const submitForm = async (values: IPortfolioData) => {
     document.body.style.cursor = "wait";
     await mutateAsync(values);
     await refetch();

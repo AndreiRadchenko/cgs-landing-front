@@ -7,14 +7,8 @@ import { useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminPortfolioPageService } from "../../services/adminPortfolioPage";
 import PortfolioSwipers from "../../components/Admin/PortfolioSwipers/PortfolioSwipers";
-import { IPortfolioData } from "../../types/Admin/AdminPortfolioPage.types";
+import { IPortfolioResponse } from "../../types/Admin/AdminPortfolioPage.types";
 import * as Styled from "../../styles/AdminPage";
-
-export interface IPortfolioResponse {
-  data?: IPortfolioData;
-  isLoading: boolean;
-  refetch: () => Promise<IPortfolioResponse>;
-}
 
 const Index = () => {
   const { data, isLoading, refetch }: IPortfolioResponse = useQuery(

@@ -4,7 +4,6 @@ import useSubmitAndDeletePortfolio from "../../../hooks/useSubmitAndDeletePortfo
 import * as Styled from "../../../styles/AdminPage";
 import { IPortfolioResponse } from "../../../types/Admin/AdminPortfolio";
 import AdminCarousel from "../Global/AdminImageCarousel";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminReview from "../PortfolioReviewPage/AdminPortfolioReview";
 import AddAndEdit from "./AddAndEdit";
 import renderPortfolioInputs from "./renderPortfolioInputs";

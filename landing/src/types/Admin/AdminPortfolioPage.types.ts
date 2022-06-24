@@ -20,3 +20,9 @@ export interface IPortfolioData {
   subtitle: string;
   reviews: IPortfolioReview[];
 }
+
+export interface IPortfolioResponse {
+  data?: IPortfolioData;
+  isLoading: boolean;
+  refetch: () => Promise<IPortfolioResponse>;
+}

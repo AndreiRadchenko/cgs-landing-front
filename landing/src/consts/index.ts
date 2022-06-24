@@ -74,6 +74,20 @@ export const newReviewInit = {
   button: "",
 };
 
+export const newPageReviewInit = {
+  image: null,
+  category: "",
+  title: "",
+  text: "",
+  button: "",
+  feedback: {
+    name: "",
+    rating: "",
+    company: "",
+    feedbackText: "",
+  },
+};
+
 export enum ROUTE_KEYS {
   AdminPage = "AdminPage",
   AdminPortfolio = "/Admin/AdminPortfolio",
