@@ -14,6 +14,7 @@ const AdminBlackButton = ({
     e.preventDefault();
     onClick!();
   };
+
   return (
     <Styled.AdminBlackButton onClick={onClickFunction}>
       <Styled.AdminBlackButtonText>{text}</Styled.AdminBlackButtonText>
