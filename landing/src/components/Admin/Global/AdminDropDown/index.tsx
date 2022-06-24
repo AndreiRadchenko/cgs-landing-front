@@ -9,7 +9,6 @@ const AdminDropDown = ({ menu, setValue, value }: IMenuProps) => {
 
   return (
     <div>
-      <Styled.AdminSubTitle>Add a new case</Styled.AdminSubTitle>
       <Styled.AdminDropDownMenu>
         <ChooseElementBanner
           value={value!}

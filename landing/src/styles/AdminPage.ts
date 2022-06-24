@@ -83,19 +83,10 @@ export const AdminHeader = styled.h2`
 `;
 
 export const AdminSubTitle = styled.h3<{ isBlog?: boolean }>`
-  font-size: ${(props) =>
-    props.isBlog
-      ? themes.primary.font.size.menuElement
-      : themes.primary.font.size.linkText};
-  font-family: ${(props) =>
-    props.isBlog
-      ? themes.primary.font.family.gilroy
-      : themes.primary.font.family.mulish};
-  font-weight: ${(props) =>
-    props.isBlog
-      ? themes.primary.font.weight.semiBold
-      : themes.primary.font.weight.extraBold};
-  margin: ${(props) => (props.isBlog ? "30px 0 0.4em 0" : "0 0 0.4em 0")};
+  font-size: ${themes.primary.font.size.menuElement};
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.semiBold};
+  margin: ${(props) => (props.isBlog ? "30px 0 0.4em 0" : "10px 0 0.4em 0")};
 `;
 
 export const AdminComment = styled.p`
@@ -130,7 +121,7 @@ export const AdminInput = styled(TextareaAutosize)<{
   border: 0;
   height: ${(props) => props.height} !important;
   margin-bottom: ${themes.primary.spacing.primary};
-  &: focus {
+  &:focus {
     outline: 1px solid gray;
   }
 `;
@@ -270,9 +261,29 @@ export const AdminButton = styled.button`
   cursor: pointer;
 `;
 
+export const AdminBlackButton = styled.button`
+  background-color: #000;
+  color: white;
+  border: 0;
+  padding: 0;
+  width: 10em;
+  //margin-left: -1.3em;
+  //position: relative;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`;
+
 export const AdminButtonText = styled.span`
   position: absolute;
   font-size: ${themes.primary.font.size.linkText};
+`;
+
+export const AdminBlackButtonText = styled.span`
+  position: absolute;
+  font-size: ${themes.primary.font.size.aboutUsCardText};
 `;
 
 export const AdminDeleteTextThin = styled.span`
@@ -417,7 +428,7 @@ export const AdminUploadModuleCloseButton = styled.button`
   right: 10px;
   top: 10px;
   cursor: pointer;
-  &: hover {
+  &:hover {
     color: gray;
   }
 `;
@@ -438,10 +449,10 @@ export const AdminUploadModuleImgDiv = styled.div`
   align-items: center;
   position: relative;
   margin-bottom: 1em;
-  &: hover {
+  &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
-  &: hover span {
+  &:hover span {
     display: block;
   }
 `;
@@ -461,7 +472,7 @@ export const AdminUploadModuleBack = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const AdminUnauthorizedModal = styled.div`
@@ -488,8 +499,10 @@ export const AdminDropDownMenu = styled.div`
   background: ${themes.primary.colors.secondary};
   font-size: ${themes.primary.font.size.linkText};
   position: relative;
+  width: 100%;
   z-index: 1;
   margin-right: 10px;
+  margin-top: 12px;
 `;
 
 export const AdminDropDownMenuElement = styled.div`
@@ -497,7 +510,7 @@ export const AdminDropDownMenuElement = styled.div`
   padding: ${themes.primary.spacing.primary};
   border: 1px solid ${themes.primary.colors.darkedGrayBack};
   cursor: pointer;
-  &: hover {
+  &:hover {
     background: ${themes.primary.colors.darkedGrayBack};
   }
 `;
@@ -528,6 +541,13 @@ export const AdminPortfolioReviewContent = styled.div`
   max-width: 68%;
 `;
 
+export const AdminPortfolioReviewLayout = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 4em;
+  padding: 20px;
+`;
+
 export const AdminPortfolioReviewFrame = styled.div`
   border: 1px solid ${themes.primary.colors.primary};
   padding: 1.6em;
@@ -549,4 +569,73 @@ export const AdminBlockWithoutHeader = styled.div`
 export const AdminFullImage = styled.img`
   max-width: 100%;
   max-height: 100%;
+`;
+
+export const AdminPageFirstBlockLayout = styled.div`
+  display: grid;
+  grid-template-columns: 2.09fr 1fr 1fr;
+  column-gap: 1.5em;
+`;
+
+export const AdminPageSecondBlockLayout = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.5em;
+  margin-bottom: 30px;
+`;
+
+export const InputAndStars = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 20px;
+`;
+
+export const StartsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  padding-top: 25px;
+`;
+
+export const ProjectInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ProjectHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const PortfolioProjectHeader = styled.div`
+  font-size: ${themes.primary.font.size.quaternary};
+  font-family: ${themes.primary.font.family.mulish};
+  font-weight: ${themes.primary.font.weight.normal};
+`;
+
+export const Separator = styled.div`
+  background-color: #cdcdcd;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 20px;
+`;
+
+export const PortfolioReviewHeader = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const AuthorName = styled.div`
+  font-size: ${themes.primary.font.size.articleTagDescription};
+  font-family: ${themes.primary.font.family.mulish};
+  font-weight: ${themes.primary.font.weight.normal};
+  margin-right: 25px;
+`;
+
+export const CompanyName = styled.div`
+  color: #8f8e93;
+  font-size: ${themes.primary.font.size.linkText};
+  font-family: ${themes.primary.font.family.mulish};
+  font-weight: ${themes.primary.font.weight.normal};
 `;
