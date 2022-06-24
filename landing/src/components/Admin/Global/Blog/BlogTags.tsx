@@ -12,25 +12,19 @@ interface IBlogTags {
 
 const BlogTags: FC<IBlogTags> = ({ isNewArticle, article }) => {
   const [tagList, setTagList] = useState<JSX.Element[]>([]);
-
   const { values, handleChange } = useFormikContext<IBlogResponse>();
+  const newArticleTags = values.newArticle.tags;
+  const editArticleTags = values.articles[article].tags;
 
-  const componentsArray = (tags: string[]) => {
-    return tags.map((tag: string, index: number) =>
-      isNewArticle ? newArticleTag(index) : editArticleTag(index)
-    );
+  const componentsArray = () => {
+    return isNewArticle
+      ? newArticleTags.map((tag, i) => newArticleTag(i))
+      : editArticleTags.map((tag, i) => editArticleTag(i));
   };
 
   useEffect(() => {
-    if (isNewArticle) {
-      const tags = values.newArticle.tags;
-      const result = componentsArray(tags);
-      setTagList(result);
-    } else {
-      const tags = values.articles[article].tags;
-      const result = componentsArray(tags);
-      setTagList(result);
-    }
+    const result = componentsArray();
+    setTagList(result);
   }, [article, isNewArticle, values.articles, values.newArticle]);
 
   const newArticleTag = (index: number) => (
@@ -52,15 +46,17 @@ const BlogTags: FC<IBlogTags> = ({ isNewArticle, article }) => {
   );
 
   const addTagOnClick = () => {
-    if (isNewArticle && !article) {
-      values.newArticle.tags.push("");
-      const index = values.newArticle.tags.length - 1;
+    const newArticleCase = () => {
+      newArticleTags.push("");
+      const index = newArticleTags.length - 1;
       setTagList((oldTagList) => oldTagList.concat(newArticleTag(index)));
-    } else {
-      values.articles[article].tags.push("");
-      const index = values.articles[article].tags.length - 1;
+    };
+    const editArticleCase = () => {
+      editArticleTags.push("");
+      const index = editArticleTags.length - 1;
       setTagList((oldTagList) => oldTagList.concat(editArticleTag(index)));
-    }
+    };
+    isNewArticle ? newArticleCase() : editArticleCase();
   };
 
   return (

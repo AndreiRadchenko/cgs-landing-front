@@ -41,7 +41,6 @@ const PublishedArticles: FC<IArticles> = ({
   data,
 }) => {
   const { values, handleSubmit } = useFormikContext<IBlogResponse>();
-  // const [editIndex, setEditIndex] = useState<number | null>(null);
 
   const { mutateAsync } = useMutation(
     queryKeys.deleteArticle,
@@ -57,38 +56,32 @@ const PublishedArticles: FC<IArticles> = ({
     handleSubmit();
   };
 
-  const toggleEditPost = (item: IArticle, i: number) => {
-    if (isNewArticle) {
+  const toggleEditPost = (i: number) => {
+    const newArticleCase = () => {
       setIsNewArticle(false);
       setArticle(i);
-    } else if (!isNewArticle && article !== i) {
-      values.articles[article] = data.articles[article];
-      setArticle(i);
-    } else {
-      values.articles[article] = data.articles[article];
+    };
+    const editArticleCase = () => {
+      const articleFromData = data.articles.find(
+        (e: IArticle) => e._id === values.articles[article]._id
+      );
+      articleFromData && (values.articles[article] = articleFromData);
       setArticle(0);
       setIsNewArticle(true);
-    }
+    };
+    isNewArticle ? newArticleCase() : editArticleCase();
   };
 
   const handleDragEnd = (param: DropResult) => {
     if (!isNewArticle) return;
     const srcIndex = param.source.index;
     const desIndex: number | undefined = param.destination?.index;
-    if (typeof desIndex === "number") {
-      if (srcIndex < article && desIndex >= article) {
-        setArticle(article - 1);
-      } else if (srcIndex > article && desIndex <= article) {
-        setArticle(article + 1);
-      } else if (srcIndex === article) {
-        setArticle(desIndex);
-      }
+    typeof desIndex === "number" &&
       values.articles.splice(
         desIndex,
         0,
         values.articles.splice(srcIndex, 1)[0]
       );
-    }
   };
 
   const ArticleItem = ({ item, i }: IArticleItem) => {
@@ -107,7 +100,7 @@ const PublishedArticles: FC<IArticles> = ({
               ? close.src
               : ""
           }
-          onClick={() => toggleEditPost(item, i)}
+          onClick={() => toggleEditPost(i)}
         />
         <Styles.DeleteButton onClick={() => deleteArticle(i)}>
           delete articles

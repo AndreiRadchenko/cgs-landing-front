@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6240693-3b84-4cfd-956c-e195f5332c61" name="Changes" comment="fix:quill editor">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/landing/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Blog/ArticleBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Blog/ArticleBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/ContentBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/ContentBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/PublishedArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/Admin/Global/Blog/PublishedArticles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/src/components/HowWeWorkCard/HowWeWorkCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/HowWeWorkCard/HowWeWorkCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/src/components/TextEditor/TextEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/TextEditor/TextEditor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/src/styles/AdminPage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/styles/AdminPage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/yarn.lock" beforeDir="false" />
+    <list default="true" id="eef80cf5-30b1-4728-9eac-a83fb50a84c3" name="Changes" comment="fix: clear code from if/elses, rewrite PublishedArticles logic">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,132 +12,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2ACWnEKzxrMkPHfhHexcrmDwYZt" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\vikto\\WebstormProjects\\code-generation-landing\\blockchain\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ts.external.directory.path": "C:\\Users\\vikto\\WebstormProjects\\code-generation-landing\\landing\\node_modules\\typescript\\lib"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\vikto\WebstormProjects\code-generation-landing\landing\src\pages\blog\articles" />
-      <recent name="C:\Users\vikto\WebstormProjects\code-generation-landing\landing\src\pages\blog\tags" />
-      <recent name="C:\Users\vikto\WebstormProjects\code-generation-landing\landing\src\pages\blog" />
-    </key>
-  </component>
-  <component name="RunManager" selected="npm.build">
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/landing/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="lint:fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/landing/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="lint:fix" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="npm.build" />
-        <item itemvalue="npm.lint:fix" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+}]]></component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="e6240693-3b84-4cfd-956c-e195f5332c61" name="Changes" comment="" />
-      <created>1654514212447</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1654514212447</updated>
-      <workItem from="1654514213729" duration="1934000" />
-      <workItem from="1654518903191" duration="6309000" />
-      <workItem from="1654582580270" duration="26233000" />
-      <workItem from="1654629362995" duration="17000" />
-      <workItem from="1654671643040" duration="2397000" />
-      <workItem from="1654687562415" duration="1107000" />
-      <workItem from="1654689529253" duration="8393000" />
-      <workItem from="1654757647939" duration="26136000" />
-      <workItem from="1654837936310" duration="33059000" />
-      <workItem from="1654875397690" duration="1558000" />
-      <workItem from="1654886925225" duration="8313000" />
-      <workItem from="1655053784500" duration="3312000" />
-      <workItem from="1655096676947" duration="18995000" />
-      <workItem from="1655119551226" duration="3269000" />
-      <workItem from="1655123135038" duration="17479000" />
-      <workItem from="1655189492476" duration="25094000" />
-      <workItem from="1655273626518" duration="41296000" />
-      <workItem from="1655374254718" duration="14985000" />
-      <workItem from="1655449567701" duration="25081000" />
-      <workItem from="1655540634950" duration="589000" />
-      <workItem from="1655550788792" duration="15048000" />
-      <workItem from="1655622524406" duration="20210000" />
-      <workItem from="1655665923475" duration="5525000" />
-      <workItem from="1655704247363" duration="31654000" />
-      <workItem from="1655795872574" duration="13490000" />
-      <workItem from="1655881809888" duration="10430000" />
-    </task>
-    <task id="LOCAL-00001" summary="feature:quill editor">
-      <created>1655809151102</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1655809151102</updated>
-    </task>
-    <task id="LOCAL-00002" summary="fix:quill editor">
-      <created>1655886166814</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1655886166814</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="git commit -m 'feature:quill editor'" />
-    <MESSAGE value="feature:quill editor" />
-    <MESSAGE value="fix:quill editor" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:quill editor" />
   </component>
 </project>

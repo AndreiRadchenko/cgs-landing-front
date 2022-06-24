@@ -13,18 +13,17 @@ interface IArticleBlock {
 const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
   const { values, handleChange } = useFormikContext<IBlogResponse>();
   const [blocks, setBlocks] = useState<JSX.Element[]>([]);
+  const newArticleContent = values.newArticle.content;
+  const editArticleContent = values.articles[article].content;
 
   useEffect(() => {
-    const content = isNewArticle
-      ? values.newArticle.content
-      : values.articles[article].content;
     const blocks = isNewArticle
-      ? content.map((block, i) =>
+      ? newArticleContent.map((block, i) =>
           block.hasOwnProperty("text")
             ? newArticleText(i)
             : newArticleSubtitle(i)
         )
-      : content.map((block, i) =>
+      : editArticleContent.map((block, i) =>
           block.hasOwnProperty("text")
             ? editArticleText(i)
             : editArticleSubtitle(i)
@@ -33,31 +32,33 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
   }, [article, isNewArticle, values.articles, values.newArticle.content]);
 
   const addSubtitleBlockOnClick = () => {
-    if (isNewArticle) {
-      values.newArticle.content.push({ subNumber: "", subtitle: "" });
+    const subtitle = { subNumber: "", subtitle: "" };
+    const newArticleCase = () => {
+      newArticleContent.push(subtitle);
       setBlocks(
-        blocks.concat(newArticleSubtitle(values.newArticle.content.length - 1))
+        blocks.concat(newArticleSubtitle(newArticleContent.length - 1))
       );
-    } else {
-      values.articles[article].content.push({ subNumber: "", subtitle: "" });
+    };
+    const editArticleCase = () => {
+      editArticleContent.push(subtitle);
       setBlocks(
-        blocks.concat(editArticleSubtitle(values.newArticle.content.length - 1))
+        blocks.concat(editArticleSubtitle(editArticleContent.length - 1))
       );
-    }
+    };
+    isNewArticle ? newArticleCase() : editArticleCase();
   };
 
   const addTextBlockOnClick = () => {
-    if (isNewArticle) {
-      values.newArticle.content.push({ text: "" });
-      setBlocks(
-        blocks.concat(newArticleText(values.newArticle.content.length - 1))
-      );
-    } else {
-      values.articles[article].content.push({ text: "" });
-      setBlocks(
-        blocks.concat(editArticleText(values.newArticle.content.length - 1))
-      );
-    }
+    const text = { text: "" };
+    const newArticleCase = () => {
+      newArticleContent.push(text);
+      setBlocks(blocks.concat(newArticleText(newArticleContent.length - 1)));
+    };
+    const editArticleCase = () => {
+      editArticleContent.push(text);
+      setBlocks(blocks.concat(editArticleText(editArticleContent.length - 1)));
+    };
+    isNewArticle ? newArticleCase() : editArticleCase();
   };
 
   const newArticleSubtitle = (index: number): JSX.Element => (
