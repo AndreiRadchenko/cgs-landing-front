@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eef80cf5-30b1-4728-9eac-a83fb50a84c3" name="Changes" comment="fix: clear code from if/elses, rewrite PublishedArticles logic">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+    <list default="true" id="eef80cf5-30b1-4728-9eac-a83fb50a84c3" name="Changes" comment="fix: .idea files">
+      <change beforePath="$PROJECT_DIR$/landing/src/pages/blog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/pages/blog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/utils/variables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/utils/variables.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,12 +13,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ts.external.directory.path": "C:\\Users\\vikto\\WebstormProjects\\code-generation-landing\\landing\\node_modules\\typescript\\lib"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\vikto\\WebstormProjects\\code-generation-landing\\landing\\node_modules\\typescript\\lib&quot;
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

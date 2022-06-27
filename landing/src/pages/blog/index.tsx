@@ -17,7 +17,7 @@ interface IHomeData {
   isLoading: boolean;
 }
 
-const PageSize = 4;
+const PageSize = 5;
 
 const BlogPage = () => {
   const { data, isLoading }: IHomeData = useQuery(queryKeys.getBlogPage, () =>
