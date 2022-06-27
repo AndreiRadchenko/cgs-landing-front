@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c22eab09-6873-43ba-b863-93417a792f5a" name="Changes" comment="feature: creating slider for portfolio page" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2B1zU7BavGJWqBgRd2rY6vqNEGU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\vikto\\WebstormProjects\\code-generation-landing\\landing\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="feature: portfolioPage service and types">
+      <created>1656077973891</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656077973891</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feature: start connecting back to admin form">
+      <created>1656087959848</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656087959848</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c22eab09-6873-43ba-b863-93417a792f5a" name="Changes" comment="feature: start connecting back to admin form" />
+      <created>1656088392056</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656088392056</updated>
+      <workItem from="1656088393621" duration="787000" />
+      <workItem from="1656089201002" duration="773000" />
+      <workItem from="1656140487705" duration="493000" />
+      <workItem from="1656140997974" duration="14751000" />
+      <workItem from="1656233885332" duration="14775000" />
+      <workItem from="1656313350420" duration="4458000" />
+    </task>
+    <task id="LOCAL-00003" summary="fix: to make possible merge">
+      <created>1656089337685</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656089337685</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feature: connect back to admin portfolio page">
+      <created>1656317563855</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1656317563855</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feature: creating slider for portfolio page">
+      <created>1656317646930</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1656317646930</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feature: portfolioPage service and types" />
+    <MESSAGE value="feature: start connecting back to admin form" />
+    <MESSAGE value="fix: to make possible merge" />
+    <MESSAGE value="feature: connect back to admin portfolio page" />
+    <MESSAGE value="feature: creating slider for portfolio page" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature: creating slider for portfolio page" />
+  </component>
+</project>
