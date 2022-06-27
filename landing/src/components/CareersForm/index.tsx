@@ -15,7 +15,7 @@ const CareersForm: FC<ICareersForm> = ({ data }) => {
         <SplitBrackets text={data?.subtitle2} />
       </Styled.FormTitle>
       <Styled.FormWrapper>
-        <Form data={data?.form} />
+        <Form data={data?.form} vacancy="All vacancies" />
         <Styled.ImageWrapper>
           <Styled.FormRocketImage />
           <Styled.FormImage image={data?.form.image} />

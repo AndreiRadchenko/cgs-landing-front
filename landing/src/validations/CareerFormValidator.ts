@@ -19,6 +19,6 @@ export const CareerFormValidation = () => {
       .string()
       .required("Required")
       .min(10, "A link to the project must contain at least 10 characters"),
-    "CV-file": yup.string().required("Required"),
+    file: yup.string().required("Required"),
   });
 };
