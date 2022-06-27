@@ -1,4 +1,6 @@
 ﻿import React, { useEffect } from "react";
+import Head from "next/head";
+import parse from "html-react-parser";
 import * as StyledCommon from "../../styles/Page.styled";
 import WhatWeLikeToSee from "../../components/WhatWeLikeToSee/WhatWeLikeToSee";
 import Footer from "../../components/Footer/Footer";
@@ -29,10 +31,17 @@ const LetsGo: NextPage = () => {
 
   const { contact } = { ...data };
 
+  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
   return (
     <>
       {!isLoading && (
         <>
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
           <StyledCommon.Page>
             <HeaderNav />
             <WhatWeLikeToSee />

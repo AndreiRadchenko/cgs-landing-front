@@ -89,6 +89,12 @@ export interface IFooterBlock {
   images: IImage[];
 }
 
+export interface IMetaBlock {
+  metaTitle: string;
+  metaDescription: string;
+  customHead: string;
+}
+
 // completed
 
 export interface IDataResponse {
@@ -104,6 +110,7 @@ export interface IDataResponse {
   BuildRocketBlock: IBuildRocketBlock;
   ContactFormBlock: IContactFormBlock;
   FooterBlock: IFooterBlock;
+  meta: IMetaBlock;
 }
 
 // Careers
@@ -141,6 +148,7 @@ export interface IDataCareersResponse {
   url?: string;
   vacancy?: string;
   form: IFormBlock;
+  meta: IMetaBlock;
 }
 
 export interface IPointsData {
@@ -189,6 +197,7 @@ export interface IDataVacancyResponse {
   info: IInfoBlock[];
   offer: IOfferBlock;
   contact: IContactBlock;
+  meta: IMetaBlock;
 }
 
 export interface IHomeData {

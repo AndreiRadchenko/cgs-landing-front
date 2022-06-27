@@ -7,6 +7,7 @@ import { adminVacancyService } from "../../../services/adminVacancyPage";
 import { useMutation, useQuery } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { IDataVacancyResponse } from "../../../types/Admin/Response.types";
+import MetaTagsBlock from "../MetaTagsBlock";
 
 interface IVacancyProps {
   data: IDataVacancyResponse | undefined;
@@ -54,6 +55,7 @@ const VacancyMainContent = () => {
                 <TextVacancyBlock name="offer" dark={true} />
               </Styled.AdminBlockWithoutHeader>
               <VacancyContactBlock />
+              <MetaTagsBlock theme="dark" />
               <Styled.AdminPaddedBlock>
                 <Styled.AdminBigButton type="submit">
                   Submit
