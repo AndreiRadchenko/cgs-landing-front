@@ -12,12 +12,12 @@ import { adminPortfolioPageService } from "../../../services/adminPortfolioPage"
 
 const PortfolioPage = () => {
   const { data, isLoading, refetch }: IPortfolioResponse = useQuery(
-    queryKeys.getPortfolio,
+    queryKeys.getPortfolioPage,
     () => adminPortfolioPageService.getPortfolio()
   );
 
   const { mutateAsync } = useMutation(
-    queryKeys.updatePortfolio,
+    queryKeys.updatePortfolioPage,
     (data: IPortfolioData) => adminPortfolioPageService.updatePortfolio(data)
   );
 

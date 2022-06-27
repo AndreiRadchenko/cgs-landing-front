@@ -1,9 +1,11 @@
 import { Formik, useFormikContext } from "formik";
 import React from "react";
-import { newPageReviewInit, newReviewInit } from "../../../consts";
+import { newPageReviewInit } from "../../../consts";
 import AddReview from "../PortfolioReviewPage/AddReview";
-import { IAddAndEditProps } from "./Portfolio.types";
-import { IPortfolioData } from "../../../types/Admin/AdminPortfolioPage.types";
+import {
+  IAddAndEditProps,
+  IPortfolioData,
+} from "../../../types/Admin/AdminPortfolioPage.types";
 
 const AddAndEdit = ({
   submitFunc,

@@ -3,7 +3,7 @@ export const routers = {
   careers: "/careers",
 };
 
-export const navigationRoutesNames = ["/home", "/careers", "/portfolio"];
+export const navigationRoutesNames = ["/home", "/careers"];
 
 export const modalNavigationRoutesNames = [
   "web",

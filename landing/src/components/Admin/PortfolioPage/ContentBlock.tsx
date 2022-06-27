@@ -1,17 +1,17 @@
 import { FieldArray, useFormikContext } from "formik";
 import React, { useState } from "react";
-import useSubmitAndDeletePortfolio from "../../../hooks/useSubmitAndDeletePortfolio";
 import * as Styled from "../../../styles/AdminPage";
-import { IPortfolioResponse } from "../../../types/Admin/AdminPortfolio";
-import AdminCarousel from "../Global/AdminImageCarousel";
 import AdminReview from "../PortfolioReviewPage/AdminPortfolioReview";
 import AddAndEdit from "./AddAndEdit";
 import renderPortfolioInputs from "./renderPortfolioInputs";
 import AdminDropDown from "../Global/AdminDropDown";
+import { IPortfolioData } from "../../../types/Admin/AdminPortfolioPage.types";
+import useSubmitAndDeletePortfolioPage from "../../../hooks/useSubmitAndDeletePortfolioPage";
+import PortfolioPageCarousel from "./PortfolioPageCarousel";
 
 const AdminPortfolioContentBlock = () => {
   const { values, handleChange, handleSubmit } =
-    useFormikContext<IPortfolioResponse>();
+    useFormikContext<IPortfolioData>();
   const [current, setCurrent] = useState(0);
   const {
     deleteFunc,
@@ -20,11 +20,15 @@ const AdminPortfolioContentBlock = () => {
     editFunc,
     isNewStatus,
     setIsNewStatus,
-  } = useSubmitAndDeletePortfolio(setCurrent);
+  } = useSubmitAndDeletePortfolioPage(setCurrent);
 
-  const submit = () => handleSubmit();
   const deleteF = () => deleteFunc(current);
   const [catValue, setCatValue] = useState(values.categories[0]);
+
+  const submitFunction = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    handleSubmit();
+  };
 
   return (
     <Styled.AdminPaddedBlock>
@@ -37,6 +41,9 @@ const AdminPortfolioContentBlock = () => {
           }
         </FieldArray>
       </Styled.AdminCategoryBlock>
+      <Styled.AdminBigButton onClick={submitFunction} type="button">
+        Save categories
+      </Styled.AdminBigButton>
       <Styled.AdminSubTitle>Add a new case</Styled.AdminSubTitle>
       <AddAndEdit
         current={current}
@@ -52,7 +59,6 @@ const AdminPortfolioContentBlock = () => {
           setValue={setCatValue}
         />
       </Styled.AdminCategoryBlock>
-
       <Styled.AdminReviewBlock>
         {values.reviews.length === 0 ? (
           <Styled.AdminSubTitle>no reviews</Styled.AdminSubTitle>
@@ -64,7 +70,8 @@ const AdminPortfolioContentBlock = () => {
             editTrigger={setIsNewStatus}
           />
         )}
-        <AdminCarousel
+        <PortfolioPageCarousel
+          catValue={catValue}
           page={current}
           setPage={setCurrent}
           length={values.reviews.length}

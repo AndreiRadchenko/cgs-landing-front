@@ -1,5 +1,4 @@
 import React from "react";
-import * as Styles from "../../styles/PortfolioPage.styled";
 import { Page } from "../../styles/Page.styled";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import Footer from "../../components/Footer/Footer";
@@ -18,13 +17,13 @@ const Index = () => {
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data ? (
-    <Styles.PageWrapper>
+    <>
       <Page>
         <HeaderNav />
-        <PortfolioSwipers data={data} />
       </Page>
+      <PortfolioSwipers data={data} />
       <Footer />
-    </Styles.PageWrapper>
+    </>
   ) : (
     <Styled.AdminUnauthorizedModal>
       Something went wrong :(

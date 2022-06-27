@@ -42,7 +42,6 @@ const Home: NextPage = () => {
     adminGlobalService.getPortfolio()
   );
 
-  
   return (
     <>
       <Head>
