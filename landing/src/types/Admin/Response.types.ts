@@ -242,3 +242,8 @@ export interface IBlogResponse {
   articles: IArticle[];
   newArticle: IArticle;
 }
+
+export interface IHomeData {
+  data: IDataCareersResponse | undefined;
+  isLoading: boolean;
+}

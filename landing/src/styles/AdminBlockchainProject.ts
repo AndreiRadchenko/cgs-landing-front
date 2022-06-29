@@ -3,7 +3,7 @@ import themes from "../utils/themes";
 
 export const ProjectFrame = styled.div`
   border: 1px solid ${themes.primary.colors.primary};
-  background-color: ${themes.primary.colors.darkBlue};
+  background-color: ${themes.primary.colors.darkBlueBlockchain};
   padding: 5em 2em 3em;
   position: relative;
 `;

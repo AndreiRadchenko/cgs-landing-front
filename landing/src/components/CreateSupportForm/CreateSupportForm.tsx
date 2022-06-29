@@ -57,22 +57,8 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
     validateOnBlur: true,
     validationSchema: LestCodeValidation(),
     onSubmit: (values: IEmailBody, { resetForm }) => {
-<<<<<<< HEAD
-      emailjs
-        .send(
-          process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID || "",
-          process.env.NEXT_PUBLIC_HOME_EMAIL_TEMPLATE_ID || "",
-          values,
-          process.env.NEXT_PUBLIC_HOME_EMAIL_USER_ID
-        )
-        .then(() => {
-          setSent(true);
-          resetForm();
-        });
-=======
       mutate(values);
       resetForm();
->>>>>>> 0befeb5c001f25183d1bc927a42df8a3aa66c1f6
     },
   });
 

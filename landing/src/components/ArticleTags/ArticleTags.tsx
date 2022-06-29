@@ -1,7 +1,6 @@
 import React from "react";
 import * as Styles from "./ArticleTags.styled";
 import { FC } from "react";
-import React from "react";
 import Link from "next/link";
 
 interface IArticleTags {

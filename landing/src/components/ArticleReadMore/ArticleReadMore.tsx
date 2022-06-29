@@ -1,6 +1,5 @@
 import React from "react";
 import ArticleReadMoreItem from "../ArticleReadMoreItem/ArticleReadMoreItem";
-import React from "react";
 import * as Styles from "./ArticleReadMore.styled";
 import { IArticle } from "../../types/Admin/Response.types";
 
