@@ -48,7 +48,13 @@ const BlockchainProjectBlock = () => {
           }}
         />
         {values.LogosBlock.images?.map((i, ind) => (
-          <LogoElement image={i} key={Math.random()} deleteLogo={() => {}} />
+          <LogoElement
+            image={i}
+            key={Math.random()}
+            deleteLogo={() => {
+              console.log("deleteLogo");
+            }}
+          />
         ))}
       </Styled.AdminLogosGrid>
       <br />
@@ -62,7 +68,13 @@ const BlockchainProjectBlock = () => {
           }}
         />
         {values.LogosBlock.images?.map((i, ind) => (
-          <LogoElement image={i} key={Math.random()} deleteLogo={() => {}} />
+          <LogoElement
+            image={i}
+            key={Math.random()}
+            deleteLogo={() => {
+              console.log("deleteLogo");
+            }}
+          />
         ))}
       </Styled.AdminLogosGrid>
     </Styled.AdminPaddedBlock>

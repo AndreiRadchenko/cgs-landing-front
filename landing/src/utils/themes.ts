@@ -69,6 +69,7 @@ const themes = {
       septenary: "#A9CDF5",
       blue: "#85BEFD",
       linkBlue: "#3C95F9",
+      darkBlue: "#5869DD",
       cardDarkGreen: "#90e645",
       orange: "#FFC061",
       green: "#B6FD7A",

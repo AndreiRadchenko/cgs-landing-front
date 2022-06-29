@@ -7,11 +7,13 @@ interface IStarsProps {
   handleChange?: (number: number) => void;
   size?: number;
   edit?: boolean;
+  color2?: string;
 }
 
 const AdminStars = ({
   value,
   handleChange,
+  color2 = themes.primary.colors.starActive,
   size = 24,
   edit = false,
 }: IStarsProps) => {
@@ -25,7 +27,7 @@ const AdminStars = ({
       value={value}
       count={5}
       size={size}
-      color2={themes.primary.colors.starActive}
+      color2={color2}
       color1={themes.primary.colors.starDisable}
     />
   );
