@@ -17,6 +17,7 @@ import { useMutation, useQuery } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminGlobalService } from "../../../services/adminHomePage";
 import { IDataResponse } from "../../../types/Admin/Response.types";
+import MetaTagsBlock from "../MetaTagsBlock";
 
 interface IMainProps {
   data: IDataResponse | undefined;
@@ -66,6 +67,7 @@ const AdminMainContent = () => {
               <AdminBuildRocketBlock />
               <AdminContactFormBlock />
               <AdminFooterBlock />
+              <MetaTagsBlock theme="dark" />
               <Styled.AdminPaddedBlock>
                 <Styled.AdminBigButton type="submit">
                   Submit

@@ -33,10 +33,13 @@ export const createNewData = (
 
   values.vacancy = "";
 
+  const { subtitle, subtitle2, images, meta } = values;
+
   return {
-    subtitle: values.subtitle,
-    subtitle2: values.subtitle2,
-    images: values.images,
+    subtitle,
+    subtitle2,
+    images,
+    meta,
     form,
     tickets,
   };
