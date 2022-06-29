@@ -116,7 +116,7 @@ export const FileInputWrapper = styled.div<ICVProps>`
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
 `;
 
-export const InputFile = styled(Field)`
+export const InputFile = styled.input`
   opacity: 0;
   visibility: hidden;
   position: absolute;

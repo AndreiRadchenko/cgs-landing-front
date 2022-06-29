@@ -1,6 +1,5 @@
 import React, { FC, useState } from "react";
 import { useFormik, FormikValues } from "formik";
-import * as emailjs from "emailjs-com";
 import * as Styled from "./Form.styled";
 
 import FormField from "./FormField/index";
@@ -11,38 +10,79 @@ import BaseButton from "../../BaseButton/BaseButton";
 import ButtonTextWrapper from "../../ButtonText/ButtonTextWrapper";
 import { IFormBlock } from "../../../types/Admin/Response.types";
 import ModalSentEmail from "../../Modal/ModalSentEmail";
+import { useMutation } from "react-query";
+import { adminCareersService } from "../../../services/adminCareersPage";
+import { IVacancyMail } from "../../../types/Mail.types";
 
 interface IFormProps {
+  vacancy: string;
   data?: IFormBlock;
 }
 
-const Form: FC<IFormProps> = ({ data }) => {
+const Form: FC<IFormProps> = ({ data, vacancy }) => {
   const [isCV, setIsCV] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(false);
   const [sent, setSent] = useState<boolean>(false);
 
-  const { CV, image, text, ...fieldContent } = { ...data };
-
   const formik = useFormik({
     initialValues: fieldData,
     onSubmit: (values: FormikValues, { resetForm }) => {
-      emailjs
-        .send(
-          process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID || "",
-          process.env.NEXT_PUBLIC_VACANCIES_EMAIL_TEMPLATE_ID || "",
-          values,
-          process.env.NEXT_PUBLIC_HOME_EMAIL_USER_ID
-        )
-        .then(() => {
-          setSent(true);
-          resetForm();
-        });
+      if (vacancy) {
+        const { file } = values;
+
+        const formData = new FormData();
+
+        formData.append("file", file);
+
+        CVmutate(formData);
+        setIsCV(false);
+        resetForm();
+      }
     },
     validationSchema: CareerFormValidation(),
   });
 
+  const { mutate } = useMutation(
+    (data: IVacancyMail) => adminCareersService.mailForm(data),
+    {
+      onSuccess: () => {
+        setSent(true);
+      },
+      onError: () => {
+        setSent(false);
+      },
+    }
+  );
+
+  const { mutate: CVmutate } = useMutation(
+    (image: FormData) => adminCareersService.uploadCV(image),
+    {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      onSuccess: (data: any) => {
+        const { email, name, telegram } = formik.values;
+        const filename = data.filename;
+        const mailData: IVacancyMail = {
+          vacancy,
+          describeYourself: formik.values.describe,
+          email,
+          projectsLink: formik.values.linksToProjects,
+          name,
+          mediaLink: formik.values.socialMediaLink,
+          telegram,
+          filename,
+        };
+        mutate(mailData);
+      },
+      onError: (data) => {
+        console.log(data);
+      },
+    }
+  );
+
+  const { CV, image, text, ...fieldContent } = { ...data };
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    formik.setFieldValue(event.target.name, event.target.value);
+    if (event.target.files) formik.setFieldValue("file", event.target.files[0]);
   };
 
   const animateCv = (name: string) => {
@@ -55,9 +95,9 @@ const Form: FC<IFormProps> = ({ data }) => {
 
   const fileEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.value;
-    {
-      name ? animateCv(name) : setIsCV(!!name);
-    }
+
+    name ? animateCv(name) : setIsCV(!!name);
+
     animateCv(name);
     return handleChange(e);
   };
@@ -68,20 +108,20 @@ const Form: FC<IFormProps> = ({ data }) => {
 
   return (
     <Styled.FormProvider value={formik}>
-      <Styled.Form onSubmit={formik.handleSubmit}>
+      <Styled.Form onSubmit={formik.handleSubmit} encType="multipart/form-data">
         {Object.entries(fieldContent).map((el) => (
           <FormField
             key={el[0]}
             name={el[0]}
             label={el[1]}
-            handleChange={handleChange}
+            handleChange={formik.handleChange}
           />
         ))}
 
         <Styled.FileContainer>
           <Styled.FileInputWrapper active={animate}>
             <Styled.InputFile
-              name="CV-file"
+              name="file"
               type="file"
               className="CV-file"
               onChange={fileEdit}
