@@ -38,7 +38,7 @@ const BlockchainProjectBlock = () => {
       </Styled.AdminHalfGrid>
       <br />
       <br />
-      <Styled.AdminSubTitle secondary>Logos (normal)</Styled.AdminSubTitle>
+      <Styled.AdminSubTitle>Logos (normal)</Styled.AdminSubTitle>
       <br />
       <Styled.AdminLogosGrid>
         <AddLogoFrame
@@ -48,11 +48,12 @@ const BlockchainProjectBlock = () => {
           }}
         />
         {values.LogosBlock.images?.map((i, ind) => (
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
           <LogoElement image={i} key={Math.random()} deleteLogo={() => {}} />
         ))}
       </Styled.AdminLogosGrid>
       <br />
-      <Styled.AdminSubTitle secondary>Logos (hover)</Styled.AdminSubTitle>
+      <Styled.AdminSubTitle>Logos (hover)</Styled.AdminSubTitle>
       <br />
       <Styled.AdminLogosGrid>
         <AddLogoFrame
@@ -62,6 +63,7 @@ const BlockchainProjectBlock = () => {
           }}
         />
         {values.LogosBlock.images?.map((i, ind) => (
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
           <LogoElement image={i} key={Math.random()} deleteLogo={() => {}} />
         ))}
       </Styled.AdminLogosGrid>
