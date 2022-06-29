@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eef80cf5-30b1-4728-9eac-a83fb50a84c3" name="Changes" comment="feature: add blog to header" />
+    <list default="true" id="eef80cf5-30b1-4728-9eac-a83fb50a84c3" name="Changes" comment="fix: remove console logs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/components/BlogItem/BlogItem.styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/components/BlogItem/BlogItem.styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/src/utils/themes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/landing/src/utils/themes.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,11 +14,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\vikto\\WebstormProjects\\code-generation-landing\\landing\\node_modules\\typescript\\lib&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ts.external.directory.path": "C:\\Users\\vikto\\WebstormProjects\\code-generation-landing\\blockchain\\node_modules\\typescript\\lib"
   }
-}</component>
+}]]></component>
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="feature: add blog to header">
       <created>1656318736052</created>

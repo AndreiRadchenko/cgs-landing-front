@@ -45,8 +45,6 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
     validateOnBlur: true,
     validationSchema: LestCodeValidation(),
     onSubmit: (values: IEmailBody, { resetForm }) => {
-      console.log("here");
-
       emailjs
         .send(
           process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID || "",

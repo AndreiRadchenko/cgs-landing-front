@@ -66,6 +66,7 @@ const themes = {
       secondary: "#fff",
       starActive: "#FBA446",
       starDisable: "#EEE6DD",
+      previewArticleText: "#BDC4FA",
       septenary: "#A9CDF5",
       blue: "#85BEFD",
       linkBlue: "#3C95F9",

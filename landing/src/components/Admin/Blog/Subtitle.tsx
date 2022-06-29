@@ -17,7 +17,6 @@ const Subtitle: FC<ISubtitle> = ({
   subtitleValue,
   subNumberValue,
 }) => {
-  console.log(subtitleValue);
   return (
     <Styles.SubHeadersWrapper>
       <Styles.SubHeaderWrapper>

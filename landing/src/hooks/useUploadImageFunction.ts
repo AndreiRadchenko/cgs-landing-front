@@ -23,7 +23,6 @@ const useUploadImageFunction = (
 
   const uploadImageFunction = async (image: any, localState?: IImage) => {
     const link = await mutateAsync(image);
-    console.log(state);
     if (state) {
       state.image! = link!;
     } else {

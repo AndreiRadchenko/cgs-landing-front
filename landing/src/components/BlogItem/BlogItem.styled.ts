@@ -1,6 +1,10 @@
 import themes from "../../utils/themes";
 import styled from "styled-components";
 
+interface IAdmin {
+  isAdmin?: boolean;
+}
+
 export const BlogItemDescription = styled.p`
   max-width: 500px;
   font-weight: ${themes.primary.font.weight.normal};
@@ -12,15 +16,22 @@ export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
   display: flex;
   justify-content: center;
   &:hover {
-    background-color: ${(props) => (props.isAdmin ? "transparent" : "#5869DD")};
-    color: ${(props) => (props.isAdmin ? "black" : "#fff")};
+    background-color: ${(props) =>
+      props.isAdmin ? "transparent" : themes.primary.colors.darkBlue};
+    color: ${(props) =>
+      props.isAdmin
+        ? themes.primary.colors.black
+        : themes.primary.colors.secondary};
   }
   &:hover ${BlogItemDescription} {
-    color: ${(props) => (props.isAdmin ? "black" : "#BDC4FA")};
+    color: ${(props) =>
+      props.isAdmin
+        ? themes.primary.colors.black
+        : themes.primary.colors.previewArticleText};
   }
 `;
 
-export const BlogItem = styled.div<{ isAdmin?: boolean }>`
+export const BlogItem = styled.div<IAdmin>`
   display: flex;
   position: relative;
   justify-content: space-between;
@@ -37,7 +48,7 @@ export const BlogItem = styled.div<{ isAdmin?: boolean }>`
   }
 `;
 
-export const BlogItemTitle = styled.p<{ isAdmin?: boolean }>`
+export const BlogItemTitle = styled.p<IAdmin>`
   max-width: 500px;
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
