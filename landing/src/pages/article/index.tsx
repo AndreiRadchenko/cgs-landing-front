@@ -1,3 +1,4 @@
+import React from "react";
 import { Page } from "../../styles/Page.styled";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import BannerImage from "../../../public/blog-banner.jpg";
@@ -32,11 +33,11 @@ const ArticlePage = () => {
         <Styles.ArrowBackButton src={ArrowBack.src} />
         <Styles.Title>NFT.Explained</Styles.Title>
         <Styles.SubTitle>
-          The TA project manager's responsibility and roles will vary depending
-          on the project, but there is a general framework you can easily
-          follow. The TA project manager's responsibility and roles will vary
+          The TA project manager&apos;s responsibility and roles will vary
           depending on the project, but there is a general framework you can
-          easily follow.
+          easily follow. The TA project manager&apos;s responsibility and roles
+          will vary depending on the project, but there is a general framework
+          you can easily follow.
         </Styles.SubTitle>
         <Styles.BannerImage src={BannerImage.src} />
         <ArticleAuthor />

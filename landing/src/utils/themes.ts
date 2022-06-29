@@ -88,6 +88,7 @@ const themes = {
       feedbackRole: "#A9CDF5",
       black: "#000",
       lightGrey: "#716D6D",
+      darkBlue: "#392770",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

@@ -1,3 +1,4 @@
+import React from "react";
 import * as Styles from "./ArticleTags.styled";
 
 const ArticleTags = () => {
