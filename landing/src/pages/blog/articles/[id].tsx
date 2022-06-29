@@ -56,30 +56,32 @@ const ArticlePage = () => {
   return (
     <>
       {isSuccess && article && readMore ? (
-        <Page>
-          <HeaderNav />
-          <Styles.PageWrapper>
-            <Styles.ArrowBackButton
-              src={ArrowBack.src}
-              onClick={() => router.back()}
-            />
-            <Styles.Title>{article.title}</Styles.Title>
-            <Styles.SubTitle>{article.description}</Styles.SubTitle>
-            <Styles.BannerImage src={article.image.url} />
-            <ArticleAuthor
-              author={article.author}
-              date={article.date}
-              time={article.minutesToRead}
-            />
-            <ArticleDescription content={article.content} />
-            <Styles.ShareTagsWrapper>
-              <ShareOn image={article.image} title={article.title} />
-              <ArticleTags tags={article.tags} />
-            </Styles.ShareTagsWrapper>
-            <ArticleReadMore readMore={readMore} />
-          </Styles.PageWrapper>
+        <>
+          <Page>
+            <HeaderNav />
+            <Styles.PageWrapper>
+              <Styles.ArrowBackButton
+                src={ArrowBack.src}
+                onClick={() => router.back()}
+              />
+              <Styles.Title>{article.title}</Styles.Title>
+              <Styles.SubTitle>{article.description}</Styles.SubTitle>
+              <Styles.BannerImage src={article.image.url} />
+              <ArticleAuthor
+                author={article.author}
+                date={article.date}
+                time={article.minutesToRead}
+              />
+              <ArticleDescription content={article.content} />
+              <Styles.ShareTagsWrapper>
+                <ShareOn image={article.image} title={article.title} />
+                <ArticleTags tags={article.tags} />
+              </Styles.ShareTagsWrapper>
+              <ArticleReadMore readMore={readMore} />
+            </Styles.PageWrapper>
+          </Page>
           <Footer />
-        </Page>
+        </>
       ) : (
         <Styled.AdminUnauthorizedModal>
           Something went wrong :(

@@ -37,7 +37,7 @@ export const BlogItem = styled.div<IAdmin>`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  width: ${(props) => (props.isAdmin ? "1160px" : "950px")};
+  width: ${(props) => (props.isAdmin ? "100%" : "950px")};
   padding: ${(props) => (props.isAdmin ? "57px 70px" : "40px 0")};
   margin-top: ${(props) => props.isAdmin && "30px"};
   border: ${(props) =>
