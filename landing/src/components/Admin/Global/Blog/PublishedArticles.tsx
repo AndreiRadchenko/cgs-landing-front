@@ -70,6 +70,7 @@ const PublishedArticles: FC<IArticles> = ({
       setIsNewArticle(true);
     };
     isNewArticle ? newArticleCase() : editArticleCase();
+    window.scrollTo(0, 0);
   };
 
   const handleDragEnd = (param: DropResult) => {

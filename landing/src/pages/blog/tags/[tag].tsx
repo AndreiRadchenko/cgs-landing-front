@@ -7,12 +7,9 @@ import { IArticle, IBlogResponse } from "../../../types/Admin/Response.types";
 import { queryKeys } from "../../../consts/queryKeys";
 import PaginationBar from "../../../components/PaginationBar/PaginationBar";
 import BlogItem from "../../../components/BlogItem/BlogItem";
-import ArrowBack from "../../../../public/arrowBack.svg";
-
 import * as Styles from "../../../styles/BlogPage.styled";
 import { adminBlogService } from "../../../services/adminBlogPage";
-import { Router, useRouter } from "next/router";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface IHomeData {
   data: IBlogResponse | undefined;
@@ -49,10 +46,6 @@ const BlogPage = () => {
         <Styles.PageWrapper>
           <Page>
             <HeaderNav />
-            <Styles.ArrowBackButton
-              src={ArrowBack.src}
-              onClick={() => router.back()}
-            />
             <Styles.PageHeaderWrapper>
               <Styles.TagTitle>TAG: {tag}</Styles.TagTitle>
             </Styles.PageHeaderWrapper>
