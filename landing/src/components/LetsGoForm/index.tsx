@@ -6,9 +6,10 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 
 interface ILetsGoForm {
   contact?: IContactBlock;
+  vacancy: string;
 }
 
-const LetsGoForm: FC<ILetsGoForm> = ({ contact }) => {
+const LetsGoForm: FC<ILetsGoForm> = ({ contact, vacancy }) => {
   return (
     <>
       {contact && (
@@ -17,7 +18,7 @@ const LetsGoForm: FC<ILetsGoForm> = ({ contact }) => {
             <SplitBrackets text={contact.title} />
           </Styled.FormTitle>
           <Styled.FormContainer>
-            <CareersForm data={contact.form} />
+            <CareersForm data={contact.form} vacancy={vacancy} />
             <Styled.FormImage image={contact.form.image}>
               <Styled.FormCodeImg />
             </Styled.FormImage>
