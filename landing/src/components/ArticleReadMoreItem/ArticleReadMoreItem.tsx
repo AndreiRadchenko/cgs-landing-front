@@ -1,19 +1,20 @@
 import React from "react";
-import BannerImage from "../../../public/blog-banner.jpg";
-
 import * as Styles from "./ArticleReadMoreItem.styled";
+import { IArticle } from "../../types/Admin/Response.types";
+import Link from "next/link";
 
-const ArticleReadMoreItem = () => {
+interface IArticleReadMore {
+  article: IArticle;
+}
+
+const ArticleReadMoreItem = ({ article }: IArticleReadMore) => {
   return (
     <Styles.Wrapper>
-      <Styles.Image src={BannerImage.src} />
-      <Styles.Title>
-        What does a UX designer do & how to become one
-      </Styles.Title>
-      <Styles.Description>
-        The role of a project manager is evolving as businesses evolve. The role
-        of a project manager is evolving as businesses evolve.{" "}
-      </Styles.Description>
+      <Styles.Image src={article.image.url} />
+      <Link href={`/blog/articles/${article._id}`} passHref>
+        <Styles.Title>{article.title}</Styles.Title>
+      </Link>
+      <Styles.Description>{article.description}</Styles.Description>
     </Styles.Wrapper>
   );
 };

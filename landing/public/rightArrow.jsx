@@ -2,13 +2,16 @@ import * as React from "react";
 import styled from "styled-components";
 import themes from "../src/utils/themes";
 
-const ArrowWrapper = styled.div`
+const ArrowWrapper = styled.button`
   border: 0.125rem solid ${themes.primary.colors.primary};
   background-color: ${themes.primary.colors.primary};
   border-radius: 50%;
   display: flex;
   align-items: center;
   padding: 0.688rem;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const SvgComponent = (props) => (

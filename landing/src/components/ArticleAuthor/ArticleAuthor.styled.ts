@@ -54,7 +54,7 @@ export const TimeWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 77px;
+  max-width: 110px;
 `;
 
 export const TimerImage = styled.img``;

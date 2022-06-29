@@ -1,5 +1,4 @@
 import { TextareaAutosize } from "@mui/material";
-import { style } from "@mui/system";
 import styled from "styled-components";
 import themes from "../utils/themes";
 
@@ -569,6 +568,28 @@ export const AdminBlockWithoutHeader = styled.div`
 export const AdminFullImage = styled.img`
   max-width: 100%;
   max-height: 100%;
+`;
+
+export const TextEditorContainer = styled.div<{
+  height?: string;
+  width?: string;
+}>`
+  .ql-editor {
+    font-size: ${themes.primary.font.size.linkText};
+    font-family: ${themes.primary.font.family.mulish};
+  }
+  background-color: #fff;
+  resize: none;
+  min-height: 417px;
+  height: auto;
+  width: ${(props) => (props.width ? props.width : "100%")};
+  font-size: ${themes.primary.font.size.linkText};
+  font-family: ${themes.primary.font.family.mulish};
+  border: 0;
+  margin-bottom: ${themes.primary.spacing.primary};
+  &:focus-within {
+    outline: 1px solid gray;
+  }
 `;
 
 export const AdminPageFirstBlockLayout = styled.div`

@@ -28,7 +28,7 @@ const Footer = () => {
               href={el.link}
             />
           ))}
-          <Styles.DecorationFooterLinks />
+          {/*<Styles.DecorationFooterLinks />*/}
         </Styles.SocialLinksContainer>
       </Styles.Container>
     </Styles.Row>

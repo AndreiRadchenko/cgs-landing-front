@@ -214,7 +214,36 @@ export interface IDataBlockchainResponse {
   LogosBlock: { images: { url: string }[] };
 }
 
+export interface IAuthor {
+  name: string;
+  specialization: string;
+  image: { url: string };
+}
+
+export interface ITextBlog {
+  text?: string;
+  subNumber?: string;
+  subtitle?: string;
+}
+
+export interface IArticle {
+  _id?: string;
+  image: { url: string };
+  title: string;
+  description: string;
+  author: IAuthor;
+  date: string;
+  minutesToRead: number;
+  content: ITextBlog[];
+  tags: string[];
+}
+
+export interface IBlogResponse {
+  articles: IArticle[];
+  newArticle: IArticle;
+}
+
 export interface IHomeData {
-  data: IDataResponse | undefined;
+  data: IDataCareersResponse | undefined;
   isLoading: boolean;
 }

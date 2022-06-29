@@ -114,6 +114,18 @@ export const blockchainProjects = [
       url: "https://landing-cgs.s3.amazonaws.com/fe9b791d-cd2f-4999-a408-582ac8895122.png",
     },
   },
+  // {
+  //   title: "What is a project manager? The key to project success",
+  //   description:
+  //     "The role of a project manager is evolving as businesses evolve. The role of a project manager is evolving as businesses evolve.",
+  //   image: BannerImage.src,
+  // },
+  // {
+  //   title: "What is a project manager? The key to project success",
+  //   description:
+  //     "The role of a project manager is evolving as businesses evolve. The role of a project manager is evolving as businesses evolve.",
+  //   image: BannerImage.src,
+  // },
 ];
 
 export const initAdmin = {

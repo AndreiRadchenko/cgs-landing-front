@@ -17,7 +17,7 @@ export const TitleWrapper = styled.div`
 export const SubtitleTag = styled.div`
   font-weight: ${themes.primary.font.weight.bold};
   font-size: ${themes.primary.font.size.articleTagDescription};
-  color: ${themes.primary.colors.quinary};
+  color: #5869dd;
   margin-right: 12px;
 `;
 
@@ -27,8 +27,11 @@ export const Title = styled.div`
 `;
 
 export const Description = styled.p`
-  margin-top: 14px;
+  margin: 0;
   font-weight: ${themes.primary.font.weight.light};
   font-size: ${themes.primary.font.size.articleSubtitle};
   font-family: ${themes.primary.font.family.openSans};
+  p {
+    margin-top: 15px;
+  }
 `;

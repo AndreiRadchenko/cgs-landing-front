@@ -45,6 +45,7 @@ export interface InputWithHeader extends InputPropsInterface {
   isBlog?: boolean;
   height?: string;
   width?: string;
+  id?: string;
 }
 
 export interface InputWithImage extends InputPropsInterface {
