@@ -1,48 +1,34 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
-export const FeedbackContainer = styled.section`
-  margin-top: 3rem;
+export const NavigateLeft = styled.div`
+  margin-top: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 160px;
+  border-left: 1px solid #8f8e93;
+  color: black;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
   font-family: ${themes.primary.font.family.gilroy};
-`;
-
-export const FeedbackSectionTitle = styled.h1`
-  font-family: ${themes.primary.font.family.gilroy};
-  font-weight: ${themes.primary.font.weight.extraBold};
-  font-size: 2.5em;
-  margin: 0;
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 2.7em;
+  font-weight: 500;
+  font-size: 52px;
+  background-color: #f7f7f7;
+  &:after {
+    content: none;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 130px;
+    font-size: 40px;
   }
 `;
 
-export const FeedbackSectionSubTitle = styled.h3`
-  max-width: 23em;
-  font-weight: ${themes.primary.font.weight.light};
-  font-size: 1.65em;
-  line-height: 125%;
-  margin-top: 0.75em;
-  margin-bottom: 0;
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.6em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.8em;
-    max-width: 23em;
-  }
-`;
-
-export const FeedbackRow = styled.div`
+export const PortfolioRow = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
-  min-height: 40rem;
-  max-height: 49rem;
-  margin-bottom: 2rem;
-  align-items: baseline;
   & .swiper {
     display: flex;
     flex-direction: column-reverse;
@@ -50,53 +36,150 @@ export const FeedbackRow = styled.div`
   & .swiper-slide-next {
     color: rgba(0, 0, 0, 0.5);
   }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    min-height: 40rem;
-    max-height: 52rem;
+  & .swiper-slide-prev {
+    color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
   }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    min-height: 40rem;
-    max-height: 70rem;
-    margin-bottom: 5rem;
+  & .swiper-slide {
+    transition: 0.5s linear;
   }
+  border-top: 1px solid #8f8e93;
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-bottom: 7rem;
+  &:hover ${NavigateLeft} {
+    background-color: ${themes.primary.colors.darkBlue};
+    color: white;
   }
 `;
 
-export const StyledArrowButton = styled.button`
+export const NavigateRight = styled.div`
   position: absolute;
-  width: 6em;
-  height: 3em;
+  top: 0;
+  height: 100%;
+  width: 150px;
+  background-color: #f7f7f7;
+  right: 0;
+  & div:after {
+    content: none;
+  }
+  & div {
+    left: 0;
+    top: 0;
+    margin-top: 0;
+    height: 100%;
+    width: 100%;
+    color: black;
+  }
+`;
+
+export const ReviewContainer = styled.div`
+  .swiper-slide-next {
+    background-color: #0070f3;
+  }
+  height: 55vh;
+  position: relative;
+  left: 160px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    left: 130px;
+    height: 48vh;
+  }
+`;
+
+export const ImageContainer = styled.div`
   display: flex;
-  align-items: center;
   justify-content: center;
-  background-color: transparent;
-  border: none;
-
-  cursor: pointer;
-  transition: 300ms;
-
-  &:last-child {
-    transform: rotate(180deg);
-    right: -5%;
-    top: 15%;
+  align-items: center;
+  overflow: hidden;
+  border-left: 1px solid #8f8e93;
+  border-right: 1px solid #8f8e93;
+  height: 55vh;
+  span {
+    width: 100% !important;
+    height: 100% !important;
   }
-
-  &:first-child {
-    left: -10%;
-    top: 15%;
+  img {
+    width: 100%;
+    height: auto;
   }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    height: 48vh;
+  }
+`;
 
-  &:hover {
-    &:first-child {
-      left: -11%;
-    }
+export const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 28px 38px;
+  width: 100%;
+  box-sizing: border-box;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding: 18px 25px;
+  }
+`;
 
-    &:last-child {
-      right: -6%;
-    }
+export const ProjectHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+`;
+
+export const PortfolioProjectHeader = styled.div`
+  font-size: ${themes.primary.font.size.quaternary};
+  font-family: ${themes.primary.font.family.mulish};
+  font-weight: ${themes.primary.font.weight.normal};
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.secondary};
+  }
+`;
+
+export const ProjectDescription = styled.p`
+  font-family: ${themes.primary.font.family.mulish};
+  font-size: ${themes.primary.font.size.aboutUsCardText};
+  letter-spacing: 1px;
+  text-overflow: ellipsis;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 0.98em;
+    margin-top: 8px;
+  }
+`;
+
+export const Separator = styled.div`
+  background-color: ${(params) => (params.color ? params.color : "#cdcdcd")};
+  width: 100%;
+  height: 0.5px;
+  margin-bottom: 20px;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-bottom: 10px;
+  }
+`;
+
+export const Feedback = styled.div`
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    column-gap: 10px;
+  }
+`;
+
+export const AuthorName = styled.div`
+  font-size: ${themes.primary.font.size.articleTagDescription};
+  font-family: ${themes.primary.font.family.mulish};
+  font-weight: ${themes.primary.font.weight.normal};
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.buttonText};
+  }
+`;
+
+export const CompanyName = styled.div`
+  color: #8f8e93;
+  font-size: ${themes.primary.font.size.linkText};
+  font-family: ${themes.primary.font.family.mulish};
+  font-weight: ${themes.primary.font.weight.normal};
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.vistaco};
   }
 `;

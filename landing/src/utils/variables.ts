@@ -1,9 +1,10 @@
 export const routers = {
   home: "/",
   careers: "/careers",
+  portfolio: "/portfolio",
 };
 
-export const navigationRoutesNames = ["/home", "/careers"];
+export const navigationRoutesNames = ["/home", "/careers", "/portfolio"];
 
 export const modalNavigationRoutesNames = [
   "web",

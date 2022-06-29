@@ -11,9 +11,9 @@ import themes from "../../../utils/themes";
 
 interface IReviewProps {
   review: IPortfolioReview;
-  deleteFunc: (e?: React.ChangeEvent<any>) => void;
-  editTrigger: React.Dispatch<React.SetStateAction<boolean>>;
-  editFlag: boolean;
+  deleteFunc?: (e?: React.ChangeEvent<any>) => void;
+  editTrigger?: React.Dispatch<React.SetStateAction<boolean>>;
+  editFlag?: boolean;
 }
 
 const AdminReview = ({
@@ -23,7 +23,7 @@ const AdminReview = ({
   editFlag,
 }: IReviewProps) => {
   const editTriggerFunc = () => {
-    editTrigger((prev) => !prev);
+    editTrigger && editTrigger((prev) => !prev);
   };
 
   const redirect = () => (window.location.href = review.button);
@@ -63,11 +63,9 @@ const AdminReview = ({
         </div>
         <AdminImage image={review.image} />
       </Styled.AdminPortfolioReviewLayout>
-
       <Styled.AdminDeleteTextThin onClick={deleteFunc}>
         delete
       </Styled.AdminDeleteTextThin>
-
       <Styled.AdminEditIcon onClick={editTriggerFunc}>
         <Image src={editFlag ? edit : close} />
       </Styled.AdminEditIcon>
