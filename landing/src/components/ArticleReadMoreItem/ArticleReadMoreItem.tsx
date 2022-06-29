@@ -1,4 +1,9 @@
 import React from "react";
+<<<<<<< HEAD
+=======
+import BannerImage from "../../../public/blog-banner.jpg";
+
+>>>>>>> 0befeb5c001f25183d1bc927a42df8a3aa66c1f6
 import * as Styles from "./ArticleReadMoreItem.styled";
 import { IArticle } from "../../types/Admin/Response.types";
 import Link from "next/link";

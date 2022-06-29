@@ -1,3 +1,4 @@
+import React from "react";
 import ArticleReadMoreItem from "../ArticleReadMoreItem/ArticleReadMoreItem";
 import React from "react";
 import * as Styles from "./ArticleReadMore.styled";

@@ -1,4 +1,5 @@
 import { IDataCareersResponse } from "../../types/Admin/Response.types";
+import { IVacancyMail } from "../../types/Mail.types";
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
 
@@ -17,6 +18,14 @@ export class AdminCareersService {
 
   public updateCareersPage(data: IDataCareersResponse) {
     return this.httpService.put("api/career ", data);
+  }
+  public mailForm(data: IVacancyMail) {
+    return this.httpService.post("api/career/mail", data);
+  }
+  public uploadCV(data: FormData) {
+    return this.httpService.post("api/career/upload", data, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
   }
 }
 

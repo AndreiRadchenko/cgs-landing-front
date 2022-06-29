@@ -1,3 +1,4 @@
+import React from "react";
 import Timer from "../../../public/Timer.svg";
 import React, { FC } from "react";
 import * as Styles from "./ArticleAuthor.styled";

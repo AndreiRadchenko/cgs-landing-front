@@ -9,6 +9,7 @@ import { adminCareersService } from "../../../services/adminCareersPage";
 import { queryKeys } from "../../../consts/queryKeys";
 import { IDataCareersResponse } from "../../../types/Admin/Response.types";
 import * as Styled from "../../../styles/AdminPage";
+import MetaTagsBlock from "../MetaTagsBlock";
 
 interface IMainProps {
   data: IDataCareersResponse | undefined;
@@ -59,6 +60,7 @@ const CareersMainContent = () => {
                 setTicket={setTicket}
               />
               <CareersContactForm />
+              <MetaTagsBlock />
               <Styled.AdminPaddedBlock>
                 <Styled.AdminBigButton type="submit">
                   Submit

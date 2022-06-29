@@ -1,20 +1,19 @@
-import {AxiosError} from 'axios';
+import { AxiosError } from "axios";
 import {
   IErrorResponse,
   IHttpClient,
   IHttpConfig,
   IResponse,
-} from '../types/Admin';
-import {ErrorMessage} from '../consts';
+} from "../types/Admin";
+import { ErrorMessage } from "../consts";
 
 export class HttpService implements IHttpClient {
   constructor(
     private fetchingService: IHttpClient,
-    private baseUrl = process.env.NEXT_PUBLIC_BASE_URL,
+    private baseUrl = process.env.NEXT_PUBLIC_BASE_URL
   ) {}
 
   private getFullApiUrl(url: string) {
-    console.log(process.env.INPUT_NEXT_PUBLIC_BASE_URL);
     return `${this.baseUrl}/${url}`;
   }
 
@@ -74,7 +73,7 @@ export class HttpService implements IHttpClient {
       message: errorResponse?.data.message || ErrorMessage.DEFAULT,
     };
 
-    const event = new CustomEvent('http-error', {detail: errorData});
+    const event = new CustomEvent("http-error", { detail: errorData });
     document.dispatchEvent(event);
   }
 
