@@ -31,8 +31,8 @@ export const PageTitle = styled.div`
   font-size: ${themes.primary.font.size.quaternary};
   cursor: pointer;
   @media ${themes.primary.media.maxTabletPortrait} {
-    max-width: 720px;
     width: 100%;
+    max-width: 720px;
   }
 `;
 
