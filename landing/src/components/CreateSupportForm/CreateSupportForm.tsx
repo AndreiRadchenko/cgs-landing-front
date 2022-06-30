@@ -30,13 +30,16 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
     queryKeys.getFullHomePage
   )?.ContactFormBlock;
   const [sent, setSent] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
   const { mutate } = useMutation(
     (values: IClientMail) => adminGlobalService.mailForm(values),
     {
       onSuccess: () => {
+        setIsError(false);
         setSent(true);
       },
       onError: () => {
+        setIsError(true);
         setSent(false);
       },
     }
@@ -117,6 +120,11 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
           onMouseLeave={handleLeave}
         >
           {sent && <ModalSentEmail isOpen={sent} closeHandler={closeHandler} />}
+          {isError && (
+            <StyledThisComp.ErrorMessage>
+              Something went wrong. Pleasr try again later
+            </StyledThisComp.ErrorMessage>
+          )}
           <ButtonSubmitForm>
             <ButtonTextWrapper fontSize={"1.4em"}>send</ButtonTextWrapper>
           </ButtonSubmitForm>
