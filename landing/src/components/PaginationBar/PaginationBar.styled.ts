@@ -7,7 +7,8 @@ export const PaginationWrapper = styled.div`
   justify-content: center;
   align-items: center;
   column-gap: 30px;
-  margin: 90px auto 200px auto;
+  margin-top: 70px;
+  margin-bottom: 110px;
 `;
 
 export const PaginationItem = styled.div`

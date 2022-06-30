@@ -5,8 +5,8 @@ interface IAdmin {
   isAdmin?: boolean;
 }
 
-export const BlogItemDescription = styled.p`
-  max-width: 500px;
+export const BlogItemDescription = styled.p<IAdmin>`
+  max-width: ${(props) => (props.isAdmin ? "430px" : "500px")};
   font-weight: ${themes.primary.font.weight.normal};
   font-size: ${themes.primary.font.size.linkText};
   color: ${themes.primary.colors.blogDarkText};
@@ -56,7 +56,7 @@ export const BlogItem = styled.div<IAdmin>`
   align-items: center;
   flex-wrap: wrap;
   width: ${(props) => (props.isAdmin ? "100%" : "950px")};
-  padding: ${(props) => (props.isAdmin ? "40px 60px" : "20px 0")};
+  padding: ${(props) => (props.isAdmin ? "40px" : "20px 0")};
   margin-top: ${(props) => props.isAdmin && "30px"};
   border: ${(props) =>
     props.isAdmin ? `1px solid ${themes.primary.colors.black}` : "none"};
@@ -72,7 +72,7 @@ export const BlogItem = styled.div<IAdmin>`
 `;
 
 export const BlogItemTitle = styled.p<IAdmin>`
-  max-width: 500px;
+  max-width: ${(props) => (props.isAdmin ? "430px" : "500px")};
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
   font-family: ${themes.primary.font.family.namu};

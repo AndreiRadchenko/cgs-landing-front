@@ -42,7 +42,7 @@ const BlogPage = () => {
           <Page>
             <HeaderNav />
           </Page>
-          <Styles.PageHeaderWrapper>
+          <Styles.BlogItemContainer>
             <Styles.BannerImage src={currentArticlesData[0].image.url} />
             <Link href={`blog/articles/${currentArticlesData[0]._id}`} passHref>
               <Styles.PageTitle>
@@ -52,7 +52,7 @@ const BlogPage = () => {
             <Styles.PageDescription>
               {currentArticlesData[0].description}
             </Styles.PageDescription>
-          </Styles.PageHeaderWrapper>
+          </Styles.BlogItemContainer>
           <Styles.BlogItemsWrapper>
             {currentArticlesData.map((article, i) =>
               i === 0 ? null : (
