@@ -12,7 +12,7 @@ export const NavigateLeft = styled.div`
   color: black;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
-  font-family: ${themes.primary.font.family.gilroy};
+  font-family: ${themes.primary.font.family.namu};
   font-weight: 500;
   font-size: 52px;
   background-color: #f7f7f7;
@@ -22,6 +22,32 @@ export const NavigateLeft = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 130px;
     font-size: 40px;
+  }
+`;
+
+export const ButtonInfo = styled.div`
+  display: flex;
+  height: 153px;
+  width: 100%;
+  background: #E5E5E5;
+  padding: 0px 27px;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #8f8e93;
+  &:hover {
+    background-color: ${themes.primary.colors.darkBlue};
+    &:nth-child(1) {
+      color: white;
+    }
+  }
+  }
+`;
+
+export const Category = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: 900;
+  font-size: 40px;
+  margin: 0 auto 0 0;
   }
 `;
 
@@ -48,6 +74,18 @@ export const PortfolioRow = styled.div`
   &:hover ${NavigateLeft} {
     background-color: ${themes.primary.colors.darkBlue};
     color: white;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    display: block;
+    border-left: 1px solid #8f8e93;
+    border-right: 1px solid #8f8e93;
+    margin: 0 10px;
+    &:hover ${ButtonInfo} {
+      background-color: ${themes.primary.colors.darkBlue};
+      &:nth-child(1) {
+        color: white;
+      }
+    }
   }
 `;
 
@@ -82,7 +120,14 @@ export const ReviewContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   @media ${themes.primary.media.maxTabletLandScape} {
     left: 130px;
-    height: 48vh;
+    height: auto;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    left: 0;
+    height: auto;
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -94,6 +139,7 @@ export const ImageContainer = styled.div`
   border-left: 1px solid #8f8e93;
   border-right: 1px solid #8f8e93;
   height: 55vh;
+  position: relative;
   span {
     width: 100% !important;
     height: 100% !important;
@@ -103,7 +149,15 @@ export const ImageContainer = styled.div`
     height: auto;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    height: 48vh;
+    height: auto;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    img {
+      object-fit: cover;
+    }
+    height: auto;
+    grid-row-start: 1;
+
   }
 `;
 
@@ -114,7 +168,10 @@ export const ContentContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 18px 25px;
+    padding: 18px 7px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    padding: 0;
   }
 `;
 
@@ -123,11 +180,23 @@ export const ProjectHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  @media ${themes.primary.media.maxMobile} {
+    border-top: 1px solid #8f8e93;
+    padding: 10px;
+    display: flex;
+    height: 87px;
+    flex-direction: column;
+    align-items: baseline;
+    & + p {
+      color: black;
+      font-size: 1.6em;
+    }
+  }
 `;
 
 export const PortfolioProjectHeader = styled.div`
   font-size: ${themes.primary.font.size.quaternary};
-  font-family: ${themes.primary.font.family.mulish};
+  font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.normal};
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.secondary};
@@ -135,13 +204,19 @@ export const PortfolioProjectHeader = styled.div`
 `;
 
 export const ProjectDescription = styled.p`
-  font-family: ${themes.primary.font.family.mulish};
+  font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.aboutUsCardText};
   letter-spacing: 1px;
   text-overflow: ellipsis;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 0.98em;
     margin-top: 8px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    padding: 10px;
+    font-size: 1.4em;
+    margin-top: 0px;
+    color: #535353;
   }
 `;
 
@@ -153,6 +228,10 @@ export const Separator = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 10px;
   }
+  @media ${themes.primary.media.maxMobile} {
+    margin: 0 10px;
+    width: auto;
+  }
 `;
 
 export const Feedback = styled.div`
@@ -163,23 +242,34 @@ export const Feedback = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     column-gap: 10px;
   }
+  @media ${themes.primary.media.maxMobile} {
+    padding: 10px;
+    display: flex;
+    align-items: end;
+  }
 `;
 
 export const AuthorName = styled.div`
   font-size: ${themes.primary.font.size.articleTagDescription};
-  font-family: ${themes.primary.font.family.mulish};
+  font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.normal};
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.buttonText};
+  }
+  @media ${themes.primary.media.maxMobile} {
+    font-size: ${themes.primary.font.size.articleTagDescription};
   }
 `;
 
 export const CompanyName = styled.div`
   color: #8f8e93;
   font-size: ${themes.primary.font.size.linkText};
-  font-family: ${themes.primary.font.family.mulish};
+  font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.normal};
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.vistaco};
+  }
+  @media ${themes.primary.media.maxMobile} {
+    font-size: ${themes.primary.font.size.articleSubtitle};
   }
 `;

@@ -12,13 +12,13 @@ interface IReviewProps {
 }
 
 const Review = ({ review }: IReviewProps) => {
-  const [isTablet, setIsTablet] = useState(false);
-  const { width } = useWindowDimension();
-  useEffect(() => {
-    if (width && width <= 1024) {
-      setIsTablet(true);
-    }
-  }, [width]);
+  // const [isTablet, setIsTablet] = useState(false);
+  // const { width } = useWindowDimension();
+  // useEffect(() => {
+  //   if (width && width <= 1024) {
+  //     setIsTablet(true);
+  //   }
+  // }, [width]);
 
   return (
     review && (
@@ -37,7 +37,7 @@ const Review = ({ review }: IReviewProps) => {
             <Styled.CompanyName>{review.feedback?.company}</Styled.CompanyName>
             <AdminStars
               value={review.feedback?.rating}
-              size={isTablet ? 28 : 20}
+              size={20}
               color2={themes.primary.colors.darkBlue}
             />
           </Styled.Feedback>
@@ -46,7 +46,7 @@ const Review = ({ review }: IReviewProps) => {
           </Styled.ProjectDescription>
         </Styled.ContentContainer>
         <Styled.ImageContainer>
-          <Image src={review.image.url} width={"588"} height={"413"} />
+          <Image src={review.image.url} layout="fill"/>
         </Styled.ImageContainer>
       </Styled.ReviewContainer>
     )

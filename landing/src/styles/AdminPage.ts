@@ -288,6 +288,9 @@ export const AdminButtonText = styled.span`
 export const AdminBlackButtonText = styled.span`
   position: absolute;
   font-size: ${themes.primary.font.size.aboutUsCardText};
+  @media ${themes.primary.media.maxMobile} {
+    font-size: ${themes.primary.font.size.primary};
+  }
 `;
 
 export const AdminDeleteTextThin = styled.span`
