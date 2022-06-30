@@ -30,9 +30,9 @@ export const PageTitle = styled.div`
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
   cursor: pointer;
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    max-width: 720px;
+  @media ${themes.primary.media.maxTabletPortrait} {
     width: 100%;
+    max-width: 720px;
   }
 `;
 
