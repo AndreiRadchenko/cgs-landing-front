@@ -1,5 +1,4 @@
 import {
-  IPortfolioData,
   IPortfolioReview,
 } from "../../../types/Admin/AdminPortfolioPage.types";
 import React, { FC, useRef, useState } from "react";
@@ -23,7 +22,7 @@ SwiperCore.use([Navigation, Autoplay]);
 const PortfolioSlider: FC<IPortfolioSwipers> = ({ reviews, category, isMobile }) => {
   const [isShow, setIsShow] = useState(false);
   const portfolioRef = useRef(null);
-
+  
   let renderSliderSlides;
   if (reviews) {
     renderSliderSlides = [...reviews].reverse().map((review, idx) => (
