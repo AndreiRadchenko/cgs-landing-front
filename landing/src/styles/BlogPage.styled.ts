@@ -12,14 +12,16 @@ export const PageHeaderWrapper = styled.div`
   max-width: 950px;
   margin: 0 auto;
   margin-top: 67px;
+  font-family: ${themes.primary.font.family.namu};
+  margin-bottom: 20px;
 `;
 
 export const PageTitle = styled.div`
-  width: 20px;
+  max-width: 100%;
   margin-top: 28px;
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
-  font-family: ${themes.primary.font.family.openSans};
+  cursor: pointer;
 `;
 
 export const TagTitle = styled.div`
@@ -27,10 +29,10 @@ export const TagTitle = styled.div`
   max-width: 950px;
   align-items: center;
   justify-content: center;
-  margin-bottom: 65px;
+  margin: 80px 0 65px 0;
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.bigTitle};
-  font-family: ${themes.primary.font.family.openSans};
+  font-family: ${themes.primary.font.family.namu};
   text-align: center;
   @media (max-width: 990px) {
     margin-bottom: 0;
@@ -40,11 +42,9 @@ export const TagTitle = styled.div`
 export const PageDescription = styled.div`
   width: 100%;
   font-weight: ${themes.primary.font.weight.normal};
-  font-size: ${themes.primary.font.size.menuElement};
+  font-size: ${themes.primary.font.size.linkText};
   line-height: 160%;
   margin-top: 20px;
-
-  font-family: ${themes.primary.font.family.openSans};
 `;
 
 export const BlogItemsWrapper = styled.div`
@@ -59,7 +59,7 @@ export const ArrowBackButton = styled.img`
     cursor: pointer;
   }
   position: absolute;
-  top: 100px;
+  top: 79px;
   left: 0px;
 
   @media (max-width: 768px) {

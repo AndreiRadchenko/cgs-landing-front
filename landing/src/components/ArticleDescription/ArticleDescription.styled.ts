@@ -17,6 +17,7 @@ export const TitleWrapper = styled.div`
 export const SubtitleTag = styled.div`
   font-weight: ${themes.primary.font.weight.bold};
   font-size: ${themes.primary.font.size.articleTagDescription};
+  font-family: ${themes.primary.font.family.namu};
   color: #5869dd;
   margin-right: 12px;
 `;
@@ -24,13 +25,16 @@ export const SubtitleTag = styled.div`
 export const Title = styled.div`
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
+  font-family: ${themes.primary.font.family.namu};
 `;
 
 export const Description = styled.p`
   margin: 0;
   font-weight: ${themes.primary.font.weight.light};
-  font-size: ${themes.primary.font.size.articleSubtitle};
-  font-family: ${themes.primary.font.family.openSans};
+  font-size: ${themes.primary.font.size.aboutUsCardText};
+  font-family: ${themes.primary.font.family.namu};
+  line-height: 160%;
+  color: ${themes.primary.colors.blogArticleText};
   p {
     margin-top: 15px;
   }

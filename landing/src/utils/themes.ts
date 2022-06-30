@@ -27,6 +27,7 @@ const themes = {
         mulish: "'Roboto', sans-serif",
         gilroy: "'Gilroy', sans-serif",
         openSans: "'Open Sans', sans-serif",
+        namu: "'NAMU', sans-serif",
       },
       weight: {
         light: 300,
@@ -90,6 +91,9 @@ const themes = {
       black: "#000",
       lightGrey: "#716D6D",
       darkBlueBlockchain: "#392770",
+      blogDarkText: "#272C2F",
+      blogArticleText: "#535557",
+      blogBackground: "#E5E5E5",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

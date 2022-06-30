@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
 export const Text = styled.div`
   font-size: ${themes.primary.font.size.secondary};
   font-weight: ${themes.primary.font.weight.bold};
+  font-family: ${themes.primary.font.family.namu};
 `;
 
 export const IconImage = styled.img`

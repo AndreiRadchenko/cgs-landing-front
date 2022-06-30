@@ -10,6 +10,8 @@ import BlogItem from "../../../components/BlogItem/BlogItem";
 import * as Styles from "../../../styles/BlogPage.styled";
 import { adminBlogService } from "../../../services/adminBlogPage";
 import { useRouter } from "next/router";
+import ArrowBack from "../../../../public/arrowBack.svg";
+import { adminGlobalService } from "../../../services/adminHomePage";
 
 interface IHomeData {
   data: IBlogResponse | undefined;
@@ -25,6 +27,8 @@ const BlogPage = () => {
   const { data, isLoading }: IHomeData = useQuery(queryKeys.getBlogPage, () =>
     adminBlogService.getBlogPage()
   );
+
+  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
   useEffect(() => {
     if (data)
@@ -46,6 +50,10 @@ const BlogPage = () => {
         <Styles.PageWrapper>
           <Page>
             <HeaderNav />
+            <Styles.ArrowBackButton
+              src={ArrowBack.src}
+              onClick={() => router.back()}
+            />
             <Styles.PageHeaderWrapper>
               <Styles.TagTitle>TAG: {tag}</Styles.TagTitle>
             </Styles.PageHeaderWrapper>

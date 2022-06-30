@@ -57,6 +57,13 @@
   font-style: sans-serif;
 }
 
+@font-face {
+  font-family: "NAMU";
+  src: url("/NAMUFont/NAMU-PRO.woff2") format("woff2");
+  font-weight: 900;
+  font-style: sans-serif;
+}
+
 html,
 body {
   padding: 0;
