@@ -176,3 +176,10 @@ export const SentMessage = styled.div`
     transform: none;
   }
 `;
+
+export const ErrorMessage = styled.p`
+  color: ${themes.primary.colors.errorText};
+  text-align: center;
+  font-size: ${themes.primary.font.size.linkText};
+  font-weight: ${themes.primary.font.weight.bold};
+`;

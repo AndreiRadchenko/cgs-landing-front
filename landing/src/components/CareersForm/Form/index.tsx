@@ -21,6 +21,7 @@ interface IFormProps {
 
 const Form: FC<IFormProps> = ({ data, vacancy }) => {
   const [isCV, setIsCV] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(false);
   const [sent, setSent] = useState<boolean>(false);
 
@@ -46,9 +47,11 @@ const Form: FC<IFormProps> = ({ data, vacancy }) => {
     (data: IVacancyMail) => adminCareersService.mailForm(data),
     {
       onSuccess: () => {
+        setIsError(false);
         setSent(true);
       },
       onError: () => {
+        setIsError(true);
         setSent(false);
       },
     }
@@ -145,6 +148,11 @@ const Form: FC<IFormProps> = ({ data, vacancy }) => {
             {isCV ? "file is uploaded" : CV?.isSupported}
           </Styled.FileLoad>
         </Styled.FileContainer>
+        {isError && (
+          <Styled.ErrorMessage>
+            Something went wrong. Try again later
+          </Styled.ErrorMessage>
+        )}
         <Styled.SubmitButton>
           {sent && <ModalSentEmail isOpen={sent} closeHandler={closeHandler} />}
           <BaseButton
