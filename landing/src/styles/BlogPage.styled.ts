@@ -30,8 +30,9 @@ export const PageTitle = styled.div`
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
   cursor: pointer;
-  @media (max-width: 990px) {
+  @media ${themes.primary.media.maxTabletPortrait} {
     max-width: 720px;
+    width: 100%;
   }
 `;
 
@@ -43,8 +44,7 @@ export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
   font-family: ${themes.primary.font.family.namu};
   padding: 20px 0;
 
-  @media (max-width: 990px) {
-    text-align: left;
+  @media (max-width: 920px) {
     &:hover {
       background-color: ${(props) =>
         props.isAdmin ? "transparent" : themes.primary.colors.darkBlue};
