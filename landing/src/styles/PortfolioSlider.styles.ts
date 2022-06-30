@@ -29,7 +29,7 @@ export const ButtonInfo = styled.div`
   display: flex;
   height: 153px;
   width: 100%;
-  background: #E5E5E5;
+  background: #e5e5e5;
   padding: 0px 27px;
   align-items: center;
   justify-content: space-around;
@@ -40,7 +40,6 @@ export const ButtonInfo = styled.div`
       color: white;
     }
   }
-  }
 `;
 
 export const Category = styled.div`
@@ -48,7 +47,6 @@ export const Category = styled.div`
   font-weight: 900;
   font-size: 40px;
   margin: 0 auto 0 0;
-  }
 `;
 
 export const PortfolioRow = styled.div`
@@ -113,14 +111,13 @@ export const ReviewContainer = styled.div`
   .swiper-slide-next {
     background-color: #0070f3;
   }
-  height: 55vh;
+  height: 100%;
   position: relative;
   left: 160px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   @media ${themes.primary.media.maxTabletLandScape} {
     left: 130px;
-    height: auto;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -138,7 +135,7 @@ export const ImageContainer = styled.div`
   overflow: hidden;
   border-left: 1px solid #8f8e93;
   border-right: 1px solid #8f8e93;
-  height: 55vh;
+  height: 100%;
   position: relative;
   span {
     width: 100% !important;
@@ -157,7 +154,6 @@ export const ImageContainer = styled.div`
     }
     height: auto;
     grid-row-start: 1;
-
   }
 `;
 

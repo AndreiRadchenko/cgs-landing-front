@@ -5,7 +5,12 @@ export const routers = {
   portfolio: "/portfolio",
 };
 
-export const navigationRoutesNames = ["/home", "/careers", "/blog"];
+export const navigationRoutesNames = [
+  "/home",
+  "/careers",
+  "/blog",
+  "/portfolio",
+];
 
 export const modalNavigationRoutesNames = [
   "web",
