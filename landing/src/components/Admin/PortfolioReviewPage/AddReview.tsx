@@ -2,7 +2,7 @@ import AdminDropDown from "../Global/AdminDropDown";
 import React, { useState } from "react";
 import * as Styled from "../../../styles/AdminPage";
 import { useFormikContext } from "formik";
-import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio";
+import { IPortfolioReview } from "../../../types/Admin/AdminPortfolioPage.types";
 import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
@@ -22,6 +22,7 @@ const AddReview = ({ categories, setIsReady, newFlag }: IAddReviewProps) => {
   const [catValue, setCatValue] = useState(values.category);
   const deleteFunction = useDeleteImageFunction(values, "");
   const uploadFunction = useUploadImageFunction(values, "");
+  const starsChange = (newValue: number) => (values.feedback.rating = newValue);
 
   const submitFunction = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -30,7 +31,6 @@ const AddReview = ({ categories, setIsReady, newFlag }: IAddReviewProps) => {
     handleSubmit();
     setCatValue("");
   };
-
   const deleteFunc = async () => (await deleteFunction)();
   const uploadFunc = (image: IImage) => uploadFunction(image);
 
@@ -82,16 +82,16 @@ const AddReview = ({ categories, setIsReady, newFlag }: IAddReviewProps) => {
             <SubHeaderWithInput
               placeholder="Name"
               header="Add review"
-              inputValue={values.button}
+              inputValue={values.feedback.name}
               onChangeFunction={handleChange}
-              name="button"
+              name="feedback.name"
             />
             <Styled.StartsContainer>
               <Styled.AdminFeedbackStars>
                 <AdminStars
-                  size={27}
-                  value={5}
-                  handleChange={handleChange}
+                  size={30}
+                  value={Number(values.feedback.rating)}
+                  handleChange={starsChange}
                   edit={true}
                 />
               </Styled.AdminFeedbackStars>
@@ -99,16 +99,16 @@ const AddReview = ({ categories, setIsReady, newFlag }: IAddReviewProps) => {
           </Styled.InputAndStars>
           <Styled.AdminInput
             placeholder="Company"
-            value={values.title}
+            value={values.feedback.company}
             onChange={handleChange}
-            name="title"
+            name="feedback.company"
           />
           <Styled.AdminInput
             minRows={4}
             placeholder="Text review"
-            value={values.text}
+            value={values.feedback.feedbackText}
             onChange={handleChange}
-            name="text"
+            name="feedback.feedbackText"
           />
         </div>
       </Styled.AdminPageSecondBlockLayout>

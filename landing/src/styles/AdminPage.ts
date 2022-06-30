@@ -266,23 +266,30 @@ export const AdminBlackButton = styled.button`
   border: 0;
   padding: 0;
   width: 10em;
-  //margin-left: -1.3em;
-  //position: relative;
   height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  @media (max-width: 1000px) {
+    width: 7em;
+  }
 `;
 
 export const AdminButtonText = styled.span`
   position: absolute;
   font-size: ${themes.primary.font.size.linkText};
+  @media (max-width: 1000px) {
+    font-size: ${themes.primary.font.size.quinary};
+  }
 `;
 
 export const AdminBlackButtonText = styled.span`
   position: absolute;
   font-size: ${themes.primary.font.size.aboutUsCardText};
+  @media ${themes.primary.media.maxMobile} {
+    font-size: ${themes.primary.font.size.primary};
+  }
 `;
 
 export const AdminDeleteTextThin = styled.span`
@@ -659,4 +666,15 @@ export const CompanyName = styled.div`
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.mulish};
   font-weight: ${themes.primary.font.weight.normal};
+`;
+
+export const Subtitle = styled.div`
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: 500;
+  font-size: 52px;
+  letter-spacing: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 70px;
+  margin-bottom: 40px;
 `;

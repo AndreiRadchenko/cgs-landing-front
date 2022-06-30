@@ -26,6 +26,7 @@ const themes = {
         sourceCode: "'Source Code Pro', monospace",
         mulish: "'Roboto', sans-serif",
         gilroy: "'Gilroy', sans-serif",
+        namu: "'NAMU', sans-serif",
         openSans: "'Open Sans', sans-serif",
       },
       weight: {
