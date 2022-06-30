@@ -1,5 +1,4 @@
-import React, { FC } from "react";
-import { ArrowContainer } from "../Feedback/Feedback.styled";
+import React, { FC, useEffect } from "react";
 import LeftArrow from "../../../public/leftArrow";
 import RightArow from "../../../public/rightArrow";
 
@@ -28,6 +27,10 @@ const PaginationBar: FC<IPaginationBar> = ({
     pageSize,
     onPageChange,
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
 
   if (paginationRange)
     if (currentPage === 0 || paginationRange.length < 2) {
@@ -72,7 +75,7 @@ const PaginationBar: FC<IPaginationBar> = ({
           );
         })}
       </Styles.PaginationItemsWrapper>
-      <ArrowContainer>
+      <Styles.ArrowContainer>
         <Styles.SwiperButton
           onClick={currentPage === 1 ? () => null : onPrevious}
           aria-disabled={currentPage === 1}
@@ -84,7 +87,7 @@ const PaginationBar: FC<IPaginationBar> = ({
         >
           <RightArow />
         </Styles.SwiperButton>
-      </ArrowContainer>
+      </Styles.ArrowContainer>
     </Styles.PaginationWrapper>
   );
 };

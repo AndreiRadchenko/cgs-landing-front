@@ -18,7 +18,7 @@ export const TagItem = styled.div`
   text-align: center;
   padding: 0px 25px 0px 25px;
   border: 0.6px solid rgba(39, 44, 47, 0.25);
-  font-family: ${themes.primary.font.family.openSans};
+  font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.normal};
   font-size: ${themes.primary.font.size.aboutUsCardText};
   margin-right: 20px;
