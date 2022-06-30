@@ -67,3 +67,10 @@ export const SentMessage = styled.div`
   font-weight: ${themes.primary.font.weight.bold};
   color: ${themes.primary.colors.lightBlue};
 `;
+
+export const ErrorMessage = styled.p`
+  color: ${themes.primary.colors.errorText};
+  text-align: center;
+  font-size: ${themes.primary.font.size.linkText};
+  font-weight: ${themes.primary.font.weight.bold};
+`;
