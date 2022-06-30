@@ -31,9 +31,9 @@ const BlogItem = ({
               </Styles.BlogItemTitle>
             </Link>
           ) : (
-            <Styles.BlogItemTitle>{title}</Styles.BlogItemTitle>
+            <Styles.BlogItemTitle isAdmin={isAdmin}>{title}</Styles.BlogItemTitle>
           )}
-          <Styles.BlogItemDescription>{description}</Styles.BlogItemDescription>
+          <Styles.BlogItemDescription isAdmin={isAdmin}>{description}</Styles.BlogItemDescription>
         </Styles.BlogItemInfo>
         <Styles.BlogItemImage src={image} />
         {children}
