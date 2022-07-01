@@ -4,6 +4,7 @@ import themes from "../../utils/themes";
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  column-gap: 15px;
   align-items: center;
   width: 330px;
 `;
