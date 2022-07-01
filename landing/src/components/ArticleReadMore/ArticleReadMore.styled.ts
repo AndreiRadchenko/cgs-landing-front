@@ -22,7 +22,7 @@ export const ReadMoreItemsWrapper = styled.div`
   justify-content: center;
   color: ${themes.primary.colors.blogDarkText};
   font-family: ${themes.primary.font.family.namu};
-  margin: 0 auto 200px;
+  margin: 0 auto 80px;
   column-gap: 35px;
   @media ${themes.primary.media.maxMobile} {
     flex-wrap: wrap;

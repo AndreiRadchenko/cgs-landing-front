@@ -28,7 +28,7 @@ const ArticlePage = () => {
   const [article, setArticle] = useState<IArticle | undefined | null>(null);
   const [readMore, setReadMore] = useState<IArticle[] | null>(null);
   const id = typeof router.query?.id === "string" ? router.query.id : "";
-  const { data, isSuccess }: IBlogData = useQuery(
+  const { data, isSuccess, isLoading }: IBlogData = useQuery(
     queryKeys.getBlogPage,
     () => adminBlogService.getBlogPage(),
     {
@@ -56,6 +56,10 @@ const ArticlePage = () => {
     }
   }, [data]);
 
+  if (isLoading)
+    return (
+      <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
+    );
   return (
     <>
       {isSuccess && article && readMore ? (
@@ -83,7 +87,7 @@ const ArticlePage = () => {
               <ArticleReadMore readMore={readMore} />
             </Styles.PageWrapper>
           </Page>
-          <Footer />
+          <Footer isGreenLine={false} />
         </>
       ) : (
         <Styled.AdminUnauthorizedModal>

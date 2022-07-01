@@ -21,7 +21,7 @@ export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
   display: flex;
   justify-content: center;
   font-family: ${themes.primary.font.family.namu};
-  &:hover {
+  &:active {
     background-color: ${(props) =>
       props.isAdmin ? "transparent" : themes.primary.colors.darkBlue};
     color: ${(props) =>
@@ -29,7 +29,7 @@ export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
         ? themes.primary.colors.black
         : themes.primary.colors.secondary};
   }
-  &:hover ${BlogItemDescription} {
+  &:active ${BlogItemDescription} {
     color: ${(props) =>
       props.isAdmin
         ? themes.primary.colors.black
@@ -60,6 +60,9 @@ export const BlogItem = styled.div<IAdmin>`
   margin-top: ${(props) => props.isAdmin && "30px"};
   border: ${(props) =>
     props.isAdmin ? `1px solid ${themes.primary.colors.black}` : "none"};
+  &:hover {
+    cursor: ${(props) => (props.isAdmin === false ? "pointer" : "default")};
+  }
   @media (max-width: 990px) {
     flex-wrap: wrap-reverse;
     justify-content: center;
@@ -76,10 +79,6 @@ export const BlogItemTitle = styled.p<IAdmin>`
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
   font-family: ${themes.primary.font.family.namu};
-
-  &:hover {
-    cursor: ${(props) => (props.isAdmin === false ? "pointer" : "default")};
-  }
   @media (max-width: 990px) {
     max-width: 720px;
     padding: 0;

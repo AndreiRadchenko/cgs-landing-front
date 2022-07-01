@@ -42,17 +42,17 @@ const BlogPage = () => {
           <Page>
             <HeaderNav />
           </Page>
-          <Styles.BlogItemContainer>
-            <Styles.BannerImage src={currentArticlesData[0].image.url} />
-            <Link href={`blog/articles/${currentArticlesData[0]._id}`} passHref>
+          <Link href={`blog/articles/${currentArticlesData[0]._id}`} passHref>
+            <Styles.BlogItemContainer>
+              <Styles.BannerImage src={currentArticlesData[0].image.url} />
               <Styles.PageTitle>
                 {currentArticlesData[0].title}
               </Styles.PageTitle>
-            </Link>
-            <Styles.PageDescription>
-              {currentArticlesData[0].description}
-            </Styles.PageDescription>
-          </Styles.BlogItemContainer>
+              <Styles.PageDescription>
+                {currentArticlesData[0].description}
+              </Styles.PageDescription>
+            </Styles.BlogItemContainer>
+          </Link>
           <Styles.BlogItemsWrapper>
             {currentArticlesData.map((article, i) =>
               i === 0 ? null : (
@@ -76,7 +76,7 @@ const BlogPage = () => {
             }
             siblingCount={1}
           />
-          <Footer />
+          <Footer isGreenLine={false} />
         </Styles.PageWrapper>
       )}
     </>

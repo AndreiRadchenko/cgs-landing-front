@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 100%;
-    margin-bottom: 79px;
   }
 `;
 
