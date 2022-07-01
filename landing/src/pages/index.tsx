@@ -31,6 +31,7 @@ interface IPortfolioData {
   isLoading: boolean;
 }
 
+
 const Home: NextPage = () => {
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
   const [isClicked, setIsClicked] = useState(false);
