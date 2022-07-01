@@ -3,10 +3,12 @@ import themes from "../../utils/themes";
 
 export const Wrapper = styled.div`
   display: flex;
+  justify-content: flex-end;
   max-width: 550px;
   width: 100%;
   flex-wrap: wrap;
   row-gap: 15px;
+  column-gap: 20px;
 
   @media (max-width: 990px) {
     margin-bottom: 52px;
@@ -24,7 +26,6 @@ export const TagItem = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.normal};
   font-size: ${themes.primary.font.size.aboutUsCardText};
-  margin-right: 20px;
   &:last-child {
     margin-right: 0;
   }

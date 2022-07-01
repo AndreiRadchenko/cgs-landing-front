@@ -39,7 +39,7 @@ export const ShareTagsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  column-gap: 30px;
+  column-gap: 70px;
   width: 100%;
   margin-top: 20px;
 
