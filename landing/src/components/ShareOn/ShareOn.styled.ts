@@ -25,17 +25,14 @@ export const Text = styled.div`
   }
   @media ${themes.primary.media.onlyPC} {
     font-weight: 700;
-    //width: 150px;
     font-size: ${themes.primary.font.size.adminButton};
   }
   @media (max-width: 2560px) {
     font-weight: 700;
-    //width: 150px;
     font-size: ${themes.primary.font.size.articleSubtitle};
   }
   @media ${themes.primary.media.maxMobilePortrait} {
     font-weight: 700;
-    //width: 150px;
     font-size: ${themes.primary.font.size.articleTagDescription};
   }
 `;
