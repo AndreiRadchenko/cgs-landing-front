@@ -9,10 +9,7 @@ export const Wrapper = styled.div`
   font-family: ${themes.primary.font.family.openSans};
 `;
 
-export const TitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
+export const TitleWrapper = styled.div``;
 
 export const SubtitleTag = styled.div`
   font-weight: ${themes.primary.font.weight.bold};
@@ -20,6 +17,8 @@ export const SubtitleTag = styled.div`
   font-family: ${themes.primary.font.family.namu};
   color: #5869dd;
   margin-right: 12px;
+  margin-top: 5px;
+  float: left;
 `;
 
 export const Title = styled.div`
