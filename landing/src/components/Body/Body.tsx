@@ -4,13 +4,18 @@ import WelcomePage from "../WelcomePage/WelcomePage";
 import HeaderNav from "../HeaderNav/HeaderNav";
 import { IBodyProps } from "./types";
 
-const Body = ({ welcomePageButtonHandler, setIsClicked }: IBodyProps) => {
+const Body = ({
+  welcomePageButtonHandler,
+  setIsClicked,
+  heroImg,
+}: IBodyProps) => {
   return (
     <StyledThisComp.BodyContainer>
       <HeaderNav />
       <WelcomePage
         clickHandler={welcomePageButtonHandler}
         setIsClicked={setIsClicked}
+        heroImg={heroImg}
       />
     </StyledThisComp.BodyContainer>
   );

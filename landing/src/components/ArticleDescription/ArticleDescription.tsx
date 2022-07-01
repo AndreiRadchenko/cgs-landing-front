@@ -1,6 +1,6 @@
+import React, { FC } from "react";
 import * as Styles from "./ArticleDescription.styled";
 import { ITextBlog } from "../../types/Admin/Response.types";
-import React, { FC } from "react";
 
 interface IDescription {
   content: ITextBlog[];

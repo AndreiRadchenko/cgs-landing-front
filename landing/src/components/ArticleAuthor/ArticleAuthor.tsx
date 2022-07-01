@@ -1,5 +1,5 @@
-import Timer from "../../../public/Timer.svg";
 import React, { FC } from "react";
+import Timer from "../../../public/Timer.svg";
 import * as Styles from "./ArticleAuthor.styled";
 import { IAuthor } from "../../types/Admin/Response.types";
 

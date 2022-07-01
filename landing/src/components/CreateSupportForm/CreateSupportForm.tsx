@@ -18,6 +18,12 @@ import ModalSentEmail from "../Modal/ModalSentEmail";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { IClientMail } from "../../types/Mail.types";
 
+declare global {
+  interface Window {
+    dataLayer: Record<string, string>[];
+  }
+}
+
 interface IEmailBody {
   name: string;
   email: string;

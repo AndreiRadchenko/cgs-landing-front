@@ -1,16 +1,20 @@
-import * as StyledThisComp from "../../styles/Body.styled";
 import React from "react";
+import Image from "next/image";
+import * as StyledThisComp from "../../styles/Body.styled";
 import BaseButton from "../BaseButton/BaseButton";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import backImg from "../../../public/back-button.png";
-import ImagePreview from "../Image/ImagePreview";
 import { IWelcomePageProps } from "./types";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
-const WelcomePage = ({ clickHandler, setIsClicked }: IWelcomePageProps) => {
+const WelcomePage = ({
+  clickHandler,
+  setIsClicked,
+  heroImg,
+}: IWelcomePageProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
@@ -51,12 +55,12 @@ const WelcomePage = ({ clickHandler, setIsClicked }: IWelcomePageProps) => {
         </BaseButton>
 
         <StyledThisComp.WrapperBgImg>
-          <ImagePreview
-            src={data?.image.url}
-            width={"1000px"}
-            height={"800px"}
+          <Image
+            src={heroImg}
+            width={1000}
+            height={800}
             alt={"main logo big image"}
-            priority={true}
+            loading="eager"
           />
         </StyledThisComp.WrapperBgImg>
       </StyledThisComp.BodyDescriptionWrapper>

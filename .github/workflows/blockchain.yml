@@ -3,9 +3,9 @@ name: Development workflow
 on:
   push:
     branches:
-      - staging
+      - master
     paths:
-      - landing/**
+      - blockchain/**
     
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./landing
+        working-directory: ./blockchain
 
     steps:
       - name: Development Code
@@ -30,7 +30,7 @@ jobs:
         with:
           args: deploy --dir=build --prod
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: 'cg-landing-frontend'
+          heroku_app_name: 'cg-blockchain-fe'
           heroku_email: 'contact@codegenerationsoftware.com'
         env: 
-          HD_PROJECT_PATH: "landing"
+          HD_PROJECT_PATH: "blockchain"

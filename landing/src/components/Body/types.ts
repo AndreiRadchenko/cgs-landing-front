@@ -1,4 +1,7 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type IBodyProps = {
   welcomePageButtonHandler: () => void;
-  setIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsClicked: Dispatch<SetStateAction<boolean>>;
+  heroImg: string;
 };

@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from "react";
-import LeftArrow from "../../../public/leftArrow";
-import RightArow from "../../../public/rightArrow";
+import LeftArrow from "../Feedback/leftArrow";
+import RightArow from "../Feedback/rightArrow";
 
 import * as Styles from "./PaginationBar.styled";
 import { usePagination, DOTS } from "../../hooks/usePagination";

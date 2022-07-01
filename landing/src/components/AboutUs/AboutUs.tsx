@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as StyledThisComp from "../../styles/AboutUs.styled";
+import AboutUsAdditional from "../AboutUsAdditional/AboutUsAdditional";
 import AboutUsCard from "../AboutUsCard/AboutUsCard";
-import ImagePreview from "../Image/ImagePreview";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
@@ -47,33 +47,13 @@ const AboutUs = () => {
         ))}
       </StyledThisComp.AboutUsWrapper>
 
-      <StyledThisComp.AboutUsInfoSupport>
-        <StyledThisComp.AboutUsCodeIcon>
-          {data?.firstText2}
-        </StyledThisComp.AboutUsCodeIcon>
-        <StyledThisComp.AboutUsDescription>
-          {data?.text3}
-        </StyledThisComp.AboutUsDescription>
-        <StyledThisComp.AboutUsCodeIcon>
-          {data?.secondText2}
-        </StyledThisComp.AboutUsCodeIcon>
-      </StyledThisComp.AboutUsInfoSupport>
-
-      <StyledThisComp.IllustrationWrapper
+      <AboutUsAdditional
+        data={data}
         isScrolled={isScrolled}
-        ref={illustrationRef}
-        onClick={!isClicked ? handleIllustrationClick : undefined}
-        className={isClicked ? "mobileAnimation" : undefined}
-      >
-        <StyledThisComp.Wrapper>
-          <ImagePreview
-            src={data?.image.url}
-            alt={"illustration image technology"}
-            width="140px"
-            height="181px"
-          />
-        </StyledThisComp.Wrapper>
-      </StyledThisComp.IllustrationWrapper>
+        isClicked={isClicked}
+        handleIllustrationClick={handleIllustrationClick}
+        illustrationRef={illustrationRef}
+      />
     </StyledThisComp.AboutUsContainer>
   );
 };

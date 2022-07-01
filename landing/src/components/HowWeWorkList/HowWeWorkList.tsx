@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Mousewheel, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/mousewheel";
+import "swiper/css/pagination";
 
 import HowWeWorkCard from "../HowWeWorkCard/HowWeWorkCard";
 
@@ -64,10 +65,10 @@ const HowWeWorkList = ({ isClicked }: IHowWeWorkProps) => {
             setCurrentSlide(e.activeIndex);
             isReleaseOnEdges(e, false, 0);
           }}
+          allowTouchMove={false}
           onReachBeginning={(e) => isReleaseOnEdges(e, true, 300)}
           onReachEnd={(e) => isReleaseOnEdges(e, true, 300)}
           initialSlide={currentSlide}
-          allowTouchMove={false}
         >
           {items &&
             [...items].map((item) => (

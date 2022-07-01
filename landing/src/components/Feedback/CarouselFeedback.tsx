@@ -1,53 +1,34 @@
-import React, { FC, useRef } from "react";
-import { Navigationwrapper, ArrowContainer } from "./Feedback.styled";
+import React, { useRef } from "react";
 import FeedbackCard from "../FeedbackCard/FeedbackCard";
-import SwiperCore, {
-  Autoplay,
-  Navigation,
-  Swiper as SwipperType,
-} from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { useEffect, useState } from "react";
-import "swiper/css/bundle";
-import LeftArrow from "../../../public/leftArrow";
-import RightArow from "../../../public/rightArrow";
 import Feedback from "./Feedback";
-import { useOnScreen } from "../../hooks/useOneScreen";
-import * as StyledThisComp from "../../styles/Feedback.styled";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import params from "../../mock/FeedbackSwiperParams";
+import * as StyledThisComp from "../../styles/Feedback.styled";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
+import { ArrowContainer, Navigationwrapper } from "./Feedback.styled";
+import LeftArrow from "./leftArrow";
+import RightArrow from "./rightArrow";
 
-SwiperCore.use([Navigation, Autoplay]);
-
-const CarouselFeedback: FC = () => {
+const CarouselFeedback = () => {
   const feedbackRef = useRef(null);
-  const isFeedbackOnScreen = useOnScreen(feedbackRef);
+  const slider = useRef<Slider>(null);
+
+  const handlePrevClick = () => {
+    slider?.current?.slickPrev();
+  };
+
+  const handleNextClick = () => {
+    slider?.current?.slickNext();
+  };
 
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
   )?.FeedbackBlock;
-
-  const [swiper, setSwiper] = useState<SwipperType>();
-
-  const [isBeenInitSlideScroll, setIsInitSlideScroll] =
-    useState<boolean>(false);
-
-  useEffect(() => {
-    if (isFeedbackOnScreen && swiper && !isBeenInitSlideScroll) {
-      setIsInitSlideScroll(true);
-
-      const delay = 1500;
-      for (let i = 1; i < 4; i++) {
-        setTimeout(() => {
-          swiper.slideNext();
-        }, delay * i);
-      }
-    }
-  }, [swiper, isFeedbackOnScreen, isBeenInitSlideScroll]);
 
   let feedbacks, renderSliderSlides;
   if (data?.feedBacks) {
@@ -55,16 +36,15 @@ const CarouselFeedback: FC = () => {
     renderSliderSlides = [...feedbacks]
       .reverse()
       .map(({ name, text, link, companyName, role, stars }, idx) => (
-        <SwiperSlide key={idx}>
-          <FeedbackCard
-            name={name}
-            description={text}
-            company={companyName}
-            link={link}
-            rates={stars}
-            position={role}
-          />
-        </SwiperSlide>
+        <FeedbackCard
+          key={idx}
+          name={name}
+          description={text}
+          company={companyName}
+          link={link}
+          rates={stars}
+          position={role}
+        />
       ));
   }
 
@@ -72,20 +52,20 @@ const CarouselFeedback: FC = () => {
     <StyledThisComp.FeedbackContainer>
       <div ref={feedbackRef}>
         <StyledThisComp.FeedbackRow>
-          <Swiper {...params} onSwiper={(swiper) => setSwiper(swiper)}>
-            <Navigationwrapper>
-              <Feedback title={data?.subtitle} subtitle={data?.text3} />
-              <ArrowContainer>
-                <div className="swiper-button-prev">
-                  <LeftArrow />
-                </div>
-                <div className="swiper-button-next">
-                  <RightArow />
-                </div>
-              </ArrowContainer>
-            </Navigationwrapper>
+          <Navigationwrapper>
+            <Feedback title={data?.subtitle} subtitle={data?.text3} />
+            <ArrowContainer>
+              <div className="swiper-button-prev" onClick={handlePrevClick}>
+                <LeftArrow />
+              </div>
+              <div onClick={handleNextClick}>
+                <RightArrow />
+              </div>
+            </ArrowContainer>
+          </Navigationwrapper>
+          <Slider ref={slider} {...params}>
             {renderSliderSlides}
-          </Swiper>
+          </Slider>
         </StyledThisComp.FeedbackRow>
       </div>
     </StyledThisComp.FeedbackContainer>

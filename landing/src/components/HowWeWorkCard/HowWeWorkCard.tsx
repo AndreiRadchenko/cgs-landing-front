@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-
 import * as Styles from "./HowWeWorkCard.styled";
 import { IHowWeWorkCardProps } from "./types";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
