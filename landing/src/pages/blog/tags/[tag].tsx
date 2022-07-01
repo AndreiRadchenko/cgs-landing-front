@@ -79,7 +79,7 @@ const BlogPage = () => {
             }
             siblingCount={1}
           />
-          <Footer />
+          <Footer isGreenLine={false} />
         </Styles.PageWrapper>
       )}
     </>

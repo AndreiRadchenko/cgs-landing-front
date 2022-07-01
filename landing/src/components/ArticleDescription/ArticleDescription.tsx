@@ -18,9 +18,7 @@ const ArticleDescription: FC<IDescription> = ({ content }) => {
         ) : (
           <Styles.TitleWrapper key={index}>
             <Styles.SubtitleTag>{block.subNumber}</Styles.SubtitleTag>
-            <Styles.Title>
-              The subtitle of the article is for example
-            </Styles.Title>
+            <Styles.Title>{block.subtitle}</Styles.Title>
           </Styles.TitleWrapper>
         )
       )}

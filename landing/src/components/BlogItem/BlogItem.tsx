@@ -22,26 +22,35 @@ const BlogItem = ({
 }: IBlogItemProps) => {
   return (
     <Styles.BlogItemContainer isAdmin={isAdmin}>
-      <Styles.BlogItem isAdmin={isAdmin}>
-        <Styles.BlogItemInfo>
-          {!isAdmin ? (
-            <Link href={`/blog/articles/${id}`} passHref>
-              <Styles.BlogItemTitle isAdmin={isAdmin}>
-                {title}
-              </Styles.BlogItemTitle>
-            </Link>
-          ) : (
+      {isAdmin ? (
+        <Styles.BlogItem isAdmin={isAdmin}>
+          <Styles.BlogItemInfo>
             <Styles.BlogItemTitle isAdmin={isAdmin}>
               {title}
             </Styles.BlogItemTitle>
-          )}
-          <Styles.BlogItemDescription isAdmin={isAdmin}>
-            {description}
-          </Styles.BlogItemDescription>
-        </Styles.BlogItemInfo>
-        <Styles.BlogItemImage src={image} />
-        {children}
-      </Styles.BlogItem>
+            <Styles.BlogItemDescription isAdmin={isAdmin}>
+              {description}
+            </Styles.BlogItemDescription>
+          </Styles.BlogItemInfo>
+          <Styles.BlogItemImage src={image} />
+          {children}
+        </Styles.BlogItem>
+      ) : (
+        <Link href={`/blog/articles/${id}`} passHref>
+          <Styles.BlogItem isAdmin={isAdmin}>
+            <Styles.BlogItemInfo>
+              <Styles.BlogItemTitle isAdmin={isAdmin}>
+                {title}
+              </Styles.BlogItemTitle>
+              <Styles.BlogItemDescription isAdmin={isAdmin}>
+                {description}
+              </Styles.BlogItemDescription>
+            </Styles.BlogItemInfo>
+            <Styles.BlogItemImage src={image} />
+            {children}
+          </Styles.BlogItem>
+        </Link>
+      )}
     </Styles.BlogItemContainer>
   );
 };

@@ -36,28 +36,24 @@ export const PageTitle = styled.div`
   }
 `;
 
-export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
+export const BlogItemContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: ${themes.primary.font.family.namu};
   padding: 20px 0;
+  &:hover {
+    cursor: pointer;
+  }
 
   @media (max-width: 920px) {
-    &:hover {
-      background-color: ${(props) =>
-        props.isAdmin ? "transparent" : themes.primary.colors.darkBlue};
-      color: ${(props) =>
-        props.isAdmin
-          ? themes.primary.colors.black
-          : themes.primary.colors.secondary};
+    &:active {
+      background-color: ${themes.primary.colors.darkBlue};
+      color: ${themes.primary.colors.secondary};
     }
-    &:hover ${PageDescription} {
-      color: ${(props) =>
-        props.isAdmin
-          ? themes.primary.colors.black
-          : themes.primary.colors.previewArticleText};
+    &:active ${PageDescription} {
+      color: ${themes.primary.colors.previewArticleText};
     }
   }
 
