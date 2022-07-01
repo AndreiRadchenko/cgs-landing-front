@@ -16,6 +16,7 @@ export const LestCodeValidation = () => {
       .string()
       .email("Invalid email")
       .required("Required parameter")
+      .matches(/^((?!.ru).)*$/m, "Domain ru isn't allowed")
       .matches(/^(?!.*<[^>]+>).*/i, "HTML are not allowed"),
     message: yup
       .string()

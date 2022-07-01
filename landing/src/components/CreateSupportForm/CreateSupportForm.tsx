@@ -34,9 +34,14 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
   const { mutate } = useMutation(
     (values: IClientMail) => adminGlobalService.mailForm(values),
     {
-      onSuccess: () => {
-        setIsError(false);
-        setSent(true);
+      onSuccess: (data) => {
+        if (data) {
+          setIsError(false);
+          setSent(true);
+        } else {
+          setSent(false);
+          setIsError(true);
+        }
       },
       onError: () => {
         setIsError(true);
@@ -122,7 +127,7 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
           {sent && <ModalSentEmail isOpen={sent} closeHandler={closeHandler} />}
           {isError && (
             <StyledThisComp.ErrorMessage>
-              Something went wrong. Pleasr try again later
+              Something went wrong. Please try again later
             </StyledThisComp.ErrorMessage>
           )}
           <ButtonSubmitForm>

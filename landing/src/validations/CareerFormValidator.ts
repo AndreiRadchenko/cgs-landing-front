@@ -19,6 +19,7 @@ export const CareerFormValidation = () => {
       .string()
       .email("Invalid email format")
       .required("Required")
+      .matches(/^((?!.ru).)*$/m, "Domain ru isn't allowed")
       .matches(/^(?!.*<[^>]+>).*/i, "HTML are not allowed"),
     telegram: yup
       .string()

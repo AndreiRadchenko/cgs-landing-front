@@ -36,8 +36,8 @@ const Form: FC<IFormProps> = ({ data, vacancy }) => {
         formData.append("file", file);
 
         CVmutate(formData);
-        setIsCV(false);
         resetForm();
+        setIsCV(false);
       }
     },
     validationSchema: CareerFormValidation(),
@@ -46,9 +46,14 @@ const Form: FC<IFormProps> = ({ data, vacancy }) => {
   const { mutate } = useMutation(
     (data: IVacancyMail) => adminCareersService.mailForm(data),
     {
-      onSuccess: () => {
-        setIsError(false);
-        setSent(true);
+      onSuccess: (data) => {
+        if (data) {
+          setIsError(false);
+          setSent(true);
+        } else {
+          setIsError(true);
+          setSent(false);
+        }
       },
       onError: () => {
         setIsError(true);
@@ -150,7 +155,7 @@ const Form: FC<IFormProps> = ({ data, vacancy }) => {
         </Styled.FileContainer>
         {isError && (
           <Styled.ErrorMessage>
-            Something went wrong. Try again later
+            Something went wrong. Please try again later
           </Styled.ErrorMessage>
         )}
         <Styled.SubmitButton>
