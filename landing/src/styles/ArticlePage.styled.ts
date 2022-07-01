@@ -39,6 +39,7 @@ export const ShareTagsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  column-gap: 30px;
   width: 100%;
   margin-top: 20px;
 
@@ -53,7 +54,7 @@ export const ArrowBackButton = styled.img`
   }
   position: absolute;
   top: 80px;
-  left: 0px;
+  left: 0;
   margin-bottom: 15px;
 
   @media (max-width: 768px) {
