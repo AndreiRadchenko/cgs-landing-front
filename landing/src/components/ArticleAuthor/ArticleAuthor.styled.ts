@@ -26,6 +26,7 @@ export const AuthorInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  row-gap: 8px;
   height: 100%;
   font-size: ${themes.primary.font.size.aboutUsCardText};
 `;
