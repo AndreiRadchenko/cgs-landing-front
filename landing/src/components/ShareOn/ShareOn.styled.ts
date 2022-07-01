@@ -18,21 +18,21 @@ export const Text = styled.div`
     font-size: ${themes.primary.font.size.articleSubtitle};
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-weight: 700;
+    font-weight: ${themes.primary.font.weight.bold};
     font-family: ${themes.primary.font.family.openSans};
     font-size: ${themes.primary.font.size.articleSubtitle};
     min-width: 100px;
   }
   @media ${themes.primary.media.onlyPC} {
-    font-weight: 700;
+    font-weight: ${themes.primary.font.weight.bold};
     font-size: ${themes.primary.font.size.adminButton};
   }
   @media (max-width: 2560px) {
-    font-weight: 700;
+    font-weight: ${themes.primary.font.weight.bold};
     font-size: ${themes.primary.font.size.articleSubtitle};
   }
   @media ${themes.primary.media.maxMobilePortrait} {
-    font-weight: 700;
+    font-weight: ${themes.primary.font.weight.bold};
     font-size: ${themes.primary.font.size.articleTagDescription};
   }
 `;
