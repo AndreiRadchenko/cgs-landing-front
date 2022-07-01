@@ -166,6 +166,9 @@ export const ContentContainer = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 18px 7px;
   }
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    padding: 8px;
+  }
   @media ${themes.primary.media.maxMobile} {
     padding: 0;
   }
@@ -176,6 +179,22 @@ export const ProjectHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  & + p {
+    color: black;
+    font-size: 1.6em;
+  }
+  @media ${themes.primary.media.onlyLaptop} {
+    & + p {
+      font-size: 1.3em;
+    }
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    & + p {
+      color: black;
+      font-size: 0.98em;
+      margin-top: 8px;
+    }
+  }
   @media ${themes.primary.media.maxMobile} {
     border-top: 1px solid #8f8e93;
     padding: 10px;
@@ -210,9 +229,7 @@ export const ProjectDescription = styled.p`
   }
   @media ${themes.primary.media.maxMobile} {
     padding: 10px;
-    font-size: 1.4em;
     margin-top: 0px;
-    color: #535353;
   }
 `;
 
@@ -235,12 +252,32 @@ export const Feedback = styled.div`
   column-gap: 20px;
   align-items: center;
   flex-wrap: wrap;
+  & + p {
+    color: #535353;
+    font-size: 1.4em;
+  }
+  @media ${themes.primary.media.onlyLaptop} {
+    & + p {
+      color: #535353;
+      font-size: 1.2em;
+    }
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
     column-gap: 10px;
+    & + p {
+      color: #535353;
+      font-size: 0.89em;
+      margin-top: 8px;
+    }
   }
   @media ${themes.primary.media.maxMobile} {
     padding: 10px;
     display: flex;
+    & + p {
+      color: #535353;
+      font-size: 1.4em;
+      margin-top: 8px;
+    }
     align-items: end;
   }
 `;
