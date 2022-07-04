@@ -153,7 +153,6 @@ export const ImageContainer = styled.div`
     img {
       object-fit: cover;
     }
-    height: 433px;
     grid-row-start: 1;
   }
 `;

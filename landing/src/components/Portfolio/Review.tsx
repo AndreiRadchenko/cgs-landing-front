@@ -46,7 +46,7 @@ const Review = ({ review }: IReviewProps) => {
           </Styled.ProjectDescription>
         </Styled.ContentContainer>
         <Styled.ImageContainer>
-          <Image src={review.image.url} layout="fill" alt="review image" />
+          <Image src={review.image.url} width={"588"} height={"413"} alt="review image" />
         </Styled.ImageContainer>
       </Styled.ReviewContainer>
     )
