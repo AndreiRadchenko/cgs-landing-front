@@ -14,7 +14,7 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
   const { values, handleChange } = useFormikContext<IBlogResponse>();
   const [blocks, setBlocks] = useState<JSX.Element[]>([]);
   const newArticleContent = values.newArticle.content;
-  const editArticleContent = values.articles[article].content;
+  const editArticleContent = values.articles[article]?.content;
 
   useEffect(() => {
     const blocks = isNewArticle

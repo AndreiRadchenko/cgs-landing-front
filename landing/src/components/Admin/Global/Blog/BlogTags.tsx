@@ -14,7 +14,7 @@ const BlogTags: FC<IBlogTags> = ({ isNewArticle, article }) => {
   const [tagList, setTagList] = useState<JSX.Element[]>([]);
   const { values, handleChange } = useFormikContext<IBlogResponse>();
   const newArticleTags = values.newArticle.tags;
-  const editArticleTags = values.articles[article].tags;
+  const editArticleTags = values.articles[article]?.tags;
 
   const componentsArray = () => {
     return isNewArticle
