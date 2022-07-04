@@ -12,6 +12,7 @@ import * as Styles from "../../styles/BlogPage.styled";
 import { adminBlogService } from "../../services/adminBlogPage";
 import Link from "next/link";
 import { adminGlobalService } from "../../services/adminHomePage";
+import * as Styled from "../../styles/AdminPage";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
@@ -37,48 +38,54 @@ const BlogPage = () => {
 
   return (
     <>
-      {!isLoading && currentArticlesData && data && (
-        <Styles.PageWrapper>
-          <Page>
-            <HeaderNav />
-          </Page>
-          <Link href={`blog/articles/${currentArticlesData[0]._id}`} passHref>
-            <Styles.BlogItemContainer>
-              <Styles.BannerImage src={currentArticlesData[0].image.url} />
-              <Styles.PageTitle>
-                {currentArticlesData[0].title}
-              </Styles.PageTitle>
-              <Styles.PageDescription>
-                {currentArticlesData[0].description}
-              </Styles.PageDescription>
-            </Styles.BlogItemContainer>
-          </Link>
-          <Styles.BlogItemsWrapper>
-            {currentArticlesData.map((article, i) =>
-              i === 0 ? null : (
-                <BlogItem
-                  id={article._id}
-                  key={i}
-                  isAdmin={false}
-                  image={article.image?.url}
-                  description={article.description}
-                  title={article.title}
-                />
-              )
-            )}
-          </Styles.BlogItemsWrapper>
-          <PaginationBar
-            currentPage={currentPage}
-            totalCount={data.articles.length}
-            pageSize={PageSize}
-            onPageChange={(page: string | number) =>
-              setCurrentPage(Number(page))
-            }
-            siblingCount={1}
-          />
-          <Footer isGreenLine={false} />
-        </Styles.PageWrapper>
-      )}
+      <Styles.PageWrapper>
+        <Page>
+          <HeaderNav />
+        </Page>
+        {!currentArticlesData || !data?.articles.length ? (
+          <Styled.AdminUnauthorizedModal>
+            Articles is not defined :(
+          </Styled.AdminUnauthorizedModal>
+        ) : (
+          <>
+            <Link href={`blog/articles/${currentArticlesData[0]._id}`} passHref>
+              <Styles.BlogItemContainer>
+                <Styles.BannerImage src={currentArticlesData[0].image.url} />
+                <Styles.PageTitle>
+                  {currentArticlesData[0].title}
+                </Styles.PageTitle>
+                <Styles.PageDescription>
+                  {currentArticlesData[0].description}
+                </Styles.PageDescription>
+              </Styles.BlogItemContainer>
+            </Link>
+            <Styles.BlogItemsWrapper>
+              {currentArticlesData.map((article, i) =>
+                i === 0 ? null : (
+                  <BlogItem
+                    id={article._id}
+                    key={i}
+                    isAdmin={false}
+                    image={article.image?.url}
+                    description={article.description}
+                    title={article.title}
+                  />
+                )
+              )}
+            </Styles.BlogItemsWrapper>
+            <PaginationBar
+              currentPage={currentPage}
+              totalCount={data.articles.length}
+              pageSize={PageSize}
+              onPageChange={(page: string | number) =>
+                setCurrentPage(Number(page))
+              }
+              siblingCount={1}
+            />
+            <Footer isGreenLine={false} />
+          </>
+        )}
+      </Styles.PageWrapper>
     </>
   );
 };
