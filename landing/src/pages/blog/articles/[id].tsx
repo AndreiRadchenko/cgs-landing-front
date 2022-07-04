@@ -15,6 +15,7 @@ import ArticleReadMore from "../../../components/ArticleReadMore/ArticleReadMore
 import { useRouter } from "next/router";
 import { adminBlogService } from "../../../services/adminBlogPage";
 import * as Styled from "../../../styles/AdminPage";
+import { adminGlobalService } from "../../../services/adminHomePage";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
@@ -27,13 +28,15 @@ const ArticlePage = () => {
   const [article, setArticle] = useState<IArticle | undefined | null>(null);
   const [readMore, setReadMore] = useState<IArticle[] | null>(null);
   const id = typeof router.query?.id === "string" ? router.query.id : "";
-  const { data, isSuccess }: IBlogData = useQuery(
+  const { data, isSuccess, isLoading }: IBlogData = useQuery(
     queryKeys.getBlogPage,
     () => adminBlogService.getBlogPage(),
     {
       enabled: id.length > 0,
     }
   );
+
+  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
   const getMultipleRandom = (arr: IArticle[], num: number) => {
     const shuffled = [...arr]
@@ -53,6 +56,10 @@ const ArticlePage = () => {
     }
   }, [data]);
 
+  if (isLoading)
+    return (
+      <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
+    );
   return (
     <>
       {isSuccess && article && readMore ? (
@@ -80,7 +87,7 @@ const ArticlePage = () => {
               <ArticleReadMore readMore={readMore} />
             </Styles.PageWrapper>
           </Page>
-          <Footer />
+          <Footer isGreenLine={false} />
         </>
       ) : (
         <Styled.AdminUnauthorizedModal>

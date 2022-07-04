@@ -21,6 +21,7 @@ interface IFormProps {
 
 const Form: FC<IFormProps> = ({ data, vacancy }) => {
   const [isCV, setIsCV] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(false);
   const [sent, setSent] = useState<boolean>(false);
 
@@ -35,8 +36,8 @@ const Form: FC<IFormProps> = ({ data, vacancy }) => {
         formData.append("file", file);
 
         CVmutate(formData);
-        setIsCV(false);
         resetForm();
+        setIsCV(false);
       }
     },
     validationSchema: CareerFormValidation(),
@@ -45,10 +46,17 @@ const Form: FC<IFormProps> = ({ data, vacancy }) => {
   const { mutate } = useMutation(
     (data: IVacancyMail) => adminCareersService.mailForm(data),
     {
-      onSuccess: () => {
-        setSent(true);
+      onSuccess: (data) => {
+        if (data) {
+          setIsError(false);
+          setSent(true);
+        } else {
+          setIsError(true);
+          setSent(false);
+        }
       },
       onError: () => {
+        setIsError(true);
         setSent(false);
       },
     }
@@ -145,6 +153,11 @@ const Form: FC<IFormProps> = ({ data, vacancy }) => {
             {isCV ? "file is uploaded" : CV?.isSupported}
           </Styled.FileLoad>
         </Styled.FileContainer>
+        {isError && (
+          <Styled.ErrorMessage>
+            Something went wrong. Please try again later
+          </Styled.ErrorMessage>
+        )}
         <Styled.SubmitButton>
           {sent && <ModalSentEmail isOpen={sent} closeHandler={closeHandler} />}
           <BaseButton

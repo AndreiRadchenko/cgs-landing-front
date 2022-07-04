@@ -7,12 +7,14 @@ const QuillNoSSRWrapper = dynamic(import("react-quill"), {
 import "react-quill/dist/quill.snow.css";
 import { Field } from "formik";
 import * as Styled from "../../styles/AdminPage";
+
 interface ITextEditorProps {
   value?: string;
   header: string;
   name: string;
   isBlog: boolean;
 }
+
 const modules = {
   toolbar: [
     [{ header: "1" }, { header: "2" }],

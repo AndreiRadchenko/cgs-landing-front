@@ -7,12 +7,11 @@ import { IArticle, IBlogResponse } from "../../../types/Admin/Response.types";
 import { queryKeys } from "../../../consts/queryKeys";
 import PaginationBar from "../../../components/PaginationBar/PaginationBar";
 import BlogItem from "../../../components/BlogItem/BlogItem";
-import ArrowBack from "../../../../public/arrowBack.svg";
-
 import * as Styles from "../../../styles/BlogPage.styled";
 import { adminBlogService } from "../../../services/adminBlogPage";
-import { Router, useRouter } from "next/router";
-import Link from "next/link";
+import { useRouter } from "next/router";
+import ArrowBack from "../../../../public/arrowBack.svg";
+import { adminGlobalService } from "../../../services/adminHomePage";
 
 interface IHomeData {
   data: IBlogResponse | undefined;
@@ -28,6 +27,8 @@ const BlogPage = () => {
   const { data, isLoading }: IHomeData = useQuery(queryKeys.getBlogPage, () =>
     adminBlogService.getBlogPage()
   );
+
+  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
   useEffect(() => {
     if (data)
@@ -78,7 +79,7 @@ const BlogPage = () => {
             }
             siblingCount={1}
           />
-          <Footer />
+          <Footer isGreenLine={false} />
         </Styles.PageWrapper>
       )}
     </>

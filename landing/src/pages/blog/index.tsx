@@ -2,7 +2,6 @@ import React, { useMemo, useState } from "react";
 import { Page } from "../../styles/Page.styled";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import Footer from "../../components/Footer/Footer";
-import BannerImage from "../../../public/blog-banner.jpg";
 import { useQuery } from "react-query";
 import { IBlogResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
@@ -11,8 +10,10 @@ import BlogItem from "../../components/BlogItem/BlogItem";
 
 import * as Styles from "../../styles/BlogPage.styled";
 import { adminBlogService } from "../../services/adminBlogPage";
+import Link from "next/link";
+import { adminGlobalService } from "../../services/adminHomePage";
 
-interface IHomeData {
+interface IBlogData {
   data: IBlogResponse | undefined;
   isLoading: boolean;
 }
@@ -20,9 +21,12 @@ interface IHomeData {
 const PageSize = 5;
 
 const BlogPage = () => {
-  const { data, isLoading }: IHomeData = useQuery(queryKeys.getBlogPage, () =>
+  const { data, isLoading }: IBlogData = useQuery(queryKeys.getBlogPage, () =>
     adminBlogService.getBlogPage()
   );
+
+  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const currentArticlesData = useMemo(() => {
@@ -33,33 +37,35 @@ const BlogPage = () => {
 
   return (
     <>
-      {!isLoading && data && (
+      {!isLoading && currentArticlesData && data && (
         <Styles.PageWrapper>
           <Page>
             <HeaderNav />
-            <Styles.PageHeaderWrapper>
-              <Styles.BannerImage src={BannerImage.src} />
-              <Styles.PageTitle>NFT. Explained</Styles.PageTitle>
-              <Styles.PageDescription>
-                The TA project manager's responsibility and roles will vary
-                depending on the project, but there is a general framework you
-                can easily follow. The TA project manager's responsibility and
-                roles will vary depending on the project, but there is a general
-                framework you can easily follow.
-              </Styles.PageDescription>
-            </Styles.PageHeaderWrapper>
           </Page>
+          <Link href={`blog/articles/${currentArticlesData[0]._id}`} passHref>
+            <Styles.BlogItemContainer>
+              <Styles.BannerImage src={currentArticlesData[0].image.url} />
+              <Styles.PageTitle>
+                {currentArticlesData[0].title}
+              </Styles.PageTitle>
+              <Styles.PageDescription>
+                {currentArticlesData[0].description}
+              </Styles.PageDescription>
+            </Styles.BlogItemContainer>
+          </Link>
           <Styles.BlogItemsWrapper>
-            {currentArticlesData?.map((article, i) => (
-              <BlogItem
-                id={article._id}
-                key={i}
-                isAdmin={false}
-                image={article.image?.url}
-                description={article.description}
-                title={article.title}
-              />
-            ))}
+            {currentArticlesData.map((article, i) =>
+              i === 0 ? null : (
+                <BlogItem
+                  id={article._id}
+                  key={i}
+                  isAdmin={false}
+                  image={article.image?.url}
+                  description={article.description}
+                  title={article.title}
+                />
+              )
+            )}
           </Styles.BlogItemsWrapper>
           <PaginationBar
             currentPage={currentPage}
@@ -70,7 +76,7 @@ const BlogPage = () => {
             }
             siblingCount={1}
           />
-          <Footer />
+          <Footer isGreenLine={false} />
         </Styles.PageWrapper>
       )}
     </>

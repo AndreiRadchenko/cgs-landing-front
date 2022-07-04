@@ -4,13 +4,37 @@ import themes from "../../utils/themes";
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  column-gap: 15px;
   align-items: center;
-  width: 330px;
+  width: 350px;
 `;
 
 export const Text = styled.div`
   font-size: ${themes.primary.font.size.secondary};
   font-weight: ${themes.primary.font.weight.bold};
+  font-family: ${themes.primary.font.family.namu};
+  min-width: 125px;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.articleSubtitle};
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-weight: ${themes.primary.font.weight.bold};
+    font-family: ${themes.primary.font.family.openSans};
+    font-size: ${themes.primary.font.size.articleSubtitle};
+    min-width: 100px;
+  }
+  @media ${themes.primary.media.onlyPC} {
+    font-weight: ${themes.primary.font.weight.bold};
+    font-size: ${themes.primary.font.size.adminButton};
+  }
+  @media (max-width: 2560px) {
+    font-weight: ${themes.primary.font.weight.bold};
+    font-size: ${themes.primary.font.size.articleSubtitle};
+  }
+  @media ${themes.primary.media.maxMobilePortrait} {
+    font-weight: ${themes.primary.font.weight.bold};
+    font-size: ${themes.primary.font.size.articleTagDescription};
+  }
 `;
 
 export const IconImage = styled.img`

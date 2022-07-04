@@ -5,21 +5,76 @@ export const PageWrapper = styled.div``;
 
 export const BannerImage = styled.img`
   object-fit: contain;
+  max-width: 950px;
   width: 100%;
+  @media (max-width: 990px) {
+    max-width: 720px;
+    padding: 0;
+  }
 `;
 
-export const PageHeaderWrapper = styled.div`
+export const PageDescription = styled.div`
   max-width: 950px;
-  margin: 0 auto;
-  margin-top: 67px;
+  font-weight: ${themes.primary.font.weight.normal};
+  font-size: ${themes.primary.font.size.linkText};
+  line-height: 160%;
+  margin-top: 20px;
+  @media (max-width: 990px) {
+    max-width: 720px;
+  }
 `;
 
 export const PageTitle = styled.div`
-  width: 20px;
+  max-width: 950px;
   margin-top: 28px;
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
-  font-family: ${themes.primary.font.family.openSans};
+  cursor: pointer;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 100%;
+    max-width: 720px;
+  }
+`;
+
+export const BlogItemContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: ${themes.primary.font.family.namu};
+  padding: 20px 0;
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (max-width: 920px) {
+    &:active {
+      background-color: ${themes.primary.colors.darkBlue};
+      color: ${themes.primary.colors.secondary};
+    }
+    &:active ${PageDescription} {
+      color: ${themes.primary.colors.previewArticleText};
+    }
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    width: 100%;
+    margin: 0;
+    padding: ${themes.primary.spacing.headerNavVertical}
+      ${themes.primary.spacing.headerNavHorizontal};
+    overflow: hidden;
+    margin: ${themes.primary.spacing.headerNavVertical} auto;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    margin: 0;
+    padding: ${themes.primary.spacing.headerNavVertical}
+      ${themes.primary.spacing.headerNavHorizontal};
+    overflow: hidden;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    padding: 2em 2em;
+  }
 `;
 
 export const TagTitle = styled.div`
@@ -27,24 +82,14 @@ export const TagTitle = styled.div`
   max-width: 950px;
   align-items: center;
   justify-content: center;
-  margin-bottom: 65px;
+  margin: 80px 0 65px 0;
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.bigTitle};
-  font-family: ${themes.primary.font.family.openSans};
+  font-family: ${themes.primary.font.family.namu};
   text-align: center;
   @media (max-width: 990px) {
     margin-bottom: 0;
   }
-`;
-
-export const PageDescription = styled.div`
-  width: 100%;
-  font-weight: ${themes.primary.font.weight.normal};
-  font-size: ${themes.primary.font.size.menuElement};
-  line-height: 160%;
-  margin-top: 20px;
-
-  font-family: ${themes.primary.font.family.openSans};
 `;
 
 export const BlogItemsWrapper = styled.div`
@@ -59,10 +104,16 @@ export const ArrowBackButton = styled.img`
     cursor: pointer;
   }
   position: absolute;
-  top: 100px;
+  top: 79px;
   left: 0px;
 
-  @media (max-width: 768px) {
+  @media ${themes.primary.media.maxMobile} {
     left: 40px;
   }
+`;
+
+export const PageHeaderWrapper = styled.div`
+  max-width: 950px;
+  margin: 0 auto;
+  margin-top: 67px;
 `;

@@ -3,13 +3,12 @@ import themes from "../../utils/themes";
 
 export const PaginationWrapper = styled.div`
   height: 38px;
-  width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
   column-gap: 30px;
-  padding: 15px;
-  margin: 90px auto 200px auto;
+  margin-top: 70px;
+  margin-bottom: 110px;
 `;
 
 export const PaginationItem = styled.div`
@@ -41,16 +40,19 @@ export const Dots = styled.span`
 `;
 
 export const PaginationItemsWrapper = styled.div`
-  //width: 100px;
   display: flex;
   justify-content: space-between;
 `;
 
 export const SwiperButton = styled.div`
-  padding: 0;
   border: none;
   font: inherit;
   color: inherit;
   background-color: transparent;
   cursor: pointer;
+`;
+
+export const ArrowContainer = styled.div`
+  display: flex;
+  column-gap: 14px;
 `;
