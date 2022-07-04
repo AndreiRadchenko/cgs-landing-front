@@ -135,6 +135,7 @@ export const ImageContainer = styled.div`
   overflow: hidden;
   border-left: 1px solid #8f8e93;
   border-right: 1px solid #8f8e93;
+  width: 100%;
   height: 100%;
   position: relative;
   span {
@@ -152,7 +153,7 @@ export const ImageContainer = styled.div`
     img {
       object-fit: cover;
     }
-    height: auto;
+    height: 433px;
     grid-row-start: 1;
   }
 `;
