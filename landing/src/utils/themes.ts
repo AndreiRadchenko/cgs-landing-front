@@ -61,6 +61,7 @@ const themes = {
       },
     },
     colors: {
+      gray: "#535353",
       decorationText: "#C7FB9C",
       quinary: "#FFA046",
       primary: "#000",

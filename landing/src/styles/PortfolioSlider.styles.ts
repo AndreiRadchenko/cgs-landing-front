@@ -8,20 +8,19 @@ export const NavigateLeft = styled.div`
   top: 0;
   height: 100%;
   width: 160px;
-  border-left: 1px solid #8f8e93;
+  border-left: 1px solid ${themes.primary.colors.comment};
   color: black;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
   font-family: ${themes.primary.font.family.namu};
-  font-weight: 500;
-  font-size: 52px;
-  background-color: #f7f7f7;
+  font-weight: ${themes.primary.font.weight.medium};
+  font-size: ${themes.primary.font.size.bigTitle};
   &:after {
     content: none;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 130px;
-    font-size: 40px;
+    font-size: ${themes.primary.font.size.articleTitle};
   }
 `;
 
@@ -33,19 +32,19 @@ export const ButtonInfo = styled.div`
   padding: 0px 27px;
   align-items: center;
   justify-content: space-around;
-  border-bottom: 1px solid #8f8e93;
+  border-bottom: 1px solid ${themes.primary.colors.comment};
   &:hover {
     background-color: ${themes.primary.colors.darkBlue};
     &:nth-child(1) {
-      color: white;
+      color: ${themes.primary.colors.secondary};
     }
   }
 `;
 
 export const Category = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-weight: 900;
-  font-size: 40px;
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: ${themes.primary.font.size.articleTitle};
   margin: 0 auto 0 0;
 `;
 
@@ -67,7 +66,7 @@ export const PortfolioRow = styled.div`
   & .swiper-slide {
     transition: 0.5s linear;
   }
-  border-top: 1px solid #8f8e93;
+  border-top: 1px solid ${themes.primary.colors.comment};
 
   &:hover ${NavigateLeft} {
     background-color: ${themes.primary.colors.darkBlue};
@@ -75,8 +74,8 @@ export const PortfolioRow = styled.div`
   }
   @media ${themes.primary.media.maxMobile} {
     display: block;
-    border-left: 1px solid #8f8e93;
-    border-right: 1px solid #8f8e93;
+    border-left: 1px solid ${themes.primary.colors.comment};
+    border-right: 1px solid ${themes.primary.colors.comment};
     margin: 0 10px;
     &:hover ${ButtonInfo} {
       background-color: ${themes.primary.colors.darkBlue};
@@ -92,7 +91,6 @@ export const NavigateRight = styled.div`
   top: 0;
   height: 100%;
   width: 150px;
-  background-color: #f7f7f7;
   right: 0;
   & div:after {
     content: none;
@@ -103,7 +101,7 @@ export const NavigateRight = styled.div`
     margin-top: 0;
     height: 100%;
     width: 100%;
-    color: black;
+    color: ${themes.primary.colors.black};
   }
 `;
 
@@ -133,8 +131,8 @@ export const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border-left: 1px solid #8f8e93;
-  border-right: 1px solid #8f8e93;
+  border-left: 1px solid ${themes.primary.colors.comment};
+  border-right: 1px solid ${themes.primary.colors.comment};
   width: 100%;
   height: 100%;
   position: relative;
@@ -180,31 +178,31 @@ export const ProjectHeader = styled.div`
   align-items: center;
   flex-wrap: wrap;
   & + p {
-    color: black;
-    font-size: 1.6em;
+    color: ${themes.primary.colors.black};
+    font-size: ${themes.primary.font.size.articleSubtitle};
   }
   @media ${themes.primary.media.onlyLaptop} {
     & + p {
-      font-size: 1.3em;
+      font-size: ${themes.primary.font.size.aboutUsCardText};
     }
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     & + p {
-      color: black;
-      font-size: 0.98em;
+      color: ${themes.primary.colors.black};
+      font-size: ${themes.primary.font.size.tertiary};
       margin-top: 8px;
     }
   }
   @media ${themes.primary.media.maxMobile} {
-    border-top: 1px solid #8f8e93;
+    border-top: 1px solid ${themes.primary.colors.comment};
     padding: 10px;
     display: flex;
     height: 87px;
     flex-direction: column;
     align-items: baseline;
     & + p {
-      color: black;
-      font-size: 1.6em;
+      color: ${themes.primary.colors.black};
+      font-size: ${themes.primary.font.size.articleSubtitle};
     }
   }
 `;
@@ -224,7 +222,7 @@ export const ProjectDescription = styled.p`
   letter-spacing: 1px;
   text-overflow: ellipsis;
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 0.98em;
+    font-size: ${themes.primary.font.size.tertiary};
     margin-top: 8px;
   }
   @media ${themes.primary.media.maxMobile} {
@@ -253,20 +251,18 @@ export const Feedback = styled.div`
   align-items: center;
   flex-wrap: wrap;
   & + p {
-    color: #535353;
-    font-size: 1.4em;
+    color: ${themes.primary.colors.gray};
+    font-size: ${themes.primary.font.size.linkText};
   }
   @media ${themes.primary.media.onlyLaptop} {
     & + p {
-      color: #535353;
-      font-size: 1.2em;
+      font-size: ${themes.primary.font.size.tertiary};
     }
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     column-gap: 10px;
     & + p {
-      color: #535353;
-      font-size: 0.89em;
+      font-size: ${themes.primary.font.size.primary};
       margin-top: 8px;
     }
   }
@@ -274,8 +270,7 @@ export const Feedback = styled.div`
     padding: 10px;
     display: flex;
     & + p {
-      color: #535353;
-      font-size: 1.4em;
+      font-size: ${themes.primary.font.size.linkText};
       margin-top: 8px;
     }
     align-items: end;
@@ -295,7 +290,7 @@ export const AuthorName = styled.div`
 `;
 
 export const CompanyName = styled.div`
-  color: #8f8e93;
+  color: ${themes.primary.colors.comment};
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.normal};
