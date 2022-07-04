@@ -6,10 +6,10 @@ import Link from "next/link";
 interface IBlogItemProps {
   title: string;
   description: string;
+  url: string;
   image?: string;
   isAdmin?: boolean;
   children?: React.ReactNode;
-  id?: string;
 }
 
 const BlogItem = ({
@@ -18,7 +18,7 @@ const BlogItem = ({
   image,
   isAdmin = false,
   children,
-  id,
+  url,
 }: IBlogItemProps) => {
   return (
     <Styles.BlogItemContainer isAdmin={isAdmin}>
@@ -36,7 +36,7 @@ const BlogItem = ({
           {children}
         </Styles.BlogItem>
       ) : (
-        <Link href={`/blog/articles/${id}`} passHref>
+        <Link href={`/blog/${url}`} passHref>
           <Styles.BlogItem isAdmin={isAdmin}>
             <Styles.BlogItemInfo>
               <Styles.BlogItemTitle isAdmin={isAdmin}>

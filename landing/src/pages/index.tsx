@@ -46,7 +46,6 @@ const Home: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  
   return (
     <>
       {isLoading ? (

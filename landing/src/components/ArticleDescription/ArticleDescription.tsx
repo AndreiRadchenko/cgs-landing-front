@@ -9,8 +9,8 @@ interface IDescription {
 const ArticleDescription: FC<IDescription> = ({ content }) => {
   return (
     <Styles.Wrapper>
-      {content.map((block, index) =>
-        block.text ? (
+      {content.map((block, index) => {
+        return block.text ? (
           <Styles.Description
             key={index}
             dangerouslySetInnerHTML={{ __html: block.text }}
@@ -18,10 +18,14 @@ const ArticleDescription: FC<IDescription> = ({ content }) => {
         ) : (
           <Styles.TitleWrapper key={index}>
             <Styles.SubtitleTag>{block.subNumber}</Styles.SubtitleTag>
-            <Styles.Title>{block.subtitle}</Styles.Title>
+            <Styles.Title
+            // as={block.subNumber?.replace("<", "").replace(">", "")}
+            >
+              {block.subtitle}
+            </Styles.Title>
           </Styles.TitleWrapper>
-        )
-      )}
+        );
+      })}
     </Styles.Wrapper>
   );
 };
