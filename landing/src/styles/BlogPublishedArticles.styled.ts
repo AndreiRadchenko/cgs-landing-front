@@ -16,7 +16,7 @@ export const ChangeIcon = styled.img`
 `;
 
 export const EmptyArticles = styled.div`
-  margin: 30px 0 30px 0;
+  margin: 30px 0px;
   display: flex;
   justify-content: center;
   font-family: ${themes.primary.font.family.gilroy};

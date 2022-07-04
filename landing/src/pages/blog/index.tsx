@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import parse from "html-react-parser";
 import { Page } from "../../styles/Page.styled";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import Footer from "../../components/Footer/Footer";
@@ -13,6 +14,7 @@ import { adminBlogService } from "../../services/adminBlogPage";
 import Link from "next/link";
 import { adminGlobalService } from "../../services/adminHomePage";
 import * as Styled from "../../styles/AdminPage";
+import Head from "next/head";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
@@ -36,8 +38,15 @@ const BlogPage = () => {
     return data?.articles.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, data?.articles]);
 
+  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
   return (
     <>
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        {customHead && parse(customHead)}
+      </Head>
       <Styles.PageWrapper>
         <Page>
           <HeaderNav />
@@ -48,7 +57,7 @@ const BlogPage = () => {
           </Styled.AdminUnauthorizedModal>
         ) : (
           <>
-            <Link href={`blog/articles/${currentArticlesData[0]._id}`} passHref>
+            <Link href={`blog/${currentArticlesData[0].url}`} passHref>
               <Styles.BlogItemContainer>
                 <Styles.BannerImage src={currentArticlesData[0].image.url} />
                 <Styles.PageTitle>
@@ -63,7 +72,7 @@ const BlogPage = () => {
               {currentArticlesData.map((article, i) =>
                 i === 0 ? null : (
                   <BlogItem
-                    id={article._id}
+                    url={article.url}
                     key={i}
                     isAdmin={false}
                     image={article.image?.url}

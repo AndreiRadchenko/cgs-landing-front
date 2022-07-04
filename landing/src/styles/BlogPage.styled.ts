@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
-export const PageWrapper = styled.div``;
+export const PageWrapper = styled.div`
+  background-color: ${themes.primary.colors.blogBackground};
+`;
 
 export const BannerImage = styled.img`
   object-fit: contain;
