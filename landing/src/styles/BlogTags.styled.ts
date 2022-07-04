@@ -5,20 +5,25 @@ export const TagsWrapper = styled.div`
   display: flex;
   width: 100%;
   flex-wrap: wrap;
+  row-gap: 15px;
 `;
 
-export const Tag = styled.div`
+export const Tag = styled.input`
   width: 243px;
   height: 56px;
   padding-left: 14px;
   display: flex;
+  border: none;
+  border-radius: 0;
   align-items: center;
   font-size: ${themes.primary.font.size.aboutUsCardText};
-  font-weight: ${themes.primary.font.weight.normal};
-  font-family: ${themes.primary.font.family.gilroy};
+  font-size: ${themes.primary.font.size.linkText};
+  font-family: ${themes.primary.font.family.mulish};
   background-color: ${themes.primary.colors.secondary};
   margin-right: 23px;
-
+  &:focus {
+    outline: 1px solid gray;
+  }
   &:last-child {
     margin-right: 0px;
   }

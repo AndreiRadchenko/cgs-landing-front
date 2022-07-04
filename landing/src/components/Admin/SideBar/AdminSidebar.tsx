@@ -10,6 +10,7 @@ import DropDownElement from "./DropDownElement";
 const AdminSidebar = () => {
   const router = useRouter();
   const pushSetting = () => router.push(ROUTE_KEYS.AdminSettings);
+  const pushBlockchain = () => router.push(ROUTE_KEYS.AdminBlockchain);
 
   return (
     <Styled.AdminSidebar>
@@ -24,6 +25,11 @@ const AdminSidebar = () => {
         </DropDownElement>
 
         <DropDownElement value="blog" route={ROUTE_KEYS.AdminBlog} />
+
+        <DropDownElement
+          value="portfolio"
+          route={ROUTE_KEYS.AdminPortfolioPage}
+        />
 
         <DropDownElement value="careers" route={ROUTE_KEYS.AdminCareers}>
           <Link href={ROUTE_KEYS.AdminVacancy}>
@@ -41,6 +47,13 @@ const AdminSidebar = () => {
           property={ROUTE_KEYS.AdminSettings}
         >
           settings
+        </Styled.AdminSidebarMenuElement>
+        <Styled.AdminSidebarMenuElement
+          onClick={pushBlockchain}
+          itemProp="AdminPage"
+          property={ROUTE_KEYS.AdminBlockchain}
+        >
+          blockchain
         </Styled.AdminSidebarMenuElement>
       </Styled.AdminSidebarMenu>
     </Styled.AdminSidebar>

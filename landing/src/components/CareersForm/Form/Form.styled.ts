@@ -116,7 +116,7 @@ export const FileInputWrapper = styled.div<ICVProps>`
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
 `;
 
-export const InputFile = styled(Field)`
+export const InputFile = styled.input`
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -175,4 +175,11 @@ export const SentMessage = styled.div`
   @media ${themes.primary.media.maxLaptop} {
     transform: none;
   }
+`;
+
+export const ErrorMessage = styled.p`
+  color: ${themes.primary.colors.errorText};
+  text-align: center;
+  font-size: ${themes.primary.font.size.linkText};
+  font-weight: ${themes.primary.font.weight.bold};
 `;

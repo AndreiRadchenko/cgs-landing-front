@@ -10,8 +10,14 @@ export const LestCodeValidation = () => {
       .matches(
         /^[aA-zZа-яіІєЄїЇґҐА-Я\'\s]+$/,
         "Only latin and cyrillic are allowed for this field"
-      ),
-    email: yup.string().email("Invalid email").required("Required parameter"),
+      )
+      .matches(/^(?!.*<[^>]+>).*/i, "HTML are not allowed"),
+    email: yup
+      .string()
+      .email("Invalid email")
+      .required("Required parameter")
+      .matches(/^((?!.ru).)*$/m, "Domain ru isn't allowed")
+      .matches(/^(?!.*<[^>]+>).*/i, "HTML are not allowed"),
     message: yup
       .string()
       .max(256, "Message is too large")
@@ -19,6 +25,7 @@ export const LestCodeValidation = () => {
       .matches(
         /^[aA-zZа-яіІєЄїЇґҐА-Я@#-_—()!?;:*"'$%\\'\s]+$/,
         "Only latin and cyrillic are allowed for this field"
-      ),
+      )
+      .matches(/^(?!.*<[^>]+>).*/i, "HTML are not allowed"),
   });
 };

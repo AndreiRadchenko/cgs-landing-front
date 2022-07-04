@@ -1,8 +1,9 @@
-import { IPortfolioResponse } from "./../../types/Admin/AdminPortfolio";
+import { IPortfolioResponse } from "../../types/Admin/AdminPortfolio";
 import { IResponse } from "../../types/Admin";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
+import { IClientMail } from "../../types/Mail.types";
 
 export class AdminHomePageService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
@@ -23,6 +24,9 @@ export class AdminHomePageService {
   }
   public updatePortfolio(data: IPortfolioResponse) {
     return this.httpService.put("api/portfolio", data);
+  }
+  public mailForm(data: IClientMail) {
+    return this.httpService.post("api/form/mail", data);
   }
 }
 

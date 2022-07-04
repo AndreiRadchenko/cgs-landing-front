@@ -12,6 +12,9 @@ export const queryKeys = {
   getPortfolio: "getPortfolio",
   updatePortfolio: "updatePortfolio",
   deleteTicketAndVacancy: "deleteTicketAndVacancy",
+  deleteArticle: "deleteArticle",
+  updateBlogPage: "updateBlogPage",
+  getBlogPage: "getBlogPage",
   // home page
   getFullHomePage: "getFullHomePage",
   getCareerPage: "getFullCareerPage",

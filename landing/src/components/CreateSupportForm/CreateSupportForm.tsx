@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import FormInput from "../FormInput/FormInput";
-import * as emailjs from "emailjs-com";
 import * as StyledThisComp from "./CreateSupportForm.styled";
 import { LestCodeValidation } from "../../validations/LetsCodeValidator";
 import { LetsCodeFormPropTypes } from "../../types/Button.types";
 import ButtonSubmitForm from "../../utils/Buttons/ButtonSubmitForm";
 import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
 import FormTextArea from "../FormInput/FormTextArea";
-import { useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import {
   IContactFormBlock,
@@ -16,6 +15,8 @@ import {
 } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import ModalSentEmail from "../Modal/ModalSentEmail";
+import { adminGlobalService } from "../../services/adminHomePage";
+import { IClientMail } from "../../types/Mail.types";
 
 declare global {
   interface Window {
@@ -24,7 +25,7 @@ declare global {
 }
 
 interface IEmailBody {
-  [name: string]: string;
+  name: string;
   email: string;
   message: string;
 }
@@ -35,6 +36,25 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
     queryKeys.getFullHomePage
   )?.ContactFormBlock;
   const [sent, setSent] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+  const { mutate } = useMutation(
+    (values: IClientMail) => adminGlobalService.mailForm(values),
+    {
+      onSuccess: (data) => {
+        if (data) {
+          setIsError(false);
+          setSent(true);
+        } else {
+          setSent(false);
+          setIsError(true);
+        }
+      },
+      onError: () => {
+        setIsError(true);
+        setSent(false);
+      },
+    }
+  );
   const {
     subtitle = "Let's code!",
     name = "Name",
@@ -51,25 +71,8 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
     validateOnBlur: true,
     validationSchema: LestCodeValidation(),
     onSubmit: (values: IEmailBody, { resetForm }) => {
-      emailjs
-        .send(
-          process.env.NEXT_PUBLIC_HOME_EMAIL_SERVICE_ID || "",
-          process.env.NEXT_PUBLIC_HOME_EMAIL_TEMPLATE_ID || "",
-          values,
-          process.env.NEXT_PUBLIC_HOME_EMAIL_USER_ID
-        )
-        .then(() => {
-          setSent(true);
-          if (typeof window !== "undefined") {
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-              event: "formSubmission",
-              formType: "Contact us",
-              formPosition: "Footer",
-            });
-          }
-          resetForm();
-        });
+      mutate(values);
+      resetForm();
     },
   });
 
@@ -128,6 +131,11 @@ const CreateSupportForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
           onMouseLeave={handleLeave}
         >
           {sent && <ModalSentEmail isOpen={sent} closeHandler={closeHandler} />}
+          {isError && (
+            <StyledThisComp.ErrorMessage>
+              Something went wrong. Please try again later
+            </StyledThisComp.ErrorMessage>
+          )}
           <ButtonSubmitForm>
             <ButtonTextWrapper fontSize={"1.4em"}>send</ButtonTextWrapper>
           </ButtonSubmitForm>

@@ -26,11 +26,13 @@ export const AuthorInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  row-gap: 8px;
   height: 100%;
   font-size: ${themes.primary.font.size.aboutUsCardText};
 `;
 
 export const AuthorNameWrapper = styled.div`
+  font-family: ${themes.primary.font.family.namu};
   display: flex;
 `;
 
@@ -48,19 +50,22 @@ export const AuthorType = styled.div`
 export const AuthorDate = styled.div`
   font-size: ${themes.primary.font.size.vistaco};
   color: ${themes.primary.colors.lightGrey};
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.primary};
 `;
 
 export const TimeWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 77px;
+  max-width: 110px;
 `;
 
 export const TimerImage = styled.img``;
 
 export const Time = styled.p`
-  font-family: ${themes.primary.font.family.sourceCode};
+  font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.aboutUsCardText};
   font-weight: ${themes.primary.font.weight.medium};
+  color: ${themes.primary.colors.blogDarkText};
 `;

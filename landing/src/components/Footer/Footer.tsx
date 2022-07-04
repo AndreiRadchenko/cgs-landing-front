@@ -6,7 +6,11 @@ import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
-const Footer = () => {
+interface IFooter {
+  isGreenLine?: boolean;
+}
+
+const Footer = ({ isGreenLine = true }: IFooter) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
@@ -28,7 +32,7 @@ const Footer = () => {
               href={el.link}
             />
           ))}
-          <Styles.DecorationFooterLinks />
+          {isGreenLine && <Styles.DecorationFooterLinks />}
         </Styles.SocialLinksContainer>
       </Styles.Container>
     </Styles.Row>

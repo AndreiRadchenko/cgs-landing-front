@@ -8,6 +8,9 @@ const ArrowWrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 0.688rem;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const SvgComponent = () => (

@@ -1,4 +1,6 @@
 import React from "react";
+import Head from "next/head";
+import parse from "html-react-parser";
 import Careers from "../../components/Careers";
 import CareersForm from "../../components/CareersForm/index";
 import { Page } from "../../styles/Page.styled";
@@ -10,7 +12,8 @@ import { queryKeys } from "../../consts/queryKeys";
 import { adminCareersService } from "../../services/adminCareersPage";
 import { CareersProps } from "../../types/Admin/Admin.types";
 import getServerSideProps from "../../utils/Redirect";
-import Head from "next/head";
+import { adminGlobalService } from "../../services/adminHomePage";
+import { IHomeData } from "../../types/Admin/Response.types";
 
 export { getServerSideProps };
 
@@ -19,6 +22,12 @@ const CarrersPage: NextPage = () => {
     queryKeys.getCareerPage,
     () => adminCareersService.getCareersPage()
   );
+
+  const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
+
+  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
   return (
     <>
@@ -43,6 +52,11 @@ const CarrersPage: NextPage = () => {
       </Head>
       {!isLoading && (
         <>
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
           <Page>
             <HeaderNav />
             <Careers />

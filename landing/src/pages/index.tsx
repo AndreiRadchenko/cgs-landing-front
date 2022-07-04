@@ -1,5 +1,6 @@
 import React, { useState, lazy, Suspense } from "react";
 import type { NextPage } from "next";
+import parse from "html-react-parser";
 import Head from "next/head";
 import Body from "../components/Body/Body";
 import { Loading, Page } from "../styles/Page.styled";
@@ -50,114 +51,20 @@ const Home: NextPage = () => {
   const portfolioData: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
     adminGlobalService.getPortfolio()
   );
+
+  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
   return (
     <>
-      <Head>
-        <title>Custom Software Development | CGS-team</title>
-        <meta
-          name="description"
-          content="CGS-team is a custom software development company with a modern approach and vast experience in web development and mobile software development"
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:url" content="https://cgsteam.io/" />
-        <meta
-          property="og:title"
-          content="Custom Software Development | CGS-team"
-        />
-        <meta
-          property="og:description"
-          content="CGS-team is a custom software development company with a modern approach and vast experience in web development and mobile software development"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/previewLink.png" />
-        <meta property="og:image:width" content="20" />
-        <meta property="og:image:height" content="20" />
-        <link rel="preconnect" href="https://connect.facebook.net" />
-        <meta
-          name="facebook-domain-verification"
-          content="0k9v3beamz5vi93rnc4uqe17s0ise2"
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "Organization",
-                  "@id": "https://cgsteam.io",
-                  url: "https://cgsteam.io",
-                  sameAs: [
-                    "https://github.com/CodeGeneration-2020/",
-                    "https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/",
-                    "https://clutch.co/profile/code-generation#summary",
-                    "https://ua.linkedin.com/company/cgs-team",
-                  ],
-                  name: "CGS-team",
-                  subOrganization: "https://cgs-blockchain.io",
-                  review: [
-                    {
-                      "@type": "Review",
-                      author: "Bertie I.",
-                      reviewBody:
-                        "CGS-team successfully implemented the solution in just two weeks. During the engagement, their project management and communication were excellent. They were responsive, fast, and cost-effective",
-                      reviewRating: {
-                        "@type": "Rating",
-                        bestRating: "5",
-                        ratingValue: "5",
-                        worstRating: "1",
-                      },
-                    },
-                    {
-                      "@type": "Review",
-                      author: "Courtney Robinson",
-                      reviewBody:
-                        "The team provided excellent service in delivering the project. They are intuitive in development and expert in execution. With deep technical knowledge and user-friendly communication, I would definitely recommend. We will be working with them again soon.",
-                      reviewRating: {
-                        "@type": "Rating",
-                        bestRating: "5",
-                        ratingValue: "5",
-                        worstRating: "1",
-                      },
-                    },
-                  ],
-                  contactPoint: {
-                    "@type": "ContactPoint",
-                    email: "tech.development@cgsteam.io",
-                  },
-                  logo: [
-                    {
-                      "@type": "ImageObject",
-                      "@id": "https://cgsteam.io",
-                      inLanguage: "en-US",
-                      url: "https://cgsteam.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.2fb87f81.svg&w=640&q=75",
-                      width: 200,
-                      height: 41,
-                      caption: "CGS-team",
-                    },
-                  ],
-                  slogan:
-                    "The team of sharp-witted devs is on the brink of you.",
-                  legalName: "CGS-team",
-                },
-                {
-                  "@type": "WebSite",
-                  "@id": "https://cgsteam.io/#website",
-                  url: "https://cgsteam.io",
-                  name: "CGS-team",
-                  description:
-                    "We provide end-to-end development using the MERN stack, which means our team adores Javascript. Furthermore, innovative ideas and new challenges are our passion.",
-                  publisher: { "@id": "https://cgsteam.io" },
-                },
-              ],
-            }),
-          }}
-        ></script>
-      </Head>
       {isLoading ? (
         <Loading>LOADING...</Loading>
       ) : (
         <>
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
           <Page>
             <Body
               welcomePageButtonHandler={scrollHandler}
