@@ -9,7 +9,7 @@ export const NavigateLeft = styled.div`
   height: 100%;
   width: 160px;
   border-left: 1px solid ${themes.primary.colors.comment};
-  color: black;
+  color: ${themes.primary.colors.black};
   writing-mode: vertical-lr;
   transform: rotate(180deg);
   font-family: ${themes.primary.font.family.namu};
@@ -28,7 +28,7 @@ export const ButtonInfo = styled.div`
   display: flex;
   height: 153px;
   width: 100%;
-  background: #e5e5e5;
+  background: ${themes.primary.colors.lightGray};
   padding: 0px 27px;
   align-items: center;
   justify-content: space-around;
@@ -70,7 +70,7 @@ export const PortfolioRow = styled.div`
 
   &:hover ${NavigateLeft} {
     background-color: ${themes.primary.colors.darkBlue};
-    color: white;
+    color: ${themes.primary.colors.primary};
   }
   @media ${themes.primary.media.maxMobile} {
     display: block;
@@ -80,7 +80,7 @@ export const PortfolioRow = styled.div`
     &:hover ${ButtonInfo} {
       background-color: ${themes.primary.colors.darkBlue};
       &:nth-child(1) {
-        color: white;
+        color: ${themes.primary.colors.primary};
       }
     }
   }
@@ -107,7 +107,7 @@ export const NavigateRight = styled.div`
 
 export const ReviewContainer = styled.div`
   .swiper-slide-next {
-    background-color: #0070f3;
+    background-color: ${themes.primary.colors.cyanBlue};
   }
   height: 100%;
   position: relative;
@@ -232,7 +232,7 @@ export const ProjectDescription = styled.p`
 `;
 
 export const Separator = styled.div`
-  background-color: ${(params) => (params.color ? params.color : "#cdcdcd")};
+  background-color: ${(params) => (params.color ? params.color : themes.primary.colors.separator)};
   width: 100%;
   height: 0.5px;
   margin-bottom: 20px;
