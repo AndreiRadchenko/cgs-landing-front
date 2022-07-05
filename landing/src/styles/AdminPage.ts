@@ -670,7 +670,7 @@ export const CompanyName = styled.div`
 
 export const Subtitle = styled.div`
   font-family: ${themes.primary.font.family.gilroy};
-  font-weight: 500;
+  font-weight: ${themes.primary.font.weight.medium};
   font-size: 52px;
   letter-spacing: 2px;
   overflow: hidden;
