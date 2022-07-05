@@ -45,9 +45,16 @@ const Review = ({ review }: IReviewProps) => {
             {review.feedback?.feedbackText}
           </Styled.ProjectDescription>
         </Styled.ContentContainer>
-        <Styled.ImageContainer>
-          <Image src={review.image.url} width={"588"} height={"413"} alt="review image" />
-        </Styled.ImageContainer>
+        {(review?.image && (
+          <Styled.ImageContainer>
+            <Image
+              src={review?.image.url}
+              width={"588"}
+              height={"413"}
+              alt="review image"
+            />
+          </Styled.ImageContainer>
+        )) || <h1>No Image</h1>}
       </Styled.ReviewContainer>
     )
   );
