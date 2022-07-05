@@ -8,7 +8,7 @@ interface IArticleReadMore {
 }
 
 const ArticleReadMore = ({ readMore }: IArticleReadMore) => {
-  return (
+  return readMore.length > 0 ? (
     <Styles.Wrapper>
       <Styles.Title>Read more:</Styles.Title>
       <Styles.ReadMoreItemsWrapper>
@@ -17,6 +17,8 @@ const ArticleReadMore = ({ readMore }: IArticleReadMore) => {
         ))}
       </Styles.ReadMoreItemsWrapper>
     </Styles.Wrapper>
+  ) : (
+    <Styles.Space></Styles.Space>
   );
 };
 

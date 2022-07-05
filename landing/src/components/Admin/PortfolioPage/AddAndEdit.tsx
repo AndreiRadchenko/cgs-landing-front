@@ -1,10 +1,9 @@
 import { Formik, useFormikContext } from "formik";
 import React from "react";
-import { newReviewInit } from "../../../consts";
-import { IPortfolioResponse } from "../../../types/Admin/AdminPortfolio";
+import { newPageReviewInit } from "../../../consts";
 import AddReview from "../PortfolioReviewPage/AddReview";
-import { IAddAndEditProps } from "./Portfolio.types";
-
+import { IAddAndEditProps } from "../../../types/Admin/AdminPortfolioPage.types";
+import { IPortfolioData } from "../../../types/Admin/AdminPortfolioPage.types";
 const AddAndEdit = ({
   submitFunc,
   setIsReady,
@@ -12,14 +11,14 @@ const AddAndEdit = ({
   current,
   isNewStatus,
 }: IAddAndEditProps) => {
-  const { values } = useFormikContext<IPortfolioResponse>();
+  const { values } = useFormikContext<IPortfolioData>();
 
   return (
     <Formik
       key={`Form${isNewStatus}${current ? current : "null"}`}
       initialValues={
         isNewStatus
-          ? JSON.parse(JSON.stringify(newReviewInit))
+          ? JSON.parse(JSON.stringify(newPageReviewInit))
           : values.reviews[current]
       }
       onSubmit={

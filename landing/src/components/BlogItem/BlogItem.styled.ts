@@ -21,7 +21,7 @@ export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
   display: flex;
   justify-content: center;
   font-family: ${themes.primary.font.family.namu};
-  &:active {
+  &:hover {
     background-color: ${(props) =>
       props.isAdmin ? "transparent" : themes.primary.colors.darkBlue};
     color: ${(props) =>
@@ -29,7 +29,7 @@ export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
         ? themes.primary.colors.black
         : themes.primary.colors.secondary};
   }
-  &:active ${BlogItemDescription} {
+  &:hover ${BlogItemDescription} {
     color: ${(props) =>
       props.isAdmin
         ? themes.primary.colors.black
@@ -43,9 +43,31 @@ export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
       ${themes.primary.spacing.headerNavHorizontal};
     overflow: hidden;
   }
-
   @media ${themes.primary.media.maxLowScreenMobile} {
     padding: 2em 2em;
+  }
+  @media (max-width: 990px) {
+    &:hover {
+      background-color: transparent;
+      color: ${themes.primary.colors.black};
+    }
+    &:hover ${BlogItemDescription} {
+      color: ${themes.primary.colors.blogDarkText};
+    }
+    &:active {
+      background-color: ${(props) =>
+        props.isAdmin ? "transparent" : themes.primary.colors.darkBlue};
+      color: ${(props) =>
+        props.isAdmin
+          ? themes.primary.colors.black
+          : themes.primary.colors.secondary};
+    }
+    &:active ${BlogItemDescription} {
+      color: ${(props) =>
+        props.isAdmin
+          ? themes.primary.colors.black
+          : themes.primary.colors.previewArticleText};
+    }
   }
 `;
 
@@ -68,6 +90,7 @@ export const BlogItem = styled.div<IAdmin>`
     justify-content: center;
     padding: ${(props) => (props.isAdmin ? "57px 70px" : "0px")};
     max-width: 720px;
+    width: 100%;
   }
   @media ${themes.primary.media.onlyTabletPortrait} {
     margin-top: 25px;
@@ -79,6 +102,8 @@ export const BlogItemTitle = styled.p<IAdmin>`
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
   font-family: ${themes.primary.font.family.namu};
+  margin-top: 28px;
+  margin-bottom: 0;
   @media (max-width: 990px) {
     max-width: 720px;
     padding: 0;
@@ -100,4 +125,12 @@ export const BlogItemImage = styled.img`
   }
 `;
 
-export const BlogItemInfo = styled.div``;
+export const BlogItemInfo = styled.div`
+  max-width: 100%;
+  @media (max-width: 990px) {
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    margin: 0;
+  }
+`;

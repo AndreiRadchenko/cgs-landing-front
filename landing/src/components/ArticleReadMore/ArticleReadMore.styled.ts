@@ -28,3 +28,7 @@ export const ReadMoreItemsWrapper = styled.div`
     flex-wrap: wrap;
   }
 `;
+
+export const Space = styled.div`
+  height: 70px;
+`;

@@ -25,6 +25,7 @@ export const Title = styled.div`
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
   font-family: ${themes.primary.font.family.namu};
+  margin: 0;
 `;
 
 export const Description = styled.p`

@@ -51,6 +51,7 @@ const Home: NextPage = () => {
   const portfolioData: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
     adminGlobalService.getPortfolio()
   );
+  
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 

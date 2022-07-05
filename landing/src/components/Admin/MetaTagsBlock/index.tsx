@@ -2,15 +2,21 @@
 import * as Styled from "../../../styles/AdminPage";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { useFormikContext } from "formik";
-import { IDataResponse } from "../../../types/Admin/Response.types";
+import { IDataResponse, IMetaBlock } from "../../../types/Admin/Response.types";
 
 interface IMetaBlockProps {
   theme?: string;
+  nestedMeta?: { meta: IMetaBlock };
+  nameBefore?: string;
 }
 
-const MetaTagsBlock = ({ theme }: IMetaBlockProps) => {
+const MetaTagsBlock = ({
+  theme,
+  nestedMeta,
+  nameBefore = "",
+}: IMetaBlockProps) => {
   const { values, handleChange } = useFormikContext<IDataResponse>();
-  const { meta } = values;
+  const { meta } = nestedMeta ? nestedMeta : values;
 
   return (
     <Styled.AdminPaddedBlock theme={theme}>
@@ -22,7 +28,9 @@ const MetaTagsBlock = ({ theme }: IMetaBlockProps) => {
             .replace(/^./, (str: string) => str.toUpperCase())}
           minRows={5}
           inputValue={el[1]}
-          name={`meta.${el[0]}`}
+          name={
+            nameBefore != "" ? `${nameBefore}.meta.${el[0]}` : `meta.${el[0]}`
+          }
           onChangeFunction={handleChange}
         />
       ))}
