@@ -110,7 +110,7 @@ const PublishedArticles: FC<IArticles> = ({
     );
   };
 
-  return (
+  return values.articles.length ? (
     <Styles.Wrapper>
       <AdminSubTitle>Published articles</AdminSubTitle>
       <DragDropContext onDragEnd={(param) => handleDragEnd(param)}>
@@ -140,6 +140,8 @@ const PublishedArticles: FC<IArticles> = ({
         </Droppable>
       </DragDropContext>
     </Styles.Wrapper>
+  ) : (
+    <Styles.EmptyArticles>No articles</Styles.EmptyArticles>
   );
 };
 

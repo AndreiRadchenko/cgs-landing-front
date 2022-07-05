@@ -97,7 +97,8 @@ const themes = {
       darkBlueBlockchain: "#392770",
       blogDarkText: "#272C2F",
       blogArticleText: "#535557",
-      blogBackground: "#E5E5E5",
+      blogBackground: "#f1efed",
+      blogFooter: "#EBE9EB",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

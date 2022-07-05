@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { Page } from "../../styles/Page.styled";
+import parse from "html-react-parser";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import Footer from "../../components/Footer/Footer";
 import { useQuery } from "react-query";
@@ -12,6 +12,8 @@ import * as Styles from "../../styles/BlogPage.styled";
 import { adminBlogService } from "../../services/adminBlogPage";
 import Link from "next/link";
 import { adminGlobalService } from "../../services/adminHomePage";
+import * as Styled from "../../styles/AdminPage";
+import Head from "next/head";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
@@ -35,50 +37,65 @@ const BlogPage = () => {
     return data?.articles.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, data?.articles]);
 
+  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
   return (
     <>
-      {!isLoading && currentArticlesData && data && (
-        <Styles.PageWrapper>
-          <Page>
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        {customHead && parse(customHead)}
+      </Head>
+      <Styles.PageWrapper>
+        <div>
+          <Styles.HeaderContainer>
             <HeaderNav />
-          </Page>
-          <Link href={`blog/articles/${currentArticlesData[0]._id}`} passHref>
-            <Styles.BlogItemContainer>
-              <Styles.BannerImage src={currentArticlesData[0].image.url} />
-              <Styles.PageTitle>
-                {currentArticlesData[0].title}
-              </Styles.PageTitle>
-              <Styles.PageDescription>
-                {currentArticlesData[0].description}
-              </Styles.PageDescription>
-            </Styles.BlogItemContainer>
-          </Link>
-          <Styles.BlogItemsWrapper>
-            {currentArticlesData.map((article, i) =>
-              i === 0 ? null : (
-                <BlogItem
-                  id={article._id}
-                  key={i}
-                  isAdmin={false}
-                  image={article.image?.url}
-                  description={article.description}
-                  title={article.title}
-                />
-              )
-            )}
-          </Styles.BlogItemsWrapper>
-          <PaginationBar
-            currentPage={currentPage}
-            totalCount={data.articles.length}
-            pageSize={PageSize}
-            onPageChange={(page: string | number) =>
-              setCurrentPage(Number(page))
-            }
-            siblingCount={1}
-          />
-          <Footer isGreenLine={false} />
-        </Styles.PageWrapper>
-      )}
+          </Styles.HeaderContainer>
+          {!currentArticlesData || !data?.articles.length ? (
+            <Styled.AdminUnauthorizedModal>
+              Articles is not defined :(
+            </Styled.AdminUnauthorizedModal>
+          ) : (
+            <>
+              <Link href={`blog/${currentArticlesData[0].url}`} passHref>
+                <Styles.BlogItemContainer>
+                  <Styles.BannerImage src={currentArticlesData[0].image.url} />
+                  <Styles.PageTitle>
+                    {currentArticlesData[0].title}
+                  </Styles.PageTitle>
+                  <Styles.PageDescription>
+                    {currentArticlesData[0].description}
+                  </Styles.PageDescription>
+                </Styles.BlogItemContainer>
+              </Link>
+              <Styles.BlogItemsWrapper>
+                {currentArticlesData.map((article, i) =>
+                  i === 0 ? null : (
+                    <BlogItem
+                      url={article.url}
+                      key={i}
+                      isAdmin={false}
+                      image={article.image?.url}
+                      description={article.description}
+                      title={article.title}
+                    />
+                  )
+                )}
+              </Styles.BlogItemsWrapper>
+              <PaginationBar
+                currentPage={currentPage}
+                totalCount={data.articles.length}
+                pageSize={PageSize}
+                onPageChange={(page: string | number) =>
+                  setCurrentPage(Number(page))
+                }
+                siblingCount={1}
+              />
+            </>
+          )}
+        </div>
+        <Footer isGreenLine={false} />
+      </Styles.PageWrapper>
     </>
   );
 };
