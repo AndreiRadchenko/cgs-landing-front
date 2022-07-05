@@ -1,4 +1,3 @@
-import { Page } from "../../styles/Page.styled";
 import parse from "html-react-parser";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import ArticleAuthor from "../../components/ArticleAuthor/ArticleAuthor";
@@ -57,7 +56,7 @@ const ArticlePage = () => {
       const readMoreRandomly = getMultipleRandom(data.articles, 2);
       setReadMore(readMoreRandomly);
     }
-  }, [data]);
+  }, [article]);
 
   if (isLoading)
     return (
