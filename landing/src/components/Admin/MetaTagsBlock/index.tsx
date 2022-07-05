@@ -6,12 +6,17 @@ import { IDataResponse, IMetaBlock } from "../../../types/Admin/Response.types";
 
 interface IMetaBlockProps {
   theme?: string;
-  meta: IMetaBlock;
+  nestedMeta?: { meta: IMetaBlock };
   nameBefore?: string;
 }
 
-const MetaTagsBlock = ({ theme, meta, nameBefore = "" }: IMetaBlockProps) => {
-  const { handleChange } = useFormikContext<IDataResponse>();
+const MetaTagsBlock = ({
+  theme,
+  nestedMeta,
+  nameBefore = "",
+}: IMetaBlockProps) => {
+  const { values, handleChange } = useFormikContext<IDataResponse>();
+  const { meta } = nestedMeta ? nestedMeta : values;
 
   return (
     <Styled.AdminPaddedBlock theme={theme}>
@@ -24,7 +29,7 @@ const MetaTagsBlock = ({ theme, meta, nameBefore = "" }: IMetaBlockProps) => {
           minRows={5}
           inputValue={el[1]}
           name={
-            nameBefore !== "" ? `${nameBefore}.meta.${el[0]}` : `meta.${el[0]}`
+            nameBefore != "" ? `${nameBefore}.meta.${el[0]}` : `meta.${el[0]}`
           }
           onChangeFunction={handleChange}
         />

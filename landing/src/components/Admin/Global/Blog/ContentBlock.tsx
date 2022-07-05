@@ -270,9 +270,7 @@ const ContentBlock: FC<IArticles> = ({
       </Styled.AdminPaddedBlock>
       <MetaTagsBlock
         theme="dark"
-        meta={
-          isNewArticle ? values.newArticle.meta : values.articles[article].meta
-        }
+        nestedMeta={isNewArticle ? values.newArticle : values.articles[article]}
         nameBefore={isNewArticle ? `newArticle` : `articles[${article}]`}
       />
       <Styled.AdminPaddedBlock>
@@ -298,7 +296,7 @@ const ContentBlock: FC<IArticles> = ({
           </Styled.AdminBigButton>
         </Styled.AdminPaddedBlock>
       </Styled.AdminPaddedBlock>
-      <MetaTagsBlock theme="dark" meta={values.meta} />
+      <MetaTagsBlock theme="dark" />
       <Styled.AdminPaddedBlock>
         <Styled.AdminBigButton type="submit" onClick={updateMetaTags}>
           Update meta tags
