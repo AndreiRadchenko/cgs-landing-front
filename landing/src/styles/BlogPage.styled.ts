@@ -2,7 +2,49 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 export const PageWrapper = styled.div`
+  background-color: ${themes.primary.colors.secondary};
   background-color: ${themes.primary.colors.blogBackground};
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const HeaderContainer = styled.article`
+  width: 1400px;
+  position: relative;
+  margin: 0 auto;
+  padding-top: ${themes.primary.spacing.headerNavVertical};
+
+  @media ${themes.primary.media.onlyLaptop} {
+    width: 1100px;
+
+    &.lets-code {
+      width: 90%;
+    }
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    width: 840px;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    margin: 0 auto;
+    padding-top: ${themes.primary.spacing.headerNavVertical};
+    width: 720px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    margin: 0;
+    padding: ${themes.primary.spacing.headerNavVertical}
+      ${themes.primary.spacing.headerNavHorizontal};
+    overflow: hidden;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    padding: 2em 2em;
+  }
 `;
 
 export const BannerImage = styled.img`
@@ -19,8 +61,9 @@ export const PageDescription = styled.div`
   max-width: 950px;
   font-weight: ${themes.primary.font.weight.normal};
   font-size: ${themes.primary.font.size.linkText};
+  color: ${themes.primary.colors.blogDarkText};
   line-height: 160%;
-  margin-top: 20px;
+  margin-top: 15px;
   @media (max-width: 990px) {
     max-width: 720px;
   }
@@ -28,9 +71,11 @@ export const PageDescription = styled.div`
 
 export const PageTitle = styled.div`
   max-width: 950px;
+  width: 100%;
   margin-top: 28px;
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
+  color: ${themes.primary.colors.primary};
   cursor: pointer;
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 100%;
@@ -45,6 +90,7 @@ export const BlogItemContainer = styled.div`
   align-items: center;
   font-family: ${themes.primary.font.family.namu};
   padding: 20px 0;
+  margin-top: 40px;
   &:hover {
     cursor: pointer;
   }
@@ -99,6 +145,7 @@ export const BlogItemsWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 40px;
 `;
 
 export const ArrowBackButton = styled.img`

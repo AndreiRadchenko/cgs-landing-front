@@ -18,6 +18,7 @@ import { adminBlogService } from "../../services/adminBlogPage";
 import * as Styled from "../../styles/AdminPage";
 import { adminGlobalService } from "../../services/adminHomePage";
 import Head from "next/head";
+import { HeaderContainer } from "../../styles/BlogPage.styled";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
@@ -66,46 +67,44 @@ const ArticlePage = () => {
   const { metaTitle, metaDescription, customHead } = {
     ...article?.meta,
   };
-  return (
+  return isSuccess && article && readMore ? (
     <>
-      {isSuccess && article && readMore ? (
-        <>
-          <Head>
-            <title>{metaTitle}</title>
-            <meta name="description" content={metaDescription} />
-            {customHead && parse(customHead)}
-          </Head>
-          <Page>
-            <HeaderNav />
-            <Styles.PageWrapper>
-              <Styles.ArrowBackButton
-                src={ArrowBack.src}
-                onClick={() => router.back()}
-              />
-              <Styles.Title>{article.title}</Styles.Title>
-              <Styles.SubTitle>{article.description}</Styles.SubTitle>
-              <Styles.BannerImage src={article.image.url} />
-              <ArticleAuthor
-                author={article.author}
-                date={article.date}
-                time={article.minutesToRead}
-              />
-              <ArticleDescription content={article.content} />
-              <Styles.ShareTagsWrapper>
-                <ShareOn image={article.image} title={article.title} />
-                <ArticleTags tags={article.tags} />
-              </Styles.ShareTagsWrapper>
-              <ArticleReadMore readMore={readMore} />
-            </Styles.PageWrapper>
-          </Page>
-          <Footer isGreenLine={false} />
-        </>
-      ) : (
-        <Styled.AdminUnauthorizedModal>
-          Something went wrong :(
-        </Styled.AdminUnauthorizedModal>
-      )}
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        {customHead && parse(customHead)}
+      </Head>
+      <Styles.Background>
+        <HeaderContainer>
+          <HeaderNav />
+          <Styles.PageWrapper>
+            <Styles.ArrowBackButton
+              src={ArrowBack.src}
+              onClick={() => router.back()}
+            />
+            <Styles.Title>{article.title}</Styles.Title>
+            <Styles.SubTitle>{article.description}</Styles.SubTitle>
+            <Styles.BannerImage src={article.image.url} />
+            <ArticleAuthor
+              author={article.author}
+              date={article.date}
+              time={article.minutesToRead}
+            />
+            <ArticleDescription content={article.content} />
+            <Styles.ShareTagsWrapper>
+              <ShareOn image={article.image} title={article.title} />
+              <ArticleTags tags={article.tags} />
+            </Styles.ShareTagsWrapper>
+            <ArticleReadMore readMore={readMore} />
+          </Styles.PageWrapper>
+        </HeaderContainer>
+        <Footer isGreenLine={false} />
+      </Styles.Background>
     </>
+  ) : (
+    <Styled.AdminUnauthorizedModal>
+      Something went wrong :(
+    </Styled.AdminUnauthorizedModal>
   );
 };
 

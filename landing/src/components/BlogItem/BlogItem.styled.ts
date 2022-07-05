@@ -68,6 +68,7 @@ export const BlogItem = styled.div<IAdmin>`
     justify-content: center;
     padding: ${(props) => (props.isAdmin ? "57px 70px" : "0px")};
     max-width: 720px;
+    width: 100%;
   }
   @media ${themes.primary.media.onlyTabletPortrait} {
     margin-top: 25px;
@@ -79,6 +80,8 @@ export const BlogItemTitle = styled.p<IAdmin>`
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
   font-family: ${themes.primary.font.family.namu};
+  margin-top: 28px;
+  margin-bottom: 0;
   @media (max-width: 990px) {
     max-width: 720px;
     padding: 0;
@@ -100,4 +103,12 @@ export const BlogItemImage = styled.img`
   }
 `;
 
-export const BlogItemInfo = styled.div``;
+export const BlogItemInfo = styled.div`
+  max-width: 100%;
+  @media (max-width: 990px) {
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    margin: 0;
+  }
+`;
