@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from "react";
 import parse from "html-react-parser";
-import { Page } from "../../styles/Page.styled";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import Footer from "../../components/Footer/Footer";
 import { useQuery } from "react-query";

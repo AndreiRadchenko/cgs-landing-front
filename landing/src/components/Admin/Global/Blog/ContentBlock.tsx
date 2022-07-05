@@ -289,12 +289,9 @@ const ContentBlock: FC<IArticles> = ({
           setArticle={setArticle}
           setIsNewArticle={setIsNewArticle}
         />
-
-        <Styled.AdminPaddedBlock>
-          <Styled.AdminBigButton type={"submit"} onClick={updateArticle}>
-            {"Update order"}
-          </Styled.AdminBigButton>
-        </Styled.AdminPaddedBlock>
+        <Styled.AdminBigButton type={"submit"} onClick={updateArticle}>
+          {"Update order"}
+        </Styled.AdminBigButton>
       </Styled.AdminPaddedBlock>
       <MetaTagsBlock theme="dark" />
       <Styled.AdminPaddedBlock>

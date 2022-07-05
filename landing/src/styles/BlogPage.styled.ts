@@ -2,7 +2,6 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 export const PageWrapper = styled.div`
-  background-color: ${themes.primary.colors.secondary};
   background-color: ${themes.primary.colors.blogBackground};
   min-height: 100vh;
   display: flex;
@@ -95,13 +94,16 @@ export const BlogItemContainer = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 920px) {
+  @media ${themes.primary.media.maxTabletPortrait} {
     &:active {
       background-color: ${themes.primary.colors.darkBlue};
       color: ${themes.primary.colors.secondary};
     }
     &:active ${PageDescription} {
       color: ${themes.primary.colors.previewArticleText};
+    }
+    &:active ${PageTitle} {
+      color: ${themes.primary.colors.secondary};
     }
   }
 
@@ -153,11 +155,13 @@ export const ArrowBackButton = styled.img`
     cursor: pointer;
   }
   position: absolute;
-  top: 79px;
-  left: 0px;
+  top: 100px;
+  left: 0;
+  margin-bottom: 15px;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media (max-width: 768px) {
     left: 40px;
+    top: 90px;
   }
 `;
 
