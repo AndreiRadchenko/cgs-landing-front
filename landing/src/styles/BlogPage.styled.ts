@@ -159,7 +159,7 @@ export const ArrowBackButton = styled.img`
   left: 0;
   margin-bottom: 15px;
 
-  @media (max-width: 768px) {
+  @media ${themes.primary.media.maxMobile} {
     left: 40px;
     top: 90px;
   }

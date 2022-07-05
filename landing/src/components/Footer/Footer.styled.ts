@@ -2,7 +2,11 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 import Decoration from "../Decoration/Decoration";
 
-export const Container = styled.div<{ isGreenLine: boolean }>`
+interface IFooterProps {
+  isGreenLine: boolean;
+}
+
+export const Container = styled.div<IFooterProps>`
   margin-top: 7em;
   background-color: ${(props) =>
     props.isGreenLine
