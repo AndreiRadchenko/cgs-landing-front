@@ -42,7 +42,7 @@ export const SubHeaderWrapper = styled.div``;
 export const ButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  width: 70%;
 `;
 
 export const FooterButton = styled.div`

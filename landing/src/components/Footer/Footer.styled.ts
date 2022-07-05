@@ -2,9 +2,16 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 import Decoration from "../Decoration/Decoration";
 
-export const Container = styled.div`
+interface IFooterProps {
+  isGreenLine: boolean;
+}
+
+export const Container = styled.div<IFooterProps>`
   margin-top: 7em;
-  background-color: ${themes.primary.colors.secondary};
+  background-color: ${(props) =>
+    props.isGreenLine
+      ? themes.primary.colors.secondary
+      : themes.primary.colors.blogFooter};
   height: 7.5em;
   width: 100%;
   display: grid;

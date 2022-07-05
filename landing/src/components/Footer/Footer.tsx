@@ -18,7 +18,7 @@ const Footer = ({ isGreenLine = true }: IFooter) => {
 
   return (
     <Styles.Row>
-      <Styles.Container>
+      <Styles.Container isGreenLine={isGreenLine}>
         <Styles.WebAddressContainer>
           <Styles.WebAddress href={`mailto:${data?.email}`}>
             <SplitBrackets text={data?.email} />

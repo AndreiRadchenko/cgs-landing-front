@@ -21,7 +21,7 @@ export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
   display: flex;
   justify-content: center;
   font-family: ${themes.primary.font.family.namu};
-  &:active {
+  &:hover {
     background-color: ${(props) =>
       props.isAdmin ? "transparent" : themes.primary.colors.darkBlue};
     color: ${(props) =>
@@ -29,7 +29,7 @@ export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
         ? themes.primary.colors.black
         : themes.primary.colors.secondary};
   }
-  &:active ${BlogItemDescription} {
+  &:hover ${BlogItemDescription} {
     color: ${(props) =>
       props.isAdmin
         ? themes.primary.colors.black
@@ -43,9 +43,31 @@ export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
       ${themes.primary.spacing.headerNavHorizontal};
     overflow: hidden;
   }
-
   @media ${themes.primary.media.maxLowScreenMobile} {
     padding: 2em 2em;
+  }
+  @media (max-width: 990px) {
+    &:hover {
+      background-color: transparent;
+      color: ${themes.primary.colors.black};
+    }
+    &:hover ${BlogItemDescription} {
+      color: ${themes.primary.colors.blogDarkText};
+    }
+    &:active {
+      background-color: ${(props) =>
+        props.isAdmin ? "transparent" : themes.primary.colors.darkBlue};
+      color: ${(props) =>
+        props.isAdmin
+          ? themes.primary.colors.black
+          : themes.primary.colors.secondary};
+    }
+    &:active ${BlogItemDescription} {
+      color: ${(props) =>
+        props.isAdmin
+          ? themes.primary.colors.black
+          : themes.primary.colors.previewArticleText};
+    }
   }
 `;
 
