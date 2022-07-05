@@ -15,6 +15,15 @@ export const ChangeIcon = styled.img`
   right: 15px;
 `;
 
+export const EmptyArticles = styled.div`
+  margin: 30px 0px;
+  display: flex;
+  justify-content: center;
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.medium};
+  font-size: ${themes.primary.font.size.articleTagDescription};
+`;
+
 export const DeleteButton = styled.div`
   cursor: pointer;
   position: absolute;

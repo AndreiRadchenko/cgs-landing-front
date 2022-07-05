@@ -12,6 +12,7 @@ import { adminBlogService } from "../../../services/adminBlogPage";
 import { useRouter } from "next/router";
 import ArrowBack from "../../../../public/arrowBack.svg";
 import { adminGlobalService } from "../../../services/adminHomePage";
+import { HeaderContainer } from "../../../styles/BlogPage.styled";
 
 interface IHomeData {
   data: IBlogResponse | undefined;
@@ -48,7 +49,7 @@ const BlogPage = () => {
     <>
       {!isLoading && articles && (
         <Styles.PageWrapper>
-          <Page>
+          <HeaderContainer>
             <HeaderNav />
             <Styles.ArrowBackButton
               src={ArrowBack.src}
@@ -57,11 +58,11 @@ const BlogPage = () => {
             <Styles.PageHeaderWrapper>
               <Styles.TagTitle>TAG: {tag}</Styles.TagTitle>
             </Styles.PageHeaderWrapper>
-          </Page>
+          </HeaderContainer>
           <Styles.BlogItemsWrapper>
             {currentArticlesData?.map((article, i) => (
               <BlogItem
-                id={article._id}
+                url={article.url}
                 key={i}
                 isAdmin={false}
                 image={article.image?.url}

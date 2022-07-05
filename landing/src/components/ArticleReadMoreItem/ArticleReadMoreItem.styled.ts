@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   width: 458px;
   margin-bottom: 50px;
+  cursor: pointer;
   &:last-child {
     margin-right: 0;
   }

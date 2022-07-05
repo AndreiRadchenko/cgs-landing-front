@@ -228,6 +228,7 @@ export interface ITextBlog {
 
 export interface IArticle {
   _id?: string;
+  url: string;
   image: { url: string };
   title: string;
   description: string;
@@ -236,11 +237,13 @@ export interface IArticle {
   minutesToRead: number;
   content: ITextBlog[];
   tags: string[];
+  meta: IMetaBlock;
 }
 
 export interface IBlogResponse {
   articles: IArticle[];
   newArticle: IArticle;
+  meta: IMetaBlock;
 }
 
 export interface IHomeData {
