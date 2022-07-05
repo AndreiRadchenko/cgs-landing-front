@@ -31,6 +31,16 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
     setBlocks(blocks);
   }, [article, isNewArticle, values.articles, values.newArticle.content]);
 
+  const checkSubtitleCount = () => {
+    let counter = 0;
+    newArticleContent.forEach((block) => {
+      if (!block.hasOwnProperty("text")) {
+        counter += 1;
+      }
+    });
+    return counter;
+  };
+
   const addSubtitleBlockOnClick = () => {
     const subtitle = { subNumber: "", subtitle: "" };
     const newArticleCase = () => {
@@ -59,6 +69,10 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
       setBlocks(blocks.concat(editArticleText(editArticleContent.length - 1)));
     };
     isNewArticle ? newArticleCase() : editArticleCase();
+  };
+
+  const deleteItem = () => {
+    setBlocks(blocks.slice(0, -1));
   };
 
   const newArticleSubtitle = (index: number): JSX.Element => (
@@ -107,12 +121,21 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
     <>
       {blocks}
       <Styles.ButtonsWrapper>
-        <Styles.FooterButton onClick={addSubtitleBlockOnClick}>
+        <Styles.FooterButton
+          onClick={
+            checkSubtitleCount() < 6 ? addSubtitleBlockOnClick : undefined
+          }
+        >
           + Add Subtitle number and Subtitle
         </Styles.FooterButton>
         <Styles.FooterButton onClick={addTextBlockOnClick}>
           + Add Text
         </Styles.FooterButton>
+        {blocks.length !== 0 && (
+          <Styles.FooterButton onClick={deleteItem}>
+            + Delete Item
+          </Styles.FooterButton>
+        )}
       </Styles.ButtonsWrapper>
     </>
   );
