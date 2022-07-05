@@ -155,6 +155,19 @@ export const newBlockchainProjectInit = {
   text: "",
   name: "",
 };
+export const newPageReviewInit = {
+  image: null,
+  category: "",
+  title: "",
+  text: "",
+  button: "",
+  feedback: {
+    name: "",
+    rating: "",
+    company: "",
+    feedbackText: "",
+  },
+};
 
 export enum ROUTE_KEYS {
   AdminPage = "AdminPage",

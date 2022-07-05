@@ -26,8 +26,8 @@ const themes = {
         sourceCode: "'Source Code Pro', monospace",
         mulish: "'Roboto', sans-serif",
         gilroy: "'Gilroy', sans-serif",
-        openSans: "'Open Sans', sans-serif",
         namu: "'NAMU', sans-serif",
+        openSans: "'Open Sans', sans-serif",
       },
       weight: {
         light: 300,
@@ -61,6 +61,10 @@ const themes = {
       },
     },
     colors: {
+      gray: "#535353",
+      cyanBlue: "#0070f3",
+      lightGray: "#E5E5E5",
+      separator: "#CDCDCD",
       decorationText: "#C7FB9C",
       quinary: "#FFA046",
       primary: "#000",
