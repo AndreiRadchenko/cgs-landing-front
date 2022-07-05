@@ -5,7 +5,7 @@ export const Title = styled.p`
   font-size: ${themes.primary.font.size.articleTitle};
   font-weight: ${themes.primary.font.weight.bold};
   font-family: ${themes.primary.font.family.namu};
-  color: ${themes.primary.colors.blogDarkText};
+  color: ${themes.primary.colors.primary};
   margin: 0 auto;
   max-width: 945px;
   text-align: center;
@@ -20,6 +20,10 @@ export const SubTitle = styled.p`
   font-family: ${themes.primary.font.family.namu};
   color: ${themes.primary.colors.blogDarkText};
   line-height: 160%;
+`;
+
+export const Background = styled.div`
+  background-color: ${themes.primary.colors.blogBackground};
 `;
 
 export const PageWrapper = styled.div`
@@ -53,11 +57,12 @@ export const ArrowBackButton = styled.img`
     cursor: pointer;
   }
   position: absolute;
-  top: 80px;
+  top: 100px;
   left: 0;
   margin-bottom: 15px;
 
   @media (max-width: 768px) {
     left: 40px;
+    top: 90px;
   }
 `;

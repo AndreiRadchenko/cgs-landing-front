@@ -9,13 +9,13 @@ interface IArticleReadMore {
 
 const ArticleReadMoreItem = ({ article }: IArticleReadMore) => {
   return (
-    <Styles.Wrapper>
-      <Styles.Image src={article.image.url} />
-      <Link href={`/blog/articles/${article._id}`} passHref>
+    <Link href={`/blog/${article.url}`} passHref>
+      <Styles.Wrapper>
+        <Styles.Image src={article.image.url} />
         <Styles.Title>{article.title}</Styles.Title>
-      </Link>
-      <Styles.Description>{article.description}</Styles.Description>
-    </Styles.Wrapper>
+        <Styles.Description>{article.description}</Styles.Description>
+      </Styles.Wrapper>
+    </Link>
   );
 };
 
