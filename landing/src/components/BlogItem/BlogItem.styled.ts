@@ -1,49 +1,136 @@
 import themes from "../../utils/themes";
 import styled from "styled-components";
 
-export const BlogItem = styled.div<{ isAdmin?: boolean }>`
+interface IAdmin {
+  isAdmin?: boolean;
+}
+
+export const BlogItemDescription = styled.p<IAdmin>`
+  max-width: ${(props) => (props.isAdmin ? "430px" : "500px")};
+  font-weight: ${themes.primary.font.weight.normal};
+  font-size: ${themes.primary.font.size.linkText};
+  color: ${themes.primary.colors.blogDarkText};
+  line-height: 160%;
+  @media (max-width: 990px) {
+    max-width: 720px;
+  }
+`;
+
+export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: ${themes.primary.font.family.namu};
+  &:hover {
+    background-color: ${(props) =>
+      props.isAdmin ? "transparent" : themes.primary.colors.darkBlue};
+    color: ${(props) =>
+      props.isAdmin
+        ? themes.primary.colors.black
+        : themes.primary.colors.secondary};
+  }
+  &:hover ${BlogItemDescription} {
+    color: ${(props) =>
+      props.isAdmin
+        ? themes.primary.colors.black
+        : themes.primary.colors.previewArticleText};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    margin: 0;
+    padding: ${themes.primary.spacing.headerNavVertical}
+      ${themes.primary.spacing.headerNavHorizontal};
+    overflow: hidden;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    padding: 2em 2em;
+  }
+  @media (max-width: 990px) {
+    &:hover {
+      background-color: transparent;
+      color: ${themes.primary.colors.black};
+    }
+    &:hover ${BlogItemDescription} {
+      color: ${themes.primary.colors.blogDarkText};
+    }
+    &:active {
+      background-color: ${(props) =>
+        props.isAdmin ? "transparent" : themes.primary.colors.darkBlue};
+      color: ${(props) =>
+        props.isAdmin
+          ? themes.primary.colors.black
+          : themes.primary.colors.secondary};
+    }
+    &:active ${BlogItemDescription} {
+      color: ${(props) =>
+        props.isAdmin
+          ? themes.primary.colors.black
+          : themes.primary.colors.previewArticleText};
+    }
+  }
+`;
+
+export const BlogItem = styled.div<IAdmin>`
   display: flex;
   position: relative;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  width: 100%;
-  padding: 40px 20px;
+  width: ${(props) => (props.isAdmin ? "100%" : "950px")};
+  padding: ${(props) => (props.isAdmin ? "40px" : "20px 0")};
   margin-top: ${(props) => props.isAdmin && "30px"};
   border: ${(props) =>
     props.isAdmin ? `1px solid ${themes.primary.colors.black}` : "none"};
   &:hover {
-    background-color: ${(props) =>
-      props.isAdmin ? "transparent" : themes.primary.colors.decorationText};
+    cursor: ${(props) => (props.isAdmin === false ? "pointer" : "default")};
   }
   @media (max-width: 990px) {
     flex-wrap: wrap-reverse;
+    justify-content: center;
+    padding: ${(props) => (props.isAdmin ? "57px 70px" : "0px")};
+    max-width: 720px;
+    width: 100%;
+  }
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    margin-top: 25px;
   }
 `;
 
-export const BlogItemTitle = styled.p`
-  max-width: 400px;
+export const BlogItemTitle = styled.p<IAdmin>`
+  max-width: ${(props) => (props.isAdmin ? "430px" : "500px")};
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
-`;
-
-export const BlogItemDescription = styled.p`
-  max-width: 494px;
-  font-weight: ${themes.primary.font.weight.normal};
-  font-size: ${themes.primary.font.size.menuElement};
+  font-family: ${themes.primary.font.family.namu};
+  margin-top: 28px;
+  margin-bottom: 0;
+  @media (max-width: 990px) {
+    max-width: 720px;
+    padding: 0;
+  }
 `;
 
 export const BlogItemImage = styled.img`
   object-fit: contain;
-  max-width: 410px;
+  width: 400px;
   height: 220px;
-  margin-left: 40px;
+  margin-left: 10px;
 
   @media (max-width: 990px) {
-    margin-left: 0;
-    max-width: 335px;
-    height: 220px;
+    object-fit: contain;
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    margin: 0;
   }
 `;
 
-export const BlogItemInfo = styled.div``;
+export const BlogItemInfo = styled.div`
+  max-width: 100%;
+  @media (max-width: 990px) {
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    margin: 0;
+  }
+`;

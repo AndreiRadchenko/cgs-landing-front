@@ -12,6 +12,7 @@ const SubHeaderWithInput = ({
   isBlog = false,
   height,
   width,
+  id,
 }: InputWithHeader) => {
   return (
     <div>
@@ -24,6 +25,7 @@ const SubHeaderWithInput = ({
         minRows={minRows}
         height={height}
         width={width}
+        id={id}
       />
     </div>
   );

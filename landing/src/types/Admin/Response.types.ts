@@ -89,6 +89,12 @@ export interface IFooterBlock {
   images: IImage[];
 }
 
+export interface IMetaBlock {
+  metaTitle: string;
+  metaDescription: string;
+  customHead: string;
+}
+
 // completed
 
 export interface IDataResponse {
@@ -104,6 +110,7 @@ export interface IDataResponse {
   BuildRocketBlock: IBuildRocketBlock;
   ContactFormBlock: IContactFormBlock;
   FooterBlock: IFooterBlock;
+  meta: IMetaBlock;
 }
 
 // Careers
@@ -141,6 +148,7 @@ export interface IDataCareersResponse {
   url?: string;
   vacancy?: string;
   form: IFormBlock;
+  meta: IMetaBlock;
 }
 
 export interface IPointsData {
@@ -189,9 +197,56 @@ export interface IDataVacancyResponse {
   info: IInfoBlock[];
   offer: IOfferBlock;
   contact: IContactBlock;
+  meta: IMetaBlock;
+}
+
+export interface IBlockchainProjectBlock {
+  name: string;
+  text: string;
+  image: {
+    url: string;
+  } | null;
+}
+
+export interface IDataBlockchainResponse {
+  projects: IBlockchainProjectBlock[];
+  newProject: IBlockchainProjectBlock;
+  LogosBlock: { images: { url: string }[] };
+}
+
+export interface IAuthor {
+  name: string;
+  specialization: string;
+  image: { url: string };
+}
+
+export interface ITextBlog {
+  text?: string;
+  subNumber?: string;
+  subtitle?: string;
+}
+
+export interface IArticle {
+  _id?: string;
+  url: string;
+  image: { url: string };
+  title: string;
+  description: string;
+  author: IAuthor;
+  date: string;
+  minutesToRead: number;
+  content: ITextBlog[];
+  tags: string[];
+  meta: IMetaBlock;
+}
+
+export interface IBlogResponse {
+  articles: IArticle[];
+  newArticle: IArticle;
+  meta: IMetaBlock;
 }
 
 export interface IHomeData {
-  data: IDataResponse | undefined;
+  data: IDataCareersResponse | undefined;
   isLoading: boolean;
 }

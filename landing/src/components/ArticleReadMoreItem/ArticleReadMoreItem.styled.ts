@@ -5,34 +5,44 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 458px;
-  margin-right: 34px;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
+  cursor: pointer;
   &:last-child {
-    margin-right: 0px;
+    margin-right: 0;
   }
-
-  @media (max-width: 990px) {
-    width: 335px;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 100%;
   }
 `;
 
 export const Image = styled.img`
   width: 100%;
-  height: 246px;
+  height: auto;
   object-fit: contain;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-bottom: 15px;
+  }
 `;
 
 export const Title = styled.p`
-  font-family: ${themes.primary.font.family.openSans};
   font-size: ${themes.primary.font.size.quaternary};
   font-weight: ${themes.primary.font.weight.semiBold};
-  width: 90%;
-  margin-top: 28px;
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin: 0;
+    margin-top: 10px;
+  }
 `;
 
 export const Description = styled.p`
-  font-family: ${themes.primary.font.family.openSans};
-  font-size: ${themes.primary.font.size.articleSubtitle};
+  font-size: ${themes.primary.font.size.linkText};
   font-weight: ${themes.primary.font.weight.normal};
-  margin-top: 28px;
+  line-height: 160%;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin: 0;
+    margin-top: 10px;
+  }
 `;

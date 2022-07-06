@@ -10,18 +10,26 @@ import { IPortfolioResponse } from "../../types/Admin/AdminPortfolioPage.types";
 import * as Styled from "../../styles/AdminPage";
 import { Separator } from "../../styles/PortfolioSlider.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { IHomeData } from "../../types/Admin/Response.types";
+import { adminGlobalService } from "../../services/adminHomePage";
 
 const Index = () => {
   const { data, isLoading, refetch }: IPortfolioResponse = useQuery(
     queryKeys.getPortfolio,
     () => adminPortfolioPageService.getPortfolio()
   );
+
+  const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
+  
   const [isMobile, setIsMobile] = useState(false);
   const { width } = useWindowDimension();
   const sortByCategory = (category: string) => {
     return data?.reviews.filter((review) => review.category === category);
   };
   useEffect(() => {
+    setIsMobile(false);
     if (width && width <= 768) {
       setIsMobile(true);
     }
@@ -34,33 +42,31 @@ const Index = () => {
       <Page>
         <HeaderNav />
       </Page>
-      {isMobile ? (
-        <>
-          <div>mobile</div>
-        </>
-      ) : (
-        <>
-          <Styled.Subtitle>
-            UR WORK OUR WORK OUR WORK OUR WORK OUR WORK OUR WORK WORK OUR WORK
-            OUR WORK
-          </Styled.Subtitle>
-          <PortfolioSlider reviews={sortByCategory("web")} category={"web"} />
-          <PortfolioSlider
-            reviews={sortByCategory("mobile")}
-            category={"mobile"}
-          />
-          <PortfolioSlider
-            reviews={sortByCategory("server")}
-            category={"server"}
-          />
-          <PortfolioSlider
-            reviews={sortByCategory("blockchain")}
-            category={"blockchain"}
-          />
-          <Separator color={"#8f8e93"} />
-        </>
-      )}
-
+      {isMobile ||
+        <Styled.Subtitle>
+          UR WORK OUR WORK OUR WORK OUR WORK OUR WORK OUR WORK WORK OUR WORK
+          OUR WORK
+        </Styled.Subtitle>}
+      <PortfolioSlider
+        reviews={sortByCategory("web")}
+        category={"web"}
+        isMobile={isMobile} />
+      <PortfolioSlider
+        reviews={sortByCategory("mobile")}
+        category={"mobile"}
+        isMobile={isMobile}
+      />
+      <PortfolioSlider
+        reviews={sortByCategory("server")}
+        category={"server"}
+        isMobile={isMobile}
+      />
+      <PortfolioSlider
+        reviews={sortByCategory("blockchain")}
+        category={"blockchain"}
+        isMobile={isMobile}
+      />
+      <Separator color={"#8f8e93"} />
       <Footer />
     </>
   ) : (

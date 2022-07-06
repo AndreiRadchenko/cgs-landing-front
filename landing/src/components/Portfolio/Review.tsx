@@ -4,6 +4,7 @@ import * as Styled from "../../styles/PortfolioSlider.styled";
 import AdminStars from "../Admin/FeedbackBlock/AdminStars";
 import AdminBlackButton from "../Admin/Global/AdminBlackButton";
 import themes from "../../utils/themes";
+import Image from "next/image";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 interface IReviewProps {
@@ -44,9 +45,16 @@ const Review = ({ review }: IReviewProps) => {
             {review.feedback?.feedbackText}
           </Styled.ProjectDescription>
         </Styled.ContentContainer>
-        <Styled.ImageContainer>
-          <Styled.Image src={review.image?.url} />
-        </Styled.ImageContainer>
+        {(review?.image && (
+          <Styled.ImageContainer>
+            <Image
+              src={review?.image.url}
+              width={"588"}
+              height={"413"}
+              alt="review image"
+            />
+          </Styled.ImageContainer>
+        )) || <h1>No Image</h1>}
       </Styled.ReviewContainer>
     )
   );

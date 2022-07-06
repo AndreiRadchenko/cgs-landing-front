@@ -1,5 +1,4 @@
 import { TextareaAutosize } from "@mui/material";
-import { style } from "@mui/system";
 import styled from "styled-components";
 import themes from "../utils/themes";
 
@@ -288,6 +287,9 @@ export const AdminButtonText = styled.span`
 export const AdminBlackButtonText = styled.span`
   position: absolute;
   font-size: ${themes.primary.font.size.aboutUsCardText};
+  @media ${themes.primary.media.maxMobile} {
+    font-size: ${themes.primary.font.size.primary};
+  }
 `;
 
 export const AdminDeleteTextThin = styled.span`
@@ -575,6 +577,28 @@ export const AdminFullImage = styled.img`
   max-height: 100%;
 `;
 
+export const TextEditorContainer = styled.div<{
+  height?: string;
+  width?: string;
+}>`
+  .ql-editor {
+    font-size: ${themes.primary.font.size.linkText};
+    font-family: ${themes.primary.font.family.mulish};
+  }
+  background-color: #fff;
+  resize: none;
+  min-height: 417px;
+  height: auto;
+  width: ${(props) => (props.width ? props.width : "100%")};
+  font-size: ${themes.primary.font.size.linkText};
+  font-family: ${themes.primary.font.family.mulish};
+  border: 0;
+  margin-bottom: ${themes.primary.spacing.primary};
+  &:focus-within {
+    outline: 1px solid gray;
+  }
+`;
+
 export const AdminPageFirstBlockLayout = styled.div`
   display: grid;
   grid-template-columns: 2.09fr 1fr 1fr;
@@ -646,7 +670,7 @@ export const CompanyName = styled.div`
 
 export const Subtitle = styled.div`
   font-family: ${themes.primary.font.family.gilroy};
-  font-weight: 500;
+  font-weight: ${themes.primary.font.weight.medium};
   font-size: 52px;
   letter-spacing: 2px;
   overflow: hidden;
