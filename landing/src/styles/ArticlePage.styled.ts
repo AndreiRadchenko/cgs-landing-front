@@ -32,7 +32,11 @@ export const PageWrapper = styled.div`
   margin-top: 100px;
   a {
     color: ${themes.primary.colors.darkBlue};
-    text-decoration: underline;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    u {
+      text-decoration: none;
+    }
   }
   li {
     padding-left: 12px;
