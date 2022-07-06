@@ -218,7 +218,6 @@ export const ProjectHeader = styled.div`
     border-top: 1px solid ${themes.primary.colors.comment};
     padding: 10px;
     display: flex;
-    min-height: 87px;
     flex-direction: column;
     align-items: baseline;
     & + p {
@@ -235,6 +234,9 @@ export const PortfolioProjectHeader = styled.div`
   width: 50%;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.secondary};
+  }
+  & + button {
+    margin-top: 12px;
   }
 `;
 
