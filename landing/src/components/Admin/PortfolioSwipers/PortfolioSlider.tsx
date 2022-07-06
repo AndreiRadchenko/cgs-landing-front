@@ -1,13 +1,10 @@
-import {
-  IPortfolioData,
-  IPortfolioReview,
-} from "../../../types/Admin/AdminPortfolioPage.types";
+import { IPortfolioReview } from "../../../types/Admin/AdminPortfolioPage.types";
 import React, { FC, useRef } from "react";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/bundle";
-import * as Styled from "../../../styles/PortfolioSlider.styles";
+import * as Styled from "../../../styles/PortfolioSlider.styled";
 import params from "../../../mock/PorfolioPageSwiperParams";
 import Review from "../../Portfolio/Review";
 

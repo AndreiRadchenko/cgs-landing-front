@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IPortfolioReview } from "../../types/Admin/AdminPortfolioPage.types";
-import * as Styled from "../../styles/PortfolioSlider.styles";
-import Image from "next/image";
+import * as Styled from "../../styles/PortfolioSlider.styled";
 import AdminStars from "../Admin/FeedbackBlock/AdminStars";
 import AdminBlackButton from "../Admin/Global/AdminBlackButton";
 import themes from "../../utils/themes";
@@ -46,7 +45,7 @@ const Review = ({ review }: IReviewProps) => {
           </Styled.ProjectDescription>
         </Styled.ContentContainer>
         <Styled.ImageContainer>
-          <Image src={review.image.url} width={"588"} height={"413"} />
+          <Styled.Image src={review.image?.url} />
         </Styled.ImageContainer>
       </Styled.ReviewContainer>
     )

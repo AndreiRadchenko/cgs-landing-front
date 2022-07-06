@@ -80,31 +80,33 @@ export const ReviewContainer = styled.div`
   left: 160px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @media ${themes.primary.media.maxLaptop} {
+    left: 130px;
+    height: 49vh;
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
     left: 130px;
-    height: 48vh;
+    height: 40vh;
   }
 `;
 
 export const ImageContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
   border-left: 1px solid #8f8e93;
   border-right: 1px solid #8f8e93;
   height: 55vh;
-  span {
-    width: 100% !important;
-    height: 100% !important;
-  }
-  img {
-    width: 100%;
-    height: auto;
+  @media ${themes.primary.media.maxLaptop} {
+    height: 49vh;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    height: 48vh;
+    height: 40vh;
   }
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: fill;
 `;
 
 export const ContentContainer = styled.div`

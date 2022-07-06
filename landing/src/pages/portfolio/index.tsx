@@ -8,7 +8,7 @@ import { adminPortfolioPageService } from "../../services/adminPortfolioPage";
 import PortfolioSlider from "../../components/Admin/PortfolioSwipers/PortfolioSlider";
 import { IPortfolioResponse } from "../../types/Admin/AdminPortfolioPage.types";
 import * as Styled from "../../styles/AdminPage";
-import { Separator } from "../../styles/PortfolioSlider.styles";
+import { Separator } from "../../styles/PortfolioSlider.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const Index = () => {
