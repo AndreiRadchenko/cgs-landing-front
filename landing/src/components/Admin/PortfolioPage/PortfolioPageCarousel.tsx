@@ -22,10 +22,12 @@ const PortfolioPageCarousel = ({
   const { values } = useFormikContext<IPortfolioData>();
   const [nextPage, setNextPage] = useState(0);
   const [prevPage, setPrevPage] = useState(0);
+  
+  const reviews = values.reviews.sort((rew1, rew2) => (rew1.category >= rew2.category) ? 1 : -1);
 
-  const categories = values.reviews.map(({ category }) => category);
+  const categories = reviews.map(({ category }) => category);
   const max = categories.lastIndexOf(catValue);
-  const min = values.reviews.findIndex((review) => review.category === catValue);
+  const min = reviews.findIndex((review) => review.category === catValue);
 
   const findNextPage = () => page !== max ? page + 1 : min;
 
