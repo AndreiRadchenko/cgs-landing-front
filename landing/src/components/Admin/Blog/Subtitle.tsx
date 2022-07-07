@@ -13,6 +13,7 @@ interface ISubtitle {
   subtitleName: string;
   subNumberName: string;
   tagName: string;
+  tagNameValue?: string;
 }
 
 const Subtitle: FC<ISubtitle> = ({
@@ -22,8 +23,9 @@ const Subtitle: FC<ISubtitle> = ({
   subtitleValue,
   subNumberValue,
   tagName,
+  tagNameValue,
 }) => {
-  const [header, setHeader] = useState<string>(adminBlogHeaders[0]);
+  const [header, setHeader] = useState<string>(tagNameValue || "h2");
   const { setFieldValue } = useFormikContext();
 
   useEffect(() => {

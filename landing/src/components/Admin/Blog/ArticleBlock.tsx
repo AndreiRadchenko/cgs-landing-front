@@ -73,6 +73,7 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
       subNumberValue={values.newArticle.content[index].subNumber}
       subNumberName={`newArticle.content[${index}].subNumber`}
       handleChange={handleChange}
+      tagNameValue="h2"
       tagName={`newArticle.content[${index}].tagName`}
     />
   );
@@ -85,6 +86,7 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
       subNumberValue={values.articles[article].content[index].subNumber}
       subNumberName={`articles[${article}].content[${index}].subNumber`}
       handleChange={handleChange}
+      tagNameValue={values.articles[article].content[index].tagName}
       tagName={`articles[${article}].content[${index}].tagName`}
     />
   );
