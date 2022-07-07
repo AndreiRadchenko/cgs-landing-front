@@ -1,5 +1,9 @@
-import React, { ChangeEvent, FC } from "react";
+import { useFormikContext } from "formik";
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import * as Styles from "../../../styles/AdminBlogPage";
+import { AdminSubTitle } from "../../../styles/AdminPage";
+import { adminBlogHeaders } from "../../../utils/variables";
+import AdminDropDown from "../Global/AdminDropDown";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 interface ISubtitle {
@@ -8,6 +12,7 @@ interface ISubtitle {
   handleChange: (e?: string | ChangeEvent<any> | undefined) => void;
   subtitleName: string;
   subNumberName: string;
+  tagName: string;
 }
 
 const Subtitle: FC<ISubtitle> = ({
@@ -16,7 +21,15 @@ const Subtitle: FC<ISubtitle> = ({
   subNumberName,
   subtitleValue,
   subNumberValue,
+  tagName,
 }) => {
+  const [header, setHeader] = useState<string>(adminBlogHeaders[0]);
+  const { setFieldValue } = useFormikContext();
+
+  useEffect(() => {
+    setFieldValue(tagName, header);
+  }, [header, setFieldValue, tagName]);
+
   return (
     <Styles.SubHeadersWrapper>
       <Styles.SubHeaderWrapper>
@@ -31,6 +44,17 @@ const Subtitle: FC<ISubtitle> = ({
         />
       </Styles.SubHeaderWrapper>
       <Styles.SubHeaderWrapper>
+        <Styles.DropdownWrapper>
+          <AdminSubTitle>Tag</AdminSubTitle>
+          <AdminDropDown
+            className="relative"
+            menu={adminBlogHeaders}
+            value={header}
+            setValue={setHeader}
+          />
+        </Styles.DropdownWrapper>
+      </Styles.SubHeaderWrapper>
+      <Styles.SubHeaderWrapper>
         <SubHeaderWithInput
           header="Subtitle"
           inputValue={subtitleValue as string}
@@ -38,7 +62,7 @@ const Subtitle: FC<ISubtitle> = ({
           onChangeFunction={handleChange}
           isBlog={true}
           height="56px"
-          width="865px"
+          width="665px"
         />
       </Styles.SubHeaderWrapper>
     </Styles.SubHeadersWrapper>

@@ -531,6 +531,10 @@ export const AdminDropDownMenuBanner = styled.div`
 export const AdminDropDownMenuList = styled.div`
   position: absolute;
   width: 100%;
+
+  &.relative {
+    position: relative;
+  }
 `;
 
 export const AdminReviewBlock = styled.div`

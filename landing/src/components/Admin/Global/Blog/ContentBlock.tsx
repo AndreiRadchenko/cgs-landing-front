@@ -89,6 +89,7 @@ const ContentBlock: FC<IArticles> = ({
     values.articles[article]?.author,
     ""
   );
+  console.log(values);
 
   const deleteEditBanner = useDeleteImageFunction(values.articles[article], "");
   const uploadEditBanner = useUploadImageFunction(values.articles[article], "");
@@ -129,7 +130,7 @@ const ContentBlock: FC<IArticles> = ({
               header="Drop banner here"
             />
             <SubHeaderWithInput
-              header="Title"
+              header="Article Title"
               inputValue={
                 isNewArticle
                   ? values.newArticle.title

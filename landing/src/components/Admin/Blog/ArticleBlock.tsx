@@ -42,7 +42,7 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
   };
 
   const addSubtitleBlockOnClick = () => {
-    const subtitle = { subNumber: "", subtitle: "" };
+    const subtitle = { subNumber: "", subtitle: "", tagName: "h2" };
     const newArticleCase = () => {
       newArticleContent.push(subtitle);
       setBlocks(
@@ -83,6 +83,7 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
       subNumberValue={values.newArticle.content[index].subNumber}
       subNumberName={`newArticle.content[${index}].subNumber`}
       handleChange={handleChange}
+      tagName={`newArticle.content[${index}].tagName`}
     />
   );
 
@@ -94,6 +95,7 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
       subNumberValue={values.articles[article].content[index].subNumber}
       subNumberName={`articles[${article}].content[${index}].subNumber`}
       handleChange={handleChange}
+      tagName={`articles[${article}].content[${index}].tagName`}
     />
   );
 
