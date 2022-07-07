@@ -30,6 +30,26 @@ export const PageWrapper = styled.div`
   max-width: 950px;
   margin: 0 auto;
   margin-top: 100px;
+  a {
+    color: ${themes.primary.colors.darkBlue};
+    text-decoration: none;
+    border-bottom: 1px solid;
+    u {
+      text-decoration: none;
+    }
+  }
+  li {
+    padding-left: 12px;
+    margin-bottom: 10px;
+  }
+  ul {
+    margin-left: -1.3em;
+    list-style-type: none;
+    list-style-image: url(/listSquare.png);
+    @media ${themes.primary.media.maxTabletPortrait} {
+      list-style-image: url(/listSquareMobile.png);
+    }
+  }
 `;
 
 export const BannerImage = styled.img`

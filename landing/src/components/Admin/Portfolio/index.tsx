@@ -34,6 +34,7 @@ const Portfolio = () => {
       initialValues={data!}
       onSubmit={submitForm}
       validateOnChange={false}
+      enableReinitialize={true}
     >
       <AdminPortfolioContentBlock />
     </Formik>

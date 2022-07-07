@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const Area = styled.div`
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const TriangleButton = styled.div`
   width: 0;
   height: 0;

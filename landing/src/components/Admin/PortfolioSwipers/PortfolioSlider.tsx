@@ -6,7 +6,7 @@ import SwiperCore, { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/bundle";
-import * as Styled from "../../../styles/PortfolioSlider.styles";
+import * as Styled from "../../../styles/PortfolioSlider.styled";
 import params from "../../../mock/PorfolioPageSwiperParams";
 import Review from "../../Portfolio/Review";
 import TriangleButton from "../../TriangleButton/TriangleButton";
@@ -34,7 +34,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({ reviews, category, isMobile })
     ));
   }
 
-  return reviews ? (
+  return (
     <div ref={portfolioRef}>
       <Styled.PortfolioRow>
         {isMobile ?
@@ -43,22 +43,28 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({ reviews, category, isMobile })
               <Styled.Category>{category}</Styled.Category>
               <TriangleButton onClick={() => setIsShow(() => !isShow)} />
             </Styled.ButtonInfo>
-            {isShow && renderSliderSlides}
+            {isShow && (reviews ? renderSliderSlides : 
+              <Styled.NoRewiews>
+                No reviews
+              </Styled.NoRewiews>)
+            }
           </> :
-          <Swiper {...params}>
-            <Styled.NavigateLeft className={"swiper-button-prev"}>
-              {category}
-            </Styled.NavigateLeft>
-            <Styled.NavigateRight>
-              <div className={"swiper-button-next"} />
-            </Styled.NavigateRight>
-            {renderSliderSlides}
-          </Swiper>
+          reviews ? (
+            <Swiper {...params}>
+              <Styled.NavigateLeft className={"swiper-button-prev"}>
+                {category}
+              </Styled.NavigateLeft>
+              <Styled.NavigateRight>
+                <div className={"swiper-button-next"} />
+              </Styled.NavigateRight>
+              {renderSliderSlides}
+            </Swiper>) :
+            <Styled.NoRewiews>
+              No reviews
+            </Styled.NoRewiews>
         }
       </Styled.PortfolioRow>
     </div>
-  ) : (
-    <div>Something went wrong:/</div>
   );
 };
 

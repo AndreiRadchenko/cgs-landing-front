@@ -3,9 +3,7 @@ import React from "react";
 
 export interface IPortfolioReview {
   _id?: string;
-  image: {
-    url: string;
-  };
+  image: { url: string } | null;
   title: string;
   text: string;
   category: string;

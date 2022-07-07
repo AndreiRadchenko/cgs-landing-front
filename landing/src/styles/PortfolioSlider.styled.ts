@@ -23,6 +23,28 @@ export const NavigateLeft = styled.div`
     font-size: ${themes.primary.font.size.articleTitle};
   }
 `;
+export const ProjectDescription = styled.p`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.aboutUsCardText};
+  letter-spacing: 1px;
+  text-overflow: ellipsis;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.tertiary};
+    margin-top: 8px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    padding: 10px;
+    margin-top: 0px;
+  }
+`;
+export const NoRewiews = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 311px;
+  width: 100%;
+  font-size: ${themes.primary.font.size.bigTitle};
+`
 
 export const ButtonInfo = styled.div`
   display: flex;
@@ -58,6 +80,9 @@ export const PortfolioRow = styled.div`
   }
   & .swiper-slide-next {
     color: rgba(0, 0, 0, 0.5);
+    & ${ProjectDescription} {
+      color: rgba(0, 0, 0, 0.5);
+    }
   }
   & .swiper-slide-prev {
     color: rgba(0, 0, 0, 0.5);
@@ -67,10 +92,9 @@ export const PortfolioRow = styled.div`
     transition: 0.5s linear;
   }
   border-top: 1px solid ${themes.primary.colors.comment};
-
   &:hover ${NavigateLeft} {
     background-color: ${themes.primary.colors.darkBlue};
-    color: ${themes.primary.colors.primary};
+    color: ${themes.primary.colors.secondary};
   }
   @media ${themes.primary.media.maxMobile} {
     display: block;
@@ -80,7 +104,7 @@ export const PortfolioRow = styled.div`
     &:hover ${ButtonInfo} {
       background-color: ${themes.primary.colors.darkBlue};
       &:nth-child(1) {
-        color: ${themes.primary.colors.primary};
+        color: ${themes.primary.colors.secondary};
       }
     }
   }
@@ -117,7 +141,6 @@ export const ReviewContainer = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     left: 130px;
   }
-
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     left: 0;
@@ -178,7 +201,6 @@ export const ProjectHeader = styled.div`
   align-items: center;
   flex-wrap: wrap;
   & + p {
-    color: ${themes.primary.colors.black};
     font-size: ${themes.primary.font.size.articleSubtitle};
   }
   @media ${themes.primary.media.onlyLaptop} {
@@ -188,7 +210,6 @@ export const ProjectHeader = styled.div`
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     & + p {
-      color: ${themes.primary.colors.black};
       font-size: ${themes.primary.font.size.tertiary};
       margin-top: 8px;
     }
@@ -197,7 +218,6 @@ export const ProjectHeader = styled.div`
     border-top: 1px solid ${themes.primary.colors.comment};
     padding: 10px;
     display: flex;
-    height: 87px;
     flex-direction: column;
     align-items: baseline;
     & + p {
@@ -211,25 +231,16 @@ export const PortfolioProjectHeader = styled.div`
   font-size: ${themes.primary.font.size.quaternary};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.normal};
+  width: 50%;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.secondary};
   }
+  & + button {
+    margin-top: 12px;
+  }
 `;
 
-export const ProjectDescription = styled.p`
-  font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.aboutUsCardText};
-  letter-spacing: 1px;
-  text-overflow: ellipsis;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.tertiary};
-    margin-top: 8px;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    padding: 10px;
-    margin-top: 0px;
-  }
-`;
+
 
 export const Separator = styled.div`
   background-color: ${(params) => (params.color ? params.color : themes.primary.colors.separator)};

@@ -57,7 +57,7 @@ const BlogPage = () => {
             </Styled.AdminUnauthorizedModal>
           ) : (
             <>
-              <Link href={`blog/${currentArticlesData[0].url}`} passHref>
+              <a href={`blog/${currentArticlesData[0].url}`}>
                 <Styles.BlogItemContainer>
                   <Styles.BannerImage src={currentArticlesData[0].image.url} />
                   <Styles.PageTitle>
@@ -67,7 +67,7 @@ const BlogPage = () => {
                     {currentArticlesData[0].description}
                   </Styles.PageDescription>
                 </Styles.BlogItemContainer>
-              </Link>
+              </a>
               <Styles.BlogItemsWrapper>
                 {currentArticlesData.map((article, i) =>
                   i === 0 ? null : (

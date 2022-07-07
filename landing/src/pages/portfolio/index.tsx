@@ -8,14 +8,21 @@ import { adminPortfolioPageService } from "../../services/adminPortfolioPage";
 import PortfolioSlider from "../../components/Admin/PortfolioSwipers/PortfolioSlider";
 import { IPortfolioResponse } from "../../types/Admin/AdminPortfolioPage.types";
 import * as Styled from "../../styles/AdminPage";
-import { Separator } from "../../styles/PortfolioSlider.styles";
+import { Separator } from "../../styles/PortfolioSlider.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { IHomeData } from "../../types/Admin/Response.types";
+import { adminGlobalService } from "../../services/adminHomePage";
 
 const Index = () => {
   const { data, isLoading, refetch }: IPortfolioResponse = useQuery(
     queryKeys.getPortfolio,
     () => adminPortfolioPageService.getPortfolio()
   );
+
+  const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
+  
   const [isMobile, setIsMobile] = useState(false);
   const { width } = useWindowDimension();
   const sortByCategory = (category: string) => {

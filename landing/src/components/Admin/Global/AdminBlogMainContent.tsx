@@ -30,13 +30,14 @@ const AdminBlogMainContent = () => {
 
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
-  ) : data !== undefined ? (
+  ) : data ? (
     <Formik
       key="blogData"
       validateOnChange={false}
       onSubmit={submitForm}
       initialValues={data}
       validateOnBlur
+      enableReinitialize={true}
     >
       <ContentBlock
         data={data}

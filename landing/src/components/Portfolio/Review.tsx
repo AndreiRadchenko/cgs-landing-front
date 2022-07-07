@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { IPortfolioReview } from "../../types/Admin/AdminPortfolioPage.types";
-import * as Styled from "../../styles/PortfolioSlider.styles";
-import Image from "next/image";
+import * as Styled from "../../styles/PortfolioSlider.styled";
 import AdminStars from "../Admin/FeedbackBlock/AdminStars";
 import AdminBlackButton from "../Admin/Global/AdminBlackButton";
 import themes from "../../utils/themes";
+import Image from "next/image";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 interface IReviewProps {
