@@ -107,15 +107,21 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
     />
   );
 
-  const newArticleText = (index: number) => (
-    <TextEditor
-      isBlog={true}
-      key={index}
-      value={values.newArticle.content[index].text}
-      header="Text"
-      name={`newArticle.content[${index}].text`}
-    />
-  );
+  const newArticleText = (index: number) => {
+    console.log(
+      "values.newArticle.content[index].text",
+      values.newArticle.content[index].text
+    );
+    return (
+      <TextEditor
+        isBlog={true}
+        key={index}
+        value={values.newArticle.content[index].text}
+        header="Text"
+        name={`newArticle.content[${index}].text`}
+      />
+    );
+  };
 
   return (
     <>
