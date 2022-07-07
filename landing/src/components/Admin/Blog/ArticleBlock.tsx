@@ -31,16 +31,6 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
     setBlocks(blocks);
   }, [article, isNewArticle, values.articles, values.newArticle.content]);
 
-  const checkSubtitleCount = () => {
-    let counter = 0;
-    newArticleContent.forEach((block) => {
-      if (!block.hasOwnProperty("text")) {
-        counter += 1;
-      }
-    });
-    return counter;
-  };
-
   const addSubtitleBlockOnClick = () => {
     const subtitle = { subNumber: "", subtitle: "", tagName: "h2" };
     const newArticleCase = () => {
@@ -123,11 +113,7 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
     <>
       {blocks}
       <Styles.ButtonsWrapper>
-        <Styles.FooterButton
-          onClick={
-            checkSubtitleCount() < 6 ? addSubtitleBlockOnClick : undefined
-          }
-        >
+        <Styles.FooterButton onClick={addSubtitleBlockOnClick}>
           + Add Subtitle number and Subtitle
         </Styles.FooterButton>
         <Styles.FooterButton onClick={addTextBlockOnClick}>
@@ -135,7 +121,7 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
         </Styles.FooterButton>
         {blocks.length !== 0 && (
           <Styles.FooterButton onClick={deleteItem}>
-            + Delete Item
+            - Delete Item
           </Styles.FooterButton>
         )}
       </Styles.ButtonsWrapper>

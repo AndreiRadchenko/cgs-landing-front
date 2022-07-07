@@ -89,7 +89,6 @@ const ContentBlock: FC<IArticles> = ({
     values.articles[article]?.author,
     ""
   );
-  console.log(values);
 
   const deleteEditBanner = useDeleteImageFunction(values.articles[article], "");
   const uploadEditBanner = useUploadImageFunction(values.articles[article], "");

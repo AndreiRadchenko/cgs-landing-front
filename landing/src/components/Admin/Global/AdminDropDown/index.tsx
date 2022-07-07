@@ -4,7 +4,7 @@ import ChooseElementBanner from "./chooseElementBanner";
 import { IMenuProps } from "./dropDownTypes";
 import MenuElementsRender from "./ElementsList";
 
-const AdminDropDown = ({ menu, setValue, value, className }: IMenuProps) => {
+const AdminDropDown = ({ menu, setValue, value }: IMenuProps) => {
   const [isDropped, setIsDropped] = useState(false);
 
   return (
@@ -17,7 +17,6 @@ const AdminDropDown = ({ menu, setValue, value, className }: IMenuProps) => {
         />
         {isDropped && (
           <MenuElementsRender
-            className={className}
             menu={menu}
             setValue={setValue}
             setIsDropped={setIsDropped}

@@ -47,7 +47,6 @@ const Subtitle: FC<ISubtitle> = ({
         <Styles.DropdownWrapper>
           <AdminSubTitle>Tag</AdminSubTitle>
           <AdminDropDown
-            className="relative"
             menu={adminBlogHeaders}
             value={header}
             setValue={setHeader}

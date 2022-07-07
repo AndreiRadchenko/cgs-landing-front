@@ -1,5 +1,4 @@
 export interface IMenuProps {
-  className?: string;
   menu?: string[];
   value?: string;
   setValue?: (value: string) => void;
