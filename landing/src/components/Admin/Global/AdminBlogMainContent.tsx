@@ -37,7 +37,6 @@ const AdminBlogMainContent = () => {
       onSubmit={submitForm}
       initialValues={data}
       validateOnBlur
-      enableReinitialize={true}
     >
       <ContentBlock
         data={data}
