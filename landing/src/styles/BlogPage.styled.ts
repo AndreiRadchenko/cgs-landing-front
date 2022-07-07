@@ -68,10 +68,11 @@ export const PageDescription = styled.div`
   }
 `;
 
-export const PageTitle = styled.div`
+export const PageTitle = styled.h1`
   max-width: 950px;
   width: 100%;
   margin-top: 28px;
+  margin-bottom: 0;
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
   color: ${themes.primary.colors.primary};

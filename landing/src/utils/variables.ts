@@ -25,3 +25,5 @@ export const howWeWorkColor: ("blue" | "orange" | "green")[] = [
   "green",
   "blue",
 ];
+
+export const adminBlogHeaders = ["h2", "h3", "h4", "h5", "h6"];

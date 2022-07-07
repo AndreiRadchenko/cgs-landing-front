@@ -129,7 +129,7 @@ const ContentBlock: FC<IArticles> = ({
               header="Drop banner here"
             />
             <SubHeaderWithInput
-              header="Title"
+              header="Article Title"
               inputValue={
                 isNewArticle
                   ? values.newArticle.title
