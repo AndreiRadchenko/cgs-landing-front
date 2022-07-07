@@ -50,6 +50,7 @@ const AdminMainContent = () => {
       initialValues={data!}
       onSubmit={submitForm}
       validateOnChange={false}
+      enableReinitialize={true}
     >
       {() => {
         return (

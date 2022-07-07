@@ -47,6 +47,7 @@ const AdminFeedbackBlock = () => {
         <div />
 
         <Formik
+          enableReinitialize
           key={`feedbackForm${isNewFeedback}`}
           validateOnChange={false}
           onSubmit={isNewFeedback ? submitFunction : editFunction}

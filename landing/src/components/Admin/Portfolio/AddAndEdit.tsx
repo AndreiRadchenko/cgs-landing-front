@@ -22,6 +22,7 @@ const AddAndEdit = ({
           ? JSON.parse(JSON.stringify(newReviewInit))
           : values.reviews[current]
       }
+      enableReinitialize={true}
       onSubmit={
         isNewStatus
           ? submitFunc

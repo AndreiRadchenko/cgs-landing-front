@@ -37,6 +37,7 @@ const VacancyMainContent = () => {
         document.body.style.cursor = "auto";
       }}
       validateOnChange={false}
+      enableReinitialize={true}
     >
       {() => {
         return (
