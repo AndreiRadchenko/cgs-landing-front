@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 
 export const NavigateLeft = styled.div`
@@ -15,6 +15,9 @@ export const NavigateLeft = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.bigTitle};
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &:after {
     content: none;
   }
@@ -25,9 +28,11 @@ export const NavigateLeft = styled.div`
 `;
 export const ProjectDescription = styled.p`
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.aboutUsCardText};
+  font-size: ${themes.primary.font.size.oneAndHalf};
+
   letter-spacing: 1px;
   text-overflow: ellipsis;
+  line-height: 1.3;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tertiary};
     margin-top: 8px;
@@ -37,6 +42,7 @@ export const ProjectDescription = styled.p`
     margin-top: 0px;
   }
 `;
+
 export const NoRewiews = styled.div`
   display: flex;
   justify-content: center;
@@ -44,17 +50,42 @@ export const NoRewiews = styled.div`
   height: 311px;
   width: 100%;
   font-size: ${themes.primary.font.size.bigTitle};
-`
+`;
 
-export const ButtonInfo = styled.div`
+export const ButtonInfo = styled.div<{ clicked: boolean }>`
   display: flex;
   height: 153px;
   width: 100%;
-  background: ${themes.primary.colors.lightGray};
+  background: ${({ clicked }) =>
+    clicked
+      ? css`
+          ${themes.primary.colors.darkBlue}
+        `
+      : css`
+          ${themes.primary.colors.lightGray}
+        `};
+
+  &:nth-child(1) {
+    color: ${({ clicked }) =>
+      clicked
+        ? css`
+            ${themes.primary.colors.secondary}
+          `
+        : "black"};
+  }
+  position: sticky;
+  top: 0px;
+  z-index: 2;
   padding: 0px 27px;
   align-items: center;
   justify-content: space-around;
   border-bottom: 1px solid ${themes.primary.colors.comment};
+  transition: 0.2s linear;
+
+  &.sticky-top {
+    height: 88px;
+    transition: 0.5s linear;
+  }
   &:hover {
     background-color: ${themes.primary.colors.darkBlue};
     &:nth-child(1) {
@@ -79,9 +110,14 @@ export const PortfolioRow = styled.div`
     flex-direction: column-reverse;
   }
   & .swiper-slide-next {
-    color: rgba(0, 0, 0, 0.5);
+    color: ${themes.primary.colors.portfolioBg};
     & ${ProjectDescription} {
-      color: rgba(0, 0, 0, 0.5);
+      color: ${themes.primary.colors.portfolioBg};
+    }
+    & * {
+      opacity: 0;
+      color: ${themes.primary.colors.portfolioBg};
+      background-color: ${themes.primary.colors.portfolioBg};
     }
   }
   & .swiper-slide-prev {
@@ -89,7 +125,7 @@ export const PortfolioRow = styled.div`
     overflow: hidden;
   }
   & .swiper-slide {
-    transition: 0.5s linear;
+    transition: 1s linear;
   }
   border-top: 1px solid ${themes.primary.colors.comment};
   &:hover ${NavigateLeft} {
@@ -114,18 +150,15 @@ export const NavigateRight = styled.div`
   position: absolute;
   top: 0;
   height: 100%;
-  width: 150px;
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   right: 0;
-  & div:after {
-    content: none;
-  }
-  & div {
-    left: 0;
-    top: 0;
-    margin-top: 0;
-    height: 100%;
-    width: 100%;
-    color: ${themes.primary.colors.black};
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    width: 7%;
   }
 `;
 
@@ -181,7 +214,7 @@ export const ImageContainer = styled.div`
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 28px 38px;
+  padding: 25px 30px;
   width: 100%;
   box-sizing: border-box;
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -200,20 +233,7 @@ export const ProjectHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  & + p {
-    font-size: ${themes.primary.font.size.articleSubtitle};
-  }
-  @media ${themes.primary.media.onlyLaptop} {
-    & + p {
-      font-size: ${themes.primary.font.size.aboutUsCardText};
-    }
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    & + p {
-      font-size: ${themes.primary.font.size.tertiary};
-      margin-top: 8px;
-    }
-  }
+
   @media ${themes.primary.media.maxMobile} {
     border-top: 1px solid ${themes.primary.colors.comment};
     padding: 10px;
@@ -222,7 +242,6 @@ export const ProjectHeader = styled.div`
     align-items: baseline;
     & + p {
       color: ${themes.primary.colors.black};
-      font-size: ${themes.primary.font.size.articleSubtitle};
     }
   }
 `;
@@ -240,10 +259,9 @@ export const PortfolioProjectHeader = styled.div`
   }
 `;
 
-
-
 export const Separator = styled.div`
-  background-color: ${(params) => (params.color ? params.color : themes.primary.colors.separator)};
+  background-color: ${(params) =>
+    params.color ? params.color : themes.primary.colors.separator};
   width: 100%;
   height: 0.5px;
   margin-bottom: 20px;

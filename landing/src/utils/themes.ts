@@ -99,6 +99,8 @@ const themes = {
       blogArticleText: "#535557",
       blogBackground: "#f1efed",
       blogFooter: "#EBE9EB",
+      portfolioBg: "#F1EFED",
+      portfolioHover: "#F2EA86",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

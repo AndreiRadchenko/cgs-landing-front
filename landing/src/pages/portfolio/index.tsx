@@ -12,6 +12,7 @@ import { Separator } from "../../styles/PortfolioSlider.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { IHomeData } from "../../types/Admin/Response.types";
 import { adminGlobalService } from "../../services/adminHomePage";
+import { portfolioCategories } from "../../utils/variables";
 
 const Index = () => {
   const { data, isLoading, refetch }: IPortfolioResponse = useQuery(
@@ -22,7 +23,7 @@ const Index = () => {
   const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
     adminGlobalService.getFullPage()
   );
-  
+
   const [isMobile, setIsMobile] = useState(false);
   const { width } = useWindowDimension();
   const sortByCategory = (category: string) => {
@@ -42,30 +43,20 @@ const Index = () => {
       <Page>
         <HeaderNav />
       </Page>
-      {isMobile ||
+      {isMobile || (
         <Styled.Subtitle>
-          UR WORK OUR WORK OUR WORK OUR WORK OUR WORK OUR WORK WORK OUR WORK
-          OUR WORK
-        </Styled.Subtitle>}
-      <PortfolioSlider
-        reviews={sortByCategory("web")}
-        category={"web"}
-        isMobile={isMobile} />
-      <PortfolioSlider
-        reviews={sortByCategory("mobile")}
-        category={"mobile"}
-        isMobile={isMobile}
-      />
-      <PortfolioSlider
-        reviews={sortByCategory("server")}
-        category={"server"}
-        isMobile={isMobile}
-      />
-      <PortfolioSlider
-        reviews={sortByCategory("blockchain")}
-        category={"blockchain"}
-        isMobile={isMobile}
-      />
+          UR WORK OUR WORK OUR WORK OUR WORK OUR WORK OUR WORK WORK OUR WORK OUR
+          WORK
+        </Styled.Subtitle>
+      )}
+      {portfolioCategories.map((category, ind) => (
+        <PortfolioSlider
+          key={ind}
+          reviews={sortByCategory(category)}
+          category={category}
+          isMobile={isMobile}
+        />
+      ))}
       <Separator color={"#8f8e93"} />
       <Footer />
     </>
