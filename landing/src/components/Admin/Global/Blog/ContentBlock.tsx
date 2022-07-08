@@ -9,7 +9,10 @@ import PublishedArticles from "./PublishedArticles";
 import * as Styles from "../../../../styles/AdminBlogPage";
 import * as Styled from "../../../../styles/AdminPage";
 import { useFormikContext } from "formik";
-import { IBlogResponse } from "../../../../types/Admin/Response.types";
+import {
+  IArticle,
+  IBlogResponse,
+} from "../../../../types/Admin/Response.types";
 import ArticleBlock from "../../Blog/ArticleBlock";
 import { useMutation } from "react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
@@ -44,6 +47,11 @@ const ContentBlock: FC<IArticles> = ({
       adminBlogService.updateBlogPage(dataToUpdate)
   );
 
+  const { mutateAsync: postArticle } = useMutation(
+    queryKeys.postArticle,
+    (dataToUpdate: IArticle) => adminBlogService.postArticle(dataToUpdate)
+  );
+
   const updateArticle = async () => {
     await mutateAsync(values);
     setArticle(0);
@@ -71,7 +79,7 @@ const ContentBlock: FC<IArticles> = ({
       minutesToRead: 0,
       meta: { metaTitle: "", metaDescription: "", customHead: "" },
     };
-    await mutateAsync(values);
+    await postArticle(articleToAdd);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();

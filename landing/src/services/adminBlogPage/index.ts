@@ -1,4 +1,4 @@
-import { IBlogResponse } from "../../types/Admin/Response.types";
+import { IArticle, IBlogResponse } from "../../types/Admin/Response.types";
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
 
@@ -12,6 +12,10 @@ export class AdminBlogPage {
   }
   public getArticleById(id: string) {
     return this.httpService.get<IBlogResponse>(`api/blog/${id}`);
+  }
+
+  public postArticle(article: IArticle) {
+    return this.httpService.post(`api/blog/add`, article);
   }
 }
 
