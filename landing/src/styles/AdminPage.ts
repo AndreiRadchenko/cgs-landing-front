@@ -1,5 +1,5 @@
 import { TextareaAutosize } from "@mui/material";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 
 export const AdminWrapper = styled.div`
@@ -580,10 +580,15 @@ export const AdminFullImage = styled.img`
 export const TextEditorContainer = styled.div<{
   height?: string;
   width?: string;
+  active: boolean;
 }>`
   .ql-editor {
     font-size: ${themes.primary.font.size.linkText};
     font-family: ${themes.primary.font.family.mulish};
+  }
+
+  & .ql-container {
+    position: ${({ active }) => (active ? "relative" : "static")};
   }
   background-color: #fff;
   resize: none;

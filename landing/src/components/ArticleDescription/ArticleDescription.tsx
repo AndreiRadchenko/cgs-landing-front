@@ -7,14 +7,9 @@ interface IDescription {
 }
 
 const ArticleDescription: FC<IDescription> = ({ content }) => {
-  let tagNum = 1;
-
   return (
     <Styles.Wrapper>
       {content.map((block, index) => {
-        const tag = `h${tagNum}` as keyof JSX.IntrinsicElements;
-        if (block.subtitle && tagNum < 6) tagNum += 1;
-
         return block.text ? (
           <Styles.Description
             key={index}
@@ -23,7 +18,15 @@ const ArticleDescription: FC<IDescription> = ({ content }) => {
         ) : (
           <Styles.TitleWrapper key={index}>
             <Styles.SubtitleTag>{block.subNumber}</Styles.SubtitleTag>
-            <Styles.Title as={tag}>{block.subtitle}</Styles.Title>
+            <Styles.Title
+              as={
+                (block.tagName &&
+                  (block.tagName as keyof JSX.IntrinsicElements)) ||
+                "h2"
+              }
+            >
+              {block.subtitle}
+            </Styles.Title>
           </Styles.TitleWrapper>
         );
       })}

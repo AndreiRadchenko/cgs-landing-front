@@ -97,7 +97,7 @@ export const BlogItem = styled.div<IAdmin>`
   }
 `;
 
-export const BlogItemTitle = styled.p<IAdmin>`
+export const BlogItemTitle = styled.h1<IAdmin>`
   max-width: ${(props) => (props.isAdmin ? "430px" : "500px")};
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};

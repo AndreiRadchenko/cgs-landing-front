@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
-export const Title = styled.p`
+export const Title = styled.h1`
   font-size: ${themes.primary.font.size.articleTitle};
   font-weight: ${themes.primary.font.weight.bold};
   font-family: ${themes.primary.font.family.namu};

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
 const QuillNoSSRWrapper = dynamic(import("react-quill"), {
   ssr: false,
@@ -51,6 +51,7 @@ const formats = [
 ];
 
 const TextEditor = ({ name, isBlog, header }: ITextEditorProps) => {
+  const [active, setIsActive] = useState(false);
   const styles = {
     background: "white",
     div: {
@@ -60,9 +61,19 @@ const TextEditor = ({ name, isBlog, header }: ITextEditorProps) => {
   };
 
   return (
-    <>
+    <div
+      onMouseOut={() => {
+        setIsActive(false);
+      }}
+    >
       <Styled.AdminSubTitle isBlog={isBlog}>{header}</Styled.AdminSubTitle>
-      <Styled.TextEditorContainer height={"417px"}>
+      <Styled.TextEditorContainer
+        height={"417px"}
+        onMouseOver={() => {
+          setIsActive(true);
+        }}
+        active={active}
+      >
         <Field name={name}>
           {({ field }: any) => (
             <QuillNoSSRWrapper
@@ -75,7 +86,7 @@ const TextEditor = ({ name, isBlog, header }: ITextEditorProps) => {
           )}
         </Field>
       </Styled.TextEditorContainer>
-    </>
+    </div>
   );
 };
 

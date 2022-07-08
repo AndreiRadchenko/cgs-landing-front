@@ -56,3 +56,9 @@ export const FooterButton = styled.div`
 export const SubmitButtonWrapper = styled.div`
   width: 509px;
 `;
+
+export const DropdownWrapper = styled.div`
+  margin: 0 20px;
+  transform: translateY(20px);
+  width: 100px;
+`;

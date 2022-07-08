@@ -221,6 +221,7 @@ export interface IAuthor {
 }
 
 export interface ITextBlog {
+  tagName?: string;
   text?: string;
   subNumber?: string;
   subtitle?: string;
