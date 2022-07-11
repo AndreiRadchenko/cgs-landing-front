@@ -101,7 +101,6 @@ const ArticlePage = () => {
     ...article?.meta,
   };
 
-  console.log(article && findViews(url));
   return isSuccess && article && readMore ? (
     <>
       <Head>

@@ -60,8 +60,6 @@ const ContentBlock: FC<IArticles> = ({
     (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
   );
 
-  console.log(views.data && views.data[0].allViews);
-
   const updateArticle = async () => {
     const isChangedUrl =
       data.articles[article].url !== values.articles[article].url;
