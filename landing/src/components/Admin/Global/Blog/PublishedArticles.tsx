@@ -8,6 +8,7 @@ import { useFormikContext } from "formik";
 import {
   IArticle,
   IBlogResponse,
+  IViews,
 } from "../../../../types/Admin/Response.types";
 import {
   DragDropContext,
@@ -15,7 +16,7 @@ import {
   Draggable,
   DropResult,
 } from "react-beautiful-dnd";
-import { useMutation } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminBlogService } from "../../../../services/adminBlogPage";
 import close from "../../../../../public/bigClose.svg";
@@ -26,6 +27,7 @@ interface IArticles {
   article: number;
   isNewArticle: boolean;
   data: IBlogResponse;
+  views?: IViews;
 }
 
 interface IArticleItem {
@@ -39,18 +41,30 @@ const PublishedArticles: FC<IArticles> = ({
   isNewArticle,
   article,
   data,
+  views,
 }) => {
   const { values, handleSubmit } = useFormikContext<IBlogResponse>();
 
-  const { mutateAsync } = useMutation(
+  const { mutateAsync: mutateDeleteArticle } = useMutation(
     queryKeys.deleteArticle,
     (dataToUpdate: IBlogResponse) =>
       adminBlogService.updateBlogPage(dataToUpdate)
   );
 
+  const { mutateAsync: updateViews } = useMutation(
+    queryKeys.postArticle,
+    (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
+  );
+
   const deleteArticle = async (i: number) => {
+    if (views) {
+      const allViews = views.allViews.filter(
+        (view) => view.articleUrl !== values.articles[article].url
+      );
+      await updateViews({ allViews: allViews });
+    }
     values.articles.splice(i, 1);
-    await mutateAsync(values);
+    await mutateDeleteArticle(values);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();

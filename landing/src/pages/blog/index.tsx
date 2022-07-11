@@ -31,7 +31,7 @@ const BlogPage = () => {
   const { data, isLoading }: IBlogData = useQuery(queryKeys.getBlogPage, () =>
     adminBlogService.getBlogPage()
   );
-
+  const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -64,7 +64,13 @@ const BlogPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  return data && currentArticlesData ? (
+  const findViews = (url: string) => {
+    if (views.data)
+      return views.data[0].allViews.find((view) => view.articleUrl === url)
+        ?.views;
+  };
+
+  return data && currentArticlesData && views.data ? (
     <>
       <Head>
         <title>{metaTitle}</title>
@@ -79,7 +85,10 @@ const BlogPage = () => {
           articles={currentArticlesData.length}
         />
         <Styled.HeaderBlock>
-          <MainBlogItem article={data.articles[0]} />
+          <MainBlogItem
+            article={data.articles[0]}
+            views={findViews(data.articles[0].url)}
+          />
           <Styled.FlexColumnContainer>
             <SmallArticleItem article={data.articles[0]} />
             <SmallArticleItem article={data.articles[1]} />
@@ -100,7 +109,11 @@ const BlogPage = () => {
             <BlogDropdown setFilter={setFilter} filter={filter} tags={tags} />
           </Styled.DropdownContainer>
           {currentArticlesData.map((article) => (
-            <BlogItem article={article} key={article._id} />
+            <BlogItem
+              article={article}
+              key={article._id}
+              views={findViews(article.url)}
+            />
           ))}
           <PaginationBar
             currentPage={currentPage}

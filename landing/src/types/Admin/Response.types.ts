@@ -231,7 +231,6 @@ export interface IArticle {
   _id?: string;
   url: string;
   image: { url: string };
-  // views?: number;
   title: string;
   description: string;
   author: IAuthor;
@@ -246,6 +245,15 @@ export interface IBlogResponse {
   articles: IArticle[];
   newArticle: IArticle;
   meta: IMetaBlock;
+}
+
+export interface IView {
+  views: number;
+  articleUrl: string;
+}
+
+export interface IViews {
+  allViews: IView[];
 }
 
 export interface IHomeData {
