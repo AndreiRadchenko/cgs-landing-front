@@ -6,9 +6,10 @@ import Timer from "../../../public/Timer.svg";
 
 interface IMainBlogItem {
   article: IArticle;
+  views?: number;
 }
 
-const MainBlogItem = ({ article }: IMainBlogItem) => {
+const MainBlogItem = ({ article, views }: IMainBlogItem) => {
   return (
     <a href={`/blog/${article.url}`}>
       <Styled.MainBlogItemContainer>
@@ -25,7 +26,7 @@ const MainBlogItem = ({ article }: IMainBlogItem) => {
             <Styled.Author>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.Author>
             <Styled.WatchContainer>
               <Styled.WatchIcon src={Watch.src} />
-              <Styled.WatchCount>1241</Styled.WatchCount>
+              <Styled.WatchCount>{views}</Styled.WatchCount>
             </Styled.WatchContainer>
           </Styled.FlexRowContainer>
           <Styled.WatchContainer>
