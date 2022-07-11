@@ -36,7 +36,6 @@ export const Background = styled.div`
 export const PageWrapper = styled.div`
   max-width: 975px;
   margin: 0 auto;
-  //position: relative;
   margin-top: 100px;
   display: flex;
   width: 100%;
@@ -73,12 +72,8 @@ export const BannerImageContainer = styled.div`
 `;
 
 export const BannerImage = styled.img`
-  //max-width: 500px;
   width: 100%;
   height: auto;
-  @media ${themes.primary.media.maxTabletPortrait} {
-    //max-width: 400px;
-  }
 `;
 
 export const TagWrapper = styled.div`
@@ -170,7 +165,6 @@ export const TitleBg = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     left: -150px;
   }
- 
   @media ${themes.primary.media.maxTabletPortrait} {
     left: -12%;
     top: 50px;
@@ -202,7 +196,7 @@ export const HeaderBottomBg = styled.div`
 export const FirstHeaderBg = styled.div`
   position: absolute;
   top: 22%;
-  left: -5120px;
+  left: -520px;
   @media ${themes.primary.media.maxPCFullHD} {
     left: -520px;
   }
