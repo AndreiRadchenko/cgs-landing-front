@@ -10,8 +10,6 @@ export const Wrapper = styled.div`
 `;
 
 export const TitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
   z-index: 2;
   :not(:first-child) {
     margin-top: 50px;
