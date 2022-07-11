@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin: 0;
-    justify-content: center;
     align-items: center;
   }
 `;

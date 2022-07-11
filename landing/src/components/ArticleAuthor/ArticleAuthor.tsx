@@ -3,6 +3,8 @@ import React, { FC } from "react";
 import Views from "../../../public/viewsIcon.svg";
 import * as Styles from "./ArticleAuthor.styled";
 import { IAuthor } from "../../types/Admin/Response.types";
+import * as Styled from "../../styles/Blog.styled";
+import Watch from "../../../public/Watch.png";
 
 interface IArticleAuthor {
   author: IAuthor;
@@ -18,26 +20,27 @@ const ArticleAuthor: FC<IArticleAuthor> = ({ author, date, time, views }) => {
 
   return (
     <Styles.Wrapper>
-      <Styles.AuthorWrapper>
-        <Styles.AuthorImage src={author.image.url} />
-        <Styles.AuthorInfoWrapper>
-          <Styles.AuthorNameWrapper>
-            <Styles.AuthorName>By {author.name}</Styles.AuthorName>
-            <Styles.AuthorType> / {author.specialization}</Styles.AuthorType>
-          </Styles.AuthorNameWrapper>
-          <Styles.AuthorMetaInfoWrapper>
-            <Styles.AuthorDate>{formatDate(date)}</Styles.AuthorDate>
-            <Styles.AuthorViewsWrapper>
-              <Styles.AuthorViewsImage src={Views.src} />
-              <Styles.AuthorViews>{views}</Styles.AuthorViews>
-            </Styles.AuthorViewsWrapper>
-          </Styles.AuthorMetaInfoWrapper>
-        </Styles.AuthorInfoWrapper>
-      </Styles.AuthorWrapper>
-      <Styles.TimeWrapper>
-        <Styles.TimerImage src={Timer.src} />
-        <Styles.Time>&nbsp;{time} min</Styles.Time>
-      </Styles.TimeWrapper>
+      <Styles.AuthorImage src={author.image.url} />
+      <Styles.AuthorInfoWrapper>
+        <Styles.Container>
+          <Styles.AuthorName>
+            By {author.name} / {author.specialization}
+          </Styles.AuthorName>
+          <Styles.SpaceBetween>
+            <Styled.GrayText>{date}</Styled.GrayText>
+            <Styled.FlexRowContainer>
+              <Styled.WatchContainer>
+                <Styled.WatchIcon src={Watch.src} />
+                <Styled.WatchCount>{views}</Styled.WatchCount>
+              </Styled.WatchContainer>
+              <Styled.WatchContainer>
+                <Styled.TimerIcon src={Timer.src} />
+                <Styled.GrayText>{`${time} min`}</Styled.GrayText>
+              </Styled.WatchContainer>
+            </Styled.FlexRowContainer>
+          </Styles.SpaceBetween>
+        </Styles.Container>
+      </Styles.AuthorInfoWrapper>
     </Styles.Wrapper>
   );
 };
