@@ -231,6 +231,7 @@ export interface IArticle {
   _id?: string;
   url: string;
   image: { url: string };
+  // views?: number;
   title: string;
   description: string;
   author: IAuthor;

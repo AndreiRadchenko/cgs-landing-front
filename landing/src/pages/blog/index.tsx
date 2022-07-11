@@ -1,102 +1,128 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import parse from "html-react-parser";
-import HeaderNav from "../../components/HeaderNav/HeaderNav";
-import Footer from "../../components/Footer/Footer";
 import { useQuery } from "react-query";
-import { IBlogResponse } from "../../types/Admin/Response.types";
+import { IArticle, IBlogResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import PaginationBar from "../../components/PaginationBar/PaginationBar";
-import BlogItem from "../../components/BlogItem/BlogItem";
+import BlogItem from "../../components/Blog/BlogItem";
 
-import * as Styles from "../../styles/BlogPage.styled";
 import { adminBlogService } from "../../services/adminBlogPage";
-import Link from "next/link";
 import { adminGlobalService } from "../../services/adminHomePage";
-import * as Styled from "../../styles/AdminPage";
+import * as Styled from "../../styles/Blog.styled";
 import Head from "next/head";
+import { AdminUnauthorizedModal } from "../../styles/AdminPage";
+import BlogDropdown from "../../components/Blog/BlogDropdown";
+import leftLine from "../../../public/BlogDecorations/MainPage/leftLine.png";
+import rightLine from "../../../public/BlogDecorations/MainPage/rightLine.png";
+import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
+import FooterNew from "../../components/FooterNew/FooterNew";
+import PodcastItem from "../../components/Blog/PodcastItem";
+import MainBlogItem from "../../components/Blog/MainBlogItem";
+import SmallArticleItem from "../../components/Blog/SmallArticleItem";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
   isLoading: boolean;
 }
 
-const PageSize = 5;
+const PageSize = 4;
 
 const BlogPage = () => {
-  const { data, isLoading }: IBlogData = useQuery(queryKeys.getBlogPage, () =>
+  const { data }: IBlogData = useQuery(queryKeys.getBlogPage, () =>
     adminBlogService.getBlogPage()
   );
 
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [filter, setFilter] = useState<string | null>(null);
+  const [filteredData, setFilteredData] = useState<IArticle[] | null>(null);
+  const [tags, setTags] = useState<string[]>([]);
+
+  useEffect(() => {
+    const newTags = data?.articles.map((article) => article.tags).flat();
+    setTags(Array.from(new Set<string>(newTags)));
+  }, [data]);
+
+  useEffect(() => {
+    if (filter) {
+      const newData = data?.articles.filter((article) =>
+        article.tags.find((tag) => tag === filter)
+      );
+      setFilteredData(newData ? newData : null);
+    }
+  }, [data?.articles, filter]);
 
   const currentArticlesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
+    if (filter && filteredData) {
+      return filteredData?.slice(firstPageIndex, lastPageIndex);
+    }
     return data?.articles.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, data?.articles]);
+  }, [currentPage, data?.articles, filteredData, filter]);
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  return (
+  return data && currentArticlesData ? (
     <>
       <Head>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
         {customHead && parse(customHead)}
       </Head>
-      <Styles.PageWrapper>
-        <div>
-          <Styles.HeaderContainer>
-            <HeaderNav />
-          </Styles.HeaderContainer>
-          {!currentArticlesData || !data?.articles.length ? (
-            <Styled.AdminUnauthorizedModal>
-              Articles is not defined :(
-            </Styled.AdminUnauthorizedModal>
-          ) : (
-            <>
-              <a href={`blog/${currentArticlesData[0].url}`}>
-                <Styles.BlogItemContainer>
-                  <Styles.BannerImage src={currentArticlesData[0].image.url} />
-                  <Styles.PageTitle>
-                    {currentArticlesData[0].title}
-                  </Styles.PageTitle>
-                  <Styles.PageDescription>
-                    {currentArticlesData[0].description}
-                  </Styles.PageDescription>
-                </Styles.BlogItemContainer>
-              </a>
-              <Styles.BlogItemsWrapper>
-                {currentArticlesData.map((article, i) =>
-                  i === 0 ? null : (
-                    <BlogItem
-                      url={article.url}
-                      key={i}
-                      isAdmin={false}
-                      image={article.image?.url}
-                      description={article.description}
-                      title={article.title}
-                    />
-                  )
-                )}
-              </Styles.BlogItemsWrapper>
-              <PaginationBar
-                currentPage={currentPage}
-                totalCount={data.articles.length}
-                pageSize={PageSize}
-                onPageChange={(page: string | number) =>
-                  setCurrentPage(Number(page))
-                }
-                siblingCount={1}
-              />
-            </>
-          )}
-        </div>
-        <Footer isGreenLine={false} />
-      </Styles.PageWrapper>
+      <HeaderNavNew />
+      <Styled.BlogContainer>
+        <Styled.LeftLine src={leftLine.src} />
+        <Styled.RightLine
+          src={rightLine.src}
+          articles={currentArticlesData.length}
+        />
+        <Styled.HeaderBlock>
+          <MainBlogItem article={data.articles[0]} />
+          <Styled.FlexColumnContainer>
+            <SmallArticleItem article={data.articles[0]} />
+            <SmallArticleItem article={data.articles[1]} />
+            <SmallArticleItem article={data.articles[0]} />
+          </Styled.FlexColumnContainer>
+        </Styled.HeaderBlock>
+        <Styled.Separator />
+        <PodcastItem />
+        <Styled.Separator />
+        <Styled.AllArticlesContainer articles={data.articles.length}>
+          <Styled.DropdownContainer>
+            {filter && (
+              <Styled.Tag>
+                {filter}&nbsp;&nbsp;
+                <span onClick={() => setFilter(null)}>x</span>
+              </Styled.Tag>
+            )}
+            <BlogDropdown
+              setFilter={setFilter}
+              filter={filter}
+              tags={tags}
+              dropdownName="#TAGS"
+              isTag={true}
+            />
+          </Styled.DropdownContainer>
+          {currentArticlesData.map((article) => (
+            <BlogItem article={article} key={article._id} />
+          ))}
+          <PaginationBar
+            currentPage={currentPage}
+            totalCount={data.articles.length}
+            pageSize={PageSize}
+            onPageChange={(page: string | number) =>
+              setCurrentPage(Number(page))
+            }
+            siblingCount={1}
+          />
+        </Styled.AllArticlesContainer>
+        <FooterNew />
+      </Styled.BlogContainer>
     </>
+  ) : (
+    <AdminUnauthorizedModal>Loading...</AdminUnauthorizedModal>
   );
 };
 
