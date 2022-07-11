@@ -29,13 +29,13 @@ export const SubTitle = styled.p`
 
 export const Background = styled.div`
   overflow: hidden;
+  position: relative;
   background-color: ${themes.primary.colors.blogBackground};
 `;
 
 export const PageWrapper = styled.div`
   max-width: 975px;
   margin: 0 auto;
-  position: relative;
   margin-top: 100px;
   display: flex;
   width: 100%;
@@ -72,12 +72,8 @@ export const BannerImageContainer = styled.div`
 `;
 
 export const BannerImage = styled.img`
-  //max-width: 500px;
   width: 100%;
   height: auto;
-  @media ${themes.primary.media.maxTabletPortrait} {
-    //max-width: 400px;
-  }
 `;
 
 export const TagWrapper = styled.div`
@@ -148,6 +144,10 @@ export const DescriptionWrapper = styled.div`
   position: relative;
 `;
 
+export const Cont = styled.div`
+  position: relative;
+`;
+
 export const TitleBg = styled.div`
   position: absolute;
   top: 130px;
@@ -165,7 +165,6 @@ export const TitleBg = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     left: -150px;
   }
- 
   @media ${themes.primary.media.maxTabletPortrait} {
     left: -12%;
     top: 50px;

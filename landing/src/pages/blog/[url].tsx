@@ -110,49 +110,51 @@ const ArticlePage = () => {
       </Head>
       <Styles.Background>
         <HeaderNavNew />
-        <Styles.PageWrapper>
-          <Styles.TitleBg>
-            <Image src={titleBg} alt="top title bg" />
-          </Styles.TitleBg>
-          <Styles.ArrowBackButton
-            src={ArrowBack.src}
-            onClick={() => router.back()}
-          />
-          <Styles.Title>{article.title}</Styles.Title>
-          <Styles.BannerWrapper>
-            <Styles.TagWrapper>
-              <ShareOn image={article.image} title={article.title} />
-              <ArticleTags tags={article.tags} />
-              <ArticleAuthor
-                author={article.author}
-                date={article.date}
-                time={article.minutesToRead}
-                views={findViews(article.url)}
-              />
-            </Styles.TagWrapper>
-            <Styles.BannerImageContainer>
-              <Styles.BannerImage src={article.image.url} />
-            </Styles.BannerImageContainer>
-          </Styles.BannerWrapper>
-          <Styles.FirstHeaderBg>
-            <Image src={firstHeaderBg} alt="first header bg" />
-          </Styles.FirstHeaderBg>
-          <Styles.SecondHeaderBg>
-            <Image src={secondHeaderBg} alt="second header bg" />
-          </Styles.SecondHeaderBg>
-          <Styles.FooterBg>
-            <Image src={footerBg} alt="footer bg" />
-          </Styles.FooterBg>
-          <Styles.DescriptionWrapper>
-            <Styles.SubTitle>{article.description}</Styles.SubTitle>
-            <Styles.HeaderBottomBg>
-              <Image src={headerBottomBg} alt="header bottom bg" />
-            </Styles.HeaderBottomBg>
-          </Styles.DescriptionWrapper>
-          <ArticleDescription content={article.content} />
-          <ArticleReadMore readMore={readMore} findViews={findViews} />
-        </Styles.PageWrapper>
-        <FooterNew />
+        <Styles.Cont>
+          <Styles.PageWrapper>
+            <Styles.TitleBg>
+              <Image src={titleBg} alt="top title bg" />
+            </Styles.TitleBg>
+            <Styles.ArrowBackButton
+              src={ArrowBack.src}
+              onClick={() => router.back()}
+            />
+            <Styles.Title>{article.title}</Styles.Title>
+            <Styles.BannerWrapper>
+              <Styles.TagWrapper>
+                <ShareOn image={article.image} title={article.title} />
+                <ArticleTags tags={article.tags} />
+                <ArticleAuthor
+                  author={article.author}
+                  date={article.date}
+                  time={article.minutesToRead}
+                  views={findViews(article.url)}
+                />
+              </Styles.TagWrapper>
+              <Styles.BannerImageContainer>
+                <Styles.BannerImage src={article.image.url} />
+              </Styles.BannerImageContainer>
+            </Styles.BannerWrapper>
+            <Styles.FirstHeaderBg>
+              <Image src={firstHeaderBg} alt="first header bg" />
+            </Styles.FirstHeaderBg>
+            <Styles.SecondHeaderBg>
+              <Image src={secondHeaderBg} alt="second header bg" />
+            </Styles.SecondHeaderBg>
+            <Styles.FooterBg>
+              <Image src={footerBg} alt="footer bg" />
+            </Styles.FooterBg>
+            <Styles.DescriptionWrapper>
+              <Styles.SubTitle>{article.description}</Styles.SubTitle>
+              <Styles.HeaderBottomBg>
+                <Image src={headerBottomBg} alt="header bottom bg" />
+              </Styles.HeaderBottomBg>
+            </Styles.DescriptionWrapper>
+            <ArticleDescription content={article.content} />
+            <ArticleReadMore readMore={readMore} findViews={findViews} />
+          </Styles.PageWrapper>
+          <FooterNew />
+        </Styles.Cont>
       </Styles.Background>
     </>
   ) : (

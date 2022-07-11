@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import themes from "../utils/themes";
 import { infiniteText } from "./AnimationsStyled";
 
@@ -21,7 +21,7 @@ export const FlexColumnContainer = styled.div`
 
 export const FlexRowContainer = styled.div`
   display: flex;
-  column-gap: 19px;
+  column-gap: 10px;
   align-items: center;
 `;
 
