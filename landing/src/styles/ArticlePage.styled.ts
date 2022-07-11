@@ -111,11 +111,17 @@ export const ArrowBackButton = styled.img`
   @media ${themes.primary.media.maxLaptop} {
     left: -140px;
   }
-  @media (max-width: 1260px) {
+  @media (max-width: 1330px) {
     left: -60px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     left: -160px;
+  }
+  @media (max-width: 1135px) {
+    left: -130px;
+  }
+  @media (max-width: 1080px) {
+    left: -90px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     left: -100px;
@@ -145,12 +151,13 @@ export const TitleBg = styled.div`
   @media ${themes.primary.media.maxLaptop} {
     left: -120px;
   }
-  @media (max-width: 1260px) {
+  @media (max-width: 1320px) {
     left: -80px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     left: -150px;
   }
+ 
   @media ${themes.primary.media.maxTabletPortrait} {
     left: -12%;
     top: 50px;
