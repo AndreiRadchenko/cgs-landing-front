@@ -8,17 +8,23 @@ export const Title = styled.h1`
   color: ${themes.primary.colors.primary};
   margin: 0 auto;
   max-width: 945px;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.bigTitle};
+  }
 `;
 
 export const SubTitle = styled.p`
   max-width: 975px;
   margin-top: 50px;
-  font-size: ${themes.primary.font.size.aboutUsCardText};
+  font-size: ${themes.primary.font.size.oneAndHalf};
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.blogDarkText};
   line-height: 160%;
   z-index: 2;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.aboutUsCardText};
+  }
 `;
 
 export const Background = styled.div`
@@ -108,62 +114,55 @@ export const ArrowBackButton = styled.img`
   }
 `;
 
+export const DescriptionWrapper = styled.div`
+  position: relative;
+`;
+
 export const TitleBg = styled.div`
   position: absolute;
-  top: 4%;
+  top: 180px;
   left: 1%;
 
   @media ${themes.primary.media.maxPCFullHD} {
     left: -7%;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    top: 3%;
-    left: -12%;
+    left: -16%;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     left: -15.5%;
+    top: 55px;
   }
   @media ${themes.primary.media.maxTablet} {
-    top: 2.9%;
-    left: -5%;
+    left: -6%;
   }
 `;
 
 export const HeaderBottomBg = styled.div`
   position: absolute;
-  top: 12%;
-  right: 1%;
+  top: 20px;
+  right: -20%;
   @media ${themes.primary.media.maxPCFullHD} {
-    right: -7%;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    top: 14%;
-    right: -12%;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    top: 12.5%;
     right: -10%;
   }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    right: -14%;
+  }
   @media ${themes.primary.media.maxTablet} {
-    top: 11.5%;
-    right: -3%;
+    top: 5px;
+    right: -10%;
   }
 `;
 
 export const FirstHeaderBg = styled.div`
   position: absolute;
   top: 22%;
-  left: -41%;
-
+  left: -500px;
   @media ${themes.primary.media.maxPCFullHD} {
-    left: -52%;
+    left: -500px;
   }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    left: -82%;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    left: -90%;
+  @media ${themes.primary.media.maxLaptop} {
+    left: -700px;
   }
   @media ${themes.primary.media.maxTablet} {
     left: -80%;
@@ -173,19 +172,19 @@ export const FirstHeaderBg = styled.div`
 export const SecondHeaderBg = styled.div`
   position: absolute;
   bottom: 25%;
-  right: -25%;
+  right: -500px;
 
   @media ${themes.primary.media.maxPCFullHD} {
-    right: -35%;
+    right: -400px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    right: -55%;
+    right: -520px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    right: -58%;
+    right: -510px;
   }
   @media ${themes.primary.media.maxTablet} {
-    right: -55%;
+    right: -400px;
   }
 `;
 
