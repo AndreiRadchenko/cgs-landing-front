@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   width: 458px;
   margin-bottom: 50px;
-  cursor: pointer;
   &:last-child {
     margin-right: 0;
   }
@@ -28,9 +27,11 @@ export const Title = styled.p`
   font-size: ${themes.primary.font.size.quaternary};
   font-weight: ${themes.primary.font.weight.semiBold};
   width: 100%;
+  margin: 0;
   &:hover {
     cursor: pointer;
   }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     margin: 0;
     margin-top: 10px;
@@ -45,4 +46,17 @@ export const Description = styled.p`
     margin: 0;
     margin-top: 10px;
   }
+`;
+
+export const ViewsWrapper = styled.div`
+  width: 58px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 18px 0;
+`;
+
+export const AmountViews = styled.span`
+  font-size: 0.95em;
+  font-family: ${themes.primary.font.family.openSans};
 `;

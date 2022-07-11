@@ -1,5 +1,6 @@
 import Timer from "../../../public/Timer.svg";
 import React, { FC } from "react";
+import Views from "../../../public/viewsIcon.svg";
 import * as Styles from "./ArticleAuthor.styled";
 import { IAuthor } from "../../types/Admin/Response.types";
 
@@ -23,7 +24,13 @@ const ArticleAuthor: FC<IArticleAuthor> = ({ author, date, time }) => {
             <Styles.AuthorName>By {author.name}</Styles.AuthorName>
             <Styles.AuthorType> / {author.specialization}</Styles.AuthorType>
           </Styles.AuthorNameWrapper>
-          <Styles.AuthorDate>{formatDate(date)}</Styles.AuthorDate>
+          <Styles.AuthorMetaInfoWrapper>
+            <Styles.AuthorDate>{formatDate(date)}</Styles.AuthorDate>
+            <Styles.AuthorViewsWrapper>
+              <Styles.AuthorViewsImage src={Views.src} />
+              <Styles.AuthorViews>3027</Styles.AuthorViews>
+            </Styles.AuthorViewsWrapper>
+          </Styles.AuthorMetaInfoWrapper>
         </Styles.AuthorInfoWrapper>
       </Styles.AuthorWrapper>
       <Styles.TimeWrapper>
