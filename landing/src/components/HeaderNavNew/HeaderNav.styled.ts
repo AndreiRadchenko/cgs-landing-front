@@ -19,9 +19,6 @@ export const LogoLinkWrapper = styled.a`
   align-items: center;
   column-gap: 8px;
   border-right: 1px solid ${themes.primary.colors.headerBorder};
-  &:hover {
-    background-color: ${themes.primary.colors.headerBorderHover};
-  }
   @media ${themes.primary.media.onlyTabletPortrait} {
     padding: 0.7rem 2.5rem;
   }
@@ -70,7 +67,6 @@ export const ListItemNav = styled.a`
     display: none;
   }
   &:hover {
-    background-color: ${themes.primary.colors.headerBorderHover};
     transition: 0.3s;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
@@ -98,10 +94,6 @@ export const DropdownElement = styled.div`
     border: none;
     height: 56px;
     width: 11.02vw;
-
-    &:hover {
-      background-color: ${themes.primary.colors.headerBorderHover};
-    }
   }
   div {
     &:nth-child(2) {
