@@ -116,21 +116,21 @@ export const ArrowBackButton = styled.img`
 
 export const TitleBg = styled.div`
   position: absolute;
-  top: 60px;
+  top: 180px;
   left: 1%;
 
   @media ${themes.primary.media.maxPCFullHD} {
     left: -7%;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    left: -12%;
+    left: -16%;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     left: -15.5%;
-    top: 1%;
+    top: 55px;
   }
   @media ${themes.primary.media.maxTablet} {
-    left: -5%;
+    left: -6%;
   }
 `;
 

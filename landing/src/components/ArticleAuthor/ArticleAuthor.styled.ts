@@ -55,7 +55,6 @@ export const AuthorMetaInfoWrapper = styled.div`
 
 export const AuthorViewsWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 62px;
 `;
@@ -68,6 +67,7 @@ export const AuthorViews = styled.p`
   font-weight: ${themes.primary.font.weight.normal};
   color: ${themes.primary.colors.authorGrey};
   margin: 0;
+  margin-left: 3px;
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.quinary};
   }
