@@ -31,11 +31,15 @@ const BlogItem = ({ article, views }: IBlogItem) => {
                     {article.description}
                   </Styled.BlogItemDescription>
                 </Styled.BlogItemContent>
-                <Styled.BlogItemImage src={article.image.url} />
+                {article.image.url ? (
+                  <Styled.BlogItemImage src={article.image.url} />
+                ) : (
+                  <Styled.NoBlogItemImage />
+                )}
               </Styled.FlexRowContainer>
               <Styled.GeneralInfo>
                 <Styled.FlexRowContainer>
-                  <Styled.Author>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.Author>
+                  <Styled.SecondaryAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.SecondaryAuthor>
                   <Styled.WatchContainer>
                     <Styled.WatchIcon src={Watch.src} />
                     <Styled.WatchCount>{views}</Styled.WatchCount>
