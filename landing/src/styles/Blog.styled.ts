@@ -159,6 +159,16 @@ export const BlogItemTitle = styled.p`
   margin-top: 14px;
 `;
 
+export const PlayerTitle = styled.p`
+  font-size: ${themes.primary.font.size.headerLinkText};
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 16px;
+  line-height: 170%;
+`;
+
 export const BlogItemDescription = styled.p`
   font-size: ${themes.primary.font.size.aboutUsCardText};
   margin: 0;
@@ -225,8 +235,7 @@ export const DropdownContent = styled.div`
   right: 0;
   border: 1px solid ${themes.primary.colors.primary};
   border-right: 3px solid ${themes.primary.colors.primary};
-  border-bottom: 9px solid ${themes.primary.colors.primary};
-  top: 34px;
+  border-bottom: 12px solid ${themes.primary.colors.primary};
   display: none;
   &.open {
     display: block;
@@ -249,7 +258,11 @@ export const DropdownContent = styled.div`
   }
 `;
 
-export const DropdownButton = styled.button`
+export const DropdownButton = styled.button<{ isHeader?: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
   color: ${themes.primary.colors.primary};
   height: 35px;
@@ -257,7 +270,8 @@ export const DropdownButton = styled.button`
   text-align: left;
   padding-left: 10px;
   box-sizing: border-box;
-  border: 1px solid ${themes.primary.colors.comment} !important;
+  border: ${(props) =>
+    !props.isHeader && `1px solid ${themes.primary.colors.comment} !important;`}
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.primary};
   letter-spacing: 0.03em;
@@ -269,10 +283,18 @@ export const DropdownButton = styled.button`
   &:hover &.open {
     border-bottom: 0 !important;
     border-right: 3px solid ${themes.primary.colors.primary} !important;
+
+    img {
+      transform: rotate(180deg);
+    }
   }
   &.open {
     border-bottom: 0 !important;
     border-right: 3px solid ${themes.primary.colors.primary} !important;
+
+    img {
+      transform: rotate(180deg);
+    }
   }
 `;
 

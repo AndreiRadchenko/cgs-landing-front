@@ -4,13 +4,16 @@ import PlayButton from "../../../public/BlogDecorations/Podcast/PlayButton.png";
 import Podcast from "../../../public/BlogDecorations/Podcast/Podcast.svg";
 import PlayTriangle from "../../../public/BlogDecorations/Podcast/PlayTriangle.svg";
 const PodcastItem = () => {
+  //What is a project manager? The key to project success...
+
   return (
     <Styled.PodcastContainer>
       <Styled.RelativeContainer>
         <Styled.PodcastCard>
-          <Styled.BlogItemDescription>
-            What is a project manager? The key to project success...
-          </Styled.BlogItemDescription>
+          <Styled.PlayerTitle>
+            Tune in to up-to-date content about technologies and the IT
+            industry.
+          </Styled.PlayerTitle>
           <Styled.Track>
             <Styled.PlayedTrack />
             <Styled.PlayerDot />
