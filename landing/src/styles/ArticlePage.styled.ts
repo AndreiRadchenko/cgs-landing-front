@@ -8,6 +8,9 @@ export const Title = styled.h1`
   color: ${themes.primary.colors.primary};
   margin: 0 auto;
   max-width: 945px;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.bigTitle};
+  }
 `;
 
 export const SubTitle = styled.p`
