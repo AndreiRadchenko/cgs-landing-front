@@ -19,6 +19,8 @@ import FooterNew from "../../components/FooterNew/FooterNew";
 import PodcastItem from "../../components/Blog/PodcastItem";
 import MainBlogItem from "../../components/Blog/MainBlogItem";
 import SmallArticleItem from "../../components/Blog/SmallArticleItem";
+import { useRouter } from "next/router";
+import { useScrollTo } from "../../hooks/useScrollTo";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
@@ -28,11 +30,14 @@ interface IBlogData {
 const PageSize = 4;
 
 const BlogPage = () => {
+  const router = useRouter();
+
   const { data }: IBlogData = useQuery(queryKeys.getBlogPage, () =>
     adminBlogService.getBlogPage()
   );
   const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [filter, setFilter] = useState<string | null>(null);
@@ -52,6 +57,12 @@ const BlogPage = () => {
       setFilteredData(newData ? newData : null);
     }
   }, [data?.articles, filter]);
+  const tagParams = router.query.tag;
+
+  useEffect(() => {
+    setFilter(tagParams as string);
+    scrollHandler();
+  }, [tagParams, scrollHandler]);
 
   const currentArticlesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
@@ -99,7 +110,7 @@ const BlogPage = () => {
         <PodcastItem />
         <Styled.Separator />
         <Styled.AllArticlesContainer articles={data.articles.length}>
-          <Styled.DropdownContainer>
+          <Styled.DropdownContainer ref={ref}>
             {filter && (
               <Styled.Tag>
                 {filter}&nbsp;&nbsp;
