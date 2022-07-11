@@ -26,7 +26,7 @@ const BlogDropdown = ({
   }, [filter]);
 
   return (
-    <Styled.Dropdown>
+    <Styled.Dropdown onBlur={() => setIsOpen(false)}>
       <Styled.DropdownButton
         className={isOpen ? "open" : ""}
         onClick={() => setIsOpen(!isOpen)}
