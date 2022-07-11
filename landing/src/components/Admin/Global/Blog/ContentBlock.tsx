@@ -12,9 +12,11 @@ import { useFormikContext } from "formik";
 import {
   IArticle,
   IBlogResponse,
+  IView,
+  IViews,
 } from "../../../../types/Admin/Response.types";
 import ArticleBlock from "../../Blog/ArticleBlock";
-import { useMutation } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminBlogService } from "../../../../services/adminBlogPage";
 import { IImage } from "../../../../types/Admin/Admin.types";
@@ -40,9 +42,10 @@ const ContentBlock: FC<IArticles> = ({
 }) => {
   const { values, handleSubmit, handleChange } =
     useFormikContext<IBlogResponse>();
+  const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
 
   const { mutateAsync } = useMutation(
-    queryKeys.deleteArticle,
+    queryKeys.updateBlogPage,
     (dataToUpdate: IBlogResponse) =>
       adminBlogService.updateBlogPage(dataToUpdate)
   );
@@ -52,7 +55,22 @@ const ContentBlock: FC<IArticles> = ({
     (dataToUpdate: IArticle) => adminBlogService.postArticle(dataToUpdate)
   );
 
+  const { mutateAsync: updateViews } = useMutation(
+    queryKeys.postArticle,
+    (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
+  );
+
   const updateArticle = async () => {
+    const isChangedUrl =
+      data.articles[article].url !== values.articles[article].url;
+    if (isChangedUrl && views.data) {
+      const updatedViews = views.data[0].allViews.map((view) =>
+        view.articleUrl === data.articles[article].url
+          ? { ...view, articleUrl: values.articles[article].url }
+          : view
+      );
+      await updateViews({ allViews: updatedViews });
+    }
     await mutateAsync(values);
     setArticle(0);
     setIsNewArticle(true);
@@ -65,6 +83,16 @@ const ContentBlock: FC<IArticles> = ({
   };
 
   const createArticle = async () => {
+    if (views.data) {
+      const updatedViews: IView[] = [
+        ...views.data[0].allViews,
+        {
+          articleUrl: values.newArticle.url,
+          views: 231,
+        },
+      ];
+      await updateViews({ allViews: updatedViews });
+    }
     const articleToAdd = values.newArticle;
     values.articles.push(articleToAdd);
     values.newArticle = {
@@ -291,6 +319,7 @@ const ContentBlock: FC<IArticles> = ({
           </TicketsButton>
         </Styles.SubmitButtonWrapper>
         <PublishedArticles
+          views={views.data ? views.data[0] : undefined}
           data={data}
           isNewArticle={isNewArticle}
           article={article}

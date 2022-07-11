@@ -8,6 +8,10 @@ export const AdminSubTitle = styled.h3`
   margin: 40px 0 0.4em 0;
 `;
 
+export const TextEditorWrapper = styled.div`
+  width: 1100px;
+`;
+
 export const BigWrapper = styled.div`
   display: flex;
   width: 100%;

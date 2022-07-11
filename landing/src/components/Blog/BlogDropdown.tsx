@@ -33,11 +33,15 @@ const BlogDropdown = ({
         isHeader={isHeader}
       >
         {dropdownName}
-        <Image src={Arrow} alt="Arrow" />
+        <Image width={12} height={12} src={Arrow} alt="Arrow" />
       </Styled.DropdownButton>
       <Styled.DropdownContent className={isOpen ? "open" : ""}>
         {tags.map((tag) => (
-          <div onClick={() => setFilter(tag)} key={tag}>
+          <div
+            onClick={() => setFilter(tag)}
+            key={tag}
+            onMouseDown={(e) => e.preventDefault()}
+          >
             {isTag ? `#${tag}` : tag}
           </div>
         ))}
