@@ -9,7 +9,16 @@ export const Wrapper = styled.div`
   font-family: ${themes.primary.font.family.openSans};
 `;
 
-export const TitleWrapper = styled.div``;
+
+export const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  :not(:first-child) {
+    margin-top: 50px;
+  }
+`;
+
 
 export const SubtitleTag = styled.div`
   font-weight: ${themes.primary.font.weight.bold};
