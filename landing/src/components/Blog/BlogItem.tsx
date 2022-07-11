@@ -6,9 +6,10 @@ import { IArticle } from "../../types/Admin/Response.types";
 
 interface IBlogItem {
   article: IArticle;
+  views?: number;
 }
 
-const BlogItem = ({ article }: IBlogItem) => {
+const BlogItem = ({ article, views }: IBlogItem) => {
   const parseDate = (date: string) => {
     return date.split("-").reverse().join(".");
   };
@@ -30,14 +31,18 @@ const BlogItem = ({ article }: IBlogItem) => {
                     {article.description}
                   </Styled.BlogItemDescription>
                 </Styled.BlogItemContent>
-                <Styled.BlogItemImage src={article.image.url} />
+                {article.image.url ? (
+                  <Styled.BlogItemImage src={article.image.url} />
+                ) : (
+                  <Styled.NoBlogItemImage />
+                )}
               </Styled.FlexRowContainer>
               <Styled.GeneralInfo>
                 <Styled.FlexRowContainer>
-                  <Styled.Author>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.Author>
+                  <Styled.SecondaryAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.SecondaryAuthor>
                   <Styled.WatchContainer>
                     <Styled.WatchIcon src={Watch.src} />
-                    <Styled.WatchCount>463</Styled.WatchCount>
+                    <Styled.WatchCount>{views}</Styled.WatchCount>
                   </Styled.WatchContainer>
                 </Styled.FlexRowContainer>
                 <Styled.WatchContainer>

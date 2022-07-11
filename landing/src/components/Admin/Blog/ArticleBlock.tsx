@@ -92,23 +92,27 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
   );
 
   const editArticleText = (index: number) => (
-    <TextEditor
-      isBlog={true}
-      key={index}
-      header="Text"
-      value={values.articles[article].content[index].text}
-      name={`articles[${article}].content[${index}].text`}
-    />
+    <Styles.TextEditorWrapper>
+      <TextEditor
+        isBlog={true}
+        key={index}
+        header="Text"
+        value={values.articles[article].content[index].text}
+        name={`articles[${article}].content[${index}].text`}
+      />
+    </Styles.TextEditorWrapper>
   );
 
   const newArticleText = (index: number) => (
-    <TextEditor
-      isBlog={true}
-      key={index}
-      value={values.newArticle.content[index].text}
-      header="Text"
-      name={`newArticle.content[${index}].text`}
-    />
+    <Styles.TextEditorWrapper>
+      <TextEditor
+        isBlog={true}
+        key={index}
+        value={values.newArticle.content[index].text}
+        header="Text"
+        name={`newArticle.content[${index}].text`}
+      />
+    </Styles.TextEditorWrapper>
   );
 
   return (
