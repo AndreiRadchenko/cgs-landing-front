@@ -178,12 +178,12 @@ export const BlogItemDescription = styled.p`
 `;
 
 export const GrayText = styled.div`
-  color: ${themes.primary.colors.lightGrey};
+  color: ${themes.primary.colors.authorGrey};
   font-size: ${themes.primary.font.size.primary};
 `;
 
 export const Date = styled.div`
-  color: ${themes.primary.colors.lightGrey};
+  color: ${themes.primary.colors.authorGrey};
   font-size: ${themes.primary.font.size.primary};
 `;
 
@@ -271,7 +271,8 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   padding-left: 10px;
   box-sizing: border-box;
   border: ${(props) =>
-    !props.isHeader && `1px solid ${themes.primary.colors.comment} !important;`}
+    !props.isHeader &&
+    `1px solid ${themes.primary.colors.comment} !important;`};
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.primary};
   letter-spacing: 0.03em;
