@@ -1,34 +1,63 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import * as Styled from "../../styles/Blog.styled";
 import PlayButton from "../../../public/BlogDecorations/Podcast/PlayButton.png";
 import Podcast from "../../../public/BlogDecorations/Podcast/Podcast.svg";
 import PlayTriangle from "../../../public/BlogDecorations/Podcast/PlayTriangle.svg";
 import StopButton from "../../../public/StopButton.svg";
-import { useAudio } from "../../hooks/useAudio";
 import ReactPlayer from "react-player";
 
 const PodcastItem = () => {
   const [playbackRate, setPlaybackRate] = useState(1);
   const [playing, setPlaying] = useState(false);
+  const [seeking, setSeeking] = useState(false);
+  const [played, setPlayed] = useState(0);
   const [playedSeconds, setPlayedSeconds] = useState("0");
+  const [duration, setDuration] = useState(0);
+  const [remainingTime, setRemainingTime] = useState("");
+  const playerRef = useRef<ReactPlayer>(null);
+
+  const handlePlaybackRateClick = () =>
+    playbackRate === 2 ? setPlaybackRate(1) : setPlaybackRate(2);
 
   const handlePlayedSeconds = (state: any) => {
     const minute = Math.trunc(state.playedSeconds / 60);
+    setPlayed(state.playedSeconds);
     const seconds = Math.floor(state.playedSeconds - minute * 60);
     setPlayedSeconds(`${minute < 10 ? `0${minute}` : minute} : 
     ${seconds < 10 ? `0${seconds}` : seconds}`);
+    const durationSeconds = duration - state.playedSeconds;
+    const remainingMinute = Math.trunc(durationSeconds / 60);
+    const remainingSeconds = Math.floor(durationSeconds - remainingMinute * 60);
+    setRemainingTime(`${
+      remainingMinute < 10 ? `0${remainingMinute}` : remainingMinute
+    } : 
+    ${remainingSeconds < 10 ? `0${remainingSeconds}` : remainingSeconds}`);
+  };
+
+  const handleSeekMouseDown = () => {
+    setSeeking(true);
+  };
+
+  const handleSeekChange = (e: any) => {
+    setPlayed(parseFloat(e.target.value));
+  };
+
+  const handleSeekMouseUp = (e: any) => {
+    setSeeking(false);
+    playerRef.current?.seekTo(parseFloat(e.target.value));
   };
 
   return (
     <>
       <ReactPlayer
+        ref={playerRef}
         controls
-        url="https://www.bensound.com/bensound-music/bensound-memories.mp3"
+        url="https://www.youtube.com/watch?v=gYkACVDFmeg"
         playbackRate={playbackRate}
         playing={playing}
         played={0.5}
         onProgress={handlePlayedSeconds}
-        onDuration={(duration) => console.log(duration)}
+        onDuration={(duration) => setDuration(duration)}
       />
       <Styled.PodcastContainer>
         <Styled.RelativeContainer>
@@ -41,15 +70,26 @@ const PodcastItem = () => {
               industry.
             </Styled.PlayerTitle>
             <Styled.Track>
-              <Styled.PlayedTrack />
-              <Styled.PlayerDot />
+              <Styled.PlayedTrack
+                type="range"
+                min={0}
+                max={duration}
+                step="any"
+                value={played}
+                onMouseDown={handleSeekMouseDown}
+                onChange={handleSeekChange}
+                onMouseUp={handleSeekMouseUp}
+              />
             </Styled.Track>
             <Styled.PlayerTimeContainer>
               <Styled.PlayerTime>{playedSeconds}</Styled.PlayerTime>
-              <Styled.PlayerTime>-11:51</Styled.PlayerTime>
+              <Styled.PlayerTime>-{remainingTime}</Styled.PlayerTime>
             </Styled.PlayerTimeContainer>
             <Styled.PodcastNavigation>
-              <Styled.SmallNavigation onClick={() => setPlaybackRate(2)}>
+              <Styled.SmallNavigation
+                className={playbackRate === 2 ? "activated" : undefined}
+                onClick={handlePlaybackRateClick}
+              >
                 2x
               </Styled.SmallNavigation>
               <Styled.LeftArrow>

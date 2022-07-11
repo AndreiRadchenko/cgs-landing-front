@@ -403,6 +403,10 @@ export const SmallNavigation = styled.div`
   justify-content: center;
   height: 27px;
   cursor: pointer;
+
+  &.activated {
+    font-weight: ${themes.primary.font.weight.semiBold};
+  }
 `;
 
 export const SecondsLeft = styled.div`
@@ -433,17 +437,39 @@ export const Track = styled.div`
   margin-top: 15px;
   height: 4px;
   border-radius: 50px;
-  background-color: ${themes.primary.colors.separator};
+
   display: flex;
   align-items: center;
 `;
 
-export const PlayedTrack = styled.div`
-  border-radius: 50px;
+export const PlayedTrack = styled.input`
+  -webkit-appearance: none;
   position: absolute;
+  left: -2px;
   height: 100%;
-  width: 40%;
+  width: 100%;
   background-color: ${themes.primary.colors.primary};
+  &::-webkit-slider-runnable-track {
+    border-radius: 50px;
+    background-color: ${themes.primary.colors.separator};
+    height: 0.3rem;
+  }
+  &::-moz-range-track {
+    background-color: ${themes.primary.colors.separator};
+    height: 0.3rem;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    top: -1.5px;
+    cursor: pointer;
+    border-radius: 50%;
+    appearance: none;
+    height: 7px;
+    width: 7px;
+    background-color: ${themes.primary.colors.primary};
+  }
 `;
 
 export const PlayerDot = styled.div`
