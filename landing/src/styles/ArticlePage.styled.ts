@@ -6,15 +6,15 @@ export const Title = styled.h1`
   font-weight: ${themes.primary.font.weight.bold};
   font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.primary};
-  margin: 0 0;
-  max-width: 800px;
+  margin: 0;
+  width: 100%;
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.bigTitle};
   }
 `;
 
 export const SubTitle = styled.p`
-  max-width: 975px;
+  width: 100%;
   margin-top: 50px;
   font-size: ${themes.primary.font.size.oneAndHalf};
   font-weight: ${themes.primary.font.weight.normal};
@@ -35,8 +35,13 @@ export const Background = styled.div`
 export const PageWrapper = styled.div`
   max-width: 975px;
   margin: 0 auto;
-  margin-top: 50px;
-  padding-bottom: 150px;
+  position: relative;
+  margin-top: 100px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 40px;
+  align-items: center;
   a {
     color: ${themes.primary.colors.darkBlue};
     text-decoration: none;
@@ -59,15 +64,19 @@ export const PageWrapper = styled.div`
   }
 `;
 
-export const BannerImage = styled.img`
+export const BannerImageContainer = styled.div`
   width: 100%;
-  max-height: 310px;
-  max-width: 575px;
-  object-fit: contain;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+`;
+
+export const BannerImage = styled.img`
+  //max-width: 500px;
+  width: 100%;
+  height: auto;
   @media ${themes.primary.media.maxTabletPortrait} {
-    order: 1;
-    max-width: 93%;
-    max-height: none;
+    //max-width: 400px;
   }
 `;
 
@@ -75,23 +84,22 @@ export const TagWrapper = styled.div`
   height: 250px;
   display: flex;
   flex-direction: column;
+  justify-content: end;
+  column-gap: 20px;
   @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 20px;
+    row-gap: 20px;
     order: 2;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 130px;
-    align-items: center;
-  }
-  @media ${themes.primary.media.maxTablet} {
-    height: 110px;
+    width: 100%;
   }
 `;
 
 export const BannerWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   width: 100%;
+  align-items: flex-end;
+  column-gap: 20px;
   max-width: 965px;
   margin-top: 6px;
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -105,29 +113,9 @@ export const ArrowBackButton = styled.img`
     cursor: pointer;
   }
   position: absolute;
-  top: 32px;
-  left: 10px;
+  top: -20px;
+  left: 40px;
   margin-bottom: 15px;
-  @media ${themes.primary.media.maxLaptop} {
-    left: -140px;
-  }
-  @media (max-width: 1260px) {
-    left: -60px;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    left: -160px;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    left: -100px;
-    top: 5px;
-  }
-  @media (max-width: 900px) {
-    left: -40px;
-  }
-  @media (max-width: 768px) {
-    left: 10px;
-    top: 0px;
-  }
 `;
 
 export const DescriptionWrapper = styled.div`
