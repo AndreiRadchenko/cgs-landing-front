@@ -10,9 +10,9 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.p`
-  font-size: ${themes.primary.font.size.articleTitle};
+  font-size: ${themes.primary.font.size.secondary};
   font-weight: ${themes.primary.font.weight.bold};
-  font-family: ${themes.primary.font.family.namu};
+  font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.blogDarkText};
 `;
 
@@ -22,7 +22,6 @@ export const ReadMoreItemsWrapper = styled.div`
   justify-content: center;
   color: ${themes.primary.colors.blogDarkText};
   font-family: ${themes.primary.font.family.namu};
-  margin: 0 auto 80px;
   column-gap: 35px;
   @media ${themes.primary.media.maxMobile} {
     flex-wrap: wrap;
@@ -31,4 +30,8 @@ export const ReadMoreItemsWrapper = styled.div`
 
 export const Space = styled.div`
   height: 70px;
+`;
+
+export const TitleWrapper = styled.div`
+  width: 100%;
 `;
