@@ -5,34 +5,40 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 63px;
   font-family: ${themes.primary.font.family.openSans};
 `;
 
-export const TitleWrapper = styled.div``;
+export const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  :not(:first-child) {
+    margin-top: 90px;
+  }
+`;
 
 export const SubtitleTag = styled.div`
   font-weight: ${themes.primary.font.weight.bold};
   font-size: ${themes.primary.font.size.articleTagDescription};
   font-family: ${themes.primary.font.family.namu};
   color: #5869dd;
-  margin-right: 12px;
-  margin-top: 5px;
+  margin-right: 24px;
   float: left;
 `;
 
 export const Title = styled.div`
-  font-weight: ${themes.primary.font.weight.semiBold};
+  font-weight: ${themes.primary.font.weight.bold};
   font-size: ${themes.primary.font.size.quaternary};
-  font-family: ${themes.primary.font.family.namu};
+  font-family: ${themes.primary.font.family.openSans};
   margin: 0;
 `;
 
 export const Description = styled.p`
   margin: 0;
-  font-weight: ${themes.primary.font.weight.light};
-  font-size: ${themes.primary.font.size.aboutUsCardText};
-  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.normal};
+  font-size: ${themes.primary.font.size.vistaco};
+  font-family: ${themes.primary.font.family.openSans};
   line-height: 160%;
   color: ${themes.primary.colors.blogArticleText};
   p {

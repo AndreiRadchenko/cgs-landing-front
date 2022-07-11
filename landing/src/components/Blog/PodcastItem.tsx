@@ -3,7 +3,14 @@ import * as Styled from "../../styles/Blog.styled";
 import PlayButton from "../../../public/BlogDecorations/Podcast/PlayButton.png";
 import Podcast from "../../../public/BlogDecorations/Podcast/Podcast.svg";
 import PlayTriangle from "../../../public/BlogDecorations/Podcast/PlayTriangle.svg";
+import StopButton from "../../../public/StopButton.svg";
+import { useAudio } from "../../hooks/useAudio";
+
 const PodcastItem = () => {
+  const [playing, toggle] = useAudio(
+    "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/5.mp3"
+  );
+
   return (
     <Styled.PodcastContainer>
       <Styled.RelativeContainer>
@@ -11,6 +18,10 @@ const PodcastItem = () => {
           <Styled.BlogItemDescription>
             What is a project manager? The key to project success...
           </Styled.BlogItemDescription>
+          <Styled.PlayerTitle>
+            Tune in to up-to-date content about technologies and the IT
+            industry.
+          </Styled.PlayerTitle>
           <Styled.Track>
             <Styled.PlayedTrack />
             <Styled.PlayerDot />
@@ -24,7 +35,12 @@ const PodcastItem = () => {
             <Styled.LeftArrow>
               <Styled.SecondsLeft>15</Styled.SecondsLeft>
             </Styled.LeftArrow>
-            <Styled.PlayButton src={PlayButton.src} />
+            {typeof toggle !== "boolean" && (
+              <Styled.PlayButton
+                onClick={toggle}
+                src={playing ? StopButton.src : PlayButton.src}
+              />
+            )}
             <Styled.RightArrow>
               <Styled.SecondsRight>15</Styled.SecondsRight>
             </Styled.RightArrow>

@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 24px;
+  align-items: flex-end;
+  margin-top: auto;
 `;
 
 export const AuthorWrapper = styled.div`
@@ -26,32 +26,55 @@ export const AuthorInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  row-gap: 8px;
+  row-gap: 6px;
   height: 100%;
-  font-size: ${themes.primary.font.size.aboutUsCardText};
+  font-size: ${themes.primary.font.size.primary};
 `;
 
 export const AuthorNameWrapper = styled.div`
-  font-family: ${themes.primary.font.family.namu};
+  font-family: ${themes.primary.font.family.openSans};
   display: flex;
 `;
 
 export const AuthorName = styled.div`
   display: flex;
   align-items: flex-start;
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.semiBold};
   margin-right: 4px;
 `;
 
 export const AuthorType = styled.div`
+  font-weight: ${themes.primary.font.weight.semiBold};
+`;
+
+export const AuthorMetaInfoWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const AuthorViewsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 62px;
+`;
+
+export const AuthorViewsImage = styled.img``;
+
+export const AuthorViews = styled.p`
+  font-family: ${themes.primary.font.family.openSans};
+  font-size: ${themes.primary.font.size.fourteenth};
   font-weight: ${themes.primary.font.weight.normal};
+  color: ${themes.primary.colors.authorGrey};
+  margin: 0;
 `;
 
 export const AuthorDate = styled.div`
-  font-size: ${themes.primary.font.size.vistaco};
-  color: ${themes.primary.colors.lightGrey};
-  font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.primary};
+  font-weight: ${themes.primary.font.weight.normal};
+  color: ${themes.primary.colors.authorGrey};
+  font-family: ${themes.primary.font.family.openSans};
+  font-size: ${themes.primary.font.size.fourteenth};
 `;
 
 export const TimeWrapper = styled.div`
@@ -64,8 +87,9 @@ export const TimeWrapper = styled.div`
 export const TimerImage = styled.img``;
 
 export const Time = styled.p`
-  font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.aboutUsCardText};
-  font-weight: ${themes.primary.font.weight.medium};
-  color: ${themes.primary.colors.blogDarkText};
+  font-family: ${themes.primary.font.family.openSans};
+  font-size: ${themes.primary.font.size.fourteenth};
+  font-weight: ${themes.primary.font.weight.normal};
+  color: ${themes.primary.colors.authorGrey};
+  margin: 0;
 `;

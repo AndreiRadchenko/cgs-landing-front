@@ -9,6 +9,11 @@ import { useQuery } from "react-query";
 import { IArticle, IBlogResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import ArrowBack from "../../../public/arrowBack.svg";
+import titleBg from "../../../public/articleTitleBgImg.svg";
+import headerBottomBg from "../../../public/articleHeaderBottomBg.svg";
+import firstHeaderBg from "../../../public/articleFirstHeaderBg.svg";
+import secondHeaderBg from "../../../public/articleSecondHeaderBg.svg";
+import footerBg from "../../../public/articleFooterBg.svg";
 import React, { useEffect, useState } from "react";
 import * as Styles from "../../styles/ArticlePage.styled";
 import ArticleReadMore from "../../components/ArticleReadMore/ArticleReadMore";
@@ -18,6 +23,7 @@ import * as Styled from "../../styles/AdminPage";
 import { adminGlobalService } from "../../services/adminHomePage";
 import Head from "next/head";
 import { HeaderContainer } from "../../styles/BlogPage.styled";
+import Image from "next/image";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
@@ -104,23 +110,40 @@ const ArticlePage = () => {
         <HeaderContainer>
           <HeaderNav />
           <Styles.PageWrapper>
+            <Styles.TitleBg>
+              <Image src={titleBg} alt="top title bg" />
+            </Styles.TitleBg>
             <Styles.ArrowBackButton
               src={ArrowBack.src}
               onClick={() => router.back()}
             />
             <Styles.Title>{article.title}</Styles.Title>
+            <Styles.BannerWrapper>
+              <Styles.TagWrapper>
+                <ShareOn image={article.image} title={article.title} />
+                <ArticleTags tags={article.tags} />
+                <ArticleAuthor
+                  author={article.author}
+                  date={article.date}
+                  time={article.minutesToRead}
+                />
+              </Styles.TagWrapper>
+              <Styles.BannerImage src={article.image.url} />
+            </Styles.BannerWrapper>
+            <Styles.HeaderBottomBg>
+              <Image src={headerBottomBg} alt="header bottom bg" />
+            </Styles.HeaderBottomBg>
+            <Styles.FirstHeaderBg>
+              <Image src={firstHeaderBg} alt="first header bg" />
+            </Styles.FirstHeaderBg>
+            <Styles.SecondHeaderBg>
+              <Image src={secondHeaderBg} alt="second header bg" />
+            </Styles.SecondHeaderBg>
+            <Styles.FooterBg>
+              <Image src={footerBg} alt="footer bg" />
+            </Styles.FooterBg>
             <Styles.SubTitle>{article.description}</Styles.SubTitle>
-            <Styles.BannerImage src={article.image.url} />
-            <ArticleAuthor
-              author={article.author}
-              date={article.date}
-              time={article.minutesToRead}
-            />
             <ArticleDescription content={article.content} />
-            <Styles.ShareTagsWrapper>
-              <ShareOn image={article.image} title={article.title} />
-              <ArticleTags tags={article.tags} />
-            </Styles.ShareTagsWrapper>
             <ArticleReadMore readMore={readMore} />
           </Styles.PageWrapper>
         </HeaderContainer>

@@ -28,7 +28,7 @@ interface IBlogData {
 const PageSize = 4;
 
 const BlogPage = () => {
-  const { data, isLoading }: IBlogData = useQuery(queryKeys.getBlogPage, () =>
+  const { data }: IBlogData = useQuery(queryKeys.getBlogPage, () =>
     adminBlogService.getBlogPage()
   );
   const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
@@ -106,7 +106,13 @@ const BlogPage = () => {
                 <span onClick={() => setFilter(null)}>x</span>
               </Styled.Tag>
             )}
-            <BlogDropdown setFilter={setFilter} filter={filter} tags={tags} />
+            <BlogDropdown
+              setFilter={setFilter}
+              filter={filter}
+              tags={tags}
+              dropdownName="#TAGS"
+              isTag={true}
+            />
           </Styled.DropdownContainer>
           {currentArticlesData.map((article) => (
             <BlogItem
