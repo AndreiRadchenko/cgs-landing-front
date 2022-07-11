@@ -114,6 +114,10 @@ export const ArrowBackButton = styled.img`
   }
 `;
 
+export const DescriptionWrapper = styled.div`
+  position: relative;
+`;
+
 export const TitleBg = styled.div`
   position: absolute;
   top: 180px;
@@ -136,22 +140,17 @@ export const TitleBg = styled.div`
 
 export const HeaderBottomBg = styled.div`
   position: absolute;
-  top: 600px;
-  right: 1%;
+  top: 20px;
+  right: -20%;
   @media ${themes.primary.media.maxPCFullHD} {
-    right: -7%;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    top: 620px;
-    right: -12%;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    top: 440px
     right: -10%;
   }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    right: -14%;
+  }
   @media ${themes.primary.media.maxTablet} {
-    top: 54git0px;
-    right: -3%;
+    top: 5px;
+    right: -10%;
   }
 `;
 

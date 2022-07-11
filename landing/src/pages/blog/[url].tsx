@@ -132,9 +132,6 @@ const ArticlePage = () => {
               </Styles.TagWrapper>
               <Styles.BannerImage src={article.image.url} />
             </Styles.BannerWrapper>
-            <Styles.HeaderBottomBg>
-              <Image src={headerBottomBg} alt="header bottom bg" />
-            </Styles.HeaderBottomBg>
             <Styles.FirstHeaderBg>
               <Image src={firstHeaderBg} alt="first header bg" />
             </Styles.FirstHeaderBg>
@@ -144,7 +141,12 @@ const ArticlePage = () => {
             <Styles.FooterBg>
               <Image src={footerBg} alt="footer bg" />
             </Styles.FooterBg>
-            <Styles.SubTitle>{article.description}</Styles.SubTitle>
+            <Styles.DescriptionWrapper>
+              <Styles.SubTitle>{article.description}</Styles.SubTitle>
+              <Styles.HeaderBottomBg>
+                <Image src={headerBottomBg} alt="header bottom bg" />
+              </Styles.HeaderBottomBg>
+            </Styles.DescriptionWrapper>
             <ArticleDescription content={article.content} />
             <ArticleReadMore readMore={readMore} />
           </Styles.PageWrapper>
