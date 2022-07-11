@@ -10,7 +10,7 @@ const ArticleTags: FC<IArticleTags> = ({ tags }) => {
   return (
     <Styles.Wrapper>
       {tags.map((tag, index) => (
-        <Link href={`/blog/tags/${tag}`} passHref key={index}>
+        <Link href={`/blog?tag=${tag}`} passHref key={index}>
           <Styles.TagItem>{tag}</Styles.TagItem>
         </Link>
       ))}
