@@ -108,7 +108,10 @@ export const ArrowBackButton = styled.img`
   left: 0;
   margin-bottom: 15px;
   @media ${themes.primary.media.maxLaptop} {
-    left: -120px;
+    left: -100px;
+  }
+  @media (max-width: 1260px)  {
+    left: -60px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     left: -160px;
@@ -117,7 +120,9 @@ export const ArrowBackButton = styled.img`
     left: -100px;
     top: 5px;
   }
-
+  @media (max-width: 900px)  {
+    left: -40px;
+  }
   @media (max-width: 768px) {
     left: 10px;
     top: 0px;
@@ -139,6 +144,9 @@ export const TitleBg = styled.div`
   @media ${themes.primary.media.maxLaptop} {
     left: -90px;
   }
+  @media (max-width: 1260px)  {
+    left: -80px;
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
     left: -150px;
   }
@@ -157,6 +165,9 @@ export const HeaderBottomBg = styled.div`
   right: -23%;
   @media ${themes.primary.media.maxPCFullHD} {
     right: -17%;
+  }
+  @media (max-width: 1260px)  {
+    right: -12%;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     right: -14%;
