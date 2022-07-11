@@ -95,10 +95,10 @@ export const BlogItemContainer = styled.div`
   position: relative;
   background-color: ${themes.primary.colors.blogBackground};
 
-  @media ${themes.primary.media.maxTabletLandScape} {
+  @media (max-width: 1250px) {
     max-width: 1000px;
   }
-  @media ${themes.primary.media.maxTabletPortrait} {
+  @media (max-width: 1050px) {
     max-width: 800px;
   }
 `;
@@ -326,7 +326,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
       transform: rotate(0deg);
     }
   }
-  
+
   img {
     transform: rotate(180deg);
   }
