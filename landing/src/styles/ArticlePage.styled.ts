@@ -124,18 +124,24 @@ export const DescriptionWrapper = styled.div`
 
 export const TitleBg = styled.div`
   position: absolute;
-  top: 180px;
-  left: 1%;
+  top: 130px;
+  left: 30px;
 
   @media ${themes.primary.media.maxPCFullHD} {
-    left: -7%;
+    left: 40px;
+  }
+  @media ${themes.primary.media.maxLaptop} {
+    left: -120px;
+  }
+  @media (max-width: 1260px) {
+    left: -80px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    left: -16%;
+    left: -150px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    left: -15.5%;
-    top: 55px;
+    left: -12%;
+    top: 50px;
   }
   @media ${themes.primary.media.maxTablet} {
     left: -6%;
@@ -145,47 +151,50 @@ export const TitleBg = styled.div`
 export const HeaderBottomBg = styled.div`
   position: absolute;
   top: 20px;
-  right: -20%;
+  right: -23%;
   @media ${themes.primary.media.maxPCFullHD} {
-    right: -10%;
+    right: -17%;
+  }
+  @media (max-width: 1260px) {
+    right: -12%;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     right: -14%;
   }
   @media ${themes.primary.media.maxTablet} {
     top: 5px;
-    right: -10%;
+    right: -13%;
   }
 `;
 
 export const FirstHeaderBg = styled.div`
   position: absolute;
   top: 22%;
-  left: -500px;
+  left: -520px;
   @media ${themes.primary.media.maxPCFullHD} {
-    left: -500px;
+    left: -520px;
   }
   @media ${themes.primary.media.maxLaptop} {
-    left: -700px;
+    left: -750px;
   }
   @media ${themes.primary.media.maxTablet} {
-    left: -80%;
+    left: -670px;
   }
 `;
 
 export const SecondHeaderBg = styled.div`
   position: absolute;
-  bottom: 25%;
+  bottom: 26%;
   right: -500px;
-
+  z-index: 1;
   @media ${themes.primary.media.maxPCFullHD} {
-    right: -400px;
+    right: -490px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    right: -520px;
+    right: -540px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    right: -510px;
+    right: -540px;
   }
   @media ${themes.primary.media.maxTablet} {
     right: -400px;
@@ -194,12 +203,12 @@ export const SecondHeaderBg = styled.div`
 
 export const FooterBg = styled.div`
   position: absolute;
-  bottom: -1%;
-  right: -12%;
+  bottom: 10px;
+  right: -250px;
   @media ${themes.primary.media.maxTabletLandScape} {
-    right: -33%;
+    right: -270px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    right: -33%;
+    right: -250px;
   }
 `;

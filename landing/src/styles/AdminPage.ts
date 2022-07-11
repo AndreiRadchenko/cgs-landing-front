@@ -594,7 +594,8 @@ export const TextEditorContainer = styled.div<{
   resize: none;
   min-height: 417px;
   height: auto;
-  width: ${(props) => (props.width ? props.width : "100%")};
+  width: 500px;
+  max-width: 500px;
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.mulish};
   border: 0;
