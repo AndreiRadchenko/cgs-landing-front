@@ -14,31 +14,17 @@ export const Wrapper = styled.div`
 `;
 
 export const Text = styled.div`
-  font-size: ${themes.primary.font.size.secondary};
+  font-size: ${themes.primary.font.size.articleTagDescription};
   font-weight: ${themes.primary.font.weight.semiBold};
   font-family: ${themes.primary.font.family.openSans};
   min-width: 125px;
   margin-right: 5px;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.articleSubtitle};
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-weight: ${themes.primary.font.weight.semiBold};
-    font-family: ${themes.primary.font.family.openSans};
-    font-size: ${themes.primary.font.size.articleSubtitle};
-    min-width: 100px;
-  }
-  @media ${themes.primary.media.onlyPC} {
-    font-weight: ${themes.primary.font.weight.semiBold};
-    font-size: ${themes.primary.font.size.adminButton};
-  }
-  @media (max-width: 2560px) {
-    font-weight: ${themes.primary.font.weight.semiBold};
-    font-size: ${themes.primary.font.size.articleSubtitle};
-  }
-  @media ${themes.primary.media.maxMobilePortrait} {
-    font-weight: ${themes.primary.font.weight.semiBold};
+  @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.articleTagDescription};
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.articleSubtitle};
+  }
   }
 `;
 

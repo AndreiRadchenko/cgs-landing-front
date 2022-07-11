@@ -1,12 +1,14 @@
 import parse from "html-react-parser";
-import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import ArticleAuthor from "../../components/ArticleAuthor/ArticleAuthor";
 import ArticleDescription from "../../components/ArticleDescription/ArticleDescription";
 import ShareOn from "../../components/ShareOn/ShareOn";
 import ArticleTags from "../../components/ArticleTags/ArticleTags";
-import Footer from "../../components/Footer/Footer";
-import { useQuery } from "react-query";
-import { IArticle, IBlogResponse } from "../../types/Admin/Response.types";
+import { useMutation, useQuery } from "react-query";
+import {
+  IArticle,
+  IBlogResponse,
+  IViews,
+} from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import ArrowBack from "../../../public/arrowBack.svg";
 import titleBg from "../../../public/articleTitleBgImg.svg";
@@ -24,6 +26,8 @@ import { adminGlobalService } from "../../services/adminHomePage";
 import Head from "next/head";
 import { HeaderContainer } from "../../styles/BlogPage.styled";
 import Image from "next/image";
+import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
+import FooterNew from "../../components/FooterNew/FooterNew";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
@@ -45,6 +49,7 @@ const ArticlePage = () => {
   );
 
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
 
   const getMultipleRandom = (arr: IArticle[], num: number) => {
     const shuffled = [...arr]
@@ -53,32 +58,28 @@ const ArticlePage = () => {
     return shuffled.slice(0, num);
   };
 
-  // const { mutateAsync } = useMutation(
-  //   queryKeys.updateBlogPage,
-  //   (dataToUpdate: IBlogResponse) =>
-  //     adminBlogService.updateBlogPage(dataToUpdate)
-  // );
-  //
-  // const updateArticle = async () => {
-  //   if (!data) return;
-  //   const newArticles = data.articles.map((article) => {
-  //     if (article.url === url && article.views) {
-  //       article.views = article.views + 1;
-  //       console.log("here");
-  //       return article;
-  //     } else {
-  //       console.log("here 2");
-  //       return article;
-  //     }
-  //   });
-  //   const dataToUpdate: IBlogResponse = { ...data, articles: newArticles };
-  //   console.log(dataToUpdate);
-  //   await mutateAsync(dataToUpdate);
-  // };
-  //
-  // useEffect(() => {
-  //   updateArticle();
-  // }, [article]);
+  const findViews = (url: string) => {
+    if (views.data)
+      return views.data[0].allViews.find((view) => view.articleUrl === url)
+        ?.views;
+  };
+
+  const { mutateAsync: updateViews } = useMutation(
+    queryKeys.postArticle,
+    (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
+  );
+
+  const plusView = async () => {
+    if (!views.data) return;
+    const dataToUpdate = views.data[0].allViews.map((view) =>
+      view.articleUrl === url ? { ...view, views: view.views + 1 } : view
+    );
+    await updateViews({ allViews: dataToUpdate });
+  };
+
+  useEffect(() => {
+    plusView();
+  }, [article]);
 
   useEffect(() => {
     if (data) setArticle(data.articles.find((article) => article.url === url));
@@ -99,7 +100,8 @@ const ArticlePage = () => {
   const { metaTitle, metaDescription, customHead } = {
     ...article?.meta,
   };
-  return isSuccess && article && readMore ? (
+
+  return isSuccess && article && readMore && views.data ? (
     <>
       <Head>
         <title>{metaTitle}</title>
@@ -107,8 +109,8 @@ const ArticlePage = () => {
         {customHead && parse(customHead)}
       </Head>
       <Styles.Background>
+        <HeaderNavNew />
         <HeaderContainer>
-          <HeaderNav />
           <Styles.PageWrapper>
             <Styles.TitleBg>
               <Image src={titleBg} alt="top title bg" />
@@ -126,13 +128,11 @@ const ArticlePage = () => {
                   author={article.author}
                   date={article.date}
                   time={article.minutesToRead}
+                  views={findViews(article.url)}
                 />
               </Styles.TagWrapper>
               <Styles.BannerImage src={article.image.url} />
             </Styles.BannerWrapper>
-            <Styles.HeaderBottomBg>
-              <Image src={headerBottomBg} alt="header bottom bg" />
-            </Styles.HeaderBottomBg>
             <Styles.FirstHeaderBg>
               <Image src={firstHeaderBg} alt="first header bg" />
             </Styles.FirstHeaderBg>
@@ -142,12 +142,17 @@ const ArticlePage = () => {
             <Styles.FooterBg>
               <Image src={footerBg} alt="footer bg" />
             </Styles.FooterBg>
-            <Styles.SubTitle>{article.description}</Styles.SubTitle>
+            <Styles.DescriptionWrapper>
+              <Styles.SubTitle>{article.description}</Styles.SubTitle>
+              <Styles.HeaderBottomBg>
+                <Image src={headerBottomBg} alt="header bottom bg" />
+              </Styles.HeaderBottomBg>
+            </Styles.DescriptionWrapper>
             <ArticleDescription content={article.content} />
-            <ArticleReadMore readMore={readMore} />
+            <ArticleReadMore readMore={readMore} findViews={findViews} />
           </Styles.PageWrapper>
         </HeaderContainer>
-        <Footer isGreenLine={false} />
+        <FooterNew />
       </Styles.Background>
     </>
   ) : (

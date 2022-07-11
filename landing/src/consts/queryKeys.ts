@@ -18,6 +18,7 @@ export const queryKeys = {
   updateBlogPage: "updateBlogPage",
   getBlogPage: "getBlogPage",
   postArticle: "postArticle",
+  views: "views",
   // home page
   getFullHomePage: "getFullHomePage",
   getCareerPage: "getFullCareerPage",

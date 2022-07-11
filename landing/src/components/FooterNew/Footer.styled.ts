@@ -20,7 +20,7 @@ export const Email = styled.div`
   align-items: center;
   margin-left: 20px;
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.primary};
+  font-size: ${themes.primary.font.size.email};
   color: ${themes.primary.colors.primary};
 `;
 

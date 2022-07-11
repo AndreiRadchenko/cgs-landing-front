@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 130px;
+  margin-bottom: 130px;
 `;
 
 export const Title = styled.p`
@@ -21,7 +22,7 @@ export const ReadMoreItemsWrapper = styled.div`
   display: flex;
   justify-content: center;
   color: ${themes.primary.colors.blogDarkText};
-  font-family: ${themes.primary.font.family.namu};
+  font-family: ${themes.primary.font.family.openSans};
   column-gap: 35px;
   @media ${themes.primary.media.maxMobile} {
     flex-wrap: wrap;

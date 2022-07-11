@@ -8,9 +8,10 @@ interface IArticleAuthor {
   author: IAuthor;
   date: string;
   time: number;
+  views?: number;
 }
 
-const ArticleAuthor: FC<IArticleAuthor> = ({ author, date, time }) => {
+const ArticleAuthor: FC<IArticleAuthor> = ({ author, date, time, views }) => {
   const formatDate = (date: string) => {
     return date.split("-").reverse().join(".");
   };
@@ -28,7 +29,7 @@ const ArticleAuthor: FC<IArticleAuthor> = ({ author, date, time }) => {
             <Styles.AuthorDate>{formatDate(date)}</Styles.AuthorDate>
             <Styles.AuthorViewsWrapper>
               <Styles.AuthorViewsImage src={Views.src} />
-              <Styles.AuthorViews>3027</Styles.AuthorViews>
+              <Styles.AuthorViews>{views}</Styles.AuthorViews>
             </Styles.AuthorViewsWrapper>
           </Styles.AuthorMetaInfoWrapper>
         </Styles.AuthorInfoWrapper>

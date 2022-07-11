@@ -8,17 +8,23 @@ export const Title = styled.h1`
   color: ${themes.primary.colors.primary};
   margin: 0 auto;
   max-width: 945px;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.bigTitle};
+  }
 `;
 
 export const SubTitle = styled.p`
   max-width: 975px;
   margin-top: 50px;
-  font-size: ${themes.primary.font.size.aboutUsCardText};
+  font-size: ${themes.primary.font.size.oneAndHalf};
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.blogDarkText};
   line-height: 160%;
   z-index: 2;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.aboutUsCardText};
+  }
 `;
 
 export const Background = styled.div`
@@ -29,7 +35,7 @@ export const Background = styled.div`
 export const PageWrapper = styled.div`
   max-width: 975px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 50px;
   a {
     color: ${themes.primary.colors.darkBlue};
     text-decoration: none;
@@ -98,105 +104,122 @@ export const ArrowBackButton = styled.img`
     cursor: pointer;
   }
   position: absolute;
-  top: 100px;
+  top: 50px;
   left: 0;
   margin-bottom: 15px;
-
-  @media (max-width: 768px) {
-    left: 40px;
-    top: 90px;
+  @media ${themes.primary.media.maxLaptop} {
+    left: -100px;
   }
+  @media (max-width: 1260px) {
+    left: -60px;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    left: -160px;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    left: -100px;
+    top: 5px;
+  }
+  @media (max-width: 900px) {
+    left: -40px;
+  }
+  @media (max-width: 768px) {
+    left: 10px;
+    top: 0px;
+  }
+`;
+
+export const DescriptionWrapper = styled.div`
+  position: relative;
 `;
 
 export const TitleBg = styled.div`
   position: absolute;
-  top: 4%;
-  left: 1%;
+  top: 130px;
+  left: 30px;
 
   @media ${themes.primary.media.maxPCFullHD} {
-    left: -7%;
+    left: 40px;
+  }
+  @media ${themes.primary.media.maxLaptop} {
+    left: -90px;
+  }
+  @media (max-width: 1260px) {
+    left: -80px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    top: 3%;
-    left: -12%;
+    left: -150px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    left: -15.5%;
+    left: -12%;
+    top: 50px;
   }
   @media ${themes.primary.media.maxTablet} {
-    top: 2.9%;
-    left: -5%;
+    left: -6%;
   }
 `;
 
 export const HeaderBottomBg = styled.div`
   position: absolute;
-  top: 12%;
-  right: 1%;
+  top: 20px;
+  right: -23%;
   @media ${themes.primary.media.maxPCFullHD} {
-    right: -7%;
+    right: -17%;
   }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    top: 14%;
+  @media (max-width: 1260px) {
     right: -12%;
   }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    top: 12.5%;
-    right: -10%;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    right: -14%;
   }
   @media ${themes.primary.media.maxTablet} {
-    top: 11.5%;
-    right: -3%;
+    top: 5px;
+    right: -13%;
   }
 `;
 
 export const FirstHeaderBg = styled.div`
   position: absolute;
   top: 22%;
-  left: -41%;
-
+  left: -520px;
   @media ${themes.primary.media.maxPCFullHD} {
-    left: -52%;
+    left: -520px;
   }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    left: -82%;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    left: -90%;
+  @media ${themes.primary.media.maxLaptop} {
+    left: -750px;
   }
   @media ${themes.primary.media.maxTablet} {
-    left: -80%;
+    left: -670px;
   }
 `;
 
 export const SecondHeaderBg = styled.div`
   position: absolute;
-  bottom: 25%;
-  right: -25%;
+  bottom: 26%;
+  right: -500px;
 
   @media ${themes.primary.media.maxPCFullHD} {
-    right: -35%;
+    right: -400px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    right: -55%;
+    right: -540px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    right: -58%;
+    right: -540px;
   }
   @media ${themes.primary.media.maxTablet} {
-    right: -55%;
+    right: -400px;
   }
 `;
 
 export const FooterBg = styled.div`
   position: absolute;
-  bottom: -1%;
-  right: -12%;
+  bottom: 10px;
+  right: -250px;
   @media ${themes.primary.media.maxTabletLandScape} {
-    right: -33%;
+    right: -350px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    right: -33%;
+    right: -400px;
   }
 `;

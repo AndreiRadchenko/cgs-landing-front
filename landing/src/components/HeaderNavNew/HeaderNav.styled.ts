@@ -114,4 +114,8 @@ export const DropdownElement = styled.div`
       border-bottom: 7px solid ${themes.primary.colors.primary} !important;
     }
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
 `;
