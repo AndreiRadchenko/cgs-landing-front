@@ -50,7 +50,7 @@ const BlogPage = () => {
       {!isLoading && articles && (
         <Styles.PageWrapper>
           <HeaderContainer>
-            <HeaderNav />
+            {/*<FooterNew />*/}
             <Styles.ArrowBackButton
               src={ArrowBack.src}
               onClick={() => router.back()}

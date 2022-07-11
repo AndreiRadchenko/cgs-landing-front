@@ -10,7 +10,9 @@ interface IArticleReadMore {
 const ArticleReadMore = ({ readMore }: IArticleReadMore) => {
   return readMore.length > 0 ? (
     <Styles.Wrapper>
-      <Styles.Title>Read more:</Styles.Title>
+      <Styles.TitleWrapper>
+        <Styles.Title>READ MORE:</Styles.Title>
+      </Styles.TitleWrapper>
       <Styles.ReadMoreItemsWrapper>
         {readMore.map((article) => (
           <ArticleReadMoreItem key={article._id} article={article} />

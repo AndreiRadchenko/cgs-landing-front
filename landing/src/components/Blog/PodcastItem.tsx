@@ -4,8 +4,8 @@ import PlayButton from "../../../public/BlogDecorations/Podcast/PlayButton.png";
 import Podcast from "../../../public/BlogDecorations/Podcast/Podcast.svg";
 import PlayTriangle from "../../../public/BlogDecorations/Podcast/PlayTriangle.svg";
 import StopButton from "../../../public/StopButton.svg";
-
 import { useAudio } from "../../hooks/useAudio";
+
 const PodcastItem = () => {
   const [playing, toggle] = useAudio(
     "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/5.mp3"
@@ -18,6 +18,10 @@ const PodcastItem = () => {
           <Styled.BlogItemDescription>
             What is a project manager? The key to project success...
           </Styled.BlogItemDescription>
+          <Styled.PlayerTitle>
+            Tune in to up-to-date content about technologies and the IT
+            industry.
+          </Styled.PlayerTitle>
           <Styled.Track>
             <Styled.PlayedTrack />
             <Styled.PlayerDot />
