@@ -14,7 +14,7 @@ export const TitleWrapper = styled.div`
   align-items: center;
   z-index: 2;
   :not(:first-child) {
-    margin-top: 90px;
+    margin-top: 50px;
   }
 `;
 
