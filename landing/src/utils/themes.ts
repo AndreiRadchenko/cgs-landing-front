@@ -100,7 +100,7 @@ const themes = {
       deleteButton: "#F80909",
       feedbackRole: "#A9CDF5",
       black: "#000",
-      authotGrey: "#716D6D",
+      authorGrey: "#716D6D",
       darkBlueBlockchain: "#392770",
       blogDarkText: "#272C2F",
       blogArticleText: "#535557",

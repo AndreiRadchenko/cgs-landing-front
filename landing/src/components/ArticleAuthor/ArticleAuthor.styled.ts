@@ -66,13 +66,13 @@ export const AuthorViews = styled.p`
   font-family: ${themes.primary.font.family.openSans};
   font-size: ${themes.primary.font.size.fourteenth};
   font-weight: ${themes.primary.font.weight.normal};
-  color: ${themes.primary.colors.authotGrey};
+  color: ${themes.primary.colors.authorGrey};
   margin: 0;
 `;
 
 export const AuthorDate = styled.div`
   font-weight: ${themes.primary.font.weight.normal};
-  color: ${themes.primary.colors.authotGrey};
+  color: ${themes.primary.colors.authorGrey};
   font-family: ${themes.primary.font.family.openSans};
   font-size: ${themes.primary.font.size.fourteenth};
 `;
@@ -90,6 +90,6 @@ export const Time = styled.p`
   font-family: ${themes.primary.font.family.openSans};
   font-size: ${themes.primary.font.size.fourteenth};
   font-weight: ${themes.primary.font.weight.normal};
-  color: ${themes.primary.colors.authotGrey};
+  color: ${themes.primary.colors.authorGrey};
   margin: 0;
 `;
