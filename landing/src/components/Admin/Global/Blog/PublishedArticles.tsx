@@ -16,7 +16,7 @@ import {
   Draggable,
   DropResult,
 } from "react-beautiful-dnd";
-import { useMutation, useQuery } from "react-query";
+import { useMutation } from "react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminBlogService } from "../../../../services/adminBlogPage";
 import close from "../../../../../public/bigClose.svg";
