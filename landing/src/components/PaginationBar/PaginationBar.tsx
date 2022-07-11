@@ -32,11 +32,6 @@ const PaginationBar: FC<IPaginationBar> = ({
     window.scrollTo(0, 0);
   }, [currentPage]);
 
-  if (paginationRange)
-    if (currentPage === 0 || paginationRange.length < 2) {
-      return null;
-    }
-
   const onNext = () => {
     onPageChange(currentPage + 1);
   };
@@ -75,19 +70,6 @@ const PaginationBar: FC<IPaginationBar> = ({
           );
         })}
       </Styles.PaginationItemsWrapper>
-      <Styles.ArrowContainer>
-        <Styles.SwiperButton
-          onClick={currentPage === 1 ? () => null : onPrevious}
-          aria-disabled={currentPage === 1}
-        >
-          <LeftArrow />
-        </Styles.SwiperButton>
-        <Styles.SwiperButton
-          onClick={currentPage === lastPage ? () => null : onNext}
-        >
-          <RightArow />
-        </Styles.SwiperButton>
-      </Styles.ArrowContainer>
     </Styles.PaginationWrapper>
   );
 };

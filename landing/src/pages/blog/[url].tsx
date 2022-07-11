@@ -53,6 +53,33 @@ const ArticlePage = () => {
     return shuffled.slice(0, num);
   };
 
+  // const { mutateAsync } = useMutation(
+  //   queryKeys.updateBlogPage,
+  //   (dataToUpdate: IBlogResponse) =>
+  //     adminBlogService.updateBlogPage(dataToUpdate)
+  // );
+  //
+  // const updateArticle = async () => {
+  //   if (!data) return;
+  //   const newArticles = data.articles.map((article) => {
+  //     if (article.url === url && article.views) {
+  //       article.views = article.views + 1;
+  //       console.log("here");
+  //       return article;
+  //     } else {
+  //       console.log("here 2");
+  //       return article;
+  //     }
+  //   });
+  //   const dataToUpdate: IBlogResponse = { ...data, articles: newArticles };
+  //   console.log(dataToUpdate);
+  //   await mutateAsync(dataToUpdate);
+  // };
+  //
+  // useEffect(() => {
+  //   updateArticle();
+  // }, [article]);
+
   useEffect(() => {
     if (data) setArticle(data.articles.find((article) => article.url === url));
   }, [data, url]);
