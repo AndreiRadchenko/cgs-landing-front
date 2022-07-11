@@ -24,6 +24,8 @@ import { adminGlobalService } from "../../services/adminHomePage";
 import Head from "next/head";
 import { HeaderContainer } from "../../styles/BlogPage.styled";
 import Image from "next/image";
+import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
+import FooterNew from "../../components/FooterNew/FooterNew";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
@@ -107,8 +109,8 @@ const ArticlePage = () => {
         {customHead && parse(customHead)}
       </Head>
       <Styles.Background>
+        <HeaderNavNew />
         <HeaderContainer>
-          <HeaderNav />
           <Styles.PageWrapper>
             <Styles.TitleBg>
               <Image src={titleBg} alt="top title bg" />
@@ -147,7 +149,7 @@ const ArticlePage = () => {
             <ArticleReadMore readMore={readMore} />
           </Styles.PageWrapper>
         </HeaderContainer>
-        <Footer isGreenLine={false} />
+        <FooterNew />
       </Styles.Background>
     </>
   ) : (

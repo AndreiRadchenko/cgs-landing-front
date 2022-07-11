@@ -20,28 +20,37 @@ export const TitleWrapper = styled.div`
 
 export const SubtitleTag = styled.div`
   font-weight: ${themes.primary.font.weight.bold};
-  font-size: ${themes.primary.font.size.articleTagDescription};
+  font-size: ${themes.primary.font.size.quaternary};
   font-family: ${themes.primary.font.family.namu};
   color: #5869dd;
   margin-right: 24px;
   float: left;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.blogArticleTitle};
+  }
 `;
 
 export const Title = styled.div`
   font-weight: ${themes.primary.font.weight.bold};
-  font-size: ${themes.primary.font.size.quaternary};
+  font-size: ${themes.primary.font.size.articleDescription};
   font-family: ${themes.primary.font.family.openSans};
   margin: 0;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.quaternary};
+  }
 `;
 
 export const Description = styled.p`
   margin: 0;
   font-weight: ${themes.primary.font.weight.normal};
-  font-size: ${themes.primary.font.size.vistaco};
+  font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.openSans};
   line-height: 160%;
   color: ${themes.primary.colors.blogArticleText};
   p {
     margin-top: 15px;
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.vistaco};
   }
 `;

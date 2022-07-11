@@ -13,12 +13,15 @@ export const Title = styled.h1`
 export const SubTitle = styled.p`
   max-width: 975px;
   margin-top: 50px;
-  font-size: ${themes.primary.font.size.aboutUsCardText};
+  font-size: ${themes.primary.font.size.oneAndHalf};
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.blogDarkText};
   line-height: 160%;
   z-index: 2;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.aboutUsCardText};
+  }
 `;
 
 export const Background = styled.div`
@@ -117,14 +120,14 @@ export const TitleBg = styled.div`
     left: -7%;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    top: 3%;
+    top: 1%;
     left: -12%;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     left: -15.5%;
+    top: 1%;
   }
   @media ${themes.primary.media.maxTablet} {
-    top: 2.9%;
     left: -5%;
   }
 `;
@@ -137,11 +140,11 @@ export const HeaderBottomBg = styled.div`
     right: -7%;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    top: 14%;
+    top: 11%;
     right: -12%;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    top: 12.5%;
+    top: 11%;
     right: -10%;
   }
   @media ${themes.primary.media.maxTablet} {
@@ -153,17 +156,12 @@ export const HeaderBottomBg = styled.div`
 export const FirstHeaderBg = styled.div`
   position: absolute;
   top: 22%;
-  left: -41%;
-
+  left: -500px;
   @media ${themes.primary.media.maxPCFullHD} {
-    left: -52%;
+    left: -500px;
   }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    left: -82%;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    left: -90%;
+  @media ${themes.primary.media.maxLaptop} {
+    left: -700px;
   }
   @media ${themes.primary.media.maxTablet} {
     left: -80%;
@@ -173,19 +171,19 @@ export const FirstHeaderBg = styled.div`
 export const SecondHeaderBg = styled.div`
   position: absolute;
   bottom: 25%;
-  right: -25%;
+  right: -500px;
 
   @media ${themes.primary.media.maxPCFullHD} {
-    right: -35%;
+    right: -400px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    right: -55%;
+    right: -520px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    right: -58%;
+    right: -510px;
   }
   @media ${themes.primary.media.maxTablet} {
-    right: -55%;
+    right: -400px;
   }
 `;
 

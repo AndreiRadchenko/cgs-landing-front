@@ -21,6 +21,9 @@ export const Image = styled.img`
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-bottom: 15px;
   }
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Title = styled.p`
@@ -30,6 +33,7 @@ export const Title = styled.p`
   margin: 0;
   &:hover {
     cursor: pointer;
+    color: ${themes.primary.colors.darkBlue};
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -39,7 +43,7 @@ export const Title = styled.p`
 `;
 
 export const Description = styled.p`
-  font-size: ${themes.primary.font.size.linkText};
+  font-size: ${themes.primary.font.size.oneAndHalf};
   font-weight: ${themes.primary.font.weight.normal};
   line-height: 160%;
   @media ${themes.primary.media.maxTabletPortrait} {

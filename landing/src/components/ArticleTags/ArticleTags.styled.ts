@@ -26,7 +26,7 @@ export const TagItem = styled.div`
   background-color: ${themes.primary.colors.darkBlue};
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
-  font-size: ${themes.primary.font.size.primary};
+  font-size: ${themes.primary.font.size.tertiary};
   &:last-child {
     margin-right: 0;
   }
