@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: auto;
+  margin-top: 30px;
 `;
 
 export const AuthorWrapper = styled.div`
@@ -16,35 +16,39 @@ export const AuthorWrapper = styled.div`
 `;
 
 export const AuthorImage = styled.img`
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
+  max-width: 60px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 12px;
 `;
 
 export const AuthorInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  row-gap: 6px;
+  justify-content: space-between;
+  width: 100%;
   height: 100%;
   font-size: ${themes.primary.font.size.aboutUsCardText};
 `;
 
-export const AuthorNameWrapper = styled.div`
-  font-family: ${themes.primary.font.family.openSans};
-  display: flex;
-`;
-
 export const AuthorName = styled.div`
-  display: flex;
-  align-items: flex-start;
+  font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
-  margin-right: 4px;
 `;
 
-export const AuthorType = styled.div`
-  font-weight: ${themes.primary.font.weight.semiBold};
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const SpaceBetween = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 `;
 
 export const AuthorMetaInfoWrapper = styled.div`
