@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import themes from "../utils/themes";
+import { infiniteText } from "./AnimationsStyled";
 
 interface ITag {
   isArticlePage?: boolean;
@@ -199,7 +200,19 @@ export const BlogItemDescription = styled.p`
   margin-bottom: 0;
   line-height: 170%;
 `;
+export const LoopText = styled.div`
+  font-size: ${themes.primary.font.size.aboutUsCardText};
+  margin: 0;
+  margin-top: 16px;
+  margin-bottom: 0;
+  line-height: 170%;
+  animation: ${infiniteText} infinite 15s linear;
+`;
 
+export const LoopContainer = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
 export const GrayText = styled.div`
   color: ${themes.primary.colors.authorGrey};
   font-size: ${themes.primary.font.size.primary};
@@ -370,6 +383,7 @@ export const PodcastCard = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
   padding: 30px;
   border: 1px solid ${themes.primary.colors.comment};
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -433,9 +447,15 @@ export const SmallNavigation = styled.div`
   font-size: ${themes.primary.font.size.headerLinkText};
   display: flex;
   align-items: flex-start;
+
+  width: 12px;
   justify-content: center;
   height: 27px;
   cursor: pointer;
+
+  &.activated {
+    font-weight: ${themes.primary.font.weight.bold};
+  }
 `;
 
 export const SecondsLeft = styled.div`
@@ -466,17 +486,39 @@ export const Track = styled.div`
   margin-top: 15px;
   height: 4px;
   border-radius: 50px;
-  background-color: ${themes.primary.colors.separator};
+
   display: flex;
   align-items: center;
 `;
 
-export const PlayedTrack = styled.div`
-  border-radius: 50px;
+export const PlayedTrack = styled.input`
+  -webkit-appearance: none;
   position: absolute;
+  left: -2px;
   height: 100%;
-  width: 40%;
+  width: 100%;
   background-color: ${themes.primary.colors.primary};
+  &::-webkit-slider-runnable-track {
+    border-radius: 50px;
+    background-color: ${themes.primary.colors.separator};
+    height: 0.3rem;
+  }
+  &::-moz-range-track {
+    background-color: ${themes.primary.colors.separator};
+    height: 0.3rem;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    top: -1.5px;
+    cursor: pointer;
+    border-radius: 50%;
+    appearance: none;
+    height: 7px;
+    width: 7px;
+    background-color: ${themes.primary.colors.primary};
+  }
 `;
 
 export const PlayerDot = styled.div`
@@ -638,4 +680,7 @@ export const SliderDot = styled.div`
 export const SliderDotsContainer = styled(FlexRowContainer)`
   column-gap: 10px;
   margin-top: 20px;
+`;
+export const AbsoluteContainer = styled.div`
+  position: relative;
 `;
