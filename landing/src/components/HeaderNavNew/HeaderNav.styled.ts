@@ -70,7 +70,6 @@ export const ListItemNav = styled.a`
     display: none;
   }
   &:hover {
-    background-color: ${themes.primary.colors.headerBorderHover};
     transition: 0.3s;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
@@ -98,10 +97,6 @@ export const DropdownElement = styled.div`
     border: none;
     height: 56px;
     width: 11.02vw;
-
-    &:hover {
-      background-color: ${themes.primary.colors.headerBorderHover};
-    }
   }
   div {
     &:nth-child(2) {
