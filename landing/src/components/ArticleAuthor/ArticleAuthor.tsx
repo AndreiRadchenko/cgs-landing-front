@@ -27,7 +27,7 @@ const ArticleAuthor: FC<IArticleAuthor> = ({ author, date, time, views }) => {
             By {author.name} / {author.specialization}
           </Styles.AuthorName>
           <Styles.SpaceBetween>
-            <Styled.GrayText>{date}</Styled.GrayText>
+            <Styled.GrayText>{formatDate(date)}</Styled.GrayText>
             <Styled.FlexRowContainer>
               <Styled.WatchContainer>
                 <Styled.WatchIcon src={Watch.src} />
