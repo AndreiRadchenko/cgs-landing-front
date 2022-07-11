@@ -109,34 +109,30 @@ export const ArrowBackButton = styled.img`
     cursor: pointer;
   }
   position: absolute;
-  top: -20px;
-  left: 40px;
+  top: -60px;
+  left: -180px;
   margin-bottom: 15px;
   @media ${themes.primary.media.maxLaptop} {
-    left: -140px;
-  }
-  @media (max-width: 1330px) {
-    left: -60px;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    left: -160px;
-  }
-  @media (max-width: 1135px) {
     left: -130px;
   }
-  @media (max-width: 1080px) {
+  @media ${themes.primary.media.maxTabletLandScape} {
     left: -90px;
   }
+  @media (max-width: 1135px) {
+    left: -70px;
+  }
+  @media (max-width: 1080px) {
+    left: -20px;
+  }
   @media ${themes.primary.media.maxTabletPortrait} {
-    left: -100px;
-    top: 5px;
+    left: 0px;
+    top: -80px;
   }
   @media (max-width: 900px) {
-    left: -40px;
+    left: -7px;
   }
   @media (max-width: 768px) {
-    left: 10px;
-    top: 0px;
+    left: -5px;
   }
 `;
 
@@ -150,24 +146,24 @@ export const Cont = styled.div`
 
 export const TitleBg = styled.div`
   position: absolute;
-  top: 130px;
-  left: 30px;
-
+  top: 80px;
+  left: -150px;
   @media ${themes.primary.media.maxPCFullHD} {
-    left: 40px;
+    left: -140px;
   }
   @media ${themes.primary.media.maxLaptop} {
-    left: -120px;
+    left: -140px;
+    top: 70px;
   }
   @media (max-width: 1320px) {
-    left: -80px;
+    left: -130px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    left: -150px;
+    left: -100px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    left: -12%;
-    top: 50px;
+    left: -50px;
+    top: 20px;
   }
   @media ${themes.primary.media.maxTablet} {
     left: -6%;
