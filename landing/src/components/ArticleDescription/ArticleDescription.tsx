@@ -15,7 +15,7 @@ const ArticleDescription: FC<IDescription> = ({ content }) => {
             key={index}
             dangerouslySetInnerHTML={{ __html: block.text }}
           ></Styles.Description>
-        ) : (
+        ) : block.subtitle ? (
           <Styles.TitleWrapper key={index}>
             <Styles.SubtitleTag>{block.subNumber}</Styles.SubtitleTag>
             <Styles.Title
@@ -28,7 +28,7 @@ const ArticleDescription: FC<IDescription> = ({ content }) => {
               {block.subtitle}
             </Styles.Title>
           </Styles.TitleWrapper>
-        );
+        ) : null;
       })}
     </Styles.Wrapper>
   );
