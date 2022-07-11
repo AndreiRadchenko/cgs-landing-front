@@ -71,6 +71,9 @@ export const ListItemNav = styled.a`
   }
   &:hover {
     background-color: ${themes.primary.colors.headerBorderHover};
+    transition: 0.3s;
+    border-right: 1.5px solid ${themes.primary.colors.primary} !important;
+    border-bottom: 7px solid ${themes.primary.colors.primary} !important;
   }
 `;
 
@@ -87,4 +90,36 @@ export const LinkText = styled.span``;
 
 export const BurgerLinkText = styled.p`
   cursor: pointer;
+`;
+
+export const DropdownElement = styled.div`
+  button,
+  &:first-child {
+    border: none;
+    height: 56px;
+    width: 11.02vw;
+
+    &:hover {
+      background-color: ${themes.primary.colors.headerBorderHover};
+    }
+  }
+  div {
+    &:nth-child(2) {
+      min-width: 419px;
+    }
+  }
+
+  button {
+    font-family: ${themes.primary.font.family.gilroy};
+    font-weight: ${themes.primary.font.weight.medium};
+    font-size: ${themes.primary.font.size.headerLinkText};
+
+    border-left: 1px solid grey;
+
+    &:hover {
+      transition: 0.3s;
+      border-right: 1.5px solid ${themes.primary.colors.primary} !important;
+      border-bottom: 7px solid ${themes.primary.colors.primary} !important;
+    }
+  }
 `;
