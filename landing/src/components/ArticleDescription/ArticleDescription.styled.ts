@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
   font-family: ${themes.primary.font.family.openSans};
 `;
 
-
 export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -18,7 +17,6 @@ export const TitleWrapper = styled.div`
     margin-top: 50px;
   }
 `;
-
 
 export const SubtitleTag = styled.div`
   font-weight: ${themes.primary.font.weight.bold};

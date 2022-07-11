@@ -6,8 +6,8 @@ export const Title = styled.h1`
   font-weight: ${themes.primary.font.weight.bold};
   font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.primary};
-  margin: 0 auto;
-  max-width: 945px;
+  margin: 0 0;
+  max-width: 800px;
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.bigTitle};
   }
@@ -36,6 +36,7 @@ export const PageWrapper = styled.div`
   max-width: 975px;
   margin: 0 auto;
   margin-top: 50px;
+  padding-bottom: 150px;
   a {
     color: ${themes.primary.colors.darkBlue};
     text-decoration: none;
@@ -104,11 +105,11 @@ export const ArrowBackButton = styled.img`
     cursor: pointer;
   }
   position: absolute;
-  top: 50px;
-  left: 0;
+  top: 32px;
+  left: 10px;
   margin-bottom: 15px;
   @media ${themes.primary.media.maxLaptop} {
-    left: -100px;
+    left: -140px;
   }
   @media (max-width: 1260px) {
     left: -60px;
@@ -142,7 +143,7 @@ export const TitleBg = styled.div`
     left: 40px;
   }
   @media ${themes.primary.media.maxLaptop} {
-    left: -90px;
+    left: -120px;
   }
   @media (max-width: 1260px) {
     left: -80px;
@@ -197,9 +198,9 @@ export const SecondHeaderBg = styled.div`
   position: absolute;
   bottom: 26%;
   right: -500px;
-
+  z-index: 1;
   @media ${themes.primary.media.maxPCFullHD} {
-    right: -400px;
+    right: -490px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     right: -540px;
@@ -217,9 +218,9 @@ export const FooterBg = styled.div`
   bottom: 10px;
   right: -250px;
   @media ${themes.primary.media.maxTabletLandScape} {
-    right: -350px;
+    right: -270px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    right: -400px;
+    right: -250px;
   }
 `;
