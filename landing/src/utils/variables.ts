@@ -5,11 +5,20 @@ export const routers = {
   portfolio: "/portfolio",
 };
 
+export const routersNew = ["/", "/careers", "/blog", "/portfolio"];
+
 export const navigationRoutesNames = [
   "/home",
   "/careers",
   "/blog",
   "/portfolio",
+];
+
+export const navigationRoutesNamesNew = [
+  "home",
+  "careers",
+  "blog",
+  "portfolio",
 ];
 
 export const modalNavigationRoutesNames = [
@@ -29,4 +38,3 @@ export const howWeWorkColor: ("blue" | "orange" | "green")[] = [
 export const adminBlogHeaders = ["h2", "h3", "h4", "h5", "h6"];
 
 export const portfolioCategories = ["web", "mobile", "server", "blockchain"];
-

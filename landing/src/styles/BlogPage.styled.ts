@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
+import * as Styled from "./Blog.styled";
+import React from "react";
 
 export const PageWrapper = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
