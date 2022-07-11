@@ -47,9 +47,20 @@ const PodcastItem = () => {
     playerRef.current?.seekTo(parseFloat(e.target.value));
   };
 
+  const handlePrev = () =>
+    played >= 15
+      ? playerRef.current?.seekTo(played - 15)
+      : playerRef.current?.seekTo(0);
+
+  const handleForw = () => {
+    played + 15 >= duration
+      ? playerRef.current?.seekTo(duration - 1)
+      : playerRef.current?.seekTo(played + 15);
+  };
   return (
     <>
       <ReactPlayer
+        style={{ display: "none", opacity: "0" }}
         ref={playerRef}
         controls
         url="https://www.youtube.com/watch?v=gYkACVDFmeg"
@@ -58,17 +69,20 @@ const PodcastItem = () => {
         played={0.5}
         onProgress={handlePlayedSeconds}
         onDuration={(duration) => setDuration(duration)}
+        onEnded={() => {
+          setPlaying(false);
+          console.log("here");
+        }}
       />
       <Styled.PodcastContainer>
         <Styled.RelativeContainer>
           <Styled.PodcastCard>
-            <Styled.BlogItemDescription>
-              What is a project manager? The key to project success...
-            </Styled.BlogItemDescription>
-            <Styled.PlayerTitle>
-              Tune in to up-to-date content about technologies and the IT
-              industry.
-            </Styled.PlayerTitle>
+            <Styled.LoopContainer>
+              <Styled.LoopText>
+                What is a project manager? The key to project success...
+              </Styled.LoopText>
+            </Styled.LoopContainer>
+
             <Styled.Track>
               <Styled.PlayedTrack
                 type="range"
@@ -92,14 +106,14 @@ const PodcastItem = () => {
               >
                 2x
               </Styled.SmallNavigation>
-              <Styled.LeftArrow>
+              <Styled.LeftArrow onClick={handlePrev}>
                 <Styled.SecondsLeft>15</Styled.SecondsLeft>
               </Styled.LeftArrow>
               <Styled.PlayButton
                 onClick={() => setPlaying((prevState) => !prevState)}
                 src={playing ? StopButton.src : PlayButton.src}
               />
-              <Styled.RightArrow>
+              <Styled.RightArrow onClick={handleForw}>
                 <Styled.SecondsRight>15</Styled.SecondsRight>
               </Styled.RightArrow>
               <Styled.SmallNavigation>+</Styled.SmallNavigation>

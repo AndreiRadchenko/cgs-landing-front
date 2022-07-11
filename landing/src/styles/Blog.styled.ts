@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import themes from "../utils/themes";
+import { infiniteText } from "./AnimationsStyled";
 
 interface ITag {
   isArticlePage?: boolean;
@@ -176,7 +177,19 @@ export const BlogItemDescription = styled.p`
   margin-bottom: 0;
   line-height: 170%;
 `;
+export const LoopText = styled.div`
+  font-size: ${themes.primary.font.size.aboutUsCardText};
+  margin: 0;
+  margin-top: 16px;
+  margin-bottom: 0;
+  line-height: 170%;
+  animation: ${infiniteText} infinite 15s linear;
+`;
 
+export const LoopContainer = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
 export const GrayText = styled.div`
   color: ${themes.primary.colors.authorGrey};
   font-size: ${themes.primary.font.size.primary};
@@ -337,6 +350,7 @@ export const PodcastCard = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
   padding: 30px;
   border: 1px solid ${themes.primary.colors.comment};
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -400,12 +414,14 @@ export const SmallNavigation = styled.div`
   font-size: ${themes.primary.font.size.headerLinkText};
   display: flex;
   align-items: flex-start;
+
+  width: 12px;
   justify-content: center;
   height: 27px;
   cursor: pointer;
 
   &.activated {
-    font-weight: ${themes.primary.font.weight.semiBold};
+    font-weight: ${themes.primary.font.weight.bold};
   }
 `;
 
@@ -627,4 +643,7 @@ export const SliderDot = styled.div`
 export const SliderDotsContainer = styled(FlexRowContainer)`
   column-gap: 10px;
   margin-top: 20px;
+`;
+export const AbsoluteContainer = styled.div`
+  position: relative;
 `;
