@@ -15,9 +15,6 @@ const PodcastItem = () => {
     <Styled.PodcastContainer>
       <Styled.RelativeContainer>
         <Styled.PodcastCard>
-          <Styled.BlogItemDescription>
-            What is a project manager? The key to project success...
-          </Styled.BlogItemDescription>
           <Styled.PlayerTitle>
             Tune in to up-to-date content about technologies and the IT
             industry.
