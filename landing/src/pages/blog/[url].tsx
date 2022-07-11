@@ -113,10 +113,10 @@ const ArticlePage = () => {
             <Styles.TitleBg>
               <Image src={titleBg} alt="top title bg" />
             </Styles.TitleBg>
-            {/* <Styles.ArrowBackButton
+            <Styles.ArrowBackButton
               src={ArrowBack.src}
               onClick={() => router.back()}
-            /> */}
+            />
             <Styles.Title>{article.title}</Styles.Title>
             <Styles.BannerWrapper>
               <Styles.TagWrapper>

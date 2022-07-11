@@ -110,20 +110,21 @@ export const ArrowBackButton = styled.img`
 
 export const TitleBg = styled.div`
   position: absolute;
-  top: 3%;
+  top: 4%;
   left: 1%;
 
   @media ${themes.primary.media.maxPCFullHD} {
     left: -7%;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    top: 2.5%;
+    top: 3%;
     left: -12%;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    left: -12%;
+    left: -15.5%;
   }
   @media ${themes.primary.media.maxTablet} {
+    top: 2.9%;
     left: -5%;
   }
 `;
