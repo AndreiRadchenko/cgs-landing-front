@@ -35,6 +35,7 @@ export const Description = styled.p`
   font-family: ${themes.primary.font.family.openSans};
   line-height: 160%;
   color: ${themes.primary.colors.blogArticleText};
+  overflow-wrap: anywhere;
   p {
     margin-top: 15px;
   }

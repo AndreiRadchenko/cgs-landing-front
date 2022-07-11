@@ -1,10 +1,8 @@
 import parse from "html-react-parser";
-import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import ArticleAuthor from "../../components/ArticleAuthor/ArticleAuthor";
 import ArticleDescription from "../../components/ArticleDescription/ArticleDescription";
 import ShareOn from "../../components/ShareOn/ShareOn";
 import ArticleTags from "../../components/ArticleTags/ArticleTags";
-import Footer from "../../components/Footer/Footer";
 import { useMutation, useQuery } from "react-query";
 import {
   IArticle,
@@ -103,7 +101,7 @@ const ArticlePage = () => {
     ...article?.meta,
   };
 
-  return isSuccess && article && readMore ? (
+  return isSuccess && article && readMore && views.data ? (
     <>
       <Head>
         <title>{metaTitle}</title>
@@ -151,7 +149,7 @@ const ArticlePage = () => {
               </Styles.HeaderBottomBg>
             </Styles.DescriptionWrapper>
             <ArticleDescription content={article.content} />
-            <ArticleReadMore readMore={readMore} />
+            <ArticleReadMore readMore={readMore} findViews={findViews} />
           </Styles.PageWrapper>
         </HeaderContainer>
         <FooterNew />
