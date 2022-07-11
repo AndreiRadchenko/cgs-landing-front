@@ -9,14 +9,15 @@ import ReactPlayer from "react-player";
 
 const PodcastItem = () => {
   const [playbackRate, setPlaybackRate] = useState(1);
-  const [playing, setPlaying ] = useState(false);
-  const [playedSeconds, setPlyaedSeconda] = useState("0");
+  const [playing, setPlaying] = useState(false);
+  const [playedSeconds, setPlayedSeconds] = useState("0");
 
   const handlePlayedSeconds = (state: any) => {
-    state.playedSeconds < 60 ?
-    setPlyaedSeconda("00:" + Math.floor(state.playedSeconds)) :
-    setPlyaedSeconda(`${Math}` + Math.floor(state.playedSeconds))
-  }
+    const minute = Math.trunc(state.playedSeconds / 60);
+    const seconds = Math.floor(state.playedSeconds - minute * 60);
+    setPlayedSeconds(`${minute < 10 ? `0${minute}` : minute} : 
+    ${seconds < 10 ? `0${seconds}` : seconds}`);
+  };
 
   return (
     <>
@@ -54,7 +55,7 @@ const PodcastItem = () => {
               <Styled.LeftArrow>
                 <Styled.SecondsLeft>15</Styled.SecondsLeft>
               </Styled.LeftArrow>
-              <Styled.PlayButton 
+              <Styled.PlayButton
                 onClick={() => setPlaying((prevState) => !prevState)}
                 src={playing ? StopButton.src : PlayButton.src}
               />
