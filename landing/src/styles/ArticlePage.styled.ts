@@ -113,14 +113,13 @@ export const ArrowBackButton = styled.img`
 
 export const TitleBg = styled.div`
   position: absolute;
-  top: 4%;
+  top: 60px;
   left: 1%;
 
   @media ${themes.primary.media.maxPCFullHD} {
     left: -7%;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    top: 1%;
     left: -12%;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -134,21 +133,21 @@ export const TitleBg = styled.div`
 
 export const HeaderBottomBg = styled.div`
   position: absolute;
-  top: 12%;
+  top: 600px;
   right: 1%;
   @media ${themes.primary.media.maxPCFullHD} {
     right: -7%;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    top: 11%;
+    top: 620px;
     right: -12%;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    top: 11%;
+    top: 440px
     right: -10%;
   }
   @media ${themes.primary.media.maxTablet} {
-    top: 11.5%;
+    top: 54git0px;
     right: -3%;
   }
 `;
