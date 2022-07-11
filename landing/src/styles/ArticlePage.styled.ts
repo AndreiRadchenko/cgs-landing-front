@@ -29,13 +29,14 @@ export const SubTitle = styled.p`
 
 export const Background = styled.div`
   overflow: hidden;
+  position: relative;
   background-color: ${themes.primary.colors.blogBackground};
 `;
 
 export const PageWrapper = styled.div`
   max-width: 975px;
   margin: 0 auto;
-  position: relative;
+  //position: relative;
   margin-top: 100px;
   display: flex;
   width: 100%;
@@ -148,6 +149,10 @@ export const DescriptionWrapper = styled.div`
   position: relative;
 `;
 
+export const Cont = styled.div`
+  position: relative;
+`;
+
 export const TitleBg = styled.div`
   position: absolute;
   top: 130px;
@@ -197,7 +202,7 @@ export const HeaderBottomBg = styled.div`
 export const FirstHeaderBg = styled.div`
   position: absolute;
   top: 22%;
-  left: -520px;
+  left: -5120px;
   @media ${themes.primary.media.maxPCFullHD} {
     left: -520px;
   }
