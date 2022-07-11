@@ -19,9 +19,6 @@ export const LogoLinkWrapper = styled.a`
   align-items: center;
   column-gap: 8px;
   border-right: 1px solid ${themes.primary.colors.headerBorder};
-  &:hover {
-    background-color: ${themes.primary.colors.headerBorderHover};
-  }
   @media ${themes.primary.media.onlyTabletPortrait} {
     padding: 0.7rem 2.5rem;
   }
