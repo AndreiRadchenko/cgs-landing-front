@@ -281,8 +281,8 @@ export const WatchIcon = styled.img`
 `;
 
 export const TimerIcon = styled.img`
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
 `;
 
 export const LeftLine = styled.img`

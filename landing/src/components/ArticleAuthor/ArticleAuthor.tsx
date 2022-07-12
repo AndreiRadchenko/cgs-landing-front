@@ -1,6 +1,5 @@
 import Timer from "../../../public/Timer.svg";
 import React, { FC } from "react";
-import Views from "../../../public/viewsIcon.svg";
 import * as Styles from "./ArticleAuthor.styled";
 import { IAuthor } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Blog.styled";
@@ -20,7 +19,7 @@ const ArticleAuthor: FC<IArticleAuthor> = ({ author, date, time, views }) => {
 
   return (
     <Styles.Wrapper>
-      <Styles.AuthorImage src={author.image.url} />
+      {author.image.url && <Styles.AuthorImage src={author.image.url} />}
       <Styles.AuthorInfoWrapper>
         <Styles.Container>
           <Styles.AuthorName>
