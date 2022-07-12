@@ -57,6 +57,10 @@ const PodcastItem = () => {
       ? playerRef.current?.seekTo(duration - 1)
       : playerRef.current?.seekTo(played + 15);
   };
+
+  const percentage = () => {
+    return (100 * played) / duration;
+  };
   return (
     <>
       <ReactPlayer
@@ -71,7 +75,6 @@ const PodcastItem = () => {
         onDuration={(duration) => setDuration(duration)}
         onEnded={() => {
           setPlaying(false);
-          console.log("here");
         }}
       />
       <Styled.PodcastContainer>
@@ -86,6 +89,7 @@ const PodcastItem = () => {
             <Styled.Track>
               <Styled.PlayedTrack
                 type="range"
+                range={percentage()}
                 min={0}
                 max={duration}
                 step="any"

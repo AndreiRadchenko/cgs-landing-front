@@ -1,14 +1,9 @@
 import React from "react";
 import * as Styles from "./ArticleReadMoreItem.styled";
-import { IArticle, IView, IViews } from "../../types/Admin/Response.types";
-import Link from "next/link";
-import AdminBlackButton from "../Admin/Global/AdminBlackButton";
+import { IArticle } from "../../types/Admin/Response.types";
 import Image from "next/image";
 import viewsIcon from "../../../public/viewsIcon.svg";
 import { useRouter } from "next/router";
-import { useQuery } from "react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminBlogService } from "../../services/adminBlogPage";
 
 interface IArticleReadMore {
   article: IArticle;
