@@ -21,6 +21,7 @@ import MainBlogItem from "../../components/Blog/MainBlogItem";
 import SmallArticleItem from "../../components/Blog/SmallArticleItem";
 import { useRouter } from "next/router";
 import { useScrollTo } from "../../hooks/useScrollTo";
+import { isNumeric } from "../../utils/isNumeric";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
@@ -35,36 +36,54 @@ const BlogPage = () => {
   const { data }: IBlogData = useQuery(queryKeys.getBlogPage, () =>
     adminBlogService.getBlogPage()
   );
+
   const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
-
+  const [reversedArticles, setRevesedArticles] = useState<IArticle[] | null>(
+    null
+  );
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [filter, setFilter] = useState<string | null>(null);
   const [filteredData, setFilteredData] = useState<IArticle[] | null>(null);
   const [tags, setTags] = useState<string[]>([]);
 
   useEffect(() => {
-    const newTags = data?.articles.map((article) => article.tags).flat();
+    data && setRevesedArticles(data?.articles.reverse());
+  }, [data, data?.articles]);
+
+  useEffect(() => {
+    const newTags = reversedArticles?.map((article) => article.tags).flat();
     setTags(Array.from(new Set<string>(newTags)));
-  }, [data]);
+  }, [data, reversedArticles]);
 
   useEffect(() => {
     if (filter) {
-      const newData = data?.articles.filter((article) =>
+      const newData = reversedArticles?.filter((article) =>
         article.tags.find((tag) => tag === filter)
       );
       setFilteredData(newData ? newData : null);
     }
-  }, [data?.articles, filter]);
+  }, [data?.articles, filter, reversedArticles]);
   const tagParams = router.query.tag;
 
   useEffect(() => {
-    setFilter(tagParams as string);
-    if (tagParams) {
-      scrollHandler();
+    if (data) {
+      const page = router.query.page;
+      const maxPage = Math.ceil(data.articles.length / PageSize);
+      const currentPage =
+        page !== "0" && isNumeric(page as string)
+          ? Number(page) <= maxPage
+            ? Number(page)
+            : maxPage
+          : 1;
+      setFilter(tagParams as string);
+      setCurrentPage(currentPage);
+      if (tagParams) {
+        scrollHandler();
+      }
     }
-  }, [tagParams, scrollHandler]);
+  }, [tagParams, scrollHandler, router.query.page, data]);
 
   const currentArticlesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
@@ -72,8 +91,8 @@ const BlogPage = () => {
     if (filter && filteredData) {
       return filteredData?.slice(firstPageIndex, lastPageIndex);
     }
-    return data?.articles.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, data?.articles, filteredData, filter]);
+    return reversedArticles?.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, filteredData, filter, reversedArticles]);
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
@@ -83,7 +102,7 @@ const BlogPage = () => {
         ?.views;
   };
 
-  return data && currentArticlesData && views.data ? (
+  return data && currentArticlesData && views.data && reversedArticles ? (
     <>
       <Head>
         <title>{metaTitle}</title>
@@ -100,12 +119,12 @@ const BlogPage = () => {
         <Styled.HeaderBlock>
           <Styled.MainContainer>
             <MainBlogItem
-              article={data.articles[0]}
-              views={findViews(data.articles[0].url)}
+              article={reversedArticles[0]}
+              views={findViews(reversedArticles[0].url)}
             />
           </Styled.MainContainer>
           <Styled.FlexColumnContainer>
-            {data.articles.slice(0, 3).map((article) => (
+            {reversedArticles.slice(1, 4).map((article) => (
               <SmallArticleItem article={article} key={article._id} />
             ))}
           </Styled.FlexColumnContainer>
@@ -140,9 +159,6 @@ const BlogPage = () => {
             currentPage={currentPage}
             totalCount={data.articles.length}
             pageSize={PageSize}
-            onPageChange={(page: string | number) =>
-              setCurrentPage(Number(page))
-            }
             siblingCount={1}
           />
         </Styled.AllArticlesContainer>
