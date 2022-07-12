@@ -64,6 +64,8 @@ const PodcastItem = () => {
   const percentage = () => {
     return (100 * played) / duration;
   };
+
+  const playTagTime = remainingTime.split(":");
   return (
     <>
       <ReactPlayer
@@ -137,7 +139,7 @@ const PodcastItem = () => {
             <Styled.PlayTag>
               <Styled.PlayTriangle src={PlayTriangle.src} />
               <div>
-                {durationMinutes} min {durationSeconds} sec
+                {playTagTime[0]} min {playTagTime[1]} sec
               </div>
             </Styled.PlayTag>
           </Styled.FlexRowContainer>
