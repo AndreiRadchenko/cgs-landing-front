@@ -29,6 +29,7 @@ export interface IPhotoBlock extends IPropsWithImage {
 export interface InputPropsInterface {
   inputValue: string;
   onChangeFunction: (e?: string | React.ChangeEvent<any>) => void;
+  onInputFunction?: (e: React.ChangeEvent<any>) => void;
   name?: string;
 }
 

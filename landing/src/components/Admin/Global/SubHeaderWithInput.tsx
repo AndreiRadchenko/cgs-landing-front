@@ -6,6 +6,7 @@ const SubHeaderWithInput = ({
   header,
   inputValue,
   onChangeFunction,
+  onInputFunction,
   name,
   placeholder,
   minRows,
@@ -18,6 +19,7 @@ const SubHeaderWithInput = ({
     <div>
       <Styled.AdminSubTitle isBlog={isBlog}>{header}</Styled.AdminSubTitle>
       <Styled.AdminInput
+        onInput={onInputFunction}
         placeholder={placeholder}
         value={inputValue}
         onChange={onChangeFunction}
