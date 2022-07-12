@@ -188,7 +188,6 @@ const ContentBlock: FC<IArticles> = ({
               id="title"
               onChangeFunction={handleChange}
               isBlog={true}
-              height="75px"
             />
             <Styles.Text>
               <Styles.Message>
@@ -216,7 +215,6 @@ const ContentBlock: FC<IArticles> = ({
               id="title"
               onChangeFunction={handleChange}
               isBlog={true}
-              height="75px"
             />
             <SubHeaderWithInput
               header="Description"
@@ -233,7 +231,6 @@ const ContentBlock: FC<IArticles> = ({
               }
               onChangeFunction={handleChange}
               isBlog={true}
-              height="75px"
             />
 
             <Styles.Text>

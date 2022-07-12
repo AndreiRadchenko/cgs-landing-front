@@ -112,7 +112,7 @@ export const AdminInput = styled(TextareaAutosize)<{
   height?: string;
   width?: string;
 }>`
-  resize: none;
+  resize: vertical;
   width: ${(props) => (props.width ? props.width : "100%")};
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.mulish};
