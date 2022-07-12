@@ -46,7 +46,7 @@ export const CompanyNameText = styled.div`
 `;
 
 export const ListItemNav = styled.a`
-  font-family: ${themes.primary.font.family.gilroy};
+  font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.headerLinkText};
   display: flex;

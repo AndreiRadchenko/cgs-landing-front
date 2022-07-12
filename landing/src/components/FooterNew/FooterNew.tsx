@@ -28,12 +28,12 @@ const FooterNew = (): JSX.Element => {
     <StyledThisComp.HeaderNavContainer>
       <StyledThisComp.FlexRowContainer>
         <StyledThisComp.LogoLinkWrapper href={routersNew[0]}>
-          <ImagePreview src={logo} alt={"logo cgs-team"} />
-          <StyledThisComp.CompanyNameText>
-            CODE
-            <br />
-            GENERATION
-          </StyledThisComp.CompanyNameText>
+          <ImagePreview
+            src={logo}
+            alt={"logo cgs-team"}
+            width={106}
+            height={32}
+          />
         </StyledThisComp.LogoLinkWrapper>
         <StyledThisComp.Email>{data?.email}</StyledThisComp.Email>
       </StyledThisComp.FlexRowContainer>
