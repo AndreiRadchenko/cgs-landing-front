@@ -43,7 +43,7 @@ const themes = {
         septenary: "0.6em",
         quinary: "0.72em",
         fourteenth: "0.875em",
-        articleViews: "0.95em",
+        articleViews: "0.975em",
         vistaco: "1.1em",
         tertiary: "1.2em",
         primary: "1em",

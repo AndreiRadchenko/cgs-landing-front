@@ -13,18 +13,18 @@ const SmallArticleItem = ({ article }: IMainBlogItem) => {
 
   return (
     <Styled.SmallArticleContainer>
-      <a href={`/blog/${article.url}`}>
-        <Styled.SmallGeneralInfo>
-          <Styled.Date>{parseDate(article.date)}</Styled.Date>
+      <Styled.SmallGeneralInfo>
+        <Styled.Date>{parseDate(article.date)}</Styled.Date>
+        <a href={`/blog/${article.url}`}>
           <Styled.Arrow src={Arrow.src} />
-        </Styled.SmallGeneralInfo>
-        <Styled.SmallArticleItemTitle>
-          {article.title}
-        </Styled.SmallArticleItemTitle>
-        <Styled.SmallArticleItemDescription>
-          {article.description}
-        </Styled.SmallArticleItemDescription>
-      </a>
+        </a>
+      </Styled.SmallGeneralInfo>
+      <Styled.SmallArticleItemTitle>
+        <a href={`/blog/${article.url}`}>{article.title}</a>
+      </Styled.SmallArticleItemTitle>
+      <Styled.SmallArticleItemDescription>
+        {article.description}
+      </Styled.SmallArticleItemDescription>
     </Styled.SmallArticleContainer>
   );
 };

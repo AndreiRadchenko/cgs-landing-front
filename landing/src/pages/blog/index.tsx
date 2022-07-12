@@ -61,7 +61,9 @@ const BlogPage = () => {
 
   useEffect(() => {
     setFilter(tagParams as string);
-    scrollHandler();
+    if (tagParams) {
+      scrollHandler();
+    }
   }, [tagParams, scrollHandler]);
 
   const currentArticlesData = useMemo(() => {
@@ -96,14 +98,16 @@ const BlogPage = () => {
           articles={currentArticlesData.length}
         />
         <Styled.HeaderBlock>
-          <MainBlogItem
-            article={data.articles[0]}
-            views={findViews(data.articles[0].url)}
-          />
+          <Styled.MainContainer>
+            <MainBlogItem
+              article={data.articles[0]}
+              views={findViews(data.articles[0].url)}
+            />
+          </Styled.MainContainer>
           <Styled.FlexColumnContainer>
-            <SmallArticleItem article={data.articles[0]} />
-            <SmallArticleItem article={data.articles[1]} />
-            <SmallArticleItem article={data.articles[0]} />
+            {data.articles.slice(0, 3).map((article) => (
+              <SmallArticleItem article={article} key={article._id} />
+            ))}
           </Styled.FlexColumnContainer>
         </Styled.HeaderBlock>
         <Styled.Separator />
