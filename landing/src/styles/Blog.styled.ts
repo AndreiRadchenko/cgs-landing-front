@@ -462,10 +462,10 @@ export const RightArrow = styled.div`
   margin-right: 35px;
   position: relative;
   background-size: contain;
-  background-image: url("/BlogDecorations/Podcast/RightArrow.png");
+  background-image: url("/BlogDecorations/Podcast/RightArrow.svg");
 `;
 export const LeftArrow = styled.div`
-  background-image: url("/BlogDecorations/Podcast/LeftArrow.png");
+  background-image: url("/BlogDecorations/Podcast/LeftArrow.svg");
   width: 44px;
   height: 49px;
   margin-left: 35px;
@@ -599,7 +599,6 @@ export const PodcastWord = styled(BlogItemDescription)`
 `;
 
 export const PlayTag = styled.div`
-  width: 85px;
   display: flex;
   justify-content: center;
   align-items: center;

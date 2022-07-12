@@ -11,6 +11,7 @@ import {
 } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import ArrowBack from "../../../public/arrowBack.svg";
+import ArrowBackHover from "../../../public/articleArrowHover.svg";
 import titleBg from "../../../public/articleTitleBgImg.svg";
 import headerBottomBg from "../../../public/articleHeaderBottomBg.svg";
 import firstHeaderBg from "../../../public/articleFirstHeaderBg.svg";
@@ -24,7 +25,6 @@ import { adminBlogService } from "../../services/adminBlogPage";
 import * as Styled from "../../styles/AdminPage";
 import { adminGlobalService } from "../../services/adminHomePage";
 import Head from "next/head";
-import { HeaderContainer } from "../../styles/BlogPage.styled";
 import Image from "next/image";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
@@ -39,6 +39,7 @@ const ArticlePage = () => {
   const router = useRouter();
   const [article, setArticle] = useState<IArticle | undefined | null>(null);
   const [readMore, setReadMore] = useState<IArticle[] | null>(null);
+  const [isHover, setIsHover] = useState<boolean>(false);
   const url = typeof router.query?.url === "string" ? router.query.url : "";
   const { data, isSuccess, isLoading }: IBlogData = useQuery(
     queryKeys.getBlogPage,
@@ -118,7 +119,13 @@ const ArticlePage = () => {
                 <Image src={titleBg} alt="top title bg" />
               </Styles.TitleBg>
               <Styles.ArrowBackButton
-                src={ArrowBack.src}
+                onMouseEnter={() => {
+                  setIsHover(true);
+                }}
+                onMouseLeave={() => {
+                  setIsHover(false);
+                }}
+                src={isHover ? ArrowBackHover.src : ArrowBack.src}
                 onClick={() => router.back()}
               />
             </div>

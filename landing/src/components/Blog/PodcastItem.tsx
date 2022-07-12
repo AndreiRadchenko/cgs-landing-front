@@ -19,6 +19,9 @@ const PodcastItem = () => {
   const handlePlaybackRateClick = () =>
     playbackRate === 2 ? setPlaybackRate(1) : setPlaybackRate(2);
 
+  const durationMinutes = Math.floor(duration / 60);
+  const durationSeconds = duration - durationMinutes * 60;
+
   const handlePlayedSeconds = (state: any) => {
     const minute = Math.trunc(state.playedSeconds / 60);
     setPlayed(state.playedSeconds);
@@ -133,7 +136,9 @@ const PodcastItem = () => {
             <Styled.PodcastWord>podcast</Styled.PodcastWord>
             <Styled.PlayTag>
               <Styled.PlayTriangle src={PlayTriangle.src} />
-              <div>15 min</div>
+              <div>
+                {durationMinutes} min {durationSeconds} sec
+              </div>
             </Styled.PlayTag>
           </Styled.FlexRowContainer>
           <Styled.PodcastTitle>
