@@ -54,12 +54,12 @@ const HeaderNavNew = (): JSX.Element => {
         ))}
       </BurgerMenu>
       <StyledThisComp.LogoLinkWrapper href={routersNew[0]}>
-        <ImagePreview src={logo} alt={"logo cgs-team"} />
-        <StyledThisComp.CompanyNameText>
-          CODE
-          <br />
-          GENERATION
-        </StyledThisComp.CompanyNameText>
+        <ImagePreview
+          src={logo}
+          alt={"logo cgs-team"}
+          width={106}
+          height={32}
+        />
       </StyledThisComp.LogoLinkWrapper>
       <StyledThisComp.NavList>
         {navigationRoutesNamesNew.map(({ route, withDropdown, tags }, ind) =>
