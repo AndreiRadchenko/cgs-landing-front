@@ -4,6 +4,7 @@ import themes from "../../utils/themes";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 458px;
   margin-bottom: 50px;
   &:last-child {
@@ -42,7 +43,7 @@ export const Title = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  min-height: 96px;
+  min-height: 112px;
   &:hover {
     cursor: pointer;
     color: ${themes.primary.colors.darkBlue};
@@ -61,7 +62,7 @@ export const Description = styled.p`
   margin-bottom: 0;
   overflow: hidden;
   width: 100%;
-  min-height: 100px;
+  min-height: 115px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
