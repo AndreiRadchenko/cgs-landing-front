@@ -17,6 +17,7 @@ const MainBlogItem = ({ article, views }: IMainBlogItem) => {
         <Styled.MainBlogItemTag>{article.tags[0]}</Styled.MainBlogItemTag>
       </Styled.FlexRowContainer>
       <Styled.MainBlogItemTitle>
+        {" "}
         <a href={`/blog/${article.url}`}>{article.title}</a>
       </Styled.MainBlogItemTitle>
       <Styled.MainBlogItemDescription>
@@ -24,20 +25,7 @@ const MainBlogItem = ({ article, views }: IMainBlogItem) => {
       </Styled.MainBlogItemDescription>
       <Styled.GeneralInfo>
         <Styled.FlexRowContainer>
-          <Styled.MainBlogItemTag>{article.tags[0]}</Styled.MainBlogItemTag>
-        </Styled.FlexRowContainer>
-        <Styled.MainBlogItemTitle>{article.title}</Styled.MainBlogItemTitle>
-        <Styled.MainBlogItemDescription>
-          {article.description}
-        </Styled.MainBlogItemDescription>
-        <Styled.GeneralInfo>
-          <Styled.BlogItemRowContainer>
-            <Styled.MainBlogAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.MainBlogAuthor>
-            <Styled.WatchContainer>
-              <Styled.BlogItemWatchIcon src={Watch.src} />
-              <Styled.WatchCount>{views || 0}</Styled.WatchCount>
-            </Styled.WatchContainer>
-          </Styled.BlogItemRowContainer>
+          <Styled.MainBlogAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.MainBlogAuthor>
           <Styled.WatchContainer>
             <Styled.WatchIcon src={Watch.src} />
             <Styled.WatchCount>{views || 0}</Styled.WatchCount>

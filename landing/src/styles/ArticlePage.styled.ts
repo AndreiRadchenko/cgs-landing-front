@@ -42,7 +42,6 @@ export const PageWrapper = styled.div`
   width: 100%;
   flex-direction: column;
   padding: 40px;
-  align-items: center;
   a {
     color: ${themes.primary.colors.darkBlue};
     text-decoration: none;
@@ -111,27 +110,24 @@ export const ArrowBackButton = styled.img`
   }
   position: absolute;
   top: -60px;
-  left: -200px;
+  left: -180px;
   @media (max-width: 1280px) {
-    left: -180px;
+    left: -120px;
   }
   @media (max-width: 1250px) {
-    left: -150px;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    left: -140px;
+    left: -90px;
   }
   @media (max-width: 1160px) {
-    left: -100px;
+    left: -50px;
   }
   @media (max-width: 1080px) {
-    left: -75px;
+    left: 0;
   }
   @media (max-width: 1025px) {
-    left: -55px;
+    left: 0;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    left: -40px;
+    left: 0px;
     top: -120px;
   }
 `;
