@@ -112,14 +112,16 @@ const ArticlePage = () => {
         <HeaderNavNew />
         <Styles.Cont>
           <Styles.PageWrapper>
-            <Styles.TitleBg>
-              <Image src={titleBg} alt="top title bg" />
-            </Styles.TitleBg>
-            <Styles.ArrowBackButton
-              src={ArrowBack.src}
-              onClick={() => router.back()}
-            />
-            <Styles.Title>{article.title}</Styles.Title>
+            <div style={{ position: "relative" }}>
+              <Styles.Title>{article.title}</Styles.Title>
+              <Styles.TitleBg>
+                <Image src={titleBg} alt="top title bg" />
+              </Styles.TitleBg>
+              <Styles.ArrowBackButton
+                src={ArrowBack.src}
+                onClick={() => router.back()}
+              />
+            </div>
             <Styles.BannerWrapper>
               <Styles.TagWrapper>
                 <ShareOn image={article.image} title={article.title} />
