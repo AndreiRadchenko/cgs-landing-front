@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 import { infiniteText } from "./AnimationsStyled";
 
@@ -203,6 +203,8 @@ export const BlogItemDescription = styled.p`
 export const LoopText = styled.div`
   font-size: ${themes.primary.font.size.aboutUsCardText};
   margin: 0;
+  height: 30px;
+
   margin-top: 16px;
   margin-bottom: 0;
   line-height: 170%;
@@ -212,6 +214,7 @@ export const LoopText = styled.div`
 export const LoopContainer = styled.div`
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
 `;
 export const GrayText = styled.div`
   color: ${themes.primary.colors.authorGrey};
@@ -491,27 +494,30 @@ export const Track = styled.div`
   align-items: center;
 `;
 
-export const PlayedTrack = styled.input`
+export const PlayedTrack = styled.input<{ range: number }>`
   -webkit-appearance: none;
   position: absolute;
   left: -2px;
   height: 100%;
   width: 100%;
-  background-color: ${themes.primary.colors.primary};
   &::-webkit-slider-runnable-track {
     border-radius: 50px;
-    background-color: ${themes.primary.colors.separator};
+    background: ${({ range }) => css`linear-gradient(
+      to right,
+      ${themes.primary.colors.primary} 0%,
+      ${themes.primary.colors.primary} ${range}%,
+      ${themes.primary.colors.separator} ${range}%,
+      ${themes.primary.colors.separator} 100%
+    )`};
     height: 0.3rem;
   }
   &::-moz-range-track {
-    background-color: ${themes.primary.colors.separator};
     height: 0.3rem;
   }
-
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     position: relative;
-    top: -1.5px;
+    top: -1px;
     cursor: pointer;
     border-radius: 50%;
     appearance: none;
