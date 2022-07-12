@@ -199,14 +199,11 @@ export const SecondHeaderBg = styled.div`
   @media ${themes.primary.media.maxPCFullHD} {
     right: -490px;
   }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    right: -540px;
-  }
   @media ${themes.primary.media.maxTabletPortrait} {
     right: -540px;
   }
   @media ${themes.primary.media.maxTablet} {
-    displya: none;
+    display: none;
   }
 `;
 
