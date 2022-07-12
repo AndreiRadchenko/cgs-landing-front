@@ -612,8 +612,14 @@ export const MainBlogItemTitle = styled(BlogItemTitle)`
   font-size: ${themes.primary.font.size.mainBlogTitle};
 `;
 
-export const MainBlogItemContainer = styled(FlexColumnContainer)`
+export const MainContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-right: 1px solid ${themes.primary.colors.comment};
+`;
+
+export const MainBlogItemContainer = styled(FlexColumnContainer)`
   padding: 30px 50px;
   cursor: pointer;
   height: 100%;
@@ -647,13 +653,13 @@ export const MainBlogItemTag = styled(Tag)`
 
 export const MainBlogItemDescription = styled(BlogItemDescription)`
   margin-top: 10px;
-  font-size: ${themes.primary.font.size.mainBlogDescription};
+  font-size: ${themes.primary.font.size.oneAndHalf};
   max-width: 870px;
 `;
 
 export const SmallArticleItemTitle = styled(BlogItemTitle)`
-  font-size: ${themes.primary.font.size.smallBlogTitle};
-  margin-top: 5px;
+  font-size: ${themes.primary.font.size.menuElement};
+  margin-top: 15px;
 `;
 
 export const SmallGeneralInfo = styled(GeneralInfo)`
@@ -661,20 +667,23 @@ export const SmallGeneralInfo = styled(GeneralInfo)`
 `;
 
 export const SmallArticleItemDescription = styled(BlogItemDescription)`
-  font-size: ${themes.primary.font.size.smallBlogDescription};
+  font-size: ${themes.primary.font.size.tertiary};
   margin-top: 15px;
   margin-bottom: 0;
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: 8px;
   }
+  @media ${themes.primary.media.maxPCFullHD} {
+    font-size: ${themes.primary.font.size.linkText};
+  }
 `;
 
 export const SmallArticleContainer = styled(FlexColumnContainer)`
   width: 33vw;
-  min-height: 32vh;
+  min-height: 33vh;
   height: auto;
   cursor: pointer;
-  padding: 30px 60px 35px 35px;
+  padding: 25px 60px 25px 25px;
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid ${themes.primary.colors.comment};
@@ -686,6 +695,13 @@ export const SmallArticleContainer = styled(FlexColumnContainer)`
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 18px 25px 18px 20px;
+  }
+  @media (min-height: 800px) and ${themes.primary.media.maxTabletLandScape} {
+    height: auto;
+    min-height: 200px;
+  }
+  @media ${themes.primary.media.minPC} {
+    padding: 40px 60px 40px 40px;
   }
 `;
 
