@@ -14,6 +14,10 @@ interface IAllArticles {
   articles: number;
 }
 
+interface ITrack {
+  range: number;
+}
+
 export const FlexColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -233,7 +237,7 @@ export const Date = styled.div`
 
 export const MainBlogAuthor = styled(GrayText)`
   font-weight: ${themes.primary.font.weight.medium};
-  font-size: ${themes.primary.font.size.mainBlogAuthor};
+  font-size: ${themes.primary.font.size.articleViews};
 `;
 
 export const SecondaryAuthor = styled(GrayText)`
@@ -262,7 +266,7 @@ export const ArticleWatchContainer = styled.div`
 `;
 
 export const WatchCount = styled(GrayText)`
-  font-size: 0.975em;
+  font-size: ${themes.primary.font.size.articleViews};
 `;
 
 export const BlogItemWatchIcon = styled.img`
@@ -519,7 +523,7 @@ export const Track = styled.div`
   align-items: center;
 `;
 
-export const PlayedTrack = styled.input<{ range: number }>`
+export const PlayedTrack = styled.input<ITrack>`
   -webkit-appearance: none;
   position: absolute;
   left: -2px;
@@ -620,6 +624,10 @@ export const MainBlogItemTitle = styled(BlogItemTitle)`
   margin-top: 10px;
   max-width: 870px;
   font-size: ${themes.primary.font.size.mainBlogTitle};
+  font-weight: ${themes.primary.font.weight.extraBold};
+  &:hover {
+    color: ${themes.primary.colors.darkBlue};
+  }
 `;
 
 export const MainContainer = styled.div`
@@ -631,8 +639,6 @@ export const MainContainer = styled.div`
 
 export const MainBlogItemContainer = styled(FlexColumnContainer)`
   padding: 30px 50px;
-  cursor: pointer;
-  height: 100%;
   width: 66.33vw;
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 35px;
@@ -643,10 +649,6 @@ export const MainBlogItemContainer = styled(FlexColumnContainer)`
   }
   @media ${themes.primary.media.minPC} {
     padding: 70px;
-  }
-
-  &:hover ${MainBlogItemTitle} {
-    color: ${themes.primary.colors.darkBlue};
   }
 `;
 
@@ -670,6 +672,9 @@ export const MainBlogItemDescription = styled(BlogItemDescription)`
 export const SmallArticleItemTitle = styled(BlogItemTitle)`
   font-size: ${themes.primary.font.size.menuElement};
   margin-top: 15px;
+  &:hover {
+    color: ${themes.primary.colors.darkBlue};
+  }
 `;
 
 export const SmallGeneralInfo = styled(GeneralInfo)`
@@ -692,16 +697,12 @@ export const SmallArticleContainer = styled(FlexColumnContainer)`
   width: 33vw;
   min-height: 33vh;
   height: auto;
-  cursor: pointer;
   padding: 25px 60px 25px 25px;
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid ${themes.primary.colors.comment};
   &:last-child {
     border-bottom: 0;
-  }
-  &:hover ${SmallArticleItemTitle} {
-    color: ${themes.primary.colors.darkBlue};
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 18px 25px 18px 20px;
