@@ -19,6 +19,11 @@ export const FlexColumnContainer = styled.div`
   flex-direction: column;
 `;
 
+export const BlogItemRowContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const FlexRowContainer = styled.div`
   display: flex;
   column-gap: 10px;
@@ -227,7 +232,7 @@ export const Date = styled.div`
 `;
 
 export const MainBlogAuthor = styled(GrayText)`
-  font-weight: ${themes.primary.font.weight.semiBold};
+  font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.mainBlogAuthor};
 `;
 
@@ -260,15 +265,20 @@ export const WatchCount = styled(GrayText)`
   font-size: 0.975em;
 `;
 
+export const BlogItemWatchIcon = styled.img`
+  width: 22px;
+  height: 14px;
+  margin-left: 14px;
+`;
+
 export const WatchIcon = styled.img`
   width: 22px;
   height: 14px;
-  margin-left: 4px;
 `;
 
 export const TimerIcon = styled.img`
-  width: 26px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
 `;
 
 export const LeftLine = styled.img`
