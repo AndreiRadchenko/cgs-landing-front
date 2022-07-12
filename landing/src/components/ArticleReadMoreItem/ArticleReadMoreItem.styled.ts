@@ -43,7 +43,7 @@ export const Title = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  min-height: 112px;
+  min-height: 108px;
   &:hover {
     cursor: pointer;
     color: ${themes.primary.colors.darkBlue};
@@ -52,6 +52,9 @@ export const Title = styled.p`
   @media ${themes.primary.media.maxTabletPortrait} {
     margin: 0;
     margin-top: 10px;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    min-height: 92px;
   }
 `;
 
