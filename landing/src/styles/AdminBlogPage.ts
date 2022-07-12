@@ -66,3 +66,20 @@ export const DropdownWrapper = styled.div`
   transform: translateY(20px);
   width: 100px;
 `;
+
+export const Message = styled.span`
+  color: ${themes.primary.colors.errorText};
+`;
+
+export const Counter = styled.span`
+  &.error {
+    color: ${themes.primary.colors.errorText};
+  }
+`;
+
+export const Text = styled.div`
+  margin-top: -15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
