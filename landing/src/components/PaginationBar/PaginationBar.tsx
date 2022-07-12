@@ -38,10 +38,7 @@ const PaginationBar: FC<IPaginationBar> = ({
               {pageNumber}
             </Styles.CurrentPaginationItem>
           ) : (
-            <a
-              href={`http://localhost:3000/blog?page=${pageNumber}`}
-              key={pageNumber}
-            >
+            <a href={`/blog?page=${pageNumber}`} key={pageNumber}>
               <Styles.PaginationItem>{pageNumber}</Styles.PaginationItem>
             </a>
           );
