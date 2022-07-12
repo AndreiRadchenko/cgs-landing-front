@@ -22,13 +22,13 @@ const MainBlogItem = ({ article, views }: IMainBlogItem) => {
           {article.description}
         </Styled.MainBlogItemDescription>
         <Styled.GeneralInfo>
-          <Styled.FlexRowContainer>
+          <Styled.BlogItemRowContainer>
             <Styled.MainBlogAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.MainBlogAuthor>
             <Styled.WatchContainer>
-              <Styled.WatchIcon src={Watch.src} />
+              <Styled.BlogItemWatchIcon src={Watch.src} />
               <Styled.WatchCount>{views || 0}</Styled.WatchCount>
             </Styled.WatchContainer>
-          </Styled.FlexRowContainer>
+          </Styled.BlogItemRowContainer>
           <Styled.WatchContainer>
             <Styled.TimerIcon src={Timer.src} />
             <Styled.GrayText>{`${article.minutesToRead} min`}</Styled.GrayText>

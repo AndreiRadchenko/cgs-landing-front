@@ -251,7 +251,7 @@ export const ArticleTimerContainer = styled.div`
 export const WatchContainer = styled.div`
   display: flex;
   align-items: center;
-  column-gap: 5px;
+  column-gap: 9px;
 `;
 
 export const ArticleWatchContainer = styled.div`
