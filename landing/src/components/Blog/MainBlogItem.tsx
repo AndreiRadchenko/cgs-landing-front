@@ -11,36 +11,37 @@ interface IMainBlogItem {
 
 const MainBlogItem = ({ article, views }: IMainBlogItem) => {
   return (
-    <a href={`/blog/${article.url}`}>
-      <Styled.MainBlogItemContainer>
-        <Styled.MainBlogItemImage src={article.image.url} />
+    <Styled.MainBlogItemContainer>
+      <Styled.MainBlogItemImage src={article.image.url} />
+      <Styled.FlexRowContainer>
+        <Styled.MainBlogItemTag>{article.tags[0]}</Styled.MainBlogItemTag>
+      </Styled.FlexRowContainer>
+      <Styled.MainBlogItemTitle>
+        {" "}
+        <a href={`/blog/${article.url}`}>{article.title}</a>
+      </Styled.MainBlogItemTitle>
+      <Styled.MainBlogItemDescription>
+        {article.description}
+      </Styled.MainBlogItemDescription>
+      <Styled.GeneralInfo>
         <Styled.FlexRowContainer>
-          <Styled.MainBlogItemTag>{article.tags[0]}</Styled.MainBlogItemTag>
-        </Styled.FlexRowContainer>
-        <Styled.MainBlogItemTitle>{article.title}</Styled.MainBlogItemTitle>
-        <Styled.MainBlogItemDescription>
-          {article.description}
-        </Styled.MainBlogItemDescription>
-        <Styled.GeneralInfo>
-          <Styled.FlexRowContainer>
-            <Styled.MainBlogAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.MainBlogAuthor>
-            <Styled.WatchContainer>
-              <Styled.WatchIcon src={Watch.src} />
-              <Styled.WatchCount>{views}</Styled.WatchCount>
-            </Styled.WatchContainer>
-          </Styled.FlexRowContainer>
+          <Styled.MainBlogAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.MainBlogAuthor>
           <Styled.WatchContainer>
-            <Styled.TimerIcon src={Timer.src} />
-            <Styled.GrayText>{`${article.minutesToRead} min`}</Styled.GrayText>
+            <Styled.WatchIcon src={Watch.src} />
+            <Styled.WatchCount>{views}</Styled.WatchCount>
           </Styled.WatchContainer>
-        </Styled.GeneralInfo>
-        <Styled.SliderDotsContainer>
-          <Styled.SliderDot className={"current"} />
-          <Styled.SliderDot />
-          <Styled.SliderDot />
-        </Styled.SliderDotsContainer>
-      </Styled.MainBlogItemContainer>
-    </a>
+        </Styled.FlexRowContainer>
+        <Styled.WatchContainer>
+          <Styled.TimerIcon src={Timer.src} />
+          <Styled.GrayText>{`${article.minutesToRead} min`}</Styled.GrayText>
+        </Styled.WatchContainer>
+      </Styled.GeneralInfo>
+      <Styled.SliderDotsContainer>
+        <Styled.SliderDot className={"current"} />
+        <Styled.SliderDot />
+        <Styled.SliderDot />
+      </Styled.SliderDotsContainer>
+    </Styled.MainBlogItemContainer>
   );
 };
 
