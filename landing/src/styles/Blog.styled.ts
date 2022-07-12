@@ -258,7 +258,7 @@ export const LeftLine = styled.img`
   width: 203.88px;
   height: 387.72px;
   left: 0;
-  top: 1200px;
+  top: 1400px;
 `;
 
 export const RightLine = styled.img<IArticlesOnPage>`
@@ -581,6 +581,7 @@ export const PlayTriangle = styled.img`
 export const HeaderBlock = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
   justify-content: flex-end;
 `;
 
@@ -595,12 +596,16 @@ export const MainBlogItemContainer = styled(FlexColumnContainer)`
   padding: 30px 50px;
   cursor: pointer;
   height: 100%;
+  width: 66.33vw;
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 35px;
   }
   @media ${themes.primary.media.minLaptop} {
     padding: 30px;
     padding-right: 50px;
+  }
+  @media ${themes.primary.media.minPC} {
+    padding: 70px;
   }
 
   &:hover ${MainBlogItemTitle} {
@@ -609,7 +614,7 @@ export const MainBlogItemContainer = styled(FlexColumnContainer)`
 `;
 
 export const MainBlogItemImage = styled.img`
-  max-width: 770px;
+  max-width: 55vw;
   width: 100%;
   height: auto;
 `;
@@ -645,7 +650,8 @@ export const SmallArticleItemDescription = styled(BlogItemDescription)`
 
 export const SmallArticleContainer = styled(FlexColumnContainer)`
   width: 33vw;
-  height: 32vh;
+  min-height: 32vh;
+  height: auto;
   cursor: pointer;
   padding: 30px 60px 35px 35px;
   display: flex;
@@ -681,6 +687,7 @@ export const SliderDotsContainer = styled(FlexRowContainer)`
   column-gap: 10px;
   margin-top: 20px;
 `;
+
 export const AbsoluteContainer = styled.div`
   position: relative;
 `;

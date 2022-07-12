@@ -23,9 +23,6 @@ export const Image = styled.img`
   width: 100%;
   height: auto;
   object-fit: contain;
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 export const Title = styled.p`
@@ -37,10 +34,6 @@ export const Title = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  &:hover {
-    cursor: pointer;
-    color: ${themes.primary.colors.darkBlue};
-  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin: 0;
@@ -87,4 +80,7 @@ export const ReadMoreButton = styled.button`
   font-weight: ${themes.primary.font.weight.semiBold};
   letter-spacing: 0.7px;
   cursor: pointer;
+  &:hover (Title) {
+    color: ${themes.primary.colors.darkBlue};
+  }
 `;
