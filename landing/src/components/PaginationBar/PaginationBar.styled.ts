@@ -21,7 +21,6 @@ export const PaginationItem = styled(FontSettings)`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 10px;
   &:hover {
     cursor: pointer;
     background-color: ${themes.primary.colors.blogDarkText};
@@ -43,6 +42,9 @@ export const Dots = styled.span`
 `;
 
 export const PaginationItemsWrapper = styled.div`
+  z-index: 2;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  column-gap: 8px;
 `;

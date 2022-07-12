@@ -12,8 +12,7 @@ interface IUsePagination {
   currentPage: number;
   totalCount: number;
   pageSize: number;
-  siblingCount: number;
-  onPageChange: (page: number) => void;
+  siblingCount?: number;
 }
 
 export const usePagination = ({
