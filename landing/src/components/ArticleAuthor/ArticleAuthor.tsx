@@ -4,7 +4,7 @@ import Views from "../../../public/viewsIcon.svg";
 import * as Styles from "./ArticleAuthor.styled";
 import { IAuthor } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Blog.styled";
-import Watch from "../../../public/Watch.png";
+import Watch from "../../../public/Watch.svg";
 
 interface IArticleAuthor {
   author: IAuthor;

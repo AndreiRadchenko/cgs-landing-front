@@ -24,8 +24,8 @@ const ArticleReadMoreItem = ({ article, view }: IArticleReadMore) => {
         <Styles.NoImageArticleReadMore />
       )}
       <Styles.ViewsWrapper>
-        <Image src={viewsIcon} alt="views icon" />
-        <Styles.AmountViews>{view}</Styles.AmountViews>
+        <Styles.ArticleWatchIcon src={viewsIcon.src} alt="views icon" />
+        <Styles.AmountViews>{view || 0}</Styles.AmountViews>
       </Styles.ViewsWrapper>
       <Styles.TitleWrapper>
         <Styles.Title onClick={() => navigation.push(`/blog/${article.url}`)}>
@@ -34,9 +34,11 @@ const ArticleReadMoreItem = ({ article, view }: IArticleReadMore) => {
         <Styles.TitleDiv />
       </Styles.TitleWrapper>
       <Styles.Description>{article.description}</Styles.Description>
-      <a href={`/blog/${article.url}`}>
-        <Styles.ReadMoreButton>Read more</Styles.ReadMoreButton>
-      </a>
+      <Styles.ReadMoreButton
+        onClick={() => navigation.push(`/blog/${article.url}`)}
+      >
+        Read more
+      </Styles.ReadMoreButton>
     </Styles.Wrapper>
   );
 };

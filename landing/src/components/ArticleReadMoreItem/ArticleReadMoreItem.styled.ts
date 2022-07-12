@@ -4,6 +4,7 @@ import themes from "../../utils/themes";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 458px;
   margin-bottom: 50px;
   &:last-child {
@@ -11,12 +12,6 @@ export const Wrapper = styled.div`
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 100%;
-  }
-  a {
-    background-color: inherit;
-    text-decoration: none;
-    color: ${themes.primary.colors.blogBackground};
-    cursor: unset;
   }
 `;
 
@@ -29,6 +24,7 @@ export const Image = styled.img`
   width: 100%;
   height: auto;
   object-fit: contain;
+  min-height: 230px;
 `;
 
 export const TitleWrapper = styled.div`
@@ -41,18 +37,18 @@ export const TitleDiv = styled.div`
 
 export const Title = styled.p`
   font-size: ${themes.primary.font.size.quaternary};
-  font-weight: ${themes.primary.font.weight.semiBold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-
+  min-height: 112px;
   &:hover {
     cursor: pointer;
     color: ${themes.primary.colors.darkBlue};
   }
-  
+
   @media ${themes.primary.media.maxTabletPortrait} {
     margin: 0;
     margin-top: 10px;
@@ -66,19 +62,25 @@ export const Description = styled.p`
   margin-bottom: 0;
   overflow: hidden;
   width: 100%;
+  min-height: 115px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+
   @media ${themes.primary.media.maxTabletPortrait} {
     margin: 0;
     margin-top: 10px;
   }
 `;
 
+export const ArticleWatchIcon = styled.img`
+  width: 22px;
+  height: 14px;
+`;
+
 export const ViewsWrapper = styled.div`
   width: 58px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: 20px 0 12px 0;
 `;
@@ -86,6 +88,7 @@ export const ViewsWrapper = styled.div`
 export const AmountViews = styled.span`
   font-size: ${themes.primary.font.size.tertiary};
   font-family: ${themes.primary.font.family.openSans};
+  margin-left: 9px;
 `;
 
 export const ReadMoreButton = styled.button`
@@ -98,6 +101,9 @@ export const ReadMoreButton = styled.button`
   font-weight: ${themes.primary.font.weight.extraBold};
   letter-spacing: 0.7px;
   cursor: pointer;
+
+  max-width: 115px;
+
   &:hover (Title) {
     color: ${themes.primary.colors.darkBlue};
   }

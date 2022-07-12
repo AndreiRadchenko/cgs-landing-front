@@ -1,7 +1,7 @@
 import React from "react";
 import * as Styled from "../../styles/Blog.styled";
 import { IArticle } from "../../types/Admin/Response.types";
-import Watch from "../../../public/Watch.png";
+import Watch from "../../../public/Watch.svg";
 import Timer from "../../../public/Timer.svg";
 
 interface IMainBlogItem {
