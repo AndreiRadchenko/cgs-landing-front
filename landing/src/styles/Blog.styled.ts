@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 import { infiniteText } from "./AnimationsStyled";
 
@@ -14,9 +14,18 @@ interface IAllArticles {
   articles: number;
 }
 
+interface ITrack {
+  range: number;
+}
+
 export const FlexColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const BlogItemRowContainer = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const FlexRowContainer = styled.div`
@@ -58,7 +67,7 @@ export const GeneralInfo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 15px;
+  margin-top: 34px;
 `;
 
 export const Tag = styled.button<ITag>`
@@ -160,7 +169,7 @@ export const HoverBlackBlock = styled.div`
 
 export const BlogItemTitle = styled.p`
   font-size: ${themes.primary.font.size.secondaryArticleTitle};
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   line-height: 130%;
   margin: 0;
   margin-top: 14px;
@@ -203,6 +212,8 @@ export const BlogItemDescription = styled.p`
 export const LoopText = styled.div`
   font-size: ${themes.primary.font.size.aboutUsCardText};
   margin: 0;
+  height: 30px;
+
   margin-top: 16px;
   margin-bottom: 0;
   line-height: 170%;
@@ -212,25 +223,33 @@ export const LoopText = styled.div`
 export const LoopContainer = styled.div`
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
 `;
 export const GrayText = styled.div`
   color: ${themes.primary.colors.authorGrey};
-  font-size: ${themes.primary.font.size.primary};
+  font-size: 0.975em;
 `;
 
 export const Date = styled.div`
   color: ${themes.primary.colors.authorGrey};
-  font-size: ${themes.primary.font.size.primary};
+  font-size: 0.975em;
 `;
 
 export const MainBlogAuthor = styled(GrayText)`
-  font-weight: ${themes.primary.font.weight.semiBold};
+  font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.articleViews};
 `;
 
 export const SecondaryAuthor = styled(GrayText)`
-  font-weight: ${themes.primary.font.weight.semiBold};
+  font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.secondaryArticleAuthor};
+`;
+
+export const ArticleTimerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  margin-left: 70px;
 `;
 
 export const WatchContainer = styled.div`
@@ -239,8 +258,21 @@ export const WatchContainer = styled.div`
   column-gap: 5px;
 `;
 
+export const ArticleWatchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  margin-left: 17px;
+`;
+
 export const WatchCount = styled(GrayText)`
   font-size: ${themes.primary.font.size.articleViews};
+`;
+
+export const BlogItemWatchIcon = styled.img`
+  width: 22px;
+  height: 14px;
+  margin-left: 14px;
 `;
 
 export const WatchIcon = styled.img`
@@ -249,8 +281,8 @@ export const WatchIcon = styled.img`
 `;
 
 export const TimerIcon = styled.img`
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
 `;
 
 export const LeftLine = styled.img`
@@ -491,27 +523,30 @@ export const Track = styled.div`
   align-items: center;
 `;
 
-export const PlayedTrack = styled.input`
+export const PlayedTrack = styled.input<ITrack>`
   -webkit-appearance: none;
   position: absolute;
   left: -2px;
   height: 100%;
   width: 100%;
-  background-color: ${themes.primary.colors.primary};
   &::-webkit-slider-runnable-track {
     border-radius: 50px;
-    background-color: ${themes.primary.colors.separator};
+    background: ${({ range }) => css`linear-gradient(
+      to right,
+      ${themes.primary.colors.primary} 0%,
+      ${themes.primary.colors.primary} ${range}%,
+      ${themes.primary.colors.separator} ${range}%,
+      ${themes.primary.colors.separator} 100%
+    )`};
     height: 0.3rem;
   }
   &::-moz-range-track {
-    background-color: ${themes.primary.colors.separator};
     height: 0.3rem;
   }
-
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     position: relative;
-    top: -1.5px;
+    top: -1px;
     cursor: pointer;
     border-radius: 50%;
     appearance: none;
@@ -604,7 +639,6 @@ export const MainContainer = styled.div`
 
 export const MainBlogItemContainer = styled(FlexColumnContainer)`
   padding: 30px 50px;
-  height: 100%;
   width: 66.33vw;
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 35px;

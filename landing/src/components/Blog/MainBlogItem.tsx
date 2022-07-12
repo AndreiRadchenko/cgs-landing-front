@@ -1,7 +1,7 @@
 import React from "react";
 import * as Styled from "../../styles/Blog.styled";
 import { IArticle } from "../../types/Admin/Response.types";
-import Watch from "../../../public/Watch.png";
+import Watch from "../../../public/Watch.svg";
 import Timer from "../../../public/Timer.svg";
 
 interface IMainBlogItem {
@@ -28,7 +28,7 @@ const MainBlogItem = ({ article, views }: IMainBlogItem) => {
           <Styled.MainBlogAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.MainBlogAuthor>
           <Styled.WatchContainer>
             <Styled.WatchIcon src={Watch.src} />
-            <Styled.WatchCount>{views}</Styled.WatchCount>
+            <Styled.WatchCount>{views || 0}</Styled.WatchCount>
           </Styled.WatchContainer>
         </Styled.FlexRowContainer>
         <Styled.WatchContainer>

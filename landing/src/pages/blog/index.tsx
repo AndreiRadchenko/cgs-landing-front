@@ -61,7 +61,9 @@ const BlogPage = () => {
 
   useEffect(() => {
     setFilter(tagParams as string);
-    scrollHandler();
+    if (tagParams) {
+      scrollHandler();
+    }
   }, [tagParams, scrollHandler]);
 
   const currentArticlesData = useMemo(() => {

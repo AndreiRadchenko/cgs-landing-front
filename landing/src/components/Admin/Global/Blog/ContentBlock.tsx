@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import PhotoBlockDashedHorizontal from "../PhotoBlockdashedHorizontal";
 import PhotoBlockDashed from "../PhotoBlockDashed";
 import SubHeaderWithInput from "../SubHeaderWithInput";
@@ -40,6 +40,8 @@ const ContentBlock: FC<IArticles> = ({
   setIsNewArticle,
   data,
 }) => {
+  const [descLength, setDescLength] = useState(0);
+  const [titleLength, setTitleLength] = useState(0);
   const { values, handleSubmit, handleChange } =
     useFormikContext<IBlogResponse>();
   const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
@@ -76,10 +78,17 @@ const ContentBlock: FC<IArticles> = ({
     setIsNewArticle(true);
     handleSubmit();
   };
-
   const updateMetaTags = async () => {
     await mutateAsync(values);
     handleSubmit();
+  };
+
+  const handleDescInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDescLength(e.target.value.length);
+  };
+
+  const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitleLength(e.target.value.length);
   };
 
   const createArticle = async () => {
@@ -136,6 +145,7 @@ const ContentBlock: FC<IArticles> = ({
   const uploadEditAuthorFunc = (image: IImage) => uploadEditAuthor(image);
   const deleteEditBannerFunc = async () => (await deleteEditBanner)();
   const uploadEditBannerFunc = (image: IImage) => uploadEditBanner(image);
+
   return (
     <div>
       <Styled.AdminPaddedBlock>
@@ -166,6 +176,7 @@ const ContentBlock: FC<IArticles> = ({
             />
             <SubHeaderWithInput
               header="Article Title"
+              onInputFunction={handleTitle}
               inputValue={
                 isNewArticle
                   ? values.newArticle.title
@@ -177,8 +188,20 @@ const ContentBlock: FC<IArticles> = ({
               id="title"
               onChangeFunction={handleChange}
               isBlog={true}
-              height="75px"
             />
+            <Styles.Text>
+              <Styles.Message>
+                {(titleLength > 60 || titleLength < 10) &&
+                  "Title should be between 10 and 60 characters"}
+              </Styles.Message>
+              <Styles.Counter
+                className={
+                  titleLength > 60 || titleLength < 10 ? "error" : undefined
+                }
+              >
+                {titleLength}
+              </Styles.Counter>
+            </Styles.Text>
             <SubHeaderWithInput
               header="Url"
               inputValue={
@@ -192,10 +215,10 @@ const ContentBlock: FC<IArticles> = ({
               id="title"
               onChangeFunction={handleChange}
               isBlog={true}
-              height="75px"
             />
             <SubHeaderWithInput
               header="Description"
+              onInputFunction={handleDescInput}
               inputValue={
                 isNewArticle
                   ? values.newArticle.description
@@ -208,8 +231,21 @@ const ContentBlock: FC<IArticles> = ({
               }
               onChangeFunction={handleChange}
               isBlog={true}
-              height="75px"
             />
+
+            <Styles.Text>
+              <Styles.Message>
+                {(descLength > 160 || descLength < 125) &&
+                  "Description should be between 125 and 160 characters"}
+              </Styles.Message>
+              <Styles.Counter
+                className={
+                  descLength > 160 || descLength < 125 ? "error" : undefined
+                }
+              >
+                {descLength}
+              </Styles.Counter>
+            </Styles.Text>
             <Styles.ColumnsWrapper>
               <Styles.Column>
                 <SubHeaderWithInput

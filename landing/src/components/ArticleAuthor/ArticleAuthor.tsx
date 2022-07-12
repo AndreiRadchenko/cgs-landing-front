@@ -4,7 +4,7 @@ import Views from "../../../public/viewsIcon.svg";
 import * as Styles from "./ArticleAuthor.styled";
 import { IAuthor } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Blog.styled";
-import Watch from "../../../public/Watch.png";
+import Watch from "../../../public/Watch.svg";
 
 interface IArticleAuthor {
   author: IAuthor;
@@ -29,14 +29,14 @@ const ArticleAuthor: FC<IArticleAuthor> = ({ author, date, time, views }) => {
           <Styles.SpaceBetween>
             <Styled.GrayText>{formatDate(date)}</Styled.GrayText>
             <Styled.FlexRowContainer>
-              <Styled.WatchContainer>
+              <Styled.ArticleWatchContainer>
                 <Styled.WatchIcon src={Watch.src} />
-                <Styled.WatchCount>{views}</Styled.WatchCount>
-              </Styled.WatchContainer>
-              <Styled.WatchContainer>
+                <Styled.WatchCount>{views || 0}</Styled.WatchCount>
+              </Styled.ArticleWatchContainer>
+              <Styled.ArticleTimerContainer>
                 <Styled.TimerIcon src={Timer.src} />
                 <Styled.GrayText>{`${time} min`}</Styled.GrayText>
-              </Styled.WatchContainer>
+              </Styled.ArticleTimerContainer>
             </Styled.FlexRowContainer>
           </Styles.SpaceBetween>
         </Styles.Container>
