@@ -35,6 +35,7 @@ export const Background = styled.div`
 
 export const PageWrapper = styled.div`
   max-width: 975px;
+  position: relative;
   margin: 0 auto;
   margin-top: 100px;
   display: flex;
@@ -110,29 +111,28 @@ export const ArrowBackButton = styled.img`
   }
   position: absolute;
   top: -60px;
-  left: -180px;
-  margin-bottom: 15px;
-  @media ${themes.primary.media.maxLaptop} {
-    left: -130px;
+  left: -200px;
+  @media (max-width: 1280px) {
+    left: -180px;
+  }
+  @media (max-width: 1250px) {
+    left: -150px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    left: -90px;
+    left: -140px;
   }
-  @media (max-width: 1135px) {
-    left: -70px;
+  @media (max-width: 1160px) {
+    left: -100px;
   }
   @media (max-width: 1080px) {
-    left: -20px;
+    left: -75px;
+  }
+  @media (max-width: 1025px) {
+    left: -55px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    left: 0px;
-    top: -80px;
-  }
-  @media (max-width: 900px) {
-    left: -7px;
-  }
-  @media (max-width: 768px) {
-    left: -5px;
+    left: -40px;
+    top: -120px;
   }
 `;
 
@@ -146,27 +146,20 @@ export const Cont = styled.div`
 
 export const TitleBg = styled.div`
   position: absolute;
-  top: 80px;
-  left: -150px;
+  top: 50px;
+  left: -180px;
   @media ${themes.primary.media.maxPCFullHD} {
-    left: -140px;
+    top: 40px;
   }
-  @media ${themes.primary.media.maxLaptop} {
-    left: -140px;
-    top: 70px;
-  }
-  @media (max-width: 1320px) {
-    left: -130px;
+  @media (max-width: 1250px) {
+    left: -150px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    left: -100px;
+    left: -140px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    left: -50px;
-    top: 20px;
-  }
-  @media ${themes.primary.media.maxTablet} {
-    left: -6%;
+    left: -90px;
+    top: -40px;
   }
 `;
 
@@ -192,15 +185,9 @@ export const HeaderBottomBg = styled.div`
 export const FirstHeaderBg = styled.div`
   position: absolute;
   top: 22%;
-  left: -520px;
-  @media ${themes.primary.media.maxPCFullHD} {
-    left: -520px;
-  }
-  @media ${themes.primary.media.maxLaptop} {
-    left: -750px;
-  }
+  left: -750px;
   @media ${themes.primary.media.maxTablet} {
-    left: -670px;
+    display: none;
   }
 `;
 
@@ -212,14 +199,11 @@ export const SecondHeaderBg = styled.div`
   @media ${themes.primary.media.maxPCFullHD} {
     right: -490px;
   }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    right: -540px;
-  }
   @media ${themes.primary.media.maxTabletPortrait} {
     right: -540px;
   }
   @media ${themes.primary.media.maxTablet} {
-    right: -400px;
+    display: none;
   }
 `;
 
