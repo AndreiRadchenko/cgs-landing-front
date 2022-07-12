@@ -31,12 +31,13 @@ export const AuthorInfoWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  font-size: ${themes.primary.font.size.aboutUsCardText};
 `;
 
 export const AuthorName = styled.div`
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
+  font-size: 16px;
+  margin-top: 6px;
 `;
 
 export const Container = styled.div`
@@ -47,7 +48,6 @@ export const Container = styled.div`
 
 export const SpaceBetween = styled.div`
   display: flex;
-  justify-content: space-between;
   margin-top: 10px;
 `;
 

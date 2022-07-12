@@ -58,7 +58,7 @@ export const GeneralInfo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 15px;
+  margin-top: 34px;
 `;
 
 export const Tag = styled.button<ITag>`
@@ -160,7 +160,7 @@ export const HoverBlackBlock = styled.div`
 
 export const BlogItemTitle = styled.p`
   font-size: ${themes.primary.font.size.secondaryArticleTitle};
-  font-weight: ${themes.primary.font.weight.bold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   line-height: 130%;
   margin: 0;
   margin-top: 14px;
@@ -218,12 +218,12 @@ export const LoopContainer = styled.div`
 `;
 export const GrayText = styled.div`
   color: ${themes.primary.colors.authorGrey};
-  font-size: ${themes.primary.font.size.primary};
+  font-size: 0.975em;
 `;
 
 export const Date = styled.div`
   color: ${themes.primary.colors.authorGrey};
-  font-size: ${themes.primary.font.size.primary};
+  font-size: 0.975em;
 `;
 
 export const MainBlogAuthor = styled(GrayText)`
@@ -232,8 +232,15 @@ export const MainBlogAuthor = styled(GrayText)`
 `;
 
 export const SecondaryAuthor = styled(GrayText)`
-  font-weight: ${themes.primary.font.weight.semiBold};
+  font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.secondaryArticleAuthor};
+`;
+
+export const ArticleTimerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  margin-left: 70px;
 `;
 
 export const WatchContainer = styled.div`
@@ -242,18 +249,26 @@ export const WatchContainer = styled.div`
   column-gap: 5px;
 `;
 
+export const ArticleWatchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  margin-left: 17px;
+`;
+
 export const WatchCount = styled(GrayText)`
-  font-size: ${themes.primary.font.size.fourteenth};
+  font-size: 0.975em;
 `;
 
 export const WatchIcon = styled.img`
-  width: 18px;
-  height: 11px;
+  width: 22px;
+  height: 14px;
+  margin-left: 4px;
 `;
 
 export const TimerIcon = styled.img`
-  width: 15px;
-  height: 15px;
+  width: 26px;
+  height: 18px;
 `;
 
 export const LeftLine = styled.img`

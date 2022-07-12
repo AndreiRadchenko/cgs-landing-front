@@ -26,7 +26,7 @@ const MainBlogItem = ({ article, views }: IMainBlogItem) => {
             <Styled.MainBlogAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.MainBlogAuthor>
             <Styled.WatchContainer>
               <Styled.WatchIcon src={Watch.src} />
-              <Styled.WatchCount>{views}</Styled.WatchCount>
+              <Styled.WatchCount>{views || 0}</Styled.WatchCount>
             </Styled.WatchContainer>
           </Styled.FlexRowContainer>
           <Styled.WatchContainer>
