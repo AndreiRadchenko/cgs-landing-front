@@ -20,17 +20,24 @@ const ArticleReadMoreItem = ({ article, view }: IArticleReadMore) => {
 
   return (
     <Styles.Wrapper>
-      <Styles.Image
-        src={article.image.url}
-        onClick={() => navigation.push(`/blog/${article.url}`)}
-      />
+      {article.image.url ? (
+        <Styles.Image
+          src={article.image.url}
+          onClick={() => navigation.push(`/blog/${article.url}`)}
+        />
+      ) : (
+        <Styles.NoImageArticleReadMore />
+      )}
       <Styles.ViewsWrapper>
         <Image src={viewsIcon} alt="views icon" />
         <Styles.AmountViews>{view}</Styles.AmountViews>
       </Styles.ViewsWrapper>
-      <Styles.Title onClick={() => navigation.push(`/blog/${article.url}`)}>
-        {article.title}
-      </Styles.Title>
+      <Styles.TitleWrapper>
+        <Styles.Title onClick={() => navigation.push(`/blog/${article.url}`)}>
+          {article.title}
+        </Styles.Title>
+        <Styles.TitleDiv />
+      </Styles.TitleWrapper>
       <Styles.Description>{article.description}</Styles.Description>
       <a href={`/blog/${article.url}`}>
         <Styles.ReadMoreButton>Read more</Styles.ReadMoreButton>

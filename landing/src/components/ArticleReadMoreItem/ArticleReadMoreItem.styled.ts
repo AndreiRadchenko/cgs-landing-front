@@ -16,7 +16,13 @@ export const Wrapper = styled.div`
     background-color: inherit;
     text-decoration: none;
     color: ${themes.primary.colors.blogBackground};
+    cursor: unset;
   }
+`;
+
+export const NoImageArticleReadMore = styled.div`
+  width: 100%;
+  height: 230px;
 `;
 
 export const Image = styled.img`
@@ -28,15 +34,24 @@ export const Image = styled.img`
   }
 `;
 
+export const TitleWrapper = styled.div`
+  display: flex;
+`;
+
+export const TitleDiv = styled.div`
+  width: 0px;
+`;
+
 export const Title = styled.p`
   font-size: ${themes.primary.font.size.quaternary};
   font-weight: ${themes.primary.font.weight.semiBold};
-  width: 100%;
+  // width: 100%;
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+
   &:hover {
     cursor: pointer;
     color: ${themes.primary.colors.darkBlue};
@@ -84,7 +99,7 @@ export const ReadMoreButton = styled.button`
   padding: 8px 15px;
   background-color: ${themes.primary.colors.primary};
   color: ${themes.primary.colors.secondary};
-  font-weight: ${themes.primary.font.weight.semiBold};
+  font-weight: ${themes.primary.font.weight.extraBold};
   letter-spacing: 0.7px;
   cursor: pointer;
 `;
