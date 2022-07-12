@@ -45,7 +45,6 @@ export const TitleDiv = styled.div`
 export const Title = styled.p`
   font-size: ${themes.primary.font.size.quaternary};
   font-weight: ${themes.primary.font.weight.semiBold};
-  // width: 100%;
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
