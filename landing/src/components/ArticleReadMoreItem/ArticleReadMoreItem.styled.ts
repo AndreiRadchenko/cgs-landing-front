@@ -29,9 +29,6 @@ export const Image = styled.img`
   width: 100%;
   height: auto;
   object-fit: contain;
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 export const TitleWrapper = styled.div`
@@ -56,7 +53,7 @@ export const Title = styled.p`
     cursor: pointer;
     color: ${themes.primary.colors.darkBlue};
   }
-
+  
   @media ${themes.primary.media.maxTabletPortrait} {
     margin: 0;
     margin-top: 10px;
@@ -102,4 +99,7 @@ export const ReadMoreButton = styled.button`
   font-weight: ${themes.primary.font.weight.extraBold};
   letter-spacing: 0.7px;
   cursor: pointer;
+  &:hover (Title) {
+    color: ${themes.primary.colors.darkBlue};
+  }
 `;
