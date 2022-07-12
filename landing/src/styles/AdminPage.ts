@@ -1,5 +1,5 @@
 import { TextareaAutosize } from "@mui/material";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import themes from "../utils/themes";
 
 export const AdminWrapper = styled.div`
