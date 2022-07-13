@@ -191,7 +191,7 @@ const ContentBlock: FC<IArticles> = ({
                 isNewArticle ? deleteNewBannerFunc : deleteEditBannerFunc
               }
               horizontalFlex={true}
-              maxWidth={745}
+              maxWidth="745px"
               header="Drop banner here"
             />
             <SubHeaderWithInput
@@ -355,7 +355,7 @@ const ContentBlock: FC<IArticles> = ({
               isNewArticle ? deleteNewAuthorFunc : deleteEditAuthorFunc
             }
             horizontalFlex={true}
-            maxWidth={324}
+            maxWidth="324px"
           />
         </Styles.BigWrapper>
         <ArticleBlock isNewArticle={isNewArticle} article={article} />
