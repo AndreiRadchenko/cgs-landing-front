@@ -125,7 +125,7 @@ export const AdminInput = styled(TextareaAutosize)<{
   }
 `;
 
-export const AdminPhotoBlock = styled.div`
+export const AdminPhotoBlock = styled.div<{ maxWidth?: number }>`
   border: 2px dashed ${themes.primary.colors.primary};
   display: flex;
   justify-content: ${(props) =>
@@ -135,6 +135,8 @@ export const AdminPhotoBlock = styled.div`
   padding: ${themes.primary.spacing.primary};
   margin-bottom: ${themes.primary.spacing.primary};
   height: 100%;
+  margin-right: ${({ maxWidth }) => (maxWidth ? `20px` : "none")};
+  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : "none")};
 `;
 
 export const AdminPhotoGrid = styled.div`
