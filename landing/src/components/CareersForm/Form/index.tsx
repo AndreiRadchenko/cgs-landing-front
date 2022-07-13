@@ -15,15 +15,17 @@ import { adminCareersService } from "../../../services/adminCareersPage";
 import { IVacancyMail } from "../../../types/Mail.types";
 
 interface IFormProps {
-  vacancy: string;
+  positions: string[];
+  // vacancy: string;
   data?: IFormBlock;
 }
 
-const Form: FC<IFormProps> = ({ data, vacancy }) => {
+const Form: FC<IFormProps> = ({ positions, data }) => {
   const [isCV, setIsCV] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(false);
   const [sent, setSent] = useState<boolean>(false);
+  const [vacancy, setVacancy] = useState("");
 
   const formik = useFormik({
     initialValues: fieldData,
@@ -117,14 +119,16 @@ const Form: FC<IFormProps> = ({ data, vacancy }) => {
   return (
     <Styled.FormProvider value={formik}>
       <Styled.Form onSubmit={formik.handleSubmit} encType="multipart/form-data">
-        {Object.entries(fieldContent).map((el) => (
-          <FormField
-            key={el[0]}
-            name={el[0]}
-            label={el[1]}
-            handleChange={formik.handleChange}
-          />
-        ))}
+        {Object.entries(fieldContent).map((el) => {
+          return (
+            <FormField
+              key={el[0]}
+              name={el[0]}
+              label={el[1]}
+              handleChange={formik.handleChange}
+            />
+          );
+        })}
 
         <Styled.FileContainer>
           <Styled.FileInputWrapper active={animate}>

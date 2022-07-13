@@ -1,26 +1,31 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import * as Styled from "./CareersForm.styled";
 import Form from "./Form/index";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { IDataCareersResponse } from "../../types/Admin/Response.types";
+import BlogDropdown from "../Blog/BlogDropdown";
 
 interface ICareersForm {
+  positions: string[];
   data?: IDataCareersResponse;
 }
 
-const CareersForm: FC<ICareersForm> = ({ data }) => {
+const CareersForm: FC<ICareersForm> = ({ positions = [], data }) => {
+  const [vacancy, setVacancy] = useState("");
+
   return (
     <>
-      <Styled.FormTitle>
-        <SplitBrackets text={data?.subtitle2} />
-      </Styled.FormTitle>
-      <Styled.FormWrapper>
-        <Form data={data?.form} vacancy="All vacancies" />
-        <Styled.ImageWrapper>
-          <Styled.FormRocketImage />
-          <Styled.FormImage image={data?.form.image} />
-        </Styled.ImageWrapper>
-      </Styled.FormWrapper>
+      <Styled.FormContainter>
+        <Styled.PositionSelect>
+          <BlogDropdown
+            filter={vacancy}
+            setFilter={setVacancy}
+            tags={positions}
+            dropdownName="Position"
+          />
+        </Styled.PositionSelect>
+        <Form positions={positions} data={data?.form} />
+      </Styled.FormContainter>
     </>
   );
 };

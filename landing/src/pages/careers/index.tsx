@@ -3,47 +3,73 @@ import Head from "next/head";
 import parse from "html-react-parser";
 import Careers from "../../components/Careers";
 import CareersForm from "../../components/CareersForm/index";
-import { Page } from "../../styles/Page.styled";
 import { NextPage } from "next";
-import HeaderNav from "../../components/HeaderNav/HeaderNav";
-import Footer from "../../components/Footer/Footer";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { adminGlobalService } from "../../services/adminHomePage";
 import { adminCareersService } from "../../services/adminCareersPage";
 import { CareersProps } from "../../types/Admin/Admin.types";
-import { IHomeData } from "../../types/Admin/Response.types";
+import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
+import FooterNew from "../../components/FooterNew/FooterNew";
+import * as Styles from "../../styles/Careers.styled";
+import { AdminUnauthorizedModal } from "../../styles/AdminPage";
+import Arrow from "../../../public/arrowRight.svg";
+import MagnifiedGlass from "../../../public/magnifiedGlass.svg";
+import CareersTicket from "../../components/CareersTicket";
 
 const CarrersPage: NextPage = () => {
   const { data, isLoading }: CareersProps = useQuery(
     queryKeys.getCareerPage,
     () => adminCareersService.getCareersPage()
   );
-
-  const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
-    adminGlobalService.getFullPage()
-  );
-
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+  const positions = data?.tickets?.length
+    ? data.tickets.map(({ vacancy }) => vacancy)
+    : [];
 
-  return (
+  return !isLoading ? (
     <>
-      {!isLoading && (
-        <>
-          <Head>
-            <title>{metaTitle}</title>
-            <meta name="description" content={metaDescription} />
-            {customHead && parse(customHead)}
-          </Head>
-          <Page>
-            <HeaderNav />
-            <Careers />
-            <CareersForm data={data} />
-          </Page>
-          <Footer />
-        </>
-      )}
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        {customHead && parse(customHead)}
+      </Head>
+      <HeaderNavNew />
+      <Styles.CareersContainer>
+        <Styles.Title>
+          <Styles.TitleText>NEXT-GENERATION</Styles.TitleText>
+          <Styles.TitleArrow src={Arrow.src} alt="test" />
+          <Styles.TitleText>PROJECTS REQUIRE AN </Styles.TitleText>
+          <Styles.TitleText>OUTSTANDING TEAM.</Styles.TitleText>
+        </Styles.Title>
+        <Styles.TicketsContainer>
+          {data?.tickets.map(({ vacancy, image, _id }, idx) => (
+            <CareersTicket
+              vacancy={vacancy}
+              imgUrl={image.url}
+              route={true}
+              id={_id}
+              key={`${idx + (_id || "0000")}`}
+            />
+          ))}
+        </Styles.TicketsContainer>
+        <Styles.Separator />
+        <Styles.FormTitle>
+          &lt; Found your dream-job?
+          <br />
+          Let us discover you! &gt;
+        </Styles.FormTitle>
+        <Styles.FormContainer>
+          <Styles.FormContainer3D />
+          <Styles.Form>
+            <CareersForm positions={positions} data={data} />
+          </Styles.Form>
+          <Styles.FormImage src={MagnifiedGlass.src} alt="Magnified Glass" />
+        </Styles.FormContainer>
+      </Styles.CareersContainer>
+      <FooterNew />
     </>
+  ) : (
+    <AdminUnauthorizedModal>Loading...</AdminUnauthorizedModal>
   );
 };
 

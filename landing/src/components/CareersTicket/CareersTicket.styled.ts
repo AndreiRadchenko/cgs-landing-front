@@ -10,6 +10,8 @@ export const TicketWrapper = styled.div`
   display: flex;
   height: 15.938rem;
 
+  flex: 50%;
+
   margin-bottom: 4.25rem;
   @media ${themes.primary.media.onlyLaptop} {
     margin-bottom: 0;
@@ -284,4 +286,87 @@ export const SubTitle = styled.span`
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: ${themes.primary.font.size.hexadecimal};
   }
+`;
+
+export const TicketContainer = styled.div`
+  width: 616px;
+  height: 265px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const TicketOuter = styled.img`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+`;
+
+export const TicketInner = styled.img`
+  width: 585px;
+  height: 232px;
+  position: absolute;
+`;
+
+export const TicketInnerSvgWrapper = styled.div`
+  width: 585px;
+  height: 232px;
+  position: relative;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+  &:hover {
+    svg,
+    path {
+      fill: none;
+    }
+  }
+`;
+
+export const TicketDataContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+`;
+
+export const TicketDataPosition = styled.p`
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 24px;
+  margin: 0 0 0 0;
+  align-self: center;
+  transform: rotate(270deg);
+`;
+
+export const Divider = styled.hr`
+  width: 154px;
+  height: 5px;
+  background-color: black;
+  align-self: center;
+  left: 1;
+  position: absolute;
+  transform: rotate(270deg);
+  border: none;
+  border-radius: 5px;
+`;
+
+export const TicketPositionContainer = styled.div`
+  width: 100%;
+`;
+
+export const TicketPositionTitle = styled.p`
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 34px;
+  margin: 0;
+`;
+
+export const TicketPositionStack = styled.p`
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 16px;
+  margin: 0;
 `;

@@ -142,3 +142,32 @@ export const FormRocketImage = styled.div`
     background-size: 5.5rem auto;
   }
 `;
+
+export const FormContainter = styled.div`
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+`;
+
+export const PositionSelect = styled.div`
+  height: 78px;
+
+  div {
+    width: 100%;
+    height: 100%;
+
+    button {
+      display: flex;
+      justify-content: normal;
+      height: 100%;
+      width: 100%;
+      position: relative;
+
+      img {
+        position: absolute;
+        right: 0;
+        margin: 0 18px 0 0;
+      }
+    }
+  }
+`;

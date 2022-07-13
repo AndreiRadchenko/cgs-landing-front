@@ -123,6 +123,7 @@ const themes = {
       blogBackground: "#f1efed",
       blogFooter: "#EBE9EB",
       blogDropdownHover: "#F8F7F5",
+      careerBackground: "#f1efed",
       portfolioBg: "#F1EFED",
       portfolioHover: "#F2EA86",
     },
