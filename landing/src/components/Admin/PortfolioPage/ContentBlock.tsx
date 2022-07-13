@@ -8,6 +8,7 @@ import AdminDropDown from "../Global/AdminDropDown";
 import { IPortfolioData } from "../../../types/Admin/AdminPortfolioPage.types";
 import useSubmitAndDeletePortfolioPage from "../../../hooks/useSubmitAndDeletePortfolioPage";
 import PortfolioPageCarousel from "./PortfolioPageCarousel";
+import MetaTagsBlock from "../MetaTagsBlock";
 
 const AdminPortfolioContentBlock = () => {
   const { values, handleChange, handleSubmit } =
@@ -21,6 +22,7 @@ const AdminPortfolioContentBlock = () => {
     isNewStatus,
     setIsNewStatus,
   } = useSubmitAndDeletePortfolioPage(setCurrent);
+  console.log(values);
 
   const deleteF = () => deleteFunc(current);
   const [catValue, setCatValue] = useState(values.categories[0]);
@@ -31,53 +33,61 @@ const AdminPortfolioContentBlock = () => {
   };
 
   return (
-    <Styled.AdminPaddedBlock>
-      <Styled.AdminHeader>Portfolio</Styled.AdminHeader>
-      <Styled.AdminSubTitle>Category</Styled.AdminSubTitle>
-      <Styled.AdminCategoryBlock>
-        <FieldArray name="categories">
-          {() =>
-            renderPortfolioInputs({ state: values.categories, handleChange })
-          }
-        </FieldArray>
-      </Styled.AdminCategoryBlock>
-      <Styled.AdminBigButton onClick={submitFunction} type="button">
-        Save categories
-      </Styled.AdminBigButton>
-      <Styled.AdminSubTitle>Add a new case</Styled.AdminSubTitle>
-      <AddAndEdit
-        current={current}
-        isNewStatus={isNewStatus}
-        setIsReady={setIsReady}
-        editFunc={editFunc}
-        submitFunc={submitFunc}
-      />
-      <Styled.AdminCategoryBlock>
-        <AdminDropDown
-          menu={values.categories}
-          value={catValue}
-          setValue={setCatValue}
+    <div>
+      <Styled.AdminPaddedBlock>
+        <Styled.AdminHeader>Portfolio</Styled.AdminHeader>
+        <Styled.AdminSubTitle>Category</Styled.AdminSubTitle>
+        <Styled.AdminCategoryBlock>
+          <FieldArray name="categories">
+            {() =>
+              renderPortfolioInputs({ state: values.categories, handleChange })
+            }
+          </FieldArray>
+        </Styled.AdminCategoryBlock>
+        <Styled.AdminBigButton onClick={submitFunction} type="button">
+          Save categories
+        </Styled.AdminBigButton>
+        <Styled.AdminSubTitle>Add a new case</Styled.AdminSubTitle>
+        <AddAndEdit
+          current={current}
+          isNewStatus={isNewStatus}
+          setIsReady={setIsReady}
+          editFunc={editFunc}
+          submitFunc={submitFunc}
         />
-      </Styled.AdminCategoryBlock>
-      <Styled.AdminReviewBlock>
-        {values.reviews.length === 0 ? (
-          <Styled.AdminSubTitle>no reviews</Styled.AdminSubTitle>
-        ) : (
-          <AdminReview
-            editFlag={isNewStatus}
-            review={values.reviews[current]}
-            deleteFunc={deleteF}
-            editTrigger={setIsNewStatus}
+        <Styled.AdminCategoryBlock>
+          <AdminDropDown
+            menu={values.categories}
+            value={catValue}
+            setValue={setCatValue}
           />
-        )}
-        <PortfolioPageCarousel
-          catValue={catValue}
-          page={current}
-          setPage={setCurrent}
-          length={values.reviews.length}
-        />
-      </Styled.AdminReviewBlock>
-    </Styled.AdminPaddedBlock>
+        </Styled.AdminCategoryBlock>
+        <Styled.AdminReviewBlock>
+          {values.reviews.length === 0 ? (
+            <Styled.AdminSubTitle>no reviews</Styled.AdminSubTitle>
+          ) : (
+            <AdminReview
+              editFlag={isNewStatus}
+              review={values.reviews[current]}
+              deleteFunc={deleteF}
+              editTrigger={setIsNewStatus}
+            />
+          )}
+          <PortfolioPageCarousel
+            catValue={catValue}
+            page={current}
+            setPage={setCurrent}
+            length={values.reviews.length}
+          />
+        </Styled.AdminReviewBlock>
+      </Styled.AdminPaddedBlock>
+      <MetaTagsBlock theme="dark" />
+      <Styled.AdminPaddedBlock>
+        <Styled.AdminBigButton type="submit" onClick={submitFunction}>
+          Submit
+        </Styled.AdminBigButton>
+      </Styled.AdminPaddedBlock>
+    </div>
   );
 };
 

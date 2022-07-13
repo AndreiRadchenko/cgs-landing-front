@@ -7,12 +7,25 @@ import { Page } from "../../styles/Page.styled";
 import { NextPage } from "next";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import Footer from "../../components/Footer/Footer";
-import { useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminCareersService } from "../../services/adminCareersPage";
 import { CareersProps } from "../../types/Admin/Admin.types";
-import { IHomeData } from "../../types/Admin/Response.types";
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.getCareerPage, () =>
+    adminCareersService.getCareersPage()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 
 const CarrersPage: NextPage = () => {
   const { data, isLoading }: CareersProps = useQuery(
@@ -20,9 +33,7 @@ const CarrersPage: NextPage = () => {
     () => adminCareersService.getCareersPage()
   );
 
-  const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
-    adminGlobalService.getFullPage()
-  );
+  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 

@@ -1,9 +1,10 @@
 import parse from "html-react-parser";
+import { GetStaticPropsContext } from "next";
 import ArticleAuthor from "../../components/ArticleAuthor/ArticleAuthor";
 import ArticleDescription from "../../components/ArticleDescription/ArticleDescription";
 import ShareOn from "../../components/ShareOn/ShareOn";
 import ArticleTags from "../../components/ArticleTags/ArticleTags";
-import { useMutation, useQuery } from "react-query";
+import { dehydrate, QueryClient, useMutation, useQuery } from "react-query";
 import {
   IArticle,
   IBlogResponse,
@@ -35,9 +36,36 @@ interface IBlogData {
   isSuccess: boolean;
 }
 
+interface IArticleData {
+  data: IArticle | undefined;
+  isLoading: boolean;
+  isSuccess: boolean;
+}
+
+export async function getServerSideProps(context: GetStaticPropsContext) {
+  const url = context.params?.url || "";
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.getBlogArticle, () =>
+    adminBlogService.getByUrl(url as string)
+  );
+
+  await queryClient.prefetchQuery(queryKeys.getBlogPage, () =>
+    adminBlogService.getBlogPage()
+  );
+  await queryClient.prefetchQuery(queryKeys.views, () =>
+    adminBlogService.getViews()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
+
 const ArticlePage = () => {
   const router = useRouter();
-  const [article, setArticle] = useState<IArticle | undefined | null>(null);
   const [readMore, setReadMore] = useState<IArticle[] | null>(null);
   const [isHover, setIsHover] = useState<boolean>(false);
   const url = typeof router.query?.url === "string" ? router.query.url : "";
@@ -51,13 +79,13 @@ const ArticlePage = () => {
 
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
   const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
-
-  const getMultipleRandom = (arr: IArticle[], num: number) => {
-    const shuffled = [...arr]
-      .filter((article) => article.url !== url)
-      .sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, num);
-  };
+  const { data: article }: IArticleData = useQuery(
+    queryKeys.getBlogArticle,
+    () => adminBlogService.getByUrl(url),
+    {
+      enabled: url.length > 0,
+    }
+  );
 
   const findViews = (url: string) => {
     if (views.data)
@@ -70,44 +98,42 @@ const ArticlePage = () => {
     (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
   );
 
-  const plusView = async () => {
-    if (!views.data) return;
-    const dataToUpdate = views.data[0].allViews.map((view) =>
-      view.articleUrl === url ? { ...view, views: view.views + 1 } : view
-    );
-    await updateViews({ allViews: dataToUpdate });
-  };
-
   useEffect(() => {
+    const plusView = async () => {
+      if (!views.data) return;
+      const dataToUpdate = views.data[0].allViews.map((view) =>
+        view.articleUrl === url ? { ...view, views: view.views + 1 } : view
+      );
+      await updateViews({ allViews: dataToUpdate });
+    };
     plusView();
-  }, [article]);
+  }, [article, updateViews, url, views.data]);
 
   useEffect(() => {
-    if (data) setArticle(data.articles.find((article) => article.url === url));
-  }, [data, url]);
+    const getMultipleRandom = (arr: IArticle[], num: number) => {
+      const shuffled = [...arr]
+        .filter((article) => article.url !== url)
+        .sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, num);
+    };
 
-  useEffect(() => {
     if (data) {
       const readMoreRandomly = getMultipleRandom(data.articles, 2);
       setReadMore(readMoreRandomly);
     }
-  }, [article]);
+  }, [article, data, url]);
 
   if (isLoading)
     return (
       <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
     );
 
-  const { metaTitle, metaDescription, customHead } = {
-    ...article?.meta,
-  };
-
-  return isSuccess && article && readMore && views.data ? (
+  return isSuccess && article ? (
     <>
       <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
+        <title>{article.meta.metaTitle}</title>
+        <meta name="description" content={article.meta.metaTitle} />
+        {article.meta.metaTitle && parse(article.meta.metaTitle)}
       </Head>
       <Styles.Background>
         <HeaderNavNew />
@@ -131,7 +157,7 @@ const ArticlePage = () => {
             </div>
             <Styles.BannerWrapper>
               <Styles.TagWrapper>
-                <ShareOn image={article.image} title={article.title} />
+                <ShareOn title={article.title} />
                 <ArticleTags tags={article.tags} />
                 <ArticleAuthor
                   author={article.author}
@@ -159,8 +185,13 @@ const ArticlePage = () => {
                 <Image src={headerBottomBg} alt="header bottom bg" />
               </Styles.HeaderBottomBg>
             </Styles.DescriptionWrapper>
-            <ArticleDescription content={article.content} />
-            <ArticleReadMore readMore={readMore} findViews={findViews} />
+
+            {readMore && (
+              <>
+                <ArticleDescription content={article.content} />
+                <ArticleReadMore readMore={readMore} findViews={findViews} />
+              </>
+            )}
           </Styles.PageWrapper>
           <FooterNew />
         </Styles.Cont>

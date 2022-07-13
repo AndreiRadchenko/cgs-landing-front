@@ -67,7 +67,7 @@ const AdminReview = ({
         delete
       </Styled.AdminDeleteTextThin>
       <Styled.AdminEditIcon onClick={editTriggerFunc}>
-        <Image src={editFlag ? edit : close} />
+        <Image src={editFlag ? edit : close} alt="admin portfolio edit icon" />
       </Styled.AdminEditIcon>
     </Styled.AdminPortfolioReviewFrame>
   );

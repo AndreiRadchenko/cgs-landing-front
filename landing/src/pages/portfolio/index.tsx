@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Page } from "../../styles/Page.styled";
+import parse from "html-react-parser";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import Footer from "../../components/Footer/Footer";
-import { useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminPortfolioPageService } from "../../services/adminPortfolioPage";
 import PortfolioSlider from "../../components/Admin/PortfolioSwipers/PortfolioSlider";
@@ -10,19 +11,31 @@ import { IPortfolioResponse } from "../../types/Admin/AdminPortfolioPage.types";
 import * as Styled from "../../styles/AdminPage";
 import { Separator } from "../../styles/PortfolioSlider.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
-import { IHomeData } from "../../types/Admin/Response.types";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { portfolioCategories } from "../../utils/variables";
+import Head from "next/head";
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.getPortfolio, () =>
+    adminPortfolioPageService.getPortfolio()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 
 const Index = () => {
-  const { data, isLoading, refetch }: IPortfolioResponse = useQuery(
+  const { data, isLoading }: IPortfolioResponse = useQuery(
     queryKeys.getPortfolio,
     () => adminPortfolioPageService.getPortfolio()
   );
 
-  const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
-    adminGlobalService.getFullPage()
-  );
+  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
   const [isMobile, setIsMobile] = useState(false);
   const { width } = useWindowDimension();
@@ -36,10 +49,17 @@ const Index = () => {
     }
   }, [width]);
 
+  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data ? (
     <>
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        {customHead && parse(customHead)}
+      </Head>
       <Page>
         <HeaderNav />
       </Page>
