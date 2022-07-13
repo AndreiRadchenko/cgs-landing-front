@@ -57,6 +57,7 @@ const Subtitle: FC<ISubtitle> = ({
       </Styles.SubHeaderWrapper>
       <Styles.SubHeaderWrapper>
         <SubHeaderWithInput
+          minRows={2}
           header="Subtitle"
           inputValue={subtitleValue as string}
           name={subtitleName}

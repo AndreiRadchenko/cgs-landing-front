@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import PhotoBlockDashedHorizontal from "../PhotoBlockdashedHorizontal";
 import PhotoBlockDashed from "../PhotoBlockDashed";
 import SubHeaderWithInput from "../SubHeaderWithInput";
@@ -62,6 +62,25 @@ const ContentBlock: FC<IArticles> = ({
     (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
   );
 
+  useEffect(() => {
+    setDescLength(
+      isNewArticle
+        ? values.newArticle.description.length
+        : values.articles[article].description.length
+    );
+    setTitleLength(
+      isNewArticle
+        ? values.newArticle.title.length
+        : values.articles[article].title.length
+    );
+  }, [
+    isNewArticle,
+    article,
+    values.articles,
+    values.newArticle.description.length,
+    values.newArticle.title.length,
+  ]);
+
   const updateArticle = async () => {
     const isChangedUrl =
       data.articles[article].url !== values.articles[article].url;
@@ -73,6 +92,7 @@ const ContentBlock: FC<IArticles> = ({
       );
       await updateViews({ allViews: updatedViews });
     }
+
     await mutateAsync(values);
     setArticle(0);
     setIsNewArticle(true);
@@ -171,12 +191,13 @@ const ContentBlock: FC<IArticles> = ({
                 isNewArticle ? deleteNewBannerFunc : deleteEditBannerFunc
               }
               horizontalFlex={true}
-              maxWidth="745px"
+              maxWidth={745}
               header="Drop banner here"
             />
             <SubHeaderWithInput
               header="Article Title"
               onInputFunction={handleTitle}
+              minRows={2}
               inputValue={
                 isNewArticle
                   ? values.newArticle.title
@@ -209,6 +230,7 @@ const ContentBlock: FC<IArticles> = ({
                   ? values.newArticle.url
                   : values.articles[article].url
               }
+              minRows={2}
               name={
                 isNewArticle ? "newArticle.url" : `articles[${article}].url`
               }
@@ -235,12 +257,12 @@ const ContentBlock: FC<IArticles> = ({
 
             <Styles.Text>
               <Styles.Message>
-                {(descLength > 160 || descLength < 125) &&
-                  "Description should be between 125 and 160 characters"}
+                {(descLength > 160 || descLength < 20) &&
+                  "Description should be between 20 and 160 characters"}
               </Styles.Message>
               <Styles.Counter
                 className={
-                  descLength > 160 || descLength < 125 ? "error" : undefined
+                  descLength > 160 || descLength < 20 ? "error" : undefined
                 }
               >
                 {descLength}
@@ -333,7 +355,7 @@ const ContentBlock: FC<IArticles> = ({
               isNewArticle ? deleteNewAuthorFunc : deleteEditAuthorFunc
             }
             horizontalFlex={true}
-            maxWidth="324px"
+            maxWidth={324}
           />
         </Styles.BigWrapper>
         <ArticleBlock isNewArticle={isNewArticle} article={article} />

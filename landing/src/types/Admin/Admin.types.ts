@@ -23,7 +23,7 @@ export interface IPhotoBlock extends IPropsWithImage {
   deleteFlag?: boolean;
   header?: string;
   horizontalFlex?: boolean;
-  maxWidth?: string;
+  maxWidth?: number;
 }
 
 export interface InputPropsInterface {
