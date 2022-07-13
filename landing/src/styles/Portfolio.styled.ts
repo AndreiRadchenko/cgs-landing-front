@@ -19,7 +19,7 @@ export const OurWorkTitle = styled.div`
 export const LinkButton = styled.button`
   font-size: ${themes.primary.font.size.projectLink};
   font-family: ${themes.primary.font.family.namu};
-  padding: 7px 15px;
+  padding: 7px 15px 10px;
   background-color: ${themes.primary.colors.primary};
   outline: none;
   border-radius: 0;

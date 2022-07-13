@@ -149,6 +149,9 @@ export const PortfolioRow = styled.div`
       color: ${themes.primary.colors.portfolioBg};
       background-color: ${themes.primary.colors.portfolioBg};
     }
+    img {
+      opacity: 0;
+    }
   }
   & .swiper-slide-prev {
     color: rgba(0, 0, 0, 0.5);
@@ -241,8 +244,8 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px;
-  width: 100%;
-  max-width: 40.5vw;
+  width: 50%;
+  //max-width: 40.5vw;
   box-sizing: border-box;
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 30px;
