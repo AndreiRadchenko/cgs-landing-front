@@ -655,9 +655,12 @@ export const MainBlogItemDescription = styled(BlogItemDescription)`
 
 export const SmallArticleItemTitle = styled(BlogItemTitle)`
   font-size: ${themes.primary.font.size.menuElement};
-  margin-top: 15px;
+  margin-top: 19px;
   &:hover {
     color: ${themes.primary.colors.darkBlue};
+  }
+  @media (min-width: 1025px) and (max-width: 1250px) {
+    font-size: 18px;
   }
 `;
 
@@ -675,6 +678,12 @@ export const SmallArticleItemDescription = styled(BlogItemDescription)`
   @media ${themes.primary.media.maxPCFullHD} {
     font-size: ${themes.primary.font.size.linkText};
   }
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    font-size: 14px;
+  }
+  @media (min-width: 1025px) and (max-width: 1250px) {
+    font-size: 15px;
+  }
 `;
 
 export const SmallArticleContainer = styled(FlexColumnContainer)`
@@ -691,8 +700,8 @@ export const SmallArticleContainer = styled(FlexColumnContainer)`
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 18px 25px 18px 20px;
   }
-  @media (min-height: 800px) and ${themes.primary.media.maxTabletLandScape} {
-    height: auto;
+  @media (min-height: 800px) and ${themes.primary.media.maxLaptop} {
+    height: 32%;
     min-height: 200px;
   }
   @media ${themes.primary.media.minPC} {
