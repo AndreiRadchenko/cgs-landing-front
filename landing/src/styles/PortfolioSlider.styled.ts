@@ -56,7 +56,7 @@ export const ProjectDescription = styled.p`
 
 export const ProjectComment = styled.p`
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.projectLink};
+  font-size: ${themes.primary.font.size.reviewText};
   color: ${themes.primary.colors.gray};
   line-height: 160%;
   margin-bottom: 0;
@@ -133,6 +133,7 @@ export const Category = styled.div`
 export const PortfolioRow = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 100%;
   max-height: 588px;
   position: relative;
   & .swiper {
@@ -185,10 +186,10 @@ export const NavigateRight = styled.div`
   right: 0;
   width: 10%;
   @media ${themes.primary.media.maxPCFullHD} {
-    width: 8%;
+    width: 7%;
   }
   @media ${themes.primary.media.maxLaptop} {
-    width: 7%;
+    width: 6%;
   }
   @media (max-width: 1400px) {
     width: 6%;
@@ -230,7 +231,7 @@ export const Image = styled.img`
 `;
 
 export const ImageContainer = styled.div`
-  width: 50%;
+  width: 60%;
   display: flex;
   justify-content: right;
   align-items: center;
@@ -244,8 +245,7 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px;
-  width: 50%;
-  //max-width: 40.5vw;
+  width: 40%;
   box-sizing: border-box;
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 30px;
@@ -299,7 +299,7 @@ export const Separator = styled.div`
 export const Feedback = styled.div`
   display: flex;
   column-gap: 20px;
-  align-items: center;
+  align-items: flex-end;
   flex-wrap: wrap;
 `;
 

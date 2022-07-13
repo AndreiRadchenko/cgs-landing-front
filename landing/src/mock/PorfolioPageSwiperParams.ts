@@ -1,7 +1,7 @@
 import { SwiperProps } from "swiper/react";
 
 const data: SwiperProps = {
-  slidesPerView: 1.3,
+  slidesPerView: 1.1,
   spaceBetween: 0,
   loop: true,
   allowTouchMove: false,
