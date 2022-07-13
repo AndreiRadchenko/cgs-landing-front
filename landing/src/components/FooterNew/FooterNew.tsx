@@ -35,7 +35,9 @@ const FooterNew = (): JSX.Element => {
             height={32}
           />
         </StyledThisComp.LogoLinkWrapper>
-        <StyledThisComp.Email>{data?.email}</StyledThisComp.Email>
+        <StyledThisComp.Email href={`mailto:${data?.email}`}>
+          {data?.email}
+        </StyledThisComp.Email>
       </StyledThisComp.FlexRowContainer>
 
       <StyledThisComp.NavList>

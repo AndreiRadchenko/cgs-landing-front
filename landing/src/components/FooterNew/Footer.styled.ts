@@ -15,7 +15,7 @@ export const FlexRowContainer = styled.div`
   display: flex;
 `;
 
-export const Email = styled.div`
+export const Email = styled.a`
   display: flex;
   align-items: center;
   margin-left: 20px;

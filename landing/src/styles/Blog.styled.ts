@@ -30,7 +30,7 @@ export const BlogItemRowContainer = styled.div`
 
 export const FlexRowContainer = styled.div`
   display: flex;
-  column-gap: 10px;
+  column-gap: 20px;
   align-items: center;
 `;
 
@@ -50,10 +50,12 @@ export const BlogContainer = styled.div`
 `;
 
 export const AllArticlesContainer = styled.div<IAllArticles>`
-  padding: 90px 25px 0;
+  padding: 90px 70px 0;
   margin-bottom: 180px;
+  max-width: 1200px;
+  width: 100%;
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin-bottom: 120px;
+    padding: 90px 30px 0;
   }
 `;
 
@@ -98,19 +100,11 @@ export const BlogItemContainer = styled.div`
   flex-direction: column;
   padding: 37px;
   border: 1px solid ${themes.primary.colors.comment};
-  width: 1200px;
-  max-width: 1400px;
-  column-gap: 25px;
+  width: 100%;
+  column-gap: 30px;
   z-index: 2;
   position: relative;
   background-color: ${themes.primary.colors.blogBackground};
-
-  @media (max-width: 1250px) {
-    max-width: 1000px;
-  }
-  @media (max-width: 1050px) {
-    max-width: 800px;
-  }
 `;
 
 export const MarginContainer = styled.div`
@@ -118,8 +112,7 @@ export const MarginContainer = styled.div`
 `;
 
 export const BlogItemContent = styled(FlexColumnContainer)`
-  max-width: 450px;
-  width: 100%;
+  width: 55%;
 `;
 
 export const NoBlogItemImage = styled.div`
@@ -135,15 +128,8 @@ export const NoBlogItemImage = styled.div`
 `;
 
 export const BlogItemImage = styled.img`
-  margin: auto;
-  max-width: 394px;
-  width: 100%;
-  @media ${themes.primary.media.maxTabletPortrait} {
-    max-width: 374px;
-  }
-  @media (max-width: 840px) {
-    max-width: 340px;
-  }
+  height: auto;
+  width: 45%;
 `;
 
 export const HoverBlock = styled.div`
@@ -637,14 +623,13 @@ export const MainContainer = styled.div`
 `;
 
 export const MainBlogItemContainer = styled(FlexColumnContainer)`
-  padding: 30px 50px;
+  padding: 30px 70px;
   width: 66.33vw;
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 35px;
+    padding: 50px;
   }
-  @media ${themes.primary.media.minLaptop} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     padding: 30px;
-    padding-right: 50px;
   }
   @media ${themes.primary.media.minPC} {
     padding: 70px;
@@ -670,9 +655,12 @@ export const MainBlogItemDescription = styled(BlogItemDescription)`
 
 export const SmallArticleItemTitle = styled(BlogItemTitle)`
   font-size: ${themes.primary.font.size.menuElement};
-  margin-top: 15px;
+  margin-top: 19px;
   &:hover {
     color: ${themes.primary.colors.darkBlue};
+  }
+  @media (min-width: 1025px) and (max-width: 1250px) {
+    font-size: 18px;
   }
 `;
 
@@ -690,6 +678,12 @@ export const SmallArticleItemDescription = styled(BlogItemDescription)`
   @media ${themes.primary.media.maxPCFullHD} {
     font-size: ${themes.primary.font.size.linkText};
   }
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    font-size: 14px;
+  }
+  @media (min-width: 1025px) and (max-width: 1250px) {
+    font-size: 15px;
+  }
 `;
 
 export const SmallArticleContainer = styled(FlexColumnContainer)`
@@ -706,8 +700,8 @@ export const SmallArticleContainer = styled(FlexColumnContainer)`
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 18px 25px 18px 20px;
   }
-  @media (min-height: 800px) and ${themes.primary.media.maxTabletLandScape} {
-    height: auto;
+  @media (min-height: 800px) and ${themes.primary.media.maxLaptop} {
+    height: 32%;
     min-height: 200px;
   }
   @media ${themes.primary.media.minPC} {
@@ -733,8 +727,4 @@ export const SliderDot = styled.div`
 export const SliderDotsContainer = styled(FlexRowContainer)`
   column-gap: 10px;
   margin-top: 20px;
-`;
-
-export const AbsoluteContainer = styled.div`
-  position: relative;
 `;

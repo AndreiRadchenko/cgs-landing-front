@@ -22,8 +22,6 @@ const AdminPortfolioContentBlock = () => {
     isNewStatus,
     setIsNewStatus,
   } = useSubmitAndDeletePortfolioPage(setCurrent);
-  console.log(values);
-
   const deleteF = () => deleteFunc(current);
   const [catValue, setCatValue] = useState(values.categories[0]);
 

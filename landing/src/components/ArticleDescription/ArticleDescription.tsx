@@ -7,8 +7,6 @@ interface IDescription {
 }
 
 const ArticleDescription: FC<IDescription> = ({ content }) => {
-  // console.log(content);
-
   return (
     <Styles.Wrapper>
       {content.map((block, index) => {
