@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Page } from "../../styles/Page.styled";
-import HeaderNav from "../../components/HeaderNav/HeaderNav";
-import Footer from "../../components/Footer/Footer";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminPortfolioPageService } from "../../services/adminPortfolioPage";
 import PortfolioSlider from "../../components/Admin/PortfolioSwipers/PortfolioSlider";
 import { IPortfolioResponse } from "../../types/Admin/AdminPortfolioPage.types";
 import * as Styled from "../../styles/AdminPage";
+import * as Styles from "../../styles/Portfolio.styled";
 import { Separator } from "../../styles/PortfolioSlider.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { IHomeData } from "../../types/Admin/Response.types";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { portfolioCategories } from "../../utils/variables";
+import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
+import FooterNew from "../../components/FooterNew/FooterNew";
 
 const Index = () => {
   const { data, isLoading, refetch }: IPortfolioResponse = useQuery(
@@ -39,27 +39,28 @@ const Index = () => {
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data ? (
-    <>
-      <Page>
-        <HeaderNav />
-      </Page>
+    <Styles.PortfolioContainer>
+      <HeaderNavNew />
+
       {isMobile || (
-        <Styled.Subtitle>
+        <Styles.OurWorkTitle>
           UR WORK OUR WORK OUR WORK OUR WORK OUR WORK OUR WORK WORK OUR WORK OUR
           WORK
-        </Styled.Subtitle>
+        </Styles.OurWorkTitle>
       )}
-      {portfolioCategories.map((category, ind) => (
-        <PortfolioSlider
-          key={ind}
-          reviews={sortByCategory(category)}
-          category={category}
-          isMobile={isMobile}
-        />
-      ))}
-      <Separator color={"#8f8e93"} />
-      <Footer />
-    </>
+      <Styles.SlidersCont>
+        {portfolioCategories.map((category, ind) => (
+          <PortfolioSlider
+            key={ind}
+            reviews={sortByCategory(category)}
+            category={category}
+            isMobile={isMobile}
+          />
+        ))}
+        <Separator color={"#8f8e93"} />
+      </Styles.SlidersCont>
+      <FooterNew />
+    </Styles.PortfolioContainer>
   ) : (
     <Styled.AdminUnauthorizedModal>
       Something went wrong :(

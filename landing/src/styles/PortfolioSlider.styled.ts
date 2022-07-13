@@ -7,39 +7,69 @@ export const NavigateLeft = styled.div`
   left: 0;
   top: 0;
   height: 100%;
-  width: 160px;
+  width: 150px;
   border-left: 1px solid ${themes.primary.colors.comment};
   color: ${themes.primary.colors.black};
   writing-mode: vertical-lr;
   transform: rotate(180deg);
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.medium};
-  font-size: ${themes.primary.font.size.bigTitle};
+  font-size: ${themes.primary.font.size.ourWorkTextBig};
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
+  background-color: ${themes.primary.colors.blogBackground};
   &:after {
     content: none;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 130px;
-    font-size: ${themes.primary.font.size.articleTitle};
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 100px;
+  }
+  @media ${themes.primary.media.minPC} {
+    font-size: ${themes.primary.font.size.ourWorkTextBig};
   }
 `;
+
 export const ProjectDescription = styled.p`
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.oneAndHalf};
-
-  letter-spacing: 1px;
-  text-overflow: ellipsis;
-  line-height: 1.3;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.tertiary};
-    margin-top: 8px;
-  }
+  font-size: ${themes.primary.font.size.reviewText};
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 180%;
   @media ${themes.primary.media.maxMobile} {
     padding: 10px;
     margin-top: 0px;
+  }
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    font-size: ${themes.primary.font.size.tertiary};
+  }
+  @media ${themes.primary.media.minPC} {
+    font-size: ${themes.primary.font.size.reviewText};
+  }
+`;
+
+export const ProjectComment = styled.p`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.projectLink};
+  color: ${themes.primary.colors.gray};
+  line-height: 160%;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  @media ${themes.primary.media.maxMobile} {
+    padding: 10px;
+    margin-top: 0px;
+  }
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    font-size: ${themes.primary.font.size.primary};
   }
 `;
 
@@ -80,7 +110,6 @@ export const ButtonInfo = styled.div<{ clicked: boolean }>`
   align-items: center;
   justify-content: space-around;
   border-bottom: 1px solid ${themes.primary.colors.comment};
-  transition: 0.2s linear;
 
   &.sticky-top {
     height: 88px;
@@ -104,6 +133,7 @@ export const Category = styled.div`
 export const PortfolioRow = styled.div`
   display: flex;
   justify-content: space-between;
+  max-height: 588px;
   position: relative;
   & .swiper {
     display: flex;
@@ -115,7 +145,7 @@ export const PortfolioRow = styled.div`
       color: ${themes.primary.colors.portfolioBg};
     }
     & * {
-      opacity: 0;
+      overflow: hidden;
       color: ${themes.primary.colors.portfolioBg};
       background-color: ${themes.primary.colors.portfolioBg};
     }
@@ -123,9 +153,6 @@ export const PortfolioRow = styled.div`
   & .swiper-slide-prev {
     color: rgba(0, 0, 0, 0.5);
     overflow: hidden;
-  }
-  & .swiper-slide {
-    transition: 1s linear;
   }
   border-top: 1px solid ${themes.primary.colors.comment};
   &:hover ${NavigateLeft} {
@@ -138,10 +165,8 @@ export const PortfolioRow = styled.div`
     border-right: 1px solid ${themes.primary.colors.comment};
     margin: 0 10px;
     &:hover ${ButtonInfo} {
+      color: ${themes.primary.colors.secondary};
       background-color: ${themes.primary.colors.darkBlue};
-      &:nth-child(1) {
-        color: ${themes.primary.colors.secondary};
-      }
     }
   }
 `;
@@ -150,14 +175,22 @@ export const NavigateRight = styled.div`
   position: absolute;
   top: 0;
   height: 100%;
-  width: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   right: 0;
-
+  width: 10%;
   @media ${themes.primary.media.maxPCFullHD} {
+    width: 8%;
+  }
+  @media ${themes.primary.media.maxLaptop} {
+    width: 7%;
+  }
+  @media (max-width: 1400px) {
+    width: 6%;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
     width: 7%;
   }
 `;
@@ -169,8 +202,8 @@ export const ReviewContainer = styled.div`
   height: 100%;
   position: relative;
   left: 160px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
   @media ${themes.primary.media.maxTabletLandScape} {
     left: 130px;
   }
@@ -180,60 +213,50 @@ export const ReviewContainer = styled.div`
     height: auto;
     grid-template-columns: 1fr;
   }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    left: 130px;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    left: 100px;
+  }
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 
 export const ImageContainer = styled.div`
+  width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   overflow: hidden;
   border-left: 1px solid ${themes.primary.colors.comment};
   border-right: 1px solid ${themes.primary.colors.comment};
-  width: 100%;
-  height: 100%;
   position: relative;
-  span {
-    width: 100% !important;
-    height: 100% !important;
-  }
-  img {
-    width: 100%;
-    height: auto;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    height: auto;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    img {
-      object-fit: cover;
-    }
-    grid-row-start: 1;
-  }
 `;
 
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 25px 30px;
+  padding: 30px;
   width: 100%;
+  max-width: 40.5vw;
   box-sizing: border-box;
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 18px 7px;
+    padding: 30px;
   }
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    padding: 8px;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    padding: 0;
+  @media ${themes.primary.media.minPC} {
+    padding: 50px;
   }
 `;
 
 export const ProjectHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
-
+  align-items: center;
   @media ${themes.primary.media.maxMobile} {
     border-top: 1px solid ${themes.primary.colors.comment};
     padding: 10px;
@@ -247,15 +270,11 @@ export const ProjectHeader = styled.div`
 `;
 
 export const PortfolioProjectHeader = styled.div`
-  font-size: ${themes.primary.font.size.quaternary};
+  font-size: ${themes.primary.font.size.reviewTitle};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.normal};
-  width: 50%;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.secondary};
-  }
-  & + button {
-    margin-top: 12px;
   }
 `;
 
@@ -279,31 +298,6 @@ export const Feedback = styled.div`
   column-gap: 20px;
   align-items: center;
   flex-wrap: wrap;
-  & + p {
-    color: ${themes.primary.colors.gray};
-    font-size: ${themes.primary.font.size.linkText};
-  }
-  @media ${themes.primary.media.onlyLaptop} {
-    & + p {
-      font-size: ${themes.primary.font.size.tertiary};
-    }
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    column-gap: 10px;
-    & + p {
-      font-size: ${themes.primary.font.size.primary};
-      margin-top: 8px;
-    }
-  }
-  @media ${themes.primary.media.maxMobile} {
-    padding: 10px;
-    display: flex;
-    & + p {
-      font-size: ${themes.primary.font.size.linkText};
-      margin-top: 8px;
-    }
-    align-items: end;
-  }
 `;
 
 export const AuthorName = styled.div`
@@ -329,4 +323,31 @@ export const CompanyName = styled.div`
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.articleSubtitle};
   }
+`;
+
+export const Star = styled.img`
+  width: 18px;
+  height: auto;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 16px;
+  }
+  @media ${themes.primary.media.minPC} {
+    width: 20px;
+  }
+`;
+
+export const StarRate = styled.div`
+  display: flex;
+  align-items: center;
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.projectLink};
+  @media ${themes.primary.media.maxLaptop} {
+    font-size: ${themes.primary.font.size.primary};
+  }
+`;
+
+export const StarCont = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
 `;

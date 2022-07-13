@@ -1,11 +1,11 @@
 import { SwiperProps } from "swiper/react";
 
 const data: SwiperProps = {
-  slidesPerView: 1.2,
+  slidesPerView: 1.3,
   spaceBetween: 0,
   loop: true,
-  allowTouchMove: true,
-  grabCursor: true,
+  allowTouchMove: false,
+  grabCursor: false,
   navigation: {
     prevEl: ".swiper-button-prev",
     nextEl: ".swiper-button-next",
