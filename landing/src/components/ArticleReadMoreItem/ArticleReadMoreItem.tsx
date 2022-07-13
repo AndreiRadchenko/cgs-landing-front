@@ -1,7 +1,6 @@
 import React from "react";
 import * as Styles from "./ArticleReadMoreItem.styled";
 import { IArticle } from "../../types/Admin/Response.types";
-import Image from "next/image";
 import viewsIcon from "../../../public/viewsIcon.svg";
 import { useRouter } from "next/router";
 
