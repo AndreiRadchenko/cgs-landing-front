@@ -23,10 +23,21 @@ export const LinkButton = styled.button`
   background-color: ${themes.primary.colors.primary};
   outline: none;
   border-radius: 0;
+  cursor: pointer;
   border: 0;
   color: ${themes.primary.colors.secondary};
   @media (max-width: 1000px) {
     font-size: ${themes.primary.font.size.quinary};
+  }
+  @media (max-width: 1300px) {
+    font-size: ${themes.primary.font.size.reviewSmallText};
+    a {
+      text-decoration: none;
+      border-bottom: 0.1px solid;
+      u {
+        text-decoration: none;
+      }
+    }
   }
 `;
 
