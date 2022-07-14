@@ -335,17 +335,17 @@ export const TicketDataContainer = styled.div`
   display: flex;
 `;
 
-export const TicketDataPosition = styled.p`
+export const TicketPosition = styled.p`
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 24px;
-  margin: 0 0 0 0;
   align-self: center;
   transform: rotate(270deg);
+  margin: 0;
 `;
 
-export const Divider = styled.hr`
+export const LeftDivider = styled.hr`
   width: 154px;
-  height: 5px;
+  height: 2.5px;
   background-color: black;
   align-self: center;
   left: 1;
@@ -355,6 +355,18 @@ export const Divider = styled.hr`
   border-radius: 5px;
 `;
 
+export const RightDivider = styled.hr`
+  width: 154px;
+  height: 2.5px;
+  background-color: black;
+  align-self: center;
+  position: absolute;
+  transform: rotate(270deg);
+  border: none;
+  border-radius: 5px;
+  right: -32px;
+`;
+
 export const TicketPositionContainer = styled.div`
   width: 100%;
 `;
@@ -362,11 +374,42 @@ export const TicketPositionContainer = styled.div`
 export const TicketPositionTitle = styled.p`
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 34px;
+  text-transform: uppercase;
   margin: 0;
+  line-height: 54px;
+  margin-top: 15px;
 `;
 
 export const TicketPositionStack = styled.p`
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 16px;
-  margin: 0;
+  font-size: 19px;
+  margin: 0 0 0 1px;
+`;
+
+export const TicketPositionStarsContainer = styled.div`
+  display: flex;
+  gap: 13px;
+  margin-top: 15px;
+`;
+
+export const TicketPositionStars = styled.img`
+  width: 34px;
+  height: 34px;
+`;
+
+export const TicketDataBackground = styled.img`
+  width: 406px;
+  height: 198px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 50px;
+`;
+
+export const TicketArrow = styled.img`
+  width: 49px;
+  height: 49px;
+  z-index: 10;
+  position: absolute;
+  right: -14px;
 `;

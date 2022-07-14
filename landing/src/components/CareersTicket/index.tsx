@@ -1,8 +1,11 @@
 import React, { FC } from "react";
 import * as Styled from "./CareersTicket.styled";
 import Link from "next/link";
-import Outer from "./outer.svg";
-import Inner from "./inner.svg";
+import Outer from "../../../public/CareerDecorations/outer.svg";
+import Inner from "../../../public/CareerDecorations/inner.svg";
+import Star from "../../../public/CareerDecorations/star.svg";
+import Background from "../../../public/CareerDecorations/background.svg";
+import Arrow from "../../../public/BlogDecorations/MainPage/Arrow.svg";
 
 interface ITicketProps {
   id?: string;
@@ -19,6 +22,7 @@ const CareersTicket: FC<ITicketProps> = ({
   const handleClick = () => {
     localStorage.setItem("vacancyId", `${id}`);
   };
+  const stars = new Array(5).fill(0);
 
   return (
     <>
@@ -41,61 +45,27 @@ const CareersTicket: FC<ITicketProps> = ({
             />
           </svg>
           <Styled.TicketDataContainer>
-            <Styled.TicketDataPosition>INTERN</Styled.TicketDataPosition>
-            <Styled.Divider />
+            <Styled.TicketPosition>INTERN</Styled.TicketPosition>
+            <Styled.LeftDivider />
             <Styled.TicketPositionContainer>
               <Styled.TicketPositionTitle>
                 BACK-END DEVELOPER
               </Styled.TicketPositionTitle>
               <Styled.TicketPositionStack>NODEJS</Styled.TicketPositionStack>
+              <Styled.TicketPositionStarsContainer>
+                {stars.map((_, idx) => (
+                  <Styled.TicketPositionStars src={Star.src} key={idx} />
+                ))}
+              </Styled.TicketPositionStarsContainer>
             </Styled.TicketPositionContainer>
+            <Styled.TicketDataBackground src={Background.src} />
+            <Styled.RightDivider />
           </Styled.TicketDataContainer>
         </Styled.TicketInnerSvgWrapper>
+        <Styled.TicketArrow src={Arrow.src} />
       </Styled.TicketContainer>
     </>
   );
-  // <Styled.TicketWrapper>
-  //   <Styled.ImageWrapper>
-  //     <Styled.BarcodeImg>
-  //       <Styled.BarcodeText>InSight CGS to Stratosphere</Styled.BarcodeText>
-  //     </Styled.BarcodeImg>
-  //     <Styled.RocketImg imgUrl={imgUrl}>
-  //       {route ? (
-  //         <Link href="/lets-go">
-  //           <a onClick={handleClick}>
-  //             <Styled.Button />
-  //           </a>
-  //         </Link>
-  //       ) : (
-  //         <Styled.Button />
-  //       )}
-  //     </Styled.RocketImg>
-  //   </Styled.ImageWrapper>
-  //   <Styled.CareersWrapper>
-  //     <Styled.CareersHeader>
-  //       <Styled.Logo src="/logo.svg" />
-  //       <Styled.HeaderText>M2M142989575714</Styled.HeaderText>
-  //     </Styled.CareersHeader>
-  //     <Styled.TicketText>BOARDING PASS: CGS 2022</Styled.TicketText>
-  //     <Styled.BottomContainer>
-  //       <Styled.BottomTitle>{vacancy}</Styled.BottomTitle>
-  //       <Styled.BottomList>
-  //         <Styled.ListWrapper>
-  //           <Styled.BottomText>LAUNCH SITE</Styled.BottomText>
-  //           <Styled.SubTitle>CGS SLACK WORKSPACE</Styled.SubTitle>
-  //         </Styled.ListWrapper>
-  //         <Styled.ListWrapper>
-  //           <Styled.BottomText>ARRIVAL SITE</Styled.BottomText>
-  //           <Styled.SubTitle>THE STRATOSPHERE</Styled.SubTitle>
-  //         </Styled.ListWrapper>
-  //         <Styled.ListWrapper>
-  //           <Styled.BottomText>ROCKET</Styled.BottomText>
-  //           <Styled.SubTitle>ATLAS V-541</Styled.SubTitle>
-  //         </Styled.ListWrapper>
-  //       </Styled.BottomList>
-  //     </Styled.BottomContainer>
-  //   </Styled.CareersWrapper>
-  // </Styled.TicketWrapper>
 };
 
 export default CareersTicket;
