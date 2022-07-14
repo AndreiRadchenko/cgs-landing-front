@@ -56,15 +56,15 @@ export const ListItemNav = styled.a`
   border-left: 1px solid ${themes.primary.colors.headerBorder};
   cursor: pointer;
   transition: 300ms;
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    font-size: 1.35em;
-  }
   @media ${themes.primary.media.onlyTabletPortrait} {
     font-size: 1.3em;
     padding: 0.5rem 2.5rem;
   }
   @media ${themes.primary.media.maxMobile} {
     display: none;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 14px;
   }
   &:hover {
     transition: 0.3s;
@@ -112,6 +112,9 @@ export const DropdownElement = styled.div`
       transition: 0.3s;
       border-right: 1.5px solid ${themes.primary.colors.primary} !important;
       border-bottom: 7px solid ${themes.primary.colors.primary} !important;
+    }
+    @media ${themes.primary.media.maxTabletLandScape} {
+      font-size: 14px;
     }
   }
 
