@@ -53,7 +53,7 @@ const HeaderNavNew = (): JSX.Element => {
           </Link>
         ))}
       </BurgerMenu>
-      <StyledThisComp.LogoLinkWrapper href={routersNew[0]}>
+      <StyledThisComp.LogoLinkWrapper href={"/"}>
         <ImagePreview
           src={logo}
           alt={"logo cgs-team"}
