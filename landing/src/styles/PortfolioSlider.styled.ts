@@ -238,6 +238,9 @@ export const ContentContainer = styled.div`
   @media ${themes.primary.media.minPC} {
     padding: 50px;
   }
+  @media (min-width: 1100px) {
+    justify-content: center;
+  }
 `;
 
 export const ProjectHeader = styled.div`
