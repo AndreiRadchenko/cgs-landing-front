@@ -98,7 +98,7 @@ const ContentBlock: FC<IArticles> = ({
       );
       await updateViews({ allViews: updatedViews });
     }
-
+    values.newArticle.tags = values.articles[article].tags.filter((tag) => tag !== "");
     await mutateAsync(values);
     setArticle(0);
     setIsNewArticle(true);
@@ -145,6 +145,7 @@ const ContentBlock: FC<IArticles> = ({
       ];
       await updateViews({ allViews: updatedViews });
     }
+    values.newArticle.tags = values.newArticle.tags.filter((tag) => tag !== "");
     values.newArticle.meta.metaTitle === ""
       ? (values.newArticle.meta.metaTitle =
           values.newArticle.title.length > META_TITLE_MAX

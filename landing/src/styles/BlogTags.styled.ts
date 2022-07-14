@@ -30,12 +30,22 @@ export const Tag = styled.input`
 `;
 
 export const AddTag = styled.div`
+  margin-left: 10px;
   width: 58px;
   height: 58px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 2px dashed ${themes.primary.colors.black};
+  cursor: pointer;
+  &:first-child {
+    margin-left: 0;
+  }
 `;
 
 export const PlusIcon = styled.img``;
+
+export const Minus = styled.div`
+  font-size: 35px;
+  font-weight: ${themes.primary.font.weight.medium};
+`;
