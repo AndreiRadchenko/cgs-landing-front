@@ -43,29 +43,11 @@ export const LogoLinkWrapper = styled.a`
   }
 `;
 
-export const CompanyNameText = styled.div`
-  line-height: 120%;
-  font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.quinary};
-  color: ${themes.primary.colors.primary};
-`;
-
-export const BurgerLinkWrapper = styled.a`
-  transition: 200ms;
-  width: 40%;
-  margin-left: 1.5em;
-  margin-right: auto;
-  font-size: 2.5em;
-  font-weight: ${themes.primary.font.weight.extraBold};
-  margin-top: 0.8462em;
-  cursor: pointer;
-`;
-
 export const ListItemNav = styled.a`
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.headerLinkText};
-  padding: 0 3rem;
+  padding: 10px 3rem;
   max-width: 150px;
   display: flex;
   justify-content: center;
@@ -74,13 +56,15 @@ export const ListItemNav = styled.a`
   cursor: pointer;
   transition: 300ms;
   @media ${themes.primary.media.maxTabletPortrait} {
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1.8rem;
   }
   @media ${themes.primary.media.maxMobile} {
     display: none;
   }
   &:hover {
-    background-color: ${themes.primary.colors.headerBorderHover};
+    transition: 0.3s linear;
+    border-right: 1.5px solid ${themes.primary.colors.primary} !important;
+    border-bottom: 7px solid ${themes.primary.colors.primary} !important;
   }
 `;
 
@@ -94,8 +78,8 @@ export const NavList = styled.menu`
 `;
 
 export const LinkText = styled.img`
-  max-width: 30px;
   height: auto;
+  width: 100%;
   @media ${themes.primary.media.maxTabletPortrait} {
     max-width: 20px;
   }
