@@ -1,40 +1,22 @@
 import React, { FC } from "react";
-import { useField } from "formik";
-import { TextFieldProps } from "@mui/material";
 import * as Styled from "./FormField.styled";
 
 interface IFieldProps {
   name: string;
   label: string;
-  handleChange: any;
   type?: string;
 }
 
 const TextFieldWrapper: FC<IFieldProps> = ({
   name,
   label,
-  handleChange,
-  type,
+  type = "text",
 }: IFieldProps) => {
-  const [field, meta] = useField<string>(name);
-
-  const configTextField: TextFieldProps = {
-    ...field,
-    label: label,
-    type: type,
-    fullWidth: true,
-    variant: "standard",
-    onChange: handleChange,
-  };
-
-  if (meta && meta.touched && meta.error) {
-    configTextField.error = true;
-    configTextField.helperText = meta.error;
-  }
-
   return (
     <>
-      <Styled.Field {...configTextField} />
+      <Styled.FormFieldContainer>
+        <Styled.FormField placeholder={label} type={type} name={name} />
+      </Styled.FormFieldContainer>
     </>
   );
 };
