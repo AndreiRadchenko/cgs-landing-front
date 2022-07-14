@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /Admin
 Sitemap: https://cgsteam.io/sitemap.xml
