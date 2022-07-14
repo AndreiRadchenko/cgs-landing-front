@@ -132,8 +132,8 @@ const ArticlePage = () => {
     <>
       <Head>
         <title>{article.meta.metaTitle}</title>
-        <meta name="description" content={article.meta.metaTitle} />
-        {article.meta.metaTitle && parse(article.meta.metaTitle)}
+        <meta name="description" content={article.meta.metaDescription} />
+        {article.meta.customHead && parse(article.meta.customHead)}
       </Head>
       <Styles.Background>
         <HeaderNavNew />
