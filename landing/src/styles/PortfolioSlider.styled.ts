@@ -40,8 +40,11 @@ export const ProjectDescription = styled.p`
     padding: 10px;
     margin-top: 0px;
   }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.reviewSmallText};
+  @media (max-width: 1199px) {
+    font-size: 15px;
+  }
+  @media (max-width: 1140px) {
+    font-size: 14px;
   }
 `;
 
@@ -59,8 +62,11 @@ export const ProjectComment = styled.p`
     padding: 10px;
     margin-top: 0px;
   }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.reviewSmallText};
+  @media (max-width: 1199px) {
+    font-size: 15px;
+  }
+  @media (max-width: 1140px) {
+    font-size: 14px;
   }
 `;
 
@@ -77,8 +83,11 @@ export const ViewMoreText = styled.div`
   color: ${themes.primary.colors.darkBlue};
   column-gap: 5px;
   margin-bottom: 5px;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.reviewSmallText};
+  @media (max-width: 1140px) {
+    font-size: 14px;
+  }
+  @media (max-width: 1199px) {
+    font-size: 15px;
   }
 `;
 
