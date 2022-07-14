@@ -15,20 +15,28 @@ import HowWeWorkList from "../components/HowWeWorkList/HowWeWorkList";
 import YesBegin from "../components/YesBegin/YesBegin";
 import Footer from "../components/Footer/Footer";
 import { useScrollTo } from "../hooks/useScrollTo";
-import { useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../consts/queryKeys";
 import { adminGlobalService } from "../services/adminHomePage";
 import { IDataResponse } from "../types/Admin/Response.types";
-import { IPortfolioResponse } from "../types/Admin/AdminPortfolio";
 
 interface IHomeData {
   data: IDataResponse | undefined;
   isLoading: boolean;
 }
 
-interface IPortfolioData {
-  data: IPortfolioResponse | undefined;
-  isLoading: boolean;
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 }
 
 const Home: NextPage = () => {
@@ -39,10 +47,7 @@ const Home: NextPage = () => {
     queryKeys.getFullHomePage,
     () => adminGlobalService.getFullPage()
   );
-
-  const portfolioData: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
-    adminGlobalService.getPortfolio()
-  );
+  useQuery(queryKeys.getPortfolio, () => adminGlobalService.getPortfolio());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 

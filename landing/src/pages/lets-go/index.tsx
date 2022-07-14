@@ -7,14 +7,27 @@ import Footer from "../../components/Footer/Footer";
 import { NextPage } from "next";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import LetsGoForm from "../../components/LetsGoForm";
-import { useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminVacancyService } from "../../services/adminVacancyPage";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { VacancyProps } from "../../types/Admin//AdminVacancy.types";
-import { IHomeData } from "../../types/Admin/Response.types";
 import { CareersProps } from "../../types/Admin/Admin.types";
 import { adminCareersService } from "../../services/adminCareersPage";
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.getVacancyPage, () =>
+    adminVacancyService.getFullPage("")
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 
 const LetsGo: NextPage = () => {
   const [id, setId] = useState("");
@@ -31,9 +44,7 @@ const LetsGo: NextPage = () => {
     () => adminVacancyService.getFullPage(id)
   );
 
-  const homeData: IHomeData = useQuery(queryKeys.getFullHomePage, () =>
-    adminGlobalService.getFullPage()
-  );
+  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
   const { contact } = { ...data };
 

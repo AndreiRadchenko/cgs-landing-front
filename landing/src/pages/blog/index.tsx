@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import parse from "html-react-parser";
-import { useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import { IArticle, IBlogResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import PaginationBar from "../../components/PaginationBar/PaginationBar";
@@ -26,6 +26,27 @@ import { isNumeric } from "../../utils/isNumeric";
 interface IBlogData {
   data: IBlogResponse | undefined;
   isLoading: boolean;
+}
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.getBlogPage, () =>
+    adminBlogService.getBlogPage()
+  );
+
+  await queryClient.prefetchQuery(queryKeys.views, () =>
+    adminBlogService.getViews()
+  );
+
+  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 }
 
 const PageSize = 4;
@@ -102,7 +123,7 @@ const BlogPage = () => {
         ?.views;
   };
 
-  return data && currentArticlesData && views.data && reversedArticles ? (
+  return data && views.data ? (
     <>
       <Head>
         <title>{metaTitle}</title>
@@ -112,21 +133,28 @@ const BlogPage = () => {
       <HeaderNavNew />
       <Styled.BlogContainer>
         <Styled.LeftLine src={leftLine.src} />
-        <Styled.RightLine
-          src={rightLine.src}
-          articles={currentArticlesData.length}
-        />
+        {currentArticlesData && (
+          <Styled.RightLine
+            src={rightLine.src}
+            articles={currentArticlesData.length}
+          />
+        )}
         <Styled.HeaderBlock>
           <Styled.MainContainer>
-            <MainBlogItem
-              article={reversedArticles[0]}
-              views={findViews(reversedArticles[0].url)}
-            />
+            {reversedArticles && (
+              <MainBlogItem
+                article={reversedArticles[0]}
+                views={findViews(reversedArticles[0].url)}
+              />
+            )}
           </Styled.MainContainer>
           <Styled.FlexColumnContainer>
-            {reversedArticles.slice(1, 4).map((article) => (
-              <SmallArticleItem article={article} key={article._id} />
-            ))}
+            {reversedArticles &&
+              reversedArticles
+                .slice(1, 4)
+                .map((article) => (
+                  <SmallArticleItem article={article} key={article._id} />
+                ))}
           </Styled.FlexColumnContainer>
         </Styled.HeaderBlock>
         <Styled.Separator />
@@ -148,13 +176,14 @@ const BlogPage = () => {
               isTag={true}
             />
           </Styled.DropdownContainer>
-          {currentArticlesData.map((article) => (
-            <BlogItem
-              article={article}
-              key={article._id}
-              views={findViews(article.url)}
-            />
-          ))}
+          {currentArticlesData &&
+            currentArticlesData.map((article) => (
+              <BlogItem
+                article={article}
+                key={article._id}
+                views={findViews(article.url)}
+              />
+            ))}
           <PaginationBar
             currentPage={currentPage}
             totalCount={data.articles.length}
