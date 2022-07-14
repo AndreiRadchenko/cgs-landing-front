@@ -120,6 +120,9 @@ export interface ITicket {
   vacancy: string;
   image: { url: string };
   _id?: string;
+  stack: string[];
+  position: string;
+  stars: number;
 }
 
 export interface IForm {

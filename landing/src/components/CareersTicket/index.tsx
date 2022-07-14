@@ -1,28 +1,34 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import * as Styled from "./CareersTicket.styled";
-import Link from "next/link";
 import Outer from "../../../public/CareerDecorations/outer.svg";
-import Inner from "../../../public/CareerDecorations/inner.svg";
 import Star from "../../../public/CareerDecorations/star.svg";
 import Background from "../../../public/CareerDecorations/background.svg";
 import Arrow from "../../../public/BlogDecorations/MainPage/Arrow.svg";
+import TicketModal from "../Careers/TicketModal";
 
 interface ITicketProps {
-  id?: string;
   vacancy: string;
-  imgUrl: string;
-  route: boolean;
+  position: string;
+  stack: string[];
+  stars: number;
 }
 const CareersTicket: FC<ITicketProps> = ({
-  id,
   vacancy,
-  imgUrl,
-  route,
+  position,
+  stack,
+  stars: starsCount,
 }: ITicketProps) => {
-  const handleClick = () => {
-    localStorage.setItem("vacancyId", `${id}`);
-  };
+  const [isOpen, setIsOpen] = useState(false);
+
   const stars = new Array(5).fill(0);
+
+  const onTicketView = () => {
+    setIsOpen(true);
+  };
+
+  const uuid = (Math.random() + 1).toString(36).substring(7);
+  const fromYou = new Array(10).fill("Hello");
+  const fromUs = new Array(5).fill("World");
 
   return (
     <>
@@ -45,16 +51,19 @@ const CareersTicket: FC<ITicketProps> = ({
             />
           </svg>
           <Styled.TicketDataContainer>
-            <Styled.TicketPosition>INTERN</Styled.TicketPosition>
+            <Styled.TicketPosition>{position}</Styled.TicketPosition>
             <Styled.LeftDivider />
             <Styled.TicketPositionContainer>
-              <Styled.TicketPositionTitle>
-                BACK-END DEVELOPER
-              </Styled.TicketPositionTitle>
-              <Styled.TicketPositionStack>NODEJS</Styled.TicketPositionStack>
+              <Styled.TicketPositionTitle>{vacancy}</Styled.TicketPositionTitle>
+              <Styled.TicketPositionStack>
+                {stack.join(", ")}
+              </Styled.TicketPositionStack>
               <Styled.TicketPositionStarsContainer>
                 {stars.map((_, idx) => (
-                  <Styled.TicketPositionStars src={Star.src} key={idx} />
+                  <Styled.TicketPositionStars
+                    src={Star.src}
+                    key={`${idx + uuid}`}
+                  />
                 ))}
               </Styled.TicketPositionStarsContainer>
             </Styled.TicketPositionContainer>
@@ -62,7 +71,13 @@ const CareersTicket: FC<ITicketProps> = ({
             <Styled.RightDivider />
           </Styled.TicketDataContainer>
         </Styled.TicketInnerSvgWrapper>
-        <Styled.TicketArrow src={Arrow.src} />
+        <Styled.TicketArrow src={Arrow.src} onClick={onTicketView} />
+        <TicketModal
+          isOpen={isOpen}
+          setIsOpen={(arg) => setIsOpen(arg)}
+          fromUs={fromUs}
+          fromYou={fromYou}
+        />
       </Styled.TicketContainer>
     </>
   );
