@@ -234,10 +234,12 @@ export interface IArticle {
   title: string;
   description: string;
   author: IAuthor;
+  updatedOn: string;
   date: string;
   minutesToRead: number;
   content: ITextBlog[];
   tags: string[];
+  disabled: boolean;
   meta: IMetaBlock;
 }
 

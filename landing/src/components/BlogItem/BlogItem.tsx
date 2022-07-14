@@ -1,7 +1,6 @@
 import React from "react";
 
 import * as Styles from "./BlogItem.styled";
-import Link from "next/link";
 
 interface IBlogItemProps {
   title: string;
