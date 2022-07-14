@@ -59,7 +59,7 @@ const PublishedArticles: FC<IArticles> = ({
   const deleteArticle = async (i: number) => {
     if (views) {
       const allViews = views.allViews.filter(
-        (view) => view.articleUrl !== values.articles[article].url
+        (view) => view.articleUrl !== values.articles[i].url
       );
       await updateViews({ allViews: allViews });
     }
