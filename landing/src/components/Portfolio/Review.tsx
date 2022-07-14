@@ -7,6 +7,7 @@ import emptyStar from "../../../public/emptyStar.svg";
 import halfStar from "../../../public/halfStar.svg";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { StarCont } from "../../styles/PortfolioSlider.styled";
+import portfolioArrow from "../../../public/portfolioArrow.svg";
 
 interface IReviewProps {
   review: IPortfolioReview;
@@ -42,7 +43,11 @@ const Review = ({ review }: IReviewProps) => {
             <Styled.PortfolioProjectHeader>
               {review.title}
             </Styled.PortfolioProjectHeader>
-            <Styles.LinkButton>project link</Styles.LinkButton>
+            <Styles.LinkButton>
+              <a href={review.button}>
+                {width && width < 1300 ? "link" : "project link"}
+              </a>
+            </Styles.LinkButton>
           </Styled.ProjectHeader>
           <Styled.ProjectDescription>{review.text}</Styled.ProjectDescription>
           <Styled.Separator />
@@ -63,6 +68,10 @@ const Review = ({ review }: IReviewProps) => {
           <Styled.ProjectComment>
             {review.feedback?.feedbackText}
           </Styled.ProjectComment>
+          <Styled.ViewMoreContainer>
+            <Styled.ViewMoreText>view more</Styled.ViewMoreText>
+            <Styled.ViewMoreArrow src={portfolioArrow.src} />
+          </Styled.ViewMoreContainer>
         </Styled.ContentContainer>
         {(review?.image && (
           <Styled.ImageContainer>
