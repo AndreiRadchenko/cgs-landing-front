@@ -13,6 +13,7 @@ import backButton from "../../../../public/arrowPortfolioBack.svg";
 import nextButton from "../../../../public/arrowPortfolioNext.svg";
 import nextButtonHover from "../../../../public/arrowPortfolioNextHover.svg";
 import backButtonHover from "../../../../public/arrowPortfolioBackHover.svg";
+import { useWindowDimension } from "../../../hooks/useWindowDimension";
 
 interface IPortfolioSwipers {
   reviews: IPortfolioReview[] | undefined;
@@ -81,17 +82,17 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
       <Styled.PortfolioRow>
         {isMobile ? (
           <>
-            <Styled.ButtonInfo
-              clicked={isShow}
-              ref={navRef}
-              className={isOnTop ? "sticky-top" : undefined}
-            >
-              <Styled.Category>{category}</Styled.Category>
-              <TriangleButton
-                onClick={() => setIsShow(() => !isShow)}
-                isClicked={isShow}
-              />
-            </Styled.ButtonInfo>
+            {/*<Styled.ButtonInfo*/}
+            {/*  clicked={isShow}*/}
+            {/*  ref={navRef}*/}
+            {/*  className={isOnTop ? "sticky-top" : undefined}*/}
+            {/*>*/}
+            {/*  <Styled.Category>{category}</Styled.Category>*/}
+            {/*  <TriangleButton*/}
+            {/*    onClick={() => setIsShow(() => !isShow)}*/}
+            {/*    isClicked={isShow}*/}
+            {/*  />*/}
+            {/*</Styled.ButtonInfo>*/}
             {isShow &&
               (reviews ? (
                 renderSliderSlides

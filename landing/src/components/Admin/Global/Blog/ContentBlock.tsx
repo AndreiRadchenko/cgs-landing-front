@@ -32,6 +32,7 @@ interface IArticles {
   setArticle: React.Dispatch<React.SetStateAction<number>>;
   data: IBlogResponse;
 }
+
 const TITLE_MIN = 10;
 const TITLE_MAX = 60;
 const DESCRIPTION_MIN = 20;
@@ -39,6 +40,7 @@ const DESCRIPTION_MAX = 160;
 
 const META_TITLE_MAX = 60;
 const META_DESCRIPTION_MAX = 160;
+
 const ContentBlock: FC<IArticles> = ({
   isNewArticle,
   setArticle,
@@ -51,7 +53,7 @@ const ContentBlock: FC<IArticles> = ({
   const { values, handleSubmit, handleChange } =
     useFormikContext<IBlogResponse>();
   const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
-
+  const [disabled, setDisabled] = useState<boolean>(false);
   const { mutateAsync } = useMutation(
     queryKeys.updateBlogPage,
     (dataToUpdate: IBlogResponse) =>
@@ -67,6 +69,14 @@ const ContentBlock: FC<IArticles> = ({
     queryKeys.postArticle,
     (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
   );
+
+  useEffect(() => {
+    setDisabled(
+      isNewArticle
+        ? values.newArticle.disabled
+        : values.articles[article].disabled
+    );
+  }, [isNewArticle, values.newArticle.disabled, values.articles, article]);
 
   useEffect(() => {
     setDescLength(
@@ -98,10 +108,13 @@ const ContentBlock: FC<IArticles> = ({
       );
       await updateViews({ allViews: updatedViews });
     }
-
+    values.newArticle.tags = values.articles[article].tags.filter(
+      (tag) => tag !== ""
+    );
     await mutateAsync(values);
     setArticle(0);
     setIsNewArticle(true);
+    setDisabled(false);
     values.articles[article].meta.metaTitle === ""
       ? ((values.articles[article].meta.metaTitle =
           values.articles[article].title.length > META_TITLE_MAX
@@ -145,6 +158,8 @@ const ContentBlock: FC<IArticles> = ({
       ];
       await updateViews({ allViews: updatedViews });
     }
+    values.newArticle.disabled = disabled;
+    values.newArticle.tags = values.newArticle.tags.filter((tag) => tag !== "");
     values.newArticle.meta.metaTitle === ""
       ? (values.newArticle.meta.metaTitle =
           values.newArticle.title.length > META_TITLE_MAX
@@ -168,11 +183,14 @@ const ContentBlock: FC<IArticles> = ({
       author: { name: "", image: { url: "" }, specialization: "" },
       description: "",
       tags: [""],
+      disabled: false,
       date: "",
+      updatedOn: "",
       minutesToRead: 0,
       meta: { metaTitle: "", metaDescription: "", customHead: "" },
     };
     await postArticle(articleToAdd);
+    setDisabled(false);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
@@ -342,6 +360,21 @@ const ContentBlock: FC<IArticles> = ({
                   header={"Date"}
                   type={"date"}
                 />
+                <InputWithType
+                  header="Updated On"
+                  name={
+                    isNewArticle
+                      ? "newArticle.updatedOn"
+                      : `articles[${article}].updatedOn`
+                  }
+                  onChange={handleChange}
+                  type={"date"}
+                  value={
+                    isNewArticle
+                      ? values.newArticle.updatedOn
+                      : values.articles[article].updatedOn
+                  }
+                />
               </Styles.Column>
               <Styles.Column>
                 <SubHeaderWithInput
@@ -399,6 +432,7 @@ const ContentBlock: FC<IArticles> = ({
             maxWidth="324px"
           />
         </Styles.BigWrapper>
+
         <ArticleBlock isNewArticle={isNewArticle} article={article} />
         <Styles.AdminSubTitle>Tags</Styles.AdminSubTitle>
         <BlogTags isNewArticle={isNewArticle} article={article} />
@@ -414,7 +448,7 @@ const ContentBlock: FC<IArticles> = ({
             type={"submit"}
             onClick={isNewArticle ? createArticle : updateArticle}
           >
-            {isNewArticle ? "Post" : "Edit Article"}
+            {`${isNewArticle ? "Save" : "Edit"} Article`}
           </TicketsButton>
         </Styles.SubmitButtonWrapper>
         <PublishedArticles
@@ -424,6 +458,7 @@ const ContentBlock: FC<IArticles> = ({
           article={article}
           setArticle={setArticle}
           setIsNewArticle={setIsNewArticle}
+          disabled={disabled}
         />
         <Styled.AdminBigButton type={"submit"} onClick={updateArticle}>
           {"Update order"}

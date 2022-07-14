@@ -59,11 +59,21 @@ const BlogTags: FC<IBlogTags> = ({ isNewArticle, article }) => {
     isNewArticle ? newArticleCase() : editArticleCase();
   };
 
+  const deleteItem = () => {
+    setTagList(tagList.slice(0, -1));
+    isNewArticle
+      ? values.newArticle.tags.pop()
+      : values.articles[article].tags.pop();
+  };
+
   return (
     <Styles.TagsWrapper>
       {tagList}
-      <Styles.AddTag>
-        <Styles.PlusIcon src={Plus.src} onClick={addTagOnClick} />
+      <Styles.AddTag onClick={addTagOnClick}>
+        <Styles.PlusIcon src={Plus.src} />
+      </Styles.AddTag>
+      <Styles.AddTag onClick={deleteItem}>
+        <Styles.Minus>-</Styles.Minus>
       </Styles.AddTag>
     </Styles.TagsWrapper>
   );

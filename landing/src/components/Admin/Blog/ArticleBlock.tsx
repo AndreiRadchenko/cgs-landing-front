@@ -63,6 +63,9 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
 
   const deleteItem = () => {
     setBlocks(blocks.slice(0, -1));
+    isNewArticle
+      ? values.newArticle.content.pop()
+      : values.articles[article].content.pop();
   };
 
   const newArticleSubtitle = (index: number): JSX.Element => (

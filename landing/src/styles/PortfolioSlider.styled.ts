@@ -7,7 +7,7 @@ export const NavigateLeft = styled.div`
   left: 0;
   top: 0;
   height: 100%;
-  width: 150px;
+  width: 10vw;
   border-left: 1px solid ${themes.primary.colors.comment};
   color: ${themes.primary.colors.black};
   writing-mode: vertical-lr;
@@ -23,12 +23,6 @@ export const NavigateLeft = styled.div`
   &:after {
     content: none;
   }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 130px;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    width: 100px;
-  }
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.ourWorkTextBig};
   }
@@ -41,36 +35,65 @@ export const ProjectDescription = styled.p`
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 180%;
+  line-height: 170%;
   @media ${themes.primary.media.maxMobile} {
     padding: 10px;
     margin-top: 0px;
   }
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    font-size: ${themes.primary.font.size.tertiary};
+  @media (max-width: 1199px) {
+    font-size: 15px;
   }
-  @media ${themes.primary.media.minPC} {
-    font-size: ${themes.primary.font.size.reviewText};
+  @media (max-width: 1140px) {
+    font-size: 14px;
   }
 `;
 
 export const ProjectComment = styled.p`
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.projectLink};
+  font-size: ${themes.primary.font.size.reviewText};
   color: ${themes.primary.colors.gray};
   line-height: 160%;
   margin-bottom: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   @media ${themes.primary.media.maxMobile} {
     padding: 10px;
     margin-top: 0px;
   }
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    font-size: ${themes.primary.font.size.primary};
+  @media (max-width: 1199px) {
+    font-size: 15px;
   }
+  @media (max-width: 1140px) {
+    font-size: 14px;
+  }
+`;
+
+export const ViewMoreContainer = styled.div`
+  margin-top: 5px;
+  display: flex;
+  column-gap: 5px;
+  cursor: pointer;
+`;
+
+export const ViewMoreText = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.reviewText};
+  color: ${themes.primary.colors.darkBlue};
+  column-gap: 5px;
+  margin-bottom: 5px;
+  @media (max-width: 1140px) {
+    font-size: 14px;
+  }
+  @media (max-width: 1199px) {
+    font-size: 15px;
+  }
+`;
+
+export const ViewMoreArrow = styled.img`
+  width: 18px;
+  height: auto;
 `;
 
 export const NoRewiews = styled.div`
@@ -132,26 +155,12 @@ export const Category = styled.div`
 
 export const PortfolioRow = styled.div`
   display: flex;
-  justify-content: space-between;
+  width: 100%;
   max-height: 588px;
   position: relative;
   & .swiper {
     display: flex;
     flex-direction: column-reverse;
-  }
-  & .swiper-slide-next {
-    color: ${themes.primary.colors.portfolioBg};
-    & ${ProjectDescription} {
-      color: ${themes.primary.colors.portfolioBg};
-    }
-    & * {
-      overflow: hidden;
-      color: ${themes.primary.colors.portfolioBg};
-      background-color: ${themes.primary.colors.portfolioBg};
-    }
-    img {
-      opacity: 0;
-    }
   }
   & .swiper-slide-prev {
     color: rgba(0, 0, 0, 0.5);
@@ -167,10 +176,6 @@ export const PortfolioRow = styled.div`
     border-left: 1px solid ${themes.primary.colors.comment};
     border-right: 1px solid ${themes.primary.colors.comment};
     margin: 0 10px;
-    &:hover ${ButtonInfo} {
-      color: ${themes.primary.colors.secondary};
-      background-color: ${themes.primary.colors.darkBlue};
-    }
   }
 `;
 
@@ -183,19 +188,7 @@ export const NavigateRight = styled.div`
   justify-content: center;
   flex-direction: column;
   right: 0;
-  width: 10%;
-  @media ${themes.primary.media.maxPCFullHD} {
-    width: 8%;
-  }
-  @media ${themes.primary.media.maxLaptop} {
-    width: 7%;
-  }
-  @media (max-width: 1400px) {
-    width: 6%;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 7%;
-  }
+  width: 8vw;
 `;
 
 export const ReviewContainer = styled.div`
@@ -203,24 +196,17 @@ export const ReviewContainer = styled.div`
     background-color: ${themes.primary.colors.cyanBlue};
   }
   height: 100%;
+  max-width: 81vw;
   position: relative;
-  left: 160px;
+  left: 10vw;
+  right: 9vw;
   display: flex;
   justify-content: space-between;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    left: 130px;
-  }
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     left: 0;
     height: auto;
     grid-template-columns: 1fr;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    left: 130px;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    left: 100px;
   }
 `;
 
@@ -230,7 +216,7 @@ export const Image = styled.img`
 `;
 
 export const ImageContainer = styled.div`
-  width: 50%;
+  width: 60%;
   display: flex;
   justify-content: right;
   align-items: center;
@@ -244,14 +230,16 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px;
-  width: 50%;
-  //max-width: 40.5vw;
+  width: 45%;
   box-sizing: border-box;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 30px;
+  @media (max-width: 1250px) {
+    padding: 17px 15px;
   }
   @media ${themes.primary.media.minPC} {
     padding: 50px;
+  }
+  @media (min-width: 1100px) {
+    justify-content: center;
   }
 `;
 
@@ -279,6 +267,9 @@ export const PortfolioProjectHeader = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.secondary};
   }
+  @media (max-width: 1250px) {
+    font-size: 26px;
+  }
 `;
 
 export const Separator = styled.div`
@@ -299,8 +290,11 @@ export const Separator = styled.div`
 export const Feedback = styled.div`
   display: flex;
   column-gap: 20px;
-  align-items: center;
+  align-items: flex-end;
   flex-wrap: wrap;
+  @media (max-width: 1250px) {
+    column-gap: 10px;
+  }
 `;
 
 export const AuthorName = styled.div`
@@ -312,6 +306,9 @@ export const AuthorName = styled.div`
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.articleTagDescription};
+  }
+  @media (max-width: 1250px) {
+    font-size: 18px;
   }
 `;
 
@@ -331,26 +328,16 @@ export const CompanyName = styled.div`
 export const Star = styled.img`
   width: 18px;
   height: auto;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 16px;
+  @media (max-width: 1250px) {
+    width: 15px;
   }
   @media ${themes.primary.media.minPC} {
     width: 20px;
   }
 `;
 
-export const StarRate = styled.div`
-  display: flex;
-  align-items: center;
-  font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.projectLink};
-  @media ${themes.primary.media.maxLaptop} {
-    font-size: ${themes.primary.font.size.primary};
-  }
-`;
-
 export const StarCont = styled.div`
   display: flex;
-  align-items: center;
+  margin-bottom: 3px;
   column-gap: 6px;
 `;

@@ -39,6 +39,7 @@ const themes = {
         heavy: 900,
       },
       size: {
+        reviewSmallText: "1.03em",
         hexadecimal: "0.375em",
         septenary: "0.6em",
         quinary: "0.72em",

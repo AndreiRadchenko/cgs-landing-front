@@ -27,7 +27,7 @@ const FooterNew = (): JSX.Element => {
   return (
     <StyledThisComp.HeaderNavContainer>
       <StyledThisComp.FlexRowContainer>
-        <StyledThisComp.LogoLinkWrapper href={routersNew[0]}>
+        <StyledThisComp.LogoLinkWrapper href={"/"}>
           <ImagePreview
             src={logo}
             alt={"logo cgs-team"}
