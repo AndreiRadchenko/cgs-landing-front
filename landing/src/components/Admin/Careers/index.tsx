@@ -28,6 +28,8 @@ import {
 import { useMutation } from "react-query";
 import { adminCareersService } from "../../../services/adminCareersPage";
 import { queryKeys } from "../../../consts/queryKeys";
+import AdminStars from "../FeedbackBlock/AdminStars";
+import Stack from "../../CareersStack/Stack";
 
 interface ICareers {
   isNewTicket: boolean;
@@ -44,15 +46,21 @@ const Careers = ({
 }: ICareers) => {
   const { values, handleChange, handleSubmit } =
     useFormikContext<IDataCareersResponse>();
+  const starsChange = (newValue: number) =>
+    values.vacancy && (values.vacancy.stars = newValue);
+  const starsEditChange = (newValue: number) =>
+    values.vacancy && (values.tickets[ticket].stars = newValue);
 
   const { mutateAsync } = useMutation(
     queryKeys.deleteTicketAndVacancy,
     (id: string) => adminCareersService.deleteTicketAndVacancy(id)
   );
 
-  const deleteTicket = () => {
+  console.log(values.vacancy);
+
+  const deleteTicket = async () => {
     const id = values.tickets[ticket].id;
-    mutateAsync(id);
+    await mutateAsync(id);
     values.tickets.splice(ticket, 1);
     setTicket(0);
     handleSubmit();
@@ -61,7 +69,6 @@ const Careers = ({
   return (
     <Styled.AdminPaddedBlock theme="light">
       <Styled.AdminHeader>Careers</Styled.AdminHeader>
-
       <MainContainer>
         <CareersContainer>
           <SubTitle>Subtitle</SubTitle>
@@ -74,33 +81,41 @@ const Careers = ({
           <SubTitle>Add a new ticket</SubTitle>
           <VacancyInput
             type="text"
-            name={isNewTicket ? `tickets[${ticket}].vacancy` : "vacancy"}
+            name={
+              isNewTicket
+                ? `tickets[${ticket}].vacancy.vacancy`
+                : "vacancy.vacancy"
+            }
             placeholder="vacancy"
             value={
-              isNewTicket ? values.tickets[ticket].vacancy : values.vacancy
+              isNewTicket
+                ? values.tickets[ticket].vacancy
+                : values.vacancy?.vacancy
             }
             onChange={handleChange}
           />
-
-          <TicketsContainer>
-            {values &&
-              values.images.map((el, idx) => (
-                <TicketsLabel key={idx}>
-                  <img
-                    src={el.image.url}
-                    alt="rocket"
-                    width={124}
-                    height={212}
-                  />
-                  <TicketsInput
-                    type="radio"
-                    name="url"
-                    value={el.image.url}
-                    onChange={handleChange}
-                  />
-                </TicketsLabel>
-              ))}
-          </TicketsContainer>
+          <VacancyInput
+            type="text"
+            name={
+              isNewTicket ? `tickets[${ticket}].position` : "vacancy.position"
+            }
+            placeholder="position"
+            value={
+              isNewTicket
+                ? values.tickets[ticket].position
+                : values.vacancy?.position
+            }
+            onChange={handleChange}
+          />
+          <AdminStars
+            size={30}
+            value={Number(
+              isNewTicket ? values.tickets[ticket].stars : values.vacancy?.stars
+            )}
+            handleChange={isNewTicket ? starsEditChange : starsChange}
+            edit={true}
+          />
+          <Stack isNewTicket={isNewTicket} ticket={ticket} />
           <TicketsButton
             type="submit"
             onClick={() => {

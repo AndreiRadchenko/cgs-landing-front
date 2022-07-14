@@ -5,13 +5,11 @@ import Link from "next/link";
 interface ITicketProps {
   id?: string;
   vacancy: string;
-  imgUrl: string;
   route: boolean;
 }
 const CareersTicket: FC<ITicketProps> = ({
   id,
   vacancy,
-  imgUrl,
   route,
 }: ITicketProps) => {
   const handleClick = () => {
@@ -23,17 +21,17 @@ const CareersTicket: FC<ITicketProps> = ({
         <Styled.BarcodeImg>
           <Styled.BarcodeText>InSight CGS to Stratosphere</Styled.BarcodeText>
         </Styled.BarcodeImg>
-        <Styled.RocketImg imgUrl={imgUrl}>
-          {route ? (
-            <Link href="/lets-go">
-              <a onClick={handleClick}>
-                <Styled.Button />
-              </a>
-            </Link>
-          ) : (
-            <Styled.Button />
-          )}
-        </Styled.RocketImg>
+        {/*<Styled.RocketImg imgUrl={imgUrl}>*/}
+        {/*  {route ? (*/}
+        {/*    <Link href="/lets-go">*/}
+        {/*      <a onClick={handleClick}>*/}
+        {/*        <Styled.Button />*/}
+        {/*      </a>*/}
+        {/*    </Link>*/}
+        {/*  ) : (*/}
+        {/*    <Styled.Button />*/}
+        {/*  )}*/}
+        {/*</Styled.RocketImg>*/}
       </Styled.ImageWrapper>
       <Styled.CareersWrapper>
         <Styled.CareersHeader>

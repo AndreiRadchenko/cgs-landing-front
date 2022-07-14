@@ -118,7 +118,10 @@ export interface IDataResponse {
 export interface ITicket {
   id: string;
   vacancy: string;
+  position: string;
   image: { url: string };
+  stars: number;
+  stack: string[];
   _id?: string;
 }
 
@@ -146,7 +149,7 @@ export interface IDataCareersResponse {
   tickets: ITicket[];
   images: { image: { url: string } }[];
   url?: string;
-  vacancy?: string;
+  vacancy?: ITicket;
   form: IFormBlock;
   meta: IMetaBlock;
 }

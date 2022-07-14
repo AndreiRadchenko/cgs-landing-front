@@ -11,27 +11,23 @@ export const createNewData = (
   addVacancy: (id: string) => void
 ) => {
   const form: IFormBlock = JSON.parse(JSON.stringify(values.form));
-  let url, vacancy, ticket: ITicket;
+  const vacancy: ITicket | undefined = values.vacancy;
   const tickets = values.tickets;
 
-  if (values.url && isNewTicket) {
-    url = values.url;
-    tickets[currentTicket].image.url = url;
-  }
-
-  if (values.url && values.vacancy) {
-    url = values.url;
-    vacancy = values.vacancy;
-  }
-
-  if (url && vacancy && !isNewTicket) {
+  if (vacancy && !isNewTicket) {
     const id = `${Math.random() * 1000000}`;
-    ticket = { image: { url }, vacancy, id };
-    tickets.push(ticket);
+    if (values.vacancy) {
+      tickets.push(values.vacancy);
+    }
     addVacancy(id);
   }
 
-  values.vacancy = "";
+  if (values.vacancy) {
+    values.vacancy.vacancy = "";
+    values.vacancy.position = "";
+    values.vacancy.stack = [];
+    values.vacancy.stars = 0;
+  }
 
   const { subtitle, subtitle2, images, meta } = values;
 

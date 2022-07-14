@@ -22,14 +22,8 @@ const Careers: FC = () => {
         <SplitBrackets text={data?.subtitle} />
       </Styled.MainTitle>
       <Styled.TicketWrapper>
-        {data?.tickets.map(({ image, vacancy, id }: ITicketData) => (
-          <CareersTicket
-            route={true}
-            id={id}
-            vacancy={vacancy}
-            imgUrl={image.url}
-            key={image.url}
-          />
+        {data?.tickets.map(({ vacancy, id }: ITicketData) => (
+          <CareersTicket route={true} id={id} vacancy={vacancy} key={vacancy} />
         ))}
       </Styled.TicketWrapper>
     </>

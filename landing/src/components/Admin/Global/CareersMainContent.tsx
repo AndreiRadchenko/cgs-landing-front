@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Formik } from "formik";
+import { Form, Formik, FormikValues } from "formik";
 import { useMutation, useQuery } from "react-query";
 
 import Careers from "../Careers";
@@ -38,22 +38,29 @@ const CareersMainContent = () => {
 
   const submitForm = async (values: IDataCareersResponse) => {
     document.body.style.cursor = "wait";
-    const data = createNewData(values, ticket, isNewTicket, addVacancy);
+    if (values.vacancy) {
+      const newData: IDataCareersResponse = {
+        ...values,
+        tickets: [...values.tickets, values.vacancy],
+      };
+      console.log(values.vacancy);
+      await mutateAsync(newData);
+      values.vacancy.vacancy = "";
+      values.vacancy.position = "";
+      values.vacancy.stack = [];
+      values.vacancy.stars = 0;
+    }
     if (isNewTicket) setIsNewTicket(!isNewTicket);
-    if (data) await mutateAsync(data);
     await refetch();
     document.body.style.cursor = "auto";
   };
 
+  console.log(isNewTicket);
+
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
-    <Formik
-      initialValues={data}
-      onSubmit={submitForm}
-      validateOnChange={false}
-      enableReinitialize
-    >
+    <Formik initialValues={data} onSubmit={(values) => submitForm(values)}>
       {() => {
         return (
           <Styled.AdminContentBlock>
