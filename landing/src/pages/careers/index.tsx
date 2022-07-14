@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import parse from "html-react-parser";
 import CareersForm from "../../components/CareersForm/index";
@@ -9,12 +9,9 @@ import { adminCareersService } from "../../services/adminCareersPage";
 import { CareersProps } from "../../types/Admin/Admin.types";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import * as Styles from "../../styles/Careers.styled";
 import { AdminUnauthorizedModal } from "../../styles/AdminPage";
-import Arrow from "../../../public/arrowRight.svg";
-import MagnifiedGlass from "../../../public/magnifiedGlass.svg";
-import CareersTicket from "../../components/CareersTicket";
 import { adminGlobalService } from "../../services/adminHomePage";
+import Careers from "../../components/Careers";
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();
@@ -39,11 +36,8 @@ const CarrersPage: NextPage = () => {
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
-  const positions = data?.tickets?.length
-    ? data.tickets.map(({ vacancy }) => vacancy)
-    : [];
 
-  return !isLoading ? (
+  return !isLoading && data ? (
     <>
       <Head>
         <title>{metaTitle}</title>
@@ -51,38 +45,7 @@ const CarrersPage: NextPage = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Styles.CareersContainer>
-        <Styles.Title>
-          <Styles.TitleText>NEXT-GENERATION</Styles.TitleText>
-          <Styles.TitleArrow src={Arrow.src} alt="test" />
-          <Styles.TitleText>PROJECTS REQUIRE AN </Styles.TitleText>
-          <Styles.TitleText>OUTSTANDING TEAM.</Styles.TitleText>
-        </Styles.Title>
-        <Styles.TicketsContainer>
-          {data?.tickets.map(({ vacancy, image, _id }, idx) => (
-            <CareersTicket
-              vacancy={vacancy}
-              imgUrl={image.url}
-              route={true}
-              id={_id}
-              key={`${idx + (_id || "0000")}`}
-            />
-          ))}
-        </Styles.TicketsContainer>
-        <Styles.Separator />
-        <Styles.FormTitle>
-          &lt; Found your dream-job?
-          <br />
-          Let us discover you! &gt;
-        </Styles.FormTitle>
-        <Styles.FormContainer>
-          <Styles.FormContainer3D />
-          <Styles.Form>
-            <CareersForm positions={positions} data={data} />
-          </Styles.Form>
-          <Styles.FormImage src={MagnifiedGlass.src} alt="Magnified Glass" />
-        </Styles.FormContainer>
-      </Styles.CareersContainer>
+      <Careers data={data} />
       <FooterNew />
     </>
   ) : (
