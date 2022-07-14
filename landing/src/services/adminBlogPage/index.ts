@@ -17,6 +17,9 @@ export class AdminBlogPage {
   public postArticle(article: IArticle) {
     return this.httpService.post(`api/blog/add`, article);
   }
+  public getByUrl(url: string) {
+    return this.httpService.get(`api/blog/article/${url}`);
+  }
   public updateViews(views: IViews) {
     return this.httpService.put(`api/blog/view`, views);
   }

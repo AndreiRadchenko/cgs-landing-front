@@ -12,6 +12,11 @@ interface IMetaBlockProps {
   nameBefore?: string;
 }
 
+const META_TITLE_MIN = 10;
+const META_TITLE_MAX = 60;
+const META_DESCRIPTION_MIN = 120;
+const META_DESCRIPTION_MAX = 160;
+
 const MetaTagsBlock = ({
   theme,
   nestedMeta,
@@ -85,12 +90,16 @@ const MetaTagsBlock = ({
               ((el[0] === "metaDescription" && (
                 <Text>
                   <Message>
-                    {(descLength > 160 || descLength < 120) &&
+                    {(descLength > META_DESCRIPTION_MAX ||
+                      descLength < META_DESCRIPTION_MIN) &&
                       "Description should be between 120 and 160 characters"}
                   </Message>
                   <Counter
                     className={
-                      descLength > 160 || descLength < 120 ? "error" : undefined
+                      descLength > META_DESCRIPTION_MAX ||
+                      descLength < META_DESCRIPTION_MIN
+                        ? "error"
+                        : undefined
                     }
                   >
                     {descLength}
@@ -99,12 +108,16 @@ const MetaTagsBlock = ({
               )) || (
                 <Text>
                   <Message>
-                    {(titleLength > 60 || titleLength < 10) &&
+                    {(titleLength > META_TITLE_MAX ||
+                      titleLength < META_TITLE_MIN) &&
                       "Title should be between 10 and 60 characters"}
                   </Message>
                   <Counter
                     className={
-                      titleLength > 60 || titleLength < 10 ? "error" : undefined
+                      titleLength > META_TITLE_MAX ||
+                      titleLength < META_TITLE_MIN
+                        ? "error"
+                        : undefined
                     }
                   >
                     {titleLength}

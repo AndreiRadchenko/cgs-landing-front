@@ -32,7 +32,13 @@ interface IArticles {
   setArticle: React.Dispatch<React.SetStateAction<number>>;
   data: IBlogResponse;
 }
+const TITLE_MIN = 10;
+const TITLE_MAX = 60;
+const DESCRIPTION_MIN = 20;
+const DESCRIPTION_MAX = 160;
 
+const META_TITLE_MAX = 60;
+const META_DESCRIPTION_MAX = 160;
 const ContentBlock: FC<IArticles> = ({
   isNewArticle,
   setArticle,
@@ -96,6 +102,23 @@ const ContentBlock: FC<IArticles> = ({
     await mutateAsync(values);
     setArticle(0);
     setIsNewArticle(true);
+    values.articles[article].meta.metaTitle === ""
+      ? ((values.articles[article].meta.metaTitle =
+          values.articles[article].title.length > META_TITLE_MAX
+            ? values.articles[article].title.substring(0, META_TITLE_MAX)
+            : values.articles[article].title),
+        values.articles[article].title)
+      : values.articles[article].meta.metaTitle;
+    values.articles[article].meta.metaDescription === ""
+      ? ((values.articles[article].meta.metaDescription =
+          values.articles[article].description.length > META_DESCRIPTION_MAX
+            ? values.articles[article].description.substring(
+                0,
+                META_DESCRIPTION_MAX
+              )
+            : values.articles[article].description),
+        values.articles[article].description)
+      : values.articles[article].meta.metaDescription;
     handleSubmit();
   };
   const updateMetaTags = async () => {
@@ -122,8 +145,21 @@ const ContentBlock: FC<IArticles> = ({
       ];
       await updateViews({ allViews: updatedViews });
     }
+    values.newArticle.meta.metaTitle === ""
+      ? (values.newArticle.meta.metaTitle =
+          values.newArticle.title.length > META_TITLE_MAX
+            ? values.newArticle.title.substring(0, META_TITLE_MAX)
+            : values.newArticle.title)
+      : values.newArticle.meta.metaTitle;
+    values.newArticle.meta.metaDescription === ""
+      ? (values.newArticle.meta.metaDescription =
+          values.newArticle.description.length > META_DESCRIPTION_MAX
+            ? values.newArticle.description.substring(0, META_DESCRIPTION_MAX)
+            : values.newArticle.description)
+      : values.newArticle.meta.metaDescription;
     const articleToAdd = values.newArticle;
     values.articles.push(articleToAdd);
+
     values.newArticle = {
       url: "",
       content: [],
@@ -212,12 +248,14 @@ const ContentBlock: FC<IArticles> = ({
             />
             <Styles.Text>
               <Styles.Message>
-                {(titleLength > 60 || titleLength < 10) &&
+                {(titleLength > TITLE_MAX || titleLength < TITLE_MIN) &&
                   "Title should be between 10 and 60 characters"}
               </Styles.Message>
               <Styles.Counter
                 className={
-                  titleLength > 60 || titleLength < 10 ? "error" : undefined
+                  titleLength > TITLE_MAX || titleLength < TITLE_MIN
+                    ? "error"
+                    : undefined
                 }
               >
                 {titleLength}
@@ -257,12 +295,15 @@ const ContentBlock: FC<IArticles> = ({
 
             <Styles.Text>
               <Styles.Message>
-                {(descLength > 160 || descLength < 20) &&
+                {(descLength > DESCRIPTION_MAX ||
+                  descLength < DESCRIPTION_MIN) &&
                   "Description should be between 20 and 160 characters"}
               </Styles.Message>
               <Styles.Counter
                 className={
-                  descLength > 160 || descLength < 20 ? "error" : undefined
+                  descLength > DESCRIPTION_MAX || descLength < DESCRIPTION_MIN
+                    ? "error"
+                    : undefined
                 }
               >
                 {descLength}

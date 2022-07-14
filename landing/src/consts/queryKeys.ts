@@ -17,6 +17,7 @@ export const queryKeys = {
   deleteArticle: "deleteArticle",
   updateBlogPage: "updateBlogPage",
   getBlogPage: "getBlogPage",
+  getBlogArticle: "getBlogArticle",
   postArticle: "postArticle",
   views: "views",
   // home page
