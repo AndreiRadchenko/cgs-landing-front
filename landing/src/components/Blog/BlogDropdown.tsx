@@ -10,6 +10,7 @@ interface IBlogDropdown {
   dropdownName: string;
   isHeader?: boolean;
   isTag?: boolean;
+  type?: "button" | "submit";
 }
 
 const BlogDropdown = ({
@@ -19,6 +20,7 @@ const BlogDropdown = ({
   dropdownName,
   isTag = false,
   isHeader = false,
+  type = "button",
 }: IBlogDropdown) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   useEffect(() => {
@@ -31,6 +33,7 @@ const BlogDropdown = ({
         className={isOpen ? "open" : ""}
         onClick={() => setIsOpen(!isOpen)}
         isHeader={isHeader}
+        type={type}
       >
         {dropdownName}
         <img width={12} height={12} src={Arrow.src} alt="Arrow" />
