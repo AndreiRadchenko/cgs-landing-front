@@ -107,7 +107,7 @@ const ArticlePage = () => {
       await updateViews({ allViews: dataToUpdate });
     };
     plusView();
-  }, [article, updateViews, url, views.data]);
+  }, [article, url]);
 
   useEffect(() => {
     const getMultipleRandom = (arr: IArticle[], num: number) => {
@@ -164,6 +164,7 @@ const ArticlePage = () => {
                   date={article.date}
                   time={article.minutesToRead}
                   views={findViews(article.url)}
+                  update={article.updatedOn}
                 />
               </Styles.TagWrapper>
               <Styles.BannerImageContainer>
