@@ -120,9 +120,11 @@ export interface ITicket {
   vacancy: string;
   position: string;
   image: { url: string };
-  stars: number;
-  stack: string[];
   _id?: string;
+  stack: string[];
+  stars: number;
+  fromYou: string[];
+  fromUs: string[];
 }
 
 export interface IForm {
@@ -237,10 +239,12 @@ export interface IArticle {
   title: string;
   description: string;
   author: IAuthor;
+  updatedOn: string;
   date: string;
   minutesToRead: number;
   content: ITextBlog[];
   tags: string[];
+  disabled: boolean;
   meta: IMetaBlock;
 }
 

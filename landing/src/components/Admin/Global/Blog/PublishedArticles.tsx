@@ -28,6 +28,7 @@ interface IArticles {
   isNewArticle: boolean;
   data: IBlogResponse;
   views?: IViews;
+  disabled?: boolean;
 }
 
 interface IArticleItem {
@@ -45,7 +46,7 @@ const PublishedArticles: FC<IArticles> = ({
 }) => {
   const { values, handleSubmit } = useFormikContext<IBlogResponse>();
 
-  const { mutateAsync: mutateDeleteArticle } = useMutation(
+  const { mutateAsync: mutateArticle } = useMutation(
     queryKeys.deleteArticle,
     (dataToUpdate: IBlogResponse) =>
       adminBlogService.updateBlogPage(dataToUpdate)
@@ -64,7 +65,23 @@ const PublishedArticles: FC<IArticles> = ({
       await updateViews({ allViews: allViews });
     }
     values.articles.splice(i, 1);
-    await mutateDeleteArticle(values);
+    await mutateArticle(values);
+    setArticle(0);
+    setIsNewArticle(true);
+    handleSubmit();
+  };
+
+  const deactivateArticle = async (i: number) => {
+    values.articles[i].disabled = true;
+    await mutateArticle(values);
+    setArticle(0);
+    setIsNewArticle(true);
+    handleSubmit();
+  };
+
+  const publishArticle = async (i: number) => {
+    values.articles[i].disabled = false;
+    await mutateArticle(values);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
@@ -118,8 +135,17 @@ const PublishedArticles: FC<IArticles> = ({
           onClick={() => toggleEditPost(i)}
         />
         <Styles.DeleteButton onClick={() => deleteArticle(i)}>
-          delete articles
+          delete article
         </Styles.DeleteButton>
+        <Styles.DeactivateButton
+          disabled={item.disabled}
+          onClick={item.disabled ? undefined : () => deactivateArticle(i)}
+        >
+          Deactivate
+        </Styles.DeactivateButton>
+        <Styles.PublishButton onClick={() => publishArticle(i)}>
+          Publish
+        </Styles.PublishButton>
       </BlogItem>
     );
   };

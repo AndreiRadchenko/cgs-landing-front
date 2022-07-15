@@ -10,33 +10,37 @@ export const createNewData = (
   isNewTicket: boolean,
   addVacancy: (id: string) => void
 ) => {
-  const form: IFormBlock = JSON.parse(JSON.stringify(values.form));
-  const vacancy: ITicket | undefined = values.vacancy;
+  let vacancy, ticket: ITicket;
   const tickets = values.tickets;
+
+  if (values.vacancy) {
+    vacancy = values.vacancy;
+  }
 
   if (vacancy && !isNewTicket) {
     const id = `${Math.random() * 1000000}`;
-    if (values.vacancy) {
-      tickets.push(values.vacancy);
-    }
+    ticket = { ...vacancy, id };
+    tickets.push(ticket);
     addVacancy(id);
   }
 
-  if (values.vacancy) {
-    values.vacancy.vacancy = "";
-    values.vacancy.position = "";
-    values.vacancy.stack = [];
-    values.vacancy.stars = 0;
-  }
-
-  const { subtitle, subtitle2, images, meta } = values;
+  // if (values.vacancy && !isNewTicket) {
+  //   const id = `${Math.random() * 1000000}`;
+  //   const ticket = { ...values.vacancy, id };
+  //   values.tickets.push(ticket);
+  //   addVacancy(id);
+  // }
 
   return {
-    subtitle,
-    subtitle2,
-    images,
-    meta,
-    form,
+    ...values,
     tickets,
+    vacancy: {
+      vacancy: "",
+      position: "",
+      stars: 0,
+      stack: [],
+      fromUs: [],
+      fromYou: [],
+    },
   };
 };

@@ -30,6 +30,8 @@ import { adminCareersService } from "../../../services/adminCareersPage";
 import { queryKeys } from "../../../consts/queryKeys";
 import AdminStars from "../FeedbackBlock/AdminStars";
 import Stack from "../../CareersStack/Stack";
+import FromUs from "../../CareersStack/FromUs";
+import FromYou from "../../CareersStack/FromYou";
 
 interface ICareers {
   isNewTicket: boolean;
@@ -44,8 +46,7 @@ const Careers = ({
   ticket,
   setTicket,
 }: ICareers) => {
-  const { values, handleChange, handleSubmit } =
-    useFormikContext<IDataCareersResponse>();
+  const { values, handleChange } = useFormikContext<IDataCareersResponse>();
   const starsChange = (newValue: number) =>
     values.vacancy && (values.vacancy.stars = newValue);
   const starsEditChange = (newValue: number) =>
@@ -56,14 +57,12 @@ const Careers = ({
     (id: string) => adminCareersService.deleteTicketAndVacancy(id)
   );
 
-  console.log(values.vacancy);
-
   const deleteTicket = async () => {
-    const id = values.tickets[ticket].id;
+    const id = values.tickets[ticket]?.id;
     await mutateAsync(id);
+
     values.tickets.splice(ticket, 1);
     setTicket(0);
-    handleSubmit();
   };
 
   return (
@@ -82,9 +81,7 @@ const Careers = ({
           <VacancyInput
             type="text"
             name={
-              isNewTicket
-                ? `tickets[${ticket}].vacancy.vacancy`
-                : "vacancy.vacancy"
+              isNewTicket ? `tickets[${ticket}].vacancy` : "vacancy.vacancy"
             }
             placeholder="vacancy"
             value={
@@ -115,13 +112,13 @@ const Careers = ({
             handleChange={isNewTicket ? starsEditChange : starsChange}
             edit={true}
           />
+          <SubTitle>Stack</SubTitle>
           <Stack isNewTicket={isNewTicket} ticket={ticket} />
-          <TicketsButton
-            type="submit"
-            onClick={() => {
-              handleSubmit();
-            }}
-          >
+          <SubTitle>From Us</SubTitle>
+          <FromUs isNewTicket={isNewTicket} ticket={ticket} />
+          <SubTitle>From You</SubTitle>
+          <FromYou isNewTicket={isNewTicket} ticket={ticket} />
+          <TicketsButton type="submit">
             {isNewTicket ? "Edit ticket" : "Add ticket"}
           </TicketsButton>
         </CareersContainer>
@@ -132,18 +129,15 @@ const Careers = ({
               <IconBox onClick={() => setIsNewTicket(!isNewTicket)}>
                 <Image src={isNewTicket ? close : edit} alt="icon" />
               </IconBox>
-
               <CareersTicket
-                route={false}
                 vacancy={values.tickets[ticket]?.vacancy}
-                imgUrl={
-                  isNewTicket && values.url
-                    ? values.url
-                    : values.tickets[ticket]?.image?.url
-                }
+                position={values.tickets[ticket]?.position}
+                stars={values.tickets[ticket]?.stars}
+                stack={values.tickets[ticket]?.stack}
               />
-
-              <DeleteBtn onClick={deleteTicket}>delete ticket</DeleteBtn>
+              <DeleteBtn onClick={deleteTicket} type={"button"}>
+                delete ticket
+              </DeleteBtn>
             </TicketContainer>
 
             <AdminCarousel

@@ -142,3 +142,9 @@ export const FormRocketImage = styled.div`
     background-size: 5.5rem auto;
   }
 `;
+
+export const FormContainter = styled.div`
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+`;

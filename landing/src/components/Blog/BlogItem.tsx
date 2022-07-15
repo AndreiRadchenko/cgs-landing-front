@@ -23,7 +23,11 @@ const BlogItem = ({ article, views }: IBlogItem) => {
               <Styled.FlexRowContainer>
                 <Styled.BlogItemContent>
                   <Styled.FlexRowContainer>
-                    <Styled.Date>{parseDate(article.date)}</Styled.Date>
+                    <Styled.Date>
+                      {article.updatedOn === ""
+                        ? parseDate(article.date)
+                        : `Updated on ${parseDate(article.updatedOn)}`}
+                    </Styled.Date>
                     <Styled.Tag>{article.tags[0]}</Styled.Tag>
                   </Styled.FlexRowContainer>
                   <Styled.BlogItemTitle>{article.title}</Styled.BlogItemTitle>

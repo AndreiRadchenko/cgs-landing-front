@@ -36,31 +36,53 @@ const CareersMainContent = () => {
     (id: string) => adminCareersService.addVacancy(id)
   );
 
+  // const submitForm = async (values: IDataCareersResponse) => {
+  //   document.body.style.cursor = "wait";
+  //   if (values.vacancy) {
+  //     const newData: IDataCareersResponse = {
+  //       ...values,
+  //       tickets: [
+  //         ...values.tickets,
+  //         { ...values.vacancy, id: String(Math.random()) },
+  //       ],
+  //     };
+  //     console.log(values.vacancy);
+  //     await mutateAsync(newData);
+  //   }
+  //   if (isNewTicket) setIsNewTicket(!isNewTicket);
+  //   await refetch();
+  //   document.body.style.cursor = "auto";
+  // };
+
   const submitForm = async (values: IDataCareersResponse) => {
     document.body.style.cursor = "wait";
+    console.log("submit");
     if (values.vacancy) {
-      const newData: IDataCareersResponse = {
-        ...values,
-        tickets: [...values.tickets, values.vacancy],
-      };
-      console.log(values.vacancy);
-      await mutateAsync(newData);
-      values.vacancy.vacancy = "";
-      values.vacancy.position = "";
-      values.vacancy.stack = [];
-      values.vacancy.stars = 0;
+      const data = createNewData(values, ticket, isNewTicket, addVacancy);
+      console.log("pop", data.tickets);
+      if (isNewTicket) setIsNewTicket(!isNewTicket);
+      if (data) await mutateAsync(data);
+      await refetch();
+      if (values.vacancy) {
+        values.vacancy.vacancy = "";
+        values.vacancy.position = "";
+        values.vacancy.stack = [];
+        values.vacancy.fromYou = [];
+        values.vacancy.fromUs = [];
+        values.vacancy.stars = 0;
+      }
     }
-    if (isNewTicket) setIsNewTicket(!isNewTicket);
-    await refetch();
     document.body.style.cursor = "auto";
   };
-
-  console.log(isNewTicket);
 
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
-    <Formik initialValues={data} onSubmit={(values) => submitForm(values)}>
+    <Formik
+      initialValues={data}
+      onSubmit={(values) => submitForm(values)}
+      enableReinitialize
+    >
       {() => {
         return (
           <Styled.AdminContentBlock>

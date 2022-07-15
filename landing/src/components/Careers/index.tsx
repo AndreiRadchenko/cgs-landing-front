@@ -1,31 +1,59 @@
 import React, { FC } from "react";
-import * as Styled from "./Careers.styled";
-import CareersTicket from "../CareersTicket/index";
+import * as Styles from "./Careers.styled";
 import { IDataCareersResponse } from "../../types/Admin/Response.types";
-import { useQueryClient } from "react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { SplitBrackets } from "../../utils/splitBrackets";
+import Arrow from "../../../public/arrowRight.svg";
+import MagnifiedGlass from "../../../public/magnifiedGlass.svg";
+import CareersTicket from "../../components/CareersTicket";
+import CareersForm from "../CareersForm";
 
-interface ITicketData {
-  id: string;
-  image: { url: string };
-  vacancy: string;
+interface ICareersProps {
+  data: IDataCareersResponse;
 }
-const Careers: FC = () => {
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataCareersResponse>(
-    queryKeys.getCareerPage
-  );
+const Careers: FC<ICareersProps> = ({ data }) => {
+  const positions = data?.tickets?.length
+    ? data.tickets.slice(2, 6).map(({ vacancy }) => vacancy)
+    : [];
+
+  positions.length && positions.push("None of the above");
+
   return (
     <>
-      <Styled.MainTitle>
-        <SplitBrackets text={data?.subtitle} />
-      </Styled.MainTitle>
-      <Styled.TicketWrapper>
-        {data?.tickets.map(({ vacancy, id }: ITicketData) => (
-          <CareersTicket route={true} id={id} vacancy={vacancy} key={vacancy} />
-        ))}
-      </Styled.TicketWrapper>
+      <Styles.CareersContainer>
+        <Styles.Title>
+          <Styles.TitleText>NEXT-GENERATION</Styles.TitleText>
+          <Styles.TitleArrow src={Arrow.src} alt="Arrow" />
+          <Styles.TitleText>PROJECTS REQUIRE AN&nbsp;</Styles.TitleText>
+          <Styles.TitleText>OUTSTANDING TEAM.</Styles.TitleText>
+        </Styles.Title>
+        <Styles.TicketsWrapper>
+          <Styles.TicketsContainer>
+            {data?.tickets
+              .slice(2, 6)
+              .map(({ vacancy, stack, position, stars }, idx) => (
+                <CareersTicket
+                  stars={stars}
+                  vacancy={vacancy}
+                  key={idx}
+                  stack={stack}
+                  position={position}
+                />
+              ))}
+          </Styles.TicketsContainer>
+        </Styles.TicketsWrapper>
+        <Styles.Separator />
+        <Styles.FormTitle>
+          &lt;&nbsp;Found your dream-job?
+          <br />
+          Let us discover you!&nbsp;&gt;
+        </Styles.FormTitle>
+        <Styles.FormContainer>
+          <Styles.FormContainer3D />
+          <Styles.Form>
+            <CareersForm positions={positions} />
+          </Styles.Form>
+          <Styles.FormImage src={MagnifiedGlass.src} alt="Magnified Glass" />
+        </Styles.FormContainer>
+      </Styles.CareersContainer>
     </>
   );
 };

@@ -70,7 +70,10 @@ const BlogPage = () => {
   const [tags, setTags] = useState<string[]>([]);
 
   useEffect(() => {
-    data && setRevesedArticles(data?.articles.reverse());
+    data &&
+      setRevesedArticles(
+        data?.articles.reverse().filter((article) => !article.disabled)
+      );
   }, [data, data?.articles]);
 
   useEffect(() => {

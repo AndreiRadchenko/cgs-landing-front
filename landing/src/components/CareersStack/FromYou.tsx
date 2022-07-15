@@ -10,11 +10,11 @@ interface IBlogTags {
   ticket: number;
 }
 
-const BlogTags: FC<IBlogTags> = ({ isNewTicket, ticket }) => {
+const FromYou: FC<IBlogTags> = ({ isNewTicket, ticket }) => {
   const [tagList, setTagList] = useState<JSX.Element[]>([]);
   const { values, handleChange } = useFormikContext<IDataCareersResponse>();
-  const newStack = values.vacancy?.stack;
-  const editStack = values.tickets[ticket]?.stack;
+  const newStack = values.vacancy?.fromYou;
+  const editStack = values.tickets[ticket]?.fromYou;
 
   const componentsArray = () => {
     return !isNewTicket
@@ -29,18 +29,18 @@ const BlogTags: FC<IBlogTags> = ({ isNewTicket, ticket }) => {
 
   const newArticleTag = (index: number) => (
     <Styles.Tag
-      name={`vacancy.stack[${index}]`}
+      name={`vacancy.fromYou[${index}]`}
       onChange={handleChange}
-      value={values.vacancy?.stack[index]}
+      value={values.vacancy?.fromYou[index]}
       key={index}
     />
   );
 
   const editArticleTag = (index: number) => (
     <Styles.Tag
-      name={`tickets[${ticket}].stack[${index}]`}
+      name={`tickets[${ticket}].fromYou[${index}]`}
       onChange={handleChange}
-      value={values.tickets[ticket].stack[index]}
+      value={values.tickets[ticket].fromYou[index]}
       key={index}
     />
   );
@@ -62,10 +62,11 @@ const BlogTags: FC<IBlogTags> = ({ isNewTicket, ticket }) => {
   };
 
   const deleteItem = () => {
+    console.log("ASd");
     setTagList(tagList.slice(0, -1));
     !isNewTicket
-      ? values.vacancy?.stack.pop()
-      : values.tickets[ticket].stack.pop();
+      ? values.vacancy?.fromYou.pop()
+      : values.tickets[ticket].fromYou.pop();
   };
 
   return (
@@ -81,4 +82,4 @@ const BlogTags: FC<IBlogTags> = ({ isNewTicket, ticket }) => {
   );
 };
 
-export default BlogTags;
+export default FromYou;
