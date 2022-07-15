@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 import parse from "html-react-parser";
-import CareersForm from "../../components/CareersForm/index";
 import { NextPage } from "next";
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
