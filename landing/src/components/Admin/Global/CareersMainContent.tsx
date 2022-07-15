@@ -36,30 +36,10 @@ const CareersMainContent = () => {
     (id: string) => adminCareersService.addVacancy(id)
   );
 
-  // const submitForm = async (values: IDataCareersResponse) => {
-  //   document.body.style.cursor = "wait";
-  //   if (values.vacancy) {
-  //     const newData: IDataCareersResponse = {
-  //       ...values,
-  //       tickets: [
-  //         ...values.tickets,
-  //         { ...values.vacancy, id: String(Math.random()) },
-  //       ],
-  //     };
-  //     console.log(values.vacancy);
-  //     await mutateAsync(newData);
-  //   }
-  //   if (isNewTicket) setIsNewTicket(!isNewTicket);
-  //   await refetch();
-  //   document.body.style.cursor = "auto";
-  // };
-
   const submitForm = async (values: IDataCareersResponse) => {
     document.body.style.cursor = "wait";
-    console.log("submit");
     if (values.vacancy) {
       const data = createNewData(values, ticket, isNewTicket, addVacancy);
-      console.log("pop", data.tickets);
       if (isNewTicket) setIsNewTicket(!isNewTicket);
       if (data) await mutateAsync(data);
       await refetch();

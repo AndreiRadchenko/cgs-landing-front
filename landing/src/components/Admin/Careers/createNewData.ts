@@ -24,14 +24,7 @@ export const createNewData = (
     addVacancy(id);
   }
 
-  // if (values.vacancy && !isNewTicket) {
-  //   const id = `${Math.random() * 1000000}`;
-  //   const ticket = { ...values.vacancy, id };
-  //   values.tickets.push(ticket);
-  //   addVacancy(id);
-  // }
-
-  return {
+  const data: IDataCareersResponse = {
     ...values,
     tickets,
     vacancy: {
@@ -43,4 +36,6 @@ export const createNewData = (
       fromYou: [],
     },
   };
+
+  return data;
 };

@@ -116,10 +116,10 @@ export interface IDataResponse {
 // Careers
 
 export interface ITicket {
-  id: string;
+  id?: string;
   vacancy: string;
   position: string;
-  image: { url: string };
+  image?: { url: string };
   _id?: string;
   stack: string[];
   stars: number;
