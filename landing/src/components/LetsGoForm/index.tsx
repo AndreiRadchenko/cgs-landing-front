@@ -18,7 +18,7 @@ const LetsGoForm: FC<ILetsGoForm> = ({ contact, vacancy }) => {
             <SplitBrackets text={contact.title} />
           </Styled.FormTitle>
           <Styled.FormContainer>
-            <CareersForm data={contact.form} vacancy={vacancy} />
+            {/*<CareersForm data={contact.form} vacancy={vacancy} />*/}
             <Styled.FormImage image={contact.form.image}>
               <Styled.FormCodeImg />
             </Styled.FormImage>

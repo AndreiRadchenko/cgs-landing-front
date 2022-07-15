@@ -116,13 +116,15 @@ export interface IDataResponse {
 // Careers
 
 export interface ITicket {
-  id: string;
+  id?: string;
   vacancy: string;
-  image: { url: string };
+  position: string;
+  image?: { url: string };
   _id?: string;
   stack: string[];
-  position: string;
   stars: number;
+  fromYou: string[];
+  fromUs: string[];
 }
 
 export interface IForm {
@@ -149,7 +151,7 @@ export interface IDataCareersResponse {
   tickets: ITicket[];
   images: { image: { url: string } }[];
   url?: string;
-  vacancy?: string;
+  vacancy?: ITicket;
   form: IFormBlock;
   meta: IMetaBlock;
 }

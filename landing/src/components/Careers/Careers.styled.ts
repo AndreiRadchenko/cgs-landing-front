@@ -44,10 +44,10 @@ export const Separator = styled.hr`
 export const TicketsWrapper = styled.div`
   width: 100%;
   display: flex;
-  align-items; center;
+  align-items: center;
   justify-content: center;
   margin: 0 50px 115px 50px;
-  `;
+`;
 
 export const TicketsContainer = styled.div`
   width: 1308px;
