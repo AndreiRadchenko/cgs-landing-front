@@ -2,9 +2,6 @@ import React from "react";
 import ArticleReadMoreItem from "../ArticleReadMoreItem/ArticleReadMoreItem";
 import * as Styles from "./ArticleReadMore.styled";
 import { IArticle } from "../../types/Admin/Response.types";
-import { useQuery } from "react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminBlogService } from "../../services/adminBlogPage";
 
 interface IArticleReadMore {
   readMore: IArticle[];
