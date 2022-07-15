@@ -129,12 +129,7 @@ const Careers = ({
               <IconBox onClick={() => setIsNewTicket(!isNewTicket)}>
                 <Image src={isNewTicket ? close : edit} alt="icon" />
               </IconBox>
-              <CareersTicket
-                vacancy={values.tickets[ticket]?.vacancy}
-                position={values.tickets[ticket]?.position}
-                stars={values.tickets[ticket]?.stars}
-                stack={values.tickets[ticket]?.stack}
-              />
+              <CareersTicket ticket={values.tickets[ticket]} />
               <DeleteBtn onClick={deleteTicket} type={"button"}>
                 delete ticket
               </DeleteBtn>

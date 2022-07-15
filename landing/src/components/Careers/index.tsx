@@ -11,10 +11,18 @@ interface ICareersProps {
 }
 const Careers: FC<ICareersProps> = ({ data }) => {
   const positions = data?.tickets?.length
-    ? data.tickets.slice(2, 6).map(({ vacancy }) => vacancy)
+    ? data.tickets
+        .slice(0, 4)
+        .map(({ vacancy, position }) => `${position} ${vacancy}`)
     : [];
 
   positions.length && positions.push("None of the above");
+
+  const mapTickets = () => {
+    return data?.tickets
+      .slice(0, 4)
+      .map((ticket, idx) => <CareersTicket ticket={ticket} key={idx} />);
+  };
 
   return (
     <>
@@ -26,19 +34,7 @@ const Careers: FC<ICareersProps> = ({ data }) => {
           <Styles.TitleText>OUTSTANDING TEAM.</Styles.TitleText>
         </Styles.Title>
         <Styles.TicketsWrapper>
-          <Styles.TicketsContainer>
-            {data?.tickets
-              .slice(2, 6)
-              .map(({ vacancy, stack, position, stars }, idx) => (
-                <CareersTicket
-                  stars={stars}
-                  vacancy={vacancy}
-                  key={idx}
-                  stack={stack}
-                  position={position}
-                />
-              ))}
-          </Styles.TicketsContainer>
+          <Styles.TicketsContainer>{mapTickets()}</Styles.TicketsContainer>
         </Styles.TicketsWrapper>
         <Styles.Separator />
         <Styles.FormTitle>
@@ -49,7 +45,7 @@ const Careers: FC<ICareersProps> = ({ data }) => {
         <Styles.FormContainer>
           <Styles.FormContainer3D />
           <Styles.Form>
-            <CareersForm positions={positions} />
+            <CareersForm positions={positions} data={data} />
           </Styles.Form>
           <Styles.FormImage src={MagnifiedGlass.src} alt="Magnified Glass" />
         </Styles.FormContainer>

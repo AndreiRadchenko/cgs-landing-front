@@ -9,6 +9,11 @@ interface ICVProps {
 
 interface ILabelOptions {
   inCvInput: boolean;
+  cvlink: boolean;
+}
+
+interface IFormField {
+  isEmpty: boolean;
 }
 
 export const FormFieldContainer = styled.div`
@@ -17,7 +22,7 @@ export const FormFieldContainer = styled.div`
   position: relative;
 `;
 
-export const FormField = styled(Field)`
+export const FormField = styled(Field)<IFormField>`
   height: 100%;
   width: 100%;
   background: none;
@@ -27,7 +32,6 @@ export const FormField = styled(Field)`
   font-family: ${themes.primary.font.family.namu};
 
   font-size: 16px;
-  color: gray;
   padding: 0 0 0 12px;
 
   &:focus {
@@ -295,14 +299,25 @@ export const DropCv = styled(Field)`
   display: none;
 `;
 
-export const Cvfield = styled.div`
+export const Cvfield = styled.div<IFormField>`
   height: 100%;
   width: 100%;
   position: relative;
+
+  input {
+    color: ${({ isEmpty }) =>
+      isEmpty ? themes.primary.colors.darkBlue : "gray"};
+
+    &::placeholder {
+      color: ${({ isEmpty }) =>
+        isEmpty ? themes.primary.colors.darkBlue : "gray"};
+    }
+  }
 `;
 
 export const Label = styled.label<ILabelOptions>`
-  display: ${({ inCvInput }) => (inCvInput ? "none" : "inline-block")};
+  display: ${({ inCvInput, cvlink }) =>
+    inCvInput || cvlink ? "none" : "inline-block"};
   height: 100%;
   width: 77px;
   border-left: 1px solid black;

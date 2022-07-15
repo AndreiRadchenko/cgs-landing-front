@@ -5,18 +5,13 @@ import Star from "../../../public/CareerDecorations/star.svg";
 import Background from "../../../public/CareerDecorations/background.svg";
 import Arrow from "../../../public/BlogDecorations/MainPage/Arrow.svg";
 import TicketModal from "../Careers/TicketModal";
+import { ITicket } from "../../types/Admin/Response.types";
 
 interface ITicketProps {
-  vacancy: string;
-  position: string;
-  stack: string[];
-  stars: number;
+  ticket: ITicket;
 }
 const CareersTicket: FC<ITicketProps> = ({
-  vacancy,
-  position,
-  stack,
-  stars: starsCount,
+  ticket: { fromUs, fromYou, position, vacancy, stack },
 }: ITicketProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,8 +22,9 @@ const CareersTicket: FC<ITicketProps> = ({
   };
 
   const uuid = (Math.random() + 1).toString(36).substring(7);
-  const fromYou = new Array(10).fill("Hello");
-  const fromUs = new Array(5).fill("World");
+
+  !fromUs.length && fromUs.push("Nothing yet");
+  !fromYou.length && fromYou.push("Nothing yet");
 
   return (
     <>

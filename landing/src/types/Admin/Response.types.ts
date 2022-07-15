@@ -123,8 +123,8 @@ export interface ITicket {
   _id?: string;
   stack: string[];
   stars: number;
-  fromYou: string[];
   fromUs: string[];
+  fromYou: string[];
 }
 
 export interface IForm {
@@ -182,15 +182,17 @@ export interface IOfferBlock {
 }
 
 export interface IFormBlock {
+  position: string;
+  contact: string;
   name: string;
-  describe: string;
-  email: string;
-  telegram: string;
-  socialMediaLink: string;
-  linkToProjects: string;
-  CV: { place: string; isSupported: string };
+  CV: {
+    place: string;
+    isSupported: string;
+  };
   text: string;
-  image: { url: string };
+  image: {
+    url: string;
+  };
 }
 
 export interface IContactBlock {
