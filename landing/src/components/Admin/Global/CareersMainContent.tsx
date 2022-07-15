@@ -58,11 +58,7 @@ const CareersMainContent = () => {
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
-    <Formik
-      initialValues={data}
-      onSubmit={(values) => submitForm(values)}
-      enableReinitialize
-    >
+    <Formik initialValues={data} onSubmit={(values) => submitForm(values)}>
       {() => {
         return (
           <Styled.AdminContentBlock>
