@@ -29,6 +29,20 @@ export const Image = styled.img`
 
 export const TitleWrapper = styled.div`
   display: flex;
+  align-items: center;
+  @media ${themes.primary.media.maxPCFullHD} {
+    height: 137px;
+  }
+  @media ${themes.primary.media.onlyLaptop} {
+    height: 90px;
+    margin-bottom: 0;
+  }
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    height: 98px;
+  }
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    height: 90px;
+  }
 `;
 
 export const TitleDiv = styled.div`
@@ -41,22 +55,11 @@ export const Title = styled.p`
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  height: 107px;
+  height: 100%;
+
   &:hover {
     cursor: pointer;
     color: ${themes.primary.colors.darkBlue};
-  }
-  @media ${themes.primary.media.onlyLaptop} {
-    height: 90px;
-    margin-bottom: 0;
-  }
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    height: 98px;
-  }
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    height: 90px;
   }
 `;
 
