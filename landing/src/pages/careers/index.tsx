@@ -19,7 +19,6 @@ export async function getStaticProps() {
     adminCareersService.getCareersPage()
   );
 
-  
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
