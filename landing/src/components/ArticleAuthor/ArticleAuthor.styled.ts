@@ -46,8 +46,15 @@ export const Container = styled.div`
   width: 100%;
 `;
 
+export const DatesContainer = styled.div`
+  display: flex;
+  column-gap: 20px;
+  margin-top: 16px;
+`;
+
 export const SpaceBetween = styled.div`
   display: flex;
+  justify-content: space-between;
   margin-top: 10px;
 `;
 
