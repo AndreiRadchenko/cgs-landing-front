@@ -5,7 +5,7 @@ export const CareersContainer = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.normal};
   display: flex;
-  position: relative;
+  //position: relative;
   flex-direction: column;
   align-items: center;
   background-color: ${themes.primary.colors.careerBackground};
@@ -14,25 +14,33 @@ export const CareersContainer = styled.div`
 export const Title = styled.div`
   margin: 115px 50px 90px 50px;
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 74px;
-  line-height: 88px;
-
+  line-height: 85px;
   text-transform: uppercase;
 
-  span:last-child {
+  .blue {
     color: ${themes.primary.colors.darkBlue};
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    //font-size: ${themes.primary.font.size.smallerCareersTitle};
   }
 `;
 
+export const ArrowContainer = styled.div`
+  display: inline-block;
+  margin: auto;
+  height: 100%;
+`;
+
 export const TitleArrow = styled.img`
-  width: 175px;
+  width: 10vw;
   height: 25px;
-  margin: 0 15px 15px 15px;
+  margin: 0 15px 8% 15px;
 `;
 
 export const TitleText = styled.span`
   margin: 0;
-  color: #000000;
+  font-size: 5vw;
+  color: ${themes.primary.colors.primary};
 `;
 
 export const Separator = styled.hr`
@@ -41,21 +49,29 @@ export const Separator = styled.hr`
   color: #000000;
 `;
 
+export const TitleTextRow = styled.div`
+  //width: 100%;
+  //white-space: nowrap;
+`;
+
 export const TicketsWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 50px 115px 50px;
+  margin-bottom: 115px;
+  padding: 0 50px;
 `;
 
 export const TicketsContainer = styled.div`
   width: 1308px;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   position: relative;
-  gap: 61px 76px;
+  column-gap: 70px;
+  row-gap: 50px;
 `;
 
 export const FormTitle = styled.span`

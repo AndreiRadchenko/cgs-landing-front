@@ -14,8 +14,7 @@ export const TicketModal = styled.div<IModal>`
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(180deg, rgba(241, 239, 237, 0.8) 100%, rgba(241, 239, 237, 0) 114.26%);
 `;
 
 export const TicketModalContentContainer = styled.div`
@@ -29,7 +28,8 @@ export const TicketModalContentContainer = styled.div`
 export const TicketModalContent = styled.div`
   width: 535px;
   height: auto;
-  background: ${themes.primary.colors.grayBack};
+  background: ${themes.primary.colors.blogBackground};
+  border: 2px solid ${themes.primary.colors.primary};
   position: relative;
 `;
 
@@ -116,5 +116,4 @@ export const BlackBox = styled.div`
 export const WhiteBox = styled.div`
   width: 100%;
   height: 50%;
-  background: white;
 `;

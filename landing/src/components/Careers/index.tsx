@@ -28,10 +28,19 @@ const Careers: FC<ICareersProps> = ({ data }) => {
     <>
       <Styles.CareersContainer>
         <Styles.Title>
-          <Styles.TitleText>NEXT-GENERATION</Styles.TitleText>
-          <Styles.TitleArrow src={Arrow.src} alt="Arrow" />
-          <Styles.TitleText>PROJECTS REQUIRE AN&nbsp;</Styles.TitleText>
-          <Styles.TitleText>OUTSTANDING TEAM.</Styles.TitleText>
+          <Styles.TitleTextRow>
+            <Styles.TitleText>NEXT-GENERATION</Styles.TitleText>
+            <Styles.ArrowContainer>
+              <Styles.TitleArrow src={Arrow.src} alt="Arrow" />
+            </Styles.ArrowContainer>
+            <Styles.TitleText>PROJECTS</Styles.TitleText>
+          </Styles.TitleTextRow>
+          <Styles.TitleTextRow>
+            <Styles.TitleText>REQUIRE AN&nbsp;</Styles.TitleText>
+            <Styles.TitleText className={"blue"}>
+              OUTSTANDING TEAM.
+            </Styles.TitleText>
+          </Styles.TitleTextRow>
         </Styles.Title>
         <Styles.TicketsWrapper>
           <Styles.TicketsContainer>{mapTickets()}</Styles.TicketsContainer>

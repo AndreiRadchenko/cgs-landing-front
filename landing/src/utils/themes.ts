@@ -39,6 +39,8 @@ const themes = {
         heavy: 900,
       },
       size: {
+        careersTitle: "6.1em",
+        smallerCareersTitle: "4em",
         reviewSmallText: "1.03em",
         hexadecimal: "0.375em",
         septenary: "0.6em",
