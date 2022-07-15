@@ -38,7 +38,6 @@ const CarrersPage: NextPage = () => {
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
   return (
-    
     <>
       {!isLoading && (
         <>
