@@ -155,6 +155,7 @@ export const newBlockchainProjectInit = {
   text: "",
   name: "",
 };
+
 export const newPageReviewInit = {
   image: null,
   category: "",
@@ -167,6 +168,13 @@ export const newPageReviewInit = {
     company: "",
     feedbackText: "",
   },
+};
+
+export const newVacancy = {
+  position: "",
+  vacancy: "",
+  stars: 0,
+  stack: [],
 };
 
 export enum ROUTE_KEYS {

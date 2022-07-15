@@ -7,6 +7,38 @@ interface ICVProps {
   active: boolean;
 }
 
+interface ILabelOptions {
+  inCvInput: boolean;
+  cvlink: boolean;
+}
+
+interface IFormField {
+  isEmpty: boolean;
+}
+
+export const FormFieldContainer = styled.div`
+  width: 100%;
+  height: 78px;
+  position: relative;
+`;
+
+export const FormField = styled(Field)<IFormField>`
+  height: 100%;
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid black;
+
+  font-family: ${themes.primary.font.family.namu};
+
+  font-size: 16px;
+  padding: 0 0 0 12px;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
 const opacity = keyframes`
 0% {
   opacity: 0;
@@ -15,15 +47,8 @@ const opacity = keyframes`
   opacity: 1;
 }
 `;
-export const Form = styled.form`
-  flex-basis: 38%;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 40%;
-  }
-  @media ${themes.primary.media.maxTablet} {
-    width: 100%;
-  }
-`;
+
+export const Form = styled.form``;
 
 export const LottieButton = styled(Lottie)`
   position: relative;
@@ -182,4 +207,136 @@ export const ErrorMessage = styled.p`
   text-align: center;
   font-size: ${themes.primary.font.size.linkText};
   font-weight: ${themes.primary.font.weight.bold};
+`;
+
+export const FormSentButton = styled.button`
+  width: 280px;
+  height: 56px;
+  border: 2px solid black;
+  cursor: pointer;
+`;
+
+export const FormSentWrap = styled.span`
+  color: grey;
+  margin: 0;
+`;
+
+export const FormSentText = styled.span`
+  margin: 0;
+
+  &:first-letter {
+    text-transform: capitalize;
+  }
+`;
+
+export const FormSentContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 102px;
+
+  background: linear-gradient(75.6deg, #d6ffbb -9.39%, #5869dd 110.45%);
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    font-size: 16px;
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-family: ${themes.primary.font.family.namu};
+  }
+`;
+
+export const PositionSelect = styled.div`
+  height: 78px;
+  width: 100%;
+
+  div {
+    width: 100%;
+    height: 100%;
+
+    button {
+      border: none !important;
+      border-bottom: 1px solid black !important;
+      display: flex;
+      justify-content: normal;
+      height: 100%;
+      width: 100%;
+      position: relative;
+
+      img {
+        position: absolute;
+        right: 0;
+        margin: 0 18px 0 0;
+      }
+    }
+  }
+  div:nth-child(2) {
+    height: auto;
+
+    &:last-child {
+      div:last-child {
+        color: ${themes.primary.colors.darkBlue};
+      }
+
+      border-bottom: 1px solid black;
+      border-right: none;
+      border-left: none;
+    }
+  }
+`;
+
+export const DropCv = styled(Field)`
+  height: 100%;
+  width: 77px;
+  border-left: 1px solid black;
+  position: absolute;
+  right: 0;
+
+  display: none;
+`;
+
+export const Cvfield = styled.div<IFormField>`
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  input {
+    color: ${({ isEmpty }) =>
+      isEmpty ? themes.primary.colors.darkBlue : "gray"};
+
+    &::placeholder {
+      color: ${({ isEmpty }) =>
+        isEmpty ? themes.primary.colors.darkBlue : "gray"};
+    }
+  }
+`;
+
+export const Label = styled.label<ILabelOptions>`
+  display: ${({ inCvInput, cvlink }) =>
+    inCvInput || cvlink ? "none" : "inline-block"};
+  height: 100%;
+  width: 77px;
+  border-left: 1px solid black;
+  position: absolute;
+  right: 0;
+  color: gray;
+  cursor: pointer;
+`;
+
+export const LabelTitle = styled.span`
+  margin: 0;
+  margin-left: 10%;
+  font-size: 12px;
+`;
+
+export const Clip = styled.img`
+  margin-top: 17px;
+  display: flex;
+  margin-left: 35%;
+  widht: 25px;
+  height: 25px;
 `;

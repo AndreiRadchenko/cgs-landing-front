@@ -6,6 +6,7 @@ export const TagsWrapper = styled.div`
   width: 100%;
   flex-wrap: wrap;
   row-gap: 15px;
+  margin-top: 15px;
 `;
 
 export const Tag = styled.input`

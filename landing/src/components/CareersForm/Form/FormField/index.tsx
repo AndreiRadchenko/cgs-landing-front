@@ -34,7 +34,7 @@ const TextFieldWrapper: FC<IFieldProps> = ({
 
   return (
     <>
-      <Styled.Field {...configTextField} />
+      <Styled.FormField {...configTextField} />
     </>
   );
 };

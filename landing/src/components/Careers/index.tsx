@@ -1,37 +1,55 @@
 import React, { FC } from "react";
-import * as Styled from "./Careers.styled";
-import CareersTicket from "../CareersTicket/index";
+import * as Styles from "./Careers.styled";
 import { IDataCareersResponse } from "../../types/Admin/Response.types";
-import { useQueryClient } from "react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { SplitBrackets } from "../../utils/splitBrackets";
+import Arrow from "../../../public/arrowRight.svg";
+import MagnifiedGlass from "../../../public/magnifiedGlass.svg";
+import CareersTicket from "../../components/CareersTicket";
+import CareersForm from "../CareersForm";
 
-interface ITicketData {
-  id: string;
-  image: { url: string };
-  vacancy: string;
+interface ICareersProps {
+  data: IDataCareersResponse;
 }
-const Careers: FC = () => {
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataCareersResponse>(
-    queryKeys.getCareerPage
-  );
+const Careers: FC<ICareersProps> = ({ data }) => {
+  const positions = data?.tickets?.length
+    ? data.tickets
+        .slice(0, 4)
+        .map(({ vacancy, position }) => `${position} ${vacancy}`)
+    : [];
+
+  positions.length && positions.push("None of the above");
+
+  const mapTickets = () => {
+    return data?.tickets
+      .slice(0, 4)
+      .map((ticket, idx) => <CareersTicket ticket={ticket} key={idx} />);
+  };
+
   return (
     <>
-      <Styled.MainTitle>
-        <SplitBrackets text={data?.subtitle} />
-      </Styled.MainTitle>
-      <Styled.TicketWrapper>
-        {data?.tickets.map(({ image, vacancy, id }: ITicketData) => (
-          <CareersTicket
-            route={true}
-            id={id}
-            vacancy={vacancy}
-            imgUrl={image.url}
-            key={image.url}
-          />
-        ))}
-      </Styled.TicketWrapper>
+      <Styles.CareersContainer>
+        <Styles.Title>
+          <Styles.TitleText>NEXT-GENERATION</Styles.TitleText>
+          <Styles.TitleArrow src={Arrow.src} alt="Arrow" />
+          <Styles.TitleText>PROJECTS REQUIRE AN&nbsp;</Styles.TitleText>
+          <Styles.TitleText>OUTSTANDING TEAM.</Styles.TitleText>
+        </Styles.Title>
+        <Styles.TicketsWrapper>
+          <Styles.TicketsContainer>{mapTickets()}</Styles.TicketsContainer>
+        </Styles.TicketsWrapper>
+        <Styles.Separator />
+        <Styles.FormTitle>
+          &lt;&nbsp;Found your dream-job?
+          <br />
+          Let us discover you!&nbsp;&gt;
+        </Styles.FormTitle>
+        <Styles.FormContainer>
+          <Styles.FormContainer3D />
+          <Styles.Form>
+            <CareersForm positions={positions} data={data} />
+          </Styles.Form>
+          <Styles.FormImage src={MagnifiedGlass.src} alt="Magnified Glass" />
+        </Styles.FormContainer>
+      </Styles.CareersContainer>
     </>
   );
 };

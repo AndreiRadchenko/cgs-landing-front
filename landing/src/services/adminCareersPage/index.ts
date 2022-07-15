@@ -6,22 +6,24 @@ import { HttpServiceFactory } from "../index";
 export class AdminCareersService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
   public getCareersPage() {
-    return this.httpService.get<IDataCareersResponse>("api/career ");
+    return this.httpService.get<IDataCareersResponse>("api/career");
   }
   public addVacancy(id: string) {
     return this.httpService.post(`api/vacancy/${id}`, {});
   }
 
   public deleteTicketAndVacancy(id: string) {
-    return this.httpService.delete(`api/career/${id}`, {});
+    return this.httpService.delete(`api/career/delete/${id}`);
   }
 
   public updateCareersPage(data: IDataCareersResponse) {
-    return this.httpService.put("api/career ", data);
+    return this.httpService.put("api/career", data);
   }
+
   public mailForm(data: IVacancyMail) {
     return this.httpService.post("api/career/mail", data);
   }
+
   public uploadCV(data: FormData) {
     return this.httpService.post("api/career/upload", data, {
       headers: { "Content-Type": "multipart/form-data" },

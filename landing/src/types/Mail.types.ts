@@ -6,13 +6,10 @@
 
 export interface IVacancyMail {
   name: string;
-  describeYourself: string;
-  telegram: string;
-  mediaLink: string;
-  projectsLink: string;
-  vacancy: string;
-  email: string;
-  filename: string;
+  contact: string;
+  position: string;
+  cvlink?: string;
+  cvpath?: string;
 }
 
 export interface IFormData {
