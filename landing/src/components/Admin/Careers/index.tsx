@@ -59,7 +59,7 @@ const Careers = ({
 
   const deleteTicket = async () => {
     const id = values.tickets[ticket]?.id;
-    await mutateAsync(id);
+    id && (await mutateAsync(id));
 
     values.tickets.splice(ticket, 1);
     setTicket(0);

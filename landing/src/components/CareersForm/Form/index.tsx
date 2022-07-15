@@ -83,7 +83,14 @@ const Form: FC<FormProps> = ({ positions }) => {
           />
         </Styled.PositionSelect>
         {Object.entries(fieldContent).map(([key, label]) => {
-          return <FormField name={key} key={key} label={label} />;
+          return (
+            <FormField
+              name={key}
+              key={key}
+              label={label}
+              handleChange={handleChange}
+            />
+          );
         })}
         <Styled.FormFieldContainer>
           <Styled.Cvfield>
