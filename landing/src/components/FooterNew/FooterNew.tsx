@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as StyledThisComp from "./Footer.styled";
 import logo from "../../../public/logo.png";
-import { routersNew } from "../../utils/variables";
 import ImagePreview from "../Image/ImagePreview";
 import Link from "next/link";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
@@ -24,6 +23,8 @@ const FooterNew = (): JSX.Element => {
     queryKeys.getFullHomePage
   )?.FooterBlock;
 
+  console.log(data?.links);
+
   disableScrollBarHandler(isOpen);
   return (
     <StyledThisComp.HeaderNavContainer>
@@ -43,7 +44,7 @@ const FooterNew = (): JSX.Element => {
 
       <StyledThisComp.NavList>
         {data?.links.map((link, ind) => (
-          <Link key={link.link + ind} href={routersNew[ind]} passHref>
+          <Link key={link.link + ind} href={link.link} passHref>
             <StyledThisComp.ListItemNav key={link.link + ind}>
               <StyledThisComp.LinkText src={footerIcons[ind].src || ""} />
             </StyledThisComp.ListItemNav>
