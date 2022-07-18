@@ -1,5 +1,5 @@
-import React, { FC, useEffect, useState } from "react";
-import { useFormik } from "formik";
+import React, { FC, useEffect, useRef, useState } from "react";
+import { Field, useFormik } from "formik";
 import * as Styled from "./Form.styled";
 
 import FormField from "./FormField2/index";
@@ -10,6 +10,8 @@ import { IDataCareersResponse } from "../../../types/Admin/Response.types";
 import { useMutation } from "react-query";
 import { adminCareersService } from "../../../services/adminCareersPage";
 import { IVacancyMail } from "../../../types/Mail.types";
+import Close from "../../../../public/CareerDecorations/close.svg";
+import Loading from "../../../../public/CareerDecorations/loading.svg";
 
 interface FormProps {
   positions: string[];
@@ -29,26 +31,10 @@ const Form: FC<FormProps> = ({ positions, data }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [inCvInput, setInCvInput] = useState(false);
   const [position, setPosition] = useState("");
-  const [cvName, setCvName] = useState(CV.place);
-
-  const onFileSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!event.target.files?.length) return;
-
-    const file = event.target.files[0];
-
-    setCvName(file.name);
-    formik.setFieldValue("cvfile", file);
-    event.target.value = "";
-  };
-
-  const onCVlinkChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCvName(CV.place);
-    formik.setFieldValue("cvfile", "");
-    formik.setFieldValue("cvlink", event.currentTarget.value);
-  };
-
-  const checkEmpty = () =>
-    formik.values.cvfile || formik.values.cvlink ? true : false;
+  const [cvName, setCvName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const fieldContent = { name, contact };
+  const ref = useRef<HTMLInputElement>(null);
 
   const formik = useFormik<FormState>({
     initialValues: {
@@ -67,7 +53,7 @@ const Form: FC<FormProps> = ({ positions, data }) => {
 
         formData.append("file", values.cvfile);
 
-        setCvName(CV.place);
+        setCvName("");
         CVmutate(formData);
       } else {
         mutate({
@@ -115,10 +101,53 @@ const Form: FC<FormProps> = ({ positions, data }) => {
     }
   );
 
-  const fieldContent = {
-    name,
-    contact,
+  const onFileSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.value?.length) {
+      setIsLoading(false);
+      return;
+    }
+
+    if (!event.target.files?.length) {
+      setIsLoading(false);
+      return;
+    }
+
+    const file = event.target.files[0];
+
+    setCvName(file.name);
+    setIsLoading(false);
+    formik.setFieldValue("cvfile", file);
+    event.target.value = "";
   };
+
+  const onCVlinkChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCvName("");
+    setIsLoading(false);
+    formik.setFieldValue("cvfile", "");
+    formik.setFieldValue("cvlink", event.currentTarget.value);
+  };
+
+  const checkEmpty = () =>
+    formik.values.cvfile || formik.values.cvlink ? true : false;
+
+  const onFileRemove = () => {
+    setCvName("");
+    formik.setFieldValue("cvfile", "");
+  };
+
+  const checkCancel = () => {
+    if (!ref.current) return;
+
+    if (!ref.current.value.length) {
+      setIsLoading(false);
+    } else {
+      document.body.onfocus = null;
+    }
+  };
+
+  useEffect(() => {
+    document.body.onfocus = () => setTimeout(checkCancel, 100);
+  }, []);
 
   useEffect(() => {
     if (!position || position !== "None of the above") return;
@@ -142,28 +171,45 @@ const Form: FC<FormProps> = ({ positions, data }) => {
           <FormField name={key} key={key} label={label} />
         ))}
         <Styled.FormFieldContainer>
-          <Styled.Cvfield isEmpty={checkEmpty()}>
+          <Styled.TitleContainer isCvIn={cvName.length ? true : false}>
+            <Styled.Title>{cvName}</Styled.Title>
+            <Styled.DeleteCv onClick={onFileRemove} src={Close.src} />
+          </Styled.TitleContainer>
+          <Styled.Cvfield
+            isEmpty={checkEmpty()}
+            isCvIn={cvName.length ? true : false}
+          >
             <Styled.FormField
-              placeholder={cvName}
+              placeholder={CV.place}
               type={"text"}
               name={"cvlink"}
               onFocus={() => setInCvInput(true)}
               onBlur={() => setInCvInput(false)}
+              onClick={() => setIsLoading(false)}
               onChange={onCVlinkChange}
             />
             <Styled.Label
               inCvInput={inCvInput}
               cvlink={formik.values.cvlink?.length ? true : false}
             >
-              <Styled.DropCv
-                type="file"
-                name={"cvfile"}
-                accept=".pdf,.jpeg"
-                onChange={onFileSubmit}
-                value={""}
-              />
-              <Styled.Clip src={Clip.src} />
-              <Styled.LabelTitle>.pdf, .jpeg</Styled.LabelTitle>
+              <Field name="lastName">
+                {() => (
+                  <Styled.DropCv
+                    type="file"
+                    name={"cvfile"}
+                    accept=".pdf,.jpeg"
+                    onChange={onFileSubmit}
+                    onClick={() => setIsLoading(true)}
+                    value={""}
+                    ref={ref}
+                  />
+                )}
+              </Field>
+              <Styled.Loading src={Loading.src} isLoading={isLoading} />
+              <Styled.LabelWithClipContainer isLoading={isLoading}>
+                <Styled.Clip src={Clip.src} />
+                <Styled.LabelTitle>.pdf, .jpeg</Styled.LabelTitle>
+              </Styled.LabelWithClipContainer>
             </Styled.Label>
           </Styled.Cvfield>
         </Styled.FormFieldContainer>

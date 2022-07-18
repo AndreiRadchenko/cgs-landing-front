@@ -12,8 +12,16 @@ interface ILabelOptions {
   cvlink: boolean;
 }
 
-interface IFormField {
+interface IFormField extends ITitle {
   isEmpty: boolean;
+}
+
+interface ITitle {
+  isCvIn: boolean;
+}
+
+interface ISpinner {
+  isLoading: boolean;
 }
 
 export const FormFieldContainer = styled.div`
@@ -289,7 +297,7 @@ export const PositionSelect = styled.div`
   }
 `;
 
-export const DropCv = styled(Field)`
+export const DropCv = styled.input`
   height: 100%;
   width: 77px;
   border-left: 1px solid black;
@@ -303,6 +311,8 @@ export const Cvfield = styled.div<IFormField>`
   height: 100%;
   width: 100%;
   position: relative;
+
+  display: ${({ isCvIn }) => (isCvIn ? "none" : "inline-block")};
 
   input {
     color: ${({ isEmpty }) =>
@@ -339,4 +349,51 @@ export const Clip = styled.img`
   margin-left: 35%;
   widht: 25px;
   height: 25px;
+`;
+
+export const LabelWithClipContainer = styled.div<ISpinner>`
+  display: ${({ isLoading }) => (isLoading ? "none" : "block")};
+`;
+
+export const TitleContainer = styled.div<ITitle>`
+  width: 100%;
+  height: 100%;
+  display: ${({ isCvIn }) => (isCvIn ? "flex" : "none")};
+  position: absolute;
+  border-bottom: 1px solid black;
+  align-items: center;
+`;
+
+export const Title = styled.span`
+  color: ${themes.primary.colors.darkBlue};
+  margin-left: 15px;
+`;
+
+export const DeleteCv = styled.img`
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+  margin-top: 2px;
+  cursor: pointer;
+`;
+
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Loading = styled.img<ISpinner>`
+  width: 34px;
+  height: 34px;
+
+  margin-top: 20px;
+  margin-left: 20px;
+
+  animation: ${rotate360} 1s linear infinite;
+
+  display: ${({ isLoading }) => (isLoading ? "inline-block" : "none")};
 `;
