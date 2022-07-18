@@ -2,7 +2,10 @@ import LinkedIn from "../../public/linkedIn.svg";
 import Twitter from "../../public/twitter.svg";
 import Facebook from "../../public/facebook.svg";
 import BlogBannerImage from "../../public/blog-banner.jpg";
-import BlockchainBannerImage from "../../public/blockchain-banner.png";
+import git from "../../public/FooterIcons/git.svg";
+import co from "../../public/FooterIcons/co.svg";
+import linkedin from "../../public/FooterIcons/in.svg";
+import up from "../../public/FooterIcons/up.svg";
 
 export enum ErrorMessage {
   DEFAULT = "Oops, something went wrong!",
@@ -18,6 +21,13 @@ export const icons = [
   { src: LinkedIn.src },
   { src: Twitter.src },
   { src: Facebook.src },
+];
+
+export const footerIcons = [
+  { src: git.src },
+  { src: up.src },
+  { src: co.src },
+  { src: linkedin.src },
 ];
 
 export const blogItems = [
