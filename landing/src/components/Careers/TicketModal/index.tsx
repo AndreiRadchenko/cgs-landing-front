@@ -8,7 +8,7 @@ interface ITicketModalProps {
   setIsOpen: (arg: boolean) => void;
   fromYou: string[];
   fromUs: string[];
-  scrollTo: () => void;
+  scrollTo?: () => void;
 }
 
 const TicketModal: FC<ITicketModalProps> = ({
@@ -22,7 +22,7 @@ const TicketModal: FC<ITicketModalProps> = ({
     e.preventDefault();
 
     setIsOpen(false);
-    scrollTo();
+    if (scrollTo) scrollTo();
   };
   const onClose = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
     e.stopPropagation();

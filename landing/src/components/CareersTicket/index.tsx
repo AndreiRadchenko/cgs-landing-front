@@ -10,7 +10,7 @@ import { ITicket } from "../../types/Admin/Response.types";
 
 interface ITicketProps {
   ticket: ITicket;
-  scrollTo: () => void;
+  scrollTo?: () => void;
 }
 const CareersTicket: FC<ITicketProps> = ({
   ticket: { fromUs, fromYou, position, vacancy, stack, stars },
