@@ -31,7 +31,7 @@ export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
   @media ${themes.primary.media.maxPCFullHD} {
-    height: 137px;
+    height: 145px;
   }
   @media ${themes.primary.media.onlyLaptop} {
     height: 90px;
@@ -54,12 +54,18 @@ export const Title = styled.p`
   font-weight: ${themes.primary.font.weight.extraBold};
   margin: 0;
   overflow: hidden;
+  text-overflow: ellipsis;
   display: -webkit-box;
   height: 100%;
 
   &:hover {
     cursor: pointer;
     color: ${themes.primary.colors.darkBlue};
+  }
+
+  @media ${themes.primary.media.maxLaptop} {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 `;
 
