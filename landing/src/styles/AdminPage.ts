@@ -537,6 +537,10 @@ export const AdminDropDownMenuBanner = styled.div`
 export const AdminDropDownMenuList = styled.div`
   position: absolute;
   width: 100%;
+
+  &.blog-admin {
+    position: relative;
+  }
 `;
 
 export const AdminReviewBlock = styled.div`
@@ -586,16 +590,41 @@ export const AdminFullImage = styled.img`
 export const TextEditorContainer = styled.div<{
   height?: string;
   width?: string;
-  active: boolean;
 }>`
-  .ql-editor {
-    font-size: ${themes.primary.font.size.linkText};
-    font-family: ${themes.primary.font.family.mulish};
+  & div.se-dialog-form-footer label:first-child {
+    visibility: hidden;
+
+    & input {
+      visibility: visible;
+    }
+
+    &::after {
+      position: absolute;
+      left: 30px;
+      content: "Open link in new window and make nofolow";
+      visibility: visible;
+    }
   }
 
-  & .ql-container {
-    position: ${({ active }) => (active ? "relative" : "static")};
+  & div.se-dialog-form-footer label:nth-child(2) {
+    visibility: hidden;
   }
+  & div.se-wrapper-inner {
+    font-size: ${themes.primary.font.size.primary};
+    font-family: ${themes.primary.font.family.mulish};
+  }
+  & div.se-wrapper-inner.se-wrapper-inner ul {
+    list-style-type: none;
+    list-style-image: url("/listSquare.png");
+
+    & li {
+      padding-left: 12px;
+    }
+    @media ${themes.primary.media.maxTabletPortrait} {
+      list-style-image: url("/listSquareMobile.png");
+    }
+  }
+
   background-color: #fff;
   resize: none;
   min-height: 417px;

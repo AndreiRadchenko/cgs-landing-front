@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import dynamic from "next/dynamic";
-const QuillNoSSRWrapper = dynamic(import("react-quill"), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>,
-});
-import "react-quill/dist/quill.snow.css";
+import React from "react";
 import { Field } from "formik";
 import * as Styled from "../../styles/AdminPage";
+import dynamic from "next/dynamic";
+import "suneditor/dist/css/suneditor.min.css";
+
+const SunEditor = dynamic(() => import("suneditor-react"), {
+  ssr: false,
+});
 
 interface ITextEditorProps {
   value?: string;
@@ -15,73 +15,47 @@ interface ITextEditorProps {
   isBlog: boolean;
 }
 
-const modules = {
-  toolbar: [
-    [{ header: "1" }, { header: "2" }],
-    ["bold", "italic", "underline", "strike", "blockquote"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image", "video"],
-    ["clean"],
-  ],
-  clipboard: {
-    matchVisual: false,
-  },
-};
-
-const formats = [
-  "header",
-  "font",
-  "size",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-  "video",
-];
-
 const TextEditor = ({ name, isBlog, header }: ITextEditorProps) => {
-  const [active, setIsActive] = useState(false);
-  const styles = {
-    background: "white",
-    div: {
-      border: 0,
-    },
-    height: "376px",
-  };
-
   return (
-    <div
-      onMouseOut={() => {
-        setIsActive(false);
-      }}
-    >
+    <div>
       <Styled.AdminSubTitle isBlog={isBlog}>{header}</Styled.AdminSubTitle>
-      <Styled.TextEditorContainer
-        height={"417px"}
-        onMouseOver={() => {
-          setIsActive(true);
-        }}
-        active={active}
-      >
+      <Styled.TextEditorContainer height={"417px"}>
         <Field name={name}>
           {({ field }: any) => (
-            <QuillNoSSRWrapper
-              style={styles}
-              value={field.value}
-              modules={modules}
-              formats={formats}
+            <SunEditor
+              height="376px"
+              defaultValue={field.value}
               onChange={field.onChange(field.name)}
+              lang="en"
+              setOptions={{
+                linkRelDefault: {
+                  default: undefined,
+                  check_new_window: "nofollow",
+                },
+                buttonList: [
+                  [
+                    "formatBlock",
+                    "font",
+                    "fontSize",
+                    "fontColor",
+                    "align",
+                    "paragraphStyle",
+                    "blockquote",
+                  ],
+                  [
+                    "bold",
+                    "underline",
+                    "italic",
+                    "strike",
+                    "subscript",
+                    "superscript",
+                  ],
+                  ["removeFormat"],
+                  ["outdent", "indent"],
+                  ["list"],
+                  ["link", "image", "video"],
+                ],
+              }}
             />
           )}
         </Field>
