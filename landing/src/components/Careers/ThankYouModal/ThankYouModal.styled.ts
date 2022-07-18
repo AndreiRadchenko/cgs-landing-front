@@ -14,8 +14,11 @@ export const ThankYouModal = styled.div<IModal>`
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(
+    180deg,
+    rgba(241, 239, 237, 0.8) 100%,
+    rgba(241, 239, 237, 0) 114.26%
+  );
 `;
 
 export const ThankYouModalContainer = styled.div`
@@ -31,6 +34,7 @@ export const ThankYouModalContent = styled.div`
   height: 388px;
   background: ${themes.primary.colors.grayBack};
   position: relative;
+  border: 2px solid ${themes.primary.colors.primary};
 `;
 
 export const ThankContainer = styled.div`
@@ -90,10 +94,10 @@ export const BlackBox = styled.div`
   width: 100%;
   height: 50%;
   background: black;
+  outline: 1px solid black;
 `;
 
 export const WhiteBox = styled.div`
   width: 100%;
   height: 50%;
-  background: white;
 `;

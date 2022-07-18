@@ -183,6 +183,7 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
             setEnable={setEnable}
           />
         </Styled.PositionSelect>
+        <div ref={scrollToRef} />
         {Object.entries(fieldContent).map(([key, label]) => (
           <FormField name={key} key={key} label={label} />
         ))}
@@ -232,7 +233,7 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
             </Styled.Label>
           </Styled.Cvfield>
         </Styled.FormFieldContainer>
-        <Styled.FormSentContainer ref={scrollToRef}>
+        <Styled.FormSentContainer>
           <Styled.FormSentButton
             type="submit"
             isDisabled={buttonState.disabled}
