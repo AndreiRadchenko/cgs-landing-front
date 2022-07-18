@@ -12,8 +12,28 @@ interface ILabelOptions {
   cvlink: boolean;
 }
 
-interface IFormField {
+interface IFormField extends ITitle {
   isEmpty: boolean;
+}
+
+interface ITitle {
+  isCvIn: boolean;
+}
+
+interface ISpinner {
+  isLoading: boolean;
+}
+
+interface ISentButton {
+  isDisabled: boolean;
+}
+
+interface IFillAllFields {
+  toDisplay: boolean;
+}
+
+interface IEnableGlare {
+  enabled: boolean;
 }
 
 export const FormFieldContainer = styled.div`
@@ -209,11 +229,26 @@ export const ErrorMessage = styled.p`
   font-weight: ${themes.primary.font.weight.bold};
 `;
 
-export const FormSentButton = styled.button`
+export const FormSentButton = styled.button<ISentButton>`
   width: 280px;
   height: 56px;
   border: 2px solid black;
   cursor: pointer;
+
+  &:nth-child(1) {
+    color: ${({ isDisabled }) => (isDisabled ? "grey" : "black")};
+  }
+`;
+
+export const FormSentFillText = styled.span<IFillAllFields>`
+  display: ${({ toDisplay }) => (toDisplay ? "inline-block" : "none")};
+  color: black;
+  font-weight: ${themes.primary.font.weight.normal};
+  font-family: ${themes.primary.font.family.namu};
+  font-size 12px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 6px;
 `;
 
 export const FormSentWrap = styled.span`
@@ -235,6 +270,7 @@ export const FormSentContainer = styled.div`
   justify-content: center;
   width: 100%;
   height: 102px;
+  flex-direction: column;
 
   background: linear-gradient(75.6deg, #d6ffbb -9.39%, #5869dd 110.45%);
 
@@ -250,13 +286,30 @@ export const FormSentContainer = styled.div`
   }
 `;
 
-export const PositionSelect = styled.div`
+export const Zasvet = styled.div<IEnableGlare>`
+  display: ${({ enabled }) => (enabled ? "inline-block" : "none")};
+  width: 104%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(241, 239, 237, 0.8) 100%,
+    rgba(241, 239, 237, 0) 114.26%
+  );
+  position: absolute;
+`;
+
+export const PositionSelect = styled.div<IEnableGlare>`
   height: 78px;
   width: 100%;
 
   div {
+    z-index: ${({ enabled }) => (enabled ? "2" : "1")};
+
     width: 100%;
     height: 100%;
+
+    position: relative;
 
     button {
       border: none !important;
@@ -267,6 +320,19 @@ export const PositionSelect = styled.div`
       width: 100%;
       position: relative;
 
+      &:hover {
+        border-bottom: 1px solid black !important;
+        border-right: none !important;
+      }
+
+      &.open {
+        box-shadow: 14px 0px 0px 0px black;
+
+        border-bottom: none !important;
+        border-right: 1px solid black !important;
+        transition: none;
+      }
+
       img {
         position: absolute;
         right: 0;
@@ -274,6 +340,7 @@ export const PositionSelect = styled.div`
       }
     }
   }
+
   div:nth-child(2) {
     height: auto;
 
@@ -282,14 +349,15 @@ export const PositionSelect = styled.div`
         color: ${themes.primary.colors.darkBlue};
       }
 
-      border-bottom: 1px solid black;
-      border-right: none;
+      border-bottom: 10px solid black;
+      border-right: 1px solid black !important;
+      box-shadow: 14px 0px 0px 0px black;
       border-left: none;
     }
   }
 `;
 
-export const DropCv = styled(Field)`
+export const DropCv = styled.input`
   height: 100%;
   width: 77px;
   border-left: 1px solid black;
@@ -303,6 +371,8 @@ export const Cvfield = styled.div<IFormField>`
   height: 100%;
   width: 100%;
   position: relative;
+
+  display: ${({ isCvIn }) => (isCvIn ? "none" : "inline-block")};
 
   input {
     color: ${({ isEmpty }) =>
@@ -339,4 +409,51 @@ export const Clip = styled.img`
   margin-left: 35%;
   widht: 25px;
   height: 25px;
+`;
+
+export const LabelWithClipContainer = styled.div<ISpinner>`
+  display: ${({ isLoading }) => (isLoading ? "none" : "block")};
+`;
+
+export const TitleContainer = styled.div<ITitle>`
+  width: 100%;
+  height: 100%;
+  display: ${({ isCvIn }) => (isCvIn ? "flex" : "none")};
+  position: absolute;
+  border-bottom: 1px solid black;
+  align-items: center;
+`;
+
+export const Title = styled.span`
+  color: ${themes.primary.colors.darkBlue};
+  margin-left: 15px;
+`;
+
+export const DeleteCv = styled.img`
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+  margin-top: 2px;
+  cursor: pointer;
+`;
+
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Loading = styled.img<ISpinner>`
+  width: 34px;
+  height: 34px;
+
+  margin-top: 20px;
+  margin-left: 20px;
+
+  animation: ${rotate360} 1s linear infinite;
+
+  display: ${({ isLoading }) => (isLoading ? "inline-block" : "none")};
 `;

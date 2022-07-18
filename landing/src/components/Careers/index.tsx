@@ -5,11 +5,13 @@ import Arrow from "../../../public/arrowRight.svg";
 import MagnifiedGlass from "../../../public/magnifiedGlass.svg";
 import CareersTicket from "../../components/CareersTicket";
 import CareersForm from "../CareersForm";
+import { useScrollTo } from "../../hooks/useScrollTo";
 
 interface ICareersProps {
   data: IDataCareersResponse;
 }
 const Careers: FC<ICareersProps> = ({ data }) => {
+  const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
   const positions = data?.tickets?.length
     ? data.tickets
         .slice(0, 4)
@@ -21,7 +23,9 @@ const Careers: FC<ICareersProps> = ({ data }) => {
   const mapTickets = () => {
     return data?.tickets
       .slice(0, 4)
-      .map((ticket, idx) => <CareersTicket ticket={ticket} key={idx} />);
+      .map((ticket, idx) => (
+        <CareersTicket scrollTo={scrollTo} ticket={ticket} key={idx} />
+      ));
   };
 
   return (
@@ -51,13 +55,18 @@ const Careers: FC<ICareersProps> = ({ data }) => {
           <br />
           Let us discover you!&nbsp;&gt;
         </Styles.FormTitle>
-        <Styles.FormContainer>
-          <Styles.FormContainer3D />
-          <Styles.Form>
-            <CareersForm positions={positions} data={data} />
-          </Styles.Form>
+        <Styles.FormAndImageContainer>
+          <Styles.FormContainer>
+            <Styles.FormContainer3D>
+              <Styles.TopCorner />
+              <Styles.BottomCorner />
+            </Styles.FormContainer3D>
+            <Styles.Form>
+              <CareersForm positions={positions} data={data} ourRef={ref} />
+            </Styles.Form>
+          </Styles.FormContainer>
           <Styles.FormImage src={MagnifiedGlass.src} alt="Magnified Glass" />
-        </Styles.FormContainer>
+        </Styles.FormAndImageContainer>
       </Styles.CareersContainer>
     </>
   );

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as Styled from "../../styles/Blog.styled";
 import Arrow from "../../../public/upArrowSidebar.svg";
-import Image from "next/image";
 
 interface IBlogDropdown {
   setFilter: (tag: string) => void;
@@ -11,6 +10,7 @@ interface IBlogDropdown {
   isHeader?: boolean;
   isTag?: boolean;
   type?: "button" | "submit";
+  setEnable?: (val: boolean) => void;
 }
 
 const BlogDropdown = ({
@@ -21,14 +21,17 @@ const BlogDropdown = ({
   isTag = false,
   isHeader = false,
   type = "button",
+  setEnable,
 }: IBlogDropdown) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  useEffect(() => {
+
+  const onBlur = () => {
     setIsOpen(false);
-  }, [filter]);
+    if (setEnable) setEnable(false);
+  };
 
   return (
-    <Styled.Dropdown onBlur={() => setIsOpen(false)}>
+    <Styled.Dropdown onBlur={onBlur}>
       <Styled.DropdownButton
         className={isOpen ? "open" : ""}
         onClick={() => setIsOpen(!isOpen)}
@@ -41,7 +44,10 @@ const BlogDropdown = ({
       <Styled.DropdownContent className={isOpen ? "open" : ""}>
         {tags.map((tag) => (
           <div
-            onClick={() => setFilter(tag)}
+            onClick={() => {
+              setFilter(tag);
+              setIsOpen(false);
+            }}
             key={tag}
             onMouseDown={(e) => e.preventDefault()}
           >

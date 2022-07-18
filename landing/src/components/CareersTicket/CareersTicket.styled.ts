@@ -288,39 +288,45 @@ export const SubTitle = styled.span`
   }
 `;
 
-export const TicketContainer = styled.div`
-  width: 616px;
-  height: 265px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const TicketOuter = styled.img`
+export const TicketInner = styled.div`
   width: 100%;
   height: 100%;
-  position: absolute;
-`;
-
-export const TicketInner = styled.img`
-  width: 585px;
-  height: 232px;
-  position: absolute;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const TicketInnerSvgWrapper = styled.div`
-  width: 585px;
-  height: 232px;
-  position: relative;
-
+  width: 100%;
+  height: 100%;
+  position: absolute;
   svg {
     height: 100%;
     width: 100%;
     position: absolute;
   }
+`;
 
-  &:hover {
+export const TicketContainer = styled.div`
+  background-image: url(/CareerDecorations/outer.svg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  max-width: 616px;
+  width: 100%;
+  height: 265px;
+  padding: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding: 13px;
+  }
+  &:hover ${TicketInnerSvgWrapper} {
     svg,
     path {
       fill: none;
@@ -328,16 +334,13 @@ export const TicketInnerSvgWrapper = styled.div`
   }
 `;
 
-export const TicketDataContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  display: flex;
-`;
-
-export const TicketPosition = styled.p`
+export const TicketPosition = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 24px;
+  font-size: 1.8vw;
+  display: flex;
+  width: 19%;
+  justify-content: center;
+  align-items: center;
   align-self: center;
   transform: rotate(270deg) translateY(-20px);
   margin: 0;
@@ -345,19 +348,21 @@ export const TicketPosition = styled.p`
 `;
 
 export const LeftDivider = styled.hr`
-  width: 154px;
+  width: 27%;
   height: 2.5px;
   background-color: black;
   align-self: center;
-  left: 1;
   position: absolute;
   transform: rotate(270deg);
   border: none;
   border-radius: 5px;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    height: 2px;
+  }
 `;
 
 export const RightDivider = styled.hr`
-  width: 154px;
+  width: 25%;
   height: 2.5px;
   background-color: black;
   align-self: center;
@@ -366,18 +371,36 @@ export const RightDivider = styled.hr`
   border: none;
   border-radius: 5px;
   right: -32px;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    height: 2px;
+    right: -28px;
+  }
 `;
 
 export const TicketPositionContainer = styled.div`
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  z-index: 2;
+  @media (max-width: 1360px) {
+    padding-top: 18px;
+  }
+  @media (max-width: 1250px) {
+    padding-top: 28px;
+  }
+  @media (max-width: 1150px) {
+    padding-top: 33px;
+  }
+  @media (max-width: 1110px) {
+    padding-top: 38px;
+  }
 `;
 
 export const TicketPositionTitle = styled.p`
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 34px;
+  font-size: 2.4vw;
   text-transform: uppercase;
   margin: 0;
-  line-height: 54px;
   margin-top: 15px;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -385,9 +408,10 @@ export const TicketPositionTitle = styled.p`
 
 export const TicketPositionStack = styled.p`
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 19px;
-  margin: 0 0 0 1px;
+  margin-top: 8px;
+  margin-bottom: 0;
   text-transform: uppercase;
+  font-size: 1.3vw;
 `;
 
 export const TicketPositionStarsContainer = styled.div`
@@ -397,23 +421,47 @@ export const TicketPositionStarsContainer = styled.div`
 `;
 
 export const TicketPositionStars = styled.img`
-  width: 34px;
-  height: 34px;
+  width: 2.2vw;
+  height: auto;
 `;
 
 export const TicketDataBackground = styled.img`
-  width: 406px;
-  height: 198px;
   position: absolute;
-  right: 0;
-  bottom: 0;
-  margin-right: 50px;
+  width: 70%;
+  bottom: 8%;
+  right: 40px;
+  @media (max-width: 1360px) {
+    bottom: 9%;
+  }
+  @media (max-width: 1320px) {
+    bottom: 10%;
+  }
+  @media (max-width: 1300px) {
+    bottom: 12%;
+  }
+  @media (max-width: 1250px) {
+    bottom: 14%;
+  }
+  @media (max-width: 1200px) {
+    bottom: 16%;
+  }
+  @media (max-width: 1150px) {
+    bottom: 17.5%;
+  }
+  @media (max-width: 1110px) {
+    bottom: 18.5%;
+  }
+  @media (max-width: 1070px) {
+    bottom: 19.5%;
+  }
 `;
 
 export const TicketArrow = styled.img`
-  width: 49px;
-  height: 49px;
+  max-width: 49px;
+  width: 100%;
+  height: 100%;
+  max-height: 49px;
   position: absolute;
   right: -14px;
-  cursor: pointer;
+  top: 40%;
 `;
