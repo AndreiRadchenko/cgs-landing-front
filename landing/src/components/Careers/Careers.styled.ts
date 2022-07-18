@@ -69,6 +69,17 @@ export const TicketsContainer = styled.div`
   row-gap: 50px;
 `;
 
+export const FormAndImageContainer = styled.div`
+  display: flex;
+  margin: 65px 0 115px 120px;
+  align-self: normal;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    flex-direction: column;
+  }
+  overflow: hidden;
+`;
+
 export const FormTitle = styled.span`
   font-size: 50px;
   font-weight: ${themes.primary.font.weight.heavy};
@@ -82,7 +93,6 @@ export const FormTitle = styled.span`
 export const FormContainer = styled.div`
   display: flex;
   align-self: normal;
-  margin: 65px 0 115px 120px;
   position: relative;
 `;
 
@@ -96,7 +106,8 @@ export const Form = styled.div`
 export const FormImage = styled.img`
   width: 645px;
   height: 515px;
-  margin: 0 0 0 561px;
+  margin-left: 45vw;
+  padding-bottom: 50px;
 `;
 
 export const FormContainer3D = styled.div`
@@ -104,5 +115,32 @@ export const FormContainer3D = styled.div`
   height: 416px;
   position: absolute;
   background: black;
-  margin-left: 10px;
+  margin-left: 13px;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const TopCorner = styled.div`
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 13px 8px 0;
+  border-color: transparent ${themes.primary.colors.grayBack} transparent
+    transparent;
+  right: 0;
+  top: 0;
+  position: absolute;
+  z-index: 5;
+`;
+
+export const BottomCorner = styled.div`
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 5px 13px;
+  border-color: transparent transparent ${themes.primary.colors.grayBack}
+    transparent;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 `;

@@ -8,6 +8,7 @@ interface ITicketModalProps {
   setIsOpen: (arg: boolean) => void;
   fromYou: string[];
   fromUs: string[];
+  scrollTo: () => void;
 }
 
 const TicketModal: FC<ITicketModalProps> = ({
@@ -15,10 +16,16 @@ const TicketModal: FC<ITicketModalProps> = ({
   fromUs,
   isOpen,
   setIsOpen,
+  scrollTo,
 }) => {
-  const onClose = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
+  const onSubmitClick = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
     e.preventDefault();
 
+    setIsOpen(false);
+    scrollTo();
+  };
+  const onClose = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
+    e.stopPropagation();
     setIsOpen(false);
   };
   return (
@@ -43,7 +50,7 @@ const TicketModal: FC<ITicketModalProps> = ({
             ))}
           </Styles.List>
           <Styles.SubmitButtonContainer>
-            <Styles.SubmitButton onClick={onClose}>
+            <Styles.SubmitButton onClick={onSubmitClick}>
               SUBMIT FORM
             </Styles.SubmitButton>
             <Styles.SubmitArrow src={Arrow.src} />

@@ -8,13 +8,17 @@ interface IModal {
 export const TicketModal = styled.div<IModal>`
   display: ${({ isOpen }) => (isOpen ? `block` : `none`)};
   position: fixed;
-  z-index: 3;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background: linear-gradient(180deg, rgba(241, 239, 237, 0.8) 100%, rgba(241, 239, 237, 0) 114.26%);
+  background: linear-gradient(
+    180deg,
+    rgba(241, 239, 237, 0.8) 100%,
+    rgba(241, 239, 237, 0) 114.26%
+  );
 `;
 
 export const TicketModalContentContainer = styled.div`
@@ -23,6 +27,7 @@ export const TicketModalContentContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: default;
 `;
 
 export const TicketModalContent = styled.div`
@@ -35,7 +40,7 @@ export const TicketModalContent = styled.div`
 
 export const List = styled.ul`
   list-style-type: square;
-  margin: 48px 0 0 0;
+  margin: 48px 5px 0 0;
 `;
 export const ListTitle = styled.span`
   margin: 0 0 7px 0;
@@ -116,4 +121,5 @@ export const BlackBox = styled.div`
 export const WhiteBox = styled.div`
   width: 100%;
   height: 50%;
+  background: ${themes.primary.colors.grayBack};
 `;

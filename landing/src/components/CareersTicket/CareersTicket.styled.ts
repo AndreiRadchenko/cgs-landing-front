@@ -294,6 +294,9 @@ export const TicketInner = styled.div`
   position: relative;
   display: flex;
   overflow: hidden;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const TicketInnerSvgWrapper = styled.div`

@@ -8,7 +8,7 @@ interface IModal {
 export const ThankYouModal = styled.div<IModal>`
   display: ${({ isOpen }) => (isOpen ? `block` : `none`)};
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;

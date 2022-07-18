@@ -10,17 +10,17 @@ import { ITicket } from "../../types/Admin/Response.types";
 
 interface ITicketProps {
   ticket: ITicket;
+  scrollTo: () => void;
 }
 const CareersTicket: FC<ITicketProps> = ({
   ticket: { fromUs, fromYou, position, vacancy, stack, stars },
+  scrollTo,
 }: ITicketProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const starsArr = new Array(stars).fill(0);
 
-  const onTicketView = () => {
-    setIsOpen(true);
-  };
+  const onTicketView = () => setIsOpen(true);
 
   const uuid = (Math.random() + 1).toString(36).substring(7);
 
@@ -74,6 +74,7 @@ const CareersTicket: FC<ITicketProps> = ({
           setIsOpen={(arg) => setIsOpen(arg)}
           fromUs={fromUs}
           fromYou={fromYou}
+          scrollTo={scrollTo}
         />
       </Styled.TicketContainer>
     </>
