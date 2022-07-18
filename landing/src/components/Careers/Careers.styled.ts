@@ -5,7 +5,6 @@ export const CareersContainer = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.normal};
   display: flex;
-  //position: relative;
   flex-direction: column;
   align-items: center;
   background-color: ${themes.primary.colors.careerBackground};
@@ -19,9 +18,6 @@ export const Title = styled.div`
 
   .blue {
     color: ${themes.primary.colors.darkBlue};
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    //font-size: ${themes.primary.font.size.smallerCareersTitle};
   }
 `;
 
@@ -68,9 +64,8 @@ export const TicketsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   position: relative;
-  column-gap: 70px;
+  column-gap: 5vw;
   row-gap: 50px;
 `;
 
