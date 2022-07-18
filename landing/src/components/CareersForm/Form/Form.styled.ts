@@ -376,7 +376,7 @@ export const Cvfield = styled.div<IFormField>`
 
   input {
     color: ${({ isEmpty }) =>
-      isEmpty ? themes.primary.colors.darkBlue : "gray"};
+      isEmpty ? themes.primary.colors.darkBlue : "black"};
 
     &::placeholder {
       color: ${({ isEmpty }) =>
