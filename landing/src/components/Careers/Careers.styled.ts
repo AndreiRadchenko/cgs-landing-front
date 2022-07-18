@@ -111,7 +111,7 @@ export const FormImage = styled.img`
 `;
 
 export const FormContainer3D = styled.div`
-  width: 456px;
+  width: 455px;
   height: 416px;
   position: absolute;
   background: black;
@@ -124,7 +124,7 @@ export const TopCorner = styled.div`
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 13px 8px 0;
+  border-width: 0 14px 8px 0;
   border-color: transparent ${themes.primary.colors.grayBack} transparent
     transparent;
   right: 0;

@@ -116,10 +116,10 @@ export const BlackBox = styled.div`
   width: 100%;
   height: 50%;
   background: black;
+  outline: 1px solid black;
 `;
 
 export const WhiteBox = styled.div`
   width: 100%;
   height: 50%;
-  background: ${themes.primary.colors.grayBack};
 `;

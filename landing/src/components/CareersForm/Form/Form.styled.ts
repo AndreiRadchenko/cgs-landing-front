@@ -242,7 +242,7 @@ export const FormSentButton = styled.button<ISentButton>`
 
 export const FormSentFillText = styled.span<IFillAllFields>`
   display: ${({ toDisplay }) => (toDisplay ? "inline-block" : "none")};
-  color: black;
+  color: grey;
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.namu};
   font-size 12px;
@@ -326,7 +326,7 @@ export const PositionSelect = styled.div<IEnableGlare>`
       }
 
       &.open {
-        box-shadow: 14px 0px 0px 0px black;
+        box-shadow: 13px 0px 0px 0px black;
 
         border-bottom: none !important;
         border-right: 1px solid black !important;
@@ -351,7 +351,7 @@ export const PositionSelect = styled.div<IEnableGlare>`
 
       border-bottom: 10px solid black;
       border-right: 1px solid black !important;
-      box-shadow: 14px 0px 0px 0px black;
+      box-shadow: 13px 0px 0px 0px black;
       border-left: none;
     }
   }

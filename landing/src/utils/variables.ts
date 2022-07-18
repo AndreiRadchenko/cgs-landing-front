@@ -27,7 +27,7 @@ export const navigationRoutesLinks = {
   "Server & Databases": "",
   "UX/UI Design": "",
   "About us": "",
-  Careers: "",
+  Careers: "/careers",
   FAQ: "",
 };
 
