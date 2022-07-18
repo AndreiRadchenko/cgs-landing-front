@@ -10,7 +10,7 @@ export const FormField = styled(Field)`
   border-bottom: 1px solid black;
   font-family: ${themes.primary.font.family.namu};
   font-size: 16px;
-  color: gray;
+  color: black;
   padding: 0 0 0 12px;
   &:focus {
     outline: none;
