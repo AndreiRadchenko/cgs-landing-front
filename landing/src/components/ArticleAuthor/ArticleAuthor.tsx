@@ -14,6 +14,7 @@ interface IArticleAuthor {
   views?: number;
 }
 
+
 const ArticleAuthor: FC<IArticleAuthor> = ({
   author,
   update,
