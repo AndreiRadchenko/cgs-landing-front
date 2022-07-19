@@ -28,12 +28,7 @@ const Faq = () => {
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
-    <Formik
-      key="globalFaqForm"
-      initialValues={data!}
-      onSubmit={submitForm}
-      enableReinitialize={true}
-    >
+    <Formik key="globalFaqForm" initialValues={data!} onSubmit={submitForm}>
       <FaqContentBlock />
     </Formik>
   ) : (

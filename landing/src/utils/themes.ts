@@ -28,6 +28,7 @@ const themes = {
         gilroy: "'Gilroy', sans-serif",
         namu: "'NAMU', sans-serif",
         openSans: "'Open Sans', sans-serif",
+        inter: "'Inter', sans-serif",
       },
       weight: {
         light: 300,
@@ -115,6 +116,7 @@ const themes = {
       },
       lightShadows: "lightgray",
       errorText: "#ea0000",
+      adminRed: "#F80909",
       grayBack: "#EFEEEE",
       comment: "#8F8E93",
       darkedGrayBack: "#DDDBDB",

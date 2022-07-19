@@ -3,12 +3,16 @@ import * as Styled from "./adminFaq.styled";
 import { IQuestion } from "../../../types/Admin/AdminFaq.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import TextEditor from "../../TextEditor/TextEditor";
+import { QuestionContainer } from "./adminFaq.styled";
 
 interface IQuestionComponent {
   question: IQuestion;
   handleChange: (e?: string | React.ChangeEvent<any>) => void;
   questionName: string;
   questionText: string;
+  addQuestion: (index: number) => void;
+  deleteQuestion: (index: number) => void;
+  index: number;
 }
 
 const Question = ({
@@ -16,9 +20,12 @@ const Question = ({
   handleChange,
   questionName,
   questionText,
+  addQuestion,
+  deleteQuestion,
+  index,
 }: IQuestionComponent) => {
   return (
-    <div>
+    <Styled.QuestionContainer>
       <SubHeaderWithInput
         placeholder="Question"
         inputValue={question.question}
@@ -32,8 +39,15 @@ const Question = ({
         header={"Answer"}
         isBlog={false}
       />
-      <Styled.AddButton>[ + add next question ]</Styled.AddButton>
-    </div>
+      <Styled.ButtonsContainer>
+        <Styled.AddButton onClick={() => addQuestion(index)}>
+          [ + add next question ]
+        </Styled.AddButton>
+        <Styled.DeleteButton onClick={() => deleteQuestion(index)}>
+          delete point
+        </Styled.DeleteButton>
+      </Styled.ButtonsContainer>
+    </Styled.QuestionContainer>
   );
 };
 
