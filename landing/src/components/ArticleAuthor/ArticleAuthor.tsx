@@ -4,7 +4,7 @@ import * as Styles from "./ArticleAuthor.styled";
 import { IAuthor } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Blog.styled";
 import Watch from "../../../public/Watch.svg";
-import AuthorPlaceholder from "../../../public/AuthorPlaceholder.png";
+import AuthorPlaceholder from "../../../public/authorPlaceholder.png";
 
 interface IArticleAuthor {
   author: IAuthor;
@@ -13,7 +13,6 @@ interface IArticleAuthor {
   time: number;
   views?: number;
 }
-
 
 const ArticleAuthor: FC<IArticleAuthor> = ({
   author,
