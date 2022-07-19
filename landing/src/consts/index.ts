@@ -6,6 +6,7 @@ import git from "../../public/FooterIcons/git.svg";
 import co from "../../public/FooterIcons/co.svg";
 import linkedin from "../../public/FooterIcons/in.svg";
 import up from "../../public/FooterIcons/up.svg";
+import questionImage from "../../public/FAQDecorations/questionImage.svg";
 
 export enum ErrorMessage {
   DEFAULT = "Oops, something went wrong!",
@@ -235,6 +236,7 @@ export const FaqPageQuestions = [
         ],
       },
     ],
+    image: { src: questionImage.src },
   },
   {
     title: "What is the cost of your services?",

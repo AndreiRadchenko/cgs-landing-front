@@ -58,6 +58,7 @@ const themes = {
         menuElement: "1.7em",
         articleTagDescription: "1.8em",
         adminButton: "1.8em",
+        faqQuestion: "2.17em",
         secondary: "2em",
         blogArticleTitle: "2.2em",
         quaternary: "2.6em",
@@ -129,6 +130,7 @@ const themes = {
       careerBackground: "#f1efed",
       portfolioBg: "#F1EFED",
       portfolioHover: "#F2EA86",
+      faqBorder: "#B5B5B5",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaqPageTypes } from "../../../consts";
 import { IQuestionContent } from "../../../types/Faq.types";
 import * as Styles from "./question.styles";
@@ -10,6 +10,8 @@ interface IQuestionProps {
 }
 
 const Question: React.FC<IQuestionProps> = ({ title, content, image }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   const mapLi = (elements: string[]) => (
     <Styles.QuestionList>
       {elements.map((el, idx) => (
@@ -21,27 +23,32 @@ const Question: React.FC<IQuestionProps> = ({ title, content, image }) => {
   );
 
   return (
-    <Styles.QuestionContainer>
-      <Styles.QuestionTitleContainer>
+    <Styles.QuestionContainer isOpen={isOpen}>
+      <Styles.QuestionTitleContainer isOpen={isOpen}>
         <Styles.QuestionTitle>{title}</Styles.QuestionTitle>
+        <Styles.TogglePlus onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? "-" : "+"}
+        </Styles.TogglePlus>
       </Styles.QuestionTitleContainer>
-      <Styles.QuestionContentContainer>
-        {content.map((el, idx) => {
-          switch (el.type) {
-            case FaqPageTypes.Description:
-              return (
-                <Styles.QuestionDescription key={idx}>
-                  {el.text}
-                </Styles.QuestionDescription>
-              );
-            case FaqPageTypes.List:
-              return (
-                <Styles.QuestionListContainer key={idx}>
-                  {mapLi(el.elements)}
-                </Styles.QuestionListContainer>
-              );
-          }
-        })}
+      <Styles.QuestionContentContainer isOpen={isOpen}>
+        <Styles.QuestionTextContainer>
+          {content.map((el, idx) => {
+            switch (el.type) {
+              case FaqPageTypes.Description:
+                return (
+                  <Styles.QuestionDescription key={idx}>
+                    {el.text}
+                  </Styles.QuestionDescription>
+                );
+              case FaqPageTypes.List:
+                return (
+                  <Styles.QuestionListContainer key={idx}>
+                    {mapLi(el.elements)}
+                  </Styles.QuestionListContainer>
+                );
+            }
+          })}
+        </Styles.QuestionTextContainer>
         {image?.length && <Styles.QuestionImage src={image} />}
       </Styles.QuestionContentContainer>
     </Styles.QuestionContainer>
