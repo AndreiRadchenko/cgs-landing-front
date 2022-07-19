@@ -248,7 +248,6 @@ export const ArticleWatchContainer = styled.div`
   display: flex;
   align-items: center;
   column-gap: 5px;
-  margin-left: 17px;
 `;
 
 export const WatchCount = styled(GrayText)`
