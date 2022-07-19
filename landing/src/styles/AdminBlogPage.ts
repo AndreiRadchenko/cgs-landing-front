@@ -6,6 +6,10 @@ export const AdminSubTitle = styled.h3`
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.semiBold};
   margin: 40px 0 0.4em 0;
+
+  &.blog {
+    margin: 0;
+  }
 `;
 
 export const TextEditorWrapper = styled.div`

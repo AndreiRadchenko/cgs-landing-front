@@ -7,7 +7,7 @@ import * as Styled from "../../../styles/AdminPage";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminBlogService } from "../../../services/adminBlogPage";
 
-interface IBlogProps {
+export interface IBlogProps {
   data: IBlogResponse | undefined;
   isLoading: boolean;
   refetch: () => Promise<IBlogProps>;
@@ -44,6 +44,7 @@ const AdminBlogMainContent = () => {
         setIsNewArticle={setIsNewArticle}
         article={article}
         setArticle={setArticle}
+        refetch={refetch}
       />
     </Formik>
   ) : (

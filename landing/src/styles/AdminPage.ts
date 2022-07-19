@@ -120,6 +120,10 @@ export const AdminInput = styled(TextareaAutosize)<{
   border: 0;
   height: ${(props) => props.height} !important;
   margin-bottom: ${themes.primary.spacing.primary};
+
+  &.tag {
+    font-size: 20px;
+  }
   &:focus {
     outline: 1px solid gray;
   }
@@ -717,4 +721,12 @@ export const Subtitle = styled.div`
   white-space: nowrap;
   margin-top: 70px;
   margin-bottom: 40px;
+`;
+
+export const TagContainer = styled.div`
+  margin-top: 40px;
+  gap: 40px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
 `;
