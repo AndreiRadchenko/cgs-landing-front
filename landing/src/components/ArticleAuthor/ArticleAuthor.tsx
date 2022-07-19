@@ -4,6 +4,7 @@ import * as Styles from "./ArticleAuthor.styled";
 import { IAuthor } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Blog.styled";
 import Watch from "../../../public/Watch.svg";
+import AuthorPlaceholder from "../../../public/AuthorPlaceholder.png";
 
 interface IArticleAuthor {
   author: IAuthor;
@@ -27,7 +28,11 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
   return (
     <>
       <Styles.Wrapper>
-        {author.image.url && <Styles.AuthorImage src={author.image.url} />}
+        {
+          <Styles.AuthorImage
+            src={author.image.url ? author.image.url : AuthorPlaceholder.src}
+          />
+        }
         <Styles.AuthorInfoWrapper>
           <Styles.Container>
             <Styles.AuthorName>

@@ -23,8 +23,6 @@ const FooterNew = (): JSX.Element => {
     queryKeys.getFullHomePage
   )?.FooterBlock;
 
-  console.log(data?.links);
-
   disableScrollBarHandler(isOpen);
   return (
     <StyledThisComp.HeaderNavContainer>
