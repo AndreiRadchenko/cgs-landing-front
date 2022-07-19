@@ -101,6 +101,7 @@ const themes = {
       blue: "#85BEFD",
       linkBlue: "#3C95F9",
       darkBlue: "#5869DD",
+      adminBlue: "#095AF8",
       tagBg: "#3749C5",
       hoveredBlogTag: "#3749C5",
       cardDarkGreen: "#90e645",

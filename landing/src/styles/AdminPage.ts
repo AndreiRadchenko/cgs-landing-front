@@ -633,13 +633,17 @@ export const TextEditorContainer = styled.div<{
   resize: none;
   min-height: 417px;
   height: auto;
-  width: 1100px;
+  max-width: 1200px;
+  width: 100%;
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.mulish};
   border: 0;
   margin-bottom: ${themes.primary.spacing.primary};
   &:focus-within {
     outline: 1px solid gray;
+  }
+  &.faq {
+    min-height: 180px;
   }
 `;
 
