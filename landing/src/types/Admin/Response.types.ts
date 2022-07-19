@@ -250,9 +250,26 @@ export interface IArticle {
   meta: IMetaBlock;
 }
 
+export interface INewArticle {
+  _id?: string;
+  url: string;
+  image: { url: string };
+  title: string;
+  description: string;
+  author: IAuthor;
+  updatedOn: string;
+  date: string;
+  minutesToRead: number;
+  content: ITextBlog[];
+  tags: string[];
+  possibleTags: string[];
+  disabled: boolean;
+  meta: IMetaBlock;
+}
+
 export interface IBlogResponse {
   articles: IArticle[];
-  newArticle: IArticle;
+  newArticle: INewArticle;
   meta: IMetaBlock;
 }
 

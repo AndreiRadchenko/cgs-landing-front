@@ -62,7 +62,6 @@ const FromYou: FC<IBlogTags> = ({ isNewTicket, ticket }) => {
   };
 
   const deleteItem = () => {
-    console.log("ASd");
     setTagList(tagList.slice(0, -1));
     !isNewTicket
       ? values.vacancy?.fromYou.pop()

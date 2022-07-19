@@ -24,6 +24,8 @@ import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import InputWithType from "../../../Inputs/InputWithType";
 import MetaTagsBlock from "../../MetaTagsBlock";
+import AddTag from "./AddTag";
+import { IBlogProps } from "../AdminBlogMainContent";
 
 interface IArticles {
   isNewArticle: boolean;
@@ -31,6 +33,7 @@ interface IArticles {
   article: number;
   setArticle: React.Dispatch<React.SetStateAction<number>>;
   data: IBlogResponse;
+  refetch: () => Promise<IBlogProps>;
 }
 
 const TITLE_MIN = 10;
@@ -108,9 +111,7 @@ const ContentBlock: FC<IArticles> = ({
       );
       await updateViews({ allViews: updatedViews });
     }
-    values.newArticle.tags = values.articles[article].tags.filter(
-      (tag) => tag !== ""
-    );
+    values.newArticle.tags = [];
     await mutateAsync(values);
     setArticle(0);
     setIsNewArticle(true);
@@ -173,6 +174,7 @@ const ContentBlock: FC<IArticles> = ({
             : values.newArticle.description)
       : values.newArticle.meta.metaDescription;
     const articleToAdd = values.newArticle;
+
     values.articles.push(articleToAdd);
 
     values.newArticle = {
@@ -182,13 +184,15 @@ const ContentBlock: FC<IArticles> = ({
       image: { url: "" },
       author: { name: "", image: { url: "" }, specialization: "" },
       description: "",
-      tags: [""],
+      tags: [],
+      possibleTags: values.newArticle.possibleTags,
       disabled: false,
       date: "",
       updatedOn: "",
       minutesToRead: 0,
       meta: { metaTitle: "", metaDescription: "", customHead: "" },
     };
+
     await postArticle(articleToAdd);
     setDisabled(false);
     setArticle(0);
@@ -434,7 +438,10 @@ const ContentBlock: FC<IArticles> = ({
         </Styles.BigWrapper>
 
         <ArticleBlock isNewArticle={isNewArticle} article={article} />
-        <Styles.AdminSubTitle>Tags</Styles.AdminSubTitle>
+        <Styled.TagContainer>
+          <Styles.AdminSubTitle className="blog">Tags</Styles.AdminSubTitle>
+          <AddTag />
+        </Styled.TagContainer>
         <BlogTags isNewArticle={isNewArticle} article={article} />
       </Styled.AdminPaddedBlock>
       <MetaTagsBlock
