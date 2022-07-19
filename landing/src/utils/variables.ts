@@ -28,7 +28,7 @@ export const navigationRoutesLinks = {
   "UX/UI Design": "",
   "About us": "",
   Careers: "/careers",
-  FAQ: "",
+  FAQ: "/faq",
 };
 
 export const navigationRoutesNamesNew = [

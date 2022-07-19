@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as StyledThisComp from "./Footer.styled";
-import logo from "../../../public/logo.png";
+import logo from "../../../public/newHeaderLogo.svg";
 import ImagePreview from "../Image/ImagePreview";
 import Link from "next/link";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
@@ -29,7 +29,7 @@ const FooterNew = (): JSX.Element => {
       <StyledThisComp.FlexRowContainer>
         <StyledThisComp.LogoLinkWrapper href={"/"}>
           <ImagePreview
-            src={logo}
+            src={logo.src}
             alt={"logo cgs-team"}
             width={106}
             height={32}

@@ -11,7 +11,7 @@ import BurgerButton from "../BurgerMenu/BurgerButton";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { disableScrollBarHandler } from "../../utils/disableScrollBarHandler";
-import logo from "../../../public/logo.png";
+import logo from "../../../public/newHeaderLogo.svg";
 import BlogDropdown from "../Blog/BlogDropdown";
 import { useRouter } from "next/router";
 
@@ -55,7 +55,7 @@ const HeaderNavNew = (): JSX.Element => {
       </BurgerMenu>
       <StyledThisComp.LogoLinkWrapper href={"/"}>
         <ImagePreview
-          src={logo}
+          src={logo.src}
           alt={"logo cgs-team"}
           width={106}
           height={32}
