@@ -1,4 +1,5 @@
 import { FaqPageTypes } from "../consts";
+import { IMetaBlock } from "./Admin/Response.types";
 
 export interface IQuestionDescription {
   type: FaqPageTypes.Description;
@@ -14,7 +15,16 @@ export interface IQuestionList {
 export type IQuestionContent = IQuestionDescription | IQuestionList;
 
 export interface IQuestion {
-  title: string;
-  image?: { src: string };
-  content: IQuestionContent[];
+  id: string;
+  question: string;
+  image?: { url: string };
+  text: string;
+}
+
+export interface IQuestionData {
+  questions: IQuestion[];
+  meta: IMetaBlock;
+}
+export interface IFaqData {
+  questions: IQuestion[];
 }
