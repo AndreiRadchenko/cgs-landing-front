@@ -5,4 +5,5 @@ export interface IMenuProps {
   setIsDropped?: React.Dispatch<React.SetStateAction<boolean>>;
   text?: string;
   isDropped?: boolean;
+  className?: string;
 }
