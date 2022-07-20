@@ -19,15 +19,16 @@ const TextEditor = ({ name, isBlog, header }: ITextEditorProps) => {
   return (
     <div>
       <Styled.AdminSubTitle isBlog={isBlog}>{header}</Styled.AdminSubTitle>
-      <Styled.TextEditorContainer height={"417px"}>
+      <Styled.TextEditorContainer className={!isBlog ? "faq" : ""}>
         <Field name={name}>
           {({ field }: any) => (
             <SunEditor
-              height="376px"
+              height={isBlog ? "376px" : "180px"}
               defaultValue={field.value}
               onChange={field.onChange(field.name)}
               lang="en"
               setOptions={{
+                font: ["NAMU"],
                 linkRelDefault: {
                   default: undefined,
                   check_new_window: "nofollow",

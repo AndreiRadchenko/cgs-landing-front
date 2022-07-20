@@ -153,6 +153,9 @@ export const AdminPhotoGrid = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  &.faq {
+    width: 90%;
+  }
 `;
 
 export const AdminDashedPositionGrid = styled.div`
@@ -488,7 +491,7 @@ export const AdminUploadModuleBack = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 6;
 `;
 
 export const AdminUnauthorizedModal = styled.div`
@@ -633,13 +636,20 @@ export const TextEditorContainer = styled.div<{
   resize: none;
   min-height: 417px;
   height: auto;
-  width: 1100px;
+  max-width: 1200px;
+  width: 100%;
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.mulish};
   border: 0;
   margin-bottom: ${themes.primary.spacing.primary};
   &:focus-within {
     outline: 1px solid gray;
+  }
+  &.faq {
+    width: 100%;
+    min-height: 180px;
+    max-width: 100%;
+    width: 100%;
   }
 `;
 
@@ -729,4 +739,8 @@ export const TagContainer = styled.div`
   flex-direction: row;
   display: flex;
   align-items: center;
+`;
+
+export const Counter = styled.span`
+  display: none;
 `;
