@@ -38,8 +38,8 @@ const BlogDropdown = ({
         isHeader={isHeader}
         type={type}
       >
-        {dropdownName}
-        <img width={12} height={12} src={Arrow.src} alt="Arrow" />
+        <span>{dropdownName}</span>
+        <img width={9} height={5} src={Arrow.src} alt="Arrow" />
       </Styled.DropdownButton>
       <Styled.DropdownContent className={isOpen ? "open" : ""}>
         {tags.map((tag) => (
