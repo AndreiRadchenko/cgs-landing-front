@@ -153,6 +153,9 @@ export const AdminPhotoGrid = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  &.faq {
+    width: 90%;
+  }
 `;
 
 export const AdminDashedPositionGrid = styled.div`
@@ -488,7 +491,7 @@ export const AdminUploadModuleBack = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 6;
 `;
 
 export const AdminUnauthorizedModal = styled.div`
@@ -643,6 +646,7 @@ export const TextEditorContainer = styled.div<{
     outline: 1px solid gray;
   }
   &.faq {
+    width: 100%;
     min-height: 180px;
     max-width: 100%;
     width: 100%;

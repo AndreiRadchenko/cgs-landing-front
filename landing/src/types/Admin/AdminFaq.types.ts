@@ -10,7 +10,7 @@ export interface IQuestion {
   id: string;
   question: string;
   text: string;
-  image?: { url: string };
+  image: { url: string } | null;
 }
 
 export interface IFaqData {

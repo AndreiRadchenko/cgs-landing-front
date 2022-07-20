@@ -4,7 +4,7 @@ import * as Styles from "./question.styles";
 
 interface IQuestionProps {
   title: string;
-  image?: { url: string };
+  image: { url: string } | null;
   content: string;
 }
 

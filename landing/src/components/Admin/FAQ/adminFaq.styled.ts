@@ -31,3 +31,16 @@ export const QuestionContainer = styled.div`
 export const QuestionTitleContainer = styled.div`
   max-width: 70%;
 `;
+
+export const ContentWrapper = styled.div`
+  display: grid;
+
+  &.image {
+    gap: 50px;
+    grid-template-columns: 65% 30%;
+  }
+`;
+
+export const PhotoContainer = styled.div`
+  margin: 50px 0;
+`;

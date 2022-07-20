@@ -17,7 +17,7 @@ export type IQuestionContent = IQuestionDescription | IQuestionList;
 export interface IQuestion {
   id: string;
   question: string;
-  image?: { url: string };
+  image: { url: string } | null;
   text: string;
 }
 
