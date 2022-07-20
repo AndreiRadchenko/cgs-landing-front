@@ -1,10 +1,19 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
+interface IMainPhoto {
+  isMain?: boolean;
+}
+
+interface IBackground {
+  right: string;
+  bottom: string;
+}
+
 export const AboutUsContainer = styled.div`
   font-family: ${themes.primary.font.family.namu};
   background-color: ${themes.primary.colors.blogBackground};
-  padding: 70px 50px 250px;
+  padding: 70px 3.5% 250px;
   min-height: 88vh;
   position: relative;
 `;
@@ -20,6 +29,10 @@ export const MainTitle = styled.div`
 
 export const Subtitle = styled.div`
   font-size: ${themes.primary.font.size.aboutUsSubtitle};
+  margin-top: 40px;
+  &:first-child {
+    margin-top: 0px;
+  }
 `;
 
 export const Text = styled.div`
@@ -55,15 +68,17 @@ export const BonusText = styled.div`
 
 export const MainPhotoDescription = styled.div`
   text-transform: uppercase;
-  font-size: ${themes.primary.font.size.mainPagePhoto};
+  font-size: 30.5px;
   span {
     color: ${themes.primary.colors.darkBlue};
   }
 `;
 
-export const RelativeContainerPhotoBlock = styled.div`
+export const RelativeContainerPhotoBlock = styled.div<IMainPhoto>`
   position: relative;
-  transform: rotate(-1.26deg);
+  transform: ${({ isMain }) => isMain && "rotate(-1.26deg)"};
+  margin-bottom: ${({ isMain }) => !isMain && "35px"};
+  width: 100%;
 `;
 
 export const MainPhotoContainer = styled.div`
@@ -76,10 +91,18 @@ export const MainPhotoContainer = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
 `;
 
-export const BackgroundContainer = styled.div`
+export const CenterBlock = styled.div`
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const BackgroundContainer = styled.div<IBackground>`
   position: absolute;
-  right: -11px;
-  bottom: -14px;
+  right: ${({ right }) => right};
+  bottom: ${({ bottom }) => bottom};
   width: 100%;
   height: 100%;
   display: flex;
@@ -91,6 +114,7 @@ export const BackgroundBlackBlock = styled.div`
   width: 100%;
   height: 50%;
   background-color: ${themes.primary.colors.primary};
+  outline: 1px solid ${themes.primary.colors.primary};
 `;
 
 export const Pin = styled.img`
@@ -100,4 +124,32 @@ export const Pin = styled.img`
   right: 10%;
   top: -48px;
   z-index: 3;
+`;
+
+export const MainImage = styled.img`
+  border: 2px solid ${themes.primary.colors.primary};
+  position: relative;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+`;
+
+export const MainRowContainer = styled.div`
+  display: flex;
+  column-gap: 75px;
+  margin-top: 50px;
+`;
+
+export const ColContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+`;
+
+export const ProvideBlock = styled.div`
+  margin-top: 50px;
+`;
+
+export const ProvideMainText = styled.div`
+  width: 45%;
 `;
