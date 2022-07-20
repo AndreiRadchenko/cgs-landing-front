@@ -127,10 +127,6 @@ export const AdminInput = styled(TextareaAutosize)<{
   &:focus {
     outline: 1px solid gray;
   }
-
-  &.about {
-    margin-bottom: 0;
-  }
 `;
 
 interface IPhotoBlock {

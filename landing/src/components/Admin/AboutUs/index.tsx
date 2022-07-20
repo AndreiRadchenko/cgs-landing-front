@@ -78,11 +78,11 @@ const AboutUsContentBlock = () => {
               {(values.bonuses.text.length > 0 &&
                 values.bonuses.text.map((el, idx) => (
                   <div key={idx}>
-                    <Styled.AdminInput
-                      className="about"
-                      minRows="2"
+                    <SubHeaderWithInput
+                      header=""
+                      onChangeFunction={handleChange}
                       name={`bonuses.text[${idx}]`}
-                      value={el}
+                      inputValue={el}
                     />
                     <StyledThisComp.ButtonsContainer className="about">
                       <StyledThisComp.AddButton
