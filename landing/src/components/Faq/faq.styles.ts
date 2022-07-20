@@ -7,6 +7,19 @@ export const FaqContainer = styled.div`
   font-family: ${themes.primary.font.family.namu};
   position: relative;
   min-height: 95vh;
+  ul {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    color: ${themes.primary.colors.darkBlue};
+    text-decoration: none;
+    u {
+      text-decoration: none;
+    }
+  }
 `;
 
 export const BottomDecor = styled.img`

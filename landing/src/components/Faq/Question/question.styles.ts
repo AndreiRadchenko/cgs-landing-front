@@ -50,7 +50,7 @@ export const QuestionTitle = styled.div``;
 export const QuestionContentContainer = styled.div<IIsOpen>`
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   font-size: ${themes.primary.font.size.faqAnswer};
-  padding: 6px 23px;
+  padding: 20px 23px;
   color: ${themes.primary.colors.primary};
   line-height: 160%;
   column-gap: 15px;

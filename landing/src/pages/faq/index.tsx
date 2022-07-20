@@ -31,7 +31,6 @@ const FaqPage = () => {
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
-  console.log(data?.questions);
 
   return (
     <>
