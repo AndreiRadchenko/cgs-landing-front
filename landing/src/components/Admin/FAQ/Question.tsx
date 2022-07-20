@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Styled from "./adminFaq.styled";
 import { IQuestion } from "../../../types/Admin/AdminFaq.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
@@ -30,9 +30,7 @@ const Question = ({
   index,
 }: IQuestionComponent) => {
   const { values } = useFormikContext<IFaqData>();
-  const [isImage, setIsImage] = useState<boolean>(
-    values.questions[index].image !== null
-  );
+  const [isImage, setIsImage] = useState<boolean>(false);
 
   const deleteImage = useDeleteImageFunction(values.questions[index], "");
   const uploadImage = useUploadImageFunction(values.questions[index], "");
@@ -43,6 +41,10 @@ const Question = ({
     }
     setIsImage((old) => !old);
   };
+
+  useEffect(() => {
+    setIsImage(values.questions[index].image !== undefined);
+  }, [index, values.questions]);
   return (
     <Styled.ContentWrapper className={isImage ? "image" : undefined}>
       <Styled.QuestionContainer>
