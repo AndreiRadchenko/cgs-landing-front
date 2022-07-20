@@ -644,6 +644,8 @@ export const TextEditorContainer = styled.div<{
   }
   &.faq {
     min-height: 180px;
+    max-width: 100%;
+    width: 100%;
   }
 `;
 

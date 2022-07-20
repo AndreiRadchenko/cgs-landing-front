@@ -6,7 +6,7 @@ import Question from "./Question";
 import MetaTagsBlock from "../MetaTagsBlock";
 
 const FaqContentBlock = () => {
-  const { values, handleChange } = useFormikContext<IFaqData>();
+  const { values, handleChange, handleSubmit } = useFormikContext<IFaqData>();
   const [counter, setCounter] = useState<number>(0);
 
   const addQuestion = (index: number) => {
@@ -21,6 +21,7 @@ const FaqContentBlock = () => {
   const deleteQuestion = (index: number) => {
     values.questions.splice(index, 1);
     setCounter(values.questions.length);
+    handleSubmit();
   };
 
   return (
@@ -42,6 +43,11 @@ const FaqContentBlock = () => {
         ))}
       </Styled.AdminPaddedBlock>
       <MetaTagsBlock theme="dark" />
+      <Styled.AdminPaddedBlock>
+        <Styled.AdminBigButton type="submit" onClick={() => handleSubmit()}>
+          Save changes
+        </Styled.AdminBigButton>
+      </Styled.AdminPaddedBlock>
     </div>
   );
 };

@@ -3,7 +3,6 @@ import * as Styled from "./adminFaq.styled";
 import { IQuestion } from "../../../types/Admin/AdminFaq.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import TextEditor from "../../TextEditor/TextEditor";
-import { QuestionContainer } from "./adminFaq.styled";
 
 interface IQuestionComponent {
   question: IQuestion;
@@ -26,13 +25,15 @@ const Question = ({
 }: IQuestionComponent) => {
   return (
     <Styled.QuestionContainer>
-      <SubHeaderWithInput
-        placeholder="Question"
-        inputValue={question.question}
-        onChangeFunction={handleChange}
-        name={questionName}
-        header={"Question"}
-      />
+      <Styled.QuestionTitleContainer>
+        <SubHeaderWithInput
+          placeholder="Question"
+          inputValue={question.question}
+          onChangeFunction={handleChange}
+          name={questionName}
+          header={"Question"}
+        />
+      </Styled.QuestionTitleContainer>
       <TextEditor
         value={question.text}
         name={questionText}

@@ -24,4 +24,10 @@ export const ButtonsContainer = styled.div`
 
 export const QuestionContainer = styled.div`
   margin-bottom: 50px;
+  max-width: 80vw;
+  width: 100%;
+`;
+
+export const QuestionTitleContainer = styled.div`
+  max-width: 70%;
 `;
