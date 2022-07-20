@@ -734,3 +734,7 @@ export const TagContainer = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const Counter = styled.span`
+  display: none;
+`;
