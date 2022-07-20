@@ -66,7 +66,7 @@ const Question = ({
             [ + add next question ]
           </Styled.AddButton>
           <Styled.AddButton onClick={() => toggleImage()}>
-            {` [ + ${isImage ? "delete" : "add"} image to this answer ]`}
+            {` [  ${isImage ? "- delete" : "+ add"} image to this answer ]`}
           </Styled.AddButton>
           <Styled.DeleteButton onClick={() => deleteQuestion(index)}>
             delete point
