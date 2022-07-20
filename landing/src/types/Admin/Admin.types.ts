@@ -24,6 +24,7 @@ export interface IPhotoBlock extends IPropsWithImage {
   header?: string;
   horizontalFlex?: boolean;
   maxWidth?: string;
+  className?: string;
 }
 
 export interface InputPropsInterface {

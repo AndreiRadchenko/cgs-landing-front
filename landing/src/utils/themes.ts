@@ -28,6 +28,7 @@ const themes = {
         gilroy: "'Gilroy', sans-serif",
         namu: "'NAMU', sans-serif",
         openSans: "'Open Sans', sans-serif",
+        inter: "'Inter', sans-serif",
       },
       weight: {
         light: 300,
@@ -101,6 +102,7 @@ const themes = {
       blue: "#85BEFD",
       linkBlue: "#3C95F9",
       darkBlue: "#5869DD",
+      adminBlue: "#095AF8",
       tagBg: "#3749C5",
       hoveredBlogTag: "#3749C5",
       cardDarkGreen: "#90e645",
@@ -114,6 +116,7 @@ const themes = {
       },
       lightShadows: "lightgray",
       errorText: "#ea0000",
+      adminRed: "#F80909",
       grayBack: "#EFEEEE",
       comment: "#8F8E93",
       darkedGrayBack: "#DDDBDB",
