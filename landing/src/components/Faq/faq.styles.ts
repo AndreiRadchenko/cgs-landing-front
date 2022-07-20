@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const FaqContainer = styled.div`
-  padding: 50px 15% 200px 50px;
+  padding: 50px 21% 200px 50px;
   background-color: ${themes.primary.colors.blogBackground};
   font-family: ${themes.primary.font.family.namu};
   position: relative;
@@ -19,7 +19,7 @@ export const BottomDecor = styled.img`
 
 export const PageTitle = styled.div`
   text-transform: uppercase;
-  font-size: 4.87vw;
+  font-size: 4.45vw;
   display: flex;
   margin-bottom: 40px;
   div::first-letter {
