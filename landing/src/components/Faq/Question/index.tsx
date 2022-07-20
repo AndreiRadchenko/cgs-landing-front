@@ -13,11 +13,12 @@ const Question: FC<IQuestionProps> = ({ title, content, image }) => {
 
   return (
     <Styles.QuestionContainer isOpen={isOpen}>
-      <Styles.QuestionTitleContainer isOpen={isOpen}>
+      <Styles.QuestionTitleContainer
+        isOpen={isOpen}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <Styles.QuestionTitle>{title}</Styles.QuestionTitle>
-        <Styles.TogglePlus onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? "-" : "+"}
-        </Styles.TogglePlus>
+        <Styles.TogglePlus>{isOpen ? "-" : "+"}</Styles.TogglePlus>
       </Styles.QuestionTitleContainer>
       <Styles.QuestionContentContainer isOpen={isOpen}>
         <Styles.QuestionTextContainer>
