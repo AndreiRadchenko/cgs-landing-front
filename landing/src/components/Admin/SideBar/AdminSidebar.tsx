@@ -15,7 +15,7 @@ const AdminSidebar = () => {
   return (
     <Styled.AdminSidebar>
       <Styled.AdminSidebarLogo>
-        <Image src={logo} />
+        <Image src={logo} alt={"logo"} />
       </Styled.AdminSidebarLogo>
       <Styled.AdminSidebarMenu>
         <DropDownElement value="home" route={ROUTE_KEYS.AdminPage}>
@@ -25,6 +25,8 @@ const AdminSidebar = () => {
         </DropDownElement>
 
         <DropDownElement value="blog" route={ROUTE_KEYS.AdminBlog} />
+
+        <DropDownElement value="FAQ" route={ROUTE_KEYS.AdminFaqPage} />
 
         <DropDownElement
           value="portfolio"
