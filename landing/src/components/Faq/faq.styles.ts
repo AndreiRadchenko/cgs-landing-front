@@ -2,13 +2,17 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const FaqContainer = styled.div`
-  padding: 50px 21% 200px 50px;
+  padding: 77px 22% 200px 50px;
   background-color: ${themes.primary.colors.blogBackground};
   font-family: ${themes.primary.font.family.namu};
   position: relative;
   min-height: 95vh;
   ul {
     margin: 0;
+    padding: 0 0 0 15px;
+    li::marker {
+      color: ${themes.primary.colors.blogArticleText} !important;
+    }
   }
   p {
     margin: 0;
@@ -19,6 +23,12 @@ export const FaqContainer = styled.div`
     u {
       text-decoration: none;
     }
+  }
+  p {
+    color: ${themes.primary.colors.blogArticleText} !important;
+  }
+  span {
+    color: ${themes.primary.colors.blogArticleText} !important;
   }
 `;
 
