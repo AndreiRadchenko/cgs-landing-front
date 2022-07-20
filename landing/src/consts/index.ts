@@ -199,6 +199,7 @@ export enum ROUTE_KEYS {
   AdminBlockchain = "/Admin/AdminBlockchain",
   AdminPortfolioPage = "/Admin/AdminPortfolioPage",
   AdminFaqPage = "/Admin/AdminFaq",
+  AdminAboutUs = "/Admin/AdminAboutUs",
 }
 
 export enum FaqPageTypes {

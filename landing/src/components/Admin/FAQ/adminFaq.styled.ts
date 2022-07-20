@@ -20,6 +20,10 @@ export const DeleteButton = styled.div`
 export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  &.about {
+    margin-bottom: ${themes.primary.spacing.septenary};
+  }
 `;
 
 export const QuestionContainer = styled.div`

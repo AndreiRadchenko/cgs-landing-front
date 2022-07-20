@@ -8,13 +8,18 @@ import AdminUploadModal from "../UploadModal";
 interface IEmptyProps {
   func?: (image: any) => void;
   header?: string;
+  className?: string;
 }
 
-const AdminEmptyImage = ({ func, header = "Drop image here" }: IEmptyProps) => {
+const AdminEmptyImage = ({
+  func,
+  header = "Drop image here",
+  className,
+}: IEmptyProps) => {
   const { modal, toggleModal } = useUploadModal();
 
   return (
-    <Styled.AdminPhotoBlock theme="center">
+    <Styled.AdminPhotoBlock theme="center" className={className}>
       {modal ? <AdminUploadModal func={func} back={toggleModal} /> : null}
       <Styled.AdminDashedPositionGrid>
         <Image src={smallMountain} />

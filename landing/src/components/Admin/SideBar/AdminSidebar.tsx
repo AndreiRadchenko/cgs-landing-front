@@ -28,6 +28,7 @@ const AdminSidebar = () => {
 
         <DropDownElement value="FAQ" route={ROUTE_KEYS.AdminFaqPage} />
 
+        <DropDownElement value="About Us" route={ROUTE_KEYS.AdminAboutUs} />
         <DropDownElement
           value="portfolio"
           route={ROUTE_KEYS.AdminPortfolioPage}

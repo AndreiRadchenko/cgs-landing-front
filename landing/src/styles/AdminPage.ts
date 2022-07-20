@@ -145,6 +145,11 @@ export const AdminPhotoBlock = styled.div<IPhotoBlock>`
   height: 100%;
   margin-right: ${({ maxWidth }) => (maxWidth ? `20px` : "none")};
   max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}` : "none")};
+
+  &.about {
+    height: 390px;
+    width: 370px;
+  }
 `;
 
 export const AdminPhotoGrid = styled.div`
@@ -154,6 +159,10 @@ export const AdminPhotoGrid = styled.div`
   align-items: center;
   height: 100%;
   &.faq {
+    width: 90%;
+  }
+
+  &.about {
     width: 90%;
   }
 `;
@@ -743,4 +752,19 @@ export const TagContainer = styled.div`
 
 export const Counter = styled.span`
   display: none;
+`;
+
+export const AdminMarginBlock = styled.div`
+  margin-bottom: 120px;
+
+  &.top {
+    margin-top: 100px;
+    margin-bottom: 0;
+  }
+`;
+
+export const AdminAboutUsGrid = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 3rem;
 `;
