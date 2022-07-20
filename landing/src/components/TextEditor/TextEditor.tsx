@@ -28,6 +28,7 @@ const TextEditor = ({ name, isBlog, header }: ITextEditorProps) => {
               onChange={field.onChange(field.name)}
               lang="en"
               setOptions={{
+                font: ["NAMU"],
                 linkRelDefault: {
                   default: undefined,
                   check_new_window: "nofollow",

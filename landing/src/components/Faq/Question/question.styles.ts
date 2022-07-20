@@ -8,7 +8,7 @@ interface IIsOpen {
 
 export const QuestionImage = styled.img`
   width: 100%;
-  height: auto;
+  height: fit-content;
   max-width: 500px;
 `;
 export const QuestionContainer = styled.div<IIsOpen>`
