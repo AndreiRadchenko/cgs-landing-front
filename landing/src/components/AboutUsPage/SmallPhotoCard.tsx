@@ -1,13 +1,15 @@
 import React from "react";
 import * as Styled from "./AboutUs.styled";
 import pin from "../../../public/AboutUsDecorations/pin.svg";
+import parse from "html-react-parser";
 
 interface ISmallPhotoCard {
   degrees: string;
   pinPosition: string;
+  data: { image: { url: string }; text: string };
 }
 
-const SmallPhotoCard = ({ degrees, pinPosition }: ISmallPhotoCard) => {
+const SmallPhotoCard = ({ degrees, pinPosition, data }: ISmallPhotoCard) => {
   return (
     <Styled.RotateContainer degrees={degrees}>
       <Styled.RelativeContainerPhotoBlock>
@@ -21,11 +23,9 @@ const SmallPhotoCard = ({ degrees, pinPosition }: ISmallPhotoCard) => {
             >
               <Styled.BackgroundBlackBlock />
             </Styled.BackgroundContainer>
-            <Styled.SmallImage />
+            <Styled.SmallImage src={data.image.url} />
           </Styled.RelativeContainerPhotoBlock>
-          <Styled.SmallImageText>
-            only&nbsp;<span>sharp minds</span>
-          </Styled.SmallImageText>
+          <Styled.SmallImageText>{parse(data.text)}</Styled.SmallImageText>
         </Styled.SmallPhotoContainer>
         <Styled.BlackBackground />
       </Styled.RelativeContainerPhotoBlock>
