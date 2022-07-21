@@ -50,11 +50,15 @@ export const AdminSidebarMenuElement = styled.li`
 `;
 
 export const AdminSidebarHidenElement = styled.div`
-  height: 1em;
   font-weight: ${themes.primary.font.weight.light};
   padding: ${themes.primary.spacing.small} 0 0 ${themes.primary.spacing.primary};
-  display: ${(props) => props.theme};
+  display: none;
+  flex-direction: column;
   text-decoration: underline;
+
+  &.flex {
+    display: flex;
+  }
 `;
 
 export const AdminContentBlock = styled.div`
@@ -767,4 +771,11 @@ export const AdminAboutUsGrid = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
   column-gap: 3rem;
+`;
+
+export const Image = styled.img`
+  transform: rotate(180deg);
+  &.open {
+    transform: rotate(0deg);
+  }
 `;

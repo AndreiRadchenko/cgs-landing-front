@@ -11,6 +11,8 @@ const AdminSidebar = () => {
   const router = useRouter();
   const pushSetting = () => router.push(ROUTE_KEYS.AdminSettings);
   const pushBlockchain = () => router.push(ROUTE_KEYS.AdminBlockchain);
+  const pushBlog = () => router.push(ROUTE_KEYS.AdminBlog);
+  const pushPortfolio = () => router.push(ROUTE_KEYS.AdminPortfolioPage);
 
   return (
     <Styled.AdminSidebar>
@@ -23,26 +25,34 @@ const AdminSidebar = () => {
             <a>portfolio</a>
           </Link>
         </DropDownElement>
+        <Styled.AdminSidebarMenuElement
+          onClick={pushPortfolio}
+          itemProp="AdminPortfolioPage"
+          property={ROUTE_KEYS.AdminPortfolioPage}
+        >
+          portfolio
+        </Styled.AdminSidebarMenuElement>
 
-        <DropDownElement value="blog" route={ROUTE_KEYS.AdminBlog} />
+        <DropDownElement value="service" route={ROUTE_KEYS.AdminService} />
 
-        <DropDownElement value="FAQ" route={ROUTE_KEYS.AdminFaqPage} />
-
-        <DropDownElement value="About Us" route={ROUTE_KEYS.AdminAboutUs} />
-        <DropDownElement
-          value="portfolio"
-          route={ROUTE_KEYS.AdminPortfolioPage}
-        />
-
-        <DropDownElement value="careers" route={ROUTE_KEYS.AdminCareers}>
-          <Link href={ROUTE_KEYS.AdminVacancy}>
-            <a>vacancy info </a>
+        <DropDownElement value="company" route={ROUTE_KEYS.AdminCompany}>
+          <Link href={ROUTE_KEYS.AdminAboutUs}>
+            <a>about us</a>
+          </Link>
+          <Link href={ROUTE_KEYS.AdminCareers}>
+            <a>careers</a>
+          </Link>
+          <Link href={ROUTE_KEYS.AdminFaqPage}>
+            <a>FAQ</a>
           </Link>
         </DropDownElement>
-
-        <DropDownElement value="partners" route={ROUTE_KEYS.AdminPartners}>
-          no page
-        </DropDownElement>
+        <Styled.AdminSidebarMenuElement
+          onClick={pushBlog}
+          itemProp="AdminBlog"
+          property={ROUTE_KEYS.AdminBlog}
+        >
+          blog
+        </Styled.AdminSidebarMenuElement>
 
         <Styled.AdminSidebarMenuElement
           onClick={pushSetting}
