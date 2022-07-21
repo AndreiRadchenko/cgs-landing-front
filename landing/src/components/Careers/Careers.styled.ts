@@ -61,7 +61,8 @@ export const TicketsWrapper = styled.div`
 
 export const TicketsContainer = styled.div`
   width: 1308px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: center;
   position: relative;

@@ -79,8 +79,8 @@ export const TicketsButton = styled.button`
 `;
 
 export const TicketContainer = styled.div`
-  /* width: 476px;
-  height: 348px; */
+  width: 476px;
+  height: 348px;
   border: 1px solid black;
 `;
 
@@ -175,4 +175,5 @@ export const DeleteBtn = styled.button`
 export const TicketBox = styled.div`
   display: flex;
   flex-direction: column;
+  font-family: ${themes.primary.font.family.namu};
 `;

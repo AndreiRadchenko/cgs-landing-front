@@ -16,9 +16,6 @@ import {
   SubTitle,
   TitleInput,
   VacancyInput,
-  TicketsContainer,
-  TicketsLabel,
-  TicketsInput,
   TicketContainer,
   TicketsButton,
   TicketBox,
@@ -129,7 +126,10 @@ const Careers = ({
               <IconBox onClick={() => setIsNewTicket(!isNewTicket)}>
                 <Image src={isNewTicket ? close : edit} alt="icon" />
               </IconBox>
-              <CareersTicket ticket={values.tickets[ticket]} />
+              <CareersTicket
+                className="admin"
+                ticket={values.tickets[ticket]}
+              />
               <DeleteBtn onClick={deleteTicket} type={"button"}>
                 delete ticket
               </DeleteBtn>
