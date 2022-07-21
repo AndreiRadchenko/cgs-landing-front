@@ -168,6 +168,15 @@ export const ProvideBlock = styled.div`
   position: relative;
   width: 100%;
   height: 650px;
+  @media ${themes.primary.media.minPC} {
+    height: 700px;
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 750px;
+  }
+  @media (min-width: 2000px) {
+    height: 800px;
+  }
 `;
 
 export const ProvideMainText = styled.div`
@@ -345,6 +354,6 @@ export const OurBonuses = styled.div`
 export const BonusesContainer = styled.div`
   margin-top: 20px;
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: 52.5% 43%;
   column-gap: 50px;
 `;
