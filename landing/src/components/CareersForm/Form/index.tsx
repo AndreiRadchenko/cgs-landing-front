@@ -176,6 +176,7 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
           enabled={enable}
         >
           <BlogDropdown
+            className="careers"
             filter={position}
             setFilter={setPosition}
             tags={positions}

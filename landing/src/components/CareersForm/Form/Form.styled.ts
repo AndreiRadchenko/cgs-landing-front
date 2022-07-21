@@ -315,7 +315,8 @@ export const PositionSelect = styled.div<IEnableGlare>`
       border: none !important;
       border-bottom: 1px solid black !important;
       display: flex;
-      justify-content: normal;
+      align-items: center;
+      padding: 0 18px;
       height: 100%;
       width: 100%;
       position: relative;
