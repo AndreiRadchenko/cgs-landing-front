@@ -60,7 +60,11 @@ export const BottomImage = styled.img`
 export const BonusContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 11px;
   column-gap: 16px;
+  &:first-child {
+    margin-top: 0;
+  }
 `;
 
 export const BonusPoint = styled.div`
@@ -71,7 +75,7 @@ export const BonusPoint = styled.div`
 `;
 
 export const BonusText = styled.div`
-  font-size: ${themes.primary.font.size.faqQuestion};
+  font-size: ${themes.primary.font.size.secondary};
   line-height: 160%;
 `;
 
@@ -163,7 +167,7 @@ export const ProvideBlock = styled.div`
   margin-top: 50px;
   position: relative;
   width: 100%;
-  height: 800px;
+  height: 650px;
 `;
 
 export const ProvideMainText = styled.div`
@@ -332,4 +336,15 @@ export const SmallImageText = styled.div`
   span {
     color: ${themes.primary.colors.darkBlue};
   }
+`;
+
+export const OurBonuses = styled.div`
+  padding: 0 3.5% 310px;
+`;
+
+export const BonusesContainer = styled.div`
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  column-gap: 50px;
 `;

@@ -12,16 +12,6 @@ const AboutUs = () => {
         Idea-inspired, <br />
         <span>tech-driven</span> professionals
       </Styled.MainTitle>
-      {/*<Styled.Subtitle>We believe in</Styled.Subtitle>*/}
-      {/*<Styled.Text>We believe in</Styled.Text>*/}
-
-      {/*<Styled.BonusContainer>*/}
-      {/*  <Styled.BonusPoint />*/}
-      {/*  <Styled.BonusText>*/}
-      {/*    Free PM services of our team with 50+ prof-developers*/}
-      {/*  </Styled.BonusText>*/}
-      {/*</Styled.BonusContainer>*/}
-
       <Styled.MainRowContainer>
         <MainPhotoBlock />
         <Styled.ColContainer>
@@ -67,6 +57,27 @@ const AboutUs = () => {
           <SmallPhotoCard degrees={"-7.61deg"} pinPosition={"40%"} />
         </Styled.PositionThirdImage>
       </Styled.ProvideBlock>
+      <Styled.OurBonuses>
+        <Styled.Subtitle>Our bonuses</Styled.Subtitle>
+        <Styled.BonusesContainer>
+          <div>
+            <Styled.BonusContainer>
+              <Styled.BonusPoint />
+              <Styled.BonusText>
+                Free PM services of our team with 50+ prof-developers
+              </Styled.BonusText>
+            </Styled.BonusContainer>
+          </div>
+          <div>
+            <Styled.BonusContainer>
+              <Styled.BonusPoint />
+              <Styled.BonusText>
+                Free and well-handled deployment
+              </Styled.BonusText>
+            </Styled.BonusContainer>
+          </div>
+        </Styled.BonusesContainer>
+      </Styled.OurBonuses>
       <Styled.BottomImage src={bottomImage.src} />
     </Styled.AboutUsContainer>
   );
