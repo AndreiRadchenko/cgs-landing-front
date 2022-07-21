@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import { de } from "suneditor/src/lang";
 
 interface IMainPhoto {
   isMain?: boolean;
@@ -14,13 +13,6 @@ interface IBackground {
 
 interface IRotate {
   degrees: string;
-}
-
-interface IAbsolutePosition {
-  top?: string;
-  bottom?: string;
-  right?: string;
-  left?: string;
 }
 
 interface IPin {
@@ -86,6 +78,7 @@ export const BonusText = styled.div`
 export const MainPhotoDescription = styled.div`
   text-transform: uppercase;
   font-size: 30.5px;
+  margin-top: 37px;
   span {
     color: ${themes.primary.colors.darkBlue};
   }
@@ -94,7 +87,6 @@ export const MainPhotoDescription = styled.div`
 export const RelativeContainerPhotoBlock = styled.div<IMainPhoto>`
   position: relative;
   transform: ${({ isMain }) => isMain && "rotate(-1.26deg)"};
-  margin-bottom: ${({ isMain }) => !isMain && "35px"};
   width: 100%;
 `;
 
@@ -328,5 +320,16 @@ export const PositionThirdImage = styled.div`
   right: 7%;
   @media (max-width: 1200px) {
     top: 60px;
+  }
+`;
+
+export const SmallImageText = styled.div`
+  text-transform: lowercase;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  span {
+    color: ${themes.primary.colors.darkBlue};
   }
 `;
