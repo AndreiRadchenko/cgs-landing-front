@@ -320,6 +320,7 @@ export const DropdownContent = styled.div`
 export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   cursor: pointer;
   color: ${themes.primary.colors.primary};
+  background-color: ${themes.primary.colors.blogBackground};
   box-sizing: border-box;
   border: ${(props) =>
     !props.isHeader &&
@@ -330,6 +331,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   vertical-align: middle;
   line-height: normal;
   letter-spacing: 0.03em;
+  padding-top: 3px;
 
   &:hover {
     transition: 0.3s;
