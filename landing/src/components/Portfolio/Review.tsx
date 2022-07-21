@@ -35,6 +35,14 @@ const Review = ({ review }: IReviewProps) => {
     stars = stars - 1;
   }
 
+  const recoverLink = (link: string) => {
+    let resultLink = link;
+    if (link.indexOf("https://") === -1 || link.indexOf("http://") === -1) {
+      resultLink = `https://${resultLink}`;
+    }
+    return resultLink;
+  };
+
   return (
     review && (
       <Styled.ReviewContainer>
@@ -43,11 +51,13 @@ const Review = ({ review }: IReviewProps) => {
             <Styled.PortfolioProjectHeader>
               {review.title}
             </Styled.PortfolioProjectHeader>
-            <Styles.LinkButton>
-              <a href={review.button}>
-                {width && width < 1300 ? "link" : "project link"}
-              </a>
-            </Styles.LinkButton>
+            {review.button.length > 0 && (
+              <Styles.LinkButton>
+                <a href={recoverLink(review.button)}>
+                  {width && width < 1300 ? "link" : "project link"}
+                </a>
+              </Styles.LinkButton>
+            )}
           </Styled.ProjectHeader>
           <Styled.ProjectDescription>{review.text}</Styled.ProjectDescription>
           <Styled.Separator />
@@ -68,7 +78,7 @@ const Review = ({ review }: IReviewProps) => {
           <Styled.ProjectComment>
             {review.feedback?.feedbackText}
           </Styled.ProjectComment>
-          <Styled.ViewMoreContainer>
+          <Styled.ViewMoreContainer href="https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/">
             <Styled.ViewMoreText>view more</Styled.ViewMoreText>
             <Styled.ViewMoreArrow src={portfolioArrow.src} />
           </Styled.ViewMoreContainer>
