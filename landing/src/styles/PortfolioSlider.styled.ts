@@ -70,7 +70,7 @@ export const ProjectComment = styled.p`
   }
 `;
 
-export const ViewMoreContainer = styled.div`
+export const ViewMoreContainer = styled.a`
   margin-top: 5px;
   display: flex;
   column-gap: 5px;

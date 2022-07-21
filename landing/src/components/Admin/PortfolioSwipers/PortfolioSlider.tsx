@@ -82,17 +82,6 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
       <Styled.PortfolioRow>
         {isMobile ? (
           <>
-            {/*<Styled.ButtonInfo*/}
-            {/*  clicked={isShow}*/}
-            {/*  ref={navRef}*/}
-            {/*  className={isOnTop ? "sticky-top" : undefined}*/}
-            {/*>*/}
-            {/*  <Styled.Category>{category}</Styled.Category>*/}
-            {/*  <TriangleButton*/}
-            {/*    onClick={() => setIsShow(() => !isShow)}*/}
-            {/*    isClicked={isShow}*/}
-            {/*  />*/}
-            {/*</Styled.ButtonInfo>*/}
             {isShow &&
               (reviews ? (
                 renderSliderSlides
