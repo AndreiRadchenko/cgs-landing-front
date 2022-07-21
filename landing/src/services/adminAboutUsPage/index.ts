@@ -5,7 +5,7 @@ import { IAbout } from "../../types/Admin/AdminAboutUs.types";
 export class AdminAboutUsService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
   public getAboutUsPage() {
-    return this.httpService.get("api/about");
+    return this.httpService.get<IAbout>("api/about");
   }
 
   public updateAboutUsPage(data: IAbout) {
