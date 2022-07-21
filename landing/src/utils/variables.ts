@@ -26,7 +26,7 @@ export const navigationRoutesLinks = {
   "Ongoing Support // Maintenance": "",
   "Server & Databases": "",
   "UX/UI Design": "",
-  "About us": "",
+  "About us": "/about-us",
   Careers: "/careers",
   FAQ: "/faq",
 };
