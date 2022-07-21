@@ -72,14 +72,8 @@ const AboutUs = () => {
       </Styled.MainRowContainer>
       <Styled.ProvideBlock>
         <Styled.ProvideMainText>
-          {data?.textBlock.text3 && (
-            <>
-              <Styled.Subtitle>{data?.textBlock.text3.title}</Styled.Subtitle>
-              <Styled.Text>
-                {parse(data.textBlock.text3.description)}
-              </Styled.Text>
-            </>
-          )}
+          <Styled.Subtitle>{data?.textBlock.text3.title}</Styled.Subtitle>
+          <Styled.Text>{data?.textBlock.text3.description}</Styled.Text>
         </Styled.ProvideMainText>
         <Styled.MediumLine src={mediumLine.src} />
         <Styled.PositionFirstImage>
