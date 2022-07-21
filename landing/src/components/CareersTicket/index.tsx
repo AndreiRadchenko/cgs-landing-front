@@ -11,10 +11,12 @@ import { ITicket } from "../../types/Admin/Response.types";
 interface ITicketProps {
   ticket: ITicket;
   scrollTo?: () => void;
+  className?: string;
 }
 const CareersTicket: FC<ITicketProps> = ({
   ticket: { fromUs, fromYou, position, vacancy, stack, stars },
   scrollTo,
+  className,
 }: ITicketProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -48,16 +50,21 @@ const CareersTicket: FC<ITicketProps> = ({
               />
             </svg>
           </Styled.TicketInnerSvgWrapper>
-          <Styled.TicketPosition>{position}</Styled.TicketPosition>
+          <Styled.TicketPosition className={className}>
+            {position}
+          </Styled.TicketPosition>
           <Styled.LeftDivider />
           <Styled.TicketPositionContainer>
-            <Styled.TicketPositionTitle>{vacancy}</Styled.TicketPositionTitle>
-            <Styled.TicketPositionStack>
+            <Styled.TicketPositionTitle className={className}>
+              {vacancy}
+            </Styled.TicketPositionTitle>
+            <Styled.TicketPositionStack className={className}>
               {stack.join(", ")}
             </Styled.TicketPositionStack>
             <Styled.TicketPositionStarsContainer>
               {starsArr.map((_, idx) => (
                 <Styled.TicketPositionStars
+                  className={className}
                   src={Star.src}
                   key={`${idx + uuid}`}
                 />

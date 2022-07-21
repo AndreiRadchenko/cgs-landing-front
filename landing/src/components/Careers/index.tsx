@@ -13,19 +13,15 @@ interface ICareersProps {
 const Careers: FC<ICareersProps> = ({ data }) => {
   const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
   const positions = data?.tickets?.length
-    ? data.tickets
-        .slice(0, 4)
-        .map(({ vacancy, position }) => `${position} ${vacancy}`)
+    ? data.tickets.map(({ vacancy, position }) => `${position} ${vacancy}`)
     : [];
 
   positions.length && positions.push("None of the above");
 
   const mapTickets = () => {
-    return data?.tickets
-      .slice(0, 4)
-      .map((ticket, idx) => (
-        <CareersTicket scrollTo={scrollTo} ticket={ticket} key={idx} />
-      ));
+    return data?.tickets.map((ticket, idx) => (
+      <CareersTicket scrollTo={scrollTo} ticket={ticket} key={idx} />
+    ));
   };
 
   return (

@@ -35,7 +35,7 @@ const BlogDropdown = ({
   return (
     <Styled.Dropdown onBlur={onBlur}>
       <Styled.DropdownButton
-        className={isOpen ? `open` : ""}
+        className={isOpen ? `open ${className}` : className}
         onClick={() => setIsOpen(!isOpen)}
         isHeader={isHeader}
         type={type}
@@ -43,9 +43,7 @@ const BlogDropdown = ({
         <span>{dropdownName}</span>
         <img width={9} height={5} src={Arrow.src} alt="Arrow" />
       </Styled.DropdownButton>
-      <Styled.DropdownContent
-        className={isOpen ? `open ${className}` : className}
-      >
+      <Styled.DropdownContent className={isOpen ? `open ` : undefined}>
         {tags.map((tag) => (
           <div
             onClick={() => {

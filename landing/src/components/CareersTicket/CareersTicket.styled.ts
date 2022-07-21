@@ -345,6 +345,16 @@ export const TicketPosition = styled.div`
   transform: rotate(270deg) translateY(-20px);
   margin: 0;
   text-transform: uppercase;
+
+  @media ${themes.primary.media.minLaptop} {
+    font-size: 24px;
+  }
+
+  &.admin {
+    @media ${themes.primary.media.minLaptop} {
+      font-size: 22px;
+    }
+  }
 `;
 
 export const LeftDivider = styled.hr`
@@ -404,6 +414,16 @@ export const TicketPositionTitle = styled.p`
   margin-top: 15px;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  @media ${themes.primary.media.minLaptop} {
+    font-size: 32px;
+  }
+
+  &.admin {
+    @media ${themes.primary.media.minLaptop} {
+      font-size: 30px;
+    }
+  }
 `;
 
 export const TicketPositionStack = styled.p`
@@ -412,6 +432,16 @@ export const TicketPositionStack = styled.p`
   margin-bottom: 0;
   text-transform: uppercase;
   font-size: 1.3vw;
+
+  @media ${themes.primary.media.minLaptop} {
+    font-size: 18px;
+  }
+
+  &.admin {
+    @media ${themes.primary.media.minLaptop} {
+      font-size: 20px;
+    }
+  }
 `;
 
 export const TicketPositionStarsContainer = styled.div`
@@ -423,6 +453,15 @@ export const TicketPositionStarsContainer = styled.div`
 export const TicketPositionStars = styled.img`
   width: 2.2vw;
   height: auto;
+
+  @media ${themes.primary.media.minLaptop} {
+    width: 30px;
+  }
+  &.admin {
+    @media ${themes.primary.media.minLaptop} {
+      width: 20px;
+    }
+  }
 `;
 
 export const TicketDataBackground = styled.img`

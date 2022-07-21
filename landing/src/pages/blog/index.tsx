@@ -172,6 +172,7 @@ const BlogPage = () => {
               </Styled.Tag>
             )}
             <BlogDropdown
+              className="blog"
               setFilter={setFilter}
               filter={filter}
               tags={tags}
