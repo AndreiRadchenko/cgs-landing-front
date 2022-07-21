@@ -183,6 +183,12 @@ export const MediumLine = styled.img`
   width: 100%;
   position: absolute;
   top: 0;
+  @media (max-width: 1190px) {
+    top: 50px;
+  }
+  @media (max-width: 1100px) {
+    top: 70px;
+  }
 `;
 
 export const SmallPhotoContainer = styled.div`
@@ -224,23 +230,47 @@ export const PositionFirstImage = styled.div`
   position: absolute;
   top: 280px;
   left: 7%;
-  @media (min-width: 2300px) {
+  @media (max-width: 2560px) and (min-width: 2460px) {
+    top: 500px;
+  }
+  @media (max-width: 2460px) and (min-width: 2360px) {
+    top: 480px;
+  }
+  @media (max-width: 2360px) and (min-width: 2260px) {
+    top: 460px;
+  }
+  @media (max-width: 2260px) and (min-width: 2160px) {
+    top: 440px;
+  }
+  @media (max-width: 2160px) and (min-width: 2060px) {
+    top: 420px;
+  }
+  @media (max-width: 2060px) and (min-width: 1960px) {
+    top: 400px;
+  }
+  @media (max-width: 1960px) and (min-width: 1860px) {
+    top: 380px;
+  }
+  @media (max-width: 1860px) and (min-width: 1760px) {
+    top: 360px;
+  }
+  @media (max-width: 1760px) and (min-width: 1660px) {
+    top: 340px;
+  }
+  @media (max-width: 1660px) and (min-width: 1560px) {
+    top: 320px;
+  }
+  @media (max-width: 1560px) and (min-width: 1460px) {
+    top: 300px;
+  }
+  @media (max-width: 1460px) and (min-width: 1360px) {
     top: 280px;
   }
-  @media (max-width: 1340px) {
-    top: 255px;
+  @media (max-width: 1360px) and (min-width: 1260px) {
+    top: 260px;
   }
-  @media (max-width: 1230px) {
-    top: 245px;
-  }
-  @media (max-width: 1150px) {
-    top: 220px;
-  }
-  @media (min-width: 1550px) {
-    top: 300px;
-  }
-  @media (min-width: 1550px) {
-    top: 300px;
+  @media (max-width: 1260px) and (min-width: 1190px) {
+    top: 240px;
   }
 `;
 
@@ -248,20 +278,47 @@ export const PositionSecondImage = styled.div`
   position: absolute;
   top: 260px;
   left: 40%;
-  @media (min-width: 1430px) {
+  @media (max-width: 2560px) and (min-width: 2460px) {
+    top: 480px;
+  }
+  @media (max-width: 2460px) and (min-width: 2360px) {
+    top: 460px;
+  }
+  @media (max-width: 2360px) and (min-width: 2260px) {
+    top: 440px;
+  }
+  @media (max-width: 2260px) and (min-width: 2160px) {
+    top: 420px;
+  }
+  @media (max-width: 2160px) and (min-width: 2060px) {
+    top: 400px;
+  }
+  @media (max-width: 2060px) and (min-width: 1960px) {
+    top: 380px;
+  }
+  @media (max-width: 1960px) and (min-width: 1860px) {
+    top: 360px;
+  }
+  @media (max-width: 1860px) and (min-width: 1760px) {
+    top: 340px;
+  }
+  @media (max-width: 1760px) and (min-width: 1660px) {
+    top: 320px;
+  }
+  @media (max-width: 1660px) and (min-width: 1560px) {
+    top: 300px;
+  }
+  @media (max-width: 1560px) and (min-width: 1460px) {
     top: 280px;
   }
-  @media (min-width: 2300px) {
-    top: 280px;
+  @media (max-width: 1460px) and (min-width: 1360px) {
+    top: 260px;
   }
-  @media (max-width: 1340px) {
-    top: 235px;
+  @media (max-width: 1360px) and (min-width: 1260px) {
+    top: 240px;
   }
-  @media (max-width: 1230px) {
-    top: 200px;
-  }
-  @media (max-width: 1150px) {
-    top: 190px;
+  @media (max-width: 1260px) and (min-width: 1190px) {
+    top: 220px;
   }
 `;
 
@@ -269,4 +326,7 @@ export const PositionThirdImage = styled.div`
   position: absolute;
   top: 20px;
   right: 7%;
+  @media (max-width: 1200px) {
+    top: 60px;
+  }
 `;
