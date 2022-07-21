@@ -59,7 +59,7 @@ const themes = {
         menuElement: "1.7em",
         articleTagDescription: "1.8em",
         adminButton: "1.8em",
-        faqQuestion: "1.7em",
+        faqQuestion: "1.669em",
         faqAnswer: "1.335em",
         secondary: "2em",
         blogArticleTitle: "2.2em",

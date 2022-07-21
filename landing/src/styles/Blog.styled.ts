@@ -318,23 +318,21 @@ export const DropdownContent = styled.div`
 `;
 
 export const DropdownButton = styled.button<{ isHeader?: boolean }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
   cursor: pointer;
   color: ${themes.primary.colors.primary};
-  height: 35px;
-  width: 131px;
-  text-align: left;
-  padding-left: 10px;
+  background-color: ${themes.primary.colors.blogBackground};
   box-sizing: border-box;
   border: ${(props) =>
     !props.isHeader &&
     `1px solid ${themes.primary.colors.comment} !important;`};
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.primary};
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
   letter-spacing: 0.03em;
+  padding-top: 3px;
+
   &:hover {
     transition: 0.3s;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
@@ -345,7 +343,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     border-right: 3px solid ${themes.primary.colors.primary} !important;
 
     img {
-      transform: rotate(0deg);
+      transform: rotate(180deg);
     }
   }
   &.open {
@@ -353,12 +351,17 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     border-right: 3px solid ${themes.primary.colors.primary} !important;
 
     img {
-      transform: rotate(0deg);
+      transform: rotate(180deg);
     }
+  }
+  & > img,
+  & > span {
+    vertical-align: middle;
   }
 
   img {
-    transform: rotate(180deg);
+    margin-left: 10px;
+    transform: rotate(0deg);
   }
 `;
 

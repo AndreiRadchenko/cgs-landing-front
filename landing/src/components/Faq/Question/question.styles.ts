@@ -14,9 +14,6 @@ export const QuestionImage = styled.img`
 export const QuestionContainer = styled.div<IIsOpen>`
   border-bottom: ${({ isOpen }) =>
     isOpen && `1px solid ${themes.primary.colors.faqBorder}`};
-  &:hover {
-    color: ${themes.primary.colors.darkBlue};
-  }
 `;
 
 export const TogglePlus = styled.div`
@@ -43,6 +40,9 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.buttonText};
   }
+  &:hover {
+    color: ${({ isOpen }) => !isOpen && themes.primary.colors.darkBlue};
+  }
 `;
 
 export const QuestionTitle = styled.div``;
@@ -51,7 +51,6 @@ export const QuestionContentContainer = styled.div<IIsOpen>`
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   font-size: ${themes.primary.font.size.faqAnswer};
   padding: 20px 23px;
-  color: ${themes.primary.colors.primary};
   line-height: 160%;
   column-gap: 15px;
   justify-content: space-between;

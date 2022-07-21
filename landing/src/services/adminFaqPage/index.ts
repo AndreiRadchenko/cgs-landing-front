@@ -3,7 +3,7 @@ import { HttpServiceFactory } from "../index";
 import { IFaqData } from "../../types/Admin/AdminFaq.types";
 import { IQuestionData } from "../../types/Faq.types";
 
-export class AdminCareersService {
+export class AdminFaqService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
   public getFaqPage() {
     return this.httpService.get<IQuestionData>("api/faq");
@@ -15,6 +15,6 @@ export class AdminCareersService {
 }
 
 const factory = new HttpServiceFactory();
-export const adminFaqService = new AdminCareersService(
+export const adminFaqService = new AdminFaqService(
   factory.createAuthHttpService()
 );
