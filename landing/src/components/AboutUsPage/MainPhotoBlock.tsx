@@ -7,7 +7,7 @@ const MainPhotoBlock = () => {
   return (
     <Styled.CenterBlock>
       <Styled.RelativeContainerPhotoBlock isMain>
-        <Styled.Pin src={pin.src} />
+        <Styled.Pin src={pin.src} right={"10%"} />
         <Styled.MainPhotoContainer>
           <Styled.RelativeContainerPhotoBlock>
             <Styled.MainImage src={mainPhoto.src} />

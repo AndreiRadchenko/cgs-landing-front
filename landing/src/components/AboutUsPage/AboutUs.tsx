@@ -57,9 +57,17 @@ const AboutUs = () => {
           </Styled.Text>
         </Styled.ProvideMainText>
         <Styled.MediumLine src={mediumLine.src} />
+        <Styled.PositionFirstImage>
+          <SmallPhotoCard degrees={"10deg"} pinPosition={"85%"} />
+        </Styled.PositionFirstImage>
+        <Styled.PositionSecondImage>
+          <SmallPhotoCard degrees={"-8.65deg"} pinPosition={"40%"} />
+        </Styled.PositionSecondImage>
+        <Styled.PositionThirdImage>
+          <SmallPhotoCard degrees={"-7.61deg"} pinPosition={"40%"} />
+        </Styled.PositionThirdImage>
       </Styled.ProvideBlock>
       <Styled.BottomImage src={bottomImage.src} />
-      <SmallPhotoCard />
     </Styled.AboutUsContainer>
   );
 };

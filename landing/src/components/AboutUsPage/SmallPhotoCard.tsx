@@ -1,9 +1,32 @@
 import React from "react";
 import * as Styled from "./AboutUs.styled";
+import pin from "../../../public/AboutUsDecorations/pin.svg";
 
-const SmallPhotoCard = () => {
+interface ISmallPhotoCard {
+  degrees: string;
+  pinPosition: string;
+}
+
+const SmallPhotoCard = ({ degrees, pinPosition }: ISmallPhotoCard) => {
   return (
-    <Styled.RelativeContainerPhotoBlock></Styled.RelativeContainerPhotoBlock>
+    <Styled.RotateContainer degrees={degrees}>
+      <Styled.RelativeContainerPhotoBlock>
+        <Styled.Pin src={pin.src} right={pinPosition} />
+        <Styled.SmallPhotoContainer>
+          <Styled.RelativeContainerPhotoBlock>
+            <Styled.BackgroundContainer
+              right={"-6px"}
+              bottom={"-1px"}
+              border={"1px"}
+            >
+              <Styled.BackgroundBlackBlock />
+            </Styled.BackgroundContainer>
+            <Styled.SmallImage />
+          </Styled.RelativeContainerPhotoBlock>
+        </Styled.SmallPhotoContainer>
+        <Styled.BlackBackground />
+      </Styled.RelativeContainerPhotoBlock>
+    </Styled.RotateContainer>
   );
 };
 
