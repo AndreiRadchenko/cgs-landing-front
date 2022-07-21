@@ -31,7 +31,7 @@ export const Subtitle = styled.div`
   font-size: ${themes.primary.font.size.aboutUsSubtitle};
   margin-top: 40px;
   &:first-child {
-    margin-top: 0px;
+    margin-top: 0;
   }
 `;
 
@@ -148,8 +148,17 @@ export const ColContainer = styled.div`
 
 export const ProvideBlock = styled.div`
   margin-top: 50px;
+  position: relative;
 `;
 
 export const ProvideMainText = styled.div`
   width: 45%;
+`;
+
+export const MediumLine = styled.img`
+  width: 105vw;
+  position: absolute;
+  height: auto;
+  top: 0;
+  left: -40px;
 `;

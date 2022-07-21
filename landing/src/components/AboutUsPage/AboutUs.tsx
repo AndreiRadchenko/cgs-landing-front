@@ -1,9 +1,9 @@
 import React from "react";
 import * as Styled from "./AboutUs.styled";
 import bottomImage from "../../../public/AboutUsDecorations/bottomImage.svg";
-import pin from "../../../public/AboutUsDecorations/pin.svg";
-import mainPhoto from "../../../public/AboutUsDecorations/mainPhoto.png";
+import mediumLine from "../../../public/AboutUsDecorations/mediumLine.svg";
 import MainPhotoBlock from "./MainPhotoBlock";
+import SmallPhotoCard from "./SmallPhotoCard";
 
 const AboutUs = () => {
   return (
@@ -56,8 +56,10 @@ const AboutUs = () => {
             paperwork, paperwork, paperwork, paperwork, and empty promises.
           </Styled.Text>
         </Styled.ProvideMainText>
+        <Styled.MediumLine src={mediumLine.src} />
       </Styled.ProvideBlock>
       <Styled.BottomImage src={bottomImage.src} />
+      <SmallPhotoCard />
     </Styled.AboutUsContainer>
   );
 };
