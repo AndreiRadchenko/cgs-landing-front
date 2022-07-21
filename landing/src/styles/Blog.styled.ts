@@ -330,6 +330,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   vertical-align: middle;
   line-height: normal;
   letter-spacing: 0.03em;
+
   &:hover {
     transition: 0.3s;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
