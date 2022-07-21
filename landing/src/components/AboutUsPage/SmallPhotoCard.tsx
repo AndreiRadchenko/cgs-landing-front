@@ -23,6 +23,9 @@ const SmallPhotoCard = ({ degrees, pinPosition }: ISmallPhotoCard) => {
             </Styled.BackgroundContainer>
             <Styled.SmallImage />
           </Styled.RelativeContainerPhotoBlock>
+          <Styled.SmallImageText>
+            only&nbsp;<span>sharp minds</span>
+          </Styled.SmallImageText>
         </Styled.SmallPhotoContainer>
         <Styled.BlackBackground />
       </Styled.RelativeContainerPhotoBlock>
