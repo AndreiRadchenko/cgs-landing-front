@@ -44,7 +44,7 @@ export const PageTitle = styled.div`
   text-transform: uppercase;
   font-size: 4.45vw;
   display: flex;
-  margin-bottom: 40px;
+  margin-bottom: 54px;
   div::first-letter {
     color: ${themes.primary.colors.darkBlue};
   }

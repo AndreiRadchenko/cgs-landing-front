@@ -38,13 +38,6 @@ export const BurgerLinkWrapper = styled.a`
   cursor: pointer;
 `;
 
-export const CompanyNameText = styled.div`
-  line-height: 120%;
-  font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.quinary};
-  color: ${themes.primary.colors.primary};
-`;
-
 export const ListItemNav = styled.a`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.medium};
@@ -64,7 +57,7 @@ export const ListItemNav = styled.a`
     display: none;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 14px;
+    font-size: 13px;
   }
   &:hover {
     transition: 0.3s;
@@ -86,39 +79,4 @@ export const LinkText = styled.span``;
 
 export const BurgerLinkText = styled.p`
   cursor: pointer;
-`;
-
-export const DropdownElement = styled.div`
-  button,
-  &:first-child {
-    border: none;
-    height: 56px;
-    width: 11.02vw;
-  }
-  div {
-    &:nth-child(2) {
-      min-width: 419px;
-    }
-  }
-
-  button {
-    font-family: ${themes.primary.font.family.gilroy};
-    font-weight: ${themes.primary.font.weight.medium};
-    font-size: ${themes.primary.font.size.headerLinkText};
-
-    border-left: 1px solid grey;
-
-    &:hover {
-      transition: 0.3s;
-      border-right: 1.5px solid ${themes.primary.colors.primary} !important;
-      border-bottom: 7px solid ${themes.primary.colors.primary} !important;
-    }
-    @media ${themes.primary.media.maxTabletLandScape} {
-      font-size: 14px;
-    }
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
-  }
 `;

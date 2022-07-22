@@ -1,9 +1,7 @@
 import React, { FC, RefObject, useEffect, useRef, useState } from "react";
 import { Field, useFormik } from "formik";
 import * as Styled from "./Form.styled";
-
 import FormField from "./FormField2/index";
-import BlogDropdown from "../../Blog/BlogDropdown";
 import ThankYouModal from "../../Careers/ThankYouModal";
 import Clip from "../../../../public/CareerDecorations/clip.svg";
 import { IDataCareersResponse } from "../../../types/Admin/Response.types";
@@ -12,6 +10,7 @@ import { adminCareersService } from "../../../services/adminCareersPage";
 import { IVacancyMail } from "../../../types/Mail.types";
 import Close from "../../../../public/CareerDecorations/close.svg";
 import Loading from "../../../../public/CareerDecorations/loading.svg";
+import CareersDropdown from "../../Careers/CareersDropdown";
 
 interface FormProps {
   positions: string[];
@@ -175,11 +174,11 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
           onClick={() => setEnable(!enable)}
           enabled={enable}
         >
-          <BlogDropdown
+          <CareersDropdown
             className="careers"
             filter={position}
             setFilter={setPosition}
-            tags={positions}
+            positions={positions}
             dropdownName={position ? position : formPosition}
             setEnable={setEnable}
           />

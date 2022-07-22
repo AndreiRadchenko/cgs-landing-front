@@ -332,7 +332,6 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   vertical-align: middle;
   line-height: normal;
   letter-spacing: 0.03em;
-  padding-top: 3px;
 
   &.blog {
     height: 35px;
@@ -343,6 +342,40 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     padding: 0 12px;
   }
 
+  &.header {
+    button,
+    &:first-child {
+      border: none;
+      height: 56px;
+      width: 11.02vw;
+    }
+    div {
+      &:nth-child(2) {
+        min-width: 21.7vw;
+      }
+    }
+    button {
+      font-size: ${themes.primary.font.size.headerLinkText};
+      border-left: 1px solid grey;
+
+      &:hover {
+        transition: 0.3s;
+        border-right: 1.5px solid ${themes.primary.colors.primary} !important;
+        border-bottom: 7px solid ${themes.primary.colors.primary} !important;
+      }
+      &:hover &.open {
+        border-bottom: 0 !important;
+        border-right: 3px solid ${themes.primary.colors.primary} !important;
+      }
+      @media ${themes.primary.media.maxTabletLandScape} {
+        font-size: 14px;
+      }
+    }
+    @media ${themes.primary.media.maxMobile} {
+      display: none;
+    }
+  }
+
   &:hover {
     transition: 0.3s;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
@@ -351,7 +384,6 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   &:hover &.open {
     border-bottom: 0 !important;
     border-right: 3px solid ${themes.primary.colors.primary} !important;
-
     img {
       transform: rotate(180deg);
     }
