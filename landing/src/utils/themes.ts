@@ -87,6 +87,7 @@ const themes = {
         secondaryArticleDescription: "20px",
         secondaryArticleAuthor: "16px",
         email: "16px",
+        homeHeader: "8.4em",
       },
     },
     colors: {
