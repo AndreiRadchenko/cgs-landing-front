@@ -171,6 +171,9 @@ export const PortfolioRow = styled.div`
     background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
   }
+  @media ${themes.primary.media.minPCFullHD} {
+    max-height: 658px;
+  }
   @media ${themes.primary.media.maxMobile} {
     display: block;
     border-left: 1px solid ${themes.primary.colors.comment};
