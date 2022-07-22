@@ -357,6 +357,18 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
       transform: rotate(180deg);
     }
   }
+  & > img,
+  & > span {
+    vertical-align: middle;
+    @media ${themes.primary.media.minLaptop} {
+      font-size: ${themes.primary.font.size.careersFormLaptop};
+    }
+
+    @media ${themes.primary.media.minPC} {
+      font-size: ${themes.primary.font.size.vistaco};
+    }
+  }
+
   img {
     margin-left: 10px;
     transform: rotate(0deg);

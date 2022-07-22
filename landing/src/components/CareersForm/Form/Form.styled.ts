@@ -57,6 +57,9 @@ export const FormField = styled(Field)<IFormField>`
   &:focus {
     outline: none;
   }
+  &::placeholder {
+    opacity: 1;
+  }
 `;
 
 const opacity = keyframes`
@@ -245,7 +248,7 @@ export const FormSentFillText = styled.span<IFillAllFields>`
   color: grey;
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.namu};
-  font-size 12px;
+  font-size: 12px;
   position: absolute;
   bottom: 0;
   margin-bottom: 6px;
