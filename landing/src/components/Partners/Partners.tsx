@@ -13,17 +13,7 @@ const Partners = () => {
 
   return (
     <StyledThisComp.PartnersContainer>
-      {data &&
-        data.images.map((img, idx) => (
-          <StyledThisComp.PartnerImageWrapper key={idx}>
-            <ImagePreview
-              src={img.url}
-              alt={"alt partners image"}
-              layout="fill"
-              objectFit={"contain"}
-            />
-          </StyledThisComp.PartnerImageWrapper>
-        ))}
+      The next-gen tech: Web, mobile, blockchain
     </StyledThisComp.PartnersContainer>
   );
 };
