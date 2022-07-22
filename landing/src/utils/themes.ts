@@ -65,6 +65,7 @@ const themes = {
         blogArticleTitle: "2.2em",
         quaternary: "2.6em",
         articleDescription: "3.15em",
+        smallAboutSubtitle: "2.9em",
         aboutUsSubtitle: "3.35em",
         mainPagePhoto: "2.68em",
         ourWorkText: "3.25em",
