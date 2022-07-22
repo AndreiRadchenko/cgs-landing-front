@@ -72,7 +72,8 @@ export const BottomImage = styled.img`
 `;
 
 export const BonusContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 10px 1fr;
   align-items: center;
   margin-top: 11px;
   column-gap: 16px;
