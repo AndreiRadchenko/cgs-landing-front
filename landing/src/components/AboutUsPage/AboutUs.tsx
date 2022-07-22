@@ -4,30 +4,16 @@ import * as Styled from "./AboutUs.styled";
 import mediumLine from "../../../public/AboutUsDecorations/mediumLine.svg";
 import MainPhotoBlock from "./MainPhotoBlock";
 import SmallPhotoCard from "./SmallPhotoCard";
-import { dehydrate, QueryClient, useQuery } from "react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminAboutUsService } from "../../services/adminAboutUsPage";
 
-export async function getStaticProps() {
-  const queryClient = new QueryClient();
+import { IAbout } from "../../types/Admin/AdminAboutUs.types";
 
-  await queryClient.prefetchQuery(queryKeys.getBlogPage, () =>
-    adminAboutUsService.getAboutUsPage()
-  );
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
+interface IAboutUs {
+  data: IAbout;
 }
 
-const AboutUs = () => {
+const AboutUs = ({ data }: IAboutUs) => {
   const [firstBonuses, setFirstBonuses] = useState<string[]>([]);
   const [secondBonuses, setSecondBonuses] = useState<string[]>([]);
-  const { data } = useQuery(queryKeys.getAboutUsPage, () =>
-    adminAboutUsService.getAboutUsPage()
-  );
 
   useEffect(() => {
     if (data) {
@@ -105,7 +91,7 @@ const AboutUs = () => {
         </Styled.PositionThirdImage>
       </Styled.ProvideBlock>
       <Styled.OurBonuses>
-        <Styled.Subtitle>Our bonuses</Styled.Subtitle>
+        <Styled.Subtitle>{data?.bonuses.subtitle}</Styled.Subtitle>
         <Styled.BonusesContainer>
           <div>
             {firstBonuses.map((el, idx) => (
