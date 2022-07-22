@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import parse from "html-react-parser";
 import Head from "next/head";
 import Body from "../components/Body/Body";
-import { Loading, Page } from "../styles/Page.styled";
+import { Loading, Page, Spinner, SpinnerWrapper } from "../styles/Page.styled";
 import Projects from "../components/Projects/Projects";
 import AboutUs from "../components/AboutUs/AboutUs";
 const Partners = lazy(() => import("../components/Partners/Partners"));
@@ -27,6 +27,7 @@ import { adminGlobalService } from "../services/adminHomePage";
 import { IDataResponse } from "../types/Admin/Response.types";
 import getServerSideProps from "../utils/Redirect";
 import { IPortfolioResponse } from "../types/Admin/AdminPortfolio";
+import SpinnerImg from "../../public/spinner.svg";
 
 export { getServerSideProps };
 
@@ -51,7 +52,6 @@ const Home: NextPage = () => {
   const portfolioData: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
     adminGlobalService.getPortfolio()
   );
-  
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
@@ -66,48 +66,10 @@ const Home: NextPage = () => {
             <meta name="description" content={metaDescription} />
             {customHead && parse(customHead)}
           </Head>
-          <Page>
-            <Body
-              welcomePageButtonHandler={scrollHandler}
-              setIsClicked={setIsClicked}
-              heroImg={data?.EditInformationBlock.image.url}
-            />
-            <AboutUs />
-            <Suspense fallback={<div>Loading...</div>}>
-              <Partners />
-            </Suspense>
-            <Suspense fallback={<div>Loading...</div>}>
-              <Projects />
-            </Suspense>
-            <Suspense fallback={<div>Loading...</div>}>
-              <CarouselFeedback />
-            </Suspense>
-            <Suspense fallback={<div>Loading...</div>}>
-              <Technologies />
-            </Suspense>
-            <Suspense fallback={<div>Loading...</div>}>
-              <OurTeam />
-            </Suspense>
-          </Page>
-          <Suspense fallback={<div>Loading...</div>}>
-            <HowWeWorkList isClicked={isClicked} />
-          </Suspense>
-          <Suspense fallback={<div>Loading...</div>}>
-            <YesBegin
-              clickHandler={scrollHandler}
-              disableScroll={setIsClicked}
-            />
-          </Suspense>
-          <Page className="lets-code">
-            <div ref={ref}>
-              <Suspense fallback={<div>Loading...</div>}>
-                <LetsCode />
-              </Suspense>
-            </div>
-          </Page>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Footer />
-          </Suspense>
+          <SpinnerWrapper>
+            <Spinner src={SpinnerImg.src} />
+            Website is on ongoing maintenance...
+          </SpinnerWrapper>
         </>
       )}
     </>

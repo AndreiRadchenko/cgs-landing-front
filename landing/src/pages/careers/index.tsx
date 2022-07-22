@@ -3,7 +3,7 @@ import Head from "next/head";
 import parse from "html-react-parser";
 import Careers from "../../components/Careers";
 import CareersForm from "../../components/CareersForm/index";
-import { Page } from "../../styles/Page.styled";
+import { Page, Spinner, SpinnerWrapper } from "../../styles/Page.styled";
 import { NextPage } from "next";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
 import Footer from "../../components/Footer/Footer";
@@ -14,6 +14,7 @@ import { CareersProps } from "../../types/Admin/Admin.types";
 import getServerSideProps from "../../utils/Redirect";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { IHomeData } from "../../types/Admin/Response.types";
+import SpinnerImg from "../../../public/spinner.svg";
 
 export { getServerSideProps };
 
@@ -57,12 +58,10 @@ const CarrersPage: NextPage = () => {
             <meta name="description" content={metaDescription} />
             {customHead && parse(customHead)}
           </Head>
-          <Page>
-            <HeaderNav />
-            <Careers />
-            <CareersForm data={data} />
-          </Page>
-          <Footer />
+          <SpinnerWrapper>
+            <Spinner src={SpinnerImg.src} />
+            Website is on ongoing maintenance...
+          </SpinnerWrapper>
         </>
       )}
     </>
