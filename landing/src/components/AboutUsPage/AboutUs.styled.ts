@@ -30,7 +30,7 @@ export const MainTitle = styled.div`
   font-size: 5.15vw;
   text-transform: uppercase;
   line-height: 120%;
-  padding: 70px 3.5% 0;
+  padding: 77px 3.5% 0;
   span {
     color: ${themes.primary.colors.darkBlue};
   }
@@ -42,12 +42,26 @@ export const Subtitle = styled.div`
   &:first-child {
     margin-top: 0;
   }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.smallAboutSubtitle};
+    margin-top: 25px;
+  }
 `;
 
 export const Text = styled.div`
   font-size: ${themes.primary.font.size.oneAndHalf};
   line-height: 160%;
   margin-top: 20px;
+  p {
+    margin-bottom: 0;
+    &:first-child {
+      margin: 0;
+    }
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.headerLinkText};
+    margin-top: 13px;
+  }
 `;
 
 export const BottomImage = styled.img`
@@ -148,13 +162,19 @@ export const MainImage = styled.img`
   width: 100%;
   height: auto;
   z-index: 2;
+  @media ${themes.primary.media.minPC} {
+    width: 30vw;
+  }
 `;
 
 export const MainRowContainer = styled.div`
   display: flex;
   column-gap: 75px;
-  margin-top: 50px;
+  margin-top: 70px;
   padding: 0 3.5%;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    column-gap: 50px;
+  }
 `;
 
 export const ColContainer = styled.div`
@@ -164,7 +184,7 @@ export const ColContainer = styled.div`
 `;
 
 export const ProvideBlock = styled.div`
-  margin-top: 50px;
+  margin-top: 77px;
   position: relative;
   width: 100%;
   height: 650px;
