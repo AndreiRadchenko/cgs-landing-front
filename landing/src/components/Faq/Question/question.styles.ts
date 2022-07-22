@@ -31,7 +31,7 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
   background-color: ${({ isOpen }) => isOpen && themes.primary.colors.darkBlue};
   color: ${({ isOpen }) => isOpen && themes.primary.colors.secondary};
   width: 100%;
-  padding: 17px;
+  padding: 21.5px;
   font-size: ${themes.primary.font.size.faqQuestion};
   display: flex;
   justify-content: space-between;

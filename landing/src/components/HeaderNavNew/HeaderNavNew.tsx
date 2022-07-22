@@ -12,8 +12,8 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { disableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 import logo from "../../../public/newHeaderLogo.svg";
-import BlogDropdown from "../Blog/BlogDropdown";
 import { useRouter } from "next/router";
+import HeaderDropdown from "./HeaderDropdown";
 
 const HeaderNavNew = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -70,16 +70,13 @@ const HeaderNavNew = (): JSX.Element => {
               </StyledThisComp.ListItemNav>
             </Link>
           ) : (
-            <StyledThisComp.DropdownElement key={route + ind}>
-              <BlogDropdown
-                setFilter={setFilter}
-                filter={filter}
-                tags={tags ? tags : []}
-                dropdownName={route}
-                key={route + ind}
-                isHeader={true}
-              />
-            </StyledThisComp.DropdownElement>
+            <HeaderDropdown
+              setFilter={setFilter}
+              filter={filter}
+              tags={tags ? tags : []}
+              dropdownName={route}
+              key={route + ind}
+            />
           )
         )}
       </StyledThisComp.NavList>
