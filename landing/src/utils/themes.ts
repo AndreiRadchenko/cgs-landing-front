@@ -58,6 +58,7 @@ const themes = {
         articleSubtitle: "1.6em",
         menuElement: "1.7em",
         articleTagDescription: "1.8em",
+        careersFormLaptop: "1.3em",
         adminButton: "1.8em",
         faqQuestion: "1.669em",
         faqAnswer: "1.335em",
