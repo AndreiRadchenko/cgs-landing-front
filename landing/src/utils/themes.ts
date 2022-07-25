@@ -88,6 +88,11 @@ const themes = {
         secondaryArticleAuthor: "16px",
         email: "16px",
         homeHeader: "8.4em",
+        homeHeaderTablet: "8.15em",
+        homeHeaderPc: "8.2em",
+        homeHeaderPcHd: "7.9em",
+        homeSubtitle: "6.2em",
+        homeSmallTitle: "5.6em",
       },
     },
     colors: {
