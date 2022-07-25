@@ -19,6 +19,9 @@ import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../consts/queryKeys";
 import { adminGlobalService } from "../services/adminHomePage";
 import { IDataResponse } from "../types/Admin/Response.types";
+import HeaderNavNew from "../components/HeaderNavNew/HeaderNavNew";
+import FooterNew from "../components/FooterNew/FooterNew";
+import Content from "../components/HomePage/Content";
 
 interface IHomeData {
   data: IDataResponse | undefined;
@@ -62,26 +65,9 @@ const Home: NextPage = () => {
             <meta name="description" content={metaDescription} />
             {customHead && parse(customHead)}
           </Head>
-          <StyledCommon.Page>
-            <Body
-              welcomePageButtonHandler={scrollHandler}
-              setIsClicked={setIsClicked}
-            />
-            <AboutUs />
-            <Partners />
-            <Projects />
-            <CarouselFeedback />
-            <Technologies />
-            <OurTeam />
-          </StyledCommon.Page>
-          <HowWeWorkList isClicked={isClicked} />
-          <YesBegin clickHandler={scrollHandler} disableScroll={setIsClicked} />
-          <StyledCommon.Page className="lets-code">
-            <div ref={ref}>
-              <LetsCode />
-            </div>
-          </StyledCommon.Page>
-          <Footer />
+          <HeaderNavNew />
+          <Content />
+          <FooterNew />
         </>
       )}
     </>
