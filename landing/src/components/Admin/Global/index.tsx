@@ -56,9 +56,9 @@ const AdminMainContent = () => {
               <EditInformationBlock />
               <SubtitleBlock />
               <AdminLogosBlock />
-              <AdminCardsBlock />
               <AdminFeedbackBlock />
               <AdminTechBlock />
+              <AdminCardsBlock />
               <AdminFooterBlock />
               <MetaTagsBlock theme="dark" />
               <Styled.AdminPaddedBlock>

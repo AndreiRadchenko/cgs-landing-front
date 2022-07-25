@@ -9,17 +9,13 @@ import { IDataResponse } from "../../../types/Admin/Response.types";
 import AddLogoFrame from "./AddLogoFrame";
 import LogoElement from "./LogoElement";
 
-interface ILocalState {
-  images: { url: string }[];
-}
-
 interface IRenderProps {
-  state: ILocalState;
+  state: { url: string }[];
   deleteLogo: (ind: number) => void;
 }
 
 const render = ({ state, deleteLogo }: IRenderProps) => {
-  return state.images?.map((i, ind) => (
+  return state.map((i, ind) => (
     <LogoElement
       image={i}
       key={Math.random()}
@@ -28,33 +24,45 @@ const render = ({ state, deleteLogo }: IRenderProps) => {
   ));
 };
 
-interface AdminLogosBlockProps {
-  typeOfLogo?: "normal" | "hover";
-}
-
-const AdminLogosBlock: FC<AdminLogosBlockProps> = ({ typeOfLogo }) => {
+const AdminLogosBlock: FC = () => {
   const queryClient = useQueryClient();
   const { values, handleSubmit } = useFormikContext<IDataResponse>();
   const { mutate } = useMutation(queryKeys.deleteImage, (url: string) =>
     adminGlobalService.deleteImage(url)
   );
   const normalLogos = { images: values.LogosBlock.images.normal };
-  const hover = { images: values.LogosBlock.images.hover };
-  const deleteLogo = (id: number) => {
-    const link = values.LogosBlock.images.normal.slice(id, 1);
+  const hoverLogos = { images: values.LogosBlock.images.hover };
+
+  const deleteNormalLogo = (id: number) => {
+    const link = values.LogosBlock.images.normal.splice(id, 1);
     mutate(link[0].url);
     handleSubmit();
     queryClient.invalidateQueries(queryKeys.GetFullPage);
   };
 
+  const deleteHoverLogo = (id: number) => {
+    const link = values.LogosBlock.images.hover.splice(id, 1);
+    mutate(link[0].url);
+    handleSubmit();
+    queryClient.invalidateQueries(queryKeys.GetFullPage);
+  };
   return (
-    <Styled.AdminPaddedBlock>
-      <Styled.AdminSubTitle>
-        Logos {typeOfLogo ? `(${typeOfLogo})` : null}
-      </Styled.AdminSubTitle>
+    <Styled.AdminPaddedBlock theme="dark">
+      <Styled.AdminSubTitle>Logos</Styled.AdminSubTitle>
       <Styled.AdminLogosGrid>
         <AddLogoFrame state={normalLogos} submit={handleSubmit} />
-        {render({ state: normalLogos, deleteLogo })}
+        {render({
+          state: values.LogosBlock.images.normal,
+          deleteLogo: deleteNormalLogo,
+        })}
+      </Styled.AdminLogosGrid>
+      <Styled.AdminSubTitle>Logos (hover)</Styled.AdminSubTitle>
+      <Styled.AdminLogosGrid>
+        <AddLogoFrame state={hoverLogos} submit={handleSubmit} />
+        {render({
+          state: values.LogosBlock.images.hover,
+          deleteLogo: deleteHoverLogo,
+        })}
       </Styled.AdminLogosGrid>
     </Styled.AdminPaddedBlock>
   );

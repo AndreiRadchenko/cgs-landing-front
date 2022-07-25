@@ -126,7 +126,7 @@ const AboutUsContentBlock = () => {
               <SubHeaderWithInput
                 header="Text on Photo"
                 width="213px"
-                minRows={2}
+                minRows={3}
                 name="mainImage.text"
                 inputValue={values.mainImage.text}
                 onChangeFunction={handleChange}
@@ -142,6 +142,7 @@ const AboutUsContentBlock = () => {
                 header="Text on Photo"
                 width="213px"
                 name="pinImages.image1.text"
+                minRows={3}
                 inputValue={values.pinImages.image1.text}
                 onChangeFunction={handleChange}
               />
@@ -155,6 +156,7 @@ const AboutUsContentBlock = () => {
               <SubHeaderWithInput
                 width="213px"
                 header="Text on Photo"
+                minRows={3}
                 name="pinImages.image2.text"
                 inputValue={values.pinImages.image2.text}
                 onChangeFunction={handleChange}
@@ -169,6 +171,7 @@ const AboutUsContentBlock = () => {
               <SubHeaderWithInput
                 header="Text on Photo"
                 width="213px"
+                minRows={3}
                 name="pinImages.image3.text"
                 inputValue={values.pinImages.image3.text}
                 onChangeFunction={handleChange}

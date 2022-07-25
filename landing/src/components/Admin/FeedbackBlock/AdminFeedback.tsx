@@ -24,14 +24,17 @@ const AdminFeedback = ({
   return (
     <Styled.AdminFeedbackFrame>
       <Styled.AdminFeedbackStarsBlock>
-        <Styled.AdminSubTitle>{feedback.name}</Styled.AdminSubTitle>
+        <Styled.AdminFrameSubTitle>{feedback.name}</Styled.AdminFrameSubTitle>
         <Styled.AdminFeedbackStars>
           <AdminStars value={feedback.stars} />
         </Styled.AdminFeedbackStars>
       </Styled.AdminFeedbackStarsBlock>
-      <Styled.AdminParagraph>{feedback.companyName}</Styled.AdminParagraph>
-      <Styled.AdminFeedbackRole>{feedback.role}</Styled.AdminFeedbackRole>
-      <Styled.AdminParagraph>{feedback.text}</Styled.AdminParagraph>
+      <Styled.AdminCompanyName className="namu">
+        {feedback.companyName}
+      </Styled.AdminCompanyName>
+      <Styled.AdminFeedbackText className="namu">
+        {feedback.text}
+      </Styled.AdminFeedbackText>
       <AdminButton />
       <Styled.AdminDeleteTextThin onClick={deleteFunc}>
         delete review

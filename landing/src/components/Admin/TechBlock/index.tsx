@@ -1,18 +1,13 @@
-import { FieldArray, useFormikContext } from "formik";
+import { FieldArray } from "formik";
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
-import { IDataResponse } from "../../../types/Admin/Response.types";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+
 import AdminTechList from "./AdminTechList";
 
 const AdminTechBlock = () => {
-  const { values, handleChange } = useFormikContext<IDataResponse>();
   return (
     <Styled.AdminPaddedBlock theme="dark">
-      <Styled.AdminCardsGrid></Styled.AdminCardsGrid>
-      <FieldArray name="TechnologyBlock.techs">
-        {() => <AdminTechList />}
-      </FieldArray>
+      <FieldArray name="TechnologyBlock">{() => <AdminTechList />}</FieldArray>
     </Styled.AdminPaddedBlock>
   );
 };

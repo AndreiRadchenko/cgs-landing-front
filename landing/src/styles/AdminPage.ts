@@ -209,6 +209,7 @@ export const AdminLogosGrid = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   row-gap: ${themes.primary.spacing.primary};
   column-gap: ${themes.primary.spacing.primary};
+  padding: ${themes.primary.spacing.primary} 0;
 `;
 
 export const AdminLogoElement = styled.div`
@@ -241,6 +242,7 @@ export const AdminAddLogoBlock = styled.div`
   align-items: center;
   flex-direction: column;
   border: 2px dashed ${themes.primary.colors.primary};
+  height: 10em;
 `;
 
 export const AdminCardsGrid = styled.div`
@@ -248,6 +250,10 @@ export const AdminCardsGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   column-gap: ${themes.primary.spacing.adminWithinBlocks};
   row-gap: 4em;
+
+  &.cards {
+    row-gap: 0;
+  }
 `;
 
 export const AdminFeedbackFrame = styled.div`
@@ -260,6 +266,10 @@ export const AdminParagraph = styled.p`
   font-family: ${themes.primary.font.family.mulish};
   font-size: ${themes.primary.font.size.tertiary};
   letter-spacing: 1px;
+
+  &.namu {
+    font-family: ${themes.primary.font.family.namu};
+  }
 `;
 
 export const AdminFeedbackRole = styled.h4`
@@ -274,16 +284,17 @@ export const AdminFeedbackRole = styled.h4`
 `;
 
 export const AdminButton = styled.button`
-  background: none;
-  border: 0;
   padding: 0;
-  width: 12em;
-  margin-left: -1.3em;
+  width: 110px;
+  height: 2.35em;
+  color: ${themes.primary.colors.secondary};
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  background: ${themes.primary.colors.primary};
+  border: 1px solid ${themes.primary.colors.primary};
 `;
 
 export const AdminBlackButton = styled.button`
@@ -303,8 +314,9 @@ export const AdminBlackButton = styled.button`
 `;
 
 export const AdminButtonText = styled.span`
+  line-height: 363%;
+  letter-spacing: 0.03em;
   position: absolute;
-  font-size: ${themes.primary.font.size.linkText};
   @media (max-width: 1000px) {
     font-size: ${themes.primary.font.size.quinary};
   }
@@ -782,4 +794,44 @@ export const Image = styled.img`
 
 export const RightSideBlock = styled.div`
   padding-bottom: 100px;
+`;
+
+export const AdminFilmInputPaddedBlock = styled.div`
+  padding: ${themes.primary.spacing.primary} 0
+    ${themes.primary.spacing.headerNavHorizontal} 0;
+`;
+
+export const AdminTechGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  column-gap: 1rem;
+`;
+
+export const AdminCardsHeader = styled.h1`
+  font-weight: ${themes.primary.font.weight.normal};
+  font-size: ${themes.primary.font.size.quaternary};
+  margin-bottom: ${themes.primary.spacing.small};
+  font-family: ${themes.primary.font.family.gilroy};
+`;
+
+export const AdminFrameSubTitle = styled.h3`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.secondary};
+  font-weight: ${themes.primary.font.weight.extraBold};
+  margin: 0;
+`;
+export const AdminCompanyName = styled.p`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.tertiary};
+  letter-spacing: 1px;
+  color: ${themes.primary.colors.headerBorder};
+  margin-top: 0.4em;
+`;
+
+export const AdminFeedbackText = styled.p`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  line-height: 160%;
+  font-size: ${themes.primary.font.size.tertiary};
+  letter-spacing: 1px;
 `;

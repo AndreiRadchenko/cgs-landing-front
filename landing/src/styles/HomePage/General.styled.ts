@@ -208,6 +208,6 @@ export const RightContainer = styled.div`
 
 export const Separator = styled.div`
   height: 1px;
-  width: 100vw;
+  width: 100%;
   background-color: ${themes.primary.colors.headerBorder};
 `;

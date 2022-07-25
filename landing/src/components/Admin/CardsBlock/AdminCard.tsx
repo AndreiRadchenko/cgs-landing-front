@@ -1,50 +1,33 @@
 import React from "react";
-import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import * as Styled from "../../../styles/AdminPage";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { ICard } from "../../../types/Admin/Response.types";
-import { IPropsWithImage } from "../../../types/Admin/BlockProps";
 
-interface ICardProps extends IPropsWithImage {
+interface ICardProps {
+  name: string;
   info: ICard;
   number: number;
   onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
 }
 
-const AdminCard = ({
-  info,
-  number,
-  onChangeFunction,
-  deleteFunction,
-  uploadFunction,
-}: ICardProps) => {
-  const deleteFun = () => deleteFunction(info);
-  const uploadFunc = (image: any) => uploadFunction(image, info);
-
+const AdminCard = ({ info, number, onChangeFunction, name }: ICardProps) => {
   return (
-    <Styled.AdminCardsGrid>
-      <div>
-        <SubHeaderWithInput
-          name={`CardsBlock.cards.${number - 1}.subtitle`}
-          header={`${number} Card subtitle`}
-          inputValue={info.subtitle}
-          onChangeFunction={onChangeFunction}
-        />
-        <SubHeaderWithInput
-          name={`CardsBlock.cards.${number - 1}.text`}
-          header="Text 5"
-          inputValue={info.text}
-          onChangeFunction={onChangeFunction}
-        />
-      </div>
-      <PhotoBlockDashed
-        photo={info.image}
-        header="+ Add Icon"
-        deleteFlag={true}
-        deleteFunction={deleteFun}
-        uploadFunction={uploadFunc}
+    <>
+      <Styled.AdminCardsHeader># {number}</Styled.AdminCardsHeader>
+      <SubHeaderWithInput
+        name={`CardsBlock.${name}.subtitle`}
+        header={`Subtitle`}
+        inputValue={info.subtitle}
+        onChangeFunction={onChangeFunction}
       />
-    </Styled.AdminCardsGrid>
+      <SubHeaderWithInput
+        name={`CardsBlock.${name}.text`}
+        header="Text"
+        minRows={3}
+        inputValue={info.text}
+        onChangeFunction={onChangeFunction}
+      />
+    </>
   );
 };
 

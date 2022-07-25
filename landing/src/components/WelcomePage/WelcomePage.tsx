@@ -30,14 +30,14 @@ const WelcomePage = ({ clickHandler, setIsClicked }: IWelcomePageProps) => {
         <StyledThisComp.BodyTitle>
           <SplitBrackets text={data?.title} />
         </StyledThisComp.BodyTitle>
-        <StyledThisComp.BodySubtitle>
+        {/* <StyledThisComp.BodySubtitle>
           <SplitBrackets text={data?.text} />
         </StyledThisComp.BodySubtitle>
 
         <StyledThisComp.CodeDescription>
           {"//"}
           <SplitBrackets text={data?.text2} />
-        </StyledThisComp.CodeDescription>
+        </StyledThisComp.CodeDescription> */}
 
         <BaseButton
           onClick={handleClick}
@@ -51,13 +51,13 @@ const WelcomePage = ({ clickHandler, setIsClicked }: IWelcomePageProps) => {
         </BaseButton>
 
         <StyledThisComp.WrapperBgImg>
-          <ImagePreview
+          {/* <ImagePreview
             src={data?.image.url}
             width={"1000px"}
             height={"800px"}
             alt={"main logo big image"}
             priority={true}
-          />
+          /> */}
         </StyledThisComp.WrapperBgImg>
       </StyledThisComp.BodyDescriptionWrapper>
     </>

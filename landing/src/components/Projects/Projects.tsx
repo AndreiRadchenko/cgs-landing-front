@@ -33,15 +33,6 @@ const Projects = () => {
     queryKeys.getPortfolio
   );
 
-  const blank = { subtitle: "", text: "", image: { url: "" } };
-  if (
-    JSON.stringify(data?.cards[2]) !== JSON.stringify(blank) &&
-    JSON.stringify(data?.cards[4]) !== JSON.stringify(blank)
-  ) {
-    data?.cards.splice(2, 0, blank);
-    data?.cards.splice(4, 0, blank);
-  }
-
   const setNewCategoryHandler = (categoryName: string) => {
     setSelectedCategory(categoryName);
   };
@@ -72,10 +63,10 @@ const Projects = () => {
       setSelectedCategory(portfolioData?.subtitle || "");
     }
   };
-  const text = data?.text4.split("development");
+  // const text = data?.text4.split("development");
   return (
     <StyledThisComp.ProjectsContainer>
-      <StyledThisComp.ProjectsCategoryRow>
+      {/* <StyledThisComp.ProjectsCategoryRow>
         <StyledThisComp.ProjectTitleWrapper>
           <StyledThisComp.ProjectsTitle>
             {text && text[0]}
@@ -102,7 +93,7 @@ const Projects = () => {
             />
           );
         })}
-      </StyledThisComp.ProjectsCategoryRow>
+      </StyledThisComp.ProjectsCategoryRow> */}
       <ModalProjects
         subtitle={portfolioData?.subtitle || "All work"}
         isOpen={isOpen}

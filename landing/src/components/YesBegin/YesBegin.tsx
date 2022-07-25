@@ -13,9 +13,9 @@ const YesBegin = ({ clickHandler, disableScroll }: IYesBeginProps) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.BuildRocketBlock;
+  // const data = queryClient.getQueryData<IDataResponse>(
+  //   queryKeys.getFullHomePage
+  // )?.BuildRocketBlock;
 
   const handleClick = () => {
     setIsClicked(true);
@@ -25,11 +25,11 @@ const YesBegin = ({ clickHandler, disableScroll }: IYesBeginProps) => {
     setTimeout(() => clickHandler(), 4000);
   };
 
-  const { subtitle, text, button } = { ...data };
+  // const { subtitle, text, button } = { ...data };
 
   return (
     <Styles.Container>
-      <Styles.Title>
+      {/* <Styles.Title>
         <SplitBrackets text={subtitle} />
       </Styles.Title>
       <Styles.SubTitle>
@@ -42,7 +42,7 @@ const YesBegin = ({ clickHandler, disableScroll }: IYesBeginProps) => {
         >
           <ButtonTextWrapper fontSize="1.8em">{button}</ButtonTextWrapper>
         </BaseButton>
-      </Styles.ButtonContainer>
+      </Styles.ButtonContainer> */}
       <Styles.Circle isClicked={isClicked}>
         <Styles.ImageContainer isClicked={isClicked}>
           <Styles.ImageRelativeWrapper>

@@ -54,7 +54,7 @@ const CarouselFeedback: FC = () => {
     feedbacks = data.feedBacks;
     renderSliderSlides = [...feedbacks]
       .reverse()
-      .map(({ name, text, link, companyName, role, stars }, idx) => (
+      .map(({ name, text, link, companyName, stars }, idx) => (
         <SwiperSlide key={idx}>
           <FeedbackCard
             name={name}
@@ -62,7 +62,6 @@ const CarouselFeedback: FC = () => {
             company={companyName}
             link={link}
             rates={stars}
-            position={role}
           />
         </SwiperSlide>
       ));
