@@ -4,8 +4,8 @@ import * as Styled from "../../../styles/AdminPage";
 import { IDataResponse } from "../../../types/Admin/Response.types";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import LeftSideBlock from "./LeftSide";
-import RightSideBlock from "./RightSide";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
+import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 
 const EditInformationBlock = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();
@@ -20,17 +20,23 @@ const EditInformationBlock = () => {
 
   return (
     <Styled.AdminPaddedBlock theme="dark">
-      <Styled.AdminHeader>Edit Information</Styled.AdminHeader>
       <Styled.AdminHalfGrid>
-        <LeftSideBlock
-          state={values.EditInformationBlock}
-          onChangeFunction={handleChange}
-        />
-        <RightSideBlock
-          image={values.EditInformationBlock.image}
-          uploadFunction={uploadFunc}
-          deleteFunction={deleteFunc}
-        />
+        <div>
+          <Styled.AdminHeader>Edit Information</Styled.AdminHeader>
+          <LeftSideBlock
+            state={values.EditInformationBlock}
+            onChangeFunction={handleChange}
+          />
+        </div>
+        <Styled.RightSideBlock>
+          <Styled.AdminSubTitle>Main page photo</Styled.AdminSubTitle>
+          <PhotoBlockDashed
+            photo={values.EditInformationBlock.image}
+            deleteFlag={true}
+            uploadFunction={uploadFunc}
+            deleteFunction={deleteFunc}
+          />
+        </Styled.RightSideBlock>
       </Styled.AdminHalfGrid>
     </Styled.AdminPaddedBlock>
   );

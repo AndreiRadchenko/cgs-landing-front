@@ -19,14 +19,13 @@ const AdminTech = ({
   deleteFunction,
 }: ITechProps) => {
   const uploadFunc = (image: any) => uploadFunction(image);
-
   return (
     <Styled.AdminCardsGrid>
       <div>
         <SubHeaderWithInput
           header="Subtitle 1"
           name={`TechnologyBlock.techs.${ind}.subtitle1`}
-          inputValue={info.subtitle1}
+          inputValue={info.category}
           onChangeFunction={onChangeFunction}
         />
         <SubHeaderWithInput

@@ -7,10 +7,6 @@ import AdminLogosBlock from "../LogosBlock";
 import SubtitleBlock from "../SubtitleBlock";
 import AdminFeedbackBlock from "../FeedbackBlock";
 import AdminTechBlock from "../TechBlock";
-import AdminCorporateBlock from "../CorporateBlock";
-import AdminHowWeWorkBlock from "../HowWeWorkBlock";
-import AdminBuildRocketBlock from "../RocketBlock";
-import AdminContactFormBlock from "../ContactBlock";
 import AdminFooterBlock from "../Footer";
 import { Form, Formik } from "formik";
 import { useMutation, useQuery } from "react-query";
@@ -63,10 +59,6 @@ const AdminMainContent = () => {
               <AdminCardsBlock />
               <AdminFeedbackBlock />
               <AdminTechBlock />
-              <AdminCorporateBlock />
-              <AdminHowWeWorkBlock />
-              <AdminBuildRocketBlock />
-              <AdminContactFormBlock />
               <AdminFooterBlock />
               <MetaTagsBlock theme="dark" />
               <Styled.AdminPaddedBlock>

@@ -779,3 +779,7 @@ export const Image = styled.img`
     transform: rotate(0deg);
   }
 `;
+
+export const RightSideBlock = styled.div`
+  padding-bottom: 100px;
+`;

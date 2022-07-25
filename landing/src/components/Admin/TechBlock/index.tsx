@@ -9,16 +9,7 @@ const AdminTechBlock = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();
   return (
     <Styled.AdminPaddedBlock theme="dark">
-      <Styled.AdminCardsGrid>
-        <div>
-          <SubHeaderWithInput
-            header="Subtitle"
-            inputValue={values.TechnologyBlock.subtitle}
-            name="TechnologyBlock.subtitle"
-            onChangeFunction={handleChange}
-          />
-        </div>
-      </Styled.AdminCardsGrid>
+      <Styled.AdminCardsGrid></Styled.AdminCardsGrid>
       <FieldArray name="TechnologyBlock.techs">
         {() => <AdminTechList />}
       </FieldArray>

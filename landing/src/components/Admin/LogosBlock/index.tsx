@@ -38,9 +38,10 @@ const AdminLogosBlock: FC<AdminLogosBlockProps> = ({ typeOfLogo }) => {
   const { mutate } = useMutation(queryKeys.deleteImage, (url: string) =>
     adminGlobalService.deleteImage(url)
   );
-
+  const normalLogos = { images: values.LogosBlock.images.normal };
+  const hover = { images: values.LogosBlock.images.hover };
   const deleteLogo = (id: number) => {
-    const link = values.LogosBlock.images.splice(id, 1);
+    const link = values.LogosBlock.images.normal.slice(id, 1);
     mutate(link[0].url);
     handleSubmit();
     queryClient.invalidateQueries(queryKeys.GetFullPage);
@@ -52,8 +53,8 @@ const AdminLogosBlock: FC<AdminLogosBlockProps> = ({ typeOfLogo }) => {
         Logos {typeOfLogo ? `(${typeOfLogo})` : null}
       </Styled.AdminSubTitle>
       <Styled.AdminLogosGrid>
-        <AddLogoFrame state={values.LogosBlock} submit={handleSubmit} />
-        {render({ state: values.LogosBlock, deleteLogo })}
+        <AddLogoFrame state={normalLogos} submit={handleSubmit} />
+        {render({ state: normalLogos, deleteLogo })}
       </Styled.AdminLogosGrid>
     </Styled.AdminPaddedBlock>
   );
