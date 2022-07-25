@@ -1,86 +1,53 @@
 import { IImage } from "./Admin.types";
 export interface IEditInformation {
-  [title: string]: string;
-  text: string;
-  text2: string;
+  title: string;
   button: string;
-  image: any;
+  image: { url: string } | null;
 }
 
 export interface ISubtitle {
   title: string;
-  elements: { text: string; image: any }[];
-  firstText2: string;
-  text3: string;
-  secondText2: string;
-  image: any;
 }
 
 export interface ICard {
   subtitle: string;
   text: string;
-  image: any;
 }
 
 export interface ICards {
-  text4: string;
-  button: string;
-  cards: ICard[];
+  card1: ICard[];
+  card2: ICard[];
+  card3: ICard[];
+  card4: ICard[];
 }
 
 export interface IFeedback {
   name: string;
   companyName: string;
-  role: string;
   text: string;
   link: string;
   stars: number;
 }
 
 export interface IFeedbackBlock {
+  filmText: string;
   subtitle: string;
   text3: string;
   feedBacks: IFeedback[];
 }
 
 export interface ITech {
-  subtitle1: string;
+  category: string;
   text: string;
-  image: any;
+  image: { url: string } | null;
+  stack: string[];
 }
 
 export interface ITechnologyBlock {
-  subtitle: string;
-  techs: ITech[];
-}
-
-export interface ICorporateBlock {
-  blocks: { subtitle: string; text: string }[];
-  images: IImage[];
-}
-
-export interface IHowBlock {
-  subtitle: string;
-  text: string;
-  image: any;
-}
-
-export interface IHowWeWorkBlock {
-  pageSignature: string;
-  blocks: IHowBlock[];
-}
-
-export interface IBuildRocketBlock {
-  subtitle: string;
-  text: string;
-  button: string;
-}
-
-export interface IContactFormBlock {
-  [subtitle: string]: string;
-  name: string;
-  email: string;
-  message: string;
+  item1: ITech;
+  item2: ITech;
+  item3: ITech;
+  item4: ITech;
 }
 
 export interface IFooterBlock {
@@ -101,14 +68,12 @@ export interface IDataResponse {
   MainLogoBlock: { image: { url: string } | null };
   EditInformationBlock: IEditInformation;
   SubtitleBlock: ISubtitle;
-  LogosBlock: { images: { url: string }[] };
+  LogosBlock: {
+    images: { normal: { url: string }[]; hover: { url: string }[] };
+  };
   CardsBlock: ICards;
   FeedbackBlock: IFeedbackBlock;
   TechnologyBlock: ITechnologyBlock;
-  CorporateBlock: ICorporateBlock;
-  HowWeWorkBlock: IHowWeWorkBlock;
-  BuildRocketBlock: IBuildRocketBlock;
-  ContactFormBlock: IContactFormBlock;
   FooterBlock: IFooterBlock;
   meta: IMetaBlock;
 }

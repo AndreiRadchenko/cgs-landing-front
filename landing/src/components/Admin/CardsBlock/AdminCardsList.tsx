@@ -1,20 +1,25 @@
 import React from "react";
 import { useFormikContext } from "formik";
-import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import { AdminCardsGrid } from "../../../styles/AdminPage";
 import { IDataResponse } from "../../../types/Admin/Response.types";
 import AdminCard from "./AdminCard";
 
 const AdminCardsList = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();
-  const uploadImageFunction = useUploadImageFunction();
-  const deleteImageFunction = useDeleteImageFunction();
-  const deleteFunc = async (image: any) => (await deleteImageFunction)(image);
 
   return (
-    <AdminCardsGrid>
-      {values.CardsBlock.cards?.map((card, ind) => {
+    <AdminCardsGrid className="cards">
+      {Object.entries(values.CardsBlock).map((card, ind) => (
+        <div key={ind}>
+          <AdminCard
+            info={card[1]}
+            name={card[0]}
+            number={ind + 1}
+            onChangeFunction={handleChange}
+          />
+        </div>
+      ))}
+      {/* {values.CardsBlock.cards?.map((card, ind) => {
         return (
           <div key={ind}>
             <AdminCard
@@ -26,7 +31,7 @@ const AdminCardsList = () => {
             />
           </div>
         );
-      })}
+      })} */}
     </AdminCardsGrid>
   );
 };

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { LetsCodeFormPropTypes } from "../../types/Button.types";
 import FormWrapperIMG from "../../../public/formIconWrap.png";
 import FormWrapperIMGMobile from "../../../public/formIconWrapMobile.png";
-import CreateSupportForm from "../CreateSupportForm/CreateSupportForm";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const LetsCodeForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
@@ -20,7 +19,7 @@ const LetsCodeForm = ({ setButtonIsHovered }: LetsCodeFormPropTypes) => {
           />
         )}
       </StyledThisComp.LetsCodeImageWrapper>
-      <CreateSupportForm setButtonIsHovered={setButtonIsHovered} />
+      {/* <CreateSupportForm setButtonIsHovered={setButtonIsHovered} /> */}
     </>
   );
 };

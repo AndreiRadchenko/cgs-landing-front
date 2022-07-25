@@ -3,7 +3,6 @@ import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import * as StyledThisComp from "../../styles/Partners.styled";
 import { IDataResponse } from "../../types/Admin/Response.types";
-import ImagePreview from "../Image/ImagePreview";
 
 const Partners = () => {
   const queryClient = useQueryClient();
@@ -13,17 +12,12 @@ const Partners = () => {
 
   return (
     <StyledThisComp.PartnersContainer>
-      {data &&
-        data.images.map((img, idx) => (
-          <StyledThisComp.PartnerImageWrapper key={idx}>
-            <ImagePreview
-              src={img.url}
-              alt={"alt partners image"}
-              layout="fill"
-              objectFit={"contain"}
-            />
-          </StyledThisComp.PartnerImageWrapper>
-        ))}
+      {/*{data &&*/}
+      {/*  data.images.map((img, idx) => (*/}
+      {/*    <StyledThisComp.PartnerImageWrapper key={idx}>*/}
+      {/*      <img src={img.url} />*/}
+      {/*    </StyledThisComp.PartnerImageWrapper>*/}
+      {/*  ))}*/}
     </StyledThisComp.PartnersContainer>
   );
 };

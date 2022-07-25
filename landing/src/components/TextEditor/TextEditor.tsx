@@ -13,9 +13,58 @@ interface ITextEditorProps {
   header: string;
   name: string;
   isBlog: boolean;
+  mainPage?: boolean;
 }
 
-const TextEditor = ({ name, isBlog, header }: ITextEditorProps) => {
+const TextEditor = ({ name, isBlog, header, mainPage }: ITextEditorProps) => {
+  const options = mainPage
+    ? {
+        font: ["NAMU"],
+        colorList: [
+          "#ccc",
+          "#dedede",
+          "#5869DD",
+          "#000",
+          "OrangeRed",
+          "Orange",
+          "RoyalBlue",
+          "SaddleBrown",
+          "SlateGray",
+          "BurlyWood",
+          "DeepPink",
+          "FireBrick",
+          "Gold",
+          "SeaGreen",
+        ],
+        linkRelDefault: {
+          default: undefined,
+          check_new_window: "nofollow",
+        },
+        buttonList: [["fontColor"]],
+      }
+    : {
+        font: ["NAMU"],
+        linkRelDefault: {
+          default: undefined,
+          check_new_window: "nofollow",
+        },
+        buttonList: [
+          [
+            "formatBlock",
+            "font",
+            "fontSize",
+            "fontColor",
+            "align",
+            "paragraphStyle",
+            "blockquote",
+          ],
+          ["bold", "underline", "italic", "strike", "subscript", "superscript"],
+          ["removeFormat"],
+          ["outdent", "indent"],
+          ["list"],
+          ["link", "image", "video"],
+        ],
+      };
   return (
     <div>
       <Styled.AdminSubTitle isBlog={isBlog}>{header}</Styled.AdminSubTitle>
@@ -27,36 +76,7 @@ const TextEditor = ({ name, isBlog, header }: ITextEditorProps) => {
               defaultValue={field.value}
               onChange={field.onChange(field.name)}
               lang="en"
-              setOptions={{
-                font: ["NAMU"],
-                linkRelDefault: {
-                  default: undefined,
-                  check_new_window: "nofollow",
-                },
-                buttonList: [
-                  [
-                    "formatBlock",
-                    "font",
-                    "fontSize",
-                    "fontColor",
-                    "align",
-                    "paragraphStyle",
-                    "blockquote",
-                  ],
-                  [
-                    "bold",
-                    "underline",
-                    "italic",
-                    "strike",
-                    "subscript",
-                    "superscript",
-                  ],
-                  ["removeFormat"],
-                  ["outdent", "indent"],
-                  ["list"],
-                  ["link", "image", "video"],
-                ],
-              }}
+              setOptions={options}
             />
           )}
         </Field>

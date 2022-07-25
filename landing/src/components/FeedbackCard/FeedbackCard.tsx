@@ -8,7 +8,6 @@ import Link from "next/link";
 const FeedbackCard: FC<IFeedbackCardProps> = ({
   name,
   company,
-  position,
   link,
   rates,
   description,
@@ -33,9 +32,6 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
           </StyledThisComp.FeedbackCardCompany>
         </Link>
 
-        <StyledThisComp.FeedbackCardPosition>
-          {position}
-        </StyledThisComp.FeedbackCardPosition>
         <StyledThisComp.FeedbackCardDescription>
           {isOpenFullFeedBack ? description : description.slice(0, 115) + "..."}
         </StyledThisComp.FeedbackCardDescription>

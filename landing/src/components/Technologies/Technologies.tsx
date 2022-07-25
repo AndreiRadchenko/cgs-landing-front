@@ -15,7 +15,7 @@ const Technologies = () => {
 
   return (
     <StyledThisComp.TechnologyContainer>
-      <StyledAboutUs.AboutUsTitle>
+      {/* <StyledAboutUs.AboutUsTitle>
         <SplitBrackets text={data?.subtitle} />
       </StyledAboutUs.AboutUsTitle>
 
@@ -30,7 +30,7 @@ const Technologies = () => {
             />
           );
         })}
-      </StyledThisComp.TechnologyRow>
+      </StyledThisComp.TechnologyRow> */}
     </StyledThisComp.TechnologyContainer>
   );
 };

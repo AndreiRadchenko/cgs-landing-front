@@ -1,11 +1,5 @@
 import { IPropsWithImage } from "./BlockProps";
-import {
-  IBuildRocketBlock,
-  IContactFormBlock,
-  IDataResponse,
-  IEditInformation,
-  IPointsData,
-} from "./Response.types";
+import { IDataResponse, IEditInformation, IPointsData } from "./Response.types";
 import { FieldArrayRenderProps } from "formik";
 import { IDataCareersResponse } from "./Response.types";
 export interface IAdmin {
@@ -63,12 +57,7 @@ export interface IFeedbackRenderState {
 
 export interface IRenderInputsProps {
   props: FieldArrayRenderProps;
-  state:
-    | IBuildRocketBlock
-    | IContactFormBlock
-    | IEditInformation
-    | IFeedbackRenderState
-    | IPointsData;
+  state: IEditInformation | IFeedbackRenderState | IPointsData;
 
   onChangeFunction: (e?: string | React.ChangeEvent<any>) => void;
 }

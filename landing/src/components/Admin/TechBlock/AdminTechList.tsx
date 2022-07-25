@@ -18,14 +18,17 @@ const AdminTechList = () => {
 
   return (
     <AdminCardsGrid>
-      {values.TechnologyBlock.techs.map((i, ind) => (
+      {Object.entries(values.TechnologyBlock).map((el, ind) => (
         <AdminTech
           key={`TechAdmin${ind}`}
-          info={i}
+          info={el[1]}
           onChangeFunction={handleChange}
-          ind={ind}
-          deleteFunction={deleteFunc(i)}
-          uploadFunction={uploadFunc(i)}
+          ind={ind + 1}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          item={el[0]}
+          deleteFunction={deleteFunc(el[1])}
+          uploadFunction={uploadFunc(el[1])}
         />
       ))}
     </AdminCardsGrid>

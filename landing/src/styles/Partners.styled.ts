@@ -5,30 +5,21 @@ export const PartnersContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 0 auto 10em auto;
+  column-gap: 80px;
+  row-gap: 65px;
+  margin: 10em auto 10em auto;
 
   & > * {
     flex: 1 1 16.6%;
   }
-
-  @media (max-width: 1401px) {
-    display: none;
-  }
 `;
 
-export const PartnerImageWrapper = styled.div`
+export const PartnerImageWrapper = styled.img`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 53px;
-  position: relative;
-
-  &:nth-child(6n) {
-    margin-right: 0;
-  }
-
-  &:nth-child(n + 7) {
-    margin-top: 5em;
-  }
+  max-width: 11%;
+  width: auto;
+  height: auto;
+  max-height: 60px;
 `;
