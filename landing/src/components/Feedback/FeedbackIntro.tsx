@@ -7,7 +7,7 @@ interface IFeedbackProps {
   subtitle?: string;
 }
 
-const Feedback: FC<IFeedbackProps> = ({ title, subtitle }) => {
+const FeedbackIntro: FC<IFeedbackProps> = ({ title, subtitle }) => {
   return (
     <StyledThisComp.FeedbackContainer>
       <StyledThisComp.FeedbackSectionTitle>
@@ -20,4 +20,4 @@ const Feedback: FC<IFeedbackProps> = ({ title, subtitle }) => {
   );
 };
 
-export default Feedback;
+export default FeedbackIntro;

@@ -1,17 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import type { NextPage } from "next";
 import parse from "html-react-parser";
 import Head from "next/head";
-import Body from "../components/Body/Body";
 import * as StyledCommon from "../styles/Page.styled";
-import Projects from "../components/Projects/Projects";
-import Partners from "../components/Partners/Partners";
-import CarouselFeedback from "./../components/Feedback/CarouselFeedback";
-import Technologies from "../components/Technologies/Technologies";
-import LetsCode from "../components/LetsCode/LetsCode";
-import YesBegin from "../components/YesBegin/YesBegin";
-import Footer from "../components/Footer/Footer";
-import { useScrollTo } from "../hooks/useScrollTo";
+
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../consts/queryKeys";
 import { adminGlobalService } from "../services/adminHomePage";
@@ -40,9 +32,6 @@ export async function getStaticProps() {
 }
 
 const Home: NextPage = () => {
-  const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
-  const [isClicked, setIsClicked] = useState(false);
-
   const { data, isLoading }: IHomeData = useQuery(
     queryKeys.getFullHomePage,
     () => adminGlobalService.getFullPage()

@@ -3,13 +3,20 @@ import * as Styled from "../../styles/HomePage/General.styled";
 import leftArrow from "../../../public/HomePageDecoration/leftArrow.svg";
 import rightArrow from "../../../public/HomePageDecoration/rightArrow.svg";
 import buttonArrow from "../../../public/HomePageDecoration/buttonArrow.svg";
-import tetris from "../../../public/HomePageDecoration/tetris.svg";
+import { useQueryClient } from "react-query";
+import { queryKeys } from "../../consts/queryKeys";
+import { IDataResponse } from "../../types/Admin/Response.types";
 
 const HeadBlock = () => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IDataResponse>(
+    queryKeys.getFullHomePage
+  )?.EditInformationBlock;
+
   return (
     <Styled.HeadBlockRow>
       <Styled.HeadBlockContent>
-        <Styled.Title>CGS-TEAM</Styled.Title>
+        <Styled.Title>{data?.title}</Styled.Title>
         <Styled.MainSubtitle>
           <Styled.RowContainer>
             <div>SHARP DEVS WITH PROF TECHS</div>
@@ -22,11 +29,13 @@ const HeadBlock = () => {
           </Styled.RowContainer>
         </Styled.MainSubtitle>
         <Styled.BlackButton size={"18px"} padding={"20px 27px"}>
-          Get estimation now
+          {data?.button}
           <Styled.ButtonArrow src={buttonArrow.src} />
         </Styled.BlackButton>
       </Styled.HeadBlockContent>
-      <Styled.Tetris src={tetris.src} />
+      {data?.image?.url && (
+        <Styled.Tetris src={data?.image.url} alt="hero image" />
+      )}
     </Styled.HeadBlockRow>
   );
 };

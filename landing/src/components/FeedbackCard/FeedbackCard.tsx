@@ -1,8 +1,7 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import * as StyledThisComp from "./FeedbackCard.styled";
-import ButtonTextWrapper from "../ButtonText/ButtonTextWrapper";
-import ButtonReadMore from "../../utils/Buttons/ButtonReadMore";
 import { IFeedbackCardProps } from "../../types/Feedback.types";
+import star from "../../../public/HomePageDecoration/feedbackStar.svg";
 import Link from "next/link";
 
 const FeedbackCard: FC<IFeedbackCardProps> = ({
@@ -12,10 +11,7 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
   rates,
   description,
 }) => {
-  const [isOpenFullFeedBack, setOpenFullFeedback] = useState<boolean>(false);
-  const toggleFullFeedbackHandler = () =>
-    setOpenFullFeedback(!isOpenFullFeedBack);
-
+  const starsLength = new Array(Math.ceil(rates)).fill(0);
   return (
     <StyledThisComp.FeedbackCardContainer>
       <StyledThisComp.FeedBackContentWrapper>
@@ -23,7 +19,11 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
           <StyledThisComp.FeedbackCardName>
             {name}
           </StyledThisComp.FeedbackCardName>
-          <StyledThisComp.Stars rate={rates} />
+          <StyledThisComp.Stars>
+            {starsLength.map((_, idx) => (
+              <StyledThisComp.StarImage key={idx} src={star.src} />
+            ))}
+          </StyledThisComp.Stars>
         </StyledThisComp.FeedbackCardWrapper>
 
         <Link href={link} passHref>
@@ -33,16 +33,10 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
         </Link>
 
         <StyledThisComp.FeedbackCardDescription>
-          {isOpenFullFeedBack ? description : description.slice(0, 115) + "..."}
+          {description}
         </StyledThisComp.FeedbackCardDescription>
       </StyledThisComp.FeedBackContentWrapper>
-      <StyledThisComp.FeedbackButtonContainer>
-        <ButtonReadMore onClick={toggleFullFeedbackHandler}>
-          <ButtonTextWrapper fontSize={"1.35em"}>
-            read {isOpenFullFeedBack ? "less" : "more"}
-          </ButtonTextWrapper>
-        </ButtonReadMore>
-      </StyledThisComp.FeedbackButtonContainer>
+      <StyledThisComp.FeedbackButton>View more</StyledThisComp.FeedbackButton>
     </StyledThisComp.FeedbackCardContainer>
   );
 };
