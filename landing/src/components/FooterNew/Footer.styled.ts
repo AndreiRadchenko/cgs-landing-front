@@ -38,6 +38,11 @@ export const LogoLinkWrapper = styled.a`
   @media ${themes.primary.media.maxLowScreenMobile} {
     padding: 0.5rem 1.5rem;
   }
+  &:hover {
+    transition: 0.3s;
+    border-right: 1.5px solid ${themes.primary.colors.primary} !important;
+    border-bottom: 7px solid ${themes.primary.colors.primary} !important;
+  }
 `;
 
 export const ListItemNav = styled.a`

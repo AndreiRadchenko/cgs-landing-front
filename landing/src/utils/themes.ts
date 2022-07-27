@@ -43,6 +43,7 @@ const themes = {
         careersTitle: "6.1em",
         smallerCareersTitle: "4em",
         reviewSmallText: "1.03em",
+        homeFooterButton: "0.34em",
         hexadecimal: "0.375em",
         septenary: "0.6em",
         quinary: "0.72em",
@@ -93,6 +94,9 @@ const themes = {
         homeHeaderPcHd: "7.9em",
         homeSubtitle: "6.2em",
         homeSmallTitle: "5.6em",
+        techCategory: "2.6em",
+        homeCardSubtitle: "4.5em",
+        homeCardText: "1.6em",
       },
     },
     colors: {

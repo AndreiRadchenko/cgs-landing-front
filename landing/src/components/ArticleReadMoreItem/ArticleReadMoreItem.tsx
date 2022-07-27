@@ -1,7 +1,7 @@
 import React from "react";
 import * as Styles from "./ArticleReadMoreItem.styled";
 import { IArticle } from "../../types/Admin/Response.types";
-import viewsIcon from "../../../public/viewsIcon.svg";
+import viewsIcon from "../../../public/Watch.svg";
 import { useRouter } from "next/router";
 
 interface IArticleReadMore {

@@ -1,7 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { FormikProvider, Field } from "formik";
 import themes from "../../../utils/themes";
-import Lottie from "lottie-react";
 
 interface ICVProps {
   active: boolean;
@@ -72,39 +71,6 @@ const opacity = keyframes`
 `;
 
 export const Form = styled.form``;
-
-export const LottieButton = styled(Lottie)`
-  position: relative;
-  & svg {
-    position: absolute;
-    width: 80rem !important;
-    height: 25rem !important;
-    top: -13rem;
-    left: -30rem;
-    box-sizing: border-box;
-  }
-
-  @media ${themes.primary.media.maxLaptop} {
-    & svg {
-      width: 37rem !important;
-      height: 30rem !important;
-      top: -16.4rem;
-      left: -18.2rem;
-    }
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    & svg {
-      left: -16.7rem;
-      width: 33rem !important;
-    }
-  }
-`;
-export const LottieWrapper = styled.div`
-  @media ${themes.primary.media.maxLaptop} {
-    margin-top: 2.188rem;
-  }
-`;
 
 export const SubmitButton = styled.div`
   width: 100%;
@@ -411,7 +377,7 @@ export const Clip = styled.img`
   margin-top: 17px;
   display: flex;
   margin-left: 35%;
-  widht: 25px;
+  width: 25px;
   height: 25px;
 `;
 
