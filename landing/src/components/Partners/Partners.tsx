@@ -11,6 +11,7 @@ const Partners = () => {
     queryKeys.getFullHomePage
   )?.LogosBlock;
 
+  
   return (
     <StyledThisComp.PartnersContainer>
       {data &&
