@@ -68,7 +68,6 @@ export const CategoryContainer = styled.div`
   width: 80%;
 
   &:nth-child(2n) {
-    margin-right: 2vw;
     justify-self: flex-end;
   }
 `;
@@ -98,13 +97,14 @@ export const CategoryTitle = styled.h2`
 export const CategorySubtitle = styled.p`
   margin-top: 0;
   font-size: ${themes.primary.font.size.tertiary};
+  line-height: 160%;
   &.blockchain {
     margin-bottom: 50px;
   }
 `;
 
 export const CategoryImage = styled.img`
-  width: 100%;
+  width: 80%;
   height: auto;
 `;
 export const CategoryLine = styled.div`

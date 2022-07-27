@@ -175,6 +175,7 @@ export const NextTech = styled.div`
 
 export const FilmContainer = styled.div`
   position: relative;
+  margin-bottom: 70px;
 `;
 
 export const Film = styled.img`

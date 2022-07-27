@@ -20,7 +20,7 @@ export const FeedbackSectionTitle = styled.h1`
 `;
 
 export const FeedbackSectionSubTitle = styled.h3`
-  max-width: 23em;
+  max-width: 25em;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 1.8em;

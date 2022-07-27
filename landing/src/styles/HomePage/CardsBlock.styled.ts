@@ -35,15 +35,26 @@ export const CardContainer = styled.div`
     position: absolute;
   }
 
-  &:nth-child(2n - 1) {
+  &:nth-child(2n) {
+    justify-self: flex-end;
+    & img {
+    }
+  }
+
+  &:nth-child(2) {
+    & img {
+      top: -85%;
+      right: 60%;
+    }
+  }
+  &:nth-child(3) {
     & img {
       top: -70%;
       left: 30%;
     }
   }
 
-  &:nth-child(2n) {
-    justify-self: flex-end;
+  &:nth-child(4) {
     & img {
       top: -80%;
       right: 40%;
@@ -51,7 +62,7 @@ export const CardContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    &:nth-child(2n - 1) {
+    &:nth-child(2n-1) {
       & img {
         top: -70%;
         left: 15%;
