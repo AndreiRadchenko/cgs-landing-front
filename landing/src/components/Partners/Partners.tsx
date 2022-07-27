@@ -11,11 +11,11 @@ const Partners = () => {
     queryKeys.getFullHomePage
   )?.LogosBlock;
 
-  
   return (
     <StyledThisComp.PartnersContainer>
       {data &&
-        data.images.normal.map((img, idx) => (
+        data?.images &&
+        data?.images?.normal.map((img, idx) => (
           <StyledThisComp.PartnerImageWrapper key={idx}>
             <PartnersImage img={img.url} idx={idx} />
           </StyledThisComp.PartnerImageWrapper>
