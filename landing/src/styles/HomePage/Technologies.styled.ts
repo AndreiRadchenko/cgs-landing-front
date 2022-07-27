@@ -1,29 +1,28 @@
 import styled from "styled-components";
-import Decoration from "../components/Decoration/Decoration";
-import themes from "../utils/themes";
+import Decoration from "../../components/Decoration/Decoration";
+import themes from "../../utils/themes";
 
 export const TechnologyContainer = styled.section`
+  position: relative;
   user-select: none;
-  font-family: ${themes.primary.font.family.gilroy};
+  font-family: ${themes.primary.font.family.namu};
   margin-bottom: 8.5em;
 `;
 
+export const TechTitle = styled.h2`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  line-height: 140%;
+  font-size: 2.5em;
+  margin: 0;
+  padding-bottom: 50px;
+  text-transform: uppercase;
+`;
+
 export const TechnologyRow = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  margin: 3em;
-  .web {
-    margin-left: -5%;
-  }
-
-  .mobile {
-    margin-left: 10%;
-  }
-
-  .blockchain {
-    margin-left: 5%;
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 60px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
@@ -64,36 +63,12 @@ export const CategoryImgWrapper = styled.div`
 
 export const CategoryContainer = styled.div`
   display: flex;
-  align-items: center;
-  width: 45%;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 80%;
 
-  &:nth-child(-n + 2) {
-    flex-direction: row;
-    justify-content: flex-end;
-
-    .descriptionWrapper {
-      margin-left: 2em;
-    }
-  }
-  &:nth-child(n + 3) {
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-
-    .descriptionWrapper {
-      margin-right: 2em;
-    }
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    width: 25em;
-
-    &:nth-child(odd),
-    &:nth-child(even) {
-      justify-content: center;
-    }
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 17.5rem;
+  &:nth-child(2n) {
+    justify-self: flex-end;
   }
 `;
 
@@ -105,38 +80,45 @@ export const CategoryDescriptionWrapper = styled.div`
   position: relative;
 `;
 
-export const CategoryTechnologiesWrapper = styled.div`
-  /* font-weight: ${themes.primary.font.weight.light};
-  font-size: 1.075rem; */
-`;
+export const CategoryTechnologiesWrapper = styled.div``;
 
 export const CategoryTitle = styled.h2`
-  font-weight: ${themes.primary.font.weight.extraBold};
-  font-size: 1.8em;
+  font-weight: ${themes.primary.font.weight.heavy};
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 2px ${themes.primary.colors.primary};
+  text-underline-offset: 0.3em;
+  font-size: ${themes.primary.font.size.techCategory};
   text-align: center;
   position: relative;
   z-index: 1;
-
-  &.serverTitle {
-    position: relative;
-    right: 25%;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    &.serverTitle {
-      right: 20%;
-    }
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    &.serverTitle {
-      right: 15%;
-    }
-  } ;
 `;
 
+export const CategorySubtitle = styled.p`
+  margin-top: 0;
+  font-size: ${themes.primary.font.size.tertiary};
+  line-height: 160%;
+  &.blockchain {
+    margin-bottom: 50px;
+  }
+`;
+
+export const CategoryImage = styled.img`
+  width: 80%;
+  height: auto;
+`;
 export const CategoryLine = styled.div`
   border: 1px solid #000;
   width: 56px;
+`;
+
+export const ArrowContainer = styled.div`
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 25px);
+  transform: translate(-50%, -50%);
+  width: 61px;
+  height: 61px;
 `;
 
 export const CategoryTechnology = styled.span`

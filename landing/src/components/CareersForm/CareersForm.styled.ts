@@ -84,65 +84,6 @@ export const ImageWrapper = styled.div`
   display: flex;
 `;
 
-export const FormRocketImage = styled.div`
-  display: flex;
-  position: relative;
-  top: 19rem;
-  left: -10rem;
-  width: 5.5rem;
-  height: 11rem;
-  background-size: 5.5rem auto;
-  background-image: url("/rocketWithFlame.png");
-  background-repeat: no-repeat;
-
-  animation: ${rocket} 40s linear;
-  animation-iteration-count: infinite;
-
-  @media ${themes.primary.media.minPC} {
-    left: 4rem;
-  }
-
-  @media ${themes.primary.media.minLaptop} {
-    top: 15rem;
-    left: 4.5rem;
-    width: 10rem;
-    height: 20rem;
-    background-size: 9rem auto;
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    top: 10.5rem;
-    left: 6rem;
-    width: 10rem;
-    height: 20rem;
-    background-size: 6rem auto;
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    top: 10.5rem;
-    left: 7rem;
-    width: 10rem;
-    height: 20rem;
-    background-size: 6rem auto;
-  }
-
-  @media (min-width: 476px) and (max-width: 767px) {
-    top: 10rem;
-    left: 3rem;
-    width: 6.5rem;
-    height: 13rem;
-    background-size: 6.5rem auto;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    top: 7rem;
-    left: 2rem;
-    width: 5.5rem;
-    height: 13rem;
-    background-size: 5.5rem auto;
-  }
-`;
-
 export const FormContainter = styled.div`
   width: 100%;
   height: 100%;

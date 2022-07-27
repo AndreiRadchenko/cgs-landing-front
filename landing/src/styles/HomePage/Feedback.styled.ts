@@ -24,16 +24,10 @@ export const Navigationwrapper = styled.div`
 
 export const ArrowContainer = styled.div`
   display: flex;
-  margin-right: 0.625rem;
+  align-items: flex-end;
+  column-gap: 10px;
+
   @media ${themes.primary.media.minTablet} {
     margin: 3rem 0 0 0.53rem;
-  }
-
-  &.blog {
-    justify-content: space-between;
-    width: 90px;
-    @media ${themes.primary.media.minTablet} {
-      margin: 0;
-    }
   }
 `;

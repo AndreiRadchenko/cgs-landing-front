@@ -7,10 +7,12 @@ export const FeedbackContainer = styled.section`
 `;
 
 export const FeedbackSectionTitle = styled.h1`
-  font-family: ${themes.primary.font.family.gilroy};
-  font-weight: ${themes.primary.font.weight.extraBold};
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  line-height: 140%;
   font-size: 2.5em;
   margin: 0;
+  text-transform: uppercase;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.7em;
@@ -18,10 +20,12 @@ export const FeedbackSectionTitle = styled.h1`
 `;
 
 export const FeedbackSectionSubTitle = styled.h3`
-  max-width: 23em;
-  font-weight: ${themes.primary.font.weight.light};
-  font-size: 1.65em;
-  line-height: 125%;
+  max-width: 25em;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 1.8em;
+  line-height: 160%;
+  opacity: 0.7;
   margin-top: 0.75em;
   margin-bottom: 0;
 
