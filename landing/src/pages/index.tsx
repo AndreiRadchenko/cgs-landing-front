@@ -43,6 +43,7 @@ const Home: NextPage = () => {
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
   const [isClicked, setIsClicked] = useState(false);
 
+  
   const { data, isLoading }: IHomeData = useQuery(
     queryKeys.getFullHomePage,
     () => adminGlobalService.getFullPage()
