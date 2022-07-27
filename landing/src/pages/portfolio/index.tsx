@@ -69,14 +69,20 @@ const Index = () => {
           </Styles.OurWorkTitle>
         )}
         <Styles.SlidersCont>
-          {portfolioCategories.map((category, ind) => (
-            <PortfolioSlider
-              key={ind}
-              reviews={sortByCategory(category)}
-              category={category}
-              isMobile={isMobile}
-            />
-          ))}
+          {portfolioCategories.map((category, ind) => {
+            const filtered = sortByCategory(category);
+            return (
+              filtered &&
+              filtered.length > 0 && (
+                <PortfolioSlider
+                  key={ind}
+                  reviews={filtered}
+                  category={category}
+                  isMobile={isMobile}
+                />
+              )
+            );
+          })}
           <Separator color={"#8f8e93"} />
         </Styles.SlidersCont>
         <FooterNew />
