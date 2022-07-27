@@ -317,6 +317,7 @@ export const AdminButtonText = styled.span`
   line-height: 363%;
   letter-spacing: 0.03em;
   position: absolute;
+  font-family: ${themes.primary.font.family.namu};
   @media (max-width: 1000px) {
     font-size: ${themes.primary.font.size.quinary};
   }
@@ -350,9 +351,8 @@ export const AdminFeedbackStarsBlock = styled.div`
 
 export const AdminFeedbackStars = styled.div`
   @media ${themes.primary.media.minLaptop} {
-    margin: -0.4em 0 0 2em;
+    margin: 0.2em 0 0 1.5em;
   }
-  margin: 0;
   height: fit-content;
 `;
 

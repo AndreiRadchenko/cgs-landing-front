@@ -31,7 +31,7 @@ export const ButtonArrow = styled.img`
   height: 30px;
 `;
 
-export const BlackButton = styled.button<IFontSize>`
+export const BlackButton = styled.a<IFontSize>`
   font-family: inherit;
   font-size: ${({ size }) => size};
   padding: ${({ padding }) => padding};
@@ -40,22 +40,15 @@ export const BlackButton = styled.button<IFontSize>`
   color: ${themes.primary.colors.secondary};
   background-color: ${themes.primary.colors.primary};
   line-height: 99%;
+
+  &.footer {
+    margin-top: 10px;
+    height: 4vw;
+    margin-left: 20px;
+  }
   @media ${themes.primary.media.onlyTabletLandScape} {
     font-size: 14px;
   }
-`;
-
-export const BigDigit = styled.p`
-  font-family: ${themes.primary.font.family.namu};
-  font-style: normal;
-  font-weight: 800;
-  font-size: 150px;
-  line-height: 180px;
-  display: flex;
-  align-items: center;
-  color: ${themes.primary.colors.blogBackground};
-  -webkit-text-stroke: 2px ${themes.primary.colors.primary};
-  text-shadow: 7px 2px 0px ${themes.primary.colors.primary};
 `;
 
 export const Title = styled.h1`
@@ -153,13 +146,26 @@ export const Subtitle = styled.div`
   flex-direction: column;
   row-gap: 10px;
   margin: 28px 0 40px;
+
+  & u {
+    text-decoration-thickness: 3px;
+    text-underline-offset: 7px;
+  }
+
+  &.footer {
+    margin-top: ${themes.primary.spacing.tertiary};
+    line-height: 132%;
+    display: inline-block;
+    vertical-align: middle;
+  }
   span {
     &.blue {
       color: ${themes.primary.colors.darkBlue};
     }
-    &.underline {
-      border-bottom: 2px solid ${themes.primary.colors.primary};
-    }
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 5vw;
   }
 `;
 
@@ -192,7 +198,7 @@ export const FilmText = styled.div`
     max-width: 47%;
     top: 31%;
   }
-  @media ${themes.primary.media.onlyTabletLandScape} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 18px;
   }
   @media ${themes.primary.media.minPC} {
@@ -210,4 +216,25 @@ export const Separator = styled.div`
   height: 1px;
   width: 100%;
   background-color: ${themes.primary.colors.headerBorder};
+`;
+
+export const FooterButtonWrapper = styled.span`
+  display: flex;
+  align-items: center;
+`;
+
+export const FooterLinkButton = styled.a`
+  font-family: inherit;
+  font-size: ${themes.primary.font.size.homeFooterButton};
+  padding: 1.15rem 1.1rem;
+  cursor: pointer;
+  position: relative;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 20px;
+  color: ${themes.primary.colors.secondary};
+  background-color: ${themes.primary.colors.primary};
+  line-height: 99%;
 `;

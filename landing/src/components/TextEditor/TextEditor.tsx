@@ -40,7 +40,18 @@ const TextEditor = ({ name, isBlog, header, mainPage }: ITextEditorProps) => {
           default: undefined,
           check_new_window: "nofollow",
         },
-        buttonList: [["fontColor"]],
+        buttonList: [
+          ["fontColor"],
+          [
+            "font",
+            "bold",
+            "underline",
+            "italic",
+            "strike",
+            "subscript",
+            "superscript",
+          ],
+        ],
       }
     : {
         font: ["NAMU"],

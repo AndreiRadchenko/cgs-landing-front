@@ -1,7 +1,6 @@
 import LinkedIn from "../../public/linkedIn.svg";
 import Twitter from "../../public/twitter.svg";
 import Facebook from "../../public/facebook.svg";
-import BlogBannerImage from "../../public/blog-banner.jpg";
 import git from "../../public/FooterIcons/git.svg";
 import co from "../../public/FooterIcons/co.svg";
 import linkedin from "../../public/FooterIcons/in.svg";
@@ -29,39 +28,6 @@ export const footerIcons = [
   { src: up.src },
   { src: co.src },
   { src: linkedin.src },
-];
-
-export const blogItems = [
-  {
-    title: "What is a project manager? The key to project success",
-    description:
-      "The role of a project manager is evolving as businesses evolve. The role of a project manager is evolving as businesses evolve.",
-    image: BlogBannerImage.src,
-  },
-  {
-    title: "What is a project manager? The key to project success",
-    description:
-      "The role of a project manager is evolving as businesses evolve. The role of a project manager is evolving as businesses evolve.",
-    image: BlogBannerImage.src,
-  },
-  {
-    title: "What is a project manager? The key to project success",
-    description:
-      "The role of a project manager is evolving as businesses evolve. The role of a project manager is evolving as businesses evolve.",
-    image: BlogBannerImage.src,
-  },
-  {
-    title: "What is a project manager? The key to project success",
-    description:
-      "The role of a project manager is evolving as businesses evolve. The role of a project manager is evolving as businesses evolve.",
-    image: BlogBannerImage.src,
-  },
-  {
-    title: "What is a project manager? The key to project success",
-    description:
-      "The role of a project manager is evolving as businesses evolve. The role of a project manager is evolving as businesses evolve.",
-    image: BlogBannerImage.src,
-  },
 ];
 
 export const blockchainProjectLogos = [

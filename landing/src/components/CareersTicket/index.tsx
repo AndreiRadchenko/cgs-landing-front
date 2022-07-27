@@ -1,12 +1,12 @@
-import React, { FC, useState } from "react";
+import React, { FC, MouseEvent, useState } from "react";
 import * as Styled from "./CareersTicket.styled";
-import Outer from "../../../public/CareerDecorations/outer.svg";
 import Star from "../../../public/CareerDecorations/star.svg";
 import Background from "../../../public/CareerDecorations/background.svg";
-import lightBackground from "../../../public/CareerDecorations/lightBackground.svg";
 import Arrow from "../../../public/BlogDecorations/MainPage/Arrow.svg";
 import TicketModal from "../Careers/TicketModal";
 import { ITicket } from "../../types/Admin/Response.types";
+import * as Styles from "../../styles/TicketModal.styled";
+import CloseButton from "../../../public/CareerDecorations/close.svg";
 
 interface ITicketProps {
   ticket: ITicket;
@@ -29,6 +29,17 @@ const CareersTicket: FC<ITicketProps> = ({
   !fromUs.length && fromUs.push("Nothing yet");
   !fromYou.length && fromYou.push("Nothing yet");
 
+  const onClose = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
+    e.stopPropagation();
+    setIsOpen(false);
+  };
+
+  const onSubmitClick = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
+    e.preventDefault();
+
+    setIsOpen(false);
+    if (scrollTo) scrollTo();
+  };
   return (
     <>
       <Styled.TicketContainer onClick={onTicketView}>
@@ -76,13 +87,27 @@ const CareersTicket: FC<ITicketProps> = ({
 
         <Styled.TicketDataBackground src={Background.src} />
         <Styled.TicketArrow src={Arrow.src} />
-        <TicketModal
-          isOpen={isOpen}
-          setIsOpen={(arg) => setIsOpen(arg)}
-          fromUs={fromUs}
-          fromYou={fromYou}
-          scrollTo={scrollTo}
-        />
+        <TicketModal isOpen={isOpen} onClose={onClose}>
+          <Styles.CloseButton src={CloseButton.src} onClick={onClose} />
+          <Styles.List>
+            <Styles.ListTitle>From You</Styles.ListTitle>
+            {fromYou.map((text, idx) => (
+              <Styles.ListItem key={idx}>{text}</Styles.ListItem>
+            ))}
+          </Styles.List>
+          <Styles.List>
+            <Styles.ListTitle>From Us</Styles.ListTitle>
+            {fromUs.map((text, idx) => (
+              <Styles.ListItem key={idx}>{text}</Styles.ListItem>
+            ))}
+          </Styles.List>
+          <Styles.SubmitButtonContainer>
+            <Styles.SubmitButton onClick={onSubmitClick}>
+              SUBMIT FORM
+            </Styles.SubmitButton>
+            <Styles.SubmitArrow src={Arrow.src} />
+          </Styles.SubmitButtonContainer>
+        </TicketModal>
       </Styled.TicketContainer>
     </>
   );
