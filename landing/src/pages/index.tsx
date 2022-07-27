@@ -32,7 +32,9 @@ export async function getStaticProps() {
 }
 
 
+
 const Home: NextPage = () => {
+
   const { data, isLoading }: IHomeData = useQuery(
     queryKeys.getFullHomePage,
     () => adminGlobalService.getFullPage()
