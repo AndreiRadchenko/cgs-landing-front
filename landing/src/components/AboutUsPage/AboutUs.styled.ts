@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-interface IMainPhoto {
-  isMain?: boolean;
-}
-
 interface IBackground {
   right: string;
   bottom: string;
@@ -92,6 +88,16 @@ export const BonusPoint = styled.div`
 export const BonusText = styled.div`
   font-size: ${themes.primary.font.size.secondary};
   line-height: 160%;
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    font-size: 1.9em;
+  }
+  @media ${themes.primary.media.maxLaptop} {
+    font-size: 1.7em;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.linkText};
+  }
 `;
 
 export const MainPhotoDescription = styled.div`
@@ -109,6 +115,12 @@ export const MainPhotoDescription = styled.div`
     font-size: 1.1vw;
     &.main {
       font-size: 1.5vw;
+    }
+  }
+  @media ${themes.primary.media.maxLaptop} {
+    font-size: 1.3vw;
+    &.main {
+      font-size: 1.45vw;
     }
   }
 `;
@@ -144,9 +156,22 @@ export const RotateBlock = styled.div<IRotate>`
   }
   @media ${themes.primary.media.minPC} {
     max-width: 18vw;
+
     &.main {
       max-width: 23vw;
     }
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    left: 9vw;
+    top: -2%;
+  }
+  @media ${themes.primary.media.maxPCFullHD} {
+    left: 9vw;
+    top: -4%;
+  }
+  @media ${themes.primary.media.maxLaptop} {
+    left: 7vw;
+    top: -7%;
   }
 `;
 
@@ -219,12 +244,16 @@ export const EmptyBg = styled.div<{
 export const MainContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 52%;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1.3fr;
   row-gap: 180px;
   position: relative;
   padding-left: 3.5%;
   margin: 100px 0 208px;
   overflow: hidden;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    row-gap: 12vw;
+  }
 `;
 
 export const RightLine = styled.img`
@@ -232,11 +261,15 @@ export const RightLine = styled.img`
   right: -130px;
   top: 60px;
   width: 130%;
+
+  /* @media ${themes.primary.media.minPC} {
+    right: -1px;
+  } */
 `;
 
 export const LeftLine = styled.img`
   position: absolute;
-  left: -190px;
+  left: -160px;
   top: -130px;
   width: 50vw;
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -464,6 +497,6 @@ export const BonusesContainer = styled.div`
 
 export const Separator = styled.div`
   height: 1px;
-  width: 100vw;
+  width: 100%;
   background-color: ${themes.primary.colors.comment};
 `;

@@ -4,7 +4,6 @@ import * as Styled from "./AboutUs.styled";
 import rightLine from "../../../public/AboutUsDecorations/rightLine.svg";
 import leftLine from "../../../public/AboutUsDecorations/leftLine.svg";
 import PhotoBlock from "./PhotoBlock";
-import SmallPhotoCard from "./SmallPhotoCard";
 
 import { IAbout } from "../../types/Admin/Response.types";
 import Bonuses from "./Bonuses";
@@ -41,26 +40,15 @@ const AboutUs = ({ data }: IAboutUs) => {
         <Styled.ColContainer className={"first"}>
           {data && (
             <>
-              <Styled.Subtitle>We believe in</Styled.Subtitle>
-              <Styled.Text>
-                Each team member combines the decisive professional  and dreamy
-                innovator. "It's impossible" makes us run faster,  and numerous
-                "thanks for the effective work" make us proud. ambitious
-                <br />
-                <br />
-                dreamers with pro tech skills who can change  the world.
-                CGS-team is about creating qualitative and brave  things with
-                tech. We have big goals about becoming the tool  to implementing
-                the craziest and most ambitious ideas.
-                {/*{parse(data.textBlock.text1.description)}*/}
-              </Styled.Text>
+              <Styled.Subtitle>{data.believe.subtitle}</Styled.Subtitle>
+              <Styled.Text>{parse(data.believe.text)}</Styled.Text>
             </>
           )}
         </Styled.ColContainer>
         <Styled.RowContainer>
           <Styled.RightLine src={rightLine.src} />
           <PhotoBlock
-            data={data?.mainImage}
+            data={data.believe}
             rotateBlock={"-10.53deg"}
             photoBg={{ right: "-6px", bottom: "-4px" }}
             blockBg={{ right: "-8px", bottom: "-9px" }}
@@ -73,7 +61,7 @@ const AboutUs = ({ data }: IAboutUs) => {
         <Styled.RowContainer>
           <Styled.LeftLine src={leftLine.src} />
           <PhotoBlock
-            data={data?.mainImage}
+            data={data.goal}
             rotateBlock={"4.8deg"}
             photoBg={{ right: "5px", bottom: "-4px" }}
             blockBg={{ right: "6px", bottom: "-6px" }}
@@ -85,15 +73,8 @@ const AboutUs = ({ data }: IAboutUs) => {
         <Styled.ColContainer>
           {data && (
             <>
-              <Styled.Subtitle>We strive for</Styled.Subtitle>
-              <Styled.Text>
-                significant changes because 50+ devs creating fast and coding
-                 high-level can do anything. Real work instead of promises,
-                business results instead of purposeless money waste. We're happy
-                to have  like-minded clients and qualitatively implementing
-                their dreams  into life for 6+ years.
-                {/*{parse(data.textBlock.text2.description)}*/}
-              </Styled.Text>
+              <Styled.Subtitle>{data.goal.subtitle}</Styled.Subtitle>
+              <Styled.Text>{parse(data.goal.text)}</Styled.Text>
             </>
           )}
         </Styled.ColContainer>

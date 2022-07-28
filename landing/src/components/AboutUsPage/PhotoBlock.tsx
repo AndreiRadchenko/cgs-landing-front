@@ -4,7 +4,7 @@ import * as Styled from "./AboutUs.styled";
 import pin from "../../../public/AboutUsDecorations/pin.svg";
 
 interface IPhotoBlock {
-  data?: { image: { url: string }; text: string };
+  data?: { image: { url: string }; imageText: string };
   pinRightPosition: string;
   photoBg: { right: string; bottom: string };
   blockBg: { right: string; bottom: string };
@@ -35,11 +35,7 @@ const PhotoBlock = ({
         />
         <Styled.MainPhotoContainer padding={padding}>
           <Styled.RelativeContainerPhotoBlock>
-            <Styled.MainImage
-              src={
-                "https://landing-cgs.s3.amazonaws.com/c2076697-5f21-4f66-92df-1321cf468348.png"
-              }
-            />
+            <Styled.MainImage src={data?.image.url} />
             <Styled.BackgroundContainer
               right={photoBg.right}
               bottom={photoBg.bottom}
@@ -48,7 +44,7 @@ const PhotoBlock = ({
             </Styled.BackgroundContainer>
           </Styled.RelativeContainerPhotoBlock>
           <Styled.MainPhotoDescription className={isMain ? "main" : ""}>
-            {/*{parse(data?.text)}*/}
+            {data && parse(data?.imageText)}
           </Styled.MainPhotoDescription>
         </Styled.MainPhotoContainer>
         <Styled.BackgroundContainer
