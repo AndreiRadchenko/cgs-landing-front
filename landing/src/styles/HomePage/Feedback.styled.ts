@@ -6,7 +6,7 @@ export const Navigationwrapper = styled.div`
   justify-content: space-between;
   align-items: end;
   margin-bottom: 3.125rem;
-  margin-top: 3rem;
+  margin-top: 40px;
   & div :after {
     content: none;
   }
@@ -19,6 +19,9 @@ export const Navigationwrapper = styled.div`
   @media ${themes.primary.media.minTablet} {
     flex-direction: column;
     align-items: baseline;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-top: 20px;
   }
 `;
 

@@ -13,13 +13,15 @@ export const RowContainer = styled.div`
 export const ContentContainer = styled.div`
   min-height: 90vh;
   background-color: ${themes.primary.colors.blogBackground};
-  padding: 50px 50px 170px;
+  padding: 50px 50px 90px;
   font-family: ${themes.primary.font.family.namu};
-
   button {
     border: none;
     outline: none;
     border-radius: 0;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding: 50px 50px 70px;
   }
 `;
 
@@ -154,6 +156,7 @@ export const Subtitle = styled.div`
 
   &.footer {
     margin-top: ${themes.primary.spacing.tertiary};
+    margin-bottom: 1.5em;
     line-height: 132%;
     display: inline-block;
     vertical-align: middle;

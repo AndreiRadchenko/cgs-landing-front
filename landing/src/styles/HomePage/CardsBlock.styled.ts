@@ -15,7 +15,7 @@ export const BigDigit = styled.p`
   text-shadow: 7px 2px 0px ${themes.primary.colors.primary};
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 120px;
+    font-size: 110px;
     line-height: 120px;
   }
 `;
@@ -84,6 +84,9 @@ export const CardTitle = styled.div`
   font-size: ${themes.primary.font.size.homeCardSubtitle};
   display: flex;
   align-items: flex-end;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.bigTitle};
+  }
 `;
 
 export const CardSubtitle = styled.div``;
@@ -93,11 +96,10 @@ export const CardContent = styled.p`
   margin-top: 10px;
   font-weight: ${themes.primary.font.weight.heavy};
   max-width: 720px;
-  font-size: ${themes.primary.font.size.homeCardText};
+  font-size: ${themes.primary.font.size.feedbackName};
   display: inline-block;
-
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.linkText};
+    font-size: ${themes.primary.font.size.tertiary};
   }
 `;
 

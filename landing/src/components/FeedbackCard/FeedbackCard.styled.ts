@@ -22,32 +22,42 @@ export const FeedbackCardName = styled.h2`
   font-weight: ${themes.primary.font.weight.heavy};
   margin: 0 0.8rem 0 0;
   line-height: 168%;
-  font-size: 1.575em;
+  font-size: ${themes.primary.font.size.feedbackName};
   cursor: default;
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.8em;
   }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.tertiary};
+  }
 `;
 
 export const Stars = styled.div`
-  height: 20px;
+  height: 25px;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    height: 18.5px;
+  }
 `;
 
 export const StarImage = styled.img`
   height: 100%;
+  width: 25px;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 18.5px;
+  }
 `;
 
 export const FeedbackCardCompany = styled.a`
   font-weight: ${themes.primary.font.weight.heavy};
   display: block;
   margin: 0.7em 0;
-  font-size: 1.125em;
+  font-size: ${themes.primary.font.size.oneAndHalf};
   transition: 300ms;
   color: ${themes.primary.colors.headerBorder};
   cursor: pointer;
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.6em;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.reviewSmallText};
+    margin: 0.4em 0;
   }
 `;
 
@@ -84,14 +94,15 @@ export const FeedbackCardDescription = styled.p`
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 1.23em;
+  font-size: ${themes.primary.font.size.oneAndHalf};
   cursor: default;
 
   line-height: 160%;
 
   font-weight: ${themes.primary.font.weight.light};
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.6em;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.reviewSmallText};
+    margin: 0.6em 0 0.8em 0;
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.8em;

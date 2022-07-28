@@ -2,20 +2,21 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 export const FeedbackContainer = styled.section`
-  margin-top: 3rem;
   font-family: ${themes.primary.font.family.gilroy};
 `;
 
-export const FeedbackSectionTitle = styled.h1`
+export const FeedbackSectionTitle = styled.h3`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 140%;
-  font-size: 2.5em;
+  font-size: ${themes.primary.font.size.aboutUsSubtitle};
   margin: 0;
   text-transform: uppercase;
-
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.7em;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.reviewTitle};
   }
 `;
 
@@ -29,8 +30,8 @@ export const FeedbackSectionSubTitle = styled.h3`
   margin-top: 0.75em;
   margin-bottom: 0;
 
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.6em;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 1.2em;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -43,26 +44,11 @@ export const FeedbackRow = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
-  min-height: 40rem;
-  max-height: 49rem;
-  margin-bottom: 2rem;
   align-items: baseline;
+  margin-bottom: 136px;
   & .swiper {
     display: flex;
     flex-direction: column-reverse;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    min-height: 40rem;
-    max-height: 52rem;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    min-height: 40rem;
-    max-height: 70rem;
-    margin-bottom: 5rem;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-bottom: 7rem;
   }
 `;
 

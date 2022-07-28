@@ -25,7 +25,6 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
             ))}
           </StyledThisComp.Stars>
         </StyledThisComp.FeedbackCardWrapper>
-
         <Link href={link} passHref>
           <StyledThisComp.FeedbackCardCompany target="_blank">
             {company}
