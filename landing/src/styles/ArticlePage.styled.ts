@@ -98,6 +98,9 @@ export const BannerWrapper = styled.div`
   column-gap: 20px;
   max-width: 965px;
   margin-top: 6px;
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 60px;
+  }
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
     align-items: center;

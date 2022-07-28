@@ -30,8 +30,12 @@ export const Image = styled.img`
 export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
-  @media ${themes.primary.media.maxPCFullHD} {
+
+  @media ${themes.primary.media.minPC} {
     height: 145px;
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 185px;
   }
   @media ${themes.primary.media.onlyLaptop} {
     height: 90px;
@@ -80,6 +84,10 @@ export const Description = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 110px;
+  }
 
   @media ${themes.primary.media.onlyLaptop} {
     height: 90px;
