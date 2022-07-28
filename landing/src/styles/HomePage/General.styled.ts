@@ -170,7 +170,7 @@ export const Subtitle = styled.div`
 `;
 
 export const NextTech = styled.div`
-  margin-top: 390px;
+  margin-top: 373px;
 `;
 
 export const FilmContainer = styled.div`
