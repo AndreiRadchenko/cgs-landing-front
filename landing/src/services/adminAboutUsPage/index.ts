@@ -1,6 +1,6 @@
 ﻿import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
-import { IAbout } from "../../types/Admin/AdminAboutUs.types";
+import { IAbout } from "../../types/Admin/Response.types";
 
 export class AdminAboutUsService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}

@@ -5,7 +5,7 @@ import rightLine from "../../../public/AboutUsDecorations/rightLine.svg";
 import PhotoBlock from "./PhotoBlock";
 import SmallPhotoCard from "./SmallPhotoCard";
 
-import { IAbout } from "../../types/Admin/AdminAboutUs.types";
+import { IAbout } from "../../types/Admin/Response.types";
 import Bonuses from "./Bonuses";
 import themes from "../../utils/themes";
 
@@ -42,7 +42,7 @@ const AboutUs = ({ data }: IAboutUs) => {
         <div></div>
         <Styled.RowContainer>
           <PhotoBlock
-            data={data?.mainImage}
+            data={data?.believe}
             rotateBlock={"-10.53deg"}
             photoBg={{ right: "-6px", bottom: "-4px" }}
             blockBg={{ right: "-8px", bottom: "-9px" }}
