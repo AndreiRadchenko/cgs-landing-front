@@ -14,11 +14,12 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { portfolioCategories } from "../../utils/variables";
 import Head from "next/head";
+import { NextPage } from "next";
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getPortfolio, () =>
+  await queryClient.prefetchQuery(queryKeys.getPortfolioPage, () =>
     adminPortfolioPageService.getPortfolio()
   );
 
@@ -29,9 +30,9 @@ export async function getStaticProps() {
   };
 }
 
-const Index = () => {
+const PortfolioPage: NextPage = () => {
   const { data, isLoading }: IPortfolioResponse = useQuery(
-    queryKeys.getPortfolio,
+    queryKeys.getPortfolioPage,
     () => adminPortfolioPageService.getPortfolio()
   );
 
@@ -89,4 +90,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default PortfolioPage;
