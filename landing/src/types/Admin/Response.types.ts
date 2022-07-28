@@ -251,3 +251,28 @@ export interface IHomeData {
   data: IDataCareersResponse | undefined;
   isLoading: boolean;
 }
+
+export interface IAboutUsResponse {
+  data: IAbout | undefined;
+  isLoading: boolean;
+  refetch: () => Promise<IAboutUsResponse>;
+}
+
+export interface IAboutText {
+  subtitle: string;
+  text: string;
+  image: { url: string };
+  imageText: string;
+}
+
+export interface IAbout {
+  title: string;
+  believe: IAboutText;
+  goal: IAboutText;
+  bonuses: {
+    subtitle: string;
+    text: string[];
+  };
+  image: { url: string };
+  meta: IMetaBlock;
+}

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import * as Styled from "../../../styles/AdminPage";
 import * as StyledThisComp from "../FAQ/adminFaq.styled";
-import { IAbout } from "../../../types/Admin/AdminAboutUs.types";
+import { IAbout } from "../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { IImage } from "../../../types/Admin/Admin.types";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
@@ -26,14 +26,10 @@ const AboutUsContentBlock = () => {
 
   const deleteImage = useDeleteImageFunction(values, "");
   const uploadImage = useUploadImageFunction(values, "");
-  const deleteMainImage = useDeleteImageFunction(values.mainImage, "");
-  const uploadMainImage = useUploadImageFunction(values.mainImage, "");
-  const deleteImage1 = useDeleteImageFunction(values.pinImages.image1, "");
-  const uploadImage1 = useUploadImageFunction(values.pinImages.image1, "");
-  const deleteImage2 = useDeleteImageFunction(values.pinImages.image2, "");
-  const uploadImage2 = useUploadImageFunction(values.pinImages.image2, "");
-  const deleteImage3 = useDeleteImageFunction(values.pinImages.image3, "");
-  const uploadImage3 = useUploadImageFunction(values.pinImages.image3, "");
+  const deleteBelieveImage = useDeleteImageFunction(values.believe, "");
+  const uploadBelieveImage = useUploadImageFunction(values.believe, "");
+  const deleteGoalImage = useDeleteImageFunction(values.goal, "");
+  const uploadGoalImage = useUploadImageFunction(values.goal, "");
 
   return (
     <div>
@@ -52,22 +48,33 @@ const AboutUsContentBlock = () => {
                 onChangeFunction={handleChange}
               />
             </Styled.AdminMarginBlock>
-            {Object.entries(values.textBlock).map((el, idx) => (
-              <div key={idx}>
-                <SubHeaderWithInput
-                  name={`textBlock.${el[0]}.title`}
-                  header="Subtitle"
-                  inputValue={el[1].title}
-                  onChangeFunction={handleChange}
-                />
-                <SubHeaderWithInput
-                  name={`textBlock.${el[0]}.description`}
-                  header="Text"
-                  inputValue={el[1].description}
-                  onChangeFunction={handleChange}
-                />
-              </div>
-            ))}
+
+            <SubHeaderWithInput
+              name={`believe.subtitle`}
+              header="Subtitle"
+              inputValue={values.believe.subtitle}
+              onChangeFunction={handleChange}
+            />
+            <SubHeaderWithInput
+              name={`believe.text`}
+              header="Text"
+              inputValue={values.believe.text}
+              onChangeFunction={handleChange}
+            />
+
+            <SubHeaderWithInput
+              name={`goal.subtitle`}
+              header="Subtitle"
+              inputValue={values.goal.subtitle}
+              onChangeFunction={handleChange}
+            />
+            <SubHeaderWithInput
+              name={`goal.text`}
+              header="Text"
+              inputValue={values.goal.text}
+              onChangeFunction={handleChange}
+            />
+
             <Styled.AdminMarginBlock>
               <SubHeaderWithInput
                 name={`bonuses.subtitle`}
@@ -119,61 +126,31 @@ const AboutUsContentBlock = () => {
               <PhotoBlockDashed
                 className="about"
                 deleteFlag={true}
-                photo={values.mainImage.image}
-                deleteFunction={async () => (await deleteMainImage)()}
-                uploadFunction={(image: IImage) => uploadMainImage(image)}
+                photo={values.believe.image}
+                deleteFunction={async () => (await deleteBelieveImage)()}
+                uploadFunction={(image: IImage) => uploadBelieveImage(image)}
               />
               <SubHeaderWithInput
                 header="Text on Photo"
                 width="213px"
                 minRows={3}
-                name="mainImage.text"
-                inputValue={values.mainImage.text}
+                name="believe.imageText"
+                inputValue={values.believe.imageText}
                 onChangeFunction={handleChange}
               />
               <PhotoBlockDashed
                 className="about"
                 deleteFlag={true}
-                photo={values.pinImages.image1.image}
-                deleteFunction={async () => (await deleteImage1)()}
-                uploadFunction={(image: IImage) => uploadImage1(image)}
+                photo={values.goal.image}
+                deleteFunction={async () => (await deleteGoalImage)()}
+                uploadFunction={(image: IImage) => uploadGoalImage(image)}
               />
               <SubHeaderWithInput
                 header="Text on Photo"
                 width="213px"
-                name="pinImages.image1.text"
+                name="goal.imageText"
                 minRows={3}
-                inputValue={values.pinImages.image1.text}
-                onChangeFunction={handleChange}
-              />
-              <PhotoBlockDashed
-                className="about"
-                deleteFlag={true}
-                photo={values.pinImages.image2.image}
-                deleteFunction={async () => (await deleteImage2)()}
-                uploadFunction={(image: IImage) => uploadImage2(image)}
-              />
-              <SubHeaderWithInput
-                width="213px"
-                header="Text on Photo"
-                minRows={3}
-                name="pinImages.image2.text"
-                inputValue={values.pinImages.image2.text}
-                onChangeFunction={handleChange}
-              />
-              <PhotoBlockDashed
-                className="about"
-                deleteFlag={true}
-                photo={values.pinImages.image3.image}
-                deleteFunction={async () => (await deleteImage3)()}
-                uploadFunction={(image: IImage) => uploadImage3(image)}
-              />
-              <SubHeaderWithInput
-                header="Text on Photo"
-                width="213px"
-                minRows={3}
-                name="pinImages.image3.text"
-                inputValue={values.pinImages.image3.text}
+                inputValue={values.goal.imageText}
                 onChangeFunction={handleChange}
               />
             </Styled.AdminBlockWrapper>

@@ -4,9 +4,10 @@ import * as Styled from "./AboutUs.styled";
 import rightLine from "../../../public/AboutUsDecorations/rightLine.svg";
 import leftLine from "../../../public/AboutUsDecorations/leftLine.svg";
 import PhotoBlock from "./PhotoBlock";
-import { IAbout } from "../../types/Admin/AdminAboutUs.types";
+import SmallPhotoCard from "./SmallPhotoCard";
+
+import { IAbout } from "../../types/Admin/Response.types";
 import Bonuses from "./Bonuses";
-import { PhotoContainer } from "./AboutUs.styled";
 
 interface IAboutUs {
   data: IAbout;
