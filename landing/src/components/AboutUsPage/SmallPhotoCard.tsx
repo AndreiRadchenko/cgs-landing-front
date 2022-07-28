@@ -11,7 +11,7 @@ interface ISmallPhotoCard {
 
 const SmallPhotoCard = ({ degrees, pinPosition, data }: ISmallPhotoCard) => {
   return (
-    <Styled.RotateContainer degrees={degrees}>
+    <Styled.RotateContainer rotate={degrees}>
       <Styled.RelativeContainerPhotoBlock>
         <Styled.Pin src={pin.src} right={pinPosition} />
         <Styled.SmallPhotoContainer>
@@ -21,7 +21,7 @@ const SmallPhotoCard = ({ degrees, pinPosition, data }: ISmallPhotoCard) => {
               bottom={"-1px"}
               border={"1px"}
             >
-              <Styled.BackgroundBlackBlock />
+              <Styled.HalfBlackBlock />
             </Styled.BackgroundContainer>
             <Styled.SmallImage src={data.image.url} />
           </Styled.RelativeContainerPhotoBlock>
