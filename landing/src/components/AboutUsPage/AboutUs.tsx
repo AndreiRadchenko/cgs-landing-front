@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import * as Styled from "./AboutUs.styled";
-import mediumLine from "../../../public/AboutUsDecorations/mediumLine.svg";
-import MainPhotoBlock from "./MainPhotoBlock";
-import SmallPhotoCard from "./SmallPhotoCard";
+import rightLine from "../../../public/AboutUsDecorations/rightLine.svg";
+import leftLine from "../../../public/AboutUsDecorations/leftLine.svg";
+import PhotoBlock from "./PhotoBlock";
 
-import { IAbout } from "../../types/Admin/AdminAboutUs.types";
+import { IAbout } from "../../types/Admin/Response.types";
+import Bonuses from "./Bonuses";
 
 interface IAboutUs {
   data: IAbout;
@@ -35,82 +36,55 @@ const AboutUs = ({ data }: IAboutUs) => {
         Idea-inspired, <br />
         <span>tech-driven</span> professionals
       </Styled.MainTitle>
-      <Styled.MainRowContainer>
-        {data?.mainImage && <MainPhotoBlock data={data?.mainImage} />}
-        <Styled.ColContainer>
-          {data?.textBlock.text1 && (
+      <Styled.MainContainer>
+        <Styled.ColContainer className={"first"}>
+          {data && (
             <>
-              <Styled.Subtitle>{data?.textBlock.text1.title}</Styled.Subtitle>
-              <Styled.Text>
-                {parse(data.textBlock.text1.description)}
-              </Styled.Text>
-            </>
-          )}
-          {data?.textBlock.text2 && (
-            <>
-              <Styled.Subtitle>{data?.textBlock.text2.title}</Styled.Subtitle>
-              <Styled.Text>
-                {parse(data.textBlock.text2.description)}
-              </Styled.Text>
+              <Styled.Subtitle>{data.believe.subtitle}</Styled.Subtitle>
+              <Styled.Text>{parse(data.believe.text)}</Styled.Text>
             </>
           )}
         </Styled.ColContainer>
-      </Styled.MainRowContainer>
-      <Styled.ProvideBlock>
-        <Styled.ProvideMainText>
-          <Styled.Subtitle>{data?.textBlock.text3.title}</Styled.Subtitle>
-          <Styled.Text>{data?.textBlock.text3.description}</Styled.Text>
-        </Styled.ProvideMainText>
-        <Styled.MediumLine src={mediumLine.src} />
-        <Styled.PositionFirstImage>
-          {data?.pinImages.image1.image && (
-            <SmallPhotoCard
-              degrees={"10deg"}
-              pinPosition={"85%"}
-              data={data?.pinImages.image1}
-            />
+        <Styled.RowContainer>
+          <Styled.RightLine src={rightLine.src} />
+          <PhotoBlock
+            data={data.believe}
+            rotateBlock={"-10.53deg"}
+            photoBg={{ right: "-6px", bottom: "-4px" }}
+            blockBg={{ right: "-8px", bottom: "-9px" }}
+            pinRightPosition={"1%"}
+            rotatePin={"4.38deg"}
+            isMain
+            padding={"20px 22px 34px 16px"}
+          />
+        </Styled.RowContainer>
+        <Styled.RowContainer>
+          <Styled.LeftLine src={leftLine.src} />
+          <PhotoBlock
+            data={data.goal}
+            rotateBlock={"4.8deg"}
+            photoBg={{ right: "5px", bottom: "-4px" }}
+            blockBg={{ right: "6px", bottom: "-6px" }}
+            pinRightPosition={"89%"}
+            rotatePin={"2.41deg"}
+            padding={"18px 12px 25px 18px"}
+          />
+        </Styled.RowContainer>
+        <Styled.ColContainer>
+          {data && (
+            <>
+              <Styled.Subtitle>{data.goal.subtitle}</Styled.Subtitle>
+              <Styled.Text>{parse(data.goal.text)}</Styled.Text>
+            </>
           )}
-        </Styled.PositionFirstImage>
-        <Styled.PositionSecondImage>
-          {data?.pinImages.image2.image && (
-            <SmallPhotoCard
-              degrees={"-8.65deg"}
-              pinPosition={"40%"}
-              data={data?.pinImages.image2}
-            />
-          )}
-        </Styled.PositionSecondImage>
-        <Styled.PositionThirdImage>
-          {data?.pinImages.image3.image && (
-            <SmallPhotoCard
-              degrees={"-7.61deg"}
-              pinPosition={"40%"}
-              data={data.pinImages.image3}
-            />
-          )}
-        </Styled.PositionThirdImage>
-      </Styled.ProvideBlock>
-      <Styled.OurBonuses>
-        <Styled.Subtitle>{data?.bonuses.subtitle}</Styled.Subtitle>
-        <Styled.BonusesContainer>
-          <div>
-            {firstBonuses.map((el, idx) => (
-              <Styled.BonusContainer key={idx}>
-                <Styled.BonusPoint />
-                <Styled.BonusText>{el}</Styled.BonusText>
-              </Styled.BonusContainer>
-            ))}
-          </div>
-          <div>
-            {secondBonuses.map((el, idx) => (
-              <Styled.BonusContainer key={idx}>
-                <Styled.BonusPoint />
-                <Styled.BonusText>{el}</Styled.BonusText>
-              </Styled.BonusContainer>
-            ))}
-          </div>
-        </Styled.BonusesContainer>
-      </Styled.OurBonuses>
+        </Styled.ColContainer>
+      </Styled.MainContainer>
+      <Styled.Separator />
+      <Bonuses
+        subtitle={data?.bonuses.subtitle}
+        firstBonuses={firstBonuses}
+        secondBonuses={secondBonuses}
+      />
       <Styled.BottomImage src={data?.image.url} />
     </Styled.AboutUsContainer>
   );

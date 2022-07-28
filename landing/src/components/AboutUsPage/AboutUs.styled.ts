@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-interface IMainPhoto {
-  isMain?: boolean;
+interface IPadding {
+  padding: string;
 }
 
 interface IBackground {
@@ -12,7 +12,7 @@ interface IBackground {
 }
 
 interface IRotate {
-  degrees: string;
+  rotate: string;
 }
 
 interface IPin {
@@ -75,7 +75,7 @@ export const BonusContainer = styled.div`
   display: grid;
   grid-template-columns: 10px 1fr;
   align-items: center;
-  margin-top: 11px;
+  margin-top: 19px;
   column-gap: 16px;
   &:first-child {
     margin-top: 0;
@@ -92,39 +92,91 @@ export const BonusPoint = styled.div`
 export const BonusText = styled.div`
   font-size: ${themes.primary.font.size.secondary};
   line-height: 160%;
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    font-size: 1.9em;
+  }
+  @media ${themes.primary.media.maxLaptop} {
+    font-size: 1.7em;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.linkText};
+  }
 `;
 
 export const MainPhotoDescription = styled.div`
   text-transform: uppercase;
-  font-size: 30.5px;
-  margin-top: 37px;
+  font-size: 15.8px;
+  margin-top: 22px;
   span {
     color: ${themes.primary.colors.darkBlue};
   }
+  &.main {
+    font-size: 20.5px;
+    margin-top: 32px;
+  }
+  @media ${themes.primary.media.minPC} {
+    font-size: 1.1vw;
+    &.main {
+      font-size: 1.5vw;
+    }
+  }
+  @media ${themes.primary.media.maxLaptop} {
+    font-size: 1.3vw;
+    &.main {
+      font-size: 1.45vw;
+    }
+  }
 `;
 
-export const RelativeContainerPhotoBlock = styled.div<IMainPhoto>`
+export const RelativeContainerPhotoBlock = styled.div`
   position: relative;
-  transform: ${({ isMain }) => isMain && "rotate(-1.26deg)"};
   width: 100%;
 `;
 
-export const MainPhotoContainer = styled.div`
+export const MainPhotoContainer = styled.div<IPadding>`
   width: auto;
   height: auto;
-  padding: 25px 36px 48px 20px;
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
   z-index: 2;
   background-color: ${themes.primary.colors.blogBackground};
+  padding: ${({ padding }) => padding};
 `;
 
-export const CenterBlock = styled.div`
+export const RotateBlock = styled.div<IRotate>`
   width: auto;
   height: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  transform: rotate(${({ rotate }) => rotate});
+  max-width: 22vw;
+  position: absolute;
+  left: 100px;
+  top: -1%;
+  &.main {
+    max-width: 25vw;
+    top: 13%;
+    left: 0;
+  }
+  @media ${themes.primary.media.minPC} {
+    max-width: 18vw;
+
+    &.main {
+      max-width: 23vw;
+    }
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    left: 9vw;
+    top: -2%;
+  }
+  @media ${themes.primary.media.maxPCFullHD} {
+    left: 9vw;
+    top: -4%;
+  }
+  @media ${themes.primary.media.maxLaptop} {
+    left: 7vw;
+    top: -7%;
+  }
 `;
 
 export const BackgroundContainer = styled.div<IBackground>`
@@ -141,20 +193,33 @@ export const BackgroundContainer = styled.div<IBackground>`
       : `2px solid ${themes.primary.colors.primary}`};
 `;
 
-export const BackgroundBlackBlock = styled.div`
+export const HalfBlackBlock = styled.div`
   width: 100%;
   height: 50%;
   background-color: ${themes.primary.colors.primary};
   outline: 1px solid ${themes.primary.colors.primary};
 `;
 
-export const Pin = styled.img<IPin>`
+export const BlackBlock = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: ${themes.primary.colors.primary};
+  outline: 1px solid ${themes.primary.colors.primary};
+`;
+
+export const Pin = styled.img<IPin & IRotate>`
   position: absolute;
-  width: 34px;
-  height: 70px;
+  width: 18.7px;
+  height: 38px;
   right: ${({ right }) => right};
-  top: -48px;
+  transform: rotate(${({ rotate }) => rotate});
+  top: -25px;
   z-index: 3;
+  &.main {
+    width: 23px;
+    height: 46px;
+    top: -32px;
+  }
 `;
 
 export const MainImage = styled.img`
@@ -163,25 +228,78 @@ export const MainImage = styled.img`
   width: 100%;
   height: auto;
   z-index: 2;
-  @media ${themes.primary.media.minPC} {
-    width: 30vw;
+`;
+
+export const EmptyBg = styled.div<{
+  background: string;
+  width: string;
+  height: string;
+}>`
+  border: 2px solid ${themes.primary.colors.primary};
+  position: relative;
+  height: ${({ height }) => height};
+  width: ${({ width }) => width};
+  z-index: 2;
+  background: ${({ background }) => background};
+`;
+
+export const MainContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 52%;
+  grid-template-rows: 1fr 1.3fr;
+  row-gap: 180px;
+  position: relative;
+  padding-left: 3.5%;
+  margin: 100px 0 208px;
+  overflow: hidden;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    row-gap: 12vw;
   }
 `;
 
-export const MainRowContainer = styled.div`
-  display: flex;
-  column-gap: 75px;
-  margin-top: 70px;
-  padding: 0 3.5%;
+export const RightLine = styled.img`
+  position: absolute;
+  right: -130px;
+  top: 60px;
+  width: 130%;
+
+  /* @media ${themes.primary.media.minPC} {
+    right: -1px;
+  } */
+`;
+
+export const LeftLine = styled.img`
+  position: absolute;
+  left: -160px;
+  top: -130px;
+  width: 50vw;
   @media ${themes.primary.media.maxTabletLandScape} {
-    column-gap: 50px;
+    left: -120px;
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    left: -200px;
+  }
+`;
+
+export const RowContainer = styled.div`
+  padding-left: 30px;
+  display: flex;
+  column-gap: 5vw;
+  height: 150%;
+  position: relative;
+  @media ${themes.primary.media.minPC} {
+    column-gap: 6.5vw;
   }
 `;
 
 export const ColContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 83%;
+  &.first {
+    margin-top: 50px;
+  }
 `;
 
 export const ProvideBlock = styled.div`
@@ -240,7 +358,7 @@ export const BlackBackground = styled.div`
 
 export const RotateContainer = styled.div<IRotate>`
   max-width: 272px;
-  transform: rotate(${({ degrees }) => degrees});
+  transform: rotate(${({ rotate }) => rotate});
 `;
 
 export const SmallImage = styled.img`
@@ -369,12 +487,18 @@ export const SmallImageText = styled.div`
 `;
 
 export const OurBonuses = styled.div`
-  padding: 0 3.5% 310px;
+  padding: 115px 3.5% 350px;
 `;
 
 export const BonusesContainer = styled.div`
-  margin-top: 20px;
+  margin-top: 50px;
   display: grid;
   grid-template-columns: 52.5% 43%;
   column-gap: 50px;
+`;
+
+export const Separator = styled.div`
+  height: 1px;
+  width: 100%;
+  background-color: ${themes.primary.colors.comment};
 `;

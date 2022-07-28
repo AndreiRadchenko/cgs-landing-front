@@ -4,10 +4,7 @@ import { Formik } from "formik";
 import { useMutation, useQuery } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminAboutUsService } from "../../../services/adminAboutUsPage";
-import {
-  IAbout,
-  IAboutUsResponse,
-} from "../../../types/Admin/AdminAboutUs.types";
+import { IAbout, IAboutUsResponse } from "../../../types/Admin/Response.types";
 import AboutUsContentBlock from ".";
 
 const AdminAboutUsContent = () => {
