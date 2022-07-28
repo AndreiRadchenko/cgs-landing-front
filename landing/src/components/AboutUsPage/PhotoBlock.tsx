@@ -12,7 +12,6 @@ interface IPhotoBlock {
   rotatePin: string;
   isMain?: boolean;
   padding: string;
-  empty?: { background: string; width: string; height: string };
 }
 
 const PhotoBlock = ({
@@ -23,7 +22,6 @@ const PhotoBlock = ({
   pinRightPosition,
   rotatePin,
   isMain,
-  empty,
   padding,
 }: IPhotoBlock) => {
   return (
@@ -37,28 +35,20 @@ const PhotoBlock = ({
         />
         <Styled.MainPhotoContainer padding={padding}>
           <Styled.RelativeContainerPhotoBlock>
-            {empty ? (
-              <Styled.EmptyBg
-                background={empty.background}
-                width={empty.width}
-                height={empty.height}
-              />
-            ) : (
-              <Styled.MainImage
-                src={
-                  "https://landing-cgs.s3.amazonaws.com/c2076697-5f21-4f66-92df-1321cf468348.png"
-                }
-              />
-            )}
+            <Styled.MainImage
+              src={
+                "https://landing-cgs.s3.amazonaws.com/c2076697-5f21-4f66-92df-1321cf468348.png"
+              }
+            />
             <Styled.BackgroundContainer
               right={photoBg.right}
               bottom={photoBg.bottom}
             >
-              {empty ? <Styled.BlackBlock /> : <Styled.HalfBlackBlock />}
+              <Styled.HalfBlackBlock />
             </Styled.BackgroundContainer>
           </Styled.RelativeContainerPhotoBlock>
           <Styled.MainPhotoDescription className={isMain ? "main" : ""}>
-            {data ? parse(data.text) : ""}
+            {/*{parse(data?.text)}*/}
           </Styled.MainPhotoDescription>
         </Styled.MainPhotoContainer>
         <Styled.BackgroundContainer

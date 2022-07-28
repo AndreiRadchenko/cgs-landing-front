@@ -132,12 +132,15 @@ export const RotateBlock = styled.div<IRotate>`
   width: auto;
   height: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
   transform: rotate(${({ rotate }) => rotate});
-  max-width: 250px;
+  max-width: 22vw;
+  position: absolute;
+  left: 100px;
+  top: -1%;
   &.main {
-    max-width: 317px;
+    max-width: 25vw;
+    top: 13%;
+    left: 0;
   }
   @media ${themes.primary.media.minPC} {
     max-width: 18vw;
@@ -194,9 +197,9 @@ export const MainImage = styled.img`
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
   width: 100%;
-  height: 100%;
+  height: auto;
   z-index: 2;
-  min-width: 282px;
+  //width: 282px;
   //min-height: 126px;
 `;
 
@@ -217,29 +220,51 @@ export const MainContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 52%;
   grid-template-rows: 1fr 1fr;
+  row-gap: 180px;
   position: relative;
+  padding-left: 3.5%;
+  margin: 100px 0 208px;
+  overflow: hidden;
 `;
 
 export const RightLine = styled.img`
   position: absolute;
-  right: 0px;
-  top: 45px;
-  width: 60%;
+  right: -130px;
+  top: 60px;
+  width: 130%;
+`;
+
+export const LeftLine = styled.img`
+  position: absolute;
+  left: -190px;
+  top: -130px;
+  width: 50vw;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    left: -120px;
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    left: -200px;
+  }
 `;
 
 export const RowContainer = styled.div`
   padding-left: 30px;
   display: flex;
-  overflow: hidden;
-  column-gap: 70px;
+  column-gap: 5vw;
   height: 150%;
   position: relative;
+  @media ${themes.primary.media.minPC} {
+    column-gap: 6.5vw;
+  }
 `;
 
 export const ColContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 83%;
+  &.first {
+    margin-top: 50px;
+  }
 `;
 
 export const ProvideBlock = styled.div`
@@ -427,7 +452,7 @@ export const SmallImageText = styled.div`
 `;
 
 export const OurBonuses = styled.div`
-  padding: 0 3.5% 350px;
+  padding: 115px 3.5% 350px;
 `;
 
 export const BonusesContainer = styled.div`
@@ -435,4 +460,10 @@ export const BonusesContainer = styled.div`
   display: grid;
   grid-template-columns: 52.5% 43%;
   column-gap: 50px;
+`;
+
+export const Separator = styled.div`
+  height: 1px;
+  width: 100vw;
+  background-color: ${themes.primary.colors.comment};
 `;

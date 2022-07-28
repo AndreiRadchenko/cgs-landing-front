@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import * as Styled from "./AboutUs.styled";
 import rightLine from "../../../public/AboutUsDecorations/rightLine.svg";
+import leftLine from "../../../public/AboutUsDecorations/leftLine.svg";
 import PhotoBlock from "./PhotoBlock";
-import SmallPhotoCard from "./SmallPhotoCard";
-
 import { IAbout } from "../../types/Admin/AdminAboutUs.types";
 import Bonuses from "./Bonuses";
-import themes from "../../utils/themes";
+import { PhotoContainer } from "./AboutUs.styled";
 
 interface IAboutUs {
   data: IAbout;
@@ -38,9 +37,27 @@ const AboutUs = ({ data }: IAboutUs) => {
         <span>tech-driven</span> professionals
       </Styled.MainTitle>
       <Styled.MainContainer>
-        <Styled.RightLine src={rightLine.src} />
-        <div></div>
+        <Styled.ColContainer className={"first"}>
+          {data && (
+            <>
+              <Styled.Subtitle>We believe in</Styled.Subtitle>
+              <Styled.Text>
+                Each team member combines the decisive professional  and dreamy
+                innovator. "It's impossible" makes us run faster,  and numerous
+                "thanks for the effective work" make us proud. ambitious
+                <br />
+                <br />
+                dreamers with pro tech skills who can change  the world.
+                CGS-team is about creating qualitative and brave  things with
+                tech. We have big goals about becoming the tool  to implementing
+                the craziest and most ambitious ideas.
+                {/*{parse(data.textBlock.text1.description)}*/}
+              </Styled.Text>
+            </>
+          )}
+        </Styled.ColContainer>
         <Styled.RowContainer>
+          <Styled.RightLine src={rightLine.src} />
           <PhotoBlock
             data={data?.mainImage}
             rotateBlock={"-10.53deg"}
@@ -51,113 +68,36 @@ const AboutUs = ({ data }: IAboutUs) => {
             isMain
             padding={"20px 22px 34px 16px"}
           />
+        </Styled.RowContainer>
+        <Styled.RowContainer>
+          <Styled.LeftLine src={leftLine.src} />
           <PhotoBlock
-            rotateBlock={"-18.9deg"}
-            photoBg={{ right: "3px", bottom: "-3px" }}
-            blockBg={{ right: "5px", bottom: "-5px" }}
-            pinRightPosition={"37%"}
-            rotatePin={"11.41deg"}
-            padding={"14px 10px 30px 15px"}
-            empty={{
-              width: "173px",
-              height: "130px",
-              background:
-                "linear-gradient(118.28deg, #D6FFBB -7.84%, #5869DD 94.18%)",
-            }}
-          />
-          <PhotoBlock
-            rotateBlock={"15.9deg"}
-            photoBg={{ right: "-1.5px", bottom: "-2px" }}
-            blockBg={{ right: "-2px", bottom: "-4px" }}
-            pinRightPosition={"37%"}
-            rotatePin={"11.41deg"}
-            padding={"11px 10px 18px 10px"}
-            empty={{
-              background: themes.primary.colors.darkBlue,
-              width: "129px",
-              height: "96px",
-            }}
+            data={data?.mainImage}
+            rotateBlock={"4.8deg"}
+            photoBg={{ right: "5px", bottom: "-4px" }}
+            blockBg={{ right: "6px", bottom: "-6px" }}
+            pinRightPosition={"89%"}
+            rotatePin={"2.41deg"}
+            padding={"18px 12px 25px 18px"}
           />
         </Styled.RowContainer>
-
-        {/*{data?.mainImage && (*/}
-        {/*  <PhotoBlock*/}
-        {/*    data={data?.mainImage}*/}
-        {/*    rotateBlock={"4.8deg"}*/}
-        {/*    photoBg={{ right: "5px", bottom: "-4px" }}*/}
-        {/*    blockBg={{ right: "6px", bottom: "-6px" }}*/}
-        {/*    pinRightPosition={"89%"}*/}
-        {/*    rotatePin={"2.41deg"}*/}
-        {/*    padding={"18px 12px 25px 18px"}*/}
-        {/*  />*/}
-        {/*)}*/}
-
-        {/*<PhotoBlock*/}
-        {/*  rotateBlock={"-14.9deg"}*/}
-        {/*  photoBg={{ right: "3px", bottom: "-4.5px" }}*/}
-        {/*  blockBg={{ right: "3px", bottom: "-4px" }}*/}
-        {/*  pinRightPosition={"37%"}*/}
-        {/*  rotatePin={"11.41deg"}*/}
-        {/*  padding={"11px 8px 18px 12px"}*/}
-        {/*  empty={{*/}
-        {/*    background: themes.primary.colors.darkBlue,*/}
-        {/*    width: "129px",*/}
-        {/*    height: "96px",*/}
-        {/*  }}*/}
-        {/*/>*/}
-        {/*<Styled.ColContainer>*/}
-        {/*  {data?.textBlock.text1 && (*/}
-        {/*    <>*/}
-        {/*      <Styled.Subtitle>{data?.textBlock.text1.title}</Styled.Subtitle>*/}
-        {/*      <Styled.Text>*/}
-        {/*        {parse(data.textBlock.text1.description)}*/}
-        {/*      </Styled.Text>*/}
-        {/*    </>*/}
-        {/*  )}*/}
-        {/*  {data?.textBlock.text2 && (*/}
-        {/*    <>*/}
-        {/*      <Styled.Subtitle>{data?.textBlock.text2.title}</Styled.Subtitle>*/}
-        {/*      <Styled.Text>*/}
-        {/*        {parse(data.textBlock.text2.description)}*/}
-        {/*      </Styled.Text>*/}
-        {/*    </>*/}
-        {/*  )}*/}
-        {/*</Styled.ColContainer>*/}
+        <Styled.ColContainer>
+          {data && (
+            <>
+              <Styled.Subtitle>We strive for</Styled.Subtitle>
+              <Styled.Text>
+                significant changes because 50+ devs creating fast and coding
+                 high-level can do anything. Real work instead of promises,
+                business results instead of purposeless money waste. We're happy
+                to have  like-minded clients and qualitatively implementing
+                their dreams  into life for 6+ years.
+                {/*{parse(data.textBlock.text2.description)}*/}
+              </Styled.Text>
+            </>
+          )}
+        </Styled.ColContainer>
       </Styled.MainContainer>
-      {/*<Styled.ProvideBlock>*/}
-      {/*  <Styled.ProvideMainText>*/}
-      {/*    <Styled.Subtitle>{data?.textBlock.text3.title}</Styled.Subtitle>*/}
-      {/*    <Styled.Text>{data?.textBlock.text3.description}</Styled.Text>*/}
-      {/*  </Styled.ProvideMainText>*/}
-      {/*  <Styled.MediumLine src={mediumLine.src} />*/}
-      {/*  <Styled.PositionFirstImage>*/}
-      {/*    {data?.pinImages.image1.image && (*/}
-      {/*      <SmallPhotoCard*/}
-      {/*        degrees={"10deg"}*/}
-      {/*        pinPosition={"85%"}*/}
-      {/*        data={data?.pinImages.image1}*/}
-      {/*      />*/}
-      {/*    )}*/}
-      {/*  </Styled.PositionFirstImage>*/}
-      {/*  <Styled.PositionSecondImage>*/}
-      {/*    {data?.pinImages.image2.image && (*/}
-      {/*      <SmallPhotoCard*/}
-      {/*        degrees={"-8.65deg"}*/}
-      {/*        pinPosition={"40%"}*/}
-      {/*        data={data?.pinImages.image2}*/}
-      {/*      />*/}
-      {/*    )}*/}
-      {/*  </Styled.PositionSecondImage>*/}
-      {/*  <Styled.PositionThirdImage>*/}
-      {/*    {data?.pinImages.image3.image && (*/}
-      {/*      <SmallPhotoCard*/}
-      {/*        degrees={"-7.61deg"}*/}
-      {/*        pinPosition={"40%"}*/}
-      {/*        data={data.pinImages.image3}*/}
-      {/*      />*/}
-      {/*    )}*/}
-      {/*  </Styled.PositionThirdImage>*/}
-      {/*</Styled.ProvideBlock>*/}
+      <Styled.Separator />
       <Bonuses
         subtitle={data?.bonuses.subtitle}
         firstBonuses={firstBonuses}
