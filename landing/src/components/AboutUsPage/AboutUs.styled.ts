@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
+interface IPadding {
+  padding: string;
+}
+
 interface IBackground {
   right: string;
   bottom: string;
@@ -130,7 +134,7 @@ export const RelativeContainerPhotoBlock = styled.div`
   width: 100%;
 `;
 
-export const MainPhotoContainer = styled.div<{ padding: string }>`
+export const MainPhotoContainer = styled.div<IPadding>`
   width: auto;
   height: auto;
   border: 2px solid ${themes.primary.colors.primary};
@@ -224,8 +228,6 @@ export const MainImage = styled.img`
   width: 100%;
   height: auto;
   z-index: 2;
-  //width: 282px;
-  //min-height: 126px;
 `;
 
 export const EmptyBg = styled.div<{
