@@ -5,7 +5,7 @@ export const PartnersContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   row-gap: 65px;
-  margin: 11em 0;
+  margin: 10.7em 0 10em;
 `;
 
 export const PartnerImageWrapper = styled.div`
