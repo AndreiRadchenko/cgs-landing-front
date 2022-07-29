@@ -3,7 +3,7 @@ import themes from "../utils/themes";
 
 export const Title = styled.h1`
   font-size: ${themes.primary.font.size.articleTitle};
-  font-weight: ${themes.primary.font.weight.extraBold};
+  font-weight: ${themes.primary.font.weight.bold};
   font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.primary};
   margin: 0;
@@ -97,7 +97,7 @@ export const BannerWrapper = styled.div`
   align-items: flex-end;
   column-gap: 20px;
   max-width: 965px;
-  margin-top: 6px;
+  margin-top: 48px;
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 60px;
   }
