@@ -97,7 +97,8 @@ const themes = {
         homeSubtitle: "6.2em",
         homeSmallTitle: "5.6em",
         homeCardSubtitle: "5.68em",
-        // homeCardText: "1.6em",
+        serviceTitle: "5.5em",
+        tabletServiceTitle: "4.6em",
       },
     },
     colors: {
