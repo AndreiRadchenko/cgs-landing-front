@@ -191,7 +191,10 @@ export const NavigateRight = styled.div`
   justify-content: center;
   flex-direction: column;
   right: 0;
-  width: 8vw;
+  width: 9vw;
+  background-color: ${themes.primary.colors.blogBackground};
+  z-index: 100;
+  border-left: 1px solid ${themes.primary.colors.comment};
 `;
 
 export const ReviewContainer = styled.div`
@@ -225,7 +228,6 @@ export const ImageContainer = styled.div`
   align-items: center;
   overflow: hidden;
   border-left: 1px solid ${themes.primary.colors.comment};
-  border-right: 1px solid ${themes.primary.colors.comment};
   position: relative;
 `;
 
@@ -293,6 +295,7 @@ export const Separator = styled.div`
 export const Feedback = styled.div`
   display: flex;
   column-gap: 20px;
+  row-gap: 18px;
   align-items: flex-end;
   flex-wrap: wrap;
   @media (max-width: 1250px) {
@@ -343,4 +346,11 @@ export const StarCont = styled.div`
   display: flex;
   margin-bottom: 3px;
   column-gap: 6px;
+`;
+
+export const Navigation = styled.div`
+  width: 7vw;
+  height: 100%;
+  z-index: 20;
+  background-color: ${themes.primary.colors.blogBackground};
 `;
