@@ -31,6 +31,7 @@ export const Title = styled.div`
   font-size: ${themes.primary.font.size.articleDescription};
   font-family: ${themes.primary.font.family.openSans};
   margin: 0;
+  color: ${themes.primary.colors.blogDarkText};
 `;
 
 export const Description = styled.p`
@@ -39,7 +40,7 @@ export const Description = styled.p`
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.openSans};
   line-height: 160%;
-  color: ${themes.primary.colors.blogArticleText};
+  color: ${themes.primary.colors.blogDarkText};
   overflow-wrap: anywhere;
   p {
     margin-top: 15px;

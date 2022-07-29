@@ -5,7 +5,7 @@ export const Title = styled.h1`
   font-size: ${themes.primary.font.size.articleTitle};
   font-weight: ${themes.primary.font.weight.bold};
   font-family: ${themes.primary.font.family.openSans};
-  color: ${themes.primary.colors.primary};
+  color: ${themes.primary.colors.blogDarkText};
   margin: 0;
   width: 100%;
   @media ${themes.primary.media.minPCFullHD} {
