@@ -6,6 +6,7 @@ import buttonArrow from "../../../public/HomePageDecoration/buttonArrow.svg";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
+import { recoverLink } from "../../utils/recoverLink";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -28,7 +29,11 @@ const HeadBlock = () => {
             <div>YESTERDAY DONE</div>
           </Styled.RowContainer>
         </Styled.MainSubtitle>
-        <Styled.BlackButton size={"18px"} padding={"20px 27px"}>
+        <Styled.BlackButton
+          size={"18px"}
+          padding={"20px 27px"}
+          href={data && recoverLink(data?.link)}
+        >
           {data?.button}
           <Styled.ButtonArrow src={buttonArrow.src} />
         </Styled.BlackButton>
