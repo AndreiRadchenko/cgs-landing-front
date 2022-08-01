@@ -71,7 +71,7 @@ const opacity = keyframes`
 `;
 
 export const Form = styled.form`
-  border: 2px solid ${themes.primary.colors.primary};
+  border: 1.6px solid ${themes.primary.colors.primary};
 `;
 
 export const SubmitButton = styled.div`
@@ -203,7 +203,7 @@ export const ErrorMessage = styled.p`
 export const FormSentButton = styled.button<ISentButton>`
   width: 280px;
   height: 56px;
-  border: 2px solid black;
+  border: 2px solid ${themes.primary.colors.primary};
   cursor: pointer;
 
   &:nth-child(1) {

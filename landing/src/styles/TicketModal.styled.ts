@@ -84,11 +84,11 @@ export const SubmitButton = styled.button`
 `;
 
 export const SubmitArrow = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   position: absolute;
-  right: -18px;
-  top: -15px;
+  right: -15px;
+  top: -12px;
   cursor: pointer;
 `;
 
