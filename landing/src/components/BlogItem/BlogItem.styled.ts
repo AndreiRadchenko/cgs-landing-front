@@ -15,12 +15,15 @@ export const BlogItemDescription = styled.p<IAdmin>`
     max-width: 720px;
   }
 `;
-
-export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
+interface IBlogItemContainer {
+  isAdmin?: boolean;
+}
+export const BlogItemContainer = styled.div<IBlogItemContainer>`
   width: 100%;
   display: flex;
   justify-content: center;
   font-family: ${themes.primary.font.family.namu};
+
   &:hover {
     background-color: ${(props) =>
       props.isAdmin ? "transparent" : themes.primary.colors.darkBlue};
@@ -71,6 +74,11 @@ export const BlogItemContainer = styled.div<{ isAdmin?: boolean }>`
   }
 `;
 
+interface IBlogItem {
+  isAdmin?: boolean;
+  disabled?: boolean;
+}
+
 export const BlogItem = styled.div<IAdmin>`
   display: flex;
   position: relative;
@@ -82,6 +90,7 @@ export const BlogItem = styled.div<IAdmin>`
   margin-top: ${(props) => props.isAdmin && "30px"};
   border: ${(props) =>
     props.isAdmin ? `1px solid ${themes.primary.colors.black}` : "none"};
+
   &:hover {
     cursor: ${(props) => (props.isAdmin === false ? "pointer" : "default")};
   }
@@ -97,7 +106,7 @@ export const BlogItem = styled.div<IAdmin>`
   }
 `;
 
-export const BlogItemTitle = styled.p<IAdmin>`
+export const BlogItemTitle = styled.h1<IAdmin>`
   max-width: ${(props) => (props.isAdmin ? "430px" : "500px")};
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};

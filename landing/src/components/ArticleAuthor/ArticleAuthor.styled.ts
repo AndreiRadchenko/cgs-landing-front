@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 24px;
+  align-items: flex-end;
+  margin-top: 36px;
 `;
 
 export const AuthorWrapper = styled.div`
@@ -16,42 +16,82 @@ export const AuthorWrapper = styled.div`
 `;
 
 export const AuthorImage = styled.img`
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  margin-right: 12px;
+  max-width: 60px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 7px;
 `;
 
 export const AuthorInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  row-gap: 8px;
+  justify-content: space-between;
+  width: 100%;
   height: 100%;
-  font-size: ${themes.primary.font.size.aboutUsCardText};
-`;
-
-export const AuthorNameWrapper = styled.div`
-  font-family: ${themes.primary.font.family.namu};
-  display: flex;
 `;
 
 export const AuthorName = styled.div`
-  display: flex;
-  align-items: flex-start;
-  font-weight: ${themes.primary.font.weight.bold};
-  margin-right: 4px;
+  font-family: ${themes.primary.font.family.openSans};
+  font-weight: ${themes.primary.font.weight.semiBold};
+  font-size: 16px;
+  margin-top: 6px;
 `;
 
-export const AuthorType = styled.div`
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const DatesContainer = styled.div`
+  display: flex;
+  column-gap: 20px;
+  margin-top: 16px;
+`;
+
+export const SpaceBetween = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+`;
+
+export const AuthorMetaInfoWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const AuthorViewsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 62px;
+`;
+
+export const AuthorViewsImage = styled.img``;
+
+export const AuthorViews = styled.p`
+  font-family: ${themes.primary.font.family.openSans};
+  font-size: ${themes.primary.font.size.authorDate};
   font-weight: ${themes.primary.font.weight.normal};
+  color: ${themes.primary.colors.authorGrey};
+  margin: 0;
+  margin-left: 3px;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.quinary};
+  }
 `;
 
 export const AuthorDate = styled.div`
-  font-size: ${themes.primary.font.size.vistaco};
-  color: ${themes.primary.colors.lightGrey};
-  font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.primary};
+  font-weight: ${themes.primary.font.weight.normal};
+  color: ${themes.primary.colors.authorGrey};
+  font-family: ${themes.primary.font.family.openSans};
+  font-size: ${themes.primary.font.size.authorDate};
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.quinary};
+  }
 `;
 
 export const TimeWrapper = styled.div`
@@ -64,8 +104,12 @@ export const TimeWrapper = styled.div`
 export const TimerImage = styled.img``;
 
 export const Time = styled.p`
-  font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.aboutUsCardText};
-  font-weight: ${themes.primary.font.weight.medium};
-  color: ${themes.primary.colors.blogDarkText};
+  font-family: ${themes.primary.font.family.openSans};
+  font-size: ${themes.primary.font.size.authorDate};
+  font-weight: ${themes.primary.font.weight.normal};
+  color: ${themes.primary.colors.authorGrey};
+  margin: 0;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.quinary};
+  }
 `;

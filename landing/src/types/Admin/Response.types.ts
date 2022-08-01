@@ -1,86 +1,54 @@
 import { IImage } from "./Admin.types";
 export interface IEditInformation {
-  [title: string]: string;
-  text: string;
-  text2: string;
+  title: string;
+  link: string;
   button: string;
-  image: any;
+  image: { url: string } | null;
 }
 
 export interface ISubtitle {
   title: string;
-  elements: { text: string; image: any }[];
-  firstText2: string;
-  text3: string;
-  secondText2: string;
-  image: any;
 }
 
 export interface ICard {
   subtitle: string;
   text: string;
-  image: any;
 }
 
 export interface ICards {
-  text4: string;
-  button: string;
-  cards: ICard[];
+  card1: ICard[];
+  card2: ICard[];
+  card3: ICard[];
+  card4: ICard[];
 }
 
 export interface IFeedback {
   name: string;
   companyName: string;
-  role: string;
   text: string;
   link: string;
   stars: number;
 }
 
 export interface IFeedbackBlock {
+  filmText: string;
   subtitle: string;
   text3: string;
   feedBacks: IFeedback[];
 }
 
 export interface ITech {
-  subtitle1: string;
+  category: string;
   text: string;
-  image: any;
+  image: { url: string } | null;
+  stack: string[];
 }
 
 export interface ITechnologyBlock {
-  subtitle: string;
-  techs: ITech[];
-}
-
-export interface ICorporateBlock {
-  blocks: { subtitle: string; text: string }[];
-  images: IImage[];
-}
-
-export interface IHowBlock {
-  subtitle: string;
-  text: string;
-  image: any;
-}
-
-export interface IHowWeWorkBlock {
-  pageSignature: string;
-  blocks: IHowBlock[];
-}
-
-export interface IBuildRocketBlock {
-  subtitle: string;
-  text: string;
-  button: string;
-}
-
-export interface IContactFormBlock {
-  [subtitle: string]: string;
-  name: string;
-  email: string;
-  message: string;
+  item1: ITech;
+  item2: ITech;
+  item3: ITech;
+  item4: ITech;
 }
 
 export interface IFooterBlock {
@@ -101,14 +69,12 @@ export interface IDataResponse {
   MainLogoBlock: { image: { url: string } | null };
   EditInformationBlock: IEditInformation;
   SubtitleBlock: ISubtitle;
-  LogosBlock: { images: { url: string }[] };
+  LogosBlock: {
+    images: { normal: { url: string }[]; hover: { url: string }[] };
+  };
   CardsBlock: ICards;
   FeedbackBlock: IFeedbackBlock;
   TechnologyBlock: ITechnologyBlock;
-  CorporateBlock: ICorporateBlock;
-  HowWeWorkBlock: IHowWeWorkBlock;
-  BuildRocketBlock: IBuildRocketBlock;
-  ContactFormBlock: IContactFormBlock;
   FooterBlock: IFooterBlock;
   meta: IMetaBlock;
 }
@@ -116,10 +82,15 @@ export interface IDataResponse {
 // Careers
 
 export interface ITicket {
-  id: string;
+  id?: string;
   vacancy: string;
-  image: { url: string };
+  position: string;
+  image?: { url: string };
   _id?: string;
+  stack: string[];
+  stars: number;
+  fromUs: string[];
+  fromYou: string[];
 }
 
 export interface IForm {
@@ -146,7 +117,7 @@ export interface IDataCareersResponse {
   tickets: ITicket[];
   images: { image: { url: string } }[];
   url?: string;
-  vacancy?: string;
+  vacancy?: ITicket;
   form: IFormBlock;
   meta: IMetaBlock;
 }
@@ -177,15 +148,17 @@ export interface IOfferBlock {
 }
 
 export interface IFormBlock {
+  position: string;
+  contact: string;
   name: string;
-  describe: string;
-  email: string;
-  telegram: string;
-  socialMediaLink: string;
-  linkToProjects: string;
-  CV: { place: string; isSupported: string };
+  CV: {
+    place: string;
+    isSupported: string;
+  };
   text: string;
-  image: { url: string };
+  image: {
+    url: string;
+  };
 }
 
 export interface IContactBlock {
@@ -221,6 +194,7 @@ export interface IAuthor {
 }
 
 export interface ITextBlog {
+  tagName?: string;
   text?: string;
   subNumber?: string;
   subtitle?: string;
@@ -233,20 +207,73 @@ export interface IArticle {
   title: string;
   description: string;
   author: IAuthor;
+  updatedOn: string;
   date: string;
   minutesToRead: number;
   content: ITextBlog[];
   tags: string[];
+  disabled: boolean;
+  meta: IMetaBlock;
+}
+
+export interface INewArticle {
+  _id?: string;
+  url: string;
+  image: { url: string };
+  title: string;
+  description: string;
+  author: IAuthor;
+  updatedOn: string;
+  date: string;
+  minutesToRead: number;
+  content: ITextBlog[];
+  tags: string[];
+  possibleTags: string[];
+  disabled: boolean;
   meta: IMetaBlock;
 }
 
 export interface IBlogResponse {
   articles: IArticle[];
-  newArticle: IArticle;
+  newArticle: INewArticle;
   meta: IMetaBlock;
+}
+
+export interface IView {
+  views: number;
+  articleUrl: string;
+}
+
+export interface IViews {
+  allViews: IView[];
 }
 
 export interface IHomeData {
   data: IDataCareersResponse | undefined;
   isLoading: boolean;
+}
+
+export interface IAboutUsResponse {
+  data: IAbout | undefined;
+  isLoading: boolean;
+  refetch: () => Promise<IAboutUsResponse>;
+}
+
+export interface IAboutText {
+  subtitle: string;
+  text: string;
+  image: { url: string };
+  imageText: string;
+}
+
+export interface IAbout {
+  title: string;
+  believe: IAboutText;
+  goal: IAboutText;
+  bonuses: {
+    subtitle: string;
+    text: string[];
+  };
+  image: { url: string };
+  meta: IMetaBlock;
 }

@@ -5,15 +5,22 @@ import { IArticle } from "../../types/Admin/Response.types";
 
 interface IArticleReadMore {
   readMore: IArticle[];
+  findViews: (url: string) => number | undefined;
 }
 
-const ArticleReadMore = ({ readMore }: IArticleReadMore) => {
+const ArticleReadMore = ({ readMore, findViews }: IArticleReadMore) => {
   return readMore.length > 0 ? (
     <Styles.Wrapper>
-      <Styles.Title>Read more:</Styles.Title>
+      <Styles.TitleWrapper>
+        <Styles.Title>READ MORE:</Styles.Title>
+      </Styles.TitleWrapper>
       <Styles.ReadMoreItemsWrapper>
         {readMore.map((article) => (
-          <ArticleReadMoreItem key={article._id} article={article} />
+          <ArticleReadMoreItem
+            key={article._id}
+            article={article}
+            view={findViews(article.url)}
+          />
         ))}
       </Styles.ReadMoreItemsWrapper>
     </Styles.Wrapper>

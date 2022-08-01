@@ -3,16 +3,15 @@ import themes from "../../utils/themes";
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
-  max-width: 550px;
-  width: 100%;
+  justify-content: flex-start;
+  max-width: 356px;
   flex-wrap: wrap;
-  row-gap: 15px;
-  column-gap: 20px;
+  gap: 12px;
+  margin-top: 22px;
 
-  @media (max-width: 990px) {
-    margin-bottom: 52px;
-    justify-content: center;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin: 0;
+    align-items: center;
   }
 `;
 
@@ -21,18 +20,18 @@ export const TagItem = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 15px 25px;
-  border: 0.6px solid rgba(39, 44, 47, 0.25);
-  font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.normal};
-  font-size: ${themes.primary.font.size.aboutUsCardText};
+  padding: 2px 14px;
+  color: white;
+  background-color: ${themes.primary.colors.darkBlue};
+  font-family: ${themes.primary.font.family.openSans};
+  font-weight: ${themes.primary.font.weight.semiBold};
+  font-size: ${themes.primary.font.size.tertiary};
   &:last-child {
     margin-right: 0;
   }
 
   &:hover {
-    background-color: ${themes.primary.colors.primary};
-    color: white;
+    background-color: ${themes.primary.colors.tagBg};
     cursor: pointer;
   }
 `;

@@ -1,37 +1,69 @@
 import React, { FC } from "react";
-import * as Styled from "./Careers.styled";
-import CareersTicket from "../CareersTicket/index";
+import * as Styles from "./Careers.styled";
 import { IDataCareersResponse } from "../../types/Admin/Response.types";
-import { useQueryClient } from "react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { SplitBrackets } from "../../utils/splitBrackets";
+import Arrow from "../../../public/arrowRight.svg";
+import MagnifiedGlass from "../../../public/magnifiedGlass.svg";
+import CareersTicket from "../../components/CareersTicket";
+import CareersForm from "../CareersForm";
+import { useScrollTo } from "../../hooks/useScrollTo";
 
-interface ITicketData {
-  id: string;
-  image: { url: string };
-  vacancy: string;
+interface ICareersProps {
+  data: IDataCareersResponse;
 }
-const Careers: FC = () => {
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataCareersResponse>(
-    queryKeys.getCareerPage
-  );
+const Careers: FC<ICareersProps> = ({ data }) => {
+  const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
+  const positions = data?.tickets?.length
+    ? data.tickets.map(({ vacancy, position }) => `${position} ${vacancy}`)
+    : [];
+
+  positions.length && positions.push("None of the above");
+
+  const mapTickets = () => {
+    return data?.tickets.map((ticket, idx) => (
+      <CareersTicket scrollTo={scrollTo} ticket={ticket} key={idx} />
+    ));
+  };
+
   return (
     <>
-      <Styled.MainTitle>
-        <SplitBrackets text={data?.subtitle} />
-      </Styled.MainTitle>
-      <Styled.TicketWrapper>
-        {data?.tickets.map(({ image, vacancy, id }: ITicketData) => (
-          <CareersTicket
-            route={true}
-            id={id}
-            vacancy={vacancy}
-            imgUrl={image.url}
-            key={image.url}
-          />
-        ))}
-      </Styled.TicketWrapper>
+      <Styles.CareersContainer>
+        <Styles.Title>
+          <Styles.TitleTextRow>
+            <Styles.TitleText>NEXT-GENERATION</Styles.TitleText>
+            <Styles.ArrowContainer>
+              <Styles.TitleArrow src={Arrow.src} alt="Arrow" />
+            </Styles.ArrowContainer>
+            <Styles.TitleText>PROJECTS</Styles.TitleText>
+          </Styles.TitleTextRow>
+          <Styles.TitleTextRow>
+            <Styles.TitleText>REQUIRE AN&nbsp;</Styles.TitleText>
+            <Styles.TitleText className={"blue"}>
+              OUTSTANDING TEAM.
+            </Styles.TitleText>
+          </Styles.TitleTextRow>
+        </Styles.Title>
+        <Styles.TicketsWrapper>
+          <Styles.TicketsContainer>{mapTickets()}</Styles.TicketsContainer>
+        </Styles.TicketsWrapper>
+        <Styles.Separator />
+        <Styles.FormTitle>
+          &lt;Found your dream-job?
+          <br />
+          Let us discover you!&gt;
+        </Styles.FormTitle>
+        <Styles.FormAndImageContainer>
+          <Styles.FormContainer>
+            <Styles.FormContainer3D>
+              <Styles.TopCorner />
+              <Styles.BottomCorner />
+            </Styles.FormContainer3D>
+            <Styles.Form>
+              <CareersForm positions={positions} data={data} ourRef={ref} />
+            </Styles.Form>
+          </Styles.FormContainer>
+          <Styles.FormImage src={MagnifiedGlass.src} alt="Magnified Glass" />
+        </Styles.FormAndImageContainer>
+      </Styles.CareersContainer>
     </>
   );
 };

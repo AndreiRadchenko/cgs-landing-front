@@ -8,6 +8,7 @@ import { useFormikContext } from "formik";
 import {
   IArticle,
   IBlogResponse,
+  IViews,
 } from "../../../../types/Admin/Response.types";
 import {
   DragDropContext,
@@ -26,6 +27,8 @@ interface IArticles {
   article: number;
   isNewArticle: boolean;
   data: IBlogResponse;
+  views?: IViews;
+  disabled?: boolean;
 }
 
 interface IArticleItem {
@@ -39,18 +42,46 @@ const PublishedArticles: FC<IArticles> = ({
   isNewArticle,
   article,
   data,
+  views,
 }) => {
   const { values, handleSubmit } = useFormikContext<IBlogResponse>();
 
-  const { mutateAsync } = useMutation(
+  const { mutateAsync: mutateArticle } = useMutation(
     queryKeys.deleteArticle,
     (dataToUpdate: IBlogResponse) =>
       adminBlogService.updateBlogPage(dataToUpdate)
   );
 
+  const { mutateAsync: updateViews } = useMutation(
+    queryKeys.postArticle,
+    (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
+  );
+
   const deleteArticle = async (i: number) => {
+    if (views) {
+      const allViews = views.allViews.filter(
+        (view) => view.articleUrl !== values.articles[i].url
+      );
+      await updateViews({ allViews: allViews });
+    }
     values.articles.splice(i, 1);
-    await mutateAsync(values);
+    await mutateArticle(values);
+    setArticle(0);
+    setIsNewArticle(true);
+    handleSubmit();
+  };
+
+  const deactivateArticle = async (i: number) => {
+    values.articles[i].disabled = true;
+    await mutateArticle(values);
+    setArticle(0);
+    setIsNewArticle(true);
+    handleSubmit();
+  };
+
+  const publishArticle = async (i: number) => {
+    values.articles[i].disabled = false;
+    await mutateArticle(values);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
@@ -104,8 +135,17 @@ const PublishedArticles: FC<IArticles> = ({
           onClick={() => toggleEditPost(i)}
         />
         <Styles.DeleteButton onClick={() => deleteArticle(i)}>
-          delete articles
+          delete article
         </Styles.DeleteButton>
+        <Styles.DeactivateButton
+          disabled={item.disabled}
+          onClick={item.disabled ? undefined : () => deactivateArticle(i)}
+        >
+          Deactivate
+        </Styles.DeactivateButton>
+        <Styles.PublishButton onClick={() => publishArticle(i)}>
+          Publish
+        </Styles.PublishButton>
       </BlogItem>
     );
   };

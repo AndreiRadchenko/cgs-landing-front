@@ -10,13 +10,8 @@ const AdminBlackButton = ({
   text = "read more",
   onClick,
 }: IAdminButtonProps) => {
-  const onClickFunction = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    onClick!();
-  };
-
   return (
-    <Styled.AdminBlackButton onClick={onClickFunction}>
+    <Styled.AdminBlackButton onClick={onClick}>
       <Styled.AdminBlackButtonText>{text}</Styled.AdminBlackButtonText>
     </Styled.AdminBlackButton>
   );

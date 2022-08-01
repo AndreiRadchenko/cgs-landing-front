@@ -1,11 +1,10 @@
 import { FormikHelpers } from "formik";
 import React from "react";
+import { IMetaBlock } from "./Response.types";
 
 export interface IPortfolioReview {
   _id?: string;
-  image: {
-    url: string;
-  };
+  image: { url: string } | null;
   title: string;
   text: string;
   category: string;
@@ -22,6 +21,7 @@ export interface IPortfolioData {
   categories: string[];
   subtitle: string;
   reviews: IPortfolioReview[];
+  meta: IMetaBlock;
 }
 
 export interface IPortfolioResponse {

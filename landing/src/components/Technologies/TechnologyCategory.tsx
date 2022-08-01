@@ -1,46 +1,45 @@
-import React, { FC } from "react";
-import * as StyledThisComp from "../../styles/Technologies.styled";
-import Image from "next/image";
+import React, { FC, MouseEvent, useState } from "react";
+import * as StyledThisComp from "../../styles/HomePage/Technologies.styled";
+import { SplitBrackets } from "../../utils/splitBrackets";
+import TechModal from "./TechModal";
 
 interface ITechnologyCategoryProps {
-  url: string;
+  img: string;
   title: string;
-  technologies: string[];
+  text: string;
+  stack: string[];
+  className?: string;
 }
 
 const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
-  url,
+  img,
   title,
-  technologies,
+  text,
+  stack,
+  className,
 }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const onClose = (e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    setIsOpen(false);
+  };
+  const onOpen = (e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    setIsOpen(true);
+  };
+
   return (
-    <StyledThisComp.CategoryContainer className={title}>
-      <StyledThisComp.CategoryImgWrapper>
-        <Image
-          src={url}
-          alt={`technologies description ${title}`}
-          layout="fill"
-          objectFit="contain"
-        />
-      </StyledThisComp.CategoryImgWrapper>
-
-      <StyledThisComp.CategoryDescriptionWrapper className="descriptionWrapper">
-        <StyledThisComp.CategoryTitle
-          className={title === "server" ? "serverTitle" : undefined}
-        >
-          {title}
-          <StyledThisComp.DecorationTitle className={title} />
-        </StyledThisComp.CategoryTitle>
-
-        <StyledThisComp.CategoryLine />
-        <StyledThisComp.CategoryTechnologiesWrapper>
-          {technologies.map((technology, idx) => (
-            <StyledThisComp.CategoryTechnology key={idx}>
-              {technology}
-            </StyledThisComp.CategoryTechnology>
-          ))}
-        </StyledThisComp.CategoryTechnologiesWrapper>
-      </StyledThisComp.CategoryDescriptionWrapper>
+    <StyledThisComp.CategoryContainer
+      onMouseOver={onOpen}
+      onMouseLeave={onClose}
+    >
+      <StyledThisComp.CategoryTitle>{title}&nbsp;</StyledThisComp.CategoryTitle>
+      <StyledThisComp.CategorySubtitle className={className}>
+        <SplitBrackets text={text} />
+      </StyledThisComp.CategorySubtitle>
+      <StyledThisComp.CategoryImage src={img} alt="tech category img" />
+      <TechModal data={stack} isOpen={isOpen} />
     </StyledThisComp.CategoryContainer>
   );
 };

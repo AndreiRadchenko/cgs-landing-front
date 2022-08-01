@@ -22,6 +22,9 @@ export class AdminHomePageService {
   public getPortfolio() {
     return this.httpService.get("api/portfolio");
   }
+  public getFaqPage() {
+    return this.httpService.get("api/faq");
+  }
   public updatePortfolio(data: IPortfolioResponse) {
     return this.httpService.put("api/portfolio", data);
   }

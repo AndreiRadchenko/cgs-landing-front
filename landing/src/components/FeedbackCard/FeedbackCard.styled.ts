@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const FeedbackCardContainer = styled.div`
-  width: 27em;
-  font-family: ${themes.primary.font.family.gilroy};
+  width: 95%;
+  font-family: ${themes.primary.font.family.namu};
   display: flex;
   flex-direction: column;
   @media ${themes.primary.media.maxMobile} {
@@ -19,65 +19,60 @@ export const FeedbackCardWrapper = styled.div`
 `;
 
 export const FeedbackCardName = styled.h2`
-  font-weight: ${themes.primary.font.weight.extraBold};
-  margin: 0 1.375rem 0 0;
-  font-size: 1.375em;
+  font-weight: ${themes.primary.font.weight.heavy};
+  margin: 0 0.8rem 0 0;
+  line-height: 168%;
+  font-size: ${themes.primary.font.size.feedbackName};
   cursor: default;
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.8em;
   }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.tertiary};
+  }
 `;
-type starsProps = { rate: number };
 
-export const Stars = styled("div")<starsProps>`
-  display: block;
-  font-size: 25px;
-  font-family: Times;
-  line-height: 1;
+export const Stars = styled.div`
+  height: 25px;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    height: 18.5px;
+  }
+`;
 
-  &::before {
-    content: "★★★★★";
-    letter-spacing: 3px;
-    background: linear-gradient(
-      90deg,
-      ${themes.primary.colors.starActive}
-        ${(prop) =>
-          prop.rate ? css`calc(${prop.rate} / 5 * 98.5%)` : css`98.5%`},
-      ${themes.primary.colors.starDisable}
-        ${(prop) =>
-          prop.rate ? css`calc(${prop.rate} / 5 * 98.5%)` : css`98.5%`}
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+export const StarImage = styled.img`
+  height: 100%;
+  width: 26px;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 18.5px;
   }
 `;
 
 export const FeedbackCardCompany = styled.a`
-  font-weight: ${themes.primary.font.weight.light};
+  font-weight: ${themes.primary.font.weight.heavy};
   display: block;
-  margin: 0.7em 0 0.7em 0;
-  font-size: 1.125em;
+  margin: 0.4em 0;
+  font-size: ${themes.primary.font.size.oneAndHalf};
   transition: 300ms;
+  color: ${themes.primary.colors.headerBorder};
   cursor: pointer;
-  &:hover {
-    color: ${themes.primary.colors.linkBlue};
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.6em;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.reviewSmallText};
+    margin: 0.4em 0;
   }
 `;
 
-export const FeedbackButtonContainer = styled.div`
-  position: relative;
-  bottom: 1rem;
-  left: 0.5%;
-  @media ${themes.primary.media.maxLaptop} {
-    left: -4%;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    left: 2%;
-  }
+export const FeedbackButton = styled.button`
+  cursor: pointer;
+  width: 8.5em;
+  height: 2.2em;
+  font-family: ${themes.primary.font.family.namu};
+  display: table-cell;
+  vertical-align: middle;
+  font-size: ${themes.primary.font.size.vistaco};
+  background: ${themes.primary.colors.primary};
+  border: 1px solid ${themes.primary.colors.primary};
+  letter-spacing: 0.03em;
+  color: ${themes.primary.colors.secondary};
 `;
 
 export const FeedbackCardPosition = styled.span`
@@ -93,15 +88,22 @@ export const FeedbackCardPosition = styled.span`
   }
 `;
 
-export const FeedbackCardDescription = styled.span`
-  display: block;
-  font-size: 1.125em;
-  line-height: 175%;
+export const FeedbackCardDescription = styled.p`
+  display: -webkit-box;
+  width: 100%;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: ${themes.primary.font.size.oneAndHalf};
   cursor: default;
-  width: 90%;
+  margin-top: 0;
+
+  line-height: 160%;
+
   font-weight: ${themes.primary.font.weight.light};
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.6em;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.reviewSmallText};
+    margin: 0.6em 0 0.8em 0;
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.8em;

@@ -45,6 +45,7 @@ export const VacancyInput = styled.input`
   line-height: 19px;
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.normal};
+  margin-bottom: 15px;
 `;
 
 export const TicketsContainer = styled.div`
@@ -78,8 +79,8 @@ export const TicketsButton = styled.button`
 `;
 
 export const TicketContainer = styled.div`
-  /* width: 476px;
-  height: 348px; */
+  width: 476px;
+  height: 348px;
   border: 1px solid black;
 `;
 
@@ -96,7 +97,7 @@ export const TitleTextArea = styled.textarea`
 `;
 
 export const ContactFormContainer = styled.div`
-width: 100%
+  width: 100%;
   display: flex;
 `;
 
@@ -158,8 +159,10 @@ export const IconBox = styled.div`
   cursor: pointer;
 `;
 
-export const DeleteBtn = styled.div`
-  padding: 5px;
+export const DeleteBtn = styled.button`
+  padding: 3px;
+  border: 0;
+  background-color: inherit;
   margin-left: auto;
   color: red;
   width: 110px;
@@ -172,4 +175,5 @@ export const DeleteBtn = styled.div`
 export const TicketBox = styled.div`
   display: flex;
   flex-direction: column;
+  font-family: ${themes.primary.font.family.namu};
 `;

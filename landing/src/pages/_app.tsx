@@ -33,6 +33,7 @@ function MyApp({
             name="description"
             content="CGS-team is a custom software development company with a modern approach and vast experience in web development and mobile software development"
           />
+          <link key="icon" rel="icon" href="/favicon.ico" />
         </Head>
         <Hydrate state={pageProps.dehydratedState}>
           <CacheProvider value={emotionCache}>

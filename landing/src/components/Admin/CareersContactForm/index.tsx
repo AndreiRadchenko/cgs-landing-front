@@ -66,14 +66,6 @@ const CareersContactForm = () => {
                   />
                 ))}
               </CvContainer>
-
-              <SubTitle>Text</SubTitle>
-
-              <FormTextArea
-                name="form.text"
-                value={text}
-                onChange={handleChange}
-              />
             </FormContainer>
           </ContactFormContainer>
         </CareersContainer>

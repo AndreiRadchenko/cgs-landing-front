@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import PhotoBlockDashedHorizontal from "../PhotoBlockdashedHorizontal";
 import PhotoBlockDashed from "../PhotoBlockDashed";
 import SubHeaderWithInput from "../SubHeaderWithInput";
@@ -9,9 +9,14 @@ import PublishedArticles from "./PublishedArticles";
 import * as Styles from "../../../../styles/AdminBlogPage";
 import * as Styled from "../../../../styles/AdminPage";
 import { useFormikContext } from "formik";
-import { IBlogResponse } from "../../../../types/Admin/Response.types";
+import {
+  IArticle,
+  IBlogResponse,
+  IView,
+  IViews,
+} from "../../../../types/Admin/Response.types";
 import ArticleBlock from "../../Blog/ArticleBlock";
-import { useMutation } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminBlogService } from "../../../../services/adminBlogPage";
 import { IImage } from "../../../../types/Admin/Admin.types";
@@ -19,6 +24,8 @@ import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import InputWithType from "../../../Inputs/InputWithType";
 import MetaTagsBlock from "../../MetaTagsBlock";
+import AddTag from "./AddTag";
+import { IBlogProps } from "../AdminBlogMainContent";
 
 interface IArticles {
   isNewArticle: boolean;
@@ -26,7 +33,16 @@ interface IArticles {
   article: number;
   setArticle: React.Dispatch<React.SetStateAction<number>>;
   data: IBlogResponse;
+  refetch: () => Promise<IBlogProps>;
 }
+
+const TITLE_MIN = 10;
+const TITLE_MAX = 60;
+const DESCRIPTION_MIN = 20;
+const DESCRIPTION_MAX = 160;
+
+const META_TITLE_MAX = 60;
+const META_DESCRIPTION_MAX = 160;
 
 const ContentBlock: FC<IArticles> = ({
   isNewArticle,
@@ -35,30 +51,132 @@ const ContentBlock: FC<IArticles> = ({
   setIsNewArticle,
   data,
 }) => {
+  const [descLength, setDescLength] = useState(0);
+  const [titleLength, setTitleLength] = useState(0);
   const { values, handleSubmit, handleChange } =
     useFormikContext<IBlogResponse>();
-
+  const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
+  const [disabled, setDisabled] = useState<boolean>(false);
   const { mutateAsync } = useMutation(
-    queryKeys.deleteArticle,
+    queryKeys.updateBlogPage,
     (dataToUpdate: IBlogResponse) =>
       adminBlogService.updateBlogPage(dataToUpdate)
   );
 
+  const { mutateAsync: postArticle } = useMutation(
+    queryKeys.postArticle,
+    (dataToUpdate: IArticle) => adminBlogService.postArticle(dataToUpdate)
+  );
+
+  const { mutateAsync: updateViews } = useMutation(
+    queryKeys.postArticle,
+    (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
+  );
+
+  useEffect(() => {
+    setDisabled(
+      isNewArticle
+        ? values.newArticle.disabled
+        : values.articles[article].disabled
+    );
+  }, [isNewArticle, values.newArticle.disabled, values.articles, article]);
+
+  useEffect(() => {
+    setDescLength(
+      isNewArticle
+        ? values.newArticle.description.length
+        : values.articles[article].description.length
+    );
+    setTitleLength(
+      isNewArticle
+        ? values.newArticle.title.length
+        : values.articles[article].title.length
+    );
+  }, [
+    isNewArticle,
+    article,
+    values.articles,
+    values.newArticle.description.length,
+    values.newArticle.title.length,
+  ]);
+
   const updateArticle = async () => {
+    const isChangedUrl =
+      data.articles[article].url !== values.articles[article].url;
+    if (isChangedUrl && views.data) {
+      const updatedViews = views.data[0].allViews.map((view) =>
+        view.articleUrl === data.articles[article].url
+          ? { ...view, articleUrl: values.articles[article].url }
+          : view
+      );
+      await updateViews({ allViews: updatedViews });
+    }
+    values.newArticle.tags = [];
     await mutateAsync(values);
     setArticle(0);
     setIsNewArticle(true);
+    setDisabled(false);
+    values.articles[article].meta.metaTitle === ""
+      ? ((values.articles[article].meta.metaTitle =
+          values.articles[article].title.length > META_TITLE_MAX
+            ? values.articles[article].title.substring(0, META_TITLE_MAX)
+            : values.articles[article].title),
+        values.articles[article].title)
+      : values.articles[article].meta.metaTitle;
+    values.articles[article].meta.metaDescription === ""
+      ? ((values.articles[article].meta.metaDescription =
+          values.articles[article].description.length > META_DESCRIPTION_MAX
+            ? values.articles[article].description.substring(
+                0,
+                META_DESCRIPTION_MAX
+              )
+            : values.articles[article].description),
+        values.articles[article].description)
+      : values.articles[article].meta.metaDescription;
     handleSubmit();
   };
-
   const updateMetaTags = async () => {
     await mutateAsync(values);
     handleSubmit();
   };
 
+  const handleDescInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDescLength(e.target.value.length);
+  };
+
+  const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitleLength(e.target.value.length);
+  };
+
   const createArticle = async () => {
+    if (views.data) {
+      const updatedViews: IView[] = [
+        ...views.data[0].allViews,
+        {
+          articleUrl: values.newArticle.url,
+          views: 231,
+        },
+      ];
+      await updateViews({ allViews: updatedViews });
+    }
+    values.newArticle.disabled = disabled;
+    values.newArticle.tags = values.newArticle.tags.filter((tag) => tag !== "");
+    values.newArticle.meta.metaTitle === ""
+      ? (values.newArticle.meta.metaTitle =
+          values.newArticle.title.length > META_TITLE_MAX
+            ? values.newArticle.title.substring(0, META_TITLE_MAX)
+            : values.newArticle.title)
+      : values.newArticle.meta.metaTitle;
+    values.newArticle.meta.metaDescription === ""
+      ? (values.newArticle.meta.metaDescription =
+          values.newArticle.description.length > META_DESCRIPTION_MAX
+            ? values.newArticle.description.substring(0, META_DESCRIPTION_MAX)
+            : values.newArticle.description)
+      : values.newArticle.meta.metaDescription;
     const articleToAdd = values.newArticle;
+
     values.articles.push(articleToAdd);
+
     values.newArticle = {
       url: "",
       content: [],
@@ -66,12 +184,17 @@ const ContentBlock: FC<IArticles> = ({
       image: { url: "" },
       author: { name: "", image: { url: "" }, specialization: "" },
       description: "",
-      tags: [""],
+      tags: [],
+      possibleTags: values.newArticle.possibleTags,
+      disabled: false,
       date: "",
+      updatedOn: "",
       minutesToRead: 0,
       meta: { metaTitle: "", metaDescription: "", customHead: "" },
     };
-    await mutateAsync(values);
+
+    await postArticle(articleToAdd);
+    setDisabled(false);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
@@ -100,6 +223,7 @@ const ContentBlock: FC<IArticles> = ({
   const uploadEditAuthorFunc = (image: IImage) => uploadEditAuthor(image);
   const deleteEditBannerFunc = async () => (await deleteEditBanner)();
   const uploadEditBannerFunc = (image: IImage) => uploadEditBanner(image);
+
   return (
     <div>
       <Styled.AdminPaddedBlock>
@@ -129,7 +253,9 @@ const ContentBlock: FC<IArticles> = ({
               header="Drop banner here"
             />
             <SubHeaderWithInput
-              header="Title"
+              header="Article Title"
+              onInputFunction={handleTitle}
+              minRows={2}
               inputValue={
                 isNewArticle
                   ? values.newArticle.title
@@ -141,8 +267,22 @@ const ContentBlock: FC<IArticles> = ({
               id="title"
               onChangeFunction={handleChange}
               isBlog={true}
-              height="75px"
             />
+            <Styles.Text>
+              <Styles.Message>
+                {(titleLength > TITLE_MAX || titleLength < TITLE_MIN) &&
+                  "Title should be between 10 and 60 characters"}
+              </Styles.Message>
+              <Styles.Counter
+                className={
+                  titleLength > TITLE_MAX || titleLength < TITLE_MIN
+                    ? "error"
+                    : undefined
+                }
+              >
+                {titleLength}
+              </Styles.Counter>
+            </Styles.Text>
             <SubHeaderWithInput
               header="Url"
               inputValue={
@@ -150,16 +290,17 @@ const ContentBlock: FC<IArticles> = ({
                   ? values.newArticle.url
                   : values.articles[article].url
               }
+              minRows={2}
               name={
                 isNewArticle ? "newArticle.url" : `articles[${article}].url`
               }
               id="title"
               onChangeFunction={handleChange}
               isBlog={true}
-              height="75px"
             />
             <SubHeaderWithInput
               header="Description"
+              onInputFunction={handleDescInput}
               inputValue={
                 isNewArticle
                   ? values.newArticle.description
@@ -172,8 +313,24 @@ const ContentBlock: FC<IArticles> = ({
               }
               onChangeFunction={handleChange}
               isBlog={true}
-              height="75px"
             />
+
+            <Styles.Text>
+              <Styles.Message>
+                {(descLength > DESCRIPTION_MAX ||
+                  descLength < DESCRIPTION_MIN) &&
+                  "Description should be between 20 and 160 characters"}
+              </Styles.Message>
+              <Styles.Counter
+                className={
+                  descLength > DESCRIPTION_MAX || descLength < DESCRIPTION_MIN
+                    ? "error"
+                    : undefined
+                }
+              >
+                {descLength}
+              </Styles.Counter>
+            </Styles.Text>
             <Styles.ColumnsWrapper>
               <Styles.Column>
                 <SubHeaderWithInput
@@ -206,6 +363,21 @@ const ContentBlock: FC<IArticles> = ({
                   onChange={handleChange}
                   header={"Date"}
                   type={"date"}
+                />
+                <InputWithType
+                  header="Updated On"
+                  name={
+                    isNewArticle
+                      ? "newArticle.updatedOn"
+                      : `articles[${article}].updatedOn`
+                  }
+                  onChange={handleChange}
+                  type={"date"}
+                  value={
+                    isNewArticle
+                      ? values.newArticle.updatedOn
+                      : values.articles[article].updatedOn
+                  }
                 />
               </Styles.Column>
               <Styles.Column>
@@ -264,8 +436,12 @@ const ContentBlock: FC<IArticles> = ({
             maxWidth="324px"
           />
         </Styles.BigWrapper>
+
         <ArticleBlock isNewArticle={isNewArticle} article={article} />
-        <Styles.AdminSubTitle>Tags</Styles.AdminSubTitle>
+        <Styled.TagContainer>
+          <Styles.AdminSubTitle className="blog">Tags</Styles.AdminSubTitle>
+          <AddTag />
+        </Styled.TagContainer>
         <BlogTags isNewArticle={isNewArticle} article={article} />
       </Styled.AdminPaddedBlock>
       <MetaTagsBlock
@@ -279,15 +455,17 @@ const ContentBlock: FC<IArticles> = ({
             type={"submit"}
             onClick={isNewArticle ? createArticle : updateArticle}
           >
-            {isNewArticle ? "Post" : "Edit Article"}
+            {`${isNewArticle ? "Save" : "Edit"} Article`}
           </TicketsButton>
         </Styles.SubmitButtonWrapper>
         <PublishedArticles
+          views={views.data ? views.data[0] : undefined}
           data={data}
           isNewArticle={isNewArticle}
           article={article}
           setArticle={setArticle}
           setIsNewArticle={setIsNewArticle}
+          disabled={disabled}
         />
         <Styled.AdminBigButton type={"submit"} onClick={updateArticle}>
           {"Update order"}

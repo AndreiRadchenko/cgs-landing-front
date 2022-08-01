@@ -1,26 +1,20 @@
-import React, { FC } from "react";
+import React, { FC, RefObject } from "react";
+import { IDataCareersResponse } from "../../types/Admin/Response.types";
 import * as Styled from "./CareersForm.styled";
 import Form from "./Form/index";
-import { SplitBrackets } from "../../utils/splitBrackets";
-import { IDataCareersResponse } from "../../types/Admin/Response.types";
 
 interface ICareersForm {
-  data?: IDataCareersResponse;
+  positions: string[];
+  data: IDataCareersResponse;
+  ourRef: RefObject<HTMLDivElement>;
 }
 
-const CareersForm: FC<ICareersForm> = ({ data }) => {
+const CareersForm: FC<ICareersForm> = ({ positions = [], data, ourRef }) => {
   return (
     <>
-      <Styled.FormTitle>
-        <SplitBrackets text={data?.subtitle2} />
-      </Styled.FormTitle>
-      <Styled.FormWrapper>
-        <Form data={data?.form} vacancy="All vacancies" />
-        <Styled.ImageWrapper>
-          <Styled.FormRocketImage />
-          <Styled.FormImage image={data?.form.image} />
-        </Styled.ImageWrapper>
-      </Styled.FormWrapper>
+      <Styled.FormContainter>
+        <Form positions={positions} data={data} ourRef={ourRef} />
+      </Styled.FormContainter>
     </>
   );
 };

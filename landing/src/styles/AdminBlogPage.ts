@@ -6,6 +6,14 @@ export const AdminSubTitle = styled.h3`
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.semiBold};
   margin: 40px 0 0.4em 0;
+
+  &.blog {
+    margin: 0;
+  }
+`;
+
+export const TextEditorWrapper = styled.div`
+  width: 1100px;
 `;
 
 export const BigWrapper = styled.div`
@@ -55,4 +63,27 @@ export const FooterButton = styled.div`
 
 export const SubmitButtonWrapper = styled.div`
   width: 509px;
+`;
+
+export const DropdownWrapper = styled.div`
+  margin: 0 20px;
+  transform: translateY(20px);
+  width: 100px;
+`;
+
+export const Message = styled.span`
+  color: ${themes.primary.colors.errorText};
+`;
+
+export const Counter = styled.span`
+  &.error {
+    color: ${themes.primary.colors.errorText};
+  }
+`;
+
+export const Text = styled.div`
+  margin-top: -15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;

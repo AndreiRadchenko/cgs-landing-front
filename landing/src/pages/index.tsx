@@ -1,39 +1,33 @@
-import React, { useState, lazy, Suspense } from "react";
+import React from "react";
 import type { NextPage } from "next";
 import parse from "html-react-parser";
 import Head from "next/head";
-import Body from "../components/Body/Body";
-import { Loading, Page, Spinner, SpinnerWrapper } from "../styles/Page.styled";
-import Projects from "../components/Projects/Projects";
-import AboutUs from "../components/AboutUs/AboutUs";
-const Partners = lazy(() => import("../components/Partners/Partners"));
-const CarouselFeedback = lazy(
-  () => import("./../components/Feedback/CarouselFeedback")
-);
-const Technologies = lazy(
-  () => import("../components/Technologies/Technologies")
-);
-const LetsCode = lazy(() => import("../components/LetsCode/LetsCode"));
-const OurTeam = lazy(() => import("../components/OurTeam/OurTeam"));
-const HowWeWorkList = lazy(
-  () => import("../components/HowWeWorkList/HowWeWorkList")
-);
-const YesBegin = lazy(() => import("../components/YesBegin/YesBegin"));
-const Footer = lazy(() => import("../components/Footer/Footer"));
-import { useScrollTo } from "../hooks/useScrollTo";
-import { useQuery } from "react-query";
+import * as StyledCommon from "../styles/Page.styled";
+
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../consts/queryKeys";
 import { adminGlobalService } from "../services/adminHomePage";
 import { IDataResponse } from "../types/Admin/Response.types";
-import getServerSideProps from "../utils/Redirect";
-import { IPortfolioResponse } from "../types/Admin/AdminPortfolio";
-import SpinnerImg from "../../public/spinner.svg";
-
-export { getServerSideProps };
-
-interface IPortfolioData {
-  data: IPortfolioResponse | undefined;
+import HeaderNavNew from "../components/HeaderNavNew/HeaderNavNew";
+import FooterNew from "../components/FooterNew/FooterNew";
+import Content from "../components/HomePage/Content";
+interface IHomeData {
+  data: IDataResponse | undefined;
   isLoading: boolean;
+}
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 }
 
 interface IHomeData {
@@ -42,23 +36,18 @@ interface IHomeData {
 }
 
 const Home: NextPage = () => {
-  const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
-  const [isClicked, setIsClicked] = useState(false);
-
   const { data, isLoading }: IHomeData = useQuery(
     queryKeys.getFullHomePage,
     () => adminGlobalService.getFullPage()
   );
-  const portfolioData: IPortfolioData = useQuery(queryKeys.getPortfolio, () =>
-    adminGlobalService.getPortfolio()
-  );
+  useQuery(queryKeys.getPortfolio, () => adminGlobalService.getPortfolio());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
   return (
     <>
       {isLoading ? (
-        <Loading>LOADING...</Loading>
+        <StyledCommon.Loading>LOADING...</StyledCommon.Loading>
       ) : (
         <>
           <Head>
@@ -66,10 +55,9 @@ const Home: NextPage = () => {
             <meta name="description" content={metaDescription} />
             {customHead && parse(customHead)}
           </Head>
-          <SpinnerWrapper>
-            <Spinner src={SpinnerImg.src} />
-            Website is on ongoing maintenance...
-          </SpinnerWrapper>
+          <HeaderNavNew />
+          <Content />
+          <FooterNew />
         </>
       )}
     </>

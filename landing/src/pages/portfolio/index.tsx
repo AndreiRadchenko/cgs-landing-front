@@ -1,21 +1,43 @@
 import React, { useEffect, useState } from "react";
-import { Page } from "../../styles/Page.styled";
-import HeaderNav from "../../components/HeaderNav/HeaderNav";
-import Footer from "../../components/Footer/Footer";
-import { useQuery } from "react-query";
+import parse from "html-react-parser";
+import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
+import FooterNew from "../../components/FooterNew/FooterNew";
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminPortfolioPageService } from "../../services/adminPortfolioPage";
 import PortfolioSlider from "../../components/Admin/PortfolioSwipers/PortfolioSlider";
 import { IPortfolioResponse } from "../../types/Admin/AdminPortfolioPage.types";
 import * as Styled from "../../styles/AdminPage";
-import { Separator } from "../../styles/PortfolioSlider.styles";
+import * as Styles from "../../styles/Portfolio.styled";
+import { Separator } from "../../styles/PortfolioSlider.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { adminGlobalService } from "../../services/adminHomePage";
+import { portfolioCategories } from "../../utils/variables";
+import Head from "next/head";
+import { NextPage } from "next";
 
-const Index = () => {
-  const { data, isLoading, refetch }: IPortfolioResponse = useQuery(
-    queryKeys.getPortfolio,
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.getPortfolioPage, () =>
+    adminPortfolioPageService.getPortfolio()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
+
+const PortfolioPage: NextPage = () => {
+  const { data, isLoading }: IPortfolioResponse = useQuery(
+    queryKeys.getPortfolioPage,
     () => adminPortfolioPageService.getPortfolio()
   );
+
+  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+
   const [isMobile, setIsMobile] = useState(false);
   const { width } = useWindowDimension();
   const sortByCategory = (category: string) => {
@@ -28,39 +50,45 @@ const Index = () => {
     }
   }, [width]);
 
+  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data ? (
     <>
-      <Page>
-        <HeaderNav />
-      </Page>
-      {isMobile ||
-        <Styled.Subtitle>
-          UR WORK OUR WORK OUR WORK OUR WORK OUR WORK OUR WORK WORK OUR WORK
-          OUR WORK
-        </Styled.Subtitle>}
-      <PortfolioSlider
-        reviews={sortByCategory("web")}
-        category={"web"}
-        isMobile={isMobile} />
-      <PortfolioSlider
-        reviews={sortByCategory("mobile")}
-        category={"mobile"}
-        isMobile={isMobile}
-      />
-      <PortfolioSlider
-        reviews={sortByCategory("server")}
-        category={"server"}
-        isMobile={isMobile}
-      />
-      <PortfolioSlider
-        reviews={sortByCategory("blockchain")}
-        category={"blockchain"}
-        isMobile={isMobile}
-      />
-      <Separator color={"#8f8e93"} />
-      <Footer />
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        {customHead && parse(customHead)}
+      </Head>
+      <Styles.PortfolioContainer>
+        <HeaderNavNew />
+        {isMobile || (
+          <Styles.OurWorkTitle>
+            UR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
+            WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;WORK
+            OUR&nbsp;&nbsp;WORK OUR WORK
+          </Styles.OurWorkTitle>
+        )}
+        <Styles.SlidersCont>
+          {portfolioCategories.map((category, ind) => {
+            const filtered = sortByCategory(category);
+            return (
+              filtered &&
+              filtered.length > 0 && (
+                <PortfolioSlider
+                  key={ind}
+                  reviews={filtered}
+                  category={category}
+                  isMobile={isMobile}
+                />
+              )
+            );
+          })}
+          <Separator color={"#8f8e93"} />
+        </Styles.SlidersCont>
+        <FooterNew />
+      </Styles.PortfolioContainer>
     </>
   ) : (
     <Styled.AdminUnauthorizedModal>
@@ -69,4 +97,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default PortfolioPage;

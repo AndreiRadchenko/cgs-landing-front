@@ -4,6 +4,7 @@ import Plus from "../../../../../public/plus.svg";
 import * as Styles from "../../../../styles/BlogTags.styled";
 import { useFormikContext } from "formik";
 import { IBlogResponse } from "../../../../types/Admin/Response.types";
+import Dropdown from "./Dropdown";
 
 interface IBlogTags {
   isNewArticle: boolean;
@@ -12,7 +13,7 @@ interface IBlogTags {
 
 const BlogTags: FC<IBlogTags> = ({ isNewArticle, article }) => {
   const [tagList, setTagList] = useState<JSX.Element[]>([]);
-  const { values, handleChange } = useFormikContext<IBlogResponse>();
+  const { values } = useFormikContext<IBlogResponse>();
   const newArticleTags = values.newArticle.tags;
   const editArticleTags = values.articles[article]?.tags;
 
@@ -28,21 +29,23 @@ const BlogTags: FC<IBlogTags> = ({ isNewArticle, article }) => {
   }, [article, isNewArticle, values.articles, values.newArticle]);
 
   const newArticleTag = (index: number) => (
-    <Styles.Tag
-      name={`newArticle.tags[${index}]`}
-      onChange={handleChange}
-      value={values.newArticle.tags[index]}
-      key={index}
-    />
+    <div>
+      <Dropdown
+        name={`newArticle.tags[${index}]`}
+        value={values.newArticle.tags[index]}
+        tags={values.newArticle.possibleTags}
+      />
+    </div>
   );
 
   const editArticleTag = (index: number) => (
-    <Styles.Tag
-      name={`articles[${article}].tags[${index}]`}
-      onChange={handleChange}
-      value={values.articles[article].tags[index]}
-      key={index}
-    />
+    <div>
+      <Dropdown
+        name={`articles[${article}].tags[${index}]`}
+        value={values.articles[article].tags[index]}
+        tags={values.newArticle.possibleTags}
+      />
+    </div>
   );
 
   const addTagOnClick = () => {
@@ -59,11 +62,21 @@ const BlogTags: FC<IBlogTags> = ({ isNewArticle, article }) => {
     isNewArticle ? newArticleCase() : editArticleCase();
   };
 
+  const deleteItem = () => {
+    setTagList(tagList.slice(0, -1));
+    isNewArticle
+      ? values.newArticle.tags.pop()
+      : values.articles[article].tags.pop();
+  };
+
   return (
     <Styles.TagsWrapper>
       {tagList}
-      <Styles.AddTag>
-        <Styles.PlusIcon src={Plus.src} onClick={addTagOnClick} />
+      <Styles.AddTag onClick={addTagOnClick}>
+        <Styles.PlusIcon src={Plus.src} />
+      </Styles.AddTag>
+      <Styles.AddTag onClick={deleteItem}>
+        <Styles.Minus>-</Styles.Minus>
       </Styles.AddTag>
     </Styles.TagsWrapper>
   );

@@ -1,7 +1,6 @@
 import DownArrow from "../../../../public/downArrowSidebar.svg";
 import * as Styled from "../../../styles/AdminPage";
 import { useState } from "react";
-import UpArrow from "../../../../public/upArrowSidebar.svg";
 import React from "react";
 import Image from "next/image";
 import { DropdownPropsInterface } from "../../../types/Admin/Admin.types";
@@ -28,10 +27,13 @@ const DropDownElement = ({
   return (
     <Styled.AdminSidebarMenuElement itemProp={route} property={currentPath}>
       <span onClick={push}>{value + " "}</span>
-      <span onClick={onArrowClick}>
-        <Image src={isShown ? UpArrow : DownArrow} />
-      </span>
-      <Styled.AdminSidebarHidenElement theme={isShown ? "block" : "none"}>
+      <Styled.Image
+        className={isShown ? "open" : undefined}
+        onClick={onArrowClick}
+        src={DownArrow.src}
+        alt="sidebar arrow img"
+      />
+      <Styled.AdminSidebarHidenElement className={isShown ? "flex" : undefined}>
         {children}
       </Styled.AdminSidebarHidenElement>
     </Styled.AdminSidebarMenuElement>

@@ -1,15 +1,27 @@
 import styled from "styled-components";
-import { TextField } from "@mui/material";
 import themes from "../../../../utils/themes";
+import { Field } from "formik";
 
-export const Field = styled(TextField)`
-  margin-top: 1rem;
-  & label {
-    font-weight: ${themes.primary.font.weight.bold};
-    color: #858585;
-    font-family: ${themes.primary.font.family.gilroy};
+export const FormField = styled(Field)`
+  height: 100%;
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid black;
+
+  font-family: ${themes.primary.font.family.namu};
+
+  font-size: 16px;
+  color: gray;
+  padding: 0 0 0 12px;
+
+  &:focus {
+    outline: none;
   }
-  & input {
-    font-size: 0.875em;
-  }
+`;
+
+export const FormFieldContainer = styled.div`
+  width: 100%;
+  height: 78px;
+  position: relative;
 `;

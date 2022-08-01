@@ -13,7 +13,6 @@ interface IFeedbackFormProps {
 
 interface IRenderState {
   companyName: string;
-  role: string;
   text: string;
 }
 
@@ -40,7 +39,6 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
 
   const renderState = {
     companyName: values.companyName,
-    role: values.role,
     text: values.text,
     link: values.link,
   };
@@ -48,6 +46,7 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
   return (
     <Form>
       <div>
+        <Styled.AdminSubTitle>Add new review</Styled.AdminSubTitle>
         <Styled.AdminStarsGrid>
           <Styled.AdminInput
             name="name"

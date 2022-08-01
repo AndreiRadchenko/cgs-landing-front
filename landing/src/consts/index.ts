@@ -1,8 +1,11 @@
 import LinkedIn from "../../public/linkedIn.svg";
 import Twitter from "../../public/twitter.svg";
 import Facebook from "../../public/facebook.svg";
-import BlogBannerImage from "../../public/blog-banner.jpg";
-import BlockchainBannerImage from "../../public/blockchain-banner.png";
+import git from "../../public/FooterIcons/git.svg";
+import co from "../../public/FooterIcons/co.svg";
+import linkedin from "../../public/FooterIcons/in.svg";
+import up from "../../public/FooterIcons/up.svg";
+import questionImage from "../../public/FAQDecorations/questionImage.svg";
 
 export enum ErrorMessage {
   DEFAULT = "Oops, something went wrong!",
@@ -20,37 +23,11 @@ export const icons = [
   { src: Facebook.src },
 ];
 
-export const blogItems = [
-  {
-    title: "What is a project manager? The key to project success",
-    description:
-      "The role of a project manager is evolving as businesses evolve. The role of a project manager is evolving as businesses evolve.",
-    image: BlogBannerImage.src,
-  },
-  {
-    title: "What is a project manager? The key to project success",
-    description:
-      "The role of a project manager is evolving as businesses evolve. The role of a project manager is evolving as businesses evolve.",
-    image: BlogBannerImage.src,
-  },
-  {
-    title: "What is a project manager? The key to project success",
-    description:
-      "The role of a project manager is evolving as businesses evolve. The role of a project manager is evolving as businesses evolve.",
-    image: BlogBannerImage.src,
-  },
-  {
-    title: "What is a project manager? The key to project success",
-    description:
-      "The role of a project manager is evolving as businesses evolve. The role of a project manager is evolving as businesses evolve.",
-    image: BlogBannerImage.src,
-  },
-  {
-    title: "What is a project manager? The key to project success",
-    description:
-      "The role of a project manager is evolving as businesses evolve. The role of a project manager is evolving as businesses evolve.",
-    image: BlogBannerImage.src,
-  },
+export const footerIcons = [
+  { src: git.src },
+  { src: up.src },
+  { src: co.src },
+  { src: linkedin.src },
 ];
 
 export const blockchainProjectLogos = [
@@ -155,6 +132,7 @@ export const newBlockchainProjectInit = {
   text: "",
   name: "",
 };
+
 export const newPageReviewInit = {
   image: null,
   category: "",
@@ -169,7 +147,16 @@ export const newPageReviewInit = {
   },
 };
 
+export const newVacancy = {
+  position: "",
+  vacancy: "",
+  stars: 0,
+  stack: [],
+};
+
 export enum ROUTE_KEYS {
+  AdminService = "/Admin/AdminService",
+  AdminCompany = "/Admin/AdminCompany",
   AdminPage = "AdminPage",
   AdminPortfolio = "/Admin/AdminPortfolio",
   AdminCareers = "AdminCareers",
@@ -179,4 +166,115 @@ export enum ROUTE_KEYS {
   AdminBlog = "/Admin/AdminBlog",
   AdminBlockchain = "/Admin/AdminBlockchain",
   AdminPortfolioPage = "/Admin/AdminPortfolioPage",
+  AdminFaqPage = "/Admin/AdminFaq",
+  AdminAboutUs = "/Admin/AdminAboutUs",
 }
+
+export enum FaqPageTypes {
+  Description = "Description",
+  List = "List",
+}
+
+export const FaqPageQuestions = [
+  {
+    title: "How much time does the development take?",
+    content: [
+      {
+        type: FaqPageTypes.Description,
+        text: "You definitely need one of our free services — 8h estimation of a project. It will answer all your basic questions, give you insights and boost your desire to cooperate with us. To navigate you, MVP development takes from 1.5 to 2 months.",
+      },
+    ],
+  },
+  {
+    title: "What technologies do you use?",
+    content: [
+      {
+        type: FaqPageTypes.List,
+        elements: [
+          "BTC, ETH, Polygon, BSC, Solana, Near, Algorand, Hedera",
+          "Web3.js, Ether.js, Solana Anchor",
+          "Starknet / Cairo",
+          "Web3auth, Opensea, Coingeco, Moralis,  Infura, Alchemy",
+          "NFT, Launchpads, Metaverse, ICO, DeX, DeFI, Portfolio trackers",
+          "JavaScript, TypeScript, NodeJS",
+          "React Native, React, Redux, MobX, NextJS, Gatsby",
+          "SQL (PostgreSQL / mySQL), noSQL (MongoDB) databases",
+          "Docker, AWS, Heroku",
+          "ExpressJS, NestJS, Firebase, GCP",
+          "RX, GraphQL, Apollo, React Query",
+          "REST API development",
+        ],
+      },
+    ],
+    image: { src: questionImage.src },
+  },
+  {
+    title: "What is the cost of your services?",
+    content: [
+      {
+        type: FaqPageTypes.Description,
+        text: "Cost depends on several factors like deadlines, project’s complexity, industry, and client’s requirements. The price of MVP usually varies from 7000$ to 10000$.",
+      },
+    ],
+  },
+  {
+    title: "What about the payment process?",
+    content: [
+      {
+        type: FaqPageTypes.Description,
+        text: "To make the estimation transparent, we work using the time-material scheme. Each task is evaluated separately by the development team in hours. It is discussed and agreed upon with the client. After the approval procedure, the hours are multiplied by the hourly rate. This way, we get the final amount. It's divided into monthly payments preliminarily accompanied by invoices from our legal team.",
+      },
+    ],
+  },
+  {
+    title: "Does your work require prepayment?",
+    content: [
+      {
+        type: FaqPageTypes.Description,
+        text: "Yes, we highly appreciate our team's work, so the prepayment is a requirement. This amount of money becomes your two-week deposit and our safety net. It is made before starting. The only exception is working via Upwork.",
+      },
+    ],
+  },
+  {
+    title: "How many people work on the project?",
+    content: [
+      {
+        type: FaqPageTypes.Description,
+        text: "CGS-team creates a custom team to meet all your needs and cover all the requirements. We usually connect front-end dev, back-end dev, QA engineer, UI/UX designer, and Project Manager to provide outstanding services to our clients.",
+      },
+    ],
+  },
+  {
+    title: "How do we stay in touch with you?",
+    content: [
+      {
+        type: FaqPageTypes.Description,
+        text: "We believe this format allows you to be always up-to-date. Regular communication is a must for effective work.",
+      },
+      {
+        type: FaqPageTypes.List,
+        title: "Our proposal is to set up:",
+        elements: [
+          "meetings twice a week,",
+          "daily team calls,",
+          "weekly demo meetings (usually every Friday),",
+          "retro meetings.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "What are the guarantees of the qualitative results?",
+    content: [
+      {
+        type: FaqPageTypes.List,
+        title: "Our proposal is to set up:",
+        elements: [
+          "We conclude a contract previously agreed with the client's legal team. Then we make a two-sided signature to guarantee the provision of the services.",
+          "We leave links to all our profiles on trading platforms. Our clients can always leave a review there, whether it's bad or great. We usually get the second option.",
+          "Our reputation is the most vital security: 6 years of work, 54 large-scaled projects, and 0 unsuccessful cases. Don't believe it? Check it yourself. (link to our portfolio)",
+        ],
+      },
+    ],
+  },
+];

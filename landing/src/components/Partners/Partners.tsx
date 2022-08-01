@@ -1,9 +1,8 @@
 import React from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import * as StyledThisComp from "../../styles/Partners.styled";
+import * as StyledThisComp from "../../styles/HomePage/Partners.styled";
 import { IDataResponse } from "../../types/Admin/Response.types";
-import ImagePreview from "../Image/ImagePreview";
 
 const Partners = () => {
   const queryClient = useQueryClient();
@@ -13,7 +12,13 @@ const Partners = () => {
 
   return (
     <StyledThisComp.PartnersContainer>
-      The next-gen tech: Web, mobile, blockchain
+      {data &&
+        data?.images &&
+        data?.images?.normal.map((img, idx) => (
+          <StyledThisComp.PartnerImageWrapper key={idx}>
+            <StyledThisComp.Image src={img.url} />
+          </StyledThisComp.PartnerImageWrapper>
+        ))}
     </StyledThisComp.PartnersContainer>
   );
 };

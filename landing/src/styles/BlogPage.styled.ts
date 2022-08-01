@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
+import * as Styled from "./Blog.styled";
+import React from "react";
 
 export const PageWrapper = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
@@ -10,45 +12,16 @@ export const PageWrapper = styled.div`
 `;
 
 export const HeaderContainer = styled.article`
-  width: 1400px;
+  width: 100%;
   position: relative;
-  margin: 0 auto;
-  padding-top: ${themes.primary.spacing.headerNavVertical};
-
-  @media ${themes.primary.media.onlyLaptop} {
-    width: 1100px;
-
-    &.lets-code {
-      width: 90%;
-    }
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    width: 840px;
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    margin: 0 auto;
-    padding-top: ${themes.primary.spacing.headerNavVertical};
-    width: 720px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 100%;
-    margin: 0;
-    padding: ${themes.primary.spacing.headerNavVertical}
-      ${themes.primary.spacing.headerNavHorizontal};
-    overflow: hidden;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    padding: 2em 2em;
-  }
+  display: flex;
+  align-items: center;
+  padding: 40px;
 `;
 
 export const BannerImage = styled.img`
   object-fit: contain;
-  max-width: 950px;
+  max-width: 500px;
   width: 100%;
   @media (max-width: 990px) {
     max-width: 720px;
@@ -68,10 +41,11 @@ export const PageDescription = styled.div`
   }
 `;
 
-export const PageTitle = styled.div`
+export const PageTitle = styled.h1`
   max-width: 950px;
   width: 100%;
   margin-top: 28px;
+  margin-bottom: 0;
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.quaternary};
   color: ${themes.primary.colors.primary};

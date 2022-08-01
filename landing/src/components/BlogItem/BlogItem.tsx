@@ -1,6 +1,5 @@
 import React from "react";
 import * as Styles from "./BlogItem.styled";
-import Link from "next/link";
 
 interface IBlogItemProps {
   title: string;
@@ -35,7 +34,7 @@ const BlogItem = ({
           {children}
         </Styles.BlogItem>
       ) : (
-        <Link href={`/blog/${url}`} passHref>
+        <a href={`/blog/${url}`}>
           <Styles.BlogItem isAdmin={isAdmin}>
             <Styles.BlogItemInfo>
               <Styles.BlogItemTitle isAdmin={isAdmin}>
@@ -48,7 +47,7 @@ const BlogItem = ({
             <Styles.BlogItemImage src={image} />
             {children}
           </Styles.BlogItem>
-        </Link>
+        </a>
       )}
     </Styles.BlogItemContainer>
   );

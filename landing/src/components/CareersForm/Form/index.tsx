@@ -1,84 +1,90 @@
-import React, { FC, useState } from "react";
-import { useFormik, FormikValues } from "formik";
+import React, { FC, RefObject, useEffect, useRef, useState } from "react";
+import { Field, useFormik } from "formik";
 import * as Styled from "./Form.styled";
-import FormField from "./FormField/index";
-import { CareerFormValidation } from "../../../validations/CareerFormValidator";
-import { fieldData } from "../../../mock/VacancyFieldData";
-import animateCV from "../../../../public/lotties/CVButton.json";
-import BaseButton from "../../BaseButton/BaseButton";
-import ButtonTextWrapper from "../../ButtonText/ButtonTextWrapper";
-import { IFormBlock } from "../../../types/Admin/Response.types";
-import ModalSentEmail from "../../Modal/ModalSentEmail";
+import FormField from "./FormField2/index";
+import ThankYouModal from "../../Careers/ThankYouModal";
+import Clip from "../../../../public/CareerDecorations/clip.svg";
+import { IDataCareersResponse } from "../../../types/Admin/Response.types";
 import { useMutation } from "react-query";
 import { adminCareersService } from "../../../services/adminCareersPage";
 import { IVacancyMail } from "../../../types/Mail.types";
+import Close from "../../../../public/CareerDecorations/close.svg";
+import Loading from "../../../../public/CareerDecorations/loading.svg";
+import CareersDropdown from "../../Careers/CareersDropdown";
 
-interface IFormProps {
-  vacancy: string;
-  data?: IFormBlock;
+interface FormProps {
+  positions: string[];
+  data: IDataCareersResponse;
+  ourRef: RefObject<HTMLDivElement>;
 }
 
-const Form: FC<IFormProps> = ({ data, vacancy }) => {
-  const [isCV, setIsCV] = useState<boolean>(false);
-  const [isError, setIsError] = useState<boolean>(false);
-  const [animate, setAnimate] = useState<boolean>(false);
-  const [sent, setSent] = useState<boolean>(false);
+interface FormState {
+  name: string;
+  contact: string;
+  cvlink: string;
+  position: string;
+  cvfile: File | string;
+}
 
-  const formik = useFormik({
-    initialValues: fieldData,
-    onSubmit: (values: FormikValues, { resetForm }) => {
-      if (vacancy) {
-        const { file } = values;
+const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
+  const { contact, name, CV, position: formPosition } = data.form;
+  const [enable, setEnable] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [inCvInput, setInCvInput] = useState(false);
+  const [position, setPosition] = useState("");
+  const [cvName, setCvName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [buttonState, setButtonState] = useState({
+    disabled: true,
+    triedSubmit: false,
+  });
+  const [cvText, setCvText] = useState(CV.place);
+  const ref = useRef<HTMLInputElement>(null);
 
+  const fieldContent = { name, contact };
+
+  const formik = useFormik<FormState>({
+    initialValues: {
+      name: "",
+      contact: "",
+      cvfile: "",
+      cvlink: "",
+      position: "",
+    },
+    onSubmit(values, { resetForm }) {
+      if (buttonState.disabled) {
+        return setButtonState({ ...buttonState, triedSubmit: true });
+      }
+      if (!values.position) return;
+      if (values.cvfile) {
         const formData = new FormData();
 
-        formData.append("file", file);
+        formData.append("file", values.cvfile);
 
+        setCvName("");
         CVmutate(formData);
-        resetForm();
-        setIsCV(false);
+      } else {
+        mutate({
+          contact: values.contact,
+          name: values.name,
+          position: values.position,
+          cvlink: values.cvlink,
+        });
       }
+
+      setIsOpen(true);
+      resetForm();
     },
-    validationSchema: CareerFormValidation(),
   });
 
-  const { mutate } = useMutation(
-    (data: IVacancyMail) => adminCareersService.mailForm(data),
-    {
-      onSuccess: (data) => {
-        if (data) {
-          setIsError(false);
-          setSent(true);
-        } else {
-          setIsError(true);
-          setSent(false);
-        }
-      },
-      onError: () => {
-        setIsError(true);
-        setSent(false);
-      },
-    }
-  );
-
   const { mutate: CVmutate } = useMutation(
-    (image: FormData) => adminCareersService.uploadCV(image),
+    (cv: FormData) => adminCareersService.uploadCV(cv),
     {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onSuccess: (data: any) => {
-        const { email, name, telegram } = formik.values;
-        const filename = data.filename;
-        const mailData: IVacancyMail = {
-          vacancy,
-          describeYourself: formik.values.describe,
-          email,
-          projectsLink: formik.values.linksToProjects,
-          name,
-          mediaLink: formik.values.socialMediaLink,
-          telegram,
-          filename,
-        };
-        mutate(mailData);
+        const { contact, name, position } = formik.values;
+
+        mutate({ contact, name, position, cvpath: data.filename });
       },
       onError: (data) => {
         console.log(data);
@@ -86,90 +92,162 @@ const Form: FC<IFormProps> = ({ data, vacancy }) => {
     }
   );
 
-  const { CV, image, text, ...fieldContent } = { ...data };
+  const { mutate } = useMutation((data: IVacancyMail) =>
+    adminCareersService.mailForm(data)
+  );
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) formik.setFieldValue("file", event.target.files[0]);
+  const onFileSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.value?.length) {
+      setIsLoading(false);
+      return;
+    }
+
+    if (!event.target.files?.length) {
+      setIsLoading(false);
+      return;
+    }
+
+    const file = event.target.files[0];
+
+    setCvName(file.name);
+    setIsLoading(false);
+    formik.setFieldValue("cvfile", file);
+    event.target.value = "";
   };
 
-  const animateCv = (name: string) => {
-    setAnimate(true);
-    setTimeout(() => {
-      setAnimate(false);
-      setIsCV(!!name);
-    }, 10000);
+  const onCVlinkChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCvName("");
+    setIsLoading(false);
+    formik.setFieldValue("cvfile", "");
+    formik.setFieldValue("cvlink", event.currentTarget.value);
   };
 
-  const fileEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const name = e.target.value;
+  const checkEmpty = () =>
+    formik.values.cvfile || formik.values.cvlink ? true : false;
 
-    name ? animateCv(name) : setIsCV(!!name);
-
-    animateCv(name);
-    return handleChange(e);
+  const onFileRemove = () => {
+    setCvName("");
+    formik.setFieldValue("cvfile", "");
   };
 
-  const closeHandler = () => {
-    setSent(false);
+  const checkCancel = () => {
+    if (!ref.current) return;
+
+    if (!ref.current.value.length) {
+      setIsLoading(false);
+    } else {
+      document.body.onfocus = null;
+    }
   };
+
+  useEffect(() => {
+    document.body.onfocus = () => setTimeout(checkCancel, 100);
+  }, []);
+
+  useEffect(() => {
+    const filledFields = Object.keys(formik.values).reduce((prev, curr) => {
+      const element = formik.values[curr as keyof typeof formik.values];
+
+      if (!element) return prev;
+
+      return prev + 1;
+    }, 0);
+
+    filledFields < 4 && !buttonState.disabled
+      ? setButtonState({ ...buttonState, disabled: true })
+      : filledFields >= 4
+      ? setButtonState({ ...buttonState, disabled: false })
+      : null;
+  }, [formik.values]);
+
+  useEffect(() => {
+    formik.setFieldValue("position", position);
+    setEnable(false);
+  }, [position]);
 
   return (
     <Styled.FormProvider value={formik}>
+      <ThankYouModal isOpen={isOpen} setIsOpen={(val) => setIsOpen(val)} />
+      <Styled.Shadow enabled={enable} />
       <Styled.Form onSubmit={formik.handleSubmit} encType="multipart/form-data">
-        {Object.entries(fieldContent).map((el) => (
-          <FormField
-            key={el[0]}
-            name={el[0]}
-            label={el[1]}
-            handleChange={formik.handleChange}
+        <Styled.PositionSelect
+          onClick={() => setEnable(!enable)}
+          enabled={enable}
+        >
+          <CareersDropdown
+            className="careers"
+            filter={position}
+            setFilter={setPosition}
+            positions={positions}
+            dropdownName={position ? position : formPosition}
+            setEnable={setEnable}
           />
+        </Styled.PositionSelect>
+        <div ref={scrollToRef} />
+        {Object.entries(fieldContent).map(([key, label]) => (
+          <FormField name={key} key={key} label={label} />
         ))}
-
-        <Styled.FileContainer>
-          <Styled.FileInputWrapper active={animate}>
-            <Styled.InputFile
-              name="file"
-              type="file"
-              className="CV-file"
-              onChange={fileEdit}
-              id="CV-file"
-              accept=".png,.jpeg,.pdf,.word,.docx"
+        <Styled.FormFieldContainer>
+          <Styled.TitleContainer isCvIn={!!cvName.length}>
+            <Styled.Title>{cvName}</Styled.Title>
+            <Styled.DeleteCv onClick={onFileRemove} src={Close.src} />
+          </Styled.TitleContainer>
+          <Styled.Cvfield isEmpty={checkEmpty()} isCvIn={!!cvName.length}>
+            <Styled.FormField
+              placeholder={cvText}
+              type={"text"}
+              name={"cvlink"}
+              onFocus={() => setInCvInput(true)}
+              onBlur={() => {
+                setCvText(CV.place);
+                setInCvInput(false);
+              }}
+              onClick={() => {
+                setCvText("");
+                setIsLoading(false);
+              }}
+              onChange={onCVlinkChange}
             />
-            <Styled.InputFileLabel htmlFor="CV-file">
-              <Styled.FileButton>
-                <Styled.FileImg src="/clip-file.png" alt="alt clip image" />
-              </Styled.FileButton>
-              <Styled.FileText>{CV?.place}</Styled.FileText>
-            </Styled.InputFileLabel>
-          </Styled.FileInputWrapper>
-          {animate && (
-            <Styled.FileContainer>
-              <Styled.LottieButton animationData={animateCV} />
-            </Styled.FileContainer>
-          )}
-
-          <Styled.FileLoad>
-            {isCV ? "file is uploaded" : CV?.isSupported}
-          </Styled.FileLoad>
-        </Styled.FileContainer>
-        {isError && (
-          <Styled.ErrorMessage>
-            Something went wrong. Please try again later
-          </Styled.ErrorMessage>
-        )}
-        <Styled.SubmitButton>
-          {sent && <ModalSentEmail isOpen={sent} closeHandler={closeHandler} />}
-          <BaseButton
-            src="/careersSendBg.png"
-            width="22rem"
-            height="4rem"
-            className="big-btn"
+            <Styled.Label
+              inCvInput={inCvInput}
+              cvlink={!!formik.values.cvlink?.length}
+            >
+              <Field name="lastName">
+                {() => (
+                  <Styled.DropCv
+                    type="file"
+                    name={"cvfile"}
+                    accept=".pdf,.jpeg"
+                    onChange={onFileSubmit}
+                    onClick={() => setIsLoading(true)}
+                    value={""}
+                    ref={ref}
+                  />
+                )}
+              </Field>
+              <Styled.Loading src={Loading.src} isLoading={isLoading} />
+              <Styled.LabelWithClipContainer isLoading={isLoading}>
+                <Styled.Clip src={Clip.src} />
+                <Styled.LabelTitle>.pdf, .jpeg</Styled.LabelTitle>
+              </Styled.LabelWithClipContainer>
+            </Styled.Label>
+          </Styled.Cvfield>
+        </Styled.FormFieldContainer>
+        <Styled.FormSentContainer>
+          <Styled.FormSentButton
             type="submit"
+            isDisabled={buttonState.disabled}
           >
-            <ButtonTextWrapper fontSize="1.4em">send</ButtonTextWrapper>
-          </BaseButton>
-        </Styled.SubmitButton>
-        <Styled.BottomText>{text}</Styled.BottomText>
+            <Styled.FormSentWrap>&lt;a&gt;</Styled.FormSentWrap>
+            <Styled.FormSentText>send</Styled.FormSentText>
+            <Styled.FormSentWrap>&lt;/a&gt;</Styled.FormSentWrap>
+          </Styled.FormSentButton>
+          <Styled.FormSentFillText
+            toDisplay={buttonState.disabled && buttonState.triedSubmit}
+          >
+            &lt; Fill in all the fields &gt;
+          </Styled.FormSentFillText>
+        </Styled.FormSentContainer>
       </Styled.Form>
     </Styled.FormProvider>
   );
