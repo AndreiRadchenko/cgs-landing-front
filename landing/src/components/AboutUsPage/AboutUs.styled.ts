@@ -30,7 +30,7 @@ export const MainTitle = styled.div`
   font-size: 5.15vw;
   text-transform: uppercase;
   line-height: 120%;
-  padding: 77px 3.5% 0;
+  padding: 107px 3.5% 0;
   span {
     color: ${themes.primary.colors.darkBlue};
   }
@@ -49,9 +49,11 @@ export const Subtitle = styled.div`
 `;
 
 export const Text = styled.div`
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-size: ${themes.primary.font.size.aboutUsBelieveText};
   line-height: 160%;
   margin-top: 20px;
+  width: 87%;
+
   p {
     margin-bottom: 0;
     &:first-child {
@@ -67,7 +69,7 @@ export const Text = styled.div`
 export const BottomImage = styled.img`
   position: absolute;
   width: 55%;
-  bottom: 20px;
+  bottom: 80px;
   right: 0;
 `;
 
@@ -122,9 +124,9 @@ export const MainPhotoDescription = styled.div`
     }
   }
   @media ${themes.primary.media.maxLaptop} {
-    font-size: 1.3vw;
+    font-size: 1.11vw;
     &.main {
-      font-size: 1.45vw;
+      font-size: 1.47vw;
     }
   }
 `;
@@ -149,14 +151,14 @@ export const RotateBlock = styled.div<IRotate>`
   height: auto;
   display: flex;
   transform: rotate(${({ rotate }) => rotate});
-  max-width: 22vw;
+  max-width: 17.1vw;
   position: absolute;
   left: 100px;
   top: -1%;
   &.main {
-    max-width: 25vw;
+    max-width: 22.5vw;
     top: 13%;
-    left: 0;
+    left: 2%;
   }
   @media ${themes.primary.media.minPC} {
     max-width: 18vw;
@@ -174,8 +176,8 @@ export const RotateBlock = styled.div<IRotate>`
     top: -4%;
   }
   @media ${themes.primary.media.maxLaptop} {
-    left: 7vw;
-    top: -7%;
+    left: 9.3vw;
+    top: -11.5%;
   }
 `;
 
@@ -216,9 +218,9 @@ export const Pin = styled.img<IPin & IRotate>`
   top: -25px;
   z-index: 3;
   &.main {
-    width: 23px;
-    height: 46px;
-    top: -32px;
+    width: 27px;
+    height: 50px;
+    top: -36px;
   }
 `;
 
@@ -250,7 +252,7 @@ export const MainContainer = styled.div`
   row-gap: 180px;
   position: relative;
   padding-left: 3.5%;
-  margin: 100px 0 208px;
+  margin: 50px 0 208px;
   overflow: hidden;
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -261,7 +263,7 @@ export const MainContainer = styled.div`
 export const RightLine = styled.img`
   position: absolute;
   right: -130px;
-  top: 60px;
+  top: 50px;
   width: 130%;
 
   /* @media ${themes.primary.media.minPC} {
@@ -271,9 +273,9 @@ export const RightLine = styled.img`
 
 export const LeftLine = styled.img`
   position: absolute;
-  left: -160px;
-  top: -130px;
-  width: 50vw;
+  left: -135px;
+  top: -160px;
+  width: 48vw;
   @media ${themes.primary.media.maxTabletLandScape} {
     left: -120px;
   }
@@ -298,7 +300,8 @@ export const ColContainer = styled.div`
   flex-direction: column;
   width: 83%;
   &.first {
-    margin-top: 50px;
+    margin-left: 10px;
+    margin-top: 80px;
   }
 `;
 
@@ -487,14 +490,14 @@ export const SmallImageText = styled.div`
 `;
 
 export const OurBonuses = styled.div`
-  padding: 115px 3.5% 350px;
+  padding: 115px 3.5% 370px;
 `;
 
 export const BonusesContainer = styled.div`
   margin-top: 50px;
   display: grid;
   grid-template-columns: 52.5% 43%;
-  column-gap: 50px;
+  column-gap: 75px;
 `;
 
 export const Separator = styled.div`
