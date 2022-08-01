@@ -3,23 +3,23 @@ import themes from "../../utils/themes";
 
 export const PartnersContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  row-gap: 65px;
-  margin: 10.7em 0 10em;
+  grid-template-columns: 1fr 1fr 0.8fr 1.1fr 0.9fr 1fr;
+  column-gap: 60px;
+  row-gap: 10px;
+  margin: 130px 0 120px;
 `;
 
 export const PartnerImageWrapper = styled.div`
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
-  height: auto;
-  width: auto;
-  max-height: 60px;
 `;
 
 export const Image = styled.img`
+  width: 90%;
+  height: 70%;
+  object-fit: contain;
+
   @media ${themes.primary.media.maxTabletLandScape} {
     height: auto;
     width: 85%;

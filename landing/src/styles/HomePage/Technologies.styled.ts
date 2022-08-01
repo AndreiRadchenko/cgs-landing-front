@@ -24,8 +24,9 @@ export const TechTitle = styled.h2`
 
 export const TechnologyRow = styled.div`
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: 60px;
+  row-gap: 40px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
@@ -89,11 +90,13 @@ export const CategoryTitle = styled.h2`
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
   text-decoration: underline;
-  text-decoration-thickness: 2px ${themes.primary.colors.primary};
+  text-decoration-thickness: 2px;
+  text-decoration-color: ${themes.primary.colors.primary};
   text-underline-offset: 0.3em;
   font-size: ${themes.primary.font.size.reviewTitle};
   text-align: center;
   position: relative;
+  margin-bottom: 20px;
   z-index: 1;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndNine};
@@ -104,6 +107,7 @@ export const CategorySubtitle = styled.p`
   margin-top: 0;
   font-size: ${themes.primary.font.size.oneAndHalf};
   line-height: 160%;
+  margin-bottom: 0.2em;
   &.blockchain {
     margin-bottom: 50px;
   }
@@ -113,7 +117,7 @@ export const CategorySubtitle = styled.p`
 `;
 
 export const CategoryImage = styled.img`
-  max-width: 85%;
+  max-width: 98%;
   height: auto;
 `;
 
@@ -124,11 +128,18 @@ export const CategoryLine = styled.div`
 
 export const ArrowContainer = styled.div`
   position: absolute;
-  left: 50%;
-  top: calc(50% + 25px);
+  left: 47%;
+  top: calc(50% + 40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform: translate(-50%, -50%);
-  width: 61px;
-  height: 61px;
+  width: 121px;
+  height: 121px;
+
+  @media ${themes.primary.media.minPC} {
+    left: 50%;
+  }
 `;
 
 export const CategoryTechnology = styled.span`

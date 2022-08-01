@@ -45,7 +45,7 @@ export const FeedbackRow = styled.div`
   justify-content: space-between;
   position: relative;
   align-items: baseline;
-  margin-bottom: 136px;
+  margin-bottom: 170px;
   & .swiper {
     display: flex;
     flex-direction: column-reverse;
