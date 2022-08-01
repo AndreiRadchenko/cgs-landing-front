@@ -36,6 +36,7 @@ export const ProjectDescription = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 170%;
+  margin: 12px 0 27px;
   @media ${themes.primary.media.maxMobile} {
     padding: 10px;
     margin-top: 0px;
@@ -156,7 +157,7 @@ export const Category = styled.div`
 export const PortfolioRow = styled.div`
   display: flex;
   width: 100%;
-  max-height: 588px;
+  max-height: 455px;
   position: relative;
   & .swiper {
     display: flex;
@@ -170,6 +171,9 @@ export const PortfolioRow = styled.div`
   &:hover ${NavigateLeft} {
     background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
+  }
+  @media ${themes.primary.media.minPC} {
+    max-height: 570px;
   }
   @media ${themes.primary.media.minPCFullHD} {
     max-height: 658px;
@@ -197,6 +201,10 @@ export const NavigateRight = styled.div`
   border-left: 1px solid ${themes.primary.colors.comment};
 `;
 
+export const ArrowContainer = styled.div`
+  width: 50%;
+`;
+
 export const ReviewContainer = styled.div`
   .swiper-slide-next {
     background-color: ${themes.primary.colors.cyanBlue};
@@ -222,7 +230,7 @@ export const Image = styled.img`
 `;
 
 export const ImageContainer = styled.div`
-  width: 60%;
+  width: 56%;
   display: flex;
   justify-content: right;
   align-items: center;
@@ -234,7 +242,7 @@ export const ImageContainer = styled.div`
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 34px 26px 30px;
   width: 45%;
   box-sizing: border-box;
   @media (max-width: 1250px) {
@@ -282,7 +290,7 @@ export const Separator = styled.div`
     params.color ? params.color : themes.primary.colors.separator};
   width: 100%;
   height: 0.5px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 10px;
   }
@@ -294,7 +302,7 @@ export const Separator = styled.div`
 
 export const Feedback = styled.div`
   display: flex;
-  column-gap: 20px;
+  column-gap: 13px;
   row-gap: 18px;
   align-items: flex-end;
   flex-wrap: wrap;
@@ -304,7 +312,7 @@ export const Feedback = styled.div`
 `;
 
 export const AuthorName = styled.div`
-  font-size: ${themes.primary.font.size.articleTagDescription};
+  font-size: ${themes.primary.font.size.feedbackName};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.normal};
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -320,7 +328,7 @@ export const AuthorName = styled.div`
 
 export const CompanyName = styled.div`
   color: ${themes.primary.colors.comment};
-  font-size: ${themes.primary.font.size.linkText};
+  font-size: ${themes.primary.font.size.oneAndHalf};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.normal};
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -332,20 +340,20 @@ export const CompanyName = styled.div`
 `;
 
 export const Star = styled.img`
-  width: 18px;
+  width: 20px;
   height: auto;
   @media (max-width: 1250px) {
     width: 15px;
   }
   @media ${themes.primary.media.minPC} {
-    width: 20px;
+    width: 22px;
   }
 `;
 
 export const StarCont = styled.div`
   display: flex;
-  margin-bottom: 3px;
-  column-gap: 6px;
+  margin-bottom: 2.5px;
+  column-gap: 3px;
 `;
 
 export const Navigation = styled.div`

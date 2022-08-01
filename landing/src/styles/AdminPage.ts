@@ -222,6 +222,10 @@ export const AdminLogoElement = styled.div`
   height: 10em;
 `;
 
+export const LogoImage = styled.img`
+  max-width: 130px;
+`;
+
 export const AdminDeleteLogo = styled.button`
   position: absolute;
   right: 2px;

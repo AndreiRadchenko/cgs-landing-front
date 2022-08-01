@@ -11,8 +11,8 @@ export const OurWorkTitle = styled.div`
   font-size: ${themes.primary.font.size.ourWorkText};
   overflow: hidden;
   white-space: nowrap;
-  margin-top: 70px;
-  line-height: 47px;
+  margin-top: 78px;
+  line-height: 90%;
   margin-bottom: 40px;
 `;
 
