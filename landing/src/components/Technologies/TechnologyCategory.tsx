@@ -34,7 +34,7 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
       onMouseOver={onOpen}
       onMouseLeave={onClose}
     >
-      <StyledThisComp.CategoryTitle>{title}</StyledThisComp.CategoryTitle>
+      <StyledThisComp.CategoryTitle>{title}&nbsp;</StyledThisComp.CategoryTitle>
       <StyledThisComp.CategorySubtitle className={className}>
         <SplitBrackets text={text} />
       </StyledThisComp.CategorySubtitle>

@@ -14,7 +14,6 @@ const BookBlock = () => {
         Do you want to turn your ideas into{" "}
         <span className="blue">tech solutions</span>{" "}
         <FooterButtonWrapper>
-          with CGS-team?
           <FooterLinkButton>
             BOOK A CALL
             <ButtonArrow src={buttonArrow.src} />

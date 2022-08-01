@@ -98,6 +98,9 @@ export const CardContent = styled.p`
   max-width: 720px;
   font-size: ${themes.primary.font.size.feedbackName};
   display: inline-block;
+  @media ${themes.primary.media.minPC} {
+    max-width: 800px;
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tertiary};
   }

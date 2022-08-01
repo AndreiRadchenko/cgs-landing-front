@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const FeedbackCardContainer = styled.div`
-  width: 27em;
+  width: 95%;
   font-family: ${themes.primary.font.family.namu};
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@ export const Stars = styled.div`
 
 export const StarImage = styled.img`
   height: 100%;
-  width: 25px;
+  width: 26px;
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 18.5px;
   }
@@ -50,7 +50,7 @@ export const StarImage = styled.img`
 export const FeedbackCardCompany = styled.a`
   font-weight: ${themes.primary.font.weight.heavy};
   display: block;
-  margin: 0.7em 0;
+  margin: 0.4em 0;
   font-size: ${themes.primary.font.size.oneAndHalf};
   transition: 300ms;
   color: ${themes.primary.colors.headerBorder};
@@ -96,6 +96,7 @@ export const FeedbackCardDescription = styled.p`
   overflow: hidden;
   font-size: ${themes.primary.font.size.oneAndHalf};
   cursor: default;
+  margin-top: 0;
 
   line-height: 160%;
 
