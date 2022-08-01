@@ -64,17 +64,17 @@ const Review = ({ review }: IReviewProps) => {
           <Styled.Feedback>
             <Styled.AuthorName>{review.feedback?.name}</Styled.AuthorName>
             <Styled.CompanyName>{review.feedback?.company}</Styled.CompanyName>
-            <StarCont>
-              {startsArr.map((num, i) => {
-                if (num > 0.5) {
-                  return <Styled.Star src={StarPortfolio.src} key={i} />;
-                } else if (num > 0 && num <= 0.5) {
-                  return <Styled.Star src={halfStar.src} key={i} />;
-                }
-                return <Styled.Star src={emptyStar.src} key={i} />;
-              })}
-            </StarCont>
           </Styled.Feedback>
+          <StarCont>
+            {startsArr.map((num, i) => {
+              if (num > 0.5) {
+                return <Styled.Star src={StarPortfolio.src} key={i} />;
+              } else if (num > 0 && num <= 0.5) {
+                return <Styled.Star src={halfStar.src} key={i} />;
+              }
+              return <Styled.Star src={emptyStar.src} key={i} />;
+            })}
+          </StarCont>
           <Styled.ProjectComment>
             {review.feedback?.feedbackText}
           </Styled.ProjectComment>

@@ -157,7 +157,7 @@ export const Category = styled.div`
 export const PortfolioRow = styled.div`
   display: flex;
   width: 100%;
-  max-height: 455px;
+  max-height: 500px;
   position: relative;
   & .swiper {
     display: flex;
@@ -354,6 +354,7 @@ export const StarCont = styled.div`
   display: flex;
   margin-bottom: 2.5px;
   column-gap: 3px;
+  margin-top: 16px;
 `;
 
 export const Navigation = styled.div`
