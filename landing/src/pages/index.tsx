@@ -11,7 +11,6 @@ import { IDataResponse } from "../types/Admin/Response.types";
 import HeaderNavNew from "../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../components/FooterNew/FooterNew";
 import Content from "../components/HomePage/Content";
-
 interface IHomeData {
   data: IDataResponse | undefined;
   isLoading: boolean;
