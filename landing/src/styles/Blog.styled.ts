@@ -82,7 +82,8 @@ export const Tag = styled.button<ITag>`
   padding: 5px 10px;
   font-style: normal;
   font-weight: ${themes.primary.font.weight.semiBold};
-  font-size: ${themes.primary.font.size.fourteenth};
+  font-size: ${themes.primary.font.size.articleViews};
+  font-family: ${themes.primary.font.family.openSans};
   letter-spacing: 0.5px;
   z-index: 1;
   &:hover {
@@ -213,12 +214,15 @@ export const LoopContainer = styled.div`
 `;
 export const GrayText = styled.div`
   color: ${themes.primary.colors.authorGrey};
-  font-size: 0.975em;
+  font-size: ${themes.primary.font.size.articleViews};
+  &.big {
+    font-size: 1.34em;
+  }
 `;
 
 export const Date = styled.div`
   color: ${themes.primary.colors.authorGrey};
-  font-size: 0.975em;
+  font-size: 1.34em;
 `;
 
 export const MainBlogAuthor = styled(GrayText)`
@@ -251,6 +255,13 @@ export const ArticleWatchContainer = styled.div`
 `;
 
 export const WatchCount = styled(GrayText)`
+  font-size: 1.34em;
+  .article {
+    font-size: ${themes.primary.font.size.articleViews};
+  }
+`;
+
+export const WatchCountArticle = styled(GrayText)`
   font-size: ${themes.primary.font.size.articleViews};
 `;
 
@@ -635,16 +646,16 @@ export const MainContainer = styled.div`
 `;
 
 export const MainBlogItemContainer = styled(FlexColumnContainer)`
-  padding: 30px 70px;
-  width: 66.33vw;
+  padding: 31px 33px 32px 51px;
+  width: 67vw;
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 50px;
+    padding: 21px 23px 22px 41px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    padding: 30px;
+    padding: 15px 18px 17px 31px;
   }
   @media ${themes.primary.media.minPC} {
-    padding: 70px;
+    padding: 41px 43px 42px 71px;
   }
 `;
 

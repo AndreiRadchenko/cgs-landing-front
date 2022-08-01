@@ -37,7 +37,7 @@ export const Title = styled.div`
 export const Description = styled.p`
   margin: 0;
   font-weight: ${themes.primary.font.weight.normal};
-  font-size: ${themes.primary.font.size.linkText};
+  font-size: ${themes.primary.font.size.oneAndHalf};
   font-family: ${themes.primary.font.family.openSans};
   line-height: 160%;
   color: ${themes.primary.colors.blogDarkText};

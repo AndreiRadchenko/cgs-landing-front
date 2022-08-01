@@ -41,7 +41,9 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
             <Styles.SpaceBetween>
               <Styled.ArticleWatchContainer>
                 <Styled.WatchIcon src={Watch.src} />
-                <Styled.WatchCount>{views || 0}</Styled.WatchCount>
+                <Styled.WatchCountArticle>
+                  {views || 0}
+                </Styled.WatchCountArticle>
               </Styled.ArticleWatchContainer>
               <Styled.ArticleTimerContainer>
                 <Styled.TimerIcon src={Timer.src} />
