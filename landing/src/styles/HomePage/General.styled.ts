@@ -13,7 +13,7 @@ export const RowContainer = styled.div`
 export const ContentContainer = styled.div`
   min-height: 90vh;
   background-color: ${themes.primary.colors.blogBackground};
-  padding: 50px 50px 90px;
+  padding: 38px 51px 90px;
   font-family: ${themes.primary.font.family.namu};
   button {
     border: none;
@@ -27,10 +27,10 @@ export const ContentContainer = styled.div`
 
 export const ButtonArrow = styled.img`
   position: absolute;
-  right: -11px;
-  top: -11px;
-  width: 30px;
-  height: 30px;
+  right: -14px;
+  top: -14px;
+  width: 36px;
+  height: 36px;
 `;
 
 export const BlackButton = styled.a<IFontSize>`
@@ -82,7 +82,7 @@ export const MainSubtitle = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 7px;
-  margin: 28px 0 40px;
+  margin: 32px 0 40px;
   @media (max-width: 1200px) {
     font-size: 20px;
   }
@@ -119,12 +119,13 @@ export const HeadBlockContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 70px;
+  margin-top: 9.3em;
   z-index: 2;
 `;
 
 export const Tetris = styled.img`
   position: absolute;
+  width: 33.6%;
   right: 122px;
   @media (max-width: 1320px) {
     right: 40px;
@@ -136,18 +137,17 @@ export const Tetris = styled.img`
 `;
 
 export const HeadBlockRow = styled(RowContainer)`
-  position: relative;
   width: 100%;
 `;
 
 export const Subtitle = styled.div`
   text-transform: uppercase;
-  font-size: 5.2vw;
+  font-size: 5.14vw;
   letter-spacing: 0.05em;
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-  margin: 28px 0 40px;
+  margin: 32px 0 40px;
 
   & u {
     text-decoration-thickness: 3px;
@@ -173,7 +173,7 @@ export const Subtitle = styled.div`
 `;
 
 export const NextTech = styled.div`
-  margin-top: 373px;
+  margin-top: 24.5em;
 `;
 
 export const FilmContainer = styled.div`
@@ -182,7 +182,7 @@ export const FilmContainer = styled.div`
 `;
 
 export const Film = styled.img`
-  width: 85%;
+  width: 89.3%;
   @media (max-width: 1410px) {
     width: 97%;
   }
@@ -193,14 +193,17 @@ export const Film = styled.img`
 
 export const FilmText = styled.div`
   position: absolute;
-  top: 33%;
-  left: 2.5%;
-  max-width: 40%;
-  font-size: ${themes.primary.font.size.articleTagDescription};
+  top: 35.3%;
+  left: 2.7%;
+  max-width: 42%;
+  font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
   @media (max-width: 1410px) {
-    max-width: 47%;
-    top: 31%;
+    max-width: 47.5%;
+    top: 33%;
+  }
+  @media (max-width: 1220px) {
+    font-size: 20px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 18px;
