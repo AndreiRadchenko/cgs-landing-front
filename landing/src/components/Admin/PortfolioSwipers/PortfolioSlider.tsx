@@ -8,12 +8,10 @@ import Image from "next/image";
 import * as Styled from "../../../styles/PortfolioSlider.styled";
 import params from "../../../mock/PorfolioPageSwiperParams";
 import Review from "../../Portfolio/Review";
-import TriangleButton from "../../TriangleButton/TriangleButton";
-import backButton from "../../../../public/arrowPortfolioBack.svg";
-import nextButton from "../../../../public/arrowPortfolioNext.svg";
-import nextButtonHover from "../../../../public/arrowPortfolioNextHover.svg";
-import backButtonHover from "../../../../public/arrowPortfolioBackHover.svg";
-import { useWindowDimension } from "../../../hooks/useWindowDimension";
+import backButton from "../../../../public/Portfolio/left.svg";
+import nextButton from "../../../../public/Portfolio/right.svg";
+import nextButtonHover from "../../../../public/Portfolio/hoverRight.svg";
+import backButtonHover from "../../../../public/Portfolio/hoverLeft.svg";
 
 interface IPortfolioSwipers {
   reviews: IPortfolioReview[] | undefined;
@@ -93,20 +91,30 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
           <Swiper {...params}>
             <Styled.NavigateLeft>{category}</Styled.NavigateLeft>
             <Styled.NavigateRight>
-              <div onMouseOver={handleHoverNext} onMouseLeave={handleLeaveNext}>
-                <Image
-                  src={hoverNext ? nextButtonHover : nextButton}
-                  className={"swiper-button-next"}
-                  alt="portfolio next button"
-                />
-              </div>
-              <div onMouseOver={handleHoverPrev} onMouseLeave={handleLeavePrev}>
+              <Styled.ArrowContainer
+                onMouseOver={handleHoverPrev}
+                onMouseLeave={handleLeavePrev}
+              >
                 <Image
                   src={hoverPrev ? backButtonHover : backButton}
                   className={"swiper-button-prev"}
                   alt="portfolio back button"
+                  width={"100%"}
+                  height={"100%"}
                 />
-              </div>
+              </Styled.ArrowContainer>
+              <Styled.ArrowContainer
+                onMouseOver={handleHoverNext}
+                onMouseLeave={handleLeaveNext}
+              >
+                <Image
+                  src={hoverNext ? nextButtonHover : nextButton}
+                  className={"swiper-button-next"}
+                  alt="portfolio next button"
+                  width={"100%"}
+                  height={"100%"}
+                />
+              </Styled.ArrowContainer>
             </Styled.NavigateRight>
             {renderSliderSlides}
           </Swiper>

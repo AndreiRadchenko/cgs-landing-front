@@ -25,7 +25,7 @@ const LogoElement = ({ image, deleteLogo }: ILogoProps) => {
         &#10005;
       </Styled.AdminDeleteLogo>
       <div>
-        <AdminImage image={image} />
+        <Styled.LogoImage src={image.url} />
       </div>
     </Styled.AdminLogoElement>
   );

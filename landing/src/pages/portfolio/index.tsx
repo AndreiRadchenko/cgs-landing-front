@@ -65,8 +65,9 @@ const PortfolioPage: NextPage = () => {
         <HeaderNavNew />
         {isMobile || (
           <Styles.OurWorkTitle>
-            UR WORK OUR WORK OUR WORK OUR WORK OUR WORK OUR WORK WORK OUR WORK
-            OUR WORK
+            UR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
+            WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;WORK
+            OUR&nbsp;&nbsp;WORK OUR WORK
           </Styles.OurWorkTitle>
         )}
         <Styles.SlidersCont>
