@@ -75,6 +75,7 @@ export const SubmitButtonContainer = styled.div`
 export const SubmitButton = styled.button`
   height: 100%;
   width: 100%;
+  border: 0;
   background: black;
   color: white;
   text-transform: uppercase;

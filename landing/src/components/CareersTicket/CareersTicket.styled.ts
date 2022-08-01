@@ -207,11 +207,13 @@ export const TicketContainer = styled.div`
   background-image: url(/CareerDecorations/outer.svg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  max-width: 616px;
+
+  max-width: 646px;
   width: 100%;
-  height: 265px;
+  height: 275px;
   padding: 16px;
   position: relative;
+  right: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -231,7 +233,6 @@ export const TicketPosition = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 1.8vw;
   display: flex;
-  width: 19%;
   justify-content: center;
   align-items: center;
   align-self: center;
@@ -256,9 +257,11 @@ export const LeftDivider = styled.hr`
   background-color: black;
   align-self: center;
   position: absolute;
+  left: -10px;
   transform: rotate(270deg);
   border: none;
   border-radius: 5px;
+
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 2px;
   }
@@ -309,7 +312,7 @@ export const TicketPositionTitle = styled.p`
   text-overflow: ellipsis;
 
   @media ${themes.primary.media.minLaptop} {
-    font-size: 32px;
+    font-size: 35px;
   }
 
   &.admin {
@@ -324,10 +327,10 @@ export const TicketPositionStack = styled.p`
   margin-top: 8px;
   margin-bottom: 0;
   text-transform: uppercase;
-  font-size: 1.3vw;
+  font-size: 1.5vw;
 
   @media ${themes.primary.media.minLaptop} {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   &.admin {
@@ -348,7 +351,7 @@ export const TicketPositionStars = styled.img`
   height: auto;
 
   @media ${themes.primary.media.minLaptop} {
-    width: 30px;
+    width: 35px;
   }
   &.admin {
     @media ${themes.primary.media.minLaptop} {
@@ -389,11 +392,11 @@ export const TicketDataBackground = styled.img`
 `;
 
 export const TicketArrow = styled.img`
-  max-width: 49px;
+  max-width: 60px;
   width: 100%;
   height: 100%;
-  max-height: 49px;
+  max-height: 60px;
   position: absolute;
-  right: -14px;
-  top: 40%;
+  right: -27px;
+  top: 39%;
 `;

@@ -2,7 +2,7 @@ import React, { FC, MouseEvent, useState } from "react";
 import * as Styled from "./CareersTicket.styled";
 import Star from "../../../public/CareerDecorations/star.svg";
 import Background from "../../../public/CareerDecorations/background.svg";
-import Arrow from "../../../public/BlogDecorations/MainPage/Arrow.svg";
+import Arrow from "../../../public/CareerDecorations/ticketArrow.svg";
 import TicketModal from "../Careers/TicketModal";
 import { ITicket } from "../../types/Admin/Response.types";
 import * as Styles from "../../styles/TicketModal.styled";

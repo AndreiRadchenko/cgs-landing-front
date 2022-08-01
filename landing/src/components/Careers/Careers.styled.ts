@@ -11,9 +11,8 @@ export const CareersContainer = styled.div`
 `;
 
 export const Title = styled.div`
-  margin: 115px 50px 90px 50px;
+  margin: 115px 0 90px 0;
   font-weight: ${themes.primary.font.weight.heavy};
-  line-height: 85px;
   text-transform: uppercase;
 
   .blue {
@@ -28,14 +27,14 @@ export const ArrowContainer = styled.div`
 `;
 
 export const TitleArrow = styled.img`
-  width: 10vw;
+  width: 12vw;
   height: 25px;
   margin: 0 15px 8% 15px;
 `;
 
 export const TitleText = styled.span`
   margin: 0;
-  font-size: 5vw;
+  font-size: 5.2vw;
   color: ${themes.primary.colors.primary};
 `;
 
@@ -56,7 +55,6 @@ export const TicketsWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 115px;
-  padding: 0 50px;
 `;
 
 export const TicketsContainer = styled.div`
@@ -72,7 +70,7 @@ export const TicketsContainer = styled.div`
 
 export const FormAndImageContainer = styled.div`
   display: flex;
-  margin: 65px 0 115px 120px;
+  margin: 45px 0 115px 120px;
   align-self: normal;
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -82,9 +80,11 @@ export const FormAndImageContainer = styled.div`
 `;
 
 export const FormTitle = styled.span`
-  font-size: 50px;
+  font-size: 51px;
   font-weight: ${themes.primary.font.weight.heavy};
   margin: 0;
+  line-height: 132%;
+  letter-spacing: 0.05em;
   color: #000000;
   align-self: normal;
   margin: 115px 0 0 50px;
@@ -98,24 +98,23 @@ export const FormContainer = styled.div`
 `;
 
 export const Form = styled.div`
-  width: 456px;
-  height: 416px;
   position: absolute;
   background-color: ${themes.primary.colors.careerBackground};
+  margin-top: 20px;
 `;
 
 export const FormImage = styled.img`
   width: 645px;
   height: 515px;
-  margin-left: 45vw;
-  padding-bottom: 50px;
+  margin-left: 40vw;
 `;
 
 export const FormContainer3D = styled.div`
-  width: 455px;
-  height: 416px;
+  width: 446px;
+  height: 418px;
   position: absolute;
   background: black;
+  margin-top: 20px;
   margin-left: 13px;
   display: flex;
   flex-direction: column;

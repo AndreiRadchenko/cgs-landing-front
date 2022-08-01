@@ -47,9 +47,9 @@ const Careers: FC<ICareersProps> = ({ data }) => {
         </Styles.TicketsWrapper>
         <Styles.Separator />
         <Styles.FormTitle>
-          &lt;&nbsp;Found your dream-job?
+          &lt;Found your dream-job?
           <br />
-          Let us discover you!&nbsp;&gt;
+          Let us discover you!&gt;
         </Styles.FormTitle>
         <Styles.FormAndImageContainer>
           <Styles.FormContainer>
