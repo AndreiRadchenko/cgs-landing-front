@@ -8,6 +8,7 @@ import halfStar from "../../../public/halfStar.svg";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { StarCont } from "../../styles/PortfolioSlider.styled";
 import portfolioArrow from "../../../public/portfolioArrow.svg";
+import { recoverLink } from "../../utils/recoverLink";
 
 interface IReviewProps {
   review: IPortfolioReview;
@@ -34,14 +35,6 @@ const Review = ({ review }: IReviewProps) => {
     }
     stars = stars - 1;
   }
-
-  const recoverLink = (link: string) => {
-    let resultLink = link;
-    if (link.indexOf("https://") === -1 && link.indexOf("http://") === -1) {
-      resultLink = `https://${resultLink}`;
-    }
-    return resultLink;
-  };
 
   return (
     review && (
