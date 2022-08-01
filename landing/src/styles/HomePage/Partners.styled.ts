@@ -4,8 +4,9 @@ import themes from "../../utils/themes";
 export const PartnersContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  column-gap: 77px;
   row-gap: 65px;
-  margin: 10.7em 0 10em;
+  margin: 10.85em 0 11.67em;
 `;
 
 export const PartnerImageWrapper = styled.div`
@@ -13,15 +14,13 @@ export const PartnerImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
-  height: auto;
-  width: auto;
-  max-height: 60px;
+  width: 100%;
+  height: 60px;
 `;
 
-export const Image = styled.img`
-  @media ${themes.primary.media.maxTabletLandScape} {
-    height: auto;
-    width: 85%;
-  }
-`;
+// export const Image = styled.img`
+//   @media ${themes.primary.media.maxTabletLandScape} {
+//     height: auto;
+//     width: 85%;
+//   }
+// `;
