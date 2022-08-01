@@ -4,7 +4,7 @@ import arrowAdminFeedbackL from "../../../../public/arrowAdminFeedbackL.svg";
 import arrowAdminFeedbackR from "../../../../public/arrowAdminFeedbackR.svg";
 import Image from "next/image";
 import { useFormikContext } from "formik";
-import { IPortfolioData, IPortfolioReview } from "../../../types/Admin/AdminPortfolioPage.types";
+import { IPortfolioData } from "../../../types/Admin/AdminPortfolioPage.types";
 
 interface ICarouselProps {
   page: number;
@@ -22,16 +22,18 @@ const PortfolioPageCarousel = ({
   const { values } = useFormikContext<IPortfolioData>();
   const [nextPage, setNextPage] = useState(0);
   const [prevPage, setPrevPage] = useState(0);
-  
-  const reviews = values.reviews.sort((rew1, rew2) => (rew1.category >= rew2.category) ? 1 : -1);
+
+  const reviews = values.reviews.sort((rew1, rew2) =>
+    rew1.category >= rew2.category ? 1 : -1
+  );
 
   const categories = reviews.map(({ category }) => category);
   const max = categories.lastIndexOf(catValue);
   const min = reviews.findIndex((review) => review.category === catValue);
 
-  const findNextPage = () => page !== max ? page + 1 : min;
+  const findNextPage = () => (page !== max ? page + 1 : min);
 
-  const findPrevPage = () => page !== min ? page - 1 : max;
+  const findPrevPage = () => (page !== min ? page - 1 : max);
 
   useEffect(() => {
     setNextPage(findNextPage());

@@ -3,6 +3,13 @@ const nextConfig = {
   images: {
     domains: ["landing-cgs.s3.amazonaws.com"],
   },
+  routes: [
+    {
+      src: "/GilroyFont/(.*)",
+      headers: { "cache-control": "s-maxage=31536000" },
+      dest: "/GilroyFont/$1",
+    },
+  ],
   reactStrictMode: true,
   eslint: {
     // Warning: This allows production builds to successfully complete even if
@@ -15,6 +22,10 @@ const nextConfig = {
     // your project has type errors.
     // !! WARN !!
     // ignoreBuildErrors: true,
+  },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
   },
 };
 

@@ -30,6 +30,11 @@ export async function getStaticProps() {
   };
 }
 
+interface IHomeData {
+  data: IDataResponse | undefined;
+  isLoading: boolean;
+}
+
 const Home: NextPage = () => {
   const { data, isLoading }: IHomeData = useQuery(
     queryKeys.getFullHomePage,

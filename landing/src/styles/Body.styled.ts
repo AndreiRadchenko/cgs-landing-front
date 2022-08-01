@@ -97,7 +97,7 @@ export const WrapperBgImg = styled.div`
   @media ${themes.primary.media.onlyTabletPortrait} {
     width: 60%;
     top: 15%;
-    right: -5%;
+    right: -1%;
   }
 
   @media ${themes.primary.media.maxMobile} {

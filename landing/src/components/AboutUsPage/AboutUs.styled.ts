@@ -169,11 +169,11 @@ export const RotateBlock = styled.div<IRotate>`
   }
   @media ${themes.primary.media.minPCFullHD} {
     left: 9vw;
-    top: -2%;
+    top: -6%;
   }
   @media ${themes.primary.media.maxPCFullHD} {
-    left: 9vw;
-    top: -4%;
+    left: 11vw;
+    top: -7.5%;
   }
   @media ${themes.primary.media.maxLaptop} {
     left: 9.3vw;
