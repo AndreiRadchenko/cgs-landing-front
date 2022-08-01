@@ -51,7 +51,9 @@ const BlogItem = ({ article, views }: IBlogItem) => {
                 </Styled.BlogItemRowContainer>
                 <Styled.WatchContainer>
                   <Styled.TimerIcon src={Timer.src} />
-                  <Styled.GrayText>{`${article.minutesToRead} min`}</Styled.GrayText>
+                  <Styled.GrayText
+                    className={"big"}
+                  >{`${article.minutesToRead} min`}</Styled.GrayText>
                 </Styled.WatchContainer>
               </Styled.GeneralInfo>
             </Styled.BlogItemContainer>

@@ -7,7 +7,7 @@ export const Title = styled.h1`
   font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.blogDarkText};
   margin: 0;
-  width: 100%;
+  width: 90%;
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.bigTitle};
   }
@@ -15,8 +15,8 @@ export const Title = styled.h1`
 
 export const SubTitle = styled.p`
   width: 100%;
-  margin-top: 50px;
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  margin-top: 28px;
+  font-size: ${themes.primary.font.size.faqQuestion};
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.blogDarkText};
@@ -34,14 +34,13 @@ export const Background = styled.div`
 `;
 
 export const PageWrapper = styled.div`
-  max-width: 975px;
+  max-width: 973px;
   position: relative;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 88px;
   display: flex;
   width: 100%;
   flex-direction: column;
-  padding: 40px;
   a {
     color: ${themes.primary.colors.darkBlue};
     text-decoration: none;
@@ -61,6 +60,9 @@ export const PageWrapper = styled.div`
     @media ${themes.primary.media.maxTabletPortrait} {
       list-style-image: url(/listSquareMobile.png);
     }
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding: 40px;
   }
 `;
 
@@ -97,7 +99,7 @@ export const BannerWrapper = styled.div`
   align-items: flex-end;
   column-gap: 20px;
   max-width: 965px;
-  margin-top: 48px;
+  margin-top: 6px;
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 60px;
   }
@@ -112,10 +114,13 @@ export const ArrowBackButton = styled.img`
     cursor: pointer;
   }
   position: absolute;
-  top: -60px;
-  left: -180px;
+  top: -63px;
+  left: -16.5em;
   @media (max-width: 1280px) {
     left: -120px;
+  }
+  @media (max-width: 1370px) {
+    left: -150px;
   }
   @media (max-width: 1250px) {
     left: -90px;

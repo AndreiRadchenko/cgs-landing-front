@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: 30px;
+  margin-top: 36px;
 `;
 
 export const AuthorWrapper = styled.div`
@@ -22,7 +22,7 @@ export const AuthorImage = styled.img`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 12px;
+  margin-right: 7px;
 `;
 
 export const AuthorInfoWrapper = styled.div`
