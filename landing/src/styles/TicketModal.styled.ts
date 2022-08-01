@@ -75,6 +75,7 @@ export const SubmitButtonContainer = styled.div`
 export const SubmitButton = styled.button`
   height: 100%;
   width: 100%;
+  border: 0;
   background: black;
   color: white;
   text-transform: uppercase;
@@ -83,11 +84,11 @@ export const SubmitButton = styled.button`
 `;
 
 export const SubmitArrow = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   position: absolute;
-  right: -18px;
-  top: -15px;
+  right: -15px;
+  top: -12px;
   cursor: pointer;
 `;
 

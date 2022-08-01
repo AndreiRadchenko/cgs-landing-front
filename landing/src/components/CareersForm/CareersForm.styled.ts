@@ -1,5 +1,5 @@
 import themes from "./../../utils/themes";
-import styled, { keyframes, css } from "styled-components";
+import styled, { css } from "styled-components";
 
 export const FormTitle = styled.h1`
   font-size: ${themes.primary.font.size.quaternary};
@@ -51,41 +51,11 @@ export const FormImage = styled("div")<IFormImage>`
   }
 `;
 
-const rocket = keyframes`
-  ${css`
-    12% {
-      transform: translateX(1rem);
-    }
-    25% {
-      transform: translateY(-0.5rem);
-    }
-    37% {
-      transform: translateX(-1rem);
-    }
-    50% {
-      transform: translateY(-0.5rem);
-    }
-    62% {
-      transform: translateX(1rem);
-    }
-    75% {
-      transform: translateY(0.5rem);
-    }
-    87% {
-      transform: translateX(-1rem);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  `}
-`;
-
 export const ImageWrapper = styled.div`
   display: flex;
 `;
 
 export const FormContainter = styled.div`
-  width: 100%;
-  height: 100%;
-  border: 1px solid black;
+  width: 446px;
+  height: 417px;
 `;
