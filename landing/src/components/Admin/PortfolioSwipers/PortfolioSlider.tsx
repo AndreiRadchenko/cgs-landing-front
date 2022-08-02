@@ -97,8 +97,8 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
               >
                 <Image
                   src={hoverPrev ? backButtonHover : backButton}
-                  className={"swiper-button-prev"}
                   alt="portfolio back button"
+                  className={"swiper-button-next"}
                   width={"100%"}
                   height={"100%"}
                 />
@@ -109,7 +109,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
               >
                 <Image
                   src={hoverNext ? nextButtonHover : nextButton}
-                  className={"swiper-button-next"}
+                  className={"swiper-button-prev"}
                   alt="portfolio next button"
                   width={"100%"}
                   height={"100%"}
