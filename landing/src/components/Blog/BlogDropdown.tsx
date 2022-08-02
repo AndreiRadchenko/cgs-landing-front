@@ -3,8 +3,8 @@ import * as Styled from "../../styles/Blog.styled";
 import Arrow from "../../../public/upArrowSidebar.svg";
 
 interface IBlogDropdown {
-  setFilter: (tag: string) => void;
-  filter: string | null;
+  setFilters: (tags: string[]) => void;
+  filters: string[];
   tags: string[];
   dropdownName: string;
   isHeader?: boolean;
@@ -15,8 +15,8 @@ interface IBlogDropdown {
 }
 
 const BlogDropdown = ({
-  setFilter,
-  filter,
+  setFilters,
+  filters,
   tags,
   dropdownName,
   isTag = false,
@@ -47,7 +47,7 @@ const BlogDropdown = ({
         {tags.map((tag) => (
           <div
             onClick={() => {
-              setFilter(tag);
+              !filters.includes(tag) && setFilters([...filters, tag]);
               setIsOpen(false);
             }}
             key={tag}
