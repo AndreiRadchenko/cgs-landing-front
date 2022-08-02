@@ -1,7 +1,7 @@
+import React from "react";
 import AuthAdminHeader from "../../components/AdminAuth/AuthHeader";
 import AdminAuthForm from "../../components/AdminAuth/AuthForm";
 import * as Styled from "../../styles/AdminAuth";
-import React from "react";
 
 const AdminPage = () => {
   return (

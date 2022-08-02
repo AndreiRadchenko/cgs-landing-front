@@ -43,8 +43,8 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   justify-content: center;
   column-gap: 10px;
   align-items: center;
-  border-bottom: 0 !important;
-  border-right: 0 !important;
+  border-bottom: 0;
+  border-right: 0;
   border-left: 1px solid ${themes.primary.colors.comment} !important;
 
   button,
@@ -80,19 +80,26 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   }
   &:hover {
     transition: 0.3s;
-    border-right: 1.5px solid ${themes.primary.colors.primary} !important;
-    border-bottom: 7px solid ${themes.primary.colors.primary} !important;
+    border-right: 1.5px solid ${themes.primary.colors.primary};
+    border-bottom: 7px solid ${themes.primary.colors.primary};
   }
   &:hover &.open {
-    border-bottom: 0 !important;
-    border-right: 3px solid ${themes.primary.colors.primary} !important;
+    border-bottom: 0;
+    border-right: 3px solid ${themes.primary.colors.primary};
   }
   &.open {
-    border-bottom: 0 !important;
-    border-right: 3px solid ${themes.primary.colors.primary} !important;
+    border-bottom: 0;
+    border-right: 3px solid ${themes.primary.colors.primary};
 
     img {
       transform: rotate(180deg);
+    }
+  }
+  &.disabled {
+    cursor: default;
+    &:hover {
+      border-right: 0;
+      border-bottom: 0;
     }
   }
   & > img,
@@ -103,6 +110,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     transform: rotate(0deg);
     margin-top: 3px;
   }
+
   padding: 0;
 `;
 
@@ -110,4 +118,12 @@ export const Dropdown = styled.div`
   position: relative;
   display: inline-block;
   background-color: ${themes.primary.colors.blogBackground};
+  &.disabled {
+    cursor: default;
+    opacity: 0.5;
+    &:hover {
+      border-right: 0;
+      border-bottom: 0;
+    }
+  }
 `;

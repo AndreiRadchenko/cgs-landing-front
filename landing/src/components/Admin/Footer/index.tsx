@@ -1,5 +1,5 @@
+import React, { memo } from "react";
 import { FieldArray, useFormikContext } from "formik";
-import React from "react";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import * as Styled from "../../../styles/AdminPage";
@@ -53,4 +53,4 @@ const AdminFooterBlock = () => {
   );
 };
 
-export default AdminFooterBlock;
+export default memo(AdminFooterBlock);
