@@ -1,12 +1,15 @@
 import React, { FC } from "react";
 import * as Styles from "./PaginationBar.styled";
 import { usePagination } from "../../hooks/usePagination";
+import Link from "next/link";
+import { router } from "next/client";
 
 interface IPaginationBar {
   totalCount: number;
   pageSize: number;
   siblingCount: number;
   currentPage: number;
+  filters: string[];
 }
 
 const DOTS = "...";
@@ -38,9 +41,11 @@ const PaginationBar: FC<IPaginationBar> = ({
               {pageNumber}
             </Styles.CurrentPaginationItem>
           ) : (
-            <a href={`/blog?page=${pageNumber}`} key={pageNumber}>
-              <Styles.PaginationItem>{pageNumber}</Styles.PaginationItem>
-            </a>
+            <Link href={`/blog?page=${pageNumber}`} key={pageNumber}>
+              <a>
+                <Styles.PaginationItem>{pageNumber}</Styles.PaginationItem>
+              </a>
+            </Link>
           );
         })}
       </Styles.PaginationItemsWrapper>

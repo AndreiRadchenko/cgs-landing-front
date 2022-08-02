@@ -5,7 +5,12 @@ export const routers = {
   portfolio: "/portfolio",
 };
 
-export const routersNew = ["/portfolio", "/services", "/company", "/blog"];
+export const routersNew = [
+  "/portfolio",
+  "/services",
+  "/company",
+  "/blog?page=1",
+];
 
 export const navigationRoutesNames = [
   "/portfolio",

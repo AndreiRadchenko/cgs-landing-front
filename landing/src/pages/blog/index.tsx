@@ -22,6 +22,8 @@ import SmallArticleItem from "../../components/Blog/SmallArticleItem";
 import { useRouter } from "next/router";
 import { useScrollTo } from "../../hooks/useScrollTo";
 import { isNumeric } from "../../utils/isNumeric";
+import { Loading } from "../../components/CareersForm/Form/Form.styled";
+import loading from "../../../public/CareerDecorations/loading.svg";
 
 interface IBlogData {
   data: IBlogResponse | undefined;
@@ -61,17 +63,17 @@ const BlogPage = () => {
   const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
-  const [reversedArticles, setRevesedArticles] = useState<IArticle[] | null>(
+  const [reversedArticles, setReversedArticles] = useState<IArticle[] | null>(
     null
   );
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [filter, setFilter] = useState<string | null>(null);
+  const [filters, setFilters] = useState<string[]>([]);
   const [filteredData, setFilteredData] = useState<IArticle[] | null>(null);
   const [tags, setTags] = useState<string[]>([]);
 
   useEffect(() => {
     data &&
-      setRevesedArticles(
+      setReversedArticles(
         data?.articles.reverse().filter((article) => !article.disabled)
       );
   }, [data, data?.articles]);
@@ -82,15 +84,15 @@ const BlogPage = () => {
   }, [data, reversedArticles]);
 
   useEffect(() => {
-    if (filter) {
+    if (filters.length > 0) {
       const newData = reversedArticles?.filter((article) =>
-        article.tags.find((tag) => tag === filter)
+        article.tags.find((tag) => filters.includes(tag))
       );
       setFilteredData(newData ? newData : null);
     }
-  }, [data?.articles, filter, reversedArticles]);
-  const tagParams = router.query.tag;
+  }, [data, filters, filters.length, reversedArticles]);
 
+  const tagParams = router.query.tag;
   useEffect(() => {
     if (data) {
       const page = router.query.page;
@@ -100,23 +102,29 @@ const BlogPage = () => {
           ? Number(page) <= maxPage
             ? Number(page)
             : maxPage
-          : 1;
-      setFilter(tagParams as string);
-      setCurrentPage(currentPage);
+          : router.push("/blog?page=1");
+      tagParams &&
+        !filters.includes(tagParams as string) &&
+        setFilters([...filters, tagParams as string]);
+      setCurrentPage(typeof currentPage === "number" ? currentPage : 1);
       if (tagParams) {
         scrollHandler();
       }
     }
   }, [tagParams, scrollHandler, router.query.page, data]);
 
+  useEffect(() => {
+    router.query.page !== "1" && scrollHandler();
+  }, [router.query.page]);
+
   const currentArticlesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    if (filter && filteredData) {
+    if (filters.length > 0 && filteredData) {
       return filteredData?.slice(firstPageIndex, lastPageIndex);
     }
     return reversedArticles?.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, filteredData, filter, reversedArticles]);
+  }, [currentPage, filteredData, reversedArticles, filters]);
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
@@ -125,6 +133,10 @@ const BlogPage = () => {
       return views.data[0].allViews.find((view) => view.articleUrl === url)
         ?.views;
   };
+
+  useEffect(() => {
+    router.query.page !== "1" && filters.length && router.push("/blog?page=1");
+  }, [filters.length]);
 
   return data && views.data ? (
     <>
@@ -164,35 +176,67 @@ const BlogPage = () => {
         <PodcastItem />
         <Styled.Separator />
         <Styled.AllArticlesContainer articles={data.articles.length}>
-          <Styled.DropdownContainer ref={ref}>
-            {filter && (
-              <Styled.Tag>
-                {filter}&nbsp;&nbsp;
-                <span onClick={() => setFilter(null)}>x</span>
-              </Styled.Tag>
-            )}
+          <Styled.DropdownContainer>
+            <>
+              {filters.length > 0 &&
+                filters.map((filter, index) => (
+                  <Styled.Tag key={index}>
+                    {filter}&nbsp;&nbsp;
+                    <span
+                      onClick={() => {
+                        const newFilters = filters.filter(
+                          (filter) => filter !== filters[index]
+                        );
+                        setFilters([...newFilters]);
+                      }}
+                    >
+                      x
+                    </span>
+                  </Styled.Tag>
+                ))}
+            </>
             <BlogDropdown
+              filters={filters}
               className="blog"
-              setFilter={setFilter}
-              filter={filter}
+              setFilters={setFilters}
               tags={tags}
               dropdownName="#TAGS"
               isTag={true}
             />
           </Styled.DropdownContainer>
-          {currentArticlesData &&
-            currentArticlesData.map((article) => (
-              <BlogItem
-                article={article}
-                key={article._id}
-                views={findViews(article.url)}
-              />
-            ))}
+          {currentArticlesData && currentArticlesData.length > 0 ? (
+            currentArticlesData.map((article, i) =>
+              i === 0 ? (
+                <div ref={ref}>
+                  <BlogItem
+                    article={article}
+                    key={article._id}
+                    views={findViews(article.url)}
+                    filters={filters}
+                  />
+                </div>
+              ) : (
+                <BlogItem
+                  article={article}
+                  key={article._id}
+                  views={findViews(article.url)}
+                  filters={filters}
+                />
+              )
+            )
+          ) : (
+            <Loading src={loading.src} isLoading={true} />
+          )}
           <PaginationBar
             currentPage={currentPage}
-            totalCount={data.articles.length}
+            totalCount={
+              filters.length > 0 && filteredData
+                ? filteredData.length
+                : data.articles.length
+            }
             pageSize={PageSize}
             siblingCount={1}
+            filters={filters}
           />
         </Styled.AllArticlesContainer>
         <FooterNew />

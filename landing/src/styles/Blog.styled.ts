@@ -79,7 +79,7 @@ export const Tag = styled.button<ITag>`
   height: 28px;
   color: ${themes.primary.colors.secondary};
   background-color: ${themes.primary.colors.darkBlue};
-  padding: 5px 10px;
+  padding: 6px 12px 6px;
   font-style: normal;
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.articleViews};
@@ -93,6 +93,9 @@ export const Tag = styled.button<ITag>`
   }
   span {
     cursor: pointer;
+  }
+  @media ${themes.primary.media.minPC} {
+    font-size: ${themes.primary.font.size.primary};
   }
 `;
 
@@ -398,6 +401,8 @@ export const DropdownContainer = styled.div`
   margin-bottom: 25px;
   align-items: flex-end;
   column-gap: 20px;
+  flex-wrap: wrap;
+  row-gap: 12px;
 `;
 
 export const PodcastContainer = styled.div`
