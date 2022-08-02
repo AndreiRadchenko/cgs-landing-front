@@ -395,6 +395,22 @@ export const Dropdown = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
 `;
 
+export const LoaderContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  background: linear-gradient(
+    180deg,
+    rgba(241, 239, 237, 0.8) 100%,
+    rgba(241, 239, 237, 0) 114.26%
+  );
+`;
+
 export const DropdownContainer = styled.div`
   display: flex;
   justify-content: right;

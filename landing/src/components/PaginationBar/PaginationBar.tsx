@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import * as Styles from "./PaginationBar.styled";
 import { usePagination } from "../../hooks/usePagination";
 import Link from "next/link";

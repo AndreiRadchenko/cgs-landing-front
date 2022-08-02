@@ -70,6 +70,7 @@ const BlogPage = () => {
   const [filters, setFilters] = useState<string[]>([]);
   const [filteredData, setFilteredData] = useState<IArticle[] | null>(null);
   const [tags, setTags] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     data &&
@@ -135,11 +136,17 @@ const BlogPage = () => {
   };
 
   useEffect(() => {
-    setCurrentPage(1);
-    router.query.page !== "1" &&
-      filters.length &&
-      router.push("/blog?page=1").then(() => scrollHandler());
+    if (router.query.page !== "1" && filters.length) {
+      setIsLoading(true);
+      setCurrentPage(1);
+      router.push("/blog?page=1").then(() => {
+        scrollHandler();
+        setIsLoading(false);
+      });
+    }
   }, [filters.length]);
+
+  console.log(isLoading);
 
   return data && views.data ? (
     <>
@@ -174,6 +181,11 @@ const BlogPage = () => {
                   <SmallArticleItem article={article} key={article._id} />
                 ))}
           </Styled.FlexColumnContainer>
+          {isLoading && (
+            <Styled.LoaderContainer className={"loading"}>
+              <Loading src={loading.src} isLoading={isLoading} />
+            </Styled.LoaderContainer>
+          )}
         </Styled.HeaderBlock>
         <Styled.Separator />
         <PodcastItem />
@@ -207,7 +219,7 @@ const BlogPage = () => {
               isTag={true}
             />
           </Styled.DropdownContainer>
-          {currentArticlesData && currentArticlesData.length > 0 ? (
+          {currentArticlesData &&
             currentArticlesData.map((article, i) =>
               i === 0 ? (
                 <div ref={ref}>
@@ -226,10 +238,7 @@ const BlogPage = () => {
                   filters={filters}
                 />
               )
-            )
-          ) : (
-            <Loading src={loading.src} isLoading={true} />
-          )}
+            )}
           <PaginationBar
             currentPage={currentPage}
             totalCount={
