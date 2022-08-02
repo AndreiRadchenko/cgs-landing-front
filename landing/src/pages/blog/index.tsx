@@ -10,7 +10,6 @@ import { adminBlogService } from "../../services/adminBlogPage";
 import { adminGlobalService } from "../../services/adminHomePage";
 import * as Styled from "../../styles/Blog.styled";
 import Head from "next/head";
-import { AdminUnauthorizedModal } from "../../styles/AdminPage";
 import BlogDropdown from "../../components/Blog/BlogDropdown";
 import leftLine from "../../../public/BlogDecorations/MainPage/leftLine.png";
 import rightLine from "../../../public/BlogDecorations/MainPage/rightLine.png";
@@ -103,20 +102,16 @@ const BlogPage = () => {
           ? Number(page) <= maxPage
             ? Number(page)
             : maxPage
-          : router.push("/blog?page=1");
+          : 1;
       tagParams &&
         !filters.includes(tagParams as string) &&
         setFilters([...filters, tagParams as string]);
-      setCurrentPage(typeof currentPage === "number" ? currentPage : 1);
+      setCurrentPage(currentPage);
       if (tagParams) {
         scrollHandler();
       }
     }
   }, [tagParams, scrollHandler, router.query.page, data]);
-
-  useEffect(() => {
-    currentPage !== 1 && scrollHandler();
-  }, [currentPage, scrollHandler]);
 
   const currentArticlesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
@@ -145,6 +140,12 @@ const BlogPage = () => {
       });
     }
   }, [filters.length]);
+
+  useEffect(() => {
+    if (router.query.page) {
+      scrollHandler();
+    }
+  }, [router.query.page]);
 
   console.log(isLoading);
 
@@ -255,7 +256,9 @@ const BlogPage = () => {
       </Styled.BlogContainer>
     </>
   ) : (
-    <AdminUnauthorizedModal>Loading...</AdminUnauthorizedModal>
+    <Styled.LoaderContainer className={"loading"}>
+      <Loading src={loading.src} isLoading={true} />
+    </Styled.LoaderContainer>
   );
 };
 
