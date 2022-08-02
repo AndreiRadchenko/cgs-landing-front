@@ -92,25 +92,25 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
             <Styled.NavigateLeft>{category}</Styled.NavigateLeft>
             <Styled.NavigateRight>
               <Styled.ArrowContainer
+                onMouseOver={handleHoverNext}
+                onMouseLeave={handleLeaveNext}
+              >
+                <Image
+                  src={hoverNext ? nextButtonHover : nextButton}
+                  className={"swiper-button-next"}
+                  alt="portfolio next button"
+                  width={"100%"}
+                  height={"100%"}
+                />
+              </Styled.ArrowContainer>
+              <Styled.ArrowContainer
                 onMouseOver={handleHoverPrev}
                 onMouseLeave={handleLeavePrev}
               >
                 <Image
                   src={hoverPrev ? backButtonHover : backButton}
                   alt="portfolio back button"
-                  className={"swiper-button-next"}
-                  width={"100%"}
-                  height={"100%"}
-                />
-              </Styled.ArrowContainer>
-              <Styled.ArrowContainer
-                onMouseOver={handleHoverNext}
-                onMouseLeave={handleLeaveNext}
-              >
-                <Image
-                  src={hoverNext ? nextButtonHover : nextButton}
                   className={"swiper-button-prev"}
-                  alt="portfolio next button"
                   width={"100%"}
                   height={"100%"}
                 />
