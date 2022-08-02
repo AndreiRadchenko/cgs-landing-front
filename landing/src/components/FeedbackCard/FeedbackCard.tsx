@@ -35,7 +35,9 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
           {description}
         </StyledThisComp.FeedbackCardDescription>
       </StyledThisComp.FeedBackContentWrapper>
-      <StyledThisComp.FeedbackButton>View more</StyledThisComp.FeedbackButton>
+      <StyledThisComp.FeedbackButton href="https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/">
+        View more
+      </StyledThisComp.FeedbackButton>
     </StyledThisComp.FeedbackCardContainer>
   );
 };
