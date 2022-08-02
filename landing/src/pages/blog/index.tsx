@@ -115,8 +115,8 @@ const BlogPage = () => {
   }, [tagParams, scrollHandler, router.query.page, data]);
 
   useEffect(() => {
-    router.query.page !== "1" && scrollHandler();
-  }, [router.query.page]);
+    currentPage !== 1 && scrollHandler();
+  }, [currentPage, scrollHandler]);
 
   const currentArticlesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
@@ -140,8 +140,8 @@ const BlogPage = () => {
       setIsLoading(true);
       setCurrentPage(1);
       router.push("/blog?page=1").then(() => {
-        scrollHandler();
         setIsLoading(false);
+        scrollHandler();
       });
     }
   }, [filters.length]);
@@ -155,6 +155,11 @@ const BlogPage = () => {
         <meta name="description" content={metaDescription} />
         {customHead && parse(customHead)}
       </Head>
+      {isLoading && (
+        <Styled.LoaderContainer className={"loading"}>
+          <Loading src={loading.src} isLoading={true} />
+        </Styled.LoaderContainer>
+      )}
       <HeaderNavNew />
       <Styled.BlogContainer>
         <Styled.LeftLine src={leftLine.src} />
@@ -181,11 +186,6 @@ const BlogPage = () => {
                   <SmallArticleItem article={article} key={article._id} />
                 ))}
           </Styled.FlexColumnContainer>
-          {isLoading && (
-            <Styled.LoaderContainer className={"loading"}>
-              <Loading src={loading.src} isLoading={isLoading} />
-            </Styled.LoaderContainer>
-          )}
         </Styled.HeaderBlock>
         <Styled.Separator />
         <PodcastItem />
