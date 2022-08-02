@@ -147,8 +147,6 @@ const BlogPage = () => {
     }
   }, [router.query.page]);
 
-  console.log(isLoading);
-
   return data && views.data ? (
     <>
       <Head>
@@ -223,10 +221,9 @@ const BlogPage = () => {
           {currentArticlesData &&
             currentArticlesData.map((article, i) =>
               i === 0 ? (
-                <div ref={ref}>
+                <div ref={ref} key={article._id}>
                   <BlogItem
                     article={article}
-                    key={article._id}
                     views={findViews(article.url)}
                     filters={filters}
                   />
