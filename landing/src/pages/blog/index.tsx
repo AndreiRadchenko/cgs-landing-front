@@ -135,7 +135,10 @@ const BlogPage = () => {
   };
 
   useEffect(() => {
-    router.query.page !== "1" && filters.length && router.push("/blog?page=1");
+    setCurrentPage(1);
+    router.query.page !== "1" &&
+      filters.length &&
+      router.push("/blog?page=1").then(() => scrollHandler());
   }, [filters.length]);
 
   return data && views.data ? (
