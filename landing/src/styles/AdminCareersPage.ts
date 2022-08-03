@@ -23,6 +23,10 @@ export const SubTitle = styled.h3`
   line-height: 26px;
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.semiBold};
+  &.info {
+    margin-top: 70px;
+    color: ${themes.primary.colors.headerBorder};
+  }
 `;
 
 export const TitleInput = styled.input`

@@ -29,10 +29,9 @@ const AdminLogosBlock: FC = () => {
   const { mutate } = useMutation(queryKeys.deleteImage, (url: string) =>
     adminGlobalService.deleteImage(url)
   );
-  const normalLogos = { images: values.LogosBlock.images.normal };
 
   const deleteNormalLogo = (id: number) => {
-    const link = values.LogosBlock.images.normal.splice(id, 1);
+    const link = values.LogosBlock.images.splice(id, 1);
     mutate(link[0].url);
     handleSubmit();
     queryClient.invalidateQueries(queryKeys.GetFullPage);
@@ -42,9 +41,9 @@ const AdminLogosBlock: FC = () => {
     <Styled.AdminPaddedBlock theme="dark">
       <Styled.AdminSubTitle>Logos</Styled.AdminSubTitle>
       <Styled.AdminLogosGrid>
-        <AddLogoFrame state={normalLogos} submit={handleSubmit} />
+        <AddLogoFrame state={values.LogosBlock} submit={handleSubmit} />
         {render({
-          state: values.LogosBlock.images.normal,
+          state: values.LogosBlock.images,
           deleteLogo: deleteNormalLogo,
         })}
       </Styled.AdminLogosGrid>

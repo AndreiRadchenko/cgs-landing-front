@@ -1,6 +1,6 @@
 import React from "react";
 import SubHeaderWithInput from "../components/Admin/Global/SubHeaderWithInput";
-import { firstLetterToUpperCase } from "./firstLetterToUpperCase";
+import { headerToUpperCase } from "./headerToUpperCase";
 
 const anyNumbersInHeader = (i: string) => {
   return isNaN(+i[i.length - 1])
@@ -22,7 +22,7 @@ export const renderInputs = ({ props, state, onChangeFunction }: any) => {
           return (
             <SubHeaderWithInput
               key={`input${ind}${props.name}`}
-              header={firstLetterToUpperCase(anyNumbersInHeader(i))}
+              header={headerToUpperCase(anyNumbersInHeader(i))}
               name={`${props.name}.${i}`}
               inputValue={state[i]}
               onChangeFunction={onChangeFunction}

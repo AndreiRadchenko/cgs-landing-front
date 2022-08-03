@@ -13,7 +13,6 @@ import {
 import AdminCarousel from "../Global/AdminImageCarousel";
 import { feedbackInit } from "../../../consts";
 import useFeedbackLogic from "../../../hooks/useFeedbackLogic";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 const AdminFeedbackBlock = () => {
   const { values, handleChange, handleSubmit } =
@@ -45,14 +44,6 @@ const AdminFeedbackBlock = () => {
     <Styled.AdminPaddedBlock>
       <Styled.AdminHalfGrid>
         <div>
-          <Styled.AdminFilmInputPaddedBlock>
-            <SubHeaderWithInput
-              name="FeedbackBlock.filmText"
-              header="Text on film"
-              inputValue={values.FeedbackBlock.filmText}
-              onChangeFunction={handleChange}
-            />
-          </Styled.AdminFilmInputPaddedBlock>
           <FieldArray name="FeedbackBlock">{render}</FieldArray>
         </div>
         <div />
