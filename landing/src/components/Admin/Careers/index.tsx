@@ -7,7 +7,10 @@ import CareersTicket from "../../CareersTicket";
 import AdminCarousel from "../Global/AdminImageCarousel";
 import edit from "../../../../public/editIcon.svg";
 import close from "../../../../public/bigClose.svg";
-import { IDataCareersResponse } from "../../../types/Admin/Response.types";
+import {
+  IDataCareersResponse,
+  IVacancies,
+} from "../../../types/Admin/Response.types";
 
 import * as Styled from "../../../styles/AdminPage";
 import {
@@ -27,14 +30,16 @@ import { adminCareersService } from "../../../services/adminCareersPage";
 import { queryKeys } from "../../../consts/queryKeys";
 import AdminStars from "../FeedbackBlock/AdminStars";
 import Stack from "../../CareersStack/Stack";
-import FromUs from "../../CareersStack/FromUs";
+import CareerInfo from "../../CareersStack/CareerInfo";
 import FromYou from "../../CareersStack/FromYou";
+import { newVacancy } from "../../../consts";
 
 interface ICareers {
   isNewTicket: boolean;
   setIsNewTicket: React.Dispatch<React.SetStateAction<boolean>>;
   ticket: number;
   setTicket: React.Dispatch<React.SetStateAction<number>>;
+  refetch: () => any;
 }
 
 const Careers = ({
@@ -42,6 +47,7 @@ const Careers = ({
   setIsNewTicket,
   ticket,
   setTicket,
+  refetch,
 }: ICareers) => {
   const { values, handleChange } = useFormikContext<IDataCareersResponse>();
   const starsChange = (newValue: number) =>
@@ -60,6 +66,36 @@ const Careers = ({
 
     values.tickets.splice(ticket, 1);
     setTicket(0);
+  };
+
+  const { mutateAsync: putData } = useMutation(
+    queryKeys.UpdateCareersPage,
+    (data: IVacancies) => adminCareersService.addTicketCareersPage(data)
+  );
+
+  const addOrEditTicket = async () => {
+    document.body.style.cursor = "wait";
+    if (!isNewTicket && values.vacancy) {
+      console.log("add");
+      const id = `${Math.random() * 1000000}`;
+      const ticket = { ...values.vacancy, id };
+      await putData({
+        tickets: [...values.tickets, ticket],
+        vacancy: newVacancy,
+      });
+      values.tickets = [...values.tickets, ticket];
+      values.vacancy = newVacancy;
+    }
+    if (isNewTicket) {
+      console.log("edit");
+      setIsNewTicket(!isNewTicket);
+      await putData({
+        tickets: [...values.tickets],
+        vacancy: newVacancy,
+      });
+    }
+    await refetch();
+    document.body.style.cursor = "auto";
   };
 
   return (
@@ -111,11 +147,11 @@ const Careers = ({
           />
           <SubTitle>Stack</SubTitle>
           <Stack isNewTicket={isNewTicket} ticket={ticket} />
-          <SubTitle>From Us</SubTitle>
-          <FromUs isNewTicket={isNewTicket} ticket={ticket} />
-          <SubTitle>From You</SubTitle>
-          <FromYou isNewTicket={isNewTicket} ticket={ticket} />
-          <TicketsButton type="submit">
+          <SubTitle className={"info"}>Info about vacancy</SubTitle>
+          <CareerInfo isNewTicket={isNewTicket} ticket={ticket} infoIndex={0} />
+          {/*<SubTitle>From You</SubTitle>*/}
+          {/*<FromYou isNewTicket={isNewTicket} ticket={ticket} />*/}
+          <TicketsButton type="button" onClick={addOrEditTicket}>
             {isNewTicket ? "Edit ticket" : "Add ticket"}
           </TicketsButton>
         </CareersContainer>

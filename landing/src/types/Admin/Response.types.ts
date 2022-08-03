@@ -81,6 +81,11 @@ export interface IDataResponse {
 
 // Careers
 
+export interface IInfo {
+  heading: string;
+  values: string[];
+}
+
 export interface ITicket {
   id?: string;
   vacancy: string;
@@ -89,8 +94,7 @@ export interface ITicket {
   _id?: string;
   stack: string[];
   stars: number;
-  fromUs: string[];
-  fromYou: string[];
+  info: IInfo[];
 }
 
 export interface IForm {
@@ -120,6 +124,11 @@ export interface IDataCareersResponse {
   vacancy?: ITicket;
   form: IFormBlock;
   meta: IMetaBlock;
+}
+
+export interface IVacancies {
+  tickets: ITicket[];
+  vacancy?: ITicket;
 }
 
 export interface IPointsData {
