@@ -79,7 +79,7 @@ export const Tag = styled.button<ITag>`
   height: 28px;
   color: ${themes.primary.colors.secondary};
   background-color: ${themes.primary.colors.darkBlue};
-  padding: 5px 10px;
+  padding: 6px 12px 6px;
   font-style: normal;
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.articleViews};
@@ -93,6 +93,9 @@ export const Tag = styled.button<ITag>`
   }
   span {
     cursor: pointer;
+  }
+  @media ${themes.primary.media.minPC} {
+    font-size: ${themes.primary.font.size.primary};
   }
 `;
 
@@ -392,12 +395,30 @@ export const Dropdown = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
 `;
 
+export const LoaderContainer = styled.div`
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  background: linear-gradient(
+    180deg,
+    rgba(241, 239, 237, 0.8) 100%,
+    rgba(241, 239, 237, 0) 114.26%
+  );
+`;
+
 export const DropdownContainer = styled.div`
   display: flex;
   justify-content: right;
   margin-bottom: 25px;
   align-items: flex-end;
   column-gap: 20px;
+  flex-wrap: wrap;
+  row-gap: 12px;
 `;
 
 export const PodcastContainer = styled.div`
