@@ -15,7 +15,7 @@ const BookBlock = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
-  )?.EditInformationBlock;
+  )?.BookCallBlock;
 
   return (
     <>
@@ -23,8 +23,10 @@ const BookBlock = () => {
         Do you want to turn your ideas into{" "}
         <span className="blue">tech solutions</span>{" "}
         <FooterButtonWrapper>
-          <FooterLinkButton href={data && recoverLink(data?.link)}>
-            BOOK A CALL
+          <FooterLinkButton
+            href={data && data.buttonLink && recoverLink(data?.buttonLink)}
+          >
+            {data?.button}
             <ButtonArrow src={buttonArrow.src} />
           </FooterLinkButton>
         </FooterButtonWrapper>
