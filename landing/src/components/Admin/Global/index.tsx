@@ -14,6 +14,8 @@ import { queryKeys } from "../../../consts/queryKeys";
 import { adminGlobalService } from "../../../services/adminHomePage";
 import { IDataResponse } from "../../../types/Admin/Response.types";
 import MetaTagsBlock from "../MetaTagsBlock";
+import FilmTextBlock from "../FilmTextBlock";
+import ButtonBlock from "../ButtonBlock";
 
 interface IMainProps {
   data: IDataResponse | undefined;
@@ -48,7 +50,7 @@ const AdminMainContent = () => {
       validateOnChange={false}
       enableReinitialize={true}
     >
-      {() => {
+      {({ values }) => {
         return (
           <Styled.AdminContentBlock>
             <Form>
@@ -56,9 +58,20 @@ const AdminMainContent = () => {
               <EditInformationBlock />
               <SubtitleBlock />
               <AdminLogosBlock />
+              <FilmTextBlock />
+              <ButtonBlock
+                theme="dark"
+                block={values.SeeAllBlock}
+                name="SeeAllBlock"
+              />
               <AdminFeedbackBlock />
               <AdminTechBlock />
               <AdminCardsBlock />
+              <ButtonBlock
+                theme="dark"
+                block={values.BookCallBlock}
+                name="BookCallBlock"
+              />
               <AdminFooterBlock />
               <MetaTagsBlock theme="dark" />
               <Styled.AdminPaddedBlock>

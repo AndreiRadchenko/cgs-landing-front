@@ -17,6 +17,9 @@ const NextTech = () => {
   const text = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
   )?.SubtitleBlock;
+  const buttonData = queryClient.getQueryData<IDataResponse>(
+    queryKeys.getFullHomePage
+  )?.SeeAllBlock;
   return (
     <Styled.NextTech>
       <Styled.Subtitle>{text && parse(text.title)}</Styled.Subtitle>
@@ -36,9 +39,9 @@ const NextTech = () => {
         <Styled.BlackButton
           size={"1.85em"}
           padding={"18px 17px"}
-          href="/portfolio"
+          href={buttonData?.buttonLink}
         >
-          SEE ALL WORK
+          {buttonData?.button}
           <Styled.ButtonArrow src={buttonArrow.src} />
         </Styled.BlackButton>
       </Styled.RightContainer>

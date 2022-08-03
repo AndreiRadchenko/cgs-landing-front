@@ -3,7 +3,7 @@ import { Form, useFormikContext } from "formik";
 import usePushFeedback from "../../../hooks/usePushFeedback";
 import * as Styled from "../../../styles/AdminPage";
 import { IFeedback } from "../../../types/Admin/Response.types";
-import { firstLetterToUpperCase } from "../../../utils/firstLetterToUpperCase";
+import { headerToUpperCase } from "../../../utils/headerToUpperCase";
 import AdminStars from "./AdminStars";
 
 interface IFeedbackFormProps {
@@ -24,7 +24,7 @@ const render = (
     <Styled.AdminInput
       key={`feedbackFormInputNumb${ind}`}
       name={i[0]}
-      placeholder={firstLetterToUpperCase(i[0])}
+      placeholder={headerToUpperCase(i[0])}
       value={i[1]}
       onChange={change}
     />

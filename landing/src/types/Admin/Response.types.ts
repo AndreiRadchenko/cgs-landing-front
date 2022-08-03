@@ -1,8 +1,8 @@
 import { IImage } from "./Admin.types";
 export interface IEditInformation {
   title: string;
-  link: string;
   button: string;
+  buttonLink: string;
   image: { url: string } | null;
 }
 
@@ -65,16 +65,24 @@ export interface IMetaBlock {
 
 // completed
 
+export interface IButtonWithLinkBlock {
+  button: string;
+  buttonLink: string;
+}
+
 export interface IDataResponse {
   MainLogoBlock: { image: { url: string } | null };
   EditInformationBlock: IEditInformation;
   SubtitleBlock: ISubtitle;
+  SeeAllBlock: IButtonWithLinkBlock;
+  FilmBlock: { textOnFilm: string };
   LogosBlock: {
-    images: { normal: { url: string }[]; hover: { url: string }[] };
+    images: { url: string }[];
   };
   CardsBlock: ICards;
   FeedbackBlock: IFeedbackBlock;
   TechnologyBlock: ITechnologyBlock;
+  BookCallBlock: IButtonWithLinkBlock;
   FooterBlock: IFooterBlock;
   meta: IMetaBlock;
 }
