@@ -148,10 +148,16 @@ export const newPageReviewInit = {
 };
 
 export const newVacancy = {
-  position: "",
   vacancy: "",
-  stars: 0,
+  position: "",
   stack: [],
+  info: [
+    {
+      heading: "",
+      values: [],
+    },
+  ],
+  stars: 0,
 };
 
 export enum ROUTE_KEYS {

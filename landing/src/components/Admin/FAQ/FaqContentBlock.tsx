@@ -48,7 +48,6 @@ const FaqContentBlock = () => {
         ) : (
           <ButtonsContainer>
             <AddButton onClick={() => addQuestion(0)}>
-              {" "}
               [ + add next question ]
             </AddButton>
           </ButtonsContainer>

@@ -839,3 +839,7 @@ export const AdminFeedbackText = styled.p`
   font-size: ${themes.primary.font.size.tertiary};
   letter-spacing: 1px;
 `;
+
+export const DraggableWrapper = styled.div`
+  margin: 10px 0;
+`;

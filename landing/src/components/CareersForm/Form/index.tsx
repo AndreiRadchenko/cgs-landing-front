@@ -194,7 +194,7 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
           </Styled.TitleContainer>
           <Styled.Cvfield isEmpty={checkEmpty()} isCvIn={!!cvName.length}>
             <Styled.FormField
-              placeholder={cvText}
+              placeholder={CV.place}
               type={"text"}
               name={"cvlink"}
               onFocus={() => setInCvInput(true)}

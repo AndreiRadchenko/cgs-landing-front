@@ -41,7 +41,9 @@ const PortfolioPage: NextPage = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { width } = useWindowDimension();
   const sortByCategory = (category: string) => {
-    return data?.reviews.filter((review) => review.category === category);
+    return data?.reviews
+      .reverse()
+      .filter((review) => review.category === category);
   };
   useEffect(() => {
     setIsMobile(false);
