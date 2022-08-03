@@ -31,7 +31,6 @@ import { queryKeys } from "../../../consts/queryKeys";
 import AdminStars from "../FeedbackBlock/AdminStars";
 import Stack from "../../CareersStack/Stack";
 import CareerInfo from "../../CareersStack/CareerInfo";
-import FromYou from "../../CareersStack/FromYou";
 import { newVacancy } from "../../../consts";
 
 interface ICareers {
