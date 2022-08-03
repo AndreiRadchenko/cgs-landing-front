@@ -13,7 +13,7 @@ const NextTech = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
-  )?.FeedbackBlock;
+  )?.FilmBlock;
   const text = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
   )?.SubtitleBlock;
@@ -26,7 +26,7 @@ const NextTech = () => {
       <Partners />
       <Styled.FilmContainer>
         <Styled.Film src={film.src} />
-        <Styled.FilmText>{data?.filmText}</Styled.FilmText>
+        <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
       </Styled.FilmContainer>
       <Styled.Subtitle>
         <Styled.RowContainer>

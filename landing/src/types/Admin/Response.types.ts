@@ -31,7 +31,6 @@ export interface IFeedback {
 }
 
 export interface IFeedbackBlock {
-  filmText: string;
   subtitle: string;
   text3: string;
   feedBacks: IFeedback[];
