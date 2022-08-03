@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import * as Styled from "../../styles/Blog.styled";
-import PlayButton from "../../../public/BlogDecorations/Podcast/PlayButton.png";
+import PlayButton from "../../../public/BlogDecorations/Podcast/PlayButton.svg";
 import Podcast from "../../../public/BlogDecorations/Podcast/Podcast.svg";
 import PlayTriangle from "../../../public/BlogDecorations/Podcast/PlayTriangle.svg";
 import StopButton from "../../../public/StopButton.svg";

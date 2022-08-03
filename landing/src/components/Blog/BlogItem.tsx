@@ -7,9 +7,10 @@ import { IArticle } from "../../types/Admin/Response.types";
 interface IBlogItem {
   article: IArticle;
   views?: number;
+  filters: string[];
 }
 
-const BlogItem = ({ article, views }: IBlogItem) => {
+const BlogItem = ({ article, views, filters }: IBlogItem) => {
   const parseDate = (date: string) => {
     return date.split("-").reverse().join(".");
   };
@@ -28,7 +29,11 @@ const BlogItem = ({ article, views }: IBlogItem) => {
                         ? parseDate(article.date)
                         : `Updated on ${parseDate(article.updatedOn)}`}
                     </Styled.Date>
-                    <Styled.Tag>{article.tags[0]}</Styled.Tag>
+                    <Styled.Tag>
+                      {filters?.length > 0
+                        ? filters.find((tag) => article.tags.includes(tag))
+                        : article.tags[0]}
+                    </Styled.Tag>
                   </Styled.FlexRowContainer>
                   <Styled.BlogItemTitle>{article.title}</Styled.BlogItemTitle>
                   <Styled.BlogItemDescription>
@@ -51,7 +56,9 @@ const BlogItem = ({ article, views }: IBlogItem) => {
                 </Styled.BlogItemRowContainer>
                 <Styled.WatchContainer>
                   <Styled.TimerIcon src={Timer.src} />
-                  <Styled.GrayText>{`${article.minutesToRead} min`}</Styled.GrayText>
+                  <Styled.GrayText
+                    className={"big"}
+                  >{`${article.minutesToRead} min`}</Styled.GrayText>
                 </Styled.WatchContainer>
               </Styled.GeneralInfo>
             </Styled.BlogItemContainer>

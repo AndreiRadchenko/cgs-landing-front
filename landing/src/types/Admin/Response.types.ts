@@ -1,6 +1,7 @@
 import { IImage } from "./Admin.types";
 export interface IEditInformation {
   title: string;
+  link: string;
   button: string;
   image: { url: string } | null;
 }

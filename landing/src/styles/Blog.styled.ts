@@ -79,10 +79,11 @@ export const Tag = styled.button<ITag>`
   height: 28px;
   color: ${themes.primary.colors.secondary};
   background-color: ${themes.primary.colors.darkBlue};
-  padding: 5px 10px;
+  padding: 6px 12px 6px;
   font-style: normal;
   font-weight: ${themes.primary.font.weight.semiBold};
-  font-size: ${themes.primary.font.size.fourteenth};
+  font-size: ${themes.primary.font.size.articleViews};
+  font-family: ${themes.primary.font.family.openSans};
   letter-spacing: 0.5px;
   z-index: 1;
   &:hover {
@@ -92,6 +93,9 @@ export const Tag = styled.button<ITag>`
   }
   span {
     cursor: pointer;
+  }
+  @media ${themes.primary.media.minPC} {
+    font-size: ${themes.primary.font.size.primary};
   }
 `;
 
@@ -213,12 +217,15 @@ export const LoopContainer = styled.div`
 `;
 export const GrayText = styled.div`
   color: ${themes.primary.colors.authorGrey};
-  font-size: 0.975em;
+  font-size: ${themes.primary.font.size.articleViews};
+  &.big {
+    font-size: 1.34em;
+  }
 `;
 
 export const Date = styled.div`
   color: ${themes.primary.colors.authorGrey};
-  font-size: 0.975em;
+  font-size: 1.34em;
 `;
 
 export const MainBlogAuthor = styled(GrayText)`
@@ -251,6 +258,13 @@ export const ArticleWatchContainer = styled.div`
 `;
 
 export const WatchCount = styled(GrayText)`
+  font-size: 1.34em;
+  .article {
+    font-size: ${themes.primary.font.size.articleViews};
+  }
+`;
+
+export const WatchCountArticle = styled(GrayText)`
   font-size: ${themes.primary.font.size.articleViews};
 `;
 
@@ -381,12 +395,30 @@ export const Dropdown = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
 `;
 
+export const LoaderContainer = styled.div`
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  background: linear-gradient(
+    180deg,
+    rgba(241, 239, 237, 0.8) 100%,
+    rgba(241, 239, 237, 0) 114.26%
+  );
+`;
+
 export const DropdownContainer = styled.div`
   display: flex;
   justify-content: right;
   margin-bottom: 25px;
   align-items: flex-end;
   column-gap: 20px;
+  flex-wrap: wrap;
+  row-gap: 12px;
 `;
 
 export const PodcastContainer = styled.div`
@@ -635,16 +667,16 @@ export const MainContainer = styled.div`
 `;
 
 export const MainBlogItemContainer = styled(FlexColumnContainer)`
-  padding: 30px 70px;
-  width: 66.33vw;
+  padding: 31px 33px 32px 51px;
+  width: 67vw;
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 50px;
+    padding: 21px 23px 22px 41px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    padding: 30px;
+    padding: 15px 18px 17px 31px;
   }
   @media ${themes.primary.media.minPC} {
-    padding: 70px;
+    padding: 41px 43px 42px 71px;
   }
 `;
 

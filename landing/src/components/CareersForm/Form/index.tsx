@@ -168,7 +168,7 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
   return (
     <Styled.FormProvider value={formik}>
       <ThankYouModal isOpen={isOpen} setIsOpen={(val) => setIsOpen(val)} />
-      <Styled.Zasvet enabled={enable} />
+      <Styled.Shadow enabled={enable} />
       <Styled.Form onSubmit={formik.handleSubmit} encType="multipart/form-data">
         <Styled.PositionSelect
           onClick={() => setEnable(!enable)}
@@ -240,7 +240,7 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
           >
             <Styled.FormSentWrap>&lt;a&gt;</Styled.FormSentWrap>
             <Styled.FormSentText>send</Styled.FormSentText>
-            <Styled.FormSentWrap>&lt;a&gt;</Styled.FormSentWrap>
+            <Styled.FormSentWrap>&lt;/a&gt;</Styled.FormSentWrap>
           </Styled.FormSentButton>
           <Styled.FormSentFillText
             toDisplay={buttonState.disabled && buttonState.triedSubmit}

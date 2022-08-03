@@ -70,7 +70,9 @@ const opacity = keyframes`
 }
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+  border: 1.6px solid ${themes.primary.colors.primary};
+`;
 
 export const SubmitButton = styled.div`
   width: 100%;
@@ -201,7 +203,7 @@ export const ErrorMessage = styled.p`
 export const FormSentButton = styled.button<ISentButton>`
   width: 280px;
   height: 56px;
-  border: 2px solid black;
+  border: 2px solid ${themes.primary.colors.primary};
   cursor: pointer;
 
   &:nth-child(1) {
@@ -227,6 +229,7 @@ export const FormSentWrap = styled.span`
 
 export const FormSentText = styled.span`
   margin: 0;
+  color: ${themes.primary.colors.primary};
 
   &:first-letter {
     text-transform: capitalize;
@@ -255,7 +258,7 @@ export const FormSentContainer = styled.div`
   }
 `;
 
-export const Zasvet = styled.div<IEnableGlare>`
+export const Shadow = styled.div<IEnableGlare>`
   display: ${({ enabled }) => (enabled ? "inline-block" : "none")};
   width: 104%;
   height: 100%;
