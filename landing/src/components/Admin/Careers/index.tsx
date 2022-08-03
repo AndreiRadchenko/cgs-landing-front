@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useFormikContext } from "formik";
 
@@ -53,6 +53,7 @@ const Careers = ({
     values.vacancy && (values.vacancy.stars = newValue);
   const starsEditChange = (newValue: number) =>
     values.vacancy && (values.tickets[ticket].stars = newValue);
+  const [info, setInfo] = useState<number>(0);
 
   const { mutateAsync } = useMutation(
     queryKeys.deleteTicketAndVacancy,
@@ -75,7 +76,6 @@ const Careers = ({
   const addOrEditTicket = async () => {
     document.body.style.cursor = "wait";
     if (!isNewTicket && values.vacancy) {
-      console.log("add");
       const id = `${Math.random() * 1000000}`;
       const ticket = { ...values.vacancy, id };
       await putData({
@@ -86,7 +86,6 @@ const Careers = ({
       values.vacancy = newVacancy;
     }
     if (isNewTicket) {
-      console.log("edit");
       setIsNewTicket(!isNewTicket);
       await putData({
         tickets: [...values.tickets],
@@ -147,9 +146,27 @@ const Careers = ({
           <SubTitle>Stack</SubTitle>
           <Stack isNewTicket={isNewTicket} ticket={ticket} />
           <SubTitle className={"info"}>Info about vacancy</SubTitle>
-          <CareerInfo isNewTicket={isNewTicket} ticket={ticket} infoIndex={0} />
-          {/*<SubTitle>From You</SubTitle>*/}
-          {/*<FromYou isNewTicket={isNewTicket} ticket={ticket} />*/}
+          {!isNewTicket
+            ? values.vacancy.info.map((el, i) => (
+                <CareerInfo
+                  info={info}
+                  setInfo={setInfo}
+                  key={i}
+                  isNewTicket={isNewTicket}
+                  ticket={ticket}
+                  infoIndex={i}
+                />
+              ))
+            : values.tickets[ticket].info.map((el, i) => (
+                <CareerInfo
+                  info={info}
+                  setInfo={setInfo}
+                  key={i}
+                  isNewTicket={isNewTicket}
+                  ticket={ticket}
+                  infoIndex={i}
+                />
+              ))}
           <TicketsButton type="button" onClick={addOrEditTicket}>
             {isNewTicket ? "Edit ticket" : "Add ticket"}
           </TicketsButton>

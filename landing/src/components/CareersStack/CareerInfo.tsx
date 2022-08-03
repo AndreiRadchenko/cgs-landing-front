@@ -1,102 +1,119 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { Dispatch, FC, SetStateAction, useState } from "react";
 import Plus from "../../../public/plus.svg";
-
 import * as Styles from "../../../src/styles/BlogTags.styled";
 import { useFormikContext } from "formik";
 import { IDataCareersResponse } from "../../types/Admin/Response.types";
 import { VacancyInput } from "../../styles/AdminCareersPage";
+import * as Styled from "../Admin/FAQ/adminFaq.styled";
 
 interface IBlogTags {
   isNewTicket: boolean;
   ticket: number;
   infoIndex: number;
+  setInfo: Dispatch<SetStateAction<number>>;
+  info: number;
 }
 
-const CareerInfo: FC<IBlogTags> = ({ isNewTicket, ticket, infoIndex }) => {
-  const [fromUsList, setFromUsList] = useState<JSX.Element[]>([]);
+const CareerInfo: FC<IBlogTags> = ({
+  isNewTicket,
+  ticket,
+  infoIndex,
+  setInfo,
+  info,
+}) => {
+  const [counter, setCounter] = useState<number>(0);
   const { values, handleChange } = useFormikContext<IDataCareersResponse>();
   const newInfo = values.vacancy?.info;
   const editInfo = values.tickets[ticket]?.info;
 
-  const componentsArray = () => {
-    return !isNewTicket
-      ? newInfo?.map((tag, i) => newArticleTag(i))
-      : editInfo.map((tag, i) => editArticleTag(i));
+  const addTagOnClick = () => {
+    const newArticleCase = () => {
+      values.vacancy.info[infoIndex].values.push("");
+    };
+    const editArticleCase = () => {
+      values.tickets[ticket].info[infoIndex].values.push("");
+    };
+    setCounter(counter + 1);
+    !isNewTicket ? newArticleCase() : editArticleCase();
   };
 
-  useEffect(() => {
-    const result = componentsArray();
-    result && setFromUsList(result);
-  }, [ticket, isNewTicket, values.tickets, values.vacancy]);
+  const deleteItem = () => {
+    !isNewTicket
+      ? newInfo[infoIndex].values.pop()
+      : editInfo[infoIndex].values.pop();
+    setCounter(counter + 1);
+  };
 
-  const newArticleTag = (index: number) => (
-    <Styles.Tag
-      name={`vacancy.fromUs[${index}]`}
-      onChange={handleChange}
-      value={values.vacancy?.info[infoIndex].values[index]}
-      key={index}
-    />
-  );
+  const deleteHeading = () => {
+    if (infoIndex === 0) return;
+    !isNewTicket
+      ? values.vacancy.info.splice(infoIndex, 1)
+      : values.tickets[ticket].info.splice(infoIndex, 1);
+    setInfo(info - 1);
+  };
 
-  const editArticleTag = (index: number) => (
-    <Styles.Tag
-      name={`tickets[${ticket}].fromUs[${index}]`}
-      onChange={handleChange}
-      value={values.tickets[ticket].info[infoIndex].values[index]}
-      key={index}
-    />
-  );
-
-  // const addTagOnClick = () => {
-  //   const newArticleCase = () => {
-  //     newFromUs?.push("");
-  //     if (newFromUs) {
-  //       const index = newFromUs.length - 1;
-  //       setFromUsList((oldTagList) => oldTagList.concat(newArticleTag(index)));
-  //     }
-  //   };
-  //   const editArticleCase = () => {
-  //     editFromUs.push("");
-  //     const index = editFromUs.length - 1;
-  //     setFromUsList((oldTagList) => oldTagList.concat(editArticleTag(index)));
-  //   };
-  //   !isNewTicket ? newArticleCase() : editArticleCase();
-  // };
-  //
-  // const deleteItem = () => {
-  //   setFromUsList(fromUsList.slice(0, -1));
-  //   !isNewTicket
-  //     ? values.vacancy?.fromUs.pop()
-  //     : values.tickets[ticket].fromUs.pop();
-  // };
+  const addNextHeading = () => {
+    !isNewTicket
+      ? values.vacancy.info.splice(infoIndex + 1, 0, {
+          heading: "",
+          values: [],
+        })
+      : values.tickets[ticket].info.splice(infoIndex + 1, 0, {
+          heading: "",
+          values: [],
+        });
+    setInfo(info + 1);
+  };
 
   return (
-    <>
+    <Styles.CareerInfo>
       <VacancyInput
         type="text"
         name={
           isNewTicket
             ? `tickets[${ticket}].info[${infoIndex}].heading`
-            : `vacancy?.info[${infoIndex}].heading`
+            : `vacancy.info[${infoIndex}].heading`
         }
-        placeholder="vacancy"
+        placeholder="enter info category"
         value={
-          isNewTicket
-            ? values.tickets[ticket].info[infoIndex].heading
-            : values.vacancy?.vacancy
+          isNewTicket ? editInfo[infoIndex].heading : newInfo[infoIndex].heading
         }
         onChange={handleChange}
       />
+      <Styled.ButtonsContainer>
+        <Styled.AddButton onClick={() => addNextHeading()}>
+          [ + add next heading ]
+        </Styled.AddButton>
+        <Styled.DeleteButton onClick={() => deleteHeading()}>
+          delete
+        </Styled.DeleteButton>
+      </Styled.ButtonsContainer>
       <Styles.TagsWrapper>
-        {fromUsList}
-        <Styles.AddTag>
+        {!isNewTicket
+          ? values.vacancy.info[infoIndex].values.map((el, index) => (
+              <Styles.Tag
+                name={`vacancy.info[${infoIndex}].values[${index}]`}
+                onChange={handleChange}
+                value={values.vacancy?.info[infoIndex].values[index]}
+                key={index}
+              />
+            ))
+          : values.tickets[ticket].info[infoIndex].values.map((el, index) => (
+              <Styles.Tag
+                name={`tickets[${ticket}].info[${infoIndex}].values[${index}]`}
+                onChange={handleChange}
+                value={values.tickets[ticket].info[infoIndex].values[index]}
+                key={index}
+              />
+            ))}
+        <Styles.AddTag onClick={addTagOnClick}>
           <Styles.PlusIcon src={Plus.src} />
         </Styles.AddTag>
-        <Styles.AddTag>
+        <Styles.AddTag onClick={deleteItem}>
           <Styles.Minus>-</Styles.Minus>
         </Styles.AddTag>
       </Styles.TagsWrapper>
-    </>
+    </Styles.CareerInfo>
   );
 };
 

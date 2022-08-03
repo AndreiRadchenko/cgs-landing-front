@@ -111,6 +111,10 @@ export const DropdownWrapper = styled.div`
   margin-right: 20px;
 `;
 
+export const CareerInfo = styled.div`
+  margin-top: 20px;
+`;
+
 export const Content = styled.div`
   position: absolute;
   background-color: ${themes.primary.colors.secondary};

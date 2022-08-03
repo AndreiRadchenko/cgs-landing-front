@@ -151,7 +151,12 @@ export const newVacancy = {
   vacancy: "",
   position: "",
   stack: [],
-  info: [],
+  info: [
+    {
+      heading: "",
+      values: [],
+    },
+  ],
   stars: 0,
 };
 

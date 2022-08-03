@@ -121,7 +121,7 @@ export interface IDataCareersResponse {
   tickets: ITicket[];
   images: { image: { url: string } }[];
   url?: string;
-  vacancy?: ITicket;
+  vacancy: ITicket;
   form: IFormBlock;
   meta: IMetaBlock;
 }
