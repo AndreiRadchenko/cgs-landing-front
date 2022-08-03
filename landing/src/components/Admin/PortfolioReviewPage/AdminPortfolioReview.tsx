@@ -27,7 +27,7 @@ const AdminReview = ({
   idx,
 }: IReviewProps) => {
   const editTriggerFunc = () => {
-    if (setCurrent && idx && editTrigger) {
+    if (setCurrent && typeof idx === "number" && editTrigger) {
       setCurrent(idx);
       editTrigger((prev) => !prev);
     }
