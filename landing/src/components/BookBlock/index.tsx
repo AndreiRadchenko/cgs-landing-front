@@ -24,6 +24,7 @@ const BookBlock = () => {
         <span className="blue">tech solutions</span>{" "}
         <FooterButtonWrapper>
           <FooterLinkButton
+            target={"_blank"}
             href={data && data.buttonLink && recoverLink(data?.buttonLink)}
           >
             {data?.button}

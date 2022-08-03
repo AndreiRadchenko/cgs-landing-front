@@ -37,6 +37,7 @@ const NextTech = () => {
       </Styled.Subtitle>
       <Styled.RightContainer>
         <Styled.BlackButton
+          target={"_blank"}
           size={"1.85em"}
           padding={"18px 17px"}
           href={buttonData?.buttonLink}

@@ -32,6 +32,7 @@ const HeadBlock = () => {
         <Styled.BlackButton
           size={"18px"}
           padding={"20px 27px"}
+          target={"_blank"}
           href={data && data.buttonLink && recoverLink(data?.buttonLink)}
         >
           {data?.button}
