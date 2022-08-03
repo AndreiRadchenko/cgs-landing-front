@@ -20,7 +20,6 @@ const ModalBlockSpecifyTechnology: FC<IModalProjectCardProps> = ({
           quality={100}
           objectFit={"cover"}
           layout={"fill"}
-          priority
         />
       </StyledCategory.SpecifyContentImgWrapper>
       <StyledCategory.SpecifyContentWrapper>

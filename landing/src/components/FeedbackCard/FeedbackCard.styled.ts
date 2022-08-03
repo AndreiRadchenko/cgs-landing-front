@@ -61,13 +61,14 @@ export const FeedbackCardCompany = styled.a`
   }
 `;
 
-export const FeedbackButton = styled.button`
+export const FeedbackButton = styled.a`
   cursor: pointer;
   width: 8.5em;
   height: 2.2em;
   font-family: ${themes.primary.font.family.namu};
-  display: table-cell;
-  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: ${themes.primary.font.size.vistaco};
   background: ${themes.primary.colors.primary};
   border: 1px solid ${themes.primary.colors.primary};

@@ -1,6 +1,5 @@
 ﻿import React from "react";
 import Image from "next/image";
-
 import sentEmail from "/public/sentEmail.png";
 import * as Styled from "../../styles/Modal.styled";
 import ModalCloseButton from "./ModalCloseButton";

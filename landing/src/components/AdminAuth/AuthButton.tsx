@@ -1,7 +1,7 @@
+import React from "react";
 import * as Styled from "../../styles/AdminAuth";
 import buttonBack from "../../../public/back-button.png";
 import Image from "next/image";
-import React from "react";
 
 const AuthSubmitButton = () => {
   return (

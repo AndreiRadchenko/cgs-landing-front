@@ -23,10 +23,12 @@ const HeaderDropdown = ({
   };
 
   return (
-    <Styled.Dropdown onBlur={onBlur}>
+    <Styled.Dropdown onBlur={onBlur} className={className}>
       <Styled.DropdownButton
         className={isOpen ? `open ${className}` : className}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={
+          className === "disabled" ? undefined : () => setIsOpen(!isOpen)
+        }
       >
         <span>{dropdownName}</span>
         <img width={9} height={5} src={Arrow.src} alt="Arrow" />
