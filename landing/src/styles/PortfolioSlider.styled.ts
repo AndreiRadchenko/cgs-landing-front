@@ -159,6 +159,7 @@ export const PortfolioRow = styled.div`
   width: 100%;
   max-height: 500px;
   position: relative;
+  border-top: 1px solid ${themes.primary.colors.comment};
   & .swiper {
     display: flex;
     flex-direction: column-reverse;
@@ -209,7 +210,7 @@ export const ReviewContainer = styled.div`
     background-color: ${themes.primary.colors.cyanBlue};
   }
   height: 100%;
-  max-width: 81vw;
+  max-width: 81.3%;
   position: relative;
   left: 10vw;
   right: 9vw;
@@ -222,12 +223,21 @@ export const ReviewContainer = styled.div`
   }
 `;
 
+export const Image = styled.img`
+  width: 100%;
+  height: 101%;
+  position: relative;
+  left: -2px;
+`;
+
 export const ImageContainer = styled.div`
   width: 56%;
   display: flex;
   justify-content: right;
   align-items: center;
   overflow: hidden;
+  border-left: 1px solid ${themes.primary.colors.comment};
+  position: relative;
 `;
 
 export const ContentContainer = styled.div`
