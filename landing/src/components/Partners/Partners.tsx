@@ -14,7 +14,7 @@ const Partners = () => {
     <StyledThisComp.PartnersContainer>
       {data &&
         data?.images &&
-        data?.images?.normal.map((img, idx) => (
+        data?.images?.map((img, idx) => (
           <StyledThisComp.PartnerImageWrapper key={idx}>
             <StyledThisComp.Image src={img.url} />
           </StyledThisComp.PartnerImageWrapper>

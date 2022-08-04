@@ -14,20 +14,17 @@ interface ITicketProps {
   className?: string;
 }
 const CareersTicket: FC<ITicketProps> = ({
-  ticket: { fromUs, fromYou, position, vacancy, stack, stars },
+  ticket: { position, vacancy, stack, stars, info },
   scrollTo,
   className,
 }: ITicketProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const starsArr = new Array(stars).fill(0);
+  const starsArr = new Array(Math.ceil(stars)).fill(0);
 
   const onTicketView = () => setIsOpen(true);
 
   const uuid = (Math.random() + 1).toString(36).substring(7);
-
-  !fromUs.length && fromUs.push("Nothing yet");
-  !fromYou.length && fromYou.push("Nothing yet");
 
   const onClose = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
     e.stopPropagation();
@@ -73,13 +70,14 @@ const CareersTicket: FC<ITicketProps> = ({
               {stack.join(", ")}
             </Styled.TicketPositionStack>
             <Styled.TicketPositionStarsContainer>
-              {starsArr.map((_, idx) => (
-                <Styled.TicketPositionStars
-                  className={className}
-                  src={Star.src}
-                  key={`${idx + uuid}`}
-                />
-              ))}
+              {starsArr &&
+                starsArr.map((_, idx) => (
+                  <Styled.TicketPositionStars
+                    className={className}
+                    src={Star.src}
+                    key={`${idx + uuid}`}
+                  />
+                ))}
             </Styled.TicketPositionStarsContainer>
           </Styled.TicketPositionContainer>
           <Styled.RightDivider />
@@ -89,18 +87,14 @@ const CareersTicket: FC<ITicketProps> = ({
         <Styled.TicketArrow src={Arrow.src} />
         <TicketModal isOpen={isOpen} onClose={onClose}>
           <Styles.CloseButton src={CloseButton.src} onClick={onClose} />
-          <Styles.List>
-            <Styles.ListTitle>From You</Styles.ListTitle>
-            {fromYou.map((text, idx) => (
-              <Styles.ListItem key={idx}>{text}</Styles.ListItem>
-            ))}
-          </Styles.List>
-          <Styles.List>
-            <Styles.ListTitle>From Us</Styles.ListTitle>
-            {fromUs.map((text, idx) => (
-              <Styles.ListItem key={idx}>{text}</Styles.ListItem>
-            ))}
-          </Styles.List>
+          {info.map((el) => (
+            <Styles.List key={el.heading}>
+              <Styles.ListTitle>{el.heading}</Styles.ListTitle>
+              {el.values.map((text, idx) => (
+                <Styles.ListItem key={idx}>{text}</Styles.ListItem>
+              ))}
+            </Styles.List>
+          ))}
           <Styles.SubmitButtonContainer>
             <Styles.SubmitButton onClick={onSubmitClick}>
               SUBMIT FORM

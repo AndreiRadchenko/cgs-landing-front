@@ -14,6 +14,8 @@ interface IReviewProps {
   deleteFunc?: (e?: React.ChangeEvent<any>) => void;
   editTrigger?: React.Dispatch<React.SetStateAction<boolean>>;
   editFlag?: boolean;
+  setCurrent?: (value: number) => void;
+  idx?: number;
 }
 
 const AdminReview = ({
@@ -21,9 +23,14 @@ const AdminReview = ({
   deleteFunc,
   editTrigger,
   editFlag,
+  setCurrent,
+  idx,
 }: IReviewProps) => {
   const editTriggerFunc = () => {
-    editTrigger && editTrigger((prev) => !prev);
+    if (setCurrent && typeof idx === "number" && editTrigger) {
+      setCurrent(idx);
+      editTrigger((prev) => !prev);
+    }
   };
 
   const redirect = () => (window.location.href = review.button);

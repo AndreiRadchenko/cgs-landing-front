@@ -235,6 +235,7 @@ export const ImageContainer = styled.div<{ url: string }>`
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
+
   padding: 34px 26px 30px;
   width: 45%;
   box-sizing: border-box;
@@ -243,9 +244,6 @@ export const ContentContainer = styled.div`
   }
   @media ${themes.primary.media.minPC} {
     padding: 50px;
-  }
-  @media (min-width: 1100px) {
-    justify-content: center;
   }
 `;
 

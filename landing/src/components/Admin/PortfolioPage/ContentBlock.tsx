@@ -7,10 +7,18 @@ import renderPortfolioInputs from "./renderPortfolioInputs";
 import AdminDropDown from "../Global/AdminDropDown";
 import { IPortfolioData } from "../../../types/Admin/AdminPortfolioPage.types";
 import useSubmitAndDeletePortfolioPage from "../../../hooks/useSubmitAndDeletePortfolioPage";
-import PortfolioPageCarousel from "./PortfolioPageCarousel";
 import MetaTagsBlock from "../MetaTagsBlock";
+import {
+  DragDropContext,
+  Draggable,
+  Droppable,
+  DropResult,
+} from "react-beautiful-dnd";
+import { useQueryClient } from "react-query";
+import { queryKeys } from "../../../consts/queryKeys";
 
 const AdminPortfolioContentBlock = () => {
+  const queryClient = useQueryClient();
   const { values, handleChange, handleSubmit } =
     useFormikContext<IPortfolioData>();
   const [current, setCurrent] = useState(0);
@@ -22,11 +30,20 @@ const AdminPortfolioContentBlock = () => {
     isNewStatus,
     setIsNewStatus,
   } = useSubmitAndDeletePortfolioPage(setCurrent);
-  const deleteF = () => deleteFunc(current);
   const [catValue, setCatValue] = useState(values.categories[0]);
 
   const submitFunction = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    handleSubmit();
+  };
+
+  const handleDragEnd = (param: DropResult) => {
+    const srcIndex = param.source.index;
+    const desIndex: number | undefined = param.destination?.index;
+
+    typeof desIndex === "number" &&
+      values.reviews.splice(desIndex, 0, values.reviews.splice(srcIndex, 1)[0]);
+    queryClient.invalidateQueries(queryKeys.getPortfolioPage);
     handleSubmit();
   };
 
@@ -61,22 +78,47 @@ const AdminPortfolioContentBlock = () => {
           />
         </Styled.AdminCategoryBlock>
         <Styled.AdminReviewBlock>
-          {values.reviews.length === 0 ? (
+          {(values.reviews.filter((review) => review.category == catValue)
+            .length === 0 && (
             <Styled.AdminSubTitle>no reviews</Styled.AdminSubTitle>
-          ) : (
-            <AdminReview
-              editFlag={isNewStatus}
-              review={values.reviews[current]}
-              deleteFunc={deleteF}
-              editTrigger={setIsNewStatus}
-            />
+          )) || (
+            <DragDropContext onDragEnd={(param) => handleDragEnd(param)}>
+              <Droppable droppableId={"droppable-1"}>
+                {(provided) => (
+                  <div ref={provided.innerRef} {...provided.droppableProps}>
+                    {values.reviews.map(
+                      (review, i) =>
+                        review.category === catValue && (
+                          <Draggable
+                            draggableId={"draggable-" + i}
+                            index={i}
+                            key={i}
+                          >
+                            {(provided) => (
+                              <Styled.DraggableWrapper
+                                ref={provided.innerRef}
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                              >
+                                <AdminReview
+                                  editFlag={isNewStatus}
+                                  review={review}
+                                  idx={i}
+                                  setCurrent={setCurrent}
+                                  deleteFunc={() => deleteFunc(i)}
+                                  editTrigger={setIsNewStatus}
+                                />
+                              </Styled.DraggableWrapper>
+                            )}
+                          </Draggable>
+                        )
+                    )}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            </DragDropContext>
           )}
-          <PortfolioPageCarousel
-            catValue={catValue}
-            page={current}
-            setPage={setCurrent}
-            length={values.reviews.length}
-          />
         </Styled.AdminReviewBlock>
       </Styled.AdminPaddedBlock>
       <MetaTagsBlock theme="dark" />

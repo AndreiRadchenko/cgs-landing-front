@@ -1,8 +1,8 @@
 import { IImage } from "./Admin.types";
 export interface IEditInformation {
   title: string;
-  link: string;
   button: string;
+  buttonLink: string;
   image: { url: string } | null;
 }
 
@@ -31,7 +31,6 @@ export interface IFeedback {
 }
 
 export interface IFeedbackBlock {
-  filmText: string;
   subtitle: string;
   text3: string;
   feedBacks: IFeedback[];
@@ -65,21 +64,34 @@ export interface IMetaBlock {
 
 // completed
 
+export interface IButtonWithLinkBlock {
+  button: string;
+  buttonLink: string;
+}
+
 export interface IDataResponse {
   MainLogoBlock: { image: { url: string } | null };
   EditInformationBlock: IEditInformation;
   SubtitleBlock: ISubtitle;
+  SeeAllBlock: IButtonWithLinkBlock;
+  FilmBlock: { textOnFilm: string };
   LogosBlock: {
-    images: { normal: { url: string }[]; hover: { url: string }[] };
+    images: { url: string }[];
   };
   CardsBlock: ICards;
   FeedbackBlock: IFeedbackBlock;
   TechnologyBlock: ITechnologyBlock;
+  BookCallBlock: IButtonWithLinkBlock;
   FooterBlock: IFooterBlock;
   meta: IMetaBlock;
 }
 
 // Careers
+
+export interface IInfo {
+  heading: string;
+  values: string[];
+}
 
 export interface ITicket {
   id?: string;
@@ -89,8 +101,7 @@ export interface ITicket {
   _id?: string;
   stack: string[];
   stars: number;
-  fromUs: string[];
-  fromYou: string[];
+  info: IInfo[];
 }
 
 export interface IForm {
@@ -117,9 +128,14 @@ export interface IDataCareersResponse {
   tickets: ITicket[];
   images: { image: { url: string } }[];
   url?: string;
-  vacancy?: ITicket;
+  vacancy: ITicket;
   form: IFormBlock;
   meta: IMetaBlock;
+}
+
+export interface IVacancies {
+  tickets: ITicket[];
+  vacancy?: ITicket;
 }
 
 export interface IPointsData {

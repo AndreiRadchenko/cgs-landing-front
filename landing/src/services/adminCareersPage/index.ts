@@ -1,4 +1,7 @@
-import { IDataCareersResponse } from "../../types/Admin/Response.types";
+import {
+  IDataCareersResponse,
+  IVacancies,
+} from "../../types/Admin/Response.types";
 import { IVacancyMail } from "../../types/Mail.types";
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
@@ -8,15 +11,16 @@ export class AdminCareersService {
   public getCareersPage() {
     return this.httpService.get<IDataCareersResponse>("api/career");
   }
-  public addVacancy(id: string) {
-    return this.httpService.post(`api/vacancy/${id}`, {});
-  }
 
   public deleteTicketAndVacancy(id: string) {
     return this.httpService.delete(`api/career/delete/${id}`);
   }
 
   public updateCareersPage(data: IDataCareersResponse) {
+    return this.httpService.put("api/career", data);
+  }
+
+  public addTicketCareersPage(data: IVacancies) {
     return this.httpService.put("api/career", data);
   }
 
