@@ -36,8 +36,7 @@ export const Background = styled.div`
 export const PageWrapper = styled.div`
   max-width: 973px;
   position: relative;
-  margin: 0 auto;
-  margin-top: 88px;
+  margin: 88px 143px 0 242px;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -170,9 +169,9 @@ export const TitleBg = styled.div`
 export const HeaderBottomBg = styled.div`
   position: absolute;
   top: 20px;
-  right: -23%;
+  right: -22%;
   @media ${themes.primary.media.maxPCFullHD} {
-    right: -17%;
+    right: -20%;
   }
   @media (max-width: 1260px) {
     right: -12%;
