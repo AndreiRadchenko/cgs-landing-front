@@ -82,9 +82,9 @@ const Review = ({ review }: IReviewProps) => {
               version="1.1"
               xmlns={review?.image.url}
               xmlnsXlink={review?.image.url}
-              viewBox="0 0 100 74.95"
+              viewBox="1 0 100 75"
               width="100%"
-              height="100%"
+              height="101%"
               preserveAspectRatio="none"
             >
               <image
