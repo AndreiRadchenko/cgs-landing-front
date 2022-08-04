@@ -167,7 +167,6 @@ export const PortfolioRow = styled.div`
     color: rgba(0, 0, 0, 0.5);
     overflow: hidden;
   }
-  border-top: 1px solid ${themes.primary.colors.comment};
   &:hover ${NavigateLeft} {
     background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
@@ -223,18 +222,18 @@ export const ReviewContainer = styled.div`
   }
 `;
 
-export const ImageContainer = styled.div<{ url: string }>`
+export const ImageContainer = styled.div`
   width: 56%;
   display: flex;
   justify-content: right;
   align-items: center;
   overflow: hidden;
-  border-left: 1px solid ${themes.primary.colors.comment};
 `;
 
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
 
   padding: 34px 26px 30px;
   width: 45%;
@@ -282,6 +281,9 @@ export const Separator = styled.div`
   width: 100%;
   height: 0.5px;
   margin-bottom: 30px;
+  &.top {
+    margin-bottom: 0.1px;
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 10px;
   }
@@ -353,4 +355,13 @@ export const Navigation = styled.div`
   height: 100%;
   z-index: 20;
   background-color: ${themes.primary.colors.blogBackground};
+`;
+
+export const Border = styled.div`
+  height: 100%;
+  width: 1px;
+  background-color: ${themes.primary.colors.comment};
+  position: absolute;
+  top: 0;
+  right: 0px;
 `;
