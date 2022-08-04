@@ -78,12 +78,15 @@ const PortfolioPage: NextPage = () => {
             return (
               filtered &&
               filtered.length > 0 && (
-                <PortfolioSlider
-                  key={ind}
-                  reviews={filtered}
-                  category={category}
-                  isMobile={isMobile}
-                />
+                <>
+                  <Separator color={"#8f8e93"} className="top" />
+                  <PortfolioSlider
+                    key={ind}
+                    reviews={filtered}
+                    category={category}
+                    isMobile={isMobile}
+                  />
+                </>
               )
             );
           })}
