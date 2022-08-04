@@ -91,7 +91,7 @@ const themes = {
         secondaryArticleDescription: "20px",
         secondaryArticleAuthor: "16px",
         email: "16px",
-        homeHeader: "8.4em",
+        homeHeader: "8.334em",
         homeHeaderTablet: "8.15em",
         homeHeaderPc: "8.2em",
         homeHeaderPcHd: "7.9em",
@@ -100,6 +100,7 @@ const themes = {
         homeCardSubtitle: "5.68em",
         serviceTitle: "5.5em",
         tabletServiceTitle: "4.6em",
+        homeMainSubtitle: "2.167em",
       },
     },
     colors: {

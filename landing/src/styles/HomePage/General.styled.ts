@@ -56,7 +56,8 @@ export const BlackButton = styled.a<IFontSize>`
 export const Title = styled.h1`
   font-size: ${themes.primary.font.size.homeHeader};
   letter-spacing: 0.05em;
-  -webkit-text-stroke: 0.5px ${themes.primary.colors.primary};
+  text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000,
+    0.5px 0.5px 0 #000;
   margin: 0;
   @media ${themes.primary.media.onlyTabletLandScape} {
     font-size: ${themes.primary.font.size.homeHeaderTablet};
@@ -67,9 +68,6 @@ export const Title = styled.h1`
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.homeHeaderPcHd};
   }
-  // @media (max-width: 1300px) {
-  //   font-size: ${themes.primary.font.size.homeSmallTitle};
-  // }
   @media (max-width: 1200px) {
     font-size: 76px;
   }
@@ -77,7 +75,7 @@ export const Title = styled.h1`
 
 export const MainSubtitle = styled.div`
   text-transform: uppercase;
-  font-size: ${themes.primary.font.size.blogArticleTitle};
+  font-size: ${themes.primary.font.size.homeMainSubtitle};
   line-height: 99%;
   display: flex;
   flex-direction: column;
@@ -109,23 +107,19 @@ export const LeftArrow = styled.img`
 export const LongArrow = styled.img`
   display: inline-block;
   width: 36%;
-  //margin-left: 15px;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    //width: 108px;
-  }
 `;
 
 export const HeadBlockContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 9.3em;
+  margin-top: 8.75em;
   z-index: 2;
 `;
 
 export const Tetris = styled.img`
   position: absolute;
-  width: 33.6%;
+  width: 33.7%;
   right: 122px;
   @media (max-width: 1320px) {
     right: 40px;
