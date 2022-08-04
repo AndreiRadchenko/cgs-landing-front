@@ -81,24 +81,10 @@ const Review = ({ review }: IReviewProps) => {
               </Styled.ViewMoreContainer>
             </>
           )}
-          <Styled.Border />
         </Styled.ContentContainer>
         {(review?.image && (
           <Styled.ImageContainer>
-            <svg
-              xmlns={review?.image.url}
-              xmlnsXlink={review?.image.url}
-              viewBox="0.07 0 100 75"
-              width="100%"
-              height="101%"
-              preserveAspectRatio="none"
-            >
-              <image
-                xlinkHref={review?.image.url}
-                width={"100%"}
-                height={"100%"}
-              />
-            </svg>
+            <Styled.Image src={review?.image.url} alt="review image" />
           </Styled.ImageContainer>
         )) || <h1>No Image</h1>}
       </Styled.ReviewContainer>

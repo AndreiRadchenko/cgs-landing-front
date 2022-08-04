@@ -12,6 +12,7 @@ import backButton from "../../../../public/Portfolio/left.svg";
 import nextButton from "../../../../public/Portfolio/right.svg";
 import nextButtonHover from "../../../../public/Portfolio/hoverRight.svg";
 import backButtonHover from "../../../../public/Portfolio/hoverLeft.svg";
+import { Separator } from "../../../styles/Blog.styled";
 
 interface IPortfolioSwipers {
   reviews: IPortfolioReview[] | undefined;
@@ -77,6 +78,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
 
   return (
     <div ref={portfolioRef}>
+      <Separator className="portfolio" />
       <Styled.PortfolioRow>
         {isMobile ? (
           <>
