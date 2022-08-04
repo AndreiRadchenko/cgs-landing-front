@@ -217,31 +217,25 @@ export const ReviewContainer = styled.div`
   display: flex;
   justify-content: space-between;
   @media ${themes.primary.media.maxMobile} {
-    position: relative;
     left: 0;
     height: auto;
     grid-template-columns: 1fr;
   }
 `;
 
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-
-export const ImageContainer = styled.div`
+export const ImageContainer = styled.div<{ url: string }>`
   width: 56%;
   display: flex;
   justify-content: right;
   align-items: center;
   overflow: hidden;
   border-left: 1px solid ${themes.primary.colors.comment};
-  position: relative;
 `;
 
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
+
   padding: 34px 26px 30px;
   width: 45%;
   box-sizing: border-box;
@@ -250,9 +244,6 @@ export const ContentContainer = styled.div`
   }
   @media ${themes.primary.media.minPC} {
     padding: 50px;
-  }
-  @media (min-width: 1100px) {
-    justify-content: center;
   }
 `;
 

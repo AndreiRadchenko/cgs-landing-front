@@ -54,31 +54,51 @@ const Review = ({ review }: IReviewProps) => {
           </Styled.ProjectHeader>
           <Styled.ProjectDescription>{review.text}</Styled.ProjectDescription>
           <Styled.Separator />
-          <Styled.Feedback>
-            <Styled.AuthorName>{review.feedback?.name}</Styled.AuthorName>
-            <Styled.CompanyName>{review.feedback?.company}</Styled.CompanyName>
-          </Styled.Feedback>
-          <StarCont>
-            {startsArr.map((num, i) => {
-              if (num > 0.5) {
-                return <Styled.Star src={StarPortfolio.src} key={i} />;
-              } else if (num > 0 && num <= 0.5) {
-                return <Styled.Star src={halfStar.src} key={i} />;
-              }
-              return <Styled.Star src={emptyStar.src} key={i} />;
-            })}
-          </StarCont>
-          <Styled.ProjectComment>
-            {review.feedback?.feedbackText}
-          </Styled.ProjectComment>
-          <Styled.ViewMoreContainer href="https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/">
-            <Styled.ViewMoreText>view more</Styled.ViewMoreText>
-            <Styled.ViewMoreArrow src={portfolioArrow.src} />
-          </Styled.ViewMoreContainer>
+          {review.feedback.name !== "" && (
+            <>
+              <Styled.Feedback>
+                <Styled.AuthorName>{review.feedback?.name}</Styled.AuthorName>
+                <Styled.CompanyName>
+                  {review.feedback?.company}
+                </Styled.CompanyName>
+              </Styled.Feedback>
+              <StarCont>
+                {startsArr.map((num, i) => {
+                  if (num > 0.5) {
+                    return <Styled.Star src={StarPortfolio.src} key={i} />;
+                  } else if (num > 0 && num <= 0.5) {
+                    return <Styled.Star src={halfStar.src} key={i} />;
+                  }
+                  return <Styled.Star src={emptyStar.src} key={i} />;
+                })}
+              </StarCont>
+              <Styled.ProjectComment>
+                {review.feedback?.feedbackText}
+              </Styled.ProjectComment>
+              <Styled.ViewMoreContainer href="https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/">
+                <Styled.ViewMoreText>view more</Styled.ViewMoreText>
+                <Styled.ViewMoreArrow src={portfolioArrow.src} />
+              </Styled.ViewMoreContainer>
+            </>
+          )}
         </Styled.ContentContainer>
         {(review?.image && (
-          <Styled.ImageContainer>
-            <Styled.Image src={review?.image.url} alt="review image" />
+          <Styled.ImageContainer url={review?.image.url}>
+            <svg
+              version="1.1"
+              xmlns={review?.image.url}
+              xmlnsXlink={review?.image.url}
+              viewBox="0 0 100 74.95"
+              width="100%"
+              height="100%"
+              preserveAspectRatio="none"
+            >
+              <image
+                xlinkHref={review?.image.url}
+                width={"100%"}
+                height={"100%"}
+              />
+            </svg>
           </Styled.ImageContainer>
         )) || <h1>No Image</h1>}
       </Styled.ReviewContainer>

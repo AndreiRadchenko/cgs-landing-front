@@ -13,17 +13,20 @@ const NextTech = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
-  )?.FeedbackBlock;
+  )?.FilmBlock;
   const text = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
   )?.SubtitleBlock;
+  const buttonData = queryClient.getQueryData<IDataResponse>(
+    queryKeys.getFullHomePage
+  )?.SeeAllBlock;
   return (
     <Styled.NextTech>
       <Styled.Subtitle>{text && parse(text.title)}</Styled.Subtitle>
       <Partners />
       <Styled.FilmContainer>
         <Styled.Film src={film.src} />
-        <Styled.FilmText>{data?.filmText}</Styled.FilmText>
+        <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
       </Styled.FilmContainer>
       <Styled.Subtitle>
         <Styled.RowContainer>
@@ -34,11 +37,12 @@ const NextTech = () => {
       </Styled.Subtitle>
       <Styled.RightContainer>
         <Styled.BlackButton
+          target={"_blank"}
           size={"1.85em"}
           padding={"18px 17px"}
-          href="/portfolio"
+          href={buttonData?.buttonLink}
         >
-          SEE ALL WORK
+          {buttonData?.button}
           <Styled.ButtonArrow src={buttonArrow.src} />
         </Styled.BlackButton>
       </Styled.RightContainer>
