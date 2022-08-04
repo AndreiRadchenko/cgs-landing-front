@@ -159,15 +159,12 @@ export const PortfolioRow = styled.div`
   width: 100%;
   max-height: 500px;
   position: relative;
-  border-top: 1px solid ${themes.primary.colors.comment};
-  & .swiper {
-    display: flex;
-    flex-direction: column-reverse;
-  }
+
   & .swiper-slide-prev {
     color: rgba(0, 0, 0, 0.5);
     overflow: hidden;
   }
+
   &:hover ${NavigateLeft} {
     background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
@@ -225,19 +222,20 @@ export const ReviewContainer = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  height: 101%;
+  height: 100.5%;
   position: relative;
-  left: -2px;
+  left: -1px;
 `;
 
 export const ImageContainer = styled.div`
   width: 56%;
+  height: 101%;
   display: flex;
   justify-content: right;
   align-items: center;
-  overflow: hidden;
   border-left: 1px solid ${themes.primary.colors.comment};
   position: relative;
+  bottom: 2px;
 `;
 
 export const ContentContainer = styled.div`
