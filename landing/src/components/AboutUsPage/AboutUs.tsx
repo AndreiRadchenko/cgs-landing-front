@@ -55,7 +55,7 @@ const AboutUs = ({ data }: IAboutUs) => {
             pinRightPosition={"0"}
             rotatePin={"9.88deg"}
             isMain
-            padding={"14px 22px 34px 14px"}
+            padding={"14px 22px 30px 14px"}
           />
         </Styled.RowContainer>
         <Styled.RowContainer>
@@ -63,11 +63,11 @@ const AboutUs = ({ data }: IAboutUs) => {
           <PhotoBlock
             data={data.goal}
             rotateBlock={"4.8deg"}
-            photoBg={{ right: "5px", bottom: "-4px" }}
-            blockBg={{ right: "6px", bottom: "-6px" }}
+            photoBg={{ right: "5px", bottom: "-3px" }}
+            blockBg={{ right: "6px", bottom: "-7px" }}
             pinRightPosition={"89%"}
             rotatePin={"-1deg"}
-            padding={"18px 12px 25px 18px"}
+            padding={"16px 10px 22px 15px"}
           />
         </Styled.RowContainer>
         <Styled.ColContainer>

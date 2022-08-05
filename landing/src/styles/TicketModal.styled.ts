@@ -8,7 +8,7 @@ interface IModal {
 export const TicketModal = styled.div<IModal>`
   display: ${({ isOpen }) => (isOpen ? `block` : `none`)};
   position: fixed;
-  z-index: 10;
+  z-index: 30;
   left: 0;
   top: 0;
   width: 100%;

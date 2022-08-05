@@ -90,10 +90,10 @@ export const CategoryTitle = styled.h2`
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
   text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 2.5px;
   text-decoration-color: ${themes.primary.colors.primary};
   text-underline-offset: 0.3em;
-  font-size: ${themes.primary.font.size.reviewTitle};
+  font-size: 2.84em;
   text-align: center;
   position: relative;
   margin-bottom: 20px;
@@ -117,13 +117,8 @@ export const CategorySubtitle = styled.p`
 `;
 
 export const CategoryImage = styled.img`
-  max-width: 98%;
+  max-width: 98.9%;
   height: auto;
-`;
-
-export const CategoryLine = styled.div`
-  border: 1px solid #000;
-  width: 56px;
 `;
 
 export const ArrowContainer = styled.div`

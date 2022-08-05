@@ -36,8 +36,7 @@ export const Background = styled.div`
 export const PageWrapper = styled.div`
   max-width: 973px;
   position: relative;
-  margin: 0 auto;
-  margin-top: 88px;
+  margin: 88px 0 0 22px;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -146,6 +145,8 @@ export const DescriptionWrapper = styled.div`
 
 export const Cont = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
 `;
 
 export const TitleBg = styled.div`
@@ -172,7 +173,7 @@ export const HeaderBottomBg = styled.div`
   top: 20px;
   right: -23%;
   @media ${themes.primary.media.maxPCFullHD} {
-    right: -17%;
+    right: -20%;
   }
   @media (max-width: 1260px) {
     right: -12%;

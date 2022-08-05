@@ -194,8 +194,8 @@ const ArticlePage = () => {
               </>
             )}
           </Styles.PageWrapper>
-          <FooterNew />
         </Styles.Cont>
+        <FooterNew />
       </Styles.Background>
     </>
   ) : (

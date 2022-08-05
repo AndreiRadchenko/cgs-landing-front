@@ -106,16 +106,16 @@ export const Form = styled.div`
 export const FormImage = styled.img`
   width: 645px;
   height: 515px;
-  margin-left: 40vw;
+  margin-left: 39.73vw;
 `;
 
 export const FormContainer3D = styled.div`
-  width: 446px;
+  width: 443px;
   height: 418px;
   position: absolute;
   background: black;
   margin-top: 20px;
-  margin-left: 13px;
+  margin-left: 15px;
   display: flex;
   flex-direction: column;
 `;

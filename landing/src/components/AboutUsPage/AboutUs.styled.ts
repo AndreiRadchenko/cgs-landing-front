@@ -68,7 +68,7 @@ export const Text = styled.div`
 
 export const BottomImage = styled.img`
   position: absolute;
-  width: 55%;
+  width: 54.1%;
   bottom: 80px;
   right: 0;
 `;
@@ -109,13 +109,13 @@ export const BonusText = styled.div`
 export const MainPhotoDescription = styled.div`
   text-transform: uppercase;
   font-size: 15.8px;
-  margin-top: 22px;
+  margin-top: 16px;
   span {
     color: ${themes.primary.colors.darkBlue};
   }
   &.main {
     font-size: 20.5px;
-    margin-top: 32px;
+    margin-top: 28px;
   }
   @media ${themes.primary.media.minPC} {
     font-size: 1.1vw;
@@ -157,27 +157,36 @@ export const RotateBlock = styled.div<IRotate>`
   top: -1%;
   &.main {
     max-width: 22.5vw;
-    top: 13%;
+    top: 15%;
     left: 2%;
+  }
+  @media (min-width: 1400px) {
+    &.main {
+      top: 20%;
+      left: 1%;
+    }
   }
   @media ${themes.primary.media.minPC} {
     max-width: 18vw;
-
     &.main {
       max-width: 23vw;
     }
   }
   @media ${themes.primary.media.minPCFullHD} {
     left: 9vw;
-    top: -6%;
+    top: -9%;
   }
   @media ${themes.primary.media.maxPCFullHD} {
-    left: 11vw;
-    top: -7.5%;
+    left: 9vw;
+    top: -12%;
   }
   @media ${themes.primary.media.maxLaptop} {
     left: 9.3vw;
-    top: -11.5%;
+    top: -19%;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    left: 9.3vw;
+    top: -17%;
   }
 `;
 
@@ -211,11 +220,10 @@ export const BlackBlock = styled.div`
 
 export const Pin = styled.img<IPin & IRotate>`
   position: absolute;
-  width: 18.7px;
-  height: 38px;
+  height: 41px;
   right: ${({ right }) => right};
   transform: rotate(${({ rotate }) => rotate});
-  top: -25px;
+  top: -26px;
   z-index: 3;
   &.main {
     width: 27px;
@@ -232,27 +240,14 @@ export const MainImage = styled.img`
   z-index: 2;
 `;
 
-export const EmptyBg = styled.div<{
-  background: string;
-  width: string;
-  height: string;
-}>`
-  border: 2px solid ${themes.primary.colors.primary};
-  position: relative;
-  height: ${({ height }) => height};
-  width: ${({ width }) => width};
-  z-index: 2;
-  background: ${({ background }) => background};
-`;
-
 export const MainContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 52%;
-  grid-template-rows: 1fr 1.3fr;
+  grid-template-rows: 1fr 1.17fr;
   row-gap: 180px;
   position: relative;
   padding-left: 3.5%;
-  margin: 50px 0 208px;
+  margin: 50px 0 0px;
   overflow: hidden;
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -265,10 +260,6 @@ export const RightLine = styled.img`
   right: -130px;
   top: 50px;
   width: 130%;
-
-  /* @media ${themes.primary.media.minPC} {
-    right: -1px;
-  } */
 `;
 
 export const LeftLine = styled.img`
@@ -288,7 +279,6 @@ export const RowContainer = styled.div`
   padding-left: 30px;
   display: flex;
   column-gap: 5vw;
-  height: 150%;
   position: relative;
   @media ${themes.primary.media.minPC} {
     column-gap: 6.5vw;
@@ -302,190 +292,6 @@ export const ColContainer = styled.div`
   &.first {
     margin-left: 10px;
     margin-top: 80px;
-  }
-`;
-
-export const ProvideBlock = styled.div`
-  margin-top: 77px;
-  position: relative;
-  width: 100%;
-  height: 650px;
-  @media ${themes.primary.media.minPC} {
-    height: 700px;
-  }
-  @media ${themes.primary.media.minPCFullHD} {
-    height: 750px;
-  }
-  @media (min-width: 2000px) {
-    height: 800px;
-  }
-`;
-
-export const ProvideMainText = styled.div`
-  width: 45%;
-  padding: 0 3.5%;
-`;
-
-export const MediumLine = styled.img`
-  width: 100%;
-  position: absolute;
-  top: 0;
-  @media (max-width: 1190px) {
-    top: 50px;
-  }
-  @media (max-width: 1100px) {
-    top: 70px;
-  }
-`;
-
-export const SmallPhotoContainer = styled.div`
-  width: auto;
-  height: auto;
-  padding: 8px 14px 20px 8px;
-  border: 1px solid ${themes.primary.colors.primary};
-  position: relative;
-  z-index: 2;
-  background-color: ${themes.primary.colors.blogBackground};
-`;
-
-export const BlackBackground = styled.div`
-  position: absolute;
-  right: -3px;
-  bottom: -6px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  background-color: ${themes.primary.colors.primary};
-`;
-
-export const RotateContainer = styled.div<IRotate>`
-  max-width: 272px;
-  transform: rotate(${({ rotate }) => rotate});
-`;
-
-export const SmallImage = styled.img`
-  border: 1px solid ${themes.primary.colors.primary};
-  position: relative;
-  background-color: ${themes.primary.colors.blogBackground};
-  z-index: 2;
-  width: 251px;
-  height: 189px;
-`;
-
-export const PositionFirstImage = styled.div`
-  position: absolute;
-  top: 280px;
-  left: 7%;
-  @media (max-width: 2560px) and (min-width: 2460px) {
-    top: 500px;
-  }
-  @media (max-width: 2460px) and (min-width: 2360px) {
-    top: 480px;
-  }
-  @media (max-width: 2360px) and (min-width: 2260px) {
-    top: 460px;
-  }
-  @media (max-width: 2260px) and (min-width: 2160px) {
-    top: 440px;
-  }
-  @media (max-width: 2160px) and (min-width: 2060px) {
-    top: 420px;
-  }
-  @media (max-width: 2060px) and (min-width: 1960px) {
-    top: 400px;
-  }
-  @media (max-width: 1960px) and (min-width: 1860px) {
-    top: 380px;
-  }
-  @media (max-width: 1860px) and (min-width: 1760px) {
-    top: 360px;
-  }
-  @media (max-width: 1760px) and (min-width: 1660px) {
-    top: 340px;
-  }
-  @media (max-width: 1660px) and (min-width: 1560px) {
-    top: 320px;
-  }
-  @media (max-width: 1560px) and (min-width: 1460px) {
-    top: 300px;
-  }
-  @media (max-width: 1460px) and (min-width: 1360px) {
-    top: 280px;
-  }
-  @media (max-width: 1360px) and (min-width: 1260px) {
-    top: 260px;
-  }
-  @media (max-width: 1260px) and (min-width: 1190px) {
-    top: 240px;
-  }
-`;
-
-export const PositionSecondImage = styled.div`
-  position: absolute;
-  top: 260px;
-  left: 40%;
-  @media (max-width: 2560px) and (min-width: 2460px) {
-    top: 480px;
-  }
-  @media (max-width: 2460px) and (min-width: 2360px) {
-    top: 460px;
-  }
-  @media (max-width: 2360px) and (min-width: 2260px) {
-    top: 440px;
-  }
-  @media (max-width: 2260px) and (min-width: 2160px) {
-    top: 420px;
-  }
-  @media (max-width: 2160px) and (min-width: 2060px) {
-    top: 400px;
-  }
-  @media (max-width: 2060px) and (min-width: 1960px) {
-    top: 380px;
-  }
-  @media (max-width: 1960px) and (min-width: 1860px) {
-    top: 360px;
-  }
-  @media (max-width: 1860px) and (min-width: 1760px) {
-    top: 340px;
-  }
-  @media (max-width: 1760px) and (min-width: 1660px) {
-    top: 320px;
-  }
-  @media (max-width: 1660px) and (min-width: 1560px) {
-    top: 300px;
-  }
-  @media (max-width: 1560px) and (min-width: 1460px) {
-    top: 280px;
-  }
-  @media (max-width: 1460px) and (min-width: 1360px) {
-    top: 260px;
-  }
-  @media (max-width: 1360px) and (min-width: 1260px) {
-    top: 240px;
-  }
-  @media (max-width: 1260px) and (min-width: 1190px) {
-    top: 220px;
-  }
-`;
-
-export const PositionThirdImage = styled.div`
-  position: absolute;
-  top: 20px;
-  right: 7%;
-  @media (max-width: 1200px) {
-    top: 60px;
-  }
-`;
-
-export const SmallImageText = styled.div`
-  text-transform: lowercase;
-  font-size: 22px;
-  display: flex;
-  justify-content: center;
-  margin-top: 12px;
-  span {
-    color: ${themes.primary.colors.darkBlue};
   }
 `;
 
