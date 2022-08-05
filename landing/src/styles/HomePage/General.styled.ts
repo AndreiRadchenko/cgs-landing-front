@@ -150,7 +150,7 @@ export const Subtitle = styled.div`
 
   &.footer {
     margin-top: ${themes.primary.spacing.tertiary};
-    margin-bottom: 1em;
+    margin-bottom: 1.1em;
     line-height: 132%;
     display: inline-block;
     vertical-align: middle;
@@ -222,6 +222,7 @@ export const Separator = styled.div`
 export const FooterButtonWrapper = styled.span`
   display: flex;
   justify-content: flex-end;
+  margin-right: 13px;
 `;
 
 export const FooterLinkButton = styled.a`
