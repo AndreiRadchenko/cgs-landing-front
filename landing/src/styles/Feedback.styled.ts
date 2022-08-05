@@ -45,44 +45,9 @@ export const FeedbackRow = styled.div`
   justify-content: space-between;
   position: relative;
   align-items: baseline;
-  margin-bottom: 170px;
+  margin-bottom: 180px;
   & .swiper {
     display: flex;
     flex-direction: column-reverse;
-  }
-`;
-
-export const StyledArrowButton = styled.button`
-  position: absolute;
-  width: 6em;
-  height: 3em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  border: none;
-
-  cursor: pointer;
-  transition: 300ms;
-
-  &:last-child {
-    transform: rotate(180deg);
-    right: -5%;
-    top: 15%;
-  }
-
-  &:first-child {
-    left: -10%;
-    top: 15%;
-  }
-
-  &:hover {
-    &:first-child {
-      left: -11%;
-    }
-
-    &:last-child {
-      right: -6%;
-    }
   }
 `;

@@ -7,9 +7,14 @@ interface IIsOpen {
 }
 
 export const QuestionImage = styled.img`
-  width: 100%;
   height: fit-content;
-  max-width: 500px;
+  width: 473px;
+  @media ${themes.primary.media.onlyPC} {
+    width: 515px;
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 600px;
+  }
 `;
 export const QuestionContainer = styled.div<IIsOpen>`
   border-bottom: ${({ isOpen }) =>

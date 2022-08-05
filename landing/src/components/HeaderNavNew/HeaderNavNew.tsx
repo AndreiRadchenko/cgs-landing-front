@@ -64,15 +64,8 @@ const HeaderNavNew = (): JSX.Element => {
       <StyledThisComp.NavList>
         {navigationRoutesNamesNew.map(({ route, withDropdown, tags }, ind) =>
           !withDropdown ? (
-            <Link
-              key={route + ind}
-              href={routersNew[ind] !== "/blog" ? routersNew[ind] : "/"}
-              passHref
-            >
-              <StyledThisComp.ListItemNav
-                key={route + ind}
-                className={routersNew[ind] !== "/blog" ? undefined : "disabled"}
-              >
+            <Link key={route + ind} href={routersNew[ind]} passHref>
+              <StyledThisComp.ListItemNav key={route + ind}>
                 <StyledThisComp.LinkText>{route}</StyledThisComp.LinkText>
               </StyledThisComp.ListItemNav>
             </Link>
