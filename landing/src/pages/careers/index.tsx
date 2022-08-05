@@ -12,7 +12,7 @@ import { AdminUnauthorizedModal } from "../../styles/AdminPage";
 import { adminGlobalService } from "../../services/adminHomePage";
 import Careers from "../../components/Careers";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(queryKeys.getCareerPage, () =>
