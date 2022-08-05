@@ -16,7 +16,7 @@ import { portfolioCategories } from "../../utils/variables";
 import Head from "next/head";
 import { NextPage } from "next";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(queryKeys.getPortfolioPage, () =>
