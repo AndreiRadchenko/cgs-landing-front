@@ -54,7 +54,22 @@ export const AdminSidebarHidenElement = styled.div`
   padding: ${themes.primary.spacing.small} 0 0 ${themes.primary.spacing.primary};
   display: none;
   flex-direction: column;
-  text-decoration: underline;
+
+  & a {
+    font-size: ${themes.primary.font.size.adminMenuElement};
+    display: block;
+    max-width: 9em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 3px 0;
+
+    &:hover {
+      max-width: 9.5em;
+      font-weight: ${themes.primary.font.weight.normal};
+      text-decoration: underline;
+    }
+  }
 
   &.flex {
     display: flex;
@@ -135,6 +150,7 @@ export const AdminInput = styled(TextareaAutosize)<{
 
 interface IPhotoBlock {
   maxWidth?: string;
+  maxHeight?: string;
 }
 
 export const AdminPhotoBlock = styled.div<IPhotoBlock>`
@@ -149,6 +165,7 @@ export const AdminPhotoBlock = styled.div<IPhotoBlock>`
   height: 100%;
   margin-right: ${({ maxWidth }) => (maxWidth ? `20px` : "none")};
   max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}` : "none")};
+  max-height: ${({ maxHeight }) => (maxHeight ? `${maxHeight}` : "none")};
 
   &.about {
     height: 390px;
@@ -842,4 +859,16 @@ export const AdminFeedbackText = styled.p`
 
 export const DraggableWrapper = styled.div`
   margin: 10px 0;
+`;
+
+export const SubtitleGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 3em;
+`;
+
+export const AdminQuaterGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 0.4fr);
+  column-gap: 13em;
 `;

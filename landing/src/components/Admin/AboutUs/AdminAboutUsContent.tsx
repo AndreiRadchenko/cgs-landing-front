@@ -14,7 +14,7 @@ const AdminAboutUsContent = () => {
   );
 
   const { mutateAsync: updateFaqPage } = useMutation(
-    queryKeys.updateFaqPage,
+    queryKeys.updateAboutUsPage,
     (data: IAbout) => adminAboutUsService.updateAboutUsPage(data)
   );
 

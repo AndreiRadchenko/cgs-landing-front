@@ -164,6 +164,7 @@ export enum ROUTE_KEYS {
   AdminPortfolioPage = "/Admin/AdminPortfolioPage",
   AdminFaqPage = "/Admin/AdminFaq",
   AdminAboutUs = "/Admin/AdminAboutUs",
+  AdminServiceMobile = "/Admin/AdminServiceMobile",
 }
 
 export enum FaqPageTypes {
