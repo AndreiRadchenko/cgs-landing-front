@@ -4,16 +4,46 @@ import * as Styled from "../../styles/MobileService/WorthIt";
 import crystal from "../../../public/MobileSevice/worthIt/crystal.svg";
 import cube from "../../../public/MobileSevice/worthIt/cube.svg";
 import cylinder from "../../../public/MobileSevice/worthIt/cylinder.svg";
+import secondTextPhoto from "../../../public/MobileSevice/worthIt/marketingTextPhoto.svg";
+import thirdTextPhoto from "../../../public/MobileSevice/worthIt/brandTextPhoto.svg";
+import { useQueryClient } from "react-query";
+import { IServiceMobile } from "../../types/Admin/Response.types";
+import { queryKeys } from "../../consts/queryKeys";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const WorthIt = () => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IServiceMobile>(
+    queryKeys.getServiceMobilePage
+  )?.worthBlock;
+
+  const titleIllustration = [crystal, cube, cylinder];
+  const textIllustration = [null, secondTextPhoto, thirdTextPhoto];
   return (
     <Styled.Container>
-      {/* eslint-disable-next-line react/no-unescaped-entities */}
-      <Subtitle>Why it's worth it?</Subtitle>
+      <Subtitle>{data?.subtitle}</Subtitle>
       <Styled.ContentLayout>
-        {/*<Styled.WorthTitleContainer>*/}
-        {/*  <Styled.Icon src={crystal.src} />*/}
-        {/*</Styled.WorthTitleContainer>*/}
+        {data &&
+          Object.entries(data?.textBlock).map((el, idx) => (
+            <Styled.WorthBlock key={`${el[0]} ${idx}`}>
+              <Styled.WorthTitleContainer>
+                {textIllustration[idx] && (
+                  <Styled.BlockImage
+                    src={textIllustration[idx].src}
+                    alt="worth it block image"
+                  />
+                )}
+                <Styled.Icon
+                  src={titleIllustration[idx].src}
+                  alt="worth it title image"
+                />
+                {el[1].subtitle}
+              </Styled.WorthTitleContainer>
+              <Styled.WorthText>
+                <SplitBrackets text={el[1].text} />
+              </Styled.WorthText>
+            </Styled.WorthBlock>
+          ))}
       </Styled.ContentLayout>
     </Styled.Container>
   );

@@ -244,7 +244,11 @@ export const FormSentContainer = styled.div`
   height: 102px;
   flex-direction: column;
 
-  background: linear-gradient(75.6deg, #d6ffbb -9.39%, #5869dd 110.45%);
+  background: linear-gradient(
+    75.6deg,
+    ${themes.primary.colors.mainGradientColor1} -9.39%,
+    ${themes.primary.colors.mainGradientColor2} 110.45%
+  );
 
   button {
     display: flex;

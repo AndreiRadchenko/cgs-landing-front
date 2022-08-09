@@ -17,6 +17,7 @@ export interface IPhotoBlock extends IPropsWithImage {
   deleteFlag?: boolean;
   header?: string;
   horizontalFlex?: boolean;
+  maxHeight?: string;
   maxWidth?: string;
   className?: string;
 }

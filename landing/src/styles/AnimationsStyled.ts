@@ -1,4 +1,5 @@
 ﻿import { keyframes, css } from "styled-components";
+import themes from "../utils/themes";
 
 export const rotateAnimationLaptopLeft = keyframes`
   ${css`
@@ -181,4 +182,18 @@ from {
 to {
   transform: translateX(100%);
 }
+`;
+
+export const cursorBlinking = keyframes`
+${css`
+  0% {
+    background-color: ${themes.primary.colors.primary};
+  }
+  50% {
+    background-color: ${themes.primary.colors.blogBackground};
+  }
+  100% {
+    background-color: ${themes.primary.colors.primary};
+  }
+`}
 `;

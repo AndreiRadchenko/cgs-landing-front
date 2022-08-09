@@ -21,7 +21,7 @@ export const navigationRoutesNames = [
 export const navigationRoutesLinks = {
   "Crypto // Blockchain Development": "",
   "Web // Desktop Development": "",
-  "Mobile Development": "",
+  "Mobile Development": "services/mobile-app-development",
   "Cloud Solutions": "",
   "Ongoing Support // Maintenance": "",
   "Server & Databases": "",

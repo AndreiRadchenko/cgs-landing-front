@@ -7,7 +7,7 @@ const SubtitleBlock = () => {
     <>
       <Styled.AdminPaddedBlock>
         <TextEditor
-          mainPage={true}
+          onlyColor={true}
           header="Subtitle"
           name="SubtitleBlock.title"
           isBlog={false}
