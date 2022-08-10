@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as StyledThisComp from "./HeaderNav.styled";
-import {
-  navigationRoutesLinks,
-  navigationRoutesNamesNew,
-  routersNew,
-} from "../../utils/variables";
+import { navigationRoutesNamesNew, routersNew } from "../../utils/variables";
 import ImagePreview from "../Image/ImagePreview";
 import Link from "next/link";
 import BurgerButton from "../BurgerMenu/BurgerButton";
@@ -12,13 +8,10 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { disableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 import logo from "../../../public/newHeaderLogo.svg";
-import { useRouter } from "next/router";
 import HeaderDropdown from "./HeaderDropdown";
 
 const HeaderNavNew = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [filter, setFilter] = useState<string | null>(null);
-  const router = useRouter();
   const { width } = useWindowDimension();
 
   const toggleBurgerHandler = () => {
@@ -28,17 +21,6 @@ const HeaderNavNew = (): JSX.Element => {
   useEffect(() => {
     isOpen && width && width >= 768 && setIsOpen(false);
   }, [width, isOpen]);
-
-  useEffect(() => {
-    if (!filter) return;
-
-    const href =
-      navigationRoutesLinks[filter as keyof typeof navigationRoutesLinks];
-
-    if (!href) return;
-
-    router.push(href);
-  }, [filter, router]);
 
   disableScrollBarHandler(isOpen);
   return (
@@ -71,8 +53,6 @@ const HeaderNavNew = (): JSX.Element => {
             </Link>
           ) : (
             <HeaderDropdown
-              setFilter={setFilter}
-              filter={filter}
               tags={tags ? tags : []}
               dropdownName={route}
               key={route + ind}

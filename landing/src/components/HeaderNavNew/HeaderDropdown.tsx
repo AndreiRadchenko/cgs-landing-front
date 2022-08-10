@@ -1,32 +1,33 @@
 import React, { useState } from "react";
 import * as Styled from "../../styles/HeaderDropdown.styled";
 import Arrow from "../../../public/upArrowSidebar.svg";
+import Link from "next/link";
+import { navigationRoutesLinks } from "../../utils/variables";
 
 interface IBlogDropdown {
-  setFilter: (tag: string) => void;
-  filter: string | null;
   tags: string[];
   dropdownName: string;
   className?: string;
 }
 
-const HeaderDropdown = ({
-  setFilter,
-  tags,
-  dropdownName,
-  className,
-}: IBlogDropdown) => {
+const HeaderDropdown = ({ tags, dropdownName, className }: IBlogDropdown) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
   const onBlur = () => {
     setIsOpen(false);
   };
+
+  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setIsOpen(!isOpen);
+    e.currentTarget.focus();
+  };
+
+  const handleContentClick = () => setIsOpen(false);
 
   return (
     <Styled.Dropdown onBlur={onBlur}>
       <Styled.DropdownButton
         className={isOpen ? `open ${className}` : className}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onClick}
       >
         <span>{dropdownName}</span>
         <img width={9} height={5} src={Arrow.src} alt="Arrow" />
@@ -34,14 +35,20 @@ const HeaderDropdown = ({
       <Styled.DropdownContent className={isOpen ? "open" : ""}>
         {tags.map((option) => (
           <div
-            onClick={() => {
-              setFilter(option);
-              setIsOpen(false);
-            }}
+            onClick={handleContentClick}
             key={option}
             onMouseDown={(e) => e.preventDefault()}
           >
-            {option}
+            <Link
+              href={
+                navigationRoutesLinks[
+                  option as keyof typeof navigationRoutesLinks
+                ]
+              }
+              passHref
+            >
+              <a>{option}</a>
+            </Link>
           </div>
         ))}
       </Styled.DropdownContent>
