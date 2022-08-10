@@ -1,5 +1,6 @@
 ﻿import React from "react";
 import textPoint from "../../../public/MobileSevice/textPoint.svg";
+import textPointReversed from "../../../public/MobileSevice/textPointReversed.svg";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/MobileService/HowDoWeWork.styled";
@@ -20,7 +21,10 @@ const HowDoWeWork = () => {
         {data &&
           Object.values(data.text).map((point, idx) => (
             <Styled.TextContainer key={`${point.subtitle} ${idx}`}>
-              <Styled.Point src={textPoint.src} alt="text point img" />
+              <Styled.Point
+                src={idx < 2 ? textPoint.src : textPointReversed.src}
+                alt="text point img"
+              />
               <div>
                 <Styled.TextTitle>{point.subtitle}</Styled.TextTitle>
                 <Styled.TextContent>

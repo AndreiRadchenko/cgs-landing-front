@@ -42,8 +42,8 @@ export const Telephone = styled.img`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
   margin-top: 1rem;
-  margin-right: 2rem;
-  width: 45%;
+  margin-right: 1rem;
+  width: 44.5%;
 `;
 
 export const Cursor = styled.div`

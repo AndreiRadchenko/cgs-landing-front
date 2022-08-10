@@ -3,13 +3,13 @@ import themes from "../../utils/themes";
 import { cursorBlinking } from "../AnimationsStyled";
 
 export const ContentContainer = styled.div`
-  margin-top: 16.2em;
+  margin-top: 16em;
 `;
 
 export const ProfText = styled.div`
   position: relative;
   margin-top: 1.7em;
-  margin-bottom: 2.9em;
+  margin-bottom: 3em;
   font-size: ${themes.primary.font.size.secondary};
   line-height: 160%;
 
@@ -27,7 +27,7 @@ export const ImageWrapper = styled.div`
 `;
 export const Image = styled.img`
   position: absolute;
-  right: -6%;
+  right: -4%;
   bottom: 200%;
 `;
 
