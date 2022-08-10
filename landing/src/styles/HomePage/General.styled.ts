@@ -107,8 +107,17 @@ export const LeftArrow = styled.img`
 
 export const LongArrow = styled.img`
   display: inline-block;
-  width: 38%;
   margin-left: auto;
+  width: 30vw;
+  @media ${themes.primary.media.minTabletPortrait} {
+    width: 32vw;
+  }
+  @media ${themes.primary.media.minTabletLandScape} {
+    width: 34.5vw;
+  }
+  @media ${themes.primary.media.minLaptop} {
+    width: 36vw;
+  }
 `;
 
 export const HeadBlockContent = styled.div`
