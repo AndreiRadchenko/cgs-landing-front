@@ -335,6 +335,9 @@ export const DropdownContent = styled.div`
     &:last-child {
       border-bottom: 0;
     }
+    &.checked {
+      color: ${themes.primary.colors.comment};
+    }
   }
 `;
 

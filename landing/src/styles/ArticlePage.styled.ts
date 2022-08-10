@@ -114,7 +114,7 @@ export const ArrowBackButton = styled.img`
   }
   position: absolute;
   top: -63px;
-  left: -16.5em;
+  left: -215px;
   @media (max-width: 1280px) {
     left: -120px;
   }
