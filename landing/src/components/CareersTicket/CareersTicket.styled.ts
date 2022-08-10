@@ -208,9 +208,9 @@ export const TicketContainer = styled.div`
   background-size: 100% 100%;
   background-repeat: no-repeat;
 
-  max-width: 646px;
+  max-width: 616px;
   width: 100%;
-  height: 275px;
+  height: 265px;
   padding: 16px;
   position: relative;
   right: 10px;
