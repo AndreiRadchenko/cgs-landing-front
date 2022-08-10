@@ -66,7 +66,7 @@ export const TicketsContainer = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  column-gap: 76px;
+  column-gap: 5.25vw;
   row-gap: 50px;
 `;
 
