@@ -107,7 +107,7 @@ export const LeftArrow = styled.img`
 
 export const LongArrow = styled.img`
   display: inline-block;
-  width: 39.18%;
+  width: 38%;
   margin-left: auto;
 `;
 
