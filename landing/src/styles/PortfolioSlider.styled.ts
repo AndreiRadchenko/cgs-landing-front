@@ -169,12 +169,13 @@ export const PortfolioRow = styled.div`
     background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
   }
+  @media (max-width: 1310px) {
+    max-height: 450px;
+  }
   @media ${themes.primary.media.minPC} {
-    max-height: 570px;
+    max-height: 33.5vw;
   }
-  @media ${themes.primary.media.minPCFullHD} {
-    max-height: 658px;
-  }
+
   @media ${themes.primary.media.maxMobile} {
     display: block;
     border-left: 1px solid ${themes.primary.colors.comment};
@@ -251,6 +252,10 @@ export const ContentContainer = styled.div`
   }
   @media ${themes.primary.media.minPC} {
     padding: 50px;
+    font-size: 0.77vw;
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 0.85vw;
   }
 `;
 
@@ -347,7 +352,7 @@ export const Star = styled.img`
     width: 15px;
   }
   @media ${themes.primary.media.minPC} {
-    width: 22px;
+    width: 1.668em;
   }
 `;
 
