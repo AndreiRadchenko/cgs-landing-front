@@ -151,20 +151,19 @@ export const newVacancy = {
 };
 
 export enum ROUTE_KEYS {
-  AdminService = "/Admin/AdminService",
-  AdminCompany = "/Admin/AdminCompany",
+  AdminService = "AdminService",
   AdminPage = "AdminPage",
-  AdminPortfolio = "/Admin/AdminPortfolio",
+  AdminPortfolio = "AdminPortfolio",
   AdminCareers = "AdminCareers",
   AdminPartners = "AdminPartners",
   AdminSettings = "AdminSettings",
-  AdminVacancy = "/Admin/AdminVacancy",
-  AdminBlog = "/Admin/AdminBlog",
-  AdminBlockchain = "/Admin/AdminBlockchain",
-  AdminPortfolioPage = "/Admin/AdminPortfolioPage",
-  AdminFaqPage = "/Admin/AdminFaq",
-  AdminAboutUs = "/Admin/AdminAboutUs",
-  AdminServiceMobile = "/Admin/AdminServiceMobile",
+  AdminVacancy = "AdminVacancy",
+  AdminBlog = "AdminBlog",
+  AdminBlockchain = "AdminBlockchain",
+  AdminPortfolioPage = "AdminPortfolioPage",
+  AdminFaqPage = "AdminFaq",
+  AdminAboutUs = "AdminAboutUs",
+  AdminServiceMobile = "AdminServiceMobile",
 }
 
 export enum FaqPageTypes {
