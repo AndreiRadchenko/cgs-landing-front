@@ -31,7 +31,7 @@ export interface InputPropsInterface {
 
 export interface DropdownPropsInterface {
   value: string;
-  route: string;
+  route?: string;
   children?: any;
 }
 
