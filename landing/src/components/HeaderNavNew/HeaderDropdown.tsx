@@ -47,7 +47,7 @@ const HeaderDropdown = ({ tags, dropdownName, className }: IBlogDropdown) => {
               }
               passHref
             >
-              <a>{option}</a>
+              <Styled.Link>{option}</Styled.Link>
             </Link>
           </div>
         ))}
