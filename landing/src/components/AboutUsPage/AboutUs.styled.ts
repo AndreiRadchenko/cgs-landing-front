@@ -30,7 +30,8 @@ export const MainTitle = styled.div`
   font-size: 5.15vw;
   text-transform: uppercase;
   line-height: 120%;
-  padding: 107px 3.5% 0;
+  padding-top: 107px;
+  margin: 0 3.6458333%;
   span {
     color: ${themes.primary.colors.darkBlue};
   }
@@ -247,7 +248,8 @@ export const MainContainer = styled.div`
   row-gap: 180px;
   position: relative;
   padding-left: 3.5%;
-  margin: 50px 0 0px;
+  padding-bottom: 2.57%;
+  margin-top: 50px;
   overflow: hidden;
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -303,7 +305,11 @@ export const BonusesContainer = styled.div`
   margin-top: 50px;
   display: grid;
   grid-template-columns: 52.5% 43%;
-  column-gap: 75px;
+  column-gap: 30px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    grid-template-columns: 53.5% 43%;
+  }
 `;
 
 export const Separator = styled.div`
