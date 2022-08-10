@@ -29,7 +29,7 @@ const ProfBlock = () => {
       </Styled.ProfText>
       <Styled.ButtonWrapper>
         <BlackButton
-          padding={"1.15em 3.6em"}
+          padding={"1em 3.6em"}
           size={"1.5em"}
           href={data?.buttonLink}
         >

@@ -2,7 +2,7 @@
 import themes from "../../utils/themes";
 
 export const StrongContainer = styled.div`
-  margin-top: 16em;
+  margin-top: 17em;
 `;
 
 export const ContentContainer = styled.div`

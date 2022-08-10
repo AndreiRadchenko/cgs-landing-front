@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 6.5em;
+  margin-top: 5.5em;
 `;
 
 export const ContentLayout = styled.div`
