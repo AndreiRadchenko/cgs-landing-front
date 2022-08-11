@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 5em 0 3em 0;
+  padding: 4.85em 0 2.5em 0;
 `;
 
 export const ContentContainer = styled.div`
@@ -42,8 +42,8 @@ export const Telephone = styled.img`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
   margin-top: 1rem;
-  margin-right: 1rem;
-  width: 44.5%;
+  margin-right: 2rem;
+  width: 44%;
 `;
 
 export const Cursor = styled.div`

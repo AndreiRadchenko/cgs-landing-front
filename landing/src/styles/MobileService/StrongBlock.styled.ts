@@ -2,13 +2,13 @@
 import themes from "../../utils/themes";
 
 export const StrongContainer = styled.div`
-  margin-top: 17em;
+  margin-top: 16.15em;
 `;
 
 export const ContentContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 4.3em;
+  margin: 4.3em 1.75em 0 -2.6em;
 `;
 
 export const ImageContainer = styled.div`
@@ -34,6 +34,7 @@ export const BlockTitle = styled.h3`
   text-decoration: underline;
   text-underline-offset: 10px;
   text-decoration-thickness: 1.39388px;
+  margin-top: 1rem;
   font-size: ${themes.primary.font.size.secondary};
 
   @media ${themes.primary.media.minPC} {
@@ -49,4 +50,5 @@ export const BlockText = styled.p`
   font-size: 1.65em;
   line-height: 160%;
   width: 84%;
+  margin-bottom: 10px;
 `;
