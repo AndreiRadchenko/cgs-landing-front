@@ -53,7 +53,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   &:first-child {
     border: none;
     height: 56px;
-    width: 11.02vw;
+    padding-left: 2.656rem;
   }
   div {
     &:nth-child(2) {
@@ -102,6 +102,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     vertical-align: middle;
   }
   img {
+    margin-right: 2.625rem;
     transform: rotate(0deg);
     margin-top: 3px;
   }

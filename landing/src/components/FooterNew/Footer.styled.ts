@@ -69,20 +69,20 @@ export const ListItemNav = styled.a`
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
   }
   &:nth-child(1) {
-    padding-left: 3.875rem;
-    padding-right: 3.875rem;
+    padding-left: 3.82rem;
+    padding-right: 3.82rem;
   }
   &:nth-child(2) {
-    padding-left: 2.8rem;
-    padding-right: 2.8rem;
+    padding-left: 3.585rem;
+    padding-right: 3.585rem;
   }
   &:nth-child(3) {
-    padding-left: 4.25rem;
-    padding-right: 4.25rem;
+    padding-left: 4.68rem;
+    padding-right: 4.68rem;
   }
   &:nth-child(4) {
-    padding-left: 4.625rem;
-    padding-right: 4.625rem;
+    padding-left: 3.25rem;
+    padding-right: 3.25rem;
   }
 `;
 
