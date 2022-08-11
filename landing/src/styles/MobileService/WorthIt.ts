@@ -7,7 +7,7 @@ export const Container = styled.div`
 
 export const ContentLayout = styled.div`
   margin-top: 5.4em;
-  width: 100%;
+  width: 98.4%;
   display: flex;
   justify-content: space-between;
 `;
@@ -51,7 +51,7 @@ export const WorthBlock = styled.div`
     }
   }
   &:nth-child(2) {
-    margin-top: 12%;
+    margin-top: 10.3%;
     img {
       left: -80%;
     }
