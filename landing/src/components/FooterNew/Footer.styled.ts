@@ -25,7 +25,7 @@ export const Email = styled.a`
 `;
 
 export const LogoLinkWrapper = styled.a`
-  padding: 0.7rem 3rem;
+  padding: 12px 3.19rem 13px;
   height: 56px;
   display: flex;
   column-gap: 8px;
@@ -49,8 +49,8 @@ export const ListItemNav = styled.a`
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.headerLinkText};
-  padding: 10px 3rem;
-  max-width: 150px;
+  padding: 12px 3rem 13px;
+  max-width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,6 +67,22 @@ export const ListItemNav = styled.a`
     transition: 0.3s linear;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
+  }
+  &:nth-child(1) {
+    padding-left: 3.82rem;
+    padding-right: 3.82rem;
+  }
+  &:nth-child(2) {
+    padding-left: 3.585rem;
+    padding-right: 3.585rem;
+  }
+  &:nth-child(3) {
+    padding-left: 4.68rem;
+    padding-right: 4.68rem;
+  }
+  &:nth-child(4) {
+    padding-left: 3.25rem;
+    padding-right: 3.25rem;
   }
 `;
 

@@ -36,6 +36,9 @@ export const Description = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndHalf};
   }
+  & p {
+    margin: 0;
+  }
 `;
 
 export const Telephone = styled.img`

@@ -49,7 +49,7 @@ export const ListItemNav = styled.a`
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.headerLinkText};
   display: flex;
-  width: 11.03vw;
+  padding: 19px 3.2rem;
   align-items: center;
   justify-content: center;
   border-left: 1px solid ${themes.primary.colors.headerBorder};
@@ -69,6 +69,9 @@ export const ListItemNav = styled.a`
     transition: 0.3s;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
+  }
+  &:first-child {
+    padding: 19px 2.875rem;
   }
 `;
 
