@@ -27,10 +27,10 @@ export const ImageWrapper = styled.div`
 `;
 export const Image = styled.img`
   position: absolute;
-  right: -4%;
+  right: -2%;
   bottom: 200%;
   width: 36.3%;
-  height: 39.1vh;
+  height: 55.7vh;
   transform: rotate(2.06deg);
 `;
 
