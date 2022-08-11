@@ -31,7 +31,7 @@ export const Line = styled.div`
 
 export const TextContainer = styled.div`
   display: flex;
-  margin-bottom: 2.5em;
+  margin-bottom: 2em;
 
   &:nth-child(4) {
     margin-left: 23.8em;
@@ -125,7 +125,7 @@ export const TextContent = styled.p`
 `;
 
 export const PointsWrapper = styled.div`
-  margin-top: 4.6em;
+  margin-top: 4em;
   position: relative;
   display: flex;
   flex-wrap: wrap;
