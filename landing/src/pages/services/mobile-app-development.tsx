@@ -11,7 +11,7 @@ import HowDoWeWork from "../../components/MobileService/HowDoWeWork";
 import ProfBlock from "../../components/MobileService/ProfBlock";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
-import { adminMobileService } from "../../services/services/AdminServicesMobilePage";
+import { adminMobileService } from "../../services/services/adminServicesMobilePage";
 
 const MobileAppDevelopment = () => {
   useQuery(queryKeys.getServiceMobilePage, () =>

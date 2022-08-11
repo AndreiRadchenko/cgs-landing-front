@@ -338,3 +338,42 @@ export interface IServiceMobile {
   footerBlock: IIntroWithImage;
   meta: IMetaBlock;
 }
+
+export interface ISubtitleWithText {
+  subtitle: string;
+  text: string;
+}
+
+export interface ISubtitleWithList {
+  subtitle: string;
+  list: string[];
+}
+
+export interface IServiceWeb {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  comparisonBlock: {
+    desktopColumn: ISubtitleWithList;
+    webColumn: ISubtitleWithList;
+  };
+  whyIsWebBlock: {
+    subtitle: string;
+    element1: ISubtitleWithText;
+    element2: ISubtitleWithText;
+    element3: ISubtitleWithText;
+  };
+  solutionBlock: ISubtitleWithText;
+  perksBlock: ISubtitleWithList;
+  footerBlock: {
+    subtitle: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}

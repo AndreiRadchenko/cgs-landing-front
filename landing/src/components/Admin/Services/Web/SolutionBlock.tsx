@@ -1,28 +1,29 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
-import { IServiceMobile } from "../../../../types/Admin/Response.types";
+import { IServiceWeb } from "../../../../types/Admin/Response.types";
 import TextEditor from "../../../TextEditor/TextEditor";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 
-const WhatDoWeUse = () => {
-  const { values, handleChange } = useFormikContext<IServiceMobile>();
+const SolutionBlock = () => {
+  const { values, handleChange } = useFormikContext<IServiceWeb>();
   return (
     <AdminPaddedBlock theme="dark">
       <AdminHalfGrid>
         <div>
           <SubHeaderWithInput
             header="Subtitle"
-            inputValue={values.whatDoWeUse.subtitle}
+            inputValue={values.solutionBlock.subtitle}
             onChangeFunction={handleChange}
-            name="whatDoWeUse.subtitle"
+            name="solutionBlock.subtitle"
+            width="335px"
           />
           <TextEditor
             header="Text"
-            name="whatDoWeUse.text"
+            name="solutionBlock.text"
             isBlog={false}
             onlyColor={true}
-            value={values.whatDoWeUse.text}
+            value={values.solutionBlock.text}
           />
         </div>
       </AdminHalfGrid>
@@ -30,4 +31,4 @@ const WhatDoWeUse = () => {
   );
 };
 
-export default WhatDoWeUse;
+export default SolutionBlock;
