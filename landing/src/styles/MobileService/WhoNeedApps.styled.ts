@@ -21,8 +21,13 @@ export const WhatDoWeUse = styled.div`
 `;
 
 export const WhatDoWeUseContainer = styled.div`
-  margin-top: 16em;
+  margin-top: 13.3em;
+  margin-right: 1.1em;
   width: 50%;
+
+  & h2 {
+    margin-left: 0.1em;
+  }
 
   @media ${themes.primary.media.minPC} {
     margin-top: 13em;
@@ -30,6 +35,7 @@ export const WhatDoWeUseContainer = styled.div`
 `;
 
 export const SubText = styled.p`
+  margin-top: 2.7rem;
   line-height: 160%;
   font-size: ${themes.primary.font.size.secondary};
 

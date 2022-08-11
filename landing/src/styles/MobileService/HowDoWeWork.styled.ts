@@ -34,14 +34,14 @@ export const TextContainer = styled.div`
   margin-bottom: 2.5em;
 
   &:nth-child(4) {
-    margin-left: 24em;
+    margin-left: 23.8em;
   }
 
   &:nth-child(4),
   &:nth-child(5) {
     transform: translateY(1.8em);
     & img {
-      transform: rotate(180deg) translateY(1.7em) scale(-1, 1);
+      transform: translateY(-2em);
     }
 
     @media ${themes.primary.media.minPC} {
@@ -50,28 +50,37 @@ export const TextContainer = styled.div`
       }
       transform: translateY(1em);
       & img {
-        transform: rotate(180deg) translateY(0.7em) scale(-1, 1);
+        transform: translateY(-1em);
       }
     }
 
     @media ${themes.primary.media.minPCFullHD} {
       transform: translateY(0.8em);
       & img {
-        transform: scale(1.15) rotate(180deg) translateY(0.7em) scale(-1, 1);
+        transform: scale(1.15) translateY(-0.5em);
       }
     }
 
     @media ${themes.primary.media.maxServiceMobile} {
       transform: translateY(2.8em);
       & img {
-        transform: scale(0.95) rotate(180deg) translateY(3em) scale(-1, 1);
+        transform: scale(0.95) translateY(-3.3em);
       }
     }
-  }
-
-  @media (max-width: 1300px) {
-    &:nth-child(4) {
-      margin-left: 15em;
+    @media (max-width: 1300px) {
+      &:nth-child(4) {
+        margin-left: 15em;
+      }
+    }
+    @media ${themes.primary.media.maxTabletLandScape} {
+      &:nth-child(4) {
+        margin-left: 6.8em;
+      }
+    }
+    @media (max-width: 1100px) {
+      &:nth-child(4) {
+        margin-left: 4em;
+      }
     }
   }
 `;
@@ -116,7 +125,7 @@ export const TextContent = styled.p`
 `;
 
 export const PointsWrapper = styled.div`
-  margin-top: 5em;
+  margin-top: 4.6em;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -127,5 +136,12 @@ export const PointsWrapper = styled.div`
   }
   @media ${themes.primary.media.minPCFullHD} {
     column-gap: 11vw;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    column-gap: 8vw;
+  }
+
+  @media (max-width: 1100px) {
+    column-gap: 2vw;
   }
 `;

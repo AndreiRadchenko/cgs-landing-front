@@ -248,7 +248,6 @@ export const MainContainer = styled.div`
   row-gap: 180px;
   position: relative;
   padding-left: 3.5%;
-  padding-bottom: 2.57%;
   margin-top: 50px;
   overflow: hidden;
 

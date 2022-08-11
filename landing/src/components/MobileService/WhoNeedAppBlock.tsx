@@ -1,7 +1,6 @@
 ﻿import React from "react";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/MobileService/WhoNeedApps.styled";
-import illustration from "../../../public/MobileSevice/whoNeedApps/whoNeedAppsImg.svg";
 
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
