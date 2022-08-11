@@ -36,8 +36,8 @@ export const Description = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndHalf};
   }
-  & span {
-    display: block;
+  & p {
+    margin: 0;
   }
 `;
 

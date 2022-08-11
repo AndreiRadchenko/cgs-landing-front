@@ -25,7 +25,7 @@ const HeadBlock = () => {
         </Styled.Title>
         <Styled.Description>
           {sentences &&
-            sentences.map((el) => (el.length > 0 ? <span>{el}.</span> : ""))}
+            sentences.map((el) => (el.length > 0 ? <p>{el}.</p> : ""))}
         </Styled.Description>
         <BlackButton
           padding={"1.12em 3.6em"}
