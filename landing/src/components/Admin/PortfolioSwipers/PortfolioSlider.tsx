@@ -4,14 +4,9 @@ import SwiperCore, { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/bundle";
-import Image from "next/image";
 import * as Styled from "../../../styles/PortfolioSlider.styled";
 import params from "../../../mock/PorfolioPageSwiperParams";
 import Review from "../../Portfolio/Review";
-import backButton from "../../../../public/Portfolio/left.svg";
-import nextButton from "../../../../public/Portfolio/right.svg";
-import nextButtonHover from "../../../../public/Portfolio/hoverRight.svg";
-import backButtonHover from "../../../../public/Portfolio/hoverLeft.svg";
 import { Separator } from "../../../styles/Blog.styled";
 
 interface IPortfolioSwipers {
@@ -94,34 +89,6 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
             <Styled.NavigateLeft>{category}</Styled.NavigateLeft>
             <Styled.NavigateRight>
               <Styled.ArrowContainer
-                onMouseOver={handleHoverNext}
-                onMouseLeave={handleLeaveNext}
-                className={hoverNext ? "hover" : undefined}
-              >
-                <svg
-                  className="swiper-button-prev"
-                  fill="none"
-                  width="100%"
-                  height="100%"
-                  preserveAspectRatio="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M41.5171 16.2198C32.498 11.2124 21.1269 14.4192 16.1192 23.3823C11.1115 32.3455 14.3634 43.6708 23.3825 48.6782C32.4017 53.6856 43.7727 50.4788 48.7804 41.5157C53.7882 32.5525 50.5363 21.2272 41.5171 16.2198Z"
-                    fill="#F1EFED"
-                    stroke="black"
-                    strokeWidth="1.7"
-                    strokeMiterlimit="10"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M32.9902 41.88L23.6322 32.8627L23.6435 32.8509L23.6318 32.8396L33.1193 23.0003L34.4595 24.2922L27.1761 31.8457L41.1789 31.5497L41.2084 33.4158L27.2103 33.7117L34.2889 40.5326L32.9902 41.88Z"
-                    fill="black"
-                  />
-                </svg>
-              </Styled.ArrowContainer>
-              <Styled.ArrowContainer
                 onMouseOver={handleHoverPrev}
                 onMouseLeave={handleLeavePrev}
                 className={hoverPrev ? "hover" : undefined}
@@ -145,6 +112,34 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
                     fillRule="evenodd"
                     clipRule="evenodd"
                     d="M31.9661 23.0272L41.2694 32.1009L41.258 32.1125L41.2697 32.1239L31.723 41.9058L30.3906 40.6058L37.7195 33.0964L23.7151 33.3079L23.6969 31.4417L37.6965 31.2303L30.6593 24.3668L31.9661 23.0272Z"
+                    fill="black"
+                  />
+                </svg>
+              </Styled.ArrowContainer>
+              <Styled.ArrowContainer
+                onMouseOver={handleHoverNext}
+                onMouseLeave={handleLeaveNext}
+                className={hoverNext ? "hover" : undefined}
+              >
+                <svg
+                  className="swiper-button-prev"
+                  fill="none"
+                  width="100%"
+                  height="100%"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M41.5171 16.2198C32.498 11.2124 21.1269 14.4192 16.1192 23.3823C11.1115 32.3455 14.3634 43.6708 23.3825 48.6782C32.4017 53.6856 43.7727 50.4788 48.7804 41.5157C53.7882 32.5525 50.5363 21.2272 41.5171 16.2198Z"
+                    fill="#F1EFED"
+                    stroke="black"
+                    strokeWidth="1.7"
+                    strokeMiterlimit="10"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M32.9902 41.88L23.6322 32.8627L23.6435 32.8509L23.6318 32.8396L33.1193 23.0003L34.4595 24.2922L27.1761 31.8457L41.1789 31.5497L41.2084 33.4158L27.2103 33.7117L34.2889 40.5326L32.9902 41.88Z"
                     fill="black"
                   />
                 </svg>
