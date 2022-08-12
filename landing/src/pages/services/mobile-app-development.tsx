@@ -1,4 +1,5 @@
 import React from "react";
+import { NextPage } from "next";
 import parse from "html-react-parser";
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import * as Styled from "../../styles/MobileService/Layout";
@@ -28,7 +29,8 @@ export async function getServerSideProps() {
     },
   };
 }
-const MobileAppDevelopment = () => {
+
+const MobileAppDevelopment: NextPage = () => {
   const { data } = useQuery(queryKeys.getServiceMobilePage, () =>
     adminMobileService.getMobileServicePage()
   );
@@ -36,6 +38,7 @@ const MobileAppDevelopment = () => {
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
   return (
     <>
       <Head>
@@ -44,7 +47,7 @@ const MobileAppDevelopment = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Styled.Layout className="worth">
+      <Styled.Layout>
         <HeadBlock />
         <WorthIt />
         <StrongBlock />

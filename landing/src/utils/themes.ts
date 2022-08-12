@@ -156,6 +156,7 @@ const themes = {
       portfolioBg: "#F1EFED",
       portfolioHover: "#F2EA86",
       faqBorder: "#B5B5B5",
+      bigDigit: "#F0EFED",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",
