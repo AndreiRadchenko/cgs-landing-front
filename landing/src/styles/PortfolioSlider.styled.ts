@@ -169,6 +169,9 @@ export const PortfolioRow = styled.div`
     background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
   }
+  @media (max-width: 1310px) {
+    max-height: 460px;
+  }
   @media ${themes.primary.media.minPC} {
     max-height: 570px;
   }
@@ -199,7 +202,7 @@ export const NavigateRight = styled.div`
 `;
 
 export const ArrowContainer = styled.div`
-  width: 50%;
+  width: 100%;
   height: 65px;
   display: flex;
   justify-content: center;
