@@ -5,6 +5,7 @@ import AddReview from "../PortfolioReviewPage/AddReview";
 import { IAddAndEditProps } from "../../../types/Admin/AdminPortfolioPage.types";
 import { IPortfolioData } from "../../../types/Admin/AdminPortfolioPage.types";
 const AddAndEdit = ({
+  defaultCategory,
   submitFunc,
   setIsReady,
   editFunc,
@@ -29,6 +30,7 @@ const AddAndEdit = ({
       validateOnChange={false}
     >
       <AddReview
+        defaultCategory={defaultCategory}
         categories={values.categories}
         setIsReady={setIsReady}
         newFlag={isNewStatus}
