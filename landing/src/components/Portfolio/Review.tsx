@@ -90,7 +90,7 @@ const Review = ({ review, idx }: IReviewProps) => {
               src={review.image.url}
               alt="review image"
               layout="fill"
-              loading={idx && idx === 0 ? "eager" : "lazy"}
+              priority={idx === 0}
             />
           </Styled.ImageContainer>
         )) || <h1>No Image</h1>}
