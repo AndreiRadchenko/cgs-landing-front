@@ -36,7 +36,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
         <Review key={idx} review={review} />
       ) : (
         <SwiperSlide key={idx}>
-          <Review review={review} />
+          <Review review={review} idx={idx} />
         </SwiperSlide>
       )
     );
