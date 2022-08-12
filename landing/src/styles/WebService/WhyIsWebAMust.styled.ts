@@ -10,6 +10,10 @@ export const ContentLayout = styled.div`
   width: 100%;
   display: flex;
 
+  @media (max-width: 1400px) {
+    justify-content: space-between;
+  }
+
   @media ${themes.primary.media.minPC} {
     justify-content: space-between;
   }
@@ -23,6 +27,10 @@ export const WhyIsWebTitleContainer = styled.div`
   align-items: center;
   font-weight: ${themes.primary.font.weight.heavy};
   -webkit-text-stroke: 0.7px black;
+
+  @media (max-width: 1400px) {
+    font-size: 1.7em;
+  }
 `;
 
 export const WhyIsWebText = styled.p`
@@ -31,6 +39,13 @@ export const WhyIsWebText = styled.p`
   margin-left: 10px;
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: ${themes.primary.font.size.oneAndHalf};
+
+  @media (max-width: 1400px) {
+    font-size: 1.2em;
+  }
+  @media ${themes.primary.media.minPC} {
+    font-size: 1.3em;
+  }
 `;
 
 export const Icon = styled.img`
@@ -64,6 +79,29 @@ export const WhyIsWebBlock = styled.div`
     }
     p {
       margin-left: 20px;
+    }
+  }
+  @media (max-width: 1400px) {
+    &:nth-child(3) {
+      margin-left: 2%;
+      img {
+        top: 17%;
+        left: -43%;
+      }
+      p {
+        margin-left: 20px;
+      }
+    }
+    &:nth-child(2) {
+      margin-left: 3%;
+      margin-top: 12%;
+      img {
+        top: 16%;
+        left: -65%;
+      }
+      p {
+        margin-left: 20px;
+      }
     }
   }
 `;

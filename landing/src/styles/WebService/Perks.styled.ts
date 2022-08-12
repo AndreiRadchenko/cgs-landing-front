@@ -49,4 +49,11 @@ export const TextContent = styled.div`
   font-size: 1.83em;
   line-height: 160%;
   margin-bottom: 0.25em;
+
+  @media ${themes.primary.media.minPC} {
+    font-size: 1.7em;
+  }
+  @media ${themes.primary.media.maxServiceWeb} {
+    font-size: 1.5em;
+  }
 `;

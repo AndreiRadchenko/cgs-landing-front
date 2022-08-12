@@ -1,4 +1,5 @@
 ﻿import styled from "styled-components";
+import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 8em;
@@ -17,6 +18,10 @@ export const Image = styled.img`
 export const SubtitleWrapper = styled.div`
   margin-top: 9em;
   line-height: 56px;
+
+  @media ${themes.primary.media.maxServiceWeb} {
+    font-size: 0.85em;
+  }
 `;
 
 export const ButtonWrapper = styled.div`

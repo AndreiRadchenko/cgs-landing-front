@@ -9,7 +9,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminWebService } from "../../services/services/adminServicesWebPage";
 import HeadBlock from "../../components/WebService/HeadBlock";
-import * as Styled from "../../styles/MobileService/Layout";
+import * as Styled from "../../styles/WebService/Layout";
 import WhyIsWebAMust from "../../components/WebService/WhyIsWebAMust";
 import WebPros from "../../components/WebService/WebPros";
 import SolutionBlock from "../../components/WebService/SolutionBlock";

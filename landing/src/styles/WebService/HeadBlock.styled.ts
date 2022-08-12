@@ -17,11 +17,17 @@ export const ContentContainer = styled.div`
   align-items: flex-start;
   width: 44.5%;
   z-index: 2;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 50%;
+
+  @media (max-width: 1360px) {
+    width: 53%;
   }
+
   @media ${themes.primary.media.minPC} {
     width: auto;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 100%;
   }
 `;
 
@@ -53,6 +59,10 @@ export const Image = styled.img`
   top: 6.2em;
   right: -0.9em;
 
+  @media (max-width: 1360px) {
+    width: 45%;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 50%;
   }
@@ -60,6 +70,11 @@ export const Image = styled.img`
   @media ${themes.primary.media.minPC} {
     width: 50%;
   }
+
+  /* @media ${themes.primary.media.minPCFullHD} {
+    width: 725px;
+    height: 466px;
+  } */
 `;
 
 export const Cursor = styled.div`

@@ -1,7 +1,7 @@
 ﻿import React from "react";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/WebService/SolutionBlock.styled";
-import solutionBg from "../../../public/WebService/solutionBg.svg";
+
 import { useQueryClient } from "react-query";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
@@ -20,7 +20,6 @@ const SolutionBlock = () => {
 
   return (
     <Styled.Container>
-      <Styled.BgImage src={solutionBg.src} alt="solution block bg image" />
       <Styled.LeftSideText>
         <SplitBrackets text={data?.subtitle} />
       </Styled.LeftSideText>

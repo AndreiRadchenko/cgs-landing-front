@@ -23,7 +23,6 @@ const WhyIsWebBlock = () => {
       </AdminHalfGrid>
       <SubtitleGrid>
         {Object.entries(values.whyIsWebBlock).map((el, idx) => {
-          console.log(el);
           return (
             idx !== 0 && (
               <div key={`whyIsWebBlock ${idx}`}>
