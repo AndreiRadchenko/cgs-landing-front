@@ -13,9 +13,10 @@ import Image from "next/image";
 
 interface IReviewProps {
   review: IPortfolioReview;
+  idx?: number;
 }
 
-const Review = ({ review }: IReviewProps) => {
+const Review = ({ review, idx }: IReviewProps) => {
   const [isTablet, setIsTablet] = useState(false);
   const { width } = useWindowDimension();
   useEffect(() => {
@@ -85,7 +86,12 @@ const Review = ({ review }: IReviewProps) => {
         </Styled.ContentContainer>
         {(review?.image && (
           <Styled.ImageContainer>
-            <Image src={review.image.url} alt="review image" layout="fill" />
+            <Image
+              src={review.image.url}
+              alt="review image"
+              layout="fill"
+              loading={idx && idx === 0 ? "eager" : "lazy"}
+            />
           </Styled.ImageContainer>
         )) || <h1>No Image</h1>}
       </Styled.ReviewContainer>
