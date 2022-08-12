@@ -3,7 +3,7 @@ import React from "react";
 import { useMutation, useQuery } from "react-query";
 import ServiceMobileContentBlock from ".";
 import { queryKeys } from "../../../../consts/queryKeys";
-import { adminMobileService } from "../../../../services/services/AdminServicesMobilePage";
+import { adminMobileService } from "../../../../services/services/adminServicesMobilePage";
 import * as Styled from "../../../../styles/AdminPage";
 import { IServiceMobile } from "../../../../types/Admin/Response.types";
 
