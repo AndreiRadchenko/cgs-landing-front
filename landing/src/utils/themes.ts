@@ -156,6 +156,7 @@ const themes = {
       portfolioBg: "#F1EFED",
       portfolioHover: "#F2EA86",
       faqBorder: "#B5B5B5",
+      bigDigit: "#F0EFED",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",
@@ -166,6 +167,7 @@ const themes = {
       minPC: "(min-width: 1500px)",
       minPCFullHD: "(min-width: 1800px)",
       maxServiceMobile: "(max-width: 1425px)",
+      maxServiceWeb: "(max-width: 1400px)",
       maxPCFullHD: "(max-width: 1800px)",
       maxLowScreenMobile: "(max-width: 475px)",
       maxLowMobileHeight: "(max-height: 610px)",

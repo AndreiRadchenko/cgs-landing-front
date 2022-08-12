@@ -5,7 +5,6 @@ import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { IImage } from "../../../../types/Admin/Admin.types";
 import { IServiceMobile } from "../../../../types/Admin/Response.types";
-import { renderInputs } from "../../../../utils/renderInputs";
 import TextEditor from "../../../TextEditor/TextEditor";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
