@@ -9,6 +9,7 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { StarCont } from "../../styles/PortfolioSlider.styled";
 import portfolioArrow from "../../../public/portfolioArrow.svg";
 import { recoverLink } from "../../utils/recoverLink";
+import Image from "next/image";
 
 interface IReviewProps {
   review: IPortfolioReview;
@@ -84,7 +85,7 @@ const Review = ({ review }: IReviewProps) => {
         </Styled.ContentContainer>
         {(review?.image && (
           <Styled.ImageContainer>
-            <Styled.Image src={review?.image.url} alt="review image" />
+            <Image src={review.image.url} alt="review image" layout="fill" />
           </Styled.ImageContainer>
         )) || <h1>No Image</h1>}
       </Styled.ReviewContainer>
