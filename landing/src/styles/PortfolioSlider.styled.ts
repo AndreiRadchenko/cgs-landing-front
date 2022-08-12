@@ -200,6 +200,22 @@ export const NavigateRight = styled.div`
 
 export const ArrowContainer = styled.div`
   width: 50%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+
+  & svg {
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 65px;
+    height: 65px;
+  }
+  &.hover {
+    & path:first-child {
+      fill: ${themes.primary.colors.portfolioHover};
+    }
+  }
 `;
 
 export const ReviewContainer = styled.div`
@@ -228,6 +244,7 @@ export const Image = styled.img`
 `;
 
 export const ImageContainer = styled.div`
+  position: relative;
   width: 56%;
   height: 101%;
   display: flex;
