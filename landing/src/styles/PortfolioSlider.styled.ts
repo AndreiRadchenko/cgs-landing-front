@@ -254,7 +254,6 @@ export const ImageContainer = styled.div`
   justify-content: right;
   align-items: center;
   border-left: 1px solid ${themes.primary.colors.comment};
-  position: relative;
   bottom: 2px;
 `;
 

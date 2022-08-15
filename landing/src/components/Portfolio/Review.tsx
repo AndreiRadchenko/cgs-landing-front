@@ -86,11 +86,11 @@ const Review = ({ review, idx }: IReviewProps) => {
         </Styled.ContentContainer>
         {(review?.image && (
           <Styled.ImageContainer>
-            <Image
+            <Styled.Image
               src={review.image.url}
               alt="review image"
-              layout="fill"
-              priority={idx === 0}
+              // layout="fill"
+              // priority={idx === 0}
             />
           </Styled.ImageContainer>
         )) || <h1>No Image</h1>}
