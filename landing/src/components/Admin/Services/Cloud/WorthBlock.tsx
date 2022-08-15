@@ -13,7 +13,6 @@ import TextEditor from "../../../TextEditor/TextEditor";
 const WorthBlock = () => {
   const { values, handleChange } = useFormikContext<ICloudService>();
   const { subtitle, ...blocks } = values.worthBlock;
-  console.log(values.worthBlock);
 
   return (
     <AdminPaddedBlock theme="dark">
