@@ -338,8 +338,6 @@ export interface IServiceMobile {
   footerBlock: IIntroWithImage;
   meta: IMetaBlock;
 }
-
-<<<<<<< HEAD
 // cloud Solution
 export interface ICloudService {
   meta: IMetaBlock;
@@ -374,7 +372,7 @@ export interface ICloudService {
     mobility: ISubtitleWithText;
     subtitle: string;
   };
-=======
+}
 export interface ISubtitleWithText {
   subtitle: string;
   text: string;
@@ -412,5 +410,4 @@ export interface IServiceWeb {
     image: { url: string };
   };
   meta: IMetaBlock;
->>>>>>> 44efac16eb4ecc1fe06c559ec772a19f3e80f2a3
 }
