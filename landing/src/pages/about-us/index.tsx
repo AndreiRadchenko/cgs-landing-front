@@ -9,7 +9,7 @@ import AboutUs from "../../components/AboutUsPage/AboutUs";
 import { adminAboutUsService } from "../../services/adminAboutUsPage";
 import Head from "next/head";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(queryKeys.getAboutUsPage, () =>

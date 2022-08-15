@@ -159,24 +159,23 @@ export const PortfolioRow = styled.div`
   width: 100%;
   max-height: 500px;
   position: relative;
-  & .swiper {
-    display: flex;
-    flex-direction: column-reverse;
-  }
+
   & .swiper-slide-prev {
     color: rgba(0, 0, 0, 0.5);
     overflow: hidden;
   }
+
   &:hover ${NavigateLeft} {
     background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
   }
+  @media (max-width: 1310px) {
+    max-height: 460px;
+  }
   @media ${themes.primary.media.minPC} {
-    max-height: 570px;
+    max-height: 33.5vw;
   }
-  @media ${themes.primary.media.minPCFullHD} {
-    max-height: 658px;
-  }
+
   @media ${themes.primary.media.maxMobile} {
     display: block;
     border-left: 1px solid ${themes.primary.colors.comment};
@@ -201,7 +200,23 @@ export const NavigateRight = styled.div`
 `;
 
 export const ArrowContainer = styled.div`
-  width: 50%;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+
+  & svg {
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 65px;
+    height: 65px;
+  }
+  &.hover {
+    & path:first-child {
+      fill: ${themes.primary.colors.portfolioHover};
+    }
+  }
 `;
 
 export const ReviewContainer = styled.div`
@@ -209,7 +224,7 @@ export const ReviewContainer = styled.div`
     background-color: ${themes.primary.colors.cyanBlue};
   }
   height: 100%;
-  max-width: 81vw;
+  max-width: 81.3%;
   position: relative;
   left: 10vw;
   right: 9vw;
@@ -222,12 +237,23 @@ export const ReviewContainer = styled.div`
   }
 `;
 
+export const Image = styled.img`
+  width: 100%;
+  height: 100.5%;
+  position: relative;
+  left: -1px;
+`;
+
 export const ImageContainer = styled.div`
+  position: relative;
   width: 56%;
+  height: 101%;
   display: flex;
   justify-content: right;
   align-items: center;
-  overflow: hidden;
+  border-left: 1px solid ${themes.primary.colors.comment};
+  position: relative;
+  bottom: 2px;
 `;
 
 export const ContentContainer = styled.div`
@@ -243,6 +269,10 @@ export const ContentContainer = styled.div`
   }
   @media ${themes.primary.media.minPC} {
     padding: 50px;
+    font-size: 0.77vw;
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 0.85vw;
   }
 `;
 
@@ -339,7 +369,7 @@ export const Star = styled.img`
     width: 15px;
   }
   @media ${themes.primary.media.minPC} {
-    width: 22px;
+    width: 1.668em;
   }
 `;
 

@@ -11,7 +11,7 @@ export const CareersContainer = styled.div`
 `;
 
 export const Title = styled.div`
-  margin: 115px 0 90px 0;
+  margin: 115px 0 89px 0;
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
 
@@ -35,6 +35,7 @@ export const TitleArrow = styled.img`
 export const TitleText = styled.span`
   margin: 0;
   font-size: 5.2vw;
+  line-height: 89px;
   color: ${themes.primary.colors.primary};
 `;
 
@@ -42,6 +43,7 @@ export const Separator = styled.hr`
   width: 100%;
   height: 1px;
   color: #000000;
+  margin: 0;
 `;
 
 export const TitleTextRow = styled.div`
@@ -64,7 +66,7 @@ export const TicketsContainer = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  column-gap: 5vw;
+  column-gap: 5.25vw;
   row-gap: 50px;
 `;
 

@@ -13,18 +13,20 @@ interface ITextEditorProps {
   header: string;
   name: string;
   isBlog: boolean;
-  mainPage?: boolean;
+  onlyColor?: boolean;
 }
 
-const TextEditor = ({ name, isBlog, header, mainPage }: ITextEditorProps) => {
-  const options = mainPage
+const TextEditor = ({ name, isBlog, header, onlyColor }: ITextEditorProps) => {
+  const options = onlyColor
     ? {
         font: ["NAMU"],
         colorList: [
           "#ccc",
           "#dedede",
           "#5869DD",
+          "#BABABA",
           "#000",
+          "#fff",
           "OrangeRed",
           "Orange",
           "RoyalBlue",
@@ -41,7 +43,7 @@ const TextEditor = ({ name, isBlog, header, mainPage }: ITextEditorProps) => {
           check_new_window: "nofollow",
         },
         buttonList: [
-          ["fontColor"],
+          ["fontColor", "hiliteColor"],
           [
             "font",
             "bold",

@@ -63,6 +63,13 @@ export const Separator = styled.div`
   width: 100%;
   height: 1px;
   background-color: ${themes.primary.colors.comment};
+
+  &.portfolio {
+    height: 0.5px;
+    z-index: 99;
+    width: 100%;
+    position: absolute;
+  }
 `;
 
 export const GeneralInfo = styled.div`
@@ -327,6 +334,9 @@ export const DropdownContent = styled.div`
     }
     &:last-child {
       border-bottom: 0;
+    }
+    &.checked {
+      color: ${themes.primary.colors.comment};
     }
   }
 `;

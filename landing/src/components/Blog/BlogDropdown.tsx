@@ -46,6 +46,7 @@ const BlogDropdown = ({
       <Styled.DropdownContent className={isOpen ? `open ` : undefined}>
         {tags.map((tag) => (
           <div
+            className={filters.includes(tag) ? "checked" : ""}
             onClick={() => {
               !filters.includes(tag) && setFilters([...filters, tag]);
               setIsOpen(false);

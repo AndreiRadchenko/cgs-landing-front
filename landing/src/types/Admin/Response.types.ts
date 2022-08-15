@@ -293,3 +293,87 @@ export interface IAbout {
   image: { url: string };
   meta: IMetaBlock;
 }
+
+export interface ISubtitleWithText {
+  subtitle: string;
+  text: string;
+}
+
+export interface IIntroWithImage {
+  title: string;
+  text: string;
+  button: string;
+  buttonLink: string;
+  image: { url: string };
+}
+
+export interface IServiceMobile {
+  mainBlock: IIntroWithImage;
+  worthBlock: {
+    subtitle: string;
+    textBlock: {
+      accessibility: ISubtitleWithText;
+      marketing: ISubtitleWithText;
+      brand: ISubtitleWithText;
+    };
+  };
+  strongBlock: {
+    subtitle: string;
+    textBlock: {
+      android: ISubtitleWithText;
+      ios: ISubtitleWithText;
+    };
+  };
+  whatDoWeUse: ISubtitleWithText;
+  whoNeedApps: ISubtitleWithText;
+  howDoWeWork: {
+    subtitle: string;
+    text: {
+      point1: ISubtitleWithText;
+      point2: ISubtitleWithText;
+      point3: ISubtitleWithText;
+      point4: ISubtitleWithText;
+    };
+  };
+  footerBlock: IIntroWithImage;
+  meta: IMetaBlock;
+}
+
+export interface ISubtitleWithText {
+  subtitle: string;
+  text: string;
+}
+
+export interface ISubtitleWithList {
+  subtitle: string;
+  list: string[];
+}
+
+export interface IServiceWeb {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  comparisonBlock: {
+    desktopColumn: ISubtitleWithList;
+    webColumn: ISubtitleWithList;
+  };
+  whyIsWebBlock: {
+    subtitle: string;
+    element1: ISubtitleWithText;
+    element2: ISubtitleWithText;
+    element3: ISubtitleWithText;
+  };
+  solutionBlock: ISubtitleWithText;
+  perksBlock: ISubtitleWithList;
+  footerBlock: {
+    subtitle: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}

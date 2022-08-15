@@ -16,7 +16,7 @@ import { portfolioCategories } from "../../utils/variables";
 import Head from "next/head";
 import { NextPage } from "next";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(queryKeys.getPortfolioPage, () =>
@@ -78,15 +78,12 @@ const PortfolioPage: NextPage = () => {
             return (
               filtered &&
               filtered.length > 0 && (
-                <>
-                  <Separator color={"#8f8e93"} className="top" />
-                  <PortfolioSlider
-                    key={ind}
-                    reviews={filtered}
-                    category={category}
-                    isMobile={isMobile}
-                  />
-                </>
+                <PortfolioSlider
+                  key={ind}
+                  reviews={filtered}
+                  category={category}
+                  isMobile={isMobile}
+                />
               )
             );
           })}

@@ -55,7 +55,8 @@ export const BlackButton = styled.a<IFontSize>`
 
 export const Title = styled.h1`
   font-size: ${themes.primary.font.size.homeHeader};
-  letter-spacing: 0.05em;
+  letter-spacing: 0.045em;
+  line-height: 132px;
   text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000,
     0.5px 0.5px 0 #000;
   margin: 0;
@@ -80,7 +81,7 @@ export const MainSubtitle = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 7px;
-  margin: 32px 0 40px;
+  margin: 28px 0 40px;
   @media (max-width: 1200px) {
     font-size: 20px;
   }
@@ -106,7 +107,17 @@ export const LeftArrow = styled.img`
 
 export const LongArrow = styled.img`
   display: inline-block;
-  width: 36%;
+  margin-left: auto;
+  width: 30vw;
+  @media ${themes.primary.media.minTabletPortrait} {
+    width: 32vw;
+  }
+  @media ${themes.primary.media.minTabletLandScape} {
+    width: 34.5vw;
+  }
+  @media ${themes.primary.media.minLaptop} {
+    width: 36vw;
+  }
 `;
 
 export const HeadBlockContent = styled.div`
@@ -150,7 +161,7 @@ export const Subtitle = styled.div`
 
   &.footer {
     margin-top: ${themes.primary.spacing.tertiary};
-    margin-bottom: 1em;
+    margin-bottom: 1.1em;
     line-height: 132%;
     display: inline-block;
     vertical-align: middle;
@@ -222,6 +233,7 @@ export const Separator = styled.div`
 export const FooterButtonWrapper = styled.span`
   display: flex;
   justify-content: flex-end;
+  margin-right: 13px;
 `;
 
 export const FooterLinkButton = styled.a`

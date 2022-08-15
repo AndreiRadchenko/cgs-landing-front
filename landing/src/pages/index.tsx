@@ -11,13 +11,12 @@ import { IDataResponse } from "../types/Admin/Response.types";
 import HeaderNavNew from "../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../components/FooterNew/FooterNew";
 import Content from "../components/HomePage/Content";
-
 interface IHomeData {
   data: IDataResponse | undefined;
   isLoading: boolean;
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
@@ -29,6 +28,11 @@ export async function getStaticProps() {
       dehydratedState: dehydrate(queryClient),
     },
   };
+}
+
+interface IHomeData {
+  data: IDataResponse | undefined;
+  isLoading: boolean;
 }
 
 const Home: NextPage = () => {

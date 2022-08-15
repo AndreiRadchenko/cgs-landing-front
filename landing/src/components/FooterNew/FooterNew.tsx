@@ -8,7 +8,6 @@ import { disableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 import { useQueryClient } from "react-query";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
-import { footerIcons } from "../../consts";
 
 const FooterNew = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -44,7 +43,7 @@ const FooterNew = (): JSX.Element => {
         {data?.links.map((link, ind) => (
           <Link key={link.link + ind} href={link.link} passHref>
             <StyledThisComp.ListItemNav key={link.link + ind}>
-              <StyledThisComp.LinkText src={footerIcons[ind].src || ""} />
+              <StyledThisComp.LinkText src={data.images[ind].image?.url} />
             </StyledThisComp.ListItemNav>
           </Link>
         ))}

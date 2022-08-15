@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
+import { cursorBlinking } from "../AnimationsStyled";
 
 export const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 4em 0;
+  padding: 4.85em 0 2.5em 0;
 `;
 
 export const ContentContainer = styled.div`
@@ -31,15 +32,20 @@ export const Title = styled.h1`
 export const Description = styled.div`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
-  margin: 1.3em 0 2.2em;
+  margin: 1.3em 0 2.4em;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndHalf};
+  }
+  & p {
+    margin: 0;
   }
 `;
 
 export const Telephone = styled.img`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
+  margin-top: 1rem;
+  margin-right: 2rem;
   width: 44%;
 `;
 
@@ -51,4 +57,5 @@ export const Cursor = styled.div`
   background-color: ${themes.primary.colors.primary};
   right: -0.2em;
   bottom: -0.2em;
+  animation: ${cursorBlinking} 0.8s infinite;
 `;

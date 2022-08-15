@@ -19,7 +19,6 @@ export const DropdownContent = styled.div`
     font-family: ${themes.primary.font.family.namu};
     font-size: ${themes.primary.font.size.primary};
     border-bottom: 1px solid ${themes.primary.colors.comment};
-    padding: 10px 16px;
     text-decoration: none;
     text-align: left;
     cursor: pointer;
@@ -29,6 +28,9 @@ export const DropdownContent = styled.div`
     &:last-child {
       border-bottom: 0;
     }
+  }
+  a {
+    padding: 10px 16px;
   }
 `;
 
@@ -51,7 +53,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   &:first-child {
     border: none;
     height: 56px;
-    width: 11.02vw;
+    padding-left: 2.656rem;
   }
   div {
     &:nth-child(2) {
@@ -100,6 +102,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     vertical-align: middle;
   }
   img {
+    margin-right: 2.625rem;
     transform: rotate(0deg);
     margin-top: 3px;
   }
@@ -110,4 +113,9 @@ export const Dropdown = styled.div`
   position: relative;
   display: inline-block;
   background-color: ${themes.primary.colors.blogBackground};
+`;
+
+export const Link = styled.a`
+  display: block;
+  width: 100%;
 `;
