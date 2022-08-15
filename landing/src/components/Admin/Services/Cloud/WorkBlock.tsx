@@ -27,7 +27,7 @@ const WorkBlock = () => {
           <div key={`workBlock.${idx}`}>
             <SubHeaderWithInput
               onChangeFunction={handleChange}
-              header={el[0]}
+              header={`Subtitle ${idx + 1}`}
               inputValue={el[1]}
               name={`workBlock.${el[0]}.text`}
             />

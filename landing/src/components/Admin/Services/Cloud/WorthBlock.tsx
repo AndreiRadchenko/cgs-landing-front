@@ -30,7 +30,7 @@ const WorthBlock = () => {
             <SubHeaderWithInput
               onChangeFunction={handleChange}
               inputValue={el[1].subtitle}
-              header={`Subtitle${idx + 1}`}
+              header={`Subtitle ${idx + 1}`}
               name={`worthBlock.${el[0]}.subtitle`}
             />
             <TextEditor
