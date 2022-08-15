@@ -8,6 +8,7 @@ import cube from "../../../public/MobileSevice/worthIt/cube.svg";
 import cylinder from "../../../public/MobileSevice/worthIt/cylinder.svg";
 import upDashed from "../../../public/CloudServicePage/upDashed.svg";
 import downDashed from "../../../public/CloudServicePage/downDashed.svg";
+import parse from "html-react-parser";
 import * as Styled from "../../styles/CloudService/WhyItWorthIt.styled";
 
 const WhyItWorthIt = () => {
@@ -30,7 +31,7 @@ const WhyItWorthIt = () => {
               <Styled.Title>{el.subtitle}</Styled.Title>
             </Styled.TitleWrapper>
             {bgLines[index] && <Styled.Image src={bgLines[index].src} />}
-            <Styled.BlockText>{el.text}</Styled.BlockText>
+            <Styled.BlockText>{el.text && parse(el.text)}</Styled.BlockText>
           </Styled.Block>
         ))}
       </Styled.BlockWrapper>
