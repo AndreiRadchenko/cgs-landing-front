@@ -2,12 +2,12 @@
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 18.7em;
+  margin-top: 18.1em;
 `;
 
 export const ContentLayout = styled.div`
   margin-top: 5.4em;
-  width: 100%;
+  width: 98.4%;
   display: flex;
 
   @media (max-width: 1400px) {
@@ -79,6 +79,7 @@ export const WhyIsWebBlock = styled.div`
     }
     p {
       margin-left: 20px;
+      margin-bottom: 7px;
     }
   }
   @media (max-width: 1400px) {

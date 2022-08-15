@@ -57,7 +57,9 @@ export const Image = styled.img`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
   top: 6.2em;
-  right: -0.9em;
+  right: -0.1em;
+  width: 54.3%;
+  height: 79.2%;
 
   @media (max-width: 1360px) {
     width: 45%;
