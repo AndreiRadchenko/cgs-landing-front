@@ -2,7 +2,7 @@
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 12.7%;
+  margin-top: 11.2%;
   position: relative;
   background-color: ${themes.primary.colors.blogBackground};
   padding-bottom: 4.8%;

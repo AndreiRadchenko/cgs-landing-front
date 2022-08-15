@@ -65,7 +65,7 @@ export const RightSideContainer = styled.div`
 `;
 
 export const RightSideText = styled.div`
-  margin-right: 1.5em;
+  margin-right: 1em;
   width: 50%;
   & p {
     margin: 1.4em 0;
