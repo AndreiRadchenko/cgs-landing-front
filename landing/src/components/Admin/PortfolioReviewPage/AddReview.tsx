@@ -14,19 +14,13 @@ interface IAddReviewProps {
   categories: string[];
   setIsReady: (value: boolean) => void;
   newFlag: boolean;
-  defaultCategory: string;
 }
 
-const AddReview = ({
-  categories,
-  setIsReady,
-  newFlag,
-  defaultCategory,
-}: IAddReviewProps) => {
+const AddReview = ({ categories, setIsReady, newFlag }: IAddReviewProps) => {
   const { values, handleSubmit, handleChange } =
     useFormikContext<IPortfolioReview>();
 
-  const [catValue, setCatValue] = useState(defaultCategory);
+  const [catValue, setCatValue] = useState(values.category);
   const deleteFunction = useDeleteImageFunction(values, "");
   const uploadFunction = useUploadImageFunction(values, "");
   const starsChange = (newValue: number) => (values.feedback.rating = newValue);
@@ -36,7 +30,7 @@ const AddReview = ({
     values.category = catValue;
     setIsReady(true);
     handleSubmit();
-    setCatValue(defaultCategory);
+    setCatValue(values.category);
   };
   const deleteFunc = async () => (await deleteFunction)();
   const uploadFunc = (image: IImage) => uploadFunction(image);
