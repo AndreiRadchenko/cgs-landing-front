@@ -41,6 +41,9 @@ export const ProjectDescription = styled.p`
     padding: 10px;
     margin-top: 0px;
   }
+  @media (max-width: 1310px) {
+    margin: 12px 0 32px;
+  }
   @media (max-width: 1199px) {
     font-size: 15px;
   }
@@ -251,8 +254,7 @@ export const ImageContainer = styled.div`
   display: flex;
   justify-content: right;
   align-items: center;
-  border-left: 1px solid ${themes.primary.colors.comment};
-  bottom: 2px;
+  left: -0.7px;
 `;
 
 export const ContentContainer = styled.div`
