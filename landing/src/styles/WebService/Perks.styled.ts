@@ -2,11 +2,12 @@
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 12em;
+  margin-top: 11.8em;
+  width: 98.5%;
 `;
 
 export const ContentWrapper = styled.div`
-  margin-top: 4.5em;
+  margin-top: 4.1em;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
