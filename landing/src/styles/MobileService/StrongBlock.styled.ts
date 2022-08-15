@@ -15,13 +15,14 @@ export const ImageContainer = styled.div`
   margin-top: 1.1em;
 `;
 
-export const BlockImage = styled.img``;
+export const BlockImage = styled.img`
+  padding-left: 27px;
+`;
 
 export const Block = styled.div`
   display: flex;
 
   &:first-child {
-    padding-right: 2em;
   }
 `;
 
