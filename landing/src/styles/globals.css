@@ -55,6 +55,7 @@
   src: url("/GilroyFont/Gilroy-Heavy.ttf") format("truetype");
   font-weight: 900;
   font-style: sans-serif;
+  font-display: swap;
 }
 
 @font-face {
@@ -62,6 +63,7 @@
   src: url("/NAMUFont/NAMU-PRO.woff2") format("woff2");
   font-weight: 900;
   font-style: sans-serif;
+  font-display: swap;
 }
 
 html,
