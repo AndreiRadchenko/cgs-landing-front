@@ -1,38 +1,58 @@
 import React from "react";
-import { useQuery } from "react-query";
+import { NextPage } from "next";
+import parse from "html-react-parser";
+import { useQuery, QueryClient, dehydrate } from "react-query";
 import * as Styled from "../../styles/MobileService/Layout";
-import HeadBlock from "../../components/MobileService/HeadBlock";
+import Head from "next/head";
+import HeadBlock from "../../components/DbService/HeadBlock";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import WorthIt from "../../components/MobileService/WorthIt";
-import StrongBlock from "../../components/MobileService/StrongBlock";
-import WhoNeedAppBlock from "../../components/MobileService/WhoNeedAppBlock";
-import HowDoWeWork from "../../components/MobileService/HowDoWeWork";
-import ProfBlock from "../../components/MobileService/ProfBlock";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
-import { adminMobileService } from "../../services/services/AdminServicesMobilePage";
+import { adminDbService } from "../../services/services/adminServicesDbPage";
 
-const MobileAppDevelopment = () => {
-  useQuery(queryKeys.getServiceMobilePage, () =>
-    adminMobileService.getMobileServicePage()
+// export async function getServerSideProps() {
+//   const queryClient = new QueryClient();
+
+//   await queryClient.prefetchQuery(queryKeys.getServiceDbPage, () =>
+//     adminDbService.getDbServicePage()
+//   );
+
+//   return {
+//     props: {
+//       dehydratedState: dehydrate(queryClient),
+//     },
+//   };
+// }
+
+const DbSolutions: NextPage = () => {
+  const { data } = useQuery(queryKeys.getServiceDbPage, () =>
+    adminDbService.getDbServicePage()
   );
 
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+
+  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
   return (
     <>
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        {customHead && parse(customHead)}
+      </Head>
       <HeaderNavNew />
-      <Styled.Layout className="worth">
+      <Styled.Layout>
         <HeadBlock />
-        <WorthIt />
-        <StrongBlock />
-        <WhoNeedAppBlock />
-        <HowDoWeWork />
-        <ProfBlock />
+        {/* <WebPros />
+        <WhyIsWebAMust />
+        <SolutionBlock />
+        <PerksBlock />
+        <FooterBlock /> */}
       </Styled.Layout>
       <FooterNew />
     </>
   );
 };
 
-export default MobileAppDevelopment;
+export default DbSolutions;
