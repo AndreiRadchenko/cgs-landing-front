@@ -83,6 +83,7 @@ const Review = ({ review, idx }: IReviewProps) => {
               </Styled.ViewMoreContainer>
             </>
           )}
+          <Styled.Border />
         </Styled.ContentContainer>
         {(review?.image && (
           <>
