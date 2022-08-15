@@ -40,6 +40,11 @@ const AdminSidebar = () => {
             <a>Mobile Development</a>
           </Link>
         </DropDownElement>
+        <DropDownElement value="service">
+          <Link href={ROUTE_KEYS.AdminServiceDb}>
+            <a>db solutions</a>
+          </Link>
+        </DropDownElement>
         <DropDownElement value="company">
           <Link href={ROUTE_KEYS.AdminAboutUs}>
             <a>about us</a>
