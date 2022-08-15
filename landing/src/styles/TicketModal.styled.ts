@@ -100,6 +100,7 @@ export const CloseButton = styled.img`
   top: 0;
   margin: 26px 26px 0 0;
   cursor: pointer;
+  z-index: 5;
 `;
 
 export const Container = styled.div`
@@ -127,18 +128,19 @@ export const WhiteBox = styled.div`
 `;
 
 export const Content = styled.div`
-  height: 674px;
+  height: 97%;
   overflow-y: scroll;
   overflow-x: hidden;
-  position: absolute;
-  right: 10px;
+  margin: 10px 0;
+  margin-right: 10px;
+
   &::-webkit-scrollbar {
     width: 4px;
-    height: 20px;
   }
 
   &::-webkit-scrollbar-track {
     background-color: transparent;
+    /* margin-bottom: 200px; */
   }
   &::-webkit-scrollbar-track-piece:end {
     background: transparent;
@@ -154,6 +156,9 @@ export const Content = styled.div`
     background-color: ${themes.primary.colors.primary};
     border-radius: 10px;
   }
+
+  scrollbar-color: ${themes.primary.colors.primary} transparent;
+  scrollbar-width: thin;
 `;
 
 export const HiddenWrapper = styled.div`
