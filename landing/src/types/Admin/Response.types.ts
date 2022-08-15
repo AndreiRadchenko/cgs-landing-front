@@ -338,3 +338,39 @@ export interface IServiceMobile {
   footerBlock: IIntroWithImage;
   meta: IMetaBlock;
 }
+
+// cloud Solution
+export interface ICloudService {
+  meta: IMetaBlock;
+  footerBlock: {
+    button: string;
+    buttonLink: string;
+    subtitle: string;
+    image: { url: string };
+  };
+  headerBlock: {
+    button: string;
+    buttonLink: string;
+    title: string;
+    text: string;
+    image: { url: string };
+  };
+  providesBlock: {
+    configuration: ISubtitleWithText;
+    hosting: ISubtitleWithText;
+    publishing: ISubtitleWithText;
+    subtitle: string;
+  };
+  workBlock: {
+    subtitle: string;
+    subtitle1: string;
+    subtitle2: string;
+    subtitle3: string;
+  };
+  worthBlock: {
+    collaboration: ISubtitleWithText;
+    dataSecurity: ISubtitleWithText;
+    mobility: ISubtitleWithText;
+    subtitle: string;
+  };
+}
