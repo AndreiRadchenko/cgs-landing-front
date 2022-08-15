@@ -6,7 +6,7 @@ export const TechnologyContainer = styled.section`
   position: relative;
   user-select: none;
   font-family: ${themes.primary.font.family.namu};
-  margin-bottom: 8.5em;
+  margin-bottom: 12.9em;
 `;
 
 export const TechTitle = styled.h2`
