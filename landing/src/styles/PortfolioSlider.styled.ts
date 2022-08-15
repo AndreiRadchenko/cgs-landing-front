@@ -252,7 +252,6 @@ export const ImageContainer = styled.div`
   justify-content: right;
   align-items: center;
   border-left: 1px solid ${themes.primary.colors.comment};
-  position: relative;
   bottom: 2px;
 `;
 
@@ -311,6 +310,7 @@ export const Separator = styled.div`
   width: 100%;
   height: 0.5px;
   margin-bottom: 30px;
+
   &.top {
     margin-bottom: 0.1px;
   }
@@ -393,5 +393,5 @@ export const Border = styled.div`
   background-color: ${themes.primary.colors.comment};
   position: absolute;
   top: 0;
-  right: 0px;
+  right: 0;
 `;
