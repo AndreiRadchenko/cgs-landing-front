@@ -12,7 +12,7 @@ export const HeaderNavContainer = styled.div`
 `;
 
 export const LogoLinkWrapper = styled.a`
-  padding: 0.7rem 3rem;
+  padding: 0.7rem 3.315rem;
   height: 56px;
   display: flex;
   justify-content: center;
@@ -49,7 +49,7 @@ export const ListItemNav = styled.a`
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.headerLinkText};
   display: flex;
-  padding: 19px 3.2rem;
+  padding: 19px 3.18rem;
   align-items: center;
   justify-content: center;
   border-left: 1px solid ${themes.primary.colors.headerBorder};
@@ -71,7 +71,7 @@ export const ListItemNav = styled.a`
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
   }
   &:first-child {
-    padding: 19px 2.875rem;
+    padding: 19px 2.9rem;
   }
 `;
 

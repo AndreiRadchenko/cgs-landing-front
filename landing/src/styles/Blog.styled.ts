@@ -741,7 +741,7 @@ export const SmallArticleItemDescription = styled(BlogItemDescription)`
 `;
 
 export const SmallArticleContainer = styled(FlexColumnContainer)`
-  width: 33vw;
+  width: 33.264vw;
   min-height: 33vh;
   height: auto;
   padding: 25px 60px 25px 25px;

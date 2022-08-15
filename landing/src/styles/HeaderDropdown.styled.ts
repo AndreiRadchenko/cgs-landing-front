@@ -4,9 +4,9 @@ import themes from "../utils/themes";
 export const DropdownContent = styled.div`
   position: absolute;
   background-color: ${themes.primary.colors.blogBackground};
-  min-width: 22.05vw;
+  min-width: 22.5vw;
   z-index: 3;
-  right: 0;
+  right: -1px;
   border: 1px solid ${themes.primary.colors.primary};
   border-right: 3px solid ${themes.primary.colors.primary};
   border-bottom: 12px solid ${themes.primary.colors.primary};
@@ -53,7 +53,6 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   &:first-child {
     border: none;
     height: 56px;
-    padding-left: 2.656rem;
   }
   div {
     &:nth-child(2) {
@@ -82,16 +81,16 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   }
   &:hover {
     transition: 0.3s;
-    border-right: 1.5px solid ${themes.primary.colors.primary} !important;
+    border-right: 2px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
   }
   &:hover &.open {
     border-bottom: 0 !important;
-    border-right: 3px solid ${themes.primary.colors.primary} !important;
+    border-right: 2px solid ${themes.primary.colors.primary} !important;
   }
   &.open {
     border-bottom: 0 !important;
-    border-right: 3px solid ${themes.primary.colors.primary} !important;
+    border-right: 2px solid ${themes.primary.colors.primary} !important;
 
     img {
       transform: rotate(180deg);
@@ -102,7 +101,6 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     vertical-align: middle;
   }
   img {
-    margin-right: 2.625rem;
     transform: rotate(0deg);
     margin-top: 3px;
   }
@@ -113,6 +111,28 @@ export const Dropdown = styled.div`
   position: relative;
   display: inline-block;
   background-color: ${themes.primary.colors.blogBackground};
+
+  &:nth-child(2) > button {
+    padding-left: 2.475rem;
+
+    & img {
+      margin-right: 2.475rem;
+    }
+  }
+
+  &:nth-child(3) {
+    & > div {
+      min-width: 24.13vw;
+    }
+
+    & > button {
+      padding-left: 2.68rem;
+
+      & img {
+        margin-right: 2.68rem;
+      }
+    }
+  }
 `;
 
 export const Link = styled.a`
