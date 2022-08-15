@@ -164,6 +164,7 @@ export enum ROUTE_KEYS {
   AdminFaqPage = "AdminFaq",
   AdminAboutUs = "AdminAboutUs",
   AdminServiceMobile = "AdminServiceMobile",
+  AdminServiceCloud = "AdminServiceCloud",
   AdminServiceWeb = "AdminServiceWeb",
 }
 

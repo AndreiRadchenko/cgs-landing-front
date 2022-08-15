@@ -42,6 +42,9 @@ const AdminSidebar = () => {
           <Link href={ROUTE_KEYS.AdminServiceMobile}>
             <a>Mobile Development</a>
           </Link>
+          <Link href={ROUTE_KEYS.AdminServiceCloud}>
+            <a>Cloud Solutions</a>
+          </Link>
         </DropDownElement>
         <DropDownElement value="company">
           <Link href={ROUTE_KEYS.AdminAboutUs}>
