@@ -9,12 +9,14 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { StarCont } from "../../styles/PortfolioSlider.styled";
 import portfolioArrow from "../../../public/portfolioArrow.svg";
 import { recoverLink } from "../../utils/recoverLink";
+import Image from "next/image";
 
 interface IReviewProps {
   review: IPortfolioReview;
+  idx?: number;
 }
 
-const Review = ({ review }: IReviewProps) => {
+const Review = ({ review, idx }: IReviewProps) => {
   const [isTablet, setIsTablet] = useState(false);
   const { width } = useWindowDimension();
   useEffect(() => {
@@ -83,9 +85,16 @@ const Review = ({ review }: IReviewProps) => {
           )}
         </Styled.ContentContainer>
         {(review?.image && (
-          <Styled.ImageContainer>
-            <Styled.Image src={review?.image.url} alt="review image" />
-          </Styled.ImageContainer>
+          <>
+            <Styled.ImageContainer>
+              <Image
+                src={review.image.url}
+                alt="review image"
+                layout="fill"
+                priority={idx === 0}
+              />
+            </Styled.ImageContainer>
+          </>
         )) || <h1>No Image</h1>}
       </Styled.ReviewContainer>
     )

@@ -1,24 +1,23 @@
 ﻿import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "react-query";
-import ServiceMobileContentBlock from ".";
+import ServiceWebContentBlock from "./";
 import { queryKeys } from "../../../../consts/queryKeys";
-import { adminMobileService } from "../../../../services/services/adminServicesMobilePage";
+import { adminWebService } from "../../../../services/services/adminServicesWebPage";
 import * as Styled from "../../../../styles/AdminPage";
-import { IServiceMobile } from "../../../../types/Admin/Response.types";
+import { IServiceWeb } from "../../../../types/Admin/Response.types";
 
-const AdminServiceMobileContent = () => {
+const AdminServiceWebContent = () => {
   const { data, isLoading, refetch } = useQuery(
-    queryKeys.getServiceMobilePage,
-    () => adminMobileService.getMobileServicePage()
+    queryKeys.getServiceWebPage,
+    () => adminWebService.getWebServicePage()
   );
-
   const { mutateAsync: updateFaqPage } = useMutation(
-    queryKeys.updateServiceMobilePage,
-    (data: IServiceMobile) => adminMobileService.updateMobileServicePage(data)
+    queryKeys.updateServiceWebPage,
+    (data: IServiceWeb) => adminWebService.updateWebServicePage(data)
   );
 
-  const submitForm = async (values: IServiceMobile) => {
+  const submitForm = async (values: IServiceWeb) => {
     document.body.style.cursor = "wait";
     await updateFaqPage(values);
     await refetch();
@@ -29,7 +28,7 @@ const AdminServiceMobileContent = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik initialValues={data!} onSubmit={submitForm}>
-      <ServiceMobileContentBlock />
+      <ServiceWebContentBlock />
     </Formik>
   ) : (
     <Styled.AdminUnauthorizedModal>
@@ -38,4 +37,4 @@ const AdminServiceMobileContent = () => {
   );
 };
 
-export default AdminServiceMobileContent;
+export default AdminServiceWebContent;

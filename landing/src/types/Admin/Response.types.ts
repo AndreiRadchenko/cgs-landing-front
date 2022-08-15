@@ -339,6 +339,7 @@ export interface IServiceMobile {
   meta: IMetaBlock;
 }
 
+<<<<<<< HEAD
 // cloud Solution
 export interface ICloudService {
   meta: IMetaBlock;
@@ -373,4 +374,43 @@ export interface ICloudService {
     mobility: ISubtitleWithText;
     subtitle: string;
   };
+=======
+export interface ISubtitleWithText {
+  subtitle: string;
+  text: string;
+}
+
+export interface ISubtitleWithList {
+  subtitle: string;
+  list: string[];
+}
+
+export interface IServiceWeb {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  comparisonBlock: {
+    desktopColumn: ISubtitleWithList;
+    webColumn: ISubtitleWithList;
+  };
+  whyIsWebBlock: {
+    subtitle: string;
+    element1: ISubtitleWithText;
+    element2: ISubtitleWithText;
+    element3: ISubtitleWithText;
+  };
+  solutionBlock: ISubtitleWithText;
+  perksBlock: ISubtitleWithList;
+  footerBlock: {
+    subtitle: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+>>>>>>> 44efac16eb4ecc1fe06c559ec772a19f3e80f2a3
 }

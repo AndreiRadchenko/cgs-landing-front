@@ -86,6 +86,11 @@ export const AdminPaddedBlock = styled.div`
   margin-bottom: ${themes.primary.spacing.adminWithinBlocks};
   background: ${(props) =>
     props.theme == "dark" ? themes.primary.colors.darkedGrayBack : null};
+
+  &.withoutMargin {
+    margin-bottom: 0;
+    padding-bottom: ${themes.primary.spacing.adminWithinBlocks};
+  }
 `;
 
 export const AdminPaddedHeaderBlock = styled.div`
@@ -179,11 +184,7 @@ export const AdminPhotoGrid = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  &.faq {
-    width: 90%;
-  }
-
-  &.about {
+  &.fullWidth {
     width: 90%;
   }
 `;
@@ -421,7 +422,6 @@ export const AdminPointer = styled.div`
 
 export const AdminPhotoDashedHorizontal = styled.div<{ maxWidth?: string }>`
   display: flex;
-  flex-direcrion: row;
   border: 2px dashed ${themes.primary.colors.primary};
   padding: 4em 3.5em;
   max-width: ${(props) => props.maxWidth};
@@ -871,4 +871,17 @@ export const AdminQuaterGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 0.4fr);
   column-gap: 13em;
+`;
+
+export const AdminHeaderGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  column-gap: 7rem;
+`;
+
+export const AdminSubtitleGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 7.5em;
+  margin-right: 7.5em;
 `;

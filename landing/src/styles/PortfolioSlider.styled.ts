@@ -170,7 +170,7 @@ export const PortfolioRow = styled.div`
     color: ${themes.primary.colors.secondary};
   }
   @media (max-width: 1310px) {
-    max-height: 450px;
+    max-height: 460px;
   }
   @media ${themes.primary.media.minPC} {
     max-height: 33.5vw;
@@ -200,7 +200,23 @@ export const NavigateRight = styled.div`
 `;
 
 export const ArrowContainer = styled.div`
-  width: 50%;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+
+  & svg {
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 65px;
+    height: 65px;
+  }
+  &.hover {
+    & path:first-child {
+      fill: ${themes.primary.colors.portfolioHover};
+    }
+  }
 `;
 
 export const ReviewContainer = styled.div`
@@ -229,13 +245,13 @@ export const Image = styled.img`
 `;
 
 export const ImageContainer = styled.div`
+  position: relative;
   width: 56%;
   height: 101%;
   display: flex;
   justify-content: right;
   align-items: center;
   border-left: 1px solid ${themes.primary.colors.comment};
-  position: relative;
   bottom: 2px;
 `;
 
@@ -294,6 +310,7 @@ export const Separator = styled.div`
   width: 100%;
   height: 0.5px;
   margin-bottom: 30px;
+
   &.top {
     margin-bottom: 0.1px;
   }
@@ -376,5 +393,5 @@ export const Border = styled.div`
   background-color: ${themes.primary.colors.comment};
   position: absolute;
   top: 0;
-  right: 0px;
+  right: 0;
 `;
