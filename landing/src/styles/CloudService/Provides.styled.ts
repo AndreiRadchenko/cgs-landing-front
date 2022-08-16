@@ -28,17 +28,17 @@ export const Block = styled.div`
   position: absolute;
 
   &:nth-child(1) {
-    left: 0.5em;
+    left: 0;
   }
 
   &:nth-child(2) {
-    top: 14em;
-    left: 20.2em;
+    top: 13.9em;
+    left: 20em;
   }
 
   &:nth-child(3) {
-    top: 32.9em;
-    left: 51.5em;
+    top: 32.7em;
+    left: 51em;
   }
 `;
 
@@ -48,10 +48,10 @@ export const Title = styled.p`
 `;
 
 export const Description = styled.p`
-  font-size: ${themes.primary.font.size.secondaryServicesText};
+  font-size: ${themes.primary.font.size.oneAndHalf};
   margin: 1.57em 0 0 0;
   line-height: 160%;
-  max-width: 32.15em;
+  max-width: 26.39em;
 `;
 
 export const CustomMarker = styled.div`

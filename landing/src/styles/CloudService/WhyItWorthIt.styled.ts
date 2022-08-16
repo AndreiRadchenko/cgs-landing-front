@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin: 17.52em 2em 0 0;
+  margin: 0 1.95em 0 0;
 `;
 
 export const BlockWrapper = styled.div`
@@ -33,6 +33,10 @@ export const Block = styled.div`
   }
   :not(:last-child) {
     padding-left: 1.25em;
+
+    & > p {
+      max-width: 19.5em;
+    }
   }
 `;
 
@@ -50,7 +54,8 @@ export const Title = styled.p`
 export const BlockText = styled.p`
   font-size: ${themes.primary.font.size.oneAndHalf};
   line-height: 160%;
-  margin: 1.27em 0 0 0;
+  margin: 1.28em 0 0 0;
+  max-width: 21.95em;
 `;
 
 export const Svg = styled.img`
