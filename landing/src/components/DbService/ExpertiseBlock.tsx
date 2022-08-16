@@ -2,7 +2,7 @@ import React from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { Subtitle } from "../../styles/DbService/Layout";
-import * as Styled from "../../styles/DbService/ExpertiseBlock";
+import * as Styled from "../../styles/DbService/ExpertiseBlock.styled";
 import { IServiceDb } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import serverIcon from "../../../public/DbService/illServers.svg";

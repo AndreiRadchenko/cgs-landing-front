@@ -11,6 +11,8 @@ import FooterNew from "../../components/FooterNew/FooterNew";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminDbService } from "../../services/services/adminServicesDbPage";
+import SelectBlock from "../../components/DbService/SelectBlock";
+import FeaturesBlock from "../../components/DbService/FeaturesBlock";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -46,9 +48,9 @@ const DbSolutions: NextPage = () => {
       <Styled.Layout>
         <HeadBlock />
         <ExpertiseBlock />
-        {/*<WhyIsWebAMust />
-        <SolutionBlock />
-        <PerksBlock />
+        <SelectBlock />
+        <FeaturesBlock />
+        {/*<PerksBlock />
         <FooterBlock /> */}
       </Styled.Layout>
       <FooterNew />
