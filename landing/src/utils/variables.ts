@@ -22,7 +22,7 @@ export const navigationRoutesLinks = {
   "Crypto // Blockchain Development": "",
   "Web // Desktop Development": "/services/web-development",
   "Mobile Development": "/services/mobile-app-development",
-  "Cloud Solutions": "",
+  "Cloud Solutions": "/services/cloud-solutions",
   "Ongoing Support // Maintenance": "",
   "Server & Databases": "",
   "UX/UI Design": "",
