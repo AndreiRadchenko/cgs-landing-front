@@ -4,10 +4,10 @@ import * as Styled from "../../styles/HomePage/General.styled";
 import Partners from "../Partners/Partners";
 import film from "../../../public/HomePageDecoration/photoFilm.svg";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
-import buttonArrow from "../../../public/HomePageDecoration/buttonArrow.svg";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
+import ButtonArrow from "../../utils/ButtonArrow";
 
 const NextTech = () => {
   const queryClient = useQueryClient();
@@ -43,7 +43,9 @@ const NextTech = () => {
           href={buttonData?.buttonLink}
         >
           {buttonData?.button}
-          <Styled.ButtonArrow src={buttonArrow.src} />
+          <Styled.ArrowContainer>
+            <ButtonArrow />
+          </Styled.ArrowContainer>
         </Styled.BlackButton>
       </Styled.RightContainer>
     </Styled.NextTech>

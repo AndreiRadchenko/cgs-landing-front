@@ -2,11 +2,13 @@ import React from "react";
 import { useQueryClient } from "react-query";
 import { ICloudService } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
-import { BlackButton } from "../../styles/HomePage/General.styled";
-import { ButtonArrow } from "../../styles/HomePage/General.styled";
-import arrow from "../../../public/HomePageDecoration/buttonArrow.svg";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../styles/HomePage/General.styled";
 import themes from "../../utils/themes";
 import * as Styled from "../../styles/CloudService/HeaderBlock.styled";
+import ButtonArrow from "../../utils/ButtonArrow";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -28,7 +30,9 @@ const HeadBlock = () => {
           href={data?.buttonLink}
         >
           {data?.button}
-          <ButtonArrow src={arrow.src}></ButtonArrow>
+          <ArrowContainer>
+            <ButtonArrow />
+          </ArrowContainer>
         </BlackButton>
       </Styled.ContentWrapper>
       <Styled.Image src={data?.image.url} />
