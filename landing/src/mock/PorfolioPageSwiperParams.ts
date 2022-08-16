@@ -10,7 +10,6 @@ const data: SwiperProps = {
     prevEl: ".swiper-button-prev",
     nextEl: ".swiper-button-next",
   },
-  focusableElements: "button",
   speed: 500,
 };
 

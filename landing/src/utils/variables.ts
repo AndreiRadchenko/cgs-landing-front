@@ -34,7 +34,7 @@ export const navigationRoutesLinks = {
 export const navigationRoutesNamesNew = [
   { route: "Portfolio", withDropdown: false },
   {
-    route: "Service",
+    route: "Services",
     withDropdown: true,
     tags: [
       "Crypto // Blockchain Development",
