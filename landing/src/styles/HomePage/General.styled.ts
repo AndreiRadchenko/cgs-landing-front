@@ -42,14 +42,31 @@ export const BlackButton = styled.a<IFontSize>`
   color: ${themes.primary.colors.secondary};
   background-color: ${themes.primary.colors.primary};
   line-height: 99%;
+  display: inline-block;
 
   &.footer {
     margin-top: 10px;
     height: 4vw;
     margin-left: 20px;
   }
+
   @media ${themes.primary.media.onlyTabletLandScape} {
     font-size: 14px;
+  }
+
+  & path {
+    transition: transform 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
   }
 `;
 
@@ -250,4 +267,36 @@ export const FooterLinkButton = styled.a`
   color: ${themes.primary.colors.secondary};
   background-color: ${themes.primary.colors.primary};
   line-height: 99%;
+
+  & path {
+    transition: all 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    z-index: -1;
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
+
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+  }
+`;
+
+export const ArrowContainer = styled.div`
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: -12px;
+  top: -12px;
+  background-color: ${themes.primary.colors.headerBorderHover};
+  border: 1.7px solid ${themes.primary.colors.primary};
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 `;

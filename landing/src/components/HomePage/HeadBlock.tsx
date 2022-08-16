@@ -2,11 +2,11 @@ import React from "react";
 import * as Styled from "../../styles/HomePage/General.styled";
 import leftArrow from "../../../public/HomePageDecoration/leftArrow.svg";
 import rightArrow from "../../../public/HomePageDecoration/rightArrow.svg";
-import buttonArrow from "../../../public/HomePageDecoration/buttonArrow.svg";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { recoverLink } from "../../utils/recoverLink";
+import ButtonArrow from "../../utils/ButtonArrow";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -36,7 +36,9 @@ const HeadBlock = () => {
           href={data && data.buttonLink && recoverLink(data?.buttonLink)}
         >
           {data?.button}
-          <Styled.ButtonArrow src={buttonArrow.src} />
+          <Styled.ArrowContainer>
+            <ButtonArrow />
+          </Styled.ArrowContainer>
         </Styled.BlackButton>
       </Styled.HeadBlockContent>
       {data?.image?.url && (

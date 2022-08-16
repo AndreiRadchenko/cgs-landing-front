@@ -70,6 +70,22 @@ export const SubmitButtonContainer = styled.div`
   width: 172px;
   position: relative;
   margin: 38px 0 40px 36px;
+  & path {
+    transition: all 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    z-index: -1;
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
+
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+  }
 `;
 
 export const SubmitButton = styled.button`

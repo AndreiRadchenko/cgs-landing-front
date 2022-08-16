@@ -7,6 +7,8 @@ import TicketModal from "../Careers/TicketModal";
 import { ITicket } from "../../types/Admin/Response.types";
 import * as Styles from "../../styles/TicketModal.styled";
 import CloseButton from "../../../public/CareerDecorations/close.svg";
+import { ArrowContainer } from "../../styles/HomePage/General.styled";
+import ButtonArrow from "../../utils/ButtonArrow";
 
 interface ITicketProps {
   ticket: ITicket;
@@ -103,7 +105,9 @@ const CareersTicket: FC<ITicketProps> = ({
                 <Styles.SubmitButton onClick={onSubmitClick}>
                   SUBMIT FORM
                 </Styles.SubmitButton>
-                <Styles.SubmitArrow src={Arrow.src} />
+                <ArrowContainer>
+                  <ButtonArrow />
+                </ArrowContainer>
               </Styles.SubmitButtonContainer>
             </Styles.Content>
           </Styles.HiddenWrapper>
