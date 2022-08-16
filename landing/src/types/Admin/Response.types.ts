@@ -411,3 +411,41 @@ export interface IServiceWeb {
   };
   meta: IMetaBlock;
 }
+
+//Blockchain service page
+
+export interface IBlockchainService {
+  aboutBlock: {
+    subtitle: string;
+  };
+  footerBlock: {
+    button: string;
+    buttonLink: string;
+    subtitle: string;
+    image: {
+      url: string;
+    };
+  };
+  headerBlock: {
+    button: string;
+    buttonLink: string;
+    title: string;
+    text: string;
+    image: {
+      url: string;
+    };
+  };
+  servicesBlock: {
+    image: {
+      url: string;
+    };
+    subtitle: string;
+    text: string;
+    textSubBlock: string[];
+  };
+  wayBlock: {
+    subtitle: string;
+    textSubBlock: string[];
+  };
+  meta: IMetaBlock;
+}
