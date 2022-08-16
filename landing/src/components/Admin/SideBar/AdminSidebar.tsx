@@ -36,8 +36,14 @@ const AdminSidebar = () => {
           portfolio
         </Styled.AdminSidebarMenuElement>
         <DropDownElement value="service">
+          <Link href={ROUTE_KEYS.AdminServiceWeb}>
+            <a>Web // Desktop Development</a>
+          </Link>
           <Link href={ROUTE_KEYS.AdminServiceMobile}>
             <a>Mobile Development</a>
+          </Link>
+          <Link href={ROUTE_KEYS.AdminServiceCloud}>
+            <a>Cloud Solutions</a>
           </Link>
         </DropDownElement>
         <DropDownElement value="service">

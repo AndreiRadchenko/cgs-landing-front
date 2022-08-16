@@ -19,7 +19,7 @@ export const ProfText = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  padding-bottom: 23em;
+  padding-bottom: 22.5em;
 `;
 export const ImageWrapper = styled.div`
   position: relative;

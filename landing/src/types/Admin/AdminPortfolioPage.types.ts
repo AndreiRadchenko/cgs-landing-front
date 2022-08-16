@@ -31,7 +31,6 @@ export interface IPortfolioResponse {
 }
 
 export interface IAddAndEditProps {
-  defaultCategory: string;
   submitFunc: (
     data: IPortfolioReview,
     props: FormikHelpers<IPortfolioReview>

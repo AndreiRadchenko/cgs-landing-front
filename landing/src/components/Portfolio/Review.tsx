@@ -67,11 +67,29 @@ const Review = ({ review, idx }: IReviewProps) => {
               <StarCont>
                 {startsArr.map((num, i) => {
                   if (num > 0.5) {
-                    return <Styled.Star src={StarPortfolio.src} key={i} />;
+                    return (
+                      <Styled.Star
+                        src={StarPortfolio.src}
+                        key={i}
+                        alt="feedback star img"
+                      />
+                    );
                   } else if (num > 0 && num <= 0.5) {
-                    return <Styled.Star src={halfStar.src} key={i} />;
+                    return (
+                      <Styled.Star
+                        src={halfStar.src}
+                        key={i}
+                        alt="feedback star img"
+                      />
+                    );
                   }
-                  return <Styled.Star src={emptyStar.src} key={i} />;
+                  return (
+                    <Styled.Star
+                      src={emptyStar.src}
+                      key={i}
+                      alt="feedback star img"
+                    />
+                  );
                 })}
               </StarCont>
               <Styled.ProjectComment>
@@ -79,20 +97,26 @@ const Review = ({ review, idx }: IReviewProps) => {
               </Styled.ProjectComment>
               <Styled.ViewMoreContainer href="https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/">
                 <Styled.ViewMoreText>view more</Styled.ViewMoreText>
-                <Styled.ViewMoreArrow src={portfolioArrow.src} />
+                <Styled.ViewMoreArrow
+                  src={portfolioArrow.src}
+                  alt="view more stroke img"
+                />
               </Styled.ViewMoreContainer>
             </>
           )}
+          <Styled.Border />
         </Styled.ContentContainer>
         {(review?.image && (
-          <Styled.ImageContainer>
-            <Image
-              src={review.image.url}
-              alt="review image"
-              layout="fill"
-              loading={idx && idx === 0 ? "eager" : "lazy"}
-            />
-          </Styled.ImageContainer>
+          <>
+            <Styled.ImageContainer>
+              <Image
+                src={review.image.url}
+                alt="review image"
+                layout="fill"
+                priority={idx === 0}
+              />
+            </Styled.ImageContainer>
+          </>
         )) || <h1>No Image</h1>}
       </Styled.ReviewContainer>
     )

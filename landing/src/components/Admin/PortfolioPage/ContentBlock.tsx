@@ -64,7 +64,6 @@ const AdminPortfolioContentBlock = () => {
         </Styled.AdminBigButton>
         <Styled.AdminSubTitle>Add a new case</Styled.AdminSubTitle>
         <AddAndEdit
-          defaultCategory={values.categories[0]}
           current={current}
           isNewStatus={isNewStatus}
           setIsReady={setIsReady}

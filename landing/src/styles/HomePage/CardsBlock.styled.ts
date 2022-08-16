@@ -23,7 +23,7 @@ export const BigDigit = styled.p`
 export const CardsWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 100px;
+  row-gap: 50px;
 `;
 
 export const CardContainer = styled.div`
@@ -52,6 +52,10 @@ export const CardContainer = styled.div`
       top: -70%;
       left: 30%;
     }
+
+    & div {
+      margin-top: -20px;
+    }
   }
 
   &:nth-child(4) {
@@ -59,21 +63,33 @@ export const CardContainer = styled.div`
       top: -80%;
       right: 40%;
     }
+
+    & div {
+      margin-top: 33.7px;
+    }
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     &:nth-child(2n-1) {
       & img {
-        top: -70%;
-        left: 15%;
+        top: -100%;
+        left: 25%;
       }
     }
 
     &:nth-child(2n) {
       justify-self: flex-end;
       & img {
-        top: -100%;
-        right: 5%;
+        right: 20%;
+      }
+    }
+
+    &:nth-child(3) {
+      & p {
+        & span {
+          max-width: 72%;
+          display: inline-block;
+        }
       }
     }
   }

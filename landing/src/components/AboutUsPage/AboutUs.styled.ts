@@ -100,7 +100,7 @@ export const BonusText = styled.div`
     font-size: 1.9em;
   }
   @media ${themes.primary.media.maxLaptop} {
-    font-size: 1.7em;
+    font-size: 1.83em;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.linkText};

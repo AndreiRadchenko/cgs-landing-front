@@ -41,6 +41,9 @@ export const ProjectDescription = styled.p`
     padding: 10px;
     margin-top: 0px;
   }
+  @media (max-width: 1310px) {
+    margin: 12px 0 32px;
+  }
   @media (max-width: 1199px) {
     font-size: 15px;
   }
@@ -251,9 +254,7 @@ export const ImageContainer = styled.div`
   display: flex;
   justify-content: right;
   align-items: center;
-  border-left: 1px solid ${themes.primary.colors.comment};
-  position: relative;
-  bottom: 2px;
+  left: -0.7px;
 `;
 
 export const ContentContainer = styled.div`
@@ -311,6 +312,7 @@ export const Separator = styled.div`
   width: 100%;
   height: 0.5px;
   margin-bottom: 30px;
+
   &.top {
     margin-bottom: 0.1px;
   }
@@ -393,5 +395,5 @@ export const Border = styled.div`
   background-color: ${themes.primary.colors.comment};
   position: absolute;
   top: 0;
-  right: 0px;
+  right: 0;
 `;
