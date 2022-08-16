@@ -104,7 +104,6 @@ const Review = ({ review, idx }: IReviewProps) => {
               </Styled.ViewMoreContainer>
             </>
           )}
-          <Styled.Border />
         </Styled.ContentContainer>
         {(review?.image && (
           <>
@@ -113,7 +112,7 @@ const Review = ({ review, idx }: IReviewProps) => {
                 src={review.image.url}
                 alt="review image"
                 layout="fill"
-                priority={idx === 0}
+                priority={true}
               />
             </Styled.ImageContainer>
           </>
