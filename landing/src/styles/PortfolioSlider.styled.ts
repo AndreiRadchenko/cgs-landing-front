@@ -41,6 +41,9 @@ export const ProjectDescription = styled.p`
     padding: 10px;
     margin-top: 0px;
   }
+  @media (max-width: 1310px) {
+    margin: 12px 0 32px;
+  }
   @media (max-width: 1199px) {
     font-size: 15px;
   }
@@ -173,11 +176,9 @@ export const PortfolioRow = styled.div`
     max-height: 460px;
   }
   @media ${themes.primary.media.minPC} {
-    max-height: 570px;
+    max-height: 33.5vw;
   }
-  @media ${themes.primary.media.minPCFullHD} {
-    max-height: 658px;
-  }
+
   @media ${themes.primary.media.maxMobile} {
     display: block;
     border-left: 1px solid ${themes.primary.colors.comment};
@@ -249,12 +250,14 @@ export const Image = styled.img`
 export const ImageContainer = styled.div`
   position: relative;
   width: 56%;
-  height: 101%;
+  height: 100%;
   display: flex;
   justify-content: right;
   align-items: center;
-  border-left: 1px solid ${themes.primary.colors.comment};
-  bottom: 2px;
+
+  /* & span {
+    border-left: 1px solid ${themes.primary.colors.comment} !important;
+  } */
 `;
 
 export const ContentContainer = styled.div`
@@ -270,6 +273,10 @@ export const ContentContainer = styled.div`
   }
   @media ${themes.primary.media.minPC} {
     padding: 50px;
+    font-size: 0.77vw;
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 0.85vw;
   }
 `;
 
@@ -308,6 +315,7 @@ export const Separator = styled.div`
   width: 100%;
   height: 0.5px;
   margin-bottom: 30px;
+
   &.top {
     margin-bottom: 0.1px;
   }
@@ -366,7 +374,7 @@ export const Star = styled.img`
     width: 15px;
   }
   @media ${themes.primary.media.minPC} {
-    width: 22px;
+    width: 1.668em;
   }
 `;
 
@@ -386,9 +394,9 @@ export const Navigation = styled.div`
 
 export const Border = styled.div`
   height: 100%;
-  width: 1px;
+  width: 0.7px;
   background-color: ${themes.primary.colors.comment};
   position: absolute;
   top: 0;
-  right: 0px;
+  right: 0;
 `;
