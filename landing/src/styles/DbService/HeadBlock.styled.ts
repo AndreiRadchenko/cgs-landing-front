@@ -17,6 +17,7 @@ export const ContentContainer = styled.div`
   align-items: flex-start;
   width: 44.5%;
   z-index: 2;
+  width: 61%;
   @media (max-width: 1360px) {
     width: 53%;
   }
@@ -51,10 +52,10 @@ export const Description = styled.div`
 
 export const Image = styled.img`
   position: absolute;
-  font-size: ${themes.primary.font.size.feedbackName};
-  line-height: 160%;
-  top: 6.2em;
-  right: -0.9em;
+  top: 18em;
+  right: -1.7em;
+  width: 48.8%;
+  height: 76.4%;
   @media (max-width: 1360px) {
     width: 45%;
   }
@@ -76,7 +77,7 @@ export const Cursor = styled.div`
   width: 2px;
   height: 1.3em;
   background-color: ${themes.primary.colors.primary};
-  right: 0.38em;
+  right: -0.3em;
   bottom: -0.1em;
   animation: ${cursorBlinking} 0.8s infinite;
 `;

@@ -2,28 +2,29 @@ import React from "react";
 import { NextPage } from "next";
 import parse from "html-react-parser";
 import { useQuery, QueryClient, dehydrate } from "react-query";
-import * as Styled from "../../styles/MobileService/Layout";
+import * as Styled from "../../styles/DbService/Layout";
 import Head from "next/head";
 import HeadBlock from "../../components/DbService/HeadBlock";
+import ExpertiseBlock from "../../components/DbService/ExpertiseBlock";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminDbService } from "../../services/services/adminServicesDbPage";
 
-// export async function getServerSideProps() {
-//   const queryClient = new QueryClient();
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
 
-//   await queryClient.prefetchQuery(queryKeys.getServiceDbPage, () =>
-//     adminDbService.getDbServicePage()
-//   );
+  await queryClient.prefetchQuery(queryKeys.getServiceDbPage, () =>
+    adminDbService.getDbServicePage()
+  );
 
-//   return {
-//     props: {
-//       dehydratedState: dehydrate(queryClient),
-//     },
-//   };
-// }
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 
 const DbSolutions: NextPage = () => {
   const { data } = useQuery(queryKeys.getServiceDbPage, () =>
@@ -44,8 +45,8 @@ const DbSolutions: NextPage = () => {
       <HeaderNavNew />
       <Styled.Layout>
         <HeadBlock />
-        {/* <WebPros />
-        <WhyIsWebAMust />
+        <ExpertiseBlock />
+        {/*<WhyIsWebAMust />
         <SolutionBlock />
         <PerksBlock />
         <FooterBlock /> */}
