@@ -18,8 +18,9 @@ const HeadBlock = () => {
     <Styled.Container>
       <Styled.Content>
         <Styled.Title>
-          {data?.title}
-          <Styled.Cursor />
+          {data?.title.split(" ").map((el, idx) => (
+            <span key={idx}>{el} </span>
+          ))}
         </Styled.Title>
         <Styled.Description>{data?.text}</Styled.Description>
         <BlackButton

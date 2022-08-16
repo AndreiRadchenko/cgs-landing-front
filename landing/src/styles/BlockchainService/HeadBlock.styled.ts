@@ -17,17 +17,21 @@ export const Title = styled.h1`
   position: relative;
   margin: 0;
   text-transform: uppercase;
-`;
 
-export const Cursor = styled.div`
-  display: inline-block;
-  height: 1.45em;
-  width: 2px;
-  background-color: ${themes.primary.colors.primary};
-  position: absolute;
-  right: -0.18em;
-  bottom: -0.18em;
-  animation: ${cursorBlinking} 0.8s infinite;
+  & > span:last-child {
+    position: relative;
+
+    &::after {
+      content: " ";
+      display: inline-block;
+      width: 2px;
+      height: 1.45em;
+      background-color: ${themes.primary.colors.primary};
+      animation: ${cursorBlinking} 0.8s infinite;
+      position: absolute;
+      right: -0.2em;
+    }
+  }
 `;
 
 export const Description = styled.p`
