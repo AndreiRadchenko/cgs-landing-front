@@ -106,7 +106,7 @@ const Review = ({ review, idx }: IReviewProps) => {
           )}
         </Styled.ContentContainer>
         {(review?.image && (
-          <Styled.ImageContainer>
+          <Styled.ImageContainer bgColor={review.bgColor}>
             <Image
               src={review.image.url}
               alt="review image"

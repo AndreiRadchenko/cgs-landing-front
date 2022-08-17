@@ -247,12 +247,21 @@ export const Image = styled.img`
   left: -1px;
 `;
 
-export const ImageContainer = styled.div`
+interface IImageContainer {
+  bgColor: string;
+}
+
+export const ImageContainer = styled.div<IImageContainer>`
   position: relative;
+
   width: 56%;
   height: 100%;
-  border-left: 0.5px solid ${themes.primary.colors.comment};
-  background: ${themes.primary.colors.comment};
+  border-left: 1px solid ${themes.primary.colors.comment};
+  background: ${({ bgColor }) => bgColor};
+
+  & img {
+    left: -1px !important;
+  }
 `;
 
 export const ContentContainer = styled.div`
