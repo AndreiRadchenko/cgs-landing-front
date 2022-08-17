@@ -2,6 +2,7 @@ import React from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IBlockchainService } from "../../types/Admin/Response.types";
+import parse from "html-react-parser";
 import * as Styled from "../../styles/BlockchainService/ServicesBlock.styled";
 
 const ServicesBlock = () => {
@@ -22,7 +23,9 @@ const ServicesBlock = () => {
       </Styled.SubTextContainer>
       <Styled.DescriptionContainer>
         <Styled.Image src={data?.image.url} />
-        <Styled.Description>{data?.text}</Styled.Description>
+        <Styled.Description>
+          {data?.text && parse(data?.text)}
+        </Styled.Description>
       </Styled.DescriptionContainer>
     </Styled.Container>
   );

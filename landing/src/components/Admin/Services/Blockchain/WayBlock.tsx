@@ -10,6 +10,7 @@ import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 
 const WayBlock = () => {
   const { values, handleChange } = useFormikContext<IBlockchainService>();
+  console.log(values.wayBlock);
 
   return (
     <AdminPaddedBlock>
@@ -22,13 +23,13 @@ const WayBlock = () => {
         />
       </AdminHalfGrid>
       <SubtitleGrid>
-        {values.wayBlock.textSubBlock.map((el, idx) => (
+        {[...values.wayBlock.textSubBlock].map((el, idx) => (
           <div key={idx}>
             <SubHeaderWithInput
               onChangeFunction={handleChange}
               inputValue={el}
               header={`Text ${idx + 1}`}
-              name={`waBlock.textSubBlock.${idx}`}
+              name={`wayBlock.textSubBlock[${idx}]`}
             />
           </div>
         ))}

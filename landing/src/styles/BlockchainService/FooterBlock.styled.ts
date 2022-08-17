@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 14.08em;
-  padding-bottom: 22.67em;
+  padding-bottom: 21em;
   position: relative;
 `;
 
