@@ -449,3 +449,39 @@ export interface IBlockchainService {
   };
   meta: IMetaBlock;
 }
+
+export interface ISubtitleWithText {
+  subtitle: string;
+  text: string;
+}
+
+export interface IServiceSupport {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  howDoWeWorkBlock: {
+    subtitle: string;
+    maintenance: ISubtitleWithText;
+    support: ISubtitleWithText;
+    security: ISubtitleWithText;
+  };
+  providesBlock: {
+    subtitle: string;
+    textSubBlock: ISubtitleWithText[];
+  };
+  bonusesBlock: {
+    subtitle: string;
+    textSubBlock: string[];
+  };
+  footerBlock: {
+    subtitle: string;
+    text: string;
+    button: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}
