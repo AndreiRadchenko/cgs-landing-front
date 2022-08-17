@@ -13,6 +13,7 @@ import { adminGlobalService } from "../../services/adminHomePage";
 import { adminDbService } from "../../services/services/adminServicesDbPage";
 import SelectBlock from "../../components/DbService/SelectBlock";
 import FeaturesBlock from "../../components/DbService/FeaturesBlock";
+import FooterBlock from "../../components/DbService/FooterBlock";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -50,8 +51,7 @@ const DbSolutions: NextPage = () => {
         <ExpertiseBlock />
         <SelectBlock />
         <FeaturesBlock />
-        {/*<PerksBlock />
-        <FooterBlock /> */}
+        <FooterBlock />
       </Styled.Layout>
       <FooterNew />
     </>

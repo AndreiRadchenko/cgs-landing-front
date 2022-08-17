@@ -2,23 +2,21 @@ import { useFormikContext } from "formik";
 import React from "react";
 import { AdminBigButton, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import MetaTagsBlock from "../../MetaTagsBlock";
-// import ComparisonBlock from "./ComparisonBlock";
-// import FooterBlock from "./FooterBlock";
 import MainBlock from "./MainBlock";
-// import PerksBlock from "./PerksBlock";
-// import SolutionBlock from "./SolutionBlock";
-// import WhyIsWebBlock from "./WhyIsWebBlock";
+import ExpertiseBlock from "./ExpertiseBlock";
+import FooterBlock from "./FooterBlock";
+import SelectBlock from "./SelectBlock";
+import FeaturesBlock from "./FeaturesBlock";
 
 const ServiceDbContentBlock = () => {
   const { handleSubmit } = useFormikContext();
   return (
     <div>
       <MainBlock />
-      {/*<ComparisonBlock />
-      <WhyIsWebBlock />
-      <SolutionBlock />
-      <PerksBlock />
-      <FooterBlock /> */}
+      <ExpertiseBlock />
+      <SelectBlock />
+      <FeaturesBlock />
+      <FooterBlock />
       <MetaTagsBlock theme="dark" />
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>
