@@ -18,12 +18,9 @@ export const Image = styled.img`
 export const SubtitleWrapper = styled.div`
   margin-top: 9em;
   line-height: 56px;
+  margin-bottom: 4.34em;
 
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 0.85em;
   }
-`;
-
-export const ButtonWrapper = styled.div`
-  margin-top: 6em;
 `;

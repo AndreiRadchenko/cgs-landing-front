@@ -250,11 +250,9 @@ export const Image = styled.img`
 export const ImageContainer = styled.div`
   position: relative;
   width: 56%;
-  height: 101%;
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  left: -0.7px;
+  height: 100%;
+  border-left: 0.5px solid ${themes.primary.colors.comment};
+  background: ${themes.primary.colors.comment};
 `;
 
 export const ContentContainer = styled.div`

@@ -24,6 +24,7 @@ export const LeftSideText = styled.div`
   line-height: 56px;
   width: 40%;
   white-space: nowrap;
+  padding-top: 0.34em;
 
   @media (max-width: 1400px) {
     padding-top: 2em;

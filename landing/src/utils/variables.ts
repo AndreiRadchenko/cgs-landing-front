@@ -19,10 +19,10 @@ export const navigationRoutesNames = [
   Or short links to navigate between pages such as: / - will move you to index page of the app
 */
 export const navigationRoutesLinks = {
-  "Crypto // Blockchain Development": "",
+  "Crypto // Blockchain Development": "/services/blockchain",
   "Web // Desktop Development": "/services/web-development",
   "Mobile Development": "/services/mobile-app-development",
-  "Cloud Solutions": "",
+  "Cloud Solutions": "/services/cloud-solutions",
   "Ongoing Support // Maintenance": "",
   "Server & Databases": "/services/databases-and-server-solutions",
   "UX/UI Design": "",

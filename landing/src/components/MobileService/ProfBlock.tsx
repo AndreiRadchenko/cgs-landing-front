@@ -5,8 +5,11 @@ import { queryKeys } from "../../consts/queryKeys";
 import { Subtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/MobileService/ProfBlock.styled";
 import { IServiceMobile } from "../../types/Admin/Response.types";
-import { BlackButton, ButtonArrow } from "../../styles/HomePage/General.styled";
-import arrow from "../../../public/HomePageDecoration/buttonArrow.svg";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../styles/HomePage/General.styled";
+import ButtonArrow from "../../utils/ButtonArrow";
 
 const ProfBlock = () => {
   const queryClient = useQueryClient();
@@ -29,12 +32,14 @@ const ProfBlock = () => {
       </Styled.ProfText>
       <Styled.ButtonWrapper>
         <BlackButton
-          padding={"1em 3.6em"}
+          padding={"1.117em 3.6em"}
           size={"1.5em"}
           href={data?.buttonLink}
         >
           {data?.button}
-          <ButtonArrow src={arrow.src} />
+          <ArrowContainer>
+            <ButtonArrow />
+          </ArrowContainer>
         </BlackButton>
       </Styled.ButtonWrapper>
       <Styled.ImageWrapper>

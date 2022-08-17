@@ -1,14 +1,14 @@
 ﻿import React from "react";
 import { useQueryClient } from "react-query";
-import buttonArrow from "../../../public/HomePageDecoration/buttonArrow.svg";
 import { queryKeys } from "../../consts/queryKeys";
 import {
-  ButtonArrow,
   Subtitle,
   FooterButtonWrapper,
   FooterLinkButton,
+  ArrowContainer,
 } from "../../styles/HomePage/General.styled";
 import { IDataResponse } from "../../types/Admin/Response.types";
+import ButtonArrow from "../../utils/ButtonArrow";
 import { recoverLink } from "../../utils/recoverLink";
 
 const BookBlock = () => {
@@ -28,7 +28,9 @@ const BookBlock = () => {
             href={data && data.buttonLink && recoverLink(data?.buttonLink)}
           >
             {data?.button}
-            <ButtonArrow src={buttonArrow.src} />
+            <ArrowContainer>
+              <ButtonArrow />
+            </ArrowContainer>
           </FooterLinkButton>
         </FooterButtonWrapper>
       </Subtitle>
