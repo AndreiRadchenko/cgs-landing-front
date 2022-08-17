@@ -46,11 +46,20 @@ const AddReview = ({ categories, setIsReady, newFlag }: IAddReviewProps) => {
             uploadFunction={uploadFunc}
           />
         </Styled.AdminPortfolioImage>
-        <AdminDropDown
-          menu={categories}
-          value={catValue}
-          setValue={setCatValue}
-        />
+        <div>
+          <AdminDropDown
+            menu={categories}
+            value={catValue}
+            setValue={setCatValue}
+          />
+          <SubHeaderWithInput
+            placeholder="#123456"
+            header="Background Color"
+            inputValue={values.bgColor}
+            onChangeFunction={handleChange}
+            name="bgColor"
+          />
+        </div>
       </Styled.AdminPageFirstBlockLayout>
       <Styled.AdminPageSecondBlockLayout>
         <div>

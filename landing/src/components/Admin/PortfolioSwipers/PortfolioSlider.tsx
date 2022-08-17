@@ -31,12 +31,12 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
 
   let renderSliderSlides;
   if (reviews) {
-    renderSliderSlides = [...reviews].reverse().map((review, idx) =>
+    renderSliderSlides = reviews.map((review, idx) =>
       isMobile ? (
         <Review key={idx} review={review} />
       ) : (
         <SwiperSlide key={idx}>
-          <Review review={review} idx={idx} />
+          <Review review={review} />
         </SwiperSlide>
       )
     );

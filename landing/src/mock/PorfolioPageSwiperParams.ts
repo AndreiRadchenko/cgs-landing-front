@@ -1,8 +1,7 @@
 import { SwiperProps } from "swiper/react";
 
 const data: SwiperProps = {
-  slidesPerView: 1,
-  spaceBetween: 0,
+  slidesPerView: "auto",
   loop: true,
   allowTouchMove: false,
   grabCursor: false,
@@ -10,6 +9,7 @@ const data: SwiperProps = {
     prevEl: ".swiper-button-prev",
     nextEl: ".swiper-button-next",
   },
+  focusableElements: "button",
   speed: 500,
 };
 
