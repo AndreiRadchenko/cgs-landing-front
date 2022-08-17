@@ -32,8 +32,13 @@ export const queryKeys = {
   updateServiceWebPage: "updateServiceWebPage",
   getServiceBlockchainPage: "getServiceBlockchainPage",
   updateServiceBlockchainPage: "updateServiceBlockchainPage",
+<<<<<<< HEAD
   getOngoingSupportPage: "getOngoingSupportPage",
   updateOngoingSupportPage: "updateOngoingSupportPage",
+=======
+  getServiceSupportPage: "getServiceSupportPage",
+  updateServiceSupportPage: "updateServiceSupportPage",
+>>>>>>> e05f61793b611c8a6b5e16c8de7afca23e01f63c
   // home page
   getFullHomePage: "getFullHomePage",
   getCareerPage: "getFullCareerPage",
