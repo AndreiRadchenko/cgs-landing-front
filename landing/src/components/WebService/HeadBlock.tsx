@@ -35,7 +35,7 @@ const HeadBlock = () => {
           <SplitBrackets text={data?.text} />
         </Description>
         <BlackButton
-          padding={"1.13em 2.55em"}
+          padding={"1.117em 2.537em"}
           size={themes.primary.font.size.oneAndHalf}
           href={data?.buttonLink}
         >

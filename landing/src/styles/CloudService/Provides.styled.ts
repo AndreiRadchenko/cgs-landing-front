@@ -8,8 +8,8 @@ export const Container = styled.div`
 `;
 
 export const BgContainer = styled.div`
-  width: 1546.81px;
-  height: 606px;
+  width: 107.42vw;
+  height: 42.08vw;
   position: absolute;
   top: 2em;
   left: 50%;

@@ -1,24 +1,22 @@
 import React from "react";
 import { useQueryClient } from "react-query";
-import { ICloudService } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
-import {
-  ArrowContainer,
-  BlackButton,
-} from "../../styles/HomePage/General.styled";
+import { BlackButton } from "../../styles/HomePage/General.styled";
+import { ButtonArrow } from "../../styles/HomePage/General.styled";
+import arrow from "../../../public/HomePageDecoration/buttonArrow.svg";
 import themes from "../../utils/themes";
-import * as Styled from "../../styles/CloudService/HeaderBlock.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
+import { IBlockchainService } from "../../types/Admin/Response.types";
+import * as Styled from "../../styles/BlockchainService/HeadBlock.styled";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<ICloudService>(
-    queryKeys.getServiceCloudPage
+  const data = queryClient.getQueryData<IBlockchainService>(
+    queryKeys.getServiceBlockchainPage
   )?.headerBlock;
 
   return (
     <Styled.Container>
-      <Styled.ContentWrapper>
+      <Styled.Content>
         <Styled.Title>
           {data?.title.split(" ").map((el, idx) => (
             <span key={idx}>{el} </span>
@@ -26,16 +24,14 @@ const HeadBlock = () => {
         </Styled.Title>
         <Styled.Description>{data?.text}</Styled.Description>
         <BlackButton
-          padding={"1.117em 3.862em"}
+          padding={"1.117em 2.17em"}
           size={themes.primary.font.size.oneAndHalf}
           href={data?.buttonLink}
         >
           {data?.button}
-          <ArrowContainer>
-            <ButtonArrow />
-          </ArrowContainer>
+          <ButtonArrow src={arrow.src}></ButtonArrow>
         </BlackButton>
-      </Styled.ContentWrapper>
+      </Styled.Content>
       <Styled.Image src={data?.image.url} />
     </Styled.Container>
   );
