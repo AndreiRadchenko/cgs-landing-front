@@ -3,19 +3,20 @@ import themes from "../../utils/themes";
 import { cursorBlinking } from "../AnimationsStyled";
 
 export const Container = styled.div`
-  margin-top: 12.67em;
   position: relative;
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  padding-top: 12.75em;
+`;
 
 export const Title = styled.h1`
+  font-weight: ${themes.primary.font.weight.heavy};
   font-size: ${themes.primary.font.size.serviceTitle};
   line-height: 120%;
-  display: inline-block;
-  max-width: 12.27em;
-  margin: 0;
   text-transform: uppercase;
+  max-width: 11.29em;
+  margin: 0;
 
   & > span:last-child {
     position: relative;
@@ -36,14 +37,14 @@ export const Title = styled.h1`
 export const Description = styled.p`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
-  margin: 1.279em 0 2.365em;
-  max-width: 600px;
+  max-width: 30em;
+  margin: 1.275em 0 2.32em;
 `;
 
 export const Image = styled.img`
   position: absolute;
-  top: -3.8em;
-  right: -2em;
-  width: 56em;
-  height: 45.58em;
+  top: 2.3em;
+  right: 2.07em;
+  width: 48.61em;
+  height: 45.22em;
 `;

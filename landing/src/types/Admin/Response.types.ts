@@ -449,3 +449,42 @@ export interface IBlockchainService {
   };
   meta: IMetaBlock;
 }
+
+//Ongoing Support
+
+interface ISubtitleWithTextAndID {
+  subtitle: string;
+  text: string;
+  _id: string;
+}
+export interface IOngoingSupport {
+  meta: IMetaBlock;
+  headerBlock: {
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+    text: string;
+    title: string;
+  };
+  howDoWeWorkBlock: {
+    maintenance: ISubtitleWithText;
+    security: ISubtitleWithText;
+    subtitle: string;
+    support: ISubtitleWithText;
+  };
+  providesBlock: {
+    subtitle: string;
+    textSubBlock: ISubtitleWithTextAndID[];
+  };
+  bonusesBlock: {
+    subtitle: string;
+    textSubBlock: string[];
+  };
+  footerBlock: {
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+    subtitle: string;
+    text: string;
+  };
+}
