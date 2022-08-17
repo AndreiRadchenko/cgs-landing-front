@@ -15,6 +15,7 @@ export interface IPortfolioReview {
     company: string;
     feedbackText: string;
   };
+  bgColor: string;
 }
 
 export interface IPortfolioData {

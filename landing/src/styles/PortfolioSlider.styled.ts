@@ -247,17 +247,21 @@ export const Image = styled.img`
   left: -1px;
 `;
 
-export const ImageContainer = styled.div`
+interface IImageContainer {
+  bgColor: string;
+}
+
+export const ImageContainer = styled.div<IImageContainer>`
   position: relative;
+
   width: 56%;
   height: 100%;
-  display: flex;
-  justify-content: right;
-  align-items: center;
+  border-left: 1px solid ${themes.primary.colors.comment};
+  background: ${({ bgColor }) => bgColor};
 
-  /* & span {
-    border-left: 1px solid ${themes.primary.colors.comment} !important;
-  } */
+  & img {
+    left: -1px !important;
+  }
 `;
 
 export const ContentContainer = styled.div`
@@ -394,7 +398,7 @@ export const Navigation = styled.div`
 
 export const Border = styled.div`
   height: 100%;
-  width: 0.7px;
+  width: 1px;
   background-color: ${themes.primary.colors.comment};
   position: absolute;
   top: 0;
