@@ -25,7 +25,7 @@ export const TextContent = styled.div`
 
   & span {
     &:nth-child(1) {
-      color: #5869DD;
+      color: ${themes.primary.colors.mainGradientColor2};
     }
   }
 

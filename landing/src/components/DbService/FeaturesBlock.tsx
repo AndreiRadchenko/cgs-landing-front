@@ -12,6 +12,14 @@ const FeaturesBlock = () => {
     queryKeys.getServiceDbPage
   )?.featuresBlock;
 
+  const databasesTextBlock = data && [
+    data.databases.text1,
+    data.databases.text2,
+    data.databases.text3,
+  ];
+
+  const serversTextBlock = data && [data.servers.text1, data.servers.text2];
+
   return (
     <Styled.Container>
       <Styled.BgImage
@@ -21,24 +29,25 @@ const FeaturesBlock = () => {
       <Styled.ContentWrapper>
         <div>
           <Styled.Subtitle>{data?.databases.subtitle}</Styled.Subtitle>
-          <Styled.TextContent>
-            <SplitBrackets text={data?.databases.text1} />
-          </Styled.TextContent>
-          <Styled.TextContent>
-            <SplitBrackets text={data?.databases.text2} />
-          </Styled.TextContent>
-          <Styled.TextContent>
-            <SplitBrackets text={data?.databases.text3} />
-          </Styled.TextContent>
+          {databasesTextBlock &&
+            databasesTextBlock.map((text, i) => {
+              return (
+                <Styled.TextContent key={`text${i}`}>
+                  <SplitBrackets text={text} />
+                </Styled.TextContent>
+              );
+            })}
         </div>
         <div>
           <Styled.Subtitle>{data?.servers.subtitle}</Styled.Subtitle>
-          <Styled.TextContent>
-            <SplitBrackets text={data?.servers.text1} />
-          </Styled.TextContent>
-          <Styled.TextContent>
-            <SplitBrackets text={data?.servers.text2} />
-          </Styled.TextContent>
+          {serversTextBlock &&
+            serversTextBlock.map((text, i) => {
+              return (
+                <Styled.TextContent key={`text${i}`}>
+                  <SplitBrackets text={text} />
+                </Styled.TextContent>
+              );
+            })}
         </div>
       </Styled.ContentWrapper>
     </Styled.Container>

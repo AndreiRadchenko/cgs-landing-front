@@ -22,15 +22,18 @@ const ExpertiseBlock = () => {
         />
       </AdminHalfGrid>
       <SubtitleGrid>
-        {renderInputs({
-          props: { name: "expertiseBlock.servers" },
-          state: values.expertiseBlock.servers,
-          onChangeFunction: handleChange,
-        })}
-        {renderInputs({
-          props: { name: "expertiseBlock.databases" },
-          state: values.expertiseBlock.databases,
-          onChangeFunction: handleChange,
+        {Object.entries(values.expertiseBlock).map((el, idx) => {
+          return (
+            idx !== 0 && (
+              <div key={`expertiseBlock ${idx}`}>
+                {renderInputs({
+                  props: { name: `expertiseBlock.${idx}` },
+                  state: el[1],
+                  onChangeFunction: handleChange,
+                })}
+              </div>
+            )
+          );
         })}
       </SubtitleGrid>
     </AdminPaddedBlock>

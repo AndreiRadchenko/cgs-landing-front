@@ -12,14 +12,14 @@ const AdminServiceDbContent = () => {
     queryKeys.getServiceDbPage,
     () => adminDbService.getDbServicePage()
   );
-  const { mutateAsync: updateFaqPage } = useMutation(
+  const { mutateAsync: updateDbPage } = useMutation(
     queryKeys.updateServiceDbPage,
     (data: IServiceDb) => adminDbService.updateDbServicePage(data)
   );
 
   const submitForm = async (values: IServiceDb) => {
     document.body.style.cursor = "wait";
-    await updateFaqPage(values);
+    await updateDbPage(values);
     await refetch();
     document.body.style.cursor = "auto";
   };
