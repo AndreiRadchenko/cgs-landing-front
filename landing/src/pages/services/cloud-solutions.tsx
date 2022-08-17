@@ -15,9 +15,8 @@ import FooterBlock from "../../components/CloudService/FooterBlock";
 import * as Styled from "../../styles/CloudService/Layaut";
 
 const CloudService = () => {
-  const { data } = useQuery(
-    queryKeys.getServiceCloudPage,
-    async () => await adminCloudService.getCloudSolutionPage()
+  const { data } = useQuery(queryKeys.getServiceCloudPage, () =>
+    adminCloudService.getCloudSolutionPage()
   );
 
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
