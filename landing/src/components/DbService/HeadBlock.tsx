@@ -1,7 +1,10 @@
 import React from "react";
-import { BlackButton, ButtonArrow } from "../../styles/HomePage/General.styled";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../styles/HomePage/General.styled";
 import themes from "../../utils/themes";
-import arrow from "../../../public/HomePageDecoration/buttonArrow.svg";
+import ButtonArrow from "../../utils/ButtonArrow";
 import { IServiceDb } from "../../types/Admin/Response.types";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
@@ -37,7 +40,9 @@ const HeadBlock = () => {
           href={data?.buttonLink}
         >
           {data?.button}
-          <ButtonArrow src={arrow.src} />
+          <ArrowContainer>
+            <ButtonArrow />
+          </ArrowContainer>
         </BlackButton>
       </ContentContainer>
       <Image src={data?.image.url} alt="hero image" />

@@ -8,7 +8,11 @@ export const Container = styled.div`
   margin-bottom: 7em;
 `;
 
-export const TextContent = styled.div``;
+export const TextContent = styled.div`
+  & a {
+    margin-top: 2.7em;
+  }
+`;
 
 export const Image = styled.img`
   position: relative;

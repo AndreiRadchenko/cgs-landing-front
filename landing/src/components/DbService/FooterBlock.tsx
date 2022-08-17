@@ -1,12 +1,15 @@
 import React from "react";
 import { useQueryClient } from "react-query";
-import arrow from "../../../public/HomePageDecoration/buttonArrow.svg";
 import { queryKeys } from "../../consts/queryKeys";
-import { BlackButton, ButtonArrow } from "../../styles/HomePage/General.styled";
 import { Subtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/DbService/FooterBlock.styled";
 import { IServiceDb } from "../../types/Admin/Response.types";
 import themes from "../../utils/themes";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../styles/HomePage/General.styled";
+import ButtonArrow from "../../utils/ButtonArrow";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -20,16 +23,16 @@ const FooterBlock = () => {
         <Styled.SubtitleWrapper>
           <Subtitle>{data?.subtitle}</Subtitle>
         </Styled.SubtitleWrapper>
-        <Styled.ButtonWrapper>
-          <BlackButton
-            padding={"1.02em 3.75em"}
-            size={themes.primary.font.size.oneAndHalf}
-            href={data?.buttonLink}
-          >
-            {data?.button}
-            <ButtonArrow src={arrow.src} />
-          </BlackButton>
-        </Styled.ButtonWrapper>
+        <BlackButton
+          padding={"1.02em 3.75em"}
+          size={themes.primary.font.size.oneAndHalf}
+          href={data?.buttonLink}
+        >
+          {data?.button}
+          <ArrowContainer>
+            <ButtonArrow />
+          </ArrowContainer>
+        </BlackButton>
       </Styled.TextContent>
       <Styled.Image src={data?.image.url} />
     </Styled.Container>
