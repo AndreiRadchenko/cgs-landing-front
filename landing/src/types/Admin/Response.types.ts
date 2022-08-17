@@ -412,6 +412,46 @@ export interface IServiceWeb {
   meta: IMetaBlock;
 }
 
+export interface IServiceDb {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  expertiseBlock: {
+    subtitle: string;
+    servers: ISubtitleWithText;
+    databases: ISubtitleWithText;
+  };
+  selectBlock: {
+    subtitle: string;
+    text: string;
+    image: { url: string };
+  };
+  featuresBlock: {
+    databases: {
+      subtitle: string;
+      text1: string;
+      text2: string;
+      text3: string;
+    };
+    servers: {
+      subtitle: string;
+      text1: string;
+      text2: string;
+    };
+  };
+  footerBlock: {
+    subtitle: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}
+
 //Blockchain service page
 
 export interface IBlockchainService {
