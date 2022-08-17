@@ -27,7 +27,7 @@ const ExpertiseBlock = () => {
             idx !== 0 && (
               <div key={`expertiseBlock ${idx}`}>
                 {renderInputs({
-                  props: { name: `expertiseBlock.${idx}` },
+                  props: { name: `expertiseBlock.${el[0]}` },
                   state: el[1],
                   onChangeFunction: handleChange,
                 })}
