@@ -24,7 +24,7 @@ export const navigationRoutesLinks = {
   "Mobile Development": "/services/mobile-app-development",
   "Cloud Solutions": "/services/cloud-solutions",
   "Ongoing Support // Maintenance": "ongoing-support-and-maintenance",
-  "Server & Databases": "",
+  "Server & Databases": "/services/database-and-server-solutions",
   "UX/UI Design": "",
   "About us": "/about-us",
   Careers: "/careers",
