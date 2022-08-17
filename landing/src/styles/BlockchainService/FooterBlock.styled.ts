@@ -13,7 +13,7 @@ export const Title = styled.h2`
   line-height: 140%;
   text-transform: uppercase;
   max-width: 28.75em;
-  margin: 0 0 1.8em;
+  margin: 0 0 1.3em;
 `;
 
 export const Image = styled.img`

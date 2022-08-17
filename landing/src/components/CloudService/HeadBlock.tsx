@@ -20,12 +20,13 @@ const HeadBlock = () => {
     <Styled.Container>
       <Styled.ContentWrapper>
         <Styled.Title>
-          {data?.title}
-          <Styled.Cursor />
+          {data?.title.split(" ").map((el, idx) => (
+            <span key={idx}>{el} </span>
+          ))}
         </Styled.Title>
         <Styled.Description>{data?.text}</Styled.Description>
         <BlackButton
-          padding={"1em 3.862em"}
+          padding={"1.117em 3.862em"}
           size={themes.primary.font.size.oneAndHalf}
           href={data?.buttonLink}
         >

@@ -37,7 +37,7 @@ export const Title = styled.h1`
 export const Description = styled.p`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
-  margin: 1.279em 0 3.278em;
+  margin: 1.279em 0 2.365em;
   max-width: 600px;
 `;
 

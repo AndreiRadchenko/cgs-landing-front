@@ -31,38 +31,24 @@ export const Title = styled.h2`
 `;
 
 export const SubTextWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+`;
+
+export const GridLine1 = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.74fr;
+  margin-left: 3em;
+`;
+
+export const GridLine2 = styled.div`
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 0.23fr;
+  margin-left: 12.5em;
 `;
 
 export const SubText = styled.p`
   font-size: ${themes.primary.font.size.secondary};
-  flex-basis: 33%;
   line-height: 160%;
   margin: 0;
   margin-bottom: 112px;
-
-  &:nth-child(1) {
-    padding-left: 30px;
-  }
-
-  &:nth-child(2) {
-    padding-left: 65px;
-  }
-
-  &:nth-child(3) {
-    padding-left: 105px;
-  }
-
-  &:nth-child(4) {
-    padding-left: 145px;
-  }
-
-  &:nth-child(5) {
-    padding-left: 305px;
-  }
-
-  &:nth-child(6) {
-    padding-left: 340px;
-  }
 `;

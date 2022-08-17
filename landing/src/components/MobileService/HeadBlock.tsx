@@ -33,7 +33,7 @@ const HeadBlock = () => {
             )}
         </Styled.Description>
         <BlackButton
-          padding={"1.12em 3.6em"}
+          padding={"1.117em 3.6em"}
           size={themes.primary.font.size.oneAndHalf}
           href={data?.buttonLink}
         >

@@ -21,23 +21,27 @@ export const Title = styled.h1`
   margin: 0;
   vertical-align: center;
   position: relative;
-`;
 
-export const Cursor = styled.div`
-  display: inline-block;
-  height: 1.45em;
-  width: 2px;
-  background-color: ${themes.primary.colors.primary};
-  position: absolute;
-  right: -0.18em;
-  bottom: -0.18em;
-  animation: ${cursorBlinking} 0.8s infinite;
+  & > span:last-child {
+    position: relative;
+
+    &::after {
+      content: " ";
+      display: inline-block;
+      width: 2px;
+      height: 1.45em;
+      background-color: ${themes.primary.colors.primary};
+      animation: ${cursorBlinking} 0.8s infinite;
+      position: absolute;
+      right: -0.2em;
+    }
+  }
 `;
 
 export const Description = styled.p`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
-  margin: 1.28em 0 3.28em;
+  margin: 1.28em 0 2.365em;
   max-width: 27.27em;
 `;
 

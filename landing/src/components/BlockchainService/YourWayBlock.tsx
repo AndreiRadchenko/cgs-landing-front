@@ -9,15 +9,23 @@ const YourWayBlock = () => {
   const data = queryClient.getQueryData<IBlockchainService>(
     queryKeys.getServiceBlockchainPage
   )?.wayBlock;
+  console.log(data?.textSubBlock.slice(3));
 
   return (
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
       <Styled.BgiContainer />
       <Styled.SubTextWrapper>
-        {data?.textSubBlock.map((el, idx) => (
-          <Styled.SubText key={idx}>{el}</Styled.SubText>
-        ))}
+        <Styled.GridLine1>
+          {data?.textSubBlock.slice(0, 3).map((el, idx) => (
+            <Styled.SubText key={idx}>{el}</Styled.SubText>
+          ))}
+        </Styled.GridLine1>
+        <Styled.GridLine2>
+          {data?.textSubBlock.slice(3).map((el, idx) => (
+            <Styled.SubText key={idx}>{el}</Styled.SubText>
+          ))}
+        </Styled.GridLine2>
       </Styled.SubTextWrapper>
     </Styled.Container>
   );
