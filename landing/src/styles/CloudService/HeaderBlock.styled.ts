@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const ContentWrapper = styled.div`
   padding-top: 12.7em;
   width: 54.25em;
-  margin-bottom: 17.5em;
+  margin-bottom: 15.84em;
 `;
 
 export const Title = styled.h1`

@@ -32,12 +32,12 @@ export const Block = styled.div`
   }
 
   &:nth-child(2) {
-    top: 13.9em;
+    top: 14.1em;
     left: 20em;
   }
 
   &:nth-child(3) {
-    top: 32.7em;
+    top: 33em;
     left: 51em;
   }
 `;
@@ -49,19 +49,7 @@ export const Title = styled.p`
 
 export const Description = styled.p`
   font-size: ${themes.primary.font.size.oneAndHalf};
-  margin: 1.57em 0 0 0;
+  margin: 1.28em 0 0 0;
   line-height: 160%;
   max-width: 26.39em;
-`;
-
-export const CustomMarker = styled.div`
-  position: absolute;
-  left: -4.58em;
-  top: 1.17em;
-
-  width: 15.5px;
-  height: 15.5px;
-  border: 1px solid ${themes.primary.colors.black};
-  border-radius: 50%;
-  box-shadow: 9.0377px 2.5822px 0px #000000;
 `;
