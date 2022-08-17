@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 11.8em;
@@ -15,6 +16,9 @@ export const TextBlock = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 50%;
   }
 `;
 
@@ -22,6 +26,10 @@ export const TextContent = styled.div`
   font-size: 1.83em;
   line-height: 160%;
   margin-left: 1.5em;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.inBlockMaxTableText};
+  }
   }
 `;
 

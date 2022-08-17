@@ -19,7 +19,7 @@ export const ContentContainer = styled.div`
   z-index: 2;
   width: 61%;
   @media (max-width: 1360px) {
-    width: 53%;
+    width: fit-content;
   }
   @media ${themes.primary.media.minPC} {
     width: auto;
@@ -60,7 +60,7 @@ export const Image = styled.img`
     width: 45%;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 50%;
+    width: 43%;
   }
   @media ${themes.primary.media.minPC} {
     width: 50%;

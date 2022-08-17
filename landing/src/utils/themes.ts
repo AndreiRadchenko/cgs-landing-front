@@ -105,6 +105,7 @@ const themes = {
         serviceTitle: "5.5em",
         tabletServiceTitle: "4.6em",
         homeMainSubtitle: "2.167em",
+        inBlockMaxTableText: "1.3em",
       },
     },
     colors: {
