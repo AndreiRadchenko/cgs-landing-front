@@ -1,13 +1,14 @@
 import React from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { IOngoingSupport } from "../../types/Admin/Response.types";
+import { IServiceSupport } from "../../types/Admin/Response.types";
+import parse from "html-react-parser";
 import * as Styled from "../../styles/OngoingSupport/ProvidesBlock.styled";
 
 const ProvidesBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IOngoingSupport>(
-    queryKeys.getOngoingSupportPage
+  const data = queryClient.getQueryData<IServiceSupport>(
+    queryKeys.getServiceSupportPage
   )?.providesBlock;
 
   return (
@@ -15,10 +16,10 @@ const ProvidesBlock = () => {
       <Styled.Title>{data?.subtitle}</Styled.Title>
       <Styled.Bgi />
       <Styled.TextWrapper>
-        {data?.textSubBlock.map((el) => (
-          <div key={el._id}>
+        {data?.textSubBlock.map((el, idx) => (
+          <div key={idx}>
             <Styled.Subtitle>{el.subtitle}</Styled.Subtitle>
-            <Styled.Text>{el.text}</Styled.Text>
+            <Styled.Text>{parse(el.text)}</Styled.Text>
           </div>
         ))}
       </Styled.TextWrapper>

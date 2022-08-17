@@ -1,19 +1,20 @@
 import React from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { IOngoingSupport } from "../../types/Admin/Response.types";
+import { IServiceSupport } from "../../types/Admin/Response.types";
 import {
   BlackButton,
   ArrowContainer,
 } from "../../styles/HomePage/General.styled";
+import parse from "html-react-parser";
 import ButtonArrow from "../../utils/ButtonArrow";
 import themes from "../../utils/themes";
 import * as Styled from "../../styles/OngoingSupport/HeadBlock.styled";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IOngoingSupport>(
-    queryKeys.getOngoingSupportPage
+  const data = queryClient.getQueryData<IServiceSupport>(
+    queryKeys.getServiceSupportPage
   )?.headerBlock;
 
   return (
@@ -21,7 +22,7 @@ const HeadBlock = () => {
       <Styled.Content>
         <Styled.Title>
           {data?.title.split(" ").map((el, idx) => (
-            <span key={idx}>{`${el} `}</span>
+            <span key={idx}>{`${parse(el)} `}</span>
           ))}
         </Styled.Title>
         <Styled.Description>{data?.text}</Styled.Description>

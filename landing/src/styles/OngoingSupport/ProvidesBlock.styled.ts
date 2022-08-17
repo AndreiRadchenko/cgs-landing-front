@@ -32,13 +32,14 @@ export const Subtitle = styled.p`
   font-size: ${themes.primary.font.size.faqQuestion};
   line-height: 160%;
   text-transform: uppercase;
+  color: ${themes.primary.colors.mainGradientColor2};
   margin: 0;
 `;
 
 export const Text = styled.p`
   font-size: ${themes.primary.font.size.oneAndHalf};
   line-height: 160%;
-  max-width: 20.28em;
+  max-width: 18em;
   margin: 0;
   margin-top: 0.45em;
 `;
@@ -60,6 +61,12 @@ export const TextWrapper = styled.div`
 
     &:nth-child(2) {
       margin-top: 7.17em;
+    }
+
+    &:nth-child(3) {
+      & > p {
+        max-width: 19em;
+      }
     }
 
     &:last-child {

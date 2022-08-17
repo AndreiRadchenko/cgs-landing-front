@@ -1,14 +1,14 @@
 import React from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { IOngoingSupport } from "../../types/Admin/Response.types";
+import { IServiceSupport } from "../../types/Admin/Response.types";
 import rhombus from "../../../public/CloudServicePage/rhombus.png";
 import * as Styled from "../../styles/OngoingSupport/BonusesBlock.styled";
 
 const BonusesBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IOngoingSupport>(
-    queryKeys.getOngoingSupportPage
+  const data = queryClient.getQueryData<IServiceSupport>(
+    queryKeys.getServiceSupportPage
   )?.bonusesBlock;
 
   return (

@@ -26,6 +26,7 @@ export const Text = styled.p`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
   text-transform: uppercase;
+  min-width: max-content;
   margin: 0;
 
   position: relative;

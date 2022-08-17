@@ -1,7 +1,7 @@
 import React from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { IOngoingSupport } from "../../types/Admin/Response.types";
+import { IServiceSupport } from "../../types/Admin/Response.types";
 import {
   BlackButton,
   ArrowContainer,
@@ -12,8 +12,8 @@ import * as Styled from "../../styles/OngoingSupport/FooterBlock.styled";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IOngoingSupport>(
-    queryKeys.getOngoingSupportPage
+  const data = queryClient.getQueryData<IServiceSupport>(
+    queryKeys.getServiceSupportPage
   )?.footerBlock;
 
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import parse from "html-react-parser";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { adminOngoingService } from "../../services/services/AdminServiceOngoingPage";
+import { adminSupportService } from "../../services/services/adminServiceSupportPage";
 import Head from "next/head";
 import { adminGlobalService } from "../../services/adminHomePage";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
@@ -15,11 +15,9 @@ import FooterBlock from "../../components/OngoingSupport/FooterBlock";
 import * as Styled from "../../styles/OngoingSupport/Layout";
 
 const OngoingSupport = () => {
-  const { data } = useQuery(queryKeys.getOngoingSupportPage, async () => {
-    const data = await adminOngoingService.getOngoingServicePage();
-    console.log(data);
-    return data;
-  });
+  const { data } = useQuery(queryKeys.getServiceSupportPage, () =>
+    adminSupportService.getSupportServicePage()
+  );
 
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
