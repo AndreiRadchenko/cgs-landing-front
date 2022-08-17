@@ -22,7 +22,7 @@ const ProvidesBlock = () => {
         {Object.values(blocks).map((el, index) => (
           <Styled.Block key={index}>
             <Styled.Title>{el.subtitle}</Styled.Title>
-            <Styled.Description>{el.text && parse(el.text)}</Styled.Description>
+            <Styled.Description>{parse(el.text)}</Styled.Description>
           </Styled.Block>
         ))}
       </Styled.BlockWrapper>
