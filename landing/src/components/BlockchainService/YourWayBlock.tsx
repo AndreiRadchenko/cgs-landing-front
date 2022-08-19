@@ -9,7 +9,6 @@ const YourWayBlock = () => {
   const data = queryClient.getQueryData<IBlockchainService>(
     queryKeys.getServiceBlockchainPage
   )?.wayBlock;
-  console.log(data?.textSubBlock.slice(3));
 
   return (
     <Styled.Container>
