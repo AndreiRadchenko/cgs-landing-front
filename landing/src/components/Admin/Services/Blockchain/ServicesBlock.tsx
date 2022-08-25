@@ -18,7 +18,6 @@ const ServicesBlock = () => {
   const deleteMainImage = useDeleteImageFunction(values.servicesBlock);
   const uploadMainImage = useUploadImageFunction(values.servicesBlock);
   const { subtitle, image, textSubBlock } = values.servicesBlock;
-  console.log(textSubBlock);
 
   return (
     <AdminPaddedBlock>
