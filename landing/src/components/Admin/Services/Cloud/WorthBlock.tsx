@@ -8,7 +8,6 @@ import {
 import { ICloudService } from "../../../../types/Admin/Response.types";
 import { renderInputs } from "../../../../utils/renderInputs";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
-import TextEditor from "../../../TextEditor/TextEditor";
 
 const WorthBlock = () => {
   const { values, handleChange } = useFormikContext<ICloudService>();
@@ -25,22 +24,17 @@ const WorthBlock = () => {
         />
       </AdminHalfGrid>
       <SubtitleGrid>
-        {Object.entries(blocks).map((el, idx) => (
-          <div key={`worthBlock.${idx}`}>
-            <SubHeaderWithInput
-              onChangeFunction={handleChange}
-              inputValue={el[1].subtitle}
-              header={`Subtitle ${idx + 1}`}
-              name={`worthBlock.${el[0]}.subtitle`}
-            />
-            <TextEditor
-              header="Text"
-              name={`worthBlock.${el[0]}.text`}
-              isBlog={false}
-              onlyColor={true}
-            />
-          </div>
-        ))}
+        {Object.entries(blocks).map((el, idx) => {
+          return (
+            <div key={idx}>
+              {renderInputs({
+                props: { name: `worthBlock.${el[0]}` },
+                state: el[1],
+                onChangeFunction: handleChange,
+              })}
+            </div>
+          );
+        })}
       </SubtitleGrid>
     </AdminPaddedBlock>
   );

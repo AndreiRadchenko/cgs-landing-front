@@ -24,7 +24,7 @@ const FooterBlock = () => {
                 onChangeFunction={handleChange}
                 header={`Subtitle ${idx + 1}`}
                 inputValue={el[1]}
-                name={`footerBlock.${el[0]}.text`}
+                name={`footerBlock.${el[0]}`}
               />
             </div>
           ))}

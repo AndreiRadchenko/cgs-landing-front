@@ -36,7 +36,7 @@ const ServicesBlock = () => {
               onChangeFunction={handleChange}
               header={`Text ${idx + 1}`}
               inputValue={el}
-              name={`serviceBlock.textSubBlock.${idx + 1}`}
+              name={`servicesBlock.textSubBlock.${idx}`}
             />
           </div>
         ))}

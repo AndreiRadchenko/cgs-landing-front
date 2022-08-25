@@ -22,13 +22,13 @@ const WayBlock = () => {
         />
       </AdminHalfGrid>
       <SubtitleGrid>
-        {values.wayBlock.textSubBlock.map((el, idx) => (
+        {[...values.wayBlock.textSubBlock].map((el, idx) => (
           <div key={idx}>
             <SubHeaderWithInput
               onChangeFunction={handleChange}
               inputValue={el}
               header={`Text ${idx + 1}`}
-              name={`waBlock.textSubBlock.${idx}`}
+              name={`wayBlock.textSubBlock[${idx}]`}
             />
           </div>
         ))}

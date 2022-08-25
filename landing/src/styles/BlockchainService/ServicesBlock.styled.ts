@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 import BlockchainServices from "../../../public/BlockchainServicePage/BlockchainServices.svg";
 
 export const Container = styled.div`
-  margin-top: 17.54em;
+  margin-top: 15.92em;
 `;
 
 export const Title = styled.h2`
@@ -20,8 +20,8 @@ export const SubTextContainer = styled.div`
   height: 15.875vw;
   margin: 2.5em -6em 0 -6em;
   background-image: url(${BlockchainServices.src});
-  background-size: 100 100;
-  background-position: contain;
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
 `;
 

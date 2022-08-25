@@ -24,7 +24,7 @@ const ProvidesBlock = () => {
           <div key={`providesBlock.${idx}`}>
             <SubHeaderWithInput
               header={`Subtitle ${idx + 1}`}
-              name={`providesBlock.${el[0]}.title`}
+              name={`providesBlock.${el[0]}.subtitle`}
               onChangeFunction={handleChange}
               inputValue={el[1].subtitle}
             />
