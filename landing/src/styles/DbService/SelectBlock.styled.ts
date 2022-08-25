@@ -28,14 +28,12 @@ export const TextContent = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndHalf};
   }
-  
-  }
 `;
 
 export const Image = styled.img`
   position: absolute;
   top: 109em;
-  right: 9.5em;
+  right: 11.2em;
   width: 38.5%;
   height: 51.7%;
 

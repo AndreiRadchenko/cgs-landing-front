@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 11.8em;
+  margin-top: 12.2em;
 `;
 
 export const ContentWrapper = styled.div`
@@ -29,7 +29,6 @@ export const TextContent = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.inBlockMaxTableText};
-  }
   }
 `;
 
