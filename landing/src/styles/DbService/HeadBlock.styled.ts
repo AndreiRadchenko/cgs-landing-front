@@ -44,7 +44,7 @@ export const Title = styled.h1`
 export const Description = styled.div`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
-  margin: 1.3em 0 2.3em;
+  margin: 0.4em 0 2.3em;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndHalf};
   }
@@ -52,7 +52,7 @@ export const Description = styled.div`
 
 export const Image = styled.img`
   position: absolute;
-  top: 18em;
+  top: 17.15em;
   right: -1.7em;
   width: 48.8%;
   height: 76.4%;
