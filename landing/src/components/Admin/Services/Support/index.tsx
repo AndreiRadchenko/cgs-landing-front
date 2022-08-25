@@ -18,7 +18,6 @@ const ServiceSupportContentBlock = () => {
       <BonusesBlock />
       <FooterBlock />
       <MetaTagsBlock theme="dark" />
-
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>
           Save changes
