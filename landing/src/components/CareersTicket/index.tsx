@@ -86,21 +86,27 @@ const CareersTicket: FC<ITicketProps> = ({
         <Styled.TicketDataBackground src={Background.src} />
         <Styled.TicketArrow src={Arrow.src} />
         <TicketModal isOpen={isOpen} onClose={onClose}>
-          <Styles.CloseButton src={CloseButton.src} onClick={onClose} />
-          {info.map((el) => (
-            <Styles.List key={el.heading}>
-              <Styles.ListTitle>{el.heading}</Styles.ListTitle>
-              {el.values.map((text, idx) => (
-                <Styles.ListItem key={idx}>{text}</Styles.ListItem>
+          <Styles.ButtonWrapper>
+            <Styles.CloseButton src={CloseButton.src} onClick={onClose} />
+          </Styles.ButtonWrapper>
+          <Styles.HiddenWrapper>
+            <Styles.Content>
+              {info.map((el) => (
+                <Styles.List key={el.heading}>
+                  <Styles.ListTitle>{el.heading}</Styles.ListTitle>
+                  {el.values.map((text, idx) => (
+                    <Styles.ListItem key={idx}>{text}</Styles.ListItem>
+                  ))}
+                </Styles.List>
               ))}
-            </Styles.List>
-          ))}
-          <Styles.SubmitButtonContainer>
-            <Styles.SubmitButton onClick={onSubmitClick}>
-              SUBMIT FORM
-            </Styles.SubmitButton>
-            <Styles.SubmitArrow src={Arrow.src} />
-          </Styles.SubmitButtonContainer>
+              <Styles.SubmitButtonContainer>
+                <Styles.SubmitButton onClick={onSubmitClick}>
+                  SUBMIT FORM
+                </Styles.SubmitButton>
+                <Styles.SubmitArrow src={Arrow.src} />
+              </Styles.SubmitButtonContainer>
+            </Styles.Content>
+          </Styles.HiddenWrapper>
         </TicketModal>
       </Styled.TicketContainer>
     </>

@@ -32,7 +32,7 @@ export const TicketModalContentContainer = styled.div`
 
 export const TicketModalContent = styled.div`
   width: 535px;
-  height: auto;
+  height: 647px;
   background: ${themes.primary.colors.blogBackground};
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
@@ -97,8 +97,10 @@ export const CloseButton = styled.img`
   height: 26px;
   position: absolute;
   right: 0;
+  top: 0;
   margin: 26px 26px 0 0;
   cursor: pointer;
+  z-index: 5;
 `;
 
 export const Container = styled.div`
@@ -123,4 +125,50 @@ export const BlackBox = styled.div`
 export const WhiteBox = styled.div`
   width: 100%;
   height: 50%;
+`;
+
+export const Content = styled.div`
+  height: 97%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 10px 0;
+  margin-right: 10px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    /* margin-bottom: 200px; */
+  }
+  &::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 20px;
+  }
+
+  &::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${themes.primary.colors.primary};
+    border-radius: 10px;
+  }
+
+  scrollbar-color: ${themes.primary.colors.primary} transparent;
+  scrollbar-width: thin;
+`;
+
+export const HiddenWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  background-color: ${themes.primary.colors.blogBackground};
 `;
