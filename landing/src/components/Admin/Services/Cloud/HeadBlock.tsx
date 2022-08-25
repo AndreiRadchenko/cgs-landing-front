@@ -23,7 +23,7 @@ const HeadBlock = () => {
       <AdminHeader>Cloud Solutions</AdminHeader>
       <AdminHalfGrid>
         {renderInputs({
-          props: { name: "hearerBlock" },
+          props: { name: "headerBlock" },
           state: values.headerBlock,
           onChangeFunction: handleChange,
         })}

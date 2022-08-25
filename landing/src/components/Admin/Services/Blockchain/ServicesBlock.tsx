@@ -18,6 +18,7 @@ const ServicesBlock = () => {
   const deleteMainImage = useDeleteImageFunction(values.servicesBlock);
   const uploadMainImage = useUploadImageFunction(values.servicesBlock);
   const { subtitle, image, textSubBlock } = values.servicesBlock;
+  console.log(textSubBlock);
 
   return (
     <AdminPaddedBlock>
@@ -36,7 +37,7 @@ const ServicesBlock = () => {
               onChangeFunction={handleChange}
               header={`Text ${idx + 1}`}
               inputValue={el}
-              name={`serviceBlock.textSubBlock.${idx + 1}`}
+              name={`servicesBlock.textSubBlock.${idx}`}
             />
           </div>
         ))}

@@ -31,7 +31,7 @@ const WhyItWorthIt = () => {
               <Styled.Title>{el.subtitle}</Styled.Title>
             </Styled.TitleWrapper>
             {bgLines[index] && <Styled.Image src={bgLines[index].src} />}
-            <Styled.BlockText>{el.text && parse(el.text)}</Styled.BlockText>
+            <Styled.BlockText>{parse(el.text)}</Styled.BlockText>
           </Styled.Block>
         ))}
       </Styled.BlockWrapper>

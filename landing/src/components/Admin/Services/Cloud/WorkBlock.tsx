@@ -29,7 +29,7 @@ const WorkBlock = () => {
               onChangeFunction={handleChange}
               header={`Subtitle ${idx + 1}`}
               inputValue={el[1]}
-              name={`workBlock.${el[0]}.text`}
+              name={`workBlock.${el[0]}`}
             />
           </div>
         ))}

@@ -16,6 +16,9 @@ export const Block = styled.div`
   max-width: 33.2em;
   position: relative;
   &:first-child {
+    & > div {
+      min-width: 22.5em;
+    }
     & > img {
       top: 14.83em;
       left: 17.67em;
@@ -26,16 +29,14 @@ export const Block = styled.div`
       top: 3.83em;
       left: 22.3em;
     }
-    & > div {
-      p {
-        margin-top: 6.35em;
-      }
+    & > div:first-child {
+      margin-top: 11.7em;
     }
   }
   :not(:last-child) {
     padding-left: 1.25em;
 
-    & > p {
+    & > div {
       max-width: 19.5em;
     }
   }
@@ -52,11 +53,15 @@ export const Title = styled.p`
   line-height: 160%;
 `;
 
-export const BlockText = styled.p`
+export const BlockText = styled.div`
   font-size: ${themes.primary.font.size.oneAndHalf};
   line-height: 160%;
   margin: 1.28em 0 0 0;
   max-width: 21.95em;
+
+  & > p {
+    margin: 0;
+  }
 `;
 
 export const Svg = styled.img`

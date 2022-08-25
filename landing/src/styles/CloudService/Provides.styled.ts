@@ -32,13 +32,17 @@ export const Block = styled.div`
   }
 
   &:nth-child(2) {
-    top: 14.1em;
+    top: 14.4em;
     left: 20em;
   }
 
   &:nth-child(3) {
-    top: 33em;
+    top: 33.8em;
     left: 51em;
+
+    & p {
+      margin: 0;
+    }
   }
 `;
 
@@ -47,7 +51,7 @@ export const Title = styled.p`
   margin: 0;
 `;
 
-export const Description = styled.p`
+export const Description = styled.div`
   font-size: ${themes.primary.font.size.oneAndHalf};
   margin: 1.28em 0 0 0;
   line-height: 160%;

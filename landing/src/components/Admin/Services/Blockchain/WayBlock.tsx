@@ -10,7 +10,6 @@ import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 
 const WayBlock = () => {
   const { values, handleChange } = useFormikContext<IBlockchainService>();
-  console.log(values.wayBlock);
 
   return (
     <AdminPaddedBlock>
