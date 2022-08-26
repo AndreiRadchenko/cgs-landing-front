@@ -1,6 +1,5 @@
 import * as yup from "yup";
 
-
 export const AdminAuthValidation = () => {
   return yup.object({
     username: yup.string().min(6, "Username can nont be less then 6 characters").required("Enter username"),
