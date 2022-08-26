@@ -39,7 +39,7 @@ jobs:
 
       - name: Notify slack
         env:
-          SLACK_BOT_TOKEN: xoxb-1281639739331-3988900585413-wGZrMV7ie90c0eW72nLPiMGN
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: pullreminders/slack-action@master
         with:
-          args: '{\"channel\":\"C03V2L58ZFX\",\"text\":\"${{ secrets.HEROKU_API_KEY }}\"}'
+          args: '{\"channel\":\"${{ secrets.SLACK_CHANNEL_NAME }}\",\"text\":\"${{ secrets.HEROKU_APP_STG_LANDING_TEXT }}\"}' 
