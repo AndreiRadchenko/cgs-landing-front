@@ -34,3 +34,10 @@ jobs:
           heroku_email: 'contact@codegenerationsoftware.com'
         env: 
           HD_PROJECT_PATH: "blockchain"
+
+      - name: Notify slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: pullreminders/slack-action@master
+        with:
+          args: '{\"channel\":\"${{ secrets.SLACK_CHANNEL_NAME }}\",\"text\":\"${{ secrets.HEROKU_APP_BLOCK_TEXT }}\"}' 
