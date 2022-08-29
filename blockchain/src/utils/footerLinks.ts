@@ -3,7 +3,6 @@ import Github from "../components/Footer/icons/github";
 import Linked from "../components/Footer/icons/linked";
 import UpWork from "../components/Footer/icons/upWork";
 
-
 export const socialLinks = [
   {
     Icon: Github,
