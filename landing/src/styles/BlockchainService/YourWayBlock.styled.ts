@@ -35,7 +35,7 @@ export const SubTextWrapper = styled.div`
 `;
 
 export const GridLine1 = styled.div`
-  margin-top: -1.25em;
+  margin-top: -30px;
   display: grid;
   grid-template-columns: 1.26fr 1.28fr 1fr;
 `;
