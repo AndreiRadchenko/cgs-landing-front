@@ -7,7 +7,7 @@ export const Container = styled.div`
 
 export const BlockWrapper = styled.div`
   margin-top: 4.67em;
-  padding-top: 1em;
+  padding-top: 2em;
   display: flex;
   justify-content: space-between;
 `;
