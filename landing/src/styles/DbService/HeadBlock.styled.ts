@@ -35,6 +35,7 @@ export const Title = styled.h1`
   text-transform: uppercase;
   font-size: ${themes.primary.font.size.serviceTitle};
   position: relative;
+
   @media ${themes.primary.media.maxTabletLandScape} {
     white-space: nowrap;
     font-size: ${themes.primary.font.size.tabletServiceTitle};
@@ -44,7 +45,7 @@ export const Title = styled.h1`
 export const Description = styled.div`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
-  margin: 0.4em 0 2.3em;
+  margin: 0.65em 0 2.3em;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndHalf};
   }
@@ -52,7 +53,7 @@ export const Description = styled.div`
 
 export const Image = styled.img`
   position: absolute;
-  top: 17.15em;
+  top: 16.6em;
   right: -1.7em;
   width: 48.8%;
   height: 76.4%;
@@ -65,19 +66,15 @@ export const Image = styled.img`
   @media ${themes.primary.media.minPC} {
     width: 50%;
   }
-  /* @media ${themes.primary.media.minPCFullHD} {
-    width: 725px;
-    height: 466px;
-  } */
 `;
 
 export const Cursor = styled.div`
   display: inline-block;
   position: absolute;
   width: 2px;
-  height: 1.3em;
+  height: 1.1em;
   background-color: ${themes.primary.colors.primary};
-  right: -0.3em;
-  bottom: -0.1em;
+  right: -0.2em;
+  bottom: 0;
   animation: ${cursorBlinking} 0.8s infinite;
 `;
