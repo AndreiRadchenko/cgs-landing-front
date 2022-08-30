@@ -19,18 +19,27 @@ jobs:
     steps:
       - name: Development Code
         uses: actions/checkout@v2
+
       - name: Use Node.js 17.x
         uses: actions/setup-node@v1
         with:
           node-version: 17.x
       - run: npm install
       - run: npm run build --if-present
+
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           args: deploy --dir=build --prod
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: 'cd-landing-frontend-stg'
+          heroku_app_name: ${{ secrets.HEROKU_APP_STG_LANDING }} 
           heroku_email: 'contact@codegenerationsoftware.com'
         env: 
           HD_PROJECT_PATH: "landing"
+
+      - name: Notify slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: pullreminders/slack-action@master
+        with:
+          args: '{\"channel\":\"${{ secrets.SLACK_CHANNEL_NAME }}\",\"text\":\"${{ secrets.HEROKU_APP_STG_LANDING_TEXT }}\"}' 
