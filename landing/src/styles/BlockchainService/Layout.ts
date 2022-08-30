@@ -6,7 +6,8 @@ export const Layout = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
 
-  overflow-x: hidden;
+  overflow: clip;
+  overflow-clip-margin: 60px;
 
   @media ${themes.primary.media.minPCFullHD} {
     margin: auto;

@@ -18,7 +18,7 @@ export const Title = styled.h2`
 export const SubTextContainer = styled.div`
   width: 113.7%;
   height: 15.85vw;
-  margin: 2.5em -6em 0 -8.5em;
+  margin: 2.5em -6em 0 -6.5em;
   background-image: url(${BlockchainServices.src});
   background-size: contain;
   background-position: center;
@@ -40,7 +40,7 @@ export const SubText = styled.p`
 `;
 
 export const DescriptionContainer = styled.div`
-  margin-top: 16.716em;
+  margin-top: 10em;
   padding: 0 3.625em;
   display: flex;
 `;
