@@ -14,7 +14,7 @@ export const Container = styled.div<{ position: string; height: number }>`
 export const Marker = styled.div<{ position: string }>`
   width: 12px;
   height: 12px;
-  background: #f0efed;
+  background: ${themes.primary.colors.bigDigit};
   border: 1px solid ${themes.primary.colors.black};
   border-radius: 50%;
   box-shadow: 7px 2px 0px ${themes.primary.colors.black};

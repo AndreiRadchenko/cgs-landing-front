@@ -12,10 +12,14 @@ export const BgiContainer = styled.div`
   position: relative;
   left: -4%;
   top: 60px;
-  background: linear-gradient(90deg, #d6ffbb 13.67%, #5869dd 90.39%);
-  border: 1px solid #000000;
+  background: linear-gradient(
+    90deg,
+    ${themes.primary.colors.mainGradientColor1} 13.67%,
+    ${themes.primary.colors.mainGradientColor2} 90.39%
+  );
+  border: 1px solid ${themes.primary.colors.black};
 
-  box-shadow: 7px 2px 0px #000000;
+  box-shadow: 7px 2px 0px ${themes.primary.colors.black};
 `;
 
 export const Title = styled.h2`
