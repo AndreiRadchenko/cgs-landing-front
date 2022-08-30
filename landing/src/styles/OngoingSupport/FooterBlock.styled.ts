@@ -17,6 +17,6 @@ export const Title = styled.h2`
 export const Image = styled.img`
   position: absolute;
   right: 3.19em;
-  bottom: 9.85em;
+  bottom: 5.1em;
   width: 40.4em;
 `;

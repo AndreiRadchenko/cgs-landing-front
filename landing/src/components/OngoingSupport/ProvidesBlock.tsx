@@ -14,15 +14,16 @@ const ProvidesBlock = () => {
   return (
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
-      <Styled.Bgi />
-      <Styled.TextWrapper>
-        {data?.textSubBlock.map((el, idx) => (
-          <div key={idx}>
-            <Styled.Subtitle>{el.subtitle}</Styled.Subtitle>
-            <Styled.Text>{parse(el.text)}</Styled.Text>
-          </div>
-        ))}
-      </Styled.TextWrapper>
+      <Styled.BackgroundWrapper>
+        <Styled.TextWrapper>
+          {data?.textSubBlock.map((el, idx) => (
+            <div key={idx}>
+              <Styled.Subtitle>{el.subtitle}</Styled.Subtitle>
+              <Styled.Text>{parse(el.text)}</Styled.Text>
+            </div>
+          ))}
+        </Styled.TextWrapper>
+      </Styled.BackgroundWrapper>
     </Styled.Container>
   );
 };

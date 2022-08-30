@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 44.17em;
+  margin-top: 36.1em;
 `;
 
 export const Title = styled.h2`
@@ -15,10 +15,6 @@ export const Title = styled.h2`
 `;
 
 export const TextWrapper = styled.div`
-  // display: flex;
-  // flex-wrap: wrap;
-  // justify-content: space-around;
-  // padding-left: 4em;
   margin: 0 -7.3em;
 `;
 
