@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 15.75em;
