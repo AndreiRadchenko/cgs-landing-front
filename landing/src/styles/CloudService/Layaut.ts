@@ -12,6 +12,8 @@ export const Layout = styled.div`
   }
   @media ${themes.primary.media.minPCFullHD} {
     padding: 0 7%;
+    margin: auto;
+    width: 1785px;
   }
 `;
 

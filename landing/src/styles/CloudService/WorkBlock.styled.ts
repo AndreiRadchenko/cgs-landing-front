@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 68.8em;
+  margin-top: 15.75em;
 `;
 
 export const BlockWrapper = styled.div`
@@ -17,25 +17,25 @@ export const Block = styled.div`
   position: relative;
 
   &::before {
-    content: " ";
+    content: "";
     position: absolute;
     display: block;
     width: 8.17em;
     border: 1px solid black;
     position: absolute;
-    top: 55%;
+    top: 59%;
     left: -10.5em;
   }
 
   &:last-child {
     &::after {
-      content: " ";
+      content: "";
       position: absolute;
       display: block;
       width: 8.17em;
       border: 1px solid black;
       position: absolute;
-      top: 55%;
+      top: 59%;
       right: -10em;
     }
   }
@@ -49,7 +49,7 @@ export const Image = styled.img`
 `;
 
 export const Subtitle = styled.p`
-  font-size: ${themes.primary.font.size.feedbackName};
+  font-size: 22px;
   line-height: 160%;
   text-transform: uppercase;
   margin: 0;

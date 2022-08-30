@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import themes from "../../utils/themes";
 import cloudProvidesBgi from "../../../public/CloudServicePage/cloudProvidesBgi.svg";
 
 export const Container = styled.div`
@@ -8,52 +7,50 @@ export const Container = styled.div`
 `;
 
 export const BgContainer = styled.div`
-  width: 107.42vw;
-  height: 42.08vw;
-  position: absolute;
-  top: 2em;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 102.1%;
+  height: 43em;
+  position: relative;
+  left: -6%;
+  top: -45px;
   background-image: url(${cloudProvidesBgi.src});
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
 `;
 
 export const BlockWrapper = styled.div`
-  margin: 5.67em 0 0 14em;
+  padding: 6.7em 0 0 20em;
   position: relative;
 `;
 
 export const Block = styled.div`
-  position: absolute;
+  position: relative;
+  margin-bottom: 50px;
+
+  & p {
+    margin: 0;
+  }
 
   &:nth-child(1) {
     left: 0;
   }
 
   &:nth-child(2) {
-    top: 14.4em;
-    left: 20em;
+    left: 16.5em;
   }
 
   &:nth-child(3) {
-    top: 33.8em;
-    left: 51em;
-
-    & p {
-      margin: 0;
-    }
+    left: 43.5em;
   }
 `;
 
 export const Title = styled.p`
-  font-size: ${themes.primary.font.size.secondaryServicesSubTitle};
+  font-size: 2.35em;
   margin: 0;
 `;
 
 export const Description = styled.div`
-  font-size: ${themes.primary.font.size.oneAndHalf};
-  margin: 1.28em 0 0 0;
+  font-size: 1.33em;
+  margin: 1.1em 0 0 0;
   line-height: 160%;
   max-width: 26.39em;
 `;
