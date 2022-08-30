@@ -9,8 +9,8 @@ export const Container = styled.div`
 `;
 
 export const TextContent = styled.div`
-  & a {
-    margin-top: 2.7em;
+  & > a {
+    margin-top: 2.9em;
   }
 `;
 
