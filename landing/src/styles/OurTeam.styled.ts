@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import * as animations from "./AnimationsStyled";
+import * as animations from "./Animations.styled";
 import themes from "../utils/themes";
 import Decoration from "../components/Decoration/Decoration";
 

@@ -1,6 +1,6 @@
 ﻿import styled from "styled-components";
 import themes from "../../utils/themes";
-import { cursorBlinking } from "../AnimationsStyled";
+import { cursorBlinking } from "../Animations.styled";
 
 export const ContentContainer = styled.div`
   margin-top: 15.2em;

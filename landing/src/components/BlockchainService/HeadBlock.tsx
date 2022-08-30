@@ -9,6 +9,7 @@ import ButtonArrow from "../../utils/ButtonArrow";
 import themes from "../../utils/themes";
 import { IBlockchainService } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/BlockchainService/HeadBlock.styled";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -20,9 +21,7 @@ const HeadBlock = () => {
     <Styled.Container>
       <Styled.Content>
         <Styled.Title>
-          {data?.title.split(" ").map((el, idx) => (
-            <span key={idx}>{el} </span>
-          ))}
+          <SplitBrackets text={data?.title} />
         </Styled.Title>
         <Styled.Description>{data?.text}</Styled.Description>
         <BlackButton
