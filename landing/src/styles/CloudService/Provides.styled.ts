@@ -44,12 +44,12 @@ export const Block = styled.div`
 `;
 
 export const Title = styled.p`
-  font-size: 2.35em;
+  font-size: 32px;
   margin: 0;
 `;
 
 export const Description = styled.div`
-  font-size: 1.33em;
+  font-size: 18px;
   margin: 1.1em 0 0 0;
   line-height: 160%;
   max-width: 26.39em;

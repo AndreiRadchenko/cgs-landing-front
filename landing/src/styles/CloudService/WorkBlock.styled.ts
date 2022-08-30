@@ -1,7 +1,16 @@
 import styled from "styled-components";
+import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 15.75em;
+`;
+
+export const Title = styled.h2`
+  font-size: 40px;
+  font-weight: ${themes.primary.font.weight.heavy};
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 140%;
 `;
 
 export const BlockWrapper = styled.div`

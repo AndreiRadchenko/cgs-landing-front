@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin: 0 1.95em 0 0;
@@ -49,12 +48,12 @@ export const TitleWrapper = styled.div`
 export const Title = styled.p`
   margin: 0;
   margin-left: 1.67em;
-  font-size: ${themes.primary.font.size.secondary};
+  font-size: 24px;
   line-height: 160%;
 `;
 
 export const BlockText = styled.div`
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-size: 18px;
   line-height: 160%;
   margin: 1.28em 0 0 0;
   max-width: 21.95em;

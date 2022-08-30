@@ -18,7 +18,7 @@ export const Image = styled.img`
 `;
 
 export const Title = styled.h3`
-  font-size: ${themes.primary.font.size.secondaryServicesTitle};
+  font-size: 40px;
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 140%;
   text-transform: uppercase;
