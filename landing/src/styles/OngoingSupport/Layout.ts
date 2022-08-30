@@ -7,4 +7,9 @@ export const Layout = styled.div`
   font-family: ${themes.primary.font.family.namu};
   overflow: clip;
   overflow-clip-margin: 50px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin: auto;
+    width: 1785px;
+  }
 `;

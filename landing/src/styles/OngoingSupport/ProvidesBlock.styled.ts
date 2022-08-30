@@ -13,8 +13,8 @@ export const Bgi = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
 
-  width: 107.64vw;
-  height: 39.6vw;
+  width: 115.9%;
+  height: 47.5em;
   position: relative;
   left: -4.3em;
   top: 19.5em;
@@ -53,8 +53,8 @@ export const TextWrapper = styled.div`
   width: 90%;
   margin: 0 auto;
 
-  @media (max-width: 1299px) {
-    column-gap: 5em;
+  @media (max-width: 1350px) {
+    top: -11em;
   }
 
   @media (max-width: 1299px) {
@@ -63,67 +63,61 @@ export const TextWrapper = styled.div`
     top: -11em;
   }
 
-  @media (max-width: 1179px) {
-    top: -12em;
-    width: 87%;
+  @media (max-width: 1134px) {
     column-gap: 2em;
   }
 
-  & p {
-    @media (max-width: 799px) {
-      margin-top: 0;
-    }
+  @media (max-width: 1080px) {
+    top: -13em;
+  }
+
+  @media (max-width: 1003px) {
+    column-gap: 1em;
   }
 
   & > div {
     margin-bottom: 8.08em;
     flex-basis: 28.5%;
 
-    @media (max-width: 1299px) {
-      margin-bottom: 6em;
-    }
-
     @media (max-width: 1199px) {
       margin-bottom: 4em;
     }
 
-    @media (max-width: 1063px) {
-      margin-bottom: 2.8em;
+    @media (min-width: 992px) and (max-width: 1080px) {
+      margin-bottom: 1.5em;
     }
 
-    @media (max-width: 862px) {
-      margin-bottom: 2em;
+    @media (max-width: 953px) {
+      margin-bottom: 1.5em;
     }
 
-    @media (max-width: 799px) {
-      margin-bottom: 3em;
+    & > p {
+      @media (max-width: 876px) {
+        margin: 0;
+      }
     }
 
     &:nth-child(4) {
       margin-left: 13.5em;
-
-      @media (max-width: 1299px) {
-        margin-left: 11em;
-      }
 
       @media (max-width: 1199px) {
         flex-basis: 30%;
         margin-left: 8em;
       }
 
-      /* @media (max-width: 1179px) {
+      @media (max-width: 1202px) {
         flex-basis: 35%;
-        margin-left: 4em;
-      } */
-
-      @media (max-width: 1171px) {
-        margin-left: 2em;
-        flex-basis: 40%;
+        margin-left: 10em;
       }
 
-      @media (max-width: 864px) {
-        margin-left: 0em;
-        flex-basis: 45%;
+      @media (max-width: 1134px) {
+        flex-basis: 40%;
+        margin-left: 5em;
+      }
+
+      @media (max-width: 1003px) {
+        flex-basis: 49%;
+        margin-left: 0;
       }
     }
 
@@ -133,18 +127,6 @@ export const TextWrapper = styled.div`
       @media (max-width: 1199px) {
         flex-basis: 33%;
       }
-
-      @media (max-width: 1063px) {
-        margin-top: 5em;
-      }
-
-      @media (max-width: 991px) {
-        margin-top: 8em;
-      }
-
-      @media (max-width: 938px) {
-        margin-top: 5em;
-      }
     }
 
     &:nth-child(3) {
@@ -152,9 +134,22 @@ export const TextWrapper = styled.div`
         max-width: 19em;
       }
 
-      @media (max-width: 864px) {
-        flex-basis: 32%;
-        margin-left: -0.5em;
+      @media (max-width: 1420px) {
+        margin-left: 2em;
+        flex-basis: 25%;
+      }
+      @media (max-width: 1350px) {
+        margin-left: auto;
+        margin-right: 1em;
+        flex-basis: 21%;
+      }
+
+      @media (max-width: 1202px) {
+        flex-basis: 25%;
+      }
+
+      @media (max-width: 1134px) {
+        flex-basis: 28%;
       }
     }
 
@@ -162,23 +157,26 @@ export const TextWrapper = styled.div`
       margin-left: auto;
       margin-right: 17em;
 
-      @media (max-width: 1299px) {
+      @media (max-width: 1420px) {
         margin-right: 15em;
       }
+      @media (max-width: 1350px) {
+        margin-right: 10em;
+      }
 
-      @media (max-width: 1199px) {
+      @media (max-width: 1202px) {
         flex-basis: 35%;
-        margin-right: 8em;
-      }
-
-      @media (max-width: 1171px) {
         margin-right: 4em;
-        flex-basis: 40%;
       }
 
-      @media (max-width: 864px) {
+      @media (max-width: 1134px) {
+        flex-basis: 40%;
         margin-right: 1em;
-        flex-basis: 45%;
+      }
+
+      @media (max-width: 1003px) {
+        flex-basis: 48%;
+        margin-right: 0;
       }
     }
   }
