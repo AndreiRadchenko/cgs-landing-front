@@ -14,7 +14,7 @@ const ProvidesBlock = () => {
   return (
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
-      <Styled.Bgi>
+      <Styled.BackgroundWrapper>
         <Styled.TextWrapper>
           {data?.textSubBlock.map((el, idx) => (
             <div key={idx}>
@@ -23,7 +23,7 @@ const ProvidesBlock = () => {
             </div>
           ))}
         </Styled.TextWrapper>
-      </Styled.Bgi>
+      </Styled.BackgroundWrapper>
     </Styled.Container>
   );
 };

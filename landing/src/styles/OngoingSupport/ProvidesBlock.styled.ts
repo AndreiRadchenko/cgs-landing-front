@@ -7,7 +7,7 @@ export const Container = styled.div`
   position: relative;
 `;
 
-export const Bgi = styled.div`
+export const BackgroundWrapper = styled.div`
   background-image: url(${providesBgi.src});
   background-position: 100 100;
   background-size: contain;
