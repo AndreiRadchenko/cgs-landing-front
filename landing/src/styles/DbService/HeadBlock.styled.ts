@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import { cursorBlinking } from "../AnimationsStyled";
+import { cursorBlinking } from "../Animations.styled";
 
 export const Container = styled.div`
   width: 100%;
@@ -36,6 +36,22 @@ export const Title = styled.h1`
   font-size: ${themes.primary.font.size.serviceTitle};
   position: relative;
 
+  & > span:last-child {
+    position: relative;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 2px;
+      height: 1.45em;
+      background-color: ${themes.primary.colors.primary};
+      animation: ${cursorBlinking} 0.8s infinite;
+      position: absolute;
+      top: 0;
+      right: -0.2em;
+    }
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     white-space: nowrap;
     font-size: ${themes.primary.font.size.tabletServiceTitle};
@@ -66,15 +82,4 @@ export const Image = styled.img`
   @media ${themes.primary.media.minPC} {
     width: 50%;
   }
-`;
-
-export const Cursor = styled.div`
-  display: inline-block;
-  position: absolute;
-  width: 2px;
-  height: 1.1em;
-  background-color: ${themes.primary.colors.primary};
-  right: -0.2em;
-  bottom: 0;
-  animation: ${cursorBlinking} 0.8s infinite;
 `;

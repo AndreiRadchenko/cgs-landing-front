@@ -24,7 +24,6 @@ const HeadBlock = () => {
       <Styled.ContentContainer>
         <Styled.Title>
           <SplitBrackets text={data?.title} />
-          <Styled.Cursor />
         </Styled.Title>
         <Styled.Description>
           {sentences &&

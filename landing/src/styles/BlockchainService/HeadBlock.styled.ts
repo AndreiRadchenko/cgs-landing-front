@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import { cursorBlinking } from "../AnimationsStyled";
+import { cursorBlinking } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 12.67em;
@@ -21,13 +21,14 @@ export const Title = styled.h1`
     position: relative;
 
     &::after {
-      content: " ";
+      content: "";
       display: inline-block;
       width: 2px;
       height: 1.45em;
       background-color: ${themes.primary.colors.primary};
       animation: ${cursorBlinking} 0.8s infinite;
       position: absolute;
+      top: 0;
       right: -0.2em;
     }
   }

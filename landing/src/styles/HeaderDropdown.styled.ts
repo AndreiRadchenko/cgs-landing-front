@@ -5,7 +5,7 @@ export const DropdownContent = styled.div`
   position: absolute;
   background-color: ${themes.primary.colors.blogBackground};
   min-width: 22.5vw;
-  z-index: 3;
+  z-index: 10;
   right: -1px;
   border: 1px solid ${themes.primary.colors.primary};
   border-right: 3px solid ${themes.primary.colors.primary};
@@ -79,8 +79,8 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 13px;
   }
+  transition: all 0.3s;
   &:hover {
-    transition: 0.3s;
     border-right: 2px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
   }
