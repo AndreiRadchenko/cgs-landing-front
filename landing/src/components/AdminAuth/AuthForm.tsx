@@ -1,6 +1,5 @@
 import { Formik } from "formik";
 import React from "react";
-import TextFieldWrapper from "../CareersForm/Form/FormField";
 import AuthSubmitButton from "./AuthButton";
 import { AuthFormBlock, AuthFormError } from "../../styles/AdminAuth";
 import { AdminAuthValidation } from "../../validations/AdminAuthValidation";
@@ -11,6 +10,7 @@ import { authService } from "../../services/login";
 import { initAdmin, storeKeys } from "../../consts";
 import { queryKeys } from "../../consts/queryKeys";
 import { useRouter } from "next/router";
+import AdminAuthFormInput from "./AdminAuthFormInput";
 
 const AdminAuthForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -43,16 +43,21 @@ const AdminAuthForm = () => {
       {(fprops) => {
         return (
           <AuthFormBlock>
-            <TextFieldWrapper
+            <AdminAuthFormInput
               name="username"
               label="username"
               handleChange={fprops.handleChange}
+              type="password"
+              placeholder="Username"
+              labelName="Username"
             />
-            <TextFieldWrapper
+            <AdminAuthFormInput
               name="password"
               label="password"
               handleChange={fprops.handleChange}
               type="password"
+              placeholder="Password"
+              labelName="Password"
             />
             <AuthFormError>{errorMessage}</AuthFormError>
             <AuthSubmitButton />
