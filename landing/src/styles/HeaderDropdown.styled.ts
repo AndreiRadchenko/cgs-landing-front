@@ -4,11 +4,12 @@ import themes from "../utils/themes";
 export const DropdownContent = styled.div`
   position: absolute;
   background-color: ${themes.primary.colors.blogBackground};
-  min-width: 22.5vw;
-  z-index: 10;
-  right: -1px;
+  min-width: 22.22vw;
+  top: 100%;
+  z-index: 3;
+  right: 0px;
   border: 1px solid ${themes.primary.colors.primary};
-  border-right: 3px solid ${themes.primary.colors.primary};
+  border-right: 2.5px solid ${themes.primary.colors.primary};
   border-bottom: 12px solid ${themes.primary.colors.primary};
   display: none;
   &.open {
@@ -48,6 +49,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   border-bottom: 0 !important;
   border-right: 0 !important;
   border-left: 1px solid ${themes.primary.colors.comment} !important;
+  width: 100%;
 
   button,
   &:first-child {
@@ -109,10 +111,11 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
 
 export const Dropdown = styled.div`
   position: relative;
-  display: inline-block;
+  display: flex;
   background-color: ${themes.primary.colors.blogBackground};
+  width: 11.11vw;
 
-  &:nth-child(2) > button {
+  /* &:nth-child(2) > button {
     padding-left: 2.475rem;
 
     & img {
@@ -132,7 +135,7 @@ export const Dropdown = styled.div`
         margin-right: 2.68rem;
       }
     }
-  }
+  } */
 `;
 
 export const Link = styled.a`

@@ -49,7 +49,7 @@ export const ListItemNav = styled.a`
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.headerLinkText};
   display: flex;
-  padding: 19px 3.18rem;
+  width: 11.11vw;
   align-items: center;
   justify-content: center;
   border-left: 1px solid ${themes.primary.colors.headerBorder};
