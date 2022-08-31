@@ -7,7 +7,6 @@ import {
   ArrowContainer,
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
-import themes from "../../utils/themes";
 import * as Styled from "../../styles/UxUiService/FooterBlock.styled";
 
 const FooterBlock = () => {
@@ -22,8 +21,8 @@ const FooterBlock = () => {
       <Styled.ContentWrapper>
         <Styled.Title>{data?.title}</Styled.Title>
         <BlackButton
-          padding={"1.117em 3.862em"}
-          size={themes.primary.font.size.oneAndHalf}
+          padding={"1.117em 3.57em"}
+          size={"1.125em"}
           href={data?.buttonLink}
         >
           {data?.button}

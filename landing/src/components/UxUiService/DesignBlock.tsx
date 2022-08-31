@@ -17,12 +17,16 @@ const DesignBlock = () => {
       <Styled.Title>{data?.title}</Styled.Title>
       <Styled.BlockWrapper>
         <Styled.StyledLine />
-        {data?.textSubBlock.slice(0, 3).map((el, idx) => (
-          <LinedText position="top" text={el} key={idx} height={78} />
-        ))}
-        {data?.textSubBlock.slice(3).map((el, idx) => (
-          <LinedText text={el} key={idx + 3} position="bottom" height={78} />
-        ))}
+        <Styled.TopSteps>
+          {data?.textSubBlock.slice(0, 3).map((el, idx) => (
+            <LinedText position="top" text={el} key={idx} height={78} />
+          ))}
+        </Styled.TopSteps>
+        <Styled.BottomSteps>
+          {data?.textSubBlock.slice(3).map((el, idx) => (
+            <LinedText text={el} key={idx + 3} position="bottom" height={78} />
+          ))}
+        </Styled.BottomSteps>
       </Styled.BlockWrapper>
     </Styled.Container>
   );

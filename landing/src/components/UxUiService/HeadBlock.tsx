@@ -7,7 +7,6 @@ import {
   ArrowContainer,
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
-import themes from "../../utils/themes";
 import * as Styled from "../../styles/UxUiService/HeadBlock.styled";
 
 const HeadBlock = () => {
@@ -20,11 +19,15 @@ const HeadBlock = () => {
   return (
     <Styled.Container>
       <Styled.ContentWrapper>
-        <Styled.Title>{data?.title}</Styled.Title>
+        <Styled.Title>
+          {data?.title.split(" ").map((el, idx) => (
+            <span key={idx}>{el} </span>
+          ))}
+        </Styled.Title>
         <Styled.Description>{data?.text}</Styled.Description>
         <BlackButton
-          padding={"1.117em 3.862em"}
-          size={themes.primary.font.size.oneAndHalf}
+          padding={"1.117em 2.72em"}
+          size={"1.125em"}
           href={data?.buttonLink}
         >
           {data?.button}
