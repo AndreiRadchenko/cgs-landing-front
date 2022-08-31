@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import themes from "../utils/themes";
-import { infiniteText } from "./AnimationsStyled";
+import { infiniteText } from "./Animations.styled";
 
 interface ITag {
   isArticlePage?: boolean;
@@ -65,8 +65,7 @@ export const Separator = styled.div`
   background-color: ${themes.primary.colors.comment};
 
   &.portfolio {
-    height: 0.5px;
-    z-index: 99;
+    z-index: 5;
     width: 100%;
     position: absolute;
   }
