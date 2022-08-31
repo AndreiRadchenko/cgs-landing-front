@@ -8,7 +8,7 @@ export const NavigateLeft = styled.div`
   top: 0;
   height: 100%;
   width: 10vw;
-  border-left: 1px solid ${themes.primary.colors.comment};
+  border-left: thin solid ${themes.primary.colors.comment};
   color: ${themes.primary.colors.black};
   writing-mode: vertical-lr;
   transform: rotate(180deg);
@@ -199,7 +199,7 @@ export const NavigateRight = styled.div`
   width: 9vw;
   background-color: ${themes.primary.colors.blogBackground};
   z-index: 100;
-  border-left: 1px solid ${themes.primary.colors.comment};
+  border-left: thin solid ${themes.primary.colors.comment};
 `;
 
 export const ArrowContainer = styled.div`
@@ -256,12 +256,8 @@ export const ImageContainer = styled.div<IImageContainer>`
 
   width: 56%;
   height: 100%;
-  border-left: 1px solid ${themes.primary.colors.comment};
+  border-left: thin solid ${themes.primary.colors.comment};
   background: ${({ bgColor }) => bgColor};
-
-  & img {
-    left: -1px !important;
-  }
 `;
 
 export const ContentContainer = styled.div`
@@ -317,12 +313,9 @@ export const Separator = styled.div`
   background-color: ${(params) =>
     params.color ? params.color : themes.primary.colors.separator};
   width: 100%;
-  height: 0.5px;
+  height: 1px;
   margin-bottom: 30px;
 
-  &.top {
-    margin-bottom: 0.1px;
-  }
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 10px;
   }

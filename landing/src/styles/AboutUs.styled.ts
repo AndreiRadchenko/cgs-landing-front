@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { glassJarAnimation, floatAnimation } from "./AnimationsStyled";
+import { glassJarAnimation, floatAnimation } from "./Animations.styled";
 import themes from "../utils/themes";
 import Decoration from "../components/Decoration/Decoration";
 

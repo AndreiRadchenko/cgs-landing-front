@@ -74,7 +74,7 @@ const themes = {
         smallAboutSubtitle: "2.9em",
         aboutUsSubtitle: "3.35em",
         mainPagePhoto: "2.68em",
-        ourWorkText: "4.35em",
+        ourWorkText: "3.61vw",
         ourWorkTextBig: "3.5em",
         reviewTitle: "2.5em",
         reviewText: "1.334em",

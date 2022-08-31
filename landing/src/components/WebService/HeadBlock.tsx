@@ -12,7 +12,6 @@ import {
   Container,
   ContentContainer,
   Title,
-  Cursor,
   Description,
   Image,
 } from "../../styles/WebService/HeadBlock.styled";
@@ -29,7 +28,6 @@ const HeadBlock = () => {
       <ContentContainer>
         <Title>
           <SplitBrackets text={data?.title} />
-          <Cursor />
         </Title>
         <Description>
           <SplitBrackets text={data?.text} />
