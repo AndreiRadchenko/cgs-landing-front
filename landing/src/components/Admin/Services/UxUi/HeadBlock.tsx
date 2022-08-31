@@ -16,7 +16,6 @@ const HeadBlock = () => {
   const { values, handleChange } = useFormikContext<IUxUiInterface>();
   const deleteMainImage = useDeleteImageFunction(values.headerBlock);
   const uploadMainImage = useUploadImageFunction(values.headerBlock);
-  console.log(values);
 
   return (
     <AdminPaddedBlock>

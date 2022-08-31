@@ -24,7 +24,6 @@ const AdminServiceUxUiContent = () => {
     await refetch();
     document.body.style.cursor = "auto";
   };
-  console.log(data);
 
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
