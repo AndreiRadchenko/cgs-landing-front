@@ -9,6 +9,9 @@ import parse from "html-react-parser";
 import { adminGlobalService } from "../../services/adminHomePage";
 import HeadBlock from "../../components/UxUiService/HeadBlock";
 import WhatDoWeDoBlock from "../../components/UxUiService/WhatDoWeDoBlock";
+import DesignBlock from "../../components/UxUiService/DesignBlock";
+import EssentialBlock from "../../components/UxUiService/EsentialBlock";
+import FooterBlock from "../../components/UxUiService/FooterBlock";
 import * as Styled from "../../styles/UxUiService/Layout.styled";
 
 const UxUiDesign = () => {
@@ -32,6 +35,9 @@ const UxUiDesign = () => {
       <Styled.Layout>
         <HeadBlock />
         <WhatDoWeDoBlock />
+        <DesignBlock />
+        <EssentialBlock />
+        <FooterBlock />
       </Styled.Layout>
       <FooterNew />
     </>
