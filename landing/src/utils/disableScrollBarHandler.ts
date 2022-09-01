@@ -1,9 +1,13 @@
 import { useEffect } from "react";
 
-export const disableScrollBarHandler = (optionDisable: boolean) => {
+export const DisableScrollBarHandler = (optionDisable: boolean) => {
   useEffect(() => {
-    optionDisable
-      ? document.querySelector("html")?.classList.add("disableScrollBar")
-      : document.querySelector("html")?.classList.remove("disableScrollBar");
+    if (optionDisable) {
+      document.querySelector("html")?.classList.add("disableScrollBar");
+      document.querySelector("body")?.classList.add("disableScrollBar");
+    } else {
+      document.querySelector("html")?.classList.remove("disableScrollBar");
+      document.querySelector("body")?.classList.remove("disableScrollBar");
+    }
   }, [optionDisable]);
 };

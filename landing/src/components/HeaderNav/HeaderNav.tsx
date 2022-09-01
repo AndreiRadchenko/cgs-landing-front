@@ -7,7 +7,7 @@ import Link from "next/link";
 import BurgerButton from "../BurgerMenu/BurgerButton";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
-import { disableScrollBarHandler } from "../../utils/disableScrollBarHandler";
+import { DisableScrollBarHandler } from "../../utils/DisableScrollBarHandler";
 
 const HeaderNav = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -21,7 +21,7 @@ const HeaderNav = (): JSX.Element => {
     isOpen && width && width >= 768 && setIsOpen(false);
   }, [width, isOpen]);
 
-  disableScrollBarHandler(isOpen);
+  DisableScrollBarHandler(isOpen);
 
   return (
     <StyledThisComp.HeaderNavContainer>

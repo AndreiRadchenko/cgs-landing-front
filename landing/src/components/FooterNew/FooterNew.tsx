@@ -4,7 +4,7 @@ import logo from "../../../public/newHeaderLogo.svg";
 import ImagePreview from "../Image/ImagePreview";
 import Link from "next/link";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
-import { disableScrollBarHandler } from "../../utils/disableScrollBarHandler";
+import { DisableScrollBarHandler } from "../../utils/DisableScrollBarHandler";
 import { useQueryClient } from "react-query";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
@@ -22,7 +22,7 @@ const FooterNew = (): JSX.Element => {
     queryKeys.getFullHomePage
   )?.FooterBlock;
 
-  disableScrollBarHandler(isOpen);
+  DisableScrollBarHandler(isOpen);
   return (
     <StyledThisComp.HeaderNavContainer>
       <StyledThisComp.FlexRowContainer>
