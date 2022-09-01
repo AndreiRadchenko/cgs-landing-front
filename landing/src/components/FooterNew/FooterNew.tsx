@@ -4,7 +4,7 @@ import logo from "../../../public/newHeaderLogo.svg";
 import ImagePreview from "../Image/ImagePreview";
 import Link from "next/link";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
-import { DisableScrollBarHandler } from "../../utils/DisableScrollBarHandler";
+import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 import { useQueryClient } from "react-query";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
