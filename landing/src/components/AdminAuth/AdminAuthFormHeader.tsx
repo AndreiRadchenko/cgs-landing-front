@@ -3,14 +3,14 @@ import logo from "../../../public/logo.svg";
 import * as Styled from "../../styles/AdminAuth";
 import React from "react";
 
-const AuthAdminHeader = () => {
+const AdminAuthFormHeader = () => {
   return (
-    <Styled.AdminAuthHeader>
+    <Styled.AdminFormHeader>
       <Styled.AdminAuthTeamLogo>
         <Image alt="logo" src={logo} />
       </Styled.AdminAuthTeamLogo>
-    </Styled.AdminAuthHeader>
+    </Styled.AdminFormHeader>
   );
 };
 
-export default AuthAdminHeader;
+export default AdminAuthFormHeader;
