@@ -12,11 +12,13 @@ export const Layout = styled.div`
   }
   @media ${themes.primary.media.minPCFullHD} {
     padding: 0 7%;
+    margin: auto;
+    width: 1785px;
   }
 `;
 
 export const Subtitle = styled.h2`
-  font-size: ${themes.primary.font.size.aboutUsSubtitle};
+  font-size: 40px;
   margin: 0;
   font-weight: inherit;
   line-height: 140%;

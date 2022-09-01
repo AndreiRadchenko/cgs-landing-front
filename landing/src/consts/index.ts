@@ -169,6 +169,7 @@ export enum ROUTE_KEYS {
   AdminServiceWeb = "AdminServiceWeb",
   AdminServiceDb = "AdminServiceDb",
   AdminServiceBlockchain = "AdminServiceBlockchain",
+  AdminServiceUxUi = "AdminServiceUxUi",
 }
 
 export enum FaqPageTypes {

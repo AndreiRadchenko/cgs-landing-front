@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 import BlockchainAbout from "../../../public/BlockchainServicePage/BlockchainAbout.svg";
 
 export const Container = styled.div`
-  margin: 8.5em 0 0 0;
+  margin: 17.75em 0 0 0;
   padding: 6.25em 0 11.17em;
 
   background-image: url(${BlockchainAbout.src});
@@ -18,4 +18,5 @@ export const Title = styled.h2`
   line-height: 140%;
   text-transform: uppercase;
   max-width: 12em;
+  margin: 0;
 `;
