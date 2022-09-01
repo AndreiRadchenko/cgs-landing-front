@@ -4,6 +4,7 @@ import { IDataResponse } from "../../types/Admin/Response.types";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import FooterIcon from "./FooterIcon";
 
 interface IFooter {
   isGreenLine?: boolean;
@@ -24,13 +25,13 @@ const Footer = ({ isGreenLine = true }: IFooter) => {
           </Styles.WebAddress>
         </Styles.WebAddressContainer>
         <Styles.SocialLinksContainer>
-          {/*{data?.links.map((el, idx) => (*/}
-          {/*  <FooterIcon*/}
-          {/*    key={el.link}*/}
-          {/*    icoUrl={data.images[idx].image?.url || ""}*/}
-          {/*    href={el.link}*/}
-          {/*  />*/}
-          {/*))}*/}
+          {data?.links.map((el, idx) => (
+            <FooterIcon
+              key={el.link}
+              icoUrl={data.images[idx].image?.url || ""}
+              href={el.link}
+            />
+          ))}
           {isGreenLine && <Styles.DecorationFooterLinks />}
         </Styles.SocialLinksContainer>
       </Styles.Container>
