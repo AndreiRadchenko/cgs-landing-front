@@ -175,7 +175,7 @@ const themes = {
       maxPCFullHD: "(max-width: 1800px)",
       maxLowScreenMobile: "(max-width: 475px)",
       maxLowMobileHeight: "(max-height: 610px)",
-      maxMobile: "(max-width: 768px)",
+      maxMobile: "(max-width: 767px)",
       maxMobileHeight: "(max-height: 710px)",
       maxTabletPortrait: "(max-width: 992px)",
       maxTabletLandScape: "(max-width: 1200px)",

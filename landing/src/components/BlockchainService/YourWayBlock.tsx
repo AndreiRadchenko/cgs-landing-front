@@ -14,7 +14,11 @@ const YourWayBlock = () => {
   return (
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
-      <Styled.BgiContainer />
+      <Styled.BgiContainer>
+        <div />
+        <div />
+        <div />
+      </Styled.BgiContainer>
       <Styled.SubTextWrapper>
         <Styled.GridLine1>
           {data?.textSubBlock.slice(0, 3).map((el, idx) => (
