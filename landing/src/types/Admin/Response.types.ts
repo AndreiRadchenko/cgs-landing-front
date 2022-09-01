@@ -526,3 +526,33 @@ export interface IServiceSupport {
   };
   meta: IMetaBlock;
 }
+
+export interface IUxUiInterface {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  whatDoWeDoBlock: {
+    title: string;
+    textSubBlock: { subtitle: string; text: string }[];
+  };
+  designBlock: {
+    title: string;
+    textSubBlock: string[];
+  };
+  essentialBlock: {
+    title: string;
+    text: string;
+    image: { url: string };
+  };
+  footerBlock: {
+    title: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}
