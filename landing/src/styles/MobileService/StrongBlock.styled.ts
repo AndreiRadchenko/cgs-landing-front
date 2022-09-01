@@ -22,7 +22,9 @@ export const BlockImage = styled.img`
 export const Block = styled.div`
   display: flex;
 
-  &:first-child {
+  &:nth-child(2) {
+    outline: 2px solid red;
+    margin-right: 1%;
   }
 `;
 

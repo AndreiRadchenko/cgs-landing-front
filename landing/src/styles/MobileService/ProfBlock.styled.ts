@@ -27,7 +27,7 @@ export const ImageWrapper = styled.div`
 `;
 export const Image = styled.img`
   position: absolute;
-  right: -2%;
+  right: -0.7%;
   bottom: 200%;
   width: 36.3%;
   height: 39.1vh;
