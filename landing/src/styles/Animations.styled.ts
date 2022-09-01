@@ -197,3 +197,29 @@ ${css`
   }
 `}
 `;
+
+export const slideUp = keyframes`
+ ${css`
+   from {
+     opacity: 1;
+     transform: translateY(0);
+   }
+   to {
+     opacity: 0;
+     transform: translateY(-30px);
+   }
+ `}
+`;
+
+export const slideDown = keyframes`
+ ${css`
+   from {
+     opacity: 0;
+     transform: translateY(-60px);
+   }
+   to {
+     opacity: 1;
+     transform: translateY(0);
+   }
+ `}
+`;

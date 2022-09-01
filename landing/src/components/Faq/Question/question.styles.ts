@@ -9,6 +9,11 @@ interface IIsOpen {
 export const QuestionImage = styled.img`
   height: fit-content;
   width: 473px;
+
+  @media ${themes.primary.media.maxTablet} {
+    width: 334px;
+  }
+
   @media ${themes.primary.media.onlyPC} {
     width: 515px;
   }
@@ -42,12 +47,16 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  border-bottom: 1px solid ${themes.primary.colors.faqBorder};
+  border-top: 1px solid ${themes.primary.colors.faqBorder};
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.buttonText};
   }
   &:hover {
     color: ${({ isOpen }) => !isOpen && themes.primary.colors.darkBlue};
+  }
+
+  @media ${themes.primary.media.maxTablet} {
+    padding: 15px 0;
   }
 `;
 
@@ -65,6 +74,10 @@ export const QuestionContentContainer = styled.div<IIsOpen>`
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.linkText};
+  }
+
+  @media ${themes.primary.media.maxTablet} {
+    padding: 18px 0 24px;
   }
 `;
 

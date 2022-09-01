@@ -161,6 +161,8 @@ const themes = {
       portfolioHover: "#F2EA86",
       faqBorder: "#B5B5B5",
       bigDigit: "#F0EFED",
+      lightGreyBorder: "#D9D9D9",
+      inputGrey: "#787877",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

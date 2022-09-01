@@ -3,10 +3,15 @@ import themes from "../../utils/themes";
 
 export const FaqContainer = styled.div`
   padding: 77px 22% 200px 50px;
+
   background-color: ${themes.primary.colors.blogBackground};
   font-family: ${themes.primary.font.family.namu};
   position: relative;
-  min-height: 95vh;
+
+  @media ${themes.primary.media.maxTablet} {
+    padding: 0;
+  }
+
   ul {
     margin: 0;
     padding: 0 0 0 15px;
@@ -32,12 +37,26 @@ export const FaqContainer = styled.div`
   }
 `;
 
+export const BottomDecorWrap = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+`;
+
 export const BottomDecor = styled.img`
   position: absolute;
   right: 0;
   width: 240.83px;
   height: 196.83px;
   bottom: 5px;
+
+  @media ${themes.primary.media.maxTablet} {
+    position: relative;
+    bottom: 0;
+    width: 144px;
+    height: auto;
+    align-self: flex-end;
+  }
 `;
 
 export const PageTitle = styled.div`
@@ -48,10 +67,18 @@ export const PageTitle = styled.div`
   div::first-letter {
     color: ${themes.primary.colors.darkBlue};
   }
-`;
 
-export const Separator = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: ${themes.primary.colors.faqBorder};
+  @media ${themes.primary.media.maxTablet} {
+    font-size: ${themes.primary.font.size.smallAboutSubtitle};
+    flex-wrap: wrap;
+    padding: 0 20px;
+  }
+`;
+export const QuestionsWrapper = styled.div`
+  @media ${themes.primary.media.maxTablet} {
+    padding: 0 20px;
+    border-bottom: 1px solid ${themes.primary.colors.faqBorder};
+    margin-bottom: 82px;
+    margin-bottom: 40px;
+  }
 `;

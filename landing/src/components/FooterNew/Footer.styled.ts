@@ -6,13 +6,14 @@ export const HeaderNavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
-  z-index: 26;
+  z-index: 5;
   background-color: ${themes.primary.colors.blogBackground};
   border-top: 1px solid ${themes.primary.colors.headerBorder};
 `;
 
 export const FlexRowContainer = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 export const Email = styled.a`
@@ -42,6 +43,10 @@ export const LogoLinkWrapper = styled.a`
     transition: 0.3s;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
+  }
+
+  @media ${themes.primary.media.maxTablet} {
+    display: none;
   }
 `;
 
