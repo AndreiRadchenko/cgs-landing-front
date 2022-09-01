@@ -47,7 +47,7 @@ const AdminAuthForm = () => {
               name="username"
               label="username"
               handleChange={fprops.handleChange}
-              type="password"
+              type="text"
               placeholder="Username"
               labelName="Username"
             />
