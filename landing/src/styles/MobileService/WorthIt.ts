@@ -7,10 +7,8 @@ export const Container = styled.div`
 
 export const ContentLayout = styled.div`
   margin-top: 5.4em;
-  /* margin-left: 8px; */
   width: 98.4%;
   display: flex;
-  /* justify-content: space-between; */
   column-gap: 6.5%;
 `;
 
