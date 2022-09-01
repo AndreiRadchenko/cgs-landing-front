@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const disableScrollBarHandler = (optionDisable: boolean) => {
+export const DisableScrollBarHandler = (optionDisable: boolean) => {
   useEffect(() => {
     optionDisable
       ? document.querySelector("html")?.classList.add("disableScrollBar")
