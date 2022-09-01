@@ -6,7 +6,6 @@ export const Navigationwrapper = styled.div`
   justify-content: space-between;
   align-items: end;
   margin-bottom: 3.125rem;
-  margin-top: 46px;
   & div :after {
     content: none;
   }
