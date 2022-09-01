@@ -1,23 +1,25 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import BlockchainYourWay from "../../../public/BlockchainServicePage/BlockchainYourWay.png";
 
 export const Container = styled.div`
-  margin-top: 16.67em;
+  margin-top: 12.7em;
   position: relative;
 `;
 
 export const BgiContainer = styled.div`
-  background-image: url(${BlockchainYourWay.src});
-  background-position: 100 100;
-  background-repeat: no-repeat;
-  background-size: cover;
+  width: 110%;
+  height: 25px;
+  position: relative;
+  left: -4%;
+  top: 60px;
+  background: linear-gradient(
+    90deg,
+    ${themes.primary.colors.mainGradientColor1} 13.67%,
+    ${themes.primary.colors.mainGradientColor2} 90.39%
+  );
+  border: 1px solid ${themes.primary.colors.black};
 
-  width: 101.12vw;
-  height: 11.53vw;
-  position: absolute;
-  top: 40%;
-  left: -4.3%;
+  box-shadow: 7px 2px 0px ${themes.primary.colors.black};
 `;
 
 export const Title = styled.h2`
@@ -32,23 +34,23 @@ export const Title = styled.h2`
 
 export const SubTextWrapper = styled.div`
   display: grid;
+  font-size: ${themes.primary.font.size.secondary};
+  line-height: 160%;
 `;
 
 export const GridLine1 = styled.div`
+  margin-top: -30px;
   display: grid;
-  grid-template-columns: 1fr 1fr 0.74fr;
-  margin-left: 3em;
+  grid-template-columns: 1.26fr 1.28fr 1fr;
 `;
 
 export const GridLine2 = styled.div`
   display: grid;
-  grid-template-columns: 1.25fr 1fr 0.23fr;
-  margin-left: 12.5em;
+  grid-template-columns: 4.63fr 3.65fr 1fr;
+  margin-left: 3.5em;
 `;
 
 export const SubText = styled.p`
-  font-size: ${themes.primary.font.size.secondary};
-  line-height: 160%;
   margin: 0;
   margin-bottom: 112px;
 `;

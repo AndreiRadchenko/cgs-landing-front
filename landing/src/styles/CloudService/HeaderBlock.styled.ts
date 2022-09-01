@@ -10,11 +10,11 @@ export const Container = styled.div`
 export const ContentWrapper = styled.div`
   padding-top: 12.7em;
   width: 54.25em;
-  margin-bottom: 14em;
+  margin-bottom: 15.83em;
 `;
 
 export const Title = styled.h1`
-  font-size: ${themes.primary.font.size.serviceTitle};
+  font-size: 66px;
   line-height: 120%;
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
@@ -41,7 +41,7 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.p`
-  font-size: ${themes.primary.font.size.feedbackName};
+  font-size: 22px;
   line-height: 160%;
   margin: 1.28em 0 2.365em;
   max-width: 27.27em;
