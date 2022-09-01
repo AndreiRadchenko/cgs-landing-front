@@ -54,6 +54,9 @@ const AdminSidebar = () => {
           <Link href={ROUTE_KEYS.AdminServiceBlockchain}>
             <a>Blockchain Development</a>
           </Link>
+          <Link href={ROUTE_KEYS.AdminServiceUxUi}>
+            <a>Ux/Ui Design</a>
+          </Link>
         </DropDownElement>
         <DropDownElement value="company">
           <Link href={ROUTE_KEYS.AdminAboutUs}>

@@ -1,17 +1,20 @@
-import AuthAdminHeader from "../../components/AdminAuth/AuthHeader";
 import AdminAuthForm from "../../components/AdminAuth/AuthForm";
 import * as Styled from "../../styles/AdminAuth";
 import React from "react";
+import AdminAuthFormHeader from "../../components/AdminAuth/AdminAuthFormHeader";
+import AdminAuthFormTitle from "../../components/AdminAuth/AdminAuthFormTitle";
 
 const AdminPage = () => {
   return (
     <>
-      <AuthAdminHeader />
       <Styled.AdminAuthPassWrapper>
-        <Styled.AdminAuthPassBlock>
-          <Styled.AdminAuthSubHeader>Authorization</Styled.AdminAuthSubHeader>
-          <AdminAuthForm />
-        </Styled.AdminAuthPassBlock>
+        <AdminAuthFormHeader />
+        <Styled.AdminFormContainer>
+          <AdminAuthFormTitle />
+          <Styled.AdminAuthPassBlock>
+            <AdminAuthForm />
+          </Styled.AdminAuthPassBlock>
+        </Styled.AdminFormContainer>
       </Styled.AdminAuthPassWrapper>
     </>
   );

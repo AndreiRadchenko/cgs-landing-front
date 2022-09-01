@@ -17,15 +17,16 @@ const ProvidesBlock = () => {
   return (
     <Styled.Container>
       <Subtitle>{subtitle}</Subtitle>
-      <Styled.BgContainer />
-      <Styled.BlockWrapper>
-        {Object.values(blocks).map((el, index) => (
-          <Styled.Block key={index}>
-            <Styled.Title>{el.subtitle}</Styled.Title>
-            <Styled.Description>{parse(el.text)}</Styled.Description>
-          </Styled.Block>
-        ))}
-      </Styled.BlockWrapper>
+      <Styled.BgContainer>
+        <Styled.BlockWrapper>
+          {Object.values(blocks).map((el, index) => (
+            <Styled.Block key={index}>
+              <Styled.Title>{el.subtitle}</Styled.Title>
+              <Styled.Description>{parse(el.text)}</Styled.Description>
+            </Styled.Block>
+          ))}
+        </Styled.BlockWrapper>
+      </Styled.BgContainer>
     </Styled.Container>
   );
 };

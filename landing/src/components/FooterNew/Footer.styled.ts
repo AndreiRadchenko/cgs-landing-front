@@ -13,6 +13,7 @@ export const HeaderNavContainer = styled.div`
 
 export const FlexRowContainer = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 export const Email = styled.a`
@@ -42,6 +43,10 @@ export const LogoLinkWrapper = styled.a`
     transition: 0.3s;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
+  }
+
+  @media ${themes.primary.media.maxTablet} {
+    display: none;
   }
 `;
 

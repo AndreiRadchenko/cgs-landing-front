@@ -6,7 +6,6 @@ import {
   ArrowContainer,
   BlackButton,
 } from "../../styles/HomePage/General.styled";
-import themes from "../../utils/themes";
 import * as Styled from "../../styles/CloudService/HeaderBlock.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { SplitBrackets } from "../../utils/splitBrackets";
@@ -26,7 +25,7 @@ const HeadBlock = () => {
         <Styled.Description>{data?.text}</Styled.Description>
         <BlackButton
           padding={"1.117em 3.862em"}
-          size={themes.primary.font.size.oneAndHalf}
+          size={"18px"}
           href={data?.buttonLink}
         >
           {data?.button}

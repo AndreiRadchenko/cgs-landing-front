@@ -63,5 +63,5 @@ export const Telephone = styled.img`
   line-height: 160%;
   margin-top: 1rem;
   margin-right: 2rem;
-  width: 44%;
+  width: 43.6%;
 `;
