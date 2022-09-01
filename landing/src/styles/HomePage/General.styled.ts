@@ -11,7 +11,6 @@ export const RowContainer = styled.div`
 `;
 
 export const ContentContainer = styled.div`
-  min-height: 90vh;
   background-color: ${themes.primary.colors.blogBackground};
   padding: 38px 51px 90px;
   font-family: ${themes.primary.font.family.namu};
@@ -159,6 +158,7 @@ export const Tetris = styled.img`
 `;
 
 export const HeadBlockRow = styled(RowContainer)`
+  margin-top: 38px;
   width: 100%;
 `;
 
@@ -178,7 +178,7 @@ export const Subtitle = styled.div`
 
   &.footer {
     margin-top: ${themes.primary.spacing.tertiary};
-    margin-bottom: 1.1em;
+    margin-bottom: 171px;
     line-height: 132%;
     display: inline-block;
     vertical-align: middle;
@@ -244,6 +244,7 @@ export const RightContainer = styled.div`
 export const Separator = styled.div`
   height: 1px;
   width: 100%;
+  margin-block: 90px;
   background-color: ${themes.primary.colors.headerBorder};
 `;
 
