@@ -163,8 +163,8 @@ export const RotateBlock = styled.div<IRotate>`
   }
   @media (min-width: 1400px) {
     &.main {
-      top: 20%;
-      left: 1%;
+      top: 19.7%;
+      left: 1.6%;
     }
   }
   @media ${themes.primary.media.minPC} {
@@ -291,8 +291,12 @@ export const ColContainer = styled.div`
   flex-direction: column;
   width: 83%;
   &.first {
-    margin-left: 10px;
+    margin-left: 15px;
     margin-top: 80px;
+  }
+  &.second {
+    margin-left: -5px;
+    width: 85%;
   }
 `;
 
@@ -303,7 +307,7 @@ export const OurBonuses = styled.div`
 export const BonusesContainer = styled.div`
   margin-top: 50px;
   display: grid;
-  grid-template-columns: 52.5% 43%;
+  grid-template-columns: 53.2% 43%;
   column-gap: 30px;
 
   @media ${themes.primary.media.minPCFullHD} {

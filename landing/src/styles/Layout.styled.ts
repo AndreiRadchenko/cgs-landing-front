@@ -28,5 +28,6 @@ export const Layout = styled.article`
   @media ${themes.primary.media.maxMobile} {
     padding-inline: 1.925em;
     width: 100%;
+    padding: 0 1.925em;
   }
 `;

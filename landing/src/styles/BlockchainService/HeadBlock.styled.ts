@@ -3,22 +3,39 @@ import themes from "../../utils/themes";
 import { cursorBlinking } from "../Animations.styled";
 
 export const Container = styled.div`
-  margin-top: 12.67em;
+  margin-top: 9.5em;
   position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 3em;
+  }
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  & > a {
+    @media ${themes.primary.media.maxMobile} {
+      font-size: 1em;
+      padding: 1.2em 1.51em;
+    }
+  }
+`;
 
 export const Title = styled.h1`
-  font-size: ${themes.primary.font.size.serviceTitle};
+  font-size: 4.125em;
   line-height: 120%;
   display: inline-block;
   max-width: 12.27em;
   margin: 0;
   text-transform: uppercase;
+  font-weight: inherit;
 
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 2.5em;
+    line-height: 100%;
+  }
   & > span:last-child {
     position: relative;
+    top: 14px;
 
     &::after {
       content: "";
@@ -35,16 +52,29 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.p`
-  font-size: ${themes.primary.font.size.feedbackName};
+  font-size: 1.375em;
   line-height: 160%;
   margin: 1.279em 0 2.365em;
   max-width: 600px;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1em;
+    max-width: 95%;
+    margin: 1.625em 0 1.75em;
+  }
 `;
 
 export const Image = styled.img`
   position: absolute;
-  top: -3.8em;
-  right: -2em;
-  width: 56em;
-  height: 45.58em;
+  top: -2.875em;
+  right: -1.56em;
+  width: 42em;
+
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    left: 1px;
+    top: -0.75em;
+    width: 22.3em;
+    height: 19.125em;
+  }
 `;

@@ -103,7 +103,7 @@ export const NavList = styled.menu`
 
 export const LinkText = styled.img`
   height: auto;
-  width: 100%;
+  width: auto;
   @media ${themes.primary.media.maxTabletPortrait} {
     max-width: 20px;
   }
