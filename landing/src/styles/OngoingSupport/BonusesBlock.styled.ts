@@ -3,6 +3,14 @@ import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 17.5em;
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    margin-top: -9em;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    margin-top: 6em;
+  }
 `;
 
 export const Title = styled.h2`
@@ -23,6 +31,14 @@ export const Title = styled.h2`
 export const TextWrapper = styled.div`
   margin: 0 -8em;
 
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    margin: 0 -5em;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    margin: 0;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin: 2.375em 0 0 3.5em;
   }
@@ -36,6 +52,10 @@ export const Text = styled.p`
   margin: 0;
 
   position: relative;
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    min-width: auto;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;

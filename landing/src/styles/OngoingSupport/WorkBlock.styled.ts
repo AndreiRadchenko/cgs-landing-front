@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin-top: 11.875em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-top: 8.125em;
   }
 `;
 
@@ -84,6 +84,10 @@ export const Wrapper = styled.div`
   &:first-child {
     margin-right: 6.1em;
 
+    @media ${themes.primary.media.onlyTabletPortrait} {
+      margin-right: 1em;
+    }
+
     @media ${themes.primary.media.maxMobile} {
       margin: 0;
     }
@@ -99,12 +103,24 @@ export const Wrapper = styled.div`
     & > img {
       top: 14.85em;
       left: 13.03em;
+
+      @media ${themes.primary.media.onlyTabletPortrait} {
+        left: 3em;
+      }
+
+      @media ${themes.primary.media.onlyTabletLandScape} {
+        left: 7em;
+      }
     }
   }
 
   &:nth-child(2) {
     margin-top: 13.67em;
     margin-right: 4.8em;
+
+    @media ${themes.primary.media.onlyTabletPortrait} {
+      margin-right: 1em;
+    }
 
     @media ${themes.primary.media.maxMobile} {
       margin: 0;
@@ -113,6 +129,14 @@ export const Wrapper = styled.div`
     & > img {
       bottom: 15.1em;
       left: 17em;
+
+      @media ${themes.primary.media.onlyTabletPortrait} {
+        left: 6em;
+      }
+
+      @media ${themes.primary.media.onlyTabletLandScape} {
+        left: 10em;
+      }
     }
   }
 `;

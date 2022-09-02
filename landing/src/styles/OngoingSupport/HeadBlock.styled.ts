@@ -9,6 +9,10 @@ export const Container = styled.div`
 export const Content = styled.div`
   padding-top: 9.56em;
 
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    max-width: 75%;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     padding-top: 3.125em;
 
@@ -16,7 +20,7 @@ export const Content = styled.div`
       font-size: 1em;
       padding: 1.195em 2.18em;
     }
-  } ;
+  }
 `;
 
 export const Title = styled.h1`
@@ -71,6 +75,17 @@ export const Image = styled.img`
   right: 2.07em;
   width: 36.43em;
   height: 33.875em;
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    width: 28.3em;
+    right: -4em;
+    top: 17em;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    width: 30em;
+    right: -2em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
