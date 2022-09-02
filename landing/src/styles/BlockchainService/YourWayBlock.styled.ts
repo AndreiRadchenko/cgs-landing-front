@@ -15,7 +15,7 @@ export const BgiContainer = styled.div`
   height: 25px;
   position: relative;
   left: -6%;
-  top: 3.75em;
+  top: 2em;
   background: linear-gradient(
     90deg,
     ${themes.primary.colors.mainGradientColor1} 13.67%,

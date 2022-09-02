@@ -22,12 +22,12 @@ const YourWayBlock = () => {
       <Styled.SubTextWrapper>
         <Styled.GridLine1>
           {data?.textSubBlock.slice(0, 3).map((el, idx) => (
-            <LinedText text={el} position="top" height={78} key={idx} />
+            <LinedText text={el} position="top" height={65} key={idx} />
           ))}
         </Styled.GridLine1>
         <Styled.GridLine2>
           {data?.textSubBlock.slice(3).map((el, idx) => (
-            <LinedText text={el} position="bottom" height={78} key={idx} />
+            <LinedText text={el} position="bottom" height={65} key={idx} />
           ))}
         </Styled.GridLine2>
       </Styled.SubTextWrapper>
