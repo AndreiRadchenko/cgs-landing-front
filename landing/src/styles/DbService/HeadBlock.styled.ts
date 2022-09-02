@@ -6,8 +6,18 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 12.6em 0 3em 0;
+  padding: 12.6em 0 0;
   position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-top: 3.125em;
+    flex-direction: column;
+
+    & a {
+      font-size: 1em;
+      padding: 1.195em 2.91em;
+    }
+  }
 `;
 
 export const ContentContainer = styled.div`
@@ -33,8 +43,12 @@ export const Title = styled.h1`
   margin: 0;
   line-height: 120%;
   text-transform: uppercase;
-  font-size: ${themes.primary.font.size.serviceTitle};
+  font-size: 4.125em;
   position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 2.375em;
+  }
 
   & > span:last-child {
     position: relative;
@@ -47,39 +61,38 @@ export const Title = styled.h1`
       background-color: ${themes.primary.colors.primary};
       animation: ${cursorBlinking} 0.8s infinite;
       position: absolute;
-      top: 0;
+      bottom: -0.2em;
       right: -0.2em;
     }
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    white-space: nowrap;
-    font-size: ${themes.primary.font.size.tabletServiceTitle};
   }
 `;
 
 export const Description = styled.div`
-  font-size: ${themes.primary.font.size.feedbackName};
+  font-size: 1.375em;
   line-height: 160%;
-  margin: 0.65em 0 2.3em;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.oneAndHalf};
+  margin: 1.27em 0 2.36em;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1em;
+    margin: 1.625em 0 1.75em;
+
+    & br {
+      display: none;
+    }
   }
 `;
 
 export const Image = styled.img`
   position: absolute;
-  top: 16.6em;
-  right: -1.7em;
-  width: 48.8%;
-  height: 76.4%;
-  @media (max-width: 1360px) {
-    width: 45%;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 43%;
-  }
-  @media ${themes.primary.media.minPC} {
-    width: 50%;
+  top: 13.56em;
+  right: -1.44em;
+  width: 40.81em;
+  height: 29.81em;
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    width: 21.875em;
+    height: 15.94em;
+    top: 1.625em;
+    left: -1px;
   }
 `;

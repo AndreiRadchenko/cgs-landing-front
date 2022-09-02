@@ -2,44 +2,51 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 16.6em;
-  margin-left: 5%;
+  margin-top: 18.31em;
+  margin-left: 4.25em;
+  position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 11.25em 0 0;
+  }
 `;
 
 export const Subtitle = styled.h2`
   margin: 0;
-  padding-top: 2.3em;
-  line-height: 56px;
-  font-size: ${themes.primary.font.size.aboutUsSubtitle};
+  line-height: 140%;
+  font-size: 2.5em;
   text-transform: uppercase;
   width: fit-content;
 
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.quaternary};
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5em;
   }
 `;
 
 export const TextContent = styled.div`
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 160%;
-  margin-top: 1.5em;
+  margin-top: 1.67em;
   width: fit-content;
 
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.oneAndHalf};
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1em;
+    margin: 2.375em 0 2.125em;
   }
 `;
 
 export const Image = styled.img`
   position: absolute;
-  top: 109em;
-  right: 11.2em;
-  width: 38.5%;
-  height: 51.7%;
+  top: -5.81em;
+  right: 5.125em;
+  width: 34.625em;
+  height: 29.06em;
 
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 40%;
-    top: 95em;
-    right: 2.5em;
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    width: 22.81em;
+    height: auto;
+    top: 0;
+    left: -0.625em;
   }
 `;

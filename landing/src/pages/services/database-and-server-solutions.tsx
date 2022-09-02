@@ -14,6 +14,7 @@ import { adminDbService } from "../../services/services/adminServicesDbPage";
 import SelectBlock from "../../components/DbService/SelectBlock";
 import FeaturesBlock from "../../components/DbService/FeaturesBlock";
 import FooterBlock from "../../components/DbService/FooterBlock";
+import { Layout } from "../../styles/Layout.styled";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -46,13 +47,15 @@ const DbSolutions: NextPage = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Styled.Layout>
-        <HeadBlock />
-        <ExpertiseBlock />
-        <SelectBlock />
-        <FeaturesBlock />
-        <FooterBlock />
-      </Styled.Layout>
+      <Layout>
+        <Styled.Layout>
+          <HeadBlock />
+          <ExpertiseBlock />
+          <SelectBlock />
+          <FeaturesBlock />
+          <FooterBlock />
+        </Styled.Layout>
+      </Layout>
       <FooterNew />
     </>
   );

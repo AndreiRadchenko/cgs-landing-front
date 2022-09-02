@@ -26,6 +26,10 @@ const FeaturesBlock = () => {
         src={bgImage.src}
         alt="second block image"
       ></Styled.BgImage>
+      <Styled.BgImage
+        src={bgImage.src}
+        alt="second block image part two"
+      ></Styled.BgImage>
       <Styled.ContentWrapper>
         <div>
           <Styled.Subtitle>{data?.databases.subtitle}</Styled.Subtitle>
