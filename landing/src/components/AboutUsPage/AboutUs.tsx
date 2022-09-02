@@ -70,7 +70,7 @@ const AboutUs = ({ data }: IAboutUs) => {
             padding={"16px 10px 22px 15px"}
           />
         </Styled.RowContainer>
-        <Styled.ColContainer>
+        <Styled.ColContainer className={"second"}>
           {data && (
             <>
               <Styled.Subtitle>{data.goal.subtitle}</Styled.Subtitle>
