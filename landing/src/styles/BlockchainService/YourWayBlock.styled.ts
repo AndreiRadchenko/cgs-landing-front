@@ -58,6 +58,10 @@ export const BgiContainer = styled.div`
       }
     }
   }
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    top: 3em;
+    left: -8%;
+  }
 `;
 
 export const Title = styled.h2`
