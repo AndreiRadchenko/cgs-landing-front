@@ -97,7 +97,7 @@ export const TextWrapper = styled.div`
 
   & > div {
     margin: 0;
-    margin-bottom: 8.08em;
+    margin-bottom: 6em;
 
     @media (max-width: 1400px) {
       margin-bottom: 6em;

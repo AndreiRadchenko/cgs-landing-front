@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 17.5em;
+  margin-top: 16.25em;
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     margin-top: -9em;
