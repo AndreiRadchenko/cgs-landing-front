@@ -7,12 +7,12 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  padding-top: 12.75em;
+  padding-top: 9.56em;
 `;
 
 export const Title = styled.h1`
-  font-weight: ${themes.primary.font.weight.heavy};
-  font-size: ${themes.primary.font.size.serviceTitle};
+  font-weight: inherit;
+  font-size: 4.125em;
   line-height: 120%;
   text-transform: uppercase;
   max-width: 11.29em;
@@ -36,7 +36,7 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.p`
-  font-size: ${themes.primary.font.size.feedbackName};
+  font-size: 1.375em;
   line-height: 160%;
   max-width: 30em;
   margin: 1.275em 0 2.32em;
@@ -46,6 +46,6 @@ export const Image = styled.img`
   position: absolute;
   top: 2.3em;
   right: 2.07em;
-  width: 48.61em;
-  height: 45.22em;
+  width: 36.43em;
+  height: 33.875em;
 `;

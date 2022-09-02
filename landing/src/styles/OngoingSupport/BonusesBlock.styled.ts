@@ -2,12 +2,12 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 40em;
+  margin-top: 17.5em;
 `;
 
 export const Title = styled.h2`
-  font-weight: ${themes.primary.font.weight.heavy};
-  font-size: ${themes.primary.font.size.secondaryServicesTitle};
+  font-weight: inherit;
+  font-size: 2.5em;
   line-height: 140%;
   text-transform: uppercase;
   margin: 0;
@@ -15,11 +15,11 @@ export const Title = styled.h2`
 `;
 
 export const TextWrapper = styled.div`
-  margin: 0 -7.3em;
+  margin: 0 -8em;
 `;
 
 export const Text = styled.p`
-  font-size: ${themes.primary.font.size.feedbackName};
+  font-size: 1.375em;
   line-height: 160%;
   text-transform: uppercase;
   min-width: max-content;
@@ -31,7 +31,7 @@ export const Text = styled.p`
 export const Row1 = styled.div`
   display: grid;
   grid-template-columns: 0.85fr 1fr 0.7fr 1.4fr 0.7fr 1.6fr 0.9fr;
-  margin: 6.33em 0 3.92em;
+  margin: 4.75em 0 2.94em;
 `;
 
 export const Row2 = styled.div`
@@ -43,7 +43,7 @@ export const Line = styled.div`
   border: 1px solid ${themes.primary.colors.primary};
   width: stretch;
   flex: 1;
-  margin: 1.562em 36px 0 15px;
+  margin: 1.15em 36px 0 15px;
   max-height: 2px;
   max-width: stretch;
 `;

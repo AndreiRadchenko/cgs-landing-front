@@ -1,22 +1,23 @@
 import styled from "styled-components";
-import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 15.92em;
-  padding-bottom: 25.683em;
+  margin-top: 11.94em;
+  padding-bottom: 15.69em;
   position: relative;
 `;
 
 export const Title = styled.h2`
-  font-weight: ${themes.primary.font.weight.heavy};
-  font-size: ${themes.primary.font.size.secondaryServicesTitle};
+  font-weight: inherit;
+  font-size: 2.5em;
   line-height: 140%;
   margin: 0 0 1.375em;
+  text-transform: uppercase;
+  max-width: 22em;
 `;
 
 export const Image = styled.img`
   position: absolute;
-  right: 3.19em;
-  bottom: 5.1em;
-  width: 40.4em;
+  right: 2.375em;
+  bottom: 3.81em;
+  width: 30.3em;
 `;
