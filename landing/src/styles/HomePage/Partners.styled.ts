@@ -7,6 +7,24 @@ export const PartnersContainer = styled.div`
   column-gap: 60px;
   row-gap: 10px;
   margin: 140px 0 120px;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-block: 70px 60px;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    column-gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    column-gap: 20px;
+    margin-block: 90px 120px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    margin-block: 50px 70px;
+  }
 `;
 
 export const PartnerImageWrapper = styled.div`

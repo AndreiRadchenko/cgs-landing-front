@@ -6,6 +6,7 @@ export const HeaderNavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
+  overflow: hidden;
   z-index: 5;
   background-color: ${themes.primary.colors.blogBackground};
   border-top: 1px solid ${themes.primary.colors.headerBorder};

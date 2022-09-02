@@ -176,6 +176,7 @@ const themes = {
       maxServiceWeb: "(max-width: 1400px)",
       maxPCFullHD: "(max-width: 1800px)",
       maxLowScreenMobile: "(max-width: 475px)",
+      maxLowestScreenMobile: "(max-width: 375px)",
       maxLowMobileHeight: "(max-height: 610px)",
       maxMobile: "(max-width: 767px)",
       maxMobileHeight: "(max-height: 710px)",
