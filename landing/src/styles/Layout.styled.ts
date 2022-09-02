@@ -5,7 +5,7 @@ export const Layout = styled.article`
   width: 100%;
   margin: 0 auto;
   position: relative;
-  padding-inline: 4.25em;
+  padding-inline: 3.19em;
   font-family: ${themes.primary.font.family.namu};
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -25,5 +25,6 @@ export const Layout = styled.article`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
+    padding: 0 1.925em;
   }
 `;

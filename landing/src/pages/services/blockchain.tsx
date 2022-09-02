@@ -13,6 +13,7 @@ import YourWayBlock from "../../components/BlockchainService/YourWayBlock";
 import AboutBlock from "../../components/BlockchainService/AboutBlock";
 import FooterBlock from "../../components/BlockchainService/FooterBlock";
 import * as Styled from "../../styles/BlockchainService/Layout";
+import { Layout } from "../../styles/Layout.styled";
 
 const BlockchainService = () => {
   const { data } = useQuery(
@@ -32,13 +33,15 @@ const BlockchainService = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Styled.Layout>
-        <HeadBlock />
-        <ServicesBlock />
-        <YourWayBlock />
-        <AboutBlock />
-        <FooterBlock />
-      </Styled.Layout>
+      <Layout>
+        <Styled.Layout>
+          <HeadBlock />
+          <ServicesBlock />
+          <YourWayBlock />
+          <AboutBlock />
+          <FooterBlock />
+        </Styled.Layout>
+      </Layout>
       <FooterNew />
     </>
   );
