@@ -29,7 +29,7 @@ const WorkBlock = () => {
               {el.subtitle}
             </Styled.Subtitle>
             <Styled.Text>{el.text}</Styled.Text>
-            {bgi[idx] && <Styled.Bgi src={bgi[idx].src} />}
+            {bgi[idx] && <Styled.BackgroundContainer src={bgi[idx].src} />}
           </Styled.Wrapper>
         ))}
       </Styled.TextWrapper>

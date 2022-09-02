@@ -8,6 +8,15 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   padding-top: 9.56em;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-top: 3.125em;
+
+    & a {
+      font-size: 1em;
+      padding: 1.195em 2.18em;
+    }
+  } ;
 `;
 
 export const Title = styled.h1`
@@ -17,6 +26,11 @@ export const Title = styled.h1`
   text-transform: uppercase;
   max-width: 11.29em;
   margin: 0;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 2.375em;
+    width: 108.5%;
+  }
 
   & > span:last-child {
     position: relative;
@@ -31,6 +45,10 @@ export const Title = styled.h1`
       position: absolute;
       top: 0;
       right: -0.2em;
+
+      @media ${themes.primary.media.maxMobile} {
+        right: -4px;
+      }
     }
   }
 `;
@@ -40,6 +58,11 @@ export const Description = styled.p`
   line-height: 160%;
   max-width: 30em;
   margin: 1.275em 0 2.32em;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1em;
+    margin: 1.625em 0 1.75em;
+  }
 `;
 
 export const Image = styled.img`
@@ -48,4 +71,12 @@ export const Image = styled.img`
   right: 2.07em;
   width: 36.43em;
   height: 33.875em;
+
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    width: 22.125em;
+    height: auto;
+    top: -3em;
+    left: -0.81em;
+  }
 `;

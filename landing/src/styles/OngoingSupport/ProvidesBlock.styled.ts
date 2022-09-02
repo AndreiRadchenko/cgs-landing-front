@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 import providesBgi from "../../../public/OngoingSupport/providesBgi.png";
+import mobileBgi from "../../../public/OngoingSupport/mobile-background.png";
 
 export const Container = styled.div`
   margin-top: 12.5em;
   position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 11.25em;
+  }
 `;
 
 export const BackgroundWrapper = styled.div`
@@ -18,6 +23,14 @@ export const BackgroundWrapper = styled.div`
   position: relative;
   left: -4.3em;
   top: 11.3em;
+
+  @media ${themes.primary.media.maxMobile} {
+    background-image: url(${mobileBgi.src});
+    width: 28.81em;
+    height: 67.6em;
+    left: -3em;
+    top: 8.875em;
+  }
 `;
 
 export const Title = styled.h2`
@@ -26,6 +39,11 @@ export const Title = styled.h2`
   line-height: 140%;
   text-transform: uppercase;
   margin: 0;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5em;
+    line-height: 233%;
+  }
 `;
 
 export const Subtitle = styled.p`
@@ -42,6 +60,11 @@ export const Text = styled.p`
   max-width: 18em;
   margin: 0;
   margin-top: 0.45em;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1em;
+    line-height: 132%;
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -66,6 +89,12 @@ export const TextWrapper = styled.div`
     column-gap: 0em;
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+    margin: 0 0 0 2.6em;
+    padding: 3.8em 0 0 0;
+  }
+
   & > div {
     margin: 0;
     margin-bottom: 8.08em;
@@ -84,6 +113,11 @@ export const TextWrapper = styled.div`
       max-width: 15em;
     }
 
+    @media ${themes.primary.media.maxMobile} {
+      max-width: 95%;
+      margin-bottom: 6.69em;
+    }
+
     &:nth-child(4) {
       margin-left: 5em;
 
@@ -94,6 +128,10 @@ export const TextWrapper = styled.div`
       @media (max-width: 1000px) {
         margin: 0;
       }
+
+      @media ${themes.primary.media.maxMobile} {
+        margin: 0 0 5.75em 3.375em;
+      }
     }
 
     &:nth-child(2) {
@@ -101,6 +139,10 @@ export const TextWrapper = styled.div`
 
       @media (max-width: 1200px) {
         margin-top: 5em;
+      }
+
+      @media ${themes.primary.media.maxMobile} {
+        margin: 0 0 5.75em 3.375em;
       }
     }
 

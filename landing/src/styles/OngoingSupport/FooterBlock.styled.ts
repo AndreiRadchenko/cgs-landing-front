@@ -1,9 +1,20 @@
 import styled from "styled-components";
+import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 11.94em;
   padding-bottom: 15.69em;
   position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 11.25em;
+    padding-bottom: 4.375em;
+
+    & a {
+      font-size: 1em;
+      padding: 1.195em 2.91em;
+    }
+  }
 `;
 
 export const Title = styled.h2`
@@ -13,6 +24,11 @@ export const Title = styled.h2`
   margin: 0 0 1.375em;
   text-transform: uppercase;
   max-width: 22em;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5em;
+    margin-bottom: 1.46em;
+  }
 `;
 
 export const Image = styled.img`
@@ -20,4 +36,11 @@ export const Image = styled.img`
   right: 2.375em;
   bottom: 3.81em;
   width: 30.3em;
+
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    width: 18.94em;
+    top: 1.44em;
+    left: 1.06em;
+  }
 `;
