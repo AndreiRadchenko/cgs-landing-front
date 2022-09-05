@@ -63,7 +63,6 @@ export const CategoryContainer = styled.div`
     &:nth-child(n) {
       justify-self: center;
     }
-    ma
   }
 `;
 
