@@ -10,7 +10,7 @@ export const QuestionImage = styled.img`
   height: fit-content;
   width: 473px;
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     width: 334px;
   }
 
@@ -55,7 +55,7 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
     color: ${({ isOpen }) => !isOpen && themes.primary.colors.darkBlue};
   }
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     padding: 15px 0;
   }
 `;
@@ -70,13 +70,11 @@ export const QuestionContentContainer = styled.div<IIsOpen>`
   column-gap: 15px;
   justify-content: space-between;
   @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.linkText};
     flex-wrap: wrap;
   }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.linkText};
-  }
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     padding: 18px 0 24px;
   }
 `;

@@ -8,7 +8,7 @@ export const FaqContainer = styled.div`
   font-family: ${themes.primary.font.family.namu};
   position: relative;
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     padding: 0;
   }
 
@@ -64,7 +64,7 @@ export const PageTitle = styled.div`
     color: ${themes.primary.colors.darkBlue};
   }
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     margin: 13px 0 39px;
     font-size: 3.27em;
     flex-wrap: wrap;
@@ -72,7 +72,7 @@ export const PageTitle = styled.div`
   }
 `;
 export const QuestionsWrapper = styled.div`
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     padding: 0 20px;
     border-bottom: 1px solid ${themes.primary.colors.faqBorder};
     margin-bottom: 170px;
