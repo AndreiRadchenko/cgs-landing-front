@@ -3,12 +3,21 @@ import themes from "../../utils/themes";
 
 export const StrongContainer = styled.div`
   margin-top: 16.15em;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 8em;
+  }
 `;
 
 export const ContentContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 4.3em 1.75em 0 -2.6em;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    flex-direction: column;
+    row-gap: 1.5rem;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -23,7 +32,14 @@ export const Block = styled.div`
   display: flex;
 
   &:nth-child(2) {
-    margin-right: 1%;
+    margin-right: 1.7%;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    flex-direction: column;
+    &:nth-child(2) {
+      margin-right: 0;
+    }
   }
 `;
 
@@ -43,8 +59,23 @@ export const BlockTitle = styled.h3`
     font-size: ${themes.primary.font.size.oneAndNine};
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.oneAndHalf};
+  }
+
   @media ${themes.primary.media.maxServiceMobile} {
-    font-size: 1.7em;
+    font-size: 1.6em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-top: 0.875rem;
+    margin-bottom: 1.5rem;
+    white-space: nowrap;
+    font-size: 1.125rem;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 0.9rem;
   }
 `;
 
@@ -53,4 +84,15 @@ export const BlockText = styled.p`
   line-height: 160%;
   width: 84%;
   margin-bottom: 10px;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    & br {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 100%;
+    font-size: 1rem;
+  }
 `;

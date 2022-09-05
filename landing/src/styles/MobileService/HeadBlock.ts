@@ -7,6 +7,10 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 4.85em 0 2.5em 0;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+  }
 `;
 
 export const ContentContainer = styled.div`
@@ -16,6 +20,15 @@ export const ContentContainer = styled.div`
   align-items: flex-start;
   width: 45.5%;
   z-index: 2;
+
+  & > a {
+    padding-inline: 3.7em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    margin-bottom: ${themes.primary.font.size.tertiary};
+  }
 `;
 
 export const Title = styled.h1`
@@ -44,14 +57,42 @@ export const Title = styled.h1`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tabletServiceTitle};
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 3.85em;
+  }
+
+  @media (max-width: 365px) {
+    font-size: 3.5em;
+  }
 `;
 
 export const Description = styled.div`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
   margin: 1.3em 0 2.4em;
-  @media ${themes.primary.media.maxTabletLandScape} {
+  white-space: nowrap;
+  @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.oneAndHalf};
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.menuElement};
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.tertiary};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1rem;
+    white-space: pre-wrap;
+    margin-bottom: 1.815em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    & br {
+      display: none;
+    }
   }
   & p {
     margin: 0;
@@ -61,7 +102,15 @@ export const Description = styled.div`
 export const Telephone = styled.img`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
-  margin-top: 1rem;
+  margin-bottom: 0.2rem;
   margin-right: 2rem;
   width: 43.6%;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 38%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: auto;
+  }
 `;

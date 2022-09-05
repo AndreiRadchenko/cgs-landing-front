@@ -2,7 +2,6 @@ import React from "react";
 import { NextPage } from "next";
 import parse from "html-react-parser";
 import { dehydrate, QueryClient, useQuery } from "react-query";
-import * as Styled from "../../styles/MobileService/Layout";
 import HeadBlock from "../../components/MobileService/HeadBlock";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
@@ -15,6 +14,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminMobileService } from "../../services/services/adminServicesMobilePage";
 import Head from "next/head";
+import { Layout } from "../../styles/Layout.styled";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -47,14 +47,14 @@ const MobileAppDevelopment: NextPage = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Styled.Layout>
+      <Layout>
         <HeadBlock />
         <WorthIt />
         <StrongBlock />
         <WhoNeedAppBlock />
         <HowDoWeWork />
         <ProfBlock />
-      </Styled.Layout>
+      </Layout>
       <FooterNew />
     </>
   );

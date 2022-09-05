@@ -19,4 +19,17 @@ export const Subtitle = styled.h2`
   line-height: 140%;
   font-size: 2.5em;
   text-transform: uppercase;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1.5rem;
+    white-space: nowrap;
+
+    &.footer {
+      white-space: pre-wrap;
+    }
+  }
+
+  @media (max-width: 370px) {
+    font-size: 1.35rem;
+  }
 `;

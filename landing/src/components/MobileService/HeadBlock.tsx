@@ -17,8 +17,6 @@ const HeadBlock = () => {
     queryKeys.getServiceMobilePage
   )?.mainBlock;
 
-  const sentences: string[] | undefined = data?.text.split(".");
-
   return (
     <Styled.Container>
       <Styled.ContentContainer>
@@ -26,10 +24,7 @@ const HeadBlock = () => {
           <SplitBrackets text={data?.title} />
         </Styled.Title>
         <Styled.Description>
-          {sentences &&
-            sentences.map((el, index) =>
-              el.length > 0 ? <p key={index}>{el}.</p> : ""
-            )}
+          <SplitBrackets text={data?.text} />
         </Styled.Description>
         <BlackButton
           padding={"1.117em 3.6em"}

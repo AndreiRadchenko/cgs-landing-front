@@ -8,6 +8,9 @@ import { IServiceMobile } from "../../types/Admin/Response.types";
 import { Subtitle } from "../../styles/MobileService/Layout";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
+import WhoNeedAppsMobile from "../../../public/MobileSevice/whoNeedApps/whoNeedAppsImgMobile.svg";
+import WhyWorthItMobile from "../../../public/MobileSevice/whoNeedApps/whyWorthItMobile.svg";
+
 const WhoNeedAppBlock = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobile>(
@@ -15,8 +18,6 @@ const WhoNeedAppBlock = () => {
   );
 
   const arrow = `<br /><svg
-      width="45"
-      height="20"
       viewBox="0 0 45 22"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -38,6 +39,13 @@ const WhoNeedAppBlock = () => {
             {data && parse(data?.whatDoWeUse.text.replace("[arrow]", arrow))}
           </Styled.SubText>
         </Styled.WhatDoWeUseContainer>
+        <Styled.ImageWrapper className="whatDoWeUse">
+          <Styled.Image
+            className="whatDoWeUse"
+            src={WhyWorthItMobile.src}
+            alt="what do we use img"
+          />
+        </Styled.ImageWrapper>
       </Styled.WhatDoWeUse>
       <Styled.WhoNeedAppsBlocks>
         <Styled.WhoNeedAppsWrapper>
@@ -46,6 +54,10 @@ const WhoNeedAppBlock = () => {
             <SplitBrackets text={data?.whoNeedApps.text} />
           </Styled.WhoNeedSubText>
         </Styled.WhoNeedAppsWrapper>
+
+        <Styled.ImageWrapper>
+          <Styled.Image src={WhoNeedAppsMobile.src} alt="who need apps img" />
+        </Styled.ImageWrapper>
       </Styled.WhoNeedAppsBlocks>
     </Styled.Wrapper>
   );
