@@ -146,8 +146,8 @@ export const ArrowContainer = styled.div`
   justify-content: center;
   align-items: center;
   transform: translate(-50%, -50%);
-  width: 121px;
-  height: 121px;
+  width: 75px;
+  height: 75px;
 
   @media ${themes.primary.media.minPC} {
     left: 50%;

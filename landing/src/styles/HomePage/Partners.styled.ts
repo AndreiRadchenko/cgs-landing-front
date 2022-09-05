@@ -6,7 +6,7 @@ export const PartnersContainer = styled.div`
   grid-template-columns: 1fr 1fr 0.8fr 1.1fr 0.9fr 1fr;
   column-gap: 60px;
   row-gap: 10px;
-  margin: 140px 0 120px;
+  margin: 149px 0 120px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-block: 70px 60px;
