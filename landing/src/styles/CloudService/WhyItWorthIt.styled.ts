@@ -15,6 +15,8 @@ export const Block = styled.div`
   max-width: 33.2em;
   position: relative;
   &:first-child {
+    padding-left: 1.25em;
+
     & > div {
       min-width: 22.5em;
     }
@@ -23,7 +25,10 @@ export const Block = styled.div`
       left: 17.67em;
     }
   }
+
   &:nth-child(2) {
+    padding-left: 0.063rem;
+
     & > img {
       top: 3.83em;
       left: 22.3em;
@@ -33,8 +38,6 @@ export const Block = styled.div`
     }
   }
   :not(:last-child) {
-    padding-left: 1.25em;
-
     & > div {
       max-width: 19.5em;
     }
@@ -47,7 +50,7 @@ export const TitleWrapper = styled.div`
 
 export const Title = styled.p`
   margin: 0;
-  margin-left: 1.67em;
+  margin-left: 2.42em;
   font-size: 24px;
   line-height: 160%;
 `;

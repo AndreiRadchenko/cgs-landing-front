@@ -22,6 +22,6 @@ export const Title = styled.h3`
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 1.275em;
+  margin: 0 0 0.75em;
   max-width: 18.225em;
 `;
