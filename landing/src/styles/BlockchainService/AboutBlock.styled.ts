@@ -25,7 +25,7 @@ export const Title = styled.h2`
   line-height: 140%;
   text-transform: uppercase;
   max-width: 12em;
-  margin: 3px 0 0 0;
+  margin-top: 3px;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
