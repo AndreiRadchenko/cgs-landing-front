@@ -24,7 +24,7 @@ const FooterBlock = () => {
           <Subtitle>{data?.subtitle}</Subtitle>
         </Styled.SubtitleWrapper>
         <BlackButton
-          padding={"1.02em 1.97em"}
+          padding={"1.117em 1.97em"}
           size={themes.primary.font.size.oneAndHalf}
           href={data?.buttonLink}
         >
