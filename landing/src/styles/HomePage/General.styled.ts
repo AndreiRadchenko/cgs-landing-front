@@ -520,7 +520,7 @@ export const FilmText = styled.div`
 export const RightContainer = styled.div`
   display: flex;
   justify-content: right;
-  margin-right: 30px;
+  margin-right: 15px;
 `;
 
 export const Separator = styled.div`
