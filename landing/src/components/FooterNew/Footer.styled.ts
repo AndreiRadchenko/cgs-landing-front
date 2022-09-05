@@ -110,16 +110,7 @@ export const ListItemNav = styled.a`
     max-width: 40px;
     width: 100%;
 
-    &:nth-child(1) {
-      padding: 0;
-    }
-    &:nth-child(2) {
-      padding: 0;
-    }
-    &:nth-child(3) {
-      padding: 0;
-    }
-    &:nth-child(4) {
+    &:nth-child(n) {
       padding: 0;
     }
   }
