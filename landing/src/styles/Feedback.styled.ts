@@ -36,7 +36,11 @@ export const FeedbackSectionSubTitle = styled.h3`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.8em;
-    max-width: 23em;
+    max-width: none;
+
+    & br {
+      display: none;
+    }
   }
 `;
 

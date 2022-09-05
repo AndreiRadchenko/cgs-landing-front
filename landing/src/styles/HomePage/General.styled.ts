@@ -214,6 +214,9 @@ export const LongArrow = styled.img`
   @media (max-width: 1360px) {
     width: 35vw;
   }
+  @media (max-width: 1370px) {
+    width: 28vw;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-left: 10px;
@@ -319,11 +322,17 @@ export const Subtitle = styled.div`
     font-size: 4.5rem;
   }
 
+  @media (max-width: 1370px) {
+    &.small {
+      font-size: 4.5vw;
+    }
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 4.75vw;
 
     &.small {
-      font-size: 4.55vw;
+      font-size: 4.4vw;
     }
   }
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -462,6 +471,13 @@ export const FilmText = styled.div`
   max-width: 42%;
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
+
+  @media ${themes.primary.media.minPC} {
+    font-size: ${themes.primary.font.size.menuElement};
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.4em;
+  }
   @media (max-width: 1410px) {
     max-width: 47.5%;
     top: 33%;
@@ -471,12 +487,12 @@ export const FilmText = styled.div`
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     top: 35%;
-    font-size: 17px;
+    font-size: 1rem;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     top: 27%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     max-width: 70.5%;
   }
 
@@ -511,9 +527,6 @@ export const FilmText = styled.div`
   @media (max-width: 360px) {
     top: 15%;
     font-size: 1rem;
-  }
-  @media ${themes.primary.media.minPC} {
-    font-size: ${themes.primary.font.size.menuElement};
   }
 `;
 

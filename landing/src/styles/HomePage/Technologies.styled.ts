@@ -63,7 +63,6 @@ export const CategoryContainer = styled.div`
     &:nth-child(n) {
       justify-self: center;
     }
-    ma
   }
 `;
 
@@ -115,6 +114,12 @@ export const CategorySubtitle = styled.p`
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.vistaco};
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    & br {
+      display: none;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
