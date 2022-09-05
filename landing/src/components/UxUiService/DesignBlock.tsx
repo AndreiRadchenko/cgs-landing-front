@@ -17,6 +17,8 @@ const DesignBlock = () => {
       <Styled.Title>{data?.title}</Styled.Title>
       <Styled.BlockWrapper>
         <Styled.StyledLine />
+        <Styled.StyledLine />
+        <Styled.StyledLine />
         <Styled.TopSteps>
           {data?.textSubBlock.slice(0, 3).map((el, idx) => (
             <LinedText position="top" text={el} key={idx} height={78} />

@@ -13,6 +13,7 @@ import DesignBlock from "../../components/UxUiService/DesignBlock";
 import EssentialBlock from "../../components/UxUiService/EsentialBlock";
 import FooterBlock from "../../components/UxUiService/FooterBlock";
 import * as Styled from "../../styles/UxUiService/Layout.styled";
+import { Layout } from "../../styles/Layout.styled";
 
 const UxUiDesign = () => {
   const { data } = useQuery(
@@ -32,13 +33,15 @@ const UxUiDesign = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Styled.Layout>
-        <HeadBlock />
-        <WhatDoWeDoBlock />
-        <DesignBlock />
-        <EssentialBlock />
-        <FooterBlock />
-      </Styled.Layout>
+      <Layout>
+        <Styled.Layout>
+          <HeadBlock />
+          <WhatDoWeDoBlock />
+          <DesignBlock />
+          <EssentialBlock />
+          <FooterBlock />
+        </Styled.Layout>
+      </Layout>
       <FooterNew />
     </>
   );
