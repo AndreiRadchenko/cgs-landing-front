@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 import BlockchainAbout from "../../../public/BlockchainServicePage/BlockchainAbout.svg";
 
 export const Container = styled.div`
-  margin: 13.375em 0 0 0;
+  margin-top: 14.88em;
   padding: 4.69em 0 8.375em;
 
   background-image: url(${BlockchainAbout.src});
@@ -32,7 +32,7 @@ export const Title = styled.h2`
   line-height: 140%;
   text-transform: uppercase;
   max-width: 12em;
-  margin: 0;
+  margin-top: 3px;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;

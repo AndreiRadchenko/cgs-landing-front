@@ -30,8 +30,8 @@ const HeadBlock = () => {
           </Styled.RowContainer>
         </Styled.MainSubtitle>
         <Styled.BlackButton
-          size={"18px"}
-          padding={"20px 27px"}
+          size={"1.5em"}
+          padding={"1.11em 1.5em"}
           target={"_blank"}
           href={data && data.buttonLink && recoverLink(data?.buttonLink)}
         >

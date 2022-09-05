@@ -2,6 +2,9 @@ import React, { FC, useRef } from "react";
 import {
   Navigationwrapper,
   ArrowContainer,
+  LeftArrowWrapper,
+  RightArrowWrapper,
+  ButtonWrapper,
 } from "../../styles/HomePage/Feedback.styled";
 import FeedbackCard from "../FeedbackCard/FeedbackCard";
 import SwiperCore, {
@@ -14,7 +17,7 @@ import "swiper/css";
 import { useEffect, useState } from "react";
 import "swiper/css/bundle";
 import LeftArrow from "../../../public/HomePageDecoration/leftArrowFeedback.svg";
-import RightArow from "../../../public/HomePageDecoration/rightArrowFeedback.svg";
+import RightArrow from "../../../public/HomePageDecoration/rightArrowFeedback.svg";
 import FeedbackIntro from "./FeedbackIntro";
 import { useOnScreen } from "../../hooks/useOneScreen";
 import * as StyledThisComp from "../../styles/Feedback.styled";
@@ -78,22 +81,26 @@ const CarouselFeedback: FC = () => {
           <Swiper {...params} onSwiper={(swiper) => setSwiper(swiper)}>
             <Navigationwrapper>
               <FeedbackIntro title={data?.subtitle} subtitle={data?.text3} />
-              <ArrowContainer>
-                <Image
-                  className="swiper-button-prev"
-                  src={LeftArrow.src}
-                  alt="left arrow feedback"
-                  width={36}
-                  height={36}
-                />
-                <Image
-                  className="swiper-button-next"
-                  src={RightArow.src}
-                  alt="right arrow feedback"
-                  width={75}
-                  height={75}
-                />
-              </ArrowContainer>
+              <ButtonWrapper>
+                <ArrowContainer>
+                  <LeftArrowWrapper>
+                    <Image
+                      className="swiper-button-prev"
+                      src={LeftArrow.src}
+                      alt="left arrow feedback"
+                      layout="fill"
+                    />
+                  </LeftArrowWrapper>
+                  <RightArrowWrapper>
+                    <Image
+                      className="swiper-button-next"
+                      src={RightArrow.src}
+                      alt="right arrow feedback"
+                      layout="fill"
+                    />
+                  </RightArrowWrapper>
+                </ArrowContainer>
+              </ButtonWrapper>
             </Navigationwrapper>
             {renderSliderSlides}
           </Swiper>
