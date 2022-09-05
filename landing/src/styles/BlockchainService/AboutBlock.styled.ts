@@ -11,6 +11,13 @@ export const Container = styled.div`
   background-size: contain;
   background-position: top 100% right 6.75em;
 
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    padding: 4.5em 0 5em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    background-position: right center;
+  }
   @media ${themes.primary.media.maxMobile} {
     width: 24em;
     margin: -6.25em 0 0 -1.5em;
