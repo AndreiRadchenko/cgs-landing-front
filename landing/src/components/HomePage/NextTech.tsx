@@ -28,7 +28,8 @@ const NextTech = () => {
       <Styled.Subtitle>{text && parse(text.title)}</Styled.Subtitle>
       <Partners />
       <Styled.FilmContainer>
-        <Styled.Film src={width && width > 768 ? film.src : filmMobile.src} />
+        {width && <Styled.Film src={width < 768 ? filmMobile.src : film.src} />}
+
         <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
       </Styled.FilmContainer>
       <Styled.Subtitle className="small">

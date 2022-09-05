@@ -84,9 +84,14 @@ export const List = styled.ul`
     grid-template-columns: repeat(2, 1fr);
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    column-gap: 10px;
+    padding-left: 20px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     padding-left: 1.125rem;
-    column-gap: 10px;
+
     padding-right: 0;
   }
 `;
