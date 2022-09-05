@@ -7,6 +7,7 @@ import {
   ArrowContainer,
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
+import { SplitBrackets } from "../../utils/splitBrackets";
 import * as Styled from "../../styles/UxUiService/HeadBlock.styled";
 
 const HeadBlock = () => {
@@ -24,7 +25,9 @@ const HeadBlock = () => {
             <span key={idx}>{el} </span>
           ))}
         </Styled.Title>
-        <Styled.Description>{data?.text}</Styled.Description>
+        <Styled.Description>
+          <SplitBrackets text={data?.text} />
+        </Styled.Description>
         <BlackButton
           padding={"1.117em 2.72em"}
           size={"1.125em"}

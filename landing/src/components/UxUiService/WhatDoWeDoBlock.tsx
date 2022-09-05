@@ -8,6 +8,7 @@ import cube from "../../../public/MobileSevice/worthIt/cube.svg";
 import cylinder from "../../../public/MobileSevice/worthIt/cylinder.svg";
 import downDashed from "../../../public/CloudServicePage/downDashed.svg";
 import upDashed from "../../../public/CloudServicePage/upDashed.svg";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const WhatDoWeDoBlock = () => {
   const queryClient = useQueryClient();
@@ -29,7 +30,9 @@ const WhatDoWeDoBlock = () => {
               <Styled.Svg src={figures[idx].src} />
               {el.subtitle}
             </Styled.Subtitle>
-            <Styled.Text>{el.text}</Styled.Text>
+            <Styled.Text>
+              <SplitBrackets text={el.text} />
+            </Styled.Text>
             {bgi[idx] && <Styled.Image src={bgi[idx].src} />}
           </div>
         ))}

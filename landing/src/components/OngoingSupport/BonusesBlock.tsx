@@ -23,7 +23,7 @@ const BonusesBlock = () => {
                 <Styled.Image src={rhombus.src} />
                 {el}
               </Styled.Text>
-              <Styled.Line key={idx + 1} />
+              <Styled.Line key={idx + 3} />
             </>
           ))}
         </Styled.Row1>
@@ -35,7 +35,7 @@ const BonusesBlock = () => {
                 <Styled.Image src={rhombus.src} />
                 {el}
               </Styled.Text>
-              <Styled.Line key={idx + 1} />
+              <Styled.Line key={idx + 3} />
             </>
           ))}
         </Styled.Row2>
