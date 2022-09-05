@@ -42,7 +42,7 @@ export const BottomDecorWrap = styled.div`
   flex-direction: row-reverse;
   width: 100%;
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     display: none;
   }
 `;
