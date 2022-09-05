@@ -18,12 +18,25 @@ export const BigDigit = styled.p`
     font-size: 110px;
     line-height: 120px;
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 88px;
+    line-height: 106px;
+  }
+  @media (max-width: 360px) {
+    font-size: 80px;
+    line-height: 98px;
+  }
 `;
 
 export const CardsWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 50px;
+
+  @media ${themes.primary.media.maxMobile} {
+    row-gap: 0;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -69,18 +82,61 @@ export const CardContainer = styled.div`
     }
   }
 
+  @media ${themes.primary.media.minPC} {
+    &:nth-child(4) {
+      & img {
+        top: -70%;
+        right: 30%;
+      }
+    }
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &:nth-child(2) {
+      & img {
+        top: -85%;
+        right: 40%;
+      }
+    }
+    &:nth-child(3) {
+      & img {
+        top: -70%;
+        left: 20%;
+      }
+    }
+    &:nth-child(4) {
+      & img {
+        top: -60%;
+        right: 10%;
+      }
+    }
+  }
+
+  @media (max-width: 1350px) {
+    &:nth-child(2) {
+      & img {
+        right: 20%;
+      }
+    }
+
+    &:nth-child(4) {
+      & img {
+        right: 10%;
+      }
+    }
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     &:nth-child(2n-1) {
       & img {
         top: -100%;
-        left: 25%;
+        left: 15%;
       }
     }
 
     &:nth-child(2n) {
-      justify-self: flex-end;
       & img {
-        right: 20%;
+        right: 10%;
       }
     }
 
@@ -90,6 +146,94 @@ export const CardContainer = styled.div`
           max-width: 72%;
           display: inline-block;
         }
+      }
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    &:nth-child(2n-1) {
+      & img {
+        transform: scale(0.8);
+        top: -100%;
+        left: 3%;
+      }
+    }
+
+    &:nth-child(2) {
+      & img {
+        transform: scale(0.8);
+        right: -1%;
+      }
+    }
+
+    &:nth-child(4) {
+      & img {
+        transform: scale(0.6);
+        right: -10%;
+      }
+      & > div {
+        margin-top: 20px;
+      }
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    &:nth-child(n) {
+      justify-self: center;
+      padding-top: 187px;
+      & img {
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        max-width: 310px;
+        transform: none;
+      }
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:nth-child(2) {
+      & img {
+        transform: rotate(5.8deg);
+      }
+    }
+    &:nth-child(3) {
+      & p {
+        & span {
+          max-width: 100%;
+          display: block;
+        }
+      }
+    }
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    &:nth-child(n) {
+      & img {
+        max-width: none;
+      }
+    }
+    &:nth-child(2n) {
+      & img {
+        top: -25%;
+        left: -27.5%;
+        width: 155%;
+      }
+    }
+    &:nth-child(3) {
+      & img {
+        top: -15%;
+        left: -7.5%;
+        width: 115%;
+      }
+    }
+  }
+  @media (max-width: 360px) {
+    &:nth-child(n) {
+      & img {
+        top: -10%;
       }
     }
   }
@@ -103,9 +247,23 @@ export const CardTitle = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.bigTitle};
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    max-width: 350px;
+  }
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    max-width: 300px;
+  }
 `;
 
-export const CardSubtitle = styled.div``;
+export const CardSubtitle = styled.div`
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 34px;
+  }
+  @media (max-width: 360px) {
+    font-size: 1.8rem;
+  }
+`;
 
 export const CardContent = styled.p`
   line-height: 160%;
@@ -119,6 +277,21 @@ export const CardContent = styled.p`
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tertiary};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 0;
+    max-width: 380px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    max-width: 335px;
+    & br {
+      display: none;
+    }
+  }
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    font-size: 1rem;
   }
 `;
 

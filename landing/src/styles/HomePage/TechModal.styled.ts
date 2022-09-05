@@ -10,6 +10,18 @@ export const TicketModal = styled.div`
   &.block {
     display: block;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    max-height: 0;
+    width: 100%;
+    margin-top: 0;
+    transition: 0.3s;
+
+    &.block {
+      max-height: 300px;
+    }
+  }
 `;
 
 export const TicketModalContentContainer = styled.div`
@@ -24,6 +36,10 @@ export const TicketModalContent = styled.div`
   background: ${themes.primary.colors.blogBackground};
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    border: 0;
+  }
 `;
 
 export const Container = styled.div`
@@ -36,6 +52,10 @@ export const Container = styled.div`
   margin-top: 12px;
   margin-left: 12px;
   border: 2px solid black;
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
 `;
 
 export const BlackBox = styled.div`
@@ -63,6 +83,12 @@ export const List = styled.ul`
   &.rows {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-left: 1.125rem;
+    column-gap: 10px;
+    padding-right: 0;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -71,5 +97,9 @@ export const ListItem = styled.li`
     content: "\u25A0";
     font-size: 1.7em;
     margin-right: ${themes.primary.spacing.small};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
   }
 `;

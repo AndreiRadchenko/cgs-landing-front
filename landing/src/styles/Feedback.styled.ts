@@ -50,4 +50,8 @@ export const FeedbackRow = styled.div`
     display: flex;
     flex-direction: column-reverse;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 190px;
+  }
 `;
