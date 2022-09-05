@@ -18,7 +18,7 @@ const ProfBlock = () => {
   )?.footerBlock;
   return (
     <Styled.ContentContainer>
-      <Subtitle>{data?.title}</Subtitle>
+      <Subtitle className="footer">{data?.title}</Subtitle>
       <Styled.ProfText>
         {data &&
           parse(

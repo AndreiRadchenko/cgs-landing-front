@@ -103,7 +103,7 @@ const themes = {
         homeSmallTitle: "5.6em",
         homeCardSubtitle: "5.68em",
         serviceTitle: "5.5em",
-        tabletServiceTitle: "4.6em",
+        tabletServiceTitle: "4em",
         homeMainSubtitle: "2.167em",
         inBlockMaxTableText: "1.3em",
       },

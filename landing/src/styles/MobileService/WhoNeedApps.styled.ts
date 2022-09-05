@@ -12,12 +12,21 @@ export const Wrapper = styled.div`
   @media ${themes.primary.media.minPC} {
     padding: 3em;
   }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    background-image: none;
+    padding-bottom: 0;
+  }
 `;
 
 export const WhatDoWeUse = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    align-items: center;
+  }
 `;
 
 export const WhatDoWeUseContainer = styled.div`
@@ -32,16 +41,54 @@ export const WhatDoWeUseContainer = styled.div`
   @media ${themes.primary.media.minPC} {
     margin-top: 13em;
   }
+
+  @media (max-width: 1340px) {
+    width: 54%;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin: 0;
+    width: 100%;
+  }
 `;
 
-export const SubText = styled.p`
+export const SubText = styled.div`
   margin-top: 2.5rem;
   margin-bottom: 0;
   line-height: 160%;
   font-size: ${themes.primary.font.size.secondary};
 
+  & svg {
+    width: 45px;
+    height: 20px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    & br {
+      display: none;
+    }
+  }
+
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.oneAndNine};
+  }
+
+  @media (max-width: 1340px) {
+    & br {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    & svg {
+      transform: translateY(4px);
+      width: 51px;
+      height: 18px;
+    }
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1rem;
   }
 
   & p {
@@ -54,6 +101,19 @@ export const WhoNeedSubText = styled.p`
   margin-top: 2.2em;
   font-size: ${themes.primary.font.size.oneAndHalf};
   line-height: 160%;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    & br {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 1rem;
+    & br {
+      display: none;
+    }
+  }
 `;
 export const WhoNeedAppsBlocks = styled.div`
   margin-top: 33.8em;
@@ -66,6 +126,9 @@ export const WhoNeedAppsBlocks = styled.div`
   @media ${themes.primary.media.maxServiceMobile} {
     margin-top: 15em;
   }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    align-items: center;
+  }
 `;
 
 export const WhoNeedAppsWrapper = styled.div`
@@ -74,7 +137,52 @@ export const WhoNeedAppsWrapper = styled.div`
     width: 40%;
   }
 
+  @media (max-width: 1340px) {
+    width: 43%;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 100%;
+  }
+
   & p {
     margin-bottom: 0;
+  }
+`;
+export const ImageWrapper = styled.div`
+  display: none;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    display: block;
+    position: relative;
+    height: 250px;
+
+    &.whatDoWeUse {
+      height: 500px;
+    }
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 91vw;
+    width: 100%;
+
+    &.whatDoWeUse {
+      height: 121vw;
+      width: 100%;
+    }
+  }
+`;
+export const Image = styled.img`
+  display: none;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    display: block;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    position: absolute;
+    left: -13%;
+    width: 140%;
+
+    &.whatDoWeUse {
+      left: 0%;
+      width: 120%;
+    }
   }
 `;
