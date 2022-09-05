@@ -49,7 +49,7 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
   cursor: pointer;
   border-top: 1px solid ${themes.primary.colors.faqBorder};
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.buttonText};
+    font-size: 1.731em;
   }
   &:hover {
     color: ${({ isOpen }) => !isOpen && themes.primary.colors.darkBlue};

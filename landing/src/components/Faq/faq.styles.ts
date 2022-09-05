@@ -41,6 +41,10 @@ export const BottomDecorWrap = styled.div`
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
+
+  @media ${themes.primary.media.maxTablet} {
+    display: none;
+  }
 `;
 
 export const BottomDecor = styled.img`
@@ -49,14 +53,6 @@ export const BottomDecor = styled.img`
   width: 240.83px;
   height: 196.83px;
   bottom: 5px;
-
-  @media ${themes.primary.media.maxTablet} {
-    position: relative;
-    bottom: 0;
-    width: 144px;
-    height: auto;
-    align-self: flex-end;
-  }
 `;
 
 export const PageTitle = styled.div`
@@ -69,7 +65,8 @@ export const PageTitle = styled.div`
   }
 
   @media ${themes.primary.media.maxTablet} {
-    font-size: ${themes.primary.font.size.smallAboutSubtitle};
+    margin: 13px 0 39px;
+    font-size: 3.27em;
     flex-wrap: wrap;
     padding: 0 20px;
   }
@@ -78,7 +75,6 @@ export const QuestionsWrapper = styled.div`
   @media ${themes.primary.media.maxTablet} {
     padding: 0 20px;
     border-bottom: 1px solid ${themes.primary.colors.faqBorder};
-    margin-bottom: 82px;
-    margin-bottom: 40px;
+    margin-bottom: 170px;
   }
 `;
