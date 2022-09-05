@@ -28,14 +28,12 @@ export const ContentContainer = styled.div`
   width: 44.5%;
   z-index: 2;
   width: 61%;
-  @media (max-width: 1360px) {
-    width: fit-content;
-  }
-  @media ${themes.primary.media.minPC} {
-    width: auto;
-  }
-  @media ${themes.primary.media.minPCFullHD} {
-    width: 100%;
+
+  @media (max-width: 1350px) {
+    width: 50%;
+    & br {
+      display: none;
+    }
   }
 `;
 
@@ -88,6 +86,16 @@ export const Image = styled.img`
   right: -1.44em;
   width: 40.81em;
   height: 29.81em;
+
+  @media (max-width: 1350px) {
+    width: 35em;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 30em;
+    right: -4em;
+    top: 20em;
+  }
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     width: 21.875em;

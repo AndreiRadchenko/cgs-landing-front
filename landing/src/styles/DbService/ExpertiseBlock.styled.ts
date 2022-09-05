@@ -32,6 +32,14 @@ export const TextBlock = styled.div`
   align-items: flex-start;
   justify-content: center;
 
+  @media (max-width: 1270px) {
+    max-width: 50%;
+
+    & br {
+      display: none;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
   }
@@ -41,6 +49,10 @@ export const TextContent = styled.div`
   font-size: 1.25em;
   line-height: 160%;
   margin-left: 2.35em;
+
+  @media (max-width: 1270px) {
+    margin-left: 1em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin: 0;

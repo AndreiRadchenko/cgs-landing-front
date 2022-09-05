@@ -29,6 +29,13 @@ export const TextContent = styled.div`
   margin-top: 1.67em;
   width: fit-content;
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    max-width: 20em;
+    & br {
+      display: none;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     margin: 2.375em 0 2.125em;
@@ -41,6 +48,22 @@ export const Image = styled.img`
   right: 5.125em;
   width: 34.625em;
   height: 29.06em;
+
+  @media (max-width: 1300px) {
+    right: 0;
+    width: 30em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    right: -2em;
+    width: 25em;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    position: relative;
+    width: 35em;
+    top: 0;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
