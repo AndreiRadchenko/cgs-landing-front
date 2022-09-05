@@ -99,7 +99,7 @@ export const TextWrapper = styled.div`
     margin: 0;
     margin-bottom: 6em;
 
-    @media (max-width: 1400px) {
+    @media ${themes.primary.media.maxServiceWeb} {
       margin-bottom: 6em;
     }
 
@@ -137,7 +137,7 @@ export const TextWrapper = styled.div`
     &:nth-child(2) {
       margin-top: 7.17em;
 
-      @media (max-width: 1200px) {
+      @media ${themes.primary.media.maxTabletLandScape} {
         margin-top: 5em;
       }
 
