@@ -83,13 +83,18 @@ export const TextWrapper = styled.div`
     column-gap: 4em;
   }
 
-  @media (max-width: 1000px) {
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 0.9rem;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
     left: 0.5em;
     width: 90%;
     column-gap: 0em;
   }
 
   @media ${themes.primary.media.maxMobile} {
+    font-size: 1rem;
     flex-direction: column;
     margin: 0 0 0 2.6em;
     padding: 3.8em 0 0 0;
@@ -108,7 +113,7 @@ export const TextWrapper = styled.div`
       max-width: 17em;
     }
 
-    @media (max-width: 1000px) {
+    @media ${themes.primary.media.maxTabletPortrait} {
       margin-bottom: 1em;
       max-width: 15em;
     }
@@ -125,7 +130,7 @@ export const TextWrapper = styled.div`
         max-width: 25em;
       }
 
-      @media (max-width: 1000px) {
+      @media ${themes.primary.media.maxTabletPortrait} {
         margin: 0;
       }
 
@@ -159,7 +164,7 @@ export const TextWrapper = styled.div`
         max-width: 25em;
       }
 
-      @media (max-width: 1000px) {
+      @media ${themes.primary.media.maxTabletPortrait} {
         margin: 0;
       }
     }
