@@ -117,6 +117,12 @@ export const CategorySubtitle = styled.p`
     font-size: ${themes.primary.font.size.vistaco};
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    & br {
+      display: none;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     display: none;
   }
