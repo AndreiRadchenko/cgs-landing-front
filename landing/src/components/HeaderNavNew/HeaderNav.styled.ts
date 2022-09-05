@@ -65,6 +65,13 @@ export const ListItemNav = styled.a`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 13px;
   }
+  @media ${themes.primary.media.minTabletPortrait} and (max-width: 830px) {
+    width: 11.15vw;
+  }
+
+  @media ${themes.primary.media.minPC} and (max-width: 2560px) {
+    width: 11.07vw;
+  }
   &:hover {
     transition: 0.3s;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
