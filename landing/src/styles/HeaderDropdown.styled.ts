@@ -114,28 +114,6 @@ export const Dropdown = styled.div`
   display: flex;
   background-color: ${themes.primary.colors.blogBackground};
   width: 11.11vw;
-
-  /* &:nth-child(2) > button {
-    padding-left: 2.475rem;
-
-    & img {
-      margin-right: 2.475rem;
-    }
-  }
-
-  &:nth-child(3) {
-    & > div {
-      min-width: 24.13vw;
-    }
-
-    & > button {
-      padding-left: 2.68rem;
-
-      & img {
-        margin-right: 2.68rem;
-      }
-    }
-  } */
 `;
 
 export const Link = styled.a`
