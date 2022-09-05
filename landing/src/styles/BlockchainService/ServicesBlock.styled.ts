@@ -31,6 +31,11 @@ export const SubTextContainer = styled.div`
     height: 11.94em;
   }
 
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    margin-left: -9em;
+    width: 78em;
+  }
+
   width: 91.375em;
   height: 11.625em;
   margin: 4.625em -6em 0 -6.5em;
@@ -45,6 +50,12 @@ export const SubTextContent = styled.div`
     display: block;
     padding: 6px 0 0 0em;
   }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    padding: 1.5em 0 0 6em;
+    column-gap: 10.5em;
+  }
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 7em;
@@ -58,6 +69,11 @@ export const SubText = styled.p`
     padding-top: 4px;
     padding-left: 6em;
   }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    padding-left: 0em;
+    margin: 0 0 10px 1em;
+  }
   font-size: 1.5em;
   line-height: 233%;
   text-transform: uppercase;
@@ -70,6 +86,10 @@ export const DescriptionContainer = styled.div`
     display: block;
     padding: 0;
   }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    padding: 0 1em;
+  }
   margin-top: 12.5em;
   padding: 0 2.75em;
   display: flex;
@@ -81,6 +101,12 @@ export const Image = styled.img`
     height: auto;
     margin-left: -10px;
   }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    width: 27em;
+    height: auto;
+    margin-left: -50px;
+  }
   width: 40em;
   height: 31.25em;
   margin: 0;
@@ -90,6 +116,10 @@ export const Description = styled.div`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     margin: 3.125em 0 0;
+    max-width: 90%;
+  }
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    margin: 2em 0 0;
     max-width: 90%;
   }
   font-size: 1.375em;

@@ -24,7 +24,7 @@ export const Title = styled.h1`
   font-size: 4.125em;
   line-height: 120%;
   display: inline-block;
-  max-width: 12.27em;
+
   margin: 0;
   text-transform: uppercase;
   font-weight: inherit;
@@ -32,6 +32,10 @@ export const Title = styled.h1`
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
     line-height: 100%;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    max-width: 10em;
   }
   & > span:last-child {
     position: relative;
@@ -62,6 +66,10 @@ export const Description = styled.p`
     max-width: 95%;
     margin: 1.625em 0 1.75em;
   }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    max-width: 60%;
+  }
 `;
 
 export const Image = styled.img`
@@ -76,5 +84,10 @@ export const Image = styled.img`
     top: -0.75em;
     width: 22.3em;
     height: 19.125em;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    width: 27em;
+    top: 0;
   }
 `;

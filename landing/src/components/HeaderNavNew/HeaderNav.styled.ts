@@ -63,7 +63,7 @@ export const ListItemNav = styled.a`
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.headerLinkText};
   display: flex;
-  padding: 19px 3.18rem;
+  width: 11.11vw;
   align-items: center;
   justify-content: center;
   border-left: 1px solid ${themes.primary.colors.headerBorder};
@@ -78,6 +78,13 @@ export const ListItemNav = styled.a`
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 13px;
+  }
+  @media ${themes.primary.media.minTabletPortrait} and (max-width: 830px) {
+    width: 11.15vw;
+  }
+
+  @media ${themes.primary.media.minPC} and (max-width: 2560px) {
+    width: 11.07vw;
   }
   &:hover {
     transition: 0.3s;

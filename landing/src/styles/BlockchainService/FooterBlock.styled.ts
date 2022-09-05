@@ -45,4 +45,8 @@ export const Image = styled.img`
     bottom: 6.19em;
     right: 0.44em;
   }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    bottom: 4em;
+  }
 `;

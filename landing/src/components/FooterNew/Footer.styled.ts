@@ -10,11 +10,23 @@ export const HeaderNavContainer = styled.div`
   z-index: 5;
   background-color: ${themes.primary.colors.blogBackground};
   border-top: 1px solid ${themes.primary.colors.headerBorder};
+
+  @media ${themes.primary.media.maxMobile} {
+    height: 101px;
+    flex-direction: column-reverse;
+  }
 `;
 
 export const FlexRowContainer = styled.div`
   display: flex;
   width: 100%;
+  height: 50%;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-top: 10px;
+    align-items: flex-start;
+    justify-content: center;
+  }
 `;
 
 export const Email = styled.a`
@@ -24,6 +36,12 @@ export const Email = styled.a`
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.email};
   color: ${themes.primary.colors.primary};
+
+  @media ${themes.primary.media.maxMobile} {
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: ${themes.primary.font.size.articleViews};
+    margin: 0;
+  }
 `;
 
 export const LogoLinkWrapper = styled.a`
@@ -45,7 +63,6 @@ export const LogoLinkWrapper = styled.a`
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
   }
-
   @media ${themes.primary.media.maxTablet} {
     display: none;
   }
@@ -65,9 +82,6 @@ export const ListItemNav = styled.a`
   transition: 300ms;
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 0.5rem 1.8rem;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
   }
   &:hover {
     transition: 0.3s linear;
@@ -90,6 +104,16 @@ export const ListItemNav = styled.a`
     padding-left: 3.218rem;
     padding-right: 3.218rem;
   }
+  @media ${themes.primary.media.maxMobile} {
+    flex: 1;
+    border: none;
+    max-width: 40px;
+    width: 100%;
+
+    &:nth-child(n) {
+      padding: 0;
+    }
+  }
 `;
 
 export const NavList = styled.menu`
@@ -99,6 +123,13 @@ export const NavList = styled.menu`
   @media ${themes.primary.media.maxLaptop} {
     margin-right: 0;
   }
+  @media ${themes.primary.media.maxMobile} {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 5px 0 0;
+  }
 `;
 
 export const LinkText = styled.img`
@@ -106,6 +137,10 @@ export const LinkText = styled.img`
   width: auto;
   @media ${themes.primary.media.maxTabletPortrait} {
     max-width: 20px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    max-height: 22px;
+    max-width: 31px;
   }
 `;
 

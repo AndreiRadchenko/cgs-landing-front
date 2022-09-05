@@ -7,16 +7,34 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  padding-top: 12.75em;
+  padding-top: 9.56em;
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    max-width: 75%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-top: 3.125em;
+
+    & a {
+      font-size: 1em;
+      padding: 1.195em 2.18em;
+    }
+  }
 `;
 
 export const Title = styled.h1`
-  font-weight: ${themes.primary.font.weight.heavy};
-  font-size: ${themes.primary.font.size.serviceTitle};
+  font-weight: inherit;
+  font-size: 4.125em;
   line-height: 120%;
   text-transform: uppercase;
   max-width: 11.29em;
   margin: 0;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 2.375em;
+    width: 108.5%;
+  }
 
   & > span:last-child {
     position: relative;
@@ -31,21 +49,49 @@ export const Title = styled.h1`
       position: absolute;
       top: 0;
       right: -0.2em;
+
+      @media ${themes.primary.media.maxMobile} {
+        right: -4px;
+      }
     }
   }
 `;
 
 export const Description = styled.p`
-  font-size: ${themes.primary.font.size.feedbackName};
+  font-size: 1.375em;
   line-height: 160%;
   max-width: 30em;
   margin: 1.275em 0 2.32em;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1em;
+    margin: 1.625em 0 1.75em;
+  }
 `;
 
 export const Image = styled.img`
   position: absolute;
   top: 2.3em;
   right: 2.07em;
-  width: 48.61em;
-  height: 45.22em;
+  width: 36.43em;
+  height: 33.875em;
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    width: 28.3em;
+    right: -4em;
+    top: 17em;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    width: 30em;
+    right: -2em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    width: 22.125em;
+    height: auto;
+    top: -3em;
+    left: -0.81em;
+  }
 `;

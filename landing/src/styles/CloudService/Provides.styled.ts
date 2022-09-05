@@ -18,7 +18,7 @@ export const BgContainer = styled.div`
 `;
 
 export const BlockWrapper = styled.div`
-  padding: 6.7em 0 0 20em;
+  padding: 7.4em 0 0 20em;
   position: relative;
 `;
 
@@ -35,11 +35,13 @@ export const Block = styled.div`
   }
 
   &:nth-child(2) {
-    left: 16.5em;
+    bottom: 0.8rem;
+    left: 17em;
   }
 
   &:nth-child(3) {
-    left: 43.5em;
+    left: 46.5em;
+    bottom: 4rem;
   }
 `;
 

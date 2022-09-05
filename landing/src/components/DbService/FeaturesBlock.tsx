@@ -5,6 +5,7 @@ import * as Styled from "../../styles/DbService/FeaturesBlock.styled";
 import { IServiceDb } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import bgImage from "../../../public/DbService/featuresBg.svg";
+import bgImageMobile from "../../../public/DbService/database-mobile-svg.svg";
 
 const FeaturesBlock = () => {
   const queryClient = useQueryClient();
@@ -26,6 +27,10 @@ const FeaturesBlock = () => {
         src={bgImage.src}
         alt="second block image"
       ></Styled.BgImage>
+      <Styled.BgImageMobile
+        src={bgImageMobile.src}
+        alt="second block image mobile"
+      ></Styled.BgImageMobile>
       <Styled.ContentWrapper>
         <div>
           <Styled.Subtitle>{data?.databases.subtitle}</Styled.Subtitle>

@@ -13,6 +13,7 @@ import ProvidesBlock from "../../components/OngoingSupport/ProvidesBlock";
 import BonusesBlock from "../../components/OngoingSupport/BonusesBlock";
 import FooterBlock from "../../components/OngoingSupport/FooterBlock";
 import * as Styled from "../../styles/OngoingSupport/Layout";
+import { Layout } from "../../styles/Layout.styled";
 
 const OngoingSupport = () => {
   const { data } = useQuery(queryKeys.getServiceSupportPage, () =>
@@ -31,13 +32,15 @@ const OngoingSupport = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Styled.Layout>
-        <HeadBlock />
-        <WorkBlock />
-        <ProvidesBlock />
-        <BonusesBlock />
-        <FooterBlock />
-      </Styled.Layout>
+      <Layout>
+        <Styled.Layout>
+          <HeadBlock />
+          <WorkBlock />
+          <ProvidesBlock />
+          <BonusesBlock />
+          <FooterBlock />
+        </Styled.Layout>
+      </Layout>
       <FooterNew />
     </>
   );
