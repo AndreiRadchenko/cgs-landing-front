@@ -1,6 +1,12 @@
 import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 
+export const NavigateWrapper = styled.div`
+  height: 150px;
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+`;
 export const NavigateLeft = styled.div`
   margin-top: 0;
   position: absolute;
@@ -26,6 +32,54 @@ export const NavigateLeft = styled.div`
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.ourWorkTextBig};
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    writing-mode: horizontal-tb;
+    transform: none;
+
+    justify-content: space-between;
+    width: 100%;
+    height: 150px;
+    padding-inline: 20px;
+    border: 1px solid ${themes.primary.colors.comment};
+    transition: 0.3s;
+
+    & svg {
+      transition: 0.3s;
+      fill: ${themes.primary.colors.primary};
+
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
+
+    &.open {
+      background-color: ${themes.primary.colors.darkBlue};
+      color: ${themes.primary.colors.secondary};
+      & svg {
+        fill: ${themes.primary.colors.secondary};
+      }
+    }
+
+    &.top {
+      background-color: ${themes.primary.colors.darkBlue};
+      color: ${themes.primary.colors.secondary};
+      height: 88px;
+    }
+
+    &:hover {
+      background-color: ${themes.primary.colors.darkBlue};
+      color: ${themes.primary.colors.secondary};
+
+      & svg {
+        fill: ${themes.primary.colors.secondary};
+      }
+    }
+  }
+  &:hover {
+    background-color: ${themes.primary.colors.darkBlue};
+    color: ${themes.primary.colors.secondary};
+  }
 `;
 
 export const ProjectDescription = styled.p`
@@ -50,6 +104,12 @@ export const ProjectDescription = styled.p`
   @media (max-width: 1140px) {
     font-size: 14px;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+  }
 `;
 
 export const ProjectComment = styled.p`
@@ -59,11 +119,12 @@ export const ProjectComment = styled.p`
   line-height: 160%;
   margin-bottom: 0;
   display: -webkit-box;
+
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   @media ${themes.primary.media.maxMobile} {
-    padding: 10px;
+    padding-top: 10px;
     margin-top: 0px;
   }
   @media (max-width: 1199px) {
@@ -159,7 +220,7 @@ export const Category = styled.div`
 
 export const PortfolioRow = styled.div`
   display: flex;
-  width: 100%;
+  width: calc(100% - 20px);
   max-height: 500px;
   position: relative;
 
@@ -181,9 +242,8 @@ export const PortfolioRow = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     display: block;
-    border-left: 1px solid ${themes.primary.colors.comment};
-    border-right: 1px solid ${themes.primary.colors.comment};
-    margin: 0 10px;
+    max-height: none;
+    margin-inline: 10px;
   }
 `;
 
@@ -200,6 +260,10 @@ export const NavigateRight = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
   z-index: 100;
   border-left: thin solid ${themes.primary.colors.comment};
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
 `;
 
 export const ArrowContainer = styled.div`
@@ -234,9 +298,18 @@ export const ReviewContainer = styled.div`
   display: flex;
   justify-content: space-between;
   @media ${themes.primary.media.maxMobile} {
-    left: 0;
+    flex-direction: column-reverse;
     height: auto;
-    grid-template-columns: 1fr;
+    left: 0;
+    right: 0;
+    max-width: none;
+    width: 100%;
+    border: 1px solid ${themes.primary.colors.comment};
+    display: none;
+
+    &.open {
+      display: flex;
+    }
   }
 `;
 
@@ -258,6 +331,23 @@ export const ImageContainer = styled.div<IImageContainer>`
   height: 100%;
   border-left: thin solid ${themes.primary.colors.comment};
   background: ${({ bgColor }) => bgColor};
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    & img {
+      object-fit: contain;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid ${themes.primary.colors.comment};
+    height: 347px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 247px;
+  }
 `;
 
 export const ContentContainer = styled.div`
@@ -278,6 +368,11 @@ export const ContentContainer = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 0.85vw;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    border: 0;
+  }
 `;
 
 export const ProjectHeader = styled.div`
@@ -286,8 +381,6 @@ export const ProjectHeader = styled.div`
   flex-wrap: wrap;
   align-items: center;
   @media ${themes.primary.media.maxMobile} {
-    border-top: 1px solid ${themes.primary.colors.comment};
-    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: baseline;
@@ -307,6 +400,10 @@ export const PortfolioProjectHeader = styled.div`
   @media (max-width: 1250px) {
     font-size: 26px;
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1.25rem;
+  }
 `;
 
 export const Separator = styled.div`
@@ -319,9 +416,23 @@ export const Separator = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 10px;
   }
+
   @media ${themes.primary.media.maxMobile} {
-    margin: 0 10px;
-    width: auto;
+    position: relative;
+    left: -15px;
+    width: calc(100% + 30px);
+    margin-top: 1rem;
+    &.bottom {
+      display: none;
+    }
+  }
+`;
+
+export const TitleContainer = styled.div`
+  @media ${themes.primary.media.maxMobile} {
+    display: flex;
+    column-gap: 10px;
+    flex-wrap: wrap;
   }
 `;
 
