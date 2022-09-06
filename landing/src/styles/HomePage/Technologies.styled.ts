@@ -53,13 +53,13 @@ export const CategoryContainer = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  width: 100%;
 
   &:nth-child(2n) {
     justify-self: flex-end;
   }
 
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     &:nth-child(n) {
       justify-self: center;
     }
