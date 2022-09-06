@@ -39,8 +39,24 @@ export const LinkButton = styled.button`
       }
     }
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-block: 10px;
+    font-size: 0.75rem;
+    a {
+      border: none;
+    }
+  }
 `;
 
 export const SlidersCont = styled.div`
   margin-bottom: 200px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 10px;
+
+    & > div:not(:nth-of-type(4)) > div {
+      border-bottom: 0;
+    }
+  }
 `;

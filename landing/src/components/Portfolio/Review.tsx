@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IPortfolioReview } from "../../types/Admin/AdminPortfolioPage.types";
 import * as Styled from "../../styles/PortfolioSlider.styled";
 import * as Styles from "../../styles/Portfolio.styled";
@@ -13,17 +13,11 @@ import Image from "next/image";
 
 interface IReviewProps {
   review: IPortfolioReview;
-  idx?: number;
+  className?: string | undefined;
 }
 
-const Review = ({ review, idx }: IReviewProps) => {
-  const [isTablet, setIsTablet] = useState(false);
+const Review = ({ review, className }: IReviewProps) => {
   const { width } = useWindowDimension();
-  useEffect(() => {
-    if (width && width <= 1024) {
-      setIsTablet(true);
-    }
-  }, [width]);
   const startsArr = [];
   let stars = review.feedback.rating;
 
@@ -40,7 +34,7 @@ const Review = ({ review, idx }: IReviewProps) => {
 
   return (
     review && (
-      <Styled.ReviewContainer>
+      <Styled.ReviewContainer className={className}>
         <Styled.ContentContainer>
           <Styled.ProjectHeader>
             <Styled.PortfolioProjectHeader>
@@ -49,7 +43,9 @@ const Review = ({ review, idx }: IReviewProps) => {
             {review.button.length > 0 && (
               <Styles.LinkButton>
                 <a href={recoverLink(review.button)}>
-                  {width && width < 1300 ? "link" : "project link"}
+                  {width && width < 1300 && width > 768
+                    ? "link"
+                    : "project link"}
                 </a>
               </Styles.LinkButton>
             )}
@@ -58,40 +54,42 @@ const Review = ({ review, idx }: IReviewProps) => {
           <Styled.Separator />
           {review.feedback.name !== "" && (
             <>
-              <Styled.Feedback>
-                <Styled.AuthorName>{review.feedback?.name}</Styled.AuthorName>
-                <Styled.CompanyName>
-                  {review.feedback?.company}
-                </Styled.CompanyName>
-              </Styled.Feedback>
-              <StarCont>
-                {startsArr.map((num, i) => {
-                  if (num > 0.5) {
+              <Styled.TitleContainer>
+                <Styled.Feedback>
+                  <Styled.AuthorName>{review.feedback?.name}</Styled.AuthorName>
+                  <Styled.CompanyName>
+                    {review.feedback?.company}
+                  </Styled.CompanyName>
+                </Styled.Feedback>
+                <StarCont>
+                  {startsArr.map((num, i) => {
+                    if (num > 0.5) {
+                      return (
+                        <Styled.Star
+                          src={StarPortfolio.src}
+                          key={i}
+                          alt="feedback star img"
+                        />
+                      );
+                    } else if (num > 0 && num <= 0.5) {
+                      return (
+                        <Styled.Star
+                          src={halfStar.src}
+                          key={i}
+                          alt="feedback star img"
+                        />
+                      );
+                    }
                     return (
                       <Styled.Star
-                        src={StarPortfolio.src}
+                        src={emptyStar.src}
                         key={i}
                         alt="feedback star img"
                       />
                     );
-                  } else if (num > 0 && num <= 0.5) {
-                    return (
-                      <Styled.Star
-                        src={halfStar.src}
-                        key={i}
-                        alt="feedback star img"
-                      />
-                    );
-                  }
-                  return (
-                    <Styled.Star
-                      src={emptyStar.src}
-                      key={i}
-                      alt="feedback star img"
-                    />
-                  );
-                })}
-              </StarCont>
+                  })}
+                </StarCont>
+              </Styled.TitleContainer>
               <Styled.ProjectComment>
                 {review.feedback?.feedbackText}
               </Styled.ProjectComment>
