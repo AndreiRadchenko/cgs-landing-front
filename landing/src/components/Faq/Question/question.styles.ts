@@ -56,7 +56,7 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 15px 0;
+    padding: 15px 20px;
   }
 `;
 
