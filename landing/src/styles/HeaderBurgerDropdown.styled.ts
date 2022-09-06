@@ -5,7 +5,7 @@ import { slideDown, slideUp } from "./Animations.styled";
 export const DropDownWrapper = styled.div`
   padding: 1.125rem 1.25rem;
 
-  & > div:hover {
+  & > div:first-child:hover {
     color: ${themes.primary.colors.darkBlue};
 
     & svg {
@@ -13,7 +13,7 @@ export const DropDownWrapper = styled.div`
     }
   }
 
-  & > div:active {
+  & > div:first-child:active {
     color: ${themes.primary.colors.darkBlue};
 
     & svg {
