@@ -13,6 +13,7 @@ import ProvidesBlock from "../../components/CloudService/ProvidesBlock";
 import WorkBlock from "../../components/CloudService/WorkBlock";
 import FooterBlock from "../../components/CloudService/FooterBlock";
 import * as Styled from "../../styles/CloudService/Layaut";
+import { Layout } from "../../styles/Layout.styled";
 
 const CloudService = () => {
   const { data } = useQuery(queryKeys.getServiceCloudPage, () =>
@@ -31,13 +32,15 @@ const CloudService = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Styled.Layout>
-        <HeadBlock />
-        <WhyItWorthIt />
-        <ProvidesBlock />
-        <WorkBlock />
-        <FooterBlock />
-      </Styled.Layout>
+      <Layout>
+        <Styled.Layout>
+          <HeadBlock />
+          <WhyItWorthIt />
+          <ProvidesBlock />
+          <WorkBlock />
+          <FooterBlock />
+        </Styled.Layout>
+      </Layout>
       <FooterNew />
     </>
   );

@@ -25,7 +25,7 @@ const HeadBlock = () => {
         <Styled.Description>{data?.text}</Styled.Description>
         <BlackButton
           padding={"1.117em 3.862em"}
-          size={"18px"}
+          size={"1.125em"}
           href={data?.buttonLink}
         >
           {data?.button}
