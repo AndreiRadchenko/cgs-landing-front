@@ -6,6 +6,8 @@ import { useQueryClient } from "react-query";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import firsMobileBg from "../../../public/WebService/first-mobile.svg";
+import secondMobileBg from "../../../public/WebService/second-mobile.png";
 
 const SolutionBlock = () => {
   const queryClient = useQueryClient();
@@ -23,11 +25,13 @@ const SolutionBlock = () => {
       <Styled.LeftSideText>
         <SplitBrackets text={data?.subtitle} />
       </Styled.LeftSideText>
+      <Styled.BgImageFirst src={firsMobileBg.src} />
       <Styled.RightSideContainer>
         <Styled.RightSideText>
           {data && parse(data?.text.replace("[arrow]", arrow))}
         </Styled.RightSideText>
       </Styled.RightSideContainer>
+      <Styled.BgImageSecond src={secondMobileBg.src} />
     </Styled.Container>
   );
 };

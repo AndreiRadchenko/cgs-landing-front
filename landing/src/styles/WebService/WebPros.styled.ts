@@ -2,10 +2,15 @@
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 11.2%;
+  margin-top: 11.875em;
   position: relative;
   background-color: ${themes.primary.colors.blogBackground};
   padding-bottom: 4.8%;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 9.75em;
+    padding: 0;
+  }
 `;
 
 export const BgImage = styled.img`
@@ -14,7 +19,7 @@ export const BgImage = styled.img`
   top: -40.5px;
   left: -125px;
 
-  @media (max-width: 1250px) {
+  /* @media (max-width: 1250px) {
     top: -32.5px;
     width: 1500px;
   }
@@ -27,30 +32,48 @@ export const BgImage = styled.img`
 
   @media ${themes.primary.media.minPCFullHD} {
     top: -60.5px;
+  } */
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
+`;
+
+export const BgMobileImage = styled.img`
+  display: none;
+
+  @media ${themes.primary.media.maxMobile} {
+    display: block;
+    position: absolute;
+    height: 79%;
+    top: 4em;
+    left: -5.5em;
   }
 `;
 
 export const CategorySubtitle = styled.h3`
-  font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 2.835em;
+  font-weight: inherit;
+  font-size: 2.125em;
   text-transform: uppercase;
-  line-height: 41px;
-  font-family: ${themes.primary.font.family.namu};
   margin-top: 0;
 
-  @media (max-width: 1250px) {
+  /* @media (max-width: 1250px) {
     font-size: 2.3em;
+  } */
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5em;
+    margin-bottom: 1.25em;
   }
 `;
 
 export const CategoryListItem = styled.p`
-  font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-size: 1.125em;
   line-height: 160%;
   margin-top: 1.5em;
   margin-bottom: 0;
 
-  @media (max-width: 1250px) {
+  /* @media (max-width: 1250px) {
     font-size: 1.3em;
     margin-top: 1.6em;
   }
@@ -62,15 +85,21 @@ export const CategoryListItem = styled.p`
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 1.58em;
+  } */
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1em;
+    line-height: 132%;
+    margin-top: 1.56em;
   }
 `;
 export const ContentWrapper = styled.div`
   padding-left: 10.5%;
-  padding-right: 12%;
+  padding-right: 9%;
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 1410px) {
+  /* @media (max-width: 1410px) {
     padding-left: 10.5%;
     padding-right: 5%;
   }
@@ -98,5 +127,18 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     padding-right: 9em;
+  } */
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+    padding: 0 0 0 4.5em;
+
+    & > div {
+      position: relative;
+
+      &:first-child {
+        margin-bottom: 5.25em;
+      }
+    }
   }
 `;

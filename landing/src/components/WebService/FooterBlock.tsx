@@ -9,7 +9,6 @@ import { Subtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/WebService/FooterBlock.styled";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import ButtonArrow from "../../utils/ButtonArrow";
-import themes from "../../utils/themes";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -25,7 +24,7 @@ const FooterBlock = () => {
         </Styled.SubtitleWrapper>
         <BlackButton
           padding={"1.117em 3.755em"}
-          size={themes.primary.font.size.oneAndHalf}
+          size={"1.125em"}
           href={data?.buttonLink}
         >
           {data?.button}

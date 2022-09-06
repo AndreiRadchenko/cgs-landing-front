@@ -2,16 +2,9 @@
 import themes from "../../utils/themes";
 
 export const Layout = styled.div`
-  padding: 0 3.6%;
-  font-family: ${themes.primary.font.family.namu};
   background-color: ${themes.primary.colors.blogBackground};
-  overflow: hidden;
-  @media ${themes.primary.media.minPC} {
-    padding: 0 5%;
-  }
-  @media ${themes.primary.media.minPCFullHD} {
-    padding: 0 125px;
-    margin: auto;
-    width: 1785px;
-  }
+  overflow: clip;
+  overflow-clip-margin: 40px;
+  font-size: 1rem;
+  font-weight: ${themes.primary.font.weight.heavy};
 `;
