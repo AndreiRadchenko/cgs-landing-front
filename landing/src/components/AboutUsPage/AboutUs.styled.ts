@@ -222,9 +222,6 @@ export const RotateBlock = styled.div<IRotate>`
     top: -17%;
     max-width: 20vw;
   }
-
-  @media ${themes.primary.media.maxMobile} {
-  }
 `;
 
 export const BackgroundContainer = styled.div<IBackground>`
@@ -423,7 +420,7 @@ export const OurBonuses = styled.div`
   padding: 115px 0 370px;
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 0 0 361px;
+    padding-bottom: 361px;
   }
 `;
 
