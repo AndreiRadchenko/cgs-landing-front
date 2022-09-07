@@ -1,4 +1,4 @@
-﻿import styled from "styled-components";
+import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
@@ -106,9 +106,6 @@ export const TextContent = styled.div`
   }
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 1.5em;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
   }
 
   @media ${themes.primary.media.maxMobile} {

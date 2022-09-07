@@ -1,4 +1,4 @@
-﻿import styled from "styled-components";
+import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
@@ -15,13 +15,18 @@ export const Container = styled.div`
 
 export const BgImage = styled.img`
   position: absolute;
-  width: 1700px;
-  top: -40.5px;
-  left: -125px;
+  width: 106.25em;
+  top: -2.53em;
+  left: -7.81em;
 
   @media (max-width: 1250px) {
-    top: -32.5px;
-    width: 1500px;
+    top: -2.03em;
+    width: 93.75em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    left: -12.5em;
+    width: 87.5em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -30,13 +35,29 @@ export const BgImage = styled.img`
   }
 
   @media ${themes.primary.media.minPC} {
-    top: -68.5px;
-    left: -195px;
-    width: 2100px;
+    top: -4.28em;
+    left: -12.19em;
+    width: 131.25em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    top: -60.5px;
+    top: -3.78em;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    display: none;
+  }
+`;
+
+export const BgMobileImage = styled.img`
+  display: none;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    display: block;
+    position: absolute;
+    height: 79%;
+    top: 4em;
+    left: -5.5em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -145,7 +166,7 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
-    padding: 0 0 0 4.5em;
+    padding-left: 4.5em;
 
     & > div {
       position: relative;
