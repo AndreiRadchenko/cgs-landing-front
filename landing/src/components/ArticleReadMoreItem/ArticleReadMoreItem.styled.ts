@@ -48,10 +48,6 @@ export const TitleWrapper = styled.div`
   }
 `;
 
-export const TitleDiv = styled.div`
-  width: 0px;
-`;
-
 export const Title = styled.p`
   font-size: ${themes.primary.font.size.quaternary};
   font-weight: ${themes.primary.font.weight.extraBold};
@@ -126,13 +122,10 @@ export const ReadMoreButton = styled.button`
   padding: 8px 15px;
   background-color: ${themes.primary.colors.primary};
   color: ${themes.primary.colors.secondary};
-  font-weight: ${themes.primary.font.weight.extraBold};
+  font-family: ${themes.primary.font.family.openSans};
+  font-weight: ${themes.primary.font.weight.semiBold};
   letter-spacing: 0.7px;
   cursor: pointer;
-
   max-width: 115px;
-
-  &:hover (Title) {
-    color: ${themes.primary.colors.darkBlue};
-  }
+  font-size: 14px;
 `;
