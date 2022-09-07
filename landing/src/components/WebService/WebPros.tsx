@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import { useQueryClient } from "react-query";
 import bgImage from "../../../public/WebService/secondBlockBg.svg";
+import bgMobileImage from "../../../public/WebService/web-development-mobile.svg";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/WebService/WebPros.styled";
 import { IServiceWeb } from "../../types/Admin/Response.types";
@@ -17,6 +18,7 @@ const WebPros = () => {
         {data &&
           Object.values(data).map((category, idx) => (
             <div key={`${category} ${idx}`}>
+              <Styled.BgMobileImage src={bgMobileImage.src} />
               <Styled.CategorySubtitle>
                 {category.subtitle}
               </Styled.CategorySubtitle>
