@@ -42,6 +42,7 @@ export const TextBlock = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
+    max-width: 100%;
   }
 `;
 
@@ -70,6 +71,8 @@ export const Icon = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     padding: 0;
+    width: 4em;
+    height: 4.43em;
   }
 `;
 

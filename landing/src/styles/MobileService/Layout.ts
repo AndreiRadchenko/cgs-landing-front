@@ -29,6 +29,10 @@ export const Subtitle = styled.h2`
     }
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    white-space: normal;
+  }
+
   @media (max-width: 370px) {
     font-size: 1.35rem;
   }
