@@ -19,9 +19,14 @@ export const BgImage = styled.img`
   top: -40.5px;
   left: -125px;
 
-  /* @media (max-width: 1250px) {
+  @media (max-width: 1250px) {
     top: -32.5px;
     width: 1500px;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    left: -200px;
+    width: 1400px;
   }
 
   @media ${themes.primary.media.minPC} {
@@ -32,9 +37,9 @@ export const BgImage = styled.img`
 
   @media ${themes.primary.media.minPCFullHD} {
     top: -60.5px;
-  } */
+  }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     display: none;
   }
 `;
@@ -42,7 +47,7 @@ export const BgImage = styled.img`
 export const BgMobileImage = styled.img`
   display: none;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     display: block;
     position: absolute;
     height: 79%;
@@ -57,11 +62,11 @@ export const CategorySubtitle = styled.h3`
   text-transform: uppercase;
   margin-top: 0;
 
-  /* @media (max-width: 1250px) {
-    font-size: 2.3em;
-  } */
+  @media (max-width: 1250px) {
+    font-size: 1.8em;
+  }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.5em;
     margin-bottom: 1.25em;
   }
@@ -73,21 +78,25 @@ export const CategoryListItem = styled.p`
   margin-top: 1.5em;
   margin-bottom: 0;
 
-  /* @media (max-width: 1250px) {
-    font-size: 1.3em;
+  @media (max-width: 1250px) {
+    font-size: 1em;
     margin-top: 1.6em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 0.91em;
   }
 
   @media ${themes.primary.media.minPC} {
     margin-top: 2.15em;
-    font-size: 1.35em;
+    font-size: 1.15em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 1.58em;
-  } */
+  }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1em;
     line-height: 132%;
     margin-top: 1.56em;
@@ -99,7 +108,7 @@ export const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 
-  /* @media (max-width: 1410px) {
+  @media (max-width: 1410px) {
     padding-left: 10.5%;
     padding-right: 5%;
   }
@@ -112,6 +121,11 @@ export const ContentWrapper = styled.div`
   @media (max-width: 1250px) {
     padding-left: 10.5%;
     padding-right: 9%;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding-left: 3%;
+    padding-right: 0;
   }
 
   @media ${themes.primary.media.minPC} {
@@ -127,9 +141,9 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     padding-right: 9em;
-  } */
+  }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
     padding: 0 0 0 4.5em;
 

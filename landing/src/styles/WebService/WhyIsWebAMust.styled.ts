@@ -14,13 +14,13 @@ export const ContentLayout = styled.div`
   width: 98.4%;
   display: flex;
 
-  /* @media (max-width: 1400px) {
+  @media (max-width: 1400px) {
     justify-content: space-between;
   }
 
   @media ${themes.primary.media.minPC} {
     justify-content: space-between;
-  } */
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 2.56em;
@@ -38,9 +38,9 @@ export const WhyIsWebTitleContainer = styled.div`
   align-items: center;
   -webkit-text-stroke: 0.7px black;
 
-  /* @media (max-width: 1400px) {
+  @media (max-width: 1400px) {
     font-size: 1.7em;
-  } */
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.25em;
@@ -57,12 +57,18 @@ export const WhyIsWebText = styled.p`
   margin-left: 10px;
   font-size: 1.125em;
 
-  /* @media (max-width: 1400px) {
+  @media ${themes.primary.media.maxServiceMobile} {
+    br {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.maxServiceWeb} {
     font-size: 1.2em;
   }
   @media ${themes.primary.media.minPC} {
-    font-size: 1.3em;
-  } */
+    font-size: 1.15em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
@@ -141,7 +147,7 @@ export const WhyIsWebBlock = styled.div`
       }
     }
   }
-  /* @media (max-width: 1400px) {
+  @media ${themes.primary.media.maxServiceWeb} {
     &:nth-child(3) {
       margin-left: 2%;
       img {
@@ -163,9 +169,51 @@ export const WhyIsWebBlock = styled.div`
         margin-left: 20px;
       }
     }
-  } */
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &:nth-child(2) {
+      img {
+        top: 50%;
+        left: -90%;
+      }
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    &:nth-child(2) {
+      margin-top: 15em;
+
+      img {
+        top: 65%;
+      }
+    }
+
+    &:nth-child(3) {
+      img {
+        top: 30%;
+        left: -50%;
+      }
+    }
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin: 0;
+
+    &:nth-child(2) {
+      margin: 0;
+
+      p {
+        margin-left: 0;
+      }
+    }
+
+    &:nth-child(3) {
+      margin: 0;
+
+      p {
+        margin-left: 0;
+      }
+    }
   }
 `;

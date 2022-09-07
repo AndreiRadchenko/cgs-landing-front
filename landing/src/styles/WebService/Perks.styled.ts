@@ -54,20 +54,28 @@ export const TextBlock = styled.div`
     flex-basis: 45%;
   }
 
+  @media ${themes.primary.media.maxServiceWeb} {
+    align-items: flex-start;
+
+    br {
+      display: none;
+    }
+
+    &:nth-child(5) {
+      br {
+        display: block;
+      }
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     flex-basis: 100%;
-    align-items: flex-start;
     position: relative;
 
     &:nth-child(4),
     &:nth-child(5) {
       flex-basis: 100%;
       align-items: flex-start;
-    }
-    &:nth-child(5) {
-      br {
-        display: block;
-      }
     }
   }
 `;
@@ -93,16 +101,20 @@ export const TextContent = styled.div`
   line-height: 160%;
   margin-bottom: 0.25em;
 
-  /* @media ${themes.primary.media.minPC} {
+  @media ${themes.primary.media.minPC} {
     font-size: 1.7em;
   }
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 1.5em;
-  } */
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;
     padding-left: 3.2em;
     margin-top: 0.5em;
+    margin-right: auto;
   }
 `;

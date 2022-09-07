@@ -23,7 +23,7 @@ export const ContentContainer = styled.div`
   width: 44.5%;
   z-index: 2;
 
-  /* @media (max-width: 1360px) {
+  @media (max-width: 1360px) {
     width: 53%;
   }
 
@@ -33,7 +33,7 @@ export const ContentContainer = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 100%;
-  } */
+  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
@@ -56,7 +56,6 @@ export const Title = styled.h1`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     white-space: nowrap;
-    /* font-size: ${themes.primary.font.size.tabletServiceTitle}; */
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -87,6 +86,10 @@ export const Description = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndHalf};
+
+    br {
+      display: none;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -106,7 +109,7 @@ export const Image = styled.img`
   width: 45.31em;
   height: 29.19em;
 
-  /* @media (max-width: 1360px) {
+  @media (max-width: 1360px) {
     width: 45%;
   }
 
@@ -114,9 +117,15 @@ export const Image = styled.img`
     width: 50%;
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 60%;
+    top: 13em;
+    right: -2em;
+  }
+
   @media ${themes.primary.media.minPC} {
     width: 50%;
-  } */
+  }
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
