@@ -19,9 +19,6 @@ const PodcastItem = () => {
   const handlePlaybackRateClick = () =>
     playbackRate === 2 ? setPlaybackRate(1) : setPlaybackRate(2);
 
-  const durationMinutes = Math.floor(duration / 60);
-  const durationSeconds = duration - durationMinutes * 60;
-
   const handlePlayedSeconds = (state: any) => {
     const minute = Math.trunc(state.playedSeconds / 60);
     setPlayed(state.playedSeconds);

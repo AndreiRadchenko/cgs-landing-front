@@ -10,34 +10,37 @@ import {
 
 interface IShareOn {
   title: string;
+  className?: string;
 }
 
-const ShareOn = ({ title }: IShareOn) => {
+const ShareOn = ({ title, className }: IShareOn) => {
   const url = typeof window !== "undefined" && window.location.href;
   return (
-    <Styles.Wrapper>
+    <Styles.Wrapper className={className}>
       <Styles.Text>SHARE ON:</Styles.Text>
-      {url && (
-        <LinkedinShareButton url={url} title={title}>
-          <Styles.IconBlock>
-            <Styles.IconImage src={icons[0].src} />
-          </Styles.IconBlock>
-        </LinkedinShareButton>
-      )}
-      {url && (
-        <TwitterShareButton url={url} title={title}>
-          <Styles.IconBlock>
-            <Styles.IconImage src={icons[1].src} />
-          </Styles.IconBlock>
-        </TwitterShareButton>
-      )}
-      {url && (
-        <FacebookShareButton url={url} title={title} quote={title}>
-          <Styles.IconBlock>
-            <Styles.IconImage src={icons[2].src} />
-          </Styles.IconBlock>
-        </FacebookShareButton>
-      )}
+      <Styles.IconsWrapper>
+        {url && (
+          <LinkedinShareButton url={url} title={title}>
+            <Styles.IconBlock>
+              <Styles.IconImage src={icons[0].src} />
+            </Styles.IconBlock>
+          </LinkedinShareButton>
+        )}
+        {url && (
+          <TwitterShareButton url={url} title={title}>
+            <Styles.IconBlock>
+              <Styles.IconImage src={icons[1].src} />
+            </Styles.IconBlock>
+          </TwitterShareButton>
+        )}
+        {url && (
+          <FacebookShareButton url={url} title={title} quote={title}>
+            <Styles.IconBlock>
+              <Styles.IconImage src={icons[2].src} />
+            </Styles.IconBlock>
+          </FacebookShareButton>
+        )}
+      </Styles.IconsWrapper>
     </Styles.Wrapper>
   );
 };

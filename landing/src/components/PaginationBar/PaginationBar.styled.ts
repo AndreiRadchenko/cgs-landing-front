@@ -7,6 +7,10 @@ export const PaginationWrapper = styled.div`
   align-items: center;
   column-gap: 30px;
   margin-top: 90px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 72px;
+  }
 `;
 
 export const FontSettings = styled.div`
@@ -27,12 +31,19 @@ export const PaginationItem = styled(FontSettings)`
     border: 1px solid ${themes.primary.colors.primary};
     color: ${themes.primary.colors.secondary};
   }
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1rem;
+  }
 `;
 
 export const CurrentPaginationItem = styled(PaginationItem)`
   background-color: ${themes.primary.colors.blogDarkText};
   border: 1px solid ${themes.primary.colors.primary};
   color: ${themes.primary.colors.secondary};
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1rem;
+  }
 `;
 
 export const Dots = styled.span`

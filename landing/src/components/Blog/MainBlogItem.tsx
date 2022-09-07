@@ -12,29 +12,35 @@ interface IMainBlogItem {
 const MainBlogItem = ({ article, views }: IMainBlogItem) => {
   return (
     <Styled.MainBlogItemContainer>
-      <Styled.MainBlogItemImage src={article.image.url} />
-      <Styled.FlexRowContainer>
-        <Styled.MainBlogItemTag>{article.tags[0]}</Styled.MainBlogItemTag>
-      </Styled.FlexRowContainer>
-      <Styled.MainBlogItemTitle>
-        <a href={`/blog/${article.url}`}>{article.title}</a>
-      </Styled.MainBlogItemTitle>
-      <Styled.MainBlogItemDescription>
-        {article.description}
-      </Styled.MainBlogItemDescription>
-      <Styled.GeneralInfo>
-        <Styled.BlogItemRowContainer>
-          <Styled.MainBlogAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.MainBlogAuthor>
-          <Styled.WatchContainer>
-            <Styled.BlogItemWatchIcon src={Watch.src} />
-            <Styled.WatchCount>{views || 0}</Styled.WatchCount>
+      <Styled.MobileColumnReversedContainer>
+        <Styled.MainBlogItemImage src={article.image.url} />
+        <Styled.FlexRowContainer>
+          <Styled.MainBlogItemTag>{article.tags[0]}</Styled.MainBlogItemTag>
+        </Styled.FlexRowContainer>
+      </Styled.MobileColumnReversedContainer>
+      <Styled.MobileColumnReversedContainer>
+        <div>
+          <Styled.MainBlogItemTitle>
+            <a href={`/blog/${article.url}`}>{article.title}</a>
+          </Styled.MainBlogItemTitle>
+          <Styled.MainBlogItemDescription>
+            {article.description}
+          </Styled.MainBlogItemDescription>
+        </div>
+        <Styled.GeneralInfo>
+          <Styled.BlogItemRowContainer>
+            <Styled.MainBlogAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.MainBlogAuthor>
+            <Styled.WatchContainer>
+              <Styled.BlogItemWatchIcon src={Watch.src} alt="views icon" />
+              <Styled.WatchCount>{views || 0}</Styled.WatchCount>
+            </Styled.WatchContainer>
+          </Styled.BlogItemRowContainer>
+          <Styled.WatchContainer className="timer">
+            <Styled.TimerIcon src={Timer.src} />
+            <Styled.GrayText>{`${article.minutesToRead} min`}</Styled.GrayText>
           </Styled.WatchContainer>
-        </Styled.BlogItemRowContainer>
-        <Styled.WatchContainer>
-          <Styled.TimerIcon src={Timer.src} />
-          <Styled.GrayText>{`${article.minutesToRead} min`}</Styled.GrayText>
-        </Styled.WatchContainer>
-      </Styled.GeneralInfo>
+        </Styled.GeneralInfo>
+      </Styled.MobileColumnReversedContainer>
       <Styled.SliderDotsContainer>
         <Styled.SliderDot className={"current"} />
         <Styled.SliderDot />
