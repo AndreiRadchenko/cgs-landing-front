@@ -4,6 +4,7 @@ import * as Styled from "./AboutUs.styled";
 import rightLine from "../../../public/AboutUsDecorations/rightLine.svg";
 import leftLine from "../../../public/AboutUsDecorations/leftLine.svg";
 import PhotoBlock from "./PhotoBlock";
+import { Layout } from "../../styles/Layout.styled";
 
 import { IAbout } from "../../types/Admin/Response.types";
 import Bonuses from "./Bonuses";
@@ -31,62 +32,64 @@ const AboutUs = ({ data }: IAboutUs) => {
   }, [data]);
 
   return (
-    <Styled.AboutUsContainer>
-      <Styled.MainTitle>
-        Idea-inspired, <br />
-        <span>tech-driven</span> professionals
-      </Styled.MainTitle>
-      <Styled.MainContainer>
-        <Styled.ColContainer className={"first"}>
-          {data && (
-            <>
-              <Styled.Subtitle>{data.believe.subtitle}</Styled.Subtitle>
-              <Styled.Text>{parse(data.believe.text)}</Styled.Text>
-            </>
-          )}
-        </Styled.ColContainer>
-        <Styled.RowContainer>
-          <Styled.RightLine src={rightLine.src} />
-          <PhotoBlock
-            data={data.believe}
-            rotateBlock={"-10.53deg"}
-            photoBg={{ right: "-6px", bottom: "-4px" }}
-            blockBg={{ right: "-8px", bottom: "-9px" }}
-            pinRightPosition={"0"}
-            rotatePin={"9.88deg"}
-            isMain
-            padding={"14px 22px 30px 14px"}
-          />
-        </Styled.RowContainer>
-        <Styled.RowContainer>
-          <Styled.LeftLine src={leftLine.src} />
-          <PhotoBlock
-            data={data.goal}
-            rotateBlock={"4.8deg"}
-            photoBg={{ right: "5px", bottom: "-3px" }}
-            blockBg={{ right: "6px", bottom: "-7px" }}
-            pinRightPosition={"89%"}
-            rotatePin={"-1deg"}
-            padding={"16px 10px 22px 15px"}
-          />
-        </Styled.RowContainer>
-        <Styled.ColContainer className={"second"}>
-          {data && (
-            <>
-              <Styled.Subtitle>{data.goal.subtitle}</Styled.Subtitle>
-              <Styled.Text>{parse(data.goal.text)}</Styled.Text>
-            </>
-          )}
-        </Styled.ColContainer>
-      </Styled.MainContainer>
-      <Styled.Separator />
-      <Bonuses
-        subtitle={data?.bonuses.subtitle}
-        firstBonuses={firstBonuses}
-        secondBonuses={secondBonuses}
-      />
-      <Styled.BottomImage src={data?.image.url} />
-    </Styled.AboutUsContainer>
+    <Layout>
+      <Styled.AboutUsContainer>
+        <Styled.MainTitle>
+          Idea-inspired, <br />
+          <span>tech-driven</span> professionals
+        </Styled.MainTitle>
+        <Styled.MainContainer>
+          <Styled.ColContainer className={"first"}>
+            {data && (
+              <>
+                <Styled.Subtitle>{data.believe.subtitle}</Styled.Subtitle>
+                <Styled.Text>{parse(data.believe.text)}</Styled.Text>
+              </>
+            )}
+          </Styled.ColContainer>
+          <Styled.RowContainer>
+            <Styled.RightLine src={rightLine.src} />
+            <PhotoBlock
+              data={data.believe}
+              rotateBlock={"-10.53deg"}
+              photoBg={{ right: "-6px", bottom: "-4px" }}
+              blockBg={{ right: "-8px", bottom: "-9px" }}
+              pinRightPosition={"0"}
+              rotatePin={"9.88deg"}
+              isMain
+              padding={"14px 22px 30px 14px"}
+            />
+          </Styled.RowContainer>
+          <Styled.RowContainer>
+            <Styled.LeftLine src={leftLine.src} />
+            <PhotoBlock
+              data={data.goal}
+              rotateBlock={"4.8deg"}
+              photoBg={{ right: "5px", bottom: "-3px" }}
+              blockBg={{ right: "6px", bottom: "-7px" }}
+              pinRightPosition={"89%"}
+              rotatePin={"-1deg"}
+              padding={"16px 10px 22px 15px"}
+            />
+          </Styled.RowContainer>
+          <Styled.ColContainer className={"second"}>
+            {data && (
+              <>
+                <Styled.Subtitle>{data.goal.subtitle}</Styled.Subtitle>
+                <Styled.Text>{parse(data.goal.text)}</Styled.Text>
+              </>
+            )}
+          </Styled.ColContainer>
+        </Styled.MainContainer>
+        <Styled.Separator />
+        <Bonuses
+          subtitle={data?.bonuses.subtitle}
+          firstBonuses={firstBonuses}
+          secondBonuses={secondBonuses}
+        />
+        <Styled.BottomImage src={data?.image.url} />
+      </Styled.AboutUsContainer>
+    </Layout>
   );
 };
 

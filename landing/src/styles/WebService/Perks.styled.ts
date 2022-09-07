@@ -1,4 +1,4 @@
-﻿import styled from "styled-components";
+import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
