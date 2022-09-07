@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
   align-items: center;
   margin-top: 65px;
   margin-bottom: 130px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 202px;
+  }
 `;
 
 export const Title = styled.p`
@@ -26,6 +30,10 @@ export const ReadMoreItemsWrapper = styled.div`
   column-gap: 35px;
   @media ${themes.primary.media.maxMobile} {
     flex-wrap: wrap;
+
+    & a {
+      color: ${themes.primary.colors.blogDarkText};
+    }
   }
 `;
 

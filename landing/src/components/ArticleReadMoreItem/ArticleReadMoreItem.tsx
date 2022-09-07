@@ -30,7 +30,6 @@ const ArticleReadMoreItem = ({ article, view }: IArticleReadMore) => {
         <Styles.Title onClick={() => navigation.push(`/blog/${article.url}`)}>
           {article.title}
         </Styles.Title>
-        <Styles.TitleDiv />
       </Styles.TitleWrapper>
       <Styles.Description>{article.description}</Styles.Description>
       <Styles.ReadMoreButton
