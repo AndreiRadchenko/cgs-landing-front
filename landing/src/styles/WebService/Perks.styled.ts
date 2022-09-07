@@ -108,9 +108,6 @@ export const TextContent = styled.div`
     font-size: 1.5em;
   }
 
-  @media ${themes.primary.media.maxTabletPortrait} {
-  }
-
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;
     padding-left: 3.2em;

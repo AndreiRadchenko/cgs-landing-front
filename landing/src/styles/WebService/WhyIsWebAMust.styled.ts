@@ -14,7 +14,7 @@ export const ContentLayout = styled.div`
   width: 98.4%;
   display: flex;
 
-  @media (max-width: 1400px) {
+  @media ${themes.primary.media.maxServiceWeb} {
     justify-content: space-between;
   }
 
