@@ -7,9 +7,28 @@ export const Wrapper = styled.div`
   column-gap: 20px;
   align-items: center;
   width: 356px;
+
+  &.mobile {
+    display: none;
+  }
   @media ${themes.primary.media.maxTabletPortrait} {
     align-items: center;
     justify-content: center;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+    row-gap: 1.375rem;
+    align-items: flex-start;
+
+    &.web {
+      display: none;
+    }
+
+    &.mobile {
+      margin-top: 70px;
+      display: flex;
+    }
   }
 `;
 
@@ -24,7 +43,6 @@ export const Text = styled.div`
   }
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.articleSubtitle};
-  }
   }
 `;
 
@@ -50,4 +68,9 @@ export const IconBlock = styled.div`
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(205deg)
       brightness(111%) contrast(101%);
   }
+`;
+
+export const IconsWrapper = styled.div`
+  display: flex;
+  column-gap: 20px;
 `;

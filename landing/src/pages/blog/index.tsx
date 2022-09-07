@@ -177,7 +177,7 @@ const BlogPage = () => {
               />
             )}
           </Styled.MainContainer>
-          <Styled.FlexColumnContainer>
+          <Styled.FlexColumnContainer className="header">
             {reversedArticles &&
               reversedArticles
                 .slice(1, 4)
@@ -186,9 +186,7 @@ const BlogPage = () => {
                 ))}
           </Styled.FlexColumnContainer>
         </Styled.HeaderBlock>
-        <Styled.Separator />
         <PodcastItem />
-        <Styled.Separator />
         <Styled.AllArticlesContainer articles={data.articles.length}>
           <Styled.DropdownContainer>
             <>
