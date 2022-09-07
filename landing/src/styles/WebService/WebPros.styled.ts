@@ -59,22 +59,6 @@ export const BgMobileImage = styled.img`
     top: 4em;
     left: -5.5em;
   }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    display: none;
-  }
-`;
-
-export const BgMobileImage = styled.img`
-  display: none;
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    display: block;
-    position: absolute;
-    height: 79%;
-    top: 4em;
-    left: -5.5em;
-  }
 `;
 
 export const CategorySubtitle = styled.h3`
