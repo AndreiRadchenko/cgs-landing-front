@@ -3,6 +3,7 @@ import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICloudService } from "../../types/Admin/Response.types";
 import { Subtitle } from "../../styles/CloudService/Layaut";
+import { SplitBrackets } from "../../utils/splitBrackets";
 import * as Styled from "../../styles/CloudService/Provides.styled";
 import parse from "html-react-parser";
 
@@ -21,7 +22,9 @@ const ProvidesBlock = () => {
         <Styled.BlockWrapper>
           {Object.values(blocks).map((el, index) => (
             <Styled.Block key={index}>
-              <Styled.Title>{el.subtitle}</Styled.Title>
+              <Styled.Title>
+                <SplitBrackets text={el.subtitle} />
+              </Styled.Title>
               <Styled.Description>{parse(el.text)}</Styled.Description>
             </Styled.Block>
           ))}

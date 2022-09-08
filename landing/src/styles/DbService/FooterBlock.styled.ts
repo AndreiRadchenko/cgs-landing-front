@@ -8,7 +8,8 @@ export const Container = styled.div`
   margin-bottom: 5.16em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 18.94em;
+    margin-top: 11.25em;
+    margin-bottom: 3.125em;
     flex-direction: column;
   }
 `;

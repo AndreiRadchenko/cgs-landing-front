@@ -27,6 +27,7 @@ export const Subtitle = styled.h2`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
+    margin: 0;
   }
 `;
 
@@ -50,11 +51,16 @@ export const TextContent = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 0.875em;
-    padding-top: 2.71em;
+    font-size: 1.11em;
+    padding-top: 2.375em;
+    width: 17em;
+
+    &:not(:first-child) {
+      padding-top: 1.43em;
+    }
 
     & span:not(:first-child) {
-      padding-top: 1.64em;
+      font-size: 0.875em;
       & > br {
         display: none;
       }
@@ -75,7 +81,7 @@ export const ContentWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxServiceWeb} {
-    font-size: 0.9rem;
+    font-size: 0.9em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -91,6 +97,8 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     max-width: 25em;
+    row-gap: 5em;
+    padding-bottom: 8em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -138,8 +146,8 @@ export const BgImageMobile = styled.img`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 67em;
+    width: 66em;
     left: -17em;
-    top: 4.5em;
+    top: 3.8em;
   }
 `;

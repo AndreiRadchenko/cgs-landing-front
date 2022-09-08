@@ -97,12 +97,12 @@ export const Block = styled.div`
       margin-bottom: 2.125em;
     }
     & > div img {
-      width: 2em;
+      width: 1.7em;
     }
     &:first-child {
       padding: 0;
       & img {
-        width: 1.5em;
+        width: 1.3em;
       }
     }
   }
@@ -144,6 +144,10 @@ export const Svg = styled.img`
   bottom: 0;
   left: 0;
   transform: translateX(-50%);
+
+  @media ${themes.primary.media.maxMobile} {
+    transform: translateX(0);
+  }
 `;
 
 export const Image = styled.img`

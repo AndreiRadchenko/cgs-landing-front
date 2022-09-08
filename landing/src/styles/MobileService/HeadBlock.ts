@@ -10,6 +10,7 @@ export const Container = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
+    padding-top: 2em;
   }
 `;
 
@@ -111,6 +112,6 @@ export const Telephone = styled.img`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: auto;
+    width: 108%;
   }
 `;

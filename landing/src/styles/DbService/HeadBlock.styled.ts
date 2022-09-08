@@ -10,7 +10,7 @@ export const Container = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    padding-top: 3.125em;
+    padding-top: 0.625em;
     flex-direction: column;
 
     & a {
@@ -35,6 +35,10 @@ export const ContentContainer = styled.div`
       display: none;
     }
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 104%;
+  }
 `;
 
 export const Title = styled.h1`
@@ -44,8 +48,17 @@ export const Title = styled.h1`
   font-size: 4.125em;
   position: relative;
 
+  @media (min-width: 400px) {
+    span:nth-child(2) > br {
+      display: none;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.375em;
+    br {
+      display: block;
+    }
   }
 
   & > span:last-child {

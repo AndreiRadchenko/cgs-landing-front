@@ -10,7 +10,7 @@ export const Container = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    padding-top: 3.125em;
+    padding-top: 1em;
     flex-direction: column;
   }
 `;

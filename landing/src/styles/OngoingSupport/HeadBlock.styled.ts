@@ -14,7 +14,7 @@ export const Content = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding-top: 3.125em;
+    padding-top: 1.25em;
 
     & a {
       font-size: 1em;

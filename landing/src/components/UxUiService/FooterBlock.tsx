@@ -7,6 +7,7 @@ import {
   ArrowContainer,
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
+import { SplitBrackets } from "../../utils/splitBrackets";
 import * as Styled from "../../styles/UxUiService/FooterBlock.styled";
 
 const FooterBlock = () => {
@@ -19,7 +20,9 @@ const FooterBlock = () => {
   return (
     <Styled.Container>
       <Styled.ContentWrapper>
-        <Styled.Title>{data?.title}</Styled.Title>
+        <Styled.Title>
+          <SplitBrackets text={data?.title} />
+        </Styled.Title>
         <BlackButton
           padding={"1.117em 3.57em"}
           size={"1.125em"}

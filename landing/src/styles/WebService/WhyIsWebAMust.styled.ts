@@ -6,6 +6,10 @@ export const Container = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 11.25em;
+
+    h2 {
+      line-height: 132%;
+    }
   }
 `;
 
