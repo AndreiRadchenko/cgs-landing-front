@@ -27,7 +27,11 @@ export const QuestionBox = styled.div<IIsOpen>`
 display: flex:
 justify-content: center;
 align-items: center;
-  width: ${({ isOpen }) => (isOpen ? "100%" : "calc(100% - 40px)")};
+width: 100%;
+
+@media ${themes.primary.media.maxMobile} {
+    width: ${({ isOpen }) => (isOpen ? "100%" : "calc(100% - 40px)")};
+}
 `;
 
 export const TogglePlus = styled.div`
@@ -53,7 +57,7 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
   cursor: pointer;
   border-top: 1px solid ${themes.primary.colors.faqBorder};
 
-  padding-right: ${({ isOpen }) => isOpen && "20px"};
+  // padding-right: ${({ isOpen }) => isOpen && "20px"};
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.731em;
@@ -69,9 +73,8 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
 `;
 
 export const QuestionTitle = styled.p<IIsOpen>`
-  padding: ${({ isOpen }) => isOpen && "0 0 0 20px"};
   @media ${themes.primary.media.maxMobile} {
-    // padding: 15px 20px 15px;
+    padding: ${({ isOpen }) => isOpen && "0 0 0 20px"};
   }
 `;
 
