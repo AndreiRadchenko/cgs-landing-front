@@ -350,7 +350,7 @@ export const RowContainer = styled.div`
     position: absolute;
 
     &:nth-child(2) {
-      top: 85px;
+      top: 20px;
       left: 10px;
       & > div {
         &:nth-child(2) {
