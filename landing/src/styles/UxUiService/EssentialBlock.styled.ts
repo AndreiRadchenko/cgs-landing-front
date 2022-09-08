@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin: 12.24em 2.1em 0 1.56em;
+  margin: 12.7em 2.1em 0 1.56em;
   display: flex;
   position: relative;
 
@@ -35,13 +35,14 @@ export const Image = styled.img`
     position: relative;
     width: 20.44em;
     top: 0;
+    left: 0;
   }
 `;
 
 export const ContentWrapper = styled.div`
   padding-top: 1.125em;
-  padding-left: 0.4em;
-  margin: 0 0 0 auto;
+  padding-right: 0.8em;
+  margin-left: auto;
   max-width: 55%;
 
   @media ${themes.primary.media.maxMobile} {
@@ -58,8 +59,17 @@ export const Title = styled.h2`
   margin: 0;
   max-width: 100%;
 
+  br {
+    display: none;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
+    white-space: nowrap;
+
+    br {
+      display: block;
+    }
   }
 `;
 
@@ -67,8 +77,16 @@ export const Text = styled.p`
   font-size: 1.375em;
   line-height: 160%;
   margin: 1.82em 0 0;
+
+  @media ${themes.primary.media.maxServiceWeb} {
+    br {
+      display: none;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     margin: 2.125em 0 1.75em;
+    max-width: 94%;
   }
 `;

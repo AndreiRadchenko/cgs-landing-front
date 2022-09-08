@@ -16,6 +16,11 @@ export const Container = styled.div`
       font-size: 1em;
       padding: 1.195em 3.1em;
     }
+
+    h2 {
+      line-height: 132%;
+      width: 13em;
+    }
   }
 `;
 

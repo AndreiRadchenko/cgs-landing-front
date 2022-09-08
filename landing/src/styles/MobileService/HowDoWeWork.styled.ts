@@ -7,6 +7,10 @@ export const ContentWrapper = styled.div`
   @media ${themes.primary.media.maxServiceMobile} {
     margin-top: 10em;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 11.92em;
+  }
 `;
 
 export const LineContainer = styled.div`
@@ -44,7 +48,7 @@ export const MobileLine = styled.div<IMobileLine>`
   @media ${themes.primary.media.maxTabletLandScape} {
     display: block;
     position: relative;
-    top: -7px;
+    top: -27px;
     left: -10%;
     width: 120%;
     height: 24px;
@@ -120,6 +124,14 @@ export const TextContainer = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 0em;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 30em;
+    white-space: pre-wrap;
+    br {
+      display: none;
+    }
+  }
 `;
 
 export const Point = styled.img`
@@ -140,6 +152,10 @@ export const Point = styled.img`
     width: auto;
     margin-right: 5px;
     transform: translateY(0.6em) !important;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: 0;
   }
 `;
 
@@ -197,5 +213,10 @@ export const PointsWrapper = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
     column-gap: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 3.65em;
+    row-gap: 1.3em;
   }
 `;

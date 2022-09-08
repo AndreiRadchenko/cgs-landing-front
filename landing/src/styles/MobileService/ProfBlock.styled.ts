@@ -3,7 +3,10 @@ import themes from "../../utils/themes";
 import { cursorBlinking } from "../Animations.styled";
 
 export const ContentContainer = styled.div`
-  margin-top: 15.2em;
+  margin-top: 15.1em;
+  h2 {
+    line-height: 132%;
+  }
 `;
 
 export const ProfText = styled.div`
@@ -52,7 +55,7 @@ export const Image = styled.img`
     transform: rotate(-11.06deg);
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 115%;
+    width: 99%;
     right: -15%;
     bottom: 3.3rem;
   }

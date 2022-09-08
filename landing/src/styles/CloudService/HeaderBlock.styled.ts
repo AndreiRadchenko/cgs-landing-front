@@ -20,7 +20,7 @@ export const ContentWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding-top: 3.125em;
+    padding-top: 0.625em;
     margin-bottom: 0;
     max-width: 100%;
 
@@ -39,6 +39,10 @@ export const Title = styled.h1`
   margin: 0;
   position: relative;
   white-space: nowrap;
+
+  br {
+    display: none;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;

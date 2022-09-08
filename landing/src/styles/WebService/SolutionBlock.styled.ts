@@ -21,6 +21,7 @@ export const Container = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 11.25em;
     background: none;
+    padding-bottom: 0;
   }
 `;
 
@@ -39,7 +40,7 @@ export const BgImageSecond = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     display: block;
-    margin-top: 4.56em;
+    margin-top: 3.75em;
     width: 26.25em;
   }
 `;
@@ -106,7 +107,7 @@ export const RightSideContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 1.94em 0 0;
+    margin: 1.4em 0 0;
     font-size: 1em;
   }
 `;

@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 98.5%;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 10.375em;
+    margin-top: 11.25em;
 
     h2 {
       line-height: 233%;
@@ -89,10 +89,11 @@ export const BigDigit = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     position: absolute;
-    left: 0;
+    left: -0.1em;
     font-size: 3.75em;
-    width: 100px;
+    width: 20%;
     margin: 0;
+    text-align: center;
   }
 `;
 
