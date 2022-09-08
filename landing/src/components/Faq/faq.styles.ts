@@ -72,8 +72,12 @@ export const PageTitle = styled.div`
   }
 `;
 export const QuestionsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   @media ${themes.primary.media.maxMobile} {
-    padding: 0 20px;
     border-bottom: 1px solid ${themes.primary.colors.faqBorder};
     margin-bottom: 170px;
   }
