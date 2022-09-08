@@ -157,7 +157,7 @@ const ArticlePage = () => {
             </div>
             <Styles.BannerWrapper>
               <Styles.TagWrapper>
-                <ShareOn title={article.title} />
+                <ShareOn title={article.title} className="web" />
                 <ArticleTags tags={article.tags} />
                 <ArticleAuthor
                   author={article.author}
@@ -190,6 +190,7 @@ const ArticlePage = () => {
             {readMore && (
               <>
                 <ArticleDescription content={article.content} />
+                <ShareOn title={article.title} className="mobile" />
                 <ArticleReadMore readMore={readMore} findViews={findViews} />
               </>
             )}

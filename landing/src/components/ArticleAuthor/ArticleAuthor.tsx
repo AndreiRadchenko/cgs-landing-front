@@ -5,6 +5,7 @@ import { IAuthor } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Blog.styled";
 import Watch from "../../../public/Watch.svg";
 import AuthorPlaceholder from "../../../public/authorPlaceholder.png";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 interface IArticleAuthor {
   author: IAuthor;
@@ -21,6 +22,7 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
   time,
   views,
 }) => {
+  const { width } = useWindowDimension();
   const formatDate = (date: string) => {
     return date.split("-").reverse().join(".");
   };
@@ -39,26 +41,44 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
               By {author.name} / {author.specialization}
             </Styles.AuthorName>
             <Styles.SpaceBetween>
-              <Styled.ArticleWatchContainer>
-                <Styled.WatchIcon src={Watch.src} />
-                <Styled.WatchCountArticle>
-                  {views || 0}
-                </Styled.WatchCountArticle>
-              </Styled.ArticleWatchContainer>
-              <Styled.ArticleTimerContainer>
-                <Styled.TimerIcon src={Timer.src} />
-                <Styled.GrayText>{`${time} min`}</Styled.GrayText>
-              </Styled.ArticleTimerContainer>
+              {width && width <= 768 && (
+                <Styles.DatesContainer>
+                  {(update && (
+                    <Styled.GrayText>
+                      `Updated on {formatDate(update)}`
+                    </Styled.GrayText>
+                  )) || (
+                    <Styled.GrayText>
+                      Published on {formatDate(date)}
+                    </Styled.GrayText>
+                  )}
+                </Styles.DatesContainer>
+              )}
+              <Styles.StatisticWrapper>
+                <Styled.ArticleWatchContainer>
+                  <Styled.WatchIcon src={Watch.src} />
+                  <Styled.WatchCountArticle>
+                    {views || 0}
+                  </Styled.WatchCountArticle>
+                </Styled.ArticleWatchContainer>
+                <Styled.ArticleTimerContainer>
+                  <Styled.TimerIcon src={Timer.src} />
+                  <Styled.GrayText>{`${time} min`}</Styled.GrayText>
+                </Styled.ArticleTimerContainer>
+              </Styles.StatisticWrapper>
             </Styles.SpaceBetween>
           </Styles.Container>
         </Styles.AuthorInfoWrapper>
       </Styles.Wrapper>
-      <Styles.DatesContainer>
-        <Styled.GrayText>Published on {formatDate(date)}</Styled.GrayText>
-        <Styled.GrayText>
-          {update && `Updated on ${formatDate(update)}`}
-        </Styled.GrayText>
-      </Styles.DatesContainer>
+      {width && width > 768 && (
+        <Styles.DatesContainer>
+          {(update && (
+            <Styled.GrayText>`Updated on {formatDate(update)}`</Styled.GrayText>
+          )) || (
+            <Styled.GrayText>Published on {formatDate(date)}</Styled.GrayText>
+          )}
+        </Styles.DatesContainer>
+      )}
     </>
   );
 };

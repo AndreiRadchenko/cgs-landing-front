@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 12.06em;
+  margin-top: 12.5em;
   position: relative;
   padding-bottom: 19.25em;
 
@@ -32,9 +32,18 @@ export const Title = styled.h2`
   line-height: 140%;
   text-transform: uppercase;
 
+  br {
+    display: none;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
     margin: 0 0 1.46em;
+    white-space: nowrap;
+
+    br {
+      display: block;
+    }
   }
 `;
 
@@ -46,6 +55,7 @@ export const Image = styled.img`
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     top: 1.56em;
-    right: 0.25em;
+    left: 4.44em;
+    width: 22.88em;
   }
 `;

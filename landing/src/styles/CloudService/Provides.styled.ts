@@ -40,10 +40,10 @@ export const BgContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     background-image: url(${cloudProvidesMobile.src});
-    top: 0;
-    left: -26em;
+    top: -2em;
+    left: -25.9em;
     height: 100%;
-    width: 65em;
+    width: 64em;
     background-size: cover;
   }
 `;
@@ -118,15 +118,23 @@ export const Title = styled.p`
   font-size: 2em;
   margin: 0;
 
+  br {
+    display: none;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.25em;
-    max-width: 12em;
+    max-width: 14em;
+
+    br {
+      display: block;
+    }
   }
 `;
 
 export const Description = styled.div`
   font-size: 1.125em;
-  margin: 1.28em 0 0 0;
+  margin-top: 1.28em;
   line-height: 160%;
   max-width: 26.39em;
 
@@ -143,5 +151,6 @@ export const Description = styled.div`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     max-width: 20em;
+    margin-top: 0.81em;
   }
 `;

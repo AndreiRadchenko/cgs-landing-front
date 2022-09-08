@@ -11,6 +11,10 @@ export const Container = styled.div`
   @media ${themes.primary.media.onlyTabletLandScape} {
     margin-top: 6em;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 17.5em;
+  }
 `;
 
 export const Title = styled.h2`

@@ -6,6 +6,7 @@ import {
   ArrowContainer,
   BlackButton,
 } from "../../styles/HomePage/General.styled";
+import { SplitBrackets } from "../../utils/splitBrackets";
 import * as Styled from "../../styles/CloudService/FooterBlock.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
 
@@ -18,7 +19,9 @@ const FooterBlock = () => {
   return (
     <Styled.Container>
       <Styled.Content>
-        <Styled.Title>{data?.subtitle}</Styled.Title>
+        <Styled.Title>
+          <SplitBrackets text={data?.subtitle} />
+        </Styled.Title>
         <BlackButton
           padding={"1.117em 3.57em"}
           size={"1.125em"}

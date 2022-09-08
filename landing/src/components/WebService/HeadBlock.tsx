@@ -3,7 +3,6 @@ import {
   ArrowContainer,
   BlackButton,
 } from "../../styles/HomePage/General.styled";
-import themes from "../../utils/themes";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
@@ -34,7 +33,7 @@ const HeadBlock = () => {
         </Description>
         <BlackButton
           padding={"1.117em 2.537em"}
-          size={themes.primary.font.size.oneAndHalf}
+          size={"1.125em"}
           href={data?.buttonLink}
         >
           {data?.button}

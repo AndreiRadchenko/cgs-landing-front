@@ -8,9 +8,9 @@ const Faq = ({ questions }: IFaqData) => {
   return (
     <Styles.FaqContainer>
       <Styles.PageTitle>
-        <div>frequently&nbsp;</div>
-        <div>asked&nbsp;</div>
-        <div>questions&nbsp;</div>
+        <p className="word first">frequently&nbsp;</p>
+        <p className="word">asked&nbsp;</p>
+        <p className="word">questions&nbsp;</p>
       </Styles.PageTitle>
       <Styles.QuestionsWrapper>
         {questions.map(({ question, text, image, id }) => (

@@ -3,6 +3,10 @@ import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 5.5em;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 10.5em;
+  }
 `;
 
 export const ContentLayout = styled.div`
@@ -19,6 +23,10 @@ export const ContentLayout = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
     width: 100%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 3.65em;
   }
 `;
 
@@ -57,6 +65,11 @@ export const WorthText = styled.p`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 5px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 2.18em;
+    width: 20.5em;
   }
 `;
 

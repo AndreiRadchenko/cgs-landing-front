@@ -21,9 +21,10 @@ const HeadBlock = () => {
     <Styled.Container>
       <Styled.ContentWrapper>
         <Styled.Title>
-          {data?.title.split(" ").map((el, idx) => (
+          {/* {data?.title.split(" ").map((el, idx) => (
             <span key={idx}>{el} </span>
-          ))}
+          ))} */}
+          <SplitBrackets text={data?.title} />
         </Styled.Title>
         <Styled.Description>
           <SplitBrackets text={data?.text} />

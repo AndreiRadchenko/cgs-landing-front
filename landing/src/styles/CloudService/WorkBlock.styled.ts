@@ -38,6 +38,7 @@ export const BlockWrapper = styled.div`
     padding-left: 2.5em;
     padding-right: 0;
     max-width: 100%;
+    margin-top: 2.375em;
   }
 `;
 
@@ -54,7 +55,8 @@ export const Block = styled.div`
     content: "";
     position: absolute;
     display: block;
-    width: 4em;
+    min-width: 2em;
+    width: stretch;
     border: 1px solid black;
     position: absolute;
     top: 50%;
@@ -64,8 +66,8 @@ export const Block = styled.div`
     }
 
     @media ${themes.primary.media.maxMobile} {
-      top: 53%;
-      left: -12%;
+      top: 45%;
+      left: -5em;
     }
   }
 
@@ -97,6 +99,7 @@ export const Image = styled.img`
   @media ${themes.primary.media.maxMobile} {
     width: 2.5em;
     left: -3em;
+    transform: translateY(-50%);
   }
 `;
 

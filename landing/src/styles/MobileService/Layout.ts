@@ -19,6 +19,7 @@ export const Subtitle = styled.h2`
   line-height: 140%;
   font-size: 2.5em;
   text-transform: uppercase;
+  font-weight: inherit;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 1.5rem;
@@ -30,6 +31,7 @@ export const Subtitle = styled.h2`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    line-height: 233%;
     white-space: normal;
   }
 

@@ -15,6 +15,7 @@ import WebPros from "../../components/WebService/WebPros";
 import SolutionBlock from "../../components/WebService/SolutionBlock";
 import PerksBlock from "../../components/WebService/PerksBlock";
 import FooterBlock from "../../components/WebService/FooterBlock";
+import { Layout } from "../../styles/Layout.styled";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -47,14 +48,16 @@ const WebDevelopment: NextPage = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Styled.Layout>
-        <HeadBlock />
-        <WebPros />
-        <WhyIsWebAMust />
-        <SolutionBlock />
-        <PerksBlock />
-        <FooterBlock />
-      </Styled.Layout>
+      <Layout>
+        <Styled.Layout>
+          <HeadBlock />
+          <WebPros />
+          <WhyIsWebAMust />
+          <SolutionBlock />
+          <PerksBlock />
+          <FooterBlock />
+        </Styled.Layout>
+      </Layout>
       <FooterNew />
     </>
   );

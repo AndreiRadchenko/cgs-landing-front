@@ -11,7 +11,7 @@ export const ContentWrapper = styled.div`
   max-width: 50%;
 
   @media ${themes.primary.media.maxMobile} {
-    padding-top: 4.06em;
+    padding-top: 2.4em;
     max-width: 100%;
 
     & a {
@@ -29,6 +29,10 @@ export const Title = styled.h1`
   text-transform: uppercase;
   margin: 0;
 
+  br {
+    display: none;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
   }
@@ -43,8 +47,8 @@ export const Title = styled.h1`
       height: 1.45em;
       background-color: ${themes.primary.colors.primary};
       animation: ${cursorBlinking} 0.8s infinite;
-      position: absolute;
-      top: 0;
+      position: relative;
+      top: 0.4em;
       right: -0.2em;
     }
   }

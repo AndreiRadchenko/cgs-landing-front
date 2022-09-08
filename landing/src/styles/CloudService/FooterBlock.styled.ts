@@ -44,9 +44,17 @@ export const Title = styled.h3`
   margin: 0 0 1.3em;
   max-width: 18.225em;
 
+  br {
+    display: none;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
     line-height: 132%;
     margin-bottom: 1.46;
+
+    br {
+      display: block;
+    }
   }
 `;

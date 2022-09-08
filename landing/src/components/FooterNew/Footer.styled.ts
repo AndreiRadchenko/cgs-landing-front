@@ -63,7 +63,7 @@ export const LogoLinkWrapper = styled.a`
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
   }
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     display: none;
   }
 `;
@@ -113,6 +113,31 @@ export const ListItemNav = styled.a`
     &:nth-child(n) {
       padding: 0;
     }
+  }
+
+  @media ${themes.primary.media.minTabletPortrait} {
+    padding: 0.5rem 1.8rem;
+  }
+  &:hover {
+    transition: 0.3s linear;
+    border-right: 1.5px solid ${themes.primary.colors.primary} !important;
+    border-bottom: 7px solid ${themes.primary.colors.primary} !important;
+  }
+  &:nth-child(1) {
+    padding-left: 1.845rem;
+    padding-right: 1.845rem;
+  }
+  &:nth-child(2) {
+    padding-left: 1.673rem;
+    padding-right: 0.673rem;
+  }
+  &:nth-child(3) {
+    padding-left: 1.72rem;
+    padding-right: 1.72rem;
+  }
+  &:nth-child(4) {
+    padding-left: 1.218rem;
+    padding-right: 1.218rem;
   }
 `;
 

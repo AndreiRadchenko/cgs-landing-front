@@ -30,7 +30,9 @@ export const SubBlockContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
-    margin-top: 2.375em;
+    margin-top: -1.2em;
+    padding-left: 0;
+    max-width: 99.4%;
   }
 
   & > div {
@@ -38,12 +40,13 @@ export const SubBlockContainer = styled.div`
     flex-basis: 30%;
 
     @media ${themes.primary.media.maxMobile} {
+      margin-top: -15px;
       & img {
-        width: 1.8em;
+        width: 1.6em;
       }
 
       &:first-child img {
-        width: 1.3em;
+        width: 1.2em;
       }
     }
 
@@ -51,7 +54,7 @@ export const SubBlockContainer = styled.div`
       margin-top: 9.5em;
 
       @media ${themes.primary.media.maxMobile} {
-        margin-top: 2.125em;
+        margin-top: 1.19em;
       }
 
       & > img {
@@ -86,7 +89,7 @@ export const SubBlockContainer = styled.div`
     }
 
     @media ${themes.primary.media.maxMobile} {
-      margin-top: 2.125em;
+      margin-top: 1.19em;
     }
   }
 `;
@@ -125,6 +128,10 @@ export const Svg = styled.img`
   position: absolute;
   top: -0.2em;
   left: -0.9em;
+
+  @media ${themes.primary.media.maxMobile} {
+    left: 0;
+  }
 `;
 
 export const Image = styled.img`
