@@ -35,6 +35,20 @@ export const ThankYouModalContent = styled.div`
   background: ${themes.primary.colors.grayBack};
   position: relative;
   border: 2px solid ${themes.primary.colors.primary};
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 400px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 345px;
+    height: 284px;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    width: 300px;
+    height: 284px;
+  }
 `;
 
 export const ThankContainer = styled.div`
@@ -42,23 +56,34 @@ export const ThankContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  justify-content: center;
-  margin: 0 55px 0 55px;
+  margin: 47px 55px 0 55px;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin: 32px 0 0 11px;
+  }
 `;
 
 export const ThankMessage = styled.span`
   font-size: 32px;
   font-weight: ${themes.primary.font.weight.heavy};
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1.375rem;
+  }
 `;
 
 export const CloseButton = styled.img`
-  margin: 66px 46px 0 0;
+  margin: 51px 46px 0 0;
   width: 22px;
   height: 22px;
   position: absolute;
   right: 0;
   top: 0;
   cursor: pointer;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin: 19px 21px 0 0;
+  }
 `;
 
 export const Thing = styled.img`
@@ -88,6 +113,11 @@ export const Container = styled.div`
   margin-top: 12px;
   margin-left: 12px;
   border: 2px solid black;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
 `;
 
 export const BlackBox = styled.div`

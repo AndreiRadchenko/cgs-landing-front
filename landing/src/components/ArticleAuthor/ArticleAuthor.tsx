@@ -41,7 +41,7 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
               By {author.name} / {author.specialization}
             </Styles.AuthorName>
             <Styles.SpaceBetween>
-              {width && width <= 768 && (
+              {width && width <= 767 && (
                 <Styles.DatesContainer>
                   {(update && (
                     <Styled.GrayText>
@@ -70,7 +70,7 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
           </Styles.Container>
         </Styles.AuthorInfoWrapper>
       </Styles.Wrapper>
-      {width && width > 768 && (
+      {width && width > 767 && (
         <Styles.DatesContainer>
           {(update && (
             <Styled.GrayText>`Updated on {formatDate(update)}`</Styled.GrayText>

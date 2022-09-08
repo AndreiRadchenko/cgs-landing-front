@@ -29,7 +29,7 @@ const CardsBlock = () => {
       {data &&
         Object.entries(data).map((item, idx) => (
           <Styled.CardContainer key={idx}>
-            {arrOfImages[idx] !== null && (
+            {width && arrOfImages[idx] !== null && (
               <Styled.CardImage src={arrOfImages[idx].src} alt="card img" />
             )}
             <Styled.CardTitle>

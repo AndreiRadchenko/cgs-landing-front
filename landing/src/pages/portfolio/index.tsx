@@ -47,7 +47,7 @@ const PortfolioPage: NextPage = () => {
   };
   useEffect(() => {
     setIsMobile(false);
-    if (width && width <= 768) {
+    if (width && width <= 767) {
       setIsMobile(true);
     }
   }, [width]);

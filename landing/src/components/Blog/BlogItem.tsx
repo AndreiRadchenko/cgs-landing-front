@@ -26,7 +26,7 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
               <Styled.ArticlePreview>
                 <Styled.BlogItemContent>
                   <Styled.FlexRowContainer>
-                    {(width && width <= 768 && (
+                    {(width && width <= 767 && (
                       <Styled.FlexColumnContainer className="preview">
                         <Styled.SecondaryAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.SecondaryAuthor>
                         <Styled.StatisticWrapper>

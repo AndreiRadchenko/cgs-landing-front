@@ -33,11 +33,11 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
 
   return (
     <StyledThisComp.CategoryContainer
-      onMouseOver={width && width > 768 ? onOpen : undefined}
-      onMouseLeave={width && width > 768 ? onClose : undefined}
+      onMouseOver={width && width >= 768 ? onOpen : undefined}
+      onMouseLeave={width && width >= 768 ? onClose : undefined}
     >
       <StyledThisComp.CategoryTitle
-        onClick={width && width < 768 ? () => setIsOpen(!isOpen) : undefined}
+        onClick={width && width < 767 ? () => setIsOpen(!isOpen) : undefined}
       >
         {title}&nbsp;
         <StyledThisComp.Arrow
@@ -61,7 +61,7 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
       <StyledThisComp.CategoryImage
         src={img}
         alt="tech category img"
-        className={width && width < 768 && isOpen ? "open" : undefined}
+        className={width && width < 767 && isOpen ? "open" : undefined}
       />
     </StyledThisComp.CategoryContainer>
   );
