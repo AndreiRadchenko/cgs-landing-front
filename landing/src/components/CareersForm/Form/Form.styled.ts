@@ -59,6 +59,14 @@ export const FormField = styled(Field)<IFormField>`
   &::placeholder {
     opacity: 1;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    font-size: 0.75rem;
+  }
 `;
 
 const opacity = keyframes`
@@ -209,6 +217,11 @@ export const FormSentButton = styled.button<ISentButton>`
   &:nth-child(1) {
     color: ${({ isDisabled }) => (isDisabled ? "grey" : "black")};
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 198px;
+    height: 49px;
+  }
 `;
 
 export const FormSentFillText = styled.span<IFillAllFields>`
@@ -225,6 +238,10 @@ export const FormSentFillText = styled.span<IFillAllFields>`
 export const FormSentWrap = styled.span`
   color: grey;
   margin: 0;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const FormSentText = styled.span`
@@ -233,6 +250,10 @@ export const FormSentText = styled.span`
 
   &:first-letter {
     text-transform: capitalize;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 0.875rem;
   }
 `;
 
@@ -372,12 +393,20 @@ export const Label = styled.label<ILabelOptions>`
   right: 0;
   color: gray;
   cursor: pointer;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 61px;
+  }
 `;
 
 export const LabelTitle = styled.span`
   margin: 0;
   margin-left: 10%;
   font-size: 12px;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 10px;
+  }
 `;
 
 export const Clip = styled.img`
@@ -386,6 +415,12 @@ export const Clip = styled.img`
   margin-left: 35%;
   width: 25px;
   height: 25px;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 17px;
+    height: 17px;
+    margin-bottom: 5px;
+  }
 `;
 
 export const LabelWithClipContainer = styled.div<ISpinner>`

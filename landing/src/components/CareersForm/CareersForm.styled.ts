@@ -58,4 +58,16 @@ export const ImageWrapper = styled.div`
 export const FormContainter = styled.div`
   width: 446px;
   height: 417px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 395px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 335px;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    width: 295px;
+  }
 `;

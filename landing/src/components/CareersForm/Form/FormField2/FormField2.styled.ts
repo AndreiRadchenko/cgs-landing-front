@@ -15,6 +15,14 @@ export const FormField = styled(Field)`
   &:focus {
     outline: none;
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 0.875rem;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    font-size: 0.75rem;
+  }
 `;
 
 export const FormFieldContainer = styled.div`

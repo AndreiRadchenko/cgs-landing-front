@@ -19,7 +19,7 @@ const HeaderNavNew = (): JSX.Element => {
   };
 
   useEffect(() => {
-    isOpen && width && width >= 768 && setIsOpen(false);
+    isOpen && width && width > 768 && setIsOpen(false);
   }, [width, isOpen]);
 
   DisableScrollBarHandler(isOpen);

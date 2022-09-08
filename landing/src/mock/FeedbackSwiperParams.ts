@@ -16,7 +16,7 @@ const data: SwiperProps = {
       slidesPerView: 1,
       spaceBetween: 20,
     },
-    768: {
+    767: {
       slidesPerView: 2,
       spaceBetween: 30,
     },

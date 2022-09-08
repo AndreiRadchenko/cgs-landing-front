@@ -19,7 +19,7 @@ const ArticleReadMore = ({ readMore, findViews }: IArticleReadMore) => {
       </Styles.TitleWrapper>
       <Styles.ReadMoreItemsWrapper>
         {readMore.map((article) =>
-          width && width > 768 ? (
+          width && width >= 768 ? (
             <ArticleReadMoreItem
               key={article._id}
               article={article}

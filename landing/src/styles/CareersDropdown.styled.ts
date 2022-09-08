@@ -48,6 +48,18 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     margin-left: 10px;
     transform: rotate(0deg);
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    span {
+      font-size: 0.875rem;
+    }
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    span {
+      font-size: 0.75rem;
+    }
+  }
 `;
 
 export const Dropdown = styled.div`
