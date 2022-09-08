@@ -37,7 +37,7 @@ export const MainTitle = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 34px;
-    padding-top: 45px;
+    padding-top: 15px;
   }
 `;
 
@@ -76,6 +76,7 @@ export const Text = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     font-size: 16px;
     margin-top: 20px;
   }
@@ -412,6 +413,7 @@ export const ColContainer = styled.div`
     &.first,
     &.second {
       margin: 0;
+      width: 100%;
     }
   }
 `;
