@@ -29,12 +29,6 @@ export const FaqContainer = styled.div`
       text-decoration: none;
     }
   }
-  p {
-    color: ${themes.primary.colors.blogArticleText} !important;
-  }
-  span {
-    color: ${themes.primary.colors.blogArticleText} !important;
-  }
 `;
 
 export const BottomDecorWrap = styled.div`
@@ -60,17 +54,25 @@ export const PageTitle = styled.div`
   font-size: 4.45vw;
   display: flex;
   margin-bottom: 54px;
-  div::first-letter {
+
+  p::first-letter {
     color: ${themes.primary.colors.darkBlue};
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 13px 0 39px;
-    font-size: 3.27em;
     flex-wrap: wrap;
+    display: flex;
+
+    .first {
+      width: 100%;
+    }
+
+    font-size: ${themes.primary.font.size.faqMobileTitle};
+    margin: 13px 0 39px;
     padding: 0 20px;
   }
 `;
+
 export const QuestionsWrapper = styled.div`
   display: flex;
   flex-direction: column;

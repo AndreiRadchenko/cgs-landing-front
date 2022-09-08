@@ -57,8 +57,6 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
   cursor: pointer;
   border-top: 1px solid ${themes.primary.colors.faqBorder};
 
-  // padding-right: ${({ isOpen }) => isOpen && "20px"};
-
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.731em;
   }
@@ -74,6 +72,7 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
 
 export const QuestionTitle = styled.p<IIsOpen>`
   @media ${themes.primary.media.maxMobile} {
+    font-size: 18px;
     padding: ${({ isOpen }) => isOpen && "0 0 0 20px"};
   }
 `;
@@ -85,6 +84,7 @@ export const QuestionContentContainer = styled.div<IIsOpen>`
   line-height: 160%;
   column-gap: 15px;
   justify-content: space-between;
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.linkText};
     flex-wrap: wrap;
@@ -98,4 +98,8 @@ export const QuestionContentContainer = styled.div<IIsOpen>`
 export const QuestionTextContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  span {
+    color: ${themes.primary.colors.blogArticleText} !important;
+  }
 `;
