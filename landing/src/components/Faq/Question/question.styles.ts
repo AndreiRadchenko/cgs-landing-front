@@ -21,9 +21,17 @@ export const QuestionImage = styled.img`
     width: 600px;
   }
 `;
-export const QuestionContainer = styled.div<IIsOpen>`
-  border-bottom: ${({ isOpen }) =>
-    isOpen && `1px solid ${themes.primary.colors.faqBorder}`};
+export const QuestionContainer = styled.div<IIsOpen>``;
+
+export const QuestionBox = styled.div<IIsOpen>`
+display: flex:
+justify-content: center;
+align-items: center;
+width: 100%;
+
+@media ${themes.primary.media.maxMobile} {
+    width: ${({ isOpen }) => (isOpen ? "100%" : "calc(100% - 40px)")};
+}
 `;
 
 export const TogglePlus = styled.div`
@@ -48,6 +56,7 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
   justify-content: space-between;
   cursor: pointer;
   border-top: 1px solid ${themes.primary.colors.faqBorder};
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.731em;
   }
@@ -56,11 +65,17 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 15px 20px;
+    padding: 15px 0px;
+    padding-right: ${({ isOpen }) => isOpen && "20px"};
   }
 `;
 
-export const QuestionTitle = styled.div``;
+export const QuestionTitle = styled.p<IIsOpen>`
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 18px;
+    padding: ${({ isOpen }) => isOpen && "0 0 0 20px"};
+  }
+`;
 
 export const QuestionContentContainer = styled.div<IIsOpen>`
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
@@ -69,17 +84,22 @@ export const QuestionContentContainer = styled.div<IIsOpen>`
   line-height: 160%;
   column-gap: 15px;
   justify-content: space-between;
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.linkText};
     flex-wrap: wrap;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 18px 0 24px;
+    padding: 18px 20px 24px;
   }
 `;
 
 export const QuestionTextContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  span {
+    color: ${themes.primary.colors.blogArticleText} !important;
+  }
 `;
