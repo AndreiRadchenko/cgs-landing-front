@@ -11,12 +11,12 @@ import { Layout } from "../../styles/Layout.styled";
 const Content = () => {
   return (
     <>
-      <Layout>
+      <Layout className="hidden">
         <HeadBlock />
         <NextTech />
       </Layout>
       <Separator />
-      <Layout>
+      <Layout className="hidden">
         <CarouselFeedback />
         <Technologies />
         <CardsBlock />

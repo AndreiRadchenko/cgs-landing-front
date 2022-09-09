@@ -9,6 +9,10 @@ export const Layout = styled.article`
   overflow: clip;
   font-family: ${themes.primary.font.family.namu};
 
+  &.hidden {
+    overflow: hidden;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     width: 1800px;
   }
