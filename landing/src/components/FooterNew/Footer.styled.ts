@@ -72,7 +72,6 @@ export const ListItemNav = styled.a`
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.headerLinkText};
-  padding: 12px 3rem 13px;
   max-width: 180px;
   display: flex;
   justify-content: center;
@@ -80,30 +79,13 @@ export const ListItemNav = styled.a`
   border-left: 1px solid ${themes.primary.colors.headerBorder};
   cursor: pointer;
   transition: 300ms;
-  @media ${themes.primary.media.maxTabletPortrait} {
-    padding: 0.5rem 1.8rem;
-  }
+
   &:hover {
     transition: 0.3s linear;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
   }
-  &:nth-child(1) {
-    padding-left: 3.845rem;
-    padding-right: 3.845rem;
-  }
-  &:nth-child(2) {
-    padding-left: 3.673rem;
-    padding-right: 3.673rem;
-  }
-  &:nth-child(3) {
-    padding-left: 4.72rem;
-    padding-right: 4.72rem;
-  }
-  &:nth-child(4) {
-    padding-left: 3.218rem;
-    padding-right: 3.218rem;
-  }
+
   @media ${themes.primary.media.maxMobile} {
     flex: 1;
     border: none;
@@ -115,29 +97,27 @@ export const ListItemNav = styled.a`
     }
   }
 
-  @media ${themes.primary.media.minTabletPortrait} {
-    padding: 0.5rem 1.8rem;
-  }
   &:hover {
     transition: 0.3s linear;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
   }
+
   &:nth-child(1) {
-    padding-left: 1.845rem;
-    padding-right: 1.845rem;
+    width: 157px;
   }
   &:nth-child(2) {
-    padding-left: 1.673rem;
-    padding-right: 0.673rem;
+    width: 163px;
   }
   &:nth-child(3) {
-    padding-left: 1.72rem;
-    padding-right: 1.72rem;
+    width: 180px;
   }
   &:nth-child(4) {
-    padding-left: 1.218rem;
-    padding-right: 1.218rem;
+    width: 136px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 25%;
   }
 `;
 
@@ -149,11 +129,15 @@ export const NavList = styled.menu`
     margin-right: 0;
   }
   @media ${themes.primary.media.maxMobile} {
-    flex: 1;
-    justify-content: center;
+    width: 170px;
+    margin: 0 auto;
+    justify-content: space-between;
     align-items: center;
-    margin: 0;
     padding: 5px 0 0;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 44%;
   }
 `;
 
