@@ -14,6 +14,7 @@ export const BlockWrapper = styled.div`
   padding-top: 0.75em;
   display: flex;
   justify-content: space-between;
+  column-gap: 50px;
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;

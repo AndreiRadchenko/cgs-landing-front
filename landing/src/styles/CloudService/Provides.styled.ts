@@ -17,7 +17,7 @@ export const BgContainer = styled.div`
   height: 41em;
   position: relative;
   left: -9.5%;
-  top: -50px;
+  top: -45px;
   background-image: url(${cloudProvidesBgi.src});
   background-size: cover;
   background-repeat: no-repeat;

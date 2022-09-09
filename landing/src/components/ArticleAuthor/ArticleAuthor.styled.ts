@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
     align-items: center;
+    width: 105%;
   }
 `;
 
@@ -78,6 +79,19 @@ export const SpaceBetween = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+
+  @media ${themes.primary.media.maxMobile} {
+    & > div:first-child {
+      div {
+        font-size: 1.15em;
+        white-space: nowrap;
+      }
+    }
+
+    & > div:not(:first-child) div {
+      font-size: 1.16em;
+    }
+  }
 `;
 
 export const AuthorMetaInfoWrapper = styled.div`

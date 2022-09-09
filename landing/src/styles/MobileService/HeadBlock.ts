@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 4.85em 0 2.5em 0;
+  padding: 6.25em 0 3.1em 0;
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
@@ -17,10 +17,11 @@ export const Container = styled.div`
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   width: 45.5%;
   z-index: 2;
+  margin-top: 6.3em;
 
   & > a {
     padding-inline: 3.7em;
@@ -101,11 +102,9 @@ export const Description = styled.div`
 `;
 
 export const Telephone = styled.img`
-  font-size: ${themes.primary.font.size.feedbackName};
-  line-height: 160%;
   margin-bottom: 0.2rem;
   margin-right: 2rem;
-  width: 43.6%;
+  width: 48.92em;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 38%;
