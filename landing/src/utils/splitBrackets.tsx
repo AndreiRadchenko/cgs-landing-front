@@ -13,7 +13,6 @@ export const SplitBrackets = ({ text }: ISplitBracketsProps) => {
     lastWord = lastPart.splice(lastPart.length - 1, 1);
     splited[splited?.length - 1] = lastPart.join(" ");
   }
-  console.log(splited);
 
   return (
     <>
