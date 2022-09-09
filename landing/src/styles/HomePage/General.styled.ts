@@ -117,7 +117,7 @@ export const Title = styled.h1`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 3.3rem;
+    font-size: 3.5rem;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
@@ -155,7 +155,7 @@ export const MainSubtitle = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 1.05rem;
+    font-size: 1.125rem;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
@@ -226,7 +226,7 @@ export const LongArrow = styled.img`
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-left: 0;
     margin-right: 5px;
-    width: 30vw;
+    width: 110px;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
@@ -273,7 +273,7 @@ export const Tetris = styled.img`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     transform: none;
-    width: 90%;
+    width: 101.74%;
   }
 `;
 
@@ -288,6 +288,10 @@ export const HeadBlockRow = styled(RowContainer)`
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     align-items: center;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-top: 1.375rem;
   }
 `;
 
@@ -361,13 +365,16 @@ export const Subtitle = styled.div`
   @media ${themes.primary.media.maxLowScreenMobile} {
     &.small {
       line-height: 132%;
-      font-size: 8.1vw;
+      font-size: 2rem;
+      display: inline-block;
+      white-space: nowrap;
     }
     &.small div {
       flex-wrap: wrap;
     }
 
     &.footer {
+      margin-top: 180px;
       font-size: 2rem;
       margin-bottom: 200px;
     }
@@ -418,7 +425,7 @@ export const FilmContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding-bottom: 410px;
+    padding-bottom: 402px;
     overflow: visible;
   }
 
@@ -539,11 +546,10 @@ export const RightContainer = styled.div`
 export const Separator = styled.div`
   height: 1px;
   width: 100%;
-  margin-block: 90px;
+  margin-block: 90.5px;
   background-color: ${themes.primary.colors.headerBorder};
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-block: 80px;
     opacity: 0;
   }
 `;

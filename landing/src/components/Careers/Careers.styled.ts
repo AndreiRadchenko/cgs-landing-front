@@ -42,6 +42,10 @@ export const Title = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-bottom: 30px;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 14px;
+  }
 `;
 
 export const ArrowContainer = styled.div`
@@ -136,6 +140,10 @@ export const TicketsWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 115px;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-bottom: 100px;
+  }
 `;
 
 export const TicketsContainer = styled.div`
@@ -177,8 +185,7 @@ export const FormAndImageContainer = styled.div`
     margin-left: 50px;
   }
   @media ${themes.primary.media.maxMobile} {
-    margin-left: 0;
-    margin-bottom: 69px;
+    margin: 0 0 69px 0;
   }
 `;
 
@@ -205,6 +212,7 @@ export const FormTitle = styled.span`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 21px;
+    margin-bottom: 20px;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
@@ -258,7 +266,7 @@ export const FormImage = styled.img`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    right: -5%;
+    right: -1%;
     width: 130%;
   }
 `;
@@ -278,6 +286,7 @@ export const FormContainer3D = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 361px;
     width: 345px;
   }
 

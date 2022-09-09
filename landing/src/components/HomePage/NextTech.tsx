@@ -33,16 +33,14 @@ const NextTech = () => {
         <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
       </Styled.FilmContainer>
       <Styled.Subtitle className="small">
-        {width && width <= 475 ? (
+        {width && width < 475 ? (
           <>
-            <Styled.RowContainer>
-              wide&nbsp;<span className={"blue"}>tech-range</span>&nbsp;
-            </Styled.RowContainer>
+            wide&nbsp;<span className={"blue"}>tech-range</span>
             <Styled.RowContainer>
               <Styled.LongArrow src={longArrow.src} />
               Innovative
             </Styled.RowContainer>
-            <Styled.RowContainer> customer-value</Styled.RowContainer>
+            customer-value
           </>
         ) : (
           <>
