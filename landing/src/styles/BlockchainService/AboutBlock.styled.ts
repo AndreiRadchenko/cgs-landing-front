@@ -11,18 +11,19 @@ export const Container = styled.div`
   background-size: contain;
   background-position: top 100% right 6.75em;
 
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    padding: 4.5em 0 5em;
+  @media (max-width: 1300px) {
+    background-size: 60%;
+    background-position: top right;
   }
-
   @media ${themes.primary.media.maxTabletLandScape} {
-    background-position: right center;
+    background-position: right 30%;
   }
   @media ${themes.primary.media.maxMobile} {
     width: 24em;
-    margin: -6.25em 0 0 -1.5em;
+    margin: -6.25em 0 0 -0.5em;
     padding: 0 0 18em 1em;
     background-position: bottom center;
+    background-size: contain;
   }
 `;
 

@@ -10,6 +10,21 @@ export const Wrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
+
+    & > p:nth-child(2) {
+      margin-bottom: 24px;
+      p:first-child {
+        font-size: 20px;
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 10px;
+          height: 11px;
+          background-color: #000;
+          margin-right: 20px;
+        }
+      }
+    }
   }
 `;
 
@@ -21,6 +36,7 @@ export const TitleWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     display: flex;
+    margin-bottom: 26px;
   }
 `;
 
@@ -77,6 +93,10 @@ export const Description = styled.p`
     }
     p {
       margin-top: 0;
+    }
+
+    li {
+      font-size: 20px;
     }
   }
 `;

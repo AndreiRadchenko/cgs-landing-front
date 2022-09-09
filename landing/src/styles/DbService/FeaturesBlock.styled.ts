@@ -134,14 +134,14 @@ export const BgImageMobile = styled.img`
   @media ${themes.primary.media.maxTabletPortrait} {
     position: absolute;
     display: block;
-    width: 48em;
-    left: -12em;
+    width: 68em;
+    left: -17em;
     top: 5em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 54em;
-    left: -13.5em;
+    width: 65em;
+    left: -16em;
     top: 4.5em;
   }
 

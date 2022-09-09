@@ -78,16 +78,25 @@ export const Image = styled.img`
   right: -1.56em;
   width: 42em;
 
+  @media (max-width: 1300px) {
+    width: 32em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    right: -7em;
+    top: 2em;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 28em;
+    top: 7em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     left: 1px;
     top: -0.75em;
     width: 22.3em;
     height: 19.125em;
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    width: 27em;
-    top: 0;
   }
 `;

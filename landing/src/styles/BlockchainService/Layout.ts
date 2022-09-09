@@ -6,7 +6,7 @@ export const Layout = styled.div`
   font-size: 1rem;
 
   overflow: clip;
-  overflow-clip-margin: 60px;
+  overflow-clip-margin: 70px;
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     font-size: 0.8rem;

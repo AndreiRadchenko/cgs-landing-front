@@ -76,15 +76,14 @@ export const Image = styled.img`
   width: 36.43em;
   height: 33.875em;
 
-  @media ${themes.primary.media.onlyTabletPortrait} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     width: 28.3em;
     right: -4em;
-    top: 17em;
   }
 
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    width: 30em;
-    right: -2em;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 25em;
+    top: 17em;
   }
 
   @media ${themes.primary.media.maxMobile} {

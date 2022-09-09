@@ -22,7 +22,7 @@ export const BackgroundWrapper = styled.div`
   height: 47.5em;
   position: relative;
   left: -4.3em;
-  top: 11.3em;
+  top: 12.5em;
 
   @media ${themes.primary.media.maxMobile} {
     background-image: url(${mobileBgi.src});
