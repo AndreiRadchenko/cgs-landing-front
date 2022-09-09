@@ -25,6 +25,7 @@ export const TechTitle = styled.h2`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5rem;
     padding-bottom: 0;
   }
 `;
@@ -99,7 +100,8 @@ export const CategoryTitle = styled.h2`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 1.5rem 1rem;
+    padding-inline: 1rem;
+    height: 95px;
     text-decoration: none;
     margin: 0;
   }

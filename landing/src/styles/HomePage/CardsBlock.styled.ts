@@ -19,13 +19,19 @@ export const BigDigit = styled.p`
     line-height: 120px;
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    transform: translateY(4px);
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 88px;
-    line-height: 106px;
+    line-height: 89px;
+    transform: translateY(2px);
   }
   @media (max-width: 360px) {
     font-size: 80px;
     line-height: 98px;
+    transform: translateY(10px);
   }
 `;
 
@@ -195,6 +201,7 @@ export const CardContainer = styled.div`
     }
 
     &:nth-child(2) {
+      padding-top: 152px;
       & img {
         transform: rotate(5.8deg);
       }
@@ -217,8 +224,8 @@ export const CardContainer = styled.div`
     }
     &:nth-child(2n) {
       & img {
-        top: -25%;
-        left: -27.5%;
+        top: -40%;
+        left: -29%;
         width: 155%;
       }
     }
@@ -227,6 +234,12 @@ export const CardContainer = styled.div`
         top: -15%;
         left: -7.5%;
         width: 115%;
+      }
+    }
+
+    &:nth-child(4) {
+      & div {
+        margin-top: 0;
       }
     }
   }

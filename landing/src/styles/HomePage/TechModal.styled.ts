@@ -83,16 +83,15 @@ export const List = styled.ul`
   &.rows {
     grid-template-columns: repeat(2, 1fr);
   }
-
   @media ${themes.primary.media.maxTabletPortrait} {
     column-gap: 10px;
     padding-left: 20px;
+    margin-bottom: 0;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding-left: 1.125rem;
-
-    padding-right: 0;
+    padding: 0 0 1.625rem 2px;
+    column-gap: 16px;
   }
 `;
 
@@ -106,5 +105,9 @@ export const ListItem = styled.li`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
+    white-space: nowrap;
+    &::before {
+      margin-right: 6px;
+    }
   }
 `;
