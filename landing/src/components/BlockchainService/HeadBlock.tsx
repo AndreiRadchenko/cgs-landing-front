@@ -16,6 +16,8 @@ const HeadBlock = () => {
     queryKeys.getServiceBlockchainPage
   )?.headerBlock;
 
+  console.log(data?.title.split(" "));
+
   return (
     <Styled.Container>
       <Styled.Content>

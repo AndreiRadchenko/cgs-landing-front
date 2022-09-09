@@ -7,7 +7,7 @@ export const Container = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 3em;
+    margin-top: 1.4em;
   }
 `;
 
@@ -29,9 +29,10 @@ export const Title = styled.h1`
   text-transform: uppercase;
   font-weight: inherit;
 
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 2.5em;
-    line-height: 100%;
+  span:first-child {
+    br {
+      display: none;
+    }
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
@@ -53,6 +54,17 @@ export const Title = styled.h1`
       right: -0.2em;
     }
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 2.5em;
+    line-height: 100%;
+
+    span:first-child {
+      br {
+        display: block;
+      }
+    }
+  }
 `;
 
 export const Description = styled.p`
@@ -61,14 +73,14 @@ export const Description = styled.p`
   margin: 1.279em 0 2.365em;
   max-width: 600px;
 
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    max-width: 60%;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     max-width: 95%;
-    margin: 1.625em 0 1.75em;
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    max-width: 60%;
+    margin: 2.5em 0 1.75em;
   }
 `;
 

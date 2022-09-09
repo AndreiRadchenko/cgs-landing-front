@@ -19,8 +19,8 @@ export const Container = styled.div`
     background-position: right 30%;
   }
   @media ${themes.primary.media.maxMobile} {
-    width: 24em;
-    margin: -6.25em 0 0 -0.5em;
+    width: 22.5em;
+    margin: -7.7em 0 0 -1.5em;
     padding: 0 0 18em 1em;
     background-position: bottom center;
     background-size: contain;
@@ -29,7 +29,7 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   font-size: 2.5em;
-  font-weight: ${themes.primary.font.weight.heavy};
+  font-weight: inherit;
   line-height: 140%;
   text-transform: uppercase;
   max-width: 12em;

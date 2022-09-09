@@ -6,7 +6,7 @@ export const Layout = styled.article`
   margin: 0 auto;
   position: relative;
   padding-inline: 4.25em;
-  overflow: hidden;
+  overflow: clip;
   font-family: ${themes.primary.font.family.namu};
 
   @media ${themes.primary.media.minPCFullHD} {

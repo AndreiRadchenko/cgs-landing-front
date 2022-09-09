@@ -19,16 +19,17 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   font-size: 2.5em;
-  font-weight: ${themes.primary.font.weight.heavy};
+  font-weight: inherit;
   line-height: 140%;
   text-transform: uppercase;
   max-width: 28.75em;
   margin: 0 0 1.3em;
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.5em;
+    font-size: 1.45em;
     line-height: 132%;
-    margin-bottom: 0.875em;
+    margin-bottom: 1.5em;
+    width: 14.5em;
   }
 `;
 
@@ -39,14 +40,14 @@ export const Image = styled.img`
   width: 34.083em;
   height: 22.65em;
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    bottom: 4em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     width: 18.44em;
     height: auto;
     bottom: 6.19em;
     right: 0.44em;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    bottom: 4em;
   }
 `;
