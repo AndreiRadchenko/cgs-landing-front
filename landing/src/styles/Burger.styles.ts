@@ -59,7 +59,7 @@ export const BurgerButton = styled.button<IButtonBurgerProps>`
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-around;
-  height: 1.3rem;
+  height: 21px;
   background: transparent;
   border: none;
   cursor: pointer;
