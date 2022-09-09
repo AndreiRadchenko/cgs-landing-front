@@ -107,6 +107,7 @@ const themes = {
         homeMainSubtitle: "2.167em",
         inBlockMaxTableText: "1.3em",
         faqMobileTitle: "3em",
+        portfolioMobile: "3.8em",
       },
     },
     colors: {

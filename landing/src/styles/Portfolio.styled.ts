@@ -54,6 +54,7 @@ export const SlidersCont = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 10px;
+    margin-bottom: 162px;
 
     & > div:not(:nth-of-type(4)) > div {
       border-bottom: 0;
