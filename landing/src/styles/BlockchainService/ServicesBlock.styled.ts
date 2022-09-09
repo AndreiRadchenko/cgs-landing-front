@@ -96,17 +96,15 @@ export const DescriptionContainer = styled.div`
 `;
 
 export const Image = styled.img`
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 28em;
+  }
   @media ${themes.primary.media.maxMobile} {
     width: 22.19em;
     height: auto;
     margin-left: -10px;
   }
 
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    width: 27em;
-    height: auto;
-    margin-left: -50px;
-  }
   width: 40em;
   height: 31.25em;
   margin: 0;

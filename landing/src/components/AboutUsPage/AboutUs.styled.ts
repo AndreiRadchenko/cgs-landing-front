@@ -30,7 +30,8 @@ export const MainTitle = styled.div`
   font-size: 74px;
   text-transform: uppercase;
   line-height: 120%;
-  padding-top: 107px;
+  margin-top: 107px;
+  width: 102%;
   span {
     color: ${themes.primary.colors.darkBlue};
   }
@@ -62,7 +63,7 @@ export const Text = styled.div`
   font-size: ${themes.primary.font.size.aboutUsBelieveText};
   line-height: 160%;
   margin-top: 20px;
-  width: 87%;
+  width: 89%;
 
   p {
     margin-bottom: 0;
@@ -428,7 +429,7 @@ export const BonusesContainer = styled.div`
   margin-top: 50px;
   display: grid;
   grid-template-columns: 53.2% 43%;
-  column-gap: 30px;
+  column-gap: 80px;
 
   @media ${themes.primary.media.minPCFullHD} {
     grid-template-columns: 53.5% 43%;

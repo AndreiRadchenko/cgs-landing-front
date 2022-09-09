@@ -56,7 +56,8 @@ export const Image = styled.img`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     right: -2em;
-    width: 25em;
+    width: 23em;
+    top: -5em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
