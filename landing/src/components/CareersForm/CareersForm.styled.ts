@@ -64,6 +64,7 @@ export const FormContainter = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 361px;
     width: 335px;
   }
 

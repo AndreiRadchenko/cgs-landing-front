@@ -39,6 +39,10 @@ export const FormFieldContainer = styled.div`
   width: 100%;
   height: 78px;
   position: relative;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 66px;
+  }
 `;
 
 export const FormField = styled(Field)<IFormField>`
@@ -281,6 +285,10 @@ export const FormSentContainer = styled.div`
     font-weight: ${themes.primary.font.weight.heavy};
     font-family: ${themes.primary.font.family.namu};
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 94px;
+  }
 `;
 
 export const Shadow = styled.div<IEnableGlare>`
@@ -352,6 +360,10 @@ export const PositionSelect = styled.div<IEnableGlare>`
       box-shadow: 13px 0px 0px 0px black;
       border-left: none;
     }
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 66px;
   }
 `;
 
