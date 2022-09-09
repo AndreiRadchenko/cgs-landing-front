@@ -37,7 +37,7 @@ export const MainTitle = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 34px;
-    padding-top: 45px;
+    padding-top: 15px;
   }
 `;
 
@@ -46,7 +46,7 @@ export const Subtitle = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
   margin-top: 40px;
   &:first-child {
-    margin-top: 0;
+    margin-top: -30px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.smallAboutSubtitle};
@@ -76,6 +76,7 @@ export const Text = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     font-size: 16px;
     margin-top: 20px;
   }
@@ -84,13 +85,13 @@ export const Text = styled.div`
 export const BottomImage = styled.img`
   position: absolute;
   width: 54.1%;
-  bottom: 80px;
+  bottom: 126px;
   right: 0;
 
   @media ${themes.primary.media.maxMobile} {
-    width: 493px;
+    width: 500px;
     transform: rotate(-4.51deg);
-    right: -55px;
+    right: -42px;
   }
 `;
 
@@ -349,7 +350,7 @@ export const RowContainer = styled.div`
     position: absolute;
 
     &:nth-child(2) {
-      top: 85px;
+      top: 20px;
       left: 10px;
       & > div {
         &:nth-child(2) {
@@ -371,7 +372,7 @@ export const RowContainer = styled.div`
     }
 
     &:nth-child(3) {
-      bottom: 400px;
+      bottom: 460px;
       left: 40px;
       & > div {
         &:nth-child(2) {
@@ -412,6 +413,7 @@ export const ColContainer = styled.div`
     &.first,
     &.second {
       margin: 0;
+      width: 100%;
     }
   }
 `;
@@ -420,7 +422,8 @@ export const OurBonuses = styled.div`
   padding: 115px 0 370px;
 
   @media ${themes.primary.media.maxMobile} {
-    padding-bottom: 361px;
+    padding-top: 0;
+    padding-bottom: 376px;
   }
 `;
 

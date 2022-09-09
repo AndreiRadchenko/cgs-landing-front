@@ -129,7 +129,7 @@ export const ListItemNav = styled.a`
   }
   &:nth-child(2) {
     padding-left: 1.673rem;
-    padding-right: 0.673rem;
+    padding-right: 1.673rem;
   }
   &:nth-child(3) {
     padding-left: 1.72rem;
