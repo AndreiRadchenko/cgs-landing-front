@@ -34,10 +34,15 @@ export const TechnologyRow = styled.div`
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 40px;
+  column-gap: 260px;
 
   @media ${themes.primary.media.maxMobile} {
     grid-template-columns: 1fr;
     row-gap: 0;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    column-gap: 60px;
   }
 `;
 
@@ -53,10 +58,6 @@ export const CategoryContainer = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-
-  &:nth-child(2n) {
-    justify-self: flex-end;
-  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;

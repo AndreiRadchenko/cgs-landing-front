@@ -146,6 +146,7 @@ export const Tag = styled.button<ITag>`
       top: 0;
       left: 0;
       border: 0;
+      font-size: 1.35em;
     }
   }
 `;
@@ -293,6 +294,7 @@ export const LoopText = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
+    margin-top: 9px;
   }
 `;
 
@@ -601,6 +603,7 @@ export const PodcastContainer = styled.div`
   justify-content: center;
   column-gap: 50px;
   border-block: 1px solid ${themes.primary.colors.comment};
+
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 55px 25px 55px 20px;
   }
@@ -608,7 +611,7 @@ export const PodcastContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column-reverse;
     row-gap: 1.375rem;
-    border-top: none;
+    margin-top: 50px;
   }
 `;
 
@@ -631,6 +634,7 @@ export const PodcastCard = styled.div`
     padding: 20px;
     height: auto;
     width: 430px;
+    padding-bottom: 30px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -835,6 +839,7 @@ export const PodcastTitle = styled(BlogItemTitle)`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5rem;
+    margin-top: 1em;
   }
 `;
 
@@ -866,7 +871,7 @@ export const PlayTag = styled.div`
   border: 1px solid ${themes.primary.colors.headerBorder};
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
   }
 `;
 

@@ -34,6 +34,7 @@ export const NavigateLeft = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    font-size: ${themes.primary.font.size.portfolioMobile};
     writing-mode: horizontal-tb;
     transform: none;
 
@@ -402,7 +403,7 @@ export const PortfolioProjectHeader = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 1.25rem;
+    font-size: ${themes.primary.font.size.homeMainSubtitle};
   }
 `;
 

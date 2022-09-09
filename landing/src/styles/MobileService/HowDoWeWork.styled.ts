@@ -20,7 +20,7 @@ export const LineContainer = styled.div`
 export const Line = styled.div`
   position: absolute;
   width: 120%;
-  top: 50%;
+  top: 51%;
   left: 50%;
   height: 24px;
   transform: translate(-50%, -50%);
@@ -48,7 +48,7 @@ export const MobileLine = styled.div<IMobileLine>`
   @media ${themes.primary.media.maxTabletLandScape} {
     display: block;
     position: relative;
-    top: -27px;
+    top: -5px;
     left: -10%;
     width: 120%;
     height: 24px;
@@ -60,6 +60,10 @@ export const MobileLine = styled.div<IMobileLine>`
       ${secondColor} 90.39%`}
     );
     border: 1px solid ${themes.primary.colors.primary};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    top: -20px;
   }
 `;
 

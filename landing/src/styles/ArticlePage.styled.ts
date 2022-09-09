@@ -41,7 +41,7 @@ export const SubTitle = styled.p`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 2rem;
+    margin-top: 1.7rem;
     font-size: 1rem;
     margin-bottom: 90px;
   }
@@ -86,7 +86,7 @@ export const PageWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin: 0;
-    padding: 150px 20px 0;
+    padding: 80px 20px 0;
   }
 `;
 
@@ -170,8 +170,9 @@ export const ArrowBackButton = styled.img`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    left: 0px;
-    top: -150px;
+    left: -16px;
+    top: -75px;
+    width: 21%;
   }
 `;
 

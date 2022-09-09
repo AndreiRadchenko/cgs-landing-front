@@ -91,7 +91,7 @@ export const BigDigit = styled.div`
     position: absolute;
     left: -0.1em;
     font-size: 3.75em;
-    width: 20%;
+    width: 1em;
     margin: 0;
     text-align: center;
   }

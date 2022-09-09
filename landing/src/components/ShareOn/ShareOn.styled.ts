@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
     }
 
     &.mobile {
-      margin-top: 70px;
+      margin-top: 54px;
       display: flex;
     }
   }

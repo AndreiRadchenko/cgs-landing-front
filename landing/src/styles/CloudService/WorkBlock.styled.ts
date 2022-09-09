@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 12.5em;
+  margin-top: 10.4em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 11.25em;
