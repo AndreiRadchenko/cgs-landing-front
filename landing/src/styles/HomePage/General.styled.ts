@@ -91,6 +91,7 @@ export const Title = styled.h1`
   text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000,
     0.5px 0.5px 0 #000;
   margin: 0;
+  white-space: nowrap;
   @media ${themes.primary.media.onlyTabletLandScape} {
     font-size: ${themes.primary.font.size.homeHeaderTablet};
   }
