@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import themes from "../utils/themes";
 
 export const NavigateWrapper = styled.div`
@@ -37,10 +37,9 @@ export const NavigateLeft = styled.div`
     font-size: ${themes.primary.font.size.portfolioMobile};
     writing-mode: horizontal-tb;
     transform: none;
-
     justify-content: space-between;
     width: 100%;
-    height: 150px;
+    height: 153px;
     padding-inline: 20px;
     border: 1px solid ${themes.primary.colors.comment};
     transition: 0.3s;
@@ -305,11 +304,15 @@ export const ReviewContainer = styled.div`
     right: 0;
     max-width: none;
     width: 100%;
-    border: 1px solid ${themes.primary.colors.comment};
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: 1s ease-in;
 
     &.open {
-      display: flex;
+      border: 1px solid ${themes.primary.colors.comment};
+      max-height: 1230px;
+
+      opacity: 1;
     }
   }
 `;
