@@ -58,6 +58,10 @@ export const ThankContainer = styled.div`
   align-items: left;
   margin: 47px 55px 0 55px;
 
+  span {
+    line-height: 160%;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin: 32px 0 0 11px;
   }

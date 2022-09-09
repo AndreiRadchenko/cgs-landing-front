@@ -5,9 +5,6 @@ export const Layout = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 1rem;
 
-  overflow: clip;
-  overflow-clip-margin: 70px;
-
   @media ${themes.primary.media.onlyTabletPortrait} {
     font-size: 0.8rem;
   }

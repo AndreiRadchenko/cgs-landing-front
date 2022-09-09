@@ -24,6 +24,11 @@ export const BgiContainer = styled.div`
   border: 1px solid ${themes.primary.colors.black};
   box-shadow: 7px 2px 0px ${themes.primary.colors.black};
 
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    top: 3em;
+    left: -8%;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     background: none;
@@ -58,14 +63,10 @@ export const BgiContainer = styled.div`
       }
     }
   }
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    top: 3em;
-    left: -8%;
-  }
 `;
 
 export const Title = styled.h2`
-  font-weight: ${themes.primary.font.weight.heavy};
+  font-weight: inherit;
   font-size: 2.5em;
   line-height: 140%;
   text-transform: uppercase;
@@ -73,8 +74,11 @@ export const Title = styled.h2`
   margin-bottom: 2.775em;
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.5em;
+    font-size: 1.45em;
     line-height: 132%;
+    width: 15em;
+    margin-bottom: 1.2em;
+    margin-left: -5px;
   }
 `;
 
@@ -148,19 +152,19 @@ export const GridLine2 = styled.div`
 `;
 
 export const LineTop = styled.div`
-  @media ${themes.primary.media.maxMobile} {
-    display: block;
-  }
   @media ${themes.primary.media.minTabletPortrait} {
     display: none;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    display: block;
   }
 `;
 
 export const LineBottom = styled.div`
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
-  }
   @media ${themes.primary.media.minTabletPortrait} {
     display: block;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
   }
 `;
