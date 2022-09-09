@@ -89,7 +89,7 @@ export const CategoryTitle = styled.h2`
   text-align: center;
   position: relative;
   margin-bottom: 20px;
-  z-index: 1;
+  z-index: 10;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndNine};
   }
