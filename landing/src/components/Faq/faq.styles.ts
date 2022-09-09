@@ -67,9 +67,10 @@ export const PageTitle = styled.div`
       width: 100%;
     }
 
-    font-size: ${themes.primary.font.size.faqMobileTitle};
+    font-size: 34px;
     margin: 13px 0 39px;
-    padding: 0 20px;
+    padding-left: 20px;
+    letter-spacing: -1px;
   }
 `;
 
