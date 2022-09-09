@@ -29,4 +29,8 @@ export const FormFieldContainer = styled.div`
   width: 100%;
   height: 78px;
   position: relative;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 66px;
+  }
 `;

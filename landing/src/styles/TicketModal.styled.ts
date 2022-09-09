@@ -123,7 +123,11 @@ export const SubmitButtonContainer = styled.div`
   }
 
   @media (max-width: 570px) {
-    margin: 26px 0 36px 10px;
+    margin: 26px 0 26px 10px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 154px;
   }
 `;
 
