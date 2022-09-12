@@ -76,6 +76,10 @@ export const Description = styled.p`
   margin: 1.279em 0 2.365em;
   max-width: 600px;
 
+  @media ${themes.primary.media.minPC} {
+    max-width: 40%;
+  }
+
   @media ${themes.primary.media.onlyTabletPortrait} {
     max-width: 60%;
   }

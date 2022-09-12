@@ -1,5 +1,5 @@
 import React from "react";
-import { Separator } from "../../styles/HomePage/General.styled";
+import { LocalLayout, Separator } from "../../styles/HomePage/General.styled";
 import HeadBlock from "./HeadBlock";
 import NextTech from "./NextTech";
 import CarouselFeedback from "../Feedback/CarouselFeedback";
@@ -12,15 +12,19 @@ const Content = () => {
   return (
     <>
       <Layout className="hidden">
-        <HeadBlock />
-        <NextTech />
+        <LocalLayout>
+          <HeadBlock />
+          <NextTech />
+        </LocalLayout>
       </Layout>
       <Separator />
       <Layout className="hidden">
-        <CarouselFeedback />
-        <Technologies />
-        <CardsBlock />
-        <BookBlock />
+        <LocalLayout>
+          <CarouselFeedback />
+          <Technologies />
+          <CardsBlock />
+          <BookBlock />
+        </LocalLayout>
       </Layout>
     </>
   );

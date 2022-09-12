@@ -150,7 +150,6 @@ export const CardContainer = styled.div`
       & p {
         & span {
           max-width: 72%;
-          display: inline-block;
         }
       }
     }
@@ -285,13 +284,23 @@ export const CardContent = styled.p`
   max-width: 720px;
   font-size: ${themes.primary.font.size.feedbackName};
   display: inline-block;
+
   @media ${themes.primary.media.minPC} {
     max-width: 800px;
   }
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: 1000px;
+    & br {
+      display: none;
+    }
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
+    max-width: 600px;
     font-size: ${themes.primary.font.size.tertiary};
   }
-
+  @media ${themes.primary.media.maxTabletPortrait} {
+    max-width: 500px;
+  }
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 0;
     max-width: 380px;

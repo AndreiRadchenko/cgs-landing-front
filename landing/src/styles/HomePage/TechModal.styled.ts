@@ -2,13 +2,22 @@
 import themes from "../../utils/themes";
 
 export const TicketModal = styled.div`
-  margin-top: calc(2.5em + 39px);
+  margin-top: calc(2.5em + 40px);
   position: absolute;
   z-index: 10;
   width: 42%;
-  transition: 1s ease-in;
+  transition: 0.2s ease-in;
   opacity: 0;
-  max-height: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: calc(2.5em + 67px);
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    transition: 1s ease-in;
+    max-height: 0;
+  }
+
   &.block {
     max-height: 400px;
     opacity: 1;

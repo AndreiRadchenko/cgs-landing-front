@@ -24,6 +24,15 @@ export const ContentContainer = styled.div`
   }
 `;
 
+export const LocalLayout = styled.div`
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 2200px) {
+    font-size: 1.4rem;
+  }
+`;
 export const ButtonArrow = styled.img`
   position: absolute;
   right: -14px;
@@ -47,6 +56,10 @@ export const BlackButton = styled.a<IFontSize>`
     margin-top: 10px;
     height: 4vw;
     margin-left: 20px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    padding: 0.8em 1em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -251,6 +264,11 @@ export const Tetris = styled.img`
   position: absolute;
   width: 33.7%;
   right: 122px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    top: 80px;
+    width: 28em;
+  }
   @media (max-width: 1400px) {
     right: 70px;
   }
@@ -261,7 +279,7 @@ export const Tetris = styled.img`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    top: 80px;
+    top: 50px;
     width: 33.7%;
   }
   @media ${themes.primary.media.maxMobile} {
@@ -325,7 +343,7 @@ export const Subtitle = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 4.5rem;
+    font-size: 5em;
   }
 
   @media (max-width: 1370px) {
@@ -397,6 +415,9 @@ export const Subtitle = styled.div`
 export const NextTech = styled.div`
   margin-top: 24.5em;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 20.5em;
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: 18.5em;
   }
@@ -452,11 +473,15 @@ export const Film = styled.img`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
+    top: -18%;
     position: absolute;
+    width: 125%;
+  }
+
+  @media (max-width: 835px) {
     top: -20%;
     width: 145%;
   }
-
   @media ${themes.primary.media.maxMobile} {
     left: 5%;
     top: 0;
@@ -502,6 +527,12 @@ export const FilmText = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
+    top: 32%;
+    font-size: 1.1rem;
+    max-width: 60.5%;
+  }
+
+  @media (max-width: 835px) {
     top: 27%;
     font-size: 1.1rem;
     max-width: 70.5%;
@@ -579,6 +610,10 @@ export const FooterLinkButton = styled.a`
   background-color: ${themes.primary.colors.primary};
   line-height: 99%;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    padding: 1.5rem 1.4rem;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     padding: 12px 17px;
   }
@@ -614,6 +649,13 @@ export const ArrowContainer = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 1em;
+    height: 1em;
+    right: -0.3em;
+    top: -0.3em;
+  }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 24px;
