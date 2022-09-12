@@ -26,14 +26,14 @@ export const BlockWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-right: 1.67em;
-  padding-left: 4.5em;
+  margin-left: -4em;
   margin-top: 4.31em;
 
   @media ${themes.primary.media.maxServiceWeb} {
     padding: 0;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
     padding-left: 2.5em;
     padding-right: 0;
@@ -44,62 +44,43 @@ export const BlockWrapper = styled.div`
 
 export const Block = styled.div`
   position: relative;
+  display: flex;
+  flex-grow: 1;
 
   @media ${themes.primary.media.maxMobile} {
     &:not(:last-child) {
       margin-bottom: 2.125em;
     }
   }
+`;
 
-  &::before {
-    content: "";
-    position: absolute;
-    display: block;
-    min-width: 2em;
-    width: stretch;
-    border: 1px solid black;
-    position: absolute;
-    top: 50%;
-    right: 85%;
-    @media ${themes.primary.media.maxServiceWeb} {
-      width: 2em;
-    }
+export const Line = styled.div`
+  position: relative;
+  right: -50px;
+  z-index: -1;
+  top: 3px;
+  border: 1px solid ${themes.primary.colors.primary};
+  width: stretch;
+  flex: 1;
+  margin: 1.15em 36px 0 15px;
+  max-height: 2px;
+  max-width: stretch;
 
-    @media ${themes.primary.media.maxMobile} {
-      top: 45%;
-      left: -5em;
-    }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    display: none;
   }
 
-  &:last-child {
-    &::after {
-      content: "";
-      position: absolute;
-      display: block;
-      width: 8.17em;
-      border: 1px solid black;
-      position: absolute;
-      top: 50%;
-      right: -10em;
-
-      @media ${themes.primary.media.maxMobile} {
-        display: none;
-      }
-    }
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 0.9em;
   }
 `;
 
 export const Image = styled.img`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-40%);
-  left: 1.5em;
   width: 2.95em;
+  height: 2.5em;
 
   @media ${themes.primary.media.maxMobile} {
     width: 2.5em;
-    left: -3em;
-    transform: translateY(-50%);
   }
 `;
 
@@ -107,8 +88,13 @@ export const Subtitle = styled.p`
   font-size: 1.375em;
   line-height: 160%;
   text-transform: uppercase;
+  white-space: nowrap;
   margin: 0;
-  padding-left: 3.5em;
+  padding-left: 0.5em;
+
+  @media (max-width: 1350px) {
+    white-space: normal;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;

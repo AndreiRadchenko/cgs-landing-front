@@ -116,7 +116,7 @@ export const ContentWrapper = styled.div`
     }
   }
 
-  @media (min-width: 1800px) {
+  @media ${themes.primary.media.minPCFullHD} {
     font-size: 0.8em;
     justify-content: space-around;
   }

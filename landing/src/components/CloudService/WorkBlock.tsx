@@ -18,10 +18,12 @@ const WorkBlock = () => {
       <Styled.BlockWrapper>
         {Object.values(blocks).map((el, index) => (
           <Styled.Block key={index}>
+            <Styled.Line />
             <Styled.Image src={rhombus.src} />
             <Styled.Subtitle>{el}</Styled.Subtitle>
           </Styled.Block>
         ))}
+        <Styled.Line />
       </Styled.BlockWrapper>
     </Styled.Container>
   );

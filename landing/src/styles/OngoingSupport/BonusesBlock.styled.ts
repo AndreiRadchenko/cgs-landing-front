@@ -105,7 +105,7 @@ export const Line = styled.div`
     left: -105%;
   }
 
-  @media (min-width: 1800px) {
+  @media ${themes.primary.media.minPCFullHD} {
     margin-top: 0.9em;
   }
 `;
@@ -120,7 +120,7 @@ export const Image = styled.img`
     top: 0;
   }
 
-  @media (min-width: 1800px) {
+  @media ${themes.primary.media.minPCFullHD} {
     left: -1.5em;
     top: 0.2em;
   }
