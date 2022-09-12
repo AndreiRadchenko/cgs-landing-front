@@ -1,35 +1,44 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import providesBgi from "../../../public/OngoingSupport/providesBgi.png";
-import mobileBgi from "../../../public/OngoingSupport/mobile-background.png";
 
 export const Container = styled.div`
   margin-top: 12.5em;
   position: relative;
+  width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 11.25em;
   }
 `;
 
-export const BackgroundWrapper = styled.div`
-  background-image: url(${providesBgi.src});
-  background-position: 100 100;
-  background-size: contain;
-  background-repeat: no-repeat;
-
-  width: 115.9%;
-  height: 47.5em;
-  position: relative;
-  left: -4.3em;
-  top: 12.5em;
+export const BlockContainer = styled.img`
+  width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
-    background-image: url(${mobileBgi.src});
-    width: 28.81em;
-    height: 67.6em;
-    left: -3em;
-    top: 8.875em;
+    max-height: 45px;
+    max-width: 350px;
+  }
+`;
+
+export const Mario = styled.img`
+  width: 107vw;
+  position: relative;
+  left: -5vw;
+  margin-top: 2em;
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
+`;
+
+export const MobileMario = styled.img`
+  width: 102vw;
+  position: relative;
+  left: -5vw;
+  margin-top: 6em;
+  display: none;
+  @media ${themes.primary.media.maxMobile} {
+    display: block;
   }
 `;
 
@@ -52,14 +61,13 @@ export const Subtitle = styled.p`
   text-transform: uppercase;
   color: ${themes.primary.colors.mainGradientColor2};
   margin: 0;
+  margin-left: 2.35em;
 `;
 
 export const Text = styled.p`
   font-size: 1.125em;
   line-height: 160%;
-  max-width: 18em;
-  margin: 0;
-  margin-top: 0.45em;
+  margin: 0.45em 0 2em 3em;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
@@ -70,101 +78,44 @@ export const Text = styled.p`
 export const TextWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  column-gap: 9em;
   position: relative;
-  top: -8em;
-  left: -1em;
-  width: 95%;
   margin: 0 auto;
   justify-content: space-around;
-
-  @media (max-width: 1340px) {
-    top: -10em;
-    column-gap: 4em;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 0.9rem;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    left: 0.5em;
-    width: 90%;
-    column-gap: 0em;
-  }
+  row-gap: 2em;
+  margin-top: 4em;
+  column-gap: 3em;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1rem;
     flex-direction: column;
-    margin: 0 0 0 2.6em;
-    padding: 3.8em 0 0 0;
   }
 
   & > div {
     margin: 0;
-    margin-bottom: 6em;
-
-    @media ${themes.primary.media.maxServiceWeb} {
-      margin-bottom: 6em;
-    }
-
-    @media (max-width: 1340px) {
-      margin-bottom: 4em;
-      max-width: 17em;
-    }
-
-    @media ${themes.primary.media.maxTabletPortrait} {
-      margin-bottom: 1em;
-      max-width: 15em;
-    }
+    flex-basis: 29%;
+    position: relative;
 
     @media ${themes.primary.media.maxMobile} {
-      max-width: 95%;
-      margin-bottom: 6.69em;
-    }
+      max-width: 70%;
+      flex-basis: auto;
 
-    &:nth-child(4) {
-      margin-left: 5em;
+      &:nth-child(2n) {
+        right: -3em;
 
-      @media (max-width: 1340px) {
-        max-width: 25em;
+        p {
+          margin-left: 0;
+        }
       }
 
-      @media ${themes.primary.media.maxTabletPortrait} {
-        margin: 0;
-      }
-
-      @media ${themes.primary.media.maxMobile} {
-        margin: 0 0 5.75em 3.375em;
+      &:nth-child(2n + 1) {
+        left: -3em;
       }
     }
 
     &:nth-child(2) {
       margin-top: 7.17em;
 
-      @media ${themes.primary.media.maxTabletLandScape} {
-        margin-top: 5em;
-      }
-
       @media ${themes.primary.media.maxMobile} {
-        margin: 0 0 5.75em 3.375em;
-      }
-    }
-
-    &:nth-child(3) {
-      & > p {
-        max-width: 19em;
-      }
-    }
-
-    &:last-child {
-      margin-right: 6em;
-
-      @media (max-width: 1340px) {
-        max-width: 25em;
-      }
-
-      @media ${themes.primary.media.maxTabletPortrait} {
         margin: 0;
       }
     }

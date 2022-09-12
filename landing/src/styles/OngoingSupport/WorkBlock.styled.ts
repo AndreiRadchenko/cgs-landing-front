@@ -25,6 +25,7 @@ export const TextWrapper = styled.div`
   margin: 4.67em 4.94em 0 0;
   padding: 0.75em 0 0 1.1875em;
   display: flex;
+  justify-content: space-between;
 
   @media ${themes.primary.media.maxMobile} {
     margin: 2.375em 0 0;

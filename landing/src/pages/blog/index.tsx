@@ -71,6 +71,8 @@ const BlogPage = () => {
   const [tags, setTags] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  console.log(data?.articles);
+
   useEffect(() => {
     data &&
       setReversedArticles(
