@@ -5,6 +5,7 @@ export const Container = styled.div`
   margin-top: 12.5em;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.5em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 11.25em;
@@ -31,7 +32,7 @@ export const Image = styled.img`
   right: 3.875em;
   width: 24.06em;
   height: 29em;
-  bottom: 5.125em;
+  bottom: 4.625em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 20em;
