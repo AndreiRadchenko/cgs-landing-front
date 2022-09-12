@@ -20,7 +20,6 @@ const ProvidesBlock = () => {
   return (
     <Styled.Container>
       <Subtitle>{subtitle}</Subtitle>
-      {/* <Styled.BgContainer> */}
       <Styled.BGImage src={cloudProvidesBgi.src} />
       <Styled.BGImageMobile src={cloudProvidesMobile.src} />
       <Styled.BlockWrapper>
@@ -33,7 +32,6 @@ const ProvidesBlock = () => {
           </Styled.Block>
         ))}
       </Styled.BlockWrapper>
-      {/* </Styled.BgContainer> */}
     </Styled.Container>
   );
 };
