@@ -2,15 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 16.25em;
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    margin-top: -9em;
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    margin-top: 6em;
-  }
+  margin-top: 11.25em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 17.5em;
@@ -112,6 +104,10 @@ export const Line = styled.div`
     top: 0.93em;
     left: -105%;
   }
+
+  @media (min-width: 1800px) {
+    margin-top: 0.9em;
+  }
 `;
 
 export const Image = styled.img`
@@ -122,5 +118,10 @@ export const Image = styled.img`
   @media ${themes.primary.media.maxMobile} {
     width: 2em;
     top: 0;
+  }
+
+  @media (min-width: 1800px) {
+    left: -1.5em;
+    top: 0.2em;
   }
 `;

@@ -28,7 +28,6 @@ export const Title = styled.h1`
   font-size: 4.125em;
   line-height: 120%;
   text-transform: uppercase;
-  max-width: 11.29em;
   margin: 0;
 
   @media ${themes.primary.media.maxMobile} {
@@ -73,8 +72,7 @@ export const Image = styled.img`
   position: absolute;
   top: 2.3em;
   right: 2.07em;
-  width: 36.43em;
-  height: 33.875em;
+  width: 36.43vw;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 28.3em;
