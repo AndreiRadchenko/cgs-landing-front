@@ -80,7 +80,8 @@ export const Description = styled.p`
 
 export const Image = styled.img`
   margin: 0.5em -3.84em 0 0;
-  width: 40em;
+  width: 40vw;
+  max-width: 40em;
   height: 40.31em;
 
   @media ${themes.primary.media.maxTabletLandScape} {

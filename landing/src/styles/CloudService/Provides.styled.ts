@@ -48,35 +48,56 @@ export const BgContainer = styled.div`
   }
 `;
 
-export const BlockWrapper = styled.div`
-  padding: 7em 0 0 18em;
-  position: relative;
-
-  @media (max-width: 1300px) {
-    padding-left: 17em;
-    max-width: 50em;
-  }
+export const BGImage = styled.img`
+  position: absolute;
+  width: 115vw;
+  left: -15vw;
+  top: 6em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    max-width: 40em;
-    padding: 5em 0 0 17em;
+    display: none;
+  }
+`;
+
+export const BGImageMobile = styled.img`
+  display: none;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    display: block;
+    position: absolute;
+    left: -23em;
+    top: 6em;
+    height: 42em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 6em 0 0 26em;
+    left: -22em;
+    height: 44em;
+  }
+`;
+
+export const BlockWrapper = styled.div`
+  padding: 10vw 0 0 10vw;
+  position: relative;
+
+  @media (max-width: 1300px) {
+    font-size: 0.9em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding: 6em 0 0 3em;
     max-width: fit-content;
   }
 `;
 
 export const Block = styled.div`
   position: relative;
-  margin-bottom: 3.125em;
+  margin-bottom: 5vw;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 0;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     position: static;
   }
 
@@ -87,21 +108,21 @@ export const Block = styled.div`
   &:nth-child(1) {
     left: 0;
 
-    @media ${themes.primary.media.maxMobile} {
+    @media ${themes.primary.media.maxTabletLandScape} {
       margin-bottom: 3.75em;
     }
   }
 
   &:nth-child(2) {
-    left: 16em;
+    left: 18vw;
 
-    @media ${themes.primary.media.maxMobile} {
+    @media ${themes.primary.media.maxTabletLandScape} {
       margin-bottom: 3.94em;
     }
   }
 
   &:nth-child(3) {
-    left: 41em;
+    left: 46vw;
     margin-bottom: 0;
 
     @media ${themes.primary.media.maxTabletLandScape} {

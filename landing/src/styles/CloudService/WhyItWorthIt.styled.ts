@@ -3,6 +3,7 @@ import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin: 0 1.44em 0 0;
+  max-width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
     margin: 8.5em 0 0;
@@ -31,7 +32,7 @@ export const Block = styled.div`
   }
 
   & > div {
-    min-width: 22.5em;
+    min-width: 21em;
 
     @media ${themes.primary.media.maxServiceWeb} {
       min-width: auto;
