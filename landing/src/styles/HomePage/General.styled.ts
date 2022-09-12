@@ -289,6 +289,7 @@ export const HeadBlockRow = styled(RowContainer)`
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     align-items: center;
+    row-gap: 43px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -358,6 +359,7 @@ export const Subtitle = styled.div`
     }
 
     &.small {
+      margin-top: 0;
       font-size: 5vw;
       margin-bottom: 20px;
     }
@@ -428,6 +430,7 @@ export const FilmContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 402px;
     overflow: visible;
+    margin-bottom: 52px;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
