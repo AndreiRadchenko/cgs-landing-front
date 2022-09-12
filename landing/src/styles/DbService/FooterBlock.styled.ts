@@ -2,10 +2,9 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 16.125em;
+  margin-top: 12.5em;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5.16em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 11.25em;
@@ -30,6 +29,19 @@ export const TextContent = styled.div`
 export const Image = styled.img`
   position: relative;
   right: 3.875em;
+  width: 24.06em;
+  height: 29em;
+  bottom: 5.125em;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 20em;
+    right: 15em;
+    bottom: 3em;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    right: 6em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     top: 0.94em;
@@ -41,11 +53,19 @@ export const Image = styled.img`
 
 export const SubtitleWrapper = styled.div`
   line-height: 140%;
-  width: 85%;
-  font-size: 0.75em;
+  width: 50em;
+  font-size: 1em;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 30em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
+    width: 28em;
     font-size: 0.6em;
-    line-height: 132%;
+
+    h2 {
+      line-height: 132%;
+    }
   }
 `;

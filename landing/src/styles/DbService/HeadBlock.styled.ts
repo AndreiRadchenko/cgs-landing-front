@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 12.6em 0 0;
+  padding: 9.5em 0 0;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
@@ -101,12 +101,12 @@ export const Image = styled.img`
   height: 29.81em;
 
   @media (max-width: 1350px) {
-    width: 35em;
+    width: 32em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 30em;
-    right: -4em;
+    right: -5em;
     top: 20em;
   }
   @media ${themes.primary.media.maxMobile} {
