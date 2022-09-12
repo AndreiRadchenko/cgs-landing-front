@@ -26,7 +26,6 @@ export const BlockWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-right: 1.67em;
-  /* padding-left: 4.5em; */
   margin-left: -4em;
   margin-top: 4.31em;
 
@@ -71,7 +70,7 @@ export const Line = styled.div`
     display: none;
   }
 
-  @media (min-width: 1800px) {
+  @media ${themes.primary.media.minPCFullHD} {
     margin-top: 0.9em;
   }
 `;

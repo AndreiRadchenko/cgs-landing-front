@@ -6,7 +6,7 @@ export const Layout = styled.div`
   overflow-clip-margin: 51px;
   font-size: 1rem;
 
-  @media (min-width: 1800px) {
+  @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.4rem;
   }
 
