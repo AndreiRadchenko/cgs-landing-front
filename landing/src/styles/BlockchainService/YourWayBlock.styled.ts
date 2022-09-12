@@ -24,6 +24,14 @@ export const BgiContainer = styled.div`
   border: 1px solid ${themes.primary.colors.black};
   box-shadow: 7px 2px 0px ${themes.primary.colors.black};
 
+  @media ${themes.primary.media.minPCFullHD} {
+    top: 1.3em;
+  }
+
+  @media (min-width: 2200px) {
+    top: 0.6em;
+  }
+
   @media ${themes.primary.media.onlyTabletPortrait} {
     top: 3em;
     left: -8%;

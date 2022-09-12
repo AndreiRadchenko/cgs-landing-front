@@ -8,6 +8,9 @@ export const Container = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
