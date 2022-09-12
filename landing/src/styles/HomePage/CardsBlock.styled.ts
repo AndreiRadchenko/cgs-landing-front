@@ -201,7 +201,7 @@ export const CardContainer = styled.div`
     }
 
     &:nth-child(2) {
-      padding-top: 152px;
+      padding-top: 175px;
       & img {
         transform: rotate(5.8deg);
       }
@@ -224,7 +224,7 @@ export const CardContainer = styled.div`
     }
     &:nth-child(2n) {
       & img {
-        top: -40%;
+        top: -38%;
         left: -29%;
         width: 155%;
       }
