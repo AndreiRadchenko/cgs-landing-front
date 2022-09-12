@@ -15,6 +15,7 @@ import { adminGlobalService } from "../../services/adminHomePage";
 import { adminMobileService } from "../../services/services/adminServicesMobilePage";
 import Head from "next/head";
 import { Layout } from "../../styles/Layout.styled";
+import { LocalLayout } from "../../styles/MobileService/Layout";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -48,12 +49,14 @@ const MobileAppDevelopment: NextPage = () => {
       </Head>
       <HeaderNavNew />
       <Layout>
-        <HeadBlock />
-        <WorthIt />
-        <StrongBlock />
-        <WhoNeedAppBlock />
-        <HowDoWeWork />
-        <ProfBlock />
+        <LocalLayout>
+          <HeadBlock />
+          <WorthIt />
+          <StrongBlock />
+          <WhoNeedAppBlock />
+          <HowDoWeWork />
+          <ProfBlock />
+        </LocalLayout>
       </Layout>
       <FooterNew />
     </>

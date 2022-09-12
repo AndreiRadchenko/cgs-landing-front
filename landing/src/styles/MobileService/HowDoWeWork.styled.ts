@@ -209,10 +209,12 @@ export const PointsWrapper = styled.div`
   column-gap: 14em;
 
   @media ${themes.primary.media.minPC} {
+    justify-content: center;
+
     column-gap: 14.33em;
   }
   @media ${themes.primary.media.minPCFullHD} {
-    column-gap: 1em;
+    column-gap: 2em;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
