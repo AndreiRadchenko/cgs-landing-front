@@ -19,21 +19,6 @@ export const BgImage = styled.img`
   top: -2.53em;
   left: -7.81em;
 
-  @media (max-width: 1250px) {
-    top: -2.03em;
-    width: 93.75em;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    left: -12.5em;
-    width: 87.5em;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    left: -200px;
-    width: 1400px;
-  }
-
   @media ${themes.primary.media.minPC} {
     top: -4.28em;
     left: -12.19em;
@@ -41,7 +26,22 @@ export const BgImage = styled.img`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    top: -3.78em;
+    width: 100.25em;
+    top: -2.08em;
+  }
+
+  @media (min-width: 2500px) {
+    width: 115vw;
+    top: -3.08vw;
+  }
+
+  @media (max-width: 1250px) {
+    top: -2.03em;
+    width: 93.75em;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    left: -200px;
+    width: 1400px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -57,7 +57,11 @@ export const BgMobileImage = styled.img`
     position: absolute;
     height: 79%;
     top: 4em;
-    left: -5.5em;
+    left: -7.2em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    left: -5.7em;
   }
 `;
 
@@ -98,7 +102,11 @@ export const CategoryListItem = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 1.58em;
+    margin-top: 1.3em;
+  }
+
+  @media (min-width: 2500px) {
+    margin-top: 2.05vw;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -109,48 +117,43 @@ export const CategoryListItem = styled.p`
 `;
 export const ContentWrapper = styled.div`
   padding-left: 10.5%;
-  padding-right: 9%;
   display: flex;
-  justify-content: space-between;
+  column-gap: 35em;
+
+  @media ${themes.primary.media.minPC} {
+    column-gap: 45em;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    padding-left: 5.5%;
+    padding-right: 0;
+    column-gap: 32em;
+  }
+
+  @media (min-width: 2500px) {
+    column-gap: 40vw;
+  }
 
   @media (max-width: 1410px) {
     padding-left: 10.5%;
-    padding-right: 5%;
   }
 
   @media (max-width: 1310px) {
-    padding-left: 12.5%;
-    padding-right: 0%;
+    padding-left: 11%;
   }
 
   @media (max-width: 1250px) {
     padding-left: 10.5%;
-    padding-right: 9%;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     padding-left: 3%;
-    padding-right: 0;
-  }
-
-  @media ${themes.primary.media.minPC} {
-    padding-right: 0;
-  }
-
-  @media (min-width: 1600px) {
-    padding-right: 3vw;
-  }
-  @media (min-width: 1700px) {
-    padding-right: 9vw;
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    padding-right: 9em;
+    column-gap: 29em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
-    padding-left: 4.5em;
+    padding-left: 4em;
 
     & > div {
       position: relative;

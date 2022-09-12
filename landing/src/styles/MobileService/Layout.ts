@@ -5,6 +5,9 @@ export const LocalLayout = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.2em;
   }
+  @media (min-width: 2200px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const Subtitle = styled.h2`
@@ -13,6 +16,10 @@ export const Subtitle = styled.h2`
   font-size: 2.5em;
   text-transform: uppercase;
   font-weight: inherit;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 2.4em;
+  }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 1.5rem;

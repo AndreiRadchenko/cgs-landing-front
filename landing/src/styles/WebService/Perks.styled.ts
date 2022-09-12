@@ -21,7 +21,7 @@ export const ContentWrapper = styled.div`
   justify-content: space-between;
   row-gap: 3em;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 2.375em;
     row-gap: 2.5em;
     flex-direction: column;
@@ -40,17 +40,11 @@ export const TextBlock = styled.div`
 
   &:nth-child(4) {
     justify-content: flex-end;
-  }
-
-  &:nth-child(5) {
-    justify-content: flex-start;
-  }
-
-  &:nth-child(4) {
     flex-basis: 43%;
   }
 
   &:nth-child(5) {
+    justify-content: flex-start;
     flex-basis: 45%;
   }
 
@@ -61,14 +55,15 @@ export const TextBlock = styled.div`
       display: none;
     }
 
-    &:nth-child(5) {
+    &:nth-child(5),
+    &:nth-child(4) {
       br {
         display: block;
       }
     }
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     flex-basis: 100%;
     position: relative;
 
@@ -87,7 +82,11 @@ export const BigDigit = styled.div`
   text-shadow: 7px 2px 0px ${themes.primary.colors.primary};
   margin-right: 22px;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 4.4em;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
     position: absolute;
     left: -0.1em;
     font-size: 3.75em;
@@ -103,13 +102,17 @@ export const TextContent = styled.div`
   margin-bottom: 0.25em;
 
   @media ${themes.primary.media.minPC} {
-    font-size: 1.7em;
+    font-size: 1.5em;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.1em;
   }
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 1.5em;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.125em;
     padding-left: 3.2em;
     margin-top: 0.5em;

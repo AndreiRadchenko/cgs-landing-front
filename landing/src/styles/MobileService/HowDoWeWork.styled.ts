@@ -100,6 +100,13 @@ export const TextContainer = styled.div`
       }
     }
 
+    @media (min-width: 2200px) {
+      transform: translateY(-0.2em);
+      & img {
+        transform: scale(1.5) translateY(0.2em);
+      }
+    }
+
     @media ${themes.primary.media.maxServiceMobile} {
       transform: translateY(2.8em);
       & img {
@@ -149,6 +156,10 @@ export const Point = styled.img`
   }
   @media ${themes.primary.media.minPCFullHD} {
     transform: scale(1.15) translateY(2.2em);
+  }
+
+  @media (min-width: 2200px) {
+    transform: scale(1.5) translateY(1.6em);
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
