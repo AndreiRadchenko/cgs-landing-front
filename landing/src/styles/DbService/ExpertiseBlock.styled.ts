@@ -17,8 +17,9 @@ export const ContentWrapper = styled.div`
   margin-top: 3.25em;
   margin-right: 1em;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  column-gap: 3em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 2.125em;

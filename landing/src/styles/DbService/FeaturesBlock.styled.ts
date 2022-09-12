@@ -16,6 +16,7 @@ export const Subtitle = styled.h2`
   font-size: 2.125em;
   text-transform: uppercase;
   width: fit-content;
+  margin-bottom: 0.5;
 
   @media (max-width: 1300px) {
     margin-bottom: 0.6em;
@@ -34,7 +35,8 @@ export const Subtitle = styled.h2`
 export const TextContent = styled.div`
   font-size: 1.125em;
   line-height: 160%;
-  padding-top: 1.65em;
+  padding-top: 2vw;
+  max-width: 30em;
 
   & span {
     &:nth-child(1) {
@@ -47,7 +49,7 @@ export const TextContent = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding-top: 0;
+    padding-top: 0.5em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -70,9 +72,11 @@ export const TextContent = styled.div`
 
 export const ContentWrapper = styled.div`
   padding-left: 7.25em;
-  padding-right: 6.2em;
+  padding-right: 6em;
   display: flex;
-  column-gap: 18%;
+  justify-content: space-between;
+  column-gap: 10em;
+  z-index: 5;
 
   @media ${themes.primary.media.maxServiceMobile} {
     & span:not(:first-child) br {
@@ -85,8 +89,9 @@ export const ContentWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding-inline: 2em;
-    column-gap: 10%;
+    padding-inline: 0;
+    column-gap: 15%;
+    padding-left: 2em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -105,18 +110,27 @@ export const ContentWrapper = styled.div`
     max-width: 17em;
   }
   @media (min-width: 1450px) {
-    column-gap: 20%;
     padding-top: 0.8em;
     & span:not(:first-child) br {
       display: none;
     }
   }
+
+  @media (min-width: 1800px) {
+    font-size: 0.8em;
+    justify-content: space-around;
+  }
+
+  @media (min-width: 2200px) {
+    font-size: 0.9em;
+  }
 `;
 
 export const BgImage = styled.img`
   position: absolute;
-  left: -8.5em;
-  width: 125%;
+  left: -11vw;
+  width: 115vw;
+  z-index: -1;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 140%;
