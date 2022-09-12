@@ -60,6 +60,13 @@ export const CategoryContainer = styled.div`
   align-items: flex-start;
   flex-direction: column;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    width: fit-content;
+    &:nth-child(n) {
+      justify-self: center;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     &:nth-child(n) {
