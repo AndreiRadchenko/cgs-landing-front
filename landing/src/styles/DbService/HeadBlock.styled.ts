@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 9.5em 0 0;
+  padding: 9.3em 0 0;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
