@@ -49,6 +49,11 @@ export const Image = styled.img`
   width: 34.625em;
   height: 29.06em;
 
+  @media (min-width: 1500px) {
+    width: 35vw;
+    right: 10em;
+  }
+
   @media (max-width: 1300px) {
     right: 0;
     width: 30em;

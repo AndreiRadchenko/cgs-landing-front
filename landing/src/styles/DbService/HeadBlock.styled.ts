@@ -97,8 +97,8 @@ export const Image = styled.img`
   position: absolute;
   top: 13.56em;
   right: -1.44em;
-  width: 40.81em;
-  height: 29.81em;
+  max-width: 55em;
+  width: 45vw;
 
   @media (max-width: 1350px) {
     width: 32em;
