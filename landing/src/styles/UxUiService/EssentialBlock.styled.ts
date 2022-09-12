@@ -78,10 +78,8 @@ export const Text = styled.p`
   line-height: 160%;
   margin: 1.82em 0 0;
 
-  @media ${themes.primary.media.maxServiceWeb} {
-    br {
-      display: none;
-    }
+  br {
+    display: none;
   }
 
   @media ${themes.primary.media.maxMobile} {

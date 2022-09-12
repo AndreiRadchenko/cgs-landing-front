@@ -106,7 +106,7 @@ export const StyledLine = styled.div`
   width: 102vw;
   height: 1.5em;
   position: absolute;
-  top: 4.125em;
+  top: 42.5%;
   left: -5%;
   background: linear-gradient(
     90deg,
@@ -117,7 +117,6 @@ export const StyledLine = styled.div`
   box-shadow: 7px 2px 0px ${themes.primary.colors.primary};
 
   @media ${themes.primary.media.maxMobile} {
-    position: absolute;
     top: 0;
     width: 320%;
     left: -10%;
