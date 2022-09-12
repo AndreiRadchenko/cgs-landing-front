@@ -293,7 +293,7 @@ export const HeadBlockRow = styled(RowContainer)`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-top: 1.375rem;
+    margin-top: 0.75rem;
   }
 `;
 
