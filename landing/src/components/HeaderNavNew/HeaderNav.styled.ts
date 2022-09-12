@@ -38,8 +38,7 @@ export const LogoLinkWrapper = styled.a`
   @media ${themes.primary.media.maxMobile} {
     height: 5.8125rem;
     border: none;
-
-    padding-left: 1.25rem;
+    padding: 0 0 0 1.25rem;
     &:hover {
       border: none;
     }
