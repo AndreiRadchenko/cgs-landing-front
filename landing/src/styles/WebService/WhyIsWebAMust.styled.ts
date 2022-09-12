@@ -22,11 +22,17 @@ export const ContentLayout = styled.div`
     justify-content: space-between;
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    & br {
+      display: none;
+    }
+  }
+
   @media ${themes.primary.media.minPC} {
     justify-content: space-between;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: 2.56em;
     width: 100%;
     flex-direction: column;
@@ -176,43 +182,9 @@ export const WhyIsWebBlock = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    &:nth-child(2) {
-      img {
-        top: 50%;
-        left: -90%;
-      }
-    }
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    &:nth-child(2) {
-      margin-top: 15em;
-
-      img {
-        top: 65%;
-      }
-    }
-
-    &:nth-child(3) {
-      img {
-        top: 30%;
-        left: -50%;
-      }
-    }
-  }
-
-  @media ${themes.primary.media.maxMobile} {
     margin: 0;
 
-    &:nth-child(2) {
-      margin: 0;
-
-      p {
-        margin-left: 0;
-      }
-    }
-
-    &:nth-child(3) {
+    &:nth-child(n) {
       margin: 0;
 
       p {

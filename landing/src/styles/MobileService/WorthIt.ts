@@ -67,9 +67,9 @@ export const WorthText = styled.p`
     margin-top: 5px;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxLowScreenMobile} {
     margin-bottom: 2.18em;
-    width: 20.5em;
+    max-width: 20.5em;
   }
 `;
 
@@ -123,6 +123,15 @@ export const WorthBlock = styled.div`
       img {
         left: -60%;
         top: 25%;
+      }
+    }
+  }
+
+  @media (max-width: 1300px) {
+    &:nth-child(2) {
+      img {
+        left: -60%;
+        top: 35%;
       }
     }
   }

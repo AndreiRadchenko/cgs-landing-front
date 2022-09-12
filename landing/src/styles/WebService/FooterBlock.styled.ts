@@ -2,13 +2,13 @@
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 13.19em;
+  padding-top: 13.19em;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15.75em;
+  padding-bottom: 15.75em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 11.25em 0 0;
+    padding: 11.25em 0 0;
     flex-direction: column;
     position: relative;
 
@@ -31,11 +31,19 @@ export const Image = styled.img`
   right: 0.56em;
   bottom: 1.875em;
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 20.875em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     width: 16.875em;
     left: 4.44em;
     top: 0;
+    margin: 1.44em auto 6.125em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
     margin: 1.44em 0 6.125em;
   }
 `;

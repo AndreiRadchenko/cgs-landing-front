@@ -12,6 +12,7 @@ export const Container = styled.div`
   @media ${themes.primary.media.maxMobile} {
     padding-top: 1em;
     flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -53,9 +54,10 @@ export const Title = styled.h1`
   font-size: 4.125em;
   font-weight: inherit;
   position: relative;
+  white-space: nowrap;
 
-  @media ${themes.primary.media.maxTabletLandScape} {
-    white-space: nowrap;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 3em;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -92,6 +94,10 @@ export const Description = styled.div`
     }
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1.3em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     margin: 1.625em 0 1.75em;
@@ -103,7 +109,6 @@ export const Description = styled.div`
 `;
 
 export const Image = styled.img`
-  position: absolute;
   top: 8.75em;
   right: -0.2em;
   width: 45.31em;
