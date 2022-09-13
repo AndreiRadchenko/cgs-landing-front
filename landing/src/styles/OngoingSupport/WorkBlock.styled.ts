@@ -41,6 +41,7 @@ export const Subtitle = styled.p`
   margin: 0;
   padding-left: 1.8em;
   position: relative;
+  -webkit-text-stroke: 0.2px black;
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.25em;
   }

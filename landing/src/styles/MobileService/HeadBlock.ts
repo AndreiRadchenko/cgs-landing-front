@@ -24,8 +24,8 @@ export const ContentContainer = styled.div`
   margin-top: 6.3em;
 
   & > a {
-    font-size: 1.54em;
-    padding: 1.195em 2.93em;
+    font-size: 1.5em;
+    padding: 1.118em 3.59em;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -112,7 +112,7 @@ export const Telephone = styled.img`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 107%;
+    width: 108%;
   }
 
   @media ${themes.primary.media.minPCFullHD} {

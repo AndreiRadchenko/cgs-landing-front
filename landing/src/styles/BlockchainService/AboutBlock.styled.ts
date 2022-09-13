@@ -8,7 +8,7 @@ export const Container = styled.div`
   justify-content: space-between;
 
   & img {
-    width: 50em !important;
+    width: 43.1em !important;
   }
 
   @media ${themes.primary.media.maxMobile} {

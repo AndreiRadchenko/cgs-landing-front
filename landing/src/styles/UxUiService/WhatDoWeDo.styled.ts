@@ -100,6 +100,7 @@ export const Subtitle = styled.h3`
   font-size: ${themes.primary.font.size.oneAndHalf};
   line-height: 160%;
   letter-spacing: 0.05em;
+  -webkit-text-stroke: 0.2px black;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
