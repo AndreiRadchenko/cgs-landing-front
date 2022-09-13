@@ -4,7 +4,6 @@ import { queryKeys } from "../../consts/queryKeys";
 import { Subtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/DbService/FooterBlock.styled";
 import { IServiceDb } from "../../types/Admin/Response.types";
-import themes from "../../utils/themes";
 import {
   ArrowContainer,
   BlackButton,
@@ -25,7 +24,7 @@ const FooterBlock = () => {
         </Styled.SubtitleWrapper>
         <BlackButton
           padding={"1.117em 1.97em"}
-          size={themes.primary.font.size.oneAndHalf}
+          size={"1.125em"}
           href={data?.buttonLink}
         >
           {data?.button}

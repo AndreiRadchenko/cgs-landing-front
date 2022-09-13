@@ -34,7 +34,8 @@ export const ButtonWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 35.2em;
     & > a {
-      padding-inline: 3.7em;
+      font-size: 1.54em;
+      padding: 1.195em 2.93em;
     }
   }
 `;

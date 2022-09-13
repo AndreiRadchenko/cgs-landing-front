@@ -3,7 +3,6 @@ import {
   ArrowContainer,
   BlackButton,
 } from "../../styles/HomePage/General.styled";
-import themes from "../../utils/themes";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { IServiceDb } from "../../types/Admin/Response.types";
 import { useQueryClient } from "react-query";
@@ -33,8 +32,8 @@ const HeadBlock = () => {
           <SplitBrackets text={data?.text} />
         </Description>
         <BlackButton
-          padding={"1.13em 3.55em"}
-          size={themes.primary.font.size.oneAndHalf}
+          padding={"1.117em 3.57em"}
+          size={"1.125em"}
           href={data?.buttonLink}
         >
           {data?.button}
