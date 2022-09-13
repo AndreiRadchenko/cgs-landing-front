@@ -232,6 +232,11 @@ export interface IArticle {
   meta: IMetaBlock;
 }
 
+export interface IArticleWithInd {
+  article: IArticle;
+  ind: number;
+}
+
 export interface INewArticle {
   _id?: string;
   url: string;

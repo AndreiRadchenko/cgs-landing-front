@@ -16,6 +16,8 @@ export const queryKeys = {
   deleteTicketAndVacancy: "deleteTicketAndVacancy",
   deleteArticle: "deleteArticle",
   updateBlogPage: "updateBlogPage",
+  updateBlogMetaTags: "updateBlogMetaTags",
+  updateBlogArticle: "updateBlogArticle",
   getBlogPage: "getBlogPage",
   getBlogArticle: "getBlogArticle",
   postArticle: "postArticle",

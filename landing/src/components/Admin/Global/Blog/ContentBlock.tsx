@@ -11,7 +11,9 @@ import * as Styled from "../../../../styles/AdminPage";
 import { useFormikContext } from "formik";
 import {
   IArticle,
+  IArticleWithInd,
   IBlogResponse,
+  IMetaBlock,
   IView,
   IViews,
 } from "../../../../types/Admin/Response.types";
@@ -57,10 +59,16 @@ const ContentBlock: FC<IArticles> = ({
     useFormikContext<IBlogResponse>();
   const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
   const [disabled, setDisabled] = useState<boolean>(false);
-  const { mutateAsync } = useMutation(
-    queryKeys.updateBlogPage,
-    (dataToUpdate: IBlogResponse) =>
-      adminBlogService.updateBlogPage(dataToUpdate)
+
+  const { mutateAsync: updateBlogMetaTags } = useMutation(
+    queryKeys.updateBlogMetaTags,
+    (meta: IMetaBlock) => adminBlogService.updateBlogMetaTags(meta)
+  );
+
+  const { mutateAsync: updateBlogArticle } = useMutation(
+    queryKeys.updateBlogArticle,
+    (dataToUpdate: IArticleWithInd) =>
+      adminBlogService.updateByUrl(dataToUpdate)
   );
 
   const { mutateAsync: postArticle } = useMutation(
@@ -112,7 +120,10 @@ const ContentBlock: FC<IArticles> = ({
       await updateViews({ allViews: updatedViews });
     }
     values.newArticle.tags = [];
-    await mutateAsync(values);
+    await updateBlogArticle({
+      article: values.articles[article],
+      ind: article,
+    });
     setArticle(0);
     setIsNewArticle(true);
     setDisabled(false);
@@ -136,7 +147,7 @@ const ContentBlock: FC<IArticles> = ({
     handleSubmit();
   };
   const updateMetaTags = async () => {
-    await mutateAsync(values);
+    await updateBlogMetaTags(values.meta);
     handleSubmit();
   };
 
