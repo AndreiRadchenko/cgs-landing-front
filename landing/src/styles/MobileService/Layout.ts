@@ -13,7 +13,7 @@ export const LocalLayout = styled.div`
 export const Subtitle = styled.h2`
   margin: 0;
   line-height: 140%;
-  font-size: 2.5em;
+  font-size: 3.33em;
   text-transform: uppercase;
   font-weight: inherit;
 

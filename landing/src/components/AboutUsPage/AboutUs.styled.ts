@@ -85,7 +85,7 @@ export const Text = styled.div`
 
 export const BottomImage = styled.img`
   position: absolute;
-  width: 54.1%;
+  width: 59.8%;
   bottom: 126px;
   right: 0;
 

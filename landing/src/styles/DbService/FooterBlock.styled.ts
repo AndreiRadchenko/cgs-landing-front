@@ -30,7 +30,7 @@ export const TextContent = styled.div`
 export const Image = styled.img`
   position: relative;
   right: 3.875em;
-  width: 24.06em;
+  width: 26.4em;
   height: 29em;
   bottom: 4.625em;
 
@@ -49,6 +49,7 @@ export const Image = styled.img`
     left: 2.81em;
 
     width: 19.31em;
+    height: 21.3em;
   }
 `;
 

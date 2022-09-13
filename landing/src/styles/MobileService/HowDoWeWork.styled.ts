@@ -218,6 +218,7 @@ export const PointsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   column-gap: 14em;
+  width: 105%;
 
   @media ${themes.primary.media.minPC} {
     justify-content: center;
