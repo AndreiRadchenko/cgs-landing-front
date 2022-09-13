@@ -56,7 +56,9 @@ export const Image = styled.img`
 export const SubtitleWrapper = styled.div`
   line-height: 140%;
   width: 50em;
-  font-size: 1em;
+  h2 {
+    font-size: 2.5em;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 30em;

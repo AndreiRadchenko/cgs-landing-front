@@ -53,6 +53,7 @@ export const Image = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     width: 55%;
+    height: 20em;
     transform: rotate(-11.06deg);
   }
   @media ${themes.primary.media.maxLowScreenMobile} {

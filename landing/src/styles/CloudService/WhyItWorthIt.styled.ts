@@ -119,6 +119,7 @@ export const Title = styled.p`
   margin-left: 1.67em;
   font-size: 1.5em;
   line-height: 160%;
+  -webkit-text-stroke: 0.2px black;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.25em;

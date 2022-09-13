@@ -37,8 +37,8 @@ export const Image = styled.img`
   position: absolute;
   right: 0;
   bottom: 7.35em;
-  width: 34.083em;
-  height: 22.65em;
+  width: 25.5em;
+  height: 17em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     bottom: 4em;

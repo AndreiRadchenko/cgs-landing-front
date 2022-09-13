@@ -46,7 +46,7 @@ export const WhyIsWebTitleContainer = styled.div`
   display: flex;
   column-gap: 11px;
   align-items: center;
-  -webkit-text-stroke: 0.7px black;
+  -webkit-text-stroke: 0.2px black;
 
   @media (max-width: 1400px) {
     font-size: 1.7em;
@@ -56,7 +56,6 @@ export const WhyIsWebTitleContainer = styled.div`
     font-size: 1.25em;
     list-style: 160%;
     column-gap: 5px;
-    -webkit-text-stroke: 0.2px black;
     width: 16em;
   }
 `;

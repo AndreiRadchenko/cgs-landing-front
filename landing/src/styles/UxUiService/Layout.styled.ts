@@ -13,4 +13,9 @@ export const Layout = styled.div`
   @media (min-width: 2200px) {
     font-size: 1.6rem;
   }
+
+  h2,
+  h3 {
+    font-weight: inherit;
+  }
 `;
