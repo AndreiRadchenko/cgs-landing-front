@@ -170,7 +170,7 @@ const BlogPage = () => {
         )}
         <Styled.HeaderBlock>
           <Styled.MainContainer>
-            {reversedArticles && (
+            {reversedArticles && reversedArticles[0] && (
               <MainBlogItem
                 article={reversedArticles[0]}
                 views={findViews(reversedArticles[0].url)}

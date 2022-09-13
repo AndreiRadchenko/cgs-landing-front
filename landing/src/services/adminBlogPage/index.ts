@@ -1,6 +1,8 @@
 import {
   IArticle,
+  IArticleWithInd,
   IBlogResponse,
+  IMetaBlock,
   IViews,
 } from "../../types/Admin/Response.types";
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
@@ -19,6 +21,15 @@ export class AdminBlogPage {
   }
   public getByUrl(url: string) {
     return this.httpService.get(`api/blog/article/${url}`);
+  }
+  public updateBlogMetaTags(meta: IMetaBlock) {
+    return this.httpService.put(`api/blog/meta`, meta);
+  }
+  public updateByUrl(updatedArticle: IArticleWithInd) {
+    return this.httpService.put(
+      `api/blog/article/${updatedArticle.ind}`,
+      updatedArticle
+    );
   }
   public updateViews(views: IViews) {
     return this.httpService.put(`api/blog/view`, views);
