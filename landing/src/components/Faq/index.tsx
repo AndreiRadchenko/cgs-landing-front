@@ -18,7 +18,7 @@ const Faq = ({ questions }: IFaqData) => {
         ))}
       </Styles.QuestionsWrapper>
       <Styles.BottomDecorWrap>
-        <Styles.BottomDecor src={bottomDecor.src} />
+        <Styles.BottomDecor src={bottomDecor.src} alt="bottom decoration faq" />
       </Styles.BottomDecorWrap>
     </Styles.FaqContainer>
   );

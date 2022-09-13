@@ -14,6 +14,10 @@ export const QuestionImage = styled.img`
     width: 334px;
   }
 
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    width: 100%;
+  }
+
   @media ${themes.primary.media.onlyPC} {
     width: 515px;
   }
@@ -24,14 +28,11 @@ export const QuestionImage = styled.img`
 export const QuestionContainer = styled.div<IIsOpen>``;
 
 export const QuestionBox = styled.div<IIsOpen>`
-display: flex:
-justify-content: center;
-align-items: center;
-width: 100%;
+  width: 100%;
 
-@media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxMobile} {
     width: ${({ isOpen }) => (isOpen ? "100%" : "calc(100% - 40px)")};
-}
+  }
 `;
 
 export const TogglePlus = styled.div`
@@ -87,7 +88,7 @@ export const QuestionContentContainer = styled.div<IIsOpen>`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.linkText};
-    flex-wrap: wrap;
+    flex-direction: column-reverse;
   }
 
   @media ${themes.primary.media.maxMobile} {
