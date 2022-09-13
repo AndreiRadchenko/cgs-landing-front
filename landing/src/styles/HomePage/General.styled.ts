@@ -384,6 +384,7 @@ export const Subtitle = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1.75rem;
     &.small {
       line-height: 132%;
       font-size: 2rem;
@@ -402,6 +403,7 @@ export const Subtitle = styled.div`
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
+    font-size: 1.475rem;
     &.small {
       line-height: 132%;
       font-size: 7.5vw;
@@ -615,7 +617,8 @@ export const FooterLinkButton = styled.a`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    padding: 12px 17px;
+    font-size: 0.875rem;
+    padding: 12px 15px;
   }
 
   & path {

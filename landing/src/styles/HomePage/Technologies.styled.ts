@@ -112,6 +112,10 @@ export const CategoryTitle = styled.h2`
     text-decoration: none;
     margin: 0;
   }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    width: 90vw;
+  }
 `;
 
 export const CategorySubtitle = styled.p`
