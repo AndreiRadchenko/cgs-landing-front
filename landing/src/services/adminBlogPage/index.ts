@@ -25,12 +25,16 @@ export class AdminBlogPage {
   public updateBlogMetaTags(meta: IMetaBlock) {
     return this.httpService.put(`api/blog/meta`, meta);
   }
-  public updateByUrl(updatedArticle: IArticleWithInd) {
+  public updateByInd(updatedArticle: IArticleWithInd) {
     return this.httpService.put(
       `api/blog/article/${updatedArticle.ind}`,
-      updatedArticle
+      updatedArticle.article
     );
   }
+  public deleteById(id: string) {
+    return this.httpService.delete(`api/blog/article/${id}`);
+  }
+
   public updateViews(views: IViews) {
     return this.httpService.put(`api/blog/view`, views);
   }

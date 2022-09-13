@@ -217,7 +217,7 @@ export interface ITextBlog {
 }
 
 export interface IArticle {
-  _id?: string;
+  _id: string;
   url: string;
   image: { url: string };
   title: string;
@@ -238,7 +238,7 @@ export interface IArticleWithInd {
 }
 
 export interface INewArticle {
-  _id?: string;
+  _id: string;
   url: string;
   image: { url: string };
   title: string;

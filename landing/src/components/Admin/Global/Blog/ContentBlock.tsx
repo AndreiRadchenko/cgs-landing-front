@@ -68,7 +68,7 @@ const ContentBlock: FC<IArticles> = ({
   const { mutateAsync: updateBlogArticle } = useMutation(
     queryKeys.updateBlogArticle,
     (dataToUpdate: IArticleWithInd) =>
-      adminBlogService.updateByUrl(dataToUpdate)
+      adminBlogService.updateByInd(dataToUpdate)
   );
 
   const { mutateAsync: postArticle } = useMutation(
@@ -120,10 +120,12 @@ const ContentBlock: FC<IArticles> = ({
       await updateViews({ allViews: updatedViews });
     }
     values.newArticle.tags = [];
+
     await updateBlogArticle({
       article: values.articles[article],
       ind: article,
     });
+
     setArticle(0);
     setIsNewArticle(true);
     setDisabled(false);
@@ -189,6 +191,7 @@ const ContentBlock: FC<IArticles> = ({
     values.articles.push(articleToAdd);
 
     values.newArticle = {
+      _id: "",
       url: "",
       content: [],
       title: "",
