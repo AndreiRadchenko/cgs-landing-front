@@ -31,7 +31,12 @@ export const PartnerImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 6rem;
+  max-height: 8em;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    height: auto;
+    width: 85%;
+  }
 `;
 
 export const Image = styled.img`
