@@ -52,14 +52,15 @@ export const Image = styled.img`
   transform: rotate(2.06deg);
 
   @media ${themes.primary.media.maxMobile} {
-    width: 55%;
-    height: 20em;
+    width: 95%;
+    height: 28em;
     transform: rotate(-11.06deg);
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 99%;
     right: -15%;
     bottom: 3.3rem;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 115.5%;
+    height: 25.5em;
   }
 `;
 
