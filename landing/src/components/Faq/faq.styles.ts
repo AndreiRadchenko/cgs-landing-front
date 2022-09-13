@@ -35,10 +35,6 @@ export const BottomDecorWrap = styled.div`
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
-
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
-  }
 `;
 
 export const BottomDecor = styled.img`
@@ -47,6 +43,12 @@ export const BottomDecor = styled.img`
   width: 240.83px;
   height: 196.83px;
   bottom: 5px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 144.17px;
+    height: 117.83px;
+    bottom: 0;
+  }
 `;
 
 export const PageTitle = styled.div`
