@@ -55,9 +55,7 @@ export const SlidersCont = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 10px;
     margin-bottom: 162px;
-
-    & > div:not(:nth-of-type(4)) > div {
-      border-bottom: 0;
-    }
+    margin-inline: 10px;
+    border-top: 1px solid ${themes.primary.colors.comment};
   }
 `;
