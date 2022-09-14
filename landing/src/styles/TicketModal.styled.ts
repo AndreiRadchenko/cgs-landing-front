@@ -46,6 +46,14 @@ export const TicketModalContent = styled.div`
     width: 300px;
     height: 660px;
   }
+
+  @media (max-height: 670px) {
+    height: 550px;
+  }
+
+  @media (max-height: 560px) {
+    height: 450px;
+  }
 `;
 
 export const List = styled.ul`
