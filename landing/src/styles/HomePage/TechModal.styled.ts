@@ -2,25 +2,30 @@
 import themes from "../../utils/themes";
 
 export const TicketModal = styled.div`
-  margin-top: calc(2.5em + 40px);
+  margin-top: calc(2.5em + 42px);
   position: absolute;
   z-index: 10;
   width: 42%;
   transition: 0.2s ease-in;
   opacity: 0;
-
+  &.block {
+    max-height: 400px;
+    opacity: 1;
+  }
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: calc(2.5em + 67px);
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    transition: 1s ease-in;
-    max-height: 0;
+  @media ${themes.primary.media.minPC} {
+    margin-top: calc(2.5em + 49px);
   }
 
-  &.block {
-    max-height: 400px;
-    opacity: 1;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-top: calc(2.5em + 22px);
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: calc(2.5em + 20px);
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -117,9 +122,13 @@ export const ListItem = styled.li`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
-    white-space: nowrap;
     &::before {
       margin-right: 6px;
     }
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    font-size: 0.75rem;
+    white-space: nowrap;
   }
 `;
