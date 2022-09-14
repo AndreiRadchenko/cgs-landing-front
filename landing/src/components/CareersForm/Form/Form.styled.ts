@@ -39,6 +39,10 @@ export const FormFieldContainer = styled.div`
   width: 100%;
   height: 78px;
   position: relative;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 66px;
+  }
 `;
 
 export const FormField = styled(Field)<IFormField>`
@@ -58,6 +62,14 @@ export const FormField = styled(Field)<IFormField>`
   }
   &::placeholder {
     opacity: 1;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    font-size: 0.75rem;
   }
 `;
 
@@ -209,6 +221,11 @@ export const FormSentButton = styled.button<ISentButton>`
   &:nth-child(1) {
     color: ${({ isDisabled }) => (isDisabled ? "grey" : "black")};
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 198px;
+    height: 49px;
+  }
 `;
 
 export const FormSentFillText = styled.span<IFillAllFields>`
@@ -225,6 +242,10 @@ export const FormSentFillText = styled.span<IFillAllFields>`
 export const FormSentWrap = styled.span`
   color: grey;
   margin: 0;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const FormSentText = styled.span`
@@ -233,6 +254,10 @@ export const FormSentText = styled.span`
 
   &:first-letter {
     text-transform: capitalize;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 0.875rem;
   }
 `;
 
@@ -244,7 +269,11 @@ export const FormSentContainer = styled.div`
   height: 102px;
   flex-direction: column;
 
-  background: linear-gradient(75.6deg, #d6ffbb -9.39%, #5869dd 110.45%);
+  background: linear-gradient(
+    75.6deg,
+    ${themes.primary.colors.mainGradientColor1} -9.39%,
+    ${themes.primary.colors.mainGradientColor2} 110.45%
+  );
 
   button {
     display: flex;
@@ -255,6 +284,10 @@ export const FormSentContainer = styled.div`
     font-size: 16px;
     font-weight: ${themes.primary.font.weight.heavy};
     font-family: ${themes.primary.font.family.namu};
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 94px;
   }
 `;
 
@@ -328,6 +361,10 @@ export const PositionSelect = styled.div<IEnableGlare>`
       border-left: none;
     }
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 66px;
+  }
 `;
 
 export const DropCv = styled.input`
@@ -368,12 +405,20 @@ export const Label = styled.label<ILabelOptions>`
   right: 0;
   color: gray;
   cursor: pointer;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 61px;
+  }
 `;
 
 export const LabelTitle = styled.span`
   margin: 0;
   margin-left: 10%;
   font-size: 12px;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 10px;
+  }
 `;
 
 export const Clip = styled.img`
@@ -382,6 +427,12 @@ export const Clip = styled.img`
   margin-left: 35%;
   width: 25px;
   height: 25px;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 17px;
+    height: 17px;
+    margin-bottom: 5px;
+  }
 `;
 
 export const LabelWithClipContainer = styled.div<ISpinner>`

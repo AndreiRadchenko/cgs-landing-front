@@ -3,14 +3,16 @@ import * as Styled from "../../styles/Blog.styled";
 import Watch from "../../../public/Watch.svg";
 import Timer from "../../../public/Timer.svg";
 import { IArticle } from "../../types/Admin/Response.types";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 interface IBlogItem {
   article: IArticle;
   views?: number;
-  filters: string[];
+  filters?: string[];
 }
 
 const BlogItem = ({ article, views, filters }: IBlogItem) => {
+  const { width } = useWindowDimension();
   const parseDate = (date: string) => {
     return date.split("-").reverse().join(".");
   };
@@ -21,16 +23,46 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
         <a href={`/blog/${article.url}`}>
           <Styled.HoverContainer>
             <Styled.BlogItemContainer>
-              <Styled.FlexRowContainer>
+              <Styled.ArticlePreview>
                 <Styled.BlogItemContent>
                   <Styled.FlexRowContainer>
-                    <Styled.Date>
-                      {article.updatedOn === ""
-                        ? parseDate(article.date)
-                        : `Updated on ${parseDate(article.updatedOn)}`}
-                    </Styled.Date>
-                    <Styled.Tag>
-                      {filters?.length > 0
+                    {(width && width <= 767 && (
+                      <Styled.FlexColumnContainer className="preview">
+                        <Styled.SecondaryAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.SecondaryAuthor>
+                        <Styled.StatisticWrapper>
+                          <Styled.DataContainer>
+                            <Styled.WatchContainer>
+                              <Styled.BlogItemWatchIcon
+                                src={Watch.src}
+                                alt="views icon"
+                              />
+                              <Styled.WatchCount>
+                                {views || 0}
+                              </Styled.WatchCount>
+                            </Styled.WatchContainer>
+                            <Styled.WatchContainer>
+                              <Styled.TimerIcon src={Timer.src} />
+                              <Styled.GrayText
+                                className={"big"}
+                              >{`${article.minutesToRead} min`}</Styled.GrayText>
+                            </Styled.WatchContainer>
+                          </Styled.DataContainer>
+                          <Styled.Date>
+                            {article.updatedOn === ""
+                              ? parseDate(article.date)
+                              : `Updated on ${parseDate(article.updatedOn)}`}
+                          </Styled.Date>
+                        </Styled.StatisticWrapper>
+                      </Styled.FlexColumnContainer>
+                    )) || (
+                      <Styled.Date>
+                        {article.updatedOn === ""
+                          ? parseDate(article.date)
+                          : `Updated on ${parseDate(article.updatedOn)}`}
+                      </Styled.Date>
+                    )}
+                    <Styled.Tag className="preview">
+                      {filters && filters?.length > 0
                         ? filters.find((tag) => article.tags.includes(tag))
                         : article.tags[0]}
                     </Styled.Tag>
@@ -45,8 +77,8 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
                 ) : (
                   <Styled.NoBlogItemImage />
                 )}
-              </Styled.FlexRowContainer>
-              <Styled.GeneralInfo>
+              </Styled.ArticlePreview>
+              <Styled.GeneralInfo className="preview">
                 <Styled.BlogItemRowContainer>
                   <Styled.SecondaryAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.SecondaryAuthor>
                   <Styled.WatchContainer>

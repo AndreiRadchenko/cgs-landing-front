@@ -17,6 +17,7 @@ export interface IPhotoBlock extends IPropsWithImage {
   deleteFlag?: boolean;
   header?: string;
   horizontalFlex?: boolean;
+  maxHeight?: string;
   maxWidth?: string;
   className?: string;
 }
@@ -30,7 +31,7 @@ export interface InputPropsInterface {
 
 export interface DropdownPropsInterface {
   value: string;
-  route: string;
+  route?: string;
   children?: any;
 }
 

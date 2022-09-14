@@ -1,12 +1,15 @@
 import styled from "styled-components";
-import Decoration from "../../components/Decoration/Decoration";
 import themes from "../../utils/themes";
 
 export const TechnologyContainer = styled.section`
   position: relative;
   user-select: none;
   font-family: ${themes.primary.font.family.namu};
-  margin-bottom: 8.5em;
+  margin-bottom: 12.9em;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 11.25rem;
+  }
 `;
 
 export const TechTitle = styled.h2`
@@ -20,6 +23,11 @@ export const TechTitle = styled.h2`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.reviewTitle};
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5rem;
+    padding-bottom: 0;
+  }
 `;
 
 export const TechnologyRow = styled.div`
@@ -27,33 +35,15 @@ export const TechnologyRow = styled.div`
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 40px;
+  column-gap: 260px;
+
+  @media ${themes.primary.media.maxMobile} {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    margin: 3em auto 3em auto;
-    width: auto;
-
-    .web {
-      order: 1;
-      margin-right: 0;
-    }
-
-    .mobile {
-      order: 3;
-    }
-
-    .server {
-      order: 2;
-      margin-right: 0;
-    }
-
-    .blockchain {
-      margin-left: 0;
-      order: 4;
-    }
+    column-gap: 60px;
   }
 `;
 
@@ -69,10 +59,19 @@ export const CategoryContainer = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  width: 80%;
 
-  &:nth-child(2n) {
-    justify-self: flex-end;
+  @media ${themes.primary.media.minPCFullHD} {
+    width: fit-content;
+    &:nth-child(n) {
+      justify-self: center;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    &:nth-child(n) {
+      justify-self: center;
+    }
   }
 `;
 
@@ -97,9 +96,25 @@ export const CategoryTitle = styled.h2`
   text-align: center;
   position: relative;
   margin-bottom: 20px;
-  z-index: 1;
+  z-index: 10;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndNine};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    border: 1px solid ${themes.primary.colors.headerBorder};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-inline: 1rem;
+    height: 95px;
+    text-decoration: none;
+    margin: 0;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    width: 90vw;
   }
 `;
 
@@ -114,11 +129,32 @@ export const CategorySubtitle = styled.p`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.vistaco};
   }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    & br {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
 `;
 
-export const CategoryImage = styled.img`
+export const CategoryImage = styled.img<{ isOpen?: boolean }>`
   max-width: 98.9%;
   height: auto;
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+    max-width: none;
+    width: 98.9%;
+    margin-bottom: 3.375rem;
+
+    &.open {
+      display: block;
+    }
+  }
 `;
 
 export const ArrowContainer = styled.div`
@@ -129,11 +165,15 @@ export const ArrowContainer = styled.div`
   justify-content: center;
   align-items: center;
   transform: translate(-50%, -50%);
-  width: 121px;
-  height: 121px;
+  width: 75px;
+  height: 75px;
 
   @media ${themes.primary.media.minPC} {
     left: 50%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
   }
 `;
 
@@ -148,30 +188,14 @@ export const CategoryTechnology = styled.span`
   }
 `;
 
-export const DecorationTitle = styled(Decoration)`
-  position: absolute;
-  z-index: -1;
-  height: 0.9em;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
+export const Arrow = styled.svg`
+  display: none;
+  @media ${themes.primary.media.maxMobile} {
+    display: block;
+    transition: 0.3s;
 
-  &.web {
-    width: 4ch;
-    left: 55%;
-  }
-
-  &.mobile {
-    width: 6ch;
-    left: 40%;
-  }
-
-  &.server {
-    width: 6ch;
-  }
-
-  &.blockchain {
-    left: 48%;
-    width: 9.5ch;
+    &.open {
+      transform: rotate(180deg);
+    }
   }
 `;

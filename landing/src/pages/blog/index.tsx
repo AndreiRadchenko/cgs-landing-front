@@ -170,14 +170,14 @@ const BlogPage = () => {
         )}
         <Styled.HeaderBlock>
           <Styled.MainContainer>
-            {reversedArticles && (
+            {reversedArticles && reversedArticles[0] && (
               <MainBlogItem
                 article={reversedArticles[0]}
                 views={findViews(reversedArticles[0].url)}
               />
             )}
           </Styled.MainContainer>
-          <Styled.FlexColumnContainer>
+          <Styled.FlexColumnContainer className="header">
             {reversedArticles &&
               reversedArticles
                 .slice(1, 4)
@@ -186,9 +186,7 @@ const BlogPage = () => {
                 ))}
           </Styled.FlexColumnContainer>
         </Styled.HeaderBlock>
-        <Styled.Separator />
         <PodcastItem />
-        <Styled.Separator />
         <Styled.AllArticlesContainer articles={data.articles.length}>
           <Styled.DropdownContainer>
             <>

@@ -1,23 +1,41 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Layout = styled.div`
-  padding: 0 3.6%;
-  font-family: ${themes.primary.font.family.namu};
-  background-color: ${themes.primary.colors.blogBackground};
-  @media ${themes.primary.media.minPC} {
-    padding: 0 5%;
-  }
+export const LocalLayout = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
-    padding: 0 7%;
+    font-size: 1.2em;
+  }
+  @media (min-width: 2200px) {
+    font-size: 1.4rem;
   }
 `;
 
 export const Subtitle = styled.h2`
   margin: 0;
-  font-size: ${themes.primary.font.size.aboutUsSubtitle};
+  line-height: 140%;
+  font-size: 3.33em;
   text-transform: uppercase;
+  font-weight: inherit;
+
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.quaternary};
+    font-size: 2.4em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1.5rem;
+    white-space: nowrap;
+
+    &.footer {
+      white-space: pre-wrap;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    line-height: 233%;
+    white-space: normal;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 1.35rem;
   }
 `;

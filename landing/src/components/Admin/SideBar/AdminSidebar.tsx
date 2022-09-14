@@ -14,6 +14,9 @@ const AdminSidebar = () => {
   const pushBlog = () => router.push(ROUTE_KEYS.AdminBlog);
   const pushPortfolio = () => router.push(ROUTE_KEYS.AdminPortfolioPage);
 
+  const currentPath =
+    router.pathname.split("/")[router.pathname.split("/").length - 1];
+
   return (
     <Styled.AdminSidebar>
       <Styled.AdminSidebarLogo>
@@ -27,15 +30,35 @@ const AdminSidebar = () => {
         </DropDownElement>
         <Styled.AdminSidebarMenuElement
           onClick={pushPortfolio}
-          itemProp="AdminPortfolioPage"
+          itemProp={currentPath}
           property={ROUTE_KEYS.AdminPortfolioPage}
         >
           portfolio
         </Styled.AdminSidebarMenuElement>
-
-        <DropDownElement value="service" route={ROUTE_KEYS.AdminService} />
-
-        <DropDownElement value="company" route={ROUTE_KEYS.AdminCompany}>
+        <DropDownElement value="service">
+          <Link href={ROUTE_KEYS.AdminServiceWeb}>
+            <a>Web // Desktop Development</a>
+          </Link>
+          <Link href={ROUTE_KEYS.AdminServiceMobile}>
+            <a>Mobile Development</a>
+          </Link>
+          <Link href={ROUTE_KEYS.AdminServiceCloud}>
+            <a>Cloud Solutions</a>
+          </Link>
+          <Link href={ROUTE_KEYS.AdminServiceSupport}>
+            <a>Ongoing Support // Maintenance</a>
+          </Link>
+          <Link href={ROUTE_KEYS.AdminServiceDb}>
+            <a>Server & Databases</a>
+          </Link>
+          <Link href={ROUTE_KEYS.AdminServiceBlockchain}>
+            <a>Blockchain Development</a>
+          </Link>
+          <Link href={ROUTE_KEYS.AdminServiceUxUi}>
+            <a>Ux/Ui Design</a>
+          </Link>
+        </DropDownElement>
+        <DropDownElement value="company">
           <Link href={ROUTE_KEYS.AdminAboutUs}>
             <a>about us</a>
           </Link>
@@ -48,7 +71,7 @@ const AdminSidebar = () => {
         </DropDownElement>
         <Styled.AdminSidebarMenuElement
           onClick={pushBlog}
-          itemProp="AdminBlog"
+          itemProp={currentPath}
           property={ROUTE_KEYS.AdminBlog}
         >
           blog
@@ -56,14 +79,14 @@ const AdminSidebar = () => {
 
         <Styled.AdminSidebarMenuElement
           onClick={pushSetting}
-          itemProp="AdminPage"
+          itemProp={currentPath}
           property={ROUTE_KEYS.AdminSettings}
         >
           settings
         </Styled.AdminSidebarMenuElement>
         <Styled.AdminSidebarMenuElement
           onClick={pushBlockchain}
-          itemProp="AdminPage"
+          itemProp={currentPath}
           property={ROUTE_KEYS.AdminBlockchain}
         >
           blockchain

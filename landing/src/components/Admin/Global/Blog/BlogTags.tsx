@@ -29,7 +29,7 @@ const BlogTags: FC<IBlogTags> = ({ isNewArticle, article }) => {
   }, [article, isNewArticle, values.articles, values.newArticle]);
 
   const newArticleTag = (index: number) => (
-    <div>
+    <div key={index}>
       <Dropdown
         name={`newArticle.tags[${index}]`}
         value={values.newArticle.tags[index]}
@@ -39,7 +39,7 @@ const BlogTags: FC<IBlogTags> = ({ isNewArticle, article }) => {
   );
 
   const editArticleTag = (index: number) => (
-    <div>
+    <div key={index}>
       <Dropdown
         name={`articles[${article}].tags[${index}]`}
         value={values.articles[article].tags[index]}

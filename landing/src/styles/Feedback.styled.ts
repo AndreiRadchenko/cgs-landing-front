@@ -12,11 +12,12 @@ export const FeedbackSectionTitle = styled.h3`
   font-size: ${themes.primary.font.size.aboutUsSubtitle};
   margin: 0;
   text-transform: uppercase;
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 2.7em;
-  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.reviewTitle};
+  }
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5rem;
   }
 `;
 
@@ -35,8 +36,12 @@ export const FeedbackSectionSubTitle = styled.h3`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.8em;
-    max-width: 23em;
+    font-size: 1rem;
+    max-width: none;
+
+    & br {
+      display: none;
+    }
   }
 `;
 
@@ -49,5 +54,9 @@ export const FeedbackRow = styled.div`
   & .swiper {
     display: flex;
     flex-direction: column-reverse;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 190px;
   }
 `;

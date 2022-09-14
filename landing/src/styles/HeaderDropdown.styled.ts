@@ -4,11 +4,12 @@ import themes from "../utils/themes";
 export const DropdownContent = styled.div`
   position: absolute;
   background-color: ${themes.primary.colors.blogBackground};
-  min-width: 22.05vw;
+  min-width: 22.22vw;
+  top: 100%;
   z-index: 3;
-  right: 0;
+  right: 0px;
   border: 1px solid ${themes.primary.colors.primary};
-  border-right: 3px solid ${themes.primary.colors.primary};
+  border-right: 2.5px solid ${themes.primary.colors.primary};
   border-bottom: 12px solid ${themes.primary.colors.primary};
   display: none;
   &.open {
@@ -19,7 +20,6 @@ export const DropdownContent = styled.div`
     font-family: ${themes.primary.font.family.namu};
     font-size: ${themes.primary.font.size.primary};
     border-bottom: 1px solid ${themes.primary.colors.comment};
-    padding: 10px 16px;
     text-decoration: none;
     text-align: left;
     cursor: pointer;
@@ -29,6 +29,9 @@ export const DropdownContent = styled.div`
     &:last-child {
       border-bottom: 0;
     }
+  }
+  a {
+    padding: 10px 16px;
   }
 `;
 
@@ -46,12 +49,12 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   border-bottom: 0;
   border-right: 0;
   border-left: 1px solid ${themes.primary.colors.comment} !important;
+  width: 100%;
 
   button,
   &:first-child {
     border: none;
     height: 56px;
-    width: 11.02vw;
   }
   div {
     &:nth-child(2) {
@@ -78,18 +81,18 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 13px;
   }
+  transition: all 0.3s;
   &:hover {
-    transition: 0.3s;
-    border-right: 1.5px solid ${themes.primary.colors.primary};
-    border-bottom: 7px solid ${themes.primary.colors.primary};
+    border-right: 2px solid ${themes.primary.colors.primary} !important;
+    border-bottom: 7px solid ${themes.primary.colors.primary} !important;
   }
   &:hover &.open {
-    border-bottom: 0;
-    border-right: 3px solid ${themes.primary.colors.primary};
+    border-bottom: 0 !important;
+    border-right: 2px solid ${themes.primary.colors.primary} !important;
   }
   &.open {
-    border-bottom: 0;
-    border-right: 3px solid ${themes.primary.colors.primary};
+    border-bottom: 0 !important;
+    border-right: 2px solid ${themes.primary.colors.primary} !important;
 
     img {
       transform: rotate(180deg);
@@ -116,14 +119,12 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
 
 export const Dropdown = styled.div`
   position: relative;
-  display: inline-block;
+  display: flex;
   background-color: ${themes.primary.colors.blogBackground};
-  &.disabled {
-    cursor: default;
-    opacity: 0.5;
-    &:hover {
-      border-right: 0;
-      border-bottom: 0;
-    }
-  }
+  width: 11.11vw;
+`;
+
+export const Link = styled.a`
+  display: block;
+  width: 100%;
 `;

@@ -1,5 +1,6 @@
 import parse from "html-react-parser";
 import { GetStaticPropsContext } from "next";
+import DefaultErrorPage from "next/error";
 import ArticleAuthor from "../../components/ArticleAuthor/ArticleAuthor";
 import ArticleDescription from "../../components/ArticleDescription/ArticleDescription";
 import ShareOn from "../../components/ShareOn/ShareOn";
@@ -157,7 +158,7 @@ const ArticlePage = () => {
             </div>
             <Styles.BannerWrapper>
               <Styles.TagWrapper>
-                <ShareOn title={article.title} />
+                <ShareOn title={article.title} className="web" />
                 <ArticleTags tags={article.tags} />
                 <ArticleAuthor
                   author={article.author}
@@ -190,6 +191,7 @@ const ArticlePage = () => {
             {readMore && (
               <>
                 <ArticleDescription content={article.content} />
+                <ShareOn title={article.title} className="mobile" />
                 <ArticleReadMore readMore={readMore} findViews={findViews} />
               </>
             )}
@@ -199,9 +201,7 @@ const ArticlePage = () => {
       </Styles.Background>
     </>
   ) : (
-    <Styled.AdminUnauthorizedModal>
-      Something went wrong :(
-    </Styled.AdminUnauthorizedModal>
+    <DefaultErrorPage statusCode={404} />
   );
 };
 

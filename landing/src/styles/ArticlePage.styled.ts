@@ -11,6 +11,20 @@ export const Title = styled.h1`
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.bigTitle};
   }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 4em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 3rem;
+    margin-bottom: 1.375rem;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1.5rem;
+    margin-bottom: 1.375rem;
+  }
 `;
 
 export const SubTitle = styled.p`
@@ -24,6 +38,12 @@ export const SubTitle = styled.p`
   z-index: 2;
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.aboutUsCardText};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 1.7rem;
+    font-size: 1rem;
+    margin-bottom: 90px;
   }
 `;
 
@@ -63,6 +83,11 @@ export const PageWrapper = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 40px;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 0;
+    padding: 80px 20px 0;
+  }
 `;
 
 export const BannerImageContainer = styled.div`
@@ -84,10 +109,16 @@ export const TagWrapper = styled.div`
   justify-content: end;
   column-gap: 20px;
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin-top: 20px;
+    margin-top: 60px;
     row-gap: 20px;
     order: 2;
     width: 100%;
+    height: auto;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    row-gap: 0;
+    margin-top: 0;
   }
 `;
 
@@ -114,7 +145,7 @@ export const ArrowBackButton = styled.img`
   }
   position: absolute;
   top: -63px;
-  left: -16.5em;
+  left: -215px;
   @media (max-width: 1280px) {
     left: -120px;
   }
@@ -136,6 +167,12 @@ export const ArrowBackButton = styled.img`
   @media ${themes.primary.media.maxTabletPortrait} {
     left: 0px;
     top: -120px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    left: -16px;
+    top: -75px;
+    width: 21%;
   }
 `;
 
@@ -163,8 +200,7 @@ export const TitleBg = styled.div`
     left: -140px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    left: -90px;
-    top: -40px;
+    display: none;
   }
 `;
 
@@ -181,9 +217,9 @@ export const HeaderBottomBg = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     right: -14%;
   }
-  @media ${themes.primary.media.maxTablet} {
-    top: 5px;
-    right: -13%;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    display: none;
   }
 `;
 
@@ -207,7 +243,7 @@ export const SecondHeaderBg = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     right: -540px;
   }
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     display: none;
   }
 `;
@@ -221,5 +257,8 @@ export const FooterBg = styled.div`
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     right: -250px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
   }
 `;

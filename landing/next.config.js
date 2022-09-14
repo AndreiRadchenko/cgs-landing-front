@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     domains: ["landing-cgs.s3.amazonaws.com"],
+    minimumCacheTTL: 3600,
   },
   routes: [
     {

@@ -10,8 +10,8 @@ export const Wrapper = styled.div`
   margin-top: 22px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin: 0;
-    align-items: center;
+    margin-block: 2rem;
+    gap: 24px;
   }
 `;
 
@@ -33,5 +33,10 @@ export const TagItem = styled.div`
   &:hover {
     background-color: ${themes.primary.colors.tagBg};
     cursor: pointer;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+    padding: 4px 12px;
   }
 `;

@@ -2,13 +2,37 @@
 import themes from "../../utils/themes";
 
 export const TicketModal = styled.div`
-  margin-top: calc(2.5em + 39px);
-  display: none;
+  margin-top: calc(2.5em + 40px);
   position: absolute;
   z-index: 10;
   width: 42%;
+  transition: 0.2s ease-in;
+  opacity: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: calc(2.5em + 67px);
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    transition: 1s ease-in;
+    max-height: 0;
+  }
+
   &.block {
-    display: block;
+    max-height: 400px;
+    opacity: 1;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    max-height: 0;
+    width: 100%;
+    margin-top: 0;
+    transition: 0.3s;
+
+    &.block {
+      max-height: 300px;
+    }
   }
 `;
 
@@ -24,6 +48,10 @@ export const TicketModalContent = styled.div`
   background: ${themes.primary.colors.blogBackground};
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    border: 0;
+  }
 `;
 
 export const Container = styled.div`
@@ -36,6 +64,10 @@ export const Container = styled.div`
   margin-top: 12px;
   margin-left: 12px;
   border: 2px solid black;
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
 `;
 
 export const BlackBox = styled.div`
@@ -63,6 +95,16 @@ export const List = styled.ul`
   &.rows {
     grid-template-columns: repeat(2, 1fr);
   }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    column-gap: 10px;
+    padding-left: 20px;
+    margin-bottom: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 0 0 1.625rem 2px;
+    column-gap: 16px;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -71,5 +113,13 @@ export const ListItem = styled.li`
     content: "\u25A0";
     font-size: 1.7em;
     margin-right: ${themes.primary.spacing.small};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+    white-space: nowrap;
+    &::before {
+      margin-right: 6px;
+    }
   }
 `;

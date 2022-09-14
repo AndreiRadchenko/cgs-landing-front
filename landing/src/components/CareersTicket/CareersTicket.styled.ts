@@ -6,6 +6,12 @@ interface IImageProps {
   imgUrl?: string;
 }
 
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const TicketWrapper = styled.div`
   display: flex;
   height: 15.938rem;
@@ -187,8 +193,22 @@ export const TicketInner = styled.div`
   position: relative;
   display: flex;
   overflow: hidden;
-  &:hover {
-    cursor: pointer;
+  cursor: pointer;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    column-gap: 30px;
+  }
+
+  @media (max-width: 710px) {
+    column-gap: 20px;
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    column-gap: 5px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    column-gap: 0;
   }
 `;
 
@@ -208,9 +228,9 @@ export const TicketContainer = styled.div`
   background-size: 100% 100%;
   background-repeat: no-repeat;
 
-  max-width: 646px;
+  max-width: 616px;
   width: 100%;
-  height: 275px;
+  height: 265px;
   padding: 16px;
   position: relative;
   right: 10px;
@@ -219,7 +239,33 @@ export const TicketContainer = styled.div`
   justify-content: center;
   cursor: pointer;
   @media ${themes.primary.media.maxTabletLandScape} {
+    height: 230px;
     padding: 13px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    height: 265px;
+    padding: 16px;
+  }
+
+  @media (max-width: 710px) {
+    max-width: none;
+    width: 100%;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 350px;
+    height: 209px;
+    background-image: url(/CareerDecorations/outerMobile.svg);
+    padding: 10px;
+    right: 0;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    width: 300px;
+    height: 209px;
+    background-image: url(/CareerDecorations/outerMobile.svg);
+    padding: 10px;
   }
   &:hover ${TicketInnerSvgWrapper} {
     svg,
@@ -235,19 +281,45 @@ export const TicketPosition = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  align-self: center;
-  transform: rotate(270deg) translateY(-20px);
-  margin: 0;
   text-transform: uppercase;
+  transform: rotate(-180deg) translateX(20px);
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  text-align: center;
+  margin: 0;
+  width: 5.764vw;
 
-  @media ${themes.primary.media.minLaptop} {
+  @media (min-width: 1300px) {
     font-size: 24px;
-  }
 
-  &.admin {
-    @media ${themes.primary.media.minLaptop} {
+    &.admin {
       font-size: 22px;
     }
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding-right: 10px;
+    font-size: 1.5vw;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding-right: 30px;
+    font-size: 24px;
+    width: 60px;
+  }
+
+  @media (max-width: 710px) {
+    font-size: 3.39vw;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    padding-right: 20px;
+    width: 50px;
+    font-size: 0.875rem;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 103px;
   }
 `;
 
@@ -258,12 +330,17 @@ export const LeftDivider = styled.hr`
   align-self: center;
   position: absolute;
   left: -10px;
-  transform: rotate(270deg);
+  transform: rotate(90deg);
   border: none;
   border-radius: 5px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 2px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    left: -22px;
+    width: 35%;
   }
 `;
 
@@ -281,11 +358,13 @@ export const RightDivider = styled.hr`
     height: 2px;
     right: -28px;
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    display: none;
+  }
 `;
 
 export const TicketPositionContainer = styled.div`
-  display: flex;
-  flex-direction: column;
   padding-top: 10px;
   z-index: 2;
   @media (max-width: 1360px) {
@@ -294,11 +373,29 @@ export const TicketPositionContainer = styled.div`
   @media (max-width: 1250px) {
     padding-top: 28px;
   }
-  @media (max-width: 1150px) {
-    padding-top: 33px;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding-top: 13px;
   }
+
   @media (max-width: 1110px) {
-    padding-top: 38px;
+    padding-top: 23px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding-top: 10px;
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    padding-top: 20px;
+  }
+
+  @media (max-width: 575px) {
+    padding-top: 40px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    padding-top: 20px;
   }
 `;
 
@@ -311,14 +408,23 @@ export const TicketPositionTitle = styled.p`
   white-space: nowrap;
   text-overflow: ellipsis;
 
-  @media ${themes.primary.media.minLaptop} {
+  @media (min-width: 1300px) {
     font-size: 35px;
-  }
-
-  &.admin {
-    @media ${themes.primary.media.minLaptop} {
+    &.admin {
       font-size: 30px;
     }
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 34px;
+  }
+
+  @media (max-width: 710px) {
+    font-size: 4.79vw;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1.25rem;
   }
 `;
 
@@ -329,14 +435,21 @@ export const TicketPositionStack = styled.p`
   text-transform: uppercase;
   font-size: 1.5vw;
 
-  @media ${themes.primary.media.minLaptop} {
+  @media (min-width: 1300px) {
     font-size: 20px;
   }
 
-  &.admin {
-    @media ${themes.primary.media.minLaptop} {
-      font-size: 20px;
-    }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 20px;
+  }
+
+  @media (max-width: 710px) {
+    font-size: 3.39vw;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 0.875rem;
+    margin-top: 4px;
   }
 `;
 
@@ -344,59 +457,132 @@ export const TicketPositionStarsContainer = styled.div`
   display: flex;
   gap: 13px;
   margin-top: 15px;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-top: 17px;
+  }
 `;
 
 export const TicketPositionStars = styled.img`
   width: 2.2vw;
   height: auto;
 
-  @media ${themes.primary.media.minLaptop} {
+  @media (min-width: 1300px) {
     width: 35px;
-  }
-  &.admin {
-    @media ${themes.primary.media.minLaptop} {
+    &.admin {
       width: 20px;
     }
   }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 30px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 25px;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 20px;
+  }
 `;
 
-export const TicketDataBackground = styled.img`
+export const TicketDataBackground = styled.div`
   position: absolute;
   width: 70%;
-  bottom: 8%;
+  bottom: 0%;
   right: 40px;
+
+  @media ${themes.primary.media.maxLaptop} {
+    bottom: 3%;
+  }
+
+  @media (max-width: 1430px) {
+    bottom: 5%;
+  }
   @media (max-width: 1360px) {
-    bottom: 9%;
+    bottom: 7%;
   }
   @media (max-width: 1320px) {
-    bottom: 10%;
+    bottom: 8%;
   }
   @media (max-width: 1300px) {
-    bottom: 12%;
+    bottom: 10%;
   }
   @media (max-width: 1250px) {
-    bottom: 14%;
+    bottom: 12%;
   }
-  @media (max-width: 1200px) {
-    bottom: 16%;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    bottom: 8%;
   }
   @media (max-width: 1150px) {
-    bottom: 17.5%;
+    bottom: 11.5%;
   }
   @media (max-width: 1110px) {
-    bottom: 18.5%;
+    bottom: 12.5%;
   }
   @media (max-width: 1070px) {
-    bottom: 19.5%;
+    bottom: 13.5%;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    bottom: 0;
+  }
+
+  @media (max-width: 700px) {
+    bottom: 1%;
+  }
+
+  @media (max-width: 650px) {
+    bottom: 7%;
+  }
+
+  @media (max-width: 600px) {
+    bottom: 11%;
+  }
+
+  @media (max-width: 550px) {
+    bottom: 14%;
+  }
+
+  @media (max-width: 510px) {
+    bottom: 17%;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 80%;
+    right: 5%;
+    bottom: 0;
   }
 `;
 
 export const TicketArrow = styled.img`
-  max-width: 60px;
-  width: 100%;
-  height: 100%;
-  max-height: 60px;
+  width: 60px;
+  height: 60px;
   position: absolute;
   right: -27px;
   top: 39%;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 45px;
+    height: 45px;
+    right: -17px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 60px;
+    height: 60px;
+    right: -27px;
+  }
+
+  @media (max-width: 575px) {
+    width: 45px;
+    height: 45px;
+    right: -17px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 28px;
+    height: 28px;
+    right: -7px;
+    top: 43%;
+  }
 `;

@@ -36,11 +36,26 @@ export const TicketModalContent = styled.div`
   background: ${themes.primary.colors.blogBackground};
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
+
+  @media (max-width: 570px) {
+    width: 345px;
+    height: 660px;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    width: 300px;
+    height: 660px;
+  }
 `;
 
 export const List = styled.ul`
   list-style-type: square;
   margin: 48px 5px 0 0;
+
+  @media (max-width: 570px) {
+    margin-top: 24px;
+    padding-left: 11px;
+  }
 `;
 export const ListTitle = styled.span`
   margin: 0 0 7px 0;
@@ -48,6 +63,10 @@ export const ListTitle = styled.span`
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
   line-height: 33px;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5rem;
+  }
 `;
 export const ListItem = styled.li`
   margin: 0;
@@ -63,6 +82,22 @@ export const ListItem = styled.li`
     font-size: 1.2em;
     margin: 0;
   }
+
+  @media (max-width: 570px) {
+    margin-top: 8px;
+    margin-left: 22px;
+    font-size: 0.875rem;
+
+    & span {
+      position: relative;
+      top: -3px;
+      left: -5px;
+    }
+
+    &::marker {
+      font-size: 1.65rem;
+    }
+  }
 `;
 
 export const SubmitButtonContainer = styled.div`
@@ -70,6 +105,30 @@ export const SubmitButtonContainer = styled.div`
   width: 172px;
   position: relative;
   margin: 38px 0 40px 36px;
+  & path {
+    transition: all 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    z-index: -1;
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
+
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+  }
+
+  @media (max-width: 570px) {
+    margin: 26px 0 26px 10px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 154px;
+  }
 `;
 
 export const SubmitButton = styled.button`
@@ -81,6 +140,11 @@ export const SubmitButton = styled.button`
   text-transform: uppercase;
   font-size: 19px;
   cursor: pointer;
+
+  @media (max-width: 570px) {
+    font-size: 1rem;
+    padding: 17px;
+  }
 `;
 
 export const SubmitArrow = styled.img`
@@ -101,6 +165,10 @@ export const CloseButton = styled.img`
   margin: 26px 26px 0 0;
   cursor: pointer;
   z-index: 5;
+  @media (max-width: 570px) {
+    margin-top: 21px;
+    margin-right: 15px;
+  }
 `;
 
 export const Container = styled.div`
@@ -113,6 +181,11 @@ export const Container = styled.div`
   margin-top: 12px;
   margin-left: 12px;
   border: 2px solid black;
+
+  @media (max-width: 570px) {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
 `;
 
 export const BlackBox = styled.div`
@@ -140,7 +213,6 @@ export const Content = styled.div`
 
   &::-webkit-scrollbar-track {
     background-color: transparent;
-    /* margin-bottom: 200px; */
   }
   &::-webkit-scrollbar-track-piece:end {
     background: transparent;
@@ -159,6 +231,10 @@ export const Content = styled.div`
 
   scrollbar-color: ${themes.primary.colors.primary} transparent;
   scrollbar-width: thin;
+
+  @media (max-width: 570px) {
+    margin-right: 7px;
+  }
 `;
 
 export const HiddenWrapper = styled.div`

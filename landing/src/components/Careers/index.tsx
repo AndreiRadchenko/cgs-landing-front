@@ -2,15 +2,18 @@ import React, { FC } from "react";
 import * as Styles from "./Careers.styled";
 import { IDataCareersResponse } from "../../types/Admin/Response.types";
 import Arrow from "../../../public/arrowRight.svg";
+import ArrowMobile from "../../../public/CareerDecorations/ArrowMobile.svg";
 import MagnifiedGlass from "../../../public/magnifiedGlass.svg";
 import CareersTicket from "../../components/CareersTicket";
 import CareersForm from "../CareersForm";
 import { useScrollTo } from "../../hooks/useScrollTo";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 interface ICareersProps {
   data: IDataCareersResponse;
 }
 const Careers: FC<ICareersProps> = ({ data }) => {
+  const { width } = useWindowDimension();
   const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
   const positions = data?.tickets?.length
     ? data.tickets.map(({ vacancy, position }) => `${position} ${vacancy}`)
@@ -25,15 +28,20 @@ const Careers: FC<ICareersProps> = ({ data }) => {
   };
 
   return (
-    <>
+    <Styles.Layout>
       <Styles.CareersContainer>
         <Styles.Title>
           <Styles.TitleTextRow>
             <Styles.TitleText>NEXT-GENERATION</Styles.TitleText>
             <Styles.ArrowContainer>
-              <Styles.TitleArrow src={Arrow.src} alt="Arrow" />
+              {width && (
+                <Styles.TitleArrow
+                  src={width > 474 ? Arrow.src : ArrowMobile.src}
+                  alt="Arrow"
+                />
+              )}
             </Styles.ArrowContainer>
-            <Styles.TitleText>PROJECTS</Styles.TitleText>
+            <Styles.TitleText>PROJECTS&nbsp;</Styles.TitleText>
           </Styles.TitleTextRow>
           <Styles.TitleTextRow>
             <Styles.TitleText>REQUIRE AN&nbsp;</Styles.TitleText>
@@ -64,7 +72,7 @@ const Careers: FC<ICareersProps> = ({ data }) => {
           <Styles.FormImage src={MagnifiedGlass.src} alt="Magnified Glass" />
         </Styles.FormAndImageContainer>
       </Styles.CareersContainer>
-    </>
+    </Styles.Layout>
   );
 };
 

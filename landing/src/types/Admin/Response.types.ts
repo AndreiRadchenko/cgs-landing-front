@@ -217,7 +217,7 @@ export interface ITextBlog {
 }
 
 export interface IArticle {
-  _id?: string;
+  _id: string;
   url: string;
   image: { url: string };
   title: string;
@@ -232,8 +232,18 @@ export interface IArticle {
   meta: IMetaBlock;
 }
 
+export interface IArticleWithInd {
+  article: IArticle;
+  ind: number;
+}
+
+export interface ISwapData {
+  desIndex: number;
+  srcIndex: number;
+}
+
 export interface INewArticle {
-  _id?: string;
+  _id: string;
   url: string;
   image: { url: string };
   title: string;
@@ -291,5 +301,268 @@ export interface IAbout {
     text: string[];
   };
   image: { url: string };
+  meta: IMetaBlock;
+}
+
+export interface ISubtitleWithText {
+  subtitle: string;
+  text: string;
+}
+
+export interface IIntroWithImage {
+  title: string;
+  text: string;
+  button: string;
+  buttonLink: string;
+  image: { url: string };
+}
+
+export interface IServiceMobile {
+  mainBlock: IIntroWithImage;
+  worthBlock: {
+    subtitle: string;
+    textBlock: {
+      accessibility: ISubtitleWithText;
+      marketing: ISubtitleWithText;
+      brand: ISubtitleWithText;
+    };
+  };
+  strongBlock: {
+    subtitle: string;
+    textBlock: {
+      android: ISubtitleWithText;
+      ios: ISubtitleWithText;
+    };
+  };
+  whatDoWeUse: ISubtitleWithText;
+  whoNeedApps: ISubtitleWithText;
+  howDoWeWork: {
+    subtitle: string;
+    text: {
+      point1: ISubtitleWithText;
+      point2: ISubtitleWithText;
+      point3: ISubtitleWithText;
+      point4: ISubtitleWithText;
+    };
+  };
+  footerBlock: IIntroWithImage;
+  meta: IMetaBlock;
+}
+// cloud Solution
+export interface ICloudService {
+  meta: IMetaBlock;
+  footerBlock: {
+    button: string;
+    buttonLink: string;
+    subtitle: string;
+    image: { url: string };
+  };
+  headerBlock: {
+    button: string;
+    buttonLink: string;
+    title: string;
+    text: string;
+    image: { url: string };
+  };
+  providesBlock: {
+    configuration: ISubtitleWithText;
+    hosting: ISubtitleWithText;
+    publishing: ISubtitleWithText;
+    subtitle: string;
+  };
+  workBlock: {
+    subtitle: string;
+    subtitle1: string;
+    subtitle2: string;
+    subtitle3: string;
+  };
+  worthBlock: {
+    collaboration: ISubtitleWithText;
+    dataSecurity: ISubtitleWithText;
+    mobility: ISubtitleWithText;
+    subtitle: string;
+  };
+}
+export interface ISubtitleWithText {
+  subtitle: string;
+  text: string;
+}
+
+export interface ISubtitleWithList {
+  subtitle: string;
+  list: string[];
+}
+
+export interface IServiceWeb {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  comparisonBlock: {
+    desktopColumn: ISubtitleWithList;
+    webColumn: ISubtitleWithList;
+  };
+  whyIsWebBlock: {
+    subtitle: string;
+    element1: ISubtitleWithText;
+    element2: ISubtitleWithText;
+    element3: ISubtitleWithText;
+  };
+  solutionBlock: ISubtitleWithText;
+  perksBlock: ISubtitleWithList;
+  footerBlock: {
+    subtitle: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}
+
+export interface IServiceDb {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  expertiseBlock: {
+    subtitle: string;
+    servers: ISubtitleWithText;
+    databases: ISubtitleWithText;
+  };
+  selectBlock: {
+    subtitle: string;
+    text: string;
+    image: { url: string };
+  };
+  featuresBlock: {
+    databases: {
+      subtitle: string;
+      text1: string;
+      text2: string;
+      text3: string;
+    };
+    servers: {
+      subtitle: string;
+      text1: string;
+      text2: string;
+    };
+  };
+  footerBlock: {
+    subtitle: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}
+
+//Blockchain service page
+
+export interface IBlockchainService {
+  aboutBlock: {
+    subtitle: string;
+  };
+  footerBlock: {
+    button: string;
+    buttonLink: string;
+    subtitle: string;
+    image: {
+      url: string;
+    };
+  };
+  headerBlock: {
+    button: string;
+    buttonLink: string;
+    title: string;
+    text: string;
+    image: {
+      url: string;
+    };
+  };
+  servicesBlock: {
+    image: {
+      url: string;
+    };
+    subtitle: string;
+    text: string;
+    textSubBlock: string[];
+  };
+  wayBlock: {
+    subtitle: string;
+    textSubBlock: string[];
+  };
+  meta: IMetaBlock;
+}
+
+export interface ISubtitleWithText {
+  subtitle: string;
+  text: string;
+}
+
+export interface IServiceSupport {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  howDoWeWorkBlock: {
+    subtitle: string;
+    maintenance: ISubtitleWithText;
+    support: ISubtitleWithText;
+    security: ISubtitleWithText;
+  };
+  providesBlock: {
+    subtitle: string;
+    textSubBlock: ISubtitleWithText[];
+  };
+  bonusesBlock: {
+    subtitle: string;
+    textSubBlock: string[];
+  };
+  footerBlock: {
+    subtitle: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}
+
+export interface IUxUiInterface {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  whatDoWeDoBlock: {
+    title: string;
+    textSubBlock: { subtitle: string; text: string }[];
+  };
+  designBlock: {
+    title: string;
+    textSubBlock: string[];
+  };
+  essentialBlock: {
+    title: string;
+    text: string;
+    image: { url: string };
+  };
+  footerBlock: {
+    title: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
   meta: IMetaBlock;
 }

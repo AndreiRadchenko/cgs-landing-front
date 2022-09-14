@@ -24,11 +24,12 @@ export const FeedbackCardName = styled.h2`
   line-height: 168%;
   font-size: ${themes.primary.font.size.feedbackName};
   cursor: default;
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.8em;
-  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tertiary};
+  }
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.8em;
   }
 `;
 
@@ -37,6 +38,10 @@ export const Stars = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 18.5px;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    height: 21px;
+  }
 `;
 
 export const StarImage = styled.img`
@@ -44,6 +49,10 @@ export const StarImage = styled.img`
   width: 26px;
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 18.5px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 21px;
   }
 `;
 
@@ -58,6 +67,10 @@ export const FeedbackCardCompany = styled.a`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.reviewSmallText};
     margin: 0.4em 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1rem;
   }
 `;
 
@@ -74,6 +87,11 @@ export const FeedbackButton = styled.a`
   border: 1px solid ${themes.primary.colors.primary};
   letter-spacing: 0.03em;
   color: ${themes.primary.colors.secondary};
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+    width: 7.8em;
+  }
 `;
 
 export const FeedbackCardPosition = styled.span`
@@ -107,7 +125,7 @@ export const FeedbackCardDescription = styled.p`
     margin: 0.6em 0 0.8em 0;
   }
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.8em;
+    font-size: 1rem;
     width: initial;
     max-width: 97%;
   }

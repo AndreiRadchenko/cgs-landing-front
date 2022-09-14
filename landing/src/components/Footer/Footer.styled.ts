@@ -34,10 +34,6 @@ export const Row = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     justify-content: center;
   }
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-top: 13em;
-  }
 `;
 
 export const WebAddressContainer = styled.div`

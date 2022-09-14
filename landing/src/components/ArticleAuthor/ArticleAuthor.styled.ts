@@ -7,6 +7,12 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   margin-top: 36px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 0;
+    align-items: center;
+    width: 105%;
+  }
 `;
 
 export const AuthorWrapper = styled.div`
@@ -36,8 +42,12 @@ export const AuthorInfoWrapper = styled.div`
 export const AuthorName = styled.div`
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
-  font-size: 16px;
+  font-size: 1rem;
   margin-top: 6px;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const Container = styled.div`
@@ -47,15 +57,41 @@ export const Container = styled.div`
 `;
 
 export const DatesContainer = styled.div`
-  display: flex;
-  column-gap: 20px;
   margin-top: 16px;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
+`;
+
+export const StatisticWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 115px;
+  }
 `;
 
 export const SpaceBetween = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media ${themes.primary.media.maxMobile} {
+    & > div:first-child {
+      div {
+        font-size: 1.15em;
+        white-space: nowrap;
+      }
+    }
+
+    & > div:not(:first-child) div {
+      font-size: 1.16em;
+    }
+  }
 `;
 
 export const AuthorMetaInfoWrapper = styled.div`

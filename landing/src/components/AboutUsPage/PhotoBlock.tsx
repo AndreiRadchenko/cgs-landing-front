@@ -26,7 +26,7 @@ const PhotoBlock = ({
 }: IPhotoBlock) => {
   return (
     <Styled.RotateBlock rotate={rotateBlock} className={isMain ? "main" : ""}>
-      <Styled.RelativeContainerPhotoBlock>
+      <Styled.RelativeContainerPhotoBlock className="photoContainer">
         <Styled.Pin
           src={pin.src}
           right={pinRightPosition}

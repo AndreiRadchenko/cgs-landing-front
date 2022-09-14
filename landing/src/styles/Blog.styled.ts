@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import themes from "../utils/themes";
-import { infiniteText } from "./AnimationsStyled";
+import { infiniteText } from "./Animations.styled";
 
 interface ITag {
   isArticlePage?: boolean;
@@ -21,11 +21,28 @@ interface ITrack {
 export const FlexColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+
+    &.preview {
+      margin-top: 1.125rem;
+      row-gap: 1rem;
+    }
+    &.header {
+      display: none;
+    }
+  }
 `;
 
 export const BlogItemRowContainer = styled.div`
   display: flex;
   align-items: center;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    justify-content: space-between;
+  }
 `;
 
 export const FlexRowContainer = styled.div`
@@ -34,6 +51,12 @@ export const FlexRowContainer = styled.div`
   align-items: center;
 `;
 
+export const ArticlePreview = styled(FlexRowContainer)`
+  @media ${themes.primary.media.maxMobile} {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+  }
+`;
 export const BlogContainer = styled.div`
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.normal};
@@ -57,6 +80,11 @@ export const AllArticlesContainer = styled.div<IAllArticles>`
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 90px 30px 0;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 58px 8px 0;
+    margin-bottom: 231px;
+  }
 `;
 
 export const Separator = styled.div`
@@ -65,8 +93,7 @@ export const Separator = styled.div`
   background-color: ${themes.primary.colors.comment};
 
   &.portfolio {
-    height: 0.5px;
-    z-index: 99;
+    z-index: 5;
     width: 100%;
     position: absolute;
   }
@@ -77,6 +104,14 @@ export const GeneralInfo = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 34px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 1rem;
+
+    &.preview {
+      display: none;
+    }
+  }
 `;
 
 export const Tag = styled.button<ITag>`
@@ -86,7 +121,7 @@ export const Tag = styled.button<ITag>`
   height: 28px;
   color: ${themes.primary.colors.secondary};
   background-color: ${themes.primary.colors.darkBlue};
-  padding: 6px 12px 6px;
+  padding: 6px 12px;
   font-style: normal;
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.articleViews};
@@ -104,6 +139,16 @@ export const Tag = styled.button<ITag>`
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.primary};
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    &.preview {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 0;
+      font-size: 1.35em;
+    }
+  }
 `;
 
 export const BlogItemContainer = styled.div`
@@ -116,14 +161,28 @@ export const BlogItemContainer = styled.div`
   z-index: 2;
   position: relative;
   background-color: ${themes.primary.colors.blogBackground};
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 50px 0.75rem;
+  }
 `;
 
 export const MarginContainer = styled.div`
   margin-bottom: 44px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 70px;
+  }
 `;
 
-export const BlogItemContent = styled(FlexColumnContainer)`
+export const BlogItemContent = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 55%;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+  }
 `;
 
 export const NoBlogItemImage = styled.div`
@@ -141,6 +200,10 @@ export const NoBlogItemImage = styled.div`
 export const BlogItemImage = styled.img`
   height: auto;
   width: 45%;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+  }
 `;
 
 export const HoverBlock = styled.div`
@@ -154,6 +217,11 @@ export const HoverBlock = styled.div`
   display: flex;
   align-items: flex-end;
   visibility: hidden;
+
+  @media ${themes.primary.media.maxMobile} {
+    right: -4px;
+    bottom: -4px;
+  }
 `;
 
 export const HoverBlackBlock = styled.div`
@@ -170,6 +238,10 @@ export const BlogItemTitle = styled.p`
   line-height: 130%;
   margin: 0;
   margin-top: 14px;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5rem;
+  }
 `;
 
 export const HoverContainer = styled.div`
@@ -205,16 +277,25 @@ export const BlogItemDescription = styled.p`
   margin-top: 16px;
   margin-bottom: 0;
   line-height: 170%;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 1.125rem;
+    font-size: 1rem;
+  }
 `;
 export const LoopText = styled.div`
   font-size: ${themes.primary.font.size.aboutUsCardText};
   margin: 0;
   height: 30px;
-
   margin-top: 16px;
   margin-bottom: 0;
   line-height: 170%;
   animation: ${infiniteText} infinite 15s linear;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+    margin-top: 9px;
+  }
 `;
 
 export const LoopContainer = styled.div`
@@ -228,21 +309,48 @@ export const GrayText = styled.div`
   &.big {
     font-size: 1.34em;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const Date = styled.div`
   color: ${themes.primary.colors.authorGrey};
   font-size: 1.34em;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const MainBlogAuthor = styled(GrayText)`
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.articleViews};
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const SecondaryAuthor = styled(GrayText)`
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.secondaryArticleAuthor};
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
+`;
+
+export const StatisticWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const DataContainer = styled.div`
+  display: flex;
+  column-gap: 0.875rem;
 `;
 
 export const ArticleTimerContainer = styled.div`
@@ -250,12 +358,23 @@ export const ArticleTimerContainer = styled.div`
   align-items: center;
   column-gap: 5px;
   margin-left: 70px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: 0;
+  }
 `;
 
 export const WatchContainer = styled.div`
   display: flex;
   align-items: center;
   column-gap: 9px;
+
+  @media ${themes.primary.media.maxMobile} {
+    column-gap: 6px;
+    &.timer {
+      display: none;
+    }
+  }
 `;
 
 export const ArticleWatchContainer = styled.div`
@@ -269,26 +388,50 @@ export const WatchCount = styled(GrayText)`
   .article {
     font-size: ${themes.primary.font.size.articleViews};
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const WatchCountArticle = styled(GrayText)`
   font-size: ${themes.primary.font.size.articleViews};
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const BlogItemWatchIcon = styled.img`
   width: 22px;
   height: 14px;
   margin-left: 14px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: 0;
+    width: 19px;
+    height: 12px;
+  }
 `;
 
 export const WatchIcon = styled.img`
   width: 22px;
   height: 14px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 19px;
+    height: 12px;
+  }
 `;
 
 export const TimerIcon = styled.img`
   width: 15px;
   height: 15px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 14px;
+    height: 14px;
+  }
 `;
 
 export const LeftLine = styled.img`
@@ -297,6 +440,10 @@ export const LeftLine = styled.img`
   height: 387.72px;
   left: 0;
   top: 1400px;
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
 `;
 
 export const RightLine = styled.img<IArticlesOnPage>`
@@ -305,6 +452,11 @@ export const RightLine = styled.img<IArticlesOnPage>`
   height: 1032.31px;
   right: 0px;
   bottom: 0px;
+
+  @media ${themes.primary.media.maxMobile} {
+    transform-origin: 100% 50%;
+    transform: scale(0.65);
+  }
 `;
 
 export const DropdownContent = styled.div`
@@ -335,6 +487,13 @@ export const DropdownContent = styled.div`
     &:last-child {
       border-bottom: 0;
     }
+    &.checked {
+      color: ${themes.primary.colors.comment};
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
   }
 `;
 
@@ -394,6 +553,10 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     margin-left: 10px;
     transform: rotate(0deg);
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const Dropdown = styled.div`
@@ -426,6 +589,10 @@ export const DropdownContainer = styled.div`
   column-gap: 20px;
   flex-wrap: wrap;
   row-gap: 12px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 1.375rem;
+  }
 `;
 
 export const PodcastContainer = styled.div`
@@ -435,8 +602,16 @@ export const PodcastContainer = styled.div`
   align-items: center;
   justify-content: center;
   column-gap: 50px;
+  border-block: 1px solid ${themes.primary.colors.comment};
+
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 55px 25px 55px 20px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column-reverse;
+    row-gap: 1.375rem;
+    margin-top: 50px;
   }
 `;
 
@@ -459,6 +634,15 @@ export const PodcastCard = styled.div`
     padding: 20px;
     height: auto;
     width: 430px;
+    padding-bottom: 30px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 350px;
+  }
+
+  @media (max-width: 372px) {
+    width: 300px;
   }
 `;
 
@@ -477,6 +661,11 @@ export const BackgroundCard = styled.div`
     width: 100%;
     outline: 1.5px solid ${themes.primary.colors.primary};
     background-color: ${themes.primary.colors.primary};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    right: -4px;
+    bottom: -4px;
   }
 `;
 
@@ -500,6 +689,8 @@ export const RightArrow = styled.div`
   position: relative;
   background-size: contain;
   background-image: url("/BlogDecorations/Podcast/RightArrow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 export const LeftArrow = styled.div`
   background-image: url("/BlogDecorations/Podcast/LeftArrow.svg");
@@ -510,6 +701,8 @@ export const LeftArrow = styled.div`
   position: relative;
   background-size: contain;
   right: 1px;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 export const SmallNavigation = styled.div`
@@ -525,6 +718,10 @@ export const SmallNavigation = styled.div`
   &.activated {
     font-weight: ${themes.primary.font.weight.bold};
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.125rem;
+  }
 `;
 
 export const SecondsLeft = styled.div`
@@ -536,6 +733,14 @@ export const SecondsLeft = styled.div`
   align-items: center;
   top: 2px;
   right: 1px;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 372px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const SecondsRight = styled.div`
@@ -547,6 +752,14 @@ export const SecondsRight = styled.div`
   align-items: center;
   top: 6px;
   right: 1px;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 372px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const Track = styled.div`
@@ -567,6 +780,7 @@ export const PlayedTrack = styled.input<ITrack>`
   height: 100%;
   width: 100%;
   &::-webkit-slider-runnable-track {
+    cursor: pointer;
     border-radius: 50px;
     background: ${({ range }) => css`linear-gradient(
       to right,
@@ -610,6 +824,10 @@ export const PlayerTimeContainer = styled.div`
 
 export const PlayerTime = styled(GrayText)`
   font-size: ${themes.primary.font.size.fourteenth};
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.75rem;
+  }
 `;
 
 export const PodcastTitle = styled(BlogItemTitle)`
@@ -617,6 +835,11 @@ export const PodcastTitle = styled(BlogItemTitle)`
   width: 100%;
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: ${themes.primary.font.size.secondary};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5rem;
+    margin-top: 1em;
   }
 `;
 
@@ -633,6 +856,10 @@ export const PodcastIcon = styled.img`
 
 export const PodcastWord = styled(BlogItemDescription)`
   margin: 0;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const PlayTag = styled.div`
@@ -642,6 +869,10 @@ export const PlayTag = styled.div`
   padding: 4px 6px;
   column-gap: 7px;
   border: 1px solid ${themes.primary.colors.headerBorder};
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.75rem;
+  }
 `;
 
 export const PlayTriangle = styled.img`
@@ -654,6 +885,11 @@ export const HeaderBlock = styled.div`
   width: 100%;
   height: 100%;
   justify-content: flex-end;
+
+  @media ${themes.primary.media.maxMobile} {
+    justify-content: center;
+    padding-inline: 0.5rem;
+  }
 `;
 
 export const MainBlogItemTitle = styled(BlogItemTitle)`
@@ -664,6 +900,14 @@ export const MainBlogItemTitle = styled(BlogItemTitle)`
   &:hover {
     color: ${themes.primary.colors.darkBlue};
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5rem;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-top: 1.75rem;
+  }
 `;
 
 export const MainContainer = styled.div`
@@ -671,9 +915,16 @@ export const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
   border-right: 1px solid ${themes.primary.colors.comment};
+
+  @media ${themes.primary.media.maxMobile} {
+    box-sizing: border-box;
+    border: 1px solid ${themes.primary.colors.comment};
+  }
 `;
 
-export const MainBlogItemContainer = styled(FlexColumnContainer)`
+export const MainBlogItemContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 31px 33px 32px 51px;
   width: 67vw;
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -685,23 +936,52 @@ export const MainBlogItemContainer = styled(FlexColumnContainer)`
   @media ${themes.primary.media.minPC} {
     padding: 41px 43px 42px 71px;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    padding: 50px 0.75rem;
+    width: 100%;
+  }
 `;
 
 export const MainBlogItemImage = styled.img`
   max-width: 55vw;
   width: 100%;
   height: auto;
+
+  @media ${themes.primary.media.maxMobile} {
+    max-width: none;
+  }
 `;
 
 export const MainBlogItemTag = styled(Tag)`
   margin-top: 25px;
   font-size: ${themes.primary.font.size.primary};
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: -1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.875rem;
+    padding: 2px 10px;
+    line-height: 160%;
+  }
 `;
 
 export const MainBlogItemDescription = styled(BlogItemDescription)`
   margin-top: 10px;
   font-size: ${themes.primary.font.size.oneAndHalf};
   max-width: 870px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 1.125rem;
+    font-size: 1rem;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-top: 1.125rem;
+  }
 `;
 
 export const SmallArticleItemTitle = styled(BlogItemTitle)`
@@ -737,8 +1017,8 @@ export const SmallArticleItemDescription = styled(BlogItemDescription)`
   }
 `;
 
-export const SmallArticleContainer = styled(FlexColumnContainer)`
-  width: 33vw;
+export const SmallArticleContainer = styled.div`
+  width: 33.264vw;
   min-height: 33vh;
   height: auto;
   padding: 25px 60px 25px 25px;
@@ -778,4 +1058,17 @@ export const SliderDot = styled.div`
 export const SliderDotsContainer = styled(FlexRowContainer)`
   column-gap: 10px;
   margin-top: 20px;
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
+`;
+
+export const ArticleContent = styled.div``;
+
+export const MobileColumnReversedContainer = styled.div`
+  @media ${themes.primary.media.maxMobile} {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `;

@@ -47,7 +47,7 @@ const PortfolioPage: NextPage = () => {
   };
   useEffect(() => {
     setIsMobile(false);
-    if (width && width <= 768) {
+    if (width && width <= 767) {
       setIsMobile(true);
     }
   }, [width]);
@@ -87,7 +87,7 @@ const PortfolioPage: NextPage = () => {
               )
             );
           })}
-          <Separator color={"#8f8e93"} />
+          <Separator color={"#8f8e93"} className="bottom" />
         </Styles.SlidersCont>
         <FooterNew />
       </Styles.PortfolioContainer>

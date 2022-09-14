@@ -25,7 +25,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
   const [hoverNext, setHoverNext] = useState<boolean>(false);
   const [hoverPrev, setHoverPrev] = useState<boolean>(false);
   const [isOnTop, setIsOnTop] = useState<boolean>(false);
-  const [isShow, setIsShow] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const portfolioRef = useRef(null);
   const navRef = useRef<HTMLInputElement>(null);
 
@@ -33,7 +33,11 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
   if (reviews) {
     renderSliderSlides = reviews.map((review, idx) =>
       isMobile ? (
-        <Review key={idx} review={review} />
+        <Review
+          key={idx}
+          review={review}
+          className={isOpen ? "open" : undefined}
+        />
       ) : (
         <SwiperSlide key={idx}>
           <Review review={review} />
@@ -71,20 +75,42 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
     return () => window.removeEventListener("scroll", getOffset);
   }, []);
 
-  return (
+  const navigateMobileClassName = () => {
+    let className = "";
+
+    if (isOpen) className += "open ";
+    if (isOnTop) className += "top ";
+    return className;
+  };
+
+  return isMobile ? (
+    <Styled.PortfolioRow>
+      <Styled.NavigateWrapper>
+        <Styled.NavigateLeft
+          ref={navRef}
+          onClick={() => setIsOpen(!isOpen)}
+          className={navigateMobileClassName()}
+        >
+          {category}
+          <svg
+            width="15"
+            height="8"
+            viewBox="0 0 15 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={isOpen ? "open" : undefined}
+          >
+            <path d="M7.5 8L0.138784 0.5L14.8612 0.5L7.5 8Z" />
+          </svg>
+        </Styled.NavigateLeft>
+      </Styled.NavigateWrapper>
+      {renderSliderSlides}
+    </Styled.PortfolioRow>
+  ) : (
     <div ref={portfolioRef}>
       <Separator className="portfolio" />
       <Styled.PortfolioRow>
-        {isMobile ? (
-          <>
-            {isShow &&
-              (reviews ? (
-                renderSliderSlides
-              ) : (
-                <Styled.NoRewiews>No reviews</Styled.NoRewiews>
-              ))}
-          </>
-        ) : reviews ? (
+        {reviews ? (
           <Swiper {...params}>
             <Styled.NavigateLeft>{category}</Styled.NavigateLeft>
             <Styled.NavigateRight>

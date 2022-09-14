@@ -5,23 +5,31 @@ import { IDataResponse } from "../../types/Admin/Response.types";
 import secondImg from "../../../public/HomePageDecoration/secondCardImg.svg";
 import thirdImg from "../../../public/HomePageDecoration/thirdCardImg.svg";
 import fourthImg from "../../../public/HomePageDecoration/fourthCardImg.svg";
+import secondImgMobile from "../../../public/HomePageDecoration/secondCardImgMobile.svg";
+import thirdImgMobile from "../../../public/HomePageDecoration/thirdCardImgMobile.svg";
+import fourthImgMobile from "../../../public/HomePageDecoration/fourthCardImgMobile.svg";
 import * as Styled from "../../styles/HomePage/CardsBlock.styled";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const CardsBlock = () => {
+  const { width } = useWindowDimension();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
   )?.CardsBlock;
 
-  const arrOfImages = [null, secondImg, thirdImg, fourthImg];
+  const arrOfImages =
+    width && width <= 475
+      ? [null, secondImgMobile, thirdImgMobile, fourthImgMobile]
+      : [null, secondImg, thirdImg, fourthImg];
 
   return (
     <Styled.CardsWrapper>
       {data &&
         Object.entries(data).map((item, idx) => (
           <Styled.CardContainer key={idx}>
-            {arrOfImages[idx] !== null && (
+            {width && arrOfImages[idx] !== null && (
               <Styled.CardImage src={arrOfImages[idx].src} alt="card img" />
             )}
             <Styled.CardTitle>

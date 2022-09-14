@@ -1,34 +1,43 @@
 import React from "react";
 import * as Styled from "../../styles/MobileService/HeadBlock";
-import telephone from "../../../public/MobileSevice/mainTelephone.svg";
-import { BlackButton, ButtonArrow } from "../../styles/HomePage/General.styled";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../styles/HomePage/General.styled";
 import themes from "../../utils/themes";
-import arrow from "../../../public/HomePageDecoration/buttonArrow.svg";
+import { IServiceMobile } from "../../types/Admin/Response.types";
+import { useQueryClient } from "react-query";
+import { queryKeys } from "../../consts/queryKeys";
+import { SplitBrackets } from "../../utils/splitBrackets";
+import ButtonArrow from "../../utils/ButtonArrow";
 
 const HeadBlock = () => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IServiceMobile>(
+    queryKeys.getServiceMobilePage
+  )?.mainBlock;
+
   return (
     <Styled.Container>
       <Styled.ContentContainer>
         <Styled.Title>
-          MOBILE <br />
-          DEVELOPMENT
-          <Styled.Cursor />
+          <SplitBrackets text={data?.title} />
         </Styled.Title>
         <Styled.Description>
-          What connects unicorns like Facebook, and Spotify? Maybe their apps
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
-          gave them unicorn wings. If your product needs it, CGS-team's mobile
-          appdevelopment for ios and Android is here to help.
+          <SplitBrackets text={data?.text} />
         </Styled.Description>
         <BlackButton
-          padding={"1.15em 3.6em"}
+          padding={"1.117em 3.6em"}
           size={themes.primary.font.size.oneAndHalf}
+          href={data?.buttonLink}
         >
-          Go mobile!
-          <ButtonArrow src={arrow.src} />
+          {data?.button}
+          <ArrowContainer>
+            <ButtonArrow />
+          </ArrowContainer>
         </BlackButton>
       </Styled.ContentContainer>
-      <Styled.Telephone src={telephone.src} />
+      <Styled.Telephone src={data?.image.url} />
     </Styled.Container>
   );
 };
