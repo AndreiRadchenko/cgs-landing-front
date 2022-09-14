@@ -8,6 +8,7 @@ import { useFormikContext } from "formik";
 import {
   IArticle,
   IBlogResponse,
+  ISwapData,
   IViews,
 } from "../../../../types/Admin/Response.types";
 import {
@@ -55,6 +56,11 @@ const PublishedArticles: FC<IArticles> = ({
   const { mutateAsync: updateViews } = useMutation(
     queryKeys.postArticle,
     (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
+  );
+
+  const { mutateAsync: swapElements } = useMutation(
+    queryKeys.postArticle,
+    (dataToUpdate: ISwapData) => adminBlogService.swapTwoElements(dataToUpdate)
   );
 
   const deleteArticle = async (i: number) => {
@@ -113,7 +119,8 @@ const PublishedArticles: FC<IArticles> = ({
         desIndex,
         0,
         values.articles.splice(srcIndex, 1)[0]
-      );
+      ) &&
+      swapElements({ desIndex, srcIndex });
   };
 
   const ArticleItem = ({ item, i }: IArticleItem) => {
