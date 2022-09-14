@@ -287,11 +287,6 @@ export const MainContainer = styled.div`
   overflow: clip;
   overflow-clip-margin: 100px;
 
-  @media ${themes.primary.media.minPCFullHD} {
-    row-gap: 12vw;
-    grid-template-rows: auto;
-  }
-
   @media ${themes.primary.media.maxMobile} {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -299,6 +294,17 @@ export const MainContainer = styled.div`
     row-gap: 38px;
     padding: 496px 0 554px;
     margin: 0;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    row-gap: 12vw;
+    grid-template-rows: auto;
+    padding-bottom: 10vw;
+  }
+
+  @media (min-width: 2400px) {
+    row-gap: 16vw;
+    padding-bottom: 12vw;
   }
 `;
 
