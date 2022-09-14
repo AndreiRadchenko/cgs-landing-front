@@ -237,6 +237,11 @@ export interface IArticleWithInd {
   ind: number;
 }
 
+export interface ISwapData {
+  desIndex: number;
+  srcIndex: number;
+}
+
 export interface INewArticle {
   _id: string;
   url: string;

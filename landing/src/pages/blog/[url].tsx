@@ -1,5 +1,6 @@
 import parse from "html-react-parser";
 import { GetStaticPropsContext } from "next";
+import DefaultErrorPage from "next/error";
 import ArticleAuthor from "../../components/ArticleAuthor/ArticleAuthor";
 import ArticleDescription from "../../components/ArticleDescription/ArticleDescription";
 import ShareOn from "../../components/ShareOn/ShareOn";
@@ -200,9 +201,7 @@ const ArticlePage = () => {
       </Styles.Background>
     </>
   ) : (
-    <Styled.AdminUnauthorizedModal>
-      Something went wrong :(
-    </Styled.AdminUnauthorizedModal>
+    <DefaultErrorPage statusCode={404} />
   );
 };
 
