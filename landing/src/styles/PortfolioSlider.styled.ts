@@ -1,12 +1,15 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 
 export const NavigateWrapper = styled.div`
-  height: 150px;
-  position: sticky;
-  top: 0px;
-  z-index: 10;
+  @media ${themes.primary.media.maxMobile} {
+    height: 150px;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+  }
 `;
+
 export const NavigateLeft = styled.div`
   margin-top: 0;
   position: absolute;
@@ -43,7 +46,6 @@ export const NavigateLeft = styled.div`
     padding-inline: 20px;
     border: 1px solid ${themes.primary.colors.comment};
     transition: 0.3s;
-
     & svg {
       transition: 0.3s;
       fill: ${themes.primary.colors.primary};

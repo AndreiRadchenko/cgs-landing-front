@@ -49,7 +49,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
   const getOffset = () => {
     if (navRef.current && navRef.current.getBoundingClientRect) {
       const { y } = navRef.current.getBoundingClientRect();
-      y === 0 ? setIsOnTop(true) : setIsOnTop(false);
+      y <= 1 ? setIsOnTop(true) : setIsOnTop(false);
     }
   };
 
