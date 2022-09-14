@@ -34,6 +34,7 @@ const HeadBlock = () => {
           padding={"1.11em 1.5em"}
           target={"_blank"}
           href={data && data.buttonLink && recoverLink(data?.buttonLink)}
+          rel="noopener noreferrer"
         >
           {data?.button}
           <Styled.ArrowContainer>

@@ -22,6 +22,8 @@ const FooterBlock = () => {
         padding={"1.117em 2.17em"}
         size={"1.125em"}
         href={data?.buttonLink}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {data?.button}
         <ArrowContainer>

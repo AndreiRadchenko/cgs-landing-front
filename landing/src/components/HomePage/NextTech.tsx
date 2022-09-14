@@ -54,7 +54,8 @@ const NextTech = () => {
       </Styled.Subtitle>
       <Styled.RightContainer>
         <Styled.BlackButton
-          target={"_blank"}
+          target="_blank"
+          rel="noopener noreferrer"
           size={"1.85em"}
           padding={"18px 17px"}
           className="seeAll"

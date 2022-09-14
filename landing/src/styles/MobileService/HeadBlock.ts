@@ -31,6 +31,7 @@ export const ContentContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     margin-bottom: ${themes.primary.font.size.tertiary};
+    margin-top: 0;
   }
 `;
 
