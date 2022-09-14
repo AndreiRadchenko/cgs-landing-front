@@ -217,6 +217,7 @@ export const FormSentButton = styled.button<ISentButton>`
   height: 56px;
   border: 2px solid ${themes.primary.colors.primary};
   cursor: pointer;
+  background: ${themes.primary.colors.blogBackground};
 
   &:nth-child(1) {
     color: ${({ isDisabled }) => (isDisabled ? "grey" : "black")};

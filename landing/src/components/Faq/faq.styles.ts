@@ -7,6 +7,7 @@ export const FaqContainer = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
   font-family: ${themes.primary.font.family.namu};
   position: relative;
+  height: 100%;
 
   @media ${themes.primary.media.maxMobile} {
     padding: 0;
