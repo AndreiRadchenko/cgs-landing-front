@@ -46,13 +46,6 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
     );
   }
 
-  const getOffset = () => {
-    if (navRef.current && navRef.current.getBoundingClientRect) {
-      const { y } = navRef.current.getBoundingClientRect();
-      y <= 1 ? setIsOnTop(true) : setIsOnTop(false);
-    }
-  };
-
   const handleHoverNext = () => {
     setHoverNext(true);
   };
@@ -70,10 +63,17 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
   };
 
   useEffect(() => {
+    const getOffset = () => {
+      if (navRef.current && navRef.current.getBoundingClientRect) {
+        const { y } = navRef.current.getBoundingClientRect();
+        y <= 1 && isOpen ? setIsOnTop(true) : setIsOnTop(false);
+      }
+    };
+
     window.addEventListener("scroll", getOffset, { passive: true });
 
     return () => window.removeEventListener("scroll", getOffset);
-  }, []);
+  }, [isOpen]);
 
   const navigateMobileClassName = () => {
     let className = "";

@@ -42,9 +42,11 @@ export const NavigateLeft = styled.div`
     transform: none;
     justify-content: space-between;
     width: 100%;
-    height: 153px;
+    max-height: 153px;
     padding-inline: 20px;
-    border: 1px solid ${themes.primary.colors.comment};
+    border-width: 0 1px 1px;
+    border-style: solid;
+    border-color: ${themes.primary.colors.comment};
     transition: 0.3s;
     & svg {
       transition: 0.3s;
@@ -66,7 +68,7 @@ export const NavigateLeft = styled.div`
     &.top {
       background-color: ${themes.primary.colors.darkBlue};
       color: ${themes.primary.colors.secondary};
-      height: 88px;
+      max-height: 88px;
     }
 
     &:hover {
@@ -222,7 +224,7 @@ export const Category = styled.div`
 
 export const PortfolioRow = styled.div`
   display: flex;
-  width: calc(100% - 20px);
+  width: 100%;
   max-height: 500px;
   position: relative;
 
@@ -245,7 +247,6 @@ export const PortfolioRow = styled.div`
   @media ${themes.primary.media.maxMobile} {
     display: block;
     max-height: none;
-    margin-inline: 10px;
   }
 `;
 
