@@ -10,8 +10,8 @@ type Props = {
 
 const FooterIcon = ({ icoUrl, href }: Props) => {
   return (
-    <Link href={href}>
-      <a target="_blank">
+    <Link href={href} passHref>
+      <a target="_blank" rel="noopener noreferrer">
         <IconContainer>
           <ImagePreview
             src={icoUrl}

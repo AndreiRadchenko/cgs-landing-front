@@ -3,7 +3,6 @@ import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 14.88em;
-  padding: 4.69em 0 8.375em;
   display: flex;
   justify-content: space-between;
 
@@ -26,10 +25,13 @@ export const Title = styled.h2`
   font-weight: inherit;
   line-height: 140%;
   text-transform: uppercase;
+
+  padding: 1.875em 0 3.35em;
   max-width: 12em;
   margin-top: 3px;
 
   @media ${themes.primary.media.maxMobile} {
+    padding: 0;
     font-size: 1.5em;
     line-height: 132%;
   }
