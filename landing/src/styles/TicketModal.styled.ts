@@ -213,7 +213,6 @@ export const Content = styled.div`
 
   &::-webkit-scrollbar-track {
     background-color: transparent;
-    /* margin-bottom: 200px; */
   }
   &::-webkit-scrollbar-track-piece:end {
     background: transparent;

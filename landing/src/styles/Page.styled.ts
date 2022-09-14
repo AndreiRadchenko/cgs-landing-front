@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import themes from "../utils/themes";
 
 interface IButtonTextStyledProps {
@@ -79,4 +79,36 @@ export const Loading = styled.h2`
   top: 0;
   bottom: 0;
   z-index: 1;
+`;
+
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+`;
+
+export const Spinner = styled.img`
+  width: 34px;
+  height: 34px;
+
+  margin-top: 20px;
+  margin-left: 20px;
+
+  animation: ${rotate360} 2s linear infinite;
+
+  display: inline-block;
+`;
+
+export const SpinnerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-weight: ${themes.primary.font.weight.bold};
 `;

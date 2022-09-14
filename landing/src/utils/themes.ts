@@ -22,7 +22,6 @@ const themes = {
     font: {
       family: {
         barlow: "'Barlow', sans-serif",
-        roboto: "'Roboto', sans-serif",
         sourceCode: "'Source Code Pro', monospace",
         mulish: "'Roboto', sans-serif",
         gilroy: "'Gilroy', sans-serif",

@@ -4,6 +4,13 @@ const nextConfig = {
     domains: ["landing-cgs.s3.amazonaws.com"],
     minimumCacheTTL: 3600,
   },
+  routes: [
+    {
+      src: "/GilroyFont/(.*)",
+      headers: { "cache-control": "s-maxage=31536000" },
+      dest: "/GilroyFont/$1",
+    },
+  ],
   reactStrictMode: true,
   eslint: {
     // Warning: This allows production builds to successfully complete even if
