@@ -16,30 +16,23 @@ import { adminMobileService } from "../../services/services/adminServicesMobileP
 import Head from "next/head";
 import { Layout } from "../../styles/Layout.styled";
 import { LocalLayout } from "../../styles/MobileService/Layout";
-
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
-
   await queryClient.prefetchQuery(queryKeys.getServiceMobilePage, () =>
     adminMobileService.getMobileServicePage()
   );
-
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
   };
 }
-
 const MobileAppDevelopment: NextPage = () => {
   const { data } = useQuery(queryKeys.getServiceMobilePage, () =>
     adminMobileService.getMobileServicePage()
   );
-
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
-
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
-
   return (
     <>
       <Head>
@@ -62,5 +55,4 @@ const MobileAppDevelopment: NextPage = () => {
     </>
   );
 };
-
 export default MobileAppDevelopment;
