@@ -36,7 +36,11 @@ export const MainTitle = styled.div`
     color: ${themes.primary.colors.darkBlue};
   }
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 62px;
+  }
   @media ${themes.primary.media.maxMobile} {
+    margin-top: 0;
     font-size: 34px;
     padding-top: 15px;
   }
