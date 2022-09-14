@@ -228,8 +228,7 @@ export const TicketContainer = styled.div`
   background-size: 100% 100%;
   background-repeat: no-repeat;
 
-  max-width: 616px;
-  width: 100%;
+  width: 616px;
   height: 265px;
   padding: 16px;
   position: relative;
@@ -239,7 +238,6 @@ export const TicketContainer = styled.div`
   justify-content: center;
   cursor: pointer;
   @media ${themes.primary.media.maxTabletLandScape} {
-    height: 230px;
     padding: 13px;
   }
 
@@ -287,7 +285,7 @@ export const TicketPosition = styled.div`
   text-orientation: mixed;
   text-align: center;
   margin: 0;
-  width: 5.764vw;
+  width: 90px;
 
   @media (min-width: 1300px) {
     font-size: 24px;
@@ -299,7 +297,6 @@ export const TicketPosition = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     padding-right: 10px;
-    font-size: 1.5vw;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -318,8 +315,12 @@ export const TicketPosition = styled.div`
     font-size: 0.875rem;
   }
 
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    width: 40px;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
-    width: 103px;
+    width: 90px;
   }
 `;
 
@@ -401,7 +402,7 @@ export const TicketPositionContainer = styled.div`
 
 export const TicketPositionTitle = styled.p`
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 2.4vw;
+  font-size: 33px;
   text-transform: uppercase;
   margin: 0;
   margin-top: 15px;
@@ -409,7 +410,6 @@ export const TicketPositionTitle = styled.p`
   text-overflow: ellipsis;
 
   @media (min-width: 1300px) {
-    font-size: 35px;
     &.admin {
       font-size: 30px;
     }
@@ -426,6 +426,10 @@ export const TicketPositionTitle = styled.p`
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 1.25rem;
   }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    font-size: 1rem;
+  }
 `;
 
 export const TicketPositionStack = styled.p`
@@ -433,23 +437,23 @@ export const TicketPositionStack = styled.p`
   margin-top: 8px;
   margin-bottom: 0;
   text-transform: uppercase;
-  font-size: 1.5vw;
-
-  @media (min-width: 1300px) {
-    font-size: 20px;
-  }
+  font-size: 20px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 20px;
   }
 
   @media (max-width: 710px) {
-    font-size: 3.39vw;
+    font-size: 3.41vw;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 0.875rem;
     margin-top: 4px;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    font-size: 0.75rem;
   }
 `;
 
@@ -491,38 +495,6 @@ export const TicketDataBackground = styled.div`
   bottom: 0%;
   right: 40px;
 
-  @media ${themes.primary.media.maxLaptop} {
-    bottom: 3%;
-  }
-
-  @media (max-width: 1430px) {
-    bottom: 5%;
-  }
-  @media (max-width: 1360px) {
-    bottom: 7%;
-  }
-  @media (max-width: 1320px) {
-    bottom: 8%;
-  }
-  @media (max-width: 1300px) {
-    bottom: 10%;
-  }
-  @media (max-width: 1250px) {
-    bottom: 12%;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    bottom: 8%;
-  }
-  @media (max-width: 1150px) {
-    bottom: 11.5%;
-  }
-  @media (max-width: 1110px) {
-    bottom: 12.5%;
-  }
-  @media (max-width: 1070px) {
-    bottom: 13.5%;
-  }
-
   @media ${themes.primary.media.maxTabletPortrait} {
     bottom: 0;
   }
@@ -549,8 +521,12 @@ export const TicketDataBackground = styled.div`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 80%;
-    right: 5%;
     bottom: 0;
+    right: 5%;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    bottom: 7%;
   }
 `;
 
@@ -580,9 +556,9 @@ export const TicketArrow = styled.img`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 28px;
-    height: 28px;
-    right: -7px;
+    width: 35px;
+    height: 35px;
+    right: -10px;
     top: 43%;
   }
 `;

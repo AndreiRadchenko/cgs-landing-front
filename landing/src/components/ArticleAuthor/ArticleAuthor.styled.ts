@@ -66,7 +66,8 @@ export const DatesContainer = styled.div`
 
 export const StatisticWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  column-gap: 15px;
   margin-top: 10px;
 
   @media ${themes.primary.media.maxMobile} {
@@ -76,7 +77,8 @@ export const StatisticWrapper = styled.div`
 
 export const SpaceBetween = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  column-gap: 25px;
   align-items: center;
   flex-wrap: wrap;
 
@@ -87,7 +89,6 @@ export const SpaceBetween = styled.div`
         white-space: nowrap;
       }
     }
-
     & > div:not(:first-child) div {
       font-size: 1.16em;
     }

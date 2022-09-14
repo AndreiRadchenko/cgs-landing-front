@@ -27,6 +27,7 @@ export const BigDigit = styled.p`
     font-size: 88px;
     line-height: 89px;
     transform: translateY(2px);
+    text-shadow: 4.1358px 1.18166px 0px ${themes.primary.colors.primary};
   }
   @media (max-width: 360px) {
     font-size: 80px;
@@ -308,12 +309,10 @@ export const CardContent = styled.p`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     max-width: 335px;
+    font-size: 1rem;
     & br {
       display: none;
     }
-  }
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    font-size: 1rem;
   }
 `;
 

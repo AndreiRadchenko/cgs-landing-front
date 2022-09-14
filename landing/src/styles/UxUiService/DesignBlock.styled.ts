@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
@@ -102,7 +102,12 @@ export const BottomSteps = styled.div`
   }
 `;
 
-export const StyledLine = styled.div`
+interface IMobileLine {
+  grad1: string;
+  grad2: string;
+}
+
+export const StyledLine = styled.div<IMobileLine>`
   width: 102vw;
   height: 1.5em;
   position: absolute;
@@ -118,19 +123,22 @@ export const StyledLine = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     top: 0;
-    width: 320%;
     left: -10%;
+    width: 120%;
+    background: linear-gradient(
+      ${({ grad1, grad2 }) => css`90deg,
+    ${grad1} 13.67%,
+    ${grad2} 90.39%`}
+    );
 
     &:first-child {
       top: 4.8em;
     }
 
     &:nth-child(2) {
-      left: -100%;
       top: 13.3em;
     }
     &:nth-child(3) {
-      left: -200%;
       top: 21.7em;
     }
   }

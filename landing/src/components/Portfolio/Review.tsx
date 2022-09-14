@@ -42,7 +42,11 @@ const Review = ({ review, className }: IReviewProps) => {
             </Styled.PortfolioProjectHeader>
             {review.button.length > 0 && (
               <Styles.LinkButton>
-                <a href={recoverLink(review.button)}>
+                <a
+                  href={recoverLink(review.button)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {width && width < 1300 && width > 768
                     ? "link"
                     : "project link"}

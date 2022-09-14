@@ -11,13 +11,34 @@ const YourWayBlock = () => {
     queryKeys.getServiceBlockchainPage
   )?.wayBlock;
 
+  const arrayOfGradients = [
+    { firstColor: "#D6FFBB", secondColor: "#C1E6C0" },
+    {
+      firstColor: "#C7EDBF",
+      secondColor: "#9DBBCA",
+    },
+    {
+      firstColor: "#88A2D0",
+      secondColor: "#5E70DC",
+    },
+  ];
+
   return (
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
       <Styled.BgiContainer>
-        <div />
-        <div />
-        <div />
+        <Styled.MobileLine
+          grad1={arrayOfGradients[0].firstColor}
+          grad2={arrayOfGradients[0].secondColor}
+        />
+        <Styled.MobileLine
+          grad1={arrayOfGradients[1].firstColor}
+          grad2={arrayOfGradients[1].secondColor}
+        />
+        <Styled.MobileLine
+          grad1={arrayOfGradients[2].firstColor}
+          grad2={arrayOfGradients[2].secondColor}
+        />
       </Styled.BgiContainer>
       <Styled.SubTextWrapper>
         <Styled.GridLine1>
