@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
@@ -7,6 +7,36 @@ export const Container = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 11.25em;
+  }
+`;
+
+interface IMobileLine {
+  grad1: string;
+  grad2: string;
+}
+
+export const MobileLine = styled.div<IMobileLine>`
+  display: none;
+  width: 120%;
+
+  position: relative;
+  left: -5%;
+  height: 24px;
+  background: linear-gradient(
+    ${({ grad1, grad2 }) => css`90deg,
+    ${grad1} 13.67%,
+    ${grad2} 90.39%`}
+  );
+
+  border: 1px solid ${themes.primary.colors.black};
+  box-shadow: 7px 2px 0px ${themes.primary.colors.black};
+  z-index: -1;
+  &:not(:last-child) {
+    margin-bottom: 7.56em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    display: block;
   }
 `;
 
@@ -43,33 +73,7 @@ export const BgiContainer = styled.div`
     border: none;
     box-shadow: none;
     height: auto;
-    width: 305%;
     top: 7em;
-    left: -102%;
-
-    & > div {
-      position: relative;
-      height: 24px;
-      background: linear-gradient(
-        90deg,
-        ${themes.primary.colors.mainGradientColor1} 13.67%,
-        ${themes.primary.colors.mainGradientColor2} 90.39%
-      );
-      border: 1px solid ${themes.primary.colors.black};
-      box-shadow: 7px 2px 0px ${themes.primary.colors.black};
-      z-index: -1;
-      &:not(:last-child) {
-        margin-bottom: 7.56em;
-      }
-
-      &:first-child {
-        left: 31%;
-      }
-
-      &:last-child {
-        left: -31%;
-      }
-    }
   }
 `;
 

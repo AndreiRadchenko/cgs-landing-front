@@ -960,6 +960,7 @@ export const MainBlogItemTag = styled(Tag)`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: -1px;
+    margin-left: -1px;
     position: absolute;
     top: 0;
     left: 0;

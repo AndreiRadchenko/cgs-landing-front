@@ -35,6 +35,8 @@ const HeadBlock = () => {
           padding={"1.117em 3.57em"}
           size={"1.125em"}
           href={data?.buttonLink}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {data?.button}
           <ArrowContainer>

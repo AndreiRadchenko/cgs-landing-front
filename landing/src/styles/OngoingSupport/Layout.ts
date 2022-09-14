@@ -3,7 +3,6 @@ import themes from "../../utils/themes";
 
 export const Layout = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
-  overflow-clip-margin: 51px;
   font-size: 1rem;
 
   @media ${themes.primary.media.minPCFullHD} {

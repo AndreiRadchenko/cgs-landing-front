@@ -123,19 +123,7 @@ export const Title = styled.h1`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: ${themes.primary.font.size.homeHeader};
-  }
-
-  @media ${themes.primary.media.minTablet} {
-    font-size: 3.875rem;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 3.5rem;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    font-size: 2.9rem;
+    font-size: 15vw;
   }
 `;
 
@@ -160,20 +148,7 @@ export const MainSubtitle = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: ${themes.primary.font.size.homeMainSubtitle};
-  }
-
-  @media ${themes.primary.media.minTablet} {
-    margin-bottom: 35px;
-    font-size: 1.125rem;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 1.125rem;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    font-size: 0.9rem;
+    font-size: 4.3vw;
   }
 `;
 
@@ -185,13 +160,12 @@ export const RightArrow = styled.img`
     width: 88px;
   }
 
-  @media ${themes.primary.media.minTablet} {
-    width: 38.5px;
+  @media ${themes.primary.media.maxMobile} {
+    width: 10.4vw;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    margin: 0 2px;
-    width: 19.5px;
+    margin: 0 5px;
   }
 `;
 
@@ -203,13 +177,8 @@ export const LeftArrow = styled.img`
     width: 108px;
   }
 
-  @media ${themes.primary.media.minTablet} {
-    width: 66.5px;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-left: 3px;
-    width: 33.5px;
+  @media ${themes.primary.media.maxMobile} {
+    width: 14.1vw;
   }
 `;
 
@@ -484,11 +453,6 @@ export const Film = styled.img`
     top: -20%;
     width: 145%;
   }
-  @media ${themes.primary.media.maxMobile} {
-    left: 5%;
-    top: 0;
-    width: 90%;
-  }
 
   @media ${themes.primary.media.maxMobile} {
     left: 5%;
@@ -497,8 +461,8 @@ export const Film = styled.img`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 120%;
-    left: -10%;
+    width: 125%;
+    left: -8%;
   }
 `;
 

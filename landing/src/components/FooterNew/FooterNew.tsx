@@ -42,7 +42,12 @@ const FooterNew = (): JSX.Element => {
       <StyledThisComp.NavList>
         {data?.links.map((link, ind) => (
           <Link key={link.link + ind} href={link.link} passHref>
-            <StyledThisComp.ListItemNav key={link.link + ind} href={link.link}>
+            <StyledThisComp.ListItemNav
+              key={link.link + ind}
+              href={link.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <StyledThisComp.LinkText
                 src={data.images[ind].image?.url}
                 alt="footer icons img"

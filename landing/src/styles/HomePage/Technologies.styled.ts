@@ -37,13 +37,13 @@ export const TechnologyRow = styled.div`
   row-gap: 40px;
   column-gap: 260px;
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    column-gap: 60px;
+  }
   @media ${themes.primary.media.maxMobile} {
     grid-template-columns: 1fr;
     row-gap: 0;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    column-gap: 60px;
+    column-gap: 0;
   }
 `;
 
@@ -112,10 +112,6 @@ export const CategoryTitle = styled.h2`
     text-decoration: none;
     margin: 0;
   }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    width: 90vw;
-  }
 `;
 
 export const CategorySubtitle = styled.p`
@@ -130,7 +126,7 @@ export const CategorySubtitle = styled.p`
     font-size: ${themes.primary.font.size.vistaco};
   }
 
-  @media ${themes.primary.media.maxTabletPortrait} {
+  @media (max-width: 1260px) {
     & br {
       display: none;
     }

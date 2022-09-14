@@ -9,9 +9,9 @@ export const Layout = styled.div`
   overflow: hidden;
   font-family: ${themes.primary.font.family.namu};
 
-  @media ${themes.primary.media.minPCFullHD} {
+  /* @media ${themes.primary.media.minPCFullHD} {
     width: 1800px;
-  }
+  } */
   @media ${themes.primary.media.maxMobile} {
     padding-inline: 12px;
   }
@@ -141,6 +141,10 @@ export const TicketsWrapper = styled.div`
   justify-content: center;
   margin-bottom: 115px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 1800px;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-bottom: 100px;
   }
@@ -156,12 +160,23 @@ export const TicketsContainer = styled.div`
   column-gap: 5.25vw;
   row-gap: 50px;
 
+  @media (max-width: 1400px) {
+    column-gap: 50px;
+  }
+
+  @media (max-width: 1320px) {
+    column-gap: 30px;
+  }
+
+  @media (max-width: 1300px) {
+    grid-template-columns: 1fr;
+    column-gap: 20px;
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
     row-gap: 20px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    grid-template-columns: 1fr;
     row-gap: 50px;
   }
 

@@ -86,6 +86,7 @@ export const TextWrapper = styled.div`
   column-gap: 3em;
 
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     font-size: 1rem;
     flex-direction: column;
   }
@@ -100,10 +101,11 @@ export const TextWrapper = styled.div`
       flex-basis: auto;
 
       &:nth-child(2n) {
-        right: -3em;
+        right: -9em;
 
         p {
           margin-left: 0;
+          margin-right: 1.5em;
         }
       }
 
@@ -117,6 +119,12 @@ export const TextWrapper = styled.div`
 
       @media ${themes.primary.media.maxMobile} {
         margin: 0;
+      }
+    }
+
+    @media ${themes.primary.media.maxLowScreenMobile} {
+      &:nth-child(2n) {
+        right: -7em;
       }
     }
   }
