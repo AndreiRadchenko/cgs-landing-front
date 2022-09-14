@@ -24,8 +24,8 @@ export const ContentContainer = styled.div`
   margin-top: 6.3em;
 
   & > a {
-    font-size: 1.5em;
-    padding: 1.118em 3.59em;
+    font-size: 1.54em;
+    padding: 1.195em 2.805em;
   }
 
   @media ${themes.primary.media.maxMobile} {
