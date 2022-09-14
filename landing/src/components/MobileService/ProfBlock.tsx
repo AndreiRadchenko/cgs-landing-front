@@ -35,6 +35,8 @@ const ProfBlock = () => {
           padding={"1.117em 3.6em"}
           size={"1.5em"}
           href={data?.buttonLink}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {data?.button}
           <ArrowContainer>

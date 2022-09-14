@@ -484,11 +484,6 @@ export const Film = styled.img`
     top: -20%;
     width: 145%;
   }
-  @media ${themes.primary.media.maxMobile} {
-    left: 5%;
-    top: 0;
-    width: 90%;
-  }
 
   @media ${themes.primary.media.maxMobile} {
     left: 5%;
@@ -497,8 +492,8 @@ export const Film = styled.img`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 120%;
-    left: -10%;
+    width: 125%;
+    left: -8%;
   }
 `;
 

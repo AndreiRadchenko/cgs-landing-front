@@ -18,7 +18,9 @@ interface IMobileLine {
 export const MobileLine = styled.div<IMobileLine>`
   display: none;
   width: 120%;
+
   position: relative;
+  left: -5%;
   height: 24px;
   background: linear-gradient(
     ${({ grad1, grad2 }) => css`90deg,

@@ -2,7 +2,7 @@ import React from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICloudService } from "../../types/Admin/Response.types";
-import rhombus from "../../../public/CloudServicePage/rhombus.png";
+import rhombus from "../../../public/CloudServicePage/rhombus.svg";
 import * as Styled from "../../styles/CloudService/WorkBlock.styled";
 
 const WorkBlock = () => {
