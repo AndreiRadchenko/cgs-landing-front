@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin-top: 11.875em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 9.81em;
+    margin-top: 4.8em;
   }
 `;
 
@@ -30,7 +30,7 @@ export const SubBlockContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
-    margin-top: -1.2em;
+    margin-top: 0;
     padding-left: 0;
     max-width: 99.4%;
   }
@@ -40,7 +40,6 @@ export const SubBlockContainer = styled.div`
     flex-basis: 30%;
 
     @media ${themes.primary.media.maxMobile} {
-      margin-top: -15px;
       & img {
         width: 1.6em;
       }
@@ -90,6 +89,10 @@ export const SubBlockContainer = styled.div`
 
     @media ${themes.primary.media.maxMobile} {
       margin-top: 1.19em;
+
+      &:first-child {
+        margin-top: 1em;
+      }
     }
   }
 `;
@@ -105,6 +108,7 @@ export const Subtitle = styled.h3`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.25em;
+    margin: 0;
   }
 `;
 

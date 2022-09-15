@@ -6,7 +6,7 @@ export const Container = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-top: 5.375em;
   }
 `;
 
@@ -89,7 +89,7 @@ export const Title = styled.h2`
     font-size: 1.45em;
     line-height: 132%;
     width: 15em;
-    margin-bottom: 1.2em;
+    margin-bottom: 0.6em;
     margin-left: -5px;
   }
 `;

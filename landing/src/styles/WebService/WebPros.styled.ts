@@ -8,7 +8,7 @@ export const Container = styled.div`
   padding-bottom: 4.8%;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 9.75em;
+    margin-top: 4.44em;
     padding: 0;
   }
 `;
@@ -55,8 +55,8 @@ export const BgMobileImage = styled.img`
   @media ${themes.primary.media.maxTabletPortrait} {
     display: block;
     position: absolute;
-    height: 79%;
-    top: 4em;
+    height: 82%;
+    top: 3.3em;
     left: -7.2em;
   }
 
@@ -77,7 +77,7 @@ export const CategorySubtitle = styled.h3`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.5em;
-    margin-bottom: 1.25em;
+    margin-bottom: 0.67em;
   }
 `;
 
@@ -112,7 +112,11 @@ export const CategoryListItem = styled.p`
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1em;
     line-height: 132%;
-    margin-top: 1.56em;
+    margin-top: 1.63em;
+
+    &:nth-child(3) {
+      margin-top: 0;
+    }
   }
 `;
 export const ContentWrapper = styled.div`
@@ -159,7 +163,7 @@ export const ContentWrapper = styled.div`
       position: relative;
 
       &:first-child {
-        margin-bottom: 5.25em;
+        margin-bottom: 2.5em;
       }
     }
   }

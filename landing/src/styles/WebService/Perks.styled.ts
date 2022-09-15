@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 98.5%;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-top: 6.25em;
 
     h2 {
       line-height: 233%;
@@ -22,8 +22,8 @@ export const ContentWrapper = styled.div`
   row-gap: 3em;
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin-top: 2.375em;
-    row-gap: 2.5em;
+    margin-top: 0.6em;
+    row-gap: 1em;
     flex-direction: column;
 
     br {

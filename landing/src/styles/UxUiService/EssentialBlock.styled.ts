@@ -11,7 +11,7 @@ export const Container = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 9.115em 0 0;
+    margin: 4.4em 0 0;
     flex-direction: column-reverse;
   }
 `;
@@ -84,7 +84,7 @@ export const Text = styled.p`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 2.125em 0 1.75em;
+    margin: 1em 0 1.75em;
     max-width: 94%;
   }
 `;

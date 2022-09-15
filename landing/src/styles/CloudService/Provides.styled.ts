@@ -8,7 +8,7 @@ export const Container = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-top: 4.75em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -71,18 +71,18 @@ export const BGImageMobile = styled.img`
     display: block;
     position: absolute;
     left: -23em;
-    top: 5em;
+    top: 3.5em;
     height: 41em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    top: 2em;
+    top: 1em;
     left: -22em;
     height: 44em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    top: 0.5em;
+    top: 0em;
   }
 
   @media (max-width: 335px) {
@@ -101,7 +101,7 @@ export const BlockWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 4.5em 0 0;
+    padding: 3.25em 0 0;
     max-width: fit-content;
   }
 `;

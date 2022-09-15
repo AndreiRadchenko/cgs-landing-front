@@ -46,10 +46,12 @@ export const Title = styled.h1`
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
     white-space: pre-wrap;
+    line-height: 89%;
   }
 
   & > span:last-child {
     position: relative;
+    top: 14px;
 
     &::after {
       content: "";
@@ -59,6 +61,7 @@ export const Title = styled.h1`
       background-color: ${themes.primary.colors.primary};
       animation: ${cursorBlinking} 0.8s infinite;
       position: absolute;
+      top: 0;
       right: -0.2em;
     }
   }
@@ -72,7 +75,7 @@ export const Description = styled.p`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 1.625em 0 1.75em;
+    margin: 2.5em 0 1.75em;
   }
 `;
 

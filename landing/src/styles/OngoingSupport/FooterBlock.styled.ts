@@ -7,8 +7,8 @@ export const Container = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
-    padding-bottom: 24.44em;
+    margin-top: 6.25em;
+    padding-bottom: 20.63em;
 
     & a {
       font-size: 1em;
@@ -43,7 +43,7 @@ export const Image = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     width: 18.94em;
-    bottom: 4.375em;
+    bottom: 2.75em;
     right: 1em;
   }
 `;

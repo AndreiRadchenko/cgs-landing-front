@@ -11,6 +11,7 @@ export const Container = styled.div`
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     padding-top: 2em;
+    padding-bottom: 0;
   }
 `;
 
@@ -91,6 +92,7 @@ export const Description = styled.div`
     font-size: 1rem;
     white-space: pre-wrap;
     margin-bottom: 1.815em;
+    margin-top: 1.625em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {

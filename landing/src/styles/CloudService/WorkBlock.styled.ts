@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin-top: 10.4em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-top: 4.75em;
   }
 `;
 
@@ -38,7 +38,7 @@ export const BlockWrapper = styled.div`
     padding-left: 2.5em;
     padding-right: 0;
     max-width: 100%;
-    margin-top: 2.375em;
+    margin-top: 0em;
   }
 `;
 
@@ -49,7 +49,7 @@ export const Block = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     &:not(:last-child) {
-      margin-bottom: 2.125em;
+      margin-bottom: 1.25em;
     }
   }
 `;
@@ -80,7 +80,7 @@ export const Image = styled.img`
   height: 2.5em;
 
   @media ${themes.primary.media.maxMobile} {
-    width: 2.5em;
+    width: 2em;
   }
 `;
 
@@ -97,7 +97,7 @@ export const Subtitle = styled.p`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    align-self: center;
     font-size: 1em;
-    padding-left: 0;
   }
 `;

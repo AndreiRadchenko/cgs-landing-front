@@ -3,10 +3,6 @@ import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 5.5em;
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-top: 10.5em;
-  }
 `;
 
 export const ContentLayout = styled.div`
@@ -26,7 +22,7 @@ export const ContentLayout = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 3.65em;
+    margin-top: 0;
   }
 `;
 
@@ -68,7 +64,7 @@ export const WorthText = styled.p`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-bottom: 2.18em;
+    margin-bottom: 1.28em;
     max-width: 20.5em;
   }
 `;
