@@ -10,6 +10,12 @@ export const Container = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 11.25em;
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    h2 {
+      line-height: 132%;
+    }
+  }
 `;
 
 export const BgContainer = styled.div`
@@ -65,13 +71,24 @@ export const BGImageMobile = styled.img`
     display: block;
     position: absolute;
     left: -23em;
-    top: 6em;
-    height: 42em;
+    top: 5em;
+    height: 41em;
   }
 
   @media ${themes.primary.media.maxMobile} {
+    top: 2em;
     left: -22em;
     height: 44em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    top: 0.5em;
+  }
+
+  @media (max-width: 335px) {
+    top: 8em;
+    left: -25.5em;
+    height: 47em;
   }
 `;
 
@@ -84,7 +101,7 @@ export const BlockWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 6em 0 0 3em;
+    padding: 4.5em 0 0;
     max-width: fit-content;
   }
 `;
