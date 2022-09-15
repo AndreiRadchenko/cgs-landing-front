@@ -37,7 +37,6 @@ export const Title = styled.h1`
   font-weight: inherit;
   text-transform: uppercase;
   margin: 0;
-  position: relative;
   white-space: nowrap;
 
   br {
@@ -59,8 +58,7 @@ export const Title = styled.h1`
       height: 1.45em;
       background-color: ${themes.primary.colors.primary};
       animation: ${cursorBlinking} 0.8s infinite;
-      position: relative;
-      bottom: 0;
+      position: absolute;
       right: -0.2em;
     }
   }
