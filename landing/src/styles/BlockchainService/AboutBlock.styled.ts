@@ -13,7 +13,7 @@ export const Container = styled.div`
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     width: 100%;
-    margin-top: -7.7em;
+    margin-top: -12.3em;
 
     background-position: bottom center;
     background-size: contain;
@@ -32,6 +32,7 @@ export const Title = styled.h2`
 
   @media ${themes.primary.media.maxMobile} {
     padding: 0;
+    margin-bottom: 1.4em;
     font-size: 1.5em;
     line-height: 132%;
   }

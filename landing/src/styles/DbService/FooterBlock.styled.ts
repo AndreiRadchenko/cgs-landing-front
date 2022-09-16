@@ -8,7 +8,7 @@ export const Container = styled.div`
   margin-bottom: 0.5em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-top: 7.19em;
     margin-bottom: 3.125em;
     flex-direction: column;
   }

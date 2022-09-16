@@ -7,7 +7,7 @@ export const Container = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 11.25em 0 0;
+    margin: 4.625em 0 0;
   }
 `;
 
@@ -20,6 +20,7 @@ export const Subtitle = styled.h2`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
+    line-height: 233%;
   }
 `;
 
@@ -38,7 +39,7 @@ export const TextContent = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 2.375em 0 2.125em;
+    margin: 0 0 1.75em;
   }
 `;
 

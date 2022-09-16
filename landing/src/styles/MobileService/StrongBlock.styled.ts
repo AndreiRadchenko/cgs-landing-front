@@ -9,7 +9,11 @@ export const StrongContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 14.04em;
+    margin-top: 5.625em;
+
+    h2 {
+      width: 105%;
+    }
   }
 `;
 
@@ -24,7 +28,7 @@ export const ContentContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 3.27em 0 0;
+    margin: 1.5em 0 0;
   }
 `;
 

@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin-top: 12.5em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-top: 6.25em;
   }
 `;
 
@@ -26,7 +26,7 @@ export const BlockWrapper = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 3.12em;
+    margin-top: 2em;
     display: flex;
   }
 

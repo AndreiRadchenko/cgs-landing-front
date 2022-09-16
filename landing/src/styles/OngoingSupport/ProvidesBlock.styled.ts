@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-top: 4.75em;
   }
 `;
 
@@ -35,7 +35,7 @@ export const MobileMario = styled.img`
   width: 102vw;
   position: relative;
   left: -5vw;
-  margin-top: 6em;
+  margin-top: 5em;
   display: none;
   @media ${themes.primary.media.maxMobile} {
     display: block;
@@ -72,6 +72,7 @@ export const Text = styled.p`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     line-height: 132%;
+    margin: 0.38em 0 1.3em 3em;
   }
 `;
 
@@ -89,6 +90,8 @@ export const TextWrapper = styled.div`
     width: 100%;
     font-size: 1rem;
     flex-direction: column;
+    margin-top: 1em;
+    row-gap: 2.5em;
   }
 
   & > div {

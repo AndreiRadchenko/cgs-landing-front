@@ -5,10 +5,11 @@ export const Container = styled.div`
   margin-top: 13.375em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-top: 6.25em;
 
     h2 {
       line-height: 132%;
+      font-size: 1.5em;
     }
   }
 `;
@@ -33,10 +34,10 @@ export const ContentLayout = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    margin-top: 2.56em;
+    margin-top: 1em;
     width: 100%;
     flex-direction: column;
-    row-gap: 2.125em;
+    row-gap: 1.25em;
   }
 `;
 

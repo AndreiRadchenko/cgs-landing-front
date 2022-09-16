@@ -7,7 +7,7 @@ import { IServiceWeb } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import firsMobileBg from "../../../public/WebService/first-mobile.svg";
-import secondMobileBg from "../../../public/WebService/second-mobile.png";
+import secondMobileBg from "../../../public/WebService/second-mobile.svg";
 
 const SolutionBlock = () => {
   const queryClient = useQueryClient();
