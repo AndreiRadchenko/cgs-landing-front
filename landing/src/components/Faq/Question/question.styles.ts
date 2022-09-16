@@ -66,6 +66,8 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    height: 80px;
+    align-items: center;
     padding: 15px 0px;
     padding-right: ${({ isOpen }) => isOpen && "20px"};
   }
