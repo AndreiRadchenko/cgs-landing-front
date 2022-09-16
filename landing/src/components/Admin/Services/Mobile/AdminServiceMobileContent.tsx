@@ -6,16 +6,7 @@ import { queryKeys } from "../../../../consts/queryKeys";
 import { adminPortfolioPageService } from "../../../../services/adminPortfolioPage";
 import { adminMobileService } from "../../../../services/services/adminServicesMobilePage";
 import * as Styled from "../../../../styles/AdminPage";
-import {
-  IMetaBlock,
-  IServiceMobile,
-} from "../../../../types/Admin/Response.types";
-
-interface IPortfolioProps {
-  categories: string[];
-  meta: IMetaBlock;
-  reviews: [];
-}
+import { IServiceMobile } from "../../../../types/Admin/Response.types";
 
 const AdminServiceMobileContent = () => {
   const { data, isLoading, refetch } = useQuery(
@@ -27,7 +18,7 @@ const AdminServiceMobileContent = () => {
     adminPortfolioPageService.getPortfolio()
   );
 
-  console.log(portfolio);
+  console.log(portfolio?.categories);
 
   const { mutateAsync: updateFaqPage } = useMutation(
     queryKeys.updateServiceMobilePage,

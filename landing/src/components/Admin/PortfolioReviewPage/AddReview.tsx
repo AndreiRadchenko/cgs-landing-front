@@ -7,21 +7,8 @@ import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
-import { IImage } from "../../../types/Admin/Admin.types";
 import AdminStars from "../FeedbackBlock/AdminStars";
-
-interface IReviewProps {
-  bgColor: string;
-  button: string;
-  category: string;
-  feedback: {
-    name: string;
-    rating: number | null;
-    company: string;
-    feedbackText: string;
-  };
-  image: IImage;
-}
+import { IImage } from "../../../types/Admin/Admin.types";
 
 interface IAddReviewProps {
   categories: string[];
