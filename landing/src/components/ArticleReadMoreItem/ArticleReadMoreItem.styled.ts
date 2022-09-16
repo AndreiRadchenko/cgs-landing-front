@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
   &:last-child {
     margin-right: 0;
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 100%;
+  }
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 100%;
   }
@@ -49,24 +53,28 @@ export const TitleWrapper = styled.div`
 `;
 
 export const Title = styled.p`
-  font-size: ${themes.primary.font.size.quaternary};
-  font-weight: ${themes.primary.font.weight.extraBold};
-  margin: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  height: 100%;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-
-  &:hover {
-    cursor: pointer;
-    color: ${themes.primary.colors.darkBlue};
-  }
-
-  @media ${themes.primary.media.maxLaptop} {
-    -webkit-line-clamp: 2;
+  & a {
+    font-size: ${themes.primary.font.size.quaternary};
+    font-weight: ${themes.primary.font.weight.extraBold};
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    height: 100%;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    border: 0;
+    color: ${themes.primary.colors.blogDarkText};
+
+    &:hover {
+      cursor: pointer;
+      color: ${themes.primary.colors.darkBlue};
+    }
+
+    @media ${themes.primary.media.maxLaptop} {
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
   }
 `;
 
@@ -83,7 +91,7 @@ export const Description = styled.p`
   -webkit-box-orient: vertical;
 
   @media ${themes.primary.media.minPCFullHD} {
-    height: 110px;
+    height: 140px;
   }
 
   @media ${themes.primary.media.onlyLaptop} {
@@ -100,6 +108,11 @@ export const Description = styled.p`
 export const ArticleWatchIcon = styled.img`
   width: 22px;
   height: 14px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 1.58em;
+    height: 1em;
+  }
 `;
 
 export const ViewsWrapper = styled.div`
@@ -128,4 +141,14 @@ export const ReadMoreButton = styled.button`
   cursor: pointer;
   max-width: 115px;
   font-size: 14px;
+  a {
+    border: 0;
+    color: ${themes.primary.colors.secondary};
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: 8.5em;
+    font-size: 1.166em;
+    padding: 0.66em 1.25em;
+  }
 `;

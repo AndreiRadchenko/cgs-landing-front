@@ -10,14 +10,25 @@ interface IArticleReadMore {
 }
 
 const ArticleReadMoreItem = ({ article, view }: IArticleReadMore) => {
-  const navigation = useRouter();
+  const router = useRouter();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    router.push(
+      {
+        pathname: `/blog/${article.url}`,
+        query: { fromArticle: true },
+      },
+      `/blog/${article.url}`
+    );
+  };
 
   return (
     <Styles.Wrapper>
       {article.image.url ? (
         <Styles.Image
           src={article.image.url}
-          onClick={() => navigation.push(`/blog/${article.url}`)}
+          onClick={() => router.push(`/blog/${article.url}`)}
         />
       ) : (
         <Styles.NoImageArticleReadMore />
@@ -27,15 +38,17 @@ const ArticleReadMoreItem = ({ article, view }: IArticleReadMore) => {
         <Styles.AmountViews>{view || 0}</Styles.AmountViews>
       </Styles.ViewsWrapper>
       <Styles.TitleWrapper>
-        <Styles.Title onClick={() => navigation.push(`/blog/${article.url}`)}>
-          {article.title}
+        <Styles.Title>
+          <a href={`/blog/${article.url}`} onClick={handleClick}>
+            {article.title}
+          </a>
         </Styles.Title>
       </Styles.TitleWrapper>
       <Styles.Description>{article.description}</Styles.Description>
-      <Styles.ReadMoreButton
-        onClick={() => navigation.push(`/blog/${article.url}`)}
-      >
-        Read more
+      <Styles.ReadMoreButton>
+        <a href={`/blog/${article.url}`} onClick={handleClick}>
+          Read more
+        </a>
       </Styles.ReadMoreButton>
     </Styles.Wrapper>
   );

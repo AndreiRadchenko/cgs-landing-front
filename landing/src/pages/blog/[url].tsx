@@ -12,8 +12,6 @@ import {
   IViews,
 } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
-import ArrowBack from "../../../public/arrowBack.svg";
-import ArrowBackHover from "../../../public/articleArrowHover.svg";
 import titleBg from "../../../public/articleTitleBgImg.svg";
 import headerBottomBg from "../../../public/articleHeaderBottomBg.svg";
 import firstHeaderBg from "../../../public/articleFirstHeaderBg.svg";
@@ -68,7 +66,8 @@ export async function getServerSideProps(context: GetStaticPropsContext) {
 const ArticlePage = () => {
   const router = useRouter();
   const [readMore, setReadMore] = useState<IArticle[] | null>(null);
-  const [isHover, setIsHover] = useState<boolean>(false);
+  const [isFromArticle, setIsFromArticle] = useState<boolean>(false);
+  const [filters, setFilters] = useState<string | string[]>([]);
   const url = typeof router.query?.url === "string" ? router.query.url : "";
   const { data, isSuccess, isLoading }: IBlogData = useQuery(
     queryKeys.getBlogPage,
@@ -111,6 +110,13 @@ const ArticlePage = () => {
   }, [article, url]);
 
   useEffect(() => {
+    setIsFromArticle(router.query.fromArticle === "true");
+    if (router.query.filters) {
+      setFilters(router.query.filters);
+    }
+  }, [router.query]);
+
+  useEffect(() => {
     const getMultipleRandom = (arr: IArticle[], num: number) => {
       const shuffled = [...arr]
         .filter((article) => article.url !== url)
@@ -123,6 +129,18 @@ const ArticlePage = () => {
       setReadMore(readMoreRandomly);
     }
   }, [article, data, url]);
+
+  const handleArrowClick = () => {
+    isFromArticle
+      ? router.back()
+      : router.push(
+          {
+            pathname: `/blog`,
+            query: { filters },
+          },
+          `/blog`
+        );
+  };
 
   if (isLoading)
     return (
@@ -145,16 +163,30 @@ const ArticlePage = () => {
               <Styles.TitleBg>
                 <Image src={titleBg} alt="top title bg" />
               </Styles.TitleBg>
-              <Styles.ArrowBackButton
-                onMouseEnter={() => {
-                  setIsHover(true);
-                }}
-                onMouseLeave={() => {
-                  setIsHover(false);
-                }}
-                src={isHover ? ArrowBackHover.src : ArrowBack.src}
-                onClick={() => router.back()}
-              />
+              <Styles.ArrowBackButton>
+                <svg
+                  onClick={handleArrowClick}
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 72 72"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M45.8359 18.2751C36.0298 12.7913 23.6766 16.2219 18.2443 25.9376C12.812 35.6533 16.3577 47.9749 26.1639 53.4588C35.97 58.9426 48.3232 55.512 53.7554 45.7963C59.1877 36.0806 55.642 23.759 45.8359 18.2751Z"
+                    fill="none"
+                    stroke="#272C2F"
+                    strokeWidth="1.45455"
+                    strokeMiterlimit="10"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M29.1197 36.9997L37.6998 45.5058L36.506 46.71L25.8802 36.1761L25.8937 36.1624L25.8802 36.149L36.9197 25.0177L38.1237 26.2118L29.1065 35.304L46.1183 35.2302L46.1257 36.9259L29.1197 36.9997Z"
+                    fill="black"
+                  />
+                </svg>
+              </Styles.ArrowBackButton>
             </div>
             <Styles.BannerWrapper>
               <Styles.TagWrapper>

@@ -3,13 +3,26 @@ import * as Styled from "../../styles/Blog.styled";
 import { IArticle } from "../../types/Admin/Response.types";
 import Watch from "../../../public/Watch.svg";
 import Timer from "../../../public/Timer.svg";
+import { useRouter } from "next/router";
 
 interface IMainBlogItem {
   article: IArticle;
   views?: number;
+  filters?: string[];
 }
 
-const MainBlogItem = ({ article, views }: IMainBlogItem) => {
+const MainBlogItem = ({ article, views, filters }: IMainBlogItem) => {
+  const router = useRouter();
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    router.push(
+      {
+        pathname: `/blog/${article.url}`,
+        query: { filters },
+      },
+      `/blog/${article.url}`
+    );
+  };
   return (
     <Styled.MainBlogItemContainer>
       <Styled.MobileColumnReversedContainer>
@@ -21,7 +34,9 @@ const MainBlogItem = ({ article, views }: IMainBlogItem) => {
       <Styled.MobileColumnReversedContainer>
         <div>
           <Styled.MainBlogItemTitle>
-            <a href={`/blog/${article.url}`}>{article.title}</a>
+            <a href={`/blog/${article.url}`} onClick={handleClick}>
+              {article.title}
+            </a>
           </Styled.MainBlogItemTitle>
           <Styled.MainBlogItemDescription>
             {article.description}
@@ -36,7 +51,7 @@ const MainBlogItem = ({ article, views }: IMainBlogItem) => {
             </Styled.WatchContainer>
           </Styled.BlogItemRowContainer>
           <Styled.WatchContainer className="timer">
-            <Styled.TimerIcon src={Timer.src} />
+            <Styled.TimerIcon src={Timer.src} alt="timer icon" />
             <Styled.GrayText>{`${article.minutesToRead} min`}</Styled.GrayText>
           </Styled.WatchContainer>
         </Styled.GeneralInfo>

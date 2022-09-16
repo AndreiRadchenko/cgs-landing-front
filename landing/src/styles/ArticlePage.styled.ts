@@ -43,7 +43,6 @@ export const SubTitle = styled.p`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.7rem;
     font-size: 1rem;
-    margin-bottom: 90px;
   }
 `;
 
@@ -51,6 +50,10 @@ export const Background = styled.div`
   overflow: hidden;
   position: relative;
   background-color: ${themes.primary.colors.blogBackground};
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.2em;
+  }
 `;
 
 export const PageWrapper = styled.div`
@@ -80,6 +83,10 @@ export const PageWrapper = styled.div`
       list-style-image: url(/listSquareMobile.png);
     }
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: 81.08em;
+  }
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 40px;
   }
@@ -108,6 +115,10 @@ export const TagWrapper = styled.div`
   flex-direction: column;
   justify-content: end;
   column-gap: 20px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 17.83em;
+  }
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 60px;
     row-gap: 20px;
@@ -131,6 +142,7 @@ export const BannerWrapper = styled.div`
   max-width: 965px;
   margin-top: 6px;
   @media ${themes.primary.media.minPCFullHD} {
+    max-width: 70.416em;
     margin-top: 60px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -139,9 +151,14 @@ export const BannerWrapper = styled.div`
   }
 `;
 
-export const ArrowBackButton = styled.img`
+export const ArrowBackButton = styled.div`
+  width: 72px;
+  height: 72px;
   &:hover {
     cursor: pointer;
+    & path:first-child {
+      fill: ${themes.primary.colors.headerBorderHover};
+    }
   }
   position: absolute;
   top: -63px;
@@ -172,7 +189,12 @@ export const ArrowBackButton = styled.img`
   @media ${themes.primary.media.maxMobile} {
     left: -16px;
     top: -75px;
-    width: 21%;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    left: -11px;
+    width: 50px;
+    height: 50px;
   }
 `;
 
