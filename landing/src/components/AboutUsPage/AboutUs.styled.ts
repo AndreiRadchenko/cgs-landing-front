@@ -60,6 +60,10 @@ export const Subtitle = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 32px;
+
+    &:first-child {
+      margin-top: 0px;
+    }
   }
 `;
 
@@ -96,6 +100,7 @@ export const BottomImage = styled.img`
   @media ${themes.primary.media.maxMobile} {
     width: 500px;
     transform: rotate(-4.51deg);
+    bottom: 70px;
     right: -42px;
   }
 `;
@@ -433,8 +438,9 @@ export const OurBonuses = styled.div`
   padding: 115px 0 370px;
 
   @media ${themes.primary.media.maxMobile} {
+    margin-top: -80px;
     padding-top: 0;
-    padding-bottom: 376px;
+    padding-bottom: 320px;
   }
 `;
 
