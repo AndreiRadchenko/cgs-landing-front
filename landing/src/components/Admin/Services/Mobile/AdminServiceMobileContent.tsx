@@ -3,15 +3,31 @@ import React from "react";
 import { useMutation, useQuery } from "react-query";
 import ServiceMobileContentBlock from ".";
 import { queryKeys } from "../../../../consts/queryKeys";
+import { adminPortfolioPageService } from "../../../../services/adminPortfolioPage";
 import { adminMobileService } from "../../../../services/services/adminServicesMobilePage";
 import * as Styled from "../../../../styles/AdminPage";
-import { IServiceMobile } from "../../../../types/Admin/Response.types";
+import {
+  IMetaBlock,
+  IServiceMobile,
+} from "../../../../types/Admin/Response.types";
+
+interface IPortfolioProps {
+  categories: string[];
+  meta: IMetaBlock;
+  reviews: [];
+}
 
 const AdminServiceMobileContent = () => {
   const { data, isLoading, refetch } = useQuery(
     queryKeys.getServiceMobilePage,
     () => adminMobileService.getMobileServicePage()
   );
+
+  const { data: portfolio } = useQuery(queryKeys.getPortfolioPage, () =>
+    adminPortfolioPageService.getPortfolio()
+  );
+
+  console.log(portfolio);
 
   const { mutateAsync: updateFaqPage } = useMutation(
     queryKeys.updateServiceMobilePage,

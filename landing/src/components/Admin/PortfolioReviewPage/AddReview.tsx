@@ -10,6 +10,19 @@ import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { IImage } from "../../../types/Admin/Admin.types";
 import AdminStars from "../FeedbackBlock/AdminStars";
 
+interface IReviewProps {
+  bgColor: string;
+  button: string;
+  category: string;
+  feedback: {
+    name: string;
+    rating: number | null;
+    company: string;
+    feedbackText: string;
+  };
+  image: IImage;
+}
+
 interface IAddReviewProps {
   categories: string[];
   setIsReady: (value: boolean) => void;
