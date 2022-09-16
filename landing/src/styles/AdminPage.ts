@@ -1,5 +1,5 @@
 import { TextareaAutosize } from "@mui/material";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 
 export const AdminWrapper = styled.div`
@@ -81,8 +81,10 @@ export const AdminContentBlock = styled.div`
 `;
 
 export const AdminPaddedBlock = styled.div`
-  padding: ${themes.primary.spacing.primary}
-    ${themes.primary.spacing.adminWithinBlocks};
+  padding: ${css`
+    ${themes.primary.spacing.primary}
+    ${themes.primary.spacing.adminWithinBlocks}
+  `};
   margin-bottom: ${themes.primary.spacing.adminWithinBlocks};
   background: ${(props) =>
     props.theme == "dark" ? themes.primary.colors.darkedGrayBack : null};
@@ -94,8 +96,10 @@ export const AdminPaddedBlock = styled.div`
 `;
 
 export const AdminPaddedHeaderBlock = styled.div`
-  padding: ${themes.primary.spacing.primary}
-    ${themes.primary.spacing.adminWithinBlocks};
+  padding: ${css`
+    ${themes.primary.spacing.primary}
+    ${themes.primary.spacing.adminWithinBlocks}
+  `};
   background: ${(props) =>
     props.theme == "dark" ? themes.primary.colors.darkedGrayBack : null};
 `;
@@ -889,3 +893,7 @@ export const AdminSubtitleGrid = styled.div`
   column-gap: 7.5em;
   margin-right: 7.5em;
 `;
+
+export const AdminCategorySelect = styled.select``;
+
+export const AdminCategoryOption = styled.option``;

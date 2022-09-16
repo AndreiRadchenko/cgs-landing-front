@@ -36,6 +36,8 @@ const MobileAppDevelopment: NextPage = () => {
     adminMobileService.getMobileServicePage()
   );
 
+  console.log(data?.whoNeedApps);
+
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };

@@ -7,8 +7,8 @@ import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
-import { IImage } from "../../../types/Admin/Admin.types";
 import AdminStars from "../FeedbackBlock/AdminStars";
+import { IImage } from "../../../types/Admin/Admin.types";
 
 interface IAddReviewProps {
   categories: string[];
