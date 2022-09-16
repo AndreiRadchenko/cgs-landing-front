@@ -47,7 +47,7 @@ const PortfolioPage: NextPage = () => {
   };
   useEffect(() => {
     setIsMobile(false);
-    if (width && width <= 767) {
+    if (width && width < 768) {
       setIsMobile(true);
     }
   }, [width]);
@@ -76,6 +76,7 @@ const PortfolioPage: NextPage = () => {
           {portfolioCategories.map((category, ind) => {
             const filtered = sortByCategory(category);
             return (
+              width &&
               filtered &&
               filtered.length > 0 && (
                 <PortfolioSlider
