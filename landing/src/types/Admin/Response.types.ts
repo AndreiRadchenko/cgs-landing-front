@@ -335,7 +335,11 @@ export interface IServiceMobile {
     };
   };
   whatDoWeUse: ISubtitleWithText;
-  whoNeedApps: ISubtitleWithText;
+  whoNeedApps: {
+    subtitle: string;
+    text: string;
+    projects: string[];
+  };
   howDoWeWork: {
     subtitle: string;
     text: {
