@@ -8,7 +8,7 @@ export const TechnologyContainer = styled.section`
   margin-bottom: 12.9em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 11.25rem;
+    margin-bottom: 4.375rem;
   }
 `;
 
@@ -27,6 +27,7 @@ export const TechTitle = styled.h2`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5rem;
     padding-bottom: 0;
+    line-height: 233%;
   }
 `;
 
@@ -71,6 +72,9 @@ export const CategoryContainer = styled.div`
     width: 100%;
     &:nth-child(n) {
       justify-self: center;
+    }
+    &:last-child img {
+      margin-bottom: 0;
     }
   }
 `;

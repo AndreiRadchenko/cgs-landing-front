@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   margin-top: 22px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin-block: 2rem;
+    margin-block: 1.75rem 2rem;
   }
 `;
 

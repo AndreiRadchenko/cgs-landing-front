@@ -9,7 +9,7 @@ export const PaginationWrapper = styled.div`
   margin-top: 90px;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 72px;
+    margin-top: 45px;
   }
 `;
 

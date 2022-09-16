@@ -149,6 +149,7 @@ export const MainSubtitle = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 4.3vw;
+    margin: 10px 0 35px;
   }
 `;
 
@@ -348,7 +349,7 @@ export const Subtitle = styled.div`
     &.small {
       margin-top: 0;
       font-size: 5vw;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
   }
 
@@ -365,9 +366,9 @@ export const Subtitle = styled.div`
     }
 
     &.footer {
-      margin-top: 180px;
+      margin-top: 110px;
       font-size: 2rem;
-      margin-bottom: 200px;
+      margin-bottom: 100px;
     }
   }
 
@@ -402,11 +403,11 @@ export const NextTech = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-top: 11.5em;
+    margin-top: 10.5em;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
-    margin-top: 11.5em;
+    margin-top: 10.5em;
   }
 `;
 
@@ -416,21 +417,25 @@ export const FilmContainer = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     overflow: hidden;
-    padding-bottom: 310px;
+    padding-bottom: 400px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding-bottom: 402px;
+    padding-bottom: 412px;
     overflow: visible;
     margin-bottom: 52px;
   }
 
+  @media (max-width: 600px) {
+    padding-bottom: 310px;
+  }
+
   @media ${themes.primary.media.maxLowestScreenMobile} {
-    padding-bottom: 390px;
+    padding-bottom: 300px;
   }
   @media (max-width: 360px) {
     margin-bottom: 0px;
-    padding-bottom: 300px;
+    padding-bottom: 350px;
   }
 `;
 
@@ -524,17 +529,21 @@ export const FilmText = styled.div`
     top: 15%;
     left: 2.7%;
     max-width: 98.5%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
     top: 14%;
-    font-size: 1.125rem;
   }
 
   @media (max-width: 360px) {
     top: 15%;
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 320px) {
+    top: 15%;
+    font-size: 0.8rem;
   }
 `;
 
@@ -547,7 +556,7 @@ export const RightContainer = styled.div`
 export const Separator = styled.div`
   height: 1px;
   width: 100%;
-  margin-block: 90.5px;
+  margin-block: 41.5px;
   background-color: ${themes.primary.colors.headerBorder};
 
   @media ${themes.primary.media.maxLowScreenMobile} {

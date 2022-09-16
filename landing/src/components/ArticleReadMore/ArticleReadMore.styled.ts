@@ -10,7 +10,8 @@ export const Wrapper = styled.div`
   margin-bottom: 130px;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 202px;
+    margin-top: 100px;
+    margin-bottom: 70px;
   }
 `;
 
@@ -21,7 +22,7 @@ export const Title = styled.p`
   color: ${themes.primary.colors.blogDarkText};
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 0 0 38px;
+    margin: 0 0 30px;
   }
 `;
 
