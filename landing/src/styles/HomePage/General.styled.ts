@@ -405,10 +405,6 @@ export const NextTech = styled.div`
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-top: 10.5em;
   }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    margin-top: 10.5em;
-  }
 `;
 
 export const FilmContainer = styled.div`
