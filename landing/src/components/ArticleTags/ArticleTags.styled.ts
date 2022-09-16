@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-block: 2rem;
-    gap: 24px;
   }
 `;
 

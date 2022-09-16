@@ -22,7 +22,7 @@ export const AuthorWrapper = styled.div`
 `;
 
 export const AuthorImage = styled.img`
-  max-width: 60px;
+  max-width: 5em;
   width: 100%;
   height: auto;
   display: flex;
@@ -42,7 +42,7 @@ export const AuthorInfoWrapper = styled.div`
 export const AuthorName = styled.div`
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
-  font-size: 1rem;
+  font-size: 1.333em;
   margin-top: 6px;
 
   @media ${themes.primary.media.maxMobile} {

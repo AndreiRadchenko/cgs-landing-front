@@ -83,7 +83,7 @@ const themes = {
         bigTitle: "4.125em",
         headerLinkText: "1.3em",
         authorDate: "0.83em",
-        mainBlogTitle: "34px",
+        mainBlogTitle: "2.83em",
         mainBlogDescription: "18px",
         mainBlogAuthor: "14px",
         smallBlogTitle: "21px",

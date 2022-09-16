@@ -70,6 +70,10 @@ export const BlogContainer = styled.div`
     outline: none;
     border: none;
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.5em;
+  }
 `;
 
 export const AllArticlesContainer = styled.div<IAllArticles>`
@@ -77,6 +81,10 @@ export const AllArticlesContainer = styled.div<IAllArticles>`
   margin-bottom: 180px;
   max-width: 1200px;
   width: 100%;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: 100em;
+  }
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 90px 30px 0;
   }
@@ -137,6 +145,8 @@ export const Tag = styled.button<ITag>`
     cursor: pointer;
   }
   @media ${themes.primary.media.minPC} {
+    height: 2.333em;
+    padding: 0.5em ${themes.primary.font.size.primary};
     font-size: ${themes.primary.font.size.primary};
   }
 
@@ -239,6 +249,10 @@ export const BlogItemTitle = styled.p`
   margin: 0;
   margin-top: 14px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 2.3em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5rem;
   }
@@ -278,6 +292,10 @@ export const BlogItemDescription = styled.p`
   margin-bottom: 0;
   line-height: 170%;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.33em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.125rem;
     font-size: 1rem;
@@ -291,6 +309,11 @@ export const LoopText = styled.div`
   margin-bottom: 0;
   line-height: 170%;
   animation: ${infiniteText} infinite 15s linear;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1rem;
+    margin-top: 9px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
@@ -336,6 +359,10 @@ export const MainBlogAuthor = styled(GrayText)`
 export const SecondaryAuthor = styled(GrayText)`
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.secondaryArticleAuthor};
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.33em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
@@ -403,9 +430,9 @@ export const WatchCountArticle = styled(GrayText)`
 `;
 
 export const BlogItemWatchIcon = styled.img`
-  width: 22px;
-  height: 14px;
-  margin-left: 14px;
+  width: 1.83em;
+  height: 1.166em;
+  margin-left: 1.166em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-left: 0;
@@ -418,6 +445,11 @@ export const WatchIcon = styled.img`
   width: 22px;
   height: 14px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 1.58em;
+    height: 1em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     width: 19px;
     height: 12px;
@@ -425,8 +457,8 @@ export const WatchIcon = styled.img`
 `;
 
 export const TimerIcon = styled.img`
-  width: 15px;
-  height: 15px;
+  width: 1.25em;
+  height: 1.25em;
 
   @media ${themes.primary.media.maxMobile} {
     width: 14px;
@@ -557,6 +589,12 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 3em;
+    width: 10.91em;
+    padding: 0 1em;
+  }
 `;
 
 export const Dropdown = styled.div`
@@ -630,6 +668,7 @@ export const PodcastCard = styled.div`
   overflow: hidden;
   padding: 30px;
   border: 1px solid ${themes.primary.colors.comment};
+
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 20px;
     height: auto;
@@ -680,6 +719,12 @@ export const PlayButton = styled.img`
   height: 60px;
   margin: 0 22px;
   cursor: pointer;
+
+  background-position: center;
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 70px;
+    height: 70px;
+  }
 `;
 export const RightArrow = styled.div`
   width: 45px;
@@ -691,6 +736,11 @@ export const RightArrow = styled.div`
   background-image: url("/BlogDecorations/Podcast/RightArrow.svg");
   background-repeat: no-repeat;
   background-position: center;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 55px;
+    height: 66px;
+  }
 `;
 export const LeftArrow = styled.div`
   background-image: url("/BlogDecorations/Podcast/LeftArrow.svg");
@@ -703,6 +753,10 @@ export const LeftArrow = styled.div`
   right: 1px;
   background-repeat: no-repeat;
   background-position: center;
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 54px;
+    height: 59px;
+  }
 `;
 
 export const SmallNavigation = styled.div`
@@ -901,6 +955,10 @@ export const MainBlogItemTitle = styled(BlogItemTitle)`
     color: ${themes.primary.colors.darkBlue};
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: none;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5rem;
   }
@@ -957,6 +1015,7 @@ export const MainBlogItemImage = styled.img`
 export const MainBlogItemTag = styled(Tag)`
   margin-top: 25px;
   font-size: ${themes.primary.font.size.primary};
+  padding: 0.5em 1em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: -1px;
@@ -965,8 +1024,12 @@ export const MainBlogItemTag = styled(Tag)`
     top: 0;
     left: 0;
     font-size: 0.875rem;
-    padding: 2px 10px;
+    padding: 0.166em 0.835em;
     line-height: 160%;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    padding: 1.1em 1.3em;
   }
 `;
 
@@ -982,6 +1045,10 @@ export const MainBlogItemDescription = styled(BlogItemDescription)`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-top: 1.125rem;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: none;
   }
 `;
 
@@ -1044,8 +1111,8 @@ export const SmallArticleContainer = styled.div`
 export const Arrow = styled.img``;
 
 export const SliderDot = styled.div`
-  height: 11px;
-  width: 10px;
+  height: 0.905em;
+  width: 0.83em;
   border: 1px solid ${themes.primary.colors.primary};
   &.current {
     background-color: ${themes.primary.colors.primary};
@@ -1057,7 +1124,7 @@ export const SliderDot = styled.div`
 `;
 
 export const SliderDotsContainer = styled(FlexRowContainer)`
-  column-gap: 10px;
+  column-gap: 0.83em;
   margin-top: 20px;
 
   @media ${themes.primary.media.maxMobile} {

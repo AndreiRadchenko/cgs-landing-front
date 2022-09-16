@@ -34,7 +34,7 @@ export const ReadMoreItemsWrapper = styled.div`
   column-gap: 35px;
   @media ${themes.primary.media.maxMobile} {
     flex-wrap: wrap;
-    width: 109%;
+    width: 100%;
     & a {
       color: ${themes.primary.colors.blogDarkText};
     }
