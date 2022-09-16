@@ -42,8 +42,8 @@ const PortfolioPage: NextPage = () => {
   const { width } = useWindowDimension();
   const sortByCategory = (category: string) => {
     return data?.reviews
-      .reverse()
-      .filter((review) => review.category === category);
+      .filter((review) => review.category === category)
+      .reverse();
   };
   useEffect(() => {
     setIsMobile(false);
@@ -76,7 +76,6 @@ const PortfolioPage: NextPage = () => {
           {portfolioCategories.map((category, ind) => {
             const filtered = sortByCategory(category);
             return (
-              width &&
               filtered &&
               filtered.length > 0 && (
                 <PortfolioSlider
