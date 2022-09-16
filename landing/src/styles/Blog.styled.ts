@@ -90,8 +90,8 @@ export const AllArticlesContainer = styled.div<IAllArticles>`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 58px 8px 0;
-    margin-bottom: 231px;
+    padding: 38px 8px 0;
+    margin-bottom: 175px;
   }
 `;
 
@@ -181,7 +181,7 @@ export const MarginContainer = styled.div`
   margin-bottom: 44px;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
   }
 `;
 
@@ -483,7 +483,7 @@ export const RightLine = styled.img<IArticlesOnPage>`
   width: 651.29px;
   height: 1032.31px;
   right: 0px;
-  bottom: 0px;
+  bottom: -60px;
 
   @media ${themes.primary.media.maxMobile} {
     transform-origin: 100% 50%;
@@ -649,7 +649,8 @@ export const PodcastContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column-reverse;
     row-gap: 1.375rem;
-    margin-top: 50px;
+    margin-top: 30px;
+    padding-block: 30px;
   }
 `;
 

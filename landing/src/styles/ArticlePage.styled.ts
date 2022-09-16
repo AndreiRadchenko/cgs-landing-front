@@ -41,7 +41,7 @@ export const SubTitle = styled.p`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 1.7rem;
+    margin-top: 2rem;
     font-size: 1rem;
   }
 `;
@@ -148,6 +148,7 @@ export const BannerWrapper = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
     align-items: center;
+    margin-top: 0;
   }
 `;
 

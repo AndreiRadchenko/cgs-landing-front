@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
     }
 
     &.mobile {
-      margin-top: 54px;
+      margin-top: 24px;
       display: flex;
     }
   }
