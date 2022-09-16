@@ -62,6 +62,10 @@ export const ThankContainer = styled.div`
     line-height: 160%;
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: 22px;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin: 32px 0 0 11px;
   }
