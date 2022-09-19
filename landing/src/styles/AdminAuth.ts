@@ -6,14 +6,14 @@ export const AdminAuthPassWrapper = styled.div`
   width: 650px;
   border: 2px solid ${themes.primary.colors.black};
   position: absolute;
-  top: 10%;
+  top: 18.78%;
   margin: 0 auto 0 auto;
   left: 0;
   right: 0;
 `;
 
 export const AdminAuthHeader = styled.div`
-  padding: ${themes.primary.spacing.septenary};
+  padding: 2.25em 2.85em 2.2em;
 `;
 
 export const AdminAuthTeamLogo = styled.div`
@@ -23,8 +23,8 @@ export const AdminAuthTeamLogo = styled.div`
 export const AdminAuthSubHeader = styled.h2`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  margin: ${themes.primary.spacing.primary} 0 0 0;
-  font-size: ${themes.primary.font.size.secondary};
+  margin: 2.42em 0 0 0;
+  font-size: 2em;
   text-align: center;
 `;
 
@@ -33,7 +33,7 @@ export const AdminAuthPassBlock = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-bottom: 60px;
+  padding-bottom: 58px;
 `;
 
 export const AdminAuthButton = styled.button`
@@ -43,6 +43,7 @@ export const AdminAuthButton = styled.button`
   padding: 17px 0;
   cursor: pointer;
   font-size: ${themes.primary.font.size.oneAndHalf};
+  font-family: ${themes.primary.font.family.namu};
   color: ${themes.primary.colors.secondary};
   background: ${themes.primary.colors.black};
 `;
@@ -68,7 +69,11 @@ export const AdminFormContainer = styled.div`
 export const AdminFormHeader = styled.div`
   padding: 35px;
   border-bottom: 2px solid ${themes.primary.colors.black};
-  background: ${themes.primary.colors.decorationText};
+  background: linear-gradient(
+    75.6deg,
+    ${themes.primary.colors.mainGradientColor1} -9.39%,
+    ${themes.primary.colors.mainGradientColor2} 110.45%
+  );
 `;
 
 export const AdminFormTitleWrap = styled.div`
@@ -81,11 +86,11 @@ export const AdminFormField = styled(Field)`
   width: 100%;
   border: 1px solid ${themes.primary.colors.inputGrey};
   background: transparent;
-  padding: 18px 14px;
+  padding: 17px 14px 18px;
 
   font-family: ${themes.primary.font.family.namu};
 
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-size: ${themes.primary.font.size.faqAnswer};
   color: ${themes.primary.colors.inputGrey};
   font-weight: ${themes.primary.font.weight.heavy};
   margin-bottom: 22px;
@@ -93,11 +98,15 @@ export const AdminFormField = styled(Field)`
   &:focus {
     outline: none;
   }
+
+  &.password {
+    margin-bottom: 0;
+  }
 `;
 
 export const AdminFormLabel = styled.label`
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.oneAndHalf};
-  margin-bottom: 20px;
+  font-size: ${themes.primary.font.size.faqAnswer};
+  margin-bottom: 10px;
   align-self: flex-start;
 `;
