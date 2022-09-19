@@ -23,7 +23,8 @@ export const AdminAuthTeamLogo = styled.div`
 export const AdminAuthSubHeader = styled.h2`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  margin: 2.42em 0 0 0;
+  margin-top: 2.42em;
+  margin-bottom: 0;
   font-size: 2em;
   text-align: center;
 `;
