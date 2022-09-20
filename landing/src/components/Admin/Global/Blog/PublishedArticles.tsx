@@ -7,6 +7,7 @@ import * as Styles from "../../../../styles/BlogPublishedArticles.styled";
 import { useFormikContext } from "formik";
 import {
   IArticle,
+  IArticleWithInd,
   IBlogResponse,
   ISwapData,
   IViews,
@@ -48,18 +49,23 @@ const PublishedArticles: FC<IArticles> = ({
   const { values, handleSubmit } = useFormikContext<IBlogResponse>();
 
   const { mutateAsync: mutateArticle } = useMutation(
-    queryKeys.deleteArticle,
-    (dataToUpdate: IBlogResponse) =>
-      adminBlogService.updateBlogPage(dataToUpdate)
+    queryKeys.updateBlogArticle,
+    (dataToUpdate: IArticleWithInd) =>
+      adminBlogService.updateByInd(dataToUpdate)
+  );
+
+  const { mutateAsync: deleteArticleByUrl } = useMutation(
+    queryKeys.updateBlogArticle,
+    (url: string) => adminBlogService.deleteByUrl(url)
   );
 
   const { mutateAsync: updateViews } = useMutation(
-    queryKeys.postArticle,
+    queryKeys.views,
     (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
   );
 
   const { mutateAsync: swapElements } = useMutation(
-    queryKeys.postArticle,
+    queryKeys.swapArticles,
     (dataToUpdate: ISwapData) => adminBlogService.swapTwoElements(dataToUpdate)
   );
 
@@ -70,8 +76,8 @@ const PublishedArticles: FC<IArticles> = ({
       );
       await updateViews({ allViews: allViews });
     }
+    await deleteArticleByUrl(values.articles[i].url);
     values.articles.splice(i, 1);
-    await mutateArticle(values);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
@@ -79,7 +85,7 @@ const PublishedArticles: FC<IArticles> = ({
 
   const deactivateArticle = async (i: number) => {
     values.articles[i].disabled = true;
-    await mutateArticle(values);
+    await mutateArticle({ article: values.articles[i], ind: i });
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
@@ -87,7 +93,7 @@ const PublishedArticles: FC<IArticles> = ({
 
   const publishArticle = async (i: number) => {
     values.articles[i].disabled = false;
-    await mutateArticle(values);
+    await mutateArticle({ article: values.articles[i], ind: i });
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();

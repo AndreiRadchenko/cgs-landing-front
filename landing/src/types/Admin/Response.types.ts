@@ -223,6 +223,7 @@ export interface IArticle {
   title: string;
   description: string;
   author: IAuthor;
+  scheduleArticle: string;
   updatedOn: string;
   date: string;
   minutesToRead: number;
@@ -250,6 +251,7 @@ export interface INewArticle {
   description: string;
   author: IAuthor;
   updatedOn: string;
+  scheduleArticle: string;
   date: string;
   minutesToRead: number;
   content: ITextBlog[];
@@ -264,7 +266,6 @@ export interface IBlogResponse {
   newArticle: INewArticle;
   meta: IMetaBlock;
 }
-
 export interface IView {
   views: number;
   articleUrl: string;
