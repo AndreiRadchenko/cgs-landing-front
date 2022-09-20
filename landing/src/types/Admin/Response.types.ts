@@ -234,7 +234,6 @@ export interface IArticle {
 
 export interface IArticleWithInd {
   article: IArticle;
-  ind: number;
 }
 
 export interface ISwapData {
@@ -259,19 +258,15 @@ export interface INewArticle {
   meta: IMetaBlock;
 }
 
-export interface IBlogResponse {
-  articles: IArticle[];
+export interface IBlogPageResponse {
   newArticle: INewArticle;
   meta: IMetaBlock;
 }
 
 export interface IView {
+  _id?: string;
   views: number;
   articleUrl: string;
-}
-
-export interface IViews {
-  allViews: IView[];
 }
 
 export interface IHomeData {

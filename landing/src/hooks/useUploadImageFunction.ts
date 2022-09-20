@@ -9,7 +9,7 @@ const useUploadImageFunction = (
   key = queryKeys.GetFullPage
 ) => {
   const queryClient = new QueryClient();
-  const { handleSubmit } = useFormikContext();
+  const { setFieldValue } = useFormikContext();
 
   const upload = async (image: any) => {
     const response = await adminGlobalService.uploadImage(image);
@@ -25,11 +25,11 @@ const useUploadImageFunction = (
     const link = await mutateAsync(image);
     if (state) {
       state.image! = link!;
+      setFieldValue("image", link);
     } else {
       localState!.image = link!;
     }
-    handleSubmit();
-    queryClient.invalidateQueries(key);
+    queryClient.invalidateQueries([key]);
   };
 
   return uploadImageFunction;

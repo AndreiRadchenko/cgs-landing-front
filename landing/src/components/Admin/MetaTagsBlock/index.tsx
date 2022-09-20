@@ -4,7 +4,7 @@ import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { useFormikContext } from "formik";
 import { IMetaBlock } from "../../../types/Admin/Response.types";
 import { Counter, Message, Text } from "../../../styles/AdminBlogPage";
-import { getNested } from "../../../utils/getNestedObjectByKeys";
+// import { getNested } from "../../../utils/getNestedObjectByKeys";
 
 interface IMetaBlockProps {
   theme?: string;
@@ -48,24 +48,29 @@ const MetaTagsBlock = ({
   };
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const getMetaByName = (values: any, metaName: string) => {
-      const arr = nameBefore.replace("]", "").replace(".", "[").split("[");
-      const nestedObj = getNested(values, ...arr);
-      return nestedObj.meta[metaName];
-    };
+    // // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // const getMetaByName = (values: any, metaName: string) => {
+    //   const arr = nameBefore.replace("]", "").replace(".", "[").split("[");
+
+    //   const nestedObj = getNested(values, ...arr);
+    //   return nestedObj.meta[metaName];
+    // };
+
+    console.log(meta);
 
     setDescLength(
-      nameBefore
-        ? getMetaByName(values, "metaDescription").length
-        : values.meta.metaDescription.length
+      nameBefore ? meta.length : values.meta.metaDescription.length
     );
-    setTitleLength(
-      nameBefore
-        ? getMetaByName(values, "metaTitle").length
-        : values.meta.metaTitle.length
-    );
-  }, [nameBefore, values]);
+    // nameBefore
+    //   ? getMetaByName(values, "metaDescription").length
+    //   :
+    setTitleLength(nameBefore ? meta.length : values.meta.metaTitle.length);
+    // nameBefore
+    //   ? getMetaByName(values, "metaTitle").length
+    //   :
+  }, [nameBefore, values, meta.length]);
+
+  console.log(titleLength, descLength);
 
   return (
     <Styled.AdminPaddedBlock theme={theme}>

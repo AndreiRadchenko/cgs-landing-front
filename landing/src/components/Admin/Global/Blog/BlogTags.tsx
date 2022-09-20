@@ -1,52 +1,65 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import Plus from "../../../../../public/plus.svg";
 
 import * as Styles from "../../../../styles/BlogTags.styled";
 import { useFormikContext } from "formik";
-import { IBlogResponse } from "../../../../types/Admin/Response.types";
+import { IArticle, INewArticle } from "../../../../types/Admin/Response.types";
 import Dropdown from "./Dropdown";
 
 interface IBlogTags {
   isNewArticle: boolean;
   article: number;
+  newArticle: INewArticle;
 }
 
-const BlogTags: FC<IBlogTags> = ({ isNewArticle, article }) => {
+const BlogTags: FC<IBlogTags> = ({ isNewArticle, article, newArticle }) => {
   const [tagList, setTagList] = useState<JSX.Element[]>([]);
-  const { values } = useFormikContext<IBlogResponse>();
-  const newArticleTags = values.newArticle.tags;
-  const editArticleTags = values.articles[article]?.tags;
+  const { values } = useFormikContext<IArticle[]>();
+  const newArticleTags = newArticle.tags;
+  const editArticleTags = values[article]?.tags;
 
-  const componentsArray = () => {
+  const newArticleTag = useCallback(
+    (index: number) => (
+      <div key={index}>
+        <Dropdown
+          name={`newArticle.tags[${index}]`}
+          value={newArticle.tags[index]}
+          tags={newArticle.possibleTags}
+        />
+      </div>
+    ),
+    [newArticle.possibleTags, newArticle.tags]
+  );
+
+  const editArticleTag = useCallback(
+    (index: number) => (
+      <div key={index}>
+        <Dropdown
+          name={`[${article}].tags[${index}]`}
+          value={values[article].tags[index]}
+          tags={newArticle.possibleTags}
+        />
+      </div>
+    ),
+    [article, newArticle.possibleTags, values]
+  );
+
+  const componentsArray = useCallback(() => {
     return isNewArticle
       ? newArticleTags.map((tag, i) => newArticleTag(i))
       : editArticleTags.map((tag, i) => editArticleTag(i));
-  };
+  }, [
+    editArticleTag,
+    editArticleTags,
+    isNewArticle,
+    newArticleTag,
+    newArticleTags,
+  ]);
 
   useEffect(() => {
     const result = componentsArray();
     setTagList(result);
-  }, [article, isNewArticle, values.articles, values.newArticle]);
-
-  const newArticleTag = (index: number) => (
-    <div key={index}>
-      <Dropdown
-        name={`newArticle.tags[${index}]`}
-        value={values.newArticle.tags[index]}
-        tags={values.newArticle.possibleTags}
-      />
-    </div>
-  );
-
-  const editArticleTag = (index: number) => (
-    <div key={index}>
-      <Dropdown
-        name={`articles[${article}].tags[${index}]`}
-        value={values.articles[article].tags[index]}
-        tags={values.newArticle.possibleTags}
-      />
-    </div>
-  );
+  }, [article, isNewArticle, values, newArticle, componentsArray]);
 
   const addTagOnClick = () => {
     const newArticleCase = () => {
@@ -64,9 +77,7 @@ const BlogTags: FC<IBlogTags> = ({ isNewArticle, article }) => {
 
   const deleteItem = () => {
     setTagList(tagList.slice(0, -1));
-    isNewArticle
-      ? values.newArticle.tags.pop()
-      : values.articles[article].tags.pop();
+    isNewArticle ? newArticle.tags.pop() : values[article].tags.pop();
   };
 
   return (

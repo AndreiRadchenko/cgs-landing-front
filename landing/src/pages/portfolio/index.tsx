@@ -4,9 +4,12 @@ import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { adminPortfolioPageService } from "../../services/adminPortfolioPage";
+import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import PortfolioSlider from "../../components/Admin/PortfolioSwipers/PortfolioSlider";
-import { IPortfolioResponse } from "../../types/Admin/AdminPortfolioPage.types";
+import {
+  IPortfolioResponse,
+  IPortfolioReviewsResponse,
+} from "../../types/Admin/AdminPortfolio.types";
 import * as Styled from "../../styles/AdminPage";
 import * as Styles from "../../styles/Portfolio.styled";
 import { Separator } from "../../styles/PortfolioSlider.styled";
@@ -19,8 +22,8 @@ import { NextPage } from "next";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getPortfolioPage, () =>
-    adminPortfolioPageService.getPortfolio()
+  await queryClient.prefetchQuery(queryKeys.getPortfolioPageData, () =>
+    adminPortfolioService.getPageData()
   );
 
   return {
@@ -32,8 +35,15 @@ export async function getServerSideProps() {
 
 const PortfolioPage: NextPage = () => {
   const { data, isLoading }: IPortfolioResponse = useQuery(
-    queryKeys.getPortfolioPage,
-    () => adminPortfolioPageService.getPortfolio()
+    queryKeys.getPortfolioPageData,
+    () => adminPortfolioService.getPageData()
+  );
+
+  const {
+    data: reviews,
+    isLoading: reviewsIsLoading,
+  }: IPortfolioReviewsResponse = useQuery(queryKeys.getPortfolio, () =>
+    adminPortfolioService.getReviews()
   );
 
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
@@ -41,9 +51,10 @@ const PortfolioPage: NextPage = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { width } = useWindowDimension();
   const sortByCategory = (category: string) => {
-    return data?.reviews
-      .filter((review) => review.category === category)
-      .reverse();
+    return (
+      reviews &&
+      reviews.filter((review) => review.category === category).reverse()
+    );
   };
   useEffect(() => {
     setIsMobile(false);
@@ -54,7 +65,7 @@ const PortfolioPage: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  return isLoading ? (
+  return isLoading && reviewsIsLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data ? (
     <>

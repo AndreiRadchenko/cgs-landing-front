@@ -2,13 +2,13 @@ import { Formik } from "formik";
 import React, { useState } from "react";
 import ContentBlock from "./Blog/ContentBlock";
 import { useQuery } from "react-query";
-import { IBlogResponse } from "../../../types/Admin/Response.types";
+import { IBlogPageResponse } from "../../../types/Admin/Response.types";
 import * as Styled from "../../../styles/AdminPage";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminBlogService } from "../../../services/adminBlogPage";
 
 export interface IBlogProps {
-  data: IBlogResponse | undefined;
+  data: IBlogPageResponse | undefined;
   isLoading: boolean;
   refetch: () => Promise<IBlogProps>;
 }
@@ -25,7 +25,7 @@ const AdminBlogMainContent = () => {
 
   const { data, isLoading, refetch }: IBlogProps = useQuery(
     queryKeys.getBlogPage,
-    () => adminBlogService.getBlogPage()
+    () => adminBlogService.getBlogPageData()
   );
 
   return isLoading ? (
@@ -39,7 +39,6 @@ const AdminBlogMainContent = () => {
       validateOnBlur
     >
       <ContentBlock
-        data={data}
         isNewArticle={isNewArticle}
         setIsNewArticle={setIsNewArticle}
         article={article}

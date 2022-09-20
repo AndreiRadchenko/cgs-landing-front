@@ -1,4 +1,4 @@
-import { IPortfolioReview } from "../../../types/Admin/AdminPortfolioPage.types";
+import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio.types";
 import React, { FC, useEffect, useRef, useState } from "react";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";

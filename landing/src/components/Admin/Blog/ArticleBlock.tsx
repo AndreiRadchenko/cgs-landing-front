@@ -1,20 +1,85 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import * as Styles from "../../../styles/AdminBlogPage";
 import Subtitle from "./Subtitle";
 import { useFormikContext } from "formik";
-import { IBlogResponse } from "../../../types/Admin/Response.types";
+import { IArticle, INewArticle } from "../../../types/Admin/Response.types";
 import TextEditor from "../../TextEditor/TextEditor";
 
 interface IArticleBlock {
+  newArticle: INewArticle;
   isNewArticle: boolean;
   article: number;
 }
 
-const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
-  const { values, handleChange } = useFormikContext<IBlogResponse>();
+const ArticleBlock: FC<IArticleBlock> = ({
+  isNewArticle,
+  article,
+  newArticle,
+}) => {
+  const { values, handleChange } = useFormikContext<IArticle[]>();
   const [blocks, setBlocks] = useState<JSX.Element[]>([]);
-  const newArticleContent = values.newArticle.content;
-  const editArticleContent = values.articles[article]?.content;
+  const newArticleContent = newArticle.content;
+  const editArticleContent = values[article]?.content;
+
+  const newArticleSubtitle = useCallback(
+    (index: number): JSX.Element => (
+      <Subtitle
+        key={index}
+        subtitleValue={newArticle.content[index].subtitle}
+        subtitleName={`newArticle.content[${index}].subtitle`}
+        subNumberValue={newArticle.content[index].subNumber}
+        subNumberName={`newArticle.content[${index}].subNumber`}
+        handleChange={handleChange}
+        tagNameValue="h2"
+        tagName={`newArticle.content[${index}].tagName`}
+      />
+    ),
+    [handleChange, newArticle.content]
+  );
+
+  const editArticleSubtitle = useCallback(
+    (index: number) => (
+      <Subtitle
+        key={index}
+        subtitleValue={values[article].content[index].subtitle}
+        subtitleName={`[${article}].content[${index}].subtitle`}
+        subNumberValue={values[article].content[index].subNumber}
+        subNumberName={`[${article}].content[${index}].subNumber`}
+        handleChange={handleChange}
+        tagNameValue={values[article].content[index].tagName}
+        tagName={`articles[${article}].content[${index}].tagName`}
+      />
+    ),
+    [article, handleChange, values]
+  );
+
+  const editArticleText = useCallback(
+    (index: number) => (
+      <Styles.TextEditorWrapper key={index}>
+        <TextEditor
+          isBlog={true}
+          header="Text"
+          value={values[article].content[index].text}
+          name={`articles[${article}].content[${index}].text`}
+        />
+      </Styles.TextEditorWrapper>
+    ),
+    [article, values]
+  );
+
+  const newArticleText = useCallback(
+    (index: number) => (
+      <Styles.TextEditorWrapper key={index}>
+        <TextEditor
+          isBlog={true}
+          value={newArticle.content[index].text}
+          header="Text"
+          name={`newArticle.content[${index}].text`}
+        />
+      </Styles.TextEditorWrapper>
+    ),
+    [newArticle.content]
+  );
 
   useEffect(() => {
     const blocks = isNewArticle
@@ -29,7 +94,19 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
             : editArticleSubtitle(i)
         );
     setBlocks(blocks);
-  }, [article, isNewArticle, values.articles, values.newArticle.content]);
+  }, [
+    article,
+    isNewArticle,
+    values,
+    newArticle.content,
+    editArticleContent,
+    newArticleContent,
+    handleChange,
+    editArticleSubtitle,
+    editArticleText,
+    newArticleSubtitle,
+    newArticleText,
+  ]);
 
   const addSubtitleBlockOnClick = () => {
     const subtitle = { subNumber: "", subtitle: "", tagName: "h2" };
@@ -63,58 +140,8 @@ const ArticleBlock: FC<IArticleBlock> = ({ isNewArticle, article }) => {
 
   const deleteItem = () => {
     setBlocks(blocks.slice(0, -1));
-    isNewArticle
-      ? values.newArticle.content.pop()
-      : values.articles[article].content.pop();
+    isNewArticle ? newArticle.content.pop() : values[article].content.pop();
   };
-
-  const newArticleSubtitle = (index: number): JSX.Element => (
-    <Subtitle
-      key={index}
-      subtitleValue={values.newArticle.content[index].subtitle}
-      subtitleName={`newArticle.content[${index}].subtitle`}
-      subNumberValue={values.newArticle.content[index].subNumber}
-      subNumberName={`newArticle.content[${index}].subNumber`}
-      handleChange={handleChange}
-      tagNameValue="h2"
-      tagName={`newArticle.content[${index}].tagName`}
-    />
-  );
-
-  const editArticleSubtitle = (index: number) => (
-    <Subtitle
-      key={index}
-      subtitleValue={values.articles[article].content[index].subtitle}
-      subtitleName={`articles[${article}].content[${index}].subtitle`}
-      subNumberValue={values.articles[article].content[index].subNumber}
-      subNumberName={`articles[${article}].content[${index}].subNumber`}
-      handleChange={handleChange}
-      tagNameValue={values.articles[article].content[index].tagName}
-      tagName={`articles[${article}].content[${index}].tagName`}
-    />
-  );
-
-  const editArticleText = (index: number) => (
-    <Styles.TextEditorWrapper key={index}>
-      <TextEditor
-        isBlog={true}
-        header="Text"
-        value={values.articles[article].content[index].text}
-        name={`articles[${article}].content[${index}].text`}
-      />
-    </Styles.TextEditorWrapper>
-  );
-
-  const newArticleText = (index: number) => (
-    <Styles.TextEditorWrapper key={index}>
-      <TextEditor
-        isBlog={true}
-        value={values.newArticle.content[index].text}
-        header="Text"
-        name={`newArticle.content[${index}].text`}
-      />
-    </Styles.TextEditorWrapper>
-  );
 
   return (
     <>

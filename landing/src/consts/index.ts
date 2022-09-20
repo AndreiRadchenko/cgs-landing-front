@@ -159,7 +159,7 @@ export enum ROUTE_KEYS {
   AdminVacancy = "AdminVacancy",
   AdminBlog = "AdminBlog",
   AdminBlockchain = "AdminBlockchain",
-  AdminPortfolioPage = "AdminPortfolioPage",
+  AdminPortfolio = "AdminPortfolio",
   AdminFaqPage = "AdminFaq",
   AdminAboutUs = "AdminAboutUs",
   AdminServiceMobile = "AdminServiceMobile",

@@ -1,5 +1,3 @@
-import { FormikHelpers } from "formik";
-import React from "react";
 import { IMetaBlock } from "./Response.types";
 
 export interface IPortfolioReview {
@@ -18,30 +16,25 @@ export interface IPortfolioReview {
   bgColor: string;
 }
 
-export interface IPortfolioData {
+export interface IPortfolioPageData {
   categories: string[];
-  subtitle: string;
-  reviews: IPortfolioReview[];
   meta: IMetaBlock;
 }
 
 export interface IPortfolioResponse {
-  data?: IPortfolioData;
+  data?: IPortfolioPageData;
   isLoading: boolean;
   refetch: () => Promise<IPortfolioResponse>;
 }
 
+export interface IPortfolioReviewsResponse {
+  data?: IPortfolioReview[];
+  isLoading: boolean;
+}
+
 export interface IAddAndEditProps {
-  submitFunc: (
-    data: IPortfolioReview,
-    props: FormikHelpers<IPortfolioReview>
-  ) => void;
-  setIsReady: React.Dispatch<React.SetStateAction<boolean>>;
-  editFunc: (
-    values: IPortfolioReview,
-    props: FormikHelpers<IPortfolioReview>,
-    id: number
-  ) => void;
   current: number;
   isNewStatus: boolean;
+  setIsNewStatus: (val: boolean) => void;
+  reviews: IPortfolioReview[] | undefined | void;
 }

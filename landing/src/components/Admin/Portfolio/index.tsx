@@ -2,24 +2,26 @@ import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
-import { adminGlobalService } from "../../../services/adminHomePage";
 import * as Styled from "../../../styles/AdminPage";
-import { IPortfolioResponse } from "../../../types/Admin/AdminPortfolio";
 import AdminPortfolioContentBlock from "./ContentBlock";
-import { IPortfolioData } from "./Portfolio.types";
+import {
+  IPortfolioPageData,
+  IPortfolioResponse,
+} from "../../../types/Admin/AdminPortfolio.types";
+import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 
-const Portfolio = () => {
-  const { data, isLoading, refetch }: IPortfolioData = useQuery(
-    queryKeys.getPortfolio,
-    () => adminGlobalService.getPortfolio()
+const PortfolioPage = () => {
+  const { data, isLoading, refetch }: IPortfolioResponse = useQuery(
+    queryKeys.getPortfolioPage,
+    () => adminPortfolioService.getPageData()
   );
 
   const { mutateAsync } = useMutation(
-    queryKeys.updatePortfolio,
-    (data: IPortfolioResponse) => adminGlobalService.updatePortfolio(data)
+    queryKeys.updatePortfolioPage,
+    (data: IPortfolioPageData) => adminPortfolioService.updatePageData(data)
   );
 
-  const submitForm = async (values: IPortfolioResponse) => {
+  const submitForm = async (values: IPortfolioPageData) => {
     document.body.style.cursor = "wait";
     await mutateAsync(values);
     await refetch();
@@ -34,7 +36,6 @@ const Portfolio = () => {
       initialValues={data!}
       onSubmit={submitForm}
       validateOnChange={false}
-      enableReinitialize={true}
     >
       <AdminPortfolioContentBlock />
     </Formik>
@@ -45,4 +46,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default PortfolioPage;

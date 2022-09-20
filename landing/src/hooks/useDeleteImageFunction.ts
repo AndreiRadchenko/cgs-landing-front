@@ -3,14 +3,13 @@ import { queryKeys } from "../consts/queryKeys";
 import { QueryClient, useMutation } from "react-query";
 import { IImage } from "../types/Admin/Admin.types";
 import { adminGlobalService } from "../services/adminHomePage";
-import { IDataResponse } from "../types/Admin/Response.types";
 
 const useDeleteImageFunction = async (
   state?: IImage,
   key = queryKeys.GetFullPage
 ) => {
   const queryClient = new QueryClient();
-  const { handleSubmit } = useFormikContext<IDataResponse>();
+  const { setFieldValue } = useFormikContext();
 
   const { mutate } = useMutation(queryKeys.deleteImage, (url: string) =>
     adminGlobalService.deleteImage(url)
@@ -21,10 +20,10 @@ const useDeleteImageFunction = async (
     mutate(link);
     if (state) {
       state.image = null;
+      setFieldValue("image", null);
     } else {
       localState!.image = null;
     }
-    handleSubmit();
     queryClient.invalidateQueries(key);
   };
 

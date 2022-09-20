@@ -33,7 +33,7 @@ const PhotoBlockDashedHorizontal = ({
               {header}
             </Styled.AdminSubTitle>
           </Styled.AdminPointer>
-          <Styled.AdminComment>Supports: JPG, PNG</Styled.AdminComment>
+          <Styled.AdminComment>Supports: JPG, PNG, SVG</Styled.AdminComment>
           <Styled.AdminDeleteText onClick={deleteFunc}>
             delete image
           </Styled.AdminDeleteText>

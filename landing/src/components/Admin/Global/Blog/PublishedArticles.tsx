@@ -7,9 +7,9 @@ import * as Styles from "../../../../styles/BlogPublishedArticles.styled";
 import { useFormikContext } from "formik";
 import {
   IArticle,
-  IBlogResponse,
+  IBlogPageResponse,
   ISwapData,
-  IViews,
+  IView,
 } from "../../../../types/Admin/Response.types";
 import {
   DragDropContext,
@@ -23,12 +23,12 @@ import { adminBlogService } from "../../../../services/adminBlogPage";
 import close from "../../../../../public/bigClose.svg";
 
 interface IArticles {
-  setIsNewArticle: React.Dispatch<React.SetStateAction<boolean>>;
-  setArticle: React.Dispatch<React.SetStateAction<number>>;
+  setIsNewArticle: (val: boolean) => void;
+  setArticle: (val: number) => void;
   article: number;
   isNewArticle: boolean;
-  data: IBlogResponse;
-  views?: IViews;
+  data?: IArticle[];
+  views?: IView[];
   disabled?: boolean;
 }
 
@@ -45,17 +45,21 @@ const PublishedArticles: FC<IArticles> = ({
   data,
   views,
 }) => {
-  const { values, handleSubmit } = useFormikContext<IBlogResponse>();
+  const { values, handleSubmit } = useFormikContext<IArticle[]>();
 
-  const { mutateAsync: mutateArticle } = useMutation(
+  const { mutateAsync: deleteBlogArticle } = useMutation(
     queryKeys.deleteArticle,
-    (dataToUpdate: IBlogResponse) =>
-      adminBlogService.updateBlogPage(dataToUpdate)
+    (url: string) => adminBlogService.deleteByUrl(url)
+  );
+
+  const { mutateAsync: updateArticle } = useMutation(
+    queryKeys.deleteArticle,
+    (article: IArticle) => adminBlogService.updateById(article)
   );
 
   const { mutateAsync: updateViews } = useMutation(
     queryKeys.postArticle,
-    (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
+    (dataToUpdate: IView) => adminBlogService.updateViews(dataToUpdate)
   );
 
   const { mutateAsync: swapElements } = useMutation(
@@ -64,30 +68,30 @@ const PublishedArticles: FC<IArticles> = ({
   );
 
   const deleteArticle = async (i: number) => {
-    if (views) {
-      const allViews = views.allViews.filter(
-        (view) => view.articleUrl !== values.articles[i].url
-      );
-      await updateViews({ allViews: allViews });
-    }
-    values.articles.splice(i, 1);
-    await mutateArticle(values);
+    // if (views) {
+    //   const allViews = views.filter(
+    //     (view) => view.articleUrl !== values.articles[i].url
+    //   );
+    //   await updateViews(allViews);
+    // }
+
+    await deleteBlogArticle(values[i].url);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
   };
 
   const deactivateArticle = async (i: number) => {
-    values.articles[i].disabled = true;
-    await mutateArticle(values);
+    values[i].disabled = true;
+    await updateArticle(values[i]);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
   };
 
   const publishArticle = async (i: number) => {
-    values.articles[i].disabled = false;
-    await mutateArticle(values);
+    values[i].disabled = false;
+    await updateArticle(values[i]);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
@@ -99,10 +103,10 @@ const PublishedArticles: FC<IArticles> = ({
       setArticle(i);
     };
     const editArticleCase = () => {
-      const articleFromData = data.articles.find(
-        (e: IArticle) => e._id === values.articles[article]._id
-      );
-      articleFromData && (values.articles[article] = articleFromData);
+      // const articleFromData = values.find(
+      //   (e: IArticle) => e._id === values[article]._id
+      // );
+      // articleFromData && (values[article] = articleFromData);
       setArticle(0);
       setIsNewArticle(true);
     };
@@ -111,16 +115,12 @@ const PublishedArticles: FC<IArticles> = ({
   };
 
   const handleDragEnd = (param: DropResult) => {
-    if (!isNewArticle) return;
-    const srcIndex = param.source.index;
-    const desIndex: number | undefined = param.destination?.index;
-    typeof desIndex === "number" &&
-      values.articles.splice(
-        desIndex,
-        0,
-        values.articles.splice(srcIndex, 1)[0]
-      ) &&
-      swapElements({ desIndex, srcIndex });
+    // if (!isNewArticle) return;
+    // const srcIndex = param.source.index;
+    // const desIndex: number | undefined = param.destination?.index;
+    // typeof desIndex === "number" &&
+    //   values.splice(desIndex, 0, values.articles.splice(srcIndex, 1)[0]) &&
+    //   swapElements({ desIndex, srcIndex });
   };
 
   const ArticleItem = ({ item, i }: IArticleItem) => {
@@ -157,14 +157,14 @@ const PublishedArticles: FC<IArticles> = ({
     );
   };
 
-  return values.articles.length ? (
+  return values.length ? (
     <Styles.Wrapper>
       <AdminSubTitle>Published articles</AdminSubTitle>
       <DragDropContext onDragEnd={(param) => handleDragEnd(param)}>
         <Droppable droppableId={"droppable-1"}>
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
-              {values.articles.map((item: IArticle, i) =>
+              {values.map((item: IArticle, i) =>
                 isNewArticle ? (
                   <Draggable draggableId={"draggable-" + i} index={i} key={i}>
                     {(provided) => (

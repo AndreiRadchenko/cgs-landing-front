@@ -12,7 +12,7 @@ const AdminSidebar = () => {
   const pushSetting = () => router.push(ROUTE_KEYS.AdminSettings);
   const pushBlockchain = () => router.push(ROUTE_KEYS.AdminBlockchain);
   const pushBlog = () => router.push(ROUTE_KEYS.AdminBlog);
-  const pushPortfolio = () => router.push(ROUTE_KEYS.AdminPortfolioPage);
+  const pushPortfolio = () => router.push(ROUTE_KEYS.AdminPortfolio);
   const pushHome = () => router.push(ROUTE_KEYS.AdminPage);
 
   const currentPath =
@@ -34,7 +34,7 @@ const AdminSidebar = () => {
         <Styled.AdminSidebarMenuElement
           onClick={pushPortfolio}
           itemProp={currentPath}
-          property={ROUTE_KEYS.AdminPortfolioPage}
+          property={ROUTE_KEYS.AdminPortfolio}
         >
           portfolio
         </Styled.AdminSidebarMenuElement>

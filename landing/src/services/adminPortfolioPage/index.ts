@@ -1,18 +1,36 @@
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
-import { IPortfolioData } from "../../types/Admin/AdminPortfolioPage.types";
+import {
+  IPortfolioPageData,
+  IPortfolioReview,
+} from "../../types/Admin/AdminPortfolio.types";
 
-export class AdminPortfolioPageService {
+export class AdminPortfolioService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
-  public getPortfolio() {
-    return this.httpService.get("api/portfolioPage");
+  public getPageData() {
+    return this.httpService.get("api/portfolio");
   }
-  public updatePortfolio(data: IPortfolioData) {
-    return this.httpService.put("api/portfolioPage", data);
+  public updatePageData(data: IPortfolioPageData) {
+    return this.httpService.put("api/portfolio", data);
+  }
+  public getReviews() {
+    return this.httpService.get<IPortfolioReview[]>("api/portfolio/review");
+  }
+  public getByCategory(category: string) {
+    return this.httpService.get(`api/portfolio/review/${category}`);
+  }
+  public addReview(review: IPortfolioReview) {
+    return this.httpService.post(`api/portfolio/review`, review);
+  }
+  public updateReview(review: IPortfolioReview) {
+    return this.httpService.put(`api/portfolio/review/${review._id}`, review);
+  }
+  public deleteReview(title: string) {
+    return this.httpService.delete(`api/portfolio/review/${title}`);
   }
 }
 
 const factory = new HttpServiceFactory();
-export const adminPortfolioPageService = new AdminPortfolioPageService(
+export const adminPortfolioService = new AdminPortfolioService(
   factory.createAuthHttpService()
 );

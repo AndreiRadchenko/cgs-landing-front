@@ -1,16 +1,17 @@
 import parse from "html-react-parser";
-import { GetStaticPropsContext } from "next";
 import DefaultErrorPage from "next/error";
 import ArticleAuthor from "../../components/ArticleAuthor/ArticleAuthor";
 import ArticleDescription from "../../components/ArticleDescription/ArticleDescription";
 import ShareOn from "../../components/ShareOn/ShareOn";
 import ArticleTags from "../../components/ArticleTags/ArticleTags";
-import { dehydrate, QueryClient, useMutation, useQuery } from "react-query";
 import {
-  IArticle,
-  IBlogResponse,
-  IViews,
-} from "../../types/Admin/Response.types";
+  dehydrate,
+  QueryClient,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "react-query";
+import { IArticle, IView } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import titleBg from "../../../public/articleTitleBgImg.svg";
 import headerBottomBg from "../../../public/articleHeaderBottomBg.svg";
@@ -29,29 +30,19 @@ import Image from "next/image";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 
-interface IBlogData {
-  data: IBlogResponse | undefined;
-  isLoading: boolean;
-  isSuccess: boolean;
-}
-
 interface IArticleData {
-  data: IArticle | undefined;
+  data: IArticle[] | undefined;
   isLoading: boolean;
   isSuccess: boolean;
 }
 
-export async function getServerSideProps(context: GetStaticPropsContext) {
-  const url = context.params?.url || "";
+export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getBlogArticle, () =>
-    adminBlogService.getByUrl(url as string)
+  await queryClient.prefetchQuery(queryKeys.getBlogArticles, () =>
+    adminBlogService.getArticles()
   );
 
-  await queryClient.prefetchQuery(queryKeys.getBlogPage, () =>
-    adminBlogService.getBlogPage()
-  );
   await queryClient.prefetchQuery(queryKeys.views, () =>
     adminBlogService.getViews()
   );
@@ -64,14 +55,15 @@ export async function getServerSideProps(context: GetStaticPropsContext) {
 }
 
 const ArticlePage = () => {
+  const queryClient = useQueryClient();
   const router = useRouter();
   const [readMore, setReadMore] = useState<IArticle[] | null>(null);
   const [isFromArticle, setIsFromArticle] = useState<boolean>(false);
   const [filters, setFilters] = useState<string | string[]>([]);
   const url = typeof router.query?.url === "string" ? router.query.url : "";
-  const { data, isSuccess, isLoading }: IBlogData = useQuery(
-    queryKeys.getBlogPage,
-    () => adminBlogService.getBlogPage(),
+  const { data, isSuccess, isLoading }: IArticleData = useQuery(
+    queryKeys.getBlogArticles,
+    () => adminBlogService.getArticles(),
     {
       enabled: url.length > 0,
     }
@@ -79,32 +71,34 @@ const ArticlePage = () => {
 
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
   const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
-  const { data: article }: IArticleData = useQuery(
-    queryKeys.getBlogArticle,
-    () => adminBlogService.getByUrl(url),
-    {
-      enabled: url.length > 0,
-    }
-  );
+
+  const article = data && data.find((el) => el.url === url);
 
   const findViews = (url: string) => {
     if (views.data)
-      return views.data[0].allViews.find((view) => view.articleUrl === url)
-        ?.views;
+      return views.data.find((view) => view.articleUrl === url)?.views;
   };
 
   const { mutateAsync: updateViews } = useMutation(
-    queryKeys.postArticle,
-    (dataToUpdate: IViews) => adminBlogService.updateViews(dataToUpdate)
+    queryKeys.updateViews,
+    (dataToUpdate: IView) => adminBlogService.updateViews(dataToUpdate),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.views]);
+      },
+    }
   );
 
   useEffect(() => {
     const plusView = async () => {
       if (!views.data) return;
-      const dataToUpdate = views.data[0].allViews.map((view) =>
-        view.articleUrl === url ? { ...view, views: view.views + 1 } : view
-      );
-      await updateViews({ allViews: dataToUpdate });
+
+      const viewToUpdate = views.data.find((el) => el.articleUrl === url);
+
+      if (viewToUpdate) {
+        viewToUpdate.views += 1;
+        await updateViews(viewToUpdate);
+      }
     };
     plusView();
   }, [article, url]);
@@ -125,7 +119,7 @@ const ArticlePage = () => {
     };
 
     if (data) {
-      const readMoreRandomly = getMultipleRandom(data.articles, 2);
+      const readMoreRandomly = getMultipleRandom(data, 2);
       setReadMore(readMoreRandomly);
     }
   }, [article, data, url]);
