@@ -5,6 +5,7 @@ import themes from "../utils/themes";
 export const AdminAuthPassWrapper = styled.div`
   width: 650px;
   border: 2px solid ${themes.primary.colors.black};
+  border-radius: 1px;
   position: absolute;
   top: 18.78%;
   margin: 0 auto 0 auto;
@@ -68,7 +69,7 @@ export const AdminFormContainer = styled.div`
 `;
 
 export const AdminFormHeader = styled.div`
-  padding: 35px;
+  padding: 27px 35px 26px;
   border-bottom: 2px solid ${themes.primary.colors.black};
   background: linear-gradient(
     75.6deg,
@@ -87,7 +88,7 @@ export const AdminFormField = styled(Field)`
   width: 100%;
   border: 1px solid ${themes.primary.colors.inputGrey};
   background: transparent;
-  padding: 17px 14px 18px;
+  padding: 16px 14px 17px;
 
   font-family: ${themes.primary.font.family.namu};
 
@@ -101,7 +102,7 @@ export const AdminFormField = styled(Field)`
   }
 
   &.password {
-    margin-bottom: 0;
+    margin-bottom: 1px;
   }
 `;
 
