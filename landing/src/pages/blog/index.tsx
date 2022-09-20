@@ -74,7 +74,12 @@ const BlogPage = () => {
   useEffect(() => {
     data &&
       setReversedArticles(
-        data?.articles.reverse().filter((article) => !article.disabled)
+        data?.articles.reverse().filter((article) => {
+          return (
+            !article.disabled &&
+            !(new Date() <= new Date(article.scheduleArticle))
+          );
+        })
       );
   }, [data, data?.articles]);
 

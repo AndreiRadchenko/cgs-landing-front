@@ -203,6 +203,7 @@ const ContentBlock: FC<IArticles> = ({
       disabled: false,
       date: "",
       updatedOn: "",
+      scheduleArticle: String(new Date()),
       minutesToRead: 0,
       meta: { metaTitle: "", metaDescription: "", customHead: "" },
     };
@@ -391,6 +392,21 @@ const ContentBlock: FC<IArticles> = ({
                     isNewArticle
                       ? values.newArticle.updatedOn
                       : values.articles[article].updatedOn
+                  }
+                />
+                <InputWithType
+                  header="Schedule Article"
+                  name={
+                    isNewArticle
+                      ? "newArticle.scheduleArticle"
+                      : `articles[${article}].scheduleArticle`
+                  }
+                  onChange={handleChange}
+                  type={"datetime-local"}
+                  value={
+                    isNewArticle
+                      ? values.newArticle.scheduleArticle
+                      : values.articles[article].scheduleArticle
                   }
                 />
               </Styles.Column>
