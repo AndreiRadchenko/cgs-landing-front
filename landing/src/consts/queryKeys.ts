@@ -22,6 +22,7 @@ export const queryKeys = {
   getBlogArticle: "getBlogArticle",
   postArticle: "postArticle",
   views: "views",
+  swapArticles: "swapArticles",
   getFaqPage: "getFaqPage",
   updateFaqPage: "updateFaqPage",
   getAboutUsPage: "getAboutUsPage",
