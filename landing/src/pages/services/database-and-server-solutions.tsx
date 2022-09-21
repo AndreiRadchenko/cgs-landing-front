@@ -15,6 +15,7 @@ import SelectBlock from "../../components/DbService/SelectBlock";
 import FeaturesBlock from "../../components/DbService/FeaturesBlock";
 import FooterBlock from "../../components/DbService/FooterBlock";
 import { Layout } from "../../styles/Layout.styled";
+import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -52,10 +53,16 @@ const DbSolutions: NextPage = () => {
           <HeadBlock />
           <ExpertiseBlock />
           <SelectBlock />
+        </Styled.Layout>
+      </Layout>
+      <ShowCase projects={data?.projects} />
+      <Layout>
+        <Styled.Layout>
           <FeaturesBlock />
           <FooterBlock />
         </Styled.Layout>
       </Layout>
+
       <FooterNew />
     </>
   );

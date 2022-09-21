@@ -3,9 +3,20 @@ import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 12.5em;
+  padding-bottom: 20px;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding-bottom: 50px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
+    padding-bottom: 0;
     margin-top: 6.25em;
+    margin-bottom: 3em;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    padding-bottom: 40px;
   }
 `;
 

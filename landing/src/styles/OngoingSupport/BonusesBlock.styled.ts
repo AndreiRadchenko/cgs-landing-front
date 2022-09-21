@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin-top: 11.25em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 6.25em;
+    margin-top: 5.5625em;
   }
 `;
 

@@ -7,6 +7,7 @@ import WorthBlock from "./WorthBlock";
 import ProvidesBlock from "./ProvidesBlock";
 import WorkBlock from "./WorkBlock";
 import FooterBlock from "./FooterBlock";
+import ServiceShowCase from "../../ServiceShowCase";
 
 const ServiceCloudContentBlock = () => {
   const { handleSubmit } = useFormikContext();
@@ -16,6 +17,7 @@ const ServiceCloudContentBlock = () => {
       <HeadBlock />
       <WorthBlock />
       <ProvidesBlock />
+      <ServiceShowCase />
       <WorkBlock />
       <FooterBlock />
       <MetaTagsBlock theme="dark" />

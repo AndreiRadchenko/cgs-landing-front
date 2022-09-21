@@ -22,6 +22,7 @@ export const Container = styled.div`
     margin-top: 5.7em;
     background: none;
     padding-bottom: 0;
+    margin-bottom: 4em;
   }
 `;
 

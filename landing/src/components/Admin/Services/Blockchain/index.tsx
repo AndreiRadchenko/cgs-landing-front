@@ -7,6 +7,7 @@ import ServicesBlock from "./ServicesBlock";
 import WayBlock from "./WayBlock";
 import AboutBlock from "./AboutBlock";
 import FooterBlock from "./FooterBlock";
+import ServiceShowCase from "../../ServiceShowCase";
 
 const ServiceBlockchainContentBlock = () => {
   const { handleSubmit } = useFormikContext();
@@ -16,6 +17,7 @@ const ServiceBlockchainContentBlock = () => {
       <HeadBlock />
       <ServicesBlock />
       <WayBlock />
+      <ServiceShowCase />
       <AboutBlock />
       <FooterBlock />
       <MetaTagsBlock theme="dark" />

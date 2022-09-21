@@ -14,6 +14,7 @@ import BonusesBlock from "../../components/OngoingSupport/BonusesBlock";
 import FooterBlock from "../../components/OngoingSupport/FooterBlock";
 import * as Styled from "../../styles/OngoingSupport/Layout";
 import { Layout } from "../../styles/Layout.styled";
+import ShowCase from "../../components/ShowCase";
 
 const OngoingSupport = () => {
   const { data } = useQuery(queryKeys.getServiceSupportPage, () =>
@@ -37,6 +38,11 @@ const OngoingSupport = () => {
           <HeadBlock />
           <WorkBlock />
           <ProvidesBlock />
+        </Styled.Layout>
+      </Layout>
+      <ShowCase projects={data?.projects} />
+      <Layout>
+        <Styled.Layout>
           <BonusesBlock />
           <FooterBlock />
         </Styled.Layout>

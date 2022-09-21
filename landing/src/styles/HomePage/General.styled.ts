@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-interface IFontSize {
+export interface IFontSize {
   size: string;
   padding: string;
 }

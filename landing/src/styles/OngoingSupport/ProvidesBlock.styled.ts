@@ -7,6 +7,7 @@ export const Container = styled.div`
   width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 5.2em;
     margin-top: 4.75em;
   }
 `;
