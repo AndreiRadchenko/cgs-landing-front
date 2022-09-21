@@ -14,6 +14,7 @@ import AboutBlock from "../../components/BlockchainService/AboutBlock";
 import FooterBlock from "../../components/BlockchainService/FooterBlock";
 import * as Styled from "../../styles/BlockchainService/Layout";
 import { Layout } from "../../styles/Layout.styled";
+import ShowCase from "../../components/ShowCase";
 
 const BlockchainService = () => {
   const { data } = useQuery(
@@ -38,10 +39,16 @@ const BlockchainService = () => {
           <HeadBlock />
           <ServicesBlock />
           <YourWayBlock />
+        </Styled.Layout>
+      </Layout>
+      <ShowCase projects={data?.projects} />
+      <Layout>
+        <Styled.Layout>
           <AboutBlock />
           <FooterBlock />
         </Styled.Layout>
       </Layout>
+
       <FooterNew />
     </>
   );

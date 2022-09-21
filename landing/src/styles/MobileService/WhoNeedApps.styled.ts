@@ -20,6 +20,11 @@ export const Wrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 8em;
+    padding-bottom: 9.5em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    padding-bottom: 3.5em;
   }
 `;
 

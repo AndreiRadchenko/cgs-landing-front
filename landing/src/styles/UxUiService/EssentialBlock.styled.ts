@@ -11,7 +11,7 @@ export const Container = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 4.4em 0 0;
+    margin: 6.25em 0 0;
     flex-direction: column-reverse;
   }
 `;

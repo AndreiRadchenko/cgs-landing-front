@@ -27,18 +27,13 @@ const YourWayBlock = () => {
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
       <Styled.BgiContainer>
-        <Styled.MobileLine
-          grad1={arrayOfGradients[0].firstColor}
-          grad2={arrayOfGradients[0].secondColor}
-        />
-        <Styled.MobileLine
-          grad1={arrayOfGradients[1].firstColor}
-          grad2={arrayOfGradients[1].secondColor}
-        />
-        <Styled.MobileLine
-          grad1={arrayOfGradients[2].firstColor}
-          grad2={arrayOfGradients[2].secondColor}
-        />
+        {arrayOfGradients.map((el) => (
+          <Styled.MobileLine
+            key={el.firstColor}
+            grad1={el.firstColor}
+            grad2={el.secondColor}
+          />
+        ))}
       </Styled.BgiContainer>
       <Styled.SubTextWrapper>
         <Styled.GridLine1>

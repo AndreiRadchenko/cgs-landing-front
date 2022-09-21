@@ -339,8 +339,8 @@ export interface IServiceMobile {
   whoNeedApps: {
     subtitle: string;
     text: string;
-    projects: string[];
   };
+  projects: string[];
   howDoWeWork: {
     subtitle: string;
     text: {
@@ -375,6 +375,7 @@ export interface ICloudService {
     publishing: ISubtitleWithText;
     subtitle: string;
   };
+  projects: string[];
   workBlock: {
     subtitle: string;
     subtitle1: string;
@@ -417,6 +418,7 @@ export interface IServiceWeb {
     element3: ISubtitleWithText;
   };
   solutionBlock: ISubtitleWithText;
+  projects: string[];
   perksBlock: ISubtitleWithList;
   footerBlock: {
     subtitle: string;
@@ -445,6 +447,7 @@ export interface IServiceDb {
     text: string;
     image: { url: string };
   };
+  projects: string[];
   featuresBlock: {
     databases: {
       subtitle: string;
@@ -490,6 +493,7 @@ export interface IBlockchainService {
       url: string;
     };
   };
+  projects: string[];
   servicesBlock: {
     image: {
       url: string;
@@ -528,6 +532,7 @@ export interface IServiceSupport {
     subtitle: string;
     textSubBlock: ISubtitleWithText[];
   };
+  projects: string[];
   bonusesBlock: {
     subtitle: string;
     textSubBlock: string[];
@@ -558,6 +563,7 @@ export interface IUxUiInterface {
     title: string;
     textSubBlock: string[];
   };
+  projects: string[];
   essentialBlock: {
     title: string;
     text: string;
@@ -570,4 +576,23 @@ export interface IUxUiInterface {
     image: { url: string };
   };
   meta: IMetaBlock;
+}
+
+export interface IProjects {
+  projects: string[];
+}
+
+export interface IReviewProps {
+  bgColor: string;
+  button: string;
+  category: string;
+  feedback: {
+    name: string;
+    rating: number | null;
+    company: string;
+    feedbackText: string;
+  };
+  image: { url: string };
+  text: string;
+  title: string;
 }

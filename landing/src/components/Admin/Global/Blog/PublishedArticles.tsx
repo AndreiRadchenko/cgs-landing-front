@@ -54,9 +54,9 @@ const PublishedArticles: FC<IArticles> = ({
       adminBlogService.updateByInd(dataToUpdate)
   );
 
-  const { mutateAsync: deleteArticleByUrl } = useMutation(
+  const { mutateAsync: deleteArticleByInd } = useMutation(
     queryKeys.updateBlogArticle,
-    (url: string) => adminBlogService.deleteByUrl(url)
+    (ind: number) => adminBlogService.deleteByInd(ind)
   );
 
   const { mutateAsync: updateViews } = useMutation(
@@ -76,7 +76,7 @@ const PublishedArticles: FC<IArticles> = ({
       );
       await updateViews({ allViews: allViews });
     }
-    await deleteArticleByUrl(values.articles[i].url);
+    await deleteArticleByInd(i);
     values.articles.splice(i, 1);
     setArticle(0);
     setIsNewArticle(true);

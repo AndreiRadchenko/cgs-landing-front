@@ -9,6 +9,7 @@ export const Container = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 4.75em;
+    margin-bottom: 4em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {

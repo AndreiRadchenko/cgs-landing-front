@@ -7,7 +7,7 @@ export const Container = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 4.625em 0 0;
+    margin: 4.625em 0 3.375em;
   }
 `;
 

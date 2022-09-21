@@ -1,23 +1,7 @@
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
 import { IPortfolioData } from "../../types/Admin/AdminPortfolioPage.types";
-import { IMetaBlock } from "../../types/Admin/Response.types";
-import { IImage } from "../../types/Admin/Admin.types";
-
-interface IReviewProps {
-  bgColor: string;
-  button: string;
-  category: string;
-  feedback: {
-    name: string;
-    rating: number | null;
-    company: string;
-    feedbackText: string;
-  };
-  image: IImage;
-  text: string;
-  title: string;
-}
+import { IMetaBlock, IReviewProps } from "../../types/Admin/Response.types";
 
 interface IPortfolioProps {
   categories: string[];

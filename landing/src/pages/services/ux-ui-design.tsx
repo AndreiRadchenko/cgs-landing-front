@@ -14,6 +14,7 @@ import EssentialBlock from "../../components/UxUiService/EsentialBlock";
 import FooterBlock from "../../components/UxUiService/FooterBlock";
 import * as Styled from "../../styles/UxUiService/Layout.styled";
 import { Layout } from "../../styles/Layout.styled";
+import ShowCase from "../../components/ShowCase";
 
 const UxUiDesign = () => {
   const { data } = useQuery(
@@ -38,6 +39,11 @@ const UxUiDesign = () => {
           <HeadBlock />
           <WhatDoWeDoBlock />
           <DesignBlock />
+        </Styled.Layout>
+      </Layout>
+      <ShowCase projects={data?.projects} />
+      <Layout>
+        <Styled.Layout>
           <EssentialBlock />
           <FooterBlock />
         </Styled.Layout>
