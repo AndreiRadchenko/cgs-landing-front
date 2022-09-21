@@ -595,4 +595,5 @@ export interface IReviewProps {
   image: { url: string };
   text: string;
   title: string;
+  industry: string;
 }

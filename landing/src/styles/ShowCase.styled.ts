@@ -13,7 +13,7 @@ export const SliderWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     & .mySwiper {
-      margin-left: 1px;
+      margin-left: 7px;
     }
     margin-top: 0;
   }
@@ -93,11 +93,19 @@ export const ProjectTitle = styled.h2`
   margin: 0;
   margin-bottom: 0.25em;
   font-size: 2em;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.538em;
+  }
 `;
 export const ProjectScope = styled.div`
   font-size: 1.333em;
   color: ${themes.primary.colors.comment};
   line-height: 130%;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.153em;
+  }
 `;
 export const ProjectRating = styled.div``;
 
@@ -110,6 +118,11 @@ export const Star = styled.img`
   @media ${themes.primary.media.minPC} {
     width: 1.668em;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 17px;
+    height: 16px;
+  }
 `;
 export const ProjectLinkButton = styled.a`
   text-decoration: none;
@@ -118,6 +131,10 @@ export const ProjectLinkButton = styled.a`
   padding: 7px 15px;
   font-size: 1.166em;
   background-color: ${themes.primary.colors.primary};
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.346em;
+  }
 `;
 
 export const BottomContent = styled.div`
@@ -129,4 +146,8 @@ export const BottomContent = styled.div`
 export const HoverText = styled.div`
   font-size: 1.5em;
   line-height: 160%;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 1.089em 1.025em;
+  }
 `;

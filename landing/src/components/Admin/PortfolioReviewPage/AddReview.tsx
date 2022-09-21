@@ -77,6 +77,12 @@ const AddReview = ({ categories, setIsReady, newFlag }: IAddReviewProps) => {
             name="title"
           />
           <Styled.AdminInput
+            placeholder="Industry"
+            value={values.industry}
+            onChange={handleChange}
+            name="industry"
+          />
+          <Styled.AdminInput
             minRows={4}
             placeholder="Text"
             value={values.text}

@@ -55,7 +55,12 @@ const Slide = ({ review }: IReview) => {
       </Styled.ImageWrapper>
       <Styled.ContentWrapper>
         <Styled.ProjectTitle>{review.title}</Styled.ProjectTitle>
-        <Styled.ProjectScope>{"// Booking"}</Styled.ProjectScope>
+        {review.industry && (
+          <Styled.ProjectScope>
+            {"// "}
+            {review.industry}
+          </Styled.ProjectScope>
+        )}
         <Styled.BottomContent>
           <Styled.ProjectRating>
             {countRating(review)?.map((num, i) => {
