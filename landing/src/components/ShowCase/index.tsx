@@ -25,20 +25,15 @@ const SliderProps: SwiperProps = {
     1375: {
       slidesPerView: 3.1,
     },
-
     940: {
       slidesPerView: 2.1,
     },
-
     768: { spaceBetween: 11, slidesPerView: 1.17 },
-
-    670: { spaceBetween: 11, slidesPerView: 2.1 },
-
+    670: { spaceBetween: 11, slidesPerView: 2.05 },
     374: {
       spaceBetween: 11,
       slidesPerView: 1.17,
     },
-
     300: {
       centeredSlides: true,
       slidesPerView: 1,
