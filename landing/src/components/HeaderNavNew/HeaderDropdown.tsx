@@ -24,7 +24,7 @@ const HeaderDropdown = ({ tags, dropdownName, className }: IBlogDropdown) => {
   const handleContentClick = () => setIsOpen(false);
 
   return (
-    <Styled.Dropdown onBlur={onBlur}>
+    <Styled.Dropdown onBlur={onBlur} className={className}>
       <Styled.DropdownButton
         className={isOpen ? `open ${className}` : className}
         onClick={onClick}
