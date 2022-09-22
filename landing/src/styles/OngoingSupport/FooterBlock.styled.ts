@@ -7,7 +7,7 @@ export const Container = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 6.25em;
+    margin-top: 5.56em;
     padding-bottom: 20.63em;
 
     & a {

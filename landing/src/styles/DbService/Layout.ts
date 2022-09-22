@@ -10,6 +10,10 @@ export const Layout = styled.div`
     font-size: 1.4rem;
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 0.375em;
+  }
+
   @media (min-width: 2200px) {
     font-size: 1.6rem;
   }
