@@ -115,15 +115,19 @@ export const TextWrapper = styled.div`
         right: -0.7em;
         p {
           margin-left: 1.4rem;
-          margin-right: 1.5em;
+          margin-right: 2em;
         }
       }
 
       &:nth-child(4) {
-        right: -3.8em;
+        right: -3em;
         p {
-          margin-left: 1rem;
-          margin-right: 1em;
+          margin-left: 0.6rem;
+          margin-right: 1.5em;
+
+          &:nth-child(2) {
+            margin-right: 4em;
+          }
         }
       }
     }
