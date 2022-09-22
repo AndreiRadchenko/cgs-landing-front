@@ -108,6 +108,10 @@ export const TextWrapper = styled.div`
         left: -4em;
         p {
           margin-left: 3.94rem;
+
+          &:nth-child(1) {
+            margin-right: -2rem;
+          }
         }
       }
 

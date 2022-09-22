@@ -8,7 +8,7 @@ export const Container = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 6.25em;
-    padding-bottom: 4.25em;
+    padding-bottom: 6em;
   }
 `;
 

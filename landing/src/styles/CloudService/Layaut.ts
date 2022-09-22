@@ -15,7 +15,7 @@ export const Layout = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 1.15em;
+    margin-top: 0.75em;
   }
 `;
 
