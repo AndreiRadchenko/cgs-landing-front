@@ -9,7 +9,7 @@ export const ContentWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.92em;
+    margin-top: 7.7em;
   }
 `;
 
@@ -234,7 +234,7 @@ export const PointsWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 3.65em;
+    margin-top: 1.5em;
     row-gap: 1.3em;
   }
 `;

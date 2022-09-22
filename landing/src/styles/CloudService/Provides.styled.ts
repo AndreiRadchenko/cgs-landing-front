@@ -8,7 +8,14 @@ export const Container = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-top: 4.75em;
+    margin-bottom: 4em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    h2 {
+      line-height: 132%;
+    }
   }
 `;
 
@@ -65,13 +72,24 @@ export const BGImageMobile = styled.img`
     display: block;
     position: absolute;
     left: -23em;
-    top: 6em;
-    height: 42em;
+    top: 3.5em;
+    height: 41em;
   }
 
   @media ${themes.primary.media.maxMobile} {
+    top: 1em;
     left: -22em;
     height: 44em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    top: 0em;
+  }
+
+  @media (max-width: 335px) {
+    top: 8em;
+    left: -25.5em;
+    height: 47em;
   }
 `;
 
@@ -84,7 +102,7 @@ export const BlockWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 6em 0 0 3em;
+    padding: 3.25em 0 0;
     max-width: fit-content;
   }
 `;

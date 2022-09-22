@@ -74,7 +74,12 @@ const BlogPage = () => {
   useEffect(() => {
     data &&
       setReversedArticles(
-        data?.articles.reverse().filter((article) => !article.disabled)
+        data?.articles.reverse().filter((article) => {
+          return (
+            !article.disabled &&
+            !(new Date() <= new Date(article.scheduleArticle))
+          );
+        })
       );
   }, [data, data?.articles]);
 
@@ -142,10 +147,16 @@ const BlogPage = () => {
   }, [filters.length]);
 
   useEffect(() => {
-    if (router.query.page) {
-      scrollHandler();
+    if (router.query.page) scrollHandler();
+
+    if (router.query.filters) {
+      if (typeof router.query.filters === "string") {
+        setFilters([router.query.filters]);
+      } else {
+        setFilters(router.query.filters);
+      }
     }
-  }, [router.query.page]);
+  }, [router.query.page, router.query.filters, scrollHandler]);
 
   return data && views.data ? (
     <>
@@ -174,6 +185,7 @@ const BlogPage = () => {
               <MainBlogItem
                 article={reversedArticles[0]}
                 views={findViews(reversedArticles[0].url)}
+                filters={filters}
               />
             )}
           </Styled.MainContainer>
@@ -182,7 +194,11 @@ const BlogPage = () => {
               reversedArticles
                 .slice(1, 4)
                 .map((article) => (
-                  <SmallArticleItem article={article} key={article._id} />
+                  <SmallArticleItem
+                    filters={filters}
+                    article={article}
+                    key={article._id}
+                  />
                 ))}
           </Styled.FlexColumnContainer>
         </Styled.HeaderBlock>

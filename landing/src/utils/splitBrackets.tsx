@@ -25,7 +25,7 @@ export const SplitBrackets = ({ text }: ISplitBracketsProps) => {
             </span>
           )
       )}
-      {lastWord && <span> {lastWord}</span>}
+      {lastWord && <span>{lastWord}</span>}
     </>
   );
 };

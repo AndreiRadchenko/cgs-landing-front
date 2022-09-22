@@ -7,6 +7,10 @@ export const ContentContainer = styled.div`
   h2 {
     line-height: 132%;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 6.8em;
+  }
 `;
 
 export const ProfText = styled.div`
@@ -21,7 +25,7 @@ export const ProfText = styled.div`
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125rem;
-    margin-block: 1.375rem 2.1875rem;
+    margin-block: 1rem 2.56rem;
     & br {
       display: none;
     }
@@ -32,7 +36,7 @@ export const ButtonWrapper = styled.div`
   padding-bottom: 21.1em;
 
   @media ${themes.primary.media.maxMobile} {
-    padding-bottom: 35.2em;
+    padding-bottom: 28.5em;
     & > a {
       font-size: 1.54em;
       padding: 1.195em 2.93em;
@@ -52,15 +56,15 @@ export const Image = styled.img`
   transform: rotate(2.06deg);
 
   @media ${themes.primary.media.maxMobile} {
-    width: 95%;
+    width: 94%;
     height: 28em;
     transform: rotate(-11.06deg);
-    right: -15%;
-    bottom: 3.3rem;
+    right: -20%;
+    bottom: 1rem;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 115.5%;
-    height: 25.5em;
+    width: 113.5%;
+    height: 24.8em;
   }
 `;
 

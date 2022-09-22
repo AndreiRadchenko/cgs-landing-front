@@ -16,6 +16,7 @@ import SolutionBlock from "../../components/WebService/SolutionBlock";
 import PerksBlock from "../../components/WebService/PerksBlock";
 import FooterBlock from "../../components/WebService/FooterBlock";
 import { Layout } from "../../styles/Layout.styled";
+import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -54,6 +55,11 @@ const WebDevelopment: NextPage = () => {
           <WebPros />
           <WhyIsWebAMust />
           <SolutionBlock />
+        </Styled.Layout>
+      </Layout>
+      <ShowCase projects={data?.projects} />
+      <Layout>
+        <Styled.Layout>
           <PerksBlock />
           <FooterBlock />
         </Styled.Layout>

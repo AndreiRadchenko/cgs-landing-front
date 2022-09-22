@@ -94,7 +94,7 @@ export const ProjectDescription = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 170%;
-  margin: 12px 0 27px;
+  margin: 15px 0 27px;
   @media ${themes.primary.media.maxMobile} {
     padding: 10px;
     margin-top: 0px;
@@ -520,4 +520,12 @@ export const Border = styled.div`
   position: absolute;
   top: 0;
   right: 0;
+`;
+
+export const ProjectIndustry = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  color: ${themes.primary.colors.comment};
+  font-size: 1.5em;
+  margin-top: 0.5em;
 `;

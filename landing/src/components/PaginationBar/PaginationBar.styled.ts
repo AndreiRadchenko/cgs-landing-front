@@ -9,7 +9,7 @@ export const PaginationWrapper = styled.div`
   margin-top: 90px;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 72px;
+    margin-top: 45px;
   }
 `;
 
@@ -30,6 +30,11 @@ export const PaginationItem = styled(FontSettings)`
     background-color: ${themes.primary.colors.blogDarkText};
     border: 1px solid ${themes.primary.colors.primary};
     color: ${themes.primary.colors.secondary};
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 2em;
+    height: 2em;
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1rem;
@@ -58,4 +63,8 @@ export const PaginationItemsWrapper = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   column-gap: 8px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    column-gap: 0.7em;
+  }
 `;

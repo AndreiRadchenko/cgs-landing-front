@@ -16,7 +16,7 @@ export const Navigationwrapper = styled.div`
   }
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.25rem;
   }
   @media ${themes.primary.media.minTablet} {
     flex-direction: column;
@@ -39,6 +39,7 @@ export const ButtonWrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    margin-top: 18px;
   }
 `;
 

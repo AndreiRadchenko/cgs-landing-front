@@ -4,9 +4,20 @@ import themes from "../../utils/themes";
 export const Container = styled.div`
   margin-top: 12.7em;
   position: relative;
+  padding-bottom: 20px;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding-bottom: 50px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    padding-bottom: 0;
+    margin-top: 5.375em;
+    margin-bottom: -13.5em;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    padding-bottom: 40px;
   }
 `;
 
@@ -89,7 +100,7 @@ export const Title = styled.h2`
     font-size: 1.45em;
     line-height: 132%;
     width: 15em;
-    margin-bottom: 1.2em;
+    margin-bottom: 0.6em;
     margin-left: -5px;
   }
 `;

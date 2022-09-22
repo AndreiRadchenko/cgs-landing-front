@@ -56,7 +56,7 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
               )}
               <Styles.StatisticWrapper>
                 <Styled.ArticleWatchContainer>
-                  <Styled.WatchIcon src={Watch.src} />
+                  <Styled.WatchIcon src={Watch.src} alt="watch icon" />
                   <Styled.WatchCountArticle>
                     {views || 0}
                   </Styled.WatchCountArticle>

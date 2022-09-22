@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin-top: 11.25em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 17.5em;
+    margin-top: 5.5625em;
   }
 `;
 
@@ -36,7 +36,7 @@ export const TextWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 2.375em 0 0 3.5em;
+    margin: 1em 0 0 3.5em;
   }
 `;
 
@@ -55,7 +55,7 @@ export const Text = styled.p`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin-bottom: 2.18em;
+    margin-bottom: 1.38em;
   }
 `;
 

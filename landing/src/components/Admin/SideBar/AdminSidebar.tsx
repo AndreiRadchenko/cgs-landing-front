@@ -13,6 +13,7 @@ const AdminSidebar = () => {
   const pushBlockchain = () => router.push(ROUTE_KEYS.AdminBlockchain);
   const pushBlog = () => router.push(ROUTE_KEYS.AdminBlog);
   const pushPortfolio = () => router.push(ROUTE_KEYS.AdminPortfolioPage);
+  const pushHome = () => router.push(ROUTE_KEYS.AdminPage);
 
   const currentPath =
     router.pathname.split("/")[router.pathname.split("/").length - 1];
@@ -23,11 +24,13 @@ const AdminSidebar = () => {
         <Image src={logo} alt={"logo"} />
       </Styled.AdminSidebarLogo>
       <Styled.AdminSidebarMenu>
-        <DropDownElement value="home" route={ROUTE_KEYS.AdminPage}>
-          <Link href={ROUTE_KEYS.AdminPortfolio}>
-            <a>portfolio</a>
-          </Link>
-        </DropDownElement>
+        <Styled.AdminSidebarMenuElement
+          onClick={pushHome}
+          itemProp={currentPath}
+          property={ROUTE_KEYS.AdminPage}
+        >
+          home
+        </Styled.AdminSidebarMenuElement>
         <Styled.AdminSidebarMenuElement
           onClick={pushPortfolio}
           itemProp={currentPath}

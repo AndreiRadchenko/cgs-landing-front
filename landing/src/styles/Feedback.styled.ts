@@ -57,6 +57,6 @@ export const FeedbackRow = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 190px;
+    margin-bottom: 80px;
   }
 `;

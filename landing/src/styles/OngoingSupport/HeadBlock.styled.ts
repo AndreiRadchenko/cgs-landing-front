@@ -48,10 +48,6 @@ export const Title = styled.h1`
       position: absolute;
       top: 0;
       right: -0.2em;
-
-      @media ${themes.primary.media.maxMobile} {
-        right: -4px;
-      }
     }
   }
 `;

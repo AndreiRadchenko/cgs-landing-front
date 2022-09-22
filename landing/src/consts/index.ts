@@ -153,7 +153,6 @@ export const newVacancy = {
 export enum ROUTE_KEYS {
   AdminService = "AdminService",
   AdminPage = "AdminPage",
-  AdminPortfolio = "AdminPortfolio",
   AdminCareers = "AdminCareers",
   AdminPartners = "AdminPartners",
   AdminSettings = "AdminSettings",

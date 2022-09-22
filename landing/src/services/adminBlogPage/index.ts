@@ -36,8 +36,8 @@ export class AdminBlogPage {
   public swapTwoElements(swapData: ISwapData) {
     return this.httpService.put(`api/blog/swap`, swapData);
   }
-  public deleteById(id: string) {
-    return this.httpService.delete(`api/blog/article/${id}`);
+  public deleteByInd(ind: number) {
+    return this.httpService.delete(`api/blog/article/${ind}`);
   }
 
   public updateViews(views: IViews) {

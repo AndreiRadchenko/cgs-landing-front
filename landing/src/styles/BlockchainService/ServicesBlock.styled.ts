@@ -6,7 +6,7 @@ import MobileService from "../../../public/BlockchainServicePage/Services-mobile
 export const Container = styled.div`
   margin-top: 11.94em;
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 7em;
+    margin-top: 4em;
   }
 `;
 
@@ -123,7 +123,7 @@ export const DescriptionContainer = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 0;
-    margin-top: 8.625em;
+    margin-top: 2.81em;
   }
 `;
 
@@ -159,7 +159,7 @@ export const Description = styled.div`
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 3.125em 0 0;
+    margin: 1.565em 0 0;
     width: 21em;
 
     p {

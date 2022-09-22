@@ -48,11 +48,11 @@ export const TicketModalContent = styled.div`
   }
 
   @media (max-height: 670px) {
-    height: 550px;
+    height: 560px;
   }
 
-  @media (max-height: 560px) {
-    height: 450px;
+  @media (max-height: 570px) {
+    height: 460px;
   }
 `;
 

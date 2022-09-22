@@ -4,6 +4,7 @@ import Watch from "../../../public/Watch.svg";
 import Timer from "../../../public/Timer.svg";
 import { IArticle } from "../../types/Admin/Response.types";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { useRouter } from "next/router";
 
 interface IBlogItem {
   article: IArticle;
@@ -17,10 +18,23 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
     return date.split("-").reverse().join(".");
   };
 
+  const router = useRouter();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    router.push(
+      {
+        pathname: `/blog/${article.url}`,
+        query: { filters },
+      },
+      `/blog/${article.url}`
+    );
+  };
+
   return (
     article && (
       <Styled.MarginContainer>
-        <a href={`/blog/${article.url}`}>
+        <a href={`/blog/${article.url}`} onClick={handleClick}>
           <Styled.HoverContainer>
             <Styled.BlogItemContainer>
               <Styled.ArticlePreview>

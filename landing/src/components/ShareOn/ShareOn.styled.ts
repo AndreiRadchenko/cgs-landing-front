@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
   &.mobile {
     display: none;
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 29.66em;
+  }
   @media ${themes.primary.media.maxTabletPortrait} {
     align-items: center;
     justify-content: center;
@@ -26,7 +30,7 @@ export const Wrapper = styled.div`
     }
 
     &.mobile {
-      margin-top: 54px;
+      margin-top: 24px;
       display: flex;
     }
   }

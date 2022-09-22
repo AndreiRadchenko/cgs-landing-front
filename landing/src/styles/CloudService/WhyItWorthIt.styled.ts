@@ -6,7 +6,7 @@ export const Container = styled.div`
   max-width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 8.5em 0 0;
+    margin: 3.44em 0 0;
   }
 `;
 
@@ -19,7 +19,8 @@ export const BlockWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
-    margin-top: 2.375em;
+    margin-top: 1em;
+    padding: 0;
   }
 `;
 
@@ -96,7 +97,7 @@ export const Block = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     &:not(:last-child) {
-      margin-bottom: 2.125em;
+      margin-bottom: 1.375em;
     }
     & > div img {
       width: 1.7em;

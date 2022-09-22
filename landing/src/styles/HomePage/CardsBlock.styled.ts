@@ -50,7 +50,6 @@ export const CardContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-
   & img {
     position: absolute;
   }
@@ -201,9 +200,10 @@ export const CardContainer = styled.div`
     }
 
     &:nth-child(2) {
-      padding-top: 175px;
+      padding-top: 186px;
       & img {
-        transform: rotate(5.8deg);
+        transform: rotate(-1.8deg);
+        margin-top: 8em;
       }
     }
     &:nth-child(3) {

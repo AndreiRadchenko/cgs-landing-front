@@ -16,6 +16,8 @@ import { adminMobileService } from "../../services/services/adminServicesMobileP
 import Head from "next/head";
 import { Layout } from "../../styles/Layout.styled";
 import { LocalLayout } from "../../styles/MobileService/Layout";
+import ShowCase from "../../components/ShowCase";
+
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(queryKeys.getServiceMobilePage, () =>
@@ -47,6 +49,11 @@ const MobileAppDevelopment: NextPage = () => {
           <WorthIt />
           <StrongBlock />
           <WhoNeedAppBlock />
+        </LocalLayout>
+      </Layout>
+      <ShowCase projects={data?.projects} />
+      <Layout>
+        <LocalLayout>
           <HowDoWeWork />
           <ProfBlock />
         </LocalLayout>

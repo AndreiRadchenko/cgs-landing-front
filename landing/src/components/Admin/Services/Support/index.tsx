@@ -2,6 +2,7 @@
 import React from "react";
 import { AdminBigButton, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import MetaTagsBlock from "../../MetaTagsBlock";
+import ServiceShowCase from "../../ServiceShowCase";
 import BonusesBlock from "./BonusesBlock";
 import FooterBlock from "./FooterBlock";
 import MainBlock from "./MainBlock";
@@ -15,6 +16,7 @@ const ServiceSupportContentBlock = () => {
       <MainBlock />
       <SubtitleBlock />
       <ProvideBlock />
+      <ServiceShowCase />
       <BonusesBlock />
       <FooterBlock />
       <MetaTagsBlock theme="dark" />

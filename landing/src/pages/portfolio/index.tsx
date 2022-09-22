@@ -42,12 +42,12 @@ const PortfolioPage: NextPage = () => {
   const { width } = useWindowDimension();
   const sortByCategory = (category: string) => {
     return data?.reviews
-      .reverse()
-      .filter((review) => review.category === category);
+      .filter((review) => review.category === category)
+      .reverse();
   };
   useEffect(() => {
     setIsMobile(false);
-    if (width && width <= 767) {
+    if (width && width < 768) {
       setIsMobile(true);
     }
   }, [width]);

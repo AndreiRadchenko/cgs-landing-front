@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin-top: 12.5em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 9.56em;
+    margin-top: 4.75em;
 
     & h2 {
       line-height: 233%;
@@ -22,9 +22,9 @@ export const ContentWrapper = styled.div`
   column-gap: 3em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 2.125em;
+    margin-top: 0.7em;
     flex-direction: column;
-    row-gap: 3.625em;
+    row-gap: 1.56em;
   }
 `;
 

@@ -19,9 +19,10 @@ export const Container = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-top: 5.7em;
     background: none;
     padding-bottom: 0;
+    margin-bottom: 4em;
   }
 `;
 
@@ -40,7 +41,7 @@ export const BgImageSecond = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     display: block;
-    margin-top: 3.75em;
+    margin-top: 2em;
     width: 26.25em;
   }
 `;

@@ -10,6 +10,7 @@ interface IFieldProps {
   type?: string;
   placeholder: string;
   labelName: string;
+  className?: string;
 }
 
 const AdminAuthFormInput: FC<IFieldProps> = ({
@@ -19,6 +20,7 @@ const AdminAuthFormInput: FC<IFieldProps> = ({
   type,
   placeholder,
   labelName,
+  className,
 }: IFieldProps) => {
   const [field, meta] = useField<string>(name);
 
@@ -30,6 +32,7 @@ const AdminAuthFormInput: FC<IFieldProps> = ({
     variant: "standard",
     onChange: handleChange,
     placeholder,
+    className,
   };
 
   if (meta && meta.touched && meta.error) {

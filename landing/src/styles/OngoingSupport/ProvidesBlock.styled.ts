@@ -7,7 +7,8 @@ export const Container = styled.div`
   width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-bottom: 5.2em;
+    margin-top: 4.75em;
   }
 `;
 
@@ -35,7 +36,7 @@ export const MobileMario = styled.img`
   width: 102vw;
   position: relative;
   left: -5vw;
-  margin-top: 6em;
+  margin-top: 5em;
   display: none;
   @media ${themes.primary.media.maxMobile} {
     display: block;
@@ -72,6 +73,7 @@ export const Text = styled.p`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     line-height: 132%;
+    margin: 0.38em 0 1.3em 3em;
   }
 `;
 
@@ -89,6 +91,8 @@ export const TextWrapper = styled.div`
     width: 100%;
     font-size: 1rem;
     flex-direction: column;
+    margin-top: 1em;
+    row-gap: 2.5em;
   }
 
   & > div {
@@ -97,34 +101,38 @@ export const TextWrapper = styled.div`
     position: relative;
 
     @media ${themes.primary.media.maxMobile} {
-      max-width: 70%;
+      width: 100%;
       flex-basis: auto;
 
-      &:nth-child(2n) {
-        right: -9em;
-
+      &:nth-child(2n + 1) {
+        left: -4em;
         p {
-          margin-left: 0;
-          margin-right: 1.5em;
+          margin-left: 3.94rem;
+
+          &:nth-child(1) {
+            margin-right: -2rem;
+          }
         }
       }
 
-      &:nth-child(2n + 1) {
-        left: -3em;
+      &:nth-child(2) {
+        right: -0.7em;
+        p {
+          margin-left: 1.4rem;
+          margin-right: 2em;
+        }
       }
-    }
 
-    &:nth-child(2) {
-      margin-top: 7.17em;
+      &:nth-child(4) {
+        right: -3em;
+        p {
+          margin-left: 0.6rem;
+          margin-right: 1.5em;
 
-      @media ${themes.primary.media.maxMobile} {
-        margin: 0;
-      }
-    }
-
-    @media ${themes.primary.media.maxLowScreenMobile} {
-      &:nth-child(2n) {
-        right: -7em;
+          &:nth-child(2) {
+            margin-right: 4em;
+          }
+        }
       }
     }
   }

@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 11.25em;
+    margin-top: 5.8em;
   }
 `;
 
@@ -54,11 +54,14 @@ export const TextContent = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.11em;
-    padding-top: 2.375em;
     width: 17em;
 
     &:not(:first-child) {
-      padding-top: 1.43em;
+      padding-top: 1.44em;
+    }
+
+    &:nth-child(2) {
+      padding-top: 1em;
     }
 
     & span:not(:first-child) {
@@ -102,7 +105,7 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     max-width: 25em;
-    row-gap: 5em;
+    row-gap: 2.78em;
     padding-bottom: 8em;
   }
 
@@ -160,8 +163,8 @@ export const BgImageMobile = styled.img`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 66em;
-    left: -17em;
-    top: 3.8em;
+    width: 61em;
+    left: -15em;
+    top: 5em;
   }
 `;

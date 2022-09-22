@@ -44,7 +44,7 @@ export const Title = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 14px;
+    margin-block: 14px 40px;
   }
 `;
 
@@ -146,7 +146,7 @@ export const TicketsWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
   }
 `;
 
@@ -200,7 +200,7 @@ export const FormAndImageContainer = styled.div`
     margin-left: 50px;
   }
   @media ${themes.primary.media.maxMobile} {
-    margin: 0 0 69px 0;
+    margin: 0;
   }
 `;
 
@@ -226,8 +226,8 @@ export const FormTitle = styled.span`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-block: 50px 20px;
     font-size: 21px;
-    margin-bottom: 20px;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
@@ -278,10 +278,12 @@ export const FormImage = styled.img`
     position: relative;
     right: -15%;
     width: 100%;
+    margin-top: 29px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     right: -1%;
+    top: 25px;
     width: 130%;
   }
 `;

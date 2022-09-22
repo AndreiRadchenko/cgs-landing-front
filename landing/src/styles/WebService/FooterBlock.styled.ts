@@ -8,7 +8,7 @@ export const Container = styled.div`
   padding-bottom: 15.75em;
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 11.25em 0 0;
+    padding: 6.25em 0 0;
     flex-direction: column;
     position: relative;
 
@@ -40,16 +40,12 @@ export const Image = styled.img`
     width: 16.875em;
     left: 4.44em;
     top: 0;
-    margin: 1.44em auto 6.125em;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin: 1.44em 0 6.125em;
+    margin: 1.64em auto 1em;
   }
 `;
 
 export const SubtitleWrapper = styled.div`
-  margin-bottom: 3.25em;
+  margin-bottom: 2.5em;
   max-width: 65%;
 
   @media ${themes.primary.media.maxServiceWeb} {

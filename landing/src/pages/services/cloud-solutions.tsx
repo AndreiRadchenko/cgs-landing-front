@@ -14,6 +14,7 @@ import WorkBlock from "../../components/CloudService/WorkBlock";
 import FooterBlock from "../../components/CloudService/FooterBlock";
 import * as Styled from "../../styles/CloudService/Layaut";
 import { Layout } from "../../styles/Layout.styled";
+import ShowCase from "../../components/ShowCase";
 
 const CloudService = () => {
   const { data } = useQuery(queryKeys.getServiceCloudPage, () =>
@@ -37,6 +38,11 @@ const CloudService = () => {
           <HeadBlock />
           <WhyItWorthIt />
           <ProvidesBlock />
+        </Styled.Layout>
+      </Layout>
+      <ShowCase projects={data?.projects} />
+      <Layout>
+        <Styled.Layout>
           <WorkBlock />
           <FooterBlock />
         </Styled.Layout>
