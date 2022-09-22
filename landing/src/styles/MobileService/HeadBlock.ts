@@ -10,7 +10,7 @@ export const Container = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
-    padding-top: 2em;
+    padding-top: 1.52em;
     padding-bottom: 0;
   }
 `;

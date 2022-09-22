@@ -12,6 +12,10 @@ export const Layout = styled.div`
     font-size: 1.4rem;
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 6.19em;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.6rem;
   }

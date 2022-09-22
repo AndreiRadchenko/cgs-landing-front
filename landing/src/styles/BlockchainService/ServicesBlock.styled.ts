@@ -123,7 +123,7 @@ export const DescriptionContainer = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 0;
-    margin-top: 3.625em;
+    margin-top: 2.81em;
   }
 `;
 

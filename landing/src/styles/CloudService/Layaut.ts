@@ -13,6 +13,10 @@ export const Layout = styled.div`
   @media (min-width: 2200px) {
     font-size: 1.6rem;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 1.15em;
+  }
 `;
 
 export const Subtitle = styled.h2`

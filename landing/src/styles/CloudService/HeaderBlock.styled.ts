@@ -75,7 +75,7 @@ export const Description = styled.p`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 2.5em 0 1.75em;
+    margin: 2.81em 0 1.75em;
   }
 `;
 
