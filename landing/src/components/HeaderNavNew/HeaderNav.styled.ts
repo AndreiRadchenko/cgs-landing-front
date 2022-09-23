@@ -105,6 +105,7 @@ export const NavList = styled.menu`
   margin: 0;
   display: flex;
   height: 56px;
+  padding-left: 0;
   @media ${themes.primary.media.maxLaptop} {
     margin-right: 0;
   }

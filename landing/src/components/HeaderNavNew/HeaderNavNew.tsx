@@ -11,10 +11,16 @@ import Logo from "./Logo";
 import HeaderBurgerDropdown from "./HeaderBurgerDropdown";
 
 const HeaderNavNew = (): JSX.Element => {
+  const [audio, setAudio] = useState<HTMLAudioElement>();
+
   const headerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { width } = useWindowDimension();
+
+  const playSound = () => {
+    typeof audio !== "undefined" && audio.play();
+  };
 
   const toggleBurgerHandler = () => {
     setIsOpen((old) => !old);
@@ -31,6 +37,7 @@ const HeaderNavNew = (): JSX.Element => {
   };
 
   useEffect(() => {
+    setAudio(new Audio("music/headerMouseClick.mp3"));
     onScroll();
     window.addEventListener("scroll", onScroll, true);
     return window.removeEventListener("scroll", onScroll);
@@ -66,10 +73,10 @@ const HeaderNavNew = (): JSX.Element => {
             }
           )}
         </BurgerMenu>
-        <StyledThisComp.LogoLinkWrapper href={"/"}>
+        <StyledThisComp.LogoLinkWrapper onClick={playSound} href={"/"}>
           <Logo />
         </StyledThisComp.LogoLinkWrapper>
-        <StyledThisComp.NavList>
+        <StyledThisComp.NavList onClick={playSound}>
           {navigationRoutesNamesNew.map(({ route, withDropdown, tags }, ind) =>
             !withDropdown ? (
               <Link key={route + ind} href={routersNew[ind]} passHref>

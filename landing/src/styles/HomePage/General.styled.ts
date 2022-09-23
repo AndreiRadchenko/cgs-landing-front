@@ -343,7 +343,8 @@ export const Subtitle = styled.div`
   span {
     &.blue {
       color: ${themes.primary.colors.darkBlue};
-      width: 34vw;
+      width: 40vw !important;
+      height: 5vw !important;
     }
   }
 

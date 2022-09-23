@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import parse from "html-react-parser";
+import React from "react";
+import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import * as Styled from "../../styles/HomePage/General.styled";
 import Partners from "../Partners/Partners";
 import film from "../../../public/HomePageDecoration/photoFilm.svg";
@@ -10,18 +10,30 @@ import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import ScrambleText from "./ScrambleText";
 
 const NextTech = () => {
-  const [nextTechText, setNextTechText] = useState("- Friedrich Nietzsche -");
-
   const { width } = useWindowDimension();
 
-  // useEffect(() => {
-  //   // call scramble function with the text to be scrambled and handler.
-  //   scramblerRef.current.scramble(text, setNextTechText);
-  // }, []);
-
-  // const [clickDisable, setClickDisable] = useState<boolean>(false);
+  const options: HTMLReactParserOptions = {
+    replace: (domNode) => {
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(88, 105, 221)")
+      ) {
+        return (
+          <ScrambleText
+            text={
+              domNode.children[0].type === "text" &&
+              (domNode.children[0] as any).data
+            }
+          />
+        );
+      }
+    },
+  };
 
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
@@ -36,7 +48,7 @@ const NextTech = () => {
 
   return (
     <Styled.NextTech>
-      <Styled.Subtitle>{text && parse(text.title)}</Styled.Subtitle>
+      <Styled.Subtitle>{text && parse(text.title, options)}</Styled.Subtitle>
       <Partners />
       <Styled.FilmContainer>
         {width && <Styled.Film src={width < 768 ? filmMobile.src : film.src} />}
@@ -47,7 +59,9 @@ const NextTech = () => {
         {width && width < 475 ? (
           <>
             wide&nbsp;
-            <span className={"blue"}>tech-range</span>
+            <span className={"blue"}>
+              <ScrambleText text={"tech-range"} />
+            </span>
             <Styled.RowContainer>
               <Styled.LongArrow src={longArrow.src} />
               Innovative
@@ -58,7 +72,9 @@ const NextTech = () => {
           <>
             <Styled.RowContainer>
               wide&nbsp;
-              <span className={"blue"}>{nextTechText}</span>
+              <span className={"blue"}>
+                <ScrambleText text={"tech-range"} />
+              </span>
               &nbsp;
               <Styled.LongArrow src={longArrow.src} />
             </Styled.RowContainer>

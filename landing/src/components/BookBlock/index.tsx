@@ -10,6 +10,7 @@ import {
 import { IDataResponse } from "../../types/Admin/Response.types";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { recoverLink } from "../../utils/recoverLink";
+import ScrambleText from "../HomePage/ScrambleText";
 
 const BookBlock = () => {
   const queryClient = useQueryClient();
@@ -21,7 +22,9 @@ const BookBlock = () => {
     <>
       <Subtitle className="footer">
         Do you want to turn your ideas into{" "}
-        <span className="blue">tech solutions</span>{" "}
+        <span className="blue">
+          <ScrambleText text="tech solutions" />
+        </span>{" "}
         <FooterButtonWrapper>
           <FooterLinkButton
             target="_blank"
