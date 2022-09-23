@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/HomePage/General.styled";
 import Partners from "../Partners/Partners";
@@ -12,7 +12,17 @@ import ButtonArrow from "../../utils/ButtonArrow";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const NextTech = () => {
+  const [nextTechText, setNextTechText] = useState("- Friedrich Nietzsche -");
+
   const { width } = useWindowDimension();
+
+  // useEffect(() => {
+  //   // call scramble function with the text to be scrambled and handler.
+  //   scramblerRef.current.scramble(text, setNextTechText);
+  // }, []);
+
+  // const [clickDisable, setClickDisable] = useState<boolean>(false);
+
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
@@ -23,6 +33,7 @@ const NextTech = () => {
   const buttonData = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
   )?.SeeAllBlock;
+
   return (
     <Styled.NextTech>
       <Styled.Subtitle>{text && parse(text.title)}</Styled.Subtitle>
@@ -35,7 +46,8 @@ const NextTech = () => {
       <Styled.Subtitle className="small">
         {width && width < 475 ? (
           <>
-            wide&nbsp;<span className={"blue"}>tech-range</span>
+            wide&nbsp;
+            <span className={"blue"}>tech-range</span>
             <Styled.RowContainer>
               <Styled.LongArrow src={longArrow.src} />
               Innovative
@@ -45,7 +57,9 @@ const NextTech = () => {
         ) : (
           <>
             <Styled.RowContainer>
-              wide&nbsp;<span className={"blue"}>tech-range</span>&nbsp;
+              wide&nbsp;
+              <span className={"blue"}>{nextTechText}</span>
+              &nbsp;
               <Styled.LongArrow src={longArrow.src} />
             </Styled.RowContainer>
             <Styled.RowContainer>Innovative customer-value</Styled.RowContainer>

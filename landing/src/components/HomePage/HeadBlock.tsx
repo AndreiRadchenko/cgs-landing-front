@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as Styled from "../../styles/HomePage/General.styled";
 import leftArrow from "../../../public/HomePageDecoration/leftArrow.svg";
 import rightArrow from "../../../public/HomePageDecoration/rightArrow.svg";
@@ -7,12 +7,31 @@ import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { recoverLink } from "../../utils/recoverLink";
 import ButtonArrow from "../../utils/ButtonArrow";
+import Tetris from "./Tetris";
 
 const HeadBlock = () => {
+  const buttonRef = useRef<HTMLAnchorElement>(null);
+  const [buttonClassName, setButtonClassName] = useState<string>("main");
+
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
   )?.EditInformationBlock;
+
+  const onScroll = () => {
+    const elTop = buttonRef?.current?.getBoundingClientRect().top || 0;
+    const scrollY = window.scrollY;
+    if (elTop - 500 <= scrollY) {
+      setButtonClassName("scrolled");
+      setTimeout(() => {
+        setButtonClassName("scrolled removeBg");
+      }, 1000);
+    }
+  };
+
+  useEffect(() => {
+    onScroll();
+  }, []);
 
   return (
     <Styled.HeadBlockRow>
@@ -35,6 +54,8 @@ const HeadBlock = () => {
           target={"_blank"}
           href={data && data.buttonLink && recoverLink(data?.buttonLink)}
           rel="noopener noreferrer"
+          className={buttonClassName}
+          ref={buttonRef}
         >
           {data?.button}
           <Styled.ArrowContainer>
@@ -43,7 +64,9 @@ const HeadBlock = () => {
         </Styled.BlackButton>
       </Styled.HeadBlockContent>
       {data?.image?.url && (
-        <Styled.Tetris src={data?.image.url} alt="hero image" />
+        <Styled.Tetris>
+          <Tetris />
+        </Styled.Tetris>
       )}
     </Styled.HeadBlockRow>
   );

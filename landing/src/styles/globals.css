@@ -75,11 +75,13 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Gilroy, NAMU, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   overscroll-behavior-x: none;
+  
 }
 
 body {
   font-size: 0.7em;
   background-color: #f1efed;
+  cursor: url('/cursor.svg'), auto;	
 }
 
 @media (max-width: 767px) {
