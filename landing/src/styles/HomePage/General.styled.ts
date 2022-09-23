@@ -522,14 +522,14 @@ export const FilmText = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    top: 15%;
+    top: 22%;
     left: 2.7%;
     max-width: 98.5%;
     font-size: 1.1rem;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
-    top: 14%;
+    top: 20%;
   }
 
   @media (max-width: 360px) {

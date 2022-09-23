@@ -51,7 +51,6 @@ export const Title = styled.h1`
 
   & > span:last-child {
     position: relative;
-    top: 14px;
 
     &::after {
       content: "";
@@ -63,6 +62,12 @@ export const Title = styled.h1`
       position: absolute;
       top: 0;
       right: -0.2em;
+    }
+  }
+
+  @media (max-width: 434px) {
+    & > span:last-child {
+      top: 14px;
     }
   }
 `;
