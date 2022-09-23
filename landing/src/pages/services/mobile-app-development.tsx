@@ -20,8 +20,13 @@ import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
+
   await queryClient.prefetchQuery(queryKeys.getServiceMobilePage, () =>
     adminMobileService.getMobileServicePage()
+  );
+
+  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
   );
   return {
     props: {

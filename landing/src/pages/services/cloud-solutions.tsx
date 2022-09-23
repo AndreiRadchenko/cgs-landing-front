@@ -1,6 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
-import { useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCloudService } from "../../services/services/AdminServicesCloudSolution";
 import { adminGlobalService } from "../../services/adminHomePage";
@@ -15,6 +15,24 @@ import FooterBlock from "../../components/CloudService/FooterBlock";
 import * as Styled from "../../styles/CloudService/Layaut";
 import { Layout } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.getServiceCloudPage, () =>
+    adminCloudService.getCloudSolutionPage()
+  );
+
+  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 
 const CloudService = () => {
   const { data } = useQuery(queryKeys.getServiceCloudPage, () =>
