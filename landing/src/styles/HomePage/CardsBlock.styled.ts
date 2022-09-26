@@ -12,7 +12,20 @@ export const BigDigit = styled.p`
   margin-right: 25px;
   color: ${themes.primary.colors.blogBackground};
   -webkit-text-stroke: 2px ${themes.primary.colors.primary};
-  text-shadow: 7px 2px 0px ${themes.primary.colors.primary};
+  transition: all 0.3s;
+  filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary})
+    grayscale(100%);
+  transition: all 1s;
+
+  &.scrolled {
+    background: linear-gradient(90deg, #d6ffbb 0%, #5869dd 100%);
+    filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary})
+      grayscale(0%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 110px;
@@ -27,7 +40,10 @@ export const BigDigit = styled.p`
     font-size: 88px;
     line-height: 89px;
     transform: translateY(2px);
-    text-shadow: 4.1358px 1.18166px 0px ${themes.primary.colors.primary};
+
+    filter: drop-shadow(
+      4.1358px 1.18166px 0px ${themes.primary.colors.primary}
+    );
   }
   @media (max-width: 360px) {
     font-size: 80px;

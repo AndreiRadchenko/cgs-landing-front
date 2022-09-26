@@ -5,7 +5,9 @@ export const HeaderNavContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  position: relative;
+  position: fixed;
+  right: 0;
+  top: 0;
   z-index: 26;
   background-color: ${themes.primary.colors.blogBackground};
   border-bottom: 1px solid ${themes.primary.colors.headerBorder};
@@ -13,6 +15,11 @@ export const HeaderNavContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     flex-direction: row-reverse;
     border: none;
+    transition: 0.3s;
+
+    &.scrolled {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
   }
 `;
 
@@ -107,6 +114,7 @@ export const NavList = styled.menu`
   margin: 0;
   display: flex;
   height: 56px;
+  padding-left: 0;
   @media ${themes.primary.media.maxLaptop} {
     margin-right: 0;
   }
@@ -128,5 +136,13 @@ export const BurgerLinkText = styled.p`
 
   &:hover {
     color: ${themes.primary.colors.darkBlue};
+  }
+`;
+
+export const HeaderWrapper = styled.div`
+  padding-bottom: 56px;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-bottom: 93px;
   }
 `;

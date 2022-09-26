@@ -84,9 +84,15 @@ export const FeedbackButton = styled.a`
   align-items: center;
   font-size: ${themes.primary.font.size.vistaco};
   background: ${themes.primary.colors.primary};
-  border: 1px solid ${themes.primary.colors.primary};
+  border: 2px solid ${themes.primary.colors.primary};
   letter-spacing: 0.03em;
   color: ${themes.primary.colors.secondary};
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: transparent;
+    color: ${themes.primary.colors.primary};
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;

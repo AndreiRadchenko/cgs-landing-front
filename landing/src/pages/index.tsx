@@ -40,7 +40,6 @@ const Home: NextPage = () => {
     queryKeys.getFullHomePage,
     () => adminGlobalService.getFullPage()
   );
-  useQuery(queryKeys.getPortfolio, () => adminGlobalService.getPortfolio());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 

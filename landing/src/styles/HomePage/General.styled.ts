@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
+import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
+import { buttonHover } from "../Animations.styled";
 
 export interface IFontSize {
   size: string;
@@ -19,6 +21,7 @@ export const ContentContainer = styled.div`
     outline: none;
     border-radius: 0;
   }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 50px 50px 70px;
   }
@@ -51,11 +54,38 @@ export const BlackButton = styled.a<IFontSize>`
   background-color: ${themes.primary.colors.primary};
   line-height: 99%;
   display: inline-block;
-
+  border: 2px solid ${themes.primary.colors.primary};
+  transition: all 0.3s;
   &.footer {
     margin-top: 10px;
     height: 4vw;
     margin-left: 20px;
+  }
+
+  &.main {
+    background: transparent;
+    color: ${themes.primary.colors.primary};
+    background-size: 229px;
+    transition-delay: unset;
+  }
+
+  &.scrolled {
+    background: ${themes.primary.colors.primary} url(${buttonHoverBg.src});
+    color: ${themes.primary.colors.secondary};
+    transition-delay: 0.8s;
+    background-size: 229px;
+    animation: ${buttonHover} 1s steps(8) forwards;
+
+    &.removeBg {
+      transition-delay: unset;
+      background-image: none;
+    }
+  }
+
+  &:hover {
+    transition-delay: unset;
+    background: none;
+    color: ${themes.primary.colors.primary};
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -230,7 +260,7 @@ export const HeadBlockContent = styled.div`
   }
 `;
 
-export const Tetris = styled.img`
+export const Tetris = styled.div`
   position: absolute;
   width: 33.7%;
   right: 122px;
@@ -253,10 +283,10 @@ export const Tetris = styled.img`
     width: 33.7%;
   }
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     top: 0;
     right: 0;
     position: relative;
-    width: auto;
     transform: scale(0.9);
   }
 
@@ -264,6 +294,10 @@ export const Tetris = styled.img`
     transform: none;
     width: 101.74%;
   }
+`;
+
+export const TetrisGroup = styled.g<{ coinsTranslate: string }>`
+  transform: ${({ coinsTranslate }) => coinsTranslate};
 `;
 
 export const HeadBlockRow = styled(RowContainer)`
@@ -309,6 +343,8 @@ export const Subtitle = styled.div`
   span {
     &.blue {
       color: ${themes.primary.colors.darkBlue};
+      width: 11ch !important;
+      height: 5vw !important;
     }
   }
 
@@ -494,13 +530,13 @@ export const FilmText = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    top: 32%;
+    top: 20%;
     font-size: 1.1rem;
     max-width: 60.5%;
   }
 
   @media (max-width: 835px) {
-    top: 27%;
+    top: 23%;
     font-size: 1.1rem;
     max-width: 70.5%;
   }
@@ -580,6 +616,13 @@ export const FooterLinkButton = styled.a`
   color: ${themes.primary.colors.secondary};
   background-color: ${themes.primary.colors.primary};
   line-height: 99%;
+  border: 2px solid ${themes.primary.colors.primary};
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: transparent;
+    color: ${themes.primary.colors.primary};
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     padding: 1.5rem 1.4rem;

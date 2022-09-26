@@ -223,3 +223,14 @@ export const slideDown = keyframes`
    }
  `}
 `;
+
+export const buttonHover = keyframes`
+${css`
+  from {
+    background-position-y: 0;
+  }
+  to {
+    background-position-y: -600px;
+  }
+`}
+`;
