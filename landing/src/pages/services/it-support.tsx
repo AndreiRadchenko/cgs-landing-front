@@ -14,7 +14,6 @@ import BonusesBlock from "../../components/OngoingSupport/BonusesBlock";
 import FooterBlock from "../../components/OngoingSupport/FooterBlock";
 import * as Styled from "../../styles/OngoingSupport/Layout";
 import { Layout } from "../../styles/Layout.styled";
-import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -58,7 +57,6 @@ const OngoingSupport = () => {
           <ProvidesBlock />
         </Styled.Layout>
       </Layout>
-      <ShowCase projects={data?.projects} />
       <Layout>
         <Styled.Layout>
           <BonusesBlock />

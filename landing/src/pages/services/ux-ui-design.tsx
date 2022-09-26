@@ -14,7 +14,6 @@ import EssentialBlock from "../../components/UxUiService/EsentialBlock";
 import FooterBlock from "../../components/UxUiService/FooterBlock";
 import * as Styled from "../../styles/UxUiService/Layout.styled";
 import { Layout } from "../../styles/Layout.styled";
-import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -59,7 +58,6 @@ const UxUiDesign = () => {
           <DesignBlock />
         </Styled.Layout>
       </Layout>
-      <ShowCase projects={data?.projects} />
       <Layout>
         <Styled.Layout>
           <EssentialBlock />
