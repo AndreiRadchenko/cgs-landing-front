@@ -24,12 +24,14 @@ const NextTech = () => {
         domNode.attribs.style.includes("color: rgb(88, 105, 221)")
       ) {
         return (
-          <ScrambleText
-            text={
-              domNode.children[0].type === "text" &&
-              (domNode.children[0] as any).data
-            }
-          />
+          <span className="blue">
+            <ScrambleText
+              text={
+                domNode.children[0].type === "text" &&
+                (domNode.children[0] as any).data
+              }
+            />
+          </span>
         );
       }
     },
@@ -73,7 +75,12 @@ const NextTech = () => {
             <Styled.RowContainer>
               wide&nbsp;
               <span className={"blue"}>
-                <ScrambleText text={"tech-range"} />
+                {typeof window !== "undefined" && (
+                  <ScrambleText
+                    text={"tech-range"}
+                    topOffset={-window.innerHeight}
+                  />
+                )}
               </span>
               &nbsp;
               <Styled.LongArrow src={longArrow.src} />
