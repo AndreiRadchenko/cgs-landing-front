@@ -10,8 +10,17 @@ import { IDataResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 
 const FooterNew = (): JSX.Element => {
+  const [audio, setAudio] = useState<HTMLAudioElement>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { width } = useWindowDimension();
+
+  const playSound = () => {
+    typeof audio !== "undefined" && audio.play();
+  };
+
+  useEffect(() => {
+    setAudio(new Audio("music/headerMouseClick.mp3"));
+  }, []);
 
   useEffect(() => {
     isOpen && width && width >= 768 && setIsOpen(false);
@@ -26,7 +35,7 @@ const FooterNew = (): JSX.Element => {
   return (
     <StyledThisComp.HeaderNavContainer>
       <StyledThisComp.FlexRowContainer>
-        <StyledThisComp.LogoLinkWrapper href={"/"}>
+        <StyledThisComp.LogoLinkWrapper onClick={playSound} href={"/"}>
           <ImagePreview
             src={logo.src}
             alt={"logo cgs-team"}
@@ -34,12 +43,15 @@ const FooterNew = (): JSX.Element => {
             height={32}
           />
         </StyledThisComp.LogoLinkWrapper>
-        <StyledThisComp.Email href={`mailto:${data?.email}`}>
+        <StyledThisComp.Email
+          onClick={playSound}
+          href={`mailto:${data?.email}`}
+        >
           {data?.email}
         </StyledThisComp.Email>
       </StyledThisComp.FlexRowContainer>
 
-      <StyledThisComp.NavList>
+      <StyledThisComp.NavList onClick={playSound}>
         {data?.links.map((link, ind) => (
           <Link key={link.link + ind} href={link.link} passHref>
             <StyledThisComp.ListItemNav
