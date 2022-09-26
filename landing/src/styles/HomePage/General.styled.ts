@@ -345,6 +345,7 @@ export const Subtitle = styled.div`
       color: ${themes.primary.colors.darkBlue};
       width: 11ch !important;
       height: 5vw !important;
+      white-space: nowrap;
     }
   }
 

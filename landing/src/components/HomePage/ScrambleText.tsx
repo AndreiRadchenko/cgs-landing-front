@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Scramble from "react-scramble";
+import { TextScramble } from "../TextScramble";
 
 interface IScrambleText {
   text: string;
@@ -23,26 +23,15 @@ const ScrambleText = ({ text, topOffset = 400 }: IScrambleText) => {
     return window.removeEventListener("scroll", onScroll);
   }, [topOffset]);
 
-  console.log(`${text}: ${isScrolled}`);
-
   return (
     <span ref={elRef}>
       {isScrolled ? (
-        <Scramble
-          autoStart
+        <TextScramble
           text={text}
-          speed="slow"
-          steps={[
-            {
-              roll: 8,
-              action: "+",
-              type: "random",
-            },
-            {
-              action: "-",
-              type: "forward",
-            },
-          ]}
+          characters="#%>&-@*$~"
+          revealMode="typewriter"
+          revealSpeed={150}
+          revealText
         />
       ) : (
         text
