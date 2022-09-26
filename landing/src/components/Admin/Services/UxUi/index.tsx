@@ -7,7 +7,7 @@ import WhatDoWeDoBlock from "./WhatDoWeDoBlock";
 import DesignBlock from "./DesignBlock";
 import EssentialBlock from "./EssentialBlock";
 import FooterBlock from "./FooterBlock";
-import ServiceShowCase from "../../ServiceShowCase";
+// import ServiceShowCase from "../../ServiceShowCase";
 
 const ServiceUxUiContentBlock = () => {
   const { handleSubmit } = useFormikContext();
@@ -17,7 +17,7 @@ const ServiceUxUiContentBlock = () => {
       <HeadBlock />
       <WhatDoWeDoBlock />
       <DesignBlock />
-      <ServiceShowCase />
+      {/* <ServiceShowCase /> */}
       <EssentialBlock />
       <FooterBlock />
       <MetaTagsBlock theme="dark" />
