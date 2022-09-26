@@ -102,6 +102,9 @@ export const ProjectDescription = styled.p`
   @media (max-width: 1310px) {
     margin: 12px 0 32px;
   }
+  @media (max-width: 1310px) {
+    margin: 12px 0 32px;
+  }
   @media (max-width: 1199px) {
     font-size: 15px;
   }
@@ -236,6 +239,9 @@ export const PortfolioRow = styled.div`
   &:hover ${NavigateLeft} {
     background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
+  }
+  @media (max-width: 1310px) {
+    max-height: 460px;
   }
   @media (max-width: 1310px) {
     max-height: 460px;

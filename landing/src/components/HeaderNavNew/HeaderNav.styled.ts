@@ -93,8 +93,17 @@ export const ListItemNav = styled.a`
   }
   &:hover {
     transition: 0.3s;
-    border-right: 1.5px solid ${themes.primary.colors.primary} !important;
-    border-bottom: 7px solid ${themes.primary.colors.primary} !important;
+    border-right: 1.5px solid ${themes.primary.colors.primary};
+    border-bottom: 7px solid ${themes.primary.colors.primary};
+  }
+
+  &.disabled {
+    cursor: default;
+    opacity: 0.5;
+    &:hover {
+      border-right: 0;
+      border-bottom: 0;
+    }
   }
   &:first-child {
     padding: 19px 2.9rem;

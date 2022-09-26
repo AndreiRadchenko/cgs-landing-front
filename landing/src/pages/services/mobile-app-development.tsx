@@ -25,22 +25,21 @@ export async function getServerSideProps() {
     adminMobileService.getMobileServicePage()
   );
 
+  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
   };
 }
-
 const MobileAppDevelopment: NextPage = () => {
   const { data } = useQuery(queryKeys.getServiceMobilePage, () =>
     adminMobileService.getMobileServicePage()
   );
-
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
-
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
-
   return (
     <>
       <Head>
@@ -68,5 +67,4 @@ const MobileAppDevelopment: NextPage = () => {
     </>
   );
 };
-
 export default MobileAppDevelopment;

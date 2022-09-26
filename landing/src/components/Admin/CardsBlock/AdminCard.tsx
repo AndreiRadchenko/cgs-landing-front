@@ -1,4 +1,6 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
+import { IImage } from "../../../types/Admin/Admin.types";
+import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import * as Styled from "../../../styles/AdminPage";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { ICard } from "../../../types/Admin/Response.types";
@@ -7,7 +9,7 @@ interface ICardProps {
   name: string;
   info: ICard;
   number: number;
-  onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
+  onChangeFunction: (e?: ChangeEvent<HTMLInputElement> | string) => void;
 }
 
 const AdminCard = ({ info, number, onChangeFunction, name }: ICardProps) => {

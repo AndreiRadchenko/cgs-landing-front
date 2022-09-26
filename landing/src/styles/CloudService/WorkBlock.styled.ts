@@ -51,6 +51,12 @@ export const Block = styled.div`
     &:not(:last-child) {
       margin-bottom: 1.25em;
     }
+    &:nth-child(1) {
+      margin-bottom: 0.25em;
+    }
+    &:nth-child(2) {
+      margin-bottom: 0.75em;
+    }
   }
 `;
 

@@ -4,6 +4,7 @@ interface IConnectionProps {
   type?: string;
 }
 
+
 export const isMobileConnection = () => {
   const connection: IConnectionProps = navigator.connection;
   return (

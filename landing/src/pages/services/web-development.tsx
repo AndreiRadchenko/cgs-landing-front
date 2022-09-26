@@ -25,6 +25,10 @@ export async function getServerSideProps() {
     adminWebService.getWebServicePage()
   );
 
+  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
+
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

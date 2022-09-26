@@ -28,7 +28,7 @@ export const ContentContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 1.5em 0 0;
+    margin: 0.64em 0 0;
   }
 `;
 
@@ -45,6 +45,14 @@ export const BlockImage = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     padding-left: 0;
+    &#android {
+      width: 6.85em;
+      height: 6.15em;
+    }
+    &#ios {
+      width: 5.2em;
+      height: 6.85em;
+    }
   }
 `;
 
