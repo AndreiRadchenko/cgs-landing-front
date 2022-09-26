@@ -343,7 +343,7 @@ export const Subtitle = styled.div`
   span {
     &.blue {
       color: ${themes.primary.colors.darkBlue};
-      width: 40vw !important;
+      width: 11ch !important;
       height: 5vw !important;
     }
   }
@@ -530,13 +530,13 @@ export const FilmText = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    top: 32%;
+    top: 20%;
     font-size: 1.1rem;
     max-width: 60.5%;
   }
 
   @media (max-width: 835px) {
-    top: 27%;
+    top: 23%;
     font-size: 1.1rem;
     max-width: 70.5%;
   }
