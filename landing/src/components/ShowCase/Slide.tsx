@@ -28,13 +28,13 @@ const Slide = ({ review }: IReview) => {
         </Styled.TextWrapper>
       )) || (
         <Styled.ImageWrapper>
-          (review.image?.url && (
-          <Image
-            src={review.image?.url}
-            alt={"project image"}
-            layout={"fill"}
-          />
-          ))
+          {review.image?.url && (
+            <Image
+              src={review.image?.url}
+              alt={"project image"}
+              layout={"fill"}
+            />
+          )}
         </Styled.ImageWrapper>
       )}
       <Styled.ContentWrapper>

@@ -78,7 +78,7 @@ export const NavigateRight = styled.div`
   right: 0;
   width: 9vw;
   background-color: ${themes.primary.colors.blogBackground};
-  z-index: 100;
+  z-index: 10;
   border-color: ${themes.primary.colors.comment};
   border-style: solid;
   border-width: 1px 0 1px 1px;
@@ -252,5 +252,51 @@ export const HoverText = styled.div`
   @media ${themes.primary.media.maxLowScreenMobile} {
     padding: 0;
     font-size: 1em;
+  }
+`;
+
+export const SliderScrollbar = styled.div`
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 26px;
+    height: 13px;
+    background-color: ${themes.primary.colors.blogBackground};
+    border-radius: 0;
+    border-width: 0 1px;
+    border-style: solid;
+    border-color: ${themes.primary.colors.comment};
+
+    & > div:first-child {
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      background-color: ${themes.primary.colors.comment};
+    }
+  }
+`;
+
+export const ScrollbarThumb = styled.div`
+  @media ${themes.primary.media.maxMobile} {
+    width: 57px;
+    height: 13px;
+    background: linear-gradient(
+      90deg,
+      ${themes.primary.colors.mainGradientColor1} 0%,
+      ${themes.primary.colors.mainGradientColor2} 100%
+    );
+    border: 1px solid ${themes.primary.colors.primary};
+    border-radius: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & div {
+      width: 1px;
+      height: 5px;
+      background-color: ${themes.primary.colors.primary};
+      margin-right: 2px;
+    }
   }
 `;

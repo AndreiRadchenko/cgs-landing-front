@@ -4,14 +4,16 @@ import { useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminPortfolioPageService } from "../../services/adminPortfolioPage";
 import { IReviewProps } from "../../types/Admin/Response.types";
-import { Navigation } from "swiper";
+import SwiperCore, { Navigation, Scrollbar } from "swiper";
 
 import { Swiper, SwiperProps, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 import Slide from "./Slide";
+
+SwiperCore.use([Scrollbar]);
 
 const SliderProps: SwiperProps = {
   slidesPerView: 2,
@@ -33,7 +35,18 @@ const SliderProps: SwiperProps = {
     // 374: {
     //   slidesPerView: 1.17,
     // },
-    300: { slidesPerView: 1, spaceBetween: 21 },
+    300: {
+      slidesPerView: 1,
+      spaceBetween: 21,
+      modules: [Scrollbar],
+      scrollbar: {
+        dragSize: 57,
+        dragClass: "swiper-thumb",
+        hide: false,
+        el: ".swiper-scrollbar",
+        draggable: true,
+      },
+    },
   },
 };
 
@@ -150,6 +163,15 @@ const ShowCase = ({ projects }: IShowCase) => {
           </svg>
         </Styled.ArrowContainer>
       </Styled.NavigateRight>
+      <Styled.SliderScrollbar className="swiper-scrollbar">
+        <div />
+        <Styled.ScrollbarThumb className="swiper-thumb">
+          <div />
+          <div />
+          <div />
+          <div />
+        </Styled.ScrollbarThumb>
+      </Styled.SliderScrollbar>
     </Styled.SliderWrapper>
   );
 };
