@@ -6,7 +6,7 @@ interface IScrambleText {
   topOffset?: number;
 }
 
-const ScrambleText = ({ text, topOffset = 400 }: IScrambleText) => {
+const ScrambleText = ({ text, topOffset = 100 }: IScrambleText) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const elRef = useRef<HTMLSpanElement>(null);
 
@@ -15,7 +15,7 @@ const ScrambleText = ({ text, topOffset = 400 }: IScrambleText) => {
       const elTop = elRef?.current?.getBoundingClientRect().y || 0;
       const scrollY = window.scrollY;
 
-      if (elTop - topOffset <= scrollY) {
+      if (elTop - window.innerHeight / 2 - topOffset <= scrollY) {
         setIsScrolled(true);
       }
     };
@@ -28,7 +28,7 @@ const ScrambleText = ({ text, topOffset = 400 }: IScrambleText) => {
       {isScrolled ? (
         <TextScramble
           text={text}
-          characters="#%>&-@*$~"
+          characters="!@#$%^&*()-="
           revealMode="typewriter"
           revealSpeed={150}
           revealText

@@ -15,10 +15,14 @@ export const BigDigit = styled.p`
   transition: all 0.3s;
   filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary})
     grayscale(100%);
-  transition: all 1s;
+  transition: filter 1s;
 
   &.scrolled {
-    background: linear-gradient(90deg, #d6ffbb 0%, #5869dd 100%);
+    background: linear-gradient(
+      90deg,
+      ${themes.primary.colors.mainGradientColor1} 0%,
+      ${themes.primary.colors.mainGradientColor2} 100%
+    );
     filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary})
       grayscale(0%);
     -webkit-background-clip: text;
@@ -40,10 +44,18 @@ export const BigDigit = styled.p`
     font-size: 88px;
     line-height: 89px;
     transform: translateY(2px);
+    padding-right: 10px;
+    margin-right: 15px;
 
     filter: drop-shadow(
       4.1358px 1.18166px 0px ${themes.primary.colors.primary}
     );
+
+    &.scrolled {
+      filter: drop-shadow(
+        4.1358px 1.18166px 0px ${themes.primary.colors.primary}
+      );
+    }
   }
   @media (max-width: 360px) {
     font-size: 80px;
@@ -256,13 +268,6 @@ export const CardContainer = styled.div`
     &:nth-child(4) {
       & div {
         margin-top: 0;
-      }
-    }
-  }
-  @media (max-width: 360px) {
-    &:nth-child(n) {
-      & img {
-        top: -10%;
       }
     }
   }

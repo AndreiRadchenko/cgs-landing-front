@@ -14,7 +14,7 @@ import { recoverLink } from "../../utils/recoverLink";
 import ScrambleText from "../HomePage/ScrambleText";
 
 const BookBlock = () => {
-  const { width } = useWindowDimension();
+  const { width, height } = useWindowDimension();
 
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
@@ -24,18 +24,20 @@ const BookBlock = () => {
   return (
     <>
       <Subtitle className="footer">
-        Do you want to turn your ideas into&nbsp;
-        <span className="blue">
+        Do you want <br /> to turn your <br /> ideas into&nbsp;
+        <br />
+        <span className="blue solutions">
           {(typeof window !== "undefined" && (
             <ScrambleText
               text="tech solutions"
               topOffset={
-                width && width < 768
+                width && height && (width < 768 || height > width)
                   ? -2.5 * window.innerHeight
                   : -5 * window.innerHeight
               }
             />
-          )) || <span className="blue">tech solutions</span>}
+          )) ||
+            "tech solutions"}
         </span>
         <FooterButtonWrapper>
           <FooterLinkButton
