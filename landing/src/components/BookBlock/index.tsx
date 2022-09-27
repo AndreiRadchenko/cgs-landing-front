@@ -1,7 +1,6 @@
 ﻿import React from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import {
   Subtitle,
   FooterButtonWrapper,
@@ -14,8 +13,6 @@ import { recoverLink } from "../../utils/recoverLink";
 import ScrambleText from "../HomePage/ScrambleText";
 
 const BookBlock = () => {
-  const { width, height } = useWindowDimension();
-
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
@@ -28,16 +25,8 @@ const BookBlock = () => {
         <br />
         <span className="blue solutions">
           {(typeof window !== "undefined" && (
-            <ScrambleText
-              text="tech solutions"
-              topOffset={
-                width && height && (width < 768 || height > width)
-                  ? -2.5 * window.innerHeight
-                  : -5 * window.innerHeight
-              }
-            />
-          )) ||
-            "tech solutions"}
+            <ScrambleText text="tech solutions" />
+          )) || <span className="blue">tech solutions</span>}
         </span>
         <FooterButtonWrapper>
           <FooterLinkButton
