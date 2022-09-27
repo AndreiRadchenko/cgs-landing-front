@@ -10,6 +10,11 @@ const data: SwiperProps = {
     prevEl: ".swiper-button-prev",
     nextEl: ".swiper-button-next",
   },
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  speed: 700,
   focusableElements: "button",
   breakpoints: {
     320: {

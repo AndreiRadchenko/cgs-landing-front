@@ -339,18 +339,35 @@ export const Subtitle = styled.div`
     line-height: 132%;
     display: inline-block;
     vertical-align: middle;
+
+    & br {
+      display: none;
+    }
   }
   span {
     &.blue {
       color: ${themes.primary.colors.darkBlue};
-      width: 11ch !important;
-      height: 5vw !important;
+      width: 11ch;
+      height: 5vw;
       white-space: nowrap;
+    }
+
+    &.tech {
+      display: inline-block;
+      width: 29.305vw;
+      height: 5.5vw;
     }
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 5em;
+
+    span {
+      &.tech {
+        width: 5.79166em;
+        height: 1.3229em;
+      }
+    }
   }
 
   @media (max-width: 1370px) {
@@ -372,6 +389,13 @@ export const Subtitle = styled.div`
     &.small {
       font-size: 3.75vw;
     }
+
+    span {
+      &.tech {
+        width: 24.305vw;
+        height: 5vw;
+      }
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -388,6 +412,26 @@ export const Subtitle = styled.div`
       font-size: 5vw;
       margin-bottom: 14px;
     }
+
+    &.footer {
+      & br {
+        display: block;
+      }
+    }
+
+    & span {
+      white-space: normal !important;
+
+      &.blue {
+        width: 43.805vw;
+        height: 5vw;
+      }
+
+      &.tech {
+        width: 5.8em;
+        height: 5vw;
+      }
+    }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -402,6 +446,15 @@ export const Subtitle = styled.div`
       flex-wrap: wrap;
     }
 
+    span {
+      &.range {
+        display: inline-block;
+        width: 70.805vw;
+      }
+    }
+  }
+
+  @media (max-width: 430px) {
     &.footer {
       margin-top: 110px;
       font-size: 2rem;
@@ -482,13 +535,13 @@ export const Film = styled.img`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    top: -18%;
+    top: -13%;
     position: absolute;
     width: 125%;
   }
 
   @media (max-width: 835px) {
-    top: -20%;
+    top: -5%;
     width: 145%;
   }
 
@@ -531,13 +584,13 @@ export const FilmText = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    top: 20%;
+    top: 25%;
     font-size: 1.1rem;
     max-width: 60.5%;
   }
 
   @media (max-width: 835px) {
-    top: 23%;
+    top: 32%;
     font-size: 1.1rem;
     max-width: 70.5%;
   }
@@ -559,18 +612,14 @@ export const FilmText = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    top: 15%;
+    top: 20%;
     left: 2.7%;
     max-width: 98.5%;
     font-size: 1.1rem;
   }
 
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    top: 14%;
-  }
-
   @media (max-width: 360px) {
-    top: 15%;
+    top: 20%;
     font-size: 0.95rem;
   }
 
@@ -601,6 +650,15 @@ export const FooterButtonWrapper = styled.span`
   display: flex;
   justify-content: flex-end;
   margin-right: 13px;
+
+  & a {
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    justify-content: flex-start;
+  }
 `;
 
 export const FooterLinkButton = styled.a`
@@ -629,8 +687,11 @@ export const FooterLinkButton = styled.a`
     padding: 1.5rem 1.4rem;
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
     padding: 12px 15px;
   }
 
