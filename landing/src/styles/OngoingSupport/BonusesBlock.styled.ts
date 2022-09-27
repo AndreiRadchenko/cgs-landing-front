@@ -91,8 +91,8 @@ export const Row2 = styled.div`
 `;
 
 export const Line = styled.div`
-  border: 1px solid ${themes.primary.colors.primary};
-  width: stretch;
+  height: 2px;
+  background: ${themes.primary.colors.comment};
   flex: 1;
   margin: 1.15em 36px 0 15px;
   max-height: 2px;

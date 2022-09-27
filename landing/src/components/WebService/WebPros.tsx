@@ -18,7 +18,10 @@ const WebPros = () => {
         {data &&
           Object.values(data).map((category, idx) => (
             <div key={`${category} ${idx}`}>
-              <Styled.BgMobileImage src={bgMobileImage.src} />
+              <Styled.BgMobileImage
+                src={bgMobileImage.src}
+                alt="mobile image"
+              />
               <Styled.CategorySubtitle>
                 {category.subtitle}
               </Styled.CategorySubtitle>
