@@ -21,8 +21,9 @@ const BookBlock = () => {
   return (
     <>
       <Subtitle className="footer">
-        Do you want to turn your ideas into&nbsp;
-        <span className="blue">
+        Do you want <br /> to turn your <br /> ideas into&nbsp;
+        <br />
+        <span className="blue solutions">
           {(typeof window !== "undefined" && (
             <ScrambleText text="tech solutions" />
           )) || <span className="blue">tech solutions</span>}

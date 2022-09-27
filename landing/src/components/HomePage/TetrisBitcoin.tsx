@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TetrisGroup } from "../../styles/HomePage/General.styled";
 
-const movementStrength = 120;
+const movementStrength = 40;
 
 const TetrisBitcoin = () => {
   const [tetrisTranslate, setTetrisTranslate] = useState<string>("");
