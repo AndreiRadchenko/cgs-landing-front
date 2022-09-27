@@ -26,15 +26,7 @@ const SliderProps: SwiperProps = {
   },
 
   breakpoints: {
-    // 2420: {
-    //   slidesPerView: 2,
-    // },
-
     768: { slidesPerView: 2, spaceBetween: 0 },
-    // 670: { slidesPerView: 2.05 },
-    // 374: {
-    //   slidesPerView: 1.17,
-    // },
     300: {
       slidesPerView: 1,
       spaceBetween: 21,

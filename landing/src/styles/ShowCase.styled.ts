@@ -103,6 +103,11 @@ export const ArrowContainer = styled.div`
     height: 65px;
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 2em;
+    transform: scale(1.5);
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     transform: scale(0.8);
   }

@@ -1,7 +1,6 @@
 ﻿import React from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import {
   Subtitle,
   FooterButtonWrapper,
@@ -14,8 +13,6 @@ import { recoverLink } from "../../utils/recoverLink";
 import ScrambleText from "../HomePage/ScrambleText";
 
 const BookBlock = () => {
-  const { width } = useWindowDimension();
-
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
@@ -27,14 +24,7 @@ const BookBlock = () => {
         Do you want to turn your ideas into&nbsp;
         <span className="blue">
           {(typeof window !== "undefined" && (
-            <ScrambleText
-              text="tech solutions"
-              topOffset={
-                width && width < 768
-                  ? -2.5 * window.innerHeight
-                  : -5 * window.innerHeight
-              }
-            />
+            <ScrambleText text="tech solutions" />
           )) || <span className="blue">tech solutions</span>}
         </span>
         <FooterButtonWrapper>
