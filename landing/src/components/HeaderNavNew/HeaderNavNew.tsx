@@ -37,7 +37,7 @@ const HeaderNavNew = (): JSX.Element => {
   };
 
   useEffect(() => {
-    setAudio(new Audio("music/headerMouseClick.mp3"));
+    setAudio(new Audio("/music/headerMouseClick.mp3"));
     onScroll();
     window.addEventListener("scroll", onScroll, true);
     return window.removeEventListener("scroll", onScroll);

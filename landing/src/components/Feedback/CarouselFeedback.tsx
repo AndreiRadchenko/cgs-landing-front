@@ -14,6 +14,7 @@ import "swiper/css/bundle";
 import LeftArrow from "../../../public/HomePageDecoration/leftArrowFeedback.svg";
 import RightArrow from "../../../public/HomePageDecoration/rightArrowFeedback.svg";
 import FeedbackIntro from "./FeedbackIntro";
+import { useOnScreen } from "../../hooks/useOnScreen";
 import * as StyledThisComp from "../../styles/Feedback.styled";
 import params from "../../mock/FeedbackSwiperParams";
 import { useQueryClient } from "react-query";

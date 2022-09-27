@@ -1,31 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useOnScreen } from "../../hooks/useOnScreen";
 import { TextScramble } from "../TextScramble";
 
 interface IScrambleText {
   text: string;
-  topOffset?: number;
 }
 
-const ScrambleText = ({ text, topOffset = 100 }: IScrambleText) => {
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+const ScrambleText = ({ text }: IScrambleText) => {
   const elRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const elTop = elRef?.current?.getBoundingClientRect().y || 0;
-      const scrollY = window.scrollY;
-
-      if (elTop - window.innerHeight / 2 - topOffset <= scrollY) {
-        setIsScrolled(true);
-      }
-    };
-    window.addEventListener("scroll", onScroll, true);
-    return window.removeEventListener("scroll", onScroll);
-  }, [topOffset]);
+  const isOnScreen = useOnScreen(elRef, true);
 
   return (
     <span ref={elRef}>
-      {isScrolled ? (
+      {isOnScreen ? (
         <TextScramble
           text={text}
           characters="!@#$%^&*()-="

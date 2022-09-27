@@ -76,10 +76,7 @@ const NextTech = () => {
               wide&nbsp;
               <span className={"blue"}>
                 {typeof window !== "undefined" && (
-                  <ScrambleText
-                    text={"tech-range"}
-                    topOffset={-window.innerHeight}
-                  />
+                  <ScrambleText text={"tech-range"} />
                 )}
               </span>
               &nbsp;
