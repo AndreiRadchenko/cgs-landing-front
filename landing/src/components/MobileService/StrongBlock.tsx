@@ -22,6 +22,7 @@ const StrongBlock = () => {
             <Styled.Block key={el[0]}>
               <Styled.ImageContainer>
                 <Styled.BlockImage
+                  id={`${el[0]}`}
                   src={blockPhotoArr[idx].src}
                   alt={`${el[0]} img`}
                 />

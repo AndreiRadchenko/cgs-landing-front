@@ -101,34 +101,38 @@ export const TextWrapper = styled.div`
     position: relative;
 
     @media ${themes.primary.media.maxMobile} {
-      max-width: 70%;
+      width: 100%;
       flex-basis: auto;
 
-      &:nth-child(2n) {
-        right: -9em;
-
+      &:nth-child(2n + 1) {
+        left: -4em;
         p {
-          margin-left: 0;
-          margin-right: 1.5em;
+          margin-left: 3.94rem;
+
+          &:nth-child(1) {
+            margin-right: -2rem;
+          }
         }
       }
 
-      &:nth-child(2n + 1) {
-        left: -3em;
+      &:nth-child(2) {
+        right: -0.7em;
+        p {
+          margin-left: 1.4rem;
+          margin-right: 2em;
+        }
       }
-    }
 
-    &:nth-child(2) {
-      margin-top: 7.17em;
+      &:nth-child(4) {
+        right: -3em;
+        p {
+          margin-left: 0.6rem;
+          margin-right: 1.5em;
 
-      @media ${themes.primary.media.maxMobile} {
-        margin: 0;
-      }
-    }
-
-    @media ${themes.primary.media.maxLowScreenMobile} {
-      &:nth-child(2n) {
-        right: -7em;
+          &:nth-child(2) {
+            margin-right: 4em;
+          }
+        }
       }
     }
   }

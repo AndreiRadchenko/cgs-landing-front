@@ -158,7 +158,7 @@ export const WhoNeedAppsBlocks = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 6.8em;
+    margin-top: 10em;
   }
 `;
 
