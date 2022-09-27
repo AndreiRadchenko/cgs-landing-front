@@ -24,7 +24,7 @@ const NextTech = () => {
         domNode.attribs.style.includes("color: rgb(88, 105, 221)")
       ) {
         return (
-          <span className="blue">
+          <span className="blue tech">
             <ScrambleText
               text={
                 domNode.children[0].type === "text" &&
@@ -53,7 +53,7 @@ const NextTech = () => {
       <Styled.Subtitle>{text && parse(text.title, options)}</Styled.Subtitle>
       <Partners />
       <Styled.FilmContainer>
-        {width && <Styled.Film src={width < 768 ? filmMobile.src : film.src} />}
+        {width && <Styled.Film src={width < 767 ? filmMobile.src : film.src} />}
 
         <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
       </Styled.FilmContainer>
@@ -61,7 +61,7 @@ const NextTech = () => {
         {width && width < 475 ? (
           <>
             wide&nbsp;
-            <span className={"blue"}>
+            <span className={"blue range"}>
               <ScrambleText text={"tech-range"} />
             </span>
             <Styled.RowContainer>

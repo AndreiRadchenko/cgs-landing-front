@@ -15,7 +15,7 @@ const ScrambleText = ({ text }: IScrambleText) => {
       {isOnScreen ? (
         <TextScramble
           text={text}
-          characters="#%>&-@*$~"
+          characters="!@#$%^&*()-="
           revealMode="typewriter"
           revealSpeed={150}
           revealText
