@@ -5,7 +5,7 @@ export const NavigateWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     height: 150px;
     position: sticky;
-    top: 0px;
+    top: 93px;
     z-index: 10;
   }
 `;
@@ -29,6 +29,11 @@ export const NavigateLeft = styled.div`
   justify-content: center;
   z-index: 10;
   background-color: ${themes.primary.colors.blogBackground};
+  transition: 0.5s;
+
+  & svg {
+    transition: 0.3s;
+  }
   &:after {
     content: none;
   }
@@ -48,8 +53,8 @@ export const NavigateLeft = styled.div`
     border-style: solid;
     border-color: ${themes.primary.colors.comment};
     transition: 0.3s;
+
     & svg {
-      transition: 0.3s;
       fill: ${themes.primary.colors.primary};
 
       &.open {
@@ -59,30 +64,30 @@ export const NavigateLeft = styled.div`
 
     &.open {
       background-color: ${themes.primary.colors.darkBlue};
-      color: ${themes.primary.colors.secondary};
+      color: ${themes.primary.colors.blogBackground};
       & svg {
-        fill: ${themes.primary.colors.secondary};
+        fill: ${themes.primary.colors.blogBackground};
       }
     }
 
     &.top {
       background-color: ${themes.primary.colors.darkBlue};
-      color: ${themes.primary.colors.secondary};
+      color: ${themes.primary.colors.blogBackground};
       max-height: 88px;
     }
 
     &:hover {
       background-color: ${themes.primary.colors.darkBlue};
-      color: ${themes.primary.colors.secondary};
+      color: ${themes.primary.colors.blogBackground};
 
       & svg {
-        fill: ${themes.primary.colors.secondary};
+        fill: ${themes.primary.colors.blogBackground};
       }
     }
   }
   &:hover {
     background-color: ${themes.primary.colors.darkBlue};
-    color: ${themes.primary.colors.secondary};
+    color: ${themes.primary.colors.blogBackground};
   }
 `;
 
