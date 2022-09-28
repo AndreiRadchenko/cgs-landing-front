@@ -2,6 +2,7 @@
 import React from "react";
 import { AdminBigButton, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import MetaTagsBlock from "../../MetaTagsBlock";
+import ServiceShowCase from "../../ServiceShowCase";
 import ComparisonBlock from "./ComparisonBlock";
 import FooterBlock from "./FooterBlock";
 import MainBlock from "./MainBlock";
@@ -17,6 +18,7 @@ const ServiceMobileContentBlock = () => {
       <ComparisonBlock />
       <WhyIsWebBlock />
       <SolutionBlock />
+      <ServiceShowCase />
       <PerksBlock />
       <FooterBlock />
       <MetaTagsBlock theme="dark" />

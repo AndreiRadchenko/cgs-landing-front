@@ -23,8 +23,8 @@ const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
     newFlag ? categories[0] : values.category
   );
 
-  const deleteFunction = useDeleteImageFunction(values, "");
-  const uploadFunction = useUploadImageFunction(values, "");
+  const deleteFunction = useDeleteImageFunction(values, "", false);
+  const uploadFunction = useUploadImageFunction(values, "", false);
   const starsChange = (newValue: number) => (values.feedback.rating = newValue);
 
   const submitFunction = (e: React.SyntheticEvent) => {
@@ -78,6 +78,13 @@ const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
             onChange={handleChange}
             name="title"
           />
+          <Styled.AdminInput
+            placeholder="Industry"
+            value={values.industry}
+            onChange={handleChange}
+            name="industry"
+          />
+
           <Styled.AdminInput
             minRows={4}
             placeholder="Text"

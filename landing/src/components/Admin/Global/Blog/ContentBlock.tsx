@@ -8,12 +8,13 @@ import { adminBlogService } from "../../../../services/adminBlogPage";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import { IBlogProps } from "../AdminBlogMainContent";
 import BlogForm from "./BlogForm";
+import PublishedArticles from "./PublishedArticles";
 
 interface IArticles {
   isNewArticle: boolean;
-  setIsNewArticle: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsNewArticle: (val: boolean) => void;
   article: number;
-  setArticle: React.Dispatch<React.SetStateAction<number>>;
+  setArticle: (val: number) => void;
   refetch?: () => Promise<IBlogProps>;
 }
 
@@ -49,21 +50,12 @@ const ContentBlock: FC<IArticles> = ({
 
   return (
     <div>
-      {(articles && views.data && (
-        <BlogForm
-          articles={articles}
-          isNewArticle={isNewArticle}
-          setIsNewArticle={setIsNewArticle}
-          newArticleData={values.newArticle}
-          current={article}
-          disabled={disabled}
-          setDisabled={setDisabled}
-          views={views.data}
-          setArticle={setArticle}
-          setFieldValue={setFieldValue}
-        />
-      )) ||
-        "No data"}
+      {/* <PublishedArticles
+        setArticle={setArticle}
+        isNewArticle={isNewArticle}
+        setIsNewArticle={setIsNewArticle}
+        article={article}
+      /> */}
       <MetaTagsBlock theme="dark" />
       <Styled.AdminBigButton type={"submit"} onClick={updatePageData}>
         {"Update meta data"}

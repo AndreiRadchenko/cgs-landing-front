@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "Gilroy";
-  src: url("/GilroyFont/Gilroy-Light.ttf") format("truetype");
+  src: url("/GilroyFont/Gilroy-Light.woff2") format("truetype");
   font-weight: 300;
   font-style: sans-serif;
   font-display: swap;
@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: "Gilroy";
-  src: url("/GilroyFont/Gilroy-Regular.ttf") format("truetype");
+  src: url("/GilroyFont/Gilroy-Regular.woff2") format("truetype");
   font-weight: 400;
   font-style: sans-serif;
   font-display: swap;
@@ -20,7 +20,7 @@
 
 @font-face {
   font-family: "Gilroy";
-  src: url("/GilroyFont/Gilroy-Medium.ttf") format("truetype");
+  src: url("/GilroyFont/Gilroy-Medium.woff2") format("truetype");
   font-weight: 500;
   font-style: sans-serif;
   font-display: swap;
@@ -28,7 +28,7 @@
 
 @font-face {
   font-family: "Gilroy";
-  src: url("/GilroyFont/Gilroy-Semibold.ttf") format("truetype");
+  src: url("/GilroyFont/Gilroy-Semibold.woff2") format("truetype");
   font-weight: 600;
   font-style: sans-serif;
   font-display: swap;
@@ -36,7 +36,7 @@
 
 @font-face {
   font-family: "Gilroy";
-  src: url("/GilroyFont/Gilroy-Bold.ttf") format("truetype");
+  src: url("/GilroyFont/Gilroy-Bold.woff2") format("truetype");
   font-weight: 700;
   font-style: sans-serif;
   font-display: swap;
@@ -44,7 +44,7 @@
 
 @font-face {
   font-family: "Gilroy";
-  src: url("/GilroyFont/Gilroy-ExtraBold.ttf") format("truetype");
+  src: url("/GilroyFont/Gilroy-ExtraBold.woff2") format("truetype");
   font-weight: 800;
   font-style: sans-serif;
   font-display: swap;
@@ -52,7 +52,7 @@
 
 @font-face {
   font-family: "Gilroy";
-  src: url("/GilroyFont/Gilroy-Heavy.ttf") format("truetype");
+  src: url("/GilroyFont/Gilroy-Heavy.woff2") format("truetype");
   font-weight: 900;
   font-style: sans-serif;
   font-display: swap;
@@ -75,11 +75,13 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Gilroy, NAMU, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   overscroll-behavior-x: none;
+  
 }
 
 body {
   font-size: 0.7em;
   background-color: #f1efed;
+  cursor: url('/cursor.svg'), auto;	
 }
 
 @media (max-width: 767px) {

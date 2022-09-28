@@ -89,6 +89,12 @@ const BlogPage = () => {
     articles &&
       setReversedArticles(
         articles.reverse().filter((article) => !article.disabled)
+        //!!!!!!!!!!!!!!!!! data?.articles.reverse().filter((article) => {
+        //   return (
+        //     !article.disabled &&
+        //     !(new Date() <= new Date(article.scheduleArticle))
+        //   );
+        // })
       );
   }, [articles]);
 

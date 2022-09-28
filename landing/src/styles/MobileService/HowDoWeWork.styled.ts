@@ -9,7 +9,7 @@ export const ContentWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 6.8em;
+    margin-top: 7.7em;
   }
 `;
 

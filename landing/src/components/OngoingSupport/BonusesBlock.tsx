@@ -18,25 +18,25 @@ const BonusesBlock = () => {
         <Styled.Row1>
           <Styled.Line />
           {data?.textSubBlock.slice(0, 3).map((el, idx) => (
-            <>
-              <Styled.Text key={idx}>
+            <React.Fragment key={idx}>
+              <Styled.Text>
                 <Styled.Image src={rhombus.src} />
                 {el}
               </Styled.Text>
-              <Styled.Line key={idx + 3} />
-            </>
+              <Styled.Line />
+            </React.Fragment>
           ))}
         </Styled.Row1>
         <Styled.Row2>
           <Styled.Line />
           {data?.textSubBlock.slice(3).map((el, idx) => (
-            <>
-              <Styled.Text key={idx}>
+            <React.Fragment key={idx}>
+              <Styled.Text>
                 <Styled.Image src={rhombus.src} />
                 {el}
               </Styled.Text>
-              <Styled.Line key={idx + 3} />
-            </>
+              <Styled.Line />
+            </React.Fragment>
           ))}
         </Styled.Row2>
       </Styled.TextWrapper>

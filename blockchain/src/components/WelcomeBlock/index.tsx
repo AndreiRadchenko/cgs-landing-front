@@ -13,7 +13,6 @@ function WelcomeBlock() {
           alt={"main logo big image"}
           layout="fill"
           objectFit="contain"
-          priority={true}
         />
       </Styled.WrapperBgImg>
       <Styled.TextBlock>

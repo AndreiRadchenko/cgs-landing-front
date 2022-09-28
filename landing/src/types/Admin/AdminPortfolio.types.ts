@@ -4,6 +4,7 @@ export interface IPortfolioReview {
   _id?: string;
   image: { url: string } | null;
   title: string;
+  industry: string;
   text: string;
   category: string;
   button: string;

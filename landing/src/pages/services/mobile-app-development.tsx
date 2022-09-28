@@ -16,6 +16,7 @@ import { adminMobileService } from "../../services/services/adminServicesMobileP
 import Head from "next/head";
 import { Layout } from "../../styles/Layout.styled";
 import { LocalLayout } from "../../styles/MobileService/Layout";
+import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -24,22 +25,21 @@ export async function getServerSideProps() {
     adminMobileService.getMobileServicePage()
   );
 
+  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
   };
 }
-
 const MobileAppDevelopment: NextPage = () => {
   const { data } = useQuery(queryKeys.getServiceMobilePage, () =>
     adminMobileService.getMobileServicePage()
   );
-
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
-
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
-
   return (
     <>
       <Head>
@@ -54,6 +54,11 @@ const MobileAppDevelopment: NextPage = () => {
           <WorthIt />
           <StrongBlock />
           <WhoNeedAppBlock />
+        </LocalLayout>
+      </Layout>
+      <ShowCase projects={data?.projects} />
+      <Layout>
+        <LocalLayout>
           <HowDoWeWork />
           <ProfBlock />
         </LocalLayout>
@@ -62,5 +67,4 @@ const MobileAppDevelopment: NextPage = () => {
     </>
   );
 };
-
 export default MobileAppDevelopment;

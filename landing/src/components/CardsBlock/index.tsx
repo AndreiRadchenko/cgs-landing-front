@@ -11,6 +11,7 @@ import fourthImgMobile from "../../../public/HomePageDecoration/fourthCardImgMob
 import * as Styled from "../../styles/HomePage/CardsBlock.styled";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import BigNumber from "./BigNumber";
 
 const CardsBlock = () => {
   const { width } = useWindowDimension();
@@ -33,7 +34,7 @@ const CardsBlock = () => {
               <Styled.CardImage src={arrOfImages[idx].src} alt="card img" />
             )}
             <Styled.CardTitle>
-              <Styled.BigDigit>{idx + 1}</Styled.BigDigit>
+              <BigNumber idx={idx} />
               <Styled.CardSubtitle>{item[1].subtitle}</Styled.CardSubtitle>
             </Styled.CardTitle>
             <Styled.CardContent>

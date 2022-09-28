@@ -7,6 +7,7 @@ import ExpertiseBlock from "./ExpertiseBlock";
 import FooterBlock from "./FooterBlock";
 import SelectBlock from "./SelectBlock";
 import FeaturesBlock from "./FeaturesBlock";
+import ServiceShowCase from "../../ServiceShowCase";
 
 const ServiceDbContentBlock = () => {
   const { handleSubmit } = useFormikContext();
@@ -15,6 +16,7 @@ const ServiceDbContentBlock = () => {
       <MainBlock />
       <ExpertiseBlock />
       <SelectBlock />
+      <ServiceShowCase />
       <FeaturesBlock />
       <FooterBlock />
       <MetaTagsBlock theme="dark" />

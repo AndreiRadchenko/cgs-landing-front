@@ -46,8 +46,8 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   justify-content: center;
   column-gap: 10px;
   align-items: center;
-  border-bottom: 0 !important;
-  border-right: 0 !important;
+  border-bottom: 0;
+  border-right: 0;
   border-left: 1px solid ${themes.primary.colors.comment} !important;
   width: 100%;
 
@@ -98,6 +98,13 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
       transform: rotate(180deg);
     }
   }
+  &.disabled {
+    cursor: default;
+    &:hover {
+      border-right: 0;
+      border-bottom: 0;
+    }
+  }
   & > img,
   & > span {
     vertical-align: middle;
@@ -106,6 +113,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     transform: rotate(0deg);
     margin-top: 3px;
   }
+
   padding: 0;
 `;
 

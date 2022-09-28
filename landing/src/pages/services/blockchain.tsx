@@ -1,6 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
-import { useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import Head from "next/head";
 import { adminBlockchainService } from "../../services/services/AdminServiceBlockchainPage";
@@ -14,6 +14,26 @@ import AboutBlock from "../../components/BlockchainService/AboutBlock";
 import FooterBlock from "../../components/BlockchainService/FooterBlock";
 import * as Styled from "../../styles/BlockchainService/Layout";
 import { Layout } from "../../styles/Layout.styled";
+import ShowCase from "../../components/ShowCase";
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(
+    queryKeys.getServiceBlockchainPage,
+    async () => await adminBlockchainService.getBlockchainDevelopmentPage()
+  );
+
+  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 
 const BlockchainService = () => {
   const { data } = useQuery(
@@ -38,10 +58,16 @@ const BlockchainService = () => {
           <HeadBlock />
           <ServicesBlock />
           <YourWayBlock />
+        </Styled.Layout>
+      </Layout>
+      <ShowCase projects={data?.projects} />
+      <Layout>
+        <Styled.Layout>
           <AboutBlock />
           <FooterBlock />
         </Styled.Layout>
       </Layout>
+
       <FooterNew />
     </>
   );

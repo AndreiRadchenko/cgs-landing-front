@@ -1,5 +1,5 @@
 import React from "react";
-import parse from "html-react-parser";
+import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import * as Styled from "../../styles/HomePage/General.styled";
 import Partners from "../Partners/Partners";
 import film from "../../../public/HomePageDecoration/photoFilm.svg";
@@ -10,9 +10,33 @@ import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import ScrambleText from "./ScrambleText";
 
 const NextTech = () => {
   const { width } = useWindowDimension();
+
+  const options: HTMLReactParserOptions = {
+    replace: (domNode) => {
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(88, 105, 221)")
+      ) {
+        return (
+          <span className="blue tech">
+            <ScrambleText
+              text={
+                domNode.children[0].type === "text" &&
+                (domNode.children[0] as any).data
+              }
+            />
+          </span>
+        );
+      }
+    },
+  };
+
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
@@ -23,19 +47,23 @@ const NextTech = () => {
   const buttonData = queryClient.getQueryData<IDataResponse>(
     queryKeys.getFullHomePage
   )?.SeeAllBlock;
+
   return (
     <Styled.NextTech>
-      <Styled.Subtitle>{text && parse(text.title)}</Styled.Subtitle>
+      <Styled.Subtitle>{text && parse(text.title, options)}</Styled.Subtitle>
       <Partners />
       <Styled.FilmContainer>
-        {width && <Styled.Film src={width < 768 ? filmMobile.src : film.src} />}
+        {width && <Styled.Film src={width < 767 ? filmMobile.src : film.src} />}
 
         <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
       </Styled.FilmContainer>
       <Styled.Subtitle className="small">
         {width && width < 475 ? (
           <>
-            wide&nbsp;<span className={"blue"}>tech-range</span>
+            wide&nbsp;
+            <span className={"blue range"}>
+              <ScrambleText text={"tech-range"} />
+            </span>
             <Styled.RowContainer>
               <Styled.LongArrow src={longArrow.src} />
               Innovative
@@ -45,7 +73,13 @@ const NextTech = () => {
         ) : (
           <>
             <Styled.RowContainer>
-              wide&nbsp;<span className={"blue"}>tech-range</span>&nbsp;
+              wide&nbsp;
+              <span className={"blue"}>
+                {typeof window !== "undefined" && (
+                  <ScrambleText text={"tech-range"} />
+                )}
+              </span>
+              &nbsp;
               <Styled.LongArrow src={longArrow.src} />
             </Styled.RowContainer>
             <Styled.RowContainer>Innovative customer-value</Styled.RowContainer>

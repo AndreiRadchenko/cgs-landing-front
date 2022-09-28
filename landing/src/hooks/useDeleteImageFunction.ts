@@ -6,10 +6,11 @@ import { adminGlobalService } from "../services/adminHomePage";
 
 const useDeleteImageFunction = async (
   state?: IImage,
-  key = queryKeys.GetFullPage
+  key = queryKeys.GetFullPage,
+  submitInTheEnd = true
 ) => {
   const queryClient = new QueryClient();
-  const { setFieldValue } = useFormikContext();
+  const { handleSubmit, setFieldValue } = useFormikContext();
 
   const { mutate } = useMutation(queryKeys.deleteImage, (url: string) =>
     adminGlobalService.deleteImage(url)
@@ -20,10 +21,11 @@ const useDeleteImageFunction = async (
     mutate(link);
     if (state) {
       state.image = null;
-      setFieldValue("image", null);
+      !submitInTheEnd && setFieldValue("image", null);
     } else {
       localState!.image = null;
     }
+    submitInTheEnd && handleSubmit();
     queryClient.invalidateQueries(key);
   };
 

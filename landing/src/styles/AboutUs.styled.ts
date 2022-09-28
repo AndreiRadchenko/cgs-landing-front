@@ -98,13 +98,14 @@ export const CardDescriptionSubDescription = styled.div`
   font-weight: ${themes.primary.font.weight.extraBold};
 
   &.columnDescription {
-    width: 12.5em;
-    padding-left: 1em;
+    width: 8.5em;
+    /* padding-left: 1em; */
   }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.6em;
     &.columnDescription {
+      width: 12.5em;
       text-align: center;
       padding: 0;
     }
@@ -117,12 +118,13 @@ export const CardDescriptionValueWrapper = styled.div`
   font-weight: ${themes.primary.font.weight.extraBold};
 
   &.columnDescription {
-    width: 12.5em;
-    padding-left: 1em;
+    width: 8.5em;
+    /* padding-left: 1em; */
   }
 
   @media ${themes.primary.media.maxMobile} {
     &.columnDescription {
+      width: 12.5em;
       text-align: center;
       padding: 0;
     }
@@ -150,11 +152,11 @@ export const DecorationText = styled(Decoration)`
 
   @media ${themes.primary.media.maxMobile} {
     &.var {
-      left: 17%;
+      left: 13%;
     }
 
     &.status {
-      left: 13%;
+      left: 9%;
     }
   }
 `;

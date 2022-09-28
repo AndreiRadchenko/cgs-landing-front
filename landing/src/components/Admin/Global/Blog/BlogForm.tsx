@@ -12,16 +12,16 @@ interface IBlogForm {
   articles?: IArticle[];
   isNewArticle: boolean;
   setIsNewArticle: (val: boolean) => void;
-  newArticleData: INewArticle;
-  disabled: boolean;
-  setDisabled: (val: boolean) => void;
+  // newArticleData: INewArticle;
+  // disabled: boolean;
+  // setDisabled: (val: boolean) => void;
   views?: IView[];
   setArticle: (val: number) => void;
-  setFieldValue: (
-    field: string,
-    value: any,
-    shouldValidate?: boolean | undefined
-  ) => void;
+  // setFieldValue: (
+  //   field: string,
+  //   value: any,
+  //   shouldValidate?: boolean | undefined
+  // ) => void;
 }
 
 const BlogForm = ({
@@ -29,24 +29,24 @@ const BlogForm = ({
   articles,
   isNewArticle,
   setIsNewArticle,
-  newArticleData,
-  disabled,
-  setDisabled,
+  // newArticleData,
+  // disabled,
+  // setDisabled,
   views,
   setArticle,
-  setFieldValue,
-}: IBlogForm) => {
+}: // setFieldValue,
+IBlogForm) => {
   return (
     (articles && views && (
       <Formik initialValues={articles} onSubmit={() => console.log("here")}>
         <AddAndEdit
-          setFieldValue={setFieldValue}
+          // setFieldValue={setFieldValue}
           article={current}
           isNewArticle={isNewArticle}
           setIsNewArticle={setIsNewArticle}
-          newArticle={newArticleData}
-          disabled={disabled}
-          setDisabled={setDisabled}
+          // newArticle={newArticleData}
+          // disabled={disabled}
+          // setDisabled={setDisabled}
           views={views}
           setArticle={setArticle}
         />

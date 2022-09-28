@@ -2,6 +2,7 @@
 import React from "react";
 import { AdminBigButton, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import MetaTagsBlock from "../../MetaTagsBlock";
+import ServiceShowCase from "../../ServiceShowCase";
 import FooterBlock from "./FooterBlock";
 import HowDoWeWork from "./HowDoWeWork";
 
@@ -20,6 +21,7 @@ const ServiceMobileContentBlock = () => {
       <StrongBlock />
       <WhatDoWeUse />
       <WhoNeedApps />
+      <ServiceShowCase />
       <HowDoWeWork />
       <FooterBlock />
       <MetaTagsBlock theme="dark" />

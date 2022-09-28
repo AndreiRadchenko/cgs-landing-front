@@ -17,10 +17,11 @@ import {
   Draggable,
   DropResult,
 } from "react-beautiful-dnd";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminBlogService } from "../../../../services/adminBlogPage";
 import close from "../../../../../public/bigClose.svg";
+import { AdminPaddedBlock } from "../../../../styles/AdminPage";
 
 interface IArticles {
   setIsNewArticle: (val: boolean) => void;
@@ -45,16 +46,32 @@ const PublishedArticles: FC<IArticles> = ({
   data,
   views,
 }) => {
-  const { values, handleSubmit } = useFormikContext<IArticle[]>();
+  const { values, handleSubmit } = useFormikContext<IArticle>();
+  const queryClient = useQueryClient();
 
   const { mutateAsync: deleteBlogArticle } = useMutation(
     queryKeys.deleteArticle,
-    (url: string) => adminBlogService.deleteByUrl(url)
+    (id: string) => adminBlogService.deleteByUrl(id),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.getBlogArticles]);
+      },
+    }
+  );
+
+  const { mutateAsync: deleteView } = useMutation(
+    queryKeys.deleteArticle,
+    (id: string) => adminBlogService.deleteViewsById(id)
   );
 
   const { mutateAsync: updateArticle } = useMutation(
     queryKeys.deleteArticle,
-    (article: IArticle) => adminBlogService.updateById(article)
+    (article: IArticle) => adminBlogService.updateById(article),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.getBlogArticles]);
+      },
+    }
   );
 
   const { mutateAsync: updateViews } = useMutation(
@@ -63,38 +80,42 @@ const PublishedArticles: FC<IArticles> = ({
   );
 
   const { mutateAsync: swapElements } = useMutation(
-    queryKeys.postArticle,
+    queryKeys.swapArticles,
     (dataToUpdate: ISwapData) => adminBlogService.swapTwoElements(dataToUpdate)
   );
 
   const deleteArticle = async (i: number) => {
-    // if (views) {
-    //   const allViews = views.filter(
-    //     (view) => view.articleUrl !== values.articles[i].url
-    //   );
-    //   await updateViews(allViews);
-    // }
+    if (views) {
+      const viewToDelete = views.find((view) => view.articleUrl === values.url);
+      if (viewToDelete && viewToDelete._id) {
+        await deleteView(viewToDelete._id);
+      }
+    }
+    if (data) {
+      await deleteBlogArticle(data[i]._id);
+    }
 
-    await deleteBlogArticle(values[i].url);
     setArticle(0);
     setIsNewArticle(true);
     handleSubmit();
   };
 
   const deactivateArticle = async (i: number) => {
-    values[i].disabled = true;
-    await updateArticle(values[i]);
-    setArticle(0);
-    setIsNewArticle(true);
-    handleSubmit();
+    if (data) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const disabledArticle = data[i];
+      disabledArticle.disabled = true;
+      await updateArticle(disabledArticle);
+    }
   };
 
   const publishArticle = async (i: number) => {
-    values[i].disabled = false;
-    await updateArticle(values[i]);
-    setArticle(0);
-    setIsNewArticle(true);
-    handleSubmit();
+    if (data) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const publishArticle = data[i];
+      publishArticle.disabled = false;
+      await updateArticle(publishArticle);
+    }
   };
 
   const toggleEditPost = (i: number) => {
@@ -157,36 +178,38 @@ const PublishedArticles: FC<IArticles> = ({
     );
   };
 
-  return values.length ? (
-    <Styles.Wrapper>
-      <AdminSubTitle>Published articles</AdminSubTitle>
-      <DragDropContext onDragEnd={(param) => handleDragEnd(param)}>
-        <Droppable droppableId={"droppable-1"}>
-          {(provided) => (
-            <div ref={provided.innerRef} {...provided.droppableProps}>
-              {values.map((item: IArticle, i) =>
-                isNewArticle ? (
-                  <Draggable draggableId={"draggable-" + i} index={i} key={i}>
-                    {(provided) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                      >
-                        <ArticleItem item={item} i={i} />
-                      </div>
-                    )}
-                  </Draggable>
-                ) : (
-                  <ArticleItem item={item} i={i} key={i} />
-                )
-              )}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
-    </Styles.Wrapper>
+  return data && data.length ? (
+    <AdminPaddedBlock>
+      <Styles.Wrapper>
+        <AdminSubTitle>Published articles</AdminSubTitle>
+        <DragDropContext onDragEnd={(param) => handleDragEnd(param)}>
+          <Droppable droppableId={"droppable-1"}>
+            {(provided) => (
+              <div ref={provided.innerRef} {...provided.droppableProps}>
+                {data.map((item: IArticle, i) =>
+                  isNewArticle ? (
+                    <Draggable draggableId={"draggable-" + i} index={i} key={i}>
+                      {(provided) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                        >
+                          <ArticleItem item={item} i={i} />
+                        </div>
+                      )}
+                    </Draggable>
+                  ) : (
+                    <ArticleItem item={item} i={i} key={i} />
+                  )
+                )}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </Styles.Wrapper>
+    </AdminPaddedBlock>
   ) : (
     <Styles.EmptyArticles>No articles</Styles.EmptyArticles>
   );

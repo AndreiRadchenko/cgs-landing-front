@@ -15,7 +15,6 @@ import * as Styles from "../../styles/Portfolio.styled";
 import { Separator } from "../../styles/PortfolioSlider.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { adminGlobalService } from "../../services/adminHomePage";
-import { portfolioCategories } from "../../utils/variables";
 import Head from "next/head";
 import { NextPage } from "next";
 
@@ -84,7 +83,7 @@ const PortfolioPage: NextPage = () => {
           </Styles.OurWorkTitle>
         )}
         <Styles.SlidersCont>
-          {portfolioCategories.map((category, ind) => {
+          {data.categories.map((category, ind) => {
             const filtered = sortByCategory(category);
             return (
               filtered &&

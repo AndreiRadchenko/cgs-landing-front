@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AdminSidebar from "../../components/Admin/SideBar/AdminSidebar";
 import AdminBlogMainContent from "../../components/Admin/Global/AdminBlogMainContent";
 import { queryKeys } from "../../consts/queryKeys";
@@ -15,7 +15,6 @@ const AdminBlog = () => {
   return data ? (
     <Styled.AdminWrapper>
       <AdminSidebar />
-      <BlogForm />
       <AdminBlogMainContent />
     </Styled.AdminWrapper>
   ) : (

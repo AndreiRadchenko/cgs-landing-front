@@ -5,7 +5,7 @@ import ImagePreview from "../Image/ImagePreview";
 interface ICategoryProps {
   title: string;
   description: string;
-  url: any;
+  url: string;
   onOpenModalHandler: (categoryName: string) => void;
 }
 

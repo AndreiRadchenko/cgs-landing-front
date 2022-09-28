@@ -10,6 +10,7 @@ import {
 import { IDataResponse } from "../../types/Admin/Response.types";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { recoverLink } from "../../utils/recoverLink";
+import ScrambleText from "../HomePage/ScrambleText";
 
 const BookBlock = () => {
   const queryClient = useQueryClient();
@@ -20,8 +21,13 @@ const BookBlock = () => {
   return (
     <>
       <Subtitle className="footer">
-        Do you want to turn your ideas into{" "}
-        <span className="blue">tech solutions</span>{" "}
+        Do you want <br /> to turn your <br /> ideas into&nbsp;
+        <br />
+        <span className="blue solutions">
+          {(typeof window !== "undefined" && (
+            <ScrambleText text="tech solutions" />
+          )) || <span className="blue">tech solutions</span>}
+        </span>
         <FooterButtonWrapper>
           <FooterLinkButton
             target="_blank"

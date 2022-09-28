@@ -3,9 +3,20 @@ import themes from "../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 12.5em;
+  padding-bottom: 20px;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding-bottom: 50px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
+    padding-bottom: 0;
     margin-top: 6.25em;
+    margin-bottom: 3em;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    padding-bottom: 40px;
   }
 `;
 
@@ -54,14 +65,14 @@ export const TopSteps = styled.div`
       margin-bottom: 2.875em;
 
       &:nth-child(2) {
-        margin-top: 3em;
+        margin-top: 0.56em;
         height: 2.625em;
         margin-left: 5.25em;
       }
 
       &:last-child {
         height: 2.625em;
-        margin-top: 3em;
+        margin-top: 3.5em;
         margin-left: 12.125em;
       }
     }
@@ -90,6 +101,7 @@ export const BottomSteps = styled.div`
       &:last-child {
         height: 5.625em;
         margin-left: -12em;
+        margin-top: -2em;
       }
 
       & > div {
@@ -136,10 +148,10 @@ export const StyledLine = styled.div<IMobileLine>`
     }
 
     &:nth-child(2) {
-      top: 13.3em;
+      top: 10.9em;
     }
     &:nth-child(3) {
-      top: 21.7em;
+      top: 19.9em;
     }
   }
 `;

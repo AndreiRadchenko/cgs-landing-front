@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import * as StyledThisComp from "./FeedbackCard.styled";
 import { IFeedbackCardProps } from "../../types/Feedback.types";
 import star from "../../../public/HomePageDecoration/feedbackStar.svg";
@@ -38,11 +38,15 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
           {description}
         </StyledThisComp.FeedbackCardDescription>
       </StyledThisComp.FeedBackContentWrapper>
-      <StyledThisComp.FeedbackButton href="https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/">
+      <StyledThisComp.FeedbackButton
+        target="_blank"
+        rel="noopener nofollow"
+        href="https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/"
+      >
         View more
       </StyledThisComp.FeedbackButton>
     </StyledThisComp.FeedbackCardContainer>
   );
 };
 
-export default FeedbackCard;
+export default memo(FeedbackCard);

@@ -206,7 +206,7 @@ export interface IDataBlockchainResponse {
 export interface IAuthor {
   name: string;
   specialization: string;
-  image: { url: string };
+  image: { url: string } | null;
 }
 
 export interface ITextBlog {
@@ -219,10 +219,27 @@ export interface ITextBlog {
 export interface IArticle {
   _id: string;
   url: string;
-  image: { url: string };
+  image: { url: string } | null;
   title: string;
   description: string;
   author: IAuthor;
+  scheduleArticle: string;
+  updatedOn: string;
+  date: string;
+  minutesToRead: number;
+  content: ITextBlog[];
+  tags: string[];
+  disabled: boolean;
+  meta: IMetaBlock;
+}
+
+export interface IArticleWithoutId {
+  url: string;
+  image: { url: string } | null;
+  title: string;
+  description: string;
+  author: IAuthor;
+  scheduleArticle: string;
   updatedOn: string;
   date: string;
   minutesToRead: number;
@@ -241,28 +258,10 @@ export interface ISwapData {
   srcIndex: number;
 }
 
-export interface INewArticle {
-  _id: string;
-  url: string;
-  image: { url: string };
-  title: string;
-  description: string;
-  author: IAuthor;
-  updatedOn: string;
-  date: string;
-  minutesToRead: number;
-  content: ITextBlog[];
-  tags: string[];
-  possibleTags: string[];
-  disabled: boolean;
-  meta: IMetaBlock;
-}
-
 export interface IBlogPageResponse {
-  newArticle: INewArticle;
+  possibleTags: string[];
   meta: IMetaBlock;
 }
-
 export interface IView {
   _id?: string;
   views: number;
@@ -330,7 +329,11 @@ export interface IServiceMobile {
     };
   };
   whatDoWeUse: ISubtitleWithText;
-  whoNeedApps: ISubtitleWithText;
+  whoNeedApps: {
+    subtitle: string;
+    text: string;
+  };
+  projects: string[];
   howDoWeWork: {
     subtitle: string;
     text: {
@@ -365,6 +368,7 @@ export interface ICloudService {
     publishing: ISubtitleWithText;
     subtitle: string;
   };
+  projects: string[];
   workBlock: {
     subtitle: string;
     subtitle1: string;
@@ -407,6 +411,7 @@ export interface IServiceWeb {
     element3: ISubtitleWithText;
   };
   solutionBlock: ISubtitleWithText;
+  projects: string[];
   perksBlock: ISubtitleWithList;
   footerBlock: {
     subtitle: string;
@@ -435,6 +440,7 @@ export interface IServiceDb {
     text: string;
     image: { url: string };
   };
+  projects: string[];
   featuresBlock: {
     databases: {
       subtitle: string;
@@ -480,6 +486,7 @@ export interface IBlockchainService {
       url: string;
     };
   };
+  projects: string[];
   servicesBlock: {
     image: {
       url: string;
@@ -518,6 +525,7 @@ export interface IServiceSupport {
     subtitle: string;
     textSubBlock: ISubtitleWithText[];
   };
+  projects: string[];
   bonusesBlock: {
     subtitle: string;
     textSubBlock: string[];
@@ -548,6 +556,7 @@ export interface IUxUiInterface {
     title: string;
     textSubBlock: string[];
   };
+  projects: string[];
   essentialBlock: {
     title: string;
     text: string;
@@ -560,4 +569,24 @@ export interface IUxUiInterface {
     image: { url: string };
   };
   meta: IMetaBlock;
+}
+
+export interface IProjects {
+  projects: string[];
+}
+
+export interface IReviewProps {
+  bgColor: string;
+  button: string;
+  category: string;
+  feedback: {
+    name: string;
+    rating: number | null;
+    company: string;
+    feedbackText: string;
+  };
+  image: { url: string } | null;
+  text: string;
+  title: string;
+  industry: string;
 }

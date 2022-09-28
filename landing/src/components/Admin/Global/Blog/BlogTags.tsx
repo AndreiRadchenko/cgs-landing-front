@@ -3,81 +3,54 @@ import Plus from "../../../../../public/plus.svg";
 
 import * as Styles from "../../../../styles/BlogTags.styled";
 import { useFormikContext } from "formik";
-import { IArticle, INewArticle } from "../../../../types/Admin/Response.types";
+import { IArticle } from "../../../../types/Admin/Response.types";
 import Dropdown from "./Dropdown";
 
 interface IBlogTags {
   isNewArticle: boolean;
   article: number;
-  newArticle: INewArticle;
+  possibleTags: string[];
 }
 
-const BlogTags: FC<IBlogTags> = ({ isNewArticle, article, newArticle }) => {
+const BlogTags: FC<IBlogTags> = ({ isNewArticle, article, possibleTags }) => {
   const [tagList, setTagList] = useState<JSX.Element[]>([]);
-  const { values } = useFormikContext<IArticle[]>();
-  const newArticleTags = newArticle.tags;
-  const editArticleTags = values[article]?.tags;
+  const { values } = useFormikContext<IArticle>();
+  const articleTags = values?.tags;
 
-  const newArticleTag = useCallback(
+  const articleTag = useCallback(
     (index: number) => (
       <div key={index}>
         <Dropdown
-          name={`newArticle.tags[${index}]`}
-          value={newArticle.tags[index]}
-          tags={newArticle.possibleTags}
+          name={`tags[${index}]`}
+          value={values.tags[index]}
+          tags={possibleTags}
         />
       </div>
     ),
-    [newArticle.possibleTags, newArticle.tags]
-  );
-
-  const editArticleTag = useCallback(
-    (index: number) => (
-      <div key={index}>
-        <Dropdown
-          name={`[${article}].tags[${index}]`}
-          value={values[article].tags[index]}
-          tags={newArticle.possibleTags}
-        />
-      </div>
-    ),
-    [article, newArticle.possibleTags, values]
+    [values.tags, possibleTags]
   );
 
   const componentsArray = useCallback(() => {
-    return isNewArticle
-      ? newArticleTags.map((tag, i) => newArticleTag(i))
-      : editArticleTags.map((tag, i) => editArticleTag(i));
-  }, [
-    editArticleTag,
-    editArticleTags,
-    isNewArticle,
-    newArticleTag,
-    newArticleTags,
-  ]);
+    return articleTags.map((tag, i) => articleTag(i));
+  }, [articleTag, articleTags]);
 
   useEffect(() => {
     const result = componentsArray();
     setTagList(result);
-  }, [article, isNewArticle, values, newArticle, componentsArray]);
+  }, [article, isNewArticle, values, componentsArray]);
 
   const addTagOnClick = () => {
-    const newArticleCase = () => {
-      newArticleTags.push("");
-      const index = newArticleTags.length - 1;
-      setTagList((oldTagList) => oldTagList.concat(newArticleTag(index)));
+    const articleCase = () => {
+      articleTags.push("");
+      const index = articleTags.length - 1;
+      setTagList((oldTagList) => oldTagList.concat(articleTag(index)));
     };
-    const editArticleCase = () => {
-      editArticleTags.push("");
-      const index = editArticleTags.length - 1;
-      setTagList((oldTagList) => oldTagList.concat(editArticleTag(index)));
-    };
-    isNewArticle ? newArticleCase() : editArticleCase();
+    articleCase();
   };
 
   const deleteItem = () => {
     setTagList(tagList.slice(0, -1));
-    isNewArticle ? newArticle.tags.pop() : values[article].tags.pop();
+    values.tags.pop();
   };
 
   return (

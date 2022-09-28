@@ -1,6 +1,7 @@
 import { TextareaAutosize } from "@mui/material";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
+import { IFontSize } from "./HomePage/General.styled";
 
 export const AdminWrapper = styled.div`
   display: grid;
@@ -81,8 +82,10 @@ export const AdminContentBlock = styled.div`
 `;
 
 export const AdminPaddedBlock = styled.div`
-  padding: ${themes.primary.spacing.primary}
-    ${themes.primary.spacing.adminWithinBlocks};
+  padding: ${css`
+    ${themes.primary.spacing.primary}
+    ${themes.primary.spacing.adminWithinBlocks}
+  `};
   margin-bottom: ${themes.primary.spacing.adminWithinBlocks};
   background: ${(props) =>
     props.theme == "dark" ? themes.primary.colors.darkedGrayBack : null};
@@ -94,8 +97,10 @@ export const AdminPaddedBlock = styled.div`
 `;
 
 export const AdminPaddedHeaderBlock = styled.div`
-  padding: ${themes.primary.spacing.primary}
-    ${themes.primary.spacing.adminWithinBlocks};
+  padding: ${css`
+    ${themes.primary.spacing.primary}
+    ${themes.primary.spacing.adminWithinBlocks}
+  `};
   background: ${(props) =>
     props.theme == "dark" ? themes.primary.colors.darkedGrayBack : null};
 `;
@@ -888,4 +893,119 @@ export const AdminSubtitleGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   column-gap: 7.5em;
   margin-right: 7.5em;
+`;
+
+export const AdminShowCaseCategoryDropdownHeader = styled.div`
+  margin-top: 14px;
+  padding: 0 14px;
+  letter-spacing: 0.03em;
+
+  width: 100%;
+  border: 1px solid ${themes.primary.colors.comment};
+  color: ${themes.primary.colors.comment};
+  display: flex;
+  line-height: 363%;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+  & svg {
+    transition: all 0.3s;
+  }
+
+  &.open svg {
+    transform: rotate(180deg);
+  }
+`;
+
+export const AdminCategoryOption = styled.div``;
+
+export const AdminShowCaseServiceButton = styled.div`
+  background: ${themes.primary.colors.darkBlue};
+  color: ${themes.primary.colors.secondary};
+  padding: 3px 8px;
+  line-height: 160%;
+  width: fit-content;
+  height: fit-content;
+  font-size: 1.029em;
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 1em;
+  margin-right: 1em;
+
+  & > span {
+    padding-left: 15px;
+  }
+`;
+
+export const AdminShowCaseServiceGrid = styled.div`
+  display: grid;
+  grid-template-columns: 461px auto;
+  column-gap: 2.205em;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+`;
+
+export const AdminShowCaseTitle = styled.h2`
+  font-size: 1.617em;
+  margin: 0;
+`;
+
+export const AdminBlockTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 1.323em;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  color: ${themes.primary.colors.blogBackground};
+  padding: 19px 14px;
+  background-color: ${themes.primary.colors.primary};
+  margin-bottom: 1.617em;
+`;
+
+export const AdminShowCaseProjectsWrapper = styled.div`
+  margin-top: 3em;
+`;
+
+export const AdminShowCaseDropDownContent = styled.div`
+  position: absolute;
+  display: none;
+  background-color: ${themes.primary.colors.blogBackground};
+  z-index: 2;
+  width: 461px;
+  cursor: pointer;
+
+  &.open {
+    display: block;
+  }
+`;
+
+export const AdminShowCaseDropDownListItem = styled.div`
+  padding: 0 14px;
+  letter-spacing: 0.03em;
+
+  width: 100%;
+  border: 1px solid ${themes.primary.colors.comment};
+  border-top: 0;
+  color: ${themes.primary.colors.comment};
+  display: flex;
+  line-height: 200%;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+`;
+
+export const AdminShowCaseButton = styled.div<IFontSize>`
+  margin-top: 41px;
+  font-family: inherit;
+  font-size: ${({ size }) => size};
+  padding: ${({ padding }) => padding};
+  cursor: pointer;
+  position: relative;
+  color: ${themes.primary.colors.secondary};
+  background-color: ${themes.primary.colors.primary};
+  line-height: 99%;
+  display: inline-block;
 `;

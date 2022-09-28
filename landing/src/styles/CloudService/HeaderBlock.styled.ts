@@ -51,7 +51,6 @@ export const Title = styled.h1`
 
   & > span:last-child {
     position: relative;
-    top: 14px;
 
     &::after {
       content: "";
@@ -65,6 +64,12 @@ export const Title = styled.h1`
       right: -0.2em;
     }
   }
+
+  @media (max-width: 434px) {
+    & > span:last-child {
+      top: 14px;
+    }
+  }
 `;
 
 export const Description = styled.p`
@@ -75,7 +80,7 @@ export const Description = styled.p`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 2.5em 0 1.75em;
+    margin: 2.81em 0 1.75em;
   }
 `;
 

@@ -1,13 +1,12 @@
-import Image from "next/image";
-import logo from "../../../public/logo.svg";
 import * as Styled from "../../styles/AdminAuth";
 import React from "react";
+import Logo from "../HeaderNavNew/Logo";
 
 const AdminAuthFormHeader = () => {
   return (
     <Styled.AdminFormHeader>
       <Styled.AdminAuthTeamLogo>
-        <Image alt="logo" src={logo} />
+        <Logo />
       </Styled.AdminAuthTeamLogo>
     </Styled.AdminFormHeader>
   );

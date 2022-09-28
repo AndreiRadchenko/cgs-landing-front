@@ -6,10 +6,12 @@ import { adminGlobalService } from "../services/adminHomePage";
 
 const useUploadImageFunction = (
   state?: IImage,
-  key = queryKeys.GetFullPage
+  key = queryKeys.GetFullPage,
+  submitInTheEnd = true,
+  nestedImageName = ""
 ) => {
   const queryClient = new QueryClient();
-  const { setFieldValue } = useFormikContext();
+  const { handleSubmit, setFieldValue } = useFormikContext();
 
   const upload = async (image: any) => {
     const response = await adminGlobalService.uploadImage(image);
@@ -25,11 +27,16 @@ const useUploadImageFunction = (
     const link = await mutateAsync(image);
     if (state) {
       state.image! = link!;
-      setFieldValue("image", link);
+      !submitInTheEnd &&
+        setFieldValue(
+          nestedImageName.length !== 0 ? nestedImageName : "image",
+          link
+        );
     } else {
       localState!.image = link!;
     }
-    queryClient.invalidateQueries([key]);
+    submitInTheEnd && handleSubmit();
+    queryClient.invalidateQueries(key);
   };
 
   return uploadImageFunction;

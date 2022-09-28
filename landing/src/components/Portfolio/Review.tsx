@@ -54,6 +54,12 @@ const Review = ({ review, className }: IReviewProps) => {
               </Styles.LinkButton>
             )}
           </Styled.ProjectHeader>
+          {review.industry && (
+            <Styled.ProjectIndustry>
+              {"// "}
+              {review.industry}
+            </Styled.ProjectIndustry>
+          )}
           <Styled.ProjectDescription>{review.text}</Styled.ProjectDescription>
           <Styled.Separator />
           {review.feedback.name !== "" && (

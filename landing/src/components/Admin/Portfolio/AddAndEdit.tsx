@@ -49,11 +49,12 @@ const AddAndEdit = ({
           ? JSON.parse(JSON.stringify(newPageReviewInit))
           : typeof reviews !== "undefined" && reviews[current]
       }
-      onSubmit={(values, actions) => {
+      onSubmit={(values, action) => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { __v, ...data } = values;
+        setIsNewStatus(true);
         isNewStatus ? addReview(data) : editReview(data);
-        actions.resetForm();
+        action.resetForm();
       }}
       validateOnChange={false}
     >

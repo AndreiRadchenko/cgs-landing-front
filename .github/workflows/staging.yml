@@ -6,7 +6,6 @@ on:
       - staging
     paths:
       - landing/**
-    
 
 jobs:
   deploy:
@@ -32,9 +31,9 @@ jobs:
         with:
           args: deploy --dir=build --prod
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_STG_LANDING }} 
-          heroku_email: 'contact@codegenerationsoftware.com'
-        env: 
+          heroku_app_name: ${{ secrets.HEROKU_APP_STG_LANDING }}
+          heroku_email: "contact@codegenerationsoftware.com"
+        env:
           HD_PROJECT_PATH: "landing"
 
       - name: Notify slack
@@ -42,4 +41,4 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: pullreminders/slack-action@master
         with:
-          args: '{\"channel\":\"${{ secrets.SLACK_CHANNEL_NAME }}\",\"text\":\"${{ secrets.HEROKU_APP_STG_LANDING_TEXT }}\"}' 
+          args: '{\"channel\":\"${{ secrets.SLACK_CHANNEL_NAME }}\",\"text\":\"${{ secrets.HEROKU_APP_STG_LANDING_TEXT }}\"}'

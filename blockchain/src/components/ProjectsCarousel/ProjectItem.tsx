@@ -33,13 +33,7 @@ const ProjectItem = ({
     >
       <Styled.HoverBlock onMouseOver={handleOver} onMouseLeave={handleLeave}>
         <Styled.ImageWrapper isVisible={isVisible}>
-          <Image
-            src={image}
-            alt={title}
-            layout="fill"
-            objectFit="contain"
-            priority={true}
-          />
+          <Image src={image} alt={title} layout="fill" objectFit="contain" />
         </Styled.ImageWrapper>
         <Styled.PhotoText isVisible={isVisible}>{description}</Styled.PhotoText>
       </Styled.HoverBlock>

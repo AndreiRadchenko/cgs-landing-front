@@ -13,7 +13,7 @@ export const Container = styled.div`
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     width: 100%;
-    margin-top: -12.3em;
+    margin-top: 92px;
 
     background-position: bottom center;
     background-size: contain;

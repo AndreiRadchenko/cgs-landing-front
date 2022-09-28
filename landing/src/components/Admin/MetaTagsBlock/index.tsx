@@ -56,8 +56,6 @@ const MetaTagsBlock = ({
     //   return nestedObj.meta[metaName];
     // };
 
-    console.log(meta);
-
     setDescLength(
       nameBefore ? meta.length : values.meta.metaDescription.length
     );
@@ -69,8 +67,6 @@ const MetaTagsBlock = ({
     //   ? getMetaByName(values, "metaTitle").length
     //   :
   }, [nameBefore, values, meta.length]);
-
-  console.log(titleLength, descLength);
 
   return (
     <Styled.AdminPaddedBlock theme={theme}>

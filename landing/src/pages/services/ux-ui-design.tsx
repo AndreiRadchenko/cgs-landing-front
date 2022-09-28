@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import Head from "next/head";
 import { adminUxUiService } from "../../services/services/AdminServiceUxUiPage";
@@ -14,6 +14,25 @@ import EssentialBlock from "../../components/UxUiService/EsentialBlock";
 import FooterBlock from "../../components/UxUiService/FooterBlock";
 import * as Styled from "../../styles/UxUiService/Layout.styled";
 import { Layout } from "../../styles/Layout.styled";
+import ShowCase from "../../components/ShowCase";
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(
+    queryKeys.getServiceUxUiPage,
+    async () => await adminUxUiService.getUxUiServicePage()
+  );
+
+  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+    adminGlobalService.getFullPage()
+  );
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 
 const UxUiDesign = () => {
   const { data } = useQuery(
@@ -38,6 +57,11 @@ const UxUiDesign = () => {
           <HeadBlock />
           <WhatDoWeDoBlock />
           <DesignBlock />
+        </Styled.Layout>
+      </Layout>
+      <ShowCase projects={data?.projects} />
+      <Layout>
+        <Styled.Layout>
           <EssentialBlock />
           <FooterBlock />
         </Styled.Layout>

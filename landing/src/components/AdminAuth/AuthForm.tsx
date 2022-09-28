@@ -49,7 +49,7 @@ const AdminAuthForm = () => {
               handleChange={fprops.handleChange}
               type="text"
               placeholder="Username"
-              labelName="Username"
+              labelName="Username:"
             />
             <AdminAuthFormInput
               name="password"
@@ -57,7 +57,8 @@ const AdminAuthForm = () => {
               handleChange={fprops.handleChange}
               type="password"
               placeholder="Password"
-              labelName="Password"
+              labelName="Password:"
+              className="password"
             />
             <AuthFormError>{errorMessage}</AuthFormError>
             <AuthSubmitButton />

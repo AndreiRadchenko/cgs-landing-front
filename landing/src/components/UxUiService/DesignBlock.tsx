@@ -28,18 +28,13 @@ const DesignBlock = () => {
     <Styled.Container>
       <Styled.Title>{data?.title}</Styled.Title>
       <Styled.BlockWrapper>
-        <Styled.StyledLine
-          grad1={arrayOfGradients[0].secondColor}
-          grad2={arrayOfGradients[0].firstColor}
-        />
-        <Styled.StyledLine
-          grad1={arrayOfGradients[1].secondColor}
-          grad2={arrayOfGradients[1].firstColor}
-        />
-        <Styled.StyledLine
-          grad1={arrayOfGradients[2].secondColor}
-          grad2={arrayOfGradients[2].firstColor}
-        />
+        {arrayOfGradients.map((el) => (
+          <Styled.StyledLine
+            key={el.firstColor}
+            grad1={el.secondColor}
+            grad2={el.firstColor}
+          />
+        ))}
         <Styled.TopSteps>
           {data?.textSubBlock.slice(0, 3).map((el, idx) => (
             <LinedText position="top" text={el} key={idx} height={78} />

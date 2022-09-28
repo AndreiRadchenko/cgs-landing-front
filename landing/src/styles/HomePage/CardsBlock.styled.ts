@@ -12,7 +12,24 @@ export const BigDigit = styled.p`
   margin-right: 25px;
   color: ${themes.primary.colors.blogBackground};
   -webkit-text-stroke: 2px ${themes.primary.colors.primary};
-  text-shadow: 7px 2px 0px ${themes.primary.colors.primary};
+  transition: all 0.3s;
+  filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary})
+    grayscale(100%);
+  transition: filter 1s;
+
+  &.scrolled {
+    background: linear-gradient(
+      90deg,
+      ${themes.primary.colors.mainGradientColor1} 0%,
+      ${themes.primary.colors.mainGradientColor2} 100%
+    );
+    filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary})
+      grayscale(0%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 110px;
@@ -27,7 +44,18 @@ export const BigDigit = styled.p`
     font-size: 88px;
     line-height: 89px;
     transform: translateY(2px);
-    text-shadow: 4.1358px 1.18166px 0px ${themes.primary.colors.primary};
+    padding-right: 10px;
+    margin-right: 15px;
+
+    filter: drop-shadow(
+      4.1358px 1.18166px 0px ${themes.primary.colors.primary}
+    );
+
+    &.scrolled {
+      filter: drop-shadow(
+        4.1358px 1.18166px 0px ${themes.primary.colors.primary}
+      );
+    }
   }
   @media (max-width: 360px) {
     font-size: 80px;
@@ -240,13 +268,6 @@ export const CardContainer = styled.div`
     &:nth-child(4) {
       & div {
         margin-top: 0;
-      }
-    }
-  }
-  @media (max-width: 360px) {
-    &:nth-child(n) {
-      & img {
-        top: -10%;
       }
     }
   }

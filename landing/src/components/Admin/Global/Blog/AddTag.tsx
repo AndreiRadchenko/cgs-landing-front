@@ -1,24 +1,47 @@
 ﻿import { useFormikContext } from "formik";
 import React, { useRef, useState } from "react";
+import { useMutation, useQueryClient } from "react-query";
+import { queryKeys } from "../../../../consts/queryKeys";
+import { adminBlogService } from "../../../../services/adminBlogPage";
 import { AdminInput } from "../../../../styles/AdminPage";
 import * as Styled from "../../../../styles/BlogTags.styled";
-import { IBlogResponse } from "../../../../types/Admin/Response.types";
+import { IBlogPageResponse } from "../../../../types/Admin/Response.types";
 
-const AddTag = () => {
+interface IAddTag {
+  possibleTags: string[];
+}
+
+const AddTag = ({ possibleTags }: IAddTag) => {
   const [inputVal, setInputVal] = useState<string>("");
   const ref = useRef<HTMLTextAreaElement>(null);
+  const queryClient = useQueryClient();
 
-  const { values, handleSubmit } = useFormikContext<IBlogResponse>();
+  const data = queryClient.getQueryData<IBlogPageResponse | undefined>(
+    queryKeys.getBlogPage
+  );
+
+  const { mutateAsync: updateBlogPageData } = useMutation(
+    queryKeys.updateBlogPage,
+    (dataToUpdate: IBlogPageResponse) =>
+      adminBlogService.updateBlogPageData(dataToUpdate),
+    {
+      onSuccess() {
+        queryClient.invalidateQueries([queryKeys.getBlogPage]);
+      },
+    }
+  );
+
   const handleClick = () => {
     if (
       ref.current &&
       inputVal.length > 0 &&
-      !values.newArticle.possibleTags.includes(inputVal)
+      !possibleTags.includes(inputVal)
     ) {
-      values.newArticle.possibleTags.push(inputVal);
+      const newTags = possibleTags;
+      newTags.push(inputVal);
       setInputVal("");
       ref.current.value = "";
-      handleSubmit();
+      data && updateBlogPageData({ possibleTags: newTags, meta: data.meta });
     }
   };
 

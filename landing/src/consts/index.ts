@@ -129,6 +129,7 @@ export const newPageReviewInit = {
   title: "",
   text: "",
   button: "",
+  industry: "",
   feedback: {
     name: "",
     rating: "",
@@ -279,3 +280,27 @@ export const FaqPageQuestions = [
     ],
   },
 ];
+
+export const newBlogArticle = {
+  url: "",
+  image: null,
+  title: "",
+  description: "",
+  author: {
+    image: null,
+    name: "",
+    specialization: "",
+  },
+  updatedOn: "",
+  scheduleArticle: "",
+  date: "",
+  minutesToRead: 2,
+  content: [],
+  tags: [],
+  disabled: false,
+  meta: {
+    metaTitle: "",
+    metaDescription: "",
+    customHead: "",
+  },
+};

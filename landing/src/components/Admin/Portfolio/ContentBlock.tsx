@@ -116,7 +116,7 @@ const AdminPortfolioContentBlock = () => {
                                       idx={i}
                                       setCurrent={setCurrent}
                                       deleteFunc={() =>
-                                        deleteFunc(review.title)
+                                        review._id && deleteFunc(review._id)
                                       }
                                       editTrigger={setIsNewStatus}
                                     />

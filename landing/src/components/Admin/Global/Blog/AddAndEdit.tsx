@@ -27,16 +27,16 @@ import PublishedArticles from "./PublishedArticles";
 
 interface IAddAndEdit {
   article: number;
-  setFieldValue: (
-    field: string,
-    value: any,
-    shouldValidate?: boolean | undefined
-  ) => void;
+  // setFieldValue: (
+  //   field: string,
+  //   value: any,
+  //   shouldValidate?: boolean | undefined
+  // ) => void;
   isNewArticle: boolean;
   setIsNewArticle: (val: boolean) => void;
-  newArticle: INewArticle;
-  disabled: boolean;
-  setDisabled: (val: boolean) => void;
+  // newArticle: INewArticle;
+  // disabled: boolean;
+  // setDisabled: (val: boolean) => void;
   views: IView[];
   setArticle: (val: number) => void;
 }
@@ -53,10 +53,10 @@ const AddAndEdit = ({
   article,
   isNewArticle,
   setIsNewArticle,
-  setFieldValue,
-  newArticle,
-  disabled,
-  setDisabled,
+  // setFieldValue,
+  // newArticle,
+  // disabled,
+  // setDisabled,
   views,
   setArticle,
 }: IAddAndEdit) => {
@@ -78,9 +78,9 @@ const AddAndEdit = ({
     queryKeys.postArticle,
     (dataToUpdate: IView) => adminBlogService.updateViews(dataToUpdate)
   );
-  useEffect(() => {
-    setDisabled(isNewArticle ? newArticle.disabled : values[article].disabled);
-  }, [isNewArticle, newArticle.disabled, article, setDisabled, values]);
+  // useEffect(() => {
+  //   setDisabled(isNewArticle ? newArticle.disabled : values[article].disabled);
+  // }, [isNewArticle, newArticle.disabled, article, setDisabled, values]);
 
   useEffect(() => {
     setDescLength(
@@ -169,22 +169,22 @@ const AddAndEdit = ({
 
     values.push(articleToAdd);
 
-    newArticle = {
-      _id: "",
-      url: "",
-      content: [],
-      title: "",
-      image: { url: "" },
-      author: { name: "", image: { url: "" }, specialization: "" },
-      description: "",
-      tags: [],
-      possibleTags: newArticle.possibleTags,
-      disabled: false,
-      date: "",
-      updatedOn: "",
-      minutesToRead: 0,
-      meta: { metaTitle: "", metaDescription: "", customHead: "" },
-    };
+    // newArticle = {
+    //   _id: "",
+    //   url: "",
+    //   content: [],
+    //   title: "",
+    //   image: { url: "" },
+    //   author: { name: "", image: { url: "" }, specialization: "" },
+    //   description: "",
+    //   tags: [],
+    //   possibleTags: newArticle.possibleTags,
+    //   disabled: false,
+    //   date: "",
+    //   updatedOn: "",
+    //   minutesToRead: 0,
+    //   meta: { metaTitle: "", metaDescription: "", customHead: "" },
+    // };
 
     await postArticle(articleToAdd);
     setDisabled(false);
@@ -436,7 +436,7 @@ const AddAndEdit = ({
           </TicketsButton>
         </Styles.SubmitButtonWrapper>
 
-        <PublishedArticles
+        {/* <PublishedArticles
           views={views ? views : undefined}
           data={values}
           isNewArticle={isNewArticle}
@@ -444,7 +444,7 @@ const AddAndEdit = ({
           setArticle={setArticle}
           setIsNewArticle={setIsNewArticle}
           disabled={disabled}
-        />
+        /> */}
       </Styled.AdminPaddedBlock>
     </>
   );
