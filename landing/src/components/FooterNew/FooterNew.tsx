@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as StyledThisComp from "./Footer.styled";
 import logo from "../../../public/newHeaderLogo.svg";
 import ImagePreview from "../Image/ImagePreview";
@@ -8,18 +8,21 @@ import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 import { useQueryClient } from "react-query";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
+import { ClickAudio, Source } from "../HeaderNavNew/HeaderNav.styled";
 
 const FooterNew = (): JSX.Element => {
-  const [audio, setAudio] = useState<HTMLAudioElement>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const { width } = useWindowDimension();
 
-  const playSound = () => {
-    typeof audio !== "undefined" && audio.play();
+  const handleClick = () => {
+    audioRef.current?.play();
   };
 
   useEffect(() => {
-    setAudio(new Audio("music/headerMouseClick.mp3"));
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5;
+    }
   }, []);
 
   useEffect(() => {
@@ -34,8 +37,11 @@ const FooterNew = (): JSX.Element => {
   DisableScrollBarHandler(isOpen);
   return (
     <StyledThisComp.HeaderNavContainer>
+      <ClickAudio ref={audioRef}>
+        <Source src="/music/headerMouseClick.mp3" type="audio/mpeg" />
+      </ClickAudio>
       <StyledThisComp.FlexRowContainer>
-        <StyledThisComp.LogoLinkWrapper onClick={playSound} href={"/"}>
+        <StyledThisComp.LogoLinkWrapper onClick={handleClick} href={"/"}>
           <ImagePreview
             src={logo.src}
             alt={"logo cgs-team"}
@@ -44,14 +50,14 @@ const FooterNew = (): JSX.Element => {
           />
         </StyledThisComp.LogoLinkWrapper>
         <StyledThisComp.Email
-          onClick={playSound}
+          onClick={handleClick}
           href={`mailto:${data?.email}`}
         >
           {data?.email}
         </StyledThisComp.Email>
       </StyledThisComp.FlexRowContainer>
 
-      <StyledThisComp.NavList onClick={playSound}>
+      <StyledThisComp.NavList onClick={handleClick}>
         {data?.links.map((link, ind) => (
           <Link key={link.link + ind} href={link.link} passHref>
             <StyledThisComp.ListItemNav

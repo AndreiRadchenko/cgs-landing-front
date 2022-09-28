@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { TextScramble } from "../TextScramble";
 
@@ -17,7 +17,7 @@ const ScrambleText = ({ text }: IScrambleText) => {
           text={text}
           characters="!@#$%^&*()-="
           revealMode="typewriter"
-          revealSpeed={150}
+          revealSpeed={100}
           revealText
         />
       ) : (

@@ -11,6 +11,16 @@ export const SliderWrapper = styled.div`
     margin-left: 10.5vw;
     margin-right: 9vw;
   }
+  & > div:first-child {
+    transition: 0.4s;
+  }
+
+  &:hover {
+    & > div:first-child {
+      background-color: ${themes.primary.colors.darkBlue};
+      color: ${themes.primary.colors.blogBackground};
+    }
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-inline: 21px;
@@ -18,6 +28,13 @@ export const SliderWrapper = styled.div`
       margin: 0;
     }
     margin-top: 0;
+
+    &:hover {
+      & > div:first-child {
+        background-color: transparent;
+        color: ${themes.primary.colors.primary};
+      }
+    }
   }
 `;
 
@@ -144,6 +161,28 @@ export const TextWrapper = styled.div`
   height: 24.666em;
   padding: 2.666em 2.5em 0;
   border-bottom: 1px solid ${themes.primary.colors.comment};
+  border-right: 1px solid ${themes.primary.colors.comment};
+  z-index: 2;
+  background-color: ${themes.primary.colors.blogBackground};
+  position: absolute;
+  transition: 0.3s;
+  opacity: 0;
+
+  &.hover {
+    opacity: 1;
+  }
+
+  @media ${themes.primary.media.minPC} {
+    height: 75%;
+  }
+
+  @media (max-width: 1340px) {
+    height: 70%;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    height: 65%;
+  }
 
   @media (max-width: 840px) {
     padding-top: 0;

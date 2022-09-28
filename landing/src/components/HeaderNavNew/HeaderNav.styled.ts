@@ -146,3 +146,9 @@ export const HeaderWrapper = styled.div`
     padding-bottom: 93px;
   }
 `;
+
+export const Source = styled.source``;
+
+export const ClickAudio = styled.audio`
+  display: none;
+`;

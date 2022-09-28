@@ -11,15 +11,14 @@ import Logo from "./Logo";
 import HeaderBurgerDropdown from "./HeaderBurgerDropdown";
 
 const HeaderNavNew = (): JSX.Element => {
-  const [audio, setAudio] = useState<HTMLAudioElement>();
-
   const headerRef = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { width } = useWindowDimension();
 
-  const playSound = () => {
-    typeof audio !== "undefined" && audio.play();
+  const handleClick = () => {
+    audioRef.current?.play();
   };
 
   const toggleBurgerHandler = () => {
@@ -37,7 +36,9 @@ const HeaderNavNew = (): JSX.Element => {
   };
 
   useEffect(() => {
-    setAudio(new Audio("/music/headerMouseClick.mp3"));
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5;
+    }
     onScroll();
     window.addEventListener("scroll", onScroll, true);
     return window.removeEventListener("scroll", onScroll);
@@ -50,6 +51,12 @@ const HeaderNavNew = (): JSX.Element => {
   DisableScrollBarHandler(isOpen);
   return (
     <StyledThisComp.HeaderWrapper>
+      <StyledThisComp.ClickAudio ref={audioRef}>
+        <StyledThisComp.Source
+          src="/music/headerMouseClick.mp3"
+          type="audio/mpeg"
+        />
+      </StyledThisComp.ClickAudio>
       <StyledThisComp.HeaderNavContainer
         className={isScrolled ? "scrolled" : undefined}
       >
@@ -73,10 +80,10 @@ const HeaderNavNew = (): JSX.Element => {
             }
           )}
         </BurgerMenu>
-        <StyledThisComp.LogoLinkWrapper onClick={playSound} href={"/"}>
+        <StyledThisComp.LogoLinkWrapper onClick={handleClick} href={"/"}>
           <Logo />
         </StyledThisComp.LogoLinkWrapper>
-        <StyledThisComp.NavList onClick={playSound}>
+        <StyledThisComp.NavList onClick={handleClick}>
           {navigationRoutesNamesNew.map(({ route, withDropdown, tags }, ind) =>
             !withDropdown ? (
               <Link key={route + ind} href={routersNew[ind]} passHref>

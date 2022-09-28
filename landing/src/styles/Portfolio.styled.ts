@@ -1,8 +1,22 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import themes from "../utils/themes";
 
 export const PortfolioContainer = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
+`;
+
+const infiniteTextStart = keyframes`
+ from {transform: translateX(0);
+        -webkit-transform: translateX(0);}
+      to {transform: translateX(100%);
+          -webkit-transform: translateX(100%);}
+`;
+
+const infiniteTextEnd = keyframes`
+ from {transform: translateX(-200%);
+        -webkit-transform: translateX(-200%);}
+     to {transform: translateX(0);
+          -webkit-transform: translateX(-100%);}
 `;
 
 export const OurWorkTitle = styled.div`
@@ -14,6 +28,16 @@ export const OurWorkTitle = styled.div`
   margin-top: 78px;
   line-height: 90%;
   margin-bottom: 40px;
+
+  & > span:first-child {
+    display: inline-block;
+    animation: ${infiniteTextStart} 40s infinite linear;
+  }
+
+  & > span:last-child {
+    display: inline-block;
+    animation: ${infiniteTextEnd} 40s infinite linear;
+  }
 `;
 
 export const LinkButton = styled.button`

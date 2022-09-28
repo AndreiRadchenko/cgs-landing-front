@@ -66,11 +66,20 @@ const PortfolioPage: NextPage = () => {
       <Styles.PortfolioContainer>
         <HeaderNavNew />
         {isMobile || (
-          <Styles.OurWorkTitle>
-            UR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
-            WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;WORK
-            OUR&nbsp;&nbsp;WORK OUR WORK
-          </Styles.OurWorkTitle>
+          <>
+            <Styles.OurWorkTitle>
+              <span>
+                &nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
+                WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
+                WORK&nbsp;&nbsp;WORK OUR&nbsp;&nbsp;WORK OUR WORK
+              </span>
+              <span>
+                OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
+                WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;WORK
+                OUR&nbsp;&nbsp;WORK OUR WORK&nbsp;
+              </span>
+            </Styles.OurWorkTitle>
+          </>
         )}
         <Styles.SlidersCont>
           {portfolioCategories.map((category, ind) => {

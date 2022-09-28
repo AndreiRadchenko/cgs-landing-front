@@ -22,30 +22,31 @@ const Slide = ({ review }: IReview) => {
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
     >
-      {(isHover && (
-        <Styled.TextWrapper>
-          <Styled.HoverText>{review.text}</Styled.HoverText>
-        </Styled.TextWrapper>
-      )) || (
-        <Styled.ImageWrapper>
-          {review.image?.url && (
-            <Image
-              src={review.image?.url}
-              alt={"project image"}
-              layout={"fill"}
-            />
-          )}
-        </Styled.ImageWrapper>
-      )}
+      <Styled.TextWrapper className={isHover ? "hover" : undefined}>
+        <Styled.HoverText>{review.text}</Styled.HoverText>
+      </Styled.TextWrapper>
+
+      <Styled.ImageWrapper>
+        {review.image?.url && (
+          <Image
+            src={review.image?.url}
+            alt={"project image"}
+            layout={"fill"}
+          />
+        )}
+      </Styled.ImageWrapper>
+
       <Styled.ContentWrapper>
         <Styled.ProjectTitle>{review.title}</Styled.ProjectTitle>
         <Styled.BottomContent>
-          {review.industry && (
-            <Styled.ProjectScope>
-              {"// "}
-              {review.industry}
-            </Styled.ProjectScope>
-          )}
+          <span>
+            {review.industry && (
+              <Styled.ProjectScope>
+                {"// "}
+                {review.industry}
+              </Styled.ProjectScope>
+            )}
+          </span>
           <Styled.ProjectLinkButton href={review.button}>
             project link
           </Styled.ProjectLinkButton>
