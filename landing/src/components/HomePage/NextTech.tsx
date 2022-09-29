@@ -25,6 +25,8 @@ const NextTech = () => {
       ) {
         return (
           <span className="blue tech">
+            {/* {domNode.children[0].type === "text" &&
+              (domNode.children[0] as any).data.substring(0, 2)} */}
             <ScrambleText
               text={
                 domNode.children[0].type === "text" &&

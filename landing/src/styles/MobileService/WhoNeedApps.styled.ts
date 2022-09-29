@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     background-image: none;
-    padding-bottom: 0;
+    padding-bottom: 5.5em;
   }
 
   @media ${themes.primary.media.maxMobile} {

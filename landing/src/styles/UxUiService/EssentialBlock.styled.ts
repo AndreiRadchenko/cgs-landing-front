@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin: 12.7em 2.1em 0 1.56em;
+  margin: 0 2.1em 0 1.56em;
   display: flex;
   position: relative;
 
@@ -11,7 +11,7 @@ export const Container = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 6.25em 0 0;
+    margin: 0;
     flex-direction: column-reverse;
   }
 `;

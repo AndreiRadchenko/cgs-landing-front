@@ -1,25 +1,47 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
-export const SliderWrapper = styled.div`
-  position: relative;
-  margin-top: 14.583em;
-  font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.heavy};
-  overflow: hidden;
-  & .mySwiper {
-    margin-left: 10.5vw;
-    margin-right: 9vw;
-  }
-  & > div:first-child {
+export const HoverWrapper = styled.div`
+  padding-bottom: 17em;
+  padding-top: 14.583em;
+
+  & > div > div:first-child {
     transition: 0.4s;
   }
 
   &:hover {
-    & > div:first-child {
+    & > div > div:first-child {
       background-color: ${themes.primary.colors.darkBlue};
       color: ${themes.primary.colors.blogBackground};
     }
+  }
+
+  @media ${themes.primary.media.maxServiceMobile} {
+    padding-bottom: 10em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-bottom: 7.7em;
+    padding-top: 8.653em;
+
+    &:hover {
+      & > div > div:first-child {
+        background-color: transparent;
+        color: ${themes.primary.colors.primary};
+      }
+    }
+  }
+`;
+
+export const SliderWrapper = styled.div`
+  position: relative;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  overflow: hidden;
+  z-index: 15;
+  & .mySwiper {
+    margin-left: 10.5vw;
+    margin-right: 9vw;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -28,13 +50,6 @@ export const SliderWrapper = styled.div`
       margin: 0;
     }
     margin-top: 0;
-
-    &:hover {
-      & > div:first-child {
-        background-color: transparent;
-        color: ${themes.primary.colors.primary};
-      }
-    }
   }
 `;
 
@@ -158,7 +173,7 @@ export const SlideContainer = styled.div`
 
 export const TextWrapper = styled.div`
   width: 100%;
-  height: 24.666em;
+  height: 75.727%;
   padding: 2.666em 2.5em 0;
   border-bottom: 1px solid ${themes.primary.colors.comment};
   border-right: 1px solid ${themes.primary.colors.comment};
@@ -185,12 +200,13 @@ export const TextWrapper = styled.div`
   }
 
   @media (max-width: 840px) {
-    padding-top: 0;
+    height: 65%;
+    padding-top: 0.5em;
   }
 
   @media ${themes.primary.media.maxMobile} {
     padding-top: 2.666em;
-    height: 30em;
+    height: 75.727%;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -288,6 +304,10 @@ export const BottomContent = styled.div`
 export const HoverText = styled.div`
   font-size: 1.5em;
   line-height: 160%;
+
+  @media (max-width: 960px) {
+    font-size: 1.3em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 2em;
