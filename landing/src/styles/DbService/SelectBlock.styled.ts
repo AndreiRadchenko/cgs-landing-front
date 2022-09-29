@@ -5,6 +5,11 @@ export const Container = styled.div`
   margin-top: 18.31em;
   margin-left: 4.25em;
   position: relative;
+  padding-bottom: 10em;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding-bottom: 0;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin: 4.625em 0 3.375em;

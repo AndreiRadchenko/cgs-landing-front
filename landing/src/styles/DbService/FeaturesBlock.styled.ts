@@ -2,13 +2,8 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 21.125em;
   position: relative;
   width: 100%;
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-top: 5.8em;
-  }
 `;
 
 export const Subtitle = styled.h2`

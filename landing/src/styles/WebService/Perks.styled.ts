@@ -2,7 +2,6 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 8.75em;
   width: 98.5%;
 
   @media ${themes.primary.media.maxMobile} {

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 14.88em;
   display: flex;
   justify-content: space-between;
 

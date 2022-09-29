@@ -1,17 +1,7 @@
 ﻿import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 
-export const ContentWrapper = styled.div`
-  margin-top: 17em;
-
-  @media ${themes.primary.media.maxServiceMobile} {
-    margin-top: 10em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-top: 7.7em;
-  }
-`;
+export const ContentWrapper = styled.div``;
 
 export const LineContainer = styled.div`
   position: relative;

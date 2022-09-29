@@ -1,13 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Container = styled.div`
-  margin-top: 11.25em;
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-top: 5.5625em;
-  }
-`;
+export const Container = styled.div``;
 
 export const Title = styled.h2`
   font-weight: inherit;
