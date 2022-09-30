@@ -61,7 +61,12 @@ const ArticleForm = ({
 
   const { mutateAsync: addViews } = useMutation(
     queryKeys.addViews,
-    (dataToUpdate: IView) => adminBlogService.addViews(dataToUpdate)
+    (dataToUpdate: IView) => adminBlogService.addViews(dataToUpdate),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.views]);
+      },
+    }
   );
 
   const submitFunc = async (
