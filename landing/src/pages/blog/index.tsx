@@ -42,7 +42,7 @@ export async function getServerSideProps() {
   );
 
   await queryClient.prefetchQuery(queryKeys.getBlogArticles, () =>
-    adminBlogService.getArticles()
+    adminBlogService.getFilteredArticles()
   );
 
   await queryClient.prefetchQuery(queryKeys.views, () =>
@@ -70,7 +70,7 @@ const BlogPage = () => {
 
   const { data: articles }: IArticlesData = useQuery(
     queryKeys.getBlogArticles,
-    () => adminBlogService.getArticles()
+    () => adminBlogService.getFilteredArticles()
   );
 
   const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
@@ -86,16 +86,7 @@ const BlogPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    articles &&
-      setReversedArticles(
-        articles.reverse().filter((article) => !article.disabled)
-        //!!!!!!!!!!!!!!!!! data?.articles.reverse().filter((article) => {
-        //   return (
-        //     !article.disabled &&
-        //     !(new Date() <= new Date(article.scheduleArticle))
-        //   );
-        // })
-      );
+    articles && setReversedArticles(articles.reverse());
   }, [articles]);
 
   useEffect(() => {

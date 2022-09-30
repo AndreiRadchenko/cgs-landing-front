@@ -36,6 +36,6 @@ export interface IPortfolioReviewsResponse {
 export interface IAddAndEditProps {
   current: number;
   isNewStatus: boolean;
-  setIsNewStatus: (val: boolean) => void;
+  setIsNewStatus: React.Dispatch<React.SetStateAction<boolean>>;
   reviews: IPortfolioReview[] | undefined | void;
 }

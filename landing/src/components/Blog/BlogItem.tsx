@@ -86,7 +86,7 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
                     {article.description}
                   </Styled.BlogItemDescription>
                 </Styled.BlogItemContent>
-                {article.image.url ? (
+                {article.image?.url ? (
                   <Styled.BlogItemImage src={article.image.url} />
                 ) : (
                   <Styled.NoBlogItemImage />

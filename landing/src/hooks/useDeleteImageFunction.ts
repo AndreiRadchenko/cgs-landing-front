@@ -7,7 +7,8 @@ import { adminGlobalService } from "../services/adminHomePage";
 const useDeleteImageFunction = async (
   state?: IImage,
   key = queryKeys.GetFullPage,
-  submitInTheEnd = true
+  submitInTheEnd = true,
+  nestedImageName = ""
 ) => {
   const queryClient = new QueryClient();
   const { handleSubmit, setFieldValue } = useFormikContext();
@@ -21,7 +22,11 @@ const useDeleteImageFunction = async (
     mutate(link);
     if (state) {
       state.image = null;
-      !submitInTheEnd && setFieldValue("image", null);
+      !submitInTheEnd &&
+        setFieldValue(
+          nestedImageName.length !== 0 ? nestedImageName : "image",
+          null
+        );
     } else {
       localState!.image = null;
     }

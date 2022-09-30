@@ -2,7 +2,7 @@ import AdminDropDown from "../Global/AdminDropDown";
 import React, { useState } from "react";
 import * as Styled from "../../../styles/AdminPage";
 import { useFormikContext } from "formik";
-import { IPortfolioReview } from "../../../types/Admin/AdminPortfolioPage.types";
+import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio.types";
 import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";

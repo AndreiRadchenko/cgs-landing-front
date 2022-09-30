@@ -40,7 +40,7 @@ export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(queryKeys.getBlogArticles, () =>
-    adminBlogService.getArticles()
+    adminBlogService.getFilteredArticles()
   );
 
   await queryClient.prefetchQuery(queryKeys.views, () =>
@@ -63,7 +63,7 @@ const ArticlePage = () => {
   const url = typeof router.query?.url === "string" ? router.query.url : "";
   const { data, isSuccess, isLoading }: IArticleData = useQuery(
     queryKeys.getBlogArticles,
-    () => adminBlogService.getArticles(),
+    () => adminBlogService.getFilteredArticles(),
     {
       enabled: url.length > 0,
     }
@@ -195,7 +195,10 @@ const ArticlePage = () => {
                 />
               </Styles.TagWrapper>
               <Styles.BannerImageContainer>
-                <Styles.BannerImage src={article.image.url} />
+                <Styles.BannerImage
+                  src={article.image?.url}
+                  alt="banner image"
+                />
               </Styles.BannerImageContainer>
             </Styles.BannerWrapper>
             <Styles.FirstHeaderBg>

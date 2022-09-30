@@ -2,7 +2,7 @@ import { FormikHelpers } from "formik";
 import {
   IPortfolioResponse,
   IPortfolioReview,
-} from "../../../types/Admin/AdminPortfolio";
+} from "../../../types/Admin/AdminPortfolio.types";
 
 export interface IAddAndEditProps {
   submitFunc: (

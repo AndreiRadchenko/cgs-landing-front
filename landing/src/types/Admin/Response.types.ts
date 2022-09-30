@@ -254,8 +254,8 @@ export interface IArticleWithInd {
 }
 
 export interface ISwapData {
-  desIndex: number;
-  srcIndex: number;
+  desInd: number;
+  srcInd: number;
 }
 
 export interface IBlogPageResponse {

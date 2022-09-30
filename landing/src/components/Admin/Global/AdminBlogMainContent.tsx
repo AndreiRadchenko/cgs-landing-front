@@ -1,17 +1,13 @@
-import { Formik, FormikHelpers, FormikValues } from "formik";
+import { Formik } from "formik";
 import React, { useState } from "react";
-import ContentBlock from "./Blog/ContentBlock";
 import { useMutation, useQuery } from "react-query";
-import {
-  // IArticle,
-  IBlogPageResponse,
-  IView,
-} from "../../../types/Admin/Response.types";
+import { IBlogPageResponse } from "../../../types/Admin/Response.types";
 import * as Styled from "../../../styles/AdminPage";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminBlogService } from "../../../services/adminBlogPage";
 import MetaTagsBlock from "../MetaTagsBlock";
 import ArticleForm from "./Blog/ArticleForm";
+import PublishedArticles from "./Blog/PublishedArticles";
 
 export interface IBlogProps {
   data: IBlogPageResponse | undefined;
@@ -41,9 +37,17 @@ const AdminBlogMainContent = () => {
     () => adminBlogService.getBlogPageData()
   );
 
+  const { data: articles } = useQuery(queryKeys.getBlogArticles, () =>
+    adminBlogService.getArticles()
+  );
+
+  const { data: views } = useQuery(queryKeys.views, () =>
+    adminBlogService.getViews()
+  );
+
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
-  ) : data ? (
+  ) : data && views && articles ? (
     <Formik
       key="blogPageData"
       validateOnChange={false}
@@ -55,11 +59,20 @@ const AdminBlogMainContent = () => {
         <div>
           <ArticleForm
             article={article}
+            articles={articles}
             setArticle={setArticle}
             isNewArticle={isNewArticle}
             setIsNewArticle={setIsNewArticle}
+            views={views}
           />
-
+          <PublishedArticles
+            views={views}
+            article={article}
+            setArticle={setArticle}
+            isNewArticle={isNewArticle}
+            setIsNewArticle={setIsNewArticle}
+            data={articles}
+          />
           <MetaTagsBlock theme="dark" />
           <Styled.AdminPaddedBlock>
             <Styled.AdminBigButton type="submit" onClick={() => handleSubmit()}>

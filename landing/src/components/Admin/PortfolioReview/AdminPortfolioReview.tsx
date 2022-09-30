@@ -8,6 +8,7 @@ import close from "../../../../public/bigClose.svg";
 import AdminBlackButton from "../Global/AdminBlackButton";
 import AdminStars from "../FeedbackBlock/AdminStars";
 import themes from "../../../utils/themes";
+import { ProjectIndustry } from "../../../styles/PortfolioSlider.styled";
 
 interface IReviewProps {
   review: IPortfolioReview;
@@ -48,6 +49,12 @@ const AdminReview = ({
               </Styled.PortfolioProjectHeader>
               <AdminBlackButton text="project link" onClick={redirect} />
             </Styled.ProjectHeader>
+            {review.industry && (
+              <ProjectIndustry>
+                {"// "}
+                {review.industry}
+              </ProjectIndustry>
+            )}
             <Styled.AdminParagraph>{review.text}</Styled.AdminParagraph>
           </Styled.ProjectInfo>
           <Styled.Separator />
@@ -56,11 +63,13 @@ const AdminReview = ({
               <Styled.AuthorName>{review.feedback.name}</Styled.AuthorName>
               <Styled.CompanyName>{review.feedback.company}</Styled.CompanyName>
               <Styled.AdminFeedbackStars>
-                <AdminStars
-                  value={Number(review.feedback.rating)}
-                  size={26}
-                  color2={themes.primary.colors.darkBlue}
-                />
+                {review.feedback.rating && (
+                  <AdminStars
+                    value={Number(review.feedback.rating)}
+                    size={26}
+                    color2={themes.primary.colors.darkBlue}
+                  />
+                )}
               </Styled.AdminFeedbackStars>
             </Styled.PortfolioReviewHeader>
             <Styled.AdminParagraph>

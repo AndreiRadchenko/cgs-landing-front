@@ -19,6 +19,10 @@ export class AdminBlogPage {
     return this.httpService.get<IArticle[]>("api/blog/article");
   }
 
+  public getFilteredArticles() {
+    return this.httpService.get<IArticle[]>("api/blog/filtered");
+  }
+
   public getArticleByUrl(url: string) {
     return this.httpService.get(`api/blog/article/${url}`);
   }

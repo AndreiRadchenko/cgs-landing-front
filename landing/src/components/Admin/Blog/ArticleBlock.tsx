@@ -6,19 +6,13 @@ import { IArticle } from "../../../types/Admin/Response.types";
 import TextEditor from "../../TextEditor/TextEditor";
 
 interface IArticleBlock {
-  // newArticle: INewArticle;
   isNewArticle: boolean;
   article: number;
 }
 
-const ArticleBlock: FC<IArticleBlock> = ({
-  // isNewArticle,
-  article,
-  // newArticle,
-}) => {
+const ArticleBlock: FC<IArticleBlock> = ({ article }) => {
   const { values, handleChange } = useFormikContext<IArticle>();
   const [blocks, setBlocks] = useState<JSX.Element[]>([]);
-  // const newArticleContent = newArticle.content;
   const editArticleContent = values?.content;
 
   const editArticleSubtitle = useCallback(
@@ -26,15 +20,15 @@ const ArticleBlock: FC<IArticleBlock> = ({
       <Subtitle
         key={index}
         subtitleValue={values.content[index].subtitle}
-        subtitleName={`[${article}].content[${index}].subtitle`}
+        subtitleName={`content[${index}].subtitle`}
         subNumberValue={values.content[index].subNumber}
-        subNumberName={`[${article}].content[${index}].subNumber`}
+        subNumberName={`content[${index}].subNumber`}
         handleChange={handleChange}
         tagNameValue={values.content[index].tagName}
-        tagName={`articles[${article}].content[${index}].tagName`}
+        tagName={`content[${index}].tagName`}
       />
     ),
-    [article, handleChange, values]
+    [handleChange, values]
   );
 
   const editArticleText = useCallback(
@@ -44,11 +38,11 @@ const ArticleBlock: FC<IArticleBlock> = ({
           isBlog={true}
           header="Text"
           value={values.content[index].text}
-          name={`articles[${article}].content[${index}].text`}
+          name={`content[${index}].text`}
         />
       </Styles.TextEditorWrapper>
     ),
-    [article, values]
+    [values]
   );
 
   useEffect(() => {

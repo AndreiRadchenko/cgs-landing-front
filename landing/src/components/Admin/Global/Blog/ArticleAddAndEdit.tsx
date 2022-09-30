@@ -8,11 +8,8 @@ import { TicketsButton } from "../../../../styles/AdminCareersPage";
 import * as Styles from "../../../../styles/AdminBlogPage";
 import * as Styled from "../../../../styles/AdminPage";
 import { useFormikContext } from "formik";
-import { IArticle, IView } from "../../../../types/Admin/Response.types";
+import { IArticle } from "../../../../types/Admin/Response.types";
 import ArticleBlock from "../../Blog/ArticleBlock";
-import { useMutation, useQueryClient } from "react-query";
-import { queryKeys } from "../../../../consts/queryKeys";
-import { adminBlogService } from "../../../../services/adminBlogPage";
 import { IImage } from "../../../../types/Admin/Admin.types";
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
@@ -22,10 +19,7 @@ import AddTag from "./AddTag";
 
 interface IAddAndEdit {
   article: number;
-  views: IView[];
   isNewArticle: boolean;
-  setIsNewArticle: (val: boolean) => void;
-  setArticle: (val: number) => void;
   possibleTags: string[];
 }
 
@@ -34,81 +28,20 @@ const TITLE_MAX = 60;
 const DESCRIPTION_MIN = 20;
 const DESCRIPTION_MAX = 160;
 
-const META_TITLE_MAX = 60;
-const META_DESCRIPTION_MAX = 160;
-
 const ArticleAddAndEdit = ({
   article,
   isNewArticle,
-  setIsNewArticle,
-  setArticle,
-  views,
   possibleTags,
 }: IAddAndEdit) => {
-  const queryClient = useQueryClient();
   const [descLength, setDescLength] = useState(0);
   const [titleLength, setTitleLength] = useState(0);
 
   const { values, handleSubmit, handleChange } = useFormikContext<IArticle>();
 
-  const { mutateAsync: postArticle } = useMutation(
-    queryKeys.postArticle,
-    (dataToUpdate: IArticle) => adminBlogService.postArticle(dataToUpdate),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries([queryKeys.getBlogArticles]);
-      },
-    }
-  );
-
-  const { mutateAsync: editArticle } = useMutation(
-    queryKeys.updateBlogArticle,
-    (dataToUpdate: IArticle) => adminBlogService.updateById(dataToUpdate)
-  );
-
-  const { mutateAsync: updateViews } = useMutation(
-    queryKeys.postArticle,
-    (dataToUpdate: IView) => adminBlogService.updateViews(dataToUpdate)
-  );
-  // useEffect(() => {
-  //   setDisabled(isNewArticle ? newArticle.disabled : values[article].disabled);
-  // }, [isNewArticle, newArticle.disabled, article, setDisabled, values]);
-
   useEffect(() => {
     setDescLength(values.description.length);
     setTitleLength(values.title.length);
   }, [isNewArticle, article, values]);
-
-  const updateArticle = async () => {
-    if (views) {
-      const updatedViews = views.find(
-        (view) => view.articleUrl === values.url && { articleUrl: values.url }
-      );
-      updatedViews && (await updateViews(updatedViews));
-    }
-    // newArticle.tags = [];
-
-    // await editArticle(values[article]);
-
-    setArticle(0);
-    setIsNewArticle(true);
-    // setDisabled(false);
-    values.meta.metaTitle === ""
-      ? ((values.meta.metaTitle =
-          values.title.length > META_TITLE_MAX
-            ? values.title.substring(0, META_TITLE_MAX)
-            : values.title),
-        values.title)
-      : values.meta.metaTitle;
-    values.meta.metaDescription === ""
-      ? ((values.meta.metaDescription =
-          values.description.length > META_DESCRIPTION_MAX
-            ? values.description.substring(0, META_DESCRIPTION_MAX)
-            : values.description),
-        values.description)
-      : values.meta.metaDescription;
-    handleSubmit();
-  };
 
   const handleDescInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDescLength(e.target.value.length);
@@ -118,58 +51,12 @@ const ArticleAddAndEdit = ({
     setTitleLength(e.target.value.length);
   };
 
-  const createArticle = async () => {
-    if (views) {
-      await updateViews({
-        articleUrl: values.url,
-        views: 231,
-      });
-    }
-    // values.disabled = disabled;
-    values.tags = values.tags.filter((tag) => tag !== "");
-    values.meta.metaTitle === ""
-      ? (values.meta.metaTitle =
-          values.title.length > META_TITLE_MAX
-            ? values.title.substring(0, META_TITLE_MAX)
-            : values.title)
-      : values.meta.metaTitle;
-    values.meta.metaDescription === ""
-      ? (values.meta.metaDescription =
-          values.description.length > META_DESCRIPTION_MAX
-            ? values.description.substring(0, META_DESCRIPTION_MAX)
-            : values.description)
-      : values.meta.metaDescription;
-    const articleToAdd = values;
-
-    // values.push(articleToAdd);
-
-    // newArticle = {
-    //   _id: "",
-    //   url: "",
-    //   content: [],
-    //   title: "",
-    //   image: { url: "" },
-    //   author: { name: "", image: { url: "" }, specialization: "" },
-    //   description: "",
-    //   tags: [],
-    //   possibleTags: newArticle.possibleTags,
-    //   disabled: false,
-    //   date: "",
-    //   updatedOn: "",
-    //   minutesToRead: 0,
-    //   meta: { metaTitle: "", metaDescription: "", customHead: "" },
-    // };
-
-    await postArticle(articleToAdd);
-    values.author.image = null;
-    values.image = null;
-    // setDisabled(false);
-    setArticle(0);
-    setIsNewArticle(true);
-    handleSubmit();
-  };
-
-  const deleteAuthor = useDeleteImageFunction(values.author, "", false);
+  const deleteAuthor = useDeleteImageFunction(
+    values.author,
+    "",
+    false,
+    "author.image"
+  );
   const uploadAuthor = useUploadImageFunction(
     values.author,
     "",
@@ -183,8 +70,6 @@ const ArticleAddAndEdit = ({
   const uploadAuthorFunc = (image: IImage) => uploadAuthor(image);
   const deleteBannerFunc = async () => (await deleteBanner)();
   const uploadBannerFunc = (image: IImage) => uploadBanner(image);
-
-  console.log(values.tags);
 
   return (
     <>
@@ -319,7 +204,6 @@ const ArticleAddAndEdit = ({
             maxWidth="324px"
           />
         </Styles.BigWrapper>
-
         <ArticleBlock isNewArticle={isNewArticle} article={article} />
         <Styled.TagContainer>
           <Styles.AdminSubTitle className="blog">Tags</Styles.AdminSubTitle>
@@ -334,10 +218,7 @@ const ArticleAddAndEdit = ({
       <MetaTagsBlock theme="dark" />
       <Styled.AdminPaddedBlock>
         <Styles.SubmitButtonWrapper>
-          <TicketsButton
-            type={"submit"}
-            onClick={isNewArticle ? createArticle : updateArticle}
-          >
+          <TicketsButton type={"submit"} onClick={() => handleSubmit()}>
             {`${isNewArticle ? "Save" : "Edit"} Article`}
           </TicketsButton>
         </Styles.SubmitButtonWrapper>

@@ -2,12 +2,12 @@ import React, { FC } from "react";
 import { AdminSubTitle } from "../../../../styles/AdminBlogPage";
 import BlogItem from "../../../BlogItem/BlogItem";
 import ChangeIconImg from "../../../../../public/ChangeIcon.svg";
+import { adminGlobalService } from "../../../../services/adminHomePage";
 
 import * as Styles from "../../../../styles/BlogPublishedArticles.styled";
 import { useFormikContext } from "formik";
 import {
   IArticle,
-  IBlogPageResponse,
   ISwapData,
   IView,
 } from "../../../../types/Admin/Response.types";
@@ -74,6 +74,10 @@ const PublishedArticles: FC<IArticles> = ({
     }
   );
 
+  const { mutateAsync: deletePhoto } = useMutation((url: string) =>
+    adminGlobalService.deleteImage(url)
+  );
+
   const { mutateAsync: updateViews } = useMutation(
     queryKeys.postArticle,
     (dataToUpdate: IView) => adminBlogService.updateViews(dataToUpdate)
@@ -93,6 +97,8 @@ const PublishedArticles: FC<IArticles> = ({
     }
     if (data) {
       await deleteBlogArticle(data[i]._id);
+      data[i].image && (await deletePhoto(data[i].image!.url));
+      data[i].author.image && (await deletePhoto(data[i].author.image!.url));
     }
 
     setArticle(0);
@@ -119,29 +125,26 @@ const PublishedArticles: FC<IArticles> = ({
   };
 
   const toggleEditPost = (i: number) => {
-    const newArticleCase = () => {
+    if (isNewArticle) {
       setIsNewArticle(false);
       setArticle(i);
-    };
-    const editArticleCase = () => {
-      // const articleFromData = values.find(
-      //   (e: IArticle) => e._id === values[article]._id
-      // );
-      // articleFromData && (values[article] = articleFromData);
-      setArticle(0);
+      window.scrollTo(0, 0);
+    } else {
       setIsNewArticle(true);
-    };
-    isNewArticle ? newArticleCase() : editArticleCase();
-    window.scrollTo(0, 0);
+      setArticle(0);
+    }
   };
 
-  const handleDragEnd = (param: DropResult) => {
-    // if (!isNewArticle) return;
-    // const srcIndex = param.source.index;
-    // const desIndex: number | undefined = param.destination?.index;
-    // typeof desIndex === "number" &&
-    //   values.splice(desIndex, 0, values.articles.splice(srcIndex, 1)[0]) &&
-    //   swapElements({ desIndex, srcIndex });
+  const handleDragEnd = async (param: DropResult) => {
+    const srcInd = param.source.index;
+    const desInd: number | undefined = param.destination?.index;
+    const swapped = data;
+    swapped &&
+      typeof desInd === "number" &&
+      swapped.splice(desInd, 0, swapped.splice(srcInd, 1)[0]);
+    typeof desInd === "number" &&
+      (await swapElements({ srcInd, desInd })) &&
+      queryClient.setQueryData(queryKeys.getBlogArticles, swapped);
   };
 
   const ArticleItem = ({ item, i }: IArticleItem) => {

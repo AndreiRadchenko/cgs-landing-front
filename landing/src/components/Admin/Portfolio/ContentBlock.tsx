@@ -17,6 +17,8 @@ import {
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+import { adminGlobalService } from "../../../services/adminHomePage";
+import { ISwapData } from "../../../types/Admin/Response.types";
 
 const AdminPortfolioContentBlock = () => {
   const queryClient = useQueryClient();
@@ -27,7 +29,7 @@ const AdminPortfolioContentBlock = () => {
   );
   const { mutateAsync } = useMutation(
     queryKeys.deletePortfolioReview,
-    (title: string) => adminPortfolioService.deleteReview(title),
+    (id: string) => adminPortfolioService.deleteReview(id),
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getPortfolio]);
@@ -35,8 +37,23 @@ const AdminPortfolioContentBlock = () => {
     }
   );
 
-  const deleteFunc = (title: string) => {
-    mutateAsync(title);
+  const { mutateAsync: swapReviews } = useMutation(
+    queryKeys.deletePortfolioReview,
+    (swapData: ISwapData) => adminPortfolioService.swapReviews(swapData),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.getPortfolio]);
+      },
+    }
+  );
+  const { mutateAsync: deletePhoto } = useMutation(
+    queryKeys.deleteImage,
+    (url: string) => adminGlobalService.deleteImage(url)
+  );
+
+  const deleteFunc = (id: string, url: string) => {
+    mutateAsync(id);
+    deletePhoto(url);
     queryClient.invalidateQueries(queryKeys.getPortfolio);
   };
   const [current, setCurrent] = useState(0);
@@ -49,12 +66,16 @@ const AdminPortfolioContentBlock = () => {
     handleSubmit();
   };
 
-  const handleDragEnd = (param: DropResult) => {
-    // const srcIndex = param.source.index;
-    // const desIndex: number | undefined = param.destination?.index;
-    // typeof desIndex === "number" &&
-    //   values.reviews.splice(desIndex, 0, values.reviews.splice(srcIndex, 1)[0]);
-    // handleSubmit();
+  const handleDragEnd = async (param: DropResult) => {
+    const srcInd = param.source.index;
+    const desInd: number | undefined = param.destination?.index;
+    const swapped = data;
+    swapped &&
+      typeof desInd === "number" &&
+      swapped.splice(desInd, 0, swapped.splice(srcInd, 1)[0]);
+    typeof desInd === "number" &&
+      (await swapReviews({ srcInd, desInd })) &&
+      queryClient.setQueryData(queryKeys.getPortfolio, swapped);
   };
 
   return (
@@ -116,7 +137,12 @@ const AdminPortfolioContentBlock = () => {
                                       idx={i}
                                       setCurrent={setCurrent}
                                       deleteFunc={() =>
-                                        review._id && deleteFunc(review._id)
+                                        review._id &&
+                                        review.image &&
+                                        deleteFunc(
+                                          review._id,
+                                          review.image?.url
+                                        )
                                       }
                                       editTrigger={setIsNewStatus}
                                     />

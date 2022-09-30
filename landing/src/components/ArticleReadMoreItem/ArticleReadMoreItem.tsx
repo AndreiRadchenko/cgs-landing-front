@@ -25,7 +25,7 @@ const ArticleReadMoreItem = ({ article, view }: IArticleReadMore) => {
 
   return (
     <Styles.Wrapper>
-      {article.image.url ? (
+      {article.image?.url ? (
         <Styles.Image
           src={article.image.url}
           onClick={() => router.push(`/blog/${article.url}`)}
