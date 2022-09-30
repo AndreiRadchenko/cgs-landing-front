@@ -65,6 +65,7 @@ export const BlogContainer = styled.div`
   position: relative;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
   background-color: ${themes.primary.colors.blogBackground};
   button {
     outline: none;

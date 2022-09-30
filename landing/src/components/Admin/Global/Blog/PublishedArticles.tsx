@@ -46,7 +46,7 @@ const PublishedArticles: FC<IArticles> = ({
   data,
   views,
 }) => {
-  const { values, handleSubmit } = useFormikContext<IArticle>();
+  const { handleSubmit } = useFormikContext<IArticle>();
   const queryClient = useQueryClient();
 
   const { mutateAsync: deleteBlogArticle } = useMutation(
@@ -78,24 +78,21 @@ const PublishedArticles: FC<IArticles> = ({
     adminGlobalService.deleteImage(url)
   );
 
-  const { mutateAsync: updateViews } = useMutation(
-    queryKeys.postArticle,
-    (dataToUpdate: IView) => adminBlogService.updateViews(dataToUpdate)
-  );
-
   const { mutateAsync: swapElements } = useMutation(
     queryKeys.swapArticles,
     (dataToUpdate: ISwapData) => adminBlogService.swapTwoElements(dataToUpdate)
   );
 
   const deleteArticle = async (i: number) => {
-    if (views) {
-      const viewToDelete = views.find((view) => view.articleUrl === values.url);
-      if (viewToDelete && viewToDelete._id) {
-        await deleteView(viewToDelete._id);
+    if (views && data) {
+      const viewToDelete = views.filter(
+        (view) => view.articleUrl === data[i].url
+      );
+      if (viewToDelete && Array.isArray(viewToDelete)) {
+        viewToDelete.map(
+          async (view) => view._id && (await deleteView(view._id))
+        );
       }
-    }
-    if (data) {
       await deleteBlogArticle(data[i]._id);
       data[i].image && (await deletePhoto(data[i].image!.url));
       data[i].author.image && (await deletePhoto(data[i].author.image!.url));
