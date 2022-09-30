@@ -2,7 +2,7 @@ import { useFormikContext } from "formik";
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../../consts/queryKeys";
-import { adminPortfolioPageService } from "../../../services/adminPortfolioPage";
+import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import {
   AdminBlockWrapper,
   AdminBlockTitle,
@@ -31,7 +31,11 @@ const ServiceShowCase = () => {
   const [isCategoryOpen, setIsCategoryOpen] = useState<boolean>(false);
 
   const { data: portfolio } = useQuery(queryKeys.getPortfolioPage, () =>
-    adminPortfolioPageService.getPortfolio()
+    adminPortfolioService.getPageData()
+  );
+
+  const { data: reviews } = useQuery(queryKeys.getPortfolio, () =>
+    adminPortfolioService.getReviews()
   );
   const handleCategory = () => {
     setIsCategoryOpen((old) => !old);
@@ -141,21 +145,23 @@ const ServiceShowCase = () => {
             <AdminShowCaseDropDownContent
               className={projectIsOpen ? "open" : undefined}
             >
-              {portfolio?.reviews
-                .filter((el) => {
-                  return category.length === 0
-                    ? !choosenProjects.includes(el.title)
-                    : el.category === category &&
-                        !choosenProjects.includes(el.title);
-                })
-                .map((el, idx) => (
-                  <AdminShowCaseDropDownListItem
-                    key={idx}
-                    onClick={() => handleProjectChoice(el.title)}
-                  >
-                    {el.title}
-                  </AdminShowCaseDropDownListItem>
-                ))}
+              {(reviews &&
+                reviews
+                  .filter((el) => {
+                    return category.length === 0
+                      ? !choosenProjects.includes(el.title)
+                      : el.category === category &&
+                          !choosenProjects.includes(el.title);
+                  })
+                  .map((el, idx) => (
+                    <AdminShowCaseDropDownListItem
+                      key={idx}
+                      onClick={() => handleProjectChoice(el.title)}
+                    >
+                      {el.title}
+                    </AdminShowCaseDropDownListItem>
+                  ))) ||
+                "No reviews"}
             </AdminShowCaseDropDownContent>
           </AdminBlockWrapper>
 

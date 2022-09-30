@@ -206,7 +206,7 @@ export interface IDataBlockchainResponse {
 export interface IAuthor {
   name: string;
   specialization: string;
-  image: { url: string };
+  image: { url: string } | null;
 }
 
 export interface ITextBlog {
@@ -219,7 +219,23 @@ export interface ITextBlog {
 export interface IArticle {
   _id: string;
   url: string;
-  image: { url: string };
+  image: { url: string } | null;
+  title: string;
+  description: string;
+  author: IAuthor;
+  scheduleArticle: string;
+  updatedOn: string;
+  date: string;
+  minutesToRead: number;
+  content: ITextBlog[];
+  tags: string[];
+  disabled: boolean;
+  meta: IMetaBlock;
+}
+
+export interface IArticleWithoutId {
+  url: string;
+  image: { url: string } | null;
   title: string;
   description: string;
   author: IAuthor;
@@ -235,44 +251,21 @@ export interface IArticle {
 
 export interface IArticleWithInd {
   article: IArticle;
-  ind: number;
 }
 
 export interface ISwapData {
-  desIndex: number;
-  srcIndex: number;
+  desInd: number;
+  srcInd: number;
 }
 
-export interface INewArticle {
-  _id: string;
-  url: string;
-  image: { url: string };
-  title: string;
-  description: string;
-  author: IAuthor;
-  updatedOn: string;
-  scheduleArticle: string;
-  date: string;
-  minutesToRead: number;
-  content: ITextBlog[];
-  tags: string[];
+export interface IBlogPageResponse {
   possibleTags: string[];
-  disabled: boolean;
-  meta: IMetaBlock;
-}
-
-export interface IBlogResponse {
-  articles: IArticle[];
-  newArticle: INewArticle;
   meta: IMetaBlock;
 }
 export interface IView {
+  _id?: string;
   views: number;
   articleUrl: string;
-}
-
-export interface IViews {
-  allViews: IView[];
 }
 
 export interface IHomeData {
@@ -592,7 +585,7 @@ export interface IReviewProps {
     company: string;
     feedbackText: string;
   };
-  image: { url: string };
+  image: { url: string } | null;
   text: string;
   title: string;
   industry: string;

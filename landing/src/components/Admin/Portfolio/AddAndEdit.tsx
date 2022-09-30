@@ -1,40 +1,64 @@
 import { Formik, useFormikContext } from "formik";
 import React from "react";
-import { newReviewInit } from "../../../consts";
-import { IPortfolioResponse } from "../../../types/Admin/AdminPortfolio";
+import { newPageReviewInit } from "../../../consts";
 import AddReview from "../PortfolioReview/AddReview";
-import { IAddAndEditProps } from "./Portfolio.types";
+import {
+  IAddAndEditProps,
+  IPortfolioPageData,
+  IPortfolioReview,
+} from "../../../types/Admin/AdminPortfolio.types";
+import { useMutation, useQueryClient } from "react-query";
+import { queryKeys } from "../../../consts/queryKeys";
+import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 
 const AddAndEdit = ({
-  submitFunc,
-  setIsReady,
-  editFunc,
   current,
   isNewStatus,
+  reviews,
+  setIsNewStatus,
 }: IAddAndEditProps) => {
-  const { values } = useFormikContext<IPortfolioResponse>();
+  const { values } = useFormikContext<IPortfolioPageData>();
+  const queryClient = useQueryClient();
+
+  const { mutateAsync: editReview } = useMutation(
+    queryKeys.updatePortfolioReview,
+    (review: IPortfolioReview) => adminPortfolioService.updateReview(review),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.getPortfolio]);
+        setIsNewStatus(true);
+      },
+    }
+  );
+
+  const { mutateAsync: addReview } = useMutation(
+    queryKeys.addPortfolioReview,
+    (review: IPortfolioReview) => adminPortfolioService.addReview(review),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.getPortfolio]);
+      },
+    }
+  );
 
   return (
     <Formik
       key={`Form${isNewStatus}${current ? current : "null"}`}
       initialValues={
         isNewStatus
-          ? JSON.parse(JSON.stringify(newReviewInit))
-          : values.reviews[current]
+          ? JSON.parse(JSON.stringify(newPageReviewInit))
+          : typeof reviews !== "undefined" && reviews[current]
       }
-      enableReinitialize={true}
-      onSubmit={
-        isNewStatus
-          ? submitFunc
-          : (values, props) => editFunc(values, props, current)
-      }
+      onSubmit={(values, action) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { __v, ...data } = values;
+        setIsNewStatus(true);
+        isNewStatus ? addReview(data) : editReview(data);
+        action.resetForm();
+      }}
       validateOnChange={false}
     >
-      <AddReview
-        categories={values.categories}
-        setIsReady={setIsReady}
-        newFlag={isNewStatus}
-      />
+      <AddReview categories={values.categories} newFlag={isNewStatus} />
     </Formik>
   );
 };

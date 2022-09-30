@@ -31,7 +31,7 @@ const AdminEmptyImage = ({
     >
       {modal ? <AdminUploadModal func={func} back={toggleModal} /> : null}
       <Styled.AdminDashedPositionGrid>
-        <Image src={smallMountain} />
+        <Image src={smallMountain} alt="small mountain image" />
         <Styled.AdminPointer>
           <Styled.AdminSubTitle onClick={toggleModal}>
             {header}

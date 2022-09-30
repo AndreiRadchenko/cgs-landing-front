@@ -1,4 +1,3 @@
-import { IPortfolioResponse } from "../../types/Admin/AdminPortfolio";
 import { IResponse } from "../../types/Admin";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
@@ -18,12 +17,6 @@ export class AdminHomePageService {
   }
   public deleteImage(url: string) {
     return this.httpService.delete("api/upload", { data: { url } });
-  }
-  public getPortfolio() {
-    return this.httpService.get("api/portfolio");
-  }
-  public updatePortfolio(data: IPortfolioResponse) {
-    return this.httpService.put("api/portfolio", data);
   }
   public mailForm(data: IClientMail) {
     return this.httpService.post("api/form/mail", data);

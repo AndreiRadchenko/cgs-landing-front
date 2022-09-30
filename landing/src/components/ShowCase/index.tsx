@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as Styled from "../../styles/ShowCase.styled";
 import { useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { adminPortfolioPageService } from "../../services/adminPortfolioPage";
+import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { IReviewProps } from "../../types/Admin/Response.types";
 import SwiperCore, { Navigation, Scrollbar } from "swiper";
 
@@ -51,14 +51,16 @@ const ShowCase = ({ projects }: IShowCase) => {
   const [hoverPrev, setHoverPrev] = useState<boolean>(false);
   const [currentProjects, setCurrentProjects] = useState<IReviewProps[]>();
   const { data } = useQuery(queryKeys.getPortfolio, () =>
-    adminPortfolioPageService.getPortfolio()
+    adminPortfolioService.getReviews()
   );
 
   useEffect(() => {
-    setCurrentProjects(
-      data?.reviews.filter((review) => projects?.includes(review.title))
-    );
-  }, [data?.reviews, projects]);
+    if (data) {
+      setCurrentProjects(
+        data.filter((review) => projects?.includes(review.title))
+      );
+    }
+  }, [data, projects]);
 
   const handleHoverNext = () => {
     setHoverNext(true);
