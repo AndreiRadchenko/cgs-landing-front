@@ -88,16 +88,22 @@ const ArticleForm = ({
           : values.description),
         values.description;
     }
+
     isNewArticle ? await postArticle(values) : await editArticle(values);
     if (views) {
-      const updatedViews = views.find((view) => view.articleUrl === values.url);
+      const updatedViews = views.find(
+        (view) => view.articleUrl === articles[article].url
+      );
 
-      isNewArticle
-        ? await addViews({
-            articleUrl: values.url,
-            views: 231,
-          })
-        : updatedViews && (await updateViews(updatedViews));
+      if (isNewArticle) {
+        await addViews({
+          articleUrl: values.url,
+          views: 231,
+        });
+      } else if (updatedViews) {
+        updatedViews.articleUrl = values.url;
+        updatedViews && (await updateViews(updatedViews));
+      }
     }
     resetForm();
     setFieldValue("image", null);
