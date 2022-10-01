@@ -20,7 +20,7 @@ const ServiceBlockchainContentBlock = () => {
       <ServiceShowCase />
       <AboutBlock />
       <FooterBlock />
-      <MetaTagsBlock theme="dark" />
+      <MetaTagsBlock theme="dark" sitemap="services/blockchain" />
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>
           SaveChanges

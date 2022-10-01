@@ -160,7 +160,7 @@ const AdminPortfolioContentBlock = () => {
           )}
         </Styled.AdminReviewBlock>
       </Styled.AdminPaddedBlock>
-      <MetaTagsBlock theme="dark" />
+      <MetaTagsBlock theme="dark" sitemap="portfolio" />
       <Styled.AdminPaddedBlock>
         <Styled.AdminBigButton type="submit" onClick={submitFunction}>
           Submit

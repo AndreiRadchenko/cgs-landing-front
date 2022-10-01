@@ -215,7 +215,7 @@ const ArticleAddAndEdit = ({
           possibleTags={possibleTags}
         />
       </Styled.AdminPaddedBlock>
-      <MetaTagsBlock theme="dark" />
+      <MetaTagsBlock theme="dark" sitemap={`blog/${values.url}`} />
       <Styled.AdminPaddedBlock>
         <Styles.SubmitButtonWrapper>
           <TicketsButton type={"submit"} onClick={() => handleSubmit()}>

@@ -28,6 +28,8 @@ export const queryKeys = {
   views: "views",
   updateViews: "updateViews",
   addViews: "addViews",
+  getSitemapData: "getSitemapData",
+  updateSitemap: "updateSitemap",
   swapArticles: "swapArticles",
   getFaqPage: "getFaqPage",
   updateFaqPage: "updateFaqPage",

@@ -24,7 +24,7 @@ const ServiceMobileContentBlock = () => {
       <ServiceShowCase />
       <HowDoWeWork />
       <FooterBlock />
-      <MetaTagsBlock theme="dark" />
+      <MetaTagsBlock theme="dark" sitemap="services/mobile-app-development" />
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>
           Save changes
