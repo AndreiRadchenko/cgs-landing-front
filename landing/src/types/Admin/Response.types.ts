@@ -590,3 +590,7 @@ export interface IReviewProps {
   title: string;
   industry: string;
 }
+
+export interface ISitemapData {
+  includedPages: string[];
+}

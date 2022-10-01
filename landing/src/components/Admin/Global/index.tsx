@@ -73,7 +73,7 @@ const AdminMainContent = () => {
                 name="BookCallBlock"
               />
               <AdminFooterBlock />
-              <MetaTagsBlock theme="dark" />
+              <MetaTagsBlock theme="dark" sitemap="/" />
               <Styled.AdminPaddedBlock>
                 <Styled.AdminBigButton type="submit">
                   Submit

@@ -53,7 +53,7 @@ const FaqContentBlock = () => {
           </ButtonsContainer>
         )}
       </Styled.AdminPaddedBlock>
-      <MetaTagsBlock theme="dark" />
+      <MetaTagsBlock theme="dark" sitemap="faq" />
       <Styled.AdminPaddedBlock>
         <Styled.AdminBigButton type="submit" onClick={() => handleSubmit()}>
           Save changes

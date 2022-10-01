@@ -20,7 +20,7 @@ const ServiceCloudContentBlock = () => {
       <ServiceShowCase />
       <WorkBlock />
       <FooterBlock />
-      <MetaTagsBlock theme="dark" />
+      <MetaTagsBlock theme="dark" sitemap="services/cloud-solutions" />
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>
           Save changes

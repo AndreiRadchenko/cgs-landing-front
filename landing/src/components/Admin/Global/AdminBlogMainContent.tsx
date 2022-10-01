@@ -73,7 +73,7 @@ const AdminBlogMainContent = () => {
             setIsNewArticle={setIsNewArticle}
             data={articles}
           />
-          <MetaTagsBlock theme="dark" />
+          <MetaTagsBlock theme="dark" sitemap="blog" />
           <Styled.AdminPaddedBlock>
             <Styled.AdminBigButton type="submit" onClick={() => handleSubmit()}>
               Submit
