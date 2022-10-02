@@ -215,7 +215,10 @@ const ArticleAddAndEdit = ({
           possibleTags={possibleTags}
         />
       </Styled.AdminPaddedBlock>
-      <MetaTagsBlock theme="dark" sitemap={`blog/${values.url}`} />
+      <MetaTagsBlock
+        theme="dark"
+        sitemap={(values.url !== "" && `blog/${values.url}`) || undefined}
+      />
       <Styled.AdminPaddedBlock>
         <Styles.SubmitButtonWrapper>
           <TicketsButton type={"submit"} onClick={() => handleSubmit()}>

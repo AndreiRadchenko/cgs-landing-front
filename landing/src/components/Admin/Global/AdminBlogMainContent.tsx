@@ -8,6 +8,7 @@ import { adminBlogService } from "../../../services/adminBlogPage";
 import MetaTagsBlock from "../MetaTagsBlock";
 import ArticleForm from "./Blog/ArticleForm";
 import PublishedArticles from "./Blog/PublishedArticles";
+import { adminSitemapService } from "../../../services/adminSitemapPage";
 
 export interface IBlogProps {
   data: IBlogPageResponse | undefined;
@@ -45,6 +46,10 @@ const AdminBlogMainContent = () => {
     adminBlogService.getViews()
   );
 
+  const { data: sitemap } = useQuery(queryKeys.getSitemapData, () =>
+    adminSitemapService.getSitemapData()
+  );
+
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data && views && articles ? (
@@ -64,6 +69,7 @@ const AdminBlogMainContent = () => {
             isNewArticle={isNewArticle}
             setIsNewArticle={setIsNewArticle}
             views={views}
+            sitemap={sitemap}
           />
           <PublishedArticles
             views={views}
@@ -72,6 +78,7 @@ const AdminBlogMainContent = () => {
             isNewArticle={isNewArticle}
             setIsNewArticle={setIsNewArticle}
             data={articles}
+            sitemap={sitemap}
           />
           <MetaTagsBlock theme="dark" sitemap="blog" />
           <Styled.AdminPaddedBlock>
