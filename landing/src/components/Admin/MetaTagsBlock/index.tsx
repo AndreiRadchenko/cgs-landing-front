@@ -12,7 +12,7 @@ interface IMetaBlockProps {
   theme?: string;
   nestedMeta?: { meta: IMetaBlock };
   nameBefore?: string;
-  sitemap: string;
+  sitemap?: string;
 }
 
 const META_TITLE_MIN = 10;
@@ -59,7 +59,7 @@ const MetaTagsBlock = ({
 
   const handleSitemapToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
     const updatedData = data;
-    if (updatedData) {
+    if (updatedData && sitemap) {
       const index = updatedData.includedPages.indexOf(sitemap);
       e.target.checked
         ? updatedData.includedPages.push(sitemap)
@@ -70,7 +70,7 @@ const MetaTagsBlock = ({
   };
 
   useEffect(() => {
-    if (data) {
+    if (data && sitemap) {
       setInSitemap(data.includedPages.includes(sitemap));
     }
   }, [data, sitemap]);
@@ -145,6 +145,7 @@ const MetaTagsBlock = ({
             type="checkbox"
             checked={inSitemap}
             onChange={handleSitemapToggle}
+            disabled={!sitemap}
           />
           <Styled.Label>Include in sitemap</Styled.Label>
         </Styled.CheckBoxWrapper>

@@ -4,9 +4,11 @@ import { useMutation, useQueryClient } from "react-query";
 import { newBlogArticle } from "../../../../consts";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminBlogService } from "../../../../services/adminBlogPage";
+import { adminSitemapService } from "../../../../services/adminSitemapPage";
 import {
   IArticle,
   IBlogPageResponse,
+  ISitemapData,
   IView,
 } from "../../../../types/Admin/Response.types";
 import ArticleAddAndEdit from "./ArticleAddAndEdit";
@@ -18,6 +20,7 @@ interface IArticleForm {
   setIsNewArticle: (val: boolean) => void;
   views: IView[];
   setArticle: (val: number) => void;
+  sitemap?: ISitemapData | void;
 }
 
 const META_TITLE_MAX = 60;
@@ -30,6 +33,7 @@ const ArticleForm = ({
   isNewArticle,
   setArticle,
   views,
+  sitemap,
 }: IArticleForm) => {
   const { values } = useFormikContext<IBlogPageResponse>();
   const queryClient = useQueryClient();
@@ -50,6 +54,17 @@ const ArticleForm = ({
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getBlogArticles]);
+      },
+    }
+  );
+
+  const { mutateAsync: updateSitemap } = useMutation(
+    queryKeys.updateSitemap,
+    (updatedSitemap: ISitemapData) =>
+      adminSitemapService.updateSitemapData(updatedSitemap),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.getSitemapData]);
       },
     }
   );
@@ -105,6 +120,19 @@ const ArticleForm = ({
         updatedViews && (await updateViews(updatedViews));
       }
     }
+
+    if (sitemap && !isNewArticle && values.url !== articles[article].url) {
+      const sitemaptoUpdate = sitemap;
+
+      const index = sitemaptoUpdate.includedPages.indexOf(
+        `blog/${articles[article].url}`
+      );
+
+      index > -1 &&
+        sitemaptoUpdate.includedPages.splice(index, 1, `blog/${values.url}`) &&
+        updateSitemap(sitemaptoUpdate);
+    }
+
     resetForm();
     setFieldValue("image", null);
     setFieldValue("author.image", null);

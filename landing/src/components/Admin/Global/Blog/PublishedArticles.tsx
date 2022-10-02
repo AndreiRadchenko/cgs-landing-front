@@ -8,6 +8,7 @@ import * as Styles from "../../../../styles/BlogPublishedArticles.styled";
 import { useFormikContext } from "formik";
 import {
   IArticle,
+  ISitemapData,
   ISwapData,
   IView,
 } from "../../../../types/Admin/Response.types";
@@ -22,6 +23,7 @@ import { queryKeys } from "../../../../consts/queryKeys";
 import { adminBlogService } from "../../../../services/adminBlogPage";
 import close from "../../../../../public/bigClose.svg";
 import { AdminPaddedBlock } from "../../../../styles/AdminPage";
+import { adminSitemapService } from "../../../../services/adminSitemapPage";
 
 interface IArticles {
   setIsNewArticle: (val: boolean) => void;
@@ -31,6 +33,7 @@ interface IArticles {
   data?: IArticle[];
   views?: IView[];
   disabled?: boolean;
+  sitemap?: ISitemapData | void;
 }
 
 interface IArticleItem {
@@ -45,6 +48,7 @@ const PublishedArticles: FC<IArticles> = ({
   article,
   data,
   views,
+  sitemap,
 }) => {
   const { handleSubmit } = useFormikContext<IArticle>();
   const queryClient = useQueryClient();
@@ -74,6 +78,17 @@ const PublishedArticles: FC<IArticles> = ({
     }
   );
 
+  const { mutateAsync: updateSitemap } = useMutation(
+    queryKeys.updateSitemap,
+    (updatedSitemap: ISitemapData) =>
+      adminSitemapService.updateSitemapData(updatedSitemap),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.getSitemapData]);
+      },
+    }
+  );
+
   const { mutateAsync: deletePhoto } = useMutation((url: string) =>
     adminGlobalService.deleteImage(url)
   );
@@ -92,6 +107,14 @@ const PublishedArticles: FC<IArticles> = ({
         viewToDelete.map(
           async (view) => view._id && (await deleteView(view._id))
         );
+      }
+      if (data[i].url !== "" && sitemap) {
+        const updatedSitemap = sitemap;
+        const index = updatedSitemap?.includedPages.indexOf(
+          `blog/${data[i].url}`
+        );
+        index > -1 && updatedSitemap?.includedPages.splice(index, 1);
+        await updateSitemap(updatedSitemap);
       }
       await deleteBlogArticle(data[i]._id);
       data[i].image && (await deletePhoto(data[i].image!.url));
