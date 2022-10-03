@@ -9,7 +9,10 @@ const TetrisFlutter = () => {
     const height = movementStrength / window.innerHeight;
     const width = movementStrength / window.innerWidth;
     const pageX = e.pageX - window.innerWidth / 2;
-    const pageY = e.pageY - window.innerHeight / 2;
+    const pageY =
+      e.pageY >= window.innerHeight
+        ? window.innerHeight / 2
+        : e.pageY - window.innerHeight / 2;
     const newvalueX = width * pageX * -1 - 25;
     const newvalueY = height * pageY * -1;
 

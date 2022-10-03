@@ -19,20 +19,20 @@ export const Title = styled.h2`
 export const BlockWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-right: 1.67em;
-  margin-left: -4em;
   margin-top: 4.31em;
+  width: 110%;
+  left: -5%;
   position: relative;
+  column-gap: 25px;
 
   @media ${themes.primary.media.maxServiceWeb} {
     padding: 0;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    left: -25px;
+    left: -45px;
     flex-direction: column;
     padding-right: 0;
-    max-width: 100%;
     margin: 0;
   }
 `;
@@ -64,7 +64,6 @@ export const Line = styled.div`
   background-color: ${themes.primary.colors.comment};
   flex: 1;
   margin-top: 1.15em;
-  margin: 1.15em 0 0 25px;
   max-height: 2px;
   width: 100%;
 

@@ -47,7 +47,7 @@ const Review = ({ review, className }: IReviewProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {width && width < 1300 && width > 768
+                  {width && width < 992 && width > 768
                     ? "link"
                     : "project link"}
                 </a>

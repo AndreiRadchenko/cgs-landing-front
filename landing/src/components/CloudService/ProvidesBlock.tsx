@@ -21,7 +21,7 @@ const ProvidesBlock = () => {
     <Styled.Container>
       <Subtitle>{subtitle}</Subtitle>
       <Styled.BGImage src={cloudProvidesBgi.src} />
-      <Styled.BGImageMobile src={cloudProvidesMobile.src} />
+      <Styled.BGImageMobile src={cloudProvidesMobile.src} alt="bg image" />
       <Styled.BlockWrapper>
         {Object.values(blocks).map((el, index) => (
           <Styled.Block key={index}>

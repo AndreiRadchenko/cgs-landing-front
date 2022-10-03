@@ -25,6 +25,10 @@ export async function getServerSideProps() {
     adminPortfolioService.getPageData()
   );
 
+  await queryClient.prefetchQuery(queryKeys.getPortfolio, () =>
+    adminPortfolioService.getReviews()
+  );
+
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
@@ -81,7 +85,7 @@ const PortfolioPage: NextPage = () => {
               <span>
                 &nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
                 WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
-                WORK&nbsp;&nbsp;WORK OUR&nbsp;&nbsp;WORK OUR WORK
+                WORK&nbsp;&nbsp;WORK OUR&nbsp;&nbsp;WORK OUR WORK&nbsp;
               </span>
               <span>
                 OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
