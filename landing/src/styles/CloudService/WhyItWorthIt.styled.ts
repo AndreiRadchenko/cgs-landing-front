@@ -40,8 +40,8 @@ export const Block = styled.div`
     }
   }
   & > img {
-    top: 13.4em;
-    left: 14.5em;
+    top: 11.4em;
+    left: 13.5em;
 
     @media (max-width: 1300px) {
       left: 10em;
@@ -58,11 +58,11 @@ export const Block = styled.div`
   }
 
   &:nth-child(2) {
-    padding-left: 0.063em;
+    padding-left: 0.5em;
 
     & > img {
-      top: 2.2em;
-      left: 16em;
+      top: 2.5em;
+      left: 17em;
 
       @media (max-width: 1300px) {
         left: 13em;
@@ -79,7 +79,7 @@ export const Block = styled.div`
       }
     }
     & > div:first-child {
-      margin-top: 11.7em;
+      margin-top: 9.7em;
     }
 
     @media ${themes.primary.media.maxMobile} {
@@ -120,6 +120,7 @@ export const Title = styled.p`
   margin-left: 1.67em;
   font-size: 1.5em;
   line-height: 160%;
+  letter-spacing: 0.05em;
   -webkit-text-stroke: 0.2px black;
 
   @media ${themes.primary.media.maxMobile} {
@@ -147,7 +148,7 @@ export const Svg = styled.img`
   position: absolute;
   bottom: 0;
   left: 0;
-  transform: translateX(-50%);
+  transform: translate(-50%, 10%);
 
   @media ${themes.primary.media.maxMobile} {
     transform: translateX(0);

@@ -4,7 +4,7 @@ import cloudProvidesBgi from "../../../public/CloudServicePage/cloudProvidesBgi.
 import cloudProvidesMobile from "../../../public/CloudServicePage/clod-provides-mobile.svg";
 
 export const Container = styled.div`
-  margin-top: 13.375em;
+  margin-top: 12.8em;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
@@ -57,9 +57,9 @@ export const BgContainer = styled.div`
 
 export const BGImage = styled.img`
   position: absolute;
-  width: 115vw;
-  left: -15vw;
-  top: 6em;
+  width: 107.36vw;
+  left: -8vw;
+  top: 0.8em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     display: none;
@@ -94,8 +94,10 @@ export const BGImageMobile = styled.img`
 `;
 
 export const BlockWrapper = styled.div`
-  padding: 10vw 0 0 10vw;
+  padding: 4.027vw 0 0 11vw;
   position: relative;
+  display: grid;
+  row-gap: 50px;
 
   @media (max-width: 1300px) {
     font-size: 0.9em;
@@ -109,7 +111,6 @@ export const BlockWrapper = styled.div`
 
 export const Block = styled.div`
   position: relative;
-  margin-bottom: 5vw;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 0;
@@ -132,7 +133,7 @@ export const Block = styled.div`
   }
 
   &:nth-child(2) {
-    left: 18vw;
+    left: 16.8vw;
 
     @media ${themes.primary.media.maxTabletLandScape} {
       margin-bottom: 3.94em;
@@ -140,7 +141,7 @@ export const Block = styled.div`
   }
 
   &:nth-child(3) {
-    left: 46vw;
+    left: 43vw;
     margin-bottom: 0;
 
     @media ${themes.primary.media.maxTabletLandScape} {
@@ -172,7 +173,7 @@ export const Title = styled.p`
 `;
 
 export const Description = styled.div`
-  font-size: 1.125em;
+  font-size: 1.125em !important;
   margin-top: 1.28em;
   line-height: 160%;
   max-width: 26.39em;
