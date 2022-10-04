@@ -32,9 +32,6 @@ export const SplitBrackets = ({
     }
   }, [animatedText, text, animated, displayedText]);
   const splited = animated ? animatedText?.split("|") : text?.split("|");
-  if (animated) {
-    console.log(animatedText);
-  }
 
   return (
     <>

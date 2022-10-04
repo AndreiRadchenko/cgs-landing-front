@@ -10,6 +10,7 @@ import { useQueryClient } from "react-query";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 
 const WorthIt = () => {
   const queryClient = useQueryClient();
@@ -19,6 +20,7 @@ const WorthIt = () => {
 
   const titleIllustration = [crystal, cube, cylinder];
   const textIllustration = [null, secondTextPhoto, thirdTextPhoto];
+
   return (
     <Styled.Container>
       <Subtitle>{data?.subtitle}</Subtitle>
@@ -36,6 +38,7 @@ const WorthIt = () => {
                 <Styled.Icon
                   src={titleIllustration[idx].src}
                   alt="worth it title image"
+                  xOffset={handleRandomOffset()}
                 />
                 {el[1].subtitle}
               </Styled.WorthTitleContainer>

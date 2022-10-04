@@ -1,5 +1,4 @@
 ﻿import { keyframes, css } from "styled-components";
-import themes from "../utils/themes";
 
 export const rotateAnimationLaptopLeft = keyframes`
   ${css`
@@ -237,6 +236,19 @@ ${css`
   }
   to {
     transform: translateX(0);
+  }
+`}
+  `;
+
+export const float = (y: number) => keyframes` 
+${css`
+  from {
+    -webkit-transform: rotate(0deg) translate3d(${y}px, 0, 0) rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(${y > 2 ? "360deg" : "-360deg"})
+      translate3d(${y}px, 0, 0) rotate(${y > 2 ? "-360deg" : "360deg"});
   }
 `}
   `;

@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { IIcon } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { float } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 5.5em;
@@ -69,17 +71,43 @@ export const WorthText = styled.p`
   }
 `;
 
-export const Icon = styled.img`
+export const Icon = styled.img<IIcon>`
   display: flex;
   margin-right: 0.3em;
+  animation: ${({ xOffset }) =>
+    css`
+      ${float(xOffset)} 3s infinite linear
+    `};
+
+  &:first-child {
+    width: 29px;
+  }
+
+  &:nth-child(2) {
+    width: 37px;
+  }
+
+  &:nth-child(3) {
+    width: 38px;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-right: 0;
-    transform: scale(0.8);
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    transform: scale(0.6);
+    margin-right: 0.3em;
+    &:first-child {
+      width: 17px;
+    }
+
+    &:nth-child(2) {
+      width: 21px;
+    }
+
+    &:nth-child(3) {
+      width: 29px;
+    }
   }
 `;
 

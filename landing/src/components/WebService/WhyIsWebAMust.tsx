@@ -10,6 +10,7 @@ import { useQueryClient } from "react-query";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 
 const WhyIsWebAMust = () => {
   const queryClient = useQueryClient();
@@ -42,6 +43,7 @@ const WhyIsWebAMust = () => {
                 <Styled.Icon
                   src={titleIllustration[idx].src}
                   alt="why is web title image"
+                  xOffset={handleRandomOffset()}
                 />
                 {el[1].subtitle}
               </Styled.WhyIsWebTitleContainer>

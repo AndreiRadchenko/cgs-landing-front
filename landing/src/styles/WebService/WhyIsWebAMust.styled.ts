@@ -1,5 +1,8 @@
-﻿import styled from "styled-components";
+﻿import { css } from "@emotion/react";
+import styled from "styled-components";
+import { IIcon } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { float } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 13.375em;
@@ -90,7 +93,8 @@ export const WhyIsWebText = styled.p`
   }
 `;
 
-export const Icon = styled.img`
+export const Icon = styled.img<{ xOffset: number }>`
+  ${console.log(`${({ xOffset }) => xOffset()}`)}
   display: flex;
   margin-right: 0.3em;
 
