@@ -20,7 +20,7 @@ const ServiceUxUiContentBlock = () => {
       {/* <ServiceShowCase /> */}
       <EssentialBlock />
       <FooterBlock />
-      <MetaTagsBlock theme="dark" />
+      <MetaTagsBlock theme="dark" sitemap="services/ux-ui-design" />
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>
           Save changes

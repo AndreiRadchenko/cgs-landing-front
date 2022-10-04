@@ -1,10 +1,10 @@
 import React from "react";
-import Portfolio from "../../components/Admin/Portfolio";
 import AdminSidebar from "../../components/Admin/SideBar/AdminSidebar";
 import { queryKeys } from "../../consts/queryKeys";
 import { validTokenGlobal } from "../../services/validToken";
 import { useQuery } from "react-query";
 import * as Styled from "../../styles/AdminPage";
+import PortfolioPage from "../../components/Admin/Portfolio";
 
 const AdminPortfolio = () => {
   const { data } = useQuery(queryKeys.validToken, () =>
@@ -14,7 +14,7 @@ const AdminPortfolio = () => {
   return data ? (
     <Styled.AdminWrapper>
       <AdminSidebar />
-      <Portfolio />
+      <PortfolioPage />
     </Styled.AdminWrapper>
   ) : (
     <Styled.AdminUnauthorizedModal>

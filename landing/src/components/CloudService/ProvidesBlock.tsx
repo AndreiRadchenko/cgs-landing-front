@@ -5,7 +5,7 @@ import { ICloudService } from "../../types/Admin/Response.types";
 import { Subtitle } from "../../styles/CloudService/Layaut";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import cloudProvidesBgi from "../../../public/CloudServicePage/cloudProvidesBgi.svg";
-import cloudProvidesMobile from "../../../public/CloudServicePage/clod-provides-mobile.svg";
+import cloudProvidesMobile from "../../../public/CloudServicePage/cloud-provides-mobile.svg";
 import * as Styled from "../../styles/CloudService/Provides.styled";
 import parse from "html-react-parser";
 
@@ -21,7 +21,7 @@ const ProvidesBlock = () => {
     <Styled.Container>
       <Subtitle>{subtitle}</Subtitle>
       <Styled.BGImage src={cloudProvidesBgi.src} />
-      <Styled.BGImageMobile src={cloudProvidesMobile.src} />
+      <Styled.BGImageMobile src={cloudProvidesMobile.src} alt="bg image" />
       <Styled.BlockWrapper>
         {Object.values(blocks).map((el, index) => (
           <Styled.Block key={index}>

@@ -1,4 +1,4 @@
-import { IPortfolioReview } from "../../../types/Admin/AdminPortfolioPage.types";
+import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio.types";
 import React, { FC, useEffect, useRef, useState } from "react";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -66,7 +66,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
     const getOffset = () => {
       if (navRef.current && navRef.current.getBoundingClientRect) {
         const { y } = navRef.current.getBoundingClientRect();
-        y <= 1 && isOpen ? setIsOnTop(true) : setIsOnTop(false);
+        y <= 95 && isOpen ? setIsOnTop(true) : setIsOnTop(false);
       }
     };
 

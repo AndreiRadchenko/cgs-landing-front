@@ -26,7 +26,10 @@ const MainBlogItem = ({ article, views, filters }: IMainBlogItem) => {
   return (
     <Styled.MainBlogItemContainer>
       <Styled.MobileColumnReversedContainer>
-        <Styled.MainBlogItemImage src={article.image.url} />
+        <Styled.MainBlogItemImage
+          src={article.image?.url}
+          alt="main blog image"
+        />
         <Styled.FlexRowContainer>
           <Styled.MainBlogItemTag>{article.tags[0]}</Styled.MainBlogItemTag>
         </Styled.FlexRowContainer>

@@ -157,7 +157,7 @@ const AboutUsContentBlock = () => {
           </Styled.AdminMarginBlock>
         </Styled.AdminAboutUsGrid>
       </Styled.AdminPaddedBlock>
-      <MetaTagsBlock theme="dark" />
+      <MetaTagsBlock theme="dark" sitemap="about-us" />
       <Styled.AdminPaddedBlock>
         <Styled.AdminBigButton type="submit" onClick={() => handleSubmit()}>
           Save changes

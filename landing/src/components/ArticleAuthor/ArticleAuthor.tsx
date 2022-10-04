@@ -32,7 +32,7 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
       <Styles.Wrapper>
         {
           <Styles.AuthorImage
-            src={author.image.url ? author.image.url : AuthorPlaceholder.src}
+            src={author.image?.url ? author.image.url : AuthorPlaceholder.src}
           />
         }
         <Styles.AuthorInfoWrapper>

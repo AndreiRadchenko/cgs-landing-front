@@ -4,23 +4,29 @@ import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { adminPortfolioPageService } from "../../services/adminPortfolioPage";
+import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import PortfolioSlider from "../../components/Admin/PortfolioSwipers/PortfolioSlider";
-import { IPortfolioResponse } from "../../types/Admin/AdminPortfolioPage.types";
+import {
+  IPortfolioResponse,
+  IPortfolioReviewsResponse,
+} from "../../types/Admin/AdminPortfolio.types";
 import * as Styled from "../../styles/AdminPage";
 import * as Styles from "../../styles/Portfolio.styled";
 import { Separator } from "../../styles/PortfolioSlider.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { adminGlobalService } from "../../services/adminHomePage";
-import { portfolioCategories } from "../../utils/variables";
 import Head from "next/head";
 import { NextPage } from "next";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getPortfolioPage, () =>
-    adminPortfolioPageService.getPortfolio()
+  await queryClient.prefetchQuery(queryKeys.getPortfolioPageData, () =>
+    adminPortfolioService.getPageData()
+  );
+
+  await queryClient.prefetchQuery(queryKeys.getPortfolio, () =>
+    adminPortfolioService.getReviews()
   );
 
   return {
@@ -32,8 +38,15 @@ export async function getServerSideProps() {
 
 const PortfolioPage: NextPage = () => {
   const { data, isLoading }: IPortfolioResponse = useQuery(
-    queryKeys.getPortfolioPage,
-    () => adminPortfolioPageService.getPortfolio()
+    queryKeys.getPortfolioPageData,
+    () => adminPortfolioService.getPageData()
+  );
+
+  const {
+    data: reviews,
+    isLoading: reviewsIsLoading,
+  }: IPortfolioReviewsResponse = useQuery(queryKeys.getPortfolio, () =>
+    adminPortfolioService.getReviews()
   );
 
   useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
@@ -41,9 +54,10 @@ const PortfolioPage: NextPage = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { width } = useWindowDimension();
   const sortByCategory = (category: string) => {
-    return data?.reviews
-      .filter((review) => review.category === category)
-      .reverse();
+    return (
+      reviews &&
+      reviews.filter((review) => review.category === category).reverse()
+    );
   };
   useEffect(() => {
     setIsMobile(false);
@@ -54,7 +68,7 @@ const PortfolioPage: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  return isLoading ? (
+  return isLoading && reviewsIsLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data ? (
     <>
@@ -66,14 +80,23 @@ const PortfolioPage: NextPage = () => {
       <Styles.PortfolioContainer>
         <HeaderNavNew />
         {isMobile || (
-          <Styles.OurWorkTitle>
-            UR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
-            WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;WORK
-            OUR&nbsp;&nbsp;WORK OUR WORK
-          </Styles.OurWorkTitle>
+          <>
+            <Styles.OurWorkTitle>
+              <span>
+                &nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
+                WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
+                WORK&nbsp;&nbsp;WORK OUR&nbsp;&nbsp;WORK OUR WORK&nbsp;
+              </span>
+              <span>
+                OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
+                WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;WORK
+                OUR&nbsp;&nbsp;WORK OUR WORK&nbsp;
+              </span>
+            </Styles.OurWorkTitle>
+          </>
         )}
         <Styles.SlidersCont>
-          {portfolioCategories.map((category, ind) => {
+          {data.categories.map((category, ind) => {
             const filtered = sortByCategory(category);
             return (
               filtered &&

@@ -1,5 +1,5 @@
 import React from "react";
-import { IPortfolioReview } from "../../types/Admin/AdminPortfolioPage.types";
+import { IPortfolioReview } from "../../types/Admin/AdminPortfolio.types";
 import * as Styled from "../../styles/PortfolioSlider.styled";
 import * as Styles from "../../styles/Portfolio.styled";
 import StarPortfolio from "../../../public/starPortfolio.svg";
@@ -47,7 +47,7 @@ const Review = ({ review, className }: IReviewProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {width && width < 1300 && width > 768
+                  {width && width < 992 && width > 768
                     ? "link"
                     : "project link"}
                 </a>

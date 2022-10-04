@@ -2,14 +2,17 @@
 import * as Styled from "../../../styles/AdminPage";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { useFormikContext } from "formik";
-import { IMetaBlock } from "../../../types/Admin/Response.types";
+import { IMetaBlock, ISitemapData } from "../../../types/Admin/Response.types";
 import { Counter, Message, Text } from "../../../styles/AdminBlogPage";
-import { getNested } from "../../../utils/getNestedObjectByKeys";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { queryKeys } from "../../../consts/queryKeys";
+import { adminSitemapService } from "../../../services/adminSitemapPage";
 
 interface IMetaBlockProps {
   theme?: string;
   nestedMeta?: { meta: IMetaBlock };
   nameBefore?: string;
+  sitemap?: string;
 }
 
 const META_TITLE_MIN = 10;
@@ -21,12 +24,30 @@ const MetaTagsBlock = ({
   theme,
   nestedMeta,
   nameBefore = "",
+  sitemap,
 }: IMetaBlockProps) => {
+  const queryClient = useQueryClient();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { values, handleChange } = useFormikContext<any>();
   const { meta } = nestedMeta ? nestedMeta : values;
+  const [inSitemap, setInSitemap] = useState<boolean>(false);
   const [titleLength, setTitleLength] = useState(0);
   const [descLength, setDescLength] = useState(0);
+
+  const { data } = useQuery(queryKeys.getSitemapData, () =>
+    adminSitemapService.getSitemapData()
+  );
+
+  const { mutateAsync } = useMutation(
+    queryKeys.updateSitemap,
+    (updatedSitemap: ISitemapData) =>
+      adminSitemapService.updateSitemapData(updatedSitemap),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.getSitemapData]);
+      },
+    }
+  );
 
   const handleDescInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDescLength(e.target.value.length);
@@ -36,97 +57,110 @@ const MetaTagsBlock = ({
     setTitleLength(e.target.value.length);
   };
 
-  const checkForChangeFunction = (name: string) => {
-    switch (name) {
-      case "customHead":
-        return undefined;
-      case "metaTitle":
-        return handleTitle;
-      case "metaDescription":
-        return handleDescInput;
+  const handleSitemapToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const updatedData = data;
+    if (updatedData && sitemap) {
+      const index = updatedData.includedPages.indexOf(sitemap);
+      e.target.checked
+        ? updatedData.includedPages.push(sitemap)
+        : index !== -1 && updatedData.includedPages.splice(index, 1);
+      mutateAsync(updatedData);
     }
+    setInSitemap(e.target.checked);
   };
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const getMetaByName = (values: any, metaName: string) => {
-      const arr = nameBefore.replace("]", "").replace(".", "[").split("[");
-      const nestedObj = getNested(values, ...arr);
-      return nestedObj.meta[metaName];
-    };
+    if (data && sitemap) {
+      setInSitemap(data.includedPages.includes(sitemap));
+    }
+  }, [data, sitemap]);
 
+  useEffect(() => {
     setDescLength(
-      nameBefore
-        ? getMetaByName(values, "metaDescription").length
-        : values.meta.metaDescription.length
+      nameBefore ? meta.length : values.meta.metaDescription.length
     );
-    setTitleLength(
-      nameBefore
-        ? getMetaByName(values, "metaTitle").length
-        : values.meta.metaTitle.length
-    );
-  }, [nameBefore, values]);
+    setTitleLength(nameBefore ? meta.length : values.meta.metaTitle.length);
+  }, [nameBefore, values, meta.length]);
 
   return (
     <Styled.AdminPaddedBlock theme={theme}>
-      {Object.entries(meta).map((el, id) => {
-        return (
-          <div key={id}>
-            <SubHeaderWithInput
-              header={el[0]
-                .replace(/([A-Z])/g, " $1")
-                .replace(/^./, (str: string) => str.toUpperCase())}
-              minRows={5}
-              inputValue={el[1] as string}
-              onInputFunction={() => checkForChangeFunction(el[0])}
-              name={
-                nameBefore != ""
-                  ? `${nameBefore}.meta.${el[0]}`
-                  : `meta.${el[0]}`
-              }
-              onChangeFunction={handleChange}
-            />
-            {el[0] !== "customHead" &&
-              ((el[0] === "metaDescription" && (
-                <Text>
-                  <Message>
-                    {(descLength > META_DESCRIPTION_MAX ||
-                      descLength < META_DESCRIPTION_MIN) &&
-                      "Description should be between 120 and 160 characters"}
-                  </Message>
-                  <Counter
-                    className={
-                      descLength > META_DESCRIPTION_MAX ||
-                      descLength < META_DESCRIPTION_MIN
-                        ? "error"
-                        : undefined
-                    }
-                  >
-                    {descLength}
-                  </Counter>
-                </Text>
-              )) || (
-                <Text>
-                  <Message>
-                    {(titleLength > META_TITLE_MAX ||
-                      titleLength < META_TITLE_MIN) &&
-                      "Title should be between 10 and 60 characters"}
-                  </Message>
-                  <Counter
-                    className={
-                      titleLength > META_TITLE_MAX ||
-                      titleLength < META_TITLE_MIN
-                        ? "error"
-                        : undefined
-                    }
-                  >
-                    {titleLength}
-                  </Counter>
-                </Text>
-              ))}
-          </div>
-        );
-      })}
+      <div>
+        <SubHeaderWithInput
+          header="Meta Title"
+          minRows={5}
+          inputValue={meta.metaTitle}
+          onInputFunction={handleTitle}
+          name={
+            nameBefore != "" ? `${nameBefore}.meta.metaTitle` : `meta.metaTitle`
+          }
+          onChangeFunction={handleChange}
+        />
+        <Text>
+          <Message>
+            {(titleLength > META_TITLE_MAX || titleLength < META_TITLE_MIN) &&
+              "Title should be between 10 and 60 characters"}
+          </Message>
+          <Counter
+            className={
+              titleLength > META_TITLE_MAX || titleLength < META_TITLE_MIN
+                ? "error"
+                : undefined
+            }
+          >
+            {titleLength}
+          </Counter>
+        </Text>
+        <SubHeaderWithInput
+          header="Meta Description"
+          minRows={5}
+          inputValue={meta.metaDescription}
+          onInputFunction={handleDescInput}
+          name={
+            nameBefore != ""
+              ? `${nameBefore}.meta.metaDescription`
+              : `meta.metaDescription`
+          }
+          onChangeFunction={handleChange}
+        />
+        <Text>
+          <Message>
+            {(descLength > META_DESCRIPTION_MAX ||
+              descLength < META_DESCRIPTION_MIN) &&
+              "Description should be between 120 and 160 characters"}
+          </Message>
+          <Counter
+            className={
+              descLength > META_DESCRIPTION_MAX ||
+              descLength < META_DESCRIPTION_MIN
+                ? "error"
+                : undefined
+            }
+          >
+            {descLength}
+          </Counter>
+        </Text>
+
+        <Styled.CheckBoxWrapper>
+          <Styled.SitemapInput
+            type="checkbox"
+            checked={inSitemap}
+            onChange={handleSitemapToggle}
+            disabled={!sitemap}
+          />
+          <Styled.Label>Include in sitemap</Styled.Label>
+        </Styled.CheckBoxWrapper>
+        <SubHeaderWithInput
+          header="Custom Head"
+          minRows={5}
+          inputValue={meta.customHead}
+          name={
+            nameBefore != ""
+              ? `${nameBefore}.meta.customHead`
+              : `meta.customHead`
+          }
+          onChangeFunction={handleChange}
+        />
+      </div>
     </Styled.AdminPaddedBlock>
   );
 };

@@ -1,50 +1,63 @@
 import {
   IArticle,
-  IArticleWithInd,
-  IBlogResponse,
-  IMetaBlock,
+  IBlogPageResponse,
   ISwapData,
-  IViews,
+  IView,
 } from "../../types/Admin/Response.types";
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
 
 export class AdminBlogPage {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
-  public getBlogPage() {
-    return this.httpService.get<IBlogResponse>("api/blog");
+  public getBlogPageData() {
+    return this.httpService.get<IBlogPageResponse>("api/blog");
   }
-  public updateBlogPage(data: IBlogResponse) {
+  public updateBlogPageData(data: IBlogPageResponse) {
     return this.httpService.put("api/blog", data);
   }
-  public postArticle(article: IArticle) {
-    return this.httpService.post(`api/blog/add`, article);
+  public getArticles() {
+    return this.httpService.get<IArticle[]>("api/blog/article");
   }
-  public getByUrl(url: string) {
+
+  public getFilteredArticles() {
+    return this.httpService.get<IArticle[]>("api/blog/filtered");
+  }
+
+  public getArticleByUrl(url: string) {
     return this.httpService.get(`api/blog/article/${url}`);
   }
-  public updateBlogMetaTags(meta: IMetaBlock) {
-    return this.httpService.put(`api/blog/meta`, meta);
+  public postArticle(article: IArticle) {
+    return this.httpService.post(`api/blog/article`, article);
   }
-  public updateByInd(updatedArticle: IArticleWithInd) {
+
+  public updateById(updatedArticle: IArticle) {
     return this.httpService.put(
-      `api/blog/article/${updatedArticle.ind}`,
-      updatedArticle.article
+      `api/blog/article/${updatedArticle._id}`,
+      updatedArticle
     );
+  }
+
+  public deleteByUrl(url: string) {
+    return this.httpService.delete(`api/blog/article/${url}`);
   }
 
   public swapTwoElements(swapData: ISwapData) {
     return this.httpService.put(`api/blog/swap`, swapData);
   }
-  public deleteByInd(ind: number) {
-    return this.httpService.delete(`api/blog/article/${ind}`);
+
+  public updateViews(views: IView) {
+    return this.httpService.put(`api/blog/view/${views._id}`, views);
   }
 
-  public updateViews(views: IViews) {
-    return this.httpService.put(`api/blog/view`, views);
+  public addViews(views: IView) {
+    return this.httpService.post(`api/blog/view`, views);
+  }
+
+  public deleteViewsById(id: string) {
+    return this.httpService.delete(`api/blog/view/${id}`);
   }
   public getViews() {
-    return this.httpService.get<IViews[]>(`api/blog/view`);
+    return this.httpService.get<IView[]>(`api/blog/view`);
   }
 }
 

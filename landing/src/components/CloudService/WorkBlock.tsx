@@ -19,7 +19,7 @@ const WorkBlock = () => {
         {Object.values(blocks).map((el, index) => (
           <Styled.Block key={index}>
             <Styled.Line />
-            <Styled.Image src={rhombus.src} />
+            <Styled.Image src={rhombus.src} alt="rhombus image" />
             <Styled.Subtitle>{el}</Styled.Subtitle>
           </Styled.Block>
         ))}

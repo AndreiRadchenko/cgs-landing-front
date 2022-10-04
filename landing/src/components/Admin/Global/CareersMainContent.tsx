@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Formik, FormikValues } from "formik";
+import { Form, Formik } from "formik";
 import { useMutation, useQuery } from "react-query";
 
 import Careers from "../Careers";
@@ -59,7 +59,7 @@ const CareersMainContent = () => {
                 setTicket={setTicket}
               />
               <CareersContactForm />
-              <MetaTagsBlock />
+              <MetaTagsBlock sitemap="careers" />
               <Styled.AdminPaddedBlock>
                 <Styled.AdminBigButton type="submit">
                   Submit

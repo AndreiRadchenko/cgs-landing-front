@@ -19,7 +19,7 @@ const ServiceSupportContentBlock = () => {
       {/* <ServiceShowCase /> */}
       <BonusesBlock />
       <FooterBlock />
-      <MetaTagsBlock theme="dark" />
+      <MetaTagsBlock theme="dark" sitemap="services/it-support" />
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>
           Save changes

@@ -1009,3 +1009,59 @@ export const AdminShowCaseButton = styled.div<IFontSize>`
   line-height: 99%;
   display: inline-block;
 `;
+
+export const Label = styled.label`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 1.6666em;
+  line-height: 120%;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+`;
+
+export const SitemapInput = styled.input`
+  position: relative;
+  border: 1.125px solid ${themes.primary.colors.primary};
+  background: none;
+  cursor: pointer;
+  line-height: 0;
+  margin: 0 0.6em 0 0;
+  outline: 0;
+  padding: 0 !important;
+  vertical-align: text-top;
+  height: 1.35em;
+  width: 1.35em;
+  -webkit-appearance: none;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    width: 4px;
+    height: 10px;
+    margin: -1px -1px 0 -1px;
+    transform: rotate(45deg) translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  &:checked {
+    background-color: ${themes.primary.colors.blogBackground};
+    opacity: 1;
+    &::before {
+      border-width: 0 2px 2px 0;
+      border-style: solid;
+      border-color: ${themes.primary.colors.primary};
+    }
+  }
+`;
+
+export const CheckBoxWrapper = styled.div`
+  margin-block: 0.666em 0.5em;
+`;

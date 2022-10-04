@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import parse from "html-react-parser";
 import { dehydrate, QueryClient, useQuery } from "react-query";
-import { IArticle, IBlogResponse } from "../../types/Admin/Response.types";
+import { IArticle, IBlogPageResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import PaginationBar from "../../components/PaginationBar/PaginationBar";
 import BlogItem from "../../components/Blog/BlogItem";
@@ -24,8 +24,13 @@ import { isNumeric } from "../../utils/isNumeric";
 import { Loading } from "../../components/CareersForm/Form/Form.styled";
 import loading from "../../../public/CareerDecorations/loading.svg";
 
-interface IBlogData {
-  data: IBlogResponse | undefined;
+interface IBlogPageData {
+  data: IBlogPageResponse | undefined;
+  isLoading: boolean;
+}
+
+interface IArticlesData {
+  data: IArticle[] | undefined;
   isLoading: boolean;
 }
 
@@ -33,7 +38,11 @@ export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(queryKeys.getBlogPage, () =>
-    adminBlogService.getBlogPage()
+    adminBlogService.getBlogPageData()
+  );
+
+  await queryClient.prefetchQuery(queryKeys.getBlogArticles, () =>
+    adminBlogService.getFilteredArticles()
   );
 
   await queryClient.prefetchQuery(queryKeys.views, () =>
@@ -55,8 +64,13 @@ const PageSize = 4;
 const BlogPage = () => {
   const router = useRouter();
 
-  const { data }: IBlogData = useQuery(queryKeys.getBlogPage, () =>
-    adminBlogService.getBlogPage()
+  const { data }: IBlogPageData = useQuery(queryKeys.getBlogPage, () =>
+    adminBlogService.getBlogPageData()
+  );
+
+  const { data: articles }: IArticlesData = useQuery(
+    queryKeys.getBlogArticles,
+    () => adminBlogService.getFilteredArticles()
   );
 
   const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
@@ -72,16 +86,8 @@ const BlogPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    data &&
-      setReversedArticles(
-        data?.articles.reverse().filter((article) => {
-          return (
-            !article.disabled &&
-            !(new Date() <= new Date(article.scheduleArticle))
-          );
-        })
-      );
-  }, [data, data?.articles]);
+    articles && setReversedArticles(articles.reverse());
+  }, [articles]);
 
   useEffect(() => {
     const newTags = reversedArticles?.map((article) => article.tags).flat();
@@ -99,9 +105,9 @@ const BlogPage = () => {
 
   const tagParams = router.query.tag;
   useEffect(() => {
-    if (data) {
+    if (articles) {
       const page = router.query.page;
-      const maxPage = Math.ceil(data.articles.length / PageSize);
+      const maxPage = Math.ceil(articles.length / PageSize);
       const currentPage =
         page !== "0" && isNumeric(page as string)
           ? Number(page) <= maxPage
@@ -116,7 +122,7 @@ const BlogPage = () => {
         scrollHandler();
       }
     }
-  }, [tagParams, scrollHandler, router.query.page, data]);
+  }, [tagParams, scrollHandler, router.query.page, data, articles, filters]);
 
   const currentArticlesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
@@ -131,8 +137,7 @@ const BlogPage = () => {
 
   const findViews = (url: string) => {
     if (views.data)
-      return views.data[0].allViews.find((view) => view.articleUrl === url)
-        ?.views;
+      return views.data.find((view) => view.articleUrl === url)?.views;
   };
 
   useEffect(() => {
@@ -203,66 +208,69 @@ const BlogPage = () => {
           </Styled.FlexColumnContainer>
         </Styled.HeaderBlock>
         <PodcastItem />
-        <Styled.AllArticlesContainer articles={data.articles.length}>
-          <Styled.DropdownContainer>
-            <>
-              {filters.length > 0 &&
-                filters.map((filter, index) => (
-                  <Styled.Tag key={index}>
-                    {filter}&nbsp;&nbsp;
-                    <span
-                      onClick={() => {
-                        const newFilters = filters.filter(
-                          (filter) => filter !== filters[index]
-                        );
-                        setFilters([...newFilters]);
-                      }}
-                    >
-                      x
-                    </span>
-                  </Styled.Tag>
-                ))}
-            </>
-            <BlogDropdown
-              filters={filters}
-              className="blog"
-              setFilters={setFilters}
-              tags={tags}
-              dropdownName="#TAGS"
-              isTag={true}
-            />
-          </Styled.DropdownContainer>
-          {currentArticlesData &&
-            currentArticlesData.map((article, i) =>
-              i === 0 ? (
-                <div ref={ref} key={article._id}>
+        {(articles && (
+          <Styled.AllArticlesContainer articles={articles.length}>
+            <Styled.DropdownContainer>
+              <>
+                {filters.length > 0 &&
+                  filters.map((filter, index) => (
+                    <Styled.Tag key={index}>
+                      {filter}&nbsp;&nbsp;
+                      <span
+                        onClick={() => {
+                          const newFilters = filters.filter(
+                            (filter) => filter !== filters[index]
+                          );
+                          setFilters([...newFilters]);
+                        }}
+                      >
+                        x
+                      </span>
+                    </Styled.Tag>
+                  ))}
+              </>
+              <BlogDropdown
+                filters={filters}
+                className="blog"
+                setFilters={setFilters}
+                tags={tags}
+                dropdownName="#TAGS"
+                isTag={true}
+              />
+            </Styled.DropdownContainer>
+            {currentArticlesData &&
+              currentArticlesData.map((article, i) =>
+                i === 0 ? (
+                  <div ref={ref} key={article._id}>
+                    <BlogItem
+                      article={article}
+                      views={findViews(article.url)}
+                      filters={filters}
+                    />
+                  </div>
+                ) : (
                   <BlogItem
                     article={article}
+                    key={article._id}
                     views={findViews(article.url)}
                     filters={filters}
                   />
-                </div>
-              ) : (
-                <BlogItem
-                  article={article}
-                  key={article._id}
-                  views={findViews(article.url)}
-                  filters={filters}
-                />
-              )
-            )}
-          <PaginationBar
-            currentPage={currentPage}
-            totalCount={
-              filters.length > 0 && filteredData
-                ? filteredData.length
-                : data.articles.length
-            }
-            pageSize={PageSize}
-            siblingCount={1}
-            filters={filters}
-          />
-        </Styled.AllArticlesContainer>
+                )
+              )}
+            <PaginationBar
+              currentPage={currentPage}
+              totalCount={
+                filters.length > 0 && filteredData
+                  ? filteredData.length
+                  : articles.length
+              }
+              pageSize={PageSize}
+              siblingCount={1}
+              filters={filters}
+            />
+          </Styled.AllArticlesContainer>
+        )) ||
+          "no articles"}
         <FooterNew />
       </Styled.BlogContainer>
     </>

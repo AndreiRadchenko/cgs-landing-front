@@ -1,72 +1,56 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import Plus from "../../../../../public/plus.svg";
 
 import * as Styles from "../../../../styles/BlogTags.styled";
 import { useFormikContext } from "formik";
-import { IBlogResponse } from "../../../../types/Admin/Response.types";
+import { IArticle } from "../../../../types/Admin/Response.types";
 import Dropdown from "./Dropdown";
 
 interface IBlogTags {
   isNewArticle: boolean;
   article: number;
+  possibleTags: string[];
 }
 
-const BlogTags: FC<IBlogTags> = ({ isNewArticle, article }) => {
+const BlogTags: FC<IBlogTags> = ({ isNewArticle, article, possibleTags }) => {
   const [tagList, setTagList] = useState<JSX.Element[]>([]);
-  const { values } = useFormikContext<IBlogResponse>();
-  const newArticleTags = values.newArticle.tags;
-  const editArticleTags = values.articles[article]?.tags;
+  const { values } = useFormikContext<IArticle>();
+  const articleTags = values?.tags;
 
-  const componentsArray = () => {
-    return isNewArticle
-      ? newArticleTags.map((tag, i) => newArticleTag(i))
-      : editArticleTags.map((tag, i) => editArticleTag(i));
-  };
+  const articleTag = useCallback(
+    (index: number) => (
+      <div key={index}>
+        <Dropdown
+          name={`tags[${index}]`}
+          value={values.tags[index]}
+          tags={possibleTags}
+        />
+      </div>
+    ),
+    [values.tags, possibleTags]
+  );
+
+  const componentsArray = useCallback(() => {
+    return articleTags.map((tag, i) => articleTag(i));
+  }, [articleTag, articleTags]);
 
   useEffect(() => {
     const result = componentsArray();
     setTagList(result);
-  }, [article, isNewArticle, values.articles, values.newArticle]);
-
-  const newArticleTag = (index: number) => (
-    <div key={index}>
-      <Dropdown
-        name={`newArticle.tags[${index}]`}
-        value={values.newArticle.tags[index]}
-        tags={values.newArticle.possibleTags}
-      />
-    </div>
-  );
-
-  const editArticleTag = (index: number) => (
-    <div key={index}>
-      <Dropdown
-        name={`articles[${article}].tags[${index}]`}
-        value={values.articles[article].tags[index]}
-        tags={values.newArticle.possibleTags}
-      />
-    </div>
-  );
+  }, [article, isNewArticle, values, componentsArray]);
 
   const addTagOnClick = () => {
-    const newArticleCase = () => {
-      newArticleTags.push("");
-      const index = newArticleTags.length - 1;
-      setTagList((oldTagList) => oldTagList.concat(newArticleTag(index)));
+    const articleCase = () => {
+      articleTags.push("");
+      const index = articleTags.length - 1;
+      setTagList((oldTagList) => oldTagList.concat(articleTag(index)));
     };
-    const editArticleCase = () => {
-      editArticleTags.push("");
-      const index = editArticleTags.length - 1;
-      setTagList((oldTagList) => oldTagList.concat(editArticleTag(index)));
-    };
-    isNewArticle ? newArticleCase() : editArticleCase();
+    articleCase();
   };
 
   const deleteItem = () => {
     setTagList(tagList.slice(0, -1));
-    isNewArticle
-      ? values.newArticle.tags.pop()
-      : values.articles[article].tags.pop();
+    values.tags.pop();
   };
 
   return (

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
+import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
+import { buttonHover } from "../Animations.styled";
 
 export interface IFontSize {
   size: string;
@@ -19,6 +21,7 @@ export const ContentContainer = styled.div`
     outline: none;
     border-radius: 0;
   }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 50px 50px 70px;
   }
@@ -51,11 +54,38 @@ export const BlackButton = styled.a<IFontSize>`
   background-color: ${themes.primary.colors.primary};
   line-height: 99%;
   display: inline-block;
-
+  border: 2px solid ${themes.primary.colors.primary};
+  transition: all 0.3s;
   &.footer {
     margin-top: 10px;
     height: 4vw;
     margin-left: 20px;
+  }
+
+  &.main {
+    background: transparent;
+    color: ${themes.primary.colors.primary};
+    background-size: 229px;
+    transition-delay: unset;
+  }
+
+  &.scrolled {
+    background: ${themes.primary.colors.primary} url(${buttonHoverBg.src});
+    color: ${themes.primary.colors.secondary};
+    transition-delay: 0.8s;
+    background-size: 229px;
+    animation: ${buttonHover} 1s steps(8) forwards;
+
+    &.removeBg {
+      transition-delay: unset;
+      background-image: none;
+    }
+  }
+
+  &:hover {
+    transition-delay: unset;
+    background: none;
+    color: ${themes.primary.colors.primary};
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -230,7 +260,7 @@ export const HeadBlockContent = styled.div`
   }
 `;
 
-export const Tetris = styled.img`
+export const Tetris = styled.div`
   position: absolute;
   width: 33.7%;
   right: 122px;
@@ -253,10 +283,10 @@ export const Tetris = styled.img`
     width: 33.7%;
   }
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     top: 0;
     right: 0;
     position: relative;
-    width: auto;
     transform: scale(0.9);
   }
 
@@ -264,6 +294,10 @@ export const Tetris = styled.img`
     transform: none;
     width: 101.74%;
   }
+`;
+
+export const TetrisGroup = styled.g<{ coinsTranslate: string }>`
+  transform: ${({ coinsTranslate }) => coinsTranslate};
 `;
 
 export const HeadBlockRow = styled(RowContainer)`
@@ -305,15 +339,35 @@ export const Subtitle = styled.div`
     line-height: 132%;
     display: inline-block;
     vertical-align: middle;
+
+    & br {
+      display: none;
+    }
   }
   span {
     &.blue {
       color: ${themes.primary.colors.darkBlue};
+      width: 11ch;
+      height: 5vw;
+      white-space: nowrap;
+    }
+
+    &.tech {
+      display: inline-block;
+      width: 29.305vw;
+      height: 5.5vw;
     }
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 5em;
+
+    span {
+      &.tech {
+        width: 5.79166em;
+        height: 1.3229em;
+      }
+    }
   }
 
   @media (max-width: 1370px) {
@@ -335,6 +389,13 @@ export const Subtitle = styled.div`
     &.small {
       font-size: 3.75vw;
     }
+
+    span {
+      &.tech {
+        width: 24.305vw;
+        height: 5vw;
+      }
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -351,6 +412,26 @@ export const Subtitle = styled.div`
       font-size: 5vw;
       margin-bottom: 14px;
     }
+
+    &.footer {
+      & br {
+        display: block;
+      }
+    }
+
+    & span {
+      white-space: normal !important;
+
+      &.blue {
+        width: 43.805vw;
+        height: 5vw;
+      }
+
+      &.tech {
+        width: 5.8em;
+        height: 5vw;
+      }
+    }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -365,6 +446,15 @@ export const Subtitle = styled.div`
       flex-wrap: wrap;
     }
 
+    span {
+      &.range {
+        display: inline-block;
+        width: 70.805vw;
+      }
+    }
+  }
+
+  @media (max-width: 430px) {
     &.footer {
       margin-top: 110px;
       font-size: 2rem;
@@ -445,13 +535,13 @@ export const Film = styled.img`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    top: -18%;
+    top: -13%;
     position: absolute;
     width: 125%;
   }
 
   @media (max-width: 835px) {
-    top: -20%;
+    top: -5%;
     width: 145%;
   }
 
@@ -494,13 +584,13 @@ export const FilmText = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    top: 32%;
+    top: 25%;
     font-size: 1.1rem;
     max-width: 60.5%;
   }
 
   @media (max-width: 835px) {
-    top: 27%;
+    top: 32%;
     font-size: 1.1rem;
     max-width: 70.5%;
   }
@@ -533,7 +623,7 @@ export const FilmText = styled.div`
   }
 
   @media (max-width: 360px) {
-    top: 15%;
+    top: 20%;
     font-size: 0.95rem;
   }
 
@@ -564,6 +654,15 @@ export const FooterButtonWrapper = styled.span`
   display: flex;
   justify-content: flex-end;
   margin-right: 13px;
+
+  & a {
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    justify-content: flex-start;
+  }
 `;
 
 export const FooterLinkButton = styled.a`
@@ -580,13 +679,23 @@ export const FooterLinkButton = styled.a`
   color: ${themes.primary.colors.secondary};
   background-color: ${themes.primary.colors.primary};
   line-height: 99%;
+  border: 2px solid ${themes.primary.colors.primary};
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: transparent;
+    color: ${themes.primary.colors.primary};
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     padding: 1.5rem 1.4rem;
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
     padding: 12px 15px;
   }
 
