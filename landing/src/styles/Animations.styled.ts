@@ -175,25 +175,10 @@ export const scale = keyframes`
   `}
 `;
 
-export const infiniteText = keyframes`
-from {
-  transform: translateX(-100%);
-}
-to {
-  transform: translateX(100%);
-}
-`;
-
 export const cursorBlinking = keyframes`
 ${css`
-  0% {
-    background-color: ${themes.primary.colors.primary};
-  }
   50% {
-    background-color: ${themes.primary.colors.blogBackground};
-  }
-  100% {
-    background-color: ${themes.primary.colors.primary};
+    background-color: transparent;
   }
 `}
 `;
@@ -234,3 +219,24 @@ ${css`
   }
 `}
 `;
+
+export const infiniteBlogText = keyframes`
+${css`
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+`}`;
+
+export const infiniteText = keyframes` 
+${css`
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`}
+  `;

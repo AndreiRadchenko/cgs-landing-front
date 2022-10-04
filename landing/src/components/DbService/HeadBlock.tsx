@@ -26,7 +26,7 @@ const HeadBlock = () => {
     <Container>
       <ContentContainer>
         <Title>
-          <SplitBrackets text={data?.title} />
+          <SplitBrackets text={data?.title} animated />
         </Title>
         <Description>
           <SplitBrackets text={data?.text} />

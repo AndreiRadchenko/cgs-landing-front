@@ -1,14 +1,10 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import themes from "../utils/themes";
+import { infiniteText } from "./Animations.styled";
 
 export const PortfolioContainer = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
 `;
-
-const infiniteText = keyframes` 
-from   { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-  `;
 
 export const OurWorkTitle = styled.div`
   font-family: ${themes.primary.font.family.namu};

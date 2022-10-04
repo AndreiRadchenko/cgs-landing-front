@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { Fragment } from "react";
 import textPoint from "../../../public/MobileSevice/textPoint.svg";
 import textPointReversed from "../../../public/MobileSevice/textPointReversed.svg";
 import { useQueryClient } from "react-query";
@@ -42,8 +42,8 @@ const HowDoWeWork = () => {
         {width &&
           points &&
           points.map((point, idx) => (
-            <>
-              <Styled.TextContainer key={`${point.subtitle} ${idx}`}>
+            <Fragment key={`${point.subtitle} ${idx}`}>
+              <Styled.TextContainer>
                 <Styled.Point
                   src={
                     width && width > 1200
@@ -67,7 +67,7 @@ const HowDoWeWork = () => {
                   secondColor={arrayOfGradients[idx].secondColor}
                 />
               )}
-            </>
+            </Fragment>
           ))}
       </Styled.PointsWrapper>
     </Styled.ContentWrapper>

@@ -1,17 +1,39 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 interface ISplitBracketsProps {
   text?: string;
+  animated?: boolean;
 }
 
-export const SplitBrackets = ({ text }: ISplitBracketsProps) => {
-  const splited = text?.split("|");
-  let lastWord: string[] = [];
+export const SplitBrackets = ({
+  text,
+  animated = false,
+}: ISplitBracketsProps) => {
+  const typingSpeed = 150;
+  const [animatedText, setAnimatedText] = useState<string>("");
+  const [displayedText, setDisplayedText] = useState<string>("");
 
-  if (splited?.length) {
-    const lastPart = splited[splited?.length - 1].trim().split(" ");
-    lastWord = lastPart.splice(lastPart.length - 1, 1);
-    splited[splited?.length - 1] = lastPart.join(" ");
+  useEffect(() => {
+    if (animated) {
+      const handleType = () => {
+        if (text && text !== animatedText) {
+          setAnimatedText(
+            text.substring(0, displayedText.length + 1) +
+              text
+                .substring(displayedText.length + 2, text.length)
+                .replace(/[^|]+/g, " ")
+          );
+
+          setDisplayedText(text.substring(0, displayedText.length + 1));
+        }
+      };
+      if (text?.length !== animatedText?.length) {
+        setTimeout(handleType, typingSpeed);
+      }
+    }
+  }, [animatedText, text, animated, displayedText]);
+  const splited = animated ? animatedText?.split("|") : text?.split("|");
+  if (animated) {
+    console.log(animatedText);
   }
 
   return (
@@ -21,11 +43,10 @@ export const SplitBrackets = ({ text }: ISplitBracketsProps) => {
           el !== "" && (
             <span key={idx}>
               {el}
-              {splited.length - 1 !== idx && <br />}
+              <br />
             </span>
           )
       )}
-      {lastWord && <span>{lastWord}</span>}
     </>
   );
 };

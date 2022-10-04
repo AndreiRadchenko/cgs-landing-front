@@ -10,7 +10,6 @@ import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import ButtonArrow from "../../utils/ButtonArrow";
-
 const HeadBlock = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobile>(
@@ -21,7 +20,7 @@ const HeadBlock = () => {
     <Styled.Container>
       <Styled.ContentContainer>
         <Styled.Title>
-          <SplitBrackets text={data?.title} />
+          <SplitBrackets text={data?.title} animated />
         </Styled.Title>
         <Styled.Description>
           <SplitBrackets text={data?.text} />

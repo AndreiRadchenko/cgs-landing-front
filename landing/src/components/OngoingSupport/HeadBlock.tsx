@@ -20,7 +20,7 @@ const HeadBlock = () => {
     <Styled.Container>
       <Styled.Content>
         <Styled.Title>
-          <SplitBrackets text={data?.title} />
+          <SplitBrackets text={data?.title} animated />
         </Styled.Title>
         <Styled.Description>{data?.text}</Styled.Description>
         <BlackButton

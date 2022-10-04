@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import themes from "../utils/themes";
-import { infiniteText } from "./Animations.styled";
+import { infiniteBlogText } from "./Animations.styled";
 
 interface ITag {
   isArticlePage?: boolean;
@@ -309,7 +309,11 @@ export const LoopText = styled.div`
   margin-top: 16px;
   margin-bottom: 0;
   line-height: 170%;
-  animation: ${infiniteText} infinite 15s linear;
+  display: flex;
+
+  & > span {
+    animation: ${infiniteBlogText} infinite 15s linear;
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1rem;

@@ -21,7 +21,7 @@ export const ProfText = styled.div`
   line-height: 160%;
 
   & p > span.cursor {
-    animation: ${cursorBlinking} 0.8s infinite;
+    animation: ${cursorBlinking} 1s steps(1) infinite;
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125rem;
