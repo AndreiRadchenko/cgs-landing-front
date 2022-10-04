@@ -21,7 +21,10 @@ export const LogoText = styled.p`
   line-height: 0.75rem;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  -webkit-text-stroke: 0.15px black;
+  text-shadow: -0.15px -0.15px 0 ${themes.primary.colors.primary},
+    0.15px -0.15px 0 ${themes.primary.colors.primary},
+    -0.15px 0.15px 0 ${themes.primary.colors.primary},
+    0.15px 0.15px 0 ${themes.primary.colors.primary};
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125rem;
