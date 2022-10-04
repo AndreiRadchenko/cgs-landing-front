@@ -14,6 +14,7 @@ import WorkBlock from "../../components/CloudService/WorkBlock";
 import FooterBlock from "../../components/CloudService/FooterBlock";
 import * as Styled from "../../styles/CloudService/Layaut";
 import { Layout } from "../../styles/Layout.styled";
+import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ const CloudService = () => {
           <ProvidesBlock />
         </Styled.Layout>
       </Layout>
+      <ShowCase projects={data?.projects} />
       <Layout>
         <Styled.Layout>
           <WorkBlock />
