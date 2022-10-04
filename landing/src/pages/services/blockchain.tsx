@@ -14,6 +14,7 @@ import AboutBlock from "../../components/BlockchainService/AboutBlock";
 import FooterBlock from "../../components/BlockchainService/FooterBlock";
 import * as Styled from "../../styles/BlockchainService/Layout";
 import { Layout } from "../../styles/Layout.styled";
+import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -59,6 +60,7 @@ const BlockchainService = () => {
           <YourWayBlock />
         </Styled.Layout>
       </Layout>
+      <ShowCase projects={data?.projects} />
       <Layout>
         <Styled.Layout>
           <AboutBlock />
