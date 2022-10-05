@@ -187,15 +187,23 @@ export const TextWrapper = styled.div`
   }
 
   @media ${themes.primary.media.minPC} {
-    height: 75%;
+    height: 76%;
+  }
+
+  @media (min-width: 2000px) {
+    height: 80%;
   }
 
   @media (max-width: 1340px) {
-    height: 70%;
+    height: 72%;
+  }
+
+  @media (max-width: 1050px) {
+    height: 67%;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    height: 65%;
+    height: 70%;
   }
 
   @media (max-width: 840px) {
@@ -211,7 +219,7 @@ export const TextWrapper = styled.div`
   @media ${themes.primary.media.maxLowScreenMobile} {
     padding: 1em;
     font-size: 1rem;
-    height: 14.5625em;
+    height: 14.7em;
   }
 `;
 
@@ -304,6 +312,10 @@ export const HoverText = styled.div`
   font-size: 1.5em;
   line-height: 160%;
 
+  @media (max-width: 1050px) {
+    font-size: 1.35em;
+  }
+
   @media (max-width: 960px) {
     font-size: 1.3em;
   }
@@ -315,6 +327,10 @@ export const HoverText = styled.div`
   @media ${themes.primary.media.maxLowScreenMobile} {
     padding: 0;
     font-size: 1em;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 0.9em;
   }
 `;
 
