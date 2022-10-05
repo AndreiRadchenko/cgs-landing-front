@@ -20,15 +20,14 @@ export const ProfText = styled.div`
   font-size: ${themes.primary.font.size.secondary};
   line-height: 160%;
 
-  & p > span.cursor {
-    animation: ${cursorBlinking} 1s steps(1) infinite;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    & br {
+      display: none;
+    }
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125rem;
     margin-block: 1rem 2.56rem;
-    & br {
-      display: none;
-    }
   }
 `;
 
@@ -68,12 +67,47 @@ export const Image = styled.img`
   }
 `;
 
+export const HighlightText = styled.span`
+  transition: background-position 1.5s, color 1.5s;
+  background: linear-gradient(
+    90deg,
+    ${themes.primary.colors.serviceHighlight} 50%,
+    rgba(255, 255, 255, 0) 50%
+  );
+
+  background-size: 200% 100%;
+  background-position: 100% 0;
+`;
+
+export const HighlightWrapper = styled.span`
+  position: relative;
+
+  &.onScreen {
+    color: ${themes.primary.colors.secondary};
+
+    & > span {
+      background-position: 0 0;
+    }
+
+    & > div {
+      transform: translate(0, 0.3em);
+    }
+  }
+`;
+
+export const HighlightBg = styled.span`
+  position: absolute;
+  bottom: 0.1em;
+  height: 1.4em;
+  z-index: -1;
+`;
+
 export const Cursor = styled.div`
   display: inline-block;
-  position: absolute;
-  width: 2px;
+  width: 1px;
   height: 1.5em;
-  background-color: ${themes.primary.colors.primary};
-  right: -0.2em;
-  bottom: -0.2em;
+  background: ${themes.primary.colors.primary};
+  animation: ${cursorBlinking} 1s steps(1) infinite;
+  transition: transform 1.5s;
+  transform: translate(-14em, 0.3em);
 `;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IBlockchainService } from "../../types/Admin/Response.types";
@@ -10,6 +10,7 @@ const YourWayBlock = () => {
   const data = queryClient.getQueryData<IBlockchainService>(
     queryKeys.getServiceBlockchainPage
   )?.wayBlock;
+  const [gradientAngle, setGradientAngle] = useState<string>("50%");
 
   const arrayOfGradients = [
     { firstColor: "#D6FFBB", secondColor: "#C1E6C0" },
@@ -23,10 +24,21 @@ const YourWayBlock = () => {
     },
   ];
 
+  const mouseMoveListener = useCallback(({ pageX }: MouseEvent) => {
+    const windowWidth = window.innerWidth;
+    const mouseXpercentage = Math.round((pageX / windowWidth) * 100);
+    setGradientAngle(`${mouseXpercentage}%`);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("mousemove", mouseMoveListener, false);
+    return () => window.removeEventListener("mousemove", mouseMoveListener);
+  }, [mouseMoveListener]);
+
   return (
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
-      <Styled.BgiContainer>
+      <Styled.BgiContainer angle={gradientAngle}>
         {arrayOfGradients.map((el) => (
           <Styled.MobileLine
             key={el.firstColor}

@@ -9,6 +9,7 @@ import cylinder from "../../../public/MobileSevice/worthIt/cylinder.svg";
 import downDashed from "../../../public/CloudServicePage/downDashed.svg";
 import upDashed from "../../../public/CloudServicePage/upDashed.svg";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 
 const WhatDoWeDoBlock = () => {
   const queryClient = useQueryClient();
@@ -27,7 +28,10 @@ const WhatDoWeDoBlock = () => {
         {data?.textSubBlock.map((el, idx) => (
           <div key={idx}>
             <Styled.Subtitle>
-              <Styled.Svg src={figures[idx].src} />
+              <Styled.Svg
+                src={figures[idx].src}
+                xOffset={handleRandomOffset()}
+              />
               {el.subtitle}
             </Styled.Subtitle>
             <Styled.Text>

@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { IIcon } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { float } from "../Animations.styled";
 
 export const Container = styled.div`
   margin: 0 1.44em 0 0;
@@ -16,6 +18,20 @@ export const BlockWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   column-gap: 50px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    & > div:nth-child(1) > div > img {
+      width: 1.9em;
+    }
+
+    & > div:nth-child(2) > div > img {
+      width: 2.3em;
+    }
+
+    & > div:nth-child(3) > div > img {
+      width: 2.3em;
+    }
+  }
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
@@ -144,14 +160,23 @@ export const BlockText = styled.div`
   }
 `;
 
-export const Svg = styled.img`
+export const Svg = styled.img<IIcon>`
   position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translate(-50%, 10%);
+  bottom: -17%;
+  left: -7%;
+  animation: ${({ xOffset }) =>
+    css`
+      ${float(xOffset)} 3s infinite linear
+    `};
+
+  @media ${themes.primary.media.minPCFullHD} {
+    left: -3%;
+    bottom: 0;
+  }
 
   @media ${themes.primary.media.maxMobile} {
-    transform: translateX(0);
+    left: 0;
+    bottom: 0;
   }
 `;
 

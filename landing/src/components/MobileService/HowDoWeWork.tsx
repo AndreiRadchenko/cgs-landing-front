@@ -1,4 +1,4 @@
-﻿import React, { Fragment } from "react";
+﻿import React, { Fragment, useCallback, useEffect, useState } from "react";
 import textPoint from "../../../public/MobileSevice/textPoint.svg";
 import textPointReversed from "../../../public/MobileSevice/textPointReversed.svg";
 import { useQueryClient } from "react-query";
@@ -11,6 +11,7 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const HowDoWeWork = () => {
   const { width } = useWindowDimension();
+  const [gradientAngle, setGradientAngle] = useState<string>("50%");
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobile>(
     queryKeys.getServiceMobilePage
@@ -34,11 +35,22 @@ const HowDoWeWork = () => {
     { firstColor: "#99AAE0", secondColor: "#5869dd" },
   ];
 
+  const mouseMoveListener = useCallback(({ pageX }: MouseEvent) => {
+    const windowWidth = window.innerWidth;
+    const mouseXpercentage = Math.round((pageX / windowWidth) * 100);
+    setGradientAngle(`${mouseXpercentage}%`);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("mousemove", mouseMoveListener, false);
+    return () => window.removeEventListener("mousemove", mouseMoveListener);
+  }, [mouseMoveListener]);
+
   return (
     <Styled.ContentWrapper>
       <Subtitle>{data?.subtitle}</Subtitle>
       <Styled.PointsWrapper>
-        <Styled.Line />
+        <Styled.Line angle={gradientAngle} />
         {width &&
           points &&
           points.map((point, idx) => (

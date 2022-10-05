@@ -1,5 +1,4 @@
-﻿import { css } from "@emotion/react";
-import styled from "styled-components";
+﻿import styled, { css } from "styled-components";
 import { IIcon } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 import { float } from "../Animations.styled";
@@ -93,13 +92,20 @@ export const WhyIsWebText = styled.p`
   }
 `;
 
-export const Icon = styled.img<{ xOffset: number }>`
-  ${console.log(`${({ xOffset }) => xOffset()}`)}
+export const Icon = styled.img<IIcon>`
   display: flex;
   margin-right: 0.3em;
+  animation: ${({ xOffset }) =>
+    css`
+      ${float(xOffset)} 3s infinite linear
+    `};
 
   @media ${themes.primary.media.maxMobile} {
     width: 1.6em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 1em;
   }
 `;
 
@@ -114,14 +120,6 @@ export const BlockImage = styled.img`
 export const WhyIsWebBlock = styled.div`
   position: relative;
   margin-left: 5px;
-
-  &:first-child {
-    @media ${themes.primary.media.maxMobile} {
-      img {
-        width: 1.2em;
-      }
-    }
-  }
 
   &:nth-child(3) {
     margin-left: 6%;

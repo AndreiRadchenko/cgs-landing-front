@@ -1,4 +1,5 @@
 ﻿import styled, { css } from "styled-components";
+import { ILine } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 
 export const ContentWrapper = styled.div``;
@@ -7,7 +8,7 @@ export const LineContainer = styled.div`
   position: relative;
 `;
 
-export const Line = styled.div`
+export const Line = styled.div<ILine>`
   position: absolute;
   width: 120%;
   top: 51%;
@@ -15,11 +16,12 @@ export const Line = styled.div`
   height: 24px;
   transform: translate(-50%, -50%);
   box-shadow: 7px 2px 0px ${themes.primary.colors.primary};
-  background: linear-gradient(
-    90deg,
-    ${themes.primary.colors.mainGradientColor1} 13.67%,
-    ${themes.primary.colors.mainGradientColor2} 90.39%
-  );
+  background: ${({ angle }) =>
+    css`radial-gradient(
+      50% 80px at ${angle},
+      ${themes.primary.colors.mainGradientColor2} ,
+      ${themes.primary.colors.mainGradientColor1}
+    );`};
   border: 1px solid ${themes.primary.colors.primary};
 
   @media ${themes.primary.media.maxTabletLandScape} {

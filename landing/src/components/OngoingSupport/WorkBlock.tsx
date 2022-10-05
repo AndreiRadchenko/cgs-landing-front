@@ -8,6 +8,7 @@ import cylinder from "../../../public/MobileSevice/worthIt/cylinder.svg";
 import downDashed from "../../../public/CloudServicePage/downDashed.svg";
 import upDashed from "../../../public/CloudServicePage/upDashed.svg";
 import * as Styled from "../../styles/OngoingSupport/WorkBlock.styled";
+import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 
 const WorkBlock = () => {
   const queryClient = useQueryClient();
@@ -25,7 +26,10 @@ const WorkBlock = () => {
         {Object.values(blocks).map((el, idx) => (
           <Styled.Wrapper key={idx}>
             <Styled.Subtitle>
-              <Styled.Svg src={figures[idx].src} />
+              <Styled.Svg
+                src={figures[idx].src}
+                xOffset={handleRandomOffset()}
+              />
               {el.subtitle}
             </Styled.Subtitle>
             <Styled.Text>{el.text}</Styled.Text>

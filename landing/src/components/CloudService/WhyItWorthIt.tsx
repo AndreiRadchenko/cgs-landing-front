@@ -10,6 +10,7 @@ import upDashed from "../../../public/CloudServicePage/upDashed.svg";
 import downDashed from "../../../public/CloudServicePage/downDashed.svg";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/CloudService/WhyItWorthIt.styled";
+import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 
 const WhyItWorthIt = () => {
   const queryClient = useQueryClient();
@@ -27,7 +28,10 @@ const WhyItWorthIt = () => {
         {Object.values(blocks).map((el, index) => (
           <Styled.Block key={index}>
             <Styled.TitleWrapper>
-              <Styled.Svg src={logos[index].src} />
+              <Styled.Svg
+                xOffset={handleRandomOffset()}
+                src={logos[index].src}
+              />
               <Styled.Title>{el.subtitle}</Styled.Title>
             </Styled.TitleWrapper>
             {bgLines[index] && <Styled.Image src={bgLines[index].src} />}

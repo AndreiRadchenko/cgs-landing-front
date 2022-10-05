@@ -13,6 +13,7 @@ export const Layout = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    overflow: visible;
     margin-bottom: 6.19em;
   }
 

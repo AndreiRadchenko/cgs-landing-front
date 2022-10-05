@@ -117,6 +117,7 @@ export const BottomSteps = styled.div`
 interface IMobileLine {
   grad1: string;
   grad2: string;
+  angle: string;
 }
 
 export const StyledLine = styled.div<IMobileLine>`
@@ -125,11 +126,12 @@ export const StyledLine = styled.div<IMobileLine>`
   position: absolute;
   top: 42.5%;
   left: -5%;
-  background: linear-gradient(
-    90deg,
-    ${themes.primary.colors.mainGradientColor1} 13.67%,
-    ${themes.primary.colors.mainGradientColor2} 90.39%
-  );
+  background: ${({ angle }) =>
+    css`radial-gradient(
+      50% 80px at ${angle},
+      ${themes.primary.colors.mainGradientColor2} ,
+      ${themes.primary.colors.mainGradientColor1}
+    );`};
   border: 1px solid ${themes.primary.colors.primary};
   box-shadow: 7px 2px 0px ${themes.primary.colors.primary};
 

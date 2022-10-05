@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { ILine } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
@@ -51,17 +52,19 @@ export const MobileLine = styled.div<IMobileLine>`
   }
 `;
 
-export const BgiContainer = styled.div`
+export const BgiContainer = styled.div<ILine>`
   width: 115%;
   height: 25px;
   position: relative;
   left: -6%;
   top: 2em;
-  background: linear-gradient(
-    90deg,
-    ${themes.primary.colors.mainGradientColor1} 13.67%,
-    ${themes.primary.colors.mainGradientColor2} 90.39%
-  );
+  background: ${({ angle }) =>
+    css`radial-gradient(
+      50% 80px at ${angle},
+      ${themes.primary.colors.mainGradientColor2} ,
+      ${themes.primary.colors.mainGradientColor1}
+    );`};
+  background-size: 100% 100%;
   border: 1px solid ${themes.primary.colors.black};
   box-shadow: 7px 2px 0px ${themes.primary.colors.black};
 

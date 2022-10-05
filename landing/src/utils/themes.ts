@@ -165,6 +165,7 @@ const themes = {
       lightGreyBorder: "#D9D9D9",
       inputGrey: "#787877",
       ourWork: "#A7A6A9",
+      serviceHighlight: "#BABABA",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

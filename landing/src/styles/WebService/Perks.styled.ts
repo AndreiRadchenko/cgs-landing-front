@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
+import { slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
   width: 98.5%;
@@ -31,11 +32,18 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const TextBlock = styled.div`
+export const TextBlock = styled.div<{ ind: number }>`
   display: flex;
   align-items: flex-end;
   justify-content: center;
   flex-basis: 30%;
+  opacity: 0;
+
+  &.scrolled {
+    animation: ${({ ind }) => css`
+      ${slideRight} 1.5s ${ind * 200}ms forwards
+    `};
+  }
 
   &:nth-child(4) {
     justify-content: flex-end;
@@ -86,6 +94,15 @@ export const BigDigit = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
+    position: absolute;
+    left: -0.1em;
+    font-size: 3.75em;
+    width: 1em;
+    margin: 0;
+    text-align: center;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
     position: absolute;
     left: -0.1em;
     font-size: 3.75em;
