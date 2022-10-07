@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { slideRight } from "../Animations.styled";
 
 export const Container = styled.div``;
 
@@ -34,7 +36,7 @@ export const TextWrapper = styled.div`
   }
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<ISlide>`
   font-size: 1.375em;
   line-height: 160%;
   text-transform: uppercase;
@@ -50,6 +52,12 @@ export const Text = styled.p`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     margin-bottom: 1.38em;
+    opacity: 0;
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 200}ms forwards
+      `};
+    }
   }
 `;
 
@@ -84,7 +92,7 @@ export const Row2 = styled.div`
   }
 `;
 
-export const Line = styled.div`
+export const Line = styled.div<{ ind?: number }>`
   height: 2px;
   background: ${themes.primary.colors.comment};
   flex: 1;
@@ -97,6 +105,14 @@ export const Line = styled.div`
     position: relative;
     top: 0.93em;
     left: -105%;
+    opacity: 0;
+    &.scrolled {
+      animation: ${({ ind }) =>
+        typeof ind === "number" &&
+        css`
+          ${slideRight} 1.5s ${ind * 200}ms forwards
+        `};
+    }
   }
 
   @media ${themes.primary.media.minPCFullHD} {

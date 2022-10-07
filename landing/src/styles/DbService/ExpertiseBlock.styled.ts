@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { IIcon } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { float } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 12.5em;
@@ -66,9 +68,14 @@ export const TextContent = styled.div`
   }
 `;
 
-export const Icon = styled.img`
+export const Icon = styled.img<IIcon>`
   display: flex;
   padding-top: 1.8em;
+
+  animation: ${({ xOffset }) =>
+    css`
+      ${float(xOffset)} 3s infinite linear
+    `};
 
   @media ${themes.primary.media.maxMobile} {
     padding: 0;

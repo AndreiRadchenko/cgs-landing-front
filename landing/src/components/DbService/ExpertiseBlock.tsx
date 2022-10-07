@@ -7,6 +7,7 @@ import { IServiceDb } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import serverIcon from "../../../public/DbService/illServers.svg";
 import dbIcon from "../../../public/DbService/illDatabase.svg";
+import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 
 const ExpertiseBlock = () => {
   const queryClient = useQueryClient();
@@ -19,14 +20,22 @@ const ExpertiseBlock = () => {
       <Subtitle>{data?.subtitle}</Subtitle>
       <Styled.ContentWrapper>
         <Styled.TextBlock>
-          <Styled.Icon src={serverIcon.src} alt="serverIcon" />
+          <Styled.Icon
+            src={serverIcon.src}
+            alt="serverIcon"
+            xOffset={handleRandomOffset()}
+          />
           <Styled.TextContent>
             <Styled.Subtitle>{data?.servers.subtitle}</Styled.Subtitle>
             <SplitBrackets text={data?.servers.text} />
           </Styled.TextContent>
         </Styled.TextBlock>
         <Styled.TextBlock>
-          <Styled.Icon src={dbIcon.src} alt="dbIcon" />
+          <Styled.Icon
+            src={dbIcon.src}
+            alt="dbIcon"
+            xOffset={handleRandomOffset()}
+          />
           <Styled.TextContent>
             <Styled.Subtitle>{data?.databases.subtitle}</Styled.Subtitle>
             <SplitBrackets text={data?.databases.text} />

@@ -1,5 +1,5 @@
-﻿import React from "react";
-import parse from "html-react-parser";
+﻿import React, { useRef } from "react";
+import parse, { Element, HTMLReactParserOptions } from "html-react-parser";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { Subtitle } from "../../styles/MobileService/Layout";
@@ -10,25 +10,46 @@ import {
   BlackButton,
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const ProfBlock = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobile>(
     queryKeys.getServiceMobilePage
   )?.footerBlock;
+  const elRef = useRef(null);
+
+  const isOnScreen = useOnScreen(elRef, true);
+
+  const options: HTMLReactParserOptions = {
+    replace: (domNode) => {
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("rgb(186, 186, 186)")
+      ) {
+        return (
+          <Styled.HighlightWrapper
+            ref={elRef}
+            className={isOnScreen ? "onScreen" : undefined}
+          >
+            <Styled.HighlightText>
+              {domNode.children[0].type === "text" &&
+                (domNode.children[0] as any).data}
+            </Styled.HighlightText>
+            <Styled.Cursor />
+          </Styled.HighlightWrapper>
+        );
+      }
+    },
+  };
+
   return (
     <Styled.ContentContainer>
       <Subtitle className="footer">{data?.title}</Subtitle>
       <Styled.ProfText>
-        {data &&
-          parse(
-            data.text
-              .replace(
-                "||",
-                `<span className="cursor" style="display:inline-block;width: 1px;height: 1.5em; background:#000;transform: translate(-0.1em, 0.3em);"></span>`
-              )
-              .replace("|", "<br />")
-          )}
+        {data && parse(data.text.replace("|", "<br />"), options)}
       </Styled.ProfText>
       <Styled.ButtonWrapper>
         <BlackButton

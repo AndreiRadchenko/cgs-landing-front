@@ -1,3 +1,3 @@
 export const handleRandomOffset = () => {
-  return Math.floor(Math.random() * 5 + 1);
+  return Math.random() * 5 + 1;
 };

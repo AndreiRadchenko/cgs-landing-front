@@ -1,5 +1,7 @@
-﻿import styled from "styled-components";
+﻿import styled, { css } from "styled-components";
+import { IIcon, ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { float, slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 13.375em;
@@ -90,12 +92,24 @@ export const WhyIsWebText = styled.p`
   }
 `;
 
-export const Icon = styled.img`
+export const Icon = styled.img<IIcon>`
   display: flex;
   margin-right: 0.3em;
+  animation: ${({ xOffset }) =>
+    css`
+      ${float(xOffset)} 3s infinite linear
+    `};
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    animation: none;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 1.6em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 1em;
   }
 `;
 
@@ -107,17 +121,9 @@ export const BlockImage = styled.img`
   }
 `;
 
-export const WhyIsWebBlock = styled.div`
+export const WhyIsWebBlock = styled.div<ISlide>`
   position: relative;
   margin-left: 5px;
-
-  &:first-child {
-    @media ${themes.primary.media.maxMobile} {
-      img {
-        width: 1.2em;
-      }
-    }
-  }
 
   &:nth-child(3) {
     margin-left: 6%;
@@ -183,6 +189,12 @@ export const WhyIsWebBlock = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin: 0;
+    opacity: 0;
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 200}ms forwards
+      `};
+    }
 
     &:nth-child(n) {
       margin: 0;

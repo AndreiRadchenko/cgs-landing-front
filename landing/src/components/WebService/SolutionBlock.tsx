@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useRef } from "react";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/WebService/SolutionBlock.styled";
 
@@ -8,8 +8,12 @@ import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import firsMobileBg from "../../../public/WebService/first-mobile.svg";
 import secondMobileBg from "../../../public/WebService/second-mobile.svg";
+import { useOnScreen } from "../../hooks/useOnScreen";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
+import TextTypingAnimation from "../Typewrite";
 
 const SolutionBlock = () => {
+  const { width } = useWindowDimension();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceWeb>(
     queryKeys.getServiceWebPage
@@ -20,11 +24,19 @@ const SolutionBlock = () => {
 </svg>
 `;
 
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const isScrolled = useOnScreen(elRef, true);
+
   return (
     <Styled.Container>
-      <Styled.LeftSideText>
-        <SplitBrackets text={data?.subtitle} />
-      </Styled.LeftSideText>
+      {data && (
+        <Styled.LeftSideText ref={elRef}>
+          {(width && width <= 767 && isScrolled && (
+            <TextTypingAnimation text={data.subtitle} />
+          )) || <SplitBrackets text={data.subtitle} />}
+        </Styled.LeftSideText>
+      )}
       <Styled.BgImageFirst src={firsMobileBg.src} />
       <Styled.RightSideContainer>
         <Styled.RightSideText>

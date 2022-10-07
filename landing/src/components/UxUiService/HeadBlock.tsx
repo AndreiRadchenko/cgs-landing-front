@@ -9,6 +9,7 @@ import {
 import ButtonArrow from "../../utils/ButtonArrow";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import * as Styled from "../../styles/UxUiService/HeadBlock.styled";
+import TextTypingAnimation from "../Typewrite";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -21,7 +22,7 @@ const HeadBlock = () => {
     <Styled.Container>
       <Styled.ContentWrapper>
         <Styled.Title>
-          <SplitBrackets text={data?.title} />
+          {data && <TextTypingAnimation text={data?.title} />}
         </Styled.Title>
         <Styled.Description>
           <SplitBrackets text={data?.text} />
