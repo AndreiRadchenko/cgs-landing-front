@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import { cursorBlinking } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 9.5em;
@@ -41,26 +40,14 @@ export const Title = styled.h1`
   @media ${themes.primary.media.onlyTabletPortrait} {
     max-width: 10em;
   }
-  & > span:last-child {
-    position: relative;
-    top: 14px;
-
-    &::after {
-      content: "";
-      display: inline-block;
-      width: 2px;
-      height: 1.45em;
-      background-color: ${themes.primary.colors.primary};
-      animation: ${cursorBlinking} 1s steps(1) infinite;
-      position: absolute;
-      top: 0;
-      right: -0.2em;
-    }
-  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
     line-height: 100%;
+
+    & .last-part {
+      top: 14px;
+    }
 
     span:first-child {
       br {

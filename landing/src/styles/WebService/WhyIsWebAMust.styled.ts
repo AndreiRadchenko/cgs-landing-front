@@ -1,7 +1,7 @@
 ﻿import styled, { css } from "styled-components";
-import { IIcon } from "../../types/Decoration.types";
+import { IIcon, ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
-import { float } from "../Animations.styled";
+import { float, slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 13.375em;
@@ -100,6 +100,10 @@ export const Icon = styled.img<IIcon>`
       ${float(xOffset)} 3s infinite linear
     `};
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    animation: none;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     width: 1.6em;
   }
@@ -117,7 +121,7 @@ export const BlockImage = styled.img`
   }
 `;
 
-export const WhyIsWebBlock = styled.div`
+export const WhyIsWebBlock = styled.div<ISlide>`
   position: relative;
   margin-left: 5px;
 
@@ -185,6 +189,12 @@ export const WhyIsWebBlock = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin: 0;
+    opacity: 0;
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 200}ms forwards
+      `};
+    }
 
     &:nth-child(n) {
       margin: 0;

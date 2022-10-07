@@ -15,6 +15,7 @@ import {
   Image,
 } from "../../styles/WebService/HeadBlock.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
+import TextTypingAnimation from "../Typewrite";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -25,9 +26,7 @@ const HeadBlock = () => {
   return (
     <Container>
       <ContentContainer>
-        <Title>
-          <SplitBrackets text={data?.title} animated />
-        </Title>
+        <Title>{data && <TextTypingAnimation text={data?.title} />}</Title>
         <Description>
           <SplitBrackets text={data?.text} />
         </Description>

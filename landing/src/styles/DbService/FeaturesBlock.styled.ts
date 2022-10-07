@@ -44,7 +44,15 @@ export const TextContent = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding-top: 0.5em;
+    padding-top: 1.4em;
+  }
+
+  @media (max-width: 1150px) {
+    padding-top: 1.2em;
+  }
+
+  @media (max-width: 1100px) {
+    padding-top: 0.9em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -52,7 +60,7 @@ export const TextContent = styled.div`
     width: 17em;
 
     &:not(:first-child) {
-      padding-top: 1.44em;
+      padding-top: 2.1em;
     }
 
     &:nth-child(2) {
@@ -64,6 +72,24 @@ export const TextContent = styled.div`
       & > br {
         display: none;
       }
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    &:not(:first-child) {
+      padding-top: 1.8em;
+    }
+
+    &:nth-child(2) {
+      padding-top: 1em;
+    }
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    &:not(:first-child) {
+      padding-top: 1.25em;
+    }
+
+    &:nth-child(2) {
+      padding-top: 1em;
     }
   }
 `;
@@ -84,30 +110,37 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 0.9em;
+    padding-right: 4em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     padding-inline: 0;
     column-gap: 15%;
+
     padding-left: 2em;
+  }
+
+  @media (max-width: 1100px) {
+    font-size: 0.8em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
-    row-gap: 4.56em;
+    row-gap: 8em;
     padding: 0 0 0 2.75em;
   }
 
   @media ${themes.primary.media.maxMobile} {
     max-width: 25em;
-    row-gap: 2.78em;
+    row-gap: 8.3em;
     padding-bottom: 8em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     max-width: 17em;
+    row-gap: 7.2em;
   }
-  @media (min-width: 1450px) {
+  @media (min-width: 1550px) {
     padding-top: 0.8em;
     & span:not(:first-child) br {
       display: none;
@@ -148,18 +181,17 @@ export const BgImageMobile = styled.img`
     display: block;
     width: 68em;
     left: -17em;
-    top: 5em;
+    top: 3.6em;
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 65em;
     left: -16em;
-    top: 4.5em;
+    top: 2.8em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 61em;
     left: -15em;
-    top: 5em;
   }
 `;

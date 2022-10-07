@@ -1,4 +1,10 @@
-﻿import React, { Fragment, useCallback, useEffect, useState } from "react";
+﻿import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import textPoint from "../../../public/MobileSevice/textPoint.svg";
 import textPointReversed from "../../../public/MobileSevice/textPointReversed.svg";
 import { useQueryClient } from "react-query";
@@ -8,6 +14,7 @@ import { Subtitle } from "../../styles/MobileService/Layout";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const HowDoWeWork = () => {
   const { width } = useWindowDimension();
@@ -46,16 +53,23 @@ const HowDoWeWork = () => {
     return () => window.removeEventListener("mousemove", mouseMoveListener);
   }, [mouseMoveListener]);
 
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const isScrolled = useOnScreen(elRef, true);
+
   return (
     <Styled.ContentWrapper>
       <Subtitle>{data?.subtitle}</Subtitle>
-      <Styled.PointsWrapper>
+      <Styled.PointsWrapper ref={elRef}>
         <Styled.Line angle={gradientAngle} />
         {width &&
           points &&
           points.map((point, idx) => (
             <Fragment key={`${point.subtitle} ${idx}`}>
-              <Styled.TextContainer>
+              <Styled.TextContainer
+                ind={idx}
+                className={isScrolled ? "scrolled" : undefined}
+              >
                 <Styled.Point
                   src={
                     width && width > 1200
@@ -75,6 +89,8 @@ const HowDoWeWork = () => {
               </Styled.TextContainer>
               {width && width < 1200 && (
                 <Styled.MobileLine
+                  ind={idx}
+                  className={isScrolled ? "scrolled" : undefined}
                   firstColor={arrayOfGradients[idx].firstColor}
                   secondColor={arrayOfGradients[idx].secondColor}
                 />

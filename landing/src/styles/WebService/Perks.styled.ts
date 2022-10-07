@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
@@ -9,7 +10,7 @@ export const Container = styled.div`
     margin-top: 6.25em;
 
     h2 {
-      line-height: 233%;
+      line-height: normal;
     }
   }
 `;
@@ -32,7 +33,7 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const TextBlock = styled.div<{ ind: number }>`
+export const TextBlock = styled.div<ISlide>`
   display: flex;
   align-items: flex-end;
   justify-content: center;

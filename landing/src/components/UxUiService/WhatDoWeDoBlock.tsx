@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IUxUiInterface } from "../../types/Admin/Response.types";
@@ -10,6 +10,7 @@ import downDashed from "../../../public/CloudServicePage/downDashed.svg";
 import upDashed from "../../../public/CloudServicePage/upDashed.svg";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const WhatDoWeDoBlock = () => {
   const queryClient = useQueryClient();
@@ -21,12 +22,20 @@ const WhatDoWeDoBlock = () => {
   const figures = [crystal, cube, cylinder];
   const bgi = [downDashed, upDashed];
 
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const isScrolled = useOnScreen(elRef, true);
+
   return (
     <Styled.Container>
       <Styled.Title>{data?.title}</Styled.Title>
-      <Styled.SubBlockContainer>
+      <Styled.SubBlockContainer ref={elRef}>
         {data?.textSubBlock.map((el, idx) => (
-          <div key={idx}>
+          <Styled.Wrapper
+            key={idx}
+            ind={idx}
+            className={isScrolled ? "scrolled" : undefined}
+          >
             <Styled.Subtitle>
               <Styled.Svg
                 src={figures[idx].src}
@@ -38,7 +47,7 @@ const WhatDoWeDoBlock = () => {
               <SplitBrackets text={el.text} />
             </Styled.Text>
             {bgi[idx] && <Styled.Image src={bgi[idx].src} />}
-          </div>
+          </Styled.Wrapper>
         ))}
       </Styled.SubBlockContainer>
     </Styled.Container>

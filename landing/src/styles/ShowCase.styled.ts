@@ -278,7 +278,7 @@ export const ProjectLinkButton = styled.a`
   text-decoration: none;
   color: ${themes.primary.colors.secondary};
   letter-spacing: 0.03em;
-  padding: 7px 15px;
+  padding: 6px 15px 8px;
   font-size: 1.166em;
   background-color: ${themes.primary.colors.primary};
 

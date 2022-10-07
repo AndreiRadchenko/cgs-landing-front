@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
+import { slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 12.5em;
@@ -118,6 +119,7 @@ interface IMobileLine {
   grad1: string;
   grad2: string;
   angle: string;
+  ind: number;
 }
 
 export const StyledLine = styled.div<IMobileLine>`
@@ -144,6 +146,13 @@ export const StyledLine = styled.div<IMobileLine>`
     ${grad1} 13.67%,
     ${grad2} 90.39%`}
     );
+    opacity: 0;
+
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 200}ms forwards
+      `};
+    }
 
     &:first-child {
       top: 4.8em;

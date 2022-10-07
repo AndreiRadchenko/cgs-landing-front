@@ -107,7 +107,6 @@ export const FeedbackCardPosition = styled.span`
   background-color: ${themes.primary.colors.septenary};
   border-radius: 5px;
   margin-bottom: 1em;
-  cursor: default;
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.6em;
   }
@@ -120,7 +119,6 @@ export const FeedbackCardDescription = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   font-size: ${themes.primary.font.size.oneAndHalf};
-  cursor: default;
   margin-top: 0;
 
   line-height: 160%;

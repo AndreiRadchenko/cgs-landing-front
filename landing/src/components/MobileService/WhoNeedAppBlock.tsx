@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useRef } from "react";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/MobileService/WhoNeedApps.styled";
 
@@ -10,12 +10,20 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 
 import WhoNeedAppsMobile from "../../../public/MobileSevice/whoNeedApps/whoNeedAppsImgMobile.svg";
 import WhyWorthItMobile from "../../../public/MobileSevice/whoNeedApps/whyWorthItMobile.svg";
+import TextTypingAnimation from "../Typewrite";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const WhoNeedAppBlock = () => {
+  const { width } = useWindowDimension();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobile>(
     queryKeys.getServiceMobilePage
   );
+
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const isScrolled = useOnScreen(elRef, true);
 
   const arrow = `<br /><svg
       viewBox="0 0 45 22"
@@ -34,7 +42,14 @@ const WhoNeedAppBlock = () => {
     <Styled.Wrapper>
       <Styled.WhatDoWeUse>
         <Styled.WhatDoWeUseContainer>
-          <Subtitle>{data?.whatDoWeUse.subtitle}</Subtitle>
+          {data && (
+            <Subtitle ref={elRef}>
+              {(width && width <= 767 && isScrolled && (
+                <TextTypingAnimation text={data.whatDoWeUse.subtitle} />
+              )) ||
+                data.whatDoWeUse.subtitle}
+            </Subtitle>
+          )}
           <Styled.SubText>
             {data && parse(data?.whatDoWeUse.text.replace("[arrow]", arrow))}
           </Styled.SubText>

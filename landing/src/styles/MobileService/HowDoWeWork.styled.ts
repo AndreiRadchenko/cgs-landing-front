@@ -1,6 +1,7 @@
 ﻿import styled, { css } from "styled-components";
-import { ILine } from "../../types/Decoration.types";
+import { ILine, ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { slideRight } from "../Animations.styled";
 
 export const ContentWrapper = styled.div``;
 
@@ -32,6 +33,7 @@ export const Line = styled.div<ILine>`
 interface IMobileLine {
   firstColor: string;
   secondColor: string;
+  ind: number;
 }
 
 export const MobileLine = styled.div<IMobileLine>`
@@ -52,6 +54,13 @@ export const MobileLine = styled.div<IMobileLine>`
       ${secondColor} 90.39%`}
     );
     border: 1px solid ${themes.primary.colors.primary};
+    opacity: 0;
+
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 200}ms forwards
+      `};
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -59,7 +68,7 @@ export const MobileLine = styled.div<IMobileLine>`
   }
 `;
 
-export const TextContainer = styled.div`
+export const TextContainer = styled.div<ISlide>`
   display: flex;
   margin-bottom: 2em;
   z-index: 5;
@@ -125,15 +134,22 @@ export const TextContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
+    white-space: pre-wrap;
     margin-bottom: 0em;
+    opacity: 0;
+
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 200}ms forwards
+      `};
+    }
+    br {
+      display: none;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 30em;
-    white-space: pre-wrap;
-    br {
-      display: none;
-    }
   }
 `;
 
@@ -228,5 +244,16 @@ export const PointsWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.5em;
     row-gap: 1.3em;
+  }
+`;
+
+export const AnimationWrapper = styled.span<ISlide>`
+  @media ${themes.primary.media.maxTabletLandScape} {
+    opacity: 0;
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 120}ms forwards
+      `};
+    }
   }
 `;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Subtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/MobileService/WorthIt";
 import crystal from "../../../public/MobileSevice/worthIt/crystal.svg";
@@ -11,6 +11,7 @@ import { IServiceMobile } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const WorthIt = () => {
   const queryClient = useQueryClient();
@@ -21,13 +22,21 @@ const WorthIt = () => {
   const titleIllustration = [crystal, cube, cylinder];
   const textIllustration = [null, secondTextPhoto, thirdTextPhoto];
 
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const isScrolled = useOnScreen(elRef, true);
+
   return (
     <Styled.Container>
       <Subtitle>{data?.subtitle}</Subtitle>
-      <Styled.ContentLayout>
+      <Styled.ContentLayout ref={elRef}>
         {data &&
           Object.entries(data?.textBlock).map((el, idx) => (
-            <Styled.WorthBlock key={`${el[0]} ${idx}`}>
+            <Styled.WorthBlock
+              key={`${el[0]} ${idx}`}
+              ind={idx}
+              className={isScrolled ? "scrolled" : undefined}
+            >
               <Styled.WorthTitleContainer>
                 {textIllustration[idx] && (
                   <Styled.BlockImage

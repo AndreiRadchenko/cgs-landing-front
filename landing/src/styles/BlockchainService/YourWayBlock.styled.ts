@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { ILine } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 12.7em;
@@ -25,6 +26,7 @@ export const Container = styled.div`
 interface IMobileLine {
   grad1: string;
   grad2: string;
+  ind: number;
 }
 
 export const MobileLine = styled.div<IMobileLine>`
@@ -49,6 +51,12 @@ export const MobileLine = styled.div<IMobileLine>`
 
   @media ${themes.primary.media.maxMobile} {
     display: block;
+    opacity: 0;
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 200}ms forwards
+      `};
+    }
   }
 `;
 

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
-import { IIcon } from "../../types/Decoration.types";
+import { IIcon, ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
-import { float } from "../Animations.styled";
+import { float, slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 5.5em;
@@ -91,6 +91,10 @@ export const Icon = styled.img<IIcon>`
     width: 38px;
   }
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    animation: none;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-right: 0;
   }
@@ -119,7 +123,7 @@ export const BlockImage = styled.img`
   }
 `;
 
-export const WorthBlock = styled.div`
+export const WorthBlock = styled.div<ISlide>`
   position: relative;
   &:nth-child(3) {
     img {
@@ -168,6 +172,15 @@ export const WorthBlock = styled.div`
     }
     &:nth-child(2) {
       margin: 0;
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    opacity: 0;
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 120}ms forwards
+      `};
     }
   }
 `;
