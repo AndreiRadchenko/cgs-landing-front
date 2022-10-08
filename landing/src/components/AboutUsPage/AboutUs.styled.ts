@@ -1,17 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import { infiniteText } from "./Animations.styled";
-
-export const AboutUsContainer = styled.div`
-  margin-top: 70px;
-  font-family: ${themes.primary.font.family.namu};
-  background-color: ${themes.primary.colors.blogBackground};
-  min-height: 88vh;
-  position: relative;
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    margin-top: 50px;
-  }
-`;
+import { infiniteText } from "../../styles/Animations.styled";
 
 export const DescriptionContainer = styled.div`
   margin-bottom: 47px;
@@ -39,23 +28,19 @@ export const MainTitle = styled.div`
     font-size: 4.5em;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 4.5em;
+    font-size: 4em;
   }
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 70px;
     font-size: 5.5em;
   }
   @media ${themes.primary.media.maxMobilePortrait} {
     font-size: 4.5em;
   }
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 70px;
-  }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 4em;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
     font-size: 3.5em;
+  }
+  @media ${themes.primary.media.maxLowestScreenMobile} {
     margin-bottom: 50px;
   }
 `;
@@ -63,7 +48,7 @@ export const MainTitle = styled.div`
 export const Subtitle = styled.div`
   font-size: ${themes.primary.font.size.aboutUsSubtitle};
   font-weight: ${themes.primary.font.weight.heavy};
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.smallAboutSubtitle};
   }
@@ -84,7 +69,6 @@ export const Subtitle = styled.div`
 export const Text = styled.div`
   font-size: ${themes.primary.font.size.aboutUsBelieveText};
   line-height: 160%;
-  margin-top: 20px;
   width: 89%;
 
   p {
@@ -95,14 +79,12 @@ export const Text = styled.div`
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.headerLinkText};
-    margin-top: 13px;
     width: 95%;
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 90%;
     font-size: 1.6em;
-    margin-top: 20px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -128,42 +110,12 @@ export const BottomImage = styled.img`
     width: 120%;
   }
 
+  @media ${themes.primary.media.maxMobilePortrait} {
+    bottom: 90px;
+  }
+
   @media (min-width: 2000px) {
-    bottom: 100px;
-  }
-`;
-
-export const BonusContainer = styled.div`
-  align-items: center;
-  margin-top: 2px;
-  &:first-child {
-    margin-top: 0;
-  }
-`;
-
-export const BonusWrapper = styled.div`
-  @media ${themes.primary.media.maxMobile} {
-    width: 85%;
-  }
-`;
-
-export const BonusText = styled.div`
-  font-size: 1.35em;
-  line-height: 160%;
-
-  @media ${themes.primary.media.maxPCFullHD} {
-    font-size: 1.35em;
-  }
-  @media ${themes.primary.media.maxLaptop} {
-    font-size: 1.3em;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 1.3em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    max-width: 100%;
-    font-size: 1.6em;
+    bottom: 120px;
   }
 `;
 
@@ -312,71 +264,58 @@ export const RowContainer = styled.div`
   }
 `;
 
+export const AboutUsContainer = styled(RowContainer)`
+  margin-top: 70px;
+  font-family: ${themes.primary.font.family.namu};
+  background-color: ${themes.primary.colors.blogBackground};
+  min-height: 88vh;
+  position: relative;
+  > div:nth-child(2) {
+    padding: 0 0 210px;
+  }
+
+  @media ${themes.primary.media.minPC} {
+    > div:nth-child(2) {
+      padding-bottom: 280px;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    align-items; center;
+    flex-direction: column;
+    padding-left: 0px;
+    >div:nth-child(2){
+      padding-top: 0;
+      padding-bottom: 320px;
+    }
+    >div:first-child{
+      margin-bottom: 70px;
+    }
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-top: 50px;
+    > div:nth-child(2) {
+      padding-bottom: 240px;
+    }
+  }
+
+  @media (min-width: 2000px) {
+    > div:nth-child(2) {
+      padding-bottom: 500px;
+    }
+  }
+`;
+
 export const ColContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 60%;
 
-  &.second {
-    margin-left: -5px;
-    width: 70%;
-  }
-
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 60%;
   }
-
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-
-    &.first,
-    &.second {
-      margin: 0;
-      width: 100%;
-    }
-    &.first {
-      margin-bottom: 70px;
-    }
-  }
-`;
-
-export const OurBonuses = styled.div`
-  padding: 0 0 210px;
-
-  @media ${themes.primary.media.minPC} {
-    padding-bottom: 280px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    padding-top: 0;
-    padding-bottom: 320px;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    padding-bottom: 280px;
-  }
-
-  @media (min-width: 2000px) {
-    padding-bottom: 500px;
-  }
-`;
-
-export const BonusesContainer = styled.div`
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: 53.2% 43%;
-  column-gap: 80px;
-
-  @media ${themes.primary.media.minPCFullHD} {
-    grid-template-columns: 53.5% 43%;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    grid-template-columns: 1fr;
-    margin-top: 20px;
-    row-gap: 12px;
-    div {
-      font-size: 1.6em;
-    }
   }
 `;
