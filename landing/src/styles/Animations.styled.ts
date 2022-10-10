@@ -174,6 +174,24 @@ export const scale = keyframes`
   `}
 `;
 
+export const infiniteText = keyframes`
+from {
+  transform: translateX(-100%);
+}
+to {
+  transform: translateX(100%);
+}
+`;
+
+export const aboutUsPageInfiniteText = keyframes`
+from {
+  transform: translateX(-100%);
+}
+to {
+  transform: translateX(0);
+}
+`;
+
 export const cursorBlinking = keyframes`
 ${css`
   50% {

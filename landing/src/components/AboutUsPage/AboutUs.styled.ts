@@ -1,76 +1,74 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
+import { aboutUsPageInfiniteText } from "../../styles/Animations.styled";
 
-interface IPadding {
-  padding: string;
-}
-
-interface IBackground {
-  right: string;
-  bottom: string;
-  border?: string;
-}
-
-interface IRotate {
-  rotate: string;
-}
-
-interface IPin {
-  right: string;
-}
-
-export const AboutUsContainer = styled.div`
-  font-family: ${themes.primary.font.family.namu};
-  background-color: ${themes.primary.colors.blogBackground};
-  min-height: 88vh;
-  position: relative;
+export const DescriptionContainer = styled.div`
+  margin-bottom: 47px;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-bottom: 30px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 50px;
+  }
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    margin-bottom: 40px;
+  }
 `;
 
 export const MainTitle = styled.div`
-  font-size: 74px;
+  font-size: 5em;
   text-transform: uppercase;
   line-height: 120%;
-  margin-top: 107px;
-  width: 102%;
+  margin-bottom: 20px;
   span {
     color: ${themes.primary.colors.darkBlue};
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 62px;
+    font-size: 4.5em;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 4em;
   }
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 0;
-    font-size: 34px;
-    padding-top: 15px;
+    margin-bottom: 70px;
+    font-size: 5.5em;
+  }
+  @media ${themes.primary.media.maxMobilePortrait} {
+    font-size: 4.5em;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 3.5em;
+  }
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    margin-bottom: 50px;
   }
 `;
 
 export const Subtitle = styled.div`
   font-size: ${themes.primary.font.size.aboutUsSubtitle};
   font-weight: ${themes.primary.font.weight.heavy};
-  margin-top: 40px;
-  &:first-child {
-    margin-top: -30px;
-  }
+  margin-bottom: 20px;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.smallAboutSubtitle};
-    margin-top: 25px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 32px;
+    font-size: 3.5em;
 
     &:first-child {
       margin-top: 0px;
     }
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    font-size: 2.8em;
   }
 `;
 
 export const Text = styled.div`
   font-size: ${themes.primary.font.size.aboutUsBelieveText};
   line-height: 160%;
-  margin-top: 20px;
   width: 89%;
 
   p {
@@ -81,208 +79,131 @@ export const Text = styled.div`
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.headerLinkText};
-    margin-top: 13px;
+    width: 95%;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 100%;
-    font-size: 16px;
-    margin-top: 20px;
+    width: 90%;
+    font-size: 1.6em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 85%;
   }
 `;
 
 export const BottomImage = styled.img`
   position: absolute;
-  width: 59.8%;
-  bottom: 126px;
+  width: 40%;
+  bottom: 50px;
   right: 0;
 
   @media ${themes.primary.media.maxMobile} {
-    width: 500px;
+    width: 110%;
+    left: -20%;
     transform: rotate(-4.51deg);
     bottom: 70px;
-    right: -42px;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    left: -22%;
+    width: 120%;
+  }
+
+  @media ${themes.primary.media.maxMobilePortrait} {
+    bottom: 90px;
+  }
+
+  @media (min-width: 2000px) {
+    bottom: 120px;
   }
 `;
 
-export const BonusContainer = styled.div`
-  display: grid;
-  grid-template-columns: 10px 1fr;
-  align-items: center;
-  margin-top: 19px;
-  column-gap: 16px;
-  &:first-child {
-    margin-top: 0;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-top: 12px;
-    margin-left: -5px;
-  }
-`;
-
-export const BonusPoint = styled.div`
-  height: 10px;
-  width: 10px;
-  background-color: ${themes.primary.colors.primary};
-  margin-top: 5px;
-`;
-
-export const BonusText = styled.div`
-  font-size: ${themes.primary.font.size.secondary};
-  line-height: 160%;
-
-  @media ${themes.primary.media.maxPCFullHD} {
-    font-size: 1.9em;
-  }
-  @media ${themes.primary.media.maxLaptop} {
-    font-size: 1.83em;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.linkText};
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    max-width: 100%;
-  }
-`;
-
-export const MainPhotoDescription = styled.div`
-  text-transform: uppercase;
-  font-size: 15.8px;
-  margin-top: 16px;
-  span {
-    color: ${themes.primary.colors.darkBlue};
-  }
-  &.main {
-    font-size: 20.5px;
-    margin-top: 28px;
-  }
-  @media ${themes.primary.media.minPC} {
-    font-size: 1.1vw;
-    &.main {
-      font-size: 1.5vw;
-    }
-  }
-  @media ${themes.primary.media.maxLaptop} {
-    font-size: 1.11vw;
-    &.main {
-      font-size: 1.47vw;
-    }
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-  }
-`;
-
-export const RelativeContainerPhotoBlock = styled.div`
+export const MainImageContainer = styled.div`
   position: relative;
   width: 100%;
-`;
-
-export const MainPhotoContainer = styled.div<IPadding>`
-  width: auto;
   height: auto;
-  border: 2px solid ${themes.primary.colors.primary};
-  position: relative;
   z-index: 2;
-  background-color: ${themes.primary.colors.blogBackground};
-  padding: ${({ padding }) => padding};
-`;
-
-export const RotateBlock = styled.div<IRotate>`
-  width: auto;
-  height: auto;
-  display: flex;
-  transform: rotate(${({ rotate }) => rotate});
-  max-width: 17.1vw;
-  position: absolute;
-  left: 100px;
-  top: -1%;
-  &.main {
-    max-width: 22.5vw;
-    top: 15%;
-    left: 2%;
-  }
-  @media (min-width: 1400px) {
-    &.main {
-      top: 19.7%;
-      left: 1.6%;
-    }
-  }
+  margin-left: -12%;
   @media ${themes.primary.media.minPC} {
-    max-width: 18vw;
-    &.main {
-      max-width: 23vw;
-    }
+    margin-left: -12%;
+    width: 110%;
   }
-  @media ${themes.primary.media.minPCFullHD} {
-    left: 9vw;
-    top: -9%;
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    margin-left: -17%;
+    width: 120%;
   }
-  @media ${themes.primary.media.maxPCFullHD} {
-    left: 9vw;
-    top: -12%;
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    margin-left: -14%;
+    width: 110%;
   }
-  @media ${themes.primary.media.maxLaptop} {
-    left: 9.3vw;
-    top: -19%;
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: -5%;
+    width: 110%;
   }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    left: 9.3vw;
-    top: -17%;
-    max-width: 20vw;
-  }
-`;
-
-export const BackgroundContainer = styled.div<IBackground>`
-  position: absolute;
-  right: ${({ right }) => right};
-  bottom: ${({ bottom }) => bottom};
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  border: ${({ border }) =>
-    border
-      ? `${border} solid ${themes.primary.colors.primary}`
-      : `2px solid ${themes.primary.colors.primary}`};
-`;
-
-export const HalfBlackBlock = styled.div`
-  width: 100%;
-  height: 50%;
-  background-color: ${themes.primary.colors.primary};
-  outline: 1px solid ${themes.primary.colors.primary};
-`;
-
-export const BlackBlock = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: ${themes.primary.colors.primary};
-  outline: 1px solid ${themes.primary.colors.primary};
-`;
-
-export const Pin = styled.img<IPin & IRotate>`
-  position: absolute;
-  height: 41px;
-  right: ${({ right }) => right};
-  transform: rotate(${({ rotate }) => rotate});
-  top: -26px;
-  z-index: 3;
-  &.main {
-    width: 27px;
-    height: 50px;
-    top: -36px;
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-left: -7%;
+    width: 115%;
   }
 `;
 
 export const MainImage = styled.img`
-  border: 2px solid ${themes.primary.colors.primary};
   position: relative;
   width: 100%;
   height: auto;
   z-index: 2;
+`;
+
+export const TeamLine = styled.img`
+  width: 100%;
+`;
+
+export const MovingText = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.medium};
+  font-size: 20px;
+  overflow: hidden;
+  margin-top: -1.2em;
+  width: 99%;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  z-index: -5;
+  background: linear-gradient(
+    61.63deg,
+    ${themes.primary.colors.mainGradientColor1} 0%,
+    ${themes.primary.colors.mainGradientColor2} 100%
+  );
+  border: 2px solid ${themes.primary.colors.primary};
+  height: 2em;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: -3vw;
+  }
+
+  & > span {
+    animation: ${aboutUsPageInfiniteText} 40s infinite;
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 25px;
+  }
+  @media ${themes.primary.media.onlyPC} {
+    font-size: 20px;
+  }
+  @media (min-width: 1800px) {
+    font-size: 2em;
+  }
+  @media (min-width: 1500px) and (max-width: 2000px) {
+    font-size: 1.6em;
+  }
+  @media (min-width: 1300px) and (max-width: 1400px) {
+    font-size: 1.5em;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 1.1em;
+  }
 `;
 
 export const MainContainer = styled.div`
@@ -317,96 +238,68 @@ export const MainContainer = styled.div`
   }
 `;
 
-export const RightLine = styled.img`
-  position: absolute;
-  right: -130px;
-  top: 50px;
-  width: 130%;
-
-  @media ${themes.primary.media.maxMobile} {
-    left: -70px;
-    top: -20px;
-    min-width: 817px;
-  }
-`;
-
-export const LeftLine = styled.img`
-  position: absolute;
-  left: -135px;
-  top: -160px;
-  width: 48vw;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    left: -120px;
-  }
-  @media ${themes.primary.media.minPCFullHD} {
-    left: -200px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    left: -200px;
-    top: -90px;
-    min-width: 670px;
-  }
-`;
-
 export const RowContainer = styled.div`
   padding-left: 30px;
   display: flex;
   column-gap: 5vw;
   position: relative;
+
   @media ${themes.primary.media.minPC} {
     column-gap: 6.5vw;
   }
+  
+  @media ${themes.primary.media.maxMobile} {
+    &.wrapper {
+      align-items; center;
+      flex-direction: column;
+    }
+    padding-left: 0px;
+  }
 
-  @media ${themes.primary.media.maxTabletLandScape} {
-    margin-top: 70px;
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    padding-left: 0px;
+  }
+`;
+
+export const AboutUsContainer = styled(RowContainer)`
+  margin-top: 70px;
+  font-family: ${themes.primary.font.family.namu};
+  background-color: ${themes.primary.colors.blogBackground};
+  min-height: 88vh;
+  position: relative;
+  > div:nth-child(2) {
+    padding: 0 0 210px;
+  }
+
+  @media ${themes.primary.media.minPC} {
+    > div:nth-child(2) {
+      padding-bottom: 280px;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
-    position: absolute;
-
-    &:nth-child(2) {
-      top: 20px;
-      left: 10px;
-      & > div {
-        &:nth-child(2) {
-          min-width: 290px;
-          div {
-            font-size: 18.5px;
-          }
-        }
-      }
-      img {
-        width: 257px;
-      }
-
-      .photoContainer {
-        & > img:first-child {
-          left: 50%;
-        }
-      }
+    align-items; center;
+    flex-direction: column;
+    padding-left: 0px;
+    >div:nth-child(2){
+      padding-top: 0;
+      padding-bottom: 320px;
     }
+    >div:first-child{
+      margin-bottom: 70px;
+    }
+  }
 
-    &:nth-child(3) {
-      bottom: 460px;
-      left: 40px;
-      & > div {
-        &:nth-child(2) {
-          min-width: 243px;
-          div {
-            font-size: 16px;
-          }
-        }
-      }
-      img {
-        width: 215px;
-      }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-top: 50px;
+    > div:nth-child(2) {
+      padding-bottom: 240px;
+    }
+  }
 
-      .photoContainer {
-        & > img:first-child {
-          left: -38%;
-        }
-      }
+  @media (min-width: 2000px) {
+    > div:nth-child(2) {
+      padding-bottom: 500px;
     }
   }
 `;
@@ -414,63 +307,12 @@ export const RowContainer = styled.div`
 export const ColContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 83%;
-  &.first {
-    margin-left: 15px;
-    margin-top: 80px;
-  }
-  &.second {
-    margin-left: -5px;
-    width: 85%;
-  }
+  width: 60%;
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 60%;
+  }
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    &.first,
-    &.second {
-      margin: 0;
-      width: 100%;
-    }
-  }
-`;
-
-export const OurBonuses = styled.div`
-  padding: 115px 0 370px;
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-top: -80px;
-    padding-top: 0;
-    padding-bottom: 320px;
-  }
-`;
-
-export const BonusesContainer = styled.div`
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: 53.2% 43%;
-  column-gap: 80px;
-
-  @media ${themes.primary.media.minPCFullHD} {
-    grid-template-columns: 53.5% 43%;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    grid-template-columns: 1fr;
-    margin-top: 20px;
-    row-gap: 12px;
-    div {
-      font-size: 20px;
-    }
-  }
-`;
-
-export const Separator = styled.div`
-  height: 1px;
-  width: 110%;
-  margin-left: -4em;
-  background-color: ${themes.primary.colors.comment};
-
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
   }
 `;
