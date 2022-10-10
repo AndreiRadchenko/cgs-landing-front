@@ -1,5 +1,4 @@
 ﻿import { keyframes, css } from "styled-components";
-import themes from "../utils/themes";
 
 export const rotateAnimationLaptopLeft = keyframes`
   ${css`
@@ -195,14 +194,8 @@ to {
 
 export const cursorBlinking = keyframes`
 ${css`
-  0% {
-    background-color: ${themes.primary.colors.primary};
-  }
   50% {
-    background-color: ${themes.primary.colors.blogBackground};
-  }
-  100% {
-    background-color: ${themes.primary.colors.primary};
+    background-color: transparent;
   }
 `}
 `;
@@ -233,6 +226,19 @@ export const slideDown = keyframes`
  `}
 `;
 
+export const slideRight = keyframes`
+ ${css`
+   from {
+     opacity: 0;
+     transform: translateX(-60px);
+   }
+   to {
+     opacity: 1;
+     transform: translateX(0);
+   }
+ `}
+`;
+
 export const buttonHover = keyframes`
 ${css`
   from {
@@ -243,3 +249,37 @@ ${css`
   }
 `}
 `;
+
+export const infiniteBlogText = keyframes`
+${css`
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+`}`;
+
+export const infiniteText = keyframes` 
+${css`
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`}
+  `;
+
+export const float = (y: number) => keyframes` 
+${css`
+  from {
+    -webkit-transform: rotate(0deg) translate3d(${y}px, 0, 0) rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(${y > 2 ? "360deg" : "-360deg"})
+      translate3d(${y}px, 0, 0) rotate(${y > 2 ? "-360deg" : "360deg"});
+  }
+`}
+  `;

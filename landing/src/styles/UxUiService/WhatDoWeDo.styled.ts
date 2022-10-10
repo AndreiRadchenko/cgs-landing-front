@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { IIcon, ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { float, slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 11.875em;
@@ -129,12 +131,17 @@ export const Text = styled.p`
   }
 `;
 
-export const Svg = styled.img`
+export const Svg = styled.img<IIcon>`
   position: absolute;
   top: -0.2em;
   left: -0.9em;
+  animation: ${({ xOffset }) =>
+    css`
+      ${float(xOffset)} 3s infinite linear
+    `};
 
   @media ${themes.primary.media.maxMobile} {
+    animation: none;
     left: 0;
   }
 `;
@@ -142,5 +149,17 @@ export const Svg = styled.img`
 export const Image = styled.img`
   @media ${themes.primary.media.maxMobile} {
     display: none;
+  }
+`;
+
+export const Wrapper = styled.div<ISlide>`
+  @media ${themes.primary.media.maxMobile} {
+    opacity: 0;
+
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 200}ms forwards
+      `};
+    }
   }
 `;

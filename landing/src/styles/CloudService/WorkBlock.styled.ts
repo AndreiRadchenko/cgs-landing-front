@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { slideRight } from "../Animations.styled";
 
 export const Container = styled.div``;
 
@@ -37,10 +39,17 @@ export const BlockWrapper = styled.div`
   }
 `;
 
-export const Block = styled.div`
+export const Block = styled.div<ISlide>`
   position: relative;
   display: flex;
   flex-grow: 1;
+  opacity: 0;
+
+  &.scrolled {
+    animation: ${({ ind }) => css`
+      ${slideRight} 1.5s ${ind * 200}ms forwards
+    `};
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: fit-content;

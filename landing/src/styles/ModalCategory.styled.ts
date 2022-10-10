@@ -138,26 +138,6 @@ export const DecorationTextAllTitle = styled(Decoration)`
   left: -5%;
   width: 110%;
   fill: ${themes.primary.colors.septenary};
-
-  /* @media ${themes.primary.media.minLaptop} {
-    width: 10.5em;
-  }
-
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    width: 10em;
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    width: 10em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 9em;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 5.5em;
-  } */
 `;
 
 export const DecorationTextWebTitle = styled(Decoration)`

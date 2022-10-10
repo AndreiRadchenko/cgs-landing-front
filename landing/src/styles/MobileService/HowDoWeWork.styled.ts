@@ -1,5 +1,7 @@
 ﻿import styled, { css } from "styled-components";
+import { ILine, ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { slideRight } from "../Animations.styled";
 
 export const ContentWrapper = styled.div``;
 
@@ -7,7 +9,7 @@ export const LineContainer = styled.div`
   position: relative;
 `;
 
-export const Line = styled.div`
+export const Line = styled.div<ILine>`
   position: absolute;
   width: 120%;
   top: 51%;
@@ -15,11 +17,12 @@ export const Line = styled.div`
   height: 24px;
   transform: translate(-50%, -50%);
   box-shadow: 7px 2px 0px ${themes.primary.colors.primary};
-  background: linear-gradient(
-    90deg,
-    ${themes.primary.colors.mainGradientColor1} 13.67%,
-    ${themes.primary.colors.mainGradientColor2} 90.39%
-  );
+  background: ${({ angle }) =>
+    css`radial-gradient(
+      50% 80px at ${angle},
+      ${themes.primary.colors.mainGradientColor2} ,
+      ${themes.primary.colors.mainGradientColor1}
+    );`};
   border: 1px solid ${themes.primary.colors.primary};
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -30,6 +33,7 @@ export const Line = styled.div`
 interface IMobileLine {
   firstColor: string;
   secondColor: string;
+  ind: number;
 }
 
 export const MobileLine = styled.div<IMobileLine>`
@@ -50,6 +54,13 @@ export const MobileLine = styled.div<IMobileLine>`
       ${secondColor} 90.39%`}
     );
     border: 1px solid ${themes.primary.colors.primary};
+    opacity: 0;
+
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 200}ms forwards
+      `};
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -57,7 +68,7 @@ export const MobileLine = styled.div<IMobileLine>`
   }
 `;
 
-export const TextContainer = styled.div`
+export const TextContainer = styled.div<ISlide>`
   display: flex;
   margin-bottom: 2em;
   z-index: 5;
@@ -123,15 +134,22 @@ export const TextContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
+    white-space: pre-wrap;
     margin-bottom: 0em;
+    opacity: 0;
+
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 200}ms forwards
+      `};
+    }
+    br {
+      display: none;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 30em;
-    white-space: pre-wrap;
-    br {
-      display: none;
-    }
   }
 `;
 
@@ -226,5 +244,16 @@ export const PointsWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.5em;
     row-gap: 1.3em;
+  }
+`;
+
+export const AnimationWrapper = styled.span<ISlide>`
+  @media ${themes.primary.media.maxTabletLandScape} {
+    opacity: 0;
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 120}ms forwards
+      `};
+    }
   }
 `;
