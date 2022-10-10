@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import { aboutUsPageInfiniteText } from "../../styles/Animations.styled";
+import { infiniteText } from "../../styles/Animations.styled";
 
 export const DescriptionContainer = styled.div`
   margin-bottom: 47px;
@@ -184,7 +184,7 @@ export const MovingText = styled.div`
   }
 
   & > span {
-    animation: ${aboutUsPageInfiniteText} 40s infinite;
+    animation: ${infiniteText} 40s infinite;
   }
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 25px;
