@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import parse from "html-react-parser";
 import * as Styled from "./AboutUs.styled";
 import { Layout } from "../../styles/Layout.styled";
@@ -10,16 +10,6 @@ interface IAboutUs {
 }
 
 const AboutUs = ({ data }: IAboutUs) => {
-  const [bonuses, setBonuces] = useState<string[]>([]);
-
-  useEffect(() => {
-    if (data) {
-      setBonuces(
-        data.bonuses.text.splice(0, Math.ceil(data.bonuses.text.length))
-      );
-    }
-  }, [data]);
-
   return (
     <Layout>
       <Styled.AboutUsContainer>
@@ -43,6 +33,11 @@ const AboutUs = ({ data }: IAboutUs) => {
                 TEAM&nbsp;&nbsp;CGS TEAM&nbsp;&nbsp;CGS TEAM&nbsp;&nbsp;TEAM
                 CGS&nbsp;&nbsp;TEAM CGS TEAM&nbsp;
               </span>
+              <span>
+                CGS TEAM&nbsp;&nbsp;CGS TEAM&nbsp;&nbsp;CGS TEAM&nbsp;&nbsp;CGS
+                TEAM&nbsp;&nbsp;CGS TEAM&nbsp;&nbsp;CGS TEAM&nbsp;&nbsp;TEAM
+                CGS&nbsp;&nbsp;TEAM CGS TEAM&nbsp;
+              </span>
             </Styled.MovingText>
           </Styled.MainImageContainer>
         </Styled.ColContainer>
@@ -57,9 +52,10 @@ const AboutUs = ({ data }: IAboutUs) => {
           </Styled.DescriptionContainer>
           <Styled.DescriptionContainer>
             <Styled.Subtitle>{data.bonuses.subtitle}</Styled.Subtitle>
-            {bonuses.map((el, idx) => {
-              return <Styled.Text key={idx}>{el}</Styled.Text>;
-            })}
+            {data &&
+              data.bonuses.text.map((el, idx) => {
+                return <Styled.Text key={idx}>{el}</Styled.Text>;
+              })}
           </Styled.DescriptionContainer>
         </Styled.ColContainer>
 

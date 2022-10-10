@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import { infiniteText } from "../../styles/Animations.styled";
+import { aboutUsPageInfiniteText } from "../../styles/Animations.styled";
 
 export const DescriptionContainer = styled.div`
   margin-bottom: 47px;
@@ -184,7 +184,7 @@ export const MovingText = styled.div`
   }
 
   & > span {
-    animation: ${infiniteText} 40s infinite linear;
+    animation: ${aboutUsPageInfiniteText} 40s infinite;
   }
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 25px;
@@ -201,10 +201,7 @@ export const MovingText = styled.div`
   @media (min-width: 1300px) and (max-width: 1400px) {
     font-size: 1.5em;
   }
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    font-size: 1.1em;
-  }
-  @media ${themes.primary.media.onlyTabletPortrait} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.1em;
   }
 `;
