@@ -28,6 +28,7 @@ const themes = {
         namu: "'NAMU', sans-serif",
         openSans: "'Open Sans', sans-serif",
         inter: "'Inter', sans-serif",
+        pressStart: "'Press Start 2P', cursive",
       },
       weight: {
         light: 300,
@@ -108,6 +109,9 @@ const themes = {
         inBlockMaxTableText: "1.3em",
         faqMobileTitle: "3em",
         portfolioMobile: "3.8em",
+        notFoundPageTitlePc: "2.8em",
+        notFoundPageTitleTablet: "2em",
+        notFoundPageTitleMobile: "1.7em",
       },
     },
     colors: {
