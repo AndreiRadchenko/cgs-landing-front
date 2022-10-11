@@ -125,13 +125,18 @@ export const MainImageContainer = styled.div`
   height: auto;
   z-index: 2;
   margin-left: -12%;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-left: -14%;
+    width: 100%;
+  }
   @media ${themes.primary.media.minPC} {
-    margin-left: -12%;
+    margin-left: -14%;
     width: 110%;
   }
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    margin-left: -17%;
-    width: 120%;
+  @media ${themes.primary.media.maxLaptop} {
+    margin-left: -15%;
+    width: 102%;
   }
   @media ${themes.primary.media.onlyTabletPortrait} {
     margin-left: -14%;
@@ -151,7 +156,11 @@ export const MainImage = styled.img`
   position: relative;
   width: 100%;
   height: auto;
+  margin-left: 5%;
   z-index: 2;
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: 0%;
+  }
 `;
 
 export const TeamLine = styled.img`
