@@ -18,7 +18,12 @@ const NotFoundContent = () => {
       </Styled.ImageWrapper>
 
       <Styled.Description>
-        <Styled.Title>The page you`re looking for does not exist</Styled.Title>
+        <Styled.Title>
+          The page you`re
+          <br />
+          looking for <br />
+          does not exist
+        </Styled.Title>
         <BlackButton
           target={"_blank"}
           rel="noopener noreferrer"

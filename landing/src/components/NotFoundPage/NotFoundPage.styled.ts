@@ -51,9 +51,6 @@ export const Title = styled.h1`
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.notFoundPageTitleTablet};
   }
-  @media ${themes.primary.media.maxMobilePortrait} {
-    font-size: ${themes.primary.font.size.notFoundPageTitleMobile};
-  }
 `;
 
 export const Image = styled.img`
