@@ -292,10 +292,10 @@ export const ArrowContainer = styled.div`
     position: relative;
     left: 0;
     right: 0;
-    width: 65px;
-    height: 65px;
+    width: 37px;
+    height: 37px;
   }
-  &.hover {
+  > svg:hover {
     & path:first-child {
       fill: ${themes.primary.colors.portfolioHover};
     }

@@ -130,8 +130,8 @@ export const ArrowContainer = styled.div`
     position: relative;
     left: 0;
     right: 0;
-    width: 65px;
-    height: 65px;
+    width: 37px;
+    height: 37px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -142,7 +142,7 @@ export const ArrowContainer = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     transform: scale(0.8);
   }
-  &.hover {
+  > svg:hover {
     & path:first-child {
       fill: ${themes.primary.colors.portfolioHover};
     }
