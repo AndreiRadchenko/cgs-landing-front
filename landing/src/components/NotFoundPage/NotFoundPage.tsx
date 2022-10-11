@@ -20,6 +20,7 @@ const NotFoundContent = () => {
       <Styled.Description>
         <Styled.Title>The page you`re looking for does not exist</Styled.Title>
         <BlackButton
+          target={"_blank"}
           rel="noopener noreferrer"
           size={"1.55em"}
           padding={"18px 35px"}
