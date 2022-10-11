@@ -110,8 +110,7 @@ const themes = {
         faqMobileTitle: "3em",
         portfolioMobile: "3.8em",
         notFoundPageTitlePc: "2.8em",
-        notFoundPageTitleTablet: "2em",
-        notFoundPageTitleMobile: "1.7em",
+        notFoundPageTitleTablet: "1.8em",
       },
     },
     colors: {
