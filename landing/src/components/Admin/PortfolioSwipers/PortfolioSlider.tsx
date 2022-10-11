@@ -99,7 +99,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
               <Styled.ArrowContainer>
                 <svg
                   width="40"
-                  className="swiper-button-prev"
+                  className="swiper-button-next"
                   height="40"
                   viewBox="0 0 40 40"
                   fill="none"
