@@ -47,8 +47,6 @@ interface IShowCase {
 }
 
 const ShowCase = ({ projects }: IShowCase) => {
-  const [hoverNext, setHoverNext] = useState<boolean>(false);
-  const [hoverPrev, setHoverPrev] = useState<boolean>(false);
   const [currentProjects, setCurrentProjects] = useState<IReviewProps[]>([]);
   const { data } = useQuery(queryKeys.getPortfolio, () =>
     adminPortfolioService.getReviews()
@@ -61,22 +59,6 @@ const ShowCase = ({ projects }: IShowCase) => {
       );
     }
   }, [data, projects]);
-
-  const handleHoverNext = () => {
-    setHoverNext(true);
-  };
-
-  const handleLeaveNext = () => {
-    setHoverNext(false);
-  };
-
-  const handleHoverPrev = () => {
-    setHoverPrev(true);
-  };
-
-  const handleLeavePrev = () => {
-    setHoverPrev(false);
-  };
 
   return (
     <Styled.HoverWrapper>
@@ -101,11 +83,7 @@ const ShowCase = ({ projects }: IShowCase) => {
           ))}
         </Swiper>
         <Styled.NavigateRight>
-          <Styled.ArrowContainer
-            onMouseOver={handleHoverPrev}
-            onMouseLeave={handleLeavePrev}
-            className={hoverPrev ? "hover" : undefined}
-          >
+          <Styled.ArrowContainer>
             <svg
               className="swiper-button-next"
               fill="none"
@@ -129,11 +107,7 @@ const ShowCase = ({ projects }: IShowCase) => {
               />
             </svg>
           </Styled.ArrowContainer>
-          <Styled.ArrowContainer
-            onMouseOver={handleHoverNext}
-            onMouseLeave={handleLeaveNext}
-            className={hoverNext ? "hover" : undefined}
-          >
+          <Styled.ArrowContainer>
             <svg
               className="swiper-button-prev"
               fill="none"

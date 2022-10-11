@@ -22,8 +22,6 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
   category,
   isMobile,
 }) => {
-  const [hoverNext, setHoverNext] = useState<boolean>(false);
-  const [hoverPrev, setHoverPrev] = useState<boolean>(false);
   const [isOnTop, setIsOnTop] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState(false);
   const portfolioRef = useRef(null);
@@ -45,22 +43,6 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
       )
     );
   }
-
-  const handleHoverNext = () => {
-    setHoverNext(true);
-  };
-
-  const handleLeaveNext = () => {
-    setHoverNext(false);
-  };
-
-  const handleHoverPrev = () => {
-    setHoverPrev(true);
-  };
-
-  const handleLeavePrev = () => {
-    setHoverPrev(false);
-  };
 
   useEffect(() => {
     const getOffset = () => {
@@ -114,11 +96,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
           <Swiper {...params}>
             <Styled.NavigateLeft>{category}</Styled.NavigateLeft>
             <Styled.NavigateRight>
-              <Styled.ArrowContainer
-                onMouseOver={handleHoverPrev}
-                onMouseLeave={handleLeavePrev}
-                className={hoverPrev ? "hover" : undefined}
-              >
+              <Styled.ArrowContainer>
                 <svg
                   className="swiper-button-next"
                   fill="none"
@@ -142,11 +120,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
                   />
                 </svg>
               </Styled.ArrowContainer>
-              <Styled.ArrowContainer
-                onMouseOver={handleHoverNext}
-                onMouseLeave={handleLeaveNext}
-                className={hoverNext ? "hover" : undefined}
-              >
+              <Styled.ArrowContainer>
                 <svg
                   className="swiper-button-prev"
                   fill="none"

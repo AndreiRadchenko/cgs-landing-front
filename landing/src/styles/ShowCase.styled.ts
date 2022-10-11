@@ -142,7 +142,7 @@ export const ArrowContainer = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     transform: scale(0.8);
   }
-  &.hover {
+  > svg:hover {
     & path:first-child {
       fill: ${themes.primary.colors.portfolioHover};
     }

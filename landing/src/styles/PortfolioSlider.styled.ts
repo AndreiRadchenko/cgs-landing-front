@@ -293,11 +293,10 @@ export const ArrowContainer = styled.div`
     width: 65px;
     height: 65px;
   }
-  &.hover {
+  > svg:hover {
     & path:first-child {
       fill: ${themes.primary.colors.portfolioHover};
     }
-  }
 `;
 
 export const ReviewContainer = styled.div`
