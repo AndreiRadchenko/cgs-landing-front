@@ -25,62 +25,54 @@ export const Title = styled.h2`
 
 export const SubTextContainer = styled.div`
   width: 91.375em;
-  height: 11.625em;
-  margin: 4.625em -6em 0 -6.5em;
+  height: 14.875em;
+  margin: 2.625em -6em 0 -3.2em;
   background-image: url(${BlockchainServices.src});
   background-size: cover;
   background-position: bottom right;
   background-repeat: no-repeat;
 
   @media ${themes.primary.media.minPC} {
-    width: 100em;
+    margin-left: -3.5em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 110em;
-    height: 15.625em;
+    height: 17.625em;
+    margin-left: -4em;
   }
 
-  @media ${themes.primary.media.onlyTabletLandScape} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 0.8rem;
+    margin-left: -8em;
   }
 
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    margin-left: -9em;
-    width: 78em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     background-image: url(${MobileService.src});
-    margin: 8px 0 0 -4.5em;
-    width: 27.2em;
-    height: 11.94em;
+    margin: 8px 0 0 -5.5em;
+    width: 35em;
+    height: 19.296875em;
   }
 `;
 
 export const SubTextContent = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 7em;
-  padding: 0.4em 0 0 5em;
+  column-gap: 13em;
+  padding-left: 5em;
 
   @media ${themes.primary.media.minPC} {
-    column-gap: 10.5em;
     padding-top: 0;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    padding-top: 2.6em;
+    padding-left: 9em;
+    column-gap: 15em;
   }
 
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    padding: 2em 0 0 6em;
-    column-gap: 9.5em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     display: block;
-    padding: 6px 0 0 0em;
+    padding: 5px 0 0 0;
   }
 `;
 
@@ -88,24 +80,30 @@ export const SubText = styled.p`
   font-size: 1.5em;
   line-height: 233%;
   text-transform: uppercase;
-  margin: 0 0 10px 4.5em;
+  margin: -12px 0 25px 2em;
   padding: 0;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-bottom: 27px;
+    margin-bottom: 40px;
   }
 
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    padding-left: 0em;
-    margin: 0 0 3px 1.5em;
-    font-size: 1.4em;
+  @media (min-width: 2200px) {
+    margin-bottom: 45px;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-block: -10px 19px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1em;
+    margin: 0;
+    margin-block: -2px 14px;
+    padding-left: 9em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
-    margin: 0;
-    padding-top: 4px;
-    padding-left: 6em;
+    margin-top: -2px;
   }
 `;
 
