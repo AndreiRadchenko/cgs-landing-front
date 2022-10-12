@@ -14,7 +14,8 @@ export const HeaderNavContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     height: 101px;
     flex-direction: column-reverse;
-    /* background-color: ${themes.primary.colors.black}; */
+    background-color: ${themes.primary.colors.black};
+    color: ${themes.primary.colors.secondary};
   }
 `;
 
@@ -41,6 +42,7 @@ export const Email = styled.a`
   @media ${themes.primary.media.maxMobile} {
     font-weight: ${themes.primary.font.weight.heavy};
     font-size: ${themes.primary.font.size.articleViews};
+    color: ${themes.primary.colors.secondary};
     margin: 0;
   }
 `;
@@ -145,12 +147,15 @@ export const NavList = styled.menu`
 export const LinkText = styled.img`
   height: auto;
   width: auto;
+
   @media ${themes.primary.media.maxTabletPortrait} {
     max-width: 20px;
   }
   @media ${themes.primary.media.maxMobile} {
     max-height: 22px;
     max-width: 31px;
+    filter: invert(1);
+    -webkit-filter: invert(1);
   }
 `;
 
