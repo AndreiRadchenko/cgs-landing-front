@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { emailShake } from "../../styles/Animations.styled";
 import themes from "../../utils/themes";
 
 export const HeaderNavContainer = styled.div`
@@ -21,6 +22,23 @@ export const FlexRowContainer = styled.div`
   display: flex;
   width: 100%;
   height: 50%;
+  transition: color 0;
+
+  & span {
+    transition: color 0.1s;
+  }
+  & path {
+    transition: stroke 0.1s;
+  }
+
+  &:hover {
+    & span {
+      color: ${themes.primary.colors.darkBlue};
+    }
+    & path {
+      stroke: ${themes.primary.colors.darkBlue};
+    }
+  }
 
   @media ${themes.primary.media.maxMobile} {
     padding-top: 10px;
@@ -32,16 +50,25 @@ export const FlexRowContainer = styled.div`
 export const Email = styled.a`
   display: flex;
   align-items: center;
-  margin-left: 20px;
+  margin-left: 17px;
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.email};
   color: ${themes.primary.colors.primary};
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 1em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-weight: ${themes.primary.font.weight.heavy};
     font-size: ${themes.primary.font.size.articleViews};
     margin: 0;
   }
+`;
+
+export const EmailText = styled.span`
+  line-height: 188%;
+  margin-left: 11px;
 `;
 
 export const LogoLinkWrapper = styled.a`
@@ -116,6 +143,13 @@ export const ListItemNav = styled.a`
     width: 136px;
   }
 
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    &:nth-child(n) {
+      width: auto;
+      min-width: 130px;
+    }
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 25%;
   }
@@ -156,4 +190,19 @@ export const FooterImageWrapper = styled.div`
 
 export const BurgerLinkText = styled.p`
   cursor: pointer;
+`;
+
+export const MailIcon = styled.svg`
+  margin-top: 3px;
+  fill: none;
+  stroke-width: 2;
+
+  &.scrolled {
+    animation: ${emailShake} 0.8s linear;
+  }
+
+  & path {
+    stroke: ${themes.primary.colors.primary};
+    color: blue;
+  }
 `;

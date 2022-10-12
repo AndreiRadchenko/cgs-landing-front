@@ -11,11 +11,16 @@ import { queryKeys } from "../../consts/queryKeys";
 import { ClickAudio, Source } from "../HeaderNavNew/HeaderNav.styled";
 import Image from "next/image";
 import smallMountain from "/public/smallMountain.svg";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const FooterNew = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const { width } = useWindowDimension();
+
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const isScrolled = useOnScreen(elRef, true);
 
   const handleClick = () => {
     audioRef.current?.play();
@@ -38,7 +43,7 @@ const FooterNew = (): JSX.Element => {
 
   DisableScrollBarHandler(isOpen);
   return (
-    <StyledThisComp.HeaderNavContainer>
+    <StyledThisComp.HeaderNavContainer ref={elRef}>
       <ClickAudio ref={audioRef}>
         <Source src="/music/headerMouseClick.mp3" type="audio/mpeg" />
       </ClickAudio>
@@ -55,7 +60,17 @@ const FooterNew = (): JSX.Element => {
           onClick={handleClick}
           href={`mailto:${data?.email}`}
         >
-          {data?.email}
+          <StyledThisComp.MailIcon
+            width="27"
+            height="19"
+            viewBox="0 0 27 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={isScrolled ? "scrolled" : undefined}
+          >
+            <path d="M1.90909 2.88889H3.72727M3.72727 4.77778H5.54545M5.54545 6.66667H7.36364M7.36364 8.55556H9.18182M9.18182 10.4444H11M25.0909 2.88889H23.2727M23.2727 4.77778H21.4545M21.4545 6.66667H19.6364M19.6364 8.55556H17.8182M11 12.3333H12.8182H14.1818H16M17.8182 10.4444H16M1 1V18H26V1H1Z" />
+          </StyledThisComp.MailIcon>
+          <StyledThisComp.EmailText>{data?.email}</StyledThisComp.EmailText>
         </StyledThisComp.Email>
       </StyledThisComp.FlexRowContainer>
 
