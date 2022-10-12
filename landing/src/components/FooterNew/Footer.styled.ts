@@ -141,15 +141,16 @@ export const NavList = styled.menu`
   }
 `;
 
-export const LinkText = styled.img`
-  height: auto;
-  width: auto;
+export const FooterImageWrapper = styled.div`
+  position: relative;
+  width: 45px;
+  height: 32px;
   @media ${themes.primary.media.maxTabletPortrait} {
-    max-width: 20px;
+    width: 20px;
   }
   @media ${themes.primary.media.maxMobile} {
-    max-height: 22px;
-    max-width: 31px;
+    height: 22px;
+    width: 31px;
   }
 `;
 

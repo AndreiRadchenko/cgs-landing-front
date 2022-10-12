@@ -1,7 +1,4 @@
 import React from "react";
-import { useQuery } from "react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminGlobalService } from "../../services/adminHomePage";
 import {
   ArrowContainer,
   BlackButton,
@@ -10,13 +7,11 @@ import ButtonArrow from "../../utils/ButtonArrow";
 import * as Styled from "./NotFoundPage.styled";
 
 const NotFoundContent = () => {
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
   return (
     <Styled.NotFoundContainer>
       <Styled.ImageWrapper>
-        <Styled.Image src={"/NotFoundPage/tetris.svg"} />
+        <Styled.Image src={"/NotFoundPage/tetris.svg"} alt="not found image" />
       </Styled.ImageWrapper>
-
       <Styled.Description>
         <Styled.Title>
           The page you`re

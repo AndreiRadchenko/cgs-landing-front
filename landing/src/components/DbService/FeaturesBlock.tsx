@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/DbService/FeaturesBlock.styled";
 import { IServiceDb } from "../../types/Admin/Response.types";
@@ -9,9 +9,9 @@ import bgImageMobile from "../../../public/DbService/database-mobile-svg.svg";
 
 const FeaturesBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceDb>(
-    queryKeys.getServiceDbPage
-  )?.featuresBlock;
+  const data = queryClient.getQueryData<IServiceDb>([
+    queryKeys.getServiceDbPage,
+  ])?.featuresBlock;
 
   const databasesTextBlock = data && [
     data.databases.text1,

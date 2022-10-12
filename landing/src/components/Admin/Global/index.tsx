@@ -9,7 +9,7 @@ import AdminFeedbackBlock from "../FeedbackBlock";
 import AdminTechBlock from "../TechBlock";
 import AdminFooterBlock from "../Footer";
 import { Form, Formik } from "formik";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminGlobalService } from "../../../services/adminHomePage";
 import { IDataResponse } from "../../../types/Admin/Response.types";
@@ -25,12 +25,12 @@ interface IMainProps {
 
 const AdminMainContent = () => {
   const { data, isLoading, refetch }: IMainProps = useQuery(
-    queryKeys.GetFullPage,
+    [queryKeys.GetFullPage],
     () => adminGlobalService.getFullPage()
   );
 
   const { mutateAsync } = useMutation(
-    queryKeys.PutHomePageData,
+    [queryKeys.PutHomePageData],
     (data: IDataResponse) => adminGlobalService.updateFullPage(data)
   );
 

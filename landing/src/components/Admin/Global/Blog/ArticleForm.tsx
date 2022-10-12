@@ -1,6 +1,6 @@
 import { Formik, FormikHelpers, useFormikContext } from "formik";
 import React from "react";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { newBlogArticle } from "../../../../consts";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminBlogService } from "../../../../services/adminBlogPage";
@@ -39,7 +39,7 @@ const ArticleForm = ({
   const queryClient = useQueryClient();
 
   const { mutateAsync: postArticle } = useMutation(
-    queryKeys.postArticle,
+    [queryKeys.postArticle],
     (dataToUpdate: IArticle) => adminBlogService.postArticle(dataToUpdate),
     {
       onSuccess: () => {
@@ -49,7 +49,7 @@ const ArticleForm = ({
   );
 
   const { mutateAsync: editArticle } = useMutation(
-    queryKeys.updateBlogArticle,
+    [queryKeys.updateBlogArticle],
     (dataToUpdate: IArticle) => adminBlogService.updateById(dataToUpdate),
     {
       onSuccess: () => {
@@ -59,7 +59,7 @@ const ArticleForm = ({
   );
 
   const { mutateAsync: updateSitemap } = useMutation(
-    queryKeys.updateSitemap,
+    [queryKeys.updateSitemap],
     (updatedSitemap: ISitemapData) =>
       adminSitemapService.updateSitemapData(updatedSitemap),
     {
@@ -70,12 +70,12 @@ const ArticleForm = ({
   );
 
   const { mutateAsync: updateViews } = useMutation(
-    queryKeys.updateViews,
+    [queryKeys.updateViews],
     (dataToUpdate: IView) => adminBlogService.updateViews(dataToUpdate)
   );
 
   const { mutateAsync: addViews } = useMutation(
-    queryKeys.addViews,
+    [queryKeys.addViews],
     (dataToUpdate: IView) => adminBlogService.addViews(dataToUpdate),
     {
       onSuccess: () => {

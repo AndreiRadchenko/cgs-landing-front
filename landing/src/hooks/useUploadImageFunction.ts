@@ -1,5 +1,5 @@
 import { useFormikContext } from "formik";
-import { QueryClient, useMutation } from "react-query";
+import { QueryClient, useMutation } from "@tanstack/react-query";
 import { IImage } from "../types/Admin/Admin.types";
 import { queryKeys } from "../consts/queryKeys";
 import { adminGlobalService } from "../services/adminHomePage";
@@ -19,7 +19,7 @@ const useUploadImageFunction = (
   };
 
   const { mutateAsync } = useMutation<{ url: string } | void>(
-    queryKeys.uploadImage,
+    [queryKeys.uploadImage],
     upload
   );
 
@@ -36,7 +36,7 @@ const useUploadImageFunction = (
       localState!.image = link!;
     }
     submitInTheEnd && handleSubmit();
-    queryClient.invalidateQueries(key);
+    queryClient.invalidateQueries([key]);
   };
 
   return uploadImageFunction;

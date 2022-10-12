@@ -1,5 +1,4 @@
 import parse from "html-react-parser";
-import DefaultErrorPage from "next/error";
 import ArticleAuthor from "../../components/ArticleAuthor/ArticleAuthor";
 import ArticleDescription from "../../components/ArticleDescription/ArticleDescription";
 import ShareOn from "../../components/ShareOn/ShareOn";
@@ -10,7 +9,7 @@ import {
   useMutation,
   useQuery,
   useQueryClient,
-} from "react-query";
+} from "@tanstack/react-query";
 import { IArticle, IView } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import titleBg from "../../../public/articleTitleBgImg.svg";
@@ -29,7 +28,7 @@ import Head from "next/head";
 import Image from "next/image";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-
+import NotFoundPage from "../404";
 interface IArticleData {
   data: IArticle[] | undefined;
   isLoading: boolean;
@@ -39,11 +38,11 @@ interface IArticleData {
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getBlogArticles, () =>
+  await queryClient.prefetchQuery([queryKeys.getBlogArticles], () =>
     adminBlogService.getArticles()
   );
 
-  await queryClient.prefetchQuery(queryKeys.views, () =>
+  await queryClient.prefetchQuery([queryKeys.views], () =>
     adminBlogService.getViews()
   );
 
@@ -62,15 +61,15 @@ const ArticlePage = () => {
   const [filters, setFilters] = useState<string | string[]>([]);
   const url = typeof router.query?.url === "string" ? router.query.url : "";
   const { data, isSuccess, isLoading }: IArticleData = useQuery(
-    queryKeys.getBlogArticles,
+    [queryKeys.getBlogArticles],
     () => adminBlogService.getArticles(),
     {
       enabled: url.length > 0,
     }
   );
 
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
-  const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
+  const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
 
   const article =
     data &&
@@ -87,7 +86,7 @@ const ArticlePage = () => {
   };
 
   const { mutateAsync: updateViews } = useMutation(
-    queryKeys.updateViews,
+    [queryKeys.updateViews],
     (dataToUpdate: IView) => adminBlogService.updateViews(dataToUpdate),
     {
       onSuccess: () => {
@@ -237,7 +236,7 @@ const ArticlePage = () => {
       </Styles.Background>
     </>
   ) : (
-    <DefaultErrorPage statusCode={404} />
+    <NotFoundPage />
   );
 };
 

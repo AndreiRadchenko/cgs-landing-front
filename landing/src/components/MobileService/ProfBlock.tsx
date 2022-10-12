@@ -1,6 +1,6 @@
 ﻿import React, { useRef } from "react";
 import parse, { Element, HTMLReactParserOptions } from "html-react-parser";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { Subtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/MobileService/ProfBlock.styled";
@@ -14,9 +14,9 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 
 const ProfBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceMobile>(
-    queryKeys.getServiceMobilePage
-  )?.footerBlock;
+  const data = queryClient.getQueryData<IServiceMobile>([
+    queryKeys.getServiceMobilePage,
+  ])?.footerBlock;
   const elRef = useRef(null);
 
   const isOnScreen = useOnScreen(elRef, true);

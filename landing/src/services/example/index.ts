@@ -1,6 +1,6 @@
-import { IResponse } from '../../types/Admin';
-import {HttpService} from '../http.service';
-import {HttpServiceFactory} from '../index';
+import { IResponse } from "../../types/Admin";
+import { HttpService } from "../http.service";
+import { HttpServiceFactory } from "../index";
 
 interface IData {
   // your interface
@@ -9,7 +9,7 @@ interface IData {
 export class ExampleService {
   constructor(private httpService: HttpService) {}
   public examplePost(email: string, password: string) {
-    return this.httpService.post<IResponse, IData>('example/post', {
+    return this.httpService.post<IResponse, IData>("example/post", {
       email,
       password,
     });

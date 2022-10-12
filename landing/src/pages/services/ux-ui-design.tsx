@@ -1,5 +1,5 @@
 import React from "react";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import Head from "next/head";
 import { adminUxUiService } from "../../services/services/AdminServiceUxUiPage";
@@ -20,11 +20,11 @@ export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(
-    queryKeys.getServiceUxUiPage,
+    [queryKeys.getServiceUxUiPage],
     async () => await adminUxUiService.getUxUiServicePage()
   );
 
-  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );
   return {
@@ -36,11 +36,11 @@ export async function getServerSideProps() {
 
 const UxUiDesign = () => {
   const { data } = useQuery(
-    queryKeys.getServiceUxUiPage,
+    [queryKeys.getServiceUxUiPage],
     async () => await adminUxUiService.getUxUiServicePage()
   );
 
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 

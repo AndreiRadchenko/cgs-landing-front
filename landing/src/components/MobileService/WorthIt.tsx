@@ -6,7 +6,7 @@ import cube from "../../../public/MobileSevice/worthIt/cube.svg";
 import cylinder from "../../../public/MobileSevice/worthIt/cylinder.svg";
 import secondTextPhoto from "../../../public/MobileSevice/worthIt/marketingTextPhoto.svg";
 import thirdTextPhoto from "../../../public/MobileSevice/worthIt/brandTextPhoto.svg";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
@@ -15,9 +15,9 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 
 const WorthIt = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceMobile>(
-    queryKeys.getServiceMobilePage
-  )?.worthBlock;
+  const data = queryClient.getQueryData<IServiceMobile>([
+    queryKeys.getServiceMobilePage,
+  ])?.worthBlock;
 
   const titleIllustration = [crystal, cube, cylinder];
   const textIllustration = [null, secondTextPhoto, thirdTextPhoto];

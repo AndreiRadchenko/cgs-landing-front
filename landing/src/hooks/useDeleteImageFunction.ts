@@ -1,6 +1,6 @@
 import { useFormikContext } from "formik";
 import { queryKeys } from "../consts/queryKeys";
-import { QueryClient, useMutation } from "react-query";
+import { QueryClient, useMutation } from "@tanstack/react-query";
 import { IImage } from "../types/Admin/Admin.types";
 import { adminGlobalService } from "../services/adminHomePage";
 
@@ -13,7 +13,7 @@ const useDeleteImageFunction = async (
   const queryClient = new QueryClient();
   const { handleSubmit, setFieldValue } = useFormikContext();
 
-  const { mutate } = useMutation(queryKeys.deleteImage, (url: string) =>
+  const { mutate } = useMutation([queryKeys.deleteImage], (url: string) =>
     adminGlobalService.deleteImage(url)
   );
 
@@ -31,7 +31,7 @@ const useDeleteImageFunction = async (
       localState!.image = null;
     }
     submitInTheEnd && handleSubmit();
-    queryClient.invalidateQueries(key);
+    queryClient.invalidateQueries([key]);
   };
 
   return deleteImageFunction;

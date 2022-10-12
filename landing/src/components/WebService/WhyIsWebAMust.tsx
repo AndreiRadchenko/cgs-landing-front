@@ -6,7 +6,7 @@ import cube from "../../../public/MobileSevice/worthIt/cube.svg";
 import cylinder from "../../../public/MobileSevice/worthIt/cylinder.svg";
 import secondTextPhoto from "../../../public/MobileSevice/worthIt/marketingTextPhoto.svg";
 import thirdTextPhoto from "../../../public/MobileSevice/worthIt/brandTextPhoto.svg";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
@@ -15,9 +15,9 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 
 const WhyIsWebAMust = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceWeb>(
-    queryKeys.getServiceWebPage
-  )?.whyIsWebBlock;
+  const data = queryClient.getQueryData<IServiceWeb>([
+    queryKeys.getServiceWebPage,
+  ])?.whyIsWebBlock;
 
   const textBlock = data && {
     element1: data.element1,

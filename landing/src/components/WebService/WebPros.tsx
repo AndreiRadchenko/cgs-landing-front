@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import bgImage from "../../../public/WebService/secondBlockBg.svg";
 import bgMobileImage from "../../../public/WebService/web-development-mobile.svg";
 import { queryKeys } from "../../consts/queryKeys";
@@ -8,9 +8,9 @@ import { IServiceWeb } from "../../types/Admin/Response.types";
 
 const WebPros = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceWeb>(
-    queryKeys.getServiceWebPage
-  )?.comparisonBlock;
+  const data = queryClient.getQueryData<IServiceWeb>([
+    queryKeys.getServiceWebPage,
+  ])?.comparisonBlock;
 
   return (
     <Styled.Container>

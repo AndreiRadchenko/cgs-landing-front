@@ -1,6 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
-import { useQuery, dehydrate, QueryClient } from "react-query";
+import { useQuery, dehydrate, QueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
@@ -12,7 +12,7 @@ import Head from "next/head";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getAboutUsPage, () =>
+  await queryClient.prefetchQuery([queryKeys.getAboutUsPage], () =>
     adminAboutUsService.getAboutUsPage()
   );
 
@@ -24,9 +24,9 @@ export async function getServerSideProps() {
 }
 
 const AboutUsPage = () => {
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
-  const { data } = useQuery(queryKeys.getAboutUsPage, () =>
+  const { data } = useQuery([queryKeys.getAboutUsPage], () =>
     adminAboutUsService.getAboutUsPage()
   );
 

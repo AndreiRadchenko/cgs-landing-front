@@ -5,10 +5,12 @@ import ImagePreview from "../Image/ImagePreview";
 import Link from "next/link";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { ClickAudio, Source } from "../HeaderNavNew/HeaderNav.styled";
+import Image from "next/image";
+import smallMountain from "/public/smallMountain.svg";
 
 const FooterNew = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -30,9 +32,9 @@ const FooterNew = (): JSX.Element => {
   }, [width, isOpen]);
 
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.FooterBlock;
+  const data = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.FooterBlock;
 
   DisableScrollBarHandler(isOpen);
   return (
@@ -66,10 +68,20 @@ const FooterNew = (): JSX.Element => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <StyledThisComp.LinkText
-                src={data.images[ind].image?.url}
-                alt="footer icons img"
-              />
+              <StyledThisComp.FooterImageWrapper>
+                {
+                  <Image
+                    src={
+                      data.images[ind]
+                        ? data.images[ind].image?.url
+                        : smallMountain
+                    }
+                    alt="footer icons img"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                }
+              </StyledThisComp.FooterImageWrapper>
             </StyledThisComp.ListItemNav>
           </Link>
         ))}

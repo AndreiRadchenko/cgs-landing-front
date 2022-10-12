@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IBlockchainService } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/BlockchainService/AboutBlock.styled";
@@ -8,9 +8,9 @@ import Image from "next/image";
 
 const AboutBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IBlockchainService>(
-    queryKeys.getServiceBlockchainPage
-  )?.aboutBlock;
+  const data = queryClient.getQueryData<IBlockchainService>([
+    queryKeys.getServiceBlockchainPage,
+  ])?.aboutBlock;
 
   return (
     <Styled.Container>

@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
@@ -11,9 +11,9 @@ import TextTypingAnimation from "../Typewrite";
 const SelectBlock = () => {
   const { width } = useWindowDimension();
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceDb>(
-    queryKeys.getServiceDbPage
-  )?.selectBlock;
+  const data = queryClient.getQueryData<IServiceDb>([
+    queryKeys.getServiceDbPage,
+  ])?.selectBlock;
 
   const elRef = useRef<HTMLDivElement>(null);
 

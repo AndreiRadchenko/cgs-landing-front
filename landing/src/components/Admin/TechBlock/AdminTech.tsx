@@ -11,7 +11,7 @@ import {
   DeleteButton,
 } from "../FAQ/adminFaq.styled";
 import { useFormikContext } from "formik";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 
 interface ITechProps extends IPropsWithImage {
@@ -34,13 +34,13 @@ const AdminTech = ({
   const addQuestion = (index: number) => {
     values.TechnologyBlock[item].stack.splice(index + 1, 0, "");
     handleSubmit();
-    queryClient.invalidateQueries(queryKeys.getFullHomePage);
+    queryClient.invalidateQueries([queryKeys.getFullHomePage]);
   };
 
   const deleteQuestion = (index: number) => {
     values.TechnologyBlock[item].stack.splice(index, 1);
     handleSubmit();
-    queryClient.invalidateQueries(queryKeys.getFullHomePage);
+    queryClient.invalidateQueries([queryKeys.getFullHomePage]);
   };
   const uploadFunc = (image: any) => uploadFunction(image);
   return (

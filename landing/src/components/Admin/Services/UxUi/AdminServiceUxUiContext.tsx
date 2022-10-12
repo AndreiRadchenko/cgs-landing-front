@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik } from "formik";
-import { useQuery, useMutation } from "react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import ServiceUxUiContentBlock from ".";
 import { adminUxUiService } from "../../../../services/services/AdminServiceUxUiPage";
@@ -9,12 +9,12 @@ import * as Styled from "../../../../styles/AdminPage";
 
 const AdminServiceUxUiContent = () => {
   const { data, isLoading, refetch } = useQuery(
-    queryKeys.getServiceUxUiPage,
+    [queryKeys.getServiceUxUiPage],
     () => adminUxUiService.getUxUiServicePage()
   );
 
   const { mutateAsync: updateUxUiPage } = useMutation(
-    queryKeys.updateServiceUxUiPage,
+    [queryKeys.updateServiceUxUiPage],
     (data: IUxUiInterface) => adminUxUiService.updateUxUiServicePage(data)
   );
 

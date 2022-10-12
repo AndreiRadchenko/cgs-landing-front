@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICloudService } from "../../types/Admin/Response.types";
 import {
@@ -12,9 +12,9 @@ import ButtonArrow from "../../utils/ButtonArrow";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<ICloudService>(
-    queryKeys.getServiceCloudPage
-  )?.footerBlock;
+  const data = queryClient.getQueryData<ICloudService>([
+    queryKeys.getServiceCloudPage,
+  ])?.footerBlock;
 
   return (
     <Styled.Container>

@@ -1,6 +1,6 @@
 ﻿import { Formik } from "formik";
 import React from "react";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import ServiceMobileContentBlock from ".";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminMobileService } from "../../../../services/services/adminServicesMobilePage";
@@ -9,12 +9,12 @@ import { IServiceMobile } from "../../../../types/Admin/Response.types";
 
 const AdminServiceMobileContent = () => {
   const { data, isLoading, refetch } = useQuery(
-    queryKeys.getServiceMobilePage,
+    [queryKeys.getServiceMobilePage],
     () => adminMobileService.getMobileServicePage()
   );
 
   const { mutateAsync: updateFaqPage } = useMutation(
-    queryKeys.updateServiceMobilePage,
+    [queryKeys.updateServiceMobilePage],
     (data: IServiceMobile) => adminMobileService.updateMobileServicePage(data)
   );
 

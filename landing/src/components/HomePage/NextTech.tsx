@@ -5,12 +5,13 @@ import Partners from "../Partners/Partners";
 import film from "../../../public/HomePageDecoration/photoFilm.svg";
 import filmMobile from "../../../public/HomePageDecoration/photoFilmMobile.svg";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ScrambleText from "./ScrambleText";
+import Image from "next/image";
 
 const NextTech = () => {
   const { width } = useWindowDimension();
@@ -38,22 +39,27 @@ const NextTech = () => {
   };
 
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.FilmBlock;
-  const text = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.SubtitleBlock;
-  const buttonData = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.SeeAllBlock;
+  const data = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.FilmBlock;
+  const text = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.SubtitleBlock;
+  const buttonData = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.SeeAllBlock;
 
   return (
     <Styled.NextTech>
       <Styled.Subtitle>{text && parse(text.title, options)}</Styled.Subtitle>
       <Partners />
       <Styled.FilmContainer>
-        {width && <Styled.Film src={width < 767 ? filmMobile.src : film.src} />}
+        {width && (
+          <Styled.Film
+            src={width < 767 ? filmMobile.src : film.src}
+            alt="film text image"
+          />
+        )}
 
         <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
       </Styled.FilmContainer>
@@ -65,7 +71,14 @@ const NextTech = () => {
               <ScrambleText text={"tech-range"} />
             </span>
             <Styled.RowContainer>
-              <Styled.LongArrow src={longArrow.src} />
+              <Styled.LongArrowWrapper>
+                <Image
+                  src={longArrow.src}
+                  alt="wide tech long arrow"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </Styled.LongArrowWrapper>
               Innovative
             </Styled.RowContainer>
             customer-value
@@ -80,7 +93,14 @@ const NextTech = () => {
                 )}
               </span>
               &nbsp;
-              <Styled.LongArrow src={longArrow.src} />
+              <Styled.LongArrowWrapper>
+                <Image
+                  src={longArrow.src}
+                  alt="wide tech long arrow"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </Styled.LongArrowWrapper>
             </Styled.RowContainer>
             <Styled.RowContainer>Innovative customer-value</Styled.RowContainer>
           </>

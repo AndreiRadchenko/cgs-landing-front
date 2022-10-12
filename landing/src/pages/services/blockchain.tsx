@@ -1,6 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import Head from "next/head";
 import { adminBlockchainService } from "../../services/services/AdminServiceBlockchainPage";
@@ -20,11 +20,11 @@ export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(
-    queryKeys.getServiceBlockchainPage,
+    [queryKeys.getServiceBlockchainPage],
     async () => await adminBlockchainService.getBlockchainDevelopmentPage()
   );
 
-  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );
 
@@ -37,11 +37,11 @@ export async function getServerSideProps() {
 
 const BlockchainService = () => {
   const { data } = useQuery(
-    queryKeys.getServiceBlockchainPage,
+    [queryKeys.getServiceBlockchainPage],
     async () => await adminBlockchainService.getBlockchainDevelopmentPage()
   );
 
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import parse from "html-react-parser";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { IArticle, IBlogPageResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import PaginationBar from "../../components/PaginationBar/PaginationBar";
@@ -37,19 +37,19 @@ interface IArticlesData {
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getBlogPage, () =>
+  await queryClient.prefetchQuery([queryKeys.getBlogPage], () =>
     adminBlogService.getBlogPageData()
   );
 
-  await queryClient.prefetchQuery(queryKeys.getBlogArticles, () =>
+  await queryClient.prefetchQuery([queryKeys.getBlogArticles], () =>
     adminBlogService.getArticles()
   );
 
-  await queryClient.prefetchQuery(queryKeys.views, () =>
+  await queryClient.prefetchQuery([queryKeys.views], () =>
     adminBlogService.getViews()
   );
 
-  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );
   return {
@@ -64,17 +64,17 @@ const PageSize = 4;
 const BlogPage = () => {
   const router = useRouter();
 
-  const { data }: IBlogPageData = useQuery(queryKeys.getBlogPage, () =>
+  const { data }: IBlogPageData = useQuery([queryKeys.getBlogPage], () =>
     adminBlogService.getBlogPageData()
   );
 
   const { data: articles }: IArticlesData = useQuery(
-    queryKeys.getBlogArticles,
+    [queryKeys.getBlogArticles],
     () => adminBlogService.getArticles()
   );
 
-  const views = useQuery(queryKeys.views, () => adminBlogService.getViews());
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
   const [reversedArticles, setReversedArticles] = useState<IArticle[] | null>(
     null

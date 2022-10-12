@@ -183,8 +183,9 @@ export const MainSubtitle = styled.div`
   }
 `;
 
-export const RightArrow = styled.img`
+export const RightArrowWrapper = styled.div`
   display: inline-block;
+  position: relative;
   margin: 0 10px;
   width: 115px;
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -200,9 +201,10 @@ export const RightArrow = styled.img`
   }
 `;
 
-export const LeftArrow = styled.img`
+export const LeftArrowWrapper = styled.div`
   display: inline-block;
   width: 142px;
+  position: relative;
   margin-left: 10px;
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 108px;
@@ -213,10 +215,11 @@ export const LeftArrow = styled.img`
   }
 `;
 
-export const LongArrow = styled.img`
+export const LongArrowWrapper = styled.div`
   display: inline-block;
   margin-left: auto;
   width: 30vw;
+  position: relative;
 
   @media ${themes.primary.media.minLaptop} {
     margin-left: 10px;

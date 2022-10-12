@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import * as StyledThisComp from "../../styles/HomePage/Technologies.styled";
 import TechnologyCategory from "./TechnologyCategory";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import techArrow from "../../../public/HomePageDecoration/techArrow.svg";
@@ -12,9 +12,9 @@ const Technologies = () => {
   const arrowRef = useRef<HTMLDivElement>(null);
   const mousePosition = useMousePosition();
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.TechnologyBlock;
+  const data = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.TechnologyBlock;
 
   useEffect(() => {
     if (arrowRef.current && mousePosition.y && mousePosition.x) {

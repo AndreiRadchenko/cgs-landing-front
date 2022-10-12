@@ -1,7 +1,7 @@
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
 import { Formik } from "formik";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { IFaqData, IFaqResponse } from "../../../types/Admin/AdminFaq.types";
 import { adminFaqService } from "../../../services/adminFaqPage";
@@ -9,12 +9,12 @@ import FaqContentBlock from "./FaqContentBlock";
 
 const Faq = () => {
   const { data, isLoading, refetch }: IFaqResponse = useQuery(
-    queryKeys.getFaqPage,
+    [queryKeys.getFaqPage],
     () => adminFaqService.getFaqPage()
   );
 
   const { mutateAsync: updateFaqPage } = useMutation(
-    queryKeys.updateFaqPage,
+    [queryKeys.updateFaqPage],
     (data: IFaqData) => adminFaqService.updateFaqPage(data)
   );
 

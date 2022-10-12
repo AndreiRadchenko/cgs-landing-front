@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IBlockchainService } from "../../types/Admin/Response.types";
 import parse from "html-react-parser";
@@ -7,9 +7,9 @@ import * as Styled from "../../styles/BlockchainService/ServicesBlock.styled";
 
 const ServicesBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IBlockchainService>(
-    queryKeys.getServiceBlockchainPage
-  )?.servicesBlock;
+  const data = queryClient.getQueryData<IBlockchainService>([
+    queryKeys.getServiceBlockchainPage,
+  ])?.servicesBlock;
 
   return (
     <Styled.Container>
