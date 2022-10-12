@@ -28,6 +28,7 @@ const themes = {
         namu: "'NAMU', sans-serif",
         openSans: "'Open Sans', sans-serif",
         inter: "'Inter', sans-serif",
+        pressStart: "'Press Start 2P', cursive",
       },
       weight: {
         light: 300,
@@ -52,6 +53,7 @@ const themes = {
         tertiary: "1.2em",
         primary: "1em",
         aboutUsBelieveText: "1.35em",
+
         aboutUsCardText: "1.3em",
         linkText: "1.4em",
         oneAndHalf: "1.5em",
@@ -70,7 +72,7 @@ const themes = {
         blogArticleTitle: "2.2em",
         quaternary: "2.6em",
         articleDescription: "3.15em",
-        smallAboutSubtitle: "2.9em",
+        smallAboutSubtitle: "2.7em",
         aboutUsSubtitle: "3.35em",
         mainPagePhoto: "2.68em",
         ourWorkText: "3.61vw",
@@ -107,6 +109,8 @@ const themes = {
         inBlockMaxTableText: "1.3em",
         faqMobileTitle: "3em",
         portfolioMobile: "3.8em",
+        notFoundPageTitlePc: "2.8em",
+        notFoundPageTitleTablet: "1.8em",
       },
     },
     colors: {
