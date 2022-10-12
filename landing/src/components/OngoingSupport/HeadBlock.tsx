@@ -8,7 +8,7 @@ import {
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
 import * as Styled from "../../styles/OngoingSupport/HeadBlock.styled";
-import { SplitBrackets } from "../../utils/splitBrackets";
+import TextTypingAnimation from "../Typewrite";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -20,7 +20,7 @@ const HeadBlock = () => {
     <Styled.Container>
       <Styled.Content>
         <Styled.Title>
-          <SplitBrackets text={data?.title} />
+          {data && <TextTypingAnimation text={data?.title} />}
         </Styled.Title>
         <Styled.Description>{data?.text}</Styled.Description>
         <BlackButton

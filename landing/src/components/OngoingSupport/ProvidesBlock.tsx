@@ -32,8 +32,10 @@ const ProvidesBlock = () => {
       <Styled.TextWrapper>
         {data?.textSubBlock.map((el, idx) => (
           <div key={idx}>
-            <Styled.Subtitle>{el.subtitle}</Styled.Subtitle>
-            <Styled.Text>{parse(el.text)}</Styled.Text>
+            <Styled.ContentWrapper>
+              <Styled.Subtitle>{el.subtitle}</Styled.Subtitle>
+              <Styled.Text>{parse(el.text)}</Styled.Text>
+            </Styled.ContentWrapper>
             <Styled.BlockContainer src={smallBg[idx].src} />
           </div>
         ))}

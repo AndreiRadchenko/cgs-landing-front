@@ -1,4 +1,10 @@
-﻿import React from "react";
+﻿import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import textPoint from "../../../public/MobileSevice/textPoint.svg";
 import textPointReversed from "../../../public/MobileSevice/textPointReversed.svg";
 import { useQueryClient } from "react-query";
@@ -8,9 +14,11 @@ import { Subtitle } from "../../styles/MobileService/Layout";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const HowDoWeWork = () => {
   const { width } = useWindowDimension();
+  const [gradientAngle, setGradientAngle] = useState<string>("50%");
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobile>(
     queryKeys.getServiceMobilePage
@@ -34,16 +42,34 @@ const HowDoWeWork = () => {
     { firstColor: "#99AAE0", secondColor: "#5869dd" },
   ];
 
+  const mouseMoveListener = useCallback(({ pageX }: MouseEvent) => {
+    const windowWidth = window.innerWidth;
+    const mouseXpercentage = Math.round((pageX / windowWidth) * 100);
+    setGradientAngle(`${mouseXpercentage}%`);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("mousemove", mouseMoveListener, false);
+    return () => window.removeEventListener("mousemove", mouseMoveListener);
+  }, [mouseMoveListener]);
+
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const isScrolled = useOnScreen(elRef, true);
+
   return (
     <Styled.ContentWrapper>
       <Subtitle>{data?.subtitle}</Subtitle>
-      <Styled.PointsWrapper>
-        <Styled.Line />
+      <Styled.PointsWrapper ref={elRef}>
+        <Styled.Line angle={gradientAngle} />
         {width &&
           points &&
           points.map((point, idx) => (
-            <>
-              <Styled.TextContainer key={`${point.subtitle} ${idx}`}>
+            <Fragment key={`${point.subtitle} ${idx}`}>
+              <Styled.TextContainer
+                ind={idx}
+                className={isScrolled ? "scrolled" : undefined}
+              >
                 <Styled.Point
                   src={
                     width && width > 1200
@@ -63,11 +89,13 @@ const HowDoWeWork = () => {
               </Styled.TextContainer>
               {width && width < 1200 && (
                 <Styled.MobileLine
+                  ind={idx}
+                  className={isScrolled ? "scrolled" : undefined}
                   firstColor={arrayOfGradients[idx].firstColor}
                   secondColor={arrayOfGradients[idx].secondColor}
                 />
               )}
-            </>
+            </Fragment>
           ))}
       </Styled.PointsWrapper>
     </Styled.ContentWrapper>

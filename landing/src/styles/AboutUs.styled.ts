@@ -99,7 +99,6 @@ export const CardDescriptionSubDescription = styled.div`
 
   &.columnDescription {
     width: 8.5em;
-    /* padding-left: 1em; */
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -119,7 +118,6 @@ export const CardDescriptionValueWrapper = styled.div`
 
   &.columnDescription {
     width: 8.5em;
-    /* padding-left: 1em; */
   }
 
   @media ${themes.primary.media.maxMobile} {

@@ -1,7 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
+import { slideRight } from "../Animations.styled";
 
-export const Container = styled.div<{ position: string; height: number }>`
+interface IContainer {
+  position: string;
+  height: number;
+  ind: number;
+}
+
+export const Container = styled.div<IContainer>`
   display: flex;
   column-gap: 20px;
   height: ${({ height }) => `${height}px`};
@@ -9,6 +16,15 @@ export const Container = styled.div<{ position: string; height: number }>`
     position === "top" ? "flex-start" : "flex-end"};
   border-left: 1px solid ${themes.primary.colors.black};
   z-index: 5;
+
+  @media ${themes.primary.media.maxMobile} {
+    opacity: 0;
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 200}ms forwards
+      `};
+    }
+  }
 `;
 
 export const Marker = styled.div<{ position: string }>`
