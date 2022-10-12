@@ -6,6 +6,7 @@ import { IServiceDb } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import bgImage from "../../../public/DbService/featuresBg.svg";
 import bgImageMobile from "../../../public/DbService/database-mobile-svg.svg";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const FeaturesBlock = () => {
   const queryClient = useQueryClient();
@@ -34,6 +35,7 @@ const FeaturesBlock = () => {
       <Styled.ContentWrapper>
         <div>
           <Styled.Subtitle>{data?.databases.subtitle}</Styled.Subtitle>
+          <MobileInfiniteText title={data?.databases.subtitle} />
           {databasesTextBlock &&
             databasesTextBlock.map((text, i) => {
               return (
@@ -45,6 +47,7 @@ const FeaturesBlock = () => {
         </div>
         <div>
           <Styled.Subtitle>{data?.servers.subtitle}</Styled.Subtitle>
+          <MobileInfiniteText title={data?.servers.subtitle} />
           {serversTextBlock &&
             serversTextBlock.map((text, i) => {
               return (

@@ -11,6 +11,7 @@ import fifthBlock from "../../../public/OngoingSupport/block-5.svg";
 import bottomBlock from "../../../public/OngoingSupport/bottom-block.svg";
 import bottomMobile from "../../../public/OngoingSupport/bottom-mobile.svg";
 import * as Styled from "../../styles/OngoingSupport/ProvidesBlock.styled";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const ProvidesBlock = () => {
   const queryClient = useQueryClient();
@@ -29,6 +30,7 @@ const ProvidesBlock = () => {
   return (
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
+      <MobileInfiniteText title={data?.subtitle}></MobileInfiniteText>
       <Styled.TextWrapper>
         {data?.textSubBlock.map((el, idx) => (
           <div key={idx}>

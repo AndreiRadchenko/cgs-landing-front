@@ -5,7 +5,7 @@ import * as Styled from "../../styles/MobileService/WhoNeedApps.styled";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceMobile } from "../../types/Admin/Response.types";
-import { Subtitle } from "../../styles/MobileService/Layout";
+import { Subtitle, VisibleSubtitle } from "../../styles/MobileService/Layout";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
 import WhoNeedAppsMobile from "../../../public/MobileSevice/whoNeedApps/whoNeedAppsImgMobile.svg";
@@ -13,6 +13,7 @@ import WhyWorthItMobile from "../../../public/MobileSevice/whoNeedApps/whyWorthI
 import TextTypingAnimation from "../Typewrite";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const WhoNeedAppBlock = () => {
   const { width } = useWindowDimension();
@@ -43,12 +44,12 @@ const WhoNeedAppBlock = () => {
       <Styled.WhatDoWeUse>
         <Styled.WhatDoWeUseContainer>
           {data && (
-            <Subtitle ref={elRef}>
+            <VisibleSubtitle ref={elRef}>
               {(width && width <= 767 && isScrolled && (
                 <TextTypingAnimation text={data.whatDoWeUse.subtitle} />
               )) ||
                 data.whatDoWeUse.subtitle}
-            </Subtitle>
+            </VisibleSubtitle>
           )}
           <Styled.SubText>
             {data && parse(data?.whatDoWeUse.text.replace("[arrow]", arrow))}
@@ -64,6 +65,7 @@ const WhoNeedAppBlock = () => {
       </Styled.WhatDoWeUse>
       <Styled.WhoNeedAppsBlocks>
         <Styled.WhoNeedAppsWrapper>
+          <MobileInfiniteText title={data?.whoNeedApps.subtitle} />
           <Subtitle>{data?.whoNeedApps.subtitle}</Subtitle>
           <Styled.WhoNeedSubText>
             <SplitBrackets text={data?.whoNeedApps.text} />

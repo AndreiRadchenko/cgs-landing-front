@@ -4,6 +4,20 @@ import themes from "../../utils/themes";
 export const Container = styled.div`
   position: relative;
   width: 100%;
+  padding-top: 1em;
+
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    ::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: #8f8e93;
+      width: 130%;
+      bottom: -10%;
+      left: -10%;
+    }
+  }
 `;
 
 export const Subtitle = styled.h2`
@@ -24,6 +38,7 @@ export const Subtitle = styled.h2`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.67em;
     margin: 0;
+    display: none;
   }
 `;
 
@@ -131,14 +146,13 @@ export const ContentWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    max-width: 25em;
-    row-gap: 8.3em;
+    max-width: 100%;
+    row-gap: 5.5em;
     padding-bottom: 8em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    max-width: 17em;
-    row-gap: 7.2em;
+    row-gap: 4.5em;
   }
   @media (min-width: 1550px) {
     padding-top: 0.8em;
@@ -186,12 +200,11 @@ export const BgImageMobile = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     width: 65em;
-    left: -16em;
-    top: 2.8em;
+    top: 7em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 61em;
-    left: -15em;
+    left: -16em;
   }
 `;

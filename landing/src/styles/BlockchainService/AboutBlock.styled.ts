@@ -16,6 +16,17 @@ export const Container = styled.div`
 
     background-position: bottom center;
     background-size: contain;
+
+    position: relative;
+    ::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: #8f8e93;
+      width: 130%;
+      bottom: -10%;
+      left: -10%;
+    }
   }
 `;
 
@@ -34,5 +45,6 @@ export const Title = styled.h2`
     margin-bottom: 1.4em;
     font-size: 1.5em;
     line-height: 132%;
+    display: none;
   }
 `;

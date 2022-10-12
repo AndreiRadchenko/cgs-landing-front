@@ -5,6 +5,7 @@ import bgMobileImage from "../../../public/WebService/web-development-mobile.svg
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/WebService/WebPros.styled";
 import { IServiceWeb } from "../../types/Admin/Response.types";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const WebPros = () => {
   const queryClient = useQueryClient();
@@ -25,6 +26,8 @@ const WebPros = () => {
               <Styled.CategorySubtitle>
                 {category.subtitle}
               </Styled.CategorySubtitle>
+              <MobileInfiniteText title={category.subtitle} />
+
               {category.list.map((el, index) => (
                 <Styled.CategoryListItem key={`list item ${index}`}>
                   {el}

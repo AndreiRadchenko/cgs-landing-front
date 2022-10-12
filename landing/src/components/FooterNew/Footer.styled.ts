@@ -14,6 +14,7 @@ export const HeaderNavContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     height: 101px;
     flex-direction: column-reverse;
+    /* background-color: ${themes.primary.colors.black}; */
   }
 `;
 

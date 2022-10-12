@@ -6,6 +6,7 @@ import { Subtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/WebService/Perks.styled";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const PerksBlock = () => {
   const queryClient = useQueryClient();
@@ -19,7 +20,8 @@ const PerksBlock = () => {
 
   return (
     <Styled.Container>
-      <Subtitle>{data?.subtitle}</Subtitle>
+      <MobileInfiniteText title={data?.subtitle} />
+
       <Styled.ContentWrapper ref={elRef}>
         {data?.list.map((el, idx) => (
           <Styled.TextBlock

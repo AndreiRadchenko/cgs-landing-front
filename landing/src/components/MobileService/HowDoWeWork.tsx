@@ -10,7 +10,7 @@ import textPointReversed from "../../../public/MobileSevice/textPointReversed.sv
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/MobileService/HowDoWeWork.styled";
-import { Subtitle } from "../../styles/MobileService/Layout";
+import { Subtitle, VisibleSubtitle } from "../../styles/MobileService/Layout";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
@@ -59,7 +59,7 @@ const HowDoWeWork = () => {
 
   return (
     <Styled.ContentWrapper>
-      <Subtitle>{data?.subtitle}</Subtitle>
+      <VisibleSubtitle>{data?.subtitle}</VisibleSubtitle>
       <Styled.PointsWrapper ref={elRef}>
         <Styled.Line angle={gradientAngle} />
         {width &&

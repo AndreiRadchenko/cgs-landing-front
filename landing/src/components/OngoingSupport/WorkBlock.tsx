@@ -10,6 +10,7 @@ import upDashed from "../../../public/CloudServicePage/upDashed.svg";
 import * as Styled from "../../styles/OngoingSupport/WorkBlock.styled";
 import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const WorkBlock = () => {
   const queryClient = useQueryClient();
@@ -27,6 +28,7 @@ const WorkBlock = () => {
   return (
     <Styled.Container>
       <Styled.Title>{subtitle}</Styled.Title>
+      <MobileInfiniteText title={subtitle}></MobileInfiniteText>
       <Styled.TextWrapper ref={elRef}>
         {Object.values(blocks).map((el, idx) => (
           <Styled.Wrapper

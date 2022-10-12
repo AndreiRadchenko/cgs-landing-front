@@ -5,6 +5,7 @@ import { ICloudService } from "../../types/Admin/Response.types";
 import rhombus from "../../../public/CloudServicePage/rhombus.svg";
 import * as Styled from "../../styles/CloudService/WorkBlock.styled";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const WorkBlock = () => {
   const queryClient = useQueryClient();
@@ -18,6 +19,7 @@ const WorkBlock = () => {
   return (
     <Styled.Container>
       <Styled.Title>{subtitle}</Styled.Title>
+      <MobileInfiniteText title={subtitle} />
       <Styled.BlockWrapper ref={elRef}>
         {Object.values(blocks).map((el, index) => (
           <Styled.Block
