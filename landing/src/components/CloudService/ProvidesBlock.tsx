@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICloudService } from "../../types/Admin/Response.types";
 import { Subtitle } from "../../styles/CloudService/Layaut";
@@ -12,9 +12,9 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 
 const ProvidesBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<ICloudService>(
-    queryKeys.getServiceCloudPage
-  )?.providesBlock;
+  const data = queryClient.getQueryData<ICloudService>([
+    queryKeys.getServiceCloudPage,
+  ])?.providesBlock;
 
   const { subtitle, ...blocks } = { ...data };
 

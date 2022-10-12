@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IUxUiInterface } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/UxUiService/WhatDoWeDo.styled";
@@ -15,9 +15,9 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 const WhatDoWeDoBlock = () => {
   const queryClient = useQueryClient();
 
-  const data = queryClient.getQueryData<IUxUiInterface>(
-    queryKeys.getServiceUxUiPage
-  )?.whatDoWeDoBlock;
+  const data = queryClient.getQueryData<IUxUiInterface>([
+    queryKeys.getServiceUxUiPage,
+  ])?.whatDoWeDoBlock;
 
   const figures = [crystal, cube, cylinder];
   const bgi = [downDashed, upDashed];

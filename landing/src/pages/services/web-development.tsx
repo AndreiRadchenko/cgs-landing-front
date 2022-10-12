@@ -2,7 +2,7 @@
 import parse from "html-react-parser";
 import Head from "next/head";
 import React from "react";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import { queryKeys } from "../../consts/queryKeys";
@@ -21,11 +21,11 @@ import ShowCase from "../../components/ShowCase";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getServiceWebPage, () =>
+  await queryClient.prefetchQuery([queryKeys.getServiceWebPage], () =>
     adminWebService.getWebServicePage()
   );
 
-  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );
 
@@ -37,11 +37,11 @@ export async function getServerSideProps() {
 }
 
 const WebDevelopment: NextPage = () => {
-  const { data } = useQuery(queryKeys.getServiceWebPage, () =>
+  const { data } = useQuery([queryKeys.getServiceWebPage], () =>
     adminWebService.getWebServicePage()
   );
 
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 

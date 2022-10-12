@@ -1,6 +1,6 @@
 import { useFormikContext } from "formik";
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import {
@@ -30,11 +30,11 @@ const ServiceShowCase = () => {
   const [project, setProject] = useState<string>("");
   const [isCategoryOpen, setIsCategoryOpen] = useState<boolean>(false);
 
-  const { data: portfolio } = useQuery(queryKeys.getPortfolioPage, () =>
+  const { data: portfolio } = useQuery([queryKeys.getPortfolioPage], () =>
     adminPortfolioService.getPageData()
   );
 
-  const { data: reviews } = useQuery(queryKeys.getPortfolio, () =>
+  const { data: reviews } = useQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
   );
   const handleCategory = () => {

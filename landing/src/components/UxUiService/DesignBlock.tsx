@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IUxUiInterface } from "../../types/Admin/Response.types";
 import LinedText from "../BlockchainService/LinedText";
@@ -12,9 +12,9 @@ const DesignBlock = () => {
   const { width } = useWindowDimension();
   const [gradientAngle, setGradientAngle] = useState<string>("50%");
 
-  const data = queryClient.getQueryData<IUxUiInterface>(
-    queryKeys.getServiceUxUiPage
-  )?.designBlock;
+  const data = queryClient.getQueryData<IUxUiInterface>([
+    queryKeys.getServiceUxUiPage,
+  ])?.designBlock;
 
   const mouseMoveListener = useCallback(({ pageX }: MouseEvent) => {
     const windowWidth = window.innerWidth;

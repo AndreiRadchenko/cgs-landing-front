@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import PortfolioSlider from "../../components/Admin/PortfolioSwipers/PortfolioSlider";
@@ -21,15 +21,15 @@ import { NextPage } from "next";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getPortfolioPageData, () =>
+  await queryClient.prefetchQuery([queryKeys.getPortfolioPageData], () =>
     adminPortfolioService.getPageData()
   );
 
-  await queryClient.prefetchQuery(queryKeys.getPortfolio, () =>
+  await queryClient.prefetchQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
   );
 
-  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );
 
@@ -42,18 +42,18 @@ export async function getServerSideProps() {
 
 const PortfolioPage: NextPage = () => {
   const { data, isLoading }: IPortfolioResponse = useQuery(
-    queryKeys.getPortfolioPageData,
+    [queryKeys.getPortfolioPageData],
     () => adminPortfolioService.getPageData()
   );
 
   const {
     data: reviews,
     isLoading: reviewsIsLoading,
-  }: IPortfolioReviewsResponse = useQuery(queryKeys.getPortfolio, () =>
+  }: IPortfolioReviewsResponse = useQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
   );
 
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const [isMobile, setIsMobile] = useState(false);
   const { width } = useWindowDimension();

@@ -5,7 +5,7 @@ import { AuthFormBlock, AuthFormError } from "../../styles/AdminAuth";
 import { AdminAuthValidation } from "../../validations/AdminAuthValidation";
 import { IAdmin, IRes } from "../../types/Admin/Admin.types";
 import { useState } from "react";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import { authService } from "../../services/login";
 import { initAdmin, storeKeys } from "../../consts";
 import { queryKeys } from "../../consts/queryKeys";
@@ -18,7 +18,7 @@ const AdminAuthForm = () => {
   const router = useRouter();
 
   const { mutateAsync } = useMutation<any, IAdmin, any, IRes>(
-    queryKeys.AdminAuth,
+    [queryKeys.AdminAuth],
     (values: IAdmin) => authService.adminAuth(values)
   );
 

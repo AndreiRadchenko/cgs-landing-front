@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IUxUiInterface } from "../../types/Admin/Response.types";
 import {
@@ -13,9 +13,9 @@ import * as Styled from "../../styles/UxUiService/FooterBlock.styled";
 const FooterBlock = () => {
   const queryClient = useQueryClient();
 
-  const data = queryClient.getQueryData<IUxUiInterface>(
-    queryKeys.getServiceUxUiPage
-  )?.footerBlock;
+  const data = queryClient.getQueryData<IUxUiInterface>([
+    queryKeys.getServiceUxUiPage,
+  ])?.footerBlock;
 
   return (
     <Styled.Container>

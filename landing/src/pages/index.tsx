@@ -4,7 +4,7 @@ import parse from "html-react-parser";
 import Head from "next/head";
 import * as StyledCommon from "../styles/Page.styled";
 
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../consts/queryKeys";
 import { adminGlobalService } from "../services/adminHomePage";
 import { IDataResponse } from "../types/Admin/Response.types";
@@ -19,7 +19,7 @@ interface IHomeData {
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );
 
@@ -37,7 +37,7 @@ interface IHomeData {
 
 const Home: NextPage = () => {
   const { data, isLoading }: IHomeData = useQuery(
-    queryKeys.getFullHomePage,
+    [queryKeys.getFullHomePage],
     () => adminGlobalService.getFullPage()
   );
 

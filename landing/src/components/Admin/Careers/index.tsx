@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import Image from "next/image";
 import { useFormikContext } from "formik";
@@ -25,7 +24,7 @@ import {
   IconBox,
   DeleteBtn,
 } from "../../../styles/AdminCareersPage";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import { adminCareersService } from "../../../services/adminCareersPage";
 import { queryKeys } from "../../../consts/queryKeys";
 import AdminStars from "../FeedbackBlock/AdminStars";
@@ -56,7 +55,7 @@ const Careers = ({
   const [info, setInfo] = useState<number>(0);
 
   const { mutateAsync } = useMutation(
-    queryKeys.deleteTicketAndVacancy,
+    [queryKeys.deleteTicketAndVacancy],
     (id: string) => adminCareersService.deleteTicketAndVacancy(id)
   );
 
@@ -69,7 +68,7 @@ const Careers = ({
   };
 
   const { mutateAsync: putData } = useMutation(
-    queryKeys.UpdateCareersPage,
+    [queryKeys.UpdateCareersPage],
     (data: IVacancies) => adminCareersService.addTicketCareersPage(data)
   );
 

@@ -16,7 +16,7 @@ import RightArrow from "../../../public/HomePageDecoration/rightArrowFeedback.sv
 import FeedbackIntro from "./FeedbackIntro";
 import * as StyledThisComp from "../../styles/Feedback.styled";
 import params from "../../mock/FeedbackSwiperParams";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import Image from "next/image";
@@ -27,9 +27,9 @@ const CarouselFeedback: FC = () => {
   const feedbackRef = useRef(null);
 
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.FeedbackBlock;
+  const data = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.FeedbackBlock;
 
   let feedbacks, renderSliderSlides;
   if (data?.feedBacks) {

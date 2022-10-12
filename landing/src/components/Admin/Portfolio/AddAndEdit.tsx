@@ -7,7 +7,7 @@ import {
   IPortfolioPageData,
   IPortfolioReview,
 } from "../../../types/Admin/AdminPortfolio.types";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 
@@ -21,7 +21,7 @@ const AddAndEdit = ({
   const queryClient = useQueryClient();
 
   const { mutateAsync: editReview } = useMutation(
-    queryKeys.updatePortfolioReview,
+    [queryKeys.updatePortfolioReview],
     (review: IPortfolioReview) => adminPortfolioService.updateReview(review),
     {
       onSuccess: () => {
@@ -32,7 +32,7 @@ const AddAndEdit = ({
   );
 
   const { mutateAsync: addReview } = useMutation(
-    queryKeys.addPortfolioReview,
+    [queryKeys.addPortfolioReview],
     (review: IPortfolioReview) => adminPortfolioService.addReview(review),
     {
       onSuccess: () => {

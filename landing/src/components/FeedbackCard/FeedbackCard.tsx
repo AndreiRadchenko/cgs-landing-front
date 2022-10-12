@@ -21,7 +21,11 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
           </StyledThisComp.FeedbackCardName>
           <StyledThisComp.Stars>
             {starsLength.map((_, idx) => (
-              <StyledThisComp.StarImage key={idx} src={star.src} />
+              <StyledThisComp.StarImage
+                key={idx}
+                src={star.src}
+                alt="feedback star image"
+              />
             ))}
           </StyledThisComp.Stars>
         </StyledThisComp.FeedbackCardWrapper>

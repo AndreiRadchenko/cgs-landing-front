@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceSupport } from "../../types/Admin/Response.types";
 import parse from "html-react-parser";
@@ -14,9 +14,9 @@ import * as Styled from "../../styles/OngoingSupport/ProvidesBlock.styled";
 
 const ProvidesBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceSupport>(
-    queryKeys.getServiceSupportPage
-  )?.providesBlock;
+  const data = queryClient.getQueryData<IServiceSupport>([
+    queryKeys.getServiceSupportPage,
+  ])?.providesBlock;
 
   const smallBg = [
     firstBlock,

@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { Subtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/DbService/FooterBlock.styled";
@@ -12,9 +12,9 @@ import ButtonArrow from "../../utils/ButtonArrow";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceDb>(
-    queryKeys.getServiceDbPage
-  )?.footerBlock;
+  const data = queryClient.getQueryData<IServiceDb>([
+    queryKeys.getServiceDbPage,
+  ])?.footerBlock;
 
   return (
     <Styled.Container>

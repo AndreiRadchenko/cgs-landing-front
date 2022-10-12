@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as Styled from "../../styles/ShowCase.styled";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { IReviewProps } from "../../types/Admin/Response.types";
@@ -50,7 +50,7 @@ const ShowCase = ({ projects }: IShowCase) => {
   const [hoverNext, setHoverNext] = useState<boolean>(false);
   const [hoverPrev, setHoverPrev] = useState<boolean>(false);
   const [currentProjects, setCurrentProjects] = useState<IReviewProps[]>([]);
-  const { data } = useQuery(queryKeys.getPortfolio, () =>
+  const { data } = useQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
   );
 

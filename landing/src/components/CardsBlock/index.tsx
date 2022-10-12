@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import secondImg from "../../../public/HomePageDecoration/secondCardImg.svg";
@@ -16,9 +16,9 @@ import BigNumber from "./BigNumber";
 const CardsBlock = () => {
   const { width } = useWindowDimension();
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.CardsBlock;
+  const data = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.CardsBlock;
 
   const arrOfImages =
     width && width <= 475
@@ -31,7 +31,11 @@ const CardsBlock = () => {
         Object.entries(data).map((item, idx) => (
           <Styled.CardContainer key={idx}>
             {width && arrOfImages[idx] !== null && (
-              <Styled.CardImage src={arrOfImages[idx].src} alt="card img" />
+              <Styled.CardImage
+                src={arrOfImages[idx].src}
+                alt="card img"
+                loading="lazy"
+              />
             )}
             <Styled.CardTitle>
               <BigNumber idx={idx} />

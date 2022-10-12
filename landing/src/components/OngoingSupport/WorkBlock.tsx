@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceSupport } from "../../types/Admin/Response.types";
 import crystal from "../../../public/MobileSevice/worthIt/crystal.svg";
@@ -13,9 +13,9 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 
 const WorkBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceSupport>(
-    queryKeys.getServiceSupportPage
-  )?.howDoWeWorkBlock;
+  const data = queryClient.getQueryData<IServiceSupport>([
+    queryKeys.getServiceSupportPage,
+  ])?.howDoWeWorkBlock;
   const { subtitle, ...blocks } = { ...data };
   const figures = [crystal, cube, cylinder];
   const bgi = [downDashed, upDashed];

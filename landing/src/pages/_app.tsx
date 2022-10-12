@@ -1,29 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/globals.css";
 import "../styles/animations.css";
 import type { AppProps } from "next/app";
-
-import createEmotionCache from "../utils/createEmotionCache";
-import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import { EmotionCache } from "@emotion/utils";
-import { CacheProvider } from "@emotion/react";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import {
+  DehydratedState,
+  Hydrate,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 import Head from "next/head";
-
-// Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = createEmotionCache();
-
-interface ExtendedAppProps extends AppProps {
-  emotionCache?: EmotionCache;
-}
-
-const queryClient = new QueryClient();
 
 function MyApp({
   Component,
-  emotionCache = clientSideEmotionCache,
   pageProps,
-}: ExtendedAppProps): JSX.Element {
+}: AppProps<{ dehydratedState: DehydratedState }>): JSX.Element {
+  const [queryClient] = useState(() => new QueryClient());
   return (
     <>
       <QueryClientProvider client={queryClient}>
@@ -35,12 +27,11 @@ function MyApp({
           />
           <link key="icon" rel="icon" href="/favicon.ico" />
         </Head>
+        return (
         <Hydrate state={pageProps.dehydratedState}>
-          <CacheProvider value={emotionCache}>
-            <Component {...pageProps} />
-          </CacheProvider>
-          <ReactQueryDevtools initialIsOpen={false} />
+          <Component {...pageProps} />
         </Hydrate>
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
   );

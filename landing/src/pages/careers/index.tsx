@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import parse from "html-react-parser";
 import { NextPage } from "next";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCareersService } from "../../services/adminCareersPage";
 import { CareersProps } from "../../types/Admin/Admin.types";
@@ -15,7 +15,7 @@ import Careers from "../../components/Careers";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getCareerPage, () =>
+  await queryClient.prefetchQuery([queryKeys.getCareerPage], () =>
     adminCareersService.getCareersPage()
   );
 
@@ -28,11 +28,11 @@ export async function getServerSideProps() {
 
 const CarrersPage: NextPage = () => {
   const { data, isLoading }: CareersProps = useQuery(
-    queryKeys.getCareerPage,
+    [queryKeys.getCareerPage],
     () => adminCareersService.getCareersPage()
   );
 
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 

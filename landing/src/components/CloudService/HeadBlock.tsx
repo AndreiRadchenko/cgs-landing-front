@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { ICloudService } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import {
@@ -12,9 +12,9 @@ import TextTypingAnimation from "../Typewrite";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<ICloudService>(
-    queryKeys.getServiceCloudPage
-  )?.headerBlock;
+  const data = queryClient.getQueryData<ICloudService>([
+    queryKeys.getServiceCloudPage,
+  ])?.headerBlock;
 
   return (
     <Styled.Container>

@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceSupport } from "../../types/Admin/Response.types";
 import {
@@ -11,9 +11,9 @@ import * as Styled from "../../styles/OngoingSupport/FooterBlock.styled";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceSupport>(
-    queryKeys.getServiceSupportPage
-  )?.footerBlock;
+  const data = queryClient.getQueryData<IServiceSupport>([
+    queryKeys.getServiceSupportPage,
+  ])?.footerBlock;
 
   return (
     <Styled.Container>

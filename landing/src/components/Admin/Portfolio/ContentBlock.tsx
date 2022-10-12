@@ -14,7 +14,7 @@ import {
   Droppable,
   DropResult,
 } from "react-beautiful-dnd";
-import { useMutation, useQuery, useQueryClient } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import { adminGlobalService } from "../../../services/adminHomePage";
@@ -24,11 +24,11 @@ const AdminPortfolioContentBlock = () => {
   const queryClient = useQueryClient();
   const { values, handleChange, handleSubmit } =
     useFormikContext<IPortfolioPageData>();
-  const { data } = useQuery(queryKeys.getPortfolio, () =>
+  const { data } = useQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
   );
   const { mutateAsync } = useMutation(
-    queryKeys.deletePortfolioReview,
+    [queryKeys.deletePortfolioReview],
     (id: string) => adminPortfolioService.deleteReview(id),
     {
       onSuccess: () => {
@@ -38,7 +38,7 @@ const AdminPortfolioContentBlock = () => {
   );
 
   const { mutateAsync: swapReviews } = useMutation(
-    queryKeys.deletePortfolioReview,
+    [queryKeys.deletePortfolioReview],
     (swapData: ISwapData) => adminPortfolioService.swapReviews(swapData),
     {
       onSuccess: () => {
@@ -47,14 +47,14 @@ const AdminPortfolioContentBlock = () => {
     }
   );
   const { mutateAsync: deletePhoto } = useMutation(
-    queryKeys.deleteImage,
+    [queryKeys.deleteImage],
     (url: string) => adminGlobalService.deleteImage(url)
   );
 
   const deleteFunc = (id: string, url: string) => {
     mutateAsync(id);
     deletePhoto(url);
-    queryClient.invalidateQueries(queryKeys.getPortfolio);
+    queryClient.invalidateQueries([queryKeys.getPortfolio]);
   };
   const [current, setCurrent] = useState(0);
   const [isNewStatus, setIsNewStatus] = useState(true);
@@ -75,7 +75,7 @@ const AdminPortfolioContentBlock = () => {
       swapped.splice(desInd, 0, swapped.splice(srcInd, 1)[0]);
     typeof desInd === "number" &&
       (await swapReviews({ srcInd, desInd })) &&
-      queryClient.setQueryData(queryKeys.getPortfolio, swapped);
+      queryClient.setQueryData([queryKeys.getPortfolio], swapped);
   };
 
   return (
