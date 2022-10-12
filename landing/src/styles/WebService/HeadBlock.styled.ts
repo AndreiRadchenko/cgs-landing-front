@@ -73,7 +73,7 @@ export const Title = styled.h1`
       width: 2px;
       height: 1.45em;
       background-color: ${themes.primary.colors.primary};
-      animation: ${cursorBlinking} 0.8s infinite;
+      animation: ${cursorBlinking} 1s steps(1) infinite;
       position: absolute;
       top: 0;
       right: -0.2em;

@@ -1,6 +1,7 @@
-﻿import React from "react";
+﻿import React, { useRef } from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
+import { useOnScreen } from "../../hooks/useOnScreen";
 import { Subtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/WebService/Perks.styled";
 import { IServiceWeb } from "../../types/Admin/Response.types";
@@ -12,12 +13,20 @@ const PerksBlock = () => {
     queryKeys.getServiceWebPage
   )?.perksBlock;
 
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const isScrolled = useOnScreen(elRef, true);
+
   return (
     <Styled.Container>
       <Subtitle>{data?.subtitle}</Subtitle>
-      <Styled.ContentWrapper>
+      <Styled.ContentWrapper ref={elRef}>
         {data?.list.map((el, idx) => (
-          <Styled.TextBlock key={idx}>
+          <Styled.TextBlock
+            key={idx}
+            ind={idx}
+            className={isScrolled ? "scrolled" : undefined}
+          >
             <Styled.BigDigit>{idx + 1}</Styled.BigDigit>
             <Styled.TextContent>
               <SplitBrackets text={el} />

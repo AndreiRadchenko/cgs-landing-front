@@ -84,8 +84,10 @@ const PodcastItem = () => {
           <Styled.PodcastCard>
             <Styled.LoopContainer>
               <Styled.LoopText>
-                Tune in to up-to-date content about technologies and the IT
-                industry.
+                <span>
+                  Tune in to up-to-date content about technologies and the IT
+                  industry.
+                </span>
               </Styled.LoopText>
             </Styled.LoopContainer>
 

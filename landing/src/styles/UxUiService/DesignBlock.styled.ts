@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
+import { slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 12.5em;
@@ -117,6 +118,8 @@ export const BottomSteps = styled.div`
 interface IMobileLine {
   grad1: string;
   grad2: string;
+  angle: string;
+  ind: number;
 }
 
 export const StyledLine = styled.div<IMobileLine>`
@@ -125,11 +128,12 @@ export const StyledLine = styled.div<IMobileLine>`
   position: absolute;
   top: 42.5%;
   left: -5%;
-  background: linear-gradient(
-    90deg,
-    ${themes.primary.colors.mainGradientColor1} 13.67%,
-    ${themes.primary.colors.mainGradientColor2} 90.39%
-  );
+  background: ${({ angle }) =>
+    css`radial-gradient(
+      50% 80px at ${angle},
+      ${themes.primary.colors.mainGradientColor2} ,
+      ${themes.primary.colors.mainGradientColor1}
+    );`};
   border: 1px solid ${themes.primary.colors.primary};
   box-shadow: 7px 2px 0px ${themes.primary.colors.primary};
 
@@ -142,6 +146,13 @@ export const StyledLine = styled.div<IMobileLine>`
     ${grad1} 13.67%,
     ${grad2} 90.39%`}
     );
+    opacity: 0;
+
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 200}ms forwards
+      `};
+    }
 
     &:first-child {
       top: 4.8em;

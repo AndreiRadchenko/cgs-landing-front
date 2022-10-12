@@ -29,5 +29,6 @@ export const LogoText = styled.p`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125rem;
     line-height: 22px;
+    text-shadow: none;
   }
 `;

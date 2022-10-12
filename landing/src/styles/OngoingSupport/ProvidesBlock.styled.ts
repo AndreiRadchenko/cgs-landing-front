@@ -62,18 +62,26 @@ export const Subtitle = styled.p`
   text-transform: uppercase;
   color: ${themes.primary.colors.mainGradientColor2};
   margin: 0;
-  margin-left: 2.35em;
 `;
 
 export const Text = styled.p`
   font-size: 1.125em;
   line-height: 160%;
-  margin: 0.45em 0 2em 3em;
+  margin-block: 0.45em 2em;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     line-height: 132%;
-    margin: 0.38em 0 1.3em 3em;
+    margin-block: 0.38em 1.3em;
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  display: inline-block;
+  margin-left: 2.35em;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: 0;
   }
 `;
 

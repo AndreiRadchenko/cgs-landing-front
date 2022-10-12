@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
-import { buttonHover } from "../Animations.styled";
+import { buttonHover, cursorBlinking } from "../Animations.styled";
 
 export interface IFontSize {
   size: string;
@@ -744,4 +744,15 @@ export const ArrowContainer = styled.div`
     right: -9px;
     top: -9px;
   }
+`;
+
+export const Cursor = styled.span`
+  display: inline-block;
+  width: 2px;
+  height: 1.45em;
+  background-color: ${themes.primary.colors.primary};
+  animation: ${cursorBlinking} 1s steps(1) infinite;
+  position: absolute;
+  right: -0.2em;
+  bottom: -0.2em;
 `;

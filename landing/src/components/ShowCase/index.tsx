@@ -49,7 +49,7 @@ interface IShowCase {
 const ShowCase = ({ projects }: IShowCase) => {
   const [hoverNext, setHoverNext] = useState<boolean>(false);
   const [hoverPrev, setHoverPrev] = useState<boolean>(false);
-  const [currentProjects, setCurrentProjects] = useState<IReviewProps[]>();
+  const [currentProjects, setCurrentProjects] = useState<IReviewProps[]>([]);
   const { data } = useQuery(queryKeys.getPortfolio, () =>
     adminPortfolioService.getReviews()
   );

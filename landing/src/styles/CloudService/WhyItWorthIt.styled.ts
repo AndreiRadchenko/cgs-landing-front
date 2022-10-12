@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { IIcon, ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { float, slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
   margin: 0 1.44em 0 0;
@@ -17,6 +19,20 @@ export const BlockWrapper = styled.div`
   justify-content: space-between;
   column-gap: 50px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    & > div:nth-child(1) > div > img {
+      width: 1.9em;
+    }
+
+    & > div:nth-child(2) > div > img {
+      width: 2.3em;
+    }
+
+    & > div:nth-child(3) > div > img {
+      width: 2.3em;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     margin-top: 1em;
@@ -24,7 +40,7 @@ export const BlockWrapper = styled.div`
   }
 `;
 
-export const Block = styled.div`
+export const Block = styled.div<ISlide>`
   max-width: 33.2em;
   position: relative;
 
@@ -53,7 +69,7 @@ export const Block = styled.div`
 
     @media ${themes.primary.media.maxTabletPortrait} {
       left: 2em;
-      top: 15em;
+      top: 14em;
     }
   }
 
@@ -75,7 +91,7 @@ export const Block = styled.div`
 
       @media ${themes.primary.media.maxTabletPortrait} {
         left: 5em;
-        top: 9em;
+        top: 5em;
       }
     }
     & > div:first-child {
@@ -108,6 +124,12 @@ export const Block = styled.div`
         width: 1.3em;
       }
     }
+    opacity: 0;
+    &.scrolled {
+      animation: ${({ ind }) => css`
+        ${slideRight} 1.5s ${ind * 120}ms forwards
+      `};
+    }
   }
 `;
 
@@ -123,7 +145,7 @@ export const Title = styled.p`
   letter-spacing: 0.05em;
   -webkit-text-stroke: 0.2px black;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.25em;
   }
 `;
@@ -133,6 +155,10 @@ export const BlockText = styled.div`
   line-height: 160%;
   margin: 1.28em 0 0 0;
   max-width: 21.95em;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
@@ -144,14 +170,28 @@ export const BlockText = styled.div`
   }
 `;
 
-export const Svg = styled.img`
+export const Svg = styled.img<IIcon>`
   position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translate(-50%, 10%);
+  bottom: -17%;
+  left: -7%;
+  animation: ${({ xOffset }) =>
+    css`
+      ${float(xOffset)} 3s infinite linear
+    `};
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    animation: none;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    left: -3%;
+    bottom: 0;
+  }
 
   @media ${themes.primary.media.maxMobile} {
-    transform: translateX(0);
+    animation: none;
+    left: 0;
+    bottom: 0;
   }
 `;
 

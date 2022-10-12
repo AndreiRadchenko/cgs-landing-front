@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 12.8em;
@@ -98,8 +100,15 @@ export const BlockWrapper = styled.div`
   }
 `;
 
-export const Block = styled.div`
+export const Block = styled.div<ISlide>`
   position: relative;
+  opacity: 0;
+
+  &.scrolled {
+    animation: ${({ ind }) => css`
+      ${slideRight} 1.5s ${ind * 200}ms forwards
+    `};
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 0;
@@ -158,6 +167,12 @@ export const Description = styled.div`
   margin-top: 1.28em;
   line-height: 160%;
   max-width: 26.39em;
+
+  @media (max-width: 1300px) {
+    & p {
+      display: inline;
+    }
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     & p {

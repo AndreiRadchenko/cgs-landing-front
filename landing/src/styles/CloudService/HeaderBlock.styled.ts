@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import { cursorBlinking } from "../Animations.styled";
 
 export const Container = styled.div`
   display: flex;
@@ -46,28 +45,10 @@ export const Title = styled.h1`
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
     white-space: pre-wrap;
-    line-height: 89%;
-  }
+    line-height: 1.25;
 
-  & > span:last-child {
-    position: relative;
-
-    &::after {
-      content: "";
-      display: inline-block;
-      width: 2px;
-      height: 1.45em;
-      background-color: ${themes.primary.colors.primary};
-      animation: ${cursorBlinking} 0.8s infinite;
-      position: absolute;
-      top: 0;
-      right: -0.2em;
-    }
-  }
-
-  @media (max-width: 434px) {
-    & > span:last-child {
-      top: 14px;
+    br {
+      display: block;
     }
   }
 `;
@@ -80,7 +61,7 @@ export const Description = styled.p`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 2.81em 0 1.75em;
+    margin: 0.75em 0 1.75em;
   }
 `;
 

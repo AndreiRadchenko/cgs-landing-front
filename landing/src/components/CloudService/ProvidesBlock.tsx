@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICloudService } from "../../types/Admin/Response.types";
@@ -8,6 +8,7 @@ import cloudProvidesBgi from "../../../public/CloudServicePage/cloudProvidesBgi.
 import cloudProvidesMobile from "../../../public/CloudServicePage/cloud-provides-mobile.svg";
 import * as Styled from "../../styles/CloudService/Provides.styled";
 import parse from "html-react-parser";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const ProvidesBlock = () => {
   const queryClient = useQueryClient();
@@ -17,14 +18,22 @@ const ProvidesBlock = () => {
 
   const { subtitle, ...blocks } = { ...data };
 
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const isScrolled = useOnScreen(elRef, true);
+
   return (
     <Styled.Container>
       <Subtitle>{subtitle}</Subtitle>
       <Styled.BGImage src={cloudProvidesBgi.src} />
       <Styled.BGImageMobile src={cloudProvidesMobile.src} alt="bg image" />
-      <Styled.BlockWrapper>
+      <Styled.BlockWrapper ref={elRef}>
         {Object.values(blocks).map((el, index) => (
-          <Styled.Block key={index}>
+          <Styled.Block
+            key={index}
+            ind={index}
+            className={isScrolled ? "scrolled" : undefined}
+          >
             <Styled.Title>
               <SplitBrackets text={el.subtitle} />
             </Styled.Title>
