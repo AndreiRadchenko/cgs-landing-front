@@ -265,3 +265,45 @@ ${css`
   }
 `}
   `;
+
+export const emailShake = keyframes`
+${css`
+  0% {
+    transform: rotate(0);
+  }
+
+  10% {
+    transform: rotate(20deg);
+  }
+
+  20% {
+    transform: rotate(-20deg);
+  }
+  30% {
+    transform: rotate(20deg);
+  }
+  40% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+
+  60% {
+    transform: rotate(-20deg);
+  }
+  70% {
+    transform: rotate(20deg);
+  }
+
+  80% {
+    transform: rotate(-20deg);
+  }
+  90% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+`}
+`;
