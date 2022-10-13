@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { slideDownText } from "../Animations.styled";
 
 export const Container = styled.div`
   position: relative;
@@ -27,11 +29,20 @@ export const Subtitle = styled.h2`
   }
 `;
 
-export const TextContent = styled.div`
+export const TextContent = styled.div<ISlide>`
   font-size: 1.125em;
   line-height: 160%;
   padding-top: 2vw;
   max-width: 30em;
+  opacity: 0;
+
+  &.scrolled {
+    transform-origin: top center;
+    animation: ${({ ind }) =>
+      css`
+        ${slideDownText} 700ms ${ind * 100}ms ease-in forwards
+      `};
+  }
 
   & span {
     &:nth-child(1) {

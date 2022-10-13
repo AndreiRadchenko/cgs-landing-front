@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/DbService/FeaturesBlock.styled";
@@ -6,12 +6,17 @@ import { IServiceDb } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import bgImage from "../../../public/DbService/featuresBg.svg";
 import bgImageMobile from "../../../public/DbService/database-mobile-svg.svg";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const FeaturesBlock = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceDb>([
     queryKeys.getServiceDbPage,
   ])?.featuresBlock;
+
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const isScrolled = useOnScreen(elRef, true);
 
   const databasesTextBlock = data && [
     data.databases.text1,
@@ -22,7 +27,7 @@ const FeaturesBlock = () => {
   const serversTextBlock = data && [data.servers.text1, data.servers.text2];
 
   return (
-    <Styled.Container>
+    <Styled.Container ref={elRef}>
       <Styled.BgImage
         src={bgImage.src}
         alt="second block image"
@@ -37,7 +42,11 @@ const FeaturesBlock = () => {
           {databasesTextBlock &&
             databasesTextBlock.map((text, i) => {
               return (
-                <Styled.TextContent key={`text${i}`}>
+                <Styled.TextContent
+                  key={`text${i}`}
+                  className={isScrolled ? "scrolled" : undefined}
+                  ind={i}
+                >
                   <SplitBrackets text={text} />
                 </Styled.TextContent>
               );
@@ -48,7 +57,11 @@ const FeaturesBlock = () => {
           {serversTextBlock &&
             serversTextBlock.map((text, i) => {
               return (
-                <Styled.TextContent key={`text${i}`}>
+                <Styled.TextContent
+                  key={`text${i}`}
+                  className={isScrolled ? "scrolled" : undefined}
+                  ind={i + 3}
+                >
                   <SplitBrackets text={text} />
                 </Styled.TextContent>
               );
