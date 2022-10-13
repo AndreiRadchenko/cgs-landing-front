@@ -20,6 +20,7 @@ import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import Image from "next/image";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -52,6 +53,7 @@ const CarouselFeedback: FC = () => {
   return (
     <StyledThisComp.FeedbackContainer>
       <div ref={feedbackRef}>
+        <MobileInfiniteText title={data?.subtitle} />
         <StyledThisComp.FeedbackRow>
           <Swiper {...params}>
             <Navigationwrapper>

@@ -3,6 +3,10 @@ import themes from "../utils/themes";
 
 export const FeedbackContainer = styled.section`
   font-family: ${themes.primary.font.family.gilroy};
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-top: 2em;
+  }
 `;
 
 export const FeedbackSectionTitle = styled.h3`
@@ -18,6 +22,7 @@ export const FeedbackSectionTitle = styled.h3`
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5rem;
+    display: none;
   }
 `;
 
@@ -42,6 +47,7 @@ export const FeedbackSectionSubTitle = styled.h3`
     & br {
       display: none;
     }
+    display: none;
   }
 `;
 

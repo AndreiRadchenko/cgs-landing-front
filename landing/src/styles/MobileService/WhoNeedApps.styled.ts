@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
       content: "";
       height: 1px;
       position: absolute;
-      background-color: #8f8e93;
+      background-color: ${themes.primary.colors.headerBorder};
       width: 130%;
       top: -2.5%;
       left: -10%;
@@ -36,7 +36,7 @@ export const Wrapper = styled.div`
       content: "";
       height: 1px;
       position: absolute;
-      background-color: #8f8e93;
+      background-color: ${themes.primary.colors.headerBorder};
       width: 130%;
       bottom: 0%;
       left: -10%;

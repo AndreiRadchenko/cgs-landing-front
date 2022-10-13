@@ -414,8 +414,6 @@ export const Subtitle = styled.div`
     }
 
     &.footer {
-      margin-top: 4em;
-      margin-bottom: 3em;
       & br {
         display: block;
       }
@@ -477,22 +475,11 @@ export const Subtitle = styled.div`
 `;
 
 export const NextTech = styled.div`
-  margin-top: 24.5em;
-
-  @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 20.5em;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    margin-top: 18.5em;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    margin-top: 10.5em;
-  }
+  display: none;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 5.5em;
-    display: none;
+    display: block;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -561,12 +548,10 @@ export const Film = styled.img`
 `;
 
 export const FilmText = styled.div`
-  position: absolute;
-  top: 35.3%;
-  left: 2.7%;
   max-width: 42%;
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
+  margin-bottom: 2em;
 
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.menuElement};
@@ -574,33 +559,23 @@ export const FilmText = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.4em;
   }
-  @media (max-width: 1410px) {
-    max-width: 47.5%;
-    top: 33%;
-  }
   @media (max-width: 1220px) {
     font-size: 20px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    top: 35%;
     font-size: 1rem;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    top: 25%;
     font-size: 1.1rem;
-    max-width: 60.5%;
   }
 
   @media (max-width: 835px) {
-    top: 32%;
     font-size: 1.1rem;
     max-width: 70.5%;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    left: 7.7%;
-    top: 20%;
     font-size: 2.65em;
     max-width: 83.5%;
   }
@@ -610,28 +585,19 @@ export const FilmText = styled.div`
   }
 
   @media ${themes.primary.media.minTablet} {
-    top: 19%;
     font-size: 1.8em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    top: 22%;
-    left: 2.7%;
     max-width: 98.5%;
     font-size: 1.1rem;
   }
 
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    top: 20%;
-  }
-
   @media (max-width: 360px) {
-    top: 20%;
     font-size: 0.95rem;
   }
 
   @media (max-width: 320px) {
-    top: 15%;
     font-size: 0.8rem;
   }
 `;
@@ -648,7 +614,7 @@ export const Separator = styled.div`
   margin-block: 41.5px;
   background-color: ${themes.primary.colors.headerBorder};
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxLowScreenMobile} {
     opacity: 0;
   }
 `;
@@ -758,11 +724,4 @@ export const Cursor = styled.span`
   position: absolute;
   right: -0.2em;
   bottom: -0.2em;
-`;
-
-export const MobileReverseLayout = styled.div`
-  @media ${themes.primary.media.maxMobile} {
-    display: flex;
-    flex-direction: column-reverse;
-  }
 `;

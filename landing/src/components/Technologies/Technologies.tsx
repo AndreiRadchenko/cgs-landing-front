@@ -7,6 +7,7 @@ import { IDataResponse } from "../../types/Admin/Response.types";
 import techArrow from "../../../public/HomePageDecoration/techArrow.svg";
 import Image from "next/image";
 import useMousePosition from "../../hooks/useMousePosition";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const Technologies = () => {
   const arrowRef = useRef<HTMLDivElement>(null);
@@ -31,20 +32,24 @@ const Technologies = () => {
   return (
     <StyledThisComp.TechnologyContainer>
       <StyledThisComp.TechTitle>technologies</StyledThisComp.TechTitle>
+      <MobileInfiniteText title={"technologies"} />
       <StyledThisComp.ArrowContainer ref={arrowRef}>
         <Image src={techArrow} alt="tech arrow" />
       </StyledThisComp.ArrowContainer>
       <StyledThisComp.TechnologyRow>
         {data &&
           Object.entries(data).map((item, idx) => (
-            <TechnologyCategory
-              className={idx === 3 ? "blockchain" : undefined}
-              key={item[0]}
-              img={item[1].image.url}
-              text={item[1].text}
-              stack={item[1].stack}
-              title={item[1].category}
-            />
+            <>
+              <TechnologyCategory
+                idx={idx}
+                className={idx === 3 ? "blockchain" : undefined}
+                key={item[0]}
+                img={item[1].image.url}
+                text={item[1].text}
+                stack={item[1].stack}
+                title={item[1].category}
+              />
+            </>
           ))}
       </StyledThisComp.TechnologyRow>
     </StyledThisComp.TechnologyContainer>

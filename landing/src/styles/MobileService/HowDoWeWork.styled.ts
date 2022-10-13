@@ -10,7 +10,7 @@ export const ContentWrapper = styled.div`
       content: "";
       height: 1px;
       position: absolute;
-      background-color: #8f8e93;
+      background-color: ${themes.primary.colors.headerBorder};
       width: 130%;
       bottom: -5%;
       left: -10%;

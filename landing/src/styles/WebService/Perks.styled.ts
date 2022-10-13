@@ -18,7 +18,7 @@ export const Container = styled.div`
       content: "";
       height: 1px;
       position: absolute;
-      background-color: #8f8e93;
+      background-color: ${themes.primary.colors.headerBorder};
       width: 130%;
       bottom: -10%;
       left: -10%;
