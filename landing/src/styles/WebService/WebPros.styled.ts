@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
+import { slideDown, slideDownText } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 11.875em;
@@ -81,11 +83,20 @@ export const CategorySubtitle = styled.h3`
   }
 `;
 
-export const CategoryListItem = styled.p`
+export const CategoryListItem = styled.p<ISlide>`
   font-size: 1.125em;
   line-height: 160%;
   margin-top: 1.5em;
   margin-bottom: 0;
+  opacity: 0;
+
+  &.scrolled {
+    transform-origin: top center;
+    animation: ${({ ind }) =>
+      css`
+        ${slideDownText} 700ms ${ind * 100}ms ease-in forwards
+      `};
+  }
 
   @media (max-width: 1250px) {
     font-size: 1em;

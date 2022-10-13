@@ -208,6 +208,19 @@ export const slideDown = keyframes`
  `}
 `;
 
+export const slideDownText = keyframes`
+ ${css`
+   from {
+     opacity: 0;
+     transform: translateY(-20px);
+   }
+   to {
+     opacity: 1;
+     transform: translateY(0);
+   }
+ `}
+`;
+
 export const slideRight = keyframes`
  ${css`
    from {
@@ -307,3 +320,12 @@ ${css`
   }
 `}
 `;
+
+export const blur = keyframes`${css`
+  0% {
+    filter: blur(10px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+`}`;

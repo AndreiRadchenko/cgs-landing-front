@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IBlockchainService } from "../../types/Admin/Response.types";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/BlockchainService/ServicesBlock.styled";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const ServicesBlock = () => {
   const queryClient = useQueryClient();
@@ -11,13 +12,23 @@ const ServicesBlock = () => {
     queryKeys.getServiceBlockchainPage,
   ])?.servicesBlock;
 
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const isScrolled = useOnScreen(elRef, true);
+
   return (
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
       <Styled.SubTextContainer>
-        <Styled.SubTextContent>
+        <Styled.SubTextContent ref={elRef}>
           {data?.textSubBlock.map((el, idx) => (
-            <Styled.SubText key={idx}>{el}</Styled.SubText>
+            <Styled.SubText
+              key={idx}
+              ind={idx}
+              className={isScrolled ? "scrolled" : undefined}
+            >
+              {el}
+            </Styled.SubText>
           ))}
         </Styled.SubTextContent>
       </Styled.SubTextContainer>

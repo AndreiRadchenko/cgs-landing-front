@@ -1,7 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 import BlockchainServices from "../../../public/BlockchainServicePage/BlockchainServices.svg";
 import MobileService from "../../../public/BlockchainServicePage/Services-mobile-bg.svg";
+import { slideDownText } from "../Animations.styled";
+import { ISlide } from "../../types/Decoration.types";
 
 export const Container = styled.div`
   margin-top: 11.94em;
@@ -72,16 +74,25 @@ export const SubTextContent = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     display: block;
-    padding: 5px 0 0 0;
+    padding: 6px 0 0 0;
   }
 `;
 
-export const SubText = styled.p`
+export const SubText = styled.p<ISlide>`
   font-size: 1.5em;
   line-height: 233%;
   text-transform: uppercase;
   margin: -12px 0 25px 2em;
   padding: 0;
+  opacity: 0;
+
+  &.scrolled {
+    transform-origin: top center;
+    animation: ${({ ind }) =>
+      css`
+        ${slideDownText} 700ms ${ind * 100}ms ease-in forwards
+      `};
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-bottom: 40px;
@@ -103,7 +114,7 @@ export const SubText = styled.p`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: -2px;
+    margin-bottom: 14.5px;
   }
 `;
 
