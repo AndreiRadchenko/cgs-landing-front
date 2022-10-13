@@ -312,7 +312,7 @@ export interface IIntroWithImage {
 }
 
 export interface IServiceMobile {
-  mainBlock: IIntroWithImage;
+  headerBlock: IIntroWithImage;
   worthBlock: {
     subtitle: string;
     textBlock: {

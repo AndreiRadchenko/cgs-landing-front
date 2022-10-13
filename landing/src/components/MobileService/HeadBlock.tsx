@@ -15,7 +15,7 @@ const HeadBlock = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobile>([
     queryKeys.getServiceMobilePage,
-  ])?.mainBlock;
+  ])?.headerBlock;
 
   return (
     <Styled.Container>
