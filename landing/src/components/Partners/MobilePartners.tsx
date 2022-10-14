@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { queryKeys } from "../../consts/queryKeys";
 import * as StyledThisComp from "../../styles/HomePage/MobilePartners.styled";
@@ -8,9 +8,9 @@ import params from "../../mock/MobilePartnersSwiperParams";
 
 const MobilePartners = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.LogosBlock;
+  const data = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.LogosBlock;
 
   let renderSliderSlides;
   if (data?.images) {

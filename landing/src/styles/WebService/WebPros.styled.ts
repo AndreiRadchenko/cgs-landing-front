@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import { MobileInfiniteText } from "../../components/MobileInfiniteText/MobileInfiniteText";
 import styled, { css } from "styled-components";
+import { MobileInfiniteText } from "../../components/MobileInfiniteText/MobileInfiniteText";
 import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 import { slideDown, slideDownText } from "../Animations.styled";

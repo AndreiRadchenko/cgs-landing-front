@@ -9,7 +9,6 @@ import bgImageMobile from "../../../public/DbService/database-mobile-svg.svg";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 import { useOnScreen } from "../../hooks/useOnScreen";
 
-
 const FeaturesBlock = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceDb>([

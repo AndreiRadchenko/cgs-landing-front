@@ -1,5 +1,6 @@
 import React from "react";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { queryKeys } from "../../consts/queryKeys";
 import * as StyledThisComp from "../../styles/HomePage/MobileServices.styled";
@@ -10,7 +11,7 @@ import TextTypingAnimation from "../Typewrite";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getAllServices, () =>
+  await queryClient.prefetchQuery([queryKeys.getAllServices], () =>
     adminServices.getAllServices()
   );
 
@@ -27,7 +28,7 @@ interface ISlideData {
 }
 
 const MobileServices = () => {
-  const { data } = useQuery(queryKeys.getAllServices, () =>
+  const { data } = useQuery([queryKeys.getAllServices], () =>
     adminServices.getAllServices()
   );
   const [slidesData, setSlidesData] = React.useState<ISlideData[]>([]);

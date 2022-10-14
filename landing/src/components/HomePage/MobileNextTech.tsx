@@ -2,7 +2,7 @@ import React from "react";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import * as Styled from "../../styles/HomePage/MobileGeneral.styled";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import ButtonArrow from "../../utils/ButtonArrow";
@@ -36,15 +36,15 @@ const MobileNextTech = () => {
   };
 
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.FilmBlock;
-  const text = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.SubtitleBlock;
-  const buttonData = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.SeeAllBlock;
+  const data = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.FilmBlock;
+  const text = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.SubtitleBlock;
+  const buttonData = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.SeeAllBlock;
 
   return (
     <Styled.NextTech>
