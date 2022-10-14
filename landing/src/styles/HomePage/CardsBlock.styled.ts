@@ -70,7 +70,26 @@ export const CardsWrapper = styled.div`
   row-gap: 50px;
 
   @media ${themes.primary.media.maxMobile} {
+    position: relative;
     row-gap: 0;
+    ::before {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 250%;
+      top: 0%;
+      left: -10%;
+    }
+    ::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 250%;
+      bottom: -5%;
+      left: -10%;
+    }
   }
 `;
 
@@ -185,7 +204,7 @@ export const CardContainer = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     &:nth-child(2n-1) {
-      & img {
+      & > img {
         transform: scale(0.8);
         top: -100%;
         left: 3%;
@@ -201,74 +220,36 @@ export const CardContainer = styled.div`
 
     &:nth-child(4) {
       & img {
-        transform: scale(0.6);
-        right: -10%;
+        top: -80%;
+        right: 40%;
       }
-      & > div {
-        margin-top: 20px;
+
+      & div {
+        margin-top: 0px !important;
       }
     }
   }
   @media ${themes.primary.media.maxMobile} {
-    &:nth-child(n) {
-      justify-self: center;
-      padding-top: 187px;
-      & img {
-        top: 0;
-        right: 0;
-        left: 0;
-        margin: 0 auto;
-        max-width: 310px;
-        transform: none;
+    justify-self: start !important;
+    ::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 100%;
+      bottom: -20%;
+      left: 0%;
+    }
+    :last-child {
+      ::after {
+        content: none;
       }
     }
 
-    &:first-child {
-      padding-top: 0;
-    }
+    padding-top: 120px;
 
-    &:nth-child(2) {
-      padding-top: 186px;
-      & img {
-        transform: rotate(-1.8deg);
-        margin-top: 8em;
-      }
-    }
-    &:nth-child(3) {
-      & p {
-        & span {
-          max-width: 100%;
-          display: block;
-        }
-      }
-    }
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    &:nth-child(n) {
-      & img {
-        max-width: none;
-      }
-    }
-    &:nth-child(2n) {
-      & img {
-        top: -38%;
-        left: -29%;
-        width: 155%;
-      }
-    }
-    &:nth-child(3) {
-      & img {
-        top: -15%;
-        left: -7.5%;
-        width: 115%;
-      }
-    }
-
-    &:nth-child(4) {
-      & div {
-        margin-top: 0;
-      }
+    :first-child {
+      padding-top: 50px;
     }
   }
 `;
@@ -337,4 +318,8 @@ export const CardContent = styled.p`
   }
 `;
 
-export const CardImage = styled.img``;
+export const CardImage = styled.img`
+  @media ${themes.primary.media.maxMobile} {
+    display: none !important;
+  }
+`;

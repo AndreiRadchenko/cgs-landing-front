@@ -11,7 +11,7 @@ export const StrongContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 5.625em;
+    margin-top: 3.5em;
 
     h2 {
       width: 105%;

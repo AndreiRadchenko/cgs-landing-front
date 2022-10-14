@@ -37,9 +37,15 @@ export const Subtitle = styled.h2`
     & .last-part > div {
       top: 20%;
     }
+
+    display: none;
   }
 
   @media (max-width: 370px) {
     font-size: 1.35rem;
   }
+`;
+
+export const VisibleSubtitle = styled(Subtitle)`
+  display: block;
 `;

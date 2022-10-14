@@ -24,7 +24,7 @@ export const ContentLayout = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 0;
+    margin-top: 3.5em;
   }
 `;
 

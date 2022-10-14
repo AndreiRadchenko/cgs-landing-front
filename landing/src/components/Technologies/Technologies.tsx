@@ -7,6 +7,7 @@ import { IDataResponse } from "../../types/Admin/Response.types";
 import techArrow from "../../../public/HomePageDecoration/techArrow.svg";
 import Image from "next/image";
 import useMousePosition from "../../hooks/useMousePosition";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const Technologies = () => {
   const arrowRef = useRef<HTMLDivElement>(null);
@@ -31,6 +32,7 @@ const Technologies = () => {
   return (
     <StyledThisComp.TechnologyContainer>
       <StyledThisComp.TechTitle>technologies</StyledThisComp.TechTitle>
+      <MobileInfiniteText title={"technologies"} />
       <StyledThisComp.ArrowContainer ref={arrowRef}>
         <Image src={techArrow} alt="tech arrow" />
       </StyledThisComp.ArrowContainer>
@@ -38,6 +40,7 @@ const Technologies = () => {
         {data &&
           Object.entries(data).map((item, idx) => (
             <TechnologyCategory
+              idx={idx}
               className={idx === 3 ? "blockchain" : undefined}
               key={item[0]}
               img={item[1].image.url}

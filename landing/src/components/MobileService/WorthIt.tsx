@@ -12,6 +12,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const WorthIt = () => {
   const queryClient = useQueryClient();
@@ -29,6 +30,7 @@ const WorthIt = () => {
   return (
     <Styled.Container>
       <Subtitle>{data?.subtitle}</Subtitle>
+      <MobileInfiniteText title={data?.subtitle} />
       <Styled.ContentLayout ref={elRef}>
         {data &&
           Object.entries(data?.textBlock).map((el, idx) => (

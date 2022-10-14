@@ -3,7 +3,20 @@ import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    ::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 130%;
+      bottom: -15%;
+      left: -10%;
+    }
+  }
+`;
 
 export const Title = styled.h2`
   font-weight: inherit;

@@ -5,6 +5,7 @@ import { IBlockchainService } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/BlockchainService/AboutBlock.styled";
 import BlockchainAbout from "../../../public/BlockchainServicePage/BlockchainAbout.svg";
 import Image from "next/image";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const AboutBlock = () => {
   const queryClient = useQueryClient();
@@ -15,6 +16,7 @@ const AboutBlock = () => {
   return (
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
+      <MobileInfiniteText title={"Blockchain powers"} />
       <Image src={BlockchainAbout} alt="blockchain about" />
     </Styled.Container>
   );

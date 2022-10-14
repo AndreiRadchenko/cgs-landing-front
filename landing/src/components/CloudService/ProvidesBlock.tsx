@@ -9,6 +9,7 @@ import cloudProvidesMobile from "../../../public/CloudServicePage/cloud-provides
 import * as Styled from "../../styles/CloudService/Provides.styled";
 import parse from "html-react-parser";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const ProvidesBlock = () => {
   const queryClient = useQueryClient();
@@ -25,6 +26,7 @@ const ProvidesBlock = () => {
   return (
     <Styled.Container>
       <Subtitle>{subtitle}</Subtitle>
+      <MobileInfiniteText title={subtitle} />
       <Styled.BGImage src={cloudProvidesBgi.src} />
       <Styled.BGImageMobile src={cloudProvidesMobile.src} alt="bg image" />
       <Styled.BlockWrapper ref={elRef}>

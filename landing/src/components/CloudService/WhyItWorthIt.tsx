@@ -12,6 +12,7 @@ import parse from "html-react-parser";
 import * as Styled from "../../styles/CloudService/WhyItWorthIt.styled";
 import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const WhyItWorthIt = () => {
   const queryClient = useQueryClient();
@@ -28,7 +29,8 @@ const WhyItWorthIt = () => {
 
   return (
     <Styled.Container>
-      <Subtitle>{subtitle}</Subtitle>
+      <Subtitle>{subtitle}</Subtitle>;
+      <MobileInfiniteText title={subtitle} />
       <Styled.BlockWrapper ref={elRef}>
         {Object.values(blocks).map((el, index) => (
           <Styled.Block

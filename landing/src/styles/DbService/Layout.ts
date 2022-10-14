@@ -29,5 +29,6 @@ export const Subtitle = styled.h2`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
     width: auto;
+    display: none;
   } ;
 `;

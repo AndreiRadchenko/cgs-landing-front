@@ -190,6 +190,7 @@ const themes = {
       maxLowestScreenMobile: "(max-width: 374px)",
       maxLowMobileHeight: "(max-height: 610px)",
       maxMobile: "(max-width: 767px)",
+      minMobile: "(min-width: 767px)",
       maxMobileHeight: "(max-height: 710px)",
       maxTabletPortrait: "(max-width: 992px)",
       maxTabletLandScape: "(max-width: 1200px)",

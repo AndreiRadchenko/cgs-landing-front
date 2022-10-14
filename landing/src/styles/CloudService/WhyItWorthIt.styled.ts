@@ -35,7 +35,7 @@ export const BlockWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
-    margin-top: 1em;
+    margin-top: 3.5em;
     padding: 0;
   }
 `;
