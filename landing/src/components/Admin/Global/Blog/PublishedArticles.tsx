@@ -18,7 +18,7 @@ import {
   Draggable,
   DropResult,
 } from "react-beautiful-dnd";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminBlogService } from "../../../../services/adminBlogPage";
 import close from "../../../../../public/bigClose.svg";
@@ -54,7 +54,7 @@ const PublishedArticles: FC<IArticles> = ({
   const queryClient = useQueryClient();
 
   const { mutateAsync: deleteBlogArticle } = useMutation(
-    queryKeys.deleteArticle,
+    [queryKeys.deleteArticle],
     (id: string) => adminBlogService.deleteByUrl(id),
     {
       onSuccess: () => {
@@ -64,12 +64,12 @@ const PublishedArticles: FC<IArticles> = ({
   );
 
   const { mutateAsync: deleteView } = useMutation(
-    queryKeys.deleteArticle,
+    [queryKeys.deleteArticle],
     (id: string) => adminBlogService.deleteViewsById(id)
   );
 
   const { mutateAsync: updateArticle } = useMutation(
-    queryKeys.deleteArticle,
+    [queryKeys.deleteArticle],
     (article: IArticle) => adminBlogService.updateById(article),
     {
       onSuccess: () => {
@@ -79,7 +79,7 @@ const PublishedArticles: FC<IArticles> = ({
   );
 
   const { mutateAsync: updateSitemap } = useMutation(
-    queryKeys.updateSitemap,
+    [queryKeys.updateSitemap],
     (updatedSitemap: ISitemapData) =>
       adminSitemapService.updateSitemapData(updatedSitemap),
     {
@@ -94,7 +94,7 @@ const PublishedArticles: FC<IArticles> = ({
   );
 
   const { mutateAsync: swapElements } = useMutation(
-    queryKeys.swapArticles,
+    [queryKeys.swapArticles],
     (dataToUpdate: ISwapData) => adminBlogService.swapTwoElements(dataToUpdate)
   );
 
@@ -164,7 +164,7 @@ const PublishedArticles: FC<IArticles> = ({
       swapped.splice(desInd, 0, swapped.splice(srcInd, 1)[0]);
     typeof desInd === "number" &&
       (await swapElements({ srcInd, desInd })) &&
-      queryClient.setQueryData(queryKeys.getBlogArticles, swapped);
+      queryClient.setQueryData([queryKeys.getBlogArticles], swapped);
   };
 
   const ArticleItem = ({ item, i }: IArticleItem) => {

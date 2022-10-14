@@ -24,13 +24,13 @@ const AboutUs = ({ data }: IAboutUs) => {
 
             <Styled.MovingText>
               <span>
-                CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;
+                CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;
               </span>
               <span>
-                CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;
+                CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;
               </span>
               <span>
-                CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;&nbsp;CGS-TEAM&nbsp;
+                CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;
               </span>
             </Styled.MovingText>
           </Styled.MainImageContainer>

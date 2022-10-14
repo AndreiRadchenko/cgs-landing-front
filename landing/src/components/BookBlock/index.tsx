@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import {
   Subtitle,
@@ -14,9 +14,9 @@ import ScrambleText from "../HomePage/ScrambleText";
 
 const BookBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.BookCallBlock;
+  const data = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.BookCallBlock;
 
   return (
     <>

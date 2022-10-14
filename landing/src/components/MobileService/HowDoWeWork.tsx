@@ -7,7 +7,7 @@
 } from "react";
 import textPoint from "../../../public/MobileSevice/textPoint.svg";
 import textPointReversed from "../../../public/MobileSevice/textPointReversed.svg";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/MobileService/HowDoWeWork.styled";
 import { Subtitle, VisibleSubtitle } from "../../styles/MobileService/Layout";
@@ -20,9 +20,9 @@ const HowDoWeWork = () => {
   const { width } = useWindowDimension();
   const [gradientAngle, setGradientAngle] = useState<string>("50%");
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceMobile>(
-    queryKeys.getServiceMobilePage
-  )?.howDoWeWork;
+  const data = queryClient.getQueryData<IServiceMobile>([
+    queryKeys.getServiceMobilePage,
+  ])?.howDoWeWork;
 
   const points = data && Object.values(data.text);
 

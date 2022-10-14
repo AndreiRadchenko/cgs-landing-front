@@ -63,14 +63,6 @@ export const TechnologyRow = styled.div`
   }
 `;
 
-export const CategoryImgWrapper = styled.div`
-  width: 20.188em;
-  height: 250px;
-  position: relative;
-  display: inline-block;
-  text-align: center;
-`;
-
 export const CategoryContainer = styled.div`
   display: flex;
   align-items: flex-start;
@@ -194,20 +186,28 @@ export const CategorySubtitle = styled.p`
   }
 `;
 
-export const CategoryImage = styled.img<{ isOpen?: boolean }>`
+export const CategoryImgWrapper = styled.div`
   max-width: 98.9%;
-  height: auto;
+  width: 100%;
+  height: 25.4vw;
+
+  position: relative;
 
   @media ${themes.primary.media.maxMobile} {
     display: none;
     max-width: none;
     width: 98.9%;
     margin-bottom: 3.375rem;
+    height: 300px;
 
     &.open {
       display: block;
       padding: 50px 0;
     }
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 200px;
   }
 `;
 

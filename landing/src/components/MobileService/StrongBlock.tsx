@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { Subtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/MobileService/StrongBlock.styled";
@@ -11,9 +11,9 @@ import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const StrongBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceMobile>(
-    queryKeys.getServiceMobilePage
-  )?.strongBlock;
+  const data = queryClient.getQueryData<IServiceMobile>([
+    queryKeys.getServiceMobilePage,
+  ])?.strongBlock;
   const blockPhotoArr = [android, apple];
   return (
     <Styled.StrongContainer>

@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICloudService } from "../../types/Admin/Response.types";
 import rhombus from "../../../public/CloudServicePage/rhombus.svg";
@@ -9,9 +9,9 @@ import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const WorkBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<ICloudService>(
-    queryKeys.getServiceCloudPage
-  )?.workBlock;
+  const data = queryClient.getQueryData<ICloudService>([
+    queryKeys.getServiceCloudPage,
+  ])?.workBlock;
   const { subtitle, ...blocks } = { ...data };
   const elRef = useRef<HTMLDivElement>(null);
   const isScrolled = useOnScreen(elRef, true);

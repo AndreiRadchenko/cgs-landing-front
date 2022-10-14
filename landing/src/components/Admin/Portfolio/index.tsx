@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import React from "react";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import * as Styled from "../../../styles/AdminPage";
 import AdminPortfolioContentBlock from "./ContentBlock";
@@ -12,12 +12,12 @@ import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 
 const PortfolioPage = () => {
   const { data, isLoading, refetch }: IPortfolioResponse = useQuery(
-    queryKeys.getPortfolioPage,
+    [queryKeys.getPortfolioPage],
     () => adminPortfolioService.getPageData()
   );
 
   const { mutateAsync } = useMutation(
-    queryKeys.updatePortfolioPage,
+    [queryKeys.updatePortfolioPage],
     (data: IPortfolioPageData) => adminPortfolioService.updatePageData(data)
   );
 

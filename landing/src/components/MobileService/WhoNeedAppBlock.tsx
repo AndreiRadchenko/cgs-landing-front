@@ -2,7 +2,7 @@
 import parse from "html-react-parser";
 import * as Styled from "../../styles/MobileService/WhoNeedApps.styled";
 
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import { Subtitle, VisibleSubtitle } from "../../styles/MobileService/Layout";
@@ -18,9 +18,9 @@ import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 const WhoNeedAppBlock = () => {
   const { width } = useWindowDimension();
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceMobile>(
-    queryKeys.getServiceMobilePage
-  );
+  const data = queryClient.getQueryData<IServiceMobile>([
+    queryKeys.getServiceMobilePage,
+  ]);
 
   const elRef = useRef<HTMLDivElement>(null);
 

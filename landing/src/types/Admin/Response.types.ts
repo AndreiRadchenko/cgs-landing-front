@@ -316,7 +316,7 @@ export interface IService {
 }
 
 export interface IServiceMobile {
-  mainBlock: IIntroWithImage;
+  headerBlock: IIntroWithImage;
   worthBlock: {
     subtitle: string;
     textBlock: {

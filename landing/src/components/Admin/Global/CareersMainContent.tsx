@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Formik } from "formik";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 import Careers from "../Careers";
 import CareersContactForm from "../CareersContactForm";
@@ -22,12 +22,12 @@ const CareersMainContent = () => {
   const [ticket, setTicket] = useState(0);
 
   const { data, isLoading, refetch }: IMainProps = useQuery(
-    queryKeys.GetCareersPage,
+    [queryKeys.GetCareersPage],
     () => adminCareersService.getCareersPage()
   );
 
   const { mutateAsync } = useMutation(
-    queryKeys.UpdateCareersPage,
+    [queryKeys.UpdateCareersPage],
     (data: IDataCareersResponse) => adminCareersService.updateCareersPage(data)
   );
 

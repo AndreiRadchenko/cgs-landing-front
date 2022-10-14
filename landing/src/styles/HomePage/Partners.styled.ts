@@ -32,20 +32,11 @@ export const PartnerImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   max-height: 8em;
+  position: relative;
+  height: 90px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    height: auto;
-    width: 85%;
-  }
-`;
-
-export const Image = styled.img`
-  width: 95%;
-  max-height: 85%;
-  object-fit: contain;
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    height: auto;
+    height: 1500px;
     width: 85%;
   }
 `;

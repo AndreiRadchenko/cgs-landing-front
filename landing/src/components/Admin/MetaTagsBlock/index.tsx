@@ -4,7 +4,7 @@ import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { useFormikContext } from "formik";
 import { IMetaBlock, ISitemapData } from "../../../types/Admin/Response.types";
 import { Counter, Message, Text } from "../../../styles/AdminBlogPage";
-import { useMutation, useQuery, useQueryClient } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminSitemapService } from "../../../services/adminSitemapPage";
 
@@ -34,12 +34,12 @@ const MetaTagsBlock = ({
   const [titleLength, setTitleLength] = useState(0);
   const [descLength, setDescLength] = useState(0);
 
-  const { data } = useQuery(queryKeys.getSitemapData, () =>
+  const { data } = useQuery([queryKeys.getSitemapData], () =>
     adminSitemapService.getSitemapData()
   );
 
   const { mutateAsync } = useMutation(
-    queryKeys.updateSitemap,
+    [queryKeys.updateSitemap],
     (updatedSitemap: ISitemapData) =>
       adminSitemapService.updateSitemapData(updatedSitemap),
     {

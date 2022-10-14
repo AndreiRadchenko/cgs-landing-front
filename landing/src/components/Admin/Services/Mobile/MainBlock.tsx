@@ -14,19 +14,19 @@ import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 
 const MainBlock = () => {
   const { values, handleChange } = useFormikContext<IServiceMobile>();
-  const deleteMainImage = useDeleteImageFunction(values.mainBlock);
-  const uploadMainImage = useUploadImageFunction(values.mainBlock);
+  const deleteMainImage = useDeleteImageFunction(values.headerBlock);
+  const uploadMainImage = useUploadImageFunction(values.headerBlock);
   return (
     <AdminPaddedBlock>
       <AdminHeader>Mobile Development</AdminHeader>
       <AdminHalfGrid>
         {renderInputs({
-          props: { name: "mainBlock" },
-          state: values.mainBlock,
+          props: { name: "headerBlock" },
+          state: values.headerBlock,
           onChangeFunction: handleChange,
         })}
         <PhotoBlockDashed
-          photo={values.mainBlock.image}
+          photo={values.headerBlock.image}
           deleteFunction={async () => (await deleteMainImage)()}
           uploadFunction={(image: IImage) => uploadMainImage(image)}
           maxWidth="364px"

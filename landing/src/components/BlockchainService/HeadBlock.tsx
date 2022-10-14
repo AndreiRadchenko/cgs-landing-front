@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import {
   BlackButton,
@@ -12,9 +12,9 @@ import TextTypingAnimation from "../Typewrite";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IBlockchainService>(
-    queryKeys.getServiceBlockchainPage
-  )?.headerBlock;
+  const data = queryClient.getQueryData<IBlockchainService>([
+    queryKeys.getServiceBlockchainPage,
+  ])?.headerBlock;
 
   return (
     <Styled.Container>

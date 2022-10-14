@@ -104,17 +104,19 @@ export const ProjectDescription = styled.p`
     padding: 10px;
     margin-top: 0px;
   }
-  @media (max-width: 1310px) {
-    margin: 12px 0 32px;
+  @media (max-width: 1440px) {
+    -webkit-line-clamp: 3;
   }
   @media (max-width: 1310px) {
     margin: 12px 0 32px;
+    -webkit-line-clamp: 2;
   }
   @media (max-width: 1199px) {
     font-size: 15px;
   }
   @media (max-width: 1140px) {
     font-size: 14px;
+    -webkit-line-clamp: 4;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -290,10 +292,10 @@ export const ArrowContainer = styled.div`
     position: relative;
     left: 0;
     right: 0;
-    width: 65px;
-    height: 65px;
+    width: 37px;
+    height: 37px;
   }
-  &.hover {
+  > svg:hover {
     & path:first-child {
       fill: ${themes.primary.colors.portfolioHover};
     }

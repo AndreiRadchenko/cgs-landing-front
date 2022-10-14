@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import * as StyledThisComp from "../../styles/Burger.styles";
 import { IDataResponse } from "../../types/Admin/Response.types";
@@ -7,9 +7,9 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 
 const BurgerFooter = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.FooterBlock;
+  const data = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.FooterBlock;
 
   return (
     <StyledThisComp.FooterWrapper>

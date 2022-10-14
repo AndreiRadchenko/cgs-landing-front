@@ -6,16 +6,16 @@ import {
 } from "../../styles/HomePage/General.styled";
 import themes from "../../utils/themes";
 import { IServiceMobile } from "../../types/Admin/Response.types";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import ButtonArrow from "../../utils/ButtonArrow";
 import TextTypingAnimation from "../Typewrite";
 const HeadBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceMobile>(
-    queryKeys.getServiceMobilePage
-  )?.mainBlock;
+  const data = queryClient.getQueryData<IServiceMobile>([
+    queryKeys.getServiceMobilePage,
+  ])?.headerBlock;
 
   return (
     <Styled.Container>
