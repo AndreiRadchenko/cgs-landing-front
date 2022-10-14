@@ -42,8 +42,6 @@ const MobileServices = () => {
     }
   }, [data]);
 
-  console.log(slidesData);
-
   let renderSliderSlides;
   if (slidesData) {
     renderSliderSlides = slidesData.map((item, idx) => (

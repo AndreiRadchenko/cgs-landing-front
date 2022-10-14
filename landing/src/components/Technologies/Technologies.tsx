@@ -39,17 +39,15 @@ const Technologies = () => {
       <StyledThisComp.TechnologyRow>
         {data &&
           Object.entries(data).map((item, idx) => (
-            <>
-              <TechnologyCategory
-                idx={idx}
-                className={idx === 3 ? "blockchain" : undefined}
-                key={item[0]}
-                img={item[1].image.url}
-                text={item[1].text}
-                stack={item[1].stack}
-                title={item[1].category}
-              />
-            </>
+            <TechnologyCategory
+              idx={idx}
+              className={idx === 3 ? "blockchain" : undefined}
+              key={item[0]}
+              img={item[1].image.url}
+              text={item[1].text}
+              stack={item[1].stack}
+              title={item[1].category}
+            />
           ))}
       </StyledThisComp.TechnologyRow>
     </StyledThisComp.TechnologyContainer>
