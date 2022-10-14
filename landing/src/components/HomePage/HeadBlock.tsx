@@ -9,6 +9,7 @@ import { recoverLink } from "../../utils/recoverLink";
 import ButtonArrow from "../../utils/ButtonArrow";
 import Tetris from "./Tetris";
 import Image from "next/image";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const HeadBlock = () => {
   const buttonRef = useRef<HTMLAnchorElement>(null);
@@ -19,20 +20,16 @@ const HeadBlock = () => {
     queryKeys.getFullHomePage,
   ])?.EditInformationBlock;
 
-  const onScroll = () => {
-    const elTop = buttonRef?.current?.getBoundingClientRect().top || 0;
-    const scrollY = window.scrollY;
-    if (elTop - 500 <= scrollY) {
-      setButtonClassName("scrolled");
-      setTimeout(() => {
-        setButtonClassName("scrolled removeBg");
-      }, 1000);
-    }
-  };
+  const elRef = useRef<HTMLSpanElement>(null);
+  const isOnScreen = useOnScreen(elRef, true);
 
   useEffect(() => {
-    onScroll();
-  }, []);
+    if (isOnScreen) {
+      setButtonClassName("scrolled removeBg");
+    } else {
+      setButtonClassName("scrolled ");
+    }
+  }, [isOnScreen]);
 
   return (
     <Styled.HeadBlockRow>
@@ -41,7 +38,6 @@ const HeadBlock = () => {
         <Styled.MainSubtitle>
           <Styled.RowContainer>
             <div>SHARP DEVS WITH PROF TECHS</div>
-
             <Styled.LeftArrowWrapper>
               <Image
                 src={leftArrow.src}

@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as StyledThisComp from "./Footer.styled";
-import logo from "../../../public/newHeaderLogo.svg";
-import ImagePreview from "../Image/ImagePreview";
 import Link from "next/link";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
@@ -12,6 +10,7 @@ import { ClickAudio, Source } from "../HeaderNavNew/HeaderNav.styled";
 import Image from "next/image";
 import smallMountain from "/public/smallMountain.svg";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import Logo from "../HeaderNavNew/Logo";
 
 const FooterNew = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -49,12 +48,7 @@ const FooterNew = (): JSX.Element => {
       </ClickAudio>
       <StyledThisComp.FlexRowContainer>
         <StyledThisComp.LogoLinkWrapper onClick={handleClick} href={"/"}>
-          <ImagePreview
-            src={logo.src}
-            alt={"logo cgs-team"}
-            width={106}
-            height={32}
-          />
+          <Logo />
         </StyledThisComp.LogoLinkWrapper>
         <StyledThisComp.Email
           onClick={handleClick}

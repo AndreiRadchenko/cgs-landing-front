@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IPortfolioReview } from "../../types/Admin/AdminPortfolio.types";
 import * as Styled from "../../styles/PortfolioSlider.styled";
 import * as Styles from "../../styles/Portfolio.styled";
@@ -10,6 +10,7 @@ import { StarCont } from "../../styles/PortfolioSlider.styled";
 import portfolioArrow from "../../../public/portfolioArrow.svg";
 import { recoverLink } from "../../utils/recoverLink";
 import Image from "next/image";
+import Loader from "./Loader";
 
 interface IReviewProps {
   review: IPortfolioReview;
@@ -17,6 +18,11 @@ interface IReviewProps {
 }
 
 const Review = ({ review, className }: IReviewProps) => {
+  const [isImageReady, setIsImageReady] = useState<boolean>(false);
+
+  const onLoadCallBack = () => {
+    setIsImageReady(true);
+  };
   const { width } = useWindowDimension();
   const startsArr = [];
   let stars = review.feedback.rating;
@@ -115,12 +121,16 @@ const Review = ({ review, className }: IReviewProps) => {
         </Styled.ContentContainer>
         {(review?.image && (
           <Styled.ImageContainer bgColor={review.bgColor}>
-            <Image
+            {/* {isImageReady &&  */}
+            <Loader />
+            {/* } */}
+            {/* <Image
               src={review.image.url}
               alt="review image"
               layout="fill"
               priority={true}
-            />
+              onLoad={onLoadCallBack}
+            /> */}
           </Styled.ImageContainer>
         )) || <h1>No Image</h1>}
       </Styled.ReviewContainer>
