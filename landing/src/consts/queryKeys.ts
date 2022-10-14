@@ -51,6 +51,7 @@ export const queryKeys = {
   updateServiceUxUiPage: "updateServiceUxUiPage",
   // home page
   getFullHomePage: "getFullHomePage",
+  getAllServices: "getAllServices",
   getCareerPage: "getFullCareerPage",
   getVacancyPage: "getFullVacancyPage",
   // valid

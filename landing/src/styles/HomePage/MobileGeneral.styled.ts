@@ -725,3 +725,12 @@ export const Cursor = styled.span`
   right: -0.2em;
   bottom: -0.2em;
 `;
+
+export const SideOppositeContainer = styled.div`
+  display: flex;
+  justify-content: right;
+  margin-right: 15px;
+  @media ${themes.primary.media.maxMobile} {
+    justify-content: left;
+  }
+`;

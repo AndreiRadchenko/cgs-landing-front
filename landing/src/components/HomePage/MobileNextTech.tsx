@@ -1,9 +1,6 @@
 import React from "react";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import * as Styled from "../../styles/HomePage/MobileGeneral.styled";
-import Partners from "../Partners/Partners";
-import film from "../../../public/HomePageDecoration/photoFilm.svg";
-import filmMobile from "../../../public/HomePageDecoration/photoFilmMobile.svg";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
 import { useQueryClient } from "react-query";
 import { queryKeys } from "../../consts/queryKeys";
@@ -11,6 +8,7 @@ import { IDataResponse } from "../../types/Admin/Response.types";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ScrambleText from "./ScrambleText";
+import MobileServices from "./MobileServices";
 
 const MobileNextTech = () => {
   const { width } = useWindowDimension();
@@ -53,6 +51,7 @@ const MobileNextTech = () => {
       <Styled.Subtitle>{text && parse(text.title, options)}</Styled.Subtitle>
 
       <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
+      <MobileServices />
       <Styled.Subtitle className="small">
         {width && width < 475 ? (
           <>
@@ -82,7 +81,7 @@ const MobileNextTech = () => {
           </>
         )}
       </Styled.Subtitle>
-      <Styled.RightContainer>
+      <Styled.SideOppositeContainer>
         <Styled.BlackButton
           target="_blank"
           rel="noopener noreferrer"
@@ -96,7 +95,7 @@ const MobileNextTech = () => {
             <ButtonArrow />
           </Styled.ArrowContainer>
         </Styled.BlackButton>
-      </Styled.RightContainer>
+      </Styled.SideOppositeContainer>
     </Styled.NextTech>
   );
 };
