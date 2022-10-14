@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
+type PropsWithId = {
+  idx: number;
+};
+
 export const TechnologyContainer = styled.section`
   position: relative;
   user-select: none;
@@ -33,7 +37,7 @@ export const TechTitle = styled.h2`
   }
 `;
 
-export const TitleWrapper = styled.div<{ idx: number }>`
+export const TitleWrapper = styled.div<PropsWithId>`
   @media ${themes.primary.media.maxMobile} {
     position: absolute;
     top: 0;
@@ -85,7 +89,7 @@ export const CategoryContainer = styled.div`
     }
 
     &:last-child h2 {
-      border-bottom: solid 3.5px #000;
+      border-bottom: solid 3.5px ${themes.primary.colors.primary};
     }
     margin-top: -8em;
   }
@@ -101,7 +105,7 @@ export const CategoryDescriptionWrapper = styled.div`
 
 export const CategoryTechnologiesWrapper = styled.div``;
 
-export const CategoryTitle = styled.h2<{ idx: number }>`
+export const CategoryTitle = styled.h2<PropsWithId>`
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
   text-decoration: underline;
@@ -122,7 +126,7 @@ export const CategoryTitle = styled.h2<{ idx: number }>`
     border: none;
     background-color: ${themes.primary.colors.blogBackground};
     border-radius: 8px;
-    border: solid 3.5px #000;
+    border: solid 3.5px ${themes.primary.colors.primary};
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -135,9 +139,9 @@ export const CategoryTitle = styled.h2<{ idx: number }>`
       width: 7em;
       position: absolute;
       height: 3em;
-      border: solid 3.5px #000;
+      border: solid 3.5px ${themes.primary.colors.primary};
       background-color: ${themes.primary.colors.blogBackground};
-      border-bottom: solid 3.5px #f1efed;
+      border-bottom: solid 3.5px ${themes.primary.colors.blogBackground};
       border-top-width: 4px;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;

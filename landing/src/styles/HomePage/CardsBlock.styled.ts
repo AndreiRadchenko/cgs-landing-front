@@ -235,7 +235,7 @@ export const CardContainer = styled.div`
       content: "";
       height: 1px;
       position: absolute;
-      background-color: #8f8e93;
+      background-color: ${themes.primary.colors.headerBorder};
       width: 100%;
       bottom: -20%;
       left: 0%;
