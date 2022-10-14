@@ -5,7 +5,7 @@ import FormField from "./FormField2/index";
 import ThankYouModal from "../../Careers/ThankYouModal";
 import Clip from "../../../../public/CareerDecorations/clip.svg";
 import { IDataCareersResponse } from "../../../types/Admin/Response.types";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import { adminCareersService } from "../../../services/adminCareersPage";
 import { IVacancyMail } from "../../../types/Mail.types";
 import Close from "../../../../public/CareerDecorations/close.svg";

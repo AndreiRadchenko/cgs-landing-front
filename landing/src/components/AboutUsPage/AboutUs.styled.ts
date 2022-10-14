@@ -25,10 +25,10 @@ export const MainTitle = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 4.5em;
+    font-size: 4em;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 4em;
+    font-size: 3.5em;
   }
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 70px;
@@ -170,9 +170,9 @@ export const TeamLine = styled.img`
 export const MovingText = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.medium};
-  font-size: 20px;
+  font-size: 1.5em;
   overflow: hidden;
-  margin-top: -1.2em;
+  margin-top: -1.1em;
   width: 99%;
   white-space: nowrap;
   display: flex;
@@ -199,18 +199,20 @@ export const MovingText = styled.div`
     font-size: 25px;
   }
   @media ${themes.primary.media.onlyPC} {
-    font-size: 20px;
+    font-size: 1.17em;
   }
-  @media (min-width: 1800px) {
-    font-size: 2em;
-  }
-  @media (min-width: 1500px) and (max-width: 2000px) {
-    font-size: 1.6em;
-  }
-  @media (min-width: 1300px) and (max-width: 1400px) {
+
+  @media (min-width: 1300px) and (max-width: 1800px) {
     font-size: 1.5em;
   }
-  @media ${themes.primary.media.maxTabletLandScape} {
+
+  @media (min-width: 2200px) {
+    font-size: 1.9em;
+  }
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    font-size: 1.185em;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.1em;
   }
 `;
@@ -316,11 +318,8 @@ export const AboutUsContainer = styled(RowContainer)`
 export const ColContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 50%;
 
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 60%;
-  }
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
   }

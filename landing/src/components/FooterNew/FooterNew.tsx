@@ -5,15 +5,22 @@ import ImagePreview from "../Image/ImagePreview";
 import Link from "next/link";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { ClickAudio, Source } from "../HeaderNavNew/HeaderNav.styled";
+import Image from "next/image";
+import smallMountain from "/public/smallMountain.svg";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const FooterNew = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const { width } = useWindowDimension();
+
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const isScrolled = useOnScreen(elRef, true);
 
   const handleClick = () => {
     audioRef.current?.play();
@@ -30,13 +37,13 @@ const FooterNew = (): JSX.Element => {
   }, [width, isOpen]);
 
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>(
-    queryKeys.getFullHomePage
-  )?.FooterBlock;
+  const data = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.FooterBlock;
 
   DisableScrollBarHandler(isOpen);
   return (
-    <StyledThisComp.HeaderNavContainer>
+    <StyledThisComp.HeaderNavContainer ref={elRef}>
       <ClickAudio ref={audioRef}>
         <Source src="/music/headerMouseClick.mp3" type="audio/mpeg" />
       </ClickAudio>
@@ -53,7 +60,17 @@ const FooterNew = (): JSX.Element => {
           onClick={handleClick}
           href={`mailto:${data?.email}`}
         >
-          {data?.email}
+          <StyledThisComp.MailIcon
+            width="27"
+            height="19"
+            viewBox="0 0 27 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={isScrolled ? "scrolled" : undefined}
+          >
+            <path d="M1.90909 2.88889H3.72727M3.72727 4.77778H5.54545M5.54545 6.66667H7.36364M7.36364 8.55556H9.18182M9.18182 10.4444H11M25.0909 2.88889H23.2727M23.2727 4.77778H21.4545M21.4545 6.66667H19.6364M19.6364 8.55556H17.8182M11 12.3333H12.8182H14.1818H16M17.8182 10.4444H16M1 1V18H26V1H1Z" />
+          </StyledThisComp.MailIcon>
+          <StyledThisComp.EmailText>{data?.email}</StyledThisComp.EmailText>
         </StyledThisComp.Email>
       </StyledThisComp.FlexRowContainer>
 
@@ -66,10 +83,20 @@ const FooterNew = (): JSX.Element => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <StyledThisComp.LinkText
-                src={data.images[ind].image?.url}
-                alt="footer icons img"
-              />
+              <StyledThisComp.FooterImageWrapper>
+                {
+                  <Image
+                    src={
+                      data.images[ind]
+                        ? data.images[ind].image?.url
+                        : smallMountain
+                    }
+                    alt="footer icons img"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                }
+              </StyledThisComp.FooterImageWrapper>
             </StyledThisComp.ListItemNav>
           </Link>
         ))}

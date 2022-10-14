@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { ISlide } from "../types/Decoration.types";
 import themes from "../utils/themes";
 import { slideDown, slideUp } from "./Animations.styled";
 
@@ -44,7 +45,7 @@ export const DropDownContent = styled.div`
   }
 `;
 
-export const ContentTextWrapper = styled.div<{ ind: number }>`
+export const ContentTextWrapper = styled.div<ISlide>`
   margin-top: 1.375rem;
   font-size: 0.875rem;
   font-family: ${themes.primary.font.family.namu};

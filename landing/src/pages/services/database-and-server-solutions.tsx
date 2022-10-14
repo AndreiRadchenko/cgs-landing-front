@@ -1,7 +1,7 @@
 import React from "react";
 import { NextPage } from "next";
 import parse from "html-react-parser";
-import { useQuery, QueryClient, dehydrate } from "react-query";
+import { useQuery, QueryClient, dehydrate } from "@tanstack/react-query";
 import * as Styled from "../../styles/DbService/Layout";
 import Head from "next/head";
 import HeadBlock from "../../components/DbService/HeadBlock";
@@ -20,11 +20,11 @@ import ShowCase from "../../components/ShowCase";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getServiceDbPage, () =>
+  await queryClient.prefetchQuery([queryKeys.getServiceDbPage], () =>
     adminDbService.getDbServicePage()
   );
 
-  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );
 
@@ -36,11 +36,11 @@ export async function getServerSideProps() {
 }
 
 const DbSolutions: NextPage = () => {
-  const { data } = useQuery(queryKeys.getServiceDbPage, () =>
+  const { data } = useQuery([queryKeys.getServiceDbPage], () =>
     adminDbService.getDbServicePage()
   );
 
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 

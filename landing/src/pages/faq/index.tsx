@@ -1,6 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import Faq from "../../components/Faq";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
@@ -12,7 +12,7 @@ import Head from "next/head";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getFaqPage, () =>
+  await queryClient.prefetchQuery([queryKeys.getFaqPage], () =>
     adminFaqService.getFaqPage()
   );
 
@@ -24,11 +24,11 @@ export async function getServerSideProps() {
 }
 
 const FaqPage = () => {
-  const { data } = useQuery(queryKeys.getFaqPage, () =>
+  const { data } = useQuery([queryKeys.getFaqPage], () =>
     adminFaqService.getFaqPage()
   );
 
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 

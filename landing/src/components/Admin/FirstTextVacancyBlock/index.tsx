@@ -9,7 +9,7 @@ import PointsTextBlock from "./PointsTextBlock";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import TitleBlock from "./TitleBlock";
 import AdminCarousel from "../Global/AdminImageCarousel";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminCareersService } from "../../../services/adminCareersPage";
 
@@ -44,7 +44,7 @@ const TextVacancyBlock = ({ name, dark, page, setPage }: ITextVacancyBlock) => {
     titleTextBlock = { title: values.offer.title };
     bottomTextBlock = values.offer.text;
   }
-  const { data } = useQuery(queryKeys.GetCareersPage, () =>
+  const { data } = useQuery([queryKeys.GetCareersPage], () =>
     adminCareersService.getCareersPage()
   );
   const tickets = data?.tickets;

@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IUxUiInterface } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
@@ -12,9 +12,9 @@ const EssentialBlock = () => {
   const { width } = useWindowDimension();
   const queryClient = useQueryClient();
 
-  const data = queryClient.getQueryData<IUxUiInterface>(
-    queryKeys.getServiceUxUiPage
-  )?.essentialBlock;
+  const data = queryClient.getQueryData<IUxUiInterface>([
+    queryKeys.getServiceUxUiPage,
+  ])?.essentialBlock;
   const elRef = useRef<HTMLDivElement>(null);
 
   const isScrolled = useOnScreen(elRef, true);

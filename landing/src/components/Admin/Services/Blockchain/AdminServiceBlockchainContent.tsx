@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import React from "react";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { IBlockchainService } from "../../../../types/Admin/Response.types";
 import ServiceBlockchainContentBlock from ".";
@@ -9,12 +9,12 @@ import * as Styled from "../../../../styles/AdminPage";
 
 const AdminServiceBlockchainContent = () => {
   const { data, isLoading, refetch } = useQuery(
-    queryKeys.getServiceBlockchainPage,
+    [queryKeys.getServiceBlockchainPage],
     () => adminBlockchainService.getBlockchainDevelopmentPage()
   );
 
   const { mutateAsync: updateFaqPage } = useMutation(
-    queryKeys.updateServiceBlockchainPage,
+    [queryKeys.updateServiceBlockchainPage],
     (data: IBlockchainService) =>
       adminBlockchainService.updateBlockchainDevelopmentPage(data)
   );

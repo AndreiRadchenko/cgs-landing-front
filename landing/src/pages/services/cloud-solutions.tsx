@@ -1,6 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCloudService } from "../../services/services/AdminServicesCloudSolution";
 import { adminGlobalService } from "../../services/adminHomePage";
@@ -19,11 +19,11 @@ import ShowCase from "../../components/ShowCase";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getServiceCloudPage, () =>
+  await queryClient.prefetchQuery([queryKeys.getServiceCloudPage], () =>
     adminCloudService.getCloudSolutionPage()
   );
 
-  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );
 
@@ -35,11 +35,11 @@ export async function getServerSideProps() {
 }
 
 const CloudService = () => {
-  const { data } = useQuery(queryKeys.getServiceCloudPage, () =>
+  const { data } = useQuery([queryKeys.getServiceCloudPage], () =>
     adminCloudService.getCloudSolutionPage()
   );
 
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 

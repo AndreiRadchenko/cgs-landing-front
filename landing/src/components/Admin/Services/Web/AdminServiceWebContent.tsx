@@ -1,6 +1,6 @@
 ﻿import { Formik } from "formik";
 import React from "react";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import ServiceWebContentBlock from "./";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminWebService } from "../../../../services/services/adminServicesWebPage";
@@ -9,11 +9,11 @@ import { IServiceWeb } from "../../../../types/Admin/Response.types";
 
 const AdminServiceWebContent = () => {
   const { data, isLoading, refetch } = useQuery(
-    queryKeys.getServiceWebPage,
+    [queryKeys.getServiceWebPage],
     () => adminWebService.getWebServicePage()
   );
   const { mutateAsync: updateFaqPage } = useMutation(
-    queryKeys.updateServiceWebPage,
+    [queryKeys.updateServiceWebPage],
     (data: IServiceWeb) => adminWebService.updateWebServicePage(data)
   );
 

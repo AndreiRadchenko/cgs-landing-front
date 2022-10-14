@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceSupport } from "../../types/Admin/Response.types";
 import rhombus from "../../../public/CloudServicePage/rhombus.svg";
@@ -8,9 +8,9 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 
 const BonusesBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceSupport>(
-    queryKeys.getServiceSupportPage
-  )?.bonusesBlock;
+  const data = queryClient.getQueryData<IServiceSupport>([
+    queryKeys.getServiceSupportPage,
+  ])?.bonusesBlock;
 
   const elRef = useRef<HTMLDivElement>(null);
 

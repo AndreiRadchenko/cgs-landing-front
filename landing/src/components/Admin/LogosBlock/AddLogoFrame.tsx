@@ -1,5 +1,5 @@
 import React from "react";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import useUploadModal from "../../../hooks/useUploadModal";
 import { adminGlobalService } from "../../../services/adminHomePage";
@@ -14,14 +14,14 @@ export interface ILogosProps {
 const AddLogoFrame = ({ state, submit }: ILogosProps) => {
   const { modal, toggleModal } = useUploadModal();
   const queryClient = useQueryClient();
-  const { mutateAsync } = useMutation(queryKeys.uploadImage, (image) =>
+  const { mutateAsync } = useMutation([queryKeys.uploadImage], (image) =>
     adminGlobalService.uploadImage(image)
   );
 
   const addNewLogo = async (image: any) => {
     state.images.push(await mutateAsync(image));
     submit();
-    queryClient.invalidateQueries(queryKeys.GetFullPage);
+    queryClient.invalidateQueries([queryKeys.GetFullPage]);
   };
 
   return (

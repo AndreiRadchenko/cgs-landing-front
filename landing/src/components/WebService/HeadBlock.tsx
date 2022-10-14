@@ -4,7 +4,7 @@ import {
   BlackButton,
 } from "../../styles/HomePage/General.styled";
 import { IServiceWeb } from "../../types/Admin/Response.types";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import {
@@ -19,9 +19,9 @@ import TextTypingAnimation from "../Typewrite";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceWeb>(
-    queryKeys.getServiceWebPage
-  )?.headerBlock;
+  const data = queryClient.getQueryData<IServiceWeb>([
+    queryKeys.getServiceWebPage,
+  ])?.headerBlock;
 
   return (
     <Container>

@@ -1,5 +1,5 @@
 ﻿import React, { useRef } from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { Subtitle } from "../../styles/MobileService/Layout";
@@ -10,9 +10,9 @@ import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const PerksBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceWeb>(
-    queryKeys.getServiceWebPage
-  )?.perksBlock;
+  const data = queryClient.getQueryData<IServiceWeb>([
+    queryKeys.getServiceWebPage,
+  ])?.perksBlock;
 
   const elRef = useRef<HTMLDivElement>(null);
 

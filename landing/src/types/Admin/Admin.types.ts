@@ -1,5 +1,5 @@
 import { IPropsWithImage } from "./BlockProps";
-import { IDataResponse, IEditInformation, IPointsData } from "./Response.types";
+import { IEditInformation, IPointsData } from "./Response.types";
 import { FieldArrayRenderProps } from "formik";
 import { IDataCareersResponse } from "./Response.types";
 export interface IAdmin {

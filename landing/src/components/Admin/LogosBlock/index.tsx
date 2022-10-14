@@ -1,6 +1,6 @@
 import { useFormikContext } from "formik";
 import React, { FC } from "react";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminGlobalService } from "../../../services/adminHomePage";
 import * as Styled from "../../../styles/AdminPage";
@@ -26,7 +26,7 @@ const render = ({ state, deleteLogo }: IRenderProps) => {
 const AdminLogosBlock: FC = () => {
   const queryClient = useQueryClient();
   const { values, handleSubmit } = useFormikContext<IDataResponse>();
-  const { mutate } = useMutation(queryKeys.deleteImage, (url: string) =>
+  const { mutate } = useMutation([queryKeys.deleteImage], (url: string) =>
     adminGlobalService.deleteImage(url)
   );
 
@@ -34,7 +34,7 @@ const AdminLogosBlock: FC = () => {
     const link = values.LogosBlock.images.splice(id, 1);
     mutate(link[0].url);
     handleSubmit();
-    queryClient.invalidateQueries(queryKeys.GetFullPage);
+    queryClient.invalidateQueries([queryKeys.GetFullPage]);
   };
 
   return (

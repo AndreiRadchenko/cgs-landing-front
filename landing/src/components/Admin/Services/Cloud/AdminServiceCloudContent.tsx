@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import React from "react";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { ICloudService } from "../../../../types/Admin/Response.types";
 import ServiceCloudContentBlock from ".";
@@ -9,12 +9,12 @@ import * as Styled from "../../../../styles/AdminPage";
 
 const AdminServiceCloudContent = () => {
   const { data, isLoading, refetch } = useQuery(
-    queryKeys.getServiceCloudPage,
+    [queryKeys.getServiceCloudPage],
     () => adminCloudService.getCloudSolutionPage()
   );
 
   const { mutateAsync: updateFaqPage } = useMutation(
-    queryKeys.updateServiceCloudPage,
+    [queryKeys.updateServiceCloudPage],
     (data: ICloudService) => adminCloudService.updateCloudSolutionPage(data)
   );
 

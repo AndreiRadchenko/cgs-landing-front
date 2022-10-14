@@ -11,6 +11,7 @@ const Logo = () => {
         alt="logo without the text"
         width={34}
         height={32}
+        objectFit="contain"
       />
       <Styled.LogoText>СGS-team</Styled.LogoText>
     </Styled.LogoWrapper>

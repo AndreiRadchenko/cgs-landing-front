@@ -1,5 +1,5 @@
 import React from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { Subtitle } from "../../styles/DbService/Layout";
 import * as Styled from "../../styles/DbService/ExpertiseBlock.styled";
@@ -12,9 +12,9 @@ import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const ExpertiseBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceDb>(
-    queryKeys.getServiceDbPage
-  )?.expertiseBlock;
+  const data = queryClient.getQueryData<IServiceDb>([
+    queryKeys.getServiceDbPage,
+  ])?.expertiseBlock;
 
   return (
     <Styled.Container>

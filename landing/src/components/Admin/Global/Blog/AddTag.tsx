@@ -1,6 +1,5 @@
-﻿import { useFormikContext } from "formik";
-import React, { useRef, useState } from "react";
-import { useMutation, useQueryClient } from "react-query";
+﻿import React, { useRef, useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminBlogService } from "../../../../services/adminBlogPage";
 import { AdminInput } from "../../../../styles/AdminPage";
@@ -16,12 +15,12 @@ const AddTag = ({ possibleTags }: IAddTag) => {
   const ref = useRef<HTMLTextAreaElement>(null);
   const queryClient = useQueryClient();
 
-  const data = queryClient.getQueryData<IBlogPageResponse | undefined>(
-    queryKeys.getBlogPage
-  );
+  const data = queryClient.getQueryData<IBlogPageResponse | undefined>([
+    queryKeys.getBlogPage,
+  ]);
 
   const { mutateAsync: updateBlogPageData } = useMutation(
-    queryKeys.updateBlogPage,
+    [queryKeys.updateBlogPage],
     (dataToUpdate: IBlogPageResponse) =>
       adminBlogService.updateBlogPageData(dataToUpdate),
     {

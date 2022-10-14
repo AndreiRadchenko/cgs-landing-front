@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useQueryClient } from "react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IBlockchainService } from "../../types/Admin/Response.types";
 import LinedText from "./LinedText";
@@ -8,9 +8,9 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 
 const YourWayBlock = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IBlockchainService>(
-    queryKeys.getServiceBlockchainPage
-  )?.wayBlock;
+  const data = queryClient.getQueryData<IBlockchainService>([
+    queryKeys.getServiceBlockchainPage,
+  ])?.wayBlock;
   const [gradientAngle, setGradientAngle] = useState<string>("50%");
 
   const arrayOfGradients = [

@@ -208,6 +208,19 @@ export const slideDown = keyframes`
  `}
 `;
 
+export const slideDownText = keyframes`
+ ${css`
+   from {
+     opacity: 0;
+     transform: translateY(-20px);
+   }
+   to {
+     opacity: 1;
+     transform: translateY(0);
+   }
+ `}
+`;
+
 export const slideRight = keyframes`
  ${css`
    from {
@@ -265,3 +278,54 @@ ${css`
   }
 `}
   `;
+
+export const emailShake = keyframes`
+${css`
+  0% {
+    transform: rotate(0);
+  }
+
+  10% {
+    transform: rotate(20deg);
+  }
+
+  20% {
+    transform: rotate(-20deg);
+  }
+  30% {
+    transform: rotate(20deg);
+  }
+  40% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+
+  60% {
+    transform: rotate(-20deg);
+  }
+  70% {
+    transform: rotate(20deg);
+  }
+
+  80% {
+    transform: rotate(-20deg);
+  }
+  90% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+`}
+`;
+
+export const blur = keyframes`${css`
+  0% {
+    filter: blur(10px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+`}`;

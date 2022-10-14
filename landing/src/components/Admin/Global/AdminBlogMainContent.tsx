@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import React, { useState } from "react";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { IBlogPageResponse } from "../../../types/Admin/Response.types";
 import * as Styled from "../../../styles/AdminPage";
 import { queryKeys } from "../../../consts/queryKeys";
@@ -28,25 +28,25 @@ const AdminBlogMainContent = () => {
   };
 
   const { mutateAsync } = useMutation(
-    queryKeys.updateBlogPage,
+    [queryKeys.updateBlogPage],
     (pageData: IBlogPageResponse) =>
       adminBlogService.updateBlogPageData(pageData)
   );
 
   const { data, isLoading, refetch }: IBlogProps = useQuery(
-    queryKeys.getBlogPage,
+    [queryKeys.getBlogPage],
     () => adminBlogService.getBlogPageData()
   );
 
-  const { data: articles } = useQuery(queryKeys.getBlogArticles, () =>
+  const { data: articles } = useQuery([queryKeys.getBlogArticles], () =>
     adminBlogService.getArticles()
   );
 
-  const { data: views } = useQuery(queryKeys.views, () =>
+  const { data: views } = useQuery([queryKeys.views], () =>
     adminBlogService.getViews()
   );
 
-  const { data: sitemap } = useQuery(queryKeys.getSitemapData, () =>
+  const { data: sitemap } = useQuery([queryKeys.getSitemapData], () =>
     adminSitemapService.getSitemapData()
   );
 

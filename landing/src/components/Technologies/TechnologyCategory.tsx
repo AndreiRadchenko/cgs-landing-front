@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { FC, MouseEvent, useState } from "react";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import * as StyledThisComp from "../../styles/HomePage/Technologies.styled";
@@ -65,11 +66,16 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
         <SplitBrackets text={text} />
       </StyledThisComp.CategorySubtitle>
       <TechModal data={stack} isOpen={isOpen} />
-      <StyledThisComp.CategoryImage
-        src={img}
-        alt="tech category img"
+      <StyledThisComp.CategoryImgWrapper
         className={width && width < 767 && isOpen ? "open" : undefined}
-      />
+      >
+        <Image
+          src={img}
+          alt="tech category img"
+          layout="fill"
+          objectFit="contain"
+        />
+      </StyledThisComp.CategoryImgWrapper>
     </StyledThisComp.CategoryContainer>
   );
 };

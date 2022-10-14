@@ -1,6 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminSupportService } from "../../services/services/adminServiceSupportPage";
 import Head from "next/head";
@@ -19,11 +19,11 @@ import ShowCase from "../../components/ShowCase";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(queryKeys.getServiceSupportPage, () =>
+  await queryClient.prefetchQuery([queryKeys.getServiceSupportPage], () =>
     adminSupportService.getSupportServicePage()
   );
 
-  await queryClient.prefetchQuery(queryKeys.getFullHomePage, () =>
+  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );
 
@@ -35,11 +35,11 @@ export async function getServerSideProps() {
 }
 
 const OngoingSupport = () => {
-  const { data } = useQuery(queryKeys.getServiceSupportPage, () =>
+  const { data } = useQuery([queryKeys.getServiceSupportPage], () =>
     adminSupportService.getSupportServicePage()
   );
 
-  useQuery(queryKeys.getFullHomePage, () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 
