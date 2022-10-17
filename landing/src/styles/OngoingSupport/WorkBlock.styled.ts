@@ -20,6 +20,7 @@ export const Title = styled.h2`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.oneAndHalf};
+    display: none;
   }
 `;
 

@@ -7,6 +7,7 @@ import { IServiceMobile } from "../../types/Admin/Response.types";
 import android from "../../../public/MobileSevice/strongBlock/android.svg";
 import apple from "../../../public/MobileSevice/strongBlock/apple.svg";
 import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const StrongBlock = () => {
   const queryClient = useQueryClient();
@@ -17,6 +18,7 @@ const StrongBlock = () => {
   return (
     <Styled.StrongContainer>
       <Subtitle>{data?.subtitle}</Subtitle>
+      <MobileInfiniteText title={data?.subtitle} />
       <Styled.ContentContainer>
         {data &&
           Object.entries(data?.textBlock).map((el, idx) => (

@@ -20,8 +20,7 @@ export const HoverWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding-bottom: 7.7em;
-    padding-top: 8.653em;
+    padding: 0 0 6em 0;
 
     &:hover {
       & > div > div:first-child {

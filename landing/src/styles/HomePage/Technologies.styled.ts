@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
+type PropsWithId = {
+  idx: number;
+};
+
 export const TechnologyContainer = styled.section`
   position: relative;
   user-select: none;
@@ -9,6 +13,7 @@ export const TechnologyContainer = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 4.375rem;
+    margin-top: 2.3em;
   }
 `;
 
@@ -28,6 +33,19 @@ export const TechTitle = styled.h2`
     font-size: 1.5rem;
     padding-bottom: 0;
     line-height: 233%;
+    display: none;
+  }
+`;
+
+export const TitleWrapper = styled.div<PropsWithId>`
+  @media ${themes.primary.media.maxMobile} {
+    position: absolute;
+    top: 0;
+    top: -2em;
+    display: flex;
+    align-items: center;
+    left: ${(props) =>
+      props.idx === 0 ? `${0.8 + 3.2}em` : `${props.idx + 3.2}em`};
   }
 `;
 
@@ -45,6 +63,7 @@ export const TechnologyRow = styled.div`
     grid-template-columns: 1fr;
     row-gap: 0;
     column-gap: 0;
+    margin-top: 14em;
   }
 `;
 
@@ -68,6 +87,11 @@ export const CategoryContainer = styled.div`
     &:last-child img {
       margin-bottom: 0;
     }
+
+    &:last-child h2 {
+      border-bottom: solid 3.5px ${themes.primary.colors.primary};
+    }
+    margin-top: -8em;
   }
 `;
 
@@ -81,7 +105,7 @@ export const CategoryDescriptionWrapper = styled.div`
 
 export const CategoryTechnologiesWrapper = styled.div``;
 
-export const CategoryTitle = styled.h2`
+export const CategoryTitle = styled.h2<PropsWithId>`
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
   text-decoration: underline;
@@ -98,15 +122,48 @@ export const CategoryTitle = styled.h2`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    border: 1px solid ${themes.primary.colors.headerBorder};
+    position: relative;
+    border: none;
+    background-color: ${themes.primary.colors.blogBackground};
+    border-radius: 8px;
+    border: solid 3.5px ${themes.primary.colors.primary};
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     padding-inline: 1rem;
-    height: 95px;
     text-decoration: none;
     margin: 0;
+    ::before {
+      content: "";
+      width: 7em;
+      position: absolute;
+      height: 3em;
+      border: solid 3.5px ${themes.primary.colors.primary};
+      background-color: ${themes.primary.colors.blogBackground};
+      border-bottom: solid 3.5px ${themes.primary.colors.blogBackground};
+      border-top-width: 4px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      border-bottom-width: 0px;
+      -webkit-transform: perspective(200px) rotateX(40deg);
+      left: ${(props) => `${props.idx + 2}em`};
+      top: -2.952em;
+      z-index: -10;
+    }
+    padding-left: 2em;
+    margin-top: 2.5em;
+    height: 6em;
+    &.open-title {
+      height: 1.5em;
+      &.blockchain-title::before {
+        width: 10em;
+      }
+    }
+    &.blockchain-title::before {
+      width: 10em;
+      left: ${(props) => `${props.idx + 1.75}em`};
+    }
   }
 `;
 
@@ -149,6 +206,7 @@ export const CategoryImgWrapper = styled.div`
 
     &.open {
       display: block;
+      padding: 50px 0;
     }
   }
 

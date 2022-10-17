@@ -10,6 +10,7 @@ interface ITechnologyCategoryProps {
   title: string;
   text: string;
   stack: string[];
+  idx: number;
   className?: string;
 }
 
@@ -19,6 +20,7 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
   text,
   stack,
   className,
+  idx,
 }) => {
   const { width } = useWindowDimension();
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -38,22 +40,27 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
       onMouseLeave={width && width >= 768 ? onClose : undefined}
     >
       <StyledThisComp.CategoryTitle
+        idx={idx}
+        className={`${isOpen ? "open-title" : ""} 
+        ${className === "blockchain" ? "blockchain-title" : ""}`}
         onClick={width && width < 767 ? () => setIsOpen(!isOpen) : undefined}
       >
-        {title}&nbsp;
-        <StyledThisComp.Arrow
-          width="15"
-          height="8"
-          viewBox="0 0 15 8"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className={isOpen ? "open" : undefined}
-        >
-          <path
-            d="M7.5 7.99994L0.138784 0.499939L14.8612 0.499939L7.5 7.99994Z"
-            fill="black"
-          />
-        </StyledThisComp.Arrow>
+        <StyledThisComp.TitleWrapper idx={idx}>
+          {title}&nbsp;
+          <StyledThisComp.Arrow
+            width="15"
+            height="8"
+            viewBox="0 0 15 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={isOpen ? "open" : undefined}
+          >
+            <path
+              d="M7.5 7.99994L0.138784 0.499939L14.8612 0.499939L7.5 7.99994Z"
+              fill="black"
+            />
+          </StyledThisComp.Arrow>
+        </StyledThisComp.TitleWrapper>
       </StyledThisComp.CategoryTitle>
       <StyledThisComp.CategorySubtitle className={className}>
         <SplitBrackets text={text} />

@@ -13,6 +13,16 @@ export const Container = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin: 0;
     flex-direction: column-reverse;
+    position: relative;
+    ::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 130%;
+      bottom: -10%;
+      left: -10%;
+    }
   }
 `;
 

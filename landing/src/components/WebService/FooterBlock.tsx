@@ -5,7 +5,7 @@ import {
   ArrowContainer,
   BlackButton,
 } from "../../styles/HomePage/General.styled";
-import { Subtitle } from "../../styles/MobileService/Layout";
+import { VisibleSubtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/WebService/FooterBlock.styled";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import ButtonArrow from "../../utils/ButtonArrow";
@@ -20,7 +20,7 @@ const FooterBlock = () => {
     <Styled.Container>
       <Styled.TextContent>
         <Styled.SubtitleWrapper>
-          <Subtitle>{data?.subtitle}</Subtitle>
+          <VisibleSubtitle>{data?.subtitle}</VisibleSubtitle>
         </Styled.SubtitleWrapper>
         <BlackButton
           padding={"1.117em 3.755em"}

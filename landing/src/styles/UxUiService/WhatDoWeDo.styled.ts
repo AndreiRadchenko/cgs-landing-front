@@ -8,6 +8,16 @@ export const Container = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 4.8em;
+    position: relative;
+    ::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 130%;
+      bottom: -10%;
+      left: -10%;
+    }
   }
 `;
 
@@ -21,6 +31,7 @@ export const Title = styled.h2`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
     line-height: 233%;
+    display: none;
   }
 `;
 

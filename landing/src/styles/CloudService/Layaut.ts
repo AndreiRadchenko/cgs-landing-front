@@ -27,7 +27,6 @@ export const Subtitle = styled.h2`
   text-transform: uppercase;
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.5em;
-    line-height: 233%;
+    display: none;
   }
 `;

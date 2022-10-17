@@ -11,6 +11,7 @@ import upDashed from "../../../public/CloudServicePage/upDashed.svg";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const WhatDoWeDoBlock = () => {
   const queryClient = useQueryClient();
@@ -29,6 +30,7 @@ const WhatDoWeDoBlock = () => {
   return (
     <Styled.Container>
       <Styled.Title>{data?.title}</Styled.Title>
+      <MobileInfiniteText title={data?.title} />
       <Styled.SubBlockContainer ref={elRef}>
         {data?.textSubBlock.map((el, idx) => (
           <Styled.Wrapper

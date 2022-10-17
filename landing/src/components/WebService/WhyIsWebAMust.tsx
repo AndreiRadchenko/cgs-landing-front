@@ -1,5 +1,5 @@
 ﻿import React, { useRef } from "react";
-import { Subtitle } from "../../styles/MobileService/Layout";
+import { Subtitle, VisibleSubtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/WebService/WhyIsWebAMust.styled";
 import crystal from "../../../public/MobileSevice/worthIt/crystal.svg";
 import cube from "../../../public/MobileSevice/worthIt/cube.svg";
@@ -33,7 +33,7 @@ const WhyIsWebAMust = () => {
   const isScrolled = useOnScreen(elRef, true);
   return (
     <Styled.Container>
-      <Subtitle>{data?.subtitle}</Subtitle>
+      <VisibleSubtitle>{data?.subtitle}</VisibleSubtitle>
       <Styled.ContentLayout ref={elRef}>
         {textBlock &&
           Object.entries(textBlock).map((el, idx) => (

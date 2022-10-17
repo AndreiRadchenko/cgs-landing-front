@@ -8,6 +8,7 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 import serverIcon from "../../../public/DbService/illServers.svg";
 import dbIcon from "../../../public/DbService/illDatabase.svg";
 import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const ExpertiseBlock = () => {
   const queryClient = useQueryClient();
@@ -18,6 +19,7 @@ const ExpertiseBlock = () => {
   return (
     <Styled.Container>
       <Subtitle>{data?.subtitle}</Subtitle>
+      <MobileInfiniteText title={data?.subtitle} />
       <Styled.ContentWrapper>
         <Styled.TextBlock>
           <Styled.Icon

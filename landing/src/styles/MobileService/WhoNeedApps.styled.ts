@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   background-repeat: no-repeat;
   background-size: 100% 100%;
   padding-bottom: 8.5em;
+  position: relative;
 
   @media ${themes.primary.media.minPC} {
     padding: 3em;
@@ -21,6 +22,25 @@ export const Wrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 8em;
     padding-bottom: 9.5em;
+    ::before {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 130%;
+      top: -2.5%;
+      left: -10%;
+    }
+
+    ::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 130%;
+      bottom: 0%;
+      left: -10%;
+    }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -32,13 +52,14 @@ export const WhatDoWeUse = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  position: relative;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     align-items: center;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding-bottom: 3em;
+    padding-bottom: 70px;
   }
 `;
 
@@ -146,6 +167,7 @@ export const WhoNeedAppsBlocks = styled.div`
   margin-top: 33.8em;
   display: flex;
   flex-direction: column;
+  position: relative;
   @media ${themes.primary.media.minPC} {
     margin-top: 25em;
   }

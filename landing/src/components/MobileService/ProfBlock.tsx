@@ -2,7 +2,7 @@
 import parse, { Element, HTMLReactParserOptions } from "html-react-parser";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { Subtitle } from "../../styles/MobileService/Layout";
+import { Subtitle, VisibleSubtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/MobileService/ProfBlock.styled";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import {
@@ -47,7 +47,7 @@ const ProfBlock = () => {
 
   return (
     <Styled.ContentContainer>
-      <Subtitle className="footer">{data?.title}</Subtitle>
+      <VisibleSubtitle className="footer">{data?.title}</VisibleSubtitle>
       <Styled.ProfText>
         {data && parse(data.text.replace("|", "<br />"), options)}
       </Styled.ProfText>

@@ -12,10 +12,21 @@ export const Container = styled.div`
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     width: 100%;
-    margin-top: 92px;
+    margin-top: 1.5em;
 
     background-position: bottom center;
     background-size: contain;
+
+    position: relative;
+    ::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 130%;
+      bottom: -10%;
+      left: -10%;
+    }
   }
 `;
 
@@ -34,5 +45,6 @@ export const Title = styled.h2`
     margin-bottom: 1.4em;
     font-size: 1.5em;
     line-height: 132%;
+    display: none;
   }
 `;

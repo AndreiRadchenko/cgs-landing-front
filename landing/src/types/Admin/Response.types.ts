@@ -311,8 +311,12 @@ export interface IIntroWithImage {
   image: { url: string };
 }
 
+export interface IService {
+  headerBlock: IIntroWithImage;
+}
+
 export interface IServiceMobile {
-  mainBlock: IIntroWithImage;
+  headerBlock: IIntroWithImage;
   worthBlock: {
     subtitle: string;
     textBlock: {

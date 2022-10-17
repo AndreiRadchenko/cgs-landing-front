@@ -258,10 +258,10 @@ export const RowContainer = styled.div`
   @media ${themes.primary.media.minPC} {
     column-gap: 6.5vw;
   }
-  
+
   @media ${themes.primary.media.maxMobile} {
     &.wrapper {
-      align-items; center;
+      align-items: center;
       flex-direction: column;
     }
     padding-left: 0px;
@@ -289,14 +289,14 @@ export const AboutUsContainer = styled(RowContainer)`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    align-items; center;
+    align-items: center;
     flex-direction: column;
     padding-left: 0px;
-    >div:nth-child(2){
+    > div:nth-child(2) {
       padding-top: 0;
       padding-bottom: 320px;
     }
-    >div:first-child{
+    > div:first-child {
       margin-bottom: 70px;
     }
   }

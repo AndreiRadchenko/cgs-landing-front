@@ -5,12 +5,23 @@ import { slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
   width: 98.5%;
+  position: relative;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 6.25em;
 
     h2 {
       line-height: normal;
+    }
+
+    ::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 130%;
+      bottom: -10%;
+      left: -10%;
     }
   }
 `;

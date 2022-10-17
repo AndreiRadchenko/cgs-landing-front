@@ -53,6 +53,7 @@ export const Title = styled.h2`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
     line-height: 233%;
+    display: none;
   }
 `;
 

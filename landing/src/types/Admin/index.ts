@@ -123,10 +123,10 @@ export enum HttpStatusCode {
 }
 
 export enum HttpMethods {
-  GET = 'get',
-  POST = 'post',
-  PUT = 'put',
-  DELETE = 'delete',
+  GET = "get",
+  POST = "post",
+  PUT = "put",
+  DELETE = "delete",
 }
 
 export interface IHttpConfig {

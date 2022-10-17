@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { MobileInfiniteText } from "../../components/MobileInfiniteText/MobileInfiniteText";
 import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 import { slideDown, slideDownText } from "../Animations.styled";
@@ -12,6 +13,16 @@ export const Container = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 4.44em;
     padding: 0;
+
+    ::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 130%;
+      bottom: -7%;
+      left: -10%;
+    }
   }
 `;
 
@@ -65,6 +76,11 @@ export const BgMobileImage = styled.img`
   @media ${themes.primary.media.maxMobile} {
     left: -5.7em;
   }
+
+  @media ${themes.primary.media.maxMobilePortrait} {
+    height: 75%;
+    top: 4.5em;
+  }
 `;
 
 export const CategorySubtitle = styled.h3`
@@ -81,6 +97,14 @@ export const CategorySubtitle = styled.h3`
     font-size: 1.5em;
     margin-bottom: 0.67em;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
+`;
+
+export const VisibleCategorySubtitle = styled(CategorySubtitle)`
+  display: block;
 `;
 
 export const CategoryListItem = styled.p<ISlide>`
@@ -178,4 +202,9 @@ export const ContentWrapper = styled.div`
       }
     }
   }
+`;
+
+export const MobileCategoryInfiniteText = styled(MobileInfiniteText)`
+  margin-left: -50% !important;
+  width: 200% !important;
 `;
