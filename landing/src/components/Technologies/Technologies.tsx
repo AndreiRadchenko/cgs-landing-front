@@ -40,7 +40,7 @@ const Technologies = () => {
       <StyledThisComp.TechnologyRow>
         {data &&
           Object.entries(data).map((item, idx) => (
-            <>
+            <React.Fragment key={item[0] + `_fragment`}>
               <TechnologyCategory
                 idx={idx}
                 className={idx === 3 ? "blockchain" : undefined}
@@ -59,7 +59,7 @@ const Technologies = () => {
                 stack={item[1].stack}
                 title={item[1].category}
               />
-            </>
+            </React.Fragment>
           ))}
       </StyledThisComp.TechnologyRow>
     </StyledThisComp.TechnologyContainer>

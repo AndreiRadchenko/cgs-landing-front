@@ -93,6 +93,11 @@ export const SpaceBetween = styled.div`
       font-size: 1.16em;
     }
   }
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const AuthorMetaInfoWrapper = styled.div`

@@ -54,6 +54,12 @@ export const SubTextContainer = styled.div`
     margin: 8px 0 0 -5.5em;
     width: 35em;
     height: 19.296875em;
+    background-size: auto;
+    margin-left: -120px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: -90px;
   }
 `;
 

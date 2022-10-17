@@ -62,6 +62,12 @@ export const BlackButton = styled.a<IFontSize>`
     margin-left: 20px;
   }
 
+  &.footer-home {
+    margin-top: 10px;
+    height: 4vw;
+    margin-left: 20px;
+  }
+
   &.main {
     background: transparent;
     color: ${themes.primary.colors.primary};
@@ -702,7 +708,7 @@ export const FooterLinkButton = styled.a`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    padding: 12px 15px;
+    padding: 1.2rem 1rem;
   }
 
   & path {

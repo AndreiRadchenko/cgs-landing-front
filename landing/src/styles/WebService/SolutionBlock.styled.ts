@@ -44,6 +44,10 @@ export const BgImageSecond = styled.img`
     margin-top: 2em;
     width: 26.25em;
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 22em;
+  }
 `;
 
 export const LeftSideText = styled.div`

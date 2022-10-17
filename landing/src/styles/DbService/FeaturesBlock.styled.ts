@@ -82,7 +82,7 @@ export const TextContent = styled.div<ISlide>`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.11em;
+    font-size: 1.3em;
     width: 17em;
 
     &:not(:first-child) {
@@ -103,15 +103,6 @@ export const TextContent = styled.div<ISlide>`
   @media ${themes.primary.media.maxMobile} {
     &:not(:first-child) {
       padding-top: 1.8em;
-    }
-
-    &:nth-child(2) {
-      padding-top: 1em;
-    }
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    &:not(:first-child) {
-      padding-top: 1.25em;
     }
 
     &:nth-child(2) {
@@ -204,18 +195,15 @@ export const BgImageMobile = styled.img`
   @media ${themes.primary.media.maxTabletPortrait} {
     position: absolute;
     display: block;
-    width: 68em;
-    left: -17em;
-    top: 3.6em;
+    width: 60em;
+    left: -3.2em;
+    top: 5em;
+    top: 6em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 65em;
-    top: 7em;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 61em;
-    left: -16em;
+    width: 56em;
+    left: -2.5em;
+    top: 7.5em;
   }
 `;
