@@ -26,27 +26,69 @@ export const Title = styled.h2`
 `;
 
 export const SubTextContainer = styled.div`
-  width: 91.375em;
-  height: 14.875em;
-  margin: 2.625em -6em 0 -3.2em;
+  width: 100vw;
+  height: 16.66vw;
+  margin: 2.625em 0 0 -3.25em;
   background-image: url(${BlockchainServices.src});
-  background-size: cover;
+  background-size: contain;
   background-position: bottom right;
   background-repeat: no-repeat;
 
   @media ${themes.primary.media.minPC} {
-    margin-left: -3.5em;
+    margin-left: -3.6em;
+
+    & > div > p {
+      margin-bottom: 5.8%;
+    }
+  }
+
+  @media (min-width: 1700px) {
+    & > div > p {
+      margin-bottom: 6.3%;
+    }
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 110em;
-    height: 17.625em;
-    margin-left: -4em;
+    margin-left: -3.5em;
+    & > div > p {
+      margin-bottom: 4.8%;
+    }
+  }
+
+  @media (min-width: 2000px) {
+    & > div > p {
+      margin-bottom: 5.8%;
+    }
+  }
+
+  @media (min-width: 2200px) {
+    margin-left: -3.1em;
+
+    & > div > p {
+      margin-bottom: 5%;
+    }
+  }
+
+  @media (min-width: 2400px) {
+    & > div > p {
+      margin-bottom: 2.15vw;
+    }
+  }
+
+  @media (min-width: 2700px) {
+    & > div > p {
+      margin-bottom: 2.45vw;
+    }
+  }
+
+  @media (min-width: 3600px) {
+    & > div > p {
+      margin-bottom: 2.8vw;
+    }
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 0.8rem;
-    margin-left: -8em;
+    margin-left: -3.8em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -65,22 +107,37 @@ export const SubTextContainer = styled.div`
 
 export const SubTextContent = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 13em;
-  padding-left: 5em;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20%;
+  padding-left: 7%;
+  width: 100%;
 
-  @media ${themes.primary.media.minPC} {
-    padding-top: 0;
+  @media ${themes.primary.media.minPCTwoThousand} {
+    padding-left: 9%;
   }
 
-  @media ${themes.primary.media.minPCFullHD} {
-    padding-left: 9em;
-    column-gap: 15em;
+  @media (max-width: 1100px) {
+    column-gap: 18vw;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     display: block;
-    padding: 6px 0 0 0;
+    padding: 66px 0 0 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-top: 38px;
+  }
+
+  @media (max-width: 600px) {
+    padding-top: 42px;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    padding-top: 32px;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    padding-top: 25px;
   }
 `;
 
@@ -88,9 +145,10 @@ export const SubText = styled.p<ISlide>`
   font-size: 1.5em;
   line-height: 233%;
   text-transform: uppercase;
-  margin: -12px 0 25px 2em;
+  margin: -12px 0 1.7vw 2em;
   padding: 0;
   opacity: 0;
+  white-space: nowrap;
 
   &.scrolled {
     transform-origin: top center;
@@ -100,27 +158,53 @@ export const SubText = styled.p<ISlide>`
       `};
   }
 
-  @media ${themes.primary.media.minPCFullHD} {
-    margin-bottom: 40px;
+  @media (min-width: 2900px) {
+    margin-top: -0.5%;
   }
 
-  @media (min-width: 2200px) {
-    margin-bottom: 45px;
+  @media (min-width: 3300px) {
+    margin-top: 0;
+  }
+
+  @media (max-width: 1350px) {
+    margin-block: -9px 1.8vw;
+    font-size: 1.2em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-block: -10px 19px;
   }
 
+  @media (max-width: 1100px) {
+    margin-block: -11px 1.55vw;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1em;
-    margin: 0;
-    margin-block: -2px 14px;
-    padding-left: 9em;
+    font-size: 2em;
+    line-height: normal;
+    margin: 0 0 78px 0;
+    padding-left: 4em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 14.5px;
+    font-size: 1.5em;
+    margin-bottom: 52px;
+    padding-left: 5em;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1.2em;
+    margin-bottom: 57px;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1em;
+    padding-left: 3.5em;
+    margin-bottom: 33px;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    font-size: 0.8em;
+    margin-bottom: 26px;
   }
 `;
 
