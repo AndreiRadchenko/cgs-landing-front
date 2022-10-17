@@ -5,9 +5,11 @@ const Loader = () => {
   return (
     <Styled.LoaderWrapper>
       <Styled.LoaderRow>
-        <Styled.Cube />
         <Styled.Cube className="middle" />
-        <Styled.Cube />
+        <Styled.EdgeCubeWrapper>
+          <Styled.Cube />
+          <Styled.Cube />
+        </Styled.EdgeCubeWrapper>
       </Styled.LoaderRow>
     </Styled.LoaderWrapper>
   );

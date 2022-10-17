@@ -18,10 +18,10 @@ interface IReviewProps {
 }
 
 const Review = ({ review, className }: IReviewProps) => {
-  const [isImageReady, setIsImageReady] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const onLoadCallBack = () => {
-    setIsImageReady(true);
+    setIsLoading(false);
   };
   const { width } = useWindowDimension();
   const startsArr = [];
@@ -121,16 +121,13 @@ const Review = ({ review, className }: IReviewProps) => {
         </Styled.ContentContainer>
         {(review?.image && (
           <Styled.ImageContainer bgColor={review.bgColor}>
-            {/* {isImageReady &&  */}
-            <Loader />
-            {/* } */}
-            {/* <Image
+            {isLoading && <Loader />}
+            <Image
               src={review.image.url}
               alt="review image"
               layout="fill"
-              priority={true}
               onLoad={onLoadCallBack}
-            /> */}
+            />
           </Styled.ImageContainer>
         )) || <h1>No Image</h1>}
       </Styled.ReviewContainer>
