@@ -3,6 +3,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import {
   Subtitle,
+  BlackButton,
   FooterButtonWrapper,
   FooterLinkButton,
   ArrowContainer,
@@ -28,18 +29,19 @@ const BookBlock = () => {
             <ScrambleText text="tech solutions" />
           )) || <span className="blue">tech solutions</span>}
         </span>
-        <FooterButtonWrapper>
-          <FooterLinkButton
-            target="_blank"
-            rel="noopener noreferrer"
-            href={data && data.buttonLink && recoverLink(data?.buttonLink)}
-          >
-            {data?.button}
-            <ArrowContainer>
-              <ButtonArrow />
-            </ArrowContainer>
-          </FooterLinkButton>
-        </FooterButtonWrapper>
+        <BlackButton
+          target="_blank"
+          rel="noopener noreferrer"
+          href={data && data.buttonLink && recoverLink(data?.buttonLink)}
+          size={"1.85em"}
+          padding={"1.11em 1.5em"}
+          className="footer-home"
+        >
+          {data?.button}
+          <ArrowContainer>
+            <ButtonArrow />
+          </ArrowContainer>
+        </BlackButton>
       </Subtitle>
     </>
   );

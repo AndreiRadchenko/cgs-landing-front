@@ -237,16 +237,35 @@ export const CardContainer = styled.div`
       position: absolute;
       background-color: ${themes.primary.colors.headerBorder};
       width: 100%;
-      bottom: -20%;
+      bottom: 0;
       left: 0%;
     }
+
+    &:nth-child(1)::after {
+      bottom: -1em;
+    }
+
+    &:nth-child(2)::after {
+      bottom: -1em;
+    }
+
+    &:nth-child(3) {
+      margin-top: 2em;
+      ::after {
+        bottom: -1em;
+      }
+    }
+
+    padding-top: 0px;
+    margin-bottom: 30px;
+    padding-bottom: 29px;
+
     :last-child {
       ::after {
         content: none;
       }
+      margin-bottom: 0;
     }
-
-    padding-top: 120px;
 
     :first-child {
       padding-top: 50px;

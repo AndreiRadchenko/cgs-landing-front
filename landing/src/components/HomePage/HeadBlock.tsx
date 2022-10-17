@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as Styled from "../../styles/HomePage/General.styled";
 import leftArrow from "../../../public/HomePageDecoration/leftArrow.svg";
+import leftArrowMobile from "../../../public/HomePageDecoration/leftArrowMobile.svg";
 import rightArrow from "../../../public/HomePageDecoration/rightArrow.svg";
+import rightArrowMobile from "../../../public/HomePageDecoration/rightArrowMobile.svg";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
@@ -9,6 +11,7 @@ import { recoverLink } from "../../utils/recoverLink";
 import ButtonArrow from "../../utils/ButtonArrow";
 import Tetris from "./Tetris";
 import Image from "next/image";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const HeadBlock = () => {
   const buttonRef = useRef<HTMLAnchorElement>(null);
@@ -18,6 +21,8 @@ const HeadBlock = () => {
   const data = queryClient.getQueryData<IDataResponse>([
     queryKeys.getFullHomePage,
   ])?.EditInformationBlock;
+
+  const { width } = useWindowDimension();
 
   const onScroll = () => {
     const elTop = buttonRef?.current?.getBoundingClientRect().top || 0;
@@ -44,7 +49,7 @@ const HeadBlock = () => {
 
             <Styled.LeftArrowWrapper>
               <Image
-                src={leftArrow.src}
+                src={width && width > 798 ? leftArrow.src : leftArrowMobile}
                 alt="head block left arrow"
                 layout="fill"
                 objectFit="contain"
@@ -55,7 +60,7 @@ const HeadBlock = () => {
             <div>TODAY BRIEFED</div>
             <Styled.RightArrowWrapper>
               <Image
-                src={rightArrow.src}
+                src={width && width > 798 ? rightArrow.src : rightArrowMobile}
                 alt="head block left arrow"
                 layout="fill"
                 objectFit="contain"
@@ -73,7 +78,7 @@ const HeadBlock = () => {
           className={buttonClassName}
           ref={buttonRef}
         >
-          {data?.button}
+          {width && width > 768 ? data?.button : "BOOK A CALL"}
           <Styled.ArrowContainer>
             <ButtonArrow />
           </Styled.ArrowContainer>

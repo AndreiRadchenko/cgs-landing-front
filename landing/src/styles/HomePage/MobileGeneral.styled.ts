@@ -102,8 +102,6 @@ export const BlackButton = styled.a<IFontSize>`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     &.seeAll {
-      padding: 0.75rem 0.625rem;
-
       & > div {
         width: 25px;
         height: 25px;
@@ -326,7 +324,7 @@ export const Subtitle = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-  margin: 32px 0 40px;
+  margin: 32px 0 15px;
 
   & u {
     text-decoration-thickness: 3px;
@@ -551,54 +549,11 @@ export const FilmText = styled.div`
   max-width: 42%;
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
-  margin-bottom: 2em;
-
-  @media ${themes.primary.media.minPC} {
-    font-size: ${themes.primary.font.size.menuElement};
-  }
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 1.4em;
-  }
-  @media (max-width: 1220px) {
-    font-size: 20px;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 1rem;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.1rem;
-  }
-
-  @media (max-width: 835px) {
-    font-size: 1.1rem;
-    max-width: 70.5%;
-  }
+  margin-bottom: 0.5em;
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 2.65em;
-    max-width: 83.5%;
-  }
-
-  @media (max-width: 660px) {
-    font-size: ${themes.primary.font.size.secondary};
-  }
-
-  @media ${themes.primary.media.minTablet} {
-    font-size: 1.8em;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
     max-width: 98.5%;
-    font-size: 1.1rem;
-  }
-
-  @media (max-width: 360px) {
-    font-size: 0.95rem;
-  }
-
-  @media (max-width: 320px) {
-    font-size: 0.8rem;
+    font-size: 1.6em;
   }
 `;
 

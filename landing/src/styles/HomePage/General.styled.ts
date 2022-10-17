@@ -97,13 +97,13 @@ export const BlackButton = styled.a<IFontSize>`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 1.25rem 1.375rem;
+    &.footer-home {
+      margin-top: 1em;
+    }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     &.seeAll {
-      padding: 0.75rem 0.625rem;
-
       & > div {
         width: 25px;
         height: 25px;
