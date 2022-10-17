@@ -4,8 +4,6 @@ import { queryKeys } from "../../consts/queryKeys";
 import {
   Subtitle,
   BlackButton,
-  FooterButtonWrapper,
-  FooterLinkButton,
   ArrowContainer,
 } from "../../styles/HomePage/General.styled";
 import { IDataResponse } from "../../types/Admin/Response.types";
