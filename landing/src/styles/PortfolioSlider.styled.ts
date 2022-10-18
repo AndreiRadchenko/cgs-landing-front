@@ -535,3 +535,10 @@ export const ProjectIndustry = styled.div`
   font-size: 1.5em;
   margin-top: 0.5em;
 `;
+
+export const Loader = styled.div`
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: red;
+`;
