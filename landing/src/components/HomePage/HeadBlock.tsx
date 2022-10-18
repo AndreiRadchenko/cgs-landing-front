@@ -12,19 +12,20 @@ import ButtonArrow from "../../utils/ButtonArrow";
 import Tetris from "./Tetris";
 import Image from "next/image";
 import { useOnScreen } from "../../hooks/useOnScreen";
-
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const HeadBlock = () => {
-  const buttonRef = useRef<HTMLAnchorElement>(null);
+  const { width } = useWindowDimension();
   const [buttonClassName, setButtonClassName] = useState<string>("main");
+
+  const buttonRef = useRef<HTMLAnchorElement>(null);
+  const elRef = useRef<HTMLSpanElement>(null);
+  const isOnScreen = useOnScreen(elRef, true);
 
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>([
     queryKeys.getFullHomePage,
   ])?.EditInformationBlock;
-
-  const elRef = useRef<HTMLSpanElement>(null);
-  const isOnScreen = useOnScreen(elRef, true);
 
   useEffect(() => {
     if (isOnScreen) {
