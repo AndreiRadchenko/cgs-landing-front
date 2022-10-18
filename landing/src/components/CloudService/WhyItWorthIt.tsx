@@ -29,7 +29,7 @@ const WhyItWorthIt = () => {
 
   return (
     <Styled.Container>
-      <Subtitle>{subtitle}</Subtitle>;
+      <Subtitle>{subtitle}</Subtitle>
       <MobileInfiniteText title={subtitle} />
       <Styled.BlockWrapper ref={elRef}>
         {Object.values(blocks).map((el, index) => (

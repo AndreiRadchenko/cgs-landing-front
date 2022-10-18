@@ -150,6 +150,7 @@ export const ContentWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     max-width: 100%;
     row-gap: 5.5em;
+    padding: 0 0 0 3.75em;
     padding-bottom: 8em;
   }
 
@@ -203,7 +204,7 @@ export const BgImageMobile = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     width: 56em;
-    left: -2.5em;
+    left: -1.5em;
     top: 7.5em;
   }
 `;

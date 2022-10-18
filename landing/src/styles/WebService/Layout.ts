@@ -17,6 +17,11 @@ export const Layout = styled.div`
     margin-bottom: 6.19em;
   }
 
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    overflow: visible;
+    margin-bottom: 3.19em;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.6rem;
   }
