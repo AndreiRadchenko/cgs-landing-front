@@ -16,11 +16,11 @@ export const Container = styled.div`
 
 export const TextContent = styled.div`
   & > a {
-    font-size: 1.125em;
+    font-size: 1.3em;
     margin-top: 2.9em;
 
     @media ${themes.primary.media.maxMobile} {
-      font-size: 1em;
+      font-size: 1.3em;
       margin-top: 2.19em;
       padding: 1.195em 1.31em;
     }

@@ -33,12 +33,12 @@ export const Subtitle = styled.h2`
   @media ${themes.primary.media.maxMobile} {
     line-height: 233%;
     white-space: normal;
-
+    display: none;
     & .last-part > div {
       top: 20%;
     }
 
-    display: none;
+    margin-top: 1em;
   }
 
   @media (max-width: 370px) {

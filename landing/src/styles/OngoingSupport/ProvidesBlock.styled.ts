@@ -75,6 +75,9 @@ export const Text = styled.p`
     line-height: 132%;
     margin-block: 0.38em 1.3em;
   }
+  @media (max-width: 400px) {
+    font-size: 1em;
+  }
 `;
 
 export const ContentWrapper = styled.div`

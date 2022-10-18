@@ -18,7 +18,7 @@ export const SwiperWrapper = styled.div`
 export const ServiceWrapper = styled.div`
   border: 1px solid ${themes.primary.colors.headerBorder};
   height: 40em;
-  padding: 2.5em 2em;
+  padding: 1.7em;
   position: relative;
   overflow-y: visible;
   > div {
@@ -54,7 +54,7 @@ export const ImageWrapper = styled.div`
     width: 75%;
   }
   @media (max-width: 400px) {
-    width: 85%;
+    width: 95%;
   }
 `;
 

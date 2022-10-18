@@ -68,18 +68,18 @@ export const BgMobileImage = styled.img`
   @media ${themes.primary.media.maxTabletPortrait} {
     display: block;
     position: absolute;
-    height: 82%;
+    height: 103%;
     top: 3.3em;
     left: -7.2em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    left: -5.7em;
+    left: -5.3em;
   }
 
   @media ${themes.primary.media.maxMobilePortrait} {
-    height: 75%;
-    top: 4.5em;
+    height: 97%;
+    top: 4.4em;
   }
 `;
 

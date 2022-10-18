@@ -174,7 +174,7 @@ export const BlogItemContainer = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 50px 0.75rem;
+    padding: 50px 0.75rem 25px;
   }
 `;
 

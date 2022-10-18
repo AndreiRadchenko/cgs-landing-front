@@ -5,17 +5,18 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
 
-  & img {
-    width: 43.1em !important;
-  }
-
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     width: 100%;
     margin-top: 1.5em;
+    overflow-x: visible;
 
     background-position: bottom center;
     background-size: contain;
+
+    & img {
+      width: 110%;
+    }
 
     position: relative;
     ::after {
@@ -27,6 +28,31 @@ export const Container = styled.div`
       bottom: -10%;
       left: -10%;
     }
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
+`;
+
+export const MobileImageWrapper = styled.div`
+  display: none;
+  @media ${themes.primary.media.maxMobile} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+    height: 225px;
+  }
+
+  @media (min-width: 410px) {
+    height: 300px;
+  }
+
+  @media (min-width: 555px) {
+    height: 350px;
   }
 `;
 

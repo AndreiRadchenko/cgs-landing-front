@@ -48,7 +48,11 @@ const AboutUs = ({ data }: IAboutUs) => {
             <Styled.Subtitle>{data.bonuses.subtitle}</Styled.Subtitle>
             {data &&
               data.bonuses.text.map((el, idx) => {
-                return <Styled.Text key={idx}>{el}</Styled.Text>;
+                return (
+                  <Styled.Text className="bonuses-text" key={idx}>
+                    {el}
+                  </Styled.Text>
+                );
               })}
           </Styled.DescriptionContainer>
         </Styled.ColContainer>

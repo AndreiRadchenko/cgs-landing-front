@@ -78,17 +78,20 @@ export const Text = styled.div`
     }
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.headerLinkText};
+    font-size: 1em;
     width: 95%;
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 90%;
-    font-size: 1.6em;
+    font-size: 16px;
+    &.bonuses-text {
+      margin: 4px 0;
+    }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 85%;
+    width: 94%;
   }
 `;
 
@@ -135,11 +138,11 @@ export const MainImageContainer = styled.div`
     width: 110%;
   }
   @media ${themes.primary.media.maxLaptop} {
-    margin-left: -15%;
+    margin-left: -17%;
     width: 102%;
   }
   @media ${themes.primary.media.onlyTabletPortrait} {
-    margin-left: -14%;
+    margin-left: -18%;
     width: 110%;
   }
   @media ${themes.primary.media.maxMobile} {
@@ -148,6 +151,10 @@ export const MainImageContainer = styled.div`
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-left: -7%;
+    width: 115%;
+  }
+  @media (min-width: 930px) and (max-width: 1200px) {
+    margin-left: -20%;
     width: 115%;
   }
 `;
@@ -169,7 +176,7 @@ export const TeamLine = styled.img`
 
 export const MovingText = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.medium};
+  font-weight: ${themes.primary.font.weight.semiBold};
   font-size: 1.5em;
   overflow: hidden;
   margin-top: -1.1em;
@@ -212,8 +219,14 @@ export const MovingText = styled.div`
   @media ${themes.primary.media.onlyTabletLandScape} {
     font-size: 1.185em;
   }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.1em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    min-height: 40px;
+    font-size: 1.8em;
   }
 `;
 

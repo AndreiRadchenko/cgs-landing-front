@@ -33,83 +33,68 @@ export const SubTextContainer = styled.div`
   background-size: contain;
   background-position: bottom right;
   background-repeat: no-repeat;
-
   @media ${themes.primary.media.minPC} {
     margin-left: -3.6em;
-
     & > div > p {
       margin-bottom: 5.8%;
     }
   }
-
   @media (min-width: 1700px) {
     & > div > p {
       margin-bottom: 6.3%;
     }
   }
-
   @media ${themes.primary.media.minPCFullHD} {
     margin-left: -3.5em;
     & > div > p {
       margin-bottom: 4.8%;
     }
   }
-
   @media (min-width: 2000px) {
     & > div > p {
       margin-bottom: 5.8%;
     }
   }
-
   @media (min-width: 2200px) {
     margin-left: -3.1em;
-
     & > div > p {
       margin-bottom: 5%;
     }
   }
-
   @media (min-width: 2400px) {
     & > div > p {
       margin-bottom: 2.15vw;
     }
   }
-
   @media (min-width: 2700px) {
     & > div > p {
       margin-bottom: 2.45vw;
     }
   }
-
   @media (min-width: 3600px) {
     & > div > p {
       margin-bottom: 2.8vw;
     }
   }
-
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-left: -3.8em;
   }
-
   @media ${themes.primary.media.maxTabletPortrait} {
     background-image: url(${MobileService.src});
     margin: 0 0 0 -4em;
     width: 992px;
     height: 683px;
   }
-
   @media ${themes.primary.media.maxMobile} {
     margin-left: -2.8em;
     width: 768px;
     height: 500px;
   }
-
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 475px;
     height: 330px;
     margin-left: -1.2em;
   }
-
   @media ${themes.primary.media.maxLowestScreenMobile} {
     width: 374px;
     height: 260px;
@@ -201,6 +186,9 @@ export const SubText = styled.p<ISlide>`
     font-size: 1.5em;
     margin-bottom: 52px;
     padding-left: 5em;
+    &:first-child {
+      padding-top: 10px;
+    }
   }
 
   @media (max-width: 600px) {
@@ -210,12 +198,17 @@ export const SubText = styled.p<ISlide>`
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 1em;
     padding-left: 3.5em;
-    margin-bottom: 33px;
+    margin-bottom: 32px;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
     font-size: 0.8em;
     margin-bottom: 26px;
+  }
+  @media (min-width: 520px) {
+    &:first-child {
+      padding-top: 7px;
+    }
   }
 `;
 

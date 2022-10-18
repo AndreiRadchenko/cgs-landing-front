@@ -19,7 +19,7 @@ export const MovingText = styled.div`
     ${themes.primary.colors.mainGradientColor1} 0%,
     ${themes.primary.colors.mainGradientColor2} 100%
   );
-  border: 2px solid ${themes.primary.colors.primary};
+  border: 1px solid ${themes.primary.colors.headerBorder};
   height: 2em;
   display: flex;
   align-items: center;

@@ -62,7 +62,7 @@ const BlockchainService = () => {
       </Layout>
       <ShowCase projects={data?.projects} />
       <Layout>
-        <Styled.Layout>
+        <Styled.Layout className="mobile-visivble">
           <AboutBlock />
           <FooterBlock />
         </Styled.Layout>
