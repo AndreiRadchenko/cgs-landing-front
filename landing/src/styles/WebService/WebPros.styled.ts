@@ -74,12 +74,12 @@ export const BgMobileImage = styled.img`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    left: -5.7em;
+    left: -5.3em;
   }
 
   @media ${themes.primary.media.maxMobilePortrait} {
     height: 97%;
-    top: 4.5em;
+    top: 4.4em;
   }
 `;
 

@@ -38,7 +38,7 @@ export const Image = styled.img`
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     width: 16.875em;
-    left: 4.44em;
+    left: 2.44em;
     top: 0;
     margin: 1.64em auto 1em;
   }
