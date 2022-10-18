@@ -141,9 +141,9 @@ export const TextContent = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.125em;
-    padding-left: 3.2em;
-    margin-top: 0.5em;
+    font-size: 1em;
+    padding-left: 5em;
+    margin-top: 0.7em;
     margin-right: auto;
   }
 `;

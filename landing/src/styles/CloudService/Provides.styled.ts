@@ -62,7 +62,7 @@ export const BGImageMobile = styled.img`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    top: 3em;
+    top: 4.5em;
     left: -1.2em;
     height: 44em;
     z-index: -1;
@@ -162,7 +162,7 @@ export const Title = styled.p`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.25em;
+    font-size: 1.6em;
     max-width: 14em;
 
     br {
@@ -194,7 +194,7 @@ export const Description = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
+    font-size: 1.25em;
     max-width: 20em;
     margin-top: 0.81em;
   }

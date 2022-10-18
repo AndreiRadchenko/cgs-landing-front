@@ -361,7 +361,6 @@ export const ImageContainer = styled.div<IImageContainer>`
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     border: 0;
-    border-bottom: 1px solid ${themes.primary.colors.comment};
     height: 347px;
   }
 

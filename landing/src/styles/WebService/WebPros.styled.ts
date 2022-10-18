@@ -68,7 +68,7 @@ export const BgMobileImage = styled.img`
   @media ${themes.primary.media.maxTabletPortrait} {
     display: block;
     position: absolute;
-    height: 82%;
+    height: 103%;
     top: 3.3em;
     left: -7.2em;
   }
@@ -78,7 +78,7 @@ export const BgMobileImage = styled.img`
   }
 
   @media ${themes.primary.media.maxMobilePortrait} {
-    height: 75%;
+    height: 97%;
     top: 4.5em;
   }
 `;

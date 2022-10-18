@@ -8,6 +8,7 @@ export const TicketModal = styled.div`
   width: 42%;
   transition: 0.2s ease-in;
   opacity: 0;
+
   &.block {
     max-height: 400px;
     opacity: 1;
@@ -34,14 +35,16 @@ export const TicketModal = styled.div`
     width: 100%;
     margin-top: 0;
     transition: 0.3s;
+    border-radius: 8px;
+    z-index: 10;
 
     &.block {
-      max-height: 450px;
+      max-height: 550px;
+      padding-bottom: 7em;
     }
-
+    z-index: -2;
+    margin-top: -0.6em;
     border: solid 3.2px black;
-    border-top: none;
-    margin-top: -2em;
   }
 `;
 
@@ -113,6 +116,9 @@ export const List = styled.ul`
   @media ${themes.primary.media.maxMobile} {
     padding: 0 2em 1.625rem 2em;
     column-gap: 16px;
+    &.rows {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 `;
 

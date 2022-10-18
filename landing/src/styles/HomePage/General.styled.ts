@@ -62,6 +62,12 @@ export const BlackButton = styled.a<IFontSize>`
     margin-left: 20px;
   }
 
+  &.footer-home {
+    margin-top: 10px;
+    height: 4vw;
+    margin-left: 20px;
+  }
+
   &.main {
     background: transparent;
     color: ${themes.primary.colors.primary};
@@ -97,13 +103,13 @@ export const BlackButton = styled.a<IFontSize>`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 1.25rem 1.375rem;
+    &.footer-home {
+      margin-top: 1em;
+    }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     &.seeAll {
-      padding: 0.75rem 0.625rem;
-
       & > div {
         width: 25px;
         height: 25px;
@@ -702,7 +708,7 @@ export const FooterLinkButton = styled.a`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    padding: 12px 15px;
+    padding: 1.2rem 1rem;
   }
 
   & path {

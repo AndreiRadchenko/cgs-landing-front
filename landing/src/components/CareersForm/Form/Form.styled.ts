@@ -223,6 +223,10 @@ export const FormSentButton = styled.button<ISentButton>`
     color: ${({ isDisabled }) => (isDisabled ? "grey" : "black")};
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    border: 1.48px solid ${themes.primary.colors.primary};
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 198px;
     height: 49px;

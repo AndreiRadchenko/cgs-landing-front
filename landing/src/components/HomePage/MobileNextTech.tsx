@@ -1,7 +1,7 @@
 import React from "react";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import * as Styled from "../../styles/HomePage/MobileGeneral.styled";
-import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
+import longArrowMobile from "../../../public/HomePageDecoration/longArrowMobile.svg";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
@@ -48,7 +48,9 @@ const MobileNextTech = () => {
 
   return (
     <Styled.NextTech>
-      <Styled.Subtitle>{text && parse(text.title, options)}</Styled.Subtitle>
+      <Styled.Subtitle>
+        {text && parse(`<div> ${text.title.split("<div>")[1]}`, options)}
+      </Styled.Subtitle>
 
       <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
       <MobileServices />
@@ -60,7 +62,7 @@ const MobileNextTech = () => {
               <ScrambleText text={"tech-range"} />
             </span>
             <Styled.RowContainer>
-              <Styled.LongArrow src={longArrow.src} />
+              <Styled.LongArrow src={longArrowMobile.src} />
               Innovative
             </Styled.RowContainer>
             customer-value
@@ -75,7 +77,7 @@ const MobileNextTech = () => {
                 )}
               </span>
               &nbsp;
-              <Styled.LongArrow src={longArrow.src} />
+              <Styled.LongArrow src={longArrowMobile.src} />
             </Styled.RowContainer>
             <Styled.RowContainer>Innovative customer-value</Styled.RowContainer>
           </>
