@@ -72,6 +72,10 @@ export const Email = styled.a`
 export const EmailText = styled.span`
   line-height: 188%;
   margin-left: 11px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: 8.5px;
+  }
 `;
 
 export const LogoLinkWrapper = styled.a`
@@ -183,6 +187,8 @@ export const BurgerLinkText = styled.p`
 `;
 
 export const MailIcon = styled.svg`
+  width: 27px;
+  height: 19px;
   margin-top: 3px;
   fill: none;
   stroke-width: 2;
@@ -197,6 +203,8 @@ export const MailIcon = styled.svg`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    width: 18.33px;
+    height: 12.47px;
     & path {
       stroke: ${themes.primary.colors.secondary};
       color: blue;

@@ -17,6 +17,10 @@ const nextConfig = {
     // !! WARN !!
     // ignoreBuildErrors: true,
   },
+  compiler: {
+    styledComponents: true,
+  },
+  swcMinify: true,
   i18n: {
     locales: ["en"],
     defaultLocale: "en",

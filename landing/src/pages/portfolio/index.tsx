@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
+import Head from "next/head";
+import { NextPage } from "next";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
@@ -15,8 +17,6 @@ import * as Styles from "../../styles/Portfolio.styled";
 import { Separator } from "../../styles/PortfolioSlider.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { adminGlobalService } from "../../services/adminHomePage";
-import Head from "next/head";
-import { NextPage } from "next";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -65,9 +65,7 @@ const PortfolioPage: NextPage = () => {
   };
   useEffect(() => {
     setIsMobile(false);
-    if (width && width < 768) {
-      setIsMobile(true);
-    }
+    if (width && width < 768) setIsMobile(true);
   }, [width]);
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };

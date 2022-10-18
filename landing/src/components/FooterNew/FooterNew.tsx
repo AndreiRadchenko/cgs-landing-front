@@ -55,8 +55,8 @@ const FooterNew = (): JSX.Element => {
           href={`mailto:${data?.email}`}
         >
           <StyledThisComp.MailIcon
-            width="27"
-            height="19"
+            width="100%"
+            height="100%"
             viewBox="0 0 27 19"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
