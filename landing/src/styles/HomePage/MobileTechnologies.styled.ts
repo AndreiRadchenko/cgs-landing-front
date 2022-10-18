@@ -116,10 +116,6 @@ export const CategoryContainer = styled.div`
     &:last-child img {
       margin-bottom: 0;
     }
-
-    /*     &:last-child h2 {
-      border-bottom: solid 3.5px ${themes.primary.colors.primary};
-    } */
   }
 `;
 
@@ -144,7 +140,6 @@ export const CategoryTitleWrapper = styled.div<PropsWithId>`
   padding: 0.5em 1em;
   height: 3em;
   border: solid 3.5px ${themes.primary.colors.primary};
-  background-color: ${themes.primary.colors.blogBackground};
   border-bottom: solid 3.5px ${themes.primary.colors.blogBackground};
   border-top-width: 4px;
   border-top-left-radius: 8px;
