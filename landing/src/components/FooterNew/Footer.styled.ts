@@ -160,6 +160,13 @@ export const ListItemNav = styled.a`
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 25%;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    &:hover {
+      border-right: none !important;
+      border-bottom: none !important;
+    }
+  }
 `;
 
 export const NavList = styled.menu`

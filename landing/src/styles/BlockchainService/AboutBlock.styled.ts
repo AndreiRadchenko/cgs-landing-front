@@ -15,7 +15,7 @@ export const Container = styled.div`
     background-size: contain;
 
     & img {
-      width: 110%;
+      width: 120%;
     }
 
     position: relative;

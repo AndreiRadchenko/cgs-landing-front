@@ -158,6 +158,7 @@ export const Tag = styled.button<ITag>`
       left: 0;
       border: 0;
       font-size: 1.35em;
+      margin-left: -1px;
     }
   }
 `;
@@ -1003,7 +1004,7 @@ export const MainBlogItemContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
-    padding: 50px 0.75rem;
+    padding: 50px 0.75rem 25px;
     width: 100%;
   }
 `;

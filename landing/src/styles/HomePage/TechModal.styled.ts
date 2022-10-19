@@ -134,11 +134,9 @@ export const ListItem = styled.li`
     font-size: 0.875rem;
     &::before {
       margin-right: 6px;
+      font-size: 1.3em;
     }
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 0.8rem;
+    margin: 3px 0;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
