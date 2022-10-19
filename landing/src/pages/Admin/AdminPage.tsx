@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import AdminMainContent from "../../components/Admin/Global";
+import AdminHeader from "../../components/Admin/Header/AdminHeader";
 import AdminSidebar from "../../components/Admin/SideBar/AdminSidebar";
 import { queryKeys } from "../../consts/queryKeys";
 import { validTokenGlobal } from "../../services/validToken";
@@ -12,10 +13,13 @@ const AdminHomePage = () => {
   );
 
   return data ? (
-    <Styled.AdminWrapper>
-      <AdminSidebar />
-      <AdminMainContent />
-    </Styled.AdminWrapper>
+    <>
+      <AdminHeader />
+      <Styled.AdminWrapper>
+        <AdminSidebar />
+        <AdminMainContent />
+      </Styled.AdminWrapper>
+    </>
   ) : (
     <Styled.AdminUnauthorizedModal>
       Somethimg went wrong :(

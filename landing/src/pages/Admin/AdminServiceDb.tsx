@@ -5,6 +5,7 @@ import { validTokenGlobal } from "../../services/validToken";
 import AdminSidebar from "../../components/Admin/SideBar/AdminSidebar";
 import * as Styled from "../../styles/AdminPage";
 import AdminServiceDbContent from "../../components/Admin/Services/Db/AdminServiceDbContent";
+import AdminHeader from "../../components/Admin/Header/AdminHeader";
 
 const AdminServiceDb = () => {
   const { data } = useQuery([queryKeys.validToken], () =>
@@ -12,10 +13,13 @@ const AdminServiceDb = () => {
   );
 
   return data ? (
-    <Styled.AdminWrapper>
-      <AdminSidebar />
-      <AdminServiceDbContent />
-    </Styled.AdminWrapper>
+    <>
+      <AdminHeader />
+      <Styled.AdminWrapper>
+        <AdminSidebar />
+        <AdminServiceDbContent />
+      </Styled.AdminWrapper>
+    </>
   ) : (
     <Styled.AdminUnauthorizedModal>
       Something went wrong :(

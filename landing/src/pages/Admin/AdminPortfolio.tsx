@@ -5,6 +5,7 @@ import { validTokenGlobal } from "../../services/validToken";
 import { useQuery } from "@tanstack/react-query";
 import * as Styled from "../../styles/AdminPage";
 import PortfolioPage from "../../components/Admin/Portfolio";
+import AdminHeader from "../../components/Admin/Header/AdminHeader";
 
 const AdminPortfolio = () => {
   const { data } = useQuery([queryKeys.validToken], () =>
@@ -12,10 +13,13 @@ const AdminPortfolio = () => {
   );
 
   return data ? (
-    <Styled.AdminWrapper>
-      <AdminSidebar />
-      <PortfolioPage />
-    </Styled.AdminWrapper>
+    <>
+      <AdminHeader />
+      <Styled.AdminWrapper>
+        <AdminSidebar />
+        <PortfolioPage />
+      </Styled.AdminWrapper>
+    </>
   ) : (
     <Styled.AdminUnauthorizedModal>
       Somethimg went wrong :(
