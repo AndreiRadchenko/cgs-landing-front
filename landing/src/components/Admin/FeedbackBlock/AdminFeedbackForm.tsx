@@ -2,7 +2,12 @@ import React, { ChangeEvent } from "react";
 import { Form, useFormikContext } from "formik";
 import usePushFeedback from "../../../hooks/usePushFeedback";
 import * as Styled from "../../../styles/AdminPage";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../styles/HomePage/General.styled";
 import { IFeedback } from "../../../types/Admin/Response.types";
+import ButtonArrow from "../../../utils/ButtonArrow";
 import { headerToUpperCase } from "../../../utils/headerToUpperCase";
 import AdminStars from "./AdminStars";
 
@@ -27,6 +32,7 @@ const render = (
       placeholder={headerToUpperCase(i[0])}
       value={i[1]}
       onChange={change}
+      isAdmin
     />
   ));
 };
@@ -53,6 +59,7 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
             placeholder="Name"
             value={values.name}
             onChange={handleChange}
+            isAdmin
           />
           <Styled.AdminStarsFlex>
             <AdminStars
@@ -66,9 +73,18 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
         <div>
           {render(renderState, handleChange)}
 
-          <Styled.AdminBigButton type="submit" onClick={submitForm}>
+          <BlackButton
+            type="submit"
+            onClick={submitForm}
+            size={"1.5em"}
+            padding={"1.11em 3em"}
+            style={{ margin: "2em 0" }}
+          >
             {isNewFeedback ? "Add Review" : "Save changes"}
-          </Styled.AdminBigButton>
+            <ArrowContainer>
+              <ButtonArrow />
+            </ArrowContainer>
+          </BlackButton>
         </div>
       </div>
     </Form>

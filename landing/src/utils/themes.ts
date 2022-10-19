@@ -3,6 +3,7 @@ const themes = {
     spacing: {
       small: "0.3em",
       primary: "0.8em",
+      logosGap: "1.18em",
       septenary: "1.3em",
       tertiary: "2em",
       logo: "13em",
@@ -60,7 +61,7 @@ const themes = {
         buttonText: "1.5em",
         articleSubtitle: "1.6em",
         menuElement: "1.7em",
-        adminMenuElement: "0.85em",
+        adminMenuElement: "0.8em",
         articleTagDescription: "1.8em",
         feedbackName: "1.83em",
         careersFormLaptop: "1.3em",
@@ -171,6 +172,7 @@ const themes = {
       ourWork: "#A7A6A9",
       serviceHighlight: "#BABABA",
       portfolioLoaderCube: "#8F8E93",
+      deleteImageHover: "#ad1313",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

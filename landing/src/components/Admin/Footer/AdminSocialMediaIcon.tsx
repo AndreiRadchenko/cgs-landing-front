@@ -21,6 +21,8 @@ const AdminSocialMediaIcon = ({
     <Styled.AdminSocialIcon>
       <Styled.AdminSubTitle>{number}</Styled.AdminSubTitle>
       <PhotoBlockDashed
+        minHeight={"168px"}
+        maxWidth={"194px"}
         deleteFlag={true}
         photo={image.image}
         uploadFunction={uploadFunc}

@@ -16,7 +16,7 @@ const FirstAdminBlock = () => {
 
   return (
     <Styled.AdminPaddedBlock>
-      <Styled.AdminHeader>Home</Styled.AdminHeader>
+      <Styled.AdminHeader>HOMEPAGE</Styled.AdminHeader>
       <Styled.AdminSubTitle>Upload Logo</Styled.AdminSubTitle>
       <Styled.AdminAddMainLogoBlock>
         <PhotoBlockDashed

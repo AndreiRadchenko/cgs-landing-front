@@ -19,19 +19,6 @@ const AdminCardsList = () => {
           />
         </div>
       ))}
-      {/* {values.CardsBlock.cards?.map((card, ind) => {
-        return (
-          <div key={ind}>
-            <AdminCard
-              info={card}
-              number={ind + 1}
-              onChangeFunction={handleChange}
-              uploadFunction={uploadImageFunction}
-              deleteFunction={deleteFunc}
-            />
-          </div>
-        );
-      })} */}
     </AdminCardsGrid>
   );
 };

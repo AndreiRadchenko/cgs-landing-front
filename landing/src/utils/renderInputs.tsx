@@ -1,5 +1,6 @@
 import React from "react";
 import SubHeaderWithInput from "../components/Admin/Global/SubHeaderWithInput";
+import { AdminRenderInputs } from "../styles/AdminPage";
 import { headerToUpperCase } from "./headerToUpperCase";
 
 const anyNumbersInHeader = (i: string) => {
@@ -16,7 +17,9 @@ const anyNumbersInHeader = (i: string) => {
 
 export const renderInputs = ({ props, state, onChangeFunction }: any) => {
   return (
-    <div>
+    <AdminRenderInputs
+      className={props.isCooperationBlock && "cooperationBlock"}
+    >
       {Object.keys(state).map((i, ind) => {
         if (i !== "image") {
           return (
@@ -26,10 +29,12 @@ export const renderInputs = ({ props, state, onChangeFunction }: any) => {
               name={`${props.name}.${i}`}
               inputValue={state[i]}
               onChangeFunction={onChangeFunction}
+              isAdmin={props.isAdmin}
+              width={props.width}
             />
           );
         }
       })}
-    </div>
+    </AdminRenderInputs>
   );
 };

@@ -38,7 +38,7 @@ const AdminLogosBlock: FC = () => {
   };
 
   return (
-    <Styled.AdminPaddedBlock theme="dark">
+    <div>
       <Styled.AdminSubTitle>Logos</Styled.AdminSubTitle>
       <Styled.AdminLogosGrid>
         <AddLogoFrame state={values.LogosBlock} submit={handleSubmit} />
@@ -47,7 +47,7 @@ const AdminLogosBlock: FC = () => {
           deleteLogo: deleteNormalLogo,
         })}
       </Styled.AdminLogosGrid>
-    </Styled.AdminPaddedBlock>
+    </div>
   );
 };
 

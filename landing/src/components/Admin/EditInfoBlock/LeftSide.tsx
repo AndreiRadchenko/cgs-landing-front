@@ -11,7 +11,13 @@ interface ILeftSideProps {
 const LeftSideBlock = ({ state, onChangeFunction }: ILeftSideProps) => {
   return (
     <FieldArray name="EditInformationBlock">
-      {(props) => renderInputs({ props, state, onChangeFunction })}
+      {(props) =>
+        renderInputs({
+          props: { ...props, isAdmin: true, width: "21em" },
+          state,
+          onChangeFunction,
+        })
+      }
     </FieldArray>
   );
 };

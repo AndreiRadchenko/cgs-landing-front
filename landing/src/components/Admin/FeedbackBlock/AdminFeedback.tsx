@@ -23,8 +23,8 @@ const AdminFeedback = ({
   setIsNewFeedback,
 }: IFeedbackProps) => {
   const trigger = () => setIsNewFeedback((prev) => !prev);
-
   const starsLength = new Array(Math.ceil(feedback.stars)).fill(0);
+
   return (
     <Styled.AdminFeedbackFrame>
       <Styled.AdminFeedbackStarsBlock>
@@ -35,12 +35,8 @@ const AdminFeedback = ({
           ))}
         </Styled.AdminFeedbackStars>
       </Styled.AdminFeedbackStarsBlock>
-      <Styled.AdminCompanyName className="namu">
-        {feedback.companyName}
-      </Styled.AdminCompanyName>
-      <Styled.AdminFeedbackText className="namu">
-        {feedback.text}
-      </Styled.AdminFeedbackText>
+      <Styled.AdminCompanyName>{feedback.companyName}</Styled.AdminCompanyName>
+      <Styled.AdminFeedbackText>{feedback.text}</Styled.AdminFeedbackText>
       <AdminButton text="View More" />
       <Styled.AdminDeleteTextThin onClick={deleteFunc}>
         delete review
