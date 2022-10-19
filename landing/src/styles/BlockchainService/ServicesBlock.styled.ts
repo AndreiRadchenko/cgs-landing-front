@@ -187,7 +187,7 @@ export const SubText = styled.p<ISlide>`
     margin-bottom: 52px;
     padding-left: 5em;
     &:first-child {
-      padding-top: 10px;
+      padding-top: 6px;
     }
   }
 
@@ -199,16 +199,15 @@ export const SubText = styled.p<ISlide>`
     font-size: 1em;
     padding-left: 3.5em;
     margin-bottom: 32px;
+
+    &:first-child {
+      padding-top: 9px;
+    }
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
     font-size: 0.8em;
-    margin-bottom: 26px;
-  }
-  @media (min-width: 520px) {
-    &:first-child {
-      padding-top: 7px;
-    }
+    margin-bottom: 25px;
   }
 `;
 
