@@ -1,7 +1,7 @@
 import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { Subtitle } from "../../styles/MobileService/Layout";
+import { VisibleSubtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/DbService/FooterBlock.styled";
 import { IServiceDb } from "../../types/Admin/Response.types";
 import {
@@ -20,7 +20,7 @@ const FooterBlock = () => {
     <Styled.Container>
       <Styled.TextContent>
         <Styled.SubtitleWrapper>
-          <Subtitle>{data?.subtitle}</Subtitle>
+          <VisibleSubtitle>{data?.subtitle}</VisibleSubtitle>
         </Styled.SubtitleWrapper>
         <BlackButton
           padding={"1.117em 1.97em"}

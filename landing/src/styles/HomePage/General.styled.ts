@@ -703,12 +703,9 @@ export const FooterLinkButton = styled.a`
     padding: 1.5rem 1.4rem;
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 0.875rem;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    padding: 1.2rem 1rem;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 14px;
+    padding: 1.11em 1.5em;
   }
 
   & path {

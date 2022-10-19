@@ -108,17 +108,18 @@ export const BottomImage = styled.img`
     bottom: 70px;
   }
 
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    left: -22%;
-    width: 120%;
-  }
-
   @media ${themes.primary.media.maxMobilePortrait} {
     bottom: 90px;
   }
 
   @media (min-width: 2000px) {
     bottom: 120px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    left: -25%;
+    width: 130%;
+    bottom: 70px;
   }
 `;
 
