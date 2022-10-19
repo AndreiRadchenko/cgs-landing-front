@@ -10,7 +10,6 @@ export const NotFoundContainer = styled.div`
   flex-wrap: no-wrap;
   height: 90vh;
   column-gap: 5vw;
-
   @media ${themes.primary.media.minPC} {
     column-gap: 6.5vw;
   }
@@ -21,7 +20,7 @@ export const NotFoundContainer = styled.div`
       justify-content: center;
       padding: 50px 0;
 
-      >div{
+      > div{
         width: 100%
       }
   }
@@ -45,8 +44,10 @@ export const Title = styled.h1`
   letter-spacing: 0.045em;
   line-height: 182%;
   text-transform: uppercase;
-  text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000,
-    0.5px 0.5px 0 #000;
+  text-shadow: -0.5px -0.5px 0 ${themes.primary.colors.primary},
+    0.5px -0.5px 0 ${themes.primary.colors.primary},
+    -0.5px 0.5px 0 ${themes.primary.colors.primary},
+    0.5px 0.5px 0 ${themes.primary.colors.primary};
   margin-bottom: 50px;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.notFoundPageTitleTablet};
