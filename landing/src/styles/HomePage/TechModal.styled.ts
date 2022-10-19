@@ -44,7 +44,7 @@ export const TicketModal = styled.div`
     }
     z-index: -2;
     margin-top: -0.6em;
-    border: solid 3.2px black;
+    border: solid 2.4px ${themes.primary.colors.primary};
   }
 `;
 
@@ -135,6 +135,10 @@ export const ListItem = styled.li`
     &::before {
       margin-right: 6px;
     }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.8rem;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {

@@ -45,14 +45,7 @@ export const MobileImageWrapper = styled.div`
     align-items: center;
     padding: 1em 0;
     height: 225px;
-  }
-
-  @media (min-width: 410px) {
-    height: 300px;
-  }
-
-  @media (min-width: 555px) {
-    height: 350px;
+    margin-bottom: 1.5em;
   }
 `;
 

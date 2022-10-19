@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import * as Styled from "../../styles/HomePage/General.styled";
 import leftArrow from "../../../public/HomePageDecoration/leftArrow.svg";
 import leftArrowMobile from "../../../public/HomePageDecoration/leftArrowMobile.svg";
+import boldLeftArrowMobile from "../../../public/HomePageDecoration/boldArrowLeftMobile.svg";
+import boldRightArrowMobile from "../../../public/HomePageDecoration/boldArrowRightMobile.svg";
 import rightArrow from "../../../public/HomePageDecoration/rightArrow.svg";
 import rightArrowMobile from "../../../public/HomePageDecoration/rightArrowMobile.svg";
 import { useQueryClient } from "@tanstack/react-query";
@@ -44,7 +46,7 @@ const HeadBlock = () => {
             <div>SHARP DEVS WITH PROF TECHS</div>
             <Styled.LeftArrowWrapper>
               <Image
-                src={width && width > 798 ? leftArrow.src : leftArrowMobile}
+                src={width && width > 798 ? leftArrow.src : boldLeftArrowMobile}
                 alt="head block left arrow"
                 layout="fill"
                 objectFit="contain"
@@ -55,7 +57,9 @@ const HeadBlock = () => {
             <div>TODAY BRIEFED</div>
             <Styled.RightArrowWrapper>
               <Image
-                src={width && width > 798 ? rightArrow.src : rightArrowMobile}
+                src={
+                  width && width > 798 ? rightArrow.src : boldRightArrowMobile
+                }
                 alt="head block left arrow"
                 layout="fill"
                 objectFit="contain"

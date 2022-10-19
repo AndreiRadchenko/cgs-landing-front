@@ -4,6 +4,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { IBlockchainService } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/BlockchainService/AboutBlock.styled";
 import BlockchainAbout from "../../../public/BlockchainServicePage/BlockchainAbout.svg";
+import MobileBlockchainAbout from "../../../public/BlockchainServicePage/MobileBlockchainAbout.svg";
 import Image from "next/image";
 import MobileImage from "next/future/image";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
@@ -23,7 +24,7 @@ const AboutBlock = () => {
         <Image src={BlockchainAbout} alt="blockchain about" />
       </Styled.ImageWrapper>
       <Styled.MobileImageWrapper>
-        <MobileImage src={BlockchainAbout} alt="blockchain about" />
+        <MobileImage src={MobileBlockchainAbout} alt="blockchain about" />
       </Styled.MobileImageWrapper>
     </Styled.Container>
   );

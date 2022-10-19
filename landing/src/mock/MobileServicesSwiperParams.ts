@@ -15,7 +15,7 @@ const data: SwiperProps = {
     delay: 1500,
     disableOnInteraction: false,
   },
-  speed: 300,
+  speed: 700,
   focusableElements: "button",
   breakpoints: {
     320: {

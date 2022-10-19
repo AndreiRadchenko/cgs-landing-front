@@ -76,7 +76,7 @@ export const Text = styled.p`
     margin-block: 0.38em 1.3em;
   }
   @media (max-width: 400px) {
-    font-size: 1em;
+    font-size: 0.95em;
   }
 `;
 
@@ -86,6 +86,9 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-left: 0;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 105%;
   }
 `;
 
@@ -136,7 +139,7 @@ export const TextWrapper = styled.div`
       }
 
       &:nth-child(4) {
-        right: -3em;
+        right: -2.4em;
         p {
           margin-left: 0.6rem;
           margin-right: 1.5em;

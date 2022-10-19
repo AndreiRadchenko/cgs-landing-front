@@ -139,9 +139,9 @@ export const CategoryTitleWrapper = styled.div<PropsWithId>`
   text-decoration: none;
   padding: 0.5em 1em;
   height: 3em;
-  border: solid 3.5px ${themes.primary.colors.primary};
-  border-bottom: solid 3.5px ${themes.primary.colors.blogBackground};
-  border-top-width: 4px;
+  border: solid 2.4px ${themes.primary.colors.primary};
+  border-bottom: solid 2.4px ${themes.primary.colors.blogBackground};
+  border-top-width: 3.5px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   border-bottom-width: 0px;
@@ -155,10 +155,10 @@ export const CategoryTitleWrapper = styled.div<PropsWithId>`
     content: "";
     position: absolute;
     bottom: -5px;
-    left: 0;
+    left: -0.2px;
     height: 15px;
+    right: 0px;
     background-color: ${themes.primary.colors.blogBackground};
-    width: 100.2%;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-left: ${(props) =>
@@ -189,7 +189,7 @@ export const FolderBody = styled.div`
   height: 12em;
   width: 100%;
   border-radius: 8px;
-  border: solid 3.5px ${themes.primary.colors.primary};
+  border: solid 2.4px ${themes.primary.colors.primary};
   margin-top: -0.6em;
   background-color: ${themes.primary.colors.blogBackground};
   z-index: -10;
