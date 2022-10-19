@@ -6,16 +6,20 @@ import { validTokenGlobal } from "../../services/validToken";
 import { useQuery } from "@tanstack/react-query";
 
 import * as Styled from "../../styles/AdminPage";
+import AdminHeader from "../../components/Admin/Header/AdminHeader";
 
 const AdminBlog = () => {
   const { data } = useQuery([queryKeys.validToken], () =>
     validTokenGlobal.validToken()
   );
   return data ? (
-    <Styled.AdminWrapper>
-      <AdminSidebar />
-      <AdminBlogMainContent />
-    </Styled.AdminWrapper>
+    <>
+      <AdminHeader />
+      <Styled.AdminWrapper>
+        <AdminSidebar />
+        <AdminBlogMainContent />
+      </Styled.AdminWrapper>
+    </>
   ) : (
     <Styled.AdminUnauthorizedModal>
       Something went wrong :(

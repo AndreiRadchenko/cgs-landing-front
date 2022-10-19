@@ -7,9 +7,22 @@ export const AdminWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 4.62fr;
   background: ${themes.primary.colors.grayBack};
-  min-height: 100%;
+  top: 9.7%;
   position: absolute;
   width: 100%;
+`;
+
+export const AdminMainHeader = styled.div`
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  padding: 26px 34px 25px;
+  border: 2px solid ${themes.primary.colors.black};
+  background: linear-gradient(
+    75.6deg,
+    ${themes.primary.colors.mainGradientColor1} -9.39%,
+    ${themes.primary.colors.mainGradientColor2} 110.45%
+  );
 `;
 
 export const AdminSidebar = styled.div`
