@@ -19,7 +19,10 @@ export interface IPhotoBlock extends IPropsWithImage {
   horizontalFlex?: boolean;
   maxHeight?: string;
   maxWidth?: string;
+  minHeight?: string;
+  minWidth?: string;
   className?: string;
+  style?: any;
 }
 
 export interface InputPropsInterface {
@@ -33,16 +36,25 @@ export interface DropdownPropsInterface {
   value: string;
   route?: string;
   children?: any;
+  Icon?: any;
+}
+
+export interface IBlockDropDown {
+  value: string;
+  children: any;
 }
 
 export interface InputWithHeader extends InputPropsInterface {
   placeholder?: string;
-  header: string;
+  header?: string;
   minRows?: number;
   isBlog?: boolean;
+  isAdmin?: boolean;
+  isMetaField?: boolean;
   height?: string;
   width?: string;
   id?: string;
+  inputStyle?: any;
 }
 
 export interface InputWithImage extends InputPropsInterface {

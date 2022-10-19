@@ -27,7 +27,6 @@ function MyApp({
           />
           <link key="icon" rel="icon" href="/favicon.ico" />
         </Head>
-        return (
         <Hydrate state={pageProps.dehydratedState}>
           <Component {...pageProps} />
         </Hydrate>

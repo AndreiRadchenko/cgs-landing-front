@@ -1,16 +1,15 @@
 import { FieldArray } from "formik";
 import React from "react";
-import * as Styled from "../../../styles/AdminPage";
 import AdminCardsList from "./AdminCardsList";
 
 const AdminCardsBlock = () => {
   return (
-    <Styled.AdminPaddedBlock>
+    <div>
       <br />
       <FieldArray name="CardsBlock.cards">
         {() => <AdminCardsList />}
       </FieldArray>
-    </Styled.AdminPaddedBlock>
+    </div>
   );
 };
 

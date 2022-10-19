@@ -1,4 +1,5 @@
 import React from "react";
+import { AdminHalfGrid } from "../../../styles/AdminPage";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 interface IFooterProps {
@@ -8,9 +9,10 @@ interface IFooterProps {
 
 const AdminFooterLinks = ({ state, onChangeFunction }: IFooterProps) => {
   return (
-    <div>
+    <AdminHalfGrid>
       {state.map((i, ind) => (
         <SubHeaderWithInput
+          isAdmin
           name={`FooterBlock.links.${ind}.link`}
           header={`Add link ${ind + 1}`}
           inputValue={i.link}
@@ -18,7 +20,7 @@ const AdminFooterLinks = ({ state, onChangeFunction }: IFooterProps) => {
           key={`link${ind}`}
         />
       ))}
-    </div>
+    </AdminHalfGrid>
   );
 };
 

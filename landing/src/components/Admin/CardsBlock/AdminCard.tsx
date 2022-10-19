@@ -1,6 +1,4 @@
 import React, { ChangeEvent } from "react";
-import { IImage } from "../../../types/Admin/Admin.types";
-import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import * as Styled from "../../../styles/AdminPage";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { ICard } from "../../../types/Admin/Response.types";
@@ -14,22 +12,29 @@ interface ICardProps {
 
 const AdminCard = ({ info, number, onChangeFunction, name }: ICardProps) => {
   return (
-    <>
-      <Styled.AdminCardsHeader># {number}</Styled.AdminCardsHeader>
-      <SubHeaderWithInput
-        name={`CardsBlock.${name}.subtitle`}
-        header={`Subtitle`}
-        inputValue={info.subtitle}
-        onChangeFunction={onChangeFunction}
-      />
-      <SubHeaderWithInput
-        name={`CardsBlock.${name}.text`}
-        header="Text"
-        minRows={3}
-        inputValue={info.text}
-        onChangeFunction={onChangeFunction}
-      />
-    </>
+    <Styled.AdminFlexRow gap="19px">
+      <Styled.AdminCardsHeader style={{ marginTop: "0.3em" }}>
+        #{number}
+      </Styled.AdminCardsHeader>
+      <Styled.InputWrapper>
+        <SubHeaderWithInput
+          inputStyle={{ marginBottom: 0 }}
+          width="100%"
+          isAdmin
+          name={`CardsBlock.${name}.subtitle`}
+          inputValue={info.subtitle}
+          onChangeFunction={onChangeFunction}
+        />
+        <SubHeaderWithInput
+          width="100%"
+          isAdmin
+          name={`CardsBlock.${name}.text`}
+          minRows={3}
+          inputValue={info.text}
+          onChangeFunction={onChangeFunction}
+        />
+      </Styled.InputWrapper>
+    </Styled.AdminFlexRow>
   );
 };
 

@@ -1,17 +1,17 @@
-import DownArrow from "../../../../public/downArrowSidebar.svg";
 import * as Styled from "../../../styles/AdminPage";
 import { useState } from "react";
 import React from "react";
 import { DropdownPropsInterface } from "../../../types/Admin/Admin.types";
 import { useRouter } from "next/router";
+import { DownArrow } from "./ListItemImages";
 
 const DropDownElement = ({
+  Icon,
   value,
   route,
   children,
 }: DropdownPropsInterface) => {
   const [isShown, setIsShown] = useState(false);
-
   const router = useRouter();
   const currentPath =
     router.pathname.split("/")[router.pathname.split("/").length - 1];
@@ -24,15 +24,22 @@ const DropDownElement = ({
   const push = () => route && router.push(route);
 
   return (
-    <Styled.AdminSidebarMenuElement itemProp={route} property={currentPath}>
-      <span onClick={route ? push : onClick}>{value + " "}</span>
-      <Styled.Image
+    <Styled.AdminSidebarMenuElement
+      itemProp={route}
+      property={currentPath}
+      className="isDropDown"
+    >
+      <Styled.ListItemName
         className={isShown ? "open" : undefined}
-        onClick={onClick}
-        src={DownArrow.src}
-        alt="sidebar arrow img"
-      />
-      <Styled.AdminSidebarHidenElement className={isShown ? "flex" : undefined}>
+        onClick={route ? push : onClick}
+      >
+        <Icon open={isShown} />
+        {value + " "}
+      </Styled.ListItemName>
+      <DownArrow onClick={onClick} open={isShown} />
+      <Styled.AdminSidebarHidenElement
+        className={isShown ? undefined : "hidden"}
+      >
         {children}
       </Styled.AdminSidebarHidenElement>
     </Styled.AdminSidebarMenuElement>

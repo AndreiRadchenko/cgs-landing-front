@@ -33,7 +33,7 @@ const AdminFeedbackBlock = () => {
 
   const render = (props: FieldArrayRenderProps) =>
     renderInputs({
-      props,
+      props: { ...props, isAdmin: true },
       state: renderState,
       onChangeFunction: handleChange,
     });
@@ -41,7 +41,7 @@ const AdminFeedbackBlock = () => {
   const deleteFunc = () => deleteFunction(feedback);
 
   return (
-    <Styled.AdminPaddedBlock>
+    <div style={{ marginBottom: "3em" }}>
       <Styled.AdminHalfGrid>
         <div>
           <FieldArray name="FeedbackBlock">{render}</FieldArray>
@@ -83,7 +83,7 @@ const AdminFeedbackBlock = () => {
           />
         </div>
       </Styled.AdminHalfGrid>
-    </Styled.AdminPaddedBlock>
+    </div>
   );
 };
 

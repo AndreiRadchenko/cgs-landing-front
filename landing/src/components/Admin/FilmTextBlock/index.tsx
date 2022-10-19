@@ -7,15 +7,16 @@ import Inputs from "../../../utils/Inputs";
 const FilmTextBlock = () => {
   const { values, handleChange } = useFormikContext<IDataResponse>();
   return (
-    <Styled.AdminPaddedBlock>
+    <div>
       <Styled.AdminHalfGrid>
         <Inputs
+          customProps={{ isAdmin: true }}
           onChangeFunction={handleChange}
           name="FilmBlock"
           state={values.FilmBlock}
         />
       </Styled.AdminHalfGrid>
-    </Styled.AdminPaddedBlock>
+    </div>
   );
 };
 

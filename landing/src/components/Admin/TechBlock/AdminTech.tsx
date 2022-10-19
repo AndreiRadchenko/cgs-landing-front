@@ -45,15 +45,20 @@ const AdminTech = ({
   const uploadFunc = (image: any) => uploadFunction(image);
   return (
     <div>
-      <Styled.AdminTechGrid>
+      <Styled.AdminFlexRow>
         <div>
           <SubHeaderWithInput
+            isAdmin
+            width="20em"
             header={`${ind} Card subtitle`}
             name={`TechnologyBlock.${item}.category`}
             inputValue={info.category}
             onChangeFunction={onChangeFunction}
           />
           <SubHeaderWithInput
+            isAdmin
+            width="20em"
+            height="5em"
             header="Text"
             name={`TechnologyBlock.${item}.text`}
             inputValue={info.text}
@@ -62,24 +67,29 @@ const AdminTech = ({
         </div>
         <Styled.AdminTechWrapper>
           <PhotoBlockDashed
+            style={{ marginTop: "2.5em" }}
             className="blog"
             deleteFunction={deleteFunction}
             uploadFunction={uploadFunc}
             photo={info.image}
             header="+ Add image here"
             deleteFlag={true}
+            maxWidth="194px"
+            maxHeight="168px"
           />
         </Styled.AdminTechWrapper>
-      </Styled.AdminTechGrid>
+      </Styled.AdminFlexRow>
       <Styled.AdminSubTitle>Stack</Styled.AdminSubTitle>
       <Styled.AdminHalfGrid>
         {(info.stack.length > 0 &&
           info.stack.map((el, idx) => (
             <div key={idx}>
               <Styled.AdminInput
+                isAdmin
                 onChange={onChangeFunction}
                 name={`TechnologyBlock.${item}.stack[${idx}]`}
                 value={el}
+                className="withBottomButtons"
               />
               <ButtonsContainer className="about">
                 <AddButton onClick={() => addQuestion(idx)}>

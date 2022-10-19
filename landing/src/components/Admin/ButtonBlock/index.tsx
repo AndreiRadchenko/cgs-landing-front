@@ -5,20 +5,36 @@ import { IDataResponse } from "../../../types/Admin/Response.types";
 import Inputs from "../../../utils/Inputs";
 
 interface IButtonBlock {
-  theme?: string;
   block: { button: string; buttonLink: string };
   name: string;
+  isCooperationBlock?: boolean;
 }
 
-const ButtonBlock = ({ theme, block, name }: IButtonBlock) => {
+const ButtonBlock = ({ block, name, isCooperationBlock }: IButtonBlock) => {
   const { handleChange } = useFormikContext<IDataResponse>();
 
   return (
-    <Styled.AdminPaddedBlock theme={theme}>
-      <Styled.AdminHalfGrid>
-        <Inputs onChangeFunction={handleChange} state={block} name={name} />
-      </Styled.AdminHalfGrid>
-    </Styled.AdminPaddedBlock>
+    <div>
+      {isCooperationBlock ? (
+        <div>
+          <Inputs
+            onChangeFunction={handleChange}
+            state={block}
+            name={name}
+            customProps={{ isAdmin: true, isCooperationBlock: true }}
+          />
+        </div>
+      ) : (
+        <Styled.AdminHalfGrid>
+          <Inputs
+            onChangeFunction={handleChange}
+            state={block}
+            name={name}
+            customProps={{ isAdmin: true }}
+          />
+        </Styled.AdminHalfGrid>
+      )}
+    </div>
   );
 };
 

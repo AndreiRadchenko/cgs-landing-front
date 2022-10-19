@@ -7,6 +7,11 @@ import { Counter, Message, Text } from "../../../styles/AdminBlogPage";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminSitemapService } from "../../../services/adminSitemapPage";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../styles/HomePage/General.styled";
+import ButtonArrow from "../../../utils/ButtonArrow";
 
 interface IMetaBlockProps {
   theme?: string;
@@ -28,7 +33,7 @@ const MetaTagsBlock = ({
 }: IMetaBlockProps) => {
   const queryClient = useQueryClient();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { values, handleChange } = useFormikContext<any>();
+  const { values, handleChange, handleSubmit } = useFormikContext<any>();
   const { meta } = nestedMeta ? nestedMeta : values;
   const [inSitemap, setInSitemap] = useState<boolean>(false);
   const [titleLength, setTitleLength] = useState(0);
@@ -68,6 +73,8 @@ const MetaTagsBlock = ({
     }
     setInSitemap(e.target.checked);
   };
+
+  const handleClick = () => handleSubmit();
 
   useEffect(() => {
     if (data && sitemap) {
@@ -139,7 +146,6 @@ const MetaTagsBlock = ({
             {descLength}
           </Counter>
         </Text>
-
         <Styled.CheckBoxWrapper>
           <Styled.SitemapInput
             type="checkbox"
@@ -161,6 +167,17 @@ const MetaTagsBlock = ({
           onChangeFunction={handleChange}
         />
       </div>
+      <BlackButton
+        type="submit"
+        size={"1.5em"}
+        padding={"1.11em 1.5em"}
+        onClick={handleClick}
+      >
+        Update meta tags
+        <ArrowContainer>
+          <ButtonArrow />
+        </ArrowContainer>
+      </BlackButton>
     </Styled.AdminPaddedBlock>
   );
 };

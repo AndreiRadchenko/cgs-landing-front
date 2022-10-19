@@ -12,18 +12,24 @@ const PhotoBlockDashed = ({
   header = "Drop new image here",
   deleteFunction,
   uploadFunction,
+  minWidth,
+  minHeight,
   maxWidth,
   maxHeight,
   className,
+  style,
 }: IPhotoBlock) => {
   const { modal, toggleModal } = useUploadModal();
   const deleteFunc = () => deleteFunction!();
 
   return photo !== null && photo !== undefined ? (
     <Styled.AdminPhotoBlock
+      minWidth={minWidth}
+      minHeight={minHeight}
       maxWidth={maxWidth}
       maxHeight={maxHeight}
       className={className}
+      style={style}
     >
       {modal ? (
         <AdminUploadModal func={uploadFunction} back={toggleModal} />
@@ -33,11 +39,10 @@ const PhotoBlockDashed = ({
       </Styled.AdminPhotoGrid>
       <Styled.AdminDashedPositionGrid>
         <Styled.AdminPointer>
-          <Styled.AdminSubTitle onClick={toggleModal}>
+          <Styled.AdminSubTitle onClick={toggleModal} size="1.165em">
             {header}
           </Styled.AdminSubTitle>
         </Styled.AdminPointer>
-        <Styled.AdminComment>Supports: JPG, PNG, SVG</Styled.AdminComment>
         {deleteFlag ? (
           <Styled.AdminDeleteText onClick={deleteFunc}>
             delete image

@@ -1,6 +1,5 @@
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
-import AdminImage from "../Global/AdminImage";
 
 interface ILogoProps {
   image: any;
