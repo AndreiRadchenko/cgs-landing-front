@@ -598,3 +598,20 @@ export interface IReviewProps {
 export interface ISitemapData {
   includedPages: string[];
 }
+
+export interface ICalculator {
+  startMessage: string;
+  finishMessage: string;
+}
+
+export interface ICalculatorStep {
+  _id: string;
+  title: string;
+  tieUpSteps: [
+    {
+      condition: string[];
+      step: Omit<ICalculatorStep, "tieUpSteps">;
+      number: number;
+    }
+  ];
+}
