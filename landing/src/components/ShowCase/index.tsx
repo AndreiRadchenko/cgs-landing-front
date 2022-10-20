@@ -47,15 +47,17 @@ interface IShowCase {
 }
 
 const ShowCase = ({ projects }: IShowCase) => {
-  const [currentProjects, setCurrentProjects] = useState<IReviewProps[]>([]);
+  const [currentProjects, setCurrentProjects] = useState<
+    (IReviewProps | undefined)[]
+  >([]);
   const { data } = useQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
   );
 
   useEffect(() => {
-    if (data) {
+    if (data && projects) {
       setCurrentProjects(
-        data.filter((review) => projects?.includes(review.title))
+        projects.map((proj) => data?.find((el) => el.title === proj))
       );
     }
   }, [data, projects]);
@@ -76,11 +78,14 @@ const ShowCase = ({ projects }: IShowCase) => {
           </svg>
         </Styled.NavigateLeft>
         <Swiper {...SliderProps}>
-          {currentProjects?.map((el, ind) => (
-            <SwiperSlide key={ind}>
-              <Slide review={el} />
-            </SwiperSlide>
-          ))}
+          {currentProjects?.map(
+            (el, ind) =>
+              el && (
+                <SwiperSlide key={ind}>
+                  <Slide review={el} />
+                </SwiperSlide>
+              )
+          )}
         </Swiper>
         <Styled.NavigateRight>
           <Styled.ArrowContainer>
