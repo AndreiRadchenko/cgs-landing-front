@@ -5,8 +5,12 @@ export const Wrapper = styled.div`
   display: none;
   @media ${themes.primary.media.maxMobile} {
     display: flex;
-    margin-bottom: 5em;
+    padding-bottom: 5em;
     position: relative;
+
+    & .swiper-slide {
+      padding: 35px 0 !important;
+    }
   }
 `;
 
@@ -20,7 +24,7 @@ export const ServiceWrapper = styled.div`
   height: 40em;
   padding: 1.7em;
   position: relative;
-  overflow-y: visible;
+
   > div {
     text-transform: uppercase;
     font-size: 3em;
@@ -39,7 +43,7 @@ export const ServiceWrapper = styled.div`
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  width: 85%;
+  width: 320px;
   bottom: -7%;
   justify-self: center;
   @media ${themes.primary.media.maxMobile} {
@@ -47,11 +51,20 @@ export const ImageWrapper = styled.div`
     right: 0;
     bottom: -10%;
   }
-  @media ${themes.primary.media.maxMobilePortrait} {
-    width: 65%;
+
+  @media (max-width: 600px) {
+    width: 60%;
   }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 75%;
+    width: 80%;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 80%;
+  }
+  @media (max-width: 450px) {
+    width: 85%;
   }
   @media (max-width: 400px) {
     width: 95%;
