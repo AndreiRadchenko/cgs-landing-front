@@ -79,3 +79,13 @@ export const SYMBOLS = LETTERS_NUMBERS + SPECIAL_CHARACTERS;
 export const DEFAULT_SCRAMBLE_SPEED = 30;
 export const DEFAULT_REVEAL_SPEED = 100;
 export const DEFAULT_REVEAL_DELAY = 1000;
+
+export const mobileServicesRoutes = [
+  "mobile-app-development",
+  "web-development",
+  "database-and-server-solutions",
+  "it-support",
+  "ux-ui-design",
+  "cloud-solutions",
+  "blockchain",
+];

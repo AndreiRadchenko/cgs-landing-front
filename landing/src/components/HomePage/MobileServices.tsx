@@ -7,6 +7,8 @@ import * as StyledThisComp from "../../styles/HomePage/MobileServices.styled";
 import params from "../../mock/MobileServicesSwiperParams";
 import { adminServices } from "../../services/services/commonServices";
 import TextTypingAnimation from "../Typewrite";
+import { mobileServicesRoutes } from "../../utils/variables";
+import Link from "next/link";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -46,13 +48,17 @@ const MobileServices = () => {
   let renderSliderSlides;
   if (slidesData) {
     renderSliderSlides = slidesData.map((item, idx) => (
-      <SwiperSlide key={idx} style={{ padding: "30px 0px" }}>
-        <StyledThisComp.ServiceWrapper>
-          <TextTypingAnimation text={item.title} />
-          <StyledThisComp.ImageWrapper>
-            <StyledThisComp.Image src={item.image} />
-          </StyledThisComp.ImageWrapper>
-        </StyledThisComp.ServiceWrapper>
+      <SwiperSlide key={idx} style={{ padding: "35px 0px" }}>
+        <Link href={`/services/${mobileServicesRoutes[idx]}`} passHref>
+          <StyledThisComp.ServiceLink>
+            <StyledThisComp.ServiceWrapper>
+              <TextTypingAnimation text={item.title} />
+              <StyledThisComp.ImageWrapper>
+                <StyledThisComp.Image src={item.image} />
+              </StyledThisComp.ImageWrapper>
+            </StyledThisComp.ServiceWrapper>
+          </StyledThisComp.ServiceLink>
+        </Link>
       </SwiperSlide>
     ));
   }

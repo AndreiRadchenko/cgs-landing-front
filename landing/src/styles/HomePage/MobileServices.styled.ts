@@ -7,10 +7,6 @@ export const Wrapper = styled.div`
     display: flex;
     padding-bottom: 5em;
     position: relative;
-
-    & .swiper-slide {
-      padding: 35px 0 !important;
-    }
   }
 `;
 
@@ -74,3 +70,5 @@ export const ImageWrapper = styled.div`
 export const Image = styled.img`
   width: 100%;
 `;
+
+export const ServiceLink = styled.a``;
