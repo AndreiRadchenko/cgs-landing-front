@@ -162,6 +162,7 @@ export const AdminPaddedHeaderBlock = styled.div`
 export const AdminBlocksContent = styled.div`
   margin-left: 2.5em;
   margin-right: 3.75em;
+  font-family: ${themes.primary.font.family.namu};
 `;
 
 export const MetaBlockWraper = styled.div`
@@ -234,16 +235,17 @@ export const AdminInput = styled(TextareaAutosize)<{
   isAdmin?: boolean;
 }>`
   resize: vertical;
-  width: ${(props) => (props.width ? props.width : "100%")};
-  background-color: ${(props) =>
-    props.isAdmin ? themes.primary.colors.grayBack : null};
-  outline: ${(props) =>
-    props.isAdmin ? `1px solid ${themes.primary.colors.comment}` : null};
+  width: ${({ width }) => (width ? width : "100%")};
+  background-color: ${({ isAdmin }) => (isAdmin ? "transparent" : null)};
+  outline: ${({ isAdmin }) =>
+    isAdmin ? `1px solid ${themes.primary.colors.comment}` : null};
   font-size: ${themes.primary.font.size.linkText};
-  font-family: ${themes.primary.font.family.mulish};
+  font-family: ${themes.primary.font.family.namu};
   padding: ${themes.primary.spacing.primary};
   border: 0;
-  height: ${(props) => props.height} !important;
+  height: ${({ height }) => height} !important;
+  line-height: 160%;
+
   margin-bottom: ${themes.primary.spacing.primary};
   &:focus {
     outline: 1px solid gray;
@@ -1201,4 +1203,23 @@ export const ContentWrapper = styled.div`
 
 export const InputWrapper = styled.div`
   width: 100%;
+`;
+
+export const AdminDropDownWrapper = styled.div``;
+
+export const MobileAuditHeaderGrid = styled.div`
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+`;
+
+export const MobileAuditHeaderInputsWrapper = styled.div`
+  & > div:first-child {
+    margin-bottom: 1.75em;
+  }
+`;
+
+export const AdminMobileAuditWhatAppWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;

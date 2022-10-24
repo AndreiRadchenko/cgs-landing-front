@@ -40,7 +40,7 @@ export interface DropdownPropsInterface {
 }
 
 export interface IBlockDropDown {
-  value: string;
+  title: string;
   children: any;
 }
 

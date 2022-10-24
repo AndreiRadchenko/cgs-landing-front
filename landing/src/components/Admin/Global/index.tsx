@@ -61,10 +61,10 @@ const AdminMainContent = () => {
             <Form>
               <Styled.AdminBlocksContent>
                 <Styled.AdminHeader>HOMEPAGE</Styled.AdminHeader>
-                <AdminBlockDropDown value="BLOCK 1 (MAIN PAGE)">
+                <AdminBlockDropDown title="BLOCK 1 (MAIN PAGE)">
                   <EditInformationBlock />
                 </AdminBlockDropDown>
-                <AdminBlockDropDown value="BLOCK 2 (HEADINGS// LOGO// FILM)">
+                <AdminBlockDropDown title="BLOCK 2 (HEADINGS// LOGO// FILM)">
                   <SubtitleBlock />
                   <AdminLogosBlock />
                   <FilmTextBlock />
@@ -81,13 +81,13 @@ const AdminMainContent = () => {
                     </ArrowContainer>
                   </BlackButton>
                 </AdminBlockDropDown>
-                <AdminBlockDropDown value="BLOCK 3 (FEEDBACK)">
+                <AdminBlockDropDown title="BLOCK 3 (FEEDBACK)">
                   <AdminFeedbackBlock />
                 </AdminBlockDropDown>
-                <AdminBlockDropDown value="BLOCK 4 (TECHNOLOGIES)">
+                <AdminBlockDropDown title="BLOCK 4 (TECHNOLOGIES)">
                   <AdminTechBlock />
                 </AdminBlockDropDown>
-                <AdminBlockDropDown value="BLOCK 5 (COOPERATION STEPS)">
+                <AdminBlockDropDown title="BLOCK 5 (COOPERATION STEPS)">
                   <AdminCardsBlock />
                   <ButtonBlock
                     isCooperationBlock
@@ -106,7 +106,7 @@ const AdminMainContent = () => {
                     </ArrowContainer>
                   </BlackButton>
                 </AdminBlockDropDown>
-                <AdminBlockDropDown value="FOOTER">
+                <AdminBlockDropDown title="FOOTER">
                   <AdminFooterBlock />
                 </AdminBlockDropDown>
               </Styled.AdminBlocksContent>
