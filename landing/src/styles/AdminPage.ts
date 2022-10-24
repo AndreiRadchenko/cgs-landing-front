@@ -711,6 +711,14 @@ export const AdminDropDownMenuBanner = styled.div`
   padding: ${themes.primary.spacing.primary};
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  & svg {
+    transition: transform 0.3s;
+  }
+  & svg.dropped {
+    transform: rotate(180deg);
+  }
 `;
 
 export const AdminDropDownMenuList = styled.div`
