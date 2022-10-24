@@ -98,18 +98,22 @@ export const ProjectDescription = styled.p`
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 170%;
-  margin: 15px 0 27px;
-  @media ${themes.primary.media.maxMobile} {
-    padding: 10px;
-    margin-top: 0px;
-  }
-  @media (max-width: 1440px) {
+  line-height: 26px;
+  margin-block: 15px;
+
+  @media ${themes.primary.media.minPC} {
     -webkit-line-clamp: 3;
   }
+  @media ${themes.primary.media.minPCFullHD} {
+    line-height: 160%;
+    font-size: 1.2em;
+    -webkit-line-clamp: 4;
+  }
+  @media (max-width: 1439px) {
+  }
   @media (max-width: 1310px) {
-    margin: 12px 0 32px;
-    -webkit-line-clamp: 2;
+    margin-block: 10px;
+    -webkit-line-clamp: 3;
   }
   @media (max-width: 1199px) {
     font-size: 15px;
@@ -431,6 +435,14 @@ export const Separator = styled.div`
   width: 100%;
   height: 1px;
   margin-bottom: 30px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 1310px) {
+    margin-bottom: 15px;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 10px;
