@@ -10,6 +10,7 @@ import {
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+import { AdminPortfolioValidation } from "../../../validations/AdminPortfolioValidator";
 
 const AddAndEdit = ({
   current,
@@ -56,7 +57,7 @@ const AddAndEdit = ({
         isNewStatus ? addReview(data) : editReview(data);
         action.resetForm();
       }}
-      validateOnChange={false}
+      validationSchema={AdminPortfolioValidation}
     >
       <AddReview categories={values.categories} newFlag={isNewStatus} />
     </Formik>
