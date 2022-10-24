@@ -126,6 +126,7 @@ const Review = ({ review, className }: IReviewProps) => {
               src={review.image.url}
               alt="review image"
               layout="fill"
+              style={{ opacity: isLoading ? "0" : "1" }}
               onLoad={onLoadCallBack}
             />
           </Styled.ImageContainer>
