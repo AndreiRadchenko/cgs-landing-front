@@ -101,9 +101,6 @@ export const ProjectDescription = styled.p`
   line-height: 26px;
   margin-block: 15px;
 
-  @media ${themes.primary.media.minPC} {
-    -webkit-line-clamp: 3;
-  }
   @media ${themes.primary.media.minPCFullHD} {
     line-height: 160%;
     font-size: 1.2em;
@@ -113,7 +110,6 @@ export const ProjectDescription = styled.p`
   }
   @media (max-width: 1310px) {
     margin-block: 10px;
-    -webkit-line-clamp: 3;
   }
   @media (max-width: 1199px) {
     font-size: 15px;
@@ -251,11 +247,9 @@ export const PortfolioRow = styled.div`
     background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
   }
+
   @media (max-width: 1310px) {
-    max-height: 460px;
-  }
-  @media (max-width: 1310px) {
-    max-height: 460px;
+    max-height: 1000px;
   }
   @media ${themes.primary.media.minPC} {
     max-height: 33.5vw;
@@ -378,14 +372,13 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   position: relative;
 
-  padding: 34px 26px 30px;
+  padding: 2.833em 2.1666em 2.5em;
   width: 45%;
   box-sizing: border-box;
   @media (max-width: 1250px) {
     padding: 17px 15px;
   }
   @media ${themes.primary.media.minPC} {
-    padding: 50px;
     font-size: 0.77vw;
   }
   @media ${themes.primary.media.minPCFullHD} {
@@ -435,14 +428,6 @@ export const Separator = styled.div`
   width: 100%;
   height: 1px;
   margin-bottom: 30px;
-
-  @media ${themes.primary.media.minPCFullHD} {
-    margin-bottom: 10px;
-  }
-
-  @media (max-width: 1310px) {
-    margin-bottom: 15px;
-  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 10px;
