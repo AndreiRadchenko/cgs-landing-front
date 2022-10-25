@@ -13,22 +13,23 @@ export const LoaderWrapper = styled.div`
 `;
 
 export const Cube = styled.div`
-  background-color: ${themes.primary.colors.portfolioLoaderCube};
-  width: 25px;
-  height: 25px;
+  background-color: ${themes.primary.colors.darkedGrayBack};
+  width: 20px;
+  height: 20px;
 
   &.middle {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 0 auto;
-    background-color: ${themes.primary.colors.primary};
+    margin: auto;
+    background-color: ${themes.primary.colors.comment};
     animation: ${cubeScale} 2.5s ease-in infinite;
+    z-index: 2;
   }
 `;
 
 export const LoaderRow = styled.div`
-  width: 95px;
+  width: 72px;
   padding-block: 10px;
   position: relative;
   display: flex;
