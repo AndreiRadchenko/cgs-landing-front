@@ -329,3 +329,21 @@ export const blur = keyframes`${css`
     filter: blur(0px);
   }
 `}`;
+
+export const propeller = keyframes` 
+  50% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+    `;
+
+export const cubeScale = keyframes` 
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+  `;
