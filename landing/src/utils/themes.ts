@@ -171,7 +171,6 @@ const themes = {
       inputGrey: "#787877",
       ourWork: "#A7A6A9",
       serviceHighlight: "#BABABA",
-      portfolioLoaderCube: "#8F8E93",
       deleteImageHover: "#ad1313",
     },
     media: {
