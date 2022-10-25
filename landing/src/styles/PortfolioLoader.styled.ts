@@ -22,6 +22,7 @@ export const Cube = styled.div`
     left: 0;
     right: 0;
     margin: auto;
+    transform-origin: center;
     background-color: ${themes.primary.colors.comment};
     animation: ${cubeScale} 2.5s ease-in infinite;
     z-index: 2;
