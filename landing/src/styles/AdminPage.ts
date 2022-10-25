@@ -1210,3 +1210,15 @@ export const ContentWrapper = styled.div`
 export const InputWrapper = styled.div`
   width: 100%;
 `;
+
+export const ErrorText = styled.div`
+  color: ${themes.primary.colors.errorText};
+`;
+
+export const TextCounter = styled.div``;
+
+export const BottomText = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+`;
