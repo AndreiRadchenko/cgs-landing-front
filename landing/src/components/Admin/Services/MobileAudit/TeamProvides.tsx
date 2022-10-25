@@ -46,7 +46,7 @@ const TeamProvides = () => {
               onChange={handleChange}
               isAdmin
               name={`whatAppInclude.textBlock.[${idx}].text`}
-              width="421px"
+              // width="421px"
             />
           ))}
         </Styled.ProjectInfo>
@@ -59,7 +59,7 @@ const TeamProvides = () => {
               onChange={handleChange}
               isAdmin
               name={`whatAppInclude.textBlock.[0].subtext[${idx}]`}
-              width="421px"
+              // width="421px"
             />
           ))}
         </Styled.ProjectInfo>

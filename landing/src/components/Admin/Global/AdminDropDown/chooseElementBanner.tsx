@@ -1,8 +1,5 @@
-import Image from "next/image";
 import React from "react";
 import * as Styled from "../../../../styles/AdminPage";
-import UpArrow from "../../../../../public/upArrowSidebar.svg";
-import DownArrow from "../../../../../public/downArrowSidebar.svg";
 import { IMenuProps } from "./dropDownTypes";
 
 const ChooseElementBanner = ({
@@ -14,16 +11,26 @@ const ChooseElementBanner = ({
   const trigger = () => setIsDropped!((prev) => !prev);
 
   return (
-    <Styled.AdminDropDownMenuBanner>
-      {value ? (
-        <span>{value}</span>
-      ) : (
-        <Styled.AdminComment>{text}</Styled.AdminComment>
-      )}
-      <Styled.AdminPointer onClick={trigger}>
-        <Image src={isDropped ? UpArrow : DownArrow} />
-      </Styled.AdminPointer>
-    </Styled.AdminDropDownMenuBanner>
+    <Styled.AdminPointer onClick={trigger}>
+      <Styled.AdminDropDownMenuBanner>
+        {value ? (
+          <span>{value}</span>
+        ) : (
+          <Styled.AdminComment>{text}</Styled.AdminComment>
+        )}
+
+        <svg
+          width="15"
+          height="9"
+          viewBox="0 0 15 9"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={isDropped ? "dropped" : undefined}
+        >
+          <path d="M1 1L7.5 8L14 1" stroke="black" />
+        </svg>
+      </Styled.AdminDropDownMenuBanner>
+    </Styled.AdminPointer>
   );
 };
 

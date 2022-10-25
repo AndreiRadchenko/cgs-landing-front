@@ -17,6 +17,7 @@ interface IReviewProps {
   editFlag?: boolean;
   setCurrent?: (value: number) => void;
   idx?: number;
+  onScroll: () => void;
 }
 
 const AdminReview = ({
@@ -26,12 +27,14 @@ const AdminReview = ({
   editFlag,
   setCurrent,
   idx,
+  onScroll,
 }: IReviewProps) => {
   const editTriggerFunc = () => {
     if (setCurrent && typeof idx === "number" && editTrigger) {
       setCurrent(idx);
       editTrigger((prev) => !prev);
     }
+    if (editFlag) onScroll();
   };
 
   const redirect = () => (window.location.href = review.button);

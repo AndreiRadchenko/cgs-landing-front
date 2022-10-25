@@ -713,6 +713,14 @@ export const AdminDropDownMenuBanner = styled.div`
   padding: ${themes.primary.spacing.primary};
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  & svg {
+    transition: transform 0.3s;
+  }
+  & svg.dropped {
+    transform: rotate(180deg);
+  }
 `;
 
 export const AdminDropDownMenuList = styled.div`
@@ -1220,6 +1228,8 @@ export const MobileAuditHeaderInputsWrapper = styled.div`
 `;
 
 export const AdminMobileAuditWhatAppWrapper = styled.div`
-  display: flex;
+  display: grid;
+  column-gap: 50px;
+  grid-template-columns: 1.5fr 1.1fr 1fr;
   justify-content: space-between;
 `;

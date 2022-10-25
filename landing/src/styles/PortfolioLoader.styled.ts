@@ -1,5 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import themes from "../utils/themes";
+import { cubeScale, propeller } from "./Animations.styled";
 
 export const LoaderWrapper = styled.div`
   position: relative;
@@ -10,24 +11,6 @@ export const LoaderWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
-const propeller = keyframes` 
-  50% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(180deg);
-  }
-    `;
-
-const cubeScale = keyframes` 
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-  `;
 
 export const Cube = styled.div`
   background-color: ${themes.primary.colors.portfolioLoaderCube};
@@ -40,7 +23,7 @@ export const Cube = styled.div`
     right: 0;
     margin: 0 auto;
     background-color: ${themes.primary.colors.primary};
-    animation: ${cubeScale} 1.5s ease-in infinite;
+    animation: ${cubeScale} 2.5s ease-in infinite;
   }
 `;
 
@@ -55,5 +38,5 @@ export const EdgeCubeWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  animation: ${propeller} 0.75s ease-in-out infinite;
+  animation: ${propeller} 1.25s ease-in-out infinite;
 `;
