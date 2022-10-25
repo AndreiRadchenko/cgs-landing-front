@@ -6,6 +6,7 @@ import AddAndEdit from "./AddAndEdit";
 import renderPortfolioInputs from "./renderPortfolioInputs";
 import AdminDropDown from "../Global/AdminDropDown";
 import { IPortfolioPageData } from "../../../types/Admin/AdminPortfolio.types";
+import { useScrollTo } from "../../../hooks/useScrollTo";
 
 import MetaTagsBlock from "../MetaTagsBlock";
 import {
@@ -27,6 +28,7 @@ const AdminPortfolioContentBlock = () => {
   const { data } = useQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
   );
+  const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
   const { mutateAsync } = useMutation(
     [queryKeys.deletePortfolioReview],
     (id: string) => adminPortfolioService.deleteReview(id),
@@ -81,7 +83,7 @@ const AdminPortfolioContentBlock = () => {
   return (
     <div>
       <Styled.AdminPaddedBlock>
-        <Styled.AdminHeader>Portfolio</Styled.AdminHeader>
+        <Styled.AdminHeader ref={ref}>Portfolio</Styled.AdminHeader>
         <Styled.AdminSubTitle>Category</Styled.AdminSubTitle>
         <Styled.AdminCategoryBlock>
           <FieldArray name="categories">
@@ -144,6 +146,7 @@ const AdminPortfolioContentBlock = () => {
                                           review.image?.url
                                         )
                                       }
+                                      onScroll={scrollHandler}
                                       editTrigger={setIsNewStatus}
                                     />
                                   </Styled.DraggableWrapper>

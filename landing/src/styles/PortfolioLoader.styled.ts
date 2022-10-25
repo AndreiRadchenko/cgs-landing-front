@@ -1,5 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import themes from "../utils/themes";
+import { cubeScale, propeller } from "./Animations.styled";
 
 export const LoaderWrapper = styled.div`
   position: relative;
@@ -10,24 +11,6 @@ export const LoaderWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
-const propeller = keyframes` 
-  50% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(180deg);
-  }
-    `;
-
-const cubeScale = keyframes` 
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-  `;
 
 export const Cube = styled.div`
   background-color: ${themes.primary.colors.darkedGrayBack};
