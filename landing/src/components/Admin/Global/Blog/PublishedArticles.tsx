@@ -12,18 +12,14 @@ import {
   ISwapData,
   IView,
 } from "../../../../types/Admin/Response.types";
-import {
-  DragDropContext,
-  Droppable,
-  Draggable,
-  DropResult,
-} from "react-beautiful-dnd";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminBlogService } from "../../../../services/adminBlogPage";
 import close from "../../../../../public/bigClose.svg";
 import { AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { adminSitemapService } from "../../../../services/adminSitemapPage";
+import { SortableContainer, SortableElement } from "react-sortable-hoc";
+import { IDragProps } from "../../LogosBlock";
 
 interface IArticles {
   setIsNewArticle: (val: boolean) => void;
@@ -40,6 +36,15 @@ interface IArticles {
 interface IArticleItem {
   item: IArticle;
   i: number;
+}
+
+interface IDragArticleContainerProps {
+  items: IArticle[];
+}
+
+interface IDragItemProps {
+  item: IArticle;
+  index: number;
 }
 
 const PublishedArticles: FC<IArticles> = ({
@@ -157,9 +162,9 @@ const PublishedArticles: FC<IArticles> = ({
     }
   };
 
-  const handleDragEnd = async (param: DropResult) => {
-    const srcInd = param.source.index;
-    const desInd: number | undefined = param.destination?.index;
+  const handleDragEnd = async ({ oldIndex, newIndex }: IDragProps) => {
+    const srcInd = oldIndex;
+    const desInd: number | undefined = newIndex;
     const swapped = data;
     swapped &&
       typeof desInd === "number" &&
@@ -168,6 +173,28 @@ const PublishedArticles: FC<IArticles> = ({
       (await swapElements({ srcInd, desInd })) &&
       queryClient.setQueryData([queryKeys.getBlogArticles], swapped);
   };
+
+  const SortableListItem = SortableElement<IDragItemProps>(
+    ({ item, index }: IDragItemProps) => {
+      return (
+        <div>
+          <ArticleItem item={item} i={index} />
+        </div>
+      );
+    }
+  );
+
+  const SortableList = SortableContainer<IDragArticleContainerProps>(
+    ({ items }: IDragArticleContainerProps) => {
+      return (
+        <div>
+          {items.map((item, index) => {
+            return <SortableListItem item={item} key={index} index={index} />;
+          })}
+        </div>
+      );
+    }
+  );
 
   const ArticleItem = ({ item, i }: IArticleItem) => {
     return (
@@ -207,32 +234,7 @@ const PublishedArticles: FC<IArticles> = ({
     <AdminPaddedBlock>
       <Styles.Wrapper ref={scrollRef}>
         <AdminSubTitle>Published articles</AdminSubTitle>
-        <DragDropContext onDragEnd={(param) => handleDragEnd(param)}>
-          <Droppable droppableId={"droppable-1"}>
-            {(provided) => (
-              <div ref={provided.innerRef} {...provided.droppableProps}>
-                {data.map((item: IArticle, i) =>
-                  isNewArticle ? (
-                    <Draggable draggableId={"draggable-" + i} index={i} key={i}>
-                      {(provided) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                        >
-                          <ArticleItem item={item} i={i} />
-                        </div>
-                      )}
-                    </Draggable>
-                  ) : (
-                    <ArticleItem item={item} i={i} key={i} />
-                  )
-                )}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
+        <SortableList items={data} onSortEnd={handleDragEnd} />
       </Styles.Wrapper>
     </AdminPaddedBlock>
   ) : (
