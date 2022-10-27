@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, RefObject } from "react";
 import { AdminSubTitle } from "../../../../styles/AdminBlogPage";
 import BlogItem from "../../../BlogItem/BlogItem";
 import ChangeIconImg from "../../../../../public/ChangeIcon.svg";
@@ -34,6 +34,7 @@ interface IArticles {
   views?: IView[];
   disabled?: boolean;
   sitemap?: ISitemapData | void;
+  scrollRef: RefObject<HTMLDivElement>;
 }
 
 interface IArticleItem {
@@ -49,6 +50,7 @@ const PublishedArticles: FC<IArticles> = ({
   data,
   views,
   sitemap,
+  scrollRef,
 }) => {
   const { handleSubmit } = useFormikContext<IArticle>();
   const queryClient = useQueryClient();
@@ -203,7 +205,7 @@ const PublishedArticles: FC<IArticles> = ({
 
   return data && data.length ? (
     <AdminPaddedBlock>
-      <Styles.Wrapper>
+      <Styles.Wrapper ref={scrollRef}>
         <AdminSubTitle>Published articles</AdminSubTitle>
         <DragDropContext onDragEnd={(param) => handleDragEnd(param)}>
           <Droppable droppableId={"droppable-1"}>

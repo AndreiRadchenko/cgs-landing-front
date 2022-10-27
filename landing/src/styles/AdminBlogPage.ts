@@ -87,3 +87,20 @@ export const Text = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export const BlogCancelButton = styled.button`
+  max-width: 226px;
+  height: 56px;
+  width: 100%;
+  background-color: ${themes.primary.colors.portfolioHover};
+  border: 2px solid ${themes.primary.colors.primary};
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 1.5em;
+  cursor: pointer;
+`;
+
+export const BlogButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;

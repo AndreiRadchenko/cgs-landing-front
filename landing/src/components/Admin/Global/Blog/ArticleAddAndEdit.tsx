@@ -16,11 +16,15 @@ import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import InputWithType from "../../../Inputs/InputWithType";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import AddTag from "./AddTag";
+import { useScrollTo } from "../../../../hooks/useScrollTo";
 
 interface IAddAndEdit {
   article: number;
   isNewArticle: boolean;
+  setIsNewArticle: (val: boolean) => void;
+  setArticle: (val: number) => void;
   possibleTags: string[];
+  scrollHandler: () => void;
 }
 
 const TITLE_MIN = 10;
@@ -31,12 +35,17 @@ const DESCRIPTION_MAX = 160;
 const ArticleAddAndEdit = ({
   article,
   isNewArticle,
+  setIsNewArticle,
   possibleTags,
+  setArticle,
+  scrollHandler,
 }: IAddAndEdit) => {
   const [descLength, setDescLength] = useState(0);
   const [titleLength, setTitleLength] = useState(0);
+  const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
 
-  const { values, handleSubmit, handleChange } = useFormikContext<IArticle>();
+  const { values, handleSubmit, handleChange, resetForm } =
+    useFormikContext<IArticle>();
 
   useEffect(() => {
     setDescLength(values.description.length);
@@ -71,9 +80,20 @@ const ArticleAddAndEdit = ({
   const deleteBannerFunc = async () => (await deleteBanner)();
   const uploadBannerFunc = (image: IImage) => uploadBanner(image);
 
+  const reset = () => {
+    resetForm();
+    scrollTo();
+  };
+
+  const cancelArticle = () => {
+    setIsNewArticle(true);
+    setArticle(0);
+    scrollHandler();
+  };
+
   return (
     <>
-      <Styled.AdminPaddedBlock>
+      <Styled.AdminPaddedBlock ref={ref}>
         <Styled.AdminHeader>Blog</Styled.AdminHeader>
         <Styles.AdminSubTitle>Add new article</Styles.AdminSubTitle>
         <Styles.BigWrapper>
@@ -220,11 +240,20 @@ const ArticleAddAndEdit = ({
         sitemap={(values.url !== "" && `blog/${values.url}`) || undefined}
       />
       <Styled.AdminPaddedBlock>
-        <Styles.SubmitButtonWrapper>
-          <TicketsButton type={"submit"} onClick={() => handleSubmit()}>
-            {`${isNewArticle ? "Save" : "Edit"} Article`}
-          </TicketsButton>
-        </Styles.SubmitButtonWrapper>
+        <Styles.BlogButtonWrapper>
+          <Styles.SubmitButtonWrapper>
+            <TicketsButton type={"submit"} onClick={() => handleSubmit()}>
+              {`${isNewArticle ? "Save" : "Edit"} Article`}
+            </TicketsButton>
+          </Styles.SubmitButtonWrapper>
+
+          <Styles.BlogCancelButton
+            type={"submit"}
+            onClick={isNewArticle ? reset : cancelArticle}
+          >
+            {isNewArticle ? "Reset" : "Cancel"}
+          </Styles.BlogCancelButton>
+        </Styles.BlogButtonWrapper>
       </Styled.AdminPaddedBlock>
     </>
   );
