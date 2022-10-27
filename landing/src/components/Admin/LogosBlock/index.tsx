@@ -1,5 +1,6 @@
 import { useFormikContext } from "formik";
 import React, { FC } from "react";
+import { SortableContainer, SortableElement } from "react-sortable-hoc";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminGlobalService } from "../../../services/adminHomePage";
@@ -8,20 +9,18 @@ import { IDataResponse } from "../../../types/Admin/Response.types";
 import AddLogoFrame from "./AddLogoFrame";
 import LogoElement from "./LogoElement";
 
-interface IRenderProps {
-  state: { url: string }[];
-  deleteLogo: (ind: number) => void;
+interface IDragItem {
+  item: { url: string; index: number };
 }
 
-const render = ({ state, deleteLogo }: IRenderProps) => {
-  return state.map((i, ind) => (
-    <LogoElement
-      image={i}
-      key={Math.random()}
-      deleteLogo={() => deleteLogo(ind)}
-    />
-  ));
-};
+interface IDragContainer {
+  items: { url: string }[];
+}
+
+export interface IDragProps {
+  oldIndex: number;
+  newIndex: number;
+}
 
 const AdminLogosBlock: FC = () => {
   const queryClient = useQueryClient();
@@ -37,16 +36,55 @@ const AdminLogosBlock: FC = () => {
     queryClient.invalidateQueries([queryKeys.GetFullPage]);
   };
 
+  const SortableListItem = SortableElement<IDragItem>(({ item }: IDragItem) => {
+    return (
+      <div>
+        <LogoElement
+          image={item}
+          key={Math.random()}
+          deleteLogo={() => deleteNormalLogo(item.index)}
+        />
+      </div>
+    );
+  });
+
+  const SortableList = SortableContainer<IDragContainer>(
+    ({ items }: IDragContainer) => {
+      return (
+        <Styled.AdminLogosGrid>
+          <AddLogoFrame state={values.LogosBlock} submit={handleSubmit} />
+          {items.map((item, index) => {
+            return (
+              <SortableListItem
+                item={{ ...item, index }}
+                key={index}
+                index={index}
+              />
+            );
+          })}
+        </Styled.AdminLogosGrid>
+      );
+    }
+  );
+
+  const onSortEnd = ({ oldIndex, newIndex }: IDragProps) => {
+    values.LogosBlock.images.splice(
+      newIndex,
+      0,
+      values.LogosBlock.images.splice(oldIndex, 1)[0]
+    );
+    handleSubmit();
+  };
+
   return (
     <div>
       <Styled.AdminSubTitle>Logos</Styled.AdminSubTitle>
-      <Styled.AdminLogosGrid>
-        <AddLogoFrame state={values.LogosBlock} submit={handleSubmit} />
-        {render({
-          state: values.LogosBlock.images,
-          deleteLogo: deleteNormalLogo,
-        })}
-      </Styled.AdminLogosGrid>
+
+      <SortableList
+        axis="xy"
+        items={values.LogosBlock.images}
+        onSortEnd={onSortEnd}
+      />
     </div>
   );
 };
