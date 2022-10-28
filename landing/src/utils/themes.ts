@@ -172,6 +172,7 @@ const themes = {
       ourWork: "#A7A6A9",
       serviceHighlight: "#BABABA",
       deleteImageHover: "#ad1313",
+      adminInputBorder: "#A9A5A4",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",
