@@ -238,13 +238,13 @@ export const AdminInput = styled(TextareaAutosize)<{
   resize: vertical;
   width: ${({ width }) => (width ? width : "100%")};
   max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "none")};
+  border: 1px solid ${themes.primary.colors.adminInputBorder};
   background-color: ${themes.primary.colors.blogBackground};
   outline: ${({ isAdmin }) =>
     isAdmin ? `1px solid ${themes.primary.colors.comment}` : null};
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.namu};
   padding: ${themes.primary.spacing.primary};
-  border: 0;
   height: ${({ height }) => height} !important;
   line-height: 160%;
 
