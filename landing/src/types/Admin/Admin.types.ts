@@ -55,6 +55,7 @@ export interface InputWithHeader extends InputPropsInterface {
   width?: string;
   id?: string;
   inputStyle?: any;
+  maxWidth?: string;
 }
 
 export interface InputWithImage extends InputPropsInterface {

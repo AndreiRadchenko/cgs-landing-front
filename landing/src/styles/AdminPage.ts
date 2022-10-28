@@ -143,7 +143,7 @@ export const AdminPaddedBlock = styled.div`
     ${themes.primary.spacing.adminWithinBlocks}
   `};
   margin-bottom: ${themes.primary.spacing.adminWithinBlocks};
-
+  font-family: ${themes.primary.font.family.namu};
   &.withoutMargin {
     margin-bottom: 0;
     padding-bottom: ${themes.primary.spacing.adminWithinBlocks};
@@ -232,11 +232,13 @@ export const AdminBlockWrapper = styled.div``;
 export const AdminInput = styled(TextareaAutosize)<{
   height?: string;
   width?: string;
+  maxWidth?: string;
   isAdmin?: boolean;
 }>`
   resize: vertical;
   width: ${({ width }) => (width ? width : "100%")};
-  background-color: ${({ isAdmin }) => (isAdmin ? "transparent" : null)};
+  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "none")};
+  background-color: ${themes.primary.colors.blogBackground};
   outline: ${({ isAdmin }) =>
     isAdmin ? `1px solid ${themes.primary.colors.comment}` : null};
   font-size: ${themes.primary.font.size.linkText};
@@ -1090,7 +1092,7 @@ export const AdminShowCaseServiceGrid = styled.div`
 `;
 
 export const AdminShowCaseTitle = styled.h2`
-  font-size: 1.617em;
+  font-size: 22px;
   margin: 0;
 `;
 
@@ -1217,11 +1219,14 @@ export const AdminDropDownWrapper = styled.div``;
 
 export const MobileAuditHeaderGrid = styled.div`
   display: flex;
-  justify-content: space-between;
-  column-gap: 30px;
 `;
 
 export const MobileAuditHeaderInputsWrapper = styled.div`
+  margin-left: 30px;
+
+  &.header {
+    margin-left: 42px;
+  }
   & > div:first-child {
     margin-bottom: 1.75em;
   }
@@ -1232,4 +1237,27 @@ export const AdminMobileAuditWhatAppWrapper = styled.div`
   column-gap: 50px;
   grid-template-columns: 1.5fr 1.1fr 1fr;
   justify-content: space-between;
+`;
+
+export const AdminMobileAuditGrid = styled.div`
+  display: grid;
+  column-gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+`;
+
+export const AdminMobileAuditHowDoWeAuditGrid = styled.div`
+  margin-top: 29px;
+  display: grid;
+  column-gap: 36px;
+  grid-template-columns: repeat(2, 1fr);
+`;
+
+export const ButtonWrapper = styled.div`
+  margin-block: 3.41em 4.1em;
+`;
+
+export const BringAppButtonLinkWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
 `;

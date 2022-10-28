@@ -31,6 +31,7 @@ const HeaderBlock = () => {
           <div>
             <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>
             <PhotoBlockDashed
+              style={{ marginRight: 0 }}
               maxHeight="249px"
               maxWidth="235px"
               photo={values.headerBlock.image}
@@ -60,7 +61,7 @@ const HeaderBlock = () => {
               placeholder="Text"
             />
           </Styled.MobileAuditHeaderInputsWrapper>
-          <div>
+          <Styled.MobileAuditHeaderInputsWrapper className="header">
             <SubHeaderWithInput
               inputValue={values.headerBlock.button}
               onChangeFunction={handleChange}
@@ -79,7 +80,7 @@ const HeaderBlock = () => {
               name="headerBlock.buttonLink"
               placeholder="add link here"
             />
-          </div>
+          </Styled.MobileAuditHeaderInputsWrapper>
         </Styled.MobileAuditHeaderGrid>
 
         <BlackButton

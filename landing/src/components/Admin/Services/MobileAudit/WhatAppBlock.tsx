@@ -32,7 +32,7 @@ const WhatAppBlock = () => {
               onChangeFunction={handleChange}
               header={`Subtitle ${idx + 1}`}
               isAdmin
-              width="358px"
+              maxWidth="358px"
               name={`whatAppBlock.textBlock.${text[0]}.subtitle`}
               placeholder="Title"
             />
@@ -41,7 +41,7 @@ const WhatAppBlock = () => {
               onChangeFunction={handleChange}
               header={`Text ${idx + 1}`}
               isAdmin
-              width="358px"
+              maxWidth="358px"
               minRows={3}
               name={`whatAppBlock.textBlock.${text[0]}.text`}
               placeholder="Title"
