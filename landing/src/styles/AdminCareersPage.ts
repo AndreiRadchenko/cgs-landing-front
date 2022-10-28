@@ -73,7 +73,6 @@ export const TicketsInput = styled.input`
 
 export const TicketsButton = styled.button`
   width: 100%;
-  margin-top: 20px;
   background: ${themes.primary.colors.cardDarkGreen};
   border: 0;
   font-size: ${themes.primary.font.size.buttonText};

@@ -5,21 +5,29 @@ import AdminReview from "../PortfolioReview/AdminPortfolioReview";
 import AddAndEdit from "./AddAndEdit";
 import renderPortfolioInputs from "./renderPortfolioInputs";
 import AdminDropDown from "../Global/AdminDropDown";
-import { IPortfolioPageData } from "../../../types/Admin/AdminPortfolio.types";
+import {
+  IPortfolioPageData,
+  IPortfolioReview,
+} from "../../../types/Admin/AdminPortfolio.types";
 import { useScrollTo } from "../../../hooks/useScrollTo";
 
 import MetaTagsBlock from "../MetaTagsBlock";
-import {
-  DragDropContext,
-  Draggable,
-  Droppable,
-  DropResult,
-} from "react-beautiful-dnd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import { adminGlobalService } from "../../../services/adminHomePage";
 import { ISwapData } from "../../../types/Admin/Response.types";
+import { SortableContainer, SortableElement } from "react-sortable-hoc";
+import { IDragProps } from "../LogosBlock";
+
+interface IDragItemProps {
+  review: IPortfolioReview;
+  index: number;
+}
+
+interface IReviews {
+  reviews: IPortfolioReview[];
+}
 
 const AdminPortfolioContentBlock = () => {
   const queryClient = useQueryClient();
@@ -68,9 +76,9 @@ const AdminPortfolioContentBlock = () => {
     handleSubmit();
   };
 
-  const handleDragEnd = async (param: DropResult) => {
-    const srcInd = param.source.index;
-    const desInd: number | undefined = param.destination?.index;
+  const handleDragEnd = async ({ oldIndex, newIndex }: IDragProps) => {
+    const srcInd = oldIndex;
+    const desInd: number | undefined = newIndex;
     const swapped = data;
     swapped &&
       typeof desInd === "number" &&
@@ -80,6 +88,40 @@ const AdminPortfolioContentBlock = () => {
       queryClient.setQueryData([queryKeys.getPortfolio], swapped);
   };
 
+  const SortableListItem = SortableElement<IDragItemProps>(
+    ({ review, index }: IDragItemProps) => {
+      return (
+        <div>
+          <AdminReview
+            editFlag={isNewStatus}
+            review={review}
+            idx={index}
+            setCurrent={setCurrent}
+            deleteFunc={() =>
+              review._id &&
+              review.image &&
+              deleteFunc(review._id, review.image?.url)
+            }
+            onScroll={scrollHandler}
+            editTrigger={setIsNewStatus}
+          />
+        </div>
+      );
+    }
+  );
+
+  const SortableList = SortableContainer<IReviews>(({ reviews }: IReviews) => (
+    <div>
+      {reviews.map((review, index) => {
+        return (
+          <Styled.DraggableWrapper key={index}>
+            <SortableListItem review={review} index={index} />
+          </Styled.DraggableWrapper>
+        );
+      })}
+    </div>
+  ));
+
   return (
     <div>
       <Styled.AdminPaddedBlock>
@@ -88,7 +130,10 @@ const AdminPortfolioContentBlock = () => {
         <Styled.AdminCategoryBlock>
           <FieldArray name="categories">
             {() =>
-              renderPortfolioInputs({ state: values.categories, handleChange })
+              renderPortfolioInputs({
+                state: values.categories,
+                handleChange,
+              })
             }
           </FieldArray>
         </Styled.AdminCategoryBlock>
@@ -111,56 +156,13 @@ const AdminPortfolioContentBlock = () => {
         </Styled.AdminCategoryBlock>
         <Styled.AdminReviewBlock>
           {(data &&
-            data.filter((review) => review.category == catValue).length ===
-              0 && <Styled.AdminSubTitle>no reviews</Styled.AdminSubTitle>) || (
-            <DragDropContext onDragEnd={(param) => handleDragEnd(param)}>
-              <Droppable droppableId={"droppable-1"}>
-                {(provided) => (
-                  <div ref={provided.innerRef} {...provided.droppableProps}>
-                    <>
-                      {data &&
-                        data.map(
-                          (review, i) =>
-                            review.category === catValue && (
-                              <Draggable
-                                draggableId={"draggable-" + i}
-                                index={i}
-                                key={i}
-                              >
-                                {(provided) => (
-                                  <Styled.DraggableWrapper
-                                    ref={provided.innerRef}
-                                    {...provided.draggableProps}
-                                    {...provided.dragHandleProps}
-                                  >
-                                    <AdminReview
-                                      editFlag={isNewStatus}
-                                      review={review}
-                                      idx={i}
-                                      setCurrent={setCurrent}
-                                      deleteFunc={() =>
-                                        review._id &&
-                                        review.image &&
-                                        deleteFunc(
-                                          review._id,
-                                          review.image?.url
-                                        )
-                                      }
-                                      onScroll={scrollHandler}
-                                      editTrigger={setIsNewStatus}
-                                    />
-                                  </Styled.DraggableWrapper>
-                                )}
-                              </Draggable>
-                            )
-                        )}
-                      {provided.placeholder}
-                    </>
-                  </div>
-                )}
-              </Droppable>
-            </DragDropContext>
-          )}
+            data.filter((review) => review.category == catValue).length !==
+              0 && (
+              <SortableList
+                reviews={data.filter((review) => review.category == catValue)}
+                onSortEnd={handleDragEnd}
+              />
+            )) || <Styled.AdminSubTitle>no reviews</Styled.AdminSubTitle>}
         </Styled.AdminReviewBlock>
       </Styled.AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="portfolio" />

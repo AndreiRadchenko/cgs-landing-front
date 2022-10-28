@@ -16,7 +16,7 @@ interface IAddReviewProps {
 }
 
 const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
-  const { values, handleSubmit, handleChange } =
+  const { values, handleSubmit, handleChange, errors } =
     useFormikContext<IPortfolioReview>();
 
   const [catValue, setCatValue] = useState(
@@ -91,7 +91,12 @@ const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
             value={values.text}
             onChange={handleChange}
             name="text"
+            className="withBottomButtons"
           />
+          <Styled.BottomText>
+            <Styled.ErrorText>{errors["text"]}</Styled.ErrorText>
+            <Styled.TextCounter>{values.text.length}</Styled.TextCounter>
+          </Styled.BottomText>
           <Styled.AdminBigButton onClick={submitFunction} type="button">
             {newFlag ? "Add review" : "Edit review"}
           </Styled.AdminBigButton>

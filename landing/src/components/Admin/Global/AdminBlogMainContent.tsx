@@ -9,6 +9,7 @@ import MetaTagsBlock from "../MetaTagsBlock";
 import ArticleForm from "./Blog/ArticleForm";
 import PublishedArticles from "./Blog/PublishedArticles";
 import { adminSitemapService } from "../../../services/adminSitemapPage";
+import { useScrollTo } from "../../../hooks/useScrollTo";
 
 export interface IBlogProps {
   data: IBlogPageResponse | undefined;
@@ -19,6 +20,7 @@ export interface IBlogProps {
 const AdminBlogMainContent = () => {
   const [isNewArticle, setIsNewArticle] = useState(true);
   const [article, setArticle] = useState(0);
+  const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
 
   const submitForm = async (values: IBlogPageResponse) => {
     document.body.style.cursor = "wait";
@@ -70,8 +72,10 @@ const AdminBlogMainContent = () => {
             setIsNewArticle={setIsNewArticle}
             views={views}
             sitemap={sitemap}
+            scrollHandler={scrollTo}
           />
           <PublishedArticles
+            scrollRef={ref}
             views={views}
             article={article}
             setArticle={setArticle}

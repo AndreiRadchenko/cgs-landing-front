@@ -1261,3 +1261,15 @@ export const BringAppButtonLinkWrapper = styled.div`
   display: flex;
   align-items: flex-end;
 `;
+
+export const ErrorText = styled.div`
+  color: ${themes.primary.colors.errorText};
+`;
+
+export const TextCounter = styled.div``;
+
+export const BottomText = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+`;
