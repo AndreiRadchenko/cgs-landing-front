@@ -41,7 +41,7 @@ const AdminSidebar = () => {
           portfolio
         </Styled.AdminSidebarMenuElement>
         <DropDownElement value="service" Icon={ServiceIcon}>
-          <Link href={ROUTE_KEYS.AdminServiceWeb}>
+          <Link href={ROUTE_KEYS.AdminServiceWeb} passHref>
             <Styled.AdminListSubItem
               itemProp={currentPath}
               property={ROUTE_KEYS.AdminServiceWeb}
@@ -49,7 +49,7 @@ const AdminSidebar = () => {
               Web // Desktop Development
             </Styled.AdminListSubItem>
           </Link>
-          <Link href={ROUTE_KEYS.AdminServiceMobile}>
+          <Link href={ROUTE_KEYS.AdminServiceMobile} passHref>
             <Styled.AdminListSubItem
               itemProp={currentPath}
               property={ROUTE_KEYS.AdminServiceMobile}
@@ -57,7 +57,7 @@ const AdminSidebar = () => {
               Mobile Development
             </Styled.AdminListSubItem>
           </Link>
-          <Link href={ROUTE_KEYS.AdminServiceCloud}>
+          <Link href={ROUTE_KEYS.AdminServiceCloud} passHref>
             <Styled.AdminListSubItem
               itemProp={currentPath}
               property={ROUTE_KEYS.AdminServiceCloud}
@@ -65,7 +65,7 @@ const AdminSidebar = () => {
               Cloud Solutions
             </Styled.AdminListSubItem>
           </Link>
-          <Link href={ROUTE_KEYS.AdminServiceSupport}>
+          <Link href={ROUTE_KEYS.AdminServiceSupport} passHref>
             <Styled.AdminListSubItem
               itemProp={currentPath}
               property={ROUTE_KEYS.AdminServiceSupport}
@@ -73,7 +73,7 @@ const AdminSidebar = () => {
               Ongoing Support // Maintenance
             </Styled.AdminListSubItem>
           </Link>
-          <Link href={ROUTE_KEYS.AdminServiceDb}>
+          <Link href={ROUTE_KEYS.AdminServiceDb} passHref>
             <Styled.AdminListSubItem
               itemProp={currentPath}
               property={ROUTE_KEYS.AdminServiceDb}
@@ -81,7 +81,7 @@ const AdminSidebar = () => {
               Server & Databases
             </Styled.AdminListSubItem>
           </Link>
-          <Link href={ROUTE_KEYS.AdminServiceBlockchain}>
+          <Link href={ROUTE_KEYS.AdminServiceBlockchain} passHref>
             <Styled.AdminListSubItem
               itemProp={currentPath}
               property={ROUTE_KEYS.AdminServiceBlockchain}
@@ -89,7 +89,7 @@ const AdminSidebar = () => {
               Crypto // Blockchain Development
             </Styled.AdminListSubItem>
           </Link>
-          <Link href={ROUTE_KEYS.AdminServiceUxUi}>
+          <Link href={ROUTE_KEYS.AdminServiceUxUi} passHref>
             <Styled.AdminListSubItem
               itemProp={currentPath}
               property={ROUTE_KEYS.AdminServiceUxUi}
@@ -97,9 +97,17 @@ const AdminSidebar = () => {
               UX/UI Design
             </Styled.AdminListSubItem>
           </Link>
+          <Link href={ROUTE_KEYS.AdminServiceMobileAudit} passHref>
+            <Styled.AdminListSubItem
+              itemProp={currentPath}
+              property={ROUTE_KEYS.AdminServiceMobileAudit}
+            >
+              Mobile app audit
+            </Styled.AdminListSubItem>
+          </Link>
         </DropDownElement>
         <DropDownElement value="company" Icon={CompanyIcon}>
-          <Link href={ROUTE_KEYS.AdminAboutUs}>
+          <Link href={ROUTE_KEYS.AdminAboutUs} passHref>
             <Styled.AdminListSubItem
               itemProp={currentPath}
               property={ROUTE_KEYS.AdminAboutUs}
@@ -107,7 +115,7 @@ const AdminSidebar = () => {
               About us
             </Styled.AdminListSubItem>
           </Link>
-          <Link href={ROUTE_KEYS.AdminCareers}>
+          <Link href={ROUTE_KEYS.AdminCareers} passHref>
             <Styled.AdminListSubItem
               itemProp={currentPath}
               property={ROUTE_KEYS.AdminCareers}
@@ -115,7 +123,7 @@ const AdminSidebar = () => {
               Careers
             </Styled.AdminListSubItem>
           </Link>
-          <Link href={ROUTE_KEYS.AdminFaqPage}>
+          <Link href={ROUTE_KEYS.AdminFaqPage} passHref>
             <Styled.AdminListSubItem
               itemProp={currentPath}
               property={ROUTE_KEYS.AdminFaqPage}

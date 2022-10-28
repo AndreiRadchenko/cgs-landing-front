@@ -598,3 +598,53 @@ export interface IReviewProps {
 export interface ISitemapData {
   includedPages: string[];
 }
+
+export interface IServiceMobileAudit {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  whatAppBlock: {
+    subtitle: string;
+    textBlock: {
+      native: {
+        subtitle: string;
+        text: string;
+      };
+      web: {
+        subtitle: string;
+        text: string;
+      };
+      hybrid: {
+        subtitle: string;
+        text: string;
+      };
+    };
+  };
+  whatAppInclude: {
+    subtitle: string;
+    textBlock: { text: string; subtext: string[] }[];
+    image: { url: string };
+  };
+  whenDoYouNeed: {
+    subtitle: string;
+    description: string;
+    points: string[];
+  };
+  howDoWeAudit: {
+    subtitle: string;
+    description: string;
+    points: string[];
+  };
+  footerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}

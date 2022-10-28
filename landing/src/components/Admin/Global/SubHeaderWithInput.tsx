@@ -17,6 +17,7 @@ const SubHeaderWithInput = ({
   id,
   inputStyle,
   isMetaField = false,
+  maxWidth,
 }: InputWithHeader) => {
   return (
     <div>
@@ -33,6 +34,7 @@ const SubHeaderWithInput = ({
         height={height}
         width={width}
         id={id}
+        maxWidth={maxWidth}
         style={inputStyle}
       />
     </div>

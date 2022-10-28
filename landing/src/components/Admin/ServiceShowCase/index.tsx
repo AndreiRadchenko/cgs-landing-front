@@ -5,20 +5,24 @@ import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import {
   AdminBlockWrapper,
-  AdminBlockTitle,
+  // AdminBlockTitle,
   AdminShowCaseCategoryDropdownHeader,
   AdminShowCaseServiceGrid,
-  AdminPaddedBlock,
   AdminShowCaseServiceButton,
   AdminShowCaseTitle,
   AdminShowCaseProjectsWrapper,
   AdminShowCaseDropDownContent,
   AdminShowCaseDropDownListItem,
-  AdminShowCaseButton,
+  ButtonWrapper,
+  // AdminShowCaseButton,
 } from "../../../styles/AdminPage";
-import { ArrowContainer } from "../../../styles/HomePage/General.styled";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../styles/HomePage/General.styled";
 import { IProjects } from "../../../types/Admin/Response.types";
 import ButtonArrow from "../../../utils/ButtonArrow";
+import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 
 const ServiceShowCase = () => {
   const { values, setFieldValue, handleSubmit } = useFormikContext<IProjects>();
@@ -75,19 +79,7 @@ const ServiceShowCase = () => {
   }, [choosenProjects, setFieldValue, handleSubmit]);
 
   return (
-    <AdminPaddedBlock>
-      <AdminBlockTitle>
-        Block our work{" "}
-        <svg
-          width="15"
-          height="9"
-          viewBox="0 0 15 9"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M1 1L7.5 8L14 1" stroke="white" />
-        </svg>
-      </AdminBlockTitle>
+    <AdminBlockDropDown title="BLOCK OUR WORK">
       <AdminShowCaseServiceGrid>
         <AdminBlockWrapper>
           <AdminBlockWrapper>
@@ -164,17 +156,18 @@ const ServiceShowCase = () => {
                 "No reviews"}
             </AdminShowCaseDropDownContent>
           </AdminBlockWrapper>
-
-          <AdminShowCaseButton
-            padding={"1.117em 2.17em"}
-            size={"1.125em"}
-            onClick={handleButtonClick}
-          >
-            Submit projects list
-            <ArrowContainer>
-              <ButtonArrow />
-            </ArrowContainer>
-          </AdminShowCaseButton>
+          <ButtonWrapper>
+            <BlackButton
+              padding={"1em 3.1em"}
+              size={"1.5em"}
+              onClick={handleButtonClick}
+            >
+              Add Projects
+              <ArrowContainer>
+                <ButtonArrow />
+              </ArrowContainer>
+            </BlackButton>
+          </ButtonWrapper>
         </AdminBlockWrapper>
         <AdminShowCaseProjectsWrapper>
           {choosenProjects.map((el, idx) => (
@@ -187,7 +180,7 @@ const ServiceShowCase = () => {
           ))}
         </AdminShowCaseProjectsWrapper>
       </AdminShowCaseServiceGrid>
-    </AdminPaddedBlock>
+    </AdminBlockDropDown>
   );
 };
 
