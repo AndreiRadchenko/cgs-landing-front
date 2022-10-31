@@ -232,16 +232,14 @@ export const AdminBlockWrapper = styled.div``;
 export const AdminInput = styled(TextareaAutosize)<{
   height?: string;
   width?: string;
-  maxWidth?: string;
-  isAdmin?: boolean;
+  isadmin?: string;
 }>`
   resize: vertical;
   width: ${({ width }) => (width ? width : "100%")};
-  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "none")};
   border: 1px solid ${themes.primary.colors.adminInputBorder};
   background-color: ${themes.primary.colors.blogBackground};
-  outline: ${({ isAdmin }) =>
-    isAdmin ? `1px solid ${themes.primary.colors.comment}` : null};
+  outline: ${({ isadmin }) =>
+    isadmin ? `1px solid ${themes.primary.colors.comment}` : null};
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.namu};
   padding: ${themes.primary.spacing.primary};
@@ -287,8 +285,8 @@ export const AdminPhotoBlock = styled.div<IPhotoBlock>`
   margin-bottom: ${themes.primary.spacing.primary};
   height: 100%;
   margin-right: ${({ maxWidth }) => (maxWidth ? `20px` : "none")};
-  min-width: ${({ minWidth }) => (minWidth ? `${minWidth}` : "none")};
-  min-height: ${({ minHeight }) => (minHeight ? `${minHeight}` : "none")};
+  min-width: ${({ minWidth }) => (minWidth ? minWidth : "none")};
+  min-height: ${({ minHeight }) => (minHeight ? minHeight : "none")};
   max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}` : "none")};
   max-height: ${({ maxHeight }) => (maxHeight ? `${maxHeight}` : "none")};
 
@@ -1217,14 +1215,16 @@ export const InputWrapper = styled.div`
 
 export const AdminDropDownWrapper = styled.div``;
 
-export const MobileAuditHeaderGrid = styled.div`
+export const HeaderGrid = styled.div`
   display: flex;
 `;
 
 export const MobileAuditHeaderInputsWrapper = styled.div`
   margin-left: 30px;
+  width: 43%;
 
   &.header {
+    width: 34%;
     margin-left: 42px;
   }
   & > div:first-child {
@@ -1272,4 +1272,13 @@ export const BottomText = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.5em;
+`;
+
+export const AdminLayout = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
+
+export const AdminHeaderPhotoWrapper = styled.div`
+  width: 21%;
 `;

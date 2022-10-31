@@ -29,7 +29,6 @@ export const renderInputs = ({ props, state, onChangeFunction }: any) => {
               name={`${props.name}.${i}`}
               inputValue={state[i]}
               onChangeFunction={onChangeFunction}
-              isAdmin={props.isAdmin}
               width={props.width}
             />
           );
