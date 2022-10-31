@@ -648,3 +648,32 @@ export interface IServiceMobileAudit {
   };
   meta: IMetaBlock;
 }
+
+export interface IServiceWebAudit {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  whatIsBlock: {
+    subtitle: string;
+    text: string;
+    image: { url: string };
+  };
+  typesOfAuditBlock: [{ _id: string; title: string; text: string }];
+  projects: [string];
+  howToDoAudit: {
+    subtitle: string;
+    points: [string];
+  };
+  footerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}

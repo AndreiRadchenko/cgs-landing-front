@@ -32,7 +32,6 @@ const render = (
       placeholder={headerToUpperCase(i[0])}
       value={i[1]}
       onChange={change}
-      isAdmin
     />
   ));
 };
@@ -59,7 +58,6 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
             placeholder="Name"
             value={values.name}
             onChange={handleChange}
-            isAdmin
           />
           <Styled.AdminStarsFlex>
             <AdminStars

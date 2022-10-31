@@ -105,6 +105,14 @@ const AdminSidebar = () => {
               Mobile app audit
             </Styled.AdminListSubItem>
           </Link>
+          <Link href={ROUTE_KEYS.AdminServiceWebAudit} passHref>
+            <Styled.AdminListSubItem
+              itemProp={currentPath}
+              property={ROUTE_KEYS.AdminServiceWebAudit}
+            >
+              Web audit
+            </Styled.AdminListSubItem>
+          </Link>
         </DropDownElement>
         <DropDownElement value="company" Icon={CompanyIcon}>
           <Link href={ROUTE_KEYS.AdminAboutUs} passHref>

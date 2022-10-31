@@ -49,13 +49,11 @@ export interface InputWithHeader extends InputPropsInterface {
   header?: string;
   minRows?: number;
   isBlog?: boolean;
-  isAdmin?: boolean;
   isMetaField?: boolean;
   height?: string;
   width?: string;
   id?: string;
   inputStyle?: any;
-  maxWidth?: string;
 }
 
 export interface InputWithImage extends InputPropsInterface {

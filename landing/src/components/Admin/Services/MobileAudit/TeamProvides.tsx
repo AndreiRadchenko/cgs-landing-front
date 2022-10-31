@@ -31,7 +31,6 @@ const TeamProvides = () => {
         header="Subtitle 1"
         width="350px"
         height="75px"
-        isAdmin
         inputValue={values.whatAppInclude.subtitle}
         name="whatAppInclude.subtitle"
         onChangeFunction={handleChange}
@@ -44,9 +43,7 @@ const TeamProvides = () => {
               key={idx}
               value={item.text}
               onChange={handleChange}
-              isAdmin
               name={`whatAppInclude.textBlock.[${idx}].text`}
-              // width="421px"
             />
           ))}
         </Styled.ProjectInfo>
@@ -57,9 +54,7 @@ const TeamProvides = () => {
               key={idx}
               value={item}
               onChange={handleChange}
-              isAdmin
               name={`whatAppInclude.textBlock.[0].subtext[${idx}]`}
-              // width="421px"
             />
           ))}
         </Styled.ProjectInfo>

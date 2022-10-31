@@ -22,7 +22,6 @@ const WhatAppBlock = () => {
         name="whatAppBlock.subtitle"
         onChange={handleChange}
         width="350px"
-        isAdmin
       />
       <Styled.AdminMobileAuditWhatAppWrapper>
         {Object.entries(values.whatAppBlock.textBlock).map((text, idx) => (
@@ -31,8 +30,6 @@ const WhatAppBlock = () => {
               inputValue={text[1].subtitle}
               onChangeFunction={handleChange}
               header={`Subtitle ${idx + 1}`}
-              isAdmin
-              maxWidth="358px"
               name={`whatAppBlock.textBlock.${text[0]}.subtitle`}
               placeholder="Title"
             />
@@ -40,8 +37,6 @@ const WhatAppBlock = () => {
               inputValue={text[1].text}
               onChangeFunction={handleChange}
               header={`Text ${idx + 1}`}
-              isAdmin
-              maxWidth="358px"
               minRows={3}
               name={`whatAppBlock.textBlock.${text[0]}.text`}
               placeholder="Title"

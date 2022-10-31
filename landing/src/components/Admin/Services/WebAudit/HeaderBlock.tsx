@@ -8,7 +8,7 @@ import {
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 import { IImage } from "../../../../types/Admin/Admin.types";
-import { IServiceMobileAudit } from "../../../../types/Admin/Response.types";
+import { IServiceWebAudit } from "../../../../types/Admin/Response.types";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
@@ -16,7 +16,7 @@ import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 
 const HeaderBlock = () => {
   const { values, handleSubmit, handleChange } =
-    useFormikContext<IServiceMobileAudit>();
+    useFormikContext<IServiceWebAudit>();
   const handleClick = () => handleSubmit();
   const deleteImageFunction = useDeleteImageFunction(values.headerBlock);
   const uploadImageFunction = useUploadImageFunction(values.headerBlock);
@@ -25,15 +25,13 @@ const HeaderBlock = () => {
 
   return (
     <>
-      <Styled.AdminHeader>Mobile app audit</Styled.AdminHeader>
-      <AdminBlockDropDown title="BLOCK 1 (MAIN PAGE)">
+      <Styled.AdminHeader>WEB AUDIT</Styled.AdminHeader>
+      <AdminBlockDropDown title="BLOCK 1 (MAIN)">
         <Styled.HeaderGrid>
           <Styled.AdminHeaderPhotoWrapper>
             <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>
             <PhotoBlockDashed
-              style={{ marginRight: 0 }}
-              maxHeight="249px"
-              maxWidth="235px"
+              style={{ marginRight: 0, maxHeight: "249px" }}
               photo={values.headerBlock.image}
               deleteFlag={true}
               uploadFunction={uploadFunc}
