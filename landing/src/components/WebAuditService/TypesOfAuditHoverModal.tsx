@@ -1,0 +1,35 @@
+import React from "react";
+import * as Styled from "../../styles/WebAuditService/TypesOfAudit.styled";
+
+interface IType {
+  typeItem: {
+    title: string;
+    text: string;
+  };
+}
+
+const TypesOfAuditHoverModal = ({ typeItem }: IType) => {
+  return (
+    <Styled.HoverModalWrapper>
+      <Styled.HoverModalHeader>
+        <Styled.ButtonContainer>
+          <Styled.Button>
+            <span className="min" />
+          </Styled.Button>
+          <Styled.Button>
+            <span className="max" />
+          </Styled.Button>
+          <Styled.Button>
+            <span className="close" />
+          </Styled.Button>
+        </Styled.ButtonContainer>
+      </Styled.HoverModalHeader>
+      <Styled.ModalContent>
+        <Styled.ModalText className="title">{typeItem.title}</Styled.ModalText>
+        <Styled.ModalText>{typeItem.text}</Styled.ModalText>
+      </Styled.ModalContent>
+    </Styled.HoverModalWrapper>
+  );
+};
+
+export default TypesOfAuditHoverModal;
