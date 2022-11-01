@@ -634,6 +634,7 @@ export interface IServiceMobileAudit {
     description: string;
     points: string[];
   };
+  projects: string[];
   howDoWeAudit: {
     subtitle: string;
     description: string;
