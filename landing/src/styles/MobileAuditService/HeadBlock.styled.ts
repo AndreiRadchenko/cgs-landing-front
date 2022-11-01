@@ -4,6 +4,7 @@ import themes from "../../utils/themes";
 export const Container = styled.div`
   margin-top: 9.5em;
   position: relative;
+  display: flex;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.4em;
@@ -26,6 +27,7 @@ export const Title = styled.h1`
   font-size: 4.125em;
   line-height: 120%;
   display: inline-block;
+  letter-spacing: 0.05em;
 
   margin: 0;
   text-transform: uppercase;
@@ -61,7 +63,7 @@ export const Description = styled.p`
   font-size: 1.375em;
   line-height: 160%;
   margin: 1.279em 0 2.365em;
-  max-width: 600px;
+  max-width: 700px;
 
   @media ${themes.primary.media.minPC} {
     max-width: 40%;
@@ -77,36 +79,43 @@ export const Description = styled.p`
     margin: 2.5em 0 1.75em;
   }
 `;
-
-export const Image = styled.img`
+export const ImageWrapper = styled.div`
   position: absolute;
-  top: -2.875em;
-  right: -1.56em;
-  width: 30em;
-
-  @media (max-width: 1300px) {
-    width: 32em;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    right: -7em;
-    top: 2em;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    width: 28em;
-    top: 7em;
-  }
-  
-  @media ${themes.primary.media.minPCFullHD} {
-   margin-left: 4em;
- }
-
-  @media ${themes.primary.media.maxMobile} {
-    position: relative;
-    left: 1px;
-    top: -0.75em;
-    width: 22.3em;
-    height: 19.125em;
-  }
+  top: -17%;
+  right: 3%;
+  width: 600px;
+  height: 530px;
 `;
+
+// export const Image = styled.img`
+//   position: absolute;
+//   top: -2.875em;
+//   right: -1.56em;
+//   width: 30em;
+
+//   @media (max-width: 1300px) {
+//     width: 32em;
+//   }
+
+//   @media ${themes.primary.media.maxTabletLandScape} {
+//     right: -7em;
+//     top: 2em;
+//   }
+
+//   @media ${themes.primary.media.maxTabletPortrait} {
+//     width: 28em;
+//     top: 7em;
+//   }
+
+//   @media ${themes.primary.media.minPCFullHD} {
+//     margin-left: 4em;
+//   }
+
+//   @media ${themes.primary.media.maxMobile} {
+//     position: relative;
+//     left: 1px;
+//     top: -0.75em;
+//     width: 22.3em;
+//     height: 19.125em;
+//   }
+// `;

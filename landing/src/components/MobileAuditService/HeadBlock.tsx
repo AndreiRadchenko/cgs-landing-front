@@ -10,6 +10,9 @@ import { queryKeys } from "../../consts/queryKeys";
 import ButtonArrow from "../../utils/ButtonArrow";
 import * as Styled from "../../styles/MobileAuditService/HeadBlock.styled";
 import TextTypingAnimation from "../Typewrite";
+import { SplitBrackets } from "../../utils/splitBrackets";
+import MobileImage from "../../../public/MobileAuditService/mobile.svg";
+import Image from "next/image";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -23,10 +26,12 @@ const HeadBlock = () => {
         <Styled.Title>
           {data && <TextTypingAnimation text={data?.title} />}
         </Styled.Title>
-        <Styled.Description>{data?.text}</Styled.Description>
+        <Styled.Description>
+          <SplitBrackets text={data?.text} />
+        </Styled.Description>
         <BlackButton
-          padding={"1.117em 3.6em"}
-          size={themes.primary.font.size.oneAndHalf}
+          padding={"1em 2.3em"}
+          size={"1.125em"}
           href={data?.buttonLink}
           target="_blank"
           rel="noopener noreferrer"
@@ -37,6 +42,14 @@ const HeadBlock = () => {
           </ArrowContainer>
         </BlackButton>
       </Styled.Content>
+      <Styled.ImageWrapper>
+        <Image
+          src={MobileImage}
+          alt="hero mobile audit image"
+          layout="fill"
+          objectFit="contain"
+        />
+      </Styled.ImageWrapper>
     </Styled.Container>
   );
 };

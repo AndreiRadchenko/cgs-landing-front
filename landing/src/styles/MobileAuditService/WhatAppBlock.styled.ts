@@ -4,7 +4,7 @@ import { IIcon, ISlide } from "../../types/Decoration.types";
 import { float, slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
-  margin-top: 11.94em;
+  margin-top: 14.06em;
   @media ${themes.primary.media.maxMobile} {
     margin-top: 4em;
   }

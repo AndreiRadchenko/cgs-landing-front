@@ -7,6 +7,7 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 import LinedText from "./LinedText";
 import MagnifyingGlass from "./MagnifyingGlass";
 import Line from "./Line";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const WhatAppIncludeBlock = () => {
   const queryClient = useQueryClient();
@@ -40,13 +41,32 @@ const WhatAppIncludeBlock = () => {
 
   const isScrolled = useOnScreen(elRef, true);
   const textBlock = data?.textBlock;
+  // console.log(data?.textBlock);
 
   return (
     <>
       <Styled.Container>
-        <Styled.Title>{data?.subtitle}</Styled.Title>
+        <Styled.Title>
+          <SplitBrackets text={data?.subtitle} />
+        </Styled.Title>
+        <Styled.GradientLineContainer>
+          <Styled.GradientLine />
+          <Styled.SubtitlesList>
+            {data?.textBlock.map((item, idx) => (
+              <Styled.ListItem key={idx}>
+                <Styled.PointWrapper>
+                  <Styled.PointLine />
+                  <Styled.PointCircle />
+                </Styled.PointWrapper>
+                <Styled.ListText>
+                  <SplitBrackets text={item.text} />
+                </Styled.ListText>
+              </Styled.ListItem>
+            ))}
+          </Styled.SubtitlesList>
+        </Styled.GradientLineContainer>
       </Styled.Container>
-      <Styled.ContentContainer>
+      {/* <Styled.ContentContainer>
         <Styled.BgiContainer angle={gradientAngle} ref={elRef}>
           {arrayOfGradients.map((el, idx) => (
             <Styled.MobileLine
@@ -83,9 +103,9 @@ const WhatAppIncludeBlock = () => {
           <Styled.GlassContainer>
             <MagnifyingGlass />
           </Styled.GlassContainer>
-        </Styled.BgiContainer>
-        {/*<MobileLine />*/}
-      </Styled.ContentContainer>
+        </Styled.BgiContainer> */}
+      {/*<MobileLine />*/}
+      {/* </Styled.ContentContainer> */}
     </>
   );
 };
