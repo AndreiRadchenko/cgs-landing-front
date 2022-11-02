@@ -7,8 +7,8 @@ import {
   BlackButton,
   ArrowContainer,
 } from "../../styles/HomePage/General.styled";
-import { SplitBrackets } from "../../utils/splitBrackets";
 import ButtonArrow from "../../utils/ButtonArrow";
+import Image from "next/image";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -19,9 +19,7 @@ const FooterBlock = () => {
   return (
     <Styled.Container>
       <Styled.ContentWrapper>
-        <Styled.Title>
-          <SplitBrackets text={data?.title} />
-        </Styled.Title>
+        <Styled.Title>{data?.title}</Styled.Title>
         <Styled.Description>{data?.text}</Styled.Description>
         <BlackButton
           padding={"1.117em 2.17em"}
@@ -36,7 +34,16 @@ const FooterBlock = () => {
           </ArrowContainer>
         </BlackButton>
       </Styled.ContentWrapper>
-      <Styled.Image src={data?.image.url} />
+      {data && (
+        <Styled.ImageWrapper>
+          <Image
+            src={data.image.url}
+            alt="footer image img"
+            layout="fill"
+            objectFit="contain"
+          />
+        </Styled.ImageWrapper>
+      )}
     </Styled.Container>
   );
 };

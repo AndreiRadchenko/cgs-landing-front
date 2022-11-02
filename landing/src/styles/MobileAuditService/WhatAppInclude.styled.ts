@@ -1,24 +1,19 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import themes from "../../utils/themes";
-import { ILine } from "../../types/Decoration.types";
-import { slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
   margin-top: 12.5em;
   position: relative;
   height: 805px;
-  margin-bottom: 220px;
-  @media ${themes.primary.media.maxTabletPortrait} {
-    padding-bottom: 50px;
-  }
 
   @media ${themes.primary.media.maxMobile} {
-    padding-bottom: 0;
+    /* padding-bottom: 400px; */
     margin-top: 5.375em;
+    height: 1160px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    padding-bottom: 40px;
+    height: 1000px;
   }
 `;
 
@@ -40,7 +35,14 @@ export const Title = styled.h2`
 `;
 export const GradientLineContainer = styled.div`
   position: relative;
-  height: 78%;
+  height: 79%;
+  @media ${themes.primary.media.maxMobile} {
+    height: 60%;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    left: -6%;
+  }
 `;
 
 export const GradientLine = styled.div`
@@ -54,6 +56,10 @@ export const GradientLine = styled.div`
   );
   border: 1px solid ${themes.primary.colors.primary};
   box-shadow: 7px 2px 0px ${themes.primary.colors.primary};
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 1.6em;
+  }
 `;
 
 export const SubtitlesList = styled.div`
@@ -62,28 +68,69 @@ export const SubtitlesList = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding-top: 1.5em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 12px;
+  }
 `;
 
 export const ListItem = styled.div`
   display: flex;
-  /* flex-direction: column;
-  justify-content: center; */
   text-transform: uppercase;
   font-size: ${themes.primary.font.size.oneAndHalf};
   line-height: 1.8125em;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 1.25em;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    flex-direction: column;
+  }
 `;
 
-export const ListText = styled.span``;
+export const ListText = styled.span`
+  position: relative;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-left: 3.5em;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 10px;
+    font-size: 1.34em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-left: 3em;
+    & br {
+      display: none;
+    }
+  }
+`;
 
 export const PointWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   margin-right: 37px;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    &.subtext {
+      display: none;
+    }
+  }
 `;
 export const PointLine = styled.div`
   width: 70px;
   border-bottom: 1px solid ${themes.primary.colors.primary};
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 60px;
+  }
 `;
 
 export const PointCircle = styled.div`
@@ -94,143 +141,149 @@ export const PointCircle = styled.div`
   border: 1px solid ${themes.primary.colors.primary};
   box-shadow: 7px 2px 0px ${themes.primary.colors.primary};
 `;
-// export const ContentContainer = styled.div`
-//   width: 75%;
-//   margin-right: 15%;
-//   margin-top: auto;
-//   margin-bottom: auto;
-//   @media ${themes.primary.media.maxMobile} {
-//   }
-// `;
 
-// export const BgiContainer = styled.div<ILine>`
-//   width: 2.5%;
-//   height: 48em;
-//   //position: relative;
-//   left: -6%;
-//   top: 2em;
-//   background: ${({ angle }) =>
-//     css`radial-gradient(
-//                   100% 500px at 50% ${angle},
-//                   ${themes.primary.colors.mainGradientColor2} ,
-//                   ${themes.primary.colors.mainGradientColor1}
-//           );`};
-//   background-size: 100% 100%;
-//   border: 1px solid ${themes.primary.colors.black};
-//   box-shadow: 7px 2px 0px ${themes.primary.colors.black};
+export const GlassContainer = styled.div`
+  position: absolute;
+  right: 20%;
+  bottom: 0;
+  width: 421px;
+  height: 415px;
 
-//   @media ${themes.primary.media.minPCFullHD} {
-//     top: 1.3em;
-//   }
+  @media (max-width: 1250px) {
+    right: 15%;
+  }
 
-//   @media (min-width: 2200px) {
-//     top: 0.6em;
-//   }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 321px;
+    height: 315px;
+    bottom: 10%;
+    right: 1em;
+  }
 
-//   @media ${themes.primary.media.onlyTabletPortrait} {
-//     top: 3em;
-//     left: -8%;
-//   }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 271px;
+    height: 265px;
+  }
 
-//   @media ${themes.primary.media.maxMobile} {
-//     position: relative;
-//     background: none;
-//     border: none;
-//     box-shadow: none;
-//     height: auto;
-//     top: 1em;
-//   }
-// `;
+  @media ${themes.primary.media.maxMobile} {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    margin-top: 100px;
+    margin-inline: auto;
+    height: 300px;
+    width: 70%;
+  }
 
-// interface IMobileLine {
-//   grad1: string;
-//   grad2: string;
-//   ind: number;
-// }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 327px;
+    width: 100%;
+  }
+`;
 
-// export const MobileLine = styled.div<IMobileLine>`
-//   display: none;
-//   height: 40em;
-//   width: 300%;
+export const MobileGlassContainer = styled.div`
+  display: none;
 
-//   position: relative;
-//   left: -5%;
-//   background: linear-gradient(
-//     ${({ grad1, grad2 }) => css`0deg,
-//           ${grad1} 13.67%,
-//           ${grad2} 90.39%`}
-//   );
+  @media ${themes.primary.media.maxServiceWeb} {
+    margin-top: 2em;
+    display: block;
+  }
+`;
 
-//   border: 1px solid ${themes.primary.colors.black};
-//   box-shadow: 7px 2px 0px ${themes.primary.colors.black};
-//   z-index: -1;
-//   &:not(:last-child) {
-//     margin-bottom: 7.56em;
-//   }
+export const SubtextContainer = styled.div`
+  position: absolute;
+  top: 23px;
+  right: -43%;
+  display: flex;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    top: 19px;
+  }
 
-//   @media ${themes.primary.media.maxMobile} {
-//     display: block;
-//     position: relative;
-//     //opacity: 0;
-//     &.scrolled {
-//       animation: ${({ ind }) => css`
-//         ${slideRight} 1.5s ${ind * 200}ms forwards
-//       `};
-//     }
-//   }
-// `;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-top: 0.5em;
+  }
 
-// export const SubTextWrapper = styled.div`
-//   display: contents;
-//   font-size: 1.5em;
-//   line-height: 160%;
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 10px;
+  }
+`;
 
-//   @media ${themes.primary.media.maxMobile} {
-//     display: flex;
-//     justify-content: start;
-//     position: relative;
-//     top: -12.3em;
-//   }
-// `;
+export const ConectLine = styled.div`
+  width: 69px;
+  height: 98px;
+  border-style: solid;
+  border-color: ${themes.primary.colors.primary};
+  border-width: 1px 1px 0 0;
 
-// export const GridLine = styled.div`
-//   margin-top: 0.875em;
-//   margin-left: 0.35em;
-//   display: block;
-//   position: absolute;
-//   grid-template-columns: 1.26fr 1.28fr 1fr;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 29px;
+  }
 
-//   @media ${themes.primary.media.maxMobile} {
-//     display: block;
-//     margin-top: 0.74em;
-//     padding-left: 0.375em;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    display: none;
+  }
+`;
 
-//     & > div {
-//       font-size: 0.75em;
-//       height: 5em;
-//       width: 10em;
-//       &:not(:last-child) {
-//         margin-bottom: 3em;
-//       }
-//     }
-//   }
-// `;
+export const SubtextPointLine = styled.div`
+  width: 70px;
+  border-bottom: 1px solid ${themes.primary.colors.primary};
+`;
 
-// export const GlassContainer = styled.div`
-//   margin-top: 30em;
-//   margin-left: 60em;
-//   display: relative;
+export const Subtext = styled.div`
+  top: -40%;
+  left: 90%;
+  text-transform: none;
+  white-space: nowrap;
+  position: absolute;
+  font-size: 0.65em;
+  line-height: 24px;
 
-//   @media ${themes.primary.media.maxMobile} {
-//     margin: auto;
-//   }
-// `;
+  @media (min-width: 2000px) {
+    font-size: 0.75em;
+    line-height: 28px;
+  }
 
-// export const LineContainer = styled.div`
-//   display: flex;
-// `;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    top: 0;
+    left: 0;
+    position: relative;
+    font-size: 0.75em;
+    line-height: 20px;
+    white-space: pre-wrap;
+    max-width: 80%;
+    margin-bottom: 0.5em;
 
-// export const MobileLineText = styled.p`
-//   //margin-left: 2em;
-//   text-transform: uppercase;
-// `;
+    & br {
+      display: none;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.8em;
+    line-height: 19px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    max-width: none;
+  }
+`;
+
+export const SubtextWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+`;
+
+export const SubtextContentWrapper = styled.div`
+  margin-top: -5.5px;
+  margin-bottom: -5.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin: 0;
+  }
+`;

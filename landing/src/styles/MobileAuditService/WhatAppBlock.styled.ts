@@ -12,6 +12,7 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   @media ${themes.primary.media.maxMobile} {
+    display: none;
     font-size: 1.5em;
     line-height: 132%;
   }

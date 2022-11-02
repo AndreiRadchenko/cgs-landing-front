@@ -28,6 +28,7 @@ export const Title = styled.h1`
   line-height: 120%;
   display: inline-block;
   letter-spacing: 0.05em;
+  position: relative;
 
   margin: 0;
   text-transform: uppercase;
@@ -39,8 +40,12 @@ export const Title = styled.h1`
     }
   }
 
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    max-width: 10em;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 3.125em;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 2.75em;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -63,14 +68,18 @@ export const Description = styled.p`
   font-size: 1.375em;
   line-height: 160%;
   margin: 1.279em 0 2.365em;
-  max-width: 700px;
 
-  @media ${themes.primary.media.minPC} {
-    max-width: 40%;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 1.175em;
   }
 
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    max-width: 60%;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1em;
+    max-width: 450px;
+
+    & br {
+      display: none;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -85,37 +94,27 @@ export const ImageWrapper = styled.div`
   right: 3%;
   width: 600px;
   height: 530px;
+
+  @media (min-width: 2200px) {
+    width: 30%;
+    height: 730px;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    top: -25%;
+    width: 40%;
+    height: 170%;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 50%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 2.625em;
+    position: relative;
+
+    width: 22.3em;
+    height: 19.125em;
+  }
 `;
-
-// export const Image = styled.img`
-//   position: absolute;
-//   top: -2.875em;
-//   right: -1.56em;
-//   width: 30em;
-
-//   @media (max-width: 1300px) {
-//     width: 32em;
-//   }
-
-//   @media ${themes.primary.media.maxTabletLandScape} {
-//     right: -7em;
-//     top: 2em;
-//   }
-
-//   @media ${themes.primary.media.maxTabletPortrait} {
-//     width: 28em;
-//     top: 7em;
-//   }
-
-//   @media ${themes.primary.media.minPCFullHD} {
-//     margin-left: 4em;
-//   }
-
-//   @media ${themes.primary.media.maxMobile} {
-//     position: relative;
-//     left: 1px;
-//     top: -0.75em;
-//     width: 22.3em;
-//     height: 19.125em;
-//   }
-// `;

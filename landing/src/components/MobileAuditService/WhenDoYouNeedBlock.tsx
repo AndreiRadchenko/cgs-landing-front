@@ -28,7 +28,7 @@ const WhenDoYouNeedBlock = () => {
             className={isScrolled ? "scrolled" : undefined}
           >
             <Styled.BigDigit>{idx + 1}</Styled.BigDigit>
-            <Styled.TextContent>
+            <Styled.TextContent className={idx === 0 ? "one" : undefined}>
               <SplitBrackets text={el} />
             </Styled.TextContent>
           </Styled.TextBlock>

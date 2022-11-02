@@ -3,7 +3,6 @@ import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
 interface IContainer {
-  // position: string;
   height: number;
   ind: number;
 }
@@ -11,7 +10,6 @@ interface IContainer {
 export const Container = styled.div<IContainer>`
   display: flex;
   column-gap: 20px;
-  //border-top: 1px solid ${themes.primary.colors.black};
   height: 6em;
   align-items: flex-start;
 

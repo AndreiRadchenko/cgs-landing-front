@@ -14,10 +14,6 @@ export const Layout = styled.div`
     font-size: 1.6rem;
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: -1.5em;
-  }
-
   h2,
   h3 {
     font-weight: inherit;

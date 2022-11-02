@@ -3,7 +3,8 @@ import { IServiceMobileAudit } from "../../types/Admin/Response.types";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/MobileAuditService/HowDoWeAudit.styled";
-import AuditTable from "./AuditTable";
+import AuditBox from "./AuditBox";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const HowDoWeAuditBlock = () => {
   const queryClient = useQueryClient();
@@ -13,11 +14,20 @@ const HowDoWeAuditBlock = () => {
 
   return (
     <Styled.Container>
-      <Styled.TitleContainer>
-        <Styled.Title>{data?.subtitle}</Styled.Title>
-      </Styled.TitleContainer>
+      <Styled.Title>{data?.subtitle}</Styled.Title>
+      {data && <MobileInfiniteText title={data.subtitle} />}
       <Styled.Description>{data?.description}</Styled.Description>
-      <AuditTable points={data?.points} />
+      <Styled.ListContainer>
+        {data && (
+          <>
+            <AuditBox data={data.points.slice(0, data.points.length / 2)} />
+            <AuditBox data={data.points.slice(data.points.length / 2)} />
+          </>
+        )}
+      </Styled.ListContainer>
+      <Styled.MobileListContainer>
+        {data && <AuditBox data={data.points} />}
+      </Styled.MobileListContainer>
     </Styled.Container>
   );
 };

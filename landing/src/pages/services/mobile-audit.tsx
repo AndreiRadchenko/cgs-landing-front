@@ -60,40 +60,16 @@ const MobileAuditService = () => {
           <WhenDoYouNeedBlock />
         </Styled.Layout>
       </Layout>
-      <ShowCase projects={data?.projects} />
+      <Styled.Layout>
+        <ShowCase projects={data?.projects} />
+      </Styled.Layout>
       <Layout>
         <Styled.Layout>
           <HowDoWeAuditBlock />
-        </Styled.Layout>
-      </Layout>
-      <Layout>
-        <Styled.Layout>
           <FooterBlock />
         </Styled.Layout>
       </Layout>
       <FooterNew />
-      {/* <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      <HeaderNavNew />
-      <Layout>
-        <Styled.Layout>
-          <HeadBlock />
-          <ServicesBlock />
-          <YourWayBlock />
-        </Styled.Layout>
-      </Layout>
-      <ShowCase />
-      <Layout>
-        <Styled.Layout className="mobile-visivble">
-          <AboutBlock />
-          <FooterBlock />
-        </Styled.Layout>
-      </Layout>
-
-      <FooterNew /> */}
     </>
   );
 };

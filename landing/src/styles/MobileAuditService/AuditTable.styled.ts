@@ -2,7 +2,6 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  position: relative;
   display: flex;
 
   @media ${themes.primary.media.maxMobile} {
@@ -28,9 +27,16 @@ export const TableContainer = styled.div`
   border: 1px solid;
   margin-right: 26px;
   margin-left: 3.1875em;
-  //box-shadow: 7px 2px 0px ${themes.primary.colors.black};
 
   @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    display: none;
+  }
+
+  @media ${themes.primary.media.maxServiceWeb} {
     display: none;
   }
 `;
@@ -61,13 +67,29 @@ export const ElementText = styled.p`
   max-width: 90%;
   font-size: 19px;
   margin-left: 5%;
-  margin-top: 0.4em;
+  margin-top: 1.4em;
 `;
 
 export const MobileTable = styled.div`
   display: none;
 
   @media ${themes.primary.media.maxMobile} {
+    display: block;
+    margin-bottom: 8em;
+    margin-left: 0;
+    border: 1px solid;
+    box-shadow: 7px 2px 0px ${themes.primary.colors.black};
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    display: block;
+    margin-bottom: 8em;
+    margin-left: 0;
+    border: 1px solid;
+    box-shadow: 7px 2px 0px ${themes.primary.colors.black};
+  }
+
+  @media ${themes.primary.media.maxServiceWeb} {
     display: block;
     margin-bottom: 8em;
     margin-left: 0;

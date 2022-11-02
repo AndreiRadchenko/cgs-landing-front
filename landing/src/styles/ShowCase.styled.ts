@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 export const HoverWrapper = styled.div`
-  padding-block: 17.83em;
+  padding-block: 12.5em;
 
   & > div > div:first-child {
     transition: 0.4s;

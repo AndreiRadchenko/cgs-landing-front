@@ -4,11 +4,11 @@ import themes from "../../utils/themes";
 export const Container = styled.div`
   margin-top: 12.5em;
   position: relative;
-  padding-bottom: 19.25em;
+  padding-bottom: 15.7em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 6.25em;
-    padding-bottom: 6em;
+    padding-bottom: 0;
   }
 `;
 
@@ -21,58 +21,38 @@ export const Content = styled.div`
   }
 `;
 
-export const ContentWrapper = styled.div`
-  max-width: 61%;
-
-  @media ${themes.primary.media.maxMobile} {
-    max-width: 100%;
-
-    & a {
-      font-size: 1em;
-      padding: 1.194em 2.91em;
-    }
-  }
-`;
+export const ContentWrapper = styled.div``;
 
 export const Title = styled.h2`
   font-size: 2.5em;
   font-weight: inherit;
   line-height: 140%;
   text-transform: uppercase;
-  max-width: 28.75em;
-  margin: 0 0 1.3em;
+  margin: 0 0 0.3em;
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.45em;
+    font-size: 1.5em;
     line-height: 132%;
-    margin-bottom: 1.5em;
-    width: 14.5em;
+    margin-bottom: 1em;
   }
 `;
 
 export const Description = styled.p`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 1.279em 0 2.365em;
-  max-width: 600px;
+  margin-block: 0 1.91em;
 
-  @media ${themes.primary.media.minPC} {
-    max-width: 40%;
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    max-width: 60%;
+  @media ${themes.primary.media.minPCFullHD} {
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
+    font-size: 1.125em;
     max-width: 95%;
-    margin: 1em 0 1.75em;
+    margin: 1em 0 1.9em;
   }
 `;
 
 export const Image = styled.img`
-  position: absolute;
   top: -2.875em;
   right: -1.56em;
   width: 30em;
@@ -82,7 +62,6 @@ export const Image = styled.img`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    right: -7em;
     top: 2em;
   }
 
@@ -104,3 +83,35 @@ export const Image = styled.img`
   }
 `;
 
+export const ImageWrapper = styled.div`
+  position: absolute;
+  top: -5em;
+  right: 8.75em;
+  width: 496px;
+  height: 441px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 40%;
+    height: 80%;
+  }
+
+  @media (max-width: 1300px) {
+    right: 2em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    right: 0;
+    width: 35%;
+    top: 20%;
+    height: 65%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    top: 0;
+    width: 100%;
+    margin-bottom: 1.5em;
+    height: 267px;
+    position: relative;
+    margin-left: auto;
+  }
+`;

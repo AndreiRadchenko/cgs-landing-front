@@ -23,21 +23,28 @@ export const Title = styled.h2`
 `;
 
 export const Description = styled.h4`
+  margin-top: 0.9em;
+  font-size: 1.375em;
+  font-weight: inherit;
+  line-height: 140%;
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.9em;
     line-height: 132%;
     margin-top: 1em;
   }
-  margin-top: 1em;
-  font-size: 24px;
-  font-weight: inherit;
-  line-height: 140%;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.25em;
+    line-height: 132%;
+    margin-top: 1em;
+  }
 `;
 
 export const ContentWrapper = styled.div`
   margin-top: 4.25em;
+  margin-bottom: 3em;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   row-gap: 3em;
 
@@ -50,12 +57,15 @@ export const ContentWrapper = styled.div`
       display: none;
     }
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-bottom: 0;
+  }
 `;
 
 export const TextBlock = styled.div<ISlide>`
   display: flex;
   align-items: flex-end;
-  justify-content: center;
   flex-basis: 30%;
   opacity: 0;
 
@@ -101,6 +111,10 @@ export const TextBlock = styled.div<ISlide>`
       margin-bottom: auto;
     }
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    align-items: center;
+  }
 `;
 
 export const BigDigit = styled.div`
@@ -115,20 +129,11 @@ export const BigDigit = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    position: absolute;
     left: -0.1em;
     font-size: 3.75em;
     width: 1em;
     margin: 0;
-    text-align: center;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    position: absolute;
-    left: -0.1em;
-    font-size: 3.75em;
-    width: 1em;
-    margin: 0;
+    margin-right: 10px;
     text-align: center;
   }
 `;
@@ -136,24 +141,35 @@ export const BigDigit = styled.div`
 export const TextContent = styled.div`
   font-size: 1.375em;
   line-height: 160%;
-  margin: auto 0 auto 0;
-  max-width: 12em;
+  margin-bottom: 5px;
+
+  &.one {
+    margin: auto 0;
+  }
 
   @media ${themes.primary.media.minPC} {
     font-size: 1.5em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 1.1em;
+    font-size: 1.3em;
   }
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 1.5em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1em;
-    padding-left: 5em;
-    margin-top: 0.7em;
-    margin-right: auto;
+    font-size: 1.2em;
+    margin: auto 0;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 1.125em;
+    line-height: 24px;
+    max-width: 65%;
+
+    &:not(.one) {
+      margin-top: 16px;
+    }
   }
 `;
