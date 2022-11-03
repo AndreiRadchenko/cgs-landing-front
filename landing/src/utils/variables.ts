@@ -26,6 +26,7 @@ export const navigationRoutesLinks = {
   "IT Support Services": "/services/it-support",
   "Server // Databases": "/services/database-and-server-solutions",
   "UX/UI Design": "/services/ux-ui-design",
+  "Mobile App Audit": "/services/mobile-audit",
   "About us": "/about-us",
   Careers: "/careers",
   FAQ: "/faq",
@@ -44,6 +45,7 @@ export const navigationRoutesNamesNew = [
       "IT Support Services",
       "Server // Databases",
       "UX/UI Design",
+      "Mobile App Audit",
     ],
   },
   {

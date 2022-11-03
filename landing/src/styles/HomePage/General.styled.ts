@@ -745,6 +745,10 @@ export const ArrowContainer = styled.div`
     height: 1em;
     right: -0.3em;
     top: -0.3em;
+
+    &.mobileAudit {
+      font-size: 1.5em;
+    }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {

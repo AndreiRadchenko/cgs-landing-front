@@ -19,6 +19,7 @@ const themes = {
       aboutUsDescription: "8em",
       cardPartners: "14em",
       btwLogoAndMenu: "8.5em",
+      servicesMarginBetweenBlocks: "16em",
     },
     font: {
       family: {

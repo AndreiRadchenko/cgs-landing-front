@@ -1246,11 +1246,15 @@ export const AdminMobileAuditGrid = styled.div`
   justify-content: space-between;
 `;
 
-export const AdminMobileAuditHowDoWeAuditGrid = styled.div`
+export const ListInput = styled.li`
+  list-style: none;
+`;
+
+export const AdminMobileAuditHowDoWeAuditGrid = styled.ul`
+  padding: 0;
+  columns: 2;
   margin-top: 29px;
-  display: grid;
   column-gap: 36px;
-  grid-template-columns: repeat(2, 1fr);
 `;
 
 export const ButtonWrapper = styled.div`
