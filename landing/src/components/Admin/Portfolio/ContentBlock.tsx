@@ -68,7 +68,6 @@ const AdminPortfolioContentBlock = () => {
   };
   const [current, setCurrent] = useState(0);
   const [isNewStatus, setIsNewStatus] = useState(true);
-
   const [catValue, setCatValue] = useState(values.categories[0]);
 
   const submitFunction = (e: React.SyntheticEvent) => {

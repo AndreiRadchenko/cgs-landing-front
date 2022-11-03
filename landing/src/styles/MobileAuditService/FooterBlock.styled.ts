@@ -35,6 +35,10 @@ export const Title = styled.h2`
     line-height: 132%;
     margin-bottom: 1em;
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    max-width: 345px;
+  }
 `;
 
 export const Description = styled.p`

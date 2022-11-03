@@ -6,7 +6,7 @@ import { float, slideRight } from "../Animations.styled";
 export const Container = styled.div`
   margin-top: 14.06em;
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 4em;
+    margin-block: 4em 3.375em;
   }
 `;
 
@@ -48,6 +48,10 @@ export const ContentLayout = styled.div`
     width: 100%;
     flex-direction: column;
     row-gap: 1.25em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    row-gap: 2.125em;
   }
 `;
 

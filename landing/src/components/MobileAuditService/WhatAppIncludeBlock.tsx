@@ -7,6 +7,7 @@ import MagnifyingGlass from "../../../public/MobileAuditService/magnifyingGlass.
 import { SplitBrackets } from "../../utils/splitBrackets";
 import Image from "next/image";
 import WhatAppIncludeSubListItem from "./WhatAppIncludeSubList";
+import { Separator } from "../../styles/MobileAuditService/Common.styled";
 
 const WhatAppIncludeBlock = () => {
   const queryClient = useQueryClient();
@@ -16,6 +17,7 @@ const WhatAppIncludeBlock = () => {
 
   return (
     <Styled.Container>
+      <Separator />
       <Styled.Title>
         <SplitBrackets text={data?.subtitle} />
       </Styled.Title>
