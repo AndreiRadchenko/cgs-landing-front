@@ -7,9 +7,10 @@ export const Container = styled.div`
   height: 805px;
 
   @media ${themes.primary.media.maxMobile} {
-    /* padding-bottom: 400px; */
-    margin-top: 5.375em;
-    height: 1160px;
+    margin: 0;
+    margin-bottom: 3.5em;
+    padding-top: 1.75em;
+    height: auto;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -82,7 +83,7 @@ export const ListItem = styled.div`
   display: flex;
   text-transform: uppercase;
   font-size: ${themes.primary.font.size.oneAndHalf};
-  line-height: 1.8125em;
+  line-height: 29px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.25em;
@@ -96,11 +97,15 @@ export const ListItem = styled.div`
 export const ListText = styled.span`
   position: relative;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    line-height: 140%;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-left: 3.5em;
   }
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 10px;
+    margin-block: 5px 1.69em;
     font-size: 1.34em;
   }
 
@@ -169,7 +174,7 @@ export const GlassContainer = styled.div`
     position: relative;
     bottom: 0;
     right: 0;
-    margin-top: 100px;
+    margin-top: 51px;
     margin-inline: auto;
     height: 300px;
     width: 70%;
@@ -195,6 +200,11 @@ export const SubtextContainer = styled.div`
   top: 23px;
   right: -43%;
   display: flex;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    top: 16px;
+    right: -33%;
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
     top: 19px;
   }
@@ -238,12 +248,12 @@ export const Subtext = styled.div`
   text-transform: none;
   white-space: nowrap;
   position: absolute;
-  font-size: 0.65em;
-  line-height: 24px;
+  font-size: 0.92em;
 
-  @media (min-width: 2000px) {
-    font-size: 0.75em;
-    line-height: 28px;
+  @media ${themes.primary.media.minPCFullHD} {
+    top: -60%;
+    font-size: 0.8em;
+    line-height: normal;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -282,6 +292,14 @@ export const SubtextContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: -6px;
+  }
+
+  @media (min-width: 2190px) {
+    margin-top: -5.5px;
+  }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin: 0;

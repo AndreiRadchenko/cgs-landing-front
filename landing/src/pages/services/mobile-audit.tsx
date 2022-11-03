@@ -60,9 +60,10 @@ const MobileAuditService = () => {
           <WhenDoYouNeedBlock />
         </Styled.Layout>
       </Layout>
-      <Styled.Layout>
+      <Styled.ShowcaseLayout>
         <ShowCase projects={data?.projects} />
-      </Styled.Layout>
+      </Styled.ShowcaseLayout>
+
       <Layout>
         <Styled.Layout>
           <HowDoWeAuditBlock />

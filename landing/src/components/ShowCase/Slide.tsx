@@ -39,6 +39,7 @@ const Slide = ({ review }: IReview) => {
             src={review.image?.url}
             alt={"project image"}
             layout={"fill"}
+            objectFit="contain"
             onLoadingComplete={onLoadCallBack}
             style={{ opacity: isLoading ? "0" : "1" }}
           />

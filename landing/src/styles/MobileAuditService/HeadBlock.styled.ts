@@ -26,18 +26,13 @@ export const Content = styled.div`
 export const Title = styled.h1`
   font-size: 4.125em;
   line-height: 120%;
-  display: inline-block;
-  letter-spacing: 0.05em;
-  position: relative;
 
   margin: 0;
   text-transform: uppercase;
   font-weight: inherit;
 
-  span:first-child {
-    br {
-      display: none;
-    }
+  br {
+    display: none;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -50,16 +45,11 @@ export const Title = styled.h1`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
-    line-height: 100%;
+  }
 
-    & .last-part {
-      top: 14px;
-    }
-
-    span:first-child {
-      br {
-        display: block;
-      }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    & br {
+      display: block;
     }
   }
 `;
@@ -85,7 +75,7 @@ export const Description = styled.p`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     max-width: 95%;
-    margin: 2.5em 0 1.75em;
+    margin: 1.5em 0 1.75em;
   }
 `;
 export const ImageWrapper = styled.div`
