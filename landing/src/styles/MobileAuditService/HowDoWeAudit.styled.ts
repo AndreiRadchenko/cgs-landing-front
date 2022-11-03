@@ -113,6 +113,7 @@ export const ListItem = styled.div`
 `;
 
 export const CheckMarkWrapper = styled.div`
+  position: relative;
   width: 34px;
   height: 36px;
 

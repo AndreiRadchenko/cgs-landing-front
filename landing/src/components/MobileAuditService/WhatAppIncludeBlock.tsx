@@ -6,6 +6,7 @@ import * as Styled from "../../styles/MobileAuditService/WhatAppInclude.styled";
 import MagnifyingGlass from "../../../public/MobileAuditService/magnifyingGlass.svg";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import Image from "next/image";
+import WhatAppIncludeSubListItem from "./WhatAppIncludeSubList";
 
 const WhatAppIncludeBlock = () => {
   const queryClient = useQueryClient();
@@ -22,33 +23,7 @@ const WhatAppIncludeBlock = () => {
         <Styled.GradientLine />
         <Styled.SubtitlesList>
           {data?.textBlock.map((item, idx) => (
-            <Styled.ListItem key={idx}>
-              <Styled.PointWrapper>
-                <Styled.PointLine />
-                <Styled.PointCircle />
-              </Styled.PointWrapper>
-              <Styled.ListText>
-                <SplitBrackets text={item.text} />
-                {item.subtext.length !== 0 && (
-                  <Styled.SubtextContainer>
-                    <Styled.ConectLine />
-                    <Styled.SubtextContentWrapper>
-                      {item.subtext.map((subItem, idx) => (
-                        <Styled.SubtextWrapper key={idx}>
-                          <Styled.PointWrapper className="subtext">
-                            <Styled.SubtextPointLine />
-                            <Styled.PointCircle />
-                          </Styled.PointWrapper>
-                          <Styled.Subtext>
-                            <SplitBrackets text={subItem} />
-                          </Styled.Subtext>
-                        </Styled.SubtextWrapper>
-                      ))}
-                    </Styled.SubtextContentWrapper>
-                  </Styled.SubtextContainer>
-                )}
-              </Styled.ListText>
-            </Styled.ListItem>
+            <WhatAppIncludeSubListItem item={item} key={idx} />
           ))}
         </Styled.SubtitlesList>
       </Styled.GradientLineContainer>

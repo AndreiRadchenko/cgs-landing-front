@@ -1,26 +1,21 @@
 import React from "react";
 import * as Styled from "../../styles/MobileAuditService/HowDoWeAudit.styled";
-import { SplitBrackets } from "../../utils/splitBrackets";
-import MarkedBox from "./MarkedBox";
+import AuditListItem from "./AuditListItem";
 
-interface IAuditBox {
+interface IAuditBoxProps {
   data: string[];
 }
 
-const AuditBox = ({ data }: IAuditBox) => {
+const AuditBox = ({ data }: IAuditBoxProps) => {
   return (
     <Styled.AuditBox>
       <Styled.ListWrapper>
         {data.map((item, idx) => (
-          <Styled.ListItem key={item}>
-            <Styled.CheckMarkWrapper>
-              <MarkedBox />
-            </Styled.CheckMarkWrapper>
-            <Styled.ListText>
-              <SplitBrackets text={item} />
-            </Styled.ListText>
-            {idx !== data.length - 1 && <Styled.ItemBottomLine />}
-          </Styled.ListItem>
+          <AuditListItem
+            key={item}
+            item={item}
+            idx={idx !== data.length - 1 ? idx : null}
+          />
         ))}
       </Styled.ListWrapper>
       <Styled.Shadow />
