@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
   gap: 12px;
   margin-top: 22px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: none;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-block: 1.75rem 2rem;
   }
@@ -32,6 +36,10 @@ export const TagItem = styled.div`
   &:hover {
     background-color: ${themes.primary.colors.tagBg};
     cursor: pointer;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    padding: 4px 14px;
   }
 
   @media ${themes.primary.media.maxMobile} {
