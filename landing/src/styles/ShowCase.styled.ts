@@ -2,9 +2,9 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 export const HoverWrapper = styled.div`
-  padding-block: 17.83em;
+  padding-bottom: 16.7em;
 
-  & > div > div:first-child {
+  /* & > div > div:first-child {
     transition: 0.4s;
   }
 
@@ -13,21 +13,21 @@ export const HoverWrapper = styled.div`
       background-color: ${themes.primary.colors.darkBlue};
       color: ${themes.primary.colors.blogBackground};
     }
-  }
+  } */
 
   @media ${themes.primary.media.maxServiceMobile} {
     padding-bottom: 10em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 0 0 6em 0;
+    padding: 0 0 6.54em 0;
 
-    &:hover {
+    /* &:hover {
       & > div > div:first-child {
         background-color: transparent;
         color: ${themes.primary.colors.primary};
       }
-    }
+    } */
   }
 `;
 
@@ -170,7 +170,7 @@ export const SlideContainer = styled.div`
 `;
 
 export const TextWrapper = styled.div`
-  width: 100%;
+  width: calc(100% - 1px);
   height: 75.727%;
   padding: 2.666em 2.5em 0;
   border-bottom: 1px solid ${themes.primary.colors.comment};

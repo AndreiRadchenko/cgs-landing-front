@@ -57,13 +57,10 @@ const MobileAuditService = () => {
           <HeadBlock />
           <WhatAppBlock />
           <WhatAppIncludeBlock />
-          <WhenDoYouNeedBlock />
+          <WhenDoYouNeedBlock withoutShowcase={data?.projects.length === 0} />
         </Styled.Layout>
       </Layout>
-      <Styled.ShowcaseLayout>
-        <ShowCase projects={data?.projects} />
-      </Styled.ShowcaseLayout>
-
+      <ShowCase projects={data?.projects} />
       <Layout>
         <Styled.Layout>
           <HowDoWeAuditBlock />

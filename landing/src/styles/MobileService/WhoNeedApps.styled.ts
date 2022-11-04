@@ -9,6 +9,11 @@ export const Wrapper = styled.div`
   background-size: 100% 100%;
   padding-bottom: 8.5em;
   position: relative;
+  margin-bottom: 16.7em;
+
+  &.withoutShowcase {
+    margin-bottom: 12.9em;
+  }
 
   @media ${themes.primary.media.minPC} {
     padding: 3em;
@@ -20,8 +25,14 @@ export const Wrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 2.7em;
     margin-top: 8em;
     padding-bottom: 9.5em;
+
+    &.withoutShowcase {
+      margin-bottom: 1.82em;
+    }
+
     ::before {
       content: "";
       height: 1px;

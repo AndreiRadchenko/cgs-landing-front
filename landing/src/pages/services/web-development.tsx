@@ -58,7 +58,13 @@ const WebDevelopment: NextPage = () => {
           <HeadBlock />
           <WebPros />
           <WhyIsWebAMust />
-          <SolutionBlock />
+          <SolutionBlock
+            className={
+              data && data?.projects.length === 0
+                ? "withoutShowcase"
+                : undefined
+            }
+          />
         </Styled.Layout>
       </Layout>
       <ShowCase projects={data?.projects} />

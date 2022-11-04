@@ -55,7 +55,11 @@ const OngoingSupport = () => {
         <Styled.Layout>
           <HeadBlock />
           <WorkBlock />
-          <ProvidesBlock />
+          <ProvidesBlock
+            className={
+              data && data.projects.length === 0 ? "withoutShowcase" : undefined
+            }
+          />
         </Styled.Layout>
       </Layout>
       <ShowCase projects={data?.projects} />

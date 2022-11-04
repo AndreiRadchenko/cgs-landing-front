@@ -24,10 +24,6 @@ export const MovingText = styled.div`
   display: flex;
   align-items: center;
   background-size: cover;
-  @media ${themes.primary.media.maxMobile} {
-    margin-top: -3vw;
-  }
-
   font-size: 2.5em;
   font-weight: inherit;
   line-height: 140%;

@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
-  margin-top: 12.7em;
+  margin-block: 12.7em 12.5em;
   position: relative;
   padding-bottom: 20px;
 
@@ -13,9 +13,8 @@ export const Container = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding-bottom: 0;
-    margin-top: 5.375em;
-    margin-bottom: -13.5em;
+    padding-bottom: 40px;
+    margin-block: 5.375em 4.38em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -95,7 +94,7 @@ export const BgiContainer = styled.div<ILine>`
     border: none;
     box-shadow: none;
     height: auto;
-    top: 7em;
+    margin-top: 5.9em;
   }
 `;
 
@@ -124,8 +123,8 @@ export const SubTextWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     display: flex;
     justify-content: start;
-    position: relative;
-    top: -12.3em;
+    position: absolute;
+    top: 3.9em;
   }
 `;
 

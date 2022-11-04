@@ -7,7 +7,11 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 import { Separator } from "../../styles/MobileAuditService/Common.styled";
 import WhenDoYouNeedBlockItem from "./WhenDoYouNeedBlockItem";
 
-const WhenDoYouNeedBlock = () => {
+interface IWhenDoYouNeedBlockProps {
+  withoutShowcase?: boolean;
+}
+
+const WhenDoYouNeedBlock = ({ withoutShowcase }: IWhenDoYouNeedBlockProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobileAudit>([
     queryKeys.getServiceMobileAuditPage,
@@ -18,7 +22,9 @@ const WhenDoYouNeedBlock = () => {
   const isScrolled = useOnScreen(elRef, true);
 
   return (
-    <Styled.Container>
+    <Styled.Container
+      className={withoutShowcase ? "withoutShowcase" : undefined}
+    >
       <Separator />
       <Styled.Title>{data?.subtitle}</Styled.Title>
       <Styled.Description>{data?.description}</Styled.Description>
@@ -31,7 +37,7 @@ const WhenDoYouNeedBlock = () => {
             key={idx}
           />
         ))}
-        <Separator className="bottom" />
+        {!withoutShowcase && <Separator className="bottom" />}
       </Styled.ContentWrapper>
     </Styled.Container>
   );

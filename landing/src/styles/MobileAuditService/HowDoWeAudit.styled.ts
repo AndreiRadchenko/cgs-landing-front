@@ -10,7 +10,6 @@ export const Container = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 0;
-    margin-top: 5.375em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
