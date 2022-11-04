@@ -2,6 +2,7 @@ import { TextareaAutosize } from "@mui/material";
 import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 import { IFontSize } from "./HomePage/General.styled";
+import SortableList from "react-easy-sort";
 
 export const AdminWrapper = styled.div`
   display: grid;
@@ -340,7 +341,7 @@ export const AdminTecBottleDiv = styled.div`
   max-height: 26em;
 `;
 
-export const AdminLogosGrid = styled.div`
+export const AdminLogosGrid = styled(SortableList)`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   row-gap: ${themes.primary.spacing.logosGap};
