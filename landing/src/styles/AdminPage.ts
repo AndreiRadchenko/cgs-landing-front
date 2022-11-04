@@ -349,6 +349,14 @@ export const AdminLogosGrid = styled(SortableList)`
   padding: ${themes.primary.spacing.primary} 0;
 `;
 
+export const AdminBlockchainLogosGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: ${themes.primary.spacing.logosGap};
+  column-gap: ${themes.primary.spacing.logosGap};
+  padding: ${themes.primary.spacing.primary} 0;
+`;
+
 export const AdminLogoElement = styled.div`
   border: 1px solid #a9a5a4;
   background: ${themes.primary.colors.secondary};

@@ -40,7 +40,7 @@ const BlockchainProjectBlock = () => {
       <br />
       <Styled.AdminSubTitle>Logos (normal)</Styled.AdminSubTitle>
       <br />
-      <Styled.AdminLogosGrid>
+      <Styled.AdminBlockchainLogosGrid>
         <AddLogoFrame
           state={values.LogosBlock}
           submit={() => {
@@ -51,11 +51,11 @@ const BlockchainProjectBlock = () => {
           // eslint-disable-next-line @typescript-eslint/no-empty-function
           <LogoElement image={i} key={Math.random()} deleteLogo={() => {}} />
         ))}
-      </Styled.AdminLogosGrid>
+      </Styled.AdminBlockchainLogosGrid>
       <br />
       <Styled.AdminSubTitle>Logos (hover)</Styled.AdminSubTitle>
       <br />
-      <Styled.AdminLogosGrid>
+      <Styled.AdminBlockchainLogosGrid>
         <AddLogoFrame
           state={values.LogosBlock}
           submit={() => {
@@ -66,7 +66,7 @@ const BlockchainProjectBlock = () => {
           // eslint-disable-next-line @typescript-eslint/no-empty-function
           <LogoElement image={i} key={Math.random()} deleteLogo={() => {}} />
         ))}
-      </Styled.AdminLogosGrid>
+      </Styled.AdminBlockchainLogosGrid>
     </Styled.AdminPaddedBlock>
   );
 };
