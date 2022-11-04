@@ -4,15 +4,24 @@ import themes from "../../utils/themes";
 export const Container = styled.div`
   margin-top: 18.31em;
   margin-left: 4.25em;
+  margin: 18.31em 0 9.625em 4.25em;
   position: relative;
-  padding-bottom: 10em;
+  padding-bottom: 8em;
+
+  &.withoutServices {
+    margin-bottom: 8.125em;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding-bottom: 0;
+    padding-bottom: 1.5em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 4.625em 0 3.375em;
+    padding-bottom: 0;
+    margin: 4.625em 0 4.375em;
+    &.withoutServices {
+      margin-bottom: 5.625em;
+    }
   }
 `;
 

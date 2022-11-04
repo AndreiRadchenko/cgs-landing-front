@@ -6,7 +6,6 @@ import { slideDownText } from "../Animations.styled";
 export const Container = styled.div`
   position: relative;
   width: 100%;
-  padding-top: 1em;
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;

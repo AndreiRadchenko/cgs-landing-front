@@ -4,11 +4,15 @@ import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
 export const Container = styled.div`
-  margin-top: 11.2em;
+  margin-block: 11.2em 12.5em;
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 0em;
     padding-top: 1.75em;
+    margin-block: 3.5em 1.75em;
     position: relative;
+
+    &.withoutShowcase {
+      margin-bottom: 2.25em;
+    }
   }
 `;
 
@@ -45,7 +49,6 @@ export const Description = styled.h4`
 
 export const ContentWrapper = styled.div`
   margin-top: 1.375em;
-  margin-bottom: 3em;
   display: flex;
   justify-content: space-between;
   row-gap: 3em;
@@ -60,7 +63,6 @@ export const ContentWrapper = styled.div`
     }
   }
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 0;
     padding-bottom: 3.375em;
   }
 

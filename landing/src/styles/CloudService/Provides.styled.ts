@@ -6,11 +6,7 @@ import { slideRight } from "../Animations.styled";
 export const Container = styled.div`
   margin-top: 12.8em;
   position: relative;
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-top: 4.75em;
-    margin-bottom: 3.5em;
-  }
+  margin-bottom: 12.5em;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     h2 {
@@ -19,14 +15,24 @@ export const Container = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    padding-bottom: 3.75em;
+    margin-block: 4.75em 1.75em;
+
     ::after {
       content: "";
       height: 1px;
       position: absolute;
       background-color: ${themes.primary.colors.headerBorder};
       width: 130%;
-      bottom: -7%;
+      bottom: 0;
       left: -10%;
+    }
+
+    &.withoutShowcase {
+      &::after {
+        height: 0px;
+      }
+      margin-bottom: 0;
     }
   }
 `;

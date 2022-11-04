@@ -9,6 +9,7 @@ export const Container = styled.div`
   background-image: url(${solutionBg.src});
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  margin-bottom: 8em;
 
   @media ${themes.primary.media.maxServiceWeb} {
     margin-top: 6.4em;
@@ -22,7 +23,11 @@ export const Container = styled.div`
     margin-top: 5.7em;
     background: none;
     padding-bottom: 0;
-    margin-bottom: 4em;
+    margin-bottom: 5.65em;
+
+    &.withoutShowcase {
+      margin-bottom: 4.25em;
+    }
   }
 `;
 

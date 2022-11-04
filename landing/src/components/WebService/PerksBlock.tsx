@@ -2,7 +2,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { useOnScreen } from "../../hooks/useOnScreen";
-import { Subtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/WebService/Perks.styled";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
@@ -21,7 +20,6 @@ const PerksBlock = () => {
   return (
     <Styled.Container>
       <MobileInfiniteText title={data?.subtitle} />
-
       <Styled.ContentWrapper ref={elRef}>
         {data?.list.map((el, idx) => (
           <Styled.TextBlock
