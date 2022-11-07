@@ -18,7 +18,7 @@ import ProfessionalAuditBlock from "../../components/WebAuditService/Professiona
 import ShowCase from "../../components/ShowCase";
 import {
   ShowcaseLayoutIgnore,
-  ShowcaseWithoutDataSpacing
+  ShowcaseWithoutDataSpacing,
 } from "../../styles/WebAuditService/ShowcaseLayoutIgnore.styled";
 
 export async function getServerSideProps() {
@@ -60,8 +60,13 @@ const WebAuditPage: NextPage = () => {
         <WhatIsAuditBlock />
         <WhichProblemBlock />
         <TypesOfAuditBlock />
-        {data?.projects ? <ShowcaseLayoutIgnore><ShowCase projects={data?.projects}/></ShowcaseLayoutIgnore>:
-        <ShowcaseWithoutDataSpacing/>}
+        {data?.projects ? (
+          <ShowcaseLayoutIgnore>
+            <ShowCase projects={data?.projects} />
+          </ShowcaseLayoutIgnore>
+        ) : (
+          <ShowcaseWithoutDataSpacing />
+        )}
         <HowToDoBlock />
         <ProfessionalAuditBlock />
       </Layout>

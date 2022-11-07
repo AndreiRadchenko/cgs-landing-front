@@ -79,7 +79,7 @@ const ArticlePage = () => {
         !el.disabled &&
         (!el.scheduleArticle || new Date() >= new Date(el.scheduleArticle))
     );
-    
+
   const findViews = (url: string) => {
     if (views.data)
       return views.data.find((view) => view.articleUrl === url)?.views;

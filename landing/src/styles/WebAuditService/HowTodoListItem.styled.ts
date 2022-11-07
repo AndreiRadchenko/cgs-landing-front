@@ -38,13 +38,13 @@ export const Text = styled.div`
   font-size: 1.84em;
   line-height: 118%;
   padding: 1.65em 0;
-  
+
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: ${themes.primary.font.size.secondary}
+    font-size: ${themes.primary.font.size.secondary};
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: ${themes.primary.font.size.oneAndHalf}
+    font-size: ${themes.primary.font.size.oneAndHalf};
   }
 `;
 

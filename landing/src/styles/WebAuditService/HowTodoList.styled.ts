@@ -15,7 +15,7 @@ export const ContentWrapper = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
   padding-bottom: 4.1em;
   z-index: 5;
-`
+`;
 
 export const Shadow = styled.div`
   width: 100%;
@@ -52,4 +52,4 @@ export const BottomCorner = styled.div`
   z-index: 5;
   right: -1px;
   bottom: -1px;
-  `;
+`;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import {BlackButton} from "../HomePage/General.styled";
+import { BlackButton } from "../HomePage/General.styled";
 
 export const Wrapper = styled.div`
   margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
@@ -15,13 +15,13 @@ export const Wrapper = styled.div`
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksMobile};
     margin-bottom: ${themes.primary.spacing.servicesMarginBetweenFooterMobile};
     &:before {
-      content: '';
+      content: "";
       display: block;
       height: 1px;
       width: 120vw;
       position: relative;
       right: 10%;
-      background: #8F8E93;
+      background: #8f8e93;
       margin-bottom: 2.69em;
     }
   }
@@ -34,7 +34,7 @@ export const Content = styled.div`
     flex-direction: column;
     gap: 3em;
   }
-`
+`;
 
 export const InfoBlock = styled.div`
   display: flex;
@@ -44,11 +44,11 @@ export const InfoBlock = styled.div`
   @media ${themes.primary.media.maxMobile} {
     gap: 0;
   }
-`
+`;
 
 export const Button = styled(BlackButton)`
   width: fit-content;
-`
+`;
 
 export const ImageWrapper = styled.div`
   position: relative;
@@ -73,29 +73,29 @@ export const ImageWrapper = styled.div`
     height: 50vw;
     left: -30px;
   }
-`
+`;
 
 export const HoveredImageContainer = styled.div`
   position: absolute;
   top: 54%;
-  left:28%;
+  left: 28%;
   width: 44%;
   height: 20%;
   transform: rotate(6.5deg);
   overflow: hidden;
   z-index: 4;
-`
+`;
 
 export const HoveredImage = styled.div`
   @keyframes scroll {
     0% {
-      transform: translateX(100%)
+      transform: translateX(100%);
     }
     100% {
-      transform: translateX(-100%)
+      transform: translateX(-100%);
     }
   }
-  
+
   -webkit-animation: scroll 5s infinite linear;
   -moz-animation: scroll 5s infinite linear;
   animation: scroll 5s infinite linear;
@@ -103,14 +103,13 @@ export const HoveredImage = styled.div`
   width: 150%;
   height: 100%;
   z-index: 3;
-
-`
+`;
 
 export const Subtitle = styled.h3`
   font-size: ${themes.primary.font.size.webAuditSubtitle};
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 .325em 0;
+  margin: 0 0 0.325em 0;
 
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.webAuditSubtitlePC};
@@ -132,7 +131,7 @@ export const Subtitle = styled.h3`
       display: none;
     }
   }
-`
+`;
 
 export const TextWrapper = styled.div`
   font-size: 2em;

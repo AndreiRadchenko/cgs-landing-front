@@ -3,11 +3,11 @@ import themes from "../../utils/themes";
 
 export const Wrapper = styled.div`
   margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
-  
+
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
-  }  
-  
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksMobile};
   }
@@ -17,7 +17,7 @@ export const Subtitle = styled.h3`
   font-size: ${themes.primary.font.size.webAuditSubtitle};
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 .775em 0;
+  margin: 0 0 0.775em 0;
 
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.webAuditSubtitlePC};
@@ -41,7 +41,7 @@ export const ContentWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 1em;
-  
+
   @media ${themes.primary.media.maxMobile} {
     justify-content: flex-start;
     align-items: flex-start;
@@ -52,7 +52,7 @@ export const ContentWrapper = styled.div`
 export const Image = styled.img`
   width: 43.58em;
   position: relative;
-  
+
   @media ${themes.primary.media.minPCFullHD} {
     width: 47em;
   }

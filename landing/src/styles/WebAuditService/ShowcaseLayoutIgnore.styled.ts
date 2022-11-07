@@ -2,14 +2,14 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const ShowcaseLayoutIgnore = styled.div`
-  margin:-4.25em;
+  margin: -4.25em;
   @media ${themes.primary.media.maxMobile} {
     margin: 0 -1.925em;
   }
-`
+`;
 
 export const ShowcaseWithoutDataSpacing = styled.div`
-margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
+  margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
   position: relative;
   width: 100%;
 
@@ -20,4 +20,4 @@ margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
   @media ${themes.primary.media.maxMobile} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
   }
-`
+`;

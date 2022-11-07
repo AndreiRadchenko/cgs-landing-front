@@ -9,8 +9,8 @@ export const Wrapper = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
-  }  
-  
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-top: 2em;
     margin-bottom: 8.65em;
@@ -18,10 +18,10 @@ export const Wrapper = styled.div`
 `;
 
 export const Subtitle = styled.h3`
-    font-size: ${themes.primary.font.size.webAuditSubtitle};
+  font-size: ${themes.primary.font.size.webAuditSubtitle};
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 .775em 0;
+  margin: 0 0 0.775em 0;
 
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.webAuditSubtitlePC};
@@ -38,7 +38,7 @@ export const Subtitle = styled.h3`
   @media ${themes.primary.media.maxMobile} {
     display: none;
   }
-`
+`;
 
 export const TypesGrid = styled.div`
   display: grid;

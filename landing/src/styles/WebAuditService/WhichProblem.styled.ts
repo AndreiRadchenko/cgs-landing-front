@@ -11,25 +11,25 @@ export const Wrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
-    
+
     &:before {
-      content: '';
+      content: "";
       display: block;
       height: 1px;
       width: 120vw;
       position: relative;
       right: 10%;
-      background: #8F8E93;
+      background: #8f8e93;
       margin-bottom: 2.69em;
     }
   }
 `;
 
 export const Subtitle = styled.h3`
-font-size: ${themes.primary.font.size.webAuditSubtitle};
+  font-size: ${themes.primary.font.size.webAuditSubtitle};
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 .775em 0;
+  margin: 0 0 0.775em 0;
   padding-bottom: 20vw;
 
   @media ${themes.primary.media.minPC} {
@@ -52,7 +52,7 @@ font-size: ${themes.primary.font.size.webAuditSubtitle};
       display: none;
     }
   }
-`
+`;
 
 export const Image = styled.div`
   position: absolute;
@@ -60,12 +60,12 @@ export const Image = styled.div`
   right: 0;
   width: 100%;
   height: 28vw;
-  
+
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     top: 0;
     right: 20px;
-    width: 100vw ;
+    width: 100vw;
     height: 100vw;
   }
 `;

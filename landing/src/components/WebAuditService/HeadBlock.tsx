@@ -19,31 +19,31 @@ const HeadBlock = () => {
 
   return (
     <Styled.Wrapper>
-        <Styled.ContentContainer>
+      <Styled.ContentContainer>
         <Styled.TextContainer>
-        <Styled.Title>
-          {data && <TextTypingAnimation text={data?.title} />}
-        </Styled.Title>
-        <Styled.Description>
-          <SplitBrackets text={data?.text} />
-        </Styled.Description>
-        <BlackButton
-          padding={"1.117em 2.537em"}
-          size={"1.5em"}
-          href={data?.buttonLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {data?.button}
-          <ArrowContainer>
-            <ButtonArrow />
-          </ArrowContainer>
-        </BlackButton>
-      </Styled.TextContainer>
-      {data?.image && (
-        <Styled.Image src={data?.image.url} alt="web audit hero image"/>
-      )}
-        </Styled.ContentContainer>
+          <Styled.Title>
+            {data && <TextTypingAnimation text={data?.title} />}
+          </Styled.Title>
+          <Styled.Description>
+            <SplitBrackets text={data?.text} />
+          </Styled.Description>
+          <BlackButton
+            padding={"1.117em 2.537em"}
+            size={"1.5em"}
+            href={data?.buttonLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {data?.button}
+            <ArrowContainer>
+              <ButtonArrow />
+            </ArrowContainer>
+          </BlackButton>
+        </Styled.TextContainer>
+        {data?.image && (
+          <Styled.Image src={data?.image.url} alt="web audit hero image" />
+        )}
+      </Styled.ContentContainer>
     </Styled.Wrapper>
   );
 };

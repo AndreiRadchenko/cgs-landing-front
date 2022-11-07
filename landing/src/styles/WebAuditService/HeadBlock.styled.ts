@@ -18,7 +18,7 @@ export const ContentContainer = styled.div`
     justify-content: flex-start;
     flex-direction: column;
   }
-`
+`;
 
 export const TextContainer = styled.div`
   width: 50%;
@@ -57,7 +57,7 @@ export const Description = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.menuElement};
   }
-  
+
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.oneAndHalf};
   }
@@ -90,7 +90,7 @@ export const Image = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     width: 121%;
-    right: 3.5%
+    right: 3.5%;
   }
 
   @media ${themes.primary.media.minPCFullHD} {

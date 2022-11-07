@@ -13,7 +13,7 @@ export const TypeTitle = styled.div`
   font-size: 2em;
   line-height: 160%;
   color: ${themes.primary.colors.darkBlue};
-  `;
+`;
 
 export const TypeHeader = styled.div`
   display: flex;
