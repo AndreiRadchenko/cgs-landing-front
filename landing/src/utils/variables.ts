@@ -90,4 +90,5 @@ export const mobileServicesRoutes = [
   "ux-ui-design",
   "cloud-solutions",
   "blockchain",
+  "mobile-audit",
 ];
