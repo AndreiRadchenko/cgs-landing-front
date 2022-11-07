@@ -90,7 +90,6 @@ const PodcastItem = () => {
                 </span>
               </Styled.LoopText>
             </Styled.LoopContainer>
-
             <Styled.Track>
               <Styled.PlayedTrack
                 type="range"
