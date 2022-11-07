@@ -1,12 +1,12 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import * as Styled from "../../styles/WebAuditService/HowToDoBlock.styled";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceWebAudit } from "../../types/Admin/Response.types";
-import { Subtitle } from "../../styles/WebAuditService/Common.styled";
-import HowToDoAuditImg from "../../../public/WebAuditServicePage/HowToDoAuditImg.svg";
 import { SplitBrackets } from "../../utils/splitBrackets";
-import Image from "next/image";
+import HowTodoList from "./HowTodoList";
+import {useWindowDimension} from "../../hooks/useWindowDimension";
+import HowTodoDynamicMobileList from "./HowTodoDynamicMobileList";
 
 const HowToDoBlock = () => {
   const queryClient = useQueryClient();
@@ -14,65 +14,34 @@ const HowToDoBlock = () => {
     queryKeys.getServiceWebAuditPage,
   ])?.howToDoAudit;
 
+  const [cardsComponents, setCardsComponents] = useState<JSX.Element>()
+
+  const {width} = useWindowDimension()
+
   const firstHalf = data?.points.slice(0, data.points.length / 2);
   const secondHalf = data?.points.slice(
     data.points.length / 2,
     data.points.length
   );
 
+  const deskCards = <>
+      {firstHalf && <HowTodoList data={firstHalf}/>}
+      {secondHalf && <HowTodoList data={secondHalf}/>}
+  </>
+
+    const mobileCards = data && <HowTodoDynamicMobileList points={data?.points} />
+
+    useEffect(()=>{
+        width && width > 767 ? setCardsComponents(deskCards) : setCardsComponents(mobileCards)
+    },[width])
+
   return (
     <Styled.Wrapper>
-      <Subtitle>
+      <Styled.Subtitle>
         <SplitBrackets text={data?.subtitle} />
-      </Subtitle>
+      </Styled.Subtitle>
       <Styled.ContentWrapper>
-        <Styled.ListWrapper>
-          {firstHalf &&
-            firstHalf.map((el, idx) => (
-              <Styled.ListItem key={el}>
-                <Styled.TextWrapper>
-                  <Styled.ImageWrapper>
-                    <Image
-                      src={HowToDoAuditImg}
-                      alt="list check icon img"
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </Styled.ImageWrapper>
-                  <Styled.Text>{el}</Styled.Text>
-                </Styled.TextWrapper>
-                {idx !== firstHalf.length - 1 && <Styled.BottomLine />}
-              </Styled.ListItem>
-            ))}
-          <Styled.Shadow>
-            <Styled.TopCorner />
-            <Styled.BottomCorner />
-          </Styled.Shadow>
-        </Styled.ListWrapper>
-
-        <Styled.ListWrapper>
-          {secondHalf &&
-            secondHalf.map((el, idx) => (
-              <Styled.ListItem key={el}>
-                <Styled.TextWrapper>
-                  <Styled.ImageWrapper>
-                    <Image
-                      src={HowToDoAuditImg}
-                      alt="list check icon img"
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </Styled.ImageWrapper>
-                  <Styled.Text>{el}</Styled.Text>
-                </Styled.TextWrapper>
-                {idx !== secondHalf.length - 1 && <Styled.BottomLine />}
-              </Styled.ListItem>
-            ))}
-          <Styled.Shadow>
-            <Styled.TopCorner />
-            <Styled.BottomCorner />
-          </Styled.Shadow>
-        </Styled.ListWrapper>
+          {cardsComponents}
       </Styled.ContentWrapper>
     </Styled.Wrapper>
   );

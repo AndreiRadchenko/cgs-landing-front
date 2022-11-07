@@ -1,5 +1,6 @@
 import React from "react";
-import * as Styled from "../../styles/WebAuditService/TypesOfAudit.styled";
+import * as Styled from "../../styles/WebAuditService/TypesOfAuditHoverModal.styled";
+import {SplitBrackets} from "../../utils/splitBrackets";
 
 interface IType {
   typeItem: {
@@ -25,7 +26,7 @@ const TypesOfAuditHoverModal = ({ typeItem }: IType) => {
         </Styled.ButtonContainer>
       </Styled.HoverModalHeader>
       <Styled.ModalContent>
-        <Styled.ModalText className="title">{typeItem.title}</Styled.ModalText>
+        <Styled.ModalText className="title"><SplitBrackets text={typeItem.title} /></Styled.ModalText>
         <Styled.ModalText>{typeItem.text}</Styled.ModalText>
       </Styled.ModalContent>
     </Styled.HoverModalWrapper>

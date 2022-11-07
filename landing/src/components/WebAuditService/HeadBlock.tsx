@@ -10,7 +10,6 @@ import {
   BlackButton,
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
-import Image from "next/image";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -20,7 +19,8 @@ const HeadBlock = () => {
 
   return (
     <Styled.Wrapper>
-      <Styled.TextContainer>
+        <Styled.ContentContainer>
+        <Styled.TextContainer>
         <Styled.Title>
           {data && <TextTypingAnimation text={data?.title} />}
         </Styled.Title>
@@ -41,15 +41,9 @@ const HeadBlock = () => {
         </BlackButton>
       </Styled.TextContainer>
       {data?.image && (
-        <Styled.ImageWrapper>
-          <Image
-            src={data?.image.url}
-            alt="web audit hero image"
-            layout="fill"
-            objectFit="contain"
-          />
-        </Styled.ImageWrapper>
+        <Styled.Image src={data?.image.url} alt="web audit hero image"/>
       )}
+        </Styled.ContentContainer>
     </Styled.Wrapper>
   );
 };

@@ -1,29 +1,99 @@
 import styled from "styled-components";
+import themes from "../../utils/themes";
 
 export const Wrapper = styled.div`
-  margin-top: 10em;
+  margin-top: 5.26em;
   position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 3.17em;
+  }
 `;
 
-export const TextContainer = styled.div``;
+export const ContentContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media ${themes.primary.media.maxMobile} {
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+`
+
+export const TextContainer = styled.div`
+  width: 50%;
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    margin-bottom: 6.73em;
+  }
+`;
 
 export const Title = styled.div`
   margin: 0;
   font-size: 5.5em;
   line-height: 120%;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.tabletServiceTitle};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 3.85em;
+  }
+
+  @media (max-width: 365px) {
+    font-size: 3.5em;
+  }
 `;
 
 export const Description = styled.div`
-  margin-block: 1.27em 2.36em;
+  margin-bottom: 1.9em;
+  margin-top: 1em;
   font-size: 1.833em;
   line-height: 160%;
-  max-width: 50%;
+  max-width: 100%;
+  white-space: nowrap;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.menuElement};
+  }
+  
+  @media ${themes.primary.media.minPC} {
+    font-size: ${themes.primary.font.size.oneAndHalf};
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.tertiary};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: ${themes.primary.font.size.oneAndHalf};
+    margin-bottom: 1.78em;
+    margin-top: 1.25em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    white-space: pre-line;
+    br {
+      display: none;
+    }
+  }
 `;
 
-export const ImageWrapper = styled.div`
-  position: absolute;
-  width: 50%;
-  height: 565px;
-  top: -5.8em;
-  right: 0;
+export const Image = styled.img`
+  width: 61em;
+  position: relative;
+
+  @media ${themes.primary.media.maxLaptop} {
+    width: 50%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 121%;
+    right: 3.5%
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-left: 4em;
+  }
 `;

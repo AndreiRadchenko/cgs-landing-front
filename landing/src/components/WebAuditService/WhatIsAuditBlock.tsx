@@ -1,11 +1,11 @@
 import { useQueryClient } from "@tanstack/react-query";
-import Image from "next/image";
 import React from "react";
 import { queryKeys } from "../../consts/queryKeys";
-import { Subtitle } from "../../styles/WebAuditService/Common.styled";
 import * as Styled from "../../styles/WebAuditService/WhatIsAudit.styled";
 import { IServiceWebAudit } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import {MobileInfiniteText} from "../MobileInfiniteText/MobileInfiniteText";
+import {Subtitle} from "../../styles/WebAuditService/WhatIsAudit.styled";
 
 const WhatIsAuditBlock = () => {
   const queryClient = useQueryClient();
@@ -16,16 +16,10 @@ const WhatIsAuditBlock = () => {
   return (
     <Styled.Wrapper>
       <Subtitle>{data?.subtitle}</Subtitle>
+        <MobileInfiniteText title={data?.subtitle} />
       <Styled.ContentWrapper>
         {data?.image && (
-          <Styled.ImageWrapper>
-            <Image
-              src={data?.image.url}
-              alt="what is web audit image"
-              layout="fill"
-              objectFit="contain"
-            />
-          </Styled.ImageWrapper>
+          <Styled.Image src={data?.image.url} alt="what is web audit image" />
         )}
         <Styled.TextWrapper>
           <SplitBrackets text={data?.text} />

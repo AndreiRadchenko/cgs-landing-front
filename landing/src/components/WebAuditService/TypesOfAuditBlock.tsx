@@ -1,37 +1,35 @@
 import { useQueryClient } from "@tanstack/react-query";
-import Image from "next/image";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { queryKeys } from "../../consts/queryKeys";
-import { Subtitle } from "../../styles/WebAuditService/Common.styled";
 import * as Styled from "../../styles/WebAuditService/TypesOfAudit.styled";
 import { IServiceWebAudit } from "../../types/Admin/Response.types";
-import { SplitBrackets } from "../../utils/splitBrackets";
-import { webAuditTypesOfAuditImages } from "../../utils/variables";
-import TypesOfAuditHoverModal from "./TypesOfAuditHoverModal";
+import {MobileInfiniteText} from "../MobileInfiniteText/MobileInfiniteText";
+import {TypesOfAuditDesktopCard} from "./TypesOfAuditDesktopCard";
+import {useWindowDimension} from "../../hooks/useWindowDimension";
+import TypesOfAuditMobileCard from "./TypesOfAuditMobileCard";
 
 const TypesOfAuditBlock = () => {
+    const {width} = useWindowDimension()
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceWebAudit>([
-    queryKeys.getServiceWebAuditPage,
-  ])?.typesOfAuditBlock;
+    const [cardsComponents, setCardsComponents] = useState<JSX.Element[]>()
+
+    const data = queryClient.getQueryData<IServiceWebAudit>([
+        queryKeys.getServiceWebAuditPage,
+    ])?.typesOfAuditBlock;
+
+    const deskCards = data?.map((item, idx) => <TypesOfAuditDesktopCard key={idx+'desk'} idx={idx} item={item} />)
+    const mobileCards = data?.map((item, idx) => <TypesOfAuditMobileCard key={idx+'mobile'} idx={idx} item={item} />)
+
+    useEffect(()=>{
+        width && width > 767 ? setCardsComponents(deskCards) : setCardsComponents(mobileCards)
+    }, [width])
+
   return (
     <Styled.Wrapper>
-      <Subtitle>Types of audit</Subtitle>
+      <Styled.Subtitle>Types of audit</Styled.Subtitle>
+        <MobileInfiniteText title={'Types of audit'} />
       <Styled.TypesGrid>
-        {data?.map((item, idx) => (
-          <Styled.TypeWrapper key={item.title}>
-            <Styled.ImageWrapper>
-              <Image
-                src={webAuditTypesOfAuditImages[idx]}
-                alt="types of grid image"
-              />
-            </Styled.ImageWrapper>
-            <Styled.TypeTitle>
-              <SplitBrackets text={item.title} />
-            </Styled.TypeTitle>
-            <TypesOfAuditHoverModal typeItem={item} />
-          </Styled.TypeWrapper>
-        ))}
+        {cardsComponents}
       </Styled.TypesGrid>
     </Styled.Wrapper>
   );

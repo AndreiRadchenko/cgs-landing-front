@@ -14,6 +14,12 @@ import WhatIsAuditBlock from "../../components/WebAuditService/WhatIsAuditBlock"
 import WhichProblemBlock from "../../components/WebAuditService/WhichProblemBlock";
 import TypesOfAuditBlock from "../../components/WebAuditService/TypesOfAuditBlock";
 import HowToDoBlock from "../../components/WebAuditService/HowToDoBlock";
+import ProfessionalAuditBlock from "../../components/WebAuditService/ProfessionalAuditBlock";
+import ShowCase from "../../components/ShowCase";
+import {
+  ShowcaseLayoutIgnore,
+  ShowcaseWithoutDataSpacing
+} from "../../styles/WebAuditService/ShowcaseLayoutIgnore.styled";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -54,7 +60,10 @@ const WebAuditPage: NextPage = () => {
         <WhatIsAuditBlock />
         <WhichProblemBlock />
         <TypesOfAuditBlock />
+        {data?.projects ? <ShowcaseLayoutIgnore><ShowCase projects={data?.projects}/></ShowcaseLayoutIgnore>:
+        <ShowcaseWithoutDataSpacing/>}
         <HowToDoBlock />
+        <ProfessionalAuditBlock />
       </Layout>
       <FooterNew />
     </>
