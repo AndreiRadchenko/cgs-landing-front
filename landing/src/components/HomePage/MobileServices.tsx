@@ -1,14 +1,11 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { queryKeys } from "../../consts/queryKeys";
 import * as StyledThisComp from "../../styles/HomePage/MobileServices.styled";
 import params from "../../mock/MobileServicesSwiperParams";
 import { adminServices } from "../../services/services/commonServices";
-import TextTypingAnimation from "../Typewrite";
-import { mobileServicesRoutes } from "../../utils/variables";
-import Link from "next/link";
+import MobileNextTechSlide from "./MobileNextTechSlide";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -24,7 +21,7 @@ export async function getServerSideProps() {
   };
 }
 
-interface ISlideData {
+export interface ISlideData {
   image: string;
   title: string;
 }
@@ -33,9 +30,9 @@ const MobileServices = () => {
   const { data } = useQuery([queryKeys.getAllServices], () =>
     adminServices.getAllServices()
   );
-  const [slidesData, setSlidesData] = React.useState<ISlideData[]>([]);
+  const [slidesData, setSlidesData] = useState<ISlideData[]>([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (data) {
       const services = data.map((service) => ({
         image: service.headerBlock.image.url,
@@ -45,27 +42,15 @@ const MobileServices = () => {
     }
   }, [data]);
 
-  let renderSliderSlides;
-  if (slidesData) {
-    renderSliderSlides = slidesData.map((item, idx) => (
-      <SwiperSlide key={idx} style={{ padding: "35px 0px" }}>
-        <Link href={`/services/${mobileServicesRoutes[idx]}`} passHref>
-          <StyledThisComp.ServiceLink>
-            <StyledThisComp.ServiceWrapper>
-              <TextTypingAnimation text={item.title} />
-              <StyledThisComp.ImageWrapper>
-                <StyledThisComp.Image src={item.image} />
-              </StyledThisComp.ImageWrapper>
-            </StyledThisComp.ServiceWrapper>
-          </StyledThisComp.ServiceLink>
-        </Link>
-      </SwiperSlide>
-    ));
-  }
-
   return (
     <StyledThisComp.Wrapper>
-      <Swiper {...params}>{renderSliderSlides}</Swiper>
+      <Swiper {...params}>
+        {slidesData.map((item, idx) => (
+          <SwiperSlide style={{ padding: "35px 0px" }} key={idx}>
+            <MobileNextTechSlide item={item} idx={idx} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </StyledThisComp.Wrapper>
   );
 };
