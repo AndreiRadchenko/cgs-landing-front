@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as Styled from "../../styles/HomePage/General.styled";
 import leftArrow from "../../../public/HomePageDecoration/leftArrow.svg";
-import leftArrowMobile from "../../../public/HomePageDecoration/leftArrowMobile.svg";
 import boldLeftArrowMobile from "../../../public/HomePageDecoration/boldArrowLeftMobile.svg";
 import boldRightArrowMobile from "../../../public/HomePageDecoration/boldArrowRightMobile.svg";
 import rightArrow from "../../../public/HomePageDecoration/rightArrow.svg";
-import rightArrowMobile from "../../../public/HomePageDecoration/rightArrowMobile.svg";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
@@ -20,8 +18,7 @@ const HeadBlock = () => {
   const { width } = useWindowDimension();
   const [buttonClassName, setButtonClassName] = useState<string>("main");
 
-  const buttonRef = useRef<HTMLAnchorElement>(null);
-  const elRef = useRef<HTMLSpanElement>(null);
+  const elRef = useRef<HTMLAnchorElement>(null);
   const isOnScreen = useOnScreen(elRef, true);
 
   const queryClient = useQueryClient();
@@ -31,9 +28,10 @@ const HeadBlock = () => {
 
   useEffect(() => {
     if (isOnScreen) {
-      setButtonClassName("scrolled removeBg");
-    } else {
-      setButtonClassName("scrolled ");
+      setButtonClassName("scrolled");
+      setTimeout(() => {
+        setButtonClassName("scrolled removeBg");
+      }, 1000);
     }
   }, [isOnScreen]);
 
@@ -75,7 +73,7 @@ const HeadBlock = () => {
           href={data && data.buttonLink && recoverLink(data?.buttonLink)}
           rel="noopener noreferrer"
           className={buttonClassName}
-          ref={buttonRef}
+          ref={elRef}
         >
           {width && width > 768 ? data?.button : "BOOK A CALL"}
           <Styled.ArrowContainer>
