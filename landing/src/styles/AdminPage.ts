@@ -121,6 +121,7 @@ export const AdminBlockTitle = styled.span`
   color: ${themes.primary.colors.secondary};
   font-family: ${themes.primary.font.family.namu};
   font-style: normal;
+  text-transform: uppercase;
   font-weight: 900;
   line-height: 99%;
   font-size: 1.5em;

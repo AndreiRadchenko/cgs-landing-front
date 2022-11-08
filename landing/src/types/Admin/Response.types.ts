@@ -690,6 +690,7 @@ export interface IServiceDappAudit {
   figureOutBlock: {
     subtitle: string;
     textBlock: [string];
+    image: { url: string };
   };
 
   whyIsDappsBlock: {
@@ -706,6 +707,7 @@ export interface IServiceDappAudit {
         subContent: [{ title: string; text: string }];
       }
     ];
+    image: { url: string };
   };
   projects: [string];
   footerBlock: {

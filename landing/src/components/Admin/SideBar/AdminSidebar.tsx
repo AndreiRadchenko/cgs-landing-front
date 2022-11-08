@@ -113,6 +113,14 @@ const AdminSidebar = () => {
               Web audit
             </Styled.AdminListSubItem>
           </Link>
+          <Link href={ROUTE_KEYS.AdminServiceDappAudit} passHref>
+            <Styled.AdminListSubItem
+              itemProp={currentPath}
+              property={ROUTE_KEYS.AdminServiceDappAudit}
+            >
+              Dapp audit + Tokenomic planning
+            </Styled.AdminListSubItem>
+          </Link>
         </DropDownElement>
         <DropDownElement value="company" Icon={CompanyIcon}>
           <Link href={ROUTE_KEYS.AdminAboutUs} passHref>
