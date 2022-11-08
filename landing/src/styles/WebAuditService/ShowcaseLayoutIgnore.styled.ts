@@ -2,9 +2,14 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const ShowcaseLayoutIgnore = styled.div`
-  margin: -4.25em;
+  margin: 16.7em -4.25em 0 -4.25em;
+
+  @media ${themes.primary.media.maxServiceMobile} {
+    margin-top: 10em;
+  }
+  
   @media ${themes.primary.media.maxMobile} {
-    margin: 0 -1.925em;
+    margin: 6.54em -1.925em 0 -1.925em;
   }
 `;
 
