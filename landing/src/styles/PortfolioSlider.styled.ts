@@ -94,29 +94,33 @@ export const NavigateLeft = styled.div`
 export const ProjectDescription = styled.p`
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.reviewText};
+  line-height: 160%;
+  margin-block: 15px;
   display: -webkit-box;
+  max-height: 500px;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 170%;
-  margin: 15px 0 27px;
-  @media ${themes.primary.media.maxMobile} {
-    padding: 10px;
-    margin-top: 0px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.2em;
   }
-  @media (max-width: 1440px) {
-    -webkit-line-clamp: 3;
+  @media (max-width: 1439px) {
   }
   @media (max-width: 1310px) {
-    margin: 12px 0 32px;
-    -webkit-line-clamp: 2;
+    margin-block: 10px;
   }
   @media (max-width: 1199px) {
     font-size: 15px;
   }
   @media (max-width: 1140px) {
     font-size: 14px;
-    -webkit-line-clamp: 4;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-block: 6px;
+    display: block;
+    font-size: 12px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -133,19 +137,27 @@ export const ProjectComment = styled.p`
   line-height: 160%;
   margin-bottom: 0;
   display: -webkit-box;
-
+  max-height: 500px;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  @media ${themes.primary.media.maxMobile} {
-    padding-top: 10px;
-    margin-top: 0px;
-  }
+
   @media (max-width: 1199px) {
     font-size: 15px;
   }
   @media (max-width: 1140px) {
     font-size: 14px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 4px;
+    font-size: ${themes.primary.font.size.primary};
+    -webkit-line-clamp: 2;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-top: 10px;
+    margin-top: 0px;
   }
 `;
 
@@ -168,11 +180,19 @@ export const ViewMoreText = styled.div`
   @media (max-width: 1199px) {
     font-size: 15px;
   }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 0.8333em;
+  }
 `;
 
 export const ViewMoreArrow = styled.img`
   width: 18px;
   height: auto;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 10px;
+  }
 `;
 
 export const NoRewiews = styled.div`
@@ -247,14 +267,16 @@ export const PortfolioRow = styled.div`
     background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
   }
+
   @media (max-width: 1310px) {
-    max-height: 460px;
-  }
-  @media (max-width: 1310px) {
-    max-height: 460px;
+    max-height: 1000px;
   }
   @media ${themes.primary.media.minPC} {
     max-height: 33.5vw;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    max-height: 400px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -356,6 +378,7 @@ export const ImageContainer = styled.div<IImageContainer>`
     & img {
       object-fit: contain;
     }
+    width: 43%;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -374,18 +397,22 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   position: relative;
 
-  padding: 34px 26px 30px;
+  padding: 2.833em 2.1666em 2.5em;
   width: 45%;
   box-sizing: border-box;
   @media (max-width: 1250px) {
     padding: 17px 15px;
   }
   @media ${themes.primary.media.minPC} {
-    padding: 50px;
     font-size: 0.77vw;
   }
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 0.85vw;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding: 19px 10px 17px;
+    width: 56%;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -399,6 +426,7 @@ export const ProjectHeader = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
+
   @media ${themes.primary.media.maxMobile} {
     display: flex;
     flex-direction: column;
@@ -412,14 +440,17 @@ export const ProjectHeader = styled.div`
 export const PortfolioProjectHeader = styled.div`
   font-size: ${themes.primary.font.size.reviewTitle};
   font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.normal};
+  font-weight: ${themes.primary.font.weight.heavy};
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.secondary};
   }
   @media (max-width: 1250px) {
     font-size: 26px;
   }
-
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 16px;
+    line-height: 130%;
+  }
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: ${themes.primary.font.size.homeMainSubtitle};
   }
@@ -434,6 +465,10 @@ export const Separator = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 10px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-bottom: 4px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -469,15 +504,21 @@ export const Feedback = styled.div`
 export const AuthorName = styled.div`
   font-size: ${themes.primary.font.size.feedbackName};
   font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.normal};
+  font-weight: ${themes.primary.font.weight.heavy};
+
+  @media (max-width: 1250px) {
+    font-size: 18px;
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.buttonText};
   }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: ${themes.primary.font.size.vistaco};
+    line-height: 213%;
+  }
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.articleTagDescription};
-  }
-  @media (max-width: 1250px) {
-    font-size: 18px;
   }
 `;
 
@@ -488,6 +529,11 @@ export const CompanyName = styled.div`
   font-weight: ${themes.primary.font.weight.normal};
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.vistaco};
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 0.8333333em;
+    line-height: 256%;
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.articleSubtitle};
@@ -500,6 +546,10 @@ export const Star = styled.img`
   @media (max-width: 1250px) {
     width: 15px;
   }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 10px;
+    height: 10px;
+  }
   @media ${themes.primary.media.minPC} {
     width: 1.668em;
   }
@@ -510,6 +560,10 @@ export const StarCont = styled.div`
   margin-bottom: 2.5px;
   column-gap: 3px;
   margin-top: 16px;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 0px;
+  }
 `;
 
 export const Navigation = styled.div`
@@ -534,6 +588,15 @@ export const ProjectIndustry = styled.div`
   color: ${themes.primary.colors.comment};
   font-size: 1.5em;
   margin-top: 0.5em;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.vistaco};
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 5px;
+    font-size: 10px;
+  }
 `;
 
 export const Loader = styled.div`

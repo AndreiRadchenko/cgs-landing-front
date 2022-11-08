@@ -615,3 +615,82 @@ export interface ICalculatorStep {
     }
   ];
 }
+export interface IServiceMobileAudit {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  whatAppBlock: {
+    subtitle: string;
+    textBlock: {
+      native: {
+        subtitle: string;
+        text: string;
+      };
+      web: {
+        subtitle: string;
+        text: string;
+      };
+      hybrid: {
+        subtitle: string;
+        text: string;
+      };
+    };
+  };
+  whatAppInclude: {
+    subtitle: string;
+    textBlock: { text: string; subtext: string[] }[];
+    image: { url: string };
+  };
+  whenDoYouNeed: {
+    subtitle: string;
+    description: string;
+    points: string[];
+  };
+  projects: string[];
+  howDoWeAudit: {
+    subtitle: string;
+    description: string;
+    points: string[];
+  };
+  footerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}
+
+export interface IServiceWebAudit {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  whatIsBlock: {
+    subtitle: string;
+    text: string;
+    image: { url: string };
+  };
+  typesOfAuditBlock: [{ _id: string; title: string; text: string }];
+  projects: [string];
+  howToDoAudit: {
+    subtitle: string;
+    points: [string];
+  };
+  footerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}

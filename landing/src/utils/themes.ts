@@ -19,6 +19,7 @@ const themes = {
       aboutUsDescription: "8em",
       cardPartners: "14em",
       btwLogoAndMenu: "8.5em",
+      servicesMarginBetweenBlocks: "16em",
     },
     font: {
       family: {
@@ -171,8 +172,8 @@ const themes = {
       inputGrey: "#787877",
       ourWork: "#A7A6A9",
       serviceHighlight: "#BABABA",
-      portfolioLoaderCube: "#8F8E93",
       deleteImageHover: "#ad1313",
+      adminInputBorder: "#A9A5A4",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

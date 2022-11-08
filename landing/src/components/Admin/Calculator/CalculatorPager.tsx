@@ -3,14 +3,18 @@ import { Formik } from "formik";
 import React from "react";
 import { queryKeys } from "../../../consts/queryKeys";
 import * as Styled from "../../../styles/AdminCalculator.styled";
-import { AdminHalfGrid } from "../../../styles/AdminPage";
+import {
+  AdminHalfGrid,
+  AdminUnauthorizedModal,
+} from "../../../styles/AdminPage";
 import { adminCalculatorService } from "../../../services/adminCalculator";
 import { ICalculator } from "../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 const CalculatorPager = () => {
-  const { data, refetch } = useQuery([queryKeys.getCalculatorData], () =>
-    adminCalculatorService.getCalculatorData()
+  const { data, refetch, isLoading } = useQuery(
+    [queryKeys.getCalculatorData],
+    () => adminCalculatorService.getCalculatorData()
   );
 
   const { mutateAsync } = useMutation(
@@ -24,7 +28,9 @@ const CalculatorPager = () => {
     document.body.style.cursor = "auto";
   };
 
-  return (
+  return isLoading ? (
+    <AdminUnauthorizedModal>Loading...</AdminUnauthorizedModal>
+  ) : data !== undefined ? (
     <Formik initialValues={data!} onSubmit={handleSubmit}>
       {({ values, handleChange }) => (
         <Styled.InputWrapper>
@@ -32,18 +38,16 @@ const CalculatorPager = () => {
             <SubHeaderWithInput
               inputStyle={{ marginBottom: 0 }}
               width="100%"
-              isAdmin
               header="Text (start)"
-              name={`CardsBlock.${name}.subtitle`}
+              name="startMessage"
               inputValue={values.startMessage || ""}
               onChangeFunction={handleChange}
             />
             <SubHeaderWithInput
               inputStyle={{ marginBottom: 0 }}
               width="100%"
-              isAdmin
               header="Text (finish)"
-              name={`CardsBlock.${name}.subtitle`}
+              name="finishMessage"
               inputValue={values.finishMessage || ""}
               onChangeFunction={handleChange}
             />
@@ -51,6 +55,8 @@ const CalculatorPager = () => {
         </Styled.InputWrapper>
       )}
     </Formik>
+  ) : (
+    <AdminUnauthorizedModal>Something went wrong :(</AdminUnauthorizedModal>
   );
 };
 

@@ -40,7 +40,7 @@ export interface DropdownPropsInterface {
 }
 
 export interface IBlockDropDown {
-  value: string;
+  title: string;
   children: any;
 }
 
@@ -49,7 +49,6 @@ export interface InputWithHeader extends InputPropsInterface {
   header?: string;
   minRows?: number;
   isBlog?: boolean;
-  isAdmin?: boolean;
   isMetaField?: boolean;
   height?: string;
   width?: string;

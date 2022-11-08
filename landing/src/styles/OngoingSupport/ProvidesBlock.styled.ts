@@ -2,13 +2,17 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 12.5em;
+  margin-block: 12.5em 10.625em;
   position: relative;
   width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 5.2em;
+    margin-bottom: 4.6875em;
     margin-top: 4.75em;
+
+    &.withoutShowcase {
+      margin-bottom: 4.25em;
+    }
   }
 `;
 

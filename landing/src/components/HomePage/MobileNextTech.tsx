@@ -51,7 +51,6 @@ const MobileNextTech = () => {
       <Styled.Subtitle>
         {text && parse(`<div> ${text.title.split("<div>")[1]}`, options)}
       </Styled.Subtitle>
-
       <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
       <MobileServices />
       <Styled.Subtitle className="small">

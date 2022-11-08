@@ -56,6 +56,7 @@ const PhotoBlockDashed = ({
       maxHeight={maxHeight}
       className={className}
       func={uploadFunction}
+      style={style}
     />
   );
 };

@@ -6,8 +6,13 @@ import LinedText from "../BlockchainService/LinedText";
 import * as Styled from "../../styles/UxUiService/DesignBlock.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import { Separator } from "../../styles/MobileAuditService/Common.styled";
 
-const DesignBlock = () => {
+interface IDesignBlockProps {
+  withoutShowcase?: boolean;
+}
+
+const DesignBlock = ({ withoutShowcase }: IDesignBlockProps) => {
   const queryClient = useQueryClient();
   const { width } = useWindowDimension();
   const [gradientAngle, setGradientAngle] = useState<string>("50%");
@@ -47,7 +52,9 @@ const DesignBlock = () => {
   const isScrolled = useOnScreen(elRef, true);
 
   return (
-    <Styled.Container>
+    <Styled.Container
+      className={withoutShowcase ? "withoutShowcase" : undefined}
+    >
       <Styled.Title>{data?.title}</Styled.Title>
       <Styled.BlockWrapper ref={elRef}>
         {width &&
@@ -86,6 +93,7 @@ const DesignBlock = () => {
           ))}
         </Styled.BottomSteps>
       </Styled.BlockWrapper>
+      {withoutShowcase && <Separator className="bottom" />}
     </Styled.Container>
   );
 };

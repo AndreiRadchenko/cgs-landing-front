@@ -11,6 +11,7 @@ export const queryKeys = {
   UpdateCareersPage: "UpdateCareersPage",
   getPortfolioPageData: "getPortfolioPageData",
   getPortfolio: "getPortfolio",
+  swapPortfolioReviews: "swapPortfolioReviews",
   addPortfolioReview: "addPortfolioReview",
   updatePortfolioReview: "updatePortfolioReview",
   deletePortfolioReview: "deletePortfolioReview",
@@ -54,6 +55,10 @@ export const queryKeys = {
   updateServiceSupportPage: "updateServiceSupportPage",
   getServiceUxUiPage: "getServiceUxUiPage",
   updateServiceUxUiPage: "updateServiceUxUiPage",
+  getServiceMobileAuditPage: "getServiceMobileAuditPage",
+  updateServiceMobileAuditPage: "updateServiceMobileAuditPage",
+  getServiceWebAuditPage: "getServiceWebAuditPage",
+  updateServiceWebAuditPage: "updateServiceWebAuditPage",
   // home page
   getFullHomePage: "getFullHomePage",
   getAllServices: "getAllServices",

@@ -12,7 +12,6 @@ const AdminFooterLinks = ({ state, onChangeFunction }: IFooterProps) => {
     <AdminHalfGrid>
       {state.map((i, ind) => (
         <SubHeaderWithInput
-          isAdmin
           name={`FooterBlock.links.${ind}.link`}
           header={`Add link ${ind + 1}`}
           inputValue={i.link}

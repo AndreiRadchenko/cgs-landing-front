@@ -13,7 +13,7 @@ const LeftSideBlock = ({ state, onChangeFunction }: ILeftSideProps) => {
     <FieldArray name="EditInformationBlock">
       {(props) =>
         renderInputs({
-          props: { ...props, isAdmin: true, width: "21em" },
+          props: { ...props, isadmin: true, width: "21em" },
           state,
           onChangeFunction,
         })

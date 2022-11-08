@@ -15,7 +15,11 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
-const WhoNeedAppBlock = () => {
+interface IWhoNeedAppBlockProps {
+  className?: string;
+}
+
+const WhoNeedAppBlock = ({ className }: IWhoNeedAppBlockProps) => {
   const { width } = useWindowDimension();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobile>([
@@ -40,7 +44,7 @@ const WhoNeedAppBlock = () => {
     </svg>`;
 
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper className={className}>
       <Styled.WhatDoWeUse>
         <Styled.WhatDoWeUseContainer>
           {data && (

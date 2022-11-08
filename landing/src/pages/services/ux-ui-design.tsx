@@ -56,7 +56,7 @@ const UxUiDesign = () => {
         <Styled.Layout>
           <HeadBlock />
           <WhatDoWeDoBlock />
-          <DesignBlock />
+          <DesignBlock withoutShowcase={data?.projects.length === 0} />
         </Styled.Layout>
       </Layout>
       <ShowCase projects={data?.projects} />

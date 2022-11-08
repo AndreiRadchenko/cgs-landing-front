@@ -20,14 +20,12 @@ const AdminCard = ({ info, number, onChangeFunction, name }: ICardProps) => {
         <SubHeaderWithInput
           inputStyle={{ marginBottom: 0 }}
           width="100%"
-          isAdmin
           name={`CardsBlock.${name}.subtitle`}
           inputValue={info.subtitle}
           onChangeFunction={onChangeFunction}
         />
         <SubHeaderWithInput
           width="100%"
-          isAdmin
           name={`CardsBlock.${name}.text`}
           minRows={3}
           inputValue={info.text}

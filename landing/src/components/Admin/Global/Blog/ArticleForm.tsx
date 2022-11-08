@@ -21,6 +21,7 @@ interface IArticleForm {
   views: IView[];
   setArticle: (val: number) => void;
   sitemap?: ISitemapData | void;
+  scrollHandler: () => void;
 }
 
 const META_TITLE_MAX = 60;
@@ -34,6 +35,7 @@ const ArticleForm = ({
   setArticle,
   views,
   sitemap,
+  scrollHandler,
 }: IArticleForm) => {
   const { values } = useFormikContext<IBlogPageResponse>();
   const queryClient = useQueryClient();
@@ -157,6 +159,9 @@ const ArticleForm = ({
           possibleTags={values.possibleTags}
           article={article}
           isNewArticle={isNewArticle}
+          setArticle={setArticle}
+          setIsNewArticle={setIsNewArticle}
+          scrollHandler={scrollHandler}
         />
       </Formik>
     ) || <div>no Articles</div>

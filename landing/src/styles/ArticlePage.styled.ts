@@ -50,10 +50,6 @@ export const Background = styled.div`
   overflow: hidden;
   position: relative;
   background-color: ${themes.primary.colors.blogBackground};
-
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 1.2em;
-  }
 `;
 
 export const PageWrapper = styled.div`
@@ -117,7 +113,8 @@ export const TagWrapper = styled.div`
   column-gap: 20px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    height: 17.83em;
+    justify-content: flex-start;
+    height: 19.83em;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 60px;
@@ -143,7 +140,6 @@ export const BannerWrapper = styled.div`
   margin-top: 6px;
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 70.416em;
-    margin-top: 60px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
@@ -164,6 +160,11 @@ export const ArrowBackButton = styled.div`
   position: absolute;
   top: -63px;
   left: -215px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    top: -50px;
+    left: -100px;
+  }
   @media (max-width: 1280px) {
     left: -120px;
   }
@@ -207,6 +208,10 @@ export const Cont = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.2em;
+  }
 `;
 
 export const TitleBg = styled.div`

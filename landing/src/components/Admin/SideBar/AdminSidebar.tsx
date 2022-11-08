@@ -106,6 +106,22 @@ const AdminSidebar = () => {
               UX/UI Design
             </Styled.AdminListSubItem>
           </Link>
+          <Link href={ROUTE_KEYS.AdminServiceMobileAudit} passHref>
+            <Styled.AdminListSubItem
+              itemProp={currentPath}
+              property={ROUTE_KEYS.AdminServiceMobileAudit}
+            >
+              Mobile app audit
+            </Styled.AdminListSubItem>
+          </Link>
+          <Link href={ROUTE_KEYS.AdminServiceWebAudit} passHref>
+            <Styled.AdminListSubItem
+              itemProp={currentPath}
+              property={ROUTE_KEYS.AdminServiceWebAudit}
+            >
+              Web audit
+            </Styled.AdminListSubItem>
+          </Link>
         </DropDownElement>
         <DropDownElement value="company" Icon={CompanyIcon}>
           <Link href={ROUTE_KEYS.AdminAboutUs} passHref>

@@ -29,7 +29,6 @@ const AdminFooterBlock = () => {
     <div>
       <div>
         <SubHeaderWithInput
-          isAdmin
           width="47.5%"
           header="Email adress"
           name="FooterBlock.email"

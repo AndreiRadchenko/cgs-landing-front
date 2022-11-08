@@ -1,6 +1,8 @@
 import { useFormikContext } from "formik";
 import React, { FC } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { SortableItem } from "react-easy-sort";
+
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminGlobalService } from "../../../services/adminHomePage";
 import * as Styled from "../../../styles/AdminPage";
@@ -8,20 +10,10 @@ import { IDataResponse } from "../../../types/Admin/Response.types";
 import AddLogoFrame from "./AddLogoFrame";
 import LogoElement from "./LogoElement";
 
-interface IRenderProps {
-  state: { url: string }[];
-  deleteLogo: (ind: number) => void;
+export interface IDragProps {
+  oldIndex: number;
+  newIndex: number;
 }
-
-const render = ({ state, deleteLogo }: IRenderProps) => {
-  return state.map((i, ind) => (
-    <LogoElement
-      image={i}
-      key={Math.random()}
-      deleteLogo={() => deleteLogo(ind)}
-    />
-  ));
-};
 
 const AdminLogosBlock: FC = () => {
   const queryClient = useQueryClient();
@@ -37,15 +29,35 @@ const AdminLogosBlock: FC = () => {
     queryClient.invalidateQueries([queryKeys.GetFullPage]);
   };
 
+  const onSortEnd = (oldIndex: number, newIndex: number) => {
+    values.LogosBlock.images.splice(
+      newIndex,
+      0,
+      values.LogosBlock.images.splice(oldIndex, 1)[0]
+    );
+    handleSubmit();
+  };
+
   return (
     <div>
       <Styled.AdminSubTitle>Logos</Styled.AdminSubTitle>
-      <Styled.AdminLogosGrid>
+      <Styled.AdminLogosGrid
+        onSortEnd={onSortEnd}
+        className="list"
+        draggedItemClassName="dragged"
+      >
         <AddLogoFrame state={values.LogosBlock} submit={handleSubmit} />
-        {render({
-          state: values.LogosBlock.images,
-          deleteLogo: deleteNormalLogo,
-        })}
+        {values.LogosBlock.images.map((item, index) => (
+          <SortableItem key={item.url}>
+            <div>
+              <LogoElement
+                image={item}
+                key={Math.random()}
+                deleteLogo={() => deleteNormalLogo(index)}
+              />
+            </div>
+          </SortableItem>
+        ))}
       </Styled.AdminLogosGrid>
     </div>
   );

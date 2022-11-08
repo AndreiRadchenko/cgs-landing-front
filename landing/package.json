@@ -25,8 +25,8 @@
     "html-react-parser": "^2.0.0",
     "next": "^12.0.8",
     "react": "^17.0.2",
-    "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^17.0.2",
+    "react-easy-sort": "^1.5.0",
     "react-player": "^2.10.1",
     "react-share": "^4.4.0",
     "react-stars": "^2.2.5",
@@ -39,7 +39,6 @@
   "devDependencies": {
     "@types/node": "17.0.10",
     "@types/react": "18.0.1",
-    "@types/react-beautiful-dnd": "^13.1.2",
     "@types/react-star-ratings": "^2.3.0",
     "@types/react-stars": "^2.2.1",
     "@typescript-eslint/eslint-plugin": "^5.10.0",

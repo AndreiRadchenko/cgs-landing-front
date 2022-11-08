@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, RefObject } from "react";
 import { AdminSubTitle } from "../../../../styles/AdminBlogPage";
 import BlogItem from "../../../BlogItem/BlogItem";
 import ChangeIconImg from "../../../../../public/ChangeIcon.svg";
@@ -12,18 +12,13 @@ import {
   ISwapData,
   IView,
 } from "../../../../types/Admin/Response.types";
-import {
-  DragDropContext,
-  Droppable,
-  Draggable,
-  DropResult,
-} from "react-beautiful-dnd";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminBlogService } from "../../../../services/adminBlogPage";
 import close from "../../../../../public/bigClose.svg";
 import { AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { adminSitemapService } from "../../../../services/adminSitemapPage";
+import SortableList, { SortableItem } from "react-easy-sort";
 
 interface IArticles {
   setIsNewArticle: (val: boolean) => void;
@@ -34,6 +29,7 @@ interface IArticles {
   views?: IView[];
   disabled?: boolean;
   sitemap?: ISitemapData | void;
+  scrollRef: RefObject<HTMLDivElement>;
 }
 
 interface IArticleItem {
@@ -49,6 +45,7 @@ const PublishedArticles: FC<IArticles> = ({
   data,
   views,
   sitemap,
+  scrollRef,
 }) => {
   const { handleSubmit } = useFormikContext<IArticle>();
   const queryClient = useQueryClient();
@@ -95,7 +92,12 @@ const PublishedArticles: FC<IArticles> = ({
 
   const { mutateAsync: swapElements } = useMutation(
     [queryKeys.swapArticles],
-    (dataToUpdate: ISwapData) => adminBlogService.swapTwoElements(dataToUpdate)
+    (dataToUpdate: ISwapData) => adminBlogService.swapTwoElements(dataToUpdate),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.getBlogArticles]);
+      },
+    }
   );
 
   const deleteArticle = async (i: number) => {
@@ -155,15 +157,11 @@ const PublishedArticles: FC<IArticles> = ({
     }
   };
 
-  const handleDragEnd = async (param: DropResult) => {
-    const srcInd = param.source.index;
-    const desInd: number | undefined = param.destination?.index;
+  const handleDragEnd = async (oldIndex: number, newIndex: number) => {
     const swapped = data;
-    swapped &&
-      typeof desInd === "number" &&
-      swapped.splice(desInd, 0, swapped.splice(srcInd, 1)[0]);
-    typeof desInd === "number" &&
-      (await swapElements({ srcInd, desInd })) &&
+    swapped && swapped.splice(newIndex, 0, swapped.splice(oldIndex, 1)[0]);
+
+    (await swapElements({ srcInd: oldIndex, desInd: newIndex })) &&
       queryClient.setQueryData([queryKeys.getBlogArticles], swapped);
   };
 
@@ -203,34 +201,21 @@ const PublishedArticles: FC<IArticles> = ({
 
   return data && data.length ? (
     <AdminPaddedBlock>
-      <Styles.Wrapper>
+      <Styles.Wrapper ref={scrollRef}>
         <AdminSubTitle>Published articles</AdminSubTitle>
-        <DragDropContext onDragEnd={(param) => handleDragEnd(param)}>
-          <Droppable droppableId={"droppable-1"}>
-            {(provided) => (
-              <div ref={provided.innerRef} {...provided.droppableProps}>
-                {data.map((item: IArticle, i) =>
-                  isNewArticle ? (
-                    <Draggable draggableId={"draggable-" + i} index={i} key={i}>
-                      {(provided) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                        >
-                          <ArticleItem item={item} i={i} />
-                        </div>
-                      )}
-                    </Draggable>
-                  ) : (
-                    <ArticleItem item={item} i={i} key={i} />
-                  )
-                )}
-                {provided.placeholder}
+        <SortableList
+          onSortEnd={handleDragEnd}
+          className="list"
+          draggedItemClassName="dragged"
+        >
+          {data.map((item, index) => (
+            <SortableItem key={index}>
+              <div>
+                <ArticleItem item={item} i={index} />
               </div>
-            )}
-          </Droppable>
-        </DragDropContext>
+            </SortableItem>
+          ))}
+        </SortableList>
       </Styles.Wrapper>
     </AdminPaddedBlock>
   ) : (

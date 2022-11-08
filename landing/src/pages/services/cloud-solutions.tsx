@@ -12,7 +12,7 @@ import WhyItWorthIt from "../../components/CloudService/WhyItWorthIt";
 import ProvidesBlock from "../../components/CloudService/ProvidesBlock";
 import WorkBlock from "../../components/CloudService/WorkBlock";
 import FooterBlock from "../../components/CloudService/FooterBlock";
-import * as Styled from "../../styles/CloudService/Layaut";
+import * as Styled from "../../styles/CloudService/Layout";
 import { Layout } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 
@@ -55,7 +55,11 @@ const CloudService = () => {
         <Styled.Layout>
           <HeadBlock />
           <WhyItWorthIt />
-          <ProvidesBlock />
+          <ProvidesBlock
+            className={
+              data && data.projects.length === 0 ? "withoutShowcase" : undefined
+            }
+          />
         </Styled.Layout>
       </Layout>
       <ShowCase projects={data?.projects} />

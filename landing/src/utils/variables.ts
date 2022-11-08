@@ -26,6 +26,7 @@ export const navigationRoutesLinks = {
   "IT Support Services": "/services/it-support",
   "Server // Databases": "/services/database-and-server-solutions",
   "UX/UI Design": "/services/ux-ui-design",
+  "Mobile App Audit": "/services/mobile-audit",
   "About us": "/about-us",
   Careers: "/careers",
   FAQ: "/faq",
@@ -44,6 +45,7 @@ export const navigationRoutesNamesNew = [
       "IT Support Services",
       "Server // Databases",
       "UX/UI Design",
+      "Mobile App Audit",
     ],
   },
   {
@@ -79,3 +81,14 @@ export const SYMBOLS = LETTERS_NUMBERS + SPECIAL_CHARACTERS;
 export const DEFAULT_SCRAMBLE_SPEED = 30;
 export const DEFAULT_REVEAL_SPEED = 100;
 export const DEFAULT_REVEAL_DELAY = 1000;
+
+export const mobileServicesRoutes = [
+  "mobile-app-development",
+  "web-development",
+  "database-and-server-solutions",
+  "it-support",
+  "ux-ui-design",
+  "cloud-solutions",
+  "blockchain",
+  "mobile-audit",
+];

@@ -11,6 +11,7 @@ interface IEmptyProps {
   className?: string;
   maxWidth?: string;
   maxHeight?: string;
+  style?: any;
 }
 
 const AdminEmptyImage = ({
@@ -19,6 +20,7 @@ const AdminEmptyImage = ({
   className,
   maxWidth,
   maxHeight,
+  style,
 }: IEmptyProps) => {
   const { modal, toggleModal } = useUploadModal();
 
@@ -28,6 +30,7 @@ const AdminEmptyImage = ({
       maxHeight={maxHeight}
       theme="center"
       className={className}
+      style={style}
     >
       {modal ? <AdminUploadModal func={func} back={toggleModal} /> : null}
       <Styled.AdminDashedPositionGrid>

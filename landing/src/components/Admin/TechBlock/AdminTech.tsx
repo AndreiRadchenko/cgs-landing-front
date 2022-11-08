@@ -48,7 +48,6 @@ const AdminTech = ({
       <Styled.AdminFlexRow>
         <div>
           <SubHeaderWithInput
-            isAdmin
             width="20em"
             header={`${ind} Card subtitle`}
             name={`TechnologyBlock.${item}.category`}
@@ -56,7 +55,6 @@ const AdminTech = ({
             onChangeFunction={onChangeFunction}
           />
           <SubHeaderWithInput
-            isAdmin
             width="20em"
             height="5em"
             header="Text"
@@ -85,7 +83,6 @@ const AdminTech = ({
           info.stack.map((el, idx) => (
             <div key={idx}>
               <Styled.AdminInput
-                isAdmin
                 onChange={onChangeFunction}
                 name={`TechnologyBlock.${item}.stack[${idx}]`}
                 value={el}
