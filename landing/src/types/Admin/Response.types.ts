@@ -678,3 +678,41 @@ export interface IServiceWebAudit {
   };
   meta: IMetaBlock;
 }
+
+export interface IServiceDappAudit {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  figureOutBlock: {
+    subtitle: string;
+    textBlock: [string];
+  };
+
+  whyIsDappsBlock: {
+    subtitle: string;
+    textBlock: [string];
+  };
+
+  howDoWeProvideBlock: {
+    subtitle: string;
+    textBlock: [
+      {
+        title: string;
+        text: string;
+        subContent: [{ title: string; text: string }];
+      }
+    ];
+  };
+  projects: [string];
+  footerBlock: {
+    title: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}
