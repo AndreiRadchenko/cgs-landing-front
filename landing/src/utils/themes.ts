@@ -20,6 +20,12 @@ const themes = {
       cardPartners: "14em",
       btwLogoAndMenu: "8.5em",
       servicesMarginBetweenBlocks: "16em",
+      servicesMarginBetweenBlocksTablet: "8em",
+      servicesMarginBetweenBlocksMobile: "4em",
+      servicesMarginBetweenFooter: "10.3em",
+      servicesMarginBetweenFooterTablet: "6.5em",
+      servicesMarginBetweenFooterMobile: "5.8em",
+
     },
     font: {
       family: {
@@ -113,6 +119,11 @@ const themes = {
         portfolioMobile: "3.8em",
         notFoundPageTitlePc: "2.8em",
         notFoundPageTitleTablet: "1.8em",
+        webAuditSubtitle: "3.33em",
+        webAuditSubtitlePC: "3.5em",
+        webAuditSubtitleTabletLandscape: "2.5em",
+        webAuditSubtitleTabletPortrait: "2.2em",
+        webAuditSubtitleMobile: "2.3em",
       },
     },
     colors: {

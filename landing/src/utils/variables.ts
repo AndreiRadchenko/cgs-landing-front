@@ -1,3 +1,10 @@
+import security from "../../public/WebAuditServicePage/typesOfAudit/security.svg";
+import seo from "../../public/WebAuditServicePage/typesOfAudit/seo.svg";
+import review from "../../public/WebAuditServicePage/typesOfAudit/review.svg";
+import uxui from "../../public/WebAuditServicePage/typesOfAudit/ux-ui.svg";
+import pagespeed from "../../public/WebAuditServicePage/typesOfAudit/pagespeed.svg";
+import competitor from "../../public/WebAuditServicePage/typesOfAudit/competitor.svg";
+
 export const routers = {
   home: "/",
   careers: "/careers",
@@ -26,6 +33,7 @@ export const navigationRoutesLinks = {
   "IT Support Services": "/services/it-support",
   "Server // Databases": "/services/database-and-server-solutions",
   "UX/UI Design": "/services/ux-ui-design",
+  "Web audit": "/services/web-audit",
   "Mobile App Audit": "/services/mobile-audit",
   "About us": "/about-us",
   Careers: "/careers",
@@ -45,6 +53,7 @@ export const navigationRoutesNamesNew = [
       "IT Support Services",
       "Server // Databases",
       "UX/UI Design",
+      "Web audit",
       "Mobile App Audit",
     ],
   },
@@ -90,5 +99,15 @@ export const mobileServicesRoutes = [
   "ux-ui-design",
   "cloud-solutions",
   "blockchain",
-  "mobile-audit",
+  "web-audit",
+  "mobile-audit"
+];
+
+export const webAuditTypesOfAuditImages = [
+  security,
+  seo,
+  review,
+  uxui,
+  pagespeed,
+  competitor
 ];
