@@ -2,11 +2,11 @@ import React from "react";
 import * as Styled from "../../styles/WebAuditService/HowTodoList.styled";
 import HowTodoListItem from "./HowTodoListItem";
 
-interface Props {
+interface IHowTodoListProps {
   data: Array<string>;
 }
 
-const HowTodoList: React.FC<Props> = ({ data }) => {
+const HowTodoList: React.FC<IHowTodoListProps> = ({ data }) => {
   const mappedItems =
     data &&
     data.map((item, idx) => (

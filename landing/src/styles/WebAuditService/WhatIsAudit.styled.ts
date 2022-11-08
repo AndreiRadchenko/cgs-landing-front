@@ -17,7 +17,7 @@ export const Subtitle = styled.h3`
   font-size: ${themes.primary.font.size.webAuditSubtitle};
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 0.775em 0;
+  margin-bottom: 0.775em;
 
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.webAuditSubtitlePC};

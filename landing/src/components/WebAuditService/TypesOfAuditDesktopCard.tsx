@@ -5,12 +5,15 @@ import { webAuditTypesOfAuditImages } from "../../utils/variables";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import TypesOfAuditHoverModal from "./TypesOfAuditHoverModal";
 
-type Props = {
+type ITypesOfAuditDesktopCardProps = {
   item: { _id: string; title: string; text: string };
   idx: number;
 };
 
-export function TypesOfAuditDesktopCard({ item, idx }: Props) {
+export function TypesOfAuditDesktopCard({
+  item,
+  idx,
+}: ITypesOfAuditDesktopCardProps) {
   return (
     <Styled.TypeWrapper key={item.title}>
       <Styled.ImageWrapper>

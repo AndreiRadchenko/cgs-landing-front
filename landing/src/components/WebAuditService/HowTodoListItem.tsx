@@ -3,12 +3,15 @@ import * as Styled from "../../styles/WebAuditService/HowTodoListItem.styled";
 import Image from "next/image";
 import HowToDoAuditImg from "../../../public/WebAuditServicePage/HowToDoAuditImg.svg";
 
-interface Props {
+interface IHowTodoListItemProps {
   item: string;
   isLastItem: boolean;
 }
 
-const HowTodoListItem: React.FC<Props> = ({ item, isLastItem }) => {
+const HowTodoListItem: React.FC<IHowTodoListItemProps> = ({
+  item,
+  isLastItem,
+}) => {
   return (
     <Styled.ListItem key={item}>
       <Styled.TextWrapper>

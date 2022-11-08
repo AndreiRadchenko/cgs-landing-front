@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
       width: 120vw;
       position: relative;
       right: 10%;
-      background: #8f8e93;
+      background: ${themes.primary.colors.headerBorder};
       margin-bottom: 2.69em;
     }
   }
@@ -109,7 +109,7 @@ export const Subtitle = styled.h3`
   font-size: ${themes.primary.font.size.webAuditSubtitle};
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 0.325em 0;
+  margin-bottom: 0.325em;
 
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.webAuditSubtitlePC};

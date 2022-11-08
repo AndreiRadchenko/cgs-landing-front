@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
       width: 120vw;
       position: relative;
       right: 10%;
-      background: #8f8e93;
+      background: ${themes.primary.colors.headerBorder};
       margin-bottom: 2.69em;
     }
   }
@@ -29,7 +29,7 @@ export const Subtitle = styled.h3`
   font-size: ${themes.primary.font.size.webAuditSubtitle};
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 0.775em 0;
+  margin-bottom: 0.775em;
   padding-bottom: 20vw;
 
   @media ${themes.primary.media.minPC} {
@@ -46,7 +46,7 @@ export const Subtitle = styled.h3`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.webAuditSubtitleMobile};
-    margin: 0 0 1em 0;
+    margin-bottom: 1em;
     padding-bottom: 0;
     br {
       display: none;

@@ -3,11 +3,13 @@ import * as Styled from "../../styles/WebAuditService/HowTodoDynamicMobileList.s
 import HowTodoDynamicMobileListItem from "./HowTodoDynamicMobileListItem";
 import { useOnScreen } from "../../hooks/useOnScreen";
 
-interface Props {
+interface IHowTodoDynamicMobileListProps {
   points: Array<string>;
 }
 
-const HowTodoDynamicMobileList: React.FC<Props> = ({ points }) => {
+const HowTodoDynamicMobileList: React.FC<IHowTodoDynamicMobileListProps> = ({
+  points,
+}) => {
   const elRef = useRef<HTMLDivElement>(null);
   const isScrolled = useOnScreen(elRef, true);
 

@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
-import { ISlide } from "../../types/Decoration.types";
+import { ISlide as ISlideProps } from "../../types/Decoration.types";
 
-export const ItemWrapper = styled.div<ISlide>`
+export const ItemWrapper = styled.div<ISlideProps>`
   display: flex;
   align-items: center;
   position: relative;

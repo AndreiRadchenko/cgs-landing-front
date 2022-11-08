@@ -1,17 +1,15 @@
 import React from "react";
 import * as Styled from "../../styles/WebAuditService/HowTodoDynamicMobileListItem.styled";
 
-interface Props {
+interface IHowTodoDynamicMobileListItemProps {
   text: string;
   ind: number;
   isScrolled: boolean;
 }
 
-const HowTodoDynamicMobileListItem: React.FC<Props> = ({
-  text,
-  isScrolled,
-  ind,
-}) => {
+const HowTodoDynamicMobileListItem: React.FC<
+  IHowTodoDynamicMobileListItemProps
+> = ({ text, isScrolled, ind }) => {
   return (
     <Styled.ItemWrapper
       ind={ind}

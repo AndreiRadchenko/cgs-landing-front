@@ -4,12 +4,12 @@ import { webAuditTypesOfAuditImages } from "../../utils/variables";
 import Image from "next/image";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
-type Props = {
+type ITypesOfAuditMobileCardProps = {
   item: { _id: string; title: string; text: string };
   idx: number;
 };
 
-function TypesOfAuditMobileCard({ item, idx }: Props) {
+function TypesOfAuditMobileCard({ item, idx }: ITypesOfAuditMobileCardProps) {
   return (
     <Styled.TypeWrapper>
       <Styled.TypeHeader>

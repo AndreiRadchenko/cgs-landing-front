@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
       width: 120vw;
       position: relative;
       right: 10%;
-      background: #8f8e93;
+      background: ${themes.primary.colors.headerBorder};
       margin-bottom: 2.69em;
     }
   }
@@ -36,7 +36,7 @@ export const Subtitle = styled.h3`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.webAuditSubtitleMobile};
-    margin: 0 0 1em 0;
+    margin-bottom: 1em;
     br {
       display: none;
     }

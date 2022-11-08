@@ -2,14 +2,14 @@ import React from "react";
 import * as Styled from "../../styles/WebAuditService/TypesOfAuditHoverModal.styled";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
-interface IType {
+interface ITypesOfAuditHoverModalProps {
   typeItem: {
     title: string;
     text: string;
   };
 }
 
-const TypesOfAuditHoverModal = ({ typeItem }: IType) => {
+const TypesOfAuditHoverModal = ({ typeItem }: ITypesOfAuditHoverModalProps) => {
   return (
     <Styled.HoverModalWrapper>
       <Styled.HoverModalHeader>
