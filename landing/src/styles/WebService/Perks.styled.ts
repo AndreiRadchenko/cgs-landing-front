@@ -8,8 +8,6 @@ export const Container = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 6.25em;
-
     h2 {
       line-height: normal;
     }
@@ -27,14 +25,12 @@ export const Container = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  margin-top: 4.25em;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   row-gap: 3em;
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin-top: 0.6em;
     row-gap: 1em;
     flex-direction: column;
 

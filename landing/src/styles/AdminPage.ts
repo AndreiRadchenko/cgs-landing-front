@@ -2,6 +2,7 @@ import { TextareaAutosize } from "@mui/material";
 import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 import { IFontSize } from "./HomePage/General.styled";
+import SortableList from "react-easy-sort";
 
 export const AdminWrapper = styled.div`
   display: grid;
@@ -340,7 +341,15 @@ export const AdminTecBottleDiv = styled.div`
   max-height: 26em;
 `;
 
-export const AdminLogosGrid = styled.div`
+export const AdminLogosGrid = styled(SortableList)`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: ${themes.primary.spacing.logosGap};
+  column-gap: ${themes.primary.spacing.logosGap};
+  padding: ${themes.primary.spacing.primary} 0;
+`;
+
+export const AdminBlockchainLogosGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   row-gap: ${themes.primary.spacing.logosGap};
@@ -1246,11 +1255,15 @@ export const AdminMobileAuditGrid = styled.div`
   justify-content: space-between;
 `;
 
-export const AdminMobileAuditHowDoWeAuditGrid = styled.div`
+export const ListInput = styled.li`
+  list-style: none;
+`;
+
+export const AdminMobileAuditHowDoWeAuditGrid = styled.ul`
+  padding: 0;
+  columns: 2;
   margin-top: 29px;
-  display: grid;
   column-gap: 36px;
-  grid-template-columns: repeat(2, 1fr);
 `;
 
 export const ButtonWrapper = styled.div`

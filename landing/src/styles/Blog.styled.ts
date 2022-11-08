@@ -317,13 +317,14 @@ export const LoopText = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 1rem;
+    height: 46px;
+    font-size: 1.75rem;
     margin-top: 9px;
   }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
-    margin-top: 9px;
+    margin-top: 30px;
   }
 `;
 
@@ -348,7 +349,7 @@ export const Date = styled.div`
   color: ${themes.primary.colors.authorGrey};
   font-size: 1.34em;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 0.875rem;
   }
 `;
@@ -676,6 +677,12 @@ export const PodcastCard = styled.div`
   padding: 30px;
   border: 1px solid ${themes.primary.colors.comment};
 
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 936px;
+    height: 383px;
+    padding: 50px 60px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 20px;
     height: auto;
@@ -729,24 +736,25 @@ export const PlayButton = styled.img`
 
   background-position: center;
   @media ${themes.primary.media.minPCFullHD} {
-    width: 70px;
-    height: 70px;
+    width: 108px;
+    height: 108px;
   }
 `;
 export const RightArrow = styled.div`
-  width: 45px;
+  width: 44px;
+  height: 49px;
   cursor: pointer;
-  height: 56px;
   margin-right: 35px;
   position: relative;
   background-size: contain;
-  background-image: url("/BlogDecorations/Podcast/RightArrow.svg");
+  background-image: url("/BlogDecorations/Podcast/LeftArrow.svg");
   background-repeat: no-repeat;
   background-position: center;
+  transform: scaleX(-1);
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 55px;
-    height: 66px;
+    width: 83px;
+    height: 83px;
   }
 `;
 export const LeftArrow = styled.div`
@@ -757,12 +765,11 @@ export const LeftArrow = styled.div`
   cursor: pointer;
   position: relative;
   background-size: contain;
-  right: 1px;
   background-repeat: no-repeat;
   background-position: center;
   @media ${themes.primary.media.minPCFullHD} {
-    width: 54px;
-    height: 59px;
+    width: 83px;
+    height: 83px;
   }
 `;
 
@@ -771,6 +778,7 @@ export const SmallNavigation = styled.div`
   display: flex;
   align-items: flex-start;
 
+  right: 1px;
   width: 12px;
   justify-content: center;
   height: 27px;
@@ -778,6 +786,11 @@ export const SmallNavigation = styled.div`
 
   &.activated {
     font-weight: ${themes.primary.font.weight.bold};
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    height: auto;
+    width: auto;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -793,7 +806,6 @@ export const SecondsLeft = styled.div`
   justify-content: center;
   align-items: center;
   top: 2px;
-  right: 1px;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
@@ -811,8 +823,8 @@ export const SecondsRight = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 6px;
-  right: 1px;
+  top: 2px;
+  transform: scaleX(-1);
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
@@ -829,9 +841,13 @@ export const Track = styled.div`
   margin-top: 15px;
   height: 4px;
   border-radius: 50px;
-
   display: flex;
   align-items: center;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 28px;
+    height: 7px;
+  }
 `;
 
 export const PlayedTrack = styled.input<ITrack>`
@@ -840,6 +856,7 @@ export const PlayedTrack = styled.input<ITrack>`
   left: -2px;
   height: 100%;
   width: 100%;
+
   &::-webkit-slider-runnable-track {
     cursor: pointer;
     border-radius: 50px;
@@ -866,6 +883,17 @@ export const PlayedTrack = styled.input<ITrack>`
     width: 7px;
     background-color: ${themes.primary.colors.primary};
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &::-webkit-slider-runnable-track {
+      height: 0.5rem;
+    }
+    &::-webkit-slider-thumb {
+      top: -3.5px;
+      height: 14px;
+      width: 14px;
+    }
+  }
 `;
 
 export const PlayerDot = styled.div`
@@ -886,6 +914,12 @@ export const PlayerTimeContainer = styled.div`
 export const PlayerTime = styled(GrayText)`
   font-size: ${themes.primary.font.size.fourteenth};
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.375rem;
+
+    margin-bottom: 20px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.75rem;
   }
@@ -894,6 +928,10 @@ export const PlayerTime = styled(GrayText)`
 export const PodcastTitle = styled(BlogItemTitle)`
   max-width: 710px;
   width: 100%;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: 1250px;
+  }
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: ${themes.primary.font.size.secondary};
   }
@@ -908,6 +946,10 @@ export const PodcastDescription = styled(BlogItemDescription)`
   max-width: 710px;
   width: 100%;
   margin-bottom: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: 1222px;
+  }
 `;
 
 export const PodcastIcon = styled.img`
@@ -1065,8 +1107,19 @@ export const SmallArticleItemTitle = styled(BlogItemTitle)`
   &:hover {
     color: ${themes.primary.colors.darkBlue};
   }
-  @media (min-width: 1025px) and (max-width: 1250px) {
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.3em;
+  }
+
+  @media (max-width: 1300px) {
+    margin-top: 10px;
     font-size: 18px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 5px;
+    font-size: 14px;
   }
 `;
 
@@ -1078,17 +1131,27 @@ export const SmallArticleItemDescription = styled(BlogItemDescription)`
   font-size: ${themes.primary.font.size.tertiary};
   margin-top: 15px;
   margin-bottom: 0;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    margin-top: 8px;
-  }
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   @media ${themes.primary.media.maxPCFullHD} {
     font-size: ${themes.primary.font.size.linkText};
   }
-  @media ${themes.primary.media.onlyTabletLandScape} {
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-top: 8px;
     font-size: 14px;
   }
-  @media (min-width: 1025px) and (max-width: 1250px) {
+
+  @media (min-width: 1025px) and (max-width: 1290px) {
     font-size: 15px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 8px;
+    font-size: 12px;
   }
 `;
 
@@ -1103,6 +1166,7 @@ export const SmallArticleContainer = styled.div`
   &:last-child {
     border-bottom: 0;
   }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 18px 25px 18px 20px;
   }

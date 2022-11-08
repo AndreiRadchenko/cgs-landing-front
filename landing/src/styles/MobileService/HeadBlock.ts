@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import { cursorBlinking } from "../Animations.styled";
 
 export const Container = styled.div`
   width: 100%;
@@ -42,22 +41,6 @@ export const Title = styled.h1`
   text-transform: uppercase;
   font-size: ${themes.primary.font.size.serviceTitle};
   position: relative;
-
-  & > span:last-child {
-    position: relative;
-
-    &::after {
-      content: "";
-      display: inline-block;
-      width: 2px;
-      height: 1.45em;
-      background-color: ${themes.primary.colors.primary};
-      animation: ${cursorBlinking} 1s steps(1) infinite;
-      position: absolute;
-      top: 0;
-      right: -0.2em;
-    }
-  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tabletServiceTitle};

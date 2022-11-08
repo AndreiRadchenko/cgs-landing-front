@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 29.66em;
+    width: 470px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     align-items: center;

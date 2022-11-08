@@ -53,7 +53,11 @@ const MobileAppDevelopment: NextPage = () => {
           <HeadBlock />
           <WorthIt />
           <StrongBlock />
-          <WhoNeedAppBlock />
+          <WhoNeedAppBlock
+            className={
+              data && data.projects.length === 0 ? "withoutShowcase" : undefined
+            }
+          />
         </LocalLayout>
       </Layout>
       <ShowCase projects={data?.projects} />

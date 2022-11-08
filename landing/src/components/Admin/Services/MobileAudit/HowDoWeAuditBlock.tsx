@@ -3,6 +3,7 @@ import React from "react";
 import {
   AdminInput,
   AdminMobileAuditHowDoWeAuditGrid,
+  ListInput,
 } from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
@@ -21,12 +22,13 @@ const WhenDoYouNeedBlock = () => {
 
   const renderInput = (state: string[]) => {
     return state.map((point, idx) => (
-      <AdminInput
-        key={idx}
-        value={point}
-        name={`howDoWeAudit.points[${idx}]`}
-        onChange={handleChange}
-      />
+      <ListInput key={idx}>
+        <AdminInput
+          value={point}
+          name={`howDoWeAudit.points[${idx}]`}
+          onChange={handleChange}
+        />
+      </ListInput>
     ));
   };
 

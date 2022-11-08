@@ -8,7 +8,11 @@ import { IServiceDb } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import TextTypingAnimation from "../Typewrite";
 
-const SelectBlock = () => {
+interface ISelectBlockProps {
+  className?: string;
+}
+
+const SelectBlock = ({ className }: ISelectBlockProps) => {
   const { width } = useWindowDimension();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceDb>([
@@ -20,7 +24,7 @@ const SelectBlock = () => {
   const isScrolled = useOnScreen(elRef, true);
 
   return (
-    <Styled.Container>
+    <Styled.Container className={className}>
       {data && (
         <Styled.Subtitle ref={elRef}>
           {(width && width <= 767 && isScrolled && (

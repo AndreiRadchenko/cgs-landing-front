@@ -13,7 +13,11 @@ import bottomMobile from "../../../public/OngoingSupport/bottom-mobile.svg";
 import * as Styled from "../../styles/OngoingSupport/ProvidesBlock.styled";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
-const ProvidesBlock = () => {
+interface IProvidesBlockProps {
+  className?: string;
+}
+
+const ProvidesBlock = ({ className }: IProvidesBlockProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceSupport>([
     queryKeys.getServiceSupportPage,
@@ -28,7 +32,7 @@ const ProvidesBlock = () => {
   ];
 
   return (
-    <Styled.Container>
+    <Styled.Container className={className}>
       <Styled.Title>{data?.subtitle}</Styled.Title>
       <MobileInfiniteText title={data?.subtitle}></MobileInfiniteText>
       <Styled.TextWrapper>
