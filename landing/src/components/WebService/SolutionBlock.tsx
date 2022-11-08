@@ -12,7 +12,11 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import TextTypingAnimation from "../Typewrite";
 
-const SolutionBlock = () => {
+interface ISolutionBlockProps {
+  className?: string;
+}
+
+const SolutionBlock = ({ className }: ISolutionBlockProps) => {
   const { width } = useWindowDimension();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceWeb>([
@@ -29,7 +33,7 @@ const SolutionBlock = () => {
   const isScrolled = useOnScreen(elRef, true);
 
   return (
-    <Styled.Container>
+    <Styled.Container className={className}>
       {data && (
         <Styled.LeftSideText ref={elRef}>
           {(width && width <= 767 && isScrolled && (

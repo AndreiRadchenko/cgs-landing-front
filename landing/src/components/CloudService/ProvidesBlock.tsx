@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICloudService } from "../../types/Admin/Response.types";
-import { Subtitle } from "../../styles/CloudService/Layaut";
+import { Subtitle } from "../../styles/CloudService/Layout";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import cloudProvidesBgi from "../../../public/CloudServicePage/cloudProvidesBgi.svg";
 import cloudProvidesMobile from "../../../public/CloudServicePage/cloud-provides-mobile.svg";
@@ -11,7 +11,11 @@ import parse from "html-react-parser";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
-const ProvidesBlock = () => {
+interface IProvidesBlockProps {
+  className?: string;
+}
+
+const ProvidesBlock = ({ className }: IProvidesBlockProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<ICloudService>([
     queryKeys.getServiceCloudPage,
@@ -24,7 +28,7 @@ const ProvidesBlock = () => {
   const isScrolled = useOnScreen(elRef, true);
 
   return (
-    <Styled.Container>
+    <Styled.Container className={className}>
       <Subtitle>{subtitle}</Subtitle>
       <MobileInfiniteText title={subtitle} />
       <Styled.BGImage src={cloudProvidesBgi.src} />

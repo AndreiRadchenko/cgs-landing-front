@@ -56,7 +56,11 @@ const DbSolutions: NextPage = () => {
         <Styled.Layout>
           <HeadBlock />
           <ExpertiseBlock />
-          <SelectBlock />
+          <SelectBlock
+            className={
+              data && data.projects.length === 0 ? "withoutServices" : undefined
+            }
+          />
         </Styled.Layout>
       </Layout>
       <ShowCase projects={data?.projects} />

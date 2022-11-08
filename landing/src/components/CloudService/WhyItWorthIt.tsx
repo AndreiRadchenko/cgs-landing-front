@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICloudService } from "../../types/Admin/Response.types";
-import { Subtitle } from "../../styles/CloudService/Layaut";
+import { Subtitle } from "../../styles/CloudService/Layout";
 import crystal from "../../../public/MobileSevice/worthIt/crystal.svg";
 import cube from "../../../public/MobileSevice/worthIt/cube.svg";
 import cylinder from "../../../public/MobileSevice/worthIt/cylinder.svg";

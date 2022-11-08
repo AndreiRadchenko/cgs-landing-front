@@ -5,10 +5,7 @@ import AdminReview from "../PortfolioReview/AdminPortfolioReview";
 import AddAndEdit from "./AddAndEdit";
 import renderPortfolioInputs from "./renderPortfolioInputs";
 import AdminDropDown from "../Global/AdminDropDown";
-import {
-  IPortfolioPageData,
-  IPortfolioReview,
-} from "../../../types/Admin/AdminPortfolio.types";
+import { IPortfolioPageData } from "../../../types/Admin/AdminPortfolio.types";
 import { useScrollTo } from "../../../hooks/useScrollTo";
 
 import MetaTagsBlock from "../MetaTagsBlock";
@@ -17,17 +14,7 @@ import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import { adminGlobalService } from "../../../services/adminHomePage";
 import { ISwapData } from "../../../types/Admin/Response.types";
-import { SortableContainer, SortableElement } from "react-sortable-hoc";
-import { IDragProps } from "../LogosBlock";
-
-interface IDragItemProps {
-  review: IPortfolioReview;
-  index: number;
-}
-
-interface IReviews {
-  reviews: IPortfolioReview[];
-}
+import SortableList, { SortableItem } from "react-easy-sort";
 
 const AdminPortfolioContentBlock = () => {
   const queryClient = useQueryClient();
@@ -48,7 +35,7 @@ const AdminPortfolioContentBlock = () => {
   );
 
   const { mutateAsync: swapReviews } = useMutation(
-    [queryKeys.deletePortfolioReview],
+    [queryKeys.swapPortfolioReviews],
     (swapData: ISwapData) => adminPortfolioService.swapReviews(swapData),
     {
       onSuccess: () => {
@@ -68,7 +55,6 @@ const AdminPortfolioContentBlock = () => {
   };
   const [current, setCurrent] = useState(0);
   const [isNewStatus, setIsNewStatus] = useState(true);
-
   const [catValue, setCatValue] = useState(values.categories[0]);
 
   const submitFunction = (e: React.SyntheticEvent) => {
@@ -76,7 +62,7 @@ const AdminPortfolioContentBlock = () => {
     handleSubmit();
   };
 
-  const handleDragEnd = async ({ oldIndex, newIndex }: IDragProps) => {
+  const handleDragEnd = async (oldIndex: number, newIndex: number) => {
     const srcInd = oldIndex;
     const desInd: number | undefined = newIndex;
     const swapped = data;
@@ -88,39 +74,8 @@ const AdminPortfolioContentBlock = () => {
       queryClient.setQueryData([queryKeys.getPortfolio], swapped);
   };
 
-  const SortableListItem = SortableElement<IDragItemProps>(
-    ({ review, index }: IDragItemProps) => {
-      return (
-        <div>
-          <AdminReview
-            editFlag={isNewStatus}
-            review={review}
-            idx={index}
-            setCurrent={setCurrent}
-            deleteFunc={() =>
-              review._id &&
-              review.image &&
-              deleteFunc(review._id, review.image?.url)
-            }
-            onScroll={scrollHandler}
-            editTrigger={setIsNewStatus}
-          />
-        </div>
-      );
-    }
-  );
-
-  const SortableList = SortableContainer<IReviews>(({ reviews }: IReviews) => (
-    <div>
-      {reviews.map((review, index) => {
-        return (
-          <Styled.DraggableWrapper key={index}>
-            <SortableListItem review={review} index={index} />
-          </Styled.DraggableWrapper>
-        );
-      })}
-    </div>
-  ));
+  const sortedData =
+    data && data.filter((review) => review.category == catValue);
 
   return (
     <div>
@@ -155,14 +110,29 @@ const AdminPortfolioContentBlock = () => {
           />
         </Styled.AdminCategoryBlock>
         <Styled.AdminReviewBlock>
-          {(data &&
-            data.filter((review) => review.category == catValue).length !==
-              0 && (
-              <SortableList
-                reviews={data.filter((review) => review.category == catValue)}
-                onSortEnd={handleDragEnd}
-              />
-            )) || <Styled.AdminSubTitle>no reviews</Styled.AdminSubTitle>}
+          <SortableList onSortEnd={handleDragEnd}>
+            {(sortedData &&
+              sortedData.length !== 0 &&
+              sortedData.map((review, idx) => (
+                <SortableItem key={idx}>
+                  <Styled.DraggableWrapper>
+                    <AdminReview
+                      editFlag={isNewStatus}
+                      review={review}
+                      idx={idx}
+                      setCurrent={setCurrent}
+                      deleteFunc={() =>
+                        review._id &&
+                        review.image &&
+                        deleteFunc(review._id, review.image?.url)
+                      }
+                      onScroll={scrollHandler}
+                      editTrigger={setIsNewStatus}
+                    />
+                  </Styled.DraggableWrapper>
+                </SortableItem>
+              ))) || <Styled.AdminSubTitle>no reviews</Styled.AdminSubTitle>}
+          </SortableList>
         </Styled.AdminReviewBlock>
       </Styled.AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="portfolio" />

@@ -37,6 +37,10 @@ export const AuthorInfoWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 100%;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    justify-content: center;
+  }
 `;
 
 export const AuthorName = styled.div`

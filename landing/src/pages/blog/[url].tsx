@@ -222,7 +222,6 @@ const ArticlePage = () => {
                 <Image src={headerBottomBg} alt="header bottom bg" />
               </Styles.HeaderBottomBg>
             </Styles.DescriptionWrapper>
-
             {readMore && (
               <>
                 <ArticleDescription content={article.content} />

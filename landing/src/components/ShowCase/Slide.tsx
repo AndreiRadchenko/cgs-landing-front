@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import * as Styled from "../../styles/ShowCase.styled";
-import { IReviewProps } from "../../types/Admin/Response.types";
+import { IReviewProps as IReview } from "../../types/Admin/Response.types";
 import Image from "next/image";
 import Loader from "../Portfolio/Loader";
 
-interface IReview {
-  review: IReviewProps;
+interface IReviewProps {
+  review: IReview;
 }
 
-const Slide = ({ review }: IReview) => {
+const Slide = ({ review }: IReviewProps) => {
   const [isHover, setIsHover] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -31,7 +31,6 @@ const Slide = ({ review }: IReview) => {
       <Styled.TextWrapper className={isHover ? "hover" : undefined}>
         <Styled.HoverText>{review.text}</Styled.HoverText>
       </Styled.TextWrapper>
-
       {review.image?.url && (
         <Styled.ImageWrapper>
           {isLoading && <Loader />}
@@ -39,12 +38,12 @@ const Slide = ({ review }: IReview) => {
             src={review.image?.url}
             alt={"project image"}
             layout={"fill"}
+            objectFit="contain"
             onLoadingComplete={onLoadCallBack}
             style={{ opacity: isLoading ? "0" : "1" }}
           />
         </Styled.ImageWrapper>
       )}
-
       <Styled.ContentWrapper>
         <Styled.ProjectTitle>{review.title}</Styled.ProjectTitle>
         <Styled.BottomContent>

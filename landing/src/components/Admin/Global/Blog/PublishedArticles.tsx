@@ -18,8 +18,7 @@ import { adminBlogService } from "../../../../services/adminBlogPage";
 import close from "../../../../../public/bigClose.svg";
 import { AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { adminSitemapService } from "../../../../services/adminSitemapPage";
-import { SortableContainer, SortableElement } from "react-sortable-hoc";
-import { IDragProps } from "../../LogosBlock";
+import SortableList, { SortableItem } from "react-easy-sort";
 
 interface IArticles {
   setIsNewArticle: (val: boolean) => void;
@@ -36,15 +35,6 @@ interface IArticles {
 interface IArticleItem {
   item: IArticle;
   i: number;
-}
-
-interface IDragArticleContainerProps {
-  items: IArticle[];
-}
-
-interface IDragItemProps {
-  item: IArticle;
-  index: number;
 }
 
 const PublishedArticles: FC<IArticles> = ({
@@ -102,7 +92,12 @@ const PublishedArticles: FC<IArticles> = ({
 
   const { mutateAsync: swapElements } = useMutation(
     [queryKeys.swapArticles],
-    (dataToUpdate: ISwapData) => adminBlogService.swapTwoElements(dataToUpdate)
+    (dataToUpdate: ISwapData) => adminBlogService.swapTwoElements(dataToUpdate),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.getBlogArticles]);
+      },
+    }
   );
 
   const deleteArticle = async (i: number) => {
@@ -162,39 +157,13 @@ const PublishedArticles: FC<IArticles> = ({
     }
   };
 
-  const handleDragEnd = async ({ oldIndex, newIndex }: IDragProps) => {
-    const srcInd = oldIndex;
-    const desInd: number | undefined = newIndex;
+  const handleDragEnd = async (oldIndex: number, newIndex: number) => {
     const swapped = data;
-    swapped &&
-      typeof desInd === "number" &&
-      swapped.splice(desInd, 0, swapped.splice(srcInd, 1)[0]);
-    typeof desInd === "number" &&
-      (await swapElements({ srcInd, desInd })) &&
+    swapped && swapped.splice(newIndex, 0, swapped.splice(oldIndex, 1)[0]);
+
+    (await swapElements({ srcInd: oldIndex, desInd: newIndex })) &&
       queryClient.setQueryData([queryKeys.getBlogArticles], swapped);
   };
-
-  const SortableListItem = SortableElement<IDragItemProps>(
-    ({ item, index }: IDragItemProps) => {
-      return (
-        <div>
-          <ArticleItem item={item} i={index} />
-        </div>
-      );
-    }
-  );
-
-  const SortableList = SortableContainer<IDragArticleContainerProps>(
-    ({ items }: IDragArticleContainerProps) => {
-      return (
-        <div>
-          {items.map((item, index) => {
-            return <SortableListItem item={item} key={index} index={index} />;
-          })}
-        </div>
-      );
-    }
-  );
 
   const ArticleItem = ({ item, i }: IArticleItem) => {
     return (
@@ -234,7 +203,19 @@ const PublishedArticles: FC<IArticles> = ({
     <AdminPaddedBlock>
       <Styles.Wrapper ref={scrollRef}>
         <AdminSubTitle>Published articles</AdminSubTitle>
-        <SortableList items={data} onSortEnd={handleDragEnd} />
+        <SortableList
+          onSortEnd={handleDragEnd}
+          className="list"
+          draggedItemClassName="dragged"
+        >
+          {data.map((item, index) => (
+            <SortableItem key={index}>
+              <div>
+                <ArticleItem item={item} i={index} />
+              </div>
+            </SortableItem>
+          ))}
+        </SortableList>
       </Styles.Wrapper>
     </AdminPaddedBlock>
   ) : (
