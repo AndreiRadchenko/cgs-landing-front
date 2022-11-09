@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
+export const Layout = styled.div`
+  font-size: 1rem;
+  font-weight: ${themes.primary.font.weight};
+`;
+
 export const Wrapper = styled.div`
   margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
 
@@ -11,7 +16,7 @@ export const Wrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksMobile};
   }
-`
+`;
 
 export const WrapperWithLine = styled(Wrapper)`
   @media ${themes.primary.media.maxMobile} {
@@ -26,7 +31,7 @@ export const WrapperWithLine = styled(Wrapper)`
       margin-bottom: 2.69em;
     }
   }
-`
+`;
 
 export const Subtitle = styled.h3`
   font-size: ${themes.primary.font.size.webAuditSubtitle};
@@ -53,7 +58,7 @@ export const Subtitle = styled.h3`
       display: none;
     }
   }
-`
+`;
 
 export const Text = styled.div`
   font-size: ${themes.primary.font.size.oneAndHalf};
@@ -71,4 +76,4 @@ export const Text = styled.div`
       display: none;
     }
   }
-`
+`;

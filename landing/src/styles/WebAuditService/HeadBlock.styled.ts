@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.div`
-  margin-top: 5.26em;
+  margin-top: 4.2em;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {

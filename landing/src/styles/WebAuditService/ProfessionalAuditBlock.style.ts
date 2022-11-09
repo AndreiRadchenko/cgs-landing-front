@@ -43,6 +43,10 @@ export const InfoBlock = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     gap: 0;
+
+    & > a {
+      padding: 1.29em 2.61em;
+    }
   }
 `;
 
@@ -127,6 +131,7 @@ export const Subtitle = styled.h3`
     font-size: ${themes.primary.font.size.webAuditSubtitleMobile};
     margin: 0;
     padding-bottom: 0;
+    max-width: 90%;
     br {
       display: none;
     }
@@ -138,14 +143,18 @@ export const TextWrapper = styled.div`
   line-height: 160%;
   max-width: 100%;
 
+  & br {
+    display: none;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tertiary};
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: ${themes.primary.font.size.oneAndHalf};
-    margin-bottom: 2.5em;
-    margin-top: 1.25em;
+    font-size: 1.73em;
+    margin-bottom: 1.89em;
+    margin-top: 0.89em;
     white-space: pre-line;
     br {
       display: none;
