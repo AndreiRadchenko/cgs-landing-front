@@ -27,7 +27,10 @@ export function TypesOfAuditDesktopCard({
       <Styled.TypeTitle>
         <SplitBrackets text={item.title} />
       </Styled.TypeTitle>
-      <TypesOfAuditHoverModal typeItem={item} />
+      <TypesOfAuditHoverModal
+        className={idx < 3 ? "upper" : undefined}
+        typeItem={item}
+      />
     </Styled.TypeWrapper>
   );
 }

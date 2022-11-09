@@ -7,7 +7,7 @@ export const ShowcaseLayoutIgnore = styled.div`
   @media ${themes.primary.media.maxServiceMobile} {
     margin-top: 10em;
   }
-  
+
   @media ${themes.primary.media.maxMobile} {
     margin: 6.54em -1.925em 0 -1.925em;
   }

@@ -46,7 +46,7 @@ export const TypesGrid = styled.div`
   row-gap: 94px;
   margin-top: 4.5em;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 2.7em;
     grid-template-columns: 1fr;
     row-gap: 24px;
