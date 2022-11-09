@@ -7,12 +7,20 @@ export const TypeWrapper = styled.div`
   position: relative;
   width: 100%;
   gap: 2.3em;
+
+  @media ${themes.primary.media.maxMobile} {
+    gap: 0.5em;
+  }
 `;
 
 export const TypeTitle = styled.div`
   font-size: 2em;
   line-height: 160%;
   color: ${themes.primary.colors.darkBlue};
+
+  @media ${themes.primary.media.maxMobile} {
+    text-transform: uppercase;
+  }
 `;
 
 export const TypeHeader = styled.div`
