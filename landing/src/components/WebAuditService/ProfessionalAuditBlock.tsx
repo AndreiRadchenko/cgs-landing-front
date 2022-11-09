@@ -8,6 +8,7 @@ import ButtonArrow from "../../utils/ButtonArrow";
 import Image from "next/image";
 import AuditTimeText from "../../../public/WebAuditServicePage/AuditTimeText.svg";
 import AuditTimeCommon from "../../../public/WebAuditServicePage/AuditTimeCommon.svg";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const ProfessionalAuditBlock = () => {
   const queryClient = useQueryClient();
@@ -17,12 +18,16 @@ const ProfessionalAuditBlock = () => {
 
   return (
     <Styled.Wrapper>
-      <Styled.Subtitle>{data?.title}</Styled.Subtitle>
+      <Styled.Subtitle>
+        <SplitBrackets text={data?.title} />
+      </Styled.Subtitle>
       <Styled.Content>
         <Styled.InfoBlock>
-          <Styled.TextWrapper>{data?.text}</Styled.TextWrapper>
+          <Styled.TextWrapper>
+            <SplitBrackets text={data?.text} />
+          </Styled.TextWrapper>
           <Styled.Button
-            padding={"1.117em 2.537em"}
+            padding={"1.115em 2.537em"}
             size={"1.5em"}
             href={data?.buttonLink}
             target="_blank"

@@ -84,7 +84,6 @@ export const TextWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.oneAndHalf};
     margin-bottom: 2.5em;
-    margin-top: 1.25em;
     white-space: pre-line;
     br {
       display: none;

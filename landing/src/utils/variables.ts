@@ -33,7 +33,7 @@ export const navigationRoutesLinks = {
   "IT Support Services": "/services/it-support",
   "Server // Databases": "/services/database-and-server-solutions",
   "UX/UI Design": "/services/ux-ui-design",
-  "Web audit": "/services/web-audit",
+  "Web Audit": "/services/web-audit",
   "Mobile App Audit": "/services/mobile-audit",
   "About us": "/about-us",
   Careers: "/careers",
@@ -53,7 +53,7 @@ export const navigationRoutesNamesNew = [
       "IT Support Services",
       "Server // Databases",
       "UX/UI Design",
-      "Web audit",
+      "Web Audit",
       "Mobile App Audit",
     ],
   },
@@ -100,7 +100,7 @@ export const mobileServicesRoutes = [
   "cloud-solutions",
   "blockchain",
   "web-audit",
-  "mobile-audit"
+  "mobile-audit",
 ];
 
 export const webAuditTypesOfAuditImages = [
@@ -109,5 +109,5 @@ export const webAuditTypesOfAuditImages = [
   review,
   uxui,
   pagespeed,
-  competitor
+  competitor,
 ];

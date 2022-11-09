@@ -89,14 +89,19 @@ export const ModalText = styled.div`
   font-size: ${themes.primary.font.size.oneAndHalf};
   line-height: 160%;
 
+  & br {
+    display: none;
+  }
+
   &.title {
     color: ${themes.primary.colors.darkBlue};
   }
-  
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tertiary};
   }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.oneAndHalf};
+  }
 `;
