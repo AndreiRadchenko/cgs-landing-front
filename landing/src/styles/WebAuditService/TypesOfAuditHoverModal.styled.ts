@@ -9,7 +9,25 @@ export const HoverModalWrapper = styled.div`
   transition: 0.3s opacity;
   z-index: 2;
   max-width: 397px;
+  height: 324px;
 
+  &.upper {
+    top: -30%;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    max-width: none;
+    height: 320px;
+  }
+
+  @media ${themes.primary.media.minPC} {
+    max-width: 400px;
+    height: 380px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: 600px;
+  }
   &:hover {
     opacity: 1;
   }

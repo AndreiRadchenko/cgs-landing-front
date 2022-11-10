@@ -8,7 +8,7 @@ export const TypeWrapper = styled.div`
   width: 100%;
   gap: 2.3em;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     gap: 0.5em;
   }
 `;
@@ -18,7 +18,7 @@ export const TypeTitle = styled.div`
   line-height: 160%;
   color: ${themes.primary.colors.darkBlue};
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     text-transform: uppercase;
   }
 `;

@@ -7,11 +7,15 @@ interface ITypesOfAuditHoverModalProps {
     title: string;
     text: string;
   };
+  className?: string;
 }
 
-const TypesOfAuditHoverModal = ({ typeItem }: ITypesOfAuditHoverModalProps) => {
+const TypesOfAuditHoverModal = ({
+  typeItem,
+  className,
+}: ITypesOfAuditHoverModalProps) => {
   return (
-    <Styled.HoverModalWrapper>
+    <Styled.HoverModalWrapper className={className}>
       <Styled.HoverModalHeader>
         <Styled.ButtonContainer>
           <Styled.Button>

@@ -25,7 +25,7 @@ const TypesOfAuditBlock = () => {
   ));
 
   useEffect(() => {
-    width && width > 767
+    width && width > 992
       ? setCardsComponents(deskCards)
       : setCardsComponents(mobileCards);
   }, [width]);
