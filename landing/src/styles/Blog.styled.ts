@@ -1103,7 +1103,7 @@ export const MainBlogItemDescription = styled(BlogItemDescription)`
 
 export const SmallArticleItemTitle = styled(BlogItemTitle)`
   font-size: ${themes.primary.font.size.menuElement};
-  margin-top: 19px;
+  margin-top: 14px;
   &:hover {
     color: ${themes.primary.colors.darkBlue};
   }
@@ -1137,9 +1137,6 @@ export const SmallArticleItemDescription = styled(BlogItemDescription)`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  @media ${themes.primary.media.maxPCFullHD} {
-    font-size: ${themes.primary.font.size.linkText};
-  }
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: 8px;
     font-size: 14px;
@@ -1171,7 +1168,6 @@ export const SmallArticleContainer = styled.div`
     padding: 18px 25px 18px 20px;
   }
   @media (min-height: 800px) and ${themes.primary.media.maxLaptop} {
-    height: 32%;
     min-height: 200px;
   }
   @media ${themes.primary.media.minPC} {
