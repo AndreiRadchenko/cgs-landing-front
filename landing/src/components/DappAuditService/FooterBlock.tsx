@@ -1,36 +1,30 @@
 import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
-import * as Styled from "../../styles/DappAuditService/HeadBlock.styled";
 import { queryKeys } from "../../consts/queryKeys";
+import * as Styled from "../../styles/DappAuditService/Footer.styled";
+import { Subtitle } from "../../styles/DappAuditService/Common.styled";
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
-import Image from "next/image";
-import TextTypingAnimation from "../Typewrite";
-import { SplitBrackets } from "../../utils/splitBrackets";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
+import Image from "next/image";
 
-const HeadBlock = () => {
+const FooterBlock = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceDappAudit>([
     queryKeys.getServiceDappAuditPage,
-  ])?.headerBlock;
+  ])?.footerBlock;
 
   return (
-    <Styled.Wrapper>
-      <Styled.TextContent>
-        {data && (
-          <Styled.Title>
-            <TextTypingAnimation text={data.title} />
-          </Styled.Title>
-        )}
-        <Styled.Text>
-          <SplitBrackets text={data?.text} />
-        </Styled.Text>
+    <Styled.ContentWrapper>
+      <div>
+        <Styled.TitleWrapper>
+          <Subtitle>{data?.title}</Subtitle>
+        </Styled.TitleWrapper>
         <BlackButton
-          padding={"1em 1.43em"}
+          padding={"1em 2.27em"}
           size={"1.125em"}
           href={data?.buttonLink}
           target="_blank"
@@ -41,19 +35,19 @@ const HeadBlock = () => {
             <ButtonArrow />
           </ArrowContainer>
         </BlackButton>
-      </Styled.TextContent>
+      </div>
       {data && (
         <Styled.ImageWrapper>
           <Image
             src={data?.image.url}
-            alt="dapp service hero img"
+            alt="dapp audit footer image"
             layout="fill"
             objectFit="contain"
           />
         </Styled.ImageWrapper>
       )}
-    </Styled.Wrapper>
+    </Styled.ContentWrapper>
   );
 };
 
-export default HeadBlock;
+export default FooterBlock;

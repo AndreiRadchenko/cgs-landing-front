@@ -19,13 +19,13 @@ const themes = {
       aboutUsDescription: "8em",
       cardPartners: "14em",
       btwLogoAndMenu: "8.5em",
-      servicesMarginBetweenBlocks: "16em",
+      servicesGlobalMarginBetweenBlocks: "12.5em",
+      servicesMarginBetweenBlocks: "16.6em",
       servicesMarginBetweenBlocksTablet: "8em",
       servicesMarginBetweenBlocksMobile: "4em",
       servicesMarginBetweenFooter: "10.3em",
       servicesMarginBetweenFooterTablet: "6.5em",
       servicesMarginBetweenFooterMobile: "5.8em",
-
     },
     font: {
       family: {
@@ -61,7 +61,6 @@ const themes = {
         tertiary: "1.2em",
         primary: "1em",
         aboutUsBelieveText: "1.35em",
-
         aboutUsCardText: "1.3em",
         linkText: "1.4em",
         oneAndHalf: "1.5em",
@@ -112,6 +111,7 @@ const themes = {
         homeSmallTitle: "5.6em",
         homeCardSubtitle: "5.68em",
         serviceTitle: "5.5em",
+        serviceSubtitle: "2.5em",
         tabletServiceTitle: "4em",
         homeMainSubtitle: "2.167em",
         inBlockMaxTableText: "1.3em",

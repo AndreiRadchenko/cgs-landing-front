@@ -10,7 +10,11 @@ import React from "react";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { Layout } from "../../styles/Layout.styled";
 import * as Styled from "../../styles/DappAuditService/Common.styled";
-import { StyledButton } from "../../components/BaseButton/BaseButton.styled";
+import HeadBlock from "../../components/DappAuditService/HeadBlock";
+import FigureOutBlock from "../../components/DappAuditService/FigureOutBlock";
+import HowDoProvideBlock from "../../components/DappAuditService/HowDoProvideBlock";
+import ShowCase from "../../components/ShowCase";
+import FooterBlock from "../../components/DappAuditService/FooterBlock";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -36,6 +40,7 @@ const DappAuditPage: NextPage = () => {
   );
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
+
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
   return (
@@ -47,7 +52,17 @@ const DappAuditPage: NextPage = () => {
       </Head>
       <HeaderNavNew />
       <Layout>
-        <Styled.Layout>{/* <HeadBlock /> */}</Styled.Layout>
+        <Styled.Layout>
+          <HeadBlock />
+          <FigureOutBlock />
+          <HowDoProvideBlock />
+        </Styled.Layout>
+      </Layout>
+      <ShowCase projects={data?.projects} />
+      <Layout>
+        <Styled.Layout>
+          <FooterBlock />
+        </Styled.Layout>
       </Layout>
       <FooterNew />
     </>

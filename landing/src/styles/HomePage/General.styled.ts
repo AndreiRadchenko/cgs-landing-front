@@ -740,14 +740,36 @@ export const ArrowContainer = styled.div`
   align-items: center;
   overflow: hidden;
 
+  & svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  @media (min-width: 2200px) {
+    width: 45px;
+    height: 45px;
+    right: -17px;
+    top: -17px;
+
+    & svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
-    width: 1em;
-    height: 1em;
-    right: -0.3em;
-    top: -0.3em;
+    width: 40px;
+    height: 40px;
+    right: -15px;
+    top: -15px;
 
     &.mobileAudit {
       font-size: 1.5em;
+    }
+
+    & svg {
+      width: 30px;
+      height: 30px;
     }
   }
 

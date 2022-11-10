@@ -4,10 +4,17 @@ import themes from "../../utils/themes";
 export const Layout = styled.div`
   font-size: 1rem;
   font-weight: ${themes.primary.font.weight};
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.2rem;
+  }
+  @media (min-width: 2200px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const Wrapper = styled.div`
-  margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
+  margin-top: ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks};
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
@@ -34,7 +41,7 @@ export const WrapperWithLine = styled(Wrapper)`
 `;
 
 export const Subtitle = styled.h3`
-  font-size: ${themes.primary.font.size.webAuditSubtitle};
+  font-size: ${themes.primary.font.size.serviceSubtitle};
   line-height: 140%;
   text-transform: uppercase;
   margin: 0;

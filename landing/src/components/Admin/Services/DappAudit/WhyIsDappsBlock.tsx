@@ -3,7 +3,6 @@ import { useFormikContext } from "formik";
 import { IServiceDappAudit } from "../../../../types/Admin/Response.types";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
-import { WhyIsDappsSubtitlesWrapper } from "../../../../styles/DappAuditService/AdminDappAudit.styled";
 import {
   ArrowContainer,
   BlackButton,
@@ -24,18 +23,6 @@ const WhyIsDappsBlock = () => {
         placeholder="Title"
         inputStyle={{ maxWidth: "350px" }}
       />
-      <WhyIsDappsSubtitlesWrapper>
-        {values.whyIsDappsBlock.textBlock.map((item, idx) => (
-          <SubHeaderWithInput
-            key={idx}
-            inputValue={item}
-            onChangeFunction={handleChange}
-            name={`whyIsDappsBlock.textBlock[${idx}]`}
-            placeholder="Title"
-            header={`Subtitle ${idx + 1}`}
-          />
-        ))}
-      </WhyIsDappsSubtitlesWrapper>
       <BlackButton
         size={"1.5em"}
         padding={"1.11em 3em"}

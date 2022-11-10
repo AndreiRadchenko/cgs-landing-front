@@ -689,27 +689,22 @@ export interface IServiceDappAudit {
   };
   figureOutBlock: {
     subtitle: string;
-    textBlock: [string];
+    textBlock: string[];
     image: { url: string };
   };
-
   whyIsDappsBlock: {
     subtitle: string;
-    textBlock: [string];
   };
-
   howDoWeProvideBlock: {
     subtitle: string;
-    textBlock: [
-      {
-        title: string;
-        text: string;
-        subContent: [{ title: string; text: string }];
-      }
-    ];
+    textBlock: {
+      title: string;
+      text: string;
+      subContent: { title: string; text: string }[];
+    }[];
     image: { url: string };
   };
-  projects: [string];
+  projects: string[];
   footerBlock: {
     title: string;
     button: string;
