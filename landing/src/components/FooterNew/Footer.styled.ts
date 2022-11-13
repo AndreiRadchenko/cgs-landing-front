@@ -26,6 +26,21 @@ export const FlexRowContainer = styled.div`
   height: 50%;
   transition: color 0;
 
+  @media ${themes.primary.media.maxMobile} {
+    padding-top: 10px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+`;
+
+export const Email = styled.a`
+  display: flex;
+  align-items: center;
+  margin-left: 17px;
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.email};
+  color: ${themes.primary.colors.primary};
+
   & span {
     transition: color 0.1s;
   }
@@ -41,21 +56,6 @@ export const FlexRowContainer = styled.div`
       stroke: ${themes.primary.colors.darkBlue};
     }
   }
-
-  @media ${themes.primary.media.maxMobile} {
-    padding-top: 10px;
-    align-items: flex-start;
-    justify-content: center;
-  }
-`;
-
-export const Email = styled.a`
-  display: flex;
-  align-items: center;
-  margin-left: 17px;
-  font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.email};
-  color: ${themes.primary.colors.primary};
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1em;
@@ -173,6 +173,8 @@ export const NavList = styled.menu`
   margin: 0;
   display: flex;
   height: 56px;
+  padding-left: 19px;
+
   @media ${themes.primary.media.maxLaptop} {
     margin-right: 0;
   }
@@ -244,4 +246,24 @@ export const FooterImageWrapper = styled.div`
       -webkit-filter: invert(1);
     }
   }
+`;
+
+export const PrivacyPolicy = styled.a`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  color: ${themes.primary.colors.comment};
+
+  &:hover,
+  &:active {
+    color: ${themes.primary.colors.darkBlue};
+    text-decoration: underline;
+  }
+`;
+
+export const MiddleTextWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 `;

@@ -22,7 +22,6 @@ const WhatDoWeUse = () => {
             name="whatDoWeUse.text"
             isBlog={false}
             onlyColor={true}
-            value={values.whatDoWeUse.text}
           />
         </div>
       </AdminHalfGrid>

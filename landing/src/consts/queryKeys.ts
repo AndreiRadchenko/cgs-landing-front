@@ -54,6 +54,8 @@ export const queryKeys = {
   updateServiceMobileAuditPage: "updateServiceMobileAuditPage",
   getServiceWebAuditPage: "getServiceWebAuditPage",
   updateServiceWebAuditPage: "updateServiceWebAuditPage",
+  getPrivacyPage: "getPrivacyPage",
+  updatePrivacyPage: "updatePrivacyPage",
   // home page
   getFullHomePage: "getFullHomePage",
   getAllServices: "getAllServices",
