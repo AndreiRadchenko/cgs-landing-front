@@ -254,6 +254,7 @@ export const PrivacyPolicy = styled.a`
   display: flex;
   align-items: center;
   color: ${themes.primary.colors.comment};
+  cursor: pointer;
 
   &:hover,
   &:active {
