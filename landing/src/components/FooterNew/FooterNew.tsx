@@ -67,7 +67,7 @@ const FooterNew = (): JSX.Element => {
             </StyledThisComp.MailIcon>
             <StyledThisComp.EmailText>{data?.email}</StyledThisComp.EmailText>
           </StyledThisComp.Email>
-          <StyledThisComp.PrivacyPolicy>
+          <StyledThisComp.PrivacyPolicy href="/privacy-policy">
             Privacy Policy
           </StyledThisComp.PrivacyPolicy>
         </StyledThisComp.MiddleTextWrapper>
