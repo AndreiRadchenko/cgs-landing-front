@@ -9,14 +9,18 @@ const SunEditor = dynamic(() => import("suneditor-react"), {
 });
 
 interface ITextEditorProps {
-  value?: string;
   header: string;
   name: string;
-  isBlog: boolean;
+  isBlog?: boolean;
   onlyColor?: boolean;
 }
 
-const TextEditor = ({ name, isBlog, header, onlyColor }: ITextEditorProps) => {
+const TextEditor = ({
+  name,
+  isBlog = false,
+  header,
+  onlyColor,
+}: ITextEditorProps) => {
   const options = onlyColor
     ? {
         font: ["NAMU"],

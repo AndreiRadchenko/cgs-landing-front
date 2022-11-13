@@ -25,7 +25,6 @@ const themes = {
       servicesMarginBetweenFooter: "10.3em",
       servicesMarginBetweenFooterTablet: "6.5em",
       servicesMarginBetweenFooterMobile: "5.8em",
-
     },
     font: {
       family: {

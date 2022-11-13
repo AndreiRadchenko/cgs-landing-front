@@ -39,9 +39,12 @@ export interface DropdownPropsInterface {
   Icon?: any;
 }
 
-export interface IBlockDropDown {
+export interface IBlockDropDownProps {
+  nextBtn?: boolean;
   title: string;
+  style?: any;
   children: any;
+  onNextClick?: () => void;
 }
 
 export interface InputWithHeader extends InputPropsInterface {
