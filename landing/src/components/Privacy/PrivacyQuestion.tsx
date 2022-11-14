@@ -8,7 +8,6 @@ interface IPrivacyQuestionProps {
 
 const PrivacyQuestion = ({ question }: IPrivacyQuestionProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
   const handleClick = () => setIsOpen((old) => !old);
 
   return (
