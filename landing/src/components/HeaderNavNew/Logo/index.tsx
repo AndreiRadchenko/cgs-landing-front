@@ -6,13 +6,13 @@ import logoWithoutText from "../../../../public/logoWithoutText.svg";
 const Logo = () => {
   return (
     <Styled.LogoWrapper>
-      <Image
-        src={logoWithoutText}
-        alt="logo without the text"
-        width={34}
-        height={32}
-        objectFit="contain"
-      />
+      <Styled.ImageWrapper>
+        <Image
+          src={logoWithoutText}
+          alt="logo without the text"
+          objectFit="contain"
+        />
+      </Styled.ImageWrapper>
       <Styled.LogoText>СGS-team</Styled.LogoText>
     </Styled.LogoWrapper>
   );

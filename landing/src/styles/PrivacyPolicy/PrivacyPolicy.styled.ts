@@ -17,7 +17,7 @@ export const IntroWrapper = styled.div`
   color: ${themes.primary.colors.blogArticleText};
   font-size: 16px;
   line-height: 160%;
-  margin-top: 2em;
+  margin-block: 2em 1.75em;
 
   & strong {
     color: ${themes.primary.colors.primary};
@@ -33,6 +33,7 @@ export const IntroWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     padding-inline: 20px;
+    margin-block: 1.5em 1.25em;
   }
 `;
 
@@ -42,6 +43,7 @@ export const QuestionsWrapper = styled.ol`
   list-style-type: none;
   font-size: 16px;
   line-height: 160%;
+  margin: 0;
 
   & ol {
     padding-left: 0;
@@ -55,6 +57,10 @@ export const QuestionsWrapper = styled.ol`
         padding-left: 40px;
       }
     }
+  }
+
+  & > div:last-child {
+    border-bottom: 1px solid ${themes.primary.colors.faqBorder};
   }
 
   & li:before {
@@ -100,6 +106,7 @@ export const QuestionHeader = styled.div`
     height: 80px;
 
     &.open {
+      margin-top: 0;
       height: 79px;
     }
   }
@@ -112,15 +119,20 @@ export const QuestionButton = styled.span`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.33em;
+    padding-left: 20px;
   }
 `;
 
 export const QuestionListItem = styled.li`
   line-height: 37.75px;
+
+  @media ${themes.primary.media.maxMobile} {
+    line-height: 140%;
+  }
 `;
 
 export const QuestionHiddenWrapper = styled.div`
-  margin-top: 0.5rem;
+  margin-block: 0.5rem 0.75em;
   display: none;
   color: ${themes.primary.colors.blogArticleText};
 
@@ -142,7 +154,7 @@ export const QuestionHiddenWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 0.125em;
+    margin-block: 0.125em 0.25em;
     padding-inline: 20px;
   }
 `;

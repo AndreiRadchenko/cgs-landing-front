@@ -5,8 +5,17 @@ export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 106px;
-  height: 32px;
-  position: relative;
+  height: 100%;
+
+  @media (max-width: 1280px) {
+    width: 95px;
+    height: 26px;
+  }
+
+  @media (max-width: 1110px) {
+    width: 85px;
+    height: 22px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 142px;
@@ -26,9 +35,36 @@ export const LogoText = styled.p`
     -0.15px 0.15px 0 ${themes.primary.colors.primary},
     0.15px 0.15px 0 ${themes.primary.colors.primary};
 
+  @media (max-width: 1280px) {
+    font-size: 10px;
+    text-shadow: none;
+  }
+
+  @media (max-width: 1110px) {
+    font-size: 8.5px;
+    margin-left: 6px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125rem;
     line-height: 22px;
     text-shadow: none;
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+  width: 34px;
+  height: 32px;
+
+  @media (max-width: 1280px) {
+    width: 28px;
+    height: 26px;
+  }
+
+  @media (max-width: 1110px) {
+    width: 23px;
+    height: 22px;
+    font-size: 12px;
   }
 `;
