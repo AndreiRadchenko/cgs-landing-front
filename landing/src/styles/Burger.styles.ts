@@ -125,3 +125,16 @@ export const FooterIconsWrapper = styled.div`
 `;
 
 export const Image = styled.img``;
+
+export const BurgerPrivacy = styled.a`
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  color: ${themes.primary.colors.comment};
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    color: ${themes.primary.colors.darkBlue};
+  }
+`;

@@ -14,7 +14,7 @@ const PrivacyContent = () => {
   ]);
 
   return (
-    <FaqContainer>
+    <FaqContainer className="privacy">
       <Styled.Title>Privacy Policy</Styled.Title>
       <Styled.IntroWrapper>{data && parse(data.intro)}</Styled.IntroWrapper>
       <Styled.QuestionsWrapper>
