@@ -126,7 +126,7 @@ export const FooterIconsWrapper = styled.div`
 
 export const Image = styled.img``;
 
-export const BurgerPrivacy = styled.div`
+export const BurgerPrivacy = styled.a`
   position: absolute;
   bottom: 40px;
   left: 20px;

@@ -67,4 +67,9 @@ export const ImageWrapper = styled.div`
     height: 22px;
     font-size: 12px;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 34px;
+    height: 32px;
+  }
 `;
