@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const WrapperWithLine = styled(Wrapper)`
+export const WrapperWithLine = styled.div`
   @media ${themes.primary.media.maxMobile} {
     &:before {
       content: "";
@@ -35,7 +35,7 @@ export const WrapperWithLine = styled(Wrapper)`
       position: relative;
       right: 10%;
       background: ${themes.primary.colors.headerBorder};
-      margin-bottom: 2.69em;
+      margin-bottom: 1.75em;
     }
   }
 `;
@@ -64,6 +64,13 @@ export const Subtitle = styled.h3`
     br {
       display: none;
     }
+    &.mobileDissapear {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: ${themes.primary.font.size.oneAndHalf};
   }
 `;
 

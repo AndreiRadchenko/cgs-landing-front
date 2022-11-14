@@ -30,7 +30,9 @@ const FigureOutBlock = () => {
 
   return (
     <Wrapper>
-      <Subtitle>{figureOutBlockData?.subtitle}</Subtitle>
+      <Subtitle className="mobileDissapear">
+        {figureOutBlockData?.subtitle}
+      </Subtitle>
       <MobileInfiniteText title={figureOutBlockData?.subtitle} />
       <Styled.ContentWrapper>
         {figureOutBlockData && (

@@ -147,6 +147,14 @@ const AdminSidebar = () => {
               FAQ
             </Styled.AdminListSubItem>
           </Link>
+          <Link href={ROUTE_KEYS.AdminPrivacy} passHref>
+            <Styled.AdminListSubItem
+              itemProp={currentPath}
+              property={ROUTE_KEYS.AdminPrivacy}
+            >
+              Privacy Policy
+            </Styled.AdminListSubItem>
+          </Link>
         </DropDownElement>
         <Styled.AdminSidebarMenuElement
           onClick={pushBlog}

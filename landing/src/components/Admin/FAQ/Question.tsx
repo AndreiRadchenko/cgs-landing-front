@@ -57,12 +57,7 @@ const Question = ({
             header={"Question"}
           />
         </Styled.QuestionTitleContainer>
-        <TextEditor
-          value={question.text}
-          name={questionText}
-          header={"Answer"}
-          isBlog={false}
-        />
+        <TextEditor name={questionText} header={"Answer"} isBlog={false} />
         <Styled.ButtonsContainer>
           <Styled.AddButton onClick={() => addQuestion(index)}>
             [ + add next question ]

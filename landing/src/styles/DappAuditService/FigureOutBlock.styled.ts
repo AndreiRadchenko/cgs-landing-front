@@ -10,6 +10,10 @@ export const ContentWrapper = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column-reverse;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-block: 1.75em 2.8125em;
+  }
 `;
 export const ImageWrapper = styled.div`
   position: absolute;
@@ -29,7 +33,8 @@ export const ImageWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 60%;
+    top: 25%;
+    width: 550px;
     height: 130%;
   }
 
@@ -37,6 +42,11 @@ export const ImageWrapper = styled.div`
     position: relative;
     width: 100%;
     height: 400px;
+    margin-top: 0.875em;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 254px;
   }
 `;
 
@@ -66,6 +76,14 @@ export const Text = styled.p`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.25em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1em;
+
+    &:first-child {
+      margin-block: 0 0.875em;
+    }
   }
 `;
 
@@ -117,22 +135,30 @@ export const WhyIsAuditImportantImageWrapper = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 470px;
-    width: 100%;
+    width: 992px;
     right: 1vw;
-    top: -105%;
+    top: -155px;
   }
 
   @media (max-width: 1100px) {
-    height: 470px;
-    width: 100%;
     right: 0vw;
-    top: -140%;
+    top: -145px;
+  }
+
+  @media (max-width: 1050px) {
+    top: -160px;
+    width: 900px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     position: relative;
     right: 0;
     top: 0;
+    width: 100%;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: 261px;
   }
 `;
 
@@ -144,6 +170,7 @@ export const WhyIsAuditImportantWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 0;
     position: relative;
   }
 `;

@@ -4,6 +4,10 @@ import themes from "../utils/themes";
 import { IFontSize } from "./HomePage/General.styled";
 import SortableList from "react-easy-sort";
 
+interface ITextEditorWrapperProps {
+  start?: number;
+}
+
 export const AdminWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 4.62fr;
@@ -108,6 +112,7 @@ export const AdminTitleImageWrap = styled.div`
   padding: 18px 22px 18px 16px;
   background-color: ${themes.primary.colors.black};
   height: 4.67em;
+  width: 100%;
 
   &:hover {
     cursor: pointer;
@@ -1295,4 +1300,56 @@ export const AdminLayout = styled.div`
 
 export const AdminHeaderPhotoWrapper = styled.div`
   width: 21%;
+`;
+
+export const TextEditorWrapper = styled.div<ITextEditorWrapperProps>`
+  color: ${themes.primary.colors.blogArticleText};
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 16px;
+  line-height: 160%;
+
+  & strong {
+    color: ${themes.primary.colors.primary};
+    -webkit-text-stroke: 0.3px ${themes.primary.colors.primary};
+  }
+
+  & a {
+    text-decoration: underline;
+  }
+
+  & ol {
+    margin: 0;
+    padding-left: 0;
+    & li {
+      margin-block: 16px;
+    }
+    & ol {
+      padding-left: 29px;
+      & ol {
+        padding-left: 40px;
+      }
+    }
+    & li::marker {
+      content: none;
+    }
+  }
+
+  & ol li:before {
+    content: counters(list-item, ".") ". ";
+  }
+`;
+
+export const NextButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+`;
+
+export const NextButton = styled.div`
+  font-size: 1.17em;
+  margin-bottom: 25px;
+  color: ${themes.primary.colors.darkBlue};
+  white-space: nowrap;
+  cursor: pointer;
 `;

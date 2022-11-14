@@ -31,18 +31,10 @@ const ArticleBlock: FC<IArticleBlock> = ({ article }) => {
     [handleChange, values]
   );
 
-  const editArticleText = useCallback(
-    (index: number) => (
-      <Styles.TextEditorWrapper key={index}>
-        <TextEditor
-          isBlog={true}
-          header="Text"
-          value={values.content[index].text}
-          name={`content[${index}].text`}
-        />
-      </Styles.TextEditorWrapper>
-    ),
-    [values]
+  const editArticleText = (index: number) => (
+    <Styles.TextEditorWrapper key={index}>
+      <TextEditor isBlog={true} header="Text" name={`content[${index}].text`} />
+    </Styles.TextEditorWrapper>
   );
 
   useEffect(() => {
@@ -50,14 +42,7 @@ const ArticleBlock: FC<IArticleBlock> = ({ article }) => {
       block.hasOwnProperty("text") ? editArticleText(i) : editArticleSubtitle(i)
     );
     setBlocks(blocks);
-  }, [
-    article,
-    values,
-    editArticleContent,
-    handleChange,
-    editArticleSubtitle,
-    editArticleText,
-  ]);
+  }, [article, values, editArticleContent, handleChange, editArticleSubtitle]);
 
   const addSubtitleBlockOnClick = () => {
     const subtitle = { subNumber: "", subtitle: "", tagName: "h2" };

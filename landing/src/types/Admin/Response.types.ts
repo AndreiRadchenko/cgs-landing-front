@@ -713,3 +713,8 @@ export interface IServiceDappAudit {
   };
   meta: IMetaBlock;
 }
+export interface IPrivacyPage {
+  intro: string;
+  content: { subtitle: string; text: string }[];
+  meta: IMetaBlock;
+}
