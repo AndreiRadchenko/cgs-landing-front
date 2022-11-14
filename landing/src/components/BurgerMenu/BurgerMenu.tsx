@@ -20,7 +20,7 @@ const BurgerMenu: FC<IBurgerMenuProps> = ({ isOpen, children }) => {
       <StyledThisComp.SocialLinksBurgerRow>
         <BurgerFooter />
       </StyledThisComp.SocialLinksBurgerRow>
-      <StyledThisComp.BurgerPrivacy>
+      <StyledThisComp.BurgerPrivacy href="/privacy-policy">
         Privacy Policy
       </StyledThisComp.BurgerPrivacy>
     </StyledThisComp.BurgerWrapper>
