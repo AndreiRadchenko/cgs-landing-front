@@ -32,6 +32,10 @@ export const MovingText = styled.div`
     font-size: 24px !important;
     line-height: 233% !important;
     margin-bottom: 30px !important;
+
+    &.withoutMargin {
+      margin-bottom: 0 !important;
+    }
   }
 
   @media ${themes.primary.media.minMobile} {

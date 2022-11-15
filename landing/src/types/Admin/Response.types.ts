@@ -679,6 +679,40 @@ export interface IServiceWebAudit {
   meta: IMetaBlock;
 }
 
+export interface IServiceDappAudit {
+  headerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  figureOutBlock: {
+    subtitle: string;
+    textBlock: string[];
+    image: { url: string };
+  };
+  whyIsDappsBlock: {
+    subtitle: string;
+  };
+  howDoWeProvideBlock: {
+    subtitle: string;
+    textBlock: {
+      title: string;
+      text: string;
+      subContent: { title: string; text: string }[];
+    }[];
+    image: { url: string };
+  };
+  projects: string[];
+  footerBlock: {
+    title: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
+  };
+  meta: IMetaBlock;
+}
 export interface IPrivacyPage {
   intro: string;
   content: { subtitle: string; text: string }[];
