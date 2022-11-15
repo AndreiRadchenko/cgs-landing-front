@@ -32,7 +32,7 @@ const QuestionBlock = () => {
         <AdminBlockDropDown
           title={`${idx + 1}. ${item.subtitle}`}
           style={{ width: "90%" }}
-          key={`${idx + 1}. ${item.subtitle}`}
+          key={idx}
           nextBtn
           onNextClick={() => handleNextClick(idx + 1)}
         >

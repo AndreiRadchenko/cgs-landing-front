@@ -31,8 +31,6 @@ export const AdminMainHeader = styled.div`
 `;
 
 export const AdminSidebar = styled.div`
-  position: sticky;
-  left: 0;
   background: ${themes.primary.colors.primary};
   justify-content: flex-start;
   width: 100%;
@@ -45,7 +43,6 @@ export const AdminSidebar = styled.div`
 
 export const AdminSidebarMenu = styled.ul`
   display: flex;
-  position: fixed;
   flex-direction: column;
   list-style: none;
   margin: 3.84em 0 0 0;
