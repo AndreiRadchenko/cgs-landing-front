@@ -6,7 +6,7 @@ interface IHowDoWeWorkItemProps {
   item: {
     title: string;
     text: string;
-    subContent?: [{ title: string; text: string }];
+    subContent?: { title: string; text: string }[];
   };
   idx: number;
 }
