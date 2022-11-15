@@ -9,9 +9,6 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column-reverse;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
     margin-block: 1.75em 2.8125em;
   }
 `;
@@ -33,9 +30,12 @@ export const ImageWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    top: 25%;
     width: 550px;
     height: 130%;
+  }
+
+  @media (max-width: 1060px) {
+    top: 4%;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -151,6 +151,7 @@ export const WhyIsAuditImportantImageWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 1.8125em;
     position: relative;
     right: 0;
     top: 0;

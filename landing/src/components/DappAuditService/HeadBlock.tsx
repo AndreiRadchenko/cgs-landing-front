@@ -11,19 +11,39 @@ import {
   BlackButton,
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { replaceAt } from "../../utils/replaceStrByInd";
 
 const HeadBlock = () => {
+  const { width } = useWindowDimension();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceDappAudit>([
     queryKeys.getServiceDappAuditPage,
   ])?.headerBlock;
 
+  const getPosition = (string: string, subString: string, index: number) => {
+    return string.split(subString, index).join(subString).length;
+  };
+
+  const title =
+    data &&
+    replaceAt(
+      replaceAt(data.title, getPosition(data.title, "|", 3), 1),
+      getPosition(data.title, "|", 1),
+      1
+    );
+
+  const mobileTitle =
+    data && replaceAt(data.title, getPosition(data.title, "|", 2), 1);
+
   return (
     <Styled.Wrapper>
       <Styled.TextContent>
-        {data && (
+        {data && title && mobileTitle && (
           <Styled.Title>
-            <TextTypingAnimation text={data.title} />
+            <TextTypingAnimation
+              text={width && width < 768 ? mobileTitle : title}
+            />
           </Styled.Title>
         )}
         <Styled.Text>

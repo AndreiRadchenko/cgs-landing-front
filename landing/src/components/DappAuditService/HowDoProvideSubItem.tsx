@@ -11,6 +11,10 @@ const HowDoProvideSubItem = ({ title, text }: HowDoProvideSubItemProps) => {
   return (
     <Styled.SubContainer>
       <Styled.SubTitle>
+        <Styled.MobilePointWrapper>
+          <Styled.PointLine />
+          <Styled.PointDiamond />
+        </Styled.MobilePointWrapper>
         <SplitBrackets text={title} />
       </Styled.SubTitle>
       <Styled.SubText>

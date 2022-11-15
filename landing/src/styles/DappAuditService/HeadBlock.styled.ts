@@ -34,10 +34,6 @@ export const Title = styled.h1`
   line-height: 120%;
   max-width: 900px;
 
-  & br {
-    display: none;
-  }
-
   @media ${themes.primary.media.minPC} {
     max-width: 900px;
   }
@@ -78,10 +74,6 @@ export const Title = styled.h1`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 2.375em;
-
-    & br {
-      display: block;
-    }
   }
 `;
 

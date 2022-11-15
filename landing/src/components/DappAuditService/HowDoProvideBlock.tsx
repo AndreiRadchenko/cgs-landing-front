@@ -2,12 +2,16 @@ import { useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
 import React from "react";
 import { queryKeys } from "../../consts/queryKeys";
-import { Subtitle } from "../../styles/DappAuditService/Common.styled";
+import {
+  Subtitle,
+  WrapperWithLine,
+} from "../../styles/DappAuditService/Common.styled";
 import * as Styled from "../../styles/DappAuditService/HowDoProvideBlock.styled";
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
 import HowToProvideBlockItem from "./HowDoProvideBlockItem";
 import HowDoWeProvideBg from "../../../public/DappAuditService/HowDoWeProvide.svg";
 import HowDoProvideSubItem from "./HowDoProvideSubItem";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const HowDoProvideBlock = () => {
   const queryClient = useQueryClient();
@@ -19,7 +23,8 @@ const HowDoProvideBlock = () => {
     <Styled.Wrapper>
       <Styled.SubtitleWrapper>
         <div>
-          <Subtitle>{data?.subtitle}</Subtitle>
+          <MobileInfiniteText title={data?.subtitle} withoutMargin />
+          <Subtitle className="mobileDissapear">{data?.subtitle}</Subtitle>
           {data && (
             <HowToProvideBlockItem
               number={1}
@@ -40,14 +45,10 @@ const HowDoProvideBlock = () => {
         )}
       </Styled.SubtitleWrapper>
       <Styled.BackgroundContainer>
-        <Styled.BgImageWrapper>
-          <Image
-            src={HowDoWeProvideBg.src}
-            layout="fill"
-            objectFit="contain"
-            alt="how do we provide bg image"
-          />
-        </Styled.BgImageWrapper>
+        <Styled.BgImage
+          src={HowDoWeProvideBg.src}
+          alt="how do we provide bg image"
+        />
         <Styled.SubContentWrapper>
           {data?.textBlock[0].subContent.map((item, idx) => (
             <HowDoProvideSubItem
@@ -57,6 +58,7 @@ const HowDoProvideBlock = () => {
             />
           ))}
         </Styled.SubContentWrapper>
+        <WrapperWithLine />
         {data && (
           <Styled.SecondSubtitleContainer>
             <HowToProvideBlockItem

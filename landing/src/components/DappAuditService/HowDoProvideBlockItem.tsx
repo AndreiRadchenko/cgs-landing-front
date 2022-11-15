@@ -20,7 +20,9 @@ const HowToProvideBlockItem = ({
       <Styled.ItemTitleContainer>
         <Styled.BigDigit>{number}</Styled.BigDigit>
         <Styled.OptionalContainer>
-          <Styled.ItemTitle>{title}</Styled.ItemTitle>
+          <Styled.ItemTitle className={optional ? "optional" : undefined}>
+            {title}
+          </Styled.ItemTitle>
           <Styled.OptionalText className={optional ? "optional" : undefined}>
             (Optional)
           </Styled.OptionalText>

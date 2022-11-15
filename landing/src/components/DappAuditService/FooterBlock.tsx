@@ -2,7 +2,10 @@ import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/DappAuditService/Footer.styled";
-import { Subtitle } from "../../styles/DappAuditService/Common.styled";
+import {
+  Subtitle,
+  WrapperWithLine,
+} from "../../styles/DappAuditService/Common.styled";
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
 import {
   ArrowContainer,
@@ -10,6 +13,7 @@ import {
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
 import Image from "next/image";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -19,9 +23,12 @@ const FooterBlock = () => {
 
   return (
     <Styled.ContentWrapper>
+      <WrapperWithLine />
       <div>
         <Styled.TitleWrapper>
-          <Subtitle>{data?.title}</Subtitle>
+          <Subtitle>
+            <SplitBrackets text={data?.title} />
+          </Subtitle>
         </Styled.TitleWrapper>
         <BlackButton
           padding={"1em 2.27em"}

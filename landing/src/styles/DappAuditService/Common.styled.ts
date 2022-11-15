@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksMobile};
+    margin-top: 0;
   }
 `;
 
@@ -60,7 +60,6 @@ export const Subtitle = styled.h3`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.webAuditSubtitleMobile};
-    margin-bottom: 1em;
     br {
       display: none;
     }
