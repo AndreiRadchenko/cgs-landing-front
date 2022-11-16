@@ -11,6 +11,10 @@ export const FaqContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     padding: 0;
+
+    &.privacy {
+      padding-bottom: 80px;
+    }
   }
 
   ul {

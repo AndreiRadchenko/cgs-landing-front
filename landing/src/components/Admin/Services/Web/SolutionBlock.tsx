@@ -23,7 +23,6 @@ const SolutionBlock = () => {
             name="solutionBlock.text"
             isBlog={false}
             onlyColor={true}
-            value={values.solutionBlock.text}
           />
         </div>
       </AdminHalfGrid>

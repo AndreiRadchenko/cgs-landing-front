@@ -162,6 +162,7 @@ export enum ROUTE_KEYS {
   AdminBlockchain = "AdminBlockchain",
   AdminPortfolio = "AdminPortfolio",
   AdminFaqPage = "AdminFaq",
+  AdminPrivacy = "AdminPrivacy",
   AdminAboutUs = "AdminAboutUs",
   AdminServiceMobile = "AdminServiceMobile",
   AdminServiceCloud = "AdminServiceCloud",
@@ -173,6 +174,7 @@ export enum ROUTE_KEYS {
   AdminCalculator = "AdminCalculator",
   AdminServiceMobileAudit = "AdminServiceMobileAudit",
   AdminServiceWebAudit = "AdminServiceWebAudit",
+  AdminServiceDappAudit = "AdminServiceDappAudit",
 }
 
 export enum FaqPageTypes {

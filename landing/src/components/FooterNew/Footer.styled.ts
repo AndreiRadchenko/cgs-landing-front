@@ -13,6 +13,7 @@ export const HeaderNavContainer = styled.div`
   border-top: 1px solid ${themes.primary.colors.headerBorder};
 
   @media ${themes.primary.media.maxMobile} {
+    justify-content: flex-end;
     height: 101px;
     flex-direction: column-reverse;
     background-color: ${themes.primary.colors.black};
@@ -23,8 +24,22 @@ export const HeaderNavContainer = styled.div`
 export const FlexRowContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 50%;
   transition: color 0;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-top: 12px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+`;
+
+export const Email = styled.a`
+  display: flex;
+  align-items: center;
+  margin-left: 17px;
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.email};
+  color: ${themes.primary.colors.primary};
 
   & span {
     transition: color 0.1s;
@@ -42,23 +57,12 @@ export const FlexRowContainer = styled.div`
     }
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    padding-top: 10px;
-    align-items: flex-start;
-    justify-content: center;
+  @media (max-width: 1280px) {
+    font-size: 14px;
   }
-`;
 
-export const Email = styled.a`
-  display: flex;
-  align-items: center;
-  margin-left: 17px;
-  font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.email};
-  color: ${themes.primary.colors.primary};
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 1em;
+  @media (max-width: 1110px) {
+    font-size: 12px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -73,22 +77,36 @@ export const EmailText = styled.span`
   line-height: 188%;
   margin-left: 11px;
 
+  @media (max-width: 1280px) {
+    margin-left: 9px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-left: 8.5px;
+    line-height: 250%;
   }
 `;
 
 export const LogoLinkWrapper = styled.a`
-  padding: 12px 3.315rem 13px;
   height: 56px;
+  width: 213px;
   display: flex;
   column-gap: 8px;
+  justify-content: center;
   align-items: center;
   max-width: 300px;
   border-right: 1px solid ${themes.primary.colors.headerBorder};
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    padding: 0.7rem 2.5rem;
+
+  @media (max-width: 1280px) {
+    height: 47px;
+    width: 177px;
   }
+
+  @media (max-width: 1110px) {
+    height: 39px;
+    width: 147px;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     padding: 0.5rem 1.5rem;
   }
@@ -97,6 +115,7 @@ export const LogoLinkWrapper = styled.a`
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
   }
+
   @media ${themes.primary.media.maxMobile} {
     display: none;
   }
@@ -150,10 +169,33 @@ export const ListItemNav = styled.a`
     width: 136px;
   }
 
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    &:nth-child(n) {
-      width: auto;
-      min-width: 130px;
+  @media (max-width: 1280px) {
+    &:nth-child(1) {
+      width: 130px;
+    }
+    &:nth-child(2) {
+      width: 135px;
+    }
+    &:nth-child(3) {
+      width: 150px;
+    }
+    &:nth-child(4) {
+      width: 113px;
+    }
+  }
+
+  @media (max-width: 1110px) {
+    &:nth-child(1) {
+      width: 109px;
+    }
+    &:nth-child(2) {
+      width: 113px;
+    }
+    &:nth-child(3) {
+      width: 125px;
+    }
+    &:nth-child(4) {
+      width: 94px;
     }
   }
 
@@ -173,15 +215,27 @@ export const NavList = styled.menu`
   margin: 0;
   display: flex;
   height: 56px;
+  padding-left: 19px;
+
   @media ${themes.primary.media.maxLaptop} {
     margin-right: 0;
   }
+
+  @media (max-width: 1280px) {
+    padding-left: 10px;
+    height: 49px;
+  }
+
+  @media (max-width: 1110px) {
+    height: 39px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     width: 170px;
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 0 0;
+    padding: 20px 0 0;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -209,6 +263,16 @@ export const MailIcon = styled.svg`
     color: blue;
   }
 
+  @media (max-width: 1280px) {
+    width: 20px;
+    height: 14px;
+  }
+
+  @media (max-width: 1110px) {
+    width: 17px;
+    height: 11px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     width: 18.33px;
     height: 12.47px;
@@ -223,6 +287,15 @@ export const FooterImageWrapper = styled.div`
   position: relative;
   width: 45px;
   height: 32px;
+
+  @media (max-width: 1280px) {
+    width: 22px;
+  }
+
+  @media (max-width: 1110px) {
+    font-size: 8.5px;
+    margin-left: 6px;
+  }
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 20px;
   }
@@ -243,5 +316,43 @@ export const FooterImageWrapper = styled.div`
       filter: invert(1);
       -webkit-filter: invert(1);
     }
+  }
+`;
+
+export const PrivacyPolicy = styled.a`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  color: ${themes.primary.colors.comment};
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    color: ${themes.primary.colors.darkBlue};
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1280px) {
+    margin-left: 15px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 1110px) {
+    font-size: 12px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
+`;
+
+export const MiddleTextWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  @media ${themes.primary.media.maxMobile} {
+    justify-content: center;
   }
 `;

@@ -2,7 +2,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { Formik } from "formik";
 import React from "react";
 import { queryKeys } from "../../../consts/queryKeys";
-import * as Styled from "../../../styles/AdminCalculator.styled";
+import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import {
   AdminHalfGrid,
   AdminUnauthorizedModal,

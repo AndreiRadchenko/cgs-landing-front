@@ -4,6 +4,10 @@ import themes from "../utils/themes";
 import { IFontSize } from "./HomePage/General.styled";
 import SortableList from "react-easy-sort";
 
+interface ITextEditorWrapperProps {
+  start?: number;
+}
+
 export const AdminWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 4.62fr;
@@ -27,8 +31,6 @@ export const AdminMainHeader = styled.div`
 `;
 
 export const AdminSidebar = styled.div`
-  position: sticky;
-  left: 0;
   background: ${themes.primary.colors.primary};
   justify-content: flex-start;
   width: 100%;
@@ -41,7 +43,6 @@ export const AdminSidebar = styled.div`
 
 export const AdminSidebarMenu = styled.ul`
   display: flex;
-  position: fixed;
   flex-direction: column;
   list-style: none;
   margin: 3.84em 0 0 0;
@@ -108,6 +109,7 @@ export const AdminTitleImageWrap = styled.div`
   padding: 18px 22px 18px 16px;
   background-color: ${themes.primary.colors.black};
   height: 4.67em;
+  width: 100%;
 
   &:hover {
     cursor: pointer;
@@ -121,6 +123,7 @@ export const AdminBlockTitle = styled.span`
   color: ${themes.primary.colors.secondary};
   font-family: ${themes.primary.font.family.namu};
   font-style: normal;
+  text-transform: uppercase;
   font-weight: 900;
   line-height: 99%;
   font-size: 1.5em;
@@ -823,9 +826,7 @@ export const TextEditorContainer = styled.div<{
     }
   }
 
-  background-color: #fff;
   resize: none;
-  min-height: 417px;
   height: auto;
   max-width: 1200px;
   width: 100%;
@@ -837,8 +838,6 @@ export const TextEditorContainer = styled.div<{
     outline: 1px solid gray;
   }
   &.faq {
-    width: 100%;
-    min-height: 180px;
     max-width: 100%;
     width: 100%;
   }
@@ -1294,4 +1293,56 @@ export const AdminLayout = styled.div`
 
 export const AdminHeaderPhotoWrapper = styled.div`
   width: 21%;
+`;
+
+export const TextEditorWrapper = styled.div<ITextEditorWrapperProps>`
+  color: ${themes.primary.colors.blogArticleText};
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 16px;
+  line-height: 160%;
+
+  & strong {
+    color: ${themes.primary.colors.primary};
+    -webkit-text-stroke: 0.3px ${themes.primary.colors.primary};
+  }
+
+  & a {
+    text-decoration: underline;
+  }
+
+  & ol {
+    margin: 0;
+    padding-left: 0;
+    & li {
+      margin-block: 16px;
+    }
+    & ol {
+      padding-left: 29px;
+      & ol {
+        padding-left: 40px;
+      }
+    }
+    & li::marker {
+      content: none;
+    }
+  }
+
+  & ol li:before {
+    content: counters(list-item, ".") ". ";
+  }
+`;
+
+export const NextButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+`;
+
+export const NextButton = styled.div`
+  font-size: 1.17em;
+  margin-bottom: 25px;
+  color: ${themes.primary.colors.darkBlue};
+  white-space: nowrap;
+  cursor: pointer;
 `;

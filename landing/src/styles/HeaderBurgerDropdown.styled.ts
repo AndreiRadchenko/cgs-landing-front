@@ -5,6 +5,7 @@ import { slideDown, slideUp } from "./Animations.styled";
 
 export const DropDownWrapper = styled.div`
   padding: 1.125rem 1.25rem;
+  display: block;
 
   & > div:first-child:hover {
     color: ${themes.primary.colors.darkBlue};

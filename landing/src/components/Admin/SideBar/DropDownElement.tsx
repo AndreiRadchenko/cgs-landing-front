@@ -23,6 +23,8 @@ const DropDownElement = ({
 
   const push = () => route && router.push(route);
 
+  const handleBlur = () => setIsShown(false);
+
   return (
     <Styled.AdminSidebarMenuElement
       itemProp={route}
@@ -32,6 +34,8 @@ const DropDownElement = ({
       <Styled.ListItemName
         className={isShown ? "open" : undefined}
         onClick={route ? push : onClick}
+        tabIndex={0}
+        onBlur={handleBlur}
       >
         <Icon open={isShown} />
         {value + " "}

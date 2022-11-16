@@ -12,21 +12,33 @@ interface IBlogDropdown {
 
 const HeaderDropdown = ({ tags, dropdownName, className }: IBlogDropdown) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const onBlur = () => {
-    setIsOpen(false);
-  };
+  const onBlur = () => setIsOpen(false);
 
-  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setIsOpen(!isOpen);
-    e.currentTarget.focus();
+  const onClick = () => {
+    setIsOpen((old) => !old);
   };
 
   const handleContentClick = () => setIsOpen(false);
+  const buttonClassName = () => {
+    if (isOpen && className) {
+      return `open ${className}`;
+    }
+
+    if (isOpen) {
+      return "open";
+    }
+
+    if (className) {
+      return className;
+    }
+  };
 
   return (
-    <Styled.Dropdown onBlur={onBlur} className={className}>
+    <Styled.Dropdown className={className}>
       <Styled.DropdownButton
-        className={isOpen ? `open ${className}` : className}
+        className={buttonClassName()}
+        onBlur={onBlur}
+        tabIndex={0}
         onClick={onClick}
       >
         <span>{dropdownName}</span>

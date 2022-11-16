@@ -49,6 +49,7 @@ const HeaderNavNew = (): JSX.Element => {
   }, [width, isOpen]);
 
   DisableScrollBarHandler(isOpen);
+
   return (
     <StyledThisComp.HeaderWrapper>
       <StyledThisComp.ClickAudio ref={audioRef}>
