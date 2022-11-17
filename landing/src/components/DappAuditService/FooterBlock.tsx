@@ -1,5 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
+import parse from "html-react-parser";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/DappAuditService/Footer.styled";
 import {
@@ -13,7 +14,6 @@ import {
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
 import Image from "next/image";
-import { SplitBrackets } from "../../utils/splitBrackets";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -27,7 +27,16 @@ const FooterBlock = () => {
       <div>
         <Styled.TitleWrapper>
           <Subtitle>
-            <SplitBrackets text={data?.title} />
+            {data &&
+              parse(
+                data.title
+                  .toLowerCase()
+                  .replaceAll("|", "<br/>")
+                  .replace(
+                    "cgs-team",
+                    '<span style="white-space: nowrap">cgs-team</span>'
+                  )
+              )}
           </Subtitle>
         </Styled.TitleWrapper>
         <BlackButton

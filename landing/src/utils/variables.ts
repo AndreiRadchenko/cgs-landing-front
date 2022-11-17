@@ -35,7 +35,7 @@ export const navigationRoutesLinks = {
   "UX/UI Design": "/services/ux-ui-design",
   "Mobile App Audit": "/services/mobile-audit",
   "Web Audit": "/services/web-audit",
-  "Dapp audit // Tokenomic planning": "/services/smart-contract-audit",
+  "Dapp Audit // Tokenomic Planning": "/services/smart-contract-audit",
   "About us": "/about-us",
   Careers: "/careers",
   FAQ: "/faq",
@@ -56,7 +56,7 @@ export const navigationRoutesNamesNew = [
       "UX/UI Design",
       "Web Audit",
       "Mobile App Audit",
-      "Dapp audit // Tokenomic planning",
+      "Dapp Audit // Tokenomic Planning",
     ],
   },
   {
