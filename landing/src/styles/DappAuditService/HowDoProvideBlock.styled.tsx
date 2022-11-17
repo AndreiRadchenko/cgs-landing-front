@@ -2,7 +2,16 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.div`
-  margin-block: ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks};
+  margin-block: calc(
+      2 * ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks}
+    )
+    ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks};
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-top: calc(
+      1.5 * ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks}
+    );
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-block: 6.25em 5.25em;
