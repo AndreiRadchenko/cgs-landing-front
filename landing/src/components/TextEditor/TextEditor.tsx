@@ -60,7 +60,7 @@ const TextEditor = ({
         ],
       }
     : {
-        font: ["NAMU"],
+        font: ["NAMU", "Open Sans"],
         linkRelDefault: {
           default: undefined,
           check_new_window: "nofollow",

@@ -45,6 +45,7 @@ export interface IBlockDropDownProps {
   style?: any;
   children: any;
   onNextClick?: () => void;
+  defaultOpen?: boolean;
 }
 
 export interface InputWithHeader extends InputPropsInterface {

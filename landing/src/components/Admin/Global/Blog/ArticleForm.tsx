@@ -24,9 +24,6 @@ interface IArticleForm {
   scrollHandler: () => void;
 }
 
-const META_TITLE_MAX = 60;
-const META_DESCRIPTION_MAX = 160;
-
 const ArticleForm = ({
   article,
   articles,
@@ -90,22 +87,6 @@ const ArticleForm = ({
     values: IArticle,
     { resetForm, setFieldValue }: FormikHelpers<IArticle>
   ) => {
-    if (values.meta.metaTitle === "") {
-      (values.meta.metaTitle =
-        values.title.length > META_TITLE_MAX
-          ? values.title.substring(0, META_TITLE_MAX)
-          : values.title),
-        values.title;
-    }
-
-    if (values.meta.metaDescription === "") {
-      (values.meta.metaDescription =
-        values.description.length > META_DESCRIPTION_MAX
-          ? values.description.substring(0, META_DESCRIPTION_MAX)
-          : values.description),
-        values.description;
-    }
-
     isNewArticle ? await postArticle(values) : await editArticle(values);
     if (views) {
       const updatedViews = views.find(
@@ -137,9 +118,6 @@ const ArticleForm = ({
 
     resetForm();
     setFieldValue("image", null);
-    setFieldValue("author.image", null);
-    setFieldValue("meta.metaTitle", "");
-    setFieldValue("meta.metaDescription", "");
     setArticle(0);
     setIsNewArticle(true);
   };

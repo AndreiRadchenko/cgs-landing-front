@@ -227,9 +227,10 @@ export interface IArticle {
   updatedOn: string;
   date: string;
   minutesToRead: number;
-  content: ITextBlog[];
+  content: string;
   tags: string[];
   disabled: boolean;
+  draft: boolean;
   meta: IMetaBlock;
 }
 
@@ -260,6 +261,11 @@ export interface ISwapData {
 
 export interface IBlogPageResponse {
   possibleTags: string[];
+  podcast: {
+    subtitle: string;
+    text: string;
+    link: string;
+  };
   meta: IMetaBlock;
 }
 export interface IView {

@@ -51,17 +51,13 @@ const AddTag = ({ possibleTags }: IAddTag) => {
   };
   return (
     <Styled.TagInputWrapper>
-      <Styled.TagInputWrapper>
-        <AdminInput
-          onChange={handleChange}
-          ref={ref}
-          width="280px"
-          height="56px"
-        />
-      </Styled.TagInputWrapper>
-      <Styled.TagInputSubmit onClick={handleClick}>
-        Add tag
-      </Styled.TagInputSubmit>
+      <AdminInput
+        onChange={handleChange}
+        ref={ref}
+        style={{ marginBottom: "0px" }}
+        placeholder="Add new tag"
+      />
+      <Styled.TagInputSubmit onClick={handleClick}>+</Styled.TagInputSubmit>
     </Styled.TagInputWrapper>
   );
 };

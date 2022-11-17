@@ -167,12 +167,8 @@ const PublishedArticles: FC<IArticles> = ({
 
   const ArticleItem = ({ item, i }: IArticleItem) => {
     return (
-      <BlogItem
-        isAdmin={true}
-        image={item.image?.url}
-        description={item.description}
-        title={item.title}
-      >
+      <BlogItem isAdmin item={item}>
+        {item.draft && <Styles.DraftMark>DRAFT</Styles.DraftMark>}
         <Styles.ChangeIcon
           src={
             isNewArticle

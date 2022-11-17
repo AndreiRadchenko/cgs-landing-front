@@ -189,7 +189,11 @@ export const AdminSubTitle = styled.h3<{ isBlog?: boolean; size?: string }>`
     props.size ? props.size : themes.primary.font.size.oneAndHalf};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  margin: ${(props) => (props.isBlog ? "30px 0 0.4em 0" : "0 0 10px 0")};
+  margin: 0 0 10px 0;
+
+  &.imageUploader {
+    margin-top: 22%;
+  }
 `;
 
 export const AdminComment = styled.p`
@@ -271,28 +275,20 @@ export const AdminInput = styled(TextareaAutosize)<{
   }
 `;
 
-interface IPhotoBlock {
-  maxWidth?: string;
-  maxHeight?: string;
-  minWidth?: string;
-  minHeight?: string;
-}
-
-export const AdminPhotoBlock = styled.div<IPhotoBlock>`
+export const AdminPhotoBlock = styled.div`
   border: 2px dashed ${themes.primary.colors.comment};
   display: flex;
-  justify-content: ${(props) =>
-    props.theme === "center" ? "center" : "space-between"};
+  justify-content: ${(props) => (props.theme ? props.theme : "space-between")};
   align-items: center;
   flex-direction: column;
   padding: ${themes.primary.spacing.primary};
   margin-bottom: ${themes.primary.spacing.primary};
   height: 100%;
-  margin-right: ${({ maxWidth }) => (maxWidth ? `20px` : "none")};
-  min-width: ${({ minWidth }) => (minWidth ? minWidth : "none")};
-  min-height: ${({ minHeight }) => (minHeight ? minHeight : "none")};
-  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}` : "none")};
-  max-height: ${({ maxHeight }) => (maxHeight ? `${maxHeight}` : "none")};
+
+  &.author {
+    flex-direction: row;
+    justify-content: center;
+  }
 
   &.about {
     height: 390px;
@@ -306,16 +302,35 @@ export const AdminPhotoGrid = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+
   &.fullWidth {
     width: 90%;
+  }
+
+  &.author {
+    cursor: pointer;
+    justify-content: flex-start;
+    width: 100%;
+    height: 80px;
   }
 `;
 
 export const AdminDashedPositionGrid = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  justify-content: flex-end;
+  margin-top: 22%;
+
+  &.uploaded {
+    margin-top: 0;
+  }
+
+  &.author {
+    margin-left: 18px;
+    margin-top: 0;
+    align-items: flex-start;
+  }
 `;
 
 export const AdminDeleteText = styled.h6`
@@ -928,11 +943,9 @@ export const Subtitle = styled.div`
 `;
 
 export const TagContainer = styled.div`
-  margin-top: 40px;
-  gap: 40px;
-  flex-direction: row;
+  flex-direction: column;
   display: flex;
-  align-items: center;
+  justify-content: center;
 `;
 
 export const Counter = styled.span`
@@ -1349,4 +1362,12 @@ export const NextButton = styled.div`
   color: ${themes.primary.colors.darkBlue};
   white-space: nowrap;
   cursor: pointer;
+`;
+
+export const AuthorPhotoGrid = styled.div`
+  display: flex;
+`;
+
+export const AuthorPhotoTextWrapper = styled.div`
+  margin-left: 18px;
 `;
