@@ -40,7 +40,7 @@ const PodcastForm = () => {
                 inputValue={values.podcast.link}
                 name="podcast.link"
                 onChangeFunction={handleChange}
-                header="Download track"
+                header="Track link"
               />
             </div>
           </PodcastGrid>
@@ -50,7 +50,7 @@ const PodcastForm = () => {
             padding={"1em 3.25em"}
             onClick={() => handleSubmit()}
           >
-            Save changes
+            Add to podcast
             <ArrowContainer>
               <ButtonArrow />
             </ArrowContainer>

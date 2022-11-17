@@ -141,6 +141,7 @@ const PublishedArticles: FC<IArticles> = ({
     if (data) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const publishArticle = data[i];
+      publishArticle.draft = false;
       publishArticle.disabled = false;
       await updateArticle(publishArticle);
     }

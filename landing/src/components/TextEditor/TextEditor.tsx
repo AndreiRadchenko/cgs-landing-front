@@ -3,6 +3,7 @@ import { Field } from "formik";
 import * as Styled from "../../styles/AdminPage";
 import dynamic from "next/dynamic";
 import "suneditor/dist/css/suneditor.min.css";
+import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
@@ -13,6 +14,7 @@ interface ITextEditorProps {
   name: string;
   isBlog?: boolean;
   onlyColor?: boolean;
+  props?: SunEditorReactProps;
 }
 
 const TextEditor = ({
@@ -20,6 +22,7 @@ const TextEditor = ({
   isBlog = false,
   header,
   onlyColor,
+  props,
 }: ITextEditorProps) => {
   const options = onlyColor
     ? {
@@ -94,6 +97,7 @@ const TextEditor = ({
               onChange={field.onChange(field.name)}
               lang="en"
               setOptions={options}
+              {...props}
             />
           )}
         </Field>

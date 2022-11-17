@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PhotoBlockDashed from "../PhotoBlockDashed";
 import SubHeaderWithInput from "../SubHeaderWithInput";
 import BlogTags from "./BlogTags";
+import Gist from "react-gist";
 
 import * as Styles from "../../../../styles/AdminBlogPage";
 import * as Styled from "../../../../styles/AdminPage";
@@ -56,8 +57,10 @@ const ArticleAddAndEdit = ({
     setTitleLength(values.title.length);
   }, [isNewArticle, values]);
 
-  const handleDescInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDescLength(e.target.value.length);
+  const handleDescInput = (e: InputEvent) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (e.target) setDescLength(e.target.innerText.length);
   };
 
   const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,6 +108,7 @@ const ArticleAddAndEdit = ({
   return (
     <>
       <Styled.AdminBlocksContent ref={ref}>
+        <Gist id="b4b43eb9d4be84387d0c09e21dacfe93" />
         <Styled.AdminHeader>BLOG</Styled.AdminHeader>
         <AdminBlockDropDown title="Add Article" defaultOpen={!isNewArticle}>
           <Styles.AdminBlogGrid>
@@ -121,53 +125,6 @@ const ArticleAddAndEdit = ({
             </div>
             <Styles.ArticleInputsWrapper style={{ marginLeft: "40px" }}>
               <SubHeaderWithInput
-                onInputFunction={handleTitle}
-                inputValue={values.title}
-                onChangeFunction={handleChange}
-                name="title"
-                header="Title"
-                placeholder="title"
-              />
-              <Styles.Text>
-                <Styles.Message>
-                  {(titleLength > TITLE_MAX || titleLength < TITLE_MIN) &&
-                    "Title should be between 10 and 60 characters"}
-                </Styles.Message>
-                <Styles.Counter
-                  className={
-                    titleLength > TITLE_MAX || titleLength < TITLE_MIN
-                      ? "error"
-                      : undefined
-                  }
-                >
-                  {titleLength}
-                </Styles.Counter>
-              </Styles.Text>
-              <SubHeaderWithInput
-                onInputFunction={handleDescInput}
-                inputValue={values.description}
-                onChangeFunction={handleChange}
-                name="description"
-                header="Description"
-                placeholder="description"
-              />
-              <Styles.Text>
-                <Styles.Message>
-                  {(descLength > DESCRIPTION_MAX ||
-                    descLength < DESCRIPTION_MIN) &&
-                    "Description should be between 20 and 160 characters"}
-                </Styles.Message>
-                <Styles.Counter
-                  className={
-                    descLength > DESCRIPTION_MAX || descLength < DESCRIPTION_MIN
-                      ? "error"
-                      : undefined
-                  }
-                >
-                  {descLength}
-                </Styles.Counter>
-              </Styles.Text>
-              <SubHeaderWithInput
                 inputValue={values.author.name}
                 onChangeFunction={handleChange}
                 name="author.name"
@@ -180,6 +137,20 @@ const ArticleAddAndEdit = ({
                 name="url"
                 header="Url"
                 placeholder="Url"
+              />
+              <InputWithType
+                type="date"
+                value={values.date}
+                onChange={handleChange}
+                name="date"
+                header="Date"
+              />
+              <InputWithType
+                type="date"
+                value={values.updatedOn}
+                onChange={handleChange}
+                name="updatedOn"
+                header="Updated On"
               />
               <AuthorPhotoDashed
                 photo={values.author.image}
@@ -197,21 +168,6 @@ const ArticleAddAndEdit = ({
               />
             </Styles.ArticleInputsWrapper>
             <Styles.ArticleInputsWrapper style={{ marginLeft: "24px" }}>
-              <InputWithType
-                type="date"
-                value={values.date}
-                onChange={handleChange}
-                name="date"
-                header="Date"
-              />
-              <InputWithType
-                type="date"
-                value={values.updatedOn}
-                onChange={handleChange}
-                name="updatedOn"
-                header="Updated On"
-              />
-
               <SubHeaderWithInput
                 inputValue={values.author.specialization}
                 onChangeFunction={handleChange}
@@ -233,7 +189,86 @@ const ArticleAddAndEdit = ({
               <BlogTags possibleTags={possibleTags} />
             </Styles.ArticleInputsWrapper>
           </Styles.AdminBlogGrid>
-          <TextEditor header="Text" name="content" />
+          <SubHeaderWithInput
+            onInputFunction={handleTitle}
+            inputValue={values.title}
+            onChangeFunction={handleChange}
+            name="title"
+            header="Title"
+            placeholder="title"
+          />
+          <Styles.Text>
+            <Styles.Message>
+              {(titleLength > TITLE_MAX || titleLength < TITLE_MIN) &&
+                "Title should be between 10 and 60 characters"}
+            </Styles.Message>
+            <Styles.Counter
+              className={
+                titleLength > TITLE_MAX || titleLength < TITLE_MIN
+                  ? "error"
+                  : undefined
+              }
+            >
+              {titleLength}
+            </Styles.Counter>
+          </Styles.Text>
+          <TextEditor
+            header="Description"
+            name="description"
+            props={{ onInput: handleDescInput }}
+          />
+          <Styles.Text>
+            <Styles.Message>
+              {(descLength > DESCRIPTION_MAX || descLength < DESCRIPTION_MIN) &&
+                "Description should be between 20 and 160 characters"}
+            </Styles.Message>
+            <Styles.Counter
+              className={
+                descLength > DESCRIPTION_MAX || descLength < DESCRIPTION_MIN
+                  ? "error"
+                  : undefined
+              }
+            >
+              {descLength}
+            </Styles.Counter>
+          </Styles.Text>
+          <TextEditor
+            header="Text"
+            name="content"
+            props={{
+              setOptions: {
+                font: ["NAMU", "Open Sans"],
+                linkRelDefault: {
+                  default: undefined,
+                  check_new_window: "nofollow noopener",
+                },
+                buttonList: [
+                  [
+                    "formatBlock",
+                    "font",
+                    "fontSize",
+                    "fontColor",
+                    "align",
+                    "paragraphStyle",
+                    "blockquote",
+                  ],
+                  [
+                    "bold",
+                    "underline",
+                    "italic",
+                    "strike",
+                    "subscript",
+                    "superscript",
+                  ],
+                  ["removeFormat"],
+                  ["outdent", "indent"],
+                  ["list"],
+                  ["codeView"],
+                  ["link", "image", "video"],
+                ],
+              },
+            }}
+          />
         </AdminBlockDropDown>
       </Styled.AdminBlocksContent>
       <Styled.MetaBlockWraper>

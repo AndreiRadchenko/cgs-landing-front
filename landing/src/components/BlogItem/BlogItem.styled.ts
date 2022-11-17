@@ -5,7 +5,7 @@ interface IAdmin {
   isAdmin?: boolean;
 }
 
-export const BlogItemDescription = styled.p<IAdmin>`
+export const BlogItemDescription = styled.div<IAdmin>`
   max-width: ${(props) => (props.isAdmin ? "430px" : "500px")};
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.normal};

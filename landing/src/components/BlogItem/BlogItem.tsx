@@ -2,7 +2,6 @@ import React from "react";
 import parse from "html-react-parser";
 import * as Styles from "./BlogItem.styled";
 import { IArticle } from "../../types/Admin/Response.types";
-import TagItem from "../Admin/Global/Blog/TagItem";
 
 interface IBlogItemProps {
   item: IArticle;
@@ -30,7 +29,7 @@ const BlogItem = ({ isAdmin = false, children, item }: IBlogItemProps) => {
           <strong>Updated on</strong>
           {` ${date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}.${
             date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth()
-          }.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`}{" "}
+          }.${date.getFullYear()}`}{" "}
         </span>
       );
     }
@@ -54,8 +53,8 @@ const BlogItem = ({ isAdmin = false, children, item }: IBlogItemProps) => {
             <Styles.BlogItemTitle isAdmin={isAdmin}>
               {item.title}
             </Styles.BlogItemTitle>
-            <Styles.BlogItemDescription isAdmin={isAdmin}>
-              {item.description}
+            <Styles.BlogItemDescription isAdmin={isAdmin} className="admin">
+              {parse(item.description)}
             </Styles.BlogItemDescription>
           </Styles.BlogItemInfo>
           <Styles.BlogItemImage

@@ -6,7 +6,15 @@ import PlayTriangle from "../../../public/BlogDecorations/Podcast/PlayTriangle.s
 import StopButton from "../../../public/StopButton.svg";
 import ReactPlayer from "react-player";
 
-const PodcastItem = () => {
+interface IPodcastItemProps {
+  data: {
+    subtitle: string;
+    text: string;
+    link: string;
+  };
+}
+
+const PodcastItem = ({ data }: IPodcastItemProps) => {
   const [playbackRate, setPlaybackRate] = useState(1);
   const [playing, setPlaying] = useState(false);
   const [seeking, setSeeking] = useState(false);
@@ -69,7 +77,7 @@ const PodcastItem = () => {
         style={{ display: "none", opacity: "0" }}
         ref={playerRef}
         controls
-        url="https://www.youtube.com/watch?v=gYkACVDFmeg"
+        url={data.link}
         playbackRate={playbackRate}
         playing={playing}
         played={0.5}
@@ -84,10 +92,7 @@ const PodcastItem = () => {
           <Styled.PodcastCard>
             <Styled.LoopContainer>
               <Styled.LoopText>
-                <span>
-                  Tune in to up-to-date content about technologies and the IT
-                  industry.
-                </span>
+                <span>{data.subtitle}</span>
               </Styled.LoopText>
             </Styled.LoopContainer>
             <Styled.Track>
@@ -142,14 +147,8 @@ const PodcastItem = () => {
               </div>
             </Styled.PlayTag>
           </Styled.FlexRowContainer>
-          <Styled.PodcastTitle>
-            Tune in to up-to-date content about technologies and the IT
-            industry.
-          </Styled.PodcastTitle>
-          <Styled.PodcastDescription>
-            If mobile, blockchain, and web development sounds like music to your
-            ears, be sure you’ve just found your future fav blog
-          </Styled.PodcastDescription>
+          <Styled.PodcastTitle>{data.subtitle}</Styled.PodcastTitle>
+          <Styled.PodcastDescription>{data.text}</Styled.PodcastDescription>
         </Styled.FlexColumnContainer>
       </Styled.PodcastContainer>
     </>

@@ -167,6 +167,15 @@ export const AdminBlocksContent = styled.div`
   margin-left: 2.5em;
   margin-right: 3.75em;
   font-family: ${themes.primary.font.family.namu};
+
+  & .sun-editor-editable,
+  & .sun-editor {
+    background-color: transparent;
+  }
+
+  & .sun-editor {
+    border: 1px solid ${themes.primary.colors.adminInputBorder} !important;
+  }
 `;
 
 export const MetaBlockWraper = styled.div`
@@ -807,27 +816,9 @@ export const TextEditorContainer = styled.div<{
   height?: string;
   width?: string;
 }>`
-  & div.se-dialog-form-footer label:first-child {
-    visibility: hidden;
-
-    & input {
-      visibility: visible;
-    }
-
-    &::after {
-      position: absolute;
-      left: 30px;
-      content: "Open link in new window and make nofolow";
-      visibility: visible;
-    }
-  }
-
-  & div.se-dialog-form-footer label:nth-child(2) {
-    visibility: hidden;
-  }
   & div.se-wrapper-inner {
     font-size: ${themes.primary.font.size.primary};
-    font-family: ${themes.primary.font.family.mulish};
+    font-family: ${themes.primary.font.family.openSans};
   }
   & div.se-wrapper-inner.se-wrapper-inner ul {
     list-style-type: none;
@@ -841,7 +832,6 @@ export const TextEditorContainer = styled.div<{
     }
   }
 
-  background-color: #fff;
   resize: none;
   min-height: 417px;
   height: auto;
