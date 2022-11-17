@@ -108,7 +108,6 @@ const ArticleAddAndEdit = ({
   return (
     <>
       <Styled.AdminBlocksContent ref={ref}>
-        <Gist id="b4b43eb9d4be84387d0c09e21dacfe93" />
         <Styled.AdminHeader>BLOG</Styled.AdminHeader>
         <AdminBlockDropDown title="Add Article" defaultOpen={!isNewArticle}>
           <Styles.AdminBlogGrid>

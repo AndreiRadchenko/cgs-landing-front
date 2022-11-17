@@ -2,9 +2,10 @@ import React from "react";
 
 interface ISplitBracketsProps {
   text?: string;
+  logo?: boolean;
 }
 
-export const SplitBrackets = ({ text }: ISplitBracketsProps) => {
+export const SplitBrackets = ({ text, logo }: ISplitBracketsProps) => {
   const splited = text?.split("|");
 
   return (

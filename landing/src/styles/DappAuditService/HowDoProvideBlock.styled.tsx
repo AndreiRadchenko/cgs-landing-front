@@ -2,16 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.div`
-  margin-block: calc(
-      2 * ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks}
-    )
-    ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks};
-
-  @media ${themes.primary.media.minPCFullHD} {
-    margin-bottom: calc(
-      2.5 * ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks}
-    );
-  }
+  margin-block: ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks};
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-block: 6.25em 5.25em;
@@ -20,6 +11,10 @@ export const Wrapper = styled.div`
 
 export const ItemContainer = styled.div`
   z-index: 2;
+
+  &.first {
+    margin-top: 1.3em;
+  }
 
   @media (min-width: 1650px) {
     font-size: 1.1em;
@@ -154,12 +149,8 @@ export const ImageWrapper = styled.div`
 export const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 723px;
+  height: auto;
   margin-top: ${themes.primary.spacing.tertiary};
-
-  @media ${themes.primary.media.minPC} {
-    height: 800px;
-  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 600px;

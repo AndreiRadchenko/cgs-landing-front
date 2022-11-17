@@ -176,6 +176,15 @@ export const AdminBlocksContent = styled.div`
   & .sun-editor {
     border: 1px solid ${themes.primary.colors.adminInputBorder} !important;
   }
+
+  & .gist {
+    width: 500px !important;
+  }
+
+  & .gist-file .gist-data {
+    max-height: 500px;
+    max-width: 500px;
+  }
 `;
 
 export const MetaBlockWraper = styled.div`
