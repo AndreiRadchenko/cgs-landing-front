@@ -176,6 +176,10 @@ export const BgImage = styled.img`
   left: -51px;
   width: 100vw;
 
+  @media (min-width: 2560px) {
+    width: 100%;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     display: none;
   }
