@@ -57,6 +57,10 @@ export const Email = styled.a`
     }
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.25em;
+  }
+
   @media (max-width: 1280px) {
     font-size: 14px;
   }
@@ -76,6 +80,10 @@ export const Email = styled.a`
 export const EmailText = styled.span`
   line-height: 188%;
   margin-left: 11px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-left: 15px;
+  }
 
   @media (max-width: 1280px) {
     margin-left: 9px;
@@ -217,6 +225,10 @@ export const NavList = styled.menu`
   height: 56px;
   padding-left: 19px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    padding-left: 25px;
+  }
+
   @media ${themes.primary.media.maxLaptop} {
     margin-right: 0;
   }
@@ -261,6 +273,11 @@ export const MailIcon = styled.svg`
   & path {
     stroke: ${themes.primary.colors.primary};
     color: blue;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 37px;
+    height: 29px;
   }
 
   @media (max-width: 1280px) {
@@ -331,6 +348,10 @@ export const PrivacyPolicy = styled.a`
   &:active {
     color: ${themes.primary.colors.darkBlue};
     text-decoration: underline;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.25em;
   }
 
   @media (max-width: 1280px) {
