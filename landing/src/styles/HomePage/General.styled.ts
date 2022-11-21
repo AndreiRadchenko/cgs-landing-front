@@ -810,11 +810,11 @@ export const WhatsAppText = styled.a`
   display: flex;
   margin-left: 0.666em;
   column-gap: 0.1666em;
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-size: 1.2857em;
   color: ${themes.primary.colors.darkBlue};
 `;
 
 export const WhatsAppIconWrapper = styled.div`
-  width: 0.666em;
-  height: 0.666em;
+  width: 0.78em;
+  height: 0.78em;
 `;
