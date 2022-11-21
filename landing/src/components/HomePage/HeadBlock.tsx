@@ -81,7 +81,7 @@ const HeadBlock = () => {
           </Styled.ArrowContainer>
         </Styled.BlackButton>
         <Styled.WhatsAppTextWrapper>
-          or text us via
+          or contact via
           <Styled.WhatsAppText
             href={data?.whatsAppLink}
             target="_blank"
