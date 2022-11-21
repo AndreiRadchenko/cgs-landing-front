@@ -67,7 +67,6 @@ export default class MyDocument extends Document {
           ></link>
           {/* eslint-disable-next-line @next/next/next-script-for-ga */}
           <script
-            async
             id="google-tag-manager"
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
