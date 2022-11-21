@@ -85,7 +85,7 @@ export const ItemTitle = styled.h4`
 export const OptionalContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 0.625em;
+  margin-left: 1.375em;
   margin-top: 7px;
   position: relative;
   top: 13px;
@@ -144,6 +144,11 @@ export const ImageWrapper = styled.div`
   height: 280px;
   width: 562px;
   margin-right: 3.5625em;
+
+  @media (min-width: 2200px) {
+    height: 380px;
+    width: 662px;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 180px;
@@ -224,6 +229,10 @@ export const SubContentWrapper = styled.div`
 
   @media (min-width: 2400px) {
     margin-inline: 7em 10em;
+  }
+
+  @media (min-width: 2560px) {
+    margin-inline: 6% 16%;
   }
 
   @media (max-width: 1400px) {
