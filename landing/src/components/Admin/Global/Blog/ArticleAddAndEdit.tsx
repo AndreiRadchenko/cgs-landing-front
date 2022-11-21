@@ -23,6 +23,10 @@ import {
 } from "../../../../styles/HomePage/General.styled";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 import TextEditor from "../../../TextEditor/TextEditor";
+import { useMutation } from "@tanstack/react-query";
+import { queryKeys } from "../../../../consts/queryKeys";
+import { adminGlobalService } from "../../../../services/adminHomePage";
+import { articleIntroPlugin } from "./customArticleIntroPlugin";
 
 interface IAddAndEdit {
   article: number;
@@ -48,6 +52,63 @@ const ArticleAddAndEdit = ({
   const [descLength, setDescLength] = useState(0);
   const [titleLength, setTitleLength] = useState(0);
   const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
+  const { mutateAsync } = useMutation([queryKeys.uploadImage], (data: any) =>
+    adminGlobalService.uploadImage(data)
+  );
+
+  const handleImageUploadBefore = (
+    files: File[],
+    info: object,
+    uploadHandler: any
+  ) => {
+    const formData = new FormData();
+    formData.append("image", files[0], files[0].name);
+    mutateAsync(formData).then((img) => {
+      const response = {
+        result: [
+          {
+            url: img?.url,
+            name: "Imagename",
+            size: "4096",
+          },
+        ],
+      };
+
+      uploadHandler(response);
+    });
+  };
+
+  const textEditorProps = {
+    onImageUploadBefore: handleImageUploadBefore,
+    setOptions: {
+      font: ["NAMU", "Open Sans"],
+      linkRelDefault: {
+        default: undefined,
+        check_new_window: "nofollow noopener",
+      },
+      plugins: [articleIntroPlugin],
+      // plugins: [custom_plugin],
+      buttonList: [
+        ["articleIntro"],
+        ["undo", "redo"],
+        [
+          "formatBlock",
+          "font",
+          "fontSize",
+          "fontColor",
+          "align",
+          "paragraphStyle",
+          "blockquote",
+        ],
+        ["bold", "underline", "italic", "strike", "subscript", "superscript"],
+        ["removeFormat"],
+        ["outdent", "indent"],
+        ["list"],
+        ["link", "image", "video"],
+        ["codeView"],
+      ],
+    },
+  };
 
   const { values, handleSubmit, handleChange, resetForm } =
     useFormikContext<IArticle>();
@@ -111,14 +172,13 @@ const ArticleAddAndEdit = ({
         <Styled.AdminHeader>BLOG</Styled.AdminHeader>
         <AdminBlockDropDown title="Add Article" defaultOpen={!isNewArticle}>
           <Styles.AdminBlogGrid>
-            <div style={{ width: "235px", height: "249px" }}>
+            <div style={{ width: "100%", maxHeight: "249px" }}>
               <Styles.AdminSubTitle>Banner</Styles.AdminSubTitle>
               <PhotoBlockDashed
                 photo={values.image}
                 deleteFlag={true}
                 uploadFunction={uploadBannerFunc}
                 deleteFunction={deleteBannerFunc}
-                horizontalFlex={true}
                 header="Drop new image here"
               />
             </div>
@@ -231,43 +291,7 @@ const ArticleAddAndEdit = ({
               {descLength}
             </Styles.Counter>
           </Styles.Text>
-          <TextEditor
-            header="Text"
-            name="content"
-            props={{
-              setOptions: {
-                font: ["NAMU", "Open Sans"],
-                linkRelDefault: {
-                  default: undefined,
-                  check_new_window: "nofollow noopener",
-                },
-                buttonList: [
-                  [
-                    "formatBlock",
-                    "font",
-                    "fontSize",
-                    "fontColor",
-                    "align",
-                    "paragraphStyle",
-                    "blockquote",
-                  ],
-                  [
-                    "bold",
-                    "underline",
-                    "italic",
-                    "strike",
-                    "subscript",
-                    "superscript",
-                  ],
-                  ["removeFormat"],
-                  ["outdent", "indent"],
-                  ["list"],
-                  ["codeView"],
-                  ["link", "image", "video"],
-                ],
-              },
-            }}
-          />
+          <TextEditor header="Text" name="content" props={textEditorProps} />
         </AdminBlockDropDown>
       </Styled.AdminBlocksContent>
       <Styled.MetaBlockWraper>

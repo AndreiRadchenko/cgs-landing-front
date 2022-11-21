@@ -12,10 +12,6 @@ const PhotoBlockDashed = ({
   header = "Drop new image here",
   deleteFunction,
   uploadFunction,
-  minWidth,
-  minHeight,
-  maxWidth,
-  maxHeight,
   className,
   style,
 }: IPhotoBlock) => {

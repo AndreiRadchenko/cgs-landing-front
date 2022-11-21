@@ -76,6 +76,27 @@ export const Description = styled.p`
   p {
     margin-top: 15px;
   }
+  & > div > figure {
+    position: relative;
+
+    & > iframe {
+      position: absolute;
+      height: 100%;
+      top: 0;
+    }
+  }
+
+  & blockquote {
+    margin: 0;
+    border-left: 4px solid ${themes.primary.colors.blogArticleText};
+    color: ${themes.primary.colors.blogArticleText};
+    padding-left: 10px;
+    font-size: 1.444em;
+    font-style: italic;
+    font-weight: ${themes.primary.font.weight.bold};
+    line-height: 160%;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     p {
       margin-top: 1.25em;
