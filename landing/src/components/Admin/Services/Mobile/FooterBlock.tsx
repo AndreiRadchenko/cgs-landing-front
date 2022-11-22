@@ -17,7 +17,6 @@ const FooterBlock = () => {
     <AdminPaddedBlock>
       <AdminHalfGrid>
         <div>
-          {" "}
           <SubHeaderWithInput
             header="Subtitle"
             name="footerBlock.title"

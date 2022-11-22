@@ -15,7 +15,7 @@ import WebPros from "../../components/WebService/WebPros";
 import SolutionBlock from "../../components/WebService/SolutionBlock";
 import PerksBlock from "../../components/WebService/PerksBlock";
 import FooterBlock from "../../components/WebService/FooterBlock";
-import { Layout } from "../../styles/Layout.styled";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
@@ -53,27 +53,29 @@ const WebDevelopment: NextPage = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Layout>
-        <Styled.Layout>
-          <HeadBlock />
-          <WebPros />
-          <WhyIsWebAMust />
-          <SolutionBlock
-            className={
-              data && data?.projects.length === 0
-                ? "withoutShowcase"
-                : undefined
-            }
-          />
-        </Styled.Layout>
-      </Layout>
-      <ShowCase projects={data?.projects} />
-      <Layout>
-        <Styled.Layout>
-          <PerksBlock />
-          <FooterBlock />
-        </Styled.Layout>
-      </Layout>
+      <PageArticle>
+        <Layout>
+          <Styled.Layout>
+            <HeadBlock />
+            <WebPros />
+            <WhyIsWebAMust />
+            <SolutionBlock
+              className={
+                data && data?.projects.length === 0
+                  ? "withoutShowcase"
+                  : undefined
+              }
+            />
+          </Styled.Layout>
+        </Layout>
+        <ShowCase projects={data?.projects} />
+        <Layout>
+          <Styled.Layout>
+            <PerksBlock />
+            <FooterBlock />
+          </Styled.Layout>
+        </Layout>
+      </PageArticle>
       <FooterNew />
     </>
   );

@@ -257,7 +257,7 @@ export const LongArrowWrapper = styled.div`
   }
 `;
 
-export const HeadBlockContent = styled.div`
+export const HeadBlockContent = styled.header`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -309,7 +309,8 @@ export const TetrisGroup = styled.g<{ coinsTranslate: string }>`
   transform: ${({ coinsTranslate }) => coinsTranslate};
 `;
 
-export const HeadBlockRow = styled(RowContainer)`
+export const HeadBlockRow = styled.section`
+  display: flex;
   margin-top: 38px;
   width: 100%;
 
@@ -483,7 +484,7 @@ export const Subtitle = styled.div`
   }
 `;
 
-export const NextTech = styled.div`
+export const NextTech = styled.section`
   margin-top: 24.5em;
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -850,3 +851,5 @@ export const WhatsAppIconWrapper = styled.div`
   width: 0.78em;
   height: 0.78em;
 `;
+
+export const FooterSection = styled.section``;

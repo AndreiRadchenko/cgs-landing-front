@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   margin-block: calc(
       2 * ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks}
     )

@@ -9,7 +9,7 @@ import { adminWebAuditService } from "../../services/services/adminServiceWebAud
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import HeadBlock from "../../components/WebAuditService/HeadBlock";
-import { Layout } from "../../styles/Layout.styled";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
 import WhatIsAuditBlock from "../../components/WebAuditService/WhatIsAuditBlock";
 import WhichProblemBlock from "../../components/WebAuditService/WhichProblemBlock";
 import TypesOfAuditBlock from "../../components/WebAuditService/TypesOfAuditBlock";
@@ -55,21 +55,23 @@ const WebAuditPage: NextPage = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Layout>
-        <HeadBlock />
-        <WhatIsAuditBlock />
-        <WhichProblemBlock />
-        <TypesOfAuditBlock />
-        {data?.projects ? (
-          <ShowcaseLayoutIgnore>
-            <ShowCase projects={data?.projects} />
-          </ShowcaseLayoutIgnore>
-        ) : (
-          <ShowcaseWithoutDataSpacing />
-        )}
-        <HowToDoBlock />
-        <ProfessionalAuditBlock />
-      </Layout>
+      <PageArticle>
+        <Layout>
+          <HeadBlock />
+          <WhatIsAuditBlock />
+          <WhichProblemBlock />
+          <TypesOfAuditBlock />
+          {data?.projects ? (
+            <ShowcaseLayoutIgnore>
+              <ShowCase projects={data?.projects} />
+            </ShowcaseLayoutIgnore>
+          ) : (
+            <ShowcaseWithoutDataSpacing />
+          )}
+          <HowToDoBlock />
+          <ProfessionalAuditBlock />
+        </Layout>
+      </PageArticle>
       <FooterNew />
     </>
   );

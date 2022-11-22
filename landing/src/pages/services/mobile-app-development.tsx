@@ -14,7 +14,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminMobileService } from "../../services/services/adminServicesMobilePage";
 import Head from "next/head";
-import { Layout } from "../../styles/Layout.styled";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
 import { LocalLayout } from "../../styles/MobileService/Layout";
 import ShowCase from "../../components/ShowCase";
 
@@ -48,25 +48,29 @@ const MobileAppDevelopment: NextPage = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Layout>
-        <LocalLayout>
-          <HeadBlock />
-          <WorthIt />
-          <StrongBlock />
-          <WhoNeedAppBlock
-            className={
-              data && data.projects.length === 0 ? "withoutShowcase" : undefined
-            }
-          />
-        </LocalLayout>
-      </Layout>
-      <ShowCase projects={data?.projects} />
-      <Layout>
-        <LocalLayout>
-          <HowDoWeWork />
-          <ProfBlock />
-        </LocalLayout>
-      </Layout>
+      <PageArticle>
+        <Layout>
+          <LocalLayout>
+            <HeadBlock />
+            <WorthIt />
+            <StrongBlock />
+            <WhoNeedAppBlock
+              className={
+                data && data.projects.length === 0
+                  ? "withoutShowcase"
+                  : undefined
+              }
+            />
+          </LocalLayout>
+        </Layout>
+        <ShowCase projects={data?.projects} />
+        <Layout>
+          <LocalLayout>
+            <HowDoWeWork />
+            <ProfBlock />
+          </LocalLayout>
+        </Layout>
+      </PageArticle>
       <FooterNew />
     </>
   );

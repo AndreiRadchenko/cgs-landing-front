@@ -150,7 +150,7 @@ export const BurgerLinkText = styled.p`
   }
 `;
 
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.nav`
   padding-bottom: 56px;
 
   @media ${themes.primary.media.maxMobile} {

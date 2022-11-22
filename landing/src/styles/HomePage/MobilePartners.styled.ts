@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   display: none;
   @media ${themes.primary.media.maxMobile} {
     display: flex;

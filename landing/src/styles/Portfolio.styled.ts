@@ -6,7 +6,7 @@ export const PortfolioContainer = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
 `;
 
-export const OurWorkTitle = styled.div`
+export const OurWorkTitle = styled.header`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.ourWorkText};
@@ -56,7 +56,7 @@ export const LinkButton = styled.button`
   }
 `;
 
-export const SlidersCont = styled.div`
+export const SlidersCont = styled.article`
   margin-bottom: 200px;
 
   @media ${themes.primary.media.maxMobile} {

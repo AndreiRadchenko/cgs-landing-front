@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const FaqContainer = styled.div`
+export const FaqContainer = styled.article`
   padding: 77px 22% 200px 50px;
 
   background-color: ${themes.primary.colors.blogBackground};
@@ -36,7 +36,7 @@ export const FaqContainer = styled.div`
   }
 `;
 
-export const BottomDecorWrap = styled.div`
+export const BottomDecorWrap = styled.figure`
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
@@ -56,7 +56,7 @@ export const BottomDecor = styled.img`
   }
 `;
 
-export const PageTitle = styled.div`
+export const PageTitle = styled.header`
   text-transform: uppercase;
   font-size: 4.45vw;
   display: flex;
@@ -81,7 +81,7 @@ export const PageTitle = styled.div`
   }
 `;
 
-export const QuestionsWrapper = styled.div`
+export const QuestionsWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;

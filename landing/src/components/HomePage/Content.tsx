@@ -10,13 +10,13 @@ import CarouselFeedback from "../Feedback/CarouselFeedback";
 import Technologies from "../Technologies/Technologies";
 import CardsBlock from "../CardsBlock";
 import BookBlock from "../BookBlock";
-import { Layout } from "../../styles/Layout.styled";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
 import MobilePartners from "../Partners/MobilePartners";
 import MobileNextTech from "./MobileNextTech";
 
 const Content = () => {
   return (
-    <>
+    <PageArticle>
       <Layout>
         <LocalLayout>
           <HeadBlock />
@@ -36,7 +36,7 @@ const Content = () => {
           <MobilePartners />
         </LocalLayout>
       </Layout>
-    </>
+    </PageArticle>
   );
 };
 

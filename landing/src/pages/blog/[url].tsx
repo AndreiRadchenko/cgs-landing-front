@@ -158,7 +158,7 @@ const ArticlePage = () => {
         <HeaderNavNew />
         <Styles.Cont>
           <Styles.PageWrapper>
-            <div style={{ position: "relative" }}>
+            <Styles.Article>
               <Styles.Title>{article.title}</Styles.Title>
               <Styles.TitleBg>
                 <Image src={titleBg} alt="top title bg" />
@@ -187,7 +187,7 @@ const ArticlePage = () => {
                   />
                 </svg>
               </Styles.ArrowBackButton>
-            </div>
+            </Styles.Article>
             <Styles.BannerWrapper>
               <Styles.TagWrapper>
                 <ShareOn title={article.title} className="web" />

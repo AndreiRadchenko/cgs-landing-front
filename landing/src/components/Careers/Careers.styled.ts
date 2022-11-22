@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Layout = styled.div`
+export const Layout = styled.article`
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -9,9 +9,6 @@ export const Layout = styled.div`
   overflow: hidden;
   font-family: ${themes.primary.font.family.namu};
 
-  /* @media ${themes.primary.media.minPCFullHD} {
-    width: 1800px;
-  } */
   @media ${themes.primary.media.maxMobile} {
     padding-inline: 12px;
   }
@@ -26,7 +23,7 @@ export const CareersContainer = styled.div`
   background-color: ${themes.primary.colors.careerBackground};
 `;
 
-export const Title = styled.div`
+export const Title = styled.header`
   margin-block: 115px 89px;
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
@@ -134,7 +131,7 @@ export const TitleTextRow = styled.div`
   }
 `;
 
-export const TicketsWrapper = styled.div`
+export const TicketsWrapper = styled.section`
   width: 100%;
   display: flex;
   align-items: center;
@@ -188,7 +185,7 @@ export const TicketsContainer = styled.div`
   }
 `;
 
-export const FormAndImageContainer = styled.div`
+export const FormAndImageContainer = styled.section`
   display: flex;
   margin: 45px 0 115px 120px;
   align-self: normal;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const NotFoundContainer = styled.div`
+export const NotFoundContainer = styled.article`
   padding-left: 30px;
   display: flex;
   align-items: center;
@@ -13,16 +13,16 @@ export const NotFoundContainer = styled.div`
   @media ${themes.primary.media.minPC} {
     column-gap: 6.5vw;
   }
-  
-  @media ${themes.primary.media.maxMobile} {
-      align-items; center;
-      flex-direction: column;
-      justify-content: center;
-      padding: 50px 0;
 
-      > div{
-        width: 100%
-      }
+  @media ${themes.primary.media.maxMobile} {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 0;
+
+    > div {
+      width: 100%;
+    }
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {

@@ -2,7 +2,7 @@
 import solutionBg from "../../../public/WebService/solutionBg.svg";
 import themes from "../../utils/themes";
 
-export const Container = styled.div`
+export const Container = styled.section`
   position: relative;
   margin-top: 13.375em;
   padding-bottom: 13%;

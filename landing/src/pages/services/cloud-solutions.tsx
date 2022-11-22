@@ -13,7 +13,7 @@ import ProvidesBlock from "../../components/CloudService/ProvidesBlock";
 import WorkBlock from "../../components/CloudService/WorkBlock";
 import FooterBlock from "../../components/CloudService/FooterBlock";
 import * as Styled from "../../styles/CloudService/Layout";
-import { Layout } from "../../styles/Layout.styled";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
@@ -51,24 +51,29 @@ const CloudService = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Layout>
-        <Styled.Layout>
-          <HeadBlock />
-          <WhyItWorthIt />
-          <ProvidesBlock
-            className={
-              data && data.projects.length === 0 ? "withoutShowcase" : undefined
-            }
-          />
-        </Styled.Layout>
-      </Layout>
-      <ShowCase projects={data?.projects} />
-      <Layout>
-        <Styled.Layout>
-          <WorkBlock />
-          <FooterBlock />
-        </Styled.Layout>
-      </Layout>
+      <PageArticle>
+        <Layout>
+          <Styled.Layout>
+            <HeadBlock />
+            <WhyItWorthIt />
+            <ProvidesBlock
+              className={
+                data && data.projects.length === 0
+                  ? "withoutShowcase"
+                  : undefined
+              }
+            />
+          </Styled.Layout>
+        </Layout>
+        <ShowCase projects={data?.projects} />
+        <Layout>
+          <Styled.Layout>
+            <WorkBlock />
+            <FooterBlock />
+          </Styled.Layout>
+        </Layout>
+      </PageArticle>
+
       <FooterNew />
     </>
   );

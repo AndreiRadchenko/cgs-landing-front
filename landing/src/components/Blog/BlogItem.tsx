@@ -55,24 +55,48 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
                               </Styled.WatchCount>
                             </Styled.WatchContainer>
                             <Styled.WatchContainer>
-                              <Styled.TimerIcon src={Timer.src} />
-                              <Styled.GrayText
-                                className={"big"}
-                              >{`${article.minutesToRead} min`}</Styled.GrayText>
+                              <Styled.TimerIcon
+                                src={Timer.src}
+                                alt="timer icon"
+                              />
+                              <Styled.GrayText className={"big"}>
+                                <Styled.TimeText>
+                                  {article.minutesToRead}
+                                </Styled.TimeText>
+                                min
+                              </Styled.GrayText>
                             </Styled.WatchContainer>
                           </Styled.DataContainer>
                           <Styled.Date>
-                            {article.updatedOn === ""
-                              ? parseDate(article.date)
-                              : `Updated on ${parseDate(article.updatedOn)}`}
+                            {article.updatedOn === "" ? (
+                              <Styled.TimeText>
+                                {parseDate(article.date)}
+                              </Styled.TimeText>
+                            ) : (
+                              <span>
+                                Updated on
+                                <Styled.TimeText>
+                                  {parseDate(article.updatedOn)}
+                                </Styled.TimeText>
+                              </span>
+                            )}
                           </Styled.Date>
                         </Styled.StatisticWrapper>
                       </Styled.FlexColumnContainer>
                     )) || (
                       <Styled.Date>
-                        {article.updatedOn === ""
-                          ? parseDate(article.date)
-                          : `Updated on ${parseDate(article.updatedOn)}`}
+                        {article.updatedOn === "" ? (
+                          <Styled.TimeText>
+                            {parseDate(article.date)}
+                          </Styled.TimeText>
+                        ) : (
+                          <span>
+                            Updated on
+                            <Styled.TimeText>
+                              {parseDate(article.updatedOn)}
+                            </Styled.TimeText>
+                          </span>
+                        )}
                       </Styled.Date>
                     )}
                     <Styled.Tag className="preview">
@@ -101,7 +125,7 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
                   </Styled.WatchContainer>
                 </Styled.BlogItemRowContainer>
                 <Styled.WatchContainer>
-                  <Styled.TimerIcon src={Timer.src} />
+                  <Styled.TimerIcon src={Timer.src} alt="timer icon img" />
                   <Styled.GrayText
                     className={"big"}
                   >{`${article.minutesToRead} min`}</Styled.GrayText>

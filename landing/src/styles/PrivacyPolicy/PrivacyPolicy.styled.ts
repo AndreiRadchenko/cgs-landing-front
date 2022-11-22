@@ -73,7 +73,7 @@ export const QuestionsWrapper = styled.ol`
   }
 `;
 
-export const QuesitonItem = styled.div`
+export const QuesitonItem = styled.article`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -158,3 +158,5 @@ export const QuestionHiddenWrapper = styled.div`
     padding-inline: 20px;
   }
 `;
+
+export const PrivacyHeader = styled.header``;

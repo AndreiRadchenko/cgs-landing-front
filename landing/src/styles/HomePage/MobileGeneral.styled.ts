@@ -472,7 +472,7 @@ export const Subtitle = styled.div`
   }
 `;
 
-export const NextTech = styled.div`
+export const NextTech = styled.section`
   display: none;
 
   @media ${themes.primary.media.maxMobile} {

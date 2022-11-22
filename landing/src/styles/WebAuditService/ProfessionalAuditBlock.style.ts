@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 import { BlackButton } from "../HomePage/General.styled";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
   margin-bottom: ${themes.primary.spacing.servicesMarginBetweenFooter};
 

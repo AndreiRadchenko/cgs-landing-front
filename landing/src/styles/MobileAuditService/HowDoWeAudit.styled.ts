@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Container = styled.div`
+export const Container = styled.section`
   position: relative;
 
   @media ${themes.primary.media.maxTabletPortrait} {
