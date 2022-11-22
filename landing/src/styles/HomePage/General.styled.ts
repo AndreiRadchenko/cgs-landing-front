@@ -834,7 +834,11 @@ export const WhatsAppText = styled.a`
   margin-left: 0.666em;
   column-gap: 0.1666em;
   font-size: 1.2857em;
-  color: ${themes.primary.colors.darkBlue};
+  color: ${themes.primary.colors.whatsApp};
+
+  & path {
+    fill: ${themes.primary.colors.whatsApp};
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.143em;
