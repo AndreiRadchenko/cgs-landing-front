@@ -1,19 +1,23 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
+interface IButtonBurgerProps {
+  isOpen?: boolean;
+}
+
 export const BurgerWrapper = styled.div`
   display: none;
 
   @media ${themes.primary.media.maxMobile} {
     display: block;
-    overflow: hidden;
-    min-height: 100%;
+    overflow-y: scroll;
+    height: 100vh;
     width: 100%;
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 0;
     transition: transform 0.3s ease-in;
-    padding: 80px 0;
+    padding-top: 80px;
     background-color: ${themes.primary.colors.blogBackground};
     z-index: 35;
 
@@ -35,9 +39,12 @@ export const BurgerRow = styled.div`
   }
 `;
 
-interface IButtonBurgerProps {
-  isOpen?: boolean;
-}
+export const BurgerContent = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 export const BurgerButtonWrapper = styled.div`
   display: none;
@@ -127,14 +134,19 @@ export const FooterIconsWrapper = styled.div`
 export const Image = styled.img``;
 
 export const BurgerPrivacy = styled.a`
-  position: absolute;
-  bottom: 40px;
-  left: 20px;
+  margin-left: 20px;
+  padding-bottom: 120px;
   color: ${themes.primary.colors.comment};
   font-size: 16px;
+  font-family: ${themes.primary.font.family.namu};
   cursor: pointer;
 
   &:hover {
     color: ${themes.primary.colors.darkBlue};
   }
+`;
+
+export const WhatsAppLink = styled.div`
+  padding-left: 1.25rem;
+  margin-bottom: 40px;
 `;

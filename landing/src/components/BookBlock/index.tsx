@@ -6,11 +6,13 @@ import {
   FooterButtonWrapper,
   FooterLinkButton,
   ArrowContainer,
+  FooterWhatsAppContainer,
 } from "../../styles/HomePage/General.styled";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { recoverLink } from "../../utils/recoverLink";
 import ScrambleText from "../HomePage/ScrambleText";
+import WhatsAppComponent from "../HomePage/WhatsAppComponent";
 
 const BookBlock = () => {
   const queryClient = useQueryClient();
@@ -28,7 +30,9 @@ const BookBlock = () => {
             <ScrambleText text="tech solutions" />
           )) || <span className="blue">tech solutions</span>}
         </span>
-        <FooterButtonWrapper>
+      </Subtitle>
+      <FooterWhatsAppContainer>
+        <FooterButtonWrapper className="btn">
           <FooterLinkButton
             target="_blank"
             rel="noopener noreferrer"
@@ -40,7 +44,10 @@ const BookBlock = () => {
             </ArrowContainer>
           </FooterLinkButton>
         </FooterButtonWrapper>
-      </Subtitle>
+        <FooterButtonWrapper>
+          <WhatsAppComponent />
+        </FooterButtonWrapper>
+      </FooterWhatsAppContainer>
     </>
   );
 };
