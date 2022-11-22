@@ -89,7 +89,7 @@ export const TechnologyRow = styled.div`
   }
 `;
 
-export const CategoryContainer = styled.div`
+export const CategoryContainer = styled.article`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -145,6 +145,7 @@ export const CategoryTitleWrapper = styled.div<PropsWithId>`
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   border-bottom-width: 0px;
+  transform: perspective(200px) rotateX(40deg);
   -webkit-transform: perspective(200px) rotateX(40deg);
   font-size: ${themes.primary.font.size.oneAndNine};
   font-weight: ${themes.primary.font.weight.heavy};

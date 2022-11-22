@@ -2,7 +2,7 @@
 import parse, { Element, HTMLReactParserOptions } from "html-react-parser";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { Subtitle, VisibleSubtitle } from "../../styles/MobileService/Layout";
+import { VisibleSubtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/MobileService/ProfBlock.styled";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import {

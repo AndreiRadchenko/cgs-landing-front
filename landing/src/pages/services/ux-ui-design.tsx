@@ -13,7 +13,7 @@ import DesignBlock from "../../components/UxUiService/DesignBlock";
 import EssentialBlock from "../../components/UxUiService/EsentialBlock";
 import FooterBlock from "../../components/UxUiService/FooterBlock";
 import * as Styled from "../../styles/UxUiService/Layout.styled";
-import { Layout } from "../../styles/Layout.styled";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
@@ -52,20 +52,22 @@ const UxUiDesign = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Layout>
-        <Styled.Layout>
-          <HeadBlock />
-          <WhatDoWeDoBlock />
-          <DesignBlock withoutShowcase={data?.projects.length === 0} />
-        </Styled.Layout>
-      </Layout>
-      <ShowCase projects={data?.projects} />
-      <Layout>
-        <Styled.Layout>
-          <EssentialBlock />
-          <FooterBlock />
-        </Styled.Layout>
-      </Layout>
+      <PageArticle>
+        <Layout>
+          <Styled.Layout>
+            <HeadBlock />
+            <WhatDoWeDoBlock />
+            <DesignBlock withoutShowcase={data?.projects.length === 0} />
+          </Styled.Layout>
+        </Layout>
+        <ShowCase projects={data?.projects} />
+        <Layout>
+          <Styled.Layout>
+            <EssentialBlock />
+            <FooterBlock />
+          </Styled.Layout>
+        </Layout>
+      </PageArticle>
       <FooterNew />
     </>
   );

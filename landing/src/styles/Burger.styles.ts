@@ -57,7 +57,7 @@ export const BurgerButtonWrapper = styled.div`
   }
 `;
 
-export const BurgerContainer = styled.div`
+export const BurgerContainer = styled.nav`
   margin-top: 1.4375rem;
 `;
 

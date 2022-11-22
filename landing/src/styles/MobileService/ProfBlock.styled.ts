@@ -2,7 +2,7 @@
 import themes from "../../utils/themes";
 import { cursorBlinking } from "../Animations.styled";
 
-export const ContentContainer = styled.div`
+export const ContentContainer = styled.section`
   margin-top: 15.1em;
   h2 {
     line-height: 132%;

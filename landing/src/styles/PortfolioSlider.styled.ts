@@ -252,7 +252,7 @@ export const Category = styled.div`
   margin: 0 auto 0 0;
 `;
 
-export const PortfolioRow = styled.div`
+export const PortfolioRow = styled.section`
   display: flex;
   width: 100%;
   max-height: 500px;

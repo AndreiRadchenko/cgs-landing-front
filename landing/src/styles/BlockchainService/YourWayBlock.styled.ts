@@ -3,7 +3,7 @@ import { ILine } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
-export const Container = styled.div`
+export const Container = styled.section`
   margin-block: 12.7em 12.5em;
   position: relative;
   padding-bottom: 20px;

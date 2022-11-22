@@ -18,7 +18,6 @@ const AboutUs = ({ data }: IAboutUs) => {
             Idea-inspired, <br />
             <span>tech-driven</span> professionals
           </Styled.MainTitle>
-
           <Styled.MainImageContainer>
             <Styled.MainImage src={data.believe.image.url} />
 

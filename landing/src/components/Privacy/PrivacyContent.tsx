@@ -15,8 +15,10 @@ const PrivacyContent = () => {
 
   return (
     <FaqContainer className="privacy">
-      <Styled.Title>Privacy Policy</Styled.Title>
-      <Styled.IntroWrapper>{data && parse(data.intro)}</Styled.IntroWrapper>
+      <Styled.PrivacyHeader>
+        <Styled.Title>Privacy Policy</Styled.Title>
+        <Styled.IntroWrapper>{data && parse(data.intro)}</Styled.IntroWrapper>
+      </Styled.PrivacyHeader>
       <Styled.QuestionsWrapper>
         {data?.content.map((question, idx) => (
           <PrivacyQuestion key={idx} question={question} />

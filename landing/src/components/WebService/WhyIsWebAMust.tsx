@@ -29,8 +29,8 @@ const WhyIsWebAMust = () => {
   const textIllustration = [null, secondTextPhoto, thirdTextPhoto];
 
   const elRef = useRef<HTMLDivElement>(null);
-
   const isScrolled = useOnScreen(elRef, true);
+
   return (
     <Styled.Container>
       <VisibleSubtitle>{data?.subtitle}</VisibleSubtitle>

@@ -7,6 +7,7 @@ import {
   FooterLinkButton,
   ArrowContainer,
   FooterWhatsAppContainer,
+  FooterSection,
 } from "../../styles/HomePage/General.styled";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import ButtonArrow from "../../utils/ButtonArrow";
@@ -21,7 +22,7 @@ const BookBlock = () => {
   ])?.BookCallBlock;
 
   return (
-    <>
+    <FooterSection>
       <Subtitle className="footer">
         Do you want <br /> to turn your <br /> ideas into&nbsp;
         <br />
@@ -48,7 +49,7 @@ const BookBlock = () => {
           <WhatsAppComponent />
         </FooterButtonWrapper>
       </FooterWhatsAppContainer>
-    </>
+    </FooterSection>
   );
 };
 

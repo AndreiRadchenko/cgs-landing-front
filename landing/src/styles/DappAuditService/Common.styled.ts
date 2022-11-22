@@ -13,7 +13,7 @@ export const Layout = styled.div`
   }
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   margin-top: ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks};
 
   @media ${themes.primary.media.maxTabletPortrait} {

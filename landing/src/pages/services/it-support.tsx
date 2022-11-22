@@ -13,7 +13,7 @@ import ProvidesBlock from "../../components/OngoingSupport/ProvidesBlock";
 import BonusesBlock from "../../components/OngoingSupport/BonusesBlock";
 import FooterBlock from "../../components/OngoingSupport/FooterBlock";
 import * as Styled from "../../styles/OngoingSupport/Layout";
-import { Layout } from "../../styles/Layout.styled";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
@@ -51,24 +51,29 @@ const OngoingSupport = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Layout>
-        <Styled.Layout>
-          <HeadBlock />
-          <WorkBlock />
-          <ProvidesBlock
-            className={
-              data && data.projects.length === 0 ? "withoutShowcase" : undefined
-            }
-          />
-        </Styled.Layout>
-      </Layout>
-      <ShowCase projects={data?.projects} />
-      <Layout>
-        <Styled.Layout>
-          <BonusesBlock />
-          <FooterBlock />
-        </Styled.Layout>
-      </Layout>
+      <PageArticle>
+        <Layout>
+          <Styled.Layout>
+            <HeadBlock />
+            <WorkBlock />
+            <ProvidesBlock
+              className={
+                data && data.projects.length === 0
+                  ? "withoutShowcase"
+                  : undefined
+              }
+            />
+          </Styled.Layout>
+        </Layout>
+        <ShowCase projects={data?.projects} />
+        <Layout>
+          <Styled.Layout>
+            <BonusesBlock />
+            <FooterBlock />
+          </Styled.Layout>
+        </Layout>
+      </PageArticle>
+
       <FooterNew />
     </>
   );

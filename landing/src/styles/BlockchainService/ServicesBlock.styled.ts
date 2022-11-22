@@ -5,7 +5,7 @@ import MobileService from "../../../public/BlockchainServicePage/Services-mobile
 import { slideDownText } from "../Animations.styled";
 import { ISlide } from "../../types/Decoration.types";
 
-export const Container = styled.div`
+export const Container = styled.section`
   margin-top: 11.94em;
   @media ${themes.primary.media.maxMobile} {
     margin-top: 4em;

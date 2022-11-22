@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
-export const HoverWrapper = styled.div`
+export const HoverWrapper = styled.section`
   padding-bottom: 16.7em;
 
   @media ${themes.primary.media.maxServiceMobile} {

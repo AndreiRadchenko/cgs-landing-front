@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 import { cursorBlinking } from "../Animations.styled";
 
-export const Container = styled.div`
+export const Container = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
