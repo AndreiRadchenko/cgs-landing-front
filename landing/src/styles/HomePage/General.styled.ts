@@ -798,3 +798,23 @@ export const MobileReverseLayout = styled.div`
     flex-direction: column-reverse;
   }
 `;
+
+export const WhatsAppTextWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1.1667em;
+  margin-top: 0.858em;
+`;
+
+export const WhatsAppText = styled.a`
+  display: flex;
+  margin-left: 0.666em;
+  column-gap: 0.1666em;
+  font-size: 1.2857em;
+  color: ${themes.primary.colors.darkBlue};
+`;
+
+export const WhatsAppIconWrapper = styled.div`
+  width: 0.78em;
+  height: 0.78em;
+`;

@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+// ex) A command plugin to add "Range format element(util.isRangeFormatElement)" to selection
 export const articleIntroPlugin = {
   // @Required @Unique
   // plugin name
@@ -8,18 +8,18 @@ export const articleIntroPlugin = {
   display: "command",
 
   // @Options
-  title: "Add article intro",
+  title: "Add range tag",
   buttonClass: "",
   innerHTML: "♣",
 
   // @Required
   // add function - It is called only once when the plugin is first run.
-  // This function generates HTML to append and register the event.
+  // (this as any) function generates HTML to append and register the event.
   // arguments - (core : core object, targetElement : clicked button element)
   add: function (core: any, targetElement: any) {
     const context = core.context;
     const rangeTag = core.util.createElement("div");
-    core.util.addClass(rangeTag, "article__intro__wrapper");
+    core.util.addClass(rangeTag, "__se__format__range_custom_article_intro");
 
     // @Required
     // Registering a namespace for caching as a plugin name in the context object
@@ -39,7 +39,10 @@ export const articleIntroPlugin = {
         "active"
       );
     } else if (
-      (this as any).util.hasClass(element, "article__intro__wrapper")
+      (this as any).util.hasClass(
+        element,
+        "__se__format__range_custom_article_intro"
+      )
     ) {
       (this as any).util.addClass(
         (this as any).context.articleIntro.targetButton,
@@ -58,7 +61,12 @@ export const articleIntroPlugin = {
       (this as any).getSelectionNode()
     );
 
-    if ((this as any).util.hasClass(rangeTag, "article__intro__wrapper")) {
+    if (
+      (this as any).util.hasClass(
+        rangeTag,
+        "__se__format__range_custom_article_intro"
+      )
+    ) {
       (this as any).detachRangeFormatElement(
         rangeTag,
         null,

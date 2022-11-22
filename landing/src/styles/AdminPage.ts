@@ -864,7 +864,7 @@ export const TextEditorContainer = styled.div<{
     line-height: 160%;
   }
 
-  & .article__intro__wrapper {
+  & .__se__format__range_custom_article_intro {
     background-color: hsl(60, 75%, 60%);
     font-size: 18px;
     font-weight: ${themes.primary.font.weight.semiBold};

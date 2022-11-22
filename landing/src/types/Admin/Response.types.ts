@@ -3,6 +3,7 @@ export interface IEditInformation {
   title: string;
   button: string;
   buttonLink: string;
+  whatsAppLink: string;
   image: { url: string } | null;
 }
 
