@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
-export const Container = styled.div`
+export const Container = styled.section`
   margin-block: 12.5em 10.625em;
   padding-bottom: 20px;
   position: relative;

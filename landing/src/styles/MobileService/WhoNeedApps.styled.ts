@@ -2,7 +2,7 @@
 import themes from "../../utils/themes";
 import illustration from "../../../public/MobileSevice/whoNeedApps/whoNeedAppsImg.svg";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   margin-top: 10.8em;
   background-image: url(${illustration.src});
   background-repeat: no-repeat;

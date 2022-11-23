@@ -18,3 +18,5 @@ export const Layout = styled.article`
     padding: 0 1.925em;
   }
 `;
+
+export const PageArticle = styled.article``;

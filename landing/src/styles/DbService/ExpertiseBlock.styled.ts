@@ -3,7 +3,7 @@ import { IIcon } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 import { float } from "../Animations.styled";
 
-export const Container = styled.div`
+export const Container = styled.section`
   margin-top: 12.5em;
 
   @media ${themes.primary.media.maxMobile} {

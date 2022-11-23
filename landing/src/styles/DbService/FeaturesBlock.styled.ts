@@ -3,7 +3,7 @@ import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 import { slideDownText } from "../Animations.styled";
 
-export const Container = styled.div`
+export const Container = styled.section`
   position: relative;
   width: 100%;
 

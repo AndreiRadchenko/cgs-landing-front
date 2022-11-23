@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { emailShake } from "../../styles/Animations.styled";
 import themes from "../../utils/themes";
 
-export const HeaderNavContainer = styled.div`
+export const HeaderNavContainer = styled.footer`
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -219,7 +219,7 @@ export const ListItemNav = styled.a`
   }
 `;
 
-export const NavList = styled.menu`
+export const NavList = styled.nav`
   margin: 0;
   display: flex;
   height: 56px;

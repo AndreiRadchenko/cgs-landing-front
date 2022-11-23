@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 import { IIcon, ISlide } from "../../types/Decoration.types";
 import { float, slideRight } from "../Animations.styled";
 
-export const Container = styled.div`
+export const Container = styled.section`
   margin-top: 14.06em;
   @media ${themes.primary.media.maxMobile} {
     margin-block: 4em 3.375em;

@@ -185,6 +185,7 @@ const themes = {
       serviceHighlight: "#BABABA",
       deleteImageHover: "#ad1313",
       adminInputBorder: "#A9A5A4",
+      whatsApp: "#4DA303",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

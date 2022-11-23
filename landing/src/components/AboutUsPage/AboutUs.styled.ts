@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 import { infiniteText } from "../../styles/Animations.styled";
 
-export const DescriptionContainer = styled.div`
+export const DescriptionContainer = styled.section`
   margin-bottom: 47px;
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 30px;
@@ -15,7 +15,7 @@ export const DescriptionContainer = styled.div`
   }
 `;
 
-export const MainTitle = styled.div`
+export const MainTitle = styled.header`
   font-size: 5em;
   text-transform: uppercase;
   line-height: 120%;

@@ -1,6 +1,5 @@
 import React, { FC, MouseEvent, useState } from "react";
 import * as Styled from "./CareersTicket.styled";
-import Star from "../../../public/CareerDecorations/star.svg";
 import Background from "../../../public/CareerDecorations/background.svg";
 import Arrow from "../../../public/CareerDecorations/ticketArrow.svg";
 import TicketModal from "../Careers/TicketModal";
@@ -24,11 +23,11 @@ const CareersTicket: FC<ITicketProps> = ({
   const { width } = useWindowDimension();
   const [isOpen, setIsOpen] = useState(false);
 
-  const starsArr = new Array(Math.ceil(stars)).fill(0);
+  // const starsArr = new Array(Math.ceil(stars)).fill(0);
 
   const onTicketView = () => setIsOpen(true);
 
-  const uuid = (Math.random() + 1).toString(36).substring(7);
+  // const uuid = (Math.random() + 1).toString(36).substring(7);
 
   const onClose = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
     e.stopPropagation();
@@ -96,16 +95,6 @@ const CareersTicket: FC<ITicketProps> = ({
             <Styled.TicketPositionStack className={className}>
               {stack.join(", ")}
             </Styled.TicketPositionStack>
-            <Styled.TicketPositionStarsContainer>
-              {starsArr &&
-                starsArr.map((_, idx) => (
-                  <Styled.TicketPositionStars
-                    className={className}
-                    src={Star.src}
-                    key={`${idx + uuid}`}
-                  />
-                ))}
-            </Styled.TicketPositionStarsContainer>
           </Styled.TicketPositionContainer>
           <Styled.RightDivider />
           <Styled.TicketDataBackground>
@@ -126,7 +115,6 @@ const CareersTicket: FC<ITicketProps> = ({
             </svg>
           </Styled.TicketDataBackground>
         </Styled.TicketInner>
-
         <Styled.TicketArrow src={Arrow.src} />
         <TicketModal isOpen={isOpen} onClose={onClose}>
           <Styles.ButtonWrapper>

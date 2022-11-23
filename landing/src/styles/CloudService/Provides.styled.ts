@@ -3,7 +3,7 @@ import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
-export const Container = styled.div`
+export const Container = styled.section`
   margin-top: 12.8em;
   position: relative;
   margin-bottom: 12.5em;

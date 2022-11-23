@@ -8,7 +8,7 @@ import parse from "html-react-parser";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import React from "react";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import { Layout } from "../../styles/Layout.styled";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
 import * as Styled from "../../styles/DappAuditService/Common.styled";
 import HeadBlock from "../../components/DappAuditService/HeadBlock";
 import FigureOutBlock from "../../components/DappAuditService/FigureOutBlock";
@@ -51,19 +51,21 @@ const DappAuditPage: NextPage = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Layout>
-        <Styled.Layout>
-          <HeadBlock />
-          <FigureOutBlock />
-          <HowDoProvideBlock />
-        </Styled.Layout>
-      </Layout>
-      <ShowCase projects={data?.projects} />
-      <Layout>
-        <Styled.Layout>
-          <FooterBlock />
-        </Styled.Layout>
-      </Layout>
+      <PageArticle>
+        <Layout>
+          <Styled.Layout>
+            <HeadBlock />
+            <FigureOutBlock />
+            <HowDoProvideBlock />
+          </Styled.Layout>
+        </Layout>
+        <ShowCase projects={data?.projects} />
+        <Layout>
+          <Styled.Layout>
+            <FooterBlock />
+          </Styled.Layout>
+        </Layout>
+      </PageArticle>
       <FooterNew />
     </>
   );

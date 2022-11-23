@@ -3,7 +3,7 @@ import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
-export const Container = styled.div`
+export const Container = styled.section`
   margin-block: 11.2em 12.5em;
   @media ${themes.primary.media.maxMobile} {
     padding-top: 1.75em;

@@ -58,10 +58,15 @@ const HeaderNavNew = (): JSX.Element => {
           type="audio/mpeg"
         />
       </StyledThisComp.ClickAudio>
-      <StyledThisComp.HeaderNavContainer
-        className={isScrolled ? "scrolled" : undefined}
-      >
-        <BurgerButton isOpen={isOpen} onToggle={toggleBurgerHandler} />
+      <StyledThisComp.HeaderNavContainer>
+        <StyledThisComp.NavBarWrapper
+          className={isScrolled ? "scrolled" : undefined}
+        >
+          <StyledThisComp.LogoLinkWrapper onClick={handleClick} href={"/"}>
+            <Logo />
+          </StyledThisComp.LogoLinkWrapper>
+          <BurgerButton isOpen={isOpen} onToggle={toggleBurgerHandler} />
+        </StyledThisComp.NavBarWrapper>
         <BurgerMenu isOpen={isOpen}>
           {navigationRoutesNamesNew.map(
             ({ route, withDropdown, tags }, ind) => {
@@ -81,9 +86,6 @@ const HeaderNavNew = (): JSX.Element => {
             }
           )}
         </BurgerMenu>
-        <StyledThisComp.LogoLinkWrapper onClick={handleClick} href={"/"}>
-          <Logo />
-        </StyledThisComp.LogoLinkWrapper>
         <StyledThisComp.NavList onClick={handleClick}>
           {navigationRoutesNamesNew.map(({ route, withDropdown, tags }, ind) =>
             !withDropdown ? (

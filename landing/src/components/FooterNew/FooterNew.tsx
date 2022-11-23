@@ -82,18 +82,16 @@ const FooterNew = (): JSX.Element => {
               rel="noopener noreferrer"
             >
               <StyledThisComp.FooterImageWrapper>
-                {
-                  <Image
-                    src={
-                      data.images[ind]
-                        ? data.images[ind].image?.url
-                        : smallMountain
-                    }
-                    alt="footer icons img"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                }
+                <Image
+                  src={
+                    data.images[ind]
+                      ? data.images[ind].image?.url
+                      : smallMountain
+                  }
+                  alt="footer icons img"
+                  layout="fill"
+                  objectFit="contain"
+                />
               </StyledThisComp.FooterImageWrapper>
             </StyledThisComp.ListItemNav>
           </Link>

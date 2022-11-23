@@ -13,7 +13,7 @@ import YourWayBlock from "../../components/BlockchainService/YourWayBlock";
 import AboutBlock from "../../components/BlockchainService/AboutBlock";
 import FooterBlock from "../../components/BlockchainService/FooterBlock";
 import * as Styled from "../../styles/BlockchainService/Layout";
-import { Layout } from "../../styles/Layout.styled";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
@@ -53,20 +53,22 @@ const BlockchainService = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Layout>
-        <Styled.Layout>
-          <HeadBlock />
-          <ServicesBlock />
-          <YourWayBlock />
-        </Styled.Layout>
-      </Layout>
-      <ShowCase projects={data?.projects} />
-      <Layout>
-        <Styled.Layout className="mobile-visivble">
-          <AboutBlock />
-          <FooterBlock />
-        </Styled.Layout>
-      </Layout>
+      <PageArticle>
+        <Layout>
+          <Styled.Layout>
+            <HeadBlock />
+            <ServicesBlock />
+            <YourWayBlock />
+          </Styled.Layout>
+        </Layout>
+        <ShowCase projects={data?.projects} />
+        <Layout>
+          <Styled.Layout className="mobile-visivble">
+            <AboutBlock />
+            <FooterBlock />
+          </Styled.Layout>
+        </Layout>
+      </PageArticle>
 
       <FooterNew />
     </>
