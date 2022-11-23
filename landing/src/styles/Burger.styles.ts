@@ -150,3 +150,5 @@ export const WhatsAppLink = styled.div`
   padding-left: 1.25rem;
   margin-bottom: 40px;
 `;
+
+export const FooterLink = styled.a``;
