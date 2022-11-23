@@ -9,6 +9,8 @@ import AdminBlackButton from "../Global/AdminBlackButton";
 import AdminStars from "../FeedbackBlock/AdminStars";
 import themes from "../../../utils/themes";
 import { ProjectIndustry } from "../../../styles/PortfolioSlider.styled";
+import { useQueryClient } from "@tanstack/react-query";
+import { queryKeys } from "../../../consts/queryKeys";
 
 interface IReviewProps {
   review: IPortfolioReview;
@@ -29,9 +31,13 @@ const AdminReview = ({
   idx,
   onScroll,
 }: IReviewProps) => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IPortfolioReview[]>([
+    queryKeys.getPortfolio,
+  ]);
   const editTriggerFunc = () => {
-    if (setCurrent && typeof idx === "number" && editTrigger) {
-      setCurrent(idx);
+    if (setCurrent && typeof idx === "number" && editTrigger && data) {
+      setCurrent(data.findIndex((rev) => rev._id === review._id));
       editTrigger((prev) => !prev);
     }
     if (editFlag) onScroll();
