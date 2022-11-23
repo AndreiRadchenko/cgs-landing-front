@@ -87,9 +87,6 @@ export const HighlightWrapper = styled.span`
 
     & > span {
       background-position: 0 0;
-    }
-
-    & > div {
       transform: translate(0, 0.3em);
     }
   }
@@ -102,7 +99,7 @@ export const HighlightBg = styled.span`
   z-index: -1;
 `;
 
-export const Cursor = styled.div`
+export const Cursor = styled.span`
   display: inline-block;
   width: 1px;
   height: 1.5em;

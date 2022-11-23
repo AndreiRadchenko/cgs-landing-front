@@ -35,7 +35,7 @@ export const DropdownContent = styled.div`
   }
 `;
 
-export const DropdownButton = styled.button<{ isHeader?: boolean }>`
+export const DropdownButton = styled.button`
   cursor: pointer;
   color: ${themes.primary.colors.primary};
   background-color: ${themes.primary.colors.blogBackground};

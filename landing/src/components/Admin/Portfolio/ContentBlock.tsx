@@ -69,9 +69,6 @@ const AdminPortfolioContentBlock = () => {
     if (sortedData && data) {
       const srcItem = sortedData[oldIndex]._id;
       const desItem = sortedData[newIndex]._id;
-
-      console.log();
-
       const srcInd = data.findIndex((el) => el._id === srcItem);
       const desInd = data.findIndex((el) => el._id === desItem);
       const swapped = data;

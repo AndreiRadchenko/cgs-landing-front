@@ -18,7 +18,6 @@ const HeaderDropdown = ({ tags, dropdownName, className }: IBlogDropdown) => {
     setIsOpen((old) => !old);
   };
 
-  const handleContentClick = () => setIsOpen(false);
   const buttonClassName = () => {
     if (isOpen && className) {
       return `open ${className}`;
@@ -34,23 +33,14 @@ const HeaderDropdown = ({ tags, dropdownName, className }: IBlogDropdown) => {
   };
 
   return (
-    <Styled.Dropdown className={className}>
-      <Styled.DropdownButton
-        className={buttonClassName()}
-        onBlur={onBlur}
-        tabIndex={0}
-        onClick={onClick}
-      >
+    <Styled.Dropdown className={className} onBlur={onBlur} tabIndex={0}>
+      <Styled.DropdownButton className={buttonClassName()} onClick={onClick}>
         <span>{dropdownName}</span>
         <img width={9} height={5} src={Arrow.src} alt="Arrow" />
       </Styled.DropdownButton>
       <Styled.DropdownContent className={isOpen ? "open" : ""}>
         {tags.map((option) => (
-          <div
-            onClick={handleContentClick}
-            key={option}
-            onMouseDown={(e) => e.preventDefault()}
-          >
+          <div key={option} onMouseDown={(e) => e.preventDefault()}>
             <Link
               href={
                 navigationRoutesLinks[
