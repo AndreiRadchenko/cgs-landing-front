@@ -31,11 +31,15 @@ export const LinkButton = styled.button`
   outline: none;
   border-radius: 0;
   cursor: pointer;
-  border: 0;
+  border: 1px solid ${themes.primary.colors.primary};
   color: ${themes.primary.colors.secondary};
-  @media (max-width: 1000px) {
-    font-size: ${themes.primary.font.size.quinary};
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: ${themes.primary.colors.blogBackground};
+    color: ${themes.primary.colors.primary};
   }
+
   @media (max-width: 1300px) {
     font-size: ${themes.primary.font.size.reviewSmallText};
     a {
