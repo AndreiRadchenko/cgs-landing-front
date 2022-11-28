@@ -1,4 +1,5 @@
 import { useFormikContext } from "formik";
+import dynamic from "next/dynamic";
 import React from "react";
 import { TextEditorWrapper } from "../../../styles/AdminPage";
 import {
@@ -7,7 +8,9 @@ import {
 } from "../../../styles/HomePage/General.styled";
 import { IPrivacyPage } from "../../../types/Admin/Response.types";
 import ButtonArrow from "../../../utils/ButtonArrow";
-import TextEditor from "../../TextEditor/TextEditor";
+const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 

@@ -7,11 +7,14 @@ import {
 } from "../../../../styles/AdminPage";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
-import TextEditor from "../../../TextEditor/TextEditor";
+const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import { IImage } from "../../../../types/Admin/Admin.types";
 import { IBlockchainService } from "../../../../types/Admin/Response.types";
+import dynamic from "next/dynamic";
 
 const ServicesBlock = () => {
   const { values, handleChange } = useFormikContext<IBlockchainService>();
@@ -46,16 +49,10 @@ const ServicesBlock = () => {
           photo={image}
           deleteFunction={async () => (await deleteMainImage)()}
           uploadFunction={(image: IImage) => uploadMainImage(image)}
-          maxHeight="364px"
-          maxWidth="364px"
+          style={{ maxWidth: "364px", maxHeight: "364px" }}
           deleteFlag={true}
         />
-        <TextEditor
-          header="Text"
-          name="servicesBlock.text"
-          isBlog={false}
-          onlyColor={true}
-        />
+        <TextEditor header="Text" name="servicesBlock.text" />
       </AdminHalfGrid>
     </AdminPaddedBlock>
   );

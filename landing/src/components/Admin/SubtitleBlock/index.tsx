@@ -1,15 +1,13 @@
+import dynamic from "next/dynamic";
 import React from "react";
-import TextEditor from "../../TextEditor/TextEditor";
+const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 const SubtitleBlock = () => {
   return (
     <div>
-      <TextEditor
-        onlyColor={true}
-        header="Subtitle"
-        name="SubtitleBlock.title"
-        isBlog={false}
-      />
+      <TextEditor header="Subtitle" name="SubtitleBlock.title" />
     </div>
   );
 };

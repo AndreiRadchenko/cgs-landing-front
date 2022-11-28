@@ -1,4 +1,5 @@
 import { useFormikContext } from "formik";
+import dynamic from "next/dynamic";
 import React from "react";
 import { AdminHeader, TextEditorWrapper } from "../../../styles/AdminPage";
 import {
@@ -7,7 +8,9 @@ import {
 } from "../../../styles/HomePage/General.styled";
 import { IPrivacyPage } from "../../../types/Admin/Response.types";
 import ButtonArrow from "../../../utils/ButtonArrow";
-import TextEditor from "../../TextEditor/TextEditor";
+const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 const IntroBlock = () => {
   const { handleSubmit } = useFormikContext<IPrivacyPage>();
@@ -17,7 +20,7 @@ const IntroBlock = () => {
     <>
       <AdminHeader>Privacy Policy</AdminHeader>
       <TextEditorWrapper>
-        <TextEditor header="Introduction" isBlog={false} name="intro" />
+        <TextEditor header="Introduction" name="intro" />
       </TextEditorWrapper>
       <BlackButton
         size={"1.5em"}

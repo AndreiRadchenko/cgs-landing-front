@@ -40,7 +40,12 @@ const AddTag = ({ possibleTags }: IAddTag) => {
       newTags.push(inputVal);
       setInputVal("");
       ref.current.value = "";
-      data && updateBlogPageData({ possibleTags: newTags, meta: data.meta });
+      data &&
+        updateBlogPageData({
+          possibleTags: newTags,
+          meta: data.meta,
+          podcast: data.podcast,
+        });
     }
   };
 

@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import * as Styled from "./adminFaq.styled";
 import { IQuestion } from "../../../types/Admin/AdminFaq.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
-import TextEditor from "../../TextEditor/TextEditor";
+const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import { useFormikContext } from "formik";
 import { IFaqData } from "../../../types/Faq.types";
 import { IImage } from "../../../types/Admin/Admin.types";
+import dynamic from "next/dynamic";
 
 interface IQuestionComponent {
   question: IQuestion;
@@ -57,7 +60,7 @@ const Question = ({
             header={"Question"}
           />
         </Styled.QuestionTitleContainer>
-        <TextEditor name={questionText} header={"Answer"} isBlog={false} />
+        <TextEditor name={questionText} header={"Answer"} />
         <Styled.ButtonsContainer>
           <Styled.AddButton onClick={() => addQuestion(index)}>
             [ + add next question ]
