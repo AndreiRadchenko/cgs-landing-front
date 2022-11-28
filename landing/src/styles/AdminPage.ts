@@ -18,7 +18,6 @@ export const AdminWrapper = styled.div`
 `;
 
 export const AdminMainHeader = styled.div`
-  position: fixed;
   z-index: 10;
   width: 100%;
   padding: 26px 34px 25px;
@@ -825,10 +824,6 @@ export const TextEditorContainer = styled.div<{
   height?: string;
   width?: string;
 }>`
-  & div.se-wrapper-inner {
-    font-size: ${themes.primary.font.size.primary};
-    font-family: ${themes.primary.font.family.openSans};
-  }
   & div.se-wrapper-inner.se-wrapper-inner ul {
     list-style-type: none;
     list-style-image: url("/listSquare.png");
@@ -842,33 +837,75 @@ export const TextEditorContainer = styled.div<{
     }
   }
 
+  & .se-wrapper-inner {
+    font-family: ${themes.primary.font.family.openSans};
+    font-size: 1.125rem;
+  }
+
   resize: none;
   height: auto;
   max-width: 1200px;
   width: 100%;
-  font-size: ${themes.primary.font.size.linkText};
-  font-family: ${themes.primary.font.family.mulish};
-  border: 0;
+
   margin-bottom: ${themes.primary.spacing.primary};
   &:focus-within {
     outline: 1px solid gray;
   }
 
+  margin: 0;
+  font-weight: ${themes.primary.font.weight.normal};
+
+  font-family: ${themes.primary.font.family.openSans};
+  line-height: 160%;
+  color: ${themes.primary.colors.blogDarkText};
+  overflow-wrap: anywhere;
+  p {
+    margin-top: 15px;
+  }
+  & > div > figure {
+    position: relative;
+    margin: 0;
+
+    & > iframe {
+      position: absolute;
+      height: 100%;
+      top: 0;
+    }
+  }
+
+  & figcaption {
+    color: ${themes.primary.colors.comment};
+    font-size: 18px;
+    line-height: 160%;
+    padding-block: 0 !important;
+    background-color: transparent !important;
+  }
+
   & blockquote {
+    margin: 0;
     border-left: 4px solid ${themes.primary.colors.blogArticleText};
     color: ${themes.primary.colors.blogArticleText};
     padding-left: 10px;
-    font-size: 26px;
+    font-size: 1.444em;
     font-style: italic;
     font-weight: ${themes.primary.font.weight.bold};
     line-height: 160%;
   }
 
-  & .__se__format__range_custom_article_intro {
-    background-color: hsl(60, 75%, 60%);
-    font-size: 18px;
-    font-weight: ${themes.primary.font.weight.semiBold};
-    line-height: 160%;
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block: 126px 38px;
+    font-size: 3.125rem;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    p {
+      margin-top: 1.25em;
+    }
+    font-size: ${themes.primary.font.size.vistaco};
   }
 `;
 

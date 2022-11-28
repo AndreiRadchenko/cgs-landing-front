@@ -23,7 +23,10 @@ const AuthorPhotoDashed = ({
         {modal ? (
           <AdminUploadModal func={uploadFunction} back={toggleModal} />
         ) : null}
-        <Styled.AdminPhotoGrid className="fullWidth">
+        <Styled.AdminPhotoGrid
+          className="author"
+          style={{ width: "77px", height: "77px" }}
+        >
           <AdminImage image={photo} />
         </Styled.AdminPhotoGrid>
       </Styled.AdminPhotoBlock>

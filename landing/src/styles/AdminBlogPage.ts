@@ -83,6 +83,11 @@ export const Text = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  &.blog {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
 `;
 
 export const BlogCancelButton = styled.button`

@@ -1,13 +1,9 @@
 import React from "react";
-import { Field } from "formik";
+import { Field, FieldProps } from "formik";
 import * as Styled from "../../styles/AdminPage";
-import dynamic from "next/dynamic";
 import "suneditor/dist/css/suneditor.min.css";
+import SunEditor from "suneditor-react";
 import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
-
-const SunEditor = dynamic(() => import("suneditor-react"), {
-  ssr: false,
-});
 
 interface ITextEditorProps {
   header: string;
@@ -17,13 +13,12 @@ interface ITextEditorProps {
 
 const TextEditor = ({ name, header, props }: ITextEditorProps) => {
   const options = {
-    font: ["NAMU", "Open Sans"],
+    font: ["NAMU"],
     linkRelDefault: {
       default: undefined,
       check_new_window: "nofollow noopener",
     },
     buttonList: [
-      ["undo", "redo"],
       [
         "formatBlock",
         "font",
@@ -46,7 +41,7 @@ const TextEditor = ({ name, header, props }: ITextEditorProps) => {
       <Styled.AdminSubTitle>{header}</Styled.AdminSubTitle>
       <Styled.TextEditorContainer>
         <Field name={name}>
-          {({ field }: any) => (
+          {({ field }: FieldProps) => (
             <SunEditor
               defaultValue={field.value}
               onChange={field.onChange(field.name)}

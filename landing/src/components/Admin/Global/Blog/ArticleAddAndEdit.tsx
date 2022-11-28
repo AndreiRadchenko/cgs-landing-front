@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import PhotoBlockDashed from "../PhotoBlockDashed";
 import SubHeaderWithInput from "../SubHeaderWithInput";
 import BlogTags from "./BlogTags";
-import Gist from "react-gist";
 
 import * as Styles from "../../../../styles/AdminBlogPage";
 import * as Styled from "../../../../styles/AdminPage";
@@ -22,11 +21,14 @@ import {
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 import ButtonArrow from "../../../../utils/ButtonArrow";
-import TextEditor from "../../../TextEditor/TextEditor";
+const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 import { useMutation } from "@tanstack/react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminGlobalService } from "../../../../services/adminHomePage";
-import { articleIntroPlugin } from "./customArticleIntroPlugin";
+import dynamic from "next/dynamic";
+import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
 
 interface IAddAndEdit {
   article: number;
@@ -56,6 +58,12 @@ const ArticleAddAndEdit = ({
     adminGlobalService.uploadImage(data)
   );
 
+  const handleDescInput = (e: InputEvent) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (e.target) setDescLength(e.target.innerText.length);
+  };
+
   const handleImageUploadBefore = (
     files: File[],
     info: object,
@@ -78,7 +86,8 @@ const ArticleAddAndEdit = ({
     });
   };
 
-  const textEditorProps = {
+  const textEditorProps: SunEditorReactProps = {
+    height: "990px",
     onImageUploadBefore: handleImageUploadBefore,
     setOptions: {
       font: ["NAMU", "Open Sans"],
@@ -86,10 +95,8 @@ const ArticleAddAndEdit = ({
         default: undefined,
         check_new_window: "nofollow noopener",
       },
-      plugins: [articleIntroPlugin],
-      // plugins: [custom_plugin],
+
       buttonList: [
-        ["articleIntro"],
         ["undo", "redo"],
         [
           "formatBlock",
@@ -117,12 +124,6 @@ const ArticleAddAndEdit = ({
     setDescLength(values.description.length);
     setTitleLength(values.title.length);
   }, [isNewArticle, values]);
-
-  const handleDescInput = (e: InputEvent) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    if (e.target) setDescLength(e.target.innerText.length);
-  };
 
   const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitleLength(e.target.value.length);
@@ -271,12 +272,8 @@ const ArticleAddAndEdit = ({
               {titleLength}
             </Styles.Counter>
           </Styles.Text>
-          <TextEditor
-            header="Description"
-            name="description"
-            props={{ onInput: handleDescInput }}
-          />
-          <Styles.Text>
+          <TextEditor header="Description" name="description" />
+          <Styles.Text className="blog">
             <Styles.Message>
               {(descLength > DESCRIPTION_MAX || descLength < DESCRIPTION_MIN) &&
                 "Description should be between 20 and 160 characters"}

@@ -11,7 +11,10 @@ import {
   ISitemapData,
   IView,
 } from "../../../../types/Admin/Response.types";
-import ArticleAddAndEdit from "./ArticleAddAndEdit";
+import dynamic from "next/dynamic";
+const ArticleAddAndEdit = dynamic(() => import("./ArticleAddAndEdit"), {
+  ssr: false,
+});
 
 interface IArticleForm {
   article: number;
