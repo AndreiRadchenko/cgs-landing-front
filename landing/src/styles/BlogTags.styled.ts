@@ -56,21 +56,23 @@ export const Minus = styled.div`
 
 export const TagInputWrapper = styled.div`
   display: grid;
-  grid-template-columns: 280px 400px;
-  gap: 20px;
-  width: 480px;
+  grid-template-columns: auto 58px;
+  gap: 15px;
+
   height: 56px;
   align-items: center;
 `;
 
 export const TagInputSubmit = styled.button`
+  width: 58px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  color: ${themes.primary.colors.secondary};
+  background-color: ${themes.primary.colors.primary};
   border: 0;
-  font-size: ${themes.primary.font.size.linkText};
-  font-weight: ${themes.primary.font.weight.medium};
-  font-family: ${themes.primary.font.family.gilroy};
-  background-color: ${themes.primary.colors.cardDarkGreen};
-  width: 165px;
-  height: 42px;
 `;
 
 export const InputWrapper = styled.div`
@@ -90,14 +92,13 @@ export const DropdownBanner = styled.div`
   justify-content: space-between;
   gap: 10px;
   cursor: pointer;
-  background-color: ${themes.primary.colors.secondary};
-  color: ${themes.primary.colors.primary};
-  width: 243px;
+  width: 274.5px;
   height: 56px;
+  color: ${themes.primary.colors.adminInputBorder};
   text-align: left;
   padding: 0 20px;
   box-sizing: border-box;
-  border: 1px solid ${themes.primary.colors.black};
+  border: 1px solid ${themes.primary.colors.adminInputBorder};
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.vistaco};
   letter-spacing: 0.03em;
@@ -117,15 +118,15 @@ export const CareerInfo = styled.div`
 
 export const Content = styled.div`
   position: absolute;
-  background-color: ${themes.primary.colors.secondary};
-  min-width: 243px;
+  min-width: 274.5px;
   z-index: 3;
-  border: 1px solid ${themes.primary.colors.primary};
+  border: 1px solid ${themes.primary.colors.adminInputBorder};
   display: none;
   &.open {
     display: block;
   }
   div {
+    background-color: ${themes.primary.colors.blogBackground};
     color: ${themes.primary.colors.primary};
     font-family: ${themes.primary.font.family.namu};
     font-size: ${themes.primary.font.size.primary};
@@ -141,4 +142,11 @@ export const Content = styled.div`
       border-bottom: 0;
     }
   }
+`;
+
+export const Container = styled.div`
+  display: flex;
+  column-gap: 10px;
+  row-gap: 10px;
+  flex-wrap: wrap;
 `;

@@ -64,3 +64,15 @@ export const PublishButton = styled.div`
   font-size: ${themes.primary.font.size.aboutUsCardText};
   color: ${themes.primary.colors.secondary};
 `;
+
+export const DraftMark = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.666em 1.888em;
+  text-transform: uppercase;
+  background-color: ${themes.primary.colors.headerBorderHover};
+  font-size: 18px;
+  line-height: 99%;
+  border: 1px solid ${themes.primary.colors.primary};
+`;

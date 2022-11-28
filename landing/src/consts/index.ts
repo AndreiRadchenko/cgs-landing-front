@@ -299,9 +299,10 @@ export const newBlogArticle = {
   scheduleArticle: "",
   date: "",
   minutesToRead: 2,
-  content: [],
+  content: "",
   tags: [],
   disabled: false,
+  draft: false,
   meta: {
     metaTitle: "",
     metaDescription: "",

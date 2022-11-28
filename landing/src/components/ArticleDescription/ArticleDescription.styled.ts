@@ -68,7 +68,7 @@ export const Title = styled.div`
 export const Description = styled.p`
   margin: 0;
   font-weight: ${themes.primary.font.weight.normal};
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-size: 1.125rem;
   font-family: ${themes.primary.font.family.openSans};
   line-height: 160%;
   color: ${themes.primary.colors.blogDarkText};
@@ -76,6 +76,46 @@ export const Description = styled.p`
   p {
     margin-top: 15px;
   }
+  & > div > figure {
+    position: relative;
+    margin: 0;
+
+    & > iframe {
+      position: absolute;
+      height: 100%;
+      top: 0;
+    }
+  }
+
+  & figcaption {
+    color: ${themes.primary.colors.comment};
+    font-size: 18px;
+    line-height: 160%;
+    padding-block: 0 !important;
+    background-color: transparent !important;
+  }
+
+  & blockquote {
+    margin: 0;
+    border-left: 4px solid ${themes.primary.colors.blogArticleText};
+    color: ${themes.primary.colors.blogArticleText};
+    padding-left: 10px;
+    font-size: 1.444em;
+    font-style: italic;
+    font-weight: ${themes.primary.font.weight.bold};
+    line-height: 160%;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block: 126px 38px;
+
+    font-size: 3.125rem;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     p {
       margin-top: 1.25em;
@@ -92,7 +132,7 @@ export const Description = styled.p`
     h5,
     h6 {
       margin-block: 28px 20px;
-      font-size: 1.25rem;
+      font-size: 1.375rem;
     }
 
     p {

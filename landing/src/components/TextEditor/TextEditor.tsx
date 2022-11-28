@@ -1,99 +1,53 @@
 import React from "react";
-import { Field } from "formik";
+import { Field, FieldProps } from "formik";
 import * as Styled from "../../styles/AdminPage";
-import dynamic from "next/dynamic";
 import "suneditor/dist/css/suneditor.min.css";
-
-const SunEditor = dynamic(() => import("suneditor-react"), {
-  ssr: false,
-});
+import SunEditor from "suneditor-react";
+import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
 
 interface ITextEditorProps {
   header: string;
   name: string;
-  isBlog?: boolean;
-  onlyColor?: boolean;
+  props?: SunEditorReactProps;
 }
 
-const TextEditor = ({
-  name,
-  isBlog = false,
-  header,
-  onlyColor,
-}: ITextEditorProps) => {
-  const options = onlyColor
-    ? {
-        font: ["NAMU"],
-        colorList: [
-          "#ccc",
-          "#dedede",
-          "#5869DD",
-          "#BABABA",
-          "#000",
-          "#fff",
-          "OrangeRed",
-          "Orange",
-          "RoyalBlue",
-          "SaddleBrown",
-          "SlateGray",
-          "BurlyWood",
-          "DeepPink",
-          "FireBrick",
-          "Gold",
-          "SeaGreen",
-        ],
-        linkRelDefault: {
-          default: undefined,
-          check_new_window: "nofollow",
-        },
-        buttonList: [
-          ["fontColor", "hiliteColor"],
-          [
-            "font",
-            "bold",
-            "underline",
-            "italic",
-            "strike",
-            "subscript",
-            "superscript",
-          ],
-        ],
-      }
-    : {
-        font: ["NAMU"],
-        linkRelDefault: {
-          default: undefined,
-          check_new_window: "nofollow",
-        },
-        buttonList: [
-          [
-            "formatBlock",
-            "font",
-            "fontSize",
-            "fontColor",
-            "align",
-            "paragraphStyle",
-            "blockquote",
-          ],
-          ["bold", "underline", "italic", "strike", "subscript", "superscript"],
-          ["removeFormat"],
-          ["outdent", "indent"],
-          ["list"],
-          ["link", "image", "video"],
-        ],
-      };
+const TextEditor = ({ name, header, props }: ITextEditorProps) => {
+  const options = {
+    font: ["NAMU"],
+    linkRelDefault: {
+      default: undefined,
+      check_new_window: "nofollow noopener",
+    },
+    buttonList: [
+      [
+        "formatBlock",
+        "font",
+        "fontSize",
+        "fontColor",
+        "align",
+        "paragraphStyle",
+        "blockquote",
+      ],
+      ["bold", "underline", "italic", "strike", "subscript", "superscript"],
+      ["removeFormat"],
+      ["outdent", "indent"],
+      ["list"],
+      ["link", "image", "video"],
+      ["codeView"],
+    ],
+  };
   return (
     <div>
-      <Styled.AdminSubTitle isBlog={isBlog}>{header}</Styled.AdminSubTitle>
-      <Styled.TextEditorContainer className={!isBlog ? "faq" : ""}>
+      <Styled.AdminSubTitle>{header}</Styled.AdminSubTitle>
+      <Styled.TextEditorContainer>
         <Field name={name}>
-          {({ field }: any) => (
+          {({ field }: FieldProps) => (
             <SunEditor
-              height={isBlog ? "376px" : "180px"}
               defaultValue={field.value}
               onChange={field.onChange(field.name)}
               lang="en"
               setOptions={options}
+              {...props}
             />
           )}
         </Field>

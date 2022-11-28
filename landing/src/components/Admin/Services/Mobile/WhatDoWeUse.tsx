@@ -1,8 +1,11 @@
 ﻿import { useFormikContext } from "formik";
+import dynamic from "next/dynamic";
 import React from "react";
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { IServiceMobile } from "../../../../types/Admin/Response.types";
-import TextEditor from "../../../TextEditor/TextEditor";
+const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 
 const WhatDoWeUse = () => {
@@ -17,12 +20,7 @@ const WhatDoWeUse = () => {
             onChangeFunction={handleChange}
             name="whatDoWeUse.subtitle"
           />
-          <TextEditor
-            header="Text"
-            name="whatDoWeUse.text"
-            isBlog={false}
-            onlyColor={true}
-          />
+          <TextEditor header="Text" name="whatDoWeUse.text" />
         </div>
       </AdminHalfGrid>
     </AdminPaddedBlock>

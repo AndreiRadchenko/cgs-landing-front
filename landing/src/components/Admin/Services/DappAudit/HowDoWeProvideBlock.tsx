@@ -63,8 +63,7 @@ const HowDoWeProvideBlock = () => {
         <AdminHeaderPhotoWrapper>
           <AdminSubTitle>Banner</AdminSubTitle>
           <PhotoBlockDashed
-            style={{ marginRight: 0, width: "235px" }}
-            maxHeight="249px"
+            style={{ marginRight: 0, width: "235px", maxHeight: "249px" }}
             photo={values.howDoWeProvideBlock.image}
             deleteFlag={true}
             uploadFunction={uploadFunc}

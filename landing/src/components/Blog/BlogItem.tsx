@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 import * as Styled from "../../styles/Blog.styled";
 import Watch from "../../../public/Watch.svg";
 import Timer from "../../../public/Timer.svg";
@@ -107,7 +108,7 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
                   </Styled.FlexRowContainer>
                   <Styled.BlogItemTitle>{article.title}</Styled.BlogItemTitle>
                   <Styled.BlogItemDescription>
-                    {article.description}
+                    {parse(article.description)}
                   </Styled.BlogItemDescription>
                 </Styled.BlogItemContent>
                 {article.image?.url ? (

@@ -11,7 +11,10 @@ import {
   ISitemapData,
   IView,
 } from "../../../../types/Admin/Response.types";
-import ArticleAddAndEdit from "./ArticleAddAndEdit";
+import dynamic from "next/dynamic";
+const ArticleAddAndEdit = dynamic(() => import("./ArticleAddAndEdit"), {
+  ssr: false,
+});
 
 interface IArticleForm {
   article: number;
@@ -105,7 +108,6 @@ const ArticleForm = ({
           : values.description),
         values.description;
     }
-
     isNewArticle ? await postArticle(values) : await editArticle(values);
     if (views) {
       const updatedViews = views.find(
@@ -137,9 +139,6 @@ const ArticleForm = ({
 
     resetForm();
     setFieldValue("image", null);
-    setFieldValue("author.image", null);
-    setFieldValue("meta.metaTitle", "");
-    setFieldValue("meta.metaDescription", "");
     setArticle(0);
     setIsNewArticle(true);
   };

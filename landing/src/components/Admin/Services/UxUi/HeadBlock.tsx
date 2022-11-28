@@ -31,8 +31,7 @@ const HeadBlock = () => {
           deleteFunction={async () => (await deleteMainImage)()}
           deleteFlag={true}
           uploadFunction={(image: IImage) => uploadMainImage(image)}
-          maxHeight="364px"
-          maxWidth="364px"
+          style={{ maxWidth: "364px", maxHeight: "364px" }}
         />
       </AdminHalfGrid>
     </AdminPaddedBlock>

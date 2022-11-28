@@ -77,6 +77,7 @@ const ArticlePage = () => {
       (el) =>
         el.url === url &&
         !el.disabled &&
+        !el.draft &&
         (!el.scheduleArticle || new Date() >= new Date(el.scheduleArticle))
     );
 
@@ -217,7 +218,7 @@ const ArticlePage = () => {
               <Image src={footerBg} alt="footer bg" />
             </Styles.FooterBg>
             <Styles.DescriptionWrapper>
-              <Styles.SubTitle>{article.description}</Styles.SubTitle>
+              <Styles.SubTitle>{parse(article.description)}</Styles.SubTitle>
               <Styles.HeaderBottomBg>
                 <Image src={headerBottomBg} alt="header bottom bg" />
               </Styles.HeaderBottomBg>

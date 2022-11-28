@@ -61,8 +61,7 @@ const TeamProvides = () => {
         <Styled.ProjectInfo>
           <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>
           <PhotoBlockDashed
-            maxWidth="235px"
-            maxHeight="249px"
+            style={{ maxWidth: "235px", maxHeight: "249px" }}
             photo={values.whatAppInclude.image}
             uploadFunction={uploadFunc}
             deleteFunction={deleteFunc}

@@ -34,9 +34,7 @@ const HeadBlock = () => {
           <Styled.AdminHeaderPhotoWrapper>
             <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>
             <PhotoBlockDashed
-              style={{ marginRight: 0 }}
-              maxHeight="249px"
-              maxWidth="235px"
+              style={{ marginRight: 0, maxWidth: "235px", maxHeight: "249px" }}
               photo={values.headerBlock.image}
               deleteFlag={true}
               uploadFunction={uploadFunc}

@@ -7,13 +7,22 @@ interface IDateInput {
   onChange: (e?: string | React.ChangeEvent<any>) => void;
   header: string;
   type: string;
+  style?: any;
 }
 
-const InputWithType = ({ name, value, onChange, type, header }: IDateInput) => {
+const InputWithType = ({
+  name,
+  value,
+  onChange,
+  type,
+  header,
+  style,
+}: IDateInput) => {
   return (
     <>
       <Styled.SubTitle>{header}</Styled.SubTitle>
       <Styled.DateInput
+        style={style}
         type={type}
         name={name}
         value={value}

@@ -1,41 +1,40 @@
-﻿import React, { useEffect, useState } from "react";
+﻿import React, { useState } from "react";
 import * as Styled from "../../../../styles/BlogTags.styled";
 import Arrow from "../../../../../public/upArrowSidebar.svg";
-import { useFormikContext } from "formik";
+import Image from "next/image";
 
-const Dropdown = ({
-  tags,
-  name,
-  value,
-}: {
+interface IDropdownProps {
+  chosenTags: string[];
   tags: string[];
-  name: string;
-  value: string;
-}) => {
-  const { values, setFieldValue } = useFormikContext();
+  setTags: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
+const Dropdown = ({ tags, setTags, chosenTags }: IDropdownProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selected, setSelected] = useState<string>(value);
+
   const onBlur = () => {
     setIsOpen(false);
   };
-  useEffect(() => {
-    setFieldValue(name, selected);
-  }, [selected, name, setFieldValue]);
+  const handleTagClick = (tag: string) => {
+    if (!chosenTags.includes(tag)) setTags((old) => [...old, tag]);
+  };
+
   return (
     <Styled.DropdownWrapper onBlur={onBlur}>
       <Styled.DropdownBanner
         onClick={() => setIsOpen(!isOpen)}
         className={isOpen ? "open" : undefined}
       >
-        {(selected.length > 0 && selected) || "#TAGS"}
-        <img width={12} height={12} src={Arrow.src} alt="Arrow" />
+        #TAGS
+        <Image width={12} height={12} src={Arrow.src} alt="Arrow" />
       </Styled.DropdownBanner>
       <Styled.Content className={isOpen ? "open" : undefined}>
         {tags.map((tag) => (
           <div
             onClick={() => {
               setIsOpen(false);
-              setSelected(tag);
+
+              handleTagClick(tag);
             }}
             key={tag}
             onMouseDown={(e) => e.preventDefault()}

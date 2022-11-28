@@ -1,11 +1,14 @@
 ﻿import { useFormikContext } from "formik";
+import dynamic from "next/dynamic";
 import React from "react";
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { IImage } from "../../../../types/Admin/Admin.types";
 import { IServiceMobile } from "../../../../types/Admin/Response.types";
-import TextEditor from "../../../TextEditor/TextEditor";
+const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 
@@ -23,12 +26,7 @@ const FooterBlock = () => {
             onChangeFunction={handleChange}
             inputValue={values.footerBlock.title}
           />
-          <TextEditor
-            header="Text"
-            name="footerBlock.text"
-            isBlog={false}
-            onlyColor={true}
-          />
+          <TextEditor header="Text" name="footerBlock.text" />
           <SubHeaderWithInput
             header="Button"
             name="footerBlock.button"
@@ -46,8 +44,7 @@ const FooterBlock = () => {
           photo={values.footerBlock.image}
           deleteFunction={async () => (await deleteMainImage)()}
           uploadFunction={(image: IImage) => uploadMainImage(image)}
-          maxWidth="364px"
-          maxHeight="364px"
+          style={{ maxWidth: "364px", maxHeight: "364px" }}
           deleteFlag={true}
         />
       </AdminHalfGrid>

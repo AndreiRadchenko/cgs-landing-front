@@ -93,6 +93,7 @@ const BlogPage = () => {
           .filter(
             (el) =>
               !el.disabled &&
+              !el.draft &&
               (!el.scheduleArticle ||
                 new Date() >= new Date(el.scheduleArticle))
           )
@@ -217,7 +218,7 @@ const BlogPage = () => {
                 ))}
           </Styled.FlexColumnContainer>
         </Styled.HeaderBlock>
-        <PodcastItem />
+        <PodcastItem data={data.podcast} />
         {(articles && (
           <Styled.AllArticlesContainer articles={articles.length}>
             <Styled.DropdownContainer>

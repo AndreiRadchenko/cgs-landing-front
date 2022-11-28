@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 import * as Styled from "../../styles/Blog.styled";
 import { IArticle } from "../../types/Admin/Response.types";
 import Watch from "../../../public/Watch.svg";
@@ -42,7 +43,7 @@ const MainBlogItem = ({ article, views, filters }: IMainBlogItem) => {
             </a>
           </Styled.MainBlogItemTitle>
           <Styled.MainBlogItemDescription>
-            {article.description}
+            {parse(article.description)}
           </Styled.MainBlogItemDescription>
         </div>
         <Styled.GeneralInfo>

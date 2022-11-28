@@ -29,9 +29,7 @@ const BringAppBlock = () => {
         <div>
           <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>
           <PhotoBlockDashed
-            maxHeight="249px"
-            maxWidth="235px"
-            style={{ marginRight: 0 }}
+            style={{ marginRight: 0, maxWidth: "235px", maxHeight: "249px" }}
             photo={values.footerBlock.image}
             deleteFlag={true}
             uploadFunction={uploadFunc}
