@@ -111,9 +111,22 @@ export const Description = styled.p`
   h4,
   h5,
   h6 {
-    margin-block: 126px 38px;
+    margin-block: 100px 32px;
+    font-size: 2.5rem;
 
-    font-size: 3.125rem;
+    & span {
+      font-family: ${themes.primary.font.family.namu};
+      font-weight: ${themes.primary.font.weight.heavy};
+      font-size: 2.1875rem;
+    }
+  }
+
+  & > h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    margin-top: 83px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -123,7 +136,7 @@ export const Description = styled.p`
     font-size: ${themes.primary.font.size.vistaco};
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1rem;
 
     h2,
@@ -133,6 +146,10 @@ export const Description = styled.p`
     h6 {
       margin-block: 28px 20px;
       font-size: 1.375rem;
+
+      & span {
+        font-size: 1.25rem;
+      }
     }
 
     p {
