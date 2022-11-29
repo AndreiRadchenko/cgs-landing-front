@@ -2,6 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
 import { buttonHover, cursorBlinking } from "../Animations.styled";
+import { PopupButton } from "react-calendly";
 
 export interface IFontSize {
   size: string;
@@ -42,6 +43,14 @@ export const ButtonArrow = styled.img`
   top: -14px;
   width: 36px;
   height: 36px;
+`;
+
+export const StyledPopupButton = styled(PopupButton)`
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  padding: 0;
+  border: 0;
 `;
 
 export const BlackButton = styled.a<IFontSize>`
