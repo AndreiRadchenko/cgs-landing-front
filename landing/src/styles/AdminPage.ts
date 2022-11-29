@@ -840,6 +840,29 @@ export const TextEditorContainer = styled.div<{
   & .se-wrapper-inner {
     font-family: ${themes.primary.font.family.openSans};
     font-size: 1.125rem;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-block: 100px 32px;
+      font-size: 2.5rem;
+
+      & span {
+        font-family: ${themes.primary.font.family.namu};
+        font-weight: ${themes.primary.font.weight.heavy};
+        font-size: 2.1875rem;
+      }
+    }
+
+    & > h2:first-child,
+    h3:first-child,
+    h4:first-child,
+    h5:first-child,
+    h6:first-child {
+      margin-top: 83px;
+    }
   }
 
   resize: none;
@@ -890,15 +913,6 @@ export const TextEditorContainer = styled.div<{
     font-style: italic;
     font-weight: ${themes.primary.font.weight.bold};
     line-height: 160%;
-  }
-
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-block: 126px 38px;
-    font-size: 3.125rem;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
