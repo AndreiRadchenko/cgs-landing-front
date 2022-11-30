@@ -8,23 +8,21 @@ const AdminDropDown = ({ menu, setValue, value, className }: IMenuProps) => {
   const [isDropped, setIsDropped] = useState(false);
 
   return (
-    <div>
-      <Styled.AdminDropDownMenu>
-        <ChooseElementBanner
-          value={value!}
-          isDropped={isDropped}
+    <Styled.AdminDropDownMenu>
+      <ChooseElementBanner
+        value={value!}
+        isDropped={isDropped}
+        setIsDropped={setIsDropped}
+      />
+      {isDropped && (
+        <MenuElementsRender
+          className={className}
+          menu={menu}
+          setValue={setValue}
           setIsDropped={setIsDropped}
         />
-        {isDropped && (
-          <MenuElementsRender
-            className={className}
-            menu={menu}
-            setValue={setValue}
-            setIsDropped={setIsDropped}
-          />
-        )}
-      </Styled.AdminDropDownMenu>
-    </div>
+      )}
+    </Styled.AdminDropDownMenu>
   );
 };
 

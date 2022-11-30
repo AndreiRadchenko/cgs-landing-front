@@ -1,6 +1,6 @@
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
-import mountain from "../../../../public/mountain.svg";
+import montain from "../../../../public/mountain.svg";
 import Image from "next/image";
 import useUploadModal from "../../../hooks/useUploadModal";
 import AdminUploadModal from "../UploadModal";
@@ -14,7 +14,7 @@ interface IEmptyProps {
 
 const AdminEmptyImage = ({
   func,
-  header = "Drop image here",
+  header = "Drop new image here",
   className,
   style,
 }: IEmptyProps) => {
@@ -24,13 +24,12 @@ const AdminEmptyImage = ({
     <Styled.AdminPhotoBlock className={className} style={style}>
       {modal ? <AdminUploadModal func={func} back={toggleModal} /> : null}
       <Styled.AdminDashedPositionGrid>
-        <Image src={mountain} alt="empty mountain image" />
+        <Image src={montain} alt="empty mountain image" />
         <Styled.AdminPointer>
-          <Styled.AdminSubTitle className="imageUploader" onClick={toggleModal}>
+          <Styled.AdminUploadSubTitle onClick={toggleModal}>
             {header}
-          </Styled.AdminSubTitle>
+          </Styled.AdminUploadSubTitle>
         </Styled.AdminPointer>
-        <Styled.AdminComment>Supports: JPG, PNG, SVG</Styled.AdminComment>
       </Styled.AdminDashedPositionGrid>
     </Styled.AdminPhotoBlock>
   );

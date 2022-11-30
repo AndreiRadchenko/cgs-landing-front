@@ -3,13 +3,17 @@ import themes from "../../utils/themes";
 
 export const InputWrapper = styled.div`
   width: 80%;
+
+  &.withMarginBottom {
+    margin-bottom: 50px;
+  }
 `;
 
 export const TransparentTextEditorWrapper = styled.div`
   background-color: transparent;
 
   & .se-toolbar {
-    background-color: transparent;
+    background-color: ${themes.primary.colors.blogBackground};
   }
 
   & .sun-editor {

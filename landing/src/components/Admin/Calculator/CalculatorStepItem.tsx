@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 
 import { ICalculatorStep } from "../../../types/Admin/Response.types";
 import dynamic from "next/dynamic";
+import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
+import { plugin_command } from "./customPlugin";
 const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
   ssr: false,
 });
@@ -14,13 +16,23 @@ interface ICalculatorStepItemProps {
 }
 
 const CalculatorStepItem = ({ step, index }: ICalculatorStepItemProps) => {
-  const textEditorOptions = {
+  const [plugins, setPlugins] = useState();
+  useEffect(() => {
+    import("suneditor/src/plugins").then((plugs) => setPlugins(plugs));
+  }, []);
+
+  const textEditorOptions = plugins && {
     font: ["NAMU"],
     linkRelDefault: {
       default: undefined,
-      check_new_window: "nofollow",
+      check_new_window: "nofollow noopener",
     },
-    buttonList: [["font", "fontSize", "fontColor"], ["removeFormat"]],
+    plugins: { letterCaseSubmenu, plugin_command, ...plugins },
+    buttonList: [
+      ["letterCase", "image", "customCommand", "codeView"],
+      ["fontColor", "fontSize"],
+      ["removeFormat"],
+    ],
   };
 
   return (

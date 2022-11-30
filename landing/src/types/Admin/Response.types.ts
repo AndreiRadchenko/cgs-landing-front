@@ -607,6 +607,8 @@ export interface ISitemapData {
 }
 
 export interface ICalculator {
+  previewTextMessage: string;
+  popUpMessage: string;
   startMessage: string;
   finishMessage: string;
 }

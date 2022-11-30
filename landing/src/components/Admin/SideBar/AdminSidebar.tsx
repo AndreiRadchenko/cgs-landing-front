@@ -6,6 +6,7 @@ import * as Styled from "../../../styles/AdminPage";
 import DropDownElement from "./DropDownElement";
 import {
   BlogIcon,
+  CalculatorIcon,
   CompanyIcon,
   HomeIcon,
   PortfolioIcon,
@@ -38,7 +39,7 @@ const AdminSidebar = () => {
           itemProp={currentPath}
           property={ROUTE_KEYS.AdminCalculator}
         >
-          <HomeIcon />
+          <CalculatorIcon />
           сalculator
         </Styled.AdminSidebarMenuElement>
         <Styled.AdminSidebarMenuElement
