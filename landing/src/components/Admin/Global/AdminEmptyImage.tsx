@@ -1,6 +1,6 @@
 import React from "react";
 import * as Styled from "../../../styles/AdminPage";
-import tetris from "../../../../public/tetris.svg";
+import montain from "../../../../public/mountain.svg";
 import Image from "next/image";
 import useUploadModal from "../../../hooks/useUploadModal";
 import AdminUploadModal from "../UploadModal";
@@ -24,7 +24,7 @@ const AdminEmptyImage = ({
     <Styled.AdminPhotoBlock className={className} style={style}>
       {modal ? <AdminUploadModal func={func} back={toggleModal} /> : null}
       <Styled.AdminDashedPositionGrid>
-        <Image src={tetris} alt="empty mountain image" />
+        <Image src={montain} alt="empty mountain image" />
         <Styled.AdminPointer>
           <Styled.AdminUploadSubTitle onClick={toggleModal}>
             {header}

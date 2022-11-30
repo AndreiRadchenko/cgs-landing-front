@@ -8,6 +8,17 @@ interface ITextEditorWrapperProps {
   start?: number;
 }
 
+interface IBlockDropDownHeaderTitleProps {
+  size?: string;
+}
+
+interface IBlockDropdownHeaderIconProps {
+  rotate?: boolean;
+}
+interface IBlockDropdownProps {
+  marginTop?: string;
+}
+
 export const AdminWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 4.62fr;
@@ -215,7 +226,7 @@ export const AdminSubTitle = styled.h3<{ isBlog?: boolean; size?: string }>`
 `;
 
 export const AdminUploadSubTitle = styled.h3`
-  font-size: 1.1em
+  font-size: ${themes.primary.font.size.vistaco};
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.semiBold};
 `;
@@ -1440,7 +1451,7 @@ export const AuthorPhotoGrid = styled.div`
 export const AuthorPhotoTextWrapper = styled.div`
   margin-left: 18px;
 `;
-export const BlockDropdown = styled.div<{ marginTop?: string }>`
+export const BlockDropdown = styled.div<IBlockDropdownProps>`
   margin-top: ${(props) => props.marginTop};
 `;
 
@@ -1459,9 +1470,7 @@ export const BlockDropdownContent = styled.div`
   margin-bottom: 20px !important;
 `;
 
-export const BlockDropdownHeaderTitle = styled.h3<{
-  size?: string;
-}>`
+export const BlockDropdownHeaderTitle = styled.h3<IBlockDropDownHeaderTitleProps>`
   font-size: ${(props) =>
     props.size ? props.size : themes.primary.font.size.oneAndHalf};
   font-family: ${themes.primary.font.family.namu};
@@ -1470,7 +1479,8 @@ export const BlockDropdownHeaderTitle = styled.h3<{
   font-weight: ${themes.primary.font.weight.heavy};
   margin: 0;
 `;
-export const BlockDropdownHeaderIcon = styled.div<{ rotate?: boolean }>`
+
+export const BlockDropdownHeaderIcon = styled.div<IBlockDropdownHeaderIconProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1478,9 +1488,11 @@ export const BlockDropdownHeaderIcon = styled.div<{ rotate?: boolean }>`
   margin-left: auto !important;
   transform: ${(props) => props.rotate && "rotate(180deg)"};
 `;
+
 export const AdminCategoryWrapper = styled.div`
   width: 255px;
 `;
+
 export const AdminPageReviewBlock = styled.div`
   display: flex;
   flex-direction: column;
