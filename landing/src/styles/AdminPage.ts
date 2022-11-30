@@ -196,6 +196,7 @@ export const MetaBlockWraper = styled.div`
 `;
 
 export const AdminHeader = styled.h2`
+  text-transform: uppercase;
   font-size: ${themes.primary.font.size.secondary};
   font-family: ${themes.primary.font.family.namu};
   margin-bottom: 1.21em;
@@ -211,6 +212,12 @@ export const AdminSubTitle = styled.h3<{ isBlog?: boolean; size?: string }>`
   &.imageUploader {
     margin-top: 55px;
   }
+`;
+
+export const AdminUploadSubTitle = styled.h3`
+  font-size: 1.1em
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.semiBold};
 `;
 
 export const AdminComment = styled.p`
@@ -293,14 +300,13 @@ export const AdminInput = styled(TextareaAutosize)<{
 `;
 
 export const AdminPhotoBlock = styled.div`
+  height: 265px;
+  width: 235px;
   border: 2px dashed ${themes.primary.colors.comment};
   display: flex;
   justify-content: ${(props) => (props.theme ? props.theme : "space-between")};
   align-items: center;
   flex-direction: column;
-  padding: ${themes.primary.spacing.primary};
-  margin-bottom: ${themes.primary.spacing.primary};
-  height: 100%;
 
   &.author {
     flex-direction: row;
@@ -333,11 +339,12 @@ export const AdminPhotoGrid = styled.div`
 `;
 
 export const AdminDashedPositionGrid = styled.div`
+  height: 100%;
+  justify-content: center;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 55px;
 
   &.uploaded {
     margin-top: 0;
@@ -351,8 +358,9 @@ export const AdminDashedPositionGrid = styled.div`
 `;
 
 export const AdminDeleteText = styled.h6`
+  text-align: center;
   color: ${themes.primary.colors.errorText};
-  margin: 0;
+  margin: 10px 0;
   font-size: ${themes.primary.font.size.primary};
   cursor: pointer;
 `;
@@ -781,7 +789,7 @@ export const AdminReviewBlock = styled.div`
 `;
 
 export const AdminPortfolioImage = styled.div`
-  margin: 1em 0;
+  margin-top: 12px;
   min-height: 250px;
   display: grid;
 `;
@@ -924,9 +932,8 @@ export const TextEditorContainer = styled.div<{
 `;
 
 export const AdminPageFirstBlockLayout = styled.div`
-  display: grid;
-  grid-template-columns: 2.09fr 1fr 1fr;
-  column-gap: 1.5em;
+  display: flex;
+  gap: 28px;
 `;
 
 export const AdminPageSecondBlockLayout = styled.div`
@@ -1431,4 +1438,50 @@ export const AuthorPhotoGrid = styled.div`
 
 export const AuthorPhotoTextWrapper = styled.div`
   margin-left: 18px;
+`;
+export const BlockDropdown = styled.div<{ marginTop?: string }>`
+  margin-top: ${(props) => props.marginTop};
+`;
+
+export const BlockDropdownHeader = styled.div`
+  margin-bottom: 20px;
+  cursor: pointer;
+  padding: 16px 19px;
+  display: flex;
+  align-items: center;
+  width: "100%";
+  background-color: ${themes.primary.colors.primary};
+`;
+
+export const BlockDropdownContent = styled.div`
+  margin: 0;
+  margin-bottom: 20px !important;
+`;
+
+export const BlockDropdownHeaderTitle = styled.h3<{
+  size?: string;
+}>`
+  font-size: ${(props) =>
+    props.size ? props.size : themes.primary.font.size.oneAndHalf};
+  font-family: ${themes.primary.font.family.namu};
+  text-transform: uppercase;
+  color: ${themes.primary.colors.portfolioBg};
+  font-weight: ${themes.primary.font.weight.heavy};
+  margin: 0;
+`;
+export const BlockDropdownHeaderIcon = styled.div<{ rotate?: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  margin-left: auto !important;
+  transform: ${(props) => props.rotate && "rotate(180deg)"};
+`;
+export const AdminCategoryWrapper = styled.div`
+  width: 255px;
+`;
+export const AdminPageReviewBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 `;

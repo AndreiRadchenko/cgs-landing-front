@@ -9,12 +9,14 @@ import { IPortfolioPageData } from "../../../types/Admin/AdminPortfolio.types";
 import { useScrollTo } from "../../../hooks/useScrollTo";
 
 import MetaTagsBlock from "../MetaTagsBlock";
+import BlockDropdown from "../BlockDropdown";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import { adminGlobalService } from "../../../services/adminHomePage";
 import { ISwapData } from "../../../types/Admin/Response.types";
 import SortableList, { SortableItem } from "react-easy-sort";
+import SaveBtn from "../AboutUs/SaveBtn";
 
 const AdminPortfolioContentBlock = () => {
   const queryClient = useQueryClient();
@@ -86,27 +88,28 @@ const AdminPortfolioContentBlock = () => {
     <div>
       <Styled.AdminPaddedBlock>
         <Styled.AdminHeader ref={ref}>Portfolio</Styled.AdminHeader>
-        <Styled.AdminSubTitle>Category</Styled.AdminSubTitle>
-        <Styled.AdminCategoryBlock>
-          <FieldArray name="categories">
-            {() =>
-              renderPortfolioInputs({
-                state: values.categories,
-                handleChange,
-              })
-            }
-          </FieldArray>
-        </Styled.AdminCategoryBlock>
-        <Styled.AdminBigButton onClick={submitFunction} type="button">
-          Save categories
-        </Styled.AdminBigButton>
-        <Styled.AdminSubTitle>Add a new case</Styled.AdminSubTitle>
-        <AddAndEdit
-          current={current}
-          isNewStatus={isNewStatus}
-          reviews={data}
-          setIsNewStatus={setIsNewStatus}
-        />
+        <BlockDropdown title="Category">
+          <Styled.AdminCategoryBlock>
+            <FieldArray name="categories">
+              {() =>
+                renderPortfolioInputs({
+                  state: values.categories,
+                  handleChange,
+                })
+              }
+            </FieldArray>
+          </Styled.AdminCategoryBlock>
+        </BlockDropdown>
+        <SaveBtn title="Save Changes" handleClick={submitFunction} />
+        <BlockDropdown styles={{ marginTop: "50px" }} title="Add a new case">
+          <AddAndEdit
+            current={current}
+            isNewStatus={isNewStatus}
+            reviews={data}
+            setIsNewStatus={setIsNewStatus}
+          />
+        </BlockDropdown>
+        <Styled.AdminSubTitle>Editing</Styled.AdminSubTitle>
         <Styled.AdminCategoryBlock>
           <AdminDropDown
             menu={values.categories}
@@ -140,12 +143,9 @@ const AdminPortfolioContentBlock = () => {
           </SortableList>
         </Styled.AdminReviewBlock>
       </Styled.AdminPaddedBlock>
-      <MetaTagsBlock theme="dark" sitemap="portfolio" />
-      <Styled.AdminPaddedBlock>
-        <Styled.AdminBigButton type="submit" onClick={submitFunction}>
-          Submit
-        </Styled.AdminBigButton>
-      </Styled.AdminPaddedBlock>
+      <Styled.MetaBlockWraper>
+        <MetaTagsBlock theme="dark" sitemap="portfolio" />
+      </Styled.MetaBlockWraper>
     </div>
   );
 };
