@@ -210,7 +210,7 @@ export const AdminSubTitle = styled.h3<{ isBlog?: boolean; size?: string }>`
   margin: 0 0 10px 0;
 
   &.imageUploader {
-    margin-top: 55px;
+    margin-top: 22%;
   }
 `;
 
@@ -345,6 +345,7 @@ export const AdminDashedPositionGrid = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 22%;
 
   &.uploaded {
     margin-top: 0;

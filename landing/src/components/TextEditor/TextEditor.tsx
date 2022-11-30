@@ -43,6 +43,7 @@ const TextEditor = ({ name, header, props }: ITextEditorProps) => {
         <Field name={name}>
           {({ field }: FieldProps) => (
             <SunEditor
+              name={field.name}
               defaultValue={field.value}
               onChange={field.onChange(field.name)}
               lang="en"
