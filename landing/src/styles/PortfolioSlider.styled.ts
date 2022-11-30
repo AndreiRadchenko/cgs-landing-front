@@ -358,10 +358,13 @@ export const ImageContainer = styled.div<IImageContainer>`
   border-left: thin solid ${themes.primary.colors.comment};
   background: ${({ bgColor }) => bgColor};
 
-  @media ${themes.primary.media.maxTabletPortrait} {
+  @media (max-width: 1400px) {
     & img {
       object-fit: contain;
     }
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
     width: 43%;
   }
 

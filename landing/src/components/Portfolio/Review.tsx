@@ -56,7 +56,7 @@ const Review = ({ review, className }: IReviewProps) => {
               >
                 <a>
                   <Styles.LinkButton>
-                    {width && width < 992 && width > 768
+                    {width && width < 1100 && width > 768
                       ? "link"
                       : "project link"}
                   </Styles.LinkButton>
