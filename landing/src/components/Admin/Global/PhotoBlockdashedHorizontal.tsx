@@ -12,33 +12,27 @@ const PhotoBlockDashedHorizontal = ({
   emptyHeader,
   deleteFunction,
   uploadFunction,
-  horizontalFlex,
 }: IPhotoBlock) => {
   const { modal, toggleModal } = useUploadModal();
   const deleteFunc = () => deleteFunction!();
 
   return photo !== null && photo !== undefined ? (
-    <Styled.AdminPhotoDashedHorizontal>
+    <Styled.AdminPhotoBlock>
       {modal ? (
         <AdminUploadModal back={toggleModal} func={uploadFunction} />
       ) : null}
-      <Styled.AdminPhotoDashedHorizontalPositoning
-        horizontalFlex={horizontalFlex}
-      >
+      <Styled.AdminDashedPositionGrid>
         <AdminImage image={photo} />
-        <Styled.AdminCenteredDiv>
-          <Styled.AdminPointer>
-            <Styled.AdminSubTitle onClick={toggleModal}>
-              {header}
-            </Styled.AdminSubTitle>
-          </Styled.AdminPointer>
-          <Styled.AdminComment>Supports: JPG, PNG, SVG</Styled.AdminComment>
+        <Styled.AdminPointer>
+          <Styled.AdminUploadSubTitle onClick={toggleModal}>
+            {header}
+          </Styled.AdminUploadSubTitle>
           <Styled.AdminDeleteText onClick={deleteFunc}>
             delete image
           </Styled.AdminDeleteText>
-        </Styled.AdminCenteredDiv>
-      </Styled.AdminPhotoDashedHorizontalPositoning>
-    </Styled.AdminPhotoDashedHorizontal>
+        </Styled.AdminPointer>
+      </Styled.AdminDashedPositionGrid>
+    </Styled.AdminPhotoBlock>
   ) : (
     <AdminEmptyImage func={uploadFunction} header={emptyHeader} />
   );

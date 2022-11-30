@@ -9,6 +9,7 @@ import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { IImage } from "../../../types/Admin/Admin.types";
 import AdminStars from "../FeedbackBlock/AdminStars";
+import SaveBtn from "../AboutUs/SaveBtn";
 
 interface IAddReviewProps {
   categories: string[];
@@ -42,100 +43,97 @@ const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
       <Styled.AdminPageFirstBlockLayout>
         <Styled.AdminPortfolioImage>
           <PhotoBlockDashedHorizontal
-            emptyHeader="Drop banner here"
+            emptyHeader="Drop new image here"
             photo={values.image}
             deleteFunction={deleteFunc}
             uploadFunction={uploadFunc}
           />
         </Styled.AdminPortfolioImage>
-        <div>
-          <AdminDropDown
-            menu={categories}
-            value={catValue}
-            setValue={setCatValue}
-          />
-          <SubHeaderWithInput
-            placeholder="#123456"
-            header="Background Color"
-            inputValue={values.bgColor}
-            onChangeFunction={handleChange}
-            name="bgColor"
-          />
-        </div>
-      </Styled.AdminPageFirstBlockLayout>
-      <Styled.AdminPageSecondBlockLayout>
-        <div>
-          <SubHeaderWithInput
-            placeholder="Link"
-            header="Project link"
-            inputValue={values.button}
-            onChangeFunction={handleChange}
-            name="button"
-          />
-          <Styled.AdminInput
-            placeholder="Name project"
-            value={values.title}
-            onChange={handleChange}
-            name="title"
-          />
-          <Styled.AdminInput
-            placeholder="Industry"
-            value={values.industry}
-            onChange={handleChange}
-            name="industry"
-          />
-
-          <Styled.AdminInput
-            minRows={4}
-            placeholder="Text"
-            value={values.text}
-            onChange={handleChange}
-            name="text"
-            className="withBottomButtons"
-          />
-          <Styled.BottomText>
-            <Styled.ErrorText>{errors["text"]}</Styled.ErrorText>
-            <Styled.TextCounter>{values.text.length}</Styled.TextCounter>
-          </Styled.BottomText>
-          <Styled.AdminBigButton onClick={submitFunction} type="button">
-            {newFlag ? "Add review" : "Edit review"}
-          </Styled.AdminBigButton>
-        </div>
-        <div>
-          <Styled.InputAndStars>
-            <SubHeaderWithInput
-              placeholder="Name"
-              header="Add review"
-              inputValue={values.feedback.name}
-              onChangeFunction={handleChange}
-              name="feedback.name"
+        <Styled.AdminPageReviewBlock>
+          <Styled.AdminCategoryWrapper>
+            <AdminDropDown
+              menu={categories}
+              value={catValue}
+              setValue={setCatValue}
             />
-            <Styled.StartsContainer>
-              <Styled.AdminFeedbackStars>
-                <AdminStars
-                  size={30}
-                  value={Number(values.feedback.rating)}
-                  handleChange={starsChange}
-                  edit={true}
+          </Styled.AdminCategoryWrapper>
+
+          <Styled.AdminPageSecondBlockLayout>
+            <div>
+              <SubHeaderWithInput
+                placeholder="Link"
+                header="Project link"
+                inputValue={values.button}
+                onChangeFunction={handleChange}
+                name="button"
+              />
+              <Styled.AdminInput
+                placeholder="Name project"
+                value={values.title}
+                onChange={handleChange}
+                name="title"
+              />
+              <Styled.AdminInput
+                placeholder="Industry"
+                value={values.industry}
+                onChange={handleChange}
+                name="industry"
+              />
+
+              <Styled.AdminInput
+                minRows={4}
+                placeholder="Text"
+                value={values.text}
+                maxLength={300}
+                onChange={handleChange}
+                name="text"
+                className="withBottomButtons"
+              />
+              <Styled.BottomText>
+                <Styled.ErrorText>{errors["text"]}</Styled.ErrorText>
+                <Styled.TextCounter>
+                  {values.text.length}/300
+                </Styled.TextCounter>
+              </Styled.BottomText>
+              <SaveBtn handleClick={submitFunction} />
+            </div>
+            <div>
+              <Styled.InputAndStars>
+                <SubHeaderWithInput
+                  placeholder="Name"
+                  header="Add review"
+                  inputValue={values.feedback.name}
+                  onChangeFunction={handleChange}
+                  name="feedback.name"
                 />
-              </Styled.AdminFeedbackStars>
-            </Styled.StartsContainer>
-          </Styled.InputAndStars>
-          <Styled.AdminInput
-            placeholder="Company"
-            value={values.feedback.company}
-            onChange={handleChange}
-            name="feedback.company"
-          />
-          <Styled.AdminInput
-            minRows={4}
-            placeholder="Text review"
-            value={values.feedback.feedbackText}
-            onChange={handleChange}
-            name="feedback.feedbackText"
-          />
-        </div>
-      </Styled.AdminPageSecondBlockLayout>
+                <Styled.StartsContainer>
+                  <Styled.AdminFeedbackStars>
+                    <AdminStars
+                      size={30}
+                      value={Number(values.feedback.rating)}
+                      handleChange={starsChange}
+                      edit={true}
+                    />
+                  </Styled.AdminFeedbackStars>
+                </Styled.StartsContainer>
+              </Styled.InputAndStars>
+              <Styled.AdminInput
+                placeholder="Company"
+                value={values.feedback.company}
+                onChange={handleChange}
+                name="feedback.company"
+              />
+              <Styled.AdminInput
+                minRows={4}
+                placeholder="Text review"
+                value={values.feedback.feedbackText}
+                onChange={handleChange}
+                name="feedback.feedbackText"
+              />
+            </div>
+          </Styled.AdminPageSecondBlockLayout>
+        </Styled.AdminPageReviewBlock>
+      </Styled.AdminPageFirstBlockLayout>
     </>
   );
 };
