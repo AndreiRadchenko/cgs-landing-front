@@ -27,6 +27,10 @@ export const Title = styled.h1`
   }
 `;
 
+export const Article = styled.article`
+  position: relative;
+`;
+
 export const SubTitle = styled.p`
   width: 100%;
   margin-top: 28px;
@@ -93,7 +97,7 @@ export const PageWrapper = styled.div`
   }
 `;
 
-export const BannerImageContainer = styled.div`
+export const BannerImageContainer = styled.figure`
   width: 100%;
   height: 100%;
   display: flex;
@@ -204,7 +208,7 @@ export const DescriptionWrapper = styled.div`
   position: relative;
 `;
 
-export const Cont = styled.div`
+export const Cont = styled.article`
   position: relative;
   display: flex;
   justify-content: center;
@@ -214,7 +218,7 @@ export const Cont = styled.div`
   }
 `;
 
-export const TitleBg = styled.div`
+export const TitleBg = styled.figure`
   position: absolute;
   top: 50px;
   left: -180px;
@@ -251,7 +255,7 @@ export const HeaderBottomBg = styled.div`
   }
 `;
 
-export const FirstHeaderBg = styled.div`
+export const FirstHeaderBg = styled.figure`
   position: absolute;
   top: 22%;
   left: -750px;
@@ -260,7 +264,7 @@ export const FirstHeaderBg = styled.div`
   }
 `;
 
-export const SecondHeaderBg = styled.div`
+export const SecondHeaderBg = styled.figure`
   position: absolute;
   bottom: 26%;
   right: -500px;
@@ -276,7 +280,7 @@ export const SecondHeaderBg = styled.div`
   }
 `;
 
-export const FooterBg = styled.div`
+export const FooterBg = styled.figure`
   position: absolute;
   bottom: 10px;
   right: -250px;

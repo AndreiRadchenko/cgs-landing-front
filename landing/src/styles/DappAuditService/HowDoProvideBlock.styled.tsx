@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   margin-block: calc(
       2 * ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks}
     )
     ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks};
 
-  @media ${themes.primary.media.minPCFullHD} {
-    margin-bottom: calc(
-      2.5 * ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks}
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-top: calc(
+      1.5 * ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks}
     );
   }
 
@@ -20,6 +20,10 @@ export const Wrapper = styled.div`
 
 export const ItemContainer = styled.div`
   z-index: 2;
+
+  &.first {
+    margin-top: 1.3em;
+  }
 
   @media (min-width: 1650px) {
     font-size: 1.1em;
@@ -81,7 +85,7 @@ export const ItemTitle = styled.h4`
 export const OptionalContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 0.625em;
+  margin-left: 1.375em;
   margin-top: 7px;
   position: relative;
   top: 13px;
@@ -141,6 +145,11 @@ export const ImageWrapper = styled.div`
   width: 562px;
   margin-right: 3.5625em;
 
+  @media (min-width: 2200px) {
+    height: 380px;
+    width: 662px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 180px;
     width: 362px;
@@ -154,12 +163,8 @@ export const ImageWrapper = styled.div`
 export const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 723px;
+  height: auto;
   margin-top: ${themes.primary.spacing.tertiary};
-
-  @media ${themes.primary.media.minPC} {
-    height: 800px;
-  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 600px;
@@ -175,6 +180,10 @@ export const BgImage = styled.img`
   position: absolute;
   left: -51px;
   width: 100vw;
+
+  @media (min-width: 2560px) {
+    width: 100%;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     display: none;
@@ -220,6 +229,10 @@ export const SubContentWrapper = styled.div`
 
   @media (min-width: 2400px) {
     margin-inline: 7em 10em;
+  }
+
+  @media (min-width: 2560px) {
+    margin-inline: 6% 16%;
   }
 
   @media (max-width: 1400px) {

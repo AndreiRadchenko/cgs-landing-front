@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Container = styled.div`
+export const Container = styled.section`
   margin: 0 2.1em 0 1.56em;
   display: flex;
   position: relative;

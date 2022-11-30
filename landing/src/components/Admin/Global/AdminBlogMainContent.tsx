@@ -10,6 +10,7 @@ import ArticleForm from "./Blog/ArticleForm";
 import PublishedArticles from "./Blog/PublishedArticles";
 import { adminSitemapService } from "../../../services/adminSitemapPage";
 import { useScrollTo } from "../../../hooks/useScrollTo";
+import PodcastForm from "./Blog/PodcastForm";
 
 export interface IBlogProps {
   data: IBlogPageResponse | undefined;
@@ -55,14 +56,14 @@ const AdminBlogMainContent = () => {
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data && views && articles ? (
-    <Formik
-      key="blogPageData"
-      validateOnChange={false}
-      onSubmit={submitForm}
-      initialValues={data}
-      validateOnBlur
-    >
-      {({ handleSubmit }) => (
+    <Styled.AdminContentBlock>
+      <Formik
+        key="blogPageData"
+        validateOnChange={false}
+        onSubmit={submitForm}
+        initialValues={data}
+        validateOnBlur
+      >
         <div>
           <ArticleForm
             article={article}
@@ -84,15 +85,13 @@ const AdminBlogMainContent = () => {
             data={articles}
             sitemap={sitemap}
           />
-          <MetaTagsBlock theme="dark" sitemap="blog" />
-          <Styled.AdminPaddedBlock>
-            <Styled.AdminBigButton type="submit" onClick={() => handleSubmit()}>
-              Submit
-            </Styled.AdminBigButton>
-          </Styled.AdminPaddedBlock>
+          <PodcastForm />
+          <Styled.MetaBlockWraper>
+            <MetaTagsBlock theme="dark" sitemap="blog" />
+          </Styled.MetaBlockWraper>
         </div>
-      )}
-    </Formik>
+      </Formik>
+    </Styled.AdminContentBlock>
   ) : (
     <Styled.AdminUnauthorizedModal>
       Something went wrong :(

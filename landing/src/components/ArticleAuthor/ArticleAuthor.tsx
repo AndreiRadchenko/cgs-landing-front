@@ -45,11 +45,13 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
                 <Styles.DatesContainer>
                   {(update && (
                     <Styled.GrayText>
-                      `Updated on {formatDate(update)}`
+                      Updated on
+                      <Styled.TimeText>{formatDate(update)}</Styled.TimeText>
                     </Styled.GrayText>
                   )) || (
                     <Styled.GrayText>
-                      Published on {formatDate(date)}
+                      Published on
+                      <Styled.TimeText>{formatDate(date)}</Styled.TimeText>
                     </Styled.GrayText>
                   )}
                 </Styles.DatesContainer>
@@ -62,8 +64,10 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
                   </Styled.WatchCountArticle>
                 </Styled.ArticleWatchContainer>
                 <Styled.ArticleTimerContainer>
-                  <Styled.TimerIcon src={Timer.src} />
-                  <Styled.GrayText>{`${time} min`}</Styled.GrayText>
+                  <Styled.TimerIcon src={Timer.src} alt="timer img" />
+                  <Styled.GrayText>
+                    <Styled.TimeText>{time}</Styled.TimeText> min
+                  </Styled.GrayText>
                 </Styled.ArticleTimerContainer>
               </Styles.StatisticWrapper>
             </Styles.SpaceBetween>
@@ -73,9 +77,13 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
       {width && width > 767 && (
         <Styles.DatesContainer>
           {(update && (
-            <Styled.GrayText>`Updated on {formatDate(update)}`</Styled.GrayText>
+            <Styled.GrayText>
+              Updated on <Styled.TimeText>{formatDate(update)}</Styled.TimeText>
+            </Styled.GrayText>
           )) || (
-            <Styled.GrayText>Published on {formatDate(date)}</Styled.GrayText>
+            <Styled.GrayText>
+              Published on <Styled.TimeText>{formatDate(date)}</Styled.TimeText>
+            </Styled.GrayText>
           )}
         </Styles.DatesContainer>
       )}

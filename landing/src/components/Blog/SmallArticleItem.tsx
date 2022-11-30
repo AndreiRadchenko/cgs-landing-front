@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 import * as Styled from "../../styles/Blog.styled";
 import { IArticle } from "../../types/Admin/Response.types";
 import Arrow from "../../../public/BlogDecorations/MainPage/Arrow.svg";
@@ -39,7 +40,7 @@ const SmallArticleItem = ({ article, filters }: IMainBlogItem) => {
         </a>
       </Styled.SmallArticleItemTitle>
       <Styled.SmallArticleItemDescription>
-        {article.description}
+        {parse(article.description)}
       </Styled.SmallArticleItemDescription>
     </Styled.SmallArticleContainer>
   );

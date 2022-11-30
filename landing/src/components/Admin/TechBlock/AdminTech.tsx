@@ -65,15 +65,17 @@ const AdminTech = ({
         </div>
         <Styled.AdminTechWrapper>
           <PhotoBlockDashed
-            style={{ marginTop: "2.5em" }}
+            style={{
+              marginTop: "2.5em",
+              maxWidth: "194px",
+              maxHeight: "168px",
+            }}
             className="blog"
             deleteFunction={deleteFunction}
             uploadFunction={uploadFunc}
             photo={info.image}
             header="+ Add image here"
             deleteFlag={true}
-            maxWidth="194px"
-            maxHeight="168px"
           />
         </Styled.AdminTechWrapper>
       </Styled.AdminFlexRow>

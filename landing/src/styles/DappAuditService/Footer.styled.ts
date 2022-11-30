@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.section`
   position: relative;
   padding-bottom: 15.6875em;
 

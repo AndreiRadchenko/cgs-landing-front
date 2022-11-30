@@ -2,7 +2,7 @@
 import themes from "../../utils/themes";
 import { cursorBlinking } from "../Animations.styled";
 
-export const ContentContainer = styled.div`
+export const ContentContainer = styled.section`
   margin-top: 15.1em;
   h2 {
     line-height: 132%;
@@ -87,9 +87,6 @@ export const HighlightWrapper = styled.span`
 
     & > span {
       background-position: 0 0;
-    }
-
-    & > div {
       transform: translate(0, 0.3em);
     }
   }
@@ -102,7 +99,7 @@ export const HighlightBg = styled.span`
   z-index: -1;
 `;
 
-export const Cursor = styled.div`
+export const Cursor = styled.span`
   display: inline-block;
   width: 1px;
   height: 1.5em;

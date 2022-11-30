@@ -2,6 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
 import { buttonHover, cursorBlinking } from "../Animations.styled";
+import { PopupButton } from "react-calendly";
 
 export interface IFontSize {
   size: string;
@@ -42,6 +43,14 @@ export const ButtonArrow = styled.img`
   top: -14px;
   width: 36px;
   height: 36px;
+`;
+
+export const StyledPopupButton = styled(PopupButton)`
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  padding: 0;
+  border: 0;
 `;
 
 export const BlackButton = styled.a<IFontSize>`
@@ -257,7 +266,7 @@ export const LongArrowWrapper = styled.div`
   }
 `;
 
-export const HeadBlockContent = styled.div`
+export const HeadBlockContent = styled.header`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -309,7 +318,8 @@ export const TetrisGroup = styled.g<{ coinsTranslate: string }>`
   transform: ${({ coinsTranslate }) => coinsTranslate};
 `;
 
-export const HeadBlockRow = styled(RowContainer)`
+export const HeadBlockRow = styled.section`
+  display: flex;
   margin-top: 38px;
   width: 100%;
 
@@ -343,11 +353,11 @@ export const Subtitle = styled.div`
   }
 
   &.footer {
-    margin-top: ${themes.primary.spacing.tertiary};
-    margin-bottom: 171px;
+    margin-block: ${themes.primary.spacing.tertiary} 0;
     line-height: 132%;
     display: inline-block;
     vertical-align: middle;
+    position: relative;
 
     & br {
       display: none;
@@ -424,7 +434,6 @@ export const Subtitle = styled.div`
 
     &.footer {
       margin-top: 4em;
-      margin-bottom: 3em;
       & br {
         display: block;
       }
@@ -469,7 +478,6 @@ export const Subtitle = styled.div`
     &.footer {
       margin-top: 110px;
       font-size: 2rem;
-      margin-bottom: 100px;
     }
   }
 
@@ -485,7 +493,7 @@ export const Subtitle = styled.div`
   }
 `;
 
-export const NextTech = styled.div`
+export const NextTech = styled.section`
   margin-top: 24.5em;
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -667,9 +675,11 @@ export const FooterButtonWrapper = styled.span`
   justify-content: flex-end;
   margin-right: 13px;
 
-  & a {
-    margin-top: 1rem;
-    margin-left: 0;
+  &.btn {
+    & a {
+      margin-top: 1rem;
+      margin-left: 0;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -679,7 +689,7 @@ export const FooterButtonWrapper = styled.span`
 
 export const FooterLinkButton = styled.a`
   font-family: inherit;
-  font-size: ${themes.primary.font.size.homeFooterButton};
+  font-size: 1.8333em;
   padding: 1.15rem 1.1rem;
   cursor: pointer;
   position: relative;
@@ -708,6 +718,10 @@ export const FooterLinkButton = styled.a`
     padding: 1.11em 1.5em;
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    padding: 1.428em 2em;
+  }
+
   & path {
     transition: all 1s ease-in-out;
   }
@@ -723,6 +737,14 @@ export const FooterLinkButton = styled.a`
     & path:nth-child(1) {
       transform: translate(0px, 0px);
     }
+  }
+`;
+
+export const FooterWhatsAppContainer = styled.div`
+  margin-bottom: 135px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 6em;
   }
 `;
 
@@ -798,3 +820,45 @@ export const MobileReverseLayout = styled.div`
     flex-direction: column-reverse;
   }
 `;
+
+export const WhatsAppTextWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  font-size: 1.1667em;
+  margin-top: 1em;
+  font-family: ${themes.primary.font.family.namu};
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 1em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 1.5em;
+    font-size: 1.346em;
+  }
+`;
+
+export const WhatsAppText = styled.a`
+  display: flex;
+  margin-left: 0.666em;
+  column-gap: 0.1666em;
+  font-size: 1.2857em;
+  color: ${themes.primary.colors.whatsApp};
+
+  & path {
+    fill: ${themes.primary.colors.whatsApp};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.143em;
+    margin-left: 0.44em;
+  }
+`;
+
+export const WhatsAppIconWrapper = styled.div`
+  width: 0.78em;
+  height: 0.78em;
+`;
+
+export const FooterSection = styled.section``;

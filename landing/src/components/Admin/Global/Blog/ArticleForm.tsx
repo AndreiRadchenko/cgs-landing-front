@@ -1,4 +1,4 @@
-import { Formik, FormikHelpers, useFormikContext } from "formik";
+import { Form, Formik, FormikHelpers, useFormikContext } from "formik";
 import React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { newBlogArticle } from "../../../../consts";
@@ -105,8 +105,12 @@ const ArticleForm = ({
           : values.description),
         values.description;
     }
-
-    isNewArticle ? await postArticle(values) : await editArticle(values);
+    if (isNewArticle) {
+      await postArticle(values);
+      setIsNewArticle(false);
+    } else {
+      await editArticle(values);
+    }
     if (views) {
       const updatedViews = views.find(
         (view) => view.articleUrl === articles[article].url
@@ -136,12 +140,10 @@ const ArticleForm = ({
     }
 
     resetForm();
-    setFieldValue("image", null);
-    setFieldValue("author.image", null);
-    setFieldValue("meta.metaTitle", "");
-    setFieldValue("meta.metaDescription", "");
     setArticle(0);
     setIsNewArticle(true);
+    setFieldValue("meta.metaTitle", "");
+    setFieldValue("meta.metaDescription", "");
   };
 
   return (
@@ -154,15 +156,18 @@ const ArticleForm = ({
             : articles[article]
         }
         onSubmit={submitFunc}
+        validateOnBlur={false}
       >
-        <ArticleAddAndEdit
-          possibleTags={values.possibleTags}
-          article={article}
-          isNewArticle={isNewArticle}
-          setArticle={setArticle}
-          setIsNewArticle={setIsNewArticle}
-          scrollHandler={scrollHandler}
-        />
+        <Form>
+          <ArticleAddAndEdit
+            possibleTags={values.possibleTags}
+            article={article}
+            isNewArticle={isNewArticle}
+            setArticle={setArticle}
+            setIsNewArticle={setIsNewArticle}
+            scrollHandler={scrollHandler}
+          />
+        </Form>
       </Formik>
     ) || <div>no Articles</div>
   );

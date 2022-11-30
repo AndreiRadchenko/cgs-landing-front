@@ -115,6 +115,10 @@ export const ImageWrapper = styled.div`
   width: 597px;
   height: 524px;
 
+  @media (min-width: 1050px) {
+    right: 0.5em;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     width: 50%;
     height: 120%;
@@ -126,6 +130,10 @@ export const ImageWrapper = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 424px;
+  }
+
+  @media (max-width: 1050px) {
+    right: 0em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {

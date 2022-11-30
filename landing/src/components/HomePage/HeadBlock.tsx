@@ -13,10 +13,13 @@ import Tetris from "./Tetris";
 import Image from "next/image";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import WhatsAppComponent from "./WhatsAppComponent";
+import { PopupModal } from "react-calendly";
 
 const HeadBlock = () => {
   const { width } = useWindowDimension();
   const [buttonClassName, setButtonClassName] = useState<string>("main");
+  const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
 
   const elRef = useRef<HTMLAnchorElement>(null);
   const isOnScreen = useOnScreen(elRef, true);
@@ -34,6 +37,14 @@ const HeadBlock = () => {
       }, 1000);
     }
   }, [isOnScreen]);
+
+  const handleCalendyClose = () => {
+    setCalendlyIsOpen(false);
+  };
+
+  const handleCalendyOpen = () => {
+    setCalendlyIsOpen(true);
+  };
 
   return (
     <Styled.HeadBlockRow>
@@ -69,17 +80,26 @@ const HeadBlock = () => {
         <Styled.BlackButton
           size={"1.5em"}
           padding={"1.11em 1.5em"}
-          target={"_blank"}
-          href={data && data.buttonLink && recoverLink(data?.buttonLink)}
           rel="noopener noreferrer"
           className={buttonClassName}
           ref={elRef}
+          id="root"
+          onClick={handleCalendyOpen}
         >
           {width && width > 768 ? data?.button : "BOOK A CALL"}
           <Styled.ArrowContainer>
             <ButtonArrow />
           </Styled.ArrowContainer>
         </Styled.BlackButton>
+        {data && elRef.current && (
+          <PopupModal
+            url={recoverLink(data.buttonLink)}
+            rootElement={elRef.current}
+            onModalClose={handleCalendyClose}
+            open={calendlyIsOpen}
+          />
+        )}
+        <WhatsAppComponent />
       </Styled.HeadBlockContent>
       {data?.image?.url && (
         <Styled.Tetris>

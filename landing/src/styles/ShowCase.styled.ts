@@ -1,19 +1,8 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
-export const HoverWrapper = styled.div`
+export const HoverWrapper = styled.section`
   padding-bottom: 16.7em;
-
-  /* & > div > div:first-child {
-    transition: 0.4s;
-  }
-
-  &:hover {
-    & > div > div:first-child {
-      background-color: ${themes.primary.colors.darkBlue};
-      color: ${themes.primary.colors.blogBackground};
-    }
-  } */
 
   @media ${themes.primary.media.maxServiceMobile} {
     padding-bottom: 10em;
@@ -21,13 +10,6 @@ export const HoverWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     padding: 0 0 6.54em 0;
-
-    /* &:hover {
-      & > div > div:first-child {
-        background-color: transparent;
-        color: ${themes.primary.colors.primary};
-      }
-    } */
   }
 `;
 
@@ -182,6 +164,7 @@ export const TextWrapper = styled.div`
   opacity: 0;
 
   &.hover {
+    border-top: 1px solid ${themes.primary.colors.comment};
     opacity: 1;
   }
 
@@ -310,6 +293,10 @@ export const BottomContent = styled.div`
 export const HoverText = styled.div`
   font-size: 1.5em;
   line-height: 160%;
+
+  @media (min-width: 2560px) {
+    font-size: 2.5em;
+  }
 
   @media (max-width: 1050px) {
     font-size: 1.35em;

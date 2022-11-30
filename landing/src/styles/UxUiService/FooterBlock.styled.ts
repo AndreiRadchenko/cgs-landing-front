@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Container = styled.div`
+export const Container = styled.section`
   margin-top: 12.5em;
   position: relative;
   padding-bottom: 19.25em;

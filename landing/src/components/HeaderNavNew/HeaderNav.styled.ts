@@ -8,14 +8,25 @@ export const HeaderNavContainer = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 26;
+  z-index: 37;
   background-color: ${themes.primary.colors.blogBackground};
   border-bottom: 1px solid ${themes.primary.colors.headerBorder};
 
   @media ${themes.primary.media.maxMobile} {
-    flex-direction: row-reverse;
+    justify-content: flex-start;
     border: none;
+  }
+`;
+
+export const NavBarWrapper = styled.div`
+  @media ${themes.primary.media.maxMobile} {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
     transition: 0.3s;
+    background-color: ${themes.primary.colors.blogBackground};
+    z-index: 36;
 
     &.scrolled {
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -139,7 +150,7 @@ export const BurgerLinkText = styled.p`
   }
 `;
 
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.nav`
   padding-bottom: 56px;
 
   @media ${themes.primary.media.maxMobile} {

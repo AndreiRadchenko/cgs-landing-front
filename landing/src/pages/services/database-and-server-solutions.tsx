@@ -14,7 +14,7 @@ import { adminDbService } from "../../services/services/adminServicesDbPage";
 import SelectBlock from "../../components/DbService/SelectBlock";
 import FeaturesBlock from "../../components/DbService/FeaturesBlock";
 import FooterBlock from "../../components/DbService/FooterBlock";
-import { Layout } from "../../styles/Layout.styled";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 
 export async function getServerSideProps() {
@@ -52,24 +52,28 @@ const DbSolutions: NextPage = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Layout>
-        <Styled.Layout>
-          <HeadBlock />
-          <ExpertiseBlock />
-          <SelectBlock
-            className={
-              data && data.projects.length === 0 ? "withoutServices" : undefined
-            }
-          />
-        </Styled.Layout>
-      </Layout>
-      <ShowCase projects={data?.projects} />
-      <Layout>
-        <Styled.Layout>
-          <FeaturesBlock />
-          <FooterBlock />
-        </Styled.Layout>
-      </Layout>
+      <PageArticle>
+        <Layout>
+          <Styled.Layout>
+            <HeadBlock />
+            <ExpertiseBlock />
+            <SelectBlock
+              className={
+                data && data.projects.length === 0
+                  ? "withoutServices"
+                  : undefined
+              }
+            />
+          </Styled.Layout>
+        </Layout>
+        <ShowCase projects={data?.projects} />
+        <Layout>
+          <Styled.Layout>
+            <FeaturesBlock />
+            <FooterBlock />
+          </Styled.Layout>
+        </Layout>
+      </PageArticle>
 
       <FooterNew />
     </>

@@ -11,6 +11,7 @@ import portfolioArrow from "../../../public/portfolioArrow.svg";
 import { recoverLink } from "../../utils/recoverLink";
 import Image from "next/image";
 import Loader from "./Loader";
+import Link from "next/link";
 
 interface IReviewProps {
   review: IPortfolioReview;
@@ -47,17 +48,20 @@ const Review = ({ review, className }: IReviewProps) => {
               {review.title}
             </Styled.PortfolioProjectHeader>
             {review.button.length > 0 && (
-              <Styles.LinkButton>
-                <a
-                  href={recoverLink(review.button)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {width && width < 992 && width > 768
-                    ? "link"
-                    : "project link"}
+              <Link
+                href={recoverLink(review.button)}
+                target="_blank"
+                rel="noopener noreferrer"
+                passHref
+              >
+                <a>
+                  <Styles.LinkButton>
+                    {width && width < 992 && width > 768
+                      ? "link"
+                      : "project link"}
+                  </Styles.LinkButton>
                 </a>
-              </Styles.LinkButton>
+              </Link>
             )}
           </Styled.ProjectHeader>
           {review.industry && (

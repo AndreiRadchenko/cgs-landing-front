@@ -49,8 +49,6 @@ const EditInformationBlock = () => {
         <Styled.RightSideBlock>
           <Styled.AdminSubTitle>Main page photo</Styled.AdminSubTitle>
           <PhotoBlockDashed
-            maxHeight="20.75em"
-            maxWidth="19.58em"
             photo={values.EditInformationBlock.image}
             deleteFlag={true}
             uploadFunction={uploadFunc}

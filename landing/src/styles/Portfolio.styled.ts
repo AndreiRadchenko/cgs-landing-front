@@ -6,7 +6,7 @@ export const PortfolioContainer = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
 `;
 
-export const OurWorkTitle = styled.div`
+export const OurWorkTitle = styled.header`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.ourWorkText};
@@ -31,11 +31,15 @@ export const LinkButton = styled.button`
   outline: none;
   border-radius: 0;
   cursor: pointer;
-  border: 0;
+  border: 1px solid ${themes.primary.colors.primary};
   color: ${themes.primary.colors.secondary};
-  @media (max-width: 1000px) {
-    font-size: ${themes.primary.font.size.quinary};
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: ${themes.primary.colors.blogBackground};
+    color: ${themes.primary.colors.primary};
   }
+
   @media (max-width: 1300px) {
     font-size: ${themes.primary.font.size.reviewSmallText};
     a {
@@ -56,7 +60,7 @@ export const LinkButton = styled.button`
   }
 `;
 
-export const SlidersCont = styled.div`
+export const SlidersCont = styled.article`
   margin-bottom: 200px;
 
   @media ${themes.primary.media.maxMobile} {

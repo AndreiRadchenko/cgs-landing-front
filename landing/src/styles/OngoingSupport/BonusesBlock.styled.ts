@@ -3,7 +3,7 @@ import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
-export const Container = styled.div`
+export const Container = styled.section`
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     ::after {

@@ -19,7 +19,6 @@ const AboutBlock = () => {
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
       <MobileInfiniteText title={"Blockchain powers"} />
-
       <Styled.ImageWrapper>
         <Image src={BlockchainAbout} alt="blockchain about" />
       </Styled.ImageWrapper>

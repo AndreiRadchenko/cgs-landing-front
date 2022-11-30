@@ -10,7 +10,7 @@ import textPointReversed from "../../../public/MobileSevice/textPointReversed.sv
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/MobileService/HowDoWeWork.styled";
-import { Subtitle, VisibleSubtitle } from "../../styles/MobileService/Layout";
+import { VisibleSubtitle } from "../../styles/MobileService/Layout";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { useWindowDimension } from "../../hooks/useWindowDimension";

@@ -17,10 +17,6 @@ export interface IPhotoBlock extends IPropsWithImage {
   deleteFlag?: boolean;
   header?: string;
   horizontalFlex?: boolean;
-  maxHeight?: string;
-  maxWidth?: string;
-  minHeight?: string;
-  minWidth?: string;
   className?: string;
   style?: any;
 }
@@ -45,6 +41,7 @@ export interface IBlockDropDownProps {
   style?: any;
   children: any;
   onNextClick?: () => void;
+  defaultOpen?: boolean;
 }
 
 export interface InputWithHeader extends InputPropsInterface {

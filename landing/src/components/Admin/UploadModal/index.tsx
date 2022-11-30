@@ -81,7 +81,7 @@ const AdminUploadModal = ({ back, func }: IUploadProps) => {
     <Styled.AdminUploadModuleBack>
       <Styled.AdminUploadModuleWrapper>
         <Styled.AdminUploadModuleCloseButton onClick={back}>
-          <Image src={closeModal} />
+          <Image src={closeModal} alt="close modal admin image" />
         </Styled.AdminUploadModuleCloseButton>
         <Styled.AdminUploadInput
           type="file"

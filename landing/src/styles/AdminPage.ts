@@ -18,7 +18,6 @@ export const AdminWrapper = styled.div`
 `;
 
 export const AdminMainHeader = styled.div`
-  position: fixed;
   z-index: 10;
   width: 100%;
   padding: 26px 34px 25px;
@@ -167,6 +166,24 @@ export const AdminBlocksContent = styled.div`
   margin-left: 2.5em;
   margin-right: 3.75em;
   font-family: ${themes.primary.font.family.namu};
+
+  & .sun-editor-editable,
+  & .sun-editor {
+    background-color: transparent;
+  }
+
+  & .sun-editor {
+    border: 1px solid ${themes.primary.colors.adminInputBorder} !important;
+  }
+
+  & .gist {
+    width: 500px !important;
+  }
+
+  & .gist-file .gist-data {
+    max-height: 500px;
+    max-width: 500px;
+  }
 `;
 
 export const MetaBlockWraper = styled.div`
@@ -189,7 +206,11 @@ export const AdminSubTitle = styled.h3<{ isBlog?: boolean; size?: string }>`
     props.size ? props.size : themes.primary.font.size.oneAndHalf};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  margin: ${(props) => (props.isBlog ? "30px 0 0.4em 0" : "0 0 10px 0")};
+  margin: 0 0 10px 0;
+
+  &.imageUploader {
+    margin-top: 22%;
+  }
 `;
 
 export const AdminComment = styled.p`
@@ -271,28 +292,20 @@ export const AdminInput = styled(TextareaAutosize)<{
   }
 `;
 
-interface IPhotoBlock {
-  maxWidth?: string;
-  maxHeight?: string;
-  minWidth?: string;
-  minHeight?: string;
-}
-
-export const AdminPhotoBlock = styled.div<IPhotoBlock>`
+export const AdminPhotoBlock = styled.div`
   border: 2px dashed ${themes.primary.colors.comment};
   display: flex;
-  justify-content: ${(props) =>
-    props.theme === "center" ? "center" : "space-between"};
+  justify-content: ${(props) => (props.theme ? props.theme : "space-between")};
   align-items: center;
   flex-direction: column;
   padding: ${themes.primary.spacing.primary};
   margin-bottom: ${themes.primary.spacing.primary};
   height: 100%;
-  margin-right: ${({ maxWidth }) => (maxWidth ? `20px` : "none")};
-  min-width: ${({ minWidth }) => (minWidth ? minWidth : "none")};
-  min-height: ${({ minHeight }) => (minHeight ? minHeight : "none")};
-  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}` : "none")};
-  max-height: ${({ maxHeight }) => (maxHeight ? `${maxHeight}` : "none")};
+
+  &.author {
+    flex-direction: row;
+    justify-content: center;
+  }
 
   &.about {
     height: 390px;
@@ -306,16 +319,35 @@ export const AdminPhotoGrid = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+
   &.fullWidth {
     width: 90%;
+  }
+
+  &.author {
+    cursor: pointer;
+    justify-content: flex-start;
+    width: 100%;
+    height: 80px;
   }
 `;
 
 export const AdminDashedPositionGrid = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  justify-content: flex-end;
+  margin-top: 22%;
+
+  &.uploaded {
+    margin-top: 0;
+  }
+
+  &.author {
+    margin-left: 18px;
+    margin-top: 0;
+    align-items: flex-start;
+  }
 `;
 
 export const AdminDeleteText = styled.h6`
@@ -792,28 +824,6 @@ export const TextEditorContainer = styled.div<{
   height?: string;
   width?: string;
 }>`
-  & div.se-dialog-form-footer label:first-child {
-    visibility: hidden;
-
-    & input {
-      visibility: visible;
-    }
-
-    &::after {
-      position: absolute;
-      left: 30px;
-      content: "Open link in new window and make nofolow";
-      visibility: visible;
-    }
-  }
-
-  & div.se-dialog-form-footer label:nth-child(2) {
-    visibility: hidden;
-  }
-  & div.se-wrapper-inner {
-    font-size: ${themes.primary.font.size.primary};
-    font-family: ${themes.primary.font.family.mulish};
-  }
   & div.se-wrapper-inner.se-wrapper-inner ul {
     list-style-type: none;
     list-style-image: url("/listSquare.png");
@@ -821,8 +831,37 @@ export const TextEditorContainer = styled.div<{
     & li {
       padding-left: 12px;
     }
+
     @media ${themes.primary.media.maxTabletPortrait} {
       list-style-image: url("/listSquareMobile.png");
+    }
+  }
+
+  & .se-wrapper-inner {
+    font-family: ${themes.primary.font.family.openSans};
+    font-size: 1.125rem;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-block: 100px 32px;
+      font-size: 2.5rem;
+
+      & span {
+        font-family: ${themes.primary.font.family.namu};
+        font-weight: ${themes.primary.font.weight.heavy};
+        font-size: 2.1875rem;
+      }
+    }
+
+    & > h2:first-child,
+    h3:first-child,
+    h4:first-child,
+    h5:first-child,
+    h6:first-child {
+      margin-top: 83px;
     }
   }
 
@@ -830,16 +869,57 @@ export const TextEditorContainer = styled.div<{
   height: auto;
   max-width: 1200px;
   width: 100%;
-  font-size: ${themes.primary.font.size.linkText};
-  font-family: ${themes.primary.font.family.mulish};
-  border: 0;
+
   margin-bottom: ${themes.primary.spacing.primary};
   &:focus-within {
     outline: 1px solid gray;
   }
-  &.faq {
-    max-width: 100%;
-    width: 100%;
+
+  margin: 0;
+  font-weight: ${themes.primary.font.weight.normal};
+
+  font-family: ${themes.primary.font.family.openSans};
+  line-height: 160%;
+  color: ${themes.primary.colors.blogDarkText};
+  overflow-wrap: anywhere;
+  p {
+    margin-top: 15px;
+  }
+  & > div > figure {
+    position: relative;
+    margin: 0;
+
+    & > iframe {
+      position: absolute;
+      height: 100%;
+      top: 0;
+    }
+  }
+
+  & figcaption {
+    color: ${themes.primary.colors.comment};
+    font-size: 18px;
+    line-height: 160%;
+    padding-block: 0 !important;
+    background-color: transparent !important;
+  }
+
+  & blockquote {
+    margin: 0;
+    border-left: 4px solid ${themes.primary.colors.blogArticleText};
+    color: ${themes.primary.colors.blogArticleText};
+    padding-left: 10px;
+    font-size: 1.444em;
+    font-style: italic;
+    font-weight: ${themes.primary.font.weight.bold};
+    line-height: 160%;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    p {
+      margin-top: 1.25em;
+    }
+    font-size: ${themes.primary.font.size.vistaco};
   }
 `;
 
@@ -924,11 +1004,9 @@ export const Subtitle = styled.div`
 `;
 
 export const TagContainer = styled.div`
-  margin-top: 40px;
-  gap: 40px;
-  flex-direction: row;
+  flex-direction: column;
   display: flex;
-  align-items: center;
+  justify-content: center;
 `;
 
 export const Counter = styled.span`
@@ -1345,4 +1423,12 @@ export const NextButton = styled.div`
   color: ${themes.primary.colors.darkBlue};
   white-space: nowrap;
   cursor: pointer;
+`;
+
+export const AuthorPhotoGrid = styled.div`
+  display: flex;
+`;
+
+export const AuthorPhotoTextWrapper = styled.div`
+  margin-left: 18px;
 `;

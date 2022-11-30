@@ -4,6 +4,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import * as StyledThisComp from "../../styles/Burger.styles";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import Link from "next/link";
 
 const BurgerFooter = () => {
   const queryClient = useQueryClient();
@@ -18,11 +19,14 @@ const BurgerFooter = () => {
       </StyledThisComp.Mail>
       <StyledThisComp.FooterIconsWrapper>
         {data?.links.map((el, idx) => (
-          <StyledThisComp.Image
-            key={el.link}
-            src={data.images[idx].image?.url || ""}
-            alt="burger footer icon image"
-          />
+          <Link key={el.link} href={el.link} passHref>
+            <StyledThisComp.FooterLink>
+              <StyledThisComp.Image
+                src={data.images[idx].image?.url || ""}
+                alt="burger footer icon image"
+              />
+            </StyledThisComp.FooterLink>
+          </Link>
         ))}
       </StyledThisComp.FooterIconsWrapper>
     </StyledThisComp.FooterWrapper>

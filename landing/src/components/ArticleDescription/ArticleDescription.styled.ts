@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -68,7 +68,7 @@ export const Title = styled.div`
 export const Description = styled.p`
   margin: 0;
   font-weight: ${themes.primary.font.weight.normal};
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-size: 1.125rem;
   font-family: ${themes.primary.font.family.openSans};
   line-height: 160%;
   color: ${themes.primary.colors.blogDarkText};
@@ -76,6 +76,59 @@ export const Description = styled.p`
   p {
     margin-top: 15px;
   }
+  & > div > figure {
+    position: relative;
+    margin: 0;
+
+    & > iframe {
+      position: absolute;
+      height: 100%;
+      top: 0;
+    }
+  }
+
+  & figcaption {
+    color: ${themes.primary.colors.comment};
+    font-size: 18px;
+    line-height: 160%;
+    padding-block: 0 !important;
+    background-color: transparent !important;
+  }
+
+  & blockquote {
+    margin: 0;
+    border-left: 4px solid ${themes.primary.colors.blogArticleText};
+    color: ${themes.primary.colors.blogArticleText};
+    padding-left: 10px;
+    font-size: 1.444em;
+    font-style: italic;
+    font-weight: ${themes.primary.font.weight.bold};
+    line-height: 160%;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block: 100px 32px;
+    font-size: 2.5rem;
+
+    & span {
+      font-family: ${themes.primary.font.family.namu};
+      font-weight: ${themes.primary.font.weight.heavy};
+      font-size: 2.1875rem;
+    }
+  }
+
+  & > h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    margin-top: 83px;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     p {
       margin-top: 1.25em;
@@ -83,7 +136,7 @@ export const Description = styled.p`
     font-size: ${themes.primary.font.size.vistaco};
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1rem;
 
     h2,
@@ -92,7 +145,11 @@ export const Description = styled.p`
     h5,
     h6 {
       margin-block: 28px 20px;
-      font-size: 1.25rem;
+      font-size: 1.375rem;
+
+      & span {
+        font-size: 1.25rem;
+      }
     }
 
     p {

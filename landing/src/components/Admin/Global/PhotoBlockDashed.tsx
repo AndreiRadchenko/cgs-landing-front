@@ -12,10 +12,6 @@ const PhotoBlockDashed = ({
   header = "Drop new image here",
   deleteFunction,
   uploadFunction,
-  minWidth,
-  minHeight,
-  maxWidth,
-  maxHeight,
   className,
   style,
 }: IPhotoBlock) => {
@@ -23,18 +19,11 @@ const PhotoBlockDashed = ({
   const deleteFunc = () => deleteFunction!();
 
   return photo !== null && photo !== undefined ? (
-    <Styled.AdminPhotoBlock
-      minWidth={minWidth}
-      minHeight={minHeight}
-      maxWidth={maxWidth}
-      maxHeight={maxHeight}
-      className={className}
-      style={style}
-    >
+    <Styled.AdminPhotoBlock className={className} style={style}>
       {modal ? (
         <AdminUploadModal func={uploadFunction} back={toggleModal} />
       ) : null}
-      <Styled.AdminPhotoGrid className={className}>
+      <Styled.AdminPhotoGrid className="fullWidth">
         <AdminImage image={photo} />
       </Styled.AdminPhotoGrid>
       <Styled.AdminDashedPositionGrid>
@@ -52,11 +41,10 @@ const PhotoBlockDashed = ({
     </Styled.AdminPhotoBlock>
   ) : (
     <AdminEmptyImage
-      maxWidth={maxWidth}
-      maxHeight={maxHeight}
       className={className}
       func={uploadFunction}
       style={style}
+      header={header}
     />
   );
 };

@@ -3,7 +3,10 @@ import { useFormikContext } from "formik";
 import { AdminPaddedBlock, AdminHalfGrid } from "../../../../styles/AdminPage";
 import { ICloudService } from "../../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
-import TextEditor from "../../../TextEditor/TextEditor";
+import dynamic from "next/dynamic";
+const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 const ProvidesBlock = () => {
   const { values, handleChange } = useFormikContext<ICloudService>();
@@ -28,12 +31,7 @@ const ProvidesBlock = () => {
               onChangeFunction={handleChange}
               inputValue={el[1].subtitle}
             />
-            <TextEditor
-              header="Text"
-              name={`providesBlock.${el[0]}.text`}
-              isBlog={false}
-              onlyColor={true}
-            />
+            <TextEditor header="Text" name={`providesBlock.${el[0]}.text`} />
           </div>
         ))}
       </AdminHalfGrid>

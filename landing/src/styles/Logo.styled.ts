@@ -7,6 +7,10 @@ export const LogoWrapper = styled.div`
   width: 106px;
   height: 100%;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    width: auto;
+  }
+
   @media (max-width: 1280px) {
     width: 95px;
     height: 26px;
@@ -34,6 +38,11 @@ export const LogoText = styled.p`
     0.15px -0.15px 0 ${themes.primary.colors.primary},
     -0.15px 0.15px 0 ${themes.primary.colors.primary},
     0.15px 0.15px 0 ${themes.primary.colors.primary};
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 16px;
+    margin-left: 5px;
+  }
 
   @media (max-width: 1280px) {
     font-size: 10px;

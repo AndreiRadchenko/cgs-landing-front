@@ -77,6 +77,7 @@ const ArticlePage = () => {
       (el) =>
         el.url === url &&
         !el.disabled &&
+        !el.draft &&
         (!el.scheduleArticle || new Date() >= new Date(el.scheduleArticle))
     );
 
@@ -158,7 +159,7 @@ const ArticlePage = () => {
         <HeaderNavNew />
         <Styles.Cont>
           <Styles.PageWrapper>
-            <div style={{ position: "relative" }}>
+            <Styles.Article>
               <Styles.Title>{article.title}</Styles.Title>
               <Styles.TitleBg>
                 <Image src={titleBg} alt="top title bg" />
@@ -187,7 +188,7 @@ const ArticlePage = () => {
                   />
                 </svg>
               </Styles.ArrowBackButton>
-            </div>
+            </Styles.Article>
             <Styles.BannerWrapper>
               <Styles.TagWrapper>
                 <ShareOn title={article.title} className="web" />
@@ -217,7 +218,7 @@ const ArticlePage = () => {
               <Image src={footerBg} alt="footer bg" />
             </Styles.FooterBg>
             <Styles.DescriptionWrapper>
-              <Styles.SubTitle>{article.description}</Styles.SubTitle>
+              <Styles.SubTitle>{parse(article.description)}</Styles.SubTitle>
               <Styles.HeaderBottomBg>
                 <Image src={headerBottomBg} alt="header bottom bg" />
               </Styles.HeaderBottomBg>

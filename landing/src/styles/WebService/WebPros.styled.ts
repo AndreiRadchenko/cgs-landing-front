@@ -2,9 +2,9 @@ import styled, { css } from "styled-components";
 import { MobileInfiniteText } from "../../components/MobileInfiniteText/MobileInfiniteText";
 import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
-import { slideDown, slideDownText } from "../Animations.styled";
+import { slideDownText } from "../Animations.styled";
 
-export const Container = styled.div`
+export const Container = styled.section`
   margin-top: 11.875em;
   position: relative;
   background-color: ${themes.primary.colors.blogBackground};

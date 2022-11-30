@@ -62,20 +62,25 @@ const AdminPortfolioContentBlock = () => {
     handleSubmit();
   };
 
-  const handleDragEnd = async (oldIndex: number, newIndex: number) => {
-    const srcInd = oldIndex;
-    const desInd: number | undefined = newIndex;
-    const swapped = data;
-    swapped &&
-      typeof desInd === "number" &&
-      swapped.splice(desInd, 0, swapped.splice(srcInd, 1)[0]);
-    typeof desInd === "number" &&
-      (await swapReviews({ srcInd, desInd })) &&
-      queryClient.setQueryData([queryKeys.getPortfolio], swapped);
-  };
-
   const sortedData =
     data && data.filter((review) => review.category == catValue);
+
+  const handleDragEnd = async (oldIndex: number, newIndex: number) => {
+    if (sortedData && data) {
+      const srcItem = sortedData[oldIndex]._id;
+      const desItem = sortedData[newIndex]._id;
+      const srcInd = data.findIndex((el) => el._id === srcItem);
+      const desInd = data.findIndex((el) => el._id === desItem);
+      const swapped = data;
+
+      swapped &&
+        typeof desInd === "number" &&
+        swapped.splice(desInd, 0, swapped.splice(srcInd, 1)[0]);
+      typeof desInd === "number" &&
+        (await swapReviews({ srcInd, desInd })) &&
+        queryClient.setQueryData([queryKeys.getPortfolio], swapped);
+    }
+  };
 
   return (
     <div>

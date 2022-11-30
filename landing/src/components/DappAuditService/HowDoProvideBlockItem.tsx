@@ -16,7 +16,7 @@ const HowToProvideBlockItem = ({
   optional = false,
 }: IHowToProvideBlockItemProps) => {
   return (
-    <Styled.ItemContainer>
+    <Styled.ItemContainer className={number === 1 ? "first" : undefined}>
       <Styled.ItemTitleContainer>
         <Styled.BigDigit>{number}</Styled.BigDigit>
         <Styled.OptionalContainer>

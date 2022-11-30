@@ -26,8 +26,7 @@ const EssentialBlock = () => {
           deleteFlag={true}
           deleteFunction={async () => (await deleteMainImage)()}
           uploadFunction={(image: IImage) => uploadMainImage(image)}
-          maxHeight="364px"
-          maxWidth="364px"
+          style={{ maxWidth: "364px", maxHeight: "364px" }}
         />
         <AdminContentBlock>
           <AdminHalfGrid>

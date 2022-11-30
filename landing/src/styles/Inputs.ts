@@ -10,6 +10,8 @@ export const DateInput = styled.input`
   border: 0;
   height: ${(props) => props.height} !important;
   margin-bottom: ${themes.primary.spacing.primary};
+  background: transparent;
+  border: 1px solid ${themes.primary.colors.adminInputBorder};
   &:focus {
     outline: 1px solid gray;
   }
@@ -19,5 +21,5 @@ export const SubTitle = styled.h3`
   font-size: ${themes.primary.font.size.menuElement};
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.semiBold};
-  margin: 30px 0 0.4em 0;
+  margin: 0 0 0.4em 0;
 `;

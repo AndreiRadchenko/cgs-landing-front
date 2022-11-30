@@ -1,7 +1,7 @@
 ﻿import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Container = styled.div`
+export const Container = styled.section`
   padding-top: 13.19em;
   display: flex;
   justify-content: space-between;

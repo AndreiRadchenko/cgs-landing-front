@@ -3,7 +3,10 @@ import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 
 import { ICalculatorStep } from "../../../types/Admin/Response.types";
-import TextEditor from "../../TextEditor/TextEditor";
+import dynamic from "next/dynamic";
+const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 interface ICalculatorStepItemProps {
   step: ICalculatorStep;

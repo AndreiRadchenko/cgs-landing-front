@@ -12,6 +12,7 @@ interface IArticleReadMore {
 
 const ArticleReadMore = ({ readMore, findViews }: IArticleReadMore) => {
   const { width } = useWindowDimension();
+
   return readMore.length > 0 ? (
     <Styles.Wrapper>
       <Styles.TitleWrapper>

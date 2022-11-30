@@ -64,7 +64,7 @@ export const BigDigit = styled.p`
   }
 `;
 
-export const CardsWrapper = styled.div`
+export const CardsWrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 50px;
@@ -93,7 +93,7 @@ export const CardsWrapper = styled.div`
   }
 `;
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.article`
   position: relative;
   display: flex;
   flex-direction: column;

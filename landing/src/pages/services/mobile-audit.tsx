@@ -14,7 +14,7 @@ import WhenDoYouNeedBlock from "../../components/MobileAuditService/WhenDoYouNee
 import ShowCase from "../../components/ShowCase";
 import FooterBlock from "../../components/MobileAuditService/FooterBlock";
 import * as Styled from "../../styles/MobileAuditService/Layout";
-import { Layout } from "../../styles/Layout.styled";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
 import HowDoWeAuditBlock from "../../components/MobileAuditService/HowDoWeAuditBlock";
 
 export async function getServerSideProps() {
@@ -52,21 +52,23 @@ const MobileAuditService = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <Layout>
-        <Styled.Layout>
-          <HeadBlock />
-          <WhatAppBlock />
-          <WhatAppIncludeBlock />
-          <WhenDoYouNeedBlock withoutShowcase={data?.projects.length === 0} />
-        </Styled.Layout>
-      </Layout>
-      <ShowCase projects={data?.projects} />
-      <Layout>
-        <Styled.Layout>
-          <HowDoWeAuditBlock />
-          <FooterBlock />
-        </Styled.Layout>
-      </Layout>
+      <PageArticle>
+        <Layout>
+          <Styled.Layout>
+            <HeadBlock />
+            <WhatAppBlock />
+            <WhatAppIncludeBlock />
+            <WhenDoYouNeedBlock withoutShowcase={data?.projects.length === 0} />
+          </Styled.Layout>
+        </Layout>
+        <ShowCase projects={data?.projects} />
+        <Layout>
+          <Styled.Layout>
+            <HowDoWeAuditBlock />
+            <FooterBlock />
+          </Styled.Layout>
+        </Layout>
+      </PageArticle>
       <FooterNew />
     </>
   );

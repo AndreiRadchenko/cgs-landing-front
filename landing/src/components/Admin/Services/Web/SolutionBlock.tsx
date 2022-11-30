@@ -1,8 +1,11 @@
 ﻿import { useFormikContext } from "formik";
+import dynamic from "next/dynamic";
 import React from "react";
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { IServiceWeb } from "../../../../types/Admin/Response.types";
-import TextEditor from "../../../TextEditor/TextEditor";
+const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 
 const SolutionBlock = () => {
@@ -18,12 +21,7 @@ const SolutionBlock = () => {
             name="solutionBlock.subtitle"
             width="335px"
           />
-          <TextEditor
-            header="Text"
-            name="solutionBlock.text"
-            isBlog={false}
-            onlyColor={true}
-          />
+          <TextEditor header="Text" name="solutionBlock.text" />
         </div>
       </AdminHalfGrid>
     </AdminPaddedBlock>

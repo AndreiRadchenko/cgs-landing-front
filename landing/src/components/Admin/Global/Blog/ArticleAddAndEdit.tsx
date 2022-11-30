@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
-import PhotoBlockDashedHorizontal from "../PhotoBlockdashedHorizontal";
 import PhotoBlockDashed from "../PhotoBlockDashed";
 import SubHeaderWithInput from "../SubHeaderWithInput";
 import BlogTags from "./BlogTags";
-import { TicketsButton } from "../../../../styles/AdminCareersPage";
 
 import * as Styles from "../../../../styles/AdminBlogPage";
 import * as Styled from "../../../../styles/AdminPage";
 import { useFormikContext } from "formik";
 import { IArticle } from "../../../../types/Admin/Response.types";
-import ArticleBlock from "../../Blog/ArticleBlock";
 import { IImage } from "../../../../types/Admin/Admin.types";
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
@@ -17,6 +14,21 @@ import InputWithType from "../../../Inputs/InputWithType";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import AddTag from "./AddTag";
 import { useScrollTo } from "../../../../hooks/useScrollTo";
+import AdminBlockDropDown from "../AdminBlockDropDown";
+import AuthorPhotoDashed from "./AuthorPhotoDashed";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../../styles/HomePage/General.styled";
+import ButtonArrow from "../../../../utils/ButtonArrow";
+const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
+  ssr: false,
+});
+import { useMutation } from "@tanstack/react-query";
+import { queryKeys } from "../../../../consts/queryKeys";
+import { adminGlobalService } from "../../../../services/adminHomePage";
+import dynamic from "next/dynamic";
+import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
 
 interface IAddAndEdit {
   article: number;
@@ -33,7 +45,6 @@ const DESCRIPTION_MIN = 20;
 const DESCRIPTION_MAX = 160;
 
 const ArticleAddAndEdit = ({
-  article,
   isNewArticle,
   setIsNewArticle,
   possibleTags,
@@ -43,6 +54,68 @@ const ArticleAddAndEdit = ({
   const [descLength, setDescLength] = useState(0);
   const [titleLength, setTitleLength] = useState(0);
   const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
+  const { mutateAsync } = useMutation([queryKeys.uploadImage], (data: any) =>
+    adminGlobalService.uploadImage(data)
+  );
+
+  const handleDescInput = (e: InputEvent) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (e.target) setDescLength(e.target.innerText.length);
+  };
+
+  const handleImageUploadBefore = (
+    files: File[],
+    info: object,
+    uploadHandler: any
+  ) => {
+    const formData = new FormData();
+    formData.append("image", files[0], files[0].name);
+    mutateAsync(formData).then((img) => {
+      const response = {
+        result: [
+          {
+            url: img?.url,
+            name: "Imagename",
+            size: "4096",
+          },
+        ],
+      };
+
+      uploadHandler(response);
+    });
+  };
+
+  const textEditorProps: SunEditorReactProps = {
+    height: "990px",
+    onImageUploadBefore: handleImageUploadBefore,
+    setOptions: {
+      font: ["NAMU", "Open Sans"],
+      linkRelDefault: {
+        default: undefined,
+        check_new_window: "nofollow noopener",
+      },
+
+      buttonList: [
+        ["undo", "redo"],
+        [
+          "formatBlock",
+          "font",
+          "fontSize",
+          "fontColor",
+          "align",
+          "paragraphStyle",
+          "blockquote",
+        ],
+        ["bold", "underline", "italic", "strike", "subscript", "superscript"],
+        ["removeFormat"],
+        ["outdent", "indent"],
+        ["list"],
+        ["link", "image", "video"],
+        ["codeView"],
+      ],
+    },
+  };
 
   const { values, handleSubmit, handleChange, resetForm } =
     useFormikContext<IArticle>();
@@ -50,11 +123,7 @@ const ArticleAddAndEdit = ({
   useEffect(() => {
     setDescLength(values.description.length);
     setTitleLength(values.title.length);
-  }, [isNewArticle, article, values]);
-
-  const handleDescInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDescLength(e.target.value.length);
-  };
+  }, [isNewArticle, values]);
 
   const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitleLength(e.target.value.length);
@@ -91,170 +160,169 @@ const ArticleAddAndEdit = ({
     scrollHandler();
   };
 
+  const handleDraftClick = () => {
+    if (isNewArticle) {
+      values.draft = true;
+      handleSubmit();
+    }
+  };
+
   return (
     <>
-      <Styled.AdminPaddedBlock ref={ref}>
-        <Styled.AdminHeader>Blog</Styled.AdminHeader>
-        <Styles.AdminSubTitle>Add new article</Styles.AdminSubTitle>
-        <Styles.BigWrapper>
-          <Styles.SmallWrapper>
-            <PhotoBlockDashedHorizontal
-              photo={values.image}
-              deleteFlag={true}
-              uploadFunction={uploadBannerFunc}
-              deleteFunction={deleteBannerFunc}
-              horizontalFlex={true}
-              maxWidth="745px"
-              header="Drop banner here"
-            />
-            <SubHeaderWithInput
-              header="Article Title"
-              onInputFunction={handleTitle}
-              minRows={2}
-              inputValue={values.title}
-              name="title"
-              onChangeFunction={handleChange}
-              isBlog={true}
-            />
-            <Styles.Text>
-              <Styles.Message>
-                {(titleLength > TITLE_MAX || titleLength < TITLE_MIN) &&
-                  "Title should be between 10 and 60 characters"}
-              </Styles.Message>
-              <Styles.Counter
-                className={
-                  titleLength > TITLE_MAX || titleLength < TITLE_MIN
-                    ? "error"
-                    : undefined
-                }
-              >
-                {titleLength}
-              </Styles.Counter>
-            </Styles.Text>
-            <SubHeaderWithInput
-              header="Url"
-              inputValue={values.url}
-              minRows={2}
-              name="url"
-              onChangeFunction={handleChange}
-              isBlog={true}
-            />
-            <SubHeaderWithInput
-              header="Description"
-              onInputFunction={handleDescInput}
-              inputValue={values.description}
-              name="description"
-              onChangeFunction={handleChange}
-              isBlog={true}
-            />
-
-            <Styles.Text>
-              <Styles.Message>
-                {(descLength > DESCRIPTION_MAX ||
-                  descLength < DESCRIPTION_MIN) &&
-                  "Description should be between 20 and 160 characters"}
-              </Styles.Message>
-              <Styles.Counter
-                className={
-                  descLength > DESCRIPTION_MAX || descLength < DESCRIPTION_MIN
-                    ? "error"
-                    : undefined
-                }
-              >
-                {descLength}
-              </Styles.Counter>
-            </Styles.Text>
-            <Styles.ColumnsWrapper>
-              <Styles.Column>
-                <SubHeaderWithInput
-                  header="Author's name"
-                  inputValue={values.author.name}
-                  name="author.name"
-                  onChangeFunction={handleChange}
-                  isBlog={true}
-                  height="56px"
-                />
-                <InputWithType
-                  name="date"
-                  value={values.date}
-                  onChange={handleChange}
-                  header={"Date"}
-                  type={"date"}
-                />
-                <InputWithType
-                  header="Updated On"
-                  name="updatedOn"
-                  onChange={handleChange}
-                  type={"date"}
-                  value={values.updatedOn}
-                />
-                <InputWithType
-                  header="Schedule Article"
-                  name="scheduleArticle"
-                  onChange={handleChange}
-                  type="datetime-local"
-                  value={values.scheduleArticle}
-                />
-              </Styles.Column>
-              <Styles.Column>
-                <SubHeaderWithInput
-                  header="Specialization (writer, other...)"
-                  inputValue={values.author.specialization}
-                  name="author.specialization"
-                  onChangeFunction={handleChange}
-                  isBlog={true}
-                  height="56px"
-                />
-                <InputWithType
-                  name="minutesToRead"
-                  value={String(values.minutesToRead)}
-                  onChange={handleChange}
-                  header={"Time to read"}
-                  type={"number"}
-                />
-              </Styles.Column>
-            </Styles.ColumnsWrapper>
-          </Styles.SmallWrapper>
-          <PhotoBlockDashed
-            photo={values.author.image}
-            deleteFlag={true}
-            uploadFunction={uploadAuthorFunc}
-            deleteFunction={deleteAuthorFunc}
-            horizontalFlex={true}
-            maxWidth="324px"
+      <Styled.AdminBlocksContent ref={ref}>
+        <Styled.AdminHeader>BLOG</Styled.AdminHeader>
+        <AdminBlockDropDown title="Add Article" defaultOpen={!isNewArticle}>
+          <Styles.AdminBlogGrid>
+            <div style={{ width: "100%", maxHeight: "249px" }}>
+              <Styles.AdminSubTitle>Banner</Styles.AdminSubTitle>
+              <PhotoBlockDashed
+                photo={values.image}
+                deleteFlag={true}
+                uploadFunction={uploadBannerFunc}
+                deleteFunction={deleteBannerFunc}
+                header="Drop new image here"
+              />
+            </div>
+            <Styles.ArticleInputsWrapper style={{ marginLeft: "40px" }}>
+              <SubHeaderWithInput
+                inputValue={values.author.name}
+                onChangeFunction={handleChange}
+                name="author.name"
+                header="Author's name"
+                placeholder="Author's name"
+              />
+              <SubHeaderWithInput
+                inputValue={values.url}
+                onChangeFunction={handleChange}
+                name="url"
+                header="Url"
+                placeholder="Url"
+              />
+              <InputWithType
+                type="date"
+                value={values.date}
+                onChange={handleChange}
+                name="date"
+                header="Date"
+              />
+              <InputWithType
+                type="date"
+                value={values.updatedOn}
+                onChange={handleChange}
+                name="updatedOn"
+                header="Updated On"
+              />
+              <AuthorPhotoDashed
+                photo={values.author.image}
+                deleteFlag
+                deleteFunction={deleteAuthorFunc}
+                uploadFunction={uploadAuthorFunc}
+                style={{ marginBottom: "16px" }}
+              />
+              <InputWithType
+                type="datetime-local"
+                value={values.scheduleArticle}
+                onChange={handleChange}
+                name="scheduleArticle"
+                header="Scheduled for"
+              />
+            </Styles.ArticleInputsWrapper>
+            <Styles.ArticleInputsWrapper style={{ marginLeft: "24px" }}>
+              <SubHeaderWithInput
+                inputValue={values.author.specialization}
+                onChangeFunction={handleChange}
+                name="author.specialization"
+                header="Specialization (writer, other...)"
+                placeholder="writer, other..."
+              />
+              <InputWithType
+                value={values.minutesToRead.toString()}
+                onChange={handleChange}
+                name="minutesToRead"
+                header="Time to read"
+                type="number"
+              />
+              <Styled.TagContainer>
+                <Styles.AdminSubTitle>Tags</Styles.AdminSubTitle>
+                <AddTag possibleTags={possibleTags} />
+              </Styled.TagContainer>
+              <BlogTags possibleTags={possibleTags} />
+            </Styles.ArticleInputsWrapper>
+          </Styles.AdminBlogGrid>
+          <SubHeaderWithInput
+            onInputFunction={handleTitle}
+            inputValue={values.title}
+            onChangeFunction={handleChange}
+            name="title"
+            header="Title"
+            placeholder="title"
           />
-        </Styles.BigWrapper>
-        <ArticleBlock isNewArticle={isNewArticle} article={article} />
-        <Styled.TagContainer>
-          <Styles.AdminSubTitle className="blog">Tags</Styles.AdminSubTitle>
-          <AddTag possibleTags={possibleTags} />
-        </Styled.TagContainer>
-        <BlogTags
-          isNewArticle={isNewArticle}
-          article={article}
-          possibleTags={possibleTags}
+          <Styles.Text>
+            <Styles.Message>
+              {(titleLength > TITLE_MAX || titleLength < TITLE_MIN) &&
+                "Title should be between 10 and 60 characters"}
+            </Styles.Message>
+            <Styles.Counter
+              className={
+                titleLength > TITLE_MAX || titleLength < TITLE_MIN
+                  ? "error"
+                  : undefined
+              }
+            >
+              {titleLength}
+            </Styles.Counter>
+          </Styles.Text>
+          <TextEditor header="Description" name="description" />
+          <Styles.Text className="blog">
+            <Styles.Message>
+              {(descLength > DESCRIPTION_MAX || descLength < DESCRIPTION_MIN) &&
+                "Description should be between 20 and 160 characters"}
+            </Styles.Message>
+            <Styles.Counter
+              className={
+                descLength > DESCRIPTION_MAX || descLength < DESCRIPTION_MIN
+                  ? "error"
+                  : undefined
+              }
+            >
+              {descLength}
+            </Styles.Counter>
+          </Styles.Text>
+          <TextEditor header="Text" name="content" props={textEditorProps} />
+        </AdminBlockDropDown>
+      </Styled.AdminBlocksContent>
+      <Styled.MetaBlockWraper>
+        <MetaTagsBlock
+          theme="dark"
+          sitemap={(values.url !== "" && `blog/${values.url}`) || undefined}
         />
-      </Styled.AdminPaddedBlock>
-      <MetaTagsBlock
-        theme="dark"
-        sitemap={(values.url !== "" && `blog/${values.url}`) || undefined}
-      />
-      <Styled.AdminPaddedBlock>
-        <Styles.BlogButtonWrapper>
-          <Styles.SubmitButtonWrapper>
-            <TicketsButton type={"submit"} onClick={() => handleSubmit()}>
-              {`${isNewArticle ? "Save" : "Edit"} Article`}
-            </TicketsButton>
-          </Styles.SubmitButtonWrapper>
-
-          <Styles.BlogCancelButton
-            type={"submit"}
-            onClick={isNewArticle ? reset : cancelArticle}
+      </Styled.MetaBlockWraper>
+      <Styles.BlogButtonWrapper>
+        <Styles.SubmitButtonWrapper>
+          <BlackButton
+            type="submit"
+            size={"1.5em"}
+            padding={"1em 3.25em"}
+            onClick={() => handleSubmit()}
           >
-            {isNewArticle ? "Reset" : "Cancel"}
-          </Styles.BlogCancelButton>
-        </Styles.BlogButtonWrapper>
-      </Styled.AdminPaddedBlock>
+            {`${isNewArticle ? "Save" : "Edit"} Article`}
+            <ArrowContainer>
+              <ButtonArrow />
+            </ArrowContainer>
+          </BlackButton>
+          {isNewArticle && (
+            <Styles.DraftButton onClick={handleDraftClick}>
+              Add to draft
+            </Styles.DraftButton>
+          )}
+        </Styles.SubmitButtonWrapper>
+        <Styles.BlogCancelButton
+          type={"submit"}
+          onClick={isNewArticle ? reset : cancelArticle}
+        >
+          {isNewArticle ? "Reset" : "Cancel"}
+        </Styles.BlogCancelButton>
+      </Styles.BlogButtonWrapper>
     </>
   );
 };

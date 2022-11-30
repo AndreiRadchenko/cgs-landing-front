@@ -57,7 +57,7 @@ export const ArticlePreview = styled(FlexRowContainer)`
     flex-direction: column-reverse;
   }
 `;
-export const BlogContainer = styled.div`
+export const BlogContainer = styled.article`
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.normal};
   color: ${themes.primary.colors.blogDarkText};
@@ -77,7 +77,7 @@ export const BlogContainer = styled.div`
   }
 `;
 
-export const AllArticlesContainer = styled.div<IAllArticles>`
+export const AllArticlesContainer = styled.section<IAllArticles>`
   padding: 90px 70px 0;
   margin-bottom: 180px;
   max-width: 1200px;
@@ -640,7 +640,7 @@ export const DropdownContainer = styled.div`
   }
 `;
 
-export const PodcastContainer = styled.div`
+export const PodcastContainer = styled.section`
   padding: 70px 50px;
   width: 100%;
   display: flex;
@@ -983,7 +983,7 @@ export const PlayTriangle = styled.img`
   height: 15px;
 `;
 
-export const HeaderBlock = styled.div`
+export const HeaderBlock = styled.header`
   display: flex;
   width: 100%;
   height: 100%;
@@ -1207,3 +1207,5 @@ export const MobileColumnReversedContainer = styled.div`
     flex-direction: column-reverse;
   }
 `;
+
+export const TimeText = styled.time``;
