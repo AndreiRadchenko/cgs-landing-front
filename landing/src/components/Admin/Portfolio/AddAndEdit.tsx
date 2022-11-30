@@ -44,7 +44,9 @@ const AddAndEdit = ({
 
   return (
     <Formik
-      key={`Form${isNewStatus}${current ? current : "null"}`}
+      key={`Form${isNewStatus}${
+        typeof current === "number" ? current : "null"
+      }`}
       initialValues={
         isNewStatus
           ? JSON.parse(JSON.stringify(newPageReviewInit))
@@ -53,9 +55,10 @@ const AddAndEdit = ({
       onSubmit={(values, action) => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { __v, ...data } = values;
-        setIsNewStatus(true);
         isNewStatus ? addReview(data) : editReview(data);
         action.resetForm();
+        action.setFieldValue("image", null);
+        setIsNewStatus(true);
       }}
       validationSchema={AdminPortfolioValidation}
     >
