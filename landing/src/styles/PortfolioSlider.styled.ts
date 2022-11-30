@@ -96,10 +96,7 @@ export const ProjectDescription = styled.p`
   font-size: ${themes.primary.font.size.reviewText};
   line-height: 160%;
   margin-block: 15px;
-  display: -webkit-box;
-  max-height: 500px;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
+
   overflow: hidden;
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -255,7 +252,6 @@ export const Category = styled.div`
 export const PortfolioRow = styled.section`
   display: flex;
   width: 100%;
-  max-height: 500px;
   position: relative;
 
   & .swiper-slide-prev {
@@ -268,20 +264,8 @@ export const PortfolioRow = styled.section`
     color: ${themes.primary.colors.secondary};
   }
 
-  @media (max-width: 1310px) {
-    max-height: 1000px;
-  }
-  @media ${themes.primary.media.minPC} {
-    max-height: 33.5vw;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    max-height: 400px;
-  }
-
   @media ${themes.primary.media.maxMobile} {
     display: block;
-    max-height: none;
   }
 `;
 
