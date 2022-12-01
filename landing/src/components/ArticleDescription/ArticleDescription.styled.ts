@@ -111,6 +111,7 @@ export const Description = styled.p`
   h4,
   h5,
   h6 {
+    line-height: 150%;
     margin-block: 100px 32px;
     font-size: 2.5rem;
 
@@ -127,6 +128,16 @@ export const Description = styled.p`
   h5:first-child,
   h6:first-child {
     margin-top: 83px;
+  }
+
+  & .__se__float-left {
+    float: left;
+    margin-right: 18px;
+  }
+
+  & .__se__float-right {
+    float: right;
+    margin-left: 18px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {

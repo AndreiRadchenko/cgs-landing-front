@@ -63,9 +63,6 @@ export const articleIntroPlugin = {
     const rangeTag = (this as any).util.getRangeFormatElement(
       (this as any).getSelectionNode()
     );
-    // rangeTag.innerHTML =
-    //   '<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7V1M1 1H7M1 1L8.5 8.5V17" stroke="black" stroke-width="2"/><path d="M11.5 6L16 1.5" stroke="black" stroke-width="2"/></svg>' +
-    //   rangeTag.innerHTML;
 
     if (
       (this as any).util.hasClass(

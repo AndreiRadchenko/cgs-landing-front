@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import PhotoBlockDashed from "../PhotoBlockDashed";
 import SubHeaderWithInput from "../SubHeaderWithInput";
 import BlogTags from "./BlogTags";
-import Gist from "react-gist";
 
 import * as Styles from "../../../../styles/AdminBlogPage";
 import * as Styled from "../../../../styles/AdminPage";
@@ -183,9 +182,7 @@ const ArticleAddAndEdit = ({
 
   return (
     <>
-      {/* https://gist.github.com/9574ce92378627bd2e3221626dfeb497.git */}
       <Styled.AdminBlocksContent ref={ref}>
-        {/* <Gist id={"9574ce92378627bd2e3221626dfeb497"} /> */}
         <Styled.AdminHeader>BLOG</Styled.AdminHeader>
         <AdminBlockDropDown title="Add Article" defaultOpen={!isNewArticle}>
           <Styles.AdminBlogGrid>

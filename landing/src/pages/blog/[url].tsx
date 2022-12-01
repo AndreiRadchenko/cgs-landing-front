@@ -29,6 +29,7 @@ import Image from "next/image";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import NotFoundPage from "../404";
+
 interface IArticleData {
   data: IArticle[] | undefined;
   isLoading: boolean;

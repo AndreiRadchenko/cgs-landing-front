@@ -951,6 +951,16 @@ export const TextEditorContainer = styled.div<{
       background-repeat: no-repeat;
     }
   }
+
+  & .__se__float-left {
+    float: left;
+    margin-right: 18px;
+  }
+
+  & .__se__float-right {
+    float: right;
+    margin-left: 18px;
+  }
   @media ${themes.primary.media.minPCFullHD} {
     p {
       margin-top: 1.25em;
