@@ -102,6 +102,7 @@ export const BannerImageContainer = styled.figure`
   height: 100%;
   display: flex;
   align-items: flex-end;
+  margin-block: 0;
 `;
 
 export const BannerImage = styled.img`

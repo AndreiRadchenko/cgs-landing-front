@@ -28,7 +28,15 @@ export const Image = styled.img`
   width: 100%;
   height: auto;
   object-fit: contain;
-  min-height: 230px;
+  height: 250px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 307px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    height: auto;
+  }
 `;
 
 export const TitleWrapper = styled.div`
