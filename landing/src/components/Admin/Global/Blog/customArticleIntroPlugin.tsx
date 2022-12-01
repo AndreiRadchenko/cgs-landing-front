@@ -1,58 +1,89 @@
-const mergeTag = {
-  // @Required
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// ex) A command plugin to add "Range format element(util.isRangeFormatElement)" to selection
+export const articleIntroPlugin = {
+  // @Required @Unique
   // plugin name
-  name: "merge_tag",
-
+  name: "articleIntro",
   // @Required
   // data display
-  display: "submenu",
+  display: "command",
+
+  // @Options
+  title: "Add article intro",
+  buttonClass: "",
+  innerHTML:
+    '<svg  width="17" height="17" viewBox="0 0 17 17" ><path d="M1 7V1M1 1H7M1 1L8.5 8.5V17" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11.5 6L16 1.5" fill="none" stroke="currentColor" stroke-width="2" /></svg>',
 
   // @Required
   // add function - It is called only once when the plugin is first run.
   // This function generates HTML to append and register the event.
   // arguments - (core : core object, targetElement : clicked button element)
   add: function (core: any, targetElement: any) {
-    // Generate submenu HTML
-    // Always bind "core" when calling a plugin function
-    const listDiv = this.setSubmenu.call(core);
+    const context = core.context;
+    const rangeTag = core.util.createElement("div");
 
-    // You must bind "core" object when registering an event.
-    /** add event listeners */
-    const self = this as any;
-    listDiv.querySelectorAll(".se-btn-list").forEach(function (btn: any) {
-      btn.addEventListener("click", self.onClick.bind(core));
-    });
+    core.util.addClass(rangeTag, "__se__format__range_article_intro_custom");
 
     // @Required
-    // You must add the "submenu" element using the "core.initMenuTarget" method.
-    /** append target button menu */
-    core.initMenuTarget(this.name, targetElement, listDiv);
+    // Registering a namespace for caching as a plugin name in the context object
+    context.articleIntro = {
+      targetButton: targetElement,
+      tag: rangeTag,
+    };
   },
 
-  setSubmenu: function () {
-    const listDiv = (this as any).util.createElement("DIV");
-    // @Required
-    // A "se-submenu" class is required for the top level element.
-    listDiv.className = "se-submenu se-list-layer";
-    listDiv.innerHTML =
-      '<div class="se-list-inner se-list-font-size"><ul class="se-list-basic"><li><button type="button" class="se-btn-list" value="{firstName}">{firstName}</button></li><li><button type="button" class="se-btn-list" value="{lastName}">{lastName}</button></li></ul></div>';
+  // @Override core
+  // Plugins with active methods load immediately when the editor loads.
+  // Called each time the selection is moved.
+  active: function (element: any) {
+    if (!element) {
+      (this as any).util.removeClass(
+        (this as any).context.articleIntro.targetButton,
+        "active"
+      );
+    } else if (
+      (this as any).util.hasClass(
+        element,
+        "__se__format__range_article_intro_custom"
+      )
+    ) {
+      (this as any).util.addClass(
+        (this as any).context.articleIntro.targetButton,
+        "active"
+      );
+      return true;
+    }
 
-    return listDiv;
+    return false;
   },
-  onClick: function (e: any) {
-    const value = e.target.value;
-    const node = (this as any).util.createElement("span");
-    (this as any).util.addClass(node, "se-custom-tag");
-    node.textContent = value;
 
-    (this as any).insertNode(node);
-    const zeroWidthSpace = (this as any).util.createTextNode(
-      (this as any).util.zeroWidthSpace
+  // @Required, @Override core
+  // The behavior of the "command plugin" must be defined in the "action" method.
+  action: function () {
+    const rangeTag = (this as any).util.getRangeFormatElement(
+      (this as any).getSelectionNode()
     );
-    node.parentNode.insertBefore(zeroWidthSpace, node.nextSibling);
+    // rangeTag.innerHTML =
+    //   '<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7V1M1 1H7M1 1L8.5 8.5V17" stroke="black" stroke-width="2"/><path d="M11.5 6L16 1.5" stroke="black" stroke-width="2"/></svg>' +
+    //   rangeTag.innerHTML;
 
-    (this as any).submenuOff();
+    if (
+      (this as any).util.hasClass(
+        rangeTag,
+        "__se__format__range_article_intro_custom"
+      )
+    ) {
+      (this as any).detachRangeFormatElement(
+        rangeTag,
+        null,
+        null,
+        false,
+        false
+      );
+    } else {
+      (this as any).applyRangeFormatElement(
+        (this as any).context.articleIntro.tag.cloneNode(false)
+      );
+    }
   },
 };
-
-export default mergeTag;
