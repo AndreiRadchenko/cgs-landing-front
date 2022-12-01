@@ -27,7 +27,11 @@ const ArticleReadMore = ({ readMore, findViews }: IArticleReadMore) => {
               view={findViews(article.url)}
             />
           ) : (
-            <BlogItem article={article} views={findViews(article.url)} />
+            <BlogItem
+              article={article}
+              views={findViews(article.url)}
+              key={article._id}
+            />
           )
         )}
       </Styles.ReadMoreItemsWrapper>

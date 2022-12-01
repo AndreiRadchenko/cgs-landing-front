@@ -45,12 +45,12 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
                 <Styles.DatesContainer>
                   {(update && (
                     <Styled.GrayText>
-                      Updated on
+                      {"Updated on "}
                       <Styled.TimeText>{formatDate(update)}</Styled.TimeText>
                     </Styled.GrayText>
                   )) || (
                     <Styled.GrayText>
-                      Published on
+                      {"Published on "}
                       <Styled.TimeText>{formatDate(date)}</Styled.TimeText>
                     </Styled.GrayText>
                   )}

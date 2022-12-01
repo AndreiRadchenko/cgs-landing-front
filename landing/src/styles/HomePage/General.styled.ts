@@ -273,8 +273,25 @@ export const HeadBlockContent = styled.header`
   margin-top: 8.75em;
   z-index: 2;
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    & .calendly-popup {
+      min-width: 0 !important;
+      max-width: 750px !important;
+      margin: auto !important;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
+    & .calendly-popup {
+      max-height: 550px !important;
+    }
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    & .calendly-popup {
+      max-height: 450px !important;
+    }
   }
 `;
 

@@ -64,7 +64,7 @@ export const DatesContainer = styled.div`
   margin-top: 16px;
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 0.875rem;
+    margin-top: 12px;
   }
 `;
 
@@ -98,7 +98,7 @@ export const SpaceBetween = styled.div`
     }
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 374px) {
     flex-direction: column;
     align-items: flex-start;
   }
