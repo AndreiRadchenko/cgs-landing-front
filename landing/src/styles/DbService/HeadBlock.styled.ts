@@ -14,8 +14,8 @@ export const Container = styled.section`
     flex-direction: column;
 
     & a {
-      font-size: 1em;
-      padding: 1.195em 2.91em;
+      font-size: 1em !important;
+      padding: 1.195em 2.91em !important;
     }
   }
 `;
@@ -26,7 +26,6 @@ export const ContentContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 44.5%;
-  z-index: 2;
   width: 61%;
 
   @media (max-width: 1350px) {
