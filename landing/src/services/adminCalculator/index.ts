@@ -20,7 +20,7 @@ export class AdminCalculatorService {
     return this.httpService.put(`api/calculator/step`, data);
   }
 
-  public updateCalculatorSteps(data: ICalculatorStep) {
+  public updateCalculatorStepById(data: ICalculatorStep) {
     return this.httpService.put(`api/calculator/step/${data._id}`, data);
   }
 }

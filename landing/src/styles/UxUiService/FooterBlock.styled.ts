@@ -19,8 +19,8 @@ export const ContentWrapper = styled.div`
     max-width: 100%;
 
     & a {
-      font-size: 1em;
-      padding: 1.194em 2.91em;
+      font-size: 1em !important;
+      padding: 1.194em 2.91em !important;
     }
   }
 `;

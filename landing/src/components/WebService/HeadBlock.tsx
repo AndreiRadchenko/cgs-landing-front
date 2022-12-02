@@ -1,8 +1,4 @@
 ﻿import React from "react";
-import {
-  ArrowContainer,
-  BlackButton,
-} from "../../styles/HomePage/General.styled";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
@@ -14,8 +10,8 @@ import {
   Description,
   Image,
 } from "../../styles/WebService/HeadBlock.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
 import TextTypingAnimation from "../Typewrite";
+import BookACallButton from "../BookACallButton";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -30,18 +26,14 @@ const HeadBlock = () => {
         <Description>
           <SplitBrackets text={data?.text} />
         </Description>
-        <BlackButton
-          padding={"1.117em 2.537em"}
-          size={"1.125em"}
-          href={data?.buttonLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {data?.button}
-          <ArrowContainer>
-            <ButtonArrow />
-          </ArrowContainer>
-        </BlackButton>
+        {data && (
+          <BookACallButton
+            buttonLink={data?.buttonLink}
+            buttonText={data.button}
+            withCalendly
+            style={{ padding: "1.117em 2.537em", fontSize: "1.125em" }}
+          />
+        )}
       </ContentContainer>
       <Image src={data?.image.url} alt="hero image" />
     </Container>

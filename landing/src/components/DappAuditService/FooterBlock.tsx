@@ -8,12 +8,8 @@ import {
   WrapperWithLine,
 } from "../../styles/DappAuditService/Common.styled";
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
-import {
-  ArrowContainer,
-  BlackButton,
-} from "../../styles/HomePage/General.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
 import Image from "next/image";
+import BookACallButton from "../BookACallButton";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -39,18 +35,17 @@ const FooterBlock = () => {
               )}
           </Subtitle>
         </Styled.TitleWrapper>
-        <BlackButton
-          padding={"1em 2.27em"}
-          size={"1.125em"}
-          href={data?.buttonLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {data?.button}
-          <ArrowContainer>
-            <ButtonArrow />
-          </ArrowContainer>
-        </BlackButton>
+        {data && (
+          <BookACallButton
+            buttonLink={data?.buttonLink}
+            buttonText={data.button}
+            withCalendly
+            style={{
+              padding: "1em 2.27em",
+              fontSize: "1.125em",
+            }}
+          />
+        )}
       </div>
       {data && (
         <Styled.ImageWrapper>

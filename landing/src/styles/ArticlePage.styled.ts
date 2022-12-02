@@ -102,6 +102,7 @@ export const BannerImageContainer = styled.figure`
   height: 100%;
   display: flex;
   align-items: flex-end;
+  margin-block: 0;
 `;
 
 export const BannerImage = styled.img`
@@ -110,7 +111,6 @@ export const BannerImage = styled.img`
 `;
 
 export const TagWrapper = styled.div`
-  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -118,14 +118,12 @@ export const TagWrapper = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     justify-content: flex-start;
-    height: 19.83em;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 60px;
     row-gap: 20px;
     order: 2;
     width: 100%;
-    height: auto;
   }
 
   @media ${themes.primary.media.maxMobile} {

@@ -24,11 +24,13 @@ import ButtonArrow from "../../../../utils/ButtonArrow";
 const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
   ssr: false,
 });
+import { articleIntroPlugin } from "./customArticleIntroPlugin";
 import { useMutation } from "@tanstack/react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { adminGlobalService } from "../../../../services/adminHomePage";
 import dynamic from "next/dynamic";
 import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
+import { Plugin } from "suneditor/src/plugins/Plugin";
 
 interface IAddAndEdit {
   article: number;
@@ -58,6 +60,13 @@ const ArticleAddAndEdit = ({
     adminGlobalService.uploadImage(data)
   );
 
+  const [plugins, setPlugins] = useState<
+    Array<Plugin> | Record<string, Plugin>
+  >();
+  useEffect(() => {
+    import("suneditor/src/plugins").then((plugs) => setPlugins(plugs as any));
+  }, []);
+
   const handleDescInput = (e: InputEvent) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -86,7 +95,7 @@ const ArticleAddAndEdit = ({
     });
   };
 
-  const textEditorProps: SunEditorReactProps = {
+  const textEditorProps: SunEditorReactProps | undefined = plugins && {
     height: "990px",
     onImageUploadBefore: handleImageUploadBefore,
     setOptions: {
@@ -95,7 +104,7 @@ const ArticleAddAndEdit = ({
         default: undefined,
         check_new_window: "nofollow noopener",
       },
-
+      plugins: { articleIntroPlugin, ...plugins },
       buttonList: [
         ["undo", "redo"],
         [
@@ -103,15 +112,19 @@ const ArticleAddAndEdit = ({
           "font",
           "fontSize",
           "fontColor",
+          "hiliteColor",
           "align",
           "paragraphStyle",
           "blockquote",
+          "lineHeight",
+          "table",
         ],
         ["bold", "underline", "italic", "strike", "subscript", "superscript"],
         ["removeFormat"],
         ["outdent", "indent"],
         ["list"],
         ["link", "image", "video"],
+        ["articleIntro"],
         ["codeView"],
       ],
     },
@@ -288,7 +301,9 @@ const ArticleAddAndEdit = ({
               {descLength}
             </Styles.Counter>
           </Styles.Text>
-          <TextEditor header="Text" name="content" props={textEditorProps} />
+          {textEditorProps && (
+            <TextEditor header="Text" name="content" props={textEditorProps} />
+          )}
         </AdminBlockDropDown>
       </Styled.AdminBlocksContent>
       <Styled.MetaBlockWraper>

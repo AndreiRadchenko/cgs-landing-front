@@ -69,7 +69,6 @@ const BlockchainService = () => {
           </Styled.Layout>
         </Layout>
       </PageArticle>
-
       <FooterNew />
     </>
   );

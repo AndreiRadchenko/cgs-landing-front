@@ -17,8 +17,8 @@ export const Content = styled.div`
     padding-top: 0.94em;
 
     & a {
-      font-size: 1em;
-      padding: 1.195em 2.18em;
+      font-size: 1em !important;
+      padding: 1.195em 2.18em !important;
     }
   }
 `;

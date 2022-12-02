@@ -616,7 +616,13 @@ export interface ICalculator {
 export interface ICalculatorStep {
   _id: string;
   title: string;
-  tieUpSteps: [
+  options:
+    | {
+        type: string;
+        label: string;
+      }[]
+    | string;
+  tieUpSteps?: [
     {
       condition: string[];
       step: Omit<ICalculatorStep, "tieUpSteps">;

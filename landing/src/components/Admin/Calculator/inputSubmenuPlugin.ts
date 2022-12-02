@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-export const letterCaseSubmenu = {
-  name: "letterCase",
+export const inputSubmenu = {
+  name: "input",
   display: "submenu",
-  title: "Set letter case",
+  title: "Add input",
+  innerHTML:
+    '<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 7.5C14.5 11.366 11.366 14.5 7.5 14.5C3.63401 14.5 0.5 11.366 0.5 7.5C0.5 3.63401 3.63401 0.5 7.5 0.5C11.366 0.5 14.5 3.63401 14.5 7.5Z" fill="white" stroke="black"/><circle cx="7.5" cy="7.5" r="4.5" fill="currentColor"/></svg>',
   add: function (core: any, targetElement: any) {
     const context = core.context;
     context.textStyle = {
@@ -32,27 +34,23 @@ export const letterCaseSubmenu = {
     listDiv.className = "se-submenu se-list-layer se-list-format";
 
     const defaultList = {
-      upper: {
-        name: "AB",
-        class: "__se__t-upper",
-        tag: "span",
+      radio: {
+        name: "radio",
+        class: "__se__t-radio-input",
+        tag: "label",
       },
-      firstletter: {
-        name: "Ab",
-        class: "__se__t-first-letter-capitalize",
-        tag: "span",
-      },
-      lower: {
-        name: "ab",
-        class: "__se__t-lower",
-        tag: "span",
+      checkbox: {
+        name: "checkbox",
+        class: "__se__t-checkbox-input",
+        tag: "label",
       },
     };
     const styleList = !option.textStyles
       ? core._w.Object.keys(defaultList)
       : option.textStyles;
 
-    let list = '<div class="se-list-inner"><ul class="se-list-basic">';
+    let list =
+      '<div class="se-list-inner"><ul class="se-list-basic input-list">';
     for (
       let i = 0,
         len = styleList.length,

@@ -20,7 +20,6 @@ export const ContentContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 45.5%;
-  z-index: 2;
   margin-top: 6.3em;
 
   & > a {

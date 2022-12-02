@@ -22,7 +22,6 @@ export const ContentContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 44.5%;
-  z-index: 2;
 
   @media (max-width: 1360px) {
     width: 53%;
@@ -41,8 +40,8 @@ export const ContentContainer = styled.div`
     padding-bottom: 5.25em;
 
     & a {
-      font-size: 1em;
-      padding: 1.195em 1.88em;
+      font-size: 1em !important;
+      padding: 1.195em 1.88em !important;
     }
   }
 `;

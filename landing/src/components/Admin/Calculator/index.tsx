@@ -10,7 +10,6 @@ const AdminCalculatorContent = () => {
       <Styled.AdminBlocksContent>
         <Styled.AdminHeader>CALCULATOR</Styled.AdminHeader>
         <CalculatorPagerForm />
-
         <CalculatorStepsForm />
       </Styled.AdminBlocksContent>
     </Styled.AdminContentBlock>

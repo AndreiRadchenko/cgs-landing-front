@@ -1,18 +1,19 @@
 import React from "react";
 import { Field, FieldProps } from "formik";
 import * as Styled from "../../styles/AdminPage";
-import "suneditor/dist/css/suneditor.min.css";
 import SunEditor from "suneditor-react";
 import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
+import "suneditor/dist/css/suneditor.min.css";
+import SetOptions from "suneditor-react/dist/types/SetOptions";
 
 interface ITextEditorProps {
   header?: string;
-  name: string;
+  name?: string;
   props?: SunEditorReactProps;
 }
 
-const TextEditor = ({ name, header, props }: ITextEditorProps) => {
-  const options = {
+const TextEditor = ({ name = "", header, props }: ITextEditorProps) => {
+  const options: SetOptions = {
     font: ["NAMU"],
     linkRelDefault: {
       default: undefined,

@@ -1,6 +1,7 @@
 import { TextareaAutosize } from "@mui/material";
 import styled, { css } from "styled-components";
 import themes from "../utils/themes";
+import articleIntro from "../../public/BlogDecorations/Formatting/articleIntro.svg";
 import { IFontSize } from "./HomePage/General.styled";
 import SortableList from "react-easy-sort";
 
@@ -196,19 +197,6 @@ export const AdminBlocksContent = styled.div`
   & .sun-editor-editable,
   & .sun-editor {
     background-color: transparent;
-  }
-
-  & .sun-editor {
-    border: 1px solid ${themes.primary.colors.adminInputBorder} !important;
-  }
-
-  & .gist {
-    width: 500px !important;
-  }
-
-  & .gist-file .gist-data {
-    max-height: 500px;
-    max-width: 500px;
   }
 `;
 
@@ -904,12 +892,6 @@ export const TextEditorContainer = styled.div<{
   height: auto;
   max-width: 1200px;
   width: 100%;
-
-  margin-bottom: ${themes.primary.spacing.primary};
-  &:focus-within {
-    outline: 1px solid gray;
-  }
-
   margin: 0;
   font-weight: ${themes.primary.font.weight.normal};
 
@@ -950,6 +932,40 @@ export const TextEditorContainer = styled.div<{
     line-height: 160%;
   }
 
+  & .sun-editor-editable table td {
+    border: 0;
+  }
+
+  & .__se__format__range_article_intro_custom {
+    position: relative;
+    border: 0.6px solid rgba(0, 0, 0, 0.25);
+    padding: 10px 25px 10px 45px;
+    font-family: ${themes.primary.font.family.openSans};
+    font-weight: ${themes.primary.font.weight.semiBold};
+    font-size: 18px;
+    color: ${themes.primary.colors.blogArticleText};
+
+    &::before {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      content: "";
+      width: 17px;
+      height: 17px;
+      background-image: url(${articleIntro.src});
+      background-repeat: no-repeat;
+    }
+  }
+
+  & .__se__float-left {
+    float: left;
+    margin-right: 18px;
+  }
+
+  & .__se__float-right {
+    float: right;
+    margin-left: 18px;
+  }
   @media ${themes.primary.media.minPCFullHD} {
     p {
       margin-top: 1.25em;

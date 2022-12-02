@@ -5,11 +5,7 @@ import * as Styled from "../../styles/WebAuditService/HeadBlock.styled";
 import { IServiceWebAudit } from "../../types/Admin/Response.types";
 import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
-import {
-  ArrowContainer,
-  BlackButton,
-} from "../../styles/HomePage/General.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
+import BookACallButton from "../BookACallButton";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -27,18 +23,17 @@ const HeadBlock = () => {
           <Styled.Description>
             <SplitBrackets text={data?.text} />
           </Styled.Description>
-          <BlackButton
-            padding={"1.117em 2.537em"}
-            size={"1.5em"}
-            href={data?.buttonLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {data?.button}
-            <ArrowContainer>
-              <ButtonArrow />
-            </ArrowContainer>
-          </BlackButton>
+          {data && (
+            <BookACallButton
+              buttonLink={data?.buttonLink}
+              buttonText={data.button}
+              withCalendly
+              style={{
+                padding: "1.117em 2.537em",
+                fontSize: "1.5em",
+              }}
+            />
+          )}
         </Styled.TextContainer>
         {data?.image && (
           <Styled.Image src={data?.image.url} alt="web audit hero image" />

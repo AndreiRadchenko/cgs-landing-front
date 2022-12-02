@@ -11,8 +11,8 @@ export const Container = styled.section`
     padding-bottom: 0;
 
     & a {
-      font-size: 1em;
-      padding: 1.195em 2.789em;
+      font-size: 1em !important;
+      padding: 1.195em 2.789em !important;
     }
   }
 `;
