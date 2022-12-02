@@ -18,7 +18,6 @@ export const SliderWrapper = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   overflow: hidden;
-  z-index: 15;
   & .mySwiper {
     margin-left: 10.5vw;
     margin-right: 9vw;
@@ -52,7 +51,7 @@ export const NavigateLeft = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 2;
   background-color: ${themes.primary.colors.blogBackground};
   &:after {
     content: none;
@@ -90,7 +89,7 @@ export const NavigateRight = styled.div`
   right: 0;
   width: 9vw;
   background-color: ${themes.primary.colors.blogBackground};
-  z-index: 10;
+  z-index: 2;
   border-color: ${themes.primary.colors.comment};
   border-style: solid;
   border-width: 1px 0 1px 1px;
