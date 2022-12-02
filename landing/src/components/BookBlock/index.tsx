@@ -4,16 +4,13 @@ import { queryKeys } from "../../consts/queryKeys";
 import {
   Subtitle,
   FooterButtonWrapper,
-  FooterLinkButton,
-  ArrowContainer,
   FooterWhatsAppContainer,
   FooterSection,
 } from "../../styles/HomePage/General.styled";
 import { IDataResponse } from "../../types/Admin/Response.types";
-import ButtonArrow from "../../utils/ButtonArrow";
-import { recoverLink } from "../../utils/recoverLink";
 import ScrambleText from "../HomePage/ScrambleText";
 import WhatsAppComponent from "../HomePage/WhatsAppComponent";
+import BookACallButton from "../BookACallButton";
 
 const BookBlock = () => {
   const queryClient = useQueryClient();
@@ -33,18 +30,15 @@ const BookBlock = () => {
         </span>
       </Subtitle>
       <FooterWhatsAppContainer>
-        <FooterButtonWrapper className="btn">
-          <FooterLinkButton
-            target="_blank"
-            rel="noopener noreferrer"
-            href={data && data.buttonLink && recoverLink(data?.buttonLink)}
-          >
-            {data?.button}
-            <ArrowContainer>
-              <ButtonArrow />
-            </ArrowContainer>
-          </FooterLinkButton>
-        </FooterButtonWrapper>
+        {data && (
+          <FooterButtonWrapper className="btn">
+            <BookACallButton
+              buttonLink={data?.buttonLink}
+              buttonText={data.button}
+              withCalendly
+            />
+          </FooterButtonWrapper>
+        )}
         <FooterButtonWrapper>
           <WhatsAppComponent />
         </FooterButtonWrapper>

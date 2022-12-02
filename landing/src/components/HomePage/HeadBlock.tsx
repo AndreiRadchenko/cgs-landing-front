@@ -7,27 +7,24 @@ import rightArrow from "../../../public/HomePageDecoration/rightArrow.svg";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
-import { recoverLink } from "../../utils/recoverLink";
-import ButtonArrow from "../../utils/ButtonArrow";
 import Tetris from "./Tetris";
 import Image from "next/image";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import WhatsAppComponent from "./WhatsAppComponent";
-import { PopupModal } from "react-calendly";
+import BookACallButton from "../BookACallButton";
 
 const HeadBlock = () => {
   const { width } = useWindowDimension();
-  const [buttonClassName, setButtonClassName] = useState<string>("main");
-  const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
-
-  const elRef = useRef<HTMLAnchorElement>(null);
-  const isOnScreen = useOnScreen(elRef, true);
 
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>([
     queryKeys.getFullHomePage,
   ])?.EditInformationBlock;
+
+  const [buttonClassName, setButtonClassName] = useState<string>("main");
+  const elRef = useRef<HTMLDivElement>(null);
+  const isOnScreen = useOnScreen(elRef, true);
 
   useEffect(() => {
     if (isOnScreen) {
@@ -37,14 +34,6 @@ const HeadBlock = () => {
       }, 1000);
     }
   }, [isOnScreen]);
-
-  const handleCalendyClose = () => {
-    setCalendlyIsOpen(false);
-  };
-
-  const handleCalendyOpen = () => {
-    setCalendlyIsOpen(true);
-  };
 
   return (
     <Styled.HeadBlockRow>
@@ -77,27 +66,15 @@ const HeadBlock = () => {
             <div>YESTERDAY DONE</div>
           </Styled.RowContainer>
         </Styled.MainSubtitle>
-        <Styled.BlackButton
-          size={"1.5em"}
-          padding={"1.11em 1.5em"}
-          rel="noopener noreferrer"
-          className={buttonClassName}
-          ref={elRef}
-          id="root"
-          onClick={handleCalendyOpen}
-        >
-          {width && width > 768 ? data?.button : "BOOK A CALL"}
-          <Styled.ArrowContainer>
-            <ButtonArrow />
-          </Styled.ArrowContainer>
-        </Styled.BlackButton>
-        {data && elRef.current && (
-          <PopupModal
-            url={recoverLink(data.buttonLink)}
-            rootElement={elRef.current}
-            onModalClose={handleCalendyClose}
-            open={calendlyIsOpen}
-          />
+        {data && (
+          <Styled.ButtonWrapper ref={elRef}>
+            <BookACallButton
+              buttonLink={data?.buttonLink}
+              buttonText={data.button}
+              withCalendly
+              buttonClassName={buttonClassName}
+            />
+          </Styled.ButtonWrapper>
         )}
         <WhatsAppComponent />
       </Styled.HeadBlockContent>
