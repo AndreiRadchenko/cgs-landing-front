@@ -2,13 +2,9 @@ import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IUxUiInterface } from "../../types/Admin/Response.types";
-import {
-  BlackButton,
-  ArrowContainer,
-} from "../../styles/HomePage/General.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import * as Styled from "../../styles/UxUiService/FooterBlock.styled";
+import BookACallButton from "../BookACallButton";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -23,18 +19,17 @@ const FooterBlock = () => {
         <Styled.Title>
           <SplitBrackets text={data?.title} />
         </Styled.Title>
-        <BlackButton
-          padding={"1.117em 3.57em"}
-          size={"1.125em"}
-          href={data?.buttonLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {data?.button}
-          <ArrowContainer>
-            <ButtonArrow />
-          </ArrowContainer>
-        </BlackButton>
+        {data && (
+          <BookACallButton
+            buttonLink={data?.buttonLink}
+            buttonText={data.button}
+            withCalendly
+            style={{
+              padding: "1.117em 3.57em",
+              fontSize: "1.125em",
+            }}
+          />
+        )}
       </Styled.ContentWrapper>
       <Styled.Image src={data?.image.url} />
     </Styled.Container>

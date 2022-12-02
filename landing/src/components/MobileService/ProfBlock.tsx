@@ -5,12 +5,8 @@ import { queryKeys } from "../../consts/queryKeys";
 import { VisibleSubtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/MobileService/ProfBlock.styled";
 import { IServiceMobile } from "../../types/Admin/Response.types";
-import {
-  ArrowContainer,
-  BlackButton,
-} from "../../styles/HomePage/General.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import BookACallButton from "../BookACallButton";
 
 const ProfBlock = () => {
   const queryClient = useQueryClient();
@@ -52,18 +48,17 @@ const ProfBlock = () => {
         {data && parse(data.text.replace("|", "<br />"), options)}
       </Styled.ProfText>
       <Styled.ButtonWrapper>
-        <BlackButton
-          padding={"1.117em 3.6em"}
-          size={"1.5em"}
-          href={data?.buttonLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {data?.button}
-          <ArrowContainer>
-            <ButtonArrow />
-          </ArrowContainer>
-        </BlackButton>
+        {data && (
+          <BookACallButton
+            buttonLink={data?.buttonLink}
+            buttonText={data.button}
+            withCalendly
+            style={{
+              padding: "1.117em 3.6em",
+              fontSize: "1.5em",
+            }}
+          />
+        )}
       </Styled.ButtonWrapper>
       <Styled.ImageWrapper>
         <Styled.Image src={data?.image.url} alt="prof block img" />

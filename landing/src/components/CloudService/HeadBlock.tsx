@@ -2,13 +2,9 @@ import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { ICloudService } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
-import {
-  ArrowContainer,
-  BlackButton,
-} from "../../styles/HomePage/General.styled";
 import * as Styled from "../../styles/CloudService/HeaderBlock.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
 import TextTypingAnimation from "../Typewrite";
+import BookACallButton from "../BookACallButton";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -23,18 +19,17 @@ const HeadBlock = () => {
           {data && <TextTypingAnimation text={data?.title} />}
         </Styled.Title>
         <Styled.Description>{data?.text}</Styled.Description>
-        <BlackButton
-          padding={"1.117em 3.862em"}
-          size={"1.125em"}
-          href={data?.buttonLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {data?.button}
-          <ArrowContainer>
-            <ButtonArrow />
-          </ArrowContainer>
-        </BlackButton>
+        {data && (
+          <BookACallButton
+            buttonLink={data?.buttonLink}
+            buttonText={data.button}
+            withCalendly
+            style={{
+              padding: "1.117em 3.862em",
+              fontSize: "1.125em",
+            }}
+          />
+        )}
       </Styled.ContentWrapper>
       <Styled.Image src={data?.image.url} />
     </Styled.Container>

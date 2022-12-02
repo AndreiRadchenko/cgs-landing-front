@@ -45,7 +45,7 @@ export const InfoBlock = styled.div`
     gap: 0;
 
     & > a {
-      padding: 1.29em 2.61em;
+      padding: 1.29em 2.61em !important;
     }
   }
 `;
