@@ -2,13 +2,9 @@ import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICloudService } from "../../types/Admin/Response.types";
-import {
-  ArrowContainer,
-  BlackButton,
-} from "../../styles/HomePage/General.styled";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import * as Styled from "../../styles/CloudService/FooterBlock.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
+import BookACallButton from "../BookACallButton";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -22,18 +18,17 @@ const FooterBlock = () => {
         <Styled.Title>
           <SplitBrackets text={data?.subtitle} />
         </Styled.Title>
-        <BlackButton
-          padding={"1.117em 3.57em"}
-          size={"1.125em"}
-          href={data?.buttonLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {data?.button}
-          <ArrowContainer>
-            <ButtonArrow />
-          </ArrowContainer>
-        </BlackButton>
+        {data && (
+          <BookACallButton
+            buttonLink={data?.buttonLink}
+            buttonText={data.button}
+            withCalendly
+            style={{
+              padding: "1.117em 3.862em",
+              fontSize: "1.125em",
+            }}
+          />
+        )}
       </Styled.Content>
       <Styled.Image src={data?.image.url} />
     </Styled.Container>

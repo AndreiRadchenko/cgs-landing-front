@@ -1,17 +1,13 @@
 import React from "react";
-import {
-  ArrowContainer,
-  BlackButton,
-} from "../../styles/HomePage/General.styled";
 import { IServiceMobileAudit } from "../../types/Admin/Response.types";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import ButtonArrow from "../../utils/ButtonArrow";
 import * as Styled from "../../styles/MobileAuditService/HeadBlock.styled";
 import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import MobileImage from "../../../public/MobileAuditService/mobile.svg";
 import Image from "next/image";
+import BookACallButton from "../BookACallButton";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -28,18 +24,17 @@ const HeadBlock = () => {
         <Styled.Description>
           <SplitBrackets text={data?.text} />
         </Styled.Description>
-        <BlackButton
-          padding={"1em 2.3em"}
-          size={"1.125em"}
-          href={data?.buttonLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {data?.button}
-          <ArrowContainer className="mobileAudit">
-            <ButtonArrow />
-          </ArrowContainer>
-        </BlackButton>
+        {data && (
+          <BookACallButton
+            buttonLink={data?.buttonLink}
+            buttonText={data.button}
+            withCalendly
+            style={{
+              padding: "1em 2.3em",
+              fontSize: "1.125em",
+            }}
+          />
+        )}
       </Styled.Content>
       <Styled.ImageWrapper>
         <Image

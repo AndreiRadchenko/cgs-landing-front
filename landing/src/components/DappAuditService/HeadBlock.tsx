@@ -6,13 +6,9 @@ import { IServiceDappAudit } from "../../types/Admin/Response.types";
 import Image from "next/image";
 import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
-import {
-  ArrowContainer,
-  BlackButton,
-} from "../../styles/HomePage/General.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { replaceAt } from "../../utils/replaceStrByInd";
+import BookACallButton from "../BookACallButton";
 
 const HeadBlock = () => {
   const { width } = useWindowDimension();
@@ -49,18 +45,17 @@ const HeadBlock = () => {
         <Styled.Text>
           <SplitBrackets text={data?.text} />
         </Styled.Text>
-        <BlackButton
-          padding={"1em 1.43em"}
-          size={"1.125em"}
-          href={data?.buttonLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {data?.button}
-          <ArrowContainer>
-            <ButtonArrow />
-          </ArrowContainer>
-        </BlackButton>
+        {data && (
+          <BookACallButton
+            buttonLink={data?.buttonLink}
+            buttonText={data.button}
+            withCalendly
+            style={{
+              padding: "1em 1.43em",
+              fontSize: "1.125em",
+            }}
+          />
+        )}
       </Styled.TextContent>
       {data && (
         <Styled.ImageWrapper>

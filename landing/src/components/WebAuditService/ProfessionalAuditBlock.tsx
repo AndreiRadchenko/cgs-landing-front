@@ -3,12 +3,11 @@ import { useQueryClient } from "@tanstack/react-query";
 import { IServiceWebAudit } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/WebAuditService/ProfessionalAuditBlock.style";
-import { ArrowContainer } from "../../styles/HomePage/General.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
 import Image from "next/image";
 import AuditTimeText from "../../../public/WebAuditServicePage/AuditTimeText.svg";
 import AuditTimeCommon from "../../../public/WebAuditServicePage/AuditTimeCommon.svg";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import BookACallButton from "../BookACallButton";
 
 const ProfessionalAuditBlock = () => {
   const queryClient = useQueryClient();
@@ -26,18 +25,17 @@ const ProfessionalAuditBlock = () => {
           <Styled.TextWrapper>
             <SplitBrackets text={data?.text} />
           </Styled.TextWrapper>
-          <Styled.Button
-            padding={"1.115em 2.537em"}
-            size={"1.5em"}
-            href={data?.buttonLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {data?.button}
-            <ArrowContainer>
-              <ButtonArrow />
-            </ArrowContainer>
-          </Styled.Button>
+          {data && (
+            <BookACallButton
+              buttonLink={data?.buttonLink}
+              buttonText={data.button}
+              withCalendly
+              style={{
+                padding: "1.117em 2.537em",
+                fontSize: "1.5em",
+              }}
+            />
+          )}
         </Styled.InfoBlock>
         <Styled.ImageWrapper>
           <Image
