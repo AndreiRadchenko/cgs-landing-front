@@ -8,7 +8,7 @@ export const HeaderNavContainer = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 37;
+  z-index: 3;
   background-color: ${themes.primary.colors.blogBackground};
   border-bottom: 1px solid ${themes.primary.colors.headerBorder};
 
@@ -26,7 +26,6 @@ export const NavBarWrapper = styled.div`
     height: 100%;
     transition: 0.3s;
     background-color: ${themes.primary.colors.blogBackground};
-    z-index: 36;
 
     &.scrolled {
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

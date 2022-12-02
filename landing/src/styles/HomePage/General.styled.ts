@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
 import { buttonHover, cursorBlinking } from "../Animations.styled";
-import { PopupButton } from "react-calendly";
+import { PopupButton, PopupModal } from "react-calendly";
 
 export interface IFontSize {
   size: string;
@@ -172,6 +172,8 @@ export const Title = styled.h1`
   }
 `;
 
+export const ButtonWrapper = styled.div``;
+
 export const MainSubtitle = styled.div`
   text-transform: uppercase;
   font-size: ${themes.primary.font.size.homeMainSubtitle};
@@ -271,27 +273,9 @@ export const HeadBlockContent = styled.header`
   flex-direction: column;
   align-items: flex-start;
   margin-top: 8.75em;
-  z-index: 2;
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    & .calendly-popup {
-      min-width: 0 !important;
-      max-width: 750px !important;
-      margin: auto !important;
-    }
-  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
-    & .calendly-popup {
-      max-height: 550px !important;
-    }
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    & .calendly-popup {
-      max-height: 450px !important;
-    }
   }
 `;
 
