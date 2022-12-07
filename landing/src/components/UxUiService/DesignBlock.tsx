@@ -68,30 +68,37 @@ const DesignBlock = ({ withoutShowcase }: IDesignBlockProps) => {
               className={isScrolled ? "scrolled" : undefined}
             />
           ))}
-        <Styled.TopSteps>
-          {data?.textSubBlock.slice(0, 3).map((el, idx) => (
-            <LinedText
-              position="top"
-              text={el}
-              key={idx}
-              height={78}
-              ind={idx}
-              isScrolled={isScrolled}
-            />
-          ))}
-        </Styled.TopSteps>
-        <Styled.BottomSteps>
-          {data?.textSubBlock.slice(3).map((el, idx) => (
-            <LinedText
-              text={el}
-              key={idx + 3}
-              position="bottom"
-              height={78}
-              ind={idx + 3}
-              isScrolled={isScrolled}
-            />
-          ))}
-        </Styled.BottomSteps>
+        {width && (
+          <>
+            <Styled.TopSteps>
+              {width &&
+                data?.textSubBlock
+                  .slice(0, 3)
+                  .map((el, idx) => (
+                    <LinedText
+                      position="top"
+                      text={el}
+                      key={idx}
+                      height={78}
+                      ind={idx}
+                      isScrolled={isScrolled}
+                    />
+                  ))}
+            </Styled.TopSteps>
+            <Styled.BottomSteps>
+              {data?.textSubBlock.slice(3).map((el, idx) => (
+                <LinedText
+                  text={el}
+                  key={idx + 3}
+                  position="bottom"
+                  height={78}
+                  ind={idx + 3}
+                  isScrolled={isScrolled}
+                />
+              ))}
+            </Styled.BottomSteps>
+          </>
+        )}
       </Styled.BlockWrapper>
       {withoutShowcase && <Separator className="bottom" />}
     </Styled.Container>
