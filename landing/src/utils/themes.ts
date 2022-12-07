@@ -186,6 +186,8 @@ const themes = {
       deleteImageHover: "#ad1313",
       adminInputBorder: "#A9A5A4",
       whatsApp: "#4DA303",
+      calculatorButtonBorderBg: "#b2b2b2",
+      calculatorButtonBg: "#e7e5e3",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

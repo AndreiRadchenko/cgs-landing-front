@@ -614,7 +614,7 @@ export interface ICalculator {
 }
 
 export interface ICalculatorStep {
-  _id: string;
+  _id?: string;
   title: string;
   options:
     | {
@@ -622,13 +622,18 @@ export interface ICalculatorStep {
         label: string;
       }[]
     | string;
-  tieUpSteps?: [
-    {
-      condition: string[];
-      step: Omit<ICalculatorStep, "tieUpSteps">;
-      number: number;
-    }
-  ];
+  tieUpSteps: {
+    condition: string[];
+    step: Omit<ICalculatorStep, "tieUpSteps">;
+    number: number | null;
+  }[];
+}
+
+export interface ICalculatorTieUpStep {
+  _id?: string;
+  condition: string[];
+  step: Omit<ICalculatorStep, "tieUpSteps">;
+  number: number | null;
 }
 export interface IServiceMobileAudit {
   headerBlock: {
