@@ -7,6 +7,7 @@ import * as Styled from "../../styles/UxUiService/EssentialBlock.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import TextTypingAnimation from "../Typewrite";
+import EssentialImage from "./EssentialImage";
 
 const EssentialBlock = () => {
   const { width } = useWindowDimension();
@@ -20,7 +21,9 @@ const EssentialBlock = () => {
   const isScrolled = useOnScreen(elRef, true);
   return (
     <Styled.Container>
-      <Styled.Image src={data?.image.url} />
+      <Styled.ImageWrapper>
+        <EssentialImage />
+      </Styled.ImageWrapper>
       <Styled.ContentWrapper>
         {data && (
           <Styled.Title ref={elRef}>
@@ -29,7 +32,6 @@ const EssentialBlock = () => {
             )) || <SplitBrackets text={data?.title} />}
           </Styled.Title>
         )}
-
         <Styled.Text>
           <SplitBrackets text={data?.text} />
         </Styled.Text>
