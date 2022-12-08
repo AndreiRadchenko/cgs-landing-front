@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
+import { essentialImageShake } from "../Animations.styled";
 
 export const Container = styled.section`
   margin: 0 2.1em 0 1.56em;
@@ -26,7 +27,7 @@ export const Container = styled.section`
   }
 `;
 
-export const Image = styled.img`
+export const ImageWrapper = styled.div`
   position: absolute;
   width: 27.5em;
 
@@ -46,6 +47,29 @@ export const Image = styled.img`
     width: 20.44em;
     top: 0;
     left: 0;
+  }
+`;
+
+export const EssentialImageBehanceGroup = styled.g`
+  position: relative;
+
+  animation: ${essentialImageShake} 4s infinite;
+  transform-origin: 75% 65%;
+
+  &:hover {
+    transform: rotate(-10deg);
+    animation: none;
+    & + g {
+      opacity: 1;
+    }
+  }
+`;
+
+export const EssentialPopoverGroup = styled.g`
+  opacity: 0;
+  transition: opacity 0.2s;
+  &:hover {
+    opacity: 1;
   }
 `;
 
