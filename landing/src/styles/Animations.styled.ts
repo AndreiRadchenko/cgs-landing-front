@@ -347,3 +347,45 @@ export const cubeScale = keyframes`
     transform: scale(1);
   }
   `;
+
+export const essentialImageShake = keyframes`
+${css`
+  0% {
+    transform: rotate(0);
+  }
+  2.5% {
+    transform: rotate(10deg);
+  }
+  5% {
+    transform: rotate(-10deg);
+  }
+  7.5% {
+    transform: rotate(10deg);
+  }
+
+  10% {
+    transform: rotate(-10deg);
+  }
+  12.5% {
+    transform: rotate(10deg);
+  }
+  15% {
+    transform: rotate(-10deg);
+  }
+  17.5% {
+    transform: rotate(10deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  22.5% {
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+`}
+`;
