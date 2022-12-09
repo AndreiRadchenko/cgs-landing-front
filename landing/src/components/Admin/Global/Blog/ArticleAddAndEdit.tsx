@@ -130,7 +130,7 @@ const ArticleAddAndEdit = ({
     },
   };
 
-  const { values, handleSubmit, handleChange, resetForm } =
+  const { values, handleSubmit, handleChange, resetForm, setFieldValue } =
     useFormikContext<IArticle>();
 
   useEffect(() => {
@@ -174,10 +174,8 @@ const ArticleAddAndEdit = ({
   };
 
   const handleDraftClick = () => {
-    if (isNewArticle) {
-      values.draft = true;
-      handleSubmit();
-    }
+    setFieldValue("draft", true);
+    handleSubmit();
   };
 
   return (
@@ -315,7 +313,6 @@ const ArticleAddAndEdit = ({
       <Styles.BlogButtonWrapper>
         <Styles.SubmitButtonWrapper>
           <BlackButton
-            type="submit"
             size={"1.5em"}
             padding={"1em 3.25em"}
             onClick={() => handleSubmit()}
@@ -326,13 +323,13 @@ const ArticleAddAndEdit = ({
             </ArrowContainer>
           </BlackButton>
           {isNewArticle && (
-            <Styles.DraftButton onClick={handleDraftClick}>
+            <Styles.DraftButton type={"button"} onClick={handleDraftClick}>
               Add to draft
             </Styles.DraftButton>
           )}
         </Styles.SubmitButtonWrapper>
         <Styles.BlogCancelButton
-          type={"submit"}
+          type={"button"}
           onClick={isNewArticle ? reset : cancelArticle}
         >
           {isNewArticle ? "Reset" : "Cancel"}
