@@ -611,6 +611,8 @@ export interface ICalculator {
   popUpMessage: string;
   startMessage: string;
   finishMessage: string;
+  resultMessage: string;
+  email: string;
 }
 
 export interface ICalculatorStep {

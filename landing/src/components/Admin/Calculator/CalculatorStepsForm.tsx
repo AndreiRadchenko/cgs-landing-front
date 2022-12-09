@@ -22,10 +22,10 @@ const CalculatorStepsForm = () => {
     adminCalculatorService.getCalculatorBlockchainSteps()
   );
 
-  return isLoading && blockchainIsLoading ? (
+  return isLoading || blockchainIsLoading ? (
     <AdminUnauthorizedModal>Loading...</AdminUnauthorizedModal>
   ) : data && blockchainData ? (
-    <div>
+    <>
       <Styled.ChooseTitle>Choose:</Styled.ChooseTitle>
       <Styled.ChooseButtonsWrapper>
         <CalculatorChooseButton
@@ -39,12 +39,33 @@ const CalculatorStepsForm = () => {
           setActive={toogleBlockchain}
         />
       </Styled.ChooseButtonsWrapper>
-      {(data &&
-        !isBlockchain &&
+      {isBlockchain &&
+        blockchainData.map(
+          (step, idx) =>
+            !blockchainData.find(
+              (el, ind) =>
+                el.tieUpSteps[0] &&
+                idx !== ind &&
+                el.tieUpSteps[0].number === idx
+            ) && (
+              <CalculatorStepItem
+                isBlockchain={isBlockchain}
+                allSteps={blockchainData}
+                step={step}
+                key={idx}
+                index={idx}
+                refetch={blockchainIsRefetch}
+              />
+            )
+        )}
+      {!isBlockchain &&
         data.map(
           (step, idx) =>
             !data.find(
-              (el) => el.tieUpSteps[0] && el.tieUpSteps[0].number === idx
+              (el, ind) =>
+                el.tieUpSteps[0] &&
+                idx !== ind &&
+                el.tieUpSteps[0].number === idx
             ) && (
               <CalculatorStepItem
                 isBlockchain={isBlockchain}
@@ -55,25 +76,8 @@ const CalculatorStepsForm = () => {
                 refetch={refetch}
               />
             )
-        )) ||
-        (blockchainData &&
-          isBlockchain &&
-          blockchainData.map(
-            (step, idx) =>
-              !blockchainData.find(
-                (el) => el.tieUpSteps[0] && el.tieUpSteps[0].number === idx
-              ) && (
-                <CalculatorStepItem
-                  isBlockchain={isBlockchain}
-                  allSteps={blockchainData}
-                  step={step}
-                  key={idx}
-                  index={idx}
-                  refetch={blockchainIsRefetch}
-                />
-              )
-          ))}
-    </div>
+        )}
+    </>
   ) : (
     <AdminUnauthorizedModal>Something went wrong :(</AdminUnauthorizedModal>
   );

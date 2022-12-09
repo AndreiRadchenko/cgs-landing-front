@@ -16,11 +16,10 @@ const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
 });
 
 interface ICalculatorTieUpItempProps {
-  ind: number;
   data: ICalculatorStep[];
 }
 
-const CalculatorTieUpItem = ({ ind, data }: ICalculatorTieUpItempProps) => {
+const CalculatorTieUpItem = ({ data }: ICalculatorTieUpItempProps) => {
   const { values } = useFormikContext<ICalculatorStep>();
   const [options, setOptions] = useState<{ type: string; label: string }[]>();
   const [plugins, setPlugins] = useState<
@@ -83,48 +82,49 @@ const CalculatorTieUpItem = ({ ind, data }: ICalculatorTieUpItempProps) => {
         <Styled.InputsWrapper>
           {options &&
             values.tieUpSteps.length > 0 &&
-            values.tieUpSteps[0].number &&
+            typeof values.tieUpSteps[0].number === "number" &&
             options.map((el, ind) => {
               return (
                 <CalculatorTieUpInputItem ind={ind} tieUpItem={el} key={ind} />
               );
             })}
         </Styled.InputsWrapper>
-        <CalculatorTieUpDropdown header="Step" data={data} currentNum={ind} />
-        {values.tieUpSteps.length > 0 && values.tieUpSteps[0].number && (
-          <>
-            <Styled.TransparentTextEditorWrapper>
-              <TextEditor
-                name={`tieUpSteps[0].step.title`}
-                props={{
-                  width: "559px",
-                  height: "88px",
-                  setOptions: titleEditorOptions,
-                }}
-              />
-            </Styled.TransparentTextEditorWrapper>
-            <Styled.TransparentTextEditorWrapper className="text">
-              <TextEditor
-                name={`tieUpSteps[0].step.options`}
-                header="Text"
-                props={{
-                  width: "559px",
-                  defaultValue:
-                    typeof data[values.tieUpSteps[0].number].options !==
-                    "string"
-                      ? formalizeData(
-                          data[values.tieUpSteps[0].number].options as {
-                            type: string;
-                            label: string;
-                          }[]
-                        )
-                      : (data[values.tieUpSteps[0].number].options as string),
-                  setOptions: textEditorOptions,
-                }}
-              />
-            </Styled.TransparentTextEditorWrapper>
-          </>
-        )}
+        <CalculatorTieUpDropdown header="Step" data={data} />
+        {values.tieUpSteps.length > 0 &&
+          typeof values.tieUpSteps[0].number === "number" && (
+            <>
+              <Styled.TransparentTextEditorWrapper>
+                <TextEditor
+                  name={`tieUpSteps[0].step.title`}
+                  props={{
+                    width: "559px",
+                    height: "88px",
+                    setOptions: titleEditorOptions,
+                  }}
+                />
+              </Styled.TransparentTextEditorWrapper>
+              <Styled.TransparentTextEditorWrapper className="text">
+                <TextEditor
+                  name={`tieUpSteps[0].step.options`}
+                  header="Text"
+                  props={{
+                    width: "559px",
+                    defaultValue:
+                      typeof data[values.tieUpSteps[0].number].options !==
+                      "string"
+                        ? formalizeData(
+                            data[values.tieUpSteps[0].number].options as {
+                              type: string;
+                              label: string;
+                            }[]
+                          )
+                        : (data[values.tieUpSteps[0].number].options as string),
+                    setOptions: textEditorOptions,
+                  }}
+                />
+              </Styled.TransparentTextEditorWrapper>
+            </>
+          )}
       </Styled.TieUpContentContainer>
     )) ||
     null

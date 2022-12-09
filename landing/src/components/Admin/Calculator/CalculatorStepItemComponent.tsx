@@ -47,20 +47,10 @@ const CalculatorStepItemComponent = ({
       adminCalculatorService.addClassicTieUp(tieUpData)
   );
 
-  const { mutateAsync: addBlochainTieUp } = useMutation(
+  const { mutateAsync: addBlockchainTieUp } = useMutation(
     [queryKeys.addCalculatorBlockchainTieUpStep],
     (tieUpData: ICalculatorTieUpStep) =>
       adminCalculatorService.addBlockchainTieUp(tieUpData)
-  );
-
-  const { mutateAsync: deleteClassicTieUp } = useMutation(
-    [queryKeys.deleteCalculatorClassicTieUpStep],
-    (id: string) => adminCalculatorService.deleteClassicTieUpById(id)
-  );
-
-  const { mutateAsync: deleteBlockchainTieUp } = useMutation(
-    [queryKeys.deleteCalculatorBlockchainTieUpStep],
-    (id: string) => adminCalculatorService.deleteBlockchainTieUpById(id)
   );
 
   useEffect(() => {
@@ -102,6 +92,19 @@ const CalculatorStepItemComponent = ({
   };
 
   const handleAddTieUp = () => {
+    isBlockchain
+      ? addBlockchainTieUp({
+          condition: [],
+          step: { title: "", options: "" },
+          number: null,
+          _id: values._id,
+        })
+      : addClassicTieUp({
+          condition: [],
+          step: { title: "", options: "" },
+          number: null,
+          _id: values._id,
+        });
     setFieldValue("tieUpSteps", [
       { condition: [], step: { title: "", options: "" }, number: null },
     ]);
@@ -121,7 +124,7 @@ const CalculatorStepItemComponent = ({
             name={`title`}
             props={{
               width: "559px",
-              height: "88px",
+
               setOptions: titleEditorOptions,
             }}
           />
@@ -154,11 +157,7 @@ const CalculatorStepItemComponent = ({
           </Styled.TieUpContainer>
         </Styled.TextEditorContainer>
         {values.tieUpSteps.length > 0 && (
-          <CalculatorTieUpItem
-            data={data}
-            ind={index}
-            key={`step item ${submitKey}`}
-          />
+          <CalculatorTieUpItem data={data} key={`step item ${submitKey}`} />
         )}
         <SaveBtn
           handleClick={handleSubmit}

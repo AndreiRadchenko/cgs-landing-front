@@ -8,13 +8,11 @@ import { ICalculatorStep } from "../../../types/Admin/Response.types";
 interface ICalculatorTieUpDropdownProps {
   header?: string;
   data: ICalculatorStep[];
-  currentNum: number;
 }
 
 const CalculatorTieUpDropdown = ({
   header,
   data,
-  currentNum,
 }: ICalculatorTieUpDropdownProps) => {
   const queryClient = useQueryClient();
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -34,7 +32,7 @@ const CalculatorTieUpDropdown = ({
     values.tieUpSteps[0].number = idx;
     setIsOpen(false);
 
-    if (data && values.tieUpSteps[0].number) {
+    if (data && typeof values.tieUpSteps[0].number === "number") {
       setFieldValue(
         "tieUpSteps[0].step.title",
         data[values.tieUpSteps[0].number].title
@@ -70,17 +68,14 @@ const CalculatorTieUpDropdown = ({
         </svg>
       </Styled.DropDownHeader>
       <Styled.HiddenContent className={isOpen ? "open" : undefined}>
-        {new Array(data.length).fill(0).map(
-          (_, idx) =>
-            idx !== currentNum && (
-              <Styled.DropdownStepItem
-                key={idx}
-                onClick={() => handleStepClick(idx)}
-              >
-                Step {idx + 1}
-              </Styled.DropdownStepItem>
-            )
-        )}
+        {new Array(data.length).fill(0).map((_, idx) => (
+          <Styled.DropdownStepItem
+            key={idx}
+            onClick={() => handleStepClick(idx)}
+          >
+            Step {idx + 1}
+          </Styled.DropdownStepItem>
+        ))}
       </Styled.HiddenContent>
     </Styled.DropDownContainer>
   );
