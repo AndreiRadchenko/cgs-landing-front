@@ -31,6 +31,7 @@ const CalculatorTieUpDropdown = ({
 
   const handleStepClick = (idx: number) => {
     setFieldValue("tieUpSteps[0].number", idx);
+    values.tieUpSteps[0].number = idx;
     setIsOpen(false);
 
     if (data && values.tieUpSteps[0].number) {

@@ -56,6 +56,7 @@ const CalculatorStepItem = ({
         index={index}
         submitKey={submitKey}
         data={allSteps}
+        isBlockchain={isBlockchain}
       />
     </Formik>
   );

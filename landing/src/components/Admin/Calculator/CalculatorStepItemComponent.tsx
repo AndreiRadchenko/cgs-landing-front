@@ -18,14 +18,19 @@ import {
   ICalculatorStep,
   ICalculatorTieUpStep,
 } from "../../../types/Admin/Response.types";
+import { useMutation } from "@tanstack/react-query";
+import { queryKeys } from "../../../consts/queryKeys";
+import { adminCalculatorService } from "../../../services/adminCalculator";
 
 interface ICalculatorStepItemComponentProps {
+  isBlockchain: boolean;
   index: number;
   submitKey: boolean;
   data: ICalculatorStep[];
 }
 
 const CalculatorStepItemComponent = ({
+  isBlockchain,
   data,
   index,
   submitKey,
@@ -35,6 +40,28 @@ const CalculatorStepItemComponent = ({
   >();
   const { values, setFieldValue, handleSubmit } =
     useFormikContext<ICalculatorStep>();
+
+  const { mutateAsync: addClassicTieUp } = useMutation(
+    [queryKeys.addCalculatorClassicTieUpStep],
+    (tieUpData: ICalculatorTieUpStep) =>
+      adminCalculatorService.addClassicTieUp(tieUpData)
+  );
+
+  const { mutateAsync: addBlochainTieUp } = useMutation(
+    [queryKeys.addCalculatorBlockchainTieUpStep],
+    (tieUpData: ICalculatorTieUpStep) =>
+      adminCalculatorService.addBlockchainTieUp(tieUpData)
+  );
+
+  const { mutateAsync: deleteClassicTieUp } = useMutation(
+    [queryKeys.deleteCalculatorClassicTieUpStep],
+    (id: string) => adminCalculatorService.deleteClassicTieUpById(id)
+  );
+
+  const { mutateAsync: deleteBlockchainTieUp } = useMutation(
+    [queryKeys.deleteCalculatorBlockchainTieUpStep],
+    (id: string) => adminCalculatorService.deleteBlockchainTieUpById(id)
+  );
 
   useEffect(() => {
     import("suneditor/src/plugins").then((plugs: any) => setPlugins(plugs));

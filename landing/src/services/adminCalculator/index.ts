@@ -23,7 +23,7 @@ export class AdminCalculatorService {
   }
 
   public postCalculatorClassicStep(data: ICalculatorStep) {
-    return this.httpService.put(`api/calculator/classic/step`, data);
+    return this.httpService.post(`api/calculator/classic/step`, data);
   }
 
   public updateCalculatorClassicStepById(data: ICalculatorStep) {
@@ -33,8 +33,8 @@ export class AdminCalculatorService {
     );
   }
 
-  public deleteClassicTieUpById(data: ICalculatorTieUpStep) {
-    return this.httpService.put(
+  public addClassicTieUp(data: ICalculatorTieUpStep) {
+    return this.httpService.post(
       `api/calculator/classic/tieup/${data._id}`,
       data
     );
@@ -47,6 +47,10 @@ export class AdminCalculatorService {
     );
   }
 
+  public deleteClassicTieUpById(id: string) {
+    return this.httpService.delete(`api/calculator/classic/tieup/${id}`);
+  }
+
   public getCalculatorBlockchainSteps() {
     return this.httpService.get<ICalculatorStep[]>(
       "api/calculator/blockchain/step"
@@ -54,7 +58,7 @@ export class AdminCalculatorService {
   }
 
   public postCalculatorBlockchainStep(data: ICalculatorStep) {
-    return this.httpService.put(`api/calculator/blockchain/step`, data);
+    return this.httpService.post(`api/calculator/blockchain/step`, data);
   }
 
   public updateCalculatorBlockchainStepById(data: ICalculatorStep) {
@@ -64,18 +68,21 @@ export class AdminCalculatorService {
     );
   }
 
-  public deleteBlockchainTieUpById(data: ICalculatorTieUpStep) {
-    return this.httpService.put(
-      `api/calculator/blockchain/tieup/${data._id}`,
+  public addBlockchainTieUp(data: ICalculatorTieUpStep) {
+    return this.httpService.post(
+      `api/calculator/classic/tieup/${data._id}`,
       data
     );
   }
 
   public updateCalculatorBlockchainTieUpStepById(data: ICalculatorTieUpStep) {
     return this.httpService.put(
-      `api/calculator/blockchain/tieup /${data._id}`,
+      `api/calculator/blockchain/tieup/${data._id}`,
       data
     );
+  }
+  public deleteBlockchainTieUpById(id: string) {
+    return this.httpService.delete(`api/calculator/blockchain/tieup/${id}`);
   }
 }
 

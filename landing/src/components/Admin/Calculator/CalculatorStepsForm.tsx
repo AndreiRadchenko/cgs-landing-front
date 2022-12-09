@@ -39,7 +39,7 @@ const CalculatorStepsForm = () => {
           setActive={toogleBlockchain}
         />
       </Styled.ChooseButtonsWrapper>
-      {data &&
+      {(data &&
         !isBlockchain &&
         data.map(
           (step, idx) =>
@@ -55,24 +55,24 @@ const CalculatorStepsForm = () => {
                 refetch={refetch}
               />
             )
-        )}
-      {blockchainData &&
-        isBlockchain &&
-        blockchainData.map(
-          (step, idx) =>
-            !blockchainData.find(
-              (el) => el.tieUpSteps[0] && el.tieUpSteps[0].number === idx
-            ) && (
-              <CalculatorStepItem
-                isBlockchain={isBlockchain}
-                allSteps={blockchainData}
-                step={step}
-                key={idx}
-                index={idx}
-                refetch={blockchainIsRefetch}
-              />
-            )
-        )}
+        )) ||
+        (blockchainData &&
+          isBlockchain &&
+          blockchainData.map(
+            (step, idx) =>
+              !blockchainData.find(
+                (el) => el.tieUpSteps[0] && el.tieUpSteps[0].number === idx
+              ) && (
+                <CalculatorStepItem
+                  isBlockchain={isBlockchain}
+                  allSteps={blockchainData}
+                  step={step}
+                  key={idx}
+                  index={idx}
+                  refetch={blockchainIsRefetch}
+                />
+              )
+          ))}
     </div>
   ) : (
     <AdminUnauthorizedModal>Something went wrong :(</AdminUnauthorizedModal>
