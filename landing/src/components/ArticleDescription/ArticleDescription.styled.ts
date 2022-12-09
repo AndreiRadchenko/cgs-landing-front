@@ -132,12 +132,14 @@ export const Description = styled.p`
 
   & .__se__float-left {
     float: left;
-    margin-right: 18px;
+    margin-right: 2em;
+    margin-bottom: 1em;
   }
 
   & .__se__float-right {
     float: right;
-    margin-left: 18px;
+    margin-left: 2em;
+    margin-bottom: 1em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
