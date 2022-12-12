@@ -87,6 +87,10 @@ export const Description = styled.p`
     }
   }
 
+  & iframe {
+    border: 0;
+  }
+
   & figcaption {
     color: ${themes.primary.colors.comment};
     font-size: 18px;
