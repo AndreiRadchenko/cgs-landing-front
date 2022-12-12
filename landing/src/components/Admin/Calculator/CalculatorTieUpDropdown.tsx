@@ -8,11 +8,13 @@ import { ICalculatorStep } from "../../../types/Admin/Response.types";
 interface ICalculatorTieUpDropdownProps {
   header?: string;
   data: ICalculatorStep[];
+  current: number;
 }
 
 const CalculatorTieUpDropdown = ({
   header,
   data,
+  current,
 }: ICalculatorTieUpDropdownProps) => {
   const queryClient = useQueryClient();
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -68,14 +70,17 @@ const CalculatorTieUpDropdown = ({
         </svg>
       </Styled.DropDownHeader>
       <Styled.HiddenContent className={isOpen ? "open" : undefined}>
-        {new Array(data.length).fill(0).map((_, idx) => (
-          <Styled.DropdownStepItem
-            key={idx}
-            onClick={() => handleStepClick(idx)}
-          >
-            Step {idx + 1}
-          </Styled.DropdownStepItem>
-        ))}
+        {new Array(data.length).fill(0).map(
+          (_, idx) =>
+            idx > current && (
+              <Styled.DropdownStepItem
+                key={idx}
+                onClick={() => handleStepClick(idx)}
+              >
+                Step {idx + 1}
+              </Styled.DropdownStepItem>
+            )
+        )}
       </Styled.HiddenContent>
     </Styled.DropDownContainer>
   );

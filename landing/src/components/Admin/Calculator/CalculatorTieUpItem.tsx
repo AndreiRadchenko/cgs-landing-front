@@ -17,9 +17,10 @@ const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
 
 interface ICalculatorTieUpItempProps {
   data: ICalculatorStep[];
+  current: number;
 }
 
-const CalculatorTieUpItem = ({ data }: ICalculatorTieUpItempProps) => {
+const CalculatorTieUpItem = ({ data, current }: ICalculatorTieUpItempProps) => {
   const { values } = useFormikContext<ICalculatorStep>();
   const [options, setOptions] = useState<{ type: string; label: string }[]>();
   const [plugins, setPlugins] = useState<
@@ -89,7 +90,7 @@ const CalculatorTieUpItem = ({ data }: ICalculatorTieUpItempProps) => {
               );
             })}
         </Styled.InputsWrapper>
-        <CalculatorTieUpDropdown header="Step" data={data} />
+        <CalculatorTieUpDropdown header="Step" data={data} current={current} />
         {values.tieUpSteps.length > 0 &&
           typeof values.tieUpSteps[0].number === "number" && (
             <>
@@ -98,7 +99,6 @@ const CalculatorTieUpItem = ({ data }: ICalculatorTieUpItempProps) => {
                   name={`tieUpSteps[0].step.title`}
                   props={{
                     width: "559px",
-                    height: "88px",
                     setOptions: titleEditorOptions,
                   }}
                 />

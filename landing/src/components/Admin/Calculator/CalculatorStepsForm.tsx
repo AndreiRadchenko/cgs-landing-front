@@ -43,10 +43,7 @@ const CalculatorStepsForm = () => {
         blockchainData.map(
           (step, idx) =>
             !blockchainData.find(
-              (el, ind) =>
-                el.tieUpSteps[0] &&
-                idx !== ind &&
-                el.tieUpSteps[0].number === idx
+              (el) => el.tieUpSteps[0] && el.tieUpSteps[0].number === idx
             ) && (
               <CalculatorStepItem
                 isBlockchain={isBlockchain}
@@ -62,10 +59,7 @@ const CalculatorStepsForm = () => {
         data.map(
           (step, idx) =>
             !data.find(
-              (el, ind) =>
-                el.tieUpSteps[0] &&
-                idx !== ind &&
-                el.tieUpSteps[0].number === idx
+              (el) => el.tieUpSteps[0] && el.tieUpSteps[0].number === idx
             ) && (
               <CalculatorStepItem
                 isBlockchain={isBlockchain}

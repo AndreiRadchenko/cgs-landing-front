@@ -116,6 +116,10 @@ const CalculatorStepItemComponent = ({
     handleSubmit();
   };
 
+  const handleSubmitButtonClick = () => {
+    handleSubmit();
+  };
+
   return (
     (plugins && (
       <AdminBlockDropDown title={`STEP ${index + 1}`}>
@@ -124,7 +128,6 @@ const CalculatorStepItemComponent = ({
             name={`title`}
             props={{
               width: "559px",
-
               setOptions: titleEditorOptions,
             }}
           />
@@ -157,10 +160,14 @@ const CalculatorStepItemComponent = ({
           </Styled.TieUpContainer>
         </Styled.TextEditorContainer>
         {values.tieUpSteps.length > 0 && (
-          <CalculatorTieUpItem data={data} key={`step item ${submitKey}`} />
+          <CalculatorTieUpItem
+            data={data}
+            key={`step item ${submitKey}`}
+            current={index}
+          />
         )}
         <SaveBtn
-          handleClick={handleSubmit}
+          handleClick={handleSubmitButtonClick}
           style={{ marginBlock: "37px 50px" }}
         />
       </AdminBlockDropDown>

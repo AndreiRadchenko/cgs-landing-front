@@ -57,8 +57,6 @@ const CalculatorResultsForm = () => {
     import("suneditor/src/plugins").then((plugs: any) => setPlugins(plugs));
   }, []);
 
-  console.log(data);
-
   return (
     (data && plugins && (
       <Formik initialValues={data!} onSubmit={handleSubmit}>

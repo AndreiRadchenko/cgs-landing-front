@@ -9,7 +9,7 @@ import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { IImage } from "../../../types/Admin/Admin.types";
 import AdminStars from "../FeedbackBlock/AdminStars";
-import SaveBtn from "../AboutUs/SaveBtn";
+import SaveBtn from "../Global/SaveBtn";
 
 interface IAddReviewProps {
   categories: string[];
