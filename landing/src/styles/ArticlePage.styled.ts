@@ -75,6 +75,7 @@ export const PageWrapper = styled.div`
     padding-left: 12px;
     margin-bottom: 10px;
   }
+
   ul {
     margin-left: -1.3em;
     list-style-type: none;
@@ -102,7 +103,7 @@ export const BannerImageContainer = styled.figure`
   height: 100%;
   display: flex;
   align-items: flex-end;
-  margin-block: 0;
+  margin: 0;
 `;
 
 export const BannerImage = styled.img`
@@ -220,6 +221,7 @@ export const TitleBg = styled.figure`
   position: absolute;
   top: 50px;
   left: -180px;
+  margin: 0;
   @media ${themes.primary.media.maxPCFullHD} {
     top: 40px;
   }
@@ -238,6 +240,7 @@ export const HeaderBottomBg = styled.div`
   position: absolute;
   top: 20px;
   right: -23%;
+  margin: 0;
   @media ${themes.primary.media.maxPCFullHD} {
     right: -20%;
   }
@@ -257,6 +260,7 @@ export const FirstHeaderBg = styled.figure`
   position: absolute;
   top: 22%;
   left: -750px;
+  margin: 0;
   @media ${themes.primary.media.maxTablet} {
     display: none;
   }
@@ -267,6 +271,8 @@ export const SecondHeaderBg = styled.figure`
   bottom: 26%;
   right: -500px;
   z-index: 1;
+  margin: 0;
+
   @media ${themes.primary.media.maxPCFullHD} {
     right: -490px;
   }
@@ -282,6 +288,7 @@ export const FooterBg = styled.figure`
   position: absolute;
   bottom: 10px;
   right: -250px;
+  margin: 0;
   @media ${themes.primary.media.maxTabletLandScape} {
     right: -270px;
   }
