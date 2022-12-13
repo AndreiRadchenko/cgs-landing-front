@@ -13,7 +13,7 @@ interface IBlackButtonProps {
 }
 
 const BlackButtonComponent = ({
-  href = "button text",
+  href = undefined,
   style,
   text,
   onClick,

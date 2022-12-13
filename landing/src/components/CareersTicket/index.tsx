@@ -83,7 +83,6 @@ const CareersTicket: FC<ITicketProps> = ({
               </div>
             )}
           </Styled.TicketInnerSvgWrapper>
-
           <Styled.TicketPosition className={className}>
             {position}
           </Styled.TicketPosition>

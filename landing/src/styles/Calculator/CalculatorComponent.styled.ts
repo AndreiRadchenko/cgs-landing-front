@@ -7,6 +7,9 @@ export const CalculatorPreviewWrapper = styled.div`
   top: 60%;
   height: 18.833em;
   z-index: 5;
+  &:hover > div > div > div + div {
+    left: 0;
+  }
 `;
 
 export const CalculatorPreview = styled.div`
@@ -40,17 +43,13 @@ export const CalculatorButton = styled.div`
   transition: all 0.2s;
   position: relative;
 
-  &:hover + div {
-    left: 0;
-  }
-
   &::after {
     content: "";
-    width: 52px;
+    width: 60px;
     height: 3px;
     border: 1.8px solid ${themes.primary.colors.primary};
     position: absolute;
-    bottom: -4.5px;
+    bottom: -5px;
     left: 0px;
     background: ${themes.primary.colors.mainGradientColor2};
 
@@ -146,3 +145,29 @@ export const CalculatorPreviewContentWrapper = styled.div`
     padding-right: 1em;
   }
 `;
+
+export const Wrapper = styled.div`
+  position: fixed;
+  z-index: 36;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: linear-gradient(
+    180deg,
+    rgba(241, 239, 237, 0.8) 100%,
+    rgba(241, 239, 237, 0) 114.26%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ImageWrapper = styled.div`
+  width: 581px;
+  height: 213px;
+  position: absolute;
+`;
+
+export const BackgroundImageWrapper = styled.div``;
