@@ -87,12 +87,20 @@ export const Description = styled.p`
     }
   }
 
+  & iframe {
+    border-color: transparent;
+  }
+
   & figcaption {
     color: ${themes.primary.colors.comment};
     font-size: 18px;
     line-height: 160%;
     padding-block: 0 !important;
     background-color: transparent !important;
+
+    & > div {
+      margin-left: 0 !important;
+    }
   }
 
   & blockquote {
@@ -132,12 +140,14 @@ export const Description = styled.p`
 
   & .__se__float-left {
     float: left;
-    margin-right: 18px;
+    margin-right: 2em;
+    margin-bottom: 1em;
   }
 
   & .__se__float-right {
     float: right;
-    margin-left: 18px;
+    margin-left: 2em;
+    margin-bottom: 1em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -181,6 +191,12 @@ export const Description = styled.p`
     h5:first-child,
     h6:first-child {
       margin-top: 8px;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    & .se-video-container {
+      width: 100% !important;
+      clear: both;
     }
   }
 `;
