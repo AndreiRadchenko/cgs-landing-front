@@ -914,6 +914,10 @@ export const TextEditorContainer = styled.div<{
     line-height: 160%;
     padding-block: 0 !important;
     background-color: transparent !important;
+
+    & > div {
+      margin-left: 0 !important;
+    }
   }
 
   & blockquote {
