@@ -88,7 +88,7 @@ export const Description = styled.p`
   }
 
   & iframe {
-    border: 0;
+    border-color: transparent;
   }
 
   & figcaption {
@@ -191,6 +191,12 @@ export const Description = styled.p`
     h5:first-child,
     h6:first-child {
       margin-top: 8px;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    & .se-video-container {
+      width: 100% !important;
+      clear: both;
     }
   }
 `;
