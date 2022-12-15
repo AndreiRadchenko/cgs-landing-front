@@ -98,6 +98,10 @@ export const Description = styled.p`
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 
+  & * {
+    margin: 0;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     height: 140px;
   }
