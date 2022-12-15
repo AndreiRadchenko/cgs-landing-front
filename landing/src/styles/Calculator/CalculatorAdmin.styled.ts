@@ -50,16 +50,15 @@ export const TransparentTextEditorWrapper = styled.div`
     font-family: ${themes.primary.font.family.namu} !important;
 
     & .__se__t-radio-input {
-      padding-left: 23px;
       position: relative;
+      display: inline-block;
 
       &::before {
+        display: inline-block;
         content: " ";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
+        margin-right: 8px;
+        -ms-transform: translateY(10%);
+        transform: translateY(10%);
         width: 15px;
         height: 15px;
         border-radius: 50%;
@@ -75,6 +74,8 @@ export const TransparentTextEditorWrapper = styled.div`
         margin-right: 8px;
         width: 16px;
         height: 16px;
+        -ms-transform: translateY(10%);
+        transform: translateY(10%);
         border: 1px solid ${themes.primary.colors.primary};
       }
     }
