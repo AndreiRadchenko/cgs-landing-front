@@ -44,7 +44,9 @@ const ArticleReadMoreItem = ({ article, view }: IArticleReadMore) => {
           </a>
         </Styles.Title>
       </Styles.TitleWrapper>
-      <Styles.Description>{article.description}</Styles.Description>
+      <Styles.Description
+        dangerouslySetInnerHTML={{ __html: article.description }}
+      />
       <Styles.ReadMoreButton>
         <a href={`/blog/${article.url}`} onClick={handleClick}>
           Read more

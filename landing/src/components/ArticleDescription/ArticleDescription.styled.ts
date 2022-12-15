@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
+import articleIntro from "../../../public/BlogDecorations/Formatting/articleIntro.svg";
 
 export const Wrapper = styled.section`
   display: flex;
@@ -89,6 +90,27 @@ export const Description = styled.p`
 
   & iframe {
     border-color: transparent;
+  }
+
+  & .__se__format__range_article_intro_custom {
+    position: relative;
+    border: 0.6px solid rgba(0, 0, 0, 0.25);
+    padding: 10px 25px 10px 45px;
+    font-family: ${themes.primary.font.family.openSans};
+    font-weight: ${themes.primary.font.weight.semiBold};
+    font-size: 18px;
+    color: ${themes.primary.colors.blogArticleText};
+
+    &::before {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      content: "";
+      width: 17px;
+      height: 17px;
+      background-image: url(${articleIntro.src});
+      background-repeat: no-repeat;
+    }
   }
 
   & figcaption {
