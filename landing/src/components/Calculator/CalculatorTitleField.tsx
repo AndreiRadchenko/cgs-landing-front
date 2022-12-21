@@ -3,13 +3,19 @@ import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
 interface ICalculatorTitleField {
   text: string;
+  className?: string;
 }
 
-const CalculatorTitleField = ({ text }: ICalculatorTitleField) => {
+const CalculatorTitleField = ({ text, className }: ICalculatorTitleField) => {
+  const fieldClassName = `${className} title`;
+
   return (
-    <Styled.CalculatorFieldWrapper className="title">
+    <Styled.CalculatorFieldWrapper className={fieldClassName}>
       <Styled.LeftBlackBorder />
-      <Styled.CalculatorField dangerouslySetInnerHTML={{ __html: text }} />
+      <Styled.CalculatorField
+        className={className}
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
     </Styled.CalculatorFieldWrapper>
   );
 };

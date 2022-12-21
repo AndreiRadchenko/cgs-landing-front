@@ -11,6 +11,7 @@ import dynamic from "next/dynamic";
 import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
 import { inputSubmenu } from "./inputSubmenuPlugin";
 import { Plugin } from "suneditor/src/plugins/Plugin";
+import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
   ssr: false,
@@ -60,7 +61,7 @@ const CalculatorResultsForm = () => {
   return (
     (data && plugins && (
       <Formik initialValues={data!} onSubmit={handleSubmit}>
-        {({ handleSubmit }) => (
+        {({ values, handleChange, handleSubmit }) => (
           <AdminBlockDropDown title="RESULTS">
             <Styled.InputWrapper>
               <Styled.TransparentTextEditorWrapper>
@@ -74,13 +75,12 @@ const CalculatorResultsForm = () => {
                 />
               </Styled.TransparentTextEditorWrapper>
               <Styled.TransparentTextEditorWrapper className="text">
-                <TextEditor
+                <SubHeaderWithInput
                   header="E-mail placeholder"
                   name="email"
-                  props={{
-                    width: "559px",
-                    setOptions: editorOptions,
-                  }}
+                  inputValue={values.email}
+                  onChangeFunction={handleChange}
+                  inputStyle={{ width: "559px" }}
                 />
               </Styled.TransparentTextEditorWrapper>
               <SaveBtn

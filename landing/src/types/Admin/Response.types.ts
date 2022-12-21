@@ -615,27 +615,57 @@ export interface ICalculator {
   email: string;
 }
 
-export interface ICalculatorStep {
-  _id?: string;
-  title: string;
-  options:
-    | {
-        type: string;
-        label: string;
-      }[]
-    | string;
-  tieUpSteps: {
-    condition: string[];
-    step: Omit<ICalculatorStep, "tieUpSteps">;
-    number: number | null;
-  }[];
+export interface ICalculatorTieUpStep {
+  _id: string;
+  condition: string[];
+  number: number | null;
 }
 
-export interface ICalculatorTieUpStep {
-  _id?: string;
+export interface IStepOptions {
+  type: string;
+  label: string;
+  price: number;
+  hours: number;
+  uxui: number;
+  pm: number;
+  qa: number;
+}
+
+export interface ICalculatorSubStep {
+  _id: string;
   condition: string[];
-  step: Omit<ICalculatorStep, "tieUpSteps">;
-  number: number | null;
+  title: string;
+  options: IStepOptions[];
+}
+
+export interface ICalculatorStep {
+  _id: string;
+  title: string;
+  options: IStepOptions[];
+  tieUpSteps: ICalculatorTieUpStep[];
+  subSteps: ICalculatorSubStep[];
+}
+
+export interface ICalculatorQuestion {
+  title: string;
+  answer: string | string[];
+  subStepAnswer?: string | string[];
+  tieUpDisabled?: boolean;
+}
+
+export interface ICalculatorPostResultsProps {
+  answers: ICalculatorQuestion[];
+  isBlockchain: boolean;
+}
+
+export interface ICalculatorFormValuesProps {
+  questionsArr: ICalculatorQuestion[];
+  email: string;
+  isBlockchain: boolean;
+}
+
+export interface ICalculatorAnswersResults {
+  results: Omit<IStepOptions, "label" | "type">;
 }
 export interface IServiceMobileAudit {
   headerBlock: {

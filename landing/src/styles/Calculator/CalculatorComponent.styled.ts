@@ -270,9 +270,20 @@ export const StartButton = styled.button`
     position: relative;
     right: auto;
     bottom: auto;
-    width: fit-content;
-    height: fit-content;
     margin-left: 1.5em;
+  }
+
+  @media ${themes.primary.media.minPC} {
+    &.steps {
+      margin-left: 1em;
+    }
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &.steps {
+      font-size: 1.3em;
+      padding: 0.8em 1.9em;
+    }
   }
 `;
 
@@ -282,16 +293,31 @@ export const StepsMainButtonWrapper = styled.div`
 `;
 
 export const StepButtonWrapper = styled.div`
+  width: 67.5%;
   margin-top: 3em;
   padding-left: 2.8333em;
   display: flex;
-  /* justify-content: flex-end; */
+  justify-content: flex-end;
   flex-wrap: wrap;
-  width: fit-content;
-  /* display: grid;
-  grid-template-columns: repeat(5, auto); */
   row-gap: 1.7em;
   column-gap: 1.6em;
+
+  &.last {
+    margin-top: 2em;
+    justify-content: flex-start;
+  }
+
+  @media ${themes.primary.media.minPC} {
+    width: 78%;
+    row-gap: 1.2em;
+    column-gap: 1em;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 90%;
+    row-gap: 1.2em;
+    column-gap: 0.8em;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -301,6 +327,7 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const StepButton = styled.button`
+  width: 100%;
   border: 1.8px solid ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.oneAndHalf};
@@ -316,6 +343,7 @@ export const StepButton = styled.button`
   border-radius: 0.67em;
   cursor: pointer;
   letter-spacing: 0.05em;
+  transition: all 0.3s;
 
   &.checked {
     color: ${themes.primary.colors.primary};
@@ -327,6 +355,15 @@ export const StepButton = styled.button`
       content: "STEP ";
       white-space: pre;
     }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.2em;
   }
 `;
 
@@ -417,6 +454,7 @@ export const ChooseText = styled.div`
   font-family: ${themes.primary.font.family.namu};
   line-height: 160%;
   cursor: pointer;
+  transition: color 0.15s, background-color 0.3s;
 
   &:hover {
     color: ${themes.primary.colors.darkBlue};
@@ -472,17 +510,28 @@ export const CalculatorFieldWrapper = styled.div`
     transform: rotate(-45deg);
   }
 
-  /* & p {
-    margin: 0;
-  } */
-
   &.title {
     max-height: 80px;
+  }
+
+  &.last {
+    font-size: 0.9em;
+    line-height: 160%;
+    height: 150px;
+    max-height: 150px;
+    font-family: ${themes.primary.font.family.namu};
+    margin-top: 16px;
   }
 
   &.input {
     margin-top: 0;
     height: 254px;
+  }
+
+  &.email {
+    margin-top: 16px;
+
+    min-height: 80px;
   }
 `;
 
@@ -504,6 +553,7 @@ export const ModalContentWrapper = styled.div`
 
 export const CalculatorField = styled.div`
   width: 98.05%;
+  min-height: 91.9%;
   height: 91.9%;
   border-style: solid;
   border-color: ${themes.primary.colors.primary};
@@ -512,16 +562,40 @@ export const CalculatorField = styled.div`
   font-size: 1.666em;
   font-family: ${themes.primary.font.family.namu};
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   padding-inline: 0.75em;
   line-height: 132%;
   margin: 6px 0px 0 4px;
   background-color: ${themes.primary.colors.blogBackground};
   overflow-y: auto;
   max-height: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+
+  & p {
+    margin: 0;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 20px;
+  }
+
+  &::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${themes.primary.colors.primary};
+    border-radius: 10px;
+  }
 
   &::before {
     content: "";
@@ -556,6 +630,12 @@ export const CalculatorField = styled.div`
   &.text {
     margin-top: 16px;
   }
+
+  &.last {
+    padding-top: 0.5em;
+    height: 96%;
+    min-height: 96%;
+  }
 `;
 
 export const CalculatorInputFields = styled.div`
@@ -572,4 +652,59 @@ export const CalculatorInputFields = styled.div`
   font-family: ${themes.primary.font.family.namu};
   overflow-y: auto;
   padding: 1.875em 1em 0 1em;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${themes.primary.colors.primary};
+    border-radius: 10px;
+  }
+
+  &.email {
+    padding-block: 1.5em;
+  }
+`;
+
+export const SubStepWrapper = styled.div``;
+
+export const HorizontalLine = styled.div`
+  height: 1px;
+  width: 97%;
+  margin-left: 0;
+  margin-block: 1.375em;
+  background-color: ${themes.primary.colors.calculatorHorizontalLine};
+`;
+
+export const ResultImageWrapper = styled.div`
+  width: 669px;
+  height: 463px;
+`;
+
+export const LastStepBackButton = styled(StepButton)`
+  color: ${themes.primary.colors.primary};
+`;
+
+export const ErrorMessage = styled.div`
+  position: absolute;
+  bottom: -1.3em;
+  font-size: 1.333em;
+  padding-left: 2.4em;
+  color: ${themes.primary.colors.errorText};
+`;
+
+export const EmailInputWrapper = styled.div`
+  position: relative;
+`;
+
+export const FinishTextWrapper = styled.div`
+  font-size: 1.6666em;
+  line-height: 160%;
+  font-family: ${themes.primary.font.family.namu};
+  padding: 1.2em 1em;
 `;

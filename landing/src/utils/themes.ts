@@ -188,6 +188,8 @@ const themes = {
       whatsApp: "#4DA303",
       calculatorButtonBorderBg: "#b2b2b2",
       calculatorButtonBg: "#e7e5e3",
+      calculatorHorizontalLine: "#C6C6C6",
+      calculatorEmailPlaceholder: "#797877",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

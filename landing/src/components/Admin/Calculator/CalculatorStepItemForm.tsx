@@ -42,22 +42,12 @@ const CalculatorStepItem = ({
     }
 
     if (
-      converted.tieUpSteps.length > 0 &&
-      converted.tieUpSteps[0].number &&
-      typeof converted.tieUpSteps[0].step.options === "string"
+      converted.subSteps.length > 0 &&
+      typeof converted.subSteps[0].options === "string"
     ) {
-      converted.tieUpSteps[0].step.options = getInputsFromLabels(
-        converted.tieUpSteps[0].step.options
+      converted.subSteps[0].options = getInputsFromLabels(
+        converted.subSteps[0].options
       );
-    }
-
-    if (converted.tieUpSteps.length > 0 && converted.tieUpSteps[0].number) {
-      const convertedTieUp = allSteps[converted.tieUpSteps[0].number];
-      convertedTieUp.options = converted.tieUpSteps[0].step.options;
-      convertedTieUp.title = converted.tieUpSteps[0].step.title;
-      isBlockchain
-        ? await blockchainMutate(convertedTieUp)
-        : await mutateAsync(convertedTieUp);
     }
 
     document.body.style.cursor = "wait";

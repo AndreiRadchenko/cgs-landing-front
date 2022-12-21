@@ -18,6 +18,11 @@ export const getInputsFromLabels = (options: string) => {
       return {
         type: isRadio ? "radio" : "checkbox",
         label,
+        price: 0,
+        hours: 0,
+        uxui: 0,
+        pm: 0,
+        qa: 0,
       };
     });
 };

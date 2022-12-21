@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import SaveBtn from "../Global/SaveBtn";
-import CalculatorTieUpItem from "./CalculatorTieUpItem";
+import CalculatoSubStepItem from "./CalculatoSubStepItem";
 import { formalizeData } from "../../../utils/formalizeCalculatorData";
 
 const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
@@ -16,11 +16,13 @@ import { Plugin } from "suneditor/src/plugins/Plugin";
 import { useFormikContext } from "formik";
 import {
   ICalculatorStep,
+  ICalculatorSubStep,
   ICalculatorTieUpStep,
 } from "../../../types/Admin/Response.types";
 import { useMutation } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminCalculatorService } from "../../../services/adminCalculator";
+import CalculatoTieUpItem from "./CalculatorTieUpItem";
 
 interface ICalculatorStepItemComponentProps {
   isBlockchain: boolean;
@@ -41,13 +43,25 @@ const CalculatorStepItemComponent = ({
   const { values, setFieldValue, handleSubmit } =
     useFormikContext<ICalculatorStep>();
 
-  const { mutateAsync: addClassicTieUp } = useMutation(
+  const { mutateAsync: addClassicSubStep } = useMutation(
+    [queryKeys.addCalculatorClassicSubStep],
+    (subStepData: ICalculatorSubStep) =>
+      adminCalculatorService.addClassicSubStep(subStepData)
+  );
+
+  const { mutateAsync: addBlockchainSubStep } = useMutation(
+    [queryKeys.addCalculatorBlockchainSubStep],
+    (subStepData: ICalculatorSubStep) =>
+      adminCalculatorService.addBlockchainSubStep(subStepData)
+  );
+
+  const { mutateAsync: addClassicTieUpStep } = useMutation(
     [queryKeys.addCalculatorClassicTieUpStep],
     (tieUpData: ICalculatorTieUpStep) =>
       adminCalculatorService.addClassicTieUp(tieUpData)
   );
 
-  const { mutateAsync: addBlockchainTieUp } = useMutation(
+  const { mutateAsync: addBlockchainTieUpStep } = useMutation(
     [queryKeys.addCalculatorBlockchainTieUpStep],
     (tieUpData: ICalculatorTieUpStep) =>
       adminCalculatorService.addBlockchainTieUp(tieUpData)
@@ -91,22 +105,46 @@ const CalculatorStepItemComponent = ({
     ],
   };
 
-  const handleAddTieUp = () => {
+  const handleAddSubStep = () => {
     isBlockchain
-      ? addBlockchainTieUp({
+      ? addClassicSubStep({
+          title: "",
           condition: [],
-          step: { title: "", options: "" },
-          number: null,
+          options: [],
           _id: values._id,
         })
-      : addClassicTieUp({
+      : addBlockchainSubStep({
+          title: "",
           condition: [],
-          step: { title: "", options: "" },
-          number: null,
+          options: [],
           _id: values._id,
         });
+    setFieldValue("subSteps", [{ title: "", condition: [], options: [] }]);
+    handleSubmit();
+  };
+
+  const handleMinusSubStep = () => {
+    setFieldValue("subSteps", [] as ICalculatorSubStep[]);
+    handleSubmit();
+  };
+
+  const handleAddTieUpStep = () => {
+    isBlockchain
+      ? addClassicTieUpStep({
+          _id: values._id,
+          number: null,
+          condition: [],
+        })
+      : addBlockchainTieUpStep({
+          _id: values._id,
+          number: null,
+          condition: [],
+        });
     setFieldValue("tieUpSteps", [
-      { condition: [], step: { title: "", options: "" }, number: null },
+      {
+        number: null,
+        condition: [],
+      },
     ]);
     handleSubmit();
   };
@@ -147,24 +185,46 @@ const CalculatorStepItemComponent = ({
               }}
             />
           </Styled.TransparentTextEditorWrapper>
-          <Styled.TieUpContainer>
-            {values.tieUpSteps.length === 0 && (
-              <Styled.AddTieUpButton onClick={handleAddTieUp}>
-                +
-              </Styled.AddTieUpButton>
+          <Styled.ButtonWrapper>
+            {index !== 0 && (
+              <Styled.ButtonsRowContainer>
+                {values.tieUpSteps.length === 0 && (
+                  <Styled.AddButton
+                    type="button"
+                    onClick={handleAddTieUpStep}
+                    className="tieup"
+                  >
+                    +
+                  </Styled.AddButton>
+                )}
+                <Styled.MinusButton type="button" onClick={handleMinusTieUp}>
+                  -
+                </Styled.MinusButton>
+                <Styled.ButtonsText>Tie up question</Styled.ButtonsText>
+              </Styled.ButtonsRowContainer>
             )}
-            <Styled.MinusTieUpButton onClick={handleMinusTieUp}>
-              -
-            </Styled.MinusTieUpButton>
-            <Styled.TieUpText>Tie up question</Styled.TieUpText>
-          </Styled.TieUpContainer>
+            <Styled.ButtonsRowContainer>
+              {values.subSteps.length === 0 && (
+                <Styled.AddButton type="button" onClick={handleAddSubStep}>
+                  +
+                </Styled.AddButton>
+              )}
+              <Styled.MinusButton type="button" onClick={handleMinusSubStep}>
+                -
+              </Styled.MinusButton>
+              <Styled.ButtonsText>Sub-question</Styled.ButtonsText>
+            </Styled.ButtonsRowContainer>
+          </Styled.ButtonWrapper>
         </Styled.TextEditorContainer>
         {values.tieUpSteps.length > 0 && (
-          <CalculatorTieUpItem
+          <CalculatoTieUpItem
+            current={index}
             data={data}
             key={`step item ${submitKey}`}
-            current={index}
           />
+        )}
+        {values.subSteps.length > 0 && (
+          <CalculatoSubStepItem key={`sub step item ${submitKey}`} />
         )}
         <SaveBtn
           handleClick={handleSubmitButtonClick}

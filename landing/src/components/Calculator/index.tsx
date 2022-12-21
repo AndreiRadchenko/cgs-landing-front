@@ -4,10 +4,14 @@ import React, { useState } from "react";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCalculatorService } from "../../services/adminCalculator";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
+import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import BlackButtonComponent from "../BlackButtonWithArrow";
 import CalculatorPagerComponent from "./CalculatorPagerComponent";
 import CalculatorStepsComponent from "./CalculatorStepsComponent";
+import CalculatorField from "./CalculatorTitleField";
+import CalculatorInputField from "./CalculatorInputs";
+import CalculatorCompletedPager from "./CalculatorCompletedPager";
 
 const Calculator = () => {
   const [buttonText, setButtonText] = useState<string>("< start >");
@@ -15,7 +19,10 @@ const Calculator = () => {
   const [startLoading, setStartLoading] = useState<boolean>(false);
   const [isBlockchain, setIsBlockchain] = useState<boolean>(false);
   const [isChosen, setIsChosen] = useState<boolean>(false);
+  const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [step, setStep] = useState<number>(0);
+  const [previousSteps, setPreviousSteps] = useState<number[]>([]);
+  const [finishPagerClick, setFinishPagerClick] = useState<boolean>(false);
 
   const { data } = useQuery([queryKeys.getCalculatorData], () =>
     adminCalculatorService.getCalculatorData()
@@ -41,11 +48,20 @@ const Calculator = () => {
     setIsChosen(false);
     setIsOpen(false);
     setStartLoading(false);
+    setIsCompleted(false);
+    setIsBlockchain(false);
+    setFinishPagerClick(false);
+    setStep(0);
+    setPreviousSteps([]);
     setButtonText("< start >");
   };
 
   const handlePagerButtonsClick = () => {
     setStartLoading(true);
+  };
+
+  const handleCompletedPagerButtonsClick = () => {
+    setFinishPagerClick(true);
   };
 
   const handleButtonClick = () => {
@@ -62,6 +78,8 @@ const Calculator = () => {
     setIsChosen(true);
     setIsBlockchain(false);
   };
+
+  DisableScrollBarHandler(isOpen);
 
   return (
     <>
@@ -84,34 +102,82 @@ const Calculator = () => {
           </Styled.CalculatorPreview>
         </Styled.CalculatorPreviewCube>
       </Styled.CalculatorPreviewWrapper>
-      {(isChosen && blockchainStepsData && classicStepsData && (
-        <CalculatorStepsComponent
-          step={step}
-          stepsCount={
-            isBlockchain ? blockchainStepsData.length : classicStepsData.length
-          }
-          setIsChosen={setIsChosen}
-          currentData={
-            isBlockchain ? blockchainStepsData[step] : classicStepsData[step]
-          }
+      {isCompleted ? (
+        <CalculatorCompletedPager
+          finishClick={finishPagerClick}
+          handlePagerButtonsClick={handleCompletedPagerButtonsClick}
           handleClose={handleClose}
-          setStep={setStep}
+          handleButtonClick={handleClose}
         />
-      )) || (
-        <CalculatorPagerComponent
-          isOpen={isOpen}
-          handleBlockchainClick={handleBlockchainClick}
-          handleButtonClick={handleButtonClick}
-          handleClassicClick={handleClassicClick}
-          handleClose={handleClose}
-          handlePagerButtonsClick={handlePagerButtonsClick}
-          buttonText={buttonText}
-          startLoading={startLoading}
-          classicLoading={classicLoading}
-          blockchainLoading={blockchainLoading}
-          classicStepsData={classicStepsData}
-          blockchainStepsData={blockchainStepsData}
-        />
+      ) : (
+        <>
+          {(isChosen && blockchainStepsData && classicStepsData && (
+            <CalculatorStepsComponent
+              isBlockchain={isBlockchain}
+              step={step}
+              stepsCount={
+                isBlockchain
+                  ? blockchainStepsData.length
+                  : classicStepsData.length
+              }
+              setIsChosen={setIsChosen}
+              data={isBlockchain ? blockchainStepsData : classicStepsData}
+              handleClose={handleClose}
+              setStep={setStep}
+              previousSteps={previousSteps}
+              setPreviousSteps={setPreviousSteps}
+              setIsCompleted={setIsCompleted}
+            >
+              {(isBlockchain &&
+                blockchainStepsData &&
+                blockchainStepsData.map((currentData, stepInd) => (
+                  <div key={currentData.title}>
+                    <CalculatorField text={currentData.title} />
+                    {typeof currentData.options !== "string" && (
+                      <CalculatorInputField
+                        subStep={currentData.subSteps}
+                        stepInd={stepInd}
+                        options={currentData.options}
+                        data={
+                          isBlockchain ? blockchainStepsData : classicStepsData
+                        }
+                      />
+                    )}
+                  </div>
+                ))) ||
+                classicStepsData.map((currentData, stepInd) => (
+                  <div key={currentData.title}>
+                    <CalculatorField text={currentData.title} />
+                    {typeof currentData.options !== "string" && (
+                      <CalculatorInputField
+                        subStep={currentData.subSteps}
+                        stepInd={stepInd}
+                        options={currentData.options}
+                        data={
+                          isBlockchain ? blockchainStepsData : classicStepsData
+                        }
+                      />
+                    )}
+                  </div>
+                ))}
+            </CalculatorStepsComponent>
+          )) || (
+            <CalculatorPagerComponent
+              isOpen={isOpen}
+              handleBlockchainClick={handleBlockchainClick}
+              handleButtonClick={handleButtonClick}
+              handleClassicClick={handleClassicClick}
+              handleClose={handleClose}
+              handlePagerButtonsClick={handlePagerButtonsClick}
+              buttonText={buttonText}
+              startLoading={startLoading}
+              classicLoading={classicLoading}
+              blockchainLoading={blockchainLoading}
+              classicStepsData={classicStepsData}
+              blockchainStepsData={blockchainStepsData}
+            />
+          )}
+        </>
       )}
     </>
   );

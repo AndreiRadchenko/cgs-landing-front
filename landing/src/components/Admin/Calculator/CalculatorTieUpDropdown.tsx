@@ -35,14 +35,6 @@ const CalculatorTieUpDropdown = ({
     setIsOpen(false);
 
     if (data && typeof values.tieUpSteps[0].number === "number") {
-      setFieldValue(
-        "tieUpSteps[0].step.title",
-        data[values.tieUpSteps[0].number].title
-      );
-      setFieldValue(
-        "tieUpSteps[0].step.options",
-        data[values.tieUpSteps[0].number].options
-      );
       handleSubmit();
       queryClient.invalidateQueries([queryKeys.getCalculatorClassicSteps]);
       queryClient.invalidateQueries([queryKeys.getCalculatorBlockchainSteps]);
@@ -72,7 +64,7 @@ const CalculatorTieUpDropdown = ({
       <Styled.HiddenContent className={isOpen ? "open" : undefined}>
         {new Array(data.length).fill(0).map(
           (_, idx) =>
-            idx > current && (
+            idx < current && (
               <Styled.DropdownStepItem
                 key={idx}
                 onClick={() => handleStepClick(idx)}

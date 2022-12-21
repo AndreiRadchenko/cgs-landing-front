@@ -1,30 +1,34 @@
-import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
-import { queryKeys } from "../../../consts/queryKeys";
-import { adminCalculatorService } from "../../../services/adminCalculator";
+import React from "react";
 import { AdminUnauthorizedModal } from "../../../styles/AdminPage";
 import CalculatorStepItem from "./CalculatorStepItemForm";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import CalculatorChooseButton from "./CalculatorChooseButton";
+import { ICalculatorStep } from "../../../types/Admin/Response.types";
 
-const CalculatorStepsForm = () => {
-  const [isBlockchain, toogleBlockchain] = useState<boolean>(false);
-  const { data, isLoading, refetch } = useQuery(
-    [queryKeys.getCalculatorClassicSteps],
-    () => adminCalculatorService.getCalculatorClassicSteps()
-  );
+interface ICalculatorStepsFormProps {
+  isBlockchain: boolean;
+  classicStepsData: ICalculatorStep[];
+  blockchainStepsData: ICalculatorStep[];
+  classicIsLoading: boolean;
+  blockchainIsLoading: boolean;
+  classicRefetch: () => void;
+  blockchainRefetch: () => void;
+  toogleBlockchain: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-  const {
-    data: blockchainData,
-    isLoading: blockchainIsLoading,
-    refetch: blockchainIsRefetch,
-  } = useQuery([queryKeys.getCalculatorBlockchainSteps], () =>
-    adminCalculatorService.getCalculatorBlockchainSteps()
-  );
-
-  return isLoading || blockchainIsLoading ? (
+const CalculatorStepsForm = ({
+  classicStepsData,
+  blockchainStepsData,
+  classicIsLoading,
+  blockchainIsLoading,
+  classicRefetch,
+  blockchainRefetch,
+  isBlockchain,
+  toogleBlockchain,
+}: ICalculatorStepsFormProps) => {
+  return classicIsLoading || blockchainIsLoading ? (
     <AdminUnauthorizedModal>Loading...</AdminUnauthorizedModal>
-  ) : data && blockchainData ? (
+  ) : classicStepsData && blockchainStepsData ? (
     <>
       <Styled.ChooseTitle>Choose:</Styled.ChooseTitle>
       <Styled.ChooseButtonsWrapper>
@@ -40,37 +44,27 @@ const CalculatorStepsForm = () => {
         />
       </Styled.ChooseButtonsWrapper>
       {isBlockchain &&
-        blockchainData.map(
-          (step, idx) =>
-            !blockchainData.find(
-              (el) => el.tieUpSteps[0] && el.tieUpSteps[0].number === idx
-            ) && (
-              <CalculatorStepItem
-                isBlockchain={isBlockchain}
-                allSteps={blockchainData}
-                step={step}
-                key={idx}
-                index={idx}
-                refetch={blockchainIsRefetch}
-              />
-            )
-        )}
+        blockchainStepsData.map((step, idx) => (
+          <CalculatorStepItem
+            isBlockchain={isBlockchain}
+            allSteps={blockchainStepsData}
+            step={step}
+            key={idx}
+            index={idx}
+            refetch={blockchainRefetch}
+          />
+        ))}
       {!isBlockchain &&
-        data.map(
-          (step, idx) =>
-            !data.find(
-              (el) => el.tieUpSteps[0] && el.tieUpSteps[0].number === idx
-            ) && (
-              <CalculatorStepItem
-                isBlockchain={isBlockchain}
-                allSteps={data}
-                step={step}
-                key={idx}
-                index={idx}
-                refetch={refetch}
-              />
-            )
-        )}
+        classicStepsData.map((step, idx) => (
+          <CalculatorStepItem
+            isBlockchain={isBlockchain}
+            allSteps={classicStepsData}
+            step={step}
+            key={idx}
+            index={idx}
+            refetch={classicRefetch}
+          />
+        ))}
     </>
   ) : (
     <AdminUnauthorizedModal>Something went wrong :(</AdminUnauthorizedModal>

@@ -1,4 +1,4 @@
-import { Form } from "formik";
+import { Field, Form } from "formik";
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
@@ -20,6 +20,7 @@ export const TransparentTextEditorWrapper = styled.div`
   & .sun-editor {
     background-color: transparent;
     border: 1px solid ${themes.primary.colors.comment};
+
     & .txt {
       font-family: ${themes.primary.font.family.namu};
     }
@@ -48,7 +49,7 @@ export const TransparentTextEditorWrapper = styled.div`
     background-color: transparent;
     font-size: 16px;
     font-family: ${themes.primary.font.family.namu} !important;
-
+    color: ${themes.primary.colors.primary} !important;
     & .__se__t-radio-input {
       position: relative;
       display: inline-block;
@@ -108,7 +109,7 @@ export const TextEditorContainer = styled.div`
   column-gap: 20px;
 `;
 
-export const AddTieUpButton = styled.button`
+export const AddButton = styled.button`
   cursor: pointer;
   width: 58px;
   height: 56px;
@@ -120,9 +121,14 @@ export const AddTieUpButton = styled.button`
   font-size: 35px;
   line-height: 42px;
   border: 0;
+  margin-right: 14px;
+
+  &.tieup {
+    background-color: ${themes.primary.colors.darkBlue};
+  }
 `;
 
-export const MinusTieUpButton = styled.button`
+export const MinusButton = styled.button`
   cursor: pointer;
   width: 58px;
   height: 56px;
@@ -133,32 +139,37 @@ export const MinusTieUpButton = styled.button`
   align-items: center;
   font-size: 35px;
   border: 2px dashed ${themes.primary.colors.primary};
-  margin-left: 14px;
 `;
 
-export const TieUpText = styled.div`
+export const ButtonsText = styled.div`
   font-size: 16px;
   line-height: 132%;
   margin-left: 22px;
 `;
 
-export const TieUpContainer = styled.div`
+export const ButtonsRowContainer = styled.div`
   display: flex;
   align-items: center;
 `;
 
-export const TieUpContentContainer = styled.div`
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+`;
+
+export const SubStepContentContainer = styled.div`
   margin-top: 30px;
 `;
 
-export const TieUpTitle = styled.h3`
+export const StepSubTitle = styled.h3`
   font-size: 22px;
   line-height: 132%;
   color: ${themes.primary.colors.darkBlue};
   margin-bottom: 10px;
 `;
 
-export const TieUpSubtitle = styled.p`
+export const SubStepSubtitle = styled.p`
   margin: 0 0 12px 0;
   font-size: 16px;
   line-height: 132%;
@@ -166,7 +177,7 @@ export const TieUpSubtitle = styled.p`
 
 export const InputsWrapper = styled(Form)``;
 
-export const TieUpInput = styled.input`
+export const TieUpInput = styled(Field)`
   -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
@@ -175,7 +186,8 @@ export const TieUpInput = styled.input`
   &.radio {
     background-color: ${themes.primary.colors.blogBackground};
     margin: 0;
-    width: 15px;
+    min-width: 15px;
+    max-width: 15px;
     height: 15px;
     border: 1px solid ${themes.primary.colors.primary};
     transform: translateY(-50%, -50%);
@@ -186,7 +198,8 @@ export const TieUpInput = styled.input`
 
     &::before {
       content: "";
-      width: 15px;
+      min-width: 15px;
+      max-width: 15px;
       height: 15px;
       border-radius: 50%;
       transform: scale(0);
@@ -201,7 +214,8 @@ export const TieUpInput = styled.input`
   }
 
   &.checkbox {
-    width: 16px;
+    min-width: 16px;
+    max-width: 16px;
     height: 16px;
     border: 1px solid ${themes.primary.colors.primary};
     background-color: transparent;
@@ -229,6 +243,19 @@ export const TieUpInput = styled.input`
     }
     &:not(:checked):before {
       transform: rotate(45deg) scale(0);
+    }
+  }
+
+  &.email {
+    width: 98%;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    font-size: 1.125em;
+    font-family: ${themes.primary.font.family.namu};
+
+    &::placeholder {
+      color: ${themes.primary.colors.calculatorEmailPlaceholder};
     }
   }
 `;
@@ -322,4 +349,57 @@ export const ChooseButtonsWrapper = styled.div`
   display: flex;
   column-gap: 3.666em;
   margin-bottom: 4.1666em;
+`;
+
+export const TieUpContainer = styled.div``;
+
+export const PriceFormGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 36px;
+  row-gap: 16px;
+  margin-bottom: 28px;
+`;
+
+export const QuestionTitle = styled.h3`
+  margin: 0;
+  font-size: 18px;
+  line-height: 99%;
+  font-family: ${themes.primary.font.family.namu};
+  text-transform: uppercase;
+  margin-bottom: 16px;
+
+  & p {
+    margin: 0;
+  }
+`;
+
+export const PriceItemWrapper = styled.div`
+  & .__se__t-upper {
+    text-transform: uppercase;
+  }
+
+  & .__se__t-lower {
+    text-transform: lowercase;
+  }
+
+  & .__se__t-first-letter-capitalize {
+    display: block;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+`;
+
+export const PriceSubtitle = styled.p`
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 22px;
+
+  & span {
+    font-size: 14px;
+    line-height: 18px;
+  }
 `;

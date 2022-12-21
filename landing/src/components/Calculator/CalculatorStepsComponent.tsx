@@ -1,99 +1,127 @@
-import React from "react";
-import CalculatorStepsModalComponent from "./CalculatorStepsModalComponent";
-import Logo from "./CalculatorLogo";
-import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
-import CalculatorField from "./CalculatorTitleField";
-import CalculatorInputField from "./CalculatorInputs";
-import { ICalculatorStep } from "../../types/Admin/Response.types";
+import React, { Children, ReactNode } from "react";
+import {
+  ICalculatorAnswersResults,
+  ICalculatorFormValuesProps,
+  ICalculatorPostResultsProps,
+  ICalculatorStep,
+} from "../../types/Admin/Response.types";
+import { Formik } from "formik";
+import CalculatorStepsFormContent from "./CalculatorStepsFormContent";
+import { CalculatorValidation } from "../../validations/CalculatorValidation";
+import { queryKeys } from "../../consts/queryKeys";
+import { useMutation } from "@tanstack/react-query";
+import { adminCalculatorService } from "../../services/adminCalculator";
 
 interface ICalculatorStepsComponentProps {
   step: number;
+  previousSteps: number[];
   stepsCount: number;
   handleClose: () => void;
-  currentData: ICalculatorStep;
+  data: ICalculatorStep[];
   setIsChosen: React.Dispatch<React.SetStateAction<boolean>>;
   setStep: React.Dispatch<React.SetStateAction<number>>;
+  setPreviousSteps: React.Dispatch<React.SetStateAction<number[]>>;
+  setIsCompleted: React.Dispatch<React.SetStateAction<boolean>>;
+  isBlockchain: boolean;
+  children: ReactNode;
 }
 
 const CalculatorStepsComponent = ({
   step,
+  previousSteps,
   stepsCount,
+  data,
   handleClose,
   setIsChosen,
-  currentData,
   setStep,
+  setPreviousSteps,
+  setIsCompleted,
+  children,
+  isBlockchain,
 }: ICalculatorStepsComponentProps) => {
-  const onButtonClick = () => {
-    setStep((old) => (old + 1 > stepsCount ? stepsCount : old + 1));
-  };
+  const arrayChildren = Children.toArray(children);
 
   const handleBackClick = () => {
-    if (step === 0) {
+    if (step === 0 || previousSteps.length === 0) {
+      setStep(0);
       setIsChosen(false);
     } else {
-      setStep((old) => old - 1);
+      setStep(previousSteps[previousSteps.length - 1]);
+      setPreviousSteps((old) => {
+        old.splice(-1);
+        return old;
+      });
     }
   };
 
-  const stepButtonClassName = (idx: number) => {
+  const stepButtonClassName = (idx: number, disabled?: boolean) => {
     let classname = "";
     if (idx === step) {
       classname += "active ";
     }
 
     if (idx <= step) {
-      classname += "checked";
+      classname += "checked ";
+    }
+    if (disabled) {
+      classname += "disabled ";
     }
 
     return classname;
   };
 
   const handleStepButtonClick = (idx: number) => {
+    idx !== stepsCount - 1 && setPreviousSteps((old) => [...old, step]);
     setStep(idx);
   };
 
+  const initialValues = {
+    questionsArr: data.map((el) => {
+      return {
+        title: el.title,
+        answer: "",
+      };
+    }),
+    isBlockchain,
+    email: "",
+  };
+
+  const { mutate } = useMutation(
+    [queryKeys.postCalculatorResults],
+    (answers: ICalculatorPostResultsProps) =>
+      adminCalculatorService.countResults(answers),
+    {
+      onSuccess: (data: ICalculatorAnswersResults | void) =>
+        data && setIsCompleted(true),
+    }
+  );
+
+  const onSubmit = (values: ICalculatorFormValuesProps) => {
+    const { isBlockchain, questionsArr } = values;
+    // do e-mail work
+    mutate({ answers: questionsArr, isBlockchain });
+  };
+
   return (
-    <CalculatorStepsModalComponent>
-      <Styled.ModalContentWrapper>
-        <Styled.CalculatorHeaderWrapper className="steps">
-          <Styled.CalculatorHeaderInner>
-            <Logo />
-            <Styled.BackButton onClick={handleBackClick}>
-              {"<"}
-            </Styled.BackButton>
-            <Styled.CloseButton onClick={handleClose} />
-          </Styled.CalculatorHeaderInner>
-        </Styled.CalculatorHeaderWrapper>
-        <CalculatorField text={currentData.title} />
-        {typeof currentData.options !== "string" && (
-          <CalculatorInputField
-            key={currentData.title}
-            text={currentData.title}
-            options={currentData.options}
-          />
-        )}
-        <Styled.ButtonWrapper>
-          <Styled.StepButtonWrapper>
-            {stepsCount <= 10 &&
-              new Array(stepsCount).fill(0).map((_, idx) => (
-                <Styled.GridButtonWrapper key={idx}>
-                  <Styled.StepButton
-                    className={stepButtonClassName(idx)}
-                    onClick={() => handleStepButtonClick(idx)}
-                  >
-                    {idx + 1}
-                  </Styled.StepButton>
-                </Styled.GridButtonWrapper>
-              ))}
-          </Styled.StepButtonWrapper>
-          <Styled.StepsMainButtonWrapper>
-            <Styled.StartButton className="steps" onClick={onButtonClick}>
-              {"< next >"}
-            </Styled.StartButton>
-          </Styled.StepsMainButtonWrapper>
-        </Styled.ButtonWrapper>
-      </Styled.ModalContentWrapper>
-    </CalculatorStepsModalComponent>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={CalculatorValidation}
+      validateOnChange
+      validateOnMount
+    >
+      <CalculatorStepsFormContent
+        handleBackClick={handleBackClick}
+        handleClose={handleClose}
+        handleStepButtonClick={handleStepButtonClick}
+        stepButtonClassName={stepButtonClassName}
+        setPreviousSteps={setPreviousSteps}
+        setStep={setStep}
+        step={step}
+        stepsCount={stepsCount}
+        arrayChildren={arrayChildren}
+      />
+    </Formik>
   );
 };
 

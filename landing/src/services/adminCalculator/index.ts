@@ -2,7 +2,10 @@ import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
 import {
   ICalculator,
+  ICalculatorAnswersResults,
+  ICalculatorPostResultsProps,
   ICalculatorStep,
+  ICalculatorSubStep,
   ICalculatorTieUpStep,
 } from "../../types/Admin/Response.types";
 
@@ -51,6 +54,30 @@ export class AdminCalculatorService {
     return this.httpService.delete(`api/calculator/classic/tieup/${id}`);
   }
 
+  public addClassicSubStep(data: ICalculatorSubStep) {
+    return this.httpService.post(
+      `api/calculator/classic/sub/${data._id}`,
+      data
+    );
+  }
+
+  public updateCalculatorClassicSubStepById(
+    itemId: string,
+    data: ICalculatorSubStep
+  ) {
+    return this.httpService.put(`api/calculator/classic/sub/${itemId}`, data);
+  }
+
+  public countResults(
+    answers: ICalculatorPostResultsProps
+  ): Promise<void | ICalculatorAnswersResults> {
+    return this.httpService.post("api/calculator/results", answers);
+  }
+
+  public deleteClassicSubStepById(id: string) {
+    return this.httpService.delete(`api/calculator/classic/sub/${id}`);
+  }
+
   public getCalculatorBlockchainSteps() {
     return this.httpService.get<ICalculatorStep[]>(
       "api/calculator/blockchain/step"
@@ -83,6 +110,26 @@ export class AdminCalculatorService {
   }
   public deleteBlockchainTieUpById(id: string) {
     return this.httpService.delete(`api/calculator/blockchain/tieup/${id}`);
+  }
+
+  public addBlockchainSubStep(data: ICalculatorSubStep) {
+    return this.httpService.post(
+      `api/calculator/classic/sub/${data._id}`,
+      data
+    );
+  }
+
+  public updateCalculatorBlockchainSubStepById(
+    itemId: string,
+    data: ICalculatorSubStep
+  ) {
+    return this.httpService.put(
+      `api/calculator/blockchain/sub/${itemId}`,
+      data
+    );
+  }
+  public deleteBlockchainSubStepById(id: string) {
+    return this.httpService.delete(`api/calculator/blockchain/sub/${id}`);
   }
 }
 
