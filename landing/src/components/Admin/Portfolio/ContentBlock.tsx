@@ -16,7 +16,7 @@ import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import { adminGlobalService } from "../../../services/adminHomePage";
 import { ISwapData } from "../../../types/Admin/Response.types";
 import SortableList, { SortableItem } from "react-easy-sort";
-import SaveBtn from "../AboutUs/SaveBtn";
+import SaveBtn from "../Global/SaveBtn";
 
 const AdminPortfolioContentBlock = () => {
   const queryClient = useQueryClient();

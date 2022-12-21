@@ -606,6 +606,67 @@ export interface ISitemapData {
   includedPages: string[];
 }
 
+export interface ICalculator {
+  previewTextMessage: string;
+  popUpMessage: string;
+  startMessage: string;
+  finishMessage: string;
+  resultMessage: string;
+  email: string;
+}
+
+export interface ICalculatorTieUpStep {
+  _id: string;
+  condition: string[];
+  number: number | null;
+}
+
+export interface IStepOptions {
+  type: string;
+  label: string;
+  price: number;
+  hours: number;
+  uxui: number;
+  pm: number;
+  qa: number;
+}
+
+export interface ICalculatorSubStep {
+  _id: string;
+  condition: string[];
+  title: string;
+  options: IStepOptions[];
+}
+
+export interface ICalculatorStep {
+  _id: string;
+  title: string;
+  options: IStepOptions[];
+  tieUpSteps: ICalculatorTieUpStep[];
+  subSteps: ICalculatorSubStep[];
+}
+
+export interface ICalculatorQuestion {
+  title: string;
+  answer: string | string[];
+  subStepAnswer?: string | string[];
+  tieUpDisabled?: boolean;
+}
+
+export interface ICalculatorPostResultsProps {
+  answers: ICalculatorQuestion[];
+  isBlockchain: boolean;
+}
+
+export interface ICalculatorFormValuesProps {
+  questionsArr: ICalculatorQuestion[];
+  email: string;
+  isBlockchain: boolean;
+}
+
+export interface ICalculatorAnswersResults {
+  results: Omit<IStepOptions, "label" | "type">;
+}
 export interface IServiceMobileAudit {
   headerBlock: {
     title: string;

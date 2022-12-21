@@ -6,6 +6,7 @@ import * as Styled from "../../../styles/AdminPage";
 import DropDownElement from "./DropDownElement";
 import {
   BlogIcon,
+  CalculatorIcon,
   CompanyIcon,
   HomeIcon,
   PortfolioIcon,
@@ -17,6 +18,7 @@ const AdminSidebar = () => {
   const pushBlog = () => router.push(ROUTE_KEYS.AdminBlog);
   const pushPortfolio = () => router.push(ROUTE_KEYS.AdminPortfolio);
   const pushHome = () => router.push(ROUTE_KEYS.AdminPage);
+  const pushCalculator = () => router.push(ROUTE_KEYS.AdminCalculator);
 
   const currentPath =
     router.pathname.split("/")[router.pathname.split("/").length - 1];
@@ -31,6 +33,14 @@ const AdminSidebar = () => {
         >
           <HomeIcon />
           homepage
+        </Styled.AdminSidebarMenuElement>
+        <Styled.AdminSidebarMenuElement
+          onClick={pushCalculator}
+          itemProp={currentPath}
+          property={ROUTE_KEYS.AdminCalculator}
+        >
+          <CalculatorIcon />
+          сalculator
         </Styled.AdminSidebarMenuElement>
         <Styled.AdminSidebarMenuElement
           onClick={pushPortfolio}

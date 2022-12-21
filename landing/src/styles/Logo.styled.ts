@@ -7,6 +7,11 @@ export const LogoWrapper = styled.div`
   width: 106px;
   height: 100%;
 
+  &.calculator {
+    width: 106px !important;
+    height: 100% !important;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     width: auto;
   }

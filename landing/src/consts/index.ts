@@ -171,6 +171,7 @@ export enum ROUTE_KEYS {
   AdminServiceDb = "AdminServiceDb",
   AdminServiceBlockchain = "AdminServiceBlockchain",
   AdminServiceUxUi = "AdminServiceUxUi",
+  AdminCalculator = "AdminCalculator",
   AdminServiceMobileAudit = "AdminServiceMobileAudit",
   AdminServiceWebAudit = "AdminServiceWebAudit",
   AdminServiceDappAudit = "AdminServiceDappAudit",

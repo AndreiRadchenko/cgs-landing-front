@@ -1,9 +1,13 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import Image from "next/image";
 import * as Styled from "../../../styles/Logo.styled";
 import logoWithoutText from "../../../../public/logoWithoutText.svg";
 
-const Logo = () => {
+interface LogoProps {
+  textStyle?: CSSProperties;
+}
+
+const Logo = ({ textStyle }: LogoProps) => {
   return (
     <Styled.LogoWrapper>
       <Styled.ImageWrapper>
@@ -13,7 +17,7 @@ const Logo = () => {
           objectFit="contain"
         />
       </Styled.ImageWrapper>
-      <Styled.LogoText>СGS-team</Styled.LogoText>
+      <Styled.LogoText style={textStyle}>СGS-team</Styled.LogoText>
     </Styled.LogoWrapper>
   );
 };

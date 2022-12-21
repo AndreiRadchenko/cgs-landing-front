@@ -74,8 +74,21 @@ export const AdminSidebarMenuElement = styled.li`
     props.itemProp === props.property ? "underline" : "none"};
   cursor: pointer;
 
+  & > svg path {
+    fill: ${themes.primary.colors.blogBackground};
+  }
+
   &:hover {
+    color: ${themes.primary.colors.portfolioHover};
     text-decoration: underline;
+
+    & svg path {
+      fill: ${themes.primary.colors.portfolioHover};
+      &#arrow {
+        fill: none;
+        stroke: ${themes.primary.colors.portfolioHover};
+      }
+    }
   }
 
   &.isDropDown {
@@ -93,8 +106,10 @@ export const AdminListSubItem = styled.a`
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 12px;
+  color: ${themes.primary.colors.blogBackground};
 
   &:hover {
+    color: ${themes.primary.colors.portfolioHover};
     max-width: 9.5em;
     font-weight: ${themes.primary.font.weight.normal};
     text-decoration: underline;
@@ -182,10 +197,6 @@ export const AdminBlocksContent = styled.div`
   & .sun-editor-editable,
   & .sun-editor {
     background-color: transparent;
-  }
-
-  & .sun-editor {
-    border: 1px solid ${themes.primary.colors.adminInputBorder} !important;
   }
 `;
 
@@ -881,12 +892,6 @@ export const TextEditorContainer = styled.div<{
   height: auto;
   max-width: 1200px;
   width: 100%;
-
-  margin-bottom: ${themes.primary.spacing.primary};
-  &:focus-within {
-    outline: 1px solid gray;
-  }
-
   margin: 0;
   font-weight: ${themes.primary.font.weight.normal};
 
@@ -1080,6 +1085,10 @@ export const AdminAboutUsGrid = styled.div`
 export const ListItemName = styled.span`
   &.open {
     color: ${themes.primary.colors.headerBorderHover};
+
+    & path {
+      fill: ${themes.primary.colors.headerBorderHover};
+    }
   }
 `;
 
