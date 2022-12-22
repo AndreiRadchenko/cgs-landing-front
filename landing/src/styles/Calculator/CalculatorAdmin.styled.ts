@@ -190,7 +190,7 @@ export const TieUpInput = styled(Field)`
     max-width: 15px;
     height: 15px;
     border: 1px solid ${themes.primary.colors.primary};
-    transform: translateY(-50%, -50%);
+    transform: translateY(15%);
     border-radius: 50%;
     display: grid;
     place-content: center;
@@ -258,17 +258,49 @@ export const TieUpInput = styled(Field)`
       color: ${themes.primary.colors.calculatorEmailPlaceholder};
     }
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    &.radio {
+      min-width: 14px;
+      max-width: 14px;
+      height: 14px;
+
+      &::before {
+        content: "";
+        min-width: 14px;
+        max-width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em ${themes.primary.colors.primary};
+        background-color: ${themes.primary.colors.primary};
+      }
+    }
+
+    &.checkbox {
+      transform: translateY(-10%);
+    }
+
+    &.email {
+      width: 96%;
+    }
+  }
 `;
 
 export const TieUpLabel = styled.label`
   font-size: 16px;
   line-height: 19px;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+    line-height: 17px;
+  }
 `;
 
 export const OptionWrapper = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
   margin-bottom: 16px;
 `;
 

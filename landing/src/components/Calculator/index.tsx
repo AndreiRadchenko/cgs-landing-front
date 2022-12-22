@@ -93,11 +93,13 @@ const Calculator = () => {
               <span>
                 <SplitBrackets text={data?.previewTextMessage} />
               </span>
-              <BlackButtonComponent
-                onClick={handleOpen}
-                text="Start calculation"
-                style={{ padding: "1em 2.15em" }}
-              />
+              <div>
+                <BlackButtonComponent
+                  onClick={handleOpen}
+                  text="Start calculation"
+                  style={{ padding: "1em 2.15em" }}
+                />
+              </div>
             </Styled.CalculatorPreviewContentWrapper>
           </Styled.CalculatorPreview>
         </Styled.CalculatorPreviewCube>

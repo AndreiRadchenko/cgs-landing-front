@@ -8,6 +8,7 @@ import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 import CalculatorPager from "./CalculatorPager";
 import Image from "next/image";
 import PressButtonArrow from "../../../public/Calculator/pressButtonArrow.svg";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 interface ICalculatorCompletedPagerProps {
   finishClick: boolean;
@@ -27,36 +28,45 @@ const CalculatorCompletedPager = ({
     queryKeys.getCalculatorData,
   ]);
 
+  const { width } = useWindowDimension();
+
   return (
-    <CalculatorModalComponent
-      buttonText={"< Finish >"}
-      onClose={handleClose}
-      onButtonClick={handleButtonClick}
-    >
-      <CalculatorPager onPagerClick={handlePagerButtonsClick}>
-        <Styled.ContentWrapper>
-          {finishClick ? (
-            <Styled.PressButtonWrapper>
-              <Styled.PressButtonText>
-                just press the button
-              </Styled.PressButtonText>
-              <Styled.PressButtonImageWrapper>
-                <Image
-                  src={PressButtonArrow.src}
-                  alt="press button arrow"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Styled.PressButtonImageWrapper>
-            </Styled.PressButtonWrapper>
-          ) : (
-            <Styled.FinishTextWrapper>
-              <SplitBrackets text={data?.finishMessage} />
-            </Styled.FinishTextWrapper>
-          )}
-        </Styled.ContentWrapper>
-      </CalculatorPager>
-    </CalculatorModalComponent>
+    (width && (
+      <CalculatorModalComponent
+        buttonText={"< Finish >"}
+        onClose={handleClose}
+        onButtonClick={handleButtonClick}
+        mobile={width < 768}
+      >
+        <CalculatorPager
+          mobile={width < 768}
+          onPagerClick={handlePagerButtonsClick}
+        >
+          <Styled.ContentWrapper>
+            {finishClick ? (
+              <Styled.PressButtonWrapper>
+                <Styled.PressButtonText>
+                  just press the button
+                </Styled.PressButtonText>
+                <Styled.PressButtonImageWrapper>
+                  <Image
+                    src={PressButtonArrow.src}
+                    alt="press button arrow"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </Styled.PressButtonImageWrapper>
+              </Styled.PressButtonWrapper>
+            ) : (
+              <Styled.FinishTextWrapper>
+                <SplitBrackets text={data?.finishMessage} />
+              </Styled.FinishTextWrapper>
+            )}
+          </Styled.ContentWrapper>
+        </CalculatorPager>
+      </CalculatorModalComponent>
+    )) ||
+    null
   );
 };
 
