@@ -2,15 +2,17 @@ import { useFormikContext } from "formik";
 import React from "react";
 import { TieUpInput } from "../../styles/Calculator/CalculatorAdmin.styled";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
-import { ICalculatorFormValuesProps } from "../../types/Admin/Response.types";
 
 interface ICalculatorEmailFieldProps {
   email: string;
+  calculateIsClicked: boolean;
 }
 
-const CalculatorEmailField = ({ email }: ICalculatorEmailFieldProps) => {
-  const { handleChange, errors } =
-    useFormikContext<ICalculatorFormValuesProps>();
+const CalculatorEmailField = ({
+  email,
+  calculateIsClicked,
+}: ICalculatorEmailFieldProps) => {
+  const { handleChange, errors } = useFormikContext<{ email: string }>();
 
   return (
     <Styled.EmailInputWrapper>
@@ -21,13 +23,15 @@ const CalculatorEmailField = ({ email }: ICalculatorEmailFieldProps) => {
             type="email"
             name="email"
             id={`user-email`}
-            className="email"
+            className={`email ${
+              calculateIsClicked && errors["email"] ? "invalid" : undefined
+            }`}
             placeholder={email}
             onChange={handleChange}
           />
         </Styled.CalculatorInputFields>
       </Styled.CalculatorFieldWrapper>
-      {errors["email"] && (
+      {calculateIsClicked && errors["email"] && (
         <Styled.ErrorMessage>Provide a valid e-mail</Styled.ErrorMessage>
       )}
     </Styled.EmailInputWrapper>

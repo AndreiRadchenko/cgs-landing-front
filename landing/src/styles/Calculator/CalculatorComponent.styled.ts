@@ -181,6 +181,9 @@ export const CalculatorPreviewContentWrapper = styled.div`
 
   @media ${themes.primary.media.minPC} {
     padding-right: 1em;
+    &::before {
+      height: 98.6%;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -444,7 +447,7 @@ export const StepButtonWrapper = styled.div`
   column-gap: 1.6em;
 
   &.last {
-    margin-top: 2em;
+    margin-top: 1.2em;
     justify-content: flex-start;
   }
 
@@ -523,8 +526,8 @@ export const StepButton = styled.button`
     opacity: 0.3;
   }
 
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 1.2em;
+  @media ${themes.primary.media.minPC} {
+    font-size: 18px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -905,7 +908,7 @@ export const CalculatorField = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-inline: 0.75em;
+  padding: 0.53em 0.75em;
   line-height: 132%;
   margin: 6px 0px 0 4px;
   background-color: ${themes.primary.colors.blogBackground};
@@ -914,6 +917,37 @@ export const CalculatorField = styled.div`
 
   & p {
     margin: 0;
+  }
+
+  & span[style] {
+    font-size: 16px;
+  }
+
+  & .__se__t-upper {
+    text-transform: uppercase;
+  }
+
+  & .__se__t-lower {
+    text-transform: lowercase;
+  }
+
+  & .__se__t-first-letter-capitalize {
+    display: block;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &.text {
+    margin-top: 16px;
+  }
+
+  &.last {
+    margin-top: 5px;
+    padding-top: 0.5em;
+    height: 97%;
+    min-height: 96%;
   }
 
   &::-webkit-scrollbar {
@@ -938,41 +972,6 @@ export const CalculatorField = styled.div`
     border-radius: 10px;
   }
 
-  &::before,
-  &::after {
-    content: "";
-    display: inline-block;
-    height: 0.53em;
-    width: 100%;
-  }
-
-  & .__se__t-upper {
-    text-transform: uppercase;
-  }
-
-  & .__se__t-lower {
-    text-transform: lowercase;
-  }
-
-  & .__se__t-first-letter-capitalize {
-    display: block;
-
-    &:first-letter {
-      text-transform: uppercase;
-    }
-  }
-
-  &.text {
-    margin-top: 16px;
-  }
-
-  &.last {
-    margin-top: 2px;
-    padding-top: 0.5em;
-    height: 96%;
-    min-height: 96%;
-  }
-
   @media ${themes.primary.media.maxMobile} {
     min-height: 95%;
     height: 95%;
@@ -982,8 +981,8 @@ export const CalculatorField = styled.div`
 
     &.last {
       padding-right: 3em;
-      min-height: 99%;
-      height: 99%;
+      min-height: 97%;
+      height: 97%;
       font-size: 1.5em;
       line-height: 160%;
     }
@@ -1002,7 +1001,7 @@ export const CalculatorInputFields = styled.div`
   margin: 6px 0px 0 4px;
   background-color: ${themes.primary.colors.blogBackground};
   font-family: ${themes.primary.font.family.namu};
-  padding: 1.875em 1em 0 1em;
+  padding: 1.5em 1em 0 1em;
   overflow-y: auto;
 
   &::-webkit-scrollbar {
@@ -1067,13 +1066,16 @@ export const LastStepBackButton = styled(StepButton)`
 
 export const ErrorMessage = styled.div`
   position: absolute;
-  bottom: -1.3em;
-  font-size: 1.333em;
-  padding-left: 2.4em;
-  color: ${themes.primary.colors.errorText};
+  font-size: 14px;
+  padding-left: 2.8em;
+  font-family: ${themes.primary.font.family.namu};
+  line-height: 150%;
+  bottom: -1.5em;
+  color: ${themes.primary.colors.adminRed};
 
   @media ${themes.primary.media.maxMobile} {
-    padding-left: 1.8em;
+    bottom: -1.35em;
+    padding-left: 1.6em;
   }
 `;
 

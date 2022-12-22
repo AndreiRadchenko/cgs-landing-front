@@ -23,6 +23,7 @@ const Calculator = () => {
   const [step, setStep] = useState<number>(0);
   const [previousSteps, setPreviousSteps] = useState<number[]>([]);
   const [finishPagerClick, setFinishPagerClick] = useState<boolean>(false);
+  const [calculateIsClicked, setCalculateIsClicked] = useState<boolean>(false);
 
   const { data } = useQuery([queryKeys.getCalculatorData], () =>
     adminCalculatorService.getCalculatorData()
@@ -51,6 +52,7 @@ const Calculator = () => {
     setIsCompleted(false);
     setIsBlockchain(false);
     setFinishPagerClick(false);
+    setCalculateIsClicked(false);
     setStep(0);
     setPreviousSteps([]);
     setButtonText("< start >");
@@ -129,6 +131,8 @@ const Calculator = () => {
               previousSteps={previousSteps}
               setPreviousSteps={setPreviousSteps}
               setIsCompleted={setIsCompleted}
+              calculateIsClicked={calculateIsClicked}
+              setCalculateIsClicked={setCalculateIsClicked}
             >
               {(isBlockchain &&
                 blockchainStepsData &&

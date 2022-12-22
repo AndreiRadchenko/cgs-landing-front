@@ -23,6 +23,8 @@ interface ICalculatorStepsComponentProps {
   setPreviousSteps: React.Dispatch<React.SetStateAction<number[]>>;
   setIsCompleted: React.Dispatch<React.SetStateAction<boolean>>;
   isBlockchain: boolean;
+  calculateIsClicked: boolean;
+  setCalculateIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
   children: ReactNode;
 }
 
@@ -38,6 +40,8 @@ const CalculatorStepsComponent = ({
   setIsCompleted,
   children,
   isBlockchain,
+  calculateIsClicked,
+  setCalculateIsClicked,
 }: ICalculatorStepsComponentProps) => {
   const arrayChildren = Children.toArray(children);
 
@@ -54,22 +58,6 @@ const CalculatorStepsComponent = ({
     }
   };
 
-  const stepButtonClassName = (idx: number, disabled?: boolean) => {
-    let classname = "";
-    if (idx === step) {
-      classname += "active ";
-    }
-
-    if (idx <= step) {
-      classname += "checked ";
-    }
-    if (disabled) {
-      classname += "disabled ";
-    }
-
-    return classname;
-  };
-
   const handleStepButtonClick = (idx: number) => {
     idx !== stepsCount - 1 && setPreviousSteps((old) => [...old, step]);
     setStep(idx);
@@ -82,8 +70,8 @@ const CalculatorStepsComponent = ({
         answer: "",
       };
     }),
-    isBlockchain,
     email: "",
+    isBlockchain,
   };
 
   const { mutate } = useMutation(
@@ -107,18 +95,18 @@ const CalculatorStepsComponent = ({
       initialValues={initialValues}
       onSubmit={onSubmit}
       validationSchema={CalculatorValidation}
-      validateOnChange
       validateOnMount
     >
       <CalculatorStepsFormContent
         handleBackClick={handleBackClick}
         handleClose={handleClose}
         handleStepButtonClick={handleStepButtonClick}
-        stepButtonClassName={stepButtonClassName}
         setPreviousSteps={setPreviousSteps}
         setStep={setStep}
         step={step}
         stepsCount={stepsCount}
+        calculateIsClicked={calculateIsClicked}
+        setCalculateIsClicked={setCalculateIsClicked}
         arrayChildren={arrayChildren}
       />
     </Formik>

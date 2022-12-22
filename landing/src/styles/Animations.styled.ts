@@ -1,4 +1,5 @@
 ﻿import { keyframes, css } from "styled-components";
+import themes from "../utils/themes";
 
 export const rotateAnimationLaptopLeft = keyframes`
   ${css`
@@ -386,6 +387,17 @@ ${css`
   }
   100% {
     transform: rotate(-10deg);
+  }
+`}
+`;
+
+export const errorColorAnimation = keyframes`
+${css`
+  0% {
+    color: ${themes.primary.colors.adminRed};
+  }
+  100% {
+    color: ${themes.primary.colors.primary};
   }
 `}
 `;
