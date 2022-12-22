@@ -9,6 +9,7 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICalculator, ICalculatorStep } from "../../types/Admin/Response.types";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 interface ICalculatorPagerComponentProps {
   buttonText: string;
@@ -43,29 +44,35 @@ const CalculatorPagerComponent = ({
   const data = queryClient.getQueryData<ICalculator>([
     queryKeys.getCalculatorData,
   ]);
-  return isOpen ? (
+  const { width } = useWindowDimension();
+
+  return width && isOpen ? (
     <CalculatorModal
       buttonText={buttonText}
       onClose={handleClose}
       onButtonClick={handleButtonClick}
+      mobile={width < 768}
     >
       {classicStepsData &&
       blockchainStepsData &&
       buttonText === "< choose >" ? (
         <Styled.ChooseModalWrapper>
-          <CalculatorChooseLine>
+          <CalculatorChooseLine mobile={width < 768}>
             <Styled.ChooseText onClick={handleBlockchainClick}>
               Blockchain development
             </Styled.ChooseText>
           </CalculatorChooseLine>
-          <CalculatorChooseLine>
+          <CalculatorChooseLine mobile={width < 768}>
             <Styled.ChooseText onClick={handleClassicClick}>
               classic development
             </Styled.ChooseText>
           </CalculatorChooseLine>
         </Styled.ChooseModalWrapper>
       ) : (
-        <CalculatorPager onPagerClick={handlePagerButtonsClick}>
+        <CalculatorPager
+          mobile={width < 768}
+          onPagerClick={handlePagerButtonsClick}
+        >
           <Styled.ContentWrapper>
             {(startLoading && (
               <>

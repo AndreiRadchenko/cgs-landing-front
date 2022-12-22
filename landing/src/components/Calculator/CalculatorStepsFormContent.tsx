@@ -5,6 +5,7 @@ import Logo from "./CalculatorLogo";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 import { useFormikContext } from "formik";
 import { ICalculatorFormValuesProps } from "../../types/Admin/Response.types";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 interface ICalculatorStepsFormContentProps {
   handleBackClick: () => void;
@@ -31,6 +32,8 @@ const CalculatorStepsFormContent = ({
 }: ICalculatorStepsFormContentProps) => {
   const { values, isValid, errors, handleSubmit } =
     useFormikContext<ICalculatorFormValuesProps>();
+
+  const { width } = useWindowDimension();
 
   const lastStep = step === stepsCount;
 
@@ -61,77 +64,80 @@ const CalculatorStepsFormContent = ({
   };
 
   return (
-    <CalculatorStepsModalComponent lastPage={lastStep}>
-      <Styled.ModalContentWrapper>
-        <Styled.CalculatorHeaderWrapper className="steps">
-          <Styled.CalculatorHeaderInner>
-            <Logo />
-            {!lastStep && (
-              <Styled.BackButton onClick={handleBackClick}>
-                {"<"}
-              </Styled.BackButton>
-            )}
-            <Styled.CloseButton onClick={handleClose} />
-          </Styled.CalculatorHeaderInner>
-        </Styled.CalculatorHeaderWrapper>
-        {(lastStep && <CalcualtorResultForm />) || arrayChildren[step]}
-        <Styled.ButtonWrapper>
-          <Styled.StepButtonWrapper className={lastStep ? "last" : undefined}>
-            {(!lastStep &&
-              stepsCount <= 10 &&
-              new Array(stepsCount).fill(0).map((_, idx) => (
-                <Styled.GridButtonWrapper key={idx}>
-                  <Styled.StepButton
-                    disabled={values.questionsArr[idx].tieUpDisabled}
-                    className={stepButtonClassName(
-                      idx,
-                      values.questionsArr[idx].tieUpDisabled
-                    )}
-                    onClick={() => handleStepButtonClick(idx)}
-                  >
-                    {idx + 1}
-                  </Styled.StepButton>
-                </Styled.GridButtonWrapper>
-              ))) || (
-              <Styled.LastStepBackButton onClick={handleBackClick}>
-                {"<"}
-              </Styled.LastStepBackButton>
-            )}
-            <Styled.GridButtonWrapper>
-              <Styled.StepButton
-                disabled={
-                  (errors["questionsArr"] &&
-                    errors["questionsArr"].length > 0) ||
-                  false
-                }
-                className={
-                  step === stepsCount
-                    ? "active checked"
-                    : stepButtonClassName(
-                        stepsCount,
-                        (errors["questionsArr"] &&
-                          errors["questionsArr"].length > 0) ||
-                          false
-                      )
-                }
-                onClick={() => handleStepButtonClick(stepsCount)}
+    (width && (
+      <CalculatorStepsModalComponent mobile={width < 768} lastPage={lastStep}>
+        <Styled.ModalContentWrapper>
+          <Styled.CalculatorHeaderWrapper className="steps">
+            <Styled.CalculatorHeaderInner className="steps">
+              <Logo />
+              {!lastStep && (
+                <Styled.BackButton onClick={handleBackClick}>
+                  {"<"}
+                </Styled.BackButton>
+              )}
+              <Styled.CloseButton onClick={handleClose} />
+            </Styled.CalculatorHeaderInner>
+          </Styled.CalculatorHeaderWrapper>
+          {(lastStep && <CalcualtorResultForm />) || arrayChildren[step]}
+          <Styled.ButtonWrapper className={lastStep ? "last" : undefined}>
+            <Styled.StepButtonWrapper className={lastStep ? "last" : undefined}>
+              {(!lastStep &&
+                stepsCount <= 10 &&
+                new Array(stepsCount).fill(0).map((_, idx) => (
+                  <Styled.GridButtonWrapper key={idx}>
+                    <Styled.StepButton
+                      disabled={values.questionsArr[idx].tieUpDisabled}
+                      className={stepButtonClassName(
+                        idx,
+                        values.questionsArr[idx].tieUpDisabled
+                      )}
+                      onClick={() => handleStepButtonClick(idx)}
+                    >
+                      {idx + 1}
+                    </Styled.StepButton>
+                  </Styled.GridButtonWrapper>
+                ))) || (
+                <Styled.LastStepBackButton onClick={handleBackClick}>
+                  {"<"}
+                </Styled.LastStepBackButton>
+              )}
+              <Styled.GridButtonWrapper>
+                <Styled.StepButton
+                  disabled={
+                    (errors["questionsArr"] &&
+                      errors["questionsArr"].length > 0) ||
+                    false
+                  }
+                  className={
+                    lastStep
+                      ? "active checked"
+                      : stepButtonClassName(
+                          stepsCount,
+                          (errors["questionsArr"] &&
+                            errors["questionsArr"].length > 0) ||
+                            false
+                        )
+                  }
+                  onClick={() => handleStepButtonClick(stepsCount)}
+                >
+                  {stepsCount + 1}
+                </Styled.StepButton>
+              </Styled.GridButtonWrapper>
+            </Styled.StepButtonWrapper>
+            <Styled.StepsMainButtonWrapper>
+              <Styled.StartButton
+                type="submit"
+                className="steps"
+                onClick={onButtonClick}
               >
-                {stepsCount + 1}
-              </Styled.StepButton>
-            </Styled.GridButtonWrapper>
-          </Styled.StepButtonWrapper>
-          <Styled.StepsMainButtonWrapper>
-            <Styled.StartButton
-              type="submit"
-              className="steps"
-              onClick={onButtonClick}
-            >
-              {"<"}&nbsp;{lastStep ? "calculation" : "next"}&nbsp;{">"}
-            </Styled.StartButton>
-          </Styled.StepsMainButtonWrapper>
-        </Styled.ButtonWrapper>
-      </Styled.ModalContentWrapper>
-    </CalculatorStepsModalComponent>
+                {"<"}&nbsp;{lastStep ? "calculation" : "next"}&nbsp;{">"}
+              </Styled.StartButton>
+            </Styled.StepsMainButtonWrapper>
+          </Styled.ButtonWrapper>
+        </Styled.ModalContentWrapper>
+      </CalculatorStepsModalComponent>
+    )) ||
+    null
   );
 };
 

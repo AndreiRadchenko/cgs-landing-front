@@ -8,8 +8,11 @@ export const CalculatorPreviewWrapper = styled.div`
   top: 60%;
   height: 18.833em;
   z-index: 5;
-  &:hover > div > div > div + div {
-    left: 0;
+
+  @media ${themes.primary.media.maxMobile} {
+    height: auto;
+    top: auto;
+    bottom: 0;
   }
 `;
 
@@ -19,10 +22,20 @@ export const CalculatorPreview = styled.div`
   justify-content: flex-end;
   flex-direction: row-reverse;
   position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column-reverse;
+    height: 248px;
+  }
 `;
 
 export const CalculatorPreviewCube = styled.div`
   height: 18.66em;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100vw;
+    height: 248px;
+  }
 `;
 
 export const CalculatorButton = styled.div`
@@ -68,6 +81,26 @@ export const CalculatorButton = styled.div`
 
     transform: skew(-40deg);
     transform-origin: top;
+  }
+
+  &:hover + div {
+    left: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 0.54em 0 1em;
+    writing-mode: horizontal-tb;
+    height: 60px;
+    border-width: 1.8px 0 1.8px 0;
+    font-size: 2.11em;
+
+    &:hover + div {
+      bottom: 0;
+    }
+
+    &::after {
+      content: none;
+    }
   }
 `;
 
@@ -142,8 +175,50 @@ export const CalculatorPreviewContentWrapper = styled.div`
     transform-origin: top;
   }
 
+  &:hover {
+    left: 0;
+  }
+
   @media ${themes.primary.media.minPC} {
     padding-right: 1em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    height: 192px;
+    left: 0;
+    bottom: -77.3%;
+    border-width: 1.8px 0 0 0;
+    font-size: 1.54em;
+    line-height: 160%;
+    padding-inline: 1.2em 2.1875em;
+    row-gap: 10px;
+
+    &::before {
+      content: none;
+    }
+
+    &::after {
+      height: 4px;
+      top: -7.5px;
+      border: 0;
+      border-top: 1.8px solid ${themes.primary.colors.primary};
+      transform: none;
+      background: linear-gradient(270deg, #d6ffbb 8%, #5869dd 90.45%);
+    }
+
+    &:hover {
+      bottom: 0;
+    }
+
+    & > div {
+      display: flex;
+      justify-content: flex-end;
+
+      & > a {
+        padding: 1.3em 2.2em !important;
+      }
+    }
   }
 `;
 
@@ -163,6 +238,13 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media ${themes.primary.media.maxMobile} {
+    &.mobile {
+      width: 356px;
+      height: 637px;
+    }
+  }
 `;
 
 export const ForeignObjectWrapper = styled.div`
@@ -196,6 +278,14 @@ export const CalculatorHeaderInner = styled.div`
   padding-inline: 2.72em;
   display: flex;
   justify-content: space-between;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-inline: 2.12em;
+
+    &.steps {
+      padding-inline: 2em;
+    }
+  }
 `;
 
 export const CloseButton = styled.div`
@@ -221,21 +311,53 @@ export const CloseButton = styled.div`
   &:after {
     transform: rotate(-45deg);
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 15px;
+    height: 15px;
+    &:before,
+    &:after {
+      height: 15px;
+      width: 2px;
+      top: 9px;
+      left: 7px;
+    }
+  }
 `;
 
 export const ImageWrapper = styled.div`
   width: 581px;
   height: 213px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 308px;
+    height: 194px;
+  }
 `;
 
 export const PagerBackgroundImageWrapper = styled.div`
   width: 669px;
   height: 391px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 356px;
+    height: 382px;
+
+    &.mobileChoose {
+      width: 356px;
+      height: 335px;
+    }
+  }
 `;
 
 export const StepsBackgroundImage = styled.div`
   width: 669px;
   height: 647px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 356px;
+    height: 637px;
+  }
 `;
 
 export const LogoWrapper = styled.div`
@@ -265,12 +387,24 @@ export const StartButton = styled.button`
   box-shadow: 7px 2px 0px ${themes.primary.colors.primary};
   background-color: ${themes.primary.colors.headerBorderHover};
   font-family: ${themes.primary.font.family.namu};
+  color: ${themes.primary.colors.primary};
 
   &.steps {
     position: relative;
     right: auto;
     bottom: auto;
     margin-left: 1.5em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 1.175em 1.52em;
+    right: 20px;
+    bottom: 15px;
+    font-size: 1.442em;
+    line-height: 99%;
+    &.steps {
+      margin-left: 0;
+    }
   }
 
   @media ${themes.primary.media.minPC} {
@@ -280,6 +414,9 @@ export const StartButton = styled.button`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.3em;
+    padding: 0.8em 1.9em;
+
     &.steps {
       font-size: 1.3em;
       padding: 0.8em 1.9em;
@@ -290,6 +427,10 @@ export const StartButton = styled.button`
 export const StepsMainButtonWrapper = styled.div`
   display: flex;
   align-items: flex-end;
+
+  @media ${themes.primary.media.maxMobile} {
+    justify-content: flex-end;
+  }
 `;
 
 export const StepButtonWrapper = styled.div`
@@ -318,16 +459,36 @@ export const StepButtonWrapper = styled.div`
     row-gap: 1.2em;
     column-gap: 0.8em;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    row-gap: 1.64em;
+    column-gap: 1.45em;
+    margin-top: 1.4em;
+    padding-left: 1.8em;
+    &.last {
+      margin-top: 1.8em;
+    }
+  }
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-right: 2.9em;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+    margin-right: 2.5em;
+    row-gap: 20px;
+
+    &.last {
+      row-gap: 14px;
+    }
+  }
 `;
 
 export const StepButton = styled.button`
-  width: 100%;
   border: 1.8px solid ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.oneAndHalf};
@@ -365,6 +526,17 @@ export const StepButton = styled.button`
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.2em;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    height: 35px;
+    width: 39px;
+    font-size: 14px;
+    box-shadow: 4.97142px 1.98857px 0px ${themes.primary.colors.primary};
+
+    &.active {
+      width: 81px;
+    }
+  }
 `;
 
 export const GridButtonWrapper = styled.div`
@@ -376,8 +548,30 @@ export const ContentWrapper = styled.div`
   margin-top: 8px;
   margin-left: 8px;
   height: 92%;
-  width: 97%;
+  width: 93.5%;
   overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 20px;
+  }
+
+  &::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${themes.primary.colors.primary};
+    border-radius: 10px;
+  }
 `;
 
 export const PagerText = styled.div`
@@ -385,6 +579,34 @@ export const PagerText = styled.div`
   font-size: ${themes.primary.font.size.oneAndHalf};
   font-family: ${themes.primary.font.family.namu};
   line-height: 160%;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding: 10px 0 10px 18px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding-top: 12px;
+    font-size: 1.7em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.346em;
+    padding-top: 16px;
+    padding-left: 8px;
+
+    & br {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.minPC} {
+    padding: 10px 0 10px 18px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    padding-top: 0.8em;
+    font-size: ${themes.primary.font.size.tertiary};
+  }
 `;
 
 export const CalculatorPagerLeftButton = styled.g`
@@ -408,6 +630,11 @@ export const Loader = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   mix-blend-mode: multiply;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 export const PressButtonWrapper = styled.div`
@@ -416,11 +643,22 @@ export const PressButtonWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    align-items: flex-start;
+  }
 `;
 
 export const PressButtonText = styled.div`
   font-family: ${themes.primary.font.family.pressStart};
   font-size: 20px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 40px;
+    width: 56%;
+    font-size: 16px;
+    line-height: 183%;
+  }
 `;
 
 export const PressButtonImageWrapper = styled.div`
@@ -429,6 +667,13 @@ export const PressButtonImageWrapper = styled.div`
   right: 5.5em;
   width: 48.62px;
   height: 38.81px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 34.26px;
+    height: 27.35px;
+    right: 3.5em;
+    bottom: 1.1em;
+  }
 `;
 
 export const ChooseModalWrapper = styled.div`
@@ -439,22 +684,28 @@ export const ChooseModalWrapper = styled.div`
   row-gap: 1.1em;
   top: 7em;
   padding-inline: 2.666em;
+
+  @media ${themes.primary.media.maxMobile} {
+    row-gap: 14px;
+    top: 8.5em;
+    padding-inline: 2.12em;
+  }
 `;
 
 export const ChooseText = styled.div`
-  margin-top: 0.42em;
   text-transform: uppercase;
   height: 83.5%;
   width: 97.3%;
-  display: flex;
+  margin-top: 0.42em;
   margin-left: 0.38em;
   padding-left: 0.72em;
-  align-items: center;
   font-size: 1.666em;
   font-family: ${themes.primary.font.family.namu};
   line-height: 160%;
   cursor: pointer;
   transition: color 0.15s, background-color 0.3s;
+  display: flex;
+  align-items: center;
 
   &:hover {
     color: ${themes.primary.colors.darkBlue};
@@ -463,6 +714,15 @@ export const ChooseText = styled.div`
   &:active {
     background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    display: block;
+    transform: translateY(1.5em);
+    margin-left: 0.3em;
+    font-size: 1.346em;
+    height: 87.5%;
+    width: 97%;
   }
 `;
 
@@ -474,6 +734,12 @@ export const BackButton = styled.div`
   font-size: 32.25px;
   line-height: 132%;
   font-family: ${themes.primary.font.family.namu};
+
+  @media ${themes.primary.media.maxMobile} {
+    right: 55px;
+    top: 1px;
+    font-size: 22px;
+  }
 `;
 
 export const CalculatorFieldWrapper = styled.div`
@@ -530,8 +796,67 @@ export const CalculatorFieldWrapper = styled.div`
 
   &.email {
     margin-top: 16px;
-
     min-height: 80px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-inline: 17px;
+    border-radius: 5px;
+    &.title {
+      height: 64px;
+      max-height: 64px;
+    }
+
+    &.last {
+      height: 160px;
+      max-height: 160px;
+
+      &::before {
+        width: 5px;
+        top: 1px;
+      }
+
+      &::after {
+        top: 6px;
+        right: -0.5px;
+      }
+    }
+
+    &.email {
+      min-height: 64px;
+      height: 64px;
+    }
+
+    &::before,
+    &::after {
+      height: 1.2px;
+      width: 5px;
+    }
+
+    &::before {
+      width: 6px;
+      top: 0px;
+      right: 2px;
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      top: 5px;
+      right: -1.3px;
+      transform: rotate(-45deg);
+    }
+
+    &.input {
+      margin-top: 0;
+      max-height: 254px;
+      height: 254px;
+      &::before {
+        width: 5px;
+      }
+    }
+    &.email {
+      margin-bottom: 0px;
+    }
   }
 `;
 
@@ -543,6 +868,22 @@ export const LeftBlackBorder = styled.div`
   background: ${themes.primary.colors.primary};
   border-radius: 6px 0 0 6px;
   z-index: 2;
+
+  @media ${themes.primary.media.maxMobile} {
+    top: -0.5px;
+    left: -0.5px;
+    width: 3px;
+    height: 104%;
+    border-radius: 3px 0 0 3px;
+
+    &.input {
+      height: 101%;
+    }
+
+    &.last {
+      height: 101%;
+    }
+  }
 `;
 
 export const ModalContentWrapper = styled.div`
@@ -597,13 +938,7 @@ export const CalculatorField = styled.div`
     border-radius: 10px;
   }
 
-  &::before {
-    content: "";
-    display: inline-block;
-    height: 0.53em;
-    width: 100%;
-  }
-
+  &::before,
   &::after {
     content: "";
     display: inline-block;
@@ -632,9 +967,26 @@ export const CalculatorField = styled.div`
   }
 
   &.last {
+    margin-top: 2px;
     padding-top: 0.5em;
     height: 96%;
     min-height: 96%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    min-height: 95%;
+    height: 95%;
+    font-size: 1.346em;
+    width: 98.4%;
+    margin: 3px 0 0 3px;
+
+    &.last {
+      padding-right: 3em;
+      min-height: 99%;
+      height: 99%;
+      font-size: 1.5em;
+      line-height: 160%;
+    }
   }
 `;
 
@@ -650,8 +1002,8 @@ export const CalculatorInputFields = styled.div`
   margin: 6px 0px 0 4px;
   background-color: ${themes.primary.colors.blogBackground};
   font-family: ${themes.primary.font.family.namu};
-  overflow-y: auto;
   padding: 1.875em 1em 0 1em;
+  overflow-y: auto;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -669,6 +1021,24 @@ export const CalculatorInputFields = styled.div`
   &.email {
     padding-block: 1.5em;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.346em;
+    height: 99.2%;
+    width: 98.4%;
+    margin: 2px 0 0 3px;
+    padding: 0.7em 1em 0 0.5em;
+
+    &.email {
+      height: 97%;
+      padding-block: 1.2em;
+      padding-right: 0;
+    }
+
+    &::before {
+      height: 0.35em;
+    }
+  }
 `;
 
 export const SubStepWrapper = styled.div``;
@@ -684,6 +1054,11 @@ export const HorizontalLine = styled.div`
 export const ResultImageWrapper = styled.div`
   width: 669px;
   height: 463px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 356px;
+    height: 481px;
+  }
 `;
 
 export const LastStepBackButton = styled(StepButton)`
@@ -696,6 +1071,10 @@ export const ErrorMessage = styled.div`
   font-size: 1.333em;
   padding-left: 2.4em;
   color: ${themes.primary.colors.errorText};
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-left: 1.8em;
+  }
 `;
 
 export const EmailInputWrapper = styled.div`
@@ -707,4 +1086,16 @@ export const FinishTextWrapper = styled.div`
   line-height: 160%;
   font-family: ${themes.primary.font.family.namu};
   padding: 1.2em 1em;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.346em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 0;
+    & span:nth-child(2) br {
+      display: none;
+    }
+  }
 `;

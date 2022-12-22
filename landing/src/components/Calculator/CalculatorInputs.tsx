@@ -63,7 +63,7 @@ const CalculatorInputs = ({
 
   return (
     <Styled.CalculatorFieldWrapper className="input">
-      <Styled.LeftBlackBorder />
+      <Styled.LeftBlackBorder className="input" />
       <Styled.CalculatorInputFields>
         {options.map((input, idx) => (
           <OptionWrapper key={idx}>

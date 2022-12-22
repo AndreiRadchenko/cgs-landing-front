@@ -11,7 +11,7 @@ const CalculatorTitleField = ({ text, className }: ICalculatorTitleField) => {
 
   return (
     <Styled.CalculatorFieldWrapper className={fieldClassName}>
-      <Styled.LeftBlackBorder />
+      <Styled.LeftBlackBorder className={className} />
       <Styled.CalculatorField
         className={className}
         dangerouslySetInnerHTML={{ __html: text }}
