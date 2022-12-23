@@ -339,6 +339,7 @@ export const AdminPhotoGrid = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  margin-top: 20px;
 
   &.fullWidth {
     width: 90%;
@@ -359,7 +360,6 @@ export const AdminDashedPositionGrid = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 22%;
 
   &.uploaded {
     margin-top: 0;
@@ -1536,4 +1536,10 @@ export const AdminPageReviewBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: 25px;
+`;
+
+export const AdminImageWrapper = styled.div`
+  position: relative;
+  height: 180px;
+  width: 100%;
 `;
