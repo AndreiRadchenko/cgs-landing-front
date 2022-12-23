@@ -181,6 +181,9 @@ export const CalculatorPreviewContentWrapper = styled.div`
 
   @media ${themes.primary.media.minPC} {
     padding-right: 1em;
+    &::before {
+      height: 98.6%;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -388,28 +391,30 @@ export const StartButton = styled.button`
   background-color: ${themes.primary.colors.headerBorderHover};
   font-family: ${themes.primary.font.family.namu};
   color: ${themes.primary.colors.primary};
+  z-index: 2;
 
   &.steps {
     position: relative;
     right: auto;
     bottom: auto;
-    margin-left: 1.5em;
+  }
+
+  &.invalid + div {
+    opacity: 1;
   }
 
   @media ${themes.primary.media.maxMobile} {
     padding: 1.175em 1.52em;
     right: 20px;
     bottom: 15px;
-    font-size: 1.442em;
+    font-size: 1.346em;
     line-height: 99%;
+    box-shadow: 5.52438px 1.57839px 0px ${themes.primary.colors.primary};
+    &.quit {
+      padding: 1.27em 0.81em;
+    }
     &.steps {
       margin-left: 0;
-    }
-  }
-
-  @media ${themes.primary.media.minPC} {
-    &.steps {
-      margin-left: 1em;
     }
   }
 
@@ -427,6 +432,13 @@ export const StartButton = styled.button`
 export const StepsMainButtonWrapper = styled.div`
   display: flex;
   align-items: flex-end;
+  flex-direction: column-reverse;
+  position: relative;
+  margin-left: 1.5em;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-left: 1em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     justify-content: flex-end;
@@ -444,7 +456,7 @@ export const StepButtonWrapper = styled.div`
   column-gap: 1.6em;
 
   &.last {
-    margin-top: 2em;
+    margin-top: 1.2em;
     justify-content: flex-start;
   }
 
@@ -523,8 +535,8 @@ export const StepButton = styled.button`
     opacity: 0.3;
   }
 
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 1.2em;
+  @media ${themes.primary.media.minPC} {
+    font-size: 18px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -799,6 +811,13 @@ export const CalculatorFieldWrapper = styled.div`
     min-height: 80px;
   }
 
+  &.quit {
+    width: 100%;
+    margin-top: -30px;
+    min-height: 167px;
+    height: 167px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-inline: 17px;
     border-radius: 5px;
@@ -825,6 +844,12 @@ export const CalculatorFieldWrapper = styled.div`
     &.email {
       min-height: 64px;
       height: 64px;
+    }
+
+    &.quit {
+      margin-top: 10px;
+      min-height: 156px;
+      height: 156px;
     }
 
     &::before,
@@ -883,6 +908,10 @@ export const LeftBlackBorder = styled.div`
     &.last {
       height: 101%;
     }
+
+    &.quit {
+      height: 101%;
+    }
   }
 `;
 
@@ -905,7 +934,7 @@ export const CalculatorField = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-inline: 0.75em;
+  padding: 0.53em 0.75em;
   line-height: 132%;
   margin: 6px 0px 0 4px;
   background-color: ${themes.primary.colors.blogBackground};
@@ -914,6 +943,45 @@ export const CalculatorField = styled.div`
 
   & p {
     margin: 0;
+  }
+
+  & span[style] {
+    font-size: 16px;
+  }
+
+  & .__se__t-upper {
+    text-transform: uppercase;
+  }
+
+  & .__se__t-lower {
+    text-transform: lowercase;
+  }
+
+  & .__se__t-first-letter-capitalize {
+    display: block;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &.text {
+    margin-top: 16px;
+  }
+
+  &.last {
+    margin-top: 5px;
+    padding-top: 0.5em;
+    height: 97%;
+    min-height: 96%;
+  }
+
+  &.quit {
+    padding-top: 0.8em;
+    line-height: 160%;
+    min-height: 96%;
+    height: 96%;
+    font-size: ${themes.primary.font.size.oneAndHalf};
   }
 
   &::-webkit-scrollbar {
@@ -938,41 +1006,6 @@ export const CalculatorField = styled.div`
     border-radius: 10px;
   }
 
-  &::before,
-  &::after {
-    content: "";
-    display: inline-block;
-    height: 0.53em;
-    width: 100%;
-  }
-
-  & .__se__t-upper {
-    text-transform: uppercase;
-  }
-
-  & .__se__t-lower {
-    text-transform: lowercase;
-  }
-
-  & .__se__t-first-letter-capitalize {
-    display: block;
-
-    &:first-letter {
-      text-transform: uppercase;
-    }
-  }
-
-  &.text {
-    margin-top: 16px;
-  }
-
-  &.last {
-    margin-top: 2px;
-    padding-top: 0.5em;
-    height: 96%;
-    min-height: 96%;
-  }
-
   @media ${themes.primary.media.maxMobile} {
     min-height: 95%;
     height: 95%;
@@ -980,10 +1013,20 @@ export const CalculatorField = styled.div`
     width: 98.4%;
     margin: 3px 0 0 3px;
 
+    &.quit {
+      min-height: 98.5%;
+      height: 98.5%;
+      padding-right: 0;
+
+      & br {
+        display: none;
+      }
+    }
+
     &.last {
       padding-right: 3em;
-      min-height: 99%;
-      height: 99%;
+      min-height: 97%;
+      height: 97%;
       font-size: 1.5em;
       line-height: 160%;
     }
@@ -1002,7 +1045,7 @@ export const CalculatorInputFields = styled.div`
   margin: 6px 0px 0 4px;
   background-color: ${themes.primary.colors.blogBackground};
   font-family: ${themes.primary.font.family.namu};
-  padding: 1.875em 1em 0 1em;
+  padding: 1.5em 1em 0 1em;
   overflow-y: auto;
 
   &::-webkit-scrollbar {
@@ -1067,13 +1110,16 @@ export const LastStepBackButton = styled(StepButton)`
 
 export const ErrorMessage = styled.div`
   position: absolute;
-  bottom: -1.3em;
-  font-size: 1.333em;
-  padding-left: 2.4em;
-  color: ${themes.primary.colors.errorText};
+  font-size: 14px;
+  padding-left: 2.8em;
+  font-family: ${themes.primary.font.family.namu};
+  line-height: 150%;
+  bottom: -1.5em;
+  color: ${themes.primary.colors.adminRed};
 
   @media ${themes.primary.media.maxMobile} {
-    padding-left: 1.8em;
+    bottom: -1.35em;
+    padding-left: 1.6em;
   }
 `;
 
@@ -1098,4 +1144,59 @@ export const FinishTextWrapper = styled.div`
       display: none;
     }
   }
+`;
+
+export const QuitButton = styled.button`
+  position: absolute;
+  right: 290px;
+  bottom: 35px;
+  cursor: pointer;
+  padding: 1.105em 2.05em;
+  border-radius: 0.52em;
+  font-size: 1.5833em;
+  text-transform: uppercase;
+  border: 1.8px solid ${themes.primary.colors.primary};
+  box-shadow: 7px 2px 0px ${themes.primary.colors.primary};
+  background-color: ${themes.primary.colors.blogBackground};
+  font-family: ${themes.primary.font.family.namu};
+  color: ${themes.primary.colors.primary};
+
+  @media ${themes.primary.media.maxMobile} {
+    box-shadow: 5.52438px 1.57839px 0px ${themes.primary.colors.primary};
+    font-size: 1.346em;
+    padding: 1.17em 2.09em;
+    right: 165px;
+    bottom: 15px;
+  }
+`;
+
+export const PopoverWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  top: -6px;
+  left: -11px;
+  transition: opacity 0.3s;
+  opacity: 0;
+`;
+
+export const PopoverContent = styled.div`
+  font-size: 13px;
+  line-height: 150%;
+  width: 199px;
+  height: 74px;
+  font-family: ${themes.primary.font.family.namu};
+  color: ${themes.primary.colors.blogBackground};
+  background-color: ${themes.primary.colors.primary};
+  text-align: center;
+  padding: 7px 6px;
+  border-radius: 6px;
+`;
+
+export const PopoverTriangle = styled.div`
+  border-left: 6.5px solid transparent;
+  border-right: 6.5px solid transparent;
+  border-top: 6.5px solid ${themes.primary.colors.primary};
+  bottom: 0px;
 `;

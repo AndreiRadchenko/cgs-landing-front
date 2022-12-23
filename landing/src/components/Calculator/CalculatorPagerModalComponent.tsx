@@ -6,6 +6,8 @@ interface ICalculatorModalComponentProps {
   buttonText: string;
   onClose: () => void;
   onButtonClick: () => void;
+  onQuitButtonClick?: () => void;
+  isQuiting?: boolean;
   children: ReactNode;
   mobile?: boolean;
 }
@@ -14,6 +16,8 @@ const CalculatorModalComponent = ({
   buttonText,
   onClose,
   onButtonClick,
+  isQuiting,
+  onQuitButtonClick,
   mobile,
   children,
 }: ICalculatorModalComponentProps) => {
@@ -27,7 +31,15 @@ const CalculatorModalComponent = ({
           </Styled.CalculatorHeaderInner>
         </Styled.CalculatorHeaderWrapper>
         {children}
-        <Styled.StartButton onClick={onButtonClick}>
+        {isQuiting && (
+          <Styled.QuitButton onClick={onQuitButtonClick}>
+            {"< quit >"}
+          </Styled.QuitButton>
+        )}
+        <Styled.StartButton
+          onClick={onButtonClick}
+          className={isQuiting ? "quit" : undefined}
+        >
           {buttonText}
         </Styled.StartButton>
       </Styled.ForeignObjectWrapper>
@@ -38,11 +50,13 @@ const CalculatorModalComponent = ({
     <Styled.Wrapper>
       <Styled.PagerBackgroundImageWrapper
         className={
-          mobile && buttonText === "< choose >" ? "mobileChoose" : undefined
+          mobile && (buttonText === "< choose >" || isQuiting)
+            ? "mobileChoose"
+            : undefined
         }
       >
         {mobile ? (
-          buttonText === "< choose >" ? (
+          buttonText === "< choose >" || isQuiting ? (
             <svg
               width="100%"
               height="100%"

@@ -658,6 +658,12 @@ export interface ICalculatorPostResultsProps {
   isBlockchain: boolean;
 }
 
+export interface ICalculatorPostEmailResultsProps {
+  answers: ICalculatorQuestion[];
+  isBlockchain: boolean;
+  email: string;
+}
+
 export interface ICalculatorFormValuesProps {
   questionsArr: ICalculatorQuestion[];
   email: string;

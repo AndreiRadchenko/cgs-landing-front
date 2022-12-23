@@ -1,6 +1,7 @@
 import { Field, Form } from "formik";
 import styled from "styled-components";
 import themes from "../../utils/themes";
+import { errorColorAnimation } from "../Animations.styled";
 
 export const InputWrapper = styled.div`
   width: 80%;
@@ -254,6 +255,9 @@ export const TieUpInput = styled(Field)`
     font-size: 1.125em;
     font-family: ${themes.primary.font.family.namu};
 
+    &.invalid {
+      animation: ${errorColorAnimation} 1.5s ease-in-out;
+    }
     &::placeholder {
       color: ${themes.primary.colors.calculatorEmailPlaceholder};
     }
