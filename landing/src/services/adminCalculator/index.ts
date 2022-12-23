@@ -3,6 +3,7 @@ import { HttpServiceFactory } from "../index";
 import {
   ICalculator,
   ICalculatorAnswersResults,
+  ICalculatorPostEmailResultsProps,
   ICalculatorPostResultsProps,
   ICalculatorStep,
   ICalculatorSubStep,
@@ -72,6 +73,12 @@ export class AdminCalculatorService {
     answers: ICalculatorPostResultsProps
   ): Promise<void | ICalculatorAnswersResults> {
     return this.httpService.post("api/calculator/results", answers);
+  }
+
+  public sendResultsEmail(
+    answers: ICalculatorPostEmailResultsProps
+  ): Promise<void> {
+    return this.httpService.post("api/calculator/mail", answers);
   }
 
   public deleteClassicSubStepById(id: string) {

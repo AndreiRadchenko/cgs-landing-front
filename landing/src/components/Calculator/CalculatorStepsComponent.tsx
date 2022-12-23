@@ -1,8 +1,7 @@
 import React, { Children, ReactNode } from "react";
 import {
-  ICalculatorAnswersResults,
   ICalculatorFormValuesProps,
-  ICalculatorPostResultsProps,
+  ICalculatorPostEmailResultsProps,
   ICalculatorStep,
 } from "../../types/Admin/Response.types";
 import { Formik } from "formik";
@@ -11,12 +10,14 @@ import { CalculatorValidation } from "../../validations/CalculatorValidation";
 import { queryKeys } from "../../consts/queryKeys";
 import { useMutation } from "@tanstack/react-query";
 import { adminCalculatorService } from "../../services/adminCalculator";
+import CalculatorQuittingPager from "./CalculatorQuttingPager";
 
 interface ICalculatorStepsComponentProps {
   step: number;
   previousSteps: number[];
   stepsCount: number;
   handleClose: () => void;
+  handleEmailClose: () => void;
   data: ICalculatorStep[];
   setIsChosen: React.Dispatch<React.SetStateAction<boolean>>;
   setStep: React.Dispatch<React.SetStateAction<number>>;
@@ -24,7 +25,11 @@ interface ICalculatorStepsComponentProps {
   setIsCompleted: React.Dispatch<React.SetStateAction<boolean>>;
   isBlockchain: boolean;
   calculateIsClicked: boolean;
+  isQuitting: boolean;
+  setIsQuitting: React.Dispatch<React.SetStateAction<boolean>>;
   setCalculateIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  warnIsShow: boolean;
+  setWarnIsShow: React.Dispatch<React.SetStateAction<boolean>>;
   children: ReactNode;
 }
 
@@ -42,6 +47,11 @@ const CalculatorStepsComponent = ({
   isBlockchain,
   calculateIsClicked,
   setCalculateIsClicked,
+  isQuitting,
+  setIsQuitting,
+  handleEmailClose,
+  warnIsShow,
+  setWarnIsShow,
 }: ICalculatorStepsComponentProps) => {
   const arrayChildren = Children.toArray(children);
 
@@ -55,12 +65,8 @@ const CalculatorStepsComponent = ({
         old.splice(-1);
         return old;
       });
+      setWarnIsShow(false);
     }
-  };
-
-  const handleStepButtonClick = (idx: number) => {
-    idx !== stepsCount - 1 && setPreviousSteps((old) => [...old, step]);
-    setStep(idx);
   };
 
   const initialValues = {
@@ -75,19 +81,24 @@ const CalculatorStepsComponent = ({
   };
 
   const { mutate } = useMutation(
-    [queryKeys.postCalculatorResults],
-    (answers: ICalculatorPostResultsProps) =>
-      adminCalculatorService.countResults(answers),
+    [queryKeys.sendEmailResults],
+    (answers: ICalculatorPostEmailResultsProps) =>
+      adminCalculatorService.sendResultsEmail(answers),
     {
-      onSuccess: (data: ICalculatorAnswersResults | void) =>
-        data && setIsCompleted(true),
+      onSuccess: (data: ICalculatorPostEmailResultsProps | void) =>
+        console.log(data),
     }
   );
 
+  const handleContinueClick = () => {
+    setIsQuitting(false);
+  };
+
   const onSubmit = (values: ICalculatorFormValuesProps) => {
-    const { isBlockchain, questionsArr } = values;
+    const { isBlockchain, questionsArr, email } = values;
     // do e-mail work
-    mutate({ answers: questionsArr, isBlockchain });
+    mutate({ answers: questionsArr, isBlockchain, email });
+    setIsCompleted(true);
   };
 
   return (
@@ -97,18 +108,28 @@ const CalculatorStepsComponent = ({
       validationSchema={CalculatorValidation}
       validateOnMount
     >
-      <CalculatorStepsFormContent
-        handleBackClick={handleBackClick}
-        handleClose={handleClose}
-        handleStepButtonClick={handleStepButtonClick}
-        setPreviousSteps={setPreviousSteps}
-        setStep={setStep}
-        step={step}
-        stepsCount={stepsCount}
-        calculateIsClicked={calculateIsClicked}
-        setCalculateIsClicked={setCalculateIsClicked}
-        arrayChildren={arrayChildren}
-      />
+      {isQuitting ? (
+        <CalculatorQuittingPager
+          handleClose={handleClose}
+          handleQuitClick={handleClose}
+          handleContinueClick={handleContinueClick}
+        />
+      ) : (
+        <CalculatorStepsFormContent
+          handleBackClick={handleBackClick}
+          handleClose={handleClose}
+          setPreviousSteps={setPreviousSteps}
+          setStep={setStep}
+          step={step}
+          stepsCount={stepsCount}
+          calculateIsClicked={calculateIsClicked}
+          setCalculateIsClicked={setCalculateIsClicked}
+          handleEmailClose={handleEmailClose}
+          warnIsShow={warnIsShow}
+          setWarnIsShow={setWarnIsShow}
+          arrayChildren={arrayChildren}
+        />
+      )}
     </Formik>
   );
 };

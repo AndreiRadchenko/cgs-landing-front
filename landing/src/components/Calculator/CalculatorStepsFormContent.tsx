@@ -14,30 +14,34 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useMutation } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCalculatorService } from "../../services/adminCalculator";
+import CalculatorPopover from "./CalculatorPopover";
 
 interface ICalculatorStepsFormContentProps {
   handleBackClick: () => void;
   handleClose: () => void;
+  handleEmailClose: () => void;
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
   setPreviousSteps: React.Dispatch<React.SetStateAction<number[]>>;
   stepsCount: number;
   calculateIsClicked: boolean;
   setCalculateIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
-
+  warnIsShow: boolean;
+  setWarnIsShow: React.Dispatch<React.SetStateAction<boolean>>;
   arrayChildren: Array<Exclude<ReactNode, boolean | null | undefined>>;
-  handleStepButtonClick: (idx: number) => void;
 }
 
 const CalculatorStepsFormContent = ({
   handleBackClick,
   handleClose,
+  handleEmailClose,
   step,
   setStep,
   setPreviousSteps,
   stepsCount,
   arrayChildren,
-  handleStepButtonClick,
+  warnIsShow,
+  setWarnIsShow,
   calculateIsClicked,
   setCalculateIsClicked,
 }: ICalculatorStepsFormContentProps) => {
@@ -83,14 +87,36 @@ const CalculatorStepsFormContent = ({
     }
   );
 
+  const handleStepButtonClick = (idx: number) => {
+    if (
+      idx === stepsCount &&
+      !warnIsShow &&
+      errors["questionsArr"] &&
+      errors["questionsArr"].length > 0
+    ) {
+      setWarnIsShow(true);
+    } else {
+      setWarnIsShow(false);
+      idx !== stepsCount - 1 && setPreviousSteps((old) => [...old, step]);
+      setStep(idx);
+    }
+  };
+
   const onButtonClick = () => {
     if (lastStep) {
       setCalculateIsClicked(true);
       isValid && handleSubmit();
     } else if (
+      step + 1 === stepsCount &&
+      errors["questionsArr"] &&
+      errors["questionsArr"].length > 0
+    ) {
+      setWarnIsShow(true);
+    } else if (
       step + 1 < stepsCount &&
       !values.questionsArr[step + 1].tieUpDisabled
     ) {
+      warnIsShow && setWarnIsShow(false);
       setStep((old) => {
         setPreviousSteps((prev) => [...prev, old]);
         return old + 1;
@@ -99,14 +125,15 @@ const CalculatorStepsFormContent = ({
       step + 2 < stepsCount &&
       values.questionsArr[step + 1].tieUpDisabled
     ) {
+      warnIsShow && setWarnIsShow(false);
       setStep((old) => {
         setPreviousSteps((prev) => [...prev, old]);
         return old + 2;
       });
     } else if (!(errors["questionsArr"] && errors["questionsArr"].length > 0)) {
+      warnIsShow && setWarnIsShow(false);
       setPreviousSteps((prev) => [...prev, stepsCount]);
       setStep(stepsCount);
-      handleSubmit();
     }
   };
 
@@ -134,7 +161,9 @@ const CalculatorStepsFormContent = ({
                     {"<"}
                   </Styled.BackButton>
                 )}
-                <Styled.CloseButton onClick={handleClose} />
+                <Styled.CloseButton
+                  onClick={lastStep ? handleEmailClose : handleClose}
+                />
               </Styled.CalculatorHeaderInner>
             </Styled.CalculatorHeaderWrapper>
             {(lastStep && (
@@ -171,21 +200,12 @@ const CalculatorStepsFormContent = ({
                 )}
                 <Styled.GridButtonWrapper>
                   <Styled.StepButton
-                    disabled={
-                      (errors["questionsArr"] &&
-                        errors["questionsArr"].length > 0) ||
-                      false
-                    }
-                    className={
-                      lastStep
-                        ? "active checked"
-                        : stepButtonClassName(
-                            stepsCount,
-                            (errors["questionsArr"] &&
-                              errors["questionsArr"].length > 0) ||
-                              false
-                          )
-                    }
+                    // disabled={
+                    //   (errors["questionsArr"] &&
+                    //     errors["questionsArr"].length > 0) ||
+                    //   false
+                    // }
+                    className={lastStep ? "active checked" : undefined}
                     onClick={() => handleStepButtonClick(stepsCount)}
                   >
                     {stepsCount + 1}
@@ -195,11 +215,12 @@ const CalculatorStepsFormContent = ({
               <Styled.StepsMainButtonWrapper>
                 <Styled.StartButton
                   type="submit"
-                  className="steps"
+                  className={`steps ${warnIsShow ? "invalid" : ""}`}
                   onClick={onButtonClick}
                 >
                   {"<"}&nbsp;{lastStep ? "calculation" : "next"}&nbsp;{">"}
                 </Styled.StartButton>
+                <CalculatorPopover />
               </Styled.StepsMainButtonWrapper>
             </Styled.ButtonWrapper>
           </Styled.ModalContentWrapper>

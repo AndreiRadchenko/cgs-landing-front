@@ -391,28 +391,30 @@ export const StartButton = styled.button`
   background-color: ${themes.primary.colors.headerBorderHover};
   font-family: ${themes.primary.font.family.namu};
   color: ${themes.primary.colors.primary};
+  z-index: 2;
 
   &.steps {
     position: relative;
     right: auto;
     bottom: auto;
-    margin-left: 1.5em;
+  }
+
+  &.invalid + div {
+    opacity: 1;
   }
 
   @media ${themes.primary.media.maxMobile} {
     padding: 1.175em 1.52em;
     right: 20px;
     bottom: 15px;
-    font-size: 1.442em;
+    font-size: 1.346em;
     line-height: 99%;
+    box-shadow: 5.52438px 1.57839px 0px ${themes.primary.colors.primary};
+    &.quit {
+      padding: 1.27em 0.81em;
+    }
     &.steps {
       margin-left: 0;
-    }
-  }
-
-  @media ${themes.primary.media.minPC} {
-    &.steps {
-      margin-left: 1em;
     }
   }
 
@@ -430,6 +432,13 @@ export const StartButton = styled.button`
 export const StepsMainButtonWrapper = styled.div`
   display: flex;
   align-items: flex-end;
+  flex-direction: column-reverse;
+  position: relative;
+  margin-left: 1.5em;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-left: 1em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     justify-content: flex-end;
@@ -802,6 +811,13 @@ export const CalculatorFieldWrapper = styled.div`
     min-height: 80px;
   }
 
+  &.quit {
+    width: 100%;
+    margin-top: -30px;
+    min-height: 167px;
+    height: 167px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-inline: 17px;
     border-radius: 5px;
@@ -828,6 +844,12 @@ export const CalculatorFieldWrapper = styled.div`
     &.email {
       min-height: 64px;
       height: 64px;
+    }
+
+    &.quit {
+      margin-top: 10px;
+      min-height: 156px;
+      height: 156px;
     }
 
     &::before,
@@ -884,6 +906,10 @@ export const LeftBlackBorder = styled.div`
     }
 
     &.last {
+      height: 101%;
+    }
+
+    &.quit {
       height: 101%;
     }
   }
@@ -950,6 +976,14 @@ export const CalculatorField = styled.div`
     min-height: 96%;
   }
 
+  &.quit {
+    padding-top: 0.8em;
+    line-height: 160%;
+    min-height: 96%;
+    height: 96%;
+    font-size: ${themes.primary.font.size.oneAndHalf};
+  }
+
   &::-webkit-scrollbar {
     width: 4px;
   }
@@ -978,6 +1012,16 @@ export const CalculatorField = styled.div`
     font-size: 1.346em;
     width: 98.4%;
     margin: 3px 0 0 3px;
+
+    &.quit {
+      min-height: 98.5%;
+      height: 98.5%;
+      padding-right: 0;
+
+      & br {
+        display: none;
+      }
+    }
 
     &.last {
       padding-right: 3em;
@@ -1100,4 +1144,59 @@ export const FinishTextWrapper = styled.div`
       display: none;
     }
   }
+`;
+
+export const QuitButton = styled.button`
+  position: absolute;
+  right: 290px;
+  bottom: 35px;
+  cursor: pointer;
+  padding: 1.105em 2.05em;
+  border-radius: 0.52em;
+  font-size: 1.5833em;
+  text-transform: uppercase;
+  border: 1.8px solid ${themes.primary.colors.primary};
+  box-shadow: 7px 2px 0px ${themes.primary.colors.primary};
+  background-color: ${themes.primary.colors.blogBackground};
+  font-family: ${themes.primary.font.family.namu};
+  color: ${themes.primary.colors.primary};
+
+  @media ${themes.primary.media.maxMobile} {
+    box-shadow: 5.52438px 1.57839px 0px ${themes.primary.colors.primary};
+    font-size: 1.346em;
+    padding: 1.17em 2.09em;
+    right: 165px;
+    bottom: 15px;
+  }
+`;
+
+export const PopoverWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  top: -6px;
+  left: -11px;
+  transition: opacity 0.3s;
+  opacity: 0;
+`;
+
+export const PopoverContent = styled.div`
+  font-size: 13px;
+  line-height: 150%;
+  width: 199px;
+  height: 74px;
+  font-family: ${themes.primary.font.family.namu};
+  color: ${themes.primary.colors.blogBackground};
+  background-color: ${themes.primary.colors.primary};
+  text-align: center;
+  padding: 7px 6px;
+  border-radius: 6px;
+`;
+
+export const PopoverTriangle = styled.div`
+  border-left: 6.5px solid transparent;
+  border-right: 6.5px solid transparent;
+  border-top: 6.5px solid ${themes.primary.colors.primary};
+  bottom: 0px;
 `;
