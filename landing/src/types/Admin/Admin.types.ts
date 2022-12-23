@@ -2,6 +2,7 @@ import { IPropsWithImage } from "./BlockProps";
 import { IEditInformation, IPointsData } from "./Response.types";
 import { FieldArrayRenderProps } from "formik";
 import { IDataCareersResponse } from "./Response.types";
+import { CSSProperties } from "react";
 export interface IAdmin {
   username: string;
   password: string;
@@ -17,7 +18,8 @@ export interface IPhotoBlock extends IPropsWithImage {
   deleteFlag?: boolean;
   header?: string;
   className?: string;
-  style?: any;
+  style?: CSSProperties;
+  imageStyle?: CSSProperties;
 }
 
 export interface InputPropsInterface {

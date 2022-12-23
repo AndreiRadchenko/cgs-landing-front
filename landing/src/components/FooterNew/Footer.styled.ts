@@ -36,7 +36,7 @@ export const FlexRowContainer = styled.div`
 export const Email = styled.a`
   display: flex;
   align-items: center;
-  margin-left: 17px;
+  margin-left: 20px;
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.email};
   color: ${themes.primary.colors.primary};
@@ -133,18 +133,26 @@ export const ListItemNav = styled.a`
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.headerLinkText};
-  max-width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-left: 1px solid ${themes.primary.colors.headerBorder};
   cursor: pointer;
   transition: 300ms;
+  width: 136px;
 
   &:hover {
     transition: 0.3s linear;
     border-right: 1.5px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 115px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 60px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -156,62 +164,7 @@ export const ListItemNav = styled.a`
     &:nth-child(n) {
       padding: 0;
     }
-  }
 
-  &:hover {
-    transition: 0.3s linear;
-    border-right: 1.5px solid ${themes.primary.colors.primary} !important;
-    border-bottom: 7px solid ${themes.primary.colors.primary} !important;
-  }
-
-  &:nth-child(1) {
-    width: 157px;
-  }
-  &:nth-child(2) {
-    width: 163px;
-  }
-  &:nth-child(3) {
-    width: 180px;
-  }
-  &:nth-child(4) {
-    width: 136px;
-  }
-
-  @media (max-width: 1280px) {
-    &:nth-child(1) {
-      width: 130px;
-    }
-    &:nth-child(2) {
-      width: 135px;
-    }
-    &:nth-child(3) {
-      width: 150px;
-    }
-    &:nth-child(4) {
-      width: 113px;
-    }
-  }
-
-  @media (max-width: 1110px) {
-    &:nth-child(1) {
-      width: 109px;
-    }
-    &:nth-child(2) {
-      width: 113px;
-    }
-    &:nth-child(3) {
-      width: 125px;
-    }
-    &:nth-child(4) {
-      width: 94px;
-    }
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    width: 25%;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
     &:hover {
       border-right: none !important;
       border-bottom: none !important;
@@ -248,10 +201,6 @@ export const NavList = styled.nav`
     justify-content: space-between;
     align-items: center;
     padding: 20px 0 0;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    width: 44%;
   }
 `;
 
@@ -375,5 +324,13 @@ export const MiddleTextWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     justify-content: center;
+  }
+`;
+
+export const MailsWrapper = styled.div`
+  display: flex;
+
+  @media ${themes.primary.media.maxMobile} {
+    column-gap: 26px;
   }
 `;

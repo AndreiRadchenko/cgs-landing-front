@@ -13,6 +13,7 @@ const PhotoBlockDashed = ({
   deleteFunction,
   uploadFunction,
   className,
+  imageStyle,
   style,
 }: IPhotoBlock) => {
   const { modal, toggleModal } = useUploadModal();
@@ -24,7 +25,9 @@ const PhotoBlockDashed = ({
         <AdminUploadModal func={uploadFunction} back={toggleModal} />
       ) : null}
       <Styled.AdminPhotoGrid className="fullWidth">
-        <AdminImage image={photo} />
+        <Styled.AdminImageWrapper style={imageStyle}>
+          <AdminImage image={photo} />
+        </Styled.AdminImageWrapper>
       </Styled.AdminPhotoGrid>
       <Styled.AdminDashedPositionGrid>
         <Styled.AdminPointer>

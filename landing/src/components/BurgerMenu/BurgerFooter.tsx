@@ -14,9 +14,14 @@ const BurgerFooter = () => {
 
   return (
     <StyledThisComp.FooterWrapper>
-      <StyledThisComp.Mail href={`mailto:${data?.email}`}>
-        <SplitBrackets text={data?.email} />
-      </StyledThisComp.Mail>
+      <StyledThisComp.MailsWrapper>
+        <StyledThisComp.Mail href={`mailto:${data?.email}`} className="upper">
+          <SplitBrackets text={data?.email} />
+        </StyledThisComp.Mail>
+        <StyledThisComp.Mail href={`mailto:${data?.hrEmail}`}>
+          <SplitBrackets text={data?.hrEmail} />
+        </StyledThisComp.Mail>
+      </StyledThisComp.MailsWrapper>
       <StyledThisComp.FooterIconsWrapper>
         {data?.links.map((el, idx) => (
           <Link key={el.link} href={el.link} passHref>

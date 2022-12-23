@@ -70,7 +70,8 @@ const AdminTech = ({
               maxWidth: "194px",
               maxHeight: "168px",
             }}
-            className="blog"
+            imageStyle={{ height: "82px" }}
+            className="tech"
             deleteFunction={deleteFunction}
             uploadFunction={uploadFunc}
             photo={info.image}

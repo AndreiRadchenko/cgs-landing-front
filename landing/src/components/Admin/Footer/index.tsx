@@ -28,13 +28,20 @@ const AdminFooterBlock = () => {
   return (
     <div>
       <div>
-        <SubHeaderWithInput
-          width="47.5%"
-          header="Email adress"
-          name="FooterBlock.email"
-          inputValue={values.FooterBlock.email}
-          onChangeFunction={handleChange}
-        />
+        <Styled.AdminHalfGrid>
+          <SubHeaderWithInput
+            header="Email adress"
+            name="FooterBlock.email"
+            inputValue={values.FooterBlock.email}
+            onChangeFunction={handleChange}
+          />
+          <SubHeaderWithInput
+            header="Email adress 2"
+            name="FooterBlock.hrEmail"
+            inputValue={values.FooterBlock.hrEmail}
+            onChangeFunction={handleChange}
+          />
+        </Styled.AdminHalfGrid>
         <FieldArray name="FooterBlock.links">
           {() => (
             <AdminFooterLinks

@@ -53,6 +53,7 @@ export interface ITechnologyBlock {
 
 export interface IFooterBlock {
   email: string;
+  hrEmail: string;
   links: { link: string }[];
   images: IImage[];
 }

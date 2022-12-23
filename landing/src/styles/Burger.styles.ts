@@ -116,11 +116,17 @@ export const FooterWrapper = styled.div`
 `;
 
 export const Mail = styled.a`
+  display: block;
+  line-height: 188%;
   padding-left: 1.25rem;
   width: 100%;
   font-size: 1rem;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
+
+  &.upper {
+    margin-bottom: 14px;
+  }
 `;
 
 export const FooterIconsWrapper = styled.div`
@@ -151,4 +157,8 @@ export const WhatsAppLink = styled.div`
   margin-bottom: 40px;
 `;
 
-export const FooterLink = styled.a``;
+export const FooterLink = styled.a`
+  padding-right: 3.65em;
+`;
+
+export const MailsWrapper = styled.div``;
