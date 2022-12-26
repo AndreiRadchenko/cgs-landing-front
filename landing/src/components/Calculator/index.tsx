@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 import React, { useState } from "react";
 import { queryKeys } from "../../consts/queryKeys";
@@ -12,6 +12,12 @@ import CalculatorStepsComponent from "./CalculatorStepsComponent";
 import CalculatorField from "./CalculatorTitleField";
 import CalculatorInputField from "./CalculatorInputs";
 import CalculatorCompletedPager from "./CalculatorCompletedPager";
+import {
+  ICalculatorFormValuesProps,
+  ICalculatorPostEmailResultsProps,
+} from "../../types/Admin/Response.types";
+import { Formik } from "formik";
+import { CalculatorValidation } from "../../validations/CalculatorValidation";
 
 const Calculator = () => {
   const [buttonText, setButtonText] = useState<string>("< start >");
@@ -89,6 +95,35 @@ const Calculator = () => {
     setIsBlockchain(false);
   };
 
+  const { mutate } = useMutation(
+    [queryKeys.sendEmailResults],
+    (answers: ICalculatorPostEmailResultsProps) =>
+      adminCalculatorService.sendResultsEmail(answers),
+    {
+      onSuccess: (data: ICalculatorPostEmailResultsProps | void) =>
+        console.log(data),
+    }
+  );
+
+  const stepsData = isBlockchain ? blockchainStepsData : classicStepsData;
+
+  const initialValues = stepsData && {
+    questionsArr: stepsData.map((el) => {
+      return {
+        title: el.title,
+        answer: "",
+      };
+    }),
+    email: "",
+    isBlockchain,
+  };
+
+  const onSubmit = (values: ICalculatorFormValuesProps) => {
+    const { isBlockchain, questionsArr, email } = values;
+    mutate({ answers: questionsArr, isBlockchain, email });
+    setIsCompleted(true);
+  };
+
   DisableScrollBarHandler(isOpen);
 
   return (
@@ -123,64 +158,69 @@ const Calculator = () => {
         />
       ) : (
         <>
-          {(isChosen && blockchainStepsData && classicStepsData && (
-            <CalculatorStepsComponent
-              isQuitting={isQuitting}
-              setIsQuitting={setIsQuitting}
-              isBlockchain={isBlockchain}
-              step={step}
-              stepsCount={
-                isBlockchain
-                  ? blockchainStepsData.length
-                  : classicStepsData.length
-              }
-              setIsChosen={setIsChosen}
-              data={isBlockchain ? blockchainStepsData : classicStepsData}
-              handleClose={handleClose}
-              setStep={setStep}
-              previousSteps={previousSteps}
-              setPreviousSteps={setPreviousSteps}
-              setIsCompleted={setIsCompleted}
-              calculateIsClicked={calculateIsClicked}
-              setCalculateIsClicked={setCalculateIsClicked}
-              handleEmailClose={handleEmailClose}
-              warnIsShow={warnIsShow}
-              setWarnIsShow={setWarnIsShow}
-            >
-              {(isBlockchain &&
-                blockchainStepsData &&
-                blockchainStepsData.map((currentData, stepInd) => (
-                  <div key={currentData.title}>
-                    <CalculatorField text={currentData.title} />
-                    {typeof currentData.options !== "string" && (
-                      <CalculatorInputField
-                        subStep={currentData.subSteps}
-                        stepInd={stepInd}
-                        options={currentData.options}
-                        data={
-                          isBlockchain ? blockchainStepsData : classicStepsData
-                        }
-                      />
-                    )}
-                  </div>
-                ))) ||
-                classicStepsData.map((currentData, stepInd) => (
-                  <div key={currentData.title}>
-                    <CalculatorField text={currentData.title} />
-                    {typeof currentData.options !== "string" && (
-                      <CalculatorInputField
-                        subStep={currentData.subSteps}
-                        stepInd={stepInd}
-                        options={currentData.options}
-                        data={
-                          isBlockchain ? blockchainStepsData : classicStepsData
-                        }
-                      />
-                    )}
-                  </div>
-                ))}
-            </CalculatorStepsComponent>
-          )) || (
+          {(isChosen &&
+            initialValues &&
+            blockchainStepsData &&
+            classicStepsData && (
+              <Formik
+                initialValues={initialValues}
+                onSubmit={onSubmit}
+                validationSchema={CalculatorValidation}
+                validateOnMount
+              >
+                {({ values }) => (
+                  <CalculatorStepsComponent
+                    isQuitting={isQuitting}
+                    setIsQuitting={setIsQuitting}
+                    step={step}
+                    stepsCount={stepsData.length + 1}
+                    setIsChosen={setIsChosen}
+                    handleClose={handleClose}
+                    setStep={setStep}
+                    previousSteps={previousSteps}
+                    setPreviousSteps={setPreviousSteps}
+                    calculateIsClicked={calculateIsClicked}
+                    setCalculateIsClicked={setCalculateIsClicked}
+                    handleEmailClose={handleEmailClose}
+                    warnIsShow={warnIsShow}
+                    setWarnIsShow={setWarnIsShow}
+                  >
+                    {stepsData.map((currentData, stepInd) => (
+                      <div key={currentData.title}>
+                        <CalculatorField
+                          text={currentData.title}
+                          disabled={values.questionsArr[stepInd].tieUpDisabled}
+                        />
+                        {typeof currentData.options !== "string" && (
+                          <CalculatorInputField
+                            subStep={currentData.subSteps}
+                            stepInd={stepInd}
+                            options={currentData.options}
+                            tieUpData={
+                              currentData.tieUpSteps.length > 0 &&
+                              typeof currentData.tieUpSteps[0].number ===
+                                "number"
+                                ? {
+                                    number: currentData.tieUpSteps[0].number,
+                                    relatedAnswer:
+                                      values.questionsArr[
+                                        currentData.tieUpSteps[0].number
+                                      ].answer,
+                                  }
+                                : undefined
+                            }
+                            disabled={
+                              values.questionsArr[stepInd].tieUpDisabled
+                            }
+                            data={stepsData}
+                          />
+                        )}
+                      </div>
+                    ))}
+                  </CalculatorStepsComponent>
+                )}
+              </Formik>
+            )) || (
             <CalculatorPagerComponent
               isOpen={isOpen}
               handleBlockchainClick={handleBlockchainClick}

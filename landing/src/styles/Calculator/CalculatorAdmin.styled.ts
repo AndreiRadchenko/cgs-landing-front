@@ -306,6 +306,7 @@ export const OptionWrapper = styled.div`
   position: relative;
   display: flex;
   margin-bottom: 16px;
+  width: 100%;
 `;
 
 export const DropDownContainer = styled.div`

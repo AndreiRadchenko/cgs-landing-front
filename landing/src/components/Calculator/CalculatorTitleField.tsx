@@ -4,18 +4,25 @@ import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 interface ICalculatorTitleField {
   text: string;
   className?: string;
+  disabled?: boolean;
 }
 
-const CalculatorTitleField = ({ text, className }: ICalculatorTitleField) => {
-  const fieldClassName = `${className} title`;
+const CalculatorTitleField = ({
+  text,
+  disabled,
+  className,
+}: ICalculatorTitleField) => {
+  const fieldWrapperClassName = `${className} title`;
 
   return (
-    <Styled.CalculatorFieldWrapper className={fieldClassName}>
+    <Styled.CalculatorFieldWrapper className={fieldWrapperClassName}>
       <Styled.LeftBlackBorder className={className} />
-      <Styled.CalculatorField
-        className={className}
-        dangerouslySetInnerHTML={{ __html: text }}
-      />
+      <Styled.CalculatorField className={className}>
+        <Styled.CalculatorInputsFieldsWrapper
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
+        <Styled.Disabled className={disabled ? "disabled" : undefined} />
+      </Styled.CalculatorField>
     </Styled.CalculatorFieldWrapper>
   );
 };

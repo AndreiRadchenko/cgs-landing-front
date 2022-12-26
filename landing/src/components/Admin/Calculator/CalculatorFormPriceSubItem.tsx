@@ -73,11 +73,20 @@ const CalculatorFormPriceSubItem = ({
     document.body.style.cursor = "auto";
   };
 
+  const substring = priceEl.label.substring(
+    0,
+    priceEl.label.indexOf("<span style=")
+  );
+
   return (
     <Formik initialValues={item} onSubmit={onSubmit}>
       {({ values, handleChange, handleSubmit }) => (
         <PriceItemWrapper>
-          <PriceSubtitle dangerouslySetInnerHTML={{ __html: priceEl.label }} />
+          <PriceSubtitle
+            dangerouslySetInnerHTML={{
+              __html: substring.length > 0 ? substring : priceEl.label,
+            }}
+          />
           <AdminInput
             value={values.options[optionInd].hours}
             placeholder="time (hours)"

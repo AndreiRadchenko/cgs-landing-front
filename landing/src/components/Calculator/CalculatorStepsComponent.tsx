@@ -1,15 +1,5 @@
 import React, { Children, ReactNode } from "react";
-import {
-  ICalculatorFormValuesProps,
-  ICalculatorPostEmailResultsProps,
-  ICalculatorStep,
-} from "../../types/Admin/Response.types";
-import { Formik } from "formik";
 import CalculatorStepsFormContent from "./CalculatorStepsFormContent";
-import { CalculatorValidation } from "../../validations/CalculatorValidation";
-import { queryKeys } from "../../consts/queryKeys";
-import { useMutation } from "@tanstack/react-query";
-import { adminCalculatorService } from "../../services/adminCalculator";
 import CalculatorQuittingPager from "./CalculatorQuttingPager";
 
 interface ICalculatorStepsComponentProps {
@@ -18,12 +8,9 @@ interface ICalculatorStepsComponentProps {
   stepsCount: number;
   handleClose: () => void;
   handleEmailClose: () => void;
-  data: ICalculatorStep[];
   setIsChosen: React.Dispatch<React.SetStateAction<boolean>>;
   setStep: React.Dispatch<React.SetStateAction<number>>;
   setPreviousSteps: React.Dispatch<React.SetStateAction<number[]>>;
-  setIsCompleted: React.Dispatch<React.SetStateAction<boolean>>;
-  isBlockchain: boolean;
   calculateIsClicked: boolean;
   isQuitting: boolean;
   setIsQuitting: React.Dispatch<React.SetStateAction<boolean>>;
@@ -37,14 +24,11 @@ const CalculatorStepsComponent = ({
   step,
   previousSteps,
   stepsCount,
-  data,
   handleClose,
   setIsChosen,
   setStep,
   setPreviousSteps,
-  setIsCompleted,
   children,
-  isBlockchain,
   calculateIsClicked,
   setCalculateIsClicked,
   isQuitting,
@@ -69,45 +53,12 @@ const CalculatorStepsComponent = ({
     }
   };
 
-  const initialValues = {
-    questionsArr: data.map((el) => {
-      return {
-        title: el.title,
-        answer: "",
-      };
-    }),
-    email: "",
-    isBlockchain,
-  };
-
-  const { mutate } = useMutation(
-    [queryKeys.sendEmailResults],
-    (answers: ICalculatorPostEmailResultsProps) =>
-      adminCalculatorService.sendResultsEmail(answers),
-    {
-      onSuccess: (data: ICalculatorPostEmailResultsProps | void) =>
-        console.log(data),
-    }
-  );
-
   const handleContinueClick = () => {
     setIsQuitting(false);
   };
 
-  const onSubmit = (values: ICalculatorFormValuesProps) => {
-    const { isBlockchain, questionsArr, email } = values;
-    // do e-mail work
-    mutate({ answers: questionsArr, isBlockchain, email });
-    setIsCompleted(true);
-  };
-
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      validationSchema={CalculatorValidation}
-      validateOnMount
-    >
+    <div>
       {isQuitting ? (
         <CalculatorQuittingPager
           handleClose={handleClose}
@@ -130,7 +81,7 @@ const CalculatorStepsComponent = ({
           arrayChildren={arrayChildren}
         />
       )}
-    </Formik>
+    </div>
   );
 };
 
