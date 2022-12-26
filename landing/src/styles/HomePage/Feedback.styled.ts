@@ -6,6 +6,7 @@ export const Navigationwrapper = styled.div`
   justify-content: space-between;
   align-items: end;
   margin-bottom: 3.125rem;
+  margin-right: 10px;
 
   & .swiper-button-prev {
     margin-right: 2.5rem;

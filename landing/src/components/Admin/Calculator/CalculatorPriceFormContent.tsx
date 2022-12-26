@@ -17,10 +17,16 @@ const CalculatorPriceFormContent = ({
   item,
   isBlockchain,
 }: ICalculatorPriceFormContentProps) => {
+  const substring = item.title.substring(0, item.title.indexOf("<span style="));
+
   return (
     <>
       <div>
-        <QuestionTitle dangerouslySetInnerHTML={{ __html: item.title }} />
+        <QuestionTitle
+          dangerouslySetInnerHTML={{
+            __html: substring.length > 0 ? substring : item.title,
+          }}
+        />
         <PriceFormGrid>
           {item.options.map((el, idx) => (
             <CalculatorFormPriceItem

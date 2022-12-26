@@ -17,9 +17,18 @@ const CalculatorPriceSubItem = ({
   priceSubEl,
   stepId,
 }: ICalculatorPriceSubItemProps) => {
+  const substring = priceSubEl.title.substring(
+    0,
+    priceSubEl.title.indexOf("<span style=")
+  );
+
   return (
     <div>
-      <QuestionTitle dangerouslySetInnerHTML={{ __html: priceSubEl.title }} />
+      <QuestionTitle
+        dangerouslySetInnerHTML={{
+          __html: substring.length > 0 ? substring : priceSubEl.title,
+        }}
+      />
       <PriceFormGrid>
         {priceSubEl.options.map((el, idx) => (
           <CalculatorFormPriceSubItem

@@ -15,6 +15,7 @@ import { useMutation } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCalculatorService } from "../../services/adminCalculator";
 import CalculatorPopover from "./CalculatorPopover";
+import CalculatorPagination from "./CalculatorPagination";
 
 interface ICalculatorStepsFormContentProps {
   handleBackClick: () => void;
@@ -55,7 +56,7 @@ const CalculatorStepsFormContent = ({
 
   const lastStep = step === stepsCount;
 
-  const stepButtonClassName = (idx: number, disabled?: boolean) => {
+  const stepButtonClassName = (idx: number) => {
     let classname = "";
     if (idx === step) {
       classname += "active ";
@@ -69,9 +70,6 @@ const CalculatorStepsFormContent = ({
       idx === step
     ) {
       classname += "checked ";
-    }
-    if (disabled) {
-      classname += "disabled ";
     }
 
     return classname;
@@ -178,33 +176,37 @@ const CalculatorStepsFormContent = ({
               <Styled.StepButtonWrapper
                 className={lastStep ? "last" : undefined}
               >
-                {(!lastStep &&
-                  stepsCount <= 10 &&
-                  new Array(stepsCount).fill(0).map((_, idx) => (
-                    <Styled.GridButtonWrapper key={idx}>
-                      <Styled.StepButton
-                        disabled={values.questionsArr[idx].tieUpDisabled}
-                        className={stepButtonClassName(
-                          idx,
-                          values.questionsArr[idx].tieUpDisabled
-                        )}
-                        onClick={() => handleStepButtonClick(idx)}
-                      >
-                        {idx + 1}
-                      </Styled.StepButton>
-                    </Styled.GridButtonWrapper>
-                  ))) || (
+                {(lastStep && (
                   <Styled.LastStepBackButton onClick={handleBackClick}>
                     {"<"}
                   </Styled.LastStepBackButton>
+                )) || (
+                  <>
+                    {stepsCount <= 10 ? (
+                      new Array(stepsCount - 1).fill(0).map((_, idx) => (
+                        <Styled.GridButtonWrapper key={idx}>
+                          <Styled.StepButton
+                            className={stepButtonClassName(idx)}
+                            onClick={() => handleStepButtonClick(idx)}
+                          >
+                            {idx + 1}
+                          </Styled.StepButton>
+                        </Styled.GridButtonWrapper>
+                      ))
+                    ) : (
+                      <CalculatorPagination
+                        handleStepButtonClick={handleStepButtonClick}
+                        stepButtonClassName={stepButtonClassName}
+                        step={step}
+                        stepsCount={stepsCount}
+                        buttonsPerPage={8}
+                        setStep={setStep}
+                      />
+                    )}
+                  </>
                 )}
                 <Styled.GridButtonWrapper>
                   <Styled.StepButton
-                    // disabled={
-                    //   (errors["questionsArr"] &&
-                    //     errors["questionsArr"].length > 0) ||
-                    //   false
-                    // }
                     className={lastStep ? "active checked" : undefined}
                     onClick={() => handleStepButtonClick(stepsCount)}
                   >

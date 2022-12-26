@@ -648,7 +648,7 @@ export const FilmText = styled.div`
 export const RightContainer = styled.div`
   display: flex;
   justify-content: right;
-  margin-right: 15px;
+  margin-right: 25px;
 `;
 
 export const Separator = styled.div`
@@ -665,7 +665,7 @@ export const Separator = styled.div`
 export const FooterButtonWrapper = styled.span`
   display: flex;
   justify-content: flex-end;
-  margin-right: 13px;
+  margin-right: 28px;
 
   &.btn {
     & a {
