@@ -79,7 +79,7 @@ const CalculatorFormPriceSubItem = ({
   );
 
   return (
-    <Formik initialValues={item} onSubmit={onSubmit}>
+    <Formik initialValues={item} onSubmit={onSubmit} key={stepId}>
       {({ values, handleChange, handleSubmit }) => (
         <PriceItemWrapper>
           <PriceSubtitle

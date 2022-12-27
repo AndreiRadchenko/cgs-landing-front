@@ -167,6 +167,8 @@ const Calculator = () => {
                 onSubmit={onSubmit}
                 validationSchema={CalculatorValidation}
                 validateOnMount
+                validateOnChange
+                validateOnBlur
               >
                 {({ values }) => (
                   <CalculatorStepsComponent

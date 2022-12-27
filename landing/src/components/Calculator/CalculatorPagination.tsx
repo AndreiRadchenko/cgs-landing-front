@@ -3,43 +3,21 @@ import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
 interface ICalculatorPaginationProps {
   buttonsPerPage: number;
-  stepsCount: number;
-  step: number;
-  setStep: React.Dispatch<React.SetStateAction<number>>;
+  startButtonNum: number;
   handleStepButtonClick: (idx: number) => void;
   stepButtonClassName: (idx: number) => string;
+  handleNextClick: () => void;
+  handleBackClick: () => void;
 }
 
 const CalculatorPagination = ({
   buttonsPerPage,
-  stepsCount,
-  step,
-  setStep,
+  startButtonNum,
   handleStepButtonClick,
   stepButtonClassName,
+  handleBackClick,
+  handleNextClick,
 }: ICalculatorPaginationProps) => {
-  const [startButtonNum, setStartButtonNum] = useState<number>(0);
-  // console.log(startButtonNum);
-
-  const handleBackClick = () => {
-    if (step - 1 >= 0) {
-      setStep((old) => old - 1);
-    }
-
-    if (step - 1 >= 0 && step - 1 <= startButtonNum + buttonsPerPage) {
-      setStartButtonNum((old) => old - 1);
-    }
-  };
-
-  const handleNextClick = () => {
-    if (step + 1 <= stepsCount && step < stepsCount - 1) {
-      setStep((old) => old + 1);
-    }
-    if (step + 1 >= startButtonNum + buttonsPerPage && step < stepsCount - 1) {
-      setStartButtonNum((old) => old + 1);
-    }
-  };
-
   return (
     <>
       <Styled.LastStepBackButton onClick={handleBackClick}>
@@ -49,7 +27,7 @@ const CalculatorPagination = ({
         <Styled.GridButtonWrapper key={idx}>
           <Styled.StepButton
             className={stepButtonClassName(idx + startButtonNum)}
-            onClick={() => handleStepButtonClick(idx + +startButtonNum)}
+            onClick={() => handleStepButtonClick(idx + startButtonNum)}
           >
             {startButtonNum + idx + 1}
           </Styled.StepButton>

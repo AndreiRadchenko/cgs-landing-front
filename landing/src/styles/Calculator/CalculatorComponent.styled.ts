@@ -10,6 +10,7 @@ export const CalculatorPreviewWrapper = styled.div`
   z-index: 11;
 
   @media ${themes.primary.media.maxMobile} {
+    position: absolute;
     height: auto;
     top: auto;
     bottom: 0;
@@ -963,7 +964,7 @@ export const CalculatorField = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0.53em 4px 0.53em 0.75em;
+  padding: 0.53em 4px 0 0.75em;
   line-height: 132%;
   margin: 6px 0px 0 4px;
   background-color: ${themes.primary.colors.blogBackground};
@@ -1201,9 +1202,11 @@ export const PopoverTriangle = styled.div`
 `;
 
 export const CalculatorInputsFieldsWrapper = styled.div`
+  padding: 0 0 0.53em 0;
   width: 100%;
   height: 100%;
   overflow: hidden auto;
+  z-index: 2;
 
   &::-webkit-scrollbar {
     width: 4px;
