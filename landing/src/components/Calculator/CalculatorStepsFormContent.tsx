@@ -54,7 +54,7 @@ const CalculatorStepsFormContent = ({
 
   const { width } = useWindowDimension();
 
-  const lastStep = step === stepsCount;
+  const lastStep = step === stepsCount - 1;
 
   const stepButtonClassName = (idx: number) => {
     let classname = "";
@@ -142,6 +142,8 @@ const CalculatorStepsFormContent = ({
     }
   }, [startMutating]);
 
+  console.log(step, stepsCount);
+
   return (
     (width && (
       <CalculatorStepsModalComponent mobile={width < 768} lastPage={lastStep}>
@@ -177,24 +179,45 @@ const CalculatorStepsFormContent = ({
                 className={lastStep ? "last" : undefined}
               >
                 {(lastStep && (
-                  <Styled.LastStepBackButton onClick={handleBackClick}>
-                    {"<"}
-                  </Styled.LastStepBackButton>
+                  <>
+                    <Styled.LastStepBackButton onClick={handleBackClick}>
+                      {"<"}
+                    </Styled.LastStepBackButton>
+                    <Styled.GridButtonWrapper>
+                      <Styled.StepButton
+                        className={lastStep ? "active checked" : undefined}
+                        onClick={() => handleStepButtonClick(stepsCount)}
+                      >
+                        {stepsCount}
+                      </Styled.StepButton>
+                    </Styled.GridButtonWrapper>
+                  </>
                 )) || (
                   <>
-                    {stepsCount <= 10 ? (
-                      new Array(stepsCount - 1).fill(0).map((_, idx) => (
-                        <Styled.GridButtonWrapper key={idx}>
+                    {stepsCount - 1 < 10 ? (
+                      <>
+                        {new Array(stepsCount - 1).fill(0).map((_, idx) => (
+                          <Styled.GridButtonWrapper key={idx}>
+                            <Styled.StepButton
+                              className={stepButtonClassName(idx)}
+                              onClick={() => handleStepButtonClick(idx)}
+                            >
+                              {idx + 1}
+                            </Styled.StepButton>
+                          </Styled.GridButtonWrapper>
+                        ))}
+                        <Styled.GridButtonWrapper>
                           <Styled.StepButton
-                            className={stepButtonClassName(idx)}
-                            onClick={() => handleStepButtonClick(idx)}
+                            className={lastStep ? "active checked" : undefined}
+                            onClick={() => handleStepButtonClick(stepsCount)}
                           >
-                            {idx + 1}
+                            {stepsCount}
                           </Styled.StepButton>
                         </Styled.GridButtonWrapper>
-                      ))
+                      </>
                     ) : (
                       <CalculatorPagination
+                        handleButtonClick={onButtonClick}
                         handleStepButtonClick={handleStepButtonClick}
                         stepButtonClassName={stepButtonClassName}
                         step={step}
@@ -205,14 +228,6 @@ const CalculatorStepsFormContent = ({
                     )}
                   </>
                 )}
-                <Styled.GridButtonWrapper>
-                  <Styled.StepButton
-                    className={lastStep ? "active checked" : undefined}
-                    onClick={() => handleStepButtonClick(stepsCount)}
-                  >
-                    {stepsCount + 1}
-                  </Styled.StepButton>
-                </Styled.GridButtonWrapper>
               </Styled.StepButtonWrapper>
               <Styled.StepsMainButtonWrapper>
                 <Styled.StartButton
