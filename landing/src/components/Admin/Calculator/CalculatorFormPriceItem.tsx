@@ -1,6 +1,6 @@
-import { Formik, useFormikContext } from "formik";
-import React, { useState } from "react";
-import { AdminInput } from "../../../styles/AdminPage";
+import { useFormikContext } from "formik";
+import React from "react";
+import { AdminInputFormikField } from "../../../styles/AdminPage";
 import {
   PriceItemWrapper,
   PriceSubtitle,
@@ -9,10 +9,6 @@ import {
   ICalculatorStep,
   IStepOptions,
 } from "../../../types/Admin/Response.types";
-import SaveBtn from "../Global/SaveBtn";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../../consts/queryKeys";
-import { adminCalculatorService } from "../../../services/adminCalculator";
 
 interface ICalculatorFormPriceItemProps {
   priceEl: IStepOptions;
@@ -36,14 +32,14 @@ const CalculatorFormPriceItem = ({
           __html: substring.length > 0 ? substring : priceEl.label,
         }}
       />
-      <AdminInput
+      <AdminInputFormikField
         value={values.options[optionInd].hours}
         placeholder="time (hours)"
         onChange={handleChange}
         name={`options[${optionInd}].hours`}
         type="number"
       />
-      <AdminInput
+      <AdminInputFormikField
         value={values.options[optionInd].price}
         placeholder="price"
         onChange={handleChange}

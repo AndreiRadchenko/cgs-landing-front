@@ -152,6 +152,8 @@ const CalculatorStepsFormContent = ({
     }
   }, [startMutating]);
 
+  console.log(step, stepsCount);
+
   return (
     (width && (
       <CalculatorStepsModalComponent mobile={width < 768} lastPage={lastStep}>

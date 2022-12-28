@@ -314,6 +314,29 @@ export const AdminInput = styled(TextareaAutosize)<{
   }
 `;
 
+export const AdminInputFormikField = styled(Field)<{
+  height?: string;
+  width?: string;
+  isadmin?: string;
+}>`
+  resize: vertical;
+  width: ${({ width }) => (width ? width : "100%")};
+  border: 1px solid ${themes.primary.colors.adminInputBorder};
+  background-color: ${themes.primary.colors.blogBackground};
+  outline: ${({ isadmin }) =>
+    isadmin ? `1px solid ${themes.primary.colors.comment}` : null};
+  font-size: ${themes.primary.font.size.linkText};
+  font-family: ${themes.primary.font.family.namu};
+  padding: ${themes.primary.spacing.primary};
+  height: ${({ height }) => (height ? height : "auto")} !important;
+  line-height: 160%;
+
+  margin-bottom: ${themes.primary.spacing.primary};
+  &:focus {
+    outline: 1px solid gray;
+  }
+`;
+
 export const AdminPhotoBlock = styled.div`
   height: 265px;
   width: 235px;
