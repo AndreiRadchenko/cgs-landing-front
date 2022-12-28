@@ -64,7 +64,7 @@ const CalculatorStepsForm = ({
                 <div key={currentData.title}>
                   <CalculatorField
                     text={currentData.title}
-                    // disabled={values[stepInd].}
+                    disabled={values.questionsArr[stepInd].tieUpDisabled}
                   />
                   {typeof currentData.options !== "string" && (
                     <CalculatorInputField
