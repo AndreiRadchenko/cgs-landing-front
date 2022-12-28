@@ -19,6 +19,7 @@ const CalculatorTitleField = ({
       <Styled.LeftBlackBorder className={className} />
       <Styled.CalculatorField className={className}>
         <Styled.CalculatorInputsFieldsWrapper
+          className={className}
           dangerouslySetInnerHTML={{ __html: text }}
         />
         <Styled.Disabled className={disabled ? "disabled" : undefined} />

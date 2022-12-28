@@ -22,6 +22,7 @@ const CalculatorResultsForm = () => {
   const data = queryClient.getQueryData<ICalculator>([
     queryKeys.getCalculatorData,
   ]);
+
   const { mutateAsync } = useMutation(
     [queryKeys.updateCalculatorData],
     (data: ICalculator) => adminCalculatorService.updateCalculatorData(data)
@@ -58,42 +59,39 @@ const CalculatorResultsForm = () => {
     import("suneditor/src/plugins").then((plugs: any) => setPlugins(plugs));
   }, []);
 
-  return (
-    (data && plugins && (
-      <Formik initialValues={data!} onSubmit={handleSubmit}>
-        {({ values, handleChange, handleSubmit }) => (
-          <AdminBlockDropDown title="RESULTS">
-            <Styled.InputWrapper>
-              <Styled.TransparentTextEditorWrapper>
-                <TextEditor
-                  header="Text after results"
-                  name="resultMessage"
-                  props={{
-                    width: "559px",
-                    setOptions: editorOptions,
-                  }}
-                />
-              </Styled.TransparentTextEditorWrapper>
-              <Styled.TransparentTextEditorWrapper className="text">
-                <SubHeaderWithInput
-                  header="E-mail placeholder"
-                  name="email"
-                  inputValue={values.email}
-                  onChangeFunction={handleChange}
-                  inputStyle={{ width: "559px" }}
-                />
-              </Styled.TransparentTextEditorWrapper>
-              <SaveBtn
-                handleClick={handleSubmit}
-                style={{ marginTop: "37px", marginBottom: "50px" }}
+  return data && plugins ? (
+    <Formik initialValues={data!} onSubmit={handleSubmit}>
+      {({ values, handleChange, handleSubmit }) => (
+        <AdminBlockDropDown title="RESULTS">
+          <Styled.InputWrapper>
+            <Styled.TransparentTextEditorWrapper>
+              <TextEditor
+                header="Text after results"
+                name="resultMessage"
+                props={{
+                  width: "559px",
+                  setOptions: editorOptions,
+                }}
               />
-            </Styled.InputWrapper>
-          </AdminBlockDropDown>
-        )}
-      </Formik>
-    )) ||
-    null
-  );
+            </Styled.TransparentTextEditorWrapper>
+            <Styled.TransparentTextEditorWrapper className="text">
+              <SubHeaderWithInput
+                header="E-mail placeholder"
+                name="email"
+                inputValue={values.email}
+                onChangeFunction={handleChange}
+                inputStyle={{ width: "559px" }}
+              />
+            </Styled.TransparentTextEditorWrapper>
+            <SaveBtn
+              handleClick={handleSubmit}
+              style={{ marginTop: "37px", marginBottom: "50px" }}
+            />
+          </Styled.InputWrapper>
+        </AdminBlockDropDown>
+      )}
+    </Formik>
+  ) : null;
 };
 
 export default CalculatorResultsForm;

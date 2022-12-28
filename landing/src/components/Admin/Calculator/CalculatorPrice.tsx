@@ -13,7 +13,7 @@ const CalculatorPrice = ({ data, isBlockchain }: ICalculatorPriceProps) => {
       {data.map((item, idx) => (
         <CalculatorPriceFormContent
           stepInd={idx}
-          key={idx}
+          key={item._id}
           item={item}
           isBlockchain={isBlockchain}
         />

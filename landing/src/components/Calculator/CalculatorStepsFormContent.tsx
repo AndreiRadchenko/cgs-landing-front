@@ -17,6 +17,8 @@ import { adminCalculatorService } from "../../services/adminCalculator";
 import CalculatorPopover from "./CalculatorPopover";
 import CalculatorPagination from "./CalculatorPagination";
 
+const PAGINATION_STEPS_PER_PAGE = 8;
+
 interface ICalculatorStepsFormContentProps {
   handleBackClick: () => void;
   handleClose: () => void;
@@ -50,6 +52,7 @@ const CalculatorStepsFormContent = ({
     useFormikContext<ICalculatorFormValuesProps>();
   const [results, setResults] =
     useState<Omit<IStepOptions, "label" | "type">>();
+  const [startButtonNum, setStartButtonNum] = useState<number>(0);
   const [startMutating, setStartMutating] = useState<boolean>(false);
 
   const { width } = useWindowDimension();
@@ -87,8 +90,7 @@ const CalculatorStepsFormContent = ({
 
   const handleStepButtonClick = (idx: number) => {
     if (
-      idx === stepsCount &&
-      !warnIsShow &&
+      idx === stepsCount - 1 &&
       errors["questionsArr"] &&
       errors["questionsArr"].length > 0
     ) {
@@ -105,34 +107,42 @@ const CalculatorStepsFormContent = ({
       setCalculateIsClicked(true);
       isValid && handleSubmit();
     } else if (
-      step + 1 === stepsCount &&
+      step + 1 === stepsCount - 1 &&
       errors["questionsArr"] &&
       errors["questionsArr"].length > 0
     ) {
       setWarnIsShow(true);
-    } else if (
-      step + 1 < stepsCount &&
-      !values.questionsArr[step + 1].tieUpDisabled
-    ) {
+    } else if (step + 1 < stepsCount) {
       warnIsShow && setWarnIsShow(false);
       setStep((old) => {
         setPreviousSteps((prev) => [...prev, old]);
         return old + 1;
-      });
-    } else if (
-      step + 2 < stepsCount &&
-      values.questionsArr[step + 1].tieUpDisabled
-    ) {
-      warnIsShow && setWarnIsShow(false);
-      setStep((old) => {
-        setPreviousSteps((prev) => [...prev, old]);
-        return old + 2;
       });
     } else if (!(errors["questionsArr"] && errors["questionsArr"].length > 0)) {
       warnIsShow && setWarnIsShow(false);
       setPreviousSteps((prev) => [...prev, stepsCount]);
       setStep(stepsCount);
     }
+  };
+
+  const handlePaginationBackClick = () => {
+    if (step - 1 >= 0) {
+      setStep((old) => old - 1);
+    }
+    warnIsShow && setWarnIsShow(false);
+    if (step - 1 >= 0 && step - 1 < startButtonNum) {
+      setStartButtonNum((old) => old - 1);
+    }
+  };
+
+  const handlePaginationNextClick = () => {
+    if (
+      step + 1 >= startButtonNum + PAGINATION_STEPS_PER_PAGE &&
+      step < stepsCount
+    ) {
+      setStartButtonNum((old) => old + 1);
+    }
+    onButtonClick();
   };
 
   useEffect(() => {
@@ -186,7 +196,7 @@ const CalculatorStepsFormContent = ({
                     <Styled.GridButtonWrapper>
                       <Styled.StepButton
                         className={lastStep ? "active checked" : undefined}
-                        onClick={() => handleStepButtonClick(stepsCount)}
+                        onClick={() => handleStepButtonClick(stepsCount - 1)}
                       >
                         {stepsCount}
                       </Styled.StepButton>
@@ -194,7 +204,7 @@ const CalculatorStepsFormContent = ({
                   </>
                 )) || (
                   <>
-                    {stepsCount - 1 < 10 ? (
+                    {stepsCount <= 10 ? (
                       <>
                         {new Array(stepsCount - 1).fill(0).map((_, idx) => (
                           <Styled.GridButtonWrapper key={idx}>
@@ -209,7 +219,9 @@ const CalculatorStepsFormContent = ({
                         <Styled.GridButtonWrapper>
                           <Styled.StepButton
                             className={lastStep ? "active checked" : undefined}
-                            onClick={() => handleStepButtonClick(stepsCount)}
+                            onClick={() =>
+                              handleStepButtonClick(stepsCount - 1)
+                            }
                           >
                             {stepsCount}
                           </Styled.StepButton>
@@ -217,13 +229,12 @@ const CalculatorStepsFormContent = ({
                       </>
                     ) : (
                       <CalculatorPagination
-                        handleButtonClick={onButtonClick}
+                        handleBackClick={handlePaginationBackClick}
+                        handleNextClick={handlePaginationNextClick}
                         handleStepButtonClick={handleStepButtonClick}
                         stepButtonClassName={stepButtonClassName}
-                        step={step}
-                        stepsCount={stepsCount}
-                        buttonsPerPage={8}
-                        setStep={setStep}
+                        startButtonNum={startButtonNum}
+                        buttonsPerPage={PAGINATION_STEPS_PER_PAGE}
                       />
                     )}
                   </>
@@ -233,7 +244,9 @@ const CalculatorStepsFormContent = ({
                 <Styled.StartButton
                   type="submit"
                   className={`steps ${warnIsShow ? "invalid" : ""}`}
-                  onClick={onButtonClick}
+                  onClick={
+                    stepsCount <= 10 ? onButtonClick : handlePaginationNextClick
+                  }
                 >
                   {"<"}&nbsp;{lastStep ? "calculation" : "next"}&nbsp;{">"}
                 </Styled.StartButton>

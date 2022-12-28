@@ -21,8 +21,6 @@ const CalcualtorResultForm = ({
     queryKeys.getCalculatorData,
   ]);
 
-  // const { values } = useFormikContext<ICalculatorFormValuesProps>();
-
   useEffect(() => {
     setStartMutating(true);
   }, []);

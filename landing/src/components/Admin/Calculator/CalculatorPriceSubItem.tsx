@@ -8,14 +8,10 @@ import CalculatorFormPriceSubItem from "./CalculatorFormPriceSubItem";
 
 interface ICalculatorPriceSubItemProps {
   priceSubEl: ICalculatorSubStep;
-  stepId: string;
-  isBlockchain: boolean;
 }
 
 const CalculatorPriceSubItem = ({
-  isBlockchain,
   priceSubEl,
-  stepId,
 }: ICalculatorPriceSubItemProps) => {
   const substring = priceSubEl.title.substring(
     0,
@@ -31,14 +27,7 @@ const CalculatorPriceSubItem = ({
       />
       <PriceFormGrid>
         {priceSubEl.options.map((el, idx) => (
-          <CalculatorFormPriceSubItem
-            isBlockchain={isBlockchain}
-            stepId={stepId}
-            item={priceSubEl}
-            key={idx}
-            optionInd={idx}
-            priceEl={el}
-          />
+          <CalculatorFormPriceSubItem key={idx} optionInd={idx} priceEl={el} />
         ))}
       </PriceFormGrid>
     </div>

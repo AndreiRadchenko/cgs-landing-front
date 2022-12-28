@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { Formik } from "formik";
 import React from "react";
 import { queryKeys } from "../../../consts/queryKeys";
@@ -13,12 +13,17 @@ import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 import SaveBtn from "../Global/SaveBtn";
 
-const CalculatorPager = () => {
-  const { data, refetch, isLoading } = useQuery(
-    [queryKeys.getCalculatorData],
-    () => adminCalculatorService.getCalculatorData()
-  );
+interface ICalculatorPagerProps {
+  data: ICalculator;
+  refetch: () => void;
+  dataIsLoading: boolean;
+}
 
+const CalculatorPager = ({
+  data,
+  refetch,
+  dataIsLoading,
+}: ICalculatorPagerProps) => {
   const { mutateAsync } = useMutation(
     [queryKeys.updateCalculatorData],
     (data: ICalculator) => adminCalculatorService.updateCalculatorData(data)
@@ -30,7 +35,7 @@ const CalculatorPager = () => {
     document.body.style.cursor = "auto";
   };
 
-  return isLoading ? (
+  return dataIsLoading ? (
     <AdminUnauthorizedModal>Loading...</AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik initialValues={data!} onSubmit={handleSubmit}>
