@@ -19,16 +19,15 @@ const CalculatorPriceForm = ({ isBlockchain }: ICalculatorPriceForm) => {
   ]);
 
   return (
-    (
-      <AdminBlockDropDown title="PRICE">
-        {classicSteps && blockchainSteps && (
-          <CalculatorPrice
-            isBlockchain={isBlockchain}
-            data={isBlockchain ? blockchainSteps : classicSteps}
-          />
-        )}
-      </AdminBlockDropDown>
-    ) || null
+    <AdminBlockDropDown title="PRICE">
+      {(classicSteps && blockchainSteps && (
+        <CalculatorPrice
+          isBlockchain={isBlockchain}
+          data={isBlockchain ? blockchainSteps : classicSteps}
+        />
+      )) ||
+        null}
+    </AdminBlockDropDown>
   );
 };
 

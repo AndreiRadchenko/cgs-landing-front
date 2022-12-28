@@ -221,6 +221,7 @@ export const TieUpInput = styled(Field)`
     border: 1px solid ${themes.primary.colors.primary};
     background-color: transparent;
     position: relative;
+    border-radius: 0;
 
     &::before {
       content: " ";
@@ -395,7 +396,7 @@ export const PriceFormGrid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   column-gap: 36px;
   row-gap: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 14px;
 `;
 
 export const QuestionTitle = styled.h3`

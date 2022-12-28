@@ -109,7 +109,6 @@ const CalculatorInputs = ({
           {(disabled && tieUpData && typeof tieUpData.number === "number" && (
             <Styled.Disabled className={disabled ? "disabled" : undefined}>
               <div>
-                {" "}
                 {answer()} in <span>{tieUpData.number + 1}</span> question, so
                 this one is disabled.
               </div>
@@ -140,6 +139,11 @@ const CalculatorInputs = ({
               ) && (
                 <Styled.SubStepWrapper>
                   <Styled.HorizontalLine />
+                  {subStep[0].title.replace("<p><br></p>", "") !== "" && (
+                    <Styled.SubStepTitle
+                      dangerouslySetInnerHTML={{ __html: subStep[0].title }}
+                    />
+                  )}
                   {subStep[0].options.map((subInput, idx) => (
                     <OptionWrapper key={idx}>
                       <TieUpInput

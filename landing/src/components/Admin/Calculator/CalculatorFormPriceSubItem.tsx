@@ -1,4 +1,4 @@
-import { Formik } from "formik";
+import { Formik, useFormikContext } from "formik";
 import React from "react";
 import { AdminInput } from "../../../styles/AdminPage";
 import {
@@ -17,61 +17,13 @@ import { adminCalculatorService } from "../../../services/adminCalculator";
 interface ICalculatorFormPriceSubItemProps {
   priceEl: IStepOptions;
   optionInd: number;
-  isBlockchain: boolean;
-  item: ICalculatorSubStep;
-  stepId: string;
-}
-
-interface ISubStepWithId {
-  values: ICalculatorSubStep;
-  stepId: string;
 }
 
 const CalculatorFormPriceSubItem = ({
   priceEl,
   optionInd,
-  isBlockchain,
-  item,
-  stepId,
 }: ICalculatorFormPriceSubItemProps) => {
-  const queryClient = useQueryClient();
-
-  const { mutateAsync } = useMutation(
-    [queryKeys.updateCalculatorClassicSubStep],
-    (data: ISubStepWithId) =>
-      adminCalculatorService.updateCalculatorClassicSubStepById(
-        data.stepId,
-        data.values
-      ),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries([queryKeys.getCalculatorClassicSteps]);
-      },
-    }
-  );
-
-  const { mutateAsync: blockchainMutate } = useMutation(
-    [queryKeys.updateCalculatorBlockchainSubStep],
-    (data: ISubStepWithId) =>
-      adminCalculatorService.updateCalculatorBlockchainSubStepById(
-        data.stepId,
-        data.values
-      ),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries([queryKeys.getCalculatorBlockchainSteps]);
-      },
-    }
-  );
-
-  const onSubmit = (values: ICalculatorSubStep) => {
-    values.options[optionInd].hours = Number(values.options[optionInd].hours);
-    values.options[optionInd].price = Number(values.options[optionInd].price);
-    const subData = { stepId, values };
-    document.body.style.cursor = "wait";
-    isBlockchain ? blockchainMutate(subData) : mutateAsync(subData);
-    document.body.style.cursor = "auto";
-  };
+  const { handleChange } = useFormikContext();
 
   const substring = priceEl.label.substring(
     0,
@@ -79,30 +31,27 @@ const CalculatorFormPriceSubItem = ({
   );
 
   return (
-    <Formik initialValues={item} onSubmit={onSubmit} key={stepId}>
-      {({ values, handleChange, handleSubmit }) => (
-        <PriceItemWrapper>
-          <PriceSubtitle
-            dangerouslySetInnerHTML={{
-              __html: substring.length > 0 ? substring : priceEl.label,
-            }}
-          />
-          <AdminInput
-            value={values.options[optionInd].hours}
-            placeholder="time (hours)"
-            onChange={handleChange}
-            name={`options[${optionInd}].hours`}
-          />
-          <AdminInput
-            value={values.options[optionInd].price}
-            placeholder="price"
-            onChange={handleChange}
-            name={`options[${optionInd}].price`}
-          />
-          <SaveBtn handleClick={handleSubmit} title="Save Data" />
-        </PriceItemWrapper>
-      )}
-    </Formik>
+    <PriceItemWrapper>
+      <PriceSubtitle
+        dangerouslySetInnerHTML={{
+          __html: substring.length > 0 ? substring : priceEl.label,
+        }}
+      />
+      <AdminInput
+        value={priceEl.hours}
+        placeholder="time (hours)"
+        onChange={handleChange}
+        name={`subSteps[0].options[${optionInd}].hours`}
+        type="number"
+      />
+      <AdminInput
+        value={priceEl.price}
+        placeholder="price"
+        onChange={handleChange}
+        name={`subSteps[0].options[${optionInd}].price`}
+        type="number"
+      />
+    </PriceItemWrapper>
   );
 };
 

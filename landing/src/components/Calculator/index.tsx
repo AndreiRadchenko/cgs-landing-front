@@ -100,8 +100,7 @@ const Calculator = () => {
     (answers: ICalculatorPostEmailResultsProps) =>
       adminCalculatorService.sendResultsEmail(answers),
     {
-      onSuccess: (data: ICalculatorPostEmailResultsProps | void) =>
-        console.log(data),
+      onSuccess: () => setIsCompleted(true),
     }
   );
 
@@ -121,7 +120,6 @@ const Calculator = () => {
   const onSubmit = (values: ICalculatorFormValuesProps) => {
     const { isBlockchain, questionsArr, email } = values;
     mutate({ answers: questionsArr, isBlockchain, email });
-    setIsCompleted(true);
   };
 
   DisableScrollBarHandler(isOpen);
@@ -166,9 +164,7 @@ const Calculator = () => {
                 initialValues={initialValues}
                 onSubmit={onSubmit}
                 validationSchema={CalculatorValidation}
-                validateOnMount
                 validateOnChange
-                validateOnBlur
               >
                 {({ values }) => (
                   <CalculatorStepsComponent

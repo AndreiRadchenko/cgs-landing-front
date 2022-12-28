@@ -12,6 +12,11 @@ import CalculatorStepsForm from "./CalculatorStepsForm";
 const AdminCalculatorContent = () => {
   const [isBlockchain, toogleBlockchain] = useState<boolean>(false);
 
+  const { data, refetch, isLoading } = useQuery(
+    [queryKeys.getCalculatorData],
+    () => adminCalculatorService.getCalculatorData()
+  );
+
   const {
     data: classicSteps,
     isLoading: classicStepsIsLoading,
@@ -33,7 +38,14 @@ const AdminCalculatorContent = () => {
       <Styled.AdminContentBlock>
         <Styled.AdminBlocksContent>
           <Styled.AdminHeader>CALCULATOR</Styled.AdminHeader>
-          <CalculatorPagerForm />
+          {(data && (
+            <CalculatorPagerForm
+              dataIsLoading={isLoading}
+              refetch={refetch}
+              data={data}
+            />
+          )) ||
+            null}
           <CalculatorStepsForm
             classicIsLoading={classicStepsIsLoading}
             classicStepsData={classicSteps}

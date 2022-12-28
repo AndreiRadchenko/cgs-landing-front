@@ -1,9 +1,10 @@
-import { TextareaAutosize } from "@mui/material";
 import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 import articleIntro from "../../public/BlogDecorations/Formatting/articleIntro.svg";
 import { IFontSize } from "./HomePage/General.styled";
 import SortableList from "react-easy-sort";
+import { Field } from "formik";
+import { TextareaAutosize } from "@mui/material";
 
 interface ITextEditorWrapperProps {
   start?: number;
@@ -289,7 +290,7 @@ export const AdminInput = styled(TextareaAutosize)<{
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.namu};
   padding: ${themes.primary.spacing.primary};
-  height: ${({ height }) => height} !important;
+  height: ${({ height }) => (height ? height : "auto")} !important;
   line-height: 160%;
 
   margin-bottom: ${themes.primary.spacing.primary};

@@ -404,6 +404,7 @@ export const StartButton = styled.button`
 
   &.invalid + div {
     opacity: 1;
+    z-index: 3;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -475,6 +476,11 @@ export const StepButtonWrapper = styled.div`
     column-gap: 0.8em;
   }
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    column-gap: 1em;
+    width: 100%;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     row-gap: 1.64em;
@@ -520,6 +526,7 @@ export const StepButton = styled.button`
   cursor: pointer;
   letter-spacing: 0.05em;
   transition: all 0.3s;
+  z-index: 2;
 
   &.checked {
     color: ${themes.primary.colors.primary};
@@ -540,6 +547,10 @@ export const StepButton = styled.button`
 
   @media ${themes.primary.media.minPC} {
     font-size: 18px;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 1.176em;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -825,7 +836,6 @@ export const CalculatorFieldWrapper = styled.div`
     margin-inline: 17px;
     border-radius: 5px;
     &.title {
-      height: 64px;
       max-height: 64px;
     }
 
@@ -964,11 +974,10 @@ export const CalculatorField = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0.53em 4px 0 0.75em;
+  padding: 0 4px 0 0.75em;
   line-height: 132%;
   margin: 6px 0px 0 4px;
   background-color: ${themes.primary.colors.blogBackground};
-
   max-height: 70px;
   position: relative;
 
@@ -1001,6 +1010,7 @@ export const CalculatorField = styled.div`
   }
 
   &.last {
+    line-height: 160%;
     margin-top: 5px;
     padding-top: 0.5em;
     height: 97%;
@@ -1015,16 +1025,35 @@ export const CalculatorField = styled.div`
     font-size: ${themes.primary.font.size.oneAndHalf};
   }
 
+  @media ${themes.primary.media.minPC} {
+    font-size: 20px;
+
+    &.last {
+      font-size: 18px;
+    }
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &.quit {
+      font-size: 1.3em;
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.last {
+      font-size: 1.58em;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
-    min-height: 95%;
-    height: 95%;
+    max-height: 57px;
     font-size: 1.346em;
     width: 98.4%;
     margin: 3px 0 0 3px;
 
     &.quit {
-      min-height: 98.5%;
-      height: 98.5%;
+      min-height: 98%;
+      height: 98%;
       padding-right: 0;
 
       & br {
@@ -1033,10 +1062,14 @@ export const CalculatorField = styled.div`
     }
 
     &.last {
-      padding-right: 3em;
       min-height: 97%;
       height: 97%;
       font-size: 1.5em;
+      line-height: 160%;
+    }
+
+    & span[style] {
+      font-size: 12px;
       line-height: 160%;
     }
   }
@@ -1065,17 +1098,23 @@ export const CalculatorInputFields = styled.div`
     overflow: hidden;
   }
 
+  @media ${themes.primary.media.minPC} {
+    font-size: 16px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.346em;
     height: 99.2%;
     width: 98.4%;
     margin: 2px 0 0 3px;
-    padding: 0.7em 1em 0 0.5em;
+    padding: 0.7em 4px 0 0.5em;
 
     &.email {
       height: 97%;
-      padding-block: 1.2em;
+      padding-block: 0;
       padding-right: 0;
+      display: flex;
+      align-items: center;
     }
 
     &::before {
@@ -1086,12 +1125,17 @@ export const CalculatorInputFields = styled.div`
 
 export const SubStepWrapper = styled.div``;
 
-export const HorizontalLine = styled.div`
-  height: 1px;
+export const HorizontalLine = styled.hr`
   width: 97%;
   margin-left: 0;
-  margin-block: 1.375em;
-  background-color: ${themes.primary.colors.calculatorHorizontalLine};
+  margin-block: 1.375em 1.1875em;
+  border-color: ${themes.primary.colors.calculatorHorizontalLine};
+  border-width: 0 0 1px 0;
+  border-style: solid;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-block: 1.143em 0.857em;
+  }
 `;
 
 export const ResultImageWrapper = styled.div`
@@ -1133,6 +1177,22 @@ export const FinishTextWrapper = styled.div`
   font-family: ${themes.primary.font.family.namu};
   padding: 1.2em 1em;
 
+  @media ${themes.primary.media.minPC} {
+    font-size: 1.5em;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.35em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 1.55em;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1.666em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.346em;
     height: 100%;
@@ -1161,6 +1221,24 @@ export const QuitButton = styled.button`
   font-family: ${themes.primary.font.family.namu};
   color: ${themes.primary.colors.primary};
 
+  @media ${themes.primary.media.minPC} {
+    right: 310px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    right: 290px;
+    font-size: 1.3em;
+    padding: 0.8em 1.9em;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    right: 310px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    right: 290px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     box-shadow: 5.52438px 1.57839px 0px ${themes.primary.colors.primary};
     font-size: 1.346em;
@@ -1179,6 +1257,20 @@ export const PopoverWrapper = styled.div`
   left: -11px;
   transition: opacity 0.3s;
   opacity: 0;
+
+  @media ${themes.primary.media.minPC} {
+    top: -15px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    top: 3px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    left: auto;
+    right: -15px;
+    top: -65px;
+  }
 `;
 
 export const PopoverContent = styled.div`
@@ -1192,6 +1284,13 @@ export const PopoverContent = styled.div`
   text-align: center;
   padding: 7px 6px;
   border-radius: 6px;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 10px;
+    width: 137px;
+    height: 55px;
+    padding: 5px 6px;
+  }
 `;
 
 export const PopoverTriangle = styled.div`
@@ -1202,11 +1301,16 @@ export const PopoverTriangle = styled.div`
 `;
 
 export const CalculatorInputsFieldsWrapper = styled.div`
-  padding: 0 0 0.53em 0;
-  width: 100%;
+  padding-block: 0.53em;
+  margin-bottom: 0.2em;
   height: 100%;
-  overflow: hidden auto;
+  width: 100%;
   z-index: 2;
+  overflow-y: scroll;
+
+  &.last {
+    padding-block: 0;
+  }
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -1219,5 +1323,41 @@ export const CalculatorInputsFieldsWrapper = styled.div`
   &::-webkit-scrollbar-thumb {
     background-color: ${themes.primary.colors.primary};
     border-radius: 10px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    &.last {
+      padding-block: 0.53em;
+    }
+
+    &.quit {
+      height: auto;
+    }
+  }
+`;
+
+export const SubStepTitle = styled.h3`
+  font-size: 1em;
+  margin: 0 0 1em 0;
+  line-height: 118.75%;
+
+  & p {
+    margin: 0;
+
+    & .__se__t-upper {
+      text-transform: uppercase;
+    }
+
+    & .__se__t-lower {
+      text-transform: lowercase;
+    }
+
+    & .__se__t-first-letter-capitalize {
+      display: block;
+
+      &:first-letter {
+        text-transform: uppercase;
+      }
+    }
   }
 `;
