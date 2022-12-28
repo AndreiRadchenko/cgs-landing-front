@@ -28,8 +28,7 @@ const CalculatorStepsForm = ({
     (answers: ICalculatorPostEmailResultsProps) =>
       adminCalculatorService.sendResultsEmail(answers),
     {
-      onSuccess: (data: ICalculatorPostEmailResultsProps | void) =>
-        console.log(data),
+      onSuccess: () => setIsCompleted(true),
     }
   );
   const initialValues = data && {
@@ -46,7 +45,6 @@ const CalculatorStepsForm = ({
   const onSubmit = (values: ICalculatorFormValuesProps) => {
     const { isBlockchain, questionsArr, email } = values;
     mutate({ answers: questionsArr, isBlockchain, email });
-    setIsCompleted(true);
   };
   return (
     (initialValues && (
@@ -56,28 +54,26 @@ const CalculatorStepsForm = ({
         validationSchema={CalculatorValidation}
         validateOnMount
       >
-        {({ values }) => (
-          <>
-            {isBlockchain &&
-              data &&
-              data.map((currentData, stepInd) => (
-                <div key={currentData.title}>
-                  <CalculatorField
-                    text={currentData.title}
-                    // disabled={values[stepInd].}
+        <>
+          {isBlockchain &&
+            data &&
+            data.map((currentData, stepInd) => (
+              <div key={currentData.title}>
+                <CalculatorField
+                  text={currentData.title}
+                  // disabled={values[stepInd].}
+                />
+                {typeof currentData.options !== "string" && (
+                  <CalculatorInputField
+                    subStep={currentData.subSteps}
+                    stepInd={stepInd}
+                    options={currentData.options}
+                    data={data}
                   />
-                  {typeof currentData.options !== "string" && (
-                    <CalculatorInputField
-                      subStep={currentData.subSteps}
-                      stepInd={stepInd}
-                      options={currentData.options}
-                      data={data}
-                    />
-                  )}
-                </div>
-              ))}
-          </>
-        )}
+                )}
+              </div>
+            ))}
+        </>
       </Formik>
     )) ||
     null
