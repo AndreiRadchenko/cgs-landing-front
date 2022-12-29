@@ -22,7 +22,9 @@ const PhotoBlockDashedHorizontal = ({
         <AdminUploadModal back={toggleModal} func={uploadFunction} />
       ) : null}
       <Styled.AdminDashedPositionGrid>
-        <AdminImage image={photo} />
+        <Styled.AdminImageWrapper>
+          <AdminImage image={photo} />
+        </Styled.AdminImageWrapper>
         <Styled.AdminPointer>
           <Styled.AdminUploadSubTitle onClick={toggleModal}>
             {header}
