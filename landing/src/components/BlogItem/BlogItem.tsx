@@ -13,30 +13,36 @@ const BlogItem = ({ isAdmin = false, children, item }: IBlogItemProps) => {
   const blogDate = () => {
     if (item.scheduleArticle) {
       const date = new Date(item.scheduleArticle);
+      const month = date.getMonth() + 1;
+
       return (
         <span>
           <strong>Scheduled for</strong>{" "}
-          {` ${date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}.${
-            date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth()
+          {` ${date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}.${
+            month < 10 ? `0${month}` : month
           }.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`}
         </span>
       );
     }
     if (item.updatedOn) {
       const date = new Date(item.updatedOn);
+      const month = date.getMonth() + 1;
+
       return (
         <span>
           <strong>Updated on</strong>
-          {` ${date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}.${
-            date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth()
+          {` ${date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}.${
+            month < 10 ? `0${month}` : month
           }.${date.getFullYear()}`}{" "}
         </span>
       );
     }
     if (item.date) {
       const date = new Date(item.date);
-      return `${date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}.${
-        date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth()
+      const month = date.getMonth() + 1;
+
+      return `${date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}.${
+        month < 10 ? `0${month}` : month
       }.${date.getFullYear()}`;
     }
   };

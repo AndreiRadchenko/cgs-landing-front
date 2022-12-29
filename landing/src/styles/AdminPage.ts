@@ -347,6 +347,8 @@ export const AdminPhotoBlock = styled.div`
   flex-direction: column;
 
   &.author {
+    width: 77px;
+    height: 77px;
     flex-direction: row;
     justify-content: center;
   }
@@ -370,10 +372,12 @@ export const AdminPhotoGrid = styled.div`
   }
 
   &.author {
+    position: relative;
     cursor: pointer;
     justify-content: flex-start;
     width: 100%;
     height: 80px;
+    margin-top: 0;
   }
 `;
 
@@ -1565,5 +1569,11 @@ export const AdminPageReviewBlock = styled.div`
 export const AdminImageWrapper = styled.div`
   position: relative;
   height: 180px;
+  width: 100%;
+`;
+
+export const AdminPortofolioImageWrapper = styled.div`
+  position: relative;
+  height: 357px;
   width: 100%;
 `;
