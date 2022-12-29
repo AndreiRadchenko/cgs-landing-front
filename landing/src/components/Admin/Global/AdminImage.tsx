@@ -11,7 +11,6 @@ const AdminImage = ({ image }: IImage) => {
           src={image!.url}
           layout="fill"
           objectFit="contain"
-          width="100%"
           alt="uploaded img"
         />
       ) : (
