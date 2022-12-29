@@ -75,7 +75,7 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
                               </Styled.TimeText>
                             ) : (
                               <span>
-                                Updated on
+                                Updated on{" "}
                                 <Styled.TimeText>
                                   {parseDate(article.updatedOn)}
                                 </Styled.TimeText>
@@ -92,7 +92,7 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
                           </Styled.TimeText>
                         ) : (
                           <span>
-                            Updated on
+                            Updated on{" "}
                             <Styled.TimeText>
                               {parseDate(article.updatedOn)}
                             </Styled.TimeText>
