@@ -25,6 +25,7 @@ const PhotoBlockDashedHorizontal = ({
         <Styled.AdminImageWrapper>
           <AdminImage image={photo} />
         </Styled.AdminImageWrapper>
+        <span></span>
         <Styled.AdminPointer>
           <Styled.AdminUploadSubTitle onClick={toggleModal}>
             {header}
