@@ -626,6 +626,7 @@ export interface IStepOptions {
   type: string;
   label: string;
   price: number;
+  percInTheEnd: number;
   hours: number;
   uxui: number;
   pm: number;
