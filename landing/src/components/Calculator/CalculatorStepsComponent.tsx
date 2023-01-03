@@ -7,7 +7,7 @@ interface ICalculatorStepsComponentProps {
   previousSteps: number[];
   stepsCount: number;
   handleClose: () => void;
-  handleEmailClose: () => void;
+  handleQuit: () => void;
   setIsChosen: React.Dispatch<React.SetStateAction<boolean>>;
   setStep: React.Dispatch<React.SetStateAction<number>>;
   setPreviousSteps: React.Dispatch<React.SetStateAction<number[]>>;
@@ -33,7 +33,7 @@ const CalculatorStepsComponent = ({
   setCalculateIsClicked,
   isQuitting,
   setIsQuitting,
-  handleEmailClose,
+  handleQuit,
   warnIsShow,
   setWarnIsShow,
 }: ICalculatorStepsComponentProps) => {
@@ -68,14 +68,13 @@ const CalculatorStepsComponent = ({
       ) : (
         <CalculatorStepsFormContent
           handleBackClick={handleBackClick}
-          handleClose={handleClose}
           setPreviousSteps={setPreviousSteps}
           setStep={setStep}
           step={step}
           stepsCount={stepsCount}
           calculateIsClicked={calculateIsClicked}
           setCalculateIsClicked={setCalculateIsClicked}
-          handleEmailClose={handleEmailClose}
+          handleQuit={handleQuit}
           warnIsShow={warnIsShow}
           setWarnIsShow={setWarnIsShow}
           arrayChildren={arrayChildren}

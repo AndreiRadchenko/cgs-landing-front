@@ -1087,9 +1087,8 @@ export const CalculatorInputFields = styled.div`
   margin: 6px 0px 0 4px;
   background-color: ${themes.primary.colors.blogBackground};
   font-family: ${themes.primary.font.family.namu};
-  padding: 1.5em 4px 0 1em;
+  padding-inline: 1em 4px;
   position: relative;
-
   &.email {
     padding-block: 1.5em;
   }
@@ -1312,6 +1311,10 @@ export const CalculatorInputsFieldsWrapper = styled.div`
     padding-block: 0;
   }
 
+  &.input {
+    padding-top: 0;
+  }
+
   &::-webkit-scrollbar {
     width: 4px;
   }
@@ -1360,4 +1363,8 @@ export const SubStepTitle = styled.h3`
       }
     }
   }
+`;
+
+export const InputsWrapper = styled.div`
+  padding-top: 1.5em;
 `;
