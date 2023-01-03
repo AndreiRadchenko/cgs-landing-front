@@ -19,6 +19,7 @@ export const getInputsFromLabels = (options: string) => {
         type: isRadio ? "radio" : "checkbox",
         label,
         price: 0,
+        percInTheEnd: 0,
         hours: 0,
         uxui: 0,
         pm: 0,
