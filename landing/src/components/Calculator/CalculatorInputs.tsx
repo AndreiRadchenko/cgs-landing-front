@@ -115,53 +115,55 @@ const CalculatorInputs = ({
             </Styled.Disabled>
           )) ||
             null}
-          <Styled.CalculatorInputsFieldsWrapper>
-            {options.map((input, idx) => (
-              <OptionWrapper key={idx}>
-                <TieUpInput
-                  type={input.type}
-                  name={`questionsArr[${stepInd}].answer`}
-                  id={`${input.type}${input.label}${idx}`}
-                  value={input.label}
-                  className={input.type}
-                  onChange={handleChange}
-                />
-                <TieUpLabel
-                  dangerouslySetInnerHTML={{ __html: input.label }}
-                  htmlFor={`${input.type}${input.label}${idx}`}
-                />
-              </OptionWrapper>
-            ))}
-            {subStep &&
-              subStep.length > 0 &&
-              subStep[0].condition.includes(
-                values.questionsArr[stepInd].answer as string
-              ) && (
-                <Styled.SubStepWrapper>
-                  <Styled.HorizontalLine />
-                  {subStep[0].title.replace("<p><br></p>", "") !== "" && (
-                    <Styled.SubStepTitle
-                      dangerouslySetInnerHTML={{ __html: subStep[0].title }}
-                    />
-                  )}
-                  {subStep[0].options.map((subInput, idx) => (
-                    <OptionWrapper key={idx}>
-                      <TieUpInput
-                        type={subInput.type}
-                        name={`questionsArr[${stepInd}].subStepAnswer`}
-                        id={`${subInput.type}${subInput.label}${idx}`}
-                        value={subInput.label}
-                        className={subInput.type}
-                        onChange={handleChange}
+          <Styled.CalculatorInputsFieldsWrapper className="input">
+            <Styled.InputsWrapper>
+              {options.map((input, idx) => (
+                <OptionWrapper key={idx}>
+                  <TieUpInput
+                    type={input.type}
+                    name={`questionsArr[${stepInd}].answer`}
+                    id={`${input.type}${input.label}${idx}`}
+                    value={input.label}
+                    className={input.type}
+                    onChange={handleChange}
+                  />
+                  <TieUpLabel
+                    dangerouslySetInnerHTML={{ __html: input.label }}
+                    htmlFor={`${input.type}${input.label}${idx}`}
+                  />
+                </OptionWrapper>
+              ))}
+              {subStep &&
+                subStep.length > 0 &&
+                subStep[0].condition.includes(
+                  values.questionsArr[stepInd].answer as string
+                ) && (
+                  <Styled.SubStepWrapper>
+                    <Styled.HorizontalLine />
+                    {subStep[0].title.replace("<p><br></p>", "") !== "" && (
+                      <Styled.SubStepTitle
+                        dangerouslySetInnerHTML={{ __html: subStep[0].title }}
                       />
-                      <TieUpLabel
-                        dangerouslySetInnerHTML={{ __html: subInput.label }}
-                        htmlFor={`${subInput.type}${subInput.label}${idx}`}
-                      />
-                    </OptionWrapper>
-                  ))}
-                </Styled.SubStepWrapper>
-              )}
+                    )}
+                    {subStep[0].options.map((subInput, idx) => (
+                      <OptionWrapper key={idx}>
+                        <TieUpInput
+                          type={subInput.type}
+                          name={`questionsArr[${stepInd}].subStepAnswer`}
+                          id={`${subInput.type}${subInput.label}${idx}`}
+                          value={subInput.label}
+                          className={subInput.type}
+                          onChange={handleChange}
+                        />
+                        <TieUpLabel
+                          dangerouslySetInnerHTML={{ __html: subInput.label }}
+                          htmlFor={`${subInput.type}${subInput.label}${idx}`}
+                        />
+                      </OptionWrapper>
+                    ))}
+                  </Styled.SubStepWrapper>
+                )}
+            </Styled.InputsWrapper>
           </Styled.CalculatorInputsFieldsWrapper>
         </>
       </Styled.CalculatorInputFields>

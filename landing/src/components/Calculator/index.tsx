@@ -68,7 +68,7 @@ const Calculator = () => {
     setButtonText("< start >");
   };
 
-  const handleEmailClose = () => {
+  const handleQuit = () => {
     setIsQuitting(true);
   };
 
@@ -179,7 +179,7 @@ const Calculator = () => {
                     setPreviousSteps={setPreviousSteps}
                     calculateIsClicked={calculateIsClicked}
                     setCalculateIsClicked={setCalculateIsClicked}
-                    handleEmailClose={handleEmailClose}
+                    handleQuit={handleQuit}
                     warnIsShow={warnIsShow}
                     setWarnIsShow={setWarnIsShow}
                   >

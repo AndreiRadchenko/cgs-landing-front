@@ -21,8 +21,7 @@ const PAGINATION_STEPS_PER_PAGE = 8;
 
 interface ICalculatorStepsFormContentProps {
   handleBackClick: () => void;
-  handleClose: () => void;
-  handleEmailClose: () => void;
+  handleQuit: () => void;
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
   setPreviousSteps: React.Dispatch<React.SetStateAction<number[]>>;
@@ -36,8 +35,7 @@ interface ICalculatorStepsFormContentProps {
 
 const CalculatorStepsFormContent = ({
   handleBackClick,
-  handleClose,
-  handleEmailClose,
+  handleQuit,
   step,
   setStep,
   setPreviousSteps,
@@ -169,9 +167,7 @@ const CalculatorStepsFormContent = ({
                     {"<"}
                   </Styled.BackButton>
                 )}
-                <Styled.CloseButton
-                  onClick={lastStep ? handleEmailClose : handleClose}
-                />
+                <Styled.CloseButton onClick={handleQuit} />
               </Styled.CalculatorHeaderInner>
             </Styled.CalculatorHeaderWrapper>
             {(lastStep && (
