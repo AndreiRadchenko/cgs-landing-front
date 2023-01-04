@@ -290,7 +290,7 @@ export const AdminInput = styled(TextareaAutosize)<{
   font-size: ${themes.primary.font.size.linkText};
   font-family: ${themes.primary.font.family.namu};
   padding: ${themes.primary.spacing.primary};
-  height: ${({ height }) => (height ? height : "auto")} !important;
+  height: ${({ height }) => height};
   line-height: 160%;
 
   margin-bottom: ${themes.primary.spacing.primary};
