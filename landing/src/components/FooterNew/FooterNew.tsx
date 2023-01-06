@@ -12,7 +12,11 @@ import smallMountain from "/public/smallMountain.svg";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import Logo from "../HeaderNavNew/Logo";
 
-const FooterNew = ({ className }: { className: string }): JSX.Element => {
+interface IFooterProps {
+  className?: string;
+}
+
+const FooterNew = ({ className }: IFooterProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const { width } = useWindowDimension();
