@@ -56,7 +56,7 @@ const Home: NextPage = () => {
           </Head>
           <HeaderNavNew />
           <Content />
-          <FooterNew />
+          <FooterNew className="mobileDissapear" />
         </>
       )}
     </>
