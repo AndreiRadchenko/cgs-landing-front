@@ -20,6 +20,7 @@ export const HeaderNavContainer = styled.footer`
     color: ${themes.primary.colors.secondary};
 
     &.mobileDissapear {
+      opacity: 0;
       max-height: 65px;
     }
   }
