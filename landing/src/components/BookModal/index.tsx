@@ -1,5 +1,5 @@
 import React, { FC, MouseEvent } from "react";
-import * as Styles from "./BookModal.styled";
+import * as Styles from "../../styles/BookModalForm/BookModal.styled";
 
 interface ITicketModalProps {
   isOpen?: boolean;
@@ -9,7 +9,7 @@ interface ITicketModalProps {
 
 const BookModal: FC<ITicketModalProps> = ({ isOpen, onClose, children }) => {
   return (
-    <Styles.BookModal isOpen={isOpen} onClick={onClose}>
+    <Styles.BookModal className={isOpen ? "none" : "open"} onClick={onClose}>
       <Styles.BookModalContentContainer>
         <Styles.BookModalContent onClick={(e) => e.stopPropagation()}>
           <Styles.Container>

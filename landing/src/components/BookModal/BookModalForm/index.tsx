@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useFormik } from "formik";
-import * as Styled from "./Form.styled";
+import * as Styled from "../../../styles/BookModalForm/Form.styled";
 import FormField from "./FormField/index";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import ServiceDropdown from "./ServiceDropdown";
@@ -61,9 +61,6 @@ const BookForm = () => {
     },
     validationSchema,
     onSubmit(values, { resetForm }) {
-      if (buttonState.disabled) {
-        return setButtonState({ ...buttonState, triedSubmit: true });
-      }
       if (!values.email) return;
       if (!values.service) return;
       if (buttonState.disabled) {
@@ -136,7 +133,7 @@ const BookForm = () => {
 
   return (
     <Styled.FormProvider value={formik}>
-      <Styled.Shadow enabled={enable} />
+      <Styled.Shadow className={enable ? "inline-block" : "enabled"} />
       <Styled.Form onSubmit={formik.handleSubmit} encType="multipart/form-data">
         {Object.entries(fieldContent).map(([key, label]) => (
           <FormField
@@ -148,7 +145,7 @@ const BookForm = () => {
         ))}
         <Styled.ServiceSelect
           onClick={() => setEnable(!enable)}
-          enabled={enable}
+          className={enable ? "1" : "enabled"}
         >
           <ServiceDropdown
             className="careers"
@@ -172,7 +169,13 @@ const BookForm = () => {
               }
             />
           </Styles.ButtonWrapper>
-          <Styled.FormSentFillText toDisplay={buttonState.disabled}>
+          <Styled.FormSentFillText
+            className={
+              buttonState.disabled && buttonState.triedSubmit
+                ? "none"
+                : "toDisplay"
+            }
+          >
             &lt; Fill in all the fields &gt;
           </Styled.FormSentFillText>
         </Styled.FormSentContainer>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as Styled from "./ServiceDropDown.styled";
+import * as Styled from "../../../../styles/BookModalForm/ServiceDropDown.styled";
 import Arrow from "../../../../../public/upArrowSidebar.svg";
 import { SplitBrackets } from "../../../../utils/splitBrackets";
 

@@ -4,7 +4,6 @@ import {
   BlackButton,
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
-import { recoverLink } from "../../utils/recoverLink";
 import BookModal from "../BookModal";
 import BookModalInputForms from "../BookModal/BookModalInput/indext";
 

@@ -3,7 +3,7 @@ import { PopupModal } from "react-calendly";
 import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { recoverLink } from "../../utils/recoverLink";
-import * as Styled from "./BookACallButton.styled";
+import * as Styled from "../../styles/HomePage/BookACallButton.styled";
 
 interface IBookACallButtonProps {
   buttonText?: string;
@@ -34,7 +34,6 @@ const BookACallButton = ({
     setCalendlyIsOpen(true);
   };
 
-  console.log("link", buttonLink);
   return (
     <>
       <Styled.BlackButton

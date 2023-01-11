@@ -1,6 +1,6 @@
 import { useFormikContext } from "formik";
 import React, { FC } from "react";
-import * as Styled from "./FormField.styled";
+import * as Styled from "../../../../styles/BookModalForm/FormField.styled";
 
 interface IFieldProps {
   name: string;

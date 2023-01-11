@@ -1,12 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-interface IModal {
-  isOpen?: boolean;
-}
-
-export const BookModal = styled.div<IModal>`
-  display: ${({ isOpen }) => (isOpen ? `block` : `none`)};
+export const BookModal = styled.div`
   position: fixed;
   z-index: 36;
   left: 0;
@@ -16,9 +11,12 @@ export const BookModal = styled.div<IModal>`
   overflow: auto;
   background: linear-gradient(
     180deg,
-    rgba(241, 239, 237, 0.8) 100%,
-    rgba(241, 239, 237, 0) 114.26%
+    ${themes.primary.colors.careerBackground} 0.8 100%,
+    ${themes.primary.colors.careerBackground} 0 114.26%
   );
+  &.open {
+    display: none;
+  }
 `;
 
 export const BookModalContentContainer = styled.div`
@@ -76,8 +74,8 @@ export const Container = styled.div`
 export const BlackBox = styled.div`
   width: 100%;
   height: 50%;
-  background: black;
-  outline: 1px solid black;
+  background: ${themes.primary.colors.black};
+  outline: 1px solid ${themes.primary.colors.black};
 `;
 
 export const WhiteBox = styled.div`

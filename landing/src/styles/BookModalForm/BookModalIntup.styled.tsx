@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import themes from "../../../utils/themes";
+import themes from "../../utils/themes";
 
 export const ButtonWrapper = styled.div`
   width: 100%;

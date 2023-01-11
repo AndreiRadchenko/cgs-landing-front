@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import themes from "../../../../utils/themes";
+import themes from "../../utils/themes";
 import { Field } from "formik";
 
 export const FormField = styled(Field)`
@@ -7,10 +7,10 @@ export const FormField = styled(Field)`
   width: 100%;
   background: none;
   border: none;
-  border: 1px solid black;
+  border: 1px solid ${themes.primary.colors.black};
   font-family: ${themes.primary.font.family.namu};
   font-size: 16px;
-  color: black;
+  color: ${themes.primary.colors.black};
   padding: 0 0 0 12px;
   &:focus {
     outline: none;
@@ -28,7 +28,7 @@ export const FormField = styled(Field)`
 export const FormFieldLabel = styled.label`
   font-family: ${themes.primary.font.family.namu};
   font-size: 16px;
-  color: black;
+  color: ${themes.primary.colors.black};
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 0.875rem;
@@ -53,7 +53,7 @@ export const FormFieldContainer = styled.div`
 export const ErrorField = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-size: 12px;
-  color: red;
+  color: ${themes.primary.colors.adminRed};
   maring: 10px 0;
 
   @media ${themes.primary.media.maxLowScreenMobile} {

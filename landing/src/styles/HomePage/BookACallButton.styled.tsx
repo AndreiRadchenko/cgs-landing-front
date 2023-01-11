@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
-import { buttonHover } from "../../styles/Animations.styled";
+import { buttonHover } from "../Animations.styled";
 export interface IFontSize {
   size: string;
   padding: string;
