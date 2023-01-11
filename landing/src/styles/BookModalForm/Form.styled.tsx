@@ -43,7 +43,7 @@ export const Form = styled.form`
 export const FormProvider = styled(FormikProvider)``;
 
 export const FormSentFillText = styled.span`
-  color: grey;
+  color: ${themes.primary.colors.gray};
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.namu};
   font-size: 12px;

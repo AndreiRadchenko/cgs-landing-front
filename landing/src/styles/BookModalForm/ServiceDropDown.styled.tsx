@@ -75,8 +75,8 @@ export const DropdownContent = styled.div`
   z-index: 3;
   right: 0;
   border: 1px solid ${themes.primary.colors.primary};
-  border-right: 3px solid ${themes.primary.colors.primary};
-  border-bottom: 12px solid ${themes.primary.colors.primary};
+  border-width-right: 3px;
+  border-width-bottom: 12px;
   display: none;
   &.open {
     display: block;
