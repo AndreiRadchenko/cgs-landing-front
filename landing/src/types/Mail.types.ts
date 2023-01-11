@@ -20,3 +20,9 @@ export interface IFormData {
   projectsLink: string;
   email: string;
 }
+
+export interface IBookModalData {
+  name: string;
+  email: string;
+  service: string;
+}
