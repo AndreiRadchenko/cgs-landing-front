@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useFormik } from "formik";
+import { useFormik, FormikErrors } from "formik";
 import * as Styled from "../../../styles/BookModalForm/Form.styled";
 import FormField from "./FormField/index";
 import { useMutation, useQuery } from "@tanstack/react-query";
@@ -140,7 +140,7 @@ const BookForm = () => {
             name={key}
             key={key}
             label={label}
-            fieldError={formik.errors[key]}
+            fieldError={formik.errors[key as keyof FormikErrors<FormState>]}
           />
         ))}
         <Styled.ServiceSelect
@@ -164,8 +164,8 @@ const BookForm = () => {
               buttonClassName={buttonClassName}
               isDisabled={
                 buttonState.disabled ||
-                formik.errors.email ||
-                formik.errors.name
+                formik.errors.email !== null ||
+                formik.errors.name !== null
               }
             />
           </Styles.ButtonWrapper>

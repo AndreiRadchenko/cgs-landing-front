@@ -2,11 +2,11 @@ import { useFormikContext } from "formik";
 import React, { FC } from "react";
 import * as Styled from "../../../../styles/BookModalForm/FormField.styled";
 
-interface IFieldProps {
+export interface IFieldProps {
   name: string;
   label: string;
   type?: string;
-  fieldError: string;
+  fieldError?: string;
 }
 
 const TextFieldWrapper: FC<IFieldProps> = ({
