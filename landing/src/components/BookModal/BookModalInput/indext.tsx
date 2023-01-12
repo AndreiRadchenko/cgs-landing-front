@@ -1,5 +1,5 @@
 import React, { FC, MouseEvent } from "react";
-import * as Styles from "../../../styles/BookModalForm/BookModalIntup.styled";
+import * as Styles from "../../../styles/BookModalForm/BookModalInput.styled";
 import CloseButton from "../../../../public/CareerDecorations/close.svg";
 import BookForm from "../BookModalForm";
 

@@ -38,7 +38,7 @@ const BookACallButton = ({
     <>
       <Styled.BlackButton
         size={"1.5em"}
-        padding={"1.11em 1.5em"}
+        padding={"1.2em 1.5em"}
         className={buttonClassName}
         onClick={withCalendly ? handleCalendyOpen : undefined}
         style={style}
