@@ -2,6 +2,8 @@ import { Field, Form } from "formik";
 import styled from "styled-components";
 import themes from "../../utils/themes";
 import { errorColorAnimation } from "../Animations.styled";
+import checkboxBg from "../../../public/Calculator/checkbox.svg";
+import checkboxSign from "../../../public/Calculator/checkboxSign.svg";
 
 export const InputWrapper = styled.div`
   width: 80%;
@@ -178,35 +180,88 @@ export const SubStepSubtitle = styled.p`
 
 export const InputsWrapper = styled(Form)``;
 
+export const TieUpInputWrapper = styled.div`
+  position: relative;
+  max-width: 22px;
+`;
+
+// export const TieUpShadowBluePart = styled.div`
+//   display: inline-block;
+//   background-color: ${themes.primary.colors.darkBlue};
+//   height: 23px;
+//   width: 12.25px;
+// `;
+
+// export const TieUpShadowBlackPart = styled.div`
+//   display: inline-block;
+//   background-color: ${themes.primary.colors.primary};
+//   height: 19px;
+//   width: 10.25px;
+// `;
+
+export const TieUpShadowWrapper = styled.div`
+  position: absolute;
+  box-sizing: content-box;
+  top: -1px;
+  width: 19px;
+  height: 18.4px;
+  border-radius: 50%;
+  border: 1.5px solid ${themes.primary.colors.primary};
+  background: linear-gradient(
+    150deg,
+    ${themes.primary.colors.darkBlue},
+    ${themes.primary.colors.darkBlue} 43%,
+    ${themes.primary.colors.primary} 43%
+  );
+
+  @media ${themes.primary.media.maxMobile} {
+    /* &:first-of-type {
+      outline: 2px solid red;
+    } */
+  }
+`;
+
 export const TieUpInput = styled(Field)`
   -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
-  margin-right: 8px;
+  z-index: 2;
+
+  &:checked + label {
+    color: ${themes.primary.colors.darkBlue};
+
+    & span {
+      color: ${themes.primary.colors.darkBlue} !important;
+    }
+  }
 
   &.radio {
+    margin-right: 8px;
     background-color: ${themes.primary.colors.blogBackground};
     margin: 0;
-    min-width: 15px;
-    max-width: 15px;
-    height: 15px;
-    border: 1px solid ${themes.primary.colors.primary};
-    transform: translateY(15%);
+    min-width: 18.76px;
+    width: 18.76px;
+    height: 20px;
+    border: 1.5px solid ${themes.primary.colors.primary};
     border-radius: 50%;
     display: grid;
     place-content: center;
-    margin-right: 8px;
+    position: relative;
 
     &::before {
       content: "";
-      min-width: 15px;
-      max-width: 15px;
-      height: 15px;
+      min-width: 8px;
+      max-width: 8px;
+      height: 9px;
       border-radius: 50%;
       transform: scale(0);
       transition: 120ms transform ease-in-out;
-      box-shadow: inset 1em 1em ${themes.primary.colors.primary};
-      background-color: ${themes.primary.colors.primary};
+      border: 1.5px solid ${themes.primary.colors.primary};
+      background: linear-gradient(
+        90deg,
+        ${themes.primary.colors.mainGradientColor1} 0%,
+        ${themes.primary.colors.mainGradientColor2} 100%
+      );
     }
 
     &:checked::before {
@@ -215,36 +270,32 @@ export const TieUpInput = styled(Field)`
   }
 
   &.checkbox {
-    min-width: 16px;
-    max-width: 16px;
-    height: 16px;
-    border: 1px solid ${themes.primary.colors.primary};
-    background-color: transparent;
+    margin: 0;
+    min-width: 26px;
+    max-width: 26px;
+    height: 26px;
+    background: url(${checkboxBg.src});
+    background-size: contain;
+    background-repeat: no-repeat;
     position: relative;
-    border-radius: 0;
+    top: 0;
 
     &::before {
-      content: " ";
-      top: 0;
-      bottom: 2px;
-      left: 0.5px;
-      right: 0;
-      margin: auto;
-      width: 4px;
-      height: 8px;
+      content: "";
       position: absolute;
-      border-width: 0 3px 3px 0;
-      border-color: ${themes.primary.colors.primary};
-      transition: 120ms transform ease-in-out;
-      transform: rotate(45deg);
-      border-style: solid;
+      top: -2px;
+      left: 4px;
+      width: 25px;
+      height: 19.2px;
+      background: url(${checkboxSign.src});
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: transform 0.3s;
+      transform: scale(0);
     }
 
     &:checked::before {
-      transform: rotate(45deg) scale(1);
-    }
-    &:not(:checked):before {
-      transform: rotate(45deg) scale(0);
+      transform: scale(1);
     }
   }
 
@@ -265,24 +316,6 @@ export const TieUpInput = styled(Field)`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    &.radio {
-      min-width: 14px;
-      max-width: 14px;
-      height: 14px;
-
-      &::before {
-        content: "";
-        min-width: 14px;
-        max-width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        transform: scale(0);
-        transition: 120ms transform ease-in-out;
-        box-shadow: inset 1em 1em ${themes.primary.colors.primary};
-        background-color: ${themes.primary.colors.primary};
-      }
-    }
-
     &.checkbox {
       transform: translateY(-10%);
     }
@@ -296,6 +329,22 @@ export const TieUpInput = styled(Field)`
 export const TieUpLabel = styled.label`
   font-size: 16px;
   line-height: 19px;
+  margin-left: 12px;
+  transition: 0.15s;
+
+  & span {
+    transition: 0.15s;
+  }
+
+  &.active,
+  &:hover {
+    cursor: pointer;
+    color: ${themes.primary.colors.darkBlue} !important;
+
+    & span {
+      color: ${themes.primary.colors.darkBlue} !important;
+    }
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
@@ -308,6 +357,10 @@ export const OptionWrapper = styled.div`
   display: flex;
   margin-bottom: 16px;
   width: 100%;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 20px;
+  }
 `;
 
 export const DropDownContainer = styled.div`

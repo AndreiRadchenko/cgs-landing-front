@@ -3,7 +3,9 @@ import React, { useEffect } from "react";
 import {
   OptionWrapper,
   TieUpInput,
+  TieUpInputWrapper,
   TieUpLabel,
+  TieUpShadowWrapper,
 } from "../../styles/Calculator/CalculatorAdmin.styled";
 
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
@@ -119,6 +121,7 @@ const CalculatorInputs = ({
             <Styled.InputsWrapper>
               {options.map((input, idx) => (
                 <OptionWrapper key={idx}>
+                  {input.type === "radio" && <TieUpShadowWrapper />}
                   <TieUpInput
                     type={input.type}
                     name={`questionsArr[${stepInd}].answer`}

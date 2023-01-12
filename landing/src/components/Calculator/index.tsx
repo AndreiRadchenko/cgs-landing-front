@@ -20,6 +20,7 @@ import { Formik } from "formik";
 import { CalculatorValidation } from "../../validations/CalculatorValidation";
 
 const Calculator = () => {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>("< start >");
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [startLoading, setStartLoading] = useState<boolean>(false);
@@ -122,6 +123,16 @@ const Calculator = () => {
     mutate({ answers: questionsArr, isBlockchain, email });
   };
 
+  const handleMouseOver = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setTimeout(() => {
+      setIsHovered(false);
+    }, 3000);
+  };
+
   DisableScrollBarHandler(isOpen);
 
   return (
@@ -129,10 +140,18 @@ const Calculator = () => {
       <Styled.CalculatorPreviewWrapper>
         <Styled.CalculatorPreviewCube>
           <Styled.CalculatorPreview>
-            <Styled.CalculatorButton className="button">
+            <Styled.CalculatorButton
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+            >
               calculator
             </Styled.CalculatorButton>
-            <Styled.CalculatorPreviewContentWrapper className="content">
+            <Styled.CalculatorPreviewContentWrapper
+              onClick={handleOpen}
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+              className={isHovered ? "active" : undefined}
+            >
               <span>
                 <SplitBrackets text={data?.previewTextMessage} />
               </span>

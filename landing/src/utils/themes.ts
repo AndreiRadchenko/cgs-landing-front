@@ -146,6 +146,7 @@ const themes = {
       blue: "#85BEFD",
       linkBlue: "#3C95F9",
       darkBlue: "#5869DD",
+      calculatorDarkBlue: "#4654B1",
       adminBlue: "#095AF8",
       tagBg: "#3749C5",
       hoveredBlogTag: "#3749C5",

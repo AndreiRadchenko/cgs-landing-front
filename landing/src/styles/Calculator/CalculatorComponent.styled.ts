@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 import LoaderImg from "../../../public/Calculator/calculatorLoader.gif";
+import { glow } from "../Animations.styled";
 
 export const CalculatorPreviewWrapper = styled.div`
   position: fixed;
@@ -56,30 +57,25 @@ export const CalculatorButton = styled.div`
   z-index: 2;
   transition: all 0.2s;
   position: relative;
+  background: linear-gradient(
+    180deg,
+    ${themes.primary.colors.mainGradientColor1},
+    ${themes.primary.colors.mainGradientColor2},
+    ${themes.primary.colors.mainGradientColor1}
+  );
+  background-size: auto 400%;
+  animation: ${glow} 12s linear infinite;
 
   &::after {
     content: "";
-    width: 60px;
+    width: 61px;
     height: 3px;
     border: 1.8px solid ${themes.primary.colors.primary};
     position: absolute;
     bottom: -5px;
-    left: 0px;
+    left: 0;
     background: ${themes.primary.colors.mainGradientColor2};
-
-    -webkit-transform: skew(-40deg);
-    -webkit-transform-origin: top;
-
-    -moz-transform: skew(-40deg);
-    -moz-transform-origin: top;
-
-    -ms-transform: skew(-40deg);
-    -ms-transform-origin: top;
-
-    -o-transform: skew(-40deg);
-    -o-transform-origin: top;
-
-    transform: skew(-40deg);
+    transform: skew(-50deg);
     transform-origin: top;
   }
 
@@ -120,63 +116,35 @@ export const CalculatorPreviewContentWrapper = styled.div`
   top: 0;
   left: 0;
   transition: all 0.3s;
-  border-width: 1.8px 0 0 1.8px;
-  border-style: solid;
-  border-color: ${themes.primary.colors.primary};
+  border-top: 1.8px solid ${themes.primary.colors.primary};
 
   &::after {
     content: "";
-    width: 101%;
+    width: 100.5%;
     height: 3px;
     border: 1.8px solid ${themes.primary.colors.primary};
     position: absolute;
     bottom: -3px;
-    left: -3px;
+    left: 0px;
     background: ${themes.primary.colors.mainGradientColor2};
-
-    -webkit-transform: skew(-40deg);
-    -webkit-transform-origin: top;
-
-    -moz-transform: skew(-40deg);
-    -moz-transform-origin: top;
-
-    -ms-transform: skew(-40deg);
-    -ms-transform-origin: top;
-
-    -o-transform: skew(-40deg);
-    -o-transform-origin: top;
-
-    transform: skew(-40deg);
+    transform: skew(-45deg);
     transform-origin: top;
   }
 
   &::before {
     content: "";
     width: 5px;
-    height: 98.1%;
+    height: 99%;
     position: absolute;
-    top: 0.2px;
-    left: -9px;
+    top: 0.1px;
+    left: -7px;
     border: 1.8px solid ${themes.primary.colors.primary};
-    border-right: 0;
-
-    background: linear-gradient(180deg, #d6ffbb 8%, #5869dd 110.45%);
-    -webkit-transform: skewY(-40deg);
-    -webkit-transform-origin: top;
-
-    -moz-transform: skewY(-30deg);
-    -moz-transform-origin: top;
-
-    -ms-transform: skewY(-30deg);
-    -ms-transform-origin: top;
-
-    -o-transform: skewY(-30deg);
-    -o-transform-origin: top;
-
+    background: ${themes.primary.colors.mainGradientColor2};
     transform: skewY(-30deg);
     transform-origin: top;
   }
 
+  &.active,
   &:hover {
     left: -19.83em;
   }
@@ -407,6 +375,10 @@ export const StartButton = styled.button`
     z-index: 3;
   }
 
+  &.hide {
+    display: none;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     padding: 1.175em 1.52em;
     right: 20px;
@@ -603,7 +575,8 @@ export const ContentWrapper = styled.div`
 export const PagerText = styled.div`
   padding: 20px 0 20px 18px;
   font-size: ${themes.primary.font.size.oneAndHalf};
-  font-family: ${themes.primary.font.family.namu};
+  font-family: ${themes.primary.font.family.openSans};
+  font-weight: ${themes.primary.font.weight.bold};
   line-height: 160%;
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -637,9 +610,27 @@ export const PagerText = styled.div`
 
 export const CalculatorPagerLeftButton = styled.g`
   cursor: pointer;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+  /* &:hover,
+  &:active {
+    background: linear-gradient(
+      90deg,
+      ${themes.primary.colors.mainGradientColor1} 0%,
+      ${themes.primary.colors.mainGradientColor2} 100%
+    );
+    border-radius: 0px 0px 0px 20px;
+  } */
 `;
 export const CalculatorPagerRightButton = styled.g`
   cursor: pointer;
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
 `;
 
 export const LoaderWrapper = styled.div`
@@ -708,7 +699,7 @@ export const ChooseModalWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   row-gap: 1.1em;
-  top: 7em;
+  top: 9.5em;
   padding-inline: 2.666em;
 
   @media ${themes.primary.media.maxMobile} {
@@ -729,16 +720,19 @@ export const ChooseText = styled.div`
   font-family: ${themes.primary.font.family.namu};
   line-height: 160%;
   cursor: pointer;
+  font-family: ${themes.primary.font.family.openSans};
+  font-weight: ${themes.primary.font.weight.bold};
   transition: color 0.15s, background-color 0.3s;
   display: flex;
   align-items: center;
 
   &:hover {
-    color: ${themes.primary.colors.darkBlue};
+    background-color: ${themes.primary.colors.darkBlue};
+    color: ${themes.primary.colors.secondary};
   }
 
   &:active {
-    background-color: ${themes.primary.colors.darkBlue};
+    background-color: ${themes.primary.colors.calculatorDarkBlue};
     color: ${themes.primary.colors.secondary};
   }
 
@@ -1106,7 +1100,7 @@ export const CalculatorInputFields = styled.div`
     height: 99.2%;
     width: 98.4%;
     margin: 2px 0 0 3px;
-    padding: 0.7em 4px 0 0.5em;
+    padding: 0 4px 0 0.5em;
 
     &.email {
       height: 97%;
@@ -1301,10 +1295,11 @@ export const PopoverTriangle = styled.div`
 
 export const CalculatorInputsFieldsWrapper = styled.div`
   padding-block: 0.53em;
-  margin-bottom: 0.2em;
   height: 100%;
   width: 100%;
   z-index: 2;
+  font-family: ${themes.primary.font.family.openSans};
+  font-weight: ${themes.primary.font.weight.bold};
   overflow-y: scroll;
 
   &.last {
@@ -1366,5 +1361,5 @@ export const SubStepTitle = styled.h3`
 `;
 
 export const InputsWrapper = styled.div`
-  padding-top: 1.5em;
+  padding-top: 1.125em;
 `;

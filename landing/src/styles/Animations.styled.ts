@@ -401,3 +401,10 @@ ${css`
   }
 `}
 `;
+
+export const glow = keyframes`
+${css`
+  to {
+    background-position: 0 400%;
+  }
+`}`;

@@ -21,6 +21,17 @@ const CalculatorModalComponent = ({
   mobile,
   children,
 }: ICalculatorModalComponentProps) => {
+  const buttonClassName = () => {
+    let className = "";
+    if (buttonText === "< choose >") {
+      className += "hide ";
+    }
+
+    if (isQuiting) {
+      className += "quit";
+    }
+    return className;
+  };
   const foreignObject = (
     <foreignObject width="100%" height="100%">
       <Styled.ForeignObjectWrapper>
@@ -38,7 +49,7 @@ const CalculatorModalComponent = ({
         )}
         <Styled.StartButton
           onClick={onButtonClick}
-          className={isQuiting ? "quit" : undefined}
+          className={buttonClassName()}
         >
           {buttonText}
         </Styled.StartButton>
