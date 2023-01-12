@@ -156,7 +156,7 @@ const BookForm = () => {
             setEnable={setEnable}
           />
         </Styled.ServiceSelect>
-        <Styled.FormSentContainer>
+        <Styled.FormSentContainer className={enable ? "open" : "flex"}>
           <Styles.ButtonWrapper ref={elRef}>
             <BookACallButton
               buttonLink={buttonLink || "https://cgs.io"}

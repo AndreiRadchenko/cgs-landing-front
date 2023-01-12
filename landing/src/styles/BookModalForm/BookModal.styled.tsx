@@ -29,28 +29,20 @@ export const BookModalContentContainer = styled.div`
 `;
 
 export const BookModalContent = styled.div`
-  width: 535px;
-  height: 647px;
+  width: 499px;
+  height: 508px;
   background: ${themes.primary.colors.blogBackground};
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
 
   @media (max-width: 570px) {
     width: 345px;
-    height: 660px;
+    height: 380px;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
     width: 300px;
-    height: 660px;
-  }
-
-  @media (max-height: 670px) {
-    height: 560px;
-  }
-
-  @media (max-height: 570px) {
-    height: 460px;
+    height: 380px;
   }
 `;
 
@@ -61,13 +53,11 @@ export const Container = styled.div`
   flex-direction: column;
   position: absolute;
   z-index: -1;
-  margin-top: 12px;
-  margin-left: 12px;
+  margin: 12px 0 0 12px;
   border: 2px solid black;
 
   @media (max-width: 570px) {
-    margin-top: 6px;
-    margin-left: 6px;
+    margin: 6px 0 0 6px;
   }
 `;
 
@@ -81,4 +71,5 @@ export const BlackBox = styled.div`
 export const WhiteBox = styled.div`
   width: 100%;
   height: 50%;
+  background: ${themes.primary.colors.careerBackground};
 `;

@@ -12,7 +12,7 @@ export const FormField = styled(Field)`
   font-family: ${themes.primary.font.family.namu};
 
   font-size: 16px;
-  padding: 0 0 0 12px;
+  padding-left: 12px;
 
   &:focus {
     outline: none;
@@ -31,12 +31,12 @@ export const FormField = styled(Field)`
 `;
 
 export const Form = styled.form`
-  margin: 48px 5px 0 0;
-  padding-left: 40px;
+  margin-top: 30px;
+  padding: 0 61px 0 50px;
 
   @media (max-width: 570px) {
-    margin-top: 24px;
-    padding-left: 11px;
+    margin-top: 12px;
+    padding: 0 46px 0 34px;
   }
 `;
 
@@ -57,26 +57,20 @@ export const FormSentFillText = styled.span`
 
 export const FormSentContainer = styled.div`
   display: flex;
-  align-items: felx-start;
+  align-items: flex-start;
   justify-content: center;
   width: 100%;
-  height: 102px;
+  height: 75px;
   flex-direction: column;
-  );
+  margin-top: 30px;
 
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-
-    font-size: 16px;
-    font-weight: ${themes.primary.font.weight.heavy};
-    font-family: ${themes.primary.font.family.namu};
+  &.open {
+    display: none;
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 94px;
+  @media ${themes.primary.media.maxMobile} {
+    height: 60px;
+    margin-top: 15px;
   }
 `;
 
@@ -96,15 +90,14 @@ export const Shadow = styled.div`
 `;
 
 export const ServiceSelect = styled.div`
-  height: 78px;
+  height: 54px;
   width: 100%;
-  border: 1px solid ${themes.primary.colors.black};
-  margin-top: 12px;
+  border: 1px solid ${themes.primary.colors.inputGrey};
+  margin-top: 9px;
 
   div {
     width: 100%;
     height: 100%;
-
     position: relative;
 
     &.enabled {
@@ -127,7 +120,7 @@ export const ServiceSelect = styled.div`
       }
 
       &.open {
-        box-shadow: 13px 0px 0px 0px ${themes.primary.colors.black};
+        box-shadow: 4px 0px 0px 0px ${themes.primary.colors.black};
 
         border-bottom: none !important;
         border-right: 1px solid ${themes.primary.colors.black} !important;
@@ -137,7 +130,7 @@ export const ServiceSelect = styled.div`
       img {
         position: absolute;
         right: 0;
-        margin: 0 18px 0 0;
+        margin-right: 18px;
       }
     }
   }
@@ -150,14 +143,14 @@ export const ServiceSelect = styled.div`
         color: ${themes.primary.colors.black};
       }
 
-      border-bottom: 10px solid black;
-      border-right: 1px solid black !important;
-      box-shadow: 13px 0px 0px 0px black;
+      border-bottom: 10px solid ${themes.primary.colors.black};
+      border-right: 1px solid ${themes.primary.colors.black} !important;
+      box-shadow: 4px 0px 0px 0px ${themes.primary.colors.black};
       border-left: none;
     }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 66px;
+    height: 44px;
   }
 `;
