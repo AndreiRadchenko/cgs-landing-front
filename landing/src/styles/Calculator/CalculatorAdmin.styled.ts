@@ -494,3 +494,29 @@ export const PriceSubtitle = styled.p`
     line-height: 18px;
   }
 `;
+
+export const TypeFieldWrapper = styled.div`
+  display: flex;
+
+  column-gap: 16px;
+`;
+
+export const AdminCalculatorTypeInput = styled(Field)`
+  width: 274px;
+  height: 56px;
+  padding-inline: 17px;
+  border: 1px solid ${themes.primary.colors.adminInputBorder};
+  background-color: ${themes.primary.colors.blogBackground};
+  outline: none;
+
+  &::placeholder {
+    color: ${themes.primary.colors.adminInputBorder};
+    letter-spacing: 0.03em;
+  }
+`;
+
+export const CalculatorAdminAddTypeWrapper = styled.div`
+  margin-bottom: 2.666em;
+`;
+
+export const CalculatorTypeGrid = styled.div``;

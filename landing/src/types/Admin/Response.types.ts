@@ -606,6 +606,10 @@ export interface IReviewProps {
 export interface ISitemapData {
   includedPages: string[];
 }
+export interface ICalculatorRole {
+  name: string;
+  rate: number;
+}
 
 export interface ICalculator {
   previewTextMessage: string;
@@ -614,6 +618,7 @@ export interface ICalculator {
   finishMessage: string;
   resultMessage: string;
   email: string;
+  roles: ICalculatorRole[];
 }
 
 export interface ICalculatorTieUpStep {
@@ -623,14 +628,12 @@ export interface ICalculatorTieUpStep {
 }
 
 export interface IStepOptions {
-  type: string;
+  _id: string;
   label: string;
-  price: number;
-  percInTheEnd: number;
   hours: number;
-  uxui: number;
-  pm: number;
-  qa: number;
+  role: string;
+  endRoleCoef: number;
+  endCoef: number;
 }
 
 export interface ICalculatorSubStep {
@@ -643,6 +646,7 @@ export interface ICalculatorSubStep {
 export interface ICalculatorStep {
   _id: string;
   title: string;
+  type: string;
   options: IStepOptions[];
   tieUpSteps: ICalculatorTieUpStep[];
   subSteps: ICalculatorSubStep[];

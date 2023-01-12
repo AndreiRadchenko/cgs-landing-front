@@ -20,6 +20,10 @@ export class AdminCalculatorService {
     return this.httpService.put("api/calculator", data);
   }
 
+  public addCalculatorType(name: string) {
+    return this.httpService.post("api/calculator/type", { name });
+  }
+
   public getCalculatorClassicSteps() {
     return this.httpService.get<ICalculatorStep[]>(
       "api/calculator/classic/step"
