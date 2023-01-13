@@ -12,7 +12,11 @@ import smallMountain from "/public/smallMountain.svg";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import Logo from "../HeaderNavNew/Logo";
 
-const FooterNew = (): JSX.Element => {
+interface IFooterProps {
+  className?: string;
+}
+
+const FooterNew = ({ className }: IFooterProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const { width } = useWindowDimension();
@@ -42,7 +46,7 @@ const FooterNew = (): JSX.Element => {
 
   DisableScrollBarHandler(isOpen);
   return (
-    <StyledThisComp.HeaderNavContainer ref={elRef}>
+    <StyledThisComp.HeaderNavContainer ref={elRef} className={className}>
       <ClickAudio ref={audioRef}>
         <Source src="/music/headerMouseClick.mp3" type="audio/mpeg" />
       </ClickAudio>

@@ -1,11 +1,9 @@
 import React, { CSSProperties, useRef, useState } from "react";
 import { PopupModal } from "react-calendly";
-import {
-  ArrowContainer,
-  BlackButton,
-} from "../../styles/HomePage/General.styled";
+import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { recoverLink } from "../../utils/recoverLink";
+import * as Styled from "../../styles/HomePage/BookACallButton.styled";
 
 interface IBookACallButtonProps {
   buttonText?: string;
@@ -13,6 +11,8 @@ interface IBookACallButtonProps {
   withCalendly?: boolean;
   buttonClassName?: string;
   style?: CSSProperties;
+  type?: string;
+  isDisabled?: boolean;
 }
 
 const BookACallButton = ({
@@ -21,6 +21,7 @@ const BookACallButton = ({
   withCalendly = false,
   buttonClassName,
   style,
+  isDisabled,
 }: IBookACallButtonProps) => {
   const elRef = useRef<HTMLAnchorElement>(null);
   const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
@@ -32,23 +33,29 @@ const BookACallButton = ({
   const handleCalendyOpen = () => {
     setCalendlyIsOpen(true);
   };
+
   return (
     <>
-      <BlackButton
+      <Styled.BlackButton
         size={"1.5em"}
-        padding={"1.11em 1.5em"}
-        rel="noopener noreferrer"
+        padding={"1.2em 1.5em"}
         className={buttonClassName}
-        href={withCalendly ? undefined : buttonLink}
         onClick={withCalendly ? handleCalendyOpen : undefined}
         style={style}
-        ref={elRef}
+        disabled={isDisabled}
+        type="submit"
       >
-        {buttonText}
+        <a
+          href={withCalendly ? undefined : buttonLink}
+          ref={elRef}
+          rel="noopener noreferrer"
+        >
+          {buttonText}
+        </a>
         <ArrowContainer>
           <ButtonArrow />
         </ArrowContainer>
-      </BlackButton>
+      </Styled.BlackButton>
       {withCalendly && elRef && elRef.current && (
         <PopupModal
           url={recoverLink(buttonLink)}

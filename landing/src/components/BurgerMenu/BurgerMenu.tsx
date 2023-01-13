@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from "react";
 import * as StyledThisComp from "../../styles/Burger.styles";
-import WhatsAppComponent from "../HomePage/ButtonShareComponent";
+import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import BurgerFooter from "./BurgerFooter";
 
 interface IBurgerMenuProps {
@@ -27,7 +27,7 @@ const BurgerMenu: FC<IBurgerMenuProps> = ({ isOpen, children }) => {
             <BurgerFooter />
           </StyledThisComp.SocialLinksBurgerRow>
           <StyledThisComp.WhatsAppLink>
-            <WhatsAppComponent />
+            <ButtonShareComponent />
           </StyledThisComp.WhatsAppLink>
         </div>
         <StyledThisComp.BurgerPrivacy href="/privacy-policy">

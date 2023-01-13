@@ -10,7 +10,7 @@ export const CalculatorPreviewWrapper = styled.div`
   z-index: 11;
 
   @media ${themes.primary.media.maxMobile} {
-    position: absolute;
+    position: fixed;
     height: auto;
     top: auto;
     bottom: 0;

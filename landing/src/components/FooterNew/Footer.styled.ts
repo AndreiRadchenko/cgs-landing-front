@@ -18,6 +18,11 @@ export const HeaderNavContainer = styled.footer`
     flex-direction: column-reverse;
     background-color: ${themes.primary.colors.black};
     color: ${themes.primary.colors.secondary};
+
+    &.mobileDissapear {
+      opacity: 0;
+      max-height: 65px;
+    }
   }
 `;
 
