@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, MouseEvent } from "react";
 import { useFormik, FormikErrors } from "formik";
 import * as Styled from "../../../styles/BookModalForm/Form.styled";
 import FormField from "./FormField/index";
@@ -18,13 +18,17 @@ interface FormState {
   service: string;
 }
 
+interface IFormProps {
+  onClose: (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
+}
+
 function split(text: string) {
   const splited = text?.split("|");
 
   return splited.join("").toString();
 }
 
-const BookForm = () => {
+const BookForm = ({ onClose }: IFormProps) => {
   const [enable, setEnable] = useState(false);
   const [buttonState, setButtonState] = useState({
     disabled: true,
@@ -59,7 +63,7 @@ const BookForm = () => {
       service: "",
     },
     validationSchema,
-    onSubmit(values, { resetForm }) {
+    onSubmit(values, { resetForm, setErrors }) {
       if (!values.email) return;
       if (!values.service) return;
       if (buttonState.disabled) {
@@ -71,7 +75,7 @@ const BookForm = () => {
           service: values.service.replaceAll("|", ""),
         });
       }
-
+      setErrors({});
       resetForm();
     },
   });
@@ -115,9 +119,17 @@ const BookForm = () => {
     setEnable(false);
   }, [service]);
 
+  useEffect(() => {
+    formik.setErrors({});
+    setService("");
+    formik.resetForm();
+  }, [onClose]);
+
   const buttonLink = ServiceData?.find(
     (s) => s.headerBlock.title.toUpperCase() === service
   )?.headerBlock.buttonLink;
+
+  const handleDropDown = () => setEnable(!enable);
 
   return (
     <Styled.FormProvider value={formik}>
@@ -132,7 +144,7 @@ const BookForm = () => {
           />
         ))}
         <Styled.ServiceSelect
-          onClick={() => setEnable(!enable)}
+          onClick={handleDropDown}
           className={enable ? "1" : "enabled"}
         >
           <ServiceDropdown
@@ -147,7 +159,10 @@ const BookForm = () => {
         <Styled.FormSentContainer className={enable ? "open" : "flex"}>
           <Styles.ButtonWrapper ref={elRef}>
             <BookACallButton
-              buttonLink={buttonLink || "https://cgs.io"}
+              buttonLink={
+                buttonLink ||
+                "https://calendly.com/d/d3r-3rd-57c/client-meets-oleksii-and-tech-department"
+              }
               withCalendly
               buttonClassName={buttonClassName}
               isDisabled={

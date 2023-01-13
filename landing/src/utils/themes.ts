@@ -191,6 +191,7 @@ const themes = {
       calculatorButtonBg: "#e7e5e3",
       calculatorHorizontalLine: "#C6C6C6",
       calculatorEmailPlaceholder: "#797877",
+      modalFormBackground: "rgba(241, 239, 237, 0.7)",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

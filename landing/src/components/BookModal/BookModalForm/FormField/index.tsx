@@ -20,7 +20,12 @@ const TextFieldWrapper: FC<IFieldProps> = ({
     <>
       <Styled.FormFieldLabel htmlFor={label}>{label}</Styled.FormFieldLabel>
       <Styled.FormFieldContainer>
-        <Styled.FormField placeholder={label} type={type} name={name} />
+        <Styled.FormField
+          className={errors[name] && touched[name] ? "formikErrors" : "default"}
+          placeholder={label}
+          type={type}
+          name={name}
+        />
         {errors[name] && touched[name] && (
           <Styled.ErrorField>{fieldError}</Styled.ErrorField>
         )}
