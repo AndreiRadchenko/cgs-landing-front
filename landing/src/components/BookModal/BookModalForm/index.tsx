@@ -7,7 +7,6 @@ import ServiceDropdown from "./ServiceDropdown";
 import * as Styles from "../../../styles/HomePage/General.styled";
 import BookACallButton from "../../BookACallButton";
 import { queryKeys } from "../../../consts/queryKeys";
-import { useOnScreen } from "../../../hooks/useOnScreen";
 import { IBookModalData } from "../../../types/Mail.types";
 import { adminBookService } from "../../../services/adminBookServiceModal";
 import { adminServices } from "../../../services/services/commonServices";
@@ -44,7 +43,7 @@ const BookForm = () => {
     service.headerBlock.title.toUpperCase()
   );
 
-  const [buttonClassName, setButtonClassName] = useState<string>("main");
+  const buttonClassName = "scrolled removeBg";
 
   const fieldContent = {
     name: "Your name",
@@ -116,17 +115,6 @@ const BookForm = () => {
     setEnable(false);
   }, [service]);
 
-  const isOnScreen = useOnScreen(elRef, true);
-
-  useEffect(() => {
-    if (isOnScreen) {
-      setButtonClassName("scrolled");
-      setTimeout(() => {
-        setButtonClassName("scrolled removeBg");
-      }, 1000);
-    }
-  }, [isOnScreen]);
-
   const buttonLink = ServiceData?.find(
     (s) => s.headerBlock.title.toUpperCase() === service
   )?.headerBlock.buttonLink;
@@ -164,8 +152,8 @@ const BookForm = () => {
               buttonClassName={buttonClassName}
               isDisabled={
                 buttonState.disabled ||
-                formik.errors.email !== null ||
-                formik.errors.name !== null
+                !!formik.errors.email ||
+                !!formik.errors.name
               }
             />
           </Styles.ButtonWrapper>
