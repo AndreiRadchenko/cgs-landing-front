@@ -11,7 +11,7 @@ import {
   Image,
 } from "../../styles/WebService/HeadBlock.styled";
 import TextTypingAnimation from "../Typewrite";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -27,10 +27,10 @@ const HeadBlock = () => {
           <SplitBrackets text={data?.text} />
         </Description>
         {data && (
-          <BookACallButton
+          <GetEstimationButton
             buttonLink={data?.buttonLink}
+            withEstimation
             buttonText={data.button}
-            withCalendly
             style={{ padding: "1.117em 2.537em", fontSize: "1.125em" }}
           />
         )}

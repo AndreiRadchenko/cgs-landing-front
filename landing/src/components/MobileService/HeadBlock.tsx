@@ -5,7 +5,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import TextTypingAnimation from "../Typewrite";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
 const HeadBlock = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobile>([
@@ -22,10 +22,10 @@ const HeadBlock = () => {
           <SplitBrackets text={data?.text} />
         </Styled.Description>
         {data && (
-          <BookACallButton
+          <GetEstimationButton
             buttonLink={data?.buttonLink}
+            withEstimation
             buttonText={data.button}
-            withCalendly
             style={{
               padding: "1.195em 2.805em",
               fontSize: "1.54em",

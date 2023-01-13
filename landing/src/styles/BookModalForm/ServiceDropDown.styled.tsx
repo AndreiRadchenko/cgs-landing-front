@@ -10,7 +10,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     !props.isHeader &&
     `1px solid ${themes.primary.colors.comment} !important;`};
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.tertiary};
+  font-size: 16px;
 
   display: inline-block;
   vertical-align: middle;
@@ -82,7 +82,7 @@ export const DropdownContent = styled.div`
     height: 52px;
     color: ${themes.primary.colors.primary};
     font-family: ${themes.primary.font.family.namu};
-    font-size: ${themes.primary.font.size.vistaco};
+    font-size: 16px;
     border: 1px solid ${themes.primary.colors.comment};
     padding: 15px;
     text-decoration: none;

@@ -8,7 +8,7 @@ import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { replaceAt } from "../../utils/replaceStrByInd";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
 
 const HeadBlock = () => {
   const { width } = useWindowDimension();
@@ -46,10 +46,10 @@ const HeadBlock = () => {
           <SplitBrackets text={data?.text} />
         </Styled.Text>
         {data && (
-          <BookACallButton
+          <GetEstimationButton
             buttonLink={data?.buttonLink}
+            withEstimation
             buttonText={data.button}
-            withCalendly
             style={{
               padding: "1em 1.43em",
               fontSize: "1.125em",
