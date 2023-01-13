@@ -8,6 +8,8 @@ import {
   ICalculator,
   ICalculatorRole,
 } from "../../../types/Admin/Response.types";
+import SaveBtn from "../Global/SaveBtn";
+import CalculatorRateComponent from "./CalculatorRateComponent";
 
 const CalculatorTypesRate = () => {
   const queryClient = useQueryClient();
@@ -21,20 +23,45 @@ const CalculatorTypesRate = () => {
   );
 
   const handleSubmit = (
-    values: ICalculatorRole[],
-    { resetForm }: FormikHelpers<ICalculatorRole[]>
+    values: { roles: ICalculatorRole[] },
+    { resetForm }: FormikHelpers<{ roles: ICalculatorRole[] }>
   ) => {
     if (data) {
       const updatedData = data;
-      updatedData.roles = values;
+      updatedData.roles = values.roles;
       mutateAsync(updatedData);
       resetForm();
     }
   };
+
   return (
     (data && (
-      <Formik initialValues={data.roles} onSubmit={handleSubmit}>
-        <CalculatorTypeGrid></CalculatorTypeGrid>
+      <Formik
+        initialValues={{ roles: data.roles }}
+        onSubmit={handleSubmit}
+        enableReinitialize
+      >
+        {({ values }) => {
+          return (
+            <div>
+              <CalculatorTypeGrid>
+                {values.roles.map((role, idx) => (
+                  <CalculatorRateComponent
+                    key={role.name}
+                    type={role.name}
+                    rate={role.rate}
+                    idx={idx}
+                  />
+                ))}
+              </CalculatorTypeGrid>
+              <SaveBtn
+                type="submit"
+                title="Save Changes"
+                style={{ marginTop: "14px" }}
+              />
+            </div>
+          );
+        }}
       </Formik>
     )) ||
     null

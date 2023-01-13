@@ -37,18 +37,6 @@ const CalculatorStepItem = ({
   );
   const handleSubmit = async (values: ICalculatorStep) => {
     const converted = values;
-    if (typeof converted.options === "string") {
-      converted.options = getInputsFromLabels(converted.options);
-    }
-
-    if (
-      converted.subSteps.length > 0 &&
-      typeof converted.subSteps[0].options === "string"
-    ) {
-      converted.subSteps[0].options = getInputsFromLabels(
-        converted.subSteps[0].options
-      );
-    }
 
     document.body.style.cursor = "wait";
     isBlockchain

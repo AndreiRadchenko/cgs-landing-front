@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Formik, FormikHelpers } from "formik";
+import { Form, Formik, FormikHelpers } from "formik";
 import React from "react";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminCalculatorService } from "../../../services/adminCalculator";
@@ -41,16 +41,18 @@ const CalculatorTypeInput = () => {
 
   return (
     <Formik initialValues={initilaValues} onSubmit={handleSubmit}>
-      <CalculatorAdminAddTypeWrapper>
-        <AdminSubTitle>Specialist</AdminSubTitle>
-        <TypeFieldWrapper>
-          <AdminCalculatorTypeInput
-            name="name"
-            placeholder="Add new specialist"
-          />
-          <AddButton>+</AddButton>
-        </TypeFieldWrapper>
-      </CalculatorAdminAddTypeWrapper>
+      <Form>
+        <CalculatorAdminAddTypeWrapper>
+          <AdminSubTitle>Specialist</AdminSubTitle>
+          <TypeFieldWrapper>
+            <AdminCalculatorTypeInput
+              name="name"
+              placeholder="Add new specialist"
+            />
+            <AddButton type="submit">+</AddButton>
+          </TypeFieldWrapper>
+        </CalculatorAdminAddTypeWrapper>
+      </Form>
     </Formik>
   );
 };

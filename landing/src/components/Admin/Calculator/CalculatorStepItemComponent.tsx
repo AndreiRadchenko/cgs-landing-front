@@ -4,14 +4,13 @@ import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import SaveBtn from "../Global/SaveBtn";
 import CalculatoSubStepItem from "./CalculatoSubStepItem";
-import { formalizeData } from "../../../utils/formalizeCalculatorData";
 
 const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
   ssr: false,
 });
 
 import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
-import { inputSubmenu } from "./inputSubmenuPlugin";
+import { letterWeightSubmenu } from "./letterWeightSubmenuPlugin";
 import { Plugin } from "suneditor/src/plugins/Plugin";
 import { useFormikContext } from "formik";
 import {
@@ -23,6 +22,8 @@ import { useMutation } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminCalculatorService } from "../../../services/adminCalculator";
 import CalculatoTieUpItem from "./CalculatorTieUpItem";
+import { AdminSubTitle } from "../../../styles/AdminPage";
+import CalculatorOptionTypeSelect from "./CalculatorOptionTypeSelect";
 
 interface ICalculatorStepItemComponentProps {
   isBlockchain: boolean;
@@ -42,6 +43,7 @@ const CalculatorStepItemComponent = ({
   >();
   const { values, setFieldValue, handleSubmit } =
     useFormikContext<ICalculatorStep>();
+  console.log(values);
 
   const { mutateAsync: addClassicSubStep } = useMutation(
     [queryKeys.addCalculatorClassicSubStep],
@@ -78,11 +80,11 @@ const CalculatorStepItemComponent = ({
       check_new_window: "nofollow noopener",
     },
     addTagsWhitelist: "label|input",
-    plugins: { letterCaseSubmenu, inputSubmenu, ...plugins },
+    plugins: { letterCaseSubmenu, letterWeightSubmenu, ...plugins },
     buttonList: [
       ["fontColor", "fontSize"],
       ["letterCase"],
-      ["input"],
+      ["letterWeight"],
       ["removeFormat"],
       ["codeView"],
     ],
@@ -95,11 +97,11 @@ const CalculatorStepItemComponent = ({
       check_new_window: "nofollow noopener",
     },
     addTagsWhitelist: "label|input",
-    plugins: { letterCaseSubmenu, inputSubmenu, ...plugins },
+    plugins: { letterCaseSubmenu, letterWeightSubmenu, ...plugins },
     buttonList: [
       ["fontColor", "fontSize"],
       ["letterCase"],
-      ["input"],
+      ["letterWeight"],
       ["removeFormat"],
       ["codeView"],
     ],
@@ -165,22 +167,27 @@ const CalculatorStepItemComponent = ({
           <TextEditor
             name={`title`}
             props={{
+              height: "57px",
               width: "559px",
+              setDefaultStyle: "position:relative; z-index:2",
               setOptions: titleEditorOptions,
             }}
           />
         </Styled.TransparentTextEditorWrapper>
+        <AdminSubTitle style={{ marginTop: "24px" }}>Question</AdminSubTitle>
+        <CalculatorOptionTypeSelect />
         <Styled.TextEditorContainer>
           <Styled.TransparentTextEditorWrapper className="text">
             <TextEditor
-              name="options"
-              header="Text"
+              name="options[0].label"
               props={{
+                height: "37px",
                 width: "559px",
-                defaultValue:
-                  typeof values.options !== "string"
-                    ? formalizeData(values.options)
-                    : values.options,
+                setDefaultStyle: "position:relative; z-index:1",
+                // defaultValue:
+                //   typeof values.options !== "string"
+                //     ? formalizeData(values.options)
+                //     : values.options,
                 setOptions: textEditorOptions,
               }}
             />

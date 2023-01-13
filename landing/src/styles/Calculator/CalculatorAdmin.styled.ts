@@ -27,6 +27,14 @@ export const TransparentTextEditorWrapper = styled.div`
     & .txt {
       font-family: ${themes.primary.font.family.namu};
     }
+
+    & p {
+      margin: 0;
+    }
+  }
+
+  & .se-wrapper-inner {
+    min-height: 0 !important;
   }
 
   & .se-btn-list {
@@ -51,7 +59,7 @@ export const TransparentTextEditorWrapper = styled.div`
   & .sun-editor-editable {
     background-color: transparent;
     font-size: 16px;
-    font-family: ${themes.primary.font.family.namu} !important;
+    font-family: ${themes.primary.font.family.openSans} !important;
     color: ${themes.primary.colors.primary} !important;
     & .__se__t-radio-input {
       position: relative;
@@ -101,8 +109,37 @@ export const TransparentTextEditorWrapper = styled.div`
     }
   }
 
+  & .__se__t-heavy {
+    font-weight: ${themes.primary.font.weight.heavy};
+  }
+
+  & .__se__t-extra-bold {
+    font-weight: ${themes.primary.font.weight.extraBold};
+  }
+
+  & .__se__t-bold {
+    font-weight: ${themes.primary.font.weight.bold};
+  }
+
+  & .__se__t-semi-bold {
+    font-weight: ${themes.primary.font.weight.semiBold};
+  }
+
+  & .__se__t-medium {
+    font-weight: ${themes.primary.font.weight.medium};
+  }
+
+  & .__se__t-normal {
+    font-weight: ${themes.primary.font.weight.normal};
+  }
+  & .__se__t-light {
+    font-weight: ${themes.primary.font.weight.light};
+  }
+
   &.text {
-    margin-top: 16px;
+    & .sun-editor-editable {
+      padding: 8px 12px;
+    }
   }
 `;
 
@@ -508,6 +545,8 @@ export const AdminCalculatorTypeInput = styled(Field)`
   border: 1px solid ${themes.primary.colors.adminInputBorder};
   background-color: ${themes.primary.colors.blogBackground};
   outline: none;
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 14px;
 
   &::placeholder {
     color: ${themes.primary.colors.adminInputBorder};
@@ -519,4 +558,113 @@ export const CalculatorAdminAddTypeWrapper = styled.div`
   margin-bottom: 2.666em;
 `;
 
-export const CalculatorTypeGrid = styled.div``;
+export const CalculatorTypeGrid = styled.div`
+  max-width: 1104px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 18px;
+`;
+
+export const CalculatorRateComponentWrapper = styled.div``;
+
+export const CalculatorPriceField = styled(Field)`
+  padding-inline: 14px;
+  height: 56px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid ${themes.primary.colors.adminInputBorder};
+  font-size: 1.333em;
+  font-family: ${themes.primary.font.family.namu};
+  max-width: 169px;
+  position: relative;
+
+  &::placeholder {
+    color: ${themes.primary.colors.comment};
+  }
+`;
+
+export const CalculatorPriceDeleteBtn = styled.div`
+  margin-top: 4px;
+  font-size: 14px;
+  color: ${themes.primary.colors.adminRed};
+  cursor: pointer;
+`;
+
+export const CalculatorRateFieldWrapper = styled.div`
+  display: inline-block;
+  position: relative;
+
+  &::after {
+    content: "USD";
+    font-size: 1.3em;
+    position: absolute;
+    top: 18px;
+    right: 0.9em;
+    transition: all 0.05s ease-in-out;
+  }
+
+  &:hover::after,
+  &:focus-within::after {
+    right: 2.3em;
+  }
+`;
+
+export const CalculatorTypeSelectHeaderWrapper = styled.div`
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid ${themes.primary.colors.comment};
+  max-width: 52px;
+  cursor: pointer;
+
+  & svg {
+    transition: transform 0.15s;
+  }
+
+  &.open {
+    border-bottom-width: 0;
+
+    & svg {
+      transform: rotate(180deg);
+    }
+  }
+`;
+
+export const CalculatorTypeSelectHeaderImageWrapper = styled.div`
+  position: relative;
+  width: 16px;
+  height: 16px;
+`;
+
+export const CalculatorSelectOptionWrapper = styled.div`
+  padding: 7.5px 10px;
+  cursor: pointer;
+  background-color: ${themes.primary.colors.blogBackground};
+
+  &:hover {
+    background-color: ${themes.primary.colors.lightGray};
+  }
+
+  &:last-child {
+    padding-bottom: 12px;
+  }
+`;
+
+export const CalculatorHiddenContentWrapper = styled.div`
+  position: absolute;
+  z-index: 2;
+  background-color: ${themes.primary.colors.blogBackground};
+  border: 1px solid ${themes.primary.colors.comment};
+  border-top-width: 0;
+  width: 52px;
+
+  &.hidden {
+    display: none;
+  }
+
+  &.open {
+    display: block;
+  }
+`;
