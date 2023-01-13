@@ -6,7 +6,7 @@ import {
 import ButtonArrow from "../../utils/ButtonArrow";
 import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 import BookModal from "../BookModal";
-import BookModalInputForms from "../BookModal/BookModalInput/indext";
+import BookModalInputForms from "../BookModal/BookModalInput";
 
 interface IGetEstimationButtonProps {
   buttonText?: string;
