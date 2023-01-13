@@ -820,6 +820,7 @@ export const ButtonShareTextWrapper = styled.div`
   font-size: 1.1667em;
   margin-top: 1em;
   font-family: ${themes.primary.font.family.namu};
+  z-index: 12;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1em;
