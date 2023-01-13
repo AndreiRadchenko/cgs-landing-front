@@ -867,6 +867,8 @@ export const TelegramWrapper = styled.div`
 `;
 
 export const TelegramIconWrapper = styled.div`
+  position: relative;
+  top: 0;
   color: ${themes.primary.colors.primary};
 
   & path {
@@ -875,8 +877,8 @@ export const TelegramIconWrapper = styled.div`
 `;
 
 export const WhatsAppIconWrapper = styled.div`
-  width: 0.78em;
-  height: 0.78em;
+  width: 14px;
+  height: 14px;
 `;
 
 export const FooterSection = styled.section``;
