@@ -11,8 +11,7 @@ import Tetris from "./Tetris";
 import Image from "next/image";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
-import WhatsAppComponent from "./WhatsAppComponent";
-import BookACallButton from "../BookACallButton";
+import ButtonShareComponent from "./ButtonShareComponent";
 import GetEstimationButton from "../GetEstimationButton";
 
 const HeadBlock = () => {
@@ -77,7 +76,7 @@ const HeadBlock = () => {
             />
           </Styled.ButtonWrapper>
         )}
-        <WhatsAppComponent />
+        <ButtonShareComponent />
       </Styled.HeadBlockContent>
       {data?.image?.url && (
         <Styled.Tetris>

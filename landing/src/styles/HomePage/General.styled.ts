@@ -813,7 +813,7 @@ export const MobileReverseLayout = styled.div`
   }
 `;
 
-export const WhatsAppTextWrapper = styled.div`
+export const ButtonShareTextWrapper = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
@@ -831,20 +831,45 @@ export const WhatsAppTextWrapper = styled.div`
   }
 `;
 
-export const WhatsAppText = styled.a`
-  display: flex;
+export const ButtonShareText = styled.a`
   margin-left: 0.666em;
-  column-gap: 0.1666em;
   font-size: 1.2857em;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.143em;
+    margin-left: 0.44em;
+  }
+`;
+
+export const WhatsAppWrapper = styled.div`
+  display: flex;
+  column-gap: 0.1666em;
   color: ${themes.primary.colors.whatsApp};
 
   & path {
     fill: ${themes.primary.colors.whatsApp};
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.143em;
-    margin-left: 0.44em;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const TelegramWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 0.147em;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const TelegramIconWrapper = styled.div`
+  color: ${themes.primary.colors.primary};
+
+  & path {
+    fill: ${themes.primary.colors.telegram};
   }
 `;
 

@@ -9,7 +9,7 @@ import {
 } from "../../styles/HomePage/General.styled";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import ScrambleText from "../HomePage/ScrambleText";
-import WhatsAppComponent from "../HomePage/WhatsAppComponent";
+import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import GetEstimationButton from "../GetEstimationButton";
 
 const BookBlock = () => {
@@ -40,7 +40,7 @@ const BookBlock = () => {
           </FooterButtonWrapper>
         )}
         <FooterButtonWrapper>
-          <WhatsAppComponent />
+          <ButtonShareComponent />
         </FooterButtonWrapper>
       </FooterWhatsAppContainer>
     </FooterSection>
