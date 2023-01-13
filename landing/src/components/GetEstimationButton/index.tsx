@@ -4,6 +4,7 @@ import {
   BlackButton,
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
+import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 import BookModal from "../BookModal";
 import BookModalInputForms from "../BookModal/BookModalInput/indext";
 
@@ -34,6 +35,8 @@ const GetEstimationButton = ({
   const onOpen = () => {
     setIsOpen(true);
   };
+
+  DisableScrollBarHandler(isOpen);
 
   return (
     <>

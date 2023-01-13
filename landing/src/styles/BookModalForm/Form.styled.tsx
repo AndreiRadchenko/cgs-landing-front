@@ -75,7 +75,6 @@ export const FormSentContainer = styled.div`
 `;
 
 export const Shadow = styled.div`
-  width: 104%;
   height: 100%;
   z-index: 1;
   background: linear-gradient(
