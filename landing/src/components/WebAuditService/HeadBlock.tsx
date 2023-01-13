@@ -5,7 +5,7 @@ import * as Styled from "../../styles/WebAuditService/HeadBlock.styled";
 import { IServiceWebAudit } from "../../types/Admin/Response.types";
 import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -24,10 +24,10 @@ const HeadBlock = () => {
             <SplitBrackets text={data?.text} />
           </Styled.Description>
           {data && (
-            <BookACallButton
+            <GetEstimationButton
               buttonLink={data?.buttonLink}
+              withEstimation
               buttonText={data.button}
-              withCalendly
               style={{
                 padding: "1.117em 2.537em",
                 fontSize: "1.5em",
