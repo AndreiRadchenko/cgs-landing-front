@@ -18,7 +18,7 @@ const BookModalInputForms: FC<IModalProps> = ({ onClose }: IModalProps) => {
           <Styles.List>
             <Styles.ListTitle>Launch our cooperation</Styles.ListTitle>
           </Styles.List>
-          <BookForm />
+          <BookForm onClose={onClose} />
         </Styles.Content>
       </Styles.HiddenWrapper>
     </>

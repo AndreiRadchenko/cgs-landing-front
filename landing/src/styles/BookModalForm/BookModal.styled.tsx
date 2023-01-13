@@ -8,6 +8,7 @@ export const BookModal = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
+  background-color: ${themes.primary.colors.modalFormBackground};
   overflow: auto;
   background: linear-gradient(
     180deg,
@@ -54,7 +55,7 @@ export const Container = styled.div`
   position: absolute;
   z-index: -1;
   margin: 12px 0 0 12px;
-  border: 2px solid black;
+  border: 2px solid ${themes.primary.colors.black};
 
   @media (max-width: 570px) {
     margin: 6px 0 0 6px;

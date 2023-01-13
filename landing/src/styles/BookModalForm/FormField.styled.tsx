@@ -12,8 +12,12 @@ export const FormField = styled(Field)`
   font-size: 16px;
   color: ${themes.primary.colors.black};
   padding-left: 12px;
+  border-radius: 0;
   &:focus {
     outline: none;
+  }
+  &.formikErrors {
+    border: 1px solid ${themes.primary.colors.adminRed};
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -48,7 +52,7 @@ export const ErrorField = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-size: 12px;
   color: ${themes.primary.colors.adminRed};
-  text-align: center;
+  text-align: right;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 10px;
