@@ -817,10 +817,14 @@ export const ButtonShareTextWrapper = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
-  font-size: 1.1667em;
   margin-top: 1em;
   font-family: ${themes.primary.font.family.namu};
   z-index: 12;
+
+  & > span {
+    font-size: 16px;
+    color: ${themes.primary.colors.calculatorButtonBorderBg};
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1em;
@@ -860,6 +864,7 @@ export const TelegramWrapper = styled.div`
   display: flex;
   align-items: center;
   column-gap: 0.147em;
+  color: ${themes.primary.colors.primary};
 
   &:hover {
     text-decoration: underline;

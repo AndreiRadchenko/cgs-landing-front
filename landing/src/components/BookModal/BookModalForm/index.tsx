@@ -76,6 +76,7 @@ const BookForm = ({ onClose }: IFormProps) => {
         });
       }
       setErrors({});
+      setService("");
       resetForm();
     },
   });
