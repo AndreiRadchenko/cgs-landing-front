@@ -9,7 +9,7 @@ import {
 } from "../../styles/HomePage/General.styled";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import ScrambleText from "../HomePage/ScrambleText";
-import WhatsAppComponent from "../HomePage/WhatsAppComponent";
+import WhatsAppComponent from "../HomePage/ButtonShareComponent";
 import BookACallButton from "../BookACallButton";
 
 const BookBlock = () => {

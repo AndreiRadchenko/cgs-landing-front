@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from "react";
 import * as StyledThisComp from "../../styles/Burger.styles";
-import WhatsAppComponent from "../HomePage/WhatsAppComponent";
+import WhatsAppComponent from "../HomePage/ButtonShareComponent";
 import BurgerFooter from "./BurgerFooter";
 
 interface IBurgerMenuProps {
