@@ -4,7 +4,7 @@ import CloseButton from "../../../../public/CareerDecorations/close.svg";
 import BookForm from "../BookModalForm";
 
 interface IModalProps {
-  onClose: (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
+  onClose: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
 }
 
 const BookModalInputForms: FC<IModalProps> = ({ onClose }: IModalProps) => {

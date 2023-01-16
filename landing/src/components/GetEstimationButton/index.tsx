@@ -27,8 +27,8 @@ const GetEstimationButton = ({
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const onClose = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
-    e.stopPropagation();
+  const onClose = (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
+    e && e.stopPropagation();
     setIsOpen(false);
   };
 
