@@ -13,7 +13,7 @@ interface IBookACallButtonProps {
   style?: CSSProperties;
   type?: string;
   isDisabled?: boolean;
-  handleClose: (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
+  handleClose?: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
 }
 
 const BookACallButton = ({
@@ -28,10 +28,10 @@ const BookACallButton = ({
   const elRef = useRef<HTMLAnchorElement>(null);
   const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
 
-  const handleCalendyClose = (e: React.MouseEvent<HTMLElement>) => {
+  const handleCalendyClose = () => {
     setCalendlyIsOpen(false);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    handleClose(e as any);
+    handleClose && handleClose();
   };
 
   const handleCalendyOpen = () => {

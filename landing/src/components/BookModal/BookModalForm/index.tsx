@@ -19,7 +19,7 @@ interface FormState {
 }
 
 interface IFormProps {
-  onClose: (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
+  onClose: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
 }
 
 function split(text: string) {
