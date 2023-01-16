@@ -1,4 +1,4 @@
-import React, { CSSProperties, useRef, useState } from "react";
+import React, { CSSProperties, MouseEvent, useRef, useState } from "react";
 import { PopupModal } from "react-calendly";
 import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
@@ -13,6 +13,7 @@ interface IBookACallButtonProps {
   style?: CSSProperties;
   type?: string;
   isDisabled?: boolean;
+  handleClose: (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
 }
 
 const BookACallButton = ({
@@ -22,12 +23,15 @@ const BookACallButton = ({
   buttonClassName,
   style,
   isDisabled,
+  handleClose,
 }: IBookACallButtonProps) => {
   const elRef = useRef<HTMLAnchorElement>(null);
   const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
 
-  const handleCalendyClose = () => {
+  const handleCalendyClose = (e: React.MouseEvent<HTMLElement>) => {
     setCalendlyIsOpen(false);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    handleClose(e as any);
   };
 
   const handleCalendyOpen = () => {

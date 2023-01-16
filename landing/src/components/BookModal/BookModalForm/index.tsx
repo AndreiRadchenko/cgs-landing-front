@@ -171,6 +171,7 @@ const BookForm = ({ onClose }: IFormProps) => {
                 !!formik.errors.email ||
                 !!formik.errors.name
               }
+              handleClose={onClose}
             />
           </Styles.ButtonWrapper>
           <Styled.FormSentFillText
