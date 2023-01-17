@@ -3,8 +3,8 @@ import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
 import { buttonHover, cursorBlinking } from "../Animations.styled";
 export interface IFontSize {
-  size: string;
-  padding: string;
+  size?: string;
+  padding?: string;
 }
 
 export const RowContainer = styled.div`
@@ -45,8 +45,8 @@ export const ButtonArrow = styled.img`
 
 export const BlackButton = styled.a<IFontSize>`
   font-family: inherit;
-  font-size: ${({ size }) => size};
-  padding: ${({ padding }) => padding};
+  font-size: ${({ size }) => (size ? size : "1em")};
+  padding: ${({ padding }) => (padding ? padding : "0")};
   cursor: pointer;
   position: relative;
   color: ${themes.primary.colors.secondary};

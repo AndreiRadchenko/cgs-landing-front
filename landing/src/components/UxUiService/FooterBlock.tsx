@@ -4,7 +4,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { IUxUiInterface } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import * as Styled from "../../styles/UxUiService/FooterBlock.styled";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -20,10 +20,10 @@ const FooterBlock = () => {
           <SplitBrackets text={data?.title} />
         </Styled.Title>
         {data && (
-          <BookACallButton
+          <GetEstimationButton
             buttonLink={data?.buttonLink}
             buttonText={data.button}
-            withCalendly
+            withEstimation
             style={{
               padding: "1.117em 3.57em",
               fontSize: "1.125em",

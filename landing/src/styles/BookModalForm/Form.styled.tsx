@@ -150,7 +150,7 @@ export const ServiceSelect = styled.div`
     }
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.maxMobile} {
     height: 44px;
   }
 `;
