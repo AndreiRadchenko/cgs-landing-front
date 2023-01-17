@@ -2,25 +2,22 @@ import React, { useState } from "react";
 import * as Styled from "../../../../styles/BookModalForm/ServiceDropDown.styled";
 import Arrow from "../../../../../public/upArrowSidebar.svg";
 import { SplitBrackets } from "../../../../utils/splitBrackets";
+import { useFormikContext } from "formik";
 
 interface IServiceDropdown {
-  setFilter: (tag: string) => void;
-  filter: string | null;
+  setService: (val: string) => void;
   services?: string[] | void;
   dropdownName: string;
-  isHeader?: boolean;
-  isTag?: boolean;
-  type?: "button" | "submit";
   setEnable?: (val: boolean) => void;
-  className?: string;
 }
 
 const ServiceDropdown = ({
-  setFilter,
   services,
   dropdownName,
   setEnable,
+  setService,
 }: IServiceDropdown) => {
+  const { setFieldValue } = useFormikContext();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const onBlur = () => {
@@ -28,22 +25,26 @@ const ServiceDropdown = ({
     if (setEnable) setEnable(false);
   };
 
+  const handleOptionClick = (option: string) => {
+    setFieldValue("service", option.replaceAll("|", ""));
+    setService(option);
+    setIsOpen(false);
+  };
+
   return (
     <Styled.Dropdown onBlur={onBlur}>
       <Styled.DropdownButton
+        type="button"
         className={isOpen ? "open" : "className"}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span>{dropdownName}</span>
+        <span>{dropdownName.replaceAll("|", "")}</span>
         <img width={9} height={5} src={Arrow.src} alt="Arrow" />
       </Styled.DropdownButton>
       <Styled.DropdownContent className={isOpen ? `open ` : undefined}>
         {services?.map((option) => (
           <div
-            onClick={() => {
-              setFilter(option);
-              setIsOpen(false);
-            }}
+            onClick={() => handleOptionClick(option)}
             key={option}
             onMouseDown={(e) => e.preventDefault()}
           >

@@ -5,9 +5,13 @@ import BookForm from "../BookModalForm";
 
 interface IModalProps {
   onClose: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
+  isOpen: boolean;
 }
 
-const BookModalInputForms: FC<IModalProps> = ({ onClose }: IModalProps) => {
+const BookModalInputForms: FC<IModalProps> = ({
+  onClose,
+  isOpen,
+}: IModalProps) => {
   return (
     <>
       <Styles.ButtonWrapper>
@@ -18,7 +22,7 @@ const BookModalInputForms: FC<IModalProps> = ({ onClose }: IModalProps) => {
           <Styles.List>
             <Styles.ListTitle>Launch our cooperation</Styles.ListTitle>
           </Styles.List>
-          <BookForm onClose={onClose} />
+          <BookForm onClose={onClose} isOpen={isOpen} />
         </Styles.Content>
       </Styles.HiddenWrapper>
     </>

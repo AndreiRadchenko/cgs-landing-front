@@ -4,6 +4,6 @@ export const BookModalValidation = () => {
   return yup.object({
     name: yup.string().required("How should we call you?"),
     email: yup.string().email().required("Enter e-mail"),
-    service: yup.string(),
+    service: yup.string().required("select service"),
   });
 };
