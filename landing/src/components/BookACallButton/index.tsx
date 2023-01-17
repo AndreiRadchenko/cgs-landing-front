@@ -1,4 +1,4 @@
-import React, { CSSProperties, MouseEvent, useRef, useState } from "react";
+import React, { MouseEvent, useRef, useState } from "react";
 import { PopupModal } from "react-calendly";
 import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
@@ -10,7 +10,6 @@ interface IBookACallButtonProps {
   buttonLink: string;
   withCalendly?: boolean;
   buttonClassName?: string;
-  style?: CSSProperties;
   type?: string;
   isDisabled?: boolean;
   handleClose?: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
@@ -21,7 +20,6 @@ const BookACallButton = ({
   buttonText = "BOOK A CALL",
   withCalendly = false,
   buttonClassName,
-  style,
   isDisabled,
   handleClose,
 }: IBookACallButtonProps) => {
@@ -40,11 +38,8 @@ const BookACallButton = ({
   return (
     <>
       <Styled.BlackButton
-        size={"1.5em"}
-        padding={"1.2em 1.5em"}
         className={buttonClassName}
         onClick={withCalendly ? handleCalendyOpen : undefined}
-        style={style}
         disabled={isDisabled}
         type="submit"
       >

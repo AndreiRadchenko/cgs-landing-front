@@ -40,11 +40,6 @@ export const BookModalContent = styled.div`
     width: 345px;
     height: 380px;
   }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    width: 300px;
-    height: 380px;
-  }
 `;
 
 export const Container = styled.div`

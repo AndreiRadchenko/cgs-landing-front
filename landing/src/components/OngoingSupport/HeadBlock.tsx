@@ -27,6 +27,7 @@ const HeadBlock = () => {
             style={{
               padding: "1.117em 2.836em",
               fontSize: "1.125em",
+              zIndex: "2",
             }}
           />
         )}

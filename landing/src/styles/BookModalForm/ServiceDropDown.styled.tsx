@@ -49,7 +49,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     transform: rotate(0deg);
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.maxMobile} {
     span {
       font-size: 12px;
     }
@@ -99,5 +99,6 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 12px;
+    height: 44px;
   }
 `;

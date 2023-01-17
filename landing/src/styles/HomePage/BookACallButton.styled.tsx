@@ -2,15 +2,10 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
 import { buttonHover } from "../Animations.styled";
-export interface IFontSize {
-  size: string;
-  padding: string;
-}
 
-export const BlackButton = styled.button<IFontSize>`
+export const BlackButton = styled.button`
+  z-index: 2;
   font-family: inherit;
-  font-size: ${({ size }) => size};
-  padding: ${({ padding }) => padding};
   cursor: pointer;
   position: relative;
   color: ${themes.primary.colors.secondary};
@@ -52,6 +47,11 @@ export const BlackButton = styled.button<IFontSize>`
     }
   }
 
+  &.calendly {
+    font-size: 22px;
+    padding: 16px 15px;
+  }
+
   &:hover {
     transition-delay: unset;
     background: none;
@@ -69,6 +69,11 @@ export const BlackButton = styled.button<IFontSize>`
   @media ${themes.primary.media.maxMobile} {
     &.footer-home {
       margin-top: 1em;
+    }
+
+    &.calendly {
+      font-size: 16px;
+      padding: 15px 19px;
     }
   }
 

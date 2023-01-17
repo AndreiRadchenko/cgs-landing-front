@@ -4,7 +4,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { VisibleSubtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/WebService/FooterBlock.styled";
 import { IServiceWeb } from "../../types/Admin/Response.types";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -19,10 +19,10 @@ const FooterBlock = () => {
           <VisibleSubtitle>{data?.subtitle}</VisibleSubtitle>
         </Styled.SubtitleWrapper>
         {data && (
-          <BookACallButton
+          <GetEstimationButton
             buttonLink={data?.buttonLink}
             buttonText={data.button}
-            withCalendly
+            withEstimation
             style={{ padding: "1.117em 3.755em", fontSize: "1.125em" }}
           />
         )}

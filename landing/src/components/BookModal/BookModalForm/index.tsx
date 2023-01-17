@@ -47,8 +47,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     service.headerBlock.title.toUpperCase()
   );
 
-  const buttonClassName = "scrolled removeBg";
-
   const fieldContent = {
     name: "Your name",
     email: "Email",
@@ -157,7 +155,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
             <BookACallButton
               buttonLink={btnState.link}
               withCalendly
-              buttonClassName={buttonClassName}
+              buttonClassName={"calendly"}
               isDisabled={btnState.isDisabled}
               handleClose={onClose}
             />

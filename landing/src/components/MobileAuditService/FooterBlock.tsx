@@ -4,7 +4,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/MobileAuditService/FooterBlock.styled";
 import Image from "next/image";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -18,10 +18,10 @@ const FooterBlock = () => {
         <Styled.Title>{data?.title}</Styled.Title>
         <Styled.Description>{data?.text}</Styled.Description>
         {data && (
-          <BookACallButton
+          <GetEstimationButton
             buttonLink={data?.buttonLink}
             buttonText={data.button}
-            withCalendly
+            withEstimation
             style={{
               padding: "1.117em 2.17em",
               fontSize: "1.125em",
