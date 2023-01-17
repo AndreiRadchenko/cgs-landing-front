@@ -56,8 +56,8 @@ const GetEstimationButton = ({
         </ArrowContainer>
       </BlackButton>
       {withEstimation && elRef && elRef.current && (
-        <BookModal isOpen={isOpen} onClose={onClose}>
-          <BookModalInputForms onClose={onClose} />
+        <BookModal isOpen={isOpen}>
+          <BookModalInputForms isOpen={isOpen} onClose={onClose} />
         </BookModal>
       )}
     </>

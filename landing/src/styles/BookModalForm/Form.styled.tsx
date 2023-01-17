@@ -50,8 +50,9 @@ export const FormSentFillText = styled.span`
   position: absolute;
   bottom: 0;
   margin-bottom: 6px;
-  &.toDisplay {
-    display: none;
+  display: none;
+  &.show {
+    display: block;
   }
 `;
 

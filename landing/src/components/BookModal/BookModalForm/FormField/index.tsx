@@ -16,6 +16,7 @@ const TextFieldWrapper: FC<IFieldProps> = ({
   fieldError,
 }: IFieldProps) => {
   const { errors, touched } = useFormikContext<any>();
+
   return (
     <>
       <Styled.FormFieldLabel htmlFor={label}>{label}</Styled.FormFieldLabel>
