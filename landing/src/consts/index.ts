@@ -175,6 +175,7 @@ export enum ROUTE_KEYS {
   AdminServiceMobileAudit = "AdminServiceMobileAudit",
   AdminServiceWebAudit = "AdminServiceWebAudit",
   AdminServiceDappAudit = "AdminServiceDappAudit",
+  AdminEstimationForm = "AdminEstimationForm",
 }
 
 export enum FaqPageTypes {

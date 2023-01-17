@@ -8,6 +8,7 @@ import {
   BlogIcon,
   CalculatorIcon,
   CompanyIcon,
+  EstimationFormIcon,
   HomeIcon,
   PortfolioIcon,
   ServiceIcon,
@@ -19,6 +20,7 @@ const AdminSidebar = () => {
   const pushPortfolio = () => router.push(ROUTE_KEYS.AdminPortfolio);
   const pushHome = () => router.push(ROUTE_KEYS.AdminPage);
   const pushCalculator = () => router.push(ROUTE_KEYS.AdminCalculator);
+  const pushEstimationForm = () => router.push(ROUTE_KEYS.AdminEstimationForm);
 
   const currentPath =
     router.pathname.split("/")[router.pathname.split("/").length - 1];
@@ -173,6 +175,14 @@ const AdminSidebar = () => {
         >
           <BlogIcon />
           blog
+        </Styled.AdminSidebarMenuElement>
+        <Styled.AdminSidebarMenuElement
+          onClick={pushEstimationForm}
+          itemProp={currentPath}
+          property={ROUTE_KEYS.AdminEstimationForm}
+        >
+          <EstimationFormIcon open={false} />
+          estimation form
         </Styled.AdminSidebarMenuElement>
       </Styled.AdminSidebarMenu>
     </Styled.AdminSidebar>

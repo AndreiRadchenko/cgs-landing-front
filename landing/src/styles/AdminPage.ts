@@ -13,11 +13,15 @@ interface ITextEditorWrapperProps {
 interface IBlockDropDownHeaderTitleProps {
   size?: string;
 }
+interface IBlackButtonProps {
+  size?: string;
+}
 
 interface IBlockDropdownHeaderIconProps {
   rotate?: boolean;
 }
 interface IBlockDropdownProps {
+  size?: string;
   marginTop?: string;
 }
 
@@ -542,13 +546,14 @@ export const AdminButton = styled.button`
   border: 1px solid ${themes.primary.colors.primary};
 `;
 
-export const AdminBlackButton = styled.button`
+export const AdminBlackButton = styled.button<IBlackButtonProps>`
+  font-size: ${themes.primary.font.size.primary};
   background-color: #000;
   color: white;
   border: 0;
-  padding: 0;
-  width: 10em;
-  height: 32px;
+  padding: ${(props) => (props.size === "estimationForm" ? "20px 50px" : 0)};
+  width: ${(props) => props.size === "estimationForm" && "10em"};
+  height: ${(props) => props.size === "estimationForm" && "32px"};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -783,18 +788,25 @@ export const AdminCategoryBlock = styled.div`
   column-gap: 1.6em;
 `;
 
-export const AdminDropDownMenu = styled.div`
+export const AdminDropDownMenu = styled.div<IBlockDropdownProps>`
   background: ${themes.primary.colors.secondary};
-  font-size: ${themes.primary.font.size.linkText};
+  color: ${(props) =>
+    props.size === "primary"
+      ? themes.primary.colors.mainGradientColor2
+      : themes.primary.colors.black};
+  font-size: ${(props) =>
+    props.size === "primary"
+      ? themes.primary.font.size.primary
+      : themes.primary.font.size.linkText};
   position: relative;
-  width: 100%;
-  z-index: 1;
-  margin-right: 10px;
-  margin-top: 12px;
+  width: ${(props) => (props.size === "primary" ? "235px" : "100%")};
+  z-index: 10;
+  margin: 12px 10px 15px 0;
 `;
 
 export const AdminDropDownMenuElement = styled.div`
   background: ${themes.primary.colors.secondary};
+  color: ${themes.primary.colors.black};
   padding: ${themes.primary.spacing.primary};
   border: 1px solid ${themes.primary.colors.darkedGrayBack};
   cursor: pointer;

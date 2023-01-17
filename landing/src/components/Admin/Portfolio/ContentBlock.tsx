@@ -22,6 +22,7 @@ const AdminPortfolioContentBlock = () => {
   const queryClient = useQueryClient();
   const { values, handleChange, handleSubmit } =
     useFormikContext<IPortfolioPageData>();
+  console.log(values);
   const { data } = useQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
   );

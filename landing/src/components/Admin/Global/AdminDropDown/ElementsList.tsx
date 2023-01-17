@@ -4,6 +4,7 @@ import { IMenuProps } from "./dropDownTypes";
 
 const MenuElementsRender = ({
   menu,
+  optionsMenu,
   setValue,
   setIsDropped,
   className,
@@ -15,14 +16,23 @@ const MenuElementsRender = ({
 
   return (
     <Styled.AdminDropDownMenuList className={className}>
-      {menu!.map((i, ind) => (
-        <Styled.AdminDropDownMenuElement
-          onClick={select(i)}
-          key={`dropElement${ind}`}
-        >
-          {i}
-        </Styled.AdminDropDownMenuElement>
-      ))}
+      {menu
+        ? menu!.map((i, ind) => (
+            <Styled.AdminDropDownMenuElement
+              onClick={select(i)}
+              key={`dropElement${ind}`}
+            >
+              {i}
+            </Styled.AdminDropDownMenuElement>
+          ))
+        : optionsMenu!.map((i, ind) => (
+            <Styled.AdminDropDownMenuElement
+              onClick={select(i.optionType)}
+              key={`dropElement${ind}`}
+            >
+              {i.optionText}
+            </Styled.AdminDropDownMenuElement>
+          ))}
     </Styled.AdminDropDownMenuList>
   );
 };

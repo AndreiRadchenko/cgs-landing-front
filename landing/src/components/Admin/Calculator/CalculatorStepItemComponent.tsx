@@ -157,6 +157,7 @@ const CalculatorStepItemComponent = ({
   const handleSubmitButtonClick = () => {
     handleSubmit();
   };
+  console.log(values.options);
 
   return (
     (plugins && (
