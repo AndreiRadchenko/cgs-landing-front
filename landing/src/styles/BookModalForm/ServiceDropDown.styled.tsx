@@ -78,21 +78,26 @@ export const DropdownContent = styled.div`
   br {
     display: none;
   }
-  div {
-    height: 52px;
-    color: ${themes.primary.colors.primary};
-    font-family: ${themes.primary.font.family.namu};
-    font-size: 16px;
-    border: 1px solid ${themes.primary.colors.comment};
-    padding: 15px;
-    text-decoration: none;
-    text-align: left;
-    cursor: pointer;
-    &:hover {
-      background-color: ${themes.primary.colors.blogDropdownHover};
-    }
-    &:last-child {
-      border-bottom: 0;
-    }
+`;
+
+export const ContentWrapper = styled.div`
+  height: 52px;
+  color: ${themes.primary.colors.primary};
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 16px;
+  border: 1px solid ${themes.primary.colors.comment};
+  padding: 15px;
+  text-decoration: none;
+  text-align: left;
+  cursor: pointer;
+  &:hover {
+    background-color: ${themes.primary.colors.blogDropdownHover};
+  }
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 12px;
   }
 `;

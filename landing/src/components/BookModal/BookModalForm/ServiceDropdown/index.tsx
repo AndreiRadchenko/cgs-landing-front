@@ -43,13 +43,16 @@ const ServiceDropdown = ({
       </Styled.DropdownButton>
       <Styled.DropdownContent className={isOpen ? `open ` : undefined}>
         {services?.map((option) => (
-          <div
-            onClick={() => handleOptionClick(option)}
-            key={option}
-            onMouseDown={(e) => e.preventDefault()}
-          >
-            <SplitBrackets text={option} />
-          </div>
+          <Styled.ContentWrapper key={option}>
+            <div
+              onClick={() => {
+                handleOptionClick(option);
+              }}
+              onMouseDown={(e) => e.preventDefault()}
+            >
+              <SplitBrackets text={option} />
+            </div>
+          </Styled.ContentWrapper>
         ))}
       </Styled.DropdownContent>
     </Styled.Dropdown>

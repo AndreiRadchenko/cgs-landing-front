@@ -1,34 +1,35 @@
 import { useFormikContext } from "formik";
 import React, { FC } from "react";
+import { IFormState } from "..";
 import * as Styled from "../../../../styles/BookModalForm/FormField.styled";
 
 export interface IFieldProps {
-  name: string;
+  name: keyof IFormState;
   label: string;
+  btnIsClicked: boolean;
   type?: string;
-  fieldError?: string;
 }
 
 const TextFieldWrapper: FC<IFieldProps> = ({
   name,
   label,
+  btnIsClicked,
   type = "text",
-  fieldError,
 }: IFieldProps) => {
-  const { errors, touched } = useFormikContext<any>();
+  const { errors } = useFormikContext<IFormState>();
 
   return (
     <>
       <Styled.FormFieldLabel htmlFor={label}>{label}</Styled.FormFieldLabel>
       <Styled.FormFieldContainer>
         <Styled.FormField
-          className={errors[name] && touched[name] ? "formikErrors" : "default"}
+          className={btnIsClicked && errors[name] ? "formikErrors" : "default"}
           placeholder={label}
           type={type}
           name={name}
         />
-        {errors[name] && touched[name] && (
-          <Styled.ErrorField>{fieldError}</Styled.ErrorField>
+        {btnIsClicked && errors[name] && (
+          <Styled.ErrorField>{errors[name]}</Styled.ErrorField>
         )}
       </Styled.FormFieldContainer>
     </>

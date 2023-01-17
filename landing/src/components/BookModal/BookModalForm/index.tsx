@@ -1,5 +1,5 @@
 import React, { useEffect, useState, MouseEvent } from "react";
-import { useFormik, FormikErrors } from "formik";
+import { useFormik } from "formik";
 import * as Styled from "../../../styles/BookModalForm/Form.styled";
 import FormField from "./FormField/index";
 import { useMutation, useQuery } from "@tanstack/react-query";
@@ -12,7 +12,7 @@ import { adminBookService } from "../../../services/adminBookServiceModal";
 import { adminServices } from "../../../services/services/commonServices";
 import { BookModalValidation } from "../../../validations/BookModalValidation";
 
-interface FormState {
+export interface IFormState {
   name: string;
   email: string;
   service: string;
@@ -56,12 +56,13 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
 
   const validationSchema = BookModalValidation;
 
-  const formik = useFormik<FormState>({
+  const formik = useFormik<IFormState>({
     initialValues: {
       name: "",
       email: "",
       service: "",
     },
+    validateOnBlur: true,
     validationSchema,
     onSubmit(values, { resetForm, setErrors }) {
       if (!values.email || !values.service) return;
@@ -134,10 +135,10 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       <Styled.Form onSubmit={formik.handleSubmit} encType="multipart/form-data">
         {Object.entries(fieldContent).map(([key, label]) => (
           <FormField
-            name={key}
+            btnIsClicked={btnState.isClicked}
+            name={key as keyof IFormState}
             key={key}
             label={label}
-            fieldError={formik.errors[key as keyof FormikErrors<FormState>]}
           />
         ))}
         <Styled.ServiceSelect
