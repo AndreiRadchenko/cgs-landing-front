@@ -4,6 +4,7 @@ export interface IEditInformation {
   button: string;
   buttonLink: string;
   whatsAppLink: string;
+  telegramLink: string;
   image: { url: string } | null;
 }
 

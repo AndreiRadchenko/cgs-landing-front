@@ -13,7 +13,7 @@ export const Container = styled.section`
     padding-top: 0.625em;
     flex-direction: column;
 
-    & a {
+    & > a {
       font-size: 1em !important;
       padding: 1.195em 2.91em !important;
     }

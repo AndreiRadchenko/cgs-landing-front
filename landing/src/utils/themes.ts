@@ -187,10 +187,12 @@ const themes = {
       deleteImageHover: "#ad1313",
       adminInputBorder: "#A9A5A4",
       whatsApp: "#4DA303",
+      telegram: "#34AADF",
       calculatorButtonBorderBg: "#b2b2b2",
       calculatorButtonBg: "#e7e5e3",
       calculatorHorizontalLine: "#C6C6C6",
       calculatorEmailPlaceholder: "#797877",
+      modalFormBackground: "rgba(241, 239, 237, 0.7)",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",

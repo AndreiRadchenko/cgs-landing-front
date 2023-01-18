@@ -3,8 +3,8 @@ import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
 import { buttonHover, cursorBlinking } from "../Animations.styled";
 export interface IFontSize {
-  size: string;
-  padding: string;
+  size?: string;
+  padding?: string;
 }
 
 export const RowContainer = styled.div`
@@ -45,8 +45,8 @@ export const ButtonArrow = styled.img`
 
 export const BlackButton = styled.a<IFontSize>`
   font-family: inherit;
-  font-size: ${({ size }) => size};
-  padding: ${({ padding }) => padding};
+  font-size: ${({ size }) => (size ? size : "1em")};
+  padding: ${({ padding }) => (padding ? padding : "0")};
   cursor: pointer;
   position: relative;
   color: ${themes.primary.colors.secondary};
@@ -813,13 +813,18 @@ export const MobileReverseLayout = styled.div`
   }
 `;
 
-export const WhatsAppTextWrapper = styled.div`
+export const ButtonShareTextWrapper = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
-  font-size: 1.1667em;
   margin-top: 1em;
   font-family: ${themes.primary.font.family.namu};
+  z-index: 12;
+
+  & > span {
+    font-size: 16px;
+    color: ${themes.primary.colors.calculatorButtonBorderBg};
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1em;
@@ -831,16 +836,9 @@ export const WhatsAppTextWrapper = styled.div`
   }
 `;
 
-export const WhatsAppText = styled.a`
-  display: flex;
+export const ButtonShareText = styled.a`
   margin-left: 0.666em;
-  column-gap: 0.1666em;
   font-size: 1.2857em;
-  color: ${themes.primary.colors.whatsApp};
-
-  & path {
-    fill: ${themes.primary.colors.whatsApp};
-  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.143em;
@@ -848,9 +846,44 @@ export const WhatsAppText = styled.a`
   }
 `;
 
+export const WhatsAppWrapper = styled.div`
+  display: flex;
+  column-gap: 0.1666em;
+  color: ${themes.primary.colors.whatsApp};
+
+  & path {
+    fill: ${themes.primary.colors.whatsApp};
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const TelegramWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 0.147em;
+  color: ${themes.primary.colors.primary};
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const TelegramIconWrapper = styled.div`
+  position: relative;
+  top: 0;
+  color: ${themes.primary.colors.primary};
+
+  & path {
+    fill: ${themes.primary.colors.telegram};
+  }
+`;
+
 export const WhatsAppIconWrapper = styled.div`
-  width: 0.78em;
-  height: 0.78em;
+  width: 14px;
+  height: 14px;
 `;
 
 export const FooterSection = styled.section``;
