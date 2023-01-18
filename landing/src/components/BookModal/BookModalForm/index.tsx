@@ -130,7 +130,11 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
   return (
     <Styled.FormProvider value={formik}>
       <Styled.Shadow className={enable ? "inline-block" : "enabled"} />
-      <Styled.Form onSubmit={formik.handleSubmit} encType="multipart/form-data">
+      <Styled.Form
+        onSubmit={formik.handleSubmit}
+        encType="multipart/form-data"
+        id="launch_our_cooperation_form"
+      >
         {Object.entries(fieldContent).map(([key, label]) => (
           <FormField
             btnIsClicked={btnState.isClicked}
