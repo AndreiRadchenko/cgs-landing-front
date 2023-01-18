@@ -41,13 +41,11 @@ const MobileTechnologyCategory: FC<ITechnologyCategoryProps> = ({
       <StyledThisComp.CategoryTitleWrapper
         idx={idx}
         onClick={width && width < 767 ? () => setIsOpen(!isOpen) : undefined}
-        className={`${isOpen ? "open-title" : ""} 
-        ${idx === 3 ? "blockchain" : ""}`}
+        className={className}
       >
         <StyledThisComp.InvisibleTitle
           onClick={width && width < 767 ? () => setIsOpen(!isOpen) : undefined}
-          className={`${isOpen ? "open-title" : ""} 
-        ${idx === 3 ? "blockchain" : ""}`}
+          className={className}
         >
           <h2>{title}</h2>
 
@@ -70,10 +68,9 @@ const MobileTechnologyCategory: FC<ITechnologyCategoryProps> = ({
         idx={idx}
         onClick={width && width < 767 ? () => setIsOpen(!isOpen) : undefined}
         className={`${isOpen ? "open-title" : ""} 
-        ${idx === 3 ? "blockchain" : ""}`}
+        ${className}`}
       >
         <StyledThisComp.CategoryTitle>{title}</StyledThisComp.CategoryTitle>
-
         <StyledThisComp.Arrow
           width="15"
           height="8"

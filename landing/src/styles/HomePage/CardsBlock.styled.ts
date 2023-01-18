@@ -19,7 +19,7 @@ export const BigDigit = styled.p`
 
   &.scrolled {
     background: linear-gradient(
-      90deg,
+      61.63deg,
       ${themes.primary.colors.mainGradientColor1} 0%,
       ${themes.primary.colors.mainGradientColor2} 100%
     );

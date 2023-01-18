@@ -47,27 +47,24 @@ export const InvisibleTitle = styled.div`
   display: flex;
 `;
 
+const getOffsetByInd = (idx: number, smallPhones?: boolean) => {
+  if (idx === 0) return smallPhones ? "3.2" : "4.8";
+  if (idx === 1) return smallPhones ? "5" : "6.5";
+  if (idx === 3) return smallPhones ? "8" : "9.6";
+  return smallPhones ? `${idx + 4.3}` : `${idx + 6}`;
+};
+
 export const TitleInnerWrapper = styled.div<PropsWithId>`
   display: flex;
   position: absolute;
-  left: ${(props) =>
-    props.idx === 0
-      ? `${0.5 + 4.3}em`
-      : props.idx === 3
-      ? `${4 + 4.3}em`
-      : `${props.idx + 4.3}em`};
+  left: ${({ idx }) => `${getOffsetByInd(idx, true)}em`};
   top: 0.5em;
   align-items: center;
   justify-content: space-between;
   font-size: 1.2em;
   column-gap: 5px;
   @media (min-width: 475px) {
-    left: ${(props) =>
-      props.idx === 0
-        ? `${0.5 + 4.3}em`
-        : props.idx === 3
-        ? `${5.8 + 4.3}em`
-        : `${props.idx + 5.8}em`};
+    left: ${({ idx }) => `${getOffsetByInd(idx)}em`};
   }
 `;
 
@@ -161,9 +158,12 @@ export const CategoryTitleWrapper = styled.div<PropsWithId>`
     right: 0px;
     background-color: ${themes.primary.colors.blogBackground};
   }
+
+  &.blockchain {
+    transform: perspective(400px) rotateX(40deg);
+  }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-left: ${(props) =>
-      props.idx === 0 ? `${1 + 1}em` : `${props.idx + 1}em`};
+    margin-left: ${(props) => `${props.idx + 1}em`};
   }
 `;
 

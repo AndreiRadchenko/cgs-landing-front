@@ -64,6 +64,10 @@ export const TechnologyRow = styled.div`
     row-gap: 0;
     column-gap: 0;
     margin-top: 14em;
+
+    & > article:last-child > div:nth-child(5) {
+      padding-bottom: 0;
+    }
   }
 `;
 
