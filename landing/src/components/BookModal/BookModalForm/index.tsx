@@ -23,6 +23,12 @@ interface IFormProps {
   isOpen: boolean;
 }
 
+declare global {
+  interface Window {
+    dataLayer: Record<string, any>[];
+  }
+}
+
 function split(text: string) {
   const splited = text?.split("|");
 
@@ -69,7 +75,13 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
         email: values.email,
         service: values.service,
       });
-
+      if (typeof window !== "undefined") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "launch_our_cooperation_form",
+          formType: "Contact us",
+        });
+      }
       setErrors({});
       setService("");
       resetForm();
