@@ -12,7 +12,6 @@ interface IBookACallButtonProps {
   type?: string;
   isDisabled?: boolean;
   handleClose?: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
-  onClick?: () => void;
 }
 
 const BookACallButton = ({
@@ -21,7 +20,6 @@ const BookACallButton = ({
   buttonClassName,
   isDisabled,
   handleClose,
-  onClick,
 }: IBookACallButtonProps) => {
   const elRef = useRef<HTMLAnchorElement>(null);
   const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
@@ -33,7 +31,6 @@ const BookACallButton = ({
 
   const handleCalendyOpen = () => {
     setCalendlyIsOpen(true);
-    onClick && onClick();
   };
 
   return (

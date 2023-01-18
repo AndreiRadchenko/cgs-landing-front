@@ -91,14 +91,16 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
   );
 
   useEffect(() => {
-    formik.setErrors({});
-    setService("");
-    setBtnState({
-      isDisabled: true,
-      isClicked: false,
-      link: "",
-    });
-    formik.resetForm();
+    if (!isOpen) {
+      formik.setErrors({});
+      setService("");
+      setBtnState({
+        isDisabled: true,
+        isClicked: false,
+        link: "",
+      });
+      formik.resetForm();
+    }
   }, [isOpen]);
 
   useEffect(() => {
@@ -159,9 +161,8 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
           />
         </Styled.ServiceSelect>
         <Styled.FormSentContainer>
-          <Styles.ButtonWrapper>
+          <Styles.ButtonWrapper onClick={checkIfButtonIsDisabled}>
             <BookACallButton
-              onClick={checkIfButtonIsDisabled}
               buttonLink={btnState.link}
               buttonClassName={"calendly"}
               isDisabled={btnState.isDisabled}
