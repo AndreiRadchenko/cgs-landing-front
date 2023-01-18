@@ -268,7 +268,7 @@ export const AdminFlexRow = styled.div<{ gap?: string }>`
   gap: ${(props) => (props.gap ? props.gap : "4em")};
 `;
 
-export const AdminFlexColumn = styled.div`
+export const AdminFlexColumn = styled(SortableList)`
   display: flex;
   flex-direction: column;
   gap: 4em;
@@ -1576,4 +1576,11 @@ export const AdminPortofolioImageWrapper = styled.div`
   position: relative;
   height: 357px;
   width: 100%;
+`;
+
+export const AdminTechSeparator = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: ${themes.primary.colors.primary};
+  margin-top: 1.8333em;
 `;

@@ -83,7 +83,9 @@ export interface IDataResponse {
   };
   CardsBlock: ICards;
   FeedbackBlock: IFeedbackBlock;
-  TechnologyBlock: ITechnologyBlock;
+  TechnologyBlock: {
+    items: ITech[];
+  };
   BookCallBlock: IButtonWithLinkBlock;
   FooterBlock: IFooterBlock;
   meta: IMetaBlock;
