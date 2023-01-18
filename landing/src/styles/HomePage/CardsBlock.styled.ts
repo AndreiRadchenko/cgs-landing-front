@@ -19,7 +19,7 @@ export const BigDigit = styled.p`
 
   &.scrolled {
     background: linear-gradient(
-      90deg,
+      61.63deg,
       ${themes.primary.colors.mainGradientColor1} 0%,
       ${themes.primary.colors.mainGradientColor2} 100%
     );
@@ -64,6 +64,30 @@ export const BigDigit = styled.p`
   }
 `;
 
+export const Title = styled.h2`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  line-height: 140%;
+  font-size: ${themes.primary.font.size.aboutUsSubtitle};
+  margin: 0;
+  text-transform: uppercase;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    padding-bottom: 20px;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: ${themes.primary.font.size.reviewTitle};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5rem;
+    padding-bottom: 0;
+    line-height: 233%;
+    display: none;
+  }
+`;
+
 export const CardsWrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
@@ -72,15 +96,7 @@ export const CardsWrapper = styled.section`
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     row-gap: 0;
-    ::before {
-      content: "";
-      height: 1px;
-      position: absolute;
-      background-color: ${themes.primary.colors.headerBorder};
-      width: 250%;
-      top: 0%;
-      left: -10%;
-    }
+
     ::after {
       content: "";
       height: 1px;
@@ -268,7 +284,7 @@ export const CardContainer = styled.article`
     }
 
     :first-child {
-      padding-top: 50px;
+      margin-top: -40px;
     }
   }
 `;
