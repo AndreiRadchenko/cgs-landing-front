@@ -36,7 +36,7 @@ export const BookModalContent = styled.div`
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
 
-  @media (max-width: 570px) {
+  @media ${themes.primary.media.estiomationFormWidth} {
     width: 345px;
     height: 380px;
   }
@@ -52,7 +52,7 @@ export const Container = styled.div`
   margin: 12px 0 0 12px;
   border: 2px solid ${themes.primary.colors.black};
 
-  @media (max-width: 570px) {
+  @media ${themes.primary.media.estiomationFormWidth} {
     margin: 6px 0 0 6px;
   }
 `;

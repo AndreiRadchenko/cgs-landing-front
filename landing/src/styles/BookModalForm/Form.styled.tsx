@@ -21,11 +21,7 @@ export const FormField = styled(Field)`
     opacity: 1;
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 0.875rem;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
+  @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 0.75rem;
   }
 `;
@@ -65,11 +61,7 @@ export const FormSentContainer = styled.div`
   flex-direction: column;
   margin-top: 30px;
 
-  &.open {
-    display: none;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.estiomationFormWidth} {
     height: 60px;
     margin-top: 15px;
   }
@@ -150,7 +142,7 @@ export const ServiceSelect = styled.div`
     }
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.estiomationFormWidth} {
     height: 44px;
   }
 `;
