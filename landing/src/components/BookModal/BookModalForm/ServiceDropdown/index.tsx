@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import * as Styled from "../../../../styles/BookModalForm/ServiceDropDown.styled";
 import Arrow from "../../../../../public/upArrowSidebar.svg";
 import { SplitBrackets } from "../../../../utils/splitBrackets";
@@ -8,33 +8,36 @@ interface IServiceDropdown {
   setService: (val: string) => void;
   services?: string[] | void;
   dropdownName: string;
+  serviceIsOpen: boolean;
+  setServiceIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ServiceDropdown = ({
   services,
   dropdownName,
   setService,
+  serviceIsOpen,
+  setServiceIsOpen,
 }: IServiceDropdown) => {
   const { setFieldValue } = useFormikContext();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleOptionClick = (option: string) => {
     setFieldValue("service", option.replaceAll("|", ""));
     setService(option);
-    setIsOpen(false);
+    setServiceIsOpen(false);
   };
 
   return (
     <Styled.Dropdown>
       <Styled.DropdownButton
         type="button"
-        className={isOpen ? "open" : "className"}
-        onClick={() => setIsOpen(!isOpen)}
+        className={serviceIsOpen ? "open" : "className"}
+        onClick={() => setServiceIsOpen(!serviceIsOpen)}
       >
         <span>{dropdownName.replaceAll("|", "")}</span>
         <img width={9} height={5} src={Arrow.src} alt="Arrow" />
       </Styled.DropdownButton>
-      <Styled.DropdownContent className={isOpen ? `open ` : undefined}>
+      <Styled.DropdownContent className={serviceIsOpen ? `open ` : undefined}>
         {services?.map((option) => (
           <Styled.ContentWrapper
             key={option}
