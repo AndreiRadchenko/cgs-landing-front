@@ -37,6 +37,7 @@ function split(text: string) {
 
 const BookForm = ({ onClose, isOpen }: IFormProps) => {
   const [service, setService] = useState("");
+  const [serviceIsOpen, setServiceIsOpen] = useState<boolean>(false);
   const [btnState, setBtnState] = useState({
     isDisabled: true,
     isClicked: false,
@@ -99,6 +100,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
         isClicked: false,
         link: "",
       });
+      setServiceIsOpen(false);
       formik.resetForm();
     }
   }, [isOpen]);
@@ -155,6 +157,8 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
         ))}
         <Styled.ServiceSelect className={isOpen ? "1" : "enabled"}>
           <ServiceDropdown
+            serviceIsOpen={serviceIsOpen}
+            setServiceIsOpen={setServiceIsOpen}
             setService={setService}
             services={companyServices}
             dropdownName={service ? split(service) : "Choose a service"}
