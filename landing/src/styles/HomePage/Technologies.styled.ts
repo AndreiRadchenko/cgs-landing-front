@@ -9,7 +9,6 @@ export const TechnologyContainer = styled.section`
   position: relative;
   user-select: none;
   font-family: ${themes.primary.font.family.namu};
-  margin-bottom: 12.9em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 4.375rem;
