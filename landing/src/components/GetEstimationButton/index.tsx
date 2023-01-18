@@ -8,6 +8,12 @@ import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 import BookModal from "../BookModal";
 import BookModalInputForms from "../BookModal/BookModalInput";
 
+declare global {
+  interface Window {
+    dataLayer: Record<string, any>[];
+  }
+}
+
 interface IGetEstimationButtonProps {
   buttonText?: string;
   buttonLink: string;
@@ -32,8 +38,15 @@ const GetEstimationButton = ({
     setIsOpen(false);
   };
 
-  const onOpen = () => {
-    setIsOpen(true);
+  const handleButtonClick = () => {
+    withEstimation && setIsOpen(true);
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "get_estimation_now",
+        formType: "Contact us",
+      });
+    }
   };
 
   DisableScrollBarHandler(isOpen);
@@ -46,7 +59,7 @@ const GetEstimationButton = ({
         rel="noopener noreferrer"
         className={buttonClassName}
         href={withEstimation ? undefined : buttonLink}
-        onClick={withEstimation ? onOpen : undefined}
+        onClick={handleButtonClick}
         style={style}
         ref={elRef}
       >
