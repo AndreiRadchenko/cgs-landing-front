@@ -39,26 +39,31 @@ const Technologies = () => {
       </StyledThisComp.ArrowContainer>
       <StyledThisComp.TechnologyRow>
         {data &&
-          Object.entries(data).map((item, idx) => (
-            <React.Fragment key={item[0] + `_fragment`}>
-              <TechnologyCategory
-                idx={idx}
-                className={idx === 3 ? "blockchain" : undefined}
-                key={item[0]}
-                img={item[1].image.url}
-                text={item[1].text}
-                stack={item[1].stack}
-                title={item[1].category}
-              />
-              <MobileTechnologyCategory
-                idx={idx}
-                className={idx === 3 ? "blockchain" : undefined}
-                key={item[0] + "_mobile"}
-                img={item[1].image.url}
-                text={item[1].text}
-                stack={item[1].stack}
-                title={item[1].category}
-              />
+          data.items.map((item, idx) => (
+            <React.Fragment key={idx + `_fragment`}>
+              {(item.image && (
+                <>
+                  <TechnologyCategory
+                    idx={idx}
+                    className={idx === 3 ? "blockchain" : undefined}
+                    key={idx}
+                    img={item.image?.url}
+                    text={item.text}
+                    stack={item.stack}
+                    title={item.category}
+                  />
+                  <MobileTechnologyCategory
+                    idx={idx}
+                    className={idx === 3 ? "blockchain" : undefined}
+                    key={idx + "_mobile"}
+                    img={item.image.url}
+                    text={item.text}
+                    stack={item.stack}
+                    title={item.category}
+                  />
+                </>
+              )) ||
+                null}
             </React.Fragment>
           ))}
       </StyledThisComp.TechnologyRow>
