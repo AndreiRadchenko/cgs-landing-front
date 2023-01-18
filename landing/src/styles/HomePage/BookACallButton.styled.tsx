@@ -15,6 +15,7 @@ export const BlackButton = styled.button`
   border: 2px solid ${themes.primary.colors.primary};
   transition: all 0.3s;
   width: fit-content;
+
   &.footer {
     margin-top: 10px;
     height: 4vw;
@@ -70,7 +71,9 @@ export const BlackButton = styled.button`
     &.footer-home {
       margin-top: 1em;
     }
+  }
 
+  @media ${themes.primary.media.estiomationFormWidth} {
     &.calendly {
       font-size: 16px;
       padding: 15px 19px;

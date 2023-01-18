@@ -14,8 +14,8 @@ export const CloseButton = styled.img`
   top: 0;
   margin: 26px 26px 0 0;
   cursor: pointer;
-  z-index: 5;
-  @media (max-width: 570px) {
+  z-index: 2;
+  @media ${themes.primary.media.estiomationFormWidth} {
     margin: 21px 15px 0 0;
   }
 `;
@@ -59,7 +59,7 @@ export const Content = styled.div`
   scrollbar-color: ${themes.primary.colors.primary} transparent;
   scrollbar-width: thin;
 
-  @media (max-width: 570px) {
+  @media ${themes.primary.media.estiomationFormWidth} {
     margin-right: 7px;
   }
 `;
@@ -69,7 +69,7 @@ export const List = styled.ul`
   margin: 48px 5px 0 0;
   padding: 0 64px 0 50px;
 
-  @media (max-width: 570px) {
+  @media ${themes.primary.media.estiomationFormWidth} {
     margin-top: 36px;
     padding: 0 46px 0 34px;
   }
@@ -82,7 +82,7 @@ export const ListTitle = styled.span`
   text-transform: uppercase;
   line-height: 31px;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 16px;
     text-align: center;
   }

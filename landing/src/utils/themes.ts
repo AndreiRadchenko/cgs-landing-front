@@ -211,6 +211,7 @@ const themes = {
       maxLowScreenMobile: "(max-width: 475px)",
       maxLowestScreenMobile: "(max-width: 374px)",
       maxLowMobileHeight: "(max-height: 610px)",
+      estiomationFormWidth: "(max-width: 570px)",
       maxMobile: "(max-width: 767px)",
       minMobile: "(min-width: 767px)",
       maxMobileHeight: "(max-height: 710px)",

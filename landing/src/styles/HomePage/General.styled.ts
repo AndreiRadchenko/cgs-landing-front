@@ -872,18 +872,27 @@ export const TelegramWrapper = styled.div`
 `;
 
 export const TelegramIconWrapper = styled.div`
+  width: 14px;
   position: relative;
-  top: 0;
   color: ${themes.primary.colors.primary};
 
   & path {
     fill: ${themes.primary.colors.telegram};
+  }
+
+  @media ${themes.primary.media.minPC} {
+    width: 0.75em;
   }
 `;
 
 export const WhatsAppIconWrapper = styled.div`
   width: 14px;
   height: 14px;
+
+  @media ${themes.primary.media.minPC} {
+    width: 0.75em;
+    height: 0.75em;
+  }
 `;
 
 export const FooterSection = styled.section``;

@@ -36,8 +36,6 @@ function split(text: string) {
 }
 
 const BookForm = ({ onClose, isOpen }: IFormProps) => {
-  const [enable, setEnable] = useState(false);
-
   const [service, setService] = useState("");
   const [btnState, setBtnState] = useState({
     isDisabled: true,
@@ -126,8 +124,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     });
   }, [service, ServiceData]);
 
-  const handleDropDown = () => setEnable(!enable);
-
   const checkIfButtonIsDisabled = () => {
     setBtnState((old) => {
       return {
@@ -141,7 +137,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
 
   return (
     <Styled.FormProvider value={formik}>
-      <Styled.Shadow className={enable ? "inline-block" : "enabled"} />
+      <Styled.Shadow className={isOpen ? "inline-block" : "enabled"} />
       <Styled.Form
         onSubmit={formik.handleSubmit}
         encType="multipart/form-data"
@@ -155,22 +151,18 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
             label={label}
           />
         ))}
-        <Styled.ServiceSelect
-          onClick={handleDropDown}
-          className={enable ? "1" : "enabled"}
-        >
+        <Styled.ServiceSelect className={isOpen ? "1" : "enabled"}>
           <ServiceDropdown
             setService={setService}
             services={companyServices}
             dropdownName={service ? split(service) : "Choose a service"}
-            setEnable={setEnable}
           />
         </Styled.ServiceSelect>
-        <Styled.FormSentContainer className={enable ? "open" : "flex"}>
-          <Styles.ButtonWrapper onClick={checkIfButtonIsDisabled}>
+        <Styled.FormSentContainer>
+          <Styles.ButtonWrapper>
             <BookACallButton
+              onClick={checkIfButtonIsDisabled}
               buttonLink={btnState.link}
-              withCalendly
               buttonClassName={"calendly"}
               isDisabled={btnState.isDisabled}
               handleClose={onClose}

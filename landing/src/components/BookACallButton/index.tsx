@@ -8,20 +8,20 @@ import * as Styled from "../../styles/HomePage/BookACallButton.styled";
 interface IBookACallButtonProps {
   buttonText?: string;
   buttonLink: string;
-  withCalendly?: boolean;
   buttonClassName?: string;
   type?: string;
   isDisabled?: boolean;
   handleClose?: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
+  onClick?: () => void;
 }
 
 const BookACallButton = ({
   buttonLink,
   buttonText = "BOOK A CALL",
-  withCalendly = false,
   buttonClassName,
   isDisabled,
   handleClose,
+  onClick,
 }: IBookACallButtonProps) => {
   const elRef = useRef<HTMLAnchorElement>(null);
   const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
@@ -33,28 +33,25 @@ const BookACallButton = ({
 
   const handleCalendyOpen = () => {
     setCalendlyIsOpen(true);
+    onClick && onClick();
   };
 
   return (
     <>
       <Styled.BlackButton
         className={buttonClassName}
-        onClick={withCalendly ? handleCalendyOpen : undefined}
+        onClick={handleCalendyOpen}
         disabled={isDisabled}
         type="submit"
       >
-        <a
-          href={withCalendly ? undefined : buttonLink}
-          ref={elRef}
-          rel="noopener noreferrer"
-        >
+        <a ref={elRef} rel="noopener noreferrer">
           {buttonText}
         </a>
         <ArrowContainer>
           <ButtonArrow />
         </ArrowContainer>
       </Styled.BlackButton>
-      {withCalendly && elRef && elRef.current && (
+      {elRef && elRef.current && (
         <PopupModal
           url={recoverLink(buttonLink)}
           rootElement={elRef.current}

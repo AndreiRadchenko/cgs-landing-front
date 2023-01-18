@@ -49,7 +49,14 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     transform: rotate(0deg);
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  & span {
+    max-width: 96%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media ${themes.primary.media.estiomationFormWidth} {
     span {
       font-size: 12px;
     }
@@ -97,7 +104,7 @@ export const ContentWrapper = styled.div`
     border-bottom: 0;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 12px;
     height: 44px;
   }
