@@ -9,6 +9,7 @@ import ButtonArrow from "../../utils/ButtonArrow";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ScrambleText from "./ScrambleText";
 import MobileServices from "./MobileServices";
+import { ArrowContainer } from "../../styles/HomePage/General.styled";
 
 const MobileNextTech = () => {
   const { width } = useWindowDimension();
@@ -92,9 +93,9 @@ const MobileNextTech = () => {
           href={buttonData?.buttonLink}
         >
           {buttonData?.button}
-          <Styled.ArrowContainer>
+          <ArrowContainer>
             <ButtonArrow />
-          </Styled.ArrowContainer>
+          </ArrowContainer>
         </Styled.BlackButton>
       </Styled.SideOppositeContainer>
     </Styled.NextTech>

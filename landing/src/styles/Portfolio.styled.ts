@@ -52,7 +52,7 @@ export const LinkButton = styled.button`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-block: 10px;
+    margin-block: 10px 5px;
     font-size: 0.75rem;
     a {
       border: none;

@@ -668,7 +668,7 @@ export const FooterButtonWrapper = styled.span`
   margin-right: 28px;
 
   &.btn {
-    & a {
+    & > a {
       margin-top: 1rem;
       margin-left: 0;
     }
@@ -833,6 +833,10 @@ export const ButtonShareTextWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.5em;
     font-size: 1.346em;
+
+    & > span {
+      font-size: 14px;
+    }
   }
 `;
 
