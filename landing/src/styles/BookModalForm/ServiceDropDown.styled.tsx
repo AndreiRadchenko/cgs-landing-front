@@ -11,7 +11,6 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     `1px solid ${themes.primary.colors.comment} !important;`};
   font-family: ${themes.primary.font.family.namu};
   font-size: 16px;
-
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
@@ -54,6 +53,15 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 22px;
+
+    & img {
+      width: 15px;
+      height: 11px;
+    }
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
@@ -102,6 +110,19 @@ export const ContentWrapper = styled.div`
   }
   &:last-child {
     border-bottom: 0;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 22px;
+    height: 84px !important;
+    & > div {
+      display: flex;
+      align-items: center;
+
+      & span {
+        margin-right: 5px;
+      }
+    }
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {

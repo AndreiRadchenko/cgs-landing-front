@@ -6,6 +6,8 @@ import { recoverLink } from "../../utils/recoverLink";
 import * as Styled from "../../styles/HomePage/BookACallButton.styled";
 
 interface IBookACallButtonProps {
+  name: string;
+  email: string;
   buttonText?: string;
   buttonLink: string;
   buttonClassName?: string;
@@ -15,6 +17,8 @@ interface IBookACallButtonProps {
 }
 
 const BookACallButton = ({
+  name,
+  email,
   buttonLink,
   buttonText = "BOOK A CALL",
   buttonClassName,
@@ -41,15 +45,16 @@ const BookACallButton = ({
         disabled={isDisabled}
         type="submit"
       >
-        <a ref={elRef} rel="noopener noreferrer">
+        <Styled.BlackButtonAnchor ref={elRef} rel="noopener noreferrer">
           {buttonText}
-        </a>
+        </Styled.BlackButtonAnchor>
         <ArrowContainer>
           <ButtonArrow />
         </ArrowContainer>
       </Styled.BlackButton>
       {elRef && elRef.current && (
         <PopupModal
+          prefill={{ email, name }}
           url={recoverLink(buttonLink)}
           rootElement={elRef.current}
           onModalClose={handleCalendyClose}

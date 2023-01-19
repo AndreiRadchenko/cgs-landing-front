@@ -38,6 +38,8 @@ function split(text: string) {
 const BookForm = ({ onClose, isOpen }: IFormProps) => {
   const [service, setService] = useState("");
   const [serviceIsOpen, setServiceIsOpen] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [btnState, setBtnState] = useState({
     isDisabled: true,
     isClicked: false,
@@ -81,6 +83,8 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
           formType: "Contact us",
         });
       }
+      setName(values.name);
+      setEmail(values.email);
       setErrors({});
       setService("");
       resetForm();
@@ -139,6 +143,12 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     formik.validateForm();
   };
 
+  const handleClose = () => {
+    onClose();
+    setName("");
+    setEmail("");
+  };
+
   return (
     <Styled.FormProvider value={formik}>
       <Styled.Shadow className={isOpen ? "inline-block" : "enabled"} />
@@ -167,10 +177,12 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
         <Styled.FormSentContainer>
           <Styles.ButtonWrapper onClick={checkIfButtonIsDisabled}>
             <BookACallButton
+              name={name}
+              email={email}
               buttonLink={btnState.link}
               buttonClassName={"calendly"}
               isDisabled={btnState.isDisabled}
-              handleClose={onClose}
+              handleClose={handleClose}
             />
           </Styles.ButtonWrapper>
           <Styled.FormSentFillText

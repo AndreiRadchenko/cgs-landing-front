@@ -82,6 +82,10 @@ export const ListTitle = styled.span`
   text-transform: uppercase;
   line-height: 31px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 30px;
+  }
+
   @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 16px;
     text-align: center;

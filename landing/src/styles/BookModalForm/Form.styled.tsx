@@ -50,6 +50,11 @@ export const FormSentFillText = styled.span`
   &.show {
     display: block;
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 18px;
+    bottom: 10px;
+  }
 `;
 
 export const FormSentContainer = styled.div`
@@ -60,6 +65,10 @@ export const FormSentContainer = styled.div`
   height: 75px;
   flex-direction: column;
   margin-top: 30px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 40px;
+  }
 
   @media ${themes.primary.media.estiomationFormWidth} {
     height: 60px;
@@ -140,6 +149,10 @@ export const ServiceSelect = styled.div`
       box-shadow: 4px 0px 0px 0px ${themes.primary.colors.black};
       border-left: none;
     }
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 84px;
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
