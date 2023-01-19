@@ -33,8 +33,10 @@ const ServiceDropdown = ({
   const openClassName = serviceIsOpen ? "open" : undefined;
 
   return (
-    <Styled.Dropdown onBlur={onBlur} tabIndex={0}>
+    <Styled.Dropdown>
       <Styled.DropdownButton
+        onBlur={onBlur}
+        tabIndex={0}
         type="button"
         className={openClassName}
         onClick={() => setServiceIsOpen(!serviceIsOpen)}
@@ -50,10 +52,9 @@ const ServiceDropdown = ({
               onClick={() => {
                 handleOptionClick(option);
               }}
+              onMouseDown={(e) => e.preventDefault()}
             >
-              <div onMouseDown={(e) => e.preventDefault()}>
-                <SplitBrackets text={option} />
-              </div>
+              <SplitBrackets text={option} />
             </Styled.ContentWrapper>
           ))}
         </Styled.ScrollWrapper>
