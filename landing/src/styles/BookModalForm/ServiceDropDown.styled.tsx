@@ -1,39 +1,45 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const DropdownButton = styled.button<{ isHeader?: boolean }>`
+export const DropdownButton = styled.button`
   cursor: pointer;
-  color: ${themes.primary.colors.primary};
-  background-color: ${themes.primary.colors.blogBackground};
-  box-sizing: border-box;
-  border: ${(props) =>
-    !props.isHeader &&
-    `1px solid ${themes.primary.colors.comment} !important;`};
   font-family: ${themes.primary.font.family.namu};
   font-size: 16px;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: normal;
-  letter-spacing: 0.03em;
-  padding-top: 3px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-weight: 100;
+  border: 1px solid ${themes.primary.colors.comment};
+  background-color: ${themes.primary.colors.blogBackground};
+  box-sizing: border-box !important;
+
+  &.open {
+    transition: none;
+    border-width: 1px 3px 0 1px;
+    border-color: ${themes.primary.colors.primary};
+    box-shadow: 4px 0px 0px 0px ${themes.primary.colors.black};
+  }
+
+  img {
+    position: absolute;
+    right: 0;
+    margin-right: 18px;
+  }
 
   &:hover {
     transition: 0.3s;
-    border-right: 1.5px solid ${themes.primary.colors.primary} !important;
-    border-bottom: 3px solid ${themes.primary.colors.primary} !important;
-  }
-  &:hover &.open {
-    border-bottom: 0 !important;
-    border-right: 3px solid ${themes.primary.colors.primary} !important;
 
-    img {
-      transform: rotate(180deg);
+    &.open {
+      img {
+        transform: rotate(180deg);
+      }
     }
   }
-  &.open {
-    border-bottom: 0 !important;
-    border-right: 3px solid ${themes.primary.colors.primary} !important;
 
+  &:hover &.open {
     img {
       transform: rotate(180deg);
     }
@@ -80,41 +86,53 @@ export const Dropdown = styled.div`
 export const DropdownContent = styled.div`
   position: absolute;
   background-color: ${themes.primary.colors.blogBackground};
-  min-width: 220px;
+  width: 100%;
   z-index: 3;
-  right: 0;
-  border: 1px solid ${themes.primary.colors.primary};
-  border-right-width: 3px;
-  border-bottom-width: 12px;
+  left: 0;
+  border-width: 1px 3px 12px 0;
+  border-style: solid;
+  border-color: ${themes.primary.colors.primary};
+  box-shadow: 4px 0px 0px 0px ${themes.primary.colors.black};
   display: none;
+  padding-right: 4px;
+  overflow: hidden;
+
   &.open {
     display: block;
-  }
-  br {
-    display: none;
   }
 `;
 
 export const ContentWrapper = styled.div`
-  height: 52px;
+  height: 40px;
+  width: 100%;
   color: ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.namu};
   font-size: 16px;
-  border: 1px solid ${themes.primary.colors.comment};
-  padding: 15px;
+  border: 1px solid ${themes.primary.colors.primary};
+  border-width: 1px 0 0 1px;
+  padding-left: 13px;
   text-decoration: none;
   text-align: left;
   cursor: pointer;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  transition: 0.15s;
+
+  &:first-child {
+    border-top: 0;
+  }
   &:hover {
     background-color: ${themes.primary.colors.blogDropdownHover};
   }
+
   &:last-child {
     border-bottom: 0;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 22px;
-    height: 84px !important;
+    height: 84px;
     & > div {
       display: flex;
       align-items: center;
@@ -128,5 +146,27 @@ export const ContentWrapper = styled.div`
   @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 12px;
     height: 44px;
+  }
+`;
+
+export const ScrollWrapper = styled.div`
+  z-index: 10;
+  overflow-y: scroll;
+  max-height: 200px;
+  padding-right: 4px;
+  scrollbar-color: ${themes.primary.colors.primary} transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${themes.primary.colors.primary};
+    border-radius: 10px;
   }
 `;
