@@ -39,6 +39,11 @@ const Review = ({ review, className }: IReviewProps) => {
     stars = stars - 1;
   }
 
+  const feedbackClassName =
+    review.feedback?.company === "" ? "withoutCompanyName" : undefined;
+
+  const industryClassName = review.button.length > 0 ? "withLink" : undefined;
+
   return (
     review && (
       <Styled.ReviewContainer className={className}>
@@ -65,7 +70,7 @@ const Review = ({ review, className }: IReviewProps) => {
             )}
           </Styled.ProjectHeader>
           {review.industry && (
-            <Styled.ProjectIndustry>
+            <Styled.ProjectIndustry className={industryClassName}>
               {"// "}
               {review.industry}
             </Styled.ProjectIndustry>
@@ -75,7 +80,7 @@ const Review = ({ review, className }: IReviewProps) => {
           {review.feedback.name !== "" && (
             <>
               <Styled.TitleContainer>
-                <Styled.Feedback>
+                <Styled.Feedback className={feedbackClassName}>
                   <Styled.AuthorName>{review.feedback?.name}</Styled.AuthorName>
                   <Styled.CompanyName>
                     {review.feedback?.company}

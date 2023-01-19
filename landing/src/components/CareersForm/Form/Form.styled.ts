@@ -61,7 +61,7 @@ export const FormField = styled(Field)<IFormField>`
     outline: none;
   }
   &::placeholder {
-    opacity: 1;
+    color: ${themes.primary.colors.careersPlaceholder};
   }
 
   @media ${themes.primary.media.maxMobile} {

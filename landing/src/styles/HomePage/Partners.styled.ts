@@ -3,9 +3,9 @@ import themes from "../../utils/themes";
 
 export const PartnersContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 0.8fr 1.1fr 0.9fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
   column-gap: 60px;
-  row-gap: 10px;
+  row-gap: 50px;
   margin: 149px 0 120px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -24,19 +24,5 @@ export const PartnersContainer = styled.div`
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
     margin-block: 50px 70px;
-  }
-`;
-
-export const PartnerImageWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: 8em;
-  position: relative;
-  height: 90px;
-
-  @media ${themes.primary.media.minPCFullHD} {
-    height: 1500px;
-    width: 85%;
   }
 `;
