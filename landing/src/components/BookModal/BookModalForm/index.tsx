@@ -11,6 +11,7 @@ import { IBookModalData } from "../../../types/Mail.types";
 import { adminBookService } from "../../../services/adminBookServiceModal";
 import { adminServices } from "../../../services/services/commonServices";
 import { BookModalValidation } from "../../../validations/BookModalValidation";
+import { navigationRoutesNamesNew } from "../../../utils/variables";
 
 export interface IFormState {
   name: string;
@@ -36,7 +37,7 @@ function split(text: string) {
 }
 
 const BookForm = ({ onClose, isOpen }: IFormProps) => {
-  const [service, setService] = useState("");
+  const [service, setService] = useState<string>("");
   const [serviceIsOpen, setServiceIsOpen] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -48,10 +49,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
 
   const { data: ServiceData } = useQuery([queryKeys.getAllServices], () =>
     adminServices.getAllServices()
-  );
-
-  const companyServices = ServiceData?.map((service) =>
-    service.headerBlock.title.toUpperCase()
   );
 
   const fieldContent = {
@@ -119,15 +116,22 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
 
   useEffect(() => {
     setBtnState((old) => {
-      const tempLink = ServiceData?.find(
-        (s) => s.headerBlock.title.toUpperCase() === service
-      )?.headerBlock.buttonLink;
-      if (tempLink)
-        return {
-          ...old,
-          link: tempLink,
-        };
-
+      const ind =
+        navigationRoutesNamesNew[1].tags &&
+        navigationRoutesNamesNew[1].tags.findIndex((serv) => serv === service);
+      if (
+        ServiceData &&
+        navigationRoutesNamesNew[1].tags &&
+        typeof ind === "number" &&
+        ind !== -1
+      ) {
+        const tempLink = ServiceData[ind].headerBlock.buttonLink;
+        if (tempLink)
+          return {
+            ...old,
+            link: tempLink,
+          };
+      }
       return old;
     });
   }, [service, ServiceData]);
@@ -165,12 +169,11 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
             label={label}
           />
         ))}
-        <Styled.ServiceSelect className={isOpen ? "1" : "enabled"}>
+        <Styled.ServiceSelect>
           <ServiceDropdown
             serviceIsOpen={serviceIsOpen}
             setServiceIsOpen={setServiceIsOpen}
             setService={setService}
-            services={companyServices}
             dropdownName={service ? split(service) : "Choose a service"}
           />
         </Styled.ServiceSelect>
@@ -185,15 +188,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
               handleClose={handleClose}
             />
           </Styles.ButtonWrapper>
-          <Styled.FormSentFillText
-            className={
-              btnState.isClicked && Object.keys(formik.errors).length !== 0
-                ? "show"
-                : undefined
-            }
-          >
-            &lt; Fill in all the fields &gt;
-          </Styled.FormSentFillText>
         </Styled.FormSentContainer>
       </Styled.Form>
     </Styled.FormProvider>

@@ -44,7 +44,7 @@ export const FormSentFillText = styled.span`
   font-family: ${themes.primary.font.family.namu};
   font-size: 12px;
   position: absolute;
-  bottom: 0;
+  bottom: 10%;
   margin-bottom: 6px;
   display: none;
   &.show {
@@ -53,7 +53,7 @@ export const FormSentFillText = styled.span`
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 18px;
-    bottom: 10px;
+    bottom: 8%;
   }
 `;
 
@@ -93,61 +93,21 @@ export const Shadow = styled.div`
 export const ServiceSelect = styled.div`
   height: 54px;
   width: 100%;
-  border: 1px solid ${themes.primary.colors.inputGrey};
   margin-top: 9px;
 
-  div {
+  & > div {
     width: 100%;
     height: 100%;
     position: relative;
-
-    &.enabled {
-      z-index: "1";
-    }
-
-    button {
-      border: none !important;
-      display: flex;
-      align-items: center;
-      padding: 0 12px;
-      height: 100%;
-      width: 100%;
-      position: relative;
-      font-weight: 100;
-
-      &:hover {
-        border-bottom: 1px solid ${themes.primary.colors.black} !important;
-        border-right: none !important;
-      }
-
-      &.open {
-        box-shadow: 4px 0px 0px 0px ${themes.primary.colors.black};
-
-        border-bottom: none !important;
-        border-right: 1px solid ${themes.primary.colors.black} !important;
-        transition: none;
-      }
-
-      img {
-        position: absolute;
-        right: 0;
-        margin-right: 18px;
-      }
-    }
   }
 
-  div:nth-child(2) {
+  & > div:nth-child(2) {
     height: auto;
 
     &:last-child {
       div:last-child {
         color: ${themes.primary.colors.black};
       }
-
-      border-bottom: 10px solid ${themes.primary.colors.black};
-      border-right: 1px solid ${themes.primary.colors.black} !important;
-      box-shadow: 4px 0px 0px 0px ${themes.primary.colors.black};
-      border-left: none;
     }
   }
 

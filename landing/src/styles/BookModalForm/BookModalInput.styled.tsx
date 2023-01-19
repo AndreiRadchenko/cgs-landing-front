@@ -24,13 +24,10 @@ export const HiddenWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  overflow-y: hidden;
 `;
 
 export const Content = styled.div`
   height: 97%;
-  overflow-y: scroll;
-  overflow-x: hidden;
   margin: 10px 0;
   margin-right: 10px;
 
@@ -81,10 +78,6 @@ export const ListTitle = styled.span`
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
   line-height: 31px;
-
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 30px;
-  }
 
   @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 16px;
