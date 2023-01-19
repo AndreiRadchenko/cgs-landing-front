@@ -27,8 +27,12 @@ const ServiceDropdown = ({
     setServiceIsOpen(false);
   };
 
+  const onBlur = () => {
+    setServiceIsOpen(false);
+  };
+
   return (
-    <Styled.Dropdown>
+    <Styled.Dropdown onBlur={onBlur} tabIndex={0}>
       <Styled.DropdownButton
         type="button"
         className={serviceIsOpen ? "open" : "className"}

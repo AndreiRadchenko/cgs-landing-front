@@ -45,9 +45,9 @@ const BookACallButton = ({
         disabled={isDisabled}
         type="submit"
       >
-        <a ref={elRef} rel="noopener noreferrer">
+        <Styled.BlackButtonAnchor ref={elRef} rel="noopener noreferrer">
           {buttonText}
-        </a>
+        </Styled.BlackButtonAnchor>
         <ArrowContainer>
           <ButtonArrow />
         </ArrowContainer>
