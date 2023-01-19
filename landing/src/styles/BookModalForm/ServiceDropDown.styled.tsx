@@ -15,28 +15,23 @@ export const DropdownButton = styled.button`
   border: 1px solid ${themes.primary.colors.comment};
   background-color: ${themes.primary.colors.blogBackground};
   box-sizing: border-box !important;
+  outline: none;
 
   &.open {
-    transition: none;
     border-width: 1px 3px 0 1px;
     border-color: ${themes.primary.colors.primary};
     box-shadow: 4px 0px 0px 0px ${themes.primary.colors.black};
+
+    img {
+      transform: rotate(180deg);
+    }
   }
 
   img {
+    transition: 0.3s;
     position: absolute;
     right: 0;
     margin-right: 18px;
-  }
-
-  &:hover {
-    transition: 0.3s;
-
-    &.open {
-      img {
-        transform: rotate(180deg);
-      }
-    }
   }
 
   &:hover &.open {
@@ -63,6 +58,7 @@ export const DropdownButton = styled.button`
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 22px;
+    padding-left: 20px;
 
     & img {
       width: 15px;
@@ -87,7 +83,7 @@ export const DropdownContent = styled.div`
   position: absolute;
   background-color: ${themes.primary.colors.blogBackground};
   width: 100%;
-  z-index: 3;
+  z-index: 4;
   left: 0;
   border-width: 1px 3px 12px 0;
   border-style: solid;
@@ -131,8 +127,9 @@ export const ContentWrapper = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    padding-left: 20px;
     font-size: 22px;
-    height: 84px;
+    height: 60px;
     & > div {
       display: flex;
       align-items: center;
@@ -145,15 +142,17 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 12px;
-    height: 44px;
+    height: 20px;
   }
 `;
 
 export const ScrollWrapper = styled.div`
-  z-index: 10;
+  z-index: 2;
   overflow-y: scroll;
+  height: 100%;
   max-height: 200px;
   padding-right: 4px;
+  position: relative;
   scrollbar-color: ${themes.primary.colors.primary} transparent;
   scrollbar-width: thin;
 
@@ -168,5 +167,9 @@ export const ScrollWrapper = styled.div`
   &::-webkit-scrollbar-thumb {
     background-color: ${themes.primary.colors.primary};
     border-radius: 10px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-height: 300px;
   }
 `;
