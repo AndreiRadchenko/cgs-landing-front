@@ -17,17 +17,29 @@ export const DropdownButton = styled.button`
   box-sizing: border-box !important;
   outline: none;
 
+  & path {
+    color: ${themes.primary.colors.primary};
+  }
+
   &.open {
     border-width: 1px 3px 0 1px;
     border-color: ${themes.primary.colors.primary};
     box-shadow: 4px 0px 0px 0px ${themes.primary.colors.black};
 
-    img {
+    svg {
       transform: rotate(180deg);
     }
   }
 
-  img {
+  &.fieldError {
+    border-color: ${themes.primary.colors.adminRed};
+
+    & path {
+      color: ${themes.primary.colors.adminRed};
+    }
+  }
+
+  svg {
     transition: 0.3s;
     position: absolute;
     right: 0;
@@ -35,16 +47,16 @@ export const DropdownButton = styled.button`
   }
 
   &:hover &.open {
-    img {
+    svg {
       transform: rotate(180deg);
     }
   }
-  & > img,
+  & > svg,
   & > span {
     vertical-align: middle;
   }
 
-  img {
+  svg {
     margin-left: 10px;
     transform: rotate(0deg);
   }
