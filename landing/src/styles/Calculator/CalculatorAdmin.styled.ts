@@ -17,7 +17,37 @@ export const TransparentTextEditorWrapper = styled.div`
   background-color: transparent;
 
   & .se-toolbar {
+    outline: 0;
     background-color: ${themes.primary.colors.blogBackground};
+    border-bottom: 1px solid ${themes.primary.colors.comment};
+    height: 33px;
+
+    & .se-btn-tray {
+      padding: 0;
+      height: 100%;
+    }
+    & .se-btn-module-border {
+      border: 0;
+      border-radius: 0;
+      margin: 0;
+      height: 100%;
+    }
+
+    & .se-menu-list {
+      height: 100%;
+
+      & li {
+        height: 100%;
+      }
+    }
+
+    & .se-btn {
+      padding-inline: 5px;
+      height: 100%;
+      border-radius: 0;
+      border-right: 1.58px solid ${themes.primary.colors.comment} !important;
+      margin: 0 !important;
+    }
   }
 
   & .sun-editor {
@@ -61,36 +91,6 @@ export const TransparentTextEditorWrapper = styled.div`
     font-size: 16px;
     font-family: ${themes.primary.font.family.openSans} !important;
     color: ${themes.primary.colors.primary} !important;
-    & .__se__t-radio-input {
-      position: relative;
-      display: inline-block;
-
-      &::before {
-        display: inline-block;
-        content: " ";
-        margin-right: 8px;
-        -ms-transform: translateY(10%);
-        transform: translateY(10%);
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        border: 1px solid ${themes.primary.colors.primary};
-      }
-    }
-
-    & .__se__t-checkbox-input {
-      display: inline-block;
-      &::before {
-        content: " ";
-        display: inline-block;
-        margin-right: 8px;
-        width: 16px;
-        height: 16px;
-        -ms-transform: translateY(10%);
-        transform: translateY(10%);
-        border: 1px solid ${themes.primary.colors.primary};
-      }
-    }
   }
 
   & .__se__t-upper {
@@ -135,10 +135,42 @@ export const TransparentTextEditorWrapper = styled.div`
   & .__se__t-light {
     font-weight: ${themes.primary.font.weight.light};
   }
+`;
 
-  &.text {
-    & .sun-editor-editable {
-      padding: 8px 12px;
+export const TextEditorTextContainer = styled(TransparentTextEditorWrapper)`
+  & .sun-editor-editable {
+    padding: 8px 12px;
+  }
+
+  &.radio .sun-editor-editable p {
+    position: relative;
+    display: inline-block;
+
+    &::before {
+      display: inline-block;
+      content: " ";
+      margin-right: 8px;
+      -ms-transform: translateY(10%);
+      transform: translateY(10%);
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1px solid ${themes.primary.colors.primary};
+    }
+  }
+
+  &.checkbox .sun-editor-editable p {
+    position: relative;
+    display: inline-block;
+    &::before {
+      content: " ";
+      display: inline-block;
+      margin-right: 8px;
+      width: 16px;
+      height: 16px;
+      -ms-transform: translateY(10%);
+      transform: translateY(10%);
+      border: 1px solid ${themes.primary.colors.primary};
     }
   }
 `;
@@ -668,3 +700,56 @@ export const CalculatorHiddenContentWrapper = styled.div`
     display: block;
   }
 `;
+
+export const CalculatorQuestionInputsWrapper = styled.div`
+  display: flex;
+  column-gap: 12px;
+`;
+
+export const OptionInputsWrapper = styled.div`
+  margin-top: 20px;
+`;
+
+export const OptionDeleteButton = styled.button`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 14px;
+  line-height: 132%;
+  color: ${themes.primary.colors.adminRed};
+  border: 0;
+  cursor: pointer;
+`;
+
+export const OptionInputsRowWrapper = styled.div`
+  display: flex;
+  column-gap: 10px;
+`;
+
+export const OptionInput = styled(Field)`
+  height: 24px;
+  border: 1px solid ${themes.primary.colors.comment};
+  background: transparent;
+  outline: none;
+  font-family: ${themes.primary.font.family.namu};
+
+  &.hours {
+    width: 50px;
+  }
+
+  &.coef {
+    width: 120px;
+  }
+`;
+
+export const CalculatorTypeSelectWrapper = styled.div``;
+
+export const CalculatorTypeSelectHeader = styled.div`
+  height: 100%;
+  width: 97px;
+  border: 1px solid ${themes.primary.colors.comment};
+`;
+
+export const CalculatorTypeSelectContent = styled.div`
+  display: none;
+`;
+
+export const CalculatorTypeSelectOption = styled.div``;

@@ -10,11 +10,7 @@ import {
   CalculatorTypeSelectHeaderWrapper,
 } from "../../../styles/Calculator/CalculatorAdmin.styled";
 
-interface ICalculatorOptionTypeSelectProps {
-  idx?: number;
-}
-
-const CalculatorOptionTypeSelect = ({}: ICalculatorOptionTypeSelectProps) => {
+const CalculatorOptionTypeSelect = () => {
   const options = [
     {
       value: "radio",
@@ -37,6 +33,7 @@ const CalculatorOptionTypeSelect = ({}: ICalculatorOptionTypeSelectProps) => {
   const handleOptionClick = (value: string) => {
     setSelectedType(value);
     setFieldValue("type", value);
+    setIsOpen(false);
   };
 
   const currentOptions =

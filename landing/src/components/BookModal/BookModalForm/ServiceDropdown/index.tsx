@@ -1,59 +1,63 @@
-import React, { useState } from "react";
+import React from "react";
 import * as Styled from "../../../../styles/BookModalForm/ServiceDropDown.styled";
 import Arrow from "../../../../../public/upArrowSidebar.svg";
 import { SplitBrackets } from "../../../../utils/splitBrackets";
 import { useFormikContext } from "formik";
+import { navigationRoutesNamesNew } from "../../../../utils/variables";
 
 interface IServiceDropdown {
   setService: (val: string) => void;
-  services?: string[] | void;
   dropdownName: string;
-  setEnable?: (val: boolean) => void;
+  serviceIsOpen: boolean;
+  setServiceIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ServiceDropdown = ({
-  services,
   dropdownName,
-  setEnable,
   setService,
+  serviceIsOpen,
+  setServiceIsOpen,
 }: IServiceDropdown) => {
   const { setFieldValue } = useFormikContext();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const onBlur = () => {
-    setIsOpen(false);
-    if (setEnable) setEnable(false);
-  };
 
   const handleOptionClick = (option: string) => {
     setFieldValue("service", option.replaceAll("|", ""));
     setService(option);
-    setIsOpen(false);
+    setServiceIsOpen(false);
   };
 
+  const onBlur = () => {
+    setServiceIsOpen(false);
+  };
+
+  const openClassName = serviceIsOpen ? "open" : undefined;
+
   return (
-    <Styled.Dropdown onBlur={onBlur}>
+    <Styled.Dropdown>
       <Styled.DropdownButton
+        onBlur={onBlur}
+        tabIndex={0}
         type="button"
-        className={isOpen ? "open" : "className"}
-        onClick={() => setIsOpen(!isOpen)}
+        className={openClassName}
+        onClick={() => setServiceIsOpen(!serviceIsOpen)}
       >
         <span>{dropdownName.replaceAll("|", "")}</span>
         <img width={9} height={5} src={Arrow.src} alt="Arrow" />
       </Styled.DropdownButton>
-      <Styled.DropdownContent className={isOpen ? `open ` : undefined}>
-        {services?.map((option) => (
-          <Styled.ContentWrapper key={option}>
-            <div
+      <Styled.DropdownContent className={openClassName}>
+        <Styled.ScrollWrapper>
+          {navigationRoutesNamesNew[1].tags?.map((option) => (
+            <Styled.ContentWrapper
+              key={option}
               onClick={() => {
                 handleOptionClick(option);
               }}
               onMouseDown={(e) => e.preventDefault()}
             >
               <SplitBrackets text={option} />
-            </div>
-          </Styled.ContentWrapper>
-        ))}
+            </Styled.ContentWrapper>
+          ))}
+        </Styled.ScrollWrapper>
       </Styled.DropdownContent>
     </Styled.Dropdown>
   );

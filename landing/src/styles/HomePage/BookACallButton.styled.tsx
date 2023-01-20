@@ -15,6 +15,7 @@ export const BlackButton = styled.button`
   border: 2px solid ${themes.primary.colors.primary};
   transition: all 0.3s;
   width: fit-content;
+
   &.footer {
     margin-top: 10px;
     height: 4vw;
@@ -48,8 +49,11 @@ export const BlackButton = styled.button`
   }
 
   &.calendly {
+    margin-left: 2px;
+    height: 57px;
+    width: 188px;
     font-size: 22px;
-    padding: 16px 15px;
+    padding: 0;
   }
 
   &:hover {
@@ -60,6 +64,12 @@ export const BlackButton = styled.button`
 
   @media ${themes.primary.media.minPCFullHD} {
     padding: 0.8em 1em;
+
+    &.calendly {
+      width: 252px;
+      height: 80px;
+      font-size: 26px;
+    }
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -70,10 +80,13 @@ export const BlackButton = styled.button`
     &.footer-home {
       margin-top: 1em;
     }
+  }
 
+  @media ${themes.primary.media.estiomationFormWidth} {
     &.calendly {
+      width: 153px;
+      height: 49px;
       font-size: 16px;
-      padding: 15px 19px;
     }
   }
 
@@ -100,4 +113,12 @@ export const BlackButton = styled.button`
       transform: translate(36px, -36px);
     }
   }
+`;
+
+export const BlackButtonAnchor = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 `;

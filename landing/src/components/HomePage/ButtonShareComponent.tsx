@@ -11,6 +11,12 @@ import {
 } from "../../styles/HomePage/General.styled";
 import { IDataResponse } from "../../types/Admin/Response.types";
 
+declare global {
+  interface Window {
+    dataLayer: Record<string, any>[];
+  }
+}
+
 const ButtonShareComponent = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>([
@@ -19,8 +25,8 @@ const ButtonShareComponent = () => {
 
   const whatsAppIcon = (
     <svg
-      width="14"
-      height="14"
+      width="100%"
+      height="100%"
       viewBox="0 0 14 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -34,8 +40,8 @@ const ButtonShareComponent = () => {
 
   const telegramIcon = (
     <svg
-      width="14"
-      height="14"
+      width="100%"
+      height="100%"
       viewBox="0 0 14 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -47,6 +53,26 @@ const ButtonShareComponent = () => {
     </svg>
   );
 
+  const handleWhatsAppClick = () => {
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "whatsapp_click",
+        formType: "Contact us",
+      });
+    }
+  };
+
+  const handleTelegramClick = () => {
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "telegram_click",
+        formType: "Contact us",
+      });
+    }
+  };
+
   return (
     <ButtonShareTextWrapper>
       <span>or contact via</span>
@@ -54,6 +80,7 @@ const ButtonShareComponent = () => {
         href={data?.whatsAppLink}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleWhatsAppClick}
       >
         <WhatsAppWrapper>
           <WhatsAppIconWrapper>{whatsAppIcon}</WhatsAppIconWrapper>
@@ -64,6 +91,7 @@ const ButtonShareComponent = () => {
         href={data?.telegramLink}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleTelegramClick}
       >
         <TelegramWrapper>
           <TelegramIconWrapper>{telegramIcon}</TelegramIconWrapper>

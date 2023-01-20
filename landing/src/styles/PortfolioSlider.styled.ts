@@ -155,6 +155,7 @@ export const ProjectComment = styled.p`
   @media ${themes.primary.media.maxMobile} {
     padding-top: 10px;
     margin-top: 0px;
+    font-size: 14px;
   }
 `;
 
@@ -163,6 +164,11 @@ export const ViewMoreContainer = styled.a`
   display: flex;
   column-gap: 5px;
   cursor: pointer;
+
+  @media ${themes.primary.media.maxMobile} {
+    align-items: center;
+    font-size: 18px;
+  }
 `;
 
 export const ViewMoreText = styled.div`
@@ -486,6 +492,12 @@ export const Feedback = styled.div`
   @media (max-width: 1250px) {
     column-gap: 10px;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    &.withoutCompanyName {
+      column-gap: 0;
+    }
+  }
 `;
 
 export const AuthorName = styled.div`
@@ -540,6 +552,10 @@ export const Star = styled.img`
   @media ${themes.primary.media.minPC} {
     width: 1.668em;
   }
+  @media ${themes.primary.media.maxMobile} {
+    width: 15px;
+    height: 15px;
+  }
 `;
 
 export const StarCont = styled.div`
@@ -550,6 +566,11 @@ export const StarCont = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 0px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 5px;
+    align-items: center;
   }
 `;
 
@@ -583,6 +604,14 @@ export const ProjectIndustry = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 5px;
     font-size: 10px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+
+    &.withLink {
+      margin-top: 0;
+    }
   }
 `;
 

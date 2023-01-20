@@ -668,7 +668,7 @@ export const FooterButtonWrapper = styled.span`
   margin-right: 28px;
 
   &.btn {
-    & a {
+    & > a {
       margin-top: 1rem;
       margin-left: 0;
     }
@@ -833,6 +833,10 @@ export const ButtonShareTextWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.5em;
     font-size: 1.346em;
+
+    & > span {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -872,18 +876,27 @@ export const TelegramWrapper = styled.div`
 `;
 
 export const TelegramIconWrapper = styled.div`
+  width: 14px;
   position: relative;
-  top: 0;
   color: ${themes.primary.colors.primary};
 
   & path {
     fill: ${themes.primary.colors.telegram};
+  }
+
+  @media ${themes.primary.media.minPC} {
+    width: 0.75em;
   }
 `;
 
 export const WhatsAppIconWrapper = styled.div`
   width: 14px;
   height: 14px;
+
+  @media ${themes.primary.media.minPC} {
+    width: 0.75em;
+    height: 0.75em;
+  }
 `;
 
 export const FooterSection = styled.section``;

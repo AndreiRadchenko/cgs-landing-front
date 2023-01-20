@@ -193,6 +193,7 @@ const themes = {
       calculatorHorizontalLine: "#C6C6C6",
       calculatorEmailPlaceholder: "#797877",
       modalFormBackground: "rgba(241, 239, 237, 0.7)",
+      careersPlaceholder: "rgba(0, 0, 0, 0.5)",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",
@@ -212,6 +213,7 @@ const themes = {
       maxLowScreenMobile: "(max-width: 475px)",
       maxLowestScreenMobile: "(max-width: 374px)",
       maxLowMobileHeight: "(max-height: 610px)",
+      estiomationFormWidth: "(max-width: 570px)",
       maxMobile: "(max-width: 767px)",
       minMobile: "(min-width: 767px)",
       maxMobileHeight: "(max-height: 710px)",

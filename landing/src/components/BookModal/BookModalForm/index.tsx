@@ -11,6 +11,7 @@ import { IBookModalData } from "../../../types/Mail.types";
 import { adminBookService } from "../../../services/adminBookServiceModal";
 import { adminServices } from "../../../services/services/commonServices";
 import { BookModalValidation } from "../../../validations/BookModalValidation";
+import { navigationRoutesNamesNew } from "../../../utils/variables";
 
 export interface IFormState {
   name: string;
@@ -23,6 +24,12 @@ interface IFormProps {
   isOpen: boolean;
 }
 
+declare global {
+  interface Window {
+    dataLayer: Record<string, any>[];
+  }
+}
+
 function split(text: string) {
   const splited = text?.split("|");
 
@@ -30,9 +37,10 @@ function split(text: string) {
 }
 
 const BookForm = ({ onClose, isOpen }: IFormProps) => {
-  const [enable, setEnable] = useState(false);
-
-  const [service, setService] = useState("");
+  const [service, setService] = useState<string>("");
+  const [serviceIsOpen, setServiceIsOpen] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [btnState, setBtnState] = useState({
     isDisabled: true,
     isClicked: false,
@@ -41,10 +49,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
 
   const { data: ServiceData } = useQuery([queryKeys.getAllServices], () =>
     adminServices.getAllServices()
-  );
-
-  const companyServices = ServiceData?.map((service) =>
-    service.headerBlock.title.toUpperCase()
   );
 
   const fieldContent = {
@@ -69,7 +73,15 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
         email: values.email,
         service: values.service,
       });
-
+      if (typeof window !== "undefined") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "launch_our_cooperation_form",
+          formType: "Contact us",
+        });
+      }
+      setName(values.name);
+      setEmail(values.email);
       setErrors({});
       setService("");
       resetForm();
@@ -81,14 +93,17 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
   );
 
   useEffect(() => {
-    formik.setErrors({});
-    setService("");
-    setBtnState({
-      isDisabled: true,
-      isClicked: false,
-      link: "",
-    });
-    formik.resetForm();
+    if (!isOpen) {
+      formik.setErrors({});
+      setService("");
+      setBtnState({
+        isDisabled: true,
+        isClicked: false,
+        link: "",
+      });
+      setServiceIsOpen(false);
+      formik.resetForm();
+    }
   }, [isOpen]);
 
   useEffect(() => {
@@ -101,20 +116,25 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
 
   useEffect(() => {
     setBtnState((old) => {
-      const tempLink = ServiceData?.find(
-        (s) => s.headerBlock.title.toUpperCase() === service
-      )?.headerBlock.buttonLink;
-      if (tempLink)
-        return {
-          ...old,
-          link: tempLink,
-        };
-
+      const ind =
+        navigationRoutesNamesNew[1].tags &&
+        navigationRoutesNamesNew[1].tags.findIndex((serv) => serv === service);
+      if (
+        ServiceData &&
+        navigationRoutesNamesNew[1].tags &&
+        typeof ind === "number" &&
+        ind !== -1
+      ) {
+        const tempLink = ServiceData[ind].headerBlock.buttonLink;
+        if (tempLink)
+          return {
+            ...old,
+            link: tempLink,
+          };
+      }
       return old;
     });
   }, [service, ServiceData]);
-
-  const handleDropDown = () => setEnable(!enable);
 
   const checkIfButtonIsDisabled = () => {
     setBtnState((old) => {
@@ -127,10 +147,20 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     formik.validateForm();
   };
 
+  const handleClose = () => {
+    onClose();
+    setName("");
+    setEmail("");
+  };
+
   return (
     <Styled.FormProvider value={formik}>
-      <Styled.Shadow className={enable ? "inline-block" : "enabled"} />
-      <Styled.Form onSubmit={formik.handleSubmit} encType="multipart/form-data">
+      <Styled.Shadow className={isOpen ? "inline-block" : "enabled"} />
+      <Styled.Form
+        onSubmit={formik.handleSubmit}
+        encType="multipart/form-data"
+        id="launch_our_cooperation_form"
+      >
         {Object.entries(fieldContent).map(([key, label]) => (
           <FormField
             btnIsClicked={btnState.isClicked}
@@ -139,36 +169,25 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
             label={label}
           />
         ))}
-        <Styled.ServiceSelect
-          onClick={handleDropDown}
-          className={enable ? "1" : "enabled"}
-        >
+        <Styled.ServiceSelect>
           <ServiceDropdown
+            serviceIsOpen={serviceIsOpen}
+            setServiceIsOpen={setServiceIsOpen}
             setService={setService}
-            services={companyServices}
             dropdownName={service ? split(service) : "Choose a service"}
-            setEnable={setEnable}
           />
         </Styled.ServiceSelect>
-        <Styled.FormSentContainer className={enable ? "open" : "flex"}>
+        <Styled.FormSentContainer>
           <Styles.ButtonWrapper onClick={checkIfButtonIsDisabled}>
             <BookACallButton
+              name={name}
+              email={email}
               buttonLink={btnState.link}
-              withCalendly
               buttonClassName={"calendly"}
               isDisabled={btnState.isDisabled}
-              handleClose={onClose}
+              handleClose={handleClose}
             />
           </Styles.ButtonWrapper>
-          <Styled.FormSentFillText
-            className={
-              btnState.isClicked && Object.keys(formik.errors).length !== 0
-                ? "show"
-                : undefined
-            }
-          >
-            &lt; Fill in all the fields &gt;
-          </Styled.FormSentFillText>
         </Styled.FormSentContainer>
       </Styled.Form>
     </Styled.FormProvider>

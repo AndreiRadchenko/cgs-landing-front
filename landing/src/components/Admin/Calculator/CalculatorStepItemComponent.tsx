@@ -24,6 +24,7 @@ import { adminCalculatorService } from "../../../services/adminCalculator";
 import CalculatoTieUpItem from "./CalculatorTieUpItem";
 import { AdminSubTitle } from "../../../styles/AdminPage";
 import CalculatorOptionTypeSelect from "./CalculatorOptionTypeSelect";
+import CalculatorTypeSelect from "./CalculatorTypeSelect";
 
 interface ICalculatorStepItemComponentProps {
   isBlockchain: boolean;
@@ -41,7 +42,7 @@ const CalculatorStepItemComponent = ({
   const [plugins, setPlugins] = useState<
     Array<Plugin> | Record<string, Plugin>
   >();
-  const { values, setFieldValue, handleSubmit } =
+  const { values, setFieldValue, handleSubmit, handleChange } =
     useFormikContext<ICalculatorStep>();
   console.log(values);
 
@@ -169,30 +170,58 @@ const CalculatorStepItemComponent = ({
             props={{
               height: "57px",
               width: "559px",
-              setDefaultStyle: "position:relative; z-index:2",
+              setDefaultStyle: "position:relative; z-index:4",
               setOptions: titleEditorOptions,
             }}
           />
         </Styled.TransparentTextEditorWrapper>
         <AdminSubTitle style={{ marginTop: "24px" }}>Question</AdminSubTitle>
         <CalculatorOptionTypeSelect />
-        <Styled.TextEditorContainer>
-          <Styled.TransparentTextEditorWrapper className="text">
+        {/* <Styled.TextEditorContainer> */}
+        <Styled.CalculatorQuestionInputsWrapper>
+          <Styled.TextEditorTextContainer className={values.type}>
             <TextEditor
               name="options[0].label"
               props={{
                 height: "37px",
                 width: "559px",
-                setDefaultStyle: "position:relative; z-index:1",
-                // defaultValue:
-                //   typeof values.options !== "string"
-                //     ? formalizeData(values.options)
-                //     : values.options,
+                setDefaultStyle: "position:relative; z-index:3",
                 setOptions: textEditorOptions,
               }}
             />
-          </Styled.TransparentTextEditorWrapper>
-          <Styled.ButtonWrapper>
+          </Styled.TextEditorTextContainer>
+          <Styled.OptionInputsWrapper>
+            <Styled.OptionDeleteButton>delete</Styled.OptionDeleteButton>
+            <Styled.OptionInputsRowWrapper>
+              <Styled.OptionInput
+                className="hours"
+                name="options[0].hours"
+                placeholder="hours"
+                onChange={handleChange}
+                type="number"
+                min={0}
+              />
+              <CalculatorTypeSelect />
+              <Styled.OptionInput
+                className="coef"
+                name="options[0].endRoleCoef"
+                placeholder="coeffiecient roles"
+                onChange={handleChange}
+                type="number"
+                min={0}
+              />
+              <Styled.OptionInput
+                className="coef"
+                name="options[0].endRole"
+                placeholder="coefficient final"
+                onChange={handleChange}
+                type="number"
+                min={0}
+              />
+            </Styled.OptionInputsRowWrapper>
+          </Styled.OptionInputsWrapper>
+        </Styled.CalculatorQuestionInputsWrapper>
+        {/* <Styled.ButtonWrapper>
             {index !== 0 && (
               <Styled.ButtonsRowContainer>
                 {values.tieUpSteps.length === 0 && (
@@ -221,8 +250,8 @@ const CalculatorStepItemComponent = ({
               </Styled.MinusButton>
               <Styled.ButtonsText>Sub-question</Styled.ButtonsText>
             </Styled.ButtonsRowContainer>
-          </Styled.ButtonWrapper>
-        </Styled.TextEditorContainer>
+          </Styled.ButtonWrapper> */}
+        {/* </Styled.TextEditorContainer> */}
         {values.tieUpSteps.length > 0 && (
           <CalculatoTieUpItem
             current={index}
