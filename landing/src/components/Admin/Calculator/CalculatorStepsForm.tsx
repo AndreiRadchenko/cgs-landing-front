@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AdminUnauthorizedModal } from "../../../styles/AdminPage";
 import CalculatorStepItem from "./CalculatorStepItemForm";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
@@ -26,9 +26,11 @@ const CalculatorStepsForm = ({
   isBlockchain,
   toogleBlockchain,
 }: ICalculatorStepsFormProps) => {
+  const [classicSteps, setClassicSteps] =
+    useState<ICalculatorStep[]>(classicStepsData);
   return classicIsLoading || blockchainIsLoading ? (
     <AdminUnauthorizedModal>Loading...</AdminUnauthorizedModal>
-  ) : classicStepsData && blockchainStepsData ? (
+  ) : classicSteps && blockchainStepsData ? (
     <>
       <Styled.ChooseTitle>Choose:</Styled.ChooseTitle>
       <Styled.ChooseButtonsWrapper>
@@ -55,10 +57,11 @@ const CalculatorStepsForm = ({
           />
         ))} */}
       {!isBlockchain &&
-        classicStepsData.map((step, idx) => (
+        classicSteps.map((step, idx) => (
           <CalculatorStepItem
             isBlockchain={isBlockchain}
-            allSteps={classicStepsData}
+            allSteps={classicSteps}
+            setClassicSteps={setClassicSteps}
             step={step}
             key={idx}
             index={idx}

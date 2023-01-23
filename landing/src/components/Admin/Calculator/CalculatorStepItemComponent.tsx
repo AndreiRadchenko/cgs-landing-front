@@ -24,28 +24,28 @@ import { adminCalculatorService } from "../../../services/adminCalculator";
 import CalculatoTieUpItem from "./CalculatorTieUpItem";
 import { AdminSubTitle } from "../../../styles/AdminPage";
 import CalculatorOptionTypeSelect from "./CalculatorOptionTypeSelect";
-import CalculatorTypeSelect from "./CalculatorTypeSelect";
+import CalculatorQuestionItem from "./CalculatorQuestionItem";
 
 interface ICalculatorStepItemComponentProps {
   isBlockchain: boolean;
   index: number;
   submitKey: boolean;
   data: ICalculatorStep[];
+  setClassicSteps: React.Dispatch<React.SetStateAction<ICalculatorStep[]>>;
 }
 
 const CalculatorStepItemComponent = ({
   isBlockchain,
   data,
+  setClassicSteps,
   index,
   submitKey,
 }: ICalculatorStepItemComponentProps) => {
   const [plugins, setPlugins] = useState<
     Array<Plugin> | Record<string, Plugin>
   >();
-  const { values, setFieldValue, handleSubmit, handleChange } =
+  const { values, setFieldValue, handleSubmit } =
     useFormikContext<ICalculatorStep>();
-  console.log(values);
-
   const { mutateAsync: addClassicSubStep } = useMutation(
     [queryKeys.addCalculatorClassicSubStep],
     (subStepData: ICalculatorSubStep) =>
@@ -75,23 +75,6 @@ const CalculatorStepItemComponent = ({
   }, []);
 
   const titleEditorOptions = plugins && {
-    font: ["NAMU"],
-    linkRelDefault: {
-      default: undefined,
-      check_new_window: "nofollow noopener",
-    },
-    addTagsWhitelist: "label|input",
-    plugins: { letterCaseSubmenu, letterWeightSubmenu, ...plugins },
-    buttonList: [
-      ["fontColor", "fontSize"],
-      ["letterCase"],
-      ["letterWeight"],
-      ["removeFormat"],
-      ["codeView"],
-    ],
-  };
-
-  const textEditorOptions = plugins && {
     font: ["NAMU"],
     linkRelDefault: {
       default: undefined,
@@ -161,6 +144,19 @@ const CalculatorStepItemComponent = ({
     handleSubmit();
   };
 
+  const subStepBtnIsDisabled = values.subSteps.length !== 0;
+
+  const subStepAddButtonClassName = subStepBtnIsDisabled
+    ? "disabled"
+    : undefined;
+
+  const tieUpStepBtnIsDisabled = values.tieUpSteps.length !== 0;
+
+  const tieUpStepAddButtonClassName = tieUpStepBtnIsDisabled
+    ? "tieup disabled"
+    : "tieup";
+  console.log(values);
+
   return (
     (plugins && (
       <AdminBlockDropDown title={`STEP ${index + 1}`}>
@@ -177,81 +173,47 @@ const CalculatorStepItemComponent = ({
         </Styled.TransparentTextEditorWrapper>
         <AdminSubTitle style={{ marginTop: "24px" }}>Question</AdminSubTitle>
         <CalculatorOptionTypeSelect />
-        {/* <Styled.TextEditorContainer> */}
         <Styled.CalculatorQuestionInputsWrapper>
-          <Styled.TextEditorTextContainer className={values.type}>
-            <TextEditor
-              name="options[0].label"
-              props={{
-                height: "37px",
-                width: "559px",
-                setDefaultStyle: "position:relative; z-index:3",
-                setOptions: textEditorOptions,
-              }}
+          {values.options.map((_, idx) => (
+            <CalculatorQuestionItem
+              setClassicSteps={setClassicSteps}
+              stepInd={index}
+              idx={idx}
+              key={idx}
             />
-          </Styled.TextEditorTextContainer>
-          <Styled.OptionInputsWrapper>
-            <Styled.OptionDeleteButton>delete</Styled.OptionDeleteButton>
-            <Styled.OptionInputsRowWrapper>
-              <Styled.OptionInput
-                className="hours"
-                name="options[0].hours"
-                placeholder="hours"
-                onChange={handleChange}
-                type="number"
-                min={0}
-              />
-              <CalculatorTypeSelect />
-              <Styled.OptionInput
-                className="coef"
-                name="options[0].endRoleCoef"
-                placeholder="coeffiecient roles"
-                onChange={handleChange}
-                type="number"
-                min={0}
-              />
-              <Styled.OptionInput
-                className="coef"
-                name="options[0].endRole"
-                placeholder="coefficient final"
-                onChange={handleChange}
-                type="number"
-                min={0}
-              />
-            </Styled.OptionInputsRowWrapper>
-          </Styled.OptionInputsWrapper>
+          ))}
         </Styled.CalculatorQuestionInputsWrapper>
-        {/* <Styled.ButtonWrapper>
-            {index !== 0 && (
-              <Styled.ButtonsRowContainer>
-                {values.tieUpSteps.length === 0 && (
-                  <Styled.AddButton
-                    type="button"
-                    onClick={handleAddTieUpStep}
-                    className="tieup"
-                  >
-                    +
-                  </Styled.AddButton>
-                )}
-                <Styled.MinusButton type="button" onClick={handleMinusTieUp}>
-                  -
-                </Styled.MinusButton>
-                <Styled.ButtonsText>Tie up question</Styled.ButtonsText>
-              </Styled.ButtonsRowContainer>
-            )}
+        <Styled.ButtonWrapper>
+          {index !== 0 && (
             <Styled.ButtonsRowContainer>
-              {values.subSteps.length === 0 && (
-                <Styled.AddButton type="button" onClick={handleAddSubStep}>
-                  +
-                </Styled.AddButton>
-              )}
-              <Styled.MinusButton type="button" onClick={handleMinusSubStep}>
+              <Styled.AddButton
+                type="button"
+                onClick={handleAddTieUpStep}
+                className={tieUpStepAddButtonClassName}
+              >
+                +
+              </Styled.AddButton>
+              <Styled.MinusButton type="button" onClick={handleMinusTieUp}>
                 -
               </Styled.MinusButton>
-              <Styled.ButtonsText>Sub-question</Styled.ButtonsText>
+              <Styled.ButtonsText>Tie up question</Styled.ButtonsText>
             </Styled.ButtonsRowContainer>
-          </Styled.ButtonWrapper> */}
-        {/* </Styled.TextEditorContainer> */}
+          )}
+          <Styled.ButtonsRowContainer>
+            <Styled.AddButton
+              disabled={subStepBtnIsDisabled}
+              className={subStepAddButtonClassName}
+              type="button"
+              onClick={handleAddSubStep}
+            >
+              +
+            </Styled.AddButton>
+            <Styled.MinusButton type="button" onClick={handleMinusSubStep}>
+              -
+            </Styled.MinusButton>
+            <Styled.ButtonsText>Sub-question</Styled.ButtonsText>
+          </Styled.ButtonsRowContainer>
+        </Styled.ButtonWrapper>
         {values.tieUpSteps.length > 0 && (
           <CalculatoTieUpItem
             current={index}

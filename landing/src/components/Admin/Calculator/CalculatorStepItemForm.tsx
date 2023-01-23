@@ -13,6 +13,7 @@ interface ICalculatorStepItemProps {
   index: number;
   refetch: () => void;
   isBlockchain: boolean;
+  setClassicSteps: React.Dispatch<React.SetStateAction<ICalculatorStep[]>>;
 }
 
 const CalculatorStepItem = ({
@@ -21,6 +22,7 @@ const CalculatorStepItem = ({
   step,
   index,
   refetch,
+  setClassicSteps,
 }: ICalculatorStepItemProps) => {
   const [submitKey, setSubmitKey] = useState<boolean>(false);
 
@@ -50,6 +52,7 @@ const CalculatorStepItem = ({
   return (
     <Formik initialValues={step} onSubmit={handleSubmit}>
       <CalculatorStepItemComponent
+        setClassicSteps={setClassicSteps}
         index={index}
         submitKey={submitKey}
         data={allSteps}

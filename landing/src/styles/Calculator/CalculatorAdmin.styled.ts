@@ -195,6 +195,11 @@ export const AddButton = styled.button`
   border: 0;
   margin-right: 14px;
 
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+
   &.tieup {
     background-color: ${themes.primary.colors.darkBlue};
   }
@@ -686,7 +691,7 @@ export const CalculatorSelectOptionWrapper = styled.div`
 
 export const CalculatorHiddenContentWrapper = styled.div`
   position: absolute;
-  z-index: 2;
+  z-index: 5;
   background-color: ${themes.primary.colors.blogBackground};
   border: 1px solid ${themes.primary.colors.comment};
   border-top-width: 0;
@@ -703,11 +708,17 @@ export const CalculatorHiddenContentWrapper = styled.div`
 
 export const CalculatorQuestionInputsWrapper = styled.div`
   display: flex;
-  column-gap: 12px;
+  flex-direction: column;
+  row-gap: 18px;
+  margin-bottom: 60px;
 `;
 
 export const OptionInputsWrapper = styled.div`
-  margin-top: 20px;
+  margin-block: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 `;
 
 export const OptionDeleteButton = styled.button`
@@ -717,10 +728,12 @@ export const OptionDeleteButton = styled.button`
   color: ${themes.primary.colors.adminRed};
   border: 0;
   cursor: pointer;
+  padding: 0;
 `;
 
 export const OptionInputsRowWrapper = styled.div`
   display: flex;
+  align-items: center;
   column-gap: 10px;
 `;
 
@@ -740,16 +753,76 @@ export const OptionInput = styled(Field)`
   }
 `;
 
-export const CalculatorTypeSelectWrapper = styled.div``;
+export const CalculatorTypeSelectWrapper = styled.div`
+  height: 24px;
+`;
 
 export const CalculatorTypeSelectHeader = styled.div`
   height: 100%;
   width: 97px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 3px;
   border: 1px solid ${themes.primary.colors.comment};
+  cursor: pointer;
+
+  & span {
+    max-width: 92px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  & svg {
+    transition: 0.3s transform;
+  }
+
+  &.open {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
 `;
 
 export const CalculatorTypeSelectContent = styled.div`
+  position: absolute;
   display: none;
+
+  &.open {
+    display: block;
+  }
 `;
 
-export const CalculatorTypeSelectOption = styled.div``;
+export const CalculatorTypeSelectOption = styled.div`
+  display: flex;
+  align-items: center;
+  padding-inline: 5px;
+  height: 24px;
+  border: 1px solid ${themes.primary.colors.comment};
+  border-bottom: 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${themes.primary.colors.comment};
+  }
+
+  &:last-child {
+    border-bottom: 1px solid ${themes.primary.colors.comment};
+  }
+`;
+
+export const CalculatorAddButton = styled.button`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 12px;
+  color: ${themes.primary.colors.whatsApp};
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+`;
+
+export const CalculatorQuestionWrapper = styled.div`
+  display: flex;
+  column-gap: 12px;
+`;
