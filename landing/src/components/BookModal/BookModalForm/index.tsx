@@ -171,6 +171,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
         ))}
         <Styled.ServiceSelect>
           <ServiceDropdown
+            btnIsClicked={btnState.isClicked}
             serviceIsOpen={serviceIsOpen}
             setServiceIsOpen={setServiceIsOpen}
             setService={setService}
