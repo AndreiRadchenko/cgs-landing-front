@@ -16,6 +16,7 @@ export const DropdownButton = styled.button`
   background-color: ${themes.primary.colors.blogBackground};
   box-sizing: border-box !important;
   outline: none;
+  color: ${themes.primary.colors.inputGrey};
 
   &.open {
     border-width: 1px 3px 0 1px;
@@ -25,6 +26,10 @@ export const DropdownButton = styled.button`
     img {
       transform: rotate(180deg);
     }
+  }
+
+  &.selected {
+    color: ${themes.primary.colors.primary};
   }
 
   img {
@@ -142,7 +147,7 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 12px;
-    height: 20px;
+    height: 30px;
   }
 `;
 

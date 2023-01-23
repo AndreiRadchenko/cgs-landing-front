@@ -30,7 +30,13 @@ const ServiceDropdown = ({
     setServiceIsOpen(false);
   };
 
-  const openClassName = serviceIsOpen ? "open" : undefined;
+  const header = dropdownName
+    ? dropdownName.replaceAll("|", "")
+    : "Choose a service";
+
+  const openClassName = `${serviceIsOpen ? "open" : ""} ${
+    dropdownName !== "" ? "selected" : ""
+  }`;
 
   return (
     <Styled.Dropdown>
@@ -41,7 +47,7 @@ const ServiceDropdown = ({
         className={openClassName}
         onClick={() => setServiceIsOpen(!serviceIsOpen)}
       >
-        <span>{dropdownName.replaceAll("|", "")}</span>
+        <span>{header}</span>
         <img width={9} height={5} src={Arrow.src} alt="Arrow" />
       </Styled.DropdownButton>
       <Styled.DropdownContent className={openClassName}>
