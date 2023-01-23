@@ -13,6 +13,11 @@ export const FormField = styled(Field)`
   color: ${themes.primary.colors.black};
   padding-left: 12px;
   border-radius: 0;
+
+  &::placeholder {
+    color: ${themes.primary.colors.comment};
+  }
+
   &:focus {
     outline: none;
   }
