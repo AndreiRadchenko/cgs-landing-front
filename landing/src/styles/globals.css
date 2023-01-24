@@ -77,6 +77,10 @@ body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   overscroll-behavior-x: none;
 }
+/* 
+html::-webkit-scrollbar {
+ opac
+} */
 
 body {
   font-size: 0.7em;
@@ -129,5 +133,6 @@ a {
 }
 
 .disableScrollBar {
-  overflow: hidden;
+  position: fixed;
+  overflow-y: scroll;
 }
