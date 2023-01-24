@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IPortfolioReview } from "../../types/Admin/AdminPortfolio.types";
 import * as Styled from "../../styles/PortfolioSlider.styled";
 import * as Styles from "../../styles/Portfolio.styled";
@@ -20,6 +20,7 @@ interface IReviewProps {
 
 const Review = ({ review, className }: IReviewProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const textRef = useRef<HTMLParagraphElement>(null);
 
   const onLoadCallBack = () => {
     setIsLoading(false);
@@ -43,6 +44,23 @@ const Review = ({ review, className }: IReviewProps) => {
     review.feedback?.company === "" ? "withoutCompanyName" : undefined;
 
   const industryClassName = review.button.length > 0 ? "withLink" : undefined;
+
+  useEffect(() => {
+    if (width && width >= 768) {
+      const calculateTruncation = (el: HTMLParagraphElement) => {
+        el.innerHTML = review.feedback.feedbackText;
+        while (el.clientHeight < el.scrollHeight) {
+          const words = el.innerText.split(" ");
+          words.pop();
+          const truncatedText = words.join(" ") + "...";
+          el.innerText = truncatedText;
+        }
+      };
+      if (textRef && textRef.current) {
+        calculateTruncation(textRef.current);
+      }
+    }
+  }, [width, review.feedback.feedbackText]);
 
   return (
     review && (
@@ -115,7 +133,7 @@ const Review = ({ review, className }: IReviewProps) => {
                   })}
                 </StarCont>
               </Styled.TitleContainer>
-              <Styled.ProjectComment>
+              <Styled.ProjectComment ref={textRef}>
                 {review.feedback?.feedbackText}
               </Styled.ProjectComment>
               <Styled.ViewMoreContainer href="https://www.upwork.com/o/companies/~01a24f185f6fd7afd0/">
