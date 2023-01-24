@@ -33,9 +33,13 @@ const ServiceDropdown = ({
     setServiceIsOpen(false);
   };
 
-  const openClassName = `${serviceIsOpen ? "open " : undefined}${
-    btnIsClicked && errors["service"] ? " fieldError" : undefined
-  }`;
+  const header = dropdownName
+    ? dropdownName.replaceAll("|", "")
+    : "Choose a service";
+
+  const openClassName = `${serviceIsOpen ? "open" : ""} ${
+    dropdownName !== "" ? "selected" : ""
+  } ${btnIsClicked && errors["service"] ? "fieldError" : ""}`;
 
   const arrow = (
     <svg
@@ -58,7 +62,7 @@ const ServiceDropdown = ({
         className={openClassName}
         onClick={() => setServiceIsOpen(!serviceIsOpen)}
       >
-        <span>{dropdownName.replaceAll("|", "")}</span>
+        <span>{header}</span>
         {arrow}
       </Styled.DropdownButton>
       <Styled.DropdownContent className={openClassName}>
