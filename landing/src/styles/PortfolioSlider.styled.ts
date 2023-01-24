@@ -97,8 +97,6 @@ export const ProjectDescription = styled.p`
   line-height: 160%;
   margin-block: 15px;
 
-  overflow: hidden;
-
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.2em;
   }
@@ -133,11 +131,28 @@ export const ProjectComment = styled.p`
   color: ${themes.primary.colors.gray};
   line-height: 160%;
   margin-bottom: 0;
-  display: -webkit-box;
   max-height: 500px;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
   overflow: hidden;
+  margin-top: 10px;
+
+  @media ${themes.primary.media.minPC} {
+    font-size: 1.111vw;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1vw;
+  }
+
+  @media (min-width: 2150px) {
+    font-size: 1.1vw;
+  }
+
+  @media (min-width: 3000px) {
+    font-size: 1.15vw;
+  }
+  @media (min-width: 3950px) {
+    font-size: 1.17vw;
+  }
 
   @media (max-width: 1199px) {
     font-size: 15px;
@@ -259,6 +274,7 @@ export const PortfolioRow = styled.section`
   display: flex;
   width: 100%;
   position: relative;
+  height: 447px;
 
   & .swiper-slide-prev {
     color: rgba(0, 0, 0, 0.5);
@@ -270,8 +286,13 @@ export const PortfolioRow = styled.section`
     color: ${themes.primary.colors.secondary};
   }
 
+  @media ${themes.primary.media.minPC} {
+    height: 31.042vw;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     display: block;
+    height: auto;
   }
 `;
 
@@ -389,8 +410,7 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-
-  padding: 2.833em 2.1666em 2.5em;
+  padding: 1.5em 2.1666em 1.666em;
   width: 45%;
   box-sizing: border-box;
   @media (max-width: 1250px) {
@@ -454,15 +474,6 @@ export const Separator = styled.div`
     params.color ? params.color : themes.primary.colors.separator};
   width: 100%;
   height: 1px;
-  margin-bottom: 30px;
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    margin-bottom: 10px;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    margin-bottom: 4px;
-  }
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
@@ -504,6 +515,7 @@ export const AuthorName = styled.div`
   font-size: ${themes.primary.font.size.feedbackName};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
+  line-height: 219%;
 
   @media (max-width: 1250px) {
     font-size: 18px;
@@ -562,7 +574,6 @@ export const StarCont = styled.div`
   display: flex;
   margin-bottom: 2.5px;
   column-gap: 3px;
-  margin-top: 16px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 0px;
