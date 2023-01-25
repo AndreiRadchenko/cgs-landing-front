@@ -49,8 +49,6 @@ const GetEstimationButton = ({
     }
   };
 
-  DisableScrollBarHandler(isOpen);
-
   return (
     <>
       <BlackButton
