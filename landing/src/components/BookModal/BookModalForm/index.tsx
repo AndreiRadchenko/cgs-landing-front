@@ -175,7 +175,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
             serviceIsOpen={serviceIsOpen}
             setServiceIsOpen={setServiceIsOpen}
             setService={setService}
-            dropdownName={service ? split(service) : "Choose a service"}
+            dropdownName={split(service)}
           />
         </Styled.ServiceSelect>
         <Styled.FormSentContainer>

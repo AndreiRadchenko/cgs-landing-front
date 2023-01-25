@@ -52,9 +52,7 @@ const CalculatorStepsFormContent = ({
     useState<Omit<IStepOptions, "label" | "type">>();
   const [startButtonNum, setStartButtonNum] = useState<number>(0);
   const [startMutating, setStartMutating] = useState<boolean>(false);
-
   const { width } = useWindowDimension();
-
   const lastStep = step === stepsCount - 1;
 
   const stepButtonClassName = (idx: number) => {

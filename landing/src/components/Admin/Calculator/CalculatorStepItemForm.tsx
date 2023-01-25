@@ -4,7 +4,6 @@ import { Formik } from "formik";
 import { useMutation } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminCalculatorService } from "../../../services/adminCalculator";
-import { getInputsFromLabels } from "../../../utils/calculatorGetInputFromLabel";
 import CalculatorStepItemComponent from "./CalculatorStepItemComponent";
 
 interface ICalculatorStepItemProps {
@@ -13,7 +12,6 @@ interface ICalculatorStepItemProps {
   index: number;
   refetch: () => void;
   isBlockchain: boolean;
-  setClassicSteps: React.Dispatch<React.SetStateAction<ICalculatorStep[]>>;
 }
 
 const CalculatorStepItem = ({
@@ -22,7 +20,6 @@ const CalculatorStepItem = ({
   step,
   index,
   refetch,
-  setClassicSteps,
 }: ICalculatorStepItemProps) => {
   const [submitKey, setSubmitKey] = useState<boolean>(false);
 
@@ -52,7 +49,6 @@ const CalculatorStepItem = ({
   return (
     <Formik initialValues={step} onSubmit={handleSubmit}>
       <CalculatorStepItemComponent
-        setClassicSteps={setClassicSteps}
         index={index}
         submitKey={submitKey}
         data={allSteps}

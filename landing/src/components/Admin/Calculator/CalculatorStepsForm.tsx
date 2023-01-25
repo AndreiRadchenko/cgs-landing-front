@@ -26,11 +26,9 @@ const CalculatorStepsForm = ({
   isBlockchain,
   toogleBlockchain,
 }: ICalculatorStepsFormProps) => {
-  const [classicSteps, setClassicSteps] =
-    useState<ICalculatorStep[]>(classicStepsData);
   return classicIsLoading || blockchainIsLoading ? (
     <AdminUnauthorizedModal>Loading...</AdminUnauthorizedModal>
-  ) : classicSteps && blockchainStepsData ? (
+  ) : classicStepsData && blockchainStepsData ? (
     <>
       <Styled.ChooseTitle>Choose:</Styled.ChooseTitle>
       <Styled.ChooseButtonsWrapper>
@@ -57,11 +55,10 @@ const CalculatorStepsForm = ({
           />
         ))} */}
       {!isBlockchain &&
-        classicSteps.map((step, idx) => (
+        classicStepsData.map((step, idx) => (
           <CalculatorStepItem
             isBlockchain={isBlockchain}
-            allSteps={classicSteps}
-            setClassicSteps={setClassicSteps}
+            allSteps={classicStepsData}
             step={step}
             key={idx}
             index={idx}

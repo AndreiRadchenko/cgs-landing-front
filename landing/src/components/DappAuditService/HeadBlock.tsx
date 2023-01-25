@@ -9,6 +9,7 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { replaceAt } from "../../utils/replaceStrByInd";
 import GetEstimationButton from "../GetEstimationButton";
+import { getPosition } from "../../utils/getPosition";
 
 const HeadBlock = () => {
   const { width } = useWindowDimension();
@@ -16,10 +17,6 @@ const HeadBlock = () => {
   const data = queryClient.getQueryData<IServiceDappAudit>([
     queryKeys.getServiceDappAuditPage,
   ])?.headerBlock;
-
-  const getPosition = (string: string, subString: string, index: number) => {
-    return string.split(subString, index).join(subString).length;
-  };
 
   const title =
     data &&

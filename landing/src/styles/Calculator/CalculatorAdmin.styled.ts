@@ -308,6 +308,65 @@ export const TieUpInput = styled(Field)`
       color: ${themes.primary.colors.darkBlue} !important;
     }
   }
+  &.admin-radio {
+    background-color: ${themes.primary.colors.blogBackground};
+    margin: 0;
+    min-width: 15px;
+    max-width: 15px;
+    height: 15px;
+    border: 1px solid ${themes.primary.colors.primary};
+    transform: translateY(15%);
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+
+    &::before {
+      content: "";
+      min-width: 15px;
+      max-width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: 120ms transform ease-in-out;
+      box-shadow: inset 1em 1em ${themes.primary.colors.primary};
+      background-color: ${themes.primary.colors.primary};
+    }
+    &:checked::before {
+      transform: scale(1);
+    }
+  }
+  &.admin-checkbox {
+    min-width: 16px;
+    max-width: 16px;
+    height: 16px;
+    border: 1px solid ${themes.primary.colors.primary};
+    background-color: transparent;
+    position: relative;
+    border-radius: 0;
+
+    &::before {
+      content: " ";
+      top: 0;
+      bottom: 2px;
+      left: 0.5px;
+      right: 0;
+      margin: auto;
+      width: 4px;
+      height: 8px;
+      position: absolute;
+      border-width: 0 3px 3px 0;
+      border-color: ${themes.primary.colors.primary};
+      transition: 120ms transform ease-in-out;
+      transform: rotate(45deg);
+      border-style: solid;
+    }
+    &:checked::before {
+      transform: rotate(45deg) scale(1);
+    }
+    &:not(:checked):before {
+      transform: rotate(45deg) scale(0);
+    }
+  }
 
   &.radio {
     margin-right: 8px;
@@ -408,6 +467,10 @@ export const TieUpLabel = styled.label`
 
   & span {
     transition: 0.15s;
+  }
+
+  & p {
+    margin: 0;
   }
 
   &.active,

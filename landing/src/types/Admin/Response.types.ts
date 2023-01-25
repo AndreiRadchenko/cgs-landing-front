@@ -633,16 +633,17 @@ export interface ICalculatorTieUpStep {
 export interface IStepOptions {
   _id: string;
   label: string;
-  hours: number;
-  role: string;
-  endRoleCoef: number;
-  endCoef: number;
+  hours?: number;
+  role?: string;
+  endRoleCoef?: number;
+  endCoef?: number;
 }
 
 export interface ICalculatorSubStep {
   _id: string;
   condition: string[];
   title: string;
+  type: string;
   options: IStepOptions[];
 }
 
@@ -658,7 +659,7 @@ export interface ICalculatorStep {
 export interface ICalculatorQuestion {
   title: string;
   answer: string | string[];
-  subStepAnswer?: string | string[];
+  subStepAnswer: string | string[];
   tieUpDisabled?: boolean;
 }
 

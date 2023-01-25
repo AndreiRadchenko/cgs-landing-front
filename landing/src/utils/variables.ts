@@ -115,3 +115,12 @@ export const webAuditTypesOfAuditImages = [
   pagespeed,
   competitor,
 ];
+
+export const emptyCalculatorOption = {
+  _id: `${Math.random()}.${Math.random()}`,
+  label: "",
+  hours: undefined,
+  role: undefined,
+  endRoleCoef: undefined,
+  endCoef: undefined,
+};

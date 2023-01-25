@@ -3,7 +3,10 @@ import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import { Plugin } from "suneditor/src/plugins/Plugin";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
-import { ICalculatorStep } from "../../../types/Admin/Response.types";
+import {
+  ICalculatorStep,
+  IStepOptions,
+} from "../../../types/Admin/Response.types";
 import CalculatorTypeSelect from "./CalculatorTypeSelect";
 import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
 import { letterWeightSubmenu } from "./letterWeightSubmenuPlugin";
@@ -13,17 +16,22 @@ const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
 
 interface ICalculatorQuestionItemProps {
   idx: number;
-  stepInd: number;
-  setClassicSteps: React.Dispatch<React.SetStateAction<ICalculatorStep[]>>;
+  onAdd: () => void;
+  onDelete: () => void;
+  nameBefore?: string;
+  option: IStepOptions;
+  type: string;
 }
 
 const CalculatorQuestionItem = ({
   idx,
-  stepInd,
-  setClassicSteps,
+  option,
+  onAdd,
+  onDelete,
+  nameBefore,
+  type,
 }: ICalculatorQuestionItemProps) => {
-  const { values, setFieldValue, handleChange } =
-    useFormikContext<ICalculatorStep>();
+  const { handleChange } = useFormikContext<ICalculatorStep>();
   const [plugins, setPlugins] = useState<
     Array<Plugin> | Record<string, Plugin>
   >();
@@ -49,92 +57,57 @@ const CalculatorQuestionItem = ({
     ],
   };
 
-  const handleAddQuestionClick = () => {
-    setClassicSteps((old) => {
-      const temp = old;
-      temp[stepInd].options.splice(idx + 1, 0, {
-        _id: "",
-        label: "",
-        hours: 0,
-        role: "",
-        endRoleCoef: 0,
-        endCoef: 0,
-      });
-
-      return temp;
-    });
-    // values.options.splice(idx + 1, 0, {
-    //   _id: "",
-    //   label: "",
-    //   hours: 0,
-    //   role: "",
-    //   endRoleCoef: 0,
-    //   endCoef: 0,
-    // });
-
-    // console.log(values.options);
-
-    // setFieldValue(`options[${idx +}]`);
-  };
-
-  const handleDeleteClick = () => {
-    // const filtered = values;
-    // console.log(idx);
-    // filtered.options.splice(idx, 1);
-    // console.log(values);
-    // setClassicSteps((old) => {
-    //   const temp = old;
-    //   temp[stepInd] = filtered;
-    //   return temp;
-    // });
-    // setFieldValue("options", filtered);
-  };
+  const questionNameBefore = nameBefore || "";
 
   return (
     (plugins && (
       <Styled.CalculatorQuestionWrapper>
-        <Styled.TextEditorTextContainer className={values.type}>
+        <Styled.TextEditorTextContainer className={type}>
           <TextEditor
-            name={`options[${idx}].label`}
+            name={`${questionNameBefore}options[${idx}].label`}
             props={{
               height: "37px",
               width: "559px",
               setDefaultStyle: `position:relative; z-index:${idx + 3}`,
+              setContents: option.label,
               setOptions: textEditorOptions,
             }}
           />
         </Styled.TextEditorTextContainer>
         <Styled.OptionInputsWrapper>
-          <Styled.OptionDeleteButton onClick={handleDeleteClick}>
+          <Styled.OptionDeleteButton onClick={onDelete}>
             delete
           </Styled.OptionDeleteButton>
           <Styled.OptionInputsRowWrapper>
             <Styled.OptionInput
               className="hours"
-              name={`options[${idx}].hours`}
+              name={`${questionNameBefore}options[${idx}].hours`}
               placeholder="hours"
+              values={option.hours}
               onChange={handleChange}
               type="number"
               min={0}
             />
-            <CalculatorTypeSelect idx={idx} />
+            <CalculatorTypeSelect idx={idx} nameBefore={nameBefore} />
             <Styled.OptionInput
               className="coef"
-              name={`options[${idx}].endRoleCoef`}
+              name={`${questionNameBefore}options[${idx}].endRoleCoef`}
               placeholder="coeffiecient roles"
               onChange={handleChange}
               type="number"
+              values={option.endRoleCoef}
               min={0}
             />
             <Styled.OptionInput
               className="coef"
-              name={`options[${idx}].endRole`}
+              name={`${questionNameBefore}options[${idx}].endRole`}
               placeholder="coefficient final"
               onChange={handleChange}
               type="number"
+              values={option.endCoef}
               min={0}
             />
-            <Styled.CalculatorAddButton onClick={handleAddQuestionClick}>
+            <Styled.CalculatorAddButton onClick={onAdd}>
               + add next
             </Styled.CalculatorAddButton>
           </Styled.OptionInputsRowWrapper>

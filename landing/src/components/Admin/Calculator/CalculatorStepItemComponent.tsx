@@ -12,7 +12,7 @@ const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
 import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
 import { letterWeightSubmenu } from "./letterWeightSubmenuPlugin";
 import { Plugin } from "suneditor/src/plugins/Plugin";
-import { useFormikContext } from "formik";
+import { FieldArray, useFormikContext } from "formik";
 import {
   ICalculatorStep,
   ICalculatorSubStep,
@@ -25,19 +25,18 @@ import CalculatoTieUpItem from "./CalculatorTieUpItem";
 import { AdminSubTitle } from "../../../styles/AdminPage";
 import CalculatorOptionTypeSelect from "./CalculatorOptionTypeSelect";
 import CalculatorQuestionItem from "./CalculatorQuestionItem";
+import { emptyCalculatorOption } from "../../../utils/variables";
 
 interface ICalculatorStepItemComponentProps {
   isBlockchain: boolean;
   index: number;
   submitKey: boolean;
   data: ICalculatorStep[];
-  setClassicSteps: React.Dispatch<React.SetStateAction<ICalculatorStep[]>>;
 }
 
 const CalculatorStepItemComponent = ({
   isBlockchain,
   data,
-  setClassicSteps,
   index,
   submitKey,
 }: ICalculatorStepItemComponentProps) => {
@@ -46,17 +45,6 @@ const CalculatorStepItemComponent = ({
   >();
   const { values, setFieldValue, handleSubmit } =
     useFormikContext<ICalculatorStep>();
-  const { mutateAsync: addClassicSubStep } = useMutation(
-    [queryKeys.addCalculatorClassicSubStep],
-    (subStepData: ICalculatorSubStep) =>
-      adminCalculatorService.addClassicSubStep(subStepData)
-  );
-
-  const { mutateAsync: addBlockchainSubStep } = useMutation(
-    [queryKeys.addCalculatorBlockchainSubStep],
-    (subStepData: ICalculatorSubStep) =>
-      adminCalculatorService.addBlockchainSubStep(subStepData)
-  );
 
   const { mutateAsync: addClassicTieUpStep } = useMutation(
     [queryKeys.addCalculatorClassicTieUpStep],
@@ -92,26 +80,18 @@ const CalculatorStepItemComponent = ({
   };
 
   const handleAddSubStep = () => {
-    isBlockchain
-      ? addClassicSubStep({
-          title: "",
-          condition: [],
-          options: [],
-          _id: values._id,
-        })
-      : addBlockchainSubStep({
-          title: "",
-          condition: [],
-          options: [],
-          _id: values._id,
-        });
-    setFieldValue("subSteps", [{ title: "", condition: [], options: [] }]);
-    handleSubmit();
+    setFieldValue("subSteps", [
+      {
+        title: "",
+        condition: [],
+        type: "radio",
+        options: [{ ...emptyCalculatorOption }],
+      },
+    ]);
   };
 
   const handleMinusSubStep = () => {
     setFieldValue("subSteps", [] as ICalculatorSubStep[]);
-    handleSubmit();
   };
 
   const handleAddTieUpStep = () => {
@@ -155,7 +135,6 @@ const CalculatorStepItemComponent = ({
   const tieUpStepAddButtonClassName = tieUpStepBtnIsDisabled
     ? "tieup disabled"
     : "tieup";
-  console.log(values);
 
   return (
     (plugins && (
@@ -172,16 +151,22 @@ const CalculatorStepItemComponent = ({
           />
         </Styled.TransparentTextEditorWrapper>
         <AdminSubTitle style={{ marginTop: "24px" }}>Question</AdminSubTitle>
-        <CalculatorOptionTypeSelect />
+        <CalculatorOptionTypeSelect type={values.type} />
         <Styled.CalculatorQuestionInputsWrapper>
-          {values.options.map((_, idx) => (
-            <CalculatorQuestionItem
-              setClassicSteps={setClassicSteps}
-              stepInd={index}
-              idx={idx}
-              key={idx}
-            />
-          ))}
+          <FieldArray name="options">
+            {({ insert, remove }) =>
+              values.options.map((option, idx) => (
+                <CalculatorQuestionItem
+                  type={values.type}
+                  onAdd={() => insert(idx + 1, emptyCalculatorOption)}
+                  onDelete={() => remove(idx)}
+                  key={idx}
+                  option={option}
+                  idx={idx}
+                />
+              ))
+            }
+          </FieldArray>
         </Styled.CalculatorQuestionInputsWrapper>
         <Styled.ButtonWrapper>
           {index !== 0 && (

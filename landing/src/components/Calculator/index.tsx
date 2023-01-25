@@ -112,6 +112,7 @@ const Calculator = () => {
       return {
         title: el.title,
         answer: "",
+        subStepAnswer: "",
       };
     }),
     email: "",
@@ -135,11 +136,13 @@ const Calculator = () => {
 
   DisableScrollBarHandler(isOpen);
 
+  const hoverClassName = isHovered ? "active" : undefined;
+
   return (
     <>
       <Styled.CalculatorPreviewWrapper>
-        <Styled.CalculatorPreviewCube>
-          <Styled.CalculatorPreview>
+        <Styled.CalculatorPreviewCube className={hoverClassName}>
+          <Styled.CalculatorPreview className={hoverClassName}>
             <Styled.CalculatorButton
               onMouseOver={handleMouseOver}
               onMouseLeave={handleMouseLeave}
@@ -150,7 +153,7 @@ const Calculator = () => {
               onClick={handleOpen}
               onMouseOver={handleMouseOver}
               onMouseLeave={handleMouseLeave}
-              className={isHovered ? "active" : undefined}
+              className={hoverClassName}
             >
               <span>
                 <SplitBrackets text={data?.previewTextMessage} />
@@ -210,22 +213,10 @@ const Calculator = () => {
                         />
                         {typeof currentData.options !== "string" && (
                           <CalculatorInputField
+                            type={currentData.type}
                             subStep={currentData.subSteps}
                             stepInd={stepInd}
                             options={currentData.options}
-                            tieUpData={
-                              currentData.tieUpSteps.length > 0 &&
-                              typeof currentData.tieUpSteps[0].number ===
-                                "number"
-                                ? {
-                                    number: currentData.tieUpSteps[0].number,
-                                    relatedAnswer:
-                                      values.questionsArr[
-                                        currentData.tieUpSteps[0].number
-                                      ].answer,
-                                  }
-                                : undefined
-                            }
                             disabled={
                               values.questionsArr[stepInd].tieUpDisabled
                             }

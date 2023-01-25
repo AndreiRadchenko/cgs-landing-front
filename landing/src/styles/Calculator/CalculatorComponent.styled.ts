@@ -26,7 +26,7 @@ export const CalculatorPreview = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
-    height: 248px;
+    height: 60px;
   }
 `;
 
@@ -35,7 +35,7 @@ export const CalculatorPreviewCube = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100vw;
-    height: 248px;
+    height: 60px;
   }
 `;
 
@@ -79,7 +79,8 @@ export const CalculatorButton = styled.div`
     transform-origin: top;
   }
 
-  &:hover + div {
+  &:hover + div,
+  .active + div {
     left: -19.83em;
   }
 
@@ -90,9 +91,10 @@ export const CalculatorButton = styled.div`
     border-width: 1.8px 0 1.8px 0;
     font-size: 2.11em;
 
-    &:hover + div {
+    &:hover + div,
+    .active + div {
       left: auto;
-      top: 0;
+      top: -188px;
     }
 
     &::after {
@@ -160,7 +162,7 @@ export const CalculatorPreviewContentWrapper = styled.div`
     width: 100%;
     height: 192px;
     left: 0;
-    top: 188px;
+    top: 0;
     border-width: 1.8px 0 0 0;
     font-size: 1.54em;
     line-height: 160%;
@@ -180,9 +182,10 @@ export const CalculatorPreviewContentWrapper = styled.div`
       background: linear-gradient(270deg, #d6ffbb 8%, #5869dd 90.45%);
     }
 
-    &:hover {
+    &:hover,
+    &.active {
       left: 0;
-      top: 0;
+      top: -188px;
     }
 
     & > div {
@@ -426,7 +429,7 @@ export const StepButtonWrapper = styled.div`
   margin-top: 3em;
   padding-left: 2.8333em;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   flex-wrap: wrap;
   row-gap: 1.7em;
   column-gap: 1.6em;

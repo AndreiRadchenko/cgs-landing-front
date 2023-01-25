@@ -10,7 +10,15 @@ import {
   CalculatorTypeSelectHeaderWrapper,
 } from "../../../styles/Calculator/CalculatorAdmin.styled";
 
-const CalculatorOptionTypeSelect = () => {
+interface ICalculatorOptionTypeSelectProps {
+  nameBefore?: string;
+  type?: string;
+}
+
+const CalculatorOptionTypeSelect = ({
+  nameBefore,
+  type,
+}: ICalculatorOptionTypeSelectProps) => {
   const options = [
     {
       value: "radio",
@@ -24,15 +32,19 @@ const CalculatorOptionTypeSelect = () => {
   const defaultValue = options[0].value;
   const { setFieldValue } = useFormikContext();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedType, setSelectedType] = useState<string>(defaultValue);
+  const [selectedType, setSelectedType] = useState<string>(
+    type ? type : defaultValue
+  );
 
   const handleHeaderClick = () => {
     setIsOpen((old) => !old);
   };
 
+  const typeNameBefore = nameBefore ? nameBefore : "";
+
   const handleOptionClick = (value: string) => {
     setSelectedType(value);
-    setFieldValue("type", value);
+    setFieldValue(`${typeNameBefore}type`, value);
     setIsOpen(false);
   };
 

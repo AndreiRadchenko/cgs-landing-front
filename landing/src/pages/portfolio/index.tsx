@@ -55,7 +55,6 @@ const PortfolioPage: NextPage = () => {
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
-  const [isMobile, setIsMobile] = useState(false);
   const { width } = useWindowDimension();
   const sortByCategory = (category: string) => {
     return (
@@ -63,12 +62,10 @@ const PortfolioPage: NextPage = () => {
       reviews.filter((review) => review.category === category).reverse()
     );
   };
-  useEffect(() => {
-    setIsMobile(false);
-    if (width && width < 768) setIsMobile(true);
-  }, [width]);
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
+  const isMobile = !!(width && width < 767);
 
   return isLoading && reviewsIsLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>

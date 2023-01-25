@@ -10,14 +10,19 @@ import {
 
 interface ICalculatorTypeSelectProps {
   header?: string;
+  nameBefore?: string;
   idx: number;
 }
 
-const CalculatorTypeSelect = ({ header, idx }: ICalculatorTypeSelectProps) => {
+const CalculatorTypeSelect = ({
+  header,
+  nameBefore,
+  idx,
+}: ICalculatorTypeSelectProps) => {
   const { values, setFieldValue } = useFormikContext<ICalculatorStep>();
 
   const currHeader = () => {
-    if (values.options[idx].role) {
+    if (values.options[idx] && values.options[idx].role) {
       return values.options[idx].role;
     }
     if (header) {
@@ -39,7 +44,7 @@ const CalculatorTypeSelect = ({ header, idx }: ICalculatorTypeSelectProps) => {
   };
 
   const handleOptionClick = (role: string) => {
-    setFieldValue(`options[${idx}].role`, role);
+    setFieldValue(`${nameBefore}options[${idx}].role`, role);
     setCurrRole(role);
     setIsOpen(false);
   };

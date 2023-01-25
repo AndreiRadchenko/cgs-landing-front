@@ -68,6 +68,7 @@ const CalculatorStepsForm = ({
                   />
                   {typeof currentData.options !== "string" && (
                     <CalculatorInputField
+                      type={currentData.type}
                       subStep={currentData.subSteps}
                       stepInd={stepInd}
                       options={currentData.options}
