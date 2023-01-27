@@ -115,3 +115,16 @@ export const webAuditTypesOfAuditImages = [
   pagespeed,
   competitor,
 ];
+
+export const defaultEditorOption = {
+  font: ["NAMU"],
+  linkRelDefault: {
+    default: undefined,
+    check_new_window: "nofollow noopener",
+  },
+  addTagsWhitelist: "label|input",
+  buttonList: [["fontColor"], ["fontSize"]],
+  showPathLabel: false,
+  defaultTag: "div",
+  defaultStyle: "position:relative; z-index:3",
+};

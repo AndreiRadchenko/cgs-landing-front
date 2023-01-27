@@ -3,6 +3,8 @@ import { HttpServiceFactory } from "../index";
 import {
   IEstimationFormData,
   IEstimationFormPage,
+  IEstimationFormPages,
+  IUpdatePageBody,
 } from "../../types/Admin/AdminEstimationForm.types";
 
 export class AdminEstimationFormService {
@@ -18,12 +20,15 @@ export class AdminEstimationFormService {
       `api/poll-table/page/${id}`
     );
   }
-  public updatePageData(id: string, data: IEstimationFormPage) {
-    return this.httpService.put(`api/poll-table/page/${id}`, data);
+
+  public getPages() {
+    return this.httpService.get<IEstimationFormPages>(
+      `api/poll-table/estimation/form`
+    );
   }
-  // public deleteOption(id: string) {
-  //   return this.httpService.delete(`api/estimation-form${id}`);
-  // }
+  public updatePageData(data: IUpdatePageBody) {
+    return this.httpService.put(`api/poll-table/page`, data);
+  }
 }
 
 const factory = new HttpServiceFactory();

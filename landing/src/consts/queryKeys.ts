@@ -34,6 +34,7 @@ export const queryKeys = {
   swapArticles: "swapArticles",
   getCalculatorData: "getCalculatorData",
   updateCalculatorData: "updateCalculatorData",
+  updateEstimationForm: "updateEstimationForm ",
   getCalculatorClassicSteps: "getCalculatorClassicSteps",
   addCalculatorClassicStep: "addCalculatorClassicStep",
   addCalculatorClassicTieUpStep: "addCalculatorClassicTieUpStep",

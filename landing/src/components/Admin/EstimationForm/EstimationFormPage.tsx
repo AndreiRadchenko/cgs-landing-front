@@ -1,69 +1,133 @@
-import React, { useState } from "react";
-import { useFormikContext } from "formik";
-import * as Styled from "../../../styles/AdminPage";
-import { useScrollTo } from "../../../hooks/useScrollTo";
+import React, { Fragment, useRef, useState, memo } from "react";
 import BlockDropdown from "../BlockDropdown";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../../consts/queryKeys";
-import SaveBtn from "../Global/SaveBtn";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import QuestionBlock from "./QuestionBlock";
+import {
+  IEstimationFormPage,
+  IEstimationFormPages,
+  IEstimationFormQuestion,
+  IUpdatePageBody,
+} from "../../../types/Admin/AdminEstimationForm.types";
 import AddQuestionButton from "./AddQuestionButton";
-import { IEstimationFormPage } from "../../../types/Admin/AdminEstimationForm.types";
+import SaveBtn from "../Global/SaveBtn";
+import Title from "./Title";
+import { useMutation } from "@tanstack/react-query";
+import { queryKeys } from "../../../consts/queryKeys";
 import { adminEstimationFormService } from "../../../services/adminEstimationForm";
 
-const EstimationFormPage = () => {
-  const { values, handleChange, handleSubmit } =
-    useFormikContext<IEstimationFormPage>();
+interface IEstimationFormPageProps {
+  values: IEstimationFormPage;
+  pageNumber: number;
+  refetch: () => void;
+  setIsCustomLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  pages: IEstimationFormPages;
+}
 
-  console.log(values);
+const EstimationFormPage = ({
+  values,
+  pageNumber,
+  refetch,
+  pages,
+  setIsCustomLoading,
+}: IEstimationFormPageProps) => {
+  const textInput = useRef<HTMLTextAreaElement>(null);
+  const buttonTextInput = useRef<HTMLTextAreaElement>(null);
 
-  const submitFunction = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    handleSubmit();
+  const { mutateAsync } = useMutation(
+    [queryKeys.updateEstimationForm],
+    (data: IUpdatePageBody) => adminEstimationFormService.updatePageData(data)
+  );
+
+  const [questions, setQuestions] = useState(values.questions ?? []);
+
+  const saveChagesHandler = async () => {
+    setIsCustomLoading((prev) => !prev);
+    document.body.style.cursor = "wait";
+    await mutateAsync({
+      pageId: values._id,
+      data: {
+        ...values,
+        questions,
+        title: textInput.current?.value ?? values.title,
+        buttonName: buttonTextInput.current?.value ?? values.buttonName,
+      },
+    });
+    await refetch();
+    document.body.style.cursor = "auto";
+    setIsCustomLoading((prev) => !prev);
   };
 
-  console.log(values.pageNumber.slice(0, 1));
+  const removeQuestion = (index: number) => {
+    setQuestions(questions.filter((_, i) => i !== index));
+  };
+  const saveQuestion = (obj: IEstimationFormQuestion, index: number) => {
+    const newQuestions = questions;
+    newQuestions[index] = obj;
+    setQuestions(newQuestions);
+  };
+
+  const addQuestion = () => {
+    setQuestions([
+      ...questions,
+      {
+        title: "",
+        isRequired: false,
+        isSplitColumns: false,
+        isAbilityToAttachFile: false,
+        isHiddenText: false,
+        hiddenText: "",
+        optionsType: "TEXT",
+        options: [],
+        conditionsForAppearance: null,
+        questionNumber: 1,
+      },
+    ]);
+  };
 
   return (
-    <BlockDropdown title={`Page ${values.pageNumber.slice(0, 1)}`}>
+    <BlockDropdown isOpened={pageNumber === 1} title={`Page ${pageNumber}`}>
       <div>
-        <SubHeaderWithInput
+        <Title
           header="Title"
-          inputValue={values?.title}
-          name="title"
+          ref={textInput}
+          inputValue={values.title}
           minRows={1}
-          onChangeFunction={handleChange}
         />
-        {values.questions
-          ? values.questions.map((question, i) => {
+
+        {questions
+          ? questions.map((question, i) => {
               return (
-                <QuestionBlock
-                  key={question._id}
-                  question={question}
-                  name={values.questions[i].title}
-                />
+                <Fragment key={question.optionsType + question.title + i}>
+                  <QuestionBlock
+                    pages={pages}
+                    onRemoveHandler={removeQuestion}
+                    saveQuestion={saveQuestion}
+                    question={question}
+                    name={questions[i].title}
+                    index={i + 1}
+                    currentPage={pageNumber - 1}
+                  />
+                </Fragment>
               );
             })
           : null}
+
         <AddQuestionButton
           type="button"
           buttonText="+ Add a question"
-          handleClick={() => {
-            return;
-          }}
+          handleClick={addQuestion}
         />
-        <SubHeaderWithInput
+
+        <Title
           header="Button"
+          ref={buttonTextInput}
           inputValue={values.buttonName}
-          name="buttonName"
           minRows={1}
-          onChangeFunction={handleChange}
         />
-        <SaveBtn title="Save Changes" handleClick={submitFunction} />
+
+        <SaveBtn title="Save Changes" handleClick={saveChagesHandler} />
       </div>
     </BlockDropdown>
   );
 };
 
-export default EstimationFormPage;
+export default memo(EstimationFormPage);

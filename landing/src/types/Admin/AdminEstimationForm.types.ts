@@ -6,6 +6,22 @@ export interface IEstimationFormPage {
   questions: IEstimationFormQuestion[];
 }
 
+export interface IUpdatePageBody {
+  pageId: string;
+  data: {
+    _id?: string;
+    pageNumber: string;
+    title: string;
+    buttonName: string;
+    questions: IEstimationFormQuestion[];
+  };
+}
+
+export interface IEstimationFormPages {
+  _id: string;
+  formName: string;
+  pages: IEstimationFormPage[];
+}
 export interface IEstimationFormData {
   formName: string;
   pages: string[];
@@ -28,10 +44,18 @@ export interface IEstimationFormPageResponse {
   refetch?: () => Promise<IEstimationFormPageResponse>;
 }
 
+export interface IEstimationFormPagesResponse {
+  data?: IEstimationFormPages;
+  isLoading?: boolean;
+  refetch?: () => Promise<IEstimationFormPagesResponse>;
+}
+
 export interface IConditionsForAppearance {
-  pageNumber: number;
-  questionNumber: number;
-  acceptedOptions: string[];
+  pageId: string;
+  questionKey: string;
+  pageIndex: number;
+  questionIndex: number;
+  acceptedOptions: { text: string; isSelected: boolean }[];
 }
 
 export interface IEstimationFormQuestionOptions {
@@ -46,18 +70,32 @@ export interface IEstimationFormQuestion {
   isSplitColumns: boolean;
   isAbilityToAttachFile: boolean;
   hiddenText: string | null;
-  optionsType: string;
+  isHiddenText: boolean;
+  optionsType: CheckBoxType;
+  questionKey?: string;
   options: IEstimationFormQuestionOptions[];
   conditionsForAppearance: IConditionsForAppearance | null;
 }
+export type CheckBoxType = "RADIO_BUTTON" | "CHECKBOX" | "TEXT";
 
 export interface IQuestionBlockProps {
   question: IEstimationFormQuestion;
   name: string;
+  index: number;
+  onRemoveHandler: (index: number) => void;
+  saveQuestion: (obj: IEstimationFormQuestion, index: number) => void;
+  pages: IEstimationFormPages;
+  currentPage: number;
 }
 
 export interface IButtonProps {
   type: "button" | "submit" | "reset" | undefined;
   buttonText: string;
   handleClick: () => void;
+}
+
+export interface IMenuOption {
+  title: string;
+  id: string;
+  index: number;
 }

@@ -7,10 +7,16 @@ interface IDropdownProps {
   title: string;
   children: JSX.Element;
   styles?: any;
+  isOpened?: boolean;
 }
 
-const BlockDropdown = ({ title, children, styles }: IDropdownProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+const BlockDropdown = ({
+  title,
+  children,
+  styles,
+  isOpened,
+}: IDropdownProps) => {
+  const [isOpen, setIsOpen] = useState<boolean>(isOpened ?? true);
 
   const changeModalState = () => setIsOpen((prevState) => !prevState);
 

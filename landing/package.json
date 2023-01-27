@@ -50,7 +50,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "prettier": "^2.5.1",
-    "suneditor": "^2.43.14",
+    "suneditor": "2.43.14",
     "suneditor-react": "^3.4.1",
     "typescript": "4.5.5"
   },

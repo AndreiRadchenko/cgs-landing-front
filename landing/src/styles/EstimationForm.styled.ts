@@ -1,3 +1,4 @@
+import { Field } from "formik";
 import styled from "styled-components";
 import themes from "../utils/themes";
 
@@ -38,7 +39,7 @@ export const QuestionBlock = styled.div`
 export const EstimationFormInputContainer = styled.div``;
 
 export const EstimationFormInputHeader = styled.h3`
-  font-size: ${themes.primary.font.size.primary};
+  font-size: ${themes.primary.font.size.mainBlogDescription};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   margin: 0 0 10px 0;
@@ -55,6 +56,7 @@ export const EstimationFormDropDownMenu = styled.div`
 export const EstimationFormDropDownWrapper = styled.div`
   display: flex;
   align-items: center;
+  z-index: 3;
 `;
 
 export const AdditinalAttributesBlock = styled.div`
@@ -76,16 +78,47 @@ export const AdditinalAttributesLabel = styled.label`
   }
 `;
 
-export const AdditinalAttributesInput = styled.input`
+export const AdditinalAttributesInput = styled(Field)`
   margin: 0 5px 0 0;
 `;
 
-export const AddOptionInputWrapper = styled.div`
+export const AdditinalRoundedInput = styled(Field)`
+  border-radius: 50px;
+`;
+
+export const StyledConditionsForAppearanceBlock = styled.div`
+  border: 1px solid #111;
+  padding: 10px;
+  margin: 10px 0 5px 0;
+`;
+
+export const StyledCheckBoxInput = styled(Field)`
+  margin: 0 5px 0 0;
+`;
+
+export const AddOptionInputWrapper = styled.div<{ type: string }>`
   margin: 0 0 15px 0;
   border: none;
-  border-bottom: 1px solid ${themes.primary.colors.primary};
+  margin-left: 11px;
+  button {
+    background: none;
+    border: none;
+    color: #8f8e93;
+    position: relative;
+    &::before {
+      display: inline-block;
+      content: " ";
+      margin-right: ${({ type }) => (type === "TEXT" ? 0 : "8px")};
+      -ms-transform: translateY(10%);
+      transform: translateY(10%);
+      width: 13px;
+      height: 13px;
+      border-radius: ${({ type }) => (type === "RADIO_BUTTON" ? "50%" : 0)};
+      border: 1px solid ${themes.primary.colors.primary};
+    }
+  }
 
-  input {
-    margin-bottom: 10px;
+  &::before {
+    border: 1px solid ${themes.primary.colors.primary};
   }
 `;

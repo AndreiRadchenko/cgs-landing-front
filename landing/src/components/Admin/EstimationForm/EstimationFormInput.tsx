@@ -5,7 +5,6 @@ import SetOptions from "suneditor-react/dist/types/SetOptions";
 import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
 import * as Styled from "../../../styles/EstimationForm.styled";
 import "suneditor/dist/css/suneditor.min.css";
-
 interface ITextEditorPropsOptions {
   text: string;
 }
@@ -20,7 +19,6 @@ interface ITextEditorProps {
 
 const EstimationFormInput = ({
   name = "",
-  questionOptions,
   header,
   props,
 }: ITextEditorProps) => {
@@ -50,25 +48,17 @@ const EstimationFormInput = ({
   };
 
   return (
-    <div>
+    <>
       <Styled.EstimationFormInputHeader>
         {header}
       </Styled.EstimationFormInputHeader>
       <Field name={name}>
         {({ field }: FieldProps) => {
-          return !questionOptions ? (
+          return (
             <SunEditor
+              autoFocus={false}
               name={field.name}
-              defaultValue={field.name}
-              onChange={field.onChange(field.name)}
-              lang="en"
-              setOptions={options}
-              {...props}
-            />
-          ) : (
-            <SunEditor
-              name={field.name}
-              defaultValue={field.value}
+              defaultValue={!!field.value ? field.value : ""}
               onChange={field.onChange(field.name)}
               lang="en"
               setOptions={options}
@@ -77,7 +67,7 @@ const EstimationFormInput = ({
           );
         }}
       </Field>
-    </div>
+    </>
   );
 };
 

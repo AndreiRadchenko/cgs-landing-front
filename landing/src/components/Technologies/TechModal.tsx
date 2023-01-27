@@ -15,10 +15,11 @@ const TechModal = ({ isOpen, data }: ITechModalProps) => {
             <Styled.WhiteBox />
             <Styled.BlackBox />
           </Styled.Container>
-          <Styled.List className={data.length <= 3 ? "column" : "rows"}>
-            {data.map((el, idx) => (
-              <Styled.ListItem key={idx}>{el}</Styled.ListItem>
-            ))}
+          <Styled.List className={data?.length <= 3 ? "column" : "rows"}>
+            {data &&
+              data.map((el, idx) => (
+                <Styled.ListItem key={idx}>{el}</Styled.ListItem>
+              ))}
           </Styled.List>
         </Styled.TicketModalContent>
       </Styled.TicketModalContentContainer>

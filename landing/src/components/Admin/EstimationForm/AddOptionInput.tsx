@@ -1,18 +1,24 @@
-import React from "react";
+import React, { memo } from "react";
 import * as Styled from "../../../styles/EstimationForm.styled";
 
 interface IAddOptionsProps {
   type: string;
+  onClickHandler: () => void;
 }
 
-const AddOptionInput = ({ type }: IAddOptionsProps) => {
-  type = type.toLowerCase().split("_")[0];
+const AddOptionInput = ({ type, onClickHandler }: IAddOptionsProps) => {
   return (
-    <Styled.AddOptionInputWrapper>
-      <input name="option" type={type.toLowerCase()} placeholder="Add option" />
-      {(type === "checkbox" || type === "radio") && <label>Add option</label>}
+    <Styled.AddOptionInputWrapper type={type}>
+      <button
+        name="option"
+        placeholder="Add option"
+        type="button"
+        onClick={onClickHandler}
+      >
+        Add option
+      </button>
     </Styled.AddOptionInputWrapper>
   );
 };
 
-export default AddOptionInput;
+export default memo(AddOptionInput);
