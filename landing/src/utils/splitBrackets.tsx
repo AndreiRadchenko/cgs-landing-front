@@ -15,7 +15,7 @@ export const SplitBrackets = ({ text, logo }: ISplitBracketsProps) => {
           el !== "" && (
             <span key={idx}>
               {el}
-              {splited.length - 1 !== idx && <br />}
+              {splited.length - 3 !== idx && <br />}
             </span>
           )
       )}
