@@ -73,7 +73,11 @@ export const Text = styled.p`
   font-size: 1.125em;
   line-height: 160%;
   margin-block: 0.45em 2em;
+  padding-right: 2.5rem;
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding-right: 0;
+  }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     line-height: 132%;
@@ -114,6 +118,12 @@ export const TextWrapper = styled.div`
     row-gap: 2.5em;
   }
 
+  @media ${themes.primary.media.minMiniTabletLandScape} {
+    & > div:nth-child(2) {
+      margin-top: 8rem;
+    }
+  }
+
   & > div {
     margin: 0;
     flex-basis: 29%;
@@ -135,6 +145,7 @@ export const TextWrapper = styled.div`
       }
 
       &:nth-child(2) {
+        margin-top: 0rem;
         right: -0.7em;
         p {
           margin-left: 1.4rem;

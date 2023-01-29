@@ -198,6 +198,7 @@ const themes = {
       minTabletPortrait: "(min-width: 768px)",
       maxTablet: "(max-width: 768px)",
       minTabletLandScape: "(min-width: 992px)",
+      minMiniTabletLandScape: "(min-width: 840px)",
       minTablet: "(max-width: 625px)",
       minLaptop: "(min-width: 1200px)",
       minPC: "(min-width: 1500px)",
