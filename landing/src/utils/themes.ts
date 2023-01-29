@@ -20,7 +20,7 @@ const themes = {
       cardPartners: "14em",
       btwLogoAndMenu: "8.5em",
       servicesGlobalMarginBetweenBlocks: "12.5em",
-      servicesMarginBetweenBlocks: "16.6em",
+      servicesMarginBetweenBlocks: "10em",
       servicesMarginBetweenBlocksTablet: "8em",
       servicesMarginBetweenBlocksMobile: "4em",
       servicesMarginBetweenFooter: "10.3em",
