@@ -33,13 +33,17 @@ export const Article = styled.article`
 
 export const SubTitle = styled.p`
   width: 100%;
-  margin-top: 28px;
+  margin-top: 45px;
+  margin-bottom: 10px;
   font-size: ${themes.primary.font.size.faqQuestion};
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.blogDarkText};
   line-height: 160%;
   z-index: 2;
+  p {
+    margin: 0;
+  }
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.aboutUsCardText};
   }
@@ -238,7 +242,7 @@ export const TitleBg = styled.figure`
 
 export const HeaderBottomBg = styled.div`
   position: absolute;
-  top: 20px;
+  top: 70px;
   right: -23%;
   margin: 0;
   @media ${themes.primary.media.maxPCFullHD} {
