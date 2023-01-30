@@ -142,7 +142,7 @@ export const AmountViews = styled.span`
 
 export const ReadMoreButton = styled.button`
   margin-top: 30px;
-  border: 0;
+  border: 2px solid ${themes.primary.colors.primary};
   outline: 0;
   padding: 8px 15px;
   background-color: ${themes.primary.colors.primary};
@@ -153,6 +153,14 @@ export const ReadMoreButton = styled.button`
   cursor: pointer;
   max-width: 115px;
   font-size: 14px;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: transparent;
+    a {
+      color: ${themes.primary.colors.primary};
+    }
+  }
   a {
     border: 0;
     color: ${themes.primary.colors.secondary};
