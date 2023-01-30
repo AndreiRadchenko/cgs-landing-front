@@ -156,7 +156,7 @@ export const Description = styled.p`
   h4:first-child,
   h5:first-child,
   h6:first-child {
-    margin-top: 63px;
+    margin-top: 83px;
   }
 
   & .__se__float-left {
