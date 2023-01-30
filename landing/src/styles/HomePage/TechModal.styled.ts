@@ -114,7 +114,7 @@ export const List = styled.ul`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 0 2em 1.5rem 2em;
+    padding: 0 2em 1.6rem 2em;
     column-gap: 16px;
     &.rows {
       grid-template-columns: repeat(1, 1fr);
