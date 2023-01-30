@@ -74,9 +74,7 @@ export const Description = styled.p`
   line-height: 160%;
   color: ${themes.primary.colors.blogDarkText};
   overflow-wrap: anywhere;
-  & > p:first-child {
-    margin-bottom: 83px;
-  }
+
   & > div > figure {
     position: relative;
     margin: 0;
