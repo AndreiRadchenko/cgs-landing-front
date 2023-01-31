@@ -8,6 +8,7 @@ import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import PortfolioSlider from "../../components/Admin/PortfolioSwipers/PortfolioSlider";
+import { CTABlock } from "../../components/Portfolio/CTABlock";
 import {
   IPortfolioResponse,
   IPortfolioReviewsResponse,
@@ -111,6 +112,7 @@ const PortfolioPage: NextPage = () => {
           })}
           <Separator color={"#8f8e93"} className="bottom" />
         </Styles.SlidersCont>
+        <CTABlock />
         <FooterNew />
       </Styles.PortfolioContainer>
     </>
