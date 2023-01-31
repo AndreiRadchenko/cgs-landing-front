@@ -133,6 +133,11 @@ export const CTAIconWrapper = styled.a`
   display: flex;
   align-items: center;
   gap: 8px;
+  color: ${themes.primary.colors.mainGradientColor2};
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const CTAIcon = styled.p`
