@@ -409,17 +409,12 @@ export const Image = styled.img`
   left: -1px;
 `;
 
-interface IImageContainer {
-  bgColor: string;
-}
-
-export const ImageContainer = styled.div<IImageContainer>`
+export const ImageContainer = styled.div`
   position: relative;
 
   width: 56%;
   height: 100%;
   border-left: thin solid ${themes.primary.colors.comment};
-  background: ${({ bgColor }) => bgColor};
 
   @media (max-width: 1400px) {
     & img {
