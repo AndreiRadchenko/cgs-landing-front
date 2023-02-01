@@ -1,5 +1,4 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-
 import React, { useState } from "react";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCalculatorService } from "../../services/adminCalculator";
@@ -15,9 +14,14 @@ import CalculatorCompletedPager from "./CalculatorCompletedPager";
 import {
   ICalculatorFormValuesProps,
   ICalculatorPostEmailResultsProps,
+  ICalculatorPostLeadEmailResultsProps,
+  ILeadMailData,
+  IRoles,
+  IStepOptions,
 } from "../../types/Admin/Response.types";
 import { Formik } from "formik";
 import { CalculatorValidation } from "../../validations/CalculatorValidation";
+import { getResults } from "../../utils/getCalculatorResults";
 
 const Calculator = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -105,6 +109,12 @@ const Calculator = () => {
     }
   );
 
+  const { mutate: mutateLeadEmail } = useMutation(
+    [queryKeys.sendLeadEmailResults],
+    (answers: ICalculatorPostLeadEmailResultsProps) =>
+      adminCalculatorService.sendResultsLeadEmail(answers)
+  );
+
   const stepsData = isBlockchain ? blockchainStepsData : classicStepsData;
 
   const initialValues = stepsData && {
@@ -120,8 +130,133 @@ const Calculator = () => {
   };
 
   const onSubmit = (values: ICalculatorFormValuesProps) => {
-    const { isBlockchain, questionsArr, email } = values;
-    mutate({ answers: questionsArr, isBlockchain, email });
+    const { questionsArr, isBlockchain, email } = values;
+    const emailData: ICalculatorPostEmailResultsProps = {
+      answers: questionsArr,
+      isBlockchain,
+      email,
+    };
+    // mutate(emailData);
+
+    const getRolesCoefObject = (
+      matchData: Array<IStepOptions | Array<IStepOptions> | undefined>,
+      resultObj: { [key: string]: number }
+    ) => {
+      matchData.map((dataEl) => {
+        if (dataEl) {
+          const countData = (role: string, coef: number) =>
+            resultObj[role]
+              ? (resultObj[role] += coef || 0)
+              : (resultObj[role] = coef || 0);
+
+          return Array.isArray(dataEl)
+            ? dataEl.forEach(
+                (matchDataEl) =>
+                  matchDataEl.endRole &&
+                  matchDataEl.endRole.role &&
+                  matchDataEl.endRole.coef &&
+                  countData(matchDataEl.endRole.role, matchDataEl.endRole.coef)
+              )
+            : dataEl.endRole &&
+                dataEl.endRole.role &&
+                dataEl.endRole.coef &&
+                countData(dataEl.endRole.role, dataEl.endRole.coef);
+        }
+      });
+      return resultObj;
+    };
+
+    const getRolesHoursObject = (
+      matchData: Array<IStepOptions | Array<IStepOptions> | undefined>,
+      resultObj: { [key: string]: number }
+    ) => {
+      matchData.map((dataEl) => {
+        if (dataEl) {
+          const countData = (role: string, hours: number) =>
+            resultObj[role]
+              ? (resultObj[role] += hours || 0)
+              : (resultObj[role] = hours || 0);
+
+          return Array.isArray(dataEl)
+            ? dataEl.forEach(
+                (matchDataEl) =>
+                  matchDataEl.role &&
+                  matchDataEl.hours &&
+                  countData(matchDataEl.role, matchDataEl.hours)
+              )
+            : dataEl.hours &&
+                dataEl.role &&
+                countData(dataEl.role, dataEl.hours);
+        }
+      });
+      return resultObj;
+    };
+
+    if (classicStepsData) {
+      const matchData: Array<IStepOptions | Array<IStepOptions> | undefined> =
+        questionsArr.map((question, idx) =>
+          typeof question.answer === "string"
+            ? classicStepsData[idx].options.find(
+                (option) => question.answer === option.label
+              )
+            : classicStepsData[idx].options.filter((option) =>
+                (question.answer as string[]).includes(option.label)
+              )
+        );
+
+      const matchSubStepData: Array<
+        IStepOptions | Array<IStepOptions> | undefined
+      > = questionsArr.map((question, idx) => {
+        if (
+          classicStepsData[idx].subSteps &&
+          classicStepsData[idx].subSteps.length > 0
+        ) {
+          return typeof question.subStepAnswer === "string"
+            ? classicStepsData[idx].subSteps[0].options.find(
+                (option) => question.subStepAnswer === option.label
+              )
+            : classicStepsData[idx].subSteps[0].options.filter((option) =>
+                (question.subStepAnswer as string[]).includes(option.label)
+              );
+        }
+      });
+
+      const resultObj: IRoles = {};
+      getRolesHoursObject(matchData, resultObj);
+      getRolesHoursObject(matchSubStepData, resultObj);
+
+      const resultObjRolesCoef: IRoles = {};
+      getRolesCoefObject(matchData, resultObjRolesCoef);
+      getRolesCoefObject(matchSubStepData, resultObjRolesCoef);
+
+      Object.entries(resultObjRolesCoef).map(
+        (roleCoefArr) => (resultObj[roleCoefArr[0]] *= 1 + roleCoefArr[1])
+      );
+
+      const endCoef =
+        1 + getResults(classicStepsData, values.questionsArr, "endCoef");
+      Object.entries(resultObj).forEach(
+        (el) => (resultObj[el[0]] = el[1] * endCoef)
+      );
+
+      const price = data?.roles
+        .map((roleData) =>
+          Math.round((resultObj[roleData.name] || 0) * roleData.rate)
+        )
+        .reduce((acc, curr) => acc + curr);
+      console.log(price);
+
+      const hours = getResults(classicStepsData, values.questionsArr, "hours");
+      const uxui = getResults(classicStepsData, values.questionsArr, "uxui");
+      if (hours && uxui && price) {
+        const leadEmailData: ILeadMailData = {
+          uxui,
+          hours,
+          price,
+        };
+        mutateLeadEmail({ answers: leadEmailData, email });
+      }
+    }
   };
 
   const handleMouseOver = () => {
@@ -219,6 +354,19 @@ const Calculator = () => {
                             options={currentData.options}
                             disabled={
                               values.questionsArr[stepInd].tieUpDisabled
+                            }
+                            tieUpData={
+                              currentData.tieUpSteps.length > 0 &&
+                              typeof currentData.tieUpSteps[0].number ===
+                                "number"
+                                ? {
+                                    number: currentData.tieUpSteps[0].number,
+                                    relatedAnswer:
+                                      values.questionsArr[
+                                        currentData.tieUpSteps[0].number
+                                      ].answer,
+                                  }
+                                : undefined
                             }
                             data={stepsData}
                           />

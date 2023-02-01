@@ -276,8 +276,8 @@ export const TieUpInputWrapper = styled.div`
 export const TieUpShadowWrapper = styled.div`
   position: absolute;
   box-sizing: content-box;
-  top: -1px;
-  width: 19px;
+  top: 0;
+  width: 19.5px;
   height: 18.4px;
   border-radius: 50%;
   border: 1.5px solid ${themes.primary.colors.primary};
@@ -300,6 +300,7 @@ export const TieUpInput = styled(Field)`
   appearance: none;
   cursor: pointer;
   z-index: 2;
+  font-family: ${themes.primary.font.family.openSans};
 
   &:checked + label {
     color: ${themes.primary.colors.darkBlue};
@@ -372,8 +373,8 @@ export const TieUpInput = styled(Field)`
     margin-right: 8px;
     background-color: ${themes.primary.colors.blogBackground};
     margin: 0;
-    min-width: 18.76px;
-    width: 18.76px;
+    min-width: 19px;
+    width: 19px;
     height: 20px;
     border: 1.5px solid ${themes.primary.colors.primary};
     border-radius: 50%;
@@ -383,9 +384,9 @@ export const TieUpInput = styled(Field)`
 
     &::before {
       content: "";
-      min-width: 8px;
-      max-width: 8px;
-      height: 9px;
+      min-width: 9px;
+      max-width: 9px;
+      height: 10px;
       border-radius: 50%;
       transform: scale(0);
       transition: 120ms transform ease-in-out;
@@ -398,7 +399,7 @@ export const TieUpInput = styled(Field)`
     }
 
     &:checked::before {
-      transform: scale(1);
+      transform: scale(1) translateY(-0.5px);
     }
   }
 
@@ -438,7 +439,6 @@ export const TieUpInput = styled(Field)`
     border: 0;
     outline: none;
     font-size: 1.125em;
-    font-family: ${themes.primary.font.family.namu};
 
     &.invalid {
       animation: ${errorColorAnimation} 1.5s ease-in-out;
@@ -464,6 +464,8 @@ export const TieUpLabel = styled.label`
   line-height: 19px;
   margin-left: 12px;
   transition: 0.15s;
+  display: flex;
+  align-items: center;
 
   & span {
     transition: 0.15s;
@@ -675,7 +677,7 @@ export const CalculatorPriceField = styled(Field)`
   border: 1px solid ${themes.primary.colors.adminInputBorder};
   font-size: 1.333em;
   font-family: ${themes.primary.font.family.namu};
-  max-width: 169px;
+  width: 100%;
   position: relative;
 
   &::placeholder {
@@ -864,6 +866,7 @@ export const CalculatorTypeSelectOption = styled.div`
   padding-inline: 5px;
   height: 24px;
   border: 1px solid ${themes.primary.colors.comment};
+  background-color: ${themes.primary.colors.blogBackground};
   border-bottom: 0;
   cursor: pointer;
 

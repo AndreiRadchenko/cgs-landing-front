@@ -2,9 +2,8 @@ import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
 import {
   ICalculator,
-  ICalculatorAnswersResults,
   ICalculatorPostEmailResultsProps,
-  ICalculatorPostResultsProps,
+  ICalculatorPostLeadEmailResultsProps,
   ICalculatorStep,
   ICalculatorSubStep,
   ICalculatorTieUpStep,
@@ -73,16 +72,15 @@ export class AdminCalculatorService {
     return this.httpService.put(`api/calculator/classic/sub/${itemId}`, data);
   }
 
-  public countResults(
-    answers: ICalculatorPostResultsProps
-  ): Promise<void | ICalculatorAnswersResults> {
-    return this.httpService.post("api/calculator/results", answers);
-  }
-
   public sendResultsEmail(
     answers: ICalculatorPostEmailResultsProps
   ): Promise<void> {
     return this.httpService.post("api/calculator/mail", answers);
+  }
+  public sendResultsLeadEmail(
+    answers: ICalculatorPostLeadEmailResultsProps
+  ): Promise<void> {
+    return this.httpService.post("api/calculator/lead-mail", answers);
   }
 
   public deleteClassicSubStepById(id: string) {

@@ -635,8 +635,12 @@ export interface IStepOptions {
   label: string;
   hours?: number;
   role?: string;
-  endRoleCoef?: number;
+  endRole?: {
+    coef: number;
+    role: string;
+  };
   endCoef?: number;
+  uxui?: number;
 }
 
 export interface ICalculatorSubStep {
@@ -674,14 +678,31 @@ export interface ICalculatorPostEmailResultsProps {
   email: string;
 }
 
+export interface ILeadMailData {
+  uxui: number;
+  hours: number;
+  price: number;
+}
+
+export interface ICalculatorPostLeadEmailResultsProps {
+  answers: ILeadMailData;
+  email: string;
+}
 export interface ICalculatorFormValuesProps {
   questionsArr: ICalculatorQuestion[];
   email: string;
   isBlockchain: boolean;
 }
 
+export interface IRoles {
+  [key: string]: number;
+}
+
 export interface ICalculatorAnswersResults {
-  results: Omit<IStepOptions, "label" | "type">;
+  hours?: number;
+  endCoef?: number;
+  devs?: number;
+  uxui?: number;
 }
 export interface IServiceMobileAudit {
   headerBlock: {

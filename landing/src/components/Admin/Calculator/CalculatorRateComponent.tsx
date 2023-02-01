@@ -63,7 +63,6 @@ const CalculatorRateComponent = ({
           type="number"
           value={rate}
           onChange={handleChange}
-          placeholder="hourly rate"
         />
       </CalculatorRateFieldWrapper>
       <CalculatorPriceDeleteBtn onClick={handleDelete}>

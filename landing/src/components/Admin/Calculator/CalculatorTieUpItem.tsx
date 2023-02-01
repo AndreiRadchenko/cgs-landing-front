@@ -29,7 +29,7 @@ const CalculatorTieUpItem = ({ data, current }: ICalculatorTieUpItemProps) => {
           (data[values.tieUpSteps[0].number].options as IStepOptions[]).map(
             (el, ind) => (
               <CalculatorTieUpInputItem
-                type={values.type}
+                type={data[values.tieUpSteps[0].number as number].type}
                 tieUp
                 ind={ind}
                 item={el}

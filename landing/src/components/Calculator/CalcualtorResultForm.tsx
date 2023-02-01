@@ -1,37 +1,57 @@
 import { useQueryClient } from "@tanstack/react-query";
-import React, { useEffect } from "react";
+import { useFormikContext } from "formik";
+import React, { useEffect, useState } from "react";
 import { queryKeys } from "../../consts/queryKeys";
-import { ICalculator, IStepOptions } from "../../types/Admin/Response.types";
+import {
+  ICalculator,
+  ICalculatorAnswersResults,
+  ICalculatorFormValuesProps,
+  ICalculatorStep,
+  IStepOptions,
+} from "../../types/Admin/Response.types";
+import { count } from "../../utils/countCalculatorAmountByKey";
+import { getResults } from "../../utils/getCalculatorResults";
 import CalculatorEmailField from "./CalculatorEmailField";
 import CalculatorTitleField from "./CalculatorTitleField";
 
 interface ICalculatorResultForm {
-  setStartMutating: React.Dispatch<React.SetStateAction<boolean>>;
-  results: Omit<IStepOptions, "label" | "type"> | undefined;
   calculateIsClicked: boolean;
 }
 
 const CalcualtorResultForm = ({
-  setStartMutating,
-  results,
   calculateIsClicked,
 }: ICalculatorResultForm) => {
+  const { values } = useFormikContext<ICalculatorFormValuesProps>();
+  const [results, setResults] = useState<ICalculatorAnswersResults>();
   const queryClient = useQueryClient();
   const calculatorData = queryClient.getQueryData<ICalculator>([
     queryKeys.getCalculatorData,
   ]);
 
+  const classicStepsData = queryClient.getQueryData<ICalculatorStep[]>([
+    queryKeys.getCalculatorClassicSteps,
+  ]);
+
+  const blockchainStepsData = queryClient.getQueryData<ICalculator>([
+    queryKeys.getCalculatorBlockchainSteps,
+  ]);
+
   useEffect(() => {
-    setStartMutating(true);
-  }, []);
+    if (classicStepsData) {
+      const keys: Array<"hours" | "endCoef"> = ["hours", "endCoef"];
 
-  const countDevs = (hours: number) => {
-    if (hours <= 168) return 1;
-    if (hours > 168 && hours <= 840) return 2;
-    if (hours > 840) return 3;
-  };
-
-  const devs = results && countDevs(results.hours);
+      const countResults: ICalculatorAnswersResults = { uxui: 1 };
+      keys.forEach(
+        (key) =>
+          (countResults[key] = getResults(
+            classicStepsData,
+            values.questionsArr,
+            key
+          ))
+      );
+      setResults(countResults);
+    }
+  }, [classicStepsData, values]);
 
   return (
     <div>
@@ -40,14 +60,10 @@ const CalcualtorResultForm = ({
           className="last"
           text={`We need ${
             results.hours
-          } hours of work. A team of ${devs} developer${
-            devs && devs > 1 ? "s" : ""
-          }, ${results && results.pm} project manager${
-            results && results.pm > 1 ? "s" : ""
-          }, ${
+          } hours of work. A team of developers, 1 project manager, ${
             results && results.uxui !== 0
               ? `and ${results && results.uxui} UX/UI designer${
-                  results && results.uxui > 1 ? "s" : ""
+                  results && results.uxui && results.uxui > 1 ? "s" : ""
                 }`
               : ""
           } will implement your idea.

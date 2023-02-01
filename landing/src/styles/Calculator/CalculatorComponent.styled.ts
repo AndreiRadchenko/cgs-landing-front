@@ -356,7 +356,7 @@ export const StartButton = styled.button`
   right: 39px;
   bottom: 35px;
   cursor: pointer;
-  padding: 1.105em 2.05em;
+  padding: 1.105em 1.8em;
   border-radius: 0.52em;
   font-size: 1.5833em;
   text-transform: uppercase;
@@ -470,7 +470,7 @@ export const StepButtonWrapper = styled.div`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-right: 2.9em;
 
   @media ${themes.primary.media.maxMobile} {
@@ -1002,6 +1002,33 @@ export const CalculatorField = styled.div`
     }
   }
 
+  & .__se__t-heavy {
+    font-weight: ${themes.primary.font.weight.heavy};
+  }
+
+  & .__se__t-extra-bold {
+    font-weight: ${themes.primary.font.weight.extraBold};
+  }
+
+  & .__se__t-bold {
+    font-weight: ${themes.primary.font.weight.bold};
+  }
+
+  & .__se__t-semi-bold {
+    font-weight: ${themes.primary.font.weight.semiBold};
+  }
+
+  & .__se__t-medium {
+    font-weight: ${themes.primary.font.weight.medium};
+  }
+
+  & .__se__t-normal {
+    font-weight: ${themes.primary.font.weight.normal};
+  }
+  & .__se__t-light {
+    font-weight: ${themes.primary.font.weight.light};
+  }
+
   &.text {
     margin-top: 16px;
   }
@@ -1086,8 +1113,9 @@ export const CalculatorInputFields = styled.div`
   font-family: ${themes.primary.font.family.namu};
   padding-inline: 1em 4px;
   position: relative;
+
   &.email {
-    padding-block: 1.5em;
+    padding-block: 1.3em 1.7em;
   }
 
   &.disabled {
@@ -1170,8 +1198,9 @@ export const EmailInputWrapper = styled.div`
 export const FinishTextWrapper = styled.div`
   font-size: 1.6666em;
   line-height: 160%;
-  font-family: ${themes.primary.font.family.namu};
-  padding: 1.2em 1em;
+  font-family: ${themes.primary.font.family.openSans};
+  font-weight: ${themes.primary.font.weight.bold};
+  padding: 1.4em 1em;
 
   @media ${themes.primary.media.minPC} {
     font-size: 1.5em;
@@ -1302,28 +1331,65 @@ export const CalculatorInputsFieldsWrapper = styled.div`
   width: 100%;
   z-index: 2;
   font-family: ${themes.primary.font.family.openSans};
-  font-weight: ${themes.primary.font.weight.bold};
-  overflow-y: scroll;
+  overflow: hidden;
+
+  &.quit {
+    padding-top: 5px;
+    font-size: 20px;
+    font-weight: ${themes.primary.font.weight.bold};
+  }
 
   &.last {
     padding-block: 0;
+    font-size: 18px;
+    font-weight: ${themes.primary.font.weight.bold};
   }
 
   &.input {
     padding-top: 0;
   }
 
-  &::-webkit-scrollbar {
-    width: 4px;
+  & .__se__t-upper {
+    text-transform: uppercase;
   }
 
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
+  & .__se__t-lower {
+    text-transform: lowercase;
   }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: ${themes.primary.colors.primary};
-    border-radius: 10px;
+  & .__se__t-first-letter-capitalize {
+    display: block;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  & .__se__t-heavy {
+    font-weight: ${themes.primary.font.weight.heavy};
+  }
+
+  & .__se__t-extra-bold {
+    font-weight: ${themes.primary.font.weight.extraBold};
+  }
+
+  & .__se__t-bold {
+    font-weight: ${themes.primary.font.weight.bold};
+  }
+
+  & .__se__t-semi-bold {
+    font-weight: ${themes.primary.font.weight.semiBold};
+  }
+
+  & .__se__t-medium {
+    font-weight: ${themes.primary.font.weight.medium};
+  }
+
+  & .__se__t-normal {
+    font-weight: ${themes.primary.font.weight.normal};
+  }
+  & .__se__t-light {
+    font-weight: ${themes.primary.font.weight.light};
   }
 
   @media ${themes.primary.media.maxMobile} {

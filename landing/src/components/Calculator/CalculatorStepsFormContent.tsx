@@ -5,15 +5,11 @@ import Logo from "./CalculatorLogo";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 import { useFormikContext } from "formik";
 import {
-  ICalculatorAnswersResults,
   ICalculatorFormValuesProps,
   ICalculatorPostResultsProps,
   IStepOptions,
 } from "../../types/Admin/Response.types";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
-import { useMutation } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminCalculatorService } from "../../services/adminCalculator";
 import CalculatorPopover from "./CalculatorPopover";
 import CalculatorPagination from "./CalculatorPagination";
 
@@ -46,12 +42,10 @@ const CalculatorStepsFormContent = ({
   calculateIsClicked,
   setCalculateIsClicked,
 }: ICalculatorStepsFormContentProps) => {
-  const { values, isValid, errors, handleSubmit } =
+  const { values, isValid, errors, handleSubmit, validateForm } =
     useFormikContext<ICalculatorFormValuesProps>();
-  const [results, setResults] =
-    useState<Omit<IStepOptions, "label" | "type">>();
+
   const [startButtonNum, setStartButtonNum] = useState<number>(0);
-  const [startMutating, setStartMutating] = useState<boolean>(false);
   const { width } = useWindowDimension();
   const lastStep = step === stepsCount - 1;
 
@@ -74,15 +68,9 @@ const CalculatorStepsFormContent = ({
     return classname;
   };
 
-  const { mutate, isLoading } = useMutation(
-    [queryKeys.postCalculatorResults],
-    (answers: ICalculatorPostResultsProps) =>
-      adminCalculatorService.countResults(answers),
-    {
-      onSuccess: (data: ICalculatorAnswersResults | void) =>
-        data && setResults(data.results),
-    }
-  );
+  useEffect(() => {
+    validateForm();
+  }, [validateForm]);
 
   const handleStepButtonClick = (idx: number) => {
     if (
@@ -141,17 +129,10 @@ const CalculatorStepsFormContent = ({
     onButtonClick();
   };
 
-  useEffect(() => {
-    if (startMutating) {
-      const { isBlockchain, questionsArr } = values;
-      mutate({ answers: questionsArr, isBlockchain });
-    }
-  }, [startMutating]);
-
   return (
     (width && (
       <CalculatorStepsModalComponent mobile={width < 768} lastPage={lastStep}>
-        {(isLoading && (
+        {(false && (
           <Styled.LoaderWrapper>
             <Styled.Loader />
           </Styled.LoaderWrapper>
@@ -169,11 +150,7 @@ const CalculatorStepsFormContent = ({
               </Styled.CalculatorHeaderInner>
             </Styled.CalculatorHeaderWrapper>
             {(lastStep && (
-              <CalcualtorResultForm
-                setStartMutating={setStartMutating}
-                results={results}
-                calculateIsClicked={calculateIsClicked}
-              />
+              <CalcualtorResultForm calculateIsClicked={calculateIsClicked} />
             )) ||
               arrayChildren[step]}
             <Styled.ButtonWrapper className={lastStep ? "last" : undefined}>

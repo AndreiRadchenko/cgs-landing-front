@@ -129,6 +129,5 @@ a {
 }
 
 .disableScrollBar {
-  position: fixed;
-  overflow-y: scroll;
+  overflow: hidden;
 }

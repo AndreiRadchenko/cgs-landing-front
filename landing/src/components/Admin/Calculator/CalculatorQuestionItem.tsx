@@ -15,6 +15,7 @@ const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
 });
 
 interface ICalculatorQuestionItemProps {
+  optionsLength: number;
   idx: number;
   onAdd: () => void;
   onDelete: () => void;
@@ -24,6 +25,7 @@ interface ICalculatorQuestionItemProps {
 }
 
 const CalculatorQuestionItem = ({
+  optionsLength,
   idx,
   option,
   onAdd,
@@ -59,6 +61,8 @@ const CalculatorQuestionItem = ({
 
   const questionNameBefore = nameBefore || "";
 
+  const zIndex = optionsLength - idx;
+
   return (
     (plugins && (
       <Styled.CalculatorQuestionWrapper>
@@ -67,8 +71,8 @@ const CalculatorQuestionItem = ({
             name={`${questionNameBefore}options[${idx}].label`}
             props={{
               height: "37px",
-              width: "559px",
-              setDefaultStyle: `position:relative; z-index:${idx + 3}`,
+              width: "480px",
+              setDefaultStyle: `position:relative; z-index:${zIndex}`,
               setContents: option.label,
               setOptions: textEditorOptions,
             }}
@@ -88,19 +92,28 @@ const CalculatorQuestionItem = ({
               type="number"
               min={0}
             />
-            <CalculatorTypeSelect idx={idx} nameBefore={nameBefore} />
-            <Styled.OptionInput
-              className="coef"
-              name={`${questionNameBefore}options[${idx}].endRoleCoef`}
-              placeholder="coeffiecient roles"
-              onChange={handleChange}
-              type="number"
-              values={option.endRoleCoef}
-              min={0}
+            <CalculatorTypeSelect
+              name={`${questionNameBefore}options[${idx}].role`}
+              zIndex={zIndex}
+              header={option.role}
             />
             <Styled.OptionInput
               className="coef"
-              name={`${questionNameBefore}options[${idx}].endRole`}
+              name={`${questionNameBefore}options[${idx}].endRole.coef`}
+              placeholder="coeffiecient roles"
+              onChange={handleChange}
+              type="number"
+              values={option.endRole?.coef}
+              min={0}
+            />
+            <CalculatorTypeSelect
+              name={`${questionNameBefore}options[${idx}].endRole.role`}
+              zIndex={zIndex}
+              header={option.endRole?.role}
+            />
+            <Styled.OptionInput
+              className="coef"
+              name={`${questionNameBefore}options[${idx}].endCoef`}
               placeholder="coefficient final"
               onChange={handleChange}
               type="number"

@@ -18,9 +18,6 @@ import {
   ICalculatorSubStep,
   ICalculatorTieUpStep,
 } from "../../../types/Admin/Response.types";
-import { useMutation } from "@tanstack/react-query";
-import { queryKeys } from "../../../consts/queryKeys";
-import { adminCalculatorService } from "../../../services/adminCalculator";
 import CalculatoTieUpItem from "./CalculatorTieUpItem";
 import { AdminSubTitle } from "../../../styles/AdminPage";
 import CalculatorOptionTypeSelect from "./CalculatorOptionTypeSelect";
@@ -45,18 +42,6 @@ const CalculatorStepItemComponent = ({
   >();
   const { values, setFieldValue, handleSubmit } =
     useFormikContext<ICalculatorStep>();
-
-  const { mutateAsync: addClassicTieUpStep } = useMutation(
-    [queryKeys.addCalculatorClassicTieUpStep],
-    (tieUpData: ICalculatorTieUpStep) =>
-      adminCalculatorService.addClassicTieUp(tieUpData)
-  );
-
-  const { mutateAsync: addBlockchainTieUpStep } = useMutation(
-    [queryKeys.addCalculatorBlockchainTieUpStep],
-    (tieUpData: ICalculatorTieUpStep) =>
-      adminCalculatorService.addBlockchainTieUp(tieUpData)
-  );
 
   useEffect(() => {
     import("suneditor/src/plugins").then((plugs: any) => setPlugins(plugs));
@@ -95,29 +80,16 @@ const CalculatorStepItemComponent = ({
   };
 
   const handleAddTieUpStep = () => {
-    isBlockchain
-      ? addClassicTieUpStep({
-          _id: values._id,
-          number: null,
-          condition: [],
-        })
-      : addBlockchainTieUpStep({
-          _id: values._id,
-          number: null,
-          condition: [],
-        });
     setFieldValue("tieUpSteps", [
       {
         number: null,
         condition: [],
       },
     ]);
-    handleSubmit();
   };
 
   const handleMinusTieUp = () => {
     setFieldValue("tieUpSteps", [] as ICalculatorTieUpStep[]);
-    handleSubmit();
   };
 
   const handleSubmitButtonClick = () => {
@@ -144,7 +116,7 @@ const CalculatorStepItemComponent = ({
             name={`title`}
             props={{
               height: "57px",
-              width: "559px",
+              width: "480px",
               setDefaultStyle: "position:relative; z-index:4",
               setOptions: titleEditorOptions,
             }}
@@ -157,6 +129,7 @@ const CalculatorStepItemComponent = ({
             {({ insert, remove }) =>
               values.options.map((option, idx) => (
                 <CalculatorQuestionItem
+                  optionsLength={values.options.length}
                   type={values.type}
                   onAdd={() => insert(idx + 1, emptyCalculatorOption)}
                   onDelete={() => remove(idx)}
@@ -207,7 +180,10 @@ const CalculatorStepItemComponent = ({
           />
         )}
         {values.subSteps.length > 0 && (
-          <CalculatoSubStepItem key={`sub step item ${submitKey}`} />
+          <CalculatoSubStepItem
+            data={data}
+            key={`sub step item ${submitKey}`}
+          />
         )}
         <SaveBtn
           handleClick={handleSubmitButtonClick}

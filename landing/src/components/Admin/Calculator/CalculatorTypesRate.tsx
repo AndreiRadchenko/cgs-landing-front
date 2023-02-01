@@ -41,7 +41,7 @@ const CalculatorTypesRate = () => {
         onSubmit={handleSubmit}
         enableReinitialize
       >
-        {({ values }) => {
+        {({ values, handleSubmit }) => {
           return (
             <div>
               <CalculatorTypeGrid>
@@ -55,7 +55,7 @@ const CalculatorTypesRate = () => {
                 ))}
               </CalculatorTypeGrid>
               <SaveBtn
-                type="submit"
+                handleClick={handleSubmit}
                 title="Save Changes"
                 style={{ marginTop: "14px" }}
               />

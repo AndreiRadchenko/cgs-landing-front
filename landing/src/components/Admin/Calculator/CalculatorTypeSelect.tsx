@@ -10,21 +10,18 @@ import {
 
 interface ICalculatorTypeSelectProps {
   header?: string;
-  nameBefore?: string;
-  idx: number;
+  name: string;
+  zIndex: number;
 }
 
 const CalculatorTypeSelect = ({
   header,
-  nameBefore,
-  idx,
+  name,
+  zIndex,
 }: ICalculatorTypeSelectProps) => {
-  const { values, setFieldValue } = useFormikContext<ICalculatorStep>();
+  const { setFieldValue } = useFormikContext<ICalculatorStep>();
 
   const currHeader = () => {
-    if (values.options[idx] && values.options[idx].role) {
-      return values.options[idx].role;
-    }
     if (header) {
       return header;
     }
@@ -44,7 +41,7 @@ const CalculatorTypeSelect = ({
   };
 
   const handleOptionClick = (role: string) => {
-    setFieldValue(`${nameBefore}options[${idx}].role`, role);
+    setFieldValue(name, role);
     setCurrRole(role);
     setIsOpen(false);
   };
@@ -69,7 +66,10 @@ const CalculatorTypeSelect = ({
             <path d="M1 0.5L5.5 5.5L10 0.5" stroke="black" />
           </svg>
         </Styled.CalculatorTypeSelectHeader>
-        <Styled.CalculatorTypeSelectContent className={contentClassName}>
+        <Styled.CalculatorTypeSelectContent
+          style={{ zIndex }}
+          className={contentClassName}
+        >
           {roles.map((role) => (
             <Styled.CalculatorTypeSelectOption
               key={role.name}

@@ -55,15 +55,24 @@ const CalculatorInputs = ({
   }, [stepInd, subStep, values.questionsArr]);
 
   useEffect(() => {
-    const disabledArr = data.map(
-      (el) =>
-        el.tieUpSteps &&
-        el.tieUpSteps.length > 0 &&
-        typeof el.tieUpSteps[0].number === "number" &&
-        !el.tieUpSteps[0].condition.includes(
-          values.questionsArr[el.tieUpSteps[0].number].answer as string
-        )
-    );
+    const disabledArr = data.map((el) => {
+      const tieUpIsExist = el.tieUpSteps && el.tieUpSteps.length > 0;
+
+      if (tieUpIsExist && typeof el.tieUpSteps[0].number === "number") {
+        return typeof values.questionsArr[el.tieUpSteps[0].number].answer ===
+          "string"
+          ? !el.tieUpSteps[0].condition.includes(
+              values.questionsArr[el.tieUpSteps[0].number].answer as string
+            )
+          : !el.tieUpSteps[0].condition.some((item) =>
+              (
+                values.questionsArr[el.tieUpSteps[0].number as number]
+                  .answer as Array<string>
+              ).includes(item)
+            );
+      }
+    });
+
     disabledArr.map(
       (item, idx) => (values.questionsArr[idx].tieUpDisabled = item)
     );
@@ -97,7 +106,7 @@ const CalculatorInputs = ({
           <span
             dangerouslySetInnerHTML={{
               __html: tieUpData.relatedAnswer
-                .map((el) => el.substring(0, el.indexOf("<")))
+                .map((el) => stripHtmlFromString(el))
                 .join(", "),
             }}
           />
@@ -153,10 +162,11 @@ const CalculatorInputs = ({
                     <OptionWrapper key={idx}>
                       {subStep[0].type === "radio" && <TieUpShadowWrapper />}
                       <TieUpInput
-                        type={type}
+                        type={subStep[0].type}
+                        id={`${subStep[0].type}${subInput.label}${idx}`}
                         name={`questionsArr[${stepInd}].subStepAnswer`}
                         value={subInput.label}
-                        className={type}
+                        className={subStep[0].type}
                         onChange={handleChange}
                       />
                       <TieUpLabel

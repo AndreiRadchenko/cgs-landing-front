@@ -43,6 +43,7 @@ export const queryKeys = {
   updateCalculatorClassicSubStep: "updateCalculatorClassicSubStep",
   postCalculatorResults: "postCalculatorResults",
   sendEmailResults: "sendEmailResults",
+  sendLeadEmailResults: "sendLeadEmailResults",
   getCalculatorBlockchainSteps: "getCalculatorBlockchainSteps",
   addCalculatorBlockchainStep: "addCalculatorBlockchainStep",
   addCalculatorBlockchainTieUpStep: "addCalculatorBlockchainTieUpStep",

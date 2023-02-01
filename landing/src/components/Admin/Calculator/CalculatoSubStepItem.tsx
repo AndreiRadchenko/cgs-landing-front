@@ -15,7 +15,11 @@ const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
   ssr: false,
 });
 
-const CalculatorSubStepItem = () => {
+interface ICalculatorSubStepItemProps {
+  data: ICalculatorStep[];
+}
+
+const CalculatorSubStepItem = ({ data }: ICalculatorSubStepItemProps) => {
   const { values } = useFormikContext<ICalculatorStep>();
   const [plugins, setPlugins] = useState<
     Array<Plugin> | Record<string, Plugin>
@@ -82,6 +86,7 @@ const CalculatorSubStepItem = () => {
                 {({ insert, remove }) =>
                   values.subSteps[0].options.map((option, idx) => (
                     <CalculatorQuestionItem
+                      optionsLength={values.subSteps[0].options.length}
                       type={values.subSteps[0].type}
                       nameBefore="subSteps[0]."
                       key={idx}
