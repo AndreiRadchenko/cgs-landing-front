@@ -146,13 +146,16 @@ export const EstimationFieldBox = styled.div`
   }
 `;
 
-export const EstimationFieldLabel = styled.p`
+export const EstimationFieldLabel = styled.p<{
+  readonly split: boolean;
+}>`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 22px;
+  border-bottom: ${(props) => (props.split ? "1px solid #8F8E93" : "none")};
   line-height: 26px;
-  padding: 0 0 20px 0;
-  margin: 0;
+  padding: ${(props) => (props.split ? "0 0 14px 0" : "0 0 20px 0")};
+  margin: ${(props) => (props.split ? "0 0 19px 0" : "0")};
   @media ${themes.primary.media.maxMobile} {
     font-size: 16px;
     line-height: 19px;
@@ -192,7 +195,7 @@ export const EstimationTextInput = styled.input`
 export const EstimationInputFlex = styled.div`
   display: flex;
   gap: 10px;
-  align-items: end;
+  align-items: center;
 `;
 
 export const EstimationInputRadio = styled.input`
@@ -202,6 +205,7 @@ export const EstimationInputRadio = styled.input`
   width: 20px;
   height: 20px;
   cursor: pointer;
+  flex: 0 0 auto;
   border: 2px solid ${themes.primary.colors.black};
   border-radius: 50%;
   box-shadow: 2px 0px 0px 0px ${themes.primary.colors.black};
@@ -247,6 +251,7 @@ export const EstimationInputCheckbox = styled.input`
   -webkit-appearance: none;
   appearance: none;
   position: relative;
+  flex: 0 0 auto;
   width: 22px;
   height: 22px;
   cursor: pointer;
@@ -372,5 +377,17 @@ export const EstimateNavigation = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column-reverse;
+  }
+`;
+
+export const EstimateOptionContainer = styled.div<{
+  readonly split: boolean;
+}>`
+  display: grid;
+  gap: 5px;
+  grid-template-columns: ${(props) => (props.split ? "50% 50%" : "100%")};
+
+  @media ${themes.primary.media.maxMobile} {
+    grid-template-columns: 100%;
   }
 `;

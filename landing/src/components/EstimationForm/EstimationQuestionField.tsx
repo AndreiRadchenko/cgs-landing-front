@@ -27,6 +27,7 @@ const EstimationQuestionField = ({ question }: { question: Question }) => {
         )}
         {question.optionsType === "RADIO_BUTTON" && (
           <RadioField
+            split={question.isSplitColumns}
             name={question.title}
             title={question.title}
             options={question.options}
@@ -34,6 +35,7 @@ const EstimationQuestionField = ({ question }: { question: Question }) => {
         )}
         {question.optionsType === "CHECKBOX" && (
           <CheckboxField
+            split={question.isSplitColumns}
             name={question.title}
             title={question.title}
             options={question.options}

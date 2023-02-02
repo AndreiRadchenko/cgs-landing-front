@@ -24,9 +24,7 @@ const Pagination = ({
             background: `${page + 1 === currentPage ? "#000" : "transparent"}`,
             color: `${page + 1 === currentPage ? "#fff" : "#000"}`,
           }}
-          onClick={() =>
-            currentPage > page + 1 && setPage((prevState) => prevState - 1)
-          }
+          onClick={() => currentPage > page + 1 && setPage(page + 1)}
         >
           {page + 1}
         </EstimationPaginationPage>

@@ -1,18 +1,18 @@
 import React from "react";
 import Image from "next/image";
 
-import bgImage1For1 from "../../../public/EstimationFormImages/image1.svg";
-import bgImage2For1 from "../../../public/EstimationFormImages/image2.svg";
-import bgImageDecor1For1 from "../../../public/EstimationFormImages/decoreImage1.svg";
-import bgImageDecor2For1 from "../../../public/EstimationFormImages/decoreImage2.svg";
+import bgImage1For1 from "../../../public/roulette.svg";
+import bgImage2For1 from "../../../public/player.svg";
+import bgImageDecor1For1 from "../../../public/plusBackground.svg";
+import bgImageDecor2For1 from "../../../public/lineBackground.svg";
 
-import bgImage1For2 from "../../../public/EstimationFormImages/image3.svg";
-import bgImageDecor1For2 from "../../../public/EstimationFormImages/decoreImage3.svg";
+import bgImage1For2 from "../../../public/clock.svg";
+import bgImageDecor1For2 from "../../../public/lineSBackground.svg";
 
-import bgImage1For3 from "../../../public/EstimationFormImages/image4.svg";
-import bgImage2For3 from "../../../public/EstimationFormImages/image5.svg";
-import bgImageDecor1For3 from "../../../public/EstimationFormImages/decoreImage4.svg";
-import bgImageDecor2For3 from "../../../public/EstimationFormImages/decoreImage5.svg";
+import bgImage1For3 from "../../../public/speaker.svg";
+import bgImage2For3 from "../../../public/camera.svg";
+import bgImageDecor1For3 from "../../../public/iconTBackground.svg";
+import bgImageDecor2For3 from "../../../public/lineTBackground.svg";
 
 import { EstimationImageContainer } from "../../styles/EstimationForm.styled";
 

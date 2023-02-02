@@ -1,6 +1,7 @@
 import React from "react";
 import { useField } from "formik";
 import {
+  EstimateOptionContainer,
   EstimationFieldLabel,
   EstimationFieldOption,
   EstimationInputFlex,
@@ -9,25 +10,30 @@ import {
 
 import { EstimationField } from "../../types/EstimationForm.types";
 
-const RadioField = ({ title, options, ...props }: EstimationField) => {
+const RadioField = ({ title, options, split, ...props }: EstimationField) => {
   const [field, meta, helpers] = useField(props);
 
   return (
     <>
-      <EstimationFieldLabel dangerouslySetInnerHTML={{ __html: title }} />
-      {options.map((option) => (
-        <EstimationInputFlex key={option.optionKey}>
-          <EstimationInputRadio
-            type="radio"
-            {...field}
-            {...props}
-            value={option.text}
-          />
-          <EstimationFieldOption
-            dangerouslySetInnerHTML={{ __html: option.text }}
-          />
-        </EstimationInputFlex>
-      ))}
+      <EstimationFieldLabel
+        split={split!}
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
+      <EstimateOptionContainer split={split!}>
+        {options.map((option) => (
+          <EstimationInputFlex key={option.optionKey}>
+            <EstimationInputRadio
+              type="radio"
+              {...field}
+              {...props}
+              value={option.text}
+            />
+            <EstimationFieldOption
+              dangerouslySetInnerHTML={{ __html: option.text }}
+            />
+          </EstimationInputFlex>
+        ))}
+      </EstimateOptionContainer>
     </>
   );
 };
