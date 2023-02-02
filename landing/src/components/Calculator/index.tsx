@@ -137,12 +137,6 @@ const Calculator = () => {
 
   const onSubmit = (values: ICalculatorFormValuesProps) => {
     const { questionsArr, isBlockchain, email } = values;
-    const emailData: ICalculatorPostEmailResultsProps = {
-      answers: questionsArr,
-      isBlockchain,
-      email,
-    };
-    mutate(emailData);
 
     const getRolesCoefObject = (
       matchData: Array<IStepOptions | Array<IStepOptions> | undefined>,
@@ -247,13 +241,19 @@ const Calculator = () => {
 
       const hours = getResults(classicStepsData, values.questionsArr, "hours");
       const uxui = getResults(classicStepsData, values.questionsArr, "uxui");
-      console.log(hours, uxui, price);
 
       if (
         typeof hours === "number" &&
         typeof uxui === "number" &&
         typeof price === "number"
       ) {
+        const emailData: ICalculatorPostEmailResultsProps = {
+          answers: questionsArr,
+          isBlockchain,
+          estimation: { uxui, hours, price },
+          email,
+        };
+        mutate(emailData);
         const leadEmailData: ILeadMailData = {
           uxui,
           hours,

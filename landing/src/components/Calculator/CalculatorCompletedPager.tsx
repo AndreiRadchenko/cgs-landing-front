@@ -41,6 +41,7 @@ const CalculatorCompletedPager = ({
         <CalculatorPager
           mobile={width < 768}
           onPagerClick={handlePagerButtonsClick}
+          startLoading={finishClick}
         >
           <Styled.ContentWrapper>
             {finishClick ? (
@@ -59,7 +60,9 @@ const CalculatorCompletedPager = ({
               </Styled.PressButtonWrapper>
             ) : (
               <Styled.FinishTextWrapper>
-                <SplitBrackets text={data?.finishMessage} />
+                <div>
+                  <SplitBrackets text={data?.finishMessage} />
+                </div>
               </Styled.FinishTextWrapper>
             )}
           </Styled.ContentWrapper>

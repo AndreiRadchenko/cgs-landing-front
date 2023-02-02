@@ -550,29 +550,6 @@ export const ContentWrapper = styled.div`
   margin-left: 8px;
   height: 92%;
   width: 93.5%;
-  overflow: auto;
-
-  &::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-  &::-webkit-scrollbar-track-piece:end {
-    background: transparent;
-    margin-bottom: 20px;
-  }
-
-  &::-webkit-scrollbar-track-piece:start {
-    background: transparent;
-    margin-top: 20px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: ${themes.primary.colors.primary};
-    border-radius: 10px;
-  }
 `;
 
 export const PagerText = styled.div`
@@ -1222,20 +1199,23 @@ export const FinishTextWrapper = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.55em;
+    padding-top: 1.3em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.666em;
+    padding-top: 1.4em;
   }
 
   @media ${themes.primary.media.maxMobile} {
+    padding-top: 1em;
     font-size: 1.346em;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-block: 0;
-    & span:nth-child(2) br {
+    & > div span:nth-child(2) br {
       display: none;
     }
   }
@@ -1421,7 +1401,8 @@ export const CalculatorInputsFieldsWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     &.last {
-      padding-block: 0.53em;
+      font-size: 14px;
+      padding: 0 1.5em 0.53em 0;
     }
 
     &.quit {

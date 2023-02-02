@@ -1,7 +1,6 @@
 import React, { Children, ReactNode } from "react";
 import CalculatorStepsFormContent from "./CalculatorStepsFormContent";
 import CalculatorQuittingPager from "./CalculatorQuttingPager";
-import { useFormikContext } from "formik";
 
 interface ICalculatorStepsComponentProps {
   step: number;
