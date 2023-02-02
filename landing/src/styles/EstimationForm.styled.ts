@@ -134,9 +134,16 @@ export const ContainerEstimationForm = styled.div`
   }
 `;
 
-export const EstimationFieldBox = styled.div`
+export const EstimationFieldBox = styled.div<{
+  readonly error?: boolean;
+}>`
   position: relative;
-  background-color: ${themes.primary.colors.blogBackground};
+  background-color: ${({ error }) =>
+    error
+      ? `${themes.primary.colors.mainGradientColor2}`
+      : `${themes.primary.colors.blogBackground}`};
+  color: ${({ error }) =>
+    error ? "rgba(241, 239, 237, 1)" : `${themes.primary.colors.black}`};
   z-index: 1;
   border: 2px solid ${themes.primary.colors.black};
   padding: 16px 18px;
@@ -147,12 +154,18 @@ export const EstimationFieldBox = styled.div`
 `;
 
 export const EstimationFieldLabel = styled.p<{
-  readonly split: boolean;
+  readonly split?: boolean;
+  readonly error?: boolean;
 }>`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 22px;
-  border-bottom: ${(props) => (props.split ? "1px solid #8F8E93" : "none")};
+  border-bottom: ${(props) =>
+    props.split
+      ? props.error
+        ? " 1px solid rgba(241, 239, 237, 0.5)"
+        : "1px solid #8F8E93"
+      : "none"};
   line-height: 26px;
   padding: ${(props) => (props.split ? "0 0 14px 0" : "0 0 20px 0")};
   margin: ${(props) => (props.split ? "0 0 19px 0" : "0")};
@@ -162,7 +175,9 @@ export const EstimationFieldLabel = styled.p<{
   }
 `;
 
-export const EstimationFieldOption = styled.p`
+export const EstimationFieldOption = styled.p<{
+  readonly error?: boolean;
+}>`
   margin: 0;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
@@ -174,10 +189,15 @@ export const EstimationFieldOption = styled.p`
   }
   p {
     margin: 0;
+    span {
+      color: ${(props) => props.error && "rgba(241, 239, 237, 0.5) !important"};
+    }
   }
 `;
 
-export const EstimationTextInput = styled.input`
+export const EstimationTextInput = styled.input<{
+  readonly error?: boolean;
+}>`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 18px;
@@ -186,6 +206,9 @@ export const EstimationTextInput = styled.input`
   outline: none;
   background: transparent;
   width: 100%;
+  &::placeholder {
+    color: ${(props) => props.error && "rgba(241, 239, 237, 0.5)"};
+  }
   @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
     line-height: 17px;

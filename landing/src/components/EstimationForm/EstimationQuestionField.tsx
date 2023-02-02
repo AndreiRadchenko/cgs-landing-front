@@ -13,13 +13,23 @@ import {
   HoverBlock,
   HoverContainer,
 } from "../../styles/Blog.styled";
+import { useField, useFormikContext } from "formik";
 
-const EstimationQuestionField = ({ question }: { question: Question }) => {
+const EstimationQuestionField = ({
+  question,
+  index,
+}: {
+  question: Question;
+  index: number;
+}) => {
+  const [, meta] = useField(`questionsArr[${index}]`);
+
   return (
     <HoverContainer>
-      <EstimationFieldBox>
+      <EstimationFieldBox error={!!meta.error && meta!.touched}>
         {question.optionsType === "TEXT" && (
           <TextField
+            index={index}
             name={question.title}
             title={question.title}
             options={question.options}
@@ -27,6 +37,7 @@ const EstimationQuestionField = ({ question }: { question: Question }) => {
         )}
         {question.optionsType === "RADIO_BUTTON" && (
           <RadioField
+            index={index}
             split={question.isSplitColumns}
             name={question.title}
             title={question.title}
@@ -35,6 +46,7 @@ const EstimationQuestionField = ({ question }: { question: Question }) => {
         )}
         {question.optionsType === "CHECKBOX" && (
           <CheckboxField
+            index={index}
             split={question.isSplitColumns}
             name={question.title}
             title={question.title}

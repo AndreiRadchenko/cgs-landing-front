@@ -1,14 +1,15 @@
 import React from "react";
 
-import { useField } from "formik";
+import { useField, useFormikContext } from "formik";
 import {
   EstimationFieldLabel,
   EstimationTextInput,
 } from "../../styles/EstimationForm.styled";
 import { EstimationField } from "../../types/EstimationForm.types";
 
-const TextField = ({ title, options, ...props }: EstimationField) => {
-  const [field, meta, helpers] = useField(props);
+const TextField = ({ title, options, index, ...props }: EstimationField) => {
+  const formik = useFormikContext();
+  const [, meta] = useField(`questionsArr[${index}]`);
 
   let placeholder = "Text";
   if (options.length > 0)
@@ -20,8 +21,11 @@ const TextField = ({ title, options, ...props }: EstimationField) => {
     <>
       <EstimationFieldLabel dangerouslySetInnerHTML={{ __html: title }} />
       <EstimationTextInput
-        {...field}
+        error={!!meta.error && meta!.touched}
         {...props}
+        onChange={(e) =>
+          formik.setFieldValue(`questionsArr[${index}].value`, e.target.value)
+        }
         type="text"
         placeholder={`< ${placeholder} >`}
       />

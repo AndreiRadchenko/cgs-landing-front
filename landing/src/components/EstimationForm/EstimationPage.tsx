@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminEstimationFormService } from "../../services/adminEstimationForm";
@@ -13,6 +13,7 @@ import {
 } from "../../styles/EstimationForm.styled";
 
 import Pagination from "./Pagination";
+import { EstimationValidation } from "../../validations/EstimationValidation";
 
 const EstimationPage = ({
   pageN,
@@ -26,30 +27,38 @@ const EstimationPage = ({
     () => adminEstimationFormService.getPageData(pageN.toString())
   );
 
-  const initialValObj = {};
+  if (isLoading) {
+    return <p>loading</p>;
+  }
 
-  useEffect(() => {
-    data?.page.questions.map((question) => {
-      question.optionsType === "TEXT" ||
-        (question.optionsType === "RADIO_BUTTON" &&
-          Object.defineProperty(initialValObj, question.title, { value: "" }));
-      question.optionsType === "CHECKBOX" &&
-        Object.defineProperty(initialValObj, question.title, { value: [] });
-    });
-  }, [data]);
+  const initialValues = {
+    questionsArr: data?.page.questions.map((question) => {
+      return {
+        questionTitle: question.title,
+        required: question.isRequired,
+        value:
+          question.optionsType === "TEXT" ||
+          question.optionsType === "RADIO_BUTTON"
+            ? ""
+            : [],
+      };
+    }),
+  };
 
   return (
     <ContainerEstimationForm>
       <Formik
-        initialValues={initialValObj}
+        initialValues={initialValues}
+        validationSchema={EstimationValidation}
         onSubmit={(values) => {
           setPage((prevState: number) => prevState + 1);
           console.log(values);
         }}
       >
         <Form>
-          {data?.page.questions.map((question) => (
+          {data?.page.questions.map((question, index) => (
             <EstimationQuestionField
+              index={index}
               key={question.questionKey}
               question={question}
             />

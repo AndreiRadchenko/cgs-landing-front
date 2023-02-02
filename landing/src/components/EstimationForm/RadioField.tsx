@@ -1,5 +1,5 @@
 import React from "react";
-import { useField } from "formik";
+import { useField, useFormikContext } from "formik";
 import {
   EstimateOptionContainer,
   EstimationFieldLabel,
@@ -10,8 +10,15 @@ import {
 
 import { EstimationField } from "../../types/EstimationForm.types";
 
-const RadioField = ({ title, options, split, ...props }: EstimationField) => {
-  const [field, meta, helpers] = useField(props);
+const RadioField = ({
+  title,
+  options,
+  split,
+  index,
+  ...props
+}: EstimationField) => {
+  const formik = useFormikContext();
+  const [, meta] = useField(`questionsArr[${index}]`);
 
   return (
     <>
@@ -24,11 +31,17 @@ const RadioField = ({ title, options, split, ...props }: EstimationField) => {
           <EstimationInputFlex key={option.optionKey}>
             <EstimationInputRadio
               type="radio"
-              {...field}
+              onChange={(e) =>
+                formik.setFieldValue(
+                  `questionsArr[${index}].value`,
+                  e.target.value
+                )
+              }
               {...props}
               value={option.text}
             />
             <EstimationFieldOption
+              error={!!meta.error && meta!.touched}
               dangerouslySetInnerHTML={{ __html: option.text }}
             />
           </EstimationInputFlex>

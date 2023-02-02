@@ -28,6 +28,7 @@ export interface Page {
 
 export interface EstimationField {
   name: string;
+  index?: number;
   title: string;
   split?: boolean;
   options: Option[];
