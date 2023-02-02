@@ -428,6 +428,14 @@ export const TieUpInput = styled(Field)`
     }
   }
 
+  @media ${themes.primary.media.minPC} {
+    &.radio {
+      &:checked::before {
+        transform: scale(1) translateY(0.3px);
+      }
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     &.checkbox {
       transform: translateY(-10%);

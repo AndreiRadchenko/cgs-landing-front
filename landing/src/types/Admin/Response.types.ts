@@ -671,17 +671,17 @@ export interface ICalculatorPostResultsProps {
   answers: ICalculatorQuestion[];
   isBlockchain: boolean;
 }
-
-export interface ICalculatorPostEmailResultsProps {
-  answers: ICalculatorQuestion[];
-  isBlockchain: boolean;
-  email: string;
-}
-
 export interface ILeadMailData {
   uxui: number;
   hours: number;
   price: number;
+}
+
+export interface ICalculatorPostEmailResultsProps {
+  answers: ICalculatorQuestion[];
+  isBlockchain: boolean;
+  estimation: ILeadMailData;
+  email: string;
 }
 
 export interface ICalculatorPostLeadEmailResultsProps {

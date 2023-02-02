@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import CalcualtorResultForm from "./CalcualtorResultForm";
 import CalculatorStepsModalComponent from "./CalculatorStepsModalComponent";
 import Logo from "./CalculatorLogo";
@@ -8,7 +8,6 @@ import { ICalculatorFormValuesProps } from "../../types/Admin/Response.types";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import CalculatorPopover from "./CalculatorPopover";
 import CalculatorPagination from "./CalculatorPagination";
-import { ClickAudio, Source } from "../HeaderNavNew/HeaderNav.styled";
 
 const PAGINATION_STEPS_PER_PAGE = 8;
 
@@ -41,12 +40,9 @@ const CalculatorStepsFormContent = ({
 }: ICalculatorStepsFormContentProps) => {
   const { values, isValid, errors, handleSubmit, validateForm } =
     useFormikContext<ICalculatorFormValuesProps>();
-  const audioRef = useRef<HTMLAudioElement>(null);
 
-  const handleClick = () => {
-    audioRef.current?.play();
+  const handleClick = () =>
     stepsCount <= 10 ? onButtonClick() : handlePaginationNextClick();
-  };
 
   const [startButtonNum, setStartButtonNum] = useState<number>(0);
   const { width } = useWindowDimension();
@@ -209,9 +205,6 @@ const CalculatorStepsFormContent = ({
                 )}
               </Styled.StepButtonWrapper>
               <Styled.StepsMainButtonWrapper>
-                <ClickAudio ref={audioRef}>
-                  <Source src="/music/calculatorButton.mp3" type="audio/mpeg" />
-                </ClickAudio>
                 <Styled.StartButton
                   type="submit"
                   className={`steps ${warnIsShow ? "invalid" : ""}`}

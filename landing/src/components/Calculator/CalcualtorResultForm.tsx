@@ -7,9 +7,7 @@ import {
   ICalculatorAnswersResults,
   ICalculatorFormValuesProps,
   ICalculatorStep,
-  IStepOptions,
 } from "../../types/Admin/Response.types";
-import { count } from "../../utils/countCalculatorAmountByKey";
 import { getResults } from "../../utils/getCalculatorResults";
 import CalculatorEmailField from "./CalculatorEmailField";
 import CalculatorTitleField from "./CalculatorTitleField";
