@@ -60,7 +60,6 @@ const NextTech = () => {
             alt="film text image"
           />
         )}
-
         <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
       </Styled.FilmContainer>
       <Styled.Subtitle className="small">

@@ -1,6 +1,7 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useRef } from "react";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 import Logo from "./CalculatorLogo";
+import { ClickAudio, Source } from "../HeaderNavNew/HeaderNav.styled";
 
 interface ICalculatorModalComponentProps {
   buttonText: string;
@@ -21,6 +22,28 @@ const CalculatorModalComponent = ({
   mobile,
   children,
 }: ICalculatorModalComponentProps) => {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const handleQuitClick = () => {
+    audioRef.current?.play();
+    onQuitButtonClick && onQuitButtonClick();
+  };
+
+  const handleContinueClick = () => {
+    audioRef.current?.play();
+    onButtonClick();
+  };
+
+  const buttonClassName = () => {
+    let className = "";
+    if (buttonText === "< choose >") {
+      className += "hide ";
+    }
+
+    if (isQuiting) {
+      className += "quit";
+    }
+    return className;
+  };
   const foreignObject = (
     <foreignObject width="100%" height="100%">
       <Styled.ForeignObjectWrapper>
@@ -32,13 +55,16 @@ const CalculatorModalComponent = ({
         </Styled.CalculatorHeaderWrapper>
         {children}
         {isQuiting && (
-          <Styled.QuitButton onClick={onQuitButtonClick}>
+          <Styled.QuitButton onClick={handleQuitClick}>
             {"< quit >"}
           </Styled.QuitButton>
         )}
+        <ClickAudio ref={audioRef}>
+          <Source src="/music/calculatorButton.mp3" type="audio/mpeg" />
+        </ClickAudio>
         <Styled.StartButton
-          onClick={onButtonClick}
-          className={isQuiting ? "quit" : undefined}
+          onClick={handleContinueClick}
+          className={buttonClassName()}
         >
           {buttonText}
         </Styled.StartButton>

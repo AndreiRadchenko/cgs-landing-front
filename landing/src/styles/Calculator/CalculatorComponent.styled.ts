@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 import LoaderImg from "../../../public/Calculator/calculatorLoader.gif";
+import { glow } from "../Animations.styled";
 
 export const CalculatorPreviewWrapper = styled.div`
   position: fixed;
@@ -25,7 +26,7 @@ export const CalculatorPreview = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
-    height: 248px;
+    height: 60px;
   }
 `;
 
@@ -34,7 +35,7 @@ export const CalculatorPreviewCube = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100vw;
-    height: 248px;
+    height: 60px;
   }
 `;
 
@@ -56,34 +57,30 @@ export const CalculatorButton = styled.div`
   z-index: 2;
   transition: all 0.2s;
   position: relative;
+  background: linear-gradient(
+    180deg,
+    ${themes.primary.colors.mainGradientColor1},
+    ${themes.primary.colors.mainGradientColor2},
+    ${themes.primary.colors.mainGradientColor1}
+  );
+  background-size: auto 400%;
+  animation: ${glow} 12s linear infinite;
 
   &::after {
     content: "";
-    width: 60px;
+    width: 61px;
     height: 3px;
     border: 1.8px solid ${themes.primary.colors.primary};
     position: absolute;
     bottom: -5px;
-    left: 0px;
+    left: 0;
     background: ${themes.primary.colors.mainGradientColor2};
-
-    -webkit-transform: skew(-40deg);
-    -webkit-transform-origin: top;
-
-    -moz-transform: skew(-40deg);
-    -moz-transform-origin: top;
-
-    -ms-transform: skew(-40deg);
-    -ms-transform-origin: top;
-
-    -o-transform: skew(-40deg);
-    -o-transform-origin: top;
-
-    transform: skew(-40deg);
+    transform: skew(-50deg);
     transform-origin: top;
   }
 
-  &:hover + div {
+  &:hover + div,
+  .active + div {
     left: -19.83em;
   }
 
@@ -94,9 +91,10 @@ export const CalculatorButton = styled.div`
     border-width: 1.8px 0 1.8px 0;
     font-size: 2.11em;
 
-    &:hover + div {
+    &:hover + div,
+    .active + div {
       left: auto;
-      top: 0;
+      top: -188px;
     }
 
     &::after {
@@ -120,63 +118,35 @@ export const CalculatorPreviewContentWrapper = styled.div`
   top: 0;
   left: 0;
   transition: all 0.3s;
-  border-width: 1.8px 0 0 1.8px;
-  border-style: solid;
-  border-color: ${themes.primary.colors.primary};
+  border-top: 1.8px solid ${themes.primary.colors.primary};
 
   &::after {
     content: "";
-    width: 101%;
+    width: 100.5%;
     height: 3px;
     border: 1.8px solid ${themes.primary.colors.primary};
     position: absolute;
     bottom: -3px;
-    left: -3px;
+    left: 0px;
     background: ${themes.primary.colors.mainGradientColor2};
-
-    -webkit-transform: skew(-40deg);
-    -webkit-transform-origin: top;
-
-    -moz-transform: skew(-40deg);
-    -moz-transform-origin: top;
-
-    -ms-transform: skew(-40deg);
-    -ms-transform-origin: top;
-
-    -o-transform: skew(-40deg);
-    -o-transform-origin: top;
-
-    transform: skew(-40deg);
+    transform: skew(-45deg);
     transform-origin: top;
   }
 
   &::before {
     content: "";
     width: 5px;
-    height: 98.1%;
+    height: 99%;
     position: absolute;
-    top: 0.2px;
-    left: -9px;
+    top: 0.1px;
+    left: -7px;
     border: 1.8px solid ${themes.primary.colors.primary};
-    border-right: 0;
-
-    background: linear-gradient(180deg, #d6ffbb 8%, #5869dd 110.45%);
-    -webkit-transform: skewY(-40deg);
-    -webkit-transform-origin: top;
-
-    -moz-transform: skewY(-30deg);
-    -moz-transform-origin: top;
-
-    -ms-transform: skewY(-30deg);
-    -ms-transform-origin: top;
-
-    -o-transform: skewY(-30deg);
-    -o-transform-origin: top;
-
+    background: ${themes.primary.colors.mainGradientColor2};
     transform: skewY(-30deg);
     transform-origin: top;
   }
 
+  &.active,
   &:hover {
     left: -19.83em;
   }
@@ -192,7 +162,7 @@ export const CalculatorPreviewContentWrapper = styled.div`
     width: 100%;
     height: 192px;
     left: 0;
-    top: 188px;
+    top: 0;
     border-width: 1.8px 0 0 0;
     font-size: 1.54em;
     line-height: 160%;
@@ -212,9 +182,10 @@ export const CalculatorPreviewContentWrapper = styled.div`
       background: linear-gradient(270deg, #d6ffbb 8%, #5869dd 90.45%);
     }
 
-    &:hover {
+    &:hover,
+    &.active {
       left: 0;
-      top: 0;
+      top: -188px;
     }
 
     & > div {
@@ -385,7 +356,7 @@ export const StartButton = styled.button`
   right: 39px;
   bottom: 35px;
   cursor: pointer;
-  padding: 1.105em 2.05em;
+  padding: 1.105em 1.8em;
   border-radius: 0.52em;
   font-size: 1.5833em;
   text-transform: uppercase;
@@ -405,6 +376,10 @@ export const StartButton = styled.button`
   &.invalid + div {
     opacity: 1;
     z-index: 3;
+  }
+
+  &.hide {
+    display: none;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -454,7 +429,7 @@ export const StepButtonWrapper = styled.div`
   margin-top: 3em;
   padding-left: 2.8333em;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   flex-wrap: wrap;
   row-gap: 1.7em;
   column-gap: 1.6em;
@@ -495,7 +470,7 @@ export const StepButtonWrapper = styled.div`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-right: 2.9em;
 
   @media ${themes.primary.media.maxMobile} {
@@ -603,7 +578,8 @@ export const ContentWrapper = styled.div`
 export const PagerText = styled.div`
   padding: 20px 0 20px 18px;
   font-size: ${themes.primary.font.size.oneAndHalf};
-  font-family: ${themes.primary.font.family.namu};
+  font-family: ${themes.primary.font.family.openSans};
+  font-weight: ${themes.primary.font.weight.bold};
   line-height: 160%;
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -637,9 +613,33 @@ export const PagerText = styled.div`
 
 export const CalculatorPagerLeftButton = styled.g`
   cursor: pointer;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
 `;
 export const CalculatorPagerRightButton = styled.g`
   cursor: pointer;
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+`;
+
+export const LeftButtonArrow = styled.g`
+  color: black;
+
+  &.disabled {
+    color: rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const RightButtonArrow = styled.g`
+  color: black;
+  &.disabled {
+    color: rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const LoaderWrapper = styled.div`
@@ -708,7 +708,7 @@ export const ChooseModalWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   row-gap: 1.1em;
-  top: 7em;
+  top: 9.5em;
   padding-inline: 2.666em;
 
   @media ${themes.primary.media.maxMobile} {
@@ -729,16 +729,19 @@ export const ChooseText = styled.div`
   font-family: ${themes.primary.font.family.namu};
   line-height: 160%;
   cursor: pointer;
+  font-family: ${themes.primary.font.family.openSans};
+  font-weight: ${themes.primary.font.weight.bold};
   transition: color 0.15s, background-color 0.3s;
   display: flex;
   align-items: center;
 
   &:hover {
-    color: ${themes.primary.colors.darkBlue};
+    background-color: ${themes.primary.colors.darkBlue};
+    color: ${themes.primary.colors.secondary};
   }
 
   &:active {
-    background-color: ${themes.primary.colors.darkBlue};
+    background-color: ${themes.primary.colors.calculatorDarkBlue};
     color: ${themes.primary.colors.secondary};
   }
 
@@ -803,7 +806,7 @@ export const CalculatorFieldWrapper = styled.div`
   }
 
   &.title {
-    max-height: 80px;
+    max-height: 120px;
   }
 
   &.last {
@@ -945,6 +948,11 @@ export const Disabled = styled.div`
   width: 100%;
   height: 100%;
 
+  & p {
+    display: inline;
+    margin: 0;
+  }
+
   & > div {
     font-size: 1.125em;
     max-width: 345px;
@@ -978,7 +986,7 @@ export const CalculatorField = styled.div`
   line-height: 132%;
   margin: 6px 0px 0 4px;
   background-color: ${themes.primary.colors.blogBackground};
-  max-height: 70px;
+  max-height: none;
   position: relative;
 
   & p {
@@ -1003,6 +1011,33 @@ export const CalculatorField = styled.div`
     &:first-letter {
       text-transform: uppercase;
     }
+  }
+
+  & .__se__t-heavy {
+    font-weight: ${themes.primary.font.weight.heavy};
+  }
+
+  & .__se__t-extra-bold {
+    font-weight: ${themes.primary.font.weight.extraBold};
+  }
+
+  & .__se__t-bold {
+    font-weight: ${themes.primary.font.weight.bold};
+  }
+
+  & .__se__t-semi-bold {
+    font-weight: ${themes.primary.font.weight.semiBold};
+  }
+
+  & .__se__t-medium {
+    font-weight: ${themes.primary.font.weight.medium};
+  }
+
+  & .__se__t-normal {
+    font-weight: ${themes.primary.font.weight.normal};
+  }
+  & .__se__t-light {
+    font-weight: ${themes.primary.font.weight.light};
   }
 
   &.text {
@@ -1089,8 +1124,9 @@ export const CalculatorInputFields = styled.div`
   font-family: ${themes.primary.font.family.namu};
   padding-inline: 1em 4px;
   position: relative;
+
   &.email {
-    padding-block: 1.5em;
+    padding-block: 1.3em 1.7em;
   }
 
   &.disabled {
@@ -1106,7 +1142,7 @@ export const CalculatorInputFields = styled.div`
     height: 99.2%;
     width: 98.4%;
     margin: 2px 0 0 3px;
-    padding: 0.7em 4px 0 0.5em;
+    padding: 0 4px 0 0.5em;
 
     &.email {
       height: 97%;
@@ -1173,8 +1209,9 @@ export const EmailInputWrapper = styled.div`
 export const FinishTextWrapper = styled.div`
   font-size: 1.6666em;
   line-height: 160%;
-  font-family: ${themes.primary.font.family.namu};
-  padding: 1.2em 1em;
+  font-family: ${themes.primary.font.family.openSans};
+  font-weight: ${themes.primary.font.weight.bold};
+  padding: 1.4em 1em;
 
   @media ${themes.primary.media.minPC} {
     font-size: 1.5em;
@@ -1301,31 +1338,86 @@ export const PopoverTriangle = styled.div`
 
 export const CalculatorInputsFieldsWrapper = styled.div`
   padding-block: 0.53em;
-  margin-bottom: 0.2em;
   height: 100%;
   width: 100%;
   z-index: 2;
-  overflow-y: scroll;
+  font-family: ${themes.primary.font.family.openSans};
+  overflow: hidden;
+
+  &.quit {
+    padding-top: 5px;
+    font-size: 20px;
+    font-weight: ${themes.primary.font.weight.bold};
+  }
 
   &.last {
     padding-block: 0;
+    font-size: 18px;
+    font-weight: ${themes.primary.font.weight.bold};
   }
 
   &.input {
     padding-top: 0;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${themes.primary.colors.primary};
+      border-radius: 10px;
+    }
+
+    scrollbar-color: ${themes.primary.colors.primary} transparent;
+    scrollbar-width: thin;
   }
 
-  &::-webkit-scrollbar {
-    width: 4px;
+  & .__se__t-upper {
+    text-transform: uppercase;
   }
 
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
+  & .__se__t-lower {
+    text-transform: lowercase;
   }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: ${themes.primary.colors.primary};
-    border-radius: 10px;
+  & .__se__t-first-letter-capitalize {
+    display: block;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  & .__se__t-heavy {
+    font-weight: ${themes.primary.font.weight.heavy};
+  }
+
+  & .__se__t-extra-bold {
+    font-weight: ${themes.primary.font.weight.extraBold};
+  }
+
+  & .__se__t-bold {
+    font-weight: ${themes.primary.font.weight.bold};
+  }
+
+  & .__se__t-semi-bold {
+    font-weight: ${themes.primary.font.weight.semiBold};
+  }
+
+  & .__se__t-medium {
+    font-weight: ${themes.primary.font.weight.medium};
+  }
+
+  & .__se__t-normal {
+    font-weight: ${themes.primary.font.weight.normal};
+  }
+  & .__se__t-light {
+    font-weight: ${themes.primary.font.weight.light};
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -1366,5 +1458,5 @@ export const SubStepTitle = styled.h3`
 `;
 
 export const InputsWrapper = styled.div`
-  padding-top: 1.5em;
+  padding-top: 1.125em;
 `;

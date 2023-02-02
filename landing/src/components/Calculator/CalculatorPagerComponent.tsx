@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import CalculatorModal from "./CalculatorPagerModalComponent";
 import PressButtonArrow from "../../../public/Calculator/pressButtonArrow.svg";
@@ -10,6 +10,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICalculator, ICalculatorStep } from "../../types/Admin/Response.types";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { ClickAudio, Source } from "../HeaderNavNew/HeaderNav.styled";
 
 interface ICalculatorPagerComponentProps {
   buttonText: string;
@@ -40,6 +41,11 @@ const CalculatorPagerComponent = ({
   handleClassicClick,
   handlePagerButtonsClick,
 }: ICalculatorPagerComponentProps) => {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const handleClick = () => {
+    audioRef.current?.play();
+    handlePagerButtonsClick();
+  };
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<ICalculator>([
     queryKeys.getCalculatorData,
@@ -71,8 +77,12 @@ const CalculatorPagerComponent = ({
       ) : (
         <CalculatorPager
           mobile={width < 768}
-          onPagerClick={handlePagerButtonsClick}
+          onPagerClick={handleClick}
+          startLoading={startLoading}
         >
+          <ClickAudio ref={audioRef}>
+            <Source src="/music/calculatorButton.mp3" type="audio/mpeg" />
+          </ClickAudio>
           <Styled.ContentWrapper>
             {(startLoading && (
               <>

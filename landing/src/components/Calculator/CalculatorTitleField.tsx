@@ -12,7 +12,7 @@ const CalculatorTitleField = ({
   disabled,
   className,
 }: ICalculatorTitleField) => {
-  const fieldWrapperClassName = `${className} title`;
+  const fieldWrapperClassName = `${className ? className : ""} title`;
 
   return (
     <Styled.CalculatorFieldWrapper className={fieldWrapperClassName}>

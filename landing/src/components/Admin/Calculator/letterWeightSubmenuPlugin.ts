@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-export const letterCaseSubmenu = {
-  name: "letterCase",
+export const letterWeightSubmenu = {
+  name: "letterWeight",
   display: "submenu",
   innerHTML:
-    '<svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.792 7.08H2.256L1.428 9H0.12L3.888 0.599999H5.232L9 9H7.62L6.792 7.08ZM6.324 5.976L4.536 1.836L2.736 5.976H6.324ZM15.4892 4.716C15.8812 4.924 16.1772 5.192 16.3772 5.52C16.5772 5.84 16.6772 6.208 16.6772 6.624C16.6772 7.08 16.5692 7.488 16.3532 7.848C16.1452 8.2 15.8372 8.48 15.4292 8.688C15.0212 8.896 14.5332 9 13.9652 9H10.1972V0.599999H13.9532C14.4972 0.599999 14.9652 0.7 15.3572 0.9C15.7492 1.1 16.0452 1.372 16.2452 1.716C16.4532 2.06 16.5572 2.448 16.5572 2.88C16.5572 3.28 16.4692 3.636 16.2932 3.948C16.1172 4.26 15.8492 4.516 15.4892 4.716ZM13.8932 4.272C14.3732 4.272 14.7332 4.16 14.9732 3.936C15.2212 3.704 15.3452 3.372 15.3452 2.94C15.3452 2.116 14.8612 1.704 13.8932 1.704H11.3972V4.272H13.8932ZM13.9052 7.896C14.4012 7.896 14.7772 7.784 15.0332 7.56C15.2892 7.336 15.4172 7.008 15.4172 6.576C15.4172 6.16 15.2892 5.848 15.0332 5.64C14.7772 5.424 14.4012 5.316 13.9052 5.316H11.3972V7.896H13.9052Z" fill="black"/></svg>',
-  title: "Set letter case",
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.76 15.75"><g><path d="M6.4,3.76V19.5h6.76a5.55,5.55,0,0,0,2-.32,4.93,4.93,0,0,0,1.52-1,4.27,4.27,0,0,0,1.48-3.34,3.87,3.87,0,0,0-.69-2.37,5.74,5.74,0,0,0-.71-.83,3.44,3.44,0,0,0-1.1-.65,3.6,3.6,0,0,0,1.58-1.36,3.66,3.66,0,0,0,.53-1.93,3.7,3.7,0,0,0-1.21-2.87,4.65,4.65,0,0,0-3.25-1.1H6.4Zm2.46,6.65V5.57h3.52a4.91,4.91,0,0,1,1.36.15,2.3,2.3,0,0,1,.85.45,2.06,2.06,0,0,1,.74,1.71,2.3,2.3,0,0,1-.78,1.92,2.54,2.54,0,0,1-.86.46,4.7,4.7,0,0,1-1.32.15H8.86Zm0,7.27V12.15H12.7a4.56,4.56,0,0,1,1.38.17,3.43,3.43,0,0,1,.95.49,2.29,2.29,0,0,1,.92,2,2.73,2.73,0,0,1-.83,2.1,2.66,2.66,0,0,1-.83.58,3.25,3.25,0,0,1-1.26.2H8.86Z" transform="translate(-6.4 -3.75)"></path></g></svg>',
+  title: "Set letter weight",
   add: function (core: any, targetElement: any) {
     const context = core.context;
     context.textStyle = {
@@ -34,19 +34,39 @@ export const letterCaseSubmenu = {
     listDiv.className = "se-submenu se-list-layer se-list-format";
 
     const defaultList = {
-      upper: {
-        name: "AB",
-        class: "__se__t-upper",
+      heavy: {
+        name: "heavy",
+        class: "__se__t-heavy",
         tag: "span",
       },
-      firstletter: {
-        name: "Ab",
-        class: "__se__t-first-letter-capitalize",
+      extra: {
+        name: "extra bold",
+        class: "__se__t-extra-bold",
         tag: "span",
       },
-      lower: {
-        name: "ab",
-        class: "__se__t-lower",
+      bold: {
+        name: "bold",
+        class: "__se__t-bold",
+        tag: "span",
+      },
+      semi: {
+        name: "semi bold",
+        class: "__se__t-semi-bold",
+        tag: "span",
+      },
+      medium: {
+        name: "medium",
+        class: "__se__t-medium",
+        tag: "span",
+      },
+      normal: {
+        name: "normal",
+        class: "__se__t-normal",
+        tag: "span",
+      },
+      light: {
+        name: "light",
+        class: "__se__t-light",
         tag: "span",
       },
     };

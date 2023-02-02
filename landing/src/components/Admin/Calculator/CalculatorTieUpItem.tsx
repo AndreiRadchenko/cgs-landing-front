@@ -27,11 +27,15 @@ const CalculatorTieUpItem = ({ data, current }: ICalculatorTieUpItemProps) => {
           typeof values.tieUpSteps[0].number === "number" &&
           typeof data[values.tieUpSteps[0].number].options !== "string" &&
           (data[values.tieUpSteps[0].number].options as IStepOptions[]).map(
-            (el, ind) => {
-              return (
-                <CalculatorTieUpInputItem tieUp ind={ind} item={el} key={ind} />
-              );
-            }
+            (el, ind) => (
+              <CalculatorTieUpInputItem
+                type={data[values.tieUpSteps[0].number as number].type}
+                tieUp
+                ind={ind}
+                item={el}
+                key={ind}
+              />
+            )
           )}
       </Styled.InputsWrapper>
     </Styled.TieUpContainer>
