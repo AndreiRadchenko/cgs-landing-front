@@ -43,6 +43,7 @@ const EstimationPage = ({
       <Formik
         initialValues={initialValObj}
         onSubmit={(values) => {
+          setPage((prevState: number) => prevState + 1);
           console.log(values);
         }}
       >
@@ -61,10 +62,7 @@ const EstimationPage = ({
                 setPage={setPage}
               />
               <div>
-                <StyledButton
-                  onClick={() => setPage((prevState: number) => prevState + 1)}
-                  type="submit"
-                >
+                <StyledButton type="submit">
                   {data?.pageCount > pageN ? "< NEXT SECTION >" : "< FINISH >"}
                 </StyledButton>
               </div>
