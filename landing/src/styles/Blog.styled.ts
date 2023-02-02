@@ -262,6 +262,7 @@ export const BlogItemTitle = styled.p`
 
 export const HoverContainer = styled.div`
   position: relative;
+
   &:hover ${HoverBlackBlock} {
     visibility: visible;
   }
