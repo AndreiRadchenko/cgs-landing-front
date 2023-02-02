@@ -199,7 +199,6 @@ const themes = {
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",
-      maxTablet: "(max-width: 768px)",
       minTabletLandScape: "(min-width: 992px)",
       minMiniTabletLandScape: "(min-width: 840px)",
       minTablet: "(max-width: 625px)",
@@ -217,7 +216,7 @@ const themes = {
       maxLowestScreenMobile: "(max-width: 374px)",
       maxLowMobileHeight: "(max-height: 610px)",
       estiomationFormWidth: "(max-width: 570px)",
-      maxMobile: "(max-width: 767px)",
+      maxMobile: "(max-width: 768px)",
       minMobile: "(min-width: 767px)",
       maxMobileHeight: "(max-height: 710px)",
       maxTabletPortrait: "(max-width: 992px)",

@@ -839,7 +839,7 @@ export const CalculatorFieldWrapper = styled.div`
     margin-inline: 17px;
     border-radius: 5px;
     &.title {
-      max-height: 64px;
+      max-height: 90px;
     }
 
     &.last {
@@ -1081,7 +1081,6 @@ export const CalculatorField = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    max-height: 57px;
     font-size: 1.346em;
     width: 98.4%;
     margin: 3px 0 0 3px;
