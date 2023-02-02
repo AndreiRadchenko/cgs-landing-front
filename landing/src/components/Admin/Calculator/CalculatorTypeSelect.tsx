@@ -7,6 +7,7 @@ import {
   ICalculator,
   ICalculatorStep,
 } from "../../../types/Admin/Response.types";
+import TypeSelectArrow from "./svg/typeSelectArrow";
 
 interface ICalculatorTypeSelectProps {
   header?: string;
@@ -56,15 +57,7 @@ const CalculatorTypeSelect = ({
           className={contentClassName}
         >
           <span>{currRole}</span>
-          <svg
-            width="11"
-            height="7"
-            viewBox="0 0 11 7"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M1 0.5L5.5 5.5L10 0.5" stroke="black" />
-          </svg>
+          <TypeSelectArrow />
         </Styled.CalculatorTypeSelectHeader>
         <Styled.CalculatorTypeSelectContent
           style={{ zIndex }}

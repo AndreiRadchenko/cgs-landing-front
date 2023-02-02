@@ -259,20 +259,6 @@ export const TieUpInputWrapper = styled.div`
   max-width: 22px;
 `;
 
-// export const TieUpShadowBluePart = styled.div`
-//   display: inline-block;
-//   background-color: ${themes.primary.colors.darkBlue};
-//   height: 23px;
-//   width: 12.25px;
-// `;
-
-// export const TieUpShadowBlackPart = styled.div`
-//   display: inline-block;
-//   background-color: ${themes.primary.colors.primary};
-//   height: 19px;
-//   width: 10.25px;
-// `;
-
 export const TieUpShadowWrapper = styled.div`
   position: absolute;
   box-sizing: content-box;
@@ -287,12 +273,6 @@ export const TieUpShadowWrapper = styled.div`
     ${themes.primary.colors.darkBlue} 43%,
     ${themes.primary.colors.primary} 43%
   );
-
-  @media ${themes.primary.media.maxMobile} {
-    /* &:first-of-type {
-      outline: 2px solid red;
-    } */
-  }
 `;
 
 export const TieUpInput = styled(Field)`
@@ -384,8 +364,8 @@ export const TieUpInput = styled(Field)`
 
     &::before {
       content: "";
-      min-width: 9px;
-      max-width: 9px;
+      min-width: 10px;
+      max-width: 10px;
       height: 10px;
       border-radius: 50%;
       transform: scale(0);
@@ -451,6 +431,12 @@ export const TieUpInput = styled(Field)`
   @media ${themes.primary.media.maxMobile} {
     &.checkbox {
       transform: translateY(-10%);
+    }
+
+    &.radio {
+      &:checked::before {
+        transform: scale(1);
+      }
     }
 
     &.email {

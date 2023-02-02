@@ -4,6 +4,8 @@ import review from "../../public/WebAuditServicePage/typesOfAudit/review.svg";
 import uxui from "../../public/WebAuditServicePage/typesOfAudit/ux-ui.svg";
 import pagespeed from "../../public/WebAuditServicePage/typesOfAudit/pagespeed.svg";
 import competitor from "../../public/WebAuditServicePage/typesOfAudit/competitor.svg";
+import checkbox from "../../public/Calculator/checkboxAdmin.svg";
+import radio from "../../public/Calculator/radioAdmin.svg";
 
 export const routers = {
   home: "/",
@@ -124,3 +126,14 @@ export const emptyCalculatorOption = {
   endRoleCoef: undefined,
   endCoef: undefined,
 };
+
+export const calculatorAdminOptions = [
+  {
+    value: "radio",
+    image: radio,
+  },
+  {
+    value: "checkbox",
+    image: checkbox,
+  },
+];

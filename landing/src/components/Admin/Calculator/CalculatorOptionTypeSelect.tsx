@@ -1,14 +1,14 @@
 import { useFormikContext } from "formik";
 import Image from "next/image";
 import React, { useState } from "react";
-import checkbox from "../../../../public/Calculator/checkboxAdmin.svg";
-import radio from "../../../../public/Calculator/radioAdmin.svg";
+
 import {
   CalculatorHiddenContentWrapper,
   CalculatorSelectOptionWrapper,
   CalculatorTypeSelectHeaderImageWrapper,
   CalculatorTypeSelectHeaderWrapper,
 } from "../../../styles/Calculator/CalculatorAdmin.styled";
+import { calculatorAdminOptions } from "../../../utils/variables";
 
 interface ICalculatorOptionTypeSelectProps {
   nameBefore?: string;
@@ -19,17 +19,7 @@ const CalculatorOptionTypeSelect = ({
   nameBefore,
   type,
 }: ICalculatorOptionTypeSelectProps) => {
-  const options = [
-    {
-      value: "radio",
-      image: radio,
-    },
-    {
-      value: "checkbox",
-      image: checkbox,
-    },
-  ];
-  const defaultValue = options[0].value;
+  const defaultValue = calculatorAdminOptions[0].value;
   const { setFieldValue } = useFormikContext();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedType, setSelectedType] = useState<string>(
@@ -49,9 +39,11 @@ const CalculatorOptionTypeSelect = ({
   };
 
   const currentOptions =
-    selectedType === options[0].value
-      ? options.slice(1)
-      : options.filter((option) => option.value !== selectedType);
+    selectedType === calculatorAdminOptions[0].value
+      ? calculatorAdminOptions.slice(1)
+      : calculatorAdminOptions.filter(
+          (option) => option.value !== selectedType
+        );
 
   return (
     <>
@@ -62,9 +54,10 @@ const CalculatorOptionTypeSelect = ({
         <CalculatorTypeSelectHeaderImageWrapper>
           <Image
             src={
-              selectedType === options[0].value
-                ? options[0].image.src
-                : options.find((el) => el.value === selectedType)?.image.src
+              selectedType === calculatorAdminOptions[0].value
+                ? calculatorAdminOptions[0].image.src
+                : calculatorAdminOptions.find((el) => el.value === selectedType)
+                    ?.image.src
             }
             alt="calculator type img"
             layout="fill"

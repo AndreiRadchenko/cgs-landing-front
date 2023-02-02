@@ -618,21 +618,27 @@ export const CalculatorPagerLeftButton = styled.g`
     cursor: not-allowed;
     opacity: 0.3;
   }
-  /* &:hover,
-  &:active {
-    background: linear-gradient(
-      90deg,
-      ${themes.primary.colors.mainGradientColor1} 0%,
-      ${themes.primary.colors.mainGradientColor2} 100%
-    );
-    border-radius: 0px 0px 0px 20px;
-  } */
 `;
 export const CalculatorPagerRightButton = styled.g`
   cursor: pointer;
   &.disabled {
     cursor: not-allowed;
     opacity: 0.3;
+  }
+`;
+
+export const LeftButtonArrow = styled.g`
+  color: black;
+
+  &.disabled {
+    color: rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const RightButtonArrow = styled.g`
+  color: black;
+  &.disabled {
+    color: rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -800,7 +806,7 @@ export const CalculatorFieldWrapper = styled.div`
   }
 
   &.title {
-    max-height: 80px;
+    max-height: 120px;
   }
 
   &.last {
@@ -942,6 +948,11 @@ export const Disabled = styled.div`
   width: 100%;
   height: 100%;
 
+  & p {
+    display: inline;
+    margin: 0;
+  }
+
   & > div {
     font-size: 1.125em;
     max-width: 345px;
@@ -975,7 +986,7 @@ export const CalculatorField = styled.div`
   line-height: 132%;
   margin: 6px 0px 0 4px;
   background-color: ${themes.primary.colors.blogBackground};
-  max-height: 70px;
+  max-height: none;
   position: relative;
 
   & p {
@@ -1347,6 +1358,23 @@ export const CalculatorInputsFieldsWrapper = styled.div`
 
   &.input {
     padding-top: 0;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: ${themes.primary.colors.primary};
+      border-radius: 10px;
+    }
+
+    scrollbar-color: ${themes.primary.colors.primary} transparent;
+    scrollbar-width: thin;
   }
 
   & .__se__t-upper {

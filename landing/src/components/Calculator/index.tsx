@@ -129,6 +129,12 @@ const Calculator = () => {
     isBlockchain,
   };
 
+  const countData = (
+    obj: { [key: string]: number },
+    role: string,
+    coef: number
+  ) => (obj[role] ? (obj[role] += coef || 0) : (obj[role] = coef || 0));
+
   const onSubmit = (values: ICalculatorFormValuesProps) => {
     const { questionsArr, isBlockchain, email } = values;
     const emailData: ICalculatorPostEmailResultsProps = {
@@ -136,7 +142,7 @@ const Calculator = () => {
       isBlockchain,
       email,
     };
-    // mutate(emailData);
+    mutate(emailData);
 
     const getRolesCoefObject = (
       matchData: Array<IStepOptions | Array<IStepOptions> | undefined>,
@@ -144,23 +150,22 @@ const Calculator = () => {
     ) => {
       matchData.map((dataEl) => {
         if (dataEl) {
-          const countData = (role: string, coef: number) =>
-            resultObj[role]
-              ? (resultObj[role] += coef || 0)
-              : (resultObj[role] = coef || 0);
-
           return Array.isArray(dataEl)
             ? dataEl.forEach(
                 (matchDataEl) =>
                   matchDataEl.endRole &&
                   matchDataEl.endRole.role &&
                   matchDataEl.endRole.coef &&
-                  countData(matchDataEl.endRole.role, matchDataEl.endRole.coef)
+                  countData(
+                    resultObj,
+                    matchDataEl.endRole.role,
+                    matchDataEl.endRole.coef
+                  )
               )
             : dataEl.endRole &&
                 dataEl.endRole.role &&
                 dataEl.endRole.coef &&
-                countData(dataEl.endRole.role, dataEl.endRole.coef);
+                countData(resultObj, dataEl.endRole.role, dataEl.endRole.coef);
         }
       });
       return resultObj;
@@ -172,21 +177,16 @@ const Calculator = () => {
     ) => {
       matchData.map((dataEl) => {
         if (dataEl) {
-          const countData = (role: string, hours: number) =>
-            resultObj[role]
-              ? (resultObj[role] += hours || 0)
-              : (resultObj[role] = hours || 0);
-
           return Array.isArray(dataEl)
             ? dataEl.forEach(
                 (matchDataEl) =>
                   matchDataEl.role &&
                   matchDataEl.hours &&
-                  countData(matchDataEl.role, matchDataEl.hours)
+                  countData(resultObj, matchDataEl.role, matchDataEl.hours)
               )
             : dataEl.hours &&
                 dataEl.role &&
-                countData(dataEl.role, dataEl.hours);
+                countData(resultObj, dataEl.role, dataEl.hours);
         }
       });
       return resultObj;
@@ -244,11 +244,16 @@ const Calculator = () => {
           Math.round((resultObj[roleData.name] || 0) * roleData.rate)
         )
         .reduce((acc, curr) => acc + curr);
-      console.log(price);
 
       const hours = getResults(classicStepsData, values.questionsArr, "hours");
       const uxui = getResults(classicStepsData, values.questionsArr, "uxui");
-      if (hours && uxui && price) {
+      console.log(hours, uxui, price);
+
+      if (
+        typeof hours === "number" &&
+        typeof uxui === "number" &&
+        typeof price === "number"
+      ) {
         const leadEmailData: ILeadMailData = {
           uxui,
           hours,
