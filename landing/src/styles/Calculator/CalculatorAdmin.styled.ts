@@ -2,6 +2,8 @@ import { Field, Form } from "formik";
 import styled from "styled-components";
 import themes from "../../utils/themes";
 import { errorColorAnimation } from "../Animations.styled";
+import checkboxBg from "../../../public/Calculator/checkbox.svg";
+import checkboxSign from "../../../public/Calculator/checkboxSign.svg";
 
 export const InputWrapper = styled.div`
   width: 80%;
@@ -15,7 +17,37 @@ export const TransparentTextEditorWrapper = styled.div`
   background-color: transparent;
 
   & .se-toolbar {
+    outline: 0;
     background-color: ${themes.primary.colors.blogBackground};
+    border-bottom: 1px solid ${themes.primary.colors.comment};
+    height: 33px;
+
+    & .se-btn-tray {
+      padding: 0;
+      height: 100%;
+    }
+    & .se-btn-module-border {
+      border: 0;
+      border-radius: 0;
+      margin: 0;
+      height: 100%;
+    }
+
+    & .se-menu-list {
+      height: 100%;
+
+      & li {
+        height: 100%;
+      }
+    }
+
+    & .se-btn {
+      padding-inline: 5px;
+      height: 100%;
+      border-radius: 0;
+      border-right: 1.58px solid ${themes.primary.colors.comment} !important;
+      margin: 0 !important;
+    }
   }
 
   & .sun-editor {
@@ -25,6 +57,14 @@ export const TransparentTextEditorWrapper = styled.div`
     & .txt {
       font-family: ${themes.primary.font.family.namu};
     }
+
+    & p {
+      margin: 0;
+    }
+  }
+
+  & .se-wrapper-inner {
+    min-height: 0 !important;
   }
 
   & .se-btn-list {
@@ -49,38 +89,8 @@ export const TransparentTextEditorWrapper = styled.div`
   & .sun-editor-editable {
     background-color: transparent;
     font-size: 16px;
-    font-family: ${themes.primary.font.family.namu} !important;
+    font-family: ${themes.primary.font.family.openSans} !important;
     color: ${themes.primary.colors.primary} !important;
-    & .__se__t-radio-input {
-      position: relative;
-      display: inline-block;
-
-      &::before {
-        display: inline-block;
-        content: " ";
-        margin-right: 8px;
-        -ms-transform: translateY(10%);
-        transform: translateY(10%);
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        border: 1px solid ${themes.primary.colors.primary};
-      }
-    }
-
-    & .__se__t-checkbox-input {
-      display: inline-block;
-      &::before {
-        content: " ";
-        display: inline-block;
-        margin-right: 8px;
-        width: 16px;
-        height: 16px;
-        -ms-transform: translateY(10%);
-        transform: translateY(10%);
-        border: 1px solid ${themes.primary.colors.primary};
-      }
-    }
   }
 
   & .__se__t-upper {
@@ -99,8 +109,69 @@ export const TransparentTextEditorWrapper = styled.div`
     }
   }
 
-  &.text {
-    margin-top: 16px;
+  & .__se__t-heavy {
+    font-weight: ${themes.primary.font.weight.heavy};
+  }
+
+  & .__se__t-extra-bold {
+    font-weight: ${themes.primary.font.weight.extraBold};
+  }
+
+  & .__se__t-bold {
+    font-weight: ${themes.primary.font.weight.bold};
+  }
+
+  & .__se__t-semi-bold {
+    font-weight: ${themes.primary.font.weight.semiBold};
+  }
+
+  & .__se__t-medium {
+    font-weight: ${themes.primary.font.weight.medium};
+  }
+
+  & .__se__t-normal {
+    font-weight: ${themes.primary.font.weight.normal};
+  }
+  & .__se__t-light {
+    font-weight: ${themes.primary.font.weight.light};
+  }
+`;
+
+export const TextEditorTextContainer = styled(TransparentTextEditorWrapper)`
+  & .sun-editor-editable {
+    padding: 8px 12px;
+  }
+
+  &.radio .sun-editor-editable p {
+    position: relative;
+    display: inline-block;
+
+    &::before {
+      display: inline-block;
+      content: " ";
+      margin-right: 8px;
+      -ms-transform: translateY(10%);
+      transform: translateY(10%);
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1px solid ${themes.primary.colors.primary};
+    }
+  }
+
+  &.checkbox .sun-editor-editable p {
+    position: relative;
+    display: inline-block;
+    &::before {
+      content: " ";
+      display: inline-block;
+      margin-right: 8px;
+      width: 16px;
+      height: 16px;
+      -ms-transform: translateY(10%);
+      transform: translateY(10%);
+      border: 1px solid ${themes.primary.colors.primary};
+    }
   }
 `;
 
@@ -123,6 +194,11 @@ export const AddButton = styled.button`
   line-height: 42px;
   border: 0;
   margin-right: 14px;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
 
   &.tieup {
     background-color: ${themes.primary.colors.darkBlue};
@@ -178,13 +254,52 @@ export const SubStepSubtitle = styled.p`
 
 export const InputsWrapper = styled(Form)``;
 
+export const TieUpInputWrapper = styled.div`
+  position: relative;
+  max-width: 22px;
+`;
+
+export const TieUpShadowWrapper = styled.div`
+  position: absolute;
+  box-sizing: content-box;
+  top: 0;
+  width: 19.5px;
+  height: 18.4px;
+  border-radius: 50%;
+  border: 1.5px solid ${themes.primary.colors.primary};
+  background: linear-gradient(
+    150deg,
+    ${themes.primary.colors.darkBlue},
+    ${themes.primary.colors.darkBlue} 43%,
+    ${themes.primary.colors.primary} 43%
+  );
+`;
+
 export const TieUpInput = styled(Field)`
   -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
-  margin-right: 8px;
+  z-index: 2;
+  font-family: ${themes.primary.font.family.openSans};
 
-  &.radio {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px ${themes.primary.colors.blogBackground} inset !important;
+    -webkit-box-shadow: 0 0 0 30px ${themes.primary.colors.blogBackground} inset !important;
+  }
+
+  outline: none;
+
+  &:checked ~ label {
+    color: ${themes.primary.colors.darkBlue};
+
+    & span {
+      color: ${themes.primary.colors.darkBlue} !important;
+    }
+  }
+  &.admin-radio {
     background-color: ${themes.primary.colors.blogBackground};
     margin: 0;
     min-width: 15px;
@@ -195,7 +310,6 @@ export const TieUpInput = styled(Field)`
     border-radius: 50%;
     display: grid;
     place-content: center;
-    margin-right: 8px;
 
     &::before {
       content: "";
@@ -208,13 +322,11 @@ export const TieUpInput = styled(Field)`
       box-shadow: inset 1em 1em ${themes.primary.colors.primary};
       background-color: ${themes.primary.colors.primary};
     }
-
     &:checked::before {
       transform: scale(1);
     }
   }
-
-  &.checkbox {
+  &.admin-checkbox {
     min-width: 16px;
     max-width: 16px;
     height: 16px;
@@ -239,12 +351,75 @@ export const TieUpInput = styled(Field)`
       transform: rotate(45deg);
       border-style: solid;
     }
-
     &:checked::before {
       transform: rotate(45deg) scale(1);
     }
     &:not(:checked):before {
       transform: rotate(45deg) scale(0);
+    }
+  }
+
+  &.radio {
+    margin-right: 8px;
+    background-color: ${themes.primary.colors.blogBackground};
+    margin: 0;
+    min-width: 19px;
+    width: 19px;
+    height: 20px;
+    border: 1.5px solid ${themes.primary.colors.primary};
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    position: relative;
+
+    &::before {
+      content: "";
+      min-width: 10px;
+      max-width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: 120ms transform ease-in-out;
+      border: 1.5px solid ${themes.primary.colors.primary};
+      background: linear-gradient(
+        90deg,
+        ${themes.primary.colors.mainGradientColor1} 0%,
+        ${themes.primary.colors.mainGradientColor2} 100%
+      );
+    }
+
+    &:checked::before {
+      transform: scale(1) translateY(-0.5px);
+    }
+  }
+
+  &.checkbox {
+    margin: 0;
+    min-width: 26px;
+    max-width: 26px;
+    height: 26px;
+    background: url(${checkboxBg.src});
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: 4px;
+      width: 25px;
+      height: 19.2px;
+      background: url(${checkboxSign.src});
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: transform 0.3s;
+      transform: scale(0);
+    }
+
+    &:checked::before {
+      transform: scale(1);
     }
   }
 
@@ -254,7 +429,6 @@ export const TieUpInput = styled(Field)`
     border: 0;
     outline: none;
     font-size: 1.125em;
-    font-family: ${themes.primary.font.family.namu};
 
     &.invalid {
       animation: ${errorColorAnimation} 1.5s ease-in-out;
@@ -264,27 +438,23 @@ export const TieUpInput = styled(Field)`
     }
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.minPC} {
     &.radio {
-      min-width: 14px;
-      max-width: 14px;
-      height: 14px;
-
-      &::before {
-        content: "";
-        min-width: 14px;
-        max-width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        transform: scale(0);
-        transition: 120ms transform ease-in-out;
-        box-shadow: inset 1em 1em ${themes.primary.colors.primary};
-        background-color: ${themes.primary.colors.primary};
+      &:checked::before {
+        transform: scale(1) translateY(0.3px);
       }
     }
+  }
 
+  @media ${themes.primary.media.maxMobile} {
     &.checkbox {
       transform: translateY(-10%);
+    }
+
+    &.radio {
+      &:checked::before {
+        transform: scale(1);
+      }
     }
 
     &.email {
@@ -296,6 +466,33 @@ export const TieUpInput = styled(Field)`
 export const TieUpLabel = styled.label`
   font-size: 16px;
   line-height: 19px;
+  display: flex;
+  transition: 0.15s;
+  position: relative;
+
+  & > span {
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  & span {
+    transition: 0.15s;
+  }
+
+  & p {
+    margin: 0;
+  }
+
+  &.active,
+  &:hover {
+    cursor: pointer;
+    color: ${themes.primary.colors.darkBlue} !important;
+
+    & span {
+      color: ${themes.primary.colors.darkBlue} !important;
+    }
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
@@ -308,6 +505,10 @@ export const OptionWrapper = styled.div`
   display: flex;
   margin-bottom: 16px;
   width: 100%;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 20px;
+  }
 `;
 
 export const DropDownContainer = styled.div`
@@ -440,4 +641,263 @@ export const PriceSubtitle = styled.p`
     font-size: 14px;
     line-height: 18px;
   }
+`;
+
+export const TypeFieldWrapper = styled.div`
+  display: flex;
+
+  column-gap: 16px;
+`;
+
+export const AdminCalculatorTypeInput = styled(Field)`
+  width: 274px;
+  height: 56px;
+  padding-inline: 17px;
+  border: 1px solid ${themes.primary.colors.adminInputBorder};
+  background-color: ${themes.primary.colors.blogBackground};
+  outline: none;
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 14px;
+
+  &::placeholder {
+    color: ${themes.primary.colors.adminInputBorder};
+    letter-spacing: 0.03em;
+  }
+`;
+
+export const CalculatorAdminAddTypeWrapper = styled.div`
+  margin-bottom: 2.666em;
+`;
+
+export const CalculatorTypeGrid = styled.div`
+  max-width: 1104px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 18px;
+`;
+
+export const CalculatorRateComponentWrapper = styled.div``;
+
+export const CalculatorPriceField = styled(Field)`
+  padding-inline: 14px;
+  height: 56px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid ${themes.primary.colors.adminInputBorder};
+  font-size: 1.333em;
+  font-family: ${themes.primary.font.family.namu};
+  width: 100%;
+  position: relative;
+
+  &::placeholder {
+    color: ${themes.primary.colors.comment};
+  }
+`;
+
+export const CalculatorPriceDeleteBtn = styled.div`
+  margin-top: 4px;
+  font-size: 14px;
+  color: ${themes.primary.colors.adminRed};
+  cursor: pointer;
+`;
+
+export const CalculatorRateFieldWrapper = styled.div`
+  display: inline-block;
+  position: relative;
+
+  &::after {
+    content: "USD";
+    font-size: 1.3em;
+    position: absolute;
+    top: 18px;
+    right: 0.9em;
+    transition: all 0.05s ease-in-out;
+  }
+
+  &:hover::after,
+  &:focus-within::after {
+    right: 2.3em;
+  }
+`;
+
+export const CalculatorTypeSelectHeaderWrapper = styled.div`
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid ${themes.primary.colors.comment};
+  max-width: 52px;
+  cursor: pointer;
+
+  & svg {
+    transition: transform 0.15s;
+  }
+
+  &.open {
+    border-bottom-width: 0;
+
+    & svg {
+      transform: rotate(180deg);
+    }
+  }
+`;
+
+export const CalculatorTypeSelectHeaderImageWrapper = styled.div`
+  position: relative;
+  width: 16px;
+  height: 16px;
+`;
+
+export const CalculatorSelectOptionWrapper = styled.div`
+  padding: 7.5px 10px;
+  cursor: pointer;
+  background-color: ${themes.primary.colors.blogBackground};
+
+  &:hover {
+    background-color: ${themes.primary.colors.lightGray};
+  }
+
+  &:last-child {
+    padding-bottom: 12px;
+  }
+`;
+
+export const CalculatorHiddenContentWrapper = styled.div`
+  position: absolute;
+  z-index: 5;
+  background-color: ${themes.primary.colors.blogBackground};
+  border: 1px solid ${themes.primary.colors.comment};
+  border-top-width: 0;
+  width: 52px;
+
+  &.hidden {
+    display: none;
+  }
+
+  &.open {
+    display: block;
+  }
+`;
+
+export const CalculatorQuestionInputsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+  margin-bottom: 60px;
+`;
+
+export const OptionInputsWrapper = styled.div`
+  margin-block: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
+
+export const OptionDeleteButton = styled.button`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 14px;
+  line-height: 132%;
+  color: ${themes.primary.colors.adminRed};
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+`;
+
+export const OptionInputsRowWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+`;
+
+export const OptionInput = styled(Field)`
+  height: 24px;
+  border: 1px solid ${themes.primary.colors.comment};
+  background: transparent;
+  outline: none;
+  font-family: ${themes.primary.font.family.namu};
+
+  &.hours {
+    width: 50px;
+  }
+
+  &.coef {
+    width: 120px;
+  }
+`;
+
+export const CalculatorTypeSelectWrapper = styled.div`
+  height: 24px;
+`;
+
+export const CalculatorTypeSelectHeader = styled.div`
+  height: 100%;
+  width: 97px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 3px;
+  border: 1px solid ${themes.primary.colors.comment};
+  cursor: pointer;
+
+  & span {
+    max-width: 92px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  & svg {
+    transition: 0.3s transform;
+  }
+
+  &.open {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+`;
+
+export const CalculatorTypeSelectContent = styled.div`
+  position: absolute;
+  display: none;
+
+  &.open {
+    display: block;
+  }
+`;
+
+export const CalculatorTypeSelectOption = styled.div`
+  display: flex;
+  align-items: center;
+  padding-inline: 5px;
+  height: 24px;
+  border: 1px solid ${themes.primary.colors.comment};
+  background-color: ${themes.primary.colors.blogBackground};
+  border-bottom: 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${themes.primary.colors.comment};
+  }
+
+  &:last-child {
+    border-bottom: 1px solid ${themes.primary.colors.comment};
+  }
+`;
+
+export const CalculatorAddButton = styled.button`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 12px;
+  color: ${themes.primary.colors.whatsApp};
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+`;
+
+export const CalculatorQuestionWrapper = styled.div`
+  display: flex;
+  column-gap: 12px;
 `;

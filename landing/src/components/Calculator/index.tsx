@@ -1,10 +1,8 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-
 import React, { useState } from "react";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCalculatorService } from "../../services/adminCalculator";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
-import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import BlackButtonComponent from "../BlackButtonWithArrow";
 import CalculatorPagerComponent from "./CalculatorPagerComponent";
@@ -15,11 +13,17 @@ import CalculatorCompletedPager from "./CalculatorCompletedPager";
 import {
   ICalculatorFormValuesProps,
   ICalculatorPostEmailResultsProps,
+  ICalculatorPostLeadEmailResultsProps,
+  ILeadMailData,
+  IRoles,
+  IStepOptions,
 } from "../../types/Admin/Response.types";
 import { Formik } from "formik";
 import { CalculatorValidation } from "../../validations/CalculatorValidation";
+import { getResults } from "../../utils/getCalculatorResults";
 
 const Calculator = () => {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>("< start >");
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [startLoading, setStartLoading] = useState<boolean>(false);
@@ -104,6 +108,12 @@ const Calculator = () => {
     }
   );
 
+  const { mutate: mutateLeadEmail } = useMutation(
+    [queryKeys.sendLeadEmailResults],
+    (answers: ICalculatorPostLeadEmailResultsProps) =>
+      adminCalculatorService.sendResultsLeadEmail(answers)
+  );
+
   const stepsData = isBlockchain ? blockchainStepsData : classicStepsData;
 
   const initialValues = stepsData && {
@@ -111,28 +121,177 @@ const Calculator = () => {
       return {
         title: el.title,
         answer: "",
+        subStepAnswer: "",
       };
     }),
     email: "",
     isBlockchain,
   };
 
+  const countData = (
+    obj: { [key: string]: number },
+    role: string,
+    coef: number
+  ) => (obj[role] ? (obj[role] += coef || 0) : (obj[role] = coef || 0));
+
   const onSubmit = (values: ICalculatorFormValuesProps) => {
-    const { isBlockchain, questionsArr, email } = values;
-    mutate({ answers: questionsArr, isBlockchain, email });
+    const { questionsArr, isBlockchain, email } = values;
+
+    const getRolesCoefObject = (
+      matchData: Array<IStepOptions | Array<IStepOptions> | undefined>,
+      resultObj: { [key: string]: number }
+    ) => {
+      matchData.map((dataEl) => {
+        if (dataEl) {
+          return Array.isArray(dataEl)
+            ? dataEl.forEach(
+                (matchDataEl) =>
+                  matchDataEl.endRole &&
+                  matchDataEl.endRole.role &&
+                  matchDataEl.endRole.coef &&
+                  countData(
+                    resultObj,
+                    matchDataEl.endRole.role,
+                    matchDataEl.endRole.coef
+                  )
+              )
+            : dataEl.endRole &&
+                dataEl.endRole.role &&
+                dataEl.endRole.coef &&
+                countData(resultObj, dataEl.endRole.role, dataEl.endRole.coef);
+        }
+      });
+      return resultObj;
+    };
+
+    const getRolesHoursObject = (
+      matchData: Array<IStepOptions | Array<IStepOptions> | undefined>,
+      resultObj: { [key: string]: number }
+    ) => {
+      matchData.map((dataEl) => {
+        if (dataEl) {
+          return Array.isArray(dataEl)
+            ? dataEl.forEach(
+                (matchDataEl) =>
+                  matchDataEl.role &&
+                  matchDataEl.hours &&
+                  countData(resultObj, matchDataEl.role, matchDataEl.hours)
+              )
+            : dataEl.hours &&
+                dataEl.role &&
+                countData(resultObj, dataEl.role, dataEl.hours);
+        }
+      });
+      return resultObj;
+    };
+
+    if (classicStepsData) {
+      const matchData: Array<IStepOptions | Array<IStepOptions> | undefined> =
+        questionsArr.map((question, idx) =>
+          typeof question.answer === "string"
+            ? classicStepsData[idx].options.find(
+                (option) => question.answer === option.label
+              )
+            : classicStepsData[idx].options.filter((option) =>
+                (question.answer as string[]).includes(option.label)
+              )
+        );
+
+      const matchSubStepData: Array<
+        IStepOptions | Array<IStepOptions> | undefined
+      > = questionsArr.map((question, idx) => {
+        if (
+          classicStepsData[idx].subSteps &&
+          classicStepsData[idx].subSteps.length > 0
+        ) {
+          return typeof question.subStepAnswer === "string"
+            ? classicStepsData[idx].subSteps[0].options.find(
+                (option) => question.subStepAnswer === option.label
+              )
+            : classicStepsData[idx].subSteps[0].options.filter((option) =>
+                (question.subStepAnswer as string[]).includes(option.label)
+              );
+        }
+      });
+
+      const resultObj: IRoles = {};
+      getRolesHoursObject(matchData, resultObj);
+      getRolesHoursObject(matchSubStepData, resultObj);
+
+      const resultObjRolesCoef: IRoles = {};
+      getRolesCoefObject(matchData, resultObjRolesCoef);
+      getRolesCoefObject(matchSubStepData, resultObjRolesCoef);
+
+      Object.entries(resultObjRolesCoef).map(
+        (roleCoefArr) => (resultObj[roleCoefArr[0]] *= 1 + roleCoefArr[1])
+      );
+
+      const endCoef =
+        1 + getResults(classicStepsData, values.questionsArr, "endCoef");
+      Object.entries(resultObj).forEach(
+        (el) => (resultObj[el[0]] = el[1] * endCoef)
+      );
+
+      const price = data?.roles
+        .map((roleData) =>
+          Math.round((resultObj[roleData.name] || 0) * roleData.rate)
+        )
+        .reduce((acc, curr) => acc + curr);
+
+      const hours = getResults(classicStepsData, values.questionsArr, "hours");
+      const uxui = getResults(classicStepsData, values.questionsArr, "uxui");
+
+      if (
+        typeof hours === "number" &&
+        typeof uxui === "number" &&
+        typeof price === "number"
+      ) {
+        const emailData: ICalculatorPostEmailResultsProps = {
+          answers: questionsArr,
+          isBlockchain,
+          estimation: { uxui, hours, price },
+          email,
+        };
+        mutate(emailData);
+        const leadEmailData: ILeadMailData = {
+          uxui,
+          hours,
+          price,
+        };
+        mutateLeadEmail({ answers: leadEmailData, email });
+      }
+    }
   };
 
-  DisableScrollBarHandler(isOpen);
+  const handleMouseOver = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setTimeout(() => {
+      setIsHovered(false);
+    }, 3000);
+  };
+
+  const hoverClassName = isHovered ? "active" : undefined;
 
   return (
     <>
       <Styled.CalculatorPreviewWrapper>
-        <Styled.CalculatorPreviewCube>
-          <Styled.CalculatorPreview>
-            <Styled.CalculatorButton className="button">
+        <Styled.CalculatorPreviewCube className={hoverClassName}>
+          <Styled.CalculatorPreview className={hoverClassName}>
+            <Styled.CalculatorButton
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+            >
               calculator
             </Styled.CalculatorButton>
-            <Styled.CalculatorPreviewContentWrapper className="content">
+            <Styled.CalculatorPreviewContentWrapper
+              onClick={handleOpen}
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+              className={hoverClassName}
+            >
               <span>
                 <SplitBrackets text={data?.previewTextMessage} />
               </span>
@@ -191,9 +350,13 @@ const Calculator = () => {
                         />
                         {typeof currentData.options !== "string" && (
                           <CalculatorInputField
+                            type={currentData.type}
                             subStep={currentData.subSteps}
                             stepInd={stepInd}
                             options={currentData.options}
+                            disabled={
+                              values.questionsArr[stepInd].tieUpDisabled
+                            }
                             tieUpData={
                               currentData.tieUpSteps.length > 0 &&
                               typeof currentData.tieUpSteps[0].number ===
@@ -206,9 +369,6 @@ const Calculator = () => {
                                       ].answer,
                                   }
                                 : undefined
-                            }
-                            disabled={
-                              values.questionsArr[stepInd].tieUpDisabled
                             }
                             data={stepsData}
                           />

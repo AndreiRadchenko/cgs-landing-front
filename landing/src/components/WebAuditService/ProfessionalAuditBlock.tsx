@@ -7,7 +7,7 @@ import Image from "next/image";
 import AuditTimeText from "../../../public/WebAuditServicePage/AuditTimeText.svg";
 import AuditTimeCommon from "../../../public/WebAuditServicePage/AuditTimeCommon.svg";
 import { SplitBrackets } from "../../utils/splitBrackets";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
 
 const ProfessionalAuditBlock = () => {
   const queryClient = useQueryClient();
@@ -26,10 +26,10 @@ const ProfessionalAuditBlock = () => {
             <SplitBrackets text={data?.text} />
           </Styled.TextWrapper>
           {data && (
-            <BookACallButton
+            <GetEstimationButton
               buttonLink={data?.buttonLink}
               buttonText={data.button}
-              withCalendly
+              withEstimation
               style={{
                 padding: "1.117em 2.537em",
                 fontSize: "1.5em",

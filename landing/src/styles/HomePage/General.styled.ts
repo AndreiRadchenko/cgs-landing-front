@@ -3,8 +3,8 @@ import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
 import { buttonHover, cursorBlinking } from "../Animations.styled";
 export interface IFontSize {
-  size: string;
-  padding: string;
+  size?: string;
+  padding?: string;
 }
 
 export const RowContainer = styled.div`
@@ -45,8 +45,8 @@ export const ButtonArrow = styled.img`
 
 export const BlackButton = styled.a<IFontSize>`
   font-family: inherit;
-  font-size: ${({ size }) => size};
-  padding: ${({ padding }) => padding};
+  font-size: ${({ size }) => (size ? size : "1em")};
+  padding: ${({ padding }) => (padding ? padding : "0")};
   cursor: pointer;
   position: relative;
   color: ${themes.primary.colors.secondary};
@@ -668,7 +668,7 @@ export const FooterButtonWrapper = styled.span`
   margin-right: 28px;
 
   &.btn {
-    & a {
+    & > a {
       margin-top: 1rem;
       margin-left: 0;
     }
@@ -813,13 +813,18 @@ export const MobileReverseLayout = styled.div`
   }
 `;
 
-export const WhatsAppTextWrapper = styled.div`
+export const ButtonShareTextWrapper = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
-  font-size: 1.1667em;
   margin-top: 1em;
   font-family: ${themes.primary.font.family.namu};
+  z-index: 12;
+
+  & > span {
+    font-size: 16px;
+    color: ${themes.primary.colors.calculatorButtonBorderBg};
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1em;
@@ -828,19 +833,16 @@ export const WhatsAppTextWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.5em;
     font-size: 1.346em;
+
+    & > span {
+      font-size: 14px;
+    }
   }
 `;
 
-export const WhatsAppText = styled.a`
-  display: flex;
+export const ButtonShareText = styled.a`
   margin-left: 0.666em;
-  column-gap: 0.1666em;
   font-size: 1.2857em;
-  color: ${themes.primary.colors.whatsApp};
-
-  & path {
-    fill: ${themes.primary.colors.whatsApp};
-  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.143em;
@@ -848,9 +850,65 @@ export const WhatsAppText = styled.a`
   }
 `;
 
+export const WhatsAppWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 0.1666em;
+  color: ${themes.primary.colors.mainGradientColor2};
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @media ${themes.primary.media.maxTablet} {
+    font-size: ${themes.primary.font.size.mainBlogAuthor};
+  }
+`;
+
+export const TelegramWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 0.147em;
+  color: ${themes.primary.colors.mainGradientColor2};
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @media ${themes.primary.media.maxTablet} {
+    font-size: ${themes.primary.font.size.mainBlogAuthor};
+  }
+`;
+
+export const TelegramIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media ${themes.primary.media.maxTablet} {
+    width: 14px;
+    height: 14px;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
 export const WhatsAppIconWrapper = styled.div`
-  width: 0.78em;
-  height: 0.78em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media ${themes.primary.media.maxTablet} {
+    width: 14px;
+    height: 14px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const FooterSection = styled.section``;

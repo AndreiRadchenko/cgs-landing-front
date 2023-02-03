@@ -9,7 +9,7 @@ export const TechnologyContainer = styled.section`
   position: relative;
   user-select: none;
   font-family: ${themes.primary.font.family.namu};
-  margin-bottom: 12.9em;
+  margin-bottom: 10em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 4.375rem;
@@ -65,6 +65,10 @@ export const TechnologyRow = styled.div`
     row-gap: 0;
     column-gap: 0;
     margin-top: 14em;
+
+    & > article:last-child > div:nth-child(5) {
+      padding-bottom: 0;
+    }
   }
 `;
 

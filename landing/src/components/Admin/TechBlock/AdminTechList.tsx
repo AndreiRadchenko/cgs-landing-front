@@ -1,5 +1,6 @@
 import { useFormikContext } from "formik";
 import React from "react";
+import { SortableItem } from "react-easy-sort";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import { AdminFlexColumn } from "../../../styles/AdminPage";
@@ -24,21 +25,38 @@ const AdminTechList = () => {
 
   const handleClick = () => handleSubmit();
 
+  const handleSortEnd = (oldIndex: number, newIndex: number) => {
+    values.TechnologyBlock.items.splice(
+      newIndex,
+      0,
+      values.TechnologyBlock.items.splice(oldIndex, 1)[0]
+    );
+    handleSubmit();
+  };
+
   return (
     <div>
-      <AdminFlexColumn>
-        {Object.entries(values.TechnologyBlock).map((el, ind) => (
-          <AdminTech
-            key={`TechAdmin${ind}`}
-            info={el[1]}
-            onChangeFunction={handleChange}
-            ind={ind + 1}
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            item={el[0]}
-            deleteFunction={deleteFunc(el[1])}
-            uploadFunction={uploadFunc(el[1])}
-          />
+      <AdminFlexColumn
+        onSortEnd={handleSortEnd}
+        className="list"
+        draggedItemClassName="dragged"
+      >
+        {values.TechnologyBlock.items.map((el, ind) => (
+          <SortableItem key={`TechAdmin${ind}`}>
+            <div>
+              <AdminTech
+                info={el}
+                onChangeFunction={handleChange}
+                ind={ind + 1}
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                item={ind}
+                isLastItem={values.TechnologyBlock.items.length - 1 !== ind}
+                deleteFunction={deleteFunc(el)}
+                uploadFunction={uploadFunc(el)}
+              />
+            </div>
+          </SortableItem>
         ))}
       </AdminFlexColumn>
       <BlackButton

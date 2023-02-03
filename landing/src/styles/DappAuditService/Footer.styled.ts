@@ -7,7 +7,7 @@ export const ContentWrapper = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     padding: 0;
-    & > div a {
+    & > div > a {
       padding: 1.3em 2.4em;
     }
   }

@@ -6,31 +6,28 @@ export const CalculatorValidation = () => {
     questionsArr: yup.array(
       yup.object({
         title: yup.string(),
-        tieUpDisabled: yup.boolean().notRequired(),
-        answer: yup.lazy((val) =>
-          Array.isArray(val)
-            ? yup
+        tieUpDisabled: yup.boolean(),
+        answer: yup.lazy((value) =>
+          typeof value === "string"
+            ? yup.string().when("tieUpDisabled", {
+                is: true,
+                then: yup.string(),
+                otherwise: yup
+                  .string()
+                  .required("Required field")
+                  .min(1, "please fill empty fields"),
+              })
+            : yup
                 .array()
                 .of(yup.string())
                 .when("tieUpDisabled", {
-                  is: false,
-                  then: yup
+                  is: true,
+                  then: yup.array().of(yup.string()),
+                  otherwise: yup
                     .array()
                     .of(yup.string())
-                    .min(1, "please fill empty fields"),
-                  otherwise: yup.array().of(yup.string()),
+                    .required("Required field"),
                 })
-            : yup.string().when("tieUpDisabled", {
-                is: false,
-                then: yup
-                  .string()
-                  .required()
-                  .min(1, "please fill empty fields"),
-                otherwise: yup.string(),
-              })
-        ),
-        subStepAnswer: yup.lazy((val) =>
-          Array.isArray(val) ? yup.array().of(yup.string()) : yup.string()
         ),
       })
     ),

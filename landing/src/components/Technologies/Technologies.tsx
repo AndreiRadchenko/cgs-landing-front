@@ -9,8 +9,10 @@ import Image from "next/image";
 import useMousePosition from "../../hooks/useMousePosition";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 import MobileTechnologyCategory from "./MobileTechnologyCategory";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const Technologies = () => {
+  const { width } = useWindowDimension();
   const arrowRef = useRef<HTMLDivElement>(null);
   const mousePosition = useMousePosition();
   const queryClient = useQueryClient();
@@ -30,39 +32,50 @@ const Technologies = () => {
       arrowRef.current.style.transform = ` translate(-50%, -50%) rotate(${angle}rad)`;
     }
   }, [mousePosition.x, mousePosition.y]);
+
   return (
-    <StyledThisComp.TechnologyContainer>
-      <StyledThisComp.TechTitle>technologies</StyledThisComp.TechTitle>
-      <MobileInfiniteText title={"technologies"} />
-      <StyledThisComp.ArrowContainer ref={arrowRef}>
-        <Image src={techArrow} alt="tech arrow" />
-      </StyledThisComp.ArrowContainer>
-      <StyledThisComp.TechnologyRow>
-        {data &&
-          Object.entries(data).map((item, idx) => (
-            <React.Fragment key={item[0] + `_fragment`}>
-              <TechnologyCategory
-                idx={idx}
-                className={idx === 3 ? "blockchain" : undefined}
-                key={item[0]}
-                img={item[1].image?.url}
-                text={item[1].text}
-                stack={item[1].stack}
-                title={item[1].category}
-              />
-              <MobileTechnologyCategory
-                idx={idx}
-                className={idx === 3 ? "blockchain" : undefined}
-                key={item[0] + "_mobile"}
-                img={item[1].image?.url}
-                text={item[1].text}
-                stack={item[1].stack}
-                title={item[1].category}
-              />
-            </React.Fragment>
-          ))}
-      </StyledThisComp.TechnologyRow>
-    </StyledThisComp.TechnologyContainer>
+    (width && (
+      <StyledThisComp.TechnologyContainer>
+        <StyledThisComp.TechTitle>technologies</StyledThisComp.TechTitle>
+        <MobileInfiniteText title={"technologies"} />
+        <StyledThisComp.ArrowContainer ref={arrowRef}>
+          <Image src={techArrow} alt="tech arrow" />
+        </StyledThisComp.ArrowContainer>
+        <StyledThisComp.TechnologyRow>
+          {data &&
+            data.items.map(
+              (item, idx) =>
+                item.image && (
+                  <React.Fragment key={idx + `_fragment`}>
+                    {(width < 768 && (
+                      <MobileTechnologyCategory
+                        idx={idx}
+                        className={idx === 0 ? "blockchain" : undefined}
+                        key={idx + "_mobile"}
+                        img={item.image.url}
+                        text={item.text}
+                        stack={item.stack}
+                        title={item.category}
+                      />
+                    )) || (
+                        <TechnologyCategory
+                          idx={idx}
+                          className={idx === 0 ? "blockchain" : undefined}
+                          key={idx}
+                          img={item.image?.url}
+                          text={item.text}
+                          stack={item.stack}
+                          title={item.category}
+                        />
+                      ) ||
+                      null}
+                  </React.Fragment>
+                )
+            )}
+        </StyledThisComp.TechnologyRow>
+      </StyledThisComp.TechnologyContainer>
+    )) ||
+    null
   );
 };
 

@@ -18,7 +18,7 @@ export const ContentWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     max-width: 100%;
 
-    & a {
+    & > a {
       font-size: 1em !important;
       padding: 1.194em 2.91em !important;
     }

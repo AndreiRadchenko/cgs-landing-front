@@ -12,7 +12,7 @@ const data: SwiperProps = {
     nextEl: ".swiper-button-next",
   },
   autoplay: {
-    delay: 1500,
+    delay: 5000,
     disableOnInteraction: false,
   },
   speed: 700,

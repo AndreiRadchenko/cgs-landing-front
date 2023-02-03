@@ -9,7 +9,7 @@ import {
 } from "../../styles/DappAuditService/Common.styled";
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
 import Image from "next/image";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -36,10 +36,10 @@ const FooterBlock = () => {
           </Subtitle>
         </Styled.TitleWrapper>
         {data && (
-          <BookACallButton
+          <GetEstimationButton
             buttonLink={data?.buttonLink}
             buttonText={data.button}
-            withCalendly
+            withEstimation
             style={{
               padding: "1em 2.27em",
               fontSize: "1.125em",

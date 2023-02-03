@@ -6,7 +6,7 @@ export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 10px;
   font-family: ${themes.primary.font.family.openSans};
 
   @media ${themes.primary.media.maxMobile} {
@@ -74,9 +74,7 @@ export const Description = styled.p`
   line-height: 160%;
   color: ${themes.primary.colors.blogDarkText};
   overflow-wrap: anywhere;
-  p {
-    margin-top: 15px;
-  }
+
   & > div > figure {
     position: relative;
     margin: 0;
@@ -153,6 +151,7 @@ export const Description = styled.p`
   }
 
   & > h2:first-child,
+  & > h2:nth-child(2),
   h3:first-child,
   h4:first-child,
   h5:first-child,
@@ -170,6 +169,16 @@ export const Description = styled.p`
     float: right;
     margin-left: 2em;
     margin-bottom: 1em;
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    & > p:first-child {
+      margin-bottom: 50px;
+    }
+
+    & > h2:nth-child(2) {
+      margin-top: 10px;
+    }
   }
 
   @media ${themes.primary.media.minPCFullHD} {

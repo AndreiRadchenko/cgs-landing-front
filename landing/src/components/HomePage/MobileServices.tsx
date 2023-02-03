@@ -30,6 +30,7 @@ const MobileServices = () => {
   const { data } = useQuery([queryKeys.getAllServices], () =>
     adminServices.getAllServices()
   );
+
   const [slidesData, setSlidesData] = useState<ISlideData[]>([]);
 
   useEffect(() => {
@@ -47,7 +48,11 @@ const MobileServices = () => {
       <Swiper {...params}>
         {slidesData.map((item, idx) => (
           <SwiperSlide style={{ padding: "35px 0px" }} key={idx}>
-            <MobileNextTechSlide item={item} idx={idx} />
+            <MobileNextTechSlide
+              item={item}
+              idx={idx}
+              length={slidesData.length}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

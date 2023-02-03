@@ -11,7 +11,7 @@ import {
   Image,
 } from "../../styles/DbService/HeadBlock.styled";
 import TextTypingAnimation from "../Typewrite";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -19,18 +19,22 @@ const HeadBlock = () => {
     queryKeys.getServiceDbPage,
   ])?.headerBlock;
 
+  const lastIndex = data!.title.lastIndexOf("|");
+  const title =
+    data?.title.substr(0, lastIndex) + data!.title.substring(lastIndex + 1);
+
   return (
     <Container>
       <ContentContainer>
-        <Title>{data && <TextTypingAnimation text={data?.title} />}</Title>
+        <Title>{data && <TextTypingAnimation text={title} />}</Title>
         <Description>
           <SplitBrackets text={data?.text} />
         </Description>
         {data && (
-          <BookACallButton
+          <GetEstimationButton
             buttonLink={data?.buttonLink}
+            withEstimation
             buttonText={data.button}
-            withCalendly
             style={{
               padding: "1.117em 3.57em",
               fontSize: "1.125em",

@@ -7,15 +7,20 @@ import {
   TieUpInput,
   TieUpLabel,
 } from "../../../styles/Calculator/CalculatorAdmin.styled";
-import { ICalculatorStep } from "../../../types/Admin/Response.types";
+import {
+  ICalculatorStep,
+  IStepOptions,
+} from "../../../types/Admin/Response.types";
 
 interface ICalculatorInputItemProps {
+  type: string;
   tieUp?: boolean;
-  item: { type: string; label: string };
+  item: IStepOptions;
   ind: number;
 }
 
 const CalculatorTieUpInputItem = ({
+  type,
   item,
   ind,
   tieUp,
@@ -68,9 +73,9 @@ const CalculatorTieUpInputItem = ({
       <TieUpInput
         type="checkbox"
         name="subStepInput"
-        id={`${item.type}${item.label}${ind}`}
+        id={`${type}${item.label}${ind}`}
         value={item.label}
-        className={item.type}
+        className={`admin-${type}`}
         checked={values[
           tieUp ? "tieUpSteps" : "subSteps"
         ][0].condition.includes(item.label)}
@@ -78,7 +83,7 @@ const CalculatorTieUpInputItem = ({
       />
       <TieUpLabel
         dangerouslySetInnerHTML={{ __html: item.label }}
-        htmlFor={`${item.type}${item.label}${ind}`}
+        htmlFor={`${type}${item.label}${ind}`}
       />
     </OptionWrapper>
   );

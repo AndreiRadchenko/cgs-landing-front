@@ -4,6 +4,7 @@ import themes from "../../utils/themes";
 export const Wrapper = styled.section`
   display: none;
   @media ${themes.primary.media.maxMobile} {
+    z-index: 12;
     display: flex;
     margin-bottom: 22px;
     position: relative;
