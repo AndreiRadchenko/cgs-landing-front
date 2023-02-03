@@ -8,12 +8,14 @@ import {
 } from "../../styles/EstimationForm.styled";
 import { useField, useFormikContext } from "formik";
 import { EstimationField } from "../../types/EstimationForm.types";
+import { parseHtml } from "../../utils/parseHtml";
 
 const CheckboxField = ({
   title,
   options,
   split,
   index,
+  currentPage,
   ...props
 }: EstimationField) => {
   const formik = useFormikContext();
@@ -32,6 +34,20 @@ const CheckboxField = ({
 
   useEffect(() => {
     formik.setFieldValue(`questionsArr[${index}].value`, dataArray);
+    props.setFormData((prevState) => {
+      return {
+        ...prevState,
+        clientAnswers: [
+          ...prevState.clientAnswers,
+          {
+            questionTitle: parseHtml(title),
+            questionIndex: index as number,
+            pageIndex: currentPage as number,
+            selectedOptions: dataArray.map((option) => ({ text: option })),
+          },
+        ],
+      };
+    });
   }, [dataArray]);
 
   return (
@@ -48,7 +64,7 @@ const CheckboxField = ({
               type="checkbox"
               onChange={(e) => handleChange(e)}
               {...props}
-              value={option.text}
+              value={parseHtml(option.text)}
             />
             <EstimationFieldOption
               error={!!meta.error && meta!.touched}

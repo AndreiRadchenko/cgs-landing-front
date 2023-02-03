@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface Option {
   text: string;
   optionKey: string;
@@ -32,10 +34,31 @@ export interface EstimationField {
   title: string;
   split?: boolean;
   options: Option[];
+
+  currentPage: number;
+
+  setFormData: Dispatch<SetStateAction<IFormData>>;
 }
 
 export interface EstimationData {
   pageCount: number;
   pageNumber: number;
   page: Page;
+}
+
+export interface SelectedOption {
+  text: string;
+}
+
+export interface ClientAnswer {
+  questionIndex: number;
+  pageIndex: number;
+  questionTitle: string;
+  selectedOptions: SelectedOption[];
+}
+export interface IFormData {
+  formTitle: string;
+  clientName: string;
+  clientEmail: string;
+  clientAnswers: ClientAnswer[];
 }

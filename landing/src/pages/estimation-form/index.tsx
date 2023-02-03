@@ -4,21 +4,35 @@ import {
   Container,
   ContainerDate,
 } from "../../components/EstimationForm/index.styled";
-import Content from "../../components/EstimationForm";
+
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import EstimationPage from "../../components/EstimationForm/EstimationPage";
 import ImageBackground from "../../components/EstimationForm/ImageBackground";
+import { IFormData } from "../../types/EstimationForm.types";
 
 const EstimationsForm = () => {
   const [page, setPage] = useState<number>(1);
 
+  const [formData, setFormData] = useState<IFormData>({
+    formTitle: "TEST123",
+    clientName: "",
+    clientEmail: "",
+    clientAnswers: [],
+  });
+
+  console.log(formData);
   return (
     <Container>
       <HeaderNavNew />
       <ContainerDate>
         <HeaderText />
-        <EstimationPage pageN={page} setPage={setPage} />
+        <EstimationPage
+          formData={formData}
+          setFormData={setFormData}
+          pageN={page}
+          setPage={setPage}
+        />
         <ImageBackground page={page} />
       </ContainerDate>
       <FooterNew />
