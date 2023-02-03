@@ -71,6 +71,14 @@ const CalculatorStepsFormContent = ({
     validateForm();
   }, [validateForm]);
 
+  useEffect(() => {
+    if (warnIsShow) {
+      setTimeout(() => {
+        setWarnIsShow(false);
+      }, 3000);
+    }
+  }, [warnIsShow, setWarnIsShow]);
+
   const handleStepButtonClick = (idx: number) => {
     if (
       idx === stepsCount - 1 &&

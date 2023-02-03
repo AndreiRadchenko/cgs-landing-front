@@ -1,4 +1,5 @@
 import { useFormikContext } from "formik";
+import parse from "html-react-parser";
 import React, { useCallback, useEffect } from "react";
 import {
   OptionWrapper,
@@ -135,19 +136,18 @@ const CalculatorInputs = ({
             <Styled.InputsWrapper>
               {options.map((input, idx) => (
                 <OptionWrapper key={idx}>
-                  {type === "radio" && <TieUpShadowWrapper />}
-                  <TieUpInput
-                    type={type}
-                    name={`questionsArr[${stepInd}].answer`}
-                    id={`${type}${input.label}${idx}`}
-                    value={input.label}
-                    className={type}
-                    onChange={handleChange}
-                  />
-                  <TieUpLabel
-                    dangerouslySetInnerHTML={{ __html: input.label }}
-                    htmlFor={`${type}${input.label}${idx}`}
-                  />
+                  <TieUpLabel htmlFor={`${type}${input.label}${idx}`}>
+                    {type === "radio" && <TieUpShadowWrapper />}
+                    <TieUpInput
+                      type={type}
+                      name={`questionsArr[${stepInd}].answer`}
+                      id={`${type}${input.label}${idx}`}
+                      value={input.label}
+                      className={type}
+                      onChange={handleChange}
+                    />
+                    <span>{parse(input.label)}</span>
+                  </TieUpLabel>
                 </OptionWrapper>
               ))}
               {subStep && subStep.length > 0 && checkForCondition() && (
