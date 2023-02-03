@@ -18,7 +18,7 @@ import {
   IRoles,
   IStepOptions,
 } from "../../types/Admin/Response.types";
-import { Formik } from "formik";
+import { Formik, FormikHelpers } from "formik";
 import { CalculatorValidation } from "../../validations/CalculatorValidation";
 import { getResults } from "../../utils/getCalculatorResults";
 
@@ -134,7 +134,10 @@ const Calculator = () => {
     coef: number
   ) => (obj[role] ? (obj[role] += coef || 0) : (obj[role] = coef || 0));
 
-  const onSubmit = (values: ICalculatorFormValuesProps) => {
+  const onSubmit = (
+    values: ICalculatorFormValuesProps,
+    { resetForm }: FormikHelpers<ICalculatorFormValuesProps>
+  ) => {
     const { questionsArr, isBlockchain, email } = values;
 
     const getRolesCoefObject = (
@@ -173,13 +176,21 @@ const Calculator = () => {
           return Array.isArray(dataEl)
             ? dataEl.forEach(
                 (matchDataEl) =>
-                  matchDataEl.role &&
+                  matchDataEl.roles &&
                   matchDataEl.hours &&
-                  countData(resultObj, matchDataEl.role, matchDataEl.hours)
+                  countData(
+                    resultObj,
+                    matchDataEl.roles.sort().join(", "),
+                    matchDataEl.hours
+                  )
               )
             : dataEl.hours &&
-                dataEl.role &&
-                countData(resultObj, dataEl.role, dataEl.hours);
+                dataEl.roles &&
+                countData(
+                  resultObj,
+                  dataEl.roles.sort().join(", "),
+                  dataEl.hours
+                );
         }
       });
       return resultObj;
@@ -232,11 +243,40 @@ const Calculator = () => {
         (el) => (resultObj[el[0]] = el[1] * endCoef)
       );
 
-      const price = data?.roles
-        .map((roleData) =>
-          Math.round((resultObj[roleData.name] || 0) * roleData.rate)
-        )
-        .reduce((acc, curr) => acc + curr);
+      const getPriceInConnectedRole = (roles: string[], hours: number) => {
+        if (data) {
+          const resultPrices = data.roles
+            .map((dataRole) => {
+              if (roles.includes(dataRole.name)) {
+                return dataRole.rate;
+              }
+            })
+            .filter((el) => el);
+
+          return (
+            ((resultPrices as number[]).reduce(
+              (a, b) => (a || 0) + (b || 0),
+              0
+            ) /
+              resultPrices.length) *
+            hours
+          );
+        }
+      };
+
+      const price =
+        data &&
+        Object.keys(resultObj)
+          .map((role) =>
+            role.split(", ").length === 1
+              ? Math.round(
+                  (resultObj[role] || 0) *
+                    (data?.roles.find((dataRole) => dataRole.name === role)
+                      ?.rate || 0)
+                )
+              : getPriceInConnectedRole(role.split(", "), resultObj[role])
+          )
+          .reduce((acc, curr) => (acc ?? 0) + (curr ?? 0), 0);
 
       const hours = getResults(classicStepsData, values.questionsArr, "hours");
       const uxui = getResults(classicStepsData, values.questionsArr, "uxui");
@@ -259,6 +299,7 @@ const Calculator = () => {
           price,
         };
         mutateLeadEmail({ answers: leadEmailData, email });
+        resetForm();
       }
     }
   };

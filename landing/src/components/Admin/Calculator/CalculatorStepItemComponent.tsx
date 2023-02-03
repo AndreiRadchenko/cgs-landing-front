@@ -180,10 +180,7 @@ const CalculatorStepItemComponent = ({
           />
         )}
         {values.subSteps.length > 0 && (
-          <CalculatoSubStepItem
-            data={data}
-            key={`sub step item ${submitKey}`}
-          />
+          <CalculatoSubStepItem key={`sub step item ${submitKey}`} />
         )}
         <SaveBtn
           handleClick={handleSubmitButtonClick}

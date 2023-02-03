@@ -19,6 +19,6 @@ export const count = (
             ? getNested(option, ...keys)
             : 0
         )
-        .reduce((acc, curr) => (acc || 0) + (curr || 0));
+        .reduce((acc, curr) => (acc || 0) + (curr || 0), 0);
     })
-    .reduce((acc, curr) => (acc || 0) + (curr || 0));
+    .reduce((acc, curr) => (acc || 0) + (curr || 0), 0);

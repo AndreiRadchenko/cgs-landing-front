@@ -10,6 +10,7 @@ import SaveBtn from "../Global/SaveBtn";
 import dynamic from "next/dynamic";
 import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
 import { inputSubmenu } from "./inputSubmenuPlugin";
+import { letterWeightSubmenu } from "./letterWeightSubmenuPlugin";
 import { Plugin } from "suneditor/src/plugins/Plugin";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
@@ -45,9 +46,15 @@ const CalculatorResultsForm = () => {
       check_new_window: "nofollow noopener",
     },
     addTagsWhitelist: "label|input",
-    plugins: { letterCaseSubmenu, inputSubmenu, ...plugins },
+    plugins: {
+      letterCaseSubmenu,
+      inputSubmenu,
+      letterWeightSubmenu,
+      ...plugins,
+    },
     buttonList: [
       ["fontColor", "fontSize"],
+      ["letterWeight"],
       ["letterCase"],
       ["input"],
       ["removeFormat"],

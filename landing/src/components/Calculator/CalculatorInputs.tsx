@@ -1,4 +1,5 @@
 import { useFormikContext } from "formik";
+import parse from "html-react-parser";
 import React, { useCallback, useEffect } from "react";
 import {
   OptionWrapper,
@@ -135,19 +136,18 @@ const CalculatorInputs = ({
             <Styled.InputsWrapper>
               {options.map((input, idx) => (
                 <OptionWrapper key={idx}>
-                  {type === "radio" && <TieUpShadowWrapper />}
-                  <TieUpInput
-                    type={type}
-                    name={`questionsArr[${stepInd}].answer`}
-                    id={`${type}${input.label}${idx}`}
-                    value={input.label}
-                    className={type}
-                    onChange={handleChange}
-                  />
-                  <TieUpLabel
-                    dangerouslySetInnerHTML={{ __html: input.label }}
-                    htmlFor={`${type}${input.label}${idx}`}
-                  />
+                  <TieUpLabel htmlFor={`${type}${input.label}${idx}`}>
+                    <TieUpInput
+                      type={type}
+                      name={`questionsArr[${stepInd}].answer`}
+                      id={`${type}${input.label}${idx}`}
+                      value={input.label}
+                      className={type}
+                      onChange={handleChange}
+                    />
+                    {type === "radio" && <TieUpShadowWrapper />}
+                    <span>{parse(input.label)}</span>
+                  </TieUpLabel>
                 </OptionWrapper>
               ))}
               {subStep && subStep.length > 0 && checkForCondition() && (
@@ -160,19 +160,18 @@ const CalculatorInputs = ({
                   )}
                   {subStep[0].options.map((subInput, idx) => (
                     <OptionWrapper key={idx}>
-                      {subStep[0].type === "radio" && <TieUpShadowWrapper />}
-                      <TieUpInput
-                        type={subStep[0].type}
-                        id={`${subStep[0].type}${subInput.label}${idx}`}
-                        name={`questionsArr[${stepInd}].subStepAnswer`}
-                        value={subInput.label}
-                        className={subStep[0].type}
-                        onChange={handleChange}
-                      />
-                      <TieUpLabel
-                        dangerouslySetInnerHTML={{ __html: subInput.label }}
-                        htmlFor={`${subStep[0].type}${subInput.label}${idx}`}
-                      />
+                      <TieUpLabel htmlFor={`${type}${subInput.label}${idx}`}>
+                        {subStep[0].type === "radio" && <TieUpShadowWrapper />}
+                        <TieUpInput
+                          type={subStep[0].type}
+                          id={`${subStep[0].type}${subInput.label}${idx}`}
+                          name={`questionsArr[${stepInd}].subStepAnswer`}
+                          value={subInput.label}
+                          className={subStep[0].type}
+                          onChange={handleChange}
+                        />
+                        <span>{parse(subInput.label)}</span>
+                      </TieUpLabel>
                     </OptionWrapper>
                   ))}
                 </Styled.SubStepWrapper>

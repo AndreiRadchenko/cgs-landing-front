@@ -23,6 +23,7 @@ const CalculatorTitleField = ({
           dangerouslySetInnerHTML={{ __html: text }}
         />
         <Styled.Disabled className={disabled ? "disabled" : undefined} />
+        {className === "last" && <Styled.ResultFormGradient />}
       </Styled.CalculatorField>
     </Styled.CalculatorFieldWrapper>
   );

@@ -559,6 +559,10 @@ export const PagerText = styled.div`
   font-weight: ${themes.primary.font.weight.bold};
   line-height: 160%;
 
+  & p {
+    margin: 0;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 10px 0 10px 18px;
   }
@@ -789,10 +793,51 @@ export const CalculatorFieldWrapper = styled.div`
   &.last {
     font-size: 0.9em;
     line-height: 160%;
-    height: 150px;
-    max-height: 150px;
+    height: 224px;
+    max-height: 224px;
     font-family: ${themes.primary.font.family.namu};
     margin-top: 16px;
+
+    & h4.result-title {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    & span.bold {
+      font-weight: ${themes.primary.font.weight.medium};
+    }
+
+    & span.result-msg {
+      position: absolute;
+      bottom: 10px;
+    }
+    & ul {
+      margin-block: 4px 16px;
+      padding-left: 0;
+      list-style: none;
+
+      & > li {
+        font-size: 16px;
+        font-weight: ${themes.primary.font.weight.normal};
+        display: flex;
+        align-items: flex-start;
+        column-gap: 6px;
+
+        & > p {
+          margin: 0;
+        }
+
+        &::before {
+          content: "";
+          display: inline-block;
+          margin-top: 6px;
+          min-width: 12px;
+          min-height: 12px;
+          background: ${themes.primary.colors.primary};
+          border: 0.745794px solid ${themes.primary.colors.primary};
+        }
+      }
+    }
   }
 
   &.input {
@@ -820,12 +865,37 @@ export const CalculatorFieldWrapper = styled.div`
     }
 
     &.last {
-      height: 160px;
-      max-height: 160px;
+      height: 316px;
+      max-height: 316px;
+
+      & h4.result-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      & span.result-msg {
+        display: block;
+        font-size: 16px;
+        font-weight: ${themes.primary.font.weight.medium} !important;
+        position: relative;
+        margin: 0;
+        padding-top: 8px;
+      }
+
+      & ul {
+        padding-left: 0;
+        & > li {
+          font-size: 16px;
+          margin-bottom: 8px;
+
+          &::before {
+            margin-top: 4px;
+          }
+        }
+      }
 
       &::before {
-        width: 5px;
-        top: 1px;
+        top: 2.2px;
+        right: 5px;
       }
 
       &::after {
@@ -899,7 +969,7 @@ export const LeftBlackBorder = styled.div`
     }
 
     &.last {
-      height: 101%;
+      height: 100%;
     }
 
     &.quit {
@@ -1074,7 +1144,7 @@ export const CalculatorField = styled.div`
 
     &.last {
       min-height: 97%;
-      height: 97%;
+      height: 98.5%;
       font-size: 1.5em;
       line-height: 160%;
     }
@@ -1084,6 +1154,24 @@ export const CalculatorField = styled.div`
       line-height: 160%;
     }
   }
+`;
+
+export const ResultFormGradient = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    61.63deg,
+    ${themes.primary.colors.mainGradientColor1} 0%,
+    ${themes.primary.colors.mainGradientColor2} 100%
+  );
+  opacity: 0.5;
 `;
 
 export const CalculatorInputFields = styled.div`
@@ -1152,11 +1240,11 @@ export const HorizontalLine = styled.hr`
 
 export const ResultImageWrapper = styled.div`
   width: 669px;
-  height: 463px;
+  height: 553px;
 
   @media ${themes.primary.media.maxMobile} {
     width: 356px;
-    height: 481px;
+    height: 635px;
   }
 `;
 
@@ -1403,7 +1491,7 @@ export const CalculatorInputsFieldsWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     &.last {
       font-size: 14px;
-      padding: 0 1.5em 0.53em 0;
+      padding: 0 0.6em 0.53em 0;
     }
 
     &.quit {

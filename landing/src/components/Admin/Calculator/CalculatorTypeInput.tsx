@@ -11,15 +11,16 @@ import {
   TypeFieldWrapper,
 } from "../../../styles/Calculator/CalculatorAdmin.styled";
 
-interface ICalculatorType {
+export interface ICalculatorType {
   name: string;
+  _id: string;
 }
 
 const CalculatorTypeInput = () => {
   const queryClient = useQueryClient();
   const { mutateAsync } = useMutation(
     [queryKeys.addCalculatorType],
-    (name: string) => adminCalculatorService.addCalculatorType(name),
+    (data: ICalculatorType) => adminCalculatorService.addCalculatorType(data),
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getCalculatorData]);
@@ -29,13 +30,14 @@ const CalculatorTypeInput = () => {
 
   const initilaValues = {
     name: "",
+    _id: `${Math.random()}.${Math.random()}`,
   };
 
   const handleSubmit = (
     values: ICalculatorType,
     { resetForm }: FormikHelpers<ICalculatorType>
   ) => {
-    mutateAsync(values.name);
+    mutateAsync(values);
     resetForm();
   };
 
