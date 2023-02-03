@@ -292,7 +292,7 @@ export const TieUpInput = styled(Field)`
 
   outline: none;
 
-  &:checked + label {
+  &:checked ~ label {
     color: ${themes.primary.colors.darkBlue};
 
     & span {
@@ -466,10 +466,15 @@ export const TieUpInput = styled(Field)`
 export const TieUpLabel = styled.label`
   font-size: 16px;
   line-height: 19px;
-  margin-left: 12px;
-  transition: 0.15s;
   display: flex;
-  align-items: center;
+  transition: 0.15s;
+  position: relative;
+
+  & > span {
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+  }
 
   & span {
     transition: 0.15s;
