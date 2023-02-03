@@ -282,6 +282,16 @@ export const TieUpInput = styled(Field)`
   z-index: 2;
   font-family: ${themes.primary.font.family.openSans};
 
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px ${themes.primary.colors.blogBackground} inset !important;
+    -webkit-box-shadow: 0 0 0 30px ${themes.primary.colors.blogBackground} inset !important;
+  }
+
+  outline: none;
+
   &:checked + label {
     color: ${themes.primary.colors.darkBlue};
 

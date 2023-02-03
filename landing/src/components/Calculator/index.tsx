@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCalculatorService } from "../../services/adminCalculator";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
-import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import BlackButtonComponent from "../BlackButtonWithArrow";
 import CalculatorPagerComponent from "./CalculatorPagerComponent";
@@ -273,8 +272,6 @@ const Calculator = () => {
       setIsHovered(false);
     }, 3000);
   };
-
-  DisableScrollBarHandler(isOpen);
 
   const hoverClassName = isHovered ? "active" : undefined;
 
