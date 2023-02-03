@@ -25,6 +25,7 @@ interface IBlockDropdownProps {
   size?: string;
   marginTop?: string;
   zIndex?: number;
+  color?: string;
 }
 
 export const AdminWrapper = styled.div`
@@ -892,24 +893,24 @@ export const AdminCategoryBlock = styled.div`
 export const AdminDropDownMenu = styled.div<IBlockDropdownProps>`
   background: ${themes.primary.colors.secondary};
   color: ${(props) =>
-    props.size === "primary"
-      ? themes.primary.colors.mainGradientColor2
-      : themes.primary.colors.black};
+    props.color ? props.color : themes.primary.colors.black};
   font-size: ${(props) =>
     props.size === "primary"
-      ? themes.primary.font.size.primary
+      ? themes.primary.font.size.estimationFormRegular
       : themes.primary.font.size.linkText};
   position: relative;
   width: ${(props) => (props.size === "primary" ? "235px" : "100%")};
-  z-index: ${(props) => props.zIndex ?? 2};
   margin: 12px 10px 15px 0;
 `;
 
 export const AdminDropDownMenuElement = styled.div`
-  background: ${themes.primary.colors.secondary};
+  background: ${themes.primary.colors.estimationAdminBg};
   color: ${themes.primary.colors.black};
-  padding: ${themes.primary.spacing.primary};
-  border: 1px solid ${themes.primary.colors.darkedGrayBack};
+  font-size: ${themes.primary.font.size.estimationFormMedium};
+  line-height: 130%;
+  padding: ${themes.primary.spacing.half} ${themes.primary.spacing.primary};
+  border: 1px solid ${themes.primary.colors.dropdownBorder};
+  border-top: none;
   cursor: pointer;
   &:hover {
     background: ${themes.primary.colors.darkedGrayBack};
@@ -917,11 +918,13 @@ export const AdminDropDownMenuElement = styled.div`
 `;
 
 export const AdminDropDownMenuBanner = styled.div`
-  background: ${themes.primary.colors.secondary};
-  padding: ${themes.primary.spacing.primary};
+  background: ${themes.primary.colors.estimationAdminBg};
+  padding: ${themes.primary.spacing.half} ${themes.primary.spacing.primary};
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid ${themes.primary.colors.dropdownBorder};
+  border-bottom: 1px solid ${themes.primary.colors.comment};
 
   & svg {
     transition: transform 0.3s;
@@ -933,8 +936,8 @@ export const AdminDropDownMenuBanner = styled.div`
 
 export const AdminDropDownMenuList = styled.div`
   position: absolute;
-  width: 100%;
-
+  width: 235px;
+  z-index: 70;
   &.blog-admin {
     position: relative;
   }
@@ -1641,7 +1644,7 @@ export const BlockDropdownHeader = styled.div`
   padding: 16px 19px;
   display: flex;
   align-items: center;
-  width: "100%";
+  width: 100%;
   background-color: ${themes.primary.colors.primary};
 `;
 

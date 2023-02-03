@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import * as Styled from "../../../../styles/AdminPage";
 import ChooseElementBanner from "./chooseElementBanner";
 import { IMenuProps } from "./dropDownTypes";
 import MenuElementsRender from "./ElementsList";
+import useOutsideClick from "../../../../hooks/useOutsideClick";
+import themes from "../../../../utils/themes";
 
 const AdminDropDown = ({
   size = "",
@@ -14,12 +16,21 @@ const AdminDropDown = ({
 }: IMenuProps) => {
   const [isDropped, setIsDropped] = useState(false);
 
+  const dropdownElementRef = useRef<HTMLHeadingElement>(null);
+
+  useOutsideClick(dropdownElementRef, setIsDropped, false, isDropped);
+
   return (
-    <Styled.AdminDropDownMenu size={size}>
+    <Styled.AdminDropDownMenu
+      size={size}
+      color={themes.primary.colors.darkBlue}
+      ref={dropdownElementRef}
+    >
       <ChooseElementBanner
         value={value!}
         isDropped={isDropped}
         setIsDropped={setIsDropped}
+        bannerContentColor={themes.primary.colors.darkBlue}
       />
       {isDropped && (
         <MenuElementsRender

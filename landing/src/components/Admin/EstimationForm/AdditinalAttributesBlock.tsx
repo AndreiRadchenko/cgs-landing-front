@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import * as Styled from "../../../styles/EstimationForm.styled";
 import {
   IConditionsForAppearance,
@@ -35,9 +35,45 @@ const AdditinalAttributesBlock = ({
     () => import("../../../components/Admin/EstimationForm/EstimationFormInput")
   );
 
+  useEffect(() => {
+    if (!isConditionsForAppearance) {
+      updateValues("conditionsForAppearance", null);
+    }
+  }, [isConditionsForAppearance, updateValues]);
+
   const hiddenTextInputOptions = {
     buttonList: [["fontColor", "fontSize"]],
     defaultStyle: `position:relative; z-index:4`,
+  };
+
+  const conditionForAppearanceMessage = (
+    conditionsForAppearance: IConditionsForAppearance | null
+  ) => {
+    if (
+      conditionsForAppearance &&
+      (conditionsForAppearance.questionIndex == -1 ||
+        conditionsForAppearance.pageIndex == -1)
+    ) {
+      return (
+        <h3>
+          Question or page required for this conditions for appearance was
+          DELETED. Please, choose new parameters for this question if you still
+          need to show this one!
+        </h3>
+      );
+    }
+    if (
+      conditionsForAppearance &&
+      (conditionsForAppearance.questionIndex == 100 ||
+        conditionsForAppearance.pageIndex == 100)
+    ) {
+      return (
+        <h3>
+          Please, choose parameters for this question if you need to show this
+          one!
+        </h3>
+      );
+    }
   };
 
   return (
@@ -50,6 +86,7 @@ const AdditinalAttributesBlock = ({
           />
           <span>add conditions for appearance</span>
         </Styled.AdditinalAttributesLabel>
+        {conditionForAppearanceMessage(conditionsForAppearance)}
         {isConditionsForAppearance && (
           <ConditionsForAppearanceBlock
             pages={pages}

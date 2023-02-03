@@ -17,7 +17,7 @@ const EstimationOptionsDropdown = () => {
           <AdminDropDown
             size="primary"
             optionsMenu={options}
-            value={field.value || "select an option"}
+            value="select an option"
             setValue={field.onChange(field.name)}
           />
         );

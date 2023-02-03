@@ -44,6 +44,7 @@ const EstimationFormPage = ({
     document.body.style.cursor = "wait";
     await mutateAsync({
       pageId: values._id,
+      pollTableId: values.pollTableId,
       data: {
         ...values,
         questions,
@@ -96,14 +97,14 @@ const EstimationFormPage = ({
         {questions
           ? questions.map((question, i) => {
               return (
-                <Fragment key={question.optionsType + question.title + i}>
+                <Fragment key={question.questionKey}>
                   <QuestionBlock
                     pages={pages}
                     onRemoveHandler={removeQuestion}
                     saveQuestion={saveQuestion}
                     question={question}
                     name={questions[i].title}
-                    index={i + 1}
+                    index={i}
                     currentPage={pageNumber - 1}
                   />
                 </Fragment>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   AdminDropDownMenu,
   AdminDropDownMenuElement,
@@ -6,6 +6,8 @@ import {
 } from "../../../styles/AdminPage";
 import { IMenuOption } from "../../../types/Admin/AdminEstimationForm.types";
 import ChooseElementBanner from "../Global/AdminDropDown/chooseElementBanner";
+import useOutsideClick from "../../../hooks/useOutsideClick";
+import themes from "../../../utils/themes";
 
 interface IEstimationDropdownProps {
   size?: string;
@@ -25,8 +27,13 @@ const EstimationDropdown = ({
     setValue!(i);
     setIsDropped!(false);
   };
+
+  const dropdownElementRef = useRef<HTMLHeadingElement>(null);
+
+  useOutsideClick(dropdownElementRef, setIsDropped, false, isDropped);
+
   return (
-    <AdminDropDownMenu zIndex={100} size={size}>
+    <AdminDropDownMenu zIndex={1} size={size} ref={dropdownElementRef}>
       <ChooseElementBanner
         value={value.title!}
         isDropped={isDropped}

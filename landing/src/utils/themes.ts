@@ -3,6 +3,7 @@ const themes = {
     spacing: {
       small: "0.3em",
       primary: "0.8em",
+      half: "0.5em",
       logosGap: "1.18em",
       septenary: "1.3em",
       tertiary: "2em",
@@ -124,6 +125,8 @@ const themes = {
         webAuditSubtitleTabletLandscape: "2.5em",
         webAuditSubtitleTabletPortrait: "2.2em",
         webAuditSubtitleMobile: "2.3em",
+        estimationFormRegular: "1.32em",
+        estimationFormMedium: "0.9em",
       },
     },
     colors: {
@@ -163,6 +166,7 @@ const themes = {
       adminRed: "#F80909",
       grayBack: "#EFEEEE",
       comment: "#8F8E93",
+      dropdownBorder: "rgba(143,142,147,0.5)",
       darkedGrayBack: "#DDDBDB",
       deleteButton: "#F80909",
       feedbackRole: "#A9CDF5",
@@ -176,6 +180,7 @@ const themes = {
       blogDropdownHover: "#F8F7F5",
       careerBackground: "#f1efed",
       portfolioBg: "#F1EFED",
+      estimationAdminBg: "#F1EFED",
       portfolioHover: "#F2EA86",
       faqBorder: "#B5B5B5",
       bigDigit: "#F0EFED",
