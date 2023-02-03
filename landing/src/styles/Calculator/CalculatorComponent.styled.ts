@@ -1100,6 +1100,7 @@ export const CalculatorInputFields = styled.div`
   font-family: ${themes.primary.font.family.namu};
   padding-inline: 1em 4px;
   position: relative;
+  cursor: pointer;
 
   &.email {
     padding-block: 1.3em 1.7em;
