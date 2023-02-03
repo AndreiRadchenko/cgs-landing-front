@@ -87,6 +87,7 @@ export const StyledButton = styled.button`
   font-weight: 900;
   font-size: 19px;
   transition: box-shadow 1s ease-in-out;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 7px 2px 0px #000000;
@@ -96,6 +97,11 @@ export const StyledButton = styled.button`
   }
   &:focus {
     box-shadow: 7px 2px 0px #000000;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 16px;
+    padding: 0 20px;
   }
 `;
 

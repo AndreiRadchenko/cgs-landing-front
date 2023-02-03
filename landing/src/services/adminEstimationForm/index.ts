@@ -6,6 +6,7 @@ import {
   IEstimationFormPages,
   IUpdatePageBody,
 } from "../../types/Admin/AdminEstimationForm.types";
+import { EstimationData } from "../../types/EstimationForm.types";
 
 export class AdminEstimationFormService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
@@ -14,10 +15,9 @@ export class AdminEstimationFormService {
       "api/poll-table/63c66653bbad659b3b2acae2"
     );
   }
-  public getPageData(id: string) {
-    console.log(id);
-    return this.httpService.get<IEstimationFormPage>(
-      `api/poll-table/page/${id}`
+  public getPageData(page: string): Promise<void | EstimationData> {
+    return this.httpService.get<EstimationData>(
+      `api/poll-table/estimation/form/${page}`
     );
   }
 

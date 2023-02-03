@@ -12,6 +12,7 @@ const EstimationFormMainContent = () => {
     [queryKeys.getEstimationFormPage],
     () => adminEstimationFormService.getPages()
   );
+
   const [isCustomLoading, setIsCustomLoading] = useState(false);
 
   if (isLoading) {

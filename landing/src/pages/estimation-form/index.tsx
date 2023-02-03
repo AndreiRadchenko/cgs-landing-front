@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { HeaderText } from "../../components/EstimationForm/HeaderText";
 import {
   Container,
@@ -7,16 +7,20 @@ import {
 import Content from "../../components/EstimationForm";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
+import EstimationPage from "../../components/EstimationForm/EstimationPage";
+import ImageBackground from "../../components/EstimationForm/ImageBackground";
 
 const EstimationsForm = () => {
+  const [page, setPage] = useState<number>(1);
+
   return (
     <Container>
       <HeaderNavNew />
       <ContainerDate>
         <HeaderText />
-        <Content />
+        <EstimationPage pageN={page} setPage={setPage} />
+        <ImageBackground page={page} />
       </ContainerDate>
-
       <FooterNew />
     </Container>
   );
