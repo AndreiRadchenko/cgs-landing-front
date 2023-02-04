@@ -15,7 +15,7 @@ import {
 
 import Pagination from "./Pagination";
 import { EstimationValidation } from "../../validations/EstimationValidation";
-import { IFormData } from "../../types/EstimationForm.types";
+import { IFormData, ISendData } from "../../types/EstimationForm.types";
 import Loader from "../Portfolio/Loader";
 
 const EstimationPage = ({
@@ -23,11 +23,17 @@ const EstimationPage = ({
   setFormData,
   pageN,
   setPage,
+  attachFiles,
+  setAttachFiles,
+  setOpenSuccessModal,
 }: {
   formData: IFormData;
   setFormData: Dispatch<SetStateAction<IFormData>>;
   pageN: number;
   setPage: Dispatch<SetStateAction<number>>;
+  attachFiles: File[];
+  setAttachFiles: Dispatch<SetStateAction<File[]>>;
+  setOpenSuccessModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   const [parentId, setParentId] = useState("");
 
@@ -38,34 +44,35 @@ const EstimationPage = ({
 
   const createFormData = useMutation({
     mutationFn: async (estimationData: IFormData) => {
-      const { _id } = await adminEstimationFormService.createEstimationData(
+      const { _id } = (await adminEstimationFormService.createEstimationData(
         estimationData
-      );
+      )) as ISendData;
 
       setParentId(_id);
     },
   });
 
   const sendEmail = useMutation({
-    mutationFn: async (emailData) => {
-      await adminEstimationFormService.sendEstimationFormEmail(emailData);
+    mutationFn: async (id) => {
+      const fileObject = attachFiles.reduce(
+        (obj, item) => ((obj[item.index] = item.name), obj),
+        {}
+      );
+      await adminEstimationFormService.sendEstimationFormEmail({
+        parentId: id,
+        ...fileObject,
+      });
     },
   });
 
-  /*const helperSortPageAnswers = (arr) => {
-    for (let i = 0; i < arr.length)
-  }*/
-
   useEffect(() => {
-    if (parentId) sendEmail.mutate({ parentId: parentId });
+    if (parentId) sendEmail.mutate(parentId);
   }, [parentId]);
 
   const pageAnswers = formData.clientAnswers.filter(
     (clientAnswer) => clientAnswer.pageIndex === pageN
   );
   pageAnswers.sort((a, b) => a.questionIndex - b.questionIndex);
-  console.log(pageAnswers);
-  console.log(data?.page?.questions);
 
   if (isLoading) {
     return <Loader />;
@@ -107,6 +114,7 @@ const EstimationPage = ({
 
           if (pageN === data?.pageCount) {
             createFormData.mutate(formData);
+            setOpenSuccessModal(true);
           } else setPage((prevState: number) => prevState + 1);
         }}
       >
@@ -115,6 +123,7 @@ const EstimationPage = ({
             <Form>
               {data?.page.questions.map((question, index) => (
                 <EstimationQuestionField
+                  setAttachFiles={setAttachFiles}
                   setFormData={setFormData}
                   currentPage={pageN}
                   index={index}

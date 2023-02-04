@@ -20,11 +20,13 @@ const EstimationQuestionField = ({
   question,
   currentPage,
   index,
+  setAttachFiles,
 }: {
   setFormData: Dispatch<SetStateAction<IFormData>>;
   question: Question;
   currentPage: number;
   index: number;
+  setAttachFiles: Dispatch<SetStateAction<File[]>>;
 }) => {
   const [, meta] = useField(`questionsArr[${index}]`);
 
@@ -33,6 +35,8 @@ const EstimationQuestionField = ({
       <EstimationFieldBox error={!!meta.error && meta!.touched}>
         {question.optionsType === "TEXT" && (
           <TextField
+            setAttachFiles={setAttachFiles}
+            attachFile={question.isAbilityToAttachFile}
             currentPage={currentPage}
             setFormData={setFormData}
             index={index}

@@ -5,7 +5,11 @@ import {
   IEstimationFormPages,
   IUpdatePageBody,
 } from "../../types/Admin/AdminEstimationForm.types";
-import { EstimationData, IFormData } from "../../types/EstimationForm.types";
+import {
+  EstimationData,
+  IFormData,
+  ISendData,
+} from "../../types/EstimationForm.types";
 
 export class AdminEstimationFormService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
@@ -20,7 +24,7 @@ export class AdminEstimationFormService {
     );
   }
 
-  public createEstimationData(formData: IFormData) {
+  public createEstimationData(formData: IFormData): Promise<ISendData | void> {
     return this.httpService.post(`api/poll-table/submit`, formData);
   }
 

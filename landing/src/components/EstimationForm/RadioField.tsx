@@ -21,7 +21,6 @@ const RadioField = ({
 }: EstimationField) => {
   const formik = useFormikContext();
   const [, meta] = useField(`questionsArr[${index}]`);
-  console.log(meta);
 
   return (
     <>
@@ -55,7 +54,6 @@ const RadioField = ({
                     e.target.value
                   );
                 }}
-                defaultChecked={parseHtml(option.text) === meta.value?.value}
                 {...props}
                 value={parseHtml(option.text)}
               />

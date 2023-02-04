@@ -30,14 +30,14 @@ export interface Page {
 
 export interface EstimationField {
   name: string;
+  attachFile?: boolean;
   index?: number;
   title: string;
   split?: boolean;
   options: Option[];
-
   currentPage: number;
-
   setFormData: Dispatch<SetStateAction<IFormData>>;
+  setAttachFiles?: Dispatch<SetStateAction<File[]>>;
 }
 
 export interface EstimationData {
@@ -61,4 +61,16 @@ export interface IFormData {
   clientName: string;
   clientEmail: string;
   clientAnswers: ClientAnswer[];
+}
+
+export interface ISendData {
+  formTitle: string;
+  clientName: string;
+  clientEmail: string;
+  clientAnswers: ClientAnswer[];
+  _id: string;
+  attachedFiles: any[];
+  createdAt: Date;
+  updatedAt: Date;
+  __v: number;
 }

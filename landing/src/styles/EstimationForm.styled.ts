@@ -483,7 +483,7 @@ export const EstimateModalContainer = styled.div`
   }
 `;
 
-export const EstimateModalButton = styled.button`
+export const EstimateModalButton = styled.a`
   position: absolute;
   bottom: 47px;
   right: 50px;
@@ -503,7 +503,7 @@ export const EstimateModalButton = styled.button`
   }
 `;
 
-export const EstimateModalCross = styled.div`
+export const EstimateModalCross = styled.a`
   position: absolute;
   top: 20px;
   right: 28px;
@@ -538,4 +538,70 @@ export const EstimateModalBlackBlock = styled.div`
   width: 100%;
   outline: 1.5px solid ${themes.primary.colors.primary};
   background-color: black;
+`;
+
+export const EstimateFileAttachInput = styled.input`
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+`;
+
+export const EstimateFileAttachInputLabel = styled.label`
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  background: #8f8e93;
+  border-radius: 6px;
+  color: #fff;
+  padding: 7px 18px 7px 12px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 12px;
+  line-height: 14px;
+  transition: 0.3s;
+  &:hover {
+    background: ${themes.primary.colors.mainGradientColor2};
+  }
+`;
+
+export const EstimateFileType = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(88, 105, 221, 1);
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 10px;
+`;
+
+export const EstimateFileName = styled.p`
+  color: #8f8e93;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 12px;
+  line-height: 14px;
+  width: 136px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+`;
+
+export const EstimateFileCross = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 `;

@@ -17,12 +17,12 @@ const EstimationCongratsModal = () => {
     <EstimateModalWrapper>
       <EstimateModalShadowContainer>
         <EstimateModalContainer>
-          <EstimateModalCross>
+          <EstimateModalCross href={"/"}>
             <Image src={cross} alt="cross" />
           </EstimateModalCross>
           Thank you for completing the form. Our team makes every effort to
           contact you immediately with the results.
-          <EstimateModalButton>Exit</EstimateModalButton>
+          <EstimateModalButton href={"/"}>Exit</EstimateModalButton>
           <EstimateModalBlock>
             <EstimateModalBlackBlock />
           </EstimateModalBlock>
