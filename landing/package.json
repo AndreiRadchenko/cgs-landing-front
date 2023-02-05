@@ -20,6 +20,7 @@
     "@types/styled-components": "^5.1.20",
     "@types/yup": "^0.29.14",
     "axios": "^0.25.0",
+    "form-data": "^4.0.0",
     "formik": "^2.2.9",
     "fs": "^0.0.1-security",
     "html-react-parser": "^3.0.8",

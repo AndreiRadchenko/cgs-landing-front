@@ -28,10 +28,11 @@ export class AdminEstimationFormService {
     return this.httpService.post(`api/poll-table/submit`, formData);
   }
 
-  public sendEstimationFormEmail(estimationEmail) {
+  public sendEstimationFormEmail(estimationEmail: any) {
     return this.httpService.post(
       `api/poll-table/upload-files`,
-      estimationEmail
+      estimationEmail,
+      { headers: { "Content-Type": "multipart/form-data" } }
     );
   }
 

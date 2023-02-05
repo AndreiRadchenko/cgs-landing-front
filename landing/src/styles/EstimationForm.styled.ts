@@ -176,7 +176,7 @@ export const EstimationFieldLabel = styled.p<{
   }
 `;
 
-export const EstimationFieldOption = styled.p<{
+export const EstimationFieldOption = styled.label<{
   readonly error?: boolean;
 }>`
   margin: 0;

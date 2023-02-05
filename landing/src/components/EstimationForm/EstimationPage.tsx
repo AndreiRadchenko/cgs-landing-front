@@ -52,10 +52,12 @@ const EstimationPage = ({
     },
   });
 
-  const sendEmail = useMutation({
+  /*const sendEmail = useMutation({
     mutationFn: async (id) => {
       const fileObject = attachFiles.reduce(
-        (obj, item) => ((obj[item.index] = item.name), obj),
+        (obj, item) => (
+          (obj[item.index] = reader.readAsBinaryString(item.file)), obj
+        ),
         {}
       );
       await adminEstimationFormService.sendEstimationFormEmail({
@@ -63,33 +65,36 @@ const EstimationPage = ({
         ...fileObject,
       });
     },
-  });
+  });*/
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (parentId) sendEmail.mutate(parentId);
-  }, [parentId]);
+  }, [parentId]);*/
 
   const pageAnswers = formData.clientAnswers.filter(
     (clientAnswer) => clientAnswer.pageIndex === pageN
   );
-  pageAnswers.sort((a, b) => a.questionIndex - b.questionIndex);
 
   if (isLoading) {
     return <Loader />;
   }
 
   const initialValues = {
-    questionsArr: data?.page.questions.map((question, index) => {
+    questionsArr: data?.page.questions.map((question) => {
+      const questionAnswer = pageAnswers.find(
+        (answer) => answer.questionKey === question.questionKey
+      );
+
       return {
         questionTitle: question.title,
         required: question.isRequired,
         value:
           question.optionsType === "TEXT" ||
           question.optionsType === "RADIO_BUTTON"
-            ? pageAnswers[index]?.selectedOptions[0]?.text || ""
-            : pageAnswers[index]?.selectedOptions?.map(
-                (selectedOption) => selectedOption.text || []
-              ),
+            ? questionAnswer?.selectedOptions[0]?.text || ""
+            : questionAnswer?.selectedOptions?.map(
+                (selectedOption) => selectedOption.text
+              ) || [],
       };
     }),
   };
@@ -97,6 +102,7 @@ const EstimationPage = ({
   return (
     <ContainerEstimationForm>
       <Formik
+        enableReinitialize
         initialValues={initialValues}
         validationSchema={EstimationValidation}
         onSubmit={() => {
@@ -118,7 +124,7 @@ const EstimationPage = ({
           } else setPage((prevState: number) => prevState + 1);
         }}
       >
-        {({ errors, touched, values }) => {
+        {({ errors, touched }) => {
           return (
             <Form>
               {data?.page.questions.map((question, index) => (

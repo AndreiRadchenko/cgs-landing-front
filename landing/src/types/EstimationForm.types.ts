@@ -32,6 +32,7 @@ export interface EstimationField {
   name: string;
   attachFile?: boolean;
   index?: number;
+  questionKey: string;
   title: string;
   split?: boolean;
   options: Option[];
@@ -51,7 +52,7 @@ export interface SelectedOption {
 }
 
 export interface ClientAnswer {
-  questionIndex: number;
+  questionKey: string;
   pageIndex: number;
   questionTitle: string;
   selectedOptions: SelectedOption[];

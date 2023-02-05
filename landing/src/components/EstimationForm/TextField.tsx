@@ -18,6 +18,7 @@ const TextField = ({
   title,
   options,
   index,
+  questionKey,
   currentPage,
   attachFile,
   setAttachFiles,
@@ -31,14 +32,14 @@ const TextField = ({
   let placeholder = "Text";
   if (options.length > 0) placeholder = parseHtml(options[0]["text"]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     setAttachFiles(
       filesPerQuestion?.map((file, index) => ({
         index: `file${index}`,
-        name: file.name,
+        file: file,
       }))
     );
-  }, [filesPerQuestion]);
+  }, [filesPerQuestion]);*/
 
   const handleFiles = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files!.length > 3) {
@@ -57,38 +58,51 @@ const TextField = ({
       <EstimationFieldLabel dangerouslySetInnerHTML={{ __html: title }} />
       <EstimationTextInput
         error={!!meta.error && meta!.touched}
-        {...props}
         onChange={(e) => {
-          if (parseHtml(title) === "Your Name") {
-            props.setFormData((prevState) => ({
-              ...prevState,
-              clientName: e.target.value,
-            }));
-          } else if (parseHtml(title) === "Your Email") {
-            props.setFormData((prevState) => ({
-              ...prevState,
-              clientEmail: e.target.value,
-            }));
-          } else {
-            props.setFormData((prevState) => ({
-              ...prevState,
-              clientAnswers: [
-                ...prevState.clientAnswers,
-                {
-                  questionTitle: parseHtml(title),
-                  questionIndex: index as number,
-                  pageIndex: currentPage as number,
-                  selectedOptions: [{ text: e.target.value }],
-                },
-              ],
-            }));
-          }
+          // if (parseHtml(title) === "Your Name") {
+          //   props.setFormData((prevState) => ({
+          //     ...prevState,
+          //     clientName: e.target.value,
+          //   }));
+          // } else if (parseHtml(title) === "Your Email") {
+          //   props.setFormData((prevState) => ({
+          //     ...prevState,
+          //     clientEmail: e.target.value,
+          //   }));
+          // } else {
+          //
+          // }
+
+          props.setFormData((prevState) => ({
+            ...prevState,
+            clientName:
+              parseHtml(title) === "Your Name"
+                ? e.target.value
+                : prevState.clientName,
+            clientEmail:
+              parseHtml(title) === "Your Email"
+                ? e.target.value
+                : prevState.clientEmail,
+            clientAnswers: [
+              ...prevState.clientAnswers,
+              {
+                questionTitle: parseHtml(title),
+                questionKey: questionKey,
+                pageIndex: currentPage as number,
+                selectedOptions: [{ text: e.target.value }],
+              },
+            ],
+          }));
+
           formik.setFieldValue(`questionsArr[${index}].value`, e.target.value);
         }}
+        // value={meta.value.value}
+        defaultValue={meta.value.value}
         type="text"
         placeholder={
           attachFile ? "< Put your link//file here > " : `< ${placeholder} >`
         }
+        {...props}
       />
       {attachFile && (
         <div className="file-input">

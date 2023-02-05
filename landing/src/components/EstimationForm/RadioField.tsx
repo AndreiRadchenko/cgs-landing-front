@@ -16,6 +16,7 @@ const RadioField = ({
   options,
   split,
   index,
+  questionKey,
   currentPage,
   ...props
 }: EstimationField) => {
@@ -30,34 +31,38 @@ const RadioField = ({
       />
       <EstimateOptionContainer split={split!}>
         {options.map((option) => {
-          // console.log(parseHtml(option.text), meta.value?.value);
-          // console.log(parseHtml(option.text) === meta.value?.value);
           return (
             <EstimationInputFlex key={option.optionKey}>
               <EstimationInputRadio
+                id={`${option.optionKey}${questionKey}`}
                 type="radio"
                 onChange={(e) => {
-                  props.setFormData((prevState) => ({
-                    ...prevState,
-                    clientAnswers: [
-                      ...prevState.clientAnswers,
-                      {
-                        questionTitle: parseHtml(title),
-                        questionIndex: index as number,
-                        pageIndex: currentPage as number,
-                        selectedOptions: [{ text: e.target.value }],
-                      },
-                    ],
-                  }));
+                  props.setFormData((prevState) => {
+                    return {
+                      ...prevState,
+                      clientAnswers: [
+                        ...prevState.clientAnswers,
+                        {
+                          questionTitle: parseHtml(title),
+                          questionKey,
+                          pageIndex: currentPage as number,
+                          selectedOptions: [{ text: e.target.value }],
+                        },
+                      ],
+                    };
+                  });
+
                   formik.setFieldValue(
                     `questionsArr[${index}].value`,
                     e.target.value
                   );
                 }}
-                {...props}
+                checked={parseHtml(option.text) === meta.value.value}
                 value={parseHtml(option.text)}
+                {...props}
               />
               <EstimationFieldOption
+                htmlFor={`${option.optionKey}${questionKey}`}
                 error={!!meta.error && meta!.touched}
                 dangerouslySetInnerHTML={{ __html: option.text }}
               />
