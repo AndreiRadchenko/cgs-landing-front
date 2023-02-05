@@ -6,7 +6,7 @@ import { VisibleSubtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/MobileService/ProfBlock.styled";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import { useOnScreen } from "../../hooks/useOnScreen";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
 
 const ProfBlock = () => {
   const queryClient = useQueryClient();
@@ -49,10 +49,10 @@ const ProfBlock = () => {
       </Styled.ProfText>
       <Styled.ButtonWrapper>
         {data && (
-          <BookACallButton
+          <GetEstimationButton
             buttonLink={data?.buttonLink}
             buttonText={data.button}
-            withCalendly
+            withEstimation
             style={{
               padding: "1.117em 3.6em",
               fontSize: "1.5em",

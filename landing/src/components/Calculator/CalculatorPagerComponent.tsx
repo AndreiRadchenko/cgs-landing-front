@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import CalculatorModal from "./CalculatorPagerModalComponent";
 import PressButtonArrow from "../../../public/Calculator/pressButtonArrow.svg";
@@ -72,6 +72,7 @@ const CalculatorPagerComponent = ({
         <CalculatorPager
           mobile={width < 768}
           onPagerClick={handlePagerButtonsClick}
+          startLoading={startLoading}
         >
           <Styled.ContentWrapper>
             {(startLoading && (

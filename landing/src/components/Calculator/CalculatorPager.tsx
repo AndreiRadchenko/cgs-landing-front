@@ -3,19 +3,26 @@ import {
   ImageWrapper,
   CalculatorPagerRightButton,
   CalculatorPagerLeftButton,
+  RightButtonArrow,
+  LeftButtonArrow,
 } from "../../styles/Calculator/CalculatorComponent.styled";
 
 interface ICalculatorPagerProps {
   onPagerClick: () => void;
   mobile?: boolean;
+  startLoading?: boolean;
   children: ReactNode;
 }
 
 const CalculatorPager = ({
   onPagerClick,
   mobile,
+  startLoading,
   children,
 }: ICalculatorPagerProps) => {
+  const arrowsClassName = startLoading ? "disabled" : undefined;
+  const handleClick = startLoading ? undefined : onPagerClick;
+
   return (
     <ImageWrapper>
       {mobile ? (
@@ -84,7 +91,7 @@ const CalculatorPager = ({
             stroke="black"
             strokeWidth="1.8"
           />
-          <CalculatorPagerRightButton onClick={onPagerClick}>
+          <CalculatorPagerRightButton onClick={handleClick}>
             <path
               d="M195.023 155.584L195.25 167.584C195.25 183.048 182.714 192.584 167.25 192.584C191.961 192.584 199.25 183.048 199.25 167.584L199.023 155.584V152L195.023 155.584Z"
               fill="#5869DD"
@@ -98,14 +105,16 @@ const CalculatorPager = ({
               stroke="black"
               strokeWidth="1.8"
             />
-            <path
-              d="M153 174.5L141.75 180.995L141.75 168.005L153 174.5Z"
-              fill="black"
-              stroke="black"
-              strokeLinejoin="round"
-            />
+            <RightButtonArrow className={arrowsClassName}>
+              <path
+                d="M153 174.5L141.75 180.995L141.75 168.005L153 174.5Z"
+                fill="currentColor"
+                stroke="currentColor"
+                strokeLinejoin="round"
+              />
+            </RightButtonArrow>
           </CalculatorPagerRightButton>
-          <CalculatorPagerLeftButton onClick={onPagerClick}>
+          <CalculatorPagerLeftButton onClick={handleClick}>
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -129,12 +138,14 @@ const CalculatorPager = ({
               stroke="black"
               strokeWidth="1.8"
             />
-            <path
-              d="M46 174.5L56.5 168.005L56.5 180.995L46 174.5Z"
-              fill="black"
-              stroke="black"
-              strokeLinejoin="round"
-            />
+            <LeftButtonArrow className={arrowsClassName}>
+              <path
+                d="M46 174.5L56.5 168.005L56.5 180.995L46 174.5Z"
+                fill="currentColor"
+                stroke="currentColor"
+                strokeLinejoin="round"
+              />
+            </LeftButtonArrow>
           </CalculatorPagerLeftButton>
           <foreignObject width="100%" height="79%">
             {children}
@@ -277,7 +288,7 @@ const CalculatorPager = ({
           <foreignObject width="100%" height="79%">
             {children}
           </foreignObject>
-          <CalculatorPagerRightButton onClick={onPagerClick}>
+          <CalculatorPagerRightButton onClick={handleClick}>
             <path
               d="M235.023 168.584L235.25 183.584C235.25 199.048 222.714 211.584 207.25 211.584C231.961 211.584 239.25 199.048 239.25 183.584L239.023 168.584V165L235.023 168.584Z"
               fill="#5869DD"
@@ -297,14 +308,16 @@ const CalculatorPager = ({
               d="M6.0127 181.014C5.97587 182.712 5.97305 184.285 6.0127 185.756V181.014Z"
               fill="black"
             />
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M188.086 188.667C188.086 188.846 187.991 189.011 187.836 189.1L175.086 196.461C174.931 196.55 174.741 196.55 174.586 196.461C174.431 196.372 174.336 196.207 174.336 196.028L174.336 181.306C174.336 181.127 174.431 180.962 174.586 180.873C174.741 180.783 174.931 180.783 175.086 180.873L187.836 188.234C187.991 188.323 188.086 188.488 188.086 188.667Z"
-              fill="black"
-            />
+            <RightButtonArrow className={arrowsClassName}>
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M188.086 188.667C188.086 188.846 187.991 189.011 187.836 189.1L175.086 196.461C174.931 196.55 174.741 196.55 174.586 196.461C174.431 196.372 174.336 196.207 174.336 196.028L174.336 181.306C174.336 181.127 174.431 180.962 174.586 180.873C174.741 180.783 174.931 180.783 175.086 180.873L187.836 188.234C187.991 188.323 188.086 188.488 188.086 188.667Z"
+                fill="currentColor"
+              />
+            </RightButtonArrow>
           </CalculatorPagerRightButton>
-          <CalculatorPagerLeftButton onClick={onPagerClick}>
+          <CalculatorPagerLeftButton onClick={handleClick}>
             <path
               d="M6.0127 188.403C6.0127 191.165 3.17552 193.409 2.05793 190.883C1.9557 190.652 1.86535 190.407 1.78652 190.149C3.44696 197.06 7.67071 202.974 13.396 206.828C8.0751 199.946 6.25444 194.729 6.0127 185.756V188.403Z"
               fill="black"
@@ -322,12 +335,14 @@ const CalculatorPager = ({
               stroke="black"
               strokeWidth="1.8"
             />
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M49.5859 188.667C49.5859 188.488 49.6812 188.323 49.8359 188.234L62.5859 180.873C62.7406 180.783 62.9312 180.783 63.0859 180.873C63.2406 180.962 63.3359 181.127 63.3359 181.306V196.028C63.3359 196.207 63.2406 196.372 63.0859 196.461C62.9312 196.55 62.7406 196.55 62.5859 196.461L49.8359 189.1C49.6812 189.011 49.5859 188.846 49.5859 188.667Z"
-              fill="black"
-            />
+            <LeftButtonArrow className={arrowsClassName}>
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M49.5859 188.667C49.5859 188.488 49.6812 188.323 49.8359 188.234L62.5859 180.873C62.7406 180.783 62.9312 180.783 63.0859 180.873C63.2406 180.962 63.3359 181.127 63.3359 181.306V196.028C63.3359 196.207 63.2406 196.372 63.0859 196.461C62.9312 196.55 62.7406 196.55 62.5859 196.461L49.8359 189.1C49.6812 189.011 49.5859 188.846 49.5859 188.667Z"
+                fill="currentColor"
+              />
+            </LeftButtonArrow>
           </CalculatorPagerLeftButton>
           <defs>
             <linearGradient

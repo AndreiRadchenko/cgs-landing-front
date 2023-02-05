@@ -1,6 +1,9 @@
+import { Plugin } from "suneditor/src/plugins/Plugin";
+
 export interface IEstimationFormPage {
   _id: string;
   pageNumber: string;
+  pollTableId: string;
   title: string;
   buttonName: string;
   questions: IEstimationFormQuestion[];
@@ -8,6 +11,7 @@ export interface IEstimationFormPage {
 
 export interface IUpdatePageBody {
   pageId: string;
+  pollTableId: string;
   data: {
     _id?: string;
     pageNumber: string;
@@ -22,11 +26,6 @@ export interface IEstimationFormPages {
   formName: string;
   pages: IEstimationFormPage[];
 }
-export interface IEstimationFormData {
-  formName: string;
-  pages: string[];
-}
-
 export interface IEstimationFormData {
   formName: string;
   pages: string[];
@@ -55,11 +54,18 @@ export interface IConditionsForAppearance {
   questionKey: string;
   pageIndex: number;
   questionIndex: number;
-  acceptedOptions: { text: string; isSelected: boolean }[];
+  acceptedOptions: IAcceptedOptions[];
+}
+
+export interface IAcceptedOptions {
+  text: string;
+  optionKey: string;
+  isSelected: boolean;
 }
 
 export interface IEstimationFormQuestionOptions {
   text: string;
+  optionKey: string;
 }
 
 export interface IEstimationFormQuestion {
@@ -98,4 +104,12 @@ export interface IMenuOption {
   title: string;
   id: string;
   index: number;
+}
+
+export interface IQuestionOptionElementProps {
+  option: IEstimationFormQuestionOptions;
+  i: number;
+  remove?: (index: number) => number | undefined;
+  optionsLength: number;
+  optionsType: CheckBoxType;
 }

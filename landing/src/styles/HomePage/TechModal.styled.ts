@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 export const TicketModal = styled.div`
   margin-top: calc(2.5em + 42px);
   position: absolute;
-  z-index: 10;
+  z-index: 12;
   width: 42%;
   transition: 0.2s ease-in;
   opacity: 0;
@@ -13,6 +13,7 @@ export const TicketModal = styled.div`
     max-height: 400px;
     opacity: 1;
   }
+
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: calc(2.5em + 67px);
   }
@@ -36,15 +37,14 @@ export const TicketModal = styled.div`
     margin-top: 0;
     transition: 0.3s;
     border-radius: 8px;
-    z-index: 10;
+    z-index: -2;
+    margin-top: -0.6em;
+    border: solid 2.4px ${themes.primary.colors.primary};
 
     &.block {
       max-height: 550px;
       padding-bottom: 7em;
     }
-    z-index: -2;
-    margin-top: -0.6em;
-    border: solid 2.4px ${themes.primary.colors.primary};
   }
 `;
 
@@ -114,7 +114,7 @@ export const List = styled.ul`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 0 2em 1.625rem 2em;
+    padding: 0 2em 1.4rem 2em;
     column-gap: 16px;
     &.rows {
       grid-template-columns: repeat(1, 1fr);

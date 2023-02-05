@@ -8,7 +8,8 @@ import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { replaceAt } from "../../utils/replaceStrByInd";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
+import { getPosition } from "../../utils/getPosition";
 
 const HeadBlock = () => {
   const { width } = useWindowDimension();
@@ -16,10 +17,6 @@ const HeadBlock = () => {
   const data = queryClient.getQueryData<IServiceDappAudit>([
     queryKeys.getServiceDappAuditPage,
   ])?.headerBlock;
-
-  const getPosition = (string: string, subString: string, index: number) => {
-    return string.split(subString, index).join(subString).length;
-  };
 
   const title =
     data &&
@@ -46,10 +43,10 @@ const HeadBlock = () => {
           <SplitBrackets text={data?.text} />
         </Styled.Text>
         {data && (
-          <BookACallButton
+          <GetEstimationButton
             buttonLink={data?.buttonLink}
+            withEstimation
             buttonText={data.button}
-            withCalendly
             style={{
               padding: "1em 1.43em",
               fontSize: "1.125em",

@@ -4,6 +4,7 @@ export interface IEditInformation {
   button: string;
   buttonLink: string;
   whatsAppLink: string;
+  telegramLink: string;
   image: { url: string } | null;
 }
 
@@ -82,7 +83,9 @@ export interface IDataResponse {
   };
   CardsBlock: ICards;
   FeedbackBlock: IFeedbackBlock;
-  TechnologyBlock: ITechnologyBlock;
+  TechnologyBlock: {
+    items: ITech[];
+  };
   BookCallBlock: IButtonWithLinkBlock;
   FooterBlock: IFooterBlock;
   meta: IMetaBlock;
@@ -606,6 +609,10 @@ export interface IReviewProps {
 export interface ISitemapData {
   includedPages: string[];
 }
+export interface ICalculatorRole {
+  name: string;
+  rate: number;
+}
 
 export interface ICalculator {
   previewTextMessage: string;
@@ -614,6 +621,7 @@ export interface ICalculator {
   finishMessage: string;
   resultMessage: string;
   email: string;
+  roles: ICalculatorRole[];
 }
 
 export interface ICalculatorTieUpStep {
@@ -623,26 +631,30 @@ export interface ICalculatorTieUpStep {
 }
 
 export interface IStepOptions {
-  type: string;
+  _id: string;
   label: string;
-  price: number;
-  percInTheEnd: number;
-  hours: number;
-  uxui: number;
-  pm: number;
-  qa: number;
+  hours?: number;
+  role?: string;
+  endRole?: {
+    coef: number;
+    role: string;
+  };
+  endCoef?: number;
+  uxui?: number;
 }
 
 export interface ICalculatorSubStep {
   _id: string;
   condition: string[];
   title: string;
+  type: string;
   options: IStepOptions[];
 }
 
 export interface ICalculatorStep {
   _id: string;
   title: string;
+  type: string;
   options: IStepOptions[];
   tieUpSteps: ICalculatorTieUpStep[];
   subSteps: ICalculatorSubStep[];
@@ -651,7 +663,7 @@ export interface ICalculatorStep {
 export interface ICalculatorQuestion {
   title: string;
   answer: string | string[];
-  subStepAnswer?: string | string[];
+  subStepAnswer: string | string[];
   tieUpDisabled?: boolean;
 }
 
@@ -659,21 +671,38 @@ export interface ICalculatorPostResultsProps {
   answers: ICalculatorQuestion[];
   isBlockchain: boolean;
 }
+export interface ILeadMailData {
+  uxui: number;
+  hours: number;
+  price: number;
+}
 
 export interface ICalculatorPostEmailResultsProps {
   answers: ICalculatorQuestion[];
   isBlockchain: boolean;
+  estimation: ILeadMailData;
   email: string;
 }
 
+export interface ICalculatorPostLeadEmailResultsProps {
+  answers: ILeadMailData;
+  email: string;
+}
 export interface ICalculatorFormValuesProps {
   questionsArr: ICalculatorQuestion[];
   email: string;
   isBlockchain: boolean;
 }
 
+export interface IRoles {
+  [key: string]: number;
+}
+
 export interface ICalculatorAnswersResults {
-  results: Omit<IStepOptions, "label" | "type">;
+  hours?: number;
+  endCoef?: number;
+  devs?: number;
+  uxui?: number;
 }
 export interface IServiceMobileAudit {
   headerBlock: {

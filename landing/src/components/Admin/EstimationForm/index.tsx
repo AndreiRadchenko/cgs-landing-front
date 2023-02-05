@@ -39,7 +39,7 @@ const EstimationFormMainContent = () => {
             pages={data}
             values={el}
             pageNumber={i + 1}
-            key={data.formName + i}
+            key={el._id}
             refetch={refetch}
             setIsCustomLoading={setIsCustomLoading}
           />

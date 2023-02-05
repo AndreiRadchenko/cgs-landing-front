@@ -18,7 +18,8 @@ interface ITechProps extends IPropsWithImage {
   info: ITech;
   onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
   ind: number;
-  item: "item1" | "item2" | "item3" | "item4";
+  item: number;
+  isLastItem: boolean;
 }
 
 const AdminTech = ({
@@ -26,23 +27,25 @@ const AdminTech = ({
   onChangeFunction,
   ind,
   item,
+  isLastItem,
   uploadFunction,
   deleteFunction,
 }: ITechProps) => {
   const queryClient = useQueryClient();
   const { values, handleSubmit } = useFormikContext<IDataResponse>();
   const addQuestion = (index: number) => {
-    values.TechnologyBlock[item].stack.splice(index + 1, 0, "");
+    values.TechnologyBlock.items[item].stack.splice(index + 1, 0, "");
     handleSubmit();
     queryClient.invalidateQueries([queryKeys.getFullHomePage]);
   };
 
   const deleteQuestion = (index: number) => {
-    values.TechnologyBlock[item].stack.splice(index, 1);
+    values.TechnologyBlock.items[item].stack.splice(index, 1);
     handleSubmit();
     queryClient.invalidateQueries([queryKeys.getFullHomePage]);
   };
   const uploadFunc = (image: any) => uploadFunction(image);
+
   return (
     <div>
       <Styled.AdminFlexRow>
@@ -50,7 +53,7 @@ const AdminTech = ({
           <SubHeaderWithInput
             width="20em"
             header={`${ind} Card subtitle`}
-            name={`TechnologyBlock.${item}.category`}
+            name={`TechnologyBlock.items.${item}.category`}
             inputValue={info.category}
             onChangeFunction={onChangeFunction}
           />
@@ -58,7 +61,7 @@ const AdminTech = ({
             width="20em"
             height="5em"
             header="Text"
-            name={`TechnologyBlock.${item}.text`}
+            name={`TechnologyBlock.items.${item}.text`}
             inputValue={info.text}
             onChangeFunction={onChangeFunction}
           />
@@ -87,7 +90,7 @@ const AdminTech = ({
             <div key={idx}>
               <Styled.AdminInput
                 onChange={onChangeFunction}
-                name={`TechnologyBlock.${item}.stack[${idx}]`}
+                name={`TechnologyBlock.items.${item}.stack[${idx}]`}
                 value={el}
                 className="withBottomButtons"
               />
@@ -108,6 +111,7 @@ const AdminTech = ({
           </ButtonsContainer>
         )}
       </Styled.AdminHalfGrid>
+      {isLastItem && <Styled.AdminTechSeparator />}
     </div>
   );
 };

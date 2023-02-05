@@ -7,7 +7,7 @@ import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import MobileImage from "../../../public/MobileAuditService/mobile.svg";
 import Image from "next/image";
-import BookACallButton from "../BookACallButton";
+import GetEstimationButton from "../GetEstimationButton";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -25,10 +25,10 @@ const HeadBlock = () => {
           <SplitBrackets text={data?.text} />
         </Styled.Description>
         {data && (
-          <BookACallButton
+          <GetEstimationButton
             buttonLink={data?.buttonLink}
+            withEstimation
             buttonText={data.button}
-            withCalendly
             style={{
               padding: "1em 2.3em",
               fontSize: "1.125em",

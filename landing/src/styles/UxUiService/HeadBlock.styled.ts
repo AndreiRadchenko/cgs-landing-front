@@ -14,7 +14,7 @@ export const ContentWrapper = styled.div`
     padding-top: 1em;
     max-width: 100%;
 
-    & a {
+    & > a {
       font-size: 1em !important;
       padding: 1.195em 2.05em !important;
     }

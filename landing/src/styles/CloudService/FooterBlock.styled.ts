@@ -10,7 +10,7 @@ export const Container = styled.section`
     margin-top: 4.5em;
     padding-bottom: 0;
 
-    & a {
+    & > a {
       font-size: 1em !important;
       padding: 1.195em 2.789em !important;
     }

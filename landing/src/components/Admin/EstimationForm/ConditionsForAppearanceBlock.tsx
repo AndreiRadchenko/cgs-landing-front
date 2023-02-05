@@ -4,6 +4,7 @@ import { Box } from "../../../styles/AdminPage";
 import { TieUpInput } from "../../../styles/Calculator/CalculatorAdmin.styled";
 import { StyledConditionsForAppearanceBlock } from "../../../styles/EstimationForm.styled";
 import {
+  IAcceptedOptions,
   IConditionsForAppearance,
   IEstimationFormPages,
   IMenuOption,
@@ -62,28 +63,58 @@ const ConditionsForAppearanceBlock = ({
       : menuQuestionOptions[0]
   );
 
+  const [defaultAcceptedOptions, setDefaultAcceptedOptions] = useState<
+    IAcceptedOptions[] | null
+  >(conditionsForAppearance?.acceptedOptions || null);
+
   useEffect(() => {
-    if (
-      pageValue &&
-      questionValue &&
-      pageValue.index !== conditionsForAppearance?.pageIndex &&
-      questionValue.index !== conditionsForAppearance?.questionIndex
-    ) {
-      updateValues("conditionsForAppearance.pageId", pageValue.id);
-      updateValues("conditionsForAppearance.questionKey", questionValue.id);
-      updateValues(
-        "conditionsForAppearance.acceptedOptions",
-        pages.pages[pageValue.index].questions[questionValue.index].options.map(
-          (el) => {
-            return {
-              text: el.text.startsWith("<") ? el.text.slice(3, -4) : el.text,
-              isSelected: false,
-            };
-          }
-        )
-      );
+    if (conditionsForAppearance?.acceptedOptions) {
+      setDefaultAcceptedOptions(conditionsForAppearance?.acceptedOptions);
+    } else {
+      setDefaultAcceptedOptions(null);
     }
-  }, [pageValue?.id, questionValue?.id]);
+  }, []);
+
+  useEffect(() => {
+    if (pageValue && questionValue) {
+      if (pageValue.index !== conditionsForAppearance?.pageIndex) {
+        updateValues("conditionsForAppearance.pageId", pageValue.id);
+        updateValues(
+          "conditionsForAppearance.acceptedOptions",
+          pages.pages[pageValue.index].questions[questionValue.index].options
+        );
+      }
+
+      if (questionValue.index !== conditionsForAppearance?.questionIndex) {
+        updateValues("conditionsForAppearance.questionKey", questionValue.id);
+        updateValues(
+          "conditionsForAppearance.acceptedOptions",
+          pages.pages[pageValue.index].questions[questionValue.index].options
+        );
+      }
+
+      if (
+        questionValue.index === conditionsForAppearance?.questionIndex &&
+        pageValue.index === conditionsForAppearance?.pageIndex
+      ) {
+        updateValues("conditionsForAppearance.pageId", pageValue.id);
+        updateValues("conditionsForAppearance.questionKey", questionValue.id);
+        updateValues(
+          "conditionsForAppearance.acceptedOptions",
+          defaultAcceptedOptions
+        );
+      }
+    }
+  }, [
+    pageValue?.id,
+    questionValue?.id,
+    conditionsForAppearance?.pageIndex,
+    conditionsForAppearance?.questionIndex,
+    pageValue,
+    pages.pages,
+    questionValue,
+    updateValues,
+  ]);
 
   return (
     <>
@@ -110,20 +141,25 @@ const ConditionsForAppearanceBlock = ({
               return (
                 <>
                   {conditionsForAppearance &&
-                    !!conditionsForAppearance.acceptedOptions.length &&
+                    !!conditionsForAppearance.acceptedOptions?.length &&
                     conditionsForAppearance.acceptedOptions.map(
                       (acceptedOption, i) => {
                         return (
                           <Box
-                            key={acceptedOption.text + i}
+                            key={"CFA" + acceptedOption.optionKey}
                             margin="0 0 10px 0"
+                            align="center"
                           >
                             <TieUpInput
                               className={"radio"}
                               type="checkbox"
                               name={`conditionsForAppearance.acceptedOptions.${i}.isSelected`}
                             />
-                            {acceptedOption.text}
+                            <span
+                              dangerouslySetInnerHTML={{
+                                __html: acceptedOption.text,
+                              }}
+                            />
                           </Box>
                         );
                       }

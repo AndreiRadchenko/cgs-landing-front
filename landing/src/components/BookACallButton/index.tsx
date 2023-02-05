@@ -1,56 +1,60 @@
-import React, { CSSProperties, useRef, useState } from "react";
+import React, { MouseEvent, useRef, useState } from "react";
 import { PopupModal } from "react-calendly";
-import {
-  ArrowContainer,
-  BlackButton,
-} from "../../styles/HomePage/General.styled";
+import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { recoverLink } from "../../utils/recoverLink";
+import * as Styled from "../../styles/HomePage/BookACallButton.styled";
 
 interface IBookACallButtonProps {
+  name: string;
+  email: string;
   buttonText?: string;
   buttonLink: string;
-  withCalendly?: boolean;
   buttonClassName?: string;
-  style?: CSSProperties;
+  type?: string;
+  isDisabled?: boolean;
+  handleClose?: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
 }
 
 const BookACallButton = ({
+  name,
+  email,
   buttonLink,
   buttonText = "BOOK A CALL",
-  withCalendly = false,
   buttonClassName,
-  style,
+  isDisabled,
+  handleClose,
 }: IBookACallButtonProps) => {
   const elRef = useRef<HTMLAnchorElement>(null);
   const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
 
   const handleCalendyClose = () => {
     setCalendlyIsOpen(false);
+    handleClose && handleClose();
   };
 
   const handleCalendyOpen = () => {
     setCalendlyIsOpen(true);
   };
+
   return (
     <>
-      <BlackButton
-        size={"1.5em"}
-        padding={"1.11em 1.5em"}
-        rel="noopener noreferrer"
+      <Styled.BlackButton
         className={buttonClassName}
-        href={withCalendly ? undefined : buttonLink}
-        onClick={withCalendly ? handleCalendyOpen : undefined}
-        style={style}
-        ref={elRef}
+        onClick={handleCalendyOpen}
+        disabled={isDisabled}
+        type="submit"
       >
-        {buttonText}
+        <Styled.BlackButtonAnchor ref={elRef} rel="noopener noreferrer">
+          {buttonText}
+        </Styled.BlackButtonAnchor>
         <ArrowContainer>
           <ButtonArrow />
         </ArrowContainer>
-      </BlackButton>
-      {withCalendly && elRef && elRef.current && (
+      </Styled.BlackButton>
+      {elRef && elRef.current && (
         <PopupModal
+          prefill={{ email, name }}
           url={recoverLink(buttonLink)}
           rootElement={elRef.current}
           onModalClose={handleCalendyClose}

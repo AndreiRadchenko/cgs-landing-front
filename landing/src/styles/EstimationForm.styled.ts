@@ -23,14 +23,14 @@ export const AddQuestionButton = styled.button`
 `;
 
 export const QuestionBlockHeader = styled.h3`
-  font-size: ${themes.primary.font.size.primary};
+  font-size: ${themes.primary.font.size.headerLinkText};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   margin: 0 0 7px 0;
 `;
 
 export const QuestionBlock = styled.div`
-  width: "100%";
+  width: 100%;
   font-family: ${themes.primary.font.family.namu};
   padding: 20px;
   border: 2px solid ${themes.primary.colors.headerBorder};

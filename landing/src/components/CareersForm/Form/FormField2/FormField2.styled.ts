@@ -16,6 +16,10 @@ export const FormField = styled(Field)`
     outline: none;
   }
 
+  &::placeholder {
+    color: ${themes.primary.colors.careersPlaceholder};
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 0.875rem;
   }

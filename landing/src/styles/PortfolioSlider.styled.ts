@@ -97,8 +97,6 @@ export const ProjectDescription = styled.p`
   line-height: 160%;
   margin-block: 15px;
 
-  overflow: hidden;
-
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.2em;
   }
@@ -133,11 +131,28 @@ export const ProjectComment = styled.p`
   color: ${themes.primary.colors.gray};
   line-height: 160%;
   margin-bottom: 0;
-  display: -webkit-box;
   max-height: 500px;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
   overflow: hidden;
+  margin-top: 10px;
+
+  @media ${themes.primary.media.minPC} {
+    font-size: 1.111vw;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1vw;
+  }
+
+  @media (min-width: 2150px) {
+    font-size: 1.1vw;
+  }
+
+  @media (min-width: 3000px) {
+    font-size: 1.15vw;
+  }
+  @media (min-width: 3950px) {
+    font-size: 1.17vw;
+  }
 
   @media (max-width: 1199px) {
     font-size: 15px;
@@ -155,6 +170,7 @@ export const ProjectComment = styled.p`
   @media ${themes.primary.media.maxMobile} {
     padding-top: 10px;
     margin-top: 0px;
+    font-size: 14px;
   }
 `;
 
@@ -163,6 +179,11 @@ export const ViewMoreContainer = styled.a`
   display: flex;
   column-gap: 5px;
   cursor: pointer;
+
+  @media ${themes.primary.media.maxMobile} {
+    align-items: center;
+    font-size: 18px;
+  }
 `;
 
 export const ViewMoreText = styled.div`
@@ -249,10 +270,41 @@ export const Category = styled.div`
   margin: 0 auto 0 0;
 `;
 
+export const ArrowContainerRight = styled.div`
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+
+  & svg {
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 37px;
+    height: 37px;
+  }
+`;
+
+export const ArrowContainerLeft = styled.div`
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+
+  & svg {
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 37px;
+    height: 37px;
+  }
+`;
+
 export const PortfolioRow = styled.section`
   display: flex;
   width: 100%;
   position: relative;
+  height: 447px;
 
   & .swiper-slide-prev {
     color: rgba(0, 0, 0, 0.5);
@@ -264,8 +316,39 @@ export const PortfolioRow = styled.section`
     color: ${themes.primary.colors.secondary};
   }
 
+  &:has(${ArrowContainerLeft} > svg:hover)
+    ${ArrowContainerRight}
+    svg
+    path:first-child {
+    fill: ${themes.primary.colors.portfolioBg} !important;
+  }
+
+  &:hover {
+    ${ArrowContainerLeft} > svg:hover {
+      & path:first-child {
+        fill: ${themes.primary.colors.portfolioHover};
+      }
+    }
+    ${ArrowContainerRight} {
+      svg {
+        & path:first-child {
+          fill: ${themes.primary.colors.portfolioHover};
+        }
+
+        &:hover path:first-child {
+          fill: ${themes.primary.colors.portfolioBg};
+        }
+      }
+    }
+  }
+
+  @media ${themes.primary.media.minPC} {
+    height: 31.042vw;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     display: block;
+    height: auto;
   }
 `;
 
@@ -285,26 +368,6 @@ export const NavigateRight = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     display: none;
-  }
-`;
-
-export const ArrowContainer = styled.div`
-  width: 100%;
-  height: 65px;
-  display: flex;
-  justify-content: center;
-
-  & svg {
-    position: relative;
-    left: 0;
-    right: 0;
-    width: 37px;
-    height: 37px;
-  }
-  > svg:hover {
-    & path:first-child {
-      fill: ${themes.primary.colors.portfolioHover};
-    }
   }
 `;
 
@@ -346,17 +409,12 @@ export const Image = styled.img`
   left: -1px;
 `;
 
-interface IImageContainer {
-  bgColor: string;
-}
-
-export const ImageContainer = styled.div<IImageContainer>`
+export const ImageContainer = styled.div`
   position: relative;
 
   width: 56%;
   height: 100%;
   border-left: thin solid ${themes.primary.colors.comment};
-  background: ${({ bgColor }) => bgColor};
 
   @media (max-width: 1400px) {
     & img {
@@ -383,8 +441,7 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-
-  padding: 2.833em 2.1666em 2.5em;
+  padding: 1.5em 2.1666em 1.666em;
   width: 45%;
   box-sizing: border-box;
   @media (max-width: 1250px) {
@@ -448,15 +505,6 @@ export const Separator = styled.div`
     params.color ? params.color : themes.primary.colors.separator};
   width: 100%;
   height: 1px;
-  margin-bottom: 30px;
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    margin-bottom: 10px;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    margin-bottom: 4px;
-  }
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
@@ -486,12 +534,19 @@ export const Feedback = styled.div`
   @media (max-width: 1250px) {
     column-gap: 10px;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    &.withoutCompanyName {
+      column-gap: 0;
+    }
+  }
 `;
 
 export const AuthorName = styled.div`
   font-size: ${themes.primary.font.size.feedbackName};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
+  line-height: 219%;
 
   @media (max-width: 1250px) {
     font-size: 18px;
@@ -540,16 +595,24 @@ export const Star = styled.img`
   @media ${themes.primary.media.minPC} {
     width: 1.668em;
   }
+  @media ${themes.primary.media.maxMobile} {
+    width: 15px;
+    height: 15px;
+  }
 `;
 
 export const StarCont = styled.div`
   display: flex;
   margin-bottom: 2.5px;
   column-gap: 3px;
-  margin-top: 16px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 0px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 5px;
+    align-items: center;
   }
 `;
 
@@ -583,6 +646,14 @@ export const ProjectIndustry = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 5px;
     font-size: 10px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+
+    &.withLink {
+      margin-top: 0;
+    }
   }
 `;
 
