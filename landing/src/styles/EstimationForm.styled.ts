@@ -550,9 +550,8 @@ export const EstimateFileAttachInput = styled.input`
 `;
 
 export const EstimateFileAttachInputLabel = styled.label`
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
+  flex: 0 0 auto;
+  width: 100px;
   cursor: pointer;
   display: inline-flex;
   gap: 4px;
@@ -604,4 +603,15 @@ export const EstimateFileCross = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+`;
+
+export const EstimateFileContainerWithInput = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  @media ${themes.primary.media.maxMobile} {
+    align-items: start;
+    flex-direction: column;
+  }
 `;
