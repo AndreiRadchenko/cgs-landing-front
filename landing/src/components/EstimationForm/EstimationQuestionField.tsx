@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 import TextField from "./TextField";
 import RadioField from "./RadioField";
@@ -7,7 +7,7 @@ import CheckboxField from "./CheckboxField";
 import { EstimationFieldBox } from "../../styles/EstimationForm.styled";
 import EstimationAdditionalQuestion from "./EstimationAdditionalQuestion";
 
-import { Question } from "../../types/EstimationForm.types";
+import { IFormData, Question } from "../../types/EstimationForm.types";
 import {
   HoverBlackBlock,
   HoverBlock,
@@ -16,11 +16,17 @@ import {
 import { useField, useFormikContext } from "formik";
 
 const EstimationQuestionField = ({
+  setFormData,
   question,
+  currentPage,
   index,
+  setAttachFiles,
 }: {
+  setFormData: Dispatch<SetStateAction<IFormData>>;
   question: Question;
+  currentPage: number;
   index: number;
+  setAttachFiles: Dispatch<SetStateAction<File[]>>;
 }) => {
   const [, meta] = useField(`questionsArr[${index}]`);
 
@@ -29,7 +35,12 @@ const EstimationQuestionField = ({
       <EstimationFieldBox error={!!meta.error && meta!.touched}>
         {question.optionsType === "TEXT" && (
           <TextField
+            setAttachFiles={setAttachFiles}
+            attachFile={question.isAbilityToAttachFile}
+            currentPage={currentPage}
+            setFormData={setFormData}
             index={index}
+            questionKey={question.questionKey}
             name={question.title}
             title={question.title}
             options={question.options}
@@ -37,7 +48,10 @@ const EstimationQuestionField = ({
         )}
         {question.optionsType === "RADIO_BUTTON" && (
           <RadioField
+            currentPage={currentPage}
+            setFormData={setFormData}
             index={index}
+            questionKey={question.questionKey}
             split={question.isSplitColumns}
             name={question.title}
             title={question.title}
@@ -46,7 +60,10 @@ const EstimationQuestionField = ({
         )}
         {question.optionsType === "CHECKBOX" && (
           <CheckboxField
+            currentPage={currentPage}
+            setFormData={setFormData}
             index={index}
+            questionKey={question.questionKey}
             split={question.isSplitColumns}
             name={question.title}
             title={question.title}

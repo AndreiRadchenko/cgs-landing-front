@@ -1,6 +1,7 @@
 import { Field } from "formik";
 import styled from "styled-components";
 import themes from "../utils/themes";
+import React from "react";
 
 export const AddQuestionButton = styled.button`
   display: flex;
@@ -198,7 +199,7 @@ export const EstimationFieldLabel = styled.p<{
   }
 `;
 
-export const EstimationFieldOption = styled.p<{
+export const EstimationFieldOption = styled.label<{
   readonly error?: boolean;
 }>`
   margin: 0;
@@ -435,5 +436,205 @@ export const EstimateOptionContainer = styled.div<{
 
   @media ${themes.primary.media.maxMobile} {
     grid-template-columns: 100%;
+  }
+`;
+
+export const EstimationButtonHelperText = styled.div`
+  background-color: black;
+  color: #fff;
+  width: 240px;
+  height: 85px;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  top: -95px;
+  left: 7px;
+  z-index: 1;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    width: 200px;
+    height: 70px;
+    left: -2px;
+    top: -75px;
+  }
+`;
+
+export const EstimateModalWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(241, 239, 237, 0.8);
+  z-index: 100;
+  display: grid;
+  place-items: center;
+`;
+
+export const EstimateModalContainer = styled.div`
+  position: relative;
+  padding: 58px 27px 34px 36px;
+  margin: 10px 18px 10px 12px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 24px;
+  line-height: 29px;
+  max-width: 620px;
+  height: 270px;
+
+  color: ${themes.primary.colors.black};
+  background: ${themes.primary.colors.portfolioBg};
+  border: 1.5px solid ${themes.primary.colors.black};
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 20px;
+    height: 330px;
+  }
+`;
+
+export const EstimateModalButton = styled.a`
+  position: absolute;
+  bottom: 47px;
+  right: 50px;
+  padding: 10px 42px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 14px;
+  background: ${themes.primary.colors.black};
+  border: 2px solid #000000;
+  color: ${themes.primary.colors.secondary};
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: ${themes.primary.colors.portfolioBg};
+    color: ${themes.primary.colors.black};
+  }
+`;
+
+export const EstimateModalCross = styled.a`
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+`;
+
+export const EstimateModalShadowContainer = styled.div`
+  position: relative;
+`;
+
+export const EstimateModalBlock = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  border: 1.5px solid ${themes.primary.colors.primary};
+  z-index: -10;
+  display: flex;
+  align-items: flex-end;
+
+  @media ${themes.primary.media.maxMobile} {
+    right: -4px;
+    bottom: -4px;
+  }
+`;
+
+export const EstimateModalBlackBlock = styled.div`
+  height: 50%;
+  width: 100%;
+  outline: 1.5px solid ${themes.primary.colors.primary};
+  background-color: black;
+`;
+
+export const EstimateFileAttachInput = styled.input`
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+`;
+
+export const EstimateFileAttachInputLabel = styled.label`
+  flex: 0 0 auto;
+  width: 100px;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  background: #8f8e93;
+  border-radius: 6px;
+  color: #fff;
+  padding: 7px 18px 7px 12px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 12px;
+  line-height: 14px;
+  transition: 0.3s;
+  &:hover {
+    background: ${themes.primary.colors.mainGradientColor2};
+  }
+`;
+
+export const EstimateFileType = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(88, 105, 221, 1);
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 10px;
+`;
+
+export const EstimateFileName = styled.p`
+  color: #8f8e93;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 12px;
+  line-height: 14px;
+  width: 136px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+`;
+
+export const EstimateFileCross = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export const EstimateFileContainerWithInput = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  @media ${themes.primary.media.maxMobile} {
+    align-items: start;
+    flex-direction: column;
   }
 `;

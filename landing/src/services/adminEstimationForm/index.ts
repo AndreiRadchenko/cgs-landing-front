@@ -2,11 +2,14 @@ import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
 import {
   IEstimationFormData,
-  IEstimationFormPage,
   IEstimationFormPages,
   IUpdatePageBody,
 } from "../../types/Admin/AdminEstimationForm.types";
-import { EstimationData } from "../../types/EstimationForm.types";
+import {
+  EstimationData,
+  IFormData,
+  ISendData,
+} from "../../types/EstimationForm.types";
 
 export class AdminEstimationFormService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
@@ -18,6 +21,18 @@ export class AdminEstimationFormService {
   public getPageData(page: string): Promise<void | EstimationData> {
     return this.httpService.get<EstimationData>(
       `api/poll-table/estimation/form/${page}`
+    );
+  }
+
+  public createEstimationData(formData: IFormData): Promise<ISendData | void> {
+    return this.httpService.post(`api/poll-table/submit`, formData);
+  }
+
+  public sendEstimationFormEmail(estimationEmail: any) {
+    return this.httpService.post(
+      `api/poll-table/upload-files`,
+      estimationEmail,
+      { headers: { "Content-Type": "multipart/form-data" } }
     );
   }
 
