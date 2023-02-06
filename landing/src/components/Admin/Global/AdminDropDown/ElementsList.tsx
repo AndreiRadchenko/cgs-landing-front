@@ -1,6 +1,9 @@
 import React from "react";
 import * as Styled from "../../../../styles/AdminPage";
 import { IMenuProps } from "./dropDownTypes";
+import Image from "next/image";
+import checkbox from "../../../../../public/EstimationForm/checkboxAdmin.svg";
+import radio from "../../../../../public/EstimationForm/radioAdmin.svg";
 
 const MenuElementsRender = ({
   menu,
@@ -30,6 +33,21 @@ const MenuElementsRender = ({
               onClick={select(i.optionType)}
               key={`dropElement${ind}`}
             >
+              {(i.optionType === "CHECKBOX" ||
+                i.optionType === "RADIO_BUTTON") && (
+                <Styled.AdminDropDownMenuElementImage>
+                  <Image
+                    src={
+                      (i.optionType === "CHECKBOX" && checkbox.src) ||
+                      (i.optionType === "RADIO_BUTTON" && radio.src)
+                    }
+                    alt="calculator type img"
+                    width="15px"
+                    height="15px"
+                    objectFit="contain"
+                  />
+                </Styled.AdminDropDownMenuElementImage>
+              )}
               {i.optionText}
             </Styled.AdminDropDownMenuElement>
           ))}

@@ -67,6 +67,14 @@ export const AdditinalAttributesWrapper = styled.div`
   margin-bottom: 5px;
 `;
 
+export const EstimationDeleteQuestion = styled.p`
+  color: ${themes.primary.colors.errorText};
+  margin: 10px;
+  font-size: 16px;
+  line-height: 132%;
+  cursor: pointer;
+`
+
 export const AdditinalAttributesLabel = styled.label`
   display: flex;
   align-items: center;
@@ -87,7 +95,7 @@ export const AdditinalRoundedInput = styled(Field)`
 `;
 
 export const StyledConditionsForAppearanceBlock = styled.div`
-  border: 1px solid #111;
+  border: 1px solid ${themes.primary.colors.dropdownBorder};
   padding: 10px;
   margin: 10px 0 5px 0;
 `;
@@ -105,6 +113,8 @@ export const AddOptionInputWrapper = styled.div<{ type: string }>`
     border: none;
     color: #8f8e93;
     position: relative;
+    font-size: 16px;
+    font-family: ${themes.primary.font.family.namu};
     &::before {
       display: inline-block;
       content: " ";
@@ -132,6 +142,11 @@ export const ContainerEstimationForm = styled.div`
   @media ${themes.primary.media.maxMobile} {
     padding: 0px 20px 34px;
   }
+`;
+
+export const EstimationConditionsForAppearanceHeader = styled.p`
+  font-size: 16px;
+  line-height: 132%;
 `;
 
 export const EstimationFieldBox = styled.div<{

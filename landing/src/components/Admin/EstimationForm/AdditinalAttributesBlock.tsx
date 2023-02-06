@@ -7,6 +7,11 @@ import {
 } from "../../../types/Admin/AdminEstimationForm.types";
 import { defaultEditorOption } from "../../../utils/variables";
 import ConditionsForAppearanceBlock from "./ConditionsForAppearanceBlock";
+import {
+  TieUpInput,
+  TieUpLabel,
+} from "../../../styles/Calculator/CalculatorAdmin.styled";
+import { Box } from "../../../styles/AdminPage";
 
 interface IAdditionalAttributesBlockProps {
   isConditionsForAppearance: boolean;
@@ -29,6 +34,8 @@ const AdditinalAttributesBlock = ({
   pages,
   conditionsForAppearance,
   updateValues,
+  currentQuestion,
+  currentPage,
   ...indexes
 }: IAdditionalAttributesBlockProps) => {
   const EstimationFormInput = dynamic(
@@ -78,52 +85,74 @@ const AdditinalAttributesBlock = ({
 
   return (
     <Styled.AdditinalAttributesBlock>
-      <Styled.AdditinalAttributesWrapper>
-        <Styled.AdditinalAttributesLabel>
-          <Styled.AdditinalAttributesInput
-            type="checkbox"
-            name="isConditionsForAppearance"
-          />
-          <span>add conditions for appearance</span>
-        </Styled.AdditinalAttributesLabel>
-        {conditionForAppearanceMessage(conditionsForAppearance)}
-        {isConditionsForAppearance && (
-          <ConditionsForAppearanceBlock
-            pages={pages}
-            conditionsForAppearance={conditionsForAppearance}
-            updateValues={updateValues}
-            {...indexes}
-          />
-        )}
-      </Styled.AdditinalAttributesWrapper>
-      <Styled.AdditinalAttributesWrapper>
-        <Styled.AdditinalAttributesLabel>
-          <Styled.AdditinalAttributesInput
-            name="isAbilityToAttachFile"
-            type="checkbox"
-          />
-          <span>add the ability to attach files</span>
-        </Styled.AdditinalAttributesLabel>
-      </Styled.AdditinalAttributesWrapper>
+      <Box margin="0 0 5px 0" align="start">
+        <TieUpInput
+          type="checkbox"
+          className={"admin-checkbox"}
+          name={`isConditionsForAppearance`}
+          id={`isConditionsForAppearance${currentQuestion}${currentPage}`}
+        />
+        <TieUpLabel
+          dangerouslySetInnerHTML={{
+            __html: "add conditions for appearance",
+          }}
+          htmlFor={`isConditionsForAppearance${currentQuestion}${currentPage}`}
+          style={{ marginLeft: "6px" }}
+        />
+      </Box>
+      {conditionForAppearanceMessage(conditionsForAppearance)}
+      {isConditionsForAppearance && (
+        <ConditionsForAppearanceBlock
+          pages={pages}
+          conditionsForAppearance={conditionsForAppearance}
+          updateValues={updateValues}
+          currentQuestion={currentQuestion}
+          currentPage={currentPage}
+          {...indexes}
+        />
+      )}
 
-      <Styled.AdditinalAttributesWrapper>
-        <Styled.AdditinalAttributesLabel>
-          <Styled.AdditinalAttributesInput
-            type="checkbox"
-            name="isHiddenText"
-          />
-          <span>add hidden text</span>
-        </Styled.AdditinalAttributesLabel>
-        {isHiddenText && (
-          <EstimationFormInput
-            name="hiddenText"
-            props={{
-              width: "550px",
-              setOptions: { ...defaultEditorOption, ...hiddenTextInputOptions },
-            }}
-          />
-        )}
-      </Styled.AdditinalAttributesWrapper>
+      <Box margin="0 0 5px 0" align="start">
+        <TieUpInput
+          type="checkbox"
+          className={"admin-checkbox"}
+          name={`isAbilityToAttachFile`}
+          id={`isAbilityToAttachFileId${currentQuestion}${currentPage}`}
+        />
+        <TieUpLabel
+          dangerouslySetInnerHTML={{
+            __html: "add the ability to attach files",
+          }}
+          htmlFor={`isAbilityToAttachFileId${currentQuestion}${currentPage}`}
+          style={{ marginLeft: "6px" }}
+        />
+      </Box>
+
+      <Box margin="0 0 5px 0" align="start">
+        <TieUpInput
+          type="checkbox"
+          className={"admin-checkbox"}
+          name={`isHiddenText`}
+          id={`isHiddenTextId${currentQuestion}${currentPage}`}
+        />
+        <TieUpLabel
+          dangerouslySetInnerHTML={{
+            __html: "add hidden text",
+          }}
+          htmlFor={`isHiddenTextId${currentQuestion}${currentPage}`}
+          style={{ marginLeft: "6px" }}
+        />
+      </Box>
+
+      {isHiddenText && (
+        <EstimationFormInput
+          name="hiddenText"
+          props={{
+            width: "550px",
+            setOptions: { ...defaultEditorOption, ...hiddenTextInputOptions },
+          }}
+        />
+      )}
     </Styled.AdditinalAttributesBlock>
   );
 };
