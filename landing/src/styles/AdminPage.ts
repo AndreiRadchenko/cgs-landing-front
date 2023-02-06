@@ -295,7 +295,7 @@ export const AdminInput = styled(TextareaAutosize)<{
   background-color: ${themes.primary.colors.blogBackground};
   outline: ${({ isadmin }) =>
     isadmin ? `1px solid ${themes.primary.colors.comment}` : null};
-  font-size: ${themes.primary.font.size.linkText};
+  font-size: 16px;
   font-family: ${themes.primary.font.family.namu};
   padding: ${themes.primary.spacing.primary};
   height: ${({ height }) => height};
@@ -649,13 +649,18 @@ export const AdminButton = styled.button`
 `;
 
 export const AdminBlackButton = styled.button<IBlackButtonProps>`
-  font-size: ${themes.primary.font.size.primary};
+  font-size: ${(props) =>
+    props.size === "estimationForm"
+      ? "18px"
+      : themes.primary.font.size.primary};
   background-color: #000;
   color: white;
   border: 0;
   padding: ${(props) => (props.size === "estimationForm" ? "20px 50px" : 0)};
-  width: ${(props) => props.size === "estimationForm" && "10em"};
-  height: ${(props) => props.size === "estimationForm" && "32px"};
+  font-family: ${(props) =>
+    props.size === "estimationForm" && themes.primary.font.family.namu};
+  width: ${(props) => props.size === "estimationForm" && "226px"};
+  height: ${(props) => props.size === "estimationForm" && "58px"};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -912,9 +917,14 @@ export const AdminDropDownMenuElement = styled.div`
   border: 1px solid ${themes.primary.colors.dropdownBorder};
   border-top: none;
   cursor: pointer;
+  position: relative;
   &:hover {
     background: ${themes.primary.colors.darkedGrayBack};
   }
+`;
+
+export const AdminDropDownMenuElementImage = styled.span`
+  padding: 0 8px 0 0;
 `;
 
 export const AdminDropDownMenuBanner = styled.div`

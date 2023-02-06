@@ -1,8 +1,14 @@
 import { FieldArray } from "formik";
 import React, { useState, memo, useEffect } from "react";
 import { Box } from "../../../styles/AdminPage";
-import { TieUpInput } from "../../../styles/Calculator/CalculatorAdmin.styled";
-import { StyledConditionsForAppearanceBlock } from "../../../styles/EstimationForm.styled";
+import {
+  TieUpInput,
+  TieUpLabel,
+} from "../../../styles/Calculator/CalculatorAdmin.styled";
+import {
+  EstimationConditionsForAppearanceHeader,
+  StyledConditionsForAppearanceBlock,
+} from "../../../styles/EstimationForm.styled";
 import {
   IAcceptedOptions,
   IConditionsForAppearance,
@@ -134,7 +140,9 @@ const ConditionsForAppearanceBlock = ({
               setValue={setQuestionValue}
             />
           </Box>
-          <p>If an answer is selected:</p>
+          <EstimationConditionsForAppearanceHeader>
+            If an answer is selected:
+          </EstimationConditionsForAppearanceHeader>
 
           <FieldArray name="conditionsForAppearance.acceptedOptions">
             {() => {
@@ -151,14 +159,17 @@ const ConditionsForAppearanceBlock = ({
                             align="center"
                           >
                             <TieUpInput
-                              className={"radio"}
                               type="checkbox"
+                              className={"admin-radio"}
                               name={`conditionsForAppearance.acceptedOptions.${i}.isSelected`}
+                              id={`${acceptedOption.optionKey}${currentQuestion}${currentPage}`}
                             />
-                            <span
+                            <TieUpLabel
                               dangerouslySetInnerHTML={{
                                 __html: acceptedOption.text,
                               }}
+                              htmlFor={`${acceptedOption.optionKey}${currentQuestion}${currentPage}`}
+                              style={{ marginLeft: "8px" }}
                             />
                           </Box>
                         );

@@ -114,11 +114,12 @@ const EstimationFormPage = ({
 
         <AddQuestionButton
           type="button"
-          buttonText="+ Add a question"
+          buttonText="Add a question"
           handleClick={addQuestion}
         />
 
         <Title
+          width={"347px"}
           header="Button"
           ref={buttonTextInput}
           inputValue={values.buttonName}

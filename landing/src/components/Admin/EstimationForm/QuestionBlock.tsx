@@ -16,6 +16,7 @@ import { defaultEditorOption } from "../../../utils/variables";
 import SplitColumns from "./SplitColumns";
 import OptionElement from "./OptionElement";
 import IsRequired from "./IsRequired";
+import { EstimationDeleteQuestion } from "../../../styles/EstimationForm.styled";
 
 export interface IFormikValues extends IEstimationFormQuestion {
   isConditionsForAppearance: boolean;
@@ -82,8 +83,18 @@ const QuestionBlock = ({
 
               <Styled.EstimationFormDropDownWrapper>
                 <EstimationDropdown />
-                <SplitColumns />
-                <IsRequired />
+                <SplitColumns
+                  currentQuestion={
+                    question.questionKey ? question.questionKey : String(index)
+                  }
+                  currentPage={String(currentPage) + question.questionKey}
+                />
+                <IsRequired
+                  currentQuestion={
+                    question.questionKey ? question.questionKey : String(index)
+                  }
+                  currentPage={String(currentPage) + question.questionKey}
+                />
               </Styled.EstimationFormDropDownWrapper>
 
               <FieldArray name="options">
@@ -150,9 +161,9 @@ const QuestionBlock = ({
                   text="Save question"
                   size="estimationForm"
                 />
-                <AdminDeleteText type="button" onClick={onDeleteQuestion}>
+                <EstimationDeleteQuestion onClick={onDeleteQuestion}>
                   Delete question
-                </AdminDeleteText>
+                </EstimationDeleteQuestion>
               </Box>
             </Styled.QuestionBlock>
           </form>

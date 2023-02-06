@@ -1,18 +1,32 @@
 import React from "react";
+import { Box } from "../../../styles/AdminPage";
 import {
-  AdminCheckBox,
-  AdminSplitColumnText,
-  Box,
-} from "../../../styles/AdminPage";
+  TieUpInput,
+  TieUpLabel,
+} from "../../../styles/Calculator/CalculatorAdmin.styled";
 
-const SplitColumns = () => {
+export interface ISplitColumnsProps {
+  currentQuestion: string;
+  currentPage: string;
+}
+
+const SplitColumns = ({ currentQuestion, currentPage }: ISplitColumnsProps) => {
   return (
-    <label htmlFor="split">
-      <Box align="center">
-        <AdminCheckBox name="isSplitColumns" type="checkbox" />
-        <AdminSplitColumnText>split columns</AdminSplitColumnText>
-      </Box>
-    </label>
+    <Box margin="0 6px 0 0" align="start">
+      <TieUpInput
+        type="checkbox"
+        className={"admin-checkbox"}
+        name={`isSplitColumns`}
+        id={`isSplitColumnsId${currentQuestion}${currentPage}`}
+      />
+      <TieUpLabel
+        dangerouslySetInnerHTML={{
+          __html: "split columns",
+        }}
+        htmlFor={`isSplitColumnsId${currentQuestion}${currentPage}`}
+        style={{ marginLeft: "6px" }}
+      />
+    </Box>
   );
 };
 
