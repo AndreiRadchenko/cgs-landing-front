@@ -6,11 +6,12 @@ interface ITitleProps {
   header: string;
   inputValue: string;
   minRows?: number;
+  width?: string;
 }
 
 const Title = forwardRef(
   (
-    { header, inputValue, minRows }: ITitleProps,
+    { header, inputValue, minRows, width }: ITitleProps,
     ref: React.ForwardedRef<HTMLTextAreaElement>
   ) => {
     return (
@@ -21,6 +22,7 @@ const Title = forwardRef(
           ref={ref}
           defaultValue={inputValue}
           minRows={minRows}
+          width={width}
         />
       </div>
     );

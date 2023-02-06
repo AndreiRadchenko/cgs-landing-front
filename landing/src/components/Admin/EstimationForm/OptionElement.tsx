@@ -46,7 +46,7 @@ const OptionElement = ({
     buttonList: [["fontColor", "fontSize", "letterCase"]],
 
     defaultTag: "p",
-    defaultStyle: "position:relative; z-index:2",
+    defaultStyle: "position:relative; z-index:3",
   };
   return (
     <Box>
@@ -69,8 +69,8 @@ const OptionElement = ({
               ...optionEditorOptions,
               defaultStyle: `position:relative; z-index:${
                 optionsLength - 1 === i && optionsLength > 2
-                  ? 120
-                  : optionsLength - i
+                  ? 3
+                  : optionsLength - i + 3
               }`,
             },
           }}

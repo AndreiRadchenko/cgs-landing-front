@@ -295,7 +295,7 @@ export const AdminInput = styled(TextareaAutosize)<{
   background-color: ${themes.primary.colors.blogBackground};
   outline: ${({ isadmin }) =>
     isadmin ? `1px solid ${themes.primary.colors.comment}` : null};
-  font-size: ${themes.primary.font.size.linkText};
+  font-size: 16px;
   font-family: ${themes.primary.font.family.namu};
   padding: ${themes.primary.spacing.primary};
   height: ${({ height }) => height};

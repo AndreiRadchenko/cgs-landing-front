@@ -3,9 +3,12 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 export const AddQuestionButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: ${themes.primary.font.size.projectLink};
   font-family: ${themes.primary.font.family.namu};
-  padding: 17px 30px;
+  padding: 10px 26px;
   border: 2px dashed ${themes.primary.colors.mainGradientColor2};
   background-color: transparent;
   outline: none;
@@ -18,6 +21,11 @@ export const AddQuestionButton = styled.button`
   &:hover {
     background-color: ${themes.primary.colors.mainGradientColor2};
     color: ${themes.primary.colors.secondary};
+  }
+
+  span {
+    font-size: 35px;
+    margin: 0 10px 0 0;
   }
 `;
 
@@ -73,7 +81,7 @@ export const EstimationDeleteQuestion = styled.p`
   font-size: 16px;
   line-height: 132%;
   cursor: pointer;
-`
+`;
 
 export const AdditinalAttributesLabel = styled.label`
   display: flex;
