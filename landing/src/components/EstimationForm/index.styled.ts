@@ -105,27 +105,3 @@ export const ContainerDate = styled.div`
     min-height: calc(100vh - 93px - 101px);
   }
 `;
-
-export const PopoverWrapper = styled.div<{ isShow: boolean }>`
-  position: absolute;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  transition: opacity 0.3s;
-  opacity: ${({ isShow }) => (isShow ? 1 : 0)};
-  top: -81px;
-`;
-
-export const PopoverContent = styled.div`
-  font-size: 13px;
-  line-height: 150%;
-  width: 230px;
-
-  font-family: ${themes.primary.font.family.namu};
-  color: ${themes.primary.colors.blogBackground};
-  background-color: ${themes.primary.colors.primary};
-  text-align: center;
-  padding: 17px 6px;
-  border-radius: 6px;
-  font-size: 12px;
-`;

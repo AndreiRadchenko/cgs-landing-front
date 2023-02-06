@@ -70,27 +70,12 @@ export const AdditinalAttributesBlock = styled.div`
   margin-bottom: 15px;
 `;
 
-export const AdditinalAttributesWrapper = styled.div`
-  margin-bottom: 5px;
-`;
-
 export const EstimationDeleteQuestion = styled.p`
   color: ${themes.primary.colors.errorText};
   margin: 10px;
   font-size: 16px;
   line-height: 132%;
   cursor: pointer;
-`;
-
-export const AdditinalAttributesLabel = styled.label`
-  display: flex;
-  align-items: center;
-  color: ${themes.primary.colors.primary};
-  cursor: pointer;
-
-  &:hover {
-    color: ${themes.primary.colors.mainGradientColor2};
-  }
 `;
 
 export const AdditinalAttributesInput = styled(Field)`
