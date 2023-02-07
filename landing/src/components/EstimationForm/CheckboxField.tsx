@@ -9,7 +9,6 @@ import {
 import { useField, useFormikContext } from "formik";
 import { EstimationField } from "../../types/EstimationForm.types";
 import { parseHtml } from "../../utils/parseHtml";
-import Loader from "../Portfolio/Loader";
 
 const CheckboxField = ({
   title,
@@ -27,7 +26,10 @@ const CheckboxField = ({
 
   const [dataArray, setDataArray] = useState<string[]>([]);
 
-  // console.log(dataArray);
+  useEffect(() => {
+    if (meta.value?.value.length > 1 && Array.isArray(meta.value?.value))
+      setDataArray(meta.value?.value);
+  }, [meta?.value?.value]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
@@ -69,12 +71,6 @@ const CheckboxField = ({
       />
       <EstimateOptionContainer split={split!}>
         {options.map((option) => {
-          // console.log(
-          //   meta.value?.value,
-          //   parseHtml(option.text),
-          //   (meta.value?.value as string[])?.includes(parseHtml(option.text))
-          // );
-
           return (
             <EstimationInputFlex key={option.optionKey}>
               <EstimationInputCheckbox

@@ -1,7 +1,15 @@
 import { Field } from "formik";
 import styled from "styled-components";
 import themes from "../utils/themes";
-import React from "react";
+
+interface IBlockErrorSplit {
+  readonly error?: boolean;
+  readonly split?: boolean;
+}
+
+interface IWrapperInput {
+  type: string;
+}
 
 export const AddQuestionButton = styled.button`
   display: flex;
@@ -45,21 +53,11 @@ export const QuestionBlock = styled.div`
   margin-bottom: ${themes.primary.spacing.tertiary};
 `;
 
-export const EstimationFormInputContainer = styled.div``;
-
 export const EstimationFormInputHeader = styled.h3`
   font-size: ${themes.primary.font.size.mainBlogDescription};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   margin: 0 0 10px 0;
-`;
-
-export const EstimationFormDropDownMenu = styled.div`
-  background: ${themes.primary.colors.secondary};
-  font-size: ${themes.primary.font.size.primary};
-  margin-right: 10px;
-  margin-top: 12px;
-  z-index: 10;
 `;
 
 export const EstimationFormDropDownWrapper = styled.div`
@@ -72,10 +70,6 @@ export const AdditinalAttributesBlock = styled.div`
   margin-bottom: 15px;
 `;
 
-export const AdditinalAttributesWrapper = styled.div`
-  margin-bottom: 5px;
-`;
-
 export const EstimationDeleteQuestion = styled.p`
   color: ${themes.primary.colors.errorText};
   margin: 10px;
@@ -84,23 +78,8 @@ export const EstimationDeleteQuestion = styled.p`
   cursor: pointer;
 `;
 
-export const AdditinalAttributesLabel = styled.label`
-  display: flex;
-  align-items: center;
-  color: ${themes.primary.colors.primary};
-  cursor: pointer;
-
-  &:hover {
-    color: ${themes.primary.colors.mainGradientColor2};
-  }
-`;
-
 export const AdditinalAttributesInput = styled(Field)`
   margin: 0 5px 0 0;
-`;
-
-export const AdditinalRoundedInput = styled(Field)`
-  border-radius: 50px;
 `;
 
 export const StyledConditionsForAppearanceBlock = styled.div`
@@ -109,11 +88,7 @@ export const StyledConditionsForAppearanceBlock = styled.div`
   margin: 10px 0 5px 0;
 `;
 
-export const StyledCheckBoxInput = styled(Field)`
-  margin: 0 5px 0 0;
-`;
-
-export const AddOptionInputWrapper = styled.div<{ type: string }>`
+export const AddOptionInputWrapper = styled.div<IWrapperInput>`
   margin: 0 0 15px 0;
   border: none;
   margin-left: 11px;
@@ -152,15 +127,12 @@ export const ContainerEstimationForm = styled.div`
     padding: 0px 20px 34px;
   }
 `;
-
 export const EstimationConditionsForAppearanceHeader = styled.p`
   font-size: 16px;
   line-height: 132%;
 `;
 
-export const EstimationFieldBox = styled.div<{
-  readonly error?: boolean;
-}>`
+export const EstimationFieldBox = styled.div<IBlockErrorSplit>`
   position: relative;
   background-color: ${({ error }) =>
     error
@@ -177,10 +149,7 @@ export const EstimationFieldBox = styled.div<{
   }
 `;
 
-export const EstimationFieldLabel = styled.p<{
-  readonly split?: boolean;
-  readonly error?: boolean;
-}>`
+export const EstimationFieldLabel = styled.p<IBlockErrorSplit>`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 22px;
@@ -199,9 +168,7 @@ export const EstimationFieldLabel = styled.p<{
   }
 `;
 
-export const EstimationFieldOption = styled.label<{
-  readonly error?: boolean;
-}>`
+export const EstimationFieldOption = styled.label<IBlockErrorSplit>`
   margin: 0;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
@@ -219,9 +186,7 @@ export const EstimationFieldOption = styled.label<{
   }
 `;
 
-export const EstimationTextInput = styled.input<{
-  readonly error?: boolean;
-}>`
+export const EstimationTextInput = styled.input<IBlockErrorSplit>`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 18px;
@@ -427,9 +392,7 @@ export const EstimateNavigation = styled.div`
   }
 `;
 
-export const EstimateOptionContainer = styled.div<{
-  readonly split: boolean;
-}>`
+export const EstimateOptionContainer = styled.div<IBlockErrorSplit>`
   display: grid;
   gap: 5px;
   grid-template-columns: ${(props) => (props.split ? "50% 50%" : "100%")};

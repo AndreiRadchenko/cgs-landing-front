@@ -11,13 +11,13 @@ const Marquee = () => {
     <WrapperStyledH>
       <MarqueeBox>
         <MarqueeContent aria-hidden="true">
-          {[...Array(12)].map((_, i) => (
+          {[...Array(6)].map((_, i) => (
             <StyledH key={i}>Estimation Form </StyledH>
           ))}
         </MarqueeContent>
 
         <MarqueeContent aria-hidden="true">
-          {[...Array(12)].map((_, i) => (
+          {[...Array(6)].map((_, i) => (
             <StyledH key={i}>Estimation Form </StyledH>
           ))}
         </MarqueeContent>
