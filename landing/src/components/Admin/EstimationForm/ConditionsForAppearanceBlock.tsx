@@ -13,6 +13,7 @@ import {
   IAcceptedOptions,
   IConditionsForAppearance,
   IEstimationFormPages,
+  IEstimationFormQuestionOptions,
   IMenuOption,
 } from "../../../types/Admin/AdminEstimationForm.types";
 import {
@@ -28,7 +29,11 @@ interface IConditionsForAppearanceBlockProps {
   currentQuestion: number;
   updateValues: (
     field: string,
-    value: any,
+    value:
+      | IConditionsForAppearance
+      | null
+      | string
+      | IEstimationFormQuestionOptions[],
     shouldValidate?: boolean | undefined
   ) => void;
 }

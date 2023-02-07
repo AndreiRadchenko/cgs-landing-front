@@ -95,7 +95,6 @@ const CalculatorStepItemComponent = ({
   const handleSubmitButtonClick = () => {
     handleSubmit();
   };
-  console.log(values.options);
 
   const subStepBtnIsDisabled = values.subSteps.length !== 0;
 

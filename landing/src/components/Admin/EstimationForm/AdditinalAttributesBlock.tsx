@@ -4,6 +4,7 @@ import * as Styled from "../../../styles/EstimationForm.styled";
 import {
   IConditionsForAppearance,
   IEstimationFormPages,
+  IEstimationFormQuestionOptions,
 } from "../../../types/Admin/AdminEstimationForm.types";
 import { defaultEditorOption } from "../../../utils/variables";
 import ConditionsForAppearanceBlock from "./ConditionsForAppearanceBlock";
@@ -21,7 +22,11 @@ interface IAdditionalAttributesBlockProps {
   conditionsForAppearance: IConditionsForAppearance | null;
   updateValues: (
     field: string,
-    value: any,
+    value:
+      | IConditionsForAppearance
+      | null
+      | string
+      | IEstimationFormQuestionOptions[],
     shouldValidate?: boolean | undefined
   ) => void;
   currentPage: number;
