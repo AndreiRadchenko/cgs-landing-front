@@ -6,7 +6,6 @@ import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 import { useQueryClient } from "@tanstack/react-query";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
-import { ClickAudio, Source } from "../HeaderNavNew/HeaderNav.styled";
 import Image from "next/image";
 import smallMountain from "/public/smallMountain.svg";
 import { useOnScreen } from "../../hooks/useOnScreen";
@@ -18,22 +17,11 @@ interface IFooterProps {
 
 const FooterNew = ({ className }: IFooterProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const { width } = useWindowDimension();
 
   const elRef = useRef<HTMLDivElement>(null);
 
   const isScrolled = useOnScreen(elRef, true);
-
-  const handleClick = () => {
-    audioRef.current?.play();
-  };
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.5;
-    }
-  }, []);
 
   useEffect(() => {
     isOpen && width && width >= 768 && setIsOpen(false);
@@ -47,19 +35,13 @@ const FooterNew = ({ className }: IFooterProps): JSX.Element => {
   DisableScrollBarHandler(isOpen);
   return (
     <StyledThisComp.HeaderNavContainer ref={elRef} className={className}>
-      <ClickAudio ref={audioRef}>
-        <Source src="/music/headerMouseClick.mp3" type="audio/mpeg" />
-      </ClickAudio>
       <StyledThisComp.FlexRowContainer>
-        <StyledThisComp.LogoLinkWrapper onClick={handleClick} href={"/"}>
+        <StyledThisComp.LogoLinkWrapper href={"/"}>
           <Logo />
         </StyledThisComp.LogoLinkWrapper>
         <StyledThisComp.MiddleTextWrapper>
           <StyledThisComp.MailsWrapper>
-            <StyledThisComp.Email
-              onClick={handleClick}
-              href={`mailto:${data?.email}`}
-            >
+            <StyledThisComp.Email href={`mailto:${data?.email}`}>
               <StyledThisComp.MailIcon
                 width="100%"
                 height="100%"
@@ -72,10 +54,7 @@ const FooterNew = ({ className }: IFooterProps): JSX.Element => {
               </StyledThisComp.MailIcon>
               <StyledThisComp.EmailText>{data?.email}</StyledThisComp.EmailText>
             </StyledThisComp.Email>
-            <StyledThisComp.Email
-              onClick={handleClick}
-              href={`mailto:${data?.hrEmail}`}
-            >
+            <StyledThisComp.Email href={`mailto:${data?.hrEmail}`}>
               <StyledThisComp.MailIcon
                 width="100%"
                 height="100%"
@@ -96,7 +75,7 @@ const FooterNew = ({ className }: IFooterProps): JSX.Element => {
           </StyledThisComp.PrivacyPolicy>
         </StyledThisComp.MiddleTextWrapper>
       </StyledThisComp.FlexRowContainer>
-      <StyledThisComp.NavList onClick={handleClick}>
+      <StyledThisComp.NavList>
         {data?.links.map((link, ind) => (
           <Link key={link.link + ind} href={link.link} passHref>
             <StyledThisComp.ListItemNav

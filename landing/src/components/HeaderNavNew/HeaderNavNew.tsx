@@ -12,14 +12,9 @@ import HeaderBurgerDropdown from "./HeaderBurgerDropdown";
 
 const HeaderNavNew = (): JSX.Element => {
   const headerRef = useRef<HTMLDivElement>(null);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { width } = useWindowDimension();
-
-  const handleClick = () => {
-    audioRef.current?.play();
-  };
 
   const toggleBurgerHandler = () => {
     setIsOpen((old) => !old);
@@ -36,9 +31,6 @@ const HeaderNavNew = (): JSX.Element => {
   };
 
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.5;
-    }
     onScroll();
     window.addEventListener("scroll", onScroll, true);
     return window.removeEventListener("scroll", onScroll);
@@ -52,17 +44,11 @@ const HeaderNavNew = (): JSX.Element => {
 
   return (
     <StyledThisComp.HeaderWrapper>
-      <StyledThisComp.ClickAudio ref={audioRef}>
-        <StyledThisComp.Source
-          src="/music/headerMouseClick.mp3"
-          type="audio/mpeg"
-        />
-      </StyledThisComp.ClickAudio>
       <StyledThisComp.HeaderNavContainer>
         <StyledThisComp.NavBarWrapper
           className={isScrolled ? "scrolled" : undefined}
         >
-          <StyledThisComp.LogoLinkWrapper onClick={handleClick} href={"/"}>
+          <StyledThisComp.LogoLinkWrapper href={"/"}>
             <Logo />
           </StyledThisComp.LogoLinkWrapper>
           <BurgerButton isOpen={isOpen} onToggle={toggleBurgerHandler} />
@@ -86,7 +72,7 @@ const HeaderNavNew = (): JSX.Element => {
             }
           )}
         </BurgerMenu>
-        <StyledThisComp.NavList onClick={handleClick}>
+        <StyledThisComp.NavList>
           {navigationRoutesNamesNew.map(({ route, withDropdown, tags }, ind) =>
             !withDropdown ? (
               <Link key={route + ind} href={routersNew[ind]} passHref>
