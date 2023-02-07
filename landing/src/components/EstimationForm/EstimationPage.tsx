@@ -120,6 +120,7 @@ const EstimationPage = ({
             <Form>
               {data?.page.questions.map((question, index) => (
                 <EstimationQuestionField
+                  attachFilesArr={attachFiles}
                   setAttachFiles={setAttachFiles}
                   setFormData={setFormData}
                   currentPage={pageN}

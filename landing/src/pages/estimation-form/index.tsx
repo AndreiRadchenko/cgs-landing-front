@@ -15,6 +15,8 @@ import EstimationFailModal from "../../components/EstimationForm/EstimationFailM
 import { useRouter } from "next/router";
 
 const EstimationsForm = () => {
+  const router = useRouter();
+
   const [page, setPage] = useState<number>(1);
   const [attachFiles, setAttachFiles] = useState<IFormFileData[]>([]);
 
@@ -28,31 +30,32 @@ const EstimationsForm = () => {
     clientAnswers: [],
   });
 
-  const router = useRouter();
-
-  /*useEffect(() => {
-    const exitingFunction = () => {
+  useEffect(() => {
+    const handleBrowseAway = () => {
       setOpenFailedModal(true);
-      return;
-      console.log("exiting...");
-
-      throw "cancelRouteChange";
+      router.events.emit("routeChangeError");
+      throw "routeChange aborted.";
     };
 
-    router.events.on("routeChangeStart", exitingFunction);
-
+    router.events.on("routeChangeStart", handleBrowseAway);
     return () => {
-      console.log("unmounting component...");
-      router.events.off("routeChangeStart", exitingFunction);
+      router.events.off("routeChangeStart", handleBrowseAway);
     };
-  }, []);*/
+  }, []);
+  useEffect(() => {
+    if (openSuccessModal || openFailedModal)
+      document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "unset";
+  }, [openSuccessModal, openFailedModal]);
 
   return (
     <Container>
       <HeaderNavNew />
       <ContainerDate>
         {openSuccessModal && <EstimationCongratsModal />}
-        {openFailedModal && <EstimationFailModal />}
+        {openFailedModal && (
+          <EstimationFailModal setOpenFailedModal={setOpenFailedModal} />
+        )}
         <HeaderText />
         <EstimationPage
           setOpenSuccessModal={setOpenSuccessModal}

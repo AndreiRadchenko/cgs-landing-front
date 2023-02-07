@@ -39,6 +39,7 @@ export interface EstimationField {
   currentPage: number;
   setFormData: Dispatch<SetStateAction<IFormData>>;
   setAttachFiles?: Dispatch<SetStateAction<IFormFileData[]>>;
+  attachFilesArr?: IFormFileData[];
 }
 
 export interface EstimationData {

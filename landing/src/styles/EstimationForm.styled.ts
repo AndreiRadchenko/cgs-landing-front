@@ -317,6 +317,16 @@ export const EstimationTooltipText = styled.span`
     border-style: solid;
     border-color: black transparent transparent transparent;
   }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 200px;
+    height: 70px;
+    left: -177px;
+    top: -75px;
+    &:after {
+      content: "";
+      left: 95%;
+    }
+  }
   @media ${themes.primary.media.maxMobile} {
     width: 200px;
     height: 70px;

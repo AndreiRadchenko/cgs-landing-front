@@ -25,9 +25,12 @@ const TextField = ({
   currentPage,
   attachFile,
   setAttachFiles,
+  attachFilesArr,
   ...props
 }: EstimationField) => {
-  const [filesPerQuestion, setFilesPerQuestion] = useState<File[]>([]);
+  const [filesPerQuestion, setFilesPerQuestion] = useState<File[]>(
+    attachFilesArr?.map((item) => item.file) || []
+  );
   const [tooManyFiles, setTooManyFiles] = useState(false);
 
   const formik = useFormikContext();
