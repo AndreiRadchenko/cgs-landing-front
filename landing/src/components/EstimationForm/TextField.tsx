@@ -27,7 +27,8 @@ const TextField = ({
   setAttachFiles,
   ...props
 }: EstimationField) => {
-  const [filesPerQuestion, setFilesPerQuestion] = useState<File[]>();
+  const [filesPerQuestion, setFilesPerQuestion] = useState<File[]>([]);
+  const [tooManyFiles, setTooManyFiles] = useState(false);
 
   const formik = useFormikContext();
   const [, meta] = useField(`questionsArr[${index}]`);
@@ -35,19 +36,21 @@ const TextField = ({
   let placeholder = "Text";
   if (options.length > 0) placeholder = parseHtml(options[0]["text"]);
 
-  /*useEffect(() => {
-    setAttachFiles(
+  useEffect(() => {
+    setAttachFiles!(
       filesPerQuestion?.map((file, index) => ({
         index: `file${index}`,
         file: file,
       }))
     );
-  }, [filesPerQuestion]);*/
+  }, [filesPerQuestion]);
 
   const handleFiles = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files!.length > 3) {
-      alert("too many");
+      setTooManyFiles(true);
+      return;
     }
+    setTooManyFiles(false);
     setFilesPerQuestion(Array.from(e.target.files!));
   };
 
@@ -63,26 +66,41 @@ const TextField = ({
         <EstimationTextInput
           error={!!meta.error && meta!.touched}
           onChange={(e) => {
-            props.setFormData((prevState) => ({
-              ...prevState,
-              clientName:
-                parseHtml(title) === "Your Name"
-                  ? e.target.value
-                  : prevState.clientName,
-              clientEmail:
-                parseHtml(title) === "Your Email"
-                  ? e.target.value
-                  : prevState.clientEmail,
-              clientAnswers: [
-                ...prevState.clientAnswers,
-                {
-                  questionTitle: parseHtml(title),
-                  questionKey: questionKey,
-                  pageIndex: currentPage as number,
-                  selectedOptions: [{ text: e.target.value }],
-                },
-              ],
-            }));
+            props.setFormData((prevState) => {
+              const indexOfAnswer = prevState.clientAnswers.findIndex(
+                (answer) => answer.questionTitle === parseHtml(title)
+              );
+              return {
+                ...prevState,
+                clientName:
+                  parseHtml(title) === "Your Name"
+                    ? e.target.value
+                    : prevState.clientName,
+                clientEmail:
+                  parseHtml(title) === "Your Email"
+                    ? e.target.value
+                    : prevState.clientEmail,
+                clientAnswers:
+                  indexOfAnswer !== -1
+                    ? prevState.clientAnswers.map((clientAnswer, index) => {
+                        return index === indexOfAnswer
+                          ? {
+                              ...clientAnswer,
+                              selectedOptions: [{ text: e.target.value }],
+                            }
+                          : clientAnswer;
+                      })
+                    : [
+                        ...prevState.clientAnswers,
+                        {
+                          questionTitle: parseHtml(title),
+                          questionKey: questionKey,
+                          pageIndex: currentPage as number,
+                          selectedOptions: [{ text: e.target.value }],
+                        },
+                      ],
+              };
+            });
 
             formik.setFieldValue(
               `questionsArr[${index}].value`,
@@ -113,6 +131,11 @@ const TextField = ({
           </div>
         )}
       </EstimateFileContainerWithInput>
+      {tooManyFiles && (
+        <p style={{ color: "#5869dd", fontSize: "16px" }}>
+          You are able to add only 3 files
+        </p>
+      )}
       {attachFile && (
         <div>
           <div

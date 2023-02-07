@@ -44,17 +44,34 @@ const CheckboxField = ({
     if (isMounted.current) {
       formik.setFieldValue(`questionsArr[${index}].value`, dataArray);
       props.setFormData((prevState) => {
+        const indexOfAnswer = prevState.clientAnswers.findIndex(
+          (answer) => answer.questionTitle === parseHtml(title)
+        );
         return {
           ...prevState,
-          clientAnswers: [
-            ...prevState.clientAnswers,
-            {
-              questionTitle: parseHtml(title),
-              questionKey,
-              pageIndex: currentPage as number,
-              selectedOptions: dataArray.map((option) => ({ text: option })),
-            },
-          ],
+          clientAnswers:
+            indexOfAnswer !== -1
+              ? prevState.clientAnswers.map((clientAnswer, index) => {
+                  return index === indexOfAnswer
+                    ? {
+                        ...clientAnswer,
+                        selectedOptions: dataArray.map((option) => ({
+                          text: option,
+                        })),
+                      }
+                    : clientAnswer;
+                })
+              : [
+                  ...prevState.clientAnswers,
+                  {
+                    questionTitle: parseHtml(title),
+                    questionKey,
+                    pageIndex: currentPage as number,
+                    selectedOptions: dataArray.map((option) => ({
+                      text: option,
+                    })),
+                  },
+                ],
         };
       });
     } else {
@@ -77,7 +94,7 @@ const CheckboxField = ({
                 type="checkbox"
                 id={`${option.optionKey}${questionKey}`}
                 onChange={(e) => handleChange(e)}
-                defaultChecked={
+                checked={
                   meta.value?.value &&
                   (meta.value?.value as string[])?.includes(
                     parseHtml(option.text)

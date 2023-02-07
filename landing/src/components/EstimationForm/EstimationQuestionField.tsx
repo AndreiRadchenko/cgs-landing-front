@@ -7,13 +7,17 @@ import CheckboxField from "./CheckboxField";
 import { EstimationFieldBox } from "../../styles/EstimationForm.styled";
 import EstimationAdditionalQuestion from "./EstimationAdditionalQuestion";
 
-import { IFormData, Question } from "../../types/EstimationForm.types";
+import {
+  IFormData,
+  IFormFileData,
+  Question,
+} from "../../types/EstimationForm.types";
 import {
   HoverBlackBlock,
   HoverBlock,
   HoverContainer,
 } from "../../styles/Blog.styled";
-import { useField, useFormikContext } from "formik";
+import { useField } from "formik";
 
 const EstimationQuestionField = ({
   setFormData,
@@ -26,7 +30,7 @@ const EstimationQuestionField = ({
   question: Question;
   currentPage: number;
   index: number;
-  setAttachFiles: Dispatch<SetStateAction<File[]>>;
+  setAttachFiles: Dispatch<SetStateAction<IFormFileData[]>>;
 }) => {
   const [, meta] = useField(`questionsArr[${index}]`);
 
