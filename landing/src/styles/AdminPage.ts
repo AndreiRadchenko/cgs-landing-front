@@ -28,6 +28,10 @@ interface IBlockDropdownProps {
   color?: string;
 }
 
+interface ITextWrapperProps {
+  contentType: CheckBoxType;
+}
+
 export const AdminWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 4.62fr;
@@ -456,7 +460,7 @@ export const AdminCheckBox = styled(Field)`
   border: 1px solid #000000;
 `;
 
-export const TextWrapper = styled.span<{ contentType: CheckBoxType }>`
+export const TextWrapper = styled.span<ITextWrapperProps>`
   font-size: 1em;
   margin: 0 0 1em 0;
   line-height: 118.75%;
