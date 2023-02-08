@@ -1,3 +1,4 @@
+import { CheckBoxType } from "./../types/Admin/AdminEstimationForm.types";
 import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 import articleIntro from "../../public/BlogDecorations/Formatting/articleIntro.svg";
@@ -13,12 +14,22 @@ interface ITextEditorWrapperProps {
 interface IBlockDropDownHeaderTitleProps {
   size?: string;
 }
+interface IBlackButtonProps {
+  size?: string;
+}
 
 interface IBlockDropdownHeaderIconProps {
   rotate?: boolean;
 }
 interface IBlockDropdownProps {
+  size?: string;
   marginTop?: string;
+  zIndex?: number;
+  color?: string;
+}
+
+interface ITextWrapperProps {
+  contentType: CheckBoxType;
 }
 
 export const AdminWrapper = styled.div`
@@ -31,7 +42,7 @@ export const AdminWrapper = styled.div`
 `;
 
 export const AdminMainHeader = styled.div`
-  z-index: 10;
+  z-index: 1;
   width: 100%;
   padding: 26px 34px 25px;
   border: 2px solid ${themes.primary.colors.black};
@@ -51,6 +62,7 @@ export const AdminSidebar = styled.div`
   flex-direction: column;
   padding: 0;
   user-select: none;
+  min-height: calc(100vh - 65px);
 `;
 
 export const AdminSidebarMenu = styled.ul`
@@ -287,7 +299,7 @@ export const AdminInput = styled(TextareaAutosize)<{
   background-color: ${themes.primary.colors.blogBackground};
   outline: ${({ isadmin }) =>
     isadmin ? `1px solid ${themes.primary.colors.comment}` : null};
-  font-size: ${themes.primary.font.size.linkText};
+  font-size: 16px;
   font-family: ${themes.primary.font.family.namu};
   padding: ${themes.primary.spacing.primary};
   height: ${({ height }) => height};
@@ -400,12 +412,110 @@ export const AdminDashedPositionGrid = styled.div`
   }
 `;
 
-export const AdminDeleteText = styled.h6`
+export const AdminDeleteText = styled.button`
   text-align: center;
   color: ${themes.primary.colors.errorText};
-  margin: 10px 0;
+  margin: 10px;
   font-size: ${themes.primary.font.size.primary};
+  text-align: center;
   cursor: pointer;
+  border: none;
+`;
+
+export const Box = styled.div<{
+  margin?: string;
+  padding?: string;
+  justify?: string;
+  align?: string;
+  changeDirection?: boolean;
+  wrap?: string;
+  width?: string;
+}>`
+  display: flex;
+  margin: ${({ margin }) => (margin ? margin : 0)};
+  padding: ${({ padding }) => (padding ? padding : 0)};
+  justify-content: ${({ justify }) => (justify ? justify : "normal")};
+  align-items: ${({ align }) => (align ? align : "normal")};
+  flex-direction: ${({ changeDirection }) =>
+    !changeDirection ? "row" : "column"};
+  flex-wrap: ${({ wrap }) => (wrap ? wrap : "wrap")};
+  width: ${({ width }) => (width ? width : "auto")};
+`;
+
+export const StyledLine = styled.div`
+  width: 252px;
+  height: 1px;
+  background: #8f8e93;
+  margin: 18px 0 10px;
+`;
+
+export const AdminSplitColumnText = styled.p`
+  color: ${themes.primary.colors.black};
+  font-size: ${themes.primary.font.size.primary};
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+`;
+
+export const AdminCheckBox = styled(Field)`
+  border: 1px solid #000000;
+`;
+
+export const TextWrapper = styled.span<ITextWrapperProps>`
+  font-size: 1em;
+  margin: 0 0 1em 0;
+  line-height: 118.75%;
+  position: relative;
+
+  &.radio_btn p {
+    position: relative;
+    display: inline-block;
+
+    &::before {
+      display: inline-block;
+      content: " ";
+      margin-right: 8px;
+      -ms-transform: translateY(10%);
+      transform: translateY(10%);
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      border: 1px solid ${themes.primary.colors.primary};
+    }
+  }
+
+  &.checkbox_btn p {
+    position: relative;
+    display: inline-block;
+
+    &::before {
+      content: " ";
+      display: inline-block;
+      margin-right: 8px;
+      width: 13px;
+      height: 13px;
+      -ms-transform: translateY(10%);
+      transform: translateY(10%);
+      border: 1px solid ${themes.primary.colors.primary};
+    }
+  }
+
+  & p {
+    & .__se__t-upper {
+      text-transform: uppercase;
+    }
+
+    & .__se__t-lower {
+      text-transform: lowercase;
+    }
+
+    & .__se__t-first-letter-capitalize {
+      display: block;
+
+      &:first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
 `;
 
 export const AdminFlyingElementsBlock = styled.div`
@@ -542,13 +652,19 @@ export const AdminButton = styled.button`
   border: 1px solid ${themes.primary.colors.primary};
 `;
 
-export const AdminBlackButton = styled.button`
+export const AdminBlackButton = styled.button<IBlackButtonProps>`
+  font-size: ${(props) =>
+    props.size === "estimationForm"
+      ? "18px"
+      : themes.primary.font.size.primary};
   background-color: #000;
   color: white;
   border: 0;
-  padding: 0;
-  width: 10em;
-  height: 32px;
+  padding: ${(props) => (props.size === "estimationForm" ? "20px 50px" : 0)};
+  font-family: ${(props) =>
+    props.size === "estimationForm" && themes.primary.font.family.namu};
+  width: ${(props) => props.size === "estimationForm" && "226px"};
+  height: ${(props) => props.size === "estimationForm" && "58px"};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -783,32 +899,46 @@ export const AdminCategoryBlock = styled.div`
   column-gap: 1.6em;
 `;
 
-export const AdminDropDownMenu = styled.div`
+export const AdminDropDownMenu = styled.div<IBlockDropdownProps>`
   background: ${themes.primary.colors.secondary};
-  font-size: ${themes.primary.font.size.linkText};
+  color: ${(props) =>
+    props.color ? props.color : themes.primary.colors.black};
+  font-size: ${(props) =>
+    props.size === "primary"
+      ? themes.primary.font.size.estimationFormRegular
+      : themes.primary.font.size.linkText};
   position: relative;
-  width: 100%;
-  z-index: 1;
-  margin-right: 10px;
-  margin-top: 12px;
+  width: ${(props) => (props.size === "primary" ? "235px" : "100%")};
+  margin: 12px 10px 15px 0;
 `;
 
 export const AdminDropDownMenuElement = styled.div`
-  background: ${themes.primary.colors.secondary};
-  padding: ${themes.primary.spacing.primary};
-  border: 1px solid ${themes.primary.colors.darkedGrayBack};
+  background: ${themes.primary.colors.estimationAdminBg};
+  color: ${themes.primary.colors.black};
+  font-size: ${themes.primary.font.size.estimationFormMedium};
+  line-height: 130%;
+  padding: ${themes.primary.spacing.half} ${themes.primary.spacing.primary};
+  border: 1px solid ${themes.primary.colors.dropdownBorder};
+  border-top: none;
   cursor: pointer;
+  position: relative;
   &:hover {
     background: ${themes.primary.colors.darkedGrayBack};
   }
 `;
 
+export const AdminDropDownMenuElementImage = styled.span`
+  padding: 0 8px 0 0;
+`;
+
 export const AdminDropDownMenuBanner = styled.div`
-  background: ${themes.primary.colors.secondary};
-  padding: ${themes.primary.spacing.primary};
+  background: ${themes.primary.colors.estimationAdminBg};
+  padding: ${themes.primary.spacing.half} ${themes.primary.spacing.primary};
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid ${themes.primary.colors.dropdownBorder};
+  border-bottom: 1px solid ${themes.primary.colors.comment};
 
   & svg {
     transition: transform 0.3s;
@@ -820,8 +950,8 @@ export const AdminDropDownMenuBanner = styled.div`
 
 export const AdminDropDownMenuList = styled.div`
   position: absolute;
-  width: 100%;
-
+  width: 235px;
+  z-index: 70;
   &.blog-admin {
     position: relative;
   }
@@ -1528,7 +1658,7 @@ export const BlockDropdownHeader = styled.div`
   padding: 16px 19px;
   display: flex;
   align-items: center;
-  width: "100%";
+  width: 100%;
   background-color: ${themes.primary.colors.primary};
 `;
 

@@ -85,7 +85,7 @@ const AdminTech = ({
       </Styled.AdminFlexRow>
       <Styled.AdminSubTitle>Stack</Styled.AdminSubTitle>
       <Styled.AdminHalfGrid>
-        {(info.stack.length > 0 &&
+        {(info.stack?.length > 0 &&
           info.stack.map((el, idx) => (
             <div key={idx}>
               <Styled.AdminInput

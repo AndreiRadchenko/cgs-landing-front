@@ -34,6 +34,7 @@ export const queryKeys = {
   swapArticles: "swapArticles",
   getCalculatorData: "getCalculatorData",
   updateCalculatorData: "updateCalculatorData",
+  updateEstimationForm: "updateEstimationForm ",
   addCalculatorType: "addCalculatorType",
   getCalculatorClassicSteps: "getCalculatorClassicSteps",
   addCalculatorClassicStep: "addCalculatorClassicStep",
@@ -83,4 +84,8 @@ export const queryKeys = {
   getVacancyPage: "getFullVacancyPage",
   // valid
   validToken: "validToken",
+  // estimation form Front
+  getEstimationFormData: "getEstimationFormData",
+  getEstimationFormPage: "getEstimationFormPage",
+  updateEstimationFormPage: "updateEstimationFormPage",
 };
