@@ -16,6 +16,7 @@ import { EstimationField } from "../../types/EstimationForm.types";
 import { parseHtml } from "../../utils/parseHtml";
 import { AddFileIcon } from "./SvgEstimationForm/AddFileIcon";
 import { CrossIcon } from "./SvgEstimationForm/CrossIcon";
+import { updateField } from "../../utils/estimationFromUpdateAndCreateField";
 
 const TextField = ({
   title,
@@ -85,14 +86,7 @@ const TextField = ({
                     : prevState.clientEmail,
                 clientAnswers:
                   indexOfAnswer !== -1
-                    ? prevState.clientAnswers.map((clientAnswer, index) => {
-                        return index === indexOfAnswer
-                          ? {
-                              ...clientAnswer,
-                              selectedOptions: [{ text: e.target.value }],
-                            }
-                          : clientAnswer;
-                      })
+                    ? updateField(prevState, indexOfAnswer, e)
                     : [
                         ...prevState.clientAnswers,
                         {
