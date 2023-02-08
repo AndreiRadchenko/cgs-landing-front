@@ -27,7 +27,7 @@ interface IAdditionalAttributesBlockProps {
       | null
       | string
       | IEstimationFormQuestionOptions[],
-    shouldValidate?: boolean | undefined
+    shouldValidate?: boolean
   ) => void;
   currentPage: number;
   currentQuestion: number;
