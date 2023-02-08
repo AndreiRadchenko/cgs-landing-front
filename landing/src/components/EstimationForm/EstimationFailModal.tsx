@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import {
   EstimateModalBlackBlock,
   EstimateModalBlock,
@@ -11,19 +11,37 @@ import {
 import Image from "next/image";
 import cross from "../../../public/closeBtn.svg";
 
-const EstimationFailModal = () => {
+const EstimationFailModal = ({
+  setOpenFailedModal,
+}: {
+  setOpenFailedModal: Dispatch<SetStateAction<boolean>>;
+}) => {
   return (
     <EstimateModalWrapper>
       <EstimateModalShadowContainer>
         <EstimateModalContainer>
-          <EstimateModalCross>
+          <EstimateModalCross onClick={() => setOpenFailedModal(false)}>
             <Image src={cross} alt="cross" />
           </EstimateModalCross>
           We’re already doing your project’s estimation. You need a few minutes
           to finish the form.
           <br />
+          <br />
           Want to lose progress?
-          <EstimateModalButton>Continue</EstimateModalButton>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "10px",
+            }}
+          >
+            <EstimateModalButton
+              style={{ position: "inherit", bottom: 0, right: 0 }}
+              href={"/"}
+            >
+              Continue
+            </EstimateModalButton>
+          </div>
           <EstimateModalBlock>
             <EstimateModalBlackBlock />
           </EstimateModalBlock>

@@ -15,7 +15,11 @@ import {
 
 import Pagination from "./Pagination";
 import { EstimationValidation } from "../../validations/EstimationValidation";
-import { IFormData, ISendData } from "../../types/EstimationForm.types";
+import {
+  IFormData,
+  IFormFileData,
+  ISendData,
+} from "../../types/EstimationForm.types";
 import Loader from "../Portfolio/Loader";
 
 const EstimationPage = ({
@@ -31,8 +35,8 @@ const EstimationPage = ({
   setFormData: Dispatch<SetStateAction<IFormData>>;
   pageN: number;
   setPage: Dispatch<SetStateAction<number>>;
-  attachFiles: File[];
-  setAttachFiles: Dispatch<SetStateAction<File[]>>;
+  attachFiles: IFormFileData[];
+  setAttachFiles: Dispatch<SetStateAction<IFormFileData[]>>;
   setOpenSuccessModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   const [parentId, setParentId] = useState("");
@@ -52,24 +56,23 @@ const EstimationPage = ({
     },
   });
 
-  /*const sendEmail = useMutation({
-    mutationFn: async (id) => {
-      const fileObject = attachFiles.reduce(
-        (obj, item) => (
-          (obj[item.index] = reader.readAsBinaryString(item.file)), obj
-        ),
-        {}
-      );
-      await adminEstimationFormService.sendEstimationFormEmail({
-        parentId: id,
-        ...fileObject,
-      });
-    },
-  });*/
+  const sendEmail = useMutation({
+    mutationFn: async (id: string) => {
+      const formData = new FormData();
 
-  /*useEffect(() => {
+      formData.append("parentId", id);
+
+      for (const item of attachFiles) {
+        formData.append(item.index, item.file);
+      }
+
+      await adminEstimationFormService.sendEstimationFormEmail(formData);
+    },
+  });
+
+  useEffect(() => {
     if (parentId) sendEmail.mutate(parentId);
-  }, [parentId]);*/
+  }, [parentId]);
 
   const pageAnswers = formData.clientAnswers.filter(
     (clientAnswer) => clientAnswer.pageIndex === pageN
@@ -106,18 +109,6 @@ const EstimationPage = ({
         initialValues={initialValues}
         validationSchema={EstimationValidation}
         onSubmit={() => {
-          const selectedOptionsUniqueByKey = [
-            ...new Map(
-              formData.clientAnswers.map((item) => [item.questionTitle, item])
-            ).values(),
-          ];
-          setFormData((prevState) => ({
-            ...prevState,
-            clientAnswers: selectedOptionsUniqueByKey.sort(
-              (a, b) => a.questionIndex - b.questionIndex
-            ),
-          }));
-
           if (pageN === data?.pageCount) {
             createFormData.mutate(formData);
             setOpenSuccessModal(true);
@@ -129,6 +120,7 @@ const EstimationPage = ({
             <Form>
               {data?.page.questions.map((question, index) => (
                 <EstimationQuestionField
+                  attachFilesArr={attachFiles}
                   setAttachFiles={setAttachFiles}
                   setFormData={setFormData}
                   currentPage={pageN}

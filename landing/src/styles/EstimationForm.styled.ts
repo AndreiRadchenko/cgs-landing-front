@@ -95,7 +95,7 @@ export const AddOptionInputWrapper = styled.div<IWrapperInput>`
   button {
     background: none;
     border: none;
-    color: #8f8e93;
+    color: ${themes.primary.colors.headerBorder};
     position: relative;
     font-size: 16px;
     font-family: ${themes.primary.font.family.namu};
@@ -139,7 +139,9 @@ export const EstimationFieldBox = styled.div<IBlockErrorSplit>`
       ? `${themes.primary.colors.mainGradientColor2}`
       : `${themes.primary.colors.blogBackground}`};
   color: ${({ error }) =>
-    error ? "rgba(241, 239, 237, 1)" : `${themes.primary.colors.black}`};
+    error
+      ? `${themes.primary.colors.estimationAdminBg}`
+      : `${themes.primary.colors.black}`};
   z-index: 1;
   border: 2px solid ${themes.primary.colors.black};
   padding: 16px 18px;
@@ -156,8 +158,8 @@ export const EstimationFieldLabel = styled.p<IBlockErrorSplit>`
   border-bottom: ${(props) =>
     props.split
       ? props.error
-        ? " 1px solid rgba(241, 239, 237, 0.5)"
-        : "1px solid #8F8E93"
+        ? `1px solid ${themes.primary.colors.bottomBorderEstimationForm}`
+        : `1px solid ${themes.primary.colors.headerBorder}`
       : "none"};
   line-height: 26px;
   padding: ${(props) => (props.split ? "0 0 14px 0" : "0 0 20px 0")};
@@ -181,7 +183,9 @@ export const EstimationFieldOption = styled.label<IBlockErrorSplit>`
   p {
     margin: 0;
     span {
-      color: ${(props) => props.error && "rgba(241, 239, 237, 0.5) !important"};
+      color: ${(props) =>
+        props.error &&
+        `${themes.primary.colors.bottomBorderEstimationForm} !important`};
     }
   }
 `;
@@ -196,7 +200,8 @@ export const EstimationTextInput = styled.input<IBlockErrorSplit>`
   background: transparent;
   width: 100%;
   &::placeholder {
-    color: ${(props) => props.error && "rgba(241, 239, 237, 0.5)"};
+    color: ${(props) =>
+      props.error && `${themes.primary.colors.bottomBorderEstimationForm}`};
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
@@ -291,8 +296,8 @@ export const EstimationInputCheckbox = styled.input`
 
 export const EstimationTooltipText = styled.span`
   visibility: hidden;
-  background-color: black;
-  color: #fff;
+  background-color: ${themes.primary.colors.black};
+  color: ${themes.primary.colors.secondary};
   width: 240px;
   height: 85px;
   display: flex;
@@ -316,6 +321,16 @@ export const EstimationTooltipText = styled.span`
     border-width: 5px;
     border-style: solid;
     border-color: black transparent transparent transparent;
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 200px;
+    height: 70px;
+    left: -177px;
+    top: -75px;
+    &:after {
+      content: "";
+      left: 95%;
+    }
   }
   @media ${themes.primary.media.maxMobile} {
     width: 200px;
@@ -404,7 +419,7 @@ export const EstimateOptionContainer = styled.div<IBlockErrorSplit>`
 
 export const EstimationButtonHelperText = styled.div`
   background-color: black;
-  color: #fff;
+  color: ${themes.primary.colors.secondary};
   width: 240px;
   height: 85px;
   display: flex;
@@ -442,7 +457,7 @@ export const EstimateModalWrapper = styled.div`
   top: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(241, 239, 237, 0.8);
+  background: ${themes.primary.colors.modalWrapperEstimationForm};
   z-index: 100;
   display: grid;
   place-items: center;
@@ -478,7 +493,7 @@ export const EstimateModalButton = styled.a`
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 14px;
   background: ${themes.primary.colors.black};
-  border: 2px solid #000000;
+  border: 2px solid ${themes.primary.colors.black};
   color: ${themes.primary.colors.secondary};
   cursor: pointer;
   transition: 0.3s;
@@ -542,9 +557,9 @@ export const EstimateFileAttachInputLabel = styled.label`
   display: inline-flex;
   gap: 4px;
   align-items: center;
-  background: #8f8e93;
+  background: ${themes.primary.colors.headerBorder};
   border-radius: 6px;
-  color: #fff;
+  color: ${themes.primary.colors.secondary};
   padding: 7px 18px 7px 12px;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
@@ -562,9 +577,9 @@ export const EstimateFileType = styled.div`
   align-items: center;
   width: 28px;
   height: 28px;
-  background: rgba(88, 105, 221, 1);
+  background: ${themes.primary.colors.mainGradientColor2};
   border-radius: 5px;
-  color: #fff;
+  color: ${themes.primary.colors.secondary};
   text-transform: uppercase;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
@@ -572,7 +587,7 @@ export const EstimateFileType = styled.div`
 `;
 
 export const EstimateFileName = styled.p`
-  color: #8f8e93;
+  color: ${themes.primary.colors.headerBorder};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 12px;

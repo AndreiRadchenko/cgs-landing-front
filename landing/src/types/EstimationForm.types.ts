@@ -38,7 +38,8 @@ export interface EstimationField {
   options: Option[];
   currentPage: number;
   setFormData: Dispatch<SetStateAction<IFormData>>;
-  setAttachFiles?: Dispatch<SetStateAction<File[]>>;
+  setAttachFiles?: Dispatch<SetStateAction<IFormFileData[]>>;
+  attachFilesArr?: IFormFileData[];
 }
 
 export interface EstimationData {
@@ -74,4 +75,10 @@ export interface ISendData {
   createdAt: Date;
   updatedAt: Date;
   __v: number;
+}
+
+export interface IFormFileData {
+  index: string;
+
+  file: File;
 }

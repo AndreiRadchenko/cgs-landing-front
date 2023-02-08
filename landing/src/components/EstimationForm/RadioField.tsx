@@ -10,6 +10,7 @@ import {
 
 import { EstimationField } from "../../types/EstimationForm.types";
 import { parseHtml } from "../../utils/parseHtml";
+import { updateField } from "../../utils/estimationFromUpdateAndCreateField";
 
 const RadioField = ({
   title,
@@ -38,17 +39,23 @@ const RadioField = ({
                 type="radio"
                 onChange={(e) => {
                   props.setFormData((prevState) => {
+                    const indexOfAnswer = prevState.clientAnswers.findIndex(
+                      (answer) => answer.questionTitle === parseHtml(title)
+                    );
                     return {
                       ...prevState,
-                      clientAnswers: [
-                        ...prevState.clientAnswers,
-                        {
-                          questionTitle: parseHtml(title),
-                          questionKey,
-                          pageIndex: currentPage as number,
-                          selectedOptions: [{ text: e.target.value }],
-                        },
-                      ],
+                      clientAnswers:
+                        indexOfAnswer !== -1
+                          ? updateField(prevState, indexOfAnswer, e)
+                          : [
+                              ...prevState.clientAnswers,
+                              {
+                                questionTitle: parseHtml(title),
+                                questionKey: questionKey,
+                                pageIndex: currentPage as number,
+                                selectedOptions: [{ text: e.target.value }],
+                              },
+                            ],
                     };
                   });
 
