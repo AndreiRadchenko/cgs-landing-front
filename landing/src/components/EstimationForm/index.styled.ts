@@ -16,7 +16,7 @@ export const StyledH = styled.div`
   font-size: ${themes.primary.font.size.ourWorkText};
   line-height: 47px;
   text-transform: uppercase;
-  color: #000000;
+  color: ${themes.primary.colors.black};
 `;
 
 export const Marquee = styled.div`
@@ -53,11 +53,11 @@ export const MobleTextWrapper = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  background: #f2ea86;
+  background: ${themes.primary.colors.headerBorderHover};
   position: relative;
-  box-shadow: 0px 0px 0px #000000;
+  box-shadow: 0px 0px 0px ${themes.primary.colors.black};
   padding: 0 36px;
-  border: 1.8px solid #000000;
+  border: 1.8px solid ${themes.primary.colors.black};
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -70,13 +70,13 @@ export const StyledButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    box-shadow: 7px 2px 0px #000000;
+    box-shadow: 7px 2px 0px ${themes.primary.colors.black};
   }
   &:active {
-    box-shadow: 7px 2px 0px #000000;
+    box-shadow: 7px 2px 0px ${themes.primary.colors.black};
   }
   &:focus {
-    box-shadow: 7px 2px 0px #000000;
+    box-shadow: 7px 2px 0px ${themes.primary.colors.black};
   }
 
   @media ${themes.primary.media.maxMobile} {
