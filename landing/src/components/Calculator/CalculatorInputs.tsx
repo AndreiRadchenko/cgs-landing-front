@@ -136,7 +136,10 @@ const CalculatorInputs = ({
             <Styled.InputsWrapper>
               {options.map((input, idx) => (
                 <OptionWrapper key={idx}>
-                  <TieUpLabel htmlFor={`${type}${input.label}${idx}`}>
+                  <TieUpLabel
+                    className={type}
+                    htmlFor={`${type}${input.label}${idx}`}
+                  >
                     <TieUpInput
                       type={type}
                       name={`questionsArr[${stepInd}].answer`}
