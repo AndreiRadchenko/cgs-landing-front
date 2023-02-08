@@ -538,6 +538,20 @@ export const TieUpLabel = styled.label`
   @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
     line-height: 17px;
+
+    & > span {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &.checkbox > span {
+      ${css`
+        &:has(> div) {
+          margin-top: 6px;
+        }
+      `};
+    }
   }
 `;
 
