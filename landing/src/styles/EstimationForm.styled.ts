@@ -176,6 +176,7 @@ export const EstimationFieldOption = styled.label<IBlockErrorSplit>`
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 18px;
   line-height: 22px;
+  cursor: pointer;
   @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
     line-height: 17px;

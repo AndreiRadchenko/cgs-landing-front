@@ -10,7 +10,10 @@ import {
 
 import { EstimationField } from "../../types/EstimationForm.types";
 import { parseHtml } from "../../utils/parseHtml";
-import { updateField } from "../../utils/estimationFromUpdateAndCreateField";
+import {
+  createField,
+  updateField,
+} from "../../utils/estimationFromUpdateAndCreateField";
 
 const RadioField = ({
   title,
@@ -47,15 +50,14 @@ const RadioField = ({
                       clientAnswers:
                         indexOfAnswer !== -1
                           ? updateField(prevState, indexOfAnswer, e)
-                          : [
-                              ...prevState.clientAnswers,
-                              {
-                                questionTitle: parseHtml(title),
-                                questionKey: questionKey,
-                                pageIndex: currentPage as number,
-                                selectedOptions: [{ text: e.target.value }],
-                              },
-                            ],
+                          : createField(
+                              prevState,
+                              indexOfAnswer,
+                              e,
+                              title,
+                              questionKey,
+                              currentPage
+                            ),
                     };
                   });
 

@@ -1,5 +1,6 @@
 import { IFormData } from "../types/EstimationForm.types";
 import { ChangeEvent } from "react";
+import { parseHtml } from "./parseHtml";
 
 export const updateField = (
   prevState: IFormData,
@@ -14,4 +15,23 @@ export const updateField = (
         }
       : clientAnswer;
   });
+};
+
+export const createField = (
+  prevState: IFormData,
+  indexOfAnswer: number,
+  e: ChangeEvent<HTMLInputElement>,
+  title: string,
+  questionKey: string,
+  currentPage: number
+) => {
+  return [
+    ...prevState.clientAnswers,
+    {
+      questionTitle: parseHtml(title),
+      questionKey: questionKey,
+      pageIndex: currentPage as number,
+      selectedOptions: [{ text: e.target.value }],
+    },
+  ];
 };
