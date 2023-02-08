@@ -610,6 +610,7 @@ export interface ISitemapData {
   includedPages: string[];
 }
 export interface ICalculatorRole {
+  _id: string;
   name: string;
   rate: number;
 }
@@ -634,7 +635,7 @@ export interface IStepOptions {
   _id: string;
   label: string;
   hours?: number;
-  role?: string;
+  roles?: string[];
   endRole?: {
     coef: number;
     role: string;

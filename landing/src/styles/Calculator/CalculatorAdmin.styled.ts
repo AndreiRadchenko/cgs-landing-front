@@ -1,9 +1,10 @@
 import { Field, Form } from "formik";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 import { errorColorAnimation } from "../Animations.styled";
 import checkboxBg from "../../../public/Calculator/checkbox.svg";
 import checkboxSign from "../../../public/Calculator/checkboxSign.svg";
+import checkBoxBgActive from "../../../public/Calculator/checkBoxBgActive.svg";
 
 export const InputWrapper = styled.div`
   width: 80%;
@@ -388,8 +389,26 @@ export const TieUpInput = styled(Field)`
       );
     }
 
-    &:checked::before {
-      transform: scale(1) translateY(-0.5px);
+    &:hover {
+      border-color: ${themes.primary.colors.darkBlue};
+
+      & + div {
+        border-color: ${themes.primary.colors.darkBlue};
+        background: ${themes.primary.colors.darkBlue};
+      }
+    }
+
+    &:checked {
+      border-color: ${themes.primary.colors.darkBlue};
+
+      & + div {
+        border-color: ${themes.primary.colors.darkBlue};
+        background: ${themes.primary.colors.darkBlue};
+      }
+
+      &::before {
+        transform: scale(1) translateY(-0.5px);
+      }
     }
   }
 
@@ -402,7 +421,7 @@ export const TieUpInput = styled(Field)`
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
-    top: 0;
+    top: 0px;
 
     &::before {
       content: "";
@@ -418,8 +437,16 @@ export const TieUpInput = styled(Field)`
       transform: scale(0);
     }
 
-    &:checked::before {
-      transform: scale(1);
+    &:hover {
+      background-image: url(${checkBoxBgActive.src});
+    }
+
+    &:checked {
+      background-image: url(${checkBoxBgActive.src});
+
+      &::before {
+        transform: scale(1);
+      }
     }
   }
 
@@ -448,6 +475,7 @@ export const TieUpInput = styled(Field)`
 
   @media ${themes.primary.media.maxMobile} {
     &.checkbox {
+      top: 4px;
       transform: translateY(-10%);
     }
 
@@ -470,16 +498,25 @@ export const TieUpLabel = styled.label`
   transition: 0.15s;
   position: relative;
 
+  &.admin {
+    margin-left: 8px;
+  }
+
   & > span {
     margin-left: 12px;
     display: flex;
     align-items: center;
   }
 
-  & span {
-    transition: 0.15s;
-  }
+  ${css`
+    &:has(> input:checked) {
+      color: ${themes.primary.colors.darkBlue} !important;
 
+      & span {
+        color: ${themes.primary.colors.darkBlue} !important;
+      }
+    }
+  `}
   & p {
     margin: 0;
   }
@@ -866,6 +903,26 @@ export const CalculatorTypeSelectContent = styled.div`
 
   &.open {
     display: block;
+  }
+`;
+
+export const CalculatorMultiplyTypeSelectContent = styled.div`
+  position: absolute;
+  display: none;
+  border: 1px solid ${themes.primary.colors.comment};
+
+  &.open {
+    display: block;
+  }
+`;
+
+export const CalculatorMultiplyTypeSelectOption = styled.div`
+  background-color: ${themes.primary.colors.blogBackground};
+  padding: 3px 6px;
+  display: flex;
+  align-items: center;
+  & label {
+    font-size: 12px;
   }
 `;
 

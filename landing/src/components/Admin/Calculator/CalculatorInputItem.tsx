@@ -84,6 +84,7 @@ const CalculatorTieUpInputItem = ({
       <TieUpLabel
         dangerouslySetInnerHTML={{ __html: item.label }}
         htmlFor={`${type}${item.label}${ind}`}
+        className="admin"
       />
     </OptionWrapper>
   );

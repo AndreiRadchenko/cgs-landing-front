@@ -1,6 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useFormikContext } from "formik";
 import React, { useEffect, useState } from "react";
+import { number } from "yup";
 import { queryKeys } from "../../consts/queryKeys";
 import {
   ICalculator,
@@ -36,7 +37,7 @@ const CalcualtorResultForm = ({
 
   useEffect(() => {
     if (classicStepsData) {
-      const keys: Array<"hours" | "endCoef"> = ["hours", "endCoef"];
+      const keys: Array<"hours" | "uxui"> = ["hours", "uxui"];
 
       const countResults: ICalculatorAnswersResults = { uxui: 1 };
       keys.forEach(
@@ -50,31 +51,44 @@ const CalcualtorResultForm = ({
       setResults(countResults);
     }
   }, [classicStepsData, values]);
+  const getText = (results: ICalculatorAnswersResults) => {
+    if (results && results.hours) {
+      const mounthForTwoDev = (results.hours / (168 * 2)).toFixed(2);
+      const mounthForThreeDev = (results.hours / (168 * 3)).toFixed(2);
+
+      const text = `<h4 class="result-title">The estimated team and time for your project:<br></h4>
+  <ul>
+    <li><p><span class="bold">${mounthForTwoDev} months</span> with<span class="bold"> 2 developers;</span> or <span class="bold">${mounthForThreeDev} months</span>
+     with <span class="bold">3 developers;</span></p></li>
+    ${
+      results?.uxui && typeof results?.uxui === "number"
+        ? "<li><p>UI/UX Designer</p></li>"
+        : ""
+    }
+    <li>Project Manager;</li>
+    <li>QA.</li>
+  </ul>
+<span class="result-msg">${calculatorData?.resultMessage}</span>
+  `;
+
+      return text;
+    }
+    return "";
+  };
 
   return (
-    <div>
-      {results && (
-        <CalculatorTitleField
-          className="last"
-          text={`We need ${
-            results.hours
-          } hours of work. A team of developers, 1 project manager, ${
-            results && results.uxui !== 0
-              ? `and ${results && results.uxui} UX/UI designer${
-                  results && results.uxui && results.uxui > 1 ? "s" : ""
-                }`
-              : ""
-          } will implement your idea.
-${calculatorData?.resultMessage}`}
-        />
-      )}
-      {calculatorData && (
+    (calculatorData && (
+      <div>
+        {results && (
+          <CalculatorTitleField className="last" text={getText(results)} />
+        )}
         <CalculatorEmailField
           calculateIsClicked={calculateIsClicked}
           email={calculatorData.email}
         />
-      )}
-    </div>
+      </div>
+    )) ||
+    null
   );
 };
 

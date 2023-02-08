@@ -10,16 +10,13 @@ import { Plugin } from "suneditor/src/plugins/Plugin";
 import CalculatorQuestionItem from "./CalculatorQuestionItem";
 import { emptyCalculatorOption } from "../../../utils/variables";
 import CalculatorOptionTypeSelect from "./CalculatorOptionTypeSelect";
+import { letterWeightSubmenu } from "./letterWeightSubmenuPlugin";
 
 const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
   ssr: false,
 });
 
-interface ICalculatorSubStepItemProps {
-  data: ICalculatorStep[];
-}
-
-const CalculatorSubStepItem = ({ data }: ICalculatorSubStepItemProps) => {
+const CalculatorSubStepItem = () => {
   const { values } = useFormikContext<ICalculatorStep>();
   const [plugins, setPlugins] = useState<
     Array<Plugin> | Record<string, Plugin>
@@ -36,10 +33,16 @@ const CalculatorSubStepItem = ({ data }: ICalculatorSubStepItemProps) => {
       check_new_window: "nofollow noopener",
     },
     addTagsWhitelist: "label|input",
-    plugins: { letterCaseSubmenu, inputSubmenu, ...plugins },
+    plugins: {
+      letterCaseSubmenu,
+      letterWeightSubmenu,
+      inputSubmenu,
+      ...plugins,
+    },
     buttonList: [
       ["fontColor", "fontSize"],
       ["letterCase"],
+      ["letterWeight"],
       ["input"],
       ["removeFormat"],
       ["codeView"],
@@ -76,6 +79,7 @@ const CalculatorSubStepItem = ({ data }: ICalculatorSubStepItemProps) => {
               <TextEditor
                 name={`subSteps[0].title`}
                 props={{
+                  setDefaultStyle: "position: relative; z-index: 5;",
                   width: "559px",
                   setOptions: titleEditorOptions,
                 }}

@@ -1,11 +1,10 @@
-import React, { useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import CalculatorModal from "./CalculatorPagerModalComponent";
 import PressButtonArrow from "../../../public/Calculator/pressButtonArrow.svg";
 import CalculatorPager from "./CalculatorPager";
 import CalculatorChooseLine from "./CalculatorChooseLine";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
-import { SplitBrackets } from "../../utils/splitBrackets";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICalculator, ICalculatorStep } from "../../types/Admin/Response.types";
@@ -46,7 +45,7 @@ const CalculatorPagerComponent = ({
   ]);
   const { width } = useWindowDimension();
 
-  return width && isOpen ? (
+  return width && isOpen && data ? (
     <CalculatorModal
       buttonText={buttonText}
       onClose={handleClose}
@@ -98,9 +97,11 @@ const CalculatorPagerComponent = ({
                 )}
               </>
             )) || (
-              <Styled.PagerText>
-                <SplitBrackets text={data?.startMessage} />
-              </Styled.PagerText>
+              <Styled.PagerText
+                dangerouslySetInnerHTML={{
+                  __html: data.startMessage.replaceAll("|", "<br>"),
+                }}
+              />
             )}
           </Styled.ContentWrapper>
         </CalculatorPager>

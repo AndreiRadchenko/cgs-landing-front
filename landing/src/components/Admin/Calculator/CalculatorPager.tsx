@@ -12,6 +12,10 @@ import { ICalculator } from "../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 import SaveBtn from "../Global/SaveBtn";
+import dynamic from "next/dynamic";
+const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 interface ICalculatorPagerProps {
   data: ICalculator;
@@ -64,13 +68,13 @@ const CalculatorPager = ({
           <AdminBlockDropDown title="PAGER">
             <Styled.InputWrapper>
               <AdminHalfGrid>
-                <SubHeaderWithInput
-                  inputStyle={{ marginBottom: 0 }}
-                  width="100%"
+                <TextEditor
                   header="Text (start)"
                   name="startMessage"
-                  inputValue={values.startMessage || ""}
-                  onChangeFunction={handleChange}
+                  props={{
+                    defaultValue: values.startMessage || "",
+                    setOptions: { buttonList: [["fontColor"]] },
+                  }}
                 />
                 <SubHeaderWithInput
                   inputStyle={{ marginBottom: 0 }}
