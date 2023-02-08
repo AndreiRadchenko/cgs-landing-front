@@ -270,6 +270,36 @@ export const Category = styled.div`
   margin: 0 auto 0 0;
 `;
 
+export const ArrowContainerRight = styled.div`
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+
+  & svg {
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 37px;
+    height: 37px;
+  }
+`;
+
+export const ArrowContainerLeft = styled.div`
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+
+  & svg {
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 37px;
+    height: 37px;
+  }
+`;
+
 export const PortfolioRow = styled.section`
   display: flex;
   width: 100%;
@@ -284,6 +314,32 @@ export const PortfolioRow = styled.section`
   &:hover ${NavigateLeft} {
     background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
+  }
+
+  &:has(${ArrowContainerLeft} > svg:hover)
+    ${ArrowContainerRight}
+    svg
+    path:first-child {
+    fill: ${themes.primary.colors.portfolioBg} !important;
+  }
+
+  &:hover {
+    ${ArrowContainerLeft} > svg:hover {
+      & path:first-child {
+        fill: ${themes.primary.colors.portfolioHover};
+      }
+    }
+    ${ArrowContainerRight} {
+      svg {
+        & path:first-child {
+          fill: ${themes.primary.colors.portfolioHover};
+        }
+
+        &:hover path:first-child {
+          fill: ${themes.primary.colors.portfolioBg};
+        }
+      }
+    }
   }
 
   @media ${themes.primary.media.minPC} {
@@ -312,26 +368,6 @@ export const NavigateRight = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     display: none;
-  }
-`;
-
-export const ArrowContainer = styled.div`
-  width: 100%;
-  height: 65px;
-  display: flex;
-  justify-content: center;
-
-  & svg {
-    position: relative;
-    left: 0;
-    right: 0;
-    width: 37px;
-    height: 37px;
-  }
-  > svg:hover {
-    & path:first-child {
-      fill: ${themes.primary.colors.portfolioHover};
-    }
   }
 `;
 
@@ -373,17 +409,12 @@ export const Image = styled.img`
   left: -1px;
 `;
 
-interface IImageContainer {
-  bgColor: string;
-}
-
-export const ImageContainer = styled.div<IImageContainer>`
+export const ImageContainer = styled.div`
   position: relative;
 
   width: 56%;
   height: 100%;
   border-left: thin solid ${themes.primary.colors.comment};
-  background: ${({ bgColor }) => bgColor};
 
   @media (max-width: 1400px) {
     & img {

@@ -19,10 +19,14 @@ const HeadBlock = () => {
     queryKeys.getServiceDbPage,
   ])?.headerBlock;
 
+  const lastIndex = data!.title.lastIndexOf("|");
+  const title =
+    data?.title.substr(0, lastIndex) + data!.title.substring(lastIndex + 1);
+
   return (
     <Container>
       <ContentContainer>
-        <Title>{data && <TextTypingAnimation text={data?.title} />}</Title>
+        <Title>{data && <TextTypingAnimation text={title} />}</Title>
         <Description>
           <SplitBrackets text={data?.text} />
         </Description>

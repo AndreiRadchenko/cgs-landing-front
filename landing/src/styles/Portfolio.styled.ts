@@ -61,11 +61,98 @@ export const LinkButton = styled.button`
 `;
 
 export const SlidersCont = styled.article`
-  margin-bottom: 200px;
+  margin-bottom: 48px;
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 4px 10px 100px;
+    margin: 4px 10px 40px;
 
     border-top: 1px solid ${themes.primary.colors.comment};
+  }
+`;
+
+export const CTACont = styled.div`
+  position: relative;
+  margin-top: 10px;
+  padding: 0rem 11.1rem 75px;
+  overflow: hidden;
+
+  @media ${themes.primary.media.maxTablet} {
+    padding: 0rem 1.25rem;
+  }
+`;
+
+export const CTAHeading = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.portfolioCTATitle};
+  font-weight: ${themes.primary.font.weight.heavy};
+  line-height: 48px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+
+  @media ${themes.primary.media.maxTablet} {
+    font-size: 22px;
+    line-height: 32px;
+  }
+`;
+
+export const CTAText = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.smallPortfolioText};
+  font-weight: ${themes.primary.font.weight.heavy};
+  max-width: 827px;
+  line-height: 26px;
+  margin-bottom: 34px;
+
+  @media ${themes.primary.media.maxTablet} {
+    font-size: 18px;
+    line-height: 26px;
+    max-width: 100%;
+  }
+`;
+
+export const CTABtnsBlock = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 29px;
+
+  @media ${themes.primary.media.maxTablet} {
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+  }
+`;
+
+export const CTAIconsBlock = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
+`;
+
+export const CTAIconWrapper = styled.a`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: ${themes.primary.colors.mainGradientColor2};
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const CTAIcon = styled.p`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.mainBlogDescription};
+  font-weight: ${themes.primary.font.weight.heavy};
+  line-height: 26px;
+`;
+
+export const BlockMainIcon = styled.div`
+  position: absolute;
+  bottom: 44px;
+  right: -28px;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    display: none;
   }
 `;

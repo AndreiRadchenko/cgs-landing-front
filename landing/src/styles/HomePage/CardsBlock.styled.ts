@@ -19,8 +19,8 @@ export const BigDigit = styled.p`
 
   &.scrolled {
     background: linear-gradient(
-      61.63deg,
-      ${themes.primary.colors.mainGradientColor1} 0%,
+      90deg,
+      ${themes.primary.colors.mainGradientColor1} 20%,
       ${themes.primary.colors.mainGradientColor2} 100%
     );
     filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary})

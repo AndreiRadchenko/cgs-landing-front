@@ -147,7 +147,7 @@ const Review = ({ review, className }: IReviewProps) => {
           )}
         </Styled.ContentContainer>
         {(review?.image && (
-          <Styled.ImageContainer bgColor={review.bgColor}>
+          <Styled.ImageContainer>
             {isLoading && <Loader />}
             <Image
               src={review.image.url}

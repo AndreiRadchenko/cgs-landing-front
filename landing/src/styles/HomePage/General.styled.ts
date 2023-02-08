@@ -852,15 +852,16 @@ export const ButtonShareText = styled.a`
 
 export const WhatsAppWrapper = styled.div`
   display: flex;
+  align-items: center;
   column-gap: 0.1666em;
-  color: ${themes.primary.colors.whatsApp};
-
-  & path {
-    fill: ${themes.primary.colors.whatsApp};
-  }
+  color: ${themes.primary.colors.mainGradientColor2};
 
   &:hover {
     text-decoration: underline;
+  }
+
+  @media ${themes.primary.media.maxTablet} {
+    font-size: ${themes.primary.font.size.mainBlogAuthor};
   }
 `;
 
@@ -868,34 +869,45 @@ export const TelegramWrapper = styled.div`
   display: flex;
   align-items: center;
   column-gap: 0.147em;
-  color: ${themes.primary.colors.primary};
+  color: ${themes.primary.colors.mainGradientColor2};
 
   &:hover {
     text-decoration: underline;
   }
+
+  @media ${themes.primary.media.maxTablet} {
+    font-size: ${themes.primary.font.size.mainBlogAuthor};
+  }
 `;
 
 export const TelegramIconWrapper = styled.div`
-  width: 14px;
-  position: relative;
-  color: ${themes.primary.colors.primary};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  & path {
-    fill: ${themes.primary.colors.telegram};
+  @media ${themes.primary.media.maxTablet} {
+    width: 14px;
+    height: 14px;
   }
-
-  @media ${themes.primary.media.minPC} {
-    width: 0.75em;
+  img {
+    width: 100%;
+    height: 100%;
   }
 `;
 
 export const WhatsAppIconWrapper = styled.div`
-  width: 14px;
-  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  @media ${themes.primary.media.minPC} {
-    width: 0.75em;
-    height: 0.75em;
+  @media ${themes.primary.media.maxTablet} {
+    width: 14px;
+    height: 14px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
   }
 `;
 
