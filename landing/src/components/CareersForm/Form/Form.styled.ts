@@ -113,7 +113,7 @@ export const FileContainer = styled.div`
     flex-direction: column;
     align-items: center;
   }
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     flex-direction: row;
     align-items: stretch;
     justify-content: space-around;

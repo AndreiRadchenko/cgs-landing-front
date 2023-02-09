@@ -10,7 +10,7 @@ export const FormTitle = styled.h1`
 
 export const FormWrapper = styled.section`
   display: flex;
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     align-items: center;
   }
