@@ -886,14 +886,17 @@ export const TelegramIconWrapper = styled.div`
   align-items: center;
   transition: filter 0.3s;
   filter: brightness(0);
+  position: relative;
+  width: 22px;
+  height: 22px;
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 1.4em;
+    height: 1.4em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 14px;
     height: 14px;
-  }
-  img {
-    width: 100%;
-    height: 100%;
   }
 `;
 
@@ -901,17 +904,21 @@ export const WhatsAppIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  position: relative;
+  width: 22px;
+  height: 22px;
   transition: filter 0.3s;
   filter: brightness(0);
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 1.4em;
+    height: 1.4em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 14px;
     height: 14px;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
   }
 `;
 

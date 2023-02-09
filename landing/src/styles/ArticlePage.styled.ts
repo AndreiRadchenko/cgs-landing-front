@@ -265,7 +265,7 @@ export const FirstHeaderBg = styled.figure`
   top: 22%;
   left: -750px;
   margin: 0;
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     display: none;
   }
 `;

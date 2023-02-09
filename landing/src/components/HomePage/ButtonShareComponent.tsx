@@ -11,8 +11,8 @@ import {
 } from "../../styles/HomePage/General.styled";
 import { IDataResponse } from "../../types/Admin/Response.types";
 
-import WhatsUpGradIcon from "../../../public/HomePageDecoration/ShareIcons/wsGrad.svg";
-import TelegramGradIcon from "../../../public/HomePageDecoration/ShareIcons/tgGrad.svg";
+import WhatsUpGradIcon from "../../../public/whatsUp.svg";
+import TelegramGradIcon from "../../../public/telegram.svg";
 
 import Image from "next/image";
 
@@ -59,7 +59,12 @@ const ButtonShareComponent = () => {
       >
         <WhatsAppWrapper>
           <WhatsAppIconWrapper>
-            <Image src={WhatsUpGradIcon} alt="Icon" />
+            <Image
+              src={WhatsUpGradIcon}
+              alt="Icon"
+              layout="fill"
+              objectFit="contain"
+            />
           </WhatsAppIconWrapper>
           WhatsApp
         </WhatsAppWrapper>
@@ -72,7 +77,12 @@ const ButtonShareComponent = () => {
       >
         <TelegramWrapper>
           <TelegramIconWrapper>
-            <Image src={TelegramGradIcon} alt="Icon" />
+            <Image
+              src={TelegramGradIcon}
+              alt="Icon"
+              layout="fill"
+              objectFit="contain"
+            />
           </TelegramIconWrapper>
           Telegram
         </TelegramWrapper>

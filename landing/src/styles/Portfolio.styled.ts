@@ -76,7 +76,7 @@ export const CTACont = styled.div`
   padding: 0rem 11.1rem 75px;
   overflow: hidden;
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     padding: 0rem 1.25rem;
   }
 `;
@@ -89,7 +89,7 @@ export const CTAHeading = styled.div`
   text-transform: uppercase;
   margin-bottom: 15px;
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     font-size: 22px;
     line-height: 32px;
   }
@@ -103,7 +103,7 @@ export const CTAText = styled.div`
   line-height: 26px;
   margin-bottom: 34px;
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     font-size: 18px;
     line-height: 26px;
     max-width: 100%;
@@ -115,7 +115,7 @@ export const CTABtnsBlock = styled.div`
   align-items: center;
   gap: 29px;
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     align-items: start;
     gap: 16px;
@@ -135,12 +135,17 @@ export const CTAIconWrapper = styled.a`
   gap: 8px;
   color: ${themes.primary.colors.mainGradientColor2};
 
-  &:hover {
-    text-decoration: underline;
+  &:hover > div {
+    filter: none;
   }
 `;
 
-export const CTAIcon = styled.p`
+export const CTAIcon = styled.div`
+  transition: filter 0.3s;
+  filter: brightness(0);
+`;
+
+export const CTAIconText = styled.p`
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.mainBlogDescription};
   font-weight: ${themes.primary.font.weight.heavy};
