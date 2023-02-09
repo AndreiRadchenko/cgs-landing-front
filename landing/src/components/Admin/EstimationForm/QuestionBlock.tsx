@@ -1,5 +1,6 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import * as Styled from "../../../styles/EstimationForm.styled";
+import * as StyledCalc from "../../../styles/Calculator/CalculatorAdmin.styled";
 
 import AdminBlackButton from "../Global/AdminBlackButton";
 import {
@@ -8,15 +9,20 @@ import {
 } from "../../../types/Admin/AdminEstimationForm.types";
 import dynamic from "next/dynamic";
 import AddOptionInput from "./AddOptionInput";
-import { AdminDeleteText, Box, StyledLine } from "../../../styles/AdminPage";
+import { Box, StyledLine } from "../../../styles/AdminPage";
 import { FieldArray, Formik } from "formik";
 import EstimationDropdown from "./EstimationOptionsDropdown";
 import AdditinalAttributesBlock from "./AdditinalAttributesBlock";
-import { defaultEditorOption } from "../../../utils/variables";
 import SplitColumns from "./SplitColumns";
 import OptionElement from "./OptionElement";
 import IsRequired from "./IsRequired";
 import { EstimationDeleteQuestion } from "../../../styles/EstimationForm.styled";
+import { Plugin } from "suneditor/src/plugins/Plugin";
+import { letterCaseSubmenu } from "../Calculator/letterCaseSubmenuPlugin";
+import { letterWeightSubmenu } from "../Calculator/letterWeightSubmenuPlugin";
+const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 export interface IFormikValues extends IEstimationFormQuestion {
   isConditionsForAppearance: boolean;
@@ -31,13 +37,30 @@ const QuestionBlock = ({
   pages,
   currentPage,
 }: IQuestionBlockProps) => {
-  const EstimationFormInput = dynamic(
-    () =>
-      import("../../../components/Admin/EstimationForm/EstimationFormInput"),
-    {
-      ssr: false,
-    }
-  );
+  const [plugins, setPlugins] = useState<
+    Array<Plugin> | Record<string, Plugin>
+  >();
+
+  useEffect(() => {
+    import("suneditor/src/plugins").then((plugs: any) => setPlugins(plugs));
+  }, []);
+
+  const titleEditorOptions = {
+    font: ["NAMU"],
+    linkRelDefault: {
+      default: undefined,
+      check_new_window: "nofollow noopener",
+    },
+    addTagsWhitelist: "label|input",
+    plugins: { letterCaseSubmenu, letterWeightSubmenu, ...plugins },
+    buttonList: [
+      ["fontColor", "fontSize"],
+      ["letterCase"],
+      ["letterWeight"],
+      ["removeFormat"],
+      ["codeView"],
+    ],
+  };
 
   const onDeleteQuestion = () => {
     onRemoveHandler(index ? index : 0);
@@ -65,18 +88,17 @@ const QuestionBlock = ({
         {(props) => (
           <form onSubmit={props.handleSubmit}>
             <Styled.QuestionBlock>
-              <EstimationFormInput
-                header="Title"
-                name="title"
-                props={{
-                  width: "559px",
-                  defaultValue: question.title || "",
-                  setOptions: {
-                    ...defaultEditorOption,
-                    defaultStyle: "position:relative; z-index:50",
-                  },
-                }}
-              />
+              <StyledCalc.TransparentTextEditorWrapper>
+                <TextEditor
+                  name={`title`}
+                  props={{
+                    height: "57px",
+                    width: "874px",
+                    setDefaultStyle: "position:relative; z-index:50",
+                    setOptions: titleEditorOptions,
+                  }}
+                />
+              </StyledCalc.TransparentTextEditorWrapper>
               {props.errors.title && props.touched.title ? (
                 <div>{props.errors.title}</div>
               ) : null}
