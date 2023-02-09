@@ -163,7 +163,13 @@ export const Title = styled.h1`
   }
 `;
 
-export const ButtonWrapper = styled.div``;
+export const ButtonWrapper = styled.div`
+  display: flex;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+  }
+`;
 
 export const MainSubtitle = styled.div`
   text-transform: uppercase;
@@ -664,18 +670,20 @@ export const Separator = styled.div`
 
 export const FooterButtonWrapper = styled.span`
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-right: 28px;
 
   &.btn {
-    & > a {
-      margin-top: 1rem;
-      margin-left: 0;
-    }
+    flex-direction: row-reverse;
+    margin-top: 1rem;
+    margin-left: 0;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    justify-content: flex-start;
+    &.btn {
+      justify-content: flex-end;
+      flex-direction: column;
+    }
   }
 `;
 
@@ -817,13 +825,12 @@ export const ButtonShareTextWrapper = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
-  margin-top: 1em;
   font-family: ${themes.primary.font.family.namu};
-  z-index: 12;
+  z-index: 10;
+  margin-left: 1.1666em;
 
-  & > span {
-    font-size: 16px;
-    color: ${themes.primary.colors.calculatorButtonBorderBg};
+  &.footer {
+    margin-inline: 0 1.1666em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -831,52 +838,64 @@ export const ButtonShareTextWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 1.5em;
+    margin-top: 1.428em;
+    margin-left: 0;
     font-size: 1.346em;
-
-    & > span {
-      font-size: 14px;
-    }
   }
 `;
 
 export const ButtonShareText = styled.a`
-  margin-left: 0.666em;
   font-size: 1.2857em;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.143em;
-    margin-left: 0.44em;
   }
 `;
 
 export const WhatsAppWrapper = styled.div`
   display: flex;
   align-items: center;
-  column-gap: 0.1666em;
-  color: ${themes.primary.colors.mainGradientColor2};
+  column-gap: 0.444em;
+  color: ${themes.primary.colors.primary};
+  font-size: 1.167em;
 
-  &:hover > div {
-    filter: none;
+  &:hover {
+    color: ${themes.primary.colors.darkBlue};
+
+    & > div {
+      filter: none;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: ${themes.primary.font.size.mainBlogAuthor};
+    font-size: 1em;
+    line-height: 19px;
+    column-gap: 3px;
   }
 `;
 
 export const TelegramWrapper = styled.div`
   display: flex;
   align-items: center;
-  column-gap: 0.147em;
-  color: ${themes.primary.colors.mainGradientColor2};
+  column-gap: 0.444em;
+  color: ${themes.primary.colors.primary};
+  font-size: 1.167em;
+  transition: color 0.3s;
+  margin-left: 0.778em;
 
-  &:hover > div {
-    filter: none;
+  &:hover {
+    color: ${themes.primary.colors.darkBlue};
+
+    & > div {
+      filter: none;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: ${themes.primary.font.size.mainBlogAuthor};
+    font-size: 1em;
+    line-height: 19px;
+    column-gap: 3px;
+    margin-left: 0.875em;
   }
 `;
 
@@ -904,7 +923,6 @@ export const WhatsAppIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   position: relative;
   width: 22px;
   height: 22px;
