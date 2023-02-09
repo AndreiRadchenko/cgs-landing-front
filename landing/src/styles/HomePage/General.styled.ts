@@ -856,11 +856,11 @@ export const WhatsAppWrapper = styled.div`
   column-gap: 0.1666em;
   color: ${themes.primary.colors.mainGradientColor2};
 
-  &:hover {
-    text-decoration: underline;
+  &:hover > div {
+    filter: none;
   }
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.mainBlogAuthor};
   }
 `;
@@ -871,11 +871,11 @@ export const TelegramWrapper = styled.div`
   column-gap: 0.147em;
   color: ${themes.primary.colors.mainGradientColor2};
 
-  &:hover {
-    text-decoration: underline;
+  &:hover > div {
+    filter: none;
   }
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.mainBlogAuthor};
   }
 `;
@@ -884,8 +884,10 @@ export const TelegramIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: filter 0.3s;
+  filter: brightness(0);
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     width: 14px;
     height: 14px;
   }
@@ -899,8 +901,10 @@ export const WhatsAppIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: filter 0.3s;
+  filter: brightness(0);
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     width: 14px;
     height: 14px;
   }
