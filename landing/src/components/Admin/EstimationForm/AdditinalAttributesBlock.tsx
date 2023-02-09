@@ -1,18 +1,24 @@
 import dynamic from "next/dynamic";
-import React, { memo, useEffect } from "react";
+import React, { memo, useEffect, useState } from "react";
 import * as Styled from "../../../styles/EstimationForm.styled";
 import {
   IConditionsForAppearance,
   IEstimationFormPages,
   IEstimationFormQuestionOptions,
 } from "../../../types/Admin/AdminEstimationForm.types";
-import { defaultEditorOption } from "../../../utils/variables";
 import ConditionsForAppearanceBlock from "./ConditionsForAppearanceBlock";
 import {
   TieUpInput,
   TieUpLabel,
 } from "../../../styles/Calculator/CalculatorAdmin.styled";
 import { Box } from "../../../styles/AdminPage";
+import { Plugin } from "suneditor/src/plugins/Plugin";
+import { letterCaseSubmenu } from "../Calculator/letterCaseSubmenuPlugin";
+import { letterWeightSubmenu } from "../Calculator/letterWeightSubmenuPlugin";
+import * as StyledCalc from "../../../styles/Calculator/CalculatorAdmin.styled";
+const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 interface IAdditionalAttributesBlockProps {
   isConditionsForAppearance: boolean;
@@ -43,19 +49,29 @@ const AdditinalAttributesBlock = ({
   currentPage,
   ...indexes
 }: IAdditionalAttributesBlockProps) => {
-  const EstimationFormInput = dynamic(
-    () => import("../../../components/Admin/EstimationForm/EstimationFormInput")
-  );
+  const [plugins, setPlugins] = useState<
+    Array<Plugin> | Record<string, Plugin>
+  >();
 
   useEffect(() => {
-    if (!isConditionsForAppearance) {
-      updateValues("conditionsForAppearance", null);
-    }
-  }, [isConditionsForAppearance, updateValues]);
+    import("suneditor/src/plugins").then((plugs: any) => setPlugins(plugs));
+  }, []);
 
-  const hiddenTextInputOptions = {
-    buttonList: [["fontColor", "fontSize"]],
-    defaultStyle: `position:relative; z-index:4`,
+  const hiddenEditorOptions = {
+    font: ["NAMU"],
+    linkRelDefault: {
+      default: undefined,
+      check_new_window: "nofollow noopener",
+    },
+    addTagsWhitelist: "label|input",
+    plugins: { letterCaseSubmenu, letterWeightSubmenu, ...plugins },
+    buttonList: [
+      ["fontColor", "fontSize"],
+      ["letterCase"],
+      ["letterWeight"],
+      ["removeFormat"],
+      ["codeView"],
+    ],
   };
 
   const conditionForAppearanceMessage = (
@@ -150,13 +166,17 @@ const AdditinalAttributesBlock = ({
       </Box>
 
       {isHiddenText && (
-        <EstimationFormInput
-          name="hiddenText"
-          props={{
-            width: "550px",
-            setOptions: { ...defaultEditorOption, ...hiddenTextInputOptions },
-          }}
-        />
+        <StyledCalc.TransparentTextEditorWrapper>
+          <TextEditor
+            name={`hiddenText`}
+            props={{
+              height: "57px",
+              width: "875px",
+              setDefaultStyle: "position:relative; z-index:3",
+              setOptions: hiddenEditorOptions,
+            }}
+          />
+        </StyledCalc.TransparentTextEditorWrapper>
       )}
     </Styled.AdditinalAttributesBlock>
   );
