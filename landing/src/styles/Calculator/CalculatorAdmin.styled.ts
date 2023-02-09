@@ -18,10 +18,10 @@ export const TransparentTextEditorWrapper = styled.div`
   background-color: transparent;
 
   & .se-toolbar {
-    outline: 0;
-    background-color: ${themes.primary.colors.blogBackground};
-    border-bottom: 1px solid ${themes.primary.colors.comment};
-    height: 33px;
+    outline: 0 !important;
+    background-color: ${themes.primary.colors.blogBackground} !important;
+    border-block: 1px solid ${themes.primary.colors.comment};
+    height: 33px !important;
 
     & .se-btn-tray {
       padding: 0;
@@ -54,6 +54,7 @@ export const TransparentTextEditorWrapper = styled.div`
   & .sun-editor {
     background-color: transparent;
     border: 1px solid ${themes.primary.colors.comment};
+    border-top: 0;
 
     & .txt {
       font-family: ${themes.primary.font.family.namu};
