@@ -22,7 +22,11 @@ declare global {
   }
 }
 
-const ButtonShareComponent = () => {
+interface IButtonShareComponentProps {
+  className?: string;
+}
+
+const ButtonShareComponent = ({ className }: IButtonShareComponentProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>([
     queryKeys.getFullHomePage,
@@ -49,8 +53,7 @@ const ButtonShareComponent = () => {
   };
 
   return (
-    <ButtonShareTextWrapper>
-      <span>or contact via</span>
+    <ButtonShareTextWrapper className={className}>
       <ButtonShareText
         href={data?.whatsAppLink}
         target="_blank"

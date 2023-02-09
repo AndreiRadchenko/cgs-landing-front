@@ -74,9 +74,9 @@ const HeadBlock = () => {
               buttonText={data.button}
               buttonClassName={buttonClassName}
             />
+            <ButtonShareComponent />
           </Styled.ButtonWrapper>
         )}
-        <ButtonShareComponent />
       </Styled.HeadBlockContent>
       {data?.image?.url && (
         <Styled.Tetris>

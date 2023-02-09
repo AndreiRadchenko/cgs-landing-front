@@ -133,10 +133,15 @@ export const CTAIconWrapper = styled.a`
   display: flex;
   align-items: center;
   gap: 8px;
-  color: ${themes.primary.colors.mainGradientColor2};
 
-  &:hover > div {
-    filter: none;
+  &:hover {
+    & > div {
+      filter: none;
+    }
+
+    & > p {
+      color: ${themes.primary.colors.darkBlue};
+    }
   }
 `;
 
@@ -146,10 +151,13 @@ export const CTAIcon = styled.div`
 `;
 
 export const CTAIconText = styled.p`
+  color: ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.mainBlogDescription};
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 26px;
+
+  transition: color 0.3s;
 `;
 
 export const BlockMainIcon = styled.div`
