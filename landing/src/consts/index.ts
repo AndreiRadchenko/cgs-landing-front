@@ -311,3 +311,25 @@ export const newBlogArticle = {
     customHead: "",
   },
 };
+
+export const additionalEstimationFormQuestion = [
+  "How do you want to process payments?",
+  "What mobile features would you like to include?",
+  "Your admin panel needs…",
+];
+
+export const conditionsToAppearanceQuestion = [
+  {
+    question:
+      "Choose 3rd party integrations inside your application if you need them:",
+    answer: "Payments",
+  },
+  {
+    question: "What kind of app do you want to build?",
+    answer: "Mobile (iOS and Android app)",
+  },
+  {
+    question: "Do you want to add an admin panel to the app?",
+    answer: "Yes",
+  },
+];
