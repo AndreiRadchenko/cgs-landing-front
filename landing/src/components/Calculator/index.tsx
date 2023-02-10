@@ -1,6 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import disableScroll from "disable-scroll";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCalculatorService } from "../../services/adminCalculator";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
@@ -56,7 +55,6 @@ const Calculator = () => {
 
   const handleOpen = () => {
     setIsOpen(true);
-    disableScroll.on();
   };
 
   const handleClose = () => {
@@ -72,15 +70,17 @@ const Calculator = () => {
     setStep(0);
     setPreviousSteps([]);
     setButtonText("< start >");
-    disableScroll.off();
   };
 
   const handleQuit = () => {
     setIsQuitting(true);
   };
 
-  const handlePagerButtonsClick = () => {
+  const handlePagerRightButtonClick = () => {
     setStartLoading(true);
+  };
+  const handlePagerLeftButtonClick = () => {
+    setStartLoading(false);
   };
 
   const handleCompletedPagerButtonsClick = () => {
@@ -368,6 +368,7 @@ const Calculator = () => {
                 onSubmit={onSubmit}
                 validationSchema={CalculatorValidation}
                 validateOnChange
+                validateOnBlur
               >
                 {({ values }) => (
                   <CalculatorStepsComponent
@@ -391,6 +392,7 @@ const Calculator = () => {
                         <CalculatorField
                           text={currentData.title}
                           disabled={values.questionsArr[stepInd].tieUpDisabled}
+                          className="title"
                         />
                         {typeof currentData.options !== "string" && (
                           <CalculatorInputField
@@ -429,7 +431,8 @@ const Calculator = () => {
               handleButtonClick={handleButtonClick}
               handleClassicClick={handleClassicClick}
               handleClose={handleClose}
-              handlePagerButtonsClick={handlePagerButtonsClick}
+              handlePagerRightButtonClick={handlePagerRightButtonClick}
+              handlePagerLeftButtonClick={handlePagerLeftButtonClick}
               buttonText={buttonText}
               startLoading={startLoading}
               classicLoading={classicLoading}

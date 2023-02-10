@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { AdminUnauthorizedModal } from "../../../styles/AdminPage";
 import CalculatorStepItem from "./CalculatorStepItemForm";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
