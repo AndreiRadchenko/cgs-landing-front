@@ -18,11 +18,15 @@ import {
   HoverContainer,
 } from "../../styles/Blog.styled";
 import { useField } from "formik";
-import {
-  additionalEstimationFormQuestion,
-  conditionsToAppearanceQuestion,
-} from "../../consts";
+import { conditionsToAppearanceQuestion } from "../../consts";
 import { parseHtml } from "../../utils/parseHtml";
+import {
+  conditionToShowQuestionsCheckbox,
+  conditionToShowQuestionsRadio,
+  notAnAdditionalQuestion,
+  showAdditionalQuestionsCheckbox,
+  showAdditionalQuestionsRadio,
+} from "../../utils/showAdditionalQuestions";
 
 const EstimationQuestionField = ({
   formData,
@@ -68,90 +72,17 @@ const EstimationQuestionField = ({
       )
     ]?.selectedOptions;
 
-  const notAnAdditionalQuestion = (question: string) => {
-    return !additionalEstimationFormQuestion.find((item) => item === question);
-  };
-
   useEffect(() => {
-    if (
-      notAnAdditionalQuestion(parseHtml(question.title)) &&
-      !formData.clientAnswers
-        ?.find(
-          (item) =>
-            item.questionTitle === conditionsToAppearanceQuestion[0].question
-        )
-        ?.selectedOptions.some(
-          (field) => field.text === conditionsToAppearanceQuestion[0].answer
-        ) &&
-      formData.clientAnswers.findIndex(
-        (item) => item.questionTitle === additionalEstimationFormQuestion[0]
-      ) > -1
-    ) {
-      console.log("true 0");
-      formData.clientAnswers.splice(
-        formData.clientAnswers.findIndex(
-          (item) => item.questionTitle === additionalEstimationFormQuestion[0]
-        ),
-        1
-      );
-    }
+    showAdditionalQuestionsCheckbox(question, formData, 0);
   }, [additionalQuestionPayments]);
-
   useEffect(() => {
-    if (
-      notAnAdditionalQuestion(parseHtml(question.title)) &&
-      formData.clientAnswers?.find(
-        (item) =>
-          item.questionTitle === conditionsToAppearanceQuestion[1].question
-      )?.selectedOptions[0].text !== conditionsToAppearanceQuestion[1].answer &&
-      formData.clientAnswers.findIndex(
-        (item) => item.questionTitle === additionalEstimationFormQuestion[1]
-      ) > -1
-    ) {
-      console.log("true 1");
-      formData.clientAnswers.splice(
-        formData.clientAnswers.findIndex(
-          (item) => item.questionTitle === additionalEstimationFormQuestion[1]
-        ),
-        1
-      );
-    }
+    showAdditionalQuestionsRadio(question, formData, 1);
   }, [additionalQuestionMobile]);
-
   useEffect(() => {
-    if (
-      notAnAdditionalQuestion(parseHtml(question.title)) &&
-      formData.clientAnswers?.find(
-        (item) =>
-          item.questionTitle === conditionsToAppearanceQuestion[2].question
-      )?.selectedOptions[0].text !== conditionsToAppearanceQuestion[2].answer &&
-      formData.clientAnswers.findIndex(
-        (item) =>
-          item.questionTitle.trim() === additionalEstimationFormQuestion[2]
-      ) > -1
-    ) {
-      console.log("true 2");
-      formData.clientAnswers.splice(
-        formData.clientAnswers.findIndex(
-          (item) => item.questionTitle === additionalEstimationFormQuestion[2]
-        ),
-        1
-      );
-    }
+    showAdditionalQuestionsRadio(question, formData, 2);
   }, [additionalQuestionAdmin]);
 
-  if (
-    !notAnAdditionalQuestion(parseHtml(question.title)) &&
-    additionalEstimationFormQuestion[0] === parseHtml(question.title) &&
-    formData.clientAnswers
-      .find(
-        (item) =>
-          item.questionTitle === conditionsToAppearanceQuestion[0].question
-      )
-      ?.selectedOptions.some(
-        (field) => field.text === conditionsToAppearanceQuestion[0].answer
-      )
-  ) {
+  if (conditionToShowQuestionsCheckbox(question, formData, 0)) {
     return (
       <HoverContainer>
         <EstimationFieldBox error={!!meta.error && meta!.touched}>
@@ -172,15 +103,7 @@ const EstimationQuestionField = ({
       </HoverContainer>
     );
   }
-  if (
-    additionalEstimationFormQuestion[1] === parseHtml(question.title) &&
-    formData.clientAnswers[
-      formData.clientAnswers.findIndex(
-        (item) =>
-          item.questionTitle === conditionsToAppearanceQuestion[1].question
-      )
-    ]?.selectedOptions[0].text === conditionsToAppearanceQuestion[1].answer
-  ) {
+  if (conditionToShowQuestionsRadio(question, formData, 1)) {
     return (
       <HoverContainer>
         <EstimationFieldBox error={!!meta.error && meta!.touched}>
@@ -201,16 +124,7 @@ const EstimationQuestionField = ({
       </HoverContainer>
     );
   }
-  if (
-    additionalEstimationFormQuestion[2] === parseHtml(question.title) &&
-    formData.clientAnswers[
-      formData.clientAnswers.findIndex(
-        (item) =>
-          item.questionTitle.trim() ===
-          conditionsToAppearanceQuestion[2].question
-      )
-    ]?.selectedOptions[0].text === conditionsToAppearanceQuestion[2].answer
-  ) {
+  if (conditionToShowQuestionsRadio(question, formData, 2)) {
     return (
       <HoverContainer>
         <EstimationFieldBox error={!!meta.error && meta!.touched}>
