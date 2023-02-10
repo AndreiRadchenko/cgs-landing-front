@@ -478,7 +478,6 @@ export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-right: 2.9em;
-  position: relative;
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
@@ -1400,7 +1399,7 @@ export const PopoverWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  top: -6px;
+  top: -13px;
   left: -11px;
   transition: opacity 0.3s;
   opacity: 0;
@@ -1416,7 +1415,7 @@ export const PopoverWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     left: auto;
     right: -15px;
-    top: -65px;
+    top: -60px;
   }
 `;
 
