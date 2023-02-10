@@ -1,6 +1,6 @@
-import React, { FC, useEffect } from "react";
-import disableScroll from "disable-scroll";
+import React, { FC } from "react";
 import * as Styles from "../../styles/BookModalForm/BookModal.styled";
+import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 
 interface ITicketModalProps {
   isOpen?: boolean;
@@ -8,13 +8,7 @@ interface ITicketModalProps {
 }
 
 const BookModal: FC<ITicketModalProps> = ({ isOpen, children }) => {
-  useEffect(() => {
-    if (isOpen) {
-      disableScroll.on();
-      return;
-    }
-    disableScroll.off();
-  }, [isOpen]);
+  isOpen && DisableScrollBarHandler(isOpen);
 
   return (
     <Styles.BookModal className={isOpen ? "none" : "open"}>
