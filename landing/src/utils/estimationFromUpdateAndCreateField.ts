@@ -1,6 +1,6 @@
 import { IFormData } from "../types/EstimationForm.types";
 import { ChangeEvent } from "react";
-import { parseHtml } from "./parseHtml";
+import { getTextFromHtml } from "./getTextFromHtml";
 
 export const updateField = (
   prevState: IFormData,
@@ -28,7 +28,7 @@ export const createField = (
   return [
     ...prevState.clientAnswers,
     {
-      questionTitle: parseHtml(title),
+      questionTitle: getTextFromHtml(title),
       questionKey: questionKey,
       pageIndex: currentPage as number,
       selectedOptions: [{ text: e.target.value }],

@@ -13,7 +13,7 @@ import {
 } from "../../styles/EstimationForm.styled";
 import { EstimationField } from "../../types/EstimationForm.types";
 
-import { parseHtml } from "../../utils/parseHtml";
+import { getTextFromHtml } from "../../utils/getTextFromHtml";
 import { AddFileIcon } from "./SvgEstimationForm/AddFileIcon";
 import { CrossIcon } from "./SvgEstimationForm/CrossIcon";
 import {
@@ -41,7 +41,7 @@ const TextField = ({
   const [, meta] = useField(`questionsArr[${index}]`);
 
   let placeholder = "Text";
-  if (options.length > 0) placeholder = parseHtml(options[0]["text"]);
+  if (options.length > 0) placeholder = getTextFromHtml(options[0]["text"]);
 
   useEffect(() => {
     setAttachFiles!(
@@ -75,16 +75,16 @@ const TextField = ({
           onChange={(e) => {
             props.setFormData((prevState) => {
               const indexOfAnswer = prevState.clientAnswers.findIndex(
-                (answer) => answer.questionTitle === parseHtml(title)
+                (answer) => answer.questionTitle === getTextFromHtml(title)
               );
               return {
                 ...prevState,
                 clientName:
-                  parseHtml(title) === "Your Name"
+                  getTextFromHtml(title) === "Your Name"
                     ? e.target.value
                     : prevState.clientName,
                 clientEmail:
-                  parseHtml(title) === "Your Email"
+                  getTextFromHtml(title) === "Your Email"
                     ? e.target.value
                     : prevState.clientEmail,
                 clientAnswers:

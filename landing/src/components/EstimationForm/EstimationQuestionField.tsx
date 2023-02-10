@@ -19,7 +19,7 @@ import {
 } from "../../styles/Blog.styled";
 import { useField } from "formik";
 import { conditionsToAppearanceQuestion } from "../../consts";
-import { parseHtml } from "../../utils/parseHtml";
+import { getTextFromHtml } from "../../utils/getTextFromHtml";
 import {
   conditionToShowQuestionsCheckbox,
   conditionToShowQuestionsRadio,
@@ -146,7 +146,7 @@ const EstimationQuestionField = ({
     );
   }
 
-  return notAnAdditionalQuestion(parseHtml(question.title)) ? (
+  return notAnAdditionalQuestion(getTextFromHtml(question.title)) ? (
     <HoverContainer>
       <EstimationFieldBox error={!!meta.error && meta!.touched}>
         {question.optionsType === "TEXT" && (

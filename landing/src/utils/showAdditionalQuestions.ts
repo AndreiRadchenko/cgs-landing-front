@@ -1,4 +1,4 @@
-import { parseHtml } from "./parseHtml";
+import { getTextFromHtml } from "./getTextFromHtml";
 import {
   additionalEstimationFormQuestion,
   conditionsToAppearanceQuestion,
@@ -15,7 +15,7 @@ export const showAdditionalQuestionsCheckbox = (
   index: number
 ) => {
   if (
-    notAnAdditionalQuestion(parseHtml(question.title)) &&
+    notAnAdditionalQuestion(getTextFromHtml(question.title)) &&
     !formData.clientAnswers
       ?.find(
         (item) =>
@@ -43,7 +43,7 @@ export const showAdditionalQuestionsRadio = (
   index: number
 ) => {
   if (
-    notAnAdditionalQuestion(parseHtml(question.title)) &&
+    notAnAdditionalQuestion(getTextFromHtml(question.title)) &&
     formData.clientAnswers?.find(
       (item) =>
         item.questionTitle === conditionsToAppearanceQuestion[index].question
@@ -67,8 +67,8 @@ export const conditionToShowQuestionsCheckbox = (
   formData: IFormData,
   index: number
 ) =>
-  !notAnAdditionalQuestion(parseHtml(question.title)) &&
-  additionalEstimationFormQuestion[index] === parseHtml(question.title) &&
+  !notAnAdditionalQuestion(getTextFromHtml(question.title)) &&
+  additionalEstimationFormQuestion[index] === getTextFromHtml(question.title) &&
   formData.clientAnswers
     .find(
       (item) =>
@@ -83,7 +83,7 @@ export const conditionToShowQuestionsRadio = (
   formData: IFormData,
   index: number
 ) =>
-  additionalEstimationFormQuestion[index] === parseHtml(question.title) &&
+  additionalEstimationFormQuestion[index] === getTextFromHtml(question.title) &&
   formData.clientAnswers[
     formData.clientAnswers.findIndex(
       (item) =>
