@@ -21,6 +21,7 @@ import {
 import { Formik, FormikHelpers } from "formik";
 import { CalculatorValidation } from "../../validations/CalculatorValidation";
 import { getResults } from "../../utils/getCalculatorResults";
+import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 
 const Calculator = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -316,6 +317,8 @@ const Calculator = () => {
       setIsHovered(false);
     }, 3000);
   };
+
+  DisableScrollBarHandler(isOpen);
 
   const hoverClassName = isHovered ? "active" : undefined;
 
