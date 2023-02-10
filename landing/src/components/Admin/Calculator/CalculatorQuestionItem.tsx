@@ -71,7 +71,7 @@ const CalculatorQuestionItem = ({
           <TextEditor
             name={`${questionNameBefore}options[${idx}].label`}
             props={{
-              height: "37px",
+              height: "auto",
               width: "480px",
               setDefaultStyle: `position:relative; z-index:${zIndex}`,
               setContents: option.label,

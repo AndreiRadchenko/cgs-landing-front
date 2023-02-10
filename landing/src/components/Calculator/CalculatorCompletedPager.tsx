@@ -40,8 +40,8 @@ const CalculatorCompletedPager = ({
       >
         <CalculatorPager
           mobile={width < 768}
-          onPagerClick={handlePagerButtonsClick}
-          startLoading={finishClick}
+          onPagerLeftClick={handlePagerButtonsClick}
+          onPagerRightClick={handlePagerButtonsClick}
         >
           <Styled.ContentWrapper>
             {finishClick ? (

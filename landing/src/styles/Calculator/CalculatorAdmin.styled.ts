@@ -23,6 +23,10 @@ export const TransparentTextEditorWrapper = styled.div`
     border-block: 1px solid ${themes.primary.colors.comment};
     height: 33px !important;
 
+    &.se-toolbar-shadow {
+      height: 0 !important;
+    }
+
     & .se-btn-tray {
       padding: 0;
       height: 100%;
@@ -400,13 +404,6 @@ export const TieUpInput = styled(Field)`
     }
 
     &:checked {
-      border-color: ${themes.primary.colors.darkBlue};
-
-      & + div {
-        border-color: ${themes.primary.colors.darkBlue};
-        background: ${themes.primary.colors.darkBlue};
-      }
-
       &::before {
         transform: scale(1) translateY(-0.5px);
       }
@@ -443,8 +440,6 @@ export const TieUpInput = styled(Field)`
     }
 
     &:checked {
-      background-image: url(${checkBoxBgActive.src});
-
       &::before {
         transform: scale(1);
       }
@@ -475,11 +470,6 @@ export const TieUpInput = styled(Field)`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    &.checkbox {
-      top: 4px;
-      transform: translateY(-10%);
-    }
-
     &.radio {
       &:checked::before {
         transform: scale(1);

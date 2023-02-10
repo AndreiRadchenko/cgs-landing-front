@@ -18,8 +18,8 @@ import Calculator from "../Calculator";
 const Content = () => {
   return (
     <>
-      <Calculator />
       <PageArticle>
+        <Calculator />
         <Layout>
           <LocalLayout>
             <HeadBlock />
