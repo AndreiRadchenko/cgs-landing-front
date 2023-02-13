@@ -24,8 +24,9 @@ export const EstimationValidation = () => {
                 then: yup
                   .string()
                   .required()
-                  .min(1, "please fill empty fields"),
-                otherwise: yup.string(),
+                  .min(1, "please fill empty fields")
+                  .max(150, "you're over the limit"),
+                otherwise: yup.string().max(150, "you're over the limit"),
               })
         ),
       })

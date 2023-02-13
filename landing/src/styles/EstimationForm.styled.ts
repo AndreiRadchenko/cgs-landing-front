@@ -7,6 +7,10 @@ interface IBlockErrorSplit {
   readonly split?: boolean;
 }
 
+interface IButtonModal {
+  readonly white?: boolean;
+}
+
 interface IWrapperInput {
   type: string;
 }
@@ -132,6 +136,17 @@ export const EstimationConditionsForAppearanceHeader = styled.p`
   line-height: 132%;
 `;
 
+export const EstimationQuestionAdditional = styled.div`
+  position: absolute;
+  top: 5px;
+  right: -35px;
+  transition: 0.3s;
+
+  @media ${themes.primary.media.maxMobile} {
+    right: -12px;
+  }
+`;
+
 export const EstimationFieldBox = styled.div<IBlockErrorSplit>`
   position: relative;
   background-color: ${({ error }) =>
@@ -143,9 +158,13 @@ export const EstimationFieldBox = styled.div<IBlockErrorSplit>`
       ? `${themes.primary.colors.estimationAdminBg}`
       : `${themes.primary.colors.black}`};
   z-index: 1;
-  border: 2px solid ${themes.primary.colors.black};
+  border: 1.5px solid ${themes.primary.colors.black};
   padding: 16px 18px;
   margin-bottom: 34px;
+
+  &:hover ${EstimationQuestionAdditional} {
+    right: -43px;
+  }
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 30px;
   }
@@ -165,6 +184,9 @@ export const EstimationFieldLabel = styled.p<IBlockErrorSplit>`
   padding: ${(props) => (props.split ? "0 0 14px 0" : "0 0 10px 0")};
   margin: ${(props) => (props.split ? "0 0 19px 0" : "0")};
   @media ${themes.primary.media.maxMobile} {
+    border-bottom: none;
+    padding: 0px;
+    margin: 0 0 10px 0;
     font-size: 16px;
     line-height: 19px;
   }
@@ -177,8 +199,9 @@ export const EstimationFieldOptionCheckbox = styled.label<IBlockErrorSplit>`
   font-size: 18px;
   line-height: 22px;
   cursor: pointer;
-  padding: 5px 10px 10px 10px;
+  padding: 5px 20px 10px 15px;
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     font-size: 14px;
     line-height: 17px;
   }
@@ -198,8 +221,9 @@ export const EstimationFieldOptionRadio = styled.label<IBlockErrorSplit>`
   font-size: 18px;
   line-height: 22px;
   cursor: pointer;
-  padding: 0px 10px 10px 10px;
+  padding: 0px 20px 10px 15px;
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     font-size: 14px;
     line-height: 17px;
   }
@@ -235,15 +259,16 @@ export const EstimationTextInput = styled.input<IBlockErrorSplit>`
 export const EstimationInputFlex = styled.div`
   display: flex;
   align-items: flex-start;
+  padding-top: 10px;
 `;
 
 export const EstimationInputRadio = styled.input`
   appearance: none;
-  margin: 0;
+  margin: 1px 0 0 0;
   /* Safari support */
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   cursor: pointer;
   flex: 0 0 auto;
   border: 2px solid ${themes.primary.colors.black};
@@ -260,8 +285,8 @@ export const EstimationInputRadio = styled.input`
     transform: translate(-50%, -50%);
     display: block;
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
   }
 
   &:checked {
@@ -283,8 +308,11 @@ export const EstimationInputRadio = styled.input`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 17px;
-    height: 17px;
+    margin: 0.5px 0 0 0;
+    width: 18px;
+    height: 18px;
+    display: grid;
+    place-items: center;
 
     &::after {
       content: "";
@@ -297,6 +325,7 @@ export const EstimationInputRadio = styled.input`
 export const EstimationInputCheckbox = styled.input`
   -webkit-appearance: none;
   appearance: none;
+  margin: 4px 0 0 0;
   position: relative;
   flex: 0 0 auto;
   width: 22px;
@@ -351,7 +380,7 @@ export const EstimationTooltipText = styled.span`
   left: -107px;
   z-index: 1;
 
-  div:last-child {
+  div:nth-child(2) {
     text-decoration: underline;
   }
   &:after {
@@ -398,16 +427,6 @@ export const EstimationTooltip = styled.div`
 
   &:hover ${EstimationTooltipText} {
     visibility: visible;
-  }
-`;
-
-export const EstimationQuestionAdditional = styled.div`
-  position: absolute;
-  top: 5px;
-  right: -35px;
-
-  @media ${themes.primary.media.maxMobile} {
-    right: -12px;
   }
 `;
 
@@ -505,18 +524,21 @@ export const EstimateModalWrapper = styled.div`
   z-index: 100;
   display: grid;
   place-items: center;
+  @media ${themes.primary.media.maxMobile} {
+    display: block;
+    padding-top: 128px;
+  }
 `;
 
 export const EstimateModalContainer = styled.div`
   position: relative;
-  padding: 58px 27px 34px 36px;
+  padding: 52px 27px 26px 15px;
   margin: 10px 18px 10px 12px;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 24px;
   line-height: 29px;
   max-width: 620px;
-  height: 270px;
 
   color: ${themes.primary.colors.black};
   background: ${themes.primary.colors.portfolioBg};
@@ -524,21 +546,26 @@ export const EstimateModalContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 20px;
-    height: 330px;
   }
 `;
 
-export const EstimateModalButton = styled.a`
-  position: absolute;
-  bottom: 47px;
-  right: 50px;
-  padding: 10px 42px;
+export const EstimateModalButton = styled.a<IButtonModal>`
+  height: 30px;
+  width: 110px;
+  display: grid;
+  place-items: center;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 14px;
-  background: ${themes.primary.colors.black};
+  background: ${(props) =>
+    props.white
+      ? themes.primary.colors.portfolioBg
+      : themes.primary.colors.black};
   border: 2px solid ${themes.primary.colors.black};
-  color: ${themes.primary.colors.secondary};
+  color: ${(props) =>
+    props.white
+      ? themes.primary.colors.black
+      : themes.primary.colors.secondary};
   cursor: pointer;
   transition: 0.3s;
 
@@ -568,12 +595,13 @@ export const EstimateModalBlock = styled.div`
   right: -10px;
   bottom: -10px;
   border: 1.5px solid ${themes.primary.colors.primary};
+  background: ${themes.primary.colors.portfolioBg};
   z-index: -10;
   display: flex;
   align-items: flex-end;
 
   @media ${themes.primary.media.maxMobile} {
-    right: -4px;
+    right: -6px;
     bottom: -4px;
   }
 `;

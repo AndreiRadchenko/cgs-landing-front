@@ -156,7 +156,9 @@ const TextField = ({
                 key={file.size}
               >
                 <EstimateFileType>
-                  {file.type.replace("application/", "")}
+                  {file.name.slice(
+                    ((file.name.lastIndexOf(".") - 1) >>> 0) + 2
+                  )}
                 </EstimateFileType>
                 <EstimateFileName>{file.name}</EstimateFileName>
                 <EstimateFileCross onClick={() => deleteFile(file.name)}>

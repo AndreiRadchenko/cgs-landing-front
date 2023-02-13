@@ -24,8 +24,8 @@ import {
   conditionToShowQuestionsCheckbox,
   conditionToShowQuestionsRadio,
   notAnAdditionalQuestion,
-  showAdditionalQuestionsCheckbox,
-  showAdditionalQuestionsRadio,
+  removeAdditionalQuestionsCheckbox,
+  removeAdditionalQuestionsRadio,
 } from "../../utils/showAdditionalQuestions";
 
 const EstimationQuestionField = ({
@@ -47,14 +47,12 @@ const EstimationQuestionField = ({
 }) => {
   const [, meta] = useField(`questionsArr[${index}]`);
 
-  const additionalQuestionPayments =
-    formData.clientAnswers[
-      formData.clientAnswers.findIndex(
-        (item) =>
-          item.questionTitle.trim() ===
-          conditionsToAppearanceQuestion[0].question
-      )
-    ]?.selectedOptions;
+  /*const additionalQuestionPayments = formData.clientAnswers[
+    formData.clientAnswers.findIndex(
+      (item) =>
+        item.questionTitle.trim() === conditionsToAppearanceQuestion[0].question
+    )
+  ]?.selectedOptions.some((item) => item.text === "Payments");
   const additionalQuestionMobile =
     formData.clientAnswers[
       formData.clientAnswers.findIndex(
@@ -62,7 +60,7 @@ const EstimationQuestionField = ({
           item.questionTitle.trim() ===
           conditionsToAppearanceQuestion[1].question
       )
-    ]?.selectedOptions;
+    ]?.selectedOptions[0];
   const additionalQuestionAdmin =
     formData.clientAnswers[
       formData.clientAnswers.findIndex(
@@ -70,83 +68,90 @@ const EstimationQuestionField = ({
           item.questionTitle.trim() ===
           conditionsToAppearanceQuestion[2].question
       )
-    ]?.selectedOptions;
+    ]?.selectedOptions[0];
 
-  useEffect(() => {
-    showAdditionalQuestionsCheckbox(question, formData, 0);
+  /*useEffect(() => {
+    console.log("payments");
+    removeAdditionalQuestionsCheckbox(question, formData, 0);
   }, [additionalQuestionPayments]);
   useEffect(() => {
-    showAdditionalQuestionsRadio(question, formData, 1);
+    console.log("mobile");
+    removeAdditionalQuestionsRadio(question, formData, 1);
   }, [additionalQuestionMobile]);
   useEffect(() => {
-    showAdditionalQuestionsRadio(question, formData, 2);
+    console.log("admin");
+    removeAdditionalQuestionsRadio(question, formData, 2);
   }, [additionalQuestionAdmin]);
 
-  if (conditionToShowQuestionsCheckbox(question, formData, 0)) {
-    return (
-      <HoverContainer>
-        <EstimationFieldBox error={!!meta.error && meta!.touched}>
-          <CheckboxField
-            currentPage={currentPage}
-            setFormData={setFormData}
-            index={index}
-            questionKey={question.questionKey}
-            split={question.isSplitColumns}
-            name={question.title}
-            title={question.title}
-            options={question.options}
-          />
-        </EstimationFieldBox>
-        <HoverBlock>
-          <HoverBlackBlock />
-        </HoverBlock>
-      </HoverContainer>
-    );
-  }
-  if (conditionToShowQuestionsRadio(question, formData, 1)) {
-    return (
-      <HoverContainer>
-        <EstimationFieldBox error={!!meta.error && meta!.touched}>
-          <CheckboxField
-            currentPage={currentPage}
-            setFormData={setFormData}
-            index={index}
-            questionKey={question.questionKey}
-            split={question.isSplitColumns}
-            name={question.title}
-            title={question.title}
-            options={question.options}
-          />
-        </EstimationFieldBox>
-        <HoverBlock>
-          <HoverBlackBlock />
-        </HoverBlock>
-      </HoverContainer>
-    );
-  }
-  if (conditionToShowQuestionsRadio(question, formData, 2)) {
-    return (
-      <HoverContainer>
-        <EstimationFieldBox error={!!meta.error && meta!.touched}>
-          <CheckboxField
-            currentPage={currentPage}
-            setFormData={setFormData}
-            index={index}
-            questionKey={question.questionKey}
-            split={question.isSplitColumns}
-            name={question.title}
-            title={question.title}
-            options={question.options}
-          />
-        </EstimationFieldBox>
-        <HoverBlock>
-          <HoverBlackBlock />
-        </HoverBlock>
-      </HoverContainer>
-    );
-  }
+  const renderAdditionalQuestion = () => {
+     if (conditionToShowQuestionsCheckbox(question, formData, 0)) {
+      return (
+        <HoverContainer>
+          <EstimationFieldBox error={!!meta.error && meta!.touched}>
+            <CheckboxField
+              currentPage={currentPage}
+              setFormData={setFormData}
+              index={index}
+              questionKey={question.questionKey}
+              split={question.isSplitColumns}
+              name={question.title}
+              title={question.title}
+              options={question.options}
+            />
+          </EstimationFieldBox>
+          <HoverBlock>
+            <HoverBlackBlock />
+          </HoverBlock>
+        </HoverContainer>
+      );
+    }*/
+  /*if (conditionToShowQuestionsRadio(question, formData, 1)) {
+      return (
+        <HoverContainer>
+          <EstimationFieldBox error={!!meta.error && meta!.touched}>
+            <CheckboxField
+              currentPage={currentPage}
+              setFormData={setFormData}
+              index={index}
+              questionKey={question.questionKey}
+              split={question.isSplitColumns}
+              name={question.title}
+              title={question.title}
+              options={question.options}
+            />
+          </EstimationFieldBox>
+          <HoverBlock>
+            <HoverBlackBlock />
+          </HoverBlock>
+        </HoverContainer>
+      );
+    }
+    if (conditionToShowQuestionsRadio(question, formData, 2)) {
+      return (
+        <HoverContainer>
+          <EstimationFieldBox error={!!meta.error && meta!.touched}>
+            <CheckboxField
+              currentPage={currentPage}
+              setFormData={setFormData}
+              index={index}
+              questionKey={question.questionKey}
+              split={question.isSplitColumns}
+              name={question.title}
+              title={question.title}
+              options={question.options}
+            />
+          </EstimationFieldBox>
+          <HoverBlock>
+            <HoverBlackBlock />
+          </HoverBlock>
+        </HoverContainer>
+      );
+    }
 
-  return notAnAdditionalQuestion(getTextFromHtml(question.title)) ? (
+    return null;
+  };*/
+
+  return (
     <HoverContainer>
       <EstimationFieldBox error={!!meta.error && meta!.touched}>
         {question.optionsType === "TEXT" && (
@@ -195,7 +200,7 @@ const EstimationQuestionField = ({
         <HoverBlackBlock />
       </HoverBlock>
     </HoverContainer>
-  ) : null;
+  );
 };
 
 export default EstimationQuestionField;

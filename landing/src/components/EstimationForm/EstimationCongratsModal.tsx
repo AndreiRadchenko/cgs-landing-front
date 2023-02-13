@@ -22,7 +22,15 @@ const EstimationCongratsModal = () => {
           </EstimateModalCross>
           Thank you for completing the form. Our team makes every effort to
           contact you immediately with the results.
-          <EstimateModalButton href={"/"}>Exit</EstimateModalButton>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "50px",
+            }}
+          >
+            <EstimateModalButton href={"/"}>Thanks!</EstimateModalButton>
+          </div>
           <EstimateModalBlock>
             <EstimateModalBlackBlock />
           </EstimateModalBlock>

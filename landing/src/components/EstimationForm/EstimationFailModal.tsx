@@ -32,13 +32,14 @@ const EstimationFailModal = ({
             style={{
               display: "flex",
               justifyContent: "flex-end",
-              marginTop: "10px",
+              marginTop: "50px",
+              gap: "20px",
             }}
           >
-            <EstimateModalButton
-              style={{ position: "inherit", bottom: 0, right: 0 }}
-              href={"/"}
-            >
+            <EstimateModalButton white href={"/"}>
+              Quit
+            </EstimateModalButton>
+            <EstimateModalButton onClick={() => setOpenFailedModal(false)}>
               Continue
             </EstimateModalButton>
           </div>

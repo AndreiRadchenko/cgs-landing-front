@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { HeaderText } from "../../components/EstimationForm/HeaderText";
 import {
   Container,
@@ -38,6 +38,8 @@ const EstimationsForm = () => {
 
   const [openSuccessModal, setOpenSuccessModal] = useState(false);
   const [openFailedModal, setOpenFailedModal] = useState(false);
+
+  const FormContext = createContext();
 
   const [formData, setFormData] = useState<IFormData>({
     formTitle: "Estimation Form",

@@ -6,38 +6,42 @@ import {
 import { IFormData, Question } from "../types/EstimationForm.types";
 
 export const notAnAdditionalQuestion = (question: string) => {
-  return !additionalEstimationFormQuestion.find((item) => item === question);
+  return !additionalEstimationFormQuestion.some((item) => item === question);
 };
 
-export const showAdditionalQuestionsCheckbox = (
+export const removeAdditionalQuestionsCheckbox = (
   question: Question,
   formData: IFormData,
   index: number
 ) => {
+  const clientQuestionAnswer = formData.clientAnswers?.find(
+    (item) =>
+      item.questionTitle === conditionsToAppearanceQuestion[index].question
+  );
+  const appearanceCondition = clientQuestionAnswer?.selectedOptions.some(
+    (field) => field.text === conditionsToAppearanceQuestion[index].answer
+  );
+
+  const additionalQuestion = formData.clientAnswers.findIndex(
+    (item) => item.questionTitle === additionalEstimationFormQuestion[index]
+  );
+
   if (
     notAnAdditionalQuestion(getTextFromHtml(question.title)) &&
-    !formData.clientAnswers
-      ?.find(
-        (item) =>
-          item.questionTitle === conditionsToAppearanceQuestion[index].question
-      )
-      ?.selectedOptions.some(
-        (field) => field.text === conditionsToAppearanceQuestion[index].answer
-      ) &&
-    formData.clientAnswers.findIndex(
-      (item) => item.questionTitle === additionalEstimationFormQuestion[index]
-    ) > -1
+    !appearanceCondition &&
+    additionalQuestion > -1
   ) {
-    formData.clientAnswers.splice(
-      formData.clientAnswers.findIndex(
-        (item) => item.questionTitle === additionalEstimationFormQuestion[index]
-      ),
-      1
+    console.log("true", index);
+    const filteredArray = formData.clientAnswers.filter(
+      (answer) =>
+        answer.questionTitle !== additionalEstimationFormQuestion[index]
     );
+    formData.clientAnswers = filteredArray;
+    //formData.clientAnswers.splice(additionalQuestion, 1);
   }
 };
 
-export const showAdditionalQuestionsRadio = (
+export const removeAdditionalQuestionsRadio = (
   question: Question,
   formData: IFormData,
   index: number
@@ -53,12 +57,18 @@ export const showAdditionalQuestionsRadio = (
       (item) => item.questionTitle === additionalEstimationFormQuestion[index]
     ) > -1
   ) {
-    formData.clientAnswers.splice(
+    console.log("true", index);
+    const filteredArray = formData.clientAnswers.filter(
+      (answer) =>
+        answer.questionTitle !== additionalEstimationFormQuestion[index]
+    );
+    formData.clientAnswers = filteredArray;
+    /*formData.clientAnswers.splice(
       formData.clientAnswers.findIndex(
         (item) => item.questionTitle === additionalEstimationFormQuestion[index]
       ),
       1
-    );
+    );*/
   }
 };
 
@@ -67,7 +77,6 @@ export const conditionToShowQuestionsCheckbox = (
   formData: IFormData,
   index: number
 ) =>
-  !notAnAdditionalQuestion(getTextFromHtml(question.title)) &&
   additionalEstimationFormQuestion[index] === getTextFromHtml(question.title) &&
   formData.clientAnswers
     .find(
