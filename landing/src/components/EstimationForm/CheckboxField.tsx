@@ -17,6 +17,7 @@ const CheckboxField = ({
   index,
   questionKey,
   currentPage,
+  formData,
   ...props
 }: EstimationField) => {
   const formik = useFormikContext();
@@ -24,12 +25,11 @@ const CheckboxField = ({
 
   const isMounted = useRef(false);
 
-  const [dataArray, setDataArray] = useState<string[]>([]);
-
-  useEffect(() => {
-    if (meta.value?.value.length > 1 && Array.isArray(meta.value?.value))
-      setDataArray(meta.value?.value);
-  }, [meta?.value?.value]);
+  const [dataArray, setDataArray] = useState<string[]>(
+    formData?.clientAnswers
+      .find((item) => item.questionTitle === getTextFromHtml(title))
+      ?.selectedOptions.map((option) => option.text) || []
+  );
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {

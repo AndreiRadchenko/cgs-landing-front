@@ -37,7 +37,7 @@ const Pagination = ({
             }`,
             border: `${maxOpenPage >= page + 1 ? "1px solid #000" : "none"}`,
           }}
-          onClick={() => currentPage > page + 1 && setPage(page + 1)}
+          onClick={() => (currentPage > page + 1 ? setPage(page + 1) : null)}
         >
           {page + 1}
         </EstimationPaginationPage>

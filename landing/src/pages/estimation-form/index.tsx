@@ -39,8 +39,6 @@ const EstimationsForm = () => {
   const [openSuccessModal, setOpenSuccessModal] = useState(false);
   const [openFailedModal, setOpenFailedModal] = useState(false);
 
-  const FormContext = createContext();
-
   const [formData, setFormData] = useState<IFormData>({
     formTitle: "Estimation Form",
     clientName: "",

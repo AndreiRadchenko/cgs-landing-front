@@ -37,7 +37,6 @@ export const removeAdditionalQuestionsCheckbox = (
         answer.questionTitle !== additionalEstimationFormQuestion[index]
     );
     formData.clientAnswers = filteredArray;
-    //formData.clientAnswers.splice(additionalQuestion, 1);
   }
 };
 
@@ -63,12 +62,6 @@ export const removeAdditionalQuestionsRadio = (
         answer.questionTitle !== additionalEstimationFormQuestion[index]
     );
     formData.clientAnswers = filteredArray;
-    /*formData.clientAnswers.splice(
-      formData.clientAnswers.findIndex(
-        (item) => item.questionTitle === additionalEstimationFormQuestion[index]
-      ),
-      1
-    );*/
   }
 };
 

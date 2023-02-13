@@ -47,7 +47,7 @@ const EstimationQuestionField = ({
 }) => {
   const [, meta] = useField(`questionsArr[${index}]`);
 
-  /*const additionalQuestionPayments = formData.clientAnswers[
+  const additionalQuestionPayments = formData.clientAnswers[
     formData.clientAnswers.findIndex(
       (item) =>
         item.questionTitle.trim() === conditionsToAppearanceQuestion[0].question
@@ -70,25 +70,23 @@ const EstimationQuestionField = ({
       )
     ]?.selectedOptions[0];
 
-  /*useEffect(() => {
-    console.log("payments");
+  useEffect(() => {
     removeAdditionalQuestionsCheckbox(question, formData, 0);
   }, [additionalQuestionPayments]);
   useEffect(() => {
-    console.log("mobile");
     removeAdditionalQuestionsRadio(question, formData, 1);
   }, [additionalQuestionMobile]);
   useEffect(() => {
-    console.log("admin");
     removeAdditionalQuestionsRadio(question, formData, 2);
   }, [additionalQuestionAdmin]);
 
   const renderAdditionalQuestion = () => {
-     if (conditionToShowQuestionsCheckbox(question, formData, 0)) {
+    if (conditionToShowQuestionsCheckbox(question, formData, 0)) {
       return (
         <HoverContainer>
           <EstimationFieldBox error={!!meta.error && meta!.touched}>
             <CheckboxField
+              formData={formData}
               currentPage={currentPage}
               setFormData={setFormData}
               index={index}
@@ -104,12 +102,13 @@ const EstimationQuestionField = ({
           </HoverBlock>
         </HoverContainer>
       );
-    }*/
-  /*if (conditionToShowQuestionsRadio(question, formData, 1)) {
+    }
+    if (conditionToShowQuestionsRadio(question, formData, 1)) {
       return (
         <HoverContainer>
           <EstimationFieldBox error={!!meta.error && meta!.touched}>
             <CheckboxField
+              formData={formData}
               currentPage={currentPage}
               setFormData={setFormData}
               index={index}
@@ -131,6 +130,7 @@ const EstimationQuestionField = ({
         <HoverContainer>
           <EstimationFieldBox error={!!meta.error && meta!.touched}>
             <CheckboxField
+              formData={formData}
               currentPage={currentPage}
               setFormData={setFormData}
               index={index}
@@ -149,9 +149,9 @@ const EstimationQuestionField = ({
     }
 
     return null;
-  };*/
+  };
 
-  return (
+  return notAnAdditionalQuestion(getTextFromHtml(question.title)) ? (
     <HoverContainer>
       <EstimationFieldBox error={!!meta.error && meta!.touched}>
         {question.optionsType === "TEXT" && (
@@ -182,6 +182,7 @@ const EstimationQuestionField = ({
         )}
         {question.optionsType === "CHECKBOX" && (
           <CheckboxField
+            formData={formData}
             currentPage={currentPage}
             setFormData={setFormData}
             index={index}
@@ -200,6 +201,8 @@ const EstimationQuestionField = ({
         <HoverBlackBlock />
       </HoverBlock>
     </HoverContainer>
+  ) : (
+    renderAdditionalQuestion()
   );
 };
 

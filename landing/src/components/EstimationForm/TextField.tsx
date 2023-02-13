@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
 
 import { useField, useFormikContext } from "formik";
 import {
@@ -66,46 +66,48 @@ const TextField = ({
     setFilesPerQuestion(newArrFiles);
   };
 
+  const handleOnChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      props.setFormData((prevState) => {
+        const indexOfAnswer = prevState.clientAnswers.findIndex(
+          (answer) => answer.questionTitle === getTextFromHtml(title)
+        );
+        return {
+          ...prevState,
+          clientName:
+            getTextFromHtml(title) === "Your Name"
+              ? e.target.value
+              : prevState.clientName,
+          clientEmail:
+            getTextFromHtml(title) === "Your Email"
+              ? e.target.value
+              : prevState.clientEmail,
+          clientAnswers:
+            indexOfAnswer !== -1
+              ? updateField(prevState, indexOfAnswer, e)
+              : createField(
+                  prevState,
+                  indexOfAnswer,
+                  e,
+                  title,
+                  questionKey,
+                  currentPage
+                ),
+        };
+      });
+
+      formik.setFieldValue(`questionsArr[${index}].value`, e.target.value);
+    },
+    [meta.value]
+  );
+
   return (
     <div style={{ position: "relative" }}>
       <EstimationFieldLabel dangerouslySetInnerHTML={{ __html: title }} />
       <EstimateFileContainerWithInput>
         <EstimationTextInput
           error={!!meta.error && meta!.touched}
-          onChange={(e) => {
-            props.setFormData((prevState) => {
-              const indexOfAnswer = prevState.clientAnswers.findIndex(
-                (answer) => answer.questionTitle === getTextFromHtml(title)
-              );
-              return {
-                ...prevState,
-                clientName:
-                  getTextFromHtml(title) === "Your Name"
-                    ? e.target.value
-                    : prevState.clientName,
-                clientEmail:
-                  getTextFromHtml(title) === "Your Email"
-                    ? e.target.value
-                    : prevState.clientEmail,
-                clientAnswers:
-                  indexOfAnswer !== -1
-                    ? updateField(prevState, indexOfAnswer, e)
-                    : createField(
-                        prevState,
-                        indexOfAnswer,
-                        e,
-                        title,
-                        questionKey,
-                        currentPage
-                      ),
-              };
-            });
-
-            formik.setFieldValue(
-              `questionsArr[${index}].value`,
-              e.target.value
-            );
-          }}
+          onChange={handleOnChange}
           value={meta.value.value}
           type="text"
           placeholder={
