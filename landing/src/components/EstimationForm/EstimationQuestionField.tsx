@@ -46,6 +46,8 @@ const EstimationQuestionField = ({
   attachFilesArr: IFormFileData[];
 }) => {
   const [, meta] = useField(`questionsArr[${index}]`);
+  const [, metaUsername] = useField("username");
+  const [, metaEmail] = useField("email");
 
   const additionalQuestionPayments = formData.clientAnswers[
     formData.clientAnswers.findIndex(
@@ -103,7 +105,7 @@ const EstimationQuestionField = ({
         </HoverContainer>
       );
     }
-    if (conditionToShowQuestionsRadio(question, formData, 1)) {
+    if (conditionToShowQuestionsRadio(question, formData, 1, true)) {
       return (
         <HoverContainer>
           <EstimationFieldBox error={!!meta.error && meta!.touched}>
@@ -153,7 +155,16 @@ const EstimationQuestionField = ({
 
   return notAnAdditionalQuestion(getTextFromHtml(question.title)) ? (
     <HoverContainer>
-      <EstimationFieldBox error={!!meta.error && meta!.touched}>
+      <EstimationFieldBox
+        error={
+          getTextFromHtml(question.title) === "Your Name" ||
+          getTextFromHtml(question.title) === "Your Email"
+            ? getTextFromHtml(question.title) === "Your Email"
+              ? !!metaEmail.error && metaEmail!.touched
+              : !!metaUsername.error && metaUsername!.touched
+            : !!meta.error && meta!.touched
+        }
+      >
         {question.optionsType === "TEXT" && (
           <TextField
             attachFilesArr={attachFilesArr}

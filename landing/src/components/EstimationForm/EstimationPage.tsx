@@ -106,7 +106,11 @@ const EstimationPage = ({
     <ContainerEstimationForm>
       <Formik
         enableReinitialize
-        initialValues={initialValues}
+        initialValues={{
+          username: formData.clientName,
+          email: formData.clientEmail,
+          ...initialValues,
+        }}
         validationSchema={EstimationValidation}
         onSubmit={() => {
           if (pageN === data?.pageCount) {
@@ -115,7 +119,8 @@ const EstimationPage = ({
           } else setPage((prevState: number) => prevState + 1);
         }}
       >
-        {({ errors, touched }) => {
+        {({ errors, touched, values }) => {
+          console.log(values);
           return (
             <Form>
               {data?.page.questions.map((question, index) => (

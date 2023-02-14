@@ -326,7 +326,7 @@ export const conditionsToAppearanceQuestion = [
   },
   {
     question: "What kind of app do you want to build?",
-    answer: "Mobile (iOS and Android app)",
+    answer: "Web (access via browser)",
   },
   {
     question: "Do you want to add an admin panel to the app?",

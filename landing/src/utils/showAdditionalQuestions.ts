@@ -31,7 +31,6 @@ export const removeAdditionalQuestionsCheckbox = (
     !appearanceCondition &&
     additionalQuestion > -1
   ) {
-    console.log("true", index);
     const filteredArray = formData.clientAnswers.filter(
       (answer) =>
         answer.questionTitle !== additionalEstimationFormQuestion[index]
@@ -56,7 +55,6 @@ export const removeAdditionalQuestionsRadio = (
       (item) => item.questionTitle === additionalEstimationFormQuestion[index]
     ) > -1
   ) {
-    console.log("true", index);
     const filteredArray = formData.clientAnswers.filter(
       (answer) =>
         answer.questionTitle !== additionalEstimationFormQuestion[index]
@@ -83,13 +81,32 @@ export const conditionToShowQuestionsCheckbox = (
 export const conditionToShowQuestionsRadio = (
   question: Question,
   formData: IFormData,
-  index: number
-) =>
-  additionalEstimationFormQuestion[index] === getTextFromHtml(question.title) &&
-  formData.clientAnswers[
-    formData.clientAnswers.findIndex(
-      (item) =>
-        item.questionTitle.trim() ===
-        conditionsToAppearanceQuestion[index].question
-    )
-  ]?.selectedOptions[0].text === conditionsToAppearanceQuestion[index].answer;
+  index: number,
+  exception = false
+) => {
+  if (!exception)
+    return (
+      additionalEstimationFormQuestion[index] ===
+        getTextFromHtml(question.title) &&
+      formData.clientAnswers[
+        formData.clientAnswers.findIndex(
+          (item) =>
+            item.questionTitle.trim() ===
+            conditionsToAppearanceQuestion[index].question
+        )
+      ]?.selectedOptions[0].text ===
+        conditionsToAppearanceQuestion[index].answer
+    );
+
+  return (
+    additionalEstimationFormQuestion[index] ===
+      getTextFromHtml(question.title) &&
+    formData.clientAnswers[
+      formData.clientAnswers.findIndex(
+        (item) =>
+          item.questionTitle.trim() ===
+          conditionsToAppearanceQuestion[index].question
+      )
+    ]?.selectedOptions[0].text !== conditionsToAppearanceQuestion[index].answer
+  );
+};

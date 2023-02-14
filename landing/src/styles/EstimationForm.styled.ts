@@ -166,6 +166,11 @@ export const EstimationFieldBox = styled.div<IBlockErrorSplit>`
     right: -43px;
   }
   @media ${themes.primary.media.maxMobile} {
+    &:hover ${EstimationQuestionAdditional} {
+      right: -12px;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
     margin-bottom: 30px;
   }
 `;
@@ -246,6 +251,10 @@ export const EstimationTextInput = styled.input<IBlockErrorSplit>`
   outline: none;
   background: transparent;
   width: 100%;
+  color: ${(props) =>
+    props.error
+      ? `${themes.primary.colors.secondary}`
+      : `${themes.primary.colors.black}`};
   &::placeholder {
     color: ${(props) =>
       props.error && `${themes.primary.colors.bottomBorderEstimationForm}`};
@@ -313,6 +322,7 @@ export const EstimationInputRadio = styled.input`
     height: 18px;
     display: grid;
     place-items: center;
+    box-shadow: 1px 0px 0px 0px ${themes.primary.colors.black};
 
     &::after {
       content: "";
@@ -333,6 +343,7 @@ export const EstimationInputCheckbox = styled.input`
   cursor: pointer;
   border: 2px solid ${themes.primary.colors.black};
   box-shadow: 2px 2px 0px 0px ${themes.primary.colors.black};
+  border-radius: 0;
   display: grid;
   place-items: center;
   background: ${themes.primary.colors.blogBackground};
@@ -354,6 +365,10 @@ export const EstimationInputCheckbox = styled.input`
     span {
       color: ${themes.primary.colors.mainGradientColor2} !important;
     }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    box-shadow: 1px 1px 0px 0px ${themes.primary.colors.black};
   }
 `;
 
