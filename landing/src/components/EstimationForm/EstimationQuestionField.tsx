@@ -4,7 +4,12 @@ import TextField from "./TextField";
 import RadioField from "./RadioField";
 import CheckboxField from "./CheckboxField";
 
-import { EstimationFieldBox } from "../../styles/EstimationForm.styled";
+import {
+  EstimationFieldBox,
+  HoverBlackBlockEstimation,
+  HoverBlockEstimation,
+  HoverContainerEstimation,
+} from "../../styles/EstimationForm.styled";
 import EstimationAdditionalQuestion from "./EstimationAdditionalQuestion";
 
 import {
@@ -12,11 +17,6 @@ import {
   IFormFileData,
   Question,
 } from "../../types/EstimationForm.types";
-import {
-  HoverBlackBlock,
-  HoverBlock,
-  HoverContainer,
-} from "../../styles/Blog.styled";
 import { useField } from "formik";
 import { conditionsToAppearanceQuestion } from "../../consts";
 import { getTextFromHtml } from "../../utils/getTextFromHtml";
@@ -85,7 +85,7 @@ const EstimationQuestionField = ({
   const renderAdditionalQuestion = () => {
     if (conditionToShowQuestionsCheckbox(question, formData, 0)) {
       return (
-        <HoverContainer>
+        <HoverContainerEstimation>
           <EstimationFieldBox error={!!meta.error && meta!.touched}>
             <CheckboxField
               formData={formData}
@@ -99,15 +99,15 @@ const EstimationQuestionField = ({
               options={question.options}
             />
           </EstimationFieldBox>
-          <HoverBlock>
-            <HoverBlackBlock />
-          </HoverBlock>
-        </HoverContainer>
+          <HoverBlockEstimation>
+            <HoverBlackBlockEstimation />
+          </HoverBlockEstimation>
+        </HoverContainerEstimation>
       );
     }
     if (conditionToShowQuestionsRadio(question, formData, 1, true)) {
       return (
-        <HoverContainer>
+        <HoverContainerEstimation>
           <EstimationFieldBox error={!!meta.error && meta!.touched}>
             <CheckboxField
               formData={formData}
@@ -121,15 +121,15 @@ const EstimationQuestionField = ({
               options={question.options}
             />
           </EstimationFieldBox>
-          <HoverBlock>
-            <HoverBlackBlock />
-          </HoverBlock>
-        </HoverContainer>
+          <HoverBlockEstimation>
+            <HoverBlackBlockEstimation />
+          </HoverBlockEstimation>
+        </HoverContainerEstimation>
       );
     }
     if (conditionToShowQuestionsRadio(question, formData, 2)) {
       return (
-        <HoverContainer>
+        <HoverContainerEstimation>
           <EstimationFieldBox error={!!meta.error && meta!.touched}>
             <CheckboxField
               formData={formData}
@@ -143,10 +143,10 @@ const EstimationQuestionField = ({
               options={question.options}
             />
           </EstimationFieldBox>
-          <HoverBlock>
-            <HoverBlackBlock />
-          </HoverBlock>
-        </HoverContainer>
+          <HoverBlockEstimation>
+            <HoverBlackBlockEstimation />
+          </HoverBlockEstimation>
+        </HoverContainerEstimation>
       );
     }
 
@@ -154,7 +154,7 @@ const EstimationQuestionField = ({
   };
 
   return notAnAdditionalQuestion(getTextFromHtml(question.title)) ? (
-    <HoverContainer>
+    <HoverContainerEstimation>
       <EstimationFieldBox
         error={
           getTextFromHtml(question.title) === "Your Name" ||
@@ -208,10 +208,10 @@ const EstimationQuestionField = ({
           <EstimationAdditionalQuestion hiddenText={question.hiddenText} />
         )}
       </EstimationFieldBox>
-      <HoverBlock>
-        <HoverBlackBlock />
-      </HoverBlock>
-    </HoverContainer>
+      <HoverBlockEstimation>
+        <HoverBlackBlockEstimation />
+      </HoverBlockEstimation>
+    </HoverContainerEstimation>
   ) : (
     renderAdditionalQuestion()
   );
