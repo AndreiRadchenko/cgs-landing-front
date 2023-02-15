@@ -1,10 +1,10 @@
-import { Field } from "formik";
 import styled from "styled-components";
 import themes from "../utils/themes";
 
 interface IBlockErrorSplit {
   readonly error?: boolean;
   readonly split?: boolean;
+  readonly attachFile?: boolean;
 }
 
 interface IButtonModal {
@@ -82,10 +82,6 @@ export const EstimationDeleteQuestion = styled.p`
   cursor: pointer;
 `;
 
-export const AdditinalAttributesInput = styled(Field)`
-  margin: 0 5px 0 0;
-`;
-
 export const StyledConditionsForAppearanceBlock = styled.div`
   border: 1px solid ${themes.primary.colors.dropdownBorder};
   padding: 10px;
@@ -158,7 +154,7 @@ export const EstimationFieldBox = styled.div<IBlockErrorSplit>`
       ? `${themes.primary.colors.estimationAdminBg}`
       : `${themes.primary.colors.black}`};
   z-index: 1;
-  border: 1.5px solid ${themes.primary.colors.black};
+  border: 2px solid ${themes.primary.colors.black};
   padding: 16px 18px;
   margin-bottom: 34px;
 
@@ -171,6 +167,7 @@ export const EstimationFieldBox = styled.div<IBlockErrorSplit>`
     }
   }
   @media ${themes.primary.media.maxMobile} {
+    border: 1.5px solid ${themes.primary.colors.primary};
     margin-bottom: 30px;
   }
 `;
@@ -204,7 +201,7 @@ export const EstimationFieldOptionCheckbox = styled.label<IBlockErrorSplit>`
   font-size: 18px;
   line-height: 22px;
   cursor: pointer;
-  padding: 5px 20px 10px 15px;
+  padding: 10px 20px 10px 15px;
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     font-size: 14px;
@@ -226,7 +223,7 @@ export const EstimationFieldOptionRadio = styled.label<IBlockErrorSplit>`
   font-size: 18px;
   line-height: 22px;
   cursor: pointer;
-  padding: 0px 20px 10px 15px;
+  padding: 10px 20px 10px 15px;
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     font-size: 14px;
@@ -254,6 +251,8 @@ export const EstimationTextInput = styled.input<IBlockErrorSplit>`
   color: ${(props) =>
     props.error
       ? `${themes.primary.colors.secondary}`
+      : props.attachFile
+      ? `${themes.primary.colors.mainGradientColor2}`
       : `${themes.primary.colors.black}`};
   &::placeholder {
     color: ${(props) =>
@@ -268,12 +267,12 @@ export const EstimationTextInput = styled.input<IBlockErrorSplit>`
 export const EstimationInputFlex = styled.div`
   display: flex;
   align-items: flex-start;
-  padding-top: 10px;
+  margin-bottom: 5px;
 `;
 
 export const EstimationInputRadio = styled.input`
   appearance: none;
-  margin: 1px 0 0 0;
+  margin: 10px 0 0 0;
   /* Safari support */
   -webkit-appearance: none;
   width: 22px;
@@ -317,7 +316,6 @@ export const EstimationInputRadio = styled.input`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 0.5px 0 0 0;
     width: 18px;
     height: 18px;
     display: grid;
@@ -335,7 +333,7 @@ export const EstimationInputRadio = styled.input`
 export const EstimationInputCheckbox = styled.input`
   -webkit-appearance: none;
   appearance: none;
-  margin: 4px 0 0 0;
+  margin: 7px 0 0 0;
   position: relative;
   flex: 0 0 auto;
   width: 22px;
@@ -547,7 +545,7 @@ export const EstimateModalWrapper = styled.div`
 
 export const EstimateModalContainer = styled.div`
   position: relative;
-  padding: 52px 27px 26px 15px;
+  padding: 52px 27px 26px 36px;
   margin: 10px 18px 10px 12px;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
@@ -560,12 +558,13 @@ export const EstimateModalContainer = styled.div`
   border: 1.5px solid ${themes.primary.colors.black};
 
   @media ${themes.primary.media.maxMobile} {
+    padding-left: 15px;
     font-size: 20px;
   }
 `;
 
 export const EstimateModalButton = styled.a<IButtonModal>`
-  height: 30px;
+  height: 32px;
   width: 110px;
   display: grid;
   place-items: center;
@@ -583,6 +582,7 @@ export const EstimateModalButton = styled.a<IButtonModal>`
       : themes.primary.colors.secondary};
   cursor: pointer;
   transition: 0.3s;
+  letter-spacing: 0.03em;
 
   &:hover {
     background: ${themes.primary.colors.portfolioBg};
@@ -593,9 +593,7 @@ export const EstimateModalButton = styled.a<IButtonModal>`
 export const EstimateModalCross = styled.a`
   position: absolute;
   top: 20px;
-  right: 28px;
-  width: 15px;
-  height: 15px;
+  right: 18px;
   cursor: pointer;
 `;
 
@@ -683,6 +681,10 @@ export const EstimateFileName = styled.p`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 180px;
+  }
 `;
 
 export const EstimateFileCross = styled.div`
@@ -697,4 +699,46 @@ export const EstimateFileContainerWithInput = styled.div`
   display: flex;
   gap: 10px;
   align-items: center;
+`;
+
+export const HoverBlockEstimation = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: ${themes.primary.colors.blogBackground};
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid ${themes.primary.colors.primary};
+  z-index: 0;
+  display: flex;
+  align-items: flex-end;
+  visibility: hidden;
+
+  @media ${themes.primary.media.maxMobile} {
+    border: 1.5px solid ${themes.primary.colors.primary};
+    right: -4px;
+    bottom: -4px;
+  }
+`;
+
+export const HoverBlackBlockEstimation = styled.div`
+  height: 50%;
+  width: 100%;
+  outline: 2px solid ${themes.primary.colors.primary};
+  background-color: black;
+  visibility: hidden;
+  @media ${themes.primary.media.maxMobile} {
+    outline: 1.5px solid ${themes.primary.colors.primary};
+  }
+`;
+
+export const HoverContainerEstimation = styled.div`
+  position: relative;
+
+  &:hover ${HoverBlackBlockEstimation} {
+    visibility: visible;
+  }
+  &:hover ${HoverBlockEstimation} {
+    visibility: visible;
+  }
 `;

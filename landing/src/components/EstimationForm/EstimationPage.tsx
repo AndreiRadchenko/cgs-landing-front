@@ -146,8 +146,13 @@ const EstimationPage = ({
                       (errors.username && touched.username) ||
                       (errors.email && touched.email)) && (
                       <EstimationButtonHelperText>
-                        Seems like you missed some fields. Let us know more
-                        about your project.
+                        {errors.questionsArr &&
+                          touched.questionsArr &&
+                          "Seems like you missed some fields. Let us know more about your project."}
+                        {((errors.username && touched.username) ||
+                          (errors.email && touched.email)) &&
+                          !errors.questionsArr &&
+                          "Seems like you enter invalid data. Please write it correctly."}
                       </EstimationButtonHelperText>
                     )}
                     <StyledButton type="submit">

@@ -104,6 +104,7 @@ const TextField = ({
       <EstimationFieldLabel dangerouslySetInnerHTML={{ __html: title }} />
       <EstimateFileContainerWithInput>
         <EstimationTextInput
+          attachFile={attachFile && true}
           error={
             getTextFromHtml(title) === "Your Name" ||
             getTextFromHtml(title) === "Your Email"
@@ -113,14 +114,7 @@ const TextField = ({
               : !!meta.error && meta!.touched
           }
           onChange={handleOnChange}
-          value={
-            getTextFromHtml(title) === "Your Name" ||
-            getTextFromHtml(title) === "Your Email"
-              ? getTextFromHtml(title) === "Your Email"
-                ? metaEmail.value.value
-                : metaUsername.value.value
-              : meta.value.value
-          }
+          value={meta.value.value}
           type="text"
           placeholder={
             attachFile ? "< Put your link//file here > " : `< ${placeholder} >`
