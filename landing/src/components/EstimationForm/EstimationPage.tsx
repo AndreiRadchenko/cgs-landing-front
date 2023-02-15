@@ -119,8 +119,7 @@ const EstimationPage = ({
           } else setPage((prevState: number) => prevState + 1);
         }}
       >
-        {({ errors, touched, values }) => {
-          console.log(values);
+        {({ errors, touched }) => {
           return (
             <Form>
               {data?.page.questions.map((question, index) => (
@@ -143,7 +142,9 @@ const EstimationPage = ({
                     setPage={setPage}
                   />
                   <div style={{ position: "relative" }}>
-                    {errors.questionsArr && touched.questionsArr && (
+                    {((errors.questionsArr && touched.questionsArr) ||
+                      (errors.username && touched.username) ||
+                      (errors.email && touched.email)) && (
                       <EstimationButtonHelperText>
                         Seems like you missed some fields. Let us know more
                         about your project.
