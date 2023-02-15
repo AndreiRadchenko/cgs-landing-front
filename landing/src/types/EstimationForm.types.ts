@@ -38,6 +38,7 @@ export interface EstimationField {
   options: Option[];
   currentPage: number;
   setFormData: Dispatch<SetStateAction<IFormData>>;
+  formData?: IFormData;
   setAttachFiles?: Dispatch<SetStateAction<IFormFileData[]>>;
   attachFilesArr?: IFormFileData[];
 }

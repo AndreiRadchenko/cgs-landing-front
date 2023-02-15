@@ -7,6 +7,10 @@ interface IBlockErrorSplit {
   readonly split?: boolean;
 }
 
+interface IButtonModal {
+  readonly white?: boolean;
+}
+
 interface IWrapperInput {
   type: string;
 }
@@ -132,6 +136,17 @@ export const EstimationConditionsForAppearanceHeader = styled.p`
   line-height: 132%;
 `;
 
+export const EstimationQuestionAdditional = styled.div`
+  position: absolute;
+  top: 5px;
+  right: -35px;
+  transition: 0.3s;
+
+  @media ${themes.primary.media.maxMobile} {
+    right: -12px;
+  }
+`;
+
 export const EstimationFieldBox = styled.div<IBlockErrorSplit>`
   position: relative;
   background-color: ${({ error }) =>
@@ -143,9 +158,18 @@ export const EstimationFieldBox = styled.div<IBlockErrorSplit>`
       ? `${themes.primary.colors.estimationAdminBg}`
       : `${themes.primary.colors.black}`};
   z-index: 1;
-  border: 2px solid ${themes.primary.colors.black};
+  border: 1.5px solid ${themes.primary.colors.black};
   padding: 16px 18px;
   margin-bottom: 34px;
+
+  &:hover ${EstimationQuestionAdditional} {
+    right: -43px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    &:hover ${EstimationQuestionAdditional} {
+      right: -12px;
+    }
+  }
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 30px;
   }
@@ -162,21 +186,49 @@ export const EstimationFieldLabel = styled.p<IBlockErrorSplit>`
         : `1px solid ${themes.primary.colors.headerBorder}`
       : "none"};
   line-height: 26px;
-  padding: ${(props) => (props.split ? "0 0 14px 0" : "0 0 20px 0")};
+  padding: ${(props) => (props.split ? "0 0 14px 0" : "0 0 10px 0")};
   margin: ${(props) => (props.split ? "0 0 19px 0" : "0")};
   @media ${themes.primary.media.maxMobile} {
+    border-bottom: none;
+    padding: 0px;
+    margin: 0 0 10px 0;
     font-size: 16px;
     line-height: 19px;
   }
 `;
 
-export const EstimationFieldOption = styled.label<IBlockErrorSplit>`
+export const EstimationFieldOptionCheckbox = styled.label<IBlockErrorSplit>`
   margin: 0;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 18px;
   line-height: 22px;
+  cursor: pointer;
+  padding: 5px 20px 10px 15px;
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  p {
+    margin: 0;
+    span {
+      color: ${(props) =>
+        props.error &&
+        `${themes.primary.colors.bottomBorderEstimationForm} !important`};
+    }
+  }
+`;
+export const EstimationFieldOptionRadio = styled.label<IBlockErrorSplit>`
+  margin: 0;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+  padding: 0px 20px 10px 15px;
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     font-size: 14px;
     line-height: 17px;
   }
@@ -199,6 +251,10 @@ export const EstimationTextInput = styled.input<IBlockErrorSplit>`
   outline: none;
   background: transparent;
   width: 100%;
+  color: ${(props) =>
+    props.error
+      ? `${themes.primary.colors.secondary}`
+      : `${themes.primary.colors.black}`};
   &::placeholder {
     color: ${(props) =>
       props.error && `${themes.primary.colors.bottomBorderEstimationForm}`};
@@ -211,30 +267,35 @@ export const EstimationTextInput = styled.input<IBlockErrorSplit>`
 
 export const EstimationInputFlex = styled.div`
   display: flex;
-  gap: 10px;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 10px;
 `;
 
 export const EstimationInputRadio = styled.input`
   appearance: none;
+  margin: 1px 0 0 0;
   /* Safari support */
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   cursor: pointer;
   flex: 0 0 auto;
   border: 2px solid ${themes.primary.colors.black};
   border-radius: 50%;
   box-shadow: 2px 0px 0px 0px ${themes.primary.colors.black};
-  display: grid;
-  place-items: center;
+  position: relative;
+  background: ${themes.primary.colors.blogBackground};
 
   &::after {
     content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: block;
     border-radius: 50%;
-    width: 11px;
-    height: 11px;
+    width: 9px;
+    height: 9px;
   }
 
   &:checked {
@@ -248,13 +309,20 @@ export const EstimationInputRadio = styled.input`
     }
   }
 
-  &:checked + ${EstimationFieldOption} {
+  &:checked + ${EstimationFieldOptionRadio} {
     color: ${themes.primary.colors.mainGradientColor2};
+    span {
+      color: ${themes.primary.colors.mainGradientColor2} !important;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 17px;
-    height: 17px;
+    margin: 0.5px 0 0 0;
+    width: 18px;
+    height: 18px;
+    display: grid;
+    place-items: center;
+    box-shadow: 1px 0px 0px 0px ${themes.primary.colors.black};
 
     &::after {
       content: "";
@@ -267,6 +335,7 @@ export const EstimationInputRadio = styled.input`
 export const EstimationInputCheckbox = styled.input`
   -webkit-appearance: none;
   appearance: none;
+  margin: 4px 0 0 0;
   position: relative;
   flex: 0 0 auto;
   width: 22px;
@@ -274,8 +343,10 @@ export const EstimationInputCheckbox = styled.input`
   cursor: pointer;
   border: 2px solid ${themes.primary.colors.black};
   box-shadow: 2px 2px 0px 0px ${themes.primary.colors.black};
+  border-radius: 0;
   display: grid;
   place-items: center;
+  background: ${themes.primary.colors.blogBackground};
   &::before {
     content: "";
     width: 26px;
@@ -289,8 +360,15 @@ export const EstimationInputCheckbox = styled.input`
       background-image: url("/markerEstimation.svg");
     }
   }
-  &:checked + ${EstimationFieldOption} {
+  &:checked + ${EstimationFieldOptionCheckbox} {
     color: ${themes.primary.colors.mainGradientColor2};
+    span {
+      color: ${themes.primary.colors.mainGradientColor2} !important;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    box-shadow: 1px 1px 0px 0px ${themes.primary.colors.black};
   }
 `;
 
@@ -298,6 +376,10 @@ export const EstimationTooltipText = styled.span`
   visibility: hidden;
   background-color: ${themes.primary.colors.black};
   color: ${themes.primary.colors.secondary};
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 12px;
+  line-height: 18px;
   width: 240px;
   height: 85px;
   display: flex;
@@ -312,6 +394,10 @@ export const EstimationTooltipText = styled.span`
   top: -95px;
   left: -107px;
   z-index: 1;
+
+  div:nth-child(2) {
+    text-decoration: underline;
+  }
   &:after {
     content: "";
     position: absolute;
@@ -359,16 +445,6 @@ export const EstimationTooltip = styled.div`
   }
 `;
 
-export const EstimationQuestionAdditional = styled.div`
-  position: absolute;
-  top: 5px;
-  right: -35px;
-
-  @media ${themes.primary.media.maxMobile} {
-    right: -12px;
-  }
-`;
-
 export const EstimationImageContainer = styled.div`
   position: absolute;
 
@@ -409,7 +485,6 @@ export const EstimateNavigation = styled.div`
 
 export const EstimateOptionContainer = styled.div<IBlockErrorSplit>`
   display: grid;
-  gap: 5px;
   grid-template-columns: ${(props) => (props.split ? "50% 50%" : "100%")};
 
   @media ${themes.primary.media.maxMobile} {
@@ -420,6 +495,9 @@ export const EstimateOptionContainer = styled.div<IBlockErrorSplit>`
 export const EstimationButtonHelperText = styled.div`
   background-color: black;
   color: ${themes.primary.colors.secondary};
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 12px;
   width: 240px;
   height: 85px;
   display: flex;
@@ -461,18 +539,21 @@ export const EstimateModalWrapper = styled.div`
   z-index: 100;
   display: grid;
   place-items: center;
+  @media ${themes.primary.media.maxMobile} {
+    display: block;
+    padding-top: 128px;
+  }
 `;
 
 export const EstimateModalContainer = styled.div`
   position: relative;
-  padding: 58px 27px 34px 36px;
+  padding: 52px 27px 26px 15px;
   margin: 10px 18px 10px 12px;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 24px;
   line-height: 29px;
   max-width: 620px;
-  height: 270px;
 
   color: ${themes.primary.colors.black};
   background: ${themes.primary.colors.portfolioBg};
@@ -480,21 +561,26 @@ export const EstimateModalContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 20px;
-    height: 330px;
   }
 `;
 
-export const EstimateModalButton = styled.a`
-  position: absolute;
-  bottom: 47px;
-  right: 50px;
-  padding: 10px 42px;
+export const EstimateModalButton = styled.a<IButtonModal>`
+  height: 30px;
+  width: 110px;
+  display: grid;
+  place-items: center;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 14px;
-  background: ${themes.primary.colors.black};
+  background: ${(props) =>
+    props.white
+      ? themes.primary.colors.portfolioBg
+      : themes.primary.colors.black};
   border: 2px solid ${themes.primary.colors.black};
-  color: ${themes.primary.colors.secondary};
+  color: ${(props) =>
+    props.white
+      ? themes.primary.colors.black
+      : themes.primary.colors.secondary};
   cursor: pointer;
   transition: 0.3s;
 
@@ -524,12 +610,13 @@ export const EstimateModalBlock = styled.div`
   right: -10px;
   bottom: -10px;
   border: 1.5px solid ${themes.primary.colors.primary};
+  background: ${themes.primary.colors.portfolioBg};
   z-index: -10;
   display: flex;
   align-items: flex-end;
 
   @media ${themes.primary.media.maxMobile} {
-    right: -4px;
+    right: -6px;
     bottom: -4px;
   }
 `;
@@ -610,9 +697,4 @@ export const EstimateFileContainerWithInput = styled.div`
   display: flex;
   gap: 10px;
   align-items: center;
-
-  @media ${themes.primary.media.maxMobile} {
-    align-items: start;
-    flex-direction: column;
-  }
 `;

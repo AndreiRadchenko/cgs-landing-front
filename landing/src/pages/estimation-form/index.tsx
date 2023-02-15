@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { HeaderText } from "../../components/EstimationForm/HeaderText";
 import {
   Container,
@@ -13,6 +13,22 @@ import { IFormData, IFormFileData } from "../../types/EstimationForm.types";
 import EstimationCongratsModal from "../../components/EstimationForm/EstimationCongratsModal";
 import EstimationFailModal from "../../components/EstimationForm/EstimationFailModal";
 import { useRouter } from "next/router";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
+import { queryKeys } from "../../consts/queryKeys";
+import { adminGlobalService } from "../../services/adminHomePage";
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
+    adminGlobalService.getFullPage()
+  );
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 
 const EstimationsForm = () => {
   const router = useRouter();

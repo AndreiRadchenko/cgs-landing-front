@@ -68,10 +68,10 @@ export const StyledButton = styled.button`
   font-size: 19px;
   transition: box-shadow 1s ease-in-out;
   cursor: pointer;
+  color: ${themes.primary.colors.black};
 
-  &:hover {
-    box-shadow: 7px 2px 0px ${themes.primary.colors.black};
-  }
+  box-shadow: 7px 2px 0px ${themes.primary.colors.black};
+
   &:active {
     box-shadow: 7px 2px 0px ${themes.primary.colors.black};
   }

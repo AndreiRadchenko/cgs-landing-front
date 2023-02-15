@@ -3,14 +3,17 @@ import { useField, useFormikContext } from "formik";
 import {
   EstimateOptionContainer,
   EstimationFieldLabel,
-  EstimationFieldOption,
+  EstimationFieldOptionRadio,
   EstimationInputFlex,
   EstimationInputRadio,
 } from "../../styles/EstimationForm.styled";
 
 import { EstimationField } from "../../types/EstimationForm.types";
-import { parseHtml } from "../../utils/parseHtml";
-import { updateField } from "../../utils/estimationFromUpdateAndCreateField";
+import { getTextFromHtml } from "../../utils/getTextFromHtml";
+import {
+  createField,
+  updateField,
+} from "../../utils/estimationFromUpdateAndCreateField";
 
 const RadioField = ({
   title,
@@ -40,22 +43,22 @@ const RadioField = ({
                 onChange={(e) => {
                   props.setFormData((prevState) => {
                     const indexOfAnswer = prevState.clientAnswers.findIndex(
-                      (answer) => answer.questionTitle === parseHtml(title)
+                      (answer) =>
+                        answer.questionTitle === getTextFromHtml(title)
                     );
                     return {
                       ...prevState,
                       clientAnswers:
                         indexOfAnswer !== -1
                           ? updateField(prevState, indexOfAnswer, e)
-                          : [
-                              ...prevState.clientAnswers,
-                              {
-                                questionTitle: parseHtml(title),
-                                questionKey: questionKey,
-                                pageIndex: currentPage as number,
-                                selectedOptions: [{ text: e.target.value }],
-                              },
-                            ],
+                          : createField(
+                              prevState,
+                              indexOfAnswer,
+                              e,
+                              title,
+                              questionKey,
+                              currentPage
+                            ),
                     };
                   });
 
@@ -64,11 +67,11 @@ const RadioField = ({
                     e.target.value
                   );
                 }}
-                checked={parseHtml(option.text) === meta.value.value}
-                value={parseHtml(option.text)}
+                checked={getTextFromHtml(option.text) === meta.value.value}
+                value={getTextFromHtml(option.text)}
                 {...props}
               />
-              <EstimationFieldOption
+              <EstimationFieldOptionRadio
                 htmlFor={`${option.optionKey}${questionKey}`}
                 error={!!meta.error && meta!.touched}
                 dangerouslySetInnerHTML={{ __html: option.text }}

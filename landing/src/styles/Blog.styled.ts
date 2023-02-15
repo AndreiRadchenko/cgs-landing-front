@@ -222,6 +222,7 @@ export const HoverBlock = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
+  background: ${themes.primary.colors.blogBackground};
   right: -10px;
   bottom: -10px;
   border: 1.5px solid ${themes.primary.colors.primary};

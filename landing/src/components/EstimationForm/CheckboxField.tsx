@@ -2,13 +2,13 @@ import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import {
   EstimateOptionContainer,
   EstimationFieldLabel,
-  EstimationFieldOption,
+  EstimationFieldOptionCheckbox,
   EstimationInputCheckbox,
   EstimationInputFlex,
 } from "../../styles/EstimationForm.styled";
 import { useField, useFormikContext } from "formik";
 import { EstimationField } from "../../types/EstimationForm.types";
-import { parseHtml } from "../../utils/parseHtml";
+import { getTextFromHtml } from "../../utils/getTextFromHtml";
 
 const CheckboxField = ({
   title,
@@ -17,6 +17,7 @@ const CheckboxField = ({
   index,
   questionKey,
   currentPage,
+  formData,
   ...props
 }: EstimationField) => {
   const formik = useFormikContext();
@@ -24,12 +25,11 @@ const CheckboxField = ({
 
   const isMounted = useRef(false);
 
-  const [dataArray, setDataArray] = useState<string[]>([]);
-
-  useEffect(() => {
-    if (meta.value?.value.length > 1 && Array.isArray(meta.value?.value))
-      setDataArray(meta.value?.value);
-  }, [meta?.value?.value]);
+  const [dataArray, setDataArray] = useState<string[]>(
+    formData?.clientAnswers
+      .find((item) => item.questionTitle === getTextFromHtml(title))
+      ?.selectedOptions.map((option) => option.text) || []
+  );
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
@@ -45,7 +45,7 @@ const CheckboxField = ({
       formik.setFieldValue(`questionsArr[${index}].value`, dataArray);
       props.setFormData((prevState) => {
         const indexOfAnswer = prevState.clientAnswers.findIndex(
-          (answer) => answer.questionTitle === parseHtml(title)
+          (answer) => answer.questionTitle === getTextFromHtml(title)
         );
         return {
           ...prevState,
@@ -64,7 +64,7 @@ const CheckboxField = ({
               : [
                   ...prevState.clientAnswers,
                   {
-                    questionTitle: parseHtml(title),
+                    questionTitle: getTextFromHtml(title),
                     questionKey,
                     pageIndex: currentPage as number,
                     selectedOptions: dataArray.map((option) => ({
@@ -97,13 +97,13 @@ const CheckboxField = ({
                 checked={
                   meta.value?.value &&
                   (meta.value?.value as string[])?.includes(
-                    parseHtml(option.text)
+                    getTextFromHtml(option.text)
                   )
                 }
-                value={parseHtml(option.text)}
+                value={getTextFromHtml(option.text)}
                 {...props}
               />
-              <EstimationFieldOption
+              <EstimationFieldOptionCheckbox
                 htmlFor={`${option.optionKey}${questionKey}`}
                 error={!!meta.error && meta!.touched}
                 dangerouslySetInnerHTML={{ __html: option.text }}

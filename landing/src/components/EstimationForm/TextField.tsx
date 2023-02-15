@@ -13,10 +13,13 @@ import {
 } from "../../styles/EstimationForm.styled";
 import { EstimationField } from "../../types/EstimationForm.types";
 
-import { parseHtml } from "../../utils/parseHtml";
+import { getTextFromHtml } from "../../utils/getTextFromHtml";
 import { AddFileIcon } from "./SvgEstimationForm/AddFileIcon";
 import { CrossIcon } from "./SvgEstimationForm/CrossIcon";
-import { updateField } from "../../utils/estimationFromUpdateAndCreateField";
+import {
+  createField,
+  updateField,
+} from "../../utils/estimationFromUpdateAndCreateField";
 
 const TextField = ({
   title,
@@ -36,9 +39,11 @@ const TextField = ({
 
   const formik = useFormikContext();
   const [, meta] = useField(`questionsArr[${index}]`);
+  const [, metaUsername] = useField("username");
+  const [, metaEmail] = useField("email");
 
   let placeholder = "Text";
-  if (options.length > 0) placeholder = parseHtml(options[0]["text"]);
+  if (options.length > 0) placeholder = getTextFromHtml(options[0]["text"]);
 
   useEffect(() => {
     setAttachFiles!(
@@ -63,48 +68,59 @@ const TextField = ({
     setFilesPerQuestion(newArrFiles);
   };
 
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    props.setFormData((prevState) => {
+      const indexOfAnswer = prevState.clientAnswers.findIndex(
+        (answer) => answer.questionTitle === getTextFromHtml(title)
+      );
+      return {
+        ...prevState,
+        clientName:
+          getTextFromHtml(title) === "Your Name"
+            ? e.target.value
+            : prevState.clientName,
+        clientEmail:
+          getTextFromHtml(title) === "Your Email"
+            ? e.target.value
+            : prevState.clientEmail,
+        clientAnswers:
+          indexOfAnswer !== -1
+            ? updateField(prevState, indexOfAnswer, e)
+            : createField(
+                prevState,
+                indexOfAnswer,
+                e,
+                title,
+                questionKey,
+                currentPage
+              ),
+      };
+    });
+
+    formik.setFieldValue(`questionsArr[${index}].value`, e.target.value);
+  };
   return (
     <div style={{ position: "relative" }}>
       <EstimationFieldLabel dangerouslySetInnerHTML={{ __html: title }} />
       <EstimateFileContainerWithInput>
         <EstimationTextInput
-          error={!!meta.error && meta!.touched}
-          onChange={(e) => {
-            props.setFormData((prevState) => {
-              const indexOfAnswer = prevState.clientAnswers.findIndex(
-                (answer) => answer.questionTitle === parseHtml(title)
-              );
-              return {
-                ...prevState,
-                clientName:
-                  parseHtml(title) === "Your Name"
-                    ? e.target.value
-                    : prevState.clientName,
-                clientEmail:
-                  parseHtml(title) === "Your Email"
-                    ? e.target.value
-                    : prevState.clientEmail,
-                clientAnswers:
-                  indexOfAnswer !== -1
-                    ? updateField(prevState, indexOfAnswer, e)
-                    : [
-                        ...prevState.clientAnswers,
-                        {
-                          questionTitle: parseHtml(title),
-                          questionKey: questionKey,
-                          pageIndex: currentPage as number,
-                          selectedOptions: [{ text: e.target.value }],
-                        },
-                      ],
-              };
-            });
-
-            formik.setFieldValue(
-              `questionsArr[${index}].value`,
-              e.target.value
-            );
-          }}
-          value={meta.value.value}
+          error={
+            getTextFromHtml(title) === "Your Name" ||
+            getTextFromHtml(title) === "Your Email"
+              ? getTextFromHtml(title) === "Your Email"
+                ? !!metaEmail.error && metaEmail!.touched
+                : !!metaUsername.error && metaUsername!.touched
+              : !!meta.error && meta!.touched
+          }
+          onChange={handleOnChange}
+          value={
+            getTextFromHtml(title) === "Your Name" ||
+            getTextFromHtml(title) === "Your Email"
+              ? getTextFromHtml(title) === "Your Email"
+                ? metaEmail.value.value
+                : metaUsername.value.value
+              : meta.value.value
+          }
           type="text"
           placeholder={
             attachFile ? "< Put your link//file here > " : `< ${placeholder} >`
@@ -154,7 +170,9 @@ const TextField = ({
                 key={file.size}
               >
                 <EstimateFileType>
-                  {file.type.replace("application/", "")}
+                  {file.name.slice(
+                    ((file.name.lastIndexOf(".") - 1) >>> 0) + 2
+                  )}
                 </EstimateFileType>
                 <EstimateFileName>{file.name}</EstimateFileName>
                 <EstimateFileCross onClick={() => deleteFile(file.name)}>
