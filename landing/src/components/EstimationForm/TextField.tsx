@@ -55,12 +55,23 @@ const TextField = ({
   }, [filesPerQuestion]);
 
   const handleFiles = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files!.length > 3) {
+    const totalFilesLength = e.target.files!.length + filesPerQuestion.length;
+    if (totalFilesLength > 3) {
       setTooManyFiles(true);
       return;
     }
+    if (e.target.files!.length >= 1 && totalFilesLength <= 3) {
+      setFilesPerQuestion((prevState) => {
+        const addFile = prevState.some(
+          (item) => item.name === e.target.files![0].name
+        );
+        return addFile
+          ? prevState
+          : [...prevState, ...Array.from(e.target.files!)];
+      });
+    }
+
     setTooManyFiles(false);
-    setFilesPerQuestion(Array.from(e.target.files!));
   };
 
   const deleteFile = (name: string) => {
