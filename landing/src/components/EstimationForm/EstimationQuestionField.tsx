@@ -36,6 +36,7 @@ const EstimationQuestionField = ({
   index,
   setAttachFiles,
   attachFilesArr,
+  touched,
 }: {
   formData: IFormData;
   setFormData: Dispatch<SetStateAction<IFormData>>;
@@ -44,11 +45,11 @@ const EstimationQuestionField = ({
   index: number;
   setAttachFiles: Dispatch<SetStateAction<IFormFileData[]>>;
   attachFilesArr: IFormFileData[];
+  touched: boolean;
 }) => {
   const [, meta] = useField(`questionsArr[${index}]`);
   const [, metaUsername] = useField("username");
   const [, metaEmail] = useField("email");
-  console.log(meta);
 
   const additionalQuestionPayments = formData.clientAnswers[
     formData.clientAnswers.findIndex(
@@ -87,7 +88,10 @@ const EstimationQuestionField = ({
     if (conditionToShowQuestionsCheckbox(question, formData, 0)) {
       return (
         <HoverContainerEstimation>
-          <EstimationFieldBox error={!!meta.error}>
+          <EstimationFieldBox
+            error={!!meta.error && touched}
+            key={question.questionKey}
+          >
             <CheckboxField
               formData={formData}
               currentPage={currentPage}
@@ -98,6 +102,7 @@ const EstimationQuestionField = ({
               name={question.title}
               title={question.title}
               options={question.options}
+              touched={touched}
             />
           </EstimationFieldBox>
           <HoverBlockEstimation>
@@ -109,7 +114,10 @@ const EstimationQuestionField = ({
     if (conditionToShowQuestionsRadio(question, formData, 1, true)) {
       return (
         <HoverContainerEstimation>
-          <EstimationFieldBox error={!!meta.error}>
+          <EstimationFieldBox
+            error={!!meta.error && touched}
+            key={question.questionKey}
+          >
             <CheckboxField
               formData={formData}
               currentPage={currentPage}
@@ -120,6 +128,7 @@ const EstimationQuestionField = ({
               name={question.title}
               title={question.title}
               options={question.options}
+              touched={touched}
             />
           </EstimationFieldBox>
           <HoverBlockEstimation>
@@ -131,7 +140,10 @@ const EstimationQuestionField = ({
     if (conditionToShowQuestionsRadio(question, formData, 2)) {
       return (
         <HoverContainerEstimation>
-          <EstimationFieldBox error={!!meta.error}>
+          <EstimationFieldBox
+            error={!!meta.error && touched}
+            key={question.questionKey}
+          >
             <CheckboxField
               formData={formData}
               currentPage={currentPage}
@@ -142,6 +154,7 @@ const EstimationQuestionField = ({
               name={question.title}
               title={question.title}
               options={question.options}
+              touched={touched}
             />
           </EstimationFieldBox>
           <HoverBlockEstimation>
@@ -157,13 +170,14 @@ const EstimationQuestionField = ({
   return notAnAdditionalQuestion(getTextFromHtml(question.title)) ? (
     <HoverContainerEstimation>
       <EstimationFieldBox
+        key={question.questionKey}
         error={
           getTextFromHtml(question.title) === "Your Name" ||
           getTextFromHtml(question.title) === "Your Email"
             ? getTextFromHtml(question.title) === "Your Email"
-              ? !!metaEmail.error
-              : !!metaUsername.error
-            : !!meta.error
+              ? !!metaEmail.error && touched
+              : !!metaUsername.error && touched
+            : !!meta.error && touched
         }
       >
         {question.optionsType === "TEXT" && (
@@ -178,6 +192,7 @@ const EstimationQuestionField = ({
             name={question.title}
             title={question.title}
             options={question.options}
+            touched={touched}
           />
         )}
         {question.optionsType === "RADIO_BUTTON" && (
@@ -190,6 +205,7 @@ const EstimationQuestionField = ({
             name={question.title}
             title={question.title}
             options={question.options}
+            touched={touched}
           />
         )}
         {question.optionsType === "CHECKBOX" && (
@@ -203,6 +219,7 @@ const EstimationQuestionField = ({
             name={question.title}
             title={question.title}
             options={question.options}
+            touched={touched}
           />
         )}
         {question.isHiddenText && (

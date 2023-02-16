@@ -41,6 +41,8 @@ const EstimationPage = ({
 }) => {
   const [parentId, setParentId] = useState("");
 
+  const [touchedBtn, setTouched] = useState(false);
+
   const { data, isLoading } = useQuery(
     [queryKeys.getEstimationFormData, pageN],
     () => adminEstimationFormService.getPageData(pageN.toString())
@@ -116,10 +118,13 @@ const EstimationPage = ({
           if (pageN === data?.pageCount) {
             createFormData.mutate(formData);
             setOpenSuccessModal(true);
-          } else setPage((prevState: number) => prevState + 1);
+          } else {
+            setPage((prevState: number) => prevState + 1);
+            setTouched(false);
+          }
         }}
       >
-        {({ errors, touched }) => {
+        {({ errors }) => {
           return (
             <Form>
               {data?.page.questions.map((question, index) => (
@@ -132,6 +137,7 @@ const EstimationPage = ({
                   index={index}
                   key={question.questionKey}
                   question={question}
+                  touched={touchedBtn}
                 />
               ))}
               {data?.pageCount && (
@@ -142,20 +148,23 @@ const EstimationPage = ({
                     setPage={setPage}
                   />
                   <div style={{ position: "relative" }}>
-                    {((errors.questionsArr && touched.questionsArr) ||
-                      (errors.username && touched.username) ||
-                      (errors.email && touched.email)) && (
+                    {((errors.questionsArr && touchedBtn) ||
+                      (errors.username && touchedBtn) ||
+                      (errors.email && touchedBtn)) && (
                       <EstimationButtonHelperText>
                         {errors.questionsArr &&
-                          touched.questionsArr &&
+                          touchedBtn &&
                           "Seems like you missed some fields. Let us know more about your project."}
-                        {((errors.username && touched.username) ||
-                          (errors.email && touched.email)) &&
+                        {((errors.username && touchedBtn) ||
+                          (errors.email && touchedBtn)) &&
                           !errors.questionsArr &&
                           "Seems like you enter invalid data. Please write it correctly."}
                       </EstimationButtonHelperText>
                     )}
-                    <StyledButton type="submit">
+                    <StyledButton
+                      onClick={() => setTouched(true)}
+                      type="submit"
+                    >
                       {data?.pageCount > pageN
                         ? "< NEXT SECTION >"
                         : "< FINISH >"}

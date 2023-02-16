@@ -41,6 +41,7 @@ export interface EstimationField {
   formData?: IFormData;
   setAttachFiles?: Dispatch<SetStateAction<IFormFileData[]>>;
   attachFilesArr?: IFormFileData[];
+  touched: boolean;
 }
 
 export interface EstimationData {

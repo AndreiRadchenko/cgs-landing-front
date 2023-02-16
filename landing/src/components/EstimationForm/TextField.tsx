@@ -30,6 +30,7 @@ const TextField = ({
   attachFile,
   setAttachFiles,
   attachFilesArr,
+  touched,
   ...props
 }: EstimationField) => {
   const [filesPerQuestion, setFilesPerQuestion] = useState<File[]>(
@@ -120,9 +121,9 @@ const TextField = ({
             getTextFromHtml(title) === "Your Name" ||
             getTextFromHtml(title) === "Your Email"
               ? getTextFromHtml(title) === "Your Email"
-                ? !!metaEmail.error
-                : !!metaUsername.error
-              : !!meta.error
+                ? !!metaEmail.error && touched
+                : !!metaUsername.error && touched
+              : !!meta.error && touched
           }
           onChange={handleOnChange}
           value={meta.value.value}
