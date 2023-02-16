@@ -82,7 +82,7 @@ const CheckboxField = ({
   return (
     <>
       <EstimationFieldLabel
-        error={!!meta.error && meta!.touched}
+        error={!!meta.error}
         split={split!}
         dangerouslySetInnerHTML={{ __html: title }}
       />
@@ -105,7 +105,7 @@ const CheckboxField = ({
               />
               <EstimationFieldOptionCheckbox
                 htmlFor={`${option.optionKey}${questionKey}`}
-                error={!!meta.error && meta!.touched}
+                error={!!meta.error}
                 dangerouslySetInnerHTML={{ __html: option.text }}
               />
             </EstimationInputFlex>

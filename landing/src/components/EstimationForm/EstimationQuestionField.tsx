@@ -48,6 +48,7 @@ const EstimationQuestionField = ({
   const [, meta] = useField(`questionsArr[${index}]`);
   const [, metaUsername] = useField("username");
   const [, metaEmail] = useField("email");
+  console.log(meta);
 
   const additionalQuestionPayments = formData.clientAnswers[
     formData.clientAnswers.findIndex(
@@ -86,7 +87,7 @@ const EstimationQuestionField = ({
     if (conditionToShowQuestionsCheckbox(question, formData, 0)) {
       return (
         <HoverContainerEstimation>
-          <EstimationFieldBox error={!!meta.error && meta!.touched}>
+          <EstimationFieldBox error={!!meta.error}>
             <CheckboxField
               formData={formData}
               currentPage={currentPage}
@@ -108,7 +109,7 @@ const EstimationQuestionField = ({
     if (conditionToShowQuestionsRadio(question, formData, 1, true)) {
       return (
         <HoverContainerEstimation>
-          <EstimationFieldBox error={!!meta.error && meta!.touched}>
+          <EstimationFieldBox error={!!meta.error}>
             <CheckboxField
               formData={formData}
               currentPage={currentPage}
@@ -130,7 +131,7 @@ const EstimationQuestionField = ({
     if (conditionToShowQuestionsRadio(question, formData, 2)) {
       return (
         <HoverContainerEstimation>
-          <EstimationFieldBox error={!!meta.error && meta!.touched}>
+          <EstimationFieldBox error={!!meta.error}>
             <CheckboxField
               formData={formData}
               currentPage={currentPage}
@@ -160,9 +161,9 @@ const EstimationQuestionField = ({
           getTextFromHtml(question.title) === "Your Name" ||
           getTextFromHtml(question.title) === "Your Email"
             ? getTextFromHtml(question.title) === "Your Email"
-              ? !!metaEmail.error && metaEmail!.touched
-              : !!metaUsername.error && metaUsername!.touched
-            : !!meta.error && meta!.touched
+              ? !!metaEmail.error
+              : !!metaUsername.error
+            : !!meta.error
         }
       >
         {question.optionsType === "TEXT" && (

@@ -73,7 +73,7 @@ const RadioField = ({
               />
               <EstimationFieldOptionRadio
                 htmlFor={`${option.optionKey}${questionKey}`}
-                error={!!meta.error && meta!.touched}
+                error={!!meta.error}
                 dangerouslySetInnerHTML={{ __html: option.text }}
               />
             </EstimationInputFlex>

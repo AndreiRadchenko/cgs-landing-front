@@ -120,9 +120,9 @@ const TextField = ({
             getTextFromHtml(title) === "Your Name" ||
             getTextFromHtml(title) === "Your Email"
               ? getTextFromHtml(title) === "Your Email"
-                ? !!metaEmail.error && metaEmail!.touched
-                : !!metaUsername.error && metaUsername!.touched
-              : !!meta.error && meta!.touched
+                ? !!metaEmail.error
+                : !!metaUsername.error
+              : !!meta.error
           }
           onChange={handleOnChange}
           value={meta.value.value}
