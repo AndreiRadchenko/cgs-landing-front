@@ -54,7 +54,7 @@ const AdditinalAttributesBlock = ({
   }, [isConditionsForAppearance, updateValues]);
 
   const hiddenTextInputOptions = {
-    buttonList: [["fontColor", "fontSize"]],
+    buttonList: [["fontColor", "fontSize", "underline"]],
     defaultStyle: `position:relative; z-index:4`,
   };
 
