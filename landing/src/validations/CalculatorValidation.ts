@@ -26,6 +26,7 @@ export const CalculatorValidation = () => {
                   otherwise: yup
                     .array()
                     .of(yup.string())
+                    .min(1)
                     .required("Required field"),
                 })
         ),

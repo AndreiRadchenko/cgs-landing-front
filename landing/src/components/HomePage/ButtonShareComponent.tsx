@@ -11,8 +11,9 @@ import {
 } from "../../styles/HomePage/General.styled";
 import { IDataResponse } from "../../types/Admin/Response.types";
 
-import WhatsUpIcon from "../../../public/whatsUp.svg";
-import TelegramIcon from "../../../public/telegram.svg";
+import WhatsUpGradIcon from "../../../public/whatsUp.svg";
+import TelegramGradIcon from "../../../public/telegram.svg";
+
 import Image from "next/image";
 
 declare global {
@@ -21,7 +22,11 @@ declare global {
   }
 }
 
-const ButtonShareComponent = () => {
+interface IButtonShareComponentProps {
+  className?: string;
+}
+
+const ButtonShareComponent = ({ className }: IButtonShareComponentProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>([
     queryKeys.getFullHomePage,
@@ -48,8 +53,7 @@ const ButtonShareComponent = () => {
   };
 
   return (
-    <ButtonShareTextWrapper>
-      <span>or contact via</span>
+    <ButtonShareTextWrapper className={className}>
       <ButtonShareText
         href={data?.whatsAppLink}
         target="_blank"
@@ -58,7 +62,12 @@ const ButtonShareComponent = () => {
       >
         <WhatsAppWrapper>
           <WhatsAppIconWrapper>
-            <Image src={WhatsUpIcon} alt="Icon" />
+            <Image
+              src={WhatsUpGradIcon}
+              alt="Icon"
+              layout="fill"
+              objectFit="contain"
+            />
           </WhatsAppIconWrapper>
           WhatsApp
         </WhatsAppWrapper>
@@ -71,7 +80,12 @@ const ButtonShareComponent = () => {
       >
         <TelegramWrapper>
           <TelegramIconWrapper>
-            <Image src={TelegramIcon} alt="Icon" />
+            <Image
+              src={TelegramGradIcon}
+              alt="Icon"
+              layout="fill"
+              objectFit="contain"
+            />
           </TelegramIconWrapper>
           Telegram
         </TelegramWrapper>

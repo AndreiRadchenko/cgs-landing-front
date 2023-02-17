@@ -6,9 +6,9 @@ import { glow } from "../Animations.styled";
 export const CalculatorPreviewWrapper = styled.div`
   position: fixed;
   right: 0;
-  top: 60%;
+  bottom: 60px;
   height: 18.833em;
-  z-index: 11;
+  z-index: 13;
 
   @media ${themes.primary.media.maxMobile} {
     position: fixed;
@@ -168,6 +168,12 @@ export const CalculatorPreviewContentWrapper = styled.div`
     line-height: 160%;
     padding-inline: 1.2em 2.1875em;
     row-gap: 10px;
+
+    & span {
+      br {
+        display: none;
+      }
+    }
 
     &::before {
       content: none;
@@ -426,7 +432,7 @@ export const StepsMainButtonWrapper = styled.div`
 
 export const StepButtonWrapper = styled.div`
   width: 67.5%;
-  margin-top: 3em;
+  margin-top: 2em;
   padding-left: 2.8333em;
   display: flex;
   justify-content: flex-start;
@@ -559,6 +565,10 @@ export const PagerText = styled.div`
   font-weight: ${themes.primary.font.weight.bold};
   line-height: 160%;
 
+  & p {
+    margin: 0;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 10px 0 10px 18px;
   }
@@ -685,32 +695,25 @@ export const ChooseModalWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   row-gap: 1.1em;
-  top: 9.5em;
-  padding-inline: 2.666em;
+  top: 130px;
+  padding-inline: 32px;
 
   @media ${themes.primary.media.maxMobile} {
     row-gap: 14px;
-    top: 8.5em;
+    top: 88px;
     padding-inline: 2.12em;
   }
 `;
 
 export const ChooseText = styled.div`
   text-transform: uppercase;
-  height: 83.5%;
-  width: 97.3%;
-  margin-top: 0.42em;
-  margin-left: 0.38em;
-  padding-left: 0.72em;
-  font-size: 1.666em;
-  font-family: ${themes.primary.font.family.namu};
-  line-height: 160%;
   cursor: pointer;
+  padding-left: 0.72em;
+  font-size: 20px;
+  line-height: 160%;
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.bold};
   transition: color 0.15s, background-color 0.3s;
-  display: flex;
-  align-items: center;
 
   &:hover {
     background-color: ${themes.primary.colors.darkBlue};
@@ -723,12 +726,40 @@ export const ChooseText = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    display: block;
-    transform: translateY(1.5em);
-    margin-left: 0.3em;
-    font-size: 1.346em;
-    height: 87.5%;
-    width: 97%;
+  }
+
+  /* ios */
+  @supports (-webkit-touch-callout: none) {
+    transform: translateY(8px);
+    width: 98%;
+    margin-left: 7px;
+    padding-block: 10px 11px;
+    @media ${themes.primary.media.maxMobile} {
+      transform: translateY(6px);
+      height: 85.5%;
+      width: 96.5%;
+      padding-block: 17px 18px;
+      margin-left: 0.3em;
+      font-size: 1.346em;
+    }
+  }
+
+  /* android */
+  @supports not (-webkit-touch-callout: none) {
+    height: 83.7%;
+    width: 97.3%;
+    margin-top: 0.4em;
+    margin-left: 0.34em;
+
+    display: flex;
+    align-items: center;
+    @media ${themes.primary.media.maxMobile} {
+      height: 87.5%;
+      width: 96.9%;
+      margin-top: 6px;
+      margin-left: 0.3em;
+      font-size: 1.346em;
+    }
   }
 `;
 
@@ -789,10 +820,51 @@ export const CalculatorFieldWrapper = styled.div`
   &.last {
     font-size: 0.9em;
     line-height: 160%;
-    height: 150px;
-    max-height: 150px;
+    height: 224px;
+    max-height: 224px;
     font-family: ${themes.primary.font.family.namu};
     margin-top: 16px;
+
+    & h4.result-title {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    & span.bold {
+      font-weight: ${themes.primary.font.weight.medium};
+    }
+
+    & span.result-msg {
+      position: absolute;
+      bottom: 10px;
+    }
+    & ul {
+      margin-block: 4px 16px;
+      padding-left: 0;
+      list-style: none;
+
+      & > li {
+        font-size: 16px;
+        font-weight: ${themes.primary.font.weight.normal};
+        display: flex;
+        align-items: flex-start;
+        column-gap: 6px;
+
+        & > p {
+          margin: 0;
+        }
+
+        &::before {
+          content: "";
+          display: inline-block;
+          margin-top: 6px;
+          min-width: 12px;
+          min-height: 12px;
+          background: ${themes.primary.colors.primary};
+          border: 0.745794px solid ${themes.primary.colors.primary};
+        }
+      }
+    }
   }
 
   &.input {
@@ -812,20 +884,51 @@ export const CalculatorFieldWrapper = styled.div`
     height: 167px;
   }
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.title {
+      max-height: none;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-inline: 17px;
     border-radius: 5px;
-    &.title {
+    /* &.title {
       max-height: 90px;
-    }
+    } */
 
     &.last {
-      height: 160px;
-      max-height: 160px;
+      height: 316px;
+      max-height: 316px;
+
+      & h4.result-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      & span.result-msg {
+        display: block;
+        font-size: 16px;
+        font-weight: ${themes.primary.font.weight.medium} !important;
+        position: relative;
+        margin: 0;
+        padding-top: 8px;
+      }
+
+      & ul {
+        padding-left: 0;
+        & > li {
+          font-size: 16px;
+          margin-bottom: 8px;
+
+          &::before {
+            margin-top: 4px;
+          }
+        }
+      }
 
       &::before {
-        width: 5px;
-        top: 1px;
+        top: 2.2px;
+        right: 5px;
       }
 
       &::after {
@@ -899,7 +1002,7 @@ export const LeftBlackBorder = styled.div`
     }
 
     &.last {
-      height: 101%;
+      height: 100%;
     }
 
     &.quit {
@@ -912,6 +1015,7 @@ export const ModalContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
 `;
 
 export const Disabled = styled.div`
@@ -972,6 +1076,7 @@ export const CalculatorField = styled.div`
 
   & span[style] {
     font-size: 16px;
+    line-height: 21px;
   }
 
   & .__se__t-upper {
@@ -1065,7 +1170,7 @@ export const CalculatorField = styled.div`
     &.quit {
       min-height: 98%;
       height: 98%;
-      padding-right: 0;
+      padding: 8px 22px 0 8px;
 
       & br {
         display: none;
@@ -1074,7 +1179,7 @@ export const CalculatorField = styled.div`
 
     &.last {
       min-height: 97%;
-      height: 97%;
+      height: 98.5%;
       font-size: 1.5em;
       line-height: 160%;
     }
@@ -1084,6 +1189,24 @@ export const CalculatorField = styled.div`
       line-height: 160%;
     }
   }
+`;
+
+export const ResultFormGradient = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    61.63deg,
+    ${themes.primary.colors.mainGradientColor1} 0%,
+    ${themes.primary.colors.mainGradientColor2} 100%
+  );
+  opacity: 0.5;
 `;
 
 export const CalculatorInputFields = styled.div`
@@ -1152,11 +1275,11 @@ export const HorizontalLine = styled.hr`
 
 export const ResultImageWrapper = styled.div`
   width: 669px;
-  height: 463px;
+  height: 553px;
 
   @media ${themes.primary.media.maxMobile} {
     width: 356px;
-    height: 481px;
+    height: 635px;
   }
 `;
 
@@ -1209,13 +1332,20 @@ export const FinishTextWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding-top: 1em;
     font-size: 1.346em;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-block: 0;
+
+    @supports (-webkit-touch-callout: none) {
+      transform: translateY(3px);
+    }
+
+    @supports not (-webkit-touch-callout: none) {
+      transform: translateY(-4px);
+    }
     & > div span:nth-child(2) br {
       display: none;
     }
@@ -1269,7 +1399,7 @@ export const PopoverWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  top: -6px;
+  top: -13px;
   left: -11px;
   transition: opacity 0.3s;
   opacity: 0;
@@ -1285,7 +1415,7 @@ export const PopoverWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     left: auto;
     right: -15px;
-    top: -65px;
+    top: -60px;
   }
 `;
 
@@ -1317,7 +1447,7 @@ export const PopoverTriangle = styled.div`
 `;
 
 export const CalculatorInputsFieldsWrapper = styled.div`
-  padding-block: 0.53em;
+  padding: 0.53em 20px 0.53em 0;
   height: 100%;
   width: 100%;
   z-index: 2;
@@ -1337,24 +1467,7 @@ export const CalculatorInputsFieldsWrapper = styled.div`
   }
 
   &.input {
-    padding-top: 0;
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: ${themes.primary.colors.primary};
-      border-radius: 10px;
-    }
-
-    scrollbar-color: ${themes.primary.colors.primary} transparent;
-    scrollbar-width: thin;
+    padding: 0;
   }
 
   & .__se__t-upper {
@@ -1401,12 +1514,19 @@ export const CalculatorInputsFieldsWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    &.title {
+      padding-right: 0;
+    }
+
     &.last {
       font-size: 14px;
-      padding: 0 1.5em 0.53em 0;
+      padding: 0 0.6em 0.53em 0;
     }
 
     &.quit {
+      font-size: 14px;
+      line-height: 22px;
+      padding: 0;
       height: auto;
     }
   }
@@ -1440,4 +1560,32 @@ export const SubStepTitle = styled.h3`
 
 export const InputsWrapper = styled.div`
   padding-top: 1.125em;
+  max-height: 100%;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${themes.primary.colors.primary};
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 10px;
+  }
+
+  &::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 10px;
+  }
+
+  scrollbar-color: ${themes.primary.colors.primary} transparent;
+  scrollbar-width: thin;
 `;

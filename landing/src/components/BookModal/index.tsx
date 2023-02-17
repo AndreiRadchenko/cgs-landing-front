@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import * as Styles from "../../styles/BookModalForm/BookModal.styled";
+import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 
 interface ITicketModalProps {
   isOpen?: boolean;
@@ -7,6 +8,8 @@ interface ITicketModalProps {
 }
 
 const BookModal: FC<ITicketModalProps> = ({ isOpen, children }) => {
+  isOpen && DisableScrollBarHandler(isOpen);
+
   return (
     <Styles.BookModal className={isOpen ? "none" : "open"}>
       <Styles.BookModalContentContainer>

@@ -80,11 +80,7 @@ const CalculatorStepsFormContent = ({
   }, [warnIsShow, setWarnIsShow]);
 
   const handleStepButtonClick = (idx: number) => {
-    if (
-      idx === stepsCount - 1 &&
-      errors["questionsArr"] &&
-      errors["questionsArr"].length > 0
-    ) {
+    if (errors["questionsArr"] && errors["questionsArr"][idx - 1]) {
       setWarnIsShow(true);
     } else {
       setWarnIsShow(false);
@@ -97,11 +93,7 @@ const CalculatorStepsFormContent = ({
     if (lastStep) {
       setCalculateIsClicked(true);
       isValid && handleSubmit();
-    } else if (
-      step + 1 === stepsCount - 1 &&
-      errors["questionsArr"] &&
-      errors["questionsArr"].length > 0
-    ) {
+    } else if (errors["questionsArr"] && errors["questionsArr"][step]) {
       setWarnIsShow(true);
     } else if (step + 1 < stepsCount) {
       warnIsShow && setWarnIsShow(false);

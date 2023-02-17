@@ -7,6 +7,7 @@ import {
   ICalculatorStep,
   IStepOptions,
 } from "../../../types/Admin/Response.types";
+import CalculatorMultiplyRolesSelect from "./CalculatorMultiplyRolesSelect";
 import CalculatorTypeSelect from "./CalculatorTypeSelect";
 import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
 import { letterWeightSubmenu } from "./letterWeightSubmenuPlugin";
@@ -70,7 +71,7 @@ const CalculatorQuestionItem = ({
           <TextEditor
             name={`${questionNameBefore}options[${idx}].label`}
             props={{
-              height: "37px",
+              height: "auto",
               width: "480px",
               setDefaultStyle: `position:relative; z-index:${zIndex}`,
               setContents: option.label,
@@ -92,10 +93,10 @@ const CalculatorQuestionItem = ({
               type="number"
               min={0}
             />
-            <CalculatorTypeSelect
-              name={`${questionNameBefore}options[${idx}].role`}
-              zIndex={zIndex}
-              header={option.role}
+            <CalculatorMultiplyRolesSelect
+              name={`${questionNameBefore}options[${idx}].roles`}
+              defaultHeader="Specialist"
+              value={option.roles}
             />
             <Styled.OptionInput
               className="coef"

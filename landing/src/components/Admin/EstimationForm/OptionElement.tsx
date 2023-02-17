@@ -2,11 +2,14 @@ import { IQuestionOptionElementProps } from "../../../types/Admin/AdminEstimatio
 import { AdminDeleteText, Box, TextWrapper } from "../../../styles/AdminPage";
 import { ErrorMessage } from "formik";
 import React, { useEffect, useState } from "react";
-import { defaultEditorOption } from "../../../utils/variables";
 import { letterCaseSubmenu } from "../Calculator/letterCaseSubmenuPlugin";
-import { inputSubmenu } from "../Calculator/inputSubmenuPlugin";
 import { Plugin } from "suneditor/src/plugins/Plugin";
 import dynamic from "next/dynamic";
+import * as StyledCalc from "../../../styles/Calculator/CalculatorAdmin.styled";
+import { letterWeightSubmenu } from "../Calculator/letterWeightSubmenuPlugin";
+const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 const OptionElement = ({
   option,
@@ -15,14 +18,6 @@ const OptionElement = ({
   optionsLength,
   optionsType,
 }: IQuestionOptionElementProps) => {
-  const EstimationFormInput = dynamic(
-    () =>
-      import("../../../components/Admin/EstimationForm/EstimationFormInput"),
-    {
-      ssr: false,
-    }
-  );
-
   const removeItemHandle = () => {
     if (optionsLength) {
       remove && remove(i);
@@ -34,19 +29,24 @@ const OptionElement = ({
   >();
 
   useEffect(() => {
-    import("suneditor/src/plugins").then((plugs: any) => {
-      return setPlugins(plugs);
-    });
+    import("suneditor/src/plugins").then((plugs: any) => setPlugins(plugs));
   }, []);
 
-  const optionEditorOptions = {
-    ...defaultEditorOption,
-    plugins: { letterCaseSubmenu, inputSubmenu, ...plugins },
+  const textEditorOptions = {
+    font: ["NAMU"],
+    linkRelDefault: {
+      default: undefined,
+      check_new_window: "nofollow noopener",
+    },
     addTagsWhitelist: "label|input",
-    buttonList: [["fontColor", "fontSize", "letterCase"]],
-
-    defaultTag: "p",
-    defaultStyle: "position:relative; z-index:3",
+    plugins: { letterCaseSubmenu, letterWeightSubmenu, ...plugins },
+    buttonList: [
+      ["fontColor", "fontSize"],
+      ["letterCase"],
+      ["letterWeight"],
+      ["removeFormat"],
+      ["codeView"],
+    ],
   };
   return (
     <Box>
@@ -60,21 +60,22 @@ const OptionElement = ({
             : ""
         }`}
       >
-        <EstimationFormInput
-          name={`options.${i}.text`}
-          props={{
-            width: "500px",
-            defaultValue: option.text,
-            setOptions: {
-              ...optionEditorOptions,
-              defaultStyle: `position:relative; z-index:${
+        <StyledCalc.TransparentTextEditorWrapper>
+          <TextEditor
+            name={`options.${i}.text`}
+            props={{
+              height: "37px",
+              width: "507px",
+              defaultValue: option.text,
+              setDefaultStyle: `position:relative; z-index:${
                 optionsLength - 1 === i && optionsLength > 2
                   ? 3
                   : optionsLength - i + 3
               }`,
-            },
-          }}
-        />
+              setOptions: textEditorOptions,
+            }}
+          />
+        </StyledCalc.TransparentTextEditorWrapper>
       </TextWrapper>
       <ErrorMessage name={`options.${i}.text`} />
       {remove && (

@@ -8,6 +8,7 @@ import {
   ICalculatorSubStep,
   ICalculatorTieUpStep,
 } from "../../types/Admin/Response.types";
+import { ICalculatorType } from "../../components/Admin/Calculator/CalculatorTypeInput";
 
 export class AdminCalculatorService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
@@ -19,8 +20,8 @@ export class AdminCalculatorService {
     return this.httpService.put("api/calculator", data);
   }
 
-  public addCalculatorType(name: string) {
-    return this.httpService.post("api/calculator/type", { name });
+  public addCalculatorType(data: ICalculatorType) {
+    return this.httpService.post("api/calculator/type", data);
   }
 
   public getCalculatorClassicSteps() {

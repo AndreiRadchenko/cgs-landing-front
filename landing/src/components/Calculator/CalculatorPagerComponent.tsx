@@ -1,11 +1,10 @@
-import React, { useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import CalculatorModal from "./CalculatorPagerModalComponent";
 import PressButtonArrow from "../../../public/Calculator/pressButtonArrow.svg";
 import CalculatorPager from "./CalculatorPager";
 import CalculatorChooseLine from "./CalculatorChooseLine";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
-import { SplitBrackets } from "../../utils/splitBrackets";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICalculator, ICalculatorStep } from "../../types/Admin/Response.types";
@@ -23,7 +22,8 @@ interface ICalculatorPagerComponentProps {
   handleClose: () => void;
   handleBlockchainClick: () => void;
   handleClassicClick: () => void;
-  handlePagerButtonsClick: () => void;
+  handlePagerRightButtonClick: () => void;
+  handlePagerLeftButtonClick: () => void;
 }
 
 const CalculatorPagerComponent = ({
@@ -38,7 +38,8 @@ const CalculatorPagerComponent = ({
   handleClose,
   handleBlockchainClick,
   handleClassicClick,
-  handlePagerButtonsClick,
+  handlePagerRightButtonClick,
+  handlePagerLeftButtonClick,
 }: ICalculatorPagerComponentProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<ICalculator>([
@@ -46,7 +47,7 @@ const CalculatorPagerComponent = ({
   ]);
   const { width } = useWindowDimension();
 
-  return width && isOpen ? (
+  return width && isOpen && data ? (
     <CalculatorModal
       buttonText={buttonText}
       onClose={handleClose}
@@ -59,20 +60,20 @@ const CalculatorPagerComponent = ({
         <Styled.ChooseModalWrapper>
           <CalculatorChooseLine mobile={width < 768}>
             <Styled.ChooseText onClick={handleBlockchainClick}>
-              Blockchain development
+              <span>Blockchain development</span>
             </Styled.ChooseText>
           </CalculatorChooseLine>
           <CalculatorChooseLine mobile={width < 768}>
             <Styled.ChooseText onClick={handleClassicClick}>
-              classic development
+              <span>classic development</span>
             </Styled.ChooseText>
           </CalculatorChooseLine>
         </Styled.ChooseModalWrapper>
       ) : (
         <CalculatorPager
           mobile={width < 768}
-          onPagerClick={handlePagerButtonsClick}
-          startLoading={startLoading}
+          onPagerRightClick={handlePagerRightButtonClick}
+          onPagerLeftClick={handlePagerLeftButtonClick}
         >
           <Styled.ContentWrapper>
             {(startLoading && (
@@ -98,9 +99,11 @@ const CalculatorPagerComponent = ({
                 )}
               </>
             )) || (
-              <Styled.PagerText>
-                <SplitBrackets text={data?.startMessage} />
-              </Styled.PagerText>
+              <Styled.PagerText
+                dangerouslySetInnerHTML={{
+                  __html: data.startMessage.replaceAll("|", "<br>"),
+                }}
+              />
             )}
           </Styled.ContentWrapper>
         </CalculatorPager>

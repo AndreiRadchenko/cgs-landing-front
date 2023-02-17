@@ -28,12 +28,16 @@ export const CTABlock = () => {
         />
         <Styled.CTAIconsBlock>
           <Styled.CTAIconWrapper>
-            <Image src={WhatsUpIcon} alt="Icon" />
-            <Styled.CTAIcon>WhatsApp</Styled.CTAIcon>
+            <Styled.CTAIcon>
+              <Image src={WhatsUpIcon} alt="Icon" />
+            </Styled.CTAIcon>
+            <Styled.CTAIconText>WhatsApp</Styled.CTAIconText>
           </Styled.CTAIconWrapper>
           <Styled.CTAIconWrapper>
-            <Image src={TelegramIcon} alt="Icon" />
-            <Styled.CTAIcon>Telegram</Styled.CTAIcon>
+            <Styled.CTAIcon>
+              <Image src={TelegramIcon} alt="Icon" />
+            </Styled.CTAIcon>
+            <Styled.CTAIconText>Telegram</Styled.CTAIconText>
           </Styled.CTAIconWrapper>
         </Styled.CTAIconsBlock>
       </Styled.CTABtnsBlock>

@@ -26,7 +26,7 @@ export const TicketWrapper = styled.div`
     margin-bottom: 4.25rem;
   }
 
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     margin-bottom: 0;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -90,7 +90,7 @@ export const RocketImg = styled.div.attrs(({ imgUrl }: IImageProps) => ({
     width: 5.938rem;
     background-size: contain;
   }
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     width: 5.938rem;
     background-size: contain;
   }
@@ -106,7 +106,7 @@ export const CareersHeader = styled.div`
   @media ${themes.primary.media.onlyLaptop} {
     margin-bottom: 0.8rem;
   }
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     margin-bottom: 0.8rem;
   }
 `;
@@ -149,7 +149,7 @@ export const BottomTitle = styled.h2`
   @media ${themes.primary.media.onlyLaptop} {
     margin-bottom: 0.938rem;
   }
-  @media ${themes.primary.media.maxTablet} {
+  @media ${themes.primary.media.maxMobile} {
     margin-bottom: 0.938rem;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {

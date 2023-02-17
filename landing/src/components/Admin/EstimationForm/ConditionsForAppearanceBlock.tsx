@@ -34,7 +34,7 @@ interface IConditionsForAppearanceBlockProps {
       | null
       | string
       | IEstimationFormQuestionOptions[],
-    shouldValidate?: boolean | undefined
+    shouldValidate?: boolean
   ) => void;
 }
 

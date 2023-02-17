@@ -37,11 +37,9 @@ const BookBlock = () => {
               withEstimation
               buttonText={data.button}
             />
+            <ButtonShareComponent className="footer" />
           </FooterButtonWrapper>
         )}
-        <FooterButtonWrapper>
-          <ButtonShareComponent />
-        </FooterButtonWrapper>
       </FooterWhatsAppContainer>
     </FooterSection>
   );

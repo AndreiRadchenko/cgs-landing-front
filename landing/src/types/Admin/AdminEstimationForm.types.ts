@@ -95,7 +95,7 @@ export interface IQuestionBlockProps {
 }
 
 export interface IButtonProps {
-  type: "button" | "submit" | "reset" | undefined;
+  type?: "button" | "submit" | "reset";
   buttonText: string;
   handleClick: () => void;
 }
