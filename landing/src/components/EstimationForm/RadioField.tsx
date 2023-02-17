@@ -22,6 +22,7 @@ const RadioField = ({
   index,
   questionKey,
   currentPage,
+  touched,
   ...props
 }: EstimationField) => {
   const formik = useFormikContext();
@@ -73,7 +74,7 @@ const RadioField = ({
               />
               <EstimationFieldOptionRadio
                 htmlFor={`${option.optionKey}${questionKey}`}
-                error={!!meta.error && meta!.touched}
+                error={!!meta.error && touched}
                 dangerouslySetInnerHTML={{ __html: option.text }}
               />
             </EstimationInputFlex>

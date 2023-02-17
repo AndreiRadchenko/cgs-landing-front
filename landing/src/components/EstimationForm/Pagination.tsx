@@ -3,16 +3,21 @@ import {
   EstimationPaginationContainer,
   EstimationPaginationPage,
 } from "../../styles/EstimationForm.styled";
+import { useFormikContext } from "formik";
 
 const Pagination = ({
   pageCount,
   currentPage,
   setPage,
+  setTouched,
 }: {
   pageCount: number;
   currentPage: number;
   setPage: Dispatch<SetStateAction<number>>;
+  setTouched: Dispatch<SetStateAction<boolean>>;
 }) => {
+  const { validateForm, isValid, handleSubmit } = useFormikContext();
+
   const [maxOpenPage, setMaxOpenPage] = useState(1);
 
   const paginationPages = Array.from(Array(pageCount).keys());
@@ -37,7 +42,18 @@ const Pagination = ({
             }`,
             border: `${maxOpenPage >= page + 1 ? "1px solid #000" : "none"}`,
           }}
-          onClick={() => (currentPage > page + 1 ? setPage(page + 1) : null)}
+          onClick={async () => {
+            await validateForm();
+
+            setTouched(false);
+
+            if (maxOpenPage >= page + 1 && isValid) {
+              setPage(page + 1);
+            } else {
+              //handleSubmit();
+              setTouched(true);
+            }
+          }}
         >
           {page + 1}
         </EstimationPaginationPage>
