@@ -89,7 +89,7 @@ const EstimationQuestionField = ({
 
   const renderAdditionalQuestion = () => {
     if (conditionToShowQuestionsCheckbox(question, formData, 0)) {
-      field.value.required = question.isRequired;
+      field.value.required = true;
       return (
         <HoverContainerEstimation>
           <EstimationFieldBox
@@ -116,7 +116,7 @@ const EstimationQuestionField = ({
       );
     }
     if (conditionToShowQuestionsRadio(question, formData, 1, true)) {
-      field.value.required = question.isRequired;
+      field.value.required = true;
       return (
         <HoverContainerEstimation>
           <EstimationFieldBox
@@ -143,7 +143,7 @@ const EstimationQuestionField = ({
       );
     }
     if (conditionToShowQuestionsRadio(question, formData, 2)) {
-      field.value.required = question.isRequired;
+      field.value.required = true;
       return (
         <HoverContainerEstimation>
           <EstimationFieldBox
