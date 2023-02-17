@@ -146,6 +146,7 @@ const EstimationPage = ({
                     pageCount={data?.pageCount}
                     currentPage={pageN}
                     setPage={setPage}
+                    setTouched={setTouched}
                   />
                   <div style={{ position: "relative" }}>
                     {((errors.questionsArr && touchedBtn) ||

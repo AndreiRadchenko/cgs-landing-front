@@ -17,7 +17,7 @@ import {
   IFormFileData,
   Question,
 } from "../../types/EstimationForm.types";
-import { useField } from "formik";
+import { useField, useFormikContext } from "formik";
 import { conditionsToAppearanceQuestion } from "../../consts";
 import { getTextFromHtml } from "../../utils/getTextFromHtml";
 import {
@@ -47,7 +47,7 @@ const EstimationQuestionField = ({
   attachFilesArr: IFormFileData[];
   touched: boolean;
 }) => {
-  const [, meta] = useField(`questionsArr[${index}]`);
+  const [field, meta] = useField(`questionsArr[${index}]`);
   const [, metaUsername] = useField("username");
   const [, metaEmail] = useField("email");
 
@@ -75,17 +75,21 @@ const EstimationQuestionField = ({
     ]?.selectedOptions[0];
 
   useEffect(() => {
+    field.value?.required ? (field.value.required = false) : null;
     removeAdditionalQuestionsCheckbox(question, formData, 0);
   }, [additionalQuestionPayments]);
   useEffect(() => {
+    field.value?.required ? (field.value.required = false) : null;
     removeAdditionalQuestionsRadio(question, formData, 1);
   }, [additionalQuestionMobile]);
   useEffect(() => {
+    field.value?.required ? (field.value.required = false) : null;
     removeAdditionalQuestionsRadio(question, formData, 2);
   }, [additionalQuestionAdmin]);
 
   const renderAdditionalQuestion = () => {
     if (conditionToShowQuestionsCheckbox(question, formData, 0)) {
+      field.value.required = question.isRequired;
       return (
         <HoverContainerEstimation>
           <EstimationFieldBox
@@ -112,6 +116,7 @@ const EstimationQuestionField = ({
       );
     }
     if (conditionToShowQuestionsRadio(question, formData, 1, true)) {
+      field.value.required = question.isRequired;
       return (
         <HoverContainerEstimation>
           <EstimationFieldBox
@@ -138,6 +143,7 @@ const EstimationQuestionField = ({
       );
     }
     if (conditionToShowQuestionsRadio(question, formData, 2)) {
+      field.value.required = question.isRequired;
       return (
         <HoverContainerEstimation>
           <EstimationFieldBox
