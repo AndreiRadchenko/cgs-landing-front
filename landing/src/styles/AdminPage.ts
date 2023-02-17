@@ -659,7 +659,6 @@ export const AdminBlackButton = styled.button<IBlackButtonProps>`
       : themes.primary.font.size.primary};
   background-color: #000;
   color: white;
-  border: 0;
   padding: ${(props) => (props.size === "estimationForm" ? "20px 50px" : 0)};
   font-family: ${(props) =>
     props.size === "estimationForm" && themes.primary.font.family.namu};
@@ -669,6 +668,13 @@ export const AdminBlackButton = styled.button<IBlackButtonProps>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: 2px solid ${themes.primary.colors.primary};
+  transition: 0.3s;
+
+  &:hover {
+    background-color: ${themes.primary.colors.blogBackground};
+    color: ${themes.primary.colors.primary};
+  }
   @media (max-width: 1000px) {
     width: 7em;
   }
