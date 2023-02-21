@@ -10,14 +10,16 @@ const EstimationAdditionalQuestion = ({
 }: {
   hiddenText: string;
 }) => {
-  const email = hiddenText.split("<u>").toString();
-  console.log(hiddenText);
+  const email = hiddenText.split("<u>")[1].toString().split("</u>")[0];
   return (
     <EstimationQuestionAdditional>
       <EstimationTooltip>
-        <EstimationTooltipText
-          dangerouslySetInnerHTML={{ __html: hiddenText }}
-        />
+        <EstimationTooltipText>
+          <a
+            dangerouslySetInnerHTML={{ __html: hiddenText }}
+            href={`mailto:${email}`}
+          />
+        </EstimationTooltipText>
       </EstimationTooltip>
     </EstimationQuestionAdditional>
   );
