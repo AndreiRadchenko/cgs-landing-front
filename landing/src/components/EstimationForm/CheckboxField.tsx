@@ -19,6 +19,8 @@ const CheckboxField = ({
   currentPage,
   formData,
   touched,
+  required,
+  optionsType,
   ...props
 }: EstimationField) => {
   const formik = useFormikContext();
@@ -68,6 +70,8 @@ const CheckboxField = ({
                     questionTitle: getTextFromHtml(title),
                     questionKey,
                     pageIndex: currentPage as number,
+                    required: required,
+                    optionsType: optionsType,
                     selectedOptions: dataArray.map((option) => ({
                       text: option,
                     })),

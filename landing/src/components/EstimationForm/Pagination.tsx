@@ -16,7 +16,7 @@ const Pagination = ({
   setPage: Dispatch<SetStateAction<number>>;
   setTouched: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const { validateForm, isValid, handleSubmit } = useFormikContext();
+  const { validateForm, isValid } = useFormikContext();
 
   const [maxOpenPage, setMaxOpenPage] = useState(1);
 
@@ -47,10 +47,12 @@ const Pagination = ({
 
             setTouched(false);
 
-            if (maxOpenPage >= page + 1 && isValid) {
+            if (
+              (maxOpenPage >= page + 1 && isValid) ||
+              currentPage >= page + 1
+            ) {
               setPage(page + 1);
             } else {
-              //handleSubmit();
               setTouched(true);
             }
           }}

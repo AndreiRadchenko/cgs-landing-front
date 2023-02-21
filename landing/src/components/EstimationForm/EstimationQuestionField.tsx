@@ -17,7 +17,7 @@ import {
   IFormFileData,
   Question,
 } from "../../types/EstimationForm.types";
-import { useField, useFormikContext } from "formik";
+import { useField } from "formik";
 import { conditionsToAppearanceQuestion } from "../../consts";
 import { getTextFromHtml } from "../../utils/getTextFromHtml";
 import {
@@ -107,6 +107,8 @@ const EstimationQuestionField = ({
               title={question.title}
               options={question.options}
               touched={touched}
+              required={question.isRequired}
+              optionsType={question.optionsType}
             />
           </EstimationFieldBox>
           <HoverBlockEstimation>
@@ -134,6 +136,8 @@ const EstimationQuestionField = ({
               title={question.title}
               options={question.options}
               touched={touched}
+              required={question.isRequired}
+              optionsType={question.optionsType}
             />
           </EstimationFieldBox>
           <HoverBlockEstimation>
@@ -161,6 +165,8 @@ const EstimationQuestionField = ({
               title={question.title}
               options={question.options}
               touched={touched}
+              required={question.isRequired}
+              optionsType={question.optionsType}
             />
           </EstimationFieldBox>
           <HoverBlockEstimation>
@@ -199,6 +205,8 @@ const EstimationQuestionField = ({
             title={question.title}
             options={question.options}
             touched={touched}
+            required={question.isRequired}
+            optionsType={question.optionsType}
           />
         )}
         {question.optionsType === "RADIO_BUTTON" && (
@@ -212,6 +220,8 @@ const EstimationQuestionField = ({
             title={question.title}
             options={question.options}
             touched={touched}
+            required={question.isRequired}
+            optionsType={question.optionsType}
           />
         )}
         {question.optionsType === "CHECKBOX" && (
@@ -226,6 +236,8 @@ const EstimationQuestionField = ({
             title={question.title}
             options={question.options}
             touched={touched}
+            required={question.isRequired}
+            optionsType={question.optionsType}
           />
         )}
         {question.isHiddenText && (

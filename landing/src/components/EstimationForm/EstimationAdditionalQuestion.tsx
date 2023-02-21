@@ -10,6 +10,8 @@ const EstimationAdditionalQuestion = ({
 }: {
   hiddenText: string;
 }) => {
+  const email = hiddenText.split("<u>").toString();
+  console.log(hiddenText);
   return (
     <EstimationQuestionAdditional>
       <EstimationTooltip>
