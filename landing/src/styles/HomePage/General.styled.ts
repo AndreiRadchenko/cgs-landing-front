@@ -827,7 +827,7 @@ export const ButtonShareTextWrapper = styled.div`
   width: fit-content;
   font-family: ${themes.primary.font.family.namu};
   z-index: 10;
-  margin-left: 1.1666em;
+  margin-left: 2.5em;
 
   &.footer {
     margin-inline: 0 1.1666em;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { IServiceMobileAudit } from "../../types/Admin/Response.types";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
@@ -8,9 +8,11 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 import MobileImage from "../../../public/MobileAuditService/mobile.svg";
 import Image from "next/image";
 import GetEstimationButton from "../GetEstimationButton";
+import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
+  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceMobileAudit>([
     queryKeys.getServiceMobileAuditPage,
   ])?.headerBlock;
@@ -25,15 +27,18 @@ const HeadBlock = () => {
           <SplitBrackets text={data?.text} />
         </Styled.Description>
         {data && (
-          <GetEstimationButton
-            buttonLink={data?.buttonLink}
-            withEstimation
-            buttonText={data.button}
-            style={{
-              padding: "1em 2.3em",
-              fontSize: "1.125em",
-            }}
-          />
+          <Styled.ButtonWrapper ref={elRef}>
+            <GetEstimationButton
+              buttonLink={data?.buttonLink}
+              withEstimation
+              buttonText={data.button}
+              style={{
+                padding: "1em 2.3em",
+                fontSize: "1.125em",
+              }}
+            />
+            <ButtonShareComponent />
+          </Styled.ButtonWrapper>
         )}
       </Styled.Content>
       <Styled.ImageWrapper>

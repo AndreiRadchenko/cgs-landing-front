@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceSupport } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/OngoingSupport/HeadBlock.styled";
 import TextTypingAnimation from "../Typewrite";
 import GetEstimationButton from "../GetEstimationButton";
+import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
+  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceSupport>([
     queryKeys.getServiceSupportPage,
   ])?.headerBlock;
@@ -20,16 +22,19 @@ const HeadBlock = () => {
         </Styled.Title>
         <Styled.Description>{data?.text}</Styled.Description>
         {data && (
-          <GetEstimationButton
-            buttonLink={data?.buttonLink}
-            withEstimation
-            buttonText={data.button}
-            style={{
-              padding: "1.117em 2.836em",
-              fontSize: "1.125em",
-              zIndex: "2",
-            }}
-          />
+          <Styled.ButtonWrapper ref={elRef}>
+            <GetEstimationButton
+              buttonLink={data?.buttonLink}
+              withEstimation
+              buttonText={data.button}
+              style={{
+                padding: "1.117em 2.836em",
+                fontSize: "1.125em",
+                zIndex: "2",
+              }}
+            />
+            <ButtonShareComponent />
+          </Styled.ButtonWrapper>
         )}
       </Styled.Content>
       <Styled.Image src={data?.image.url} />

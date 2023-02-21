@@ -16,6 +16,14 @@ export const Container = styled.section`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+  }
+`;
+
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -41,7 +49,6 @@ export const ContentContainer = styled.div`
 
     & a {
       font-size: 1em !important;
-      padding: 1.195em 1.88em !important;
     }
   }
 `;
