@@ -8,7 +8,7 @@ export const EstimationValidation = () => {
       .trim()
       .matches(/^[a-zA-Z0-9 ]+$/, "invalid username")
       .min(1, "please fill empty fields")
-      .max(50, "you're over the limit"),
+      .max(150, "you're over the limit"),
     email: yup.string().email().required(),
     questionsArr: yup.array(
       yup.object({
@@ -34,11 +34,11 @@ export const EstimationValidation = () => {
                   .trim()
                   .required()
                   .min(1, "please fill empty fields")
-                  .max(300, "you're over the limit"),
+                  .max(500, "you're over the limit"),
                 otherwise: yup
                   .string()
                   .trim()
-                  .max(300, "you're over the limit"),
+                  .max(500, "you're over the limit"),
               })
         ),
       })

@@ -77,6 +77,14 @@ const EstimationPage = ({
     if (parentId) sendEmail.mutate(parentId);
   }, [parentId]);
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [pageN]);
+
   const pageAnswers = formData.clientAnswers.filter(
     (clientAnswer) => clientAnswer.pageIndex === pageN
   );
@@ -199,10 +207,11 @@ const EstimationPage = ({
                               answer.selectedOptions.length === 0
                           );
                           if (
-                            !questionWithError ||
-                            pageN !== questionWithError?.pageIndex
-                          )
+                            questionWithError &&
+                            pageN !== questionWithError.pageIndex
+                          ) {
                             setPage(questionWithError?.pageIndex as number);
+                          }
                         }
                         setTouched(true);
                       }}
