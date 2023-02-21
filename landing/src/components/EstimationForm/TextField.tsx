@@ -31,6 +31,8 @@ const TextField = ({
   setAttachFiles,
   attachFilesArr,
   touched,
+  required,
+  optionsType,
   ...props
 }: EstimationField) => {
   const [filesPerQuestion, setFilesPerQuestion] = useState<File[]>(
@@ -104,7 +106,9 @@ const TextField = ({
                 e,
                 title,
                 questionKey,
-                currentPage
+                currentPage,
+                required,
+                optionsType
               ),
       };
     });

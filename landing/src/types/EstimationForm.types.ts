@@ -42,6 +42,8 @@ export interface EstimationField {
   setAttachFiles?: Dispatch<SetStateAction<IFormFileData[]>>;
   attachFilesArr?: IFormFileData[];
   touched: boolean;
+  required: boolean;
+  optionsType: string;
 }
 
 export interface EstimationData {
@@ -57,7 +59,9 @@ export interface SelectedOption {
 export interface ClientAnswer {
   questionKey: string;
   pageIndex: number;
+  required: boolean;
   questionTitle: string;
+  optionsType: string;
   selectedOptions: SelectedOption[];
 }
 export interface IFormData {

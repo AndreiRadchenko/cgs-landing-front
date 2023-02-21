@@ -16,6 +16,7 @@ import {
 import Pagination from "./Pagination";
 import { EstimationValidation } from "../../validations/EstimationValidation";
 import {
+  ClientAnswer,
   IFormData,
   IFormFileData,
   ISendData,
@@ -76,6 +77,14 @@ const EstimationPage = ({
     if (parentId) sendEmail.mutate(parentId);
   }, [parentId]);
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [pageN]);
+
   const pageAnswers = formData.clientAnswers.filter(
     (clientAnswer) => clientAnswer.pageIndex === pageN
   );
@@ -84,8 +93,8 @@ const EstimationPage = ({
     return <Loader />;
   }
 
-  const initialValues = {
-    questionsArr: data?.page.questions.map((question) => {
+  const createAllInitialValues = () => {
+    const initialPageQuestions = data?.page.questions.map((question) => {
       const questionAnswer = pageAnswers.find(
         (answer) => answer.questionKey === question.questionKey
       );
@@ -101,7 +110,31 @@ const EstimationPage = ({
                 (selectedOption) => selectedOption.text
               ) || [],
       };
-    }),
+    });
+    if (pageN === data?.pageCount) {
+      return [
+        ...(initialPageQuestions || []),
+        ...formData?.clientAnswers.map((question) => {
+          return {
+            questionTitle: question.questionTitle,
+            required: question.required,
+            value:
+              question.optionsType === "TEXT" ||
+              question.optionsType === "RADIO_BUTTON"
+                ? question.selectedOptions[0]?.text || ""
+                : question?.selectedOptions?.map(
+                    (selectedOption) => selectedOption.text
+                  ) || [],
+          };
+        }),
+      ];
+    } else {
+      return initialPageQuestions;
+    }
+  };
+
+  const initialValues = {
+    questionsArr: createAllInitialValues(),
   };
 
   return (
@@ -163,7 +196,25 @@ const EstimationPage = ({
                       </EstimationButtonHelperText>
                     )}
                     <StyledButton
-                      onClick={() => setTouched(true)}
+                      onClick={() => {
+                        if (
+                          Object.keys(errors).length !== 0 &&
+                          pageN === data?.pageCount
+                        ) {
+                          const questionWithError = formData.clientAnswers.find(
+                            (answer) =>
+                              answer.required &&
+                              answer.selectedOptions.length === 0
+                          );
+                          if (
+                            questionWithError &&
+                            pageN !== questionWithError.pageIndex
+                          ) {
+                            setPage(questionWithError?.pageIndex as number);
+                          }
+                        }
+                        setTouched(true);
+                      }}
                       type="submit"
                     >
                       {data?.pageCount > pageN

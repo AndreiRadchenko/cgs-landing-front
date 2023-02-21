@@ -23,7 +23,9 @@ export const createField = (
   e: ChangeEvent<HTMLInputElement>,
   title: string,
   questionKey: string,
-  currentPage: number
+  currentPage: number,
+  required: boolean,
+  optionsType: string
 ) => {
   return [
     ...prevState.clientAnswers,
@@ -31,6 +33,8 @@ export const createField = (
       questionTitle: getTextFromHtml(title),
       questionKey: questionKey,
       pageIndex: currentPage as number,
+      required: required,
+      optionsType: optionsType,
       selectedOptions: [{ text: e.target.value }],
     },
   ];

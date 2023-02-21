@@ -23,6 +23,8 @@ const RadioField = ({
   questionKey,
   currentPage,
   touched,
+  required,
+  optionsType,
   ...props
 }: EstimationField) => {
   const formik = useFormikContext();
@@ -58,7 +60,9 @@ const RadioField = ({
                               e,
                               title,
                               questionKey,
-                              currentPage
+                              currentPage,
+                              required,
+                              optionsType
                             ),
                     };
                   });
