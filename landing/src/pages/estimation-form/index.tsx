@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HeaderText } from "../../components/EstimationForm/HeaderText";
 import {
   Container,
@@ -66,7 +66,10 @@ const EstimationsForm = () => {
 
   return (
     <Container>
-      <HeaderNavNew />
+      <HeaderNavNew
+        clickFromEstimationForm={true}
+        setOpenFailedModal={setOpenFailedModal}
+      />
       <ContainerDate>
         {openSuccessModal && <EstimationCongratsModal />}
         {openFailedModal && (
@@ -84,7 +87,10 @@ const EstimationsForm = () => {
         />
         <ImageBackground page={page} />
       </ContainerDate>
-      <FooterNew />
+      <FooterNew
+        clickFromEstimationForm={true}
+        setOpenFailedModal={setOpenFailedModal}
+      />
     </Container>
   );
 };
