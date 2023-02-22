@@ -67,7 +67,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
   };
 
   return isMobile ? (
-    <Styled.PortfolioRow>
+    <Styled.PortfolioRow id={category}>
       <Styled.NavigateWrapper>
         <Styled.NavigateLeft
           ref={navRef}
@@ -90,7 +90,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
       {renderSliderSlides}
     </Styled.PortfolioRow>
   ) : (
-    <div ref={portfolioRef}>
+    <div ref={portfolioRef} id={category}>
       <Separator className="portfolio" />
       <Styled.PortfolioRow>
         {reviews ? (
