@@ -137,6 +137,7 @@ export const EstimationQuestionAdditional = styled.div`
   top: 5px;
   right: -35px;
   transition: 0.3s;
+  padding-left: 50px;
 
   @media ${themes.primary.media.maxMobile} {
     right: -12px;
@@ -158,14 +159,6 @@ export const EstimationFieldBox = styled.div<IBlockErrorSplit>`
   padding: 16px 18px;
   margin-bottom: 34px;
 
-  &:hover ${EstimationQuestionAdditional} {
-    right: -43px;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    &:hover ${EstimationQuestionAdditional} {
-      right: -12px;
-    }
-  }
   @media ${themes.primary.media.maxMobile} {
     border: 1.5px solid ${themes.primary.colors.primary};
     margin-bottom: 30px;
@@ -740,5 +733,14 @@ export const HoverContainerEstimation = styled.div`
   }
   &:hover ${HoverBlockEstimation} {
     visibility: visible;
+  }
+
+  &:hover ${EstimationQuestionAdditional} {
+    right: -43px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    &:hover ${EstimationQuestionAdditional} {
+      right: -12px;
+    }
   }
 `;
