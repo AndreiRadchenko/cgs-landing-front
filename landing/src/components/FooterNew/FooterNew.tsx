@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import * as StyledThisComp from "./Footer.styled";
 import Link from "next/link";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
@@ -13,9 +19,15 @@ import Logo from "../HeaderNavNew/Logo";
 
 interface IFooterProps {
   className?: string;
+  setOpenFailedModal?: Dispatch<SetStateAction<boolean>>;
+  clickFromEstimationForm?: boolean;
 }
 
-const FooterNew = ({ className }: IFooterProps): JSX.Element => {
+const FooterNew = ({
+  className,
+  setOpenFailedModal,
+  clickFromEstimationForm,
+}: IFooterProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { width } = useWindowDimension();
 
@@ -36,7 +48,15 @@ const FooterNew = ({ className }: IFooterProps): JSX.Element => {
   return (
     <StyledThisComp.HeaderNavContainer ref={elRef} className={className}>
       <StyledThisComp.FlexRowContainer>
-        <StyledThisComp.LogoLinkWrapper href={"/"}>
+        <StyledThisComp.LogoLinkWrapper
+          onClick={(e) => {
+            if (clickFromEstimationForm) {
+              e.preventDefault();
+              setOpenFailedModal!(true);
+            }
+          }}
+          href={"/"}
+        >
           <Logo />
         </StyledThisComp.LogoLinkWrapper>
         <StyledThisComp.MiddleTextWrapper>
