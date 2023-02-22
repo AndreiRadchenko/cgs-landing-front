@@ -27,6 +27,14 @@ export const Wrapper = styled.section`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+  }
+`;
+
 export const Content = styled.div`
   display: flex;
   justify-content: space-between;
