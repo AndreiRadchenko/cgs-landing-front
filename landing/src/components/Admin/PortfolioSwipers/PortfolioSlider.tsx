@@ -8,7 +8,6 @@ import * as Styled from "../../../styles/PortfolioSlider.styled";
 import params from "../../../mock/PorfolioPageSwiperParams";
 import Review from "../../Portfolio/Review";
 import { Separator } from "../../../styles/Blog.styled";
-import { ArrowContainerRight } from "../../../styles/PortfolioSlider.styled";
 
 interface IPortfolioSwipers {
   reviews: IPortfolioReview[] | undefined;
@@ -27,6 +26,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
   const [isOpen, setIsOpen] = useState(false);
   const portfolioRef = useRef(null);
   const navRef = useRef<HTMLInputElement>(null);
+  console.log(navRef.current);
 
   let renderSliderSlides;
   if (reviews) {
@@ -45,6 +45,23 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
     );
   }
 
+  useEffect(() => {
+    if (window.location.href.includes("#")) {
+      setTimeout(() => {
+        window.scrollTo({
+          top: window.scrollY - 100,
+          left: 0,
+          behavior: "smooth",
+        });
+      }, 0);
+      if (
+        isMobile &&
+        navRef.current!.id === window.location.href.split("#")[1]
+      ) {
+        setIsOpen(true);
+      }
+    }
+  }, []);
   useEffect(() => {
     const getOffset = () => {
       if (navRef.current && navRef.current.getBoundingClientRect) {
@@ -67,10 +84,11 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
   };
 
   return isMobile ? (
-    <Styled.PortfolioRow id={category}>
+    <Styled.PortfolioRow>
       <Styled.NavigateWrapper>
         <Styled.NavigateLeft
           ref={navRef}
+          id={category}
           onClick={() => setIsOpen(!isOpen)}
           className={navigateMobileClassName()}
         >
