@@ -66,7 +66,7 @@ const Review = ({ review, className }: IReviewProps) => {
     review && (
       <Styled.ReviewContainer
         className={className}
-        id={`${review.category}${review.title}`}
+        id={`${review.category}_${review.title}`}
       >
         <Styled.ContentContainer>
           <Styled.ProjectHeader>

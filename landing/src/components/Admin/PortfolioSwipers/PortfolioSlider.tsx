@@ -26,7 +26,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
   const [isOpen, setIsOpen] = useState(false);
   const portfolioRef = useRef(null);
   const navRef = useRef<HTMLInputElement>(null);
-  console.log(navRef.current);
+  const swiperRef = useRef<any>(null);
 
   let renderSliderSlides;
   if (reviews) {
@@ -47,18 +47,34 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
 
   useEffect(() => {
     if (window.location.href.includes("#")) {
-      setTimeout(() => {
-        window.scrollTo({
-          top: window.scrollY - 100,
-          left: 0,
-          behavior: "smooth",
-        });
-      }, 0);
+      const elementToScroll = document.getElementById(
+        window.location.href.split("#")[1]
+      );
       if (
         isMobile &&
-        navRef.current!.id === window.location.href.split("#")[1]
+        navRef.current!.id === window.location.href.split("#")[1].split("_")[0]
       ) {
         setIsOpen(true);
+        setTimeout(() => {
+          window.scrollTo({
+            top: elementToScroll!.offsetTop - elementToScroll!.scrollTop,
+            left: 0,
+            behavior: "smooth",
+          });
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          window.scrollTo({
+            top: window.scrollY - 100,
+            left: 0,
+            behavior: "smooth",
+          });
+        }, 1);
+        swiperRef!.current.swiper.slideTo(
+          elementToScroll!.parentElement!.getAttribute(
+            "data-swiper-slide-index"
+          )
+        );
       }
     }
   }, []);
@@ -112,7 +128,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
       <Separator className="portfolio" />
       <Styled.PortfolioRow>
         {reviews ? (
-          <Swiper {...params}>
+          <Swiper ref={swiperRef} {...params}>
             <Styled.NavigateLeft>{category}</Styled.NavigateLeft>
             <Styled.NavigateRight>
               <Styled.ArrowContainerRight>
