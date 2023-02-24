@@ -6,7 +6,7 @@ export const EstimationValidation = () => {
       .string()
       .required()
       .trim()
-      .matches(/^[a-zA-Z0-9 ]+$/, "invalid username")
+      .matches(/^[a-zA-Z ]+$/, "invalid username")
       .min(1, "please fill empty fields")
       .max(150, "you're over the limit"),
     email: yup.string().email().required(),
