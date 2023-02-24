@@ -8,7 +8,8 @@ import * as Styled from "../../../styles/PortfolioSlider.styled";
 import params from "../../../mock/PorfolioPageSwiperParams";
 import Review from "../../Portfolio/Review";
 import { Separator } from "../../../styles/Blog.styled";
-import { ArrowContainerRight } from "../../../styles/PortfolioSlider.styled";
+import { makeALink } from "../../../utils/makeALink";
+import { AnchorLinkContainer } from "../../Portfolio/AnchorLinkContainer";
 
 interface IPortfolioSwipers {
   reviews: IPortfolioReview[] | undefined;
@@ -25,8 +26,10 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
 }) => {
   const [isOnTop, setIsOnTop] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [openCategory, setOpenCategory] = useState("");
   const portfolioRef = useRef(null);
   const navRef = useRef<HTMLInputElement>(null);
+  const swiperRef = useRef<any>(null);
 
   let renderSliderSlides;
   if (reviews) {
@@ -45,6 +48,40 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
     );
   }
 
+  useEffect(() => {
+    if (window.location.href.includes("#")) {
+      const elementToScroll = document.getElementById(
+        window.location.href.split("#")[1]
+      );
+      if (
+        isMobile &&
+        navRef.current!.id === window.location.href.split("#")[1].split("_")[0]
+      ) {
+        setIsOpen(true);
+        setTimeout(() => {
+          window.scrollTo({
+            top: elementToScroll!.offsetTop - elementToScroll!.scrollTop,
+            left: 0,
+            behavior: "smooth",
+          });
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          window.scrollTo({
+            top: window.scrollY - 100,
+            left: 0,
+            behavior: "smooth",
+          });
+        }, 1);
+        if (window.location.href.includes("_"))
+          swiperRef!.current.swiper.slideTo(
+            elementToScroll!.parentElement!.getAttribute(
+              "data-swiper-slide-index"
+            )
+          );
+      }
+    }
+  }, []);
   useEffect(() => {
     const getOffset = () => {
       if (navRef.current && navRef.current.getBoundingClientRect) {
@@ -71,6 +108,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
       <Styled.NavigateWrapper>
         <Styled.NavigateLeft
           ref={navRef}
+          id={category}
           onClick={() => setIsOpen(!isOpen)}
           className={navigateMobileClassName()}
         >
@@ -90,12 +128,26 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
       {renderSliderSlides}
     </Styled.PortfolioRow>
   ) : (
-    <div ref={portfolioRef}>
+    <div ref={portfolioRef} id={category}>
       <Separator className="portfolio" />
       <Styled.PortfolioRow>
         {reviews ? (
-          <Swiper {...params}>
-            <Styled.NavigateLeft>{category}</Styled.NavigateLeft>
+          <Swiper ref={swiperRef} {...params}>
+            <Styled.NavigateLeft
+              onClick={() =>
+                openCategory === category
+                  ? setOpenCategory("")
+                  : setOpenCategory(category)
+              }
+            >
+              {category}
+              {openCategory === category && (
+                <AnchorLinkContainer
+                  link={makeALink(category)}
+                  isProject={false}
+                />
+              )}
+            </Styled.NavigateLeft>
             <Styled.NavigateRight>
               <Styled.ArrowContainerRight>
                 <svg
