@@ -141,6 +141,8 @@ const EstimationPage = ({
     <ContainerEstimationForm>
       <Formik
         enableReinitialize
+        validateOnChange
+        validateOnBlur
         initialValues={{
           username: formData.clientName,
           email: formData.clientEmail,
@@ -197,6 +199,12 @@ const EstimationPage = ({
                     )}
                     <StyledButton
                       onClick={() => {
+                        if (
+                          errors.hasOwnProperty("username") ||
+                          errors.hasOwnProperty("email")
+                        ) {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
                         if (
                           Object.keys(errors).length !== 0 &&
                           pageN === data?.pageCount

@@ -42,7 +42,7 @@ const TextField = ({
 
   const formik = useFormikContext();
   const [, meta] = useField(`questionsArr[${index}]`);
-  const [, metaUsername] = useField("username");
+  const [fieldUsername, metaUsername] = useField("username");
   const [, metaEmail] = useField("email");
 
   let placeholder = "Text";
@@ -121,13 +121,17 @@ const TextField = ({
       <EstimateFileContainerWithInput>
         <EstimationTextInput
           attachFile={attachFile && true}
-          error={
-            getTextFromHtml(title) === "Your Name" ||
-            getTextFromHtml(title) === "Your Email"
-              ? getTextFromHtml(title) === "Your Email"
-                ? !!metaEmail.error && touched
-                : !!metaUsername.error && touched
-              : !!meta.error && touched
+          error={!!meta.error && touched}
+          borderErrorEmail={
+            getTextFromHtml(title) === "Your Email" &&
+            !meta.error &&
+            !!metaEmail.error
+          }
+          borderErrorUsername={
+            getTextFromHtml(title) === "Your Name" &&
+            !meta.error &&
+            !!metaUsername.error &&
+            fieldUsername.value.length > 1
           }
           onChange={handleOnChange}
           value={meta.value.value}
