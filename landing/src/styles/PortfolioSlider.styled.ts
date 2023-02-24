@@ -1,6 +1,9 @@
 import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 
+interface IAnchorLink {
+  readonly isProject: boolean;
+}
 export const NavigateWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     height: 150px;
@@ -498,6 +501,11 @@ export const PortfolioProjectHeader = styled.div`
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: ${themes.primary.font.size.homeMainSubtitle};
   }
+  position: relative;
+
+  p {
+    margin: 0;
+  }
 `;
 
 export const Separator = styled.div`
@@ -662,4 +670,43 @@ export const Loader = styled.div`
   height: 100%;
   z-index: 10;
   background-color: red;
+`;
+
+export const AnchorLinkContainer = styled.div<IAnchorLink>`
+  width: 180px;
+  height: 45px;
+  position: absolute;
+  top: ${({ isProject }) => (!isProject ? "70px" : "50px")};
+  right: ${({ isProject }) => !isProject && "50%"};
+  left: ${({ isProject }) => isProject && "0"};
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  gap: 14px;
+  writing-mode: horizontal-tb;
+  transform: ${({ isProject }) => !isProject && "rotate(180deg)"};
+  background: ${themes.primary.colors.blogBackground};
+  border: 1px solid ${themes.primary.colors.headerBorder};
+
+  p {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    color: ${themes.primary.colors.darkBlue};
+    font-size: 14px;
+    line-height: 130%;
+    width: 121px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  svg {
+    cursor: pointer;
+    path {
+      transition: 0.3s;
+    }
+  }
+  svg:hover path {
+    fill: ${themes.primary.colors.blogArticleText};
+  }
 `;

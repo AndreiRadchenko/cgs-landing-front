@@ -8,6 +8,8 @@ import * as Styled from "../../../styles/PortfolioSlider.styled";
 import params from "../../../mock/PorfolioPageSwiperParams";
 import Review from "../../Portfolio/Review";
 import { Separator } from "../../../styles/Blog.styled";
+import { makeALink } from "../../../utils/makeALink";
+import { AnchorLinkContainer } from "../../Portfolio/AnchorLinkContainer";
 
 interface IPortfolioSwipers {
   reviews: IPortfolioReview[] | undefined;
@@ -24,6 +26,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
 }) => {
   const [isOnTop, setIsOnTop] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [openCategory, setOpenCategory] = useState("");
   const portfolioRef = useRef(null);
   const navRef = useRef<HTMLInputElement>(null);
   const swiperRef = useRef<any>(null);
@@ -70,11 +73,12 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
             behavior: "smooth",
           });
         }, 1);
-        swiperRef!.current.swiper.slideTo(
-          elementToScroll!.parentElement!.getAttribute(
-            "data-swiper-slide-index"
-          )
-        );
+        if (window.location.href.includes("_"))
+          swiperRef!.current.swiper.slideTo(
+            elementToScroll!.parentElement!.getAttribute(
+              "data-swiper-slide-index"
+            )
+          );
       }
     }
   }, []);
@@ -129,7 +133,21 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
       <Styled.PortfolioRow>
         {reviews ? (
           <Swiper ref={swiperRef} {...params}>
-            <Styled.NavigateLeft>{category}</Styled.NavigateLeft>
+            <Styled.NavigateLeft
+              onClick={() =>
+                openCategory === category
+                  ? setOpenCategory("")
+                  : setOpenCategory(category)
+              }
+            >
+              {category}
+              {openCategory === category && (
+                <AnchorLinkContainer
+                  link={makeALink(category)}
+                  isProject={false}
+                />
+              )}
+            </Styled.NavigateLeft>
             <Styled.NavigateRight>
               <Styled.ArrowContainerRight>
                 <svg
