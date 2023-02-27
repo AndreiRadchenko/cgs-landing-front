@@ -1,7 +1,7 @@
 import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio.types";
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, RefAttributes, useEffect, useRef, useState } from "react";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperProps, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/bundle";
 import * as Styled from "../../../styles/PortfolioSlider.styled";
@@ -19,6 +19,16 @@ interface IPortfolioSwipers {
 
 SwiperCore.use([Navigation, Autoplay]);
 
+const Position = (obj: any) => {
+  let currentTop = 0;
+  if (obj!.offsetParent) {
+    do {
+      currentTop += obj!.offsetTop;
+    } while ((obj = obj!.offsetParent));
+    return currentTop;
+  }
+};
+
 const PortfolioSlider: FC<IPortfolioSwipers> = ({
   reviews,
   category,
@@ -29,6 +39,11 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
   const [openCategory, setOpenCategory] = useState("");
   const portfolioRef = useRef(null);
   const navRef = useRef<HTMLInputElement>(null);
+
+  const RefSwiper: React.FunctionComponent<
+    SwiperProps & RefAttributes<SwiperCore>
+  > = Swiper;
+
   const swiperRef = useRef<any>(null);
 
   let renderSliderSlides;
@@ -60,7 +75,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
         setIsOpen(true);
         setTimeout(() => {
           window.scrollTo({
-            top: elementToScroll!.offsetTop - elementToScroll!.scrollTop,
+            top: Position(elementToScroll!),
             left: 0,
             behavior: "smooth",
           });
@@ -73,7 +88,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
             behavior: "smooth",
           });
         }, 1);
-        if (window.location.href.includes("_"))
+        if (window.location.href.includes("_") && swiperRef!.current)
           swiperRef!.current.swiper.slideTo(
             elementToScroll!.parentElement!.getAttribute(
               "data-swiper-slide-index"
@@ -132,7 +147,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
       <Separator className="portfolio" />
       <Styled.PortfolioRow>
         {reviews ? (
-          <Swiper ref={swiperRef} {...params}>
+          <RefSwiper ref={swiperRef} {...params}>
             <Styled.NavigateLeft
               onClick={() =>
                 openCategory === category
@@ -199,7 +214,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
               </Styled.ArrowContainerLeft>
             </Styled.NavigateRight>
             {renderSliderSlides}
-          </Swiper>
+          </RefSwiper>
         ) : (
           <Styled.NoRewiews>No reviews</Styled.NoRewiews>
         )}

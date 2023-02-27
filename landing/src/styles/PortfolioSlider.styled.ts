@@ -676,7 +676,7 @@ export const AnchorLinkContainer = styled.div<IAnchorLink>`
   width: 180px;
   height: 45px;
   position: absolute;
-  top: ${({ isProject }) => (!isProject ? "70px" : "50px")};
+  top: ${({ isProject }) => (!isProject ? "70px" : "60px")};
   right: ${({ isProject }) => !isProject && "50%"};
   left: ${({ isProject }) => isProject && "0"};
   display: flex;
@@ -687,6 +687,11 @@ export const AnchorLinkContainer = styled.div<IAnchorLink>`
   transform: ${({ isProject }) => !isProject && "rotate(180deg)"};
   background: ${themes.primary.colors.blogBackground};
   border: 1px solid ${themes.primary.colors.headerBorder};
+  z-index: 5;
+
+  @media ${themes.primary.media.maxMobile} {
+    top: -45px;
+  }
 
   p {
     font-family: ${themes.primary.font.family.namu};
