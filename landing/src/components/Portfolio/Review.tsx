@@ -69,23 +69,27 @@ const Review = ({ review, className }: IReviewProps) => {
     review && (
       <Styled.ReviewContainer
         className={className}
-        id={`${review.category}_${review.title.trim()}`}
+        id={`${review.category}_${review.title.replaceAll(" ", "")}`}
       >
         <Styled.ContentContainer>
           <Styled.ProjectHeader>
             <Styled.PortfolioProjectHeader>
-              {openProject === `${review.category}_${review.title.trim()}` && (
+              {openProject ===
+                `${review.category}_${review.title.replaceAll(" ", "")}` && (
                 <AnchorLinkContainer
                   isProject
-                  link={makeALink(`${review.category}_${review.title.trim()}`)}
+                  link={makeALink(
+                    `${review.category}_${review.title.replaceAll(" ", "")}`
+                  )}
                 />
               )}
               <p
                 onClick={() =>
-                  openProject === `${review.category}_${review.title.trim()}`
+                  openProject ===
+                  `${review.category}_${review.title.replaceAll(" ", "")}`
                     ? setOpenProject("")
                     : setOpenProject(
-                        `${review.category}_${review.title.trim()}`
+                        `${review.category}_${review.title.replaceAll(" ", "")}`
                       )
                 }
               >

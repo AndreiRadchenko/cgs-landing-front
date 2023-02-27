@@ -1,3 +1,3 @@
 export const makeALink = (element: string) => {
-  return `https://cd-landing-frontend-stg.herokuapp.com/portfolio#${element}`;
+  return `http://localhost:3000/portfolio#${element}`;
 };
