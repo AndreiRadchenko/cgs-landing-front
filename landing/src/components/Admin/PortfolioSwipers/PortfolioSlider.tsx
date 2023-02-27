@@ -19,15 +19,15 @@ interface IPortfolioSwipers {
 
 SwiperCore.use([Navigation, Autoplay]);
 
-function Position(obj) {
+const Position = (obj: any) => {
   let currentTop = 0;
-  if (obj.offsetParent) {
+  if (obj!.offsetParent) {
     do {
-      currentTop += obj.offsetTop;
-    } while ((obj = obj.offsetParent));
+      currentTop += obj!.offsetTop;
+    } while ((obj = obj!.offsetParent));
     return currentTop;
   }
-}
+};
 
 const PortfolioSlider: FC<IPortfolioSwipers> = ({
   reviews,
@@ -75,7 +75,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
         setIsOpen(true);
         setTimeout(() => {
           window.scrollTo({
-            top: Position(elementToScroll),
+            top: Position(elementToScroll!),
             left: 0,
             behavior: "smooth",
           });
