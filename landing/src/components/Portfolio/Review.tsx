@@ -77,6 +77,7 @@ const Review = ({ review, className }: IReviewProps) => {
               {openProject ===
                 `${review.category}_${review.title.replaceAll(" ", "")}` && (
                 <AnchorLinkContainer
+                  setOpenProject={setOpenProject}
                   isProject
                   link={makeALink(
                     `${review.category}_${review.title.replaceAll(" ", "")}`
