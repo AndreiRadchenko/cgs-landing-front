@@ -4,8 +4,8 @@ export const EstimationValidation = () => {
   return yup.object({
     username: yup
       .string()
-      .required()
       .trim()
+      .required()
       .matches(/^[a-zA-Z ]+$/, "invalid username")
       .min(1, "please fill empty fields")
       .max(150, "you're over the limit"),

@@ -41,8 +41,8 @@ const TextField = ({
   const [tooManyFiles, setTooManyFiles] = useState(false);
 
   const formik = useFormikContext();
-  const [, meta] = useField(`questionsArr[${index}]`);
-  const [fieldUsername, metaUsername] = useField("username");
+  const [field, meta] = useField(`questionsArr[${index}]`);
+  const [, metaUsername] = useField("username");
   const [, metaEmail] = useField("email");
 
   let placeholder = "Text";
@@ -114,6 +114,11 @@ const TextField = ({
     });
 
     formik.setFieldValue(`questionsArr[${index}].value`, e.target.value);
+    if (getTextFromHtml(title) === "Your Name") {
+      formik.setFieldValue(`username`, e.target.value);
+    }
+    if (getTextFromHtml(title) === "Your Email")
+      formik.setFieldValue(`email`, e.target.value);
   };
   return (
     <div style={{ position: "relative" }}>
@@ -121,17 +126,14 @@ const TextField = ({
       <EstimateFileContainerWithInput>
         <EstimationTextInput
           attachFile={attachFile && true}
-          error={!!meta.error && touched}
+          error={!!meta.error && field.value.value.length === 0 && touched}
           borderErrorEmail={
             getTextFromHtml(title) === "Your Email" &&
             !meta.error &&
             !!metaEmail.error
           }
           borderErrorUsername={
-            getTextFromHtml(title) === "Your Name" &&
-            !meta.error &&
-            !!metaUsername.error &&
-            fieldUsername.value.length > 1
+            getTextFromHtml(title) === "Your Name" && !!metaUsername.error
           }
           onChange={handleOnChange}
           value={meta.value.value}
