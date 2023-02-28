@@ -785,3 +785,23 @@ export const EstimationErrorMark = styled.div`
     right: -12px;
   }
 `;
+
+export const EstimationTextOfInput = styled.p`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 18px;
+  line-height: 22px;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  position: absolute;
+  left: 2px;
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  a {
+    color: ${themes.primary.colors.mainGradientColor2};
+  }
+`;

@@ -10,6 +10,7 @@ import {
   EstimateFileType,
   EstimationFieldLabel,
   EstimationTextInput,
+  EstimationTextOfInput,
 } from "../../styles/EstimationForm.styled";
 import { EstimationField } from "../../types/EstimationForm.types";
 
@@ -33,6 +34,7 @@ const TextField = ({
   touched,
   required,
   optionsType,
+  optional,
   ...props
 }: EstimationField) => {
   const [filesPerQuestion, setFilesPerQuestion] = useState<File[]>(
@@ -82,6 +84,15 @@ const TextField = ({
     setFilesPerQuestion(newArrFiles);
   };
 
+  function linkify(value: string) {
+    const urlRegex =
+      /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/gim;
+    return value.replace(urlRegex, (url) => {
+      console.log(<span>{url}</span>);
+      return `<a>${url}</a>`;
+    });
+  }
+
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     props.setFormData((prevState) => {
       const indexOfAnswer = prevState.clientAnswers.findIndex(
@@ -124,25 +135,40 @@ const TextField = ({
     <div style={{ position: "relative" }}>
       <EstimationFieldLabel dangerouslySetInnerHTML={{ __html: title }} />
       <EstimateFileContainerWithInput>
-        <EstimationTextInput
-          attachFile={attachFile && true}
-          error={!!meta.error && field.value.value.length === 0 && touched}
-          borderErrorEmail={
-            getTextFromHtml(title) === "Your Email" &&
-            !meta.error &&
-            !!metaEmail.error
-          }
-          borderErrorUsername={
-            getTextFromHtml(title) === "Your Name" && !!metaUsername.error
-          }
-          onChange={handleOnChange}
-          value={meta.value.value}
-          type="text"
-          placeholder={
-            attachFile ? "< Put your link//file here > " : `< ${placeholder} >`
-          }
-          {...props}
-        />
+        {/* {optional && (
+
+        )}*/}
+        {optional ? (
+          <div contentEditable>
+            <EstimationTextOfInput
+              dangerouslySetInnerHTML={{
+                __html: linkify(meta.value.value),
+              }}
+            />
+          </div>
+        ) : (
+          <EstimationTextInput
+            attachFile={attachFile && true}
+            error={!!meta.error && field.value.value.length === 0 && touched}
+            borderErrorEmail={
+              getTextFromHtml(title) === "Your Email" &&
+              !meta.error &&
+              !!metaEmail.error
+            }
+            borderErrorUsername={
+              getTextFromHtml(title) === "Your Name" && !!metaUsername.error
+            }
+            onChange={handleOnChange}
+            value={meta.value.value}
+            type="text"
+            placeholder={
+              attachFile
+                ? "< Put your link//file here > "
+                : `< ${placeholder} >`
+            }
+            {...props}
+          />
+        )}
         {attachFile && (
           <div>
             <EstimateFileAttachInput

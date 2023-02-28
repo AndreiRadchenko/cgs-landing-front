@@ -213,6 +213,7 @@ const EstimationQuestionField = ({
             touched={touched}
             required={question.isRequired}
             optionsType={question.optionsType}
+            optional={!question.isRequired}
           />
         )}
         {question.optionsType === "RADIO_BUTTON" && (
