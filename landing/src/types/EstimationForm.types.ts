@@ -44,6 +44,7 @@ export interface EstimationField {
   touched: boolean;
   required: boolean;
   optionsType: string;
+  optional?: boolean;
 }
 
 export interface EstimationData {

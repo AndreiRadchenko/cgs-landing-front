@@ -4,7 +4,7 @@ import themes from "../utils/themes";
 interface IBlockErrorSplit {
   readonly error?: boolean;
   readonly split?: boolean;
-  readonly attachFile?: boolean;
+  readonly optional?: boolean;
   readonly borderErrorEmail?: boolean;
   readonly borderErrorUsername?: boolean;
 }
@@ -250,7 +250,7 @@ export const EstimationTextInput = styled.input<IBlockErrorSplit>`
   color: ${(props) =>
     props.error
       ? `${themes.primary.colors.secondary}`
-      : props.attachFile
+      : props.optional
       ? `${themes.primary.colors.mainGradientColor2}`
       : props.borderErrorEmail || props.borderErrorUsername
       ? `${themes.primary.colors.deleteButton}`
@@ -783,5 +783,25 @@ export const EstimationErrorMark = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     right: -12px;
+  }
+`;
+
+export const EstimationTextOfInput = styled.p`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 18px;
+  line-height: 22px;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  position: absolute;
+  left: 2px;
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  a {
+    color: ${themes.primary.colors.mainGradientColor2};
   }
 `;
