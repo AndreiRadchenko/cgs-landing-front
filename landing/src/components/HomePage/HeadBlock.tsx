@@ -13,6 +13,7 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ButtonShareComponent from "./ButtonShareComponent";
 import GetEstimationButton from "../GetEstimationButton";
+import { RowContainerHeading } from "../../styles/HomePage/General.styled";
 
 const HeadBlock = () => {
   const { width } = useWindowDimension();
@@ -41,14 +42,18 @@ const HeadBlock = () => {
         <Styled.Title>{data?.title}</Styled.Title>
         <Styled.MainSubtitle>
           <Styled.RowContainer>
-            <div>SHARP DEVS WITH PROF TECHS</div>
+            <Styled.RowContainerHeading>
+              WEB3-focused, WEB2-bolstered
+            </Styled.RowContainerHeading>
             <Styled.LeftArrowWrapper>
-              <Image
-                src={width && width > 798 ? leftArrow.src : boldLeftArrowMobile}
-                alt="head block left arrow"
-                layout="fill"
-                objectFit="contain"
-              />
+              {width && width > 798 && (
+                <Image
+                  src={leftArrow.src}
+                  alt="head block left arrow"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              )}
             </Styled.LeftArrowWrapper>
           </Styled.RowContainer>
           <Styled.RowContainer>
