@@ -7,13 +7,14 @@ import * as Styled from "../../styles/MobileService/ProfBlock.styled";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import GetEstimationButton from "../GetEstimationButton";
+import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 const ProfBlock = () => {
   const queryClient = useQueryClient();
+  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceMobile>([
     queryKeys.getServiceMobilePage,
   ])?.footerBlock;
-  const elRef = useRef(null);
 
   const isOnScreen = useOnScreen(elRef, true);
 
@@ -47,8 +48,8 @@ const ProfBlock = () => {
       <Styled.ProfText>
         {data && parse(data.text.replace("|", "<br />"), options)}
       </Styled.ProfText>
-      <Styled.ButtonWrapper>
-        {data && (
+      {data && (
+        <Styled.ButtonWrapper ref={elRef}>
           <GetEstimationButton
             buttonLink={data?.buttonLink}
             buttonText={data.button}
@@ -56,10 +57,12 @@ const ProfBlock = () => {
             style={{
               padding: "1.117em 3.6em",
               fontSize: "1.5em",
+              whiteSpace: "nowrap",
             }}
           />
-        )}
-      </Styled.ButtonWrapper>
+          <ButtonShareComponent />
+        </Styled.ButtonWrapper>
+      )}
       <Styled.ImageWrapper>
         <Styled.Image src={data?.image.url} alt="prof block img" />
       </Styled.ImageWrapper>

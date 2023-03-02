@@ -17,6 +17,14 @@ export const Container = styled.section`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+  }
+`;
+
 export const Title = styled.h2`
   font-weight: inherit;
   font-size: 2.5em;

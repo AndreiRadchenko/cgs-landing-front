@@ -1,14 +1,15 @@
 import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio.types";
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, RefAttributes, useEffect, useRef, useState } from "react";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperProps, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/bundle";
 import * as Styled from "../../../styles/PortfolioSlider.styled";
 import params from "../../../mock/PorfolioPageSwiperParams";
 import Review from "../../Portfolio/Review";
 import { Separator } from "../../../styles/Blog.styled";
-import { ArrowContainerRight } from "../../../styles/PortfolioSlider.styled";
+import { makeALink } from "../../../utils/makeALink";
+import { AnchorLinkContainer } from "../../Portfolio/AnchorLinkContainer";
 
 interface IPortfolioSwipers {
   reviews: IPortfolioReview[] | undefined;
@@ -18,6 +19,16 @@ interface IPortfolioSwipers {
 
 SwiperCore.use([Navigation, Autoplay]);
 
+const Position = (obj: any) => {
+  let currentTop = 0;
+  if (obj!.offsetParent) {
+    do {
+      currentTop += obj!.offsetTop;
+    } while ((obj = obj!.offsetParent));
+    return currentTop;
+  }
+};
+
 const PortfolioSlider: FC<IPortfolioSwipers> = ({
   reviews,
   category,
@@ -25,8 +36,15 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
 }) => {
   const [isOnTop, setIsOnTop] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [openCategory, setOpenCategory] = useState("");
   const portfolioRef = useRef(null);
   const navRef = useRef<HTMLInputElement>(null);
+
+  const RefSwiper: React.FunctionComponent<
+    SwiperProps & RefAttributes<SwiperCore>
+  > = Swiper;
+
+  const swiperRef = useRef<any>(null);
 
   let renderSliderSlides;
   if (reviews) {
@@ -45,6 +63,44 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
     );
   }
 
+  useEffect(() => {
+    if (window.location.href.includes("#")) {
+      const elementToScroll = document.getElementById(
+        window.location.href.split("#")[1]
+      );
+      if (
+        isMobile &&
+        navRef.current!.id === window.location.href.split("#")[1].split("_")[0]
+      ) {
+        setIsOpen(true);
+        setTimeout(() => {
+          window.scrollTo({
+            top: Position(elementToScroll!),
+            left: 0,
+            behavior: "smooth",
+          });
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          window.scrollTo({
+            top: window.scrollY - 100,
+            left: 0,
+            behavior: "smooth",
+          });
+        }, 1);
+        if (
+          window.location.href.includes("_") &&
+          swiperRef!.current?.contains(elementToScroll!)
+        )
+          swiperRef!.current.swiper.slideTo(
+            elementToScroll!.parentElement!.getAttribute(
+              "data-swiper-slide-index"
+            ),
+            2000
+          );
+      }
+    }
+  }, []);
   useEffect(() => {
     const getOffset = () => {
       if (navRef.current && navRef.current.getBoundingClientRect) {
@@ -71,6 +127,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
       <Styled.NavigateWrapper>
         <Styled.NavigateLeft
           ref={navRef}
+          id={category}
           onClick={() => setIsOpen(!isOpen)}
           className={navigateMobileClassName()}
         >
@@ -90,12 +147,27 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
       {renderSliderSlides}
     </Styled.PortfolioRow>
   ) : (
-    <div ref={portfolioRef}>
+    <div ref={portfolioRef} id={category}>
       <Separator className="portfolio" />
       <Styled.PortfolioRow>
         {reviews ? (
-          <Swiper {...params}>
-            <Styled.NavigateLeft>{category}</Styled.NavigateLeft>
+          <RefSwiper ref={swiperRef} {...params}>
+            <Styled.NavigateLeft
+              onClick={() =>
+                openCategory === category
+                  ? setOpenCategory("")
+                  : setOpenCategory(category)
+              }
+            >
+              {category}
+              {openCategory === category && (
+                <AnchorLinkContainer
+                  link={makeALink(category)}
+                  isProject={false}
+                  setOpenCategory={setOpenCategory}
+                />
+              )}
+            </Styled.NavigateLeft>
             <Styled.NavigateRight>
               <Styled.ArrowContainerRight>
                 <svg
@@ -147,7 +219,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
               </Styled.ArrowContainerLeft>
             </Styled.NavigateRight>
             {renderSliderSlides}
-          </Swiper>
+          </RefSwiper>
         ) : (
           <Styled.NoRewiews>No reviews</Styled.NoRewiews>
         )}

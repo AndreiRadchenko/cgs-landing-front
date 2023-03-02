@@ -10,6 +10,7 @@ import {
   EstimateFileType,
   EstimationFieldLabel,
   EstimationTextInput,
+  EstimationTextOfInput,
 } from "../../styles/EstimationForm.styled";
 import { EstimationField } from "../../types/EstimationForm.types";
 
@@ -33,6 +34,8 @@ const TextField = ({
   touched,
   required,
   optionsType,
+  optional,
+  formData,
   ...props
 }: EstimationField) => {
   const [filesPerQuestion, setFilesPerQuestion] = useState<File[]>(
@@ -41,7 +44,7 @@ const TextField = ({
   const [tooManyFiles, setTooManyFiles] = useState(false);
 
   const formik = useFormikContext();
-  const [, meta] = useField(`questionsArr[${index}]`);
+  const [field, meta] = useField(`questionsArr[${index}]`);
   const [, metaUsername] = useField("username");
   const [, metaEmail] = useField("email");
 
@@ -59,11 +62,11 @@ const TextField = ({
 
   const handleFiles = (e: ChangeEvent<HTMLInputElement>) => {
     const totalFilesLength = e.target.files!.length + filesPerQuestion.length;
-    if (totalFilesLength > 3) {
+    if (totalFilesLength > 10) {
       setTooManyFiles(true);
       return;
     }
-    if (e.target.files!.length >= 1 && totalFilesLength <= 3) {
+    if (e.target.files!.length >= 1 && totalFilesLength <= 10) {
       setFilesPerQuestion((prevState) => {
         const addFile = prevState.some(
           (item) => item.name === e.target.files![0].name
@@ -81,7 +84,6 @@ const TextField = ({
     const newArrFiles = filesPerQuestion?.filter((file) => file.name !== name);
     setFilesPerQuestion(newArrFiles);
   };
-
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     props.setFormData((prevState) => {
       const indexOfAnswer = prevState.clientAnswers.findIndex(
@@ -114,20 +116,28 @@ const TextField = ({
     });
 
     formik.setFieldValue(`questionsArr[${index}].value`, e.target.value);
+    if (getTextFromHtml(title) === "Your Name") {
+      formik.setFieldValue(`username`, e.target.value);
+    }
+    if (getTextFromHtml(title) === "Your Email")
+      formik.setFieldValue(`email`, e.target.value);
   };
   return (
     <div style={{ position: "relative" }}>
       <EstimationFieldLabel dangerouslySetInnerHTML={{ __html: title }} />
       <EstimateFileContainerWithInput>
         <EstimationTextInput
-          attachFile={attachFile && true}
-          error={
-            getTextFromHtml(title) === "Your Name" ||
-            getTextFromHtml(title) === "Your Email"
-              ? getTextFromHtml(title) === "Your Email"
-                ? !!metaEmail.error && touched
-                : !!metaUsername.error && touched
-              : !!meta.error && touched
+          optional={optional && true}
+          error={!!meta.error && field.value.value.length === 0 && touched}
+          borderErrorEmail={
+            !!metaEmail.error &&
+            getTextFromHtml(title) === "Your Email" &&
+            formData!.clientEmail.length > 0
+          }
+          borderErrorUsername={
+            !!metaUsername.error &&
+            getTextFromHtml(title) === "Your Name" &&
+            formData!.clientName.length > 0
           }
           onChange={handleOnChange}
           value={meta.value.value}
@@ -156,7 +166,7 @@ const TextField = ({
       </EstimateFileContainerWithInput>
       {tooManyFiles && (
         <p style={{ color: "#5869dd", fontSize: "16px" }}>
-          You are able to add only 3 files
+          You are able to add only 10 files
         </p>
       )}
       {attachFile && (

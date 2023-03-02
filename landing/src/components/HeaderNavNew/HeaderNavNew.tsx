@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import * as StyledThisComp from "./HeaderNav.styled";
 import { navigationRoutesNamesNew, routersNew } from "../../utils/variables";
 import Link from "next/link";
@@ -10,7 +16,13 @@ import HeaderDropdown from "./HeaderDropdown";
 import Logo from "./Logo";
 import HeaderBurgerDropdown from "./HeaderBurgerDropdown";
 
-const HeaderNavNew = (): JSX.Element => {
+const HeaderNavNew = ({
+  setOpenFailedModal,
+  clickFromEstimationForm,
+}: {
+  setOpenFailedModal?: Dispatch<SetStateAction<boolean>>;
+  clickFromEstimationForm?: boolean;
+}): JSX.Element => {
   const headerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -48,7 +60,15 @@ const HeaderNavNew = (): JSX.Element => {
         <StyledThisComp.NavBarWrapper
           className={isScrolled ? "scrolled" : undefined}
         >
-          <StyledThisComp.LogoLinkWrapper href={"/"}>
+          <StyledThisComp.LogoLinkWrapper
+            onClick={(e) => {
+              if (clickFromEstimationForm) {
+                e.preventDefault();
+                setOpenFailedModal!(true);
+              }
+            }}
+            href={"/"}
+          >
             <Logo />
           </StyledThisComp.LogoLinkWrapper>
           <BurgerButton isOpen={isOpen} onToggle={toggleBurgerHandler} />

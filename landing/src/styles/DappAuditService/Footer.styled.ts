@@ -35,6 +35,14 @@ export const TitleWrapper = styled.div`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+  }
+`;
+
 export const ImageWrapper = styled.div`
   position: absolute;
   top: 12%;

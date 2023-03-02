@@ -25,6 +25,14 @@ export const ContentWrapper = styled.div`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+  }
+`;
+
 export const Title = styled.h2`
   margin: 0 0 1.375em;
   font-weight: inherit;

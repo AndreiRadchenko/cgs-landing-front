@@ -26,6 +26,14 @@ export const TextContent = styled.div`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+  }
+`;
+
 export const Image = styled.img`
   position: relative;
   right: 3.875em;
@@ -53,6 +61,7 @@ export const Image = styled.img`
 `;
 
 export const SubtitleWrapper = styled.div`
+  margin: 0 0 2.6em;
   line-height: 140%;
   width: 50em;
   h2 {

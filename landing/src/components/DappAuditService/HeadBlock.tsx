@@ -1,5 +1,5 @@
 import { useQueryClient } from "@tanstack/react-query";
-import React from "react";
+import React, { useRef } from "react";
 import * as Styled from "../../styles/DappAuditService/HeadBlock.styled";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
@@ -10,10 +10,12 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { replaceAt } from "../../utils/replaceStrByInd";
 import GetEstimationButton from "../GetEstimationButton";
 import { getPosition } from "../../utils/getPosition";
+import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 const HeadBlock = () => {
   const { width } = useWindowDimension();
   const queryClient = useQueryClient();
+  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceDappAudit>([
     queryKeys.getServiceDappAuditPage,
   ])?.headerBlock;
@@ -43,15 +45,18 @@ const HeadBlock = () => {
           <SplitBrackets text={data?.text} />
         </Styled.Text>
         {data && (
-          <GetEstimationButton
-            buttonLink={data?.buttonLink}
-            withEstimation
-            buttonText={data.button}
-            style={{
-              padding: "1em 1.43em",
-              fontSize: "1.125em",
-            }}
-          />
+          <Styled.ButtonWrapper ref={elRef}>
+            <GetEstimationButton
+              buttonLink={data?.buttonLink}
+              withEstimation
+              buttonText={data.button}
+              style={{
+                padding: "1em 1.43em",
+                fontSize: "1.125em",
+              }}
+            />
+            <ButtonShareComponent />
+          </Styled.ButtonWrapper>
         )}
       </Styled.TextContent>
       {data && (

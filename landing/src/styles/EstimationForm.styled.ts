@@ -4,7 +4,9 @@ import themes from "../utils/themes";
 interface IBlockErrorSplit {
   readonly error?: boolean;
   readonly split?: boolean;
-  readonly attachFile?: boolean;
+  readonly optional?: boolean;
+  readonly borderErrorEmail?: boolean;
+  readonly borderErrorUsername?: boolean;
 }
 
 interface IButtonModal {
@@ -137,6 +139,7 @@ export const EstimationQuestionAdditional = styled.div`
   top: 5px;
   right: -35px;
   transition: 0.3s;
+  padding-left: 50px;
 
   @media ${themes.primary.media.maxMobile} {
     right: -12px;
@@ -154,21 +157,17 @@ export const EstimationFieldBox = styled.div<IBlockErrorSplit>`
       ? `${themes.primary.colors.estimationAdminBg}`
       : `${themes.primary.colors.black}`};
   z-index: 1;
-  border: 2px solid ${themes.primary.colors.black};
+  border: ${({ borderErrorEmail, borderErrorUsername }) =>
+    borderErrorEmail || borderErrorUsername
+      ? `2px solid ${themes.primary.colors.deleteButton}`
+      : `2px solid ${themes.primary.colors.black}`};
   padding: 16px 18px;
-  margin-bottom: 34px;
 
-  &:hover ${EstimationQuestionAdditional} {
-    right: -43px;
-  }
   @media ${themes.primary.media.maxMobile} {
-    &:hover ${EstimationQuestionAdditional} {
-      right: -12px;
-    }
-  }
-  @media ${themes.primary.media.maxMobile} {
-    border: 1.5px solid ${themes.primary.colors.primary};
-    margin-bottom: 30px;
+    border: ${({ borderErrorEmail, borderErrorUsername }) =>
+      borderErrorEmail || borderErrorUsername
+        ? `1.5px solid ${themes.primary.colors.deleteButton}`
+        : `1.5px solid ${themes.primary.colors.black}`};
   }
 `;
 
@@ -251,8 +250,10 @@ export const EstimationTextInput = styled.input<IBlockErrorSplit>`
   color: ${(props) =>
     props.error
       ? `${themes.primary.colors.secondary}`
-      : props.attachFile
+      : props.optional
       ? `${themes.primary.colors.mainGradientColor2}`
+      : props.borderErrorEmail || props.borderErrorUsername
+      ? `${themes.primary.colors.deleteButton}`
       : `${themes.primary.colors.black}`};
   &::placeholder {
     color: ${(props) =>
@@ -734,11 +735,73 @@ export const HoverBlackBlockEstimation = styled.div`
 
 export const HoverContainerEstimation = styled.div`
   position: relative;
+  margin-bottom: 34px;
 
   &:hover ${HoverBlackBlockEstimation} {
     visibility: visible;
   }
   &:hover ${HoverBlockEstimation} {
     visibility: visible;
+  }
+
+  &:hover ${EstimationQuestionAdditional} {
+    right: -43px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 30px;
+    &:hover ${EstimationQuestionAdditional} {
+      right: -12px;
+    }
+  }
+`;
+
+export const ErrorText = styled.p`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 16px;
+  line-height: 19px;
+  color: ${themes.primary.colors.headerBorder};
+  margin: 5px 0 0 0;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+    line-height: 17px;
+  }
+`;
+
+export const EstimationErrorMark = styled.div`
+  position: absolute;
+  top: 5px;
+  right: -35px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: ${themes.primary.colors.deleteButton};
+  background-image: url("/exclamationPoint.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media ${themes.primary.media.maxMobile} {
+    right: -12px;
+  }
+`;
+
+export const EstimationTextOfInput = styled.p`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 18px;
+  line-height: 22px;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  position: absolute;
+  left: 2px;
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  a {
+    color: ${themes.primary.colors.mainGradientColor2};
   }
 `;

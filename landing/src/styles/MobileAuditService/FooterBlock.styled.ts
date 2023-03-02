@@ -21,6 +21,14 @@ export const Content = styled.div`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+  }
+`;
+
 export const ContentWrapper = styled.div``;
 
 export const Title = styled.h2`

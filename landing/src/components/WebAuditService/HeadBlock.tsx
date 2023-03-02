@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/WebAuditService/HeadBlock.styled";
@@ -6,9 +6,11 @@ import { IServiceWebAudit } from "../../types/Admin/Response.types";
 import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import GetEstimationButton from "../GetEstimationButton";
+import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
+  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceWebAudit>([
     queryKeys.getServiceWebAuditPage,
   ])?.headerBlock;
@@ -24,15 +26,19 @@ const HeadBlock = () => {
             <SplitBrackets text={data?.text} />
           </Styled.Description>
           {data && (
-            <GetEstimationButton
-              buttonLink={data?.buttonLink}
-              withEstimation
-              buttonText={data.button}
-              style={{
-                padding: "1.117em 2.537em",
-                fontSize: "1.5em",
-              }}
-            />
+            <Styled.ButtonWrapper ref={elRef}>
+              <GetEstimationButton
+                buttonLink={data?.buttonLink}
+                withEstimation
+                buttonText={data.button}
+                style={{
+                  padding: "1.117em 2.537em",
+                  fontSize: "1.5em",
+                  whiteSpace: "nowrap",
+                }}
+              />
+              <ButtonShareComponent />
+            </Styled.ButtonWrapper>
           )}
         </Styled.TextContainer>
         {data?.image && (

@@ -5,6 +5,8 @@ import RadioField from "./RadioField";
 import CheckboxField from "./CheckboxField";
 
 import {
+  ErrorText,
+  EstimationErrorMark,
   EstimationFieldBox,
   HoverBlackBlockEstimation,
   HoverBlockEstimation,
@@ -50,6 +52,15 @@ const EstimationQuestionField = ({
   const [field, meta] = useField(`questionsArr[${index}]`);
   const [, metaUsername] = useField("username");
   const [, metaEmail] = useField("email");
+
+  const conditionToShowEmailErr =
+    !!metaEmail.error &&
+    getTextFromHtml(question.title) === "Your Email" &&
+    formData.clientEmail.length > 0;
+  const conditionToShowNameErr =
+    !!metaUsername.error &&
+    getTextFromHtml(question.title) === "Your Name" &&
+    formData.clientName.length > 0;
 
   const additionalQuestionPayments = formData.clientAnswers[
     formData.clientAnswers.findIndex(
@@ -183,14 +194,9 @@ const EstimationQuestionField = ({
     <HoverContainerEstimation>
       <EstimationFieldBox
         key={question.questionKey}
-        error={
-          getTextFromHtml(question.title) === "Your Name" ||
-          getTextFromHtml(question.title) === "Your Email"
-            ? getTextFromHtml(question.title) === "Your Email"
-              ? !!metaEmail.error && touched
-              : !!metaUsername.error && touched
-            : !!meta.error && touched
-        }
+        error={!!meta.error && field.value.value.length === 0 && touched}
+        borderErrorEmail={conditionToShowEmailErr}
+        borderErrorUsername={conditionToShowNameErr}
       >
         {question.optionsType === "TEXT" && (
           <TextField
@@ -207,6 +213,8 @@ const EstimationQuestionField = ({
             touched={touched}
             required={question.isRequired}
             optionsType={question.optionsType}
+            optional={!question.isRequired}
+            formData={formData}
           />
         )}
         {question.optionsType === "RADIO_BUTTON" && (
@@ -243,10 +251,26 @@ const EstimationQuestionField = ({
         {question.isHiddenText && (
           <EstimationAdditionalQuestion hiddenText={question.hiddenText} />
         )}
+        {(conditionToShowNameErr || conditionToShowEmailErr) && (
+          <EstimationErrorMark />
+        )}
       </EstimationFieldBox>
-      <HoverBlockEstimation>
-        <HoverBlackBlockEstimation />
-      </HoverBlockEstimation>
+      {conditionToShowNameErr && (
+        <ErrorText>Name field can’t include symbols and numbers.</ErrorText>
+      )}
+      {conditionToShowEmailErr && (
+        <ErrorText>The email you entered is invalid.</ErrorText>
+      )}
+      {!(
+        (getTextFromHtml(question.title) === "Your Email" &&
+          !!metaEmail.error) ||
+        (getTextFromHtml(question.title) === "Your Name" &&
+          !!metaUsername.error)
+      ) && (
+        <HoverBlockEstimation>
+          <HoverBlackBlockEstimation />
+        </HoverBlockEstimation>
+      )}
     </HoverContainerEstimation>
   ) : (
     renderAdditionalQuestion()
