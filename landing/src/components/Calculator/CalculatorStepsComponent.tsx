@@ -18,6 +18,7 @@ interface ICalculatorStepsComponentProps {
   warnIsShow: boolean;
   setWarnIsShow: React.Dispatch<React.SetStateAction<boolean>>;
   children: ReactNode;
+  isBlockchain: boolean;
 }
 
 const CalculatorStepsComponent = ({
@@ -36,6 +37,7 @@ const CalculatorStepsComponent = ({
   handleQuit,
   warnIsShow,
   setWarnIsShow,
+  isBlockchain,
 }: ICalculatorStepsComponentProps) => {
   const arrayChildren = Children.toArray(children);
 
@@ -78,6 +80,7 @@ const CalculatorStepsComponent = ({
           warnIsShow={warnIsShow}
           setWarnIsShow={setWarnIsShow}
           arrayChildren={arrayChildren}
+          isBlockchain={isBlockchain}
         />
       )}
     </div>

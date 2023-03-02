@@ -47,6 +47,9 @@ const CalculatorPagerComponent = ({
   ]);
   const { width } = useWindowDimension();
 
+  // console.log("Inside classic loading: ", classicLoading);
+  // console.log("Inside blockchain loading: ", blockchainLoading);
+
   return width && isOpen && data ? (
     <CalculatorModal
       buttonText={buttonText}
@@ -65,7 +68,7 @@ const CalculatorPagerComponent = ({
           </CalculatorChooseLine>
           <CalculatorChooseLine mobile={width < 768}>
             <Styled.ChooseText onClick={handleClassicClick}>
-              <span>classic development</span>
+              <span>Classic development</span>
             </Styled.ChooseText>
           </CalculatorChooseLine>
         </Styled.ChooseModalWrapper>

@@ -17,6 +17,7 @@ import {
   ILeadMailData,
   IRoles,
   IStepOptions,
+  ICalculatorStep,
 } from "../../types/Admin/Response.types";
 import { Formik, FormikHelpers } from "formik";
 import { CalculatorValidation } from "../../validations/CalculatorValidation";
@@ -53,6 +54,9 @@ const Calculator = () => {
     () => adminCalculatorService.getCalculatorBlockchainSteps(),
     { enabled: startLoading }
   );
+
+  // console.log("Classic loading: ", classicLoading);
+  // console.log("Blockchain loading: ", blockchainLoading);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -200,30 +204,36 @@ const Calculator = () => {
       return resultObj;
     };
 
-    if (classicStepsData) {
+    const testName = (
+      definedStepData: void | ICalculatorStep[] | undefined
+    ) => {
+      if (!definedStepData) return;
+
       const matchData: Array<IStepOptions | Array<IStepOptions> | undefined> =
         questionsArr.map((question, idx) =>
           typeof question.answer === "string"
-            ? classicStepsData[idx].options.find(
+            ? definedStepData[idx].options.find(
                 (option) => question.answer === option.label
               )
-            : classicStepsData[idx].options.filter((option) =>
+            : definedStepData[idx].options.filter((option) =>
                 (question.answer as string[]).includes(option.label)
               )
         );
+
+      console.log("Match data: ", matchData);
 
       const matchSubStepData: Array<
         IStepOptions | Array<IStepOptions> | undefined
       > = questionsArr.map((question, idx) => {
         if (
-          classicStepsData[idx].subSteps &&
-          classicStepsData[idx].subSteps.length > 0
+          definedStepData[idx].subSteps &&
+          definedStepData[idx].subSteps.length > 0
         ) {
           return typeof question.subStepAnswer === "string"
-            ? classicStepsData[idx].subSteps[0].options.find(
+            ? definedStepData[idx].subSteps[0].options.find(
                 (option) => question.subStepAnswer === option.label
               )
-            : classicStepsData[idx].subSteps[0].options.filter((option) =>
+            : definedStepData[idx].subSteps[0].options.filter((option) =>
                 (question.subStepAnswer as string[]).includes(option.label)
               );
         }
@@ -231,18 +241,24 @@ const Calculator = () => {
 
       const resultObj: IRoles = {};
       getRolesHoursObject(matchData, resultObj);
+      console.log("Step 1 resultObj", resultObj);
       getRolesHoursObject(matchSubStepData, resultObj);
+      console.log("Step 2 resultObj", resultObj);
 
       const resultObjRolesCoef: IRoles = {};
       getRolesCoefObject(matchData, resultObjRolesCoef);
+      console.log("Step 1 resultObjRolesCoef", resultObjRolesCoef);
       getRolesCoefObject(matchSubStepData, resultObjRolesCoef);
+      console.log("Step 2 resultObjRolesCoef", resultObjRolesCoef);
 
       Object.entries(resultObjRolesCoef).map(
         (roleCoefArr) => (resultObj[roleCoefArr[0]] *= 1 + roleCoefArr[1])
       );
 
+      console.log("Resul Object: ", resultObj);
+
       const endCoef =
-        1 + getResults(classicStepsData, values.questionsArr, "endCoef");
+        1 + getResults(definedStepData, values.questionsArr, "endCoef");
       Object.entries(resultObj).forEach(
         (el) => (resultObj[el[0]] = el[1] * endCoef)
       );
@@ -256,6 +272,8 @@ const Calculator = () => {
               }
             })
             .filter((el) => el);
+
+          console.log("Result prices: ", resultPrices);
 
           return (
             ((resultPrices as number[]).reduce(
@@ -282,8 +300,11 @@ const Calculator = () => {
           )
           .reduce((acc, curr) => (acc ?? 0) + (curr ?? 0), 0);
 
-      const hours = getResults(classicStepsData, values.questionsArr, "hours");
-      const uxui = getResults(classicStepsData, values.questionsArr, "uxui");
+      console.log("Price is here: ", price);
+      console.log("Result Object is here: ", resultObj);
+
+      const hours = getResults(definedStepData, values.questionsArr, "hours");
+      const uxui = getResults(definedStepData, values.questionsArr, "uxui");
 
       if (
         typeof hours === "number" &&
@@ -296,16 +317,18 @@ const Calculator = () => {
           estimation: { uxui, hours, price },
           email,
         };
-        mutate(emailData);
+        // mutate(emailData);
         const leadEmailData: ILeadMailData = {
           uxui,
           hours,
           price,
         };
-        mutateLeadEmail({ answers: leadEmailData, email });
-        resetForm();
+        // mutateLeadEmail({ answers: leadEmailData, email });
+        // resetForm();
       }
-    }
+    };
+
+    testName(stepsData);
   };
 
   const handleMouseOver = () => {
@@ -389,6 +412,7 @@ const Calculator = () => {
                     handleQuit={handleQuit}
                     warnIsShow={warnIsShow}
                     setWarnIsShow={setWarnIsShow}
+                    isBlockchain={isBlockchain}
                   >
                     {stepsData.map((currentData, stepInd) => (
                       <div key={currentData.title}>
@@ -438,8 +462,8 @@ const Calculator = () => {
               handlePagerLeftButtonClick={handlePagerLeftButtonClick}
               buttonText={buttonText}
               startLoading={startLoading}
-              classicLoading={classicLoading}
-              blockchainLoading={blockchainLoading}
+              classicLoading={true}
+              blockchainLoading={true}
               classicStepsData={classicStepsData}
               blockchainStepsData={blockchainStepsData}
             />

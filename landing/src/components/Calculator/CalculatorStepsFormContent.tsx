@@ -23,6 +23,7 @@ interface ICalculatorStepsFormContentProps {
   warnIsShow: boolean;
   setWarnIsShow: React.Dispatch<React.SetStateAction<boolean>>;
   arrayChildren: Array<Exclude<ReactNode, boolean | null | undefined>>;
+  isBlockchain: boolean;
 }
 
 const CalculatorStepsFormContent = ({
@@ -37,6 +38,7 @@ const CalculatorStepsFormContent = ({
   setWarnIsShow,
   calculateIsClicked,
   setCalculateIsClicked,
+  isBlockchain,
 }: ICalculatorStepsFormContentProps) => {
   const { values, isValid, errors, handleSubmit, validateForm } =
     useFormikContext<ICalculatorFormValuesProps>();
@@ -145,7 +147,10 @@ const CalculatorStepsFormContent = ({
               </Styled.CalculatorHeaderInner>
             </Styled.CalculatorHeaderWrapper>
             {(lastStep && (
-              <CalcualtorResultForm calculateIsClicked={calculateIsClicked} />
+              <CalcualtorResultForm
+                isBlockchain={isBlockchain}
+                calculateIsClicked={calculateIsClicked}
+              />
             )) ||
               arrayChildren[step]}
             <Styled.ButtonWrapper className={lastStep ? "last" : undefined}>

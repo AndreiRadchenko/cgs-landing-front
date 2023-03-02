@@ -15,10 +15,12 @@ import CalculatorTitleField from "./CalculatorTitleField";
 
 interface ICalculatorResultForm {
   calculateIsClicked: boolean;
+  isBlockchain: boolean;
 }
 
 const CalcualtorResultForm = ({
   calculateIsClicked,
+  isBlockchain,
 }: ICalculatorResultForm) => {
   const { values } = useFormikContext<ICalculatorFormValuesProps>();
   const [results, setResults] = useState<ICalculatorAnswersResults>();
@@ -27,49 +29,69 @@ const CalcualtorResultForm = ({
     queryKeys.getCalculatorData,
   ]);
 
-  const classicStepsData = queryClient.getQueryData<ICalculatorStep[]>([
-    queryKeys.getCalculatorClassicSteps,
-  ]);
+  let definedStepsData: ICalculatorStep[] | undefined;
 
-  const blockchainStepsData = queryClient.getQueryData<ICalculator>([
-    queryKeys.getCalculatorBlockchainSteps,
-  ]);
+  if (isBlockchain) {
+    definedStepsData = queryClient.getQueryData<ICalculatorStep[]>([
+      queryKeys.getCalculatorBlockchainSteps,
+    ]);
+  } else {
+    definedStepsData = queryClient.getQueryData<ICalculatorStep[]>([
+      queryKeys.getCalculatorClassicSteps,
+    ]);
+  }
 
-  useEffect(() => {
-    if (classicStepsData) {
+  const countResultFunc = (stepData: ICalculatorStep[] | undefined) => {
+    if (stepData) {
       const keys: Array<"hours" | "uxui"> = ["hours", "uxui"];
 
       const countResults: ICalculatorAnswersResults = { uxui: 1 };
       keys.forEach(
         (key) =>
-          (countResults[key] = getResults(
-            classicStepsData,
-            values.questionsArr,
-            key
-          ))
+          (countResults[key] = getResults(stepData, values.questionsArr, key))
       );
       setResults(countResults);
     }
-  }, [classicStepsData, values]);
+  };
+
+  useEffect(() => {
+    if (typeof definedStepsData == undefined) throw Error("No data found!");
+
+    const keys: Array<"hours" | "uxui"> = ["hours", "uxui"];
+
+    const countResults: ICalculatorAnswersResults = { uxui: 1 };
+    keys.forEach(
+      (key) =>
+        (countResults[key] = getResults(
+          definedStepsData,
+          values.questionsArr,
+          key
+        ))
+    );
+    setResults(countResults);
+
+    countResultFunc(definedStepsData);
+  }, [definedStepsData, values]);
+
   const getText = (results: ICalculatorAnswersResults) => {
     if (results && results.hours) {
       const mounthForTwoDev = (results.hours / (168 * 2)).toFixed(2);
       const mounthForThreeDev = (results.hours / (168 * 3)).toFixed(2);
 
       const text = `<h4 class="result-title">The estimated team and time for your project:<br></h4>
-  <ul>
-    <li><p><span class="bold">${mounthForTwoDev} months</span> with<span class="bold"> 2 developers;</span> or <span class="bold">${mounthForThreeDev} months</span>
-     with <span class="bold">3 developers;</span></p></li>
-    ${
-      results?.uxui && typeof results?.uxui === "number"
-        ? "<li><p>UI/UX Designer</p></li>"
-        : ""
-    }
-    <li>Project Manager;</li>
-    <li>QA.</li>
-  </ul>
-<span class="result-msg">${calculatorData?.resultMessage}</span>
-  `;
+      <ul>
+        <li><p><span class="bold">${mounthForTwoDev} months</span> with<span class="bold"> 2 developers;</span> or <span class="bold">${mounthForThreeDev} months</span>
+        with <span class="bold">3 developers;</span></p></li>
+        ${
+          results?.uxui && typeof results?.uxui === "number"
+            ? "<li><p>UI/UX Designer</p></li>"
+            : ""
+        }
+        <li>Project Manager;</li>
+        <li>QA.</li>
+      </ul>
+      <span class="result-msg">${calculatorData?.resultMessage}</span>
+      `;
 
       return text;
     }
