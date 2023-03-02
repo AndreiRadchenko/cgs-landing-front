@@ -4,7 +4,7 @@ import themes from "../utils/themes";
 interface IBlockErrorSplit {
   readonly error?: boolean;
   readonly split?: boolean;
-  readonly attachFile?: boolean;
+  readonly optional?: boolean;
   readonly borderErrorEmail?: boolean;
   readonly borderErrorUsername?: boolean;
 }
@@ -250,7 +250,7 @@ export const EstimationTextInput = styled.input<IBlockErrorSplit>`
   color: ${(props) =>
     props.error
       ? `${themes.primary.colors.secondary}`
-      : props.attachFile
+      : props.optional
       ? `${themes.primary.colors.mainGradientColor2}`
       : props.borderErrorEmail || props.borderErrorUsername
       ? `${themes.primary.colors.deleteButton}`
