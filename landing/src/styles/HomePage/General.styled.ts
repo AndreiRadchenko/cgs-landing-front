@@ -9,24 +9,24 @@ export interface IFontSize {
 
 export const RowContainer = styled.div`
   display: flex;
+  gap: 5px;
 `;
 
 export const RowContainerHeading = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 26px;
   line-height: 99%;
+
+  @media ${themes.primary.media.onlyLaptop} {
+    font-size: 25px;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 18px;
   }
 
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.25em;
-  }
-
   @media ${themes.primary.media.maxMobile} {
-    font-size: 4.8vw;
+    font-size: 4.7vw;
   }
 `;
 
@@ -221,33 +221,31 @@ export const MainSubtitle = styled.div`
 export const RightArrowWrapper = styled.div`
   display: inline-block;
   position: relative;
-  margin: 0 10px;
-  width: 115px;
+  width: 165px;
+  @media ${themes.primary.media.onlyLaptop} {
+    width: 115px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 88px;
+    width: 65px;
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 10.4vw;
   }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin: 0 5px;
-  }
 `;
 
 export const LeftArrowWrapper = styled.div`
   display: inline-block;
-  width: 142px;
   position: relative;
-  margin-left: 10px;
+  width: 110px;
+
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 108px;
+    width: 90px;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media (max-width: 798px) {
     display: none;
-    width: 14.1vw;
   }
 `;
 
