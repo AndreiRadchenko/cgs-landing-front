@@ -14,6 +14,11 @@ interface IServiceDropdown {
   btnIsClicked: boolean;
 }
 
+const OPTIONS_TO_COOPERATION_FORM = [
+  ...(navigationRoutesNamesNew[1].tags as string[]),
+  "...none of the above",
+];
+
 const ServiceDropdown = ({
   dropdownName,
   setService,
@@ -67,7 +72,7 @@ const ServiceDropdown = ({
       </Styled.DropdownButton>
       <Styled.DropdownContent className={openClassName}>
         <Styled.ScrollWrapper>
-          {navigationRoutesNamesNew[1].tags?.map((option) => (
+          {OPTIONS_TO_COOPERATION_FORM.map((option) => (
             <Styled.ContentWrapper
               key={option}
               onClick={() => {
