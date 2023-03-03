@@ -76,6 +76,7 @@ export interface IDataResponse {
   MainLogoBlock: { image: { url: string } | null };
   EditInformationBlock: IEditInformation;
   SubtitleBlock: ISubtitle;
+  SubtitleBookBlock: ISubtitle;
   SeeAllBlock: IButtonWithLinkBlock;
   FilmBlock: { textOnFilm: string };
   LogosBlock: {
