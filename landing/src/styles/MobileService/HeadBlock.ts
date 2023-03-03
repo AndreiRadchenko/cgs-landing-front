@@ -34,6 +34,14 @@ export const ContentContainer = styled.div`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+  }
+`;
+
 export const Title = styled.h1`
   margin: 0;
   line-height: 120%;

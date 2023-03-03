@@ -1,5 +1,5 @@
 import { useQueryClient } from "@tanstack/react-query";
-import React from "react";
+import React, { useRef } from "react";
 import parse from "html-react-parser";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/DappAuditService/Footer.styled";
@@ -10,9 +10,11 @@ import {
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
 import Image from "next/image";
 import GetEstimationButton from "../GetEstimationButton";
+import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
+  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceDappAudit>([
     queryKeys.getServiceDappAuditPage,
   ])?.footerBlock;
@@ -36,15 +38,18 @@ const FooterBlock = () => {
           </Subtitle>
         </Styled.TitleWrapper>
         {data && (
-          <GetEstimationButton
-            buttonLink={data?.buttonLink}
-            buttonText={data.button}
-            withEstimation
-            style={{
-              padding: "1em 2.27em",
-              fontSize: "1.125em",
-            }}
-          />
+          <Styled.ButtonWrapper ref={elRef}>
+            <GetEstimationButton
+              buttonLink={data?.buttonLink}
+              buttonText={data.button}
+              withEstimation
+              style={{
+                padding: "1em 2.27em",
+                fontSize: "1.125em",
+              }}
+            />
+            <ButtonShareComponent />
+          </Styled.ButtonWrapper>
         )}
       </div>
       {data && (

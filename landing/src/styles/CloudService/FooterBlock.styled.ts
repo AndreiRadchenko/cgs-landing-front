@@ -17,6 +17,14 @@ export const Container = styled.section`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+  }
+`;
+
 export const Content = styled.div``;
 
 export const Image = styled.img`

@@ -12,6 +12,8 @@ import { recoverLink } from "../../utils/recoverLink";
 import Image from "next/image";
 import Loader from "./Loader";
 import Link from "next/link";
+import { AnchorLinkContainer } from "./AnchorLinkContainer";
+import { makeALink } from "../../utils/makeALink";
 
 interface IReviewProps {
   review: IPortfolioReview;
@@ -20,6 +22,7 @@ interface IReviewProps {
 
 const Review = ({ review, className }: IReviewProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [openProject, setOpenProject] = useState("");
   const textRef = useRef<HTMLParagraphElement>(null);
 
   const onLoadCallBack = () => {
@@ -64,11 +67,35 @@ const Review = ({ review, className }: IReviewProps) => {
 
   return (
     review && (
-      <Styled.ReviewContainer className={className}>
+      <Styled.ReviewContainer
+        className={className}
+        id={`${review.category}_${review.title.replaceAll(" ", "")}`}
+      >
         <Styled.ContentContainer>
           <Styled.ProjectHeader>
             <Styled.PortfolioProjectHeader>
-              {review.title}
+              {openProject ===
+                `${review.category}_${review.title.replaceAll(" ", "")}` && (
+                <AnchorLinkContainer
+                  setOpenProject={setOpenProject}
+                  isProject
+                  link={makeALink(
+                    `${review.category}_${review.title.replaceAll(" ", "")}`
+                  )}
+                />
+              )}
+              <p
+                onClick={() =>
+                  openProject ===
+                  `${review.category}_${review.title.replaceAll(" ", "")}`
+                    ? setOpenProject("")
+                    : setOpenProject(
+                        `${review.category}_${review.title.replaceAll(" ", "")}`
+                      )
+                }
+              >
+                {review.title}
+              </p>
             </Styled.PortfolioProjectHeader>
             {review.button.length > 0 && (
               <Link

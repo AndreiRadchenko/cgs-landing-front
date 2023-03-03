@@ -33,8 +33,10 @@ export const ProfText = styled.div`
 
 export const ButtonWrapper = styled.div`
   padding-bottom: 21.1em;
+  display: flex;
 
   @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
     padding-bottom: 28.5em;
     & > a {
       font-size: 1.54em !important;

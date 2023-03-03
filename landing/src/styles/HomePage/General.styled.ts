@@ -11,6 +11,25 @@ export const RowContainer = styled.div`
   display: flex;
 `;
 
+export const RowContainerHeading = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 26px;
+  line-height: 99%;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 18px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1.25em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 4.8vw;
+  }
+`;
+
 export const ContentContainer = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
   padding: 38px 51px 90px;
@@ -227,6 +246,7 @@ export const LeftArrowWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    display: none;
     width: 14.1vw;
   }
 `;
@@ -829,7 +849,7 @@ export const ButtonShareTextWrapper = styled.div`
   width: fit-content;
   font-family: ${themes.primary.font.family.namu};
   z-index: 10;
-  margin-left: 1.1666em;
+  margin-left: 2.5em;
 
   &.footer {
     margin-inline: 0 1.1666em;
