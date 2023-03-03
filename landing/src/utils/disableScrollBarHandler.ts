@@ -2,6 +2,7 @@ import { useEffect } from "react";
 
 export const DisableScrollBarHandler = (optionDisable: boolean) => {
   useEffect(() => {
+    console.log("used");
     if (optionDisable) {
       document.querySelector("html")?.classList.add("disableScrollBar");
       document.querySelector("body")?.classList.add("disableScrollBar");

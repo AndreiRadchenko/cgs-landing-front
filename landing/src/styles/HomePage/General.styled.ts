@@ -165,8 +165,10 @@ export const Title = styled.h1`
 
 export const ButtonWrapper = styled.div`
   display: flex;
+  gap: 18px;
 
   @media ${themes.primary.media.maxMobile} {
+    gap: 0;
     flex-direction: column;
   }
 `;

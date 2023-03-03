@@ -56,16 +56,14 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     email: "Email",
   };
 
-  const validationSchema = BookModalValidation;
-
   const formik = useFormik<IFormState>({
     initialValues: {
       name: "",
       email: "",
       service: "",
     },
+    validationSchema: BookModalValidation,
     validateOnBlur: true,
-    validationSchema,
     onSubmit(values, { resetForm, setErrors }) {
       if (!values.email || !values.service) return;
       mutate({
