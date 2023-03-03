@@ -184,10 +184,8 @@ export const Title = styled.h1`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  gap: 18px;
 
   @media ${themes.primary.media.maxMobile} {
-    gap: 0;
     flex-direction: column;
   }
 `;
@@ -239,6 +237,10 @@ export const LeftArrowWrapper = styled.div`
   display: inline-block;
   position: relative;
   width: 110px;
+
+  @media ${themes.primary.media.onlyPC} {
+    width: 135px;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 90px;
