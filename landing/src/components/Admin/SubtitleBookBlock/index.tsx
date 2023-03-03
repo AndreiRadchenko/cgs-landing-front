@@ -5,12 +5,12 @@ const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
   ssr: false,
 });
 
-const SubtitleBlock = () => {
+const SubtitleBookBlock = () => {
   return (
     <div>
-      <TextEditor header="Subtitle" name="SubtitleBlock.title" />
+      <TextEditor header="Subtitle" name="SubtitleBookBlock.title" />
     </div>
   );
 };
 
-export default SubtitleBlock;
+export default SubtitleBookBlock;

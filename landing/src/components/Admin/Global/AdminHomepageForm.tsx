@@ -18,6 +18,7 @@ import {
 import ButtonArrow from "../../../utils/ButtonArrow";
 import { Form, useFormikContext } from "formik";
 import { IDataResponse } from "../../../types/Admin/Response.types";
+import SubtitleBookBlock from "../SubtitleBookBlock";
 
 const AdminHomepageForm = () => {
   const { values, handleSubmit } = useFormikContext<IDataResponse>();
@@ -54,6 +55,7 @@ const AdminHomepageForm = () => {
           </AdminBlockDropDown>
           <AdminBlockDropDown title="BLOCK 5 (COOPERATION STEPS)">
             <AdminCardsBlock />
+            <SubtitleBookBlock />
             <ButtonBlock
               isCooperationBlock
               block={values.BookCallBlock}
