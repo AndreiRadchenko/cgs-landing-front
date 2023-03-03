@@ -36,6 +36,8 @@ const GetEstimationButton = ({
   const onClose = (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
     e && e.stopPropagation();
     setIsOpen(false);
+    document.querySelector("html")?.classList.remove("disableScrollBar");
+    document.querySelector("body")?.classList.remove("disableScrollBar");
   };
 
   const handleButtonClick = () => {
