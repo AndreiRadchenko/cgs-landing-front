@@ -7,12 +7,12 @@ export const HeaderNavContainer = styled.footer`
   display: flex;
   justify-content: space-between;
   position: relative;
-  overflow: hidden;
   z-index: 5;
   background-color: ${themes.primary.colors.blogBackground};
   border-top: 1px solid ${themes.primary.colors.headerBorder};
 
   @media ${themes.primary.media.maxMobile} {
+    overflow: hidden;
     justify-content: flex-end;
     height: 101px;
     flex-direction: column-reverse;
@@ -38,10 +38,31 @@ export const FlexRowContainer = styled.div`
   }
 `;
 
+export const ExplanationEmailFieldTooltip = styled.div`
+  visibility: hidden;
+  position: absolute;
+  bottom: 55px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 220px;
+  height: 65px;
+  z-index: 10;
+  background: ${themes.primary.colors.primary};
+  border-radius: 6px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  color: ${themes.primary.colors.blogBackground};
+  font-size: 12px;
+  line-height: 150%;
+  padding: 12px 41.5px;
+  text-align: center;
+`;
+
 export const Email = styled.a`
   display: flex;
   align-items: center;
   margin-left: 20px;
+  position: relative;
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.email};
   color: ${themes.primary.colors.primary};
@@ -60,6 +81,10 @@ export const Email = styled.a`
     & path {
       stroke: ${themes.primary.colors.darkBlue};
     }
+  }
+
+  &:hover ${ExplanationEmailFieldTooltip} {
+    visibility: visible;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
