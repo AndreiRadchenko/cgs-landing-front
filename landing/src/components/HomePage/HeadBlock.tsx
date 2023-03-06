@@ -73,7 +73,6 @@ const HeadBlock = () => {
             <GetEstimationButton
               buttonLink={data?.buttonLink}
               withEstimation
-              buttonText={data.button}
               buttonClassName={buttonClassName}
             />
             <ButtonShareComponent />
