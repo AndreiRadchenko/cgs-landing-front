@@ -57,6 +57,10 @@ export const ExplanationEmailFieldTooltip = styled.div`
   padding: 12px 41.5px;
   text-align: center;
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    bottom: 45px;
+  }
+
   &:after {
     content: "";
     position: absolute;
