@@ -53,9 +53,20 @@ export const ExplanationEmailFieldTooltip = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
   color: ${themes.primary.colors.blogBackground};
   font-size: 12px;
-  line-height: 150%;
+  line-height: 18px;
   padding: 12px 41.5px;
   text-align: center;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
 `;
 
 export const Email = styled.a`
