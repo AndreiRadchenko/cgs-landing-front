@@ -1,9 +1,17 @@
-import React, { MouseEvent, useRef, useState } from "react";
+import React, {
+  Dispatch,
+  MouseEvent,
+  SetStateAction,
+  useRef,
+  useState,
+} from "react";
 import { PopupModal } from "react-calendly";
 import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { recoverLink } from "../../utils/recoverLink";
 import * as Styled from "../../styles/HomePage/BookACallButton.styled";
+import { useFormikContext } from "formik";
+import { IFormData } from "../../types/EstimationForm.types";
 
 interface IBookACallButtonProps {
   name: string;
@@ -12,8 +20,9 @@ interface IBookACallButtonProps {
   buttonLink: string;
   buttonClassName?: string;
   type?: string;
-  isDisabled?: boolean;
   handleClose?: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
+  calendlyIsOpen: boolean;
+  setCalendlyIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const BookACallButton = ({
@@ -22,29 +31,20 @@ const BookACallButton = ({
   buttonLink,
   buttonText = "BOOK A CALL",
   buttonClassName,
-  isDisabled,
   handleClose,
+  calendlyIsOpen,
+  setCalendlyIsOpen,
 }: IBookACallButtonProps) => {
   const elRef = useRef<HTMLAnchorElement>(null);
-  const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
 
   const handleCalendyClose = () => {
     setCalendlyIsOpen(false);
     handleClose && handleClose();
   };
 
-  const handleCalendyOpen = () => {
-    setCalendlyIsOpen(true);
-  };
-
   return (
     <>
-      <Styled.BlackButton
-        className={buttonClassName}
-        onClick={handleCalendyOpen}
-        disabled={isDisabled}
-        type="submit"
-      >
+      <Styled.BlackButton className={buttonClassName} type="submit">
         <Styled.BlackButtonAnchor ref={elRef} rel="noopener noreferrer">
           {buttonText}
         </Styled.BlackButtonAnchor>
