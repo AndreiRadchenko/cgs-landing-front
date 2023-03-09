@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import themes from "../utils/themes";
 
 interface IAnchorLink {
@@ -225,54 +225,6 @@ export const NoRewiews = styled.div`
   font-size: ${themes.primary.font.size.bigTitle};
 `;
 
-export const ButtonInfo = styled.div<{ clicked: boolean }>`
-  display: flex;
-  height: 153px;
-  width: 100%;
-  background: ${({ clicked }) =>
-    clicked
-      ? css`
-          ${themes.primary.colors.darkBlue}
-        `
-      : css`
-          ${themes.primary.colors.lightGray}
-        `};
-
-  &:nth-child(1) {
-    color: ${({ clicked }) =>
-      clicked
-        ? css`
-            ${themes.primary.colors.secondary}
-          `
-        : "black"};
-  }
-  position: sticky;
-  top: 0px;
-  z-index: 2;
-  padding: 0px 27px;
-  align-items: center;
-  justify-content: space-around;
-  border-bottom: 1px solid ${themes.primary.colors.comment};
-
-  &.sticky-top {
-    height: 88px;
-    transition: 0.5s linear;
-  }
-  &:hover {
-    background-color: ${themes.primary.colors.darkBlue};
-    &:nth-child(1) {
-      color: ${themes.primary.colors.secondary};
-    }
-  }
-`;
-
-export const Category = styled.div`
-  font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.heavy};
-  font-size: ${themes.primary.font.size.articleTitle};
-  margin: 0 auto 0 0;
-`;
-
 export const ArrowContainerRight = styled.div`
   width: 100%;
   height: 65px;
@@ -403,13 +355,6 @@ export const ReviewContainer = styled.div`
       opacity: 1;
     }
   }
-`;
-
-export const Image = styled.img`
-  width: 100%;
-  height: 100.5%;
-  position: relative;
-  left: -1px;
 `;
 
 export const ImageContainer = styled.div`
@@ -624,22 +569,6 @@ export const StarCont = styled.div`
   }
 `;
 
-export const Navigation = styled.div`
-  width: 7vw;
-  height: 100%;
-  z-index: 20;
-  background-color: ${themes.primary.colors.blogBackground};
-`;
-
-export const Border = styled.div`
-  height: 100%;
-  width: 1px;
-  background-color: ${themes.primary.colors.comment};
-  position: absolute;
-  top: 0;
-  right: 0;
-`;
-
 export const ProjectIndustry = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
@@ -663,13 +592,6 @@ export const ProjectIndustry = styled.div`
       margin-top: 0;
     }
   }
-`;
-
-export const Loader = styled.div`
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  background-color: red;
 `;
 
 export const AnchorLinkContainer = styled.div<IAnchorLink>`
