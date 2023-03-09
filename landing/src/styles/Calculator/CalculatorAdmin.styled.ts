@@ -181,12 +181,6 @@ export const TextEditorTextContainer = styled(TransparentTextEditorWrapper)`
   }
 `;
 
-export const TextEditorContainer = styled.div`
-  display: flex;
-  align-items: flex-end;
-  column-gap: 20px;
-`;
-
 export const AddButton = styled.button`
   cursor: pointer;
   width: 58px;
@@ -259,11 +253,6 @@ export const SubStepSubtitle = styled.p`
 `;
 
 export const InputsWrapper = styled(Form)``;
-
-export const TieUpInputWrapper = styled.div`
-  position: relative;
-  max-width: 22px;
-`;
 
 export const TieUpShadowWrapper = styled.div`
   position: absolute;
@@ -637,57 +626,6 @@ export const ChooseButtonsWrapper = styled.div`
 `;
 
 export const TieUpContainer = styled.div``;
-
-export const PriceFormGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 36px;
-  row-gap: 16px;
-  margin-bottom: 14px;
-`;
-
-export const QuestionTitle = styled.h3`
-  margin: 0;
-  font-size: 18px;
-  line-height: 99%;
-  font-family: ${themes.primary.font.family.namu};
-  text-transform: uppercase;
-  margin-bottom: 16px;
-
-  & p {
-    margin: 0;
-  }
-`;
-
-export const PriceItemWrapper = styled.div`
-  & .__se__t-upper {
-    text-transform: uppercase;
-  }
-
-  & .__se__t-lower {
-    text-transform: lowercase;
-  }
-
-  & .__se__t-first-letter-capitalize {
-    display: block;
-
-    &:first-letter {
-      text-transform: uppercase;
-    }
-  }
-`;
-
-export const PriceSubtitle = styled.p`
-  margin: 0;
-  margin-bottom: 10px;
-  font-size: 18px;
-  line-height: 22px;
-
-  & span {
-    font-size: 14px;
-    line-height: 18px;
-  }
-`;
 
 export const TypeFieldWrapper = styled.div`
   display: flex;

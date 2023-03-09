@@ -21,11 +21,6 @@ export const Wrapper = styled.section`
   }
 `;
 
-export const SwiperWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
 export const PartnerImageWrapper = styled.div`
   display: flex;
   justify-content: center;

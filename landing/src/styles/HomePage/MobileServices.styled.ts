@@ -10,11 +10,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const SwiperWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
 export const ServiceWrapper = styled.div`
   border: 1px solid ${themes.primary.colors.headerBorder};
   height: 40em;
