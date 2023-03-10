@@ -16,21 +16,6 @@ export const RowContainer = styled.div`
   }
 `;
 
-export const ContentContainer = styled.div`
-  background-color: ${themes.primary.colors.blogBackground};
-  padding: 38px 51px 90px;
-  font-family: ${themes.primary.font.family.namu};
-  button {
-    border: none;
-    outline: none;
-    border-radius: 0;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 50px 50px 70px;
-  }
-`;
-
 export const LocalLayout = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.2rem;
@@ -39,13 +24,6 @@ export const LocalLayout = styled.div`
   @media (min-width: 2200px) {
     font-size: 1.4rem;
   }
-`;
-export const ButtonArrow = styled.img`
-  position: absolute;
-  right: -14px;
-  top: -14px;
-  width: 36px;
-  height: 36px;
 `;
 
 export const BlackButton = styled.a<IFontSize>`
@@ -707,59 +685,6 @@ export const FooterButtonWrapper = styled.span`
   }
 `;
 
-export const FooterLinkButton = styled.a`
-  font-family: inherit;
-  font-size: 1.8333em;
-  padding: 1.15rem 1.1rem;
-  cursor: pointer;
-  position: relative;
-  letter-spacing: 0.03em;
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  margin-left: 20px;
-  color: ${themes.primary.colors.secondary};
-  background-color: ${themes.primary.colors.primary};
-  line-height: 99%;
-  border: 2px solid ${themes.primary.colors.primary};
-  transition: all 0.3s;
-
-  &:hover {
-    background-color: transparent;
-    color: ${themes.primary.colors.primary};
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    padding: 1.5rem 1.4rem;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 14px;
-    padding: 1.11em 1.5em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    padding: 1.428em 2em;
-  }
-
-  & path {
-    transition: all 1s ease-in-out;
-  }
-  & path:nth-child(1) {
-    z-index: -1;
-    transform: translate(-36px, 36px);
-  }
-  &:hover {
-    & path:nth-child(2) {
-      transform: translate(36px, -36px);
-    }
-
-    & path:nth-child(1) {
-      transform: translate(0px, 0px);
-    }
-  }
-`;
-
 export const FooterWhatsAppContainer = styled.div`
   margin-bottom: 135px;
 
@@ -821,17 +746,6 @@ export const ArrowContainer = styled.div`
     right: -9px;
     top: -9px;
   }
-`;
-
-export const Cursor = styled.span`
-  display: inline-block;
-  width: 2px;
-  height: 1.45em;
-  background-color: ${themes.primary.colors.primary};
-  animation: ${cursorBlinking} 1s steps(1) infinite;
-  position: absolute;
-  right: -0.2em;
-  bottom: -0.2em;
 `;
 
 export const MobileReverseLayout = styled.div`

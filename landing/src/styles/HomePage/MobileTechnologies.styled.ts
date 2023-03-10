@@ -5,38 +5,6 @@ type PropsWithId = {
   idx: number;
 };
 
-export const TechnologyContainer = styled.section`
-  position: relative;
-  user-select: none;
-  font-family: ${themes.primary.font.family.namu};
-  margin-bottom: 12.9em;
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 4.375rem;
-    margin-top: 2.3em;
-  }
-`;
-
-export const TechTitle = styled.h2`
-  font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.heavy};
-  line-height: 140%;
-  font-size: ${themes.primary.font.size.aboutUsSubtitle};
-  margin: 0;
-  padding-bottom: 20px;
-  text-transform: uppercase;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.reviewTitle};
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.5rem;
-    padding-bottom: 0;
-    line-height: 233%;
-    display: none;
-  }
-`;
-
 export const InvisibleTitle = styled.div`
   align-items: center;
   justify-content: space-between;
@@ -68,24 +36,6 @@ export const TitleInnerWrapper = styled.div<PropsWithId>`
   }
 `;
 
-export const TechnologyRow = styled.div`
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 40px;
-  column-gap: 260px;
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    column-gap: 60px;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    grid-template-columns: 1fr;
-    row-gap: 0;
-    column-gap: 0;
-    margin-top: 14em;
-  }
-`;
-
 export const CategoryContainer = styled.article`
   display: flex;
   align-items: flex-start;
@@ -114,18 +64,6 @@ export const CategoryContainer = styled.article`
       margin-bottom: 0;
     }
   }
-`;
-
-export const CategoryDescriptionWrapper = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  position: relative;
-`;
-
-export const TitleContent = styled.div`
-  transform-style: preserve-3d;
 `;
 
 export const CategoryTitleWrapper = styled.div<PropsWithId>`
@@ -176,16 +114,6 @@ export const CategoryTitle = styled.h2`
   }
 `;
 
-export const InvisibleCategoryTitle = styled.h2`
-  opacity: 0;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: ${themes.primary.font.weight.heavy};
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 1.5em;
-  }
-`;
-
 export const FolderBody = styled.div`
   height: 12em;
   width: 100%;
@@ -216,62 +144,6 @@ export const CategorySubtitle = styled.p`
 
   @media ${themes.primary.media.maxMobile} {
     display: none;
-  }
-`;
-
-export const CategoryImgWrapper = styled.div`
-  max-width: 98.9%;
-  width: 100%;
-  height: 25.4vw;
-
-  position: relative;
-
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
-    max-width: none;
-    width: 98.9%;
-    margin-bottom: 3.375rem;
-    height: 300px;
-
-    &.open {
-      display: block;
-      padding: 50px 0;
-    }
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 200px;
-  }
-`;
-
-export const ArrowContainer = styled.div`
-  position: absolute;
-  left: 47%;
-  top: calc(50% + 40px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translate(-50%, -50%);
-  width: 75px;
-  height: 75px;
-
-  @media ${themes.primary.media.minPC} {
-    left: 50%;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
-  }
-`;
-
-export const CategoryTechnology = styled.span`
-  display: block;
-  line-height: 175%;
-  font-size: 1.125em;
-  font-weight: ${themes.primary.font.weight.light};
-
-  &:first-child {
-    margin-top: 1em;
   }
 `;
 

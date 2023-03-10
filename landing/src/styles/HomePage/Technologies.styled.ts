@@ -101,16 +101,6 @@ export const CategoryContainer = styled.article`
   }
 `;
 
-export const CategoryDescriptionWrapper = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  position: relative;
-`;
-
-export const CategoryTechnologiesWrapper = styled.div``;
-
 export const CategoryTitle = styled.h2<PropsWithId>`
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
@@ -239,17 +229,6 @@ export const ArrowContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     display: none;
-  }
-`;
-
-export const CategoryTechnology = styled.span`
-  display: block;
-  line-height: 175%;
-  font-size: 1.125em;
-  font-weight: ${themes.primary.font.weight.light};
-
-  &:first-child {
-    margin-top: 1em;
   }
 `;
 
