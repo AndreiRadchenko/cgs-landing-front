@@ -279,16 +279,6 @@ export const HoverContainer = styled.div`
   }
 `;
 
-export const PlayerTitle = styled.p`
-  font-size: ${themes.primary.font.size.headerLinkText};
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-top: 16px;
-  line-height: 170%;
-`;
-
 export const BlogItemDescription = styled.p`
   font-size: ${themes.primary.font.size.secondaryArticleDescription};
   margin: 0;
@@ -305,6 +295,7 @@ export const BlogItemDescription = styled.p`
     font-size: 1rem;
   }
 `;
+
 export const LoopText = styled.div`
   font-size: ${themes.primary.font.size.aboutUsCardText};
   margin: 0;
@@ -335,6 +326,7 @@ export const LoopContainer = styled.div`
   overflow: hidden;
   white-space: nowrap;
 `;
+
 export const GrayText = styled.div`
   color: ${themes.primary.colors.authorGrey};
   font-size: ${themes.primary.font.size.articleViews};
@@ -742,6 +734,7 @@ export const PlayButton = styled.img`
     height: 108px;
   }
 `;
+
 export const RightArrow = styled.div`
   width: 44px;
   height: 49px;
@@ -759,6 +752,7 @@ export const RightArrow = styled.div`
     height: 83px;
   }
 `;
+
 export const LeftArrow = styled.div`
   background-image: url("/BlogDecorations/Podcast/LeftArrow.svg");
   width: 44px;
@@ -896,15 +890,6 @@ export const PlayedTrack = styled.input<ITrack>`
       width: 14px;
     }
   }
-`;
-
-export const PlayerDot = styled.div`
-  position: relative;
-  height: 7px;
-  width: 7px;
-  left: 39%;
-  border-radius: 50px;
-  background-color: ${themes.primary.colors.primary};
 `;
 
 export const PlayerTimeContainer = styled.div`
@@ -1200,8 +1185,6 @@ export const SliderDotsContainer = styled(FlexRowContainer)`
     display: none;
   }
 `;
-
-export const ArticleContent = styled.div``;
 
 export const MobileColumnReversedContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
