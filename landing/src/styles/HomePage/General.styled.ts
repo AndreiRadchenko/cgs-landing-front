@@ -762,6 +762,7 @@ export const ButtonShareTextWrapper = styled.div`
   font-family: ${themes.primary.font.family.namu};
   z-index: 10;
   margin-left: 2.5em;
+  font-size: 0.75rem;
 
   &.footer {
     margin-inline: 0 1.1666em;
@@ -774,7 +775,7 @@ export const ButtonShareTextWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.428em;
     margin-left: 0;
-    font-size: 1.346em;
+    font-size: 0.75rem;
   }
 `;
 
@@ -802,7 +803,7 @@ export const WhatsAppWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
+    font-size: 16px;
     line-height: 19px;
     column-gap: 3px;
   }
