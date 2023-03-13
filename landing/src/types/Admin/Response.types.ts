@@ -79,6 +79,13 @@ export interface IDataResponse {
   SubtitleBookBlock: ISubtitle;
   SeeAllBlock: IButtonWithLinkBlock;
   FilmBlock: { textOnFilm: string };
+  FreeServicesBlock: {
+    title: string;
+    items: {
+      image: { url: string } | null;
+      subtitle: string;
+    }[];
+  };
   LogosBlock: {
     images: { url: string }[];
   };
