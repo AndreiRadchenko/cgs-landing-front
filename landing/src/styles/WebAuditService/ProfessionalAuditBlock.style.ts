@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import { BlackButton } from "../HomePage/General.styled";
 
 export const Wrapper = styled.section`
   margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
@@ -56,10 +55,6 @@ export const InfoBlock = styled.div`
       padding: 1.29em 2.61em !important;
     }
   }
-`;
-
-export const Button = styled(BlackButton)`
-  width: fit-content;
 `;
 
 export const ImageWrapper = styled.div`

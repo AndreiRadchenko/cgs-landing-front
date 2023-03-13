@@ -183,21 +183,3 @@ export const GridLine2 = styled.div`
     }
   }
 `;
-
-export const LineTop = styled.div`
-  @media ${themes.primary.media.minTabletPortrait} {
-    display: none;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    display: block;
-  }
-`;
-
-export const LineBottom = styled.div`
-  @media ${themes.primary.media.minTabletPortrait} {
-    display: block;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
-  }
-`;

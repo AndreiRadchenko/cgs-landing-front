@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { IReviewProps } from "../../types/Admin/Response.types";
+import { IShowCaseProps } from "../../types/Services.types";
 import SwiperCore, { Navigation, Scrollbar } from "swiper";
 
 import { Swiper, SwiperProps, SwiperSlide } from "swiper/react";
@@ -41,10 +42,6 @@ const SliderProps: SwiperProps = {
     },
   },
 };
-
-interface IShowCaseProps {
-  projects?: string[];
-}
 
 const ShowCase = ({ projects }: IShowCaseProps) => {
   const [currentProjects, setCurrentProjects] = useState<

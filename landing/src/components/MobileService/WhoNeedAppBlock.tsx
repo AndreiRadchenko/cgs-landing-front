@@ -5,6 +5,7 @@ import * as Styled from "../../styles/MobileService/WhoNeedApps.styled";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceMobile } from "../../types/Admin/Response.types";
+import { IServicesClassnameProps } from "../../types/Services.types";
 import { Subtitle, VisibleSubtitle } from "../../styles/MobileService/Layout";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
@@ -15,11 +16,7 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
-interface IWhoNeedAppBlockProps {
-  className?: string;
-}
-
-const WhoNeedAppBlock = ({ className }: IWhoNeedAppBlockProps) => {
+const WhoNeedAppBlock = ({ className }: IServicesClassnameProps) => {
   const { width } = useWindowDimension();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobile>([

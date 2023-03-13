@@ -2,6 +2,7 @@ import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceSupport } from "../../types/Admin/Response.types";
+import { IServicesClassnameProps } from "../../types/Services.types";
 import parse from "html-react-parser";
 import firstBlock from "../../../public/OngoingSupport/block-1.svg";
 import secondBlock from "../../../public/OngoingSupport/block-2.svg";
@@ -13,11 +14,7 @@ import bottomMobile from "../../../public/OngoingSupport/bottom-mobile.svg";
 import * as Styled from "../../styles/OngoingSupport/ProvidesBlock.styled";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
-interface IProvidesBlockProps {
-  className?: string;
-}
-
-const ProvidesBlock = ({ className }: IProvidesBlockProps) => {
+const ProvidesBlock = ({ className }: IServicesClassnameProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceSupport>([
     queryKeys.getServiceSupportPage,

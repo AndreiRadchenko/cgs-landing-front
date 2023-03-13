@@ -19,7 +19,3 @@ export const Layout = styled.div`
     font-weight: inherit;
   }
 `;
-
-export const ShowcaseLayout = styled.div`
-  margin-top: 1.75em;
-`;
