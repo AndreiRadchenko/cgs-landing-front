@@ -3,13 +3,8 @@ import { useFormikContext } from "formik";
 import React from "react";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminCalculatorService } from "../../../services/adminCalculator";
-import { AdminSubTitle } from "../../../styles/AdminPage";
-import {
-  CalculatorPriceDeleteBtn,
-  CalculatorPriceField,
-  CalculatorRateComponentWrapper,
-  CalculatorRateFieldWrapper,
-} from "../../../styles/Calculator/CalculatorAdmin.styled";
+import * as AdminPageStyled from "../../../styles/AdminPage";
+import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import {
   ICalculator,
   ICalculatorRole,
@@ -55,20 +50,22 @@ const CalculatorRateComponent = ({
   };
 
   return (
-    <CalculatorRateComponentWrapper>
-      <AdminSubTitle size="16px">{type}</AdminSubTitle>
-      <CalculatorRateFieldWrapper>
-        <CalculatorPriceField
+    <Styled.CalculatorRateComponentWrapper>
+      <AdminPageStyled.AdminSubTitle size="16px">
+        {type}
+      </AdminPageStyled.AdminSubTitle>
+      <Styled.CalculatorRateFieldWrapper>
+        <Styled.CalculatorPriceField
           name={`roles.[${idx}].rate`}
           type="number"
           value={rate}
           onChange={handleChange}
         />
-      </CalculatorRateFieldWrapper>
-      <CalculatorPriceDeleteBtn onClick={handleDelete}>
+      </Styled.CalculatorRateFieldWrapper>
+      <Styled.CalculatorPriceDeleteBtn onClick={handleDelete}>
         delete
-      </CalculatorPriceDeleteBtn>
-    </CalculatorRateComponentWrapper>
+      </Styled.CalculatorPriceDeleteBtn>
+    </Styled.CalculatorRateComponentWrapper>
   );
 };
 

@@ -2,9 +2,7 @@ import { CheckBoxType } from "./../types/Admin/AdminEstimationForm.types";
 import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 import articleIntro from "../../public/BlogDecorations/Formatting/articleIntro.svg";
-import { IFontSize } from "./HomePage/General.styled";
 import SortableList from "react-easy-sort";
-import { Field } from "formik";
 import { TextareaAutosize } from "@mui/material";
 
 interface ITextEditorWrapperProps {
@@ -30,6 +28,27 @@ interface IBlockDropdownProps {
 
 interface ITextWrapperProps {
   contentType: CheckBoxType;
+}
+
+interface IAdminInput {
+  height?: string;
+  width?: string;
+  isAdmin?: string;
+}
+
+interface IBox {
+  margin?: string;
+  padding?: string;
+  justify?: string;
+  align?: string;
+  changeDirection?: boolean;
+  wrap?: string;
+  width?: string;
+}
+
+interface ITextEditorContainer {
+  height?: string;
+  width?: string;
 }
 
 export const AdminWrapper = styled.div`
@@ -129,7 +148,7 @@ export const AdminListSubItem = styled.a`
   }
 `;
 
-export const AdminSidebarHidenElement = styled.div`
+export const AdminSidebarHiddenElement = styled.div`
   font-weight: ${themes.primary.font.weight.light};
   padding: ${themes.primary.spacing.primary} 0 0 0;
   max-height: 1000px;
@@ -191,15 +210,6 @@ export const AdminPaddedBlock = styled.div`
     margin-bottom: 0;
     padding-bottom: ${themes.primary.spacing.adminWithinBlocks};
   }
-`;
-
-export const AdminPaddedHeaderBlock = styled.div`
-  padding: ${css`
-    ${themes.primary.spacing.primary}
-    ${themes.primary.spacing.adminWithinBlocks}
-  `};
-  background: ${(props) =>
-    props.theme == "dark" ? themes.primary.colors.darkedGrayBack : null};
 `;
 
 export const AdminBlocksContent = styled.div`
@@ -288,17 +298,13 @@ export const AdminFlexColumn = styled(SortableList)`
 
 export const AdminBlockWrapper = styled.div``;
 
-export const AdminInput = styled(TextareaAutosize)<{
-  height?: string;
-  width?: string;
-  isadmin?: string;
-}>`
+export const AdminInput = styled(TextareaAutosize)<IAdminInput>`
   resize: vertical;
   width: ${({ width }) => (width ? width : "100%")};
   border: 1px solid ${themes.primary.colors.adminInputBorder};
   background-color: ${themes.primary.colors.blogBackground};
-  outline: ${({ isadmin }) =>
-    isadmin ? `1px solid ${themes.primary.colors.comment}` : null};
+  outline: ${({ isAdmin }) =>
+    isAdmin ? `1px solid ${themes.primary.colors.comment}` : null};
   font-size: 16px;
   font-family: ${themes.primary.font.family.namu};
   padding: ${themes.primary.spacing.primary};
@@ -323,29 +329,6 @@ export const AdminInput = styled(TextareaAutosize)<{
 
   &.metaField {
     background-color: ${themes.primary.colors.careerBackground};
-  }
-`;
-
-export const AdminInputFormikField = styled(Field)<{
-  height?: string;
-  width?: string;
-  isadmin?: string;
-}>`
-  resize: vertical;
-  width: ${({ width }) => (width ? width : "100%")};
-  border: 1px solid ${themes.primary.colors.adminInputBorder};
-  background-color: ${themes.primary.colors.blogBackground};
-  outline: ${({ isadmin }) =>
-    isadmin ? `1px solid ${themes.primary.colors.comment}` : null};
-  font-size: ${themes.primary.font.size.linkText};
-  font-family: ${themes.primary.font.family.namu};
-  padding: ${themes.primary.spacing.primary};
-  height: ${({ height }) => (height ? height : "auto")} !important;
-  line-height: 160%;
-
-  margin-bottom: ${themes.primary.spacing.primary};
-  &:focus {
-    outline: 1px solid gray;
   }
 `;
 
@@ -422,15 +405,7 @@ export const AdminDeleteText = styled.button`
   border: none;
 `;
 
-export const Box = styled.div<{
-  margin?: string;
-  padding?: string;
-  justify?: string;
-  align?: string;
-  changeDirection?: boolean;
-  wrap?: string;
-  width?: string;
-}>`
+export const Box = styled.div<IBox>`
   display: flex;
   margin: ${({ margin }) => (margin ? margin : 0)};
   padding: ${({ padding }) => (padding ? padding : 0)};
@@ -447,17 +422,6 @@ export const StyledLine = styled.div`
   height: 1px;
   background: #8f8e93;
   margin: 18px 0 10px;
-`;
-
-export const AdminSplitColumnText = styled.p`
-  color: ${themes.primary.colors.black};
-  font-size: ${themes.primary.font.size.primary};
-  font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.heavy};
-`;
-
-export const AdminCheckBox = styled(Field)`
-  border: 1px solid #000000;
 `;
 
 export const TextWrapper = styled.span<ITextWrapperProps>`
@@ -518,23 +482,10 @@ export const TextWrapper = styled.span<ITextWrapperProps>`
   }
 `;
 
-export const AdminFlyingElementsBlock = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 3rem;
-`;
-
 export const AdminFlyingElement = styled.div`
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-`;
-
-export const AdminTecBottleDiv = styled.div`
-  padding-top: 2.3em;
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  max-height: 26em;
 `;
 
 export const AdminLogosGrid = styled(SortableList)`
@@ -625,17 +576,6 @@ export const AdminParagraph = styled.p`
   &.namu {
     font-family: ${themes.primary.font.family.namu};
   }
-`;
-
-export const AdminFeedbackRole = styled.h4`
-  background: ${themes.primary.colors.feedbackRole};
-  border-radius: 5px;
-  font-size: ${themes.primary.font.size.buttonText};
-  font-family: ${themes.primary.font.family.mulish};
-  font-weight: ${themes.primary.font.weight.light};
-  width: fit-content;
-  padding: 1px 6px;
-  margin: -5px 0 0 0;
 `;
 
 export const AdminButton = styled.button`
@@ -765,31 +705,11 @@ export const AdminPointer = styled.div`
   user-select: none;
 `;
 
-export const AdminPhotoDashedHorizontal = styled.div<{ maxWidth?: string }>`
-  display: flex;
-  border: 2px dashed ${themes.primary.colors.primary};
-  padding: 4em 3.5em;
-  max-width: ${(props) => props.maxWidth};
-`;
-
-export const AdminPhotoDashedHorizontalPositoning = styled.div<{
-  horizontalFlex?: boolean;
-}>`
-  display: ${(props) => (props.horizontalFlex ? "flex" : "grid")};
-  grid-template-columns: 1fr 1.6fr;
-  width: ${(props) => props.horizontalFlex && "100%"};
-  justify-content: ${(props) => props.horizontalFlex && "space-around"};
-`;
-
 export const AdminCenteredDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-
-export const AdminHowWeWorkImageSize = styled.div`
-  margin-top: 2.2em;
 `;
 
 export const AdminSocialIcon = styled.div`
@@ -973,10 +893,6 @@ export const AdminPortfolioImage = styled.div`
   display: grid;
 `;
 
-export const AdminPortfolioReviewContent = styled.div`
-  max-width: 68%;
-`;
-
 export const AdminPortfolioReviewLayout = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -997,20 +913,12 @@ export const AdminEditIcon = styled.span`
   cursor: pointer;
 `;
 
-export const AdminBlockWithoutHeader = styled.div`
-  padding-top: ${themes.primary.spacing.adminWithinBlocks};
-  background-color: ${themes.primary.colors.darkedGrayBack};
-`;
-
 export const AdminFullImage = styled.img`
   max-width: 100%;
   max-height: 100%;
 `;
 
-export const TextEditorContainer = styled.div<{
-  height?: string;
-  width?: string;
-}>`
+export const TextEditorContainer = styled.div<ITextEditorContainer>`
   & div.se-wrapper-inner.se-wrapper-inner ul {
     list-style-type: none;
     list-style-image: url("/listSquare.png");
@@ -1274,17 +1182,6 @@ export const RightSideBlock = styled.div`
   padding-bottom: 100px;
 `;
 
-export const AdminFilmInputPaddedBlock = styled.div`
-  padding: ${themes.primary.spacing.primary} 0
-    ${themes.primary.spacing.headerNavHorizontal} 0;
-`;
-
-export const AdminTechGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1.7fr 1fr;
-  column-gap: 1rem;
-`;
-
 export const AdminCardsHeader = styled.h1`
   font-weight: ${themes.primary.font.weight.normal};
   font-size: ${themes.primary.font.size.quaternary};
@@ -1369,8 +1266,6 @@ export const AdminShowCaseCategoryDropdownHeader = styled.div`
   }
 `;
 
-export const AdminCategoryOption = styled.div``;
-
 export const AdminShowCaseServiceButton = styled.div`
   background: ${themes.primary.colors.darkBlue};
   color: ${themes.primary.colors.secondary};
@@ -1432,19 +1327,6 @@ export const AdminShowCaseDropDownListItem = styled.div`
   justify-content: space-between;
   align-items: center;
   background: none;
-`;
-
-export const AdminShowCaseButton = styled.div<IFontSize>`
-  margin-top: 41px;
-  font-family: inherit;
-  font-size: ${({ size }) => size};
-  padding: ${({ padding }) => padding};
-  cursor: pointer;
-  position: relative;
-  color: ${themes.primary.colors.secondary};
-  background-color: ${themes.primary.colors.primary};
-  line-height: 99%;
-  display: inline-block;
 `;
 
 export const Label = styled.label`
@@ -1586,11 +1468,6 @@ export const BottomText = styled.div`
   margin-bottom: 1.5em;
 `;
 
-export const AdminLayout = styled.div`
-  position: relative;
-  overflow: hidden;
-`;
-
 export const AdminHeaderPhotoWrapper = styled.div`
   width: 21%;
 `;
@@ -1708,7 +1585,7 @@ export const AdminImageWrapper = styled.div`
   width: 100%;
 `;
 
-export const AdminPortofolioImageWrapper = styled.div`
+export const AdminPortfolioImageWrapper = styled.div`
   position: relative;
   height: 357px;
   width: 100%;

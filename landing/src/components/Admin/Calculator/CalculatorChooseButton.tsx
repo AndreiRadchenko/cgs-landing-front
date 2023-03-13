@@ -1,5 +1,5 @@
 import React from "react";
-import { ChooseButton } from "../../../styles/Calculator/CalculatorAdmin.styled";
+import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 
 interface ICalculatorChooseButtonProps {
   header: string;
@@ -17,12 +17,12 @@ const CalculatorChooseButton = ({
   };
 
   return (
-    <ChooseButton
+    <Styled.ChooseButton
       className={active ? "active" : "disabled"}
       onClick={handleClick}
     >
       {header || "CHOOSE"}
-    </ChooseButton>
+    </Styled.ChooseButton>
   );
 };
 

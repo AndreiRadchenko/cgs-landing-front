@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
 import * as Styled from "../../../styles/EstimationForm.styled";
 import * as StyledCalc from "../../../styles/Calculator/CalculatorAdmin.styled";
-
+import * as AdminPageStyled from "../../../styles/AdminPage";
 import AdminBlackButton from "../Global/AdminBlackButton";
 import {
   IEstimationFormQuestion,
@@ -9,7 +9,6 @@ import {
 } from "../../../types/Admin/AdminEstimationForm.types";
 import dynamic from "next/dynamic";
 import AddOptionInput from "./AddOptionInput";
-import { Box, StyledLine } from "../../../styles/AdminPage";
 import { FieldArray, Formik } from "formik";
 import EstimationDropdown from "./EstimationOptionsDropdown";
 import AdditinalAttributesBlock from "./AdditinalAttributesBlock";
@@ -20,6 +19,7 @@ import { EstimationDeleteQuestion } from "../../../styles/EstimationForm.styled"
 import { Plugin } from "suneditor/src/plugins/Plugin";
 import { letterCaseSubmenu } from "../Calculator/letterCaseSubmenuPlugin";
 import { letterWeightSubmenu } from "../Calculator/letterWeightSubmenuPlugin";
+
 const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
   ssr: false,
 });
@@ -163,7 +163,7 @@ const QuestionBlock = ({
                 }}
               </FieldArray>
 
-              <StyledLine />
+              <AdminPageStyled.StyledLine />
 
               <AdditinalAttributesBlock
                 isConditionsForAppearance={
@@ -177,7 +177,7 @@ const QuestionBlock = ({
                 currentQuestion={index}
                 updateValues={props.setFieldValue}
               />
-              <Box justify="space-between" align="center">
+              <AdminPageStyled.Box justify="space-between" align="center">
                 <AdminBlackButton
                   type="submit"
                   text="Save question"
@@ -186,7 +186,7 @@ const QuestionBlock = ({
                 <EstimationDeleteQuestion onClick={onDeleteQuestion}>
                   Delete question
                 </EstimationDeleteQuestion>
-              </Box>
+              </AdminPageStyled.Box>
             </Styled.QuestionBlock>
           </form>
         )}

@@ -37,11 +37,11 @@ const DropDownElement = ({
         {value + " "}
       </Styled.ListItemName>
       <DownArrow onClick={onClick} open={isShown} />
-      <Styled.AdminSidebarHidenElement
+      <Styled.AdminSidebarHiddenElement
         className={isShown ? undefined : "hidden"}
       >
         {children}
-      </Styled.AdminSidebarHidenElement>
+      </Styled.AdminSidebarHiddenElement>
     </Styled.AdminSidebarMenuElement>
   );
 };

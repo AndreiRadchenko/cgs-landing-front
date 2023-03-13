@@ -13,10 +13,6 @@ export const AdminAuthPassWrapper = styled.div`
   right: 0;
 `;
 
-export const AdminAuthHeader = styled.div`
-  padding: 2.25em 2.85em 2.2em;
-`;
-
 export const AdminAuthTeamLogo = styled.div`
   width: fit-content;
 `;

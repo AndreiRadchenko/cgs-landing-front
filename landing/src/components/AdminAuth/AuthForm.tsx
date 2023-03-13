@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import React from "react";
 import AuthSubmitButton from "./AuthButton";
-import { AuthFormBlock, AuthFormError } from "../../styles/AdminAuth";
+import * as Styled from "../../styles/AdminAuth";
 import { AdminAuthValidation } from "../../validations/AdminAuthValidation";
 import { IAdmin, IRes } from "../../types/Admin/Admin.types";
 import { useState } from "react";
@@ -42,7 +42,7 @@ const AdminAuthForm = () => {
     >
       {(fprops) => {
         return (
-          <AuthFormBlock>
+          <Styled.AuthFormBlock>
             <AdminAuthFormInput
               name="username"
               label="username"
@@ -60,9 +60,9 @@ const AdminAuthForm = () => {
               labelName="Password:"
               className="password"
             />
-            <AuthFormError>{errorMessage}</AuthFormError>
+            <Styled.AuthFormError>{errorMessage}</Styled.AuthFormError>
             <AuthSubmitButton />
-          </AuthFormBlock>
+          </Styled.AuthFormBlock>
         );
       }}
     </Formik>

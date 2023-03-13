@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useField } from "formik";
 import { TextFieldProps } from "@mui/material";
-import { AdminFormField, AdminFormLabel } from "../../styles/AdminAuth";
+import * as Styled from "../../styles/AdminAuth";
 
 interface IFieldProps {
   name: string;
@@ -42,8 +42,8 @@ const AdminAuthFormInput: FC<IFieldProps> = ({
 
   return (
     <>
-      <AdminFormLabel>{labelName}</AdminFormLabel>
-      <AdminFormField {...configTextField} />
+      <Styled.AdminFormLabel>{labelName}</Styled.AdminFormLabel>
+      <Styled.AdminFormField {...configTextField} />
     </>
   );
 };
