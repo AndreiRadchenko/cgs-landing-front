@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { MobileInfiniteText } from "../../components/MobileInfiniteText/MobileInfiniteText";
 import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
 import { slideDownText } from "../Animations.styled";
@@ -103,10 +102,6 @@ export const CategorySubtitle = styled.h3`
   }
 `;
 
-export const VisibleCategorySubtitle = styled(CategorySubtitle)`
-  display: block;
-`;
-
 export const CategoryListItem = styled.p<ISlide>`
   font-size: 1.125em;
   line-height: 160%;
@@ -154,6 +149,7 @@ export const CategoryListItem = styled.p<ISlide>`
     }
   }
 `;
+
 export const ContentWrapper = styled.div`
   padding-left: 10.5%;
   display: flex;
@@ -202,9 +198,4 @@ export const ContentWrapper = styled.div`
       }
     }
   }
-`;
-
-export const MobileCategoryInfiniteText = styled(MobileInfiniteText)`
-  margin-left: -50% !important;
-  width: 200% !important;
 `;

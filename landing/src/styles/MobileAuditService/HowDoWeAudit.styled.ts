@@ -42,10 +42,6 @@ export const Description = styled.p`
   }
 `;
 
-export const Text = styled.p`
-  justify-content: center;
-`;
-
 export const ListContainer = styled.div`
   display: flex;
   column-gap: 26px;

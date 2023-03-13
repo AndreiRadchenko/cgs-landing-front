@@ -2,16 +2,13 @@ import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceMobileAudit } from "../../types/Admin/Response.types";
+import { IServicesShowcaseProps } from "../../types/Services.types";
 import * as Styled from "../../styles/MobileAuditService/WhenDoYouNeedBlock.styled";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { Separator } from "../../styles/MobileAuditService/Common.styled";
 import WhenDoYouNeedBlockItem from "./WhenDoYouNeedBlockItem";
 
-interface IWhenDoYouNeedBlockProps {
-  withoutShowcase?: boolean;
-}
-
-const WhenDoYouNeedBlock = ({ withoutShowcase }: IWhenDoYouNeedBlockProps) => {
+const WhenDoYouNeedBlock = ({ withoutShowcase }: IServicesShowcaseProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobileAudit>([
     queryKeys.getServiceMobileAuditPage,

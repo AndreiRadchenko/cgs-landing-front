@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { ICloudService } from "../../types/Admin/Response.types";
+import { IServicesClassnameProps } from "../../types/Services.types";
 import { Subtitle } from "../../styles/CloudService/Layout";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import cloudProvidesBgi from "../../../public/CloudServicePage/cloudProvidesBgi.svg";
@@ -11,11 +12,7 @@ import parse from "html-react-parser";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
-interface IProvidesBlockProps {
-  className?: string;
-}
-
-const ProvidesBlock = ({ className }: IProvidesBlockProps) => {
+const ProvidesBlock = ({ className }: IServicesClassnameProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<ICloudService>([
     queryKeys.getServiceCloudPage,

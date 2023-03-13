@@ -94,13 +94,6 @@ export const HighlightWrapper = styled.span`
   }
 `;
 
-export const HighlightBg = styled.span`
-  position: absolute;
-  bottom: 0.1em;
-  height: 1.4em;
-  z-index: -1;
-`;
-
 export const Cursor = styled.span`
   display: inline-block;
   width: 1px;

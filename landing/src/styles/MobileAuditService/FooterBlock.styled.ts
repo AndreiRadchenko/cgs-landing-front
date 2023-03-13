@@ -12,15 +12,6 @@ export const Container = styled.section`
   }
 `;
 
-export const Content = styled.div`
-  & > a {
-    @media ${themes.primary.media.maxMobile} {
-      font-size: 1em;
-      padding: 1.2em 1.51em;
-    }
-  }
-`;
-
 export const ButtonWrapper = styled.div`
   display: flex;
 
@@ -61,37 +52,6 @@ export const Description = styled.p`
     font-size: 1.125em;
     max-width: 95%;
     margin: 1em 0 1.9em;
-  }
-`;
-
-export const Image = styled.img`
-  top: -2.875em;
-  right: -1.56em;
-  width: 30em;
-
-  @media (max-width: 1300px) {
-    width: 32em;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    top: 2em;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    width: 28em;
-    top: 7em;
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    margin-left: 4em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    position: relative;
-    left: 1px;
-    top: -0.75em;
-    width: 22.3em;
-    height: 19.125em;
   }
 `;
 
