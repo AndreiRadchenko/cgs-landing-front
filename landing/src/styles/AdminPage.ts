@@ -175,6 +175,23 @@ export const AdminBlockHiddenContent = styled.div`
   }
 `;
 
+export const AdminFreeServicesWrapper = styled.div``;
+
+export const AdminFreeServicesContent = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  align-items: start;
+  column-gap: 26px;
+`;
+
+export const AdminFreeServicesCard = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100%;
+`;
+
 export const AdminContentBlock = styled.div`
   padding: ${themes.primary.spacing.septenary} 0 0 0;
   font-family: ${themes.primary.font.family.namu};

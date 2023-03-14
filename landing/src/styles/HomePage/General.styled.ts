@@ -515,7 +515,6 @@ export const NextTech = styled.section`
 
 export const FilmContainer = styled.div`
   position: relative;
-  margin-bottom: 70px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     overflow: hidden;

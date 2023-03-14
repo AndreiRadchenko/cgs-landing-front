@@ -1,17 +1,20 @@
 import React from "react";
-import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
-import * as Styled from "../../styles/HomePage/General.styled";
-import Partners from "../Partners/Partners";
-import film from "../../../public/HomePageDecoration/photoFilm.svg";
-import filmMobile from "../../../public/HomePageDecoration/photoFilmMobile.svg";
-import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
+import Image from "next/image";
 import { useQueryClient } from "@tanstack/react-query";
+import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
+
+import Partners from "../Partners/Partners";
 import { queryKeys } from "../../consts/queryKeys";
-import { IDataResponse } from "../../types/Admin/Response.types";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ScrambleText from "./ScrambleText";
-import Image from "next/image";
+import FreeServices from "../FreeServices/FreeServices";
+import { IDataResponse } from "../../types/Admin/Response.types";
+import film from "../../../public/HomePageDecoration/photoFilm.svg";
+import filmMobile from "../../../public/HomePageDecoration/photoFilmMobile.svg";
+import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
+
+import * as Styled from "../../styles/HomePage/General.styled";
 
 const NextTech = () => {
   const { width } = useWindowDimension();
@@ -62,6 +65,7 @@ const NextTech = () => {
         )}
         <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
       </Styled.FilmContainer>
+      <FreeServices />
       <Styled.Subtitle className="small">
         {width && width < 475 ? (
           <>
