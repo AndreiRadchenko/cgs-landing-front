@@ -1,5 +1,5 @@
 import React from "react";
-import { AdminUnauthorizedModal } from "../../../styles/AdminPage";
+import * as AdminPageStyled from "../../../styles/AdminPage";
 import CalculatorStepItem from "./CalculatorStepItemForm";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import CalculatorChooseButton from "./CalculatorChooseButton";
@@ -22,12 +22,13 @@ const CalculatorStepsForm = ({
   classicIsLoading,
   blockchainIsLoading,
   classicRefetch,
-  blockchainRefetch,
   isBlockchain,
   toogleBlockchain,
 }: ICalculatorStepsFormProps) => {
   return classicIsLoading || blockchainIsLoading ? (
-    <AdminUnauthorizedModal>Loading...</AdminUnauthorizedModal>
+    <AdminPageStyled.AdminUnauthorizedModal>
+      Loading...
+    </AdminPageStyled.AdminUnauthorizedModal>
   ) : classicStepsData && blockchainStepsData ? (
     <>
       <Styled.ChooseTitle>Choose:</Styled.ChooseTitle>
@@ -43,17 +44,6 @@ const CalculatorStepsForm = ({
           setActive={toogleBlockchain}
         />
       </Styled.ChooseButtonsWrapper>
-      {/* {isBlockchain &&
-        blockchainStepsData.map((step, idx) => (
-          <CalculatorStepItem
-            isBlockchain={isBlockchain}
-            allSteps={blockchainStepsData}
-            step={step}
-            key={idx}
-            index={idx}
-            refetch={blockchainRefetch}
-          />
-        ))} */}
       {!isBlockchain &&
         classicStepsData.map((step, idx) => (
           <CalculatorStepItem
@@ -67,7 +57,9 @@ const CalculatorStepsForm = ({
         ))}
     </>
   ) : (
-    <AdminUnauthorizedModal>Something went wrong :(</AdminUnauthorizedModal>
+    <AdminPageStyled.AdminUnauthorizedModal>
+      Something went wrong :(
+    </AdminPageStyled.AdminUnauthorizedModal>
   );
 };
 

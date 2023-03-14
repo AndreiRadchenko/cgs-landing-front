@@ -3,11 +3,7 @@ import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 import CalculatorTypeInput from "./CalculatorTypeInput";
 import CalculatorTypesRate from "./CalculatorTypesRate";
 
-interface ICalculatorPriceForm {
-  isBlockchain: boolean;
-}
-
-const CalculatorPriceForm = ({ isBlockchain }: ICalculatorPriceForm) => {
+const CalculatorPriceForm = () => {
   return (
     <AdminBlockDropDown title="PRICE">
       <CalculatorTypeInput />

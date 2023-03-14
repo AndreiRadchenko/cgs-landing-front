@@ -1,6 +1,8 @@
 import dynamic from "next/dynamic";
 import React, { memo, useEffect } from "react";
 import * as Styled from "../../../styles/EstimationForm.styled";
+import * as AdminPageStyled from "../../../styles/AdminPage";
+import * as CalculatorStyled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import {
   IConditionsForAppearance,
   IEstimationFormPages,
@@ -8,11 +10,6 @@ import {
 } from "../../../types/Admin/AdminEstimationForm.types";
 import { defaultEditorOption } from "../../../utils/variables";
 import ConditionsForAppearanceBlock from "./ConditionsForAppearanceBlock";
-import {
-  TieUpInput,
-  TieUpLabel,
-} from "../../../styles/Calculator/CalculatorAdmin.styled";
-import { Box } from "../../../styles/AdminPage";
 
 interface IAdditionalAttributesBlockProps {
   isConditionsForAppearance: boolean;
@@ -90,21 +87,21 @@ const AdditinalAttributesBlock = ({
 
   return (
     <Styled.AdditinalAttributesBlock>
-      <Box margin="0 0 5px 0" align="start">
-        <TieUpInput
+      <AdminPageStyled.Box margin="0 0 5px 0" align="start">
+        <CalculatorStyled.TieUpInput
           type="checkbox"
           className={"admin-checkbox"}
           name={`isConditionsForAppearance`}
           id={`isConditionsForAppearance${currentQuestion}${currentPage}`}
         />
-        <TieUpLabel
+        <CalculatorStyled.TieUpLabel
           dangerouslySetInnerHTML={{
             __html: "add conditions for appearance",
           }}
           htmlFor={`isConditionsForAppearance${currentQuestion}${currentPage}`}
           style={{ marginLeft: "6px" }}
         />
-      </Box>
+      </AdminPageStyled.Box>
       {conditionForAppearanceMessage(conditionsForAppearance)}
       {isConditionsForAppearance && (
         <ConditionsForAppearanceBlock
@@ -117,37 +114,37 @@ const AdditinalAttributesBlock = ({
         />
       )}
 
-      <Box margin="0 0 5px 0" align="start">
-        <TieUpInput
+      <AdminPageStyled.Box margin="0 0 5px 0" align="start">
+        <CalculatorStyled.TieUpInput
           type="checkbox"
           className={"admin-checkbox"}
           name={`isAbilityToAttachFile`}
           id={`isAbilityToAttachFileId${currentQuestion}${currentPage}`}
         />
-        <TieUpLabel
+        <CalculatorStyled.TieUpLabel
           dangerouslySetInnerHTML={{
             __html: "add the ability to attach files",
           }}
           htmlFor={`isAbilityToAttachFileId${currentQuestion}${currentPage}`}
           style={{ marginLeft: "6px" }}
         />
-      </Box>
+      </AdminPageStyled.Box>
 
-      <Box margin="0 0 5px 0" align="start">
-        <TieUpInput
+      <AdminPageStyled.Box margin="0 0 5px 0" align="start">
+        <CalculatorStyled.TieUpInput
           type="checkbox"
           className={"admin-checkbox"}
           name={`isHiddenText`}
           id={`isHiddenTextId${currentQuestion}${currentPage}`}
         />
-        <TieUpLabel
+        <CalculatorStyled.TieUpLabel
           dangerouslySetInnerHTML={{
             __html: "add hidden text",
           }}
           htmlFor={`isHiddenTextId${currentQuestion}${currentPage}`}
           style={{ marginLeft: "6px" }}
         />
-      </Box>
+      </AdminPageStyled.Box>
 
       {isHiddenText && (
         <EstimationFormInput

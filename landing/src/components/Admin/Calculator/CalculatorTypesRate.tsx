@@ -3,7 +3,7 @@ import { Formik, FormikHelpers } from "formik";
 import React from "react";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminCalculatorService } from "../../../services/adminCalculator";
-import { CalculatorTypeGrid } from "../../../styles/Calculator/CalculatorAdmin.styled";
+import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import {
   ICalculator,
   ICalculatorRole,
@@ -44,7 +44,7 @@ const CalculatorTypesRate = () => {
         {({ values, handleSubmit }) => {
           return (
             <div>
-              <CalculatorTypeGrid>
+              <Styled.CalculatorTypeGrid>
                 {values.roles.map((role, idx) => (
                   <CalculatorRateComponent
                     key={role.name}
@@ -53,7 +53,7 @@ const CalculatorTypesRate = () => {
                     idx={idx}
                   />
                 ))}
-              </CalculatorTypeGrid>
+              </Styled.CalculatorTypeGrid>
               <SaveBtn
                 handleClick={handleSubmit}
                 title="Save Changes"

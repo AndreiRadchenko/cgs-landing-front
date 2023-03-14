@@ -3,13 +3,8 @@ import { Form, Formik, FormikHelpers } from "formik";
 import React from "react";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminCalculatorService } from "../../../services/adminCalculator";
-import { AdminSubTitle } from "../../../styles/AdminPage";
-import {
-  AddButton,
-  AdminCalculatorTypeInput,
-  CalculatorAdminAddTypeWrapper,
-  TypeFieldWrapper,
-} from "../../../styles/Calculator/CalculatorAdmin.styled";
+import * as AdminPageStyled from "../../../styles/AdminPage";
+import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 
 export interface ICalculatorType {
   name: string;
@@ -28,7 +23,7 @@ const CalculatorTypeInput = () => {
     }
   );
 
-  const initilaValues = {
+  const initialValues = {
     name: "",
     _id: `${Math.random()}.${Math.random()}`,
   };
@@ -42,18 +37,20 @@ const CalculatorTypeInput = () => {
   };
 
   return (
-    <Formik initialValues={initilaValues} onSubmit={handleSubmit}>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       <Form>
-        <CalculatorAdminAddTypeWrapper>
-          <AdminSubTitle>Specialist</AdminSubTitle>
-          <TypeFieldWrapper>
-            <AdminCalculatorTypeInput
+        <Styled.CalculatorAdminAddTypeWrapper>
+          <AdminPageStyled.AdminSubTitle>
+            Specialist
+          </AdminPageStyled.AdminSubTitle>
+          <Styled.TypeFieldWrapper>
+            <Styled.AdminCalculatorTypeInput
               name="name"
               placeholder="Add new specialist"
             />
-            <AddButton type="submit">+</AddButton>
-          </TypeFieldWrapper>
-        </CalculatorAdminAddTypeWrapper>
+            <Styled.AddButton type="submit">+</Styled.AddButton>
+          </Styled.TypeFieldWrapper>
+        </Styled.CalculatorAdminAddTypeWrapper>
       </Form>
     </Formik>
   );

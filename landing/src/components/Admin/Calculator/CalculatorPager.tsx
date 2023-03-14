@@ -3,16 +3,14 @@ import { Formik } from "formik";
 import React from "react";
 import { queryKeys } from "../../../consts/queryKeys";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
-import {
-  AdminHalfGrid,
-  AdminUnauthorizedModal,
-} from "../../../styles/AdminPage";
+import * as AdminPageStyled from "../../../styles/AdminPage";
 import { adminCalculatorService } from "../../../services/adminCalculator";
 import { ICalculator } from "../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 import SaveBtn from "../Global/SaveBtn";
 import dynamic from "next/dynamic";
+
 const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
   ssr: false,
 });
@@ -40,13 +38,15 @@ const CalculatorPager = ({
   };
 
   return dataIsLoading ? (
-    <AdminUnauthorizedModal>Loading...</AdminUnauthorizedModal>
+    <AdminPageStyled.AdminUnauthorizedModal>
+      Loading...
+    </AdminPageStyled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik initialValues={data!} onSubmit={handleSubmit}>
       {({ values, handleChange, handleSubmit }) => (
         <div>
           <Styled.InputWrapper className="withMarginBottom">
-            <AdminHalfGrid>
+            <AdminPageStyled.AdminHalfGrid>
               <SubHeaderWithInput
                 inputStyle={{ marginBottom: 0 }}
                 width="100%"
@@ -63,11 +63,11 @@ const CalculatorPager = ({
                 inputValue={values.popUpMessage || ""}
                 onChangeFunction={handleChange}
               />
-            </AdminHalfGrid>
+            </AdminPageStyled.AdminHalfGrid>
           </Styled.InputWrapper>
           <AdminBlockDropDown title="PAGER">
             <Styled.InputWrapper>
-              <AdminHalfGrid>
+              <AdminPageStyled.AdminHalfGrid>
                 <TextEditor
                   header="Text (start)"
                   name="startMessage"
@@ -84,7 +84,7 @@ const CalculatorPager = ({
                   inputValue={values.finishMessage || ""}
                   onChangeFunction={handleChange}
                 />
-              </AdminHalfGrid>
+              </AdminPageStyled.AdminHalfGrid>
               <SaveBtn
                 handleClick={handleSubmit}
                 style={{ marginTop: "37px", marginBottom: "50px" }}
@@ -95,7 +95,9 @@ const CalculatorPager = ({
       )}
     </Formik>
   ) : (
-    <AdminUnauthorizedModal>Something went wrong :(</AdminUnauthorizedModal>
+    <AdminPageStyled.AdminUnauthorizedModal>
+      Something went wrong :(
+    </AdminPageStyled.AdminUnauthorizedModal>
   );
 };
 

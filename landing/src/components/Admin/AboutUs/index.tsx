@@ -1,7 +1,7 @@
 ﻿import { useFormikContext } from "formik";
 import React, { useState } from "react";
 import * as Styled from "../../../styles/AdminPage";
-import * as StyledThisComp from "../FAQ/adminFaq.styled";
+import * as StyledThisComp from "../../../styles/AdminAboutUs.styled";
 import { IAbout } from "../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { IImage } from "../../../types/Admin/Admin.types";
