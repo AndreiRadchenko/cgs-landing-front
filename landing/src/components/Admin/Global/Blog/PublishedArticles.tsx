@@ -1,4 +1,4 @@
-import React, { FC, RefObject } from "react";
+import React, { FC } from "react";
 import { AdminSubTitle } from "../../../../styles/AdminBlogPage";
 import BlogItem from "../../../BlogItem/BlogItem";
 import ChangeIconImg from "../../../../../public/ChangeIcon.svg";
@@ -10,7 +10,6 @@ import {
   IArticle,
   ISitemapData,
   ISwapData,
-  IView,
 } from "../../../../types/Admin/Response.types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
@@ -19,23 +18,7 @@ import close from "../../../../../public/bigClose.svg";
 import { AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { adminSitemapService } from "../../../../services/adminSitemapPage";
 import SortableList, { SortableItem } from "react-easy-sort";
-
-interface IArticles {
-  setIsNewArticle: (val: boolean) => void;
-  setArticle: (val: number) => void;
-  article: number;
-  isNewArticle: boolean;
-  data?: IArticle[];
-  views?: IView[];
-  disabled?: boolean;
-  sitemap?: ISitemapData | void;
-  scrollRef: RefObject<HTMLDivElement>;
-}
-
-interface IArticleItem {
-  item: IArticle;
-  i: number;
-}
+import { IArticleItem, IArticles } from "../../../../types/Admin/Blog.types";
 
 const PublishedArticles: FC<IArticles> = ({
   setIsNewArticle,

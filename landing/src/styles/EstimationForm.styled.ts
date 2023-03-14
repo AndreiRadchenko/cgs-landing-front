@@ -129,6 +129,7 @@ export const ContainerEstimationForm = styled.div`
     padding: 0px 20px 34px;
   }
 `;
+
 export const EstimationConditionsForAppearanceHeader = styled.p`
   font-size: 16px;
   line-height: 132%;
@@ -215,6 +216,7 @@ export const EstimationFieldOptionCheckbox = styled.label<IBlockErrorSplit>`
     }
   }
 `;
+
 export const EstimationFieldOptionRadio = styled.label<IBlockErrorSplit>`
   margin: 0;
   font-family: ${themes.primary.font.family.namu};

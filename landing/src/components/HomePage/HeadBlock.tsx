@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as Styled from "../../styles/HomePage/General.styled";
 import leftArrow from "../../../public/HomePageDecoration/leftArrow.svg";
-import boldLeftArrowMobile from "../../../public/HomePageDecoration/boldArrowLeftMobile.svg";
 import boldRightArrowMobile from "../../../public/HomePageDecoration/boldArrowRightMobile.svg";
 import rightArrow from "../../../public/HomePageDecoration/rightArrow.svg";
 import { useQueryClient } from "@tanstack/react-query";

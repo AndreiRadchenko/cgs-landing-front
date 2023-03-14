@@ -18,10 +18,6 @@ export const ContentWrapper = styled.section`
   }
 `;
 
-export const LineContainer = styled.div`
-  position: relative;
-`;
-
 export const Line = styled.div<ILine>`
   position: absolute;
   width: 120%;
@@ -257,16 +253,5 @@ export const PointsWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.5em;
     row-gap: 1.3em;
-  }
-`;
-
-export const AnimationWrapper = styled.span<ISlide>`
-  @media ${themes.primary.media.maxTabletLandScape} {
-    opacity: 0;
-    &.scrolled {
-      animation: ${({ ind }) => css`
-        ${slideRight} 1.5s ${ind * 120}ms forwards
-      `};
-    }
   }
 `;

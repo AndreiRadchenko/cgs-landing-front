@@ -10,13 +10,6 @@ export const FigureOutTermsBlockWrapper = styled.div`
   width: 100%;
 `;
 
-export const WhyIsDappsSubtitlesWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 18px;
-  justify-content: space-between;
-`;
-
 export const HowDoWeProvideWrapper = styled.div`
   width: 95%;
   display: grid;

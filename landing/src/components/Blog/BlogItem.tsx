@@ -3,15 +3,9 @@ import parse from "html-react-parser";
 import * as Styled from "../../styles/Blog.styled";
 import Watch from "../../../public/Watch.svg";
 import Timer from "../../../public/Timer.svg";
-import { IArticle } from "../../types/Admin/Response.types";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useRouter } from "next/router";
-
-interface IBlogItem {
-  article: IArticle;
-  views?: number;
-  filters?: string[];
-}
+import { IBlogItem } from "../../types/Blog.types";
 
 const BlogItem = ({ article, views, filters }: IBlogItem) => {
   const { width } = useWindowDimension();

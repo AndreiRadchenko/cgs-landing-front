@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import parse from "html-react-parser";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
-import { IArticle, IBlogPageResponse } from "../../types/Admin/Response.types";
+import { IArticle } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import PaginationBar from "../../components/PaginationBar/PaginationBar";
 import BlogItem from "../../components/Blog/BlogItem";
@@ -23,16 +23,8 @@ import { useScrollTo } from "../../hooks/useScrollTo";
 import { isNumeric } from "../../utils/isNumeric";
 import { Loading } from "../../components/CareersForm/Form/Form.styled";
 import loading from "../../../public/CareerDecorations/loading.svg";
-
-interface IBlogPageData {
-  data: IBlogPageResponse | undefined;
-  isLoading: boolean;
-}
-
-interface IArticlesData {
-  data: IArticle[] | undefined;
-  isLoading: boolean;
-}
+import { IArticlesData, IBlogPageData } from "../../types/Blog.types";
+import { BlogPageSize } from "../../consts";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -58,8 +50,6 @@ export async function getServerSideProps() {
     },
   };
 }
-
-const PageSize = 4;
 
 const BlogPage = () => {
   const router = useRouter();
@@ -118,7 +108,7 @@ const BlogPage = () => {
   useEffect(() => {
     if (articles) {
       const page = router.query.page;
-      const maxPage = Math.ceil(articles.length / PageSize);
+      const maxPage = Math.ceil(articles.length / BlogPageSize);
       const currentPage =
         page !== "0" && isNumeric(page as string)
           ? Number(page) <= maxPage
@@ -136,8 +126,8 @@ const BlogPage = () => {
   }, [tagParams, scrollHandler, router.query.page, data, articles, filters]);
 
   const currentArticlesData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
+    const firstPageIndex = (currentPage - 1) * BlogPageSize;
+    const lastPageIndex = firstPageIndex + BlogPageSize;
     if (filters.length > 0 && filteredData) {
       return filteredData?.slice(firstPageIndex, lastPageIndex);
     }
@@ -275,7 +265,7 @@ const BlogPage = () => {
                   ? filteredData.length
                   : articles.length
               }
-              pageSize={PageSize}
+              pageSize={BlogPageSize}
               siblingCount={1}
               filters={filters}
             />

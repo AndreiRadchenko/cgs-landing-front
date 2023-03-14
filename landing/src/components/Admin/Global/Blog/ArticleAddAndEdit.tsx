@@ -31,15 +31,7 @@ import { adminGlobalService } from "../../../../services/adminHomePage";
 import dynamic from "next/dynamic";
 import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
 import { Plugin } from "suneditor/src/plugins/Plugin";
-
-interface IAddAndEdit {
-  article: number;
-  isNewArticle: boolean;
-  setIsNewArticle: (val: boolean) => void;
-  setArticle: (val: number) => void;
-  possibleTags: string[];
-  scrollHandler: () => void;
-}
+import { IArticleAddAndEdit } from "../../../../types/Admin/Blog.types";
 
 const TITLE_MIN = 10;
 const TITLE_MAX = 60;
@@ -52,7 +44,7 @@ const ArticleAddAndEdit = ({
   possibleTags,
   setArticle,
   scrollHandler,
-}: IAddAndEdit) => {
+}: IArticleAddAndEdit) => {
   const [descLength, setDescLength] = useState(0);
   const [titleLength, setTitleLength] = useState(0);
   const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
@@ -67,17 +59,7 @@ const ArticleAddAndEdit = ({
     import("suneditor/src/plugins").then((plugs) => setPlugins(plugs as any));
   }, []);
 
-  const handleDescInput = (e: InputEvent) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    if (e.target) setDescLength(e.target.innerText.length);
-  };
-
-  const handleImageUploadBefore = (
-    files: File[],
-    info: object,
-    uploadHandler: any
-  ) => {
+  const handleImageUploadBefore = (files: File[], uploadHandler: any) => {
     const formData = new FormData();
     formData.append("image", files[0], files[0].name);
     mutateAsync(formData).then((img) => {

@@ -29,12 +29,7 @@ import Image from "next/image";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import NotFoundPage from "../404";
-
-interface IArticleData {
-  data: IArticle[] | undefined;
-  isLoading: boolean;
-  isSuccess: boolean;
-}
+import { IArticleData } from "../../types/Blog.types";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -75,11 +70,12 @@ const ArticlePage = () => {
   const article =
     data &&
     data.find(
-      (el) =>
-        el.url === url &&
-        !el.disabled &&
-        !el.draft &&
-        (!el.scheduleArticle || new Date() >= new Date(el.scheduleArticle))
+      (article) =>
+        article.url === url &&
+        !article.disabled &&
+        !article.draft &&
+        (!article.scheduleArticle ||
+          new Date() >= new Date(article.scheduleArticle))
     );
 
   const findViews = (url: string) => {

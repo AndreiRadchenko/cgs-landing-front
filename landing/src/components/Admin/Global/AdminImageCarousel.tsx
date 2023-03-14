@@ -18,10 +18,10 @@ const AdminCarousel = ({ page, setPage, length }: ICarouselProps) => {
     <div>
       <Styled.AdminFeedbackArrows>
         <Styled.AdminPointer onClick={pageUp}>
-          <Image src={arrowAdminFeedbackL} />
+          <Image src={arrowAdminFeedbackL} alt="" />
         </Styled.AdminPointer>
         <Styled.AdminPointer onClick={pageDown}>
-          <Image src={arrowAdminFeedbackR} />
+          <Image src={arrowAdminFeedbackR} alt="" />
         </Styled.AdminPointer>
       </Styled.AdminFeedbackArrows>
     </div>

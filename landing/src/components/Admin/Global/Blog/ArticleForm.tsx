@@ -12,17 +12,7 @@ import {
   IView,
 } from "../../../../types/Admin/Response.types";
 import ArticleAddAndEdit from "./ArticleAddAndEdit";
-
-interface IArticleForm {
-  article: number;
-  articles: IArticle[];
-  isNewArticle: boolean;
-  setIsNewArticle: (val: boolean) => void;
-  views: IView[];
-  setArticle: (val: number) => void;
-  sitemap?: ISitemapData | void;
-  scrollHandler: () => void;
-}
+import { IArticleForm } from "../../../../types/Admin/Blog.types";
 
 const META_TITLE_MAX = 60;
 const META_DESCRIPTION_MAX = 160;
@@ -128,15 +118,15 @@ const ArticleForm = ({
     }
 
     if (sitemap && !isNewArticle && values.url !== articles[article].url) {
-      const sitemaptoUpdate = sitemap;
+      const sitemapToUpdate = sitemap;
 
-      const index = sitemaptoUpdate.includedPages.indexOf(
+      const index = sitemapToUpdate.includedPages.indexOf(
         `blog/${articles[article].url}`
       );
 
       index > -1 &&
-        sitemaptoUpdate.includedPages.splice(index, 1, `blog/${values.url}`) &&
-        updateSitemap(sitemaptoUpdate);
+        sitemapToUpdate.includedPages.splice(index, 1, `blog/${values.url}`) &&
+        updateSitemap(sitemapToUpdate);
     }
 
     resetForm();

@@ -30,13 +30,13 @@ const AdminFooterBlock = () => {
       <div>
         <Styled.AdminHalfGrid>
           <SubHeaderWithInput
-            header="Email adress"
+            header="Email address"
             name="FooterBlock.email"
             inputValue={values.FooterBlock.email}
             onChangeFunction={handleChange}
           />
           <SubHeaderWithInput
-            header="Email adress 2"
+            header="Email address 2"
             name="FooterBlock.hrEmail"
             inputValue={values.FooterBlock.hrEmail}
             onChangeFunction={handleChange}

@@ -10,6 +10,7 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ScrambleText from "./ScrambleText";
 import MobileServices from "./MobileServices";
 import { ArrowContainer } from "../../styles/HomePage/General.styled";
+import FreeServices from "../FreeServices/FreeServices";
 
 const MobileNextTech = () => {
   const { width } = useWindowDimension();
@@ -98,6 +99,8 @@ const MobileNextTech = () => {
           </ArrowContainer>
         </Styled.BlackButton>
       </Styled.SideOppositeContainer>
+
+      <FreeServices />
     </Styled.NextTech>
   );
 };

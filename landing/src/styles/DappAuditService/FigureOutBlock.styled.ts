@@ -12,6 +12,7 @@ export const ContentWrapper = styled.div`
     margin-block: 1.75em 2.8125em;
   }
 `;
+
 export const ImageWrapper = styled.div`
   position: absolute;
   top: 0;

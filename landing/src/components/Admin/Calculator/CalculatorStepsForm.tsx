@@ -1,5 +1,5 @@
 import React from "react";
-import { AdminUnauthorizedModal } from "../../../styles/AdminPage";
+import * as AdminPageStyled from "../../../styles/AdminPage";
 import CalculatorStepItem from "./CalculatorStepItemForm";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import CalculatorChooseButton from "./CalculatorChooseButton";
@@ -27,7 +27,9 @@ const CalculatorStepsForm = ({
   toogleBlockchain,
 }: ICalculatorStepsFormProps) => {
   return classicIsLoading || blockchainIsLoading ? (
-    <AdminUnauthorizedModal>Loading...</AdminUnauthorizedModal>
+    <AdminPageStyled.AdminUnauthorizedModal>
+      Loading...
+    </AdminPageStyled.AdminUnauthorizedModal>
   ) : classicStepsData && blockchainStepsData ? (
     <>
       <Styled.ChooseTitle>Choose:</Styled.ChooseTitle>
@@ -67,7 +69,9 @@ const CalculatorStepsForm = ({
         ))}
     </>
   ) : (
-    <AdminUnauthorizedModal>Something went wrong :(</AdminUnauthorizedModal>
+    <AdminPageStyled.AdminUnauthorizedModal>
+      Something went wrong :(
+    </AdminPageStyled.AdminUnauthorizedModal>
   );
 };
 

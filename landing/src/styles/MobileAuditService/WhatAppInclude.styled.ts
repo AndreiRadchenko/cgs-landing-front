@@ -34,6 +34,7 @@ export const Title = styled.h2`
     margin-left: -5px;
   }
 `;
+
 export const GradientLineContainer = styled.div`
   position: relative;
   height: 79%;
@@ -129,6 +130,7 @@ export const PointWrapper = styled.div`
     }
   }
 `;
+
 export const PointLine = styled.div`
   width: 70px;
   border-bottom: 1px solid ${themes.primary.colors.primary};
@@ -183,15 +185,6 @@ export const GlassContainer = styled.div`
   @media ${themes.primary.media.maxLowScreenMobile} {
     height: 327px;
     width: 100%;
-  }
-`;
-
-export const MobileGlassContainer = styled.div`
-  display: none;
-
-  @media ${themes.primary.media.maxServiceWeb} {
-    margin-top: 2em;
-    display: block;
   }
 `;
 

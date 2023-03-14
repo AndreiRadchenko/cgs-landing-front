@@ -1,16 +1,10 @@
 import React from "react";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/Blog.styled";
-import { IArticle } from "../../types/Admin/Response.types";
 import Watch from "../../../public/Watch.svg";
 import Timer from "../../../public/Timer.svg";
 import { useRouter } from "next/router";
-
-interface IMainBlogItem {
-  article: IArticle;
-  views?: number;
-  filters?: string[];
-}
+import { IMainBlogItem } from "../../types/Blog.types";
 
 const MainBlogItem = ({ article, views, filters }: IMainBlogItem) => {
   const router = useRouter();
@@ -24,6 +18,7 @@ const MainBlogItem = ({ article, views, filters }: IMainBlogItem) => {
       `/blog/${article.url}`
     );
   };
+
   return (
     <Styled.MainBlogItemContainer>
       <Styled.MobileColumnReversedContainer>

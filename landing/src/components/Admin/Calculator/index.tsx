@@ -57,10 +57,7 @@ const AdminCalculatorContent = () => {
             toogleBlockchain={toogleBlockchain}
           />
           <CalculatorResultsForm />
-          <CalculatorPriceForm
-            key={`${isBlockchain}`}
-            isBlockchain={isBlockchain}
-          />
+          <CalculatorPriceForm key={`${isBlockchain}`} />
         </Styled.AdminBlocksContent>
       </Styled.AdminContentBlock>
     )) ||
