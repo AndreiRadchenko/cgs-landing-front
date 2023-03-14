@@ -57,7 +57,7 @@ const CalculatorTypesRate = () => {
               <SaveBtn
                 handleClick={handleSubmit}
                 title="Save Changes"
-                style={{ marginTop: "14px" }}
+                style={{ marginTop: "14px", marginBottom: "20px" }}
               />
             </div>
           );

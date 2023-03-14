@@ -38,6 +38,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@playwright/test": "^1.31.2",
     "@types/node": "17.0.10",
     "@types/react": "18.0.1",
     "@types/react-stars": "^2.2.1",

@@ -43,7 +43,7 @@ const CalculatorStepsForm = ({
           setActive={toogleBlockchain}
         />
       </Styled.ChooseButtonsWrapper>
-      {/* {isBlockchain &&
+      {isBlockchain &&
         blockchainStepsData.map((step, idx) => (
           <CalculatorStepItem
             isBlockchain={isBlockchain}
@@ -53,7 +53,7 @@ const CalculatorStepsForm = ({
             index={idx}
             refetch={blockchainRefetch}
           />
-        ))} */}
+        ))}
       {!isBlockchain &&
         classicStepsData.map((step, idx) => (
           <CalculatorStepItem
