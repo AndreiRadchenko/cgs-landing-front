@@ -749,7 +749,7 @@ export const CalculatorSelectOptionWrapper = styled.div`
 
 export const CalculatorHiddenContentWrapper = styled.div`
   position: absolute;
-  z-index: 5;
+  z-index: 10;
   background-color: ${themes.primary.colors.blogBackground};
   border: 1px solid ${themes.primary.colors.comment};
   border-top-width: 0;

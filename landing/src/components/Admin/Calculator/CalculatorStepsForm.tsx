@@ -1,9 +1,9 @@
 import React from "react";
 import * as AdminPageStyled from "../../../styles/AdminPage";
-import CalculatorStepItem from "./CalculatorStepItemForm";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import CalculatorChooseButton from "./CalculatorChooseButton";
 import { ICalculatorStep } from "../../../types/Admin/Response.types";
+import { CalculatorStepsArr } from "./CalculatorStepsArr";
 
 interface ICalculatorStepsFormProps {
   isBlockchain: boolean;
@@ -22,6 +22,7 @@ const CalculatorStepsForm = ({
   classicIsLoading,
   blockchainIsLoading,
   classicRefetch,
+  blockchainRefetch,
   isBlockchain,
   toogleBlockchain,
 }: ICalculatorStepsFormProps) => {
@@ -44,17 +45,19 @@ const CalculatorStepsForm = ({
           setActive={toogleBlockchain}
         />
       </Styled.ChooseButtonsWrapper>
-      {!isBlockchain &&
-        classicStepsData.map((step, idx) => (
-          <CalculatorStepItem
-            isBlockchain={isBlockchain}
-            allSteps={classicStepsData}
-            step={step}
-            key={idx}
-            index={idx}
-            refetch={classicRefetch}
-          />
-        ))}
+      {isBlockchain ? (
+        <CalculatorStepsArr
+          arr={blockchainStepsData}
+          isBlockchain={isBlockchain}
+          refetch={blockchainRefetch}
+        />
+      ) : (
+        <CalculatorStepsArr
+          arr={classicStepsData}
+          isBlockchain={isBlockchain}
+          refetch={classicRefetch}
+        />
+      )}
     </>
   ) : (
     <AdminPageStyled.AdminUnauthorizedModal>
