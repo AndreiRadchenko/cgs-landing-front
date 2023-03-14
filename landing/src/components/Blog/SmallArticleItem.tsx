@@ -1,15 +1,11 @@
 import React from "react";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/Blog.styled";
-import { IArticle } from "../../types/Admin/Response.types";
 import Arrow from "../../../public/BlogDecorations/MainPage/Arrow.svg";
 import { useRouter } from "next/router";
-interface IMainBlogItem {
-  article: IArticle;
-  filters: string[];
-}
+import { ISmallArticleItem } from "../../types/Blog.types";
 
-const SmallArticleItem = ({ article, filters }: IMainBlogItem) => {
+const SmallArticleItem = ({ article, filters }: ISmallArticleItem) => {
   const parseDate = (date: string) => {
     return date.split("-").reverse().join(".");
   };

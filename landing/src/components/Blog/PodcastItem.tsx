@@ -5,14 +5,7 @@ import Podcast from "../../../public/BlogDecorations/Podcast/Podcast.svg";
 import PlayTriangle from "../../../public/BlogDecorations/Podcast/PlayTriangle.svg";
 import StopButton from "../../../public/StopButton.svg";
 import ReactPlayer from "react-player";
-
-interface IPodcastItemProps {
-  data: {
-    subtitle: string;
-    text: string;
-    link: string;
-  };
-}
+import { IPodcastItemProps } from "../../types/Blog.types";
 
 const PodcastItem = ({ data }: IPodcastItemProps) => {
   const [playbackRate, setPlaybackRate] = useState(1);

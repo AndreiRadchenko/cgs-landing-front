@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as Styled from "../../styles/Blog.styled";
 import Arrow from "../../../public/upArrowSidebar.svg";
+import Image from "next/image";
 
 interface IBlogDropdown {
   setFilters: (tags: string[]) => void;
@@ -41,7 +42,7 @@ const BlogDropdown = ({
         type={type}
       >
         <span>{dropdownName}</span>
-        <img width={9} height={5} src={Arrow.src} alt="Arrow" />
+        <Image width={9} height={5} src={Arrow.src} alt="Arrow" />
       </Styled.DropdownButton>
       <Styled.DropdownContent className={isOpen ? `open ` : undefined}>
         {tags.map((tag) => (

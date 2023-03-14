@@ -333,3 +333,5 @@ export const conditionsToAppearanceQuestion = [
     answer: "Yes",
   },
 ];
+
+export const BlogPageSize = 4;
