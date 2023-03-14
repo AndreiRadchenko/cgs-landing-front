@@ -1,7 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useFormikContext } from "formik";
 import React, { useEffect, useState } from "react";
-import { number } from "yup";
 import { queryKeys } from "../../consts/queryKeys";
 import {
   ICalculator,
@@ -62,11 +61,11 @@ const CalcualtorResultForm = ({
      with <span class="bold">3 developers;</span></p></li>
     ${
       results?.uxui && typeof results?.uxui === "number"
-        ? "<li><p>UI/UX Designer</p></li>"
+        ? "<li><p>UI/UX Designer;</p></li>"
         : ""
     }
     <li>Project Manager;</li>
-    <li>QA.</li>
+    <li>QA;</li>
   </ul>
 <span class="result-msg">${calculatorData?.resultMessage}</span>
   `;

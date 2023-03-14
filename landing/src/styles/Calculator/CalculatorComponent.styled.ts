@@ -460,6 +460,7 @@ export const StepButtonWrapper = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     column-gap: 1em;
     width: 100%;
+    margin-top: 1em;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -1453,6 +1454,10 @@ export const CalculatorInputsFieldsWrapper = styled.div`
   z-index: 2;
   font-family: ${themes.primary.font.family.openSans};
   overflow: hidden;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding: 5px 20px 5px 0;
+  }
 
   &.quit {
     padding-top: 5px;
