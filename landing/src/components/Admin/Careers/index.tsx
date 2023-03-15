@@ -10,20 +10,8 @@ import {
   IDataCareersResponse,
   IVacancies,
 } from "../../../types/Admin/Response.types";
-
-import * as Styled from "../../../styles/AdminPage";
-import {
-  MainContainer,
-  CareersContainer,
-  SubTitle,
-  TitleInput,
-  VacancyInput,
-  TicketContainer,
-  TicketsButton,
-  TicketBox,
-  IconBox,
-  DeleteBtn,
-} from "../../../styles/AdminCareersPage";
+import * as AdminPageStyled from "../../../styles/AdminPage";
+import * as Styled from "../../../styles/AdminCareersPage";
 import { useMutation } from "@tanstack/react-query";
 import { adminCareersService } from "../../../services/adminCareersPage";
 import { queryKeys } from "../../../consts/queryKeys";
@@ -96,19 +84,19 @@ const Careers = ({
   };
 
   return (
-    <Styled.AdminPaddedBlock theme="light">
-      <Styled.AdminHeader>Careers</Styled.AdminHeader>
-      <MainContainer>
-        <CareersContainer>
-          <SubTitle>Subtitle</SubTitle>
-          <TitleInput
+    <AdminPageStyled.AdminPaddedBlock theme="light">
+      <AdminPageStyled.AdminHeader>Careers</AdminPageStyled.AdminHeader>
+      <Styled.MainContainer>
+        <Styled.CareersContainer>
+          <Styled.SubTitle>Subtitle</Styled.SubTitle>
+          <Styled.TitleInput
             type="text"
             name="subtitle"
             value={values.subtitle}
             onChange={handleChange}
           />
-          <SubTitle>Add a new ticket</SubTitle>
-          <VacancyInput
+          <Styled.SubTitle>Add a new ticket</Styled.SubTitle>
+          <Styled.VacancyInput
             type="text"
             name={
               isNewTicket ? `tickets[${ticket}].vacancy` : "vacancy.vacancy"
@@ -121,7 +109,7 @@ const Careers = ({
             }
             onChange={handleChange}
           />
-          <VacancyInput
+          <Styled.VacancyInput
             type="text"
             name={
               isNewTicket ? `tickets[${ticket}].position` : "vacancy.position"
@@ -142,9 +130,11 @@ const Careers = ({
             handleChange={isNewTicket ? starsEditChange : starsChange}
             edit={true}
           />
-          <SubTitle>Stack</SubTitle>
+          <Styled.SubTitle>Stack</Styled.SubTitle>
           <Stack isNewTicket={isNewTicket} ticket={ticket} />
-          <SubTitle className={"info"}>Info about vacancy</SubTitle>
+          <Styled.SubTitle className={"info"}>
+            Info about vacancy
+          </Styled.SubTitle>
           {!isNewTicket
             ? values.vacancy.info.map((el, i) => (
                 <CareerInfo
@@ -166,41 +156,43 @@ const Careers = ({
                   infoIndex={i}
                 />
               ))}
-          <TicketsButton type="button" onClick={addOrEditTicket}>
+          <Styled.TicketsButton type="button" onClick={addOrEditTicket}>
             {isNewTicket ? "Edit ticket" : "Add ticket"}
-          </TicketsButton>
-        </CareersContainer>
+          </Styled.TicketsButton>
+        </Styled.CareersContainer>
 
         {values.tickets.length ? (
-          <TicketBox>
-            <TicketContainer>
-              <IconBox onClick={() => setIsNewTicket(!isNewTicket)}>
+          <Styled.TicketBox>
+            <Styled.TicketContainer>
+              <Styled.IconBox onClick={() => setIsNewTicket(!isNewTicket)}>
                 <Image src={isNewTicket ? close : edit} alt="icon" />
-              </IconBox>
+              </Styled.IconBox>
               <CareersTicket
                 className="admin"
                 ticket={values.tickets[ticket]}
               />
-              <DeleteBtn onClick={deleteTicket} type={"button"}>
+              <Styled.DeleteBtn onClick={deleteTicket} type={"button"}>
                 delete ticket
-              </DeleteBtn>
-            </TicketContainer>
+              </Styled.DeleteBtn>
+            </Styled.TicketContainer>
 
             <AdminCarousel
               page={ticket}
               setPage={setTicket}
               length={values.tickets.length}
             />
-          </TicketBox>
+          </Styled.TicketBox>
         ) : (
-          <Styled.AdminPhotoGrid>
-            <Styled.AdminCenteredDiv>
-              <Styled.AdminSubTitle>No tickets</Styled.AdminSubTitle>
-            </Styled.AdminCenteredDiv>
-          </Styled.AdminPhotoGrid>
+          <AdminPageStyled.AdminPhotoGrid>
+            <AdminPageStyled.AdminCenteredDiv>
+              <AdminPageStyled.AdminSubTitle>
+                No tickets
+              </AdminPageStyled.AdminSubTitle>
+            </AdminPageStyled.AdminCenteredDiv>
+          </AdminPageStyled.AdminPhotoGrid>
         )}
-      </MainContainer>
-    </Styled.AdminPaddedBlock>
+      </Styled.MainContainer>
+    </AdminPageStyled.AdminPaddedBlock>
   );
 };
 

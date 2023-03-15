@@ -58,19 +58,6 @@ export const TicketsContainer = styled.div`
   margin-top: 20px;
 `;
 
-export const TicketsLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-`;
-
-export const TicketsInput = styled.input`
-  margin-top: 20px;
-  transform: scale(1.8);
-  cursor: pointer;
-`;
-
 export const TicketsButton = styled.button`
   width: 100%;
   background: ${themes.primary.colors.cardDarkGreen};

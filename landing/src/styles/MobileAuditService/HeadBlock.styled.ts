@@ -86,6 +86,7 @@ export const Description = styled.p`
     margin: 1.5em 0 1.75em;
   }
 `;
+
 export const ImageWrapper = styled.div`
   position: absolute;
   top: -17%;

@@ -1,15 +1,33 @@
-import React from "react";
+import React, { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import * as Styled from "../../styles/PortfolioSlider.styled";
 
 export const AnchorLinkContainer = ({
   link,
   isProject,
+  setOpenCategory,
+  setOpenProject,
 }: {
   link: string;
   isProject: boolean;
+  setOpenCategory?: Dispatch<SetStateAction<string>>;
+  setOpenProject?: Dispatch<SetStateAction<string>>;
 }) => {
+  const categoriesRef = useRef<any>(null);
+
+  useEffect(() => {
+    const handleClick = (e: any) => {
+      if (!categoriesRef.current) return;
+      if (!categoriesRef.current.contains(e.target)) {
+        isProject ? setOpenProject!("") : setOpenCategory!("");
+      }
+    };
+
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, []);
+
   return (
-    <Styled.AnchorLinkContainer isProject={isProject}>
+    <Styled.AnchorLinkContainer ref={categoriesRef} isProject={isProject}>
       <p>{link}</p>
       <svg
         onClick={() => navigator.clipboard.writeText(link)}

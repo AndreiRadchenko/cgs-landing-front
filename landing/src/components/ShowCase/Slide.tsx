@@ -55,9 +55,11 @@ const Slide = ({ review }: IReviewProps) => {
               </Styled.ProjectScope>
             )}
           </span>
-          <Styled.ProjectLinkButton href={review.button}>
-            project link
-          </Styled.ProjectLinkButton>
+          {review.button.length > 0 && (
+            <Styled.ProjectLinkButton href={review.button}>
+              project link
+            </Styled.ProjectLinkButton>
+          )}
         </Styled.BottomContent>
       </Styled.ContentWrapper>
     </Styled.SlideContainer>

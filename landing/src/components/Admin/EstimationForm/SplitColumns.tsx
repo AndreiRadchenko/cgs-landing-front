@@ -1,9 +1,6 @@
 import React from "react";
-import { Box } from "../../../styles/AdminPage";
-import {
-  TieUpInput,
-  TieUpLabel,
-} from "../../../styles/Calculator/CalculatorAdmin.styled";
+import * as AdminPageStyled from "../../../styles/AdminPage";
+import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 
 export interface ISplitColumnsProps {
   currentQuestion: string;
@@ -12,21 +9,21 @@ export interface ISplitColumnsProps {
 
 const SplitColumns = ({ currentQuestion, currentPage }: ISplitColumnsProps) => {
   return (
-    <Box margin="0 6px 0 0" align="start">
-      <TieUpInput
+    <AdminPageStyled.Box margin="0 6px 0 0" align="start">
+      <Styled.TieUpInput
         type="checkbox"
         className={"admin-checkbox"}
         name={`isSplitColumns`}
         id={`isSplitColumnsId${currentQuestion}${currentPage}`}
       />
-      <TieUpLabel
+      <Styled.TieUpLabel
         dangerouslySetInnerHTML={{
           __html: "split columns",
         }}
         htmlFor={`isSplitColumnsId${currentQuestion}${currentPage}`}
         style={{ marginLeft: "6px" }}
       />
-    </Box>
+    </AdminPageStyled.Box>
   );
 };
 

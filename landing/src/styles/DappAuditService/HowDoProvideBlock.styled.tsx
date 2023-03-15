@@ -190,17 +190,6 @@ export const BgImage = styled.img`
   }
 `;
 
-export const BgImageWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: -3.1875em;
-  width: 100vw;
-
-  @media ${themes.primary.media.minPCFullHD} {
-    height: 90vw;
-  }
-`;
-
 export const SubContentWrapper = styled.div`
   margin-inline: 4em 7.5em;
   position: relative;

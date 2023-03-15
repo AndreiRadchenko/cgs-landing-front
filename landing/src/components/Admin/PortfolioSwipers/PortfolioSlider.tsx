@@ -88,11 +88,15 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
             behavior: "smooth",
           });
         }, 1);
-        if (window.location.href.includes("_") && swiperRef!.current)
+        if (
+          window.location.href.includes("_") &&
+          swiperRef!.current?.contains(elementToScroll!)
+        )
           swiperRef!.current.swiper.slideTo(
             elementToScroll!.parentElement!.getAttribute(
               "data-swiper-slide-index"
-            )
+            ),
+            2000
           );
       }
     }
@@ -160,6 +164,7 @@ const PortfolioSlider: FC<IPortfolioSwipers> = ({
                 <AnchorLinkContainer
                   link={makeALink(category)}
                   isProject={false}
+                  setOpenCategory={setOpenCategory}
                 />
               )}
             </Styled.NavigateLeft>

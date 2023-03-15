@@ -4,6 +4,7 @@ import * as Styled from "../../styles/WebService/SolutionBlock.styled";
 
 import { useQueryClient } from "@tanstack/react-query";
 import { IServiceWeb } from "../../types/Admin/Response.types";
+import { IServicesClassnameProps } from "../../types/Services.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import firsMobileBg from "../../../public/WebService/first-mobile.svg";
@@ -12,11 +13,7 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import TextTypingAnimation from "../Typewrite";
 
-interface ISolutionBlockProps {
-  className?: string;
-}
-
-const SolutionBlock = ({ className }: ISolutionBlockProps) => {
+const SolutionBlock = ({ className }: IServicesClassnameProps) => {
   const { width } = useWindowDimension();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceWeb>([

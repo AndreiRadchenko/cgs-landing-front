@@ -4,6 +4,7 @@ import {
   Container,
   ContainerDate,
 } from "../../components/EstimationForm/index.styled";
+import * as Styled from "../../styles/AdminPage";
 
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
@@ -13,9 +14,10 @@ import { IFormData, IFormFileData } from "../../types/EstimationForm.types";
 import EstimationCongratsModal from "../../components/EstimationForm/EstimationCongratsModal";
 import EstimationFailModal from "../../components/EstimationForm/EstimationFailModal";
 import { useRouter } from "next/router";
-import { dehydrate, QueryClient } from "@tanstack/react-query";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
+import { adminEstimationFormService } from "../../services/adminEstimationForm";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -46,6 +48,11 @@ const EstimationsForm = () => {
     clientAnswers: [],
   });
 
+  const { data, isLoading } = useQuery(
+    [queryKeys.getEstimationFormData, page],
+    () => adminEstimationFormService.getPageData(page.toString())
+  );
+
   useEffect(() => {
     const handleBrowseAway = () => {
       setOpenFailedModal(true);
@@ -64,7 +71,9 @@ const EstimationsForm = () => {
     else document.body.style.overflow = "unset";
   }, [openSuccessModal, openFailedModal]);
 
-  return (
+  return isLoading ? (
+    <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
+  ) : (
     <Container>
       <HeaderNavNew
         clickFromEstimationForm={true}
@@ -84,6 +93,7 @@ const EstimationsForm = () => {
           setFormData={setFormData}
           pageN={page}
           setPage={setPage}
+          data={data!}
         />
         <ImageBackground page={page} />
       </ContainerDate>

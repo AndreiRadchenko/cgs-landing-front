@@ -1,6 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
+import { useMutation } from "@tanstack/react-query";
 import { adminEstimationFormService } from "../../services/adminEstimationForm";
 import EstimationQuestionField from "./EstimationQuestionField";
 
@@ -16,12 +15,11 @@ import {
 import Pagination from "./Pagination";
 import { EstimationValidation } from "../../validations/EstimationValidation";
 import {
-  ClientAnswer,
+  EstimationData,
   IFormData,
   IFormFileData,
   ISendData,
 } from "../../types/EstimationForm.types";
-import Loader from "../Portfolio/Loader";
 
 const EstimationPage = ({
   formData,
@@ -31,6 +29,7 @@ const EstimationPage = ({
   attachFiles,
   setAttachFiles,
   setOpenSuccessModal,
+  data,
 }: {
   formData: IFormData;
   setFormData: Dispatch<SetStateAction<IFormData>>;
@@ -39,15 +38,11 @@ const EstimationPage = ({
   attachFiles: IFormFileData[];
   setAttachFiles: Dispatch<SetStateAction<IFormFileData[]>>;
   setOpenSuccessModal: Dispatch<SetStateAction<boolean>>;
+  data: EstimationData;
 }) => {
   const [parentId, setParentId] = useState("");
 
   const [touchedBtn, setTouched] = useState(false);
-
-  const { data, isLoading } = useQuery(
-    [queryKeys.getEstimationFormData, pageN],
-    () => adminEstimationFormService.getPageData(pageN.toString())
-  );
 
   const createFormData = useMutation({
     mutationFn: async (estimationData: IFormData) => {
@@ -88,10 +83,6 @@ const EstimationPage = ({
   const pageAnswers = formData.clientAnswers.filter(
     (clientAnswer) => clientAnswer.pageIndex === pageN
   );
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   const createAllInitialValues = () => {
     const initialPageQuestions = data?.page.questions.map((question) => {

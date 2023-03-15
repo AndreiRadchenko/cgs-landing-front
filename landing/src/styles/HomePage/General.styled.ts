@@ -9,20 +9,10 @@ export interface IFontSize {
 
 export const RowContainer = styled.div`
   display: flex;
-`;
+  gap: 8px;
 
-export const ContentContainer = styled.div`
-  background-color: ${themes.primary.colors.blogBackground};
-  padding: 38px 51px 90px;
-  font-family: ${themes.primary.font.family.namu};
-  button {
-    border: none;
-    outline: none;
-    border-radius: 0;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 50px 50px 70px;
+  @media ${themes.primary.media.maxMobile} {
+    gap: 2px;
   }
 `;
 
@@ -34,13 +24,6 @@ export const LocalLayout = styled.div`
   @media (min-width: 2200px) {
     font-size: 1.4rem;
   }
-`;
-export const ButtonArrow = styled.img`
-  position: absolute;
-  right: -14px;
-  top: -14px;
-  width: 36px;
-  height: 36px;
 `;
 
 export const BlackButton = styled.a<IFontSize>`
@@ -192,40 +175,55 @@ export const MainSubtitle = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 4.3vw;
+    font-size: 4.8vw;
     margin: 10px 0 35px;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 4.7vw;
   }
 `;
 
 export const RightArrowWrapper = styled.div`
   display: inline-block;
   position: relative;
-  margin: 0 10px;
-  width: 115px;
+  width: 165px;
+  @media ${themes.primary.media.onlyLaptop} {
+    width: 115px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 88px;
+    width: 65px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 10.4vw;
+    width: 4.8vw;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    margin: 0 5px;
+    width: 20px;
   }
 `;
 
 export const LeftArrowWrapper = styled.div`
   display: inline-block;
-  width: 142px;
   position: relative;
-  margin-left: 10px;
+  width: 115px;
+
+  @media ${themes.primary.media.onlyPC} {
+    width: 145px;
+  }
+
+  @media ${themes.primary.media.maxLaptop} {
+    width: 90px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 108px;
+    width: 55px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 14.1vw;
+    display: none;
   }
 `;
 
@@ -517,7 +515,6 @@ export const NextTech = styled.section`
 
 export const FilmContainer = styled.div`
   position: relative;
-  margin-bottom: 70px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     overflow: hidden;
@@ -687,59 +684,6 @@ export const FooterButtonWrapper = styled.span`
   }
 `;
 
-export const FooterLinkButton = styled.a`
-  font-family: inherit;
-  font-size: 1.8333em;
-  padding: 1.15rem 1.1rem;
-  cursor: pointer;
-  position: relative;
-  letter-spacing: 0.03em;
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  margin-left: 20px;
-  color: ${themes.primary.colors.secondary};
-  background-color: ${themes.primary.colors.primary};
-  line-height: 99%;
-  border: 2px solid ${themes.primary.colors.primary};
-  transition: all 0.3s;
-
-  &:hover {
-    background-color: transparent;
-    color: ${themes.primary.colors.primary};
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    padding: 1.5rem 1.4rem;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 14px;
-    padding: 1.11em 1.5em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    padding: 1.428em 2em;
-  }
-
-  & path {
-    transition: all 1s ease-in-out;
-  }
-  & path:nth-child(1) {
-    z-index: -1;
-    transform: translate(-36px, 36px);
-  }
-  &:hover {
-    & path:nth-child(2) {
-      transform: translate(36px, -36px);
-    }
-
-    & path:nth-child(1) {
-      transform: translate(0px, 0px);
-    }
-  }
-`;
-
 export const FooterWhatsAppContainer = styled.div`
   margin-bottom: 135px;
 
@@ -803,17 +747,6 @@ export const ArrowContainer = styled.div`
   }
 `;
 
-export const Cursor = styled.span`
-  display: inline-block;
-  width: 2px;
-  height: 1.45em;
-  background-color: ${themes.primary.colors.primary};
-  animation: ${cursorBlinking} 1s steps(1) infinite;
-  position: absolute;
-  right: -0.2em;
-  bottom: -0.2em;
-`;
-
 export const MobileReverseLayout = styled.div`
   @media ${themes.primary.media.maxMobile} {
     display: flex;
@@ -828,6 +761,7 @@ export const ButtonShareTextWrapper = styled.div`
   font-family: ${themes.primary.font.family.namu};
   z-index: 10;
   margin-left: 2.5em;
+  font-size: 0.75rem;
 
   &.footer {
     margin-inline: 0 1.1666em;
@@ -840,7 +774,7 @@ export const ButtonShareTextWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.428em;
     margin-left: 0;
-    font-size: 1.346em;
+    font-size: 0.75rem;
   }
 `;
 
@@ -868,7 +802,7 @@ export const WhatsAppWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
+    font-size: 16px;
     line-height: 19px;
     column-gap: 3px;
   }

@@ -86,9 +86,9 @@ const AdminReview = ({
             </Styled.AdminParagraph>
           </Styled.ProjectInfo>
         </div>
-        <Styled.AdminPortofolioImageWrapper>
+        <Styled.AdminPortfolioImageWrapper>
           <AdminImage image={review.image} />
-        </Styled.AdminPortofolioImageWrapper>
+        </Styled.AdminPortfolioImageWrapper>
       </Styled.AdminPortfolioReviewLayout>
       <Styled.AdminDeleteTextThin onClick={deleteFunc}>
         delete

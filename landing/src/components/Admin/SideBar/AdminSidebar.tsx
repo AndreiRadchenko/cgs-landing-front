@@ -42,7 +42,7 @@ const AdminSidebar = () => {
           property={ROUTE_KEYS.AdminCalculator}
         >
           <CalculatorIcon />
-          сalculator
+          calculator
         </Styled.AdminSidebarMenuElement>
         <Styled.AdminSidebarMenuElement
           onClick={pushPortfolio}

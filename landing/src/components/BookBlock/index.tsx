@@ -1,5 +1,7 @@
 ﻿import React from "react";
+import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import { useQueryClient } from "@tanstack/react-query";
+
 import { queryKeys } from "../../consts/queryKeys";
 import {
   Subtitle,
@@ -17,18 +19,38 @@ const BookBlock = () => {
   const data = queryClient.getQueryData<IDataResponse>([
     queryKeys.getFullHomePage,
   ])?.BookCallBlock;
+  const subtitleText = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.SubtitleBookBlock;
+
+  const options: HTMLReactParserOptions = {
+    replace: (domNode) => {
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(88, 105, 221)")
+      ) {
+        return (
+          <span className="blue tech">
+            <ScrambleText
+              text={
+                domNode.children[0].type === "text" &&
+                (domNode.children[0] as any).data
+              }
+            />
+          </span>
+        );
+      }
+    },
+  };
 
   return (
     <FooterSection>
-      <Subtitle className="footer">
-        Do you want <br /> to turn your <br /> ideas into&nbsp;
-        <br />
-        <span className="blue solutions">
-          {(typeof window !== "undefined" && (
-            <ScrambleText text="tech solutions" />
-          )) || <span className="blue">tech solutions</span>}
-        </span>
+      <Subtitle className="foooter">
+        {subtitleText && parse(subtitleText.title, options)}
       </Subtitle>
+
       <FooterWhatsAppContainer>
         {data && (
           <FooterButtonWrapper className="btn">

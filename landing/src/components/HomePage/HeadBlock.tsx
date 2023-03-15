@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as Styled from "../../styles/HomePage/General.styled";
 import leftArrow from "../../../public/HomePageDecoration/leftArrow.svg";
-import boldLeftArrowMobile from "../../../public/HomePageDecoration/boldArrowLeftMobile.svg";
 import boldRightArrowMobile from "../../../public/HomePageDecoration/boldArrowRightMobile.svg";
 import rightArrow from "../../../public/HomePageDecoration/rightArrow.svg";
 import { useQueryClient } from "@tanstack/react-query";
@@ -41,14 +40,16 @@ const HeadBlock = () => {
         <Styled.Title>{data?.title}</Styled.Title>
         <Styled.MainSubtitle>
           <Styled.RowContainer>
-            <div>SHARP DEVS WITH PROF TECHS</div>
+            <div>WEB3-focused, WEB2-bolstered</div>
             <Styled.LeftArrowWrapper>
-              <Image
-                src={width && width > 798 ? leftArrow.src : boldLeftArrowMobile}
-                alt="head block left arrow"
-                layout="fill"
-                objectFit="contain"
-              />
+              {width && width > 768 && (
+                <Image
+                  src={leftArrow.src}
+                  alt="head block left arrow"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              )}
             </Styled.LeftArrowWrapper>
           </Styled.RowContainer>
           <Styled.RowContainer>
@@ -56,7 +57,7 @@ const HeadBlock = () => {
             <Styled.RightArrowWrapper>
               <Image
                 src={
-                  width && width > 798 ? rightArrow.src : boldRightArrowMobile
+                  width && width > 768 ? rightArrow.src : boldRightArrowMobile
                 }
                 alt="head block left arrow"
                 layout="fill"
@@ -71,7 +72,6 @@ const HeadBlock = () => {
             <GetEstimationButton
               buttonLink={data?.buttonLink}
               withEstimation
-              buttonText={data.button}
               buttonClassName={buttonClassName}
             />
             <ButtonShareComponent />

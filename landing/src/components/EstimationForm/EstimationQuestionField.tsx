@@ -60,7 +60,7 @@ const EstimationQuestionField = ({
   const conditionToShowNameErr =
     !!metaUsername.error &&
     getTextFromHtml(question.title) === "Your Name" &&
-    formData.clientName.length > 1;
+    formData.clientName.length > 0;
 
   const additionalQuestionPayments = formData.clientAnswers[
     formData.clientAnswers.findIndex(
@@ -194,7 +194,7 @@ const EstimationQuestionField = ({
     <HoverContainerEstimation>
       <EstimationFieldBox
         key={question.questionKey}
-        error={!!meta.error && touched}
+        error={!!meta.error && field.value.value.length === 0 && touched}
         borderErrorEmail={conditionToShowEmailErr}
         borderErrorUsername={conditionToShowNameErr}
       >
@@ -213,6 +213,8 @@ const EstimationQuestionField = ({
             touched={touched}
             required={question.isRequired}
             optionsType={question.optionsType}
+            optional={!question.isRequired}
+            formData={formData}
           />
         )}
         {question.optionsType === "RADIO_BUTTON" && (

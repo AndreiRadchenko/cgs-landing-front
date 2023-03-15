@@ -1,13 +1,7 @@
 import React from "react";
 import parse from "html-react-parser";
 import * as Styles from "./BlogItem.styled";
-import { IArticle } from "../../types/Admin/Response.types";
-
-interface IBlogItemProps {
-  item: IArticle;
-  isAdmin?: boolean;
-  children?: React.ReactNode;
-}
+import { IBlogItemProps } from "../../types/Admin/Blog.types";
 
 const BlogItem = ({ isAdmin = false, children, item }: IBlogItemProps) => {
   const blogDate = () => {

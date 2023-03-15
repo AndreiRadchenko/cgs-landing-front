@@ -16,6 +16,7 @@ import Image from "next/image";
 import smallMountain from "/public/smallMountain.svg";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import Logo from "../HeaderNavNew/Logo";
+import ExplanationEmailField from "./ExplanationEmailField/ExplanationEmailField";
 
 interface IFooterProps {
   className?: string;
@@ -73,6 +74,11 @@ const FooterNew = ({
                 <path d="M1.90909 2.88889H3.72727M3.72727 4.77778H5.54545M5.54545 6.66667H7.36364M7.36364 8.55556H9.18182M9.18182 10.4444H11M25.0909 2.88889H23.2727M23.2727 4.77778H21.4545M21.4545 6.66667H19.6364M19.6364 8.55556H17.8182M11 12.3333H12.8182H14.1818H16M17.8182 10.4444H16M1 1V18H26V1H1Z" />
               </StyledThisComp.MailIcon>
               <StyledThisComp.EmailText>{data?.email}</StyledThisComp.EmailText>
+              {data?.email && (
+                <ExplanationEmailField
+                  text={"If you want to become our client"}
+                />
+              )}
             </StyledThisComp.Email>
             <StyledThisComp.Email href={`mailto:${data?.hrEmail}`}>
               <StyledThisComp.MailIcon
@@ -88,6 +94,11 @@ const FooterNew = ({
               <StyledThisComp.EmailText>
                 {data?.hrEmail}
               </StyledThisComp.EmailText>
+              {data?.email && (
+                <ExplanationEmailField
+                  text={"If you want to become our colleague"}
+                />
+              )}
             </StyledThisComp.Email>
           </StyledThisComp.MailsWrapper>
           <StyledThisComp.PrivacyPolicy href="/privacy-policy">

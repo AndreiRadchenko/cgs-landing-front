@@ -22,7 +22,7 @@ const AdminCareersPage = () => {
     </>
   ) : (
     <Styled.AdminUnauthorizedModal>
-      Somethimg went wrong :(
+      Something went wrong :(
     </Styled.AdminUnauthorizedModal>
   );
 };

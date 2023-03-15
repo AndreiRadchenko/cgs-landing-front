@@ -5,7 +5,6 @@ import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import {
   AdminBlockWrapper,
-  // AdminBlockTitle,
   AdminShowCaseCategoryDropdownHeader,
   AdminShowCaseServiceGrid,
   AdminShowCaseServiceButton,
@@ -14,7 +13,6 @@ import {
   AdminShowCaseDropDownContent,
   AdminShowCaseDropDownListItem,
   ButtonWrapper,
-  // AdminShowCaseButton,
 } from "../../../styles/AdminPage";
 import {
   ArrowContainer,

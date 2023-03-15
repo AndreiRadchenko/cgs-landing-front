@@ -18,6 +18,8 @@ import {
 import ButtonArrow from "../../../utils/ButtonArrow";
 import { Form, useFormikContext } from "formik";
 import { IDataResponse } from "../../../types/Admin/Response.types";
+import SubtitleBookBlock from "../SubtitleBookBlock";
+import FreeServicesBlock from "../FreeServicesBlock";
 
 const AdminHomepageForm = () => {
   const { values, handleSubmit } = useFormikContext<IDataResponse>();
@@ -34,6 +36,7 @@ const AdminHomepageForm = () => {
             <AdminLogosBlock />
             <FilmTextBlock />
             <ButtonBlock block={values.SeeAllBlock} name="SeeAllBlock" />
+            <FreeServicesBlock />
             <BlackButton
               size={"1.5em"}
               padding={"1.11em 3em"}
@@ -54,6 +57,7 @@ const AdminHomepageForm = () => {
           </AdminBlockDropDown>
           <AdminBlockDropDown title="BLOCK 5 (COOPERATION STEPS)">
             <AdminCardsBlock />
+            <SubtitleBookBlock />
             <ButtonBlock
               isCooperationBlock
               block={values.BookCallBlock}

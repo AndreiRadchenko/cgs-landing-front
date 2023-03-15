@@ -39,6 +39,7 @@ function split(text: string) {
 const BookForm = ({ onClose, isOpen }: IFormProps) => {
   const [service, setService] = useState<string>("");
   const [serviceIsOpen, setServiceIsOpen] = useState<boolean>(false);
+  const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [btnState, setBtnState] = useState({
@@ -56,16 +57,14 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     email: "Email",
   };
 
-  const validationSchema = BookModalValidation;
-
   const formik = useFormik<IFormState>({
     initialValues: {
       name: "",
       email: "",
       service: "",
     },
+    validationSchema: BookModalValidation,
     validateOnBlur: true,
-    validationSchema,
     onSubmit(values, { resetForm, setErrors }) {
       if (!values.email || !values.service) return;
       mutate({
@@ -73,6 +72,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
         email: values.email,
         service: values.service,
       });
+      setCalendlyIsOpen(true);
       if (typeof window !== "undefined") {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
@@ -185,8 +185,9 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
               email={email}
               buttonLink={btnState.link}
               buttonClassName={"calendly"}
-              isDisabled={btnState.isDisabled}
               handleClose={handleClose}
+              calendlyIsOpen={calendlyIsOpen}
+              setCalendlyIsOpen={setCalendlyIsOpen}
             />
           </Styles.ButtonWrapper>
         </Styled.FormSentContainer>
