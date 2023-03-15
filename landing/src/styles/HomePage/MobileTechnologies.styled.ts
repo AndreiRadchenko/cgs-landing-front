@@ -31,6 +31,8 @@ export const TitleInnerWrapper = styled.div<PropsWithId>`
   justify-content: space-between;
   font-size: 1.2em;
   column-gap: 5px;
+  -webkit-tap-highlight-color: transparent;
+
   @media (min-width: 475px) {
     left: ${({ idx }) => `${getOffsetByInd(idx)}em`};
   }
