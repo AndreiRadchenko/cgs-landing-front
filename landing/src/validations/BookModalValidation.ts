@@ -9,7 +9,10 @@ export const BookModalValidation = () => {
       .matches(/^[a-zA-Z ]+$/, "invalid name")
       .min(1, "please fill empty fields")
       .max(150, "you're over the limit"),
-    email: yup.string().email().required("Enter email"),
+    phone: yup
+      .string()
+      .matches(/^[+0-9-()]+$/, "The number can’t contain letters"),
+    email: yup.string().email().required("Enter your email"),
     service: yup.string().required("Select service"),
   });
 };
