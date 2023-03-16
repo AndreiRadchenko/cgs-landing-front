@@ -541,7 +541,7 @@ export const FilmText = styled.div`
   @media (min-width: 1210px) {
     font-size: 1.29vw;
   }
-  @media (min-width: 1460px) {
+  @media (min-width: 1560px) {
     font-size: 1.3vw;
   }
   @media (min-width: 1890px) {
