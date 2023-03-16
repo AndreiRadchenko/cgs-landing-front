@@ -523,11 +523,30 @@ export const Film = styled.img`
 
 export const FilmText = styled.div`
   position: absolute;
-  top: 35%;
+  top: 37.5%;
   left: 2.7%;
   max-width: 42%;
-  font-size: 1.27vw;
   line-height: 160%;
+  font-size: 1.22vw;
+
+  @media (min-width: 847px) {
+    font-size: 1.24vw;
+  }
+  @media (min-width: 960px) {
+    font-size: 1.25vw;
+  }
+  @media (min-width: 1170px) {
+    font-size: 1.27vw;
+  }
+  @media (min-width: 1210px) {
+    font-size: 1.29vw;
+  }
+  @media (min-width: 1460px) {
+    font-size: 1.3vw;
+  }
+  @media (min-width: 1890px) {
+    font-size: 1.33vw;
+  }
 `;
 
 export const RightContainer = styled.div`
