@@ -515,137 +515,19 @@ export const NextTech = styled.section`
 
 export const FilmContainer = styled.div`
   position: relative;
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    overflow: hidden;
-    padding-bottom: 400px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    padding-bottom: 412px;
-    overflow: visible;
-    margin-bottom: 52px;
-  }
-
-  @media (max-width: 600px) {
-    padding-bottom: 310px;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    padding-bottom: 300px;
-  }
-  @media (max-width: 360px) {
-    margin-bottom: 0px;
-    padding-bottom: 350px;
-  }
 `;
 
 export const Film = styled.img`
-  width: 89.3%;
-  @media (max-width: 1410px) {
-    width: 97%;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 100%;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    top: -13%;
-    position: absolute;
-    width: 125%;
-  }
-
-  @media (max-width: 835px) {
-    top: -5%;
-    width: 145%;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    left: 5%;
-    top: 0;
-    width: 90%;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 125%;
-    left: -8%;
-  }
+  width: 91%;
 `;
 
 export const FilmText = styled.div`
   position: absolute;
-  top: 35.3%;
+  top: 35%;
   left: 2.7%;
   max-width: 42%;
-  font-size: ${themes.primary.font.size.feedbackName};
+  font-size: 1.27vw;
   line-height: 160%;
-
-  @media ${themes.primary.media.minPC} {
-    font-size: ${themes.primary.font.size.menuElement};
-  }
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 1.4em;
-  }
-  @media (max-width: 1410px) {
-    max-width: 47.5%;
-    top: 33%;
-  }
-  @media (max-width: 1220px) {
-    font-size: 20px;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    top: 35%;
-    font-size: 1rem;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    top: 25%;
-    font-size: 1.1rem;
-    max-width: 60.5%;
-  }
-
-  @media (max-width: 835px) {
-    top: 32%;
-    font-size: 1.1rem;
-    max-width: 70.5%;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    left: 7.7%;
-    top: 20%;
-    font-size: 2.65em;
-    max-width: 83.5%;
-  }
-
-  @media (max-width: 660px) {
-    font-size: ${themes.primary.font.size.secondary};
-  }
-
-  @media ${themes.primary.media.minTablet} {
-    top: 19%;
-    font-size: 1.8em;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    top: 22%;
-    left: 2.7%;
-    max-width: 98.5%;
-    font-size: 1.1rem;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    top: 20%;
-  }
-
-  @media (max-width: 360px) {
-    top: 20%;
-    font-size: 0.95rem;
-  }
-
-  @media (max-width: 320px) {
-    top: 15%;
-    font-size: 0.8rem;
-  }
 `;
 
 export const RightContainer = styled.div`
