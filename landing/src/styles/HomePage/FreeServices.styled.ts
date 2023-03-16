@@ -172,6 +172,8 @@ export const FreeServicesImageWrapper = styled.div`
   & span img {
     transition: all 0.5s ease;
     z-index: 2;
+    object-fit: scale-down;
+    -webkit-object-fit: contain;
   }
 
   & span img:hover {
