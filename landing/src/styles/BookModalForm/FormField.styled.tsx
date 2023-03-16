@@ -48,6 +48,10 @@ export const FormFieldLabel = styled.label`
   @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 12px;
   }
+
+  span {
+    color: ${themes.primary.colors.comment};
+  }
 `;
 
 export const FormFieldContainer = styled.div`
@@ -55,6 +59,7 @@ export const FormFieldContainer = styled.div`
   height: 78px;
   position: relative;
   padding: 10px 0;
+  margin-bottom: 4px;
 
   @media ${themes.primary.media.minPCFullHD} {
     height: 125px;
@@ -70,13 +75,11 @@ export const ErrorField = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-size: 12px;
   color: ${themes.primary.colors.adminRed};
+  line-height: 19px;
   text-align: right;
+  font-weight: ${themes.primary.font.weight.heavy};
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 20px;
-  }
-
-  @media ${themes.primary.media.estiomationFormWidth} {
-    font-size: 10px;
   }
 `;

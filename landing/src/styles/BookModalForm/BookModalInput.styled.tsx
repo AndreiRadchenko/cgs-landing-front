@@ -7,16 +7,15 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const CloseButton = styled.img`
-  width: 26px;
-  height: 26px;
   position: absolute;
   right: 0;
   top: 0;
-  margin: 26px 26px 0 0;
+  margin: 24px 24px 0 0;
   cursor: pointer;
   z-index: 2;
+
   @media ${themes.primary.media.estiomationFormWidth} {
-    margin: 21px 15px 0 0;
+    margin: 15px 15px 0 0;
   }
 `;
 
@@ -63,12 +62,12 @@ export const Content = styled.div`
 
 export const List = styled.ul`
   list-style-type: square;
-  margin: 48px 5px 0 0;
+  margin: 55px 5px 0 0;
   padding: 0 64px 0 50px;
 
   @media ${themes.primary.media.estiomationFormWidth} {
-    margin-top: 36px;
-    padding: 0 46px 0 34px;
+    margin-top: 42px;
+    padding: 0 26px 0 34px;
   }
 `;
 
@@ -77,10 +76,14 @@ export const ListTitle = styled.span`
   font-size: 24px;
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
-  line-height: 31px;
+  line-height: 21px;
 
   @media ${themes.primary.media.estiomationFormWidth} {
-    font-size: 16px;
+    font-size: 17.5px;
     text-align: center;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    font-size: 16px;
   }
 `;
