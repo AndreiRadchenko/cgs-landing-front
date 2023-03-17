@@ -119,7 +119,10 @@ export const CareerInfo = styled.div`
 export const Content = styled.div`
   position: absolute;
   min-width: 274.5px;
-  z-index: 3;
+  height: 236px;
+  overflow-y: scroll;
+  ms-overflow-y: scroll;
+  z-index: 10;
   border: 1px solid ${themes.primary.colors.adminInputBorder};
   display: none;
   &.open {
