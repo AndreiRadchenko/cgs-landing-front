@@ -69,6 +69,55 @@ export const FormFieldContainer = styled.div`
     height: 54px;
     padding: 5px 0;
   }
+
+  .react-tel-input {
+    height: 54px;
+    width: 100%;
+    background: none;
+    border: 1px solid ${themes.primary.colors.inputGrey};
+    font-family: ${themes.primary.font.family.namu};
+    font-size: 16px;
+    color: ${themes.primary.colors.black};
+    border-radius: 0;
+
+    &::placeholder {
+      color: ${themes.primary.colors.comment};
+    }
+
+    &:focus {
+      outline: none;
+    }
+    &.formikErrors {
+      border: 1px solid ${themes.primary.colors.adminRed};
+    }
+
+    @media ${themes.primary.media.minPCFullHD} {
+      height: 84px;
+      font-size: 22px;
+    }
+
+    @media ${themes.primary.media.estiomationFormWidth} {
+      font-size: 12px;
+      height: 44px;
+    }
+
+    .flag-dropdown,
+    .selected-flag,
+    .flag-dropdown.open .selected-flag {
+      background: ${themes.primary.colors.blogBackground};
+    }
+
+    .form-control {
+      height: 100%;
+      width: 100%;
+      border: none;
+      background: ${themes.primary.colors.blogBackground};
+    }
+    .country-list {
+      background: ${themes.primary.colors.blogBackground};
+      width: 280px;
+    }
+  }
 `;
 
 export const ErrorField = styled.div`

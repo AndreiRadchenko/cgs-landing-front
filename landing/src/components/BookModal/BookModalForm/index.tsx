@@ -41,6 +41,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
   const [service, setService] = useState<string>("");
   const [serviceIsOpen, setServiceIsOpen] = useState<boolean>(false);
   const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
+  const [value, setValue] = useState<any>();
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [btnState, setBtnState] = useState({
@@ -73,7 +74,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       mutate({
         name: values.name,
         email: values.email,
-        phone: values.phone,
+        phone: value,
         service: values.service,
       });
       setCalendlyIsOpen(true);
@@ -167,6 +168,8 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       >
         {Object.entries(fieldContent).map(([key, label]) => (
           <FormField
+            value={value}
+            setValue={setValue}
             btnIsClicked={btnState.isClicked}
             name={key as keyof IFormState}
             key={key}
