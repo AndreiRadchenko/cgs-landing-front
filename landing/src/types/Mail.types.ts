@@ -24,5 +24,6 @@ export interface IFormData {
 export interface IBookModalData {
   name: string;
   email: string;
+  phone: string;
   service: string;
 }

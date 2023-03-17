@@ -18,9 +18,14 @@ const TextFieldWrapper: FC<IFieldProps> = ({
 }: IFieldProps) => {
   const { errors } = useFormikContext<IFormState>();
 
+  const PHONE_OPTIONAL = "Phone number";
+
   return (
     <>
-      <Styled.FormFieldLabel htmlFor={label}>{label}</Styled.FormFieldLabel>
+      <Styled.FormFieldLabel htmlFor={label}>
+        {label}
+        {PHONE_OPTIONAL === label && <span> (Optional)</span>}
+      </Styled.FormFieldLabel>
       <Styled.FormFieldContainer>
         <Styled.FormField
           className={btnIsClicked && errors[name] ? "formikErrors" : "default"}

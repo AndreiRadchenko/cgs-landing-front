@@ -31,19 +31,16 @@ export const BookModalContentContainer = styled.div`
 
 export const BookModalContent = styled.div`
   width: 499px;
-  height: 508px;
   background: ${themes.primary.colors.blogBackground};
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 699px;
-    height: 708px;
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
     width: 345px;
-    height: 380px;
   }
 `;
 
