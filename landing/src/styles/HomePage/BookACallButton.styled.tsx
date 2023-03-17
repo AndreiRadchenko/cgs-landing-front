@@ -4,7 +4,6 @@ import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png"
 import { buttonHover } from "../Animations.styled";
 
 export const BlackButton = styled.button`
-  z-index: 2;
   font-family: inherit;
   cursor: pointer;
   position: relative;
