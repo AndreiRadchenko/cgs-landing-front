@@ -1,8 +1,9 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
+import { Formik, FormikHelpers } from "formik";
+import { useMutation, useQuery } from "@tanstack/react-query";
+
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCalculatorService } from "../../services/adminCalculator";
-import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import BlackButtonComponent from "../BlackButtonWithArrow";
 import CalculatorPagerComponent from "./CalculatorPagerComponent";
@@ -10,6 +11,10 @@ import CalculatorStepsComponent from "./CalculatorStepsComponent";
 import CalculatorField from "./CalculatorTitleField";
 import CalculatorInputField from "./CalculatorInputs";
 import CalculatorCompletedPager from "./CalculatorCompletedPager";
+import { getResults } from "../../utils/getCalculatorResults";
+import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
+import { CalculatorValidation } from "../../validations/CalculatorValidation";
+
 import {
   ICalculatorFormValuesProps,
   ICalculatorPostEmailResultsProps,
@@ -17,11 +22,9 @@ import {
   ILeadMailData,
   IRoles,
   IStepOptions,
+  ICalculatorStep,
 } from "../../types/Admin/Response.types";
-import { Formik, FormikHelpers } from "formik";
-import { CalculatorValidation } from "../../validations/CalculatorValidation";
-import { getResults } from "../../utils/getCalculatorResults";
-import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
+import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
 const Calculator = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -200,14 +203,18 @@ const Calculator = () => {
       return resultObj;
     };
 
-    if (classicStepsData) {
+    const testName = (
+      definedStepData: void | ICalculatorStep[] | undefined
+    ) => {
+      if (!definedStepData) return;
+
       const matchData: Array<IStepOptions | Array<IStepOptions> | undefined> =
         questionsArr.map((question, idx) =>
           typeof question.answer === "string"
-            ? classicStepsData[idx].options.find(
+            ? definedStepData[idx].options.find(
                 (option) => question.answer === option.label
               )
-            : classicStepsData[idx].options.filter((option) =>
+            : definedStepData[idx].options.filter((option) =>
                 (question.answer as string[]).includes(option.label)
               )
         );
@@ -216,14 +223,14 @@ const Calculator = () => {
         IStepOptions | Array<IStepOptions> | undefined
       > = questionsArr.map((question, idx) => {
         if (
-          classicStepsData[idx].subSteps &&
-          classicStepsData[idx].subSteps.length > 0
+          definedStepData[idx].subSteps &&
+          definedStepData[idx].subSteps.length > 0
         ) {
           return typeof question.subStepAnswer === "string"
-            ? classicStepsData[idx].subSteps[0].options.find(
+            ? definedStepData[idx].subSteps[0].options.find(
                 (option) => question.subStepAnswer === option.label
               )
-            : classicStepsData[idx].subSteps[0].options.filter((option) =>
+            : definedStepData[idx].subSteps[0].options.filter((option) =>
                 (question.subStepAnswer as string[]).includes(option.label)
               );
         }
@@ -242,9 +249,10 @@ const Calculator = () => {
       );
 
       const endCoef =
-        1 + getResults(classicStepsData, values.questionsArr, "endCoef");
+        1 + getResults(definedStepData, values.questionsArr, "endCoef");
+
       Object.entries(resultObj).forEach(
-        (el) => (resultObj[el[0]] = el[1] * endCoef)
+        (el) => (resultObj[el[0]] = Math.round(el[1] * endCoef))
       );
 
       const getPriceInConnectedRole = (roles: string[], hours: number) => {
@@ -268,22 +276,30 @@ const Calculator = () => {
         }
       };
 
+      const blockchainHourRate = getResults(
+        definedStepData,
+        values.questionsArr,
+        "hourRate"
+      );
+
       const price =
         data &&
         Object.keys(resultObj)
-          .map((role) =>
-            role.split(", ").length === 1
+          .map((role) => {
+            return role.split(", ").length === 1
               ? Math.round(
-                  (resultObj[role] || 0) *
-                    (data?.roles.find((dataRole) => dataRole.name === role)
-                      ?.rate || 0)
+                  role === "Blockchain"
+                    ? (resultObj[role] || 0) * blockchainHourRate
+                    : (resultObj[role] || 0) *
+                        (data?.roles.find((dataRole) => dataRole.name === role)
+                          ?.rate || 0)
                 )
-              : getPriceInConnectedRole(role.split(", "), resultObj[role])
-          )
+              : getPriceInConnectedRole(role.split(", "), resultObj[role]);
+          })
           .reduce((acc, curr) => (acc ?? 0) + (curr ?? 0), 0);
 
-      const hours = getResults(classicStepsData, values.questionsArr, "hours");
-      const uxui = getResults(classicStepsData, values.questionsArr, "uxui");
+      const hours = Object.values(resultObj).reduce((a, b) => a + b, 0);
+      const uxui = getResults(definedStepData, values.questionsArr, "uxui");
 
       if (
         typeof hours === "number" &&
@@ -305,7 +321,9 @@ const Calculator = () => {
         mutateLeadEmail({ answers: leadEmailData, email });
         resetForm();
       }
-    }
+    };
+
+    testName(stepsData);
   };
 
   const handleMouseOver = () => {
@@ -389,6 +407,7 @@ const Calculator = () => {
                     handleQuit={handleQuit}
                     warnIsShow={warnIsShow}
                     setWarnIsShow={setWarnIsShow}
+                    isBlockchain={isBlockchain}
                   >
                     {stepsData.map((currentData, stepInd) => (
                       <div key={currentData.title}>
@@ -438,8 +457,8 @@ const Calculator = () => {
               handlePagerLeftButtonClick={handlePagerLeftButtonClick}
               buttonText={buttonText}
               startLoading={startLoading}
-              classicLoading={classicLoading}
-              blockchainLoading={blockchainLoading}
+              classicLoading={true}
+              blockchainLoading={true}
               classicStepsData={classicStepsData}
               blockchainStepsData={blockchainStepsData}
             />

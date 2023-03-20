@@ -5,11 +5,13 @@ import {
 import { count } from "./countCalculatorAmountByKey";
 
 export const getResults = (
-  data: ICalculatorStep[],
+  data: ICalculatorStep[] | undefined,
   questionsArr: ICalculatorQuestion[],
   ...keys: string[]
-) =>
-  questionsArr
+) => {
+  if (!data) throw Error("Data not found!");
+
+  return questionsArr
     .map(
       (question, currInd) =>
         (count(data[currInd].options, question.answer, keys) || 0) +
@@ -24,3 +26,4 @@ export const getResults = (
           0)
     )
     .reduce((acc, curr) => (acc || 0) + (curr || 0));
+};

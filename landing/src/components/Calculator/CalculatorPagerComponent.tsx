@@ -65,7 +65,7 @@ const CalculatorPagerComponent = ({
           </CalculatorChooseLine>
           <CalculatorChooseLine mobile={width < 768}>
             <Styled.ChooseText onClick={handleClassicClick}>
-              <span>classic development</span>
+              <span>Classic development</span>
             </Styled.ChooseText>
           </CalculatorChooseLine>
         </Styled.ChooseModalWrapper>

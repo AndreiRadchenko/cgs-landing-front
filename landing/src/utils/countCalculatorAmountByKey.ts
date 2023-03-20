@@ -9,13 +9,13 @@ export const count = (
   options
     .map((option) => {
       if (typeof answers === "string") {
-        return getNested(option, ...keys) && option.label === answers
+        return option.label === answers && getNested(option, ...keys)
           ? getNested(option, ...keys)
           : 0;
       }
       return answers
         .map((answer) =>
-          getNested(option, ...keys) && option.label === answer
+          option.label === answer && getNested(option, ...keys)
             ? getNested(option, ...keys)
             : 0
         )

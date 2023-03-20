@@ -138,6 +138,7 @@ export const emptyCalculatorOption = {
   role: undefined,
   endRoleCoef: undefined,
   endCoef: undefined,
+  hourRate: undefined,
 };
 
 export const calculatorAdminOptions = [
