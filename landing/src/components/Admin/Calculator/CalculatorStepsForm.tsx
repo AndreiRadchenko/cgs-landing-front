@@ -45,13 +45,14 @@ const CalculatorStepsForm = ({
           setActive={toogleBlockchain}
         />
       </Styled.ChooseButtonsWrapper>
-      {isBlockchain ? (
+      {isBlockchain && (
         <CalculatorStepsArr
           arr={blockchainStepsData}
           isBlockchain={isBlockchain}
           refetch={blockchainRefetch}
         />
-      ) : (
+      )}
+      {!isBlockchain && (
         <CalculatorStepsArr
           arr={classicStepsData}
           isBlockchain={isBlockchain}

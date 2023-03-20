@@ -27,7 +27,7 @@ export const FormField = styled(Field)`
 `;
 
 export const Form = styled.form`
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 0 61px 0 50px;
 
   @media (max-width: 570px) {
@@ -38,25 +38,6 @@ export const Form = styled.form`
 
 export const FormProvider = styled(FormikProvider)``;
 
-export const FormSentFillText = styled.span`
-  color: ${themes.primary.colors.gray};
-  font-weight: ${themes.primary.font.weight.normal};
-  font-family: ${themes.primary.font.family.namu};
-  font-size: 12px;
-  position: absolute;
-  bottom: 10%;
-  margin-bottom: 6px;
-  display: none;
-  &.show {
-    display: block;
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 18px;
-    bottom: 8%;
-  }
-`;
-
 export const FormSentContainer = styled.div`
   display: flex;
   align-items: flex-start;
@@ -65,6 +46,7 @@ export const FormSentContainer = styled.div`
   height: 75px;
   flex-direction: column;
   margin-top: 30px;
+  margin-bottom: 30px;
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 40px;
@@ -93,7 +75,7 @@ export const Shadow = styled.div`
 export const ServiceSelect = styled.div`
   height: 54px;
   width: 100%;
-  margin-top: 9px;
+  margin-top: 22px;
 
   & > div {
     width: 100%;

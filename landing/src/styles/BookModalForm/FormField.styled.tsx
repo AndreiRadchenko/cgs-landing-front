@@ -48,6 +48,10 @@ export const FormFieldLabel = styled.label`
   @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 12px;
   }
+
+  span {
+    color: ${themes.primary.colors.comment};
+  }
 `;
 
 export const FormFieldContainer = styled.div`
@@ -55,6 +59,7 @@ export const FormFieldContainer = styled.div`
   height: 78px;
   position: relative;
   padding: 10px 0;
+  margin-bottom: 4px;
 
   @media ${themes.primary.media.minPCFullHD} {
     height: 125px;
@@ -64,19 +69,66 @@ export const FormFieldContainer = styled.div`
     height: 54px;
     padding: 5px 0;
   }
+
+  .react-tel-input {
+    height: 54px;
+    width: 100%;
+    background: none;
+    border: 1px solid ${themes.primary.colors.inputGrey};
+    font-family: ${themes.primary.font.family.namu};
+    font-size: 16px;
+    color: ${themes.primary.colors.black};
+    border-radius: 0;
+
+    &::placeholder {
+      color: ${themes.primary.colors.comment};
+    }
+
+    &:focus {
+      outline: none;
+    }
+    &.formikErrors {
+      border: 1px solid ${themes.primary.colors.adminRed};
+    }
+
+    @media ${themes.primary.media.minPCFullHD} {
+      height: 84px;
+      font-size: 22px;
+    }
+
+    @media ${themes.primary.media.estiomationFormWidth} {
+      font-size: 12px;
+      height: 44px;
+    }
+
+    .flag-dropdown,
+    .selected-flag,
+    .flag-dropdown.open .selected-flag {
+      background: ${themes.primary.colors.blogBackground};
+    }
+
+    .form-control {
+      height: 100%;
+      width: 100%;
+      border: none;
+      background: ${themes.primary.colors.blogBackground};
+    }
+    .country-list {
+      background: ${themes.primary.colors.blogBackground};
+      width: 280px;
+    }
+  }
 `;
 
 export const ErrorField = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-size: 12px;
   color: ${themes.primary.colors.adminRed};
+  line-height: 19px;
   text-align: right;
+  font-weight: ${themes.primary.font.weight.heavy};
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 20px;
-  }
-
-  @media ${themes.primary.media.estiomationFormWidth} {
-    font-size: 10px;
   }
 `;

@@ -168,10 +168,19 @@ export const FreeServicesImageWrapper = styled.div`
   height: 130px;
   width: 100%;
   position: relative;
+  align-items: center;
+
+  & span {
+    height: 105px !important;
+  }
 
   & span img {
     transition: all 0.5s ease;
     z-index: 2;
+
+    height: 81px !important;
+    width: 81px !important;
+    min-height: 0 !important;
   }
 
   & span img:hover {

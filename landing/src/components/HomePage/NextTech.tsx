@@ -42,6 +42,7 @@ const NextTech = () => {
   };
 
   const queryClient = useQueryClient();
+
   const data = queryClient.getQueryData<IDataResponse>([
     queryKeys.getFullHomePage,
   ])?.FilmBlock;

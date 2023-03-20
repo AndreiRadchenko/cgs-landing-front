@@ -30,8 +30,7 @@ const FreeServices = () => {
                   alt="free service image"
                   height="105px"
                   width="87px"
-                  className="freeServicesImage"
-                  objectFit="scale-down"
+                  objectFit="contain"
                 />
 
                 <Styled.DashedLine className="dashed" />
