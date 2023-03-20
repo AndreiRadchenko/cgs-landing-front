@@ -1,7 +1,6 @@
 import {
   ICalculatorQuestion,
   ICalculatorStep,
-  ICalculator,
 } from "../types/Admin/Response.types";
 import { count } from "./countCalculatorAmountByKey";
 
@@ -10,11 +9,7 @@ export const getResults = (
   questionsArr: ICalculatorQuestion[],
   ...keys: string[]
 ) => {
-  // console.log("All data: ", data);
-  // console.log("Questions array: ", questionsArr);
-  // console.log("All keys: ", keys);
-
-  if (!data) throw Error("No data found!");
+  if (!data) throw Error("Data not found!");
 
   return questionsArr
     .map(

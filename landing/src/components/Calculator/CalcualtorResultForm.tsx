@@ -78,7 +78,6 @@ const CalcualtorResultForm = ({
       const mounthForThreeDev = (results.hours / (168 * 3)).toFixed(2);
 
       const text = `<h4 class="result-title">The estimated team and time for your project:<br></h4>
-<<<<<<< HEAD
       <ul>
         <li><p><span class="bold">${mounthForTwoDev} months</span> with<span class="bold"> 2 developers;</span> or <span class="bold">${mounthForThreeDev} months</span>
         with <span class="bold">3 developers;</span></p></li>
@@ -92,21 +91,6 @@ const CalcualtorResultForm = ({
       </ul>
       <span class="result-msg">${calculatorData?.resultMessage}</span>
       `;
-=======
-  <ul>
-    <li><p><span class="bold">${mounthForTwoDev} months</span> with<span class="bold"> 2 developers;</span> or <span class="bold">${mounthForThreeDev} months</span>
-     with <span class="bold">3 developers;</span></p></li>
-    ${
-      results?.uxui && typeof results?.uxui === "number"
-        ? "<li><p>UI/UX Designer;</p></li>"
-        : ""
-    }
-    <li>Project Manager;</li>
-    <li>QA;</li>
-  </ul>
-<span class="result-msg">${calculatorData?.resultMessage}</span>
-  `;
->>>>>>> staging
 
       return text;
     }

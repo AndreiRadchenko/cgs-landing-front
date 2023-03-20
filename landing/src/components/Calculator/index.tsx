@@ -1,8 +1,9 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
+import { Formik, FormikHelpers } from "formik";
+import { useMutation, useQuery } from "@tanstack/react-query";
+
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCalculatorService } from "../../services/adminCalculator";
-import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import BlackButtonComponent from "../BlackButtonWithArrow";
 import CalculatorPagerComponent from "./CalculatorPagerComponent";
@@ -10,6 +11,10 @@ import CalculatorStepsComponent from "./CalculatorStepsComponent";
 import CalculatorField from "./CalculatorTitleField";
 import CalculatorInputField from "./CalculatorInputs";
 import CalculatorCompletedPager from "./CalculatorCompletedPager";
+import { getResults } from "../../utils/getCalculatorResults";
+import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
+import { CalculatorValidation } from "../../validations/CalculatorValidation";
+
 import {
   ICalculatorFormValuesProps,
   ICalculatorPostEmailResultsProps,
@@ -19,10 +24,7 @@ import {
   IStepOptions,
   ICalculatorStep,
 } from "../../types/Admin/Response.types";
-import { Formik, FormikHelpers } from "formik";
-import { CalculatorValidation } from "../../validations/CalculatorValidation";
-import { getResults } from "../../utils/getCalculatorResults";
-import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
+import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
 const Calculator = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -54,9 +56,6 @@ const Calculator = () => {
     () => adminCalculatorService.getCalculatorBlockchainSteps(),
     { enabled: startLoading }
   );
-
-  // console.log("Classic loading: ", classicLoading);
-  // console.log("Blockchain loading: ", blockchainLoading);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -220,8 +219,6 @@ const Calculator = () => {
               )
         );
 
-      console.log("Match data: ", matchData);
-
       const matchSubStepData: Array<
         IStepOptions | Array<IStepOptions> | undefined
       > = questionsArr.map((question, idx) => {
@@ -241,26 +238,21 @@ const Calculator = () => {
 
       const resultObj: IRoles = {};
       getRolesHoursObject(matchData, resultObj);
-      console.log("Step 1 resultObj", resultObj);
       getRolesHoursObject(matchSubStepData, resultObj);
-      console.log("Step 2 resultObj", resultObj);
 
       const resultObjRolesCoef: IRoles = {};
       getRolesCoefObject(matchData, resultObjRolesCoef);
-      console.log("Step 1 resultObjRolesCoef", resultObjRolesCoef);
       getRolesCoefObject(matchSubStepData, resultObjRolesCoef);
-      console.log("Step 2 resultObjRolesCoef", resultObjRolesCoef);
 
       Object.entries(resultObjRolesCoef).map(
         (roleCoefArr) => (resultObj[roleCoefArr[0]] *= 1 + roleCoefArr[1])
       );
 
-      console.log("Resul Object: ", resultObj);
-
       const endCoef =
         1 + getResults(definedStepData, values.questionsArr, "endCoef");
+
       Object.entries(resultObj).forEach(
-        (el) => (resultObj[el[0]] = el[1] * endCoef)
+        (el) => (resultObj[el[0]] = Math.round(el[1] * endCoef))
       );
 
       const getPriceInConnectedRole = (roles: string[], hours: number) => {
@@ -273,8 +265,6 @@ const Calculator = () => {
             })
             .filter((el) => el);
 
-          console.log("Result prices: ", resultPrices);
-
           return (
             ((resultPrices as number[]).reduce(
               (a, b) => (a || 0) + (b || 0),
@@ -286,24 +276,29 @@ const Calculator = () => {
         }
       };
 
+      const blockchainHourRate = getResults(
+        definedStepData,
+        values.questionsArr,
+        "hourRate"
+      );
+
       const price =
         data &&
         Object.keys(resultObj)
-          .map((role) =>
-            role.split(", ").length === 1
+          .map((role) => {
+            return role.split(", ").length === 1
               ? Math.round(
-                  (resultObj[role] || 0) *
-                    (data?.roles.find((dataRole) => dataRole.name === role)
-                      ?.rate || 0)
+                  role === "Blockchain"
+                    ? (resultObj[role] || 0) * blockchainHourRate
+                    : (resultObj[role] || 0) *
+                        (data?.roles.find((dataRole) => dataRole.name === role)
+                          ?.rate || 0)
                 )
-              : getPriceInConnectedRole(role.split(", "), resultObj[role])
-          )
+              : getPriceInConnectedRole(role.split(", "), resultObj[role]);
+          })
           .reduce((acc, curr) => (acc ?? 0) + (curr ?? 0), 0);
 
-      console.log("Price is here: ", price);
-      console.log("Result Object is here: ", resultObj);
-
-      const hours = getResults(definedStepData, values.questionsArr, "hours");
+      const hours = Object.values(resultObj).reduce((a, b) => a + b, 0);
       const uxui = getResults(definedStepData, values.questionsArr, "uxui");
 
       if (
@@ -317,14 +312,14 @@ const Calculator = () => {
           estimation: { uxui, hours, price },
           email,
         };
-        // mutate(emailData);
+        mutate(emailData);
         const leadEmailData: ILeadMailData = {
           uxui,
           hours,
           price,
         };
-        // mutateLeadEmail({ answers: leadEmailData, email });
-        // resetForm();
+        mutateLeadEmail({ answers: leadEmailData, email });
+        resetForm();
       }
     };
 

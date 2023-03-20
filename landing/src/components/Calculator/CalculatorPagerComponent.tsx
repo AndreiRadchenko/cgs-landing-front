@@ -47,9 +47,6 @@ const CalculatorPagerComponent = ({
   ]);
   const { width } = useWindowDimension();
 
-  // console.log("Inside classic loading: ", classicLoading);
-  // console.log("Inside blockchain loading: ", blockchainLoading);
-
   return width && isOpen && data ? (
     <CalculatorModal
       buttonText={buttonText}

@@ -664,6 +664,7 @@ export interface ICalculatorStep {
   _id: string;
   title: string;
   type: string;
+  hourRate: number;
   options: IStepOptions[];
   tieUpSteps: ICalculatorTieUpStep[];
   subSteps: ICalculatorSubStep[];

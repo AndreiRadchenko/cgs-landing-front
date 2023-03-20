@@ -1222,7 +1222,7 @@ export const CalculatorInputFields = styled.div`
   margin: 6px 0px 0 4px;
   background-color: ${themes.primary.colors.blogBackground};
   font-family: ${themes.primary.font.family.namu};
-  padding-inline: 1em 4px;
+  padding-inline: 14px 4px;
   position: relative;
   cursor: pointer;
 
@@ -1564,7 +1564,7 @@ export const SubStepTitle = styled.h3`
 `;
 
 export const InputsWrapper = styled.div`
-  padding-top: 1.125em;
+  padding-top: 21px;
   max-height: 100%;
   overflow-y: scroll;
 
