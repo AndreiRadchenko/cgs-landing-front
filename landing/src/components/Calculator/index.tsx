@@ -91,6 +91,10 @@ const Calculator = () => {
     setFinishPagerClick(true);
   };
 
+  const handleBackCompletePagerButtonsClick = () => {
+    setFinishPagerClick(false);
+  };
+
   const handleButtonClick = () => {
     setStartLoading(true);
     setButtonText("< choose >");
@@ -374,6 +378,7 @@ const Calculator = () => {
       {isCompleted ? (
         <CalculatorCompletedPager
           finishClick={finishPagerClick}
+          handlePagerLeftButtonClick={handleBackCompletePagerButtonsClick}
           handlePagerButtonsClick={handleCompletedPagerButtonsClick}
           handleClose={handleClose}
           handleButtonClick={handleClose}

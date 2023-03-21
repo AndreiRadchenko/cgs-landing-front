@@ -14,6 +14,7 @@ interface ICalculatorCompletedPagerProps {
   finishClick: boolean;
   handleClose: () => void;
   handleButtonClick: () => void;
+  handlePagerLeftButtonClick: () => void;
   handlePagerButtonsClick: () => void;
 }
 
@@ -21,6 +22,7 @@ const CalculatorCompletedPager = ({
   finishClick,
   handleClose,
   handleButtonClick,
+  handlePagerLeftButtonClick,
   handlePagerButtonsClick,
 }: ICalculatorCompletedPagerProps) => {
   const queryClient = useQueryClient();
@@ -40,7 +42,7 @@ const CalculatorCompletedPager = ({
       >
         <CalculatorPager
           mobile={width < 768}
-          onPagerLeftClick={handlePagerButtonsClick}
+          onPagerLeftClick={handlePagerLeftButtonClick}
           onPagerRightClick={handlePagerButtonsClick}
         >
           <Styled.ContentWrapper>
