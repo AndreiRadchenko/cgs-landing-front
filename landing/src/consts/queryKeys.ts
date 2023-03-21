@@ -88,4 +88,6 @@ export const queryKeys = {
   getEstimationFormData: "getEstimationFormData",
   getEstimationFormPage: "getEstimationFormPage",
   updateEstimationFormPage: "updateEstimationFormPage",
+  // rate card Front
+  getRateCardData: "getRateCardData",
 };

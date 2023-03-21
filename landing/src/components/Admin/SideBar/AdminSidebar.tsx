@@ -12,6 +12,7 @@ import {
   HomeIcon,
   PortfolioIcon,
   ServiceIcon,
+  RateCardIcon,
 } from "./ListItemImages";
 
 const AdminSidebar = () => {
@@ -21,6 +22,7 @@ const AdminSidebar = () => {
   const pushHome = () => router.push(ROUTE_KEYS.AdminPage);
   const pushCalculator = () => router.push(ROUTE_KEYS.AdminCalculator);
   const pushEstimationForm = () => router.push(ROUTE_KEYS.AdminEstimationForm);
+  const pushRateCard = () => router.push(ROUTE_KEYS.AdminRateCard);
 
   const currentPath =
     router.pathname.split("/")[router.pathname.split("/").length - 1];
@@ -183,6 +185,14 @@ const AdminSidebar = () => {
         >
           <EstimationFormIcon open={false} />
           estimation form
+        </Styled.AdminSidebarMenuElement>
+        <Styled.AdminSidebarMenuElement
+          onClick={pushRateCard}
+          itemProp={currentPath}
+          property={ROUTE_KEYS.AdminRateCard}
+        >
+          <RateCardIcon open={false} />
+          rate card
         </Styled.AdminSidebarMenuElement>
       </Styled.AdminSidebarMenu>
     </Styled.AdminSidebar>
