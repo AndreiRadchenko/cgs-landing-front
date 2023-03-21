@@ -1,7 +1,9 @@
 import React from "react";
-import * as Styled from "../../../styles/AdminPage";
-import { InputWithImage } from "../../../types/Admin/Admin.types";
+
 import PhotoBlockDashed from "./PhotoBlockDashed";
+
+import { InputWithImage } from "../../../types/Admin/Admin.types";
+import * as Styled from "../../../styles/AdminPage";
 
 const AdminInputWithImage = ({
   photo,
