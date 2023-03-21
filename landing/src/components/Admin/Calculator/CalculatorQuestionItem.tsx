@@ -86,9 +86,11 @@ const CalculatorQuestionItem = ({
           <Styled.OptionInputsRowWrapper>
             <Styled.OptionInput
               className="hours"
-              name={`${questionNameBefore}options[${idx}].hours`}
-              placeholder="hours"
-              values={option.hours}
+              name={`${questionNameBefore}options[${idx}].${
+                option.isRate ? "hourRate" : "hours"
+              }`}
+              placeholder={option.isRate ? "hour rate" : "hours"}
+              values={option.isRate ? option.hourRate : option.hours}
               onChange={handleChange}
               type="number"
               min={0}
