@@ -39,6 +39,8 @@ const TextFieldWrapper: FC<IFieldProps> = ({
             placeholder={label}
             value={value}
             onChange={setValue}
+            enableSearch={true}
+            disableSearchIcon={true}
           />
         ) : (
           <Styled.FormField

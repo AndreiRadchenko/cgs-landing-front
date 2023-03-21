@@ -107,6 +107,10 @@ export const FormFieldContainer = styled.div`
       background: ${themes.primary.colors.blogBackground};
     }
 
+    .flag-dropdown {
+      border-right: 1px solid ${themes.primary.colors.inputGrey};
+    }
+
     .form-control {
       height: 100%;
       width: 100%;
@@ -130,6 +134,31 @@ export const FormFieldContainer = styled.div`
     .country-list {
       background: ${themes.primary.colors.blogBackground};
       width: 280px;
+
+      .search {
+        background-color: ${themes.primary.colors.blogBackground};
+        padding: 10px 14px 10px 0;
+
+        .search-box {
+          width: 100%;
+          background-color: ${themes.primary.colors.blogBackground};
+          font-size: 16px;
+          font-family: ${themes.primary.font.family.namu};
+          border: 1px solid ${themes.primary.colors.inputGrey};
+
+          &::placeholder {
+            color: ${themes.primary.colors.comment};
+          }
+
+          @media ${themes.primary.media.minPCFullHD} {
+            font-size: 22px;
+          }
+
+          @media ${themes.primary.media.estiomationFormWidth} {
+            font-size: 12px;
+          }
+        }
+      }
     }
   }
 `;
