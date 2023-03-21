@@ -32,7 +32,6 @@ const PublishedArticles: FC<IArticles> = ({
 }) => {
   const { handleSubmit } = useFormikContext<IArticle>();
   const queryClient = useQueryClient();
-
   const { mutateAsync: deleteBlogArticle } = useMutation(
     [queryKeys.deleteArticle],
     (id: string) => adminBlogService.deleteByUrl(id),
@@ -122,6 +121,7 @@ const PublishedArticles: FC<IArticles> = ({
 
   const publishArticle = async (i: number) => {
     if (data) {
+      if (!data[i].disabled) return;
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const publishArticle = data[i];
       publishArticle.draft = false;
@@ -172,8 +172,11 @@ const PublishedArticles: FC<IArticles> = ({
         >
           Deactivate
         </Styles.DeactivateButton>
-        <Styles.PublishButton onClick={() => publishArticle(i)}>
-          Publish
+        <Styles.PublishButton
+          disabled={!item.disabled}
+          onClick={() => publishArticle(i)}
+        >
+          <p>{item.disabled ? "Publish now" : "Published"}</p>
         </Styles.PublishButton>
       </BlogItem>
     );

@@ -1,5 +1,7 @@
 import themes from "../utils/themes";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import CheckMarkPublished from "../../public/checkMarkPublished.svg";
 
 interface IDisabled {
   disabled: boolean;
@@ -52,17 +54,45 @@ export const DeactivateButton = styled.div<IDisabled>`
   opacity: ${({ disabled }) => (disabled ? "0.3" : "1")};
 `;
 
-export const PublishButton = styled.div`
-  cursor: pointer;
+export const PublishButton = styled.div<IDisabled>`
+  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
   position: absolute;
   right: 40px;
   bottom: 8px;
-  padding: 0.5em 1.5em;
+  padding: 0.5em;
   background-color: ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.aboutUsCardText};
-  color: ${themes.primary.colors.secondary};
+  color: ${({ disabled }) =>
+    disabled ? themes.primary.colors.primary : themes.primary.colors.secondary};
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-image: linear-gradient(
+        90deg,
+        ${themes.primary.colors.mainGradientColor1} 0%,
+        ${themes.primary.colors.mainGradientColor2} 100%
+      );
+    `};
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+
+    ::before {
+      content: "";
+      display: ${({ disabled }) => (disabled ? "block" : "none")};
+      width: 14px;
+      height: 10.7px;
+      margin-right: 6px;
+      background-image: url(${CheckMarkPublished.src});
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
 `;
 
 export const DraftMark = styled.div`
