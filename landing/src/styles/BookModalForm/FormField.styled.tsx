@@ -108,7 +108,27 @@ export const FormFieldContainer = styled.div`
     }
 
     .flag-dropdown {
+      border: 0;
       border-right: 1px solid ${themes.primary.colors.inputGrey};
+    }
+
+    .selected-flag {
+      @media ${themes.primary.media.minMobile} {
+        width: 45px;
+      }
+      @media ${themes.primary.media.minPCFullHD} {
+        width: 75px;
+        padding: 0 0 0 20px;
+      }
+
+      .flag {
+        @media ${themes.primary.media.minMobile} {
+          scale: 1.2;
+        }
+        @media ${themes.primary.media.minPCFullHD} {
+          scale: 1.7;
+        }
+      }
     }
 
     .form-control {
@@ -130,10 +150,22 @@ export const FormFieldContainer = styled.div`
       @media ${themes.primary.media.estiomationFormWidth} {
         font-size: 12px;
       }
+
+      @media ${themes.primary.media.minMobile} {
+        padding-left: 55px;
+      }
+      @media ${themes.primary.media.minPCFullHD} {
+        padding-left: 85px;
+      }
     }
     .country-list {
       background: ${themes.primary.colors.blogBackground};
       width: 280px;
+
+      @media ${themes.primary.media.minPCFullHD} {
+        width: 480px;
+        max-height: 300px;
+      }
 
       .search {
         background-color: ${themes.primary.colors.blogBackground};
