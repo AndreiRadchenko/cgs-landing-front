@@ -207,7 +207,7 @@ const Calculator = () => {
       return resultObj;
     };
 
-    const testName = (
+    const emailCalculation = (
       definedStepData: void | ICalculatorStep[] | undefined
     ) => {
       if (!definedStepData) return;
@@ -327,7 +327,7 @@ const Calculator = () => {
       }
     };
 
-    testName(stepsData);
+    emailCalculation(stepsData);
   };
 
   const handleMouseOver = () => {
@@ -462,8 +462,8 @@ const Calculator = () => {
               handlePagerLeftButtonClick={handlePagerLeftButtonClick}
               buttonText={buttonText}
               startLoading={startLoading}
-              classicLoading={true}
-              blockchainLoading={true}
+              classicLoading={classicLoading}
+              blockchainLoading={blockchainLoading}
               classicStepsData={classicStepsData}
               blockchainStepsData={blockchainStepsData}
             />
