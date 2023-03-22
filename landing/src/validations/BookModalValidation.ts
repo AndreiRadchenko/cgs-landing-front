@@ -12,6 +12,7 @@ export const BookModalValidation = () => {
     phone: yup
       .string()
       .matches(/^[+0-9-()]+$/, "The number can’t contain letters"),
+    country: yup.string(),
     email: yup.string().email().required("Enter your email"),
     service: yup.string().required("Select service"),
   });
