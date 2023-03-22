@@ -31,7 +31,6 @@ const PublishedArticles: FC<IArticles> = ({
   sitemap,
   scrollRef,
 }) => {
-  console.log(data);
   const { handleSubmit } = useFormikContext<IArticle>();
   const queryClient = useQueryClient();
   const { mutateAsync: deleteBlogArticle } = useMutation(
@@ -112,19 +111,22 @@ const PublishedArticles: FC<IArticles> = ({
     handleSubmit();
   };
 
-  const deactivateArticle = async (i: number) => {
+  const deactivateArticle = async (i: number, isPublished: boolean) => {
     if (data) {
+      console.log(isPublished);
+      if (!isPublished) return;
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const disabledArticle = data[i];
       disabledArticle.disabled = true;
       disabledArticle.publishedDate = "";
+      disabledArticle.scheduleArticle = "";
       await updateArticle(disabledArticle);
     }
   };
 
-  const publishArticle = async (i: number) => {
+  const publishArticle = async (i: number, isPublished: boolean) => {
     if (data) {
-      if (!data[i].disabled) return;
+      if (isPublished) return;
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const publishArticle = data[i];
       publishArticle.publishedDate = formatsDateWithTime();
@@ -155,6 +157,13 @@ const PublishedArticles: FC<IArticles> = ({
   };
 
   const ArticleItem = ({ item, i }: IArticleItem) => {
+    const isScheduledDateExpired = item.scheduleArticle
+      ? new Date() > new Date(item.scheduleArticle)
+      : true;
+    const isPublishedScheduled = item.scheduleArticle
+      ? isScheduledDateExpired
+      : !item.disabled;
+
     return (
       <BlogItem isAdmin item={item}>
         {item.draft && <Styles.DraftMark>DRAFT</Styles.DraftMark>}
@@ -173,29 +182,29 @@ const PublishedArticles: FC<IArticles> = ({
             delete article
           </Styles.DeleteButton>
           <Styles.InternalButtonWrapper>
-            {item.publishedDate && (
+            {isScheduledDateExpired && item.publishedDate && (
               <Styles.TimeStamp>
                 <strong>Published </strong>
                 {item.publishedDate}
               </Styles.TimeStamp>
             )}
-            {item.scheduleArticle && (
+            {!isScheduledDateExpired && item.scheduleArticle && (
               <Styles.TimeStamp>
                 <strong>Scheduled </strong>
                 {formatsDateWithTime(item.scheduleArticle)}
               </Styles.TimeStamp>
             )}
             <Styles.DeactivateButton
-              disabled={item.disabled}
-              onClick={item.disabled ? undefined : () => deactivateArticle(i)}
+              disabled={!isPublishedScheduled}
+              onClick={() => deactivateArticle(i, isPublishedScheduled)}
             >
               Deactivate
             </Styles.DeactivateButton>
             <Styles.PublishButton
-              disabled={!item.disabled}
-              onClick={() => publishArticle(i)}
+              disabled={isPublishedScheduled}
+              onClick={() => publishArticle(i, isPublishedScheduled)}
             >
-              <p>{item.disabled ? "Publish now" : "Published"}</p>
+              <p>{isPublishedScheduled ? "Published" : "Publish now"}</p>
             </Styles.PublishButton>
           </Styles.InternalButtonWrapper>
         </Styles.ButtonWrapper>

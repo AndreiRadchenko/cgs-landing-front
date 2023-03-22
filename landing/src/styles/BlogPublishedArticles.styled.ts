@@ -70,7 +70,7 @@ export const DeactivateButton = styled.div<IDisabled>`
 
 export const PublishButton = styled.div<IDisabled>`
   cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
-  padding: 0.5em;
+  padding: 7px;
   background-color: ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.medium};
