@@ -99,6 +99,14 @@ export const BlogItemContainer = styled.div<IBlogItemContainer>`
   }
 `;
 
+export const BlogContentWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 30px;
+  padding-right: 91px;
+`;
+
 interface IBlogItem {
   isAdmin?: boolean;
   disabled?: boolean;
@@ -110,7 +118,7 @@ export const BlogItem = styled.div<IAdmin>`
   justify-content: space-between;
   flex-wrap: wrap;
   width: ${(props) => (props.isAdmin ? "100%" : "950px")};
-  padding: ${(props) => (props.isAdmin ? "61px 111px 101px 37px" : "20px 0")};
+  padding: ${(props) => (props.isAdmin ? "61px 20px 20px 37px" : "20px 0")};
   margin-top: ${(props) => props.isAdmin && "30px"};
   border: ${(props) =>
     props.isAdmin ? `1px solid ${themes.primary.colors.black}` : "none"};
@@ -174,6 +182,7 @@ export const Date = styled.div`
 
   & strong {
     color: ${themes.primary.colors.primary};
+    font-weight: ${themes.primary.font.weight.semiBold};
   }
 `;
 

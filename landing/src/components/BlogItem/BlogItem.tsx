@@ -45,22 +45,24 @@ const BlogItem = ({ isAdmin = false, children, item }: IBlogItemProps) => {
     <Styles.BlogItemContainer isAdmin={isAdmin}>
       {isAdmin ? (
         <Styles.BlogItem isAdmin={isAdmin}>
-          <Styles.BlogItemInfo>
-            <Styles.BlogDateTagWrapper>
-              <Styles.Date>{blogDate()}</Styles.Date>
-              <Styles.Tag>{item.tags[0]}</Styles.Tag>
-            </Styles.BlogDateTagWrapper>
-            <Styles.BlogItemTitle isAdmin={isAdmin}>
-              {item.title}
-            </Styles.BlogItemTitle>
-            <Styles.BlogItemDescription isAdmin={isAdmin} className="admin">
-              {parse(item.description)}
-            </Styles.BlogItemDescription>
-          </Styles.BlogItemInfo>
-          <Styles.BlogItemImage
-            src={item.image?.url}
-            alt="blog admin item image"
-          />
+          <Styles.BlogContentWrapper>
+            <Styles.BlogItemInfo>
+              <Styles.BlogDateTagWrapper>
+                <Styles.Date>{blogDate()}</Styles.Date>
+                <Styles.Tag>{item.tags[0]}</Styles.Tag>
+              </Styles.BlogDateTagWrapper>
+              <Styles.BlogItemTitle isAdmin={isAdmin}>
+                {item.title}
+              </Styles.BlogItemTitle>
+              <Styles.BlogItemDescription isAdmin={isAdmin} className="admin">
+                {parse(item.description)}
+              </Styles.BlogItemDescription>
+            </Styles.BlogItemInfo>
+            <Styles.BlogItemImage
+              src={item.image?.url}
+              alt="blog admin item image"
+            />
+          </Styles.BlogContentWrapper>
           {children}
         </Styles.BlogItem>
       ) : (

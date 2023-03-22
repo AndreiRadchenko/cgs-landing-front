@@ -19,6 +19,7 @@ import { AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { adminSitemapService } from "../../../../services/adminSitemapPage";
 import SortableList, { SortableItem } from "react-easy-sort";
 import { IArticleItem, IArticles } from "../../../../types/Admin/Blog.types";
+import { formatsPublishedDate } from "../../../../utils/formatsPublishedDate";
 
 const PublishedArticles: FC<IArticles> = ({
   setIsNewArticle,
@@ -115,6 +116,7 @@ const PublishedArticles: FC<IArticles> = ({
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const disabledArticle = data[i];
       disabledArticle.disabled = true;
+      disabledArticle.publishedDate = "";
       await updateArticle(disabledArticle);
     }
   };
@@ -124,6 +126,7 @@ const PublishedArticles: FC<IArticles> = ({
       if (!data[i].disabled) return;
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const publishArticle = data[i];
+      publishArticle.publishedDate = formatsPublishedDate();
       publishArticle.draft = false;
       publishArticle.disabled = false;
       await updateArticle(publishArticle);
@@ -163,21 +166,32 @@ const PublishedArticles: FC<IArticles> = ({
           }
           onClick={() => toggleEditPost(i)}
         />
-        <Styles.DeleteButton onClick={() => deleteArticle(i)}>
-          delete article
-        </Styles.DeleteButton>
-        <Styles.DeactivateButton
-          disabled={item.disabled}
-          onClick={item.disabled ? undefined : () => deactivateArticle(i)}
-        >
-          Deactivate
-        </Styles.DeactivateButton>
-        <Styles.PublishButton
-          disabled={!item.disabled}
-          onClick={() => publishArticle(i)}
-        >
-          <p>{item.disabled ? "Publish now" : "Published"}</p>
-        </Styles.PublishButton>
+        <Styles.ButtonWrapper>
+          <Styles.DeleteButton onClick={() => deleteArticle(i)}>
+            delete article
+          </Styles.DeleteButton>
+          <Styles.InternalButtonWrapper>
+            {item.publishedDate && (
+              <Styles.TimeStamp>
+                <strong>Published</strong>
+                {item.publishedDate}
+              </Styles.TimeStamp>
+            )}
+
+            <Styles.DeactivateButton
+              disabled={item.disabled}
+              onClick={item.disabled ? undefined : () => deactivateArticle(i)}
+            >
+              Deactivate
+            </Styles.DeactivateButton>
+            <Styles.PublishButton
+              disabled={!item.disabled}
+              onClick={() => publishArticle(i)}
+            >
+              <p>{item.disabled ? "Publish now" : "Published"}</p>
+            </Styles.PublishButton>
+          </Styles.InternalButtonWrapper>
+        </Styles.ButtonWrapper>
       </BlogItem>
     );
   };
