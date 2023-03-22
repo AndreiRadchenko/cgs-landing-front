@@ -1,14 +1,14 @@
 export interface IRateCard {
-  services: Service[];
+  services: IService[];
   title: string;
 }
 
-export interface Service {
+export interface IService {
   name: string;
-  levels: Level[];
+  levels: ILevel[];
 }
 
-export interface Level {
+export interface ILevel {
   name: string;
   technology: string;
   cost: string;
