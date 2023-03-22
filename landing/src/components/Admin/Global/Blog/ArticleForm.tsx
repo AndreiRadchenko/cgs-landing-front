@@ -98,10 +98,10 @@ const ArticleForm = ({
     }
     console.log(values);
 
-    // if (values.scheduleArticle) {
-    //   values.publishedDate = "";
-    //   values.disabled = true;
-    // }
+    if (values.scheduleArticle) {
+      values.publishedDate = formatsDateWithTime(values.scheduleArticle);
+      values.disabled = false;
+    }
 
     if (isNewArticle) {
       await postArticle(values);
