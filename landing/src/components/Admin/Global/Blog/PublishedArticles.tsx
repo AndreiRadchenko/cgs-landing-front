@@ -19,7 +19,7 @@ import { AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { adminSitemapService } from "../../../../services/adminSitemapPage";
 import SortableList, { SortableItem } from "react-easy-sort";
 import { IArticleItem, IArticles } from "../../../../types/Admin/Blog.types";
-import { formatsPublishedDate } from "../../../../utils/formatsPublishedDate";
+import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
 
 const PublishedArticles: FC<IArticles> = ({
   setIsNewArticle,
@@ -31,6 +31,7 @@ const PublishedArticles: FC<IArticles> = ({
   sitemap,
   scrollRef,
 }) => {
+  console.log(data);
   const { handleSubmit } = useFormikContext<IArticle>();
   const queryClient = useQueryClient();
   const { mutateAsync: deleteBlogArticle } = useMutation(
@@ -126,7 +127,8 @@ const PublishedArticles: FC<IArticles> = ({
       if (!data[i].disabled) return;
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const publishArticle = data[i];
-      publishArticle.publishedDate = formatsPublishedDate();
+      publishArticle.publishedDate = formatsDateWithTime();
+      publishArticle.scheduleArticle = "";
       publishArticle.draft = false;
       publishArticle.disabled = false;
       await updateArticle(publishArticle);
@@ -173,11 +175,16 @@ const PublishedArticles: FC<IArticles> = ({
           <Styles.InternalButtonWrapper>
             {item.publishedDate && (
               <Styles.TimeStamp>
-                <strong>Published</strong>
+                <strong>Published </strong>
                 {item.publishedDate}
               </Styles.TimeStamp>
             )}
-
+            {item.scheduleArticle && (
+              <Styles.TimeStamp>
+                <strong>Scheduled </strong>
+                {formatsDateWithTime(item.scheduleArticle)}
+              </Styles.TimeStamp>
+            )}
             <Styles.DeactivateButton
               disabled={item.disabled}
               onClick={item.disabled ? undefined : () => deactivateArticle(i)}

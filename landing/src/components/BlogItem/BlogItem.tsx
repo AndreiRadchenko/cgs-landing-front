@@ -5,19 +5,6 @@ import { IBlogItemProps } from "../../types/Admin/Blog.types";
 
 const BlogItem = ({ isAdmin = false, children, item }: IBlogItemProps) => {
   const blogDate = () => {
-    if (item.scheduleArticle) {
-      const date = new Date(item.scheduleArticle);
-      const month = date.getMonth() + 1;
-
-      return (
-        <span>
-          <strong>Scheduled for</strong>{" "}
-          {` ${date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}.${
-            month < 10 ? `0${month}` : month
-          }.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`}
-        </span>
-      );
-    }
     if (item.updatedOn) {
       const date = new Date(item.updatedOn);
       const month = date.getMonth() + 1;

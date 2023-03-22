@@ -13,6 +13,7 @@ import {
 } from "../../../../types/Admin/Response.types";
 import ArticleAddAndEdit from "./ArticleAddAndEdit";
 import { IArticleForm } from "../../../../types/Admin/Blog.types";
+import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
 
 const META_TITLE_MAX = 60;
 const META_DESCRIPTION_MAX = 160;
@@ -95,6 +96,13 @@ const ArticleForm = ({
           : values.description),
         values.description;
     }
+    console.log(values);
+
+    // if (values.scheduleArticle) {
+    //   values.publishedDate = "";
+    //   values.disabled = true;
+    // }
+
     if (isNewArticle) {
       await postArticle(values);
       setIsNewArticle(false);
