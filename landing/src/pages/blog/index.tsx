@@ -62,7 +62,7 @@ const BlogPage = () => {
     [queryKeys.getBlogArticles],
     () => adminBlogService.getArticles()
   );
-  console.log(data);
+
   const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();

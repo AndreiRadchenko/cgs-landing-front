@@ -96,7 +96,6 @@ const ArticleForm = ({
           : values.description),
         values.description;
     }
-    console.log(values);
 
     if (values.scheduleArticle) {
       values.publishedDate = formatsDateWithTime(values.scheduleArticle);
