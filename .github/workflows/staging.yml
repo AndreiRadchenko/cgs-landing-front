@@ -32,7 +32,7 @@ jobs:
           args: deploy --dir=build --prod
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_APP_STG_LANDING }}
-          heroku_email: "contact@codegenerationsoftware.com"
+          heroku_email: "cgs-business@cgsteam.io"
         env:
           HD_PROJECT_PATH: "landing"
 
