@@ -82,7 +82,13 @@ const CalculatorStepsFormContent = ({
   }, [warnIsShow, setWarnIsShow]);
 
   const handleStepButtonClick = (idx: number) => {
-    if (errors["questionsArr"] && errors["questionsArr"][idx - 1]) {
+    const checkArray = errors.questionsArr?.slice(0, idx);
+
+    if (
+      checkArray &&
+      Array.isArray(checkArray) &&
+      checkArray.some((el) => el !== undefined)
+    ) {
       setWarnIsShow(true);
     } else {
       setWarnIsShow(false);

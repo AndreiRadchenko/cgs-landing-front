@@ -762,6 +762,23 @@ export const ChooseText = styled.div`
       font-size: 1.346em;
     }
   }
+
+  @supports (-webkit-hyphens: none) {
+    height: 64px;
+    width: 97.3%;
+    margin-top: 0.4em;
+    margin-left: 0.34em;
+
+    display: flex;
+    align-items: center;
+    @media ${themes.primary.media.maxMobile} {
+      height: 62px;
+      width: 96.9%;
+      padding-top: 6px;
+      margin-left: 0.3em;
+      font-size: 1.346em;
+    }
+  }
 `;
 
 export const BackButton = styled.div`
@@ -978,6 +995,18 @@ export const CalculatorFieldWrapper = styled.div`
     }
     &.email {
       margin-bottom: 0px;
+    }
+  }
+
+  /* Safari */
+  @supports (-webkit-hyphens: none) {
+    & #input-email {
+      height: 71px;
+      padding-top: 10px;
+
+      & #user-email {
+        line-height: 46px;
+      }
     }
   }
 `;
