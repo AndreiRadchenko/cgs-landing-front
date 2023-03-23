@@ -12,7 +12,7 @@ import { IUxUiInterface } from "../../../../types/Admin/Response.types";
 import { renderInputs } from "../../../../utils/renderInputs";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 
-const HeadBlock = () => {
+const  = () => {
   const { values, handleChange } = useFormikContext<IUxUiInterface>();
   const deleteMainImage = useDeleteImageFunction(values.headerBlock);
   const uploadMainImage = useUploadImageFunction(values.headerBlock);
@@ -38,4 +38,4 @@ const HeadBlock = () => {
   );
 };
 
-export default HeadBlock;
+export default ;

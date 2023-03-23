@@ -12,7 +12,7 @@ import { ICloudService } from "../../../../types/Admin/Response.types";
 import { renderInputs } from "../../../../utils/renderInputs";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 
-const HeadBlock = () => {
+const  = () => {
   const { values, handleChange } = useFormikContext<ICloudService>();
 
   const deleteMainImage = useDeleteImageFunction(values.headerBlock);
@@ -39,4 +39,4 @@ const HeadBlock = () => {
   );
 };
 
-export default HeadBlock;
+export default ;

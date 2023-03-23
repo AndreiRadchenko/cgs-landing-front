@@ -15,7 +15,7 @@ import {
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 
-const HeadBlock = () => {
+const  = () => {
   const { values, handleSubmit, handleChange } =
     useFormikContext<IServiceDappAudit>();
   const handleClick = () => handleSubmit();
@@ -91,4 +91,4 @@ const HeadBlock = () => {
   );
 };
 
-export default HeadBlock;
+export default ;

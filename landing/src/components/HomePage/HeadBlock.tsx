@@ -13,7 +13,7 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ButtonShareComponent from "./ButtonShareComponent";
 import GetEstimationButton from "../GetEstimationButton";
 
-const HeadBlock = () => {
+const  = () => {
   const { width } = useWindowDimension();
 
   const queryClient = useQueryClient();
@@ -35,8 +35,8 @@ const HeadBlock = () => {
   }, [isOnScreen]);
 
   return (
-    <Styled.HeadBlockRow>
-      <Styled.HeadBlockContent>
+    <Styled.Row>
+      <Styled.Content>
         <Styled.Title>{data?.title}</Styled.Title>
         <Styled.MainSubtitle>
           <Styled.RowContainer>
@@ -77,14 +77,14 @@ const HeadBlock = () => {
             <ButtonShareComponent />
           </Styled.ButtonWrapper>
         )}
-      </Styled.HeadBlockContent>
+      </Styled.Content>
       {data?.image?.url && (
         <Styled.Tetris>
           <Tetris />
         </Styled.Tetris>
       )}
-    </Styled.HeadBlockRow>
+    </Styled.Row>
   );
 };
 
-export default HeadBlock;
+export default ;
