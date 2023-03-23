@@ -163,9 +163,7 @@ const CalculatorInputs = ({
                   )}
                   {subStep[0].options.map((subInput, idx) => (
                     <OptionWrapper key={idx}>
-                      <TieUpLabel
-                        htmlFor={`${subStep[0].type}${subInput.label}${idx}`}
-                      >
+                      <TieUpLabel htmlFor={`${type}${subInput.label}${idx}`}>
                         {subStep[0].type === "radio" && <TieUpShadowWrapper />}
                         <TieUpInput
                           type={subStep[0].type}
