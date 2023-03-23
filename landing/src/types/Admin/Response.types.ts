@@ -239,6 +239,7 @@ export interface IArticle {
   scheduleArticle: string;
   updatedOn: string;
   date: string;
+  publishedDate: string;
   minutesToRead: number;
   content: string;
   tags: string[];

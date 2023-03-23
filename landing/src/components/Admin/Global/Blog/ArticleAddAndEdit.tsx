@@ -56,7 +56,16 @@ const ArticleAddAndEdit = ({
     Array<Plugin> | Record<string, Plugin>
   >();
   useEffect(() => {
-    import("suneditor/src/plugins").then((plugs) => setPlugins(plugs as any));
+    let isMounted = true;
+    import("suneditor/src/plugins").then((plugs) => {
+      if (isMounted) {
+        setPlugins(plugs as any);
+      }
+    });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const handleImageUploadBefore = (files: File[], uploadHandler: any) => {
