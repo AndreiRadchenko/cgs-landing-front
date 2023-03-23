@@ -24,6 +24,7 @@ const HeaderNavNew = ({
   clickFromEstimationForm?: boolean;
 }): JSX.Element => {
   const headerRef = useRef<HTMLDivElement>(null);
+  const burgerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { width } = useWindowDimension();
@@ -35,16 +36,26 @@ const HeaderNavNew = ({
   const onScroll = () => {
     const elBottom = headerRef?.current?.getBoundingClientRect().bottom || 0;
     const scrollY = window.scrollY;
+
+    if (burgerRef.current?.classList[2] === "open") {
+      setIsScrolled(burgerRef.current?.scrollTop > 0);
+
+      return;
+    }
+
     if (elBottom != scrollY) {
       setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
+
+      return;
     }
+
+    setIsScrolled(false);
   };
 
   useEffect(() => {
     onScroll();
     window.addEventListener("scroll", onScroll, true);
+
     return window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -73,7 +84,7 @@ const HeaderNavNew = ({
           </StyledThisComp.LogoLinkWrapper>
           <BurgerButton isOpen={isOpen} onToggle={toggleBurgerHandler} />
         </StyledThisComp.NavBarWrapper>
-        <BurgerMenu isOpen={isOpen}>
+        <BurgerMenu isOpen={isOpen} burgerRef={burgerRef}>
           {navigationRoutesNamesNew.map(
             ({ route, withDropdown, tags }, ind) => {
               return withDropdown ? (

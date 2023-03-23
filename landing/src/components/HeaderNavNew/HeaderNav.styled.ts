@@ -29,6 +29,7 @@ export const NavBarWrapper = styled.div`
 
     &.scrolled {
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      z-index: 36;
     }
   }
 `;
