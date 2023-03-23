@@ -219,7 +219,7 @@ const themes = {
       maxPCFullHD: "(max-width: 1800px)",
       maxPCFourThousand: "(max-width: 3840px)",
       maxPCTwoThousand: "(max-width: 2560px)",
-      maxLowScreenMobile: "(max-width: 475px)",
+      maxLowScreenMobile: "(max-width: 474px)",
       maxLowestScreenMobile: "(max-width: 374px)",
       maxLowMobileHeight: "(max-height: 610px)",
       estiomationFormWidth: "(max-width: 570px)",
