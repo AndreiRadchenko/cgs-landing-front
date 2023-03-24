@@ -9,7 +9,7 @@ export interface IFontSize {
 
 export const RowContainer = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 0.5em;
 
   @media ${themes.primary.media.maxMobile} {
     gap: 2px;
@@ -232,9 +232,9 @@ export const LongArrowWrapper = styled.div`
   margin-left: auto;
   width: 30vw;
   position: relative;
+  flex-grow: 1;
 
   @media ${themes.primary.media.minLaptop} {
-    margin-left: 10px;
     width: 20vw;
   }
   @media ${themes.primary.media.minPCFullHD} {
@@ -362,7 +362,6 @@ export const Subtitle = styled.div`
   span {
     &.blue {
       color: ${themes.primary.colors.darkBlue};
-      width: 11ch;
       height: 5vw;
       white-space: nowrap;
     }
