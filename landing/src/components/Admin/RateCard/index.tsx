@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 
+import RateCardTitle from "./RateCardTitle";
+
 import * as Styled from "../../../styles/AdminPage";
+
 import { adminRateCardService } from "../../../services/adminRateCard";
-import { IRateCardResponse } from "../../../types/Admin/AdminRateCard.types";
+import {
+  IRateCardResponse,
+  IService,
+} from "../../../types/Admin/AdminRateCard.types";
+
+import AdminRateCardServiceContent from "./AdminRateCardServiceContent";
 
 const RateCardMainContent = () => {
   const { data, isLoading, refetch }: IRateCardResponse = useQuery(
@@ -12,15 +20,22 @@ const RateCardMainContent = () => {
     () => adminRateCardService.getCards()
   );
 
-  if (isLoading) {
-    return (
-      <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
-    );
-  }
+  const [services, setServices] = useState<IService[] | null>(null);
 
-  return (
+  useEffect(() => {
+    if (data) setServices(data.services);
+  }, [data]);
+
+  return isLoading ? (
+    <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
+  ) : (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHeader>Rate Card</Styled.AdminHeader>
+      <RateCardTitle title={data!.title} />
+      <AdminRateCardServiceContent
+        services={services!}
+        setServices={setServices}
+      />
     </Styled.AdminPaddedBlock>
   );
 };
