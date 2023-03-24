@@ -415,7 +415,12 @@ export const Subtitle = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 6.5vw;
+    margin-top: 60px;
+    margin-bottom: 20px;
     row-gap: 0px;
+    p {
+      margin: 0;
+    }
 
     & u {
       text-decoration-thickness: 1px;
@@ -436,8 +441,6 @@ export const Subtitle = styled.div`
     }
 
     & span {
-      white-space: normal !important;
-
       &.blue {
         width: 43.805vw;
         height: 5vw;
@@ -451,40 +454,18 @@ export const Subtitle = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 1.75rem;
-    &.small {
-      line-height: 132%;
-      font-size: 2rem;
-      display: inline-block;
-      white-space: nowrap;
-    }
-    &.small div {
-      flex-wrap: wrap;
-    }
+    font-size: 9.3vw;
 
-    span {
-      &.range {
-        display: inline-block;
-        width: 70.805vw;
+    & span {
+      &.blue {
+        width: 40.805vw;
+        height: 5vw;
       }
-    }
-  }
 
-  @media (max-width: 430px) {
-    &.footer {
-      margin-top: 110px;
-      font-size: 2rem;
-    }
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    font-size: 1.475rem;
-    &.small {
-      line-height: 132%;
-      font-size: 7.5vw;
-    }
-    &.small div {
-      flex-wrap: nowrap;
+      &.tech {
+        width: 5.8em;
+        height: 5vw;
+      }
     }
   }
 `;

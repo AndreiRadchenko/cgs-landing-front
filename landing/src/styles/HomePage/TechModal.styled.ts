@@ -14,12 +14,16 @@ export const TicketModal = styled.div`
     opacity: 1;
   }
 
-  @media ${themes.primary.media.minPCFullHD} {
-    margin-top: calc(2.5em + 67px);
-  }
-
   @media ${themes.primary.media.minPC} {
     margin-top: calc(2.5em + 49px);
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: calc(2.5em + 68px);
+  }
+
+  @media (min-width: 2200px) {
+    margin-top: calc(2.5em + 76px);
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
