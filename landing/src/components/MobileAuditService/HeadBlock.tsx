@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { IServiceMobileAudit } from "../../types/Admin/Response.types";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import * as Styled from "../../styles/MobileAuditService/.styled";
+import * as Styled from "../../styles/MobileAuditService/HeadBlock.styled";
 import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import MobileImage from "../../../public/MobileAuditService/mobile.svg";
@@ -10,7 +10,7 @@ import Image from "next/image";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
-const  = () => {
+const HeadBlock = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceMobileAudit>([
@@ -53,4 +53,4 @@ const  = () => {
   );
 };
 
-export default ;
+export default HeadBlock;
