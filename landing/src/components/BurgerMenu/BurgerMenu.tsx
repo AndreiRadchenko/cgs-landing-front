@@ -6,7 +6,7 @@ import BurgerFooter from "./BurgerFooter";
 interface IBurgerMenuProps {
   isOpen: boolean;
   children?: ReactNode[];
-  burgerRef: React.RefObject<HTMLDivElement>;
+  burgerRef?: React.RefObject<HTMLDivElement>;
 }
 
 const BurgerMenu: FC<IBurgerMenuProps> = ({ isOpen, children, burgerRef }) => {
