@@ -61,6 +61,7 @@ const HeaderNavNew = ({
 
   useEffect(() => {
     isOpen && width && width > 768 && setIsOpen(false);
+    width && width < 768 && onScroll();
   }, [width, isOpen]);
 
   DisableScrollBarHandler(isOpen);
