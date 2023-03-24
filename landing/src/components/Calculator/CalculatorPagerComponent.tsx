@@ -59,14 +59,18 @@ const CalculatorPagerComponent = ({
       buttonText === "< choose >" ? (
         <Styled.ChooseModalWrapper>
           <CalculatorChooseLine mobile={width < 768}>
-            <Styled.ChooseText onClick={handleBlockchainClick}>
-              <span>Blockchain development</span>
-            </Styled.ChooseText>
+            <Styled.ChooseTextWrapper>
+              <Styled.ChooseText onClick={handleBlockchainClick}>
+                <span>Blockchain development</span>
+              </Styled.ChooseText>
+            </Styled.ChooseTextWrapper>
           </CalculatorChooseLine>
           <CalculatorChooseLine mobile={width < 768}>
-            <Styled.ChooseText onClick={handleClassicClick}>
-              <span>Classic development</span>
-            </Styled.ChooseText>
+            <Styled.ChooseTextWrapper>
+              <Styled.ChooseText onClick={handleClassicClick}>
+                <span>Classic development</span>
+              </Styled.ChooseText>
+            </Styled.ChooseTextWrapper>
           </CalculatorChooseLine>
         </Styled.ChooseModalWrapper>
       ) : (

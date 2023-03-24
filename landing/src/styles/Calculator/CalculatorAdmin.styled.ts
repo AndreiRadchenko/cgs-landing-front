@@ -294,6 +294,7 @@ export const TieUpInput = styled(Field)`
       color: ${themes.primary.colors.darkBlue} !important;
     }
   }
+
   &.admin-radio {
     background-color: ${themes.primary.colors.blogBackground};
     margin: 0;
@@ -321,6 +322,7 @@ export const TieUpInput = styled(Field)`
       transform: scale(1);
     }
   }
+
   &.admin-checkbox {
     min-width: 16px;
     max-width: 16px;
@@ -346,9 +348,11 @@ export const TieUpInput = styled(Field)`
       transform: rotate(45deg);
       border-style: solid;
     }
+
     &:checked::before {
       transform: rotate(45deg) scale(1);
     }
+
     &:not(:checked):before {
       transform: rotate(45deg) scale(0);
     }
