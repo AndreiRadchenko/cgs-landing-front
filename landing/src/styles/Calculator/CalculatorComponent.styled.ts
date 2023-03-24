@@ -37,6 +37,27 @@ export const CalculatorPreviewCube = styled.div`
     width: 100vw;
     height: 60px;
   }
+
+  /* Firefox */
+  @-moz-document url-prefix() {
+    width: 57px;
+
+    @media ${themes.primary.media.maxMobile} {
+      width: 100vw;
+    }
+
+    @media ${themes.primary.media.minTabletLandScape} {
+      width: 64px;
+    }
+
+    @media ${themes.primary.media.minLaptop} {
+      width: 57px;
+    }
+
+    @media ${themes.primary.media.minPC} {
+      width: 64px;
+    }
+  }
 `;
 
 export const CalculatorButton = styled.div`
@@ -706,6 +727,15 @@ export const ChooseModalWrapper = styled.div`
   }
 `;
 
+export const ChooseTextWrapper = styled.div`
+  height: 100%;
+
+  @supports (-webkit-hyphens: none) {
+    display: block;
+    position: relative;
+  }
+`;
+
 export const ChooseText = styled.div`
   text-transform: uppercase;
   cursor: pointer;
@@ -763,18 +793,23 @@ export const ChooseText = styled.div`
     }
   }
 
+  /* Safari */
   @supports (-webkit-hyphens: none) {
-    height: 64px;
-    width: 97.3%;
+    position: absolute;
+    height: 56px;
+    width: 97.9%;
+    left: 1px;
     margin-top: 0.4em;
     margin-left: 0.34em;
 
     display: flex;
     align-items: center;
     @media ${themes.primary.media.maxMobile} {
-      height: 62px;
-      width: 96.9%;
-      padding-top: 6px;
+      left: -0.5px;
+      height: 57px;
+      top: 1px;
+      width: 94.5%;
+      padding-bottom: 4px;
       margin-left: 0.3em;
       font-size: 1.346em;
     }
