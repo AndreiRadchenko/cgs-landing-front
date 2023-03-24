@@ -7,6 +7,7 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 import TextTypingAnimation from "../Typewrite";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+
 const HeadBlock = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);

@@ -12,7 +12,7 @@ import { IBlockchainService } from "../../../../types/Admin/Response.types";
 import { renderInputs } from "../../../../utils/renderInputs";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 
-const  = () => {
+const HeadBlock = () => {
   const { values, handleChange } = useFormikContext<IBlockchainService>();
   const deleteMainImage = useDeleteImageFunction(values.headerBlock);
   const uploadMainImage = useUploadImageFunction(values.headerBlock);
@@ -38,4 +38,4 @@ const  = () => {
   );
 };
 
-export default ;
+export default HeadBlock;
