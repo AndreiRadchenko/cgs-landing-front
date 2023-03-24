@@ -5,19 +5,6 @@ import { IBlogItemProps } from "../../types/Admin/Blog.types";
 
 const BlogItem = ({ isAdmin = false, children, item }: IBlogItemProps) => {
   const blogDate = () => {
-    if (item.scheduleArticle) {
-      const date = new Date(item.scheduleArticle);
-      const month = date.getMonth() + 1;
-
-      return (
-        <span>
-          <strong>Scheduled for</strong>{" "}
-          {` ${date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}.${
-            month < 10 ? `0${month}` : month
-          }.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`}
-        </span>
-      );
-    }
     if (item.updatedOn) {
       const date = new Date(item.updatedOn);
       const month = date.getMonth() + 1;
@@ -45,22 +32,24 @@ const BlogItem = ({ isAdmin = false, children, item }: IBlogItemProps) => {
     <Styles.BlogItemContainer isAdmin={isAdmin}>
       {isAdmin ? (
         <Styles.BlogItem isAdmin={isAdmin}>
-          <Styles.BlogItemInfo>
-            <Styles.BlogDateTagWrapper>
-              <Styles.Date>{blogDate()}</Styles.Date>
-              <Styles.Tag>{item.tags[0]}</Styles.Tag>
-            </Styles.BlogDateTagWrapper>
-            <Styles.BlogItemTitle isAdmin={isAdmin}>
-              {item.title}
-            </Styles.BlogItemTitle>
-            <Styles.BlogItemDescription isAdmin={isAdmin} className="admin">
-              {parse(item.description)}
-            </Styles.BlogItemDescription>
-          </Styles.BlogItemInfo>
-          <Styles.BlogItemImage
-            src={item.image?.url}
-            alt="blog admin item image"
-          />
+          <Styles.BlogContentWrapper>
+            <Styles.BlogItemInfo>
+              <Styles.BlogDateTagWrapper>
+                <Styles.Date>{blogDate()}</Styles.Date>
+                <Styles.Tag>{item.tags[0]}</Styles.Tag>
+              </Styles.BlogDateTagWrapper>
+              <Styles.BlogItemTitle isAdmin={isAdmin}>
+                {item.title}
+              </Styles.BlogItemTitle>
+              <Styles.BlogItemDescription isAdmin={isAdmin} className="admin">
+                {parse(item.description)}
+              </Styles.BlogItemDescription>
+            </Styles.BlogItemInfo>
+            <Styles.BlogItemImage
+              src={item.image?.url}
+              alt="blog admin item image"
+            />
+          </Styles.BlogContentWrapper>
           {children}
         </Styles.BlogItem>
       ) : (

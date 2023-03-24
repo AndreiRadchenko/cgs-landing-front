@@ -1,5 +1,8 @@
 import themes from "../utils/themes";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import CheckMarkPublished from "../../public/checkMarkPublished.svg";
+import { Date } from "../components/BlogItem/BlogItem.styled";
 
 interface IDisabled {
   disabled: boolean;
@@ -29,11 +32,24 @@ export const EmptyArticles = styled.div`
   font-size: ${themes.primary.font.size.articleTagDescription};
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const InternalButtonWrapper = styled(ButtonWrapper)`
+  width: auto;
+`;
+
+export const TimeStamp = styled(Date)`
+  margin-right: 24px;
+  word-spacing: 0.5rem;
+`;
+
 export const DeleteButton = styled.div`
   cursor: pointer;
-  position: absolute;
-  left: 40px;
-  bottom: 20px;
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.aboutUsCardText};
@@ -42,27 +58,52 @@ export const DeleteButton = styled.div`
 
 export const DeactivateButton = styled.div<IDisabled>`
   cursor: pointer;
-  position: absolute;
-  right: 180px;
-  bottom: 15px;
+  margin-right: 12px;
+  padding: 7px 12px;
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.aboutUsCardText};
   color: ${themes.primary.colors.darkBlue};
   opacity: ${({ disabled }) => (disabled ? "0.3" : "1")};
+  border: 1px solid ${themes.primary.colors.darkBlue};
 `;
 
-export const PublishButton = styled.div`
-  cursor: pointer;
-  position: absolute;
-  right: 40px;
-  bottom: 8px;
-  padding: 0.5em 1.5em;
+export const PublishButton = styled.div<IDisabled>`
+  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
+  padding: 7px;
   background-color: ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.medium};
   font-size: ${themes.primary.font.size.aboutUsCardText};
-  color: ${themes.primary.colors.secondary};
+  color: ${({ disabled }) =>
+    disabled ? themes.primary.colors.primary : themes.primary.colors.secondary};
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-image: linear-gradient(
+        90deg,
+        ${themes.primary.colors.mainGradientColor1} 0%,
+        ${themes.primary.colors.mainGradientColor2} 100%
+      );
+    `};
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+
+    ::before {
+      content: "";
+      display: ${({ disabled }) => (disabled ? "block" : "none")};
+      width: 14px;
+      height: 10.7px;
+      margin-right: 6px;
+      background-image: url(${CheckMarkPublished.src});
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
 `;
 
 export const DraftMark = styled.div`

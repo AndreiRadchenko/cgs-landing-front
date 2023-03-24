@@ -19,6 +19,7 @@ import { AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { adminSitemapService } from "../../../../services/adminSitemapPage";
 import SortableList, { SortableItem } from "react-easy-sort";
 import { IArticleItem, IArticles } from "../../../../types/Admin/Blog.types";
+import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
 
 const PublishedArticles: FC<IArticles> = ({
   setIsNewArticle,
@@ -32,7 +33,6 @@ const PublishedArticles: FC<IArticles> = ({
 }) => {
   const { handleSubmit } = useFormikContext<IArticle>();
   const queryClient = useQueryClient();
-
   const { mutateAsync: deleteBlogArticle } = useMutation(
     [queryKeys.deleteArticle],
     (id: string) => adminBlogService.deleteByUrl(id),
@@ -111,19 +111,26 @@ const PublishedArticles: FC<IArticles> = ({
     handleSubmit();
   };
 
-  const deactivateArticle = async (i: number) => {
+  const deactivateArticle = async (i: number, isPublished: boolean) => {
     if (data) {
+      console.log(isPublished);
+      if (!isPublished) return;
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const disabledArticle = data[i];
       disabledArticle.disabled = true;
+      disabledArticle.publishedDate = "";
+      disabledArticle.scheduleArticle = "";
       await updateArticle(disabledArticle);
     }
   };
 
-  const publishArticle = async (i: number) => {
+  const publishArticle = async (i: number, isPublished: boolean) => {
     if (data) {
+      if (isPublished) return;
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const publishArticle = data[i];
+      publishArticle.publishedDate = formatsDateWithTime();
+      publishArticle.scheduleArticle = "";
       publishArticle.draft = false;
       publishArticle.disabled = false;
       await updateArticle(publishArticle);
@@ -150,6 +157,13 @@ const PublishedArticles: FC<IArticles> = ({
   };
 
   const ArticleItem = ({ item, i }: IArticleItem) => {
+    const isScheduledDateExpired = item.scheduleArticle
+      ? new Date() > new Date(item.scheduleArticle)
+      : true;
+    const isPublishedScheduled = item.scheduleArticle
+      ? isScheduledDateExpired
+      : !item.disabled;
+
     return (
       <BlogItem isAdmin item={item}>
         {item.draft && <Styles.DraftMark>DRAFT</Styles.DraftMark>}
@@ -163,18 +177,37 @@ const PublishedArticles: FC<IArticles> = ({
           }
           onClick={() => toggleEditPost(i)}
         />
-        <Styles.DeleteButton onClick={() => deleteArticle(i)}>
-          delete article
-        </Styles.DeleteButton>
-        <Styles.DeactivateButton
-          disabled={item.disabled}
-          onClick={item.disabled ? undefined : () => deactivateArticle(i)}
-        >
-          Deactivate
-        </Styles.DeactivateButton>
-        <Styles.PublishButton onClick={() => publishArticle(i)}>
-          Publish
-        </Styles.PublishButton>
+        <Styles.ButtonWrapper>
+          <Styles.DeleteButton onClick={() => deleteArticle(i)}>
+            delete article
+          </Styles.DeleteButton>
+          <Styles.InternalButtonWrapper>
+            {isScheduledDateExpired && item.publishedDate && (
+              <Styles.TimeStamp>
+                <strong>Published </strong>
+                {item.publishedDate}
+              </Styles.TimeStamp>
+            )}
+            {!isScheduledDateExpired && item.scheduleArticle && (
+              <Styles.TimeStamp>
+                <strong>Scheduled </strong>
+                {formatsDateWithTime(item.scheduleArticle)}
+              </Styles.TimeStamp>
+            )}
+            <Styles.DeactivateButton
+              disabled={!isPublishedScheduled}
+              onClick={() => deactivateArticle(i, isPublishedScheduled)}
+            >
+              Deactivate
+            </Styles.DeactivateButton>
+            <Styles.PublishButton
+              disabled={isPublishedScheduled}
+              onClick={() => publishArticle(i, isPublishedScheduled)}
+            >
+              <p>{isPublishedScheduled ? "Published" : "Publish now"}</p>
+            </Styles.PublishButton>
+          </Styles.InternalButtonWrapper>
+        </Styles.ButtonWrapper>
       </BlogItem>
     );
   };
