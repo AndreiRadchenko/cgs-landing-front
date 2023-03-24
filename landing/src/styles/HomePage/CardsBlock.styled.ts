@@ -103,7 +103,7 @@ export const CardsWrapper = styled.section`
       position: absolute;
       background-color: ${themes.primary.colors.headerBorder};
       width: 250%;
-      bottom: -5%;
+      bottom: 0;
       left: -10%;
     }
   }
