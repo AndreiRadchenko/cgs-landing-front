@@ -77,13 +77,6 @@ export const CategoryContainer = styled.article`
   align-items: flex-start;
   flex-direction: column;
 
-  @media ${themes.primary.media.minPCFullHD} {
-    width: fit-content;
-    &:nth-child(n) {
-      justify-self: center;
-    }
-  }
-
   @media ${themes.primary.media.maxMobile} {
     display: none;
     width: 100%;
