@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  CalculatorAndChatWrapper,
   LocalLayout,
   MobileReverseLayout,
   Separator,
@@ -14,12 +15,16 @@ import { Layout, PageArticle } from "../../styles/Layout.styled";
 import MobilePartners from "../Partners/MobilePartners";
 import MobileNextTech from "./MobileNextTech";
 import Calculator from "../Calculator";
+import Chat from "../Chat";
 
 const Content = () => {
   return (
     <>
       <PageArticle>
-        <Calculator />
+        <CalculatorAndChatWrapper>
+          <Calculator />
+          <Chat />
+        </CalculatorAndChatWrapper>
         <Layout>
           <LocalLayout>
             <HeadBlock />

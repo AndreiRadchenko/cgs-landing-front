@@ -346,35 +346,35 @@ const Calculator = () => {
 
   return (
     <>
-      <Styled.CalculatorPreviewWrapper>
-        <Styled.CalculatorPreviewCube className={hoverClassName}>
-          <Styled.CalculatorPreview className={hoverClassName}>
-            <Styled.CalculatorButton
-              onMouseOver={handleMouseOver}
-              onMouseLeave={handleMouseLeave}
-            >
-              calculator
-            </Styled.CalculatorButton>
-            <Styled.CalculatorPreviewContentWrapper
-              onClick={handleOpen}
-              onMouseOver={handleMouseOver}
-              onMouseLeave={handleMouseLeave}
-              className={hoverClassName}
-            >
-              <span>
-                <SplitBrackets text={data?.previewTextMessage} />
-              </span>
-              <div>
-                <BlackButtonComponent
-                  onClick={handleOpen}
-                  text="Start calculation"
-                  style={{ padding: "1em 2.15em" }}
-                />
-              </div>
-            </Styled.CalculatorPreviewContentWrapper>
-          </Styled.CalculatorPreview>
-        </Styled.CalculatorPreviewCube>
-      </Styled.CalculatorPreviewWrapper>
+      {/* <Styled.CalculatorPreviewWrapper> */}
+      <Styled.CalculatorPreviewCube className={hoverClassName}>
+        <Styled.CalculatorPreview className={hoverClassName}>
+          <Styled.CalculatorButton
+            onMouseOver={handleMouseOver}
+            onMouseLeave={handleMouseLeave}
+          >
+            calculator
+          </Styled.CalculatorButton>
+          <Styled.CalculatorPreviewContentWrapper
+            onClick={handleOpen}
+            onMouseOver={handleMouseOver}
+            onMouseLeave={handleMouseLeave}
+            className={hoverClassName}
+          >
+            <span>
+              <SplitBrackets text={data?.previewTextMessage} />
+            </span>
+            <div>
+              <BlackButtonComponent
+                onClick={handleOpen}
+                text="Start calculation"
+                style={{ padding: "1em 2.15em" }}
+              />
+            </div>
+          </Styled.CalculatorPreviewContentWrapper>
+        </Styled.CalculatorPreview>
+      </Styled.CalculatorPreviewCube>
+      {/* </Styled.CalculatorPreviewWrapper> */}
       {isCompleted ? (
         <CalculatorCompletedPager
           finishClick={finishPagerClick}

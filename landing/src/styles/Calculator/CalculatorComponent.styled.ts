@@ -6,7 +6,8 @@ import { glow } from "../Animations.styled";
 export const CalculatorPreviewWrapper = styled.div`
   position: fixed;
   right: 0;
-  bottom: 60px;
+  top: 50%;
+  transform: translateY(-70px);
   height: 18.833em;
   z-index: 13;
 

@@ -756,3 +756,25 @@ export const WhatsAppIconWrapper = styled.div`
 `;
 
 export const FooterSection = styled.section``;
+
+export const CalculatorAndChatWrapper = styled.div`
+  position: fixed;
+  right: 0;
+  top: 40%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  gap: 10px;
+
+  /* height: 18.833em; */
+  z-index: 13;
+
+  @media ${themes.primary.media.maxMobile} {
+    position: fixed;
+    height: auto;
+    top: auto;
+    bottom: 0;
+  }
+`;
