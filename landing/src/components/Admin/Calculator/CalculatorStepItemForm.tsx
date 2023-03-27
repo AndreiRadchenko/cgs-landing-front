@@ -23,24 +23,23 @@ const CalculatorStepItem = ({
 }: ICalculatorStepItemProps) => {
   const [submitKey, setSubmitKey] = useState<boolean>(false);
 
-  const { mutateAsync } = useMutation(
-    [queryKeys.getCalculatorClassicSteps],
-    (data: ICalculatorStep) =>
-      adminCalculatorService.updateCalculatorClassicStepById(data)
-  );
+  const mutate = isBlockchain
+    ? useMutation(
+        [queryKeys.getCalculatorBlockchainSteps],
+        (data: ICalculatorStep) =>
+          adminCalculatorService.updateCalculatorBlockchainStepById(data)
+      ).mutateAsync
+    : useMutation(
+        [queryKeys.getCalculatorClassicSteps],
+        (data: ICalculatorStep) =>
+          adminCalculatorService.updateCalculatorClassicStepById(data)
+      ).mutateAsync;
 
-  const { mutateAsync: blockchainMutate } = useMutation(
-    [queryKeys.getCalculatorBlockchainSteps],
-    (data: ICalculatorStep) =>
-      adminCalculatorService.updateCalculatorBlockchainStepById(data)
-  );
   const handleSubmit = async (values: ICalculatorStep) => {
     const converted = values;
 
     document.body.style.cursor = "wait";
-    isBlockchain
-      ? await blockchainMutate(converted)
-      : await mutateAsync(converted);
+    mutate(converted);
     await refetch();
     document.body.style.cursor = "auto";
     setSubmitKey((old) => !old);

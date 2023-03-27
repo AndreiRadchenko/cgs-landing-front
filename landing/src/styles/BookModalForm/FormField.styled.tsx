@@ -107,15 +107,90 @@ export const FormFieldContainer = styled.div`
       background: ${themes.primary.colors.blogBackground};
     }
 
+    .flag-dropdown {
+      border: 0;
+      border-right: 1px solid ${themes.primary.colors.inputGrey};
+    }
+
+    .selected-flag {
+      @media ${themes.primary.media.minMobile} {
+        width: 45px;
+      }
+      @media ${themes.primary.media.minPCFullHD} {
+        width: 75px;
+        padding: 0 0 0 20px;
+      }
+
+      .flag {
+        @media ${themes.primary.media.minMobile} {
+          scale: 1.2;
+        }
+        @media ${themes.primary.media.minPCFullHD} {
+          scale: 1.7;
+        }
+      }
+    }
+
     .form-control {
       height: 100%;
       width: 100%;
       border: none;
+      font-size: 16px;
+      font-family: ${themes.primary.font.family.namu};
       background: ${themes.primary.colors.blogBackground};
+
+      &::placeholder {
+        color: ${themes.primary.colors.comment};
+      }
+
+      @media ${themes.primary.media.minPCFullHD} {
+        font-size: 22px;
+      }
+
+      @media ${themes.primary.media.estiomationFormWidth} {
+        font-size: 12px;
+      }
+
+      @media ${themes.primary.media.minMobile} {
+        padding-left: 55px;
+      }
+      @media ${themes.primary.media.minPCFullHD} {
+        padding-left: 85px;
+      }
     }
     .country-list {
       background: ${themes.primary.colors.blogBackground};
       width: 280px;
+
+      @media ${themes.primary.media.minPCFullHD} {
+        width: 480px;
+        max-height: 300px;
+      }
+
+      .search {
+        background-color: ${themes.primary.colors.blogBackground};
+        padding: 10px 14px 10px 0;
+
+        .search-box {
+          width: 100%;
+          background-color: ${themes.primary.colors.blogBackground};
+          font-size: 16px;
+          font-family: ${themes.primary.font.family.namu};
+          border: 1px solid ${themes.primary.colors.inputGrey};
+
+          &::placeholder {
+            color: ${themes.primary.colors.comment};
+          }
+
+          @media ${themes.primary.media.minPCFullHD} {
+            font-size: 22px;
+          }
+
+          @media ${themes.primary.media.estiomationFormWidth} {
+            font-size: 12px;
+          }
+        }
+      }
     }
   }
 `;

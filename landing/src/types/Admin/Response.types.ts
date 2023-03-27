@@ -643,6 +643,8 @@ export interface IStepOptions {
   _id: string;
   label: string;
   hours?: number;
+  hourRate?: number;
+  isRate?: boolean;
   roles?: string[];
   endRole?: {
     coef: number;
@@ -664,7 +666,6 @@ export interface ICalculatorStep {
   _id: string;
   title: string;
   type: string;
-  hourRate: number;
   options: IStepOptions[];
   tieUpSteps: ICalculatorTieUpStep[];
   subSteps: ICalculatorSubStep[];
