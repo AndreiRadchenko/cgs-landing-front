@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import * as Styled from "../../styles/Chat/CommonChat.styled";
+import ChatComponent from "./ChatComponent";
 
-const Chat = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+interface IChatProps {
+  isChatOpen: boolean;
+  setIsChatOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-  const toggleIsOpenChat = () => setIsOpen((old) => !old);
+const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
+  const toggleIsOpenChat = () => setIsChatOpen((old) => !old);
 
   return (
-    <Styled.ChatButton onClick={toggleIsOpenChat}>
-      <Styled.ChatButtonIcon isOpen={isOpen} />
-    </Styled.ChatButton>
+    <Styled.ChatWrapper>
+      <Styled.ChatButton onClick={toggleIsOpenChat}>
+        A
+        <Styled.ChatButtonIcon isOpen={isChatOpen} />
+      </Styled.ChatButton>
+      <ChatComponent isChatOpen={isChatOpen} />
+    </Styled.ChatWrapper>
   );
 };
 

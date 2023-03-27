@@ -181,6 +181,7 @@ const themes = {
       blogBackground: "#f1efed",
       blogFooter: "#EBE9EB",
       blogDropdownHover: "#F8F7F5",
+      chatContainerBgc: "#F1EFED",
       careerBackground: "#f1efed",
       portfolioBg: "#F1EFED",
       estimationAdminBg: "#F1EFED",

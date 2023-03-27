@@ -26,7 +26,11 @@ import {
 } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
-const Calculator = () => {
+interface ICalculatorProps {
+  isChatOpen: boolean;
+}
+
+const Calculator = ({ isChatOpen }: ICalculatorProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>("< start >");
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -350,12 +354,14 @@ const Calculator = () => {
       <Styled.CalculatorPreviewCube className={hoverClassName}>
         <Styled.CalculatorPreview className={hoverClassName}>
           <Styled.CalculatorButton
+            isChatOpen={isChatOpen}
             onMouseOver={handleMouseOver}
             onMouseLeave={handleMouseLeave}
           >
             calculator
           </Styled.CalculatorButton>
           <Styled.CalculatorPreviewContentWrapper
+            isChatOpen={isChatOpen}
             onClick={handleOpen}
             onMouseOver={handleMouseOver}
             onMouseLeave={handleMouseLeave}
