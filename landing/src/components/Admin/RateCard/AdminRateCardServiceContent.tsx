@@ -12,40 +12,26 @@ const AdminRateCardServiceContent = ({
   const handleNextClick = (idx: number) => {
     const newArrServices = [...services];
     newArrServices.splice(idx, 0, {
+      newService: true,
       name: "",
-      levels: [],
+      levels: [{ name: "", technology: "", cost: "" }],
     });
     setServices(newArrServices);
   };
 
-  /*const handleClick = () => {
-    const newRateCardArr = [...services].push({ name: "", levels: [] });
-    setServices(newRateCardArr);
-  };*/
-
   return (
     <>
-      {services?.length > 0 ? (
-        services?.map((service, idx) => (
-          <AdminBlockDropDown
-            key={`${service.name}${idx}`}
-            title={service.name || "ADD SERVICE"}
-            style={{ width: "100%" }}
-            nextBtn
-            onNextClick={() => handleNextClick(idx + 1)}
-          >
-            <AdminAddService service={service} />
-          </AdminBlockDropDown>
-        ))
-      ) : (
+      {services?.map((service, idx) => (
         <AdminBlockDropDown
-          title={"ADD SERVICE"}
+          key={`${service.name}${idx}`}
+          title={service.name || "ADD SERVICE"}
           style={{ width: "100%" }}
           nextBtn
+          onNextClick={() => handleNextClick(idx + 1)}
         >
-          <AdminAddService />
+          <AdminAddService service={service} />
         </AdminBlockDropDown>
-      )}
+      ))}
     </>
   );
 };

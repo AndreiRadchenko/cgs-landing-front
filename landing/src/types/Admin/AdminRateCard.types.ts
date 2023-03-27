@@ -7,6 +7,7 @@ export interface IRateCard {
 }
 
 export interface IService {
+  newService?: boolean;
   name: string;
   levels: ILevel[];
 }

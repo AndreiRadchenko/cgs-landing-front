@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 
 import AddRateCardImage from "./AddRateCardImage";
@@ -18,12 +18,15 @@ import {
   ServiceInputLabel,
 } from "../../../styles/AdminRateCard.styled";
 
-const AdminAddService = ({ service }: { service?: IService }) => {
+const AdminAddService = ({ service }: { service: IService }) => {
+  const [addRateCardInfo, setAddRateCardInfo] = useState(service.newService);
+
+  const handleClick = () => {
+    setAddRateCardInfo(false);
+  };
+
   return (
-    <Formik
-      initialValues={service || { name: "", levels: [] }}
-      onSubmit={() => console.log("hello")}
-    >
+    <Formik initialValues={service} onSubmit={() => console.log("hello")}>
       <>
         <AdminAddServiceWrapper>
           <AddRateCardImage />
@@ -32,19 +35,20 @@ const AdminAddService = ({ service }: { service?: IService }) => {
             <ServiceInput name="name" placeholder="Enter service" />
           </div>
         </AdminAddServiceWrapper>
-        {service?.levels.length === 0 && (
-          <AddRateCardInfo>
+        {addRateCardInfo && (
+          <AddRateCardInfo onClick={handleClick}>
             <PlusBtn />
             Add information about rate card
           </AddRateCardInfo>
         )}
-        {service?.levels.map((level, idx) => (
-          <RateCardLevelsInput
-            key={`${level.name}${idx}`}
-            level={level}
-            idx={idx}
-          />
-        ))}
+        {!addRateCardInfo &&
+          service?.levels.map((level, idx) => (
+            <RateCardLevelsInput
+              key={`${level.name}${idx}`}
+              level={level}
+              idx={idx}
+            />
+          ))}
         <RateCardBtnContainer>
           <SaveBtn />
           <DeleteBtn>

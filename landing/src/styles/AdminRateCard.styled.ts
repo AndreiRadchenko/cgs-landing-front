@@ -67,7 +67,7 @@ export const RateCartLevel = styled(Field)`
   letter-spacing: 0.05em;
   border: 1px solid ${themes.primary.colors.headerBorder};
   background: transparent;
-  width: 20%;
+  width: 100%;
 
   &::placeholder {
     color: ${themes.primary.colors.headerBorder};
@@ -84,7 +84,7 @@ export const RateCardTechnology = styled(Field)`
   letter-spacing: 0.05em;
   border: 1px solid ${themes.primary.colors.headerBorder};
   background: transparent;
-  width: 70%;
+  width: 100%;
 
   &::placeholder {
     color: ${themes.primary.colors.headerBorder};
@@ -101,7 +101,7 @@ export const RateCardCost = styled(Field)`
   letter-spacing: 0.05em;
   border: 1px solid ${themes.primary.colors.headerBorder};
   background: transparent;
-  width: 30%;
+  width: 100%;
 
   &::placeholder {
     color: ${themes.primary.colors.headerBorder};
@@ -167,13 +167,22 @@ export const RateCardLevelWrapper = styled.div`
 export const RateCardTechCostWrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 71%;
+  width: 77%;
   position: relative;
+
+  svg {
+    margin: 20px 0 0 10px;
+    cursor: pointer;
+  }
+
+  svg path {
+    fill: ${themes.primary.colors.adminRed};
+  }
 `;
 
 export const AddNextLevel = styled.div`
   position: absolute;
-  top: 55px;
+  top: 85px;
   display: flex;
   align-items: center;
   gap: 7px;
@@ -182,12 +191,19 @@ export const AddNextLevel = styled.div`
   padding: 9px 15px;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
+  cursor: pointer;
+  transition: 0.3s;
 
   svg path {
     fill: ${themes.primary.colors.blogBackground};
   }
   svg {
     width: 15px;
+  }
+
+  &:hover {
+    transition: 0.3s;
+    scale: 1.05;
   }
 `;
 
@@ -198,6 +214,76 @@ export const AddNextTechCost = styled.div`
   line-height: 17px;
   font-family: ${themes.primary.font.family.inter};
   color: ${themes.primary.colors.darkBlue};
-  top: 55px;
-  right: 0;
+  top: 85px;
+  right: 25px;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transition: 0.3s;
+    scale: 1.05;
+  }
+`;
+
+export const DeleteImage = styled.p`
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: ${themes.primary.colors.adminRed};
+  margin: 3px 0;
+`;
+
+export const RateCardJointWrapper = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 14px;
+  line-height: 160%;
+  color: ${themes.primary.colors.comment};
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+`;
+
+export const JointCheckboxWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+
+  input {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+
+    /* creating a custom design */
+    border-radius: 0;
+    border: 1px solid ${themes.primary.colors.comment};
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    &::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      position: absolute;
+    }
+    &:checked {
+      ::before {
+        background-color: ${themes.primary.colors.primary};
+        background-image: url("/adminMarker.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+
+  input:checked + label {
+    color: ${themes.primary.colors.primary};
+  }
 `;
