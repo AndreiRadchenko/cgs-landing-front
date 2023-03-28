@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 import chatOpenButtonIcon from "../../../public/chatOpenButtonIcon.png";
 import chatCloseButtonIcon from "../../../public/chatCloseButtonIcon.svg";
-import { horizontalGlow } from "../Animations.styled";
+import { glow, horizontalGlow } from "../Animations.styled";
 
 export const ChatWrapper = styled.div`
   position: relative;
@@ -32,6 +32,21 @@ export const ChatButton = styled.div`
   background-size: 200% auto;
   animation: ${horizontalGlow} 6s linear infinite;
 
+  @media ${themes.primary.media.maxMobile} {
+    width: 18vw;
+    height: 60px;
+
+    border: 1.8px solid ${themes.primary.colors.primary};
+    background: linear-gradient(
+      180deg,
+      ${themes.primary.colors.mainGradientColor1},
+      ${themes.primary.colors.mainGradientColor2},
+      ${themes.primary.colors.mainGradientColor1}
+    );
+    background-size: auto 400%;
+    animation: ${glow} 12s linear infinite;
+  }
+
   &::before,
   &::after {
     content: "";
@@ -53,6 +68,20 @@ export const ChatButton = styled.div`
       ${themes.primary.colors.mainGradientColor1},
       ${themes.primary.colors.mainGradientColor2}
     );
+
+    @media ${themes.primary.media.maxMobile} {
+      top: -7px;
+      left: -1px;
+      width: 100%;
+      height: 4px;
+
+      background: linear-gradient(
+        90deg,
+        ${themes.primary.colors.mainGradientColor1},
+        ${themes.primary.colors.mainGradientColor2}
+      );
+      transform: skewY(0) rotate(0deg);
+    }
   }
 
   &::after {
@@ -60,6 +89,10 @@ export const ChatButton = styled.div`
     left: 0.5px;
     width: 99%;
     height: 5px;
+
+    @media ${themes.primary.media.maxMobile} {
+      display: none;
+    }
   }
 `;
 

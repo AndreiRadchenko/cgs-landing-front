@@ -760,7 +760,7 @@ export const FooterSection = styled.section``;
 export const CalculatorAndChatWrapper = styled.div`
   position: fixed;
   right: 0;
-  top: 40%;
+  top: 45%;
 
   display: flex;
   flex-direction: column;
@@ -772,9 +772,15 @@ export const CalculatorAndChatWrapper = styled.div`
   z-index: 13;
 
   @media ${themes.primary.media.maxMobile} {
+    top: 27vw;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
     position: fixed;
     height: auto;
     top: auto;
     bottom: 0;
+    flex-direction: row;
+    gap: 0;
   }
 `;

@@ -6,18 +6,39 @@ interface IChatContainer {
 }
 
 export const ChatContainer = styled.div<IChatContainer>`
-  position: fixed;
+  position: absolute;
   right: 6em;
-  top: calc(11.3% - 5px);
-  width: 369px;
-  height: 533px;
+  bottom: 0;
+  width: 26vw;
+  height: 37vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   border: 1.8px solid ${themes.primary.colors.primary};
   border-bottom: none;
   border-left: none;
   opacity: ${({ isChatOpen }) => (isChatOpen ? 1 : 0)};
+  transform-origin: 100% 100%;
+  transform: scale(${({ isChatOpen }) => (isChatOpen ? 1 : 0)});
   background-color: ${themes.primary.colors.chatContainerBgc};
   transition: all 0.3s;
+
+  @media ${themes.primary.media.maxLaptop} {
+    width: 369px;
+    height: 533px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    bottom: 60px;
+    right: 0;
+    width: 100vw;
+    height: calc(100vh - 5.8125rem - 60px);
+
+    transform-origin: 50% 100%;
+    border-left: 1.8px solid ${themes.primary.colors.primary};
+  }
 
   &::before,
   &::after {
@@ -40,6 +61,10 @@ export const ChatContainer = styled.div<IChatContainer>`
       ${themes.primary.colors.mainGradientColor1},
       ${themes.primary.colors.mainGradientColor2}
     );
+
+    @media ${themes.primary.media.maxMobile} {
+      display: none;
+    }
   }
 
   &::after {
@@ -47,5 +72,56 @@ export const ChatContainer = styled.div<IChatContainer>`
     left: 0;
     width: 100%;
     height: 5px;
+
+    @media ${themes.primary.media.maxMobile} {
+      display: none;
+    }
   }
+`;
+
+export const ChatHeader = styled.div`
+  padding: 10px 18px;
+  line-height: 150%;
+
+  border-bottom: 1.8px solid ${themes.primary.colors.primary};
+  background: linear-gradient(
+    90deg,
+    ${themes.primary.colors.mainGradientColor1},
+    ${themes.primary.colors.mainGradientColor2}
+  );
+
+  p {
+    margin: 0;
+  }
+`;
+
+export const ChatTitle = styled.p`
+  font-weight: ${themes.primary.font.weight.bold};
+  font-size: ${themes.primary.font.size.oneAndHalf};
+`;
+
+export const OperatorStatus = styled.p`
+  font-weight: ${themes.primary.font.weight.semiBold};
+  opacity: 0.5;
+`;
+
+export const ChatBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+
+  width: 100%;
+  padding: 1.33em;
+`;
+
+export const ChatMessagesContainer = styled.div`
+  flex-grow: 1;
+`;
+
+export const ChatFormContainer = styled.div`
+  height: 84px;
+  padding-top: 16px;
+
+  border-top: 1px solid ${themes.primary.colors.chatFormBorder};
 `;

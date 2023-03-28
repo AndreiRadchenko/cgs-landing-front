@@ -35,7 +35,7 @@ export const CalculatorPreviewCube = styled.div`
   height: 18.66em;
 
   @media ${themes.primary.media.maxMobile} {
-    width: 100vw;
+    width: 82vw;
     height: 60px;
   }
 
