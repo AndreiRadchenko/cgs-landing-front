@@ -1,7 +1,11 @@
 import React from "react";
 import * as Styled from "../../styles/Chat/ChatMessagesComponent.styled";
 
-const GreetingMessageComponent = () => {
+interface IGreetingMessageComponent {
+  userEmail: string;
+}
+
+const GreetingMessageComponent = ({ userEmail }: IGreetingMessageComponent) => {
   return (
     <>
       <Styled.RecievedMessagesWrapper>
@@ -18,12 +22,14 @@ const GreetingMessageComponent = () => {
         </Styled.MessagesWrapper>
       </Styled.RecievedMessagesWrapper>
 
-      <Styled.SendedMessagesWrapper>
-        <Styled.MessagesWrapper>
-          <Styled.SendedMessageBox>email@domen.com</Styled.SendedMessageBox>
-          <Styled.SendedMessageTime>06:07 PM</Styled.SendedMessageTime>
-        </Styled.MessagesWrapper>
-      </Styled.SendedMessagesWrapper>
+      {userEmail && (
+        <Styled.SendedMessagesWrapper>
+          <Styled.MessagesWrapper>
+            <Styled.SendedMessageBox>{userEmail}</Styled.SendedMessageBox>
+            <Styled.SendedMessageTime>06:07 PM</Styled.SendedMessageTime>
+          </Styled.MessagesWrapper>
+        </Styled.SendedMessagesWrapper>
+      )}
     </>
   );
 };

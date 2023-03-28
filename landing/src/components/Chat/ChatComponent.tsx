@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Styled from "../../styles/Chat/ChatComponent.styled";
 import ChatMessagesComponent from "./ChatMessagesComponent";
 import ChatRegisterForm from "./ChatRegisterForm";
@@ -8,6 +8,8 @@ interface IChatComponentProps {
 }
 
 const ChatComponent = ({ isChatOpen }: IChatComponentProps) => {
+  const [userEmail, setUserEmail] = useState<string>("");
+
   return (
     <Styled.ChatContainer isChatOpen={isChatOpen}>
       <Styled.ChatHeader>
@@ -18,10 +20,13 @@ const ChatComponent = ({ isChatOpen }: IChatComponentProps) => {
       </Styled.ChatHeader>
       <Styled.ChatBody>
         <Styled.ChatMessagesContainer>
-          <ChatMessagesComponent />
+          <ChatMessagesComponent userEmail={userEmail} />
         </Styled.ChatMessagesContainer>
         <Styled.ChatFormContainer>
-          <ChatRegisterForm />
+          <ChatRegisterForm
+            setUserEmail={setUserEmail}
+            isChatOpen={isChatOpen}
+          />
         </Styled.ChatFormContainer>
       </Styled.ChatBody>
     </Styled.ChatContainer>

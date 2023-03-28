@@ -123,5 +123,5 @@ export const ChatFormContainer = styled.div`
   height: 84px;
   padding-top: 16px;
 
-  border-top: 1px solid ${themes.primary.colors.chatFormBorder};
+  border-top: 1px solid ${themes.primary.colors.chatFormColor};
 `;
