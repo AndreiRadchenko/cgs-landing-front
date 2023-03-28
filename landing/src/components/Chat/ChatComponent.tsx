@@ -5,10 +5,12 @@ import ChatRegisterForm from "./ChatRegisterForm";
 
 interface IChatComponentProps {
   isChatOpen: boolean;
+  openChatTime: string;
 }
 
-const ChatComponent = ({ isChatOpen }: IChatComponentProps) => {
+const ChatComponent = ({ isChatOpen, openChatTime }: IChatComponentProps) => {
   const [userEmail, setUserEmail] = useState<string>("");
+  const [sentEmailTime, setSentEmailTime] = useState<string>("");
 
   return (
     <Styled.ChatContainer isChatOpen={isChatOpen}>
@@ -20,12 +22,17 @@ const ChatComponent = ({ isChatOpen }: IChatComponentProps) => {
       </Styled.ChatHeader>
       <Styled.ChatBody>
         <Styled.ChatMessagesContainer>
-          <ChatMessagesComponent userEmail={userEmail} />
+          <ChatMessagesComponent
+            userEmail={userEmail}
+            openChatTime={openChatTime}
+            sentEmailTime={sentEmailTime}
+          />
         </Styled.ChatMessagesContainer>
         <Styled.ChatFormContainer>
           <ChatRegisterForm
-            setUserEmail={setUserEmail}
             isChatOpen={isChatOpen}
+            setUserEmail={setUserEmail}
+            setSentEmailTime={setSentEmailTime}
           />
         </Styled.ChatFormContainer>
       </Styled.ChatBody>

@@ -8,6 +8,7 @@ export const InputEmailError = styled.p`
 `;
 
 export const InputField = styled.input`
+  width: 100%;
   border: none;
   padding: 0;
 

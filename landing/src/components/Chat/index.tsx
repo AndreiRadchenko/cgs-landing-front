@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Styled from "../../styles/Chat/CommonChat.styled";
+import setMessageTime from "../../utils/setMessageTime";
 import ChatComponent from "./ChatComponent";
 
 interface IChatProps {
@@ -8,7 +9,12 @@ interface IChatProps {
 }
 
 const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
-  const toggleIsOpenChat = () => setIsChatOpen((old) => !old);
+  const [openChatTime, setOpenChatTime] = useState<string>("");
+
+  const toggleIsOpenChat = () => {
+    setIsChatOpen((old) => !old);
+    setOpenChatTime(setMessageTime());
+  };
 
   return (
     <Styled.ChatWrapper>
@@ -16,7 +22,7 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
         A
         <Styled.ChatButtonIcon isOpen={isChatOpen} />
       </Styled.ChatButton>
-      <ChatComponent isChatOpen={isChatOpen} />
+      <ChatComponent isChatOpen={isChatOpen} openChatTime={openChatTime} />
     </Styled.ChatWrapper>
   );
 };

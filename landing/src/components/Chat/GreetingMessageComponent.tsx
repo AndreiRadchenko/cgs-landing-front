@@ -3,9 +3,15 @@ import * as Styled from "../../styles/Chat/ChatMessagesComponent.styled";
 
 interface IGreetingMessageComponent {
   userEmail: string;
+  openChatTime: string;
+  sentEmailTime: string;
 }
 
-const GreetingMessageComponent = ({ userEmail }: IGreetingMessageComponent) => {
+const GreetingMessageComponent = ({
+  userEmail,
+  openChatTime,
+  sentEmailTime,
+}: IGreetingMessageComponent) => {
   return (
     <>
       <Styled.RecievedMessagesWrapper>
@@ -18,7 +24,7 @@ const GreetingMessageComponent = ({ userEmail }: IGreetingMessageComponent) => {
           <Styled.RecivedMessageBox>
             Please enter your email to start a conversation.
           </Styled.RecivedMessageBox>
-          <Styled.RecievdMessageTime>06:07 PM</Styled.RecievdMessageTime>
+          <Styled.RecievdMessageTime>{openChatTime}</Styled.RecievdMessageTime>
         </Styled.MessagesWrapper>
       </Styled.RecievedMessagesWrapper>
 
@@ -26,7 +32,7 @@ const GreetingMessageComponent = ({ userEmail }: IGreetingMessageComponent) => {
         <Styled.SendedMessagesWrapper>
           <Styled.MessagesWrapper>
             <Styled.SendedMessageBox>{userEmail}</Styled.SendedMessageBox>
-            <Styled.SendedMessageTime>06:07 PM</Styled.SendedMessageTime>
+            <Styled.SendedMessageTime>{sentEmailTime}</Styled.SendedMessageTime>
           </Styled.MessagesWrapper>
         </Styled.SendedMessagesWrapper>
       )}
