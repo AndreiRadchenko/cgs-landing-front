@@ -5,7 +5,10 @@ import { useFormikContext } from "formik";
 import PlusBtn from "./plusBtn";
 import TrashIconBtn from "./trashIconBtn";
 
-import { IRateCardLevelProps } from "../../../types/Admin/AdminRateCard.types";
+import {
+  IRateCardLevelProps,
+  IService,
+} from "../../../types/Admin/AdminRateCard.types";
 
 import {
   AddNextLevel,
@@ -20,13 +23,15 @@ import {
 } from "../../../styles/AdminRateCard.styled";
 
 const RateCardLevelsInput = ({ level, idx }: IRateCardLevelProps) => {
-  const { values } = useFormikContext();
+  const { values, setValues } = useFormikContext<IService>();
 
-  /*const addLevel = (index: number) => {
-    values.levels.splice(index, 0, {
-      levels: [{ name: "", technology: "", cost: "" }],
+  const addLevel = (index: number) => {
+    const newLevel = values.levels.splice(index, 0, {
+      name: "",
+      technology: "",
+      cost: "",
     });
-  };*/
+  };
 
   return (
     <RateCardLevelWrapper>
@@ -41,7 +46,7 @@ const RateCardLevelsInput = ({ level, idx }: IRateCardLevelProps) => {
 
         <RateCartLevel name={`levels[${idx}.name`} />
       </div>
-      <AddNextLevel>
+      <AddNextLevel onClick={() => addLevel(idx)}>
         <PlusBtn />
         Add next level
       </AddNextLevel>

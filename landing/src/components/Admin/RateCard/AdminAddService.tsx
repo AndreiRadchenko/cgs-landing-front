@@ -26,37 +26,43 @@ const AdminAddService = ({ service }: { service: IService }) => {
   };
 
   return (
-    <Formik initialValues={service} onSubmit={() => console.log("hello")}>
-      <>
-        <AdminAddServiceWrapper>
-          <AddRateCardImage />
-          <div>
-            <ServiceInputLabel>Service</ServiceInputLabel>
-            <ServiceInput name="name" placeholder="Enter service" />
-          </div>
-        </AdminAddServiceWrapper>
-        {addRateCardInfo && (
-          <AddRateCardInfo onClick={handleClick}>
-            <PlusBtn />
-            Add information about rate card
-          </AddRateCardInfo>
-        )}
-        {!addRateCardInfo &&
-          service?.levels.map((level, idx) => (
-            <RateCardLevelsInput
-              key={`${level.name}${idx}`}
-              level={level}
-              idx={idx}
-            />
-          ))}
-        <RateCardBtnContainer>
-          <SaveBtn />
-          <DeleteBtn>
-            <TrashIconBtn />
-            Delete Block
-          </DeleteBtn>
-        </RateCardBtnContainer>
-      </>
+    <Formik
+      enableReinitialize
+      initialValues={service}
+      onSubmit={() => console.log("hello")}
+    >
+      {({ values }) => (
+        <>
+          <AdminAddServiceWrapper>
+            <AddRateCardImage />
+            <div>
+              <ServiceInputLabel>Service</ServiceInputLabel>
+              <ServiceInput name="name" placeholder="Enter service" />
+            </div>
+          </AdminAddServiceWrapper>
+          {addRateCardInfo && (
+            <AddRateCardInfo onClick={handleClick}>
+              <PlusBtn />
+              Add information about rate card
+            </AddRateCardInfo>
+          )}
+          {!addRateCardInfo &&
+            values?.levels.map((level, idx) => (
+              <RateCardLevelsInput
+                key={`${level.name}${idx}`}
+                level={level}
+                idx={idx}
+              />
+            ))}
+          <RateCardBtnContainer>
+            <SaveBtn />
+            <DeleteBtn>
+              <TrashIconBtn />
+              Delete Block
+            </DeleteBtn>
+          </RateCardBtnContainer>
+        </>
+      )}
     </Formik>
   );
 };
