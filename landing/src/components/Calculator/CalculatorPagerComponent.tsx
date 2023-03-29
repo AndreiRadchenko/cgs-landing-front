@@ -42,14 +42,15 @@ const CalculatorPagerComponent = ({
 
   const content = data && [
     <Styled.PagerText
+      key="1"
       dangerouslySetInnerHTML={{
         __html: data.startMessage.replaceAll("|", "<br>"),
       }}
     />,
-    <Styled.LoaderWrapper>
+    <Styled.LoaderWrapper key="2">
       <Styled.Loader />
     </Styled.LoaderWrapper>,
-    <Styled.PressButtonWrapper>
+    <Styled.PressButtonWrapper key="3">
       <Styled.PressButtonText>just press the button</Styled.PressButtonText>
       <Styled.PressButtonImageWrapper>
         <Image

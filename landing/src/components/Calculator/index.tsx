@@ -45,13 +45,13 @@ const Calculator = () => {
     adminCalculatorService.getCalculatorData()
   );
 
-  const { data: classicStepsData, isLoading: classicLoading } = useQuery(
+  const { data: classicStepsData } = useQuery(
     [queryKeys.getCalculatorClassicSteps],
     () => adminCalculatorService.getCalculatorClassicSteps(),
     { enabled: startLoading }
   );
 
-  const { data: blockchainStepsData, isLoading: blockchainLoading } = useQuery(
+  const { data: blockchainStepsData } = useQuery(
     [queryKeys.getCalculatorBlockchainSteps],
     () => adminCalculatorService.getCalculatorBlockchainSteps(),
     { enabled: startLoading }
@@ -371,7 +371,6 @@ const Calculator = () => {
       </Styled.CalculatorPreviewWrapper>
       {isCompleted ? (
         <CalculatorCompletedPager
-          startLoading={startLoading}
           finishClick={finishPagerClick}
           handlePagerLeftButtonClick={handleBackCompletePagerButtonsClick}
           handlePagerButtonsClick={handleCompletedPagerButtonsClick}
