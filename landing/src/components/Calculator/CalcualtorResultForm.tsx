@@ -74,8 +74,8 @@ const CalcualtorResultForm = ({
 
   const getText = (results: ICalculatorAnswersResults) => {
     if (results && results.hours) {
-      const mounthForTwoDev = (results.hours / (168 * 2)).toFixed(2);
-      const mounthForThreeDev = (results.hours / (168 * 3)).toFixed(2);
+      const mounthForTwoDev = (results.hours / (168 * 2)).toFixed(1);
+      const mounthForThreeDev = (results.hours / (168 * 3)).toFixed(1);
 
       const text = `<h4 class="result-title">The estimated team and time for your project:<br></h4>
       <ul>
@@ -83,7 +83,7 @@ const CalcualtorResultForm = ({
         with <span class="bold">3 developers;</span></p></li>
         ${
           results?.uxui && typeof results?.uxui === "number"
-            ? "<li><p>UI/UX Designer</p></li>"
+            ? "<li><p>UI/UX Designer;</p></li>"
             : ""
         }
         <li>Project Manager;</li>

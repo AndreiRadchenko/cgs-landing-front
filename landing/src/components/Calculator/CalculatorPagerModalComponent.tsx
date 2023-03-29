@@ -10,9 +10,12 @@ interface ICalculatorModalComponentProps {
   isQuiting?: boolean;
   children: ReactNode;
   mobile?: boolean;
+  startLoading?: boolean;
+  isData?: boolean;
 }
 
 const CalculatorModalComponent = ({
+  isData,
   buttonText,
   onClose,
   onButtonClick,
@@ -20,6 +23,7 @@ const CalculatorModalComponent = ({
   onQuitButtonClick,
   mobile,
   children,
+  startLoading,
 }: ICalculatorModalComponentProps) => {
   const buttonClassName = () => {
     let className = "";
@@ -32,6 +36,7 @@ const CalculatorModalComponent = ({
     }
     return className;
   };
+
   const foreignObject = (
     <foreignObject width="100%" height="100%">
       <Styled.ForeignObjectWrapper>
@@ -49,9 +54,15 @@ const CalculatorModalComponent = ({
         )}
         <Styled.StartButton
           onClick={onButtonClick}
-          className={buttonClassName()}
+          className={
+            !isData && startLoading ? "loadingButton" : buttonClassName()
+          }
         >
-          {buttonText}
+          {!isData && startLoading ? (
+            <span className="loader"></span>
+          ) : (
+            buttonText
+          )}
         </Styled.StartButton>
       </Styled.ForeignObjectWrapper>
     </foreignObject>

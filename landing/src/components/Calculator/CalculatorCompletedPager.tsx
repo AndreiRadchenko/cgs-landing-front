@@ -11,6 +11,7 @@ import PressButtonArrow from "../../../public/Calculator/pressButtonArrow.svg";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 interface ICalculatorCompletedPagerProps {
+  startLoading?: boolean;
   finishClick: boolean;
   handleClose: () => void;
   handleButtonClick: () => void;
@@ -24,6 +25,7 @@ const CalculatorCompletedPager = ({
   handleButtonClick,
   handlePagerLeftButtonClick,
   handlePagerButtonsClick,
+  startLoading,
 }: ICalculatorCompletedPagerProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<ICalculator>([
@@ -39,6 +41,7 @@ const CalculatorCompletedPager = ({
         onClose={handleClose}
         onButtonClick={handleButtonClick}
         mobile={width < 768}
+        startLoading={startLoading}
       >
         <CalculatorPager
           mobile={width < 768}

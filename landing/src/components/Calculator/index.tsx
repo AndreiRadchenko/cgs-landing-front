@@ -80,13 +80,6 @@ const Calculator = () => {
     setIsQuitting(true);
   };
 
-  const handlePagerRightButtonClick = () => {
-    setStartLoading(true);
-  };
-  const handlePagerLeftButtonClick = () => {
-    setStartLoading(false);
-  };
-
   const handleCompletedPagerButtonsClick = () => {
     setFinishPagerClick(true);
   };
@@ -133,6 +126,7 @@ const Calculator = () => {
         title: el.title,
         answer: "",
         subStepAnswer: "",
+        subStepRequired: el.subStepRequired || "",
       };
     }),
     email: "",
@@ -377,6 +371,7 @@ const Calculator = () => {
       </Styled.CalculatorPreviewWrapper>
       {isCompleted ? (
         <CalculatorCompletedPager
+          startLoading={startLoading}
           finishClick={finishPagerClick}
           handlePagerLeftButtonClick={handleBackCompletePagerButtonsClick}
           handlePagerButtonsClick={handleCompletedPagerButtonsClick}
@@ -458,12 +453,8 @@ const Calculator = () => {
               handleButtonClick={handleButtonClick}
               handleClassicClick={handleClassicClick}
               handleClose={handleClose}
-              handlePagerRightButtonClick={handlePagerRightButtonClick}
-              handlePagerLeftButtonClick={handlePagerLeftButtonClick}
               buttonText={buttonText}
               startLoading={startLoading}
-              classicLoading={classicLoading}
-              blockchainLoading={blockchainLoading}
               classicStepsData={classicStepsData}
               blockchainStepsData={blockchainStepsData}
             />
