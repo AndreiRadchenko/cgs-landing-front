@@ -259,6 +259,13 @@ export const ForeignObjectWrapper = styled.div`
   align-items: center;
   position: relative;
 
+  & .loadingButton {
+    width: 190px;
+    height: 77px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+
   &.steps {
     align-items: flex-start;
     height: 97%;
@@ -398,6 +405,26 @@ export const StartButton = styled.button`
     position: relative;
     right: auto;
     bottom: auto;
+  }
+
+  & .loader {
+    width: 48px;
+    height: 48px;
+    border: 5px dotted black;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   &.invalid + div {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import CalculatorModal from "./CalculatorPagerModalComponent";
 import PressButtonArrow from "../../../public/Calculator/pressButtonArrow.svg";
@@ -14,45 +14,74 @@ interface ICalculatorPagerComponentProps {
   buttonText: string;
   isOpen: boolean;
   startLoading: boolean;
-  classicLoading: boolean;
-  blockchainLoading: boolean;
   classicStepsData?: ICalculatorStep[] | void;
   blockchainStepsData?: ICalculatorStep[] | void;
   handleButtonClick: () => void;
   handleClose: () => void;
   handleBlockchainClick: () => void;
   handleClassicClick: () => void;
-  handlePagerRightButtonClick: () => void;
-  handlePagerLeftButtonClick: () => void;
 }
 
 const CalculatorPagerComponent = ({
   buttonText,
   isOpen,
   startLoading,
-  blockchainLoading,
-  classicLoading,
   blockchainStepsData,
   classicStepsData,
   handleButtonClick,
   handleClose,
   handleBlockchainClick,
   handleClassicClick,
-  handlePagerRightButtonClick,
-  handlePagerLeftButtonClick,
 }: ICalculatorPagerComponentProps) => {
+  const [currentContentIndex, setCurrentContentIndex] = useState(0);
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<ICalculator>([
     queryKeys.getCalculatorData,
   ]);
   const { width } = useWindowDimension();
 
+  const content = data && [
+    <Styled.PagerText
+      dangerouslySetInnerHTML={{
+        __html: data.startMessage.replaceAll("|", "<br>"),
+      }}
+    />,
+    <Styled.LoaderWrapper>
+      <Styled.Loader />
+    </Styled.LoaderWrapper>,
+    <Styled.PressButtonWrapper>
+      <Styled.PressButtonText>just press the button</Styled.PressButtonText>
+      <Styled.PressButtonImageWrapper>
+        <Image
+          src={PressButtonArrow.src}
+          alt="press button arrow"
+          layout="fill"
+          objectFit="contain"
+        />
+      </Styled.PressButtonImageWrapper>
+    </Styled.PressButtonWrapper>,
+  ];
+
+  if (!content) return <></>;
+
+  const handleForwardClick = () => {
+    setCurrentContentIndex((currentContentIndex + 1) % content.length);
+  };
+
+  const handleBackwardClick = () => {
+    setCurrentContentIndex(
+      (currentContentIndex - 1 + content.length) % content.length
+    );
+  };
+
   return width && isOpen && data ? (
     <CalculatorModal
+      startLoading={startLoading}
       buttonText={buttonText}
       onClose={handleClose}
       onButtonClick={handleButtonClick}
       mobile={width < 768}
+      isData={Boolean(classicStepsData && blockchainStepsData)}
     >
       {classicStepsData &&
       blockchainStepsData &&
@@ -76,39 +105,17 @@ const CalculatorPagerComponent = ({
       ) : (
         <CalculatorPager
           mobile={width < 768}
-          onPagerRightClick={handlePagerRightButtonClick}
-          onPagerLeftClick={handlePagerLeftButtonClick}
+          onPagerLeftClick={
+            currentContentIndex === 0 ? () => {} : handleBackwardClick
+          }
+          onPagerRightClick={
+            currentContentIndex === content.length - 1
+              ? () => {}
+              : handleForwardClick
+          }
         >
           <Styled.ContentWrapper>
-            {(startLoading && (
-              <>
-                {classicLoading && blockchainLoading ? (
-                  <Styled.LoaderWrapper>
-                    <Styled.Loader />
-                  </Styled.LoaderWrapper>
-                ) : (
-                  <Styled.PressButtonWrapper>
-                    <Styled.PressButtonText>
-                      just press the button
-                    </Styled.PressButtonText>
-                    <Styled.PressButtonImageWrapper>
-                      <Image
-                        src={PressButtonArrow.src}
-                        alt="press button arrow"
-                        layout="fill"
-                        objectFit="contain"
-                      />
-                    </Styled.PressButtonImageWrapper>
-                  </Styled.PressButtonWrapper>
-                )}
-              </>
-            )) || (
-              <Styled.PagerText
-                dangerouslySetInnerHTML={{
-                  __html: data.startMessage.replaceAll("|", "<br>"),
-                }}
-              />
-            )}
+            {content[currentContentIndex]}
           </Styled.ContentWrapper>
         </CalculatorPager>
       )}

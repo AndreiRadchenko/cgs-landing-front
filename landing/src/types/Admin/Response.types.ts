@@ -667,6 +667,7 @@ export interface ICalculatorStep {
   _id: string;
   title: string;
   type: string;
+  subStepRequired?: boolean;
   options: IStepOptions[];
   tieUpSteps: ICalculatorTieUpStep[];
   subSteps: ICalculatorSubStep[];
@@ -676,6 +677,7 @@ export interface ICalculatorQuestion {
   title: string;
   answer: string | string[];
   subStepAnswer: string | string[];
+  subStepRequired: string | true;
   tieUpDisabled?: boolean;
 }
 
@@ -704,6 +706,7 @@ export interface ICalculatorFormValuesProps {
   questionsArr: ICalculatorQuestion[];
   email: string;
   isBlockchain: boolean;
+  // substepRequired: boolean;
 }
 
 export interface IRoles {
