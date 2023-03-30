@@ -3,7 +3,7 @@ import { IChatEmailForm } from "../components/Chat/ChatRegisterForm";
 import { queryKeys } from "../consts/queryKeys";
 import { supportChatService } from "../services/supportChat";
 import { IHttpConfig } from "../types/Admin";
-import { IChat, IChatUser } from "../types/SupportChat.types";
+import { IChat, IChatUser, IChatUserInfo } from "../types/SupportChat.types";
 import setMessageTime from "../utils/setMessageTime";
 
 interface IGetOrCreateUser {
@@ -17,6 +17,7 @@ interface IGetOrCreateChat {
 }
 
 interface IUseCreateUserChatParams {
+  setChatUserInfo: React.Dispatch<React.SetStateAction<IChatUserInfo | null>>;
   setUserEmail: React.Dispatch<React.SetStateAction<string>>;
   setSentEmailTime: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -28,6 +29,7 @@ interface IUseCreateUserChat {
 export const useCreateUserChat = ({
   setUserEmail,
   setSentEmailTime,
+  setChatUserInfo,
 }: IUseCreateUserChatParams): IUseCreateUserChat => {
   const { mutateAsync: getOrCreateUser } = useMutation(
     [queryKeys.supportChat],
@@ -59,10 +61,21 @@ export const useCreateUserChat = ({
       config: { headers: { "Private-Key": privateKey } },
     });
 
+    const chatUserInfo = {
+      userName: userResult?.username || "",
+      userSecret: userResult?.secret || "",
+      chatId: String(chatResult?.id) || "",
+      accessKey: chatResult?.access_key || "",
+    };
+
+    localStorage.setItem("chatUserData", JSON.stringify(chatUserInfo));
+
     console.log(userResult);
     console.log(chatResult);
+
     setUserEmail(values.email);
     setSentEmailTime(setMessageTime());
+    setChatUserInfo(chatUserInfo);
   };
 
   return {

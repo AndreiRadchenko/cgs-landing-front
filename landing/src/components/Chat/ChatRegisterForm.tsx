@@ -4,6 +4,7 @@ import { ChatEmailSchema } from "../../validations/ChatEmailValidation";
 import { useCreateUserChat } from "../../hooks/useCreateUserChat";
 
 import * as Styled from "../../styles/Chat/ChatInputForm.styled";
+import { IChatUserInfo } from "../../types/SupportChat.types";
 
 export interface IChatEmailForm {
   email: string;
@@ -11,6 +12,7 @@ export interface IChatEmailForm {
 
 interface IChatRegisterFormProps {
   isChatOpen: boolean;
+  setChatUserInfo: React.Dispatch<React.SetStateAction<IChatUserInfo | null>>;
   setUserEmail: React.Dispatch<React.SetStateAction<string>>;
   setSentEmailTime: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -19,10 +21,12 @@ const ChatRegisterForm = ({
   isChatOpen,
   setUserEmail,
   setSentEmailTime,
+  setChatUserInfo,
 }: IChatRegisterFormProps) => {
   const { handleSubmit } = useCreateUserChat({
     setUserEmail,
     setSentEmailTime,
+    setChatUserInfo,
   });
   const formik = useFormik<IChatEmailForm>({
     initialValues: {

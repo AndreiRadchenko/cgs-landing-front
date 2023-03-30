@@ -2,11 +2,13 @@ import React from "react";
 import dynamic from "next/dynamic";
 import { useSingleChatLogic, ChatFeed } from "react-chat-engine-advanced";
 import GreetingMessageComponent from "./GreetingMessageComponent";
+import { IChatUserInfo } from "../../types/SupportChat.types";
 
-interface IChatMessagesComponent {
+interface IChatMessagesComponentProps {
   userEmail: string;
   openChatTime: string;
   sentEmailTime: string;
+  chatUserInfo: IChatUserInfo | null;
 }
 
 const SingleChatSocket = dynamic(() =>
@@ -17,11 +19,12 @@ const ChatMessagesComponent = ({
   userEmail,
   openChatTime,
   sentEmailTime,
-}: IChatMessagesComponent) => {
+  chatUserInfo,
+}: IChatMessagesComponentProps) => {
   const chatProps = useSingleChatLogic(
     "1e93bf30-22d5-42ec-a0ae-d47fa7cf17f8",
-    "155734",
-    "ca-3573232f-e488-4921-8cdf-52206efd4c54"
+    chatUserInfo?.chatId || "",
+    chatUserInfo?.accessKey || ""
   );
 
   return (
@@ -31,9 +34,12 @@ const ChatMessagesComponent = ({
         openChatTime={openChatTime}
         sentEmailTime={sentEmailTime}
       />
-
-      <ChatFeed {...chatProps} username="email@domain.com" />
-      <SingleChatSocket {...chatProps} />
+      {chatUserInfo && (
+        <>
+          <ChatFeed {...chatProps} username={chatUserInfo.userName} />
+          <SingleChatSocket {...chatProps} />
+        </>
+      )}
     </>
   );
 };

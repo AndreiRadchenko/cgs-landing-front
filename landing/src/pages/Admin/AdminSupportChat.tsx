@@ -11,12 +11,6 @@ const MultiChatSocket = dynamic(() =>
   import("react-chat-engine-advanced").then((module) => module.MultiChatSocket)
 );
 
-// const useMultiChatLogic = dynamic(() =>
-//   import("react-chat-engine-advanced").then(
-//     (module) => module.useMultiChatLogic
-//   )
-// );
-
 const AdminSupportChat = () => {
   const [showChat, setShowChat] = useState<boolean>(false);
 

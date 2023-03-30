@@ -6,6 +6,7 @@ export interface IChatUser {
 
 export interface IChatUserResponse {
   username: string;
+  secret: string;
 }
 
 export interface IChat {
@@ -15,4 +16,12 @@ export interface IChat {
 
 export interface IChatResponse {
   id: number;
+  access_key: string;
+}
+
+export interface IChatUserInfo {
+  userName: string;
+  userSecret: string;
+  chatId: string;
+  accessKey: string;
 }

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Styled from "../../styles/Chat/ChatComponent.styled";
+import { IChatUserInfo } from "../../types/SupportChat.types";
 import ChatMessagesComponent from "./ChatMessagesComponent";
 import ChatRegisterForm from "./ChatRegisterForm";
 
@@ -11,6 +12,12 @@ interface IChatComponentProps {
 const ChatComponent = ({ isChatOpen, openChatTime }: IChatComponentProps) => {
   const [userEmail, setUserEmail] = useState<string>("");
   const [sentEmailTime, setSentEmailTime] = useState<string>("");
+  const [chatUserInfo, setChatUserInfo] = useState<IChatUserInfo | null>(null);
+
+  useEffect(() => {
+    const chatUserData = localStorage.getItem("chatUserData");
+    setChatUserInfo(chatUserData ? JSON.parse(chatUserData) : chatUserData);
+  }, []);
 
   return (
     <Styled.ChatContainer isChatOpen={isChatOpen}>
@@ -26,6 +33,7 @@ const ChatComponent = ({ isChatOpen, openChatTime }: IChatComponentProps) => {
             userEmail={userEmail}
             openChatTime={openChatTime}
             sentEmailTime={sentEmailTime}
+            chatUserInfo={chatUserInfo}
           />
         </Styled.ChatMessagesContainer>
         <Styled.ChatFormContainer>
@@ -33,6 +41,7 @@ const ChatComponent = ({ isChatOpen, openChatTime }: IChatComponentProps) => {
             isChatOpen={isChatOpen}
             setUserEmail={setUserEmail}
             setSentEmailTime={setSentEmailTime}
+            setChatUserInfo={setChatUserInfo}
           />
         </Styled.ChatFormContainer>
       </Styled.ChatBody>
