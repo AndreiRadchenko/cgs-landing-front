@@ -1,8 +1,13 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import { useSingleChatLogic, ChatFeed } from "react-chat-engine-advanced";
+import {
+  useSingleChatLogic,
+  ChatFeed,
+  MessageList,
+} from "react-chat-engine-advanced";
 import GreetingMessageComponent from "./GreetingMessageComponent";
 import { IChatUserInfo } from "../../types/SupportChat.types";
+import { Props } from "html-react-parser/lib/attributes-to-props";
 
 interface IChatMessagesComponentProps {
   userEmail: string;
@@ -29,16 +34,33 @@ const ChatMessagesComponent = ({
 
   return (
     <>
-      <GreetingMessageComponent
+      {/* <GreetingMessageComponent
         userEmail={userEmail}
         openChatTime={openChatTime}
         sentEmailTime={sentEmailTime}
-      />
-      {chatUserInfo && (
+      /> */}
+      {chatUserInfo ? (
         <>
-          <ChatFeed {...chatProps} username={chatUserInfo.userName} />
+          <ChatFeed
+            {...chatProps}
+            username={chatUserInfo.userName}
+            renderChatHeader={() => (
+              <GreetingMessageComponent
+                userEmail={userEmail}
+                openChatTime={openChatTime}
+                sentEmailTime={sentEmailTime}
+              />
+            )}
+            renderMessageList={() => <MessageList {...chatProps} />}
+          />
           <SingleChatSocket {...chatProps} />
         </>
+      ) : (
+        <GreetingMessageComponent
+          userEmail={userEmail}
+          openChatTime={openChatTime}
+          sentEmailTime={sentEmailTime}
+        />
       )}
     </>
   );

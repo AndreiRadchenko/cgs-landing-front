@@ -36,14 +36,16 @@ const ChatComponent = ({ isChatOpen, openChatTime }: IChatComponentProps) => {
             chatUserInfo={chatUserInfo}
           />
         </Styled.ChatMessagesContainer>
-        <Styled.ChatFormContainer>
-          <ChatRegisterForm
-            isChatOpen={isChatOpen}
-            setUserEmail={setUserEmail}
-            setSentEmailTime={setSentEmailTime}
-            setChatUserInfo={setChatUserInfo}
-          />
-        </Styled.ChatFormContainer>
+        {!chatUserInfo && (
+          <Styled.ChatFormContainer>
+            <ChatRegisterForm
+              isChatOpen={isChatOpen}
+              setUserEmail={setUserEmail}
+              setSentEmailTime={setSentEmailTime}
+              setChatUserInfo={setChatUserInfo}
+            />
+          </Styled.ChatFormContainer>
+        )}
       </Styled.ChatBody>
     </Styled.ChatContainer>
   );

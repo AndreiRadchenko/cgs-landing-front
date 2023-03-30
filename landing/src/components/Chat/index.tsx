@@ -14,7 +14,7 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
 
   const toggleIsOpenChat = () => {
     setIsChatOpen((old) => !old);
-    setOpenChatTime(setMessageTime());
+    !openChatTime && setOpenChatTime(setMessageTime());
   };
 
   useEffect(() => {

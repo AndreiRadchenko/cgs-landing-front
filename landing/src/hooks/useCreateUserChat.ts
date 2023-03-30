@@ -74,6 +74,7 @@ export const useCreateUserChat = ({
     console.log(chatResult);
 
     setUserEmail(values.email);
+
     setSentEmailTime(setMessageTime());
     setChatUserInfo(chatUserInfo);
   };
