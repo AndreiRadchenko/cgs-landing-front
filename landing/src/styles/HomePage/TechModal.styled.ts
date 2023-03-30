@@ -46,7 +46,7 @@ export const TicketModal = styled.div`
     border: solid 2.4px ${themes.primary.colors.primary};
 
     &.block {
-      max-height: 550px;
+      max-height: 650px;
       padding-bottom: 7em;
     }
   }
