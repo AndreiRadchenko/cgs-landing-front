@@ -34,6 +34,7 @@ const CalculatorPagerComponent = ({
   handleClassicClick,
 }: ICalculatorPagerComponentProps) => {
   const [currentContentIndex, setCurrentContentIndex] = useState(0);
+  const [isBusy, setIsBusy] = useState(false);
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<ICalculator>([
     queryKeys.getCalculatorData,
@@ -66,13 +67,35 @@ const CalculatorPagerComponent = ({
   if (!content) return <></>;
 
   const handleForwardClick = () => {
-    setCurrentContentIndex((currentContentIndex + 1) % content.length);
+    const newIndex = currentContentIndex + 1;
+
+    if (currentContentIndex === 0) {
+      setCurrentContentIndex(newIndex);
+      setIsBusy(true);
+
+      setTimeout(() => {
+        setCurrentContentIndex(newIndex + 1);
+        setIsBusy(false);
+      }, 4000);
+    } else {
+      setCurrentContentIndex(newIndex);
+    }
   };
 
   const handleBackwardClick = () => {
-    setCurrentContentIndex(
-      (currentContentIndex - 1 + content.length) % content.length
-    );
+    const newIndex = currentContentIndex - 1;
+
+    if (currentContentIndex === content.length - 1) {
+      setCurrentContentIndex(newIndex);
+      setIsBusy(true);
+
+      setTimeout(() => {
+        setCurrentContentIndex(newIndex - 1);
+        setIsBusy(false);
+      }, 4000);
+    } else {
+      setCurrentContentIndex(newIndex);
+    }
   };
 
   return width && isOpen && data ? (
@@ -107,10 +130,10 @@ const CalculatorPagerComponent = ({
         <CalculatorPager
           mobile={width < 768}
           onPagerLeftClick={
-            currentContentIndex === 0 ? () => {} : handleBackwardClick
+            isBusy || currentContentIndex === 0 ? () => {} : handleBackwardClick
           }
           onPagerRightClick={
-            currentContentIndex === content.length - 1
+            isBusy || currentContentIndex === content.length - 1
               ? () => {}
               : handleForwardClick
           }

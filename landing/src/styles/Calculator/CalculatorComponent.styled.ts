@@ -270,6 +270,30 @@ export const ForeignObjectWrapper = styled.div`
     align-items: flex-start;
     height: 97%;
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    & .loadingButton {
+      width: 188px;
+      height: 61px;
+      padding: 0;
+    }
+  }
+
+  @media ${themes.primary.media.maxLaptop} {
+    & .loadingButton {
+      width: 168px;
+      height: 68px;
+      padding: 0;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    & .loadingButton {
+      width: 117px;
+      height: 50px;
+      padding: 0;
+    }
+  }
 `;
 
 export const CalculatorHeaderWrapper = styled.div`
@@ -443,6 +467,12 @@ export const StartButton = styled.button`
     font-size: 1.346em;
     line-height: 99%;
     box-shadow: 5.52438px 1.57839px 0px ${themes.primary.colors.primary};
+
+    & .loader {
+      width: 32px;
+      height: 32px;
+    }
+
     &.quit {
       padding: 1.27em 0.81em;
     }
@@ -836,7 +866,7 @@ export const ChooseText = styled.div`
       height: 57px;
       top: 1px;
       width: 94.5%;
-      padding-bottom: 4px;
+      margin-top: 0px;
       margin-left: 0.3em;
       font-size: 1.346em;
     }
@@ -1058,17 +1088,22 @@ export const CalculatorFieldWrapper = styled.div`
     &.email {
       margin-bottom: 0px;
     }
+    @supports (-webkit-hyphens: none) {
+      & #input-email {
+        height: 60px;
+
+        & #user-email {
+          line-height: 46px;
+        }
+      }
+    }
   }
 
   /* Safari */
   @supports (-webkit-hyphens: none) {
     & #input-email {
-      height: 71px;
-      padding-top: 10px;
-
-      & #user-email {
-        line-height: 46px;
-      }
+      padding-top: 24px;
+      padding-bottom: 25px;
     }
   }
 `;
@@ -1139,6 +1174,34 @@ export const Disabled = styled.div`
     background-color: ${themes.primary.colors.blogBackground};
     z-index: 3;
     opacity: 0.8;
+  }
+`;
+
+export const SpinnerWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  & .loader {
+    width: 60px;
+    height: 60px;
+    border: 5px dotted black;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 `;
 
