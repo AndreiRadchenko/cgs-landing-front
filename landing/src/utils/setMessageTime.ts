@@ -3,7 +3,7 @@ const setMessageTime = (): string => {
   const hours = date.getHours();
   const minutes = date.getMinutes();
 
-  const convertedHours = hours >= 12 ? hours - 12 : hours;
+  const convertedHours = hours > 12 ? hours - 12 : hours;
 
   const formatedTime = `${
     convertedHours < 10 ? `0${convertedHours}` : convertedHours

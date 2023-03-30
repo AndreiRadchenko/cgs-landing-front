@@ -1,8 +1,9 @@
 import React from "react";
 import { useFormik } from "formik";
 import { ChatEmailSchema } from "../../validations/ChatEmailValidation";
+import { useCreateUserChat } from "../../hooks/useCreateUserChat";
+
 import * as Styled from "../../styles/Chat/ChatInputForm.styled";
-import setMessageTime from "../../utils/setMessageTime";
 
 export interface IChatEmailForm {
   email: string;
@@ -19,6 +20,10 @@ const ChatRegisterForm = ({
   setUserEmail,
   setSentEmailTime,
 }: IChatRegisterFormProps) => {
+  const { handleSubmit } = useCreateUserChat({
+    setUserEmail,
+    setSentEmailTime,
+  });
   const formik = useFormik<IChatEmailForm>({
     initialValues: {
       email: "",
@@ -29,11 +34,6 @@ const ChatRegisterForm = ({
       actions.resetForm();
     },
   });
-
-  const handleSubmit = (values: IChatEmailForm) => {
-    setUserEmail(values.email);
-    setSentEmailTime(setMessageTime());
-  };
 
   return (
     <form onSubmit={formik.handleSubmit} autoComplete="off">
