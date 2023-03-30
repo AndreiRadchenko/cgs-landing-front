@@ -164,7 +164,7 @@ export const DashedLine = styled.div`
 export const FreeServicesImageWrapper = styled.div`
   display: flex;
   justify-content: center;
-  height: 140px;
+  height: 130px;
   width: 100%;
   position: relative;
   align-items: center;
