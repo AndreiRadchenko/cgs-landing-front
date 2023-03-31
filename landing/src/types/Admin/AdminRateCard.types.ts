@@ -1,19 +1,31 @@
 import { Dispatch, SetStateAction } from "react";
-import { IFormFileData } from "../EstimationForm.types";
 
 export interface IRateCard {
-  services: IService[];
   title: string;
+  services: IService[];
 }
 
 export interface IService {
-  newService?: boolean;
-  name: string;
+  _id?: string;
+  __v?: number;
   levels: ILevel[];
+  name: string;
+  newService: boolean;
 }
 
 export interface ILevel {
   name: string;
+  joints: IJoints;
+  values: IValue[];
+}
+
+export interface IJoints {
+  joint_name: boolean;
+  joint_tech: boolean;
+  joint_cost: boolean;
+}
+
+export interface IValue {
   technology: string;
   cost: string;
 }
@@ -27,9 +39,4 @@ export interface IRateCardResponse {
 export interface IRateCardServiceProps {
   services: IService[];
   setServices: Dispatch<SetStateAction<IService[] | null>>;
-}
-
-export interface IRateCardLevelProps {
-  level: ILevel;
-  idx: number;
 }

@@ -1,8 +1,9 @@
 import React from "react";
 
-const TrashIconBtn = () => {
+const TrashIconBtn = ({ onClick }: { onClick?: () => void }) => {
   return (
     <svg
+      onClick={onClick}
       width="18"
       height="22"
       viewBox="0 0 18 22"

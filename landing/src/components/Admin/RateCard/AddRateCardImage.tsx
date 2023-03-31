@@ -24,7 +24,7 @@ const AddRateCardImage = () => {
   return (
     <Styled.AdminPointer>
       <div style={{ display: "flex", alignItems: "center" }}>
-        <Styled.AdminPhotoBlock onClick={toggleModal} className={"author"}>
+        <Styled.AdminPhotoBlock className={"author"}>
           {modal ? (
             <AdminUploadModal func={uploadFunc} back={toggleModal} />
           ) : null}

@@ -159,7 +159,6 @@ export const DeleteBtn = styled.div`
 
 export const RateCardLevelWrapper = styled.div`
   display: flex;
-  align-items: center;
   margin-bottom: 85px;
   position: relative;
 `;
@@ -168,10 +167,9 @@ export const RateCardTechCostWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 77%;
-  position: relative;
 
   svg {
-    margin: 20px 0 0 10px;
+    margin: 0 0 0 10px;
     cursor: pointer;
   }
 
@@ -208,16 +206,16 @@ export const AddNextLevel = styled.div`
 `;
 
 export const AddNextTechCost = styled.div`
-  position: absolute;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
+  margin-top: 10px;
   font-family: ${themes.primary.font.family.inter};
   color: ${themes.primary.colors.darkBlue};
-  top: 85px;
-  right: 25px;
   transition: 0.3s;
   cursor: pointer;
+  text-align: right;
+  padding-right: 22px;
 
   &:hover {
     transition: 0.3s;

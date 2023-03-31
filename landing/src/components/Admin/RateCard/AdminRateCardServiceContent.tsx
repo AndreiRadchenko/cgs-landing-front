@@ -14,7 +14,22 @@ const AdminRateCardServiceContent = ({
     newArrServices.splice(idx, 0, {
       newService: true,
       name: "",
-      levels: [{ name: "", technology: "", cost: "" }],
+      levels: [
+        {
+          name: "",
+          joints: {
+            joint_name: false,
+            joint_tech: false,
+            joint_cost: false,
+          },
+          values: [
+            {
+              technology: "",
+              cost: "",
+            },
+          ],
+        },
+      ],
     });
     setServices(newArrServices);
   };
