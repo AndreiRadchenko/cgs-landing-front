@@ -2,15 +2,18 @@ import styled from "styled-components";
 import chatOperatorAvatar from "../../../public/chatOperatorAvatar.svg";
 import themes from "../../utils/themes";
 
-export const RecievedMessagesWrapper = styled.div`
+interface IRecievedMessagesWrapper {
+  notLast?: boolean;
+}
+
+export const RecievedMessagesWrapper = styled.div<IRecievedMessagesWrapper>`
   display: flex;
   align-items: flex-start;
   gap: 0.5em;
-  margin-bottom: 1.17em;
+  margin-bottom: ${({ notLast }) => (notLast ? "0.5em" : "1.17em")};
 
   p {
     margin: 0;
-    margin-bottom: 0.33em;
   }
 `;
 
@@ -28,13 +31,22 @@ export const AvatarWrapper = styled.div`
   background-repeat: no-repeat;
 `;
 
-export const MessagesWrapper = styled.div`
+interface IMessagesWrapper {
+  notFirst?: boolean;
+}
+
+export const MessagesWrapper = styled.div<IMessagesWrapper>`
+  padding-left: calc(${({ notFirst }) => (notFirst ? "39px + 0.5em" : "0")});
   width: 75%;
 `;
 
 export const MessageSender = styled.p`
   font-weight: ${themes.primary.font.weight.semiBold};
   line-height: 1.33em;
+
+  :nth-of-type(1) {
+    margin-bottom: 0.33em;
+  }
 `;
 
 export const RecivedMessageBox = styled.p`
@@ -67,10 +79,21 @@ export const SendedMessageBox = styled(RecivedMessageBox)`
 export const RecievdMessageTime = styled.span`
   display: block;
   width: fit-content;
+  padding-top: 0.33em;
 
   line-height: 1.33em;
 `;
 
 export const SendedMessageTime = styled(RecievdMessageTime)`
+  margin-left: auto;
+`;
+
+export const RecivedMessageAttachments = styled.img`
+  display: block;
+  height: 60px;
+  width: 60px;
+`;
+
+export const SendedMessageAttachments = styled(RecivedMessageAttachments)`
   margin-left: auto;
 `;

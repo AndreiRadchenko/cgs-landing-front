@@ -112,10 +112,17 @@ export const ChatBody = styled.div`
   flex-grow: 1;
 
   width: 100%;
-  padding: 1.33em;
+  height: calc(100% - 40px);
+  padding: 0 1.33em;
+  overflow: hidden;
+
+  .ce-chat-feed div {
+    background-color: ${themes.primary.colors.chatContainerBgc} !important;
+  }
 `;
 
 export const ChatMessagesContainer = styled.div`
+  height: 100%;
   flex-grow: 1;
 `;
 

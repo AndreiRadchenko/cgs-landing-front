@@ -1,5 +1,5 @@
-const setMessageTime = (): string => {
-  const date = new Date();
+const setMessageTime = (dateParam?: string): string => {
+  const date = dateParam ? new Date(dateParam) : new Date();
   const hours = date.getHours();
   const minutes = date.getMinutes();
 

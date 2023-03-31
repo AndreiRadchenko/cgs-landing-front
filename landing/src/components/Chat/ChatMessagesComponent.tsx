@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import {
   useSingleChatLogic,
+  useMultiChatLogic,
   ChatFeed,
-  MessageList,
+  MessageListProps,
+  MessageFormProps,
+  MessageForm,
 } from "react-chat-engine-advanced";
+import { sendMessage } from "react-chat-engine";
 import GreetingMessageComponent from "./GreetingMessageComponent";
 import { IChatUserInfo } from "../../types/SupportChat.types";
-import { Props } from "html-react-parser/lib/attributes-to-props";
+import MessageListComponent from "./MessageListComponent";
+import MessageFormComponent from "./MessageFormComponent";
 
 interface IChatMessagesComponentProps {
   userEmail: string;
@@ -20,38 +25,70 @@ const SingleChatSocket = dynamic(() =>
   import("react-chat-engine-advanced").then((module) => module.SingleChatSocket)
 );
 
+const MultiChatSocket = dynamic(() =>
+  import("react-chat-engine-advanced").then((module) => module.SingleChatSocket)
+);
+
 const ChatMessagesComponent = ({
   userEmail,
   openChatTime,
   sentEmailTime,
   chatUserInfo,
 }: IChatMessagesComponentProps) => {
+  const [showChat, setShowChat] = useState<boolean>(false);
   const chatProps = useSingleChatLogic(
     "1e93bf30-22d5-42ec-a0ae-d47fa7cf17f8",
     chatUserInfo?.chatId || "",
     chatUserInfo?.accessKey || ""
   );
 
+  //   const chatProps = useMultiChatLogic(
+  //     "1e93bf30-22d5-42ec-a0ae-d47fa7cf17f8",
+  //     chatUserInfo?.userName || "",
+  //     chatUserInfo?.userSecret || ""
+  //   );
+
+  console.log(chatProps);
+  useEffect(() => {
+    if (typeof document !== null) {
+      setShowChat(true);
+    }
+  }, []);
+
+  if (!showChat) return <div />;
+
   return (
     <>
-      {/* <GreetingMessageComponent
-        userEmail={userEmail}
-        openChatTime={openChatTime}
-        sentEmailTime={sentEmailTime}
-      /> */}
       {chatUserInfo ? (
         <>
           <ChatFeed
             {...chatProps}
             username={chatUserInfo.userName}
-            renderChatHeader={() => (
-              <GreetingMessageComponent
-                userEmail={userEmail}
-                openChatTime={openChatTime}
-                sentEmailTime={sentEmailTime}
-              />
-            )}
-            renderMessageList={() => <MessageList {...chatProps} />}
+            renderChatHeader={() => <div />}
+            renderMessageList={(messageProps: MessageListProps) => {
+              return messageProps.messages.length > 0 ? (
+                <MessageListComponent
+                  userEmail={userEmail}
+                  openChatTime={openChatTime}
+                  sentEmailTime={sentEmailTime}
+                  messageProps={messageProps}
+                />
+              ) : (
+                <div />
+              );
+            }}
+            renderMessageForm={(messageFormProps: MessageFormProps) => {
+              console.log(messageFormProps);
+              return (
+                <MessageFormComponent
+                  chatId={chatUserInfo.chatId}
+                  userName={chatUserInfo.userName}
+                  publicKey="1e93bf30-22d5-42ec-a0ae-d47fa7cf17f8"
+                  userSecret={chatUserInfo.userSecret}
+                />
+                // <MessageForm {...messageFormProps} />
+              );
+            }}
           />
           <SingleChatSocket {...chatProps} />
         </>

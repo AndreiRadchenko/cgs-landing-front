@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { useMultiChatLogic, ChatFeed } from "react-chat-engine-advanced";
+import { useMultiChatLogic } from "react-chat-engine-advanced";
 import * as Styled from "../../styles/AdminSupportChat.styled";
 
 const MultiChatWindow = dynamic(() =>
@@ -27,10 +27,9 @@ const AdminSupportChat = () => {
   }, []);
 
   if (!showChat) return <div />;
-
+  console.log(chatProps);
   return (
     <Styled.SupportWrapper>
-      {/* <ChatFeed {...chatProps} style={{ height: "100vh" }} /> */}
       <MultiChatWindow {...chatProps} style={{ height: "100vh" }} />
       <MultiChatSocket {...chatProps} />
     </Styled.SupportWrapper>
