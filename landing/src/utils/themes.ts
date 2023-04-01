@@ -136,6 +136,7 @@ const themes = {
       mainGradientColor2: "#5869dd",
       headerBorder: "#8F8E93",
       headerBorderHover: "#F2EA86",
+      attachmentIcon: "#5869DD",
       chatFormColor: "#8F8E93",
       chatMessageBgc: "#DDDCDB",
       chatSendedMessageBgc: "#D2D4EA",

@@ -115,8 +115,9 @@ export const ChatBody = styled.div`
   height: calc(100% - 40px);
   padding: 0 1.33em;
   overflow: hidden;
+  background-color: ${themes.primary.colors.chatContainerBgc};
 
-  .ce-chat-feed div {
+  .ce-chat-feed > div {
     background-color: ${themes.primary.colors.chatContainerBgc} !important;
   }
 `;

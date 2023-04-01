@@ -1,11 +1,18 @@
-import React, { useState } from "react";
-import { sendMessage, isTyping } from "react-chat-engine";
+import { useFormik } from "formik";
+import React, { useRef, useState } from "react";
+import { sendMessage } from "react-chat-engine";
 
-interface IMessageFormComponent {
+import * as Styled from "../../styles/Chat/ChatInputForm.styled";
+
+interface IMessageFormComponentProps {
   chatId: string;
   userName: string;
   publicKey: string;
   userSecret: string;
+}
+
+interface IMessageFormValues {
+  text: string;
 }
 
 const MessageFormComponent = ({
@@ -13,23 +20,24 @@ const MessageFormComponent = ({
   userName,
   publicKey,
   userSecret,
-}: IMessageFormComponent) => {
-  const [value, setValue] = useState("");
-  //   const { chatId, creds } = props;
-  console.log(userName, userSecret, publicKey);
-  const handleChange = (event: React.SyntheticEvent) => {
-    const target = event.target as HTMLInputElement;
-    if (target.value) {
-      setValue(target.value);
-    }
+}: IMessageFormComponentProps) => {
+  const [file, setFile] = useState<FileList | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  console.log(file && file[0]?.name);
+  console.dir(inputRef);
 
-    // isTyping(props, chatId);
-  };
+  const formik = useFormik<IMessageFormValues>({
+    initialValues: {
+      text: "",
+    },
+    onSubmit: (values, actions) => {
+      handleSubmit(values);
+      actions.resetForm();
+    },
+  });
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
-    event.preventDefault();
-
-    const text = value.trim();
+  const handleSubmit = (values: IMessageFormValues) => {
+    const text = values.text.trim();
 
     if (text.length > 0) {
       sendMessage({ publicKey, userName, userSecret: userName }, chatId, {
@@ -37,41 +45,56 @@ const MessageFormComponent = ({
         sender_username: userName,
       });
     }
-
-    setValue("");
   };
 
-  const handleUpload = (event: React.SyntheticEvent) => {
-    const target = event.target as HTMLInputElement;
-    sendMessage({ publicKey, userName, userSecret: userName }, chatId, {
-      files: target.files,
-      text: "",
-    });
+  const handleRemoveAttach = () => {
+    setFile(null);
+    if (inputRef.current) {
+      inputRef.current.files = null;
+    }
+  };
+
+  const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const target = event.target;
+    // sendMessage({ publicKey, userName, userSecret: userName }, chatId, {
+    //   files: target.files,
+    //   text: "",
+    // });
+    console.dir(target);
+    setFile(target.files);
   };
 
   return (
-    <form className="message-form" onSubmit={handleSubmit}>
-      <input
-        className="message-input"
-        placeholder="Send a message..."
-        value={value}
-        onChange={handleChange}
-        onSubmit={handleSubmit}
-      />
-      <label htmlFor="upload-button">
-        <span className="image-button">Icon</span>
-      </label>
-      <input
-        type="file"
-        multiple={false}
-        id="upload-button"
-        style={{ display: "none" }}
-        onChange={handleUpload.bind(this)}
-      />
-      <button type="submit" className="send-button">
-        Send
-      </button>
-    </form>
+    <Styled.MessageFormWrapper>
+      <Styled.MessageForm onSubmit={formik.handleSubmit}>
+        {file ? (
+          <Styled.AttachmentContainer>
+            <Styled.AttachmentIcon>psd</Styled.AttachmentIcon>
+            <Styled.AttachmentName>{file[0].name}</Styled.AttachmentName>
+            <Styled.RemoveAttachButton onClick={handleRemoveAttach} />
+          </Styled.AttachmentContainer>
+        ) : (
+          <Styled.TextField
+            name="text"
+            placeholder="Write a message..."
+            value={formik.values.text}
+            onChange={formik.handleChange}
+          />
+        )}
+
+        <label htmlFor="upload-button">
+          <Styled.ImageButton />
+          <input
+            ref={inputRef}
+            type="file"
+            multiple={false}
+            id="upload-button"
+            style={{ display: "none" }}
+            onChange={handleUpload}
+          />
+        </label>
+      </Styled.MessageForm>
+    </Styled.MessageFormWrapper>
   );
 };
 

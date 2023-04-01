@@ -2,13 +2,10 @@ import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import {
   useSingleChatLogic,
-  useMultiChatLogic,
   ChatFeed,
   MessageListProps,
   MessageFormProps,
-  MessageForm,
 } from "react-chat-engine-advanced";
-import { sendMessage } from "react-chat-engine";
 import GreetingMessageComponent from "./GreetingMessageComponent";
 import { IChatUserInfo } from "../../types/SupportChat.types";
 import MessageListComponent from "./MessageListComponent";
@@ -25,10 +22,6 @@ const SingleChatSocket = dynamic(() =>
   import("react-chat-engine-advanced").then((module) => module.SingleChatSocket)
 );
 
-const MultiChatSocket = dynamic(() =>
-  import("react-chat-engine-advanced").then((module) => module.SingleChatSocket)
-);
-
 const ChatMessagesComponent = ({
   userEmail,
   openChatTime,
@@ -41,12 +34,6 @@ const ChatMessagesComponent = ({
     chatUserInfo?.chatId || "",
     chatUserInfo?.accessKey || ""
   );
-
-  //   const chatProps = useMultiChatLogic(
-  //     "1e93bf30-22d5-42ec-a0ae-d47fa7cf17f8",
-  //     chatUserInfo?.userName || "",
-  //     chatUserInfo?.userSecret || ""
-  //   );
 
   console.log(chatProps);
   useEffect(() => {
@@ -86,7 +73,6 @@ const ChatMessagesComponent = ({
                   publicKey="1e93bf30-22d5-42ec-a0ae-d47fa7cf17f8"
                   userSecret={chatUserInfo.userSecret}
                 />
-                // <MessageForm {...messageFormProps} />
               );
             }}
           />
