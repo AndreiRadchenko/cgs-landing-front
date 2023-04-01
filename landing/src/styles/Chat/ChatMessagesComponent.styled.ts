@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import chatOperatorAvatar from "../../../public/chatOperatorAvatar.svg";
 import themes from "../../utils/themes";
+import { AttachmentIcon } from "./ChatInputForm.styled";
 
 interface IRecievedMessagesWrapper {
   notLast?: boolean;
@@ -95,5 +96,14 @@ export const RecivedMessageAttachments = styled.img`
 `;
 
 export const SendedMessageAttachments = styled(RecivedMessageAttachments)`
+  margin-left: auto;
+`;
+
+export const AdminMessageAttachment = styled(AttachmentIcon)`
+  width: 4.66em;
+  height: 4.66em;
+`;
+
+export const UserMessageAttachment = styled(AdminMessageAttachment)`
   margin-left: auto;
 `;

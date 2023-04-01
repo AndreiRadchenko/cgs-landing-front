@@ -20,6 +20,17 @@ const AdminMessageComponent = ({
   const isLastMessage =
     !nextMessage || nextMessage.sender_username !== message.sender_username;
 
+  const handleDownload = () => {
+    const link = document.createElement("a");
+
+    link.href = message.attachments[0].file;
+    link.download = "recived content";
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <Styled.RecievedMessagesWrapper notLast={!isLastMessage}>
       {isFirstMessage && <Styled.AvatarWrapper />}
@@ -28,10 +39,9 @@ const AdminMessageComponent = ({
           <Styled.MessageSender>{message.sender_username}</Styled.MessageSender>
         )}
         {message.attachments.length > 0 ? (
-          <Styled.RecivedMessageAttachments
-            src={message.attachments[0].file}
-            alt="message-attachment"
-          />
+          <Styled.AdminMessageAttachment onClick={handleDownload}>
+            atch
+          </Styled.AdminMessageAttachment>
         ) : (
           <Styled.RecivedMessageBox>{message.text}</Styled.RecivedMessageBox>
         )}

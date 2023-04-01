@@ -4,7 +4,6 @@ import {
   useSingleChatLogic,
   ChatFeed,
   MessageListProps,
-  MessageFormProps,
 } from "react-chat-engine-advanced";
 import GreetingMessageComponent from "./GreetingMessageComponent";
 import { IChatUserInfo } from "../../types/SupportChat.types";
@@ -35,7 +34,6 @@ const ChatMessagesComponent = ({
     chatUserInfo?.accessKey || ""
   );
 
-  console.log(chatProps);
   useEffect(() => {
     if (typeof document !== null) {
       setShowChat(true);
@@ -64,17 +62,13 @@ const ChatMessagesComponent = ({
                 <div />
               );
             }}
-            renderMessageForm={(messageFormProps: MessageFormProps) => {
-              console.log(messageFormProps);
-              return (
-                <MessageFormComponent
-                  chatId={chatUserInfo.chatId}
-                  userName={chatUserInfo.userName}
-                  publicKey="1e93bf30-22d5-42ec-a0ae-d47fa7cf17f8"
-                  userSecret={chatUserInfo.userSecret}
-                />
-              );
-            }}
+            renderMessageForm={() => (
+              <MessageFormComponent
+                chatId={chatUserInfo.chatId}
+                userName={chatUserInfo.userName}
+                publicKey="1e93bf30-22d5-42ec-a0ae-d47fa7cf17f8"
+              />
+            )}
           />
           <SingleChatSocket {...chatProps} />
         </>

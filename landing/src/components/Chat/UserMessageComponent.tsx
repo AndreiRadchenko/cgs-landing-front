@@ -19,14 +19,17 @@ const UserMessageComponent = ({
   return (
     <Styled.SendedMessagesWrapper notLast={!isLastMessage}>
       <Styled.MessagesWrapper>
-        {message.attachments.length > 0 ? (
-          <Styled.SendedMessageAttachments
-            src={message.attachments[0].file}
-            alt="message-attachment"
-          />
-        ) : (
+        {message.attachments.length > 0 && (
+          <Styled.UserMessageAttachment
+            style={{ marginBottom: `${message.text ? "0.5em" : "0"}` }}
+          >
+            atch
+          </Styled.UserMessageAttachment>
+        )}
+        {message.text && (
           <Styled.SendedMessageBox>{message.text}</Styled.SendedMessageBox>
         )}
+
         {isLastMessage && (
           <Styled.SendedMessageTime>
             {setMessageTime(message.created)}

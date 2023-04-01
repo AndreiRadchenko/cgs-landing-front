@@ -70,8 +70,8 @@ export const AttachmentIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.33em;
-  height: 2.33em;
+  width: 2.125rem;
+  height: 2.125rem;
 
   text-transform: uppercase;
   color: ${themes.primary.colors.secondary};
@@ -98,4 +98,12 @@ export const RemoveAttachButton = styled.button`
   background-image: url(${removeAttachButton.src});
   background-position: center;
   background-repeat: no-repeat;
+`;
+
+export const SubmitIconButton = styled(RemoveAttachButton)`
+  width: 4.25rem;
+  height: 2.125rem;
+  border-radius: 5px;
+  color: ${themes.primary.colors.secondary};
+  background: ${themes.primary.colors.attachmentIcon};
 `;
