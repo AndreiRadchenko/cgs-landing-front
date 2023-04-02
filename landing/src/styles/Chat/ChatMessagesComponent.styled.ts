@@ -39,6 +39,10 @@ export const RecievedMessagesWrapper = styled.div<IRecievedMessagesWrapper>`
   gap: 0.5em;
   margin-bottom: ${({ notLast }) => (notLast ? "0.5em" : "1.17em")};
 
+  :nth-of-type(1) {
+    padding-top: 1rem;
+  }
+
   p {
     margin: 0;
   }

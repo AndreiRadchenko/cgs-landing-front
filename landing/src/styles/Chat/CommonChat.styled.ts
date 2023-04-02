@@ -9,7 +9,11 @@ export const ChatWrapper = styled.div`
   position: relative;
 `;
 
-export const ChatButton = styled.div`
+interface IChatButton {
+  isOpen?: boolean;
+}
+
+export const ChatButton = styled.div<IChatButton>`
   cursor: pointer;
   position: relative;
   display: block;
@@ -24,12 +28,15 @@ export const ChatButton = styled.div`
   border: 1.8px solid ${themes.primary.colors.primary};
   border-bottom: none;
   border-left: none;
-  background: linear-gradient(
+  background: ${({ isOpen }) =>
+    isOpen
+      ? themes.primary.colors.secondary
+      : `linear-gradient(
     90deg,
     ${themes.primary.colors.mainGradientColor1},
     ${themes.primary.colors.mainGradientColor2},
     ${themes.primary.colors.mainGradientColor1}
-  );
+  )`};
   background-size: 200% auto;
   animation: ${horizontalGlow} 6s linear infinite;
 
@@ -38,12 +45,15 @@ export const ChatButton = styled.div`
     height: 60px;
 
     border: 1.8px solid ${themes.primary.colors.primary};
-    background: linear-gradient(
-      180deg,
-      ${themes.primary.colors.mainGradientColor1},
-      ${themes.primary.colors.mainGradientColor2},
-      ${themes.primary.colors.mainGradientColor1}
-    );
+    background: ${({ isOpen }) =>
+      isOpen
+        ? themes.primary.colors.secondary
+        : `linear-gradient(
+    180deg,
+    ${themes.primary.colors.mainGradientColor1},
+    ${themes.primary.colors.mainGradientColor2},
+    ${themes.primary.colors.mainGradientColor1}
+  )`};
     background-size: auto 400%;
     animation: ${glow} 12s linear infinite;
   }

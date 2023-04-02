@@ -3,6 +3,7 @@ import * as Styled from "../../styles/Chat/ChatComponent.styled";
 import { IChatUserInfo } from "../../types/SupportChat.types";
 import ChatMessagesComponent from "./ChatMessagesComponent";
 import ChatRegisterForm from "./ChatRegisterForm";
+import { storeKeys } from "../../consts";
 
 interface IChatComponentProps {
   isChatOpen: boolean;
@@ -21,7 +22,7 @@ const ChatComponent = ({
   const [operator, setOperator] = useState<string>("");
 
   useEffect(() => {
-    const chatUserData = localStorage.getItem("chatUserData");
+    const chatUserData = localStorage.getItem(storeKeys.chatUserData);
     setChatUserInfo(chatUserData ? JSON.parse(chatUserData) : chatUserData);
     setUserEmail(chatUserData ? JSON.parse(chatUserData).userName : "");
   }, []);

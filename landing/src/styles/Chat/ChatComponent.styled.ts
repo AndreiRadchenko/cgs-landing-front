@@ -55,7 +55,7 @@ export const ChatContainer = styled.div<IChatContainer>`
     top: 2px;
     left: -7px;
     width: 5px;
-    height: 100%;
+    height: 99.5%;
     transform: skewY(-45deg);
     background: linear-gradient(
       ${themes.primary.colors.mainGradientColor1},
@@ -69,8 +69,8 @@ export const ChatContainer = styled.div<IChatContainer>`
 
   &::after {
     bottom: -6.5px;
-    left: 0;
-    width: 100%;
+    left: 0.5px;
+    width: 99.7%;
     height: 5px;
 
     @media ${themes.primary.media.maxMobile} {

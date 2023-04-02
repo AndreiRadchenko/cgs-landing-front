@@ -71,8 +71,8 @@ export const AttachmentIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.125rem;
-  height: 2.125rem;
+  width: 2.325rem;
+  height: 2.325rem;
 
   text-transform: uppercase;
   color: ${themes.primary.colors.secondary};

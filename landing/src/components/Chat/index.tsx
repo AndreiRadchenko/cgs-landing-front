@@ -62,7 +62,7 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
           <Styled.MessageBubbleCloseIcon onClick={hadleCloseBubble} />
         </Styled.MessageBable>
       )}
-      <Styled.ChatButton onClick={toggleIsOpenChat}>
+      <Styled.ChatButton isOpen={isChatOpen} onClick={toggleIsOpenChat}>
         A
         <Styled.ChatButtonIcon isOpen={isChatOpen} />
         {newMessageAmount > 0 && !isChatOpen && (

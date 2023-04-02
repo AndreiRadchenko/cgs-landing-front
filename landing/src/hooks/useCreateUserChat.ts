@@ -5,6 +5,7 @@ import { supportChatService } from "../services/supportChat";
 import { IHttpConfig } from "../types/Admin";
 import { IChat, IChatUser, IChatUserInfo } from "../types/SupportChat.types";
 import setMessageTime from "../utils/setMessageTime";
+import { storeKeys } from "../consts";
 
 interface IGetOrCreateUser {
   data: IChatUser;
@@ -24,6 +25,8 @@ interface IUseCreateUserChatParams {
 
 interface IUseCreateUserChat {
   handleSubmit: (values: IChatEmailForm) => Promise<void>;
+  isLoadingUser: boolean;
+  isLoadingChat: boolean;
 }
 
 export const useCreateUserChat = ({
@@ -31,17 +34,15 @@ export const useCreateUserChat = ({
   setSentEmailTime,
   setChatUserInfo,
 }: IUseCreateUserChatParams): IUseCreateUserChat => {
-  const { mutateAsync: getOrCreateUser } = useMutation(
-    [queryKeys.supportChat],
-    (values: IGetOrCreateUser) =>
+  const { mutateAsync: getOrCreateUser, isLoading: isLoadingUser } =
+    useMutation([queryKeys.supportChat], (values: IGetOrCreateUser) =>
       supportChatService.getOrCreateUser(values.data, values.config)
-  );
+    );
 
-  const { mutateAsync: getOrCreateChat } = useMutation(
-    [queryKeys.supportChat],
-    (values: IGetOrCreateChat) =>
+  const { mutateAsync: getOrCreateChat, isLoading: isLoadingChat } =
+    useMutation([queryKeys.supportChat], (values: IGetOrCreateChat) =>
       supportChatService.getOrCreateChat(values.data, values.config)
-  );
+    );
 
   const handleSubmit = async (values: IChatEmailForm) => {
     const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY || "";
@@ -66,7 +67,7 @@ export const useCreateUserChat = ({
     });
 
     const creationDate = new Date();
-    const expiredDate = creationDate.getTime() + 30000;
+    const expiredDate = creationDate.getTime() + 600000;
 
     const chatUserInfo = {
       userName: userResult?.username || "",
@@ -76,7 +77,7 @@ export const useCreateUserChat = ({
       expiredDate,
     };
 
-    localStorage.setItem("chatUserData", JSON.stringify(chatUserInfo));
+    localStorage.setItem(storeKeys.chatUserData, JSON.stringify(chatUserInfo));
 
     setUserEmail(values.email);
     setSentEmailTime(setMessageTime());
@@ -85,5 +86,7 @@ export const useCreateUserChat = ({
 
   return {
     handleSubmit,
+    isLoadingUser,
+    isLoadingChat,
   };
 };

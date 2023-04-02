@@ -33,6 +33,7 @@ const MessageListComponent = ({
 
     if (
       messages.length > 0 &&
+      messageProps.messages.length > 0 &&
       messages[0].id !== messageProps.messages[0].id &&
       messages[messages.length - 1].id !== messageProps.messages[0].id
     ) {

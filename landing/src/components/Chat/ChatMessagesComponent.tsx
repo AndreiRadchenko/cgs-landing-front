@@ -9,6 +9,7 @@ import GreetingMessageComponent from "./GreetingMessageComponent";
 import { IChatUserInfo } from "../../types/SupportChat.types";
 import MessageListComponent from "./MessageListComponent";
 import MessageFormComponent from "./MessageFormComponent";
+import { storeKeys } from "../../consts";
 
 interface IChatMessagesComponentProps {
   userEmail: string;
@@ -58,7 +59,7 @@ const ChatMessagesComponent = ({
     if (chatUserInfo && currentTime.getTime() >= chatUserInfo.expiredDate) {
       setChatUserInfo(null);
       setUserEmail("");
-      localStorage.removeItem("chatUserData");
+      localStorage.removeItem(storeKeys.chatUserData);
     }
   }, [chatProps]);
 
@@ -90,7 +91,7 @@ const ChatMessagesComponent = ({
               <MessageFormComponent
                 chatId={chatUserInfo.chatId}
                 userName={chatUserInfo.userName}
-                publicKey="1e93bf30-22d5-42ec-a0ae-d47fa7cf17f8"
+                publicKey={process.env.NEXT_PUBLIC_PROJECT_ID || ""}
               />
             )}
           />
