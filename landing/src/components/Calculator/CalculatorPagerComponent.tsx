@@ -76,7 +76,7 @@ const CalculatorPagerComponent = ({
       setTimeout(() => {
         setCurrentContentIndex(newIndex + 1);
         setIsBusy(false);
-      }, 4000);
+      }, 3000);
     } else {
       setCurrentContentIndex(newIndex);
     }
@@ -92,7 +92,7 @@ const CalculatorPagerComponent = ({
       setTimeout(() => {
         setCurrentContentIndex(newIndex - 1);
         setIsBusy(false);
-      }, 4000);
+      }, 3000);
     } else {
       setCurrentContentIndex(newIndex);
     }
