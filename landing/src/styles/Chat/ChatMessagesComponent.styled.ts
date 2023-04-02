@@ -3,6 +3,32 @@ import chatOperatorAvatar from "../../../public/chatOperatorAvatar.svg";
 import themes from "../../utils/themes";
 import { AttachmentIcon } from "./ChatInputForm.styled";
 
+export const MessageListContainer = styled.div`
+  scroll-behavior: smooth;
+  height: calc(100% - 86px);
+
+  ::-webkit-scrollbar {
+    width: 0.7rem;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: ${themes.primary.colors.chatContainerBgc};
+  }
+
+  :hover {
+    ::-webkit-scrollbar {
+      width: 0.7rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: ${themes.primary.colors.chatMessageBgc};
+      border-radius: 10px;
+      border: 3px solid ${themes.primary.colors.chatContainerBgc};
+    }
+  }
+`;
+
 interface IRecievedMessagesWrapper {
   notLast?: boolean;
 }
@@ -30,6 +56,13 @@ export const AvatarWrapper = styled.div`
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+`;
+
+export const AvatarImg = styled.img`
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 `;
 
 interface IMessagesWrapper {

@@ -10,7 +10,7 @@ export const InputEmailError = styled.p`
   color: ${themes.primary.colors.validationErrorText};
 `;
 
-const FieldPlaceholder = css`
+const FieldSample = css`
   width: 100%;
   border: none;
   padding: 0;
@@ -33,12 +33,13 @@ const FieldPlaceholder = css`
 `;
 
 export const InputField = styled.input`
-  ${FieldPlaceholder}
+  ${FieldSample}
 `;
 
 export const TextField = styled.textarea`
-  ${FieldPlaceholder}
+  ${FieldSample}
   width: 80%;
+  resize: none;
 `;
 
 export const MessageFormWrapper = styled(ChatFormContainer)``;

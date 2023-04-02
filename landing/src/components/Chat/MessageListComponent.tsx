@@ -4,6 +4,8 @@ import AdminMessageComponent from "./AdminMessageComponent";
 import GreetingMessageComponent from "./GreetingMessageComponent";
 import UserMessageComponent from "./UserMessageComponent";
 
+import * as Styled from "../../styles/Chat/ChatMessagesComponent.styled";
+
 interface IMessageListComponent {
   userEmail: string;
   openChatTime: string;
@@ -20,15 +22,17 @@ const MessageListComponent = ({
   setNewMessageAmount,
 }: IMessageListComponent) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [messages, setMessages] = useState<MessageObject[] | null>(null);
+  const [messages, setMessages] = useState<MessageObject[]>([]);
 
   useEffect(() => {
-    setMessages(messageProps.messages);
-  }, []);
+    if (messages.length === 0) {
+      setMessages(messageProps.messages);
 
-  useEffect(() => {
+      return;
+    }
+
     if (
-      messages &&
+      messages.length > 0 &&
       messages[0].id !== messageProps.messages[0].id &&
       messages[messages.length - 1].id !== messageProps.messages[0].id
     ) {
@@ -37,17 +41,21 @@ const MessageListComponent = ({
       );
       setNewMessageAmount((state) => ++state);
     }
+  }, [messageProps]);
 
+  useEffect(() => {
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current?.scrollHeight;
     }
-  }, [messageProps, messages]);
+  }, [messages]);
+
   console.log(messageProps);
+  console.log(messages);
 
   const { username, style } = messageProps;
 
   return (
-    <div
+    <Styled.MessageListContainer
       ref={containerRef}
       style={{
         ...style,
@@ -84,7 +92,7 @@ const MessageListComponent = ({
             </div>
           );
         })}
-    </div>
+    </Styled.MessageListContainer>
   );
 };
 

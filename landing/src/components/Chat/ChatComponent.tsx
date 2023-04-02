@@ -23,6 +23,7 @@ const ChatComponent = ({
   useEffect(() => {
     const chatUserData = localStorage.getItem("chatUserData");
     setChatUserInfo(chatUserData ? JSON.parse(chatUserData) : chatUserData);
+    setUserEmail(chatUserData ? JSON.parse(chatUserData).userName : "");
   }, []);
 
   return (
@@ -44,6 +45,8 @@ const ChatComponent = ({
             chatUserInfo={chatUserInfo}
             setOperator={setOperator}
             setNewMessageAmount={setNewMessageAmount}
+            setChatUserInfo={setChatUserInfo}
+            setUserEmail={setUserEmail}
           />
         </Styled.ChatMessagesContainer>
         {!chatUserInfo && (

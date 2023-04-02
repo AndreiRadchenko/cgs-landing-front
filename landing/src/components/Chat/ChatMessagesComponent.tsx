@@ -17,6 +17,8 @@ interface IChatMessagesComponentProps {
   chatUserInfo: IChatUserInfo | null;
   setOperator: React.Dispatch<React.SetStateAction<string>>;
   setNewMessageAmount: React.Dispatch<React.SetStateAction<number>>;
+  setChatUserInfo: React.Dispatch<React.SetStateAction<IChatUserInfo | null>>;
+  setUserEmail: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const SingleChatSocket = dynamic(() =>
@@ -30,16 +32,15 @@ const ChatMessagesComponent = ({
   chatUserInfo,
   setOperator,
   setNewMessageAmount,
+  setChatUserInfo,
+  setUserEmail,
 }: IChatMessagesComponentProps) => {
   const [showChat, setShowChat] = useState<boolean>(false);
   const chatProps = useSingleChatLogic(
-    "1e93bf30-22d5-42ec-a0ae-d47fa7cf17f8",
+    process.env.NEXT_PUBLIC_PROJECT_ID || "",
     chatUserInfo?.chatId || "",
     chatUserInfo?.accessKey || ""
   );
-
-  const handleNotification = async () =>
-    setNewMessageAmount((state) => ++state);
 
   useEffect(() => {
     if (typeof document !== null) {
@@ -50,6 +51,14 @@ const ChatMessagesComponent = ({
   useEffect(() => {
     if (chatProps.chat?.admin.first_name) {
       setOperator(chatProps.chat?.admin.first_name);
+    }
+
+    const currentTime = new Date();
+
+    if (chatUserInfo && currentTime.getTime() >= chatUserInfo.expiredDate) {
+      setChatUserInfo(null);
+      setUserEmail("");
+      localStorage.removeItem("chatUserData");
     }
   }, [chatProps]);
 
@@ -62,9 +71,10 @@ const ChatMessagesComponent = ({
           <ChatFeed
             {...chatProps}
             username={chatUserInfo.userName}
+            renderWelcomeGif={() => <div>Loading...</div>}
             renderChatHeader={() => <div />}
             renderMessageList={(messageProps: MessageListProps) => {
-              return messageProps.messages.length > 0 ? (
+              return messageProps ? (
                 <MessageListComponent
                   userEmail={userEmail}
                   openChatTime={openChatTime}

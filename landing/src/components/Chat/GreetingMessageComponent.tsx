@@ -22,7 +22,7 @@ const GreetingMessageComponent = ({
             Hi there! I’m here to help if you need anything.
           </Styled.RecivedMessageBox>
           <Styled.RecivedMessageBox>
-            Please enter your email to start o continue a conversation.
+            Please enter your email to start or continue a conversation.
           </Styled.RecivedMessageBox>
           <Styled.RecievdMessageTime>{openChatTime}</Styled.RecievdMessageTime>
         </Styled.MessagesWrapper>
@@ -34,7 +34,7 @@ const GreetingMessageComponent = ({
             <Styled.MessagesWrapper>
               <Styled.SendedMessageBox>{userEmail}</Styled.SendedMessageBox>
               <Styled.SendedMessageTime>
-                {sentEmailTime}
+                {sentEmailTime || openChatTime}
               </Styled.SendedMessageTime>
             </Styled.MessagesWrapper>
           </Styled.SendedMessagesWrapper>
@@ -46,7 +46,7 @@ const GreetingMessageComponent = ({
                 How can I help your?
               </Styled.RecivedMessageBox>
               <Styled.RecievdMessageTime>
-                {sentEmailTime}
+                {sentEmailTime || openChatTime}
               </Styled.RecievdMessageTime>
             </Styled.MessagesWrapper>
           </Styled.RecievedMessagesWrapper>

@@ -33,7 +33,13 @@ const AdminMessageComponent = ({
 
   return (
     <Styled.RecievedMessagesWrapper notLast={!isLastMessage}>
-      {isFirstMessage && <Styled.AvatarWrapper />}
+      {isFirstMessage && (
+        <Styled.AvatarWrapper>
+          {message.sender?.avatar && (
+            <Styled.AvatarImg src={message.sender.avatar} />
+          )}
+        </Styled.AvatarWrapper>
+      )}
       <Styled.MessagesWrapper notFirst={!isFirstMessage}>
         {isFirstMessage && (
           <Styled.MessageSender>{message.sender_username}</Styled.MessageSender>

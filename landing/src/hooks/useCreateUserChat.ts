@@ -45,6 +45,7 @@ export const useCreateUserChat = ({
 
   const handleSubmit = async (values: IChatEmailForm) => {
     const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY || "";
+    const chatAdmin = process.env.NEXT_PUBLIC_CHAT_ADMIN || "";
     const userResult = await getOrCreateUser({
       data: {
         username: values.email,
@@ -57,24 +58,27 @@ export const useCreateUserChat = ({
     });
 
     const chatResult = await getOrCreateChat({
-      data: { usernames: ["dchushko", values.email], is_direct_chat: true },
+      data: {
+        usernames: [chatAdmin, values.email],
+        is_direct_chat: true,
+      },
       config: { headers: { "Private-Key": privateKey } },
     });
+
+    const creationDate = new Date();
+    const expiredDate = creationDate.getTime() + 30000;
 
     const chatUserInfo = {
       userName: userResult?.username || "",
       userSecret: userResult?.secret || "",
       chatId: String(chatResult?.id) || "",
       accessKey: chatResult?.access_key || "",
+      expiredDate,
     };
 
     localStorage.setItem("chatUserData", JSON.stringify(chatUserInfo));
 
-    console.log(userResult);
-    console.log(chatResult);
-
     setUserEmail(values.email);
-
     setSentEmailTime(setMessageTime());
     setChatUserInfo(chatUserInfo);
   };

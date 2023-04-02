@@ -120,6 +120,10 @@ export const ChatBody = styled.div`
   .ce-chat-feed > div {
     background-color: ${themes.primary.colors.chatContainerBgc} !important;
   }
+
+  .ce-ice-breaker-wrapper {
+    display: none;
+  }
 `;
 
 export const ChatMessagesContainer = styled.div`

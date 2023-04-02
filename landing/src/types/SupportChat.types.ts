@@ -24,4 +24,5 @@ export interface IChatUserInfo {
   userSecret: string;
   chatId: string;
   accessKey: string;
+  expiredDate: number;
 }
