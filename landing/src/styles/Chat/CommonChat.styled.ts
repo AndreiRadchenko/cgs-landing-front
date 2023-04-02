@@ -2,6 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 import chatOpenButtonIcon from "../../../public/chatOpenButtonIcon.png";
 import chatCloseButtonIcon from "../../../public/chatCloseButtonIcon.svg";
+import messageBubbleCloseIcon from "../../../public/messageBubbleCloseIcon.svg";
 import { glow, horizontalGlow } from "../Animations.styled";
 
 export const ChatWrapper = styled.div`
@@ -13,7 +14,7 @@ export const ChatButton = styled.div`
   position: relative;
   display: block;
 
-  writing-mode: vertical-rl !important;
+  writing-mode: vertical-rl;
   text-orientation: mixed;
   line-height: 99%;
   font-size: 1.8333em;
@@ -115,4 +116,99 @@ export const ChatButtonIcon = styled.div<IChatButtonIcon>`
   background-repeat: no-repeat;
   background-position: center;
   background-size: ${({ isOpen }) => (isOpen ? "21px" : `35px 32px`)};
+`;
+
+export const NewMessageCounter = styled.div`
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  writing-mode: horizontal-tb;
+  font-size: 1rem;
+  color: ${themes.primary.colors.primary};
+
+  border-radius: 50%;
+  border: 1px solid ${themes.primary.colors.primary};
+  background-color: ${themes.primary.colors.portfolioHover};
+`;
+
+export const MessageBable = styled.div`
+  position: absolute;
+  bottom: -0.4rem;
+  right: 5.5rem;
+  width: 12.525rem;
+  height: 4rem;
+  padding: 0.875rem;
+
+  font-size: 0.75rem;
+
+  border-radius: 0.5rem;
+  border: 1px solid ${themes.primary.colors.primary};
+  box-shadow: 0.3rem 0.3rem 0rem 0rem ${themes.primary.colors.primary};
+  background-color: ${themes.primary.colors.secondary};
+
+  @media ${themes.primary.media.maxMobile} {
+    bottom: 5.25rem;
+    right: 0.6rem;
+  }
+
+  :after,
+  :before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 52%;
+
+    background-color: ${themes.primary.colors.secondary};
+    transform: translateY(-50%);
+  }
+
+  :after {
+    right: -0.4rem;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid ${themes.primary.colors.primary};
+    box-shadow: 0.35rem 0rem 0rem 0rem ${themes.primary.colors.primary};
+    transform: translateY(-50%) rotate(25deg) skewX(-35deg);
+
+    @media ${themes.primary.media.maxMobile} {
+      right: 1rem;
+      top: 98%;
+      box-shadow: 0.05rem 0.23rem 0rem 0rem ${themes.primary.colors.primary};
+      transform: translateY(-50%) rotate(-63deg) skewX(-35deg);
+    }
+  }
+
+  :before {
+    right: 0;
+    width: 1.25rem;
+    height: 2rem;
+    z-index: 1;
+
+    @media ${themes.primary.media.maxMobile} {
+      right: 0.7rem;
+      top: 74%;
+      width: 1.45rem;
+    }
+  }
+`;
+
+export const MessageBubbleCloseIcon = styled.div`
+  position: absolute;
+  top: -0.675rem;
+  left: -0.675rem;
+  width: 1.35rem;
+  height: 1.35rem;
+
+  border: 1px solid ${themes.primary.colors.primary};
+  border-radius: 50%;
+  background-color: ${themes.primary.colors.secondary};
+  background-image: url(${messageBubbleCloseIcon.src});
+  background-position: center;
+  background-repeat: no-repeat;
 `;

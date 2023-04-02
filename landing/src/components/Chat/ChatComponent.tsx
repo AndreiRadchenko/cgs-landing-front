@@ -7,12 +7,18 @@ import ChatRegisterForm from "./ChatRegisterForm";
 interface IChatComponentProps {
   isChatOpen: boolean;
   openChatTime: string;
+  setNewMessageAmount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const ChatComponent = ({ isChatOpen, openChatTime }: IChatComponentProps) => {
+const ChatComponent = ({
+  isChatOpen,
+  openChatTime,
+  setNewMessageAmount,
+}: IChatComponentProps) => {
   const [userEmail, setUserEmail] = useState<string>("");
   const [sentEmailTime, setSentEmailTime] = useState<string>("");
   const [chatUserInfo, setChatUserInfo] = useState<IChatUserInfo | null>(null);
+  const [operator, setOperator] = useState<string>("");
 
   useEffect(() => {
     const chatUserData = localStorage.getItem("chatUserData");
@@ -24,7 +30,9 @@ const ChatComponent = ({ isChatOpen, openChatTime }: IChatComponentProps) => {
       <Styled.ChatHeader>
         <Styled.ChatTitle>Chat with CGS-team</Styled.ChatTitle>
         <Styled.OperatorStatus>
-          Operator Daniel is now online
+          {operator
+            ? `Operator ${operator} is now onlline`
+            : "Waiting registration"}
         </Styled.OperatorStatus>
       </Styled.ChatHeader>
       <Styled.ChatBody>
@@ -34,6 +42,8 @@ const ChatComponent = ({ isChatOpen, openChatTime }: IChatComponentProps) => {
             openChatTime={openChatTime}
             sentEmailTime={sentEmailTime}
             chatUserInfo={chatUserInfo}
+            setOperator={setOperator}
+            setNewMessageAmount={setNewMessageAmount}
           />
         </Styled.ChatMessagesContainer>
         {!chatUserInfo && (

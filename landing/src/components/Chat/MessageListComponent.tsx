@@ -9,6 +9,7 @@ interface IMessageListComponent {
   openChatTime: string;
   sentEmailTime: string;
   messageProps: MessageListProps;
+  setNewMessageAmount: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const MessageListComponent = ({
@@ -16,6 +17,7 @@ const MessageListComponent = ({
   openChatTime,
   sentEmailTime,
   messageProps,
+  setNewMessageAmount,
 }: IMessageListComponent) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<MessageObject[] | null>(null);
@@ -33,6 +35,7 @@ const MessageListComponent = ({
       setMessages(
         (messages) => messages && [...messages, messageProps.messages[0]]
       );
+      setNewMessageAmount((state) => ++state);
     }
 
     if (containerRef.current) {

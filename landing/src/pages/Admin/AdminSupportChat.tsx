@@ -16,7 +16,7 @@ const AdminSupportChat = () => {
 
   const chatProps = useMultiChatLogic(
     "1e93bf30-22d5-42ec-a0ae-d47fa7cf17f8",
-    "dchushko",
+    "CGS-team",
     "ELdBC4fEy@VYi"
   );
 

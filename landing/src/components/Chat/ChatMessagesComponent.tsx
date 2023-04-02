@@ -15,6 +15,8 @@ interface IChatMessagesComponentProps {
   openChatTime: string;
   sentEmailTime: string;
   chatUserInfo: IChatUserInfo | null;
+  setOperator: React.Dispatch<React.SetStateAction<string>>;
+  setNewMessageAmount: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const SingleChatSocket = dynamic(() =>
@@ -26,6 +28,8 @@ const ChatMessagesComponent = ({
   openChatTime,
   sentEmailTime,
   chatUserInfo,
+  setOperator,
+  setNewMessageAmount,
 }: IChatMessagesComponentProps) => {
   const [showChat, setShowChat] = useState<boolean>(false);
   const chatProps = useSingleChatLogic(
@@ -34,14 +38,23 @@ const ChatMessagesComponent = ({
     chatUserInfo?.accessKey || ""
   );
 
+  const handleNotification = async () =>
+    setNewMessageAmount((state) => ++state);
+
   useEffect(() => {
     if (typeof document !== null) {
       setShowChat(true);
     }
   }, []);
 
-  if (!showChat) return <div />;
+  useEffect(() => {
+    if (chatProps.chat?.admin.first_name) {
+      setOperator(chatProps.chat?.admin.first_name);
+    }
+  }, [chatProps]);
 
+  if (!showChat) return <div />;
+  console.log(chatProps);
   return (
     <>
       {chatUserInfo ? (
@@ -57,6 +70,7 @@ const ChatMessagesComponent = ({
                   openChatTime={openChatTime}
                   sentEmailTime={sentEmailTime}
                   messageProps={messageProps}
+                  setNewMessageAmount={setNewMessageAmount}
                 />
               ) : (
                 <div />
