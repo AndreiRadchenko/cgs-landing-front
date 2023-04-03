@@ -77,7 +77,6 @@ export const queryKeys = {
   updateServiceDappAuditPage: "updateServiceDappAuditPage",
   getPrivacyPage: "getPrivacyPage",
   updatePrivacyPage: "updatePrivacyPage",
-  supportChat: "SupportChat",
   // home page
   getFullHomePage: "getFullHomePage",
   getAllServices: "getAllServices",

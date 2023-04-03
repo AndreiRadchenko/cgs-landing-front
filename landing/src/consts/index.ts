@@ -12,11 +12,6 @@ export enum storeKeys {
   token = "TOKEN",
   role = "ROLE",
   profile = "PROFILE",
-  chatUserData = "CHAT",
-}
-
-export enum chat {
-  privateKey = "Private-Key",
 }
 
 export const icons = [
@@ -181,7 +176,6 @@ export enum ROUTE_KEYS {
   AdminServiceWebAudit = "AdminServiceWebAudit",
   AdminServiceDappAudit = "AdminServiceDappAudit",
   AdminEstimationForm = "AdminEstimationForm",
-  AdminSupportChat = "AdminSupportChat",
 }
 
 export enum FaqPageTypes {

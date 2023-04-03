@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import themes from "../../utils/themes";
 import LoaderImg from "../../../public/Calculator/calculatorLoader.gif";
 import { glow } from "../Animations.styled";
@@ -6,8 +6,7 @@ import { glow } from "../Animations.styled";
 export const CalculatorPreviewWrapper = styled.div`
   position: fixed;
   right: 0;
-  top: 50%;
-  transform: translateY(-70px);
+  bottom: 60px;
   height: 18.833em;
   z-index: 13;
 
@@ -35,7 +34,7 @@ export const CalculatorPreviewCube = styled.div`
   height: 18.66em;
 
   @media ${themes.primary.media.maxMobile} {
-    width: 82vw;
+    width: 100vw;
     height: 60px;
   }
 
@@ -61,11 +60,7 @@ export const CalculatorPreviewCube = styled.div`
   }
 `;
 
-interface ICalculatorButton {
-  isChatOpen?: boolean;
-}
-
-export const CalculatorButton = styled.div<ICalculatorButton>`
+export const CalculatorButton = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -83,16 +78,12 @@ export const CalculatorButton = styled.div<ICalculatorButton>`
   z-index: 2;
   transition: all 0.2s;
   position: relative;
-  background-color: ${themes.primary.colors.secondary};
-  background-image: ${({ isChatOpen }) =>
-    isChatOpen
-      ? "none"
-      : `linear-gradient(
+  background: linear-gradient(
     180deg,
     ${themes.primary.colors.mainGradientColor1},
     ${themes.primary.colors.mainGradientColor2},
     ${themes.primary.colors.mainGradientColor1}
-  )`};
+  );
   background-size: auto 400%;
   animation: ${glow} 12s linear infinite;
 
@@ -109,14 +100,10 @@ export const CalculatorButton = styled.div<ICalculatorButton>`
     transform-origin: top;
   }
 
-  ${({ isChatOpen }) =>
-    !isChatOpen &&
-    css`
-      &:hover + div,
-      .active + div {
-        left: -19.83em;
-      }
-    `}
+  &:hover + div,
+  .active + div {
+    left: -19.83em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     padding: 0.54em 0 1em;
@@ -137,11 +124,7 @@ export const CalculatorButton = styled.div<ICalculatorButton>`
   }
 `;
 
-interface ICalculatorPreviewContentWrapper {
-  isChatOpen?: boolean;
-}
-
-export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewContentWrapper>`
+export const CalculatorPreviewContentWrapper = styled.div`
   font-size: ${themes.primary.font.size.oneAndHalf};
   width: 19.83em;
   height: 100%;
@@ -184,14 +167,10 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
     transform-origin: top;
   }
 
-  ${({ isChatOpen }) =>
-    !isChatOpen &&
-    css`
-      &.active,
-      &:hover {
-        left: -19.83em;
-      }
-    `}
+  &.active,
+  &:hover {
+    left: -19.83em;
+  }
 
   @media ${themes.primary.media.minPC} {
     padding-right: 1em;

@@ -26,11 +26,7 @@ import {
 } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
-interface ICalculatorProps {
-  isChatOpen: boolean;
-}
-
-const Calculator = ({ isChatOpen }: ICalculatorProps) => {
+const Calculator = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>("< start >");
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -343,37 +339,35 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
 
   return (
     <>
-      {/* <Styled.CalculatorPreviewWrapper> */}
-      <Styled.CalculatorPreviewCube className={hoverClassName}>
-        <Styled.CalculatorPreview className={hoverClassName}>
-          <Styled.CalculatorButton
-            isChatOpen={isChatOpen}
-            onMouseOver={handleMouseOver}
-            onMouseLeave={handleMouseLeave}
-          >
-            calculator
-          </Styled.CalculatorButton>
-          <Styled.CalculatorPreviewContentWrapper
-            isChatOpen={isChatOpen}
-            onClick={handleOpen}
-            onMouseOver={handleMouseOver}
-            onMouseLeave={handleMouseLeave}
-            className={hoverClassName}
-          >
-            <span>
-              <SplitBrackets text={data?.previewTextMessage} />
-            </span>
-            <div>
-              <BlackButtonComponent
-                onClick={handleOpen}
-                text="Start calculation"
-                style={{ padding: "1em 2.15em" }}
-              />
-            </div>
-          </Styled.CalculatorPreviewContentWrapper>
-        </Styled.CalculatorPreview>
-      </Styled.CalculatorPreviewCube>
-      {/* </Styled.CalculatorPreviewWrapper> */}
+      <Styled.CalculatorPreviewWrapper>
+        <Styled.CalculatorPreviewCube className={hoverClassName}>
+          <Styled.CalculatorPreview className={hoverClassName}>
+            <Styled.CalculatorButton
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+            >
+              calculator
+            </Styled.CalculatorButton>
+            <Styled.CalculatorPreviewContentWrapper
+              onClick={handleOpen}
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+              className={hoverClassName}
+            >
+              <span>
+                <SplitBrackets text={data?.previewTextMessage} />
+              </span>
+              <div>
+                <BlackButtonComponent
+                  onClick={handleOpen}
+                  text="Start calculation"
+                  style={{ padding: "1em 2.15em" }}
+                />
+              </div>
+            </Styled.CalculatorPreviewContentWrapper>
+          </Styled.CalculatorPreview>
+        </Styled.CalculatorPreviewCube>
+      </Styled.CalculatorPreviewWrapper>
       {isCompleted ? (
         <CalculatorCompletedPager
           finishClick={finishPagerClick}
