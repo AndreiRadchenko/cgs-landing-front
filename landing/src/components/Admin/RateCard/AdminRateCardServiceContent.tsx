@@ -14,6 +14,9 @@ const AdminRateCardServiceContent = ({
     newArrServices.splice(idx, 0, {
       newService: true,
       name: "",
+      image: {
+        url: "",
+      },
       levels: [
         {
           name: "",

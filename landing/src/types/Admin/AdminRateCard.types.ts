@@ -10,6 +10,9 @@ export interface IService {
   __v?: number;
   levels: ILevel[];
   name: string;
+  image: {
+    url: string;
+  };
   newService: boolean;
 }
 

@@ -19,9 +19,11 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
                 {level.name}
               </RateCardLevelData>
               <RateCardLevelData style={{ width: "59%" }}>
-                {level.technology}
+                {level.values.map((value) => value.technology).join(" // ")}
               </RateCardLevelData>
-              <RateCardLevelData>{level.cost}</RateCardLevelData>
+              <RateCardLevelData>
+                {level.values.map((value) => value.cost).join(" // ")}
+              </RateCardLevelData>
             </RateCardLevelRow>
           ))}
         </tbody>

@@ -11,10 +11,14 @@ import useUploadModal from "../../../hooks/useUploadModal";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import { IImage } from "../../../types/Admin/Admin.types";
+import { useFormikContext } from "formik";
+import { IService } from "../../../types/Admin/AdminRateCard.types";
 
 const AddRateCardImage = () => {
-  const deleteImageFunction = useDeleteImageFunction();
-  const uploadImageFunction = useUploadImageFunction();
+  const { values } = useFormikContext<IService>();
+
+  const deleteImageFunction = useDeleteImageFunction(values, "", false);
+  const uploadImageFunction = useUploadImageFunction(values, "", false);
 
   const deleteFunc = async () => (await deleteImageFunction)();
   const uploadFunc = (image: IImage) => uploadImageFunction(image);

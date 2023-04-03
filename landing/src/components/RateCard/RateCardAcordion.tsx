@@ -10,6 +10,7 @@ import {
   RateCardServiceName,
 } from "../../styles/RateCard.styled";
 import RateCardServiceInfo from "./RateCardServiceInfo";
+import Image from "next/image";
 
 const RateCardAccordion = ({ service }: { service: IService }) => {
   const [isActive, setIsActive] = useState(false);
@@ -21,9 +22,12 @@ const RateCardAccordion = ({ service }: { service: IService }) => {
   return (
     <>
       <RateCardServiceDropDown onClick={handleActive}>
-        <RateCardServiceName isActive={isActive}>
-          {service.name}
-        </RateCardServiceName>
+        <div>
+          <Image src={service?.image?.url} alt="service image" />
+          <RateCardServiceName isActive={isActive}>
+            {service.name}
+          </RateCardServiceName>
+        </div>
         <ArrowDown isActive={isActive} />
       </RateCardServiceDropDown>
       {isActive && <RateCardServiceInfo levels={service.levels} />}

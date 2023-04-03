@@ -34,7 +34,6 @@ const RateCard = () => {
   const { data, isLoading } = useQuery([queryKeys.getRateCardData], () =>
     adminRateCardService.getCards()
   );
-  console.log(data);
 
   return !data && isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
