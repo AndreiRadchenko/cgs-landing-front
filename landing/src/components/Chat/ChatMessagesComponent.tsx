@@ -61,8 +61,6 @@ const ChatMessagesComponent = ({
 
   if (!showChat) return <div />;
 
-  console.log(chatProps);
-
   return (
     <>
       {chatUserInfo ? (
