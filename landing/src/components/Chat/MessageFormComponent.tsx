@@ -1,8 +1,9 @@
-import { useFormik } from "formik";
 import React, { useRef, useState } from "react";
+import { useFormik } from "formik";
 import { sendMessage } from "react-chat-engine";
 
 import * as Styled from "../../styles/Chat/ChatInputForm.styled";
+import { formatChatAttachName } from "../../utils/formatChatAttachName";
 
 interface IMessageFormComponentProps {
   chatId: string;
@@ -19,6 +20,7 @@ const MessageFormComponent = ({
   userName,
   publicKey,
 }: IMessageFormComponentProps) => {
+  const [fileSizeError, setFileSizeError] = useState<string>("");
   const [file, setFile] = useState<FileList | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const formik = useFormik<IMessageFormValues>({
@@ -33,6 +35,13 @@ const MessageFormComponent = ({
 
   const handleSubmit = (values: IMessageFormValues) => {
     const text = values.text.trim();
+
+    if (file && file[0].size > 20000000) {
+      setFileSizeError("not more than 20 MB");
+
+      return;
+    }
+
     if (file && text.length === 0) {
       sendMessage({ publicKey, userName, userSecret: userName }, chatId, {
         text,
@@ -55,6 +64,7 @@ const MessageFormComponent = ({
 
   const handleRemoveAttach = () => {
     setFile(null);
+    setFileSizeError("");
     if (inputRef.current) {
       inputRef.current.value = "";
     }
@@ -69,13 +79,6 @@ const MessageFormComponent = ({
     }
   };
 
-  const handleClickSendButton = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    formik.handleSubmit();
-    event.preventDefault();
-  };
-
   const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
     setFile(target.files);
@@ -87,9 +90,11 @@ const MessageFormComponent = ({
         {file ? (
           <Styled.AttachmentContainer>
             <Styled.AttachmentIcon>atch</Styled.AttachmentIcon>
-            <Styled.AttachmentName>{file[0].name}</Styled.AttachmentName>
+            <Styled.AttachmentName>
+              {formatChatAttachName(file[0].name)}
+            </Styled.AttachmentName>
             <Styled.RemoveAttachButton onClick={handleRemoveAttach} />
-            <Styled.SubmitIconButton onClick={handleClickSendButton}>
+            <Styled.SubmitIconButton type="submit">
               Send
             </Styled.SubmitIconButton>
           </Styled.AttachmentContainer>
@@ -103,18 +108,21 @@ const MessageFormComponent = ({
           />
         )}
 
-        <label htmlFor="upload-button">
-          <Styled.ImageButton />
-          <input
-            ref={inputRef}
-            type="file"
-            multiple={false}
-            id="upload-button"
-            style={{ display: "none" }}
-            onChange={handleUpload}
-          />
-        </label>
+        {!file && (
+          <label htmlFor="upload-button">
+            <Styled.ImageButton />
+            <input
+              ref={inputRef}
+              type="file"
+              multiple={false}
+              id="upload-button"
+              style={{ display: "none" }}
+              onChange={handleUpload}
+            />
+          </label>
+        )}
       </Styled.MessageForm>
+      <Styled.InputEmailError>{fileSizeError}</Styled.InputEmailError>
     </Styled.MessageFormWrapper>
   );
 };
