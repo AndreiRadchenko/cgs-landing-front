@@ -243,8 +243,7 @@ const Calculator = () => {
       getRolesCoefObject(matchSubStepData, resultObjRolesCoef);
 
       Object.entries(resultObjRolesCoef).map(
-        (roleCoefArr) => (resultObj[roleCoefArr[0]] *= 1 + roleCoefArr[1])
-      );
+        (roleCoefArr) => (resultObj[roleCoefArr[0]] ? resultObj[roleCoefArr[0]] *= 1 + roleCoefArr[1] : undefined));
 
       const endCoef =
         1 + getResults(definedStepData, values.questionsArr, "endCoef");
@@ -310,14 +309,14 @@ const Calculator = () => {
           estimation: { uxui, hours, price },
           email,
         };
-        mutate(emailData);
+        // mutate(emailData);
         const leadEmailData: ILeadMailData = {
           uxui,
           hours,
           price,
         };
-        mutateLeadEmail({ answers: leadEmailData, email });
-        resetForm();
+        // mutateLeadEmail({ answers: leadEmailData, email });
+        // resetForm();
       }
     };
 
