@@ -64,16 +64,17 @@ export const AttachmentContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.83em;
-  width: 80%;
+  width: 100%;
 `;
 
 export const AttachmentIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.325rem;
-  height: 2.325rem;
+  width: 2.125rem;
+  height: 2.125rem;
 
+  font-size: 0.625rem;
   text-transform: uppercase;
   color: ${themes.primary.colors.secondary};
 
@@ -103,7 +104,9 @@ export const RemoveAttachButton = styled.button`
 
 export const SubmitIconButton = styled(RemoveAttachButton)`
   width: 4.25rem;
-  height: 2.125rem;
+  height: 2.325rem;
+  align-self: center;
+  margin-left: auto;
   border-radius: 5px;
   color: ${themes.primary.colors.secondary};
   background: ${themes.primary.colors.attachmentIcon};

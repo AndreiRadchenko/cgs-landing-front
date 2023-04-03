@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-import { useMultiChatLogic } from "react-chat-engine-advanced";
+import {
+  useMultiChatLogic,
+  MultiChatWindow,
+  MultiChatSocket,
+} from "react-chat-engine-advanced";
 import * as Styled from "../../styles/AdminSupportChat.styled";
-
-const MultiChatWindow = dynamic(() =>
-  import("react-chat-engine-advanced").then((module) => module.MultiChatWindow)
-);
-
-const MultiChatSocket = dynamic(() =>
-  import("react-chat-engine-advanced").then((module) => module.MultiChatSocket)
-);
 
 const AdminSupportChat = () => {
   const [showChat, setShowChat] = useState<boolean>(false);

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import {
   useSingleChatLogic,
   ChatFeed,
   MessageListProps,
+  SingleChatSocket,
 } from "react-chat-engine-advanced";
 import GreetingMessageComponent from "./GreetingMessageComponent";
 import { IChatUserInfo } from "../../types/SupportChat.types";
@@ -21,10 +21,6 @@ interface IChatMessagesComponentProps {
   setChatUserInfo: React.Dispatch<React.SetStateAction<IChatUserInfo | null>>;
   setUserEmail: React.Dispatch<React.SetStateAction<string>>;
 }
-
-const SingleChatSocket = dynamic(() =>
-  import("react-chat-engine-advanced").then((module) => module.SingleChatSocket)
-);
 
 const ChatMessagesComponent = ({
   userEmail,
@@ -64,6 +60,8 @@ const ChatMessagesComponent = ({
   }, [chatProps]);
 
   if (!showChat) return <div />;
+
+  console.log(chatProps);
 
   return (
     <>
