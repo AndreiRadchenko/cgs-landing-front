@@ -309,14 +309,14 @@ const Calculator = () => {
           estimation: { uxui, hours, price },
           email,
         };
-        // mutate(emailData);
+        mutate(emailData);
         const leadEmailData: ILeadMailData = {
           uxui,
           hours,
           price,
         };
-        // mutateLeadEmail({ answers: leadEmailData, email });
-        // resetForm();
+        mutateLeadEmail({ answers: leadEmailData, email });
+        resetForm();
       }
     };
 
