@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 import LoaderImg from "../../../public/Calculator/calculatorLoader.gif";
 import { glow } from "../Animations.styled";
@@ -6,7 +6,8 @@ import { glow } from "../Animations.styled";
 export const CalculatorPreviewWrapper = styled.div`
   position: fixed;
   right: 0;
-  bottom: 60px;
+  top: 50%;
+  transform: translateY(-70px);
   height: 18.833em;
   z-index: 13;
 
@@ -34,7 +35,7 @@ export const CalculatorPreviewCube = styled.div`
   height: 18.66em;
 
   @media ${themes.primary.media.maxMobile} {
-    width: 100vw;
+    width: 82vw;
     height: 60px;
   }
 
@@ -60,7 +61,11 @@ export const CalculatorPreviewCube = styled.div`
   }
 `;
 
-export const CalculatorButton = styled.div`
+interface ICalculatorButton {
+  isChatOpen?: boolean;
+}
+
+export const CalculatorButton = styled.div<ICalculatorButton>`
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -78,12 +83,16 @@ export const CalculatorButton = styled.div`
   z-index: 2;
   transition: all 0.2s;
   position: relative;
-  background: linear-gradient(
+  background-color: ${themes.primary.colors.secondary};
+  background-image: ${({ isChatOpen }) =>
+    isChatOpen
+      ? "none"
+      : `linear-gradient(
     180deg,
     ${themes.primary.colors.mainGradientColor1},
     ${themes.primary.colors.mainGradientColor2},
     ${themes.primary.colors.mainGradientColor1}
-  );
+  )`};
   background-size: auto 400%;
   animation: ${glow} 12s linear infinite;
 
@@ -100,10 +109,14 @@ export const CalculatorButton = styled.div`
     transform-origin: top;
   }
 
-  &:hover + div,
-  .active + div {
-    left: -19.83em;
-  }
+  ${({ isChatOpen }) =>
+    !isChatOpen &&
+    css`
+      &:hover + div,
+      .active + div {
+        left: -19.83em;
+      }
+    `}
 
   @media ${themes.primary.media.maxMobile} {
     padding: 0.54em 0 1em;
@@ -124,7 +137,11 @@ export const CalculatorButton = styled.div`
   }
 `;
 
-export const CalculatorPreviewContentWrapper = styled.div`
+interface ICalculatorPreviewContentWrapper {
+  isChatOpen?: boolean;
+}
+
+export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewContentWrapper>`
   font-size: ${themes.primary.font.size.oneAndHalf};
   width: 19.83em;
   height: 100%;
@@ -167,10 +184,14 @@ export const CalculatorPreviewContentWrapper = styled.div`
     transform-origin: top;
   }
 
-  &.active,
-  &:hover {
-    left: -19.83em;
-  }
+  ${({ isChatOpen }) =>
+    !isChatOpen &&
+    css`
+      &.active,
+      &:hover {
+        left: -19.83em;
+      }
+    `}
 
   @media ${themes.primary.media.minPC} {
     padding-right: 1em;
