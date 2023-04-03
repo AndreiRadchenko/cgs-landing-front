@@ -13,13 +13,13 @@ import BookBlock from "../BookBlock";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import MobilePartners from "../Partners/MobilePartners";
 import MobileNextTech from "./MobileNextTech";
-import CalcAndChatContainer from "../CalcAndChatContainer";
+import Calculator from "../Calculator";
 
 const Content = () => {
   return (
     <>
       <PageArticle>
-        <CalcAndChatContainer />
+        <Calculator />
         <Layout>
           <LocalLayout>
             <HeadBlock />
