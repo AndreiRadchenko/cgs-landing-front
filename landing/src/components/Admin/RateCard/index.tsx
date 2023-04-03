@@ -15,7 +15,7 @@ import {
 import AdminRateCardServiceContent from "./AdminRateCardServiceContent";
 
 const RateCardMainContent = () => {
-  const { data, isLoading, refetch }: IRateCardResponse = useQuery(
+  const { data, isLoading }: IRateCardResponse = useQuery(
     [queryKeys.getRateCardData],
     () => adminRateCardService.getCards()
   );

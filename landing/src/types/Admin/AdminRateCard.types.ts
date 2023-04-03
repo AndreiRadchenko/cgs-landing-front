@@ -13,7 +13,7 @@ export interface IService {
   image: {
     url: string;
   };
-  newService: boolean;
+  newService?: boolean;
 }
 
 export interface ILevel {

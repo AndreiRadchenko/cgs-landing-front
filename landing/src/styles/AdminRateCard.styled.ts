@@ -218,8 +218,8 @@ export const AddNextTechCost = styled.div`
   padding-right: 22px;
 
   &:hover {
-    transition: 0.3s;
-    scale: 1.05;
+    transition: 0.3s scale;
+    color: ${themes.primary.colors.calculatorDarkBlue};
   }
 `;
 
