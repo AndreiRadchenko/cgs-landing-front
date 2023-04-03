@@ -67,14 +67,16 @@ export const useCreateUserChat = ({
     });
 
     const creationDate = new Date();
-    const expiredDate = creationDate.getTime() + 600000;
+    const expiredTime =
+      creationDate.getTime() +
+        Number(process.env.NEXT_PUBLIC_CHAT_EXPIRED_TIME) || 0;
 
     const chatUserInfo = {
       userName: userResult?.username || "",
       userSecret: userResult?.secret || "",
       chatId: String(chatResult?.id) || "",
       accessKey: chatResult?.access_key || "",
-      expiredDate,
+      expiredTime,
     };
 
     localStorage.setItem(storeKeys.chatUserData, JSON.stringify(chatUserInfo));

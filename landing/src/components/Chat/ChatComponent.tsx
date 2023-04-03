@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import * as Styled from "../../styles/Chat/ChatComponent.styled";
 import { IChatUserInfo } from "../../types/SupportChat.types";
 import ChatMessagesComponent from "./ChatMessagesComponent";
 import ChatRegisterForm from "./ChatRegisterForm";
 import { storeKeys } from "../../consts";
+
+import * as Styled from "../../styles/Chat/ChatComponent.styled";
 
 interface IChatComponentProps {
   isChatOpen: boolean;

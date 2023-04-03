@@ -56,7 +56,7 @@ const ChatMessagesComponent = ({
 
     const currentTime = new Date();
 
-    if (chatUserInfo && currentTime.getTime() >= chatUserInfo.expiredDate) {
+    if (chatUserInfo && currentTime.getTime() >= chatUserInfo.expiredTime) {
       setChatUserInfo(null);
       setUserEmail("");
       localStorage.removeItem(storeKeys.chatUserData);
@@ -64,7 +64,7 @@ const ChatMessagesComponent = ({
   }, [chatProps]);
 
   if (!showChat) return <div />;
-  console.log(chatProps);
+
   return (
     <>
       {chatUserInfo ? (
@@ -72,7 +72,6 @@ const ChatMessagesComponent = ({
           <ChatFeed
             {...chatProps}
             username={chatUserInfo.userName}
-            renderWelcomeGif={() => <div>Loading...</div>}
             renderChatHeader={() => <div />}
             renderMessageList={(messageProps: MessageListProps) => {
               return messageProps ? (

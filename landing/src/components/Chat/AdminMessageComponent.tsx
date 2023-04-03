@@ -1,7 +1,8 @@
 import React from "react";
 import { MessageObject } from "react-chat-engine-advanced";
-import * as Styled from "../../styles/Chat/ChatMessagesComponent.styled";
 import setMessageTime from "../../utils/setMessageTime";
+
+import * as Styled from "../../styles/Chat/ChatMessagesComponent.styled";
 
 interface IAdminMessageComponentProps {
   message: MessageObject;

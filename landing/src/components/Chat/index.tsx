@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import * as Styled from "../../styles/Chat/CommonChat.styled";
 import setMessageTime from "../../utils/setMessageTime";
 import ChatComponent from "./ChatComponent";
+
+import * as Styled from "../../styles/Chat/CommonChat.styled";
 
 interface IChatProps {
   isChatOpen: boolean;

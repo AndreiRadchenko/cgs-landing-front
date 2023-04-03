@@ -50,9 +50,6 @@ const MessageListComponent = ({
     }
   }, [messages]);
 
-  console.log(messageProps);
-  console.log(messages);
-
   const { username, style } = messageProps;
 
   return (
