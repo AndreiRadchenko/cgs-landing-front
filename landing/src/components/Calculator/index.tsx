@@ -49,13 +49,13 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
     adminCalculatorService.getCalculatorData()
   );
 
-  const { data: classicStepsData, isLoading: classicLoading } = useQuery(
+  const { data: classicStepsData } = useQuery(
     [queryKeys.getCalculatorClassicSteps],
     () => adminCalculatorService.getCalculatorClassicSteps(),
     { enabled: startLoading }
   );
 
-  const { data: blockchainStepsData, isLoading: blockchainLoading } = useQuery(
+  const { data: blockchainStepsData } = useQuery(
     [queryKeys.getCalculatorBlockchainSteps],
     () => adminCalculatorService.getCalculatorBlockchainSteps(),
     { enabled: startLoading }
@@ -82,13 +82,6 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
 
   const handleQuit = () => {
     setIsQuitting(true);
-  };
-
-  const handlePagerRightButtonClick = () => {
-    setStartLoading(true);
-  };
-  const handlePagerLeftButtonClick = () => {
-    setStartLoading(false);
   };
 
   const handleCompletedPagerButtonsClick = () => {
@@ -137,6 +130,7 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
         title: el.title,
         answer: "",
         subStepAnswer: "",
+        subStepRequired: el.subStepRequired || "",
       };
     }),
     email: "",
@@ -464,12 +458,8 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
               handleButtonClick={handleButtonClick}
               handleClassicClick={handleClassicClick}
               handleClose={handleClose}
-              handlePagerRightButtonClick={handlePagerRightButtonClick}
-              handlePagerLeftButtonClick={handlePagerLeftButtonClick}
               buttonText={buttonText}
               startLoading={startLoading}
-              classicLoading={classicLoading}
-              blockchainLoading={blockchainLoading}
               classicStepsData={classicStepsData}
               blockchainStepsData={blockchainStepsData}
             />

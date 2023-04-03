@@ -163,7 +163,6 @@ export const DashedLine = styled.div`
 
 export const FreeServicesImageWrapper = styled.div`
   display: flex;
-  height: auto;
   justify-content: center;
   height: 130px;
   width: 100%;
@@ -191,6 +190,12 @@ export const FreeServicesImageWrapper = styled.div`
     position: absolute;
     top: 50%;
     z-index: 0;
+  }
+
+  @media (max-width: 768px) {
+    & span img {
+      height: 84px !important;
+    }
   }
 `;
 
