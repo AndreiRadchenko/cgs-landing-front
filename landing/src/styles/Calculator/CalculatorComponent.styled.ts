@@ -249,6 +249,10 @@ export const Wrapper = styled.div`
       height: 637px;
     }
   }
+
+  @supports (-webkit-hyphens: none) {
+    padding-top: 100px;
+  }
 `;
 
 export const ForeignObjectWrapper = styled.div`
