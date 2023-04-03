@@ -408,3 +408,10 @@ ${css`
     background-position: 0 400%;
   }
 `}`;
+
+export const horizontalGlow = keyframes`
+${css`
+  to {
+    background-position: 200% 0;
+  }
+`}`;
