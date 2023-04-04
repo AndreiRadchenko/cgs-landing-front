@@ -45,6 +45,12 @@ export const RateCardServiceDropDown = styled.div<IActiveAccordion>`
   }
 `;
 
+export const RateCardImageTitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
+`;
+
 export const RateCardLevelTable = styled.table`
   border-collapse: collapse;
   table-layout: fixed;

@@ -10,7 +10,7 @@ export class AdminRateCardService {
   }
 
   public updateTitle(title: string) {
-    return this.httpService.put(`api/rate-card`, title);
+    return this.httpService.put(`api/rate-card`, { title });
   }
 
   public createRateCardService(data: IService) {

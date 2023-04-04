@@ -5,6 +5,7 @@ import ArrowDown from "./SvgRateCard/ArrowDown";
 import { IService } from "../../types/Admin/AdminRateCard.types";
 
 import {
+  RateCardImageTitleWrapper,
   RateCardLine,
   RateCardServiceDropDown,
   RateCardServiceName,
@@ -22,12 +23,18 @@ const RateCardAccordion = ({ service }: { service: IService }) => {
   return (
     <>
       <RateCardServiceDropDown onClick={handleActive}>
-        <div>
-          <Image src={service?.image?.url} alt="service image" />
+        <RateCardImageTitleWrapper>
+          <Image
+            src={service?.image?.url}
+            height="51px"
+            width="51px"
+            objectFit="contain"
+            alt="service image"
+          />
           <RateCardServiceName isActive={isActive}>
             {service.name}
           </RateCardServiceName>
-        </div>
+        </RateCardImageTitleWrapper>
         <ArrowDown isActive={isActive} />
       </RateCardServiceDropDown>
       {isActive && <RateCardServiceInfo levels={service.levels} />}

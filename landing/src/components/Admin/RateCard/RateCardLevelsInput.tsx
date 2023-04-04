@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FieldArray, useFormikContext } from "formik";
+import { Field, FieldArray, useFormikContext } from "formik";
 
 import PlusBtn from "./plusBtn";
 import TrashIconBtn from "./trashIconBtn";
@@ -21,13 +21,14 @@ import {
 
 const RateCardLevelsInput = () => {
   const { values } = useFormikContext<IService>();
+  console.log(values);
 
   const newLevel = {
     name: "",
     joints: {
       joint_name: false,
-      joint_tech: false,
       joint_cost: false,
+      joint_tech: false,
     },
     values: [
       {
@@ -53,12 +54,14 @@ const RateCardLevelsInput = () => {
                 <RateCardJointWrapper>
                   <span>Level</span>
                   <JointCheckboxWrapper>
-                    <input
+                    <Field
                       type="checkbox"
-                      id={`${values.name}${level.name}${idx}`}
-                      name={`${values.name}${level.name}${idx}`}
+                      id={`levels[${idx}].joints.joint_name.${values._id}`}
+                      name={`levels[${idx}].joints.joint_name`}
                     />
-                    <label htmlFor={`${values.name}${level.name}${idx}`}>
+                    <label
+                      htmlFor={`levels[${idx}].joints.joint_name.${values._id}`}
+                    >
                       joint level
                     </label>
                   </JointCheckboxWrapper>
@@ -80,12 +83,14 @@ const RateCardLevelsInput = () => {
                       <RateCardJointWrapper>
                         <span>Technology</span>
                         <JointCheckboxWrapper>
-                          <input
+                          <Field
                             type="checkbox"
-                            id={`${values.name}technology${idx}`}
-                            name={`${values.name}technology${idx}`}
+                            id={`levels[${idx}].joints.joint_tech.${values._id}`}
+                            name={`levels[${idx}].joints.joint_tech`}
                           />
-                          <label htmlFor={`${values.name}technology${idx}`}>
+                          <label
+                            htmlFor={`levels[${idx}].joints.joint_tech.${values._id}`}
+                          >
                             joint tech
                           </label>
                         </JointCheckboxWrapper>
@@ -95,12 +100,14 @@ const RateCardLevelsInput = () => {
                       <RateCardJointWrapper>
                         <span>Cost</span>
                         <JointCheckboxWrapper>
-                          <input
+                          <Field
                             type="checkbox"
-                            id={`${values.name}cost${idx}`}
-                            name={`${values.name}cost${idx}`}
+                            id={`levels[${idx}].joints.joint_cost.${values._id}`}
+                            name={`levels[${idx}].joints.joint_cost`}
                           />
-                          <label htmlFor={`${values.name}cost${idx}`}>
+                          <label
+                            htmlFor={`levels[${idx}].joints.joint_cost.${values._id}`}
+                          >
                             joint rate
                           </label>
                         </JointCheckboxWrapper>
