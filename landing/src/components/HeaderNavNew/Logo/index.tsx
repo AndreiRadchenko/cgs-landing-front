@@ -1,23 +1,18 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import Image from "next/image";
 import * as Styled from "../../../styles/Logo.styled";
-import logoWithoutText from "../../../../public/logoWithoutText.svg";
+import headerLogo from "../../../../public/HomePageDecoration/headerLogo.svg";
 
-interface LogoProps {
-  textStyle?: CSSProperties;
-}
-
-const Logo = ({ textStyle }: LogoProps) => {
+const Logo = () => {
   return (
     <Styled.LogoWrapper>
       <Styled.ImageWrapper>
         <Image
-          src={logoWithoutText}
+          src={headerLogo}
           alt="logo without the text"
           objectFit="contain"
         />
       </Styled.ImageWrapper>
-      <Styled.LogoText style={textStyle}>СGS-team</Styled.LogoText>
     </Styled.LogoWrapper>
   );
 };

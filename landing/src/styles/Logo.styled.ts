@@ -5,7 +5,7 @@ export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 106px;
-  height: 100%;
+  height: 32px;
 
   &.calculator {
     width: 106px !important;
@@ -68,22 +68,6 @@ export const LogoText = styled.p`
 
 export const ImageWrapper = styled.div`
   position: relative;
-  width: 34px;
-  height: 32px;
-
-  @media (max-width: 1280px) {
-    width: 28px;
-    height: 26px;
-  }
-
-  @media (max-width: 1110px) {
-    width: 23px;
-    height: 22px;
-    font-size: 12px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 34px;
-    height: 32px;
-  }
+  width: 100%;
+  height: auto;
 `;
