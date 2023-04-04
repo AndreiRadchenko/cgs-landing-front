@@ -552,15 +552,27 @@ export const FooterButtonWrapper = styled.span`
   margin-right: 28px;
 
   &.btn {
-    flex-direction: row-reverse;
     margin-top: 1rem;
     margin-left: 0;
+  }
+
+  & .homepage-footer-button {
+    display: flex;
+    min-width: 188px;
+    min-height: 58px;
+    align-items: center;
+    justify-content: center;
   }
 
   @media ${themes.primary.media.maxMobile} {
     &.btn {
       justify-content: flex-end;
       flex-direction: column;
+    }
+
+    & .homepage-footer-button {
+      height: 54px;
+      width: 178px;
     }
   }
 `;
@@ -645,7 +657,7 @@ export const ButtonShareTextWrapper = styled.div`
   font-size: 0.75rem;
 
   &.footer {
-    margin-inline: 0 1.1666em;
+    margin-inline: 1.1666em 0;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -656,6 +668,10 @@ export const ButtonShareTextWrapper = styled.div`
     margin-top: 1.428em;
     margin-left: 0;
     font-size: 0.75rem;
+
+    &.footer {
+      margin-inline: 0;
+    }
   }
 `;
 
