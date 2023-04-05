@@ -71,6 +71,7 @@ const HeadBlock = () => {
           <Styled.ButtonWrapper ref={elRef}>
             <GetEstimationButton
               buttonLink={data?.buttonLink}
+              buttonText={data?.button}
               withEstimation
               buttonClassName={buttonClassName}
             />

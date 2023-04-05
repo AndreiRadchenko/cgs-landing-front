@@ -42,7 +42,7 @@ export const ContentWrapper = styled.div`
 
 export const TextBlock = styled.div<ISlide>`
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
   flex-basis: 30%;
   opacity: 0;
@@ -96,9 +96,11 @@ export const BigDigit = styled.div`
   -webkit-text-stroke: 1.6px ${themes.primary.colors.primary};
   text-shadow: 7px 2px 0px ${themes.primary.colors.primary};
   margin-right: 22px;
+  margin-top: -18px;
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 4.4em;
+    margin-top: -26px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -121,7 +123,7 @@ export const BigDigit = styled.div`
 `;
 
 export const TextContent = styled.div`
-  font-size: 1.375em;
+  font-size: 1.26em;
   line-height: 160%;
   margin-bottom: 0.25em;
 

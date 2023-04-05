@@ -9,7 +9,7 @@ export interface IFontSize {
 
 export const RowContainer = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 0.5em;
 
   @media ${themes.primary.media.maxMobile} {
     gap: 2px;
@@ -232,9 +232,9 @@ export const LongArrowWrapper = styled.div`
   margin-left: auto;
   width: 30vw;
   position: relative;
+  flex-grow: 1;
 
   @media ${themes.primary.media.minLaptop} {
-    margin-left: 10px;
     width: 20vw;
   }
   @media ${themes.primary.media.minPCFullHD} {
@@ -362,7 +362,6 @@ export const Subtitle = styled.div`
   span {
     &.blue {
       color: ${themes.primary.colors.darkBlue};
-      width: 11ch;
       height: 5vw;
       white-space: nowrap;
     }
@@ -415,7 +414,12 @@ export const Subtitle = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 6.5vw;
+    margin-top: 60px;
+    margin-bottom: 20px;
     row-gap: 0px;
+    p {
+      margin: 0;
+    }
 
     & u {
       text-decoration-thickness: 1px;
@@ -436,8 +440,6 @@ export const Subtitle = styled.div`
     }
 
     & span {
-      white-space: normal !important;
-
       &.blue {
         width: 43.805vw;
         height: 5vw;
@@ -451,40 +453,18 @@ export const Subtitle = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 1.75rem;
-    &.small {
-      line-height: 132%;
-      font-size: 2rem;
-      display: inline-block;
-      white-space: nowrap;
-    }
-    &.small div {
-      flex-wrap: wrap;
-    }
+    font-size: 9.3vw;
 
-    span {
-      &.range {
-        display: inline-block;
-        width: 70.805vw;
+    & span {
+      &.blue {
+        width: 40.805vw;
+        height: 5vw;
       }
-    }
-  }
 
-  @media (max-width: 430px) {
-    &.footer {
-      margin-top: 110px;
-      font-size: 2rem;
-    }
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    font-size: 1.475rem;
-    &.small {
-      line-height: 132%;
-      font-size: 7.5vw;
-    }
-    &.small div {
-      flex-wrap: nowrap;
+      &.tech {
+        width: 5.8em;
+        height: 5vw;
+      }
     }
   }
 `;
@@ -572,15 +552,27 @@ export const FooterButtonWrapper = styled.span`
   margin-right: 28px;
 
   &.btn {
-    flex-direction: row-reverse;
     margin-top: 1rem;
     margin-left: 0;
+  }
+
+  & .homepage-footer-button {
+    display: flex;
+    min-width: 188px;
+    min-height: 58px;
+    align-items: center;
+    justify-content: center;
   }
 
   @media ${themes.primary.media.maxMobile} {
     &.btn {
       justify-content: flex-end;
       flex-direction: column;
+    }
+
+    & .homepage-footer-button {
+      height: 54px;
+      width: 178px;
     }
   }
 `;
@@ -665,7 +657,7 @@ export const ButtonShareTextWrapper = styled.div`
   font-size: 0.75rem;
 
   &.footer {
-    margin-inline: 0 1.1666em;
+    margin-inline: 1.1666em 0;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -676,6 +668,10 @@ export const ButtonShareTextWrapper = styled.div`
     margin-top: 1.428em;
     margin-left: 0;
     font-size: 0.75rem;
+
+    &.footer {
+      margin-inline: 0;
+    }
   }
 `;
 
@@ -776,3 +772,31 @@ export const WhatsAppIconWrapper = styled.div`
 `;
 
 export const FooterSection = styled.section``;
+
+export const CalculatorAndChatWrapper = styled.div`
+  position: fixed;
+  right: 0;
+  top: 45%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  gap: 10px;
+
+  /* height: 18.833em; */
+  z-index: 13;
+
+  @media ${themes.primary.media.maxMobile} {
+    top: 27vw;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    position: fixed;
+    height: auto;
+    top: auto;
+    bottom: 0;
+    flex-direction: row;
+    gap: 0;
+  }
+`;

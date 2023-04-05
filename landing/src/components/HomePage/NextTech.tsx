@@ -70,7 +70,7 @@ const NextTech = () => {
       <Styled.Subtitle className="small">
         {width && width < 475 ? (
           <>
-            wide&nbsp;
+            wide
             <span className={"blue range"}>
               <ScrambleText text={"tech-range"} />
             </span>
@@ -90,19 +90,19 @@ const NextTech = () => {
         ) : (
           <>
             <Styled.RowContainer>
-              wide&nbsp;
+              wide
               <span className={"blue"}>
                 {typeof window !== "undefined" && (
                   <ScrambleText text={"tech-range"} />
                 )}
               </span>
-              &nbsp;
               <Styled.LongArrowWrapper>
                 <Image
                   src={longArrow.src}
                   alt="wide tech long arrow"
                   layout="fill"
                   objectFit="contain"
+                  objectPosition={"50% 57%"}
                 />
               </Styled.LongArrowWrapper>
             </Styled.RowContainer>

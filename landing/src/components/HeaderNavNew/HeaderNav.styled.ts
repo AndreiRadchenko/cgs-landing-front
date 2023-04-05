@@ -26,6 +26,7 @@ export const NavBarWrapper = styled.div`
     height: 100%;
     transition: 0.3s;
     background-color: ${themes.primary.colors.blogBackground};
+    z-index: 36;
 
     &.scrolled {
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

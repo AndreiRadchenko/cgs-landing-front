@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 import LoaderImg from "../../../public/Calculator/calculatorLoader.gif";
 import { glow } from "../Animations.styled";
@@ -6,7 +6,8 @@ import { glow } from "../Animations.styled";
 export const CalculatorPreviewWrapper = styled.div`
   position: fixed;
   right: 0;
-  bottom: 60px;
+  top: 50%;
+  transform: translateY(-70px);
   height: 18.833em;
   z-index: 13;
 
@@ -34,12 +35,37 @@ export const CalculatorPreviewCube = styled.div`
   height: 18.66em;
 
   @media ${themes.primary.media.maxMobile} {
-    width: 100vw;
+    width: 82vw;
     height: 60px;
+  }
+
+  /* Firefox */
+  @-moz-document url-prefix() {
+    width: 57px;
+
+    @media ${themes.primary.media.maxMobile} {
+      width: 100vw;
+    }
+
+    @media ${themes.primary.media.minTabletLandScape} {
+      width: 64px;
+    }
+
+    @media ${themes.primary.media.minLaptop} {
+      width: 57px;
+    }
+
+    @media ${themes.primary.media.minPC} {
+      width: 64px;
+    }
   }
 `;
 
-export const CalculatorButton = styled.div`
+interface ICalculatorButton {
+  isChatOpen?: boolean;
+}
+
+export const CalculatorButton = styled.div<ICalculatorButton>`
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -57,12 +83,16 @@ export const CalculatorButton = styled.div`
   z-index: 2;
   transition: all 0.2s;
   position: relative;
-  background: linear-gradient(
+  background-color: ${themes.primary.colors.secondary};
+  background-image: ${({ isChatOpen }) =>
+    isChatOpen
+      ? "none"
+      : `linear-gradient(
     180deg,
     ${themes.primary.colors.mainGradientColor1},
     ${themes.primary.colors.mainGradientColor2},
     ${themes.primary.colors.mainGradientColor1}
-  );
+  )`};
   background-size: auto 400%;
   animation: ${glow} 12s linear infinite;
 
@@ -79,10 +109,14 @@ export const CalculatorButton = styled.div`
     transform-origin: top;
   }
 
-  &:hover + div,
-  .active + div {
-    left: -19.83em;
-  }
+  ${({ isChatOpen }) =>
+    !isChatOpen &&
+    css`
+      &:hover + div,
+      .active + div {
+        left: -19.83em;
+      }
+    `}
 
   @media ${themes.primary.media.maxMobile} {
     padding: 0.54em 0 1em;
@@ -103,7 +137,11 @@ export const CalculatorButton = styled.div`
   }
 `;
 
-export const CalculatorPreviewContentWrapper = styled.div`
+interface ICalculatorPreviewContentWrapper {
+  isChatOpen?: boolean;
+}
+
+export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewContentWrapper>`
   font-size: ${themes.primary.font.size.oneAndHalf};
   width: 19.83em;
   height: 100%;
@@ -146,10 +184,14 @@ export const CalculatorPreviewContentWrapper = styled.div`
     transform-origin: top;
   }
 
-  &.active,
-  &:hover {
-    left: -19.83em;
-  }
+  ${({ isChatOpen }) =>
+    !isChatOpen &&
+    css`
+      &.active,
+      &:hover {
+        left: -19.83em;
+      }
+    `}
 
   @media ${themes.primary.media.minPC} {
     padding-right: 1em;
@@ -228,6 +270,10 @@ export const Wrapper = styled.div`
       height: 637px;
     }
   }
+
+  @supports (-webkit-hyphens: none) {
+    padding-top: 100px;
+  }
 `;
 
 export const ForeignObjectWrapper = styled.div`
@@ -238,9 +284,40 @@ export const ForeignObjectWrapper = styled.div`
   align-items: center;
   position: relative;
 
+  & .loadingButton {
+    width: 190px;
+    height: 77px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+
   &.steps {
     align-items: flex-start;
     height: 97%;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    & .loadingButton {
+      width: 188px;
+      height: 61px;
+      padding: 0;
+    }
+  }
+
+  @media ${themes.primary.media.maxLaptop} {
+    & .loadingButton {
+      width: 168px;
+      height: 68px;
+      padding: 0;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    & .loadingButton {
+      width: 117px;
+      height: 50px;
+      padding: 0;
+    }
   }
 `;
 
@@ -379,6 +456,26 @@ export const StartButton = styled.button`
     bottom: auto;
   }
 
+  & .loader {
+    width: 48px;
+    height: 48px;
+    border: 5px dotted black;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
   &.invalid + div {
     opacity: 1;
     z-index: 3;
@@ -395,6 +492,12 @@ export const StartButton = styled.button`
     font-size: 1.346em;
     line-height: 99%;
     box-shadow: 5.52438px 1.57839px 0px ${themes.primary.colors.primary};
+
+    & .loader {
+      width: 32px;
+      height: 32px;
+    }
+
     &.quit {
       padding: 1.27em 0.81em;
     }
@@ -706,6 +809,15 @@ export const ChooseModalWrapper = styled.div`
   }
 `;
 
+export const ChooseTextWrapper = styled.div`
+  height: 100%;
+
+  @supports (-webkit-hyphens: none) {
+    display: block;
+    position: relative;
+  }
+`;
+
 export const ChooseText = styled.div`
   text-transform: uppercase;
   cursor: pointer;
@@ -758,6 +870,28 @@ export const ChooseText = styled.div`
       height: 87.5%;
       width: 96.9%;
       margin-top: 6px;
+      margin-left: 0.3em;
+      font-size: 1.346em;
+    }
+  }
+
+  /* Safari */
+  @supports (-webkit-hyphens: none) {
+    position: absolute;
+    height: 56px;
+    width: 97.9%;
+    left: 1px;
+    margin-top: 0.4em;
+    margin-left: 0.34em;
+
+    display: flex;
+    align-items: center;
+    @media ${themes.primary.media.maxMobile} {
+      left: -0.5px;
+      height: 57px;
+      top: 1px;
+      width: 94.5%;
+      margin-top: 0px;
       margin-left: 0.3em;
       font-size: 1.346em;
     }
@@ -979,6 +1113,23 @@ export const CalculatorFieldWrapper = styled.div`
     &.email {
       margin-bottom: 0px;
     }
+    @supports (-webkit-hyphens: none) {
+      & #input-email {
+        height: 60px;
+
+        & #user-email {
+          line-height: 46px;
+        }
+      }
+    }
+  }
+
+  /* Safari */
+  @supports (-webkit-hyphens: none) {
+    & #input-email {
+      padding-top: 24px;
+      padding-bottom: 25px;
+    }
   }
 `;
 
@@ -1048,6 +1199,34 @@ export const Disabled = styled.div`
     background-color: ${themes.primary.colors.blogBackground};
     z-index: 3;
     opacity: 0.8;
+  }
+`;
+
+export const SpinnerWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  & .loader {
+    width: 60px;
+    height: 60px;
+    border: 5px dotted black;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 `;
 
