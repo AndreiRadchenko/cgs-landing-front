@@ -25,6 +25,7 @@ const CalculatorEmailField = ({
         <Styled.LeftBlackBorder />
         <Styled.CalculatorInputFields
           className="email"
+          id="input-email"
           onClick={handleInputClick}
         >
           <TieUpInput

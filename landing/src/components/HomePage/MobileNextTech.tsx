@@ -71,13 +71,12 @@ const MobileNextTech = () => {
         ) : (
           <>
             <Styled.RowContainer>
-              wide&nbsp;
+              wide
               <span className={"blue"}>
                 {typeof window !== "undefined" && (
                   <ScrambleText text={"tech-range"} />
                 )}
               </span>
-              &nbsp;
               <Styled.LongArrow src={longArrowMobile.src} />
             </Styled.RowContainer>
             <Styled.RowContainer>Innovative customer-value</Styled.RowContainer>

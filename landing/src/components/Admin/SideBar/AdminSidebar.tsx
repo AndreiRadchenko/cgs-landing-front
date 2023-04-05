@@ -13,6 +13,7 @@ import {
   PortfolioIcon,
   ServiceIcon,
   RateCardIcon,
+  SupportChatIcon,
 } from "./ListItemImages";
 
 const AdminSidebar = () => {
@@ -23,6 +24,7 @@ const AdminSidebar = () => {
   const pushCalculator = () => router.push(ROUTE_KEYS.AdminCalculator);
   const pushEstimationForm = () => router.push(ROUTE_KEYS.AdminEstimationForm);
   const pushRateCard = () => router.push(ROUTE_KEYS.AdminRateCard);
+  const pushSupportChat = () => router.push(ROUTE_KEYS.AdminSupportChat);
 
   const currentPath =
     router.pathname.split("/")[router.pathname.split("/").length - 1];
@@ -193,6 +195,14 @@ const AdminSidebar = () => {
         >
           <RateCardIcon open={false} />
           rate card
+        </Styled.AdminSidebarMenuElement>
+        <Styled.AdminSidebarMenuElement
+          onClick={pushSupportChat}
+          itemProp={currentPath}
+          property={ROUTE_KEYS.AdminSupportChat}
+        >
+          <SupportChatIcon open={false} />
+          support chat
         </Styled.AdminSidebarMenuElement>
       </Styled.AdminSidebarMenu>
     </Styled.AdminSidebar>

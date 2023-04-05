@@ -6,11 +6,15 @@ import BurgerFooter from "./BurgerFooter";
 interface IBurgerMenuProps {
   isOpen: boolean;
   children?: ReactNode[];
+  burgerRef?: React.RefObject<HTMLDivElement>;
 }
 
-const BurgerMenu: FC<IBurgerMenuProps> = ({ isOpen, children }) => {
+const BurgerMenu: FC<IBurgerMenuProps> = ({ isOpen, children, burgerRef }) => {
   return (
-    <StyledThisComp.BurgerWrapper className={isOpen ? "open" : "hide"}>
+    <StyledThisComp.BurgerWrapper
+      ref={burgerRef}
+      className={isOpen ? "open" : "hide"}
+    >
       <StyledThisComp.BurgerContent>
         <div>
           <StyledThisComp.BurgerContainer>

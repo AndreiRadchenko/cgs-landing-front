@@ -10,6 +10,10 @@ export const ContentWrapper = styled.div`
   padding-top: 9.56em;
   max-width: 50%;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: 54%;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     padding-top: 1em;
     max-width: 100%;

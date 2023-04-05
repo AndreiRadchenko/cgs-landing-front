@@ -25,5 +25,6 @@ export interface IBookModalData {
   name: string;
   email: string;
   phone: string;
+  country: string;
   service: string;
 }

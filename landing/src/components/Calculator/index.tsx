@@ -26,7 +26,11 @@ import {
 } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
-const Calculator = () => {
+interface ICalculatorProps {
+  isChatOpen: boolean;
+}
+
+const Calculator = ({ isChatOpen }: ICalculatorProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>("< start >");
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -45,13 +49,13 @@ const Calculator = () => {
     adminCalculatorService.getCalculatorData()
   );
 
-  const { data: classicStepsData, isLoading: classicLoading } = useQuery(
+  const { data: classicStepsData } = useQuery(
     [queryKeys.getCalculatorClassicSteps],
     () => adminCalculatorService.getCalculatorClassicSteps(),
     { enabled: startLoading }
   );
 
-  const { data: blockchainStepsData, isLoading: blockchainLoading } = useQuery(
+  const { data: blockchainStepsData } = useQuery(
     [queryKeys.getCalculatorBlockchainSteps],
     () => adminCalculatorService.getCalculatorBlockchainSteps(),
     { enabled: startLoading }
@@ -78,13 +82,6 @@ const Calculator = () => {
 
   const handleQuit = () => {
     setIsQuitting(true);
-  };
-
-  const handlePagerRightButtonClick = () => {
-    setStartLoading(true);
-  };
-  const handlePagerLeftButtonClick = () => {
-    setStartLoading(false);
   };
 
   const handleCompletedPagerButtonsClick = () => {
@@ -133,6 +130,7 @@ const Calculator = () => {
         title: el.title,
         answer: "",
         subStepAnswer: "",
+        subStepRequired: el.subStepRequired || "",
       };
     }),
     email: "",
@@ -207,7 +205,7 @@ const Calculator = () => {
       return resultObj;
     };
 
-    const testName = (
+    const emailCalculation = (
       definedStepData: void | ICalculatorStep[] | undefined
     ) => {
       if (!definedStepData) return;
@@ -248,8 +246,10 @@ const Calculator = () => {
       getRolesCoefObject(matchData, resultObjRolesCoef);
       getRolesCoefObject(matchSubStepData, resultObjRolesCoef);
 
-      Object.entries(resultObjRolesCoef).map(
-        (roleCoefArr) => (resultObj[roleCoefArr[0]] *= 1 + roleCoefArr[1])
+      Object.entries(resultObjRolesCoef).map((roleCoefArr) =>
+        resultObj[roleCoefArr[0]]
+          ? (resultObj[roleCoefArr[0]] *= 1 + roleCoefArr[1])
+          : undefined
       );
 
       const endCoef =
@@ -327,7 +327,7 @@ const Calculator = () => {
       }
     };
 
-    testName(stepsData);
+    emailCalculation(stepsData);
   };
 
   const handleMouseOver = () => {
@@ -346,35 +346,37 @@ const Calculator = () => {
 
   return (
     <>
-      <Styled.CalculatorPreviewWrapper>
-        <Styled.CalculatorPreviewCube className={hoverClassName}>
-          <Styled.CalculatorPreview className={hoverClassName}>
-            <Styled.CalculatorButton
-              onMouseOver={handleMouseOver}
-              onMouseLeave={handleMouseLeave}
-            >
-              calculator
-            </Styled.CalculatorButton>
-            <Styled.CalculatorPreviewContentWrapper
-              onClick={handleOpen}
-              onMouseOver={handleMouseOver}
-              onMouseLeave={handleMouseLeave}
-              className={hoverClassName}
-            >
-              <span>
-                <SplitBrackets text={data?.previewTextMessage} />
-              </span>
-              <div>
-                <BlackButtonComponent
-                  onClick={handleOpen}
-                  text="Start calculation"
-                  style={{ padding: "1em 2.15em" }}
-                />
-              </div>
-            </Styled.CalculatorPreviewContentWrapper>
-          </Styled.CalculatorPreview>
-        </Styled.CalculatorPreviewCube>
-      </Styled.CalculatorPreviewWrapper>
+      {/* <Styled.CalculatorPreviewWrapper> */}
+      <Styled.CalculatorPreviewCube className={hoverClassName}>
+        <Styled.CalculatorPreview className={hoverClassName}>
+          <Styled.CalculatorButton
+            isChatOpen={isChatOpen}
+            onMouseOver={handleMouseOver}
+            onMouseLeave={handleMouseLeave}
+          >
+            calculator
+          </Styled.CalculatorButton>
+          <Styled.CalculatorPreviewContentWrapper
+            isChatOpen={isChatOpen}
+            onClick={handleOpen}
+            onMouseOver={handleMouseOver}
+            onMouseLeave={handleMouseLeave}
+            className={hoverClassName}
+          >
+            <span>
+              <SplitBrackets text={data?.previewTextMessage} />
+            </span>
+            <div>
+              <BlackButtonComponent
+                onClick={handleOpen}
+                text="Start calculation"
+                style={{ padding: "1em 2.15em" }}
+              />
+            </div>
+          </Styled.CalculatorPreviewContentWrapper>
+        </Styled.CalculatorPreview>
+      </Styled.CalculatorPreviewCube>
+      {/* </Styled.CalculatorPreviewWrapper> */}
       {isCompleted ? (
         <CalculatorCompletedPager
           finishClick={finishPagerClick}
@@ -458,12 +460,8 @@ const Calculator = () => {
               handleButtonClick={handleButtonClick}
               handleClassicClick={handleClassicClick}
               handleClose={handleClose}
-              handlePagerRightButtonClick={handlePagerRightButtonClick}
-              handlePagerLeftButtonClick={handlePagerLeftButtonClick}
               buttonText={buttonText}
               startLoading={startLoading}
-              classicLoading={true}
-              blockchainLoading={true}
               classicStepsData={classicStepsData}
               blockchainStepsData={blockchainStepsData}
             />

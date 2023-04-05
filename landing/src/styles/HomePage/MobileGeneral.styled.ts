@@ -10,6 +10,7 @@ export interface IFontSize {
 
 export const RowContainer = styled.div`
   display: flex;
+  gap: 0.5em;
 `;
 
 export const BlackButton = styled.a<IFontSize>`
@@ -96,31 +97,34 @@ export const BlackButton = styled.a<IFontSize>`
 export const LongArrow = styled.img`
   display: inline-block;
   margin-left: auto;
+  padding-top: 1%;
   width: 30vw;
+  flex-grow: 1;
 
   @media ${themes.primary.media.minLaptop} {
-    margin-left: 10px;
     width: 20vw;
   }
+
   @media ${themes.primary.media.minPCFullHD} {
     width: 524px;
   }
+
   @media (max-width: 1360px) {
     width: 35vw;
   }
+
   @media (max-width: 1370px) {
     width: 28vw;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    margin-left: 10px;
     width: 22vw;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-left: 0;
-    margin-right: 5px;
     width: 110px;
+    flex-grow: 0;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
@@ -156,7 +160,6 @@ export const Subtitle = styled.div`
   span {
     &.blue {
       color: ${themes.primary.colors.darkBlue};
-      width: 11ch;
       height: 5vw;
       white-space: nowrap;
     }
@@ -232,7 +235,6 @@ export const Subtitle = styled.div`
       white-space: normal !important;
 
       &.blue {
-        width: 43.805vw;
         height: 5vw;
       }
 
