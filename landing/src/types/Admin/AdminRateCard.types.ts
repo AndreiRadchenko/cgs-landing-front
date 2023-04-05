@@ -43,3 +43,8 @@ export interface IRateCardServiceProps {
   services: IService[];
   setServices: Dispatch<SetStateAction<IService[] | null>>;
 }
+
+export interface IAddServiceProps {
+  servicesAvailable: number;
+  service: IService;
+}

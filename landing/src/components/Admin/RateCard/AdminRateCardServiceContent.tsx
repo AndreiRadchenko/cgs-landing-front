@@ -47,7 +47,10 @@ const AdminRateCardServiceContent = ({
           nextBtn
           onNextClick={() => handleNextClick(idx + 1)}
         >
-          <AdminAddService service={service} />
+          <AdminAddService
+            servicesAvailable={services.length}
+            service={service}
+          />
         </AdminBlockDropDown>
       ))}
     </>

@@ -29,7 +29,7 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
                 idx === 0 ? (
                   <RateCardLevelData
                     rowSpan={levels.length}
-                    style={{ width: "19%" }}
+                    style={{ width: "19%", textAlign: "center" }}
                   >
                     {level.name}
                   </RateCardLevelData>
@@ -43,25 +43,34 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
                 idx === 0 ? (
                   <RateCardLevelData
                     rowSpan={levels.length}
-                    style={{ width: "59%" }}
+                    style={{ width: "59%", textAlign: "center" }}
                   >
                     {level.values.map((value) => value.technology).join(" // ")}
                   </RateCardLevelData>
                 ) : null
               ) : (
                 <RateCardLevelData style={{ width: "59%" }}>
-                  {level.values.map((value) => value.technology).join(" // ")}
+                  {level.values
+                    .map((value) => value.technology)
+                    .filter((tech) => tech)
+                    .join(" // ")}
                 </RateCardLevelData>
               )}
               {joinCost ? (
                 idx === 0 ? (
-                  <RateCardLevelData rowSpan={levels.length}>
+                  <RateCardLevelData
+                    rowSpan={levels.length}
+                    style={{ textAlign: "center" }}
+                  >
                     {level.values.map((value) => value.cost).join(" // ")}
                   </RateCardLevelData>
                 ) : null
               ) : (
                 <RateCardLevelData>
-                  {level.values.map((value) => value.cost).join(" // ")}
+                  {level.values
+                    .map((value) => value.cost)
+                    .filter((cost) => cost)
+                    .join(" // ")}
                 </RateCardLevelData>
               )}
             </RateCardLevelRow>

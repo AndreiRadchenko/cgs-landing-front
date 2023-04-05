@@ -142,7 +142,7 @@ export const RateCardBtnContainer = styled.div`
   margin-bottom: 50px;
 `;
 
-export const DeleteBtn = styled.div`
+export const DeleteBtn = styled.button`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -155,6 +155,13 @@ export const DeleteBtn = styled.div`
   border: 2px dashed #ff0000;
   text-transform: uppercase;
   padding: 10px 15px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    transition: 0.3s;
+    scale: 1.05;
+  }
 `;
 
 export const RateCardLevelWrapper = styled.div`
@@ -221,15 +228,6 @@ export const AddNextTechCost = styled.div`
     transition: 0.3s scale;
     color: ${themes.primary.colors.calculatorDarkBlue};
   }
-`;
-
-export const DeleteImage = styled.p`
-  font-family: ${themes.primary.font.family.gilroy};
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  color: ${themes.primary.colors.adminRed};
-  margin: 3px 0;
 `;
 
 export const RateCardJointWrapper = styled.div`

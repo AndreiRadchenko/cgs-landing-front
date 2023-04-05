@@ -8,7 +8,10 @@ import SaveBtn from "../Global/SaveBtn";
 import TrashIconBtn from "./trashIconBtn";
 import RateCardLevelsInput from "./RateCardLevelsInput";
 
-import { IService } from "../../../types/Admin/AdminRateCard.types";
+import {
+  IAddServiceProps,
+  IService,
+} from "../../../types/Admin/AdminRateCard.types";
 
 import {
   AddRateCardInfo,
@@ -23,7 +26,7 @@ import { queryKeys } from "../../../consts/queryKeys";
 
 import { adminRateCardService } from "../../../services/adminRateCard";
 
-const AdminAddService = ({ service }: { service: IService }) => {
+const AdminAddService = ({ servicesAvailable, service }: IAddServiceProps) => {
   const queryClient = useQueryClient();
 
   const [addRateCardInfo, setAddRateCardInfo] = useState(service.newService);
@@ -101,7 +104,10 @@ const AdminAddService = ({ service }: { service: IService }) => {
           {!addRateCardInfo && <RateCardLevelsInput />}
           <RateCardBtnContainer>
             <SaveBtn handleClick={handleSubmit} />
-            <DeleteBtn onClick={() => values._id && handleDelete(values._id)}>
+            <DeleteBtn
+              disabled={servicesAvailable === 1}
+              onClick={() => values._id && handleDelete(values._id)}
+            >
               <TrashIconBtn />
               Delete Block
             </DeleteBtn>

@@ -7,6 +7,10 @@ interface IActiveAccordion {
 
 export const RateCardContentContainer = styled.div`
   padding: 58px 51px 113px;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 8px 25px 63px;
+  }
 `;
 
 export const RateCardLine = styled.div`
@@ -26,6 +30,11 @@ export const RateCardServiceName = styled.h3<IActiveAccordion>`
       : themes.primary.colors.primary};
   margin: 0;
   padding: 0;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 16px;
+    line-height: 25.6px;
+  }
 `;
 
 export const RateCardServiceDropDown = styled.div<IActiveAccordion>`
@@ -34,6 +43,15 @@ export const RateCardServiceDropDown = styled.div<IActiveAccordion>`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 10px 15px 10px 10px;
+
+    svg {
+      width: 15px;
+      height: 8px;
+    }
+  }
 
   &:hover {
     svg path {
@@ -49,6 +67,15 @@ export const RateCardImageTitleWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
+
+  @media ${themes.primary.media.maxMobile} {
+    gap: 8px;
+
+    span img {
+      width: 34px !important;
+      height: 34px !important;
+    }
+  }
 `;
 
 export const RateCardLevelTable = styled.table`
@@ -68,4 +95,21 @@ export const RateCardLevelData = styled.td`
   letter-spacing: 0.05em;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
+
+  &:first-child {
+    width: 80px !important;
+  }
+  &:nth-child(2):hover,
+  &:nth-child(2):hover + &:last-child {
+    color: ${themes.primary.colors.darkBlue};
+  }
+  &:last-child {
+    width: 80px !important;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+    line-height: 22.4px;
+    padding: 17px 8px;
+  }
 `;
