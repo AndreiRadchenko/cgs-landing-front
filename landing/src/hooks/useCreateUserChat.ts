@@ -46,6 +46,7 @@ export const useCreateUserChat = ({
 
   const handleSubmit = async (values: IChatEmailForm) => {
     const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY || "";
+    const projectId = process.env.NEXT_PUBLIC_PROJECT_ID || "";
     const chatAdmin = process.env.NEXT_PUBLIC_CHAT_ADMIN || "";
     const userResult = await getOrCreateUser({
       data: {
@@ -61,9 +62,16 @@ export const useCreateUserChat = ({
     const chatResult = await getOrCreateChat({
       data: {
         usernames: [chatAdmin, values.email],
+        title: values.email,
         is_direct_chat: true,
       },
-      config: { headers: { "Private-Key": privateKey } },
+      config: {
+        headers: {
+          "Project-ID": projectId,
+          "User-Name": values.email,
+          "User-Secret": values.email,
+        },
+      },
     });
 
     const creationDate = new Date();

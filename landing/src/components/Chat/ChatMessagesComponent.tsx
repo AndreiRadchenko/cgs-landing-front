@@ -16,7 +16,7 @@ interface IChatMessagesComponentProps {
   openChatTime: string;
   sentEmailTime: string;
   chatUserInfo: IChatUserInfo | null;
-  setOperator: React.Dispatch<React.SetStateAction<string>>;
+  setOperator: React.Dispatch<React.SetStateAction<string | null>>;
   setNewMessageAmount: React.Dispatch<React.SetStateAction<number>>;
   setChatUserInfo: React.Dispatch<React.SetStateAction<IChatUserInfo | null>>;
   setUserEmail: React.Dispatch<React.SetStateAction<string>>;
@@ -46,8 +46,8 @@ const ChatMessagesComponent = ({
   }, []);
 
   useEffect(() => {
-    if (chatProps.chat?.admin.first_name) {
-      setOperator(chatProps.chat?.admin.first_name);
+    if (chatProps.chat) {
+      setOperator(chatProps.chat?.people[0].person.first_name);
     }
 
     const currentTime = new Date();

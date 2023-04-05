@@ -20,7 +20,7 @@ const ChatComponent = ({
   const [userEmail, setUserEmail] = useState<string>("");
   const [sentEmailTime, setSentEmailTime] = useState<string>("");
   const [chatUserInfo, setChatUserInfo] = useState<IChatUserInfo | null>(null);
-  const [operator, setOperator] = useState<string>("");
+  const [operator, setOperator] = useState<string | null>(null);
 
   useEffect(() => {
     const chatUserData = localStorage.getItem(storeKeys.chatUserData);

@@ -11,6 +11,7 @@ export interface IChatUserResponse {
 
 export interface IChat {
   usernames: string[];
+  title: string;
   is_direct_chat: boolean;
 }
 
