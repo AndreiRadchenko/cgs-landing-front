@@ -54,11 +54,7 @@ const ProfBlock = () => {
             buttonLink={data?.buttonLink}
             buttonText={data.button}
             withEstimation
-            style={{
-              padding: "1.117em 3.6em",
-              fontSize: "1.5em",
-              whiteSpace: "nowrap",
-            }}
+            buttonClassName="social-button"
           />
           <ButtonShareComponent />
         </Styled.ButtonWrapper>

@@ -30,11 +30,7 @@ const HeadBlock = () => {
               buttonLink={data?.buttonLink}
               withEstimation
               buttonText={data.button}
-              style={{
-                padding: "1.195em 2.805em",
-                fontSize: "1.54em",
-                whiteSpace: "nowrap",
-              }}
+              buttonClassName="social-button"
             />
             <ButtonShareComponent />
           </Styled.ButtonWrapper>

@@ -26,10 +26,7 @@ const FooterBlock = () => {
               buttonLink={data?.buttonLink}
               buttonText={data.button}
               withEstimation
-              style={{
-                padding: "1.117em 3.862em",
-                fontSize: "1.125em",
-              }}
+              buttonClassName="social-button"
             />
             <ButtonShareComponent />
           </Styled.ButtonWrapper>

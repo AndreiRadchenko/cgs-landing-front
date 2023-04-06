@@ -33,11 +33,7 @@ const ProfessionalAuditBlock = () => {
                 buttonLink={data?.buttonLink}
                 buttonText={data.button}
                 withEstimation
-                style={{
-                  padding: "1.117em 2.537em",
-                  fontSize: "1.5em",
-                  whiteSpace: "nowrap",
-                }}
+                buttonClassName="social-button"
               />
               <ButtonShareComponent />
             </Styled.ButtonWrapper>
