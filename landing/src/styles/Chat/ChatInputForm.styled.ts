@@ -40,14 +40,20 @@ export const TextField = styled.textarea`
   ${FieldSample}
   width: 80%;
   resize: none;
+  overflow: hidden;
+
+  ::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
 `;
 
 export const MessageFormWrapper = styled(ChatFormContainer)``;
 
 export const ImageButton = styled.span`
   display: block;
-  width: 2.83em;
-  height: 2.83em;
+  width: 2.125rem;
+  height: 2.125rem;
   border-radius: 50%;
   background-color: ${themes.primary.colors.darkedGrayBack};
   background-image: url(${attachmentIcon.src});
@@ -58,6 +64,8 @@ export const ImageButton = styled.span`
 export const MessageForm = styled.form`
   display: flex;
   justify-content: space-between;
+  align-items: start;
+  gap: 5px;
 `;
 
 export const AttachmentContainer = styled.div`
@@ -104,8 +112,7 @@ export const RemoveAttachButton = styled.button`
 
 export const SubmitIconButton = styled(RemoveAttachButton)`
   width: 4.25rem;
-  height: 2.325rem;
-  align-self: center;
+  height: 2.125rem;
   margin-left: auto;
   border-radius: 5px;
   color: ${themes.primary.colors.secondary};
