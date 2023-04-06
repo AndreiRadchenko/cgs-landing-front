@@ -337,7 +337,7 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
   const handleMouseLeave = () => {
     setTimeout(() => {
       setIsHovered(false);
-    }, 3000);
+    }, 1500);
   };
 
   DisableScrollBarHandler(isOpen);
