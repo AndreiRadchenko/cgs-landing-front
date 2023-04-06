@@ -70,9 +70,7 @@ const MessageFormComponent = ({
     }
   };
 
-  const handlePressEnter = (
-    event: React.KeyboardEvent<HTMLTextAreaElement>
-  ) => {
+  const handleInput = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter" && event.shiftKey == false) {
       event.preventDefault();
       formik.handleSubmit();
@@ -94,19 +92,18 @@ const MessageFormComponent = ({
               {formatChatAttachName(file[0].name)}
             </Styled.AttachmentName>
             <Styled.RemoveAttachButton onClick={handleRemoveAttach} />
-            <Styled.SubmitIconButton type="submit">
-              Send
-            </Styled.SubmitIconButton>
           </Styled.AttachmentContainer>
         ) : (
           <Styled.TextField
             name="text"
+            rows={2}
             placeholder="Write a message..."
             value={formik.values.text}
             onChange={formik.handleChange}
-            onKeyDown={handlePressEnter}
+            onKeyDown={handleInput}
           />
         )}
+        <Styled.SubmitIconButton type="submit">Send</Styled.SubmitIconButton>
 
         {!file && (
           <label htmlFor="upload-button">

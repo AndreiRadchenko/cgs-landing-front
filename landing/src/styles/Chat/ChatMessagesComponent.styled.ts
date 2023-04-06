@@ -86,8 +86,10 @@ export const MessageSender = styled.p`
 
 export const RecivedMessageBox = styled.p`
   width: fit-content;
+  max-width: 100%;
   padding: 0.67em;
 
+  overflow-wrap: break-word;
   line-height: 1.58em;
   font-weight: ${themes.primary.font.weight.normal};
   font-size: 1.17em;
