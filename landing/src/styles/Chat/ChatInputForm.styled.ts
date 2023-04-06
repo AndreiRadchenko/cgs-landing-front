@@ -16,10 +16,10 @@ const FieldSample = css`
   padding: 0;
 
   font-family: inherit;
-  font-weight: ${themes.primary.font.weight.semiBold};
+  font-weight: ${themes.primary.font.weight.normal};
   font-size: 1.33em;
   line-height: 1.83em;
-  color: ${themes.primary.colors.chatFormColor};
+  color: ${themes.primary.colors.primary};
 
   background-color: transparent;
 
@@ -92,10 +92,10 @@ export const AttachmentIcon = styled.div`
 
 export const AttachmentName = styled.p`
   margin: 0;
-  font-weight: ${themes.primary.font.weight.semiBold};
-  font-size: 1.33em;
+  font-weight: ${themes.primary.font.weight.normal};
+  font-size: 0.875rem;
   line-height: 1.83em;
-  color: ${themes.primary.colors.chatFormColor};
+  color: ${themes.primary.colors.primary};
 `;
 
 export const RemoveAttachButton = styled.button`

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import chatOpenButtonIcon from "../../../public/chatOpenButtonIcon.png";
+import chatOpenButtonIcon from "../../../public/chatOpenButtonIcon.svg";
 import chatCloseButtonIcon from "../../../public/chatCloseButtonIcon.svg";
 import messageBubbleCloseIcon from "../../../public/messageBubbleCloseIcon.svg";
 import { glow, horizontalGlow } from "../Animations.styled";
@@ -151,16 +151,23 @@ export const MessageBable = styled.div`
   position: absolute;
   bottom: -1rem;
   right: 6rem;
-  width: 12rem;
-  padding: 0.75rem 0.7rem;
+  width: 13.23rem;
+  padding: 0.75rem 0.625rem;
 
-  font-size: 0.75rem;
+  font-family: "NAMU";
+  font-size: 0.875rem;
   line-height: 1.4;
 
   border-radius: 0.5rem;
   border: 1px solid ${themes.primary.colors.primary};
   box-shadow: 0.3rem 0.3rem 0rem 0rem ${themes.primary.colors.primary};
   background-color: ${themes.primary.colors.secondary};
+
+  p {
+    position: relative;
+    margin: 0;
+    z-index: 3;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     bottom: 5.25rem;

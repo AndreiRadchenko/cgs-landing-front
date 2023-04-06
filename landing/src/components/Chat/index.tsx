@@ -49,7 +49,7 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
     <Styled.ChatWrapper ref={chatRef}>
       {!isChatOpen && isSowingBubble && (
         <Styled.MessageBable>
-          Hi! Welcome to our website. How can we help you?
+          <p>Hi! Welcome to our website. How can we help you?</p>
           <Styled.MessageBubbleCloseIcon onClick={hadleCloseBubble} />
         </Styled.MessageBable>
       )}
