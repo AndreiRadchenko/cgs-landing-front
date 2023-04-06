@@ -16,10 +16,10 @@ const FieldSample = css`
   padding: 0;
 
   font-family: inherit;
-  font-weight: ${themes.primary.font.weight.semiBold};
+  font-weight: ${themes.primary.font.weight.normal};
   font-size: 1.33em;
   line-height: 1.83em;
-  color: ${themes.primary.colors.chatFormColor};
+  color: ${themes.primary.colors.primary};
 
   background-color: transparent;
 
@@ -72,7 +72,7 @@ export const AttachmentContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.83em;
-  width: 100%;
+  width: 94%;
 `;
 
 export const AttachmentIcon = styled.div`
@@ -92,10 +92,10 @@ export const AttachmentIcon = styled.div`
 
 export const AttachmentName = styled.p`
   margin: 0;
-  font-weight: ${themes.primary.font.weight.semiBold};
-  font-size: 1.33em;
+  font-weight: ${themes.primary.font.weight.normal};
+  font-size: 0.875rem;
   line-height: 1.83em;
-  color: ${themes.primary.colors.chatFormColor};
+  color: ${themes.primary.colors.primary};
 `;
 
 export const RemoveAttachButton = styled.button`
@@ -111,7 +111,7 @@ export const RemoveAttachButton = styled.button`
 `;
 
 export const SubmitIconButton = styled(RemoveAttachButton)`
-  width: 4.25rem;
+  width: 4.325rem;
   height: 2.125rem;
   margin-left: auto;
   border-radius: 5px;

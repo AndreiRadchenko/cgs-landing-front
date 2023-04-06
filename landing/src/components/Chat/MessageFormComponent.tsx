@@ -103,8 +103,6 @@ const MessageFormComponent = ({
             onKeyDown={handleInput}
           />
         )}
-        <Styled.SubmitIconButton type="submit">Send</Styled.SubmitIconButton>
-
         {!file && (
           <label htmlFor="upload-button">
             <Styled.ImageButton />
@@ -118,6 +116,7 @@ const MessageFormComponent = ({
             />
           </label>
         )}
+        <Styled.SubmitIconButton type="submit">Send</Styled.SubmitIconButton>
       </Styled.MessageForm>
       <Styled.InputEmailError>{fileSizeError}</Styled.InputEmailError>
     </Styled.MessageFormWrapper>

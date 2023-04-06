@@ -5,12 +5,14 @@ interface IGreetingMessageComponent {
   userEmail: string;
   openChatTime: string;
   sentEmailTime: string;
+  isGreetingMeesageShow?: boolean;
 }
 
 const GreetingMessageComponent = ({
   userEmail,
   openChatTime,
   sentEmailTime,
+  isGreetingMeesageShow,
 }: IGreetingMessageComponent) => {
   return (
     <>
@@ -38,18 +40,20 @@ const GreetingMessageComponent = ({
               </Styled.SendedMessageTime>
             </Styled.MessagesWrapper>
           </Styled.SendedMessagesWrapper>
-          <Styled.RecievedMessagesWrapper>
-            <Styled.AvatarWrapper />
-            <Styled.MessagesWrapper>
-              <Styled.MessageSender>CGS-team</Styled.MessageSender>
-              <Styled.RecivedMessageBox>
-                How can I help your?
-              </Styled.RecivedMessageBox>
-              <Styled.RecievdMessageTime>
-                {sentEmailTime || openChatTime}
-              </Styled.RecievdMessageTime>
-            </Styled.MessagesWrapper>
-          </Styled.RecievedMessagesWrapper>
+          {isGreetingMeesageShow && (
+            <Styled.RecievedMessagesWrapper>
+              <Styled.AvatarWrapper />
+              <Styled.MessagesWrapper>
+                <Styled.MessageSender>CGS-team</Styled.MessageSender>
+                <Styled.RecivedMessageBox>
+                  How can we help your?
+                </Styled.RecivedMessageBox>
+                <Styled.RecievdMessageTime>
+                  {sentEmailTime || openChatTime}
+                </Styled.RecievdMessageTime>
+              </Styled.MessagesWrapper>
+            </Styled.RecievedMessagesWrapper>
+          )}
         </>
       )}
     </>

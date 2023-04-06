@@ -10,6 +10,7 @@ interface IMessageListComponent {
   userEmail: string;
   openChatTime: string;
   sentEmailTime: string;
+  isGreetingMeesageShow: boolean;
   messageProps: MessageListProps;
   setNewMessageAmount: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -20,6 +21,7 @@ const MessageListComponent = ({
   sentEmailTime,
   messageProps,
   setNewMessageAmount,
+  isGreetingMeesageShow,
 }: IMessageListComponent) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<MessageObject[]>([]);
@@ -57,7 +59,6 @@ const MessageListComponent = ({
       ref={containerRef}
       style={{
         ...style,
-        scrollBehavior: "smooth",
         height: "calc(100% - 86px)",
       }}
     >
@@ -65,6 +66,7 @@ const MessageListComponent = ({
         userEmail={userEmail}
         openChatTime={openChatTime}
         sentEmailTime={sentEmailTime}
+        isGreetingMeesageShow={isGreetingMeesageShow}
       />
       {messages &&
         messages.map((message, index, messagesArr) => {

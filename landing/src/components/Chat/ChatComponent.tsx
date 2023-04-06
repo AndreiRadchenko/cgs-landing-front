@@ -21,6 +21,8 @@ const ChatComponent = ({
   const [sentEmailTime, setSentEmailTime] = useState<string>("");
   const [chatUserInfo, setChatUserInfo] = useState<IChatUserInfo | null>(null);
   const [operator, setOperator] = useState<string | null>(null);
+  const [isGreetingMeesageShow, setIsGreetingMessageShow] =
+    useState<boolean>(false);
 
   useEffect(() => {
     const chatUserData = localStorage.getItem(storeKeys.chatUserData);
@@ -43,6 +45,8 @@ const ChatComponent = ({
           <ChatMessagesComponent
             userEmail={userEmail}
             openChatTime={openChatTime}
+            isGreetingMeesageShow={isGreetingMeesageShow}
+            setIsGreetingMessageShow={setIsGreetingMessageShow}
             sentEmailTime={sentEmailTime}
             chatUserInfo={chatUserInfo}
             setOperator={setOperator}
@@ -58,6 +62,7 @@ const ChatComponent = ({
               setUserEmail={setUserEmail}
               setSentEmailTime={setSentEmailTime}
               setChatUserInfo={setChatUserInfo}
+              setIsGreetingMessageShow={setIsGreetingMessageShow}
             />
           </Styled.ChatFormContainer>
         )}

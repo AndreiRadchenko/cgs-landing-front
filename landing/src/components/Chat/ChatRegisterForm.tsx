@@ -15,6 +15,7 @@ interface IChatRegisterFormProps {
   setChatUserInfo: React.Dispatch<React.SetStateAction<IChatUserInfo | null>>;
   setUserEmail: React.Dispatch<React.SetStateAction<string>>;
   setSentEmailTime: React.Dispatch<React.SetStateAction<string>>;
+  setIsGreetingMessageShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ChatRegisterForm = ({
@@ -22,11 +23,13 @@ const ChatRegisterForm = ({
   setUserEmail,
   setSentEmailTime,
   setChatUserInfo,
+  setIsGreetingMessageShow,
 }: IChatRegisterFormProps) => {
   const { handleSubmit } = useCreateUserChat({
     setUserEmail,
     setSentEmailTime,
     setChatUserInfo,
+    setIsGreetingMessageShow,
   });
   const formik = useFormik<IChatEmailForm>({
     initialValues: {
@@ -40,19 +43,22 @@ const ChatRegisterForm = ({
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} autoComplete="off">
-      <Styled.InputField
-        type="emai"
-        name="email"
-        value={formik.values.email}
-        onChange={formik.handleChange}
-        placeholder="Input your email"
-        autoFocus={!!isChatOpen}
-      />
-      <Styled.InputEmailError>
-        {formik.touched.email && formik.errors.email}
-      </Styled.InputEmailError>
-    </form>
+    <Styled.MessageForm onSubmit={formik.handleSubmit} autoComplete="off">
+      <div>
+        <Styled.InputField
+          type="emai"
+          name="email"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          placeholder="Input your email"
+          autoFocus={!!isChatOpen}
+        />
+        <Styled.InputEmailError>
+          {formik.touched.email && formik.errors.email}
+        </Styled.InputEmailError>
+      </div>
+      <Styled.SubmitIconButton type="submit">Send</Styled.SubmitIconButton>
+    </Styled.MessageForm>
   );
 };
 
