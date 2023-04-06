@@ -59,7 +59,6 @@ const MessageListComponent = ({
       ref={containerRef}
       style={{
         ...style,
-        // scrollBehavior: "smooth",
         height: "calc(100% - 86px)",
       }}
     >

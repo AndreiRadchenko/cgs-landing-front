@@ -93,7 +93,7 @@ export const RecivedMessageBox = styled.p`
   line-height: 1.58em;
   font-weight: ${themes.primary.font.weight.normal};
   font-size: 1.17em;
-  color: ${themes.primary.colors.blogArticleText};
+  color: ${themes.primary.colors.primary};
 
   border-radius: 0px 6px 6px 6px;
   background-color: ${themes.primary.colors.chatMessageBgc};

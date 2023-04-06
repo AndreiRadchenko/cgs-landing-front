@@ -12,7 +12,7 @@ interface IChatProps {
 const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
   const [openChatTime, setOpenChatTime] = useState<string>("");
   const [newMessageAmount, setNewMessageAmount] = useState<number>(0);
-  const [isSowingBubble, setIsSowingBubble] = useState<boolean>(true);
+  const [isShowingBubble, setIsShowingBubble] = useState<boolean>(true);
   const chatRef = useRef<HTMLDivElement>(null);
 
   const toggleIsOpenChat = () => {
@@ -22,11 +22,11 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
   };
 
   const handleBubbleShow = () => {
-    !isSowingBubble && setIsSowingBubble(true);
+    setIsShowingBubble(true);
   };
 
   const hadleCloseBubble = () => {
-    isSowingBubble && setIsSowingBubble(false);
+    setIsShowingBubble(false);
   };
 
   useEffect(() => {
@@ -47,9 +47,9 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
 
   return (
     <Styled.ChatWrapper ref={chatRef}>
-      {!isChatOpen && isSowingBubble && (
+      {!isChatOpen && isShowingBubble && (
         <Styled.MessageBable>
-          Hi! Welcome to our website. How can we help you?
+          <p>Hi! Welcome to our website. How can we help you?</p>
           <Styled.MessageBubbleCloseIcon onClick={hadleCloseBubble} />
         </Styled.MessageBable>
       )}
