@@ -351,6 +351,7 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
         <Styled.CalculatorPreview className={hoverClassName}>
           <Styled.CalculatorButton
             isChatOpen={isChatOpen}
+            isHovered={isHovered}
             onMouseOver={handleMouseOver}
             onMouseLeave={handleMouseLeave}
           >
