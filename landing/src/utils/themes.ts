@@ -132,8 +132,8 @@ const themes = {
       },
     },
     colors: {
-      mainGradientColor1: "#d6ffbb",
-      mainGradientColor2: "#5869dd",
+      mainGradientColor1: "#89A3D1",
+      mainGradientColor2: "#C7ECC0",
       headerBorder: "#8F8E93",
       headerBorderHover: "#F2EA86",
       attachmentIcon: "#5869DD",
