@@ -39,6 +39,18 @@ export const BlackButton = styled.a<IFontSize>`
   border: 2px solid ${themes.primary.colors.primary};
   transition: all 0.3s;
   width: fit-content;
+  white-space: nowrap;
+
+  &.social-button {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    align-items: center;
+    min-width: 224px;
+    height: 58px;
+    font-size: 18px;
+  }
+
   &.footer {
     margin-top: 10px;
     height: 4vw;
@@ -86,6 +98,12 @@ export const BlackButton = styled.a<IFontSize>`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    &.social-button {
+      min-width: 178px;
+      height: 54px;
+      font-size: 16px;
+    }
+
     &.footer-home {
       margin-top: 1em;
     }
@@ -653,21 +671,15 @@ export const ButtonShareTextWrapper = styled.div`
   width: fit-content;
   font-family: ${themes.primary.font.family.namu};
   z-index: 10;
-  margin-left: 2.5em;
-  font-size: 0.75rem;
+  margin-left: 28px;
 
   &.footer {
     margin-inline: 1.1666em 0;
   }
 
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 1em;
-  }
-
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.428em;
     margin-left: 0;
-    font-size: 0.75rem;
 
     &.footer {
       margin-inline: 0;
@@ -675,20 +687,14 @@ export const ButtonShareTextWrapper = styled.div`
   }
 `;
 
-export const ButtonShareText = styled.a`
-  font-size: 1.2857em;
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.143em;
-  }
-`;
+export const ButtonShareText = styled.a``;
 
 export const WhatsAppWrapper = styled.div`
   display: flex;
   align-items: center;
   column-gap: 0.444em;
   color: ${themes.primary.colors.primary};
-  font-size: 1.167em;
+  font-size: 18px;
 
   &:hover {
     color: ${themes.primary.colors.darkBlue};
@@ -710,7 +716,7 @@ export const TelegramWrapper = styled.div`
   align-items: center;
   column-gap: 0.444em;
   color: ${themes.primary.colors.primary};
-  font-size: 1.167em;
+  font-size: 18px;
   transition: color 0.3s;
   margin-left: 0.778em;
 
@@ -723,7 +729,7 @@ export const TelegramWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
+    font-size: 16px;
     line-height: 19px;
     column-gap: 3px;
     margin-left: 0.875em;
