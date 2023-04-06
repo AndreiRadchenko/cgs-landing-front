@@ -12,8 +12,7 @@ interface IChatProps {
 const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
   const [openChatTime, setOpenChatTime] = useState<string>("");
   const [newMessageAmount, setNewMessageAmount] = useState<number>(0);
-  const [isSowingBubble, setIsSowingBubble] = useState<boolean>(false);
-  const bubbleIntervalref = useRef<number | null>(null);
+  const [isSowingBubble, setIsSowingBubble] = useState<boolean>(true);
   const chatRef = useRef<HTMLDivElement>(null);
 
   const toggleIsOpenChat = () => {
@@ -22,11 +21,12 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
     !openChatTime && setOpenChatTime(setMessageTime());
   };
 
+  const handleBubbleShow = () => {
+    !isSowingBubble && setIsSowingBubble(true);
+  };
+
   const hadleCloseBubble = () => {
-    if (bubbleIntervalref.current !== null) {
-      window.clearInterval(bubbleIntervalref.current);
-      setIsSowingBubble(false);
-    }
+    isSowingBubble && setIsSowingBubble(false);
   };
 
   useEffect(() => {
@@ -38,19 +38,9 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
       }
     };
 
-    if (bubbleIntervalref.current === null) {
-      bubbleIntervalref.current = window.setInterval(
-        () => setIsSowingBubble((state) => !state),
-        5000
-      );
-    }
-
     document.addEventListener("mousedown", handleClickOuteside);
 
     return () => {
-      if (bubbleIntervalref.current !== null) {
-        window.clearInterval(bubbleIntervalref.current);
-      }
       document.removeEventListener("mousedown", handleClickOuteside);
     };
   }, []);
@@ -63,7 +53,12 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
           <Styled.MessageBubbleCloseIcon onClick={hadleCloseBubble} />
         </Styled.MessageBable>
       )}
-      <Styled.ChatButton isOpen={isChatOpen} onClick={toggleIsOpenChat}>
+      <Styled.ChatButton
+        isOpen={isChatOpen}
+        onClick={toggleIsOpenChat}
+        onMouseOver={handleBubbleShow}
+        onMouseLeave={hadleCloseBubble}
+      >
         A
         <Styled.ChatButtonIcon isOpen={isChatOpen} />
         {newMessageAmount > 0 && !isChatOpen && (

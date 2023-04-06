@@ -83,16 +83,12 @@ export const CalculatorButton = styled.div<ICalculatorButton>`
   z-index: 2;
   transition: all 0.2s;
   position: relative;
-  background-color: ${themes.primary.colors.secondary};
-  background-image: ${({ isChatOpen }) =>
-    isChatOpen
-      ? "none"
-      : `linear-gradient(
+  background-image: linear-gradient(
     180deg,
     ${themes.primary.colors.mainGradientColor1},
     ${themes.primary.colors.mainGradientColor2},
     ${themes.primary.colors.mainGradientColor1}
-  )`};
+  );
   background-size: auto 400%;
   animation: ${glow} 12s linear infinite;
 

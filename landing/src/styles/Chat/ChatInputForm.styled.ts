@@ -72,7 +72,7 @@ export const AttachmentContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.83em;
-  width: 100%;
+  width: 94%;
 `;
 
 export const AttachmentIcon = styled.div`
@@ -111,7 +111,7 @@ export const RemoveAttachButton = styled.button`
 `;
 
 export const SubmitIconButton = styled(RemoveAttachButton)`
-  width: 4.25rem;
+  width: 4.325rem;
   height: 2.125rem;
   margin-left: auto;
   border-radius: 5px;

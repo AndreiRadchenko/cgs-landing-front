@@ -21,6 +21,7 @@ interface IUseCreateUserChatParams {
   setChatUserInfo: React.Dispatch<React.SetStateAction<IChatUserInfo | null>>;
   setUserEmail: React.Dispatch<React.SetStateAction<string>>;
   setSentEmailTime: React.Dispatch<React.SetStateAction<string>>;
+  setIsGreetingMessageShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface IUseCreateUserChat {
@@ -33,6 +34,7 @@ export const useCreateUserChat = ({
   setUserEmail,
   setSentEmailTime,
   setChatUserInfo,
+  setIsGreetingMessageShow,
 }: IUseCreateUserChatParams): IUseCreateUserChat => {
   const { mutateAsync: getOrCreateUser, isLoading: isLoadingUser } =
     useMutation([queryKeys.supportChat], (values: IGetOrCreateUser) =>
@@ -92,6 +94,8 @@ export const useCreateUserChat = ({
     setUserEmail(values.email);
     setSentEmailTime(setMessageTime());
     setChatUserInfo(chatUserInfo);
+
+    setTimeout(() => setIsGreetingMessageShow(true), 3000);
   };
 
   return {

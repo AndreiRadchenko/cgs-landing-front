@@ -149,13 +149,13 @@ export const NewMessageCounter = styled.div`
 
 export const MessageBable = styled.div`
   position: absolute;
-  bottom: -0.4rem;
-  right: 5.5rem;
-  width: 12.525rem;
-  height: 4rem;
-  padding: 0.875rem;
+  bottom: -1rem;
+  right: 6rem;
+  width: 12rem;
+  padding: 0.75rem 0.7rem;
 
   font-size: 0.75rem;
+  line-height: 1.4;
 
   border-radius: 0.5rem;
   border: 1px solid ${themes.primary.colors.primary};
@@ -172,7 +172,7 @@ export const MessageBable = styled.div`
     content: "";
     position: absolute;
     display: block;
-    top: 52%;
+    top: 35%;
 
     background-color: ${themes.primary.colors.secondary};
     transform: translateY(-50%);
@@ -209,6 +209,7 @@ export const MessageBable = styled.div`
 `;
 
 export const MessageBubbleCloseIcon = styled.div`
+  cursor: pointer;
   position: absolute;
   top: -0.675rem;
   left: -0.675rem;
