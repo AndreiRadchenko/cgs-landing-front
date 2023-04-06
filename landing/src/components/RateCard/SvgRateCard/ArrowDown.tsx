@@ -6,7 +6,6 @@ const ArrowDown = ({ isActive }: { isActive: boolean }) => {
       width="22"
       height="12"
       viewBox="0 0 22 12"
-      transform={isActive ? "rotate(180)" : "rotate(0)"}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
