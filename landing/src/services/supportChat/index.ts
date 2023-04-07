@@ -12,14 +12,14 @@ export class SupportChatService {
   constructor(private httpService: HttpService) {}
   public getOrCreateUser(data: IChatUser, config: IHttpConfig) {
     return this.httpService.put<IChatUserResponse, IChatUser>(
-      "users",
+      "users/",
       data,
       config
     );
   }
 
   public getOrCreateChat(data: IChat, config: IHttpConfig) {
-    return this.httpService.put<IChatResponse, IChat>("chats", data, config);
+    return this.httpService.put<IChatResponse, IChat>("chats/", data, config);
   }
 }
 
