@@ -1,8 +1,49 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
+import { IValue } from "../types/Admin/AdminRateCard.types";
 
 interface IActiveAccordion {
   readonly isActive?: boolean;
+}
+
+interface IRateRowProps {
+  readonly countLevels: number;
+  readonly countValues: IValue[];
+}
+
+function createCSS(levelsNumber = 1, levelValues: IValue[]) {
+  let styles = "";
+  const costLength = levelValues
+    .map((val) => val.cost)
+    .filter((el) => el).length;
+  const techLength = levelValues
+    .map((val) => val.technology)
+    .filter((el) => el).length;
+  const maxFromVal = Math.max(costLength, techLength);
+
+  for (let i = 0; i < levelsNumber; i += 1) {
+    techLength > costLength &&
+      (styles += `
+       &:has(.rateTech${i} span:hover) .rateCost${i} span,
+       .rateTech${i} span:hover,
+       &:has(.rateCost${i} span:hover) .rateTech${i} span,
+       .rateCost${i} span:hover{
+         color: ${themes.primary.colors.darkBlue}
+         }`);
+    for (let j = 0; j < maxFromVal; j += 1) {
+      styles += `
+       &:has(.rateTech${i} .tech${j}:hover) .rateCost${i} .cost${j},
+        .rateTech${i} .tech${j}:hover,
+        .rateCost${i} .cost${j}:hover,
+       &:has(.rateCost${i} .cost${j}:hover) .rateTech${i} .tech${j} {
+         color: ${themes.primary.colors.darkBlue};
+       }`;
+    }
+  }
+
+  return css`
+    ${styles}
+  `;
 }
 
 export const RateCardContentContainer = styled.div`
@@ -97,9 +138,15 @@ export const RateCardLevelTable = styled.table`
   border-collapse: collapse;
   table-layout: fixed;
   width: 100%;
+
+  tbody:has(.rateRow .spanCostDefault span:hover) .rateRow .mainSpanRate span {
+    color: ${themes.primary.colors.darkBlue};
+  }
 `;
 
-export const RateCardLevelRow = styled.tr``;
+export const RateCardLevelRow = styled.tr<IRateRowProps>`
+  ${(props) => createCSS(props.countLevels, props.countValues)};
+`;
 
 export const RateCardLevelData = styled.td`
   word-wrap: break-word;
@@ -110,11 +157,6 @@ export const RateCardLevelData = styled.td`
   letter-spacing: 0.05em;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-
-  &:nth-child(2):hover,
-  &:nth-child(2):hover + &:last-child {
-    color: ${themes.primary.colors.darkBlue};
-  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
@@ -127,5 +169,9 @@ export const RateCardLevelData = styled.td`
     &:first-child {
       width: 80px !important;
     }
+  }
+
+  &.spanCost {
+    color: ${themes.primary.colors.darkBlue};
   }
 `;

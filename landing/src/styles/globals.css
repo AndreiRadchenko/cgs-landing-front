@@ -82,6 +82,7 @@ body {
   font-size: 0.7em;
   background-color: #f1efed;
   cursor: url("/cursor.svg"), auto;
+  overflow-y: scroll;
 }
 
 @media (max-width: 767px) {
