@@ -54,16 +54,6 @@ export const MobileTextWrapper = styled.div`
 
 export const Container = styled.div`
   height: 100vh;
-  overflow-y: scroll;
-
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-
-  &::-webkit-scrollbar {
-    /* WebKit */
-    width: 0;
-    height: 0;
-  }
 `;
 
 export const ContainerRateCardDate = styled.div`

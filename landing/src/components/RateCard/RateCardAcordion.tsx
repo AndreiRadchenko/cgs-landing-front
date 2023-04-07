@@ -22,7 +22,7 @@ const RateCardAccordion = ({ service }: { service: IService }) => {
 
   return (
     <>
-      <RateCardServiceDropDown onClick={handleActive}>
+      <RateCardServiceDropDown isActive={isActive} onClick={handleActive}>
         <RateCardImageTitleWrapper>
           <Image
             src={service?.image?.url}
