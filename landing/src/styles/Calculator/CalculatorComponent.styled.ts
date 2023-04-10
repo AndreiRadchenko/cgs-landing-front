@@ -740,6 +740,7 @@ export const LoaderWrapper = styled.div`
 `;
 
 export const Loader = styled.div`
+  image-rendering: pixelated;
   width: 64.41px;
   height: 64.41px;
   background: url(${LoaderImg.src});
