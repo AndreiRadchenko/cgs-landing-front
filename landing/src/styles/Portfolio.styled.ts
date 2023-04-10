@@ -1,27 +1,72 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
-import { infiniteText } from "./Animations.styled";
 
 export const PortfolioContainer = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
 `;
 
-export const OurWorkTitle = styled.header`
-  font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.medium};
-  font-size: ${themes.primary.font.size.ourWorkText};
-  overflow: hidden;
-  white-space: nowrap;
-  margin-top: 78px;
-  line-height: 90%;
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: row;
+export const PortfolioWrapper = styled.div`
+  width: 100%;
+  padding: 0 52.5px;
+`;
 
-  & > span {
-    animation: ${infiniteText} 40s infinite linear;
+export const PortfolioProjectsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(652px, 1fr));
+  gap: 52px 34px;
+`;
+
+export const ProjectsContainerHeader = styled.div`
+  padding: 17px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ProjectsContainerHeaderLink = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 18px;
+  line-height: 130%;
+  color: ${themes.primary.colors.primary};
+  margin: 0;
+`;
+
+export const ProjectsContainerArrowContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  background: ${themes.primary.colors.portfolioHover};
+  border: 2.26667px solid ${themes.primary.colors.primary};
+  border-radius: 50%;
+`;
+
+export const ProjectsContainerHeaderTitle = styled.div`
+  h4 {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 30px;
+    line-height: 130%;
+    margin: 0;
+    color: ${themes.primary.colors.primary};
+  }
+  p {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 18px;
+    line-height: 130%;
+    color: ${themes.primary.colors.comment};
+    margin: 0;
   }
 `;
+
+export const ProjectsContainerImage = styled.div``;
 
 export const LinkButton = styled.button`
   font-size: ${themes.primary.font.size.projectLink};
@@ -57,16 +102,6 @@ export const LinkButton = styled.button`
     a {
       border: none;
     }
-  }
-`;
-
-export const SlidersCont = styled.article`
-  margin-bottom: 48px;
-
-  @media ${themes.primary.media.maxMobile} {
-    margin: 4px 10px 40px;
-
-    border-top: 1px solid ${themes.primary.colors.comment};
   }
 `;
 
