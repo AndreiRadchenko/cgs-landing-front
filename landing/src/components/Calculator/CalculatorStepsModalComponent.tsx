@@ -34,7 +34,9 @@ const CalculatorStepsModalComponent = ({
   return (
     <Styled.Wrapper>
       {lastPage ? (
-        <CalculatorResult mobile={mobile}>{children}</CalculatorResult>
+        <CalculatorResult handleQuit={handleQuit} mobile={mobile}>
+          {children}
+        </CalculatorResult>
       ) : (
         <Styled.StepsBackgroundImage
           ref={modalRef}

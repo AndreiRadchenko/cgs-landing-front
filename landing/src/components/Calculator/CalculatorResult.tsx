@@ -1,14 +1,35 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
 import { ResultImageWrapper } from "../../styles/Calculator/CalculatorComponent.styled";
 
 interface ICalculatorResultProps {
   mobile?: boolean;
   children: ReactNode;
+  handleQuit: () => void;
 }
 
-const CalculatorResult = ({ mobile, children }: ICalculatorResultProps) => {
+const CalculatorResult = ({
+  mobile,
+  children,
+  handleQuit,
+}: ICalculatorResultProps) => {
+  const modalRef = useRef<any>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: { target: any }) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        handleQuit();
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [modalRef]);
+
   return (
-    <ResultImageWrapper>
+    <ResultImageWrapper ref={modalRef}>
       {mobile ? (
         <svg
           width="100%"
