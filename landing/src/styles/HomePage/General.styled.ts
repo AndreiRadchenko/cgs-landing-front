@@ -790,7 +790,6 @@ export const CalculatorAndChatWrapper = styled.div`
   justify-content: center;
   gap: 10px;
 
-  /* height: 18.833em; */
   z-index: 13;
 
   @media ${themes.primary.media.maxMobile} {
