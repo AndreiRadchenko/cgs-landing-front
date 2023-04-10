@@ -784,13 +784,12 @@ export const CalculatorAndChatWrapper = styled.div`
   right: 0;
   top: 45%;
 
-  display: flex;
+  display: grid;
   flex-direction: column;
   align-items: end;
   justify-content: center;
   gap: 10px;
 
-  /* height: 18.833em; */
   z-index: 13;
 
   @media ${themes.primary.media.maxMobile} {
@@ -798,7 +797,7 @@ export const CalculatorAndChatWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    position: fixed;
+    display: flex;
     height: auto;
     top: auto;
     bottom: 0;

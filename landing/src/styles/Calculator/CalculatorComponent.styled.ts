@@ -159,7 +159,7 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
 
   &::after {
     content: "";
-    width: 100.5%;
+    width: 100%;
     height: 3px;
     border: 1.8px solid ${themes.primary.colors.primary};
     position: absolute;
