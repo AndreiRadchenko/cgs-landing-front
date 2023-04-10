@@ -103,9 +103,15 @@ export const CalculatorButton = styled.div<ICalculatorButton>`
     position: absolute;
     bottom: -5px;
     left: 0;
-    background: ${themes.primary.colors.mainGradientColor2};
+    background-image: ${() => `linear-gradient(
+    180deg,
+    ${themes.primary.colors.mainGradientColor1},
+    ${themes.primary.colors.mainGradientColor2},
+    ${themes.primary.colors.mainGradientColor1})`};
     transform: skew(-50deg);
     transform-origin: top;
+    background-size: auto 400%;
+    animation: ${glow} 12s linear infinite;
   }
 
   ${({ isChatOpen }) =>
@@ -161,13 +167,21 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
     content: "";
     width: 100.5%;
     height: 3px;
+    transition: all 0.2s;
     border: 1.8px solid ${themes.primary.colors.primary};
+    background-image: ${() => `linear-gradient(
+      180deg,
+      ${themes.primary.colors.mainGradientColor1},
+      ${themes.primary.colors.mainGradientColor2},
+      ${themes.primary.colors.mainGradientColor1})`};
     position: absolute;
     bottom: -3px;
     left: 0px;
     background: ${themes.primary.colors.mainGradientColor2};
     transform: skew(-45deg);
     transform-origin: top;
+    background-size: auto 400%;
+    animation: ${glow} 12s linear infinite;
   }
 
   &::before {
@@ -177,10 +191,17 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
     position: absolute;
     top: 0.1px;
     left: -7px;
+    transition: all 0.2s;
     border: 1.8px solid ${themes.primary.colors.primary};
-    background: ${themes.primary.colors.mainGradientColor2};
+    background-image: ${() => `linear-gradient(
+      180deg,
+      ${themes.primary.colors.mainGradientColor1},
+      ${themes.primary.colors.mainGradientColor2},
+      ${themes.primary.colors.mainGradientColor1})`};
     transform: skewY(-30deg);
     transform-origin: top;
+    background-size: auto 400%;
+    animation: ${glow} 12s linear infinite;
   }
 
   ${({ isChatOpen }) =>
