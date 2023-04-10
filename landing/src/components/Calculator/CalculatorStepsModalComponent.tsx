@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 import CalculatorResult from "./CalculatorResult";
 
@@ -6,19 +6,40 @@ interface ICalculatorModalComponentProps {
   children?: ReactNode;
   lastPage?: boolean;
   mobile?: boolean;
+  handleQuit: () => void;
 }
 
 const CalculatorStepsModalComponent = ({
   children,
   lastPage,
   mobile,
+  handleQuit,
 }: ICalculatorModalComponentProps) => {
+  const modalRef = useRef<any>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: { target: any }) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        handleQuit();
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [modalRef]);
+
   return (
     <Styled.Wrapper>
       {lastPage ? (
         <CalculatorResult mobile={mobile}>{children}</CalculatorResult>
       ) : (
-        <Styled.StepsBackgroundImage className={mobile ? "mobile" : undefined}>
+        <Styled.StepsBackgroundImage
+          ref={modalRef}
+          className={mobile ? "mobile" : undefined}
+        >
           {mobile ? (
             <svg
               width="100%"

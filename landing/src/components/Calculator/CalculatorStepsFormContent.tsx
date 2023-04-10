@@ -144,7 +144,11 @@ const CalculatorStepsFormContent = ({
 
   return (
     (width && (
-      <CalculatorStepsModalComponent mobile={width < 768} lastPage={lastStep}>
+      <CalculatorStepsModalComponent
+        mobile={width < 768}
+        lastPage={lastStep}
+        handleQuit={handleQuit}
+      >
         {
           <Styled.ModalContentWrapper>
             <Styled.CalculatorHeaderWrapper className="steps">
