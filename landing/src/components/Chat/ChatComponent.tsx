@@ -36,7 +36,7 @@ const ChatComponent = ({
         <Styled.ChatTitle>Chat with CGS-team</Styled.ChatTitle>
         <Styled.OperatorStatus>
           {operator
-            ? `Operator ${operator} is now onlline`
+            ? `Operator ${operator} is now online`
             : "Waiting registration"}
         </Styled.OperatorStatus>
       </Styled.ChatHeader>

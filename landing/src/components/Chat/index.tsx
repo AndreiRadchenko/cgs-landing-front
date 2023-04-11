@@ -59,7 +59,6 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
         onMouseOver={handleBubbleShow}
         onMouseLeave={hadleCloseBubble}
       >
-        A
         <Styled.ChatButtonIcon isOpen={isChatOpen} />
         {newMessageAmount > 0 && !isChatOpen && (
           <Styled.NewMessageCounter>

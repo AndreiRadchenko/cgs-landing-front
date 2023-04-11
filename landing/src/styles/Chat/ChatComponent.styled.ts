@@ -31,13 +31,12 @@ export const ChatContainer = styled.div<IChatContainer>`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    bottom: 60px;
+    bottom: 55px;
     right: 0;
     width: 100vw;
-    height: calc(100vh - 5.8125rem - 60px);
-
+    height: calc(100vh - 5.9rem - 60px);
+    border-right: none;
     transform-origin: 50% 100%;
-    border-left: 1.8px solid ${themes.primary.colors.primary};
   }
 
   &::before,
@@ -113,13 +112,8 @@ export const ChatBody = styled.div`
 
   width: 100%;
   height: calc(100% - 40px);
-  padding: 0 1.33em;
   overflow: hidden;
   background-color: ${themes.primary.colors.chatContainerBgc};
-
-  .ce-chat-feed > div {
-    background-color: ${themes.primary.colors.chatContainerBgc} !important;
-  }
 
   .ce-ice-breaker-wrapper {
     display: none;
@@ -132,8 +126,11 @@ export const ChatMessagesContainer = styled.div`
 `;
 
 export const ChatFormContainer = styled.div`
-  height: 84px;
-  padding-top: 16px;
-
-  border-top: 1px solid ${themes.primary.colors.chatFormColor};
+  height: 77px;
+  width: 100%;
+  padding: 0 15px;
+  background: rgba(143, 142, 147, 0.07);
+  display: flex;
+  align-items: center;
+  gap: 5px;
 `;

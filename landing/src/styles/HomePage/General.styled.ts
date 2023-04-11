@@ -800,7 +800,7 @@ export const CalculatorAndChatWrapper = styled.div`
     display: flex;
     height: auto;
     top: auto;
-    bottom: 0;
+    bottom: 6px;
     flex-direction: row;
     gap: 0;
   }

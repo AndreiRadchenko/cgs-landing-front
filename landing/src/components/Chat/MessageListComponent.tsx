@@ -59,7 +59,8 @@ const MessageListComponent = ({
       ref={containerRef}
       style={{
         ...style,
-        height: "calc(100% - 86px)",
+        background: "#f1efed",
+        height: "calc(100% - 80px)",
       }}
     >
       <GreetingMessageComponent

@@ -72,6 +72,7 @@ const ChatMessagesComponent = ({
         <>
           <ChatFeed
             {...chatProps}
+            style={{ background: "#f1efed" }}
             username={chatUserInfo.userName}
             renderChatHeader={() => <div />}
             renderMessageList={(messageProps: MessageListProps) => {

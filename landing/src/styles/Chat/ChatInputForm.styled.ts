@@ -12,16 +12,17 @@ export const InputEmailError = styled.p`
 
 const FieldSample = css`
   width: 100%;
-  border: none;
-  padding: 0;
+  border: 1px solid #d1d1d6;
+  border-radius: 16.5px;
+  padding: 5px 13px;
 
-  font-family: inherit;
+  font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.normal};
-  font-size: 1.33em;
+  font-size: 16px;
   line-height: 1.83em;
   color: ${themes.primary.colors.primary};
 
-  background-color: transparent;
+  background: ${themes.primary.colors.blogBackground};
 
   ::placeholder {
     font-weight: ${themes.primary.font.weight.normal};
@@ -48,14 +49,15 @@ export const TextField = styled.textarea`
   }
 `;
 
-export const MessageFormWrapper = styled(ChatFormContainer)``;
+export const MessageFormWrapper = styled(ChatFormContainer)`
+  align-items: start;
+  background: rgba(143, 142, 147, 0.07);
+`;
 
 export const ImageButton = styled.span`
   display: block;
-  width: 2.125rem;
-  height: 2.125rem;
-  border-radius: 50%;
-  background-color: ${themes.primary.colors.darkedGrayBack};
+  width: 20px;
+  height: 20px;
   background-image: url(${attachmentIcon.src});
   background-position: center;
   background-repeat: no-repeat;
@@ -63,9 +65,14 @@ export const ImageButton = styled.span`
 
 export const MessageForm = styled.form`
   display: flex;
+  width: 100%;
   justify-content: space-between;
-  align-items: start;
+  align-items: center;
   gap: 5px;
+
+  div {
+    width: 85%;
+  }
 `;
 
 export const AttachmentContainer = styled.div`
@@ -111,10 +118,12 @@ export const RemoveAttachButton = styled.button`
 `;
 
 export const SubmitIconButton = styled(RemoveAttachButton)`
-  width: 4.325rem;
-  height: 2.125rem;
-  margin-left: auto;
-  border-radius: 5px;
-  color: ${themes.primary.colors.secondary};
-  background: ${themes.primary.colors.attachmentIcon};
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid ${themes.primary.colors.primary};
+  background: ${themes.primary.colors.portfolioHover};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
