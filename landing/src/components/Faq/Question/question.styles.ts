@@ -81,7 +81,7 @@ export const QuestionTitle = styled.p<IIsOpen>`
 `;
 
 export const QuestionContentContainer = styled.div<IIsOpen>`
-  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  display: flex;
   font-size: ${themes.primary.font.size.faqAnswer};
   padding: 20px 23px;
   line-height: 160%;
