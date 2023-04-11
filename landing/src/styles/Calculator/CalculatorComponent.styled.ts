@@ -767,17 +767,13 @@ export const LoaderWrapper = styled.div`
 `;
 
 export const Loader = styled.div`
-  width: 64.41px;
-  height: 64.41px;
+  image-rendering: pixelated;
+  width: 50px;
+  height: 52px;
   background: url(${LoaderImg.src});
   background-repeat: no-repeat;
   background-size: cover;
   mix-blend-mode: multiply;
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 50px;
-    height: 50px;
-  }
 `;
 
 export const PressButtonWrapper = styled.div`
