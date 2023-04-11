@@ -271,20 +271,21 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
 
   @supports (-webkit-hyphens: none) {
     &::after {
-      right: -1.8px;
+      right: -2.1px;
     }
     &::before {
       height: 99.5%;
+      border-radius: 2px;
     }
 
     @media ${themes.primary.media.minPC} {
       &::before {
-        height: 100%;
+        height: 99.8%;
         bottom: -3.5px;
       }
       &::after {
-        bottom: -7px;
-        width: 101.3%;
+        bottom: -6.5px;
+        width: 100.7%;
       }
     }
   }
