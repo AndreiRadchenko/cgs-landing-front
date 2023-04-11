@@ -77,6 +77,8 @@ export const CalculatorButton = styled.div<ICalculatorButton>`
   font-family: ${themes.primary.font.family.namu};
   line-height: 99%;
   border: 1.8px solid ${themes.primary.colors.primary};
+  border-right: none;
+  border-radius: 1px;
   text-transform: uppercase;
   font-size: 1.8333em;
   padding: 1.54em 0.72em;
@@ -97,21 +99,15 @@ export const CalculatorButton = styled.div<ICalculatorButton>`
 
   &::after {
     content: "";
-    width: 61px;
-    height: 3px;
+    width: 110%;
+    height: 5px;
     border: 1.8px solid ${themes.primary.colors.primary};
+    border-radius: 1px;
     position: absolute;
-    bottom: -5px;
-    left: 0;
-    background-image: ${() => `linear-gradient(
-    180deg,
-    ${themes.primary.colors.mainGradientColor1},
-    ${themes.primary.colors.mainGradientColor2},
-    ${themes.primary.colors.mainGradientColor1})`};
-    transform: skew(-50deg);
-    transform-origin: top;
-    background-size: auto 400%;
-    animation: ${glow} 12s linear infinite;
+    bottom: -7.5px;
+    left: -4px;
+    background: ${themes.primary.colors.darkBlue};
+    transform: skew(-45deg);
   }
 
   ${({ isChatOpen }) =>
@@ -140,6 +136,13 @@ export const CalculatorButton = styled.div<ICalculatorButton>`
       content: none;
     }
   }
+
+  @media ${themes.primary.media.minPC} {
+    &::after {
+      bottom: -8px;
+      left: -5px;
+    }
+  }
 `;
 
 interface ICalculatorPreviewContentWrapper {
@@ -165,39 +168,33 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
 
   &::after {
     content: "";
-    width: 100.5%;
-    height: 3px;
-    transition: all 0.2s;
+    width: 101%;
+    height: 5px;
     border: 1.8px solid ${themes.primary.colors.primary};
-    background-image: ${() => `linear-gradient(
-      180deg,
-      ${themes.primary.colors.mainGradientColor1},
-      ${themes.primary.colors.mainGradientColor2},
-      ${themes.primary.colors.mainGradientColor1})`};
+    border-radius: 1px;
+    background: ${themes.primary.colors.darkBlue};
     position: absolute;
-    bottom: -3px;
-    left: 0px;
+    bottom: -6px;
+    right: -1.8px;
     transform: skew(-45deg);
-    transform-origin: top;
-    background-size: auto 400%;
-    animation: ${glow} 12s linear infinite;
   }
 
   &::before {
     content: "";
     width: 5px;
-    height: 99%;
+    height: 99.5%;
     position: absolute;
-    top: 0.1px;
-    left: -7px;
+    bottom: -2.5px;
+    left: -6.5px;
     transition: all 0.2s;
     border: 1.8px solid ${themes.primary.colors.primary};
+    border-radius: 1px;
     background-image: ${() => `linear-gradient(
       180deg,
       ${themes.primary.colors.mainGradientColor1},
       ${themes.primary.colors.mainGradientColor2},
       ${themes.primary.colors.mainGradientColor1})`};
-    transform: skewY(-30deg);
+    transform: skewY(-45deg);
     transform-origin: top;
     background-size: auto 400%;
     animation: ${glow} 12s linear infinite;
@@ -215,7 +212,12 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
   @media ${themes.primary.media.minPC} {
     padding-right: 1em;
     &::before {
-      height: 98.6%;
+      height: 100%;
+      bottom: -3.5px;
+    }
+    &::after {
+      bottom: -7px;
+      width: 101.3%;
     }
   }
 
