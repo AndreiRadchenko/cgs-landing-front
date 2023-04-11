@@ -175,14 +175,14 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
     background: ${themes.primary.colors.darkBlue};
     position: absolute;
     bottom: -6px;
-    right: -1.8px;
+    right: -4px;
     transform: skew(-45deg);
   }
 
   &::before {
     content: "";
     width: 5px;
-    height: 99.5%;
+    height: 98.8%;
     position: absolute;
     bottom: -2.5px;
     left: -6.5px;
@@ -212,12 +212,7 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
   @media ${themes.primary.media.minPC} {
     padding-right: 1em;
     &::before {
-      height: 100%;
-      bottom: -3.5px;
-    }
-    &::after {
-      bottom: -7px;
-      width: 101.3%;
+      height: 99%;
     }
   }
 
@@ -270,6 +265,26 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
 
       & > a {
         padding: 1.3em 2.2em !important;
+      }
+    }
+  }
+
+  @supports (-webkit-hyphens: none) {
+    &::after {
+      right: -1.8px;
+    }
+    &::before {
+      height: 99.5%;
+    }
+
+    @media ${themes.primary.media.minPC} {
+      &::before {
+        height: 100%;
+        bottom: -3.5px;
+      }
+      &::after {
+        bottom: -7px;
+        width: 101.3%;
       }
     }
   }
