@@ -175,14 +175,14 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
     background: ${themes.primary.colors.darkBlue};
     position: absolute;
     bottom: -6px;
-    right: -4px;
+    right: -1.8px;
     transform: skew(-45deg);
   }
 
   &::before {
     content: "";
     width: 5px;
-    height: 98.8%;
+    height: 99.5%;
     position: absolute;
     bottom: -2.5px;
     left: -6.5px;
@@ -212,7 +212,12 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
   @media ${themes.primary.media.minPC} {
     padding-right: 1em;
     &::before {
-      height: 99%;
+      height: 100%;
+      bottom: -3.5px;
+    }
+    &::after {
+      bottom: -7px;
+      width: 101.3%;
     }
   }
 
