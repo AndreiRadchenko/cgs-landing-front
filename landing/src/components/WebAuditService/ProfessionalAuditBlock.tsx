@@ -47,14 +47,22 @@ const ProfessionalAuditBlock = () => {
             objectFit="contain"
           />
           <Styled.HoveredImageContainer>
-            <Styled.HoveredImage>
+            <Styled.HoveredImageFirst>
               <Image
                 src={AuditTimeText}
                 alt="types of grid image"
                 layout="fill"
                 objectFit="contain"
               />
-            </Styled.HoveredImage>
+            </Styled.HoveredImageFirst>
+            <Styled.HoveredImageSecond>
+              <Image
+                src={AuditTimeText}
+                alt="types of grid image"
+                layout="fill"
+                objectFit="contain"
+              />
+            </Styled.HoveredImageSecond>
           </Styled.HoveredImageContainer>
         </Styled.ImageWrapper>
       </Styled.Content>

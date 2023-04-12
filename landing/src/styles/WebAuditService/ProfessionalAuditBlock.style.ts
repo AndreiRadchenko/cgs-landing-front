@@ -93,19 +93,38 @@ export const HoveredImageContainer = styled.div`
   z-index: 4;
 `;
 
-export const HoveredImage = styled.div`
+export const HoveredImageFirst = styled.div`
   @keyframes scroll {
     0% {
       transform: translateX(100%);
     }
     100% {
-      transform: translateX(-100%);
+      transform: translateX(-190%);
     }
   }
 
-  -webkit-animation: scroll 5s infinite linear;
-  -moz-animation: scroll 5s infinite linear;
-  animation: scroll 5s infinite linear;
+  -webkit-animation: scroll 8s infinite linear;
+  -moz-animation: scroll 8s infinite linear;
+  animation: scroll 8s infinite linear;
+  position: absolute;
+  width: 150%;
+  height: 100%;
+  z-index: 3;
+`;
+
+export const HoveredImageSecond = styled.div`
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-190%);
+    }
+  }
+
+  -webkit-animation: scroll 8s infinite 4s linear;
+  -moz-animation: scroll 8s infinite 4s linear;
+  animation: scroll 8s infinite 4s linear;
   position: absolute;
   width: 150%;
   height: 100%;
