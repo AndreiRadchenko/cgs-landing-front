@@ -4,6 +4,8 @@ import themes from "../../utils/themes";
 import { AttachmentIcon } from "./ChatInputForm.styled";
 
 export const MessageListContainer = styled.div`
+  padding-right: 10px;
+
   ::-webkit-scrollbar {
     width: 0.7rem;
     background: transparent;
