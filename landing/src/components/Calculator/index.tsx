@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Formik, FormikHelpers } from "formik";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
@@ -44,6 +44,8 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
   const [calculateIsClicked, setCalculateIsClicked] = useState<boolean>(false);
   const [isQuitting, setIsQuitting] = useState<boolean>(false);
   const [warnIsShow, setWarnIsShow] = useState<boolean>(false);
+  const hoverRef = useRef<any>(null);
+  const timeoutRef = useRef<any>(null);
 
   const { data } = useQuery([queryKeys.getCalculatorData], () =>
     adminCalculatorService.getCalculatorData()
@@ -331,11 +333,12 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
   };
 
   const handleMouseOver = () => {
+    clearTimeout(timeoutRef.current);
     setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
-    setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       setIsHovered(false);
     }, 1500);
   };
@@ -343,6 +346,20 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
   DisableScrollBarHandler(isOpen);
 
   const hoverClassName = isHovered ? "active" : undefined;
+
+  useEffect(() => {
+    function handleClickOutside(event: { target: any }) {
+      if (hoverRef.current && !hoverRef.current.contains(event.target)) {
+        setIsHovered(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [hoverRef]);
 
   return (
     <>
@@ -354,6 +371,7 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
             isHovered={isHovered}
             onMouseOver={handleMouseOver}
             onMouseLeave={handleMouseLeave}
+            ref={hoverRef}
           >
             calculator
           </Styled.CalculatorButton>

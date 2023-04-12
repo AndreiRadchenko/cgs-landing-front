@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 import Logo from "./CalculatorLogo";
 
@@ -25,6 +25,8 @@ const CalculatorModalComponent = ({
   children,
   startLoading,
 }: ICalculatorModalComponentProps) => {
+  const modalRef = useRef<any>(null);
+
   const buttonClassName = () => {
     let className = "";
     if (buttonText === "< choose >") {
@@ -36,6 +38,20 @@ const CalculatorModalComponent = ({
     }
     return className;
   };
+
+  useEffect(() => {
+    function handleClickOutside(event: { target: any }) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        onClose();
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [modalRef]);
 
   const foreignObject = (
     <foreignObject width="100%" height="100%">
@@ -76,6 +92,7 @@ const CalculatorModalComponent = ({
             ? "mobileChoose"
             : undefined
         }
+        ref={modalRef}
       >
         {mobile ? (
           buttonText === "< choose >" || isQuiting ? (
