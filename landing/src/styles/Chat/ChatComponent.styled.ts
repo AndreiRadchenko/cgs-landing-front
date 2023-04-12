@@ -61,6 +61,10 @@ export const ChatContainer = styled.div<IChatContainer>`
       ${themes.primary.colors.mainGradientColor2}
     );
 
+    @media (min-width: 1500px) {
+      top: 2.3px;
+      height: 99.8%;
+    }
     @media ${themes.primary.media.maxMobile} {
       display: none;
     }
@@ -72,6 +76,10 @@ export const ChatContainer = styled.div<IChatContainer>`
     width: 99.7%;
     height: 5px;
 
+    @media (min-width: 1500px) {
+      left: 0;
+      width: 100%;
+    }
     @media ${themes.primary.media.maxMobile} {
       display: none;
     }
@@ -123,7 +131,7 @@ export const ChatBody = styled.div`
 export const ChatMessagesContainer = styled.div`
   height: 100%;
   flex-grow: 1;
-  padding: 0 15px;
+  padding: 0 0 0 15px;
 `;
 
 export const ChatFormContainer = styled.div`

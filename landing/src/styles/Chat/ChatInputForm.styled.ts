@@ -39,7 +39,7 @@ export const InputField = styled.input`
 export const MessageFormWrapper = styled.div`
   background: rgba(143, 142, 147, 0.07);
   padding: 20px 10px;
-  margin: 0 -15px;
+  margin: 0 0 0 -15px;
 `;
 
 export const ImageButton = styled.span`
@@ -68,6 +68,11 @@ export const MessageForm = styled.form`
     overflow-y: scroll;
     font-size: 16px;
     line-height: 22px;
+
+    @media (min-width: 1024px) {
+      ::-webkit-scrollbar {
+        width: 0;
+      }
   }
 `;
 
