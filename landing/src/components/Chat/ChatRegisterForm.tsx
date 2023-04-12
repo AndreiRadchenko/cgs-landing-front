@@ -43,7 +43,10 @@ const ChatRegisterForm = ({
   });
 
   return (
-    <Styled.MessageForm onSubmit={formik.handleSubmit} autoComplete="off">
+    <Styled.MessageFormRegister
+      onSubmit={formik.handleSubmit}
+      autoComplete="off"
+    >
       <div>
         <Styled.InputField
           type="emai"
@@ -57,8 +60,21 @@ const ChatRegisterForm = ({
           {formik.touched.email && formik.errors.email}
         </Styled.InputEmailError>
       </div>
-      <Styled.SubmitIconButton type="submit">Send</Styled.SubmitIconButton>
-    </Styled.MessageForm>
+      <Styled.SubmitIconButton type="submit">
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.66536 11.3327L6.66536 3.21935L10.392 6.94602L11.332 5.99935L5.9987 0.666015L0.665365 5.99935L1.60536 6.93935L5.33203 3.21935L5.33203 11.3327L6.66536 11.3327Z"
+            fill="black"
+          />
+        </svg>
+      </Styled.SubmitIconButton>
+    </Styled.MessageFormRegister>
   );
 };
 

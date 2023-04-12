@@ -4,6 +4,7 @@ import { sendMessage } from "react-chat-engine";
 
 import * as Styled from "../../styles/Chat/ChatInputForm.styled";
 import { formatChatAttachName } from "../../utils/formatChatAttachName";
+import { TextareaAutosize } from "@mui/material";
 
 interface IMessageFormComponentProps {
   chatId: string;
@@ -71,7 +72,7 @@ const MessageFormComponent = ({
   };
 
   const handleInput = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (event.key === "Enter" && event.shiftKey == false) {
+    if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
       formik.handleSubmit();
     }
@@ -85,38 +86,49 @@ const MessageFormComponent = ({
   return (
     <Styled.MessageFormWrapper>
       <Styled.MessageForm onSubmit={formik.handleSubmit}>
+        <label htmlFor="upload-button">
+          <Styled.ImageButton />
+          <input
+            ref={inputRef}
+            type="file"
+            multiple={false}
+            id="upload-button"
+            style={{ display: "none" }}
+            onChange={handleUpload}
+          />
+        </label>
         {file ? (
           <Styled.AttachmentContainer>
-            <Styled.AttachmentIcon>atch</Styled.AttachmentIcon>
+            <Styled.AttachmentIcon>PSD</Styled.AttachmentIcon>
             <Styled.AttachmentName>
               {formatChatAttachName(file[0].name)}
             </Styled.AttachmentName>
             <Styled.RemoveAttachButton onClick={handleRemoveAttach} />
           </Styled.AttachmentContainer>
         ) : (
-          <Styled.TextField
+          <TextareaAutosize
+            maxRows={4}
             name="text"
-            rows={2}
             placeholder="Write a message..."
             value={formik.values.text}
             onChange={formik.handleChange}
             onKeyDown={handleInput}
           />
         )}
-        {!file && (
-          <label htmlFor="upload-button">
-            <Styled.ImageButton />
-            <input
-              ref={inputRef}
-              type="file"
-              multiple={false}
-              id="upload-button"
-              style={{ display: "none" }}
-              onChange={handleUpload}
+        <Styled.SubmitIconButton type="submit">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.66536 11.3327L6.66536 3.21935L10.392 6.94602L11.332 5.99935L5.9987 0.666015L0.665365 5.99935L1.60536 6.93935L5.33203 3.21935L5.33203 11.3327L6.66536 11.3327Z"
+              fill="black"
             />
-          </label>
-        )}
-        <Styled.SubmitIconButton type="submit">Send</Styled.SubmitIconButton>
+          </svg>
+        </Styled.SubmitIconButton>
       </Styled.MessageForm>
       <Styled.InputEmailError>{fileSizeError}</Styled.InputEmailError>
     </Styled.MessageFormWrapper>

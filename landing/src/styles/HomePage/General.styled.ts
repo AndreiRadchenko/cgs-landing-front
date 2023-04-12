@@ -782,13 +782,13 @@ export const FooterSection = styled.section``;
 export const CalculatorAndChatWrapper = styled.div`
   position: fixed;
   right: 0;
-  top: 45%;
+  top: 44%;
 
-  display: flex;
+  display: grid;
   flex-direction: column;
   align-items: end;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 
   z-index: 13;
 
@@ -797,10 +797,10 @@ export const CalculatorAndChatWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    position: fixed;
+    display: flex;
     height: auto;
     top: auto;
-    bottom: 0;
+    bottom: 6px;
     flex-direction: row;
     gap: 0;
   }

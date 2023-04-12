@@ -415,3 +415,10 @@ ${css`
     background-position: 200% 0;
   }
 `}`;
+
+export const horizontalGlowReverse = keyframes`
+${css`
+  to {
+    background-position: 400% 0;
+  }
+`}`;

@@ -7,6 +7,21 @@ import { glow, horizontalGlow } from "../Animations.styled";
 
 export const ChatWrapper = styled.div`
   position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    &::after {
+      content: "";
+      left: 2px;
+      position: absolute;
+      bottom: -6px;
+      width: 100%;
+      height: 4px;
+      border: 1.8px solid ${themes.primary.colors.primary};
+
+      background: ${themes.primary.colors.attachmentIcon};
+      transform: skew(45deg);
+    }
+  }
 `;
 
 interface IChatButton {
@@ -17,20 +32,21 @@ export const ChatButton = styled.div<IChatButton>`
   cursor: pointer;
   position: relative;
   display: block;
-
+  width: 100%;
+  height: 55px;
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  line-height: 99%;
   font-size: 1.8333em;
   padding: 0.8em 0.72em;
   color: transparent;
 
   border: 1.8px solid ${themes.primary.colors.primary};
+  border-right: none;
   border-bottom: none;
   border-left: none;
   background: ${({ isOpen }) =>
     isOpen
-      ? themes.primary.colors.secondary
+      ? themes.primary.colors.blogBackground
       : `linear-gradient(
     90deg,
     ${themes.primary.colors.mainGradientColor1},
@@ -43,29 +59,18 @@ export const ChatButton = styled.div<IChatButton>`
   @media ${themes.primary.media.maxMobile} {
     width: 18vw;
     height: 60px;
-
     border: 1.8px solid ${themes.primary.colors.primary};
-    background: ${({ isOpen }) =>
-      isOpen
-        ? themes.primary.colors.secondary
-        : `linear-gradient(
-    180deg,
-    ${themes.primary.colors.mainGradientColor1},
-    ${themes.primary.colors.mainGradientColor2},
-    ${themes.primary.colors.mainGradientColor1}
-  )`};
-    background-size: auto 400%;
-    animation: ${glow} 12s linear infinite;
+    border-right: 0;
+    z-index: 10;
   }
 
   &::before,
   &::after {
     content: "";
     position: absolute;
-
     border: 1.8px solid ${themes.primary.colors.primary};
+    border-radius: 1.5px;
     background: ${themes.primary.colors.mainGradientColor2};
-    transform: skew(-45deg);
     transform-origin: top;
   }
 
@@ -73,7 +78,7 @@ export const ChatButton = styled.div<IChatButton>`
     top: 2px;
     left: -7px;
     width: 5px;
-    height: 96%;
+    height: 98%;
     transform: skewY(-45deg);
     background: linear-gradient(
       ${themes.primary.colors.mainGradientColor1},
@@ -81,28 +86,35 @@ export const ChatButton = styled.div<IChatButton>`
     );
 
     @media ${themes.primary.media.maxMobile} {
-      top: -7px;
-      left: -1px;
-      width: 100%;
-      height: 4px;
-
-      background: linear-gradient(
-        90deg,
-        ${themes.primary.colors.mainGradientColor1},
-        ${themes.primary.colors.mainGradientColor2}
-      );
-      transform: skewY(0) rotate(0deg);
+      display: none;
+    }
+    @media (min-width: 1500px) {
+      top: 1.5px;
+      height: 97.5%;
+    }
+    @media (max-width: 1024px) {
+      top: 1px;
     }
   }
 
   &::after {
-    bottom: -6.5px;
-    left: 0.5px;
-    width: 99%;
+    border-right: none;
+    right: -8.5px;
+    bottom: -7px;
+    width: 111.5%;
     height: 5px;
+    background: ${themes.primary.colors.attachmentIcon};
+    transform: skew(-45deg);
 
     @media ${themes.primary.media.maxMobile} {
       display: none;
+    }
+    @media (min-width: 1500px) {
+      width: 109%;
+    }
+    @media (max-width: 1024px) {
+      width: 108.5%;
+      right: -7.5px;
     }
   }
 `;
@@ -161,7 +173,7 @@ export const MessageBable = styled.div`
   border-radius: 0.5rem;
   border: 1px solid ${themes.primary.colors.primary};
   box-shadow: 0.3rem 0.3rem 0rem 0rem ${themes.primary.colors.primary};
-  background-color: ${themes.primary.colors.secondary};
+  background-color: ${themes.primary.colors.blogBackground};
 
   p {
     position: relative;
@@ -181,7 +193,7 @@ export const MessageBable = styled.div`
     display: block;
     top: 35%;
 
-    background-color: ${themes.primary.colors.secondary};
+    background-color: ${themes.primary.colors.blogBackground};
     transform: translateY(-50%);
   }
 
@@ -225,7 +237,7 @@ export const MessageBubbleCloseIcon = styled.div`
 
   border: 1px solid ${themes.primary.colors.primary};
   border-radius: 50%;
-  background-color: ${themes.primary.colors.secondary};
+  background-color: ${themes.primary.colors.blogBackground};
   background-image: url(${messageBubbleCloseIcon.src});
   background-position: center;
   background-repeat: no-repeat;
