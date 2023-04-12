@@ -782,13 +782,13 @@ export const FooterSection = styled.section``;
 export const CalculatorAndChatWrapper = styled.div`
   position: fixed;
   right: 0;
-  top: 45%;
+  top: 44%;
 
   display: grid;
   flex-direction: column;
   align-items: end;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 
   z-index: 13;
 

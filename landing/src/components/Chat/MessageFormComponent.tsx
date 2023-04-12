@@ -4,6 +4,7 @@ import { sendMessage } from "react-chat-engine";
 
 import * as Styled from "../../styles/Chat/ChatInputForm.styled";
 import { formatChatAttachName } from "../../utils/formatChatAttachName";
+import { TextareaAutosize } from "@mui/material";
 
 interface IMessageFormComponentProps {
   chatId: string;
@@ -71,7 +72,7 @@ const MessageFormComponent = ({
   };
 
   const handleInput = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (event.key === "Enter" && event.shiftKey == false) {
+    if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
       formik.handleSubmit();
     }
@@ -98,16 +99,16 @@ const MessageFormComponent = ({
         </label>
         {file ? (
           <Styled.AttachmentContainer>
-            <Styled.AttachmentIcon>atch</Styled.AttachmentIcon>
+            <Styled.AttachmentIcon>PSD</Styled.AttachmentIcon>
             <Styled.AttachmentName>
               {formatChatAttachName(file[0].name)}
             </Styled.AttachmentName>
             <Styled.RemoveAttachButton onClick={handleRemoveAttach} />
           </Styled.AttachmentContainer>
         ) : (
-          <Styled.TextField
+          <TextareaAutosize
+            maxRows={4}
             name="text"
-            rows={4}
             placeholder="Write a message..."
             value={formik.values.text}
             onChange={formik.handleChange}

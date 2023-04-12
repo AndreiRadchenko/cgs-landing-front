@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
-import { ChatFormContainer } from "./ChatComponent.styled";
 import attachmentIcon from "../../../public/attachmentIcon.svg";
 import removeAttachButton from "../../../public/removeAttachButton.svg";
 
@@ -37,21 +36,10 @@ export const InputField = styled.input`
   ${FieldSample}
 `;
 
-export const TextField = styled.textarea`
-  ${FieldSample}
-  width: 80%;
-  resize: none;
-  overflow: hidden;
-
-  ::-webkit-scrollbar {
-    width: 0;
-    background: transparent;
-  }
-`;
-
-export const MessageFormWrapper = styled(ChatFormContainer)`
-  align-items: start;
+export const MessageFormWrapper = styled.div`
   background: rgba(143, 142, 147, 0.07);
+  padding: 20px 10px;
+  margin: 0 -15px;
 `;
 
 export const ImageButton = styled.span`
@@ -64,6 +52,26 @@ export const ImageButton = styled.span`
 `;
 
 export const MessageForm = styled.form`
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  gap: 5px;
+
+  label {
+    padding-bottom: 5px;
+  }
+
+  textarea {
+    ${FieldSample};
+    width: 93%;
+    resize: none;
+    overflow-y: scroll;
+    font-size: 16px;
+    line-height: 22px;
+  }
+`;
+
+export const MessageFormRegister = styled.form`
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -80,16 +88,21 @@ export const AttachmentContainer = styled.div`
   align-items: center;
   gap: 0.83em;
   width: 94%;
+  background: ${themes.primary.colors.blogBackground};
+  border: 1px solid #d1d1d6;
+  border-radius: 16.5px;
+  padding: 7px 13px;
 `;
 
 export const AttachmentIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.125rem;
-  height: 2.125rem;
+  width: 20px;
+  height: 20px;
+  font-size: 8px;
+  line-height: 8px;
 
-  font-size: 0.625rem;
   text-transform: uppercase;
   color: ${themes.primary.colors.secondary};
 
@@ -98,10 +111,11 @@ export const AttachmentIcon = styled.div`
 `;
 
 export const AttachmentName = styled.p`
+  font-family: ${themes.primary.font.family.openSans};
+  font-size: 14px;
+  line-height: 19px;
   margin: 0;
   font-weight: ${themes.primary.font.weight.normal};
-  font-size: 0.875rem;
-  line-height: 1.83em;
   color: ${themes.primary.colors.primary};
 `;
 
@@ -126,4 +140,5 @@ export const SubmitIconButton = styled(RemoveAttachButton)`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 `;

@@ -123,6 +123,7 @@ export const ChatBody = styled.div`
 export const ChatMessagesContainer = styled.div`
   height: 100%;
   flex-grow: 1;
+  padding: 0 15px;
 `;
 
 export const ChatFormContainer = styled.div`

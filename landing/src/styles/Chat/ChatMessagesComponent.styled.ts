@@ -4,8 +4,6 @@ import themes from "../../utils/themes";
 import { AttachmentIcon } from "./ChatInputForm.styled";
 
 export const MessageListContainer = styled.div`
-  padding: 0 1.33em;
-
   ::-webkit-scrollbar {
     width: 0.7rem;
     background: transparent;
@@ -92,9 +90,10 @@ export const RecivedMessageBox = styled.p`
   padding: 0.67em;
 
   overflow-wrap: break-word;
-  line-height: 1.58em;
+  line-height: 19px;
   font-weight: ${themes.primary.font.weight.normal};
-  font-size: 1.17em;
+  font-size: 14px;
+  font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.primary};
 
   border-radius: 0px 6px 6px 6px;
@@ -120,7 +119,11 @@ export const RecievdMessageTime = styled.span`
   width: fit-content;
   padding-top: 0.33em;
 
-  line-height: 1.33em;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: ${themes.primary.font.weight.normal};
+  font-family: ${themes.primary.font.family.openSans};
+  color: ${themes.primary.colors.headerBorder};
 `;
 
 export const SendedMessageTime = styled(RecievdMessageTime)`

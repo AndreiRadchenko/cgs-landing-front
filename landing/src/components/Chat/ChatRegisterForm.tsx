@@ -43,7 +43,10 @@ const ChatRegisterForm = ({
   });
 
   return (
-    <Styled.MessageForm onSubmit={formik.handleSubmit} autoComplete="off">
+    <Styled.MessageFormRegister
+      onSubmit={formik.handleSubmit}
+      autoComplete="off"
+    >
       <div>
         <Styled.InputField
           type="emai"
@@ -71,7 +74,7 @@ const ChatRegisterForm = ({
           />
         </svg>
       </Styled.SubmitIconButton>
-    </Styled.MessageForm>
+    </Styled.MessageFormRegister>
   );
 };
 

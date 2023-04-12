@@ -61,6 +61,7 @@ export const ChatButton = styled.div<IChatButton>`
     height: 60px;
     border: 1.8px solid ${themes.primary.colors.primary};
     border-right: 0;
+    z-index: 10;
   }
 
   &::before,
@@ -172,7 +173,7 @@ export const MessageBable = styled.div`
   border-radius: 0.5rem;
   border: 1px solid ${themes.primary.colors.primary};
   box-shadow: 0.3rem 0.3rem 0rem 0rem ${themes.primary.colors.primary};
-  background-color: ${themes.primary.colors.secondary};
+  background-color: ${themes.primary.colors.blogBackground};
 
   p {
     position: relative;
@@ -192,7 +193,7 @@ export const MessageBable = styled.div`
     display: block;
     top: 35%;
 
-    background-color: ${themes.primary.colors.secondary};
+    background-color: ${themes.primary.colors.blogBackground};
     transform: translateY(-50%);
   }
 
@@ -236,7 +237,7 @@ export const MessageBubbleCloseIcon = styled.div`
 
   border: 1px solid ${themes.primary.colors.primary};
   border-radius: 50%;
-  background-color: ${themes.primary.colors.secondary};
+  background-color: ${themes.primary.colors.blogBackground};
   background-image: url(${messageBubbleCloseIcon.src});
   background-position: center;
   background-repeat: no-repeat;
