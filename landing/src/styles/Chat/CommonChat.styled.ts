@@ -89,8 +89,8 @@ export const ChatButton = styled.div<IChatButton>`
       display: none;
     }
     @media (min-width: 1500px) {
-      top: 1.5px;
-      height: 97.5%;
+      top: 2px;
+      height: 100%;
     }
     @media (max-width: 1024px) {
       top: 1px;
@@ -110,7 +110,7 @@ export const ChatButton = styled.div<IChatButton>`
       display: none;
     }
     @media (min-width: 1500px) {
-      width: 109%;
+      width: 110%;
     }
     @media (max-width: 1024px) {
       width: 108.5%;
