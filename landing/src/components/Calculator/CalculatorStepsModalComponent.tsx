@@ -7,7 +7,6 @@ interface ICalculatorModalComponentProps {
   lastPage?: boolean;
   mobile?: boolean;
   handleQuit: () => void;
-  modalSize: { height: number; width: number };
 }
 
 const CalculatorStepsModalComponent = ({
@@ -15,10 +14,8 @@ const CalculatorStepsModalComponent = ({
   lastPage,
   mobile,
   handleQuit,
-  modalSize,
 }: ICalculatorModalComponentProps) => {
   const modalRef = useRef<any>(null);
-  // console.log("Modal Size: ", modalSize);
 
   useEffect(() => {
     function handleClickOutside(event: { target: any }) {
@@ -37,11 +34,7 @@ const CalculatorStepsModalComponent = ({
   return (
     <Styled.Wrapper>
       {lastPage ? (
-        <CalculatorResult
-          handleQuit={handleQuit}
-          mobile={mobile}
-          modalSize={modalSize}
-        >
+        <CalculatorResult handleQuit={handleQuit} mobile={mobile}>
           {children}
         </CalculatorResult>
       ) : (
