@@ -20,9 +20,9 @@ interface IBookACallButtonProps {
   buttonLink: string;
   buttonClassName?: string;
   type?: string;
-  handleClose?: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
+  handleClose?: any;
   calendlyIsOpen: boolean;
-  setCalendlyIsOpen: Dispatch<SetStateAction<boolean>>;
+  setCalendlyIsOpen: React.Dispatch<SetStateAction<boolean>>;
 }
 
 const BookACallButton = ({

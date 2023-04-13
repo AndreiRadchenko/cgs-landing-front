@@ -631,6 +631,7 @@ export interface ICalculator {
   finishMessage: string;
   resultMessage: string;
   email: string;
+  name: string;
   roles: ICalculatorRole[];
 }
 
@@ -704,6 +705,7 @@ export interface ICalculatorPostLeadEmailResultsProps {
 }
 export interface ICalculatorFormValuesProps {
   questionsArr: ICalculatorQuestion[];
+  name: string;
   email: string;
   isBlockchain: boolean;
   // substepRequired: boolean;

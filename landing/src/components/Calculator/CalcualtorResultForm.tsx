@@ -10,6 +10,7 @@ import {
 } from "../../types/Admin/Response.types";
 import { getResults } from "../../utils/getCalculatorResults";
 import CalculatorEmailField from "./CalculatorEmailField";
+import CalculatorNameField from "./CalculatorNameField";
 import CalculatorTitleField from "./CalculatorTitleField";
 
 interface ICalculatorResultForm {
@@ -105,6 +106,10 @@ const CalcualtorResultForm = ({
         ) : (
           <CalculatorTitleField className="last" loader={true} />
         )}
+        <CalculatorNameField
+          calculateIsClicked={calculateIsClicked}
+          name={calculatorData.name}
+        />
         <CalculatorEmailField
           calculateIsClicked={calculateIsClicked}
           email={calculatorData.email}
