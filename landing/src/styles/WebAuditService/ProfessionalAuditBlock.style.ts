@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
