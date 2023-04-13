@@ -47,22 +47,16 @@ const ProfessionalAuditBlock = () => {
             objectFit="contain"
           />
           <Styled.HoveredImageContainer>
-            <Styled.HoveredImageFirst>
-              <Image
-                src={AuditTimeText}
-                alt="types of grid image"
-                layout="fill"
-                objectFit="contain"
-              />
-            </Styled.HoveredImageFirst>
-            <Styled.HoveredImageSecond>
-              <Image
-                src={AuditTimeText}
-                alt="types of grid image"
-                layout="fill"
-                objectFit="contain"
-              />
-            </Styled.HoveredImageSecond>
+            {[...Array(2)].map((_, i) => (
+              <Styled.HoveredImage key={i} delay={i}>
+                <Image
+                  src={AuditTimeText}
+                  alt="types of grid image"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </Styled.HoveredImage>
+            ))}
           </Styled.HoveredImageContainer>
         </Styled.ImageWrapper>
       </Styled.Content>
