@@ -1,20 +1,4 @@
 import styled from "styled-components";
-import themes from "../../utils/themes";
-
-export const Backdrop = styled.div`
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  /* visibility 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-`;
 
 export const StyledSpinner = styled.div`
   @keyframes mulShdSpin {
