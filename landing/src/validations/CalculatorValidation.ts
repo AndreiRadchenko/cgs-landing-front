@@ -3,6 +3,7 @@ import * as yup from "yup";
 export const CalculatorValidation = () => {
   return yup.object({
     email: yup.string().email().required("Enter e-mail"),
+    name: yup.string().required("Enter name"),
     questionsArr: yup.array(
       yup.object({
         title: yup.string(),

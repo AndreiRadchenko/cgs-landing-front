@@ -4,20 +4,22 @@ import { TieUpInput } from "../../styles/Calculator/CalculatorAdmin.styled";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
 interface ICalculatorEmailFieldProps {
-  email: string;
+  name: string;
   calculateIsClicked: boolean;
 }
 
-const CalculatorEmailField = ({
-  email,
+const CalculatorNameField = ({
+  name,
   calculateIsClicked,
 }: ICalculatorEmailFieldProps) => {
-  const { handleChange, errors } = useFormikContext<{ email: string }>();
+  const { values, handleChange, errors } = useFormikContext<{ name: string }>();
   const inputRef = useRef<HTMLInputElement>();
 
   const handleInputClick = () => {
     inputRef.current && inputRef.current.focus();
   };
+
+  //   console.log("Values: ", values);
 
   return (
     <Styled.EmailInputWrapper>
@@ -31,21 +33,18 @@ const CalculatorEmailField = ({
           <TieUpInput
             innerRef={inputRef}
             type="email"
-            name="email"
+            name="name"
             id={`user-email`}
             className={`email ${
-              calculateIsClicked && errors["email"] ? "warn-text" : undefined
+              calculateIsClicked && errors["name"] ? "warn-text" : undefined
             }`}
-            placeholder={email}
+            placeholder={name}
             onChange={handleChange}
           />
         </Styled.CalculatorInputFields>
       </Styled.CalculatorFieldWrapper>
-      {calculateIsClicked && errors["email"] && (
-        <Styled.ErrorMessage>Provide a valid e-mail</Styled.ErrorMessage>
-      )}
     </Styled.EmailInputWrapper>
   );
 };
 
-export default CalculatorEmailField;
+export default CalculatorNameField;

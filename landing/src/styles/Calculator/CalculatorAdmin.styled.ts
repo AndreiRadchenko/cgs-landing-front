@@ -295,6 +295,14 @@ export const TieUpInput = styled(Field)`
     }
   }
 
+  &.warn-text {
+    color: red;
+
+    &.warn-text::placeholder {
+      color: red;
+    }
+  }
+
   &.admin-radio {
     background-color: ${themes.primary.colors.blogBackground};
     margin: 0;

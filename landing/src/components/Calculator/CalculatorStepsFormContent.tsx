@@ -8,6 +8,8 @@ import { ICalculatorFormValuesProps } from "../../types/Admin/Response.types";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import CalculatorPopover from "./CalculatorPopover";
 import CalculatorPagination from "./CalculatorPagination";
+import BookACallButton from "../BookACallButton";
+import { useRouter } from "next/router";
 
 const PAGINATION_STEPS_PER_PAGE = 8;
 
@@ -24,6 +26,10 @@ interface ICalculatorStepsFormContentProps {
   setWarnIsShow: React.Dispatch<React.SetStateAction<boolean>>;
   arrayChildren: Array<Exclude<ReactNode, boolean | null | undefined>>;
   isBlockchain: boolean;
+  name: string;
+  email: string;
+  calendlyIsOpen: boolean;
+  setCalendlyIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const CalculatorStepsFormContent = ({
@@ -39,9 +45,19 @@ const CalculatorStepsFormContent = ({
   calculateIsClicked,
   setCalculateIsClicked,
   isBlockchain,
+  name,
+  email,
+  calendlyIsOpen,
+  setCalendlyIsOpen,
 }: ICalculatorStepsFormContentProps) => {
   const { values, isValid, errors, handleSubmit, validateForm } =
     useFormikContext<ICalculatorFormValuesProps>();
+  const [modalSize, setModalSize] = useState({ height: 669, width: 647 });
+  const router = useRouter();
+
+  const calendlyLink = isBlockchain
+    ? "https://calendly.com/d/yyt-5dp-6bn/client-meets-cgs-team-ib-web3"
+    : "https://calendly.com/d/2cj-vbz-zkp/client-meets-cgs-team-ib-web2";
 
   const handleClick = () =>
     stepsCount <= 10 ? onButtonClick() : handlePaginationNextClick();
@@ -106,7 +122,21 @@ const CalculatorStepsFormContent = ({
   const onButtonClick = () => {
     if (lastStep) {
       setCalculateIsClicked(true);
-      isValid && handleSubmit();
+      // isValid && handleSubmit();
+      if (isValid) {
+        // const screenWidth = window.innerWidth;
+        // console.log("Width: ", screenWidth);
+        // const screenHeight = window.innerHeight;
+        // setModalSize({ height: screenHeight, width: screenWidth });
+        const email = values.email.replace("@", "%40");
+        router.push(
+          `${calendlyLink}?name=${values.name}&email=${email}`,
+          undefined,
+          { shallow: true }
+        );
+        // setCalendlyIsOpen(true);
+        handleSubmit();
+      }
     } else if (errors["questionsArr"] && errors["questionsArr"][step]) {
       setWarnIsShow(true);
     } else if (step + 1 < stepsCount) {
@@ -148,6 +178,7 @@ const CalculatorStepsFormContent = ({
         mobile={width < 768}
         lastPage={lastStep}
         handleQuit={handleQuit}
+        modalSize={modalSize}
       >
         {
           <Styled.ModalContentWrapper>
@@ -226,14 +257,20 @@ const CalculatorStepsFormContent = ({
                 )}
               </Styled.StepButtonWrapper>
               <Styled.StepsMainButtonWrapper>
-                <Styled.StartButton
-                  type="submit"
-                  className={`steps ${warnIsShow ? "invalid" : ""}`}
-                  onClick={handleClick}
-                >
-                  {"<"}&nbsp;{lastStep ? "calculation" : "next"}&nbsp;{">"}
-                </Styled.StartButton>
-                <CalculatorPopover />
+                {lastStep ? (
+                  <a href="#" onClick={handleClick} className="test">
+                    Book a call
+                  </a>
+                ) : (
+                  <Styled.StartButton
+                    type="submit"
+                    className={`steps ${warnIsShow ? "invalid" : ""}`}
+                    onClick={handleClick}
+                  >
+                    {"<"}&nbsp;{"next"}&nbsp;{">"}
+                  </Styled.StartButton>
+                )}
+                {/* <CalculatorPopover /> */}
               </Styled.StepsMainButtonWrapper>
             </Styled.ButtonWrapper>
           </Styled.ModalContentWrapper>

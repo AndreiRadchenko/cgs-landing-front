@@ -568,6 +568,17 @@ export const StepsMainButtonWrapper = styled.div`
   position: relative;
   margin-left: 1.5em;
 
+  & .test {
+    display: flex;
+    background: black;
+    color: white;
+    width: 188px;
+    height: 58px;
+    font-size: 22px;
+    align-items: center;
+    justify-content: center;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     margin-left: 1em;
   }
@@ -1492,7 +1503,7 @@ export const HorizontalLine = styled.hr`
 
 export const ResultImageWrapper = styled.div`
   width: 669px;
-  height: 553px;
+  height: 645px;
 
   @media ${themes.primary.media.maxMobile} {
     width: 356px;

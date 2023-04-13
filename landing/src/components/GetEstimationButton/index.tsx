@@ -16,7 +16,7 @@ declare global {
 
 interface IGetEstimationButtonProps {
   buttonText?: string;
-  buttonLink: string;
+  buttonLink?: string;
   buttonClassName?: string;
   style?: CSSProperties;
   withEstimation?: boolean;
