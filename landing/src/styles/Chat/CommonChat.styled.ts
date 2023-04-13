@@ -89,8 +89,8 @@ export const ChatButton = styled.div<IChatButton>`
       display: none;
     }
     @media (min-width: 1500px) {
-      top: 1.5px;
-      height: 100%;
+      top: 1.8px;
+      height: 100.5%;
     }
     @media (max-width: 1024px) {
       top: 1px;
@@ -110,12 +110,28 @@ export const ChatButton = styled.div<IChatButton>`
       display: none;
     }
     @media (min-width: 1500px) {
-      bottom: -8px;
-      width: 109%;
+      bottom: -7px;
+      width: 110%;
     }
     @media (max-width: 1024px) {
       width: 108.5%;
       right: -7.5px;
+    }
+
+    @supports (-webkit-hyphens: none) {
+      right: -7.5px;
+      bottom: -7px;
+      width: 115%;
+
+      @media (max-width: 1024px) {
+        bottom: -6.7px;
+        width: 115%;
+        right: -7.5px;
+      }
+      @media (min-width: 1500px) {
+        bottom: -7px;
+        width: 111%;
+      }
     }
   }
 `;

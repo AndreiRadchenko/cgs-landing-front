@@ -45,6 +45,7 @@ export const ChatContainer = styled.div<IChatContainer>`
     position: absolute;
 
     border: 1.8px solid ${themes.primary.colors.primary};
+    border-radius: 1.5px;
     background: ${themes.primary.colors.mainGradientColor2};
     transform: skew(-45deg);
     transform-origin: top;
@@ -82,6 +83,41 @@ export const ChatContainer = styled.div<IChatContainer>`
     }
     @media ${themes.primary.media.maxMobile} {
       display: none;
+    }
+  }
+
+  @supports (-webkit-hyphens: none) {
+    &::before {
+      top: 2.9px;
+      height: 99.7%;
+    }
+    &::after {
+      width: 100%;
+      left: 0;
+    }
+
+    @media ${themes.primary.media.maxMobile} {
+      height: calc(100vh - 5.9rem - 59px);
+    }
+    @media (max-width: 1024px) {
+      &::before {
+        top: 2.9px;
+        height: 99.7%;
+      }
+      &::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+    @media (min-width: 1500px) {
+      &::before {
+        top: 2.9px;
+        height: 99.7%;
+      }
+      &::after {
+        width: 100%;
+        left: -1px;
+      }
     }
   }
 `;
