@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
-import attachmentIcon from "../../../public/attachmentIcon.svg";
 import removeAttachButton from "../../../public/removeAttachButton.svg";
 
 export const InputEmailError = styled.p`
@@ -46,9 +45,7 @@ export const ImageButton = styled.span`
   display: block;
   width: 20px;
   height: 20px;
-  background-image: url(${attachmentIcon.src});
-  background-position: center;
-  background-repeat: no-repeat;
+  cursor: pointer;
 `;
 
 export const MessageForm = styled.form`
@@ -134,6 +131,7 @@ export const RemoveAttachButton = styled.button`
   background-image: url(${removeAttachButton.src});
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
 `;
 
 export const SubmitIconButton = styled(RemoveAttachButton)`
