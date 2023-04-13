@@ -1101,7 +1101,7 @@ export const CalculatorFieldWrapper = styled.div`
   }
 
   &.email {
-    margin-top: 16px;
+    margin-top: 4px;
     min-height: 80px;
   }
 
@@ -1123,7 +1123,7 @@ export const CalculatorFieldWrapper = styled.div`
     border-radius: 5px;
 
     &.last {
-      height: 316px;
+      height: 272px;
       max-height: 316px;
 
       & h4.result-title {
