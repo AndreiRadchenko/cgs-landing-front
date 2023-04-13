@@ -41,9 +41,6 @@ const CalculatorEmailField = ({
           />
         </Styled.CalculatorInputFields>
       </Styled.CalculatorFieldWrapper>
-      {calculateIsClicked && errors["email"] && (
-        <Styled.ErrorMessage>Provide a valid e-mail</Styled.ErrorMessage>
-      )}
     </Styled.EmailInputWrapper>
   );
 };

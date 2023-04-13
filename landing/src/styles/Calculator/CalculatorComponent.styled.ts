@@ -603,6 +603,8 @@ export const StartButton = styled.button`
   }
 `;
 
+export const SubmitContainer = styled.div``;
+
 export const StepsMainButtonWrapper = styled.div`
   display: flex;
   align-items: flex-end;
@@ -610,7 +612,8 @@ export const StepsMainButtonWrapper = styled.div`
   position: relative;
   margin-left: 1.5em;
 
-  & .test {
+  & .calc-submit {
+    font-family: ${themes.primary.font.family.namu};
     display: flex;
     background: black;
     color: white;
@@ -619,6 +622,7 @@ export const StepsMainButtonWrapper = styled.div`
     font-size: 22px;
     align-items: center;
     justify-content: center;
+    margin-top: 14px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -627,6 +631,12 @@ export const StepsMainButtonWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     justify-content: flex-end;
+
+    & .calc-submit {
+      font-size: 16px;
+      height: 50px;
+      width: 154px;
+    }
   }
 `;
 
@@ -670,7 +680,7 @@ export const StepButtonWrapper = styled.div`
     margin-top: 1.4em;
     padding-left: 1.8em;
     &.last {
-      margin-top: 1.8em;
+      margin-top: 18px;
     }
   }
 `;
@@ -678,6 +688,7 @@ export const StepButtonWrapper = styled.div`
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 12px;
   margin-right: 2.9em;
 
   @media ${themes.primary.media.maxMobile} {
@@ -686,7 +697,8 @@ export const ButtonWrapper = styled.div`
     row-gap: 20px;
 
     &.last {
-      row-gap: 14px;
+      margin-top: 0;
+      row-gap: 0;
     }
   }
 `;
@@ -1101,7 +1113,8 @@ export const CalculatorFieldWrapper = styled.div`
   }
 
   &.email {
-    margin-top: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     min-height: 80px;
   }
 
@@ -1163,8 +1176,8 @@ export const CalculatorFieldWrapper = styled.div`
     }
 
     &.email {
-      min-height: 64px;
-      height: 64px;
+      min-height: 54px;
+      height: 54px;
     }
 
     &.quit {
@@ -1496,7 +1509,7 @@ export const CalculatorInputFields = styled.div`
   cursor: pointer;
 
   &.email {
-    padding-block: 1.3em 1.7em;
+    padding-block: 1.5em 1.5em;
   }
 
   &.disabled {

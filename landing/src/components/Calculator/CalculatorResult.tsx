@@ -5,16 +5,13 @@ interface ICalculatorResultProps {
   mobile?: boolean;
   children: ReactNode;
   handleQuit: () => void;
-  modalSize: { height: number; width: number };
 }
 
 const CalculatorResult = ({
   mobile,
   children,
   handleQuit,
-  modalSize,
 }: ICalculatorResultProps) => {
-  // console.log("Size: ", modalSize);
   const modalRef = useRef<any>(null);
 
   useEffect(() => {
@@ -126,9 +123,9 @@ const CalculatorResult = ({
         </svg>
       ) : (
         <svg
-          width={modalSize.width}
-          height={modalSize.height}
-          viewBox={`0 0 ${modalSize.height} ${modalSize.width}`}
+          width="100%"
+          height="100%"
+          viewBox="0 0 669 647"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >

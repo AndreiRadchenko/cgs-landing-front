@@ -19,10 +19,6 @@ interface ICalculatorStepsComponentProps {
   setWarnIsShow: React.Dispatch<React.SetStateAction<boolean>>;
   children: ReactNode;
   isBlockchain: boolean;
-  name: string;
-  email: string;
-  calendlyIsOpen: boolean;
-  setCalendlyIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const CalculatorStepsComponent = ({
@@ -42,10 +38,6 @@ const CalculatorStepsComponent = ({
   warnIsShow,
   setWarnIsShow,
   isBlockchain,
-  name,
-  email,
-  calendlyIsOpen,
-  setCalendlyIsOpen,
 }: ICalculatorStepsComponentProps) => {
   const arrayChildren = Children.toArray(children);
 
@@ -89,10 +81,6 @@ const CalculatorStepsComponent = ({
           setWarnIsShow={setWarnIsShow}
           arrayChildren={arrayChildren}
           isBlockchain={isBlockchain}
-          name={name}
-          email={email}
-          calendlyIsOpen={calendlyIsOpen}
-          setCalendlyIsOpen={setCalendlyIsOpen}
         />
       )}
     </div>

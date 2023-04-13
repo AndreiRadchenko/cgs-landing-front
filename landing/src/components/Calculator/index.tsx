@@ -44,7 +44,6 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
   const [calculateIsClicked, setCalculateIsClicked] = useState<boolean>(false);
   const [isQuitting, setIsQuitting] = useState<boolean>(false);
   const [warnIsShow, setWarnIsShow] = useState<boolean>(false);
-  const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
   const hoverRef = useRef<any>(null);
   const timeoutRef = useRef<any>(null);
 
@@ -310,7 +309,6 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
       const uxui = getResults(definedStepData, values.questionsArr, "uxui");
 
       if (
-        !calendlyIsOpen &&
         typeof hours === "number" &&
         typeof uxui === "number" &&
         typeof price === "number"
@@ -357,8 +355,6 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [hoverRef]);
-
-  console.log("isOpen: ", calendlyIsOpen);
 
   return (
     <>
@@ -433,10 +429,6 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
                     warnIsShow={warnIsShow}
                     setWarnIsShow={setWarnIsShow}
                     isBlockchain={isBlockchain}
-                    name={values.name}
-                    email={values.email}
-                    calendlyIsOpen={calendlyIsOpen}
-                    setCalendlyIsOpen={setCalendlyIsOpen}
                   >
                     {stepsData.map((currentData, stepInd) => (
                       <div key={currentData.title}>

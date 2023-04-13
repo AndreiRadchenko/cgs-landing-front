@@ -12,14 +12,12 @@ const CalculatorNameField = ({
   name,
   calculateIsClicked,
 }: ICalculatorEmailFieldProps) => {
-  const { values, handleChange, errors } = useFormikContext<{ name: string }>();
+  const { handleChange, errors } = useFormikContext<{ name: string }>();
   const inputRef = useRef<HTMLInputElement>();
 
   const handleInputClick = () => {
     inputRef.current && inputRef.current.focus();
   };
-
-  //   console.log("Values: ", values);
 
   return (
     <Styled.EmailInputWrapper>
@@ -32,7 +30,7 @@ const CalculatorNameField = ({
         >
           <TieUpInput
             innerRef={inputRef}
-            type="email"
+            type="text"
             name="name"
             id={`user-email`}
             className={`email ${
