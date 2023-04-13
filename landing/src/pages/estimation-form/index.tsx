@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from "react";
+
+import LoadingOverlay from "react-loading-overlay-ts";
+import { Loader } from "../../components/Loader/Loader";
+import { StyledSpinner } from "../../components/Loader/Loader.styled";
+import { Spinner } from "../../components/Loader/Spinner";
+
 import { HeaderText } from "../../components/EstimationForm/HeaderText";
 import {
   Container,
@@ -71,38 +77,79 @@ const EstimationsForm = () => {
     else document.body.style.overflow = "unset";
   }, [openSuccessModal, openFailedModal]);
 
-  return isLoading ? (
-    <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
-  ) : (
-    <Container>
-      <HeaderNavNew
-        clickFromEstimationForm={true}
-        setOpenFailedModal={setOpenFailedModal}
-      />
-      <ContainerDate>
-        {openSuccessModal && <EstimationCongratsModal />}
-        {openFailedModal && (
-          <EstimationFailModal setOpenFailedModal={setOpenFailedModal} />
-        )}
-        <HeaderText />
-        <EstimationPage
-          setOpenSuccessModal={setOpenSuccessModal}
-          attachFiles={attachFiles}
-          setAttachFiles={setAttachFiles}
-          formData={formData}
-          setFormData={setFormData}
-          pageN={page}
-          setPage={setPage}
-          data={data!}
-        />
-        <ImageBackground page={page} />
-      </ContainerDate>
-      <FooterNew
-        clickFromEstimationForm={true}
-        setOpenFailedModal={setOpenFailedModal}
-      />
-    </Container>
+  // <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
+  // <Loader isActive={isLoading} />
+
+  return (
+    <LoadingOverlay
+      active={isLoading}
+      // spinner
+      spinner={<StyledSpinner />}
+      // text="Loading your content..."
+    >
+      {isLoading ? null : (
+        <Container>
+          <HeaderNavNew
+            clickFromEstimationForm={true}
+            setOpenFailedModal={setOpenFailedModal}
+          />
+          <ContainerDate>
+            {openSuccessModal && <EstimationCongratsModal />}
+            {openFailedModal && (
+              <EstimationFailModal setOpenFailedModal={setOpenFailedModal} />
+            )}
+            <HeaderText />
+            <EstimationPage
+              setOpenSuccessModal={setOpenSuccessModal}
+              attachFiles={attachFiles}
+              setAttachFiles={setAttachFiles}
+              formData={formData}
+              setFormData={setFormData}
+              pageN={page}
+              setPage={setPage}
+              data={data!}
+            />
+            <ImageBackground page={page} />
+          </ContainerDate>
+          <FooterNew
+            clickFromEstimationForm={true}
+            setOpenFailedModal={setOpenFailedModal}
+          />
+        </Container>
+      )}
+    </LoadingOverlay>
   );
+
+  /* 
+  return (
+    <LoadingOverlay active={isLoading} spinner text="Loading your content...">
+      <Container>
+        <HeaderNavNew
+          clickFromEstimationForm={true}
+          setOpenFailedModal={setOpenFailedModal}
+        />
+        <ContainerDate>
+          {openSuccessModal && <EstimationCongratsModal />}
+          {openFailedModal && (
+            <EstimationFailModal setOpenFailedModal={setOpenFailedModal} />
+          )}
+          <HeaderText />
+          <EstimationPage
+            setOpenSuccessModal={setOpenSuccessModal}
+            attachFiles={attachFiles}
+            setAttachFiles={setAttachFiles}
+            formData={formData}
+            setFormData={setFormData}
+            pageN={page}
+            setPage={setPage}
+            data={data!}
+          />
+          <ImageBackground page={page} />
+        </ContainerDate>
+      </Container>
+    </LoadingOverlay>
+  );
+  */
 };
 
 export default EstimationsForm;
