@@ -93,19 +93,27 @@ export const HoveredImageContainer = styled.div`
   z-index: 4;
 `;
 
-export const HoveredImage = styled.div`
+interface IProps {
+  delay: number;
+}
+
+export const HoveredImage = styled.div<IProps>`
   @keyframes scroll {
     0% {
       transform: translateX(100%);
     }
     100% {
-      transform: translateX(-100%);
+      transform: translateX(-120%);
     }
   }
+  transform: translateX(-20%);
 
-  -webkit-animation: scroll 5s infinite linear;
-  -moz-animation: scroll 5s infinite linear;
-  animation: scroll 5s infinite linear;
+  animation: scroll 6s infinite linear;
+  animation-delay: ${({ delay }) => (delay ? `${delay * 3}s` : "0")};
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   position: absolute;
   width: 150%;
   height: 100%;
