@@ -115,13 +115,12 @@ const CalculatorStepsFormContent = ({
     if (lastStep) {
       setCalculateIsClicked(true);
       if (isValid) {
+        handleSubmit();
         const email = values.email.replace("@", "%40");
-
         window.open(
           `${calendlyLink}?name=${values.name}&email=${email}`,
           "_blank"
         );
-        handleSubmit();
       }
     } else if (errors["questionsArr"] && errors["questionsArr"][step]) {
       setWarnIsShow(true);
