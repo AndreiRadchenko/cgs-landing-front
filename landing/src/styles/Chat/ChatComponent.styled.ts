@@ -1,9 +1,18 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 
 interface IChatContainer {
   isChatOpen: boolean;
+  windowHeight: number | null;
 }
+
+const createCss = (height: number | null) => {
+  const iphoneHeight = height! - 152.5;
+  const styles = `height: ${iphoneHeight}px;`;
+  return css`
+    ${styles}
+  `;
+};
 
 export const ChatContainer = styled.div<IChatContainer>`
   position: absolute;
@@ -97,7 +106,8 @@ export const ChatContainer = styled.div<IChatContainer>`
     }
 
     @media ${themes.primary.media.maxMobile} {
-      height: calc(100vh - 5.9rem - 59px);
+      ${(props) => createCss(props.windowHeight)}
+      height: ${({ windowHeight }) => windowHeight! - 10};
     }
     @media (max-width: 1024px) {
       &::before {
