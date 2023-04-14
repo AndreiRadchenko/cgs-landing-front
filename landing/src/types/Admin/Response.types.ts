@@ -697,6 +697,7 @@ export interface ICalculatorPostEmailResultsProps {
   isBlockchain: boolean;
   estimation: ILeadMailData;
   email: string;
+  name: string;
 }
 
 export interface ICalculatorPostLeadEmailResultsProps {

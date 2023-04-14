@@ -150,7 +150,7 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
     values: ICalculatorFormValuesProps,
     { resetForm }: FormikHelpers<ICalculatorFormValuesProps>
   ) => {
-    const { questionsArr, isBlockchain, email } = values;
+    const { questionsArr, isBlockchain, email, name } = values;
 
     const getRolesCoefObject = (
       matchData: Array<IStepOptions | Array<IStepOptions> | undefined>,
@@ -318,6 +318,7 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
           isBlockchain,
           estimation: { uxui, hours, price },
           email,
+          name,
         };
         mutate(emailData);
         resetForm();
