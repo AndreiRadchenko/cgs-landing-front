@@ -3,7 +3,11 @@ import themes from "../../utils/themes";
 import chatOpenButtonIcon from "../../../public/chatOpenButtonIcon.svg";
 import chatCloseButtonIcon from "../../../public/chatCloseButtonIcon.svg";
 import messageBubbleCloseIcon from "../../../public/messageBubbleCloseIcon.svg";
-import { glow, horizontalGlow } from "../Animations.styled";
+import {
+  glow,
+  horizontalGlow,
+  horizontalGlowReverse,
+} from "../Animations.styled";
 
 export const ChatWrapper = styled.div`
   position: relative;
@@ -48,13 +52,14 @@ export const ChatButton = styled.div<IChatButton>`
     isOpen
       ? themes.primary.colors.blogBackground
       : `linear-gradient(
-    90deg,
-    ${themes.primary.colors.mainGradientColor1},
-    ${themes.primary.colors.mainGradientColor2},
-    ${themes.primary.colors.mainGradientColor1}
-  )`};
-  background-size: 200% auto;
-  animation: ${horizontalGlow} 6s linear infinite;
+    180deg,
+      ${themes.primary.colors.mainGradientColor1},
+      ${themes.primary.colors.mainGradientColor2},
+      ${themes.primary.colors.mainGradientColor1})`};
+
+  transform-origin: top;
+  background-size: auto 400%;
+  animation: ${glow} 12s linear infinite;
 
   @media ${themes.primary.media.maxMobile} {
     width: 18vw;
@@ -62,6 +67,17 @@ export const ChatButton = styled.div<IChatButton>`
     border: 1.8px solid ${themes.primary.colors.primary};
     border-right: 0;
     z-index: 10;
+    background: ${({ isOpen }) =>
+      isOpen
+        ? themes.primary.colors.blogBackground
+        : `linear-gradient(
+    90deg,
+    ${themes.primary.colors.mainGradientColor1},
+    ${themes.primary.colors.mainGradientColor2},
+    ${themes.primary.colors.mainGradientColor1}
+  )`};
+    background-size: 200% auto;
+    animation: ${horizontalGlow} 5s linear infinite;
   }
 
   &::before,
@@ -75,22 +91,26 @@ export const ChatButton = styled.div<IChatButton>`
   }
 
   &::before {
-    top: 2px;
+    top: 1.3px;
     left: -7px;
     width: 5px;
     height: 98%;
     transform: skewY(-45deg);
-    background: linear-gradient(
+    background-image: ${() => `linear-gradient(
+      180deg,
       ${themes.primary.colors.mainGradientColor1},
-      ${themes.primary.colors.mainGradientColor2}
-    );
+      ${themes.primary.colors.mainGradientColor2},
+      ${themes.primary.colors.mainGradientColor1})`};
+    transform-origin: top;
+    background-size: auto 400%;
+    animation: ${glow} 12s linear infinite;
 
     @media ${themes.primary.media.maxMobile} {
       display: none;
     }
     @media (min-width: 1500px) {
       top: 1.8px;
-      height: 100.5%;
+      height: 96%;
     }
     @media (max-width: 1024px) {
       top: 1px;
@@ -180,7 +200,7 @@ export const MessageBable = styled.div`
   position: absolute;
   bottom: -1rem;
   right: 6rem;
-  width: 13.23rem;
+  width: 215px;
   padding: 0.75rem 0.625rem;
 
   font-family: "NAMU";

@@ -34,7 +34,7 @@ export const ChatContainer = styled.div<IChatContainer>`
     bottom: 55px;
     right: 0;
     width: 100vw;
-    height: calc(100vh - 5.9rem - 60px);
+    height: calc(100vh - 5.9rem - 59px);
     border-right: none;
     transform-origin: 50% 100%;
   }
@@ -46,7 +46,7 @@ export const ChatContainer = styled.div<IChatContainer>`
 
     border: 1.8px solid ${themes.primary.colors.primary};
     border-radius: 1.5px;
-    background: ${themes.primary.colors.mainGradientColor2};
+    background: ${themes.primary.colors.darkBlue};
     transform: skew(-45deg);
     transform-origin: top;
   }
@@ -58,8 +58,8 @@ export const ChatContainer = styled.div<IChatContainer>`
     height: 99.5%;
     transform: skewY(-45deg);
     background: linear-gradient(
-      ${themes.primary.colors.mainGradientColor1},
-      ${themes.primary.colors.mainGradientColor2}
+      ${themes.primary.colors.mainGradientColor2},
+      ${themes.primary.colors.mainGradientColor1}
     );
 
     @media (min-width: 1500px) {
@@ -129,8 +129,8 @@ export const ChatHeader = styled.div`
   border-bottom: 1.8px solid ${themes.primary.colors.primary};
   background: linear-gradient(
     90deg,
-    ${themes.primary.colors.mainGradientColor1},
-    ${themes.primary.colors.mainGradientColor2}
+    ${themes.primary.colors.mainGradientColor2},
+    ${themes.primary.colors.mainGradientColor1}
   );
 
   p {
@@ -139,11 +139,13 @@ export const ChatHeader = styled.div`
 `;
 
 export const ChatTitle = styled.p`
+  font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.bold};
   font-size: ${themes.primary.font.size.oneAndHalf};
 `;
 
 export const OperatorStatus = styled.p`
+  font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.semiBold};
   opacity: 0.5;
 `;

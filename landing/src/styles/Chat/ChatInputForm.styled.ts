@@ -144,4 +144,19 @@ export const SubmitIconButton = styled(RemoveAttachButton)`
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+
+  & path {
+    transition: transform 0.5s ease-in-out;
+  }
+  & path:nth-child(1) {
+    transform: translateY(36px);
+  }
+  &:hover {
+    & path:nth-child(1) {
+      transform: translateY(0px);
+    }
+    & path:nth-child(2) {
+      transform: translateY(-36px);
+    }
+  }
 `;

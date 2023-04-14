@@ -3,6 +3,7 @@ import setMessageTime from "../../utils/setMessageTime";
 import ChatComponent from "./ChatComponent";
 
 import * as Styled from "../../styles/Chat/CommonChat.styled";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 interface IChatProps {
   isChatOpen: boolean;
@@ -13,7 +14,10 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
   const [openChatTime, setOpenChatTime] = useState<string>("");
   const [newMessageAmount, setNewMessageAmount] = useState<number>(0);
   const [isShowingBubble, setIsShowingBubble] = useState<boolean>(true);
+  const [isShowingCross, setIsShowingCross] = useState<boolean>(true);
   const chatRef = useRef<HTMLDivElement>(null);
+
+  const { width } = useWindowDimension();
 
   const toggleIsOpenChat = () => {
     setIsChatOpen((old) => !old);
@@ -23,6 +27,7 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
 
   const handleBubbleShow = () => {
     setIsShowingBubble(true);
+    setIsShowingCross(false);
   };
 
   const hadleCloseBubble = () => {
@@ -45,12 +50,20 @@ const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (width && width < 769 && isChatOpen)
+      document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "auto";
+  }, [isChatOpen]);
+
   return (
     <Styled.ChatWrapper ref={chatRef}>
       {!isChatOpen && isShowingBubble && (
         <Styled.MessageBable>
           <p>Hi! Welcome to our website. How can we help you?</p>
-          <Styled.MessageBubbleCloseIcon onClick={hadleCloseBubble} />
+          {isShowingCross && (
+            <Styled.MessageBubbleCloseIcon onClick={hadleCloseBubble} />
+          )}
         </Styled.MessageBable>
       )}
       <Styled.ChatButton
