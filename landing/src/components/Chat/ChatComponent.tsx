@@ -5,6 +5,7 @@ import ChatRegisterForm from "./ChatRegisterForm";
 import { storeKeys } from "../../consts";
 
 import * as Styled from "../../styles/Chat/ChatComponent.styled";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 interface IChatComponentProps {
   isChatOpen: boolean;
@@ -24,6 +25,8 @@ const ChatComponent = ({
   const [isGreetingMeesageShow, setIsGreetingMessageShow] =
     useState<boolean>(false);
 
+  const { height } = useWindowDimension();
+
   useEffect(() => {
     const chatUserData = localStorage.getItem(storeKeys.chatUserData);
     setChatUserInfo(chatUserData ? JSON.parse(chatUserData) : chatUserData);
@@ -31,7 +34,7 @@ const ChatComponent = ({
   }, []);
 
   return (
-    <Styled.ChatContainer isChatOpen={isChatOpen}>
+    <Styled.ChatContainer windowHeight={height} isChatOpen={isChatOpen}>
       <Styled.ChatHeader>
         <Styled.ChatTitle>Chat with CGS-team</Styled.ChatTitle>
         <Styled.OperatorStatus>

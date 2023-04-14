@@ -60,7 +60,8 @@ const MessageListComponent = ({
       style={{
         ...style,
         background: "#f1efed",
-        height: "calc(100% - 80px)",
+        height: "calc(100% - 72px)",
+        overscrollBehavior: "contain",
       }}
     >
       <GreetingMessageComponent

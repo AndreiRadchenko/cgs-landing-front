@@ -16,6 +16,12 @@ export const HeaderNavContainer = styled.div`
     justify-content: flex-start;
     border: none;
   }
+
+  @supports (-webkit-hyphens: none) {
+    @media ${themes.primary.media.maxMobile} {
+      top: -1px;
+    }
+  }
 `;
 
 export const NavBarWrapper = styled.div`

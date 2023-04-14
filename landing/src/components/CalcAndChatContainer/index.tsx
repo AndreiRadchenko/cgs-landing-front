@@ -5,11 +5,24 @@ import Chat from "../Chat";
 
 const CalcAndChatContainer = () => {
   const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
+  const [isShowingBubble, setIsShowingBubble] = useState<boolean>(true);
+  const [isShowingCross, setIsShowingCross] = useState<boolean>(true);
 
   return (
     <CalculatorAndChatWrapper>
-      <Calculator isChatOpen={isChatOpen} />
-      <Chat isChatOpen={isChatOpen} setIsChatOpen={setIsChatOpen} />
+      <Calculator
+        isChatOpen={isChatOpen}
+        setIsShowingBubble={setIsShowingBubble}
+        setIsShowingCross={setIsShowingCross}
+      />
+      <Chat
+        isChatOpen={isChatOpen}
+        setIsChatOpen={setIsChatOpen}
+        isShowingBubble={isShowingBubble}
+        setIsShowingBubble={setIsShowingBubble}
+        isShowingCross={isShowingCross}
+        setIsShowingCross={setIsShowingCross}
+      />
     </CalculatorAndChatWrapper>
   );
 };
