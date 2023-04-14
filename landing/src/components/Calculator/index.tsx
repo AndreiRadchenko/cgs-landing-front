@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Formik, FormikHelpers } from "formik";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
@@ -28,9 +34,15 @@ import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
 interface ICalculatorProps {
   isChatOpen: boolean;
+  setIsShowingBubble: Dispatch<SetStateAction<boolean>>;
+  setIsShowingCross: Dispatch<SetStateAction<boolean>>;
 }
 
-const Calculator = ({ isChatOpen }: ICalculatorProps) => {
+const Calculator = ({
+  isChatOpen,
+  setIsShowingCross,
+  setIsShowingBubble,
+}: ICalculatorProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>("< start >");
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -335,6 +347,8 @@ const Calculator = ({ isChatOpen }: ICalculatorProps) => {
   const handleMouseOver = () => {
     clearTimeout(timeoutRef.current);
     setIsHovered(true);
+    setIsShowingBubble(false);
+    setIsShowingCross(false);
   };
 
   const handleMouseLeave = () => {

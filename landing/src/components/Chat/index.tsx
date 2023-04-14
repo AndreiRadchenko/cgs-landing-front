@@ -8,13 +8,22 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 interface IChatProps {
   isChatOpen: boolean;
   setIsChatOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isShowingBubble: boolean;
+  setIsShowingBubble: React.Dispatch<React.SetStateAction<boolean>>;
+  isShowingCross: boolean;
+  setIsShowingCross: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Chat = ({ isChatOpen, setIsChatOpen }: IChatProps) => {
+const Chat = ({
+  isChatOpen,
+  setIsChatOpen,
+  setIsShowingCross,
+  setIsShowingBubble,
+  isShowingCross,
+  isShowingBubble,
+}: IChatProps) => {
   const [openChatTime, setOpenChatTime] = useState<string>("");
   const [newMessageAmount, setNewMessageAmount] = useState<number>(0);
-  const [isShowingBubble, setIsShowingBubble] = useState<boolean>(true);
-  const [isShowingCross, setIsShowingCross] = useState<boolean>(true);
   const chatRef = useRef<HTMLDivElement>(null);
 
   const { width } = useWindowDimension();
