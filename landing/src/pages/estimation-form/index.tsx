@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import LoadingOverlay from "react-loading-overlay-ts";
-import { StyledSpinner } from "../../components/Loader/Loader.styled";
+import { Loader } from "../../components/Loader/Loader.component";
 
 import { HeaderText } from "../../components/EstimationForm/HeaderText";
 import {
@@ -75,7 +74,7 @@ const EstimationsForm = () => {
   }, [openSuccessModal, openFailedModal]);
 
   return (
-    <LoadingOverlay active={isLoading} spinner={<StyledSpinner />}>
+    <Loader active={isLoading}>
       {isLoading ? null : (
         <Container>
           <HeaderNavNew
@@ -106,7 +105,7 @@ const EstimationsForm = () => {
           />
         </Container>
       )}
-    </LoadingOverlay>
+    </Loader>
   );
 };
 

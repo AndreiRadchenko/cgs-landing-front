@@ -209,6 +209,7 @@ const themes = {
       careersPlaceholder: "rgba(0, 0, 0, 0.5)",
       bottomBorderEstimationForm: "rgba(241, 239, 237, 0.5)",
       modalWrapperEstimationForm: "rgba(241, 239, 237, 0.8)",
+      loaderSpinner: "#8f8e93",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",
