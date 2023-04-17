@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Loader } from "../../components/Loader/Loader.component";
+
 import { HeaderText } from "../../components/EstimationForm/HeaderText";
 import {
   Container,
@@ -71,37 +73,39 @@ const EstimationsForm = () => {
     else document.body.style.overflow = "unset";
   }, [openSuccessModal, openFailedModal]);
 
-  return isLoading ? (
-    <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
-  ) : (
-    <Container>
-      <HeaderNavNew
-        clickFromEstimationForm={true}
-        setOpenFailedModal={setOpenFailedModal}
-      />
-      <ContainerDate>
-        {openSuccessModal && <EstimationCongratsModal />}
-        {openFailedModal && (
-          <EstimationFailModal setOpenFailedModal={setOpenFailedModal} />
-        )}
-        <HeaderText />
-        <EstimationPage
-          setOpenSuccessModal={setOpenSuccessModal}
-          attachFiles={attachFiles}
-          setAttachFiles={setAttachFiles}
-          formData={formData}
-          setFormData={setFormData}
-          pageN={page}
-          setPage={setPage}
-          data={data!}
-        />
-        <ImageBackground page={page} />
-      </ContainerDate>
-      <FooterNew
-        clickFromEstimationForm={true}
-        setOpenFailedModal={setOpenFailedModal}
-      />
-    </Container>
+  return (
+    <Loader active={isLoading}>
+      {isLoading ? null : (
+        <Container>
+          <HeaderNavNew
+            clickFromEstimationForm={true}
+            setOpenFailedModal={setOpenFailedModal}
+          />
+          <ContainerDate>
+            {openSuccessModal && <EstimationCongratsModal />}
+            {openFailedModal && (
+              <EstimationFailModal setOpenFailedModal={setOpenFailedModal} />
+            )}
+            <HeaderText />
+            <EstimationPage
+              setOpenSuccessModal={setOpenSuccessModal}
+              attachFiles={attachFiles}
+              setAttachFiles={setAttachFiles}
+              formData={formData}
+              setFormData={setFormData}
+              pageN={page}
+              setPage={setPage}
+              data={data!}
+            />
+            <ImageBackground page={page} />
+          </ContainerDate>
+          <FooterNew
+            clickFromEstimationForm={true}
+            setOpenFailedModal={setOpenFailedModal}
+          />
+        </Container>
+      )}
+    </Loader>
   );
 };
 
