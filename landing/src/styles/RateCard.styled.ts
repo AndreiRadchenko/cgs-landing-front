@@ -113,6 +113,7 @@ export const RateCardServiceDropDown = styled.div<IActiveAccordion>`
         fill: ${themes.primary.colors.darkBlue};
       }
     }
+
     &:hover ${RateCardServiceName} {
       color: ${themes.primary.colors.darkBlue};
     }
