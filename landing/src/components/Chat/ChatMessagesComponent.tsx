@@ -5,11 +5,13 @@ import {
   MessageListProps,
   SingleChatSocket,
 } from "react-chat-engine-advanced";
+
 import GreetingMessageComponent from "./GreetingMessageComponent";
-import { IChatUserInfo } from "../../types/SupportChat.types";
 import MessageListComponent from "./MessageListComponent";
 import MessageFormComponent from "./MessageFormComponent";
+
 import { storeKeys } from "../../consts";
+import { IChatUserInfo, ICurrentMessage } from "../../types/SupportChat.types";
 
 interface IChatMessagesComponentProps {
   userEmail: string;
@@ -37,6 +39,10 @@ const ChatMessagesComponent = ({
   setIsGreetingMessageShow,
 }: IChatMessagesComponentProps) => {
   const [showChat, setShowChat] = useState<boolean>(false);
+  const [currentMessage, setCurrentMessage] = useState<ICurrentMessage>({
+    text: "",
+    sender_username: "",
+  });
   const chatProps = useSingleChatLogic(
     process.env.NEXT_PUBLIC_PROJECT_ID || "",
     chatUserInfo?.chatId || "",
@@ -88,6 +94,8 @@ const ChatMessagesComponent = ({
                   isGreetingMeesageShow={isGreetingMeesageShow}
                   messageProps={messageProps}
                   setNewMessageAmount={setNewMessageAmount}
+                  currentMessage={currentMessage}
+                  setCurrentMessage={setCurrentMessage}
                 />
               ) : (
                 <div />
@@ -98,6 +106,7 @@ const ChatMessagesComponent = ({
                 chatId={chatUserInfo.chatId}
                 userName={chatUserInfo.userName}
                 publicKey={process.env.NEXT_PUBLIC_PROJECT_ID || ""}
+                setCurrentMessage={setCurrentMessage}
               />
             )}
           />

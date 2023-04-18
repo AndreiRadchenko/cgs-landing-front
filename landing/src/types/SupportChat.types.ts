@@ -4,6 +4,11 @@ export interface IChatUser {
   email: string;
 }
 
+export interface ICurrentMessage {
+  text: string;
+  sender_username: string;
+}
+
 export interface IChatUserResponse {
   username: string;
   secret: string;
