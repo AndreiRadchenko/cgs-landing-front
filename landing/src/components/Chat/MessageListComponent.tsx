@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { MessageListProps, MessageObject } from "react-chat-engine-advanced";
+
 import AdminMessageComponent from "./AdminMessageComponent";
 import GreetingMessageComponent from "./GreetingMessageComponent";
 import UserMessageComponent from "./UserMessageComponent";
 
 import * as Styled from "../../styles/Chat/ChatMessagesComponent.styled";
+import { ICurrentMessage } from "../../types/SupportChat.types";
 
 interface IMessageListComponent {
   userEmail: string;
@@ -13,6 +15,8 @@ interface IMessageListComponent {
   isGreetingMeesageShow: boolean;
   messageProps: MessageListProps;
   setNewMessageAmount: React.Dispatch<React.SetStateAction<number>>;
+  currentMessage: ICurrentMessage;
+  setCurrentMessage: React.Dispatch<React.SetStateAction<ICurrentMessage>>;
 }
 
 const MessageListComponent = ({
@@ -22,6 +26,8 @@ const MessageListComponent = ({
   messageProps,
   setNewMessageAmount,
   isGreetingMeesageShow,
+  currentMessage,
+  setCurrentMessage,
 }: IMessageListComponent) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<MessageObject[]>([]);
@@ -37,7 +43,9 @@ const MessageListComponent = ({
       messages.length > 0 &&
       messageProps.messages.length > 0 &&
       messages[0].id !== messageProps.messages[0].id &&
-      messages[messages.length - 1].id !== messageProps.messages[0].id
+      !messages.some((obj) => obj.id === messageProps.messages[0].id) &&
+      messages[messages.length - 1].id !== messageProps.messages[0].id &&
+      messageProps.messages[0].attachments.length !== 0
     ) {
       setMessages(
         (messages) => messages && [...messages, messageProps.messages[0]]
@@ -47,9 +55,31 @@ const MessageListComponent = ({
   }, [messageProps]);
 
   useEffect(() => {
+    if (currentMessage.text) {
+      setMessages([
+        ...messages,
+        {
+          text: currentMessage.text,
+          sender_username: currentMessage.sender_username,
+          created: "",
+          attachments: [],
+          custom_json: "",
+        },
+      ]);
+      setNewMessageAmount((state) => ++state);
+    }
+  }, [currentMessage]);
+
+  useEffect(() => {
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current?.scrollHeight;
     }
+
+    currentMessage.text &&
+      setCurrentMessage({
+        text: "",
+        sender_username: "",
+      });
   }, [messages]);
 
   const { username, style } = messageProps;

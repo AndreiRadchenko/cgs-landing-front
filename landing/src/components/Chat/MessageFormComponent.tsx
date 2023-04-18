@@ -1,15 +1,17 @@
 import React, { useRef, useState } from "react";
-import { useFormik } from "formik";
+import { TextareaAutosize } from "@mui/material";
 import { sendMessage } from "react-chat-engine";
+import { useFormik } from "formik";
+
+import { formatChatAttachName } from "../../utils/formatChatAttachName";
 
 import * as Styled from "../../styles/Chat/ChatInputForm.styled";
-import { formatChatAttachName } from "../../utils/formatChatAttachName";
-import { TextareaAutosize } from "@mui/material";
-
+import { ICurrentMessage } from "../../types/SupportChat.types";
 interface IMessageFormComponentProps {
   chatId: string;
   userName: string;
   publicKey: string;
+  setCurrentMessage: React.Dispatch<React.SetStateAction<ICurrentMessage>>;
 }
 
 interface IMessageFormValues {
@@ -20,6 +22,7 @@ const MessageFormComponent = ({
   chatId,
   userName,
   publicKey,
+  setCurrentMessage,
 }: IMessageFormComponentProps) => {
   const [fileSizeError, setFileSizeError] = useState<string>("");
   const [file, setFile] = useState<FileList | null>(null);
@@ -54,6 +57,10 @@ const MessageFormComponent = ({
     }
 
     if (text.length > 0) {
+      setCurrentMessage({
+        text,
+        sender_username: userName,
+      });
       sendMessage({ publicKey, userName, userSecret: userName }, chatId, {
         text,
         files: file || null,
