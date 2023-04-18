@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { ILevel, IValue } from "../../types/Admin/AdminRateCard.types";
 
@@ -9,6 +9,9 @@ import {
 } from "../../styles/RateCard.styled";
 
 const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
+  const [hovered, setHovered] = useState(false);
+  const toggleHover = () => setHovered(!hovered);
+
   const joinTech = levels
     .map((level) => level.joints.joint_tech)
     .some((joint) => joint);
@@ -23,7 +26,12 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
     const filteredVal = value.map((val) => val.technology).filter((el) => el);
     return filteredVal.map((tech, idx) =>
       idx === filteredVal.length - 1 ? (
-        <span key={`${tech}${idx}`} className={`tech${idx}`}>
+        <span
+          onMouseEnter={joint ? toggleHover : undefined}
+          onMouseLeave={joint ? toggleHover : undefined}
+          key={`${tech}${idx}`}
+          className={`tech${idx}`}
+        >
           {" "}
           {tech}
         </span>
@@ -44,7 +52,12 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
     const filteredVal = value.map((value) => value.cost).filter((el) => el);
     return filteredVal.map((cost, idx) =>
       idx === filteredVal.length - 1 ? (
-        <span key={`${cost}${idx}`} className={`cost${idx}`}>
+        <span
+          onMouseEnter={joint ? toggleHover : undefined}
+          onMouseLeave={joint ? toggleHover : undefined}
+          key={`${cost}${idx}`}
+          className={`cost${idx}`}
+        >
           {" "}
           {cost}
         </span>
@@ -75,24 +88,14 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
               {joinName ? (
                 idx === 0 ? (
                   <RateCardLevelData
-                    className="mainSpanName"
                     rowSpan={levels.length}
-                    style={{
-                      width: "19%",
-                      textAlign: "center",
-                      pointerEvents: "none",
-                    }}
+                    style={{ width: "19%", textAlign: "center" }}
                   >
                     {level.name}
                   </RateCardLevelData>
                 ) : null
               ) : (
-                <RateCardLevelData
-                  className={`rateName${idx} spanNameDefault`}
-                  style={{
-                    width: "19%",
-                  }}
-                >
+                <RateCardLevelData style={{ width: "19%" }}>
                   {level.name}
                 </RateCardLevelData>
               )}
@@ -101,18 +104,14 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
                   <RateCardLevelData
                     className={`rateTech${idx} mainSpanRate`}
                     rowSpan={levels.length}
-                    style={{
-                      width: "59%",
-                      textAlign: "center",
-                      pointerEvents: "none",
-                    }}
+                    style={{ width: "59%", textAlign: "center" }}
                   >
                     {generateCellTech(level.values, joinTech)}
                   </RateCardLevelData>
                 ) : null
               ) : (
                 <RateCardLevelData
-                  className={`rateTech${idx} spanRateDefault`}
+                  className={`rateTech${idx} ${hovered && "spanRate"}`}
                   style={{ width: "59%" }}
                 >
                   {generateCellTech(level.values, joinTech)}
@@ -121,15 +120,19 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
               {joinCost ? (
                 idx === 0 ? (
                   <RateCardLevelData
-                    className={`rateCost${idx} mainSpanCost`}
+                    className={`rateCost${idx}`}
                     rowSpan={levels.length}
-                    style={{ textAlign: "center", pointerEvents: "none" }}
+                    style={{ textAlign: "center" }}
                   >
                     {generateCellCost(level.values, joinCost)}
                   </RateCardLevelData>
                 ) : null
               ) : (
-                <RateCardLevelData className={`rateCost${idx} spanCostDefault`}>
+                <RateCardLevelData
+                  className={`rateCost${idx} ${
+                    hovered && "spanCost"
+                  } spanCostDefault`}
+                >
                   {generateCellCost(level.values, joinCost)}
                 </RateCardLevelData>
               )}
