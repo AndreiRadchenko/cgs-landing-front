@@ -24,17 +24,17 @@ export const AddQuestionButton = styled.button`
   font-size: ${themes.primary.font.size.projectLink};
   font-family: ${themes.primary.font.family.namu};
   padding: 10px 26px;
-  border: 2px dashed ${themes.primary.colors.mainGradientColor2};
+  border: 2px dashed ${themes.primary.colors.darkBlue};
   background-color: transparent;
   outline: none;
   border-radius: 0;
   cursor: pointer;
-  color: ${themes.primary.colors.mainGradientColor2};
+  color: ${themes.primary.colors.darkBlue};
   transition: background-color 0.3s, color 0.3s;
   margin-bottom: ${themes.primary.spacing.septenary};
 
   &:hover {
-    background-color: ${themes.primary.colors.mainGradientColor2};
+    background-color: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
   }
 
@@ -151,7 +151,7 @@ export const EstimationFieldBox = styled.div<IBlockErrorSplit>`
   position: relative;
   background-color: ${({ error }) =>
     error
-      ? `${themes.primary.colors.mainGradientColor2}`
+      ? `${themes.primary.colors.darkBlue}`
       : `${themes.primary.colors.blogBackground}`};
   color: ${({ error }) =>
     error
@@ -253,7 +253,7 @@ export const EstimationTextInput = styled.input<IBlockErrorSplit>`
     props.error
       ? `${themes.primary.colors.secondary}`
       : props.optional
-      ? `${themes.primary.colors.mainGradientColor2}`
+      ? `${themes.primary.colors.darkBlue}`
       : props.borderErrorEmail || props.borderErrorUsername
       ? `${themes.primary.colors.deleteButton}`
       : `${themes.primary.colors.black}`};
@@ -305,16 +305,16 @@ export const EstimationInputRadio = styled.input`
       background: linear-gradient(
         90deg,
         ${themes.primary.colors.mainGradientColor1} 0%,
-        ${themes.primary.colors.mainGradientColor2} 100%
+        ${themes.primary.colors.darkBlue} 100%
       );
       border: 2px solid ${themes.primary.colors.black};
     }
   }
 
   &:checked + ${EstimationFieldOptionRadio} {
-    color: ${themes.primary.colors.mainGradientColor2};
+    color: ${themes.primary.colors.darkBlue};
     span {
-      color: ${themes.primary.colors.mainGradientColor2} !important;
+      color: ${themes.primary.colors.darkBlue} !important;
     }
   }
 
@@ -362,9 +362,9 @@ export const EstimationInputCheckbox = styled.input`
     }
   }
   &:checked + ${EstimationFieldOptionCheckbox} {
-    color: ${themes.primary.colors.mainGradientColor2};
+    color: ${themes.primary.colors.darkBlue};
     span {
-      color: ${themes.primary.colors.mainGradientColor2} !important;
+      color: ${themes.primary.colors.darkBlue} !important;
     }
   }
 
@@ -655,7 +655,7 @@ export const EstimateFileAttachInputLabel = styled.label`
   line-height: 14px;
   transition: 0.3s;
   &:hover {
-    background: ${themes.primary.colors.mainGradientColor2};
+    background: ${themes.primary.colors.darkBlue};
   }
 `;
 
@@ -665,7 +665,7 @@ export const EstimateFileType = styled.div`
   align-items: center;
   width: 28px;
   height: 28px;
-  background: ${themes.primary.colors.mainGradientColor2};
+  background: ${themes.primary.colors.darkBlue};
   border-radius: 5px;
   color: ${themes.primary.colors.secondary};
   text-transform: uppercase;
@@ -804,6 +804,6 @@ export const EstimationTextOfInput = styled.p`
     line-height: 17px;
   }
   a {
-    color: ${themes.primary.colors.mainGradientColor2};
+    color: ${themes.primary.colors.darkBlue};
   }
 `;

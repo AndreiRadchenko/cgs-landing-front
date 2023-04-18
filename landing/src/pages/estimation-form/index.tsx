@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Loader } from "../../components/Loader/Loader.component";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 import { HeaderText } from "../../components/EstimationForm/HeaderText";
 import {
@@ -75,7 +75,9 @@ const EstimationsForm = () => {
 
   return (
     <Loader active={isLoading}>
-      {isLoading ? null : (
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
         <Container>
           <HeaderNavNew
             clickFromEstimationForm={true}
