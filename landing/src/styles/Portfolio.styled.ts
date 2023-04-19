@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
+interface IPortfolioInfoProps {
+  readonly isInfoCont: boolean;
+}
+
 export const PortfolioContainer = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
 `;
@@ -16,14 +20,22 @@ export const PortfolioProjectsContainer = styled.div`
   gap: 52px 34px;
 `;
 
-export const ProjectsContainerHeader = styled.div`
+export const ProjectsContainer = styled.div`
+  position: relative;
+`;
+
+export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
   padding: 17px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: ${({ isInfoCont }) =>
+    isInfoCont
+      ? `1.5px solid ${themes.primary.colors.primary}`
+      : `1.5px solid ${themes.primary.colors.headerBorder}`};
 `;
 
-export const ProjectsContainerHeaderLink = styled.div`
+export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,8 +44,29 @@ export const ProjectsContainerHeaderLink = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 18px;
   line-height: 130%;
-  color: ${themes.primary.colors.primary};
+  color: ${({ isInfoCont }) =>
+    isInfoCont
+      ? themes.primary.colors.blogBackground
+      : themes.primary.colors.primary};
   margin: 0;
+`;
+
+export const ProjectsContainerInfoText = styled.div`
+  margin: 20px 32px 33px 20px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 18px;
+  line-height: 160%;
+  color: ${themes.primary.colors.secondary};
+  overflow: hidden;
+  p {
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap; /* let the text wrap preserving spaces */
+  }
 `;
 
 export const ProjectsContainerArrowContainer = styled.div`
@@ -66,7 +99,58 @@ export const ProjectsContainerHeaderTitle = styled.div`
   }
 `;
 
-export const ProjectsContainerImage = styled.div``;
+export const ProjectsContainerInfoHeaderTitle = styled.div`
+  h4 {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 30px;
+    line-height: 130%;
+    margin: 0;
+    color: ${themes.primary.colors.blogBackground};
+  }
+  p {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 18px;
+    line-height: 130%;
+    background: linear-gradient(
+      90deg,
+      ${themes.primary.colors.portfolioGradient} 0%,
+      ${themes.primary.colors.darkBlue} 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    margin: 0;
+  }
+`;
+
+export const ProjectsContainerImage = styled.div`
+  .image-container {
+    width: 100%;
+
+    > div {
+      position: unset !important;
+    }
+
+    .image {
+      object-fit: contain;
+      width: 100% !important;
+      position: relative !important;
+      height: unset !important;
+    }
+  }
+`;
+
+export const ProjectsContainerInfo = styled.div`
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+`;
 
 export const LinkButton = styled.button`
   font-size: ${themes.primary.font.size.projectLink};
