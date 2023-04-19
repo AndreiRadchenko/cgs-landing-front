@@ -5,6 +5,7 @@ import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import RateHeading from "../../components/RateCard/RateHeading";
 import RateCardContent from "../../components/RateCard/RateCardContent";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 import { queryKeys } from "../../consts/queryKeys";
 
@@ -15,7 +16,6 @@ import {
   ContainerRateCardDate,
 } from "../../components/RateCard/index.styled";
 import { adminRateCardService } from "../../services/adminRateCard";
-import * as Styled from "../../styles/AdminPage";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -35,17 +35,21 @@ const RateCard = () => {
     adminRateCardService.getCards()
   );
 
-  return !data && isLoading ? (
-    <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
-  ) : (
-    <Container>
-      <HeaderNavNew />
-      <ContainerRateCardDate>
-        <RateHeading heading={data!.title} />
-        <RateCardContent services={data!.services} />
-      </ContainerRateCardDate>
-      <FooterNew />
-    </Container>
+  return (
+    <Loader active={isLoading}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
+        <Container>
+          <HeaderNavNew />
+          <ContainerRateCardDate>
+            <RateHeading heading={data!.title} />
+            <RateCardContent services={data!.services} />
+          </ContainerRateCardDate>
+          <FooterNew />
+        </Container>
+      )}
+    </Loader>
   );
 };
 
