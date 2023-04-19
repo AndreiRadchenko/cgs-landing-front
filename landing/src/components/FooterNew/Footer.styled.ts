@@ -18,6 +18,7 @@ export const HeaderNavContainer = styled.footer`
     flex-direction: column-reverse;
     background-color: ${themes.primary.colors.black};
     color: ${themes.primary.colors.secondary};
+    border-top: none;
 
     &.mobileDissapear {
       opacity: 0;

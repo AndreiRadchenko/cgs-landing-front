@@ -55,13 +55,8 @@ export const RateCardContentContainer = styled.div`
   padding: 58px 51px 113px;
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 8px 25px 63px;
+    padding: 8px 25px 83px;
   }
-`;
-
-export const RateCardLine = styled.div`
-  height: 1px;
-  background: black;
 `;
 
 export const RateCardServiceName = styled.h3<IActiveAccordion>`
@@ -84,11 +79,16 @@ export const RateCardServiceName = styled.h3<IActiveAccordion>`
 `;
 
 export const RateCardServiceDropDown = styled.div<IActiveAccordion>`
-  padding: 10px 25px 10px 10px;
+  padding: 22px 25px 31px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  border-bottom: 1.5px solid ${themes.primary.colors.primary};
+
+  &:first-child {
+    border-top: 1.5px solid ${themes.primary.colors.primary};
+  }
 
   svg {
     transform: ${(props) =>
@@ -96,7 +96,7 @@ export const RateCardServiceDropDown = styled.div<IActiveAccordion>`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 10px 15px 10px 10px;
+    padding: 20px 15px 20px 20px;
 
     &:active {
       svg path {

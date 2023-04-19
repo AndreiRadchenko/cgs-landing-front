@@ -6,15 +6,21 @@ import { IService } from "../../types/Admin/AdminRateCard.types";
 
 import {
   RateCardImageTitleWrapper,
-  RateCardLine,
   RateCardServiceDropDown,
   RateCardServiceName,
 } from "../../styles/RateCard.styled";
 import RateCardServiceInfo from "./RateCardServiceInfo";
 import Image from "next/image";
+import { useCollapse } from "react-collapsed";
 
 const RateCardAccordion = ({ service }: { service: IService }) => {
   const [isActive, setIsActive] = useState(false);
+
+  const { getToggleProps, getCollapseProps } = useCollapse({
+    easing: "linear",
+    isExpanded: isActive,
+    collapsedHeight: 0,
+  });
 
   const handleActive = () => {
     setIsActive((prevState) => !prevState);
@@ -22,7 +28,10 @@ const RateCardAccordion = ({ service }: { service: IService }) => {
 
   return (
     <>
-      <RateCardServiceDropDown isActive={isActive} onClick={handleActive}>
+      <RateCardServiceDropDown
+        isActive={isActive}
+        {...getToggleProps({ onClick: handleActive })}
+      >
         <RateCardImageTitleWrapper>
           <Image
             src={service?.image?.url}
@@ -37,8 +46,9 @@ const RateCardAccordion = ({ service }: { service: IService }) => {
         </RateCardImageTitleWrapper>
         <ArrowDown isActive={isActive} />
       </RateCardServiceDropDown>
-      {isActive && <RateCardServiceInfo levels={service.levels} />}
-      <RateCardLine />
+      <div {...getCollapseProps()}>
+        <RateCardServiceInfo levels={service.levels} />
+      </div>
     </>
   );
 };
