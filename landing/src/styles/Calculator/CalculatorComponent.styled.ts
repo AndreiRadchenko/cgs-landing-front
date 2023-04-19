@@ -145,8 +145,10 @@ export const CalculatorButton = styled.div<ICalculatorButton>`
     color: ${({ isChatOpen }) =>
       isChatOpen && themes.primary.colors.headerBorder};
 
-    background: ${({ isChatOpen }) =>
+    background: ${({ isChatOpen, isHovered }) =>
       isChatOpen
+        ? themes.primary.colors.blogBackground
+        : isHovered
         ? themes.primary.colors.blogBackground
         : `linear-gradient(
     270deg,
@@ -272,7 +274,7 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
     &::after {
       height: 5px;
       top: 0px;
-      left: -7px;
+      left: -7.5px;
       border-top: 1.8px solid ${themes.primary.colors.primary};
       border-right: 1.8px solid ${themes.primary.colors.primary};
       transition: all 0.2s;
@@ -297,7 +299,7 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
 
     & > div {
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
 
       & > a {
         padding: 1.3em 2.2em !important;
@@ -309,9 +311,9 @@ export const CalculatorPreviewContentWrapper = styled.div<ICalculatorPreviewCont
     left: 1px !important;
 
     &::after {
-      left: -5px;
+      left: -6.5px;
       bottom: -6.5px;
-      width: 100.5%;
+      width: 100.6%;
     }
   }
 

@@ -29,6 +29,7 @@ const Chat = ({
   const { width } = useWindowDimension();
 
   const toggleIsOpenChat = () => {
+    setIsShowingBubble(false);
     setIsChatOpen((old) => !old);
     newMessageAmount > 0 && setNewMessageAmount(0);
     !openChatTime && setOpenChatTime(setMessageTime());
