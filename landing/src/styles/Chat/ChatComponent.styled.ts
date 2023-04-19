@@ -149,14 +149,17 @@ export const ChatHeader = styled.div`
 `;
 
 export const ChatTitle = styled.p`
-  font-family: ${themes.primary.font.family.gilroy};
+  font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.bold};
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-size: 18px;
+  line-height: 150%;
 `;
 
 export const OperatorStatus = styled.p`
-  font-family: ${themes.primary.font.family.gilroy};
+  font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
+  font-size: 12px;
+  line-height: 150%;
   opacity: 0.5;
 `;
 
@@ -183,11 +186,12 @@ export const ChatMessagesContainer = styled.div`
 `;
 
 export const ChatFormContainer = styled.div`
-  height: 77px;
+  height: 85px;
   width: 100%;
-  padding: 0 15px;
+  padding: 20px 10px;
   background: rgba(143, 142, 147, 0.07);
   display: flex;
   align-items: center;
   gap: 5px;
+  margin-bottom: 1px;
 `;

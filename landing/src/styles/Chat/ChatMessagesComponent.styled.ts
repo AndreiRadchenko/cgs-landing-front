@@ -78,8 +78,10 @@ export const MessagesWrapper = styled.div<IMessagesWrapper>`
 `;
 
 export const MessageSender = styled.p`
+  font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
-  line-height: 1.33em;
+  font-size: 12px;
+  line-height: 16px;
 
   :nth-of-type(1) {
     margin-bottom: 0.33em;

@@ -32,10 +32,12 @@ const FieldSample = css`
 `;
 
 export const InputField = styled.input`
+  height: 33px;
   ${FieldSample}
 `;
 
 export const MessageFormWrapper = styled.div`
+  height: 77px;
   background: rgba(143, 142, 147, 0.07);
   padding: 20px 10px;
   margin: 0 0 0 -15px;
@@ -65,6 +67,7 @@ export const MessageForm = styled.form`
     overflow-y: scroll;
     font-size: 16px;
     line-height: 22px;
+    height: 33px;
 
     @media (min-width: 1024px) {
       ::-webkit-scrollbar {
@@ -81,7 +84,7 @@ export const MessageFormRegister = styled.form`
   gap: 5px;
 
   div {
-    width: 85%;
+    width: 100%;
   }
 `;
 
@@ -94,14 +97,16 @@ export const AttachmentContainer = styled.div`
   border: 1px solid #d1d1d6;
   border-radius: 16.5px;
   padding: 7px 13px;
+  height: 32px;
 `;
 
 export const AttachmentIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
   height: 20px;
+  min-width: 20px;
+  padding-inline: 1px;
   font-size: 8px;
   line-height: 8px;
 
