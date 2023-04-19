@@ -11,7 +11,7 @@ interface IRateRowProps {
   readonly countValues: IValue[];
 }
 
-function createCSS(levelsNumber = 1, levelValues: IValue[]) {
+function createCSSRow(levelsNumber = 1, levelValues: IValue[]) {
   let styles = "";
   const costLength = levelValues
     .map((val) => val.cost)
@@ -33,7 +33,12 @@ function createCSS(levelsNumber = 1, levelValues: IValue[]) {
     for (let j = 0; j < maxFromVal; j += 1) {
       styles += `
        &:has(.rateTech${i} .tech${j}:hover) .rateCost${i} .cost${j},
+       &:has(.rateName${i}:hover) .rateCost${i} .cost${j},
+       &:has(.rateName${i}:hover) .rateTech${i} .tech${j},
+       &:has(.rateTech${i} .tech${j}:hover) .rateName${i},
+       &:has(.rateCost${i} .cost${j}:hover) .rateName${i},
         .rateTech${i} .tech${j}:hover,
+        .rateName${i}:hover,
         .rateCost${i} .cost${j}:hover,
        &:has(.rateCost${i} .cost${j}:hover) .rateTech${i} .tech${j} {
          color: ${themes.primary.colors.darkBlue};
@@ -139,13 +144,33 @@ export const RateCardLevelTable = styled.table`
   table-layout: fixed;
   width: 100%;
 
+  // for rate hover
   tbody:has(.rateRow .spanCostDefault span:hover) .rateRow .mainSpanRate span {
+    color: ${themes.primary.colors.darkBlue};
+  }
+  tbody:has(.rateRow .spanNameDefault:hover) .rateRow .mainSpanRate span {
+    color: ${themes.primary.colors.darkBlue};
+  }
+
+  // for name hover
+  tbody:has(.rateRow .spanCostDefault span:hover) .rateRow .mainSpanName {
+    color: ${themes.primary.colors.darkBlue};
+  }
+  tbody:has(.rateRow .spanRateDefault span:hover) .rateRow .mainSpanName {
+    color: ${themes.primary.colors.darkBlue};
+  }
+
+  // for cost hover
+  tbody:has(.rateRow .spanRateDefault span:hover) .rateRow .mainSpanCost span {
+    color: ${themes.primary.colors.darkBlue};
+  }
+  tbody:has(.rateRow .spanNameDefault:hover) .rateRow .mainSpanCost span {
     color: ${themes.primary.colors.darkBlue};
   }
 `;
 
 export const RateCardLevelRow = styled.tr<IRateRowProps>`
-  ${(props) => createCSS(props.countLevels, props.countValues)};
+  ${(props) => createCSSRow(props.countLevels, props.countValues)};
 `;
 
 export const RateCardLevelData = styled.td`
