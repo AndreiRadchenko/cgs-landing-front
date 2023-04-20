@@ -84,7 +84,8 @@ export const RateCardServiceDropDown = styled.div<IActiveAccordion>`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  border-bottom: 1.5px solid ${themes.primary.colors.primary};
+  border-bottom: ${(props) =>
+    props.isActive ? "none" : `1.5px solid ${themes.primary.colors.primary}`};
 
   &:first-child {
     border-top: 1.5px solid ${themes.primary.colors.primary};
