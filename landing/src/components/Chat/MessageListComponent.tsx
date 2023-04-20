@@ -106,16 +106,21 @@ const MessageListComponent = ({
           const nextMessage =
             index === messagesArr.length - 1 ? null : messagesArr[index + 1];
           const isUserMessage = message.sender_username === username;
+          const lengthMessages = messages.length - 1;
 
           return (
             <div key={`msg_${index}`}>
               {isUserMessage ? (
                 <UserMessageComponent
+                  msgIdx={index}
+                  msgsCount={lengthMessages}
                   message={message}
                   nextMessage={nextMessage}
                 />
               ) : (
                 <AdminMessageComponent
+                  msgIdx={index}
+                  msgsCount={lengthMessages}
                   message={message}
                   previousMessage={previousMessage}
                   nextMessage={nextMessage}

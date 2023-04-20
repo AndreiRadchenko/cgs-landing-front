@@ -5,11 +5,15 @@ import * as Styled from "../../styles/Chat/ChatMessagesComponent.styled";
 import setMessageTime from "../../utils/setMessageTime";
 
 interface IUserMessageComponentProps {
+  msgIdx: number;
+  msgsCount: number;
   message: MessageObject;
   nextMessage: MessageObject | null;
 }
 
 const UserMessageComponent = ({
+  msgIdx,
+  msgsCount,
   message,
   nextMessage,
 }: IUserMessageComponentProps) => {
@@ -27,7 +31,11 @@ const UserMessageComponent = ({
           </Styled.UserMessageAttachment>
         )}
         {message.text && (
-          <Styled.SendedMessageBox>{message.text}</Styled.SendedMessageBox>
+          <Styled.SendedMessageBox
+            className={msgIdx === msgsCount ? "msgAnimate" : ""}
+          >
+            {message.text}
+          </Styled.SendedMessageBox>
         )}
 
         {isLastMessage && (
