@@ -19,7 +19,7 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
     .map((level) => level.joints.joint_cost)
     .some((joint) => joint);
 
-  const generateCellTech = (value: IValue[], joint: boolean) => {
+  const generateCellTech = (value: IValue[]) => {
     const filteredVal = value.map((val) => val.technology).filter((el) => el);
     return filteredVal.map((tech, idx) =>
       idx === filteredVal.length - 1 ? (
@@ -40,7 +40,7 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
     );
   };
 
-  const generateCellCost = (value: IValue[], joint: boolean) => {
+  const generateCellCost = (value: IValue[]) => {
     const filteredVal = value.map((value) => value.cost).filter((el) => el);
     return filteredVal.map((cost, idx) =>
       idx === filteredVal.length - 1 ? (
@@ -62,7 +62,12 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
   };
 
   return (
-    <div style={{ padding: "10px 10px 20px 10px" }}>
+    <div
+      style={{
+        padding: "10px 10px 20px 10px",
+        borderBottom: "1.5px solid #000",
+      }}
+    >
       <RateCardLevelTable>
         <tbody>
           {levels.map((level, idx) => (
@@ -107,7 +112,7 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
                       pointerEvents: "none",
                     }}
                   >
-                    {generateCellTech(level.values, joinTech)}
+                    {generateCellTech(level.values)}
                   </RateCardLevelData>
                 ) : null
               ) : (
@@ -115,7 +120,7 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
                   className={`rateTech${idx} spanRateDefault`}
                   style={{ width: "59%" }}
                 >
-                  {generateCellTech(level.values, joinTech)}
+                  {generateCellTech(level.values)}
                 </RateCardLevelData>
               )}
               {joinCost ? (
@@ -125,12 +130,12 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
                     rowSpan={levels.length}
                     style={{ textAlign: "center", pointerEvents: "none" }}
                   >
-                    {generateCellCost(level.values, joinCost)}
+                    {generateCellCost(level.values)}
                   </RateCardLevelData>
                 ) : null
               ) : (
                 <RateCardLevelData className={`rateCost${idx} spanCostDefault`}>
-                  {generateCellCost(level.values, joinCost)}
+                  {generateCellCost(level.values)}
                 </RateCardLevelData>
               )}
             </RateCardLevelRow>
