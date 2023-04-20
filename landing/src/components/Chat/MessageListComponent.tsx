@@ -94,36 +94,38 @@ const MessageListComponent = ({
         overscrollBehavior: "contain",
       }}
     >
-      <GreetingMessageComponent
-        userEmail={userEmail}
-        openChatTime={openChatTime}
-        sentEmailTime={sentEmailTime}
-        isGreetingMeesageShow={isGreetingMeesageShow}
-      />
-      {messages &&
-        messages.map((message, index, messagesArr) => {
-          const previousMessage = index === 0 ? null : messagesArr[index - 1];
-          const nextMessage =
-            index === messagesArr.length - 1 ? null : messagesArr[index + 1];
-          const isUserMessage = message.sender_username === username;
+      <Styled.DisplayedMessagesWrapper>
+        <GreetingMessageComponent
+          userEmail={userEmail}
+          openChatTime={openChatTime}
+          sentEmailTime={sentEmailTime}
+          isGreetingMeesageShow={isGreetingMeesageShow}
+        />
+        {messages &&
+          messages.map((message, index, messagesArr) => {
+            const previousMessage = index === 0 ? null : messagesArr[index - 1];
+            const nextMessage =
+              index === messagesArr.length - 1 ? null : messagesArr[index + 1];
+            const isUserMessage = message.sender_username === username;
 
-          return (
-            <div key={`msg_${index}`}>
-              {isUserMessage ? (
-                <UserMessageComponent
-                  message={message}
-                  nextMessage={nextMessage}
-                />
-              ) : (
-                <AdminMessageComponent
-                  message={message}
-                  previousMessage={previousMessage}
-                  nextMessage={nextMessage}
-                />
-              )}
-            </div>
-          );
-        })}
+            return (
+              <div key={`msg_${index}`}>
+                {isUserMessage ? (
+                  <UserMessageComponent
+                    message={message}
+                    nextMessage={nextMessage}
+                  />
+                ) : (
+                  <AdminMessageComponent
+                    message={message}
+                    previousMessage={previousMessage}
+                    nextMessage={nextMessage}
+                  />
+                )}
+              </div>
+            );
+          })}
+      </Styled.DisplayedMessagesWrapper>
     </Styled.MessageListContainer>
   );
 };

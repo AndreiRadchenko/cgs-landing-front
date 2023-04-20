@@ -179,10 +179,16 @@ export const ChatBody = styled.div`
   }
 `;
 
-export const ChatMessagesContainer = styled.div`
+interface IChatMessagesContainer {
+  isMessagesDisplayed?: boolean;
+}
+
+export const ChatMessagesContainer = styled.div<IChatMessagesContainer>`
+  padding-right: ${({ isMessagesDisplayed }) =>
+    !isMessagesDisplayed ? "calc(0.7rem + 10px)" : "0"};
+  padding-left: 15px;
   height: 100%;
   flex-grow: 1;
-  padding: 0 0 0 15px;
 `;
 
 export const ChatFormContainer = styled.div`

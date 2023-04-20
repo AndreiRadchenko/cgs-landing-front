@@ -4,8 +4,6 @@ import themes from "../../utils/themes";
 import { AttachmentIcon } from "./ChatInputForm.styled";
 
 export const MessageListContainer = styled.div`
-  padding-right: 10px;
-
   ::-webkit-scrollbar {
     width: 0.7rem;
     background: transparent;
@@ -75,6 +73,10 @@ interface IMessagesWrapper {
 export const MessagesWrapper = styled.div<IMessagesWrapper>`
   padding-left: calc(${({ notFirst }) => (notFirst ? "39px + 0.5em" : "0")});
   width: 75%;
+`;
+
+export const DisplayedMessagesWrapper = styled.div`
+  padding-right: 10px;
 `;
 
 export const MessageSender = styled.p`

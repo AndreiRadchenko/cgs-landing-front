@@ -50,6 +50,9 @@ export const useCreateUserChat = ({
     const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY || "";
     const projectId = process.env.NEXT_PUBLIC_PROJECT_ID || "";
     const chatAdmin = process.env.NEXT_PUBLIC_CHAT_ADMIN || "";
+
+    setUserEmail(values.email);
+
     const userResult = await getOrCreateUser({
       data: {
         username: values.email,
@@ -91,7 +94,6 @@ export const useCreateUserChat = ({
 
     localStorage.setItem(storeKeys.chatUserData, JSON.stringify(chatUserInfo));
 
-    setUserEmail(values.email);
     setSentEmailTime(setMessageTime());
     setChatUserInfo(chatUserInfo);
 

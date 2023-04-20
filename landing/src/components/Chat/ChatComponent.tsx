@@ -44,7 +44,9 @@ const ChatComponent = ({
         </Styled.OperatorStatus>
       </Styled.ChatHeader>
       <Styled.ChatBody>
-        <Styled.ChatMessagesContainer>
+        <Styled.ChatMessagesContainer
+          isMessagesDisplayed={Boolean(chatUserInfo)}
+        >
           <ChatMessagesComponent
             userEmail={userEmail}
             openChatTime={openChatTime}
