@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 import { Field } from "formik";
+import { TextareaAutosize } from "@mui/material";
 
 export const FormField = styled(Field)`
   height: 54px;
@@ -26,13 +27,104 @@ export const FormField = styled(Field)`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    height: 84px;
-    font-size: 22px;
+    /* height: 84px; */
+    /* font-size: 22px; */
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 12px;
     height: 44px;
+  }
+`;
+
+interface MyTextAreaProps {
+  maxLength: number;
+}
+
+export const DetailsField = styled(TextareaAutosize).attrs<MyTextAreaProps>(
+  (props) => ({
+    maxLength: props.maxLength,
+    maxRows: "3",
+    overflowY: "scroll",
+  })
+)<MyTextAreaProps>`
+  height: 54px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  max-height: 92px;
+  width: 100%;
+  background: none;
+  border: none;
+  border: 1px solid ${themes.primary.colors.inputGrey};
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 16px;
+  color: ${themes.primary.colors.black};
+  padding-left: 12px;
+  border-radius: 0;
+  resize: none;
+  margin-top: 10px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${themes.primary.colors.primary};
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 2px;
+  }
+
+  &::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 2px;
+  }
+
+  scrollbar-color: ${themes.primary.colors.primary} transparent;
+  scrollbar-width: thin;
+
+  &::placeholder {
+    color: ${themes.primary.colors.comment};
+  }
+
+  &:focus {
+    outline: none;
+  }
+  &.formikErrors {
+    border: 1px solid ${themes.primary.colors.adminRed};
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    /* height: 84px; */
+    /* font-size: 22px; */
+  }
+
+  @media ${themes.primary.media.estiomationFormWidth} {
+    font-size: 12px;
+    height: 44px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    max-height: 72px;
+  }
+`;
+
+export const CharCounter = styled.div`
+  text-align: right;
+  color: ${themes.primary.colors.comment};
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  padding-right: 8px;
+  @media ${themes.primary.media.estiomationFormWidth} {
+    font-size: 10px;
+    line-height: 12px;
   }
 `;
 
@@ -42,7 +134,7 @@ export const FormFieldLabel = styled.label`
   color: ${themes.primary.colors.black};
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 22px;
+    /* font-size: 22px; */
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
@@ -62,7 +154,7 @@ export const FormFieldContainer = styled.div`
   margin-bottom: 4px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    height: 125px;
+    /* height: 125px; */
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
@@ -92,8 +184,8 @@ export const FormFieldContainer = styled.div`
     }
 
     @media ${themes.primary.media.minPCFullHD} {
-      height: 84px;
-      font-size: 22px;
+      /* height: 84px;
+      font-size: 22px; */
     }
 
     @media ${themes.primary.media.estiomationFormWidth} {
@@ -117,8 +209,8 @@ export const FormFieldContainer = styled.div`
         width: 45px;
       }
       @media ${themes.primary.media.minPCFullHD} {
-        width: 75px;
-        padding: 0 0 0 20px;
+        /* width: 75px;
+        padding: 0 0 0 20px; */
       }
 
       .flag {
@@ -144,7 +236,7 @@ export const FormFieldContainer = styled.div`
       }
 
       @media ${themes.primary.media.minPCFullHD} {
-        font-size: 22px;
+        /* font-size: 22px; */
       }
 
       @media ${themes.primary.media.estiomationFormWidth} {
@@ -155,7 +247,7 @@ export const FormFieldContainer = styled.div`
         padding-left: 55px;
       }
       @media ${themes.primary.media.minPCFullHD} {
-        padding-left: 85px;
+        /* padding-left: 85px; */
       }
     }
     .country-list {
@@ -163,8 +255,8 @@ export const FormFieldContainer = styled.div`
       width: 280px;
 
       @media ${themes.primary.media.minPCFullHD} {
-        width: 480px;
-        max-height: 300px;
+        /* width: 480px;
+        max-height: 300px; */
       }
 
       .search {
@@ -183,7 +275,7 @@ export const FormFieldContainer = styled.div`
           }
 
           @media ${themes.primary.media.minPCFullHD} {
-            font-size: 22px;
+            /* font-size: 22px; */
           }
 
           @media ${themes.primary.media.estiomationFormWidth} {
@@ -204,6 +296,6 @@ export const ErrorField = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 20px;
+    /* font-size: 20px; */
   }
 `;

@@ -27,4 +27,5 @@ export interface IBookModalData {
   phone: string;
   country: string;
   service: string;
+  details?: string;
 }

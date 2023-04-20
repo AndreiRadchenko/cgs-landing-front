@@ -74,13 +74,13 @@ export const DropdownButton = styled.button`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 22px;
+    /* font-size: 22px;
     padding-left: 20px;
 
     & img {
       width: 15px;
       height: 11px;
-    }
+    } */
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
@@ -144,7 +144,7 @@ export const ContentWrapper = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    padding-left: 20px;
+    /* padding-left: 20px;
     font-size: 22px;
     height: 60px;
     & > div {
@@ -154,7 +154,7 @@ export const ContentWrapper = styled.div`
       & span {
         margin-right: 5px;
       }
-    }
+    } */
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {

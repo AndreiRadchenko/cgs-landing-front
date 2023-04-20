@@ -12,6 +12,7 @@ import { adminBookService } from "../../../services/adminBookServiceModal";
 import { adminServices } from "../../../services/services/commonServices";
 import { BookModalValidation } from "../../../validations/BookModalValidation";
 import { navigationRoutesNamesNew } from "../../../utils/variables";
+import { FormFieldDetails } from "./FormFieldDetails/FormFiledDetails";
 
 export interface IFormState {
   name: string;
@@ -19,6 +20,7 @@ export interface IFormState {
   phone: string;
   country: string;
   service: string;
+  details: string;
 }
 
 interface IFormProps {
@@ -69,6 +71,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       phone: "",
       country: "",
       service: "",
+      details: "",
     },
     validationSchema: BookModalValidation,
     validateOnBlur: true,
@@ -80,6 +83,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
         phone: value,
         country: country,
         service: values.service,
+        details: values.details,
       });
       setCalendlyIsOpen(true);
       if (typeof window !== "undefined") {
@@ -192,6 +196,13 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
             dropdownName={split(service)}
           />
         </Styled.ServiceSelect>
+        <FormFieldDetails
+          btnIsClicked={btnState.isClicked}
+          name={"details"}
+          label={"Any Details"}
+          placeholder={"Your idea description, requirements, etc."}
+          maxLength={1000}
+        />
         <Styled.FormSentContainer>
           <Styles.ButtonWrapper onClick={checkIfButtonIsDisabled}>
             <BookACallButton
