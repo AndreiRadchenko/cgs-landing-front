@@ -22,6 +22,7 @@ export const PortfolioProjectsContainer = styled.div`
 
 export const ProjectsContainer = styled.div`
   position: relative;
+  min-height: 441px;
 `;
 
 export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
@@ -60,6 +61,7 @@ export const ProjectsContainerInfoText = styled.div`
   color: ${themes.primary.colors.secondary};
   overflow: hidden;
   p {
+    margin: 0;
     width: 100%;
     overflow: hidden;
     display: -webkit-box;
@@ -67,6 +69,28 @@ export const ProjectsContainerInfoText = styled.div`
     -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
     white-space: pre-wrap; /* let the text wrap preserving spaces */
   }
+`;
+
+export const ProjectsContainerInfoBtn = styled.div`
+  margin: 30px 20px 0 20px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 16px;
+  line-height: 160%;
+  color: ${themes.primary.colors.blogBackground};
+  text-transform: uppercase;
+  padding: 5px 20px 7px;
+  border: 1px solid ${themes.primary.colors.blogBackground};
+  width: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+`;
+
+export const ProjectsContainerInfoIconsContainer = styled.div`
+  margin: 67px 86px 40px;
 `;
 
 export const ProjectsContainerArrowContainer = styled.div`
