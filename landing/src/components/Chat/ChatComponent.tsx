@@ -76,8 +76,10 @@ const ChatComponent = ({
             : "Waiting registration"}
         </Styled.OperatorStatus>
       </Styled.ChatHeader>
-      <Styled.ChatBody ref={chatAreaRef}>
-        <Styled.ChatMessagesContainer>
+      <Styled.ChatBody>
+        <Styled.ChatMessagesContainer
+          isMessagesDisplayed={Boolean(chatUserInfo)}
+        >
           <ChatMessagesComponent
             dragging={dragging}
             setDragging={setDragging}

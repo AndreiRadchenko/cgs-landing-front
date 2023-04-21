@@ -76,6 +76,7 @@ export const ServiceSelect = styled.div`
   height: 54px;
   width: 100%;
   margin-top: 22px;
+  margin-bottom: 18px;
 
   & > div {
     width: 100%;
@@ -92,12 +93,13 @@ export const ServiceSelect = styled.div`
       }
     }
   }
-
   @media ${themes.primary.media.minPCFullHD} {
-    height: 84px;
+    /* height: 84px;
+    margin-bottom: 35px; */
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
     height: 44px;
+    margin-bottom: 9px;
   }
 `;

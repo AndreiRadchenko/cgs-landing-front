@@ -15,5 +15,6 @@ export const BookModalValidation = () => {
     country: yup.string(),
     email: yup.string().email().required("Enter your email"),
     service: yup.string().required("Select service"),
+    details: yup.string().trim(),
   });
 };

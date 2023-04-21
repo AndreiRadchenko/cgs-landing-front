@@ -10,6 +10,8 @@ export const StyledLoader = styled(LoadingOverlay)`
   }
   &.MyLoader_wrapper--active {
     overflow: hidden;
+    width: 100vw;
+    height: 100vh;
   }
 `;
 
@@ -28,7 +30,6 @@ export const StyledSpinner = styled.div`
   border: 5px dotted ${themes.primary.colors.loaderSpinner};
   border-radius: 50%;
   display: inline-block;
-  position: relative;
   box-sizing: border-box;
   animation: rotation 2s linear infinite;
 `;
