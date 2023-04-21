@@ -14,6 +14,8 @@ import { storeKeys } from "../../consts";
 import { IChatUserInfo, ICurrentMessage } from "../../types/SupportChat.types";
 
 interface IChatMessagesComponentProps {
+  dragging: boolean;
+  setDragging: React.Dispatch<React.SetStateAction<boolean>>;
   userEmail: string;
   openChatTime: string;
   sentEmailTime: string;
@@ -27,6 +29,8 @@ interface IChatMessagesComponentProps {
 }
 
 const ChatMessagesComponent = ({
+  dragging,
+  setDragging,
   userEmail,
   openChatTime,
   sentEmailTime,
@@ -103,6 +107,8 @@ const ChatMessagesComponent = ({
             }}
             renderMessageForm={() => (
               <MessageFormComponent
+                dragging={dragging}
+                setDragging={setDragging}
                 chatId={chatUserInfo.chatId}
                 userName={chatUserInfo.userName}
                 publicKey={process.env.NEXT_PUBLIC_PROJECT_ID || ""}

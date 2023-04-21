@@ -422,3 +422,18 @@ ${css`
     background-position: 400% 0;
   }
 `}`;
+
+export const messageShow = keyframes`
+${css`
+  0% {
+    max-height: 100vmax;
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    max-height: 100vmax;
+    overflow: visible;
+  }
+`}`;

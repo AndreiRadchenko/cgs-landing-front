@@ -45,7 +45,7 @@ const GreetingMessageComponent = ({
               <Styled.AvatarWrapper />
               <Styled.MessagesWrapper>
                 <Styled.MessageSender>CGS-team</Styled.MessageSender>
-                <Styled.RecivedMessageBox>
+                <Styled.RecivedMessageBox className="msgAnimate">
                   How can we help you?
                 </Styled.RecivedMessageBox>
                 <Styled.RecievdMessageTime>

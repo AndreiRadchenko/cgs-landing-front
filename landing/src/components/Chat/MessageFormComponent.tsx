@@ -8,6 +8,8 @@ import { formatChatAttachName } from "../../utils/formatChatAttachName";
 import * as Styled from "../../styles/Chat/ChatInputForm.styled";
 import { ICurrentMessage } from "../../types/SupportChat.types";
 interface IMessageFormComponentProps {
+  dragging: boolean;
+  setDragging: React.Dispatch<React.SetStateAction<boolean>>;
   chatId: string;
   userName: string;
   publicKey: string;
@@ -19,6 +21,8 @@ interface IMessageFormValues {
 }
 
 const MessageFormComponent = ({
+  dragging,
+  setDragging,
   chatId,
   userName,
   publicKey,
@@ -26,7 +30,9 @@ const MessageFormComponent = ({
 }: IMessageFormComponentProps) => {
   const [fileSizeError, setFileSizeError] = useState<string>("");
   const [file, setFile] = useState<FileList | null>(null);
+
   const inputRef = useRef<HTMLInputElement | null>(null);
+
   const formik = useFormik<IMessageFormValues>({
     initialValues: {
       text: "",
@@ -90,6 +96,7 @@ const MessageFormComponent = ({
   const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
     setFile(target.files);
+    setDragging(false);
   };
 
   return (
@@ -115,7 +122,18 @@ const MessageFormComponent = ({
             type="file"
             multiple={false}
             id="upload-button"
-            style={{ display: "none" }}
+            style={
+              !dragging
+                ? { display: "none" }
+                : {
+                    opacity: 0,
+                    position: "absolute",
+                    top: 0,
+                    left: "-15px",
+                    width: "105%",
+                    height: "100%",
+                  }
+            }
             disabled={!!file}
             onChange={handleUpload}
           />

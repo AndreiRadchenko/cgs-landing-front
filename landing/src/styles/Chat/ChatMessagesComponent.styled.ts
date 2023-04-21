@@ -2,6 +2,7 @@ import styled from "styled-components";
 import chatOperatorAvatar from "../../../public/chatOperatorAvatar.svg";
 import themes from "../../utils/themes";
 import { AttachmentIcon } from "./ChatInputForm.styled";
+import { messageShow } from "../Animations.styled";
 
 export const MessageListContainer = styled.div`
   ::-webkit-scrollbar {
@@ -102,8 +103,16 @@ export const RecivedMessageBox = styled.p`
   font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.primary};
 
-  border-radius: 0px 6px 6px 6px;
+  border-radius: 0 6px 6px 6px;
   background-color: ${themes.primary.colors.chatMessageBgc};
+
+  &.msgAnimate {
+    transform: scale(0);
+    max-height: 0;
+
+    overflow: hidden;
+    animation: ${messageShow} 0.15s ease-out 0s forwards;
+  }
 
   :not(:last-of-type) {
     margin-bottom: 0.5em;

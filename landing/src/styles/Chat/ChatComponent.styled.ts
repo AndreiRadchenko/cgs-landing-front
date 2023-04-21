@@ -72,8 +72,8 @@ export const ChatContainer = styled.div<IChatContainer>`
     );
 
     @media (min-width: 1500px) {
-      top: 2.3px;
-      height: 99.8%;
+      top: 2px;
+      height: 100%;
     }
     @media ${themes.primary.media.maxMobile} {
       display: none;

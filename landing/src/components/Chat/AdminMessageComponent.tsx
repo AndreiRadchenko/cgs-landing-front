@@ -5,12 +5,16 @@ import setMessageTime from "../../utils/setMessageTime";
 import * as Styled from "../../styles/Chat/ChatMessagesComponent.styled";
 
 interface IAdminMessageComponentProps {
+  msgIdx: number;
+  msgsCount: number;
   message: MessageObject;
   previousMessage: MessageObject | null;
   nextMessage: MessageObject | null;
 }
 
 const AdminMessageComponent = ({
+  msgIdx,
+  msgsCount,
   message,
   previousMessage,
   nextMessage,
@@ -50,7 +54,11 @@ const AdminMessageComponent = ({
             atch
           </Styled.AdminMessageAttachment>
         ) : (
-          <Styled.RecivedMessageBox>{message.text}</Styled.RecivedMessageBox>
+          <Styled.RecivedMessageBox
+            className={msgIdx === msgsCount ? "msgAnimate" : ""}
+          >
+            {message.text}
+          </Styled.RecivedMessageBox>
         )}
         {isLastMessage && (
           <Styled.RecievdMessageTime>
