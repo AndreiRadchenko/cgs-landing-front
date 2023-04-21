@@ -37,7 +37,7 @@ export const InputField = styled.input`
 `;
 
 export const MessageFormWrapper = styled.div`
-  height: 77px;
+  min-height: 77px;
   background: rgba(143, 142, 147, 0.07);
   padding: 20px 10px;
   margin: 0 0 0 -15px;
