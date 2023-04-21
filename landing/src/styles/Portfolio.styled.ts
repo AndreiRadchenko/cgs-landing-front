@@ -20,9 +20,25 @@ export const PortfolioProjectsContainer = styled.div`
   gap: 52px 34px;
 `;
 
+export const ProjectsContainerInfo = styled.div`
+  opacity: 0;
+  transition: 0.3s all;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+`;
+
 export const ProjectsContainer = styled.div`
   position: relative;
   min-height: 441px;
+
+  &:hover ${ProjectsContainerInfo} {
+    opacity: 1;
+    transition: 0.3s all;
+  }
 `;
 
 export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
@@ -50,6 +66,10 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
       ? themes.primary.colors.blogBackground
       : themes.primary.colors.primary};
   margin: 0;
+
+  span {
+    color: ${themes.primary.colors.comment};
+  }
 `;
 
 export const ProjectsContainerInfoText = styled.div`
@@ -72,6 +92,7 @@ export const ProjectsContainerInfoText = styled.div`
 `;
 
 export const ProjectsContainerInfoBtn = styled.div`
+  position: relative;
   margin: 30px 20px 0 20px;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
@@ -82,15 +103,45 @@ export const ProjectsContainerInfoBtn = styled.div`
   padding: 5px 20px 7px;
   border: 1px solid ${themes.primary.colors.blogBackground};
   width: 170px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
   cursor: pointer;
+  outline: none;
+  transition: 1s ease-in-out;
+
+  .btnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  & > svg {
+    position: absolute;
+    left: -1.2px;
+    top: -1.5px;
+    fill: none;
+    stroke-width: 4px;
+    stroke-dasharray: 50 480;
+    stroke-dashoffset: 50;
+    transition: 1s ease-in-out;
+    stroke: ${themes.primary.colors.primary};
+  }
+
+  &:hover > svg {
+    stroke-dashoffset: -480;
+  }
 `;
 
 export const ProjectsContainerInfoIconsContainer = styled.div`
   margin: 67px 86px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+
+  svg {
+    height: 60px;
+    width: 60px;
+  }
 `;
 
 export const ProjectsContainerArrowContainer = styled.div`
@@ -165,15 +216,6 @@ export const ProjectsContainerImage = styled.div`
       height: unset !important;
     }
   }
-`;
-
-export const ProjectsContainerInfo = styled.div`
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.8);
 `;
 
 export const LinkButton = styled.button`
