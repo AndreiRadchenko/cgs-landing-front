@@ -76,7 +76,7 @@ const ChatComponent = ({
             : "Waiting registration"}
         </Styled.OperatorStatus>
       </Styled.ChatHeader>
-      <Styled.ChatBody>
+      <Styled.ChatBody ref={chatAreaRef}>
         <Styled.ChatMessagesContainer
           isMessagesDisplayed={Boolean(chatUserInfo)}
         >
