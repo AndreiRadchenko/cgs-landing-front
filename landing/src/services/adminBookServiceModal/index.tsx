@@ -7,6 +7,9 @@ export class AdminBookService {
   public mailForm(data: IBookModalData) {
     return this.httpService.post("api/calendly/book-call", data);
   }
+  public autoReply(data: IBookModalData) {
+    return this.httpService.post("api/calendly/auto-reply", data);
+  }
 }
 
 const factory = new HttpServiceFactory();
