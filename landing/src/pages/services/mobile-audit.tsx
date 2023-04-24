@@ -36,7 +36,7 @@ export async function getServerSideProps() {
 }
 
 const MobileAuditService = () => {
-  const { data } = useQuery([queryKeys.getServiceCloudPage], () =>
+  const { data } = useQuery([queryKeys.getServiceMobileAuditPage], () =>
     adminMobileAuditService.getMobileAuditServicePage()
   );
 
