@@ -97,7 +97,7 @@ export const useCreateUserChat = ({
     setSentEmailTime(setMessageTime());
     setChatUserInfo(chatUserInfo);
 
-    setTimeout(() => setIsGreetingMessageShow(true), 3000);
+    setIsGreetingMessageShow(true);
   };
 
   return {
