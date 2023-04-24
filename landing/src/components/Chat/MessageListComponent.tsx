@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { MessageListProps, MessageObject } from "react-chat-engine-advanced";
 
 import AdminMessageComponent from "./AdminMessageComponent";
@@ -9,6 +9,8 @@ import * as Styled from "../../styles/Chat/ChatMessagesComponent.styled";
 import { ICurrentMessage } from "../../types/SupportChat.types";
 
 interface IMessageListComponent {
+  messages: MessageObject[];
+  setMessages: React.Dispatch<React.SetStateAction<MessageObject[]>>;
   userEmail: string;
   openChatTime: string;
   sentEmailTime: string;
@@ -20,6 +22,8 @@ interface IMessageListComponent {
 }
 
 const MessageListComponent = ({
+  messages,
+  setMessages,
   userEmail,
   openChatTime,
   sentEmailTime,
@@ -30,10 +34,13 @@ const MessageListComponent = ({
   setCurrentMessage,
 }: IMessageListComponent) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [messages, setMessages] = useState<MessageObject[]>([]);
 
   useEffect(() => {
-    if (messages.length === 0) {
+    if (
+      messages.length === 0 &&
+      messageProps.messages.length !== 0 &&
+      messageProps.messages[0].sender_username === messageProps.username
+    ) {
       setMessages(messageProps.messages);
 
       return;
@@ -52,7 +59,7 @@ const MessageListComponent = ({
       );
       setNewMessageAmount((state) => ++state);
     }
-  }, [messageProps]);
+  }, [messageProps.messages]);
 
   useEffect(() => {
     if (currentMessage.text) {
