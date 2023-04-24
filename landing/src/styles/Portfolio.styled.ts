@@ -5,6 +5,10 @@ interface IPortfolioInfoProps {
   readonly isInfoCont: boolean;
 }
 
+interface IPortfolioProjectLink {
+  readonly isProjectLink: boolean;
+}
+
 export const PortfolioContainer = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
 `;
@@ -12,12 +16,21 @@ export const PortfolioContainer = styled.div`
 export const PortfolioWrapper = styled.div`
   width: 100%;
   padding: 0 52.5px;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 0 10px;
+  }
 `;
 
 export const PortfolioProjectsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(652px, 1fr));
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(355px, 652px));
   gap: 52px 34px;
+
+  @media ${themes.primary.media.maxMobile} {
+    gap: 20px;
+  }
 `;
 
 export const ProjectsContainerInfo = styled.div`
@@ -39,6 +52,10 @@ export const ProjectsContainer = styled.div`
     opacity: 1;
     transition: 0.3s all;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    min-height: 240px;
+  }
 `;
 
 export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
@@ -50,6 +67,11 @@ export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
     isInfoCont
       ? `1.5px solid ${themes.primary.colors.primary}`
       : `1.5px solid ${themes.primary.colors.headerBorder}`};
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 7px 10px;
+    padding: 0 0 9px 0;
+  }
 `;
 
 export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
@@ -70,6 +92,26 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
   span {
     color: ${themes.primary.colors.comment};
   }
+
+  & path {
+    transition: transform 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 12px;
+    line-height: 130%;
+  }
 `;
 
 export const ProjectsContainerInfoText = styled.div`
@@ -88,6 +130,12 @@ export const ProjectsContainerInfoText = styled.div`
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
     white-space: pre-wrap; /* let the text wrap preserving spaces */
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+    line-height: 128%;
+    margin: 10px 16px 18px 10px;
   }
 `;
 
@@ -129,6 +177,22 @@ export const ProjectsContainerInfoBtn = styled.div`
   &:hover > svg {
     stroke-dashoffset: -480;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 125px;
+    height: 35px;
+    font-size: 12px;
+    line-height: 160%;
+    padding: 5px 10px 7px;
+    margin: 18px 10px 0 10px;
+
+    & > svg {
+      width: 125px !important;
+      height: 35px !important;
+      stroke-width: 2px;
+      top: -2px;
+    }
+  }
 `;
 
 export const ProjectsContainerInfoIconsContainer = styled.div`
@@ -141,10 +205,22 @@ export const ProjectsContainerInfoIconsContainer = styled.div`
   svg {
     height: 60px;
     width: 60px;
+    path {
+      fill: ${themes.primary.colors.secondary};
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 18px 14px 22px;
+
+    svg {
+      height: 40px;
+      width: 40px;
+    }
   }
 `;
 
-export const ProjectsContainerArrowContainer = styled.div`
+export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,6 +229,14 @@ export const ProjectsContainerArrowContainer = styled.div`
   background: ${themes.primary.colors.portfolioHover};
   border: 2.26667px solid ${themes.primary.colors.primary};
   border-radius: 50%;
+  overflow: hidden;
+
+  opacity: ${({ isProjectLink }) => !isProjectLink && 0.6};
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 26px;
+    height: 26px;
+  }
 `;
 
 export const ProjectsContainerHeaderTitle = styled.div`
@@ -171,6 +255,17 @@ export const ProjectsContainerHeaderTitle = styled.div`
     line-height: 130%;
     color: ${themes.primary.colors.comment};
     margin: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    h4 {
+      font-size: 16px;
+      line-height: 20.8px;
+    }
+    p {
+      font-size: 12px;
+      line-height: 15.6px;
+    }
   }
 `;
 
@@ -199,21 +294,27 @@ export const ProjectsContainerInfoHeaderTitle = styled.div`
     text-fill-color: transparent;
     margin: 0;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    h4 {
+      font-size: 16px;
+      line-height: 20.8px;
+    }
+    p {
+      font-size: 12px;
+      line-height: 15.6px;
+    }
+  }
 `;
 
 export const ProjectsContainerImage = styled.div`
-  .image-container {
-    width: 100%;
-
-    > div {
-      position: unset !important;
-    }
-
-    .image {
+  display: flex;
+  justify-content: center;
+  @media ${themes.primary.media.maxMobile} {
+    span {
+      width: 355px !important;
+      height: 185px !important;
       object-fit: contain;
-      width: 100% !important;
-      position: relative !important;
-      height: unset !important;
     }
   }
 `;
