@@ -4,6 +4,7 @@ import {
   ChatFeed,
   MessageListProps,
   SingleChatSocket,
+  MessageObject,
 } from "react-chat-engine-advanced";
 
 import GreetingMessageComponent from "./GreetingMessageComponent";
@@ -47,6 +48,7 @@ const ChatMessagesComponent = ({
     text: "",
     sender_username: "",
   });
+  const [messages, setMessages] = useState<MessageObject[]>([]);
   const chatProps = useSingleChatLogic(
     process.env.NEXT_PUBLIC_PROJECT_ID || "",
     chatUserInfo?.chatId || "",
@@ -67,6 +69,7 @@ const ChatMessagesComponent = ({
     const currentTime = new Date();
 
     if (chatUserInfo && currentTime.getTime() >= chatUserInfo.expiredTime) {
+      setMessages([]);
       setChatUserInfo(null);
       setUserEmail("");
       setIsGreetingMessageShow(false);
@@ -92,6 +95,8 @@ const ChatMessagesComponent = ({
             renderMessageList={(messageProps: MessageListProps) => {
               return messageProps ? (
                 <MessageListComponent
+                  messages={messages}
+                  setMessages={setMessages}
                   userEmail={userEmail}
                   openChatTime={openChatTime}
                   sentEmailTime={sentEmailTime}
