@@ -15,9 +15,9 @@ import {
 } from "../../types/Admin/AdminPortfolio.types";
 import * as Styled from "../../styles/AdminPage";
 import * as Styles from "../../styles/Portfolio.styled";
-import { Separator } from "../../styles/PortfolioSlider.styled";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { adminGlobalService } from "../../services/adminHomePage";
+import { PortfolioProjectsContainer } from "../../styles/Portfolio.styled";
+import PortfolioProjectComponent from "../../components/Portfolio/PortfolioProjectComponent";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -56,17 +56,7 @@ const PortfolioPage: NextPage = () => {
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
-  const { width } = useWindowDimension();
-  const sortByCategory = (category: string) => {
-    return (
-      reviews &&
-      reviews.filter((review) => review.category === category).reverse()
-    );
-  };
-
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
-
-  const isMobile = !!(width && width < 767);
 
   return isLoading && reviewsIsLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
@@ -79,40 +69,13 @@ const PortfolioPage: NextPage = () => {
       </Head>
       <Styles.PortfolioContainer>
         <HeaderNavNew />
-        {isMobile || (
-          <>
-            <Styles.OurWorkTitle>
-              <span>
-                &nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
-                WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
-                WORK&nbsp;&nbsp;WORK OUR&nbsp;&nbsp;WORK OUR WORK&nbsp;
-              </span>
-              <span>
-                OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR
-                WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;OUR WORK&nbsp;&nbsp;WORK
-                OUR&nbsp;&nbsp;WORK OUR WORK&nbsp;
-              </span>
-            </Styles.OurWorkTitle>
-          </>
-        )}
-        <Styles.SlidersCont>
-          {data.categories.map((category, ind) => {
-            const filtered = sortByCategory(category);
-            return (
-              filtered &&
-              filtered.length > 0 && (
-                <PortfolioSlider
-                  key={ind}
-                  reviews={filtered}
-                  category={category}
-                  isMobile={isMobile}
-                />
-              )
-            );
-          })}
-          <Separator color={"#8f8e93"} className="bottom" />
-        </Styles.SlidersCont>
-        <CTABlock />
+        <Styles.PortfolioWrapper>
+          <Styles.PortfolioProjectsContainer>
+            {reviews?.map((project) => (
+              <PortfolioProjectComponent key={project._id} project={project} />
+            ))}
+          </Styles.PortfolioProjectsContainer>
+        </Styles.PortfolioWrapper>
         <FooterNew />
       </Styles.PortfolioContainer>
     </>

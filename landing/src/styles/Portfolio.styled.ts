@@ -1,25 +1,321 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
-import { infiniteText } from "./Animations.styled";
+
+interface IPortfolioInfoProps {
+  readonly isInfoCont: boolean;
+}
+
+interface IPortfolioProjectLink {
+  readonly isProjectLink: boolean;
+}
 
 export const PortfolioContainer = styled.div`
   background-color: ${themes.primary.colors.blogBackground};
 `;
 
-export const OurWorkTitle = styled.header`
-  font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.medium};
-  font-size: ${themes.primary.font.size.ourWorkText};
-  overflow: hidden;
-  white-space: nowrap;
-  margin-top: 78px;
-  line-height: 90%;
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: row;
+export const PortfolioWrapper = styled.div`
+  width: 100%;
+  padding: 0 52.5px;
 
-  & > span {
-    animation: ${infiniteText} 40s infinite linear;
+  @media ${themes.primary.media.maxMobile} {
+    padding: 0 10px;
+  }
+`;
+
+export const PortfolioProjectsContainer = styled.div`
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(355px, 652px));
+  gap: 52px 34px;
+
+  @media ${themes.primary.media.maxMobile} {
+    gap: 20px;
+  }
+`;
+
+export const ProjectsContainerInfo = styled.div`
+  opacity: 0;
+  transition: 0.3s all;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+`;
+
+export const ProjectsContainer = styled.div`
+  position: relative;
+  min-height: 441px;
+
+  &:hover ${ProjectsContainerInfo} {
+    opacity: 1;
+    transition: 0.3s all;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    min-height: 240px;
+  }
+`;
+
+export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
+  padding: 17px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: ${({ isInfoCont }) =>
+    isInfoCont
+      ? `1.5px solid ${themes.primary.colors.primary}`
+      : `1.5px solid ${themes.primary.colors.headerBorder}`};
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 7px 10px;
+    padding: 0 0 9px 0;
+  }
+`;
+
+export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 18px;
+  line-height: 130%;
+  color: ${({ isInfoCont }) =>
+    isInfoCont
+      ? themes.primary.colors.blogBackground
+      : themes.primary.colors.primary};
+  margin: 0;
+
+  span {
+    color: ${themes.primary.colors.comment};
+  }
+
+  & path {
+    transition: transform 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 12px;
+    line-height: 130%;
+  }
+`;
+
+export const ProjectsContainerInfoText = styled.div`
+  margin: 20px 32px 33px 20px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 18px;
+  line-height: 160%;
+  color: ${themes.primary.colors.secondary};
+  overflow: hidden;
+  p {
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap; /* let the text wrap preserving spaces */
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+    line-height: 128%;
+    margin: 10px 16px 18px 10px;
+  }
+`;
+
+export const ProjectsContainerInfoBtn = styled.div`
+  position: relative;
+  margin: 30px 20px 0 20px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 16px;
+  line-height: 160%;
+  color: ${themes.primary.colors.blogBackground};
+  text-transform: uppercase;
+  padding: 5px 20px 7px;
+  border: 1px solid ${themes.primary.colors.blogBackground};
+  width: 170px;
+  cursor: pointer;
+  outline: none;
+  transition: 1s ease-in-out;
+
+  .btnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  & > svg {
+    position: absolute;
+    left: -1.2px;
+    top: -1.5px;
+    fill: none;
+    stroke-width: 4px;
+    stroke-dasharray: 50 480;
+    stroke-dashoffset: 50;
+    transition: 1s ease-in-out;
+    stroke: ${themes.primary.colors.primary};
+  }
+
+  &:hover > svg {
+    stroke-dashoffset: -480;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 125px;
+    height: 35px;
+    font-size: 12px;
+    line-height: 160%;
+    padding: 5px 10px 7px;
+    margin: 18px 10px 0 10px;
+
+    & > svg {
+      width: 125px !important;
+      height: 35px !important;
+      stroke-width: 2px;
+      top: -2px;
+    }
+  }
+`;
+
+export const ProjectsContainerInfoIconsContainer = styled.div`
+  margin: 67px 86px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+
+  svg {
+    height: 60px;
+    width: 60px;
+    path {
+      fill: ${themes.primary.colors.secondary};
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 18px 14px 22px;
+
+    svg {
+      height: 40px;
+      width: 40px;
+    }
+  }
+`;
+
+export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  background: ${themes.primary.colors.portfolioHover};
+  border: 2.26667px solid ${themes.primary.colors.primary};
+  border-radius: 50%;
+  overflow: hidden;
+
+  opacity: ${({ isProjectLink }) => !isProjectLink && 0.6};
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 26px;
+    height: 26px;
+  }
+`;
+
+export const ProjectsContainerHeaderTitle = styled.div`
+  h4 {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 30px;
+    line-height: 130%;
+    margin: 0;
+    color: ${themes.primary.colors.primary};
+  }
+  p {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 18px;
+    line-height: 130%;
+    color: ${themes.primary.colors.comment};
+    margin: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    h4 {
+      font-size: 16px;
+      line-height: 20.8px;
+    }
+    p {
+      font-size: 12px;
+      line-height: 15.6px;
+    }
+  }
+`;
+
+export const ProjectsContainerInfoHeaderTitle = styled.div`
+  h4 {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 30px;
+    line-height: 130%;
+    margin: 0;
+    color: ${themes.primary.colors.blogBackground};
+  }
+  p {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 18px;
+    line-height: 130%;
+    background: linear-gradient(
+      90deg,
+      ${themes.primary.colors.portfolioGradient} 0%,
+      ${themes.primary.colors.darkBlue} 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    margin: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    h4 {
+      font-size: 16px;
+      line-height: 20.8px;
+    }
+    p {
+      font-size: 12px;
+      line-height: 15.6px;
+    }
+  }
+`;
+
+export const ProjectsContainerImage = styled.div`
+  display: flex;
+  justify-content: center;
+  @media ${themes.primary.media.maxMobile} {
+    span {
+      width: 355px !important;
+      height: 185px !important;
+      object-fit: contain;
+    }
   }
 `;
 
@@ -57,16 +353,6 @@ export const LinkButton = styled.button`
     a {
       border: none;
     }
-  }
-`;
-
-export const SlidersCont = styled.article`
-  margin-bottom: 48px;
-
-  @media ${themes.primary.media.maxMobile} {
-    margin: 4px 10px 40px;
-
-    border-top: 1px solid ${themes.primary.colors.comment};
   }
 `;
 

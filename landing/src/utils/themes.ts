@@ -168,6 +168,7 @@ const themes = {
         orange: "#FFCE85",
         green: "#CAFF9D",
       },
+      portfolioGradient: "#D6FFBB",
       lightShadows: "lightgray",
       errorText: "#ea0000",
       adminRed: "#F80909",
