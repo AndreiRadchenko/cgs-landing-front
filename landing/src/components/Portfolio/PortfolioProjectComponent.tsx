@@ -7,6 +7,7 @@ import * as Styled from "../../styles/Portfolio.styled";
 
 import ButtonArrow from "../../utils/ButtonArrow";
 import ArrowBtn from "./svg/ArrowBtn";
+import BtnPolyline from "./svg/BtnPolyline";
 
 const PortfolioProjectComponent = ({
   project,
@@ -278,18 +279,7 @@ const PortfolioProjectComponent = ({
           <p>{project.text}</p>
         </Styled.ProjectsContainerInfoText>
         <Styled.ProjectsContainerInfoBtn>
-          <svg
-            width="170px"
-            height="40px"
-            viewBox="0 0 170 40"
-            className="border"
-          >
-            <polyline points="170,1 170,40 1,40 1,1 40,1" className="bg-line" />
-            <polyline
-              points="170,1 170,40 1,40 1,1 170,1"
-              className="hl-line"
-            />
-          </svg>
+          <BtnPolyline />
           <div className="btnContainer">
             <span>Read more</span>
             <ArrowBtn />
