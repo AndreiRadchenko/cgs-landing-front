@@ -76,6 +76,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     validationSchema: BookModalValidation,
     validateOnBlur: true,
     onSubmit(values, { resetForm, setErrors }) {
+      values.details = values.details.replace(/^\s*$/, "");
       if (!values.email || !values.service) return;
       sendTeamEmail.mutate({
         name: values.name,
@@ -212,7 +213,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
         <FormFieldDetails
           btnIsClicked={btnState.isClicked}
           name={"details"}
-          label={"Any Details"}
+          label={"Any details"}
           placeholder={"Your idea description, requirements, etc."}
           maxLength={1000}
         />

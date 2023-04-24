@@ -1,4 +1,4 @@
-import { useFormikContext, useField } from "formik";
+import { useFormikContext, useField, ErrorMessage } from "formik";
 import React, { FC, useState, useEffect } from "react";
 import { IFormState } from "..";
 import * as Styled from "../../../../styles/BookModalForm/FormField.styled";
@@ -40,6 +40,7 @@ export const FormFieldDetails: FC<IDetailsFieldProps> = ({
         onChange={field.onChange}
         maxLength={maxLength}
       />
+      {/* <ErrorMessage name="details" /> */}
 
       <Styled.CharCounter>{`${usedChars}/${maxLength}`}</Styled.CharCounter>
       {btnIsClicked && errors[name] && (
