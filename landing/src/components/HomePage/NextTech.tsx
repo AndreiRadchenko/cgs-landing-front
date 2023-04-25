@@ -13,6 +13,7 @@ import { IDataResponse } from "../../types/Admin/Response.types";
 import film from "../../../public/HomePageDecoration/photoFilm.svg";
 import filmMobile from "../../../public/HomePageDecoration/photoFilmMobile.svg";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
+import Badges from "./Badges";
 
 import * as Styled from "../../styles/HomePage/General.styled";
 
@@ -56,16 +57,7 @@ const NextTech = () => {
   return (
     <Styled.NextTech>
       <Styled.Subtitle>{text && parse(text.title, options)}</Styled.Subtitle>
-      <Partners />
-      <Styled.FilmContainer>
-        {width && (
-          <Styled.Film
-            src={width < 767 ? filmMobile.src : film.src}
-            alt="film text image"
-          />
-        )}
-        <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
-      </Styled.FilmContainer>
+      <Badges />
       <FreeServices />
       <Styled.Subtitle className="small">
         {width && width < 475 ? (
@@ -125,6 +117,7 @@ const NextTech = () => {
           </Styled.ArrowContainer>
         </Styled.BlackButton>
       </Styled.RightContainer>
+      <Partners />
     </Styled.NextTech>
   );
 };

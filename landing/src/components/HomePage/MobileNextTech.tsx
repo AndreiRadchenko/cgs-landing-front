@@ -1,16 +1,19 @@
 import React from "react";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
+
 import * as Styled from "../../styles/HomePage/MobileGeneral.styled";
 import longArrowMobile from "../../../public/HomePageDecoration/longArrowMobile.svg";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
-import ButtonArrow from "../../utils/ButtonArrow";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ScrambleText from "./ScrambleText";
 import MobileServices from "./MobileServices";
+import Badges from "./Badges";
+
 import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import FreeServices from "../FreeServices/FreeServices";
+import ButtonArrow from "../../utils/ButtonArrow";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const MobileNextTech = () => {
   const { width } = useWindowDimension();
@@ -53,7 +56,9 @@ const MobileNextTech = () => {
       <Styled.Subtitle>
         {text && parse(`<div> ${text.title.split("<div>")[1]}`, options)}
       </Styled.Subtitle>
+
       <Styled.FilmText>{data?.textOnFilm}</Styled.FilmText>
+      <Badges />
       <MobileServices />
       <Styled.Subtitle className="small">
         {width && width < 475 ? (
