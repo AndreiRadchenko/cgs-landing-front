@@ -10,7 +10,7 @@ const RateHeading = ({ heading }: { heading: string }) => {
     <>
       <MarqueeRate heading={heading} />
       <MobileRateTextWrapper>
-        <MobileInfiniteText title={heading} />
+        <MobileInfiniteText isRateCard withoutMargin title={heading} />
       </MobileRateTextWrapper>
     </>
   );

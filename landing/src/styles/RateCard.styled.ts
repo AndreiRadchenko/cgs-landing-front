@@ -52,75 +52,79 @@ function createCSSRow(levelsNumber = 1, levelValues: IValue[]) {
 }
 
 export const RateCardContentContainer = styled.div`
-  padding: 58px 51px 113px;
+  padding: 38px 51px 113px;
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 8px 25px 83px;
+    padding: 8px 20px 65px;
   }
 `;
 
-export const RateCardServiceName = styled.h3<IActiveAccordion>`
-  font-size: 32px;
+export const RateCardServiceName = styled.h3`
+  font-size: 24px;
   line-height: 160%;
   letter-spacing: 0.05em;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  color: ${(props) =>
-    props.isActive
-      ? themes.primary.colors.darkBlue
-      : themes.primary.colors.primary};
+  color: ${themes.primary.colors.primary};
   margin: 0;
   padding: 0;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 16px;
-    line-height: 25.6px;
+    line-height: 160%;
   }
 `;
 
 export const RateCardServiceDropDown = styled.div<IActiveAccordion>`
-  padding: 22px 25px 31px 10px;
+  padding: 15px 24px 17px 14px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  border-bottom: ${(props) =>
-    props.isActive ? "none" : `1.5px solid ${themes.primary.colors.primary}`};
-
-  &:first-child {
-    border-top: 1.5px solid ${themes.primary.colors.primary};
-  }
+  background: ${(props) =>
+    props.isActive
+      ? `linear-gradient(
+      90deg,
+      ${themes.primary.colors.gradientColor1RateCard} 0%,
+      ${themes.primary.colors.gradientColor2RateCard} 100%
+    )`
+      : "transparent"};
+  border: ${(props) =>
+    props.isActive
+      ? `1px solid ${themes.primary.colors.borderRateCard}`
+      : "1px solid transparent"};
 
   svg {
     transform: ${(props) =>
       props.isActive ? "rotate(180deg)" : "rotate(0deg)"};
   }
 
+  &:hover {
+    background: linear-gradient(
+      90deg,
+      ${themes.primary.colors.gradientColor1RateCard} 0%,
+      ${themes.primary.colors.gradientColor2RateCard} 100%
+    );
+    border: 1px solid ${themes.primary.colors.borderRateCard};
+  }
+
   @media ${themes.primary.media.maxMobile} {
-    padding: 20px 15px 20px 20px;
+    padding: 20px 14px;
 
     &:active {
-      svg path {
-        fill: ${themes.primary.colors.darkBlue};
-      }
-    }
-    &:active ${RateCardServiceName} {
-      color: ${themes.primary.colors.darkBlue};
+      background: linear-gradient(
+        90deg,
+        ${themes.primary.colors.gradientColor1RateCard} 0%,
+        ${themes.primary.colors.gradientColor2RateCard} 100%
+      );
+      border: 1px solid ${themes.primary.colors.borderRateCard};
     }
 
     svg {
       width: 15px;
       height: 8px;
-    }
-  }
-  @media ${themes.primary.media.minMobile} {
-    &:hover {
-      svg path {
-        fill: ${themes.primary.colors.darkBlue};
-      }
-    }
-    &:hover ${RateCardServiceName} {
-      color: ${themes.primary.colors.darkBlue};
+      margin-bottom: 3px;
     }
   }
 `;
@@ -131,11 +135,11 @@ export const RateCardImageTitleWrapper = styled.div`
   gap: 14px;
 
   @media ${themes.primary.media.maxMobile} {
-    gap: 8px;
+    gap: 10px;
 
     span img {
-      width: 34px !important;
-      height: 34px !important;
+      width: 36px !important;
+      height: 36px !important;
     }
   }
 `;
@@ -176,8 +180,8 @@ export const RateCardLevelRow = styled.tr<IRateRowProps>`
 
 export const RateCardLevelData = styled.td`
   word-wrap: break-word;
-  border: 1px solid ${themes.primary.colors.headerBorder};
-  font-size: 24px;
+  border: 1px solid ${themes.primary.colors.borderRateCard};
+  font-size: 18px;
   padding: 12px 14px;
   line-height: 160%;
   letter-spacing: 0.05em;
@@ -187,7 +191,7 @@ export const RateCardLevelData = styled.td`
   @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
     line-height: 22.4px;
-    padding: 17px 8px;
+    padding: 6px 8px;
 
     &:last-child {
       width: 80px !important;

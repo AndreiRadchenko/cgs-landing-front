@@ -28,6 +28,18 @@ export const MovingText = styled.div`
   font-weight: inherit;
   line-height: 140%;
 
+  &.rateCard {
+    border: none;
+    font-size: 24px !important;
+    line-height: 56px !important;
+    background: linear-gradient(
+      90deg,
+      ${themes.primary.colors.mainGradientColor2} 0%,
+      ${themes.primary.colors.mainGradientColor1} 100%
+    );
+    width: inherit;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 24px !important;
     line-height: 233% !important;
