@@ -101,7 +101,7 @@ export const CalculatorButton = styled.div<ICalculatorButton>`
   padding: 1.54em 0.72em;
   height: 100%;
   z-index: 2;
-  transition: all 0.2s;
+  //transition: all 0.2s;
   position: relative;
   background-image: ${({ isHovered }) =>
     isHovered
