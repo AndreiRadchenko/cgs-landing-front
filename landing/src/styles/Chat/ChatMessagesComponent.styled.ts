@@ -5,8 +5,10 @@ import { AttachmentIcon } from "./ChatInputForm.styled";
 import { messageShow } from "../Animations.styled";
 
 export const MessageListContainer = styled.div`
+  padding-right: 5px;
+
   ::-webkit-scrollbar {
-    width: calc(0.7rem + 5px);
+    width: 0.7rem;
     background: transparent;
   }
 
@@ -15,8 +17,10 @@ export const MessageListContainer = styled.div`
   }
 
   :hover {
+    padding-right: 5px;
+
     ::-webkit-scrollbar {
-      width: calc(0.7rem + 5px);
+      width: 0.7rem;
     }
 
     ::-webkit-scrollbar-thumb {
@@ -27,14 +31,22 @@ export const MessageListContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    padding-right: 11px;
+
     ::-webkit-scrollbar {
-      width: calc(0.7rem + 11px);
+      width: 0.7rem;
     }
 
     :hover {
+      padding-right: 11px;
+
       ::-webkit-scrollbar {
-        width: calc(0.7rem + 11px);
+        width: 0.7rem;
       }
+    }
+
+    @supports (-webkit-hyphens: none) {
+      padding-right: calc(0.7rem + 11px);
     }
   }
 `;
