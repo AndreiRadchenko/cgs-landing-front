@@ -73,6 +73,7 @@ export const MessageForm = styled.form`
       ::-webkit-scrollbar {
         width: 0;
       }
+    }
   }
 `;
 

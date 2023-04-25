@@ -31,16 +31,20 @@ const ChatComponent = ({
 
   const { height } = useWindowDimension();
 
-  const handleDragIn = (e: DragEvent) => {
+  const handleDragIn = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
     dragCounter++;
-    if (e.dataTransfer?.items && e.dataTransfer?.items.length > 0) {
-      setDragging(true);
-    }
+    setDragging(true);
   };
-  const handleDragOut = () => {
+  const handleDragOut = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
     dragCounter--;
     if (dragCounter > 0) return;
-    setDragging(false);
+    else {
+      setDragging(false);
+    }
   };
 
   useEffect(() => {
