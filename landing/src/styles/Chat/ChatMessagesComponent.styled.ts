@@ -47,6 +47,10 @@ export const MessageListContainer = styled.div`
 
     @supports (-webkit-hyphens: none) {
       padding-right: calc(0.7rem + 11px);
+
+      :hover {
+        padding-right: calc(0.7rem + 11px);
+      }
     }
   }
 `;
