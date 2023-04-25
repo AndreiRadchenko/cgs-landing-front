@@ -1,5 +1,8 @@
+import { useQueryClient } from "@tanstack/react-query";
 import React, { useRef } from "react";
 import * as Styled from "../../styles/DappAuditService/HeadBlock.styled";
+import { queryKeys } from "../../consts/queryKeys";
+import { IServiceDappAudit } from "../../types/Admin/Response.types";
 import Image from "next/image";
 import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
@@ -11,17 +14,11 @@ import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 const HeadBlock = () => {
   const { width } = useWindowDimension();
+  const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
-  const data = {
-    title: "Dapp audit | // | Tokenomic | planning",
-    text: "Ensure data and workflow security of your dapp, | providing smart contract security and dapp audit. | Take care of an essential part of the blockchain business | model — tokenomic.",
-    button: "Book a consultation",
-    buttonLink:
-      "https://calendly.com/d/dwn-9yc-22t/client-meets-daniel-and-tech-department",
-    image: {
-      url: "https://landing-cgs.s3.amazonaws.com/68e2d183-35ef-4ce9-9467-0af327958123.svg",
-    },
-  };
+  const data = queryClient.getQueryData<IServiceDappAudit>([
+    queryKeys.getServiceDappAuditPage,
+  ])?.headerBlock;
 
   const title =
     data &&
