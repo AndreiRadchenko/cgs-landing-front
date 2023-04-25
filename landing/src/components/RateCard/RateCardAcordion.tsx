@@ -1,17 +1,16 @@
 import React, { useState } from "react";
+import Image from "next/image";
+import { useCollapse } from "react-collapsed";
 
 import ArrowDown from "./SvgRateCard/ArrowDown";
+import RateCardServiceInfo from "./RateCardServiceInfo";
 
 import { IService } from "../../types/Admin/AdminRateCard.types";
-
 import {
   RateCardImageTitleWrapper,
   RateCardServiceDropDown,
   RateCardServiceName,
 } from "../../styles/RateCard.styled";
-import RateCardServiceInfo from "./RateCardServiceInfo";
-import Image from "next/image";
-import { useCollapse } from "react-collapsed";
 
 const RateCardAccordion = ({ service }: { service: IService }) => {
   const [isActive, setIsActive] = useState(false);
@@ -40,11 +39,9 @@ const RateCardAccordion = ({ service }: { service: IService }) => {
             objectFit="contain"
             alt="service image"
           />
-          <RateCardServiceName isActive={isActive}>
-            {service.name}
-          </RateCardServiceName>
+          <RateCardServiceName>{service.name}</RateCardServiceName>
         </RateCardImageTitleWrapper>
-        <ArrowDown isActive={isActive} />
+        <ArrowDown />
       </RateCardServiceDropDown>
       <div {...getCollapseProps()}>
         <RateCardServiceInfo levels={service.levels} />

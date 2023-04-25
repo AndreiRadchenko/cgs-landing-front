@@ -112,12 +112,12 @@ export const AddRateCardInfo = styled.div`
   display: flex;
   align-items: center;
   max-width: 320px;
-  border: 2px dashed ${themes.primary.colors.mainGradientColor2};
+  border: 2px dashed ${themes.primary.colors.darkBlue};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 16px;
   line-height: 132%;
-  color: ${themes.primary.colors.mainGradientColor2};
+  color: ${themes.primary.colors.darkBlue};
   cursor: pointer;
   padding: 17px;
   gap: 10px;
@@ -126,7 +126,7 @@ export const AddRateCardInfo = styled.div`
 
   &:hover {
     transition: 0.3s;
-    background: ${themes.primary.colors.mainGradientColor2};
+    background: ${themes.primary.colors.darkBlue};
     color: ${themes.primary.colors.secondary};
     svg path {
       fill: ${themes.primary.colors.secondary};
