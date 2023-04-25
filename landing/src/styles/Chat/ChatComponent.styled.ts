@@ -185,10 +185,15 @@ interface IChatMessagesContainer {
 
 export const ChatMessagesContainer = styled.div<IChatMessagesContainer>`
   padding-right: ${({ isMessagesDisplayed }) =>
-    !isMessagesDisplayed ? "calc(0.7rem + 10px)" : "0"};
+    !isMessagesDisplayed ? "calc(0.7rem + 5px)" : "0"};
   padding-left: 15px;
   height: 100%;
   flex-grow: 1;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-right: ${({ isMessagesDisplayed }) =>
+      !isMessagesDisplayed ? "calc(0.7rem + 11px)" : "0"};
+  }
 `;
 
 export const ChatFormContainer = styled.div`

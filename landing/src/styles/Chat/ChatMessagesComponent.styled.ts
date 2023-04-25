@@ -6,7 +6,7 @@ import { messageShow } from "../Animations.styled";
 
 export const MessageListContainer = styled.div`
   ::-webkit-scrollbar {
-    width: 0.7rem;
+    width: calc(0.7rem + 5px);
     background: transparent;
   }
 
@@ -16,13 +16,25 @@ export const MessageListContainer = styled.div`
 
   :hover {
     ::-webkit-scrollbar {
-      width: 0.7rem;
+      width: calc(0.7rem + 5px);
     }
 
     ::-webkit-scrollbar-thumb {
       background-color: ${themes.primary.colors.chatMessageBgc};
       border-radius: 10px;
       border: 3px solid ${themes.primary.colors.chatContainerBgc};
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    ::-webkit-scrollbar {
+      width: calc(0.7rem + 11px);
+    }
+
+    :hover {
+      ::-webkit-scrollbar {
+        width: calc(0.7rem + 11px);
+      }
     }
   }
 `;
@@ -38,7 +50,7 @@ export const RecievedMessagesWrapper = styled.div<IRecievedMessagesWrapper>`
   margin-bottom: ${({ notLast }) => (notLast ? "0.5em" : "1.17em")};
 
   :nth-of-type(1) {
-    padding-top: 1rem;
+    padding-top: 19px;
   }
 
   p {
