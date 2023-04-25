@@ -10,11 +10,11 @@ import React from "react";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import * as Styled from "../../styles/DappAuditService/Common.styled";
-import HeadBlock from "../../components/DappAuditService/HeadBlock";
-import FigureOutBlock from "../../components/DappAuditService/FigureOutBlock";
-import HowDoProvideBlock from "../../components/DappAuditService/HowDoProvideBlock";
+import HeadBlock from "../../components/Ai/HeadBlock";
+import FigureOutBlock from "../../components/Ai/FigureOutBlock";
+import HowDoProvideBlock from "../../components/Ai/HowDoProvideBlock";
 import ShowCase from "../../components/ShowCase";
-import FooterBlock from "../../components/DappAuditService/FooterBlock";
+import FooterBlock from "../../components/Ai/FooterBlock";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -59,7 +59,7 @@ const DappAuditPage: NextPage = () => {
             <HowDoProvideBlock />
           </Styled.Layout>
         </Layout>
-        <ShowCase projects={[]} />
+        <ShowCase projects={data?.projects} />
         <Layout>
           <Styled.Layout>
             <FooterBlock />

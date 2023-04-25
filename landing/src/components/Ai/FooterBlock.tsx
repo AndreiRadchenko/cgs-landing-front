@@ -1,26 +1,23 @@
+import { useQueryClient } from "@tanstack/react-query";
 import React, { useRef } from "react";
 import parse from "html-react-parser";
+import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/DappAuditService/Footer.styled";
 import {
   Subtitle,
   WrapperWithLine,
 } from "../../styles/DappAuditService/Common.styled";
+import { IServiceDappAudit } from "../../types/Admin/Response.types";
 import Image from "next/image";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 const FooterBlock = () => {
+  const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
-  const data = {
-    title:
-      "Secure your dapp | and develop | a tokenomic model | with the CGS-team.",
-    button: "Start with a call",
-    buttonLink:
-      "https://calendly.com/d/dwn-9yc-22t/client-meets-daniel-and-tech-department",
-    image: {
-      url: "https://landing-cgs.s3.amazonaws.com/016fcfc8-0eaa-452d-a663-9b74d9b601e1.svg",
-    },
-  };
+  const data = queryClient.getQueryData<IServiceDappAudit>([
+    queryKeys.getServiceDappAuditPage,
+  ])?.footerBlock;
 
   return (
     <Styled.ContentWrapper>
