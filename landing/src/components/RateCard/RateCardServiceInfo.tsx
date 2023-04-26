@@ -62,7 +62,7 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: "-1px" }}>
       <RateCardLevelTable>
         <tbody>
           {levels.map((level, idx) => (
