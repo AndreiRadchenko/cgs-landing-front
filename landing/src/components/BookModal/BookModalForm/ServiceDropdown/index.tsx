@@ -18,6 +18,7 @@ const OPTIONS_TO_COOPERATION_FORM = [
   ...(navigationRoutesNamesNew[1].tags as string[]),
   "...none of the above",
 ];
+OPTIONS_TO_COOPERATION_FORM.splice(3, 0, "AI API Integration");
 
 const ServiceDropdown = ({
   dropdownName,
