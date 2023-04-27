@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import { IPortfolioReview } from "../../types/Admin/AdminPortfolio.types";
 
@@ -14,6 +15,7 @@ const PortfolioProjectComponent = ({
 }: {
   project: IPortfolioReview;
 }) => {
+  const { push } = useRouter();
   const mockedIconsTech = [
     {
       icon: (
@@ -221,6 +223,11 @@ const PortfolioProjectComponent = ({
     },
   ];
 
+  const navigateToProjectPage = (url: string) => {
+    console.log("hello");
+    push(`portfolio/${url}`);
+  };
+
   return (
     <Styled.ProjectsContainer>
       <Styled.ProjectsContainerHeader isInfoCont={false}>
@@ -278,7 +285,9 @@ const PortfolioProjectComponent = ({
         <Styled.ProjectsContainerInfoText>
           <p>{project.text}</p>
         </Styled.ProjectsContainerInfoText>
-        <Styled.ProjectsContainerInfoBtn>
+        <Styled.ProjectsContainerInfoBtn
+          onClick={() => navigateToProjectPage(project.title)}
+        >
           <BtnPolyline />
           <div className="btnContainer">
             <span>Read more</span>
