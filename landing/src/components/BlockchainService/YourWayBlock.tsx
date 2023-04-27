@@ -14,14 +14,14 @@ const YourWayBlock = () => {
   const [gradientAngle, setGradientAngle] = useState<string>("50%");
 
   const arrayOfGradients = [
-    { firstColor: "#D6FFBB", secondColor: "#C1E6C0" },
+    { firstColor: "#C7ECC0", secondColor: "#B7D9C4" },
     {
-      firstColor: "#C7EDBF",
-      secondColor: "#9DBBCA",
+      firstColor: "#B7D9C4",
+      secondColor: "#9CBACC",
     },
     {
-      firstColor: "#88A2D0",
-      secondColor: "#5E70DC",
+      firstColor: "#9CBACC",
+      secondColor: "#89A3D1",
     },
   ];
 
