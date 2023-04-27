@@ -76,8 +76,9 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     validationSchema: BookModalValidation,
     validateOnBlur: true,
     onSubmit(values, { resetForm, setErrors }) {
+      values.details = values.details.replace(/^\s*$/, "");
       if (!values.email || !values.service) return;
-      mutate({
+      sendTeamEmail.mutate({
         name: values.name,
         email: values.email,
         phone: value,
@@ -85,6 +86,16 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
         service: values.service,
         details: values.details,
       });
+      if (values.details === "") {
+        replayToUser.mutate({
+          name: values.name,
+          email: values.email,
+          phone: value,
+          country: country,
+          service: values.service,
+          details: values.details,
+        });
+      }
       setCalendlyIsOpen(true);
       if (typeof window !== "undefined") {
         window.dataLayer = window.dataLayer || [];
@@ -103,8 +114,11 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     },
   });
 
-  const { mutate } = useMutation((data: IBookModalData) =>
+  const sendTeamEmail = useMutation((data: IBookModalData) =>
     adminBookService.mailForm(data)
+  );
+  const replayToUser = useMutation((data: IBookModalData) =>
+    adminBookService.autoReply(data)
   );
 
   useEffect(() => {
@@ -199,7 +213,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
         <FormFieldDetails
           btnIsClicked={btnState.isClicked}
           name={"details"}
-          label={"Any Details"}
+          label={"Any details"}
           placeholder={"Your idea description, requirements, etc."}
           maxLength={1000}
         />

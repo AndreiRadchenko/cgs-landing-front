@@ -45,7 +45,6 @@ export const DetailsField = styled(TextareaAutosize).attrs<MyTextAreaProps>(
   (props) => ({
     maxLength: props.maxLength,
     maxRows: "3",
-    overflowY: "scroll",
   })
 )<MyTextAreaProps>`
   height: 54px;
