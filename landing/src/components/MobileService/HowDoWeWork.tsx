@@ -30,16 +30,16 @@ const HowDoWeWork = () => {
     [points[1], points[2]] = [points[2], points[1]];
   }
   const arrayOfGradients = [
-    { firstColor: "#d6ffbb", secondColor: "#C1E6C0" },
+    { firstColor: "#C7ECC0", secondColor: "#BEE1C2" },
     {
-      firstColor: "#D6F3CF",
-      secondColor: "#9EBCCA",
+      firstColor: "#BEE1C2",
+      secondColor: "#AAC9C8",
     },
     {
-      firstColor: "#BBD2D7",
-      secondColor: "#7990D4",
+      firstColor: "#AAC9C8",
+      secondColor: "#95B2CE",
     },
-    { firstColor: "#99AAE0", secondColor: "#5869dd" },
+    { firstColor: "#95B2CE", secondColor: "#89A3D1" },
   ];
 
   const mouseMoveListener = useCallback(({ pageX }: MouseEvent) => {

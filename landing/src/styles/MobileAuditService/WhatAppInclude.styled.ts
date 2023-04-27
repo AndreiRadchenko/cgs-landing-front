@@ -66,6 +66,14 @@ export const MobileAuditBgiContainer = styled.div<ILine>`
   @media ${themes.primary.media.minPCFullHD} {
     width: 1.6em;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    background: linear-gradient(
+      0deg,
+      ${themes.primary.colors.mainGradientColor2},
+      ${themes.primary.colors.mainGradientColor1}
+    );
+  }
 `;
 
 export const SubtitlesList = styled.div`
