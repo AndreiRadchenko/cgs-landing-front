@@ -16,6 +16,7 @@ const RateCardAccordion = ({ service }: { service: IService }) => {
   const [isActive, setIsActive] = useState(false);
 
   const { getToggleProps, getCollapseProps } = useCollapse({
+    duration: 100,
     easing: "linear",
     isExpanded: isActive,
     collapsedHeight: 0,
@@ -38,6 +39,7 @@ const RateCardAccordion = ({ service }: { service: IService }) => {
             width="51px"
             objectFit="contain"
             alt="service image"
+            priority
           />
           <RateCardServiceName>{service.name}</RateCardServiceName>
         </RateCardImageTitleWrapper>

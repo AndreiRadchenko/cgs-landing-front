@@ -110,7 +110,8 @@ export const RateCardServiceDropDown = styled.div<IActiveAccordion>`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 20px 14px;
+    padding: 15px 14px;
+    margin-top: 18px;
 
     &:active {
       background: linear-gradient(
