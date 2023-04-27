@@ -6,6 +6,7 @@ export const ContentWrapper = styled.div`
   margin-top: ${themes.primary.font.size.secondary};
   display: flex;
   justify-content: flex-end;
+  margin-top: 40px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column-reverse;
@@ -66,7 +67,7 @@ export const Text = styled.p`
   margin: 0;
 
   &:first-child {
-    margin-block: 0.5em 1.625em;
+    margin-block: 0 1.625em;
   }
 
   @media (max-width: 1390px) {
@@ -119,7 +120,7 @@ export const WhyIsAuditImportantImageWrapper = styled.div`
     height: 670px;
     width: 1600px;
     right: 5vw;
-    top: -100%;
+    top: -200%;
   }
 
   @media (min-width: 2200px) {

@@ -18,31 +18,31 @@ const HowDoProvideBlock = () => {
     },
     textBlock: [
       {
-        title: "Preparation",
-        text: "We enhance your idea, set deadlines and demands, and create no-charge estimations, wireframes, and specifications. Our team will deeply research your project and industry and choose the best solution among:",
+        title: "Smart contract source code",
+        text: "CGS-team starts by reviewing the dapp source code, backend, and smart contract side. We divide this stage into 2 parts to ensure everything is well-designed, secure, and optimized.",
         subContent: [
           {
-            title: "Building with AI API from scratch",
-            text: "Our development team chooses the AI API that covers your needs and develops the app from scratch. We can use all the functionality or take the particular features for your idea. For example, ChatGPT for chatbots or Deep Vision AI for facial recognition.",
+            title: "Automation testing",
+            text: "Our skilled specialists run automated security audits to detect vulnerabilities and storage slot checks to inspect functions', variables' order, and access modifiers. Gas optimization tests are done to test smart contracts, calculate deployment prices and the costs of interactions.",
             _id: "636a61e33507a37b0caa77e3",
           },
           {
-            title: "AI integration into the existing apps",
-            text: "Implementation of the next-gen plugins into your app can revolutionize your app. Apply the power of quality-tested, purpose-built AI solutions to reach your business goals. ",
+            title: "Manual code overview",
+            text: "Here we manually test smart contract interactions, gas optimization, and security. The first stage ends up with a detailed description of all the potential improvements.",
             _id: "636a61e33507a37b0caa77e4",
           },
         ],
         _id: "636a61e33507a37b0caa77e2",
       },
       {
-        title: "Development",
-        text: "You'll see the task dashboard and videos presenting the finished project within the process. We focus highly on code quality and give project manager and code reviews as a bonus. We set up regular meetings as communication is key. ",
+        title: "Dapp design*",
+        text: "Powered by extensive expertise in smart contract development and designing dapps, our team can evaluate tokenomics and the ecosystem of your project. Also, we provide auditing and correction of existing tokenomics models.",
         subContent: [],
         _id: "636a61e33507a37b0caa77e5",
       },
       {
-        title: "Launch and maintenance",
-        text: "After thousands of tests and checks, we finally launch your idea. CGS-team is not only a development tasks coverer but your reliable partner. We give quality deployment and 6 months of support as a gift.",
+        title: "Penetration testing",
+        text: "Penetration testing aims to find security vulnerabilities and offer helpful guidance for fixing them. It includes the smart contracts vulnerabilities test (reentrancy, overflow, self-destruction, etc.) and common client-side issues test (DNS attacks, SQL injections, XSS, DDoS, Css injections, etc.)",
         subContent: [],
         _id: "636a61e33507a37b0caa77e6",
       },

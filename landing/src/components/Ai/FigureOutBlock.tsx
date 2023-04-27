@@ -11,8 +11,6 @@ import * as Styled from "../../styles/DappAuditService/FigureOutBlock.styled";
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
-import FigureOutImg from "../../../public/DappAuditService/FigureOutImg.svg";
-import FigureOutImgMobile from "../../../public/DappAuditService/FigureOutImgMobile.svg";
 import WhyIsAuditImportant from "/public/DappAuditService/WhyIsAuditImportant.svg";
 import WhyIsAuditImportantMobile from "/public/DappAuditService/WhyIsAuditImportantMobile.svg";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
@@ -38,9 +36,7 @@ const FigureOutBlock = () => {
         {figureOutBlockData && (
           <Styled.ImageWrapper>
             <Image
-              src={
-                width && width < 992 ? FigureOutImgMobile.src : FigureOutImg.src
-              }
+              src={figureOutBlockData.image.url}
               alt="figure out terms upper image"
               layout="fill"
               objectFit="contain"
@@ -58,7 +54,7 @@ const FigureOutBlock = () => {
       <WrapperWithLine />
       <Styled.WhyIsAuditImportantWrapper>
         <Styled.LowerContentWrapper>
-          <Subtitle>
+          <Subtitle className="aiWidth">
             <SplitBrackets text={whyIsDappsBlockData?.subtitle} />
           </Subtitle>
           <Styled.WhyIsAuditImportantImageWrapper>

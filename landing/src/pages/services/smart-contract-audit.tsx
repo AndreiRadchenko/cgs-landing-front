@@ -41,12 +41,12 @@ const DappAuditPage: NextPage = () => {
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
-  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+  const { metaDescription, customHead } = { ...data?.meta };
 
   return (
     <>
       <Head>
-        <title>{metaTitle}</title>
+        <title>Dapp Audit | Smart Contract Audit | CGS-team</title>
         <meta name="description" content={metaDescription} />
         {customHead && parse(customHead)}
       </Head>

@@ -128,6 +128,9 @@ export const Description = styled.div`
       display: none;
     }
   }
+  @media (max-width: 1600px) {
+    max-width: 614px;
+  }
 `;
 
 export const SubtitleWrapper = styled.div`
@@ -191,7 +194,7 @@ export const BgImage = styled.img`
 `;
 
 export const SubContentWrapper = styled.div`
-  margin-inline: 4em 7.5em;
+  margin-inline: 6em 7.5em;
   position: relative;
   top: -6px;
   display: flex;
@@ -199,7 +202,7 @@ export const SubContentWrapper = styled.div`
   align-items: flex-end;
 
   @media (min-width: 1480px) {
-    margin-inline: 5em 9em;
+    margin-inline: 6em 9em;
     padding-top: 0.2%;
   }
 
@@ -209,7 +212,7 @@ export const SubContentWrapper = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     padding: 0;
-    margin-inline: 5em;
+    margin-inline: 8em;
   }
 
   @media (min-width: 2000px) {
@@ -268,12 +271,19 @@ export const SubContainer = styled.div`
   @media (max-width: 1100px) {
     font-size: 0.7em;
   }
+  @media (max-width: 1600px) {
+    max-width: 513px;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1em;
     & br {
       display: none;
     }
+  }
+  &:last-child {
+    margin-right: 15px;
+    margin-bottom: 5px;
   }
 `;
 
@@ -296,7 +306,7 @@ export const SubTitle = styled.div`
 `;
 
 export const SubText = styled.div`
-  font-size: 1.125em;
+  font-size: 18px;
   line-height: 160%;
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -305,7 +315,7 @@ export const SubText = styled.div`
 `;
 
 export const SecondSubtitleContainer = styled.div`
-  margin-top: 78px;
+  margin-top: 50px;
 
   @media (min-width: 2000px) {
     margin-top: 150px;
@@ -322,8 +332,8 @@ export const SecondSubtitleContainer = styled.div`
 
 export const ThirdSubtitleContainer = styled.div`
   position: relative;
-  top: -7%;
-  margin-left: 55%;
+  top: -90px;
+  margin-left: 49%;
 
   @media ${themes.primary.media.minPC} {
     top: -3%;

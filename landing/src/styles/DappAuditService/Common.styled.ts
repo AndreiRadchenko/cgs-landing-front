@@ -41,7 +41,7 @@ export const WrapperWithLine = styled.div`
 `;
 
 export const Subtitle = styled.h3`
-  font-size: ${themes.primary.font.size.serviceSubtitle};
+  font-size: 40px;
   line-height: 140%;
   text-transform: uppercase;
   margin: 0;
@@ -49,7 +49,11 @@ export const Subtitle = styled.h3`
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.webAuditSubtitlePC};
   }
-
+  @media (max-width: 1500px) {
+    &.aiWidth {
+      max-width: 527px;
+    }
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.webAuditSubtitleTabletLandscape};
   }
