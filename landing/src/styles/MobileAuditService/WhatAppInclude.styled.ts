@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
 import themes from "../../utils/themes";
+import { ILine } from "../../types/Decoration.types";
 
 export const Container = styled.section`
   margin-top: 12.5em;
@@ -47,15 +49,17 @@ export const GradientLineContainer = styled.div`
   }
 `;
 
-export const GradientLine = styled.div`
+export const MobileAuditBgiContainer = styled.div<ILine>`
   position: absolute;
   height: 100%;
   width: 24px;
-  background: linear-gradient(
-    0deg,
-    ${themes.primary.colors.mainGradientColor1} 13.67%,
-    ${themes.primary.colors.mainGradientColor2} 90.39%
-  );
+  background: ${({ angle }) =>
+    css`radial-gradient(
+      80px 50% at 50% ${angle},
+      ${themes.primary.colors.mainGradientColor2} ,
+      ${themes.primary.colors.mainGradientColor1}
+    );`};
+  background-size: 100% 100%;
   border: 1px solid ${themes.primary.colors.primary};
   box-shadow: 7px 2px 0px ${themes.primary.colors.primary};
 
