@@ -62,7 +62,6 @@ const HowDoProvideBlock = () => {
         {data && (
           <Styled.SecondSubtitleContainer>
             <HowToProvideBlockItem
-              optional
               number={2}
               title={data.textBlock[1].title}
               text={data.textBlock[1].text}
