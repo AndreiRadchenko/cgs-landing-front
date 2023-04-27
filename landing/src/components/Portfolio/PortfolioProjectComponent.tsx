@@ -223,9 +223,14 @@ const PortfolioProjectComponent = ({
     },
   ];
 
-  const navigateToProjectPage = (url: string) => {
-    console.log("hello");
-    push(`portfolio/${url}`);
+  const navigateToProjectPage = (url: string, id?: string) => {
+    push(
+      {
+        pathname: `/portfolio/${url}`,
+        query: { projectId: id },
+      },
+      `/portfolio/${url}`
+    );
   };
 
   return (
@@ -286,7 +291,7 @@ const PortfolioProjectComponent = ({
           <p>{project.text}</p>
         </Styled.ProjectsContainerInfoText>
         <Styled.ProjectsContainerInfoBtn
-          onClick={() => navigateToProjectPage(project.title)}
+          onClick={() => navigateToProjectPage(project.title, project._id)}
         >
           <BtnPolyline />
           <div className="btnContainer">
