@@ -25,10 +25,26 @@ export const BadgesContainer = styled.div`
 export const BadgesData = styled.div<BadgesData>`
   display: grid;
   grid-template-columns: repeat(${(props) => props.columnsNumber}, 1fr);
-  column-gap: 14.5px;
+  gap: 14.5px;
 
   @media ${themes.primary.media.maxMobile} {
     grid-template-columns: 1fr 1fr;
+    & > :nth-child(1) {
+      grid-row: 1;
+      grid-column: 1;
+    }
+    & > :nth-child(2) {
+      grid-row: 1;
+      grid-column: 2;
+    }
+    & > :nth-child(3) {
+      grid-row: 2;
+      grid-column: 2;
+    }
+    & > :nth-child(4) {
+      grid-column: 1;
+      grid-row: 2;
+    }
   }
 `;
 
@@ -42,29 +58,25 @@ export const BadgeImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  height: 250px;
+  height: 200px;
   width: 200px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    height: 180px;
+    height: 140px;
     width: 140px;
   }
 
   & span {
-    height: 250px;
+    height: 200px;
+    transition: all 0.5s ease;
     @media ${themes.primary.media.maxTabletLandScape} {
-      height: 180px;
+      height: 140px;
       width: 140px;
     }
   }
 
-  & span img {
-    transition: all 0.5s ease;
-    z-index: 2;
-  }
-
-  & span img:hover {
-    transform: translateY(-10%);
+  & span:hover {
+    transform: translateY(-5%);
   }
 
   @media (max-width: 768px) {
