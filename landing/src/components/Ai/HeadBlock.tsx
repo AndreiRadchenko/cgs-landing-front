@@ -63,7 +63,7 @@ const HeadBlock = () => {
             alt="dapp service hero img"
             layout="fill"
             objectFit="contain"
-            priority
+            loading={"eager"}
           />
         </Styled.ImageWrapper>
       )}

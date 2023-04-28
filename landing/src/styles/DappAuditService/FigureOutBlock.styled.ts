@@ -30,6 +30,9 @@ export const ImageWrapper = styled.div`
     width: 600px;
     height: 140%;
   }
+  @media ${themes.primary.media.onlyLaptop} {
+    left: 40px;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 550px;
@@ -104,7 +107,7 @@ export const LowerContentWrapper = styled.div`
 
 export const WhyIsAuditImportantImageWrapper = styled.div`
   position: absolute;
-  top: -115%;
+  top: -95%;
   right: 3.125em;
   height: 400px;
   width: 1237px;
@@ -158,10 +161,14 @@ export const WhyIsAuditImportantImageWrapper = styled.div`
     right: 0;
     top: 0;
     width: 100%;
+    scale: 1.4;
+    margin-left: 70px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 261px;
+    margin-left: 50px;
+    height: 340px;
+    scale: 1.4;
   }
 `;
 
