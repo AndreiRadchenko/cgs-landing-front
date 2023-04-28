@@ -31,6 +31,7 @@ export const ImageWrapper = styled.div`
     height: 140%;
   }
   @media ${themes.primary.media.onlyLaptop} {
+    top: 20px;
     left: 40px;
   }
 
@@ -107,7 +108,7 @@ export const LowerContentWrapper = styled.div`
 
 export const WhyIsAuditImportantImageWrapper = styled.div`
   position: absolute;
-  top: -95%;
+  top: -74%;
   right: 3.125em;
   height: 400px;
   width: 1237px;
@@ -118,7 +119,9 @@ export const WhyIsAuditImportantImageWrapper = styled.div`
     right: 4em;
     top: -90%;
   }
-
+  @media (min-width: 1500px) {
+    top: -145%;
+  }
   @media ${themes.primary.media.minPCFullHD} {
     height: 670px;
     width: 1600px;
