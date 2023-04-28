@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 interface IPortfolioInfoProps {
-  readonly isInfoCont: boolean;
+  readonly isInfoCont?: boolean;
 }
 
 interface IPortfolioProjectLink {

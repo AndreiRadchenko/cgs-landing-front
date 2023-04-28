@@ -45,6 +45,11 @@ export interface IPortfolioReviewsResponse {
   isLoading: boolean;
 }
 
+export interface IPortfolioProjectResponse {
+  data?: IPortfolioReview;
+  isLoading: boolean;
+}
+
 export interface IAddAndEditProps {
   current: number;
   isNewStatus: boolean;
