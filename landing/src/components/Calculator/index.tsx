@@ -34,12 +34,14 @@ import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
 interface ICalculatorProps {
   isChatOpen: boolean;
+  setIsChatOpen: Dispatch<SetStateAction<boolean>>;
   setIsShowingBubble: Dispatch<SetStateAction<boolean>>;
   setIsShowingCross: Dispatch<SetStateAction<boolean>>;
 }
 
 const Calculator = ({
   isChatOpen,
+  setIsChatOpen,
   setIsShowingCross,
   setIsShowingBubble,
 }: ICalculatorProps) => {
@@ -353,6 +355,10 @@ const Calculator = ({
     }, 1500);
   };
 
+  const handleCloseChat = () => {
+    setIsChatOpen(false);
+  };
+
   DisableScrollBarHandler(isOpen);
 
   const hoverClassName = isHovered ? "active" : undefined;
@@ -378,6 +384,7 @@ const Calculator = ({
         <Styled.CalculatorPreview className={hoverClassName}>
           <Styled.CalculatorButton
             isChatOpen={isChatOpen}
+            onClick={handleCloseChat}
             isHovered={isHovered}
             onMouseOver={handleMouseOver}
             onMouseLeave={handleMouseLeave}

@@ -12,6 +12,7 @@ const CalcAndChatContainer = () => {
     <CalculatorAndChatWrapper>
       <Calculator
         isChatOpen={isChatOpen}
+        setIsChatOpen={setIsChatOpen}
         setIsShowingBubble={setIsShowingBubble}
         setIsShowingCross={setIsShowingCross}
       />

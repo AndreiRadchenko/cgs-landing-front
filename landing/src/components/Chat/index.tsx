@@ -45,22 +45,6 @@ const Chat = ({
   };
 
   useEffect(() => {
-    const handleClickOuteside = (e: Event) => {
-      newMessageAmount > 0 && setNewMessageAmount(0);
-      if (chatRef.current && !chatRef.current.contains(e.target as Element)) {
-        setNewMessageAmount(0);
-        setIsChatOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOuteside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOuteside);
-    };
-  }, []);
-
-  useEffect(() => {
     if (width && width < 769 && isChatOpen)
       document.body.style.overflow = "hidden";
     else document.body.style.overflow = "auto";
