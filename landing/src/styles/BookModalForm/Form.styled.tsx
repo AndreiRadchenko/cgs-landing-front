@@ -43,18 +43,20 @@ export const FormSentContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
   width: 100%;
-  height: 75px;
+  height: 53px;
   flex-direction: column;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 38px;
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 40px;
+    margin-bottom: 58px;
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
-    height: 60px;
-    margin-top: 15px;
+    height: 50px;
+    margin-top: 6px;
+    margin-bottom: 26px;
   }
 `;
 
@@ -75,8 +77,7 @@ export const Shadow = styled.div`
 export const ServiceSelect = styled.div`
   height: 54px;
   width: 100%;
-  margin-top: 22px;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 
   & > div {
     width: 100%;
@@ -93,13 +94,9 @@ export const ServiceSelect = styled.div`
       }
     }
   }
-  @media ${themes.primary.media.minPCFullHD} {
-    /* height: 84px;
-    margin-bottom: 35px; */
-  }
 
   @media ${themes.primary.media.estiomationFormWidth} {
     height: 44px;
-    margin-bottom: 9px;
+    margin-bottom: 12px;
   }
 `;

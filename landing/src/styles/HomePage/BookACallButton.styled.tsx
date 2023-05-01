@@ -14,6 +14,7 @@ export const BlackButton = styled.button`
   border: 2px solid ${themes.primary.colors.primary};
   transition: all 0.3s;
   width: fit-content;
+  height: 50px;
 
   &.footer {
     margin-top: 10px;
