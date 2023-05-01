@@ -64,6 +64,10 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     phone: "Phone number",
   };
 
+  const sendTeamEmail = useMutation((data: IBookModalData) =>
+    adminBookService.mailForm(data)
+  );
+
   const formik = useFormik<IFormState>({
     initialValues: {
       name: "",
@@ -86,16 +90,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
         service: values.service,
         details: values.details,
       });
-      if (values.details === "") {
-        replayToUser.mutate({
-          name: values.name,
-          email: values.email,
-          phone: value,
-          country: country,
-          service: values.service,
-          details: values.details,
-        });
-      }
+
       setCalendlyIsOpen(true);
       if (typeof window !== "undefined") {
         window.dataLayer = window.dataLayer || [];
@@ -113,13 +108,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       setValue("");
     },
   });
-
-  const sendTeamEmail = useMutation((data: IBookModalData) =>
-    adminBookService.mailForm(data)
-  );
-  const replayToUser = useMutation((data: IBookModalData) =>
-    adminBookService.autoReply(data)
-  );
 
   useEffect(() => {
     if (!isOpen) {
