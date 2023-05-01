@@ -97,6 +97,6 @@ export const ServiceSelect = styled.div`
 
   @media ${themes.primary.media.estiomationFormWidth} {
     height: 44px;
-    margin-bottom: 9px;
+    margin-bottom: 12px;
   }
 `;
