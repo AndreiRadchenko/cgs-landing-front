@@ -1,16 +1,13 @@
-import Image from "next/image";
 import React from "react";
-import * as Styled from "../../../styles/AdminPage";
-import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio.types";
-import AdminImage from "../Global/AdminImage";
+import Image from "next/image";
+import { useQueryClient } from "@tanstack/react-query";
+
 import edit from "../../../../public/editIcon.svg";
 import close from "../../../../public/bigClose.svg";
-import AdminBlackButton from "../Global/AdminBlackButton";
-import AdminStars from "../FeedbackBlock/AdminStars";
-import themes from "../../../utils/themes";
-import { ProjectIndustry } from "../../../styles/PortfolioSlider.styled";
-import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
+import * as Styled from "../../../styles/AdminPage";
+import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio.types";
+import ButtonArrow from "../../../utils/ButtonArrow";
 
 interface IReviewProps {
   review: IPortfolioReview;
@@ -49,53 +46,46 @@ const AdminReview = ({
 
   return (
     <Styled.AdminPortfolioReviewFrame>
-      <Styled.AdminPortfolioReviewLayout>
-        <div>
-          <Styled.ProjectInfo>
-            <Styled.ProjectHeader>
-              <Styled.PortfolioProjectHeader>
-                {review.title}
-              </Styled.PortfolioProjectHeader>
-              <AdminBlackButton text="project link" onClick={redirect} />
-            </Styled.ProjectHeader>
-            {review.industry && (
-              <ProjectIndustry>
-                {"// "}
-                {review.industry}
-              </ProjectIndustry>
-            )}
-            <Styled.AdminParagraph>{review.text}</Styled.AdminParagraph>
-          </Styled.ProjectInfo>
-          <Styled.Separator />
-          <Styled.ProjectInfo>
-            <Styled.PortfolioReviewHeader>
-              <Styled.AuthorName>{review.feedback.name}</Styled.AuthorName>
-              <Styled.CompanyName>{review.feedback.company}</Styled.CompanyName>
-              <Styled.AdminFeedbackStars>
-                {review.feedback.rating && (
-                  <AdminStars
-                    value={Number(review.feedback.rating)}
-                    size={26}
-                    color2={themes.primary.colors.darkBlue}
-                  />
-                )}
-              </Styled.AdminFeedbackStars>
-            </Styled.PortfolioReviewHeader>
-            <Styled.AdminParagraph>
-              {review.feedback.feedbackText}
-            </Styled.AdminParagraph>
-          </Styled.ProjectInfo>
-        </div>
-        <Styled.AdminPortfolioImageWrapper>
-          <AdminImage image={review.image} />
-        </Styled.AdminPortfolioImageWrapper>
-      </Styled.AdminPortfolioReviewLayout>
-      <Styled.AdminDeleteTextThin onClick={deleteFunc}>
-        delete
-      </Styled.AdminDeleteTextThin>
-      <Styled.AdminEditIcon onClick={editTriggerFunc}>
-        <Image src={editFlag ? edit : close} alt="admin portfolio edit icon" />
-      </Styled.AdminEditIcon>
+      <Styled.AdminPortfolioReviewHeader>
+        <Styled.AdminPortfolioReviewHeaderTitle>
+          <h4>{review.title}</h4>
+          <p>// {review.industry}</p>
+        </Styled.AdminPortfolioReviewHeaderTitle>
+        <Styled.AdminPortfolioReviewHeaderLink>
+          {review.button ? (
+            <a href={review.button} target="_blank" rel="noreferrer">
+              project link
+            </a>
+          ) : (
+            <span>NDA</span>
+          )}
+          <Styled.AdminPortfolioReviewArrowContainer
+            isProjectLink={!!review.button}
+          >
+            <ButtonArrow />
+          </Styled.AdminPortfolioReviewArrowContainer>
+        </Styled.AdminPortfolioReviewHeaderLink>
+      </Styled.AdminPortfolioReviewHeader>
+      <Styled.AdminPortfolioReviewImage>
+        <Image
+          src={review.image!.url}
+          className="image"
+          alt="review image"
+          height={341}
+          width={652}
+        />
+      </Styled.AdminPortfolioReviewImage>
+      <Styled.AdminPortfolioReviewTools>
+        <Styled.AdminEditIcon onClick={editTriggerFunc}>
+          <Image
+            src={editFlag ? edit : close}
+            alt="admin portfolio edit icon"
+          />
+        </Styled.AdminEditIcon>
+        <Styled.AdminDeleteReview onClick={deleteFunc}>
+          delete
+        </Styled.AdminDeleteReview>
+      </Styled.AdminPortfolioReviewTools>
     </Styled.AdminPortfolioReviewFrame>
   );
 };
