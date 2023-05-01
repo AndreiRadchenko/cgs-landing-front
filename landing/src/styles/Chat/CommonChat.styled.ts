@@ -3,11 +3,7 @@ import themes from "../../utils/themes";
 import chatOpenButtonIcon from "../../../public/chatOpenButtonIcon.svg";
 import chatCloseButtonIcon from "../../../public/chatCloseButtonIcon.svg";
 import messageBubbleCloseIcon from "../../../public/messageBubbleCloseIcon.svg";
-import {
-  glow,
-  horizontalGlow,
-  horizontalGlowReverse,
-} from "../Animations.styled";
+import { glow, horizontalGlow } from "../Animations.styled";
 
 export const ChatWrapper = styled.div`
   position: relative;
