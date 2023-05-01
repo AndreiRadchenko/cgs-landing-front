@@ -26,11 +26,6 @@ export const FormField = styled(Field)`
     border: 1px solid ${themes.primary.colors.adminRed};
   }
 
-  @media ${themes.primary.media.minPCFullHD} {
-    /* height: 84px; */
-    /* font-size: 22px; */
-  }
-
   @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 12px;
     height: 44px;
@@ -100,11 +95,6 @@ export const DetailsField = styled(TextareaAutosize).attrs<MyTextAreaProps>(
     border: 1px solid ${themes.primary.colors.adminRed};
   }
 
-  @media ${themes.primary.media.minPCFullHD} {
-    /* height: 84px; */
-    /* font-size: 22px; */
-  }
-
   @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 12px;
     height: 44px;
@@ -147,18 +137,15 @@ export const FormFieldLabel = styled.label`
 
 export const FormFieldContainer = styled.div`
   width: 100%;
-  height: 78px;
   position: relative;
-  padding: 10px 0;
-  margin-bottom: 4px;
+  margin-top: 10px;
+  margin-bottom: 12px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    /* height: 125px; */
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
-    height: 54px;
-    padding: 5px 0;
+    margin-top: 4px;
   }
 
   .react-tel-input {
@@ -170,6 +157,7 @@ export const FormFieldContainer = styled.div`
     font-size: 16px;
     color: ${themes.primary.colors.black};
     border-radius: 0;
+    margin-bottom: 15px;
 
     &::placeholder {
       color: ${themes.primary.colors.comment};
@@ -182,14 +170,10 @@ export const FormFieldContainer = styled.div`
       border: 1px solid ${themes.primary.colors.adminRed};
     }
 
-    @media ${themes.primary.media.minPCFullHD} {
-      /* height: 84px;
-      font-size: 22px; */
-    }
-
     @media ${themes.primary.media.estiomationFormWidth} {
       font-size: 12px;
       height: 44px;
+      margin-bottom: 12px;
     }
 
     .flag-dropdown,
@@ -206,10 +190,6 @@ export const FormFieldContainer = styled.div`
     .selected-flag {
       @media ${themes.primary.media.minMobile} {
         width: 45px;
-      }
-      @media ${themes.primary.media.minPCFullHD} {
-        /* width: 75px;
-        padding: 0 0 0 20px; */
       }
 
       .flag {
@@ -234,10 +214,6 @@ export const FormFieldContainer = styled.div`
         color: ${themes.primary.colors.comment};
       }
 
-      @media ${themes.primary.media.minPCFullHD} {
-        /* font-size: 22px; */
-      }
-
       @media ${themes.primary.media.estiomationFormWidth} {
         font-size: 12px;
       }
@@ -245,18 +221,10 @@ export const FormFieldContainer = styled.div`
       @media ${themes.primary.media.minMobile} {
         padding-left: 55px;
       }
-      @media ${themes.primary.media.minPCFullHD} {
-        /* padding-left: 85px; */
-      }
     }
     .country-list {
       background: ${themes.primary.colors.blogBackground};
       width: 280px;
-
-      @media ${themes.primary.media.minPCFullHD} {
-        /* width: 480px;
-        max-height: 300px; */
-      }
 
       .search {
         background-color: ${themes.primary.colors.blogBackground};
@@ -271,10 +239,6 @@ export const FormFieldContainer = styled.div`
 
           &::placeholder {
             color: ${themes.primary.colors.comment};
-          }
-
-          @media ${themes.primary.media.minPCFullHD} {
-            /* font-size: 22px; */
           }
 
           @media ${themes.primary.media.estiomationFormWidth} {
@@ -293,8 +257,4 @@ export const ErrorField = styled.div`
   line-height: 19px;
   text-align: right;
   font-weight: ${themes.primary.font.weight.heavy};
-
-  @media ${themes.primary.media.minPCFullHD} {
-    /* font-size: 20px; */
-  }
 `;
