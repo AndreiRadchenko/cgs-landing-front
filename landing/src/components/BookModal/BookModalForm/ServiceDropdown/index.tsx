@@ -19,6 +19,7 @@ const OPTIONS_TO_COOPERATION_FORM = [
   "...none of the above",
 ];
 OPTIONS_TO_COOPERATION_FORM.splice(3, 0, "AI API Integration");
+OPTIONS_TO_COOPERATION_FORM.splice(5, 1);
 
 const ServiceDropdown = ({
   dropdownName,
