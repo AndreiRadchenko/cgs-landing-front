@@ -7,6 +7,10 @@ export const DropDownWrapper = styled.div`
   padding: 1.125rem 1.25rem;
   display: block;
 
+  & :hover {
+    cursor: pointer;
+  }
+
   & > div:first-child:hover {
     color: ${themes.primary.colors.darkBlue};
 
@@ -41,7 +45,7 @@ export const DropDownContent = styled.div`
   transition: 0.45s ease-in;
 
   &.open {
-    max-height: 400px;
+    max-height: 500px;
     opacity: 1;
   }
 `;
