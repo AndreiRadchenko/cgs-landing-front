@@ -875,7 +875,7 @@ export const AdminDropDownMenu = styled.div<IBlockDropdownProps>`
       : themes.primary.font.size.linkText};
   position: relative;
   width: ${(props) => (props.size === "primary" ? "235px" : "100%")};
-  margin: 12px 10px 15px 0;
+  margin: 25px 10px 15px 0;
 `;
 
 export const AdminDropDownMenuElement = styled.div`
@@ -898,6 +898,7 @@ export const AdminDropDownMenuElementImage = styled.span`
 `;
 
 export const AdminDropDownMenuBanner = styled.div`
+  height: 56px;
   background: ${themes.primary.colors.estimationAdminBg};
   padding: ${themes.primary.spacing.half} ${themes.primary.spacing.primary};
   display: flex;
@@ -1039,7 +1040,6 @@ export const AdminPortfolioReviewArrowContainer = styled.div<IAdminPortfolioRevi
 `;
 
 export const AdminPortfolioImage = styled.div`
-  margin-top: 12px;
   min-height: 250px;
   display: grid;
 `;
@@ -1095,6 +1095,28 @@ export const AdminPortfolioReviewTools = styled.div`
   align-items: center;
   height: 52px;
   border-top: 1px solid #8f8e93;
+`;
+
+export const AdminPortfolioImageText = styled.div`
+  margin-top: 25px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+
+  line-height: 22px;
+  color: ${themes.primary.colors.primary};
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin: 0;
+  }
+  span {
+    color: ${themes.primary.colors.headerBorder};
+    font-size: 12px;
+  }
 `;
 
 export const AdminPortfolioReviewLayout = styled.div`

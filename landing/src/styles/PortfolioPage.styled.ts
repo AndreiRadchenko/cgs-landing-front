@@ -7,8 +7,14 @@ export const PortfolioPageWrapper = styled.div`
 `;
 
 export const PortfolioPageHeaderContainer = styled.div`
-  max-width: 700px;
   margin-bottom: 44px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+`;
+
+export const HeaderContainerBlock = styled.div`
+  width: 700px;
 
   h2 {
     font-family: ${themes.primary.font.family.namu};
@@ -19,6 +25,14 @@ export const PortfolioPageHeaderContainer = styled.div`
     padding-bottom: 20px;
     border-bottom: 1px solid ${themes.primary.colors.headerBorder};
     margin: 0 0 32px 0;
+  }
+`;
+export const HeaderImageContainer = styled.div`
+  position: absolute;
+  right: 0;
+  svg {
+    position: absolute;
+    right: -50px;
   }
 `;
 
@@ -67,6 +81,7 @@ export const InfoContainerText = styled.p`
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 20px;
   line-height: 160%;
+  max-height: 320px;
   color: ${themes.primary.colors.primary};
   margin: 0 0 28px 0;
 `;

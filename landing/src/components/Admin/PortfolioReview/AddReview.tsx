@@ -42,6 +42,22 @@ const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
     <>
       <Styled.AdminPageFirstBlockLayout>
         <Styled.AdminPortfolioImage>
+          <Styled.AdminPortfolioImageText>
+            <h2>
+              Banner <span>(project page)</span>
+            </h2>
+          </Styled.AdminPortfolioImageText>
+          <PhotoBlockDashedHorizontal
+            emptyHeader="Drop new image here"
+            photo={values.image}
+            deleteFunction={deleteFunc}
+            uploadFunction={uploadFunc}
+          />
+          <Styled.AdminPortfolioImageText>
+            <h2>
+              Project banner <span>(Separate page)</span>
+            </h2>
+          </Styled.AdminPortfolioImageText>
           <PhotoBlockDashedHorizontal
             emptyHeader="Drop new image here"
             photo={values.image}
@@ -62,7 +78,7 @@ const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
             <div>
               <SubHeaderWithInput
                 placeholder="Link"
-                header="Project link"
+                header="About Project"
                 inputValue={values.button}
                 onChangeFunction={handleChange}
                 name="button"
