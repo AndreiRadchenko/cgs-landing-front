@@ -13,4 +13,5 @@ export interface IMenuProps {
   isDropped?: boolean;
   className?: string;
   bannerContentColor?: string;
+  bannerClassName?: string;
 }

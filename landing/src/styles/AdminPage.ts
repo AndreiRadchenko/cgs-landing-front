@@ -1,9 +1,12 @@
-import { CheckBoxType } from "./../types/Admin/AdminEstimationForm.types";
-import styled, { css } from "styled-components";
-import themes from "../utils/themes";
-import articleIntro from "../../public/BlogDecorations/Formatting/articleIntro.svg";
 import SortableList from "react-easy-sort";
 import { TextareaAutosize } from "@mui/material";
+import styled, { css } from "styled-components";
+
+import themes from "../utils/themes";
+import { CheckBoxType } from "./../types/Admin/AdminEstimationForm.types";
+import articleIntro from "../../public/BlogDecorations/Formatting/articleIntro.svg";
+import RightArrow from "../../public/AdminPortfolio/RightArrow.svg";
+import LeftArrow from "../../public/AdminPortfolio/LeftArrow.svg";
 
 interface ITextEditorWrapperProps {
   start?: number;
@@ -14,6 +17,10 @@ interface IBlockDropDownHeaderTitleProps {
 }
 interface IBlackButtonProps {
   size?: string;
+}
+
+interface IAdminPortfolioReviewLink {
+  readonly isProjectLink: boolean;
 }
 
 interface IBlockDropdownHeaderIconProps {
@@ -665,6 +672,15 @@ export const AdminDeleteTextThin = styled.span`
   cursor: pointer;
 `;
 
+export const AdminDeleteReview = styled.span`
+  position: relative;
+  color: ${themes.primary.colors.errorText};
+  padding-right: 13px;
+  font-size: ${themes.primary.font.size.tertiary};
+  font-weight: ${themes.primary.font.weight.light};
+  cursor: pointer;
+`;
+
 export const AdminFeedbackStarsBlock = styled.div`
   display: block;
   white-space: nowrap;
@@ -840,6 +856,13 @@ export const AdminCategoryBlock = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 1.6em;
+
+  & .admin-portfolio-dropdown {
+    color: black;
+    font-size: 16px;
+    padding: 18px 14px;
+    border: 1px solid #8f8e93;
+  }
 `;
 
 export const AdminDropDownMenu = styled.div<IBlockDropdownProps>`
@@ -901,13 +924,177 @@ export const AdminDropDownMenuList = styled.div`
 `;
 
 export const AdminReviewBlock = styled.div`
-  margin-top: 2em;
+  margin-top: 7px;
+
+  & .portfolio-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 37px 37px;
+  }
+`;
+
+export const AdminPortfolioReviewHeader = styled.div`
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.23px solid ${themes.primary.colors.headerBorder};
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 7px 10px;
+    padding: 0 0 9px 0;
+  }
+`;
+
+export const AdminPortfolioReviewHeaderTitle = styled.div`
+  h4 {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 24px;
+    line-height: 130%;
+    margin: 0;
+    color: ${themes.primary.colors.primary};
+  }
+  p {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 15px;
+    line-height: 130%;
+    color: ${themes.primary.colors.comment};
+    margin: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    h4 {
+      font-size: 16px;
+      line-height: 20.8px;
+    }
+    p {
+      font-size: 12px;
+      line-height: 15.6px;
+    }
+  }
+`;
+
+export const AdminPortfolioReviewHeaderLink = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 15px;
+  line-height: 130%;
+  color: ${themes.primary.colors.blogBackground};
+  margin: 0;
+  padding-bottom: 6px;
+
+  a {
+    color: black;
+  }
+
+  span {
+    color: ${themes.primary.colors.comment};
+  }
+
+  & path {
+    transition: transform 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 12px;
+    line-height: 130%;
+  }
+`;
+
+export const AdminPortfolioReviewArrowContainer = styled.div<IAdminPortfolioReviewLink>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  background: ${themes.primary.colors.portfolioHover};
+  border: 2.26667px solid ${themes.primary.colors.primary};
+  border-radius: 50%;
+  overflow: hidden;
+
+  opacity: ${({ isProjectLink }) => !isProjectLink && 0.6};
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 26px;
+    height: 26px;
+  }
 `;
 
 export const AdminPortfolioImage = styled.div`
   margin-top: 12px;
   min-height: 250px;
   display: grid;
+`;
+
+export const AdminPortfolioPaginationWrapper = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+
+  & .disabled {
+    opacity: 0.5;
+  }
+`;
+
+export const AdminPortfolioRightArrowButton = styled.div`
+  background-image: url(${RightArrow.src});
+  margin-left: 23px;
+  width: 44px;
+  height: 49px;
+  cursor: pointer;
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
+export const AdminPortfolioLeftArrowButton = styled.div`
+  background-image: url(${LeftArrow.src});
+  width: 44px;
+  height: 49px;
+  cursor: pointer;
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
+export const AdminPortfolioReviewImage = styled.div`
+  display: flex;
+  justify-content: center;
+  @media ${themes.primary.media.maxMobile} {
+    span {
+      width: 355px !important;
+      height: 185px !important;
+      object-fit: contain;
+    }
+  }
+`;
+
+export const AdminPortfolioReviewTools = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 52px;
+  border-top: 1px solid #8f8e93;
 `;
 
 export const AdminPortfolioReviewLayout = styled.div`
@@ -919,14 +1106,11 @@ export const AdminPortfolioReviewLayout = styled.div`
 
 export const AdminPortfolioReviewFrame = styled.div`
   border: 1px solid ${themes.primary.colors.primary};
-  padding: 1.6em;
   position: relative;
 `;
 
 export const AdminEditIcon = styled.span`
-  position: absolute;
-  top: 10px;
-  right: 15px;
+  padding-left: 15px;
   cursor: pointer;
 `;
 

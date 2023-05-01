@@ -8,12 +8,13 @@ const ChooseElementBanner = ({
   setIsDropped,
   value,
   bannerContentColor = "black",
+  bannerClassName = "",
 }: IMenuProps) => {
   const trigger = () => setIsDropped!((prev) => !prev);
 
   return (
     <Styled.AdminPointer onClick={trigger}>
-      <Styled.AdminDropDownMenuBanner>
+      <Styled.AdminDropDownMenuBanner className={bannerClassName}>
         {value ? (
           <span>{value}</span>
         ) : (

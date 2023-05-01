@@ -342,3 +342,5 @@ export const conditionsToAppearanceQuestion = [
 ];
 
 export const BlogPageSize = 4;
+
+export const PortfolioPageSize = 6;

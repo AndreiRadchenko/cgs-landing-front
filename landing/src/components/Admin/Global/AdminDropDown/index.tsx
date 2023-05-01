@@ -13,6 +13,7 @@ const AdminDropDown = ({
   setValue,
   value,
   className,
+  bannerClassName,
 }: IMenuProps) => {
   const [isDropped, setIsDropped] = useState(false);
 
@@ -30,7 +31,8 @@ const AdminDropDown = ({
         value={value!}
         isDropped={isDropped}
         setIsDropped={setIsDropped}
-        bannerContentColor={themes.primary.colors.darkBlue}
+        bannerContentColor={themes.primary.colors.black}
+        bannerClassName={bannerClassName}
       />
       {isDropped && (
         <MenuElementsRender
