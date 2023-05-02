@@ -19,7 +19,7 @@ import {
   IPortfolioReview,
 } from "../../../types/Admin/AdminPortfolio.types";
 import { ISwapData } from "../../../types/Admin/Response.types";
-import { PortfolioPageSize } from "../../../consts";
+import { AdminPortfolioPageSize } from "../../../consts";
 import { queryKeys } from "../../../consts/queryKeys";
 import * as Styled from "../../../styles/AdminPage";
 
@@ -111,14 +111,14 @@ const EditReview = ({
   const disablePrevPage = currentPage === 1;
   const disableNextPage =
     filteredData &&
-    currentPage === Math.ceil(filteredData.length / PortfolioPageSize);
+    currentPage === Math.ceil(filteredData.length / AdminPortfolioPageSize);
 
   useEffect(() => {
     filteredData &&
       setPaginatedData(
         filteredData.slice(
-          (currentPage - 1) * PortfolioPageSize,
-          currentPage * PortfolioPageSize
+          (currentPage - 1) * AdminPortfolioPageSize,
+          currentPage * AdminPortfolioPageSize
         )
       );
   }, [filteredData, currentPage]);

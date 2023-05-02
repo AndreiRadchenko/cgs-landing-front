@@ -343,4 +343,6 @@ export const conditionsToAppearanceQuestion = [
 
 export const BlogPageSize = 4;
 
-export const PortfolioPageSize = 6;
+export const PortfolioPageSize = 8;
+
+export const AdminPortfolioPageSize = 6;

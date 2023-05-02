@@ -33,6 +33,38 @@ export const PortfolioProjectsContainer = styled.div`
   }
 `;
 
+export const PortfolioPaginationWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 42px 0;
+`;
+
+export const PortfolioPaginationItemsWrapper = styled.div`
+  display: flex;
+  column-gap: 8px;
+
+  & .active {
+    background-color: #000;
+    border: 1px solid #000;
+    color: #fff;
+  }
+`;
+
+export const PortfolioPaginationButton = styled.div`
+  display: flex;
+  height: 26px;
+  width: 26px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #000;
+    border: 1px solid #000;
+    color: #fff;
+  }
+`;
+
 export const ProjectsContainerInfo = styled.div`
   opacity: 0;
   transition: 0.3s all;
