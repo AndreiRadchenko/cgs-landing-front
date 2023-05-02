@@ -59,6 +59,7 @@ const Content = () => {
         <CalcAndChatContainer
           setIsCalendlyOpen={setIsCalendlyOpen}
           setCalendlyUserData={setCalendlyUserData}
+          isCalendlyOpen={isCalendlyOpen}
         />
         <Layout>
           <LocalLayout>

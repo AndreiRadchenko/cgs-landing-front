@@ -40,6 +40,7 @@ interface ICalculatorProps {
   setIsShowingCross: Dispatch<SetStateAction<boolean>>;
   setIsCalendlyOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setCalendlyUserData: React.Dispatch<React.SetStateAction<ICalendlyUserData>>;
+  isCalendlyOpen: boolean;
 }
 
 const Calculator = ({
@@ -49,6 +50,7 @@ const Calculator = ({
   setIsShowingBubble,
   setIsCalendlyOpen,
   setCalendlyUserData,
+  isCalendlyOpen,
 }: ICalculatorProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>("< start >");
@@ -382,6 +384,10 @@ const Calculator = ({
     };
   }, [hoverRef]);
 
+  useEffect(() => {
+    !isCalendlyOpen && handleClose();
+  }, [isCalendlyOpen]);
+
   return (
     <>
       {/* <Styled.CalculatorPreviewWrapper> */}
@@ -425,6 +431,7 @@ const Calculator = ({
           handlePagerButtonsClick={handleCompletedPagerButtonsClick}
           handleClose={handleClose}
           handleButtonClick={handleClose}
+          isCalendlyOpen={isCalendlyOpen}
         />
       ) : (
         <>

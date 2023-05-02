@@ -16,6 +16,7 @@ interface ICalculatorCompletedPagerProps {
   handleButtonClick: () => void;
   handlePagerLeftButtonClick: () => void;
   handlePagerButtonsClick: () => void;
+  isCalendlyOpen: boolean;
 }
 
 const CalculatorCompletedPager = ({
@@ -24,6 +25,7 @@ const CalculatorCompletedPager = ({
   handleButtonClick,
   handlePagerLeftButtonClick,
   handlePagerButtonsClick,
+  isCalendlyOpen,
 }: ICalculatorCompletedPagerProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<ICalculator>([
@@ -36,7 +38,7 @@ const CalculatorCompletedPager = ({
     (width && (
       <CalculatorModalComponent
         buttonText={"< Finish >"}
-        onClose={handleClose}
+        onClose={() => !isCalendlyOpen && handleClose}
         onButtonClick={handleButtonClick}
         mobile={width < 768}
       >
