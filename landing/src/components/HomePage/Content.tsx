@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import {
   LocalLayout,
   MobileReverseLayout,
@@ -14,12 +14,52 @@ import { Layout, PageArticle } from "../../styles/Layout.styled";
 import MobilePartners from "../Partners/MobilePartners";
 import MobileNextTech from "./MobileNextTech";
 import CalcAndChatContainer from "../CalcAndChatContainer";
+import { PopupModal } from "react-calendly";
+import { recoverLink } from "../../utils/recoverLink";
+
+export interface ICalendlyUserData {
+  name: string;
+  email: string;
+  link: string;
+}
 
 const Content = () => {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [calendlyUserData, setCalendlyUserData] = useState<ICalendlyUserData>({
+    name: "",
+    email: "",
+    link: "",
+  });
+  const elRef = useRef<HTMLAnchorElement>(null);
+
+  const handleClear = () => {
+    setIsCalendlyOpen(false);
+    setCalendlyUserData({
+      name: "",
+      email: "",
+      link: "",
+    });
+  };
+
   return (
     <>
-      <PageArticle>
-        <CalcAndChatContainer />
+      <PageArticle ref={elRef}>
+        {elRef && elRef.current && (
+          <PopupModal
+            prefill={{
+              email: calendlyUserData.email,
+              name: calendlyUserData.name,
+            }}
+            url={recoverLink(calendlyUserData.link)}
+            rootElement={elRef.current}
+            onModalClose={handleClear}
+            open={isCalendlyOpen}
+          />
+        )}
+        <CalcAndChatContainer
+          setIsCalendlyOpen={setIsCalendlyOpen}
+          setCalendlyUserData={setCalendlyUserData}
+        />
         <Layout>
           <LocalLayout>
             <HeadBlock />
