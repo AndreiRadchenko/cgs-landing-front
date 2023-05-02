@@ -7,11 +7,13 @@ import { ICalendlyUserData } from "../HomePage/Content";
 interface ICalcAndChatContainer {
   setIsCalendlyOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setCalendlyUserData: React.Dispatch<React.SetStateAction<ICalendlyUserData>>;
+  isCalendlyOpen: boolean;
 }
 
 const CalcAndChatContainer = ({
   setIsCalendlyOpen,
   setCalendlyUserData,
+  isCalendlyOpen,
 }: ICalcAndChatContainer) => {
   const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
   const [isShowingBubble, setIsShowingBubble] = useState<boolean>(true);
@@ -26,6 +28,7 @@ const CalcAndChatContainer = ({
         setIsShowingCross={setIsShowingCross}
         setIsCalendlyOpen={setIsCalendlyOpen}
         setCalendlyUserData={setCalendlyUserData}
+        isCalendlyOpen={isCalendlyOpen}
       />
       <Chat
         isChatOpen={isChatOpen}
