@@ -1,6 +1,7 @@
 import React, { Children, ReactNode } from "react";
 import CalculatorStepsFormContent from "./CalculatorStepsFormContent";
 import CalculatorQuittingPager from "./CalculatorQuttingPager";
+import { ICalendlyUserData } from "../HomePage/Content";
 
 interface ICalculatorStepsComponentProps {
   step: number;
@@ -19,6 +20,8 @@ interface ICalculatorStepsComponentProps {
   setWarnIsShow: React.Dispatch<React.SetStateAction<boolean>>;
   children: ReactNode;
   isBlockchain: boolean;
+  setIsCalendlyOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setCalendlyUserData: React.Dispatch<React.SetStateAction<ICalendlyUserData>>;
 }
 
 const CalculatorStepsComponent = ({
@@ -38,6 +41,8 @@ const CalculatorStepsComponent = ({
   warnIsShow,
   setWarnIsShow,
   isBlockchain,
+  setIsCalendlyOpen,
+  setCalendlyUserData,
 }: ICalculatorStepsComponentProps) => {
   const arrayChildren = Children.toArray(children);
 
@@ -81,6 +86,8 @@ const CalculatorStepsComponent = ({
           setWarnIsShow={setWarnIsShow}
           arrayChildren={arrayChildren}
           isBlockchain={isBlockchain}
+          setIsCalendlyOpen={setIsCalendlyOpen}
+          setCalendlyUserData={setCalendlyUserData}
         />
       )}
     </div>
