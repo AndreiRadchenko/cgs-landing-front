@@ -392,6 +392,7 @@ export const CTACont = styled.div`
   position: relative;
   margin: 140px 0 180px 0;
   font-family: "NAMU", sans-serif;
+  padding: 0 20px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 466px;
@@ -408,7 +409,7 @@ export const BlockMainIcon = styled.div`
   width: 412px;
   height: 284px;
   bottom: 30%;
-  right: 0;
+  right: 20px;
   transform: translateY(50%);
 
   @media ${themes.primary.media.maxTabletLandScape} {
