@@ -11,12 +11,14 @@ import PortfolioProjectComponent from "../../components/Portfolio/PortfolioProje
 import { useScrollTo } from "../../hooks/useScrollTo";
 import { Loader, LoaderStub } from "../../components/Loader";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
+import { CTABlock } from "../../components/Portfolio/CTABlock";
 
-import { queryKeys } from "../../consts/queryKeys";
 import {
+  IPortfolioCTAResponse,
   IPortfolioResponse,
   IPortfolioReviewsResponse,
 } from "../../types/Admin/AdminPortfolio.types";
+import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/AdminPage";
 import * as Styles from "../../styles/Portfolio.styled";
 import { PortfolioPageSize } from "../../consts";
@@ -30,6 +32,10 @@ export async function getServerSideProps() {
 
   await queryClient.prefetchQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
+  );
+
+  await queryClient.prefetchQuery([queryKeys.getPortfolioCTA], () =>
+    adminPortfolioService.getPortfolioCTA()
   );
 
   await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
@@ -76,6 +82,11 @@ const PortfolioPage: NextPage = () => {
     [handleClick, currentPage]
   );
 
+  const { data: ctaData, isLoading: ctaDataIsLoading }: IPortfolioCTAResponse =
+    useQuery([queryKeys.getPortfolioCTA], () =>
+      adminPortfolioService.getPortfolioCTA()
+    );
+
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   return (
@@ -120,6 +131,7 @@ const PortfolioPage: NextPage = () => {
                 </Styles.PortfolioPaginationItemsWrapper>
               </Styles.PortfolioPaginationWrapper>
             </Styles.PortfolioWrapper>
+            <CTABlock initValues={ctaData!.cta} />
             <FooterNew />
           </Styles.PortfolioContainer>
         </>

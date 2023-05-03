@@ -3,6 +3,7 @@ import { FieldArray, useFormikContext } from "formik";
 import { useQuery } from "@tanstack/react-query";
 
 import AddAndEdit from "./AddAndEdit";
+import CallToAction from "./CallToAction";
 import renderPortfolioInputs from "./renderPortfolioInputs";
 import { useScrollTo } from "../../../hooks/useScrollTo";
 import MetaTagsBlock from "../MetaTagsBlock";
@@ -11,7 +12,10 @@ import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import SaveBtn from "../Global/SaveBtn";
 import EditReview from "./EditReview";
 
-import { IPortfolioPageData } from "../../../types/Admin/AdminPortfolio.types";
+import {
+  IPortfolioPageData,
+  IPortfolioCTAResponse,
+} from "../../../types/Admin/AdminPortfolio.types";
 import { queryKeys } from "../../../consts/queryKeys";
 import * as Styled from "../../../styles/AdminPage";
 
@@ -20,8 +24,14 @@ const AdminPortfolioContentBlock = () => {
 
   const { values, handleChange, handleSubmit } =
     useFormikContext<IPortfolioPageData>();
+
   const { data } = useQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
+  );
+
+  const { data: ctaData, isLoading }: IPortfolioCTAResponse = useQuery(
+    [queryKeys.getPortfolioCTA],
+    () => adminPortfolioService.getPortfolioCTA()
   );
 
   const [current, setCurrent] = useState(0);
@@ -64,6 +74,13 @@ const AdminPortfolioContentBlock = () => {
             isNewStatus={isNewStatus}
             setIsNewStatus={setIsNewStatus}
           />
+        </BlockDropdown>
+        <BlockDropdown title="CTA">
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : (
+            <CallToAction initValues={ctaData!.cta} />
+          )}
         </BlockDropdown>
       </Styled.AdminPaddedBlock>
       <Styled.MetaBlockWraper>

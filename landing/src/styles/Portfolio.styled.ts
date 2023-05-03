@@ -390,12 +390,34 @@ export const LinkButton = styled.button`
 
 export const CTACont = styled.div`
   position: relative;
-  margin-top: 10px;
-  padding: 0rem 11.1rem 75px;
-  overflow: hidden;
+  margin: 140px 0 180px 0;
+  font-family: "NAMU", sans-serif;
+  padding: 0 20px;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    height: 466px;
+    margin: 95px 0 72px 0;
+  }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 0rem 1.25rem;
+    height: 558px;
+  }
+`;
+
+export const BlockMainIcon = styled.div`
+  position: absolute;
+  width: 412px;
+  height: 284px;
+  bottom: 30%;
+  right: 20px;
+  transform: translateY(50%);
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 317px;
+    height: 218px;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
   }
 `;
 
@@ -476,14 +498,4 @@ export const CTAIconText = styled.p`
   line-height: 26px;
 
   transition: color 0.3s;
-`;
-
-export const BlockMainIcon = styled.div`
-  position: absolute;
-  bottom: 44px;
-  right: -28px;
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    display: none;
-  }
 `;
