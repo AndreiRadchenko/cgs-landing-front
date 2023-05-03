@@ -392,17 +392,18 @@ export const LinkButton = styled.button`
 
 export const CTACont = styled.div`
   position: relative;
-  margin: 140px 0 180px 0;
+  margin: 98px 0 180px 0;
   font-family: "NAMU", sans-serif;
-  padding: 0 20px;
+  padding: 0 50px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 466px;
-    margin: 95px 0 72px 0;
+    margin: 53px 0 64px 0;
   }
 
   @media ${themes.primary.media.maxMobile} {
     height: 558px;
+    padding: 0 20px;
   }
 `;
 
@@ -411,7 +412,7 @@ export const BlockMainIcon = styled.div`
   width: 412px;
   height: 284px;
   bottom: 30%;
-  right: 20px;
+  right: 100px;
   transform: translateY(50%);
 
   @media ${themes.primary.media.maxTabletLandScape} {
