@@ -39,3 +39,25 @@ export interface IAddAndEditProps {
   setIsNewStatus: React.Dispatch<React.SetStateAction<boolean>>;
   reviews: IPortfolioReview[] | undefined | void;
 }
+
+export interface IPortfolioCTAResponse {
+  data?: {
+    _id: string;
+    cta: ICTAData;
+  };
+  isLoading: boolean;
+  refetch: () => Promise<IPortfolioCTAResponse>;
+}
+
+export interface ICallToActionProps {
+  initValues: ICTAData;
+}
+export interface ICTAData {
+  image: {
+    url: string;
+  } | null;
+  subtitle: string;
+  text: string;
+  button: string;
+  buttonLink: string;
+}

@@ -1,6 +1,7 @@
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
 import {
+  ICTAData,
   IPortfolioPageData,
   IPortfolioReview,
 } from "../../types/Admin/AdminPortfolio.types";
@@ -31,6 +32,12 @@ export class AdminPortfolioService {
   }
   public swapReviews(swapData: ISwapData) {
     return this.httpService.put(`api/portfolio/swap`, swapData);
+  }
+  public updatePortfolioCTA(ctaData: ICTAData) {
+    return this.httpService.put(`api/portfolio/cta`, ctaData);
+  }
+  public getPortfolioCTA() {
+    return this.httpService.get<ICTAData>(`api/portfolio/cta`);
   }
 }
 

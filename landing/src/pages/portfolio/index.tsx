@@ -2,22 +2,23 @@ import React from "react";
 import parse from "html-react-parser";
 import Head from "next/head";
 import { NextPage } from "next";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
-import PortfolioSlider from "../../components/Admin/PortfolioSwipers/PortfolioSlider";
 import { CTABlock } from "../../components/Portfolio/CTABlock";
+import PortfolioProjectComponent from "../../components/Portfolio/PortfolioProjectComponent";
+
 import {
+  IPortfolioCTAResponse,
   IPortfolioResponse,
   IPortfolioReviewsResponse,
 } from "../../types/Admin/AdminPortfolio.types";
+import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/AdminPage";
 import * as Styles from "../../styles/Portfolio.styled";
 import { adminGlobalService } from "../../services/adminHomePage";
-import { PortfolioProjectsContainer } from "../../styles/Portfolio.styled";
-import PortfolioProjectComponent from "../../components/Portfolio/PortfolioProjectComponent";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -28,6 +29,10 @@ export async function getServerSideProps() {
 
   await queryClient.prefetchQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
+  );
+
+  await queryClient.prefetchQuery([queryKeys.getPortfolioCTA], () =>
+    adminPortfolioService.getPortfolioCTA()
   );
 
   await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
@@ -54,6 +59,11 @@ const PortfolioPage: NextPage = () => {
     adminPortfolioService.getReviews()
   );
 
+  const { data: ctaData, isLoading: ctaDataIsLoading }: IPortfolioCTAResponse =
+    useQuery([queryKeys.getPortfolioCTA], () =>
+      adminPortfolioService.getPortfolioCTA()
+    );
+
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
@@ -75,6 +85,7 @@ const PortfolioPage: NextPage = () => {
               <PortfolioProjectComponent key={project._id} project={project} />
             ))}
           </Styles.PortfolioProjectsContainer>
+          <CTABlock initValues={ctaData!.cta} />
         </Styles.PortfolioWrapper>
         <FooterNew />
       </Styles.PortfolioContainer>

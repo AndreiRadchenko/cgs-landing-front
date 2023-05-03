@@ -1780,6 +1780,19 @@ export const AdminPageReviewBlock = styled.div`
   gap: 25px;
 `;
 
+export const AdminPageCTABlock = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+`;
+
+export const AdminPageCTAButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+`;
+
 export const AdminImageWrapper = styled.div`
   position: relative;
   height: 180px;
