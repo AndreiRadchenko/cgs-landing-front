@@ -46,7 +46,7 @@ export const PortfolioPaginationItemsWrapper = styled.div`
   & .active {
     background-color: #000;
     border: 1px solid #000;
-    color: #fff;
+    color: #f1efed;
   }
 `;
 
@@ -56,12 +56,14 @@ export const PortfolioPaginationButton = styled.div`
   width: 26px;
   align-items: center;
   justify-content: center;
+  font-size: 16px;
   cursor: pointer;
+  font-family: ${themes.primary.font.family.openSans};
 
   &:hover {
     background-color: #000;
     border: 1px solid #000;
-    color: #fff;
+    color: #f1efed;
   }
 `;
 
