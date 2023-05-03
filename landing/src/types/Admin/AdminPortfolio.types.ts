@@ -28,12 +28,20 @@ export interface IPortfolioResponse {
   refetch: () => Promise<IPortfolioResponse>;
 }
 
+export interface IPaginationProps {
+  reviewsData: IPortfolioReviewsDataResponse | undefined;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export interface IPortfolioReviewsDataResponse {
+  reviews: IPortfolioReview[];
+  currentPage: number;
+  totalPages: number;
+}
+
 export interface IPortfolioReviewsResponse {
-  data?: {
-    reviews: IPortfolioReview[];
-    currentPage: number;
-    totalPages: number;
-  };
+  data?: IPortfolioReviewsDataResponse;
   isLoading: boolean;
 }
 
