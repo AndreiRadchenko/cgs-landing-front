@@ -31,12 +31,16 @@ import {
   ICalculatorStep,
 } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
+import { ICalendlyUserData } from "../HomePage/Content";
 
 interface ICalculatorProps {
   isChatOpen: boolean;
   setIsChatOpen: Dispatch<SetStateAction<boolean>>;
   setIsShowingBubble: Dispatch<SetStateAction<boolean>>;
   setIsShowingCross: Dispatch<SetStateAction<boolean>>;
+  setIsCalendlyOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setCalendlyUserData: React.Dispatch<React.SetStateAction<ICalendlyUserData>>;
+  isCalendlyOpen: boolean;
 }
 
 const Calculator = ({
@@ -44,6 +48,9 @@ const Calculator = ({
   setIsChatOpen,
   setIsShowingCross,
   setIsShowingBubble,
+  setIsCalendlyOpen,
+  setCalendlyUserData,
+  isCalendlyOpen,
 }: ICalculatorProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>("< start >");
@@ -377,6 +384,10 @@ const Calculator = ({
     };
   }, [hoverRef]);
 
+  useEffect(() => {
+    !isCalendlyOpen && handleClose();
+  }, [isCalendlyOpen]);
+
   return (
     <>
       {/* <Styled.CalculatorPreviewWrapper> */}
@@ -420,6 +431,7 @@ const Calculator = ({
           handlePagerButtonsClick={handleCompletedPagerButtonsClick}
           handleClose={handleClose}
           handleButtonClick={handleClose}
+          isCalendlyOpen={isCalendlyOpen}
         />
       ) : (
         <>
@@ -451,6 +463,8 @@ const Calculator = ({
                     warnIsShow={warnIsShow}
                     setWarnIsShow={setWarnIsShow}
                     isBlockchain={isBlockchain}
+                    setIsCalendlyOpen={setIsCalendlyOpen}
+                    setCalendlyUserData={setCalendlyUserData}
                   >
                     {stepsData.map((currentData, stepInd) => (
                       <div key={currentData.title}>

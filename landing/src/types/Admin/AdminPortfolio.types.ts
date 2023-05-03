@@ -29,7 +29,11 @@ export interface IPortfolioResponse {
 }
 
 export interface IPortfolioReviewsResponse {
-  data?: IPortfolioReview[];
+  data?: {
+    reviews: IPortfolioReview[];
+    currentPage: number;
+    totalPages: number;
+  };
   isLoading: boolean;
 }
 

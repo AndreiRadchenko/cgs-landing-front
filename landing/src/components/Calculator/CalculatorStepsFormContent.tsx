@@ -12,6 +12,7 @@ import {
   BlackButton,
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
+import { ICalendlyUserData } from "../HomePage/Content";
 
 const PAGINATION_STEPS_PER_PAGE = 8;
 
@@ -28,6 +29,8 @@ interface ICalculatorStepsFormContentProps {
   setWarnIsShow: React.Dispatch<React.SetStateAction<boolean>>;
   arrayChildren: Array<Exclude<ReactNode, boolean | null | undefined>>;
   isBlockchain: boolean;
+  setIsCalendlyOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setCalendlyUserData: React.Dispatch<React.SetStateAction<ICalendlyUserData>>;
 }
 
 const CalculatorStepsFormContent = ({
@@ -43,6 +46,8 @@ const CalculatorStepsFormContent = ({
   calculateIsClicked,
   setCalculateIsClicked,
   isBlockchain,
+  setIsCalendlyOpen,
+  setCalendlyUserData,
 }: ICalculatorStepsFormContentProps) => {
   const { values, isValid, errors, handleSubmit, validateForm } =
     useFormikContext<ICalculatorFormValuesProps>();
@@ -116,11 +121,12 @@ const CalculatorStepsFormContent = ({
       setCalculateIsClicked(true);
       if (isValid) {
         handleSubmit();
-        const email = values.email.replace("@", "%40");
-        window.open(
-          `${calendlyLink}?name=${values.name}&email=${email}`,
-          "_blank"
-        );
+        setIsCalendlyOpen(true);
+        setCalendlyUserData({
+          name: values.name,
+          email: values.email,
+          link: calendlyLink,
+        });
       }
     } else if (errors["questionsArr"] && errors["questionsArr"][step]) {
       setWarnIsShow(true);

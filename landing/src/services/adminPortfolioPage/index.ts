@@ -18,6 +18,11 @@ export class AdminPortfolioService {
   public getReviews() {
     return this.httpService.get<IPortfolioReview[]>("api/portfolio/review");
   }
+  public getPaginatedReviews(page: number, limit: number) {
+    return this.httpService.get<IPortfolioReview[]>(
+      `api/portfolio/review/${page}/${limit}`
+    );
+  }
   public getByCategory(category: string) {
     return this.httpService.get(`api/portfolio/review/${category}`);
   }
