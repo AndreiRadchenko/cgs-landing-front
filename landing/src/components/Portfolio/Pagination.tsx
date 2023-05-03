@@ -1,4 +1,50 @@
-import React, { useState } from "react";
+import React, { useCallback } from "react";
+
+import * as Styles from "../../styles/Portfolio.styled";
+import { IPaginationProps } from "../../types/Admin/AdminPortfolio.types";
+
+export const Pagination = ({
+  reviewsData,
+  currentPage,
+  setCurrentPage,
+}: IPaginationProps) => {
+  const handleClick = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(0, 0);
+  };
+
+  const handlePageClick = useCallback(
+    (pageNumber: number) => {
+      if (pageNumber + 1 !== currentPage) {
+        handleClick(pageNumber + 1);
+      }
+    },
+    [handleClick, currentPage]
+  );
+
+  return (
+    <Styles.PortfolioPaginationWrapper>
+      <Styles.PortfolioPaginationItemsWrapper>
+        {reviewsData &&
+          Array.from(Array(reviewsData.totalPages).keys()).map((pageNumber) => (
+            <Styles.PortfolioPaginationButton
+              key={pageNumber}
+              onClick={() => handlePageClick(pageNumber)}
+              className={pageNumber + 1 === currentPage ? "active" : ""}
+            >
+              {pageNumber + 1}
+            </Styles.PortfolioPaginationButton>
+          ))}
+      </Styles.PortfolioPaginationItemsWrapper>
+    </Styles.PortfolioPaginationWrapper>
+  );
+};
+
+/*
+На початку роботи цього коду ми знаходимось на першій сторінці пагінації. Нажавши на кнопку "2", нас перемістить на другу сторінку пагінації та, за допомогою хука "useScrollTo", перемістить до блоку "Styles.PortfolioContainer". Чому, після всіх цих дій, при повторному нажиманні на першу сторінку, повторного скролу до цього блоку не відбувається ?
+
+Ось код:
+import React, { useCallback, useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import parse from "html-react-parser";
@@ -8,6 +54,7 @@ import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { adminGlobalService } from "../../services/adminHomePage";
 import PortfolioProjectComponent from "../../components/Portfolio/PortfolioProjectComponent";
+import { useScrollTo } from "../../hooks/useScrollTo";
 import { Loader, LoaderStub } from "../../components/Loader";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { CTABlock } from "../../components/Portfolio/CTABlock";
@@ -65,12 +112,28 @@ const PortfolioPage: NextPage = () => {
     () =>
       adminPortfolioService.getPaginatedReviews(currentPage, PortfolioPageSize)
   );
+  const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
   const { data: ctaData, isLoading: ctaDataIsLoading }: IPortfolioCTAResponse =
     useQuery([queryKeys.getPortfolioCTA], () =>
       adminPortfolioService.getPortfolioCTA()
     );
+
+  const handleClick = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    scrollHandler();
+  };
+
+  const handlePageClick = useCallback(
+    (pageNumber: number) => {
+      if (pageNumber + 1 !== currentPage) {
+        handleClick(pageNumber + 1);
+      }
+    },
+    [handleClick, currentPage]
+  );
+  console.log("Ref: ", ref.current);
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
@@ -85,7 +148,7 @@ const PortfolioPage: NextPage = () => {
             <meta name="description" content={metaDescription} />
             {customHead && parse(customHead)}
           </Head>
-          <Styles.PortfolioContainer>
+          <Styles.PortfolioContainer ref={ref}>
             <HeaderNavNew />
             <Styles.PortfolioWrapper>
               <Styles.PortfolioProjectsContainer>
@@ -97,11 +160,24 @@ const PortfolioPage: NextPage = () => {
                     />
                   ))}
               </Styles.PortfolioProjectsContainer>
-              <Pagination
-                reviewsData={reviewsData}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-              />
+              <Styles.PortfolioPaginationWrapper>
+                <Styles.PortfolioPaginationItemsWrapper>
+                  {reviewsData &&
+                    Array.from(Array(reviewsData.totalPages).keys()).map(
+                      (pageNumber) => (
+                        <Styles.PortfolioPaginationButton
+                          key={pageNumber}
+                          onClick={() => handlePageClick(pageNumber)}
+                          className={
+                            pageNumber + 1 === currentPage ? "active" : ""
+                          }
+                        >
+                          {pageNumber + 1}
+                        </Styles.PortfolioPaginationButton>
+                      )
+                    )}
+                </Styles.PortfolioPaginationItemsWrapper>
+              </Styles.PortfolioPaginationWrapper>
             </Styles.PortfolioWrapper>
             <CTABlock initValues={ctaData!.cta} />
             <FooterNew />
@@ -117,3 +193,4 @@ const PortfolioPage: NextPage = () => {
 };
 
 export default PortfolioPage;
+*/
