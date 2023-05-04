@@ -1,42 +1,113 @@
+import React, { useMemo, useRef, useState } from "react";
+import { Field, useFormikContext } from "formik";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import countryList, { CountryData } from "react-select-country-list";
+import Select, { SingleValue } from "react-select";
+import ReactCountryFlag from "react-country-flag";
+
 import AdminDropDown from "../Global/AdminDropDown";
-import React, { useState } from "react";
-import * as Styled from "../../../styles/AdminPage";
-import { useFormikContext } from "formik";
-import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio.types";
 import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
+import DropdownIndustry from "../Portfolio/DropdownIndustry";
+import DropdownTechnology from "../Portfolio/DropdownTechnology";
+
+import * as Styled from "../../../styles/AdminPage";
+
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+
 import { IImage } from "../../../types/Admin/Admin.types";
-import AdminStars from "../FeedbackBlock/AdminStars";
-import SaveBtn from "../Global/SaveBtn";
+import {
+  IPortfolioReview,
+  ITechnology,
+} from "../../../types/Admin/AdminPortfolio.types";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { queryKeys } from "../../../consts/queryKeys";
+import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+import AddProjectTechIcon from "../Portfolio/AddProjectTechIcon";
 
 interface IAddReviewProps {
   categories: string[];
+  industries: string[];
+  technologies: ITechnology[];
   newFlag: boolean;
 }
 
-const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
-  const { values, handleSubmit, handleChange, errors } =
+const AddReview = ({
+  categories,
+  industries,
+  technologies,
+  newFlag,
+}: IAddReviewProps) => {
+  const queryClient = useQueryClient();
+
+  const { values, handleChange, errors, setFieldValue } =
     useFormikContext<IPortfolioReview>();
+  console.log(values);
 
   const [catValue, setCatValue] = useState(
     newFlag ? categories[0] : values.category
   );
 
-  const deleteFunction = useDeleteImageFunction(values, "", false);
-  const uploadFunction = useUploadImageFunction(values, "", false);
-  const starsChange = (newValue: number) => (values.feedback.rating = newValue);
+  const industryRef = useRef<HTMLInputElement | null>(null);
 
-  const submitFunction = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    values.category = catValue;
-    handleSubmit();
-    setCatValue(categories[0]);
+  const options = useMemo(() => countryList().getData(), []);
+
+  const deleteFunctionBanner = useDeleteImageFunction(
+    values.imageBanner,
+    "",
+    false
+  );
+  const uploadFunctionBanner = useUploadImageFunction(
+    values.imageBanner,
+    "",
+    false
+  );
+
+  const deleteFunctionProjectBanner = useDeleteImageFunction(
+    values.imageProjectBanner,
+    "",
+    false
+  );
+  const uploadFunctionProjectBanner = useUploadImageFunction(
+    values.imageProjectBanner,
+    "",
+    false
+  );
+
+  const { mutateAsync: addIndustry } = useMutation(
+    [queryKeys.addPortfolioIndustry],
+    (industry: string) => adminPortfolioService.addIndustry(industry),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.getPortfolio]);
+      },
+    }
+  );
+
+  const { mutateAsync: addTech } = useMutation(
+    [queryKeys.addPortfolioTech],
+    (technology: ITechnology) =>
+      adminPortfolioService.addTechnology(technology),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries([queryKeys.getPortfolio]);
+      },
+    }
+  );
+
+  const changeCountryHandler = (e: SingleValue<CountryData>) => {
+    setFieldValue("country", e.label);
+    setFieldValue("flag", e.value);
   };
 
-  const deleteFunc = async () => (await deleteFunction)();
-  const uploadFunc = (image: IImage) => uploadFunction(image);
+  const deleteFuncBanner = async () => (await deleteFunctionBanner)();
+  const uploadFuncBanner = (image: IImage) => uploadFunctionBanner(image);
+
+  const deleteFuncProjectBanner = async () =>
+    (await deleteFunctionProjectBanner)();
+  const uploadFuncProjectBanner = (image: IImage) =>
+    uploadFunctionProjectBanner(image);
 
   return (
     <>
@@ -49,9 +120,9 @@ const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
           </Styled.AdminPortfolioImageText>
           <PhotoBlockDashedHorizontal
             emptyHeader="Drop new image here"
-            photo={values.image}
-            deleteFunction={deleteFunc}
-            uploadFunction={uploadFunc}
+            photo={values.imageBanner}
+            deleteFunction={deleteFuncBanner}
+            uploadFunction={uploadFuncBanner}
           />
           <Styled.AdminPortfolioImageText>
             <h2>
@@ -60,9 +131,9 @@ const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
           </Styled.AdminPortfolioImageText>
           <PhotoBlockDashedHorizontal
             emptyHeader="Drop new image here"
-            photo={values.image}
-            deleteFunction={deleteFunc}
-            uploadFunction={uploadFunc}
+            photo={values.imageProjectBanner}
+            deleteFunction={deleteFuncProjectBanner}
+            uploadFunction={uploadFuncProjectBanner}
           />
         </Styled.AdminPortfolioImage>
         <Styled.AdminPageReviewBlock>
@@ -73,16 +144,24 @@ const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
               setValue={setCatValue}
             />
           </Styled.AdminCategoryWrapper>
-
+          <h3 style={{ margin: 0 }}>About Project</h3>
           <Styled.AdminPageSecondBlockLayout>
             <div>
-              <SubHeaderWithInput
-                placeholder="Link"
-                header="About Project"
-                inputValue={values.button}
-                onChangeFunction={handleChange}
-                name="button"
-              />
+              <Styled.AdminNDAWrapper>
+                <Styled.AdminField
+                  placeholder="Link"
+                  value={values.NDA ? "" : values.button}
+                  onChange={handleChange}
+                  name="button"
+                />
+                <Styled.AdminCheckboxField
+                  type="checkbox"
+                  id="NDA"
+                  name="NDA"
+                />
+                <label htmlFor="NDA">NDA</label>
+              </Styled.AdminNDAWrapper>
+
               <Styled.AdminInput
                 placeholder="Name project"
                 value={values.title}
@@ -90,17 +169,10 @@ const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
                 name="title"
               />
               <Styled.AdminInput
-                placeholder="Industry"
-                value={values.industry}
-                onChange={handleChange}
-                name="industry"
-              />
-
-              <Styled.AdminInput
                 minRows={4}
-                placeholder="Text"
+                placeholder="About project:"
                 value={values.text}
-                maxLength={300}
+                maxLength={625}
                 onChange={handleChange}
                 name="text"
                 className="withBottomButtons"
@@ -108,46 +180,120 @@ const AddReview = ({ categories, newFlag }: IAddReviewProps) => {
               <Styled.BottomText>
                 <Styled.ErrorText>{errors["text"]}</Styled.ErrorText>
                 <Styled.TextCounter>
-                  {values.text.length}/300
+                  {values.text.length}/625
                 </Styled.TextCounter>
               </Styled.BottomText>
-              <SaveBtn handleClick={submitFunction} />
+              <Styled.FlagSelector>
+                <ReactCountryFlag
+                  countryCode={values.flag}
+                  svg
+                  style={{
+                    width: "2em",
+                    height: "2em",
+                  }}
+                  title="US"
+                />
+                <Select
+                  styles={{
+                    control: (baseStyles) => ({
+                      ...baseStyles,
+                      width: "200px",
+                      borderRadius: 0,
+                      background: "transparent",
+                    }),
+                  }}
+                  options={options}
+                  onChange={changeCountryHandler}
+                />
+              </Styled.FlagSelector>
             </div>
             <div>
-              <Styled.InputAndStars>
-                <SubHeaderWithInput
-                  placeholder="Name"
-                  header="Add review"
-                  inputValue={values.feedback.name}
-                  onChangeFunction={handleChange}
-                  name="feedback.name"
-                />
-                <Styled.StartsContainer>
-                  <Styled.AdminFeedbackStars>
-                    <AdminStars
-                      size={30}
-                      value={Number(values.feedback.rating)}
-                      handleChange={starsChange}
-                      edit={true}
-                    />
-                  </Styled.AdminFeedbackStars>
-                </Styled.StartsContainer>
-              </Styled.InputAndStars>
-              <Styled.AdminInput
-                placeholder="Company"
-                value={values.feedback.company}
-                onChange={handleChange}
-                name="feedback.company"
-              />
-              <Styled.AdminInput
-                minRows={4}
-                placeholder="Text review"
-                value={values.feedback.feedbackText}
-                onChange={handleChange}
-                name="feedback.feedbackText"
-              />
+              <div>
+                <Styled.IndustryWrapper>
+                  <input
+                    type="text"
+                    placeholder="Add NEW industry"
+                    ref={industryRef}
+                  />
+                  <div onClick={() => addIndustry(industryRef.current!.value)}>
+                    +
+                  </div>
+                </Styled.IndustryWrapper>
+                <DropdownIndustry industries={industries} />
+              </div>
+              <Styled.SmallProjectInfoWrapper>
+                <Styled.SmallInputWrapper>
+                  <p>Project Duration</p>
+                  <label>
+                    <Field type="text" placeholder="0" name="projectDuration" />
+                    month
+                  </label>
+                </Styled.SmallInputWrapper>
+                <Styled.SmallInputWrapper>
+                  <p>Team members</p>
+                  <label>
+                    <Field type="text" placeholder="0" name="projectTeam" />
+                    members
+                  </label>
+                </Styled.SmallInputWrapper>
+              </Styled.SmallProjectInfoWrapper>
             </div>
           </Styled.AdminPageSecondBlockLayout>
+          <Styled.AdminPageThirdBlockLayout>
+            <h3 style={{ margin: "0 0 15px 0" }}>Add review</h3>
+            <Styled.AdminPageThirdBlockFlex>
+              <Styled.AdminInput
+                placeholder="Name"
+                value={values.feedback.name}
+                onChange={handleChange}
+                name="feedback.name"
+              />
+              <Styled.AdminInput
+                placeholder="Position"
+                value={values.feedback.position}
+                onChange={handleChange}
+                name="feedback.position"
+              />
+            </Styled.AdminPageThirdBlockFlex>
+            <Styled.AdminInput
+              minRows={4}
+              placeholder="Text review"
+              value={values.feedback.feedbackText}
+              onChange={handleChange}
+              name="feedback.feedbackText"
+            />
+          </Styled.AdminPageThirdBlockLayout>
+          <Styled.AdminPageFourthBlockLayout>
+            <h3 style={{ margin: "0 0 15px 0" }}>Technology</h3>
+            <DropdownTechnology technologies={technologies} />
+            {values.technologies.length > 0 &&
+              values.technologies.map((tech, idx) => (
+                <Styled.AdminPageFourthTechTagWrapper key={`${tech}${idx}`}>
+                  <Styled.AdminPageFourthTechTag>
+                    <span>{tech.name}</span>
+                    <span>x</span>
+                  </Styled.AdminPageFourthTechTag>
+                  <label>
+                    <Field type="checkbox" name={`technologies[${idx}].main`} />{" "}
+                    Main
+                  </label>
+                </Styled.AdminPageFourthTechTagWrapper>
+              ))}
+            <Styled.AdminPageAddTechnologyWrapper>
+              <Field
+                name="technologyNew.name"
+                type="text"
+                placeholder="Name the new technology"
+              />
+              <AddProjectTechIcon />
+              <div
+                className="plus"
+                onClick={() => addTech(values.technologyNew)}
+              >
+                +
+              </div>
+            </Styled.AdminPageAddTechnologyWrapper>
+          </Styled.AdminPageFourthBlockLayout>
         </Styled.AdminPageReviewBlock>
       </Styled.AdminPageFirstBlockLayout>
     </>

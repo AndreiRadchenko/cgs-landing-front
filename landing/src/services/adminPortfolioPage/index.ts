@@ -4,6 +4,7 @@ import {
   ICTAData,
   IPortfolioPageData,
   IPortfolioReview,
+  ITechnology,
 } from "../../types/Admin/AdminPortfolio.types";
 import { ISwapData } from "../../types/Admin/Response.types";
 
@@ -29,6 +30,19 @@ export class AdminPortfolioService {
   }
   public getByCategory(category: string) {
     return this.httpService.get(`api/portfolio/review/${category}`);
+  }
+  public addIndustry(industryElem: string) {
+    return this.httpService.post(`api/portfolio/industry`, {
+      industry: industryElem,
+    });
+  }
+  public removeIndustry(industryElem: string) {
+    return this.httpService.delete(`api/portfolio/industry/${industryElem}`);
+  }
+  public addTechnology(technologyElem: ITechnology) {
+    return this.httpService.post(`api/portfolio/technology`, {
+      technology: technologyElem,
+    });
   }
   public addReview(review: IPortfolioReview) {
     return this.httpService.post(`api/portfolio/review`, review);

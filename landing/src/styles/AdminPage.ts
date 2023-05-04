@@ -7,6 +7,7 @@ import { CheckBoxType } from "./../types/Admin/AdminEstimationForm.types";
 import articleIntro from "../../public/BlogDecorations/Formatting/articleIntro.svg";
 import RightArrow from "../../public/AdminPortfolio/RightArrow.svg";
 import LeftArrow from "../../public/AdminPortfolio/LeftArrow.svg";
+import { Field } from "formik";
 
 interface ITextEditorWrapperProps {
   start?: number;
@@ -322,6 +323,69 @@ export const AdminFlexColumn = styled(SortableList)`
 
 export const AdminBlockWrapper = styled.div``;
 
+export const IndustryWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+
+  input {
+    flex: 1 1 auto;
+    border: 1px solid ${themes.primary.colors.adminInputBorder};
+    background: transparent;
+    height: 56px;
+    padding: 17px;
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 14px;
+  }
+  div {
+    background: ${themes.primary.colors.primary};
+    width: 58px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    font-family: ${themes.primary.font.family.namu};
+    font-size: 35px;
+    color: ${themes.primary.colors.secondary};
+    line-height: 42px;
+    cursor: pointer;
+  }
+`;
+
+export const SmallProjectInfoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 40px;
+`;
+
+export const SmallInputWrapper = styled.div`
+  input {
+    border: 1px solid ${themes.primary.colors.adminInputBorder};
+    background: transparent;
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 16px;
+    width: 38px;
+    height: 38px;
+    padding-left: 12px;
+    margin-right: 10px;
+  }
+  div {
+    background: ${themes.primary.colors.primary};
+    width: 58px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    font-family: ${themes.primary.font.family.namu};
+    font-size: 35px;
+    color: ${themes.primary.colors.secondary};
+    line-height: 42px;
+    cursor: pointer;
+  }
+`;
+
 export const AdminInput = styled(TextareaAutosize)<IAdminInput>`
   resize: vertical;
   width: ${({ width }) => (width ? width : "100%")};
@@ -353,6 +417,50 @@ export const AdminInput = styled(TextareaAutosize)<IAdminInput>`
 
   &.metaField {
     background-color: ${themes.primary.colors.careerBackground};
+  }
+`;
+
+export const AdminField = styled(Field)`
+  height: 56px;
+  border: 1px solid ${themes.primary.colors.comment};
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 16px;
+  line-height: 19px;
+  color: ${themes.primary.colors.comment};
+  padding: 18px 14px;
+  background: transparent;
+  min-width: 350px;
+`;
+
+export const AdminCheckboxField = styled(Field)`
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+
+  /* creating a custom design */
+  border-radius: 0;
+  border: 1px solid ${themes.primary.colors.comment};
+  width: 19px;
+  height: 19px;
+  margin: 0;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  &::before {
+    content: "";
+    width: 19px;
+    height: 19px;
+    position: absolute;
+  }
+  &:checked {
+    ::before {
+      background-color: ${themes.primary.colors.primary};
+      background-image: url("/adminMarker.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
 `;
 
@@ -405,7 +513,6 @@ export const AdminDashedPositionGrid = styled.div`
   justify-content: center;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
 
   &.uploaded {
@@ -424,7 +531,6 @@ export const AdminDeleteText = styled.button`
   color: ${themes.primary.colors.errorText};
   margin: 10px;
   font-size: ${themes.primary.font.size.primary};
-  text-align: center;
   cursor: pointer;
   border: none;
 `;
@@ -1040,7 +1146,7 @@ export const AdminPortfolioReviewArrowContainer = styled.div<IAdminPortfolioRevi
 `;
 
 export const AdminPortfolioImage = styled.div`
-  min-height: 250px;
+  max-height: 450px;
   display: grid;
 `;
 
@@ -1280,9 +1386,134 @@ export const AdminPageFirstBlockLayout = styled.div`
 
 export const AdminPageSecondBlockLayout = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   column-gap: 1.5em;
   margin-bottom: 30px;
+
+  border-bottom: 1px solid ${themes.primary.colors.comment};
+`;
+
+export const AdminNDAWrapper = styled.div`
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  label {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 16px;
+    line-height: 19px;
+    color: ${themes.primary.colors.comment};
+  }
+`;
+
+export const AdminPageThirdBlockLayout = styled.div`
+  width: 60%;
+  margin-bottom: 10px;
+`;
+
+export const AdminPageFourthBlockLayout = styled.div`
+  width: 100%;
+  margin-bottom: 30px;
+  padding-top: 30px;
+
+  border-top: 1px solid ${themes.primary.colors.comment};
+`;
+
+export const AdminPageAddTechnologyWrapper = styled.div`
+  width: 70%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding-top: 30px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  input {
+    width: 275px;
+    border: 1px solid ${themes.primary.colors.adminInputBorder};
+    background: transparent;
+    height: 56px;
+    padding: 17px;
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 14px;
+  }
+  .plus {
+    background: ${themes.primary.colors.primary};
+    width: 58px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    font-family: ${themes.primary.font.family.namu};
+    font-size: 35px;
+    color: ${themes.primary.colors.secondary};
+    line-height: 42px;
+    cursor: pointer;
+  }
+
+  border-top: 1px solid ${themes.primary.colors.comment};
+`;
+
+export const AdminPageFourthTechTagWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  input {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+
+    /* creating a custom design */
+    border-radius: 0;
+    border: 1px solid ${themes.primary.colors.comment};
+    width: 19px;
+    height: 19px;
+    margin: 0;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 19px;
+      height: 19px;
+      position: absolute;
+    }
+
+    &:checked {
+      ::before {
+        background-color: ${themes.primary.colors.primary};
+        background-image: url("/adminMarker.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+`;
+
+export const AdminPageFourthTechTag = styled.div`
+  padding: 3px 8px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  background-color: ${themes.primary.colors.darkBlue};
+  color: ${themes.primary.colors.secondary};
+`;
+
+export const AdminPageThirdBlockFlex = styled.div`
+  display: flex;
+  gap: 14px;
+  align-items: center;
 `;
 
 export const InputAndStars = styled.div`
@@ -1691,6 +1922,13 @@ export const BottomText = styled.div`
   margin-bottom: 1.5em;
 `;
 
+export const FlagSelector = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 1.5em;
+`;
+
 export const AdminHeaderPhotoWrapper = styled.div`
   width: 21%;
 `;
@@ -1799,7 +2037,7 @@ export const AdminCategoryWrapper = styled.div`
 export const AdminPageReviewBlock = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 10px;
 `;
 
 export const AdminPageCTABlock = styled.div`

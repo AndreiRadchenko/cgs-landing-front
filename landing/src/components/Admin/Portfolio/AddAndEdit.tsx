@@ -62,7 +62,12 @@ const AddAndEdit = ({
       }}
       validationSchema={AdminPortfolioValidation}
     >
-      <AddReview categories={values.categories} newFlag={isNewStatus} />
+      <AddReview
+        categories={values.categories}
+        industries={values.industries}
+        technologies={values.technologies}
+        newFlag={isNewStatus}
+      />
     </Formik>
   );
 };

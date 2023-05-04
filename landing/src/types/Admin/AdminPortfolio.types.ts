@@ -1,24 +1,49 @@
 import { IMetaBlock } from "./Response.types";
+import { IImage } from "./Admin.types";
+import { Dispatch, SetStateAction } from "react";
+
+export interface ITechnology {
+  name: string;
+  image: {
+    url: string;
+  };
+  main: boolean;
+}
 
 export interface IPortfolioReview {
   _id?: string;
-  image: { url: string } | null;
+  imageBanner: IImage;
+  imageProjectBanner: IImage;
+  NDA: boolean;
+  flag: string;
+  country: string;
+  projectDuration: string;
+  projectTeam: string;
   title: string;
   industry: string;
+  technologies: ITechnology[];
   text: string;
   category: string;
   button: string;
   feedback: {
     name: string;
-    rating: number;
-    company: string;
+    position: string;
     feedbackText: string;
+  };
+  technologyNew: {
+    name: string;
+    image: {
+      url: string;
+    };
+    main: boolean;
   };
   bgColor: string;
 }
 
 export interface IPortfolioPageData {
   categories: string[];
+  industries: string[];
+  technologies: ITechnology[];
   meta: IMetaBlock;
 }
 
@@ -53,7 +78,7 @@ export interface IPortfolioProjectResponse {
 export interface IAddAndEditProps {
   current: number;
   isNewStatus: boolean;
-  setIsNewStatus: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsNewStatus: Dispatch<SetStateAction<boolean>>;
   reviews: IPortfolioReview[] | undefined | void;
 }
 
