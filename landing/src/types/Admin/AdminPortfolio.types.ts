@@ -3,6 +3,7 @@ import { IImage } from "./Admin.types";
 import { Dispatch, SetStateAction } from "react";
 
 export interface ITechnology {
+  _id?: string;
   name: string;
   image: {
     url: string;

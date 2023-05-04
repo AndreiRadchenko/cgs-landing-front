@@ -24,7 +24,7 @@ const DropdownTechnology = ({ technologies }: IDropdownProps) => {
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const { values, setFieldValue } = useFormikContext<IPortfolioReview>();
+  const { values } = useFormikContext<IPortfolioReview>();
 
   const { mutateAsync: deleteTech } = useMutation(
     [queryKeys.removePortfolioTech],
@@ -54,7 +54,7 @@ const DropdownTechnology = ({ technologies }: IDropdownProps) => {
         {technologies?.map((tech, idx) => (
           <div key={`${tech}${idx}`} onMouseDown={(e) => e.preventDefault()}>
             <span onClick={() => changeTechHandler(tech)}>{tech.name}</span>
-            <TrashIconBtn />
+            <TrashIconBtn onClick={() => tech._id && deleteTech(tech._id)} />
           </div>
         ))}
       </Styled.Content>

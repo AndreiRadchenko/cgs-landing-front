@@ -36,8 +36,8 @@ export class AdminPortfolioService {
       industry: industryElem,
     });
   }
-  public removeIndustry(industryElem: string) {
-    return this.httpService.delete(`api/portfolio/industry/${industryElem}`);
+  public removeIndustry(id: string) {
+    return this.httpService.delete(`api/portfolio/technology/${id}`);
   }
   public addTechnology(technologyElem: ITechnology) {
     return this.httpService.post(`api/portfolio/technology`, {
