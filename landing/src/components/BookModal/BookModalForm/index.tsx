@@ -51,7 +51,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
   const [btnState, setBtnState] = useState({
     isDisabled: true,
     isClicked: false,
-    link: "",
+    link: "https://calendly.com/d/y5h-6m9-mnr/get-to-know-meeting-with-cgs-team",
   });
 
   const { data: ServiceData } = useQuery([queryKeys.getAllServices], () =>
@@ -81,14 +81,18 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     validateOnBlur: true,
     onSubmit(values, { resetForm, setErrors }) {
       values.details = values.details.replace(/^\s*$/, "");
-      if (!values.email || !values.service) return;
+      console.log("on submit");
+      // if (!values.email || !values.service) return;
+      if (!values.email) return;
       sendTeamEmail.mutate({
         name: values.name,
         email: values.email,
         phone: value,
         country: country,
-        service: values.service,
-        details: values.details,
+        // service: values.service,
+        // details: values.details,
+        service: "Mobile Development",
+        details: "",
       });
 
       setCalendlyIsOpen(true);
@@ -116,7 +120,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       setBtnState({
         isDisabled: true,
         isClicked: false,
-        link: "",
+        link: "https://calendly.com/d/y5h-6m9-mnr/get-to-know-meeting-with-cgs-team",
       });
       setServiceIsOpen(false);
       formik.resetForm();
@@ -131,27 +135,27 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     }
   }, [formik.errors]);
 
-  useEffect(() => {
-    setBtnState((old) => {
-      const ind =
-        navigationRoutesNamesNew[1].tags &&
-        navigationRoutesNamesNew[1].tags.findIndex((serv) => serv === service);
-      if (
-        ServiceData &&
-        navigationRoutesNamesNew[1].tags &&
-        typeof ind === "number" &&
-        ind !== -1
-      ) {
-        const tempLink = ServiceData[ind].headerBlock.buttonLink;
-        if (tempLink)
-          return {
-            ...old,
-            link: tempLink,
-          };
-      }
-      return old;
-    });
-  }, [service, ServiceData]);
+  // useEffect(() => {
+  //   setBtnState((old) => {
+  //     const ind =
+  //       navigationRoutesNamesNew[1].tags &&
+  //       navigationRoutesNamesNew[1].tags.findIndex((serv) => serv === service);
+  //     if (
+  //       ServiceData &&
+  //       navigationRoutesNamesNew[1].tags &&
+  //       typeof ind === "number" &&
+  //       ind !== -1
+  //     ) {
+  //       const tempLink = ServiceData[ind].headerBlock.buttonLink;
+  //       if (tempLink)
+  //         return {
+  //           ...old,
+  //           link: tempLink,
+  //         };
+  //     }
+  //     return old;
+  //   });
+  // }, [service, ServiceData]);
 
   const checkIfButtonIsDisabled = () => {
     setBtnState((old) => {
@@ -169,6 +173,8 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     setName("");
     setEmail("");
   };
+
+  // console.log(btnState.link);
 
   return (
     <Styled.FormProvider value={formik}>
@@ -189,7 +195,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
             label={label}
           />
         ))}
-        <Styled.ServiceSelect>
+        {/* <Styled.ServiceSelect>
           <ServiceDropdown
             btnIsClicked={btnState.isClicked}
             serviceIsOpen={serviceIsOpen}
@@ -197,14 +203,14 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
             setService={setService}
             dropdownName={split(service)}
           />
-        </Styled.ServiceSelect>
-        <FormFieldDetails
+        </Styled.ServiceSelect> */}
+        {/* <FormFieldDetails
           btnIsClicked={btnState.isClicked}
           name={"details"}
           label={"Any details"}
           placeholder={"Your idea description, requirements, etc."}
           maxLength={1000}
-        />
+        /> */}
         <Styled.FormSentContainer>
           <Styles.ButtonWrapper onClick={checkIfButtonIsDisabled}>
             <BookACallButton

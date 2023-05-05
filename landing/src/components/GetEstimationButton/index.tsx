@@ -58,7 +58,7 @@ const GetEstimationButton = ({
         padding={"1.11em 1.5em"}
         rel="noopener noreferrer"
         className={buttonClassName}
-        href={withEstimation ? undefined : buttonLink}
+        href={withEstimation === true ? undefined : buttonLink}
         onClick={handleButtonClick}
         style={style}
         ref={elRef}
