@@ -40,7 +40,6 @@ export const ImageWrapper = styled.div`
   justify-self: center;
   @media ${themes.primary.media.maxMobile} {
     right: 0;
-    bottom: -10%;
   }
 `;
 
