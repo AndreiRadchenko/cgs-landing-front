@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
 import TextTypingAnimation from "../Typewrite";
 import { mobileServicesRoutes } from "../../utils/variables";
-import Link from "next/link";
 import * as StyledThisComp from "../../styles/HomePage/MobileServices.styled";
 import { ISlideData } from "./MobileServices";
 import { useOnScreen } from "../../hooks/useOnScreen";
@@ -37,7 +39,12 @@ const MobileNextTechSlide = ({
         <StyledThisComp.ServiceWrapper>
           <TextTypingAnimation text={convertedTitle} startPoint={isOnScreen} />
           <StyledThisComp.ImageWrapper>
-            <StyledThisComp.Image src={item.image} />
+            <Image
+              src={item.image}
+              alt="Image of the service"
+              layout="fill"
+              objectFit="contain"
+            />
           </StyledThisComp.ImageWrapper>
         </StyledThisComp.ServiceWrapper>
       </StyledThisComp.ServiceLink>
