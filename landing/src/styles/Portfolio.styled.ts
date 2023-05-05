@@ -433,7 +433,7 @@ export const CTAHeading = styled.div`
   margin-bottom: 15px;
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 32px;
   }
 `;
