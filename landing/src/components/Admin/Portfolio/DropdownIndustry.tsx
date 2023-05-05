@@ -28,7 +28,7 @@ const DropdownIndustry = ({ industries }: IDropdownProps) => {
     (industry: string) => adminPortfolioService.removeIndustry(industry),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries([queryKeys.getPortfolio]);
+        queryClient.invalidateQueries([queryKeys.getPortfolioPage]);
       },
     }
   );

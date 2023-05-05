@@ -21,12 +21,14 @@ const AddProjectTechIcon = () => {
   const deleteImageFunction = useDeleteImageFunction(
     values.technologyNew,
     "",
-    false
+    false,
+    "technologyNew.image"
   );
   const uploadImageFunction = useUploadImageFunction(
     values.technologyNew,
     "",
-    false
+    false,
+    "technologyNew.image"
   );
 
   const deleteFunc = async () => (await deleteImageFunction)();

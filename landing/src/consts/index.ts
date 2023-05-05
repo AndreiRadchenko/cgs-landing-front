@@ -129,8 +129,12 @@ export const newBlockchainProjectInit = {
 };
 
 export const newPageReviewInit = {
-  imageBanner: null,
-  imageProjectBanner: null,
+  imageBanner: {
+    image: null,
+  },
+  imageProjectBanner: {
+    image: null,
+  },
   category: "",
   title: "",
   text: "",

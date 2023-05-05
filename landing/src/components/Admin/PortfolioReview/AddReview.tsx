@@ -10,6 +10,8 @@ import AdminDropDown from "../Global/AdminDropDown";
 import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 import DropdownIndustry from "../Portfolio/DropdownIndustry";
 import DropdownTechnology from "../Portfolio/DropdownTechnology";
+import SaveBtn from "../Global/SaveBtn";
+import AddProjectTechIcon from "../Portfolio/AddProjectTechIcon";
 
 import * as Styled from "../../../styles/AdminPage";
 
@@ -24,7 +26,6 @@ import {
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
-import AddProjectTechIcon from "../Portfolio/AddProjectTechIcon";
 
 interface IAddReviewProps {
   categories: string[];
@@ -41,9 +42,8 @@ const AddReview = ({
 }: IAddReviewProps) => {
   const queryClient = useQueryClient();
 
-  const { values, handleChange, errors, setFieldValue } =
+  const { values, handleChange, errors, handleSubmit, setFieldValue } =
     useFormikContext<IPortfolioReview>();
-  console.log(values);
 
   const [catValue, setCatValue] = useState(
     newFlag ? categories[0] : values.category
@@ -56,23 +56,27 @@ const AddReview = ({
   const deleteFunctionBanner = useDeleteImageFunction(
     values.imageBanner,
     "",
-    false
+    false,
+    "imageBanner.image"
   );
   const uploadFunctionBanner = useUploadImageFunction(
     values.imageBanner,
     "",
-    false
+    false,
+    "imageBanner.image"
   );
 
   const deleteFunctionProjectBanner = useDeleteImageFunction(
     values.imageProjectBanner,
     "",
-    false
+    false,
+    "imageProjectBanner.image"
   );
   const uploadFunctionProjectBanner = useUploadImageFunction(
     values.imageProjectBanner,
     "",
-    false
+    false,
+    "imageProjectBanner.image"
   );
 
   const { mutateAsync: addIndustry } = useMutation(
@@ -80,7 +84,7 @@ const AddReview = ({
     (industry: string) => adminPortfolioService.addIndustry(industry),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries([queryKeys.getPortfolio]);
+        queryClient.invalidateQueries([queryKeys.getPortfolioPage]);
       },
     }
   );
@@ -91,7 +95,7 @@ const AddReview = ({
       adminPortfolioService.addTechnology(technology),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries([queryKeys.getPortfolio]);
+        queryClient.invalidateQueries([queryKeys.getPortfolioPage]);
       },
     }
   );
@@ -120,7 +124,7 @@ const AddReview = ({
           </Styled.AdminPortfolioImageText>
           <PhotoBlockDashedHorizontal
             emptyHeader="Drop new image here"
-            photo={values.imageBanner}
+            photo={values.imageBanner.image}
             deleteFunction={deleteFuncBanner}
             uploadFunction={uploadFuncBanner}
           />
@@ -131,7 +135,7 @@ const AddReview = ({
           </Styled.AdminPortfolioImageText>
           <PhotoBlockDashedHorizontal
             emptyHeader="Drop new image here"
-            photo={values.imageProjectBanner}
+            photo={values.imageProjectBanner.image}
             deleteFunction={deleteFuncProjectBanner}
             uploadFunction={uploadFuncProjectBanner}
           />
@@ -266,19 +270,6 @@ const AddReview = ({
           <Styled.AdminPageFourthBlockLayout>
             <h3 style={{ margin: "0 0 15px 0" }}>Technology</h3>
             <DropdownTechnology technologies={technologies} />
-            {values.technologies.length > 0 &&
-              values.technologies.map((tech, idx) => (
-                <Styled.AdminPageFourthTechTagWrapper key={`${tech}${idx}`}>
-                  <Styled.AdminPageFourthTechTag>
-                    <span>{tech.name}</span>
-                    <span>x</span>
-                  </Styled.AdminPageFourthTechTag>
-                  <label>
-                    <Field type="checkbox" name={`technologies[${idx}].main`} />{" "}
-                    Main
-                  </label>
-                </Styled.AdminPageFourthTechTagWrapper>
-              ))}
             <Styled.AdminPageAddTechnologyWrapper>
               <Field
                 name="technologyNew.name"
@@ -294,6 +285,7 @@ const AddReview = ({
               </div>
             </Styled.AdminPageAddTechnologyWrapper>
           </Styled.AdminPageFourthBlockLayout>
+          <SaveBtn handleClick={handleSubmit} />
         </Styled.AdminPageReviewBlock>
       </Styled.AdminPageFirstBlockLayout>
     </>

@@ -44,6 +44,7 @@ const AddAndEdit = ({
 
   return (
     <Formik
+      enableReinitialize
       key={`Form${isNewStatus}${
         typeof current === "number" ? current : "null"
       }`}

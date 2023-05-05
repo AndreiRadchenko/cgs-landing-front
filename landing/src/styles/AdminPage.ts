@@ -1421,6 +1421,14 @@ export const AdminPageFourthBlockLayout = styled.div`
   border-top: 1px solid ${themes.primary.colors.comment};
 `;
 
+export const AdminFourthBlockFlexTag = styled.div`
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+`;
+
 export const AdminPageAddTechnologyWrapper = styled.div`
   width: 70%;
   margin-bottom: 30px;
@@ -1508,6 +1516,10 @@ export const AdminPageFourthTechTag = styled.div`
   align-items: center;
   background-color: ${themes.primary.colors.darkBlue};
   color: ${themes.primary.colors.secondary};
+
+  span {
+    cursor: pointer;
+  }
 `;
 
 export const AdminPageThirdBlockFlex = styled.div`
