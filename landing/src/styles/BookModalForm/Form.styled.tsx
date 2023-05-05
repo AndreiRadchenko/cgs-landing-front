@@ -45,17 +45,17 @@ export const FormSentContainer = styled.div`
   width: 100%;
   height: 53px;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 38px;
   margin-bottom: 38px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 40px;
+    margin-top: 58px;
     margin-bottom: 58px;
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
     height: 50px;
-    margin-top: 6px;
+    margin-top: 26px;
     margin-bottom: 26px;
   }
 `;
