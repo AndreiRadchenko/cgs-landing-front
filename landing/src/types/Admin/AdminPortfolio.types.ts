@@ -14,6 +14,7 @@ export interface ITechnology {
 export interface IPortfolioReview {
   _id?: string;
   imageBanner: IImage;
+  image?: { url: string };
   imageProjectBanner: IImage;
   NDA: boolean;
   flag: string;

@@ -258,7 +258,11 @@ const PortfolioProjectComponent = ({
       </Styled.ProjectsContainerHeader>
       <Styled.ProjectsContainerImage>
         <Image
-          src={project.image!.url}
+          src={
+            project?.image
+              ? project?.image.url
+              : project?.imageProjectBanner?.image?.url
+          }
           className={"image"}
           alt="project image"
           height={341}

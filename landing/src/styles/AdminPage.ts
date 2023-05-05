@@ -2074,7 +2074,7 @@ export const AdminImageWrapper = styled.div`
 export const AdminPortfolioImageWrapper = styled.div`
   position: relative;
   height: 357px;
-  width: 100%;
+  width: 100px;
 `;
 
 export const AdminTechSeparator = styled.div`

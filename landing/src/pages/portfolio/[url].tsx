@@ -116,7 +116,11 @@ const PortfolioProjectPage = () => {
                 <CircleProjectPage />
                 <Image
                   alt="project image"
-                  src={project?.image?.url}
+                  src={
+                    project?.image
+                      ? project?.image.url
+                      : project?.imageBanner?.image?.url
+                  }
                   height={470}
                   width={460}
                   objectFit="contain"

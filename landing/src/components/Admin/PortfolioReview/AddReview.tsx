@@ -1,5 +1,6 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Field, useFormikContext } from "formik";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import countryList, { CountryData } from "react-select-country-list";
@@ -23,7 +24,7 @@ import {
   IPortfolioReview,
   ITechnology,
 } from "../../../types/Admin/AdminPortfolio.types";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 
@@ -45,9 +46,7 @@ const AddReview = ({
   const { values, handleChange, errors, handleSubmit, setFieldValue } =
     useFormikContext<IPortfolioReview>();
 
-  const [catValue, setCatValue] = useState(
-    newFlag ? categories[0] : values.category
-  );
+  const [catValue, setCatValue] = useState(newFlag ? "" : values.category);
 
   const industryRef = useRef<HTMLInputElement | null>(null);
 
@@ -112,6 +111,10 @@ const AddReview = ({
     (await deleteFunctionProjectBanner)();
   const uploadFuncProjectBanner = (image: IImage) =>
     uploadFunctionProjectBanner(image);
+
+  useEffect(() => {
+    setFieldValue("category", catValue);
+  }, [catValue]);
 
   return (
     <>
