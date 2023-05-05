@@ -34,31 +34,12 @@ export const ServiceWrapper = styled.div`
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  width: 320px;
+  width: 303px;
+  height: 268px;
   bottom: -7%;
   justify-self: center;
   @media ${themes.primary.media.maxMobile} {
-    width: 55%;
     right: 0;
-    bottom: -10%;
-  }
-
-  @media (max-width: 600px) {
-    width: 60%;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 80%;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 80%;
-  }
-  @media (max-width: 450px) {
-    width: 85%;
-  }
-  @media (max-width: 400px) {
-    width: 95%;
   }
 `;
 
