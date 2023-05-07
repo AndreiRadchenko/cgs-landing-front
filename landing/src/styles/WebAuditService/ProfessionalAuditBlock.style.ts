@@ -106,15 +106,30 @@ export const HoveredImage = styled.div<IProps>`
       transform: translateX(-120%);
     }
   }
-  transform: translateX(-20%);
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
 
-  animation: scroll 6s infinite linear;
+  transform: translateX(-20%);
+  opacity: ${({ delay }) => (delay ? "0" : "100")};
+
+  animation: ${({ delay }) => {
+    return delay
+      ? "scroll 6s infinite linear, fade-in 1s ease-out forwards;"
+      : "scroll 6s infinite linear;";
+  }};
   animation-delay: ${({ delay }) => (delay ? `${delay * 3}s` : "0")};
   flex-shrink: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
   position: absolute;
+
   width: 150%;
   height: 100%;
   z-index: 3;
