@@ -53,7 +53,7 @@ const AddReview = ({
   const options = useMemo(() => countryList().getData(), []);
 
   const deleteFunctionBanner = useDeleteImageFunction(
-    values.imageBanner,
+    values.imageBanner ? values.imageBanner : values,
     "",
     false,
     "imageBanner.image"
@@ -66,7 +66,7 @@ const AddReview = ({
   );
 
   const deleteFunctionProjectBanner = useDeleteImageFunction(
-    values.imageProjectBanner,
+    values.imageProjectBanner ? values.imageProjectBanner : values,
     "",
     false,
     "imageProjectBanner.image"
@@ -127,7 +127,7 @@ const AddReview = ({
           </Styled.AdminPortfolioImageText>
           <PhotoBlockDashedHorizontal
             emptyHeader="Drop new image here"
-            photo={values.imageBanner.image}
+            photo={values.image ? values.image : values.imageBanner.image}
             deleteFunction={deleteFuncBanner}
             uploadFunction={uploadFuncBanner}
           />
@@ -138,7 +138,9 @@ const AddReview = ({
           </Styled.AdminPortfolioImageText>
           <PhotoBlockDashedHorizontal
             emptyHeader="Drop new image here"
-            photo={values.imageProjectBanner.image}
+            photo={
+              values.image ? values.image : values.imageProjectBanner.image
+            }
             deleteFunction={deleteFuncProjectBanner}
             uploadFunction={uploadFuncProjectBanner}
           />
@@ -198,7 +200,6 @@ const AddReview = ({
                     width: "2em",
                     height: "2em",
                   }}
-                  title="US"
                 />
                 <Select
                   styles={{

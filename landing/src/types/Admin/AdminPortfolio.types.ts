@@ -14,7 +14,9 @@ export interface ITechnology {
 export interface IPortfolioReview {
   _id?: string;
   imageBanner: IImage;
-  image?: { url: string };
+  image: {
+    url: string;
+  };
   imageProjectBanner: IImage;
   NDA: boolean;
   flag: string;
@@ -39,7 +41,6 @@ export interface IPortfolioReview {
     };
     main: boolean;
   };
-  bgColor: string;
 }
 
 export interface IPortfolioPageData {

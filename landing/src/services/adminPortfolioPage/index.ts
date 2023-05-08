@@ -14,7 +14,6 @@ export class AdminPortfolioService {
     return this.httpService.get<IPortfolioPageData>("api/portfolio");
   }
   public getProjectData(id: string) {
-    console.log(id);
     return this.httpService.get(`api/portfolio/${id}`);
   }
   public updatePageData(data: IPortfolioPageData) {

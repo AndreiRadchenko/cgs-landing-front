@@ -259,9 +259,9 @@ const PortfolioProjectComponent = ({
       <Styled.ProjectsContainerImage>
         <Image
           src={
-            project?.image
-              ? project?.image.url
-              : project?.imageProjectBanner?.image?.url
+            project?.imageBanner?.image?.url
+              ? project?.imageBanner?.image?.url
+              : project?.image.url
           }
           className={"image"}
           alt="project image"
@@ -304,7 +304,18 @@ const PortfolioProjectComponent = ({
           </div>
         </Styled.ProjectsContainerInfoBtn>
         <Styled.ProjectsContainerInfoIconsContainer>
-          {mockedIconsTech.map((item) => item.icon)}
+          {project.technologies.length > 0
+            ? project.technologies.map((item) => (
+                <Image
+                  key={item.image.url}
+                  src={item.image.url}
+                  alt="tech"
+                  height={60}
+                  width={60}
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
+              ))
+            : mockedIconsTech.map((item) => item.icon)}
         </Styled.ProjectsContainerInfoIconsContainer>
       </Styled.ProjectsContainerInfo>
     </Styled.ProjectsContainer>

@@ -51,17 +51,34 @@ const AddAndEdit = ({
       initialValues={
         isNewStatus
           ? JSON.parse(JSON.stringify(newPageReviewInit))
-          : typeof reviews !== "undefined" && reviews[current]
+          : typeof reviews !== "undefined" &&
+            (reviews[current].imageBanner
+              ? reviews[current]
+              : {
+                  ...reviews[current],
+                  imageBanner: {
+                    image: null,
+                  },
+                  imageProjectBanner: {
+                    image: null,
+                  },
+                })
       }
       onSubmit={(values, action) => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { __v, ...data } = values;
-        isNewStatus ? addReview(data) : editReview(data);
+        const { __v, image, bgColor, feedback, ...data } = values;
+        const clearedFeedback = {
+          position: values.feedback.position,
+          name: values.feedback.name,
+          feedbackText: values.feedback.feedbackText,
+        };
+        isNewStatus
+          ? addReview(data)
+          : editReview({ ...data, feedback: clearedFeedback });
         action.resetForm();
-        action.setFieldValue("image", null);
+        action.setFieldValue("categories", "");
         setIsNewStatus(true);
       }}
-      validationSchema={AdminPortfolioValidation}
     >
       <AddReview
         categories={values.categories}

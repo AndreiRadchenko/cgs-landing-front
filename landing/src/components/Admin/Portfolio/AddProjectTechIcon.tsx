@@ -36,7 +36,8 @@ const AddProjectTechIcon = () => {
 
   const { modal, toggleModal } = useUploadModal();
 
-  return values.technologyNew.image !== null &&
+  return values.technologyNew !== undefined &&
+    values.technologyNew.image !== null &&
     values.technologyNew.image !== undefined &&
     values.technologyNew.image.url !== "" ? (
     <Styled.AuthorPhotoGrid className="author">
