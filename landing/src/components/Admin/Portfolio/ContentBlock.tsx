@@ -15,6 +15,7 @@ import EditReview from "./EditReview";
 import {
   IPortfolioPageData,
   IPortfolioCTAResponse,
+  IPortfolioResponse,
 } from "../../../types/Admin/AdminPortfolio.types";
 import { queryKeys } from "../../../consts/queryKeys";
 import * as Styled from "../../../styles/AdminPage";
@@ -29,9 +30,9 @@ const AdminPortfolioContentBlock = () => {
     adminPortfolioService.getReviews()
   );
 
-  const { data: ctaData, isLoading }: IPortfolioCTAResponse = useQuery(
-    [queryKeys.getPortfolioCTA],
-    () => adminPortfolioService.getPortfolioCTA()
+  const { data: portfolio, isLoading }: IPortfolioResponse = useQuery(
+    [queryKeys.getPortfolioPageData],
+    () => adminPortfolioService.getPageData()
   );
 
   const [current, setCurrent] = useState(0);
@@ -79,7 +80,7 @@ const AdminPortfolioContentBlock = () => {
           {isLoading ? (
             <p>Loading...</p>
           ) : (
-            <CallToAction initValues={ctaData!.cta} />
+            <CallToAction initValues={portfolio!.cta} />
           )}
         </BlockDropdown>
       </Styled.AdminPaddedBlock>
