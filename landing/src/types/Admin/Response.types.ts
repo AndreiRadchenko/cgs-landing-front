@@ -609,13 +609,14 @@ export interface IProjects {
 }
 
 export interface IReviewProps {
-  bgColor: string;
+  bgColor?: string;
   button: string;
   category: string;
   feedback: {
     name: string;
-    rating: number | null;
-    company: string;
+    rating?: number | null;
+    position: string;
+    company?: string;
     feedbackText: string;
   };
   image: { url: string } | null;

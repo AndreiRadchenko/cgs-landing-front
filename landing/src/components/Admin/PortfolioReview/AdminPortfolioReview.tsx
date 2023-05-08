@@ -40,8 +40,6 @@ const AdminReview = ({
     if (editFlag) onScroll();
   };
 
-  const redirect = () => (window.location.href = review.button);
-
   if (!review) return <Styled.AdminSubTitle>no reviews</Styled.AdminSubTitle>;
 
   return (
@@ -68,7 +66,11 @@ const AdminReview = ({
       </Styled.AdminPortfolioReviewHeader>
       <Styled.AdminPortfolioReviewImage>
         <Image
-          src={review.image!.url}
+          src={
+            review.imageBanner?.image
+              ? review.imageBanner.image!.url
+              : review.image?.url
+          }
           className="image"
           alt="review image"
           height={341}
