@@ -48,6 +48,7 @@ export interface IPortfolioPageData {
   industries: string[];
   technologies: ITechnology[];
   meta: IMetaBlock;
+  cta: ICTAData;
 }
 
 export interface IPortfolioResponse {

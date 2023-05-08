@@ -67,11 +67,6 @@ const PortfolioPage: NextPage = () => {
   );
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  const { data: ctaData, isLoading: ctaDataIsLoading }: IPortfolioCTAResponse =
-    useQuery([queryKeys.getPortfolioCTA], () =>
-      adminPortfolioService.getPortfolioCTA()
-    );
-
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   return (
@@ -103,7 +98,7 @@ const PortfolioPage: NextPage = () => {
                 setCurrentPage={setCurrentPage}
               />
             </Styles.PortfolioWrapper>
-            <CTABlock initValues={ctaData!.cta} />
+            <CTABlock initValues={data.cta} />
             <FooterNew />
           </Styles.PortfolioContainer>
         </>
