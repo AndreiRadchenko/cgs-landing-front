@@ -135,15 +135,16 @@ const PortfolioProjectPage = () => {
               </Styled.InfoWrapperTimeTeam>
             </Styled.PortfolioPageInfoContainer>
             <Styled.PortfolioPageIconContainer>
-              {project?.technologies.map((item) => (
-                <Image
-                  key={item.image.url}
-                  src={item.image.url}
-                  alt="tech"
-                  className="image"
-                  layout="fill"
-                />
-              ))}
+              {project?.technologies &&
+                project?.technologies.map((item) => (
+                  <Image
+                    key={item.image.url}
+                    src={item.image.url}
+                    alt="tech"
+                    className="image"
+                    layout="fill"
+                  />
+                ))}
             </Styled.PortfolioPageIconContainer>
           </Styled.PortfolioPageWrapper>
           <FooterNew />
