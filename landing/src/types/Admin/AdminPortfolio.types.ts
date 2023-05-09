@@ -49,6 +49,7 @@ export interface IPortfolioPageData {
   technologies: ITechnology[];
   meta: IMetaBlock;
   cta: ICTAData;
+  individualProjectPage: IIPPData;
   SubtitleBlock: { title: string };
 }
 
@@ -105,6 +106,14 @@ export interface ICTAData {
   } | null;
   subtitle: string;
   text: string;
+  button: string;
+  buttonLink: string;
+}
+
+export interface IIPPData {
+  feedback: string;
+  additionalProjects: string;
+  cta: string;
   button: string;
   buttonLink: string;
 }
