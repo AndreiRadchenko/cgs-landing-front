@@ -233,6 +233,11 @@ const PortfolioProjectComponent = ({
     );
   };
 
+  const openInNewTab = (url: string): void => {
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  };
+
   return (
     <Styled.ProjectsContainer>
       <Styled.ProjectsContainerHeader isInfoCont={false}>
@@ -241,7 +246,10 @@ const PortfolioProjectComponent = ({
           {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
           <p>// {project.industry}</p>
         </Styled.ProjectsContainerHeaderTitle>
-        <Styled.ProjectsContainerHeaderLink isInfoCont={false}>
+        <Styled.ProjectsContainerHeaderLink
+          isProjectLink={!!project.button}
+          isInfoCont={false}
+        >
           {project.button ? (
             <a href={project.button} target="_blank" rel="noreferrer">
               project link
@@ -276,7 +284,11 @@ const PortfolioProjectComponent = ({
             {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
             <p>// {project.industry}</p>
           </Styled.ProjectsContainerInfoHeaderTitle>
-          <Styled.ProjectsContainerHeaderLink isInfoCont={true}>
+          <Styled.ProjectsContainerHeaderLink
+            onClick={() => !!project.button && openInNewTab(project.button)}
+            isInfoCont={true}
+            isProjectLink={!!project.button}
+          >
             {project.button ? (
               <a href={project.button} target="_blank" rel="noreferrer">
                 project link
