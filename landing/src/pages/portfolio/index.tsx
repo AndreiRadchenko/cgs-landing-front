@@ -13,7 +13,6 @@ import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { CTABlock } from "../../components/Portfolio/CTABlock";
 
 import {
-  IPortfolioCTAResponse,
   IPortfolioResponse,
   IPortfolioReviewsResponse,
 } from "../../types/Admin/AdminPortfolio.types";
