@@ -273,6 +273,11 @@ export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>
   border-radius: 50%;
   overflow: hidden;
 
+  svg {
+    width: 35px;
+    height: 35px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     width: 26px;
     height: 26px;
