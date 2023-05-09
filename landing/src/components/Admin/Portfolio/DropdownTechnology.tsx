@@ -23,10 +23,12 @@ interface IDropdownProps {
 const DropdownTechnology = ({ technologies }: IDropdownProps) => {
   const queryClient = useQueryClient();
 
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [techArr, setTechArr] = useState<ITechnology[]>([]);
-
   const { values, setFieldValue } = useFormikContext<IPortfolioReview>();
+
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [techArr, setTechArr] = useState<ITechnology[]>(
+    values.technologies || []
+  );
 
   const { mutateAsync: deleteTech } = useMutation(
     [queryKeys.removePortfolioTech],

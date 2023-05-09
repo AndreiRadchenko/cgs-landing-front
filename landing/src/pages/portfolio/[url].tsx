@@ -83,7 +83,9 @@ const PortfolioProjectPage = () => {
                     )}
                     <p>{project?.country ? project.country : "Canada"}</p>
                   </Styled.HeaderBottomSectionFlag>
-                  <Styles.ProjectsContainerHeaderLink>
+                  <Styles.ProjectsContainerHeaderLink
+                    isProjectLink={!!project?.button}
+                  >
                     {project?.button ? (
                       <a href={project.button} target="_blank" rel="noreferrer">
                         project link

@@ -53,7 +53,7 @@ const AddReview = ({
   const options = useMemo(() => countryList().getData(), []);
 
   const deleteFunctionBanner = useDeleteImageFunction(
-    values.imageBanner ? values.imageBanner : values,
+    values.imageBanner.image !== null ? values.imageBanner : values,
     "",
     false,
     "imageBanner.image"
@@ -66,7 +66,9 @@ const AddReview = ({
   );
 
   const deleteFunctionProjectBanner = useDeleteImageFunction(
-    values.imageProjectBanner ? values.imageProjectBanner : values,
+    values.imageProjectBanner.image !== null
+      ? values.imageProjectBanner
+      : values,
     "",
     false,
     "imageProjectBanner.image"
@@ -290,6 +292,9 @@ const AddReview = ({
             </Styled.AdminPageAddTechnologyWrapper>
           </Styled.AdminPageFourthBlockLayout>
           <SaveBtn handleClick={handleSubmit} />
+          {Object.keys(errors).length > 0 && errors.constructor === Object && (
+            <p style={{ color: "red" }}>Some fields are missed</p>
+          )}
         </Styled.AdminPageReviewBlock>
       </Styled.AdminPageFirstBlockLayout>
     </>
