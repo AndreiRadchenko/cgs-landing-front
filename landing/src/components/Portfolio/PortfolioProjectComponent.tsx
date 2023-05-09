@@ -317,16 +317,18 @@ const PortfolioProjectComponent = ({
         </Styled.ProjectsContainerInfoBtn>
         <Styled.ProjectsContainerInfoIconsContainer>
           {project.technologies.length > 0
-            ? project.technologies.map((item) => (
-                <Image
-                  key={item.image.url}
-                  src={item.image.url}
-                  alt="tech"
-                  height={60}
-                  width={60}
-                  style={{ filter: "brightness(0) invert(1)" }}
-                />
-              ))
+            ? project.technologies
+                .filter((item) => item.main)
+                .map((tech) => (
+                  <Image
+                    key={tech.image.url}
+                    src={tech.image.url}
+                    alt="tech"
+                    height={60}
+                    width={60}
+                    style={{ filter: "brightness(0) invert(1)" }}
+                  />
+                ))
             : mockedIconsTech.map((item) => item.icon)}
         </Styled.ProjectsContainerInfoIconsContainer>
       </Styled.ProjectsContainerInfo>

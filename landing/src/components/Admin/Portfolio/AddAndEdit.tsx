@@ -79,6 +79,7 @@ const AddAndEdit = ({
         action.setFieldValue("categories", "");
         setIsNewStatus(true);
       }}
+      validationSchema={AdminPortfolioValidation}
     >
       <AddReview
         categories={values.categories}
