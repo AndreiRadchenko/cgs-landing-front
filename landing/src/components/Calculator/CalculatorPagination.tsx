@@ -18,8 +18,6 @@ const CalculatorPagination = ({
   handleBackClick,
   handleNextClick,
 }: ICalculatorPaginationProps) => {
-
-
   return (
     <>
       <Styled.LastStepBackButton onClick={handleBackClick}>

@@ -160,7 +160,7 @@ const CalculatorResult = ({
           <path
             d="M668 38.0085V625.995M668 38.0085V34.9999C668 16.2223 652.778 0.999939 634 0.999939H628.275M668 38.0085C668 26.9831 659.079 18.041 648.06 18.004M647.991 18.0039C648.014 18.0039 648.037 18.004 648.06 18.004M647.991 646H40.7254H35C16.2223 646 1 630.778 1 612V608.991M647.991 646C659.042 646 668 637.044 668 625.995M647.991 646L628.275 628.996M668 625.995L648.283 608.991M628.275 0.999939H21.0088C9.95824 0.999939 1 9.95633 1 21.0046V608.991M628.275 0.999939C638.305 0.999939 646.612 8.37922 648.06 18.004M628.275 628.996H21.0088C14.9577 628.996 9.53403 626.311 5.86501 622.067C2.83361 618.56 1 613.99 1 608.991M628.275 628.996C639.325 628.996 648.283 620.04 648.283 608.991M648.283 608.991V21.0046C648.283 19.9847 648.207 18.9828 648.06 18.004"
             stroke="black"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <foreignObject width="97%" height="96%">
             {children}
@@ -174,8 +174,8 @@ const CalculatorResult = ({
               y2="323.5"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#D6FFBB" />
-              <stop offset="1" stop-color="#5869DD" />
+              <stop stopColor="#D6FFBB" />
+              <stop offset="1" stopColor="#5869DD" />
             </linearGradient>
             <linearGradient
               id="paint1_linear_10511_44650"
@@ -185,8 +185,8 @@ const CalculatorResult = ({
               y2="323.5"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#D6FFBB" />
-              <stop offset="1" stop-color="#5869DD" />
+              <stop stopColor="#D6FFBB" />
+              <stop offset="1" stopColor="#5869DD" />
             </linearGradient>
             <linearGradient
               id="paint2_linear_10511_44650"
@@ -196,8 +196,8 @@ const CalculatorResult = ({
               y2="174.582"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#D6FFBB" />
-              <stop offset="1" stop-color="#5869DD" />
+              <stop stopColor="#D6FFBB" />
+              <stop offset="1" stopColor="#5869DD" />
             </linearGradient>
             <linearGradient
               id="paint3_linear_10511_44650"
@@ -207,8 +207,8 @@ const CalculatorResult = ({
               y2="323.5"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#D6FFBB" />
-              <stop offset="1" stop-color="#5869DD" />
+              <stop stopColor="#D6FFBB" />
+              <stop offset="1" stopColor="#5869DD" />
             </linearGradient>
           </defs>
         </svg>

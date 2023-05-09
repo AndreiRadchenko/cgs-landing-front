@@ -55,7 +55,6 @@ export async function getServerSideProps() {
 
 const PortfolioPage: NextPage = () => {
   const { width } = useWindowDimension();
-
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
       if (
@@ -148,7 +147,7 @@ const PortfolioPage: NextPage = () => {
                 setCurrentPage={setCurrentPage}
               />
             </Styles.PortfolioWrapper>
-            <CTABlock initValues={data.cta} />
+            <CTABlock initValues={data!.cta} />
             <FooterNew />
           </Styles.PortfolioContainer>
         </>
