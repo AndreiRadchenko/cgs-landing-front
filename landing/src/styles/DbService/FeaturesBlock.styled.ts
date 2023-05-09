@@ -60,7 +60,7 @@ export const TextContent = styled.div<ISlide>`
 
   & span {
     &:nth-child(1) {
-      color: ${themes.primary.colors.mainGradientColor2};
+      color: ${themes.primary.colors.darkBlue};
     }
   }
 
