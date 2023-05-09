@@ -21,7 +21,7 @@ import {
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/AdminPage";
 import * as Styles from "../../styles/Portfolio.styled";
-import * as CSS from "./portfolio.styled";
+import * as CSS from "../../styles/Portfolio/title.styled";
 import { PortfolioPageSize } from "../../consts";
 import { Pagination } from "../../components/Portfolio/Pagination";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
