@@ -129,17 +129,32 @@ export const newBlockchainProjectInit = {
 };
 
 export const newPageReviewInit = {
-  image: null,
+  imageBanner: {
+    image: null,
+  },
+  imageProjectBanner: {
+    image: null,
+  },
   category: "",
   title: "",
   text: "",
   button: "",
+  NDA: false,
+  flag: "",
+  country: "",
+  projectDuration: "",
+  projectTeam: "",
   industry: "",
+  technologies: [],
   feedback: {
     name: "",
-    rating: "",
-    company: "",
+    position: "",
     feedbackText: "",
+  },
+  technologyNew: {
+    name: "",
+    image: null,
+    main: false,
   },
 };
 

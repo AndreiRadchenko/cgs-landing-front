@@ -2,7 +2,8 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 interface IPortfolioInfoProps {
-  readonly isInfoCont: boolean;
+  readonly isInfoCont?: boolean;
+  readonly isProjectLink?: boolean;
 }
 
 interface IPortfolioProjectLink {
@@ -15,7 +16,7 @@ export const PortfolioContainer = styled.div`
 
 export const PortfolioWrapper = styled.div`
   width: 100%;
-  padding: 0 52.5px;
+  padding: 0 50px;
 
   @media ${themes.primary.media.maxMobile} {
     padding: 0 10px;
@@ -122,6 +123,7 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
       ? themes.primary.colors.blogBackground
       : themes.primary.colors.primary};
   margin: 0;
+  cursor: ${({ isProjectLink }) => isProjectLink && "pointer"};
 
   span {
     color: ${themes.primary.colors.comment};
@@ -129,6 +131,7 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
 
   & path {
     transition: transform 1s ease-in-out;
+    opacity: ${({ isProjectLink }) => (!isProjectLink ? 0.3 : 1)};
   }
   & path:nth-child(1) {
     transform: translate(-36px, 36px);
@@ -205,7 +208,7 @@ export const ProjectsContainerInfoBtn = styled.div`
     stroke-dasharray: 50 480;
     stroke-dashoffset: 50;
     transition: 1s ease-in-out;
-    stroke: ${themes.primary.colors.primary};
+    stroke: rgba(0, 0, 0, 0.5);
   }
 
   &:hover > svg {
@@ -260,12 +263,20 @@ export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>
   align-items: center;
   width: 38px;
   height: 38px;
-  background: ${themes.primary.colors.portfolioHover};
-  border: 2.26667px solid ${themes.primary.colors.primary};
+  background: ${({ isProjectLink }) =>
+    !isProjectLink ? "#f1eece" : themes.primary.colors.portfolioHover};
+  border: ${({ isProjectLink }) =>
+    !isProjectLink
+      ? `2.26667px solid #a9a8a6`
+      : `2.26667px solid ${themes.primary.colors.primary}`};
+
   border-radius: 50%;
   overflow: hidden;
 
-  opacity: ${({ isProjectLink }) => !isProjectLink && 0.6};
+  svg {
+    width: 35px;
+    height: 35px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 26px;

@@ -32,6 +32,7 @@ const PortfolioPage = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik
+      enableReinitialize
       key="globalPortfolioForm"
       initialValues={data!}
       onSubmit={submitForm}

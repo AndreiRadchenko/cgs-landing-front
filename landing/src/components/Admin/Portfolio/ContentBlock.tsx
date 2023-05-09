@@ -31,7 +31,7 @@ const AdminPortfolioContentBlock = () => {
     adminPortfolioService.getReviews()
   );
 
-  const { data: portfolioData, isLoading }: IPortfolioResponse = useQuery(
+  const { data: portfolio, isLoading }: IPortfolioResponse = useQuery(
     [queryKeys.getPortfolioPageData],
     () => adminPortfolioService.getPageData()
   );
@@ -82,7 +82,7 @@ const AdminPortfolioContentBlock = () => {
           {isLoading ? (
             <p>Loading...</p>
           ) : (
-            <CallToAction initValues={portfolioData!.cta} />
+            <CallToAction initValues={portfolio!.cta} />
           )}
         </BlockDropdown>
       </Styled.AdminPaddedBlock>

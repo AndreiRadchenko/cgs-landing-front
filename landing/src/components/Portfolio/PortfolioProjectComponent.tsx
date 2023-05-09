@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import { IPortfolioReview } from "../../types/Admin/AdminPortfolio.types";
 
@@ -14,6 +15,7 @@ const PortfolioProjectComponent = ({
 }: {
   project: IPortfolioReview;
 }) => {
+  const { push } = useRouter();
   const mockedIconsTech = [
     {
       icon: (
@@ -221,6 +223,21 @@ const PortfolioProjectComponent = ({
     },
   ];
 
+  const navigateToProjectPage = (url: string, id?: string) => {
+    push(
+      {
+        pathname: `/portfolio/${url}`,
+        query: { projectId: id },
+      },
+      `/portfolio/${url}`
+    );
+  };
+
+  const openInNewTab = (url: string): void => {
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  };
+
   return (
     <Styled.ProjectsContainer>
       <Styled.ProjectsContainerHeader isInfoCont={false}>
@@ -229,7 +246,10 @@ const PortfolioProjectComponent = ({
           {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
           <p>// {project.industry}</p>
         </Styled.ProjectsContainerHeaderTitle>
-        <Styled.ProjectsContainerHeaderLink isInfoCont={false}>
+        <Styled.ProjectsContainerHeaderLink
+          isProjectLink={!!project.button}
+          isInfoCont={false}
+        >
           {project.button ? (
             <a href={project.button} target="_blank" rel="noreferrer">
               project link
@@ -246,7 +266,11 @@ const PortfolioProjectComponent = ({
       </Styled.ProjectsContainerHeader>
       <Styled.ProjectsContainerImage>
         <Image
-          src={project.image!.url}
+          src={
+            project?.imageBanner?.image?.url
+              ? project?.imageBanner?.image?.url
+              : project?.image.url
+          }
           className={"image"}
           alt="project image"
           height={341}
@@ -260,7 +284,11 @@ const PortfolioProjectComponent = ({
             {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
             <p>// {project.industry}</p>
           </Styled.ProjectsContainerInfoHeaderTitle>
-          <Styled.ProjectsContainerHeaderLink isInfoCont={true}>
+          <Styled.ProjectsContainerHeaderLink
+            onClick={() => !!project.button && openInNewTab(project.button)}
+            isInfoCont={true}
+            isProjectLink={!!project.button}
+          >
             {project.button ? (
               <a href={project.button} target="_blank" rel="noreferrer">
                 project link
@@ -278,7 +306,9 @@ const PortfolioProjectComponent = ({
         <Styled.ProjectsContainerInfoText>
           <p>{project.text}</p>
         </Styled.ProjectsContainerInfoText>
-        <Styled.ProjectsContainerInfoBtn>
+        <Styled.ProjectsContainerInfoBtn
+          onClick={() => navigateToProjectPage(project.title, project._id)}
+        >
           <BtnPolyline />
           <div className="btnContainer">
             <span>Read more</span>
@@ -286,7 +316,18 @@ const PortfolioProjectComponent = ({
           </div>
         </Styled.ProjectsContainerInfoBtn>
         <Styled.ProjectsContainerInfoIconsContainer>
-          {mockedIconsTech.map((item) => item.icon)}
+          {project.technologies.length > 0
+            ? project.technologies.map((item) => (
+                <Image
+                  key={item.image.url}
+                  src={item.image.url}
+                  alt="tech"
+                  height={60}
+                  width={60}
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
+              ))
+            : mockedIconsTech.map((item) => item.icon)}
         </Styled.ProjectsContainerInfoIconsContainer>
       </Styled.ProjectsContainerInfo>
     </Styled.ProjectsContainer>

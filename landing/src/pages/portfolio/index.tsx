@@ -112,9 +112,7 @@ const PortfolioPage: NextPage = () => {
     () =>
       adminPortfolioService.getPaginatedReviews(currentPage, PortfolioPageSize)
   );
-  const { metaTitle, metaDescription, customHead } = {
-    ...data?.meta,
-  };
+  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
@@ -150,7 +148,7 @@ const PortfolioPage: NextPage = () => {
                 setCurrentPage={setCurrentPage}
               />
             </Styles.PortfolioWrapper>
-            <CTABlock initValues={data!.cta} />
+            <CTABlock initValues={data.cta} />
             <FooterNew />
           </Styles.PortfolioContainer>
         </>
