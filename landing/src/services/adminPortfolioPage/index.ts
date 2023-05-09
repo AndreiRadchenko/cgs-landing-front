@@ -4,6 +4,7 @@ import {
   ICTAData,
   IPortfolioPageData,
   IPortfolioReview,
+  IPortfolioTitle,
   ITechnology,
 } from "../../types/Admin/AdminPortfolio.types";
 import { ISwapData } from "../../types/Admin/Response.types";
@@ -57,6 +58,9 @@ export class AdminPortfolioService {
   }
   public swapReviews(swapData: ISwapData) {
     return this.httpService.put(`api/portfolio/swap`, swapData);
+  }
+  public updatePortfolioTitle(title: IPortfolioTitle) {
+    return this.httpService.put(`api/portfolio/title`, title);
   }
   public updatePortfolioCTA(ctaData: ICTAData) {
     return this.httpService.put(`api/portfolio/cta`, ctaData);

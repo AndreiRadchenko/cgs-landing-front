@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import AddAndEdit from "./AddAndEdit";
 import CallToAction from "./CallToAction";
+import TitleBlock from "./TitleBlock";
 import renderPortfolioInputs from "./renderPortfolioInputs";
 import { useScrollTo } from "../../../hooks/useScrollTo";
 import MetaTagsBlock from "../MetaTagsBlock";
@@ -47,6 +48,7 @@ const AdminPortfolioContentBlock = () => {
     <div>
       <Styled.AdminPaddedBlock>
         <Styled.AdminHeader ref={ref}>Portfolio</Styled.AdminHeader>
+        <TitleBlock />
         <BlockDropdown title="Category">
           <Styled.AdminCategoryBlock>
             <FieldArray name="categories">

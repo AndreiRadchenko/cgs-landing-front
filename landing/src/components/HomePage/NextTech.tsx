@@ -10,8 +10,6 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ScrambleText from "./ScrambleText";
 import FreeServices from "../FreeServices/FreeServices";
 import { IDataResponse } from "../../types/Admin/Response.types";
-import film from "../../../public/HomePageDecoration/photoFilm.svg";
-import filmMobile from "../../../public/HomePageDecoration/photoFilmMobile.svg";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
 import Badges from "./Badges";
 

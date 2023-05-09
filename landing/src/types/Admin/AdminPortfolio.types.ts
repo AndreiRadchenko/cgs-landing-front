@@ -49,6 +49,7 @@ export interface IPortfolioPageData {
   technologies: ITechnology[];
   meta: IMetaBlock;
   cta: ICTAData;
+  SubtitleBlock: { title: string };
 }
 
 export interface IPortfolioResponse {
@@ -106,4 +107,11 @@ export interface ICTAData {
   text: string;
   button: string;
   buttonLink: string;
+}
+
+export interface IPortfolioTitleProps {
+  initValues: IPortfolioTitle;
+}
+export interface IPortfolioTitle {
+  title: string;
 }
