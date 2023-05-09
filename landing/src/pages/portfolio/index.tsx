@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
-import parse from "html-react-parser";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import Image from "next/image";
+import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
@@ -11,17 +12,20 @@ import PortfolioProjectComponent from "../../components/Portfolio/PortfolioProje
 import { Loader, LoaderStub } from "../../components/Loader";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { CTABlock } from "../../components/Portfolio/CTABlock";
+import ScrambleText from "../../components/HomePage/ScrambleText";
 
 import {
-  IPortfolioCTAResponse,
   IPortfolioResponse,
   IPortfolioReviewsResponse,
 } from "../../types/Admin/AdminPortfolio.types";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/AdminPage";
 import * as Styles from "../../styles/Portfolio.styled";
+import * as CSS from "./portfolio.styled";
 import { PortfolioPageSize } from "../../consts";
 import { Pagination } from "../../components/Portfolio/Pagination";
+import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -50,6 +54,49 @@ export async function getServerSideProps() {
 }
 
 const PortfolioPage: NextPage = () => {
+  const { width } = useWindowDimension();
+
+  const options: HTMLReactParserOptions = {
+    replace: (domNode) => {
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(88, 105, 221)")
+      ) {
+        return (
+          <span className="blue tech">
+            <ScrambleText
+              text={
+                domNode.children[0].type === "text" &&
+                (domNode.children[0] as any).data
+              }
+            />
+          </span>
+        );
+      } else if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(221, 105, 88)")
+      ) {
+        return (
+          <>
+            {width! > 714 && <br />}
+            <CSS.ArrowWrapper>
+              <Image
+                src={longArrow.src}
+                alt="wide tech long arrow"
+                layout="fill"
+                objectFit="contain"
+              />
+            </CSS.ArrowWrapper>
+          </>
+        );
+      }
+    },
+  };
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const { data, isLoading }: IPortfolioResponse = useQuery(
@@ -65,12 +112,9 @@ const PortfolioPage: NextPage = () => {
     () =>
       adminPortfolioService.getPaginatedReviews(currentPage, PortfolioPageSize)
   );
-  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
-
-  const { data: ctaData, isLoading: ctaDataIsLoading }: IPortfolioCTAResponse =
-    useQuery([queryKeys.getPortfolioCTA], () =>
-      adminPortfolioService.getPortfolioCTA()
-    );
+  const { metaTitle, metaDescription, customHead } = {
+    ...data?.meta,
+  };
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
@@ -88,6 +132,9 @@ const PortfolioPage: NextPage = () => {
           <Styles.PortfolioContainer>
             <HeaderNavNew />
             <Styles.PortfolioWrapper>
+              <CSS.Subtitle>
+                {data && parse(data.SubtitleBlock.title, options)}
+              </CSS.Subtitle>
               <Styles.PortfolioProjectsContainer>
                 {reviewsData?.reviews &&
                   reviewsData.reviews.map((project) => (
@@ -103,7 +150,7 @@ const PortfolioPage: NextPage = () => {
                 setCurrentPage={setCurrentPage}
               />
             </Styles.PortfolioWrapper>
-            <CTABlock initValues={ctaData!.cta} />
+            <CTABlock initValues={data!.cta} />
             <FooterNew />
           </Styles.PortfolioContainer>
         </>

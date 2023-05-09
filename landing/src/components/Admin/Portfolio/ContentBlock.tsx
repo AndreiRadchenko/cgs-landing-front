@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import AddAndEdit from "./AddAndEdit";
 import CallToAction from "./CallToAction";
+import TitleBlock from "./TitleBlock";
 import renderPortfolioInputs from "./renderPortfolioInputs";
 import { useScrollTo } from "../../../hooks/useScrollTo";
 import MetaTagsBlock from "../MetaTagsBlock";
@@ -15,6 +16,7 @@ import EditReview from "./EditReview";
 import {
   IPortfolioPageData,
   IPortfolioCTAResponse,
+  IPortfolioResponse,
 } from "../../../types/Admin/AdminPortfolio.types";
 import { queryKeys } from "../../../consts/queryKeys";
 import * as Styled from "../../../styles/AdminPage";
@@ -29,9 +31,9 @@ const AdminPortfolioContentBlock = () => {
     adminPortfolioService.getReviews()
   );
 
-  const { data: ctaData, isLoading }: IPortfolioCTAResponse = useQuery(
-    [queryKeys.getPortfolioCTA],
-    () => adminPortfolioService.getPortfolioCTA()
+  const { data: portfolioData, isLoading }: IPortfolioResponse = useQuery(
+    [queryKeys.getPortfolioPageData],
+    () => adminPortfolioService.getPageData()
   );
 
   const [current, setCurrent] = useState(0);
@@ -46,6 +48,7 @@ const AdminPortfolioContentBlock = () => {
     <div>
       <Styled.AdminPaddedBlock>
         <Styled.AdminHeader ref={ref}>Portfolio</Styled.AdminHeader>
+        <TitleBlock />
         <BlockDropdown title="Category">
           <Styled.AdminCategoryBlock>
             <FieldArray name="categories">
@@ -79,7 +82,7 @@ const AdminPortfolioContentBlock = () => {
           {isLoading ? (
             <p>Loading...</p>
           ) : (
-            <CallToAction initValues={ctaData!.cta} />
+            <CallToAction initValues={portfolioData!.cta} />
           )}
         </BlockDropdown>
       </Styled.AdminPaddedBlock>
