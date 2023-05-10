@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import ReactCountryFlag from "react-country-flag";
 
 import { Loader, LoaderStub } from "../../components/Loader";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
@@ -9,6 +10,8 @@ import FooterNew from "../../components/FooterNew/FooterNew";
 import TimeIcon from "../../components/Portfolio/svg/TimeIcon";
 import TeamIcon from "../../components/Portfolio/svg/TeamIcon";
 import CircleProjectPage from "../../components/Portfolio/svg/CircleProjectPage";
+import CanadaFlag from "../../components/Portfolio/svg/CanadaFlag";
+import SeeMoreProjects from "../../components/Portfolio/SeeMoreProjects";
 
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { adminGlobalService } from "../../services/adminHomePage";
@@ -18,12 +21,14 @@ import { PortfolioContainer } from "../../styles/Portfolio.styled";
 import * as Styled from "../../styles/PortfolioPage.styled";
 import * as Styles from "../../styles/Portfolio.styled";
 
-import { IPortfolioProjectResponse } from "../../types/Admin/AdminPortfolio.types";
+import {
+  IPortfolioProjectResponse,
+  IPortfolioResponse,
+  IPortfolioReview,
+} from "../../types/Admin/AdminPortfolio.types";
 
 import { queryKeys } from "../../consts/queryKeys";
 import ButtonArrow from "../../utils/ButtonArrow";
-import ReactCountryFlag from "react-country-flag";
-import CanadaFlag from "../../components/Portfolio/svg/CanadaFlag";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -50,6 +55,14 @@ const PortfolioProjectPage = () => {
       adminPortfolioService.getProjectData(
         (router.query.projectId as string) || projectId
       )
+  );
+  const { data }: IPortfolioResponse = useQuery(
+    [queryKeys.getPortfolioPageData],
+    () => adminPortfolioService.getPageData()
+  );
+  const { data: seeMoreProj }: { data?: IPortfolioReview[] } = useQuery(
+    [queryKeys.getSeeMoreProjects],
+    () => adminPortfolioService.getByIndustry(project!.industry)
   );
 
   useEffect(() => {
@@ -149,6 +162,12 @@ const PortfolioProjectPage = () => {
                 ))}
             </Styled.PortfolioPageIconContainer>
           </Styled.PortfolioPageWrapper>
+          {data && seeMoreProj && (
+            <SeeMoreProjects
+              title={data.individualProjectPage.additionalProjects}
+              projects={seeMoreProj}
+            />
+          )}
           <FooterNew />
         </PortfolioContainer>
       )}

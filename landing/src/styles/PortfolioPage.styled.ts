@@ -187,3 +187,56 @@ export const InfoContainerTimeTeam = styled.div`
   align-items: center;
   gap: 10px;
 `;
+
+export const SeeMoreProjectsTitle = styled.h3`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 50px;
+  line-height: 116.6%;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: ${themes.primary.colors.primary};
+  text-align: center;
+
+  @media (${themes.primary.media.maxMobile}) {
+    text-align: left;
+    font-size: 24px;
+  }
+`;
+
+export const SeeMoreProjectsTitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: center;
+
+  @media (${themes.primary.media.maxMobile}) {
+    gap: 10px;
+  }
+`;
+
+export const SeeMoreProjectsArrowFirst = styled.div`
+  svg {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  @media (${themes.primary.media.maxMobile}) {
+    padding-top: 30px;
+    align-self: flex-start;
+    width: 70%;
+  }
+`;
+export const SeeMoreProjectsArrowSecond = styled.div`
+  svg {
+    flex: 1 1 auto;
+    width: 100%;
+    transform: rotate(180deg);
+  }
+  @media (${themes.primary.media.maxMobile}) {
+    width: 70%;
+    align-self: flex-end;
+    padding-bottom: 20px;
+  }
+`;

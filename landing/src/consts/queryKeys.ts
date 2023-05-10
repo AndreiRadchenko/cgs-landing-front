@@ -10,6 +10,7 @@ export const queryKeys = {
   GetCareersPage: "GetCareersPage",
   UpdateCareersPage: "UpdateCareersPage",
   getPortfolioPageData: "getPortfolioPageData",
+  getSeeMoreProjects: "getSeeMoreProjects",
   getPortfolio: "getPortfolio",
   getPortfolioProjectPage: "getPortfolioProjectPage",
   swapPortfolioReviews: "swapPortfolioReviews",

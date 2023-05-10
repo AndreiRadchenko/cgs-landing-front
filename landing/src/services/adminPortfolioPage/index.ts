@@ -68,6 +68,11 @@ export class AdminPortfolioService {
   public getPortfolioCTA() {
     return this.httpService.get<ICTAData>(`api/portfolio/cta`);
   }
+  public getByIndustry(name: string) {
+    return this.httpService.get<IPortfolioReview[]>(
+      `api/portfolio/industry/${name}`
+    );
+  }
 }
 
 const factory = new HttpServiceFactory();

@@ -44,7 +44,8 @@ export const Content = styled.div`
   }
   div {
     display: flex;
-    align-items: center;justify-content: space-between;
+    align-items: center;
+    justify-content: space-between;
     background-color: ${themes.primary.colors.blogBackground};
     color: ${themes.primary.colors.primary};
     font-family: ${themes.primary.font.family.namu};
@@ -54,18 +55,18 @@ export const Content = styled.div`
     text-decoration: none;
     text-align: left;
     cursor: pointer;
-    
+
     span {
       flex: 1;
     }
-    
+
     svg {
       cursor: pointer;
       path {
         fill: ${themes.primary.colors.adminRed};
       }
     }
-    
+
     &:hover {
       background-color: ${themes.primary.colors.blogDropdownHover};
     }
@@ -73,4 +74,18 @@ export const Content = styled.div`
       border-bottom: 0;
     }
   }
-\`;`;
+`;
+
+export const IndividualTopGridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 440px));
+  gap: 20px 30px;
+  margin-bottom: 25px;
+`;
+
+export const IndividualBottomGridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 350px));
+  gap: 15px;
+  margin-bottom: 25px;
+`;

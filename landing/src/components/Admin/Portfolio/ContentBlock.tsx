@@ -9,13 +9,13 @@ import renderPortfolioInputs from "./renderPortfolioInputs";
 import { useScrollTo } from "../../../hooks/useScrollTo";
 import MetaTagsBlock from "../MetaTagsBlock";
 import BlockDropdown from "../BlockDropdown";
+import IndividualProjectPageInfo from "./IndividualProjectPageInfo";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import SaveBtn from "../Global/SaveBtn";
 import EditReview from "./EditReview";
 
 import {
   IPortfolioPageData,
-  IPortfolioCTAResponse,
   IPortfolioResponse,
 } from "../../../types/Admin/AdminPortfolio.types";
 import { queryKeys } from "../../../consts/queryKeys";
@@ -84,6 +84,9 @@ const AdminPortfolioContentBlock = () => {
           ) : (
             <CallToAction initValues={portfolio!.cta} />
           )}
+        </BlockDropdown>
+        <BlockDropdown title="Individual project page">
+          <IndividualProjectPageInfo />
         </BlockDropdown>
       </Styled.AdminPaddedBlock>
       <Styled.MetaBlockWraper>
