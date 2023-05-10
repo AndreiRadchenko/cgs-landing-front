@@ -65,7 +65,7 @@ export const Subtitle = styled.p`
   font-size: 1.25em;
   line-height: 160%;
   text-transform: uppercase;
-  color: ${themes.primary.colors.mainGradientColor2};
+  color: ${themes.primary.colors.darkBlue};
   margin: 0;
 `;
 
