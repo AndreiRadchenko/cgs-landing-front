@@ -83,7 +83,7 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
       position: absolute;
       top: 0;
       left: 20px;
-      height: 1px;
+      height: ${({ isOpen }) => (isOpen ? "0" : "1px")};
       width: 90%;
       background-color: ${themes.primary.colors.faqBorder};
     }
