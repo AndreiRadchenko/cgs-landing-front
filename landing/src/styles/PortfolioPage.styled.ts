@@ -70,8 +70,8 @@ export const HeaderImageContainer = styled.div`
       height: 324px;
     }
     span {
-      width: 260px !important;
-      height: 270px !important;
+      width: 375px !important;
+      height: 375px !important;
     }
   }
 `;
