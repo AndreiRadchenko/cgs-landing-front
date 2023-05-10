@@ -32,7 +32,8 @@ export const TextContainer = styled.div`
   width: 50%;
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    margin-bottom: 6.73em;
+    /* margin-bottom: 6.73em; */
+    margin-bottom: 2.65em;
   }
 `;
 
@@ -99,7 +100,7 @@ export const ImageContainer = styled.div`
     margin-left: 4em;
   }
 
-  @media ${themes.primary.media.maxLaptop} {
+  @media ${themes.primary.media.maxTabletLandScape} {
     /* width: 50%;
     height: 50%; */
     width: 420px;
