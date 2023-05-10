@@ -239,7 +239,7 @@ const PortfolioProjectComponent = ({
   };
 
   return (
-    <Styled.ProjectsContainer>
+    <Styled.ProjectsContainer isProjectLink={!!project.button}>
       <Styled.ProjectsContainerHeader isInfoCont={false}>
         <Styled.ProjectsContainerHeaderTitle>
           <h4>{project.title}</h4>
