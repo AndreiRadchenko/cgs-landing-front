@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import Image from "next/image";
@@ -45,29 +45,20 @@ export async function getServerSideProps() {
 }
 
 const PortfolioProjectPage = () => {
-  const [projectId, setProjectId] = useState<string>("");
-
   const router = useRouter();
 
   const { data: project, isLoading }: IPortfolioProjectResponse = useQuery(
     [queryKeys.getPortfolioProjectPage],
-    () =>
-      adminPortfolioService.getProjectData(
-        (router.query.projectId as string) || projectId
-      )
+    () => adminPortfolioService.getProjectData(router.query.url as string)
   );
   const { data }: IPortfolioResponse = useQuery(
     [queryKeys.getPortfolioPageData],
     () => adminPortfolioService.getPageData()
   );
   const { data: seeMoreProj }: { data?: IPortfolioReview[] } = useQuery(
-    [queryKeys.getSeeMoreProjects],
+    [queryKeys.getSeeMoreProjects, project],
     () => adminPortfolioService.getByIndustry(project!.industry)
   );
-
-  useEffect(() => {
-    setProjectId(router.query.projectId as string);
-  }, [router.query, projectId]);
 
   return (
     <Loader active={isLoading}>
@@ -123,8 +114,8 @@ const PortfolioProjectPage = () => {
                       ? project.imageProjectBanner.image!.url
                       : project!.image.url
                   }
-                  height={470}
-                  width={460}
+                  height={650}
+                  width={650}
                   objectFit="contain"
                 />
               </Styled.HeaderImageContainer>

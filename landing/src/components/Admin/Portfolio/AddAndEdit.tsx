@@ -44,7 +44,6 @@ const AddAndEdit = ({
 
   return (
     <Formik
-      enableReinitialize
       key={`Form${isNewStatus}${
         typeof current === "number" ? current : "null"
       }`}
@@ -73,10 +72,12 @@ const AddAndEdit = ({
           feedbackText: values.feedback.feedbackText,
         };
         isNewStatus
-          ? addReview(data)
+          ? addReview({ ...data, feedback: clearedFeedback })
           : editReview({ ...data, feedback: clearedFeedback });
         action.resetForm();
         action.setFieldValue("categories", "");
+        action.setFieldValue("imageBanner.image", null);
+        action.setFieldValue("imageProjectBanner.image", null);
         setIsNewStatus(true);
       }}
       validationSchema={AdminPortfolioValidation}
