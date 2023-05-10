@@ -25,13 +25,15 @@ export const QuestionImage = styled.img`
     width: 600px;
   }
 `;
-export const QuestionContainer = styled.div<IIsOpen>``;
+export const QuestionContainer = styled.div<IIsOpen>`
+  @media ${themes.primary.media.maxMobile} {
+  }
+`;
 
 export const QuestionBox = styled.div<IIsOpen>`
   width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
-    width: ${({ isOpen }) => (isOpen ? "100%" : "calc(100% - 40px)")};
   }
 `;
 
@@ -47,16 +49,21 @@ export const TogglePlus = styled.div`
 `;
 
 export const QuestionTitleContainer = styled.div<IIsOpen>`
-  background-color: ${({ isOpen }) => isOpen && themes.primary.colors.darkBlue};
-  color: ${({ isOpen }) => isOpen && themes.primary.colors.secondary};
+  position: relative;
   width: 100%;
   transition: 0.2s;
-  padding: ${({ isOpen }) => (isOpen ? "21.5px 23px" : "24px 23px")};
+  padding: 24px;
   font-size: ${themes.primary.font.size.faqQuestion};
   display: flex;
   justify-content: space-between;
   cursor: pointer;
   border-top: 1px solid ${themes.primary.colors.faqBorder};
+  transition: background-color 0.5s ease, color 0.5s ease;
+
+  &.open {
+    background-color: ${themes.primary.colors.darkBlue};
+    color: ${themes.primary.colors.secondary};
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.731em;
@@ -66,17 +73,26 @@ export const QuestionTitleContainer = styled.div<IIsOpen>`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    border-top: none;
     height: 80px;
     align-items: center;
-    padding: 15px 0px;
-    padding-right: ${({ isOpen }) => isOpen && "20px"};
+    padding: 0px 20px;
+    padding-right: 20px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 20px;
+      height: 1px;
+      width: 90%;
+      background-color: ${themes.primary.colors.faqBorder};
+    }
   }
 `;
 
 export const QuestionTitle = styled.p<IIsOpen>`
   @media ${themes.primary.media.maxMobile} {
     font-size: 18px;
-    padding: ${({ isOpen }) => isOpen && "0 0 0 20px"};
   }
 `;
 
@@ -94,7 +110,7 @@ export const QuestionContentContainer = styled.div<IIsOpen>`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 18px 20px 24px;
+    padding: 18px 20px 24px 20px;
   }
 `;
 
