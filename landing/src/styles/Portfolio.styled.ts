@@ -70,43 +70,11 @@ export const PortfolioPaginationButton = styled.div`
 
 export const ProjectsContainerInfo = styled.div`
   opacity: 0;
-  transition: 0.3s all;
-  width: 100%;
   height: 100%;
   top: 0;
   right: 0;
   position: absolute;
   background: rgba(0, 0, 0, 0.8);
-`;
-
-export const ProjectsContainer = styled.div`
-  position: relative;
-  min-height: 441px;
-
-  &:hover ${ProjectsContainerInfo} {
-    opacity: 1;
-    transition: 0.3s all;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    min-height: 240px;
-  }
-`;
-
-export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
-  padding: 17px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: ${({ isInfoCont }) =>
-    isInfoCont
-      ? `1.5px solid ${themes.primary.colors.primary}`
-      : `1.5px solid ${themes.primary.colors.headerBorder}`};
-
-  @media ${themes.primary.media.maxMobile} {
-    margin: 7px 10px;
-    padding: 0 0 9px 0;
-  }
 `;
 
 export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
@@ -148,6 +116,88 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
   @media ${themes.primary.media.maxMobile} {
     font-size: 12px;
     line-height: 130%;
+  }
+`;
+
+export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  background: ${({ isProjectLink }) =>
+    !isProjectLink ? "#f1eece" : themes.primary.colors.portfolioHover};
+  border: ${({ isProjectLink }) =>
+    !isProjectLink
+      ? `2.26667px solid #a9a8a6`
+      : `2.26667px solid ${themes.primary.colors.primary}`};
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 26px;
+    height: 26px;
+    border-width: 1.25px;
+  }
+`;
+
+export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
+  position: relative;
+  min-height: 441px;
+
+  &:hover ${ProjectsContainerInfo} {
+    opacity: 1;
+    transition: 0.3s opacity;
+  }
+
+  &:hover ${ProjectsContainerArrowContainer} {
+    background: ${({ isProjectLink }) =>
+      !isProjectLink ? "#6a6745" : themes.primary.colors.portfolioHover};
+    border: ${({ isProjectLink }) =>
+      !isProjectLink
+        ? `2.26667px solid #181817`
+        : `2.26667px solid ${themes.primary.colors.primary}`};
+  }
+
+  &:hover ${ProjectsContainerHeaderLink} {
+    & path {
+      opacity: 1;
+    }
+
+    span {
+      color: #5c5b5b;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    min-height: 240px;
+
+    &:hover ${ProjectsContainerArrowContainer} {
+      border-width: 1.25px;
+    }
+  }
+`;
+
+export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
+  padding: 17px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: ${({ isInfoCont }) =>
+    isInfoCont
+      ? `1.5px solid ${themes.primary.colors.primary}`
+      : `1.5px solid ${themes.primary.colors.headerBorder}`};
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 7px 10px;
+    padding: 0 0 9px 0;
+    border-bottom-width: 1px;
   }
 `;
 
@@ -208,7 +258,7 @@ export const ProjectsContainerInfoBtn = styled.div`
     stroke-dasharray: 50 480;
     stroke-dashoffset: 50;
     transition: 1s ease-in-out;
-    stroke: rgba(0, 0, 0, 0.5);
+    stroke: #30302f;
   }
 
   &:hover > svg {
@@ -220,7 +270,7 @@ export const ProjectsContainerInfoBtn = styled.div`
     height: 35px;
     font-size: 12px;
     line-height: 160%;
-    padding: 5px 10px 7px;
+    padding: 7px 10px;
     margin: 18px 10px 0 10px;
 
     & > svg {
@@ -254,33 +304,6 @@ export const ProjectsContainerInfoIconsContainer = styled.div`
       height: 40px;
       width: 40px;
     }
-  }
-`;
-
-export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 38px;
-  height: 38px;
-  background: ${({ isProjectLink }) =>
-    !isProjectLink ? "#f1eece" : themes.primary.colors.portfolioHover};
-  border: ${({ isProjectLink }) =>
-    !isProjectLink
-      ? `2.26667px solid #a9a8a6`
-      : `2.26667px solid ${themes.primary.colors.primary}`};
-
-  border-radius: 50%;
-  overflow: hidden;
-
-  svg {
-    width: 35px;
-    height: 35px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 26px;
-    height: 26px;
   }
 `;
 
@@ -364,43 +387,6 @@ export const ProjectsContainerImage = styled.div`
   }
 `;
 
-export const LinkButton = styled.button`
-  font-size: ${themes.primary.font.size.projectLink};
-  font-family: ${themes.primary.font.family.namu};
-  padding: 7px 15px 10px;
-  background-color: ${themes.primary.colors.primary};
-  outline: none;
-  border-radius: 0;
-  cursor: pointer;
-  border: 1px solid ${themes.primary.colors.primary};
-  color: ${themes.primary.colors.secondary};
-  transition: background-color 0.3s, color 0.3s;
-
-  &:hover {
-    background-color: ${themes.primary.colors.blogBackground};
-    color: ${themes.primary.colors.primary};
-  }
-
-  @media (max-width: 1300px) {
-    font-size: ${themes.primary.font.size.reviewSmallText};
-    a {
-      text-decoration: none;
-      border-bottom: 0.1px solid;
-      u {
-        text-decoration: none;
-      }
-    }
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-block: 10px 5px;
-    font-size: 0.75rem;
-    a {
-      border: none;
-    }
-  }
-`;
-
 export const CTACont = styled.div`
   position: relative;
   margin: 98px 0 180px 0;
@@ -462,54 +448,4 @@ export const CTAText = styled.div`
     line-height: 26px;
     max-width: 100%;
   }
-`;
-
-export const CTABtnsBlock = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 29px;
-
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
-    align-items: start;
-    gap: 16px;
-  }
-`;
-
-export const CTAIconsBlock = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 14px;
-`;
-
-export const CTAIconWrapper = styled.a`
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  &:hover {
-    & > div {
-      filter: none;
-    }
-
-    & > p {
-      color: ${themes.primary.colors.darkBlue};
-    }
-  }
-`;
-
-export const CTAIcon = styled.div`
-  transition: filter 0.3s;
-  filter: brightness(0);
-`;
-
-export const CTAIconText = styled.p`
-  color: ${themes.primary.colors.primary};
-  font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.mainBlogDescription};
-  font-weight: ${themes.primary.font.weight.heavy};
-  line-height: 26px;
-
-  transition: color 0.3s;
 `;
