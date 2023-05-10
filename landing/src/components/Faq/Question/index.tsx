@@ -22,6 +22,7 @@ const Question: FC<IQuestionProps> = ({ title, content, image }) => {
     <Styles.QuestionBox isOpen={isOpen}>
       <Styles.QuestionContainer isOpen={isOpen}>
         <Styles.QuestionTitleContainer
+          className={isOpen ? "open" : ""}
           isOpen={isOpen}
           {...getToggleProps({ onClick: () => setIsOpen(!isOpen) })}
         >
