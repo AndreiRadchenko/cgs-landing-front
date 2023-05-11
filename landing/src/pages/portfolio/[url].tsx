@@ -30,6 +30,7 @@ import {
 import { queryKeys } from "../../consts/queryKeys";
 
 import ButtonArrow from "../../utils/ButtonArrow";
+import ProjectFeedback from "../../components/Portfolio/ProjectFeedback";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -154,6 +155,7 @@ const PortfolioProjectPage = () => {
                 ))}
             </Styled.PortfolioPageIconContainer>
           </Styled.PortfolioPageWrapper>
+          {project?.feedback && <ProjectFeedback feedback={project.feedback} />}
           {data && seeMoreProj && (
             <SeeMoreProjects
               title={data.individualProjectPage.additionalProjects}
