@@ -210,9 +210,11 @@ export const SeeMoreProjectsTitleContainer = styled.div`
   align-items: center;
   gap: 24px;
   justify-content: center;
+  margin-top: 90px;
 
   @media (${themes.primary.media.maxMobile}) {
     gap: 10px;
+    margin-top: 20px;
   }
 `;
 

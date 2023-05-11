@@ -28,9 +28,11 @@ export const PortfolioProjectsContainer = styled.div`
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(355px, 652px));
   gap: 52px 34px;
+  margin-bottom: 120px;
 
   @media ${themes.primary.media.maxMobile} {
     gap: 20px;
+    margin-bottom: 90px;
   }
 `;
 
