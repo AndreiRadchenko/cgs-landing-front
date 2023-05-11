@@ -58,8 +58,11 @@ const PortfolioProjectPage = () => {
     () => adminPortfolioService.getPageData()
   );
   const { data: seeMoreProj }: { data?: IPortfolioReview[] } = useQuery(
-    [queryKeys.getSeeMoreProjects, project],
-    () => adminPortfolioService.getByIndustry(project!.industry)
+    [queryKeys.getSeeMoreProjects, project?.title],
+    () => adminPortfolioService.getByIndustry(project!.industry),
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
   return (
@@ -156,9 +159,10 @@ const PortfolioProjectPage = () => {
             </Styled.PortfolioPageIconContainer>
           </Styled.PortfolioPageWrapper>
           {project?.feedback && <ProjectFeedback feedback={project.feedback} />}
-          {data && seeMoreProj && (
+          {data && seeMoreProj && project && (
             <SeeMoreProjects
               title={data.individualProjectPage.additionalProjects}
+              mainProjectTitle={project.title}
               projects={seeMoreProj}
             />
           )}

@@ -7,14 +7,15 @@ import { IPortfolioReview } from "../../types/Admin/AdminPortfolio.types";
 
 import * as Styled from "../../styles/PortfolioPage.styled";
 import { PortfolioProjectsContainer } from "../../styles/Portfolio.styled";
-import { SeeMoreProjectsArrowFirst } from "../../styles/PortfolioPage.styled";
 
 const SeeMoreProjects = ({
   title,
   projects,
+  mainProjectTitle,
 }: {
   title: string;
   projects: IPortfolioReview[];
+  mainProjectTitle: string;
 }) => {
   return (
     <>
@@ -28,9 +29,12 @@ const SeeMoreProjects = ({
         </Styled.SeeMoreProjectsArrowSecond>
       </Styled.SeeMoreProjectsTitleContainer>
       <PortfolioProjectsContainer>
-        {projects.map((project) => (
-          <PortfolioProjectComponent key={project._id} project={project} />
-        ))}
+        {projects
+          .filter((project) => project.title !== mainProjectTitle)
+          .splice(0, 2)
+          .map((project) => (
+            <PortfolioProjectComponent key={project._id} project={project} />
+          ))}
       </PortfolioProjectsContainer>
     </>
   );
