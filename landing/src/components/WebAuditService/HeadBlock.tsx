@@ -1,7 +1,5 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import Image from "next/image";
-
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/WebAuditService/HeadBlock.styled";
 import { IServiceWebAudit } from "../../types/Admin/Response.types";
@@ -40,15 +38,7 @@ const HeadBlock = () => {
           )}
         </Styled.TextContainer>
         {data?.image && (
-          <Styled.ImageContainer>
-            <Image
-              src={data?.image.url}
-              alt="web audit hero image"
-              layout="fill"
-              objectFit="contain"
-              loading="lazy"
-            />
-          </Styled.ImageContainer>
+          <Styled.Image src={data?.image.url} alt="web audit hero image" />
         )}
       </Styled.ContentContainer>
     </Styled.Wrapper>
