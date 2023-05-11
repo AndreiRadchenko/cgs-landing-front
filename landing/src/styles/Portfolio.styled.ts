@@ -71,6 +71,7 @@ export const PortfolioPaginationButton = styled.div`
 export const ProjectsContainerInfo = styled.div`
   opacity: 0;
   height: 100%;
+  width: 100%;
   top: 0;
   right: 0;
   position: absolute;
@@ -147,6 +148,23 @@ export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>
   }
 `;
 
+export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
+  padding: 17px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: ${({ isInfoCont }) =>
+    isInfoCont
+      ? `1.5px solid #1d1c1d`
+      : `1.5px solid ${themes.primary.colors.headerBorder}`};
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 7px 10px;
+    padding: 0 0 9px 0;
+    border-bottom-width: 1px;
+  }
+`;
+
 export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
   position: relative;
   min-height: 441px;
@@ -181,23 +199,6 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
     &:hover ${ProjectsContainerArrowContainer} {
       border-width: 1.25px;
     }
-  }
-`;
-
-export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
-  padding: 17px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: ${({ isInfoCont }) =>
-    isInfoCont
-      ? `1.5px solid ${themes.primary.colors.primary}`
-      : `1.5px solid ${themes.primary.colors.headerBorder}`};
-
-  @media ${themes.primary.media.maxMobile} {
-    margin: 7px 10px;
-    padding: 0 0 9px 0;
-    border-bottom-width: 1px;
   }
 `;
 

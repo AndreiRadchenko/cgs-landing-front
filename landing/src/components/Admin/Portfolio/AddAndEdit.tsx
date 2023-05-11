@@ -47,6 +47,8 @@ const AddAndEdit = ({
       key={`Form${isNewStatus}${
         typeof current === "number" ? current : "null"
       }`}
+      validateOnChange={false}
+      validateOnBlur={false}
       initialValues={
         isNewStatus
           ? JSON.parse(JSON.stringify(newPageReviewInit))

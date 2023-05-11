@@ -49,7 +49,7 @@ const PortfolioProjectPage = () => {
   const router = useRouter();
 
   const { data: project, isLoading }: IPortfolioProjectResponse = useQuery(
-    [queryKeys.getPortfolioProjectPage],
+    [queryKeys.getPortfolioProjectPage, router.query.url],
     () => adminPortfolioService.getProjectData(router.query.url as string)
   );
   const { data }: IPortfolioResponse = useQuery(
@@ -115,8 +115,8 @@ const PortfolioProjectPage = () => {
                       ? project.imageProjectBanner.image!.url
                       : project!.image.url
                   }
-                  height={650}
-                  width={650}
+                  height={600}
+                  width={600}
                   objectFit="contain"
                 />
               </Styled.HeaderImageContainer>
