@@ -329,6 +329,7 @@ const PortfolioProjectComponent = ({
                     style={{ filter: "brightness(0) invert(1)" }}
                   />
                 ))
+                .splice(0, 6)
             : mockedIconsTech.map((item) => item.icon)}
         </Styled.ProjectsContainerInfoIconsContainer>
       </Styled.ProjectsContainerInfo>
