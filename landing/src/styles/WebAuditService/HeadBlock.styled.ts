@@ -32,8 +32,7 @@ export const TextContainer = styled.div`
   width: 50%;
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    /* margin-bottom: 6.73em; */
-    margin-bottom: 2.65em;
+    margin-bottom: 6.73em;
   }
 `;
 
@@ -89,27 +88,20 @@ export const Description = styled.div`
   }
 `;
 
-export const ImageContainer = styled.div`
-  /* width: 894px;
-  height: 762px; */
-  width: 663px;
-  height: 565px;
+export const Image = styled.img`
+  width: 61em;
   position: relative;
+
+  @media ${themes.primary.media.maxLaptop} {
+    width: 50%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 121%;
+    right: 3.5%;
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-left: 4em;
   }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    /* width: 50%;
-    height: 50%; */
-    width: 420px;
-    height: 358px;
-  }
-
-  /* @media ${themes.primary.media.maxMobile} {
-    width: 121%;
-    height: 121%;
-    right: 3.5%;
-  } */
 `;
