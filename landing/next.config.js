@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["landing-cgs.s3.amazonaws.com"],
+    domains: ["landing-cgs.s3.amazonaws.com", "d2qrnmx3qcgrup.cloudfront.net"],
     minimumCacheTTL: 3600,
   },
   reactStrictMode: true,
