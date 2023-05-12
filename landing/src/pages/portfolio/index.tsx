@@ -272,7 +272,7 @@ const PortfolioPage: NextPage = () => {
                 // )
               }
             </Styles.PortfolioWrapper>
-            <CTABlock initValues={data!.cta} />
+            <CTABlock initValues={data.cta} />
             <FooterNew />
           </Styles.PortfolioContainer>
         </>

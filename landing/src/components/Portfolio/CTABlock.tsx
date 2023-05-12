@@ -13,7 +13,7 @@ export const CTABlock = ({ initValues }: ICallToActionProps) => {
     <Styled.CTACont>
       <Styled.BlockMainIcon>
         <Image
-          src={initValues.image!.url}
+          src={initValues.image ? initValues.image.url : ""}
           alt="Call to action image"
           layout="fill"
           objectFit="contain"
