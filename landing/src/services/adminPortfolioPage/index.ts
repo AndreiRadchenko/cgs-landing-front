@@ -23,9 +23,15 @@ export class AdminPortfolioService {
   public getReviews() {
     return this.httpService.get<IPortfolioReview[]>("api/portfolio/review");
   }
-  public getPaginatedReviews(page: number, limit: number) {
+  public getPaginatedAndFilteredReviews(
+    category: string,
+    industry: string[],
+    search: string,
+    page: number,
+    limit: number
+  ) {
     return this.httpService.get<IPortfolioReview[]>(
-      `api/portfolio/review/${page}/${limit}`
+      `api/portfolio/reviews?category=${category}&industry=${industry}&search=${search}&page=${page}&limit=${limit}`
     );
   }
   public getByCategory(category: string) {
