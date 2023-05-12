@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  ChangeEvent,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { Field, useFormikContext } from "formik";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -161,14 +167,22 @@ const AddReview = ({
               <Styled.AdminNDAWrapper>
                 <Styled.AdminField
                   placeholder="Link"
-                  value={values.NDA ? "" : values.button}
+                  value={values.button}
                   onChange={handleChange}
                   name="button"
                 />
                 <Styled.AdminCheckboxField
+                  checked={values.NDA}
                   type="checkbox"
                   id="NDA"
                   name="NDA"
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                    const { checked } = e.target;
+                    if (checked) {
+                      setFieldValue("button", "");
+                    }
+                    setFieldValue("NDA", checked);
+                  }}
                 />
                 <label htmlFor="NDA">NDA</label>
               </Styled.AdminNDAWrapper>

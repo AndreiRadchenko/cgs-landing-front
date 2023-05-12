@@ -210,9 +210,11 @@ export const SeeMoreProjectsTitleContainer = styled.div`
   align-items: center;
   gap: 24px;
   justify-content: center;
+  margin-top: 90px;
 
   @media (${themes.primary.media.maxMobile}) {
     gap: 10px;
+    margin-top: 20px;
   }
 `;
 
@@ -238,5 +240,120 @@ export const SeeMoreProjectsArrowSecond = styled.div`
     width: 70%;
     align-self: flex-end;
     padding-bottom: 20px;
+  }
+`;
+
+export const FeedbackContainer = styled.div`
+  display: flex;
+  border-top: 1px solid ${themes.primary.colors.headerBorder};
+  border-bottom: 1px solid ${themes.primary.colors.headerBorder};
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+    border-top: 0;
+  }
+`;
+
+export const FeedbackTitleContainer = styled.div`
+  padding: 34px 40px 34px 54px;
+  background: #c0bfc0;
+  height: 370px;
+  width: 475px;
+  position: relative;
+  flex: 0 0 auto;
+
+  h4 {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 34px;
+    line-height: 120%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: ${themes.primary.colors.portfolioBg};
+    margin: 0 0 40px 0;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding: 20px 50px 20px 19px;
+
+    h4 {
+      font-size: 24px;
+      line-height: 120%;
+      margin: 0 0 21px 0;
+    }
+    & > svg {
+      width: 104px;
+      height: 92px;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    height: 235px;
+    width: 100%;
+  }
+`;
+
+export const FeedbackStarContainer = styled.div`
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+`;
+export const FeedbackInfoContainer = styled.div`
+  padding: 34px 50px;
+
+  h4 {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 34px;
+    line-height: 41px;
+    margin: 0 0 6px 0;
+  }
+  .position {
+    margin: 0;
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 18px;
+    line-height: 22px;
+
+    color: ${themes.primary.colors.headerBorder};
+  }
+  .text {
+    margin-top: 20px;
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 18px;
+    line-height: 166.6%;
+
+    color: ${themes.primary.colors.primary};
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding: 38px 20px;
+
+    h4 {
+      font-size: 24px;
+      line-height: 160%;
+      margin: 0 0 4px 0;
+    }
+    .position {
+      font-size: 14px;
+      line-height: 130%;
+    }
+    .text {
+      margin-top: 15px;
+      margin-bottom: 0;
+      font-size: 16px;
+      line-height: 160%;
+    }
   }
 `;

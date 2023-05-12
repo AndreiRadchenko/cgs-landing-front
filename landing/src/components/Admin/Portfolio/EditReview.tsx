@@ -70,9 +70,10 @@ const EditReview = ({
     (url: string) => adminGlobalService.deleteImage(url)
   );
 
-  const deleteFunc = (id: string, url: string) => {
+  const deleteFunc = (id: string, url: string, subUrl: string) => {
     mutateAsync(id);
     deletePhoto(url);
+    deletePhoto(subUrl);
     queryClient.invalidateQueries([queryKeys.getPortfolio]);
   };
 
@@ -147,8 +148,13 @@ const EditReview = ({
                   setCurrent={setCurrent}
                   deleteFunc={() =>
                     review._id &&
-                    review.image &&
-                    deleteFunc(review._id, review.image?.url)
+                    review.imageBanner.image?.url &&
+                    review.imageProjectBanner.image?.url &&
+                    deleteFunc(
+                      review._id,
+                      review.image?.url,
+                      review.imageProjectBanner.image?.url
+                    )
                   }
                   onScroll={scrollHandler}
                   editTrigger={setIsNewStatus}

@@ -1,13 +1,19 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
+import MagnifyingGlass from "../../public/Portfolio/MagnifyingGlass.svg";
+import ExitIcon from "../../public/Portfolio/ExitIcon.svg";
+
 interface IPortfolioInfoProps {
   readonly isInfoCont?: boolean;
   readonly isProjectLink?: boolean;
 }
-
 interface IPortfolioProjectLink {
   readonly isProjectLink: boolean;
+}
+
+interface IPortfolioSearch {
+  readonly searchElement: boolean;
 }
 
 export const PortfolioContainer = styled.div`
@@ -23,14 +29,133 @@ export const PortfolioWrapper = styled.div`
   }
 `;
 
+export const PortfolioCategoryWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  column-gap: 26px;
+`;
+
+export const PortfolioCategoryItem = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 22px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 18px;
+  gap: 10px;
+  border: 1px solid black;
+  background: transparent;
+  width: 153px;
+  height: 50px;
+
+  &.active {
+    border: none;
+    background-color: #5869dd;
+    color: white;
+  }
+`;
+
+export const PortfolioSearchWrapper = styled.div`
+  display: flex;
+`;
+
+export const PortfolioSearch = styled.div`
+  position: relative;
+  font-family: ${themes.primary.font.family.namu};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  border: 1px solid #8f8e93;
+  width: 318px;
+  height: 50px;
+  background: transparent;
+`;
+
+export const PortfolioInputWrapper = styled.div`
+  display: flex;
+
+  & input {
+    outline: none;
+    font-size: 16px;
+    margin-left: 10px;
+    width: 265px;
+    border: none;
+    background-color: transparent;
+  }
+
+  & input:active {
+    border: none;
+  }
+
+  & input::placeholder {
+    font-family: ${themes.primary.font.family.namu};
+  }
+`;
+
+export const PortfolioSearchElement = styled.div`
+  display: flex;
+  white-space: nowrap;
+  border-radius: 2px;
+  height: 34px;
+  background-color: #dfe1e6;
+  align-items: center;
+  margin-left: 8px;
+  padding: 0 10px;
+`;
+
+export const PortfolioSearchElementText = styled.div`
+  padding-bottom: 1px;
+`;
+
+export const PortfolioSearchDeleteButton = styled.div`
+  display: flex;
+  background-image: url(${ExitIcon.src});
+  background-repeat: no-repeat;
+  height: 10px;
+  width: 10px;
+  cursor: pointer;
+  margin-left: 8px;
+  align-items: center;
+`;
+
+export const PortfolioSearchButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 41px;
+  height: 50px;
+  cursor: pointer;
+`;
+
+export const PortfolioSearchIcon = styled.div`
+  background-image: url(${MagnifyingGlass.src});
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+  margin-right: 1px;
+`;
+
+export const PortfolioFiltersWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const PortfolioProjectsContainer = styled.div`
+  margin-top: 107px;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(355px, 652px));
   gap: 52px 34px;
+  margin-bottom: 120px;
 
   @media ${themes.primary.media.maxMobile} {
     gap: 20px;
+    margin-bottom: 90px;
   }
 `;
 
@@ -71,6 +196,7 @@ export const PortfolioPaginationButton = styled.div`
 export const ProjectsContainerInfo = styled.div`
   opacity: 0;
   height: 100%;
+  width: 100%;
   top: 0;
   right: 0;
   position: absolute;
@@ -147,6 +273,23 @@ export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>
   }
 `;
 
+export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
+  padding: 17px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: ${({ isInfoCont }) =>
+    isInfoCont
+      ? `1.5px solid #1d1c1d`
+      : `1.5px solid ${themes.primary.colors.headerBorder}`};
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 7px 10px;
+    padding: 0 0 9px 0;
+    border-bottom-width: 1px;
+  }
+`;
+
 export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
   position: relative;
   min-height: 441px;
@@ -181,23 +324,6 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
     &:hover ${ProjectsContainerArrowContainer} {
       border-width: 1.25px;
     }
-  }
-`;
-
-export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
-  padding: 17px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: ${({ isInfoCont }) =>
-    isInfoCont
-      ? `1.5px solid ${themes.primary.colors.primary}`
-      : `1.5px solid ${themes.primary.colors.headerBorder}`};
-
-  @media ${themes.primary.media.maxMobile} {
-    margin: 7px 10px;
-    padding: 0 0 9px 0;
-    border-bottom-width: 1px;
   }
 `;
 

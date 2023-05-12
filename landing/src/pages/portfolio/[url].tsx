@@ -30,6 +30,7 @@ import {
 import { queryKeys } from "../../consts/queryKeys";
 
 import ButtonArrow from "../../utils/ButtonArrow";
+import ProjectFeedback from "../../components/Portfolio/ProjectFeedback";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -49,7 +50,7 @@ const PortfolioProjectPage = () => {
   const router = useRouter();
 
   const { data: project, isLoading }: IPortfolioProjectResponse = useQuery(
-    [queryKeys.getPortfolioProjectPage],
+    [queryKeys.getPortfolioProjectPage, router.query.url],
     () => adminPortfolioService.getProjectData(router.query.url as string)
   );
   const { data }: IPortfolioResponse = useQuery(
@@ -57,8 +58,11 @@ const PortfolioProjectPage = () => {
     () => adminPortfolioService.getPageData()
   );
   const { data: seeMoreProj }: { data?: IPortfolioReview[] } = useQuery(
-    [queryKeys.getSeeMoreProjects, project],
-    () => adminPortfolioService.getByIndustry(project!.industry)
+    [queryKeys.getSeeMoreProjects, project?.title],
+    () => adminPortfolioService.getByIndustry(project!.industry),
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
   return (
@@ -115,8 +119,8 @@ const PortfolioProjectPage = () => {
                       ? project.imageProjectBanner.image!.url
                       : project!.image.url
                   }
-                  height={650}
-                  width={650}
+                  height={600}
+                  width={600}
                   objectFit="contain"
                 />
               </Styled.HeaderImageContainer>
@@ -154,9 +158,11 @@ const PortfolioProjectPage = () => {
                 ))}
             </Styled.PortfolioPageIconContainer>
           </Styled.PortfolioPageWrapper>
-          {data && seeMoreProj && (
+          {project?.feedback && <ProjectFeedback feedback={project.feedback} />}
+          {data && seeMoreProj && project && (
             <SeeMoreProjects
               title={data.individualProjectPage.additionalProjects}
+              mainProjectTitle={project.title}
               projects={seeMoreProj}
             />
           )}

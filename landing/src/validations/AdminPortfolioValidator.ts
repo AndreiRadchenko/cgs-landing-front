@@ -12,5 +12,23 @@ export const AdminPortfolioValidation = () => {
     imageProjectBanner: yup.object().shape({
       image: yup.object().required(),
     }),
+    feedback: yup
+      .object()
+      .shape({
+        name: yup.string().required(),
+        position: yup.string().required(),
+        feedbackText: yup.string().required(),
+      })
+      .required(),
+    technologies: yup.array().required(),
+    title: yup.string().required(),
+    flag: yup.string().required(),
+    country: yup.string().required(),
+    projectDuration: yup.string().required(),
+    projectTeam: yup.string().required(),
+    category: yup.string().required(),
+    button: yup.string(),
+    _id: yup.string(),
+    NDA: yup.boolean(),
   });
 };
