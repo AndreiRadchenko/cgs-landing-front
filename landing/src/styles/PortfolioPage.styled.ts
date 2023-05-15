@@ -267,7 +267,7 @@ export const FeedbackContainer = styled.div`
 export const FeedbackTitleContainer = styled.div`
   padding: 34px 40px 34px 54px;
   background: #c0bfc0;
-  height: 370px;
+  min-height: 370px;
   width: 475px;
   position: relative;
   flex: 0 0 auto;
@@ -309,7 +309,7 @@ export const FeedbackStarContainer = styled.div`
   right: 25px;
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 6px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     svg {

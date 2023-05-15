@@ -16,7 +16,7 @@ export const AdminPortfolioValidation = () => {
       .object()
       .shape({
         name: yup.string().required(),
-        position: yup.string().required(),
+        position: yup.string(),
         feedbackText: yup.string().required(),
       })
       .required(),

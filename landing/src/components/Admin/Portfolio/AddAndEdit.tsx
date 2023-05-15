@@ -85,7 +85,7 @@ const AddAndEdit = ({
       validationSchema={AdminPortfolioValidation}
     >
       <AddReview
-        categories={values.categories}
+        categories={values.categories.map((cat) => cat.name)}
         industries={values.industries}
         technologies={values.technologies}
         newFlag={isNewStatus}
