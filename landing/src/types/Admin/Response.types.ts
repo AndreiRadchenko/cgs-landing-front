@@ -315,7 +315,49 @@ export interface IAboutText {
   imageText: string;
 }
 
+export interface ITeammate {
+  image: { url: string };
+  name: string;
+  position: string;
+  about: string;
+  linkedin: string;
+}
+
 export interface IAbout {
+  about: {
+    image: { url: string };
+    codex: {
+      title: string;
+      text: string;
+    };
+    philosophy: {
+      title: string;
+      text: string;
+    };
+  };
+  numbers: {
+    years: {
+      num: number;
+      text: string;
+    };
+    employees: {
+      num: number;
+      text: string;
+    };
+    projects: {
+      num: number;
+      text: string;
+    };
+    customers: {
+      num: number;
+      text: string;
+    };
+  };
+  team: {
+    title: string;
+    members: ITeammate[];
+  };
+
   title: string;
   believe: IAboutText;
   goal: IAboutText;

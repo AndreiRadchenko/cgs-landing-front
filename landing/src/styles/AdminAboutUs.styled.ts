@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Field } from "formik";
 
 import themes from "../utils/themes";
 
@@ -28,3 +29,6 @@ export const DeleteButton = styled.div`
 `;
 
 export const Wrapper = styled.div``;
+
+export const CodexTitle = styled.(Field)`
+`;
