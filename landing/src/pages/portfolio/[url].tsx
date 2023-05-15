@@ -12,6 +12,7 @@ import TeamIcon from "../../components/Portfolio/svg/TeamIcon";
 import CircleProjectPage from "../../components/Portfolio/svg/CircleProjectPage";
 import CanadaFlag from "../../components/Portfolio/svg/CanadaFlag";
 import SeeMoreProjects from "../../components/Portfolio/SeeMoreProjects";
+import ProjectCta from "../../components/Portfolio/ProjectCta";
 
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { adminGlobalService } from "../../services/adminHomePage";
@@ -156,6 +157,9 @@ const PortfolioProjectPage = () => {
                 ))}
             </Styled.PortfolioPageIconContainer>
           </Styled.PortfolioPageWrapper>
+          {data?.individualProjectPage.cta && (
+            <ProjectCta projectInfo={data.individualProjectPage} />
+          )}
           {project?.feedback && <ProjectFeedback feedback={project.feedback} />}
           {data && seeMoreProj && project && (
             <SeeMoreProjects

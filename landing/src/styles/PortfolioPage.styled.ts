@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
+import { ILine } from "../types/Decoration.types";
+import { IMobileLine } from "./HomePage/Badges.styled";
 
 export const PortfolioPageWrapper = styled.div`
   width: 100%;
@@ -365,5 +367,79 @@ export const FeedbackInfoContainer = styled.div`
       font-size: 16px;
       line-height: 160%;
     }
+  }
+`;
+
+export const ProjectCta = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
+
+export const ProjectCtaContainer = styled.div`
+  padding: 27px 51px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  gap: 32px;
+
+  h3 {
+    font-family: ${themes.primary.font.family.namu};
+    font-size: 34px;
+    line-height: 116.6%;
+    margin: 0;
+    color: ${themes.primary.colors.primary};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+    padding: 20px 18px;
+    align-items: flex-start;
+
+    h3 {
+      font-size: 24px;
+      line-height: 26px;
+    }
+  }
+`;
+
+export const BgiContainer = styled.div<ILine>`
+  width: 115%;
+  height: 115px;
+  position: absolute;
+  left: -6%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: ${({ angle }) =>
+    css`radial-gradient(
+      50% 240px at ${angle},
+      ${themes.primary.colors.mainGradientColor2} ,
+      ${themes.primary.colors.mainGradientColor1}
+    );`};
+  background-size: 100% 100%;
+
+  @media ${themes.primary.media.maxMobile} {
+    height: 240px;
+  }
+`;
+
+export const MobileLine = styled.div<IMobileLine>`
+  display: none;
+  width: 120%;
+
+  position: relative;
+  left: -5%;
+  height: 24px;
+  background: linear-gradient(
+    ${({ grad1, grad2 }) => css`90deg,
+    ${grad1} 13.67%,
+    ${grad2} 90.39%`}
+  );
+
+  border: 1px solid ${themes.primary.colors.black};
+  box-shadow: 7px 2px 0px ${themes.primary.colors.black};
+  z-index: -1;
+  &:not(:last-child) {
+    margin-bottom: 7.56em;
   }
 `;

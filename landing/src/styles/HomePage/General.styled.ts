@@ -51,6 +51,16 @@ export const BlackButton = styled.a<IFontSize>`
     font-size: 18px;
   }
 
+  &.cta-button {
+    padding: 18px 17px;
+
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 22px;
+
+    text-transform: uppercase;
+  }
+
   &.footer {
     margin-top: 10px;
     height: 4vw;
