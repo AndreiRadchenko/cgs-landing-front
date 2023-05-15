@@ -16,6 +16,10 @@ export const Subtitle = styled.div`
   font-size: 74px;
   line-height: 89px;
 
+  & p {
+    margin-bottom: 0;
+  }
+
   & u {
     text-decoration-thickness: 3px;
     text-underline-offset: 7px;
@@ -32,6 +36,7 @@ export const Subtitle = styled.div`
       display: none;
     }
   }
+
   span {
     &.blue {
       color: ${themes.primary.colors.darkBlue};
@@ -49,6 +54,7 @@ export const Subtitle = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 32px;
     line-height: 38px;
+    margin-bottom: 0;
 
     span {
       &.tech {

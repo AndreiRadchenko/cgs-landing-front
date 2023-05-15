@@ -174,8 +174,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     setEmail("");
   };
 
-  // console.log(btnState.link);
-
   return (
     <Styled.FormProvider value={formik}>
       <Styled.Shadow className={isOpen ? "inline-block" : "enabled"} />

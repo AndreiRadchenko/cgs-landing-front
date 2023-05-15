@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import * as Styled from "../../styles/Blog.styled";
-import Arrow from "../../../public/upArrowSidebar.svg";
 import Image from "next/image";
 
-interface IBlogDropdown {
+import Arrow from "../../../public/upArrowSidebar.svg";
+import * as Styled from "../../styles/HomePage/General.styled";
+
+interface IDropdown {
   setFilters: (tags: string[]) => void;
   filters: string[];
   tags: string[];
@@ -13,9 +14,10 @@ interface IBlogDropdown {
   type?: "button" | "submit";
   setEnable?: (val: boolean) => void;
   className?: string;
+  prefix?: string;
 }
 
-const BlogDropdown = ({
+const Dropdown = ({
   setFilters,
   filters,
   tags,
@@ -25,7 +27,8 @@ const BlogDropdown = ({
   type = "button",
   setEnable,
   className,
-}: IBlogDropdown) => {
+  prefix = "",
+}: IDropdown) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const onBlur = () => {
@@ -34,7 +37,7 @@ const BlogDropdown = ({
   };
 
   return (
-    <Styled.Dropdown onBlur={onBlur}>
+    <Styled.DropdownWrapper onBlur={onBlur}>
       <Styled.DropdownButton
         className={isOpen ? `open ${className}` : className}
         onClick={() => setIsOpen(!isOpen)}
@@ -55,12 +58,12 @@ const BlogDropdown = ({
             key={tag}
             onMouseDown={(e) => e.preventDefault()}
           >
-            {isTag ? `#${tag}` : tag}
+            {isTag ? `${prefix}${tag}` : tag}
           </div>
         ))}
       </Styled.DropdownContent>
-    </Styled.Dropdown>
+    </Styled.DropdownWrapper>
   );
 };
 
-export default BlogDropdown;
+export default Dropdown;

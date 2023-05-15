@@ -14,8 +14,8 @@ import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { CTABlock } from "../../components/Portfolio/CTABlock";
 import ScrambleText from "../../components/HomePage/ScrambleText";
 import { Pagination } from "../../components/Portfolio/Pagination";
-import BlogDropdown from "../../components/Blog/BlogDropdown";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import Dropdown from "../../utils/Select/Dropdown";
 
 import {
   IPortfolioResponse,
@@ -26,8 +26,8 @@ import { PortfolioPageSize } from "../../consts";
 import * as Styled from "../../styles/AdminPage";
 import * as Styles from "../../styles/Portfolio.styled";
 import * as CSS from "../../styles/Portfolio/title.styled";
+import { Tag, DropdownContainer } from "../../styles/HomePage/General.styled";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
-import * as Style from "../../styles/Blog.styled";
 
 const PortfolioPage: NextPage = () => {
   const { width } = useWindowDimension();
@@ -76,6 +76,7 @@ const PortfolioPage: NextPage = () => {
   const [category, setCategory] = useState<string>("");
   const [isRequestRepeated, setIsRequestRepeated] = useState<boolean>(false);
   const [isSearchTriggered, setIsSearchTriggered] = useState<boolean>(false);
+  const [isCategoryChange, setIsCategoryChange] = useState<boolean>(false);
   const [isCategoryWarning, setIsCategoryWarning] = useState<boolean>(false);
   const [industries, setIndustries] = useState<string[]>([]);
   const [searchText, setSearchText] = useState<string>("");
@@ -126,14 +127,7 @@ const PortfolioPage: NextPage = () => {
     }
   };
 
-  // useEffect(() => {
-  //   reviewsData?.reviews.length === 0
-  //     ? setIsCategoryWarning(true)
-  //     : setIsCategoryWarning(false);
-  // }, [activeCategory]);
-
   useEffect(() => {
-    setIsRequestRepeated(false);
     if (
       reviewsData?.reviews.length === 0 &&
       (category || industries.length > 0) &&
@@ -146,11 +140,13 @@ const PortfolioPage: NextPage = () => {
       setIsSearchTriggered(false);
       setIsRequestRepeated(true);
     }
-  }, [reviewsData]);
 
-  // useEffect(() => {
-  //   console.log("Trigger: ", searchTrigger);
-  // }, [searchTrigger]);
+    if (reviewsData?.reviews.length === 0 && category && isCategoryChange) {
+      setIsCategoryWarning(true);
+    } else {
+      setIsCategoryWarning(false);
+    }
+  }, [reviewsData]);
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
@@ -179,6 +175,8 @@ const PortfolioPage: NextPage = () => {
                 <Styles.PortfolioCategoryItem
                   className={activeCategory === 0 ? "active" : ""}
                   onClick={() => {
+                    setIsRequestRepeated(false);
+                    setIsCategoryChange(true);
                     setIsSearchTriggered(false);
                     setActiveCategory(0);
                     setCategory("");
@@ -186,20 +184,29 @@ const PortfolioPage: NextPage = () => {
                 >
                   {"All projects"}
                 </Styles.PortfolioCategoryItem>
-                {data.categories.map((elem, i) => (
+                {data.categories.map(({ name }, i) => (
                   <Styles.PortfolioCategoryItem
-                    key={`${elem}${i}`}
+                    key={i}
                     className={i + 1 === activeCategory ? "active" : ""}
                     onClick={() => {
+                      setIsRequestRepeated(false);
+                      setIsCategoryChange(true);
                       setIsSearchTriggered(false);
                       setActiveCategory(i + 1);
-                      setCategory(elem);
+                      setCategory(name);
                     }}
                   >
-                    {/*{elem.charAt(0).toUpperCase() + elem.slice(1)}*/}
+                    {name.charAt(0).toUpperCase() + name.slice(1)}
                   </Styles.PortfolioCategoryItem>
                 ))}
               </Styles.PortfolioCategoryWrapper>
+              <Styles.PortfolioCommentWrapper>
+                <Styles.PortfolioComment>
+                  {activeCategory === 0
+                    ? "Our portfolio is our greatest asset and your strongest guarantee. Explore cases that don’t gather dust on the shelf but earn money."
+                    : data.categories[activeCategory - 1].description}
+                </Styles.PortfolioComment>
+              </Styles.PortfolioCommentWrapper>
               <Styles.PortfolioFiltersWrapper>
                 <Styles.PortfolioSearchWrapper>
                   <Styles.PortfolioSearch>
@@ -216,62 +223,83 @@ const PortfolioPage: NextPage = () => {
                       <Styles.PortfolioSearchIcon />
                     </Styles.PortfolioSearchButton>
                   </Styles.PortfolioSearch>
-                  {/* {isCategoryWarning && <div>Test Error</div>} */}
+                  {isCategoryWarning && category && (
+                    <Styles.PortfolioFilterWarning>
+                      {`Sorry, в категорії “${
+                        data.categories[activeCategory - 1].name
+                      }” нічого не знайдено`}
+                    </Styles.PortfolioFilterWarning>
+                  )}
+                  {isRequestRepeated && (
+                    <Styles.PortfolioFilterWarning>
+                      {`Sorry, there are no matches in the category chosen, but we found “${searchTrigger}” in the other categories`}
+                    </Styles.PortfolioFilterWarning>
+                  )}
                 </Styles.PortfolioSearchWrapper>
-                <Style.DropdownContainer>
-                  <>
+                <DropdownContainer className="portfolio_dropdown">
+                  <Styles.PortfolioActiveIndustriesWrapper>
                     {industries.length > 0 &&
                       industries.map((filter, index) => (
-                        <Style.Tag key={index}>
-                          {filter}&nbsp;&nbsp;
-                          <span
-                            onClick={() => {
-                              const newIndustries = industries.filter(
-                                (filter) => filter !== industries[index]
-                              );
-                              setIndustries([...newIndustries]);
-                            }}
-                          >
-                            x
-                          </span>
-                        </Style.Tag>
+                        <Styles.PortfolioIndustryTagWrapper key={index}>
+                          <Styles.PortfolioIndustryTag>
+                            {filter}&nbsp;&nbsp;
+                          </Styles.PortfolioIndustryTag>
+                          <Styles.PortfolioIndustryTagDelete>
+                            <span
+                              onClick={() => {
+                                const newIndustries = industries.filter(
+                                  (filter) => filter !== industries[index]
+                                );
+                                setIndustries([...newIndustries]);
+                              }}
+                            >
+                              x
+                            </span>
+                          </Styles.PortfolioIndustryTagDelete>
+                        </Styles.PortfolioIndustryTagWrapper>
                       ))}
-                  </>
-                  <BlogDropdown
-                    className="blog"
-                    filters={industries}
-                    setFilters={setIndustries}
-                    tags={data.industries}
-                    dropdownName="INDUSTRY"
-                    // dropdownName="// INDUSTRY"
-                    isTag={true}
-                  />
-                </Style.DropdownContainer>
-              </Styles.PortfolioFiltersWrapper>
-              {
-                reviewsData?.reviews && reviewsData.reviews.length > 0 && (
-                  // !isRequestRepeated ? (
-                  <>
-                    <Styles.PortfolioProjectsContainer>
-                      {reviewsData?.reviews &&
-                        reviewsData.reviews.map((project) => (
-                          <PortfolioProjectComponent
-                            key={project._id}
-                            project={project}
-                          />
-                        ))}
-                    </Styles.PortfolioProjectsContainer>
-                    <Pagination
-                      reviewsData={reviewsData}
-                      currentPage={currentPage}
-                      setCurrentPage={setCurrentPage}
+                  </Styles.PortfolioActiveIndustriesWrapper>
+                  <Styles.PortfolioDropdownWrapper>
+                    <Dropdown
+                      className="portfolio_dropdown-element"
+                      filters={industries}
+                      setFilters={setIndustries}
+                      tags={data.industries}
+                      dropdownName="// INDUSTRY"
+                      isTag={true}
                     />
-                  </>
-                )
-                // ) : (
-                //   <div>Something</div>
-                // )
-              }
+                  </Styles.PortfolioDropdownWrapper>
+                </DropdownContainer>
+              </Styles.PortfolioFiltersWrapper>
+              {reviewsData?.reviews && reviewsData.reviews.length > 0 ? (
+                <>
+                  <Styles.PortfolioProjectsContainer>
+                    {reviewsData?.reviews &&
+                      reviewsData.reviews.map((project) => (
+                        <PortfolioProjectComponent
+                          key={project._id}
+                          project={project}
+                        />
+                      ))}
+                  </Styles.PortfolioProjectsContainer>
+                  <Pagination
+                    reviewsData={reviewsData}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                  />
+                </>
+              ) : (
+                <Styles.PortfolioSearchWarning>
+                  <div>
+                    {`Sorry, no results were found for "${searchTrigger}".`}
+                  </div>
+                  <div className="warning_list-header">Recommendations:</div>
+                  <ul>
+                    <li>Make sure all the words are properly spelled.</li>
+                    <li>Try using other keywords.</li>
+                  </ul>
+                </Styles.PortfolioSearchWarning>
+              )}
             </Styles.PortfolioWrapper>
             <CTABlock initValues={data.cta} />
             <FooterNew />

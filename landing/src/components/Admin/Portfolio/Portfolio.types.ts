@@ -1,5 +1,6 @@
 import { FormikHelpers } from "formik";
 import {
+  IPortfolioPageData,
   IPortfolioResponse,
   IPortfolioReview,
 } from "../../../types/Admin/AdminPortfolio.types";
@@ -23,9 +24,4 @@ export interface IPortfolioData {
   data: IPortfolioResponse | undefined;
   isLoading: boolean;
   refetch: () => Promise<IPortfolioData>;
-}
-
-export interface IRenderPortfolioInputsProps {
-  state: string[];
-  handleChange: (e: string | React.ChangeEvent<any>) => void;
 }
