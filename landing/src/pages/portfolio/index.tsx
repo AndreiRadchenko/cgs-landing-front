@@ -237,28 +237,26 @@ const PortfolioPage: NextPage = () => {
                   )}
                 </Styles.PortfolioSearchWrapper>
                 <DropdownContainer className="portfolio_dropdown">
-                  <Styles.PortfolioActiveIndustriesWrapper>
-                    {industries.length > 0 &&
-                      industries.map((filter, index) => (
-                        <Styles.PortfolioIndustryTagWrapper key={index}>
-                          <Styles.PortfolioIndustryTag>
-                            {filter}&nbsp;&nbsp;
-                          </Styles.PortfolioIndustryTag>
-                          <Styles.PortfolioIndustryTagDelete>
-                            <span
-                              onClick={() => {
-                                const newIndustries = industries.filter(
-                                  (filter) => filter !== industries[index]
-                                );
-                                setIndustries([...newIndustries]);
-                              }}
-                            >
-                              x
-                            </span>
-                          </Styles.PortfolioIndustryTagDelete>
-                        </Styles.PortfolioIndustryTagWrapper>
-                      ))}
-                  </Styles.PortfolioActiveIndustriesWrapper>
+                  {industries.length > 0 &&
+                    industries.map((filter, index) => (
+                      <Styles.PortfolioIndustryTagWrapper key={index}>
+                        <Styles.PortfolioIndustryTag>
+                          {filter}&nbsp;&nbsp;
+                        </Styles.PortfolioIndustryTag>
+                        <Styles.PortfolioIndustryTagDelete>
+                          <span
+                            onClick={() => {
+                              const newIndustries = industries.filter(
+                                (filter) => filter !== industries[index]
+                              );
+                              setIndustries([...newIndustries]);
+                            }}
+                          >
+                            x
+                          </span>
+                        </Styles.PortfolioIndustryTagDelete>
+                      </Styles.PortfolioIndustryTagWrapper>
+                    ))}
                   <Styles.PortfolioDropdownWrapper>
                     <Dropdown
                       className="portfolio_dropdown-element"
