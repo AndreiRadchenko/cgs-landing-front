@@ -75,6 +75,7 @@ export const ListTitle = styled.span`
   margin-bottom: 7px;
   font-size: 24px;
   font-weight: ${themes.primary.font.weight.heavy};
+  font-family: ${themes.primary.font.family.namu};
   text-transform: uppercase;
   line-height: 21px;
 
