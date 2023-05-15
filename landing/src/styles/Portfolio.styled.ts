@@ -95,6 +95,12 @@ export const PortfolioComment = styled.div`
 
 export const PortfolioSearchWrapper = styled.div`
   display: flex;
+
+  @media ${themes.primary.media.maxMobile} {
+    align-items: center;
+    flex-direction: column;
+    row-gap: 20px;
+  }
 `;
 
 export const PortfolioSearch = styled.div`
@@ -150,13 +156,6 @@ interface IPortfolioIndustryTag {
   isArticlePage?: boolean;
 }
 
-export const PortfolioActiveIndustriesWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-end;
-`;
-
 export const PortfolioDropdownWrapper = styled.div``;
 
 export const PortfolioIndustryTagWrapper = styled.button<IPortfolioIndustryTag>`
@@ -200,7 +199,9 @@ export const PortfolioIndustryTagWrapper = styled.button<IPortfolioIndustryTag>`
   }
 `;
 
-export const PortfolioIndustryTag = styled.div``;
+export const PortfolioIndustryTag = styled.div`
+  white-space: nowrap;
+`;
 
 export const PortfolioIndustryTagDelete = styled.div``;
 
@@ -271,13 +272,12 @@ export const PortfolioSearchIcon = styled.div`
 export const PortfolioFiltersWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-top: 50px;
 
   & .portfolio_dropdown {
     font-family: ${themes.primary.font.family.namu};
     margin-bottom: 0;
-    flex-wrap: nowrap;
+    flex-wrap: wrap-reverse;
     align-items: center;
     max-width: 50%;
   }
@@ -289,7 +289,7 @@ export const PortfolioFiltersWrapper = styled.div`
     & .portfolio_dropdown {
       margin-top: 36px;
       padding-right: 10px;
-      width: 100%;
+      max-width: 100%;
     }
   }
 `;

@@ -487,6 +487,12 @@ export const AdminCategoryNameInput = styled.input`
   &::placeholder {
     font-size: 18px;
   }
+
+  &.error {
+    &::placeholder {
+      color: red;
+    }
+  }
 `;
 
 export const AdminCategoryDescriptionInput = styled.input`
