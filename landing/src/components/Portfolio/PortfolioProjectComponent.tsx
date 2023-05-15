@@ -10,6 +10,8 @@ import ButtonArrow from "../../utils/ButtonArrow";
 import ArrowBtn from "./svg/ArrowBtn";
 import BtnPolyline from "./svg/BtnPolyline";
 
+import { openInNewTab } from "../../utils/OpenInNewTab";
+
 const PortfolioProjectComponent = ({
   project,
 }: {
@@ -233,11 +235,6 @@ const PortfolioProjectComponent = ({
     );
   };
 
-  const openInNewTab = (url: string): void => {
-    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
-    if (newWindow) newWindow.opener = null;
-  };
-
   return (
     <Styled.ProjectsContainer isProjectLink={!!project.button}>
       <Styled.ProjectsContainerHeader isInfoCont={false}>
@@ -289,13 +286,7 @@ const PortfolioProjectComponent = ({
             isInfoCont={true}
             isProjectLink={!!project.button}
           >
-            {project.button ? (
-              <a href={project.button} target="_blank" rel="noreferrer">
-                project link
-              </a>
-            ) : (
-              <span>NDA</span>
-            )}
+            {project.button ? <p>project link</p> : <span>NDA</span>}
             <Styled.ProjectsContainerArrowContainer
               isProjectLink={!!project.button}
             >

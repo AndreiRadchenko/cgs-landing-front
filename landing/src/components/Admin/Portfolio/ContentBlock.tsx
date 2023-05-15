@@ -1,31 +1,23 @@
 import React, { useState } from "react";
-import { FieldArray, useFormikContext } from "formik";
 import { useQuery } from "@tanstack/react-query";
 
 import AddAndEdit from "./AddAndEdit";
 import CallToAction from "./CallToAction";
 import TitleBlock from "./TitleBlock";
-import renderPortfolioInputs from "./renderPortfolioInputs";
 import { useScrollTo } from "../../../hooks/useScrollTo";
 import MetaTagsBlock from "../MetaTagsBlock";
 import BlockDropdown from "../BlockDropdown";
 import IndividualProjectPageInfo from "./IndividualProjectPageInfo";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
-import SaveBtn from "../Global/SaveBtn";
 import EditReview from "./EditReview";
+import AdminCategory from "./AdminCategory";
 
-import {
-  IPortfolioPageData,
-  IPortfolioResponse,
-} from "../../../types/Admin/AdminPortfolio.types";
+import { IPortfolioResponse } from "../../../types/Admin/AdminPortfolio.types";
 import { queryKeys } from "../../../consts/queryKeys";
 import * as Styled from "../../../styles/AdminPage";
 
 const AdminPortfolioContentBlock = () => {
   const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
-
-  const { values, handleChange, handleSubmit } =
-    useFormikContext<IPortfolioPageData>();
 
   const { data } = useQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
@@ -39,29 +31,14 @@ const AdminPortfolioContentBlock = () => {
   const [current, setCurrent] = useState(0);
   const [isNewStatus, setIsNewStatus] = useState(true);
 
-  const submitFunction = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    handleSubmit();
-  };
-
   return (
     <div>
       <Styled.AdminPaddedBlock>
         <Styled.AdminHeader ref={ref}>Portfolio</Styled.AdminHeader>
         <TitleBlock />
         <BlockDropdown title="Category">
-          <Styled.AdminCategoryBlock>
-            <FieldArray name="categories">
-              {() =>
-                renderPortfolioInputs({
-                  state: values.categories,
-                  handleChange,
-                })
-              }
-            </FieldArray>
-          </Styled.AdminCategoryBlock>
+          <AdminCategory />
         </BlockDropdown>
-        <SaveBtn title="Save Changes" handleClick={submitFunction} />
         <BlockDropdown styles={{ marginTop: "50px" }} title="Add a new case">
           <AddAndEdit
             current={current}

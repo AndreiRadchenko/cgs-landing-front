@@ -30,9 +30,17 @@ export const PortfolioWrapper = styled.div`
 `;
 
 export const PortfolioCategoryWrapper = styled.div`
+  position: relative;
+  margin-top: 29px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   column-gap: 26px;
+
+  @media ${themes.primary.media.maxMobile} {
+    column-gap: 16px;
+    margin-top: 6px;
+  }
 `;
 
 export const PortfolioCategoryItem = styled.div`
@@ -48,13 +56,40 @@ export const PortfolioCategoryItem = styled.div`
   gap: 10px;
   border: 1px solid black;
   background: transparent;
-  width: 153px;
-  height: 50px;
+  line-height: 24.4px;
+  margin-top: 20px;
+  transition: all 0.2s ease-in-out;
 
   &.active {
-    border: none;
+    border: 1px solid #5869dd;
     background-color: #5869dd;
     color: white;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+`;
+
+export const PortfolioCommentWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const PortfolioComment = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 18px;
+  width: 607px;
+  line-height: 28.8px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 26px;
   }
 `;
 
@@ -73,7 +108,101 @@ export const PortfolioSearch = styled.div`
   width: 318px;
   height: 50px;
   background: transparent;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 335px;
+  }
 `;
+
+export const PortfolioFilterWarning = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8f8e93;
+  margin-left: 18px;
+  font-size: 18px;
+`;
+
+export const PortfolioSearchWarning = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  color: #8f8e93;
+  margin: 28px 0 134px;
+
+  & .warning_list-header {
+    margin-top: 18px;
+  }
+
+  & ul {
+    padding-left: 28px;
+    margin: 8px 0 0 0;
+
+    & li {
+      padding-bottom: 6px;
+    }
+  }
+`;
+
+interface IPortfolioIndustryTag {
+  isArticlePage?: boolean;
+}
+
+export const PortfolioActiveIndustriesWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-end;
+`;
+
+export const PortfolioDropdownWrapper = styled.div``;
+
+export const PortfolioIndustryTagWrapper = styled.button<IPortfolioIndustryTag>`
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  color: ${themes.primary.colors.secondary};
+  background-color: ${themes.primary.colors.darkBlue};
+  padding: 6px 12px;
+  font-style: normal;
+  font-weight: ${themes.primary.font.weight.semiBold};
+  font-size: ${themes.primary.font.size.articleViews};
+  font-family: ${themes.primary.font.family.openSans};
+  letter-spacing: 0.5px;
+  z-index: 1;
+  &:hover {
+    background-color: ${(props) =>
+      props.isArticlePage && themes.primary.colors.hoveredBlogTag};
+    cursor: ${(props) => props.isArticlePage && "pointer"};
+  }
+  span {
+    cursor: pointer;
+  }
+  @media ${themes.primary.media.minPC} {
+    height: 2.333em;
+    padding: 0.5em ${themes.primary.font.size.primary};
+    font-size: ${themes.primary.font.size.primary};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    &.preview {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 0;
+      font-size: 1.35em;
+      margin-left: -1px;
+    }
+  }
+`;
+
+export const PortfolioIndustryTag = styled.div``;
+
+export const PortfolioIndustryTagDelete = styled.div``;
 
 export const PortfolioInputWrapper = styled.div`
   display: flex;
@@ -143,6 +272,26 @@ export const PortfolioFiltersWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 50px;
+
+  & .portfolio_dropdown {
+    font-family: ${themes.primary.font.family.namu};
+    margin-bottom: 0;
+    flex-wrap: nowrap;
+    align-items: center;
+    max-width: 50%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+    margin-top: 26px;
+
+    & .portfolio_dropdown {
+      margin-top: 36px;
+      padding-right: 10px;
+      width: 100%;
+    }
+  }
 `;
 
 export const PortfolioProjectsContainer = styled.div`
@@ -155,7 +304,7 @@ export const PortfolioProjectsContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     gap: 20px;
-    margin-bottom: 90px;
+    margin: 28.5px 0 0 0;
   }
 `;
 
@@ -163,11 +312,15 @@ export const PortfolioPaginationWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding: 42px 0;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 30px 0 42px 0;
+  }
 `;
 
 export const PortfolioPaginationItemsWrapper = styled.div`
   display: flex;
-  column-gap: 8px;
+  column-gap: 17px;
 
   & .active {
     background-color: #000;
@@ -201,6 +354,7 @@ export const ProjectsContainerInfo = styled.div`
   right: 0;
   position: absolute;
   background: rgba(0, 0, 0, 0.8);
+  transition: opacity 0.4s;
 `;
 
 export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
@@ -218,6 +372,10 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
       : themes.primary.colors.primary};
   margin: 0;
   cursor: ${({ isProjectLink }) => isProjectLink && "pointer"};
+
+  p {
+    margin: 0;
+  }
 
   span {
     color: ${themes.primary.colors.comment};
@@ -296,7 +454,7 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
 
   &:hover ${ProjectsContainerInfo} {
     opacity: 1;
-    transition: 0.3s opacity;
+    transition: opacity 0.4s;
   }
 
   &:hover ${ProjectsContainerArrowContainer} {
@@ -363,7 +521,8 @@ export const ProjectsContainerInfoBtn = styled.div`
   text-transform: uppercase;
   padding: 5px 20px 7px;
   border: 1px solid ${themes.primary.colors.blogBackground};
-  width: 170px;
+  width: 169px;
+  height: 39px;
   cursor: pointer;
   outline: none;
   transition: 1s ease-in-out;
@@ -434,6 +593,8 @@ export const ProjectsContainerInfoIconsContainer = styled.div`
 `;
 
 export const ProjectsContainerHeaderTitle = styled.div`
+  max-width: 75%;
+
   h4 {
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
@@ -441,6 +602,12 @@ export const ProjectsContainerHeaderTitle = styled.div`
     line-height: 130%;
     margin: 0;
     color: ${themes.primary.colors.primary};
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    white-space: pre-wrap;
   }
   p {
     font-family: ${themes.primary.font.family.namu};
@@ -464,6 +631,8 @@ export const ProjectsContainerHeaderTitle = styled.div`
 `;
 
 export const ProjectsContainerInfoHeaderTitle = styled.div`
+  max-width: 75%;
+
   h4 {
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
@@ -471,6 +640,12 @@ export const ProjectsContainerInfoHeaderTitle = styled.div`
     line-height: 130%;
     margin: 0;
     color: ${themes.primary.colors.blogBackground};
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    white-space: pre-wrap;
   }
   p {
     font-family: ${themes.primary.font.family.namu};
