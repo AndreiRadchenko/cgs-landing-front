@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
@@ -188,6 +188,7 @@ const PortfolioPage: NextPage = () => {
                 </Styles.PortfolioCategoryItem>
                 {data.categories.map((elem, i) => (
                   <Styles.PortfolioCategoryItem
+                    key={`${elem}${i}`}
                     className={i + 1 === activeCategory ? "active" : ""}
                     onClick={() => {
                       setIsSearchTriggered(false);
@@ -195,7 +196,7 @@ const PortfolioPage: NextPage = () => {
                       setCategory(elem);
                     }}
                   >
-                    {elem.charAt(0).toUpperCase() + elem.slice(1)}
+                    {/*{elem.charAt(0).toUpperCase() + elem.slice(1)}*/}
                   </Styles.PortfolioCategoryItem>
                 ))}
               </Styles.PortfolioCategoryWrapper>

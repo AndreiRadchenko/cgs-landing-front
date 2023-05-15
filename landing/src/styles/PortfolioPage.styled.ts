@@ -32,7 +32,7 @@ export const HeaderContainerBlock = styled.div`
     line-height: 130%;
     padding-bottom: 20px;
     border-bottom: 1px solid ${themes.primary.colors.headerBorder};
-    margin: 0 0 32px 0;
+    margin: 0 0 14px 0;
   }
 
   @media (${themes.primary.media.maxTabletLandScape}) {
@@ -121,8 +121,9 @@ export const PortfolioPageInfoContainer = styled.div`
 export const PortfolioPageIconContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   margin-top: 65px;
+  row-gap: 20px;
 
   > span {
     position: unset !important;
@@ -137,7 +138,8 @@ export const PortfolioPageIconContainer = styled.div`
 
   @media (${themes.primary.media.maxMobile}) {
     margin-top: 35px;
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(67px, 1fr));
+    row-gap: 1px;
   }
 `;
 
@@ -186,6 +188,10 @@ export const InfoContainerTimeTeam = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  p {
+    margin: 0;
+  }
 `;
 
 export const SeeMoreProjectsTitle = styled.h3`

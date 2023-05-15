@@ -434,6 +434,8 @@ export const ProjectsContainerInfoIconsContainer = styled.div`
 `;
 
 export const ProjectsContainerHeaderTitle = styled.div`
+  max-width: 75%;
+
   h4 {
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
@@ -441,6 +443,12 @@ export const ProjectsContainerHeaderTitle = styled.div`
     line-height: 130%;
     margin: 0;
     color: ${themes.primary.colors.primary};
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    white-space: pre-wrap;
   }
   p {
     font-family: ${themes.primary.font.family.namu};
@@ -464,6 +472,8 @@ export const ProjectsContainerHeaderTitle = styled.div`
 `;
 
 export const ProjectsContainerInfoHeaderTitle = styled.div`
+  max-width: 75%;
+
   h4 {
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
@@ -471,6 +481,12 @@ export const ProjectsContainerInfoHeaderTitle = styled.div`
     line-height: 130%;
     margin: 0;
     color: ${themes.primary.colors.blogBackground};
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    white-space: pre-wrap;
   }
   p {
     font-family: ${themes.primary.font.family.namu};
