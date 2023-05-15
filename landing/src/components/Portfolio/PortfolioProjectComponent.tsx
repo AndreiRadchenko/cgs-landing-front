@@ -10,6 +10,8 @@ import ButtonArrow from "../../utils/ButtonArrow";
 import ArrowBtn from "./svg/ArrowBtn";
 import BtnPolyline from "./svg/BtnPolyline";
 
+import { openInNewTab } from "../../utils/OpenInNewTab";
+
 const PortfolioProjectComponent = ({
   project,
 }: {
@@ -231,11 +233,6 @@ const PortfolioProjectComponent = ({
       },
       `/portfolio/${url}`
     );
-  };
-
-  const openInNewTab = (url: string): void => {
-    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
-    if (newWindow) newWindow.opener = null;
   };
 
   return (

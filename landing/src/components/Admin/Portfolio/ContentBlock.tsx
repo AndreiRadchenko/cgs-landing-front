@@ -70,14 +70,14 @@ const AdminPortfolioContentBlock = () => {
             setIsNewStatus={setIsNewStatus}
           />
         </BlockDropdown>
-        <BlockDropdown title="Editing">
+        {/*<BlockDropdown title="Editing">
           <EditReview
             setCurrent={setCurrent}
             scrollHandler={scrollHandler}
             isNewStatus={isNewStatus}
             setIsNewStatus={setIsNewStatus}
           />
-        </BlockDropdown>
+        </BlockDropdown>*/}
         <BlockDropdown title="CTA">
           {isLoading ? (
             <p>Loading...</p>

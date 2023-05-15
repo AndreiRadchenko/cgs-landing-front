@@ -31,6 +31,7 @@ import { queryKeys } from "../../consts/queryKeys";
 
 import ButtonArrow from "../../utils/ButtonArrow";
 import ProjectFeedback from "../../components/Portfolio/ProjectFeedback";
+import { openInNewTab } from "../../utils/OpenInNewTab";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -93,6 +94,9 @@ const PortfolioProjectPage = () => {
                     <p>{project?.country ? project.country : "Canada"}</p>
                   </Styled.HeaderBottomSectionFlag>
                   <Styles.ProjectsContainerHeaderLink
+                    onClick={() =>
+                      !!project?.button && openInNewTab(project.button)
+                    }
                     isProjectLink={!!project?.button}
                   >
                     {project?.button ? (

@@ -239,7 +239,12 @@ const AddReview = ({
                     placeholder="Add NEW industry"
                     ref={industryRef}
                   />
-                  <div onClick={() => addIndustry(industryRef.current!.value)}>
+                  <div
+                    onClick={() =>
+                      industryRef.current!.value.length > 0 &&
+                      addIndustry(industryRef.current!.value)
+                    }
+                  >
                     +
                   </div>
                 </Styled.IndustryWrapper>
