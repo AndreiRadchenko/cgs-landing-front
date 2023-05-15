@@ -219,6 +219,10 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
   margin: 0;
   cursor: ${({ isProjectLink }) => isProjectLink && "pointer"};
 
+  p {
+    margin: 0;
+  }
+
   span {
     color: ${themes.primary.colors.comment};
   }
