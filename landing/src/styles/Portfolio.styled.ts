@@ -201,6 +201,7 @@ export const ProjectsContainerInfo = styled.div`
   right: 0;
   position: absolute;
   background: rgba(0, 0, 0, 0.8);
+  transition: opacity 0.4s;
 `;
 
 export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
@@ -218,6 +219,10 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
       : themes.primary.colors.primary};
   margin: 0;
   cursor: ${({ isProjectLink }) => isProjectLink && "pointer"};
+
+  p {
+    margin: 0;
+  }
 
   span {
     color: ${themes.primary.colors.comment};
@@ -296,7 +301,7 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
 
   &:hover ${ProjectsContainerInfo} {
     opacity: 1;
-    transition: 0.3s opacity;
+    transition: opacity 0.4s;
   }
 
   &:hover ${ProjectsContainerArrowContainer} {
@@ -363,7 +368,8 @@ export const ProjectsContainerInfoBtn = styled.div`
   text-transform: uppercase;
   padding: 5px 20px 7px;
   border: 1px solid ${themes.primary.colors.blogBackground};
-  width: 170px;
+  width: 169px;
+  height: 39px;
   cursor: pointer;
   outline: none;
   transition: 1s ease-in-out;

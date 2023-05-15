@@ -99,13 +99,7 @@ const PortfolioProjectPage = () => {
                     }
                     isProjectLink={!!project?.button}
                   >
-                    {project?.button ? (
-                      <a href={project.button} target="_blank" rel="noreferrer">
-                        project link
-                      </a>
-                    ) : (
-                      <span>NDA</span>
-                    )}
+                    {project?.button ? <p>project link</p> : <span>NDA</span>}
                     <Styles.ProjectsContainerArrowContainer
                       isProjectLink={!!project?.button}
                     >

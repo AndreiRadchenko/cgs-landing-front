@@ -197,10 +197,11 @@ export const InfoContainerTimeTeam = styled.div`
 export const SeeMoreProjectsTitle = styled.h3`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 50px;
+  font-size: 52px;
   line-height: 116.6%;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  margin: 0;
 
   color: ${themes.primary.colors.primary};
   text-align: center;
@@ -215,37 +216,40 @@ export const SeeMoreProjectsTitleContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 90px;
 
   @media (${themes.primary.media.maxMobile}) {
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 56px;
   }
 `;
 
 export const SeeMoreProjectsArrowFirst = styled.div`
+  padding-top: 13px;
   svg {
     flex: 1 1 auto;
     width: 100%;
   }
 
   @media (${themes.primary.media.maxMobile}) {
-    padding-top: 30px;
+    padding-top: 3px;
     align-self: flex-start;
     width: 70%;
   }
 `;
 export const SeeMoreProjectsArrowSecond = styled.div`
+  padding-top: 13px;
   svg {
     flex: 1 1 auto;
     width: 100%;
     transform: rotate(180deg);
   }
   @media (${themes.primary.media.maxMobile}) {
+    padding-top: 0px;
     width: 70%;
     align-self: flex-end;
-    padding-bottom: 20px;
+    margin-bottom: -2px;
   }
 `;
 
@@ -263,7 +267,7 @@ export const FeedbackContainer = styled.div`
 export const FeedbackTitleContainer = styled.div`
   padding: 34px 40px 34px 54px;
   background: #c0bfc0;
-  height: 370px;
+  min-height: 370px;
   width: 475px;
   position: relative;
   flex: 0 0 auto;
@@ -305,7 +309,7 @@ export const FeedbackStarContainer = styled.div`
   right: 25px;
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 6px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     svg {
