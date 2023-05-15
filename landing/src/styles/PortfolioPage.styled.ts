@@ -32,7 +32,7 @@ export const HeaderContainerBlock = styled.div`
     line-height: 130%;
     padding-bottom: 20px;
     border-bottom: 1px solid ${themes.primary.colors.headerBorder};
-    margin: 0 0 32px 0;
+    margin: 0 0 14px 0;
   }
 
   @media (${themes.primary.media.maxTabletLandScape}) {
@@ -121,8 +121,9 @@ export const PortfolioPageInfoContainer = styled.div`
 export const PortfolioPageIconContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   margin-top: 65px;
+  row-gap: 20px;
 
   > span {
     position: unset !important;
@@ -137,7 +138,8 @@ export const PortfolioPageIconContainer = styled.div`
 
   @media (${themes.primary.media.maxMobile}) {
     margin-top: 35px;
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(67px, 1fr));
+    row-gap: 1px;
   }
 `;
 
@@ -186,15 +188,20 @@ export const InfoContainerTimeTeam = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  p {
+    margin: 0;
+  }
 `;
 
 export const SeeMoreProjectsTitle = styled.h3`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 50px;
+  font-size: 52px;
   line-height: 116.6%;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  margin: 0;
 
   color: ${themes.primary.colors.primary};
   text-align: center;
@@ -209,37 +216,40 @@ export const SeeMoreProjectsTitleContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 90px;
 
   @media (${themes.primary.media.maxMobile}) {
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 56px;
   }
 `;
 
 export const SeeMoreProjectsArrowFirst = styled.div`
+  padding-top: 13px;
   svg {
     flex: 1 1 auto;
     width: 100%;
   }
 
   @media (${themes.primary.media.maxMobile}) {
-    padding-top: 30px;
+    padding-top: 3px;
     align-self: flex-start;
     width: 70%;
   }
 `;
 export const SeeMoreProjectsArrowSecond = styled.div`
+  padding-top: 13px;
   svg {
     flex: 1 1 auto;
     width: 100%;
     transform: rotate(180deg);
   }
   @media (${themes.primary.media.maxMobile}) {
+    padding-top: 0px;
     width: 70%;
     align-self: flex-end;
-    padding-bottom: 20px;
+    margin-bottom: -2px;
   }
 `;
 
@@ -257,7 +267,7 @@ export const FeedbackContainer = styled.div`
 export const FeedbackTitleContainer = styled.div`
   padding: 34px 40px 34px 54px;
   background: #c0bfc0;
-  height: 370px;
+  min-height: 370px;
   width: 475px;
   position: relative;
   flex: 0 0 auto;
@@ -299,7 +309,7 @@ export const FeedbackStarContainer = styled.div`
   right: 25px;
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 6px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     svg {
