@@ -95,6 +95,7 @@ export const PortfolioComment = styled.div`
 
 export const PortfolioSearchWrapper = styled.div`
   display: flex;
+  align-items: flex-start;
 
   @media ${themes.primary.media.maxMobile} {
     align-items: center;
