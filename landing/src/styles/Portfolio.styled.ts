@@ -25,7 +25,7 @@ export const PortfolioWrapper = styled.div`
   padding: 0 50px;
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 0 10px;
+    padding: 0 20px;
   }
 `;
 

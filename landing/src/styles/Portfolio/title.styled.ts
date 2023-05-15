@@ -79,7 +79,7 @@ export const Subtitle = styled.div`
 export const ArrowWrapper = styled.div`
   display: inline-block;
   margin-left: auto;
-  width: 12vw;
+  width: 15vw;
   height: 0.7em;
   position: relative;
   margin-right: 22px;
@@ -92,10 +92,11 @@ export const ArrowWrapper = styled.div`
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-left: 0;
     margin-right: 5px;
-    width: 110px;
+    width: 42vw;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
-    width: 28vw;
+    /* width: 28vw; */
+    /* margin-right: 0px; */
   }
 `;
