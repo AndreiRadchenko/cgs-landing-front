@@ -420,6 +420,88 @@ export const AdminInput = styled(TextareaAutosize)<IAdminInput>`
   }
 `;
 
+export const CategoryWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+`;
+
+export const AddCategoryBtn = styled.div``;
+
+export const AdminTemplateField = styled.div`
+  & input {
+    height: 56px;
+    border: 1px solid ${themes.primary.colors.comment};
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 16px;
+    line-height: 19px;
+    color: ${themes.primary.colors.comment};
+    padding: 18px 14px;
+    background: transparent;
+    min-width: 350px;
+  }
+`;
+
+export const AdminNewCategoryInputWrapper = styled.div`
+  display: flex;
+`;
+
+export const AdminCategoryAddBlockWrapper = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 114px;
+`;
+
+export const AdminCategoryAddBlockBtn = styled.button`
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0;
+  font-family: ${themes.primary.font.family.inter};
+  color: #5869dd;
+`;
+
+export const AdminCategoryDeleteBlockWrapper = styled.div`
+  display: flex;
+  cursor: pointer;
+  width: 43px;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const AdminCategoryNameInput = styled.input`
+  height: 56px;
+  border: 1px solid ${themes.primary.colors.comment};
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 16px;
+  line-height: 19px;
+  color: ${themes.primary.colors.primary};
+  padding: 18px 14px;
+  background: transparent;
+  max-width: 224px;
+
+  &::placeholder {
+    font-size: 18px;
+  }
+`;
+
+export const AdminCategoryDescriptionInput = styled.input`
+  height: 56px;
+  border: 1px solid ${themes.primary.colors.comment};
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 18px;
+  line-height: 19px;
+  color: ${themes.primary.colors.primary};
+  padding: 18px 14px;
+  background: transparent;
+  max-width: 97%;
+`;
+
 export const AdminField = styled(Field)`
   height: 56px;
   border: 1px solid ${themes.primary.colors.comment};
@@ -958,10 +1040,15 @@ export const AdminUnauthorizedModal = styled.div`
   z-index: 1;
 `;
 
+export const AdminCategoryBlockWrapper = styled.div`
+  padding-top: 2px;
+`;
+
 export const AdminCategoryBlock = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 1.6em;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  margin-bottom: 37px;
 
   & .admin-portfolio-dropdown {
     color: black;

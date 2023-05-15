@@ -805,3 +805,178 @@ export const CalculatorAndChatWrapper = styled.div`
     gap: 0;
   }
 `;
+
+export const DropdownWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+  background-color: ${themes.primary.colors.blogBackground};
+
+  & .portfolio_dropdown-element {
+    width: 160px;
+    white-space: nowrap;
+  }
+`;
+
+export const DropdownButton = styled.button<{ isHeader?: boolean }>`
+  cursor: pointer;
+  color: ${themes.primary.colors.primary};
+  background-color: ${themes.primary.colors.blogBackground};
+  box-sizing: border-box;
+  border: ${(props) =>
+    !props.isHeader &&
+    `1px solid ${themes.primary.colors.comment} !important;`};
+  font-family: ${themes.primary.font.family.namu};
+  font-size: ${themes.primary.font.size.primary};
+  vertical-align: middle;
+  line-height: normal;
+  letter-spacing: 0.03em;
+  height: 35px;
+  width: 131px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+
+  &:hover {
+    transition: 0.3s;
+    border-right: 1.5px solid ${themes.primary.colors.primary} !important;
+    border-bottom: 3px solid ${themes.primary.colors.primary} !important;
+  }
+  &:hover &.open {
+    border-bottom: 0 !important;
+    border-right: 3px solid ${themes.primary.colors.primary} !important;
+    img {
+      transform: rotate(180deg);
+    }
+  }
+  &.open {
+    border-bottom: 0 !important;
+    border-right: 3px solid ${themes.primary.colors.primary} !important;
+
+    img {
+      transform: rotate(180deg);
+    }
+  }
+  & > img,
+  & > span {
+    vertical-align: middle;
+    /* @media ${themes.primary.media.minLaptop} {
+      font-size: ${themes.primary.font.size.careersFormLaptop};
+    }
+
+    @media ${themes.primary.media.minPC} {
+      font-size: ${themes.primary.font.size.vistaco};
+    } */
+  }
+
+  img {
+    margin-left: 10px;
+    transform: rotate(0deg);
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 3em;
+    width: 10.91em;
+    padding: 0 1em;
+  }
+`;
+
+export const DropdownContent = styled.div`
+  position: absolute;
+  background-color: ${themes.primary.colors.blogBackground};
+  min-width: 198px;
+  z-index: 3;
+  right: 0;
+  border: 1px solid ${themes.primary.colors.primary};
+  border-right: 3px solid ${themes.primary.colors.primary};
+  border-bottom: 12px solid ${themes.primary.colors.primary};
+  display: none;
+  &.open {
+    display: block;
+  }
+  div {
+    color: ${themes.primary.colors.primary};
+    font-family: ${themes.primary.font.family.namu};
+    font-size: ${themes.primary.font.size.primary};
+    border-bottom: 1px solid ${themes.primary.colors.comment};
+    padding: 12px 9px 11px;
+    text-decoration: none;
+    text-align: left;
+    cursor: pointer;
+    &:hover {
+      background-color: ${themes.primary.colors.blogDropdownHover};
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+    &.checked {
+      color: ${themes.primary.colors.comment};
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 0.875rem;
+  }
+`;
+
+export const DropdownContainer = styled.div`
+  display: flex;
+  justify-content: right;
+  margin-bottom: 25px;
+  align-items: flex-end;
+  column-gap: 20px;
+  flex-wrap: wrap;
+  row-gap: 12px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 1.375rem;
+  }
+`;
+
+interface ITag {
+  isArticlePage?: boolean;
+}
+
+export const Tag = styled.button<ITag>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  color: ${themes.primary.colors.secondary};
+  background-color: ${themes.primary.colors.darkBlue};
+  padding: 6px 12px;
+  font-style: normal;
+  font-weight: ${themes.primary.font.weight.semiBold};
+  font-size: ${themes.primary.font.size.articleViews};
+  font-family: ${themes.primary.font.family.openSans};
+  letter-spacing: 0.5px;
+  z-index: 1;
+  &:hover {
+    background-color: ${(props) =>
+      props.isArticlePage && themes.primary.colors.hoveredBlogTag};
+    cursor: ${(props) => props.isArticlePage && "pointer"};
+  }
+  span {
+    cursor: pointer;
+  }
+  @media ${themes.primary.media.minPC} {
+    height: 2.333em;
+    padding: 0.5em ${themes.primary.font.size.primary};
+    font-size: ${themes.primary.font.size.primary};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    &.preview {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 0;
+      font-size: 1.35em;
+      margin-left: -1px;
+    }
+  }
+`;

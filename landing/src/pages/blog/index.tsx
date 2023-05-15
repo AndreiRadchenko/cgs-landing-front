@@ -9,8 +9,8 @@ import BlogItem from "../../components/Blog/BlogItem";
 import { adminBlogService } from "../../services/adminBlogPage";
 import { adminGlobalService } from "../../services/adminHomePage";
 import * as Styled from "../../styles/Blog.styled";
+import { Tag, DropdownContainer } from "../../styles/HomePage/General.styled";
 import Head from "next/head";
-import BlogDropdown from "../../components/Blog/BlogDropdown";
 import leftLine from "../../../public/BlogDecorations/MainPage/leftLine.png";
 import rightLine from "../../../public/BlogDecorations/MainPage/rightLine.png";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
@@ -25,6 +25,7 @@ import { Loading } from "../../components/CareersForm/Form/Form.styled";
 import loading from "../../../public/CareerDecorations/loading.svg";
 import { IArticlesData, IBlogPageData } from "../../types/Blog.types";
 import { BlogPageSize } from "../../consts";
+import Dropdown from "../../utils/Select/Dropdown";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -211,11 +212,11 @@ const BlogPage = () => {
         <PodcastItem data={data.podcast} />
         {(articles && (
           <Styled.AllArticlesContainer articles={articles.length}>
-            <Styled.DropdownContainer>
+            <DropdownContainer>
               <>
                 {filters.length > 0 &&
                   filters.map((filter, index) => (
-                    <Styled.Tag key={index}>
+                    <Tag key={index}>
                       {filter}&nbsp;&nbsp;
                       <span
                         onClick={() => {
@@ -227,18 +228,19 @@ const BlogPage = () => {
                       >
                         x
                       </span>
-                    </Styled.Tag>
+                    </Tag>
                   ))}
               </>
-              <BlogDropdown
+              <Dropdown
                 filters={filters}
                 className="blog"
                 setFilters={setFilters}
                 tags={tags}
                 dropdownName="#TAGS"
+                prefix={"#"}
                 isTag={true}
               />
-            </Styled.DropdownContainer>
+            </DropdownContainer>
             {currentArticlesData &&
               currentArticlesData.map((article, i) =>
                 i === 0 ? (

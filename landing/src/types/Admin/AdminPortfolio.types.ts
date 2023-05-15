@@ -11,6 +11,11 @@ export interface ITechnology {
   main: boolean;
 }
 
+export interface ICategory {
+  name: string;
+  description: string;
+}
+
 export interface IPortfolioReview {
   _id?: string;
   imageBanner: IImage;
@@ -44,7 +49,7 @@ export interface IPortfolioReview {
 }
 
 export interface IPortfolioPageData {
-  categories: string[];
+  categories: ICategory[];
   industries: string[];
   technologies: ITechnology[];
   meta: IMetaBlock;
