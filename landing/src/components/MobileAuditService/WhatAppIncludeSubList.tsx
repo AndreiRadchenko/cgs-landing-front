@@ -5,9 +5,11 @@ import WhatAppIncludeSubListItem from "./WhatAppIncludeSubListItem";
 
 interface ISubListProps {
   item: { text: string; subtext: string[] };
+  onMouseEnter?: (title: string) => void;
+  onMouseOut?: () => void;
 }
 
-const WhatAppIncludeSubList = ({ item }: ISubListProps) => {
+const WhatAppIncludeSubList = ({ item, onMouseOut, onMouseEnter }: ISubListProps) => {
   return (
     <Styled.ListItem>
       <Styled.PointWrapper>
@@ -15,7 +17,9 @@ const WhatAppIncludeSubList = ({ item }: ISubListProps) => {
         <Styled.PointCircle />
       </Styled.PointWrapper>
       <Styled.ListText>
-        <SplitBrackets text={item.text} />
+        <SplitBrackets text={item.text} onMouseOut={onMouseOut} onMouseEnter={() => {
+          onMouseEnter?.(item?.text as string)
+        }} />
         {item.subtext.length !== 0 && (
           <Styled.SubtextContainer>
             <Styled.ConectLine />

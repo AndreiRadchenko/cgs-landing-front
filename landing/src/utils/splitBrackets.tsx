@@ -2,10 +2,11 @@ import React from "react";
 
 interface ISplitBracketsProps {
   text?: string;
-  logo?: boolean;
+  onMouseOut?: () => void;
+  onMouseEnter?: (text: string) => void;
 }
 
-export const SplitBrackets = ({ text, logo }: ISplitBracketsProps) => {
+export const SplitBrackets = ({ text, onMouseOut, onMouseEnter }: ISplitBracketsProps) => {
   const splited = text?.split("|");
 
   return (
@@ -13,7 +14,7 @@ export const SplitBrackets = ({ text, logo }: ISplitBracketsProps) => {
       {splited?.map(
         (el, idx) =>
           el !== "" && (
-            <span key={idx}>
+            <span key={idx} onMouseOut={onMouseOut} onMouseEnter={() => onMouseEnter?.(text as string)}>
               {el}
               {splited.length - 1 !== idx && <br />}
             </span>
