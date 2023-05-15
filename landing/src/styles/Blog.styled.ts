@@ -119,6 +119,10 @@ export const GeneralInfo = styled.div`
   }
 `;
 
+interface ITag {
+  isArticlePage?: boolean;
+}
+
 export const Tag = styled.button<ITag>`
   display: flex;
   justify-content: center;
