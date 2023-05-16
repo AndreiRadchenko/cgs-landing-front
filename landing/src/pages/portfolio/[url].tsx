@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import Image from "next/image";
@@ -33,6 +33,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import ButtonArrow from "../../utils/ButtonArrow";
 import ProjectFeedback from "../../components/Portfolio/ProjectFeedback";
 import { openInNewTab } from "../../utils/OpenInNewTab";
+import Link from "next/link";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -50,6 +51,7 @@ export async function getServerSideProps() {
 
 const PortfolioProjectPage = () => {
   const router = useRouter();
+  const breadcrumbs: any[] = [];
 
   const { data: project, isLoading }: IPortfolioProjectResponse = useQuery(
     [queryKeys.getPortfolioProjectPage, router.query.url],
@@ -67,6 +69,20 @@ const PortfolioProjectPage = () => {
     }
   );
 
+  breadcrumbs.push(
+    <Link key="home" href="/">
+      <a>Homepage</a>
+    </Link>
+  );
+
+  breadcrumbs.push(
+    <Link key="portfolio" href="/portfolio">
+      <a>Portfolio</a>
+    </Link>
+  );
+
+  breadcrumbs.push(<span key="project">{project?.title}</span>);
+
   return (
     <Loader active={isLoading}>
       {isLoading ? (
@@ -74,6 +90,16 @@ const PortfolioProjectPage = () => {
       ) : (
         <PortfolioContainer>
           <HeaderNavNew />
+          <Styled.Breadcrumbs>
+            {breadcrumbs.map((breadcrumb, index) => (
+              <React.Fragment key={index}>
+                {breadcrumb}
+                {index < breadcrumbs.length - 1 && (
+                  <Styled.BreadcrumbSeparator>&gt;</Styled.BreadcrumbSeparator>
+                )}
+              </React.Fragment>
+            ))}
+          </Styled.Breadcrumbs>
           <Styled.PortfolioPageWrapper>
             <Styled.PortfolioPageHeaderContainer>
               <Styled.HeaderContainerBlock>
@@ -111,19 +137,17 @@ const PortfolioProjectPage = () => {
               </Styled.HeaderContainerBlock>
               <Styled.HeaderImageContainer>
                 <CircleProjectPage />
-                {project && (
-                  <Image
-                    alt="project image"
-                    src={
-                      project?.imageProjectBanner?.image
-                        ? project.imageProjectBanner.image!.url
-                        : project!.image.url
-                    }
-                    height={600}
-                    width={600}
-                    objectFit="contain"
-                  />
-                )}
+                <Image
+                  alt="project image"
+                  src={
+                    project?.imageProjectBanner?.image
+                      ? project.imageProjectBanner.image!.url
+                      : project!.image.url
+                  }
+                  height={600}
+                  width={600}
+                  objectFit="contain"
+                />
               </Styled.HeaderImageContainer>
             </Styled.PortfolioPageHeaderContainer>
             <Styled.PortfolioPageInfoContainer>
