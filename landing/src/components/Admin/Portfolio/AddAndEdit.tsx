@@ -88,7 +88,6 @@ const AddAndEdit = ({
         categories={values.categories.map((elem) => elem.name)}
         industries={values.industries}
         technologies={values.technologies}
-        newFlag={isNewStatus}
       />
     </Formik>
   );

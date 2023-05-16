@@ -1,10 +1,4 @@
-import React, {
-  ChangeEvent,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { ChangeEvent, useMemo, useRef } from "react";
 import { Field, useFormikContext } from "formik";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -13,7 +7,7 @@ import countryList, { CountryData } from "react-select-country-list";
 import Select, { SingleValue } from "react-select";
 import ReactCountryFlag from "react-country-flag";
 
-import AdminDropDown from "../Global/AdminDropDown";
+import DropdownCategory from "../Portfolio/DropdownCategory";
 import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 import DropdownIndustry from "../Portfolio/DropdownIndustry";
 import DropdownTechnology from "../Portfolio/DropdownTechnology";
@@ -38,21 +32,17 @@ interface IAddReviewProps {
   categories: string[];
   industries: string[];
   technologies: ITechnology[];
-  newFlag: boolean;
 }
 
 const AddReview = ({
   categories,
   industries,
   technologies,
-  newFlag,
 }: IAddReviewProps) => {
   const queryClient = useQueryClient();
 
   const { values, handleChange, errors, handleSubmit, setFieldValue } =
     useFormikContext<IPortfolioReview>();
-  console.log(values);
-  const [catValue, setCatValue] = useState(newFlag ? "" : values.category);
 
   const industryRef = useRef<HTMLInputElement | null>(null);
 
@@ -120,10 +110,6 @@ const AddReview = ({
   const uploadFuncProjectBanner = (image: IImage) =>
     uploadFunctionProjectBanner(image);
 
-  useEffect(() => {
-    setFieldValue("category", catValue);
-  }, [catValue]);
-
   return (
     <>
       <Styled.AdminPageFirstBlockLayout>
@@ -155,11 +141,7 @@ const AddReview = ({
         </Styled.AdminPortfolioImage>
         <Styled.AdminPageReviewBlock>
           <Styled.AdminCategoryWrapper>
-            <AdminDropDown
-              menu={categories}
-              value={catValue}
-              setValue={setCatValue}
-            />
+            <DropdownCategory categories={categories} />
           </Styled.AdminCategoryWrapper>
           <h3 style={{ margin: 0 }}>About Project</h3>
           <Styled.AdminPageSecondBlockLayout>
