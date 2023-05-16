@@ -22,7 +22,7 @@ const AdminSupportChat = () => {
   }, []);
 
   if (!showChat) return <div />;
-  console.log(chatProps);
+
   return (
     <Styled.SupportWrapper style={{ fontFamily: "Gilroy" }}>
       <MultiChatWindow {...chatProps} style={{ height: "100vh" }} />

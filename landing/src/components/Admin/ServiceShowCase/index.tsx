@@ -103,12 +103,12 @@ const ServiceShowCase = () => {
             <AdminShowCaseDropDownContent
               className={isCategoryOpen ? "open" : undefined}
             >
-              {portfolio?.categories.map((el, idx) => (
+              {portfolio?.categories.map(({ name }, idx) => (
                 <AdminShowCaseDropDownListItem
                   key={idx}
-                  onClick={() => handleCategoryChoice(el)}
+                  onClick={() => handleCategoryChoice(name)}
                 >
-                  {el[0].toUpperCase() + el.slice(1)}
+                  {name[0].toUpperCase() + name.slice(1)}
                 </AdminShowCaseDropDownListItem>
               ))}
             </AdminShowCaseDropDownContent>

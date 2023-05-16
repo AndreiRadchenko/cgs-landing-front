@@ -12,6 +12,7 @@ import TeamIcon from "../../components/Portfolio/svg/TeamIcon";
 import CircleProjectPage from "../../components/Portfolio/svg/CircleProjectPage";
 import CanadaFlag from "../../components/Portfolio/svg/CanadaFlag";
 import SeeMoreProjects from "../../components/Portfolio/SeeMoreProjects";
+import ProjectCta from "../../components/Portfolio/ProjectCta";
 
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { adminGlobalService } from "../../services/adminHomePage";
@@ -31,6 +32,7 @@ import { queryKeys } from "../../consts/queryKeys";
 
 import ButtonArrow from "../../utils/ButtonArrow";
 import ProjectFeedback from "../../components/Portfolio/ProjectFeedback";
+import { openInNewTab } from "../../utils/OpenInNewTab";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -93,15 +95,12 @@ const PortfolioProjectPage = () => {
                     <p>{project?.country ? project.country : "Canada"}</p>
                   </Styled.HeaderBottomSectionFlag>
                   <Styles.ProjectsContainerHeaderLink
+                    onClick={() =>
+                      !!project?.button && openInNewTab(project.button)
+                    }
                     isProjectLink={!!project?.button}
                   >
-                    {project?.button ? (
-                      <a href={project.button} target="_blank" rel="noreferrer">
-                        project link
-                      </a>
-                    ) : (
-                      <span>NDA</span>
-                    )}
+                    {project?.button ? <p>project link</p> : <span>NDA</span>}
                     <Styles.ProjectsContainerArrowContainer
                       isProjectLink={!!project?.button}
                     >
@@ -158,6 +157,9 @@ const PortfolioProjectPage = () => {
                 ))}
             </Styled.PortfolioPageIconContainer>
           </Styled.PortfolioPageWrapper>
+          {data?.individualProjectPage.cta && (
+            <ProjectCta projectInfo={data.individualProjectPage} />
+          )}
           {project?.feedback && <ProjectFeedback feedback={project.feedback} />}
           {data && seeMoreProj && project && (
             <SeeMoreProjects

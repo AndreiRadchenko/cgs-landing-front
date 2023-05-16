@@ -106,7 +106,7 @@ export const BgiContainer = styled.div<ILine>`
   }
 `;
 
-interface IMobileLine {
+export interface IMobileLine {
   grad1: string;
   grad2: string;
   ind: number;

@@ -8,13 +8,19 @@ export interface IFontSize {
 
 export const Subtitle = styled.div`
   text-transform: uppercase;
-  margin: 32px 0 40px;
-
+  margin: 32px 0 0;
   font-family: "NAMU";
   font-style: normal;
   font-weight: 900;
   font-size: 74px;
   line-height: 89px;
+
+  & p {
+    margin-bottom: 0;
+    @media ${themes.primary.media.maxMobile} {
+      margin-top: 16px;
+    }
+  }
 
   & u {
     text-decoration-thickness: 3px;
@@ -32,6 +38,7 @@ export const Subtitle = styled.div`
       display: none;
     }
   }
+
   span {
     &.blue {
       color: ${themes.primary.colors.darkBlue};
@@ -49,6 +56,8 @@ export const Subtitle = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 32px;
     line-height: 38px;
+    margin-bottom: 0;
+    margin-top: 0;
 
     span {
       &.tech {
@@ -79,23 +88,26 @@ export const Subtitle = styled.div`
 export const ArrowWrapper = styled.div`
   display: inline-block;
   margin-left: auto;
-  width: 12vw;
-  height: 0.7em;
+  font-size: 0.4em;
+  width: 15vw;
+  height: 1em;
   position: relative;
   margin-right: 22px;
+  margin-bottom: 12px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-left: 10px;
     width: 22vw;
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 0.7em;
+    margin-bottom: 0;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-left: 0;
     margin-right: 5px;
-    width: 110px;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    width: 28vw;
+    width: 42vw;
   }
 `;

@@ -77,7 +77,7 @@ const EditReview = ({
     queryClient.invalidateQueries([queryKeys.getPortfolio]);
   };
 
-  const [catValue, setCatValue] = useState(values.categories[0]);
+  const [catValue, setCatValue] = useState(values.categories[0].name);
 
   const filteredData = useMemo(
     () => data?.filter((review) => review.category === catValue),
@@ -130,7 +130,7 @@ const EditReview = ({
         <AdminDropDown
           size="primary"
           bannerClassName="admin-portfolio-dropdown"
-          menu={values.categories}
+          menu={values.categories.map((elem) => elem.name)}
           value={catValue}
           setValue={setCatValue}
         />

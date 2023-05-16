@@ -16,7 +16,7 @@ export const AdminPortfolioValidation = () => {
       .object()
       .shape({
         name: yup.string().required(),
-        position: yup.string().required(),
+        position: yup.string(),
         feedbackText: yup.string().required(),
       })
       .required(),
@@ -24,8 +24,8 @@ export const AdminPortfolioValidation = () => {
     title: yup.string().required(),
     flag: yup.string().required(),
     country: yup.string().required(),
-    projectDuration: yup.string().required(),
-    projectTeam: yup.string().required(),
+    projectDuration: yup.string().max(3).required(),
+    projectTeam: yup.string().max(2).required(),
     category: yup.string().required(),
     button: yup.string(),
     _id: yup.string(),
