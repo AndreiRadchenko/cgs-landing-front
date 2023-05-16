@@ -611,7 +611,7 @@ export interface IProjects {
 export interface IReviewProps {
   bgColor?: string;
   button: string;
-  category: string;
+  categories: string[];
   feedback: {
     name: string;
     rating?: number | null;
