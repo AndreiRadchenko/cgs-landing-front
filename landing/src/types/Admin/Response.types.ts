@@ -337,19 +337,19 @@ export interface IAbout {
   };
   numbers: {
     years: {
-      num: number;
+      num: string;
       text: string;
     };
     employees: {
-      num: number;
+      num: string;
       text: string;
     };
     projects: {
-      num: number;
+      num: string;
       text: string;
     };
     customers: {
-      num: number;
+      num: string;
       text: string;
     };
   };
