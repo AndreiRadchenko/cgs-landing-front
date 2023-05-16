@@ -89,24 +89,25 @@ export const Description = styled.p`
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  top: -17%;
+  top: -6em;
   right: 3%;
   width: 600px;
   height: 530px;
 
   @media (min-width: 2200px) {
-    width: 30%;
-    height: 730px;
+    width: 40rem;
+    height: 32rem;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     top: -25%;
-    width: 40%;
-    height: 170%;
+    width: 36rem;
+    height: 24rem;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 50%;
+    width: 25em;
+    height: 17em;
   }
 
   @media ${themes.primary.media.maxMobile} {

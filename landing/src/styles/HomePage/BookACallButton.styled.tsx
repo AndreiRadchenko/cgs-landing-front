@@ -116,6 +116,7 @@ export const BlackButton = styled.button`
 `;
 
 export const BlackButtonAnchor = styled.a`
+  font-family: ${themes.primary.font.family.namu};
   display: flex;
   justify-content: center;
   align-items: center;

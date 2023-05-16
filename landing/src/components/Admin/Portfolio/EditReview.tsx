@@ -80,7 +80,7 @@ const EditReview = ({
   const [catValue, setCatValue] = useState(values.categories[0].name);
 
   const filteredData = useMemo(
-    () => data?.filter((review) => review.category === catValue),
+    () => data?.filter((review) => review.categories[0] === catValue),
     [data, catValue]
   );
 

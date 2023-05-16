@@ -25,7 +25,7 @@ export const PortfolioWrapper = styled.div`
   padding: 0 50px;
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 0 10px;
+    padding: 0 20px;
   }
 `;
 
@@ -95,6 +95,13 @@ export const PortfolioComment = styled.div`
 
 export const PortfolioSearchWrapper = styled.div`
   display: flex;
+  align-items: flex-start;
+
+  @media ${themes.primary.media.maxMobile} {
+    align-items: center;
+    flex-direction: column;
+    row-gap: 20px;
+  }
 `;
 
 export const PortfolioSearch = styled.div`
@@ -150,13 +157,6 @@ interface IPortfolioIndustryTag {
   isArticlePage?: boolean;
 }
 
-export const PortfolioActiveIndustriesWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-end;
-`;
-
 export const PortfolioDropdownWrapper = styled.div``;
 
 export const PortfolioIndustryTagWrapper = styled.button<IPortfolioIndustryTag>`
@@ -200,7 +200,9 @@ export const PortfolioIndustryTagWrapper = styled.button<IPortfolioIndustryTag>`
   }
 `;
 
-export const PortfolioIndustryTag = styled.div``;
+export const PortfolioIndustryTag = styled.div`
+  white-space: nowrap;
+`;
 
 export const PortfolioIndustryTagDelete = styled.div``;
 
@@ -271,13 +273,12 @@ export const PortfolioSearchIcon = styled.div`
 export const PortfolioFiltersWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-top: 50px;
 
   & .portfolio_dropdown {
     font-family: ${themes.primary.font.family.namu};
     margin-bottom: 0;
-    flex-wrap: nowrap;
+    flex-wrap: wrap-reverse;
     align-items: center;
     max-width: 50%;
   }
@@ -289,7 +290,7 @@ export const PortfolioFiltersWrapper = styled.div`
     & .portfolio_dropdown {
       margin-top: 36px;
       padding-right: 10px;
-      width: 100%;
+      max-width: 100%;
     }
   }
 `;
@@ -304,7 +305,7 @@ export const PortfolioProjectsContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     gap: 20px;
-    margin: 28.5px 0 0 0;
+    margin: 28.5px 0 60px 0;
   }
 `;
 
@@ -418,6 +419,7 @@ export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>
 
   border-radius: 50%;
   overflow: hidden;
+  transition: background 0.3s, border 0.3s;
 
   svg {
     width: 35px;
@@ -464,16 +466,6 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
       !isProjectLink
         ? `2.26667px solid #181817`
         : `2.26667px solid ${themes.primary.colors.primary}`};
-  }
-
-  &:hover ${ProjectsContainerHeaderLink} {
-    & path {
-      opacity: 1;
-    }
-
-    span {
-      color: #5c5b5b;
-    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -635,7 +627,7 @@ export const ProjectsContainerInfoHeaderTitle = styled.div`
 
   h4 {
     font-family: ${themes.primary.font.family.namu};
-    font-weight: ${themes.primary.font.weight.heavy};
+    font-weight: ${themes.primary.font.weight.light} !important;
     font-size: 30px;
     line-height: 130%;
     margin: 0;

@@ -109,6 +109,11 @@ export const ListItem = styled.div`
 
 export const ListText = styled.span`
   position: relative;
+  transition: .1s linear;
+
+  &:hover {
+    color: #5869DD;
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     line-height: 140%;
@@ -173,10 +178,10 @@ export const GlassContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 321px;
-    height: 315px;
+    width: 35%;
+    height: 37%;
     bottom: 10%;
-    right: 1em;
+    right: 3.5em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -198,6 +203,81 @@ export const GlassContainer = styled.div`
     height: 327px;
     width: 100%;
   }
+`;
+
+export const IconContainer = styled.div`
+`;
+
+export const GlassItem = styled.div<{ top: number; left: number; }>`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  left: 20%;
+  top: 18%;
+
+  translate: ${props => props.left}px ${props => props.top}px; 
+  transition: 0.1s linear;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 55%;
+    height: 55%;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 60%;
+    height: 60%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    top: -40px;
+  }
+`;
+
+export const IconItems = styled.div`
+  position: absolute;
+  width: 150%;
+  height: 10%;
+  top: 27%;
+  left: -3%;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr ;
+
+  @media ${themes.primary.media.maxMobile} {
+    top: -40px;
+  }
+`;
+
+export const IconItem = styled.div`
+  width: 60px;
+  height: 60px;
+  margin-bottom: 25%;
+  margin-left: 3%;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 40px;
+    height: 40px;
+  }
+`;
+
+export const IconItemFooter = styled.div`
+  position: absolute;
+  top: 600%;
+  left: 29%;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-top: 30px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 100px;
+  }
+`;
+
+export const IconItemHeader = styled.div`
+  position: absolute;
+  top: -260%;
+  left: 29%;
 `;
 
 export const SubtextContainer = styled.div`
