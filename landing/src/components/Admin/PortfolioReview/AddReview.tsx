@@ -51,7 +51,7 @@ const AddReview = ({
 
   const { values, handleChange, errors, handleSubmit, setFieldValue } =
     useFormikContext<IPortfolioReview>();
-
+  console.log(values);
   const [catValue, setCatValue] = useState(newFlag ? "" : values.category);
 
   const industryRef = useRef<HTMLInputElement | null>(null);

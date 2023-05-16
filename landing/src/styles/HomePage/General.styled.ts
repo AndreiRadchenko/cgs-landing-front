@@ -114,6 +114,13 @@ export const BlackButton = styled.a<IFontSize>`
       font-size: 16px;
     }
 
+    &.cta-button {
+      width: 178px;
+      height: 54px;
+      font-size: 16px;
+      padding: 18px 33px;
+    }
+
     &.footer-home {
       margin-top: 1em;
     }

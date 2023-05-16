@@ -111,17 +111,19 @@ const PortfolioProjectPage = () => {
               </Styled.HeaderContainerBlock>
               <Styled.HeaderImageContainer>
                 <CircleProjectPage />
-                <Image
-                  alt="project image"
-                  src={
-                    project?.imageProjectBanner?.image
-                      ? project.imageProjectBanner.image!.url
-                      : project!.image.url
-                  }
-                  height={600}
-                  width={600}
-                  objectFit="contain"
-                />
+                {project && (
+                  <Image
+                    alt="project image"
+                    src={
+                      project?.imageProjectBanner?.image
+                        ? project.imageProjectBanner.image!.url
+                        : project!.image.url
+                    }
+                    height={600}
+                    width={600}
+                    objectFit="contain"
+                  />
+                )}
               </Styled.HeaderImageContainer>
             </Styled.PortfolioPageHeaderContainer>
             <Styled.PortfolioPageInfoContainer>
