@@ -98,7 +98,7 @@ export const PortfolioSearchWrapper = styled.div`
   align-items: flex-start;
 
   @media ${themes.primary.media.maxMobile} {
-    align-items: center;
+    align-items: start;
     flex-direction: column;
     row-gap: 20px;
   }

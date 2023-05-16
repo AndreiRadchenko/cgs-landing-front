@@ -12,6 +12,49 @@ export const PortfolioPageWrapper = styled.div`
   }
 `;
 
+export const Breadcrumbs = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  margin: 32px 0 16px 51px;
+  font-size: 16px;
+  line-height: 19.2px;
+  color: #8f8e93;
+
+  & a {
+    color: #8f8e93;
+    text-decoration: none;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  & span:last-child {
+    color: black;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 0 19px 22px 19px;
+    font-size: 14px;
+
+    & a:first-child {
+      display: none;
+    }
+
+    & span:nth-child(2) {
+      display: none;
+    }
+  }
+`;
+
+export const BreadcrumbSeparator = styled.span`
+  margin: 0 6px;
+  color: #bbb;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 0 4px;
+  }
+`;
+
 export const PortfolioPageHeaderContainer = styled.div`
   margin-bottom: 30px;
   display: flex;
