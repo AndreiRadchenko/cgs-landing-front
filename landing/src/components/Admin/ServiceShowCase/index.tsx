@@ -140,7 +140,7 @@ const ServiceShowCase = () => {
                   .filter((el) => {
                     return category.length === 0
                       ? !choosenProjects.includes(el.title)
-                      : el.category === category &&
+                      : el.categories[0] === category &&
                           !choosenProjects.includes(el.title);
                   })
                   .map((el, idx) => (
