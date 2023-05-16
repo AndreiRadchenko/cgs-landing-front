@@ -305,7 +305,7 @@ export const PortfolioProjectsContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     gap: 20px;
-    margin: 28.5px 0 0 0;
+    margin: 28.5px 0 60px 0;
   }
 `;
 
@@ -419,6 +419,7 @@ export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>
 
   border-radius: 50%;
   overflow: hidden;
+  transition: background 0.3s, border 0.3s;
 
   svg {
     width: 35px;
@@ -465,16 +466,6 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
       !isProjectLink
         ? `2.26667px solid #181817`
         : `2.26667px solid ${themes.primary.colors.primary}`};
-  }
-
-  &:hover ${ProjectsContainerHeaderLink} {
-    & path {
-      opacity: 1;
-    }
-
-    span {
-      color: #5c5b5b;
-    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -636,7 +627,7 @@ export const ProjectsContainerInfoHeaderTitle = styled.div`
 
   h4 {
     font-family: ${themes.primary.font.family.namu};
-    font-weight: ${themes.primary.font.weight.heavy};
+    font-weight: ${themes.primary.font.weight.light} !important;
     font-size: 30px;
     line-height: 130%;
     margin: 0;

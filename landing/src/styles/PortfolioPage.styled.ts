@@ -13,7 +13,7 @@ export const PortfolioPageWrapper = styled.div`
 `;
 
 export const PortfolioPageHeaderContainer = styled.div`
-  margin-bottom: 44px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -34,7 +34,7 @@ export const HeaderContainerBlock = styled.div`
     line-height: 130%;
     padding-bottom: 20px;
     border-bottom: 1px solid ${themes.primary.colors.headerBorder};
-    margin: 0 0 14px 0;
+    margin: 0 0 19px 0;
   }
 
   @media (${themes.primary.media.maxTabletLandScape}) {
@@ -93,6 +93,7 @@ export const HeaderBottomSectionFlag = styled.div`
     font-weight: ${themes.primary.font.weight.heavy};
     font-size: 18px;
     line-height: 130%;
+    margin: 0;
   }
 
   @media (${themes.primary.media.maxMobile}) {
@@ -111,6 +112,7 @@ export const PortfolioPageInfoContainer = styled.div`
     line-height: 160%;
     text-transform: uppercase;
     color: ${themes.primary.colors.primary};
+    margin-top: 0;
     margin-bottom: 12px;
   }
   @media (${themes.primary.media.maxMobile}) {
@@ -126,6 +128,7 @@ export const PortfolioPageIconContainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   margin-top: 65px;
   row-gap: 20px;
+  margin-left: -20px;
 
   > span {
     position: unset !important;
@@ -141,7 +144,8 @@ export const PortfolioPageIconContainer = styled.div`
   @media (${themes.primary.media.maxMobile}) {
     margin-top: 35px;
     grid-template-columns: repeat(auto-fill, minmax(67px, 1fr));
-    row-gap: 1px;
+    row-gap: 15px;
+    margin-left: -11px;
   }
 `;
 
@@ -169,6 +173,8 @@ export const InfoContainerText = styled.p`
 
   @media (${themes.primary.media.maxMobile}) {
     font-size: 16px;
+    max-height: unset;
+    margin: 0 0 20px 0;
   }
 `;
 
@@ -219,7 +225,7 @@ export const SeeMoreProjectsTitleContainer = styled.div`
   align-items: center;
   gap: 24px;
   justify-content: space-between;
-  margin-top: 90px;
+  margin-top: 140px;
 
   @media (${themes.primary.media.maxMobile}) {
     gap: 10px;
@@ -371,6 +377,7 @@ export const FeedbackInfoContainer = styled.div`
 `;
 
 export const ProjectCta = styled.div`
+  margin-top: 40px;
   position: relative;
   overflow: hidden;
 `;
@@ -381,7 +388,7 @@ export const ProjectCtaContainer = styled.div`
   align-items: center;
   position: relative;
   overflow: hidden;
-  gap: 32px;
+  gap: 42px;
 
   h3 {
     font-family: ${themes.primary.font.family.namu};
@@ -392,6 +399,7 @@ export const ProjectCtaContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    gap: 26px;
     flex-direction: column;
     padding: 20px 18px;
     align-items: flex-start;
