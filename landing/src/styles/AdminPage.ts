@@ -2136,7 +2136,7 @@ export const BlockDropdownHeaderIcon = styled.div<IBlockDropdownHeaderIconProps>
 `;
 
 export const AdminCategoryWrapper = styled.div`
-  width: 255px;
+  margin-top: 25px;
 `;
 
 export const AdminPageReviewBlock = styled.div`

@@ -135,7 +135,7 @@ export const newPageReviewInit = {
   imageProjectBanner: {
     image: null,
   },
-  category: "",
+  categories: [],
   title: "",
   text: "",
   button: "",

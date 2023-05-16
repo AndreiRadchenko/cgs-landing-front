@@ -26,7 +26,7 @@ export const AdminPortfolioValidation = () => {
     country: yup.string().required(),
     projectDuration: yup.string().max(3).required(),
     projectTeam: yup.string().max(2).required(),
-    category: yup.string().required(),
+    categories: yup.array().required(),
     button: yup.string(),
     _id: yup.string(),
     NDA: yup.boolean(),
