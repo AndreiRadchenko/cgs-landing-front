@@ -63,7 +63,8 @@ const PortfolioPage: NextPage = () => {
                 src={longArrow.src}
                 alt="wide tech long arrow"
                 layout="fill"
-                objectFit="contain"
+                objectFit="cover"
+                objectPosition="right"
               />
             </CSS.ArrowWrapper>
           </>
