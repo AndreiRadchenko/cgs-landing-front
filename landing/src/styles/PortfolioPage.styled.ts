@@ -56,7 +56,7 @@ export const BreadcrumbSeparator = styled.span`
 `;
 
 export const PortfolioPageHeaderContainer = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 37px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -86,7 +86,7 @@ export const HeaderContainerBlock = styled.div`
     h2 {
       font-size: 24px;
       padding-bottom: 12px;
-      margin: 0 0 10px 0;
+      margin: 0 0 6px 0;
     }
   }
 `;
@@ -349,7 +349,7 @@ export const FeedbackTitleContainer = styled.div`
     }
   }
   @media ${themes.primary.media.maxMobile} {
-    height: 235px;
+    min-height: 235px;
     width: 100%;
   }
 `;
@@ -420,7 +420,7 @@ export const FeedbackInfoContainer = styled.div`
 `;
 
 export const ProjectCta = styled.div`
-  margin-top: 40px;
+  margin-top: 30px;
   position: relative;
   overflow: hidden;
 `;

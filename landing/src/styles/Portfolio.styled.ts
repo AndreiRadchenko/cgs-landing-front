@@ -296,7 +296,7 @@ export const PortfolioFiltersWrapper = styled.div`
 `;
 
 export const PortfolioProjectsContainer = styled.div`
-  margin-top: 107px;
+  margin-top: 60px;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(355px, 652px));
