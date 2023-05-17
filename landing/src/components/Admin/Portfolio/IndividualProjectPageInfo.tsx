@@ -9,7 +9,8 @@ import { IPortfolioPageData } from "../../../types/Admin/AdminPortfolio.types";
 import SaveBtn from "../Global/SaveBtn";
 
 const IndividualProjectPageInfo = () => {
-  const { values, handleChange } = useFormikContext<IPortfolioPageData>();
+  const { values, handleChange, handleSubmit } =
+    useFormikContext<IPortfolioPageData>();
 
   return (
     <div>
@@ -52,7 +53,7 @@ const IndividualProjectPageInfo = () => {
           name="individualProjectPage.buttonLink"
         />
       </Styled.IndividualBottomGridContainer>
-      <SaveBtn />
+      <SaveBtn handleClick={handleSubmit} />
     </div>
   );
 };

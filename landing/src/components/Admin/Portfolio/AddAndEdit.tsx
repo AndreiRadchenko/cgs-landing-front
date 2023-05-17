@@ -77,7 +77,7 @@ const AddAndEdit = ({
           ? addReview({ ...data, feedback: clearedFeedback })
           : editReview({ ...data, feedback: clearedFeedback });
         action.resetForm();
-        action.setFieldValue("categories", "");
+        action.setFieldValue("categories", []);
         action.setFieldValue("imageBanner.image", null);
         action.setFieldValue("imageProjectBanner.image", null);
         setIsNewStatus(true);

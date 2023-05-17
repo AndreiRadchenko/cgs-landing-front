@@ -136,7 +136,9 @@ const PortfolioProjectPage = () => {
                 </Styled.HeaderBottomSection>
               </Styled.HeaderContainerBlock>
               <Styled.HeaderImageContainer>
-                <CircleProjectPage />
+                <div className="circleWrapper">
+                  <CircleProjectPage />
+                </div>
                 <Image
                   alt="project image"
                   src={
