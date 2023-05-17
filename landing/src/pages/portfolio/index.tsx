@@ -215,6 +215,9 @@ const PortfolioPage: NextPage = () => {
               <Styles.PortfolioFiltersWrapper>
                 <Styles.PortfolioSearchWrapper>
                   <Styles.PortfolioSearch>
+                    <Styles.PortfolioSearchButton onClick={handleSearchRequest}>
+                      <Styles.PortfolioSearchIcon />
+                    </Styles.PortfolioSearchButton>
                     <Styles.PortfolioInputWrapper>
                       <input
                         type="text"
@@ -224,9 +227,6 @@ const PortfolioPage: NextPage = () => {
                         onKeyDown={handleKeyDown}
                       />
                     </Styles.PortfolioInputWrapper>
-                    <Styles.PortfolioSearchButton onClick={handleSearchRequest}>
-                      <Styles.PortfolioSearchIcon />
-                    </Styles.PortfolioSearchButton>
                   </Styles.PortfolioSearch>
                   {isCategoryWarning && category && (
                     <Styles.PortfolioFilterWarning>
@@ -295,7 +295,10 @@ const PortfolioPage: NextPage = () => {
               ) : (
                 <Styles.PortfolioSearchWarning>
                   <div>
-                    {`Sorry, no results were found for "${searchTrigger}".`}
+                    <span>
+                      {"Sorry, no results were found for "}
+                      <span className="search-word">{searchTrigger}</span>
+                    </span>
                   </div>
                   <div className="warning_list-header">Recommendations:</div>
                   <ul>
