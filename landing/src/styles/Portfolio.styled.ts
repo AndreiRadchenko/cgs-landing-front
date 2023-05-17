@@ -560,11 +560,11 @@ export const ProjectsContainerInfoBtn = styled.div`
 `;
 
 export const ProjectsContainerInfoIconsContainer = styled.div`
-  margin: 67px 86px 40px;
+  margin: 60px 50px 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 28px;
+  gap: 10px;
 
   svg {
     height: 60px;

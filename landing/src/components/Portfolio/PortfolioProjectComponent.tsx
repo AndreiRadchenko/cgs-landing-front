@@ -315,8 +315,8 @@ const PortfolioProjectComponent = ({
                     key={tech.image.url}
                     src={tech.image.url}
                     alt="tech"
-                    height={60}
-                    width={60}
+                    height={80}
+                    width={80}
                     style={{ filter: "brightness(0) invert(1)" }}
                   />
                 ))
