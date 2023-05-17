@@ -40,6 +40,7 @@ export const PortfolioCategoryWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     column-gap: 16px;
     margin-top: 6px;
+    justify-content: flex-start;
   }
 `;
 
@@ -58,9 +59,17 @@ export const PortfolioCategoryItem = styled.div`
   background: transparent;
   line-height: 24.4px;
   margin-top: 20px;
-  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transition: none;
+    border-right-width: 2.5px;
+    border-bottom-width: 4.5px;
+    padding: 9px 16.5px 12px 18px;
+  }
 
   &.active {
+    transition: all 0.2s ease-in-out;
+    padding: 12px 18px;
     border: 1px solid #5869dd;
     background-color: #5869dd;
     color: white;
@@ -89,13 +98,17 @@ export const PortfolioComment = styled.div`
   line-height: 28.8px;
 
   @media ${themes.primary.media.maxMobile} {
+    text-align: start;
     margin-top: 26px;
+    font-size: 16px;
+    line-height: 25.6px;
   }
 `;
 
 export const PortfolioSearchWrapper = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  max-width: 70%;
 
   @media ${themes.primary.media.maxMobile} {
     align-items: start;
@@ -115,6 +128,12 @@ export const PortfolioSearch = styled.div`
   width: 318px;
   height: 50px;
   background: transparent;
+
+  &:active,
+  &:hover {
+    border-bottom: 4px solid black;
+    border-right: 2px solid black;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 335px;
@@ -141,6 +160,10 @@ export const PortfolioSearchWarning = styled.div`
 
   & .warning_list-header {
     margin-top: 18px;
+  }
+
+  & .search-word {
+    color: black;
   }
 
   & ul {
@@ -212,8 +235,7 @@ export const PortfolioInputWrapper = styled.div`
   & input {
     outline: none;
     font-size: 16px;
-    margin-left: 10px;
-    width: 265px;
+    width: 280px;
     border: none;
     background-color: transparent;
   }
@@ -224,6 +246,13 @@ export const PortfolioInputWrapper = styled.div`
 
   & input::placeholder {
     font-family: ${themes.primary.font.family.namu};
+    color: #8f8e93;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    & input {
+      width: 298px;
+    }
   }
 `;
 
@@ -281,6 +310,7 @@ export const PortfolioFiltersWrapper = styled.div`
     flex-wrap: wrap-reverse;
     align-items: center;
     max-width: 50%;
+    column-gap: 20px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -289,8 +319,8 @@ export const PortfolioFiltersWrapper = styled.div`
 
     & .portfolio_dropdown {
       margin-top: 36px;
-      padding-right: 10px;
       max-width: 100%;
+      column-gap: 14px;
     }
   }
 `;

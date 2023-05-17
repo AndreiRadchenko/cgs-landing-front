@@ -28,6 +28,10 @@ export const Breadcrumbs = styled.div`
     }
   }
 
+  & span {
+    color: #8f8e93;
+  }
+
   & span:last-child {
     color: black;
   }
