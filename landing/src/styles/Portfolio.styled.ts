@@ -235,7 +235,6 @@ export const PortfolioInputWrapper = styled.div`
   & input {
     outline: none;
     font-size: 16px;
-    /* margin-left: 10px; */
     width: 280px;
     border: none;
     background-color: transparent;
