@@ -237,7 +237,7 @@ const AddReview = ({
                   <p>Project Duration</p>
                   <label>
                     <Field type="text" placeholder="0" name="projectDuration" />
-                    month
+                    months
                   </label>
                 </Styled.SmallInputWrapper>
                 <Styled.SmallInputWrapper>

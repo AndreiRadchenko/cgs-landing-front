@@ -335,7 +335,7 @@ export const PortfolioProjectsContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     gap: 20px;
-    margin: 28.5px 0 60px 0;
+    margin: 28.5px 10px 60px;
   }
 `;
 
@@ -606,10 +606,16 @@ export const ProjectsContainerInfoIconsContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin: 18px 14px 22px;
+    gap: 3px;
 
     svg {
       height: 40px;
       width: 40px;
+    }
+
+    span {
+      width: 47px !important;
+      height: 47px !important;
     }
   }
 `;
