@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
@@ -83,6 +83,8 @@ const PortfolioPage: NextPage = () => {
   const [searchText, setSearchText] = useState<string>("");
   const [searchTrigger, setSearchTrigger] = useState<string>("");
   const [activeCategory, setActiveCategory] = useState<number>(0);
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const { data, isLoading }: IPortfolioResponse = useQuery(
     [queryKeys.getPortfolioPageData],
@@ -119,12 +121,24 @@ const PortfolioPage: NextPage = () => {
   };
 
   const handleSearchRequest = () => {
+    setIsFirstLoad(false);
     setSearchTrigger(searchText);
   };
 
   const handleKeyDown = (e: any) => {
     if (e.key === "Enter") {
       handleSearchRequest();
+    }
+  };
+
+  const scrollFunction = () => {
+    if (window.innerWidth < 768 && contentRef.current && !isFirstLoad) {
+      const scrollPosition = contentRef.current.offsetTop - 100;
+
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -152,8 +166,13 @@ const PortfolioPage: NextPage = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   useEffect(() => {
+    scrollFunction();
     setCurrentPage(1);
   }, [industries.length, searchTrigger, category]);
+
+  useEffect(() => {
+    scrollFunction();
+  }, [reviewsIsLoading, isLoading]);
 
   useEffect(() => {
     setIsRequestRepeated(false);
@@ -180,6 +199,7 @@ const PortfolioPage: NextPage = () => {
                 <Styles.PortfolioCategoryItem
                   className={activeCategory === 0 ? "active" : ""}
                   onClick={() => {
+                    setIsFirstLoad(false);
                     setIsRequestRepeated(false);
                     setIsCategoryChange(true);
                     setIsSearchTriggered(false);
@@ -194,6 +214,7 @@ const PortfolioPage: NextPage = () => {
                     key={i}
                     className={i + 1 === activeCategory ? "active" : ""}
                     onClick={() => {
+                      setIsFirstLoad(false);
                       setIsRequestRepeated(false);
                       setIsCategoryChange(true);
                       setIsSearchTriggered(false);
@@ -230,16 +251,21 @@ const PortfolioPage: NextPage = () => {
                   </Styles.PortfolioSearch>
                   {isCategoryWarning && category && (
                     <Styles.PortfolioFilterWarning>
-                      {`Sorry, в категорії “${
+                      {`Sorry, there are no results in “${
                         data.categories[activeCategory - 1].name
-                      }” нічого не знайдено`}
+                          .charAt(0)
+                          .toUpperCase() +
+                        data.categories[activeCategory - 1].name.slice(1)
+                      }”`}
                     </Styles.PortfolioFilterWarning>
                   )}
-                  {isRequestRepeated && (
-                    <Styles.PortfolioFilterWarning>
-                      {`Sorry, there are no matches in the category chosen, but we found “${searchTrigger}” in the other categories`}
-                    </Styles.PortfolioFilterWarning>
-                  )}
+                  {isRequestRepeated &&
+                    reviewsData &&
+                    reviewsData?.reviews.length > 0 && (
+                      <Styles.PortfolioFilterWarning>
+                        {`Sorry, there are no matches in the category chosen, but we found “${searchTrigger}” in the other categories`}
+                      </Styles.PortfolioFilterWarning>
+                    )}
                 </Styles.PortfolioSearchWrapper>
                 <DropdownContainer className="portfolio_dropdown">
                   {industries.length > 0 &&
@@ -270,13 +296,16 @@ const PortfolioPage: NextPage = () => {
                       tags={data.industries}
                       dropdownName="// INDUSTRY"
                       isTag={true}
-                      additionalLogic={() => setIsRequestRepeated(false)}
+                      additionalLogic={() => {
+                        setIsFirstLoad(false);
+                        setIsRequestRepeated(false);
+                      }}
                     />
                   </Styles.PortfolioDropdownWrapper>
                 </DropdownContainer>
               </Styles.PortfolioFiltersWrapper>
               {reviewsData?.reviews && reviewsData.reviews.length > 0 ? (
-                <>
+                <div ref={contentRef}>
                   <Styles.PortfolioProjectsContainer>
                     {reviewsData?.reviews &&
                       reviewsData.reviews.map((project) => (
@@ -291,16 +320,25 @@ const PortfolioPage: NextPage = () => {
                     currentPage={currentPage}
                     setCurrentPage={setCurrentPage}
                   />
-                </>
+                </div>
+              ) : isCategoryWarning && category ? (
+                <Styles.PortfolioSearchWarning>
+                  <div ref={contentRef}>Recommendations:</div>
+                  <ul>
+                    <li>Make sure the category is correct.</li>
+                    <li>Try checking out different industry options.</li>
+                  </ul>
+                </Styles.PortfolioSearchWarning>
               ) : (
                 <Styles.PortfolioSearchWarning>
-                  <div>
+                  <div ref={contentRef} className="sorry-message">
                     <span>
-                      {"Sorry, no results were found for "}
+                      {'Sorry, no results were found for "'}
                       <span className="search-word">{searchTrigger}</span>
+                      {'"'}
                     </span>
                   </div>
-                  <div className="warning_list-header">Recommendations:</div>
+                  <div>Recommendations:</div>
                   <ul>
                     <li>Make sure all the words are properly spelled.</li>
                     <li>Try using other keywords.</li>

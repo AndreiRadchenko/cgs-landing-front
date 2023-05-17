@@ -64,7 +64,7 @@ export const PortfolioCategoryItem = styled.div`
     transition: none;
     border-right-width: 2.5px;
     border-bottom-width: 4.5px;
-    padding: 8.8px 16.42px 12px 17.99px;
+    padding: 8.8px 17.03px 12px 17.99px;
   }
 
   &.active {
@@ -114,6 +114,7 @@ export const PortfolioSearchWrapper = styled.div`
     align-items: start;
     flex-direction: column;
     row-gap: 20px;
+    max-width: 100%;
   }
 `;
 
@@ -148,6 +149,10 @@ export const PortfolioFilterWarning = styled.div`
   color: #8f8e93;
   margin-left: 18px;
   font-size: 18px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: 0;
+  }
 `;
 
 export const PortfolioSearchWarning = styled.div`
@@ -158,8 +163,8 @@ export const PortfolioSearchWarning = styled.div`
   color: #8f8e93;
   margin: 28px 0 134px;
 
-  & .warning_list-header {
-    margin-top: 18px;
+  & .sorry-message {
+    margin-bottom: 18px;
   }
 
   & .search-word {
