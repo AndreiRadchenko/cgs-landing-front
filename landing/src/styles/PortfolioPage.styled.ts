@@ -109,6 +109,19 @@ export const HeaderImageContainer = styled.div`
     top: -35px;
   }
 
+  @media (${themes.primary.media.minPCFullHD}) {
+    margin-top: -60px;
+    svg {
+      scale: 1.3;
+      right: 5px;
+      top: 80px;
+    }
+    span {
+      width: 745px !important;
+      height: 745px !important;
+    }
+  }
+
   @media (${themes.primary.media.maxTabletLandScape}) {
     position: relative;
     display: flex;
@@ -116,12 +129,12 @@ export const HeaderImageContainer = styled.div`
   }
 
   @media (${themes.primary.media.maxMobile}) {
-    margin-top: 30px;
+    margin-top: 55px;
     height: 324px;
 
     svg {
-      top: 0;
-      right: -10px;
+      top: -12px;
+      right: -20px;
     }
     span {
       width: 375px !important;
@@ -292,6 +305,19 @@ export const SeeMoreProjectsArrowFirst = styled.div`
     width: 100%;
   }
 
+  @media (${themes.primary.media.minPCFullHD}) {
+    position: relative;
+    width: 500px;
+    overflow-x: hidden;
+    height: 60px;
+    padding: 0;
+    svg {
+      left: -70px;
+      position: absolute;
+      top: 35%;
+      scale: 2;
+    }
+  }
   @media (${themes.primary.media.maxMobile}) {
     padding-top: 3px;
     align-self: flex-start;
@@ -304,6 +330,20 @@ export const SeeMoreProjectsArrowSecond = styled.div`
     flex: 1 1 auto;
     width: 100%;
     transform: rotate(180deg);
+  }
+
+  @media (${themes.primary.media.minPCFullHD}) {
+    position: relative;
+    width: 500px;
+    overflow-x: hidden;
+    height: 60px;
+    padding: 0;
+    svg {
+      left: 77px;
+      position: absolute;
+      top: 35%;
+      scale: 2;
+    }
   }
   @media (${themes.primary.media.maxMobile}) {
     padding-top: 0px;
