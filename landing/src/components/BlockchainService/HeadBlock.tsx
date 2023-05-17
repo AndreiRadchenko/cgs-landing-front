@@ -26,7 +26,6 @@ const HeadBlock = () => {
   ])?.headerBlock;
 
   const [imageIndex, setImageIndex] = useState(0);
-  const targetIndex = 1;
 
   const noiseImages = [
     secondNoise.src,
@@ -45,20 +44,18 @@ const HeadBlock = () => {
     seventhCripto.src,
   ];
 
-  for (let n = 0; n < targetIndex; n++) {
-    for (let i = criptoImages.length - 1; i >= 0; i--) {
-      criptoImages.splice(i + 1, 0, ...noiseImages)
-    }
-  };
+  const modifiedCriptoImages = criptoImages.reduceRight((acc, img) => {
+    return acc.concat(noiseImages, img);
+  }, []);
 
   useEffect(() => {
-    const timerAll = setInterval(() => {
-      setImageIndex(prevIndex => (prevIndex === criptoImages.length - 1 ? 0 : prevIndex + 1));
+    const timer = setInterval(() => {
+      setImageIndex((prevIndex) =>
+        prevIndex === modifiedCriptoImages.length - 1 ? 0 : prevIndex + 1
+      );
     }, 300);
-    return () => {
-      clearInterval(timerAll);
-    };
-  }, [criptoImages]);
+    return () => clearInterval(timer);
+  }, [modifiedCriptoImages]);
 
   return (
     <Styled.Container>
@@ -81,7 +78,7 @@ const HeadBlock = () => {
       </Styled.Content>
       <Styled.Image>
         <Styled.ImageTV src={TV.src} />
-        <Styled.ImageCripto src={criptoImages[imageIndex]} />
+        <Styled.ImageCripto src={modifiedCriptoImages[imageIndex]} />
       </Styled.Image>
     </Styled.Container>
   );
