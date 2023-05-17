@@ -155,6 +155,10 @@ const PortfolioPage: NextPage = () => {
     setCurrentPage(1);
   }, [industries.length, searchTrigger, category]);
 
+  useEffect(() => {
+    setIsRequestRepeated(false);
+  }, [searchTrigger]);
+
   return (
     <Loader active={isLoading || reviewsIsLoading}>
       {isLoading || reviewsIsLoading ? (
@@ -266,6 +270,7 @@ const PortfolioPage: NextPage = () => {
                       tags={data.industries}
                       dropdownName="// INDUSTRY"
                       isTag={true}
+                      additionalLogic={() => setIsRequestRepeated(false)}
                     />
                   </Styles.PortfolioDropdownWrapper>
                 </DropdownContainer>

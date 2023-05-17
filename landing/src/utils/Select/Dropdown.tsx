@@ -15,6 +15,7 @@ interface IDropdown {
   setEnable?: (val: boolean) => void;
   className?: string;
   prefix?: string;
+  additionalLogic?: () => void;
 }
 
 const Dropdown = ({
@@ -28,6 +29,7 @@ const Dropdown = ({
   setEnable,
   className,
   prefix = "",
+  additionalLogic,
 }: IDropdown) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -53,6 +55,7 @@ const Dropdown = ({
             className={filters.includes(tag) ? "checked" : ""}
             onClick={() => {
               !filters.includes(tag) && setFilters([...filters, tag]);
+              additionalLogic && additionalLogic();
               setIsOpen(false);
             }}
             key={tag}
