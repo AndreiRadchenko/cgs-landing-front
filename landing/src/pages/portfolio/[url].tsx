@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import ReactCountryFlag from "react-country-flag";
+import Link from "next/link";
 
 import { Loader, LoaderStub } from "../../components/Loader";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
@@ -13,6 +14,8 @@ import CircleProjectPage from "../../components/Portfolio/svg/CircleProjectPage"
 import CanadaFlag from "../../components/Portfolio/svg/CanadaFlag";
 import SeeMoreProjects from "../../components/Portfolio/SeeMoreProjects";
 import ProjectCta from "../../components/Portfolio/ProjectCta";
+import CircleProjectPageMobile from "../../components/Portfolio/svg/CircleProjectPageMobile";
+import ProjectFeedback from "../../components/Portfolio/ProjectFeedback";
 
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { adminGlobalService } from "../../services/adminHomePage";
@@ -26,14 +29,15 @@ import {
   IPortfolioProjectResponse,
   IPortfolioResponse,
   IPortfolioReview,
+  ITechnology,
 } from "../../types/Admin/AdminPortfolio.types";
 
 import { queryKeys } from "../../consts/queryKeys";
 
 import ButtonArrow from "../../utils/ButtonArrow";
-import ProjectFeedback from "../../components/Portfolio/ProjectFeedback";
 import { openInNewTab } from "../../utils/OpenInNewTab";
-import Link from "next/link";
+
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -53,6 +57,11 @@ const PortfolioProjectPage = () => {
   const router = useRouter();
   const breadcrumbs: any[] = [];
 
+  const [iconFirstSet, setIconFirstSet] = useState<ITechnology[]>([]);
+  const [iconSecondSet, setIconSecondSet] = useState<ITechnology[]>([]);
+
+  const { width } = useWindowDimension();
+
   const { data: project, isLoading }: IPortfolioProjectResponse = useQuery(
     [queryKeys.getPortfolioProjectPage, router.query.url],
     () => adminPortfolioService.getProjectData(router.query.url as string)
@@ -68,6 +77,17 @@ const PortfolioProjectPage = () => {
       refetchOnWindowFocus: false,
     }
   );
+
+  useEffect(() => {
+    if (project && project?.text.length <= 350) {
+      setIconFirstSet(project?.technologies.slice(0, 6));
+      setIconSecondSet(
+        project?.technologies.slice(6, project.technologies.length)
+      );
+    } else {
+      project && setIconFirstSet(project?.technologies);
+    }
+  }, [project]);
 
   breadcrumbs.push(
     <Link key="home" href="/">
@@ -136,9 +156,11 @@ const PortfolioProjectPage = () => {
                 </Styled.HeaderBottomSection>
               </Styled.HeaderContainerBlock>
               <Styled.HeaderImageContainer>
-                <div className="circleWrapper">
+                {width && width > 768 ? (
                   <CircleProjectPage />
-                </div>
+                ) : (
+                  <CircleProjectPageMobile />
+                )}
                 <Image
                   alt="project image"
                   src={
@@ -164,7 +186,7 @@ const PortfolioProjectPage = () => {
               <Styled.InfoWrapperTimeTeam>
                 <Styled.InfoContainerTimeTeam>
                   <TimeIcon />
-                  <p>{project?.projectDuration} month</p>
+                  <p>{project?.projectDuration} months</p>
                 </Styled.InfoContainerTimeTeam>
                 <Styled.InfoContainerTimeTeam>
                   <TeamIcon />
@@ -172,23 +194,71 @@ const PortfolioProjectPage = () => {
                 </Styled.InfoContainerTimeTeam>
               </Styled.InfoWrapperTimeTeam>
             </Styled.PortfolioPageInfoContainer>
-            <Styled.PortfolioPageIconContainer>
-              {project?.technologies &&
-                project?.technologies.map((item) => (
-                  <Image
-                    key={item.image.url}
-                    src={item.image.url}
-                    alt="tech"
-                    className="image"
-                    layout="fill"
-                  />
-                ))}
-            </Styled.PortfolioPageIconContainer>
+            {width && width > 768 ? (
+              project && project?.text.length > 350 ? (
+                <Styled.PortfolioPageIconContainer firstSet>
+                  {iconFirstSet.map((item) => (
+                    <Image
+                      key={item.image.url}
+                      src={item.image.url}
+                      alt="tech"
+                      className="image"
+                      layout="fill"
+                    />
+                  ))}
+                </Styled.PortfolioPageIconContainer>
+              ) : (
+                <>
+                  <Styled.PortfolioPageIconContainer firstSet>
+                    {iconFirstSet.map((item) => (
+                      <Image
+                        key={item.image.url}
+                        src={item.image.url}
+                        alt="tech"
+                        className="image"
+                        layout="fill"
+                      />
+                    ))}
+                  </Styled.PortfolioPageIconContainer>
+                  <Styled.PortfolioPageIconContainer>
+                    {iconSecondSet.map((item) => (
+                      <Image
+                        key={item.image.url}
+                        src={item.image.url}
+                        alt="tech"
+                        className="image"
+                        layout="fill"
+                      />
+                    ))}
+                  </Styled.PortfolioPageIconContainer>
+                </>
+              )
+            ) : (
+              project &&
+              project?.technologies && (
+                <Styled.PortfolioPageIconContainer firstSet>
+                  {project?.technologies.map((item) => (
+                    <Image
+                      key={item.image.url}
+                      src={item.image.url}
+                      alt="tech"
+                      className="image"
+                      layout="fill"
+                    />
+                  ))}
+                </Styled.PortfolioPageIconContainer>
+              )
+            )}
           </Styled.PortfolioPageWrapper>
           {data?.individualProjectPage.cta && (
             <ProjectCta projectInfo={data.individualProjectPage} />
           )}
-          {project?.feedback && <ProjectFeedback feedback={project.feedback} />}
+          {data && project?.feedback && (
+            <ProjectFeedback
+              feedback={project.feedback}
+              title={data.individualProjectPage.feedback}
+            />
+          )}
           {data && seeMoreProj && project && (
             <SeeMoreProjects
               title={data.individualProjectPage.additionalProjects}

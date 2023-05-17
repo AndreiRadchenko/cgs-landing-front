@@ -11,11 +11,17 @@ export interface IFeedback {
   feedbackText: string;
 }
 
-const ProjectFeedback = ({ feedback }: { feedback: IFeedback }) => {
+const ProjectFeedback = ({
+  feedback,
+  title,
+}: {
+  feedback: IFeedback;
+  title: string;
+}) => {
   return (
     <Styled.FeedbackContainer>
       <Styled.FeedbackTitleContainer>
-        <h4>What our clients say about us?</h4>
+        <h4>{title}</h4>
         <QuotesFeedback />
         <Styled.FeedbackStarContainer>
           {[...Array(5)].map((start, idx) => (

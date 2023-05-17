@@ -3,6 +3,10 @@ import themes from "../utils/themes";
 import { ILine } from "../types/Decoration.types";
 import { IMobileLine } from "./HomePage/Badges.styled";
 
+interface IPortfolioIconProps {
+  readonly firstSet?: boolean;
+}
+
 export const PortfolioPageWrapper = styled.div`
   width: 100%;
   padding: 10px 50px;
@@ -67,6 +71,7 @@ export const PortfolioPageHeaderContainer = styled.div`
 
   @media (${themes.primary.media.maxTabletLandScape}) {
     flex-direction: column;
+    margin-bottom: 50px;
   }
 `;
 
@@ -101,6 +106,7 @@ export const HeaderImageContainer = styled.div`
   svg {
     position: absolute;
     right: -50px;
+    top: -35px;
   }
 
   @media (${themes.primary.media.maxTabletLandScape}) {
@@ -114,9 +120,8 @@ export const HeaderImageContainer = styled.div`
     height: 324px;
 
     svg {
-      right: -20px;
-      width: 324px;
-      height: 324px;
+      top: 0;
+      right: -10px;
     }
     span {
       width: 375px !important;
@@ -169,11 +174,11 @@ export const PortfolioPageInfoContainer = styled.div`
   }
 `;
 
-export const PortfolioPageIconContainer = styled.div`
+export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  margin-top: 65px;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 110px));
+  margin-top: ${({ firstSet }) => (firstSet ? "65px" : "20px")};
   row-gap: 20px;
   margin-left: -20px;
 
@@ -192,7 +197,7 @@ export const PortfolioPageIconContainer = styled.div`
     margin-top: 35px;
     grid-template-columns: repeat(auto-fill, minmax(67px, 1fr));
     row-gap: 15px;
-    margin-left: -11px;
+    margin-left: 0;
   }
 `;
 
@@ -430,7 +435,7 @@ export const ProjectCta = styled.div`
 `;
 
 export const ProjectCtaContainer = styled.div`
-  padding: 27px 51px;
+  padding: 26px 51px;
   display: flex;
   align-items: center;
   position: relative;
@@ -450,6 +455,7 @@ export const ProjectCtaContainer = styled.div`
     flex-direction: column;
     padding: 20px 18px;
     align-items: flex-start;
+    height: 218px;
 
     h3 {
       font-size: 24px;
@@ -474,7 +480,7 @@ export const BgiContainer = styled.div<ILine>`
   background-size: 100% 100%;
 
   @media ${themes.primary.media.maxMobile} {
-    height: 240px;
+    height: 220px;
   }
 `;
 
