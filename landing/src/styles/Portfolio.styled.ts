@@ -64,7 +64,7 @@ export const PortfolioCategoryItem = styled.div`
     transition: none;
     border-right-width: 2.5px;
     border-bottom-width: 4.5px;
-    padding: 9px 16.5px 12px 18px;
+    padding: 8.8px 16.42px 12px 18.6px;
   }
 
   &.active {
