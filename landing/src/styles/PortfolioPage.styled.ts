@@ -134,7 +134,7 @@ export const HeaderImageContainer = styled.div`
 
     svg {
       top: -12px;
-      right: -20px;
+      right: -21px;
     }
     span {
       width: 375px !important;
