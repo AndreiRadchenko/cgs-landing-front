@@ -7,10 +7,15 @@ export const Pagination = ({
   reviewsData,
   currentPage,
   setCurrentPage,
+  scrollFunction,
+  setIsFirstLoad,
+  setIsPaginationTriggered,
 }: IPaginationProps) => {
   const handleClick = (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    window.scrollTo(0, 0);
+    setIsFirstLoad(false);
+    setIsPaginationTriggered(true);
+    scrollFunction();
   };
 
   const handlePageClick = useCallback(

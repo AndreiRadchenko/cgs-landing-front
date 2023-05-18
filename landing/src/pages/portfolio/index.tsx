@@ -85,6 +85,7 @@ const PortfolioPage: NextPage = () => {
   const [activeCategory, setActiveCategory] = useState<number>(0);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const contentRef = useRef<HTMLDivElement>(null);
+  const [isPaginationTriggered, setIsPaginationTriggered] = useState(true);
 
   const { data, isLoading }: IPortfolioResponse = useQuery(
     [queryKeys.getPortfolioPageData],
@@ -131,15 +132,20 @@ const PortfolioPage: NextPage = () => {
     }
   };
 
-  const mobileScrollFunction = () => {
-    if (window.innerWidth < 768 && contentRef.current && !isFirstLoad) {
-      const scrollPosition = contentRef.current.offsetTop - 100;
+  const scrollFunction = (isMobile = false) => {
+    if (
+      !contentRef.current ||
+      isFirstLoad ||
+      (isMobile && window.innerWidth > 768 && !isPaginationTriggered)
+    )
+      return;
 
-      window.scrollTo({
-        top: scrollPosition,
-        behavior: "smooth",
-      });
-    }
+    const scrollPosition = contentRef.current.offsetTop - 100;
+
+    window.scrollTo({
+      top: scrollPosition,
+      behavior: "smooth",
+    });
   };
 
   useEffect(() => {
@@ -166,15 +172,18 @@ const PortfolioPage: NextPage = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   useEffect(() => {
-    mobileScrollFunction();
     setCurrentPage(1);
+    scrollFunction(true);
   }, [industries.length, searchTrigger, category]);
 
   useEffect(() => {
-    mobileScrollFunction();
-  }, [reviewsIsLoading, isLoading]);
+    if (!isLoading && !reviewsIsLoading && !isFirstLoad) {
+      scrollFunction(true);
+    }
+  }, [isLoading, reviewsIsLoading, isFirstLoad]);
 
   useEffect(() => {
+    setIsPaginationTriggered(false);
     setIsRequestRepeated(false);
   }, [searchTrigger]);
 
@@ -205,6 +214,7 @@ const PortfolioPage: NextPage = () => {
                     setIsSearchTriggered(false);
                     setActiveCategory(0);
                     setCategory("");
+                    setIsPaginationTriggered(false);
                   }}
                 >
                   {"All projects"}
@@ -220,6 +230,7 @@ const PortfolioPage: NextPage = () => {
                       setIsSearchTriggered(false);
                       setActiveCategory(i + 1);
                       setCategory(name);
+                      setIsPaginationTriggered(false);
                     }}
                   >
                     {name.charAt(0).toUpperCase() + name.slice(1)}
@@ -295,57 +306,65 @@ const PortfolioPage: NextPage = () => {
                       additionalLogic={() => {
                         setIsFirstLoad(false);
                         setIsRequestRepeated(false);
+                        setIsPaginationTriggered(false);
                       }}
                     />
                   </Styles.PortfolioDropdownWrapper>
                 </DropdownContainer>
               </Styles.PortfolioFiltersWrapper>
 
-              <Loader active={(isLoading || reviewsIsLoading) && !isFirstLoad}>
-                {(isLoading || reviewsIsLoading) && !isFirstLoad ? (
-                  <LoaderStub />
-                ) : reviewsData?.reviews && reviewsData.reviews.length > 0 ? (
-                  <div ref={contentRef}>
-                    <Styles.PortfolioProjectsContainer>
-                      {reviewsData?.reviews &&
-                        reviewsData.reviews.map((project) => (
-                          <PortfolioProjectComponent
-                            key={project._id}
-                            project={project}
-                          />
-                        ))}
-                    </Styles.PortfolioProjectsContainer>
-                    <Pagination
-                      reviewsData={reviewsData}
-                      currentPage={currentPage}
-                      setCurrentPage={setCurrentPage}
-                    />
-                  </div>
-                ) : isCategoryWarning && category ? (
-                  <Styles.PortfolioSearchWarning>
-                    <div ref={contentRef}>Recommendations:</div>
-                    <ul>
-                      <li>Make sure the category is correct.</li>
-                      <li>Try checking out different industry options.</li>
-                    </ul>
-                  </Styles.PortfolioSearchWarning>
-                ) : (
-                  <Styles.PortfolioSearchWarning>
-                    <div ref={contentRef} className="sorry-message">
-                      <span>
-                        {'Sorry, no results were found for "'}
-                        <span className="search-word">{searchTrigger}</span>
-                        {'"'}
-                      </span>
-                    </div>
-                    <div>Recommendations:</div>
-                    <ul>
-                      <li>Make sure all the words are properly spelled.</li>
-                      <li>Try using other keywords.</li>
-                    </ul>
-                  </Styles.PortfolioSearchWarning>
-                )}
-              </Loader>
+              <div ref={contentRef}>
+                <Loader
+                  active={(isLoading || reviewsIsLoading) && !isFirstLoad}
+                >
+                  {(isLoading || reviewsIsLoading) && !isFirstLoad ? (
+                    <LoaderStub />
+                  ) : reviewsData?.reviews && reviewsData.reviews.length > 0 ? (
+                    <>
+                      <Styles.PortfolioProjectsContainer>
+                        {reviewsData?.reviews &&
+                          reviewsData.reviews.map((project) => (
+                            <PortfolioProjectComponent
+                              key={project._id}
+                              project={project}
+                            />
+                          ))}
+                      </Styles.PortfolioProjectsContainer>
+                      <Pagination
+                        reviewsData={reviewsData}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                        scrollFunction={() => scrollFunction(true)}
+                        setIsFirstLoad={setIsFirstLoad}
+                        setIsPaginationTriggered={setIsPaginationTriggered}
+                      />
+                    </>
+                  ) : isCategoryWarning && category ? (
+                    <Styles.PortfolioSearchWarning>
+                      <div>Recommendations:</div>
+                      <ul>
+                        <li>Make sure the category is correct.</li>
+                        <li>Try checking out different industry options.</li>
+                      </ul>
+                    </Styles.PortfolioSearchWarning>
+                  ) : (
+                    <Styles.PortfolioSearchWarning>
+                      <div className="sorry-message">
+                        <span>
+                          {'Sorry, no results were found for "'}
+                          <span className="search-word">{searchTrigger}</span>
+                          {'"'}
+                        </span>
+                      </div>
+                      <div>Recommendations:</div>
+                      <ul>
+                        <li>Make sure all the words are properly spelled.</li>
+                        <li>Try using other keywords.</li>
+                      </ul>
+                    </Styles.PortfolioSearchWarning>
+                  )}
+                </Loader>
+              </div>
             </Styles.PortfolioWrapper>
             <CTABlock initValues={data.cta} />
             <FooterNew />
