@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 import MagnifyingGlass from "../../public/Portfolio/MagnifyingGlass.svg";
-import ExitIcon from "../../public/Portfolio/ExitIcon.svg";
+import LightExitIcon from "../../public/Portfolio/LightExitIcon.svg";
 
 interface IPortfolioInfoProps {
   readonly isInfoCont?: boolean;
@@ -54,7 +54,6 @@ export const PortfolioCategoryItem = styled.div`
   justify-content: center;
   align-items: center;
   padding: 12px 18px;
-  gap: 10px;
   border: 1px solid black;
   background: transparent;
   line-height: 24.4px;
@@ -192,28 +191,25 @@ export const PortfolioIndustryTagWrapper = styled.button<IPortfolioIndustryTag>`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 28px;
-  color: ${themes.primary.colors.secondary};
+  color: #f1efed;
   background-color: ${themes.primary.colors.darkBlue};
-  padding: 6px 12px;
+  padding: 7px 6px 7px 8px;
+  line-height: 16.8px;
   font-style: normal;
-  font-weight: ${themes.primary.font.weight.semiBold};
-  font-size: ${themes.primary.font.size.articleViews};
-  font-family: ${themes.primary.font.family.openSans};
-  letter-spacing: 0.5px;
+  font-weight: 900;
+  font-size: 14px;
+  font-family: ${themes.primary.font.family.namu};
   z-index: 1;
+  column-gap: 6px;
+
+  span {
+    cursor: pointer;
+  }
+
   &:hover {
     background-color: ${(props) =>
       props.isArticlePage && themes.primary.colors.hoveredBlogTag};
     cursor: ${(props) => props.isArticlePage && "pointer"};
-  }
-  span {
-    cursor: pointer;
-  }
-  @media ${themes.primary.media.minPC} {
-    height: 2.333em;
-    padding: 0.5em ${themes.primary.font.size.primary};
-    font-size: ${themes.primary.font.size.primary};
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -232,10 +228,17 @@ export const PortfolioIndustryTag = styled.div`
   white-space: nowrap;
 `;
 
-export const PortfolioIndustryTagDelete = styled.div``;
+export const PortfolioIndustryTagDelete = styled.span`
+  background-image: url(${LightExitIcon.src});
+  background-repeat: no-repeat;
+  margin-top: 6px;
+  height: 10px;
+  width: 10px;
+`;
 
 export const PortfolioInputWrapper = styled.div`
   display: flex;
+  padding-top: 4px;
 
   & input {
     outline: none;
@@ -274,17 +277,6 @@ export const PortfolioSearchElement = styled.div`
 
 export const PortfolioSearchElementText = styled.div`
   padding-bottom: 1px;
-`;
-
-export const PortfolioSearchDeleteButton = styled.div`
-  display: flex;
-  background-image: url(${ExitIcon.src});
-  background-repeat: no-repeat;
-  height: 10px;
-  width: 10px;
-  cursor: pointer;
-  margin-left: 8px;
-  align-items: center;
 `;
 
 export const PortfolioSearchButton = styled.div`
