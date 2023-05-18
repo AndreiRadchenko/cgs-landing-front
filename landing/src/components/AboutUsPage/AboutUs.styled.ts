@@ -6,6 +6,7 @@ export const HeroAboutContainer = styled.div`
   width: 100vw - 8px;
   height: 26.2vw;
   position: relative;
+  overflow: hidden;
 
   @media ${themes.primary.media.maxTabletLandScape} {
   }
@@ -17,6 +18,12 @@ export const HeroAboutContainer = styled.div`
   }
   @media ${themes.primary.media.maxMobile} {
     height: 198px;
+  }
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right;
   }
 `;
 

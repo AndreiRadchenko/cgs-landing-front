@@ -28,7 +28,10 @@ export const DeleteButton = styled.div`
   font-weight: ${themes.primary.font.weight.semiBold};
 `;
 
-export const Wrapper = styled.div``;
+export const ImagesWrapper = styled.div`
+  display: flex;
+  gap: 32px;
+`;
 
 export const Headlines = styled.div`
   display: flex;

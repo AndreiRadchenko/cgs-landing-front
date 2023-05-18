@@ -17,21 +17,27 @@ interface IAboutUs {
 const AboutUs = ({ data }: IAboutUs) => {
   const isMobile = useMediaQuery("(max-width:768px)");
   const {
-    about: { image, codex, philosophy },
+    about: { video, image, codex, philosophy },
     numbers: { years, employees, projects, customers },
     team: { title, members },
   } = data;
-
   return (
     <>
       <Styled.HeroAboutContainer>
-        <Image
-          src={data ? image.url : ""}
-          alt="about hero image"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="right"
-        />
+        <video
+          loop
+          playsInline
+          muted
+          autoPlay
+          poster={data && image ? image.url : ""}
+          disablePictureInPicture
+          preload="auto"
+        >
+          <source
+            src={data && video?.image ? video.image.url : ""}
+            type="video/mp4"
+          />
+        </video>
       </Styled.HeroAboutContainer>
       <Layout>
         <Styled.HeadlinesContainer>
