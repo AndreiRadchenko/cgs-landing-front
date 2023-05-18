@@ -695,8 +695,8 @@ export const ButtonShareTextWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 1.428em;
-    margin-left: 0;
+    margin-top: 0.2em;
+    margin-left: -10px;
 
     &.footer {
       margin-inline: 0;
