@@ -131,7 +131,7 @@ const PortfolioPage: NextPage = () => {
     }
   };
 
-  const scrollFunction = () => {
+  const mobileScrollFunction = () => {
     if (window.innerWidth < 768 && contentRef.current && !isFirstLoad) {
       const scrollPosition = contentRef.current.offsetTop - 100;
 
@@ -166,12 +166,12 @@ const PortfolioPage: NextPage = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   useEffect(() => {
-    scrollFunction();
+    mobileScrollFunction();
     setCurrentPage(1);
   }, [industries.length, searchTrigger, category]);
 
   useEffect(() => {
-    scrollFunction();
+    mobileScrollFunction();
   }, [reviewsIsLoading, isLoading]);
 
   useEffect(() => {
@@ -179,8 +179,8 @@ const PortfolioPage: NextPage = () => {
   }, [searchTrigger]);
 
   return (
-    <Loader active={isLoading || reviewsIsLoading}>
-      {isLoading || reviewsIsLoading ? (
+    <Loader active={(isLoading || reviewsIsLoading) && isFirstLoad}>
+      {(isLoading || reviewsIsLoading) && isFirstLoad ? (
         <LoaderStub />
       ) : data ? (
         <>
@@ -272,20 +272,16 @@ const PortfolioPage: NextPage = () => {
                     industries.map((filter, index) => (
                       <Styles.PortfolioIndustryTagWrapper key={index}>
                         <Styles.PortfolioIndustryTag>
-                          {filter}&nbsp;&nbsp;
+                          {filter}
                         </Styles.PortfolioIndustryTag>
-                        <Styles.PortfolioIndustryTagDelete>
-                          <span
-                            onClick={() => {
-                              const newIndustries = industries.filter(
-                                (filter) => filter !== industries[index]
-                              );
-                              setIndustries([...newIndustries]);
-                            }}
-                          >
-                            x
-                          </span>
-                        </Styles.PortfolioIndustryTagDelete>
+                        <Styles.PortfolioIndustryTagDelete
+                          onClick={() => {
+                            const newIndustries = industries.filter(
+                              (filter) => filter !== industries[index]
+                            );
+                            setIndustries([...newIndustries]);
+                          }}
+                        />
                       </Styles.PortfolioIndustryTagWrapper>
                     ))}
                   <Styles.PortfolioDropdownWrapper>
@@ -304,47 +300,52 @@ const PortfolioPage: NextPage = () => {
                   </Styles.PortfolioDropdownWrapper>
                 </DropdownContainer>
               </Styles.PortfolioFiltersWrapper>
-              {reviewsData?.reviews && reviewsData.reviews.length > 0 ? (
-                <div ref={contentRef}>
-                  <Styles.PortfolioProjectsContainer>
-                    {reviewsData?.reviews &&
-                      reviewsData.reviews.map((project) => (
-                        <PortfolioProjectComponent
-                          key={project._id}
-                          project={project}
-                        />
-                      ))}
-                  </Styles.PortfolioProjectsContainer>
-                  <Pagination
-                    reviewsData={reviewsData}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                  />
-                </div>
-              ) : isCategoryWarning && category ? (
-                <Styles.PortfolioSearchWarning>
-                  <div ref={contentRef}>Recommendations:</div>
-                  <ul>
-                    <li>Make sure the category is correct.</li>
-                    <li>Try checking out different industry options.</li>
-                  </ul>
-                </Styles.PortfolioSearchWarning>
-              ) : (
-                <Styles.PortfolioSearchWarning>
-                  <div ref={contentRef} className="sorry-message">
-                    <span>
-                      {'Sorry, no results were found for "'}
-                      <span className="search-word">{searchTrigger}</span>
-                      {'"'}
-                    </span>
+
+              <Loader active={(isLoading || reviewsIsLoading) && !isFirstLoad}>
+                {(isLoading || reviewsIsLoading) && !isFirstLoad ? (
+                  <LoaderStub />
+                ) : reviewsData?.reviews && reviewsData.reviews.length > 0 ? (
+                  <div ref={contentRef}>
+                    <Styles.PortfolioProjectsContainer>
+                      {reviewsData?.reviews &&
+                        reviewsData.reviews.map((project) => (
+                          <PortfolioProjectComponent
+                            key={project._id}
+                            project={project}
+                          />
+                        ))}
+                    </Styles.PortfolioProjectsContainer>
+                    <Pagination
+                      reviewsData={reviewsData}
+                      currentPage={currentPage}
+                      setCurrentPage={setCurrentPage}
+                    />
                   </div>
-                  <div>Recommendations:</div>
-                  <ul>
-                    <li>Make sure all the words are properly spelled.</li>
-                    <li>Try using other keywords.</li>
-                  </ul>
-                </Styles.PortfolioSearchWarning>
-              )}
+                ) : isCategoryWarning && category ? (
+                  <Styles.PortfolioSearchWarning>
+                    <div ref={contentRef}>Recommendations:</div>
+                    <ul>
+                      <li>Make sure the category is correct.</li>
+                      <li>Try checking out different industry options.</li>
+                    </ul>
+                  </Styles.PortfolioSearchWarning>
+                ) : (
+                  <Styles.PortfolioSearchWarning>
+                    <div ref={contentRef} className="sorry-message">
+                      <span>
+                        {'Sorry, no results were found for "'}
+                        <span className="search-word">{searchTrigger}</span>
+                        {'"'}
+                      </span>
+                    </div>
+                    <div>Recommendations:</div>
+                    <ul>
+                      <li>Make sure all the words are properly spelled.</li>
+                      <li>Try using other keywords.</li>
+                    </ul>
+                  </Styles.PortfolioSearchWarning>
+                )}
+              </Loader>
             </Styles.PortfolioWrapper>
             <CTABlock initValues={data.cta} />
             <FooterNew />

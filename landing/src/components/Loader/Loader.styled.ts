@@ -5,13 +5,13 @@ import themes from "../../utils/themes";
 export const StyledLoader = styled(LoadingOverlay)`
   .MyLoader_overlay {
     background: ${themes.primary.colors.blogBackground};
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
   }
   &.MyLoader_wrapper--active {
     overflow: hidden;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
   }
 `;
 
