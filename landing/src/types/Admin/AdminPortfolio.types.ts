@@ -68,6 +68,9 @@ export interface IPaginationProps {
   reviewsData: IPortfolioReviewsDataResponse | undefined;
   currentPage: number;
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  scrollFunction: () => void;
+  setIsFirstLoad: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsPaginationTriggered: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IPortfolioReviewsDataResponse {
