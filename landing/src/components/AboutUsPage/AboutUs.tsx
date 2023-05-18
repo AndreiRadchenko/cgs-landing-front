@@ -1,8 +1,13 @@
 import React from "react";
 import parse from "html-react-parser";
-import * as Styled from "./AboutUs.styled";
-import { Layout } from "../../styles/Layout.styled";
+import Image from "next/image";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
+import { Layout } from "../../styles/Layout.styled";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+import LinkedIn from "../../../public/linkedIn.svg";
+
+import * as Styled from "./AboutUs.styled";
 import { IAbout } from "../../types/Admin/Response.types";
 
 interface IAboutUs {
@@ -10,55 +15,97 @@ interface IAboutUs {
 }
 
 const AboutUs = ({ data }: IAboutUs) => {
+  const isMobile = useMediaQuery("(max-width:768px)");
+  const {
+    about: { image, codex, philosophy },
+    numbers: { years, employees, projects, customers },
+    team: { title, members },
+  } = data;
+
   return (
-    <Layout>
-      <Styled.AboutUsContainer>
-        <Styled.ColContainer>
-          <Styled.MainTitle>
-            Idea-inspired, <br />
-            <span>tech-driven</span> professionals
-          </Styled.MainTitle>
-          <Styled.MainImageContainer>
-            <Styled.MainImage src={data.believe.image.url} />
-
-            <Styled.MovingText>
-              <span>
-                CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;
-              </span>
-              <span>
-                CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;
-              </span>
-              <span>
-                CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;&nbsp;CGS-team&nbsp;
-              </span>
-            </Styled.MovingText>
-          </Styled.MainImageContainer>
-        </Styled.ColContainer>
-        <Styled.ColContainer>
-          <Styled.DescriptionContainer>
-            <Styled.Subtitle>{data.believe.subtitle}</Styled.Subtitle>
-            <Styled.Text>{parse(data.believe.text)}</Styled.Text>
-          </Styled.DescriptionContainer>
-          <Styled.DescriptionContainer>
-            <Styled.Subtitle>{data.goal.subtitle}</Styled.Subtitle>
-            <Styled.Text>{parse(data.goal.text)}</Styled.Text>
-          </Styled.DescriptionContainer>
-          <Styled.DescriptionContainer>
-            <Styled.Subtitle>{data.bonuses.subtitle}</Styled.Subtitle>
-            {data &&
-              data.bonuses.text.map((el, idx) => {
-                return (
-                  <Styled.Text className="bonuses-text" key={idx}>
-                    {el}
-                  </Styled.Text>
-                );
-              })}
-          </Styled.DescriptionContainer>
-        </Styled.ColContainer>
-
-        <Styled.BottomImage src={data?.image.url} />
-      </Styled.AboutUsContainer>
-    </Layout>
+    <>
+      <Styled.HeroAboutContainer>
+        <Image
+          src={data ? image.url : ""}
+          alt="about hero image"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="right"
+        />
+      </Styled.HeroAboutContainer>
+      <Layout>
+        <Styled.HeadlinesContainer>
+          <Styled.HeadlineContainer>
+            {!isMobile ? (
+              <Styled.Subtitle>{codex.title}</Styled.Subtitle>
+            ) : (
+              <MobileInfiniteText title={codex.title} />
+            )}
+            <Styled.Text>{codex.text}</Styled.Text>
+          </Styled.HeadlineContainer>
+          <Styled.HeadlineContainer>
+            {!isMobile ? (
+              <Styled.Subtitle>{philosophy.title}</Styled.Subtitle>
+            ) : (
+              <MobileInfiniteText title={philosophy.title} />
+            )}
+            <Styled.Text>{philosophy.text}</Styled.Text>
+          </Styled.HeadlineContainer>
+        </Styled.HeadlinesContainer>
+        <Styled.NumbersContainer>
+          <Styled.Achievement>
+            <Styled.AchievementNumber>{years.num}</Styled.AchievementNumber>
+            <Styled.AchievementText>{years.text}</Styled.AchievementText>
+          </Styled.Achievement>
+          <Styled.Achievement>
+            <Styled.AchievementNumber>{employees.num}</Styled.AchievementNumber>
+            <Styled.AchievementText>{employees.text}</Styled.AchievementText>
+          </Styled.Achievement>
+          <Styled.Achievement>
+            <Styled.AchievementNumber>{projects.num}</Styled.AchievementNumber>
+            <Styled.AchievementText>{projects.text}</Styled.AchievementText>
+          </Styled.Achievement>
+          <Styled.Achievement>
+            <Styled.AchievementNumber>{customers.num}</Styled.AchievementNumber>
+            <Styled.AchievementText>{customers.text}</Styled.AchievementText>
+          </Styled.Achievement>
+        </Styled.NumbersContainer>
+        <Styled.OurTeamContainer>
+          {!isMobile ? (
+            <Styled.Subtitle>{title}</Styled.Subtitle>
+          ) : (
+            <MobileInfiniteText title={title} />
+          )}
+          <Styled.TeamGallery>
+            {members.map((member, index) => (
+              <Styled.Teammate key={index}>
+                <Styled.TeammateImageContainer>
+                  <Image
+                    src={data ? member.image.url : ""}
+                    alt="teammate image"
+                    layout="fill"
+                    objectFit="contain"
+                    objectPosition="top"
+                  />
+                  <Styled.LinkedIn
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image priority src={LinkedIn} alt="Link to LinkedIn" />
+                  </Styled.LinkedIn>
+                </Styled.TeammateImageContainer>
+                <Styled.TeammateName>{member.name}</Styled.TeammateName>
+                <Styled.TeammatePosition>
+                  {member.position}
+                </Styled.TeammatePosition>
+                <Styled.TeammateAbout>{member.about}</Styled.TeammateAbout>
+              </Styled.Teammate>
+            ))}
+          </Styled.TeamGallery>
+        </Styled.OurTeamContainer>
+      </Layout>
+    </>
   );
 };
 

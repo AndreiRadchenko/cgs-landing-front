@@ -25,7 +25,7 @@ export const PortfolioWrapper = styled.div`
   padding: 0 50px;
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 0 10px;
+    padding: 0 20px;
   }
 `;
 
@@ -40,6 +40,7 @@ export const PortfolioCategoryWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     column-gap: 16px;
     margin-top: 6px;
+    justify-content: flex-start;
   }
 `;
 
@@ -58,9 +59,17 @@ export const PortfolioCategoryItem = styled.div`
   background: transparent;
   line-height: 24.4px;
   margin-top: 20px;
-  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transition: none;
+    border-right-width: 2.5px;
+    border-bottom-width: 4.5px;
+    padding: 8.8px 17.03px 12px 17.99px;
+  }
 
   &.active {
+    transition: all 0.2s ease-in-out;
+    padding: 12px 18px;
     border: 1px solid #5869dd;
     background-color: #5869dd;
     color: white;
@@ -89,12 +98,24 @@ export const PortfolioComment = styled.div`
   line-height: 28.8px;
 
   @media ${themes.primary.media.maxMobile} {
+    text-align: start;
     margin-top: 26px;
+    font-size: 16px;
+    line-height: 25.6px;
   }
 `;
 
 export const PortfolioSearchWrapper = styled.div`
   display: flex;
+  align-items: center;
+  max-width: 70%;
+
+  @media ${themes.primary.media.maxMobile} {
+    align-items: start;
+    flex-direction: column;
+    row-gap: 20px;
+    max-width: 100%;
+  }
 `;
 
 export const PortfolioSearch = styled.div`
@@ -109,6 +130,12 @@ export const PortfolioSearch = styled.div`
   height: 50px;
   background: transparent;
 
+  &:active,
+  &:hover {
+    border-bottom: 4px solid black;
+    border-right: 2px solid black;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     width: 335px;
   }
@@ -122,6 +149,10 @@ export const PortfolioFilterWarning = styled.div`
   color: #8f8e93;
   margin-left: 18px;
   font-size: 18px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: 0;
+  }
 `;
 
 export const PortfolioSearchWarning = styled.div`
@@ -132,8 +163,12 @@ export const PortfolioSearchWarning = styled.div`
   color: #8f8e93;
   margin: 28px 0 134px;
 
-  & .warning_list-header {
-    margin-top: 18px;
+  & .sorry-message {
+    margin-bottom: 18px;
+  }
+
+  & .search-word {
+    color: black;
   }
 
   & ul {
@@ -149,13 +184,6 @@ export const PortfolioSearchWarning = styled.div`
 interface IPortfolioIndustryTag {
   isArticlePage?: boolean;
 }
-
-export const PortfolioActiveIndustriesWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-end;
-`;
 
 export const PortfolioDropdownWrapper = styled.div``;
 
@@ -200,7 +228,9 @@ export const PortfolioIndustryTagWrapper = styled.button<IPortfolioIndustryTag>`
   }
 `;
 
-export const PortfolioIndustryTag = styled.div``;
+export const PortfolioIndustryTag = styled.div`
+  white-space: nowrap;
+`;
 
 export const PortfolioIndustryTagDelete = styled.div``;
 
@@ -210,8 +240,7 @@ export const PortfolioInputWrapper = styled.div`
   & input {
     outline: none;
     font-size: 16px;
-    margin-left: 10px;
-    width: 265px;
+    width: 280px;
     border: none;
     background-color: transparent;
   }
@@ -222,6 +251,13 @@ export const PortfolioInputWrapper = styled.div`
 
   & input::placeholder {
     font-family: ${themes.primary.font.family.namu};
+    color: #8f8e93;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    & input {
+      width: 298px;
+    }
   }
 `;
 
@@ -271,15 +307,15 @@ export const PortfolioSearchIcon = styled.div`
 export const PortfolioFiltersWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-top: 50px;
 
   & .portfolio_dropdown {
     font-family: ${themes.primary.font.family.namu};
     margin-bottom: 0;
-    flex-wrap: nowrap;
+    flex-wrap: wrap-reverse;
     align-items: center;
     max-width: 50%;
+    column-gap: 20px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -288,14 +324,14 @@ export const PortfolioFiltersWrapper = styled.div`
 
     & .portfolio_dropdown {
       margin-top: 36px;
-      padding-right: 10px;
-      width: 100%;
+      max-width: 100%;
+      column-gap: 14px;
     }
   }
 `;
 
 export const PortfolioProjectsContainer = styled.div`
-  margin-top: 107px;
+  margin-top: 60px;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(355px, 652px));
@@ -304,7 +340,7 @@ export const PortfolioProjectsContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     gap: 20px;
-    margin: 28.5px 0 0 0;
+    margin: 28.5px 10px 60px;
   }
 `;
 
@@ -418,6 +454,7 @@ export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>
 
   border-radius: 50%;
   overflow: hidden;
+  transition: background 0.3s, border 0.3s;
 
   svg {
     width: 35px;
@@ -464,16 +501,6 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
       !isProjectLink
         ? `2.26667px solid #181817`
         : `2.26667px solid ${themes.primary.colors.primary}`};
-  }
-
-  &:hover ${ProjectsContainerHeaderLink} {
-    & path {
-      opacity: 1;
-    }
-
-    span {
-      color: #5c5b5b;
-    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -568,11 +595,11 @@ export const ProjectsContainerInfoBtn = styled.div`
 `;
 
 export const ProjectsContainerInfoIconsContainer = styled.div`
-  margin: 67px 86px 40px;
+  margin: 60px 50px 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 28px;
+  gap: 10px;
 
   svg {
     height: 60px;
@@ -584,10 +611,16 @@ export const ProjectsContainerInfoIconsContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin: 18px 14px 22px;
+    gap: 3px;
 
     svg {
       height: 40px;
       width: 40px;
+    }
+
+    span {
+      width: 47px !important;
+      height: 47px !important;
     }
   }
 `;
@@ -635,7 +668,7 @@ export const ProjectsContainerInfoHeaderTitle = styled.div`
 
   h4 {
     font-family: ${themes.primary.font.family.namu};
-    font-weight: ${themes.primary.font.weight.heavy};
+    font-weight: ${themes.primary.font.weight.light} !important;
     font-size: 30px;
     line-height: 130%;
     margin: 0;

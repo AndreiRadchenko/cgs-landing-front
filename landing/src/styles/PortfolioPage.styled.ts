@@ -3,6 +3,10 @@ import themes from "../utils/themes";
 import { ILine } from "../types/Decoration.types";
 import { IMobileLine } from "./HomePage/Badges.styled";
 
+interface IPortfolioIconProps {
+  readonly firstSet?: boolean;
+}
+
 export const PortfolioPageWrapper = styled.div`
   width: 100%;
   padding: 10px 50px;
@@ -12,14 +16,62 @@ export const PortfolioPageWrapper = styled.div`
   }
 `;
 
+export const Breadcrumbs = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  margin: 32px 0 16px 51px;
+  font-size: 16px;
+  line-height: 19.2px;
+  color: #8f8e93;
+
+  & a {
+    color: #8f8e93;
+    text-decoration: none;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  & span {
+    color: #8f8e93;
+  }
+
+  & span:last-child {
+    color: black;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 0 19px 22px 19px;
+    font-size: 14px;
+
+    & a:first-child {
+      display: none;
+    }
+
+    & span:nth-child(2) {
+      display: none;
+    }
+  }
+`;
+
+export const BreadcrumbSeparator = styled.span`
+  margin: 0 6px;
+  color: #bbb;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 0 4px;
+  }
+`;
+
 export const PortfolioPageHeaderContainer = styled.div`
-  margin-bottom: 44px;
+  margin-bottom: 37px;
   display: flex;
   justify-content: space-between;
   position: relative;
 
   @media (${themes.primary.media.maxTabletLandScape}) {
     flex-direction: column;
+    margin-bottom: 50px;
   }
 `;
 
@@ -34,7 +86,7 @@ export const HeaderContainerBlock = styled.div`
     line-height: 130%;
     padding-bottom: 20px;
     border-bottom: 1px solid ${themes.primary.colors.headerBorder};
-    margin: 0 0 14px 0;
+    margin: 0 0 19px 0;
   }
 
   @media (${themes.primary.media.maxTabletLandScape}) {
@@ -43,7 +95,7 @@ export const HeaderContainerBlock = styled.div`
     h2 {
       font-size: 24px;
       padding-bottom: 12px;
-      margin: 0 0 10px 0;
+      margin: 0 0 6px 0;
     }
   }
 `;
@@ -54,6 +106,20 @@ export const HeaderImageContainer = styled.div`
   svg {
     position: absolute;
     right: -50px;
+    top: -35px;
+  }
+
+  @media (${themes.primary.media.minPCFullHD}) {
+    margin-top: -60px;
+    svg {
+      scale: 1.3;
+      right: 5px;
+      top: 80px;
+    }
+    span {
+      width: 745px !important;
+      height: 745px !important;
+    }
   }
 
   @media (${themes.primary.media.maxTabletLandScape}) {
@@ -63,13 +129,12 @@ export const HeaderImageContainer = styled.div`
   }
 
   @media (${themes.primary.media.maxMobile}) {
-    margin-top: 30px;
+    margin-top: 55px;
     height: 324px;
 
     svg {
-      right: -20px;
-      width: 324px;
-      height: 324px;
+      top: -12px;
+      right: -21px;
     }
     span {
       width: 375px !important;
@@ -93,6 +158,7 @@ export const HeaderBottomSectionFlag = styled.div`
     font-weight: ${themes.primary.font.weight.heavy};
     font-size: 18px;
     line-height: 130%;
+    margin: 0;
   }
 
   @media (${themes.primary.media.maxMobile}) {
@@ -111,6 +177,7 @@ export const PortfolioPageInfoContainer = styled.div`
     line-height: 160%;
     text-transform: uppercase;
     color: ${themes.primary.colors.primary};
+    margin-top: 0;
     margin-bottom: 12px;
   }
   @media (${themes.primary.media.maxMobile}) {
@@ -120,12 +187,13 @@ export const PortfolioPageInfoContainer = styled.div`
   }
 `;
 
-export const PortfolioPageIconContainer = styled.div`
+export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  margin-top: 65px;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 110px));
+  margin-top: ${({ firstSet }) => (firstSet ? "65px" : "20px")};
   row-gap: 20px;
+  margin-left: -20px;
 
   > span {
     position: unset !important;
@@ -141,7 +209,8 @@ export const PortfolioPageIconContainer = styled.div`
   @media (${themes.primary.media.maxMobile}) {
     margin-top: 35px;
     grid-template-columns: repeat(auto-fill, minmax(67px, 1fr));
-    row-gap: 1px;
+    row-gap: 15px;
+    margin-left: 0;
   }
 `;
 
@@ -169,6 +238,8 @@ export const InfoContainerText = styled.p`
 
   @media (${themes.primary.media.maxMobile}) {
     font-size: 16px;
+    max-height: unset;
+    margin: 0 0 20px 0;
   }
 `;
 
@@ -219,7 +290,7 @@ export const SeeMoreProjectsTitleContainer = styled.div`
   align-items: center;
   gap: 24px;
   justify-content: space-between;
-  margin-top: 90px;
+  margin-top: 140px;
 
   @media (${themes.primary.media.maxMobile}) {
     gap: 10px;
@@ -234,6 +305,19 @@ export const SeeMoreProjectsArrowFirst = styled.div`
     width: 100%;
   }
 
+  @media (${themes.primary.media.minPCFullHD}) {
+    position: relative;
+    width: 500px;
+    overflow-x: hidden;
+    height: 60px;
+    padding: 0;
+    svg {
+      left: -70px;
+      position: absolute;
+      top: 35%;
+      scale: 2;
+    }
+  }
   @media (${themes.primary.media.maxMobile}) {
     padding-top: 3px;
     align-self: flex-start;
@@ -246,6 +330,20 @@ export const SeeMoreProjectsArrowSecond = styled.div`
     flex: 1 1 auto;
     width: 100%;
     transform: rotate(180deg);
+  }
+
+  @media (${themes.primary.media.minPCFullHD}) {
+    position: relative;
+    width: 500px;
+    overflow-x: hidden;
+    height: 60px;
+    padding: 0;
+    svg {
+      left: 77px;
+      position: absolute;
+      top: 35%;
+      scale: 2;
+    }
   }
   @media (${themes.primary.media.maxMobile}) {
     padding-top: 0px;
@@ -300,7 +398,7 @@ export const FeedbackTitleContainer = styled.div`
     }
   }
   @media ${themes.primary.media.maxMobile} {
-    height: 235px;
+    min-height: 235px;
     width: 100%;
   }
 `;
@@ -371,17 +469,18 @@ export const FeedbackInfoContainer = styled.div`
 `;
 
 export const ProjectCta = styled.div`
+  margin-top: 30px;
   position: relative;
   overflow: hidden;
 `;
 
 export const ProjectCtaContainer = styled.div`
-  padding: 27px 51px;
+  padding: 26px 51px;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  gap: 32px;
+  gap: 42px;
 
   h3 {
     font-family: ${themes.primary.font.family.namu};
@@ -392,9 +491,11 @@ export const ProjectCtaContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    gap: 26px;
     flex-direction: column;
     padding: 20px 18px;
     align-items: flex-start;
+    height: 218px;
 
     h3 {
       font-size: 24px;
@@ -419,7 +520,7 @@ export const BgiContainer = styled.div<ILine>`
   background-size: 100% 100%;
 
   @media ${themes.primary.media.maxMobile} {
-    height: 240px;
+    height: 220px;
   }
 `;
 

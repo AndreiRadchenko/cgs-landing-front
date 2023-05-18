@@ -32,7 +32,7 @@ export interface IPortfolioReview {
   industry: string;
   technologies: ITechnology[];
   text: string;
-  category: string;
+  categories: string[];
   button: string;
   feedback: {
     name: string;

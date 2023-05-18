@@ -315,7 +315,49 @@ export interface IAboutText {
   imageText: string;
 }
 
+export interface ITeammate {
+  image: { url: string };
+  name: string;
+  position: string;
+  about: string;
+  linkedin: string;
+}
+
 export interface IAbout {
+  about: {
+    image: { url: string };
+    codex: {
+      title: string;
+      text: string;
+    };
+    philosophy: {
+      title: string;
+      text: string;
+    };
+  };
+  numbers: {
+    years: {
+      num: string;
+      text: string;
+    };
+    employees: {
+      num: string;
+      text: string;
+    };
+    projects: {
+      num: string;
+      text: string;
+    };
+    customers: {
+      num: string;
+      text: string;
+    };
+  };
+  team: {
+    title: string;
+    members: ITeammate[];
+  };
+
   title: string;
   believe: IAboutText;
   goal: IAboutText;
@@ -611,7 +653,7 @@ export interface IProjects {
 export interface IReviewProps {
   bgColor?: string;
   button: string;
-  category: string;
+  categories: string[];
   feedback: {
     name: string;
     rating?: number | null;

@@ -86,10 +86,10 @@ export const Description = styled.p`
   }
 `;
 
-export const Image = styled.img`
+export const Image = styled.div`
   position: absolute;
   top: -2.875em;
-  right: -1.56em;
+  right: -10em;
   width: 42em;
 
   @media (max-width: 1300px) {
@@ -98,7 +98,6 @@ export const Image = styled.img`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     right: -7em;
-    top: 2em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -113,4 +112,15 @@ export const Image = styled.img`
     width: 22.3em;
     height: 19.125em;
   }
+`;
+
+export const ImageTV = styled.img`
+position: absolute;
+  z-index: 2;
+`;
+
+export const ImageCripto = styled.img`
+  position: absolute;
+  z-index: 1;
+  top: 180px;
 `;

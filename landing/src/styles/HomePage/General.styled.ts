@@ -114,6 +114,13 @@ export const BlackButton = styled.a<IFontSize>`
       font-size: 16px;
     }
 
+    &.cta-button {
+      width: 178px;
+      height: 54px;
+      font-size: 16px;
+      padding: 18px 33px;
+    }
+
     &.footer-home {
       margin-top: 1em;
     }
@@ -824,6 +831,7 @@ export const DropdownWrapper = styled.div`
   & .portfolio_dropdown-element {
     width: 160px;
     white-space: nowrap;
+    font-size: 14px;
   }
 `;
 
@@ -848,9 +856,8 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   padding: 0 12px;
 
   &:hover {
-    transition: 0.3s;
-    border-right: 1.5px solid ${themes.primary.colors.primary} !important;
-    border-bottom: 3px solid ${themes.primary.colors.primary} !important;
+    border-right: 2px solid ${themes.primary.colors.primary} !important;
+    border-bottom: 4px solid ${themes.primary.colors.primary} !important;
   }
   &:hover &.open {
     border-bottom: 0 !important;

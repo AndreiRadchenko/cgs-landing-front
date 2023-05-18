@@ -487,6 +487,12 @@ export const AdminCategoryNameInput = styled.input`
   &::placeholder {
     font-size: 18px;
   }
+
+  &.error {
+    &::placeholder {
+      color: red;
+    }
+  }
 `;
 
 export const AdminCategoryDescriptionInput = styled.input`
@@ -2130,7 +2136,7 @@ export const BlockDropdownHeaderIcon = styled.div<IBlockDropdownHeaderIconProps>
 `;
 
 export const AdminCategoryWrapper = styled.div`
-  width: 255px;
+  margin-top: 25px;
 `;
 
 export const AdminPageReviewBlock = styled.div`

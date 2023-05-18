@@ -5,6 +5,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/MobileAuditService/HeadBlock.styled";
 import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
+
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
@@ -62,7 +63,7 @@ const HeadBlock = () => {
       </Styled.Content>
       <Styled.ImageWrapper>
         <Styled.ImageMobile src={MobileImage.src} alt="hero mobile audit image" />
-        <Styled.ImageSearch src={searchImages[searchImageIndex]} alt="mobile audit search image"/>
+        <Styled.ImageSearch src={searchImages[searchImageIndex]} alt="mobile audit search image"/>    
       </Styled.ImageWrapper>
     </Styled.Container>
   );

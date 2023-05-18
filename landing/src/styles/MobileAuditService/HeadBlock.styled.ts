@@ -89,7 +89,7 @@ export const Description = styled.p`
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  top: -17%;
+  top: -6em;
   right: 3%;
   width: 600px;
   height: 530px;
@@ -98,14 +98,20 @@ export const ImageWrapper = styled.div`
     top: 7%;
   }
 
+  @media (max-width: 2200px) {
+    top: 5%;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     top: -50px;
     width: 500px;
     height: 450px;
   }
-
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 50%;
+    width: 25em;
+    height: 17em;
+    top: 5%;
+    right: -10%;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -145,10 +151,12 @@ export const ImageSearch = styled.img`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 30%;
-    margin-top: 2%;
+    margin-right: 10.5%;
+    margin-top: -1%;
   }
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: -1%;
+    margin-right: 8%;
   }
 `;
