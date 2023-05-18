@@ -138,7 +138,9 @@ export const RightSideText = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 100%;
+    font-size: 16px;
+    line-height: 21.12px;
+    width: 102.1%;
     margin: 0;
   }
 `;
