@@ -12,8 +12,12 @@ export const Subtitle = styled.div`
   font-family: "NAMU";
   font-style: normal;
   font-weight: 900;
-  font-size: 74px;
+  font-size: 96px;
   line-height: 89px;
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    font-size: 74px;
+  }
 
   & p {
     margin-bottom: 0;
