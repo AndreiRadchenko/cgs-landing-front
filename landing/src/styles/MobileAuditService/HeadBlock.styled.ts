@@ -95,14 +95,13 @@ export const ImageWrapper = styled.div`
   height: 530px;
 
   @media (min-width: 2200px) {
-    width: 30%;
-    height: 730px;
+    top: 7%;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    top: -25%;
-    width: 40%;
-    height: 170%;
+    top: -50px;
+    width: 500px;
+    height: 450px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -115,5 +114,41 @@ export const ImageWrapper = styled.div`
 
     width: 22.3em;
     height: 19.125em;
+  }
+`;
+
+export const ImageMobile = styled.img`
+  position: absolute;
+  z-index: 1;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 90%;
+    height: 100%;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 90%;
+  }
+`;
+
+export const ImageSearch = styled.img`
+  position: absolute;
+  right: 21%;
+  top: 22%;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 30%;
+    height: 25%;
+    top: 27%;
+    margin-right: 8.5%;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 30%;
+    margin-top: 2%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: -1%;
   }
 `;
