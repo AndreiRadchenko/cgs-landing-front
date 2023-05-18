@@ -26,7 +26,7 @@ import { PortfolioPageSize } from "../../consts";
 import * as Styled from "../../styles/AdminPage";
 import * as Styles from "../../styles/Portfolio.styled";
 import * as CSS from "../../styles/Portfolio/title.styled";
-import { Tag, DropdownContainer } from "../../styles/HomePage/General.styled";
+import { DropdownContainer } from "../../styles/HomePage/General.styled";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
 
 const PortfolioPage: NextPage = () => {

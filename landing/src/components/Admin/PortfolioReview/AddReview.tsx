@@ -1,4 +1,10 @@
-import React, { ChangeEvent, useMemo, useRef } from "react";
+import React, {
+  ChangeEvent,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { Field, useFormikContext } from "formik";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -40,6 +46,9 @@ const AddReview = ({
   technologies,
 }: IAddReviewProps) => {
   const queryClient = useQueryClient();
+
+  const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsgTech, setErrorMsgTech] = useState("");
 
   const { values, handleChange, errors, handleSubmit, setFieldValue } =
     useFormikContext<IPortfolioReview>();
@@ -92,6 +101,9 @@ const AddReview = ({
       adminPortfolioService.addTechnology(technology),
     {
       onSuccess: () => {
+        values.technologyNew.name = "";
+        values.technologyNew.image = null as any;
+        values.technologyNew.main = false;
         queryClient.invalidateQueries([queryKeys.getPortfolioPage]);
       },
     }
@@ -109,6 +121,11 @@ const AddReview = ({
     (await deleteFunctionProjectBanner)();
   const uploadFuncProjectBanner = (image: IImage) =>
     uploadFunctionProjectBanner(image);
+
+  useEffect(() => {
+    setTimeout(() => setErrorMsg(""), 2000);
+    setTimeout(() => setErrorMsgTech(""), 2000);
+  }, [errorMsg, errorMsgTech]);
 
   return (
     <>
@@ -208,6 +225,7 @@ const AddReview = ({
                       background: "transparent",
                     }),
                   }}
+                  value={{ label: values.country }}
                   options={options}
                   onChange={changeCountryHandler}
                 />
@@ -222,14 +240,21 @@ const AddReview = ({
                     ref={industryRef}
                   />
                   <div
-                    onClick={() =>
-                      industryRef.current!.value.length > 0 &&
-                      addIndustry(industryRef.current!.value)
-                    }
+                    onClick={() => {
+                      if (industries.includes(industryRef.current!.value)) {
+                        setErrorMsg("Such industry already exists");
+                      } else {
+                        industryRef.current!.value.length > 0 &&
+                          addIndustry(industryRef.current!.value);
+                      }
+
+                      industryRef.current!.value = "";
+                    }}
                   >
                     +
                   </div>
                 </Styled.IndustryWrapper>
+                {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
                 <DropdownIndustry industries={industries} />
               </div>
               <Styled.SmallProjectInfoWrapper>
@@ -258,12 +283,14 @@ const AddReview = ({
                 value={values.feedback.name}
                 onChange={handleChange}
                 name="feedback.name"
+                style={{ height: "50px", overflow: "inherit" }}
               />
               <Styled.AdminInput
                 placeholder="Position"
                 value={values.feedback.position}
                 onChange={handleChange}
                 name="feedback.position"
+                style={{ height: "50px", overflow: "inherit" }}
               />
             </Styled.AdminPageThirdBlockFlex>
             <Styled.AdminInput
@@ -272,11 +299,13 @@ const AddReview = ({
               value={values.feedback.feedbackText}
               onChange={handleChange}
               name="feedback.feedbackText"
+              style={{ height: "120px", overflow: "inherit" }}
             />
           </Styled.AdminPageThirdBlockLayout>
           <Styled.AdminPageFourthBlockLayout>
             <h3 style={{ margin: "0 0 15px 0" }}>Technology</h3>
             <DropdownTechnology technologies={technologies} />
+            {errorMsgTech && <p>{errorMsgTech}</p>}
             <Styled.AdminPageAddTechnologyWrapper>
               <Field
                 name="technologyNew.name"
@@ -286,7 +315,19 @@ const AddReview = ({
               <AddProjectTechIcon />
               <div
                 className="plus"
-                onClick={() => addTech(values.technologyNew)}
+                onClick={() => {
+                  if (
+                    technologies.some(
+                      (e) => e.name === values.technologyNew.name
+                    )
+                  ) {
+                    setErrorMsgTech("Such technology already exists");
+                  } else {
+                    values.technologyNew.name.length > 0 &&
+                      values.technologyNew.image !== null &&
+                      addTech(values.technologyNew);
+                  }
+                }}
               >
                 +
               </div>

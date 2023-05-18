@@ -226,12 +226,13 @@ const PortfolioProjectComponent = ({
   ];
 
   const navigateToProjectPage = (url: string, id?: string) => {
+    const newUrl = url.toLowerCase().replace(/\s+/g, "-");
     push(
       {
-        pathname: `/portfolio/${url}`,
+        pathname: `/portfolio/${newUrl}-${id}`,
         query: { projectId: id },
       },
-      `/portfolio/${url}`
+      `/portfolio/${newUrl}-${id}`
     );
   };
 

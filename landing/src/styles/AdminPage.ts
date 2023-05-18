@@ -400,6 +400,11 @@ export const AdminInput = styled(TextareaAutosize)<IAdminInput>`
   line-height: 160%;
 
   margin-bottom: ${themes.primary.spacing.primary};
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   &:focus {
     outline: 1px solid gray;
   }

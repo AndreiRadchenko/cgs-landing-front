@@ -42,7 +42,9 @@ const DropdownTechnology = ({ technologies }: IDropdownProps) => {
 
   const changeTechHandler = (tech: ITechnology) => {
     setIsOpen(false);
-    setTechArr((prevState) => [tech, ...prevState]);
+    setTechArr((prevState) =>
+      !prevState.includes(tech) ? [tech, ...prevState] : prevState
+    );
   };
   const removeTagHandler = (idx: number) => {
     const temp = [...techArr];

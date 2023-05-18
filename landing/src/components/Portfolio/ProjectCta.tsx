@@ -7,10 +7,14 @@ import * as Styled from "../../styles/PortfolioPage.styled";
 import * as Styles from "../../styles/HomePage/General.styled";
 
 import { useOnScreen } from "../../hooks/useOnScreen";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 import { IIPPData } from "../../types/Admin/AdminPortfolio.types";
 
 const ProjectCta = ({ projectInfo }: { projectInfo: IIPPData }) => {
+  const { width } = useWindowDimension();
+  const newTitleArray = projectInfo.cta.split(" | ");
+
   const [gradientAngle, setGradientAngle] = useState<string>("50%");
 
   const arrayOfGradients = [
@@ -54,7 +58,16 @@ const ProjectCta = ({ projectInfo }: { projectInfo: IIPPData }) => {
         ))}
       </Styled.BgiContainer>
       <Styled.ProjectCtaContainer>
-        <h3>{projectInfo?.cta}</h3>
+        <h3>
+          {width && width > 768
+            ? projectInfo?.cta
+            : newTitleArray.map((el, idx) => (
+                <>
+                  <span key={`${el}${idx}`}>{el}</span>
+                  {idx !== newTitleArray.length - 1 && <br />}
+                </>
+              ))}
+        </h3>
         <Styles.ButtonWrapper>
           <GetEstimationButton
             buttonLink={projectInfo?.buttonLink}
