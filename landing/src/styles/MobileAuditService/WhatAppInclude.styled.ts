@@ -70,8 +70,8 @@ export const MobileAuditBgiContainer = styled.div<ILine>`
   @media ${themes.primary.media.maxMobile} {
     background: linear-gradient(
       0deg,
-      ${themes.primary.colors.mainGradientColor2},
-      ${themes.primary.colors.mainGradientColor1}
+      ${themes.primary.colors.mainGradientColor1},
+      ${themes.primary.colors.mainGradientColor2}
     );
   }
 `;
