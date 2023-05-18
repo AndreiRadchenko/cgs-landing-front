@@ -288,7 +288,7 @@ export const SeeMoreProjectsTitle = styled.h3`
 export const SeeMoreProjectsTitleContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   justify-content: space-between;
   margin-top: 140px;
 
@@ -312,7 +312,7 @@ export const SeeMoreProjectsArrowFirst = styled.div`
     height: 60px;
     padding: 0;
     svg {
-      left: -70px;
+      left: -80px;
       position: absolute;
       top: 35%;
       scale: 2;
@@ -339,7 +339,7 @@ export const SeeMoreProjectsArrowSecond = styled.div`
     height: 60px;
     padding: 0;
     svg {
-      left: 77px;
+      left: 79px;
       position: absolute;
       top: 35%;
       scale: 2;

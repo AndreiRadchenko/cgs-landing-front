@@ -4,7 +4,7 @@ export const AdminPortfolioValidation = () => {
   return yup.object({
     text: yup
       .string()
-      .max(625, "Description can't be more than 300 symbols")
+      .max(625, "Description can't be more than 625 symbols")
       .required("Enter Description"),
     imageBanner: yup.object().shape({
       image: yup.object().required(),
@@ -21,7 +21,10 @@ export const AdminPortfolioValidation = () => {
       })
       .required(),
     technologies: yup.array().required(),
-    title: yup.string().required(),
+    title: yup
+      .string()
+      .max(50, "Title can't be more than 50 symbols")
+      .required(),
     flag: yup.string().required(),
     country: yup.string().required(),
     projectDuration: yup.string().max(3).required(),

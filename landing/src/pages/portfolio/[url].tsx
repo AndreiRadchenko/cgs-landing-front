@@ -57,14 +57,19 @@ const PortfolioProjectPage = () => {
   const router = useRouter();
   const breadcrumbs: any[] = [];
 
+  const [customId, setCustomId] = useState<null | string>(null);
+  const url = router.asPath;
+  const parts = url.split("-");
+  const extractedId = parts[parts.length - 1];
+
   const [iconFirstSet, setIconFirstSet] = useState<ITechnology[]>([]);
   const [iconSecondSet, setIconSecondSet] = useState<ITechnology[]>([]);
 
   const { width } = useWindowDimension();
 
   const { data: project, isLoading }: IPortfolioProjectResponse = useQuery(
-    [queryKeys.getPortfolioProjectPage, router.query.url],
-    () => adminPortfolioService.getProjectData(router.query.url as string)
+    [queryKeys.getPortfolioProjectPage, customId],
+    () => adminPortfolioService.getProjectData(customId as string)
   );
   const { data }: IPortfolioResponse = useQuery(
     [queryKeys.getPortfolioPageData],
@@ -88,6 +93,10 @@ const PortfolioProjectPage = () => {
       project && setIconFirstSet(project?.technologies);
     }
   }, [project]);
+
+  useEffect(() => {
+    setCustomId(extractedId);
+  }, [extractedId]);
 
   breadcrumbs.push(
     <Link key="home" href="/">
@@ -161,17 +170,19 @@ const PortfolioProjectPage = () => {
                 ) : (
                   <CircleProjectPageMobile />
                 )}
-                <Image
-                  alt="project image"
-                  src={
-                    project?.imageProjectBanner?.image
-                      ? project.imageProjectBanner.image!.url
-                      : project!.image.url
-                  }
-                  height={600}
-                  width={600}
-                  objectFit="contain"
-                />
+                {project?.imageProjectBanner?.image?.url !== "" && (
+                  <Image
+                    alt="project image"
+                    src={
+                      project?.imageProjectBanner?.image
+                        ? project.imageProjectBanner.image!.url
+                        : project!.image.url
+                    }
+                    height={600}
+                    width={600}
+                    objectFit="contain"
+                  />
+                )}
               </Styled.HeaderImageContainer>
             </Styled.PortfolioPageHeaderContainer>
             <Styled.PortfolioPageInfoContainer>
