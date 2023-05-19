@@ -52,6 +52,10 @@ const HeaderNavNew = ({
     setIsScrolled(false);
   };
 
+  const handlePortfolioClick = () => {
+    if (window.location.pathname === "/portfolio") window.location.reload();
+  };
+
   useEffect(() => {
     onScroll();
     window.addEventListener("scroll", onScroll, true);
@@ -86,29 +90,40 @@ const HeaderNavNew = ({
           <BurgerButton isOpen={isOpen} onToggle={toggleBurgerHandler} />
         </StyledThisComp.NavBarWrapper>
         <BurgerMenu isOpen={isOpen} burgerRef={burgerRef}>
-          {navigationRoutesNamesNew.map(
-            ({ route, withDropdown, tags }, ind) => {
-              return withDropdown ? (
-                <HeaderBurgerDropdown
-                  tags={tags ? tags : []}
-                  dropdownName={route}
-                  key={route + ind}
-                />
-              ) : (
-                <Link key={route + ind} href={routersNew[ind]} passHref>
-                  <StyledThisComp.BurgerLinkText>
-                    {route}
-                  </StyledThisComp.BurgerLinkText>
-                </Link>
-              );
-            }
+          {navigationRoutesNamesNew.map(({ route, withDropdown, tags }, ind) =>
+            withDropdown ? (
+              <HeaderBurgerDropdown
+                tags={tags ? tags : []}
+                dropdownName={route}
+                key={route + ind}
+              />
+            ) : (
+              <Link key={route + ind} href={routersNew[ind]} passHref>
+                <StyledThisComp.BurgerLinkText
+                  onClick={
+                    routersNew[ind] === "/portfolio"
+                      ? handlePortfolioClick
+                      : () => {}
+                  }
+                >
+                  {route}
+                </StyledThisComp.BurgerLinkText>
+              </Link>
+            )
           )}
         </BurgerMenu>
         <StyledThisComp.NavList>
           {navigationRoutesNamesNew.map(({ route, withDropdown, tags }, ind) =>
             !withDropdown ? (
               <Link key={route + ind} href={routersNew[ind]} passHref>
-                <StyledThisComp.ListItemNav key={route + ind}>
+                <StyledThisComp.ListItemNav
+                  key={route + ind}
+                  onClick={
+                    routersNew[ind] === "/portfolio"
+                      ? handlePortfolioClick
+                      : () => {}
+                  }
+                >
                   <StyledThisComp.LinkText>{route}</StyledThisComp.LinkText>
                 </StyledThisComp.ListItemNav>
               </Link>
