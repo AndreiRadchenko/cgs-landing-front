@@ -695,15 +695,14 @@ export const ButtonShareTextWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 0.2em;
-    margin-left: -10px;
+    margin-top: 0.8em;
+    margin-left: 1px;
 
     &.footer {
       margin-inline: 0;
     }
   }
 `;
-
 export const ButtonShareText = styled.a``;
 
 export const WhatsAppWrapper = styled.div`
