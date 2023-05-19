@@ -325,6 +325,9 @@ export interface ITeammate {
 
 export interface IAbout {
   about: {
+    video: {
+      image: { url: string };
+    };
     image: { url: string };
     codex: {
       title: string;

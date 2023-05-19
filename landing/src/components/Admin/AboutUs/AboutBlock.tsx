@@ -4,6 +4,7 @@ import { useFormikContext } from "formik";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
+import VideoBlockDashed from "../Global/VideoBlockDashed";
 import ButtonArrow from "../../../utils/ButtonArrow";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
@@ -19,7 +20,8 @@ import { IImage } from "../../../types/Admin/Admin.types";
 const AboutBlock = () => {
   const { values, handleChange, handleSubmit } = useFormikContext<IAbout>();
 
-  const { image, codex, philosophy } = values.about ?? {
+  const { video, image, codex, philosophy } = values.about ?? {
+    video: { image: "" },
     image: "",
     codex: { title: "", text: "" },
     philosophy: { title: "", text: "" },
@@ -27,20 +29,43 @@ const AboutBlock = () => {
 
   const deleteImageFunction = useDeleteImageFunction(values.about);
   const uploadImageFunction = useUploadImageFunction(values.about);
-  const handleClick = () => handleSubmit();
+  const deleteVideoFunction = useDeleteImageFunction(values.about.video);
+  const uploadVideoFunction = useUploadImageFunction(values.about.video);
+
   const uploadFunc = (image: IImage) => uploadImageFunction(image);
   const deleteFunc = async () => (await deleteImageFunction)();
+  const uploadVideo = (image: IImage) => uploadVideoFunction(image);
+  const deleteVideo = async () => (await deleteVideoFunction)();
+
+  const handleClick = () => handleSubmit();
 
   return (
     <Styled.ContentWrapper>
-      <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>
-      <PhotoBlockDashed
-        style={{ marginBottom: "32px" }}
-        photo={image}
-        deleteFlag={true}
-        uploadFunction={uploadFunc}
-        deleteFunction={deleteFunc}
-      />
+      <Styles.ImagesWrapper>
+        <div>
+          <Styled.AdminSubTitle>Banner backup image</Styled.AdminSubTitle>
+          <PhotoBlockDashed
+            style={{ marginBottom: "32px" }}
+            photo={image}
+            deleteFlag={true}
+            uploadFunction={uploadFunc}
+            deleteFunction={deleteFunc}
+          />
+        </div>
+        <div>
+          <Styled.AdminSubTitle>
+            Banner video (.mp4, .webm)
+          </Styled.AdminSubTitle>
+          <VideoBlockDashed
+            style={{ marginBottom: "32px" }}
+            photo={video?.image}
+            deleteFlag={true}
+            uploadFunction={uploadVideo}
+            deleteFunction={deleteVideo}
+          />
+        </div>
+      </Styles.ImagesWrapper>
+
       <Styles.Headlines>
         <div>
           <SubHeaderWithInput
