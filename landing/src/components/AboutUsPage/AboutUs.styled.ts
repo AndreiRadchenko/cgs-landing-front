@@ -281,27 +281,9 @@ export const Text = styled.div`
   line-height: 160%;
   width: 100%;
 
-  /* p {
-    margin-bottom: 0;
-    &:first-child {
-      margin: 0;
-    }
-  } */
-  @media ${themes.primary.media.maxTabletLandScape} {
-    /* font-size: 1em;
-    width: 95%; */
-  }
-
   @media ${themes.primary.media.maxMobile} {
     width: 90%;
     font-size: 16px;
-    /* &.bonuses-text {
-      margin: 4px 0;
-    } */
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    /* width: 94%; */
   }
 `;
 
