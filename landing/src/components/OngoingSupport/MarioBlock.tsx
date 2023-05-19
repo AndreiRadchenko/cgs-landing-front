@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import * as Styled from "../../styles/OngoingSupport/ProvidesBlock.styled";
 import parse from "html-react-parser";
 import Image from "next/image";
@@ -25,22 +25,21 @@ interface MarioBlockProps {
     data: MarioProp[] | undefined
 };
 
+const marioMovement = [
+    marioStop,
+    firstMarioRun,
+    secondMarioRun
+];
+
+const mushroomsMovement = [
+    firstMushroom.src,
+    secondMushroom.src
+];
+
 const MarioBlock = (data: MarioBlockProps) => {
     const [marioIndex, setMarioIndex] = useState(0);
     const [mushroomIndex, setMushroomIndex] = useState(0);
     const [isJumping, setIsJumping] = useState(false);
-
-    const mushroomsMovement = [
-        firstMushroom,
-        secondMushroom
-    ];
-
-    const marioMovement = [
-        marioJump,
-        marioStop,
-        firstMarioRun,
-        secondMarioRun
-    ];
 
     const blocksSrc = [
         topLeftBlock.src,
@@ -51,7 +50,6 @@ const MarioBlock = (data: MarioBlockProps) => {
     ];
 
     const jump = () => {
-        setMarioIndex(0);
         setIsJumping(true);
         setTimeout(() => {
             setIsJumping(false);
@@ -80,7 +78,7 @@ const MarioBlock = (data: MarioBlockProps) => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.code === "Space" || event.code === '') {
                 jump();
-            }
+            };
         };
 
         window.addEventListener("keydown", handleKeyDown);
@@ -114,19 +112,28 @@ const MarioBlock = (data: MarioBlockProps) => {
             </Styled.BlockContainer>
             <Styled.FooterContainer>
                 <Styled.Mario isJumping={isJumping}>
-                    <Image src={marioMovement[marioIndex]} />
+                    {isJumping
+                        ? <Image src={marioJump} />
+                        : <Image src={marioMovement[marioIndex]} />
+                    }
                 </Styled.Mario>
                 <Styled.FooterMarioBlock>
-                    <Styled.Mushrooms>
-                        <Styled.MushroomsImage>
-                            <Image src={mushroomsMovement[mushroomIndex]} />
-                            <Image src={mushroomsMovement[mushroomIndex]} />
-                        </Styled.MushroomsImage>
-                    </Styled.Mushrooms>
-                    <Styled.RoadImages>
-                        <Styled.RoadImage src={road.src} />
-                        <Styled.RoadImage src={road.src} />
-                    </Styled.RoadImages>
+                    <Styled.RoadMove>
+                        <Styled.RoadImages>
+                            <Styled.MushroomsImages>
+                                <Styled.MushroomsImage src={mushroomsMovement[mushroomIndex]} />
+                                <Styled.MushroomsImage src={mushroomsMovement[mushroomIndex]} />
+                            </Styled.MushroomsImages>
+                            <Styled.RoadImage src={road.src} />
+                        </Styled.RoadImages>
+                        <Styled.RoadImages>
+                            <Styled.MushroomsImages>
+                                <Styled.MushroomsImage src={mushroomsMovement[mushroomIndex]} />
+                                <Styled.MushroomsImage src={mushroomsMovement[mushroomIndex]} />
+                            </Styled.MushroomsImages>
+                            <Styled.RoadImage src={road.src} />
+                        </Styled.RoadImages>
+                    </Styled.RoadMove>
                 </Styled.FooterMarioBlock>
             </Styled.FooterContainer>
         </Styled.MarioBlock>

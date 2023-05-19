@@ -21,23 +21,15 @@ export const Container = styled.section`
 `;
 
 export const BlockContainer = styled.div`
-display: flex;
+  display: flex;
   flex-wrap: wrap;
   position: relative;
   margin: 0 auto;
   justify-content: space-around;
   row-gap: 2em;
   margin-top: 4em;
+  margin-bottom: 3em;
   column-gap: 3em;
-  animation-name : mymove;
-  animation-iteration-count : infinite;
-  animation-direction : alternate;
-  animation-duration : 2s;
-
-  @keyframes mymove {
-    from {transform: translateY(0px);}
-    to {transform: translateY(4px);}
-  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
@@ -100,28 +92,65 @@ display: flex;
 export const Mario = styled.div<MarioJump>`
   position: absolute;
   z-index: 2;
-  bottom: -22%;
   transition: transform 0.2s ease-out;
   transform: ${(props) => (props.isJumping == true ? 'translateY(-140px)' : 'none')};
 
   @media (min-width: 2200px) {
-    bottom: -25%;
+    bottom: -43%;
   }
 
   @media ${themes.primary.media.minPCTwoThousand} {
-    bottom: -30%;
+    bottom: -48%;
   }
 
   @media (min-width: 3300px) {
-    bottom: -35%;
+    bottom: -52%;
   }
 
   @media (min-width: 3900px) {
+    bottom: -55%;
+  }
+
+  @media (max-width: 2199px) {
     bottom: -39%;
   }
 
+  @media (max-width: 1920px) {
+    bottom: -35%;
+  }
+
+  @media ${themes.primary.media.maxLaptop} {
+    bottom: -31%;
+  }
+
+  @media (max-width: 1320px) {
+    bottom: -27%;
+  }
+
+  @media (max-width: 1209px) {
+    bottom: -18%;
+  }
+
+  @media (max-width: 1200px) {
+    bottom: -19%;
+  }
+
+  @media (max-width: 858px) {
+    bottom: -15%;
+  }
+
   @media ${themes.primary.media.maxMobile} {
-    display: none;
+    width: 6%;
+    height: 8%;
+    bottom: -8.5%;
+  }
+
+  @media (max-width: 750px) {
+    bottom: -10%;
+  }
+
+  @media (max-width: 480px) {
+    bottom: -11.3%;
   }
 `;
 
@@ -149,9 +178,9 @@ export const Subtitle = styled.p`
 
 export const Text = styled.p`
   font-size: 1.125em;
-  line-height: 160%;
+  line-height: 28.8px;
   margin-block: 0.em 2em;
-  padding-right: 2.5rem;
+  padding-right: 2.8rem;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     padding-right: 0;
@@ -168,7 +197,7 @@ export const Text = styled.p`
 
 export const ContentWrapper = styled.div`
   display: inline-block;
-  margin-left: 2.35em;
+  margin-left: 1.2em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-left: 0;
@@ -190,10 +219,9 @@ export const FooterMarioBlock = styled.div`
   left: -60px;
   position: absolute;
   margin-top: 2.2em;
-  overflow: hidden;
 
   @media ${themes.primary.media.maxMobile} {
-    display: none;
+    margin-top: 0em;
   }
 `;
 
@@ -204,10 +232,10 @@ export const BlockSrc = styled.img`
   }
 `;
 
-export const RoadImages = styled.div`
+export const RoadMove = styled.div`
   display: flex;
   width: 200%;
-  animation: move-animation 6s linear infinite;
+  animation: move-animation 5s linear infinite;
 
   @keyframes move-animation {
     0% {
@@ -222,45 +250,72 @@ export const RoadImages = styled.div`
 export const RoadImage = styled.img`
   width: 100%;
   float: left;
+  position: relative;
+  z-index: 1;
 `;
 
 export const FooterContainer = styled.div`
   margin-top: 1%;
-
 `;
 
-export const Mushrooms = styled.div`
-  width: 207vw;
-  position: absolute;
-  z-index: 1;
-  animation: move-animation 3s linear infinite;
-
+export const RoadImages = styled.div`
+  width: 100%;
+  float: left;
 `;
 
-export const MushroomsImage = styled.div`
-  width: 3000px;
-  display: flex;
-  justify-content: space-around;
+export const MushroomsImages = styled.div`
   position: absolute;
-  top: 5px;
+  z-index: 2;
+  top: 10px;
 
   @media (min-width: 2200px) {
-    top: 40px;
-  }
-
-  @media ${themes.primary.media.minPCTwoThousand} {
-    top: 55px;
+    top: 24%;
   }
 
   @media (min-width: 3300px) {
-    top: 90px;
+    top: 28%;
   }
 
   @media (min-width: 3900px) {
-    top: 115px;
+    top: 30%;
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
+  @media (max-width: 2199px) {
+    top: 18%;
+  }
+
+  @media ${themes.primary.media.maxLaptop} {
+    top: 10%;
+  }
+
+  @media (max-width: 1209px) {
+    top: 1%;
+  }
+`;
+
+export const MushroomsImage = styled.img`
+  width: 58px;
+  height: 57px;
+  margin: 0 300px;
+
+  @media ${themes.primary.media.maxLaptop} {
+    margin: 0 200px;
+  }
+
+  @media (max-width: 858px) {
+    width: 40px;
+    height: 40px;
+    margin: 0 50px;
+  }
+
+  @media (max-width: 600px) {
+    width: 30px;
+    height: 30px;
+    margin: 0 20px;
+  }
+
+  @media (max-width: 450px) {
+    width: 20px;
+    height: 20px;
   }
 `;
