@@ -53,7 +53,9 @@ const AboutBlock = () => {
           />
         </div>
         <div>
-          <Styled.AdminSubTitle>Banner video </Styled.AdminSubTitle>
+          <Styled.AdminSubTitle>
+            Banner video (.mp4, .webm)
+          </Styled.AdminSubTitle>
           <VideoBlockDashed
             style={{ marginBottom: "32px" }}
             photo={video?.image}
@@ -61,10 +63,6 @@ const AboutBlock = () => {
             uploadFunction={uploadVideo}
             deleteFunction={deleteVideo}
           />
-        </div>
-        <div>
-          <Styled.AdminSubTitle>Supported video formats:</Styled.AdminSubTitle>
-          <Styled.AdminSubTitle>.mp4, .webm</Styled.AdminSubTitle>
         </div>
       </Styles.ImagesWrapper>
 

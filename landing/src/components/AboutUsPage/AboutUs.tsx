@@ -1,5 +1,4 @@
 import React from "react";
-import parse from "html-react-parser";
 import Image from "next/image";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -14,6 +13,21 @@ interface IAboutUs {
   data: IAbout;
 }
 
+interface IString {
+  text: string;
+}
+
+const ParsedText = ({ text }: IString) => {
+  const textArray = text.split("|");
+  return (
+    <>
+      {textArray.map((e: string, i: number) => (
+        <p key={i}>{e}</p>
+      ))}
+    </>
+  );
+};
+
 const AboutUs = ({ data }: IAboutUs) => {
   const isMobile = useMediaQuery("(max-width:768px)");
   const {
@@ -21,6 +35,7 @@ const AboutUs = ({ data }: IAboutUs) => {
     numbers: { years, employees, projects, customers },
     team: { title, members },
   } = data;
+
   return (
     <>
       <Styled.HeroAboutContainer>
@@ -47,7 +62,9 @@ const AboutUs = ({ data }: IAboutUs) => {
             ) : (
               <MobileInfiniteText title={codex.title} />
             )}
-            <Styled.Text>{codex.text}</Styled.Text>
+            <Styled.Text>
+              <ParsedText text={codex.text} />
+            </Styled.Text>
           </Styled.HeadlineContainer>
           <Styled.HeadlineContainer>
             {!isMobile ? (
@@ -55,7 +72,9 @@ const AboutUs = ({ data }: IAboutUs) => {
             ) : (
               <MobileInfiniteText title={philosophy.title} />
             )}
-            <Styled.Text>{philosophy.text}</Styled.Text>
+            <Styled.Text>
+              <ParsedText text={philosophy.text} />
+            </Styled.Text>
           </Styled.HeadlineContainer>
         </Styled.HeadlinesContainer>
         <Styled.NumbersContainer>
@@ -105,7 +124,9 @@ const AboutUs = ({ data }: IAboutUs) => {
                 <Styled.TeammatePosition>
                   {member.position}
                 </Styled.TeammatePosition>
-                <Styled.TeammateAbout>{member.about}</Styled.TeammateAbout>
+                <Styled.TeammateAbout>
+                  <ParsedText text={member.about} />
+                </Styled.TeammateAbout>
               </Styled.Teammate>
             ))}
           </Styled.TeamGallery>

@@ -39,7 +39,9 @@ export const HeadlinesContainer = styled.div`
 `;
 
 export const HeadlineContainer = styled.div`
+  width: 47%;
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     margin-bottom: 90px;
   }
 `;
@@ -47,6 +49,7 @@ export const HeadlineContainer = styled.div`
 export const NumbersContainer = styled.div`
   box-sizing: border-box;
   margin-top: 120px;
+  padding: 0 80px 0 80px;
   height: 174px;
   width: 100vw;
   margin-left: -4.25em;
@@ -57,6 +60,7 @@ export const NumbersContainer = styled.div`
   flex-wrap: wrap;
 
   @media ${themes.primary.media.maxMobile} {
+    width: 105vw;
     margin-top: 90px;
     display: grid;
     height: 280px;
@@ -180,6 +184,9 @@ export const TeammateName = styled.p`
   font-size: 24px;
   line-height: 160%;
   text-transform: uppercase;
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 21px;
+  }
 `;
 
 export const TeammatePosition = styled.p`
@@ -188,17 +195,18 @@ export const TeammatePosition = styled.p`
   line-height: 160%;
   text-transform: uppercase;
   color: #8f8e93;
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 21px;
+  }
 `;
 
 export const TeammateAbout = styled.p`
   margin: 18px 0 0;
   line-height: 160%;
-  font-size: ${themes.primary.font.size.aboutUsBelieveText};
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 1em;
-  }
+  font-size: 18px;
   @media ${themes.primary.media.maxMobile} {
     font-size: 16px;
+    margin: 0;
   }
 `;
 
@@ -268,31 +276,32 @@ export const Subtitle = styled.div`
 `;
 
 export const Text = styled.div`
-  font-size: ${themes.primary.font.size.aboutUsBelieveText};
+  margin-right: 0;
+  font-size: 18px;
   line-height: 160%;
-  width: 89%;
+  width: 100%;
 
-  p {
+  /* p {
     margin-bottom: 0;
     &:first-child {
       margin: 0;
     }
-  }
+  } */
   @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 1em;
-    width: 95%;
+    /* font-size: 1em;
+    width: 95%; */
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 90%;
     font-size: 16px;
-    &.bonuses-text {
+    /* &.bonuses-text {
       margin: 4px 0;
-    }
+    } */
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 94%;
+    /* width: 94%; */
   }
 `;
 
