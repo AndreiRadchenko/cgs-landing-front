@@ -69,7 +69,8 @@ const PortfolioProjectPage = () => {
 
   const { data: project, isLoading }: IPortfolioProjectResponse = useQuery(
     [queryKeys.getPortfolioProjectPage, customId],
-    () => adminPortfolioService.getProjectData(customId as string)
+    () => adminPortfolioService.getProjectData(customId as string),
+    { enabled: !!customId }
   );
   const { data }: IPortfolioResponse = useQuery(
     [queryKeys.getPortfolioPageData],
@@ -79,6 +80,7 @@ const PortfolioProjectPage = () => {
     [queryKeys.getSeeMoreProjects, project?.title],
     () => adminPortfolioService.getByIndustry(project!.industry),
     {
+      enabled: !!project?.industry,
       refetchOnWindowFocus: false,
     }
   );

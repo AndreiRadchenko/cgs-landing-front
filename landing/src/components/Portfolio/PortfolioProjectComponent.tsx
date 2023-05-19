@@ -271,6 +271,7 @@ const PortfolioProjectComponent = ({
           }
           className={"image"}
           alt="project image"
+          objectFit="cover"
           height={341}
           width={652}
         />
