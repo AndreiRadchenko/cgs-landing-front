@@ -1,14 +1,19 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IServiceMobileAudit } from "../../types/Admin/Response.types";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/MobileAuditService/HeadBlock.styled";
 import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
-import Mobile from "../../../public/MobileAuditService/mobile.gif";
-import Image from "next/image";
+
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+
+import MobileImage from "../../../public/MobileAuditService/mobile.svg";
+import firstSearch from "../../../public/MobileAuditService/search-1.svg";
+import secondSearch from "../../../public/MobileAuditService/search-2.svg";
+import thirdSearch from "../../../public/MobileAuditService/search-3.svg";
+import fourthSearch from "../../../public/MobileAuditService/search-4.svg";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -16,6 +21,24 @@ const HeadBlock = () => {
   const data = queryClient.getQueryData<IServiceMobileAudit>([
     queryKeys.getServiceMobileAuditPage,
   ])?.headerBlock;
+
+  const [searchImageIndex, setSearchImageIndex] = useState(0);
+
+  const searchImages = [
+    firstSearch.src,
+    secondSearch.src,
+    thirdSearch.src,
+    fourthSearch.src
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSearchImageIndex(prevIndex => (prevIndex === searchImages.length - 1 ? 0 : prevIndex + 1));
+    }, 500);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [searchImageIndex]);
 
   return (
     <Styled.Container>
@@ -39,10 +62,8 @@ const HeadBlock = () => {
         )}
       </Styled.Content>
       <Styled.ImageWrapper>
-        <Image
-          src={Mobile}
-          alt="hero mobile audit image"
-        />
+        <Styled.ImageMobile src={MobileImage.src} alt="hero mobile audit image" />
+        <Styled.ImageSearch src={searchImages[searchImageIndex]} alt="mobile audit search image"/>    
       </Styled.ImageWrapper>
     </Styled.Container>
   );

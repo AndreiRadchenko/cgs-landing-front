@@ -95,26 +95,70 @@ export const ImageWrapper = styled.div`
   height: 530px;
 
   @media (min-width: 2200px) {
-    width: 40rem;
-    height: 32rem;
+    top: 7%;
+  }
+
+  @media (max-width: 2200px) {
+    top: -10%;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    top: -25%;
-    width: 36rem;
-    height: 24rem;
+    top: -50px;
+    width: 500px;
+    height: 450px;
+    right: -8%;
   }
-
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 25em;
     height: 17em;
+    top: -10%;
+    right: -10%;
   }
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 2.625em;
     position: relative;
+    right: 6%;
 
     width: 22.3em;
     height: 19.125em;
+  }
+`;
+
+export const ImageMobile = styled.img`
+  position: absolute;
+  z-index: 1;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 90%;
+    height: 100%;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 90%;
+  }
+`;
+
+export const ImageSearch = styled.img`
+  position: absolute;
+  right: 21%;
+  top: 22%;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 30%;
+    height: 25%;
+    top: 27%;
+    margin-right: 8.5%;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 30%;
+    margin-right: 10.5%;
+    margin-top: -1%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: -1%;
+    margin-right: 8%;
   }
 `;
