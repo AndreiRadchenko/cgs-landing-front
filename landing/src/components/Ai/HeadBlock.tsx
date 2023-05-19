@@ -25,18 +25,18 @@ const HeadBlock = () => {
         <Styled.Text>
           <SplitBrackets text={data?.text} />
         </Styled.Text>
-        {data && (
-          <Styled.ButtonWrapper ref={elRef}>
-            <GetEstimationButton
-              buttonLink={data?.buttonLink}
-              withEstimation
-              buttonText={data.button}
-              buttonClassName="social-button"
-            />
-            <ButtonShareComponent />
-          </Styled.ButtonWrapper>
-        )}
       </Styled.TextContent>
+      {data && (
+        <Styled.ButtonWrapper ref={elRef}>
+          <GetEstimationButton
+            buttonLink={data?.buttonLink}
+            withEstimation
+            buttonText={data.button}
+            buttonClassName="social-button"
+          />
+          <ButtonShareComponent />
+        </Styled.ButtonWrapper>
+      )}
       {data && (
         <Styled.ImageWrapper>
           <Image

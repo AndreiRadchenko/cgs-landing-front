@@ -695,15 +695,14 @@ export const ButtonShareTextWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 0.2em;
-    margin-left: -10px;
+    margin-top: 0.8em;
+    margin-left: 1px;
 
     &.footer {
       margin-inline: 0;
     }
   }
 `;
-
 export const ButtonShareText = styled.a``;
 
 export const WhatsAppWrapper = styled.div`
@@ -751,6 +750,10 @@ export const TelegramWrapper = styled.div`
     column-gap: 3px;
     margin-left: 0.875em;
   }
+
+  /* @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-left: 0;
+  } */
 `;
 
 export const TelegramIconWrapper = styled.div`
