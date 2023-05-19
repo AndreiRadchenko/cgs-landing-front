@@ -99,24 +99,26 @@ export const ImageWrapper = styled.div`
   }
 
   @media (max-width: 2200px) {
-    top: 5%;
+    top: -10%;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     top: -50px;
     width: 500px;
     height: 450px;
+    right: -8%;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 25em;
     height: 17em;
-    top: 5%;
+    top: -10%;
     right: -10%;
   }
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 2.625em;
     position: relative;
+    right: 6%;
 
     width: 22.3em;
     height: 19.125em;
