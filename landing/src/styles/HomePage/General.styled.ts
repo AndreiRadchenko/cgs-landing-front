@@ -750,10 +750,6 @@ export const TelegramWrapper = styled.div`
     column-gap: 3px;
     margin-left: 0.875em;
   }
-
-  /* @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-left: 0;
-  } */
 `;
 
 export const TelegramIconWrapper = styled.div`
