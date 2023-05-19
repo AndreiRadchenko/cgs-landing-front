@@ -1507,7 +1507,7 @@ export const AdminNDAWrapper = styled.div`
 `;
 
 export const AdminPageThirdBlockLayout = styled.div`
-  width: 60%;
+  width: 500px;
   margin-bottom: 10px;
 `;
 

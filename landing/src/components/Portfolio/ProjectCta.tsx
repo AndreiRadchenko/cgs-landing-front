@@ -60,7 +60,7 @@ const ProjectCta = ({ projectInfo }: { projectInfo: IIPPData }) => {
       <Styled.ProjectCtaContainer>
         <h3>
           {width && width > 768
-            ? projectInfo?.cta
+            ? newTitleArray.join(" ")
             : newTitleArray.map((el, idx) => (
                 <>
                   <span key={`${el}${idx}`}>{el}</span>
