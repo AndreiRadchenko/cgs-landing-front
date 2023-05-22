@@ -1,6 +1,10 @@
 import React from "react";
 import { useFormikContext } from "formik";
 
+import { ComponentLoader } from "../../../components/Loader";
+
+import useDeleteVideoFuction from "../../../hooks/useDeleteVideoFunction";
+import useUploadVideoFunction from "../../../hooks/useUploadVideoFunction";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
@@ -29,8 +33,12 @@ const AboutBlock = () => {
 
   const deleteImageFunction = useDeleteImageFunction(values.about);
   const uploadImageFunction = useUploadImageFunction(values.about);
-  const deleteVideoFunction = useDeleteImageFunction(values.about.video);
-  const uploadVideoFunction = useUploadImageFunction(values.about.video);
+  const {
+    deleteImageFunction: deleteVideoFunction,
+    isLoading: isVideoDeleting,
+  } = useDeleteVideoFuction(values.about.video);
+  const { uploadVideoFunction, isLoading: isVideoLoading } =
+    useUploadVideoFunction(values.about.video);
 
   const uploadFunc = (image: IImage) => uploadImageFunction(image);
   const deleteFunc = async () => (await deleteImageFunction)();
@@ -38,7 +46,6 @@ const AboutBlock = () => {
   const deleteVideo = async () => (await deleteVideoFunction)();
 
   const handleClick = () => handleSubmit();
-
   return (
     <Styled.ContentWrapper>
       <Styles.ImagesWrapper>
@@ -56,13 +63,22 @@ const AboutBlock = () => {
           <Styled.AdminSubTitle>
             Banner video (.mp4, .webm)
           </Styled.AdminSubTitle>
-          <VideoBlockDashed
-            style={{ marginBottom: "32px" }}
-            photo={video?.image}
-            deleteFlag={true}
-            uploadFunction={uploadVideo}
-            deleteFunction={deleteVideo}
-          />
+          {isVideoDeleting || isVideoLoading ? (
+            <Styled.AdminPhotoBlock>
+              <ComponentLoader
+                active={isVideoDeleting || isVideoLoading}
+                text={isVideoLoading ? "loading file..." : "deleting file..."}
+              ></ComponentLoader>
+            </Styled.AdminPhotoBlock>
+          ) : (
+            <VideoBlockDashed
+              style={{ marginBottom: "32px" }}
+              photo={video?.image}
+              deleteFlag={true}
+              uploadFunction={uploadVideo}
+              deleteFunction={deleteVideo}
+            />
+          )}
         </div>
       </Styles.ImagesWrapper>
 

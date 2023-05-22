@@ -1,9 +1,28 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import { infiniteText } from "../../styles/Animations.styled";
+
+export const Layout = styled.div`
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 50px;
+  overflow: hidden;
+  font-family: ${themes.primary.font.family.namu};
+
+  @media (min-width: 2560px) {
+    max-width: 2560px;
+    margin: 0 auto;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 0 20px;
+  }
+`;
 
 export const HeroAboutContainer = styled.div`
-  width: 100vw - 8px;
+  width: 100%;
   height: 26.2vw;
   position: relative;
   overflow: hidden;
@@ -49,10 +68,10 @@ export const HeadlineContainer = styled.div`
 export const NumbersContainer = styled.div`
   box-sizing: border-box;
   margin-top: 120px;
-  padding: 0 80px 0 80px;
+  padding: 0 90px 0 70px;
   height: 174px;
   width: 100vw;
-  margin-left: -4.25em;
+  margin-left: -50px;
   background-color: rgba(143, 142, 147, 0.15);
   display: flex;
   justify-content: space-around;
@@ -64,8 +83,8 @@ export const NumbersContainer = styled.div`
     margin-top: 90px;
     display: grid;
     height: 280px;
-    margin-left: -2.65em;
-    padding: 28px 20px;
+    margin-left: -20px;
+    padding: 28px 30px 28px 0px;
     grid-template-columns: 1fr 1fr;
     & > :nth-child(1) {
       grid-row: 2;
@@ -96,14 +115,19 @@ export const Achievement = styled.div`
 export const AchievementNumber = styled.p`
   font-weight: 900;
   font-size: 80px;
-  line-height: 90px;
+  line-height: 96px;
   margin: 0;
   letter-spacing: 0.05em;
   color: #f1efed;
-  text-shadow: 7px 2px 0px #000000, -1px 0px 0px #000000, 0px 1px 0px #000000,
-    0px -1px 0px #000000, 1px 0px 0px #000000;
-  @media ${themes.primary.media.maxMobile} {
+  text-shadow: 7px 2.5px 0px #000000, -1.2px 0px 0px #000000,
+    0px 1.2px 0px #000000, 0px -1.2px 0px #000000, 1.2px 0px 0px #000000;
+  -webkit-text-stroke: 1.2px black;
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 60px;
+    line-height: 72px;
+    text-shadow: 5.21223px 1.48921px 0px #000000, -1px 0px 0px #000000,
+      0px 1px 0px #000000, 0px -1px 0px #000000, 1px 0px 0px #000000;
+    -webkit-text-stroke: 0.893525px solid #000000;
   }
 `;
 
@@ -152,7 +176,7 @@ export const Teammate = styled.li`
     width: 30%;
   }
   @media ${themes.primary.media.maxMobile} {
-    width: 332px;
+    width: 335px;
   }
 `;
 
@@ -160,7 +184,7 @@ export const TeammateImageContainer = styled.div`
   height: 380px;
   position: relative;
   @media ${themes.primary.media.maxServiceWeb} {
-    width: 332px;
+    width: 335px;
     height: 318px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -168,7 +192,7 @@ export const TeammateImageContainer = styled.div`
     height: 25vw;
   }
   @media ${themes.primary.media.maxMobile} {
-    width: 332px;
+    width: 335px;
     height: 318px;
   }
 `;
@@ -200,71 +224,32 @@ export const TeammatePosition = styled.p`
   }
 `;
 
-export const TeammateAbout = styled.p`
+export const TeammateAbout = styled.div`
   margin: 18px 0 0;
   line-height: 160%;
   font-size: 18px;
+  p {
+    margin: 0 0 10px;
+  }
   @media ${themes.primary.media.maxMobile} {
     font-size: 16px;
-    margin: 0;
-  }
-`;
-
-export const DescriptionContainer = styled.section`
-  margin-bottom: 47px;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    margin-bottom: 30px;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 50px;
-  }
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    margin-bottom: 40px;
-  }
-`;
-
-export const MainTitle = styled.header`
-  font-size: 5em;
-  text-transform: uppercase;
-  line-height: 120%;
-  margin-bottom: 20px;
-  span {
-    color: ${themes.primary.colors.darkBlue};
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 4em;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 3.5em;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 70px;
-    font-size: 5.5em;
-  }
-  @media ${themes.primary.media.maxMobilePortrait} {
-    font-size: 4.5em;
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 3.5em;
-  }
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    margin-bottom: 50px;
+    margin: 15px 0 0;
   }
 `;
 
 export const Subtitle = styled.div`
-  font-size: ${themes.primary.font.size.aboutUsSubtitle};
+  font-size: 40px;
+  line-height: 48px;
   font-weight: ${themes.primary.font.weight.heavy};
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   text-transform: uppercase;
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.smallAboutSubtitle};
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 3.5em;
-
+    font-size: 24px;
+    line-height: 56px;
     &:first-child {
       margin-top: 0px;
     }
@@ -280,253 +265,11 @@ export const Text = styled.div`
   font-size: 18px;
   line-height: 160%;
   width: 100%;
-
+  p {
+    margin: 10px 0;
+  }
   @media ${themes.primary.media.maxMobile} {
-    width: 90%;
+    width: 100%;
     font-size: 16px;
-  }
-`;
-
-export const BottomImage = styled.img`
-  position: absolute;
-  width: 40%;
-  bottom: 50px;
-  right: 0;
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 110%;
-    left: -20%;
-    transform: rotate(-4.51deg);
-    bottom: 70px;
-  }
-
-  @media ${themes.primary.media.maxMobilePortrait} {
-    bottom: 90px;
-  }
-
-  @media (min-width: 2000px) {
-    bottom: 120px;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    left: -25%;
-    width: 130%;
-    bottom: 70px;
-  }
-`;
-
-export const MainImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: auto;
-  z-index: 2;
-  margin-left: -12%;
-
-  @media ${themes.primary.media.minPCFullHD} {
-    margin-left: -14%;
-    width: 100%;
-  }
-  @media ${themes.primary.media.minPC} {
-    margin-left: -14%;
-    width: 110%;
-  }
-  @media ${themes.primary.media.maxLaptop} {
-    margin-left: -17%;
-    width: 102%;
-  }
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    margin-left: -18%;
-    width: 110%;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    margin-left: -5%;
-    width: 110%;
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-left: -7%;
-    width: 115%;
-  }
-  @media (min-width: 930px) and (max-width: 1200px) {
-    margin-left: -20%;
-    width: 115%;
-  }
-`;
-
-export const MainImage = styled.img`
-  position: relative;
-  width: 100%;
-  height: auto;
-  margin-left: 5%;
-  z-index: 2;
-  @media ${themes.primary.media.maxMobile} {
-    margin-left: 0%;
-  }
-`;
-
-export const TeamLine = styled.img`
-  width: 100%;
-`;
-
-export const MovingText = styled.div`
-  font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.semiBold};
-  font-size: 1.5em;
-  overflow: hidden;
-  margin-top: -1.1em;
-  width: 99%;
-  white-space: nowrap;
-  display: flex;
-  flex-direction: row;
-  z-index: -5;
-  background: linear-gradient(
-    61.63deg,
-    ${themes.primary.colors.mainGradientColor1} 0%,
-    ${themes.primary.colors.mainGradientColor2} 100%
-  );
-  border: 2px solid ${themes.primary.colors.primary};
-  height: 2em;
-  display: flex;
-  align-items: center;
-  background-size: cover;
-  @media ${themes.primary.media.maxMobile} {
-    margin-top: -3vw;
-  }
-
-  & > span {
-    animation: ${infiniteText} 40s infinite;
-  }
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 25px;
-  }
-  @media ${themes.primary.media.onlyPC} {
-    font-size: 1.17em;
-  }
-
-  @media (min-width: 1300px) and (max-width: 1800px) {
-    font-size: 1.5em;
-  }
-
-  @media (min-width: 2200px) {
-    font-size: 1.9em;
-  }
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    font-size: 1.185em;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.1em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    min-height: 40px;
-    font-size: 1.8em;
-  }
-`;
-
-export const MainContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 52%;
-  grid-template-rows: 1fr 1.17fr;
-  row-gap: 180px;
-  position: relative;
-  margin-right: -3.5%;
-  margin-top: 50px;
-  overflow: clip;
-  overflow-clip-margin: 100px;
-
-  @media ${themes.primary.media.maxMobile} {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    position: relative;
-    row-gap: 38px;
-    padding: 496px 0 554px;
-    margin: 0;
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    row-gap: 12vw;
-    grid-template-rows: auto;
-    padding-bottom: 10vw;
-  }
-
-  @media (min-width: 2400px) {
-    row-gap: 16vw;
-    padding-bottom: 12vw;
-  }
-`;
-
-export const RowContainer = styled.div`
-  padding-left: 30px;
-  display: flex;
-  column-gap: 5vw;
-  position: relative;
-
-  @media ${themes.primary.media.minPC} {
-    column-gap: 6.5vw;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    &.wrapper {
-      align-items: center;
-      flex-direction: column;
-    }
-    padding-left: 0px;
-  }
-
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    padding-left: 0px;
-  }
-`;
-
-export const AboutUsContainer = styled(RowContainer)`
-  margin-top: 70px;
-  font-family: ${themes.primary.font.family.namu};
-  background-color: ${themes.primary.colors.blogBackground};
-  min-height: 88vh;
-  position: relative;
-  > div:nth-child(2) {
-    padding: 0 0 210px;
-  }
-
-  @media ${themes.primary.media.minPC} {
-    > div:nth-child(2) {
-      padding-bottom: 280px;
-    }
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    align-items: center;
-    flex-direction: column;
-    padding-left: 0px;
-    > div:nth-child(2) {
-      padding-top: 0;
-      padding-bottom: 320px;
-    }
-    > div:first-child {
-      margin-bottom: 70px;
-    }
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-top: 50px;
-    > div:nth-child(2) {
-      padding-bottom: 240px;
-    }
-  }
-
-  @media (min-width: 2000px) {
-    > div:nth-child(2) {
-      padding-bottom: 500px;
-    }
-  }
-`;
-
-export const ColContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 100%;
   }
 `;

@@ -1,13 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useQueryClient } from "@tanstack/react-query";
 
-import { Layout } from "../../styles/Layout.styled";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
-import LinkedIn from "../../../public/linkedIn.svg";
+import linkedInLocal from "../../../public/linkedIn.svg";
 
 import * as Styled from "./AboutUs.styled";
-import { IAbout } from "../../types/Admin/Response.types";
+import { IAbout, IDataResponse } from "../../types/Admin/Response.types";
+import { queryKeys } from "../../consts/queryKeys";
 
 interface IAboutUs {
   data: IAbout;
@@ -36,6 +37,12 @@ const AboutUs = ({ data }: IAboutUs) => {
     team: { title, members },
   } = data;
 
+  const queryClient = useQueryClient();
+  const footerData = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.FooterBlock;
+  const linkedInIcon = footerData?.images[2].image?.url;
+
   return (
     <>
       <Styled.HeroAboutContainer>
@@ -54,7 +61,7 @@ const AboutUs = ({ data }: IAboutUs) => {
           />
         </video>
       </Styled.HeroAboutContainer>
-      <Layout>
+      <Styled.Layout>
         <Styled.HeadlinesContainer>
           <Styled.HeadlineContainer>
             {!isMobile ? (
@@ -106,7 +113,7 @@ const AboutUs = ({ data }: IAboutUs) => {
               <Styled.Teammate key={index}>
                 <Styled.TeammateImageContainer>
                   <Image
-                    src={data ? member.image.url : ""}
+                    src={member?.image?.url ? member.image.url : ""}
                     alt="teammate image"
                     layout="fill"
                     objectFit="contain"
@@ -117,7 +124,13 @@ const AboutUs = ({ data }: IAboutUs) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Image priority src={LinkedIn} alt="Link to LinkedIn" />
+                    <Image
+                      priority
+                      src={linkedInIcon ? linkedInIcon : linkedInLocal}
+                      alt="Link to LinkedIn"
+                      width={32}
+                      height={32}
+                    />
                   </Styled.LinkedIn>
                 </Styled.TeammateImageContainer>
                 <Styled.TeammateName>{member.name}</Styled.TeammateName>
@@ -131,7 +144,7 @@ const AboutUs = ({ data }: IAboutUs) => {
             ))}
           </Styled.TeamGallery>
         </Styled.OurTeamContainer>
-      </Layout>
+      </Styled.Layout>
     </>
   );
 };
