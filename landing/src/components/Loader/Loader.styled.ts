@@ -15,6 +15,26 @@ export const StyledLoader = styled(LoadingOverlay)`
   }
 `;
 
+export const ComponentStyledLoader = styled(LoadingOverlay)`
+  .MyLoader_overlay {
+    background: ${themes.primary.colors.blogBackground};
+    width: 100%;
+    height: 100%;
+  }
+  &.MyLoader_wrapper--active {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+  .MyLoader_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    color: black;
+  }
+`;
+
 export const StyledSpinner = styled.div`
   @keyframes rotation {
     0% {
