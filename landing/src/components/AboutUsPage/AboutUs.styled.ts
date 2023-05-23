@@ -119,14 +119,12 @@ export const AchievementNumber = styled.p`
   margin: 0;
   letter-spacing: 0.05em;
   color: #f1efed;
-  text-shadow: 7px 2.5px 0px #000000, -1.2px 0px 0px #000000,
-    0px 1.2px 0px #000000, 0px -1.2px 0px #000000, 1.2px 0px 0px #000000;
+  text-shadow: 7px 2.5px 0px #000000;
   -webkit-text-stroke: 1.2px black;
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 60px;
     line-height: 72px;
-    text-shadow: 5.21223px 1.48921px 0px #000000, -1px 0px 0px #000000,
-      0px 1px 0px #000000, 0px -1px 0px #000000, 1px 0px 0px #000000;
+    text-shadow: 5.21223px 1.48921px 0px #000000;
     -webkit-text-stroke: 0.893525px solid #000000;
   }
 `;
