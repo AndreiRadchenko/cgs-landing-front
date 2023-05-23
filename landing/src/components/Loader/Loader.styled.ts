@@ -2,6 +2,30 @@ import styled from "styled-components";
 import LoadingOverlay from "react-loading-overlay-ts";
 import themes from "../../utils/themes";
 
+export const PortfolioStyledLoader = styled(LoadingOverlay)`
+  .MyLoader_overlay {
+    background: ${themes.primary.colors.blogBackground};
+    width: 100%;
+    min-height: 2030px;
+  }
+
+  &.MyLoader_wrapper--active {
+    overflow: hidden;
+    width: 100%;
+    min-height: 2030px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    .MyLoader_overlay {
+      min-height: 2260px;
+    }
+
+    &.MyLoader_wrapper--active {
+      min-height: 2260px;
+    }
+  }
+`;
+
 export const StyledLoader = styled(LoadingOverlay)`
   .MyLoader_overlay {
     background: ${themes.primary.colors.blogBackground};
