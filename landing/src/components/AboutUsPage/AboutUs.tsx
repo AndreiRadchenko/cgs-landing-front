@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useQueryClient } from "@tanstack/react-query";
+import parse from "html-react-parser";
 
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 import linkedInLocal from "../../../public/linkedIn.svg";
@@ -22,9 +23,10 @@ const ParsedText = ({ text }: IString) => {
   const textArray = text.split("|");
   return (
     <>
-      {textArray.map((e: string, i: number) => (
-        <p key={i}>{e}</p>
-      ))}
+      {textArray.map((e: string, i: number) => {
+        const parsedString = "<span>" + e + "</span>";
+        return <p key={i}>{parse(parsedString)}</p>;
+      })}
     </>
   );
 };
