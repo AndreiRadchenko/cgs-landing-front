@@ -664,7 +664,11 @@ export interface IReviewProps {
     company?: string;
     feedbackText: string;
   };
-  image: { url: string } | null;
+  image?: { url: string } | null;
+
+  imageBanner?: IImage;
+
+  imageProjectBanner?: IImage;
   text: string;
   title: string;
   industry: string;

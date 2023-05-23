@@ -31,11 +31,11 @@ const Slide = ({ review }: IReviewProps) => {
       <Styled.TextWrapper className={isHover ? "hover" : undefined}>
         <Styled.HoverText>{review.text}</Styled.HoverText>
       </Styled.TextWrapper>
-      {review.image?.url && (
+      {review.imageBanner?.image?.url && (
         <Styled.ImageWrapper>
           {isLoading && <Loader />}
           <Image
-            src={review.image?.url}
+            src={review.imageBanner?.image?.url}
             alt={"project image"}
             layout={"fill"}
             objectFit="contain"
