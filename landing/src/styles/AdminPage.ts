@@ -1484,7 +1484,7 @@ export const AdminPageFirstBlockLayout = styled.div`
 
 export const AdminPageSecondBlockLayout = styled.div`
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 500px 320px;
   column-gap: 1.5em;
   margin-bottom: 30px;
 
