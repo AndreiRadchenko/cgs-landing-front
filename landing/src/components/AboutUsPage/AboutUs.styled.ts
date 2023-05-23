@@ -48,7 +48,6 @@ export const HeroAboutContainer = styled.div`
 
 export const HeadlinesContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   margin-top: 44px;
   gap: 66px;
   @media ${themes.primary.media.maxMobile} {
@@ -58,7 +57,7 @@ export const HeadlinesContainer = styled.div`
 `;
 
 export const HeadlineContainer = styled.div`
-  width: 47%;
+  width: 46.12%;
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     margin-bottom: 90px;
