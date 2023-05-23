@@ -148,6 +148,19 @@ const PortfolioPage: NextPage = () => {
     });
   };
 
+  const filtersNulifier = () => {
+    setCategory("");
+    setActiveCategory(0);
+    setIndustries([]);
+  };
+
+  const categoryOrIndustryTrigger = () => {
+    setIsFirstLoad(false);
+    setIsRequestRepeated(false);
+    setIsPaginationTriggered(false);
+    setIsSearchTriggered(false);
+  };
+
   useEffect(() => {
     if (
       reviewsData?.reviews.length === 0 &&
@@ -155,9 +168,7 @@ const PortfolioPage: NextPage = () => {
       activeCategory &&
       isSearchTriggered
     ) {
-      setCategory("");
-      setActiveCategory(0);
-      setIndustries([]);
+      filtersNulifier();
       setIsSearchTriggered(false);
       setIsRequestRepeated(true);
     }
@@ -208,13 +219,10 @@ const PortfolioPage: NextPage = () => {
                 <Styles.PortfolioCategoryItem
                   className={activeCategory === 0 ? "active" : ""}
                   onClick={() => {
-                    setIsFirstLoad(false);
-                    setIsRequestRepeated(false);
+                    categoryOrIndustryTrigger();
                     setIsCategoryChange(true);
-                    setIsSearchTriggered(false);
                     setActiveCategory(0);
                     setCategory("");
-                    setIsPaginationTriggered(false);
                   }}
                 >
                   {"All projects"}
@@ -224,13 +232,10 @@ const PortfolioPage: NextPage = () => {
                     key={i}
                     className={i + 1 === activeCategory ? "active" : ""}
                     onClick={() => {
-                      setIsFirstLoad(false);
-                      setIsRequestRepeated(false);
+                      categoryOrIndustryTrigger();
                       setIsCategoryChange(true);
-                      setIsSearchTriggered(false);
                       setActiveCategory(i + 1);
                       setCategory(name);
-                      setIsPaginationTriggered(false);
                     }}
                   >
                     {name.charAt(0).toUpperCase() + name.slice(1)}
@@ -303,11 +308,7 @@ const PortfolioPage: NextPage = () => {
                       tags={data.industries}
                       dropdownName="// INDUSTRY"
                       isTag={true}
-                      additionalLogic={() => {
-                        setIsFirstLoad(false);
-                        setIsRequestRepeated(false);
-                        setIsPaginationTriggered(false);
-                      }}
+                      additionalLogic={categoryOrIndustryTrigger}
                     />
                   </Styles.PortfolioDropdownWrapper>
                 </DropdownContainer>
