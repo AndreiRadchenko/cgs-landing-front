@@ -160,7 +160,7 @@ export const PortfolioSearchWarning = styled.div`
   display: flex;
   flex-direction: column;
   color: #8f8e93;
-  margin: 28px 0 134px;
+  margin-bottom: 134px;
 
   & .sorry-message {
     margin-bottom: 18px;
@@ -300,6 +300,7 @@ export const PortfolioFiltersWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
+  margin-bottom: 60px;
 
   & .portfolio_dropdown {
     font-family: ${themes.primary.font.family.namu};
@@ -313,6 +314,7 @@ export const PortfolioFiltersWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     margin-top: 26px;
+    margin-bottom: 28px;
 
     & .portfolio_dropdown {
       margin-top: 36px;
@@ -323,7 +325,6 @@ export const PortfolioFiltersWrapper = styled.div`
 `;
 
 export const PortfolioProjectsContainer = styled.div`
-  margin-top: 60px;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(355px, 652px));

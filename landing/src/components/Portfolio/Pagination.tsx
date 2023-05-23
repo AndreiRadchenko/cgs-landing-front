@@ -12,9 +12,9 @@ export const Pagination = ({
   setIsPaginationTriggered,
 }: IPaginationProps) => {
   const handleClick = (pageNumber: number) => {
+    setIsPaginationTriggered(true);
     setCurrentPage(pageNumber);
     setIsFirstLoad(false);
-    setIsPaginationTriggered(true);
     scrollFunction();
   };
 

@@ -123,6 +123,7 @@ const PortfolioPage: NextPage = () => {
 
   const handleSearchRequest = () => {
     setIsFirstLoad(false);
+    setIsPaginationTriggered(false);
     setSearchTrigger(searchText);
   };
 
@@ -149,23 +150,22 @@ const PortfolioPage: NextPage = () => {
   };
 
   const filtersNulifier = () => {
+    setIndustries([]);
     setCategory("");
     setActiveCategory(0);
-    setIndustries([]);
   };
 
   const categoryOrIndustryTrigger = () => {
     setIsFirstLoad(false);
+    setIsSearchTriggered(false);
     setIsRequestRepeated(false);
     setIsPaginationTriggered(false);
-    setIsSearchTriggered(false);
   };
 
   useEffect(() => {
     if (
       reviewsData?.reviews.length === 0 &&
       (category || industries.length > 0) &&
-      activeCategory &&
       isSearchTriggered
     ) {
       filtersNulifier();
@@ -194,7 +194,6 @@ const PortfolioPage: NextPage = () => {
   }, [isLoading, reviewsIsLoading, isFirstLoad]);
 
   useEffect(() => {
-    setIsPaginationTriggered(false);
     setIsRequestRepeated(false);
   }, [searchTrigger]);
 
@@ -316,6 +315,7 @@ const PortfolioPage: NextPage = () => {
 
               <div ref={contentRef}>
                 <Loader
+                  isPortfolio={true}
                   active={(isLoading || reviewsIsLoading) && !isFirstLoad}
                 >
                   {(isLoading || reviewsIsLoading) && !isFirstLoad ? (
@@ -385,14 +385,6 @@ export async function getServerSideProps() {
 
   await queryClient.prefetchQuery([queryKeys.getPortfolioPageData], () =>
     adminPortfolioService.getPageData()
-  );
-
-  await queryClient.prefetchQuery([queryKeys.getPortfolio], () =>
-    adminPortfolioService.getReviews()
-  );
-
-  await queryClient.prefetchQuery([queryKeys.getPortfolioCTA], () =>
-    adminPortfolioService.getPortfolioCTA()
   );
 
   await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
