@@ -120,7 +120,11 @@ export const Mario = styled.img<MarioJump>`
   }
 
   @media (max-width: 2560px) {
-    bottom: -44%;
+    bottom: -43.5%;
+  }
+
+  @media (max-width: 2559px) {
+    bottom: -45.5%;
   }
 
   @media (max-width: 2199px) {
@@ -343,7 +347,8 @@ export const RoadImage = styled.img`
   width: 100%;
   float: left;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  transform: translateZ(0);
 
   @media (max-width: 475px) {
     width: 100%;
@@ -377,7 +382,7 @@ export const RoadImages = styled.div`
 
 export const MushroomsImages = styled.div`
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   top: 10px;
 
   @media (min-width: 2200px) {
@@ -385,7 +390,7 @@ export const MushroomsImages = styled.div`
   }
 
   @media ${themes.primary.media.minPCTwoThousand} {
-    top: 17%;
+    top: 15.5%;
   }
 
   @media (min-width: 3300px) {
@@ -396,16 +401,20 @@ export const MushroomsImages = styled.div`
     top: 25%;
   }
 
+  @media (max-width: 2560px) {
+    top: 15.5%;
+  }
+
   @media (max-width: 2199px) {
     top: 18%;
   }
 
   @media (max-width: 1920px) {
-    top: 15%;
+    top: 13.5%;
   }
 
   @media (max-width: 1560px) {
-    top: 10%;
+    top: 8%;
   }
 
   @media ${themes.primary.media.maxLaptop} {
@@ -413,7 +422,7 @@ export const MushroomsImages = styled.div`
   }
 
   @media (max-width: 1440px) {
-    top: 7%;
+    top: 6%;
   }
 
   @media (max-width: 1209px) {
@@ -441,7 +450,7 @@ export const MushroomsImages = styled.div`
   }
 
   @media (max-width: 375px) {
-    top: 5%;
+    top: 3%;
   }
 `;
 
@@ -449,6 +458,7 @@ export const MushroomsImage = styled.img`
   width: 58px;
   height: 57px;
   margin: 0 300px;
+  z-index: 1000;
 
   @media (min-width: 2200px) {
     width: 70px;
