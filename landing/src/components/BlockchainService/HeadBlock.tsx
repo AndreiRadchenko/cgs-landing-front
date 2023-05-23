@@ -17,6 +17,29 @@ import fourthCripto from "../../../public/BlockchainServicePage/HeadImage/cripto
 import fifthCripto from "../../../public/BlockchainServicePage/HeadImage/cripto-5.svg";
 import sixthCripto from "../../../public/BlockchainServicePage/HeadImage/cripto-6.svg";
 import seventhCripto from "../../../public/BlockchainServicePage/HeadImage/cripto-7.svg";
+import eighthCripto from "../../../public/BlockchainServicePage/HeadImage/cripto-8.svg";
+
+const noiseImages = [
+  secondNoise.src,
+  firstNoise.src,
+  secondNoise.src,
+  firstNoise.src,
+];
+
+const criptoImages = [
+  firstCripto.src,
+  secondCripto.src,
+  thirdCripto.src,
+  fourthCripto.src,
+  fifthCripto.src,
+  sixthCripto.src,
+  seventhCripto.src,
+  eighthCripto.src
+];
+
+const modifiedCriptoImages = criptoImages.reduceRight((acc, img) => {
+  return acc.concat(noiseImages, img);
+}, []);
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -26,27 +49,6 @@ const HeadBlock = () => {
   ])?.headerBlock;
 
   const [imageIndex, setImageIndex] = useState(0);
-
-  const noiseImages = [
-    secondNoise.src,
-    firstNoise.src,
-    secondNoise.src,
-    firstNoise.src,
-  ];
-
-  const criptoImages = [
-    firstCripto.src,
-    secondCripto.src,
-    thirdCripto.src,
-    fourthCripto.src,
-    fifthCripto.src,
-    sixthCripto.src,
-    seventhCripto.src,
-  ];
-
-  const modifiedCriptoImages = criptoImages.reduceRight((acc, img) => {
-    return acc.concat(noiseImages, img);
-  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {

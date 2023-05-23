@@ -92,35 +92,60 @@ export const Image = styled.div`
   right: -10em;
   width: 42em;
 
-  @media (max-width: 1300px) {
-    width: 32em;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    right: -7em;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    width: 28em;
-    top: 7em;
-  }
-
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     left: 1px;
-    top: -0.75em;
+    top: 1em;
     width: 22.3em;
     height: 19.125em;
   }
 `;
 
 export const ImageTV = styled.img`
-position: absolute;
+  position: absolute;
   z-index: 2;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 50%;
+    right: 20%;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 28em;
+    height: 28em;
+    right: 6%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 20em;
+    height: 20em;
+  }
 `;
 
 export const ImageCripto = styled.img`
   position: absolute;
   z-index: 1;
-  top: 180px;
+  top: 175px;
+  left: 10px;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 13em;
+    height: 13em;
+    left: 210px;
+    top: 110px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 13em;
+    height: 13em;
+    top: 80px;
+    left: 200px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 9em;
+    height: 9em;
+    top: 75px;
+    left: 65px;
+}
 `;
