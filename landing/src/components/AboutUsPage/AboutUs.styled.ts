@@ -67,7 +67,7 @@ export const HeadlineContainer = styled.div`
 export const NumbersContainer = styled.div`
   box-sizing: border-box;
   margin-top: 120px;
-  padding: 0 90px 0 70px;
+  padding: 0 80px 0 80px;
   height: 174px;
   width: 100vw;
   margin-left: -50px;
@@ -78,12 +78,12 @@ export const NumbersContainer = styled.div`
   flex-wrap: wrap;
 
   @media ${themes.primary.media.maxMobile} {
-    width: 105vw;
+    width: 100vw;
     margin-top: 90px;
     display: grid;
     height: 280px;
     margin-left: -20px;
-    padding: 28px 30px 28px 0px;
+    padding: 28px 30px 28px 30px;
     grid-template-columns: 1fr 1fr;
     & > :nth-child(1) {
       grid-row: 2;
