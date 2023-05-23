@@ -13,14 +13,24 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const SeeMoreProjects = ({
   title,
-  projects,
+  projectsIndustry,
+  projectsCategory,
   mainProjectTitle,
 }: {
   title: string;
-  projects: IPortfolioReview[];
+  projectsIndustry: IPortfolioReview[];
+  projectsCategory: IPortfolioReview[];
   mainProjectTitle: string;
 }) => {
   const { width } = useWindowDimension();
+
+  const slicedIndustry = projectsIndustry
+    .filter((project) => project.title !== mainProjectTitle)
+    .splice(0, 2);
+
+  const slicedCategory = projectsCategory.filter(
+    (project) => project.title !== mainProjectTitle
+  );
 
   return (
     <>
@@ -42,12 +52,24 @@ const SeeMoreProjects = ({
         </Styled.SeeMoreProjectsArrowSecond>
       </Styled.SeeMoreProjectsTitleContainer>
       <PortfolioProjectsContainer>
-        {projects
-          .filter((project) => project.title !== mainProjectTitle)
-          .splice(0, 2)
-          .map((project) => (
-            <PortfolioProjectComponent key={project._id} project={project} />
-          ))}
+        {slicedIndustry.length === 2
+          ? slicedIndustry
+              .filter((project) => project.title !== mainProjectTitle)
+              .map((project) => (
+                <PortfolioProjectComponent
+                  key={project._id}
+                  project={project}
+                />
+              ))
+          : [...slicedIndustry, ...slicedCategory]
+              .filter((project) => project.title !== mainProjectTitle)
+              .splice(0, 2)
+              .map((project) => (
+                <PortfolioProjectComponent
+                  key={project._id}
+                  project={project}
+                />
+              ))}
       </PortfolioProjectsContainer>
     </>
   );

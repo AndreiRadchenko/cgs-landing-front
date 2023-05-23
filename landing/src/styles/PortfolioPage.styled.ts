@@ -126,6 +126,10 @@ export const HeaderImageContainer = styled.div`
     position: relative;
     display: flex;
     justify-content: flex-end;
+
+    svg {
+      top: 25px;
+    }
   }
 
   @media (${themes.primary.media.maxMobile}) {
@@ -490,6 +494,12 @@ export const ProjectCtaContainer = styled.div`
     color: ${themes.primary.colors.primary};
   }
 
+  @media (${themes.primary.media.maxTabletLandScape}) {
+    h3 {
+      font-size: 26px;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     gap: 26px;
     flex-direction: column;
@@ -518,6 +528,10 @@ export const BgiContainer = styled.div<ILine>`
       ${themes.primary.colors.mainGradientColor1}
     );`};
   background-size: 100% 100%;
+
+  @media (${themes.primary.media.maxTabletLandScape}) {
+    height: 200px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     height: 220px;

@@ -76,11 +76,19 @@ const PortfolioProjectPage = () => {
     [queryKeys.getPortfolioPageData],
     () => adminPortfolioService.getPageData()
   );
-  const { data: seeMoreProj }: { data?: IPortfolioReview[] } = useQuery(
+  const { data: seeMoreProjIndustry }: { data?: IPortfolioReview[] } = useQuery(
     [queryKeys.getSeeMoreProjects, project?.title],
     () => adminPortfolioService.getByIndustry(project!.industry),
     {
       enabled: !!project?.industry,
+      refetchOnWindowFocus: false,
+    }
+  );
+  const { data: seeMoreProjCategory }: { data?: IPortfolioReview[] } = useQuery(
+    [queryKeys.getSeeMoreProjectsCategory, project?.title],
+    () => adminPortfolioService.getByCategory(project!.categories[0]),
+    {
+      enabled: !!project?.categories,
       refetchOnWindowFocus: false,
     }
   );
@@ -167,7 +175,7 @@ const PortfolioProjectPage = () => {
                 </Styled.HeaderBottomSection>
               </Styled.HeaderContainerBlock>
               <Styled.HeaderImageContainer>
-                {width && width > 768 ? (
+                {width && width > 769 ? (
                   <CircleProjectPage />
                 ) : (
                   <CircleProjectPageMobile />
@@ -272,11 +280,12 @@ const PortfolioProjectPage = () => {
               title={data.individualProjectPage.feedback}
             />
           )}
-          {data && seeMoreProj && project && (
+          {data && seeMoreProjIndustry && seeMoreProjCategory && project && (
             <SeeMoreProjects
               title={data.individualProjectPage.additionalProjects}
               mainProjectTitle={project.title}
-              projects={seeMoreProj}
+              projectsIndustry={seeMoreProjIndustry}
+              projectsCategory={seeMoreProjCategory}
             />
           )}
           <FooterNew />
