@@ -25,7 +25,7 @@ const WhatAppIncludeSubList = ({ item, onMouseOut, onMouseEnter }: ISubListProps
             <Styled.ConectLine />
             <Styled.SubtextContentWrapper>
               {item.subtext.map((subItem, idx) => (
-                <WhatAppIncludeSubListItem subItem={subItem} key={idx} />
+                <WhatAppIncludeSubListItem subItem={subItem} key={idx} onMouseEnter={onMouseEnter} onMouseOut={onMouseOut} />
               ))}
             </Styled.SubtextContentWrapper>
           </Styled.SubtextContainer>

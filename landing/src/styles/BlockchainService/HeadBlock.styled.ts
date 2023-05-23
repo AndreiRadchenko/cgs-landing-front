@@ -122,7 +122,7 @@ export const ImageTV = styled.img`
   }
 `;
 
-export const ImageCripto = styled.img`
+export const ImageCrypto = styled.img`
   position: absolute;
   z-index: 1;
   top: 175px;

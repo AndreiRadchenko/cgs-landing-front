@@ -4,9 +4,11 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 
 interface ISubListItemProps {
   subItem: string;
+  onMouseEnter?: (title: string) => void;
+  onMouseOut?: () => void;
 }
 
-const WhatAppIncludeSubListItem = ({ subItem }: ISubListItemProps) => {
+const WhatAppIncludeSubListItem = ({ subItem, onMouseEnter, onMouseOut }: ISubListItemProps) => {
   return (
     <Styled.SubtextWrapper>
       <Styled.PointWrapper className="subtext">
@@ -14,7 +16,7 @@ const WhatAppIncludeSubListItem = ({ subItem }: ISubListItemProps) => {
         <Styled.PointCircle />
       </Styled.PointWrapper>
       <Styled.Subtext>
-        <SplitBrackets text={subItem} />
+        <SplitBrackets text={subItem} onMouseEnter={onMouseEnter} onMouseOut={onMouseOut} />
       </Styled.Subtext>
     </Styled.SubtextWrapper>
   );

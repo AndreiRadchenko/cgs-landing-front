@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
 import { SplitBrackets } from "../../utils/splitBrackets";
@@ -45,7 +45,7 @@ const WhatAppIncludeBlock = () => {
   const migrationAuditIconRef = useRef<HTMLDivElement>(null);
   const glassRef = useRef<HTMLDivElement>(null);
 
-  const iconPosition = [
+  const listInformation = [
     { key: 'MOBILE APPLICATION SECURITY TEST', ref: securityTestIconRef },
     { key: 'ENCRYPTION DEFINITION', ref: encryptionDefinitionIconRef },
     { key: 'MOBILE APP OPERATING SYSTEM', ref: operatingSystemIconRef },
@@ -54,9 +54,24 @@ const WhatAppIncludeBlock = () => {
     { key: 'MIGRATION AUDIT', ref: migrationAuditIconRef }
   ];
 
+  const iconPosition = useMemo(() => {
+    return listInformation?.map(it => ({
+      key: it.key,
+      ref: it.ref,
+      bullets: data?.textBlock?.find(block => block.text?.toUpperCase()?.includes(it?.key?.toUpperCase()))?.subtext
+    }));
+  }, []);
+
   const onMouseEnter = (title: string) => {
-    const glassPositionAndSize = glassRef?.current?.getBoundingClientRect()
-    const targetPictureRef = iconPosition?.find(it => title?.toUpperCase()?.includes(it.key?.toUpperCase()))?.ref;
+    const glassPositionAndSize = glassRef?.current?.getBoundingClientRect();
+
+    const targetIcon = iconPosition?.find(it => {
+      const isBulletHovered = it.bullets?.some(bullet => title?.toUpperCase()?.includes(bullet?.toUpperCase()));
+      return title?.toUpperCase()?.includes(it.key?.toUpperCase()) || isBulletHovered;
+    });
+
+    const targetPictureRef = targetIcon?.ref;
+
     const targetPicturePosition = targetPictureRef?.current?.getBoundingClientRect();
 
     if (!glassPositionAndSize) return
@@ -65,7 +80,7 @@ const WhatAppIncludeBlock = () => {
       x: glassPositionAndSize.left + (glassPositionAndSize?.width * 0.18),
       y: glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.2)
     };
-    
+
     const newPosition = {
       x: (targetPicturePosition?.left ?? 0) - glassCenterPosition.x,
       y: (targetPicturePosition?.top ?? 0) - glassCenterPosition.y,
@@ -73,12 +88,12 @@ const WhatAppIncludeBlock = () => {
 
     if (newPosition) {
       setCoordinates(newPosition);
-      const iconKey = iconPosition?.find(it => title?.toUpperCase()?.includes(it.key?.toUpperCase()))?.key;
+      const iconKey = targetIcon?.key;
       setActiveIcon(iconKey || '');
     };
   };
 
-  const onMouseOut = () => {   
+  const onMouseOut = () => {
     setCoordinates(initialCoordinates)
     setActiveIcon('');
   };
