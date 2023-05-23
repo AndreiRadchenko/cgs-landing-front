@@ -1,7 +1,6 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import * as Styled from "../../styles/OngoingSupport/ProvidesBlock.styled";
 import parse from "html-react-parser";
-import Image from "next/image";
 
 import topLeftBlock from "../../../public/OngoingSupport/topBlock-1.svg";
 import topRightBlock from "../../../public/OngoingSupport/topBlock-2.svg";
@@ -111,12 +110,7 @@ const MarioBlock = (data: MarioBlockProps) => {
                 ))}
             </Styled.BlockContainer>
             <Styled.FooterContainer>
-                <Styled.Mario isJumping={isJumping}>
-                    {isJumping
-                        ? <Image src={marioJump} />
-                        : <Image src={marioMovement[marioIndex]} />
-                    }
-                </Styled.Mario>
+                <Styled.Mario isJumping={isJumping} src={isJumping ? marioJump.src : marioMovement[marioIndex].src}/>
                 <Styled.FooterMarioBlock>
                     <Styled.RoadMove>
                         <Styled.RoadImages>
