@@ -8,10 +8,9 @@ import * as Styled from "../../../styles/AdminPage";
 import { IPortfolioPageData } from "../../../types/Admin/AdminPortfolio.types";
 
 const TitleBlock = () => {
-  const { values, handleSubmit } = useFormikContext<IPortfolioPageData>();
+  const { handleSubmit } = useFormikContext<IPortfolioPageData>();
 
   const onSubmit = () => {
-    console.log(values);
     handleSubmit();
   };
 

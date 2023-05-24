@@ -36,6 +36,13 @@ const DropdownTechnology = ({ technologies }: IDropdownProps) => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getPortfolioPage]);
+        const thirdArray = values.technologies.filter((elem) => {
+          return technologies.some((ele) => {
+            return ele._id === elem._id && ele.name === elem.name;
+          });
+        });
+
+        setFieldValue("technologies", thirdArray);
       },
     }
   );

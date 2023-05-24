@@ -122,6 +122,13 @@ export const HeaderImageContainer = styled.div`
     }
   }
 
+  @media (min-width: 1201px) and (max-width: 1350px) {
+    span {
+      width: 445px !important;
+      height: 445px !important;
+    }
+  }
+
   @media (${themes.primary.media.maxTabletLandScape}) {
     position: relative;
     display: flex;
