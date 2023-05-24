@@ -11,7 +11,7 @@ export const PortfolioPageWrapper = styled.div`
   width: 100%;
   padding: 10px 50px;
 
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
     padding: 10px 20px;
   }
 `;
@@ -69,7 +69,7 @@ export const PortfolioPageHeaderContainer = styled.div`
   justify-content: space-between;
   position: relative;
 
-  @media (${themes.primary.media.maxTabletLandScape}) {
+  @media ${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
     margin-bottom: 50px;
   }
@@ -89,7 +89,7 @@ export const HeaderContainerBlock = styled.div`
     margin: 0 0 19px 0;
   }
 
-  @media (${themes.primary.media.maxTabletLandScape}) {
+  @media ${themes.primary.media.maxTabletLandScape} {
     width: 100%;
 
     h2 {
@@ -109,7 +109,7 @@ export const HeaderImageContainer = styled.div`
     top: -35px;
   }
 
-  @media (${themes.primary.media.minPCFullHD}) {
+  @media ${themes.primary.media.minPCFullHD} {
     margin-top: -60px;
     svg {
       scale: 1.3;
@@ -122,7 +122,14 @@ export const HeaderImageContainer = styled.div`
     }
   }
 
-  @media (${themes.primary.media.maxTabletLandScape}) {
+  @media (min-width: 1201px) and (max-width: 1350px) {
+    span {
+      width: 445px !important;
+      height: 445px !important;
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
     position: relative;
     display: flex;
     justify-content: flex-end;
@@ -132,13 +139,13 @@ export const HeaderImageContainer = styled.div`
     }
   }
 
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
     margin-top: 55px;
     height: 324px;
 
     svg {
       top: -12px;
-      right: -21px;
+      right: -20px;
     }
     span {
       width: 375px !important;
@@ -165,7 +172,7 @@ export const HeaderBottomSectionFlag = styled.div`
     margin: 0;
   }
 
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
     p {
       font-size: 14px;
     }
@@ -184,7 +191,7 @@ export const PortfolioPageInfoContainer = styled.div`
     margin-top: 0;
     margin-bottom: 12px;
   }
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
     h3 {
       font-size: 24px;
     }
@@ -210,7 +217,7 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
     height: unset !important;
   }
 
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
     margin-top: 35px;
     grid-template-columns: repeat(auto-fill, minmax(67px, 1fr));
     row-gap: 15px;
@@ -226,7 +233,7 @@ export const InfoContainerIndustry = styled.p`
   color: ${themes.primary.colors.headerBorder};
   margin: 0 0 12px 0;
 
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
   }
 `;
@@ -240,7 +247,7 @@ export const InfoContainerText = styled.p`
   color: ${themes.primary.colors.primary};
   margin: 0 0 28px 0;
 
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
     font-size: 16px;
     max-height: unset;
     margin: 0 0 20px 0;
@@ -256,7 +263,7 @@ export const InfoWrapperTimeTeam = styled.div`
   display: flex;
   gap: 35px;
 
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
   }
 `;
@@ -283,7 +290,7 @@ export const SeeMoreProjectsTitle = styled.h3`
   color: ${themes.primary.colors.primary};
   text-align: center;
 
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
     text-align: left;
     font-size: 24px;
   }
@@ -296,7 +303,7 @@ export const SeeMoreProjectsTitleContainer = styled.div`
   justify-content: space-between;
   margin-top: 140px;
 
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
     gap: 10px;
     margin-top: 56px;
   }
@@ -309,7 +316,7 @@ export const SeeMoreProjectsArrowFirst = styled.div`
     width: 100%;
   }
 
-  @media (${themes.primary.media.minPCFullHD}) {
+  @media ${themes.primary.media.minPCFullHD} {
     position: relative;
     width: 500px;
     overflow-x: hidden;
@@ -322,7 +329,7 @@ export const SeeMoreProjectsArrowFirst = styled.div`
       scale: 2;
     }
   }
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
     padding-top: 3px;
     align-self: flex-start;
     width: 70%;
@@ -336,7 +343,7 @@ export const SeeMoreProjectsArrowSecond = styled.div`
     transform: rotate(180deg);
   }
 
-  @media (${themes.primary.media.minPCFullHD}) {
+  @media ${themes.primary.media.minPCFullHD} {
     position: relative;
     width: 500px;
     overflow-x: hidden;
@@ -349,7 +356,7 @@ export const SeeMoreProjectsArrowSecond = styled.div`
       scale: 2;
     }
   }
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
     padding-top: 0px;
     width: 70%;
     align-self: flex-end;
@@ -494,7 +501,7 @@ export const ProjectCtaContainer = styled.div`
     color: ${themes.primary.colors.primary};
   }
 
-  @media (${themes.primary.media.maxTabletLandScape}) {
+  @media ${themes.primary.media.maxTabletLandScape} {
     h3 {
       font-size: 26px;
     }
@@ -529,7 +536,7 @@ export const BgiContainer = styled.div<ILine>`
     );`};
   background-size: 100% 100%;
 
-  @media (${themes.primary.media.maxTabletLandScape}) {
+  @media ${themes.primary.media.maxTabletLandScape} {
     height: 200px;
   }
 

@@ -10,6 +10,10 @@ export const LoaderWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media ${themes.primary.media.maxMobile} {
+    height: 250px;
+  }
 `;
 
 export const Cube = styled.div`
