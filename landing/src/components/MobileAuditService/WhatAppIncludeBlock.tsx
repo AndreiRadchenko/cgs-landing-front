@@ -35,6 +35,7 @@ const WhatAppIncludeBlock = () => {
 
   const initialCoordinates = { x: 0, y: 0 };
   const [coordinates, setCoordinates] = useState(initialCoordinates);
+  const [hoverOut, setHoverOut] = useState(false);
   const [activeIcon, setActiveIcon] = useState('');
 
   const securityTestIconRef = useRef<HTMLDivElement>(null);
@@ -63,39 +64,71 @@ const WhatAppIncludeBlock = () => {
   }, []);
 
   const onMouseEnter = (title: string) => {
-    const glassPositionAndSize = glassRef?.current?.getBoundingClientRect();
+    if (!hoverOut) {
+      const is1200px = window.matchMedia('(max-width: 1200px)').matches;
+      const is992px = window.matchMedia('(max-width: 992px)').matches;
+      const is768px = window.matchMedia('(max-width: 768px)').matches;
+      const is475px = window.matchMedia('(max-width: 475px)').matches;
+      const is375px = window.matchMedia('(max-width: 375px)').matches;
 
-    const targetIcon = iconPosition?.find(it => {
-      const isBulletHovered = it.bullets?.some(bullet => title?.toUpperCase()?.includes(bullet?.toUpperCase()));
-      return title?.toUpperCase()?.includes(it.key?.toUpperCase()) || isBulletHovered;
-    });
+      const glassPositionAndSize = glassRef?.current?.getBoundingClientRect();
+      const targetIcon = iconPosition?.find(it => {
+        const isBulletHovered = it.bullets?.some(bullet => title?.toUpperCase()?.includes(bullet?.toUpperCase()));
+        return title?.toUpperCase()?.includes(it.key?.toUpperCase()) || isBulletHovered;
+      });
 
-    const targetPictureRef = targetIcon?.ref;
+      const targetPictureRef = targetIcon?.ref;
 
-    const targetPicturePosition = targetPictureRef?.current?.getBoundingClientRect();
+      const targetPicturePosition = targetPictureRef?.current?.getBoundingClientRect();
 
-    if (!glassPositionAndSize) return
+      if (!glassPositionAndSize) return
 
-    const glassCenterPosition = {
-      x: glassPositionAndSize.left + (glassPositionAndSize?.width * 0.18),
-      y: glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.2)
-    };
+      const glassCenterPosition = {
+        x: glassPositionAndSize.left + (glassPositionAndSize?.width * 0.18),
+        y: glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.2)
+      };
 
-    const newPosition = {
-      x: (targetPicturePosition?.left ?? 0) - glassCenterPosition.x,
-      y: (targetPicturePosition?.top ?? 0) - glassCenterPosition.y,
-    };
+      if (is1200px) {
+        glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.27),
+        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.4)
+      }
+      if (is992px) {
+        glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.25),
+        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.3)
+      }
+      if (is768px) {
+        glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.28),
+        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.5)
+      }
+      if (is475px) {
+        glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.3),
+        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.4)
+      }
+      if (is375px) {
+        glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.27),
+        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.32)
+      }
 
-    if (newPosition) {
-      setCoordinates(newPosition);
-      const iconKey = targetIcon?.key;
-      setActiveIcon(iconKey || '');
+      const newPosition = {
+        x: (targetPicturePosition?.left ?? 0) - glassCenterPosition.x,
+        y: (targetPicturePosition?.top ?? 0) - glassCenterPosition.y,
+      };
+
+      if (newPosition) {
+        setCoordinates(newPosition);
+        const iconKey = targetIcon?.key;
+        setActiveIcon(iconKey || '');
+      };
     };
   };
 
   const onMouseOut = () => {
-    setCoordinates(initialCoordinates)
+    setHoverOut(true)
     setActiveIcon('');
+    setCoordinates(initialCoordinates);
+    setTimeout(() => {
+      setHoverOut(false)
+    }, 150);
   };
 
   return (

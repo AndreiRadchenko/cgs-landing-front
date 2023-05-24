@@ -117,16 +117,14 @@ export const WhyIsAuditImportantImageWrapper = styled.div`
     width: 100%;
     height: 470px;
     right: 4em;
-    top: -90%;
+    top: -70%;
   }
-  @media (min-width: 1500px) {
-    top: -145%;
-  }
+  
   @media ${themes.primary.media.minPCFullHD} {
     height: 670px;
     width: 1600px;
     right: 5vw;
-    top: -200%;
+    top: -95%;
   }
 
   @media (min-width: 2200px) {

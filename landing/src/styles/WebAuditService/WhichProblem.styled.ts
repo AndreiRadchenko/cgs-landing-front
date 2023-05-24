@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-top: 17%;
+  margin-top: 201px;
   position: relative;
 
   @media ${themes.primary.media.maxTabletPortrait} {

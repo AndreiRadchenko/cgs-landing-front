@@ -51,34 +51,24 @@ const MobileAuditIcons = ({
                 <Image src={Glass} alt='magnifying glass image' />
             </Styled.GlassItem>
             <Styled.IconItems>
-                <>
-                    <Styled.IconItem ref={securityTestIconRef}>
-                        <Image src={activeIcon === iconPositions[0].key ? securityTestIconActive : securityTestIcon} alt='mobile application security test image' />
-                    </Styled.IconItem>
-                    <Styled.IconItemHeader>
-                        <Styled.IconItem ref={encryptionDefinitionIconRef}>
-                            <Image src={activeIcon === iconPositions[1].key ? encryptionDefinitionIconActive : encryptionDefinitionIcon} alt='encryption definition image' />
-                        </Styled.IconItem>
-                    </Styled.IconItemHeader>
-                </>
-                <>
-                    <Styled.IconItem ref={operatingSystemIconRef}>
-                        <Image src={activeIcon === iconPositions[2].key ? operatingSystemIconActive : operatingSystemIcon} alt='mobile app operating system image' />
-                    </Styled.IconItem>
-                    <Styled.IconItem ref={migrationAuditIconRef}>
-                        <Image src={activeIcon === iconPositions[5].key ? migrationAuditIconActive : migrationAuditIcon} alt='android/ios apps static image' />
-                    </Styled.IconItem>
-                </>
-                <>
-                    <Styled.IconItemFooter>
-                        <Styled.IconItem ref={discoveringDataIconRef}>
-                            <Image src={activeIcon === iconPositions[4].key ? discoveringDataIconActive : discoveringDataIcon} alt='discovering data image' />
-                        </Styled.IconItem>
-                    </Styled.IconItemFooter>
-                    <Styled.IconItem ref={appsStaticIconRef}>
-                        <Image src={activeIcon === iconPositions[3].key ? appsStaticIconActive : appsStaticIcon} alt='migration audi' />
-                    </Styled.IconItem>
-                </>
+                <Styled.IconItem ref={securityTestIconRef}>
+                    <Image src={activeIcon === iconPositions[0].key ? securityTestIconActive : securityTestIcon} alt='mobile application security test image' />
+                </Styled.IconItem>
+                <Styled.IconItem ref={encryptionDefinitionIconRef}>
+                    <Image src={activeIcon === iconPositions[1].key ? encryptionDefinitionIconActive : encryptionDefinitionIcon} alt='encryption definition image' />
+                </Styled.IconItem>
+                <Styled.IconItem ref={operatingSystemIconRef}>
+                    <Image src={activeIcon === iconPositions[2].key ? operatingSystemIconActive : operatingSystemIcon} alt='mobile app operating system image' />
+                </Styled.IconItem>
+                <Styled.IconItem ref={migrationAuditIconRef}>
+                    <Image src={activeIcon === iconPositions[5].key ? migrationAuditIconActive : migrationAuditIcon} alt='android/ios apps static image' />
+                </Styled.IconItem>
+                <Styled.IconItem ref={discoveringDataIconRef}>
+                    <Image src={activeIcon === iconPositions[4].key ? discoveringDataIconActive : discoveringDataIcon} alt='discovering data image' />
+                </Styled.IconItem>
+                <Styled.IconItem ref={appsStaticIconRef}>
+                    <Image src={activeIcon === iconPositions[3].key ? appsStaticIconActive : appsStaticIcon} alt='migration audi' />
+                </Styled.IconItem>
             </Styled.IconItems>
         </Styled.IconContainer>
     );
