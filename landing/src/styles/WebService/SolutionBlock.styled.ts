@@ -142,5 +142,10 @@ export const RightSideText = styled.div`
     line-height: 21.12px;
     width: 102.1%;
     margin: 0;
+
+    svg {
+      width: 35px;
+      height: 17px;
+    }
   }
 `;

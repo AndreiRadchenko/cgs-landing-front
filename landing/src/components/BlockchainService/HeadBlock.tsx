@@ -8,38 +8,7 @@ import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 import TV from "../../../public/BlockchainServicePage/HeadImage/TV.svg";
-import firstNoise from "../../../public/BlockchainServicePage/HeadImage/noise-1.svg";
-import secondNoise from "../../../public/BlockchainServicePage/HeadImage/noise-2.svg";
-import firstCripto from "../../../public/BlockchainServicePage/HeadImage/cripto-1.svg";
-import secondCripto from "../../../public/BlockchainServicePage/HeadImage/cripto-2.svg";
-import thirdCripto from "../../../public/BlockchainServicePage/HeadImage/cripto-3.svg";
-import fourthCripto from "../../../public/BlockchainServicePage/HeadImage/cripto-4.svg";
-import fifthCripto from "../../../public/BlockchainServicePage/HeadImage/cripto-5.svg";
-import sixthCripto from "../../../public/BlockchainServicePage/HeadImage/cripto-6.svg";
-import seventhCripto from "../../../public/BlockchainServicePage/HeadImage/cripto-7.svg";
-import eighthCripto from "../../../public/BlockchainServicePage/HeadImage/cripto-8.svg";
-
-const noiseImages = [
-  secondNoise.src,
-  firstNoise.src,
-  secondNoise.src,
-  firstNoise.src,
-];
-
-const criptoImages = [
-  firstCripto.src,
-  secondCripto.src,
-  thirdCripto.src,
-  fourthCripto.src,
-  fifthCripto.src,
-  sixthCripto.src,
-  seventhCripto.src,
-  eighthCripto.src
-];
-
-const modifiedCriptoImages = criptoImages.reduceRight((acc, img) => {
-  return acc.concat(noiseImages, img);
-}, []);
+import { cryptoTVImages } from "../../consts/cryptoTV";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -51,13 +20,27 @@ const HeadBlock = () => {
   const [imageIndex, setImageIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setImageIndex((prevIndex) =>
-        prevIndex === modifiedCriptoImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 300);
-    return () => clearInterval(timer);
-  }, [modifiedCriptoImages]);
+    let timer: NodeJS.Timeout;
+    const nextIndex = imageIndex + 1;
+
+    if (nextIndex % 5 === 0) {
+      timer = setTimeout(() => {
+        setImageIndex((prevIndex) =>
+          prevIndex === cryptoTVImages.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 1000)
+    } else {
+      timer = setTimeout(() => {
+        setImageIndex((prevIndex) =>
+          prevIndex === cryptoTVImages.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 250)
+    }
+
+    return () => {
+      clearTimeout(timer);
+    }
+  }, [imageIndex]);
 
   return (
     <Styled.Container>
@@ -80,7 +63,7 @@ const HeadBlock = () => {
       </Styled.Content>
       <Styled.Image>
         <Styled.ImageTV src={TV.src} />
-        <Styled.ImageCripto src={modifiedCriptoImages[imageIndex]} />
+        <Styled.ImageCrypto src={cryptoTVImages[imageIndex]} />
       </Styled.Image>
     </Styled.Container>
   );

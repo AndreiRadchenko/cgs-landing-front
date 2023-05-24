@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
 import { SplitBrackets } from "../../utils/splitBrackets";
@@ -35,6 +35,7 @@ const WhatAppIncludeBlock = () => {
 
   const initialCoordinates = { x: 0, y: 0 };
   const [coordinates, setCoordinates] = useState(initialCoordinates);
+  const [hoverOut, setHoverOut] = useState(false);
   const [activeIcon, setActiveIcon] = useState('');
 
   const securityTestIconRef = useRef<HTMLDivElement>(null);
@@ -45,7 +46,7 @@ const WhatAppIncludeBlock = () => {
   const migrationAuditIconRef = useRef<HTMLDivElement>(null);
   const glassRef = useRef<HTMLDivElement>(null);
 
-  const iconPosition = [
+  const listInformation = [
     { key: 'MOBILE APPLICATION SECURITY TEST', ref: securityTestIconRef },
     { key: 'ENCRYPTION DEFINITION', ref: encryptionDefinitionIconRef },
     { key: 'MOBILE APP OPERATING SYSTEM', ref: operatingSystemIconRef },
@@ -54,33 +55,80 @@ const WhatAppIncludeBlock = () => {
     { key: 'MIGRATION AUDIT', ref: migrationAuditIconRef }
   ];
 
+  const iconPosition = useMemo(() => {
+    return listInformation?.map(it => ({
+      key: it.key,
+      ref: it.ref,
+      bullets: data?.textBlock?.find(block => block.text?.toUpperCase()?.includes(it?.key?.toUpperCase()))?.subtext
+    }));
+  }, []);
+
   const onMouseEnter = (title: string) => {
-    const glassPositionAndSize = glassRef?.current?.getBoundingClientRect()
-    const targetPictureRef = iconPosition?.find(it => title?.toUpperCase()?.includes(it.key?.toUpperCase()))?.ref;
-    const targetPicturePosition = targetPictureRef?.current?.getBoundingClientRect();
+    if (!hoverOut) {
+      const is1200px = window.matchMedia('(max-width: 1200px)').matches;
+      const is992px = window.matchMedia('(max-width: 992px)').matches;
+      const is768px = window.matchMedia('(max-width: 768px)').matches;
+      const is475px = window.matchMedia('(max-width: 475px)').matches;
+      const is375px = window.matchMedia('(max-width: 375px)').matches;
 
-    if (!glassPositionAndSize) return
+      const glassPositionAndSize = glassRef?.current?.getBoundingClientRect();
+      const targetIcon = iconPosition?.find(it => {
+        const isBulletHovered = it.bullets?.some(bullet => title?.toUpperCase()?.includes(bullet?.toUpperCase()));
+        return title?.toUpperCase()?.includes(it.key?.toUpperCase()) || isBulletHovered;
+      });
 
-    const glassCenterPosition = {
-      x: glassPositionAndSize.left + (glassPositionAndSize?.width * 0.18),
-      y: glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.2)
-    };
-    
-    const newPosition = {
-      x: (targetPicturePosition?.left ?? 0) - glassCenterPosition.x,
-      y: (targetPicturePosition?.top ?? 0) - glassCenterPosition.y,
-    };
+      const targetPictureRef = targetIcon?.ref;
 
-    if (newPosition) {
-      setCoordinates(newPosition);
-      const iconKey = iconPosition?.find(it => title?.toUpperCase()?.includes(it.key?.toUpperCase()))?.key;
-      setActiveIcon(iconKey || '');
+      const targetPicturePosition = targetPictureRef?.current?.getBoundingClientRect();
+
+      if (!glassPositionAndSize) return
+
+      const glassCenterPosition = {
+        x: glassPositionAndSize.left + (glassPositionAndSize?.width * 0.18),
+        y: glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.2)
+      };
+
+      if (is1200px) {
+        glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.27),
+        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.4)
+      }
+      if (is992px) {
+        glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.25),
+        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.3)
+      }
+      if (is768px) {
+        glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.28),
+        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.5)
+      }
+      if (is475px) {
+        glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.3),
+        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.4)
+      }
+      if (is375px) {
+        glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.27),
+        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.32)
+      }
+
+      const newPosition = {
+        x: (targetPicturePosition?.left ?? 0) - glassCenterPosition.x,
+        y: (targetPicturePosition?.top ?? 0) - glassCenterPosition.y,
+      };
+
+      if (newPosition) {
+        setCoordinates(newPosition);
+        const iconKey = targetIcon?.key;
+        setActiveIcon(iconKey || '');
+      };
     };
   };
 
-  const onMouseOut = () => {   
-    setCoordinates(initialCoordinates)
+  const onMouseOut = () => {
+    setHoverOut(true)
     setActiveIcon('');
+    setCoordinates(initialCoordinates);
+    setTimeout(() => {
+      setHoverOut(false)
+    }, 150);
   };
 
   return (
