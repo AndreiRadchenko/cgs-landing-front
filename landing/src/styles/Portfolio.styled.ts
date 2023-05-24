@@ -479,6 +479,63 @@ export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
   }
 `;
 
+export const ProjectsContainerInfoBtn = styled.div`
+  position: relative;
+  margin: 30px 20px 0 20px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 16px;
+  line-height: 160%;
+  color: ${themes.primary.colors.blogBackground};
+  text-transform: uppercase;
+  padding: 5px 20px 7px;
+  border: 1px solid ${themes.primary.colors.blogBackground};
+  width: 189px;
+  height: 39px;
+  cursor: pointer;
+  outline: none;
+  transition: 1s ease-in-out;
+
+  .btnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  & > svg {
+    position: absolute;
+    left: -1.2px;
+    top: -1.5px;
+    fill: none;
+    stroke-width: 4px;
+    stroke-dasharray: 50 480;
+    stroke-dashoffset: 50;
+    transition: 1s ease-in-out;
+    stroke: #30302f;
+  }
+
+  &:hover > svg {
+    stroke-dashoffset: 50 !important;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 145px;
+    height: 35px;
+    font-size: 12px;
+    line-height: 160%;
+    padding: 7px 10px;
+    margin: 18px 10px 0 10px;
+
+    & > svg {
+      width: 145px !important;
+      height: 35px !important;
+      stroke-width: 2px;
+      top: -2px;
+    }
+  }
+`;
+
 export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
   position: relative;
   min-height: 441px;
@@ -495,6 +552,12 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
       !isProjectLink
         ? `2.26667px solid #181817`
         : `2.26667px solid ${themes.primary.colors.primary}`};
+  }
+
+  &:hover ${ProjectsContainerInfoBtn} {
+    & > svg {
+      stroke-dashoffset: -480;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -528,63 +591,6 @@ export const ProjectsContainerInfoText = styled.div`
     font-size: 14px;
     line-height: 128%;
     margin: 10px 16px 18px 10px;
-  }
-`;
-
-export const ProjectsContainerInfoBtn = styled.div`
-  position: relative;
-  margin: 30px 20px 0 20px;
-  font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 16px;
-  line-height: 160%;
-  color: ${themes.primary.colors.blogBackground};
-  text-transform: uppercase;
-  padding: 5px 20px 7px;
-  border: 1px solid ${themes.primary.colors.blogBackground};
-  width: 169px;
-  height: 39px;
-  cursor: pointer;
-  outline: none;
-  transition: 1s ease-in-out;
-
-  .btnContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
-
-  & > svg {
-    position: absolute;
-    left: -1.2px;
-    top: -1.5px;
-    fill: none;
-    stroke-width: 4px;
-    stroke-dasharray: 50 480;
-    stroke-dashoffset: 50;
-    transition: 1s ease-in-out;
-    stroke: #30302f;
-  }
-
-  &:hover > svg {
-    stroke-dashoffset: -480;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 125px;
-    height: 35px;
-    font-size: 12px;
-    line-height: 160%;
-    padding: 7px 10px;
-    margin: 18px 10px 0 10px;
-
-    & > svg {
-      width: 125px !important;
-      height: 35px !important;
-      stroke-width: 2px;
-      top: -2px;
-    }
   }
 `;
 
