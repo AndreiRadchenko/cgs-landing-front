@@ -521,7 +521,7 @@ export const ProjectsContainerInfoBtn = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     width: 145px;
-    height: 35px;
+    height: 32px;
     font-size: 12px;
     line-height: 160%;
     padding: 7px 10px;
@@ -529,9 +529,9 @@ export const ProjectsContainerInfoBtn = styled.div`
 
     & > svg {
       width: 145px !important;
-      height: 35px !important;
+      height: 50px !important;
       stroke-width: 2px;
-      top: -2px;
+      top: -10px;
     }
   }
 `;

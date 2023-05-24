@@ -36,13 +36,6 @@ const DropdownTechnology = ({ technologies }: IDropdownProps) => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getPortfolioPage]);
-        const thirdArray = values.technologies.filter((elem) => {
-          return technologies.some((ele) => {
-            return ele._id === elem._id && ele.name === elem.name;
-          });
-        });
-
-        setFieldValue("technologies", thirdArray);
       },
     }
   );
@@ -81,6 +74,15 @@ const DropdownTechnology = ({ technologies }: IDropdownProps) => {
   useEffect(() => {
     setFieldValue("technologies", techArr);
   }, [techArr]);
+  useEffect(() => {
+    const thirdArray = values.technologies.filter((elem) => {
+      return technologies.some((ele) => {
+        return ele._id === elem._id && ele.name === elem.name;
+      });
+    });
+
+    setFieldValue("technologies", thirdArray);
+  }, [technologies]);
 
   return (
     <>
@@ -102,28 +104,25 @@ const DropdownTechnology = ({ technologies }: IDropdownProps) => {
         </Styled.Content>
       </Styled.DropdownWrapperTechnology>
       <Styles.AdminFourthBlockFlexTag>
-        {values.technologies.map(
-          (tech, idx) =>
-            technologies.some((technology) => technology._id === tech._id) && (
-              <Styles.AdminPageFourthTechTagWrapper key={`${tech}${idx}`}>
-                <Styles.AdminPageFourthTechTag>
-                  <span>{tech.name}</span>
-                  <span onClick={() => removeTagHandler(idx)}>x</span>
-                </Styles.AdminPageFourthTechTag>
-                <label>
-                  <Field
-                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                      handleInputChange(e, idx)
-                    }
-                    type="checkbox"
-                    checked={values.technologies[idx].main}
-                    name={`technologies[${idx}].main`}
-                  />{" "}
-                  Main
-                </label>
-              </Styles.AdminPageFourthTechTagWrapper>
-            )
-        )}
+        {values.technologies.map((tech, idx) => (
+          <Styles.AdminPageFourthTechTagWrapper key={`${tech}${idx}`}>
+            <Styles.AdminPageFourthTechTag>
+              <span>{tech.name}</span>
+              <span onClick={() => removeTagHandler(idx)}>x</span>
+            </Styles.AdminPageFourthTechTag>
+            <label>
+              <Field
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  handleInputChange(e, idx)
+                }
+                type="checkbox"
+                checked={values.technologies[idx].main}
+                name={`technologies[${idx}].main`}
+              />{" "}
+              Main
+            </label>
+          </Styles.AdminPageFourthTechTagWrapper>
+        ))}
       </Styles.AdminFourthBlockFlexTag>
     </>
   );
