@@ -577,6 +577,7 @@ export const ProjectsContainerInfoText = styled.div`
   line-height: 160%;
   color: ${themes.primary.colors.secondary};
   overflow: hidden;
+
   p {
     margin: 0;
     width: 100%;
