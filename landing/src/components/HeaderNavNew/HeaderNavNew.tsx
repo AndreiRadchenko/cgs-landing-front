@@ -5,16 +5,18 @@ import React, {
   useRef,
   useState,
 } from "react";
-import * as StyledThisComp from "./HeaderNav.styled";
-import { navigationRoutesNamesNew, routersNew } from "../../utils/variables";
 import Link from "next/link";
+
+import Logo from "./Logo";
+import HeaderDropdown from "./HeaderDropdown";
+import HeaderBurgerDropdown from "./HeaderBurgerDropdown";
 import BurgerButton from "../BurgerMenu/BurgerButton";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
-import HeaderDropdown from "./HeaderDropdown";
-import Logo from "./Logo";
-import HeaderBurgerDropdown from "./HeaderBurgerDropdown";
+
+import * as StyledThisComp from "./HeaderNav.styled";
+import { navigationRoutesNamesNew, routersNew } from "../../utils/variables";
 
 const HeaderNavNew = ({
   setOpenFailedModal,
@@ -53,7 +55,8 @@ const HeaderNavNew = ({
   };
 
   const handlePortfolioClick = () => {
-    if (window.location.pathname === "/portfolio") window.location.reload();
+    if (window.location.pathname === "/portfolio")
+      window.location.href = "/portfolio";
   };
 
   useEffect(() => {

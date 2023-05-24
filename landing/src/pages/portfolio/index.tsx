@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
+import Image from "next/image";
 import Head from "next/head";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
-import Image from "next/image";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
@@ -73,20 +74,20 @@ const PortfolioPage: NextPage = () => {
     },
   };
 
+  const router = useRouter();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [category, setCategory] = useState<string>("");
   const [isRequestRepeated, setIsRequestRepeated] = useState<boolean>(false);
   const [isSearchTriggered, setIsSearchTriggered] = useState<boolean>(false);
   const [isCategoryChange, setIsCategoryChange] = useState<boolean>(false);
   const [isCategoryWarning, setIsCategoryWarning] = useState<boolean>(false);
-  const [industries, setIndustries] = useState<string[]>([]);
+  const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const [searchTrigger, setSearchTrigger] = useState<string>("");
   const [activeCategory, setActiveCategory] = useState<number>(0);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const contentRef = useRef<HTMLDivElement>(null);
   const [isPaginationTriggered, setIsPaginationTriggered] = useState(true);
-
   const { data, isLoading }: IPortfolioResponse = useQuery(
     [queryKeys.getPortfolioPageData],
     () => adminPortfolioService.getPageData()
@@ -99,7 +100,7 @@ const PortfolioPage: NextPage = () => {
     [
       queryKeys.getPortfolio,
       currentPage,
-      industries,
+      selectedIndustries,
       category,
       PortfolioPageSize,
       searchTrigger,
@@ -107,7 +108,7 @@ const PortfolioPage: NextPage = () => {
     () =>
       adminPortfolioService.getPaginatedAndFilteredReviews(
         category,
-        industries,
+        selectedIndustries,
         searchTrigger,
         currentPage,
         PortfolioPageSize
@@ -150,7 +151,7 @@ const PortfolioPage: NextPage = () => {
   };
 
   const filtersNulifier = () => {
-    setIndustries([]);
+    setSelectedIndustries([]);
     setCategory("");
     setActiveCategory(0);
   };
@@ -162,10 +163,28 @@ const PortfolioPage: NextPage = () => {
     setIsPaginationTriggered(false);
   };
 
+  const updateURLParams = ({ category, selectedIndustries }: any) => {
+    const industriesQuery = selectedIndustries.join(",");
+    const queryParams: any = {};
+
+    if (category) {
+      queryParams.category = category;
+    }
+
+    if (selectedIndustries.length > 0) {
+      queryParams.industries = industriesQuery;
+    }
+
+    router.push({
+      pathname: "/portfolio",
+      query: queryParams,
+    });
+  };
+
   useEffect(() => {
     if (
       reviewsData?.reviews.length === 0 &&
-      (category || industries.length > 0) &&
+      (category || selectedIndustries.length > 0) &&
       isSearchTriggered
     ) {
       filtersNulifier();
@@ -185,7 +204,7 @@ const PortfolioPage: NextPage = () => {
   useEffect(() => {
     setCurrentPage(1);
     scrollFunction(true);
-  }, [industries.length, searchTrigger, category]);
+  }, [selectedIndustries.length, searchTrigger, category]);
 
   useEffect(() => {
     if (!isLoading && !reviewsIsLoading && !isFirstLoad) {
@@ -196,6 +215,52 @@ const PortfolioPage: NextPage = () => {
   useEffect(() => {
     setIsRequestRepeated(false);
   }, [searchTrigger]);
+
+  useEffect(() => {
+    const { category, industries } = router.query;
+    const pickedIndustries =
+      (typeof industries === "string" && industries?.split(",")) || [];
+
+    if (category) {
+      if (typeof category === "string" && category.split(",").length > 1) {
+        setCategory("");
+        setActiveCategory(0);
+        return;
+      }
+
+      const activeCategoryIndex =
+        typeof category === "string"
+          ? data?.categories.findIndex((elem) => elem.name === category)
+          : 0;
+
+      activeCategoryIndex !== undefined &&
+        setActiveCategory(activeCategoryIndex + 1);
+      setCategory(category as string);
+    }
+
+    if (
+      pickedIndustries?.length &&
+      selectedIndustries.join(",") !== industries
+    ) {
+      setSelectedIndustries(pickedIndustries);
+    }
+  }, [router.query]);
+
+  useEffect(() => {
+    if (category) {
+      updateURLParams({ category, selectedIndustries });
+    } else {
+      updateURLParams({ category: "", selectedIndustries });
+    }
+  }, [category]);
+
+  useEffect(() => {
+    if (selectedIndustries.length > 0) {
+      updateURLParams({ category, selectedIndustries });
+    } else {
+      updateURLParams({ category, selectedIndustries: [] });
+    }
+  }, [selectedIndustries]);
 
   return (
     <Loader active={(isLoading || reviewsIsLoading) && isFirstLoad}>
@@ -283,18 +348,18 @@ const PortfolioPage: NextPage = () => {
                     )}
                 </Styles.PortfolioSearchWrapper>
                 <DropdownContainer className="portfolio_dropdown">
-                  {industries.length > 0 &&
-                    industries.map((filter, index) => (
+                  {selectedIndustries.length > 0 &&
+                    selectedIndustries.map((filter, index) => (
                       <Styles.PortfolioIndustryTagWrapper key={index}>
                         <Styles.PortfolioIndustryTag>
                           {filter}
                         </Styles.PortfolioIndustryTag>
                         <Styles.PortfolioIndustryTagDelete
                           onClick={() => {
-                            const newIndustries = industries.filter(
-                              (filter) => filter !== industries[index]
+                            const newIndustries = selectedIndustries.filter(
+                              (filter) => filter !== selectedIndustries[index]
                             );
-                            setIndustries([...newIndustries]);
+                            setSelectedIndustries([...newIndustries]);
                           }}
                         />
                       </Styles.PortfolioIndustryTagWrapper>
@@ -302,8 +367,8 @@ const PortfolioPage: NextPage = () => {
                   <Styles.PortfolioDropdownWrapper>
                     <Dropdown
                       className="portfolio_dropdown-element"
-                      filters={industries}
-                      setFilters={setIndustries}
+                      filters={selectedIndustries}
+                      setFilters={setSelectedIndustries}
                       tags={data.industries}
                       dropdownName="// INDUSTRY"
                       isTag={true}
