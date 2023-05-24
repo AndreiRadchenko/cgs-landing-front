@@ -39,6 +39,7 @@ const MarioBlock = (data: MarioBlockProps) => {
     const [marioIndex, setMarioIndex] = useState(0);
     const [mushroomIndex, setMushroomIndex] = useState(0);
     const [isJumping, setIsJumping] = useState(false);
+    const [isRoadMoving, setIsRoadMoving] = useState(false);
 
     const blocksSrc = [
         topLeftBlock.src,
@@ -55,9 +56,12 @@ const MarioBlock = (data: MarioBlockProps) => {
         }, 300);
     };
 
-    const handleContextMenu = (event: React.MouseEvent<HTMLDivElement>) => {
-        jump()
-        event.preventDefault();
+    const handleMouseDown = (event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) => {
+        if ((event as React.TouchEvent<HTMLDivElement>).touches || (event as React.MouseEvent<HTMLDivElement, MouseEvent>).button === 0) {
+            jump();
+            event.preventDefault();
+            setIsRoadMoving(true);
+        }
     };
 
     useEffect(() => {
@@ -77,6 +81,7 @@ const MarioBlock = (data: MarioBlockProps) => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.code === "Space" || event.code === '') {
                 jump();
+                setIsRoadMoving(true)
             };
         };
 
@@ -87,17 +92,23 @@ const MarioBlock = (data: MarioBlockProps) => {
     }, []);
 
     useEffect(() => {
-        const timer = setInterval(() => {
-            setMarioIndex(prevIndex => (prevIndex === marioMovement.length - 1 ? 0 : prevIndex + 1));
-            setMushroomIndex(prevIndex => (prevIndex >= mushroomsMovement.length - 1 ? 0 : prevIndex + 1));
-        }, 400);
-        return () => {
-            clearInterval(timer);
-        };
-    }, [marioMovement, mushroomsMovement]);
+        if (isRoadMoving) {
+            const timer = setInterval(() => {
+                setMarioIndex(prevIndex => (prevIndex === marioMovement.length - 1 ? 0 : prevIndex + 1));
+                setMushroomIndex(prevIndex => (prevIndex >= mushroomsMovement.length - 1 ? 0 : prevIndex + 1));
+            }, 400);
+            const moving = setTimeout(() => {
+                setIsRoadMoving(false)
+            }, 10000);
+            return () => {
+                clearInterval(timer);
+                clearTimeout(moving)
+            };
+        }
+    }, [marioMovement, mushroomsMovement, isRoadMoving]);
 
     return (
-        <Styled.MarioBlock onContextMenu={handleContextMenu}>
+        <Styled.MarioBlock onMouseDown={handleMouseDown} onTouchStart={handleMouseDown}>
             <Styled.BlockContainer>
                 {data?.data?.map(({ subtitle, text }: MarioProp, index) => (
                     <div key={index}>
@@ -110,20 +121,36 @@ const MarioBlock = (data: MarioBlockProps) => {
                 ))}
             </Styled.BlockContainer>
             <Styled.FooterContainer>
-                <Styled.Mario isJumping={isJumping} src={isJumping ? marioJump.src : marioMovement[marioIndex].src}/>
+                <Styled.Mario
+                    isJumping={isJumping}
+                    src={isJumping ? marioJump.src : (isRoadMoving ? marioMovement[marioIndex].src : marioStop.src)} />
                 <Styled.FooterMarioBlock>
-                    <Styled.RoadMove>
+                    <Styled.RoadMove isMoving={isRoadMoving}>
                         <Styled.RoadImages>
                             <Styled.MushroomsImages>
-                                <Styled.MushroomsImage src={mushroomsMovement[mushroomIndex]} />
-                                <Styled.MushroomsImage src={mushroomsMovement[mushroomIndex]} />
+                                <Styled.MushroomsImage src={isRoadMoving ? mushroomsMovement[mushroomIndex] : firstMushroom.src} />
+                                <Styled.MushroomsImage src={isRoadMoving ? mushroomsMovement[mushroomIndex] : secondMushroom.src} />
                             </Styled.MushroomsImages>
                             <Styled.RoadImage src={road.src} />
                         </Styled.RoadImages>
                         <Styled.RoadImages>
                             <Styled.MushroomsImages>
-                                <Styled.MushroomsImage src={mushroomsMovement[mushroomIndex]} />
-                                <Styled.MushroomsImage src={mushroomsMovement[mushroomIndex]} />
+                                <Styled.MushroomsImage src={isRoadMoving ? mushroomsMovement[mushroomIndex] : firstMushroom.src} />
+                                <Styled.MushroomsImage src={isRoadMoving ? mushroomsMovement[mushroomIndex] : secondMushroom.src} />
+                            </Styled.MushroomsImages>
+                            <Styled.RoadImage src={road.src} />
+                        </Styled.RoadImages>
+                        <Styled.RoadImages>
+                            <Styled.MushroomsImages>
+                                <Styled.MushroomsImage src={isRoadMoving ? mushroomsMovement[mushroomIndex] : firstMushroom.src} />
+                                <Styled.MushroomsImage src={isRoadMoving ? mushroomsMovement[mushroomIndex] : secondMushroom.src} />
+                            </Styled.MushroomsImages>
+                            <Styled.RoadImage src={road.src} />
+                        </Styled.RoadImages>
+                        <Styled.RoadImages>
+                            <Styled.MushroomsImages>
+                                <Styled.MushroomsImage src={isRoadMoving ? mushroomsMovement[mushroomIndex] : firstMushroom.src} />
+                                <Styled.MushroomsImage src={isRoadMoving ? mushroomsMovement[mushroomIndex] : secondMushroom.src} />
                             </Styled.MushroomsImages>
                             <Styled.RoadImage src={road.src} />
                         </Styled.RoadImages>

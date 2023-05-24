@@ -330,6 +330,7 @@ export const PortfolioProjectsContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(355px, 652px));
   gap: 52px 34px;
   margin-bottom: 100px;
+  margin-top: 60px;
 
   @media ${themes.primary.media.maxMobile} {
     gap: 20px;
@@ -478,58 +479,6 @@ export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
   }
 `;
 
-export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
-  position: relative;
-  min-height: 441px;
-
-  &:hover ${ProjectsContainerInfo} {
-    opacity: 1;
-    transition: opacity 0.4s;
-  }
-
-  &:hover ${ProjectsContainerArrowContainer} {
-    background: ${({ isProjectLink }) =>
-      !isProjectLink ? "#6a6745" : themes.primary.colors.portfolioHover};
-    border: ${({ isProjectLink }) =>
-      !isProjectLink
-        ? `2.26667px solid #181817`
-        : `2.26667px solid ${themes.primary.colors.primary}`};
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    min-height: 240px;
-
-    &:hover ${ProjectsContainerArrowContainer} {
-      border-width: 1.25px;
-    }
-  }
-`;
-
-export const ProjectsContainerInfoText = styled.div`
-  margin: 20px 32px 33px 20px;
-  font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 18px;
-  line-height: 160%;
-  color: ${themes.primary.colors.secondary};
-  overflow: hidden;
-  p {
-    margin: 0;
-    width: 100%;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
-    white-space: pre-wrap; /* let the text wrap preserving spaces */
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 14px;
-    line-height: 128%;
-    margin: 10px 16px 18px 10px;
-  }
-`;
-
 export const ProjectsContainerInfoBtn = styled.div`
   position: relative;
   margin: 30px 20px 0 20px;
@@ -541,7 +490,7 @@ export const ProjectsContainerInfoBtn = styled.div`
   text-transform: uppercase;
   padding: 5px 20px 7px;
   border: 1px solid ${themes.primary.colors.blogBackground};
-  width: 169px;
+  width: 189px;
   height: 39px;
   cursor: pointer;
   outline: none;
@@ -567,11 +516,11 @@ export const ProjectsContainerInfoBtn = styled.div`
   }
 
   &:hover > svg {
-    stroke-dashoffset: -480;
+    stroke-dashoffset: 50 !important;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 125px;
+    width: 145px;
     height: 35px;
     font-size: 12px;
     line-height: 160%;
@@ -579,11 +528,70 @@ export const ProjectsContainerInfoBtn = styled.div`
     margin: 18px 10px 0 10px;
 
     & > svg {
-      width: 125px !important;
+      width: 145px !important;
       height: 35px !important;
       stroke-width: 2px;
       top: -2px;
     }
+  }
+`;
+
+export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
+  position: relative;
+  min-height: 441px;
+
+  &:hover ${ProjectsContainerInfo} {
+    opacity: 1;
+    transition: opacity 0.4s;
+  }
+
+  &:hover ${ProjectsContainerArrowContainer} {
+    background: ${({ isProjectLink }) =>
+      !isProjectLink ? "#6a6745" : themes.primary.colors.portfolioHover};
+    border: ${({ isProjectLink }) =>
+      !isProjectLink
+        ? `2.26667px solid #181817`
+        : `2.26667px solid ${themes.primary.colors.primary}`};
+  }
+
+  &:hover ${ProjectsContainerInfoBtn} {
+    & > svg {
+      stroke-dashoffset: -480;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    min-height: 240px;
+
+    &:hover ${ProjectsContainerArrowContainer} {
+      border-width: 1.25px;
+    }
+  }
+`;
+
+export const ProjectsContainerInfoText = styled.div`
+  margin: 20px 32px 33px 20px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 18px;
+  line-height: 160%;
+  color: ${themes.primary.colors.secondary};
+  overflow: hidden;
+
+  p {
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap; /* let the text wrap preserving spaces */
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+    line-height: 128%;
+    margin: 10px 16px 18px 10px;
   }
 `;
 

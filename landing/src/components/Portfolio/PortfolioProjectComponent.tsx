@@ -304,7 +304,7 @@ const PortfolioProjectComponent = ({
         >
           <BtnPolyline />
           <div className="btnContainer">
-            <span>Read more</span>
+            <span>Full project</span>
             <ArrowBtn />
           </div>
         </Styled.ProjectsContainerInfoBtn>
