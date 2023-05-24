@@ -13,7 +13,6 @@ export const Wrapper = styled.section`
 export const ContentContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   @media ${themes.primary.media.maxMobile} {
     justify-content: flex-start;
     flex-direction: column;
@@ -29,6 +28,7 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const TextContainer = styled.div`
+  padding-top: 9.5em;
   width: 50%;
   @media ${themes.primary.media.maxMobile} {
     width: 100%;

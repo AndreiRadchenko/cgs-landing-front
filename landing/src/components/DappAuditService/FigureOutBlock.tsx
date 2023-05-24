@@ -42,7 +42,7 @@ const FigureOutBlock = () => {
           <Styled.ImageWrapper>
             <Image
               src={
-                width && width < 992 ? FigureOutImgMobile.src : FigureOutImg.src
+                width && width <= 992 ? FigureOutImgMobile.src : FigureOutImg.src
               }
               alt="figure out terms upper image"
               layout="fill"
@@ -67,7 +67,7 @@ const FigureOutBlock = () => {
           <Styled.WhyIsAuditImportantImageWrapper>
             <Image
               src={
-                width && width < 992
+                width && width <= 992
                   ? WhyIsAuditImportantMobile.src
                   : WhyIsAuditImportant.src
               }
