@@ -8,6 +8,7 @@ import TechModal from "./TechModal";
 interface ITechnologyCategoryProps {
   img: string;
   title: string;
+  link: string;
   text: string;
   stack: string[];
   idx: number;
@@ -17,6 +18,7 @@ interface ITechnologyCategoryProps {
 const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
   img,
   title,
+  link,
   text,
   stack,
   className,
@@ -46,7 +48,10 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
         onClick={width && width < 767 ? () => setIsOpen(!isOpen) : undefined}
       >
         <StyledThisComp.TitleWrapper idx={idx}>
-          {title}&nbsp;
+          <StyledThisComp.TitleRef rel="noreferrer noopener" href={link}>
+            {title}&nbsp;
+          </StyledThisComp.TitleRef>
+
           <StyledThisComp.Arrow
             width="15"
             height="8"

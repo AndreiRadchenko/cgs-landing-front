@@ -40,6 +40,7 @@ export interface IFeedbackBlock {
 
 export interface ITech {
   category: string;
+  link?: string;
   text: string;
   image: { url: string } | null;
   stack: string[];

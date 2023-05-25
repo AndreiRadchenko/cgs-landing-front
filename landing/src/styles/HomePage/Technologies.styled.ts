@@ -50,6 +50,13 @@ export const TitleWrapper = styled.div<PropsWithId>`
   }
 `;
 
+export const TitleRef = styled.a`
+  transition: color 0.3s ease;
+  :hover {
+    color: ${themes.primary.colors.darkBlue};
+  }
+`;
+
 export const TechnologyRow = styled.div`
   display: grid;
   width: 100%;
