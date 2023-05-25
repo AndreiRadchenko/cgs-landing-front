@@ -423,7 +423,6 @@ export const PortfolioProjectsContainer = styled.div`
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(355px, 652px));
   gap: 52px 34px;
-  margin-bottom: 100px;
   margin-top: 60px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
