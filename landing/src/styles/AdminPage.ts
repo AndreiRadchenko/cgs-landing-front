@@ -1136,6 +1136,7 @@ export const AdminReviewBlock = styled.div`
     justify-content: center;
     grid-template-columns: 1fr 1fr;
     gap: 37px 37px;
+    user-select: none;
   }
 `;
 

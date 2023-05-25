@@ -1,27 +1,17 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
-import { useFormikContext } from "formik";
+import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
 import SortableList, { SortableItem } from "react-easy-sort";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import AdminReview from "../PortfolioReview/AdminPortfolioReview";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import { adminGlobalService } from "../../../services/adminHomePage";
-import AdminDropDown from "../Global/AdminDropDown";
 
-import {
-  IPortfolioPageData,
-  IPortfolioReview,
-} from "../../../types/Admin/AdminPortfolio.types";
 import { ISwapData } from "../../../types/Admin/Response.types";
-import { AdminPortfolioPageSize } from "../../../consts";
 import { queryKeys } from "../../../consts/queryKeys";
 import * as Styled from "../../../styles/AdminPage";
+import { useFormikContext } from "formik";
+import { IPortfolioPageData } from "../../../types/Admin/AdminPortfolio.types";
+import AdminDropDown from "../Global/AdminDropDown";
 
 interface IEditReview {
   setCurrent: (value: number) => void;
@@ -37,10 +27,10 @@ const EditReview = ({
   setIsNewStatus,
 }: IEditReview) => {
   const queryClient = useQueryClient();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [paginatedData, setPaginatedData] = useState<IPortfolioReview[]>([]);
-
   const { values } = useFormikContext<IPortfolioPageData>();
+
+  const [catValue, setCatValue] = useState(values.categories[0].name);
+
   const { data } = useQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
   );
@@ -77,10 +67,11 @@ const EditReview = ({
     queryClient.invalidateQueries([queryKeys.getPortfolio]);
   };
 
-  const [catValue, setCatValue] = useState(values.categories[0].name);
-
   const filteredData = useMemo(
-    () => data?.filter((review) => review.categories[0] === catValue),
+    () =>
+      catValue === "All Projects"
+        ? data
+        : data?.filter((review) => review.categories[0] === catValue),
     [data, catValue]
   );
 
@@ -101,77 +92,46 @@ const EditReview = ({
     }
   };
 
-  const handlePrevPage = () => {
-    setCurrentPage((prev) => prev - 1);
-  };
-
-  const handleNextPage = () => {
-    setCurrentPage((prev) => prev + 1);
-  };
-
-  const disablePrevPage = currentPage === 1;
-  const disableNextPage =
-    filteredData &&
-    currentPage === Math.ceil(filteredData.length / AdminPortfolioPageSize);
-
-  useEffect(() => {
-    filteredData &&
-      setPaginatedData(
-        filteredData.slice(
-          (currentPage - 1) * AdminPortfolioPageSize,
-          currentPage * AdminPortfolioPageSize
-        )
-      );
-  }, [filteredData, currentPage]);
-
   return (
     <>
       <Styled.AdminCategoryBlock>
         <AdminDropDown
           size="primary"
           bannerClassName="admin-portfolio-dropdown"
-          menu={values.categories.map((elem) => elem.name)}
+          menu={["All Projects", ...values.categories.map((elem) => elem.name)]}
           value={catValue}
           setValue={setCatValue}
         />
       </Styled.AdminCategoryBlock>
       <Styled.AdminReviewBlock>
-        <SortableList onSortEnd={handleDragEnd} className="portfolio-grid">
-          {(paginatedData &&
-            paginatedData.length !== 0 &&
-            paginatedData.map((review, idx) => (
+        <SortableList onSortEnd={handleDragEnd}>
+          {(filteredData &&
+            filteredData.length !== 0 &&
+            filteredData.map((review, idx) => (
               <SortableItem key={idx}>
-                <AdminReview
-                  editFlag={isNewStatus}
-                  review={review}
-                  idx={idx}
-                  setCurrent={setCurrent}
-                  deleteFunc={() =>
-                    review._id &&
-                    review.imageBanner.image?.url &&
-                    review.imageProjectBanner.image?.url &&
-                    deleteFunc(
-                      review._id,
-                      review.image?.url,
-                      review.imageProjectBanner.image?.url
-                    )
-                  }
-                  onScroll={scrollHandler}
-                  editTrigger={setIsNewStatus}
-                />
+                <Styled.DraggableWrapper>
+                  <AdminReview
+                    editFlag={isNewStatus}
+                    review={review}
+                    idx={idx}
+                    setCurrent={setCurrent}
+                    deleteFunc={() =>
+                      review._id &&
+                      review.imageBanner.image?.url &&
+                      review.imageProjectBanner.image?.url &&
+                      deleteFunc(
+                        review._id,
+                        review.image?.url,
+                        review.imageProjectBanner.image?.url
+                      )
+                    }
+                    onScroll={scrollHandler}
+                    editTrigger={setIsNewStatus}
+                  />
+                </Styled.DraggableWrapper>
               </SortableItem>
             ))) || <Styled.AdminSubTitle>no reviews</Styled.AdminSubTitle>}
         </SortableList>
-        <Styled.AdminPortfolioPaginationWrapper>
-          <Styled.AdminPortfolioLeftArrowButton
-            className={disablePrevPage ? "disabled" : ""}
-            onClick={!disablePrevPage ? handlePrevPage : () => {}}
-          />
-          <Styled.AdminPortfolioRightArrowButton
-            className={disableNextPage ? "disabled" : ""}
-            onClick={!disableNextPage ? handleNextPage : () => {}}
-          />
-        </Styled.AdminPortfolioPaginationWrapper>
       </Styled.AdminReviewBlock>
     </>
   );
