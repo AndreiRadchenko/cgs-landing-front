@@ -2,7 +2,19 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
+  margin-top: 7%;
+
+  @media (min-width: 1560px) {
+    margin-top: 3.5%;
+  }
+
+  @media (min-width: 1920px) {
+    margin-top: 1%;
+  }
+
+  @media (min-width: 2560px) {
+    margin-top: 0%;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};

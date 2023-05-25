@@ -152,7 +152,7 @@ export const GridLine1 = styled.div`
 export const GridLine2 = styled.div`
   display: grid;
   grid-template-columns: 4.63fr 3.65fr 1fr;
-  margin-left: 3.5em;
+  margin-left: 6.5em;
   position: relative;
   left: -1.875em;
 
@@ -178,7 +178,7 @@ export const GridLine2 = styled.div`
 
       &:first-child {
         position: relative;
-        left: -100px;
+        left: -60px;
       }
     }
   }
