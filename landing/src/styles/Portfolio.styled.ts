@@ -74,7 +74,7 @@ export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
     padding: 12px 18px;
     border: 1px solid #5869dd;
     background-color: #5869dd;
-    color: white;
+    color: #f1efed;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -135,6 +135,7 @@ export const SelectedIndustriesWrapper = styled.div`
 export const IndustriesClearButton = styled.button`
   order: 1;
   font-size: 14px;
+  background-color: transparent;
   font-family: ${themes.primary.font.family.namu};
   cursor: pointer;
   color: #8f8e93;
