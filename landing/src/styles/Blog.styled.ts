@@ -47,6 +47,14 @@ export const FlexRowContainer = styled.div`
   align-items: center;
 `;
 
+export const TechContainer = styled.div`
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  @media ${themes.primary.media.maxMobile} {
+  }
+`;
+
 export const ArticlePreview = styled(FlexRowContainer)`
   @media ${themes.primary.media.maxMobile} {
     align-items: flex-start;
@@ -108,7 +116,7 @@ export const GeneralInfo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 34px;
+  margin-top: 18px;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1rem;
@@ -246,12 +254,12 @@ export const HoverBlackBlock = styled.div`
 `;
 
 export const BlogItemTitle = styled.p`
-  font-size: ${themes.primary.font.size.secondaryArticleTitle};
-  font-weight: ${themes.primary.font.weight.extraBold};
-  line-height: 130%;
   margin: 0;
   margin-top: 14px;
 
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 99%;
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 2.3em;
   }
@@ -282,9 +290,12 @@ export const HoverContainer = styled.div`
 export const BlogItemDescription = styled.p`
   font-size: ${themes.primary.font.size.secondaryArticleDescription};
   margin: 0;
-  margin-top: 16px;
+  margin-top: 10px;
   margin-bottom: 0;
-  line-height: 170%;
+  line-height: 160%;
+  p {
+    margin: 0;
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.33em;
@@ -904,7 +915,6 @@ export const MainBlogItemContainer = styled.div`
   @media ${themes.primary.media.minPC} {
     padding: 41px 43px 42px 71px;
   }
-
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     padding: 50px 0.75rem 25px;
@@ -931,11 +941,12 @@ export const MainBlogItemTag = styled(Tag)`
     margin-top: -1px;
     margin-left: -1px;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -30px;
+    left: -12px;
     font-size: 0.875rem;
     padding: 0.166em 0.835em;
     line-height: 160%;
+    z-index: 100;
   }
 
   @media ${themes.primary.media.minPCFullHD} {

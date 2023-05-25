@@ -20,15 +20,15 @@ const MainBlogItem = ({ article, views, filters }: IMainBlogItem) => {
   };
 
   return (
-    <Styled.MainBlogItemContainer>
+    <>
       <Styled.MobileColumnReversedContainer>
         <Styled.MainBlogItemImage
           src={article.image?.url}
           alt="main blog image"
         />
-        <Styled.FlexRowContainer>
+        <Styled.TechContainer>
           <Styled.MainBlogItemTag>{article.tags[0]}</Styled.MainBlogItemTag>
-        </Styled.FlexRowContainer>
+        </Styled.TechContainer>
       </Styled.MobileColumnReversedContainer>
       <Styled.MobileColumnReversedContainer>
         <div>
@@ -55,12 +55,7 @@ const MainBlogItem = ({ article, views, filters }: IMainBlogItem) => {
           </Styled.WatchContainer>
         </Styled.GeneralInfo>
       </Styled.MobileColumnReversedContainer>
-      <Styled.SliderDotsContainer>
-        <Styled.SliderDot className={"current"} />
-        <Styled.SliderDot />
-        <Styled.SliderDot />
-      </Styled.SliderDotsContainer>
-    </Styled.MainBlogItemContainer>
+    </>
   );
 };
 
