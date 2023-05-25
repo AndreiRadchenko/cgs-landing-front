@@ -1,5 +1,5 @@
-import firstNoise from "../../public/BlockchainServicePage/HeadImage/noise-1.svg";
-import secondNoise from "../../public/BlockchainServicePage/HeadImage/noise-2.svg";
+import firstNoise from "../../public/BlockchainServicePage/HeadImage/noise-1.png";
+import secondNoise from "../../public/BlockchainServicePage/HeadImage/noise-2.png";
 import firstCrypto from "../../public/BlockchainServicePage/HeadImage/crypto-1.svg";
 import secondCrypto from "../../public/BlockchainServicePage/HeadImage/crypto-2.svg";
 import thirdCrypto from "../../public/BlockchainServicePage/HeadImage/crypto-3.svg";
