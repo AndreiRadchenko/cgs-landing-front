@@ -3,6 +3,7 @@ import themes from "../utils/themes";
 
 import MagnifyingGlass from "../../public/Portfolio/MagnifyingGlass.svg";
 import LightExitIcon from "../../public/Portfolio/LightExitIcon.svg";
+import DarkExitIcon from "../../public/Portfolio/DarkExitIcon.svg";
 
 interface IPortfolioInfoProps {
   readonly isInfoCont?: boolean;
@@ -10,10 +11,6 @@ interface IPortfolioInfoProps {
 }
 interface IPortfolioProjectLink {
   readonly isProjectLink: boolean;
-}
-
-interface IPortfolioSearch {
-  readonly searchElement: boolean;
 }
 
 export const PortfolioContainer = styled.div`
@@ -24,31 +21,39 @@ export const PortfolioWrapper = styled.div`
   width: 100%;
   padding: 0 50px;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     padding: 0 20px;
   }
 `;
 
 export const PortfolioCategoryWrapper = styled.div`
   position: relative;
-  margin-top: 29px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  column-gap: 26px;
+  justify-content: flex-start;
+  gap: 14px;
+  max-width: 50%;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
+    max-width: 100%;
     column-gap: 16px;
     margin-top: 6px;
     justify-content: flex-start;
   }
 `;
 
-export const PortfolioCategoryItem = styled.div`
+interface IPortfolioCategoryItem {
+  blockWidth: string;
+  blockHeight: string;
+}
+
+export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
   font-family: ${themes.primary.font.family.namu};
-  cursor: pointer;
+  height: ${({ blockHeight }) => blockHeight};
+  width: ${({ blockWidth }) => blockWidth};
   white-space: nowrap;
-  font-size: 22px;
+  cursor: pointer;
+  font-size: 14px;
   color: black;
   display: flex;
   justify-content: center;
@@ -56,14 +61,12 @@ export const PortfolioCategoryItem = styled.div`
   padding: 12px 18px;
   border: 1px solid black;
   background: transparent;
-  line-height: 24.4px;
-  margin-top: 20px;
+  line-height: 16.8px;
 
   &:hover {
     transition: none;
     border-right-width: 2.5px;
     border-bottom-width: 4.5px;
-    padding: 8.8px 17.03px 12px 17.99px;
   }
 
   &.active {
@@ -74,9 +77,9 @@ export const PortfolioCategoryItem = styled.div`
     color: white;
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 18px;
-    line-height: 21.6px;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 16px;
+    line-height: 19.2px;
   }
 `;
 
@@ -96,7 +99,7 @@ export const PortfolioComment = styled.div`
   width: 607px;
   line-height: 28.8px;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     text-align: start;
     margin-top: 26px;
     font-size: 16px;
@@ -106,10 +109,9 @@ export const PortfolioComment = styled.div`
 
 export const PortfolioSearchWrapper = styled.div`
   display: flex;
-  align-items: center;
-  max-width: 70%;
+  align-items: flex-end;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     align-items: start;
     flex-direction: column;
     row-gap: 20px;
@@ -117,26 +119,57 @@ export const PortfolioSearchWrapper = styled.div`
   }
 `;
 
-export const PortfolioSearch = styled.div`
+export const SelectedIndustries = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+`;
+
+export const SelectedIndustriesWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const IndustriesClearButton = styled.button`
+  order: 1;
+  font-size: 14px;
+  font-family: ${themes.primary.font.family.namu};
+  cursor: pointer;
+  color: #8f8e93;
+  border: none;
+  padding: 0;
+  white-space: nowrap;
+
+  &:hover {
+    color: black;
+  }
+`;
+
+interface IPortfolioSearch {
+  readonly isSearchOpen?: boolean;
+}
+
+export const PortfolioSearch = styled.div<IPortfolioSearch>`
   position: relative;
   font-family: ${themes.primary.font.family.namu};
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 16px;
-  border: 1px solid #8f8e93;
-  width: 318px;
-  height: 50px;
+  column-gap: 6px;
+  border-bottom: ${({ isSearchOpen }) =>
+    isSearchOpen ? "1px solid #8f8e93" : "none"};
+  width: ${({ isSearchOpen }) => (isSearchOpen ? "232px" : "20px")};
+  height: 32px;
   background: transparent;
+  margin-right: 14px;
 
-  &:active,
-  &:hover {
-    border-bottom: 4px solid black;
-    border-right: 2px solid black;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 335px;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    border-bottom: 1px solid #8f8e93;
+    width: 334px;
+    margin: 0;
   }
 `;
 
@@ -144,13 +177,17 @@ export const PortfolioFilterWarning = styled.div`
   font-family: ${themes.primary.font.family.namu};
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   color: #8f8e93;
-  margin-left: 18px;
-  font-size: 18px;
+  margin-right: 20px;
+  font-size: 16px;
+  text-align: start;
+  margin-top: 50px;
 
-  @media ${themes.primary.media.maxMobile} {
-    margin-left: 0;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-right: 0;
+    font-size: 18px;
+    padding-bottom: 21px;
   }
 `;
 
@@ -161,6 +198,7 @@ export const PortfolioSearchWarning = styled.div`
   flex-direction: column;
   color: #8f8e93;
   margin-bottom: 134px;
+  margin-top: 50px;
 
   & .sorry-message {
     margin-bottom: 18px;
@@ -212,7 +250,7 @@ export const PortfolioIndustryTagWrapper = styled.button<IPortfolioIndustryTag>`
     cursor: ${(props) => props.isArticlePage && "pointer"};
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     &.preview {
       position: absolute;
       top: 0;
@@ -236,14 +274,16 @@ export const PortfolioIndustryTagDelete = styled.span`
   width: 10px;
 `;
 
-export const PortfolioInputWrapper = styled.div`
-  display: flex;
-  padding-top: 4px;
+export const PortfolioInputWrapper = styled.div<IPortfolioSearch>`
+  display: ${({ isSearchOpen }) => (isSearchOpen ? "flex" : "none")};
+  padding-top: 3px;
+  font-family: ${themes.primary.font.family.namu};
+  width: 100%;
 
   & input {
     outline: none;
+    width: 100%;
     font-size: 16px;
-    width: 280px;
     border: none;
     background-color: transparent;
   }
@@ -254,10 +294,12 @@ export const PortfolioInputWrapper = styled.div`
 
   & input::placeholder {
     font-family: ${themes.primary.font.family.namu};
-    color: #8f8e93;
+    color: #a9a5a4;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
+    display: flex;
+
     & input {
       width: 298px;
     }
@@ -283,44 +325,87 @@ export const PortfolioSearchButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 41px;
-  height: 50px;
   cursor: pointer;
 `;
 
-export const PortfolioSearchIcon = styled.div`
+export const PortfolioSearchCloseButton = styled.div<IPortfolioSearch>`
+  display: ${({ isSearchOpen }) => (isSearchOpen ? "flex" : "none")};
+  height: 100%;
+  width: 20px;
+  align-items: center;
+  opacity: 0.5;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    display: none;
+  }
+`;
+
+export const PortfolioSearchCloseIcon = styled.div`
+  cursor: pointer;
+  background-image: url(${DarkExitIcon.src});
+  background-repeat: no-repeat;
+  margin-top: 6px;
+  height: 10px;
+  width: 10px;
+`;
+
+export const PortfolioSearchIcon = styled.div<IPortfolioSearch>`
   background-image: url(${MagnifyingGlass.src});
   background-repeat: no-repeat;
-  height: 16px;
-  width: 16px;
-  margin-right: 1px;
+  height: 20px;
+  width: 20px;
+  opacity: ${({ isSearchOpen }) => (isSearchOpen ? "0.4" : "1")};
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    opacity: 0.4;
+  }
 `;
 
 export const PortfolioFiltersWrapper = styled.div`
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  margin-top: 50px;
-  margin-bottom: 60px;
+  margin-top: 30px;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    flex-direction: column;
+    row-gap: 44px;
+  }
+`;
+
+export const PortfolioSearchAndInductriesWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  max-width: 50%;
+  flex-direction: column;
+  margin-top: 8px;
+  row-gap: 10px;
 
   & .portfolio_dropdown {
     font-family: ${themes.primary.font.family.namu};
     margin-bottom: 0;
-    flex-wrap: wrap-reverse;
-    align-items: center;
-    max-width: 50%;
-    column-gap: 20px;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 0;
     flex-direction: column;
-    margin-top: 26px;
-    margin-bottom: 28px;
+    max-width: 100%;
+    width: 100%;
 
     & .portfolio_dropdown {
-      margin-top: 36px;
       max-width: 100%;
       column-gap: 14px;
     }
+  }
+`;
+
+export const PortfolioSearchAndInductries = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    flex-direction: column;
+    row-gap: 35px;
   }
 `;
 
@@ -332,9 +417,9 @@ export const PortfolioProjectsContainer = styled.div`
   margin-bottom: 100px;
   margin-top: 60px;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     gap: 20px;
-    margin: 28.5px 10px 60px;
+    margin: 29px 10px 0;
   }
 `;
 
@@ -343,7 +428,7 @@ export const PortfolioPaginationWrapper = styled.div`
   justify-content: center;
   padding: 42px 0;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     padding: 30px 0 42px 0;
   }
 `;
@@ -427,7 +512,7 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
     }
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 12px;
     line-height: 130%;
   }
@@ -455,7 +540,7 @@ export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>
     height: 35px;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     width: 26px;
     height: 26px;
     border-width: 1.25px;
@@ -472,7 +557,7 @@ export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
       ? `1.5px solid #1d1c1d`
       : `1.5px solid ${themes.primary.colors.headerBorder}`};
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     margin: 7px 10px;
     padding: 0 0 9px 0;
     border-bottom-width: 1px;
@@ -519,7 +604,7 @@ export const ProjectsContainerInfoBtn = styled.div`
     stroke-dashoffset: 50 !important;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     width: 145px;
     height: 32px;
     font-size: 12px;
@@ -560,7 +645,7 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
     }
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     min-height: 240px;
 
     &:hover ${ProjectsContainerArrowContainer} {
@@ -588,7 +673,7 @@ export const ProjectsContainerInfoText = styled.div`
     white-space: pre-wrap; /* let the text wrap preserving spaces */
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 14px;
     line-height: 128%;
     margin: 10px 16px 18px 10px;
@@ -610,7 +695,7 @@ export const ProjectsContainerInfoIconsContainer = styled.div`
     }
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     margin: 18px 14px 22px;
     gap: 3px;
 
@@ -652,7 +737,7 @@ export const ProjectsContainerHeaderTitle = styled.div`
     margin: 0;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     h4 {
       font-size: 16px;
       line-height: 20.8px;
@@ -698,7 +783,7 @@ export const ProjectsContainerInfoHeaderTitle = styled.div`
     margin: 0;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     h4 {
       font-size: 16px;
       line-height: 20.8px;
@@ -713,7 +798,7 @@ export const ProjectsContainerInfoHeaderTitle = styled.div`
 export const ProjectsContainerImage = styled.div`
   display: flex;
   justify-content: center;
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     span {
       width: 355px !important;
       height: 185px !important;
@@ -733,7 +818,7 @@ export const CTACont = styled.div`
     margin: 53px 0 64px 0;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     height: 558px;
     padding: 0 20px;
   }
@@ -764,7 +849,7 @@ export const CTAHeading = styled.div`
   text-transform: uppercase;
   margin-bottom: 15px;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 24px;
     line-height: 32px;
   }
@@ -778,7 +863,7 @@ export const CTAText = styled.div`
   line-height: 26px;
   margin-bottom: 34px;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 18px;
     line-height: 26px;
     max-width: 100%;
