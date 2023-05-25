@@ -151,7 +151,8 @@ const PortfolioPage: NextPage = () => {
     )
       return;
 
-    const scrollPosition = contentRef.current.offsetTop - 100;
+    const topHeight = window.innerWidth > 768 ? 70 : 100;
+    const scrollPosition = contentRef.current.offsetTop - topHeight;
 
     window.scrollTo({
       top: scrollPosition,
@@ -429,7 +430,7 @@ const PortfolioPage: NextPage = () => {
                 </Styles.PortfolioSearchAndInductriesWrapper>
               </Styles.PortfolioFiltersWrapper>
 
-              <div ref={contentRef}>
+              <Styles.PortfolioProjectsWrapper ref={contentRef}>
                 <Loader
                   isPortfolio={true}
                   active={(isLoading || reviewsIsLoading) && !isFirstLoad}
@@ -496,7 +497,7 @@ const PortfolioPage: NextPage = () => {
                     </Styles.PortfolioSearchWarning>
                   )}
                 </Loader>
-              </div>
+              </Styles.PortfolioProjectsWrapper>
             </Styles.PortfolioWrapper>
             <CTABlock initValues={data.cta} />
             <FooterNew />

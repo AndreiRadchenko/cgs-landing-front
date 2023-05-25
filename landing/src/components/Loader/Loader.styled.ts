@@ -4,24 +4,27 @@ import themes from "../../utils/themes";
 
 export const PortfolioStyledLoader = styled(LoadingOverlay)`
   .MyLoader_overlay {
+    position: absolute;
+    z-index: 1;
     background: ${themes.primary.colors.blogBackground};
     width: 100%;
-    min-height: 2030px;
+    min-height: 2161px;
   }
 
   &.MyLoader_wrapper--active {
     overflow: hidden;
     width: 100%;
-    min-height: 2030px;
+    min-height: 2161px;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     .MyLoader_overlay {
-      min-height: 2260px;
+      margin-top: 20px;
+      min-height: 2200px;
     }
 
     &.MyLoader_wrapper--active {
-      min-height: 2260px;
+      min-height: 2200px;
     }
   }
 `;
