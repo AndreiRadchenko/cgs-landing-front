@@ -161,11 +161,12 @@ export const PortfolioSearch = styled.div<IPortfolioSearch>`
   font-size: 16px;
   column-gap: 6px;
   border-bottom: ${({ isSearchOpen }) =>
-    isSearchOpen ? "1px solid #8f8e93" : "none"};
+    isSearchOpen ? "1px solid #8f8e93" : "1px solid transparent"};
   width: ${({ isSearchOpen }) => (isSearchOpen ? "232px" : "20px")};
   height: 32px;
   background: transparent;
   margin-right: 14px;
+  transition: 0.5s ease-in-out;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     border-bottom: 1px solid #8f8e93;
@@ -280,6 +281,7 @@ export const PortfolioInputWrapper = styled.div<IPortfolioSearch>`
   padding-top: 3px;
   font-family: ${themes.primary.font.family.namu};
   width: 100%;
+  transition: 0.5s ease-in-out;
 
   & input {
     outline: none;
@@ -335,6 +337,7 @@ export const PortfolioSearchCloseButton = styled.div<IPortfolioSearch>`
   width: 20px;
   align-items: center;
   opacity: 0.5;
+  transition: 0.5s ease-in-out;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     display: none;
@@ -356,6 +359,7 @@ export const PortfolioSearchIcon = styled.div<IPortfolioSearch>`
   height: 20px;
   width: 20px;
   opacity: ${({ isSearchOpen }) => (isSearchOpen ? "0.4" : "1")};
+  transition: 0.5s ease-in-out;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     opacity: 0.4;
