@@ -88,9 +88,14 @@ export const Description = styled.p`
 
 export const Image = styled.div`
   position: absolute;
-  top: -2.875em;
-  right: -10em;
+  top: -8.2em;
+  right: -5.3em;
   width: 42em;
+
+  @media (min-width: 1920px) {
+    top: -4em;
+    right: 2em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
@@ -106,14 +111,15 @@ export const ImageTV = styled.img`
   z-index: 2;
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 50%;
-    right: 20%;
+    width: 70%;
+    top: 5em;
+    right: 1em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 28em;
-    height: 28em;
-    right: 6%;
+    width: 80%;
+    top: -1em;
+    right: 3%;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -125,27 +131,27 @@ export const ImageTV = styled.img`
 export const ImageCrypto = styled.img`
   position: absolute;
   z-index: 1;
-  top: 175px;
-  left: 10px;
+  top: 240px;
+  left: 115px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 13em;
-    height: 13em;
-    left: 210px;
-    top: 110px;
+    width: 12em;
+    height: 10em;
+    left: 17em;
+    top: 16em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 13em;
-    height: 13em;
-    top: 80px;
-    left: 200px;
+    height: 11em;
+    top: 11.5em;
+    left: 13.7em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 9em;
-    height: 9em;
-    top: 75px;
-    left: 65px;
+    width: 8em;
+    height: 6em;
+    top: 5.7em;
+    left: 5.7em;
 }
 `;
