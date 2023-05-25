@@ -184,10 +184,14 @@ const PortfolioPage: NextPage = () => {
       queryParams.industries = industriesQuery;
     }
 
-    router.push({
-      pathname: "/portfolio",
-      query: queryParams,
-    });
+    router.push(
+      {
+        pathname: "/portfolio",
+        query: queryParams,
+      },
+      undefined,
+      { shallow: true }
+    );
   };
   const handleCategoryItemRef =
     (index: number) => (ref: HTMLDivElement | null) => {
