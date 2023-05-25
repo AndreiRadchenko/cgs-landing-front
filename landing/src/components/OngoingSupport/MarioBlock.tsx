@@ -57,7 +57,7 @@ const MarioBlock = (data: MarioBlockProps) => {
     };
 
     const handleMouseDown = (event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) => {
-        if ((event as React.TouchEvent<HTMLDivElement>).touches || (event as React.MouseEvent<HTMLDivElement, MouseEvent>).button === 0) {
+        if ((event as React.TouchEvent<HTMLDivElement>).touches || (event as React.MouseEvent<HTMLDivElement, MouseEvent>).button) {
             jump();
             event.preventDefault();
             setIsRoadMoving(true);
