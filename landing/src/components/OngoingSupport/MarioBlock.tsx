@@ -40,6 +40,8 @@ const MarioBlock = (data: MarioBlockProps) => {
     const [mushroomIndex, setMushroomIndex] = useState(0);
     const [isJumping, setIsJumping] = useState(false);
     const [isRoadMoving, setIsRoadMoving] = useState(false);
+    const [hintText, setHintText] = useState('');
+    const [viewHintText, setViewHintText] = useState(false)
 
     const blocksSrc = [
         topLeftBlock.src,
@@ -63,6 +65,22 @@ const MarioBlock = (data: MarioBlockProps) => {
             setIsRoadMoving(true);
         }
     };
+
+    useEffect(() => {
+        if(isRoadMoving) {
+            setViewHintText(true)
+        }
+    }, [isRoadMoving])
+
+    useEffect(() => {
+        const is992px = window.matchMedia('(max-width: 992px)').matches;
+
+        if(is992px) {
+            setHintText('tap to start and jump')
+        } else {
+            setHintText('press space to start and jump')
+        }
+    }, [])
 
     useEffect(() => {
         const preventDefault = (event: KeyboardEvent) => {
@@ -124,6 +142,7 @@ const MarioBlock = (data: MarioBlockProps) => {
                 <Styled.Mario
                     isJumping={isJumping}
                     src={isJumping ? marioJump.src : (isRoadMoving ? marioMovement[marioIndex].src : marioStop.src)} />
+                <Styled.Hint isMoving={viewHintText}> {hintText} </Styled.Hint>
                 <Styled.FooterMarioBlock>
                     <Styled.RoadMove isMoving={isRoadMoving}>
                         <Styled.RoadImages>

@@ -347,7 +347,7 @@ export const RoadMove = styled.div<Moving>`
 `;
 
 export const RoadImage = styled.img`
-  width: 100%;
+  width: 101%;
   float: left;
   position: relative;
   z-index: 1;
@@ -532,5 +532,50 @@ export const MushroomsImage = styled.img`
     width: 46px;
     height: 46px;
     margin: 0 50px;
+  }
+`;
+
+export const Hint = styled.div<Moving>`
+  display: ${props => props.isMoving ? 'none' : ''};
+  position: absolute;
+  margin-top: 1.8em;
+  left: 6em;
+  width: 200px;
+  font-family: ${themes.primary.font.family.pressStart};
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: darkgray;
+  animation: blinker 1s linear infinite;
+
+  @keyframes blinker {
+  50% {
+    opacity: 0;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    left: 9em;
+    margin-top: 4em;
+  }
+
+  @media (min-width: 2560px) {
+    width: 240px;
+    font-size: 16px;
+    left: 11em;
+    margin-top: 5em;
+  }
+
+  @media (max-width: 992px) {
+    width: 150px;
+    margin-top: 1em;
+    font-size: 12px;
+    left: 6em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: -5.5em;
+    font-size: 12px;
+    left: 0;
   }
 `;
