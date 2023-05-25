@@ -189,7 +189,7 @@ export const PortfolioFilterWarning = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-right: 0;
     font-size: 18px;
-    padding-bottom: 21px;
+    padding-bottom: 50px;
   }
 `;
 
@@ -378,6 +378,10 @@ export const PortfolioFiltersWrapper = styled.div`
   }
 `;
 
+export const PortfolioProjectsWrapper = styled.div`
+  margin-top: 29px;
+`;
+
 export const PortfolioSearchAndInductriesWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -424,7 +428,7 @@ export const PortfolioProjectsContainer = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     gap: 20px;
-    margin: 29px 10px 0;
+    margin: 0 10px 0;
   }
 `;
 
