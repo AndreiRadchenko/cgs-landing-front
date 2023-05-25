@@ -1,6 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 import parse from "html-react-parser";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/router";
+import Head from "next/head";
+import { SwiperSlide } from "swiper/react";
+
 import { IArticle } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import PaginationBar from "../../components/PaginationBar/PaginationBar";
@@ -10,7 +14,6 @@ import { adminBlogService } from "../../services/adminBlogPage";
 import { adminGlobalService } from "../../services/adminHomePage";
 import * as Styled from "../../styles/Blog.styled";
 import { Tag, DropdownContainer } from "../../styles/HomePage/General.styled";
-import Head from "next/head";
 import leftLine from "../../../public/BlogDecorations/MainPage/leftLine.png";
 import rightLine from "../../../public/BlogDecorations/MainPage/rightLine.png";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
@@ -18,11 +21,12 @@ import FooterNew from "../../components/FooterNew/FooterNew";
 import PodcastItem from "../../components/Blog/PodcastItem";
 import MainBlogItem from "../../components/Blog/MainBlogItem";
 import SmallArticleItem from "../../components/Blog/SmallArticleItem";
-import { useRouter } from "next/router";
+import { BlogSwiper } from "../../components/Blog/BlogSlider/BlogSlider";
+
+import loading from "../../../public/CareerDecorations/loading.svg";
 import { useScrollTo } from "../../hooks/useScrollTo";
 import { isNumeric } from "../../utils/isNumeric";
 import { Loading } from "../../components/CareersForm/Form/Form.styled";
-import loading from "../../../public/CareerDecorations/loading.svg";
 import { IArticlesData, IBlogPageData } from "../../types/Blog.types";
 import { BlogPageSize } from "../../consts";
 import Dropdown from "../../utils/Select/Dropdown";
@@ -188,12 +192,18 @@ const BlogPage = () => {
         )}
         <Styled.HeaderBlock>
           <Styled.MainContainer>
-            {reversedArticles && reversedArticles[0] && (
-              <MainBlogItem
-                article={reversedArticles[0]}
-                views={findViews(reversedArticles[0].url)}
-                filters={filters}
-              />
+            {reversedArticles && (
+              <BlogSwiper>
+                {reversedArticles.slice(0, 3).map((article, idx) => (
+                  <SwiperSlide key={idx}>
+                    <MainBlogItem
+                      article={article}
+                      views={findViews(article.url)}
+                      filters={filters}
+                    />
+                  </SwiperSlide>
+                ))}
+              </BlogSwiper>
             )}
           </Styled.MainContainer>
           <Styled.FlexColumnContainer className="header">
