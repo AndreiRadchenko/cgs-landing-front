@@ -398,11 +398,13 @@ const PortfolioPage: NextPage = () => {
                   {selectedIndustries.length > 0 && (
                     <Styles.SelectedIndustriesWrapper>
                       <Styles.SelectedIndustries>
-                        <Styles.IndustriesClearButton
-                          onClick={() => setSelectedIndustries([])}
-                        >
-                          {"clear all"}
-                        </Styles.IndustriesClearButton>
+                        {selectedIndustries.length > 1 && (
+                          <Styles.IndustriesClearButton
+                            onClick={() => setSelectedIndustries([])}
+                          >
+                            {"clear all"}
+                          </Styles.IndustriesClearButton>
+                        )}
                         {selectedIndustries.length > 0 &&
                           selectedIndustries.map((filter, index) => (
                             <Styles.PortfolioIndustryTagWrapper key={index}>
