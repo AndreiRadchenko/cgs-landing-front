@@ -60,6 +60,14 @@ const AdminTech = ({
           <SubHeaderWithInput
             width="20em"
             height="5em"
+            header="Link"
+            name={`TechnologyBlock.items.${item}.link`}
+            inputValue={info.link ? info.link : ""}
+            onChangeFunction={onChangeFunction}
+          />
+          <SubHeaderWithInput
+            width="20em"
+            height="5em"
             header="Text"
             name={`TechnologyBlock.items.${item}.text`}
             inputValue={info.text}

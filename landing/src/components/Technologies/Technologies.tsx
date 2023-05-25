@@ -66,6 +66,7 @@ const Technologies = () => {
                           text={item.text}
                           stack={item.stack}
                           title={item.category}
+                          link={item.link ? item.link : ""}
                         />
                       ) ||
                       null}
