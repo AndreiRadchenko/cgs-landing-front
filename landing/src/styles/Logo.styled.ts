@@ -4,16 +4,17 @@ import themes from "../utils/themes";
 export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 106px;
-  height: 32px;
+  width: 127px;
+  height: 38px;
 
   &.calculator {
     width: 106px !important;
     height: 100% !important;
   }
 
-  @media ${themes.primary.media.minPCFullHD} {
-    width: auto;
+  @media ${themes.primary.media.maxPCFullHD} {
+    width: 106px;
+    height: 32px;
   }
 
   @media (max-width: 1280px) {
@@ -69,5 +70,5 @@ export const LogoText = styled.p`
 export const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
 `;
