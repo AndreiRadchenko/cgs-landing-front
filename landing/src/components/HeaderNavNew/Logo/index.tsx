@@ -20,5 +20,4 @@ const Logo = () => {
     </Styled.LogoWrapper>
   );
 };
-
 export default Logo;
