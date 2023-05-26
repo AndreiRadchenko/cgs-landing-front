@@ -41,7 +41,7 @@ export const NavBarWrapper = styled.div`
 `;
 
 export const LogoLinkWrapper = styled.a`
-  padding: 0.7rem 3.315rem;
+  padding: 0 50px;
   height: 56px;
   display: flex;
   justify-content: center;
@@ -50,9 +50,6 @@ export const LogoLinkWrapper = styled.a`
   border-right: 1px solid ${themes.primary.colors.headerBorder};
   transition: 0.3s;
   z-index: 36;
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    padding: 0.7rem 2.5rem;
-  }
 
   &:hover {
     border-right: 1.5px solid ${themes.primary.colors.primary};
