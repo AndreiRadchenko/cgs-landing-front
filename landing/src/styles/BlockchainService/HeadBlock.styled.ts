@@ -103,6 +103,7 @@ export const Image = styled.div`
     top: 1em;
     width: 22.3em;
     height: 19.125em;
+    margin-bottom: 1.5em;
   }
 `;
 
@@ -111,20 +112,20 @@ export const ImageTV = styled.img`
   z-index: 2;
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 70%;
-    top: 5em;
+    width: 60%;
+    top: 11em;
     right: 1em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 80%;
-    top: -1em;
-    right: 3%;
+    width: 70%;
+    top: 2em;
+    right: 1%;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 20em;
-    height: 20em;
+    width: 100%;
+    top: -2em;
   }
 `;
 
@@ -135,23 +136,23 @@ export const ImageCrypto = styled.img`
   left: 115px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 12em;
-    height: 10em;
-    left: 17em;
-    top: 16em;
+    width: 11em;
+    height: 8em;
+    left: 20em;
+    top: 20.5em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 13em;
-    height: 11em;
-    top: 11.5em;
-    left: 13.7em;
+    width: 12em;
+    height: 10em;
+    top: 13em;
+    left: 17.7em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 8em;
-    height: 6em;
-    top: 5.7em;
-    left: 5.7em;
+    width: 9em;
+    height: 7em;
+    top: 6.5em;
+    left: 4em;
 }
 `;

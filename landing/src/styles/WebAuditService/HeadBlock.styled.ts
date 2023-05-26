@@ -30,8 +30,14 @@ export const ButtonWrapper = styled.div`
 export const TextContainer = styled.div`
   padding-top: 9.5em;
   width: 50%;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding-top: 4em;
+  }
+  
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
+    padding-top: 0;
     margin-bottom: 6.73em;
   }
 `;
@@ -98,7 +104,7 @@ export const Image = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     width: 121%;
-    right: 3.5%;
+    right: 13.5%;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
