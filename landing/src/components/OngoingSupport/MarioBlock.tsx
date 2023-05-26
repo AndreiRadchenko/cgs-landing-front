@@ -58,10 +58,17 @@ const MarioBlock = (data: MarioBlockProps) => {
         }, 300);
     };
 
-    const handleMouseDown = (event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) => {
-        if ((event as React.TouchEvent<HTMLDivElement>).touches || (event as React.MouseEvent<HTMLDivElement, MouseEvent>).button) {
+    const handleMouseDown = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if((event as React.MouseEvent<HTMLDivElement, MouseEvent>).buttons === 1) {
             jump();
             event.preventDefault();
+            setIsRoadMoving(true);
+        }
+    };
+
+    const handleTouch = (event: React.TouchEvent<HTMLDivElement>) => {
+        if((event as React.TouchEvent<HTMLDivElement>).touches) {
+            jump();
             setIsRoadMoving(true);
         }
     };
@@ -126,7 +133,7 @@ const MarioBlock = (data: MarioBlockProps) => {
     }, [marioMovement, mushroomsMovement, isRoadMoving]);
 
     return (
-        <Styled.MarioBlock onMouseDown={handleMouseDown} onTouchStart={handleMouseDown}>
+        <Styled.MarioBlock onMouseDown={handleMouseDown}>
             <Styled.BlockContainer>
                 {data?.data?.map(({ subtitle, text }: MarioProp, index) => (
                     <div key={index}>
@@ -138,7 +145,7 @@ const MarioBlock = (data: MarioBlockProps) => {
                     </div>
                 ))}
             </Styled.BlockContainer>
-            <Styled.FooterContainer>
+            <Styled.FooterContainer onTouchStart={handleTouch}>
                 <Styled.Mario
                     isJumping={isJumping}
                     src={isJumping ? marioJump.src : (isRoadMoving ? marioMovement[marioIndex].src : marioStop.src)} />
