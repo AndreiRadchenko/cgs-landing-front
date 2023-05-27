@@ -48,7 +48,11 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
         onClick={width && width < 767 ? () => setIsOpen(!isOpen) : undefined}
       >
         <StyledThisComp.TitleWrapper idx={idx}>
-          <StyledThisComp.TitleRef rel="noreferrer noopener" href={link}>
+          <StyledThisComp.TitleRef
+            rel="noreferrer noopener"
+            href={link}
+            target="blank"
+          >
             {title}&nbsp;
           </StyledThisComp.TitleRef>
 
