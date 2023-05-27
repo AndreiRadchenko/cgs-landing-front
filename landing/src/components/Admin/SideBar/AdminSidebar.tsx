@@ -155,6 +155,14 @@ const AdminSidebar = () => {
               Careers
             </Styled.AdminListSubItem>
           </Link>
+          <Link href={ROUTE_KEYS.AdminContact} passHref>
+            <Styled.AdminListSubItem
+              itemProp={currentPath}
+              property={ROUTE_KEYS.AdminContact}
+            >
+              Contact
+            </Styled.AdminListSubItem>
+          </Link>
           <Link href={ROUTE_KEYS.AdminFaqPage} passHref>
             <Styled.AdminListSubItem
               itemProp={currentPath}
