@@ -623,7 +623,6 @@ export const ProjectsContainerInfoBtn = styled.div`
     & > svg {
       width: 145px !important;
       height: 50px !important;
-      stroke-width: 2px;
       top: -10px;
     }
   }

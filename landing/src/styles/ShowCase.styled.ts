@@ -216,7 +216,7 @@ export const ImageWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 100%;
+    width: 99.5%;
     margin-bottom: 1.346em;
   }
 `;

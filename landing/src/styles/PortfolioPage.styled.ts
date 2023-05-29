@@ -124,8 +124,8 @@ export const HeaderImageContainer = styled.div`
 
   @media (min-width: 1201px) and (max-width: 1350px) {
     span {
-      width: 445px !important;
-      height: 445px !important;
+      width: 405px !important;
+      height: 405px !important;
     }
   }
 
@@ -501,9 +501,15 @@ export const ProjectCtaContainer = styled.div`
     color: ${themes.primary.colors.primary};
   }
 
-  @media ${themes.primary.media.maxTabletLandScape} {
+  @media (max-width: 1351px) {
     h3 {
       font-size: 26px;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1350px) {
+    h3 {
+      font-size: 22px;
     }
   }
 
