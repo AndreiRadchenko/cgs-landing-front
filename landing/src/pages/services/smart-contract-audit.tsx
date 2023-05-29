@@ -32,7 +32,6 @@ export async function getServerSideProps() {
 
 const DappAuditPage: NextPage = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
-
   const customHead = `
   <script type=“application/ld+json”>
   [{
