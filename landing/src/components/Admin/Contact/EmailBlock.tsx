@@ -3,6 +3,7 @@ import { useFormikContext, FieldArray } from "formik";
 
 import ButtonArrow from "../../../utils/ButtonArrow";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+import PhotoBlockAddRemove from "../Global/PhotoBlockAddRemove";
 
 import {
   ArrowContainer,
@@ -11,6 +12,9 @@ import {
 import * as Styled from "../../../styles/AdminPage";
 import * as Styles from "../../../styles/AdminContact.styled";
 import { IContactPageData } from "../../../types/Admin/AdminContact.types";
+import { IImage } from "../../../types/Admin/Admin.types";
+import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 
 const EmailBlock = () => {
   const { values, handleChange, handleSubmit } =
@@ -26,12 +30,27 @@ const EmailBlock = () => {
     messenger: [{ name: "", link: "", image: { url: "" } }],
   };
 
+  const uploadImageFunction = useUploadImageFunction();
+  const deleteImageFunction = useDeleteImageFunction();
+
+  const uploadWithIndex = (index: number) => {
+    const uploadFunc = (image: IImage) =>
+      uploadImageFunction(image, values.messengers.messenger[index]);
+    return uploadFunc;
+  };
+
+  const deleteWithIndex = (index: number) => {
+    const deleteFunc = async () =>
+      (await deleteImageFunction)(values.messengers.messenger[index]);
+    return deleteFunc;
+  };
+
   const handleClick = () => handleSubmit();
 
   return (
     <Styled.ContentWrapper>
       <SubHeaderWithInput
-        width="45%"
+        width="48%"
         placeholder="Emails subtitle"
         header="Emails subtitle"
         inputValue={emailSubtitle}
@@ -64,34 +83,49 @@ const EmailBlock = () => {
         )}
       </FieldArray>
       <SubHeaderWithInput
-        width="45%"
+        width="48%"
         placeholder="Messengers subtitle"
         header="Messengers subtitle"
         inputValue={messengerSubtitle}
         onChangeFunction={handleChange}
-        name="messenger.subtitle"
+        name="messengers.subtitle"
       />
       <FieldArray name="messenger">
         {() => (
           <Styles.EmailList>
             {messenger.map((messenger, index) => (
-              <Styles.EmailItem key={index}>
-                <SubHeaderWithInput
-                  width="100%"
-                  placeholder="Button name"
-                  header={`Messenger ${index + 1}`}
-                  inputValue={messenger.name}
-                  onChangeFunction={handleChange}
-                  name={`messengers.messenger[${index}].name`}
-                />
-                <SubHeaderWithInput
-                  width="100%"
-                  placeholder="Link"
-                  inputValue={messenger.link}
-                  onChangeFunction={handleChange}
-                  name={`messengers.messenger[${index}].link`}
-                />
-              </Styles.EmailItem>
+              <div style={{ width: "48%" }} key={index}>
+                <Styled.AdminSubTitle>{`Messenger ${
+                  index + 1
+                }`}</Styled.AdminSubTitle>
+                <Styles.MessengerItem>
+                  <PhotoBlockAddRemove
+                    style={{ height: "140px", width: "140px" }}
+                    imageStyle={{ height: "40px", width: "40px" }}
+                    photo={messenger.image}
+                    deleteFlag={true}
+                    header="add image"
+                    uploadFunction={uploadWithIndex(index)}
+                    deleteFunction={deleteWithIndex(index)}
+                  />
+                  <Styles.MessengerTextlItem>
+                    <SubHeaderWithInput
+                      width="100%"
+                      placeholder="Button name"
+                      inputValue={messenger.name}
+                      onChangeFunction={handleChange}
+                      name={`messengers.messenger[${index}].name`}
+                    />
+                    <SubHeaderWithInput
+                      width="100%"
+                      placeholder="Link"
+                      inputValue={messenger.link}
+                      onChangeFunction={handleChange}
+                      name={`messengers.messenger[${index}].link`}
+                    />
+                  </Styles.MessengerTextlItem>
+                </Styles.MessengerItem>
+              </div>
             ))}
           </Styles.EmailList>
         )}

@@ -3,6 +3,8 @@ import { Form } from "formik";
 
 import HeaderBlock from "./HeaderBlock";
 import EmailBlock from "./EmailBlock";
+import SocialBlock from "./SocialBlock";
+import LocationBlock from "./LocationBlock";
 import MetaTagsBlock from "../MetaTagsBlock";
 import AdminBlockDropDown from "../../Admin/Global/AdminBlockDropDown";
 
@@ -19,6 +21,12 @@ const ContactForm = () => {
           </AdminBlockDropDown>
           <AdminBlockDropDown title="EMAIL // MESSENGERS">
             <EmailBlock />
+          </AdminBlockDropDown>
+          <AdminBlockDropDown title="SOCIAL MEDIA">
+            <SocialBlock />
+          </AdminBlockDropDown>
+          <AdminBlockDropDown title="LOCATION">
+            <LocationBlock />
           </AdminBlockDropDown>
         </Styled.AdminBlocksContent>
         <Styled.MetaBlockWraper>

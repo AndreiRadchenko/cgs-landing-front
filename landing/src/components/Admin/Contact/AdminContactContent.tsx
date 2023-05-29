@@ -25,7 +25,6 @@ const AdminContactContent = () => {
 
   const submitForm = async (values: IContactPageData) => {
     document.body.style.cursor = "wait";
-
     await updateContactPage(values);
     await refetch();
     document.body.style.cursor = "auto";

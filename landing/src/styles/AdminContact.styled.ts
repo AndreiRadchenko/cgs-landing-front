@@ -65,7 +65,32 @@ export const EmailList = styled.ul`
 `;
 
 export const EmailItem = styled.li`
-  width: 45%;
+  width: 48%;
   display: flex;
   flex-direction: column;
+`;
+
+export const MessengerItem = styled.li`
+  /* width: 50%; */
+  display: flex;
+  gap: 12px;
+`;
+
+export const MessengerTextlItem = styled.li`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const LocationWrapper = styled.div`
+  display: flex;
+  gap: 50px;
+  margin-bottom: 4.1em;
+`;
+
+export const LocationTextlItem = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
