@@ -574,7 +574,7 @@ export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
 
 export const ProjectsContainerInfoBtn = styled.div`
   position: relative;
-  margin: 30px 20px 0 20px;
+  margin: 0 20px;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 16px;
@@ -618,7 +618,7 @@ export const ProjectsContainerInfoBtn = styled.div`
     font-size: 12px;
     line-height: 160%;
     padding: 7px 10px;
-    margin: 18px 10px 0 10px;
+    margin: 0 10px;
 
     & > svg {
       width: 145px !important;
@@ -662,7 +662,7 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
 `;
 
 export const ProjectsContainerInfoText = styled.div`
-  margin: 20px 32px 33px 20px;
+  padding: 20px 32px 33px 20px;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 18px;
@@ -683,7 +683,16 @@ export const ProjectsContainerInfoText = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 14px;
     line-height: 128%;
-    margin: 10px 16px 18px 10px;
+    padding: 10px 16px 18px 10px;
+  }
+`;
+
+export const ProjectsContainerInfoLower = styled.div`
+  cursor: pointer;
+  height: 341px;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    height: 185px;
   }
 `;
 

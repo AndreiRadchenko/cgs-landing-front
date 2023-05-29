@@ -11,6 +11,7 @@ import ArrowBtn from "./svg/ArrowBtn";
 import BtnPolyline from "./svg/BtnPolyline";
 
 import { openInNewTab } from "../../utils/OpenInNewTab";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const PortfolioProjectComponent = ({
   project,
@@ -19,6 +20,8 @@ const PortfolioProjectComponent = ({
   project: IPortfolioReview;
   loadedImagesCounter?: () => void;
 }) => {
+  const { width } = useWindowDimension();
+
   const [isLoaded, setIsLoaded] = useState(false);
 
   const handleImageLoad = () => {
@@ -312,35 +315,43 @@ const PortfolioProjectComponent = ({
             </Styled.ProjectsContainerArrowContainer>
           </Styled.ProjectsContainerHeaderLink>
         </Styled.ProjectsContainerHeader>
-        <Styled.ProjectsContainerInfoText>
-          <p>{project.text}</p>
-        </Styled.ProjectsContainerInfoText>
-        <Styled.ProjectsContainerInfoBtn
-          onClick={() => navigateToProjectPage(project.title, project._id)}
+        <Styled.ProjectsContainerInfoLower
+          onClick={() =>
+            width &&
+            width > 768 &&
+            navigateToProjectPage(project.title, project._id)
+          }
         >
-          <BtnPolyline />
-          <div className="btnContainer">
-            <span>Full project</span>
-            <ArrowBtn />
-          </div>
-        </Styled.ProjectsContainerInfoBtn>
-        <Styled.ProjectsContainerInfoIconsContainer>
-          {project.technologies.length > 0
-            ? project.technologies
-                .filter((item) => item.main)
-                .map((tech) => (
-                  <Image
-                    key={tech.image.url}
-                    src={tech.image.url}
-                    alt="tech"
-                    height={80}
-                    width={80}
-                    style={{ filter: "brightness(0) invert(1)" }}
-                  />
-                ))
-                .splice(0, 6)
-            : mockedIconsTech.map((item) => item.icon)}
-        </Styled.ProjectsContainerInfoIconsContainer>
+          <Styled.ProjectsContainerInfoText>
+            <p>{project.text}</p>
+          </Styled.ProjectsContainerInfoText>
+          <Styled.ProjectsContainerInfoBtn
+            onClick={() => navigateToProjectPage(project.title, project._id)}
+          >
+            <BtnPolyline />
+            <div className="btnContainer">
+              <span>Full project</span>
+              <ArrowBtn />
+            </div>
+          </Styled.ProjectsContainerInfoBtn>
+          <Styled.ProjectsContainerInfoIconsContainer>
+            {project.technologies.length > 0
+              ? project.technologies
+                  .filter((item) => item.main)
+                  .map((tech) => (
+                    <Image
+                      key={tech.image.url}
+                      src={tech.image.url}
+                      alt="tech"
+                      height={80}
+                      width={80}
+                      style={{ filter: "brightness(0) invert(1)" }}
+                    />
+                  ))
+                  .splice(0, 6)
+              : mockedIconsTech.map((item) => item.icon)}
+          </Styled.ProjectsContainerInfoIconsContainer>
+        </Styled.ProjectsContainerInfoLower>
       </Styled.ProjectsContainerInfo>
     </Styled.ProjectsContainer>
   );
