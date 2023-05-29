@@ -1,7 +1,7 @@
 ﻿import { NextPage } from "next";
 import parse from "html-react-parser";
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
@@ -17,6 +17,7 @@ import PerksBlock from "../../components/WebService/PerksBlock";
 import FooterBlock from "../../components/WebService/FooterBlock";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
+import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -40,13 +41,40 @@ const WebDevelopment: NextPage = () => {
   const { data } = useQuery([queryKeys.getServiceWebPage], () =>
     adminWebService.getWebServicePage()
   );
+  const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
+  useEffect(() => {
+    const calendlyStatusFinder = (e: any) => {
+      window.dataLayer = window.dataLayer || [];
+
+      if (
+        e.data.event &&
+        e.data.event.indexOf("calendly") === 0 &&
+        e.data.event === "calendly.event_scheduled"
+      ) {
+        setIsCalendlySuccessfull(true);
+      }
+    };
+
+    window.addEventListener("message", calendlyStatusFinder);
+
+    return () => {
+      window.removeEventListener("message", calendlyStatusFinder);
+    };
+  }, []);
+
   return (
     <>
+      {isCalendlySuccessfull && (
+        <CalendlyInfoModal
+          isOpen={isCalendlySuccessfull}
+          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+        />
+      )}
       <Head>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />

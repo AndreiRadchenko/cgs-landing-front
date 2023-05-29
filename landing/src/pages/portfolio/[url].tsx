@@ -38,6 +38,7 @@ import ButtonArrow from "../../utils/ButtonArrow";
 import { openInNewTab } from "../../utils/OpenInNewTab";
 
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -64,6 +65,7 @@ const PortfolioProjectPage = () => {
 
   const [iconFirstSet, setIconFirstSet] = useState<ITechnology[]>([]);
   const [iconSecondSet, setIconSecondSet] = useState<ITechnology[]>([]);
+  const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
   const { width } = useWindowDimension();
 
@@ -92,6 +94,26 @@ const PortfolioProjectPage = () => {
       refetchOnWindowFocus: false,
     }
   );
+
+  useEffect(() => {
+    const calendlyStatusFinder = (e: any) => {
+      window.dataLayer = window.dataLayer || [];
+
+      if (
+        e.data.event &&
+        e.data.event.indexOf("calendly") === 0 &&
+        e.data.event === "calendly.event_scheduled"
+      ) {
+        setIsCalendlySuccessfull(true);
+      }
+    };
+
+    window.addEventListener("message", calendlyStatusFinder);
+
+    return () => {
+      window.removeEventListener("message", calendlyStatusFinder);
+    };
+  }, []);
 
   useEffect(() => {
     if (project && project?.text.length <= 350) {
@@ -128,6 +150,12 @@ const PortfolioProjectPage = () => {
         <LoaderStub />
       ) : (
         <PortfolioContainer>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+            />
+          )}
           <HeaderNavNew />
           <Styled.Breadcrumbs>
             {breadcrumbs.map((breadcrumb, index) => (

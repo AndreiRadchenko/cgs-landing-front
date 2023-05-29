@@ -29,6 +29,7 @@ import * as Styles from "../../styles/Portfolio.styled";
 import * as CSS from "../../styles/Portfolio/title.styled";
 import { DropdownContainer } from "../../styles/HomePage/General.styled";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
+import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 
 const PortfolioPage: NextPage = () => {
   const { width } = useWindowDimension();
@@ -94,6 +95,7 @@ const PortfolioPage: NextPage = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isImagesLoaded, setIsImagesLoaded] = useState(false);
   const [loadedImagesCount, setLoadedImagesCount] = useState(0);
+  const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
   const { data, isLoading }: IPortfolioResponse = useQuery(
     [queryKeys.getPortfolioPageData],
@@ -312,6 +314,26 @@ const PortfolioPage: NextPage = () => {
     }
   }, [selectedIndustries]);
 
+  useEffect(() => {
+    const calendlyStatusFinder = (e: any) => {
+      window.dataLayer = window.dataLayer || [];
+
+      if (
+        e.data.event &&
+        e.data.event.indexOf("calendly") === 0 &&
+        e.data.event === "calendly.event_scheduled"
+      ) {
+        setIsCalendlySuccessfull(true);
+      }
+    };
+
+    window.addEventListener("message", calendlyStatusFinder);
+
+    return () => {
+      window.removeEventListener("message", calendlyStatusFinder);
+    };
+  }, []);
+
   return (
     <Loader
       active={(isLoading || reviewsIsLoading || !isImagesLoaded) && isFirstLoad}
@@ -320,6 +342,12 @@ const PortfolioPage: NextPage = () => {
         <LoaderStub />
       ) : data ? (
         <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+            />
+          )}
           <Head>
             <title>{metaTitle}</title>
             <meta name="description" content={metaDescription} />
