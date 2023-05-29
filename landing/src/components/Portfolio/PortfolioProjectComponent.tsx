@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -14,9 +14,17 @@ import { openInNewTab } from "../../utils/OpenInNewTab";
 
 const PortfolioProjectComponent = ({
   project,
+  loadedImagesCounter,
 }: {
   project: IPortfolioReview;
+  loadedImagesCounter?: () => void;
 }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setIsLoaded(true);
+  };
+
   const { push } = useRouter();
   const mockedIconsTech = [
     {
@@ -236,6 +244,12 @@ const PortfolioProjectComponent = ({
     );
   };
 
+  useEffect(() => {
+    if (isLoaded) {
+      loadedImagesCounter && loadedImagesCounter();
+    }
+  }, [isLoaded]);
+
   return (
     <Styled.ProjectsContainer isProjectLink={!!project.button}>
       <Styled.ProjectsContainerHeader isInfoCont={false}>
@@ -274,6 +288,8 @@ const PortfolioProjectComponent = ({
           objectFit="cover"
           height={341}
           width={652}
+          loading="eager"
+          onLoad={handleImageLoad}
         />
       </Styled.ProjectsContainerImage>
       <Styled.ProjectsContainerInfo>

@@ -19,7 +19,6 @@ export const PortfolioStyledLoader = styled(LoadingOverlay)`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     .MyLoader_overlay {
-      margin-top: 20px;
       min-height: 2200px;
     }
 

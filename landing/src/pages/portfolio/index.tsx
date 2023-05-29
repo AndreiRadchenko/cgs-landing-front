@@ -92,6 +92,8 @@ const PortfolioPage: NextPage = () => {
   const [categoryItemWidths, setCategoryItemWidths] = useState<string[]>([]);
   const [categoryItemHeights, setCategoryItemHeights] = useState<string[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isImagesLoaded, setIsImagesLoaded] = useState(false);
+  const [loadedImagesCount, setLoadedImagesCount] = useState(0);
 
   const { data, isLoading }: IPortfolioResponse = useQuery(
     [queryKeys.getPortfolioPageData],
@@ -160,7 +162,7 @@ const PortfolioPage: NextPage = () => {
     });
   };
 
-  const filtersNulifier = () => {
+  const filtersNullifier = () => {
     setSelectedIndustries([]);
     setCategory("");
     setActiveCategory(0);
@@ -194,26 +196,38 @@ const PortfolioPage: NextPage = () => {
       { shallow: true }
     );
   };
+
   const handleCategoryItemRef =
     (index: number) => (ref: HTMLDivElement | null) => {
       categoryItemsRef.current[index] = ref;
     };
 
-  useEffect(() => {
-    if (
-      reviewsData?.reviews.length === 0 &&
-      (category || selectedIndustries.length > 0) &&
-      isSearchTriggered
-    ) {
-      filtersNulifier();
-      setIsSearchTriggered(false);
-      setIsRequestRepeated(true);
-    }
+  const loadedImagesCounter = () => {
+    const reviewsCount = reviewsData && reviewsData.reviews.length;
 
-    if (reviewsData?.reviews.length === 0 && category && isCategoryChange) {
-      setIsCategoryWarning(true);
-    } else {
-      setIsCategoryWarning(false);
+    setLoadedImagesCount((prev) => prev + 1);
+
+    if (loadedImagesCount + 1 === reviewsCount) setIsImagesLoaded(true);
+  };
+
+  const imagesCountNullifier = () => {
+    setIsImagesLoaded(false);
+    setLoadedImagesCount(0);
+  };
+
+  useEffect(() => {
+    if (reviewsData?.reviews.length === 0) {
+      if ((category || selectedIndustries.length > 0) && isSearchTriggered) {
+        filtersNullifier();
+        setIsSearchTriggered(false);
+        setIsRequestRepeated(true);
+      }
+
+      if (category && isCategoryChange) {
+        setIsCategoryWarning(true);
+      } else {
+        setIsCategoryWarning(false);
+      }
     }
   }, [reviewsData]);
 
@@ -221,6 +235,7 @@ const PortfolioPage: NextPage = () => {
 
   useEffect(() => {
     setCurrentPage(1);
+    imagesCountNullifier();
     scrollFunction(true);
   }, [selectedIndustries.length, searchTrigger, category]);
 
@@ -296,8 +311,11 @@ const PortfolioPage: NextPage = () => {
       updateURLParams({ category, selectedIndustries: [] });
     }
   }, [selectedIndustries]);
+
   return (
-    <Loader active={(isLoading || reviewsIsLoading) && isFirstLoad}>
+    <Loader
+      active={(isLoading || reviewsIsLoading || !isImagesLoaded) && isFirstLoad}
+    >
       {(isLoading || reviewsIsLoading) && isFirstLoad ? (
         <LoaderStub />
       ) : data ? (
@@ -433,7 +451,10 @@ const PortfolioPage: NextPage = () => {
               <Styles.PortfolioProjectsWrapper ref={contentRef}>
                 <Loader
                   isPortfolio={true}
-                  active={(isLoading || reviewsIsLoading) && !isFirstLoad}
+                  active={
+                    (isLoading || reviewsIsLoading || !isImagesLoaded) &&
+                    !isFirstLoad
+                  }
                 >
                   {(isLoading || reviewsIsLoading) && !isFirstLoad ? (
                     <LoaderStub />
@@ -452,6 +473,7 @@ const PortfolioPage: NextPage = () => {
                             <PortfolioProjectComponent
                               key={project._id}
                               project={project}
+                              loadedImagesCounter={loadedImagesCounter}
                             />
                           ))}
                       </Styles.PortfolioProjectsContainer>
@@ -459,7 +481,10 @@ const PortfolioPage: NextPage = () => {
                         reviewsData={reviewsData}
                         currentPage={currentPage}
                         setCurrentPage={setCurrentPage}
-                        scrollFunction={() => scrollFunction(true)}
+                        scrollFunction={() => {
+                          imagesCountNullifier();
+                          scrollFunction(true);
+                        }}
                         setIsFirstLoad={setIsFirstLoad}
                         setIsPaginationTriggered={setIsPaginationTriggered}
                       />
