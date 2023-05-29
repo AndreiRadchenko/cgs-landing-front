@@ -418,16 +418,19 @@ export const PortfolioSearchAndInductries = styled.div`
   }
 `;
 
-export const PortfolioProjectsContainer = styled.div`
+export const PortfolioProjectsContainer = styled.div<{ isSeeMore: boolean }>`
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(355px, 652px));
   gap: 52px 34px;
   margin-top: 60px;
+  margin-bottom: ${({ isSeeMore }) => isSeeMore && "100px"};
 
   @media ${themes.primary.media.maxTabletPortrait} {
     gap: 20px;
-    margin: 0 10px 0;
+    margin-inline: 10px;
+    margin-top: ${({ isSeeMore }) => isSeeMore && "30px"};
+    margin-bottom: ${({ isSeeMore }) => isSeeMore && "60px"};
   }
 `;
 
