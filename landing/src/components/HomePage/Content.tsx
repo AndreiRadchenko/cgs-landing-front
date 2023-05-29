@@ -16,7 +16,6 @@ import MobileNextTech from "./MobileNextTech";
 import CalcAndChatContainer from "../CalcAndChatContainer";
 import { PopupModal } from "react-calendly";
 import { recoverLink } from "../../utils/recoverLink";
-import CalendlyInfoModal from "../Calendly/CalendlyInfoModal";
 
 export interface ICalendlyUserData {
   name: string;
@@ -26,7 +25,6 @@ export interface ICalendlyUserData {
 
 const Content = () => {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
-  const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
   const [calendlyUserData, setCalendlyUserData] = useState<ICalendlyUserData>({
     name: "",
     email: "",
@@ -43,34 +41,8 @@ const Content = () => {
     });
   };
 
-  useEffect(() => {
-    const testName = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
-
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
-
-    window.addEventListener("message", testName);
-
-    return () => {
-      window.removeEventListener("message", testName);
-    };
-  }, []);
-
   return (
     <>
-      {isCalendlySuccessfull && (
-        <CalendlyInfoModal
-          isOpen={isCalendlySuccessfull}
-          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-        />
-      )}
       <PageArticle ref={elRef}>
         {elRef && elRef.current && (
           <PopupModal

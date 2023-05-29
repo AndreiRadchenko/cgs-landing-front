@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
@@ -16,6 +16,7 @@ import FooterBlock from "../../components/MobileAuditService/FooterBlock";
 import * as Styled from "../../styles/MobileAuditService/Layout";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import HowDoWeAuditBlock from "../../components/MobileAuditService/HowDoWeAuditBlock";
+import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -39,13 +40,40 @@ const MobileAuditService = () => {
   const { data } = useQuery([queryKeys.getServiceMobileAuditPage], () =>
     adminMobileAuditService.getMobileAuditServicePage()
   );
+  const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 
+  useEffect(() => {
+    const calendlyStatusFinder = (e: any) => {
+      window.dataLayer = window.dataLayer || [];
+
+      if (
+        e.data.event &&
+        e.data.event.indexOf("calendly") === 0 &&
+        e.data.event === "calendly.event_scheduled"
+      ) {
+        setIsCalendlySuccessfull(true);
+      }
+    };
+
+    window.addEventListener("message", calendlyStatusFinder);
+
+    return () => {
+      window.removeEventListener("message", calendlyStatusFinder);
+    };
+  }, []);
+
   return (
     <>
+      {isCalendlySuccessfull && (
+        <CalendlyInfoModal
+          isOpen={isCalendlySuccessfull}
+          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+        />
+      )}
       <Head>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />

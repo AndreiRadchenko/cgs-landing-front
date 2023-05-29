@@ -6,7 +6,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import parse from "html-react-parser";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import * as Styled from "../../styles/DappAuditService/Common.styled";
@@ -15,6 +15,7 @@ import FigureOutBlock from "../../components/DappAuditService/FigureOutBlock";
 import HowDoProvideBlock from "../../components/DappAuditService/HowDoProvideBlock";
 import ShowCase from "../../components/ShowCase";
 import FooterBlock from "../../components/DappAuditService/FooterBlock";
+import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ export async function getServerSideProps() {
 
 const DappAuditPage: NextPage = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
+  const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
   const customHead = `
   <script type=“application/ld+json”>
   [{
@@ -236,8 +238,34 @@ const DappAuditPage: NextPage = () => {
     content="Dapp Audit performed by CGS-team includes automation tests, penetration tests, smart contract audits and more; secure your dapp with CGS-team" />
   `;
 
+  useEffect(() => {
+    const calendlyStatusFinder = (e: any) => {
+      window.dataLayer = window.dataLayer || [];
+
+      if (
+        e.data.event &&
+        e.data.event.indexOf("calendly") === 0 &&
+        e.data.event === "calendly.event_scheduled"
+      ) {
+        setIsCalendlySuccessfull(true);
+      }
+    };
+
+    window.addEventListener("message", calendlyStatusFinder);
+
+    return () => {
+      window.removeEventListener("message", calendlyStatusFinder);
+    };
+  }, []);
+
   return (
     <>
+      {isCalendlySuccessfull && (
+        <CalendlyInfoModal
+          isOpen={isCalendlySuccessfull}
+          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+        />
+      )}
       <Head>
         <title>Smart Contract Audit | dApp Audit | CGS-team</title>
         <meta

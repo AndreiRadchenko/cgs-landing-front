@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import parse from "html-react-parser";
 import Head from "next/head";
@@ -11,6 +11,7 @@ import { IDataResponse } from "../types/Admin/Response.types";
 import HeaderNavNew from "../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../components/FooterNew/FooterNew";
 import Content from "../components/HomePage/Content";
+import CalendlyInfoModal from "../components/Calendly/CalendlyInfoModal";
 interface IHomeData {
   data: IDataResponse | undefined;
   isLoading: boolean;
@@ -36,6 +37,7 @@ interface IHomeData {
 }
 
 const Home: NextPage = () => {
+  const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
   const { data, isLoading }: IHomeData = useQuery(
     [queryKeys.getFullHomePage],
     () => adminGlobalService.getFullPage()
@@ -43,12 +45,38 @@ const Home: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
+  useEffect(() => {
+    const calendlyStatusFinder = (e: any) => {
+      window.dataLayer = window.dataLayer || [];
+
+      if (
+        e.data.event &&
+        e.data.event.indexOf("calendly") === 0 &&
+        e.data.event === "calendly.event_scheduled"
+      ) {
+        setIsCalendlySuccessfull(true);
+      }
+    };
+
+    window.addEventListener("message", calendlyStatusFinder);
+
+    return () => {
+      window.removeEventListener("message", calendlyStatusFinder);
+    };
+  }, []);
+
   return (
     <>
       {isLoading ? (
         <StyledCommon.Loading>LOADING...</StyledCommon.Loading>
       ) : (
         <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+            />
+          )}
           <Head>
             <title>{metaTitle}</title>
             <meta name="description" content={metaDescription} />
