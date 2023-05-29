@@ -51,7 +51,7 @@ const SeeMoreProjects = ({
           )}
         </Styled.SeeMoreProjectsArrowSecond>
       </Styled.SeeMoreProjectsTitleContainer>
-      <PortfolioProjectsContainer>
+      <PortfolioProjectsContainer isSeeMore>
         {slicedIndustry.length === 2
           ? slicedIndustry
               .filter((project) => project.title !== mainProjectTitle)

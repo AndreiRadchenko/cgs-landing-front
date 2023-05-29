@@ -467,7 +467,7 @@ const PortfolioPage: NextPage = () => {
                           </div>
                         </Styles.PortfolioFilterWarning>
                       )}
-                      <Styles.PortfolioProjectsContainer>
+                      <Styles.PortfolioProjectsContainer isSeeMore={false}>
                         {reviewsData?.reviews &&
                           reviewsData.reviews.map((project) => (
                             <PortfolioProjectComponent
