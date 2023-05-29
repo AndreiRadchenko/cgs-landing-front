@@ -983,7 +983,11 @@ export const CalendlyInfoModalContent = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 0 14px;
+  padding: 0 36px;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 0 14px;
+  }
 `;
 
 export const CalendlyInfoModalTitle = styled.div`
