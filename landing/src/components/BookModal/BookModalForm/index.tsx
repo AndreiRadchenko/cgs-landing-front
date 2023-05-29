@@ -51,7 +51,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
   const [btnState, setBtnState] = useState({
     isDisabled: true,
     isClicked: false,
-    link: "https://calendly.com/d/y5h-6m9-mnr/get-to-know-meeting-with-cgs-team",
+    link: "https://calendly.com/d/y5z-x7b-5ys/30min",
   });
 
   const { data: ServiceData } = useQuery([queryKeys.getAllServices], () =>
@@ -120,7 +120,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       setBtnState({
         isDisabled: true,
         isClicked: false,
-        link: "https://calendly.com/d/y5h-6m9-mnr/get-to-know-meeting-with-cgs-team",
+        link: "https://calendly.com/d/y5z-x7b-5ys/30min",
       });
       setServiceIsOpen(false);
       formik.resetForm();
