@@ -4,17 +4,24 @@ import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 
 interface ITicketModalProps {
   isOpen?: boolean;
+  isCalendly?: boolean;
   children: React.ReactNode;
 }
 
-const BookModal: FC<ITicketModalProps> = ({ isOpen, children }) => {
+const BookModal: FC<ITicketModalProps> = ({ isOpen, isCalendly, children }) => {
   isOpen && DisableScrollBarHandler(isOpen);
 
   return (
-    <Styles.BookModal className={isOpen ? "none" : "open"}>
+    <Styles.BookModal
+      isCalendly={isCalendly}
+      className={isOpen ? "none" : "open"}
+    >
       <Styles.BookModalContentContainer>
-        <Styles.BookModalContent onClick={(e) => e.stopPropagation()}>
-          <Styles.Container>
+        <Styles.BookModalContent
+          isCalendly={isCalendly}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <Styles.Container isCalendly={isCalendly}>
             <Styles.WhiteBox />
             <Styles.BlackBox />
           </Styles.Container>

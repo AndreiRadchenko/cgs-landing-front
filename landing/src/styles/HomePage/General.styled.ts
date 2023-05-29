@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
+import InfoIcon from "../../../public/Calendly/InfoIcon.svg";
+import MobileInfoIcon from "../../../public/Calendly/MobileInfoIcon.svg";
 import { buttonHover } from "../Animations.styled";
 export interface IFontSize {
   size?: string;
@@ -955,6 +957,116 @@ export const DropdownContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 1.375rem;
   }
+`;
+
+export const CalendlyInfoModalWrapper = styled.div``;
+
+export const CalendlyInfoModalWrapperCloseWrapper = styled.div`
+  width: 100%;
+  background-color: ${themes.primary.colors.blogBackground};
+`;
+
+export const CalendlyInfoModalWrapperCloseButton = styled.img`
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 20px 19px 0 0;
+  cursor: pointer;
+  z-index: 2;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin: 12px 8.5px 0 0;
+  }
+`;
+
+export const CalendlyInfoModalContent = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 14px;
+`;
+
+export const CalendlyInfoModalTitle = styled.div`
+  margin-top: 58px;
+  line-height: 31.2px;
+  font-size: 26px;
+  font-family: ${themes.primary.font.family.namu};
+  text-transform: uppercase;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 32px;
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+`;
+
+export const CalendlyInfoModalNotice = styled.div`
+  display: flex;
+  column-gap: 8px;
+  margin-top: 20px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 18px;
+  }
+`;
+
+export const CalendlyInfoModalImage = styled.div`
+  background: url(${InfoIcon.src});
+  background-repeat: no-repeat;
+  width: 86px;
+  height: 40px;
+
+  @media ${themes.primary.media.maxMobile} {
+    background: url(${MobileInfoIcon.src});
+    background-repeat: no-repeat;
+    width: 140px;
+  }
+`;
+
+export const CalendlyInfoModalNoticeText = styled.div`
+  margin-top: 2px;
+  font-size: 18px;
+  line-height: 28.8px;
+  font-weight: 900;
+  font-family: ${themes.primary.font.family.namu};
+
+  & span {
+    color: #5869dd;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 25.6px;
+  }
+`;
+
+export const CalendlyInfoModalNoticeButtonWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: 22px;
+  margin-bottom: 20px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 20px;
+    margin-bottom: 32px;
+  }
+`;
+
+export const CalendlyInfoModalNoticeButton = styled.button`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 14px;
+  align-items: center;
+  border: none;
+  height: 31px;
+  padding: 0;
+  width: 110px;
+  background-color: black;
+  color: white;
 `;
 
 interface ITag {

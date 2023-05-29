@@ -1,14 +1,19 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const BookModal = styled.div`
+interface IBookModalContent {
+  isCalendly?: boolean;
+}
+
+export const BookModal = styled.div<IBookModalContent>`
   position: fixed;
-  z-index: 36;
+  z-index: ${({ isCalendly }) => (isCalendly ? "99999" : "36")};
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: ${themes.primary.colors.modalFormBackground};
+  background-color: ${({ isCalendly }) =>
+    isCalendly ? "none" : themes.primary.colors.modalFormBackground};
   overflow: auto;
   background: linear-gradient(
     180deg,
@@ -29,11 +34,15 @@ export const BookModalContentContainer = styled.div`
   cursor: default;
 `;
 
-export const BookModalContent = styled.div`
-  width: 499px;
+export const BookModalContent = styled.div<IBookModalContent>`
+  width: ${({ isCalendly }) => (isCalendly ? "619px" : "499px")};
   background: ${themes.primary.colors.blogBackground};
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: ${({ isCalendly }) => (isCalendly ? "345px" : "699px")};
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 699px;
@@ -44,14 +53,15 @@ export const BookModalContent = styled.div`
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<IBookModalContent>`
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   position: absolute;
   z-index: -1;
-  margin: 12px 0 0 12px;
+  margin: ${({ isCalendly }) =>
+    isCalendly ? "11px 0 0 12px" : "12px 0 0 12px;"};
   border: 2px solid ${themes.primary.colors.black};
 
   @media ${themes.primary.media.estiomationFormWidth} {
