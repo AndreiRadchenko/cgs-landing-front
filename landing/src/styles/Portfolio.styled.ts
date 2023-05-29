@@ -505,7 +505,8 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
   }
 
   & path {
-    transition: transform 1s ease-in-out;
+    transition: ${({ isProjectLink }) =>
+      isProjectLink && "transform 1s ease-in-out"};
     opacity: ${({ isProjectLink }) => (!isProjectLink ? 0.3 : 1)};
   }
   & path:nth-child(1) {
