@@ -52,9 +52,7 @@ const CalculatorStepsFormContent = ({
   const { values, isValid, errors, handleSubmit, validateForm } =
     useFormikContext<ICalculatorFormValuesProps>();
 
-  const calendlyLink = isBlockchain
-    ? "https://calendly.com/d/yyt-5dp-6bn/client-meets-cgs-team-ib-web3"
-    : "https://calendly.com/d/2cj-vbz-zkp/client-meets-cgs-team-ib-web2";
+  const calendlyLink = "https://calendly.com/d/y5z-x7b-5ys/30min";
 
   const handleClick = () =>
     stepsCount <= 10 ? onButtonClick() : handlePaginationNextClick();
