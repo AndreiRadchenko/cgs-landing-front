@@ -480,7 +480,11 @@ const PortfolioPage: NextPage = () => {
                 <Loader
                   isPortfolio={true}
                   active={
-                    (isLoading || reviewsIsLoading || !isImagesLoaded) &&
+                    (isLoading ||
+                      reviewsIsLoading ||
+                      (reviewsData?.reviews &&
+                        reviewsData.reviews.length > 0 &&
+                        !isImagesLoaded)) &&
                     !isFirstLoad
                   }
                 >
