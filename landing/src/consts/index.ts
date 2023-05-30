@@ -184,6 +184,7 @@ export enum ROUTE_KEYS {
   AdminFaqPage = "AdminFaq",
   AdminPrivacy = "AdminPrivacy",
   AdminAboutUs = "AdminAboutUs",
+  AdminContact = "AdminContact",
   AdminServiceMobile = "AdminServiceMobile",
   AdminServiceCloud = "AdminServiceCloud",
   AdminServiceSupport = "AdminServiceSupport",
