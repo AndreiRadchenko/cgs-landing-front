@@ -161,6 +161,9 @@ export const newPageReviewInit = {
 export const newVacancy = {
   vacancy: "",
   position: "",
+  description: "",
+  location: "",
+  time: "",
   stack: [],
   info: [
     {

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
-export const DropdownButton = styled.button<{ isHeader?: boolean }>`
+export const DropdownButton = styled.button<{ isHeader?: boolean; toFormError?: boolean }>`
   cursor: pointer;
-  color: ${themes.primary.colors.primary};
+  color: ${({ toFormError }) => (toFormError ? "#F84A3F" : "black")};
   background-color: ${themes.primary.colors.blogBackground};
   box-sizing: border-box;
   border: ${(props) =>
@@ -26,27 +26,13 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   &:hover &.open {
     border-bottom: 0 !important;
     border-right: 3px solid ${themes.primary.colors.primary} !important;
-
-    img {
-      transform: rotate(180deg);
-    }
   }
   &.open {
     border-bottom: 0 !important;
     border-right: 3px solid ${themes.primary.colors.primary} !important;
-
-    img {
-      transform: rotate(180deg);
-    }
   }
-  & > img,
   & > span {
     vertical-align: middle;
-  }
-
-  img {
-    margin-left: 10px;
-    transform: rotate(0deg);
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -66,6 +52,8 @@ export const Dropdown = styled.div`
   position: relative;
   display: inline-block;
   background-color: ${themes.primary.colors.blogBackground};
+  border: 1.5px solid #000;
+  box-shadow: 5px 5px 0 #000;
 `;
 
 export const DropdownContent = styled.div`
