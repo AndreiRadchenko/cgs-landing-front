@@ -390,6 +390,15 @@ export interface IService {
   headerBlock: IIntroWithImage;
 }
 
+export interface IWorthBlock {
+  subtitle: string;
+  textBlock: {
+    accessibility: ISubtitleWithText;
+    marketing: ISubtitleWithText;
+    brand: ISubtitleWithText;
+  };
+}
+
 export interface IServiceMobile {
   headerBlock: IIntroWithImage;
   worthBlock: {
