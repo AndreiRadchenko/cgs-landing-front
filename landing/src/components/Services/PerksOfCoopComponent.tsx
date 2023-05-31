@@ -14,15 +14,17 @@ const PerksOfCoopComponent = ({ data }: { data: IWorthBlock }) => {
 
   const { subtitle, ...blocks } = { ...data };
 
-  const realData = data?.hasOwnProperty("textBlock") ? data?.textBlock : blocks;
+  const dataWealth = data?.hasOwnProperty("textBlock")
+    ? data.textBlock
+    : blocks;
 
   return (
     <Styles.Container>
       <Subtitle>{data?.subtitle}</Subtitle>
       <MobileInfiniteText withoutMargin title={data?.subtitle} />
       <Styles.ContentLayout>
-        {realData &&
-          Object.entries(realData).map((el, idx) => (
+        {dataWealth &&
+          Object.entries(dataWealth).map((el: any, idx) => (
             <Styles.WorthBlock key={`${el[0]} ${idx}`} ind={idx}>
               <Styles.WorthTitleContainer>
                 <Styles.Icon

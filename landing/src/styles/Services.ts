@@ -5,9 +5,11 @@ import { float } from "./Animations.styled";
 
 export const Container = styled.section`
   margin-top: 50px;
+  margin-bottom: 60px;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 35px;
+    margin-bottom: 45px;
   }
 `;
 

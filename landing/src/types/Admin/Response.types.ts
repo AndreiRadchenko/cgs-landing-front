@@ -826,8 +826,20 @@ export interface IServiceMobileAudit {
   };
   whenDoYouNeed: {
     subtitle: string;
-    description: string;
-    points: string[];
+    textBlock: {
+      metrics: {
+        subtitle: string;
+        text: string;
+      };
+      bugs: {
+        subtitle: string;
+        text: string;
+      };
+      profit: {
+        subtitle: string;
+        text: string;
+      };
+    };
   };
   projects: string[];
   howDoWeAudit: {

@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
-import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import {
+  dehydrate,
+  QueryClient,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import Head from "next/head";
 import { adminMobileAuditService } from "../../services/services/adminServiceMobileAuditPage";
@@ -10,13 +15,17 @@ import FooterNew from "../../components/FooterNew/FooterNew";
 import HeadBlock from "../../components/MobileAuditService/HeadBlock";
 import WhatAppBlock from "../../components/MobileAuditService/WhatAppBlock";
 import WhatAppIncludeBlock from "../../components/MobileAuditService/WhatAppIncludeBlock";
-import WhenDoYouNeedBlock from "../../components/MobileAuditService/WhenDoYouNeedBlock";
 import ShowCase from "../../components/ShowCase";
 import FooterBlock from "../../components/MobileAuditService/FooterBlock";
 import * as Styled from "../../styles/MobileAuditService/Layout";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import HowDoWeAuditBlock from "../../components/MobileAuditService/HowDoWeAuditBlock";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
+import {
+  IServiceMobileAudit,
+  IWorthBlock,
+} from "../../types/Admin/Response.types";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -37,6 +46,11 @@ export async function getServerSideProps() {
 }
 
 const MobileAuditService = () => {
+  const queryClient = useQueryClient();
+  const dataAudit = queryClient.getQueryData<IServiceMobileAudit>([
+    queryKeys.getServiceMobileAuditPage,
+  ])?.whenDoYouNeed;
+
   const { data } = useQuery([queryKeys.getServiceMobileAuditPage], () =>
     adminMobileAuditService.getMobileAuditServicePage()
   );
@@ -86,7 +100,7 @@ const MobileAuditService = () => {
             <HeadBlock />
             <WhatAppBlock />
             <WhatAppIncludeBlock />
-            <WhenDoYouNeedBlock withoutShowcase={data?.projects.length === 0} />
+            {dataAudit && <PerksOfCoopComponent data={dataAudit as any} />}
           </Styled.Layout>
         </Layout>
         <ShowCase projects={data?.projects} />

@@ -1,6 +1,6 @@
 import { useFormikContext } from "formik";
 import React from "react";
-import { AdminInput, AdminMobileAuditGrid } from "../../../../styles/AdminPage";
+import { AdminMobileAuditGrid } from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
@@ -9,6 +9,7 @@ import { IServiceMobileAudit } from "../../../../types/Admin/Response.types";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import * as Styled from "../../../../styles/AdminPage";
 
 const WhenDoYouNeedBlock = () => {
   const { values, handleChange, handleSubmit } =
@@ -16,38 +17,36 @@ const WhenDoYouNeedBlock = () => {
 
   const handleClick = () => handleSubmit();
 
-  const renderInput = (state: string[]) => {
-    return state.map((point, idx) => (
-      <SubHeaderWithInput
-        key={idx}
-        header={`${idx + 1}`}
-        inputValue={point}
-        name={`whenDoYouNeed.points[${idx}]`}
-        onChangeFunction={handleChange}
-      />
-    ));
-  };
-
   return (
     <AdminBlockDropDown title="WHEN DO YOU NEED AN APPLICATION AUDIT?">
-      <AdminInput
+      <Styled.AdminInput
         width="421px"
         height="56px"
         value={values.whenDoYouNeed.subtitle}
         name="whenDoYouNeed.subtitle"
         onChange={handleChange}
       />
-      <SubHeaderWithInput
-        header="Description"
-        width="421px"
-        height="56px"
-        inputValue={values.whenDoYouNeed.description}
-        name="whenDoYouNeed.description"
-        onChangeFunction={handleChange}
-      />
-      <AdminMobileAuditGrid>
-        {renderInput(values.whenDoYouNeed.points)}
-      </AdminMobileAuditGrid>
+      <Styled.AdminMobileAuditWhatAppWrapper>
+        {Object.entries(values.whenDoYouNeed.textBlock).map((text, idx) => (
+          <div key={idx}>
+            <SubHeaderWithInput
+              inputValue={text[1].subtitle}
+              onChangeFunction={handleChange}
+              header={`Subtitle ${idx + 1}`}
+              name={`whenDoYouNeed.textBlock.${text[0]}.subtitle`}
+              placeholder="Title"
+            />
+            <SubHeaderWithInput
+              inputValue={text[1].text}
+              onChangeFunction={handleChange}
+              header={`Text ${idx + 1}`}
+              minRows={3}
+              name={`whenDoYouNeed.textBlock.${text[0]}.text`}
+              placeholder="Title"
+            />
+          </div>
+        ))}
+      </Styled.AdminMobileAuditWhatAppWrapper>
       <BlackButton
         size={"1.5em"}
         padding={"1.11em 3em"}

@@ -32,7 +32,7 @@ const FigureOutBlock = () => {
   const whyIsDappsBlockData = { subtitle: "Why is a dapps audit | important?" };
 
   return (
-    <Wrapper>
+    <Wrapper style={{ marginBottom: "250px" }}>
       <Subtitle className="mobileDissapear">
         {figureOutBlockData?.subtitle}
       </Subtitle>
@@ -42,7 +42,9 @@ const FigureOutBlock = () => {
           <Styled.ImageWrapper>
             <Image
               src={
-                width && width <= 992 ? FigureOutImgMobile.src : FigureOutImg.src
+                width && width <= 992
+                  ? FigureOutImgMobile.src
+                  : FigureOutImg.src
               }
               alt="figure out terms upper image"
               layout="fill"
