@@ -14,7 +14,7 @@ const WorthBlock = () => {
   const { subtitle, ...blocks } = values.worthBlock;
 
   return (
-    <AdminPaddedBlock theme="dark">
+    <AdminPaddedBlock theme="dark" style={{ paddingInline: 0 }}>
       <AdminHalfGrid>
         <SubHeaderWithInput
           onChangeFunction={handleChange}

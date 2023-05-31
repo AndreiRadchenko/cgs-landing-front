@@ -12,7 +12,7 @@ import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 const WorthBlock = () => {
   const { values, handleChange } = useFormikContext<IServiceMobile>();
   return (
-    <AdminPaddedBlock theme="dark">
+    <AdminPaddedBlock theme="dark" style={{ padding: 0 }}>
       <AdminHalfGrid>
         <SubHeaderWithInput
           onChangeFunction={handleChange}

@@ -1,7 +1,6 @@
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
-import { adminDappAuditService } from "../../services/services/adminServicesDappAuditPage";
 import { NextPage } from "next";
 import Head from "next/head";
 import parse from "html-react-parser";
@@ -16,6 +15,7 @@ import HowDoProvideBlock from "../../components/DappAuditService/HowDoProvideBlo
 import ShowCase from "../../components/ShowCase";
 import FooterBlock from "../../components/DappAuditService/FooterBlock";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -238,6 +238,22 @@ const DappAuditPage: NextPage = () => {
     content="Dapp Audit performed by CGS-team includes automation tests, penetration tests, smart contract audits and more; secure your dapp with CGS-team" />
   `;
 
+  const dataWorth = {
+    subtitle: "Why it’s worth it?",
+    mobility: {
+      subtitle: "Optimize performance",
+      text: "Our specialists run a deep check to make sure your dapp's lightning-fast performance and speedy efficiency.",
+    },
+    collaboration: {
+      subtitle: "Cost-prevention",
+      text: "With dapp audit, you're not spending but saving. CGS-team deeply checks every aspect of your dapp and prevents hacks and leaks.",
+    },
+    dataSecurity: {
+      subtitle: "Reliable security",
+      text: "You can sleep calmly, knowing all the sensitive info and critical data is safe and secure. We check every dot to be completely sure.",
+    },
+  };
+
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
       window.dataLayer = window.dataLayer || [];
@@ -280,6 +296,7 @@ const DappAuditPage: NextPage = () => {
           <Styled.Layout>
             <HeadBlock />
             <FigureOutBlock />
+            <PerksOfCoopComponent data={dataWorth} />
             <HowDoProvideBlock />
           </Styled.Layout>
         </Layout>

@@ -11,13 +11,18 @@ import StrongBlock from "./StrongBlock";
 import WhatDoWeUse from "./WhatDoWeUse";
 import WhoNeedApps from "./WhoNeedApps";
 import WorthBlock from "./WorthBlock";
+import BlockDropdown from "../../BlockDropdown";
 
 const ServiceMobileContentBlock = () => {
   const { handleSubmit } = useFormikContext();
   return (
     <div>
       <MainBlock />
-      <WorthBlock />
+      <div style={{ marginInline: "40px" }}>
+        <BlockDropdown title={"Why it's worth it?"}>
+          <WorthBlock />
+        </BlockDropdown>
+      </div>
       <StrongBlock />
       <WhatDoWeUse />
       <WhoNeedApps />
