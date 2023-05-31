@@ -335,7 +335,9 @@ const PortfolioPage: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={(isLoading || reviewsIsLoading) && isFirstLoad}>
+    <Loader
+      active={(isLoading || reviewsIsLoading || !isImagesLoaded) && isFirstLoad}
+    >
       {(isLoading || reviewsIsLoading) && isFirstLoad ? (
         <LoaderStub />
       ) : data ? (
@@ -477,7 +479,14 @@ const PortfolioPage: NextPage = () => {
               <Styles.PortfolioProjectsWrapper ref={contentRef}>
                 <Loader
                   isPortfolio={true}
-                  active={(isLoading || reviewsIsLoading) && !isFirstLoad}
+                  active={
+                    (isLoading ||
+                      reviewsIsLoading ||
+                      (reviewsData?.reviews &&
+                        reviewsData.reviews.length > 0 &&
+                        !isImagesLoaded)) &&
+                    !isFirstLoad
+                  }
                 >
                   {(isLoading || reviewsIsLoading) && !isFirstLoad ? (
                     <LoaderStub />
@@ -496,7 +505,7 @@ const PortfolioPage: NextPage = () => {
                             <PortfolioProjectComponent
                               key={project._id}
                               project={project}
-                              loadedImagesCounter={() => {}}
+                              loadedImagesCounter={loadedImagesCounter}
                             />
                           ))}
                       </Styles.PortfolioProjectsContainer>
