@@ -105,6 +105,7 @@ const PortfolioPage: NextPage = () => {
   const {
     data: reviewsData,
     isLoading: reviewsIsLoading,
+    isFetching: reviewsIsFetching,
   }: IPortfolioReviewsResponse = useQuery(
     [
       queryKeys.getPortfolio,
@@ -263,6 +264,17 @@ const PortfolioPage: NextPage = () => {
       }
     }
   }, [isLoading, reviewsIsLoading, isFirstLoad]);
+
+  useEffect(() => {
+    if (
+      reviewsData &&
+      reviewsData?.reviews.length > 0 &&
+      !reviewsIsLoading &&
+      reviewsIsFetching
+    ) {
+      setIsImagesLoaded(true);
+    }
+  }, [reviewsIsFetching]);
 
   useEffect(() => {
     setIsRequestRepeated(false);
