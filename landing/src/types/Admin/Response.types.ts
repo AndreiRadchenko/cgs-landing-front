@@ -392,11 +392,14 @@ export interface IService {
 
 export interface IWorthBlock {
   subtitle: string;
-  textBlock: {
+  textBlock?: {
     accessibility: ISubtitleWithText;
     marketing: ISubtitleWithText;
     brand: ISubtitleWithText;
   };
+  collaboration?: ISubtitleWithText;
+  dataSecurity?: ISubtitleWithText;
+  mobility?: ISubtitleWithText;
 }
 
 export interface IServiceMobile {

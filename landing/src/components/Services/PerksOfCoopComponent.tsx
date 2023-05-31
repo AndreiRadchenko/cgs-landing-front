@@ -1,49 +1,54 @@
 import React from "react";
 import { Subtitle } from "../../styles/MobileService/Layout";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
-import * as Styled from "../../styles/MobileService/WorthIt";
+import * as Styles from "../../styles/Services";
 import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import crystal from "../../../public/MobileSevice/worthIt/crystal.svg";
 import cube from "../../../public/MobileSevice/worthIt/cube.svg";
 import cylinder from "../../../public/MobileSevice/worthIt/cylinder.svg";
-import secondTextPhoto from "../../../public/MobileSevice/worthIt/marketingTextPhoto.svg";
-import thirdTextPhoto from "../../../public/MobileSevice/worthIt/brandTextPhoto.svg";
 import { IWorthBlock } from "../../types/Admin/Response.types";
 
 const PerksOfCoopComponent = ({ data }: { data: IWorthBlock }) => {
   const titleIllustration = [crystal, cube, cylinder];
-  const textIllustration = [null, secondTextPhoto, thirdTextPhoto];
+
+  const { subtitle, ...blocks } = { ...data };
+
+  const realData = data?.hasOwnProperty("textBlock") ? data?.textBlock : blocks;
 
   return (
-    <Styled.Container>
+    <Styles.Container>
       <Subtitle>{data?.subtitle}</Subtitle>
-      <MobileInfiniteText title={data?.subtitle} />
-      <Styled.ContentLayout>
-        {data &&
-          Object.entries(data?.textBlock).map((el, idx) => (
-            <Styled.WorthBlock key={`${el[0]} ${idx}`} ind={idx}>
-              <Styled.WorthTitleContainer>
-                {textIllustration[idx] && (
-                  <Styled.BlockImage
-                    src={textIllustration[idx].src}
-                    alt="worth it block image"
-                  />
-                )}
-                <Styled.Icon
+      <MobileInfiniteText withoutMargin title={data?.subtitle} />
+      <Styles.ContentLayout>
+        {realData &&
+          Object.entries(realData).map((el, idx) => (
+            <Styles.WorthBlock key={`${el[0]} ${idx}`} ind={idx}>
+              <Styles.WorthTitleContainer>
+                <Styles.Icon
                   src={titleIllustration[idx].src}
                   alt="worth it title image"
                   xOffset={handleRandomOffset()}
                 />
-                {el[1].subtitle}
-              </Styled.WorthTitleContainer>
-              <Styled.WorthText>
-                <SplitBrackets text={el[1].text} />
-              </Styled.WorthText>
-            </Styled.WorthBlock>
+                <p>{el[1].subtitle}</p>
+              </Styles.WorthTitleContainer>
+              <Styles.WorthCardInfo>
+                <Styles.WorthCardTitle>
+                  <Styles.Icon
+                    src={titleIllustration[idx].src}
+                    alt="worth it title image"
+                    xOffset={handleRandomOffset()}
+                  />
+                  <p>{el[1].subtitle}</p>
+                </Styles.WorthCardTitle>
+                <Styles.WorthText>
+                  <SplitBrackets text={el[1].text} />
+                </Styles.WorthText>
+              </Styles.WorthCardInfo>
+            </Styles.WorthBlock>
           ))}
-      </Styled.ContentLayout>
-    </Styled.Container>
+      </Styles.ContentLayout>
+    </Styles.Container>
   );
 };
 
