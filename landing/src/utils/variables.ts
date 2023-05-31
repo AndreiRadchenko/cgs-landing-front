@@ -41,6 +41,7 @@ export const navigationRoutesLinks = {
   "Dapp Audit // Tokenomic Planning": "/services/smart-contract-audit",
   "About us": "/about-us",
   Careers: "/careers",
+  Contact: "/contact",
   FAQ: "/faq",
 };
 
@@ -66,7 +67,7 @@ export const navigationRoutesNamesNew = [
   {
     route: "Company",
     withDropdown: true,
-    tags: ["About us", "Careers", "FAQ"],
+    tags: ["About us", "Careers", "Contact", "FAQ"],
   },
   { route: "Blog", withDropdown: false },
 ];

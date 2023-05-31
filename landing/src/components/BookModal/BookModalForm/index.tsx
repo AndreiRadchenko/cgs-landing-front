@@ -81,7 +81,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     validateOnBlur: true,
     onSubmit(values, { resetForm, setErrors }) {
       values.details = values.details.replace(/^\s*$/, "");
-      console.log("on submit");
       // if (!values.email || !values.service) return;
       if (!values.email) return;
       sendTeamEmail.mutate({
