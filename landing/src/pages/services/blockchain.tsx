@@ -16,6 +16,7 @@ import * as Styled from "../../styles/BlockchainService/Layout";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import NeedsAppsBenefitComponent from "../../components/Services/NeedsAppsBenefitComponent";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -93,6 +94,7 @@ const BlockchainService = () => {
         <Layout>
           <Styled.Layout className="mobile-visivble">
             <AboutBlock />
+            <>{data && <NeedsAppsBenefitComponent data={data} />}</>
             <FooterBlock />
           </Styled.Layout>
         </Layout>

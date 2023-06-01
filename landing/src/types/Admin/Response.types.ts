@@ -402,6 +402,12 @@ export interface IWorthBlock {
   mobility?: ISubtitleWithText;
 }
 
+export interface IDomain {
+  _id?: string;
+  name: string;
+  image: { url: string } | null;
+}
+
 export interface IServiceMobile {
   headerBlock: IIntroWithImage;
   worthBlock: {
@@ -424,6 +430,11 @@ export interface IServiceMobile {
     subtitle: string;
     text: string;
   };
+  domainNew: {
+    name: string;
+    image: { url: string } | null;
+  };
+  domains: IDomain[];
   projects: string[];
   howDoWeWork: {
     subtitle: string;

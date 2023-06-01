@@ -88,6 +88,9 @@ export const queryKeys = {
   getPrivacyPage: "getPrivacyPage",
   updatePrivacyPage: "updatePrivacyPage",
   supportChat: "SupportChat",
+  getAllDomains: "getAllDomains",
+  addDomainService: "addDomainService",
+  removeDomainService: "removeDomainService",
   // home page
   getFullHomePage: "getFullHomePage",
   getAllServices: "getAllServices",

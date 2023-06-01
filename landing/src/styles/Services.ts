@@ -173,3 +173,78 @@ export const Icon = styled.img<IIcon>`
     }
   }
 `;
+
+export const WhoNeedContainer = styled.div`
+  padding: 30px;
+  min-height: 275px;
+  background: linear-gradient(
+    90deg,
+    ${themes.primary.colors.gradientColor1RateCard} 0%,
+    ${themes.primary.colors.gradientColor2RateCard} 100%
+  );
+  margin-bottom: 70px;
+  display: flex;
+  gap: 70px;
+  align-items: center;
+
+  @media ${themes.primary.media.maxMobile} {
+    background: transparent;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    align-items: flex-start;
+  }
+`;
+
+export const WhoNeedAppsBlocks = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
+
+export const WhoNeedSubText = styled.p`
+  max-width: 477px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid ${themes.primary.colors.borderRateCard};
+  font-size: ${themes.primary.font.size.oneAndHalf};
+  line-height: 160%;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    & br {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    font-size: 1rem;
+    margin-top: 1em;
+    & br {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    border-top: none;
+    font-size: 16px;
+    max-width: none;
+
+    padding: 0;
+    margin: 0;
+  }
+`;
+
+export const WhoNeedAppsBlockImageContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+`;
+
+export const WhoNeedAppsBlockImageCard = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid ${themes.primary.colors.primary};
+`;
