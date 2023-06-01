@@ -108,17 +108,6 @@ export const ShortArrowWrapper = styled.div`
     width: 8vw;
   }
 
-  @media ${themes.primary.media.maxTabletLandScape} {
-    
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    
-  }
-
   @media (max-width: 475px) {
     
   }
