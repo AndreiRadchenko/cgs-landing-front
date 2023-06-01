@@ -1,6 +1,7 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
 import { AdminBigButton, AdminPaddedBlock } from "../../../../styles/AdminPage";
+import TeamMembers from "../../TeamMembers";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import FooterBlock from "./FooterBlock";
@@ -24,6 +25,7 @@ const ServiceMobileContentBlock = () => {
       <ServiceShowCase />
       <HowDoWeWork />
       <FooterBlock />
+      <TeamMembers />
       <MetaTagsBlock theme="dark" sitemap="services/mobile-app-development" />
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>

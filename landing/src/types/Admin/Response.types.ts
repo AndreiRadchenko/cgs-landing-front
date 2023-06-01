@@ -424,6 +424,7 @@ export interface IServiceMobile {
   };
   footerBlock: IIntroWithImage;
   meta: IMetaBlock;
+  teamMembersBlock: ITeamMembers;
 }
 // cloud Solution
 export interface ICloudService {
@@ -900,4 +901,16 @@ export interface IPrivacyPage {
   intro: string;
   content: { subtitle: string; text: string }[];
   meta: IMetaBlock;
+}
+
+export interface ITeamMembers {
+  title: string;
+  description: string;
+  members: IDataTeamMember[];
+  selectedMembers: IDataTeamMember[];
+}
+
+export interface IDataTeamMember {
+  id?: string;
+  member: string;
 }

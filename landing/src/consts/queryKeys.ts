@@ -8,6 +8,8 @@ export const queryKeys = {
   deleteImage: "deleteImage",
   uploadImage: "uploadImage",
   GetCareersPage: "GetCareersPage",
+  GetTeamMembers: "GetTeamMembers",
+  UpdateTeamMembers: "UpdateTeamMembers",
   UpdateCareersPage: "UpdateCareersPage",
   getPortfolioPageData: "getPortfolioPageData",
   getSeeMoreProjects: "getSeeMoreProjects",

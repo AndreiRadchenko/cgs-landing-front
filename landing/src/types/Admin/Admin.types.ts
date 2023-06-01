@@ -1,5 +1,5 @@
 import { IPropsWithImage } from "./BlockProps";
-import { IEditInformation, IPointsData } from "./Response.types";
+import { IEditInformation, IPointsData, ITeamMembers } from "./Response.types";
 import { FieldArrayRenderProps } from "formik";
 import { IDataCareersResponse } from "./Response.types";
 import { CSSProperties } from "react";
@@ -94,4 +94,8 @@ export interface IDeleteImageData {
 export interface CareersProps {
   data: IDataCareersResponse | undefined;
   isLoading: boolean;
+}
+
+export interface TeamMembersProps {
+  data: ITeamMembers | undefined;
 }
