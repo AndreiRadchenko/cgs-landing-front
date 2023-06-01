@@ -220,7 +220,6 @@ export const AdminFreeServicesCard = styled.div`
 `;
 
 export const AdminContentBlock = styled.div`
-  padding: ${themes.primary.spacing.septenary} 0 0 0;
   font-family: ${themes.primary.font.family.namu};
 `;
 

@@ -44,13 +44,23 @@ export const AddTag = styled.div`
   cursor: pointer;
   &:first-child {
     margin-left: 0;
+    background-color: #5869DD;
+    border: none;
+    color: #fff;
   }
 `;
 
 export const PlusIcon = styled.img``;
 
+export const Plus = styled.div`
+  font-size: 35px;
+  margin-bottom: 5px;
+  font-weight: ${themes.primary.font.weight.medium};
+`;
+
 export const Minus = styled.div`
   font-size: 35px;
+  margin-bottom: 5px;
   font-weight: ${themes.primary.font.weight.medium};
 `;
 

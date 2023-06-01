@@ -9,10 +9,12 @@ interface ICVProps {
 interface ILabelOptions {
   inCvInput: boolean;
   cvlink: boolean;
+  toFormError: boolean;
 }
 
 interface IFormField extends ITitle {
   isEmpty: boolean;
+  toFormError: boolean;
 }
 
 interface ITitle {
@@ -39,6 +41,8 @@ export const FormFieldContainer = styled.div`
   width: 100%;
   height: 78px;
   position: relative;
+  margin-top: 16px;
+  border: 1px solid black;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     height: 66px;
@@ -49,8 +53,8 @@ export const FormField = styled(Field)<IFormField>`
   height: 100%;
   width: 100%;
   background: none;
-  border: none;
-  border-bottom: 1px solid black;
+  border: 0.5px solid #000;
+  box-shadow: 6px 6px 0 #000;
 
   font-family: ${themes.primary.font.family.namu};
 
@@ -83,7 +87,29 @@ const opacity = keyframes`
 `;
 
 export const Form = styled.form`
-  border: 1.6px solid ${themes.primary.colors.primary};
+  @media (max-width: 768px) {
+    width: 89vw;
+    margin-left: 2.5em;
+  }
+
+  @media (max-width: 767px) {
+    width: 89vw;
+    margin-left: 4vw;
+  }
+
+  @media (max-width: 475px) {
+    margin-left: 1em;
+  }
+
+  @media (max-width: 474px) {
+    width: 94vw;
+    margin-left: 0;
+  }
+
+  @media (max-width: 400px) {
+    width: 92vw;
+    margin-left: 0;
+  }
 `;
 
 export const SubmitButton = styled.div`
@@ -213,11 +239,29 @@ export const ErrorMessage = styled.p`
 `;
 
 export const FormSentButton = styled.button<ISentButton>`
-  width: 280px;
+  width: 190px;
   height: 56px;
+  position: relative;
   border: 2px solid ${themes.primary.colors.primary};
   cursor: pointer;
-  background: ${themes.primary.colors.blogBackground};
+  padding: 0;
+
+  & path {
+    transition: all 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    z-index: -1;
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
+
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+  }
 
   &:nth-child(1) {
     color: ${({ isDisabled }) => (isDisabled ? "grey" : "black")};
@@ -226,22 +270,42 @@ export const FormSentButton = styled.button<ISentButton>`
   @media ${themes.primary.media.maxMobile} {
     border: 1.48px solid ${themes.primary.colors.primary};
   }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 198px;
-    height: 49px;
-  }
 `;
 
 export const FormSentFillText = styled.span<IFillAllFields>`
   display: ${({ toDisplay }) => (toDisplay ? "inline-block" : "none")};
-  color: grey;
+  color: red;
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.namu};
   font-size: 12px;
-  position: absolute;
   bottom: 0;
-  margin-bottom: 6px;
+  margin-top: 10px;
+  animation: ${({toDisplay}) => (toDisplay ? "move .5s linear" : "none")};
+
+  @keyframes move {
+    0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(5px);
+      }
+      40% {
+        transform: translateX(0);
+      }
+      60% {
+        transform: translateX(-5px);
+      }
+      80% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+  @media (max-width: 1200px) {
+    margin-top: 2px;
+  }
 `;
 
 export const FormSentWrap = styled.span`
@@ -254,15 +318,17 @@ export const FormSentWrap = styled.span`
 `;
 
 export const FormSentText = styled.span`
-  margin: 0;
-  color: ${themes.primary.colors.primary};
+  width: 100%;
+  height: 100%;
+  text-transform: uppercase;
+  font-size: 22px;
+  border: 0;
+  background: black;
+  color: white;
+  padding-top: 5%;
 
-  &:first-letter {
-    text-transform: capitalize;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 0.875rem;
+  @media (max-width: 768px) {
+    padding-top: 7%;
   }
 `;
 
@@ -271,14 +337,8 @@ export const FormSentContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 102px;
   flex-direction: column;
-
-  background: linear-gradient(
-    75.6deg,
-    ${themes.primary.colors.mainGradientColor1} -9.39%,
-    ${themes.primary.colors.mainGradientColor2} 110.45%
-  );
+  margin-top: 40px;
 
   button {
     display: flex;
@@ -289,6 +349,11 @@ export const FormSentContainer = styled.div`
     font-size: 16px;
     font-weight: ${themes.primary.font.weight.heavy};
     font-family: ${themes.primary.font.family.namu};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    align-items: flex-start;
+    margin-top: 60px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -357,7 +422,7 @@ export const PositionSelect = styled.div<IEnableGlare>`
 
     &:last-child {
       div:last-child {
-        color: ${themes.primary.colors.darkBlue};
+        color: grey;
       }
 
       border-bottom: 10px solid black;
@@ -386,6 +451,7 @@ export const Cvfield = styled.div<IFormField>`
   height: 100%;
   width: 100%;
   position: relative;
+  background-color: #F1EFED;
 
   display: ${({ isCvIn }) => (isCvIn ? "none" : "inline-block")};
 
@@ -394,44 +460,49 @@ export const Cvfield = styled.div<IFormField>`
       isEmpty ? themes.primary.colors.darkBlue : "black"};
 
     &::placeholder {
-      color: ${({ isEmpty }) =>
-        isEmpty ? themes.primary.colors.darkBlue : "gray"};
+      color: ${({ isEmpty, toFormError }) =>
+        isEmpty ? themes.primary.colors.darkBlue : toFormError ? "#F84A3F" : "grey"};
     }
   }
 `;
 
 export const Label = styled.label<ILabelOptions>`
   display: ${({ inCvInput, cvlink }) =>
-    inCvInput || cvlink ? "none" : "inline-block"};
-  height: 100%;
-  width: 77px;
-  border-left: 1px solid black;
+    inCvInput || cvlink ? "none" : "flex"};
+  justify-content: center;
+  border: ${({ toFormError }) => (toFormError ? "1px solid #F84A3F" : "1px solid black")};
+  padding: 7px 12px;
   position: absolute;
-  right: 0;
-  color: gray;
+  right: 3em;
+  bottom: 1.9em;
+  color: ${({ toFormError }) => (toFormError ? "#F84A3F" : "grey")};
   cursor: pointer;
+  width: 90px;
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 61px;
+  @media ${themes.primary.media.maxMobile} {
+    bottom: -4em;
+    left: 0;
+    box-shadow: 6px 3px 0 #000;
+  }
+
+  @media (max-width: 767px) {
+    bottom: -5em;
+  }
+
+  @media (max-width: 474px) {
+    width: 100px;
+    padding: 7px 12px 2px 12px;
   }
 `;
 
 export const LabelTitle = styled.span`
-  margin: 0;
-  margin-left: 10%;
   font-size: 12px;
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 10px;
-  }
+  margin-left: 5px;
 `;
 
 export const Clip = styled.img`
-  margin-top: 17px;
-  display: flex;
-  margin-left: 35%;
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 17px;
@@ -441,7 +512,7 @@ export const Clip = styled.img`
 `;
 
 export const LabelWithClipContainer = styled.div<ISpinner>`
-  display: ${({ isLoading }) => (isLoading ? "none" : "block")};
+  display: ${({ isLoading }) => (isLoading ? "none" : "flex")};
 `;
 
 export const TitleContainer = styled.div<ITitle>`
@@ -476,11 +547,8 @@ const rotate360 = keyframes`
 `;
 
 export const Loading = styled.img<ISpinner>`
-  width: 34px;
-  height: 34px;
-
-  margin-top: 20px;
-  margin-left: 20px;
+  width: 14px;
+  height: 14px;
 
   animation: ${rotate360} 1s linear infinite;
 

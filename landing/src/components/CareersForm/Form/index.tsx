@@ -4,6 +4,7 @@ import * as Styled from "./Form.styled";
 import FormField from "./FormField2/index";
 import ThankYouModal from "../../Careers/ThankYouModal";
 import Clip from "../../../../public/CareerDecorations/clip.svg";
+import ClipError from "../../../../public/CareerDecorations/clipError.svg";
 import { IDataCareersResponse } from "../../../types/Admin/Response.types";
 import { useMutation } from "@tanstack/react-query";
 import { adminCareersService } from "../../../services/adminCareersPage";
@@ -11,6 +12,8 @@ import { IVacancyMail } from "../../../types/Mail.types";
 import Close from "../../../../public/CareerDecorations/close.svg";
 import Loading from "../../../../public/CareerDecorations/loading.svg";
 import CareersDropdown from "../../Careers/CareersDropdown";
+import ButtonArrow from "../../../utils/ButtonArrow";
+import { ArrowContainer } from "../../../styles/HomePage/General.styled";
 
 interface FormProps {
   positions: string[];
@@ -51,10 +54,13 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
       cvlink: "",
       position: "",
     },
-    onSubmit(values, { resetForm }) {
+    validateOnChange: false,
+    validateOnBlur: false,
+    onSubmit(values, { resetForm, validateForm }) {
       if (buttonState.disabled) {
         return setButtonState({ ...buttonState, triedSubmit: true });
       }
+      validateForm();
       if (!values.position) return;
       if (values.cvfile) {
         const formData = new FormData();
@@ -100,12 +106,12 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
     if (!event.target.value?.length) {
       setIsLoading(false);
       return;
-    }
+    };
 
     if (!event.target.files?.length) {
       setIsLoading(false);
       return;
-    }
+    };
 
     const file = event.target.files[0];
 
@@ -156,8 +162,8 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
     filledFields < 4 && !buttonState.disabled
       ? setButtonState({ ...buttonState, disabled: true })
       : filledFields >= 4
-      ? setButtonState({ ...buttonState, disabled: false })
-      : null;
+        ? setButtonState({ ...buttonState, disabled: false })
+        : null;
   }, [formik.values]);
 
   useEffect(() => {
@@ -169,12 +175,16 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
     <Styled.FormProvider value={formik}>
       <ThankYouModal isOpen={isOpen} setIsOpen={(val) => setIsOpen(val)} />
       <Styled.Shadow enabled={enable} />
-      <Styled.Form onSubmit={formik.handleSubmit} encType="multipart/form-data">
+      <Styled.Form
+        onSubmit={formik.handleSubmit}
+        encType="multipart/form-data"
+      >
         <Styled.PositionSelect
           onClick={() => setEnable(!enable)}
           enabled={enable}
         >
           <CareersDropdown
+            toFormError={buttonState.disabled && buttonState.triedSubmit}
             className="careers"
             filter={position}
             setFilter={setPosition}
@@ -185,14 +195,14 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
         </Styled.PositionSelect>
         <div ref={scrollToRef} />
         {Object.entries(fieldContent).map(([key, label]) => (
-          <FormField name={key} key={key} label={label} />
+          <FormField name={key} key={key} label={label} toFormError={buttonState.disabled && buttonState.triedSubmit} />
         ))}
         <Styled.FormFieldContainer>
           <Styled.TitleContainer isCvIn={!!cvName.length}>
             <Styled.Title>{cvName}</Styled.Title>
             <Styled.DeleteCv onClick={onFileRemove} src={Close.src} />
           </Styled.TitleContainer>
-          <Styled.Cvfield isEmpty={checkEmpty()} isCvIn={!!cvName.length}>
+          <Styled.Cvfield isEmpty={checkEmpty()} isCvIn={!!cvName.length} toFormError={buttonState.disabled && buttonState.triedSubmit} >
             <Styled.FormField
               placeholder={CV.place}
               type={"text"}
@@ -211,6 +221,7 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
             <Styled.Label
               inCvInput={inCvInput}
               cvlink={!!formik.values.cvlink?.length}
+              toFormError={buttonState.disabled && buttonState.triedSubmit}
             >
               <Field name="lastName">
                 {() => (
@@ -227,8 +238,8 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
               </Field>
               <Styled.Loading src={Loading.src} isLoading={isLoading} />
               <Styled.LabelWithClipContainer isLoading={isLoading}>
-                <Styled.Clip src={Clip.src} />
-                <Styled.LabelTitle>.pdf, .jpeg</Styled.LabelTitle>
+                <Styled.Clip src={buttonState.disabled && buttonState.triedSubmit ? ClipError.src : Clip.src} />
+                <Styled.LabelTitle>add file</Styled.LabelTitle>
               </Styled.LabelWithClipContainer>
             </Styled.Label>
           </Styled.Cvfield>
@@ -238,9 +249,10 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
             type="submit"
             isDisabled={buttonState.disabled}
           >
-            <Styled.FormSentWrap>&lt;a&gt;</Styled.FormSentWrap>
-            <Styled.FormSentText>send</Styled.FormSentText>
-            <Styled.FormSentWrap>&lt;/a&gt;</Styled.FormSentWrap>
+            <Styled.FormSentText>Submit</Styled.FormSentText>
+            <ArrowContainer>
+              <ButtonArrow />
+            </ArrowContainer>
           </Styled.FormSentButton>
           <Styled.FormSentFillText
             toDisplay={buttonState.disabled && buttonState.triedSubmit}

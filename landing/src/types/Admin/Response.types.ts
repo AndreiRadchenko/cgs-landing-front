@@ -118,6 +118,9 @@ export interface IInfo {
 
 export interface ITicket {
   id?: string;
+  description: string;
+  location: string;
+  time:string;
   vacancy: string;
   position: string;
   image?: { url: string };

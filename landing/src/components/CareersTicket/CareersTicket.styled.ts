@@ -6,10 +6,13 @@ interface IImageProps {
   imgUrl?: string;
 }
 
+interface TicketHover {
+  isTicketHover: boolean
+}
+
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
 `;
 
 export const TicketWrapper = styled.div`
@@ -187,140 +190,162 @@ export const SubTitle = styled.span`
   }
 `;
 
-export const TicketInner = styled.div`
+export const TicketInner = styled.div<TicketHover>`
   width: 100%;
-  height: 100%;
-  position: relative;
   display: flex;
-  overflow: hidden;
+  justify-content: space-between;
+  border: 2px solid #000;
+  position: relative;
   cursor: pointer;
+  z-index: 1;
+  margin-top: 33px;
+  background-color: ${themes.primary.colors.careerBackground};
+  padding: 25px 20px;
 
-  @media ${themes.primary.media.maxTabletPortrait} {
-    column-gap: 30px;
+    &:after {
+    display: ${props => props.isTicketHover ? 'block' : 'none'};
+    position: absolute;
+    content: '';
+    background-color: ${themes.primary.colors.careerBackground};
+    width: 8px;
+    height: 50%; 
+    top: 9px;
+    right: -12px;
+    border: 2px solid #000;
+    z-index: 0;
+    }
+    
+  @media (max-width: 768px) {
+    width: 113%;
+  }
+
+  @media (max-width: 767px) {
+    margin-left: -4em;
+    width: 130%;
   }
 
   @media (max-width: 710px) {
-    column-gap: 20px;
+    margin-left: 1.5em;
+    width: 107%;
   }
 
-  @media ${themes.primary.media.minTablet} {
-    column-gap: 5px;
+  @media (max-width: 475px) {
+    margin-left: 0;
+    width: 102%;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    column-gap: 0;
+    width: 107%;
+    margin-left: -1em;
+    margin-top: 20px;
+    padding: 15px 10px;
   }
 `;
 
-export const TicketInnerSvgWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  svg {
-    height: 100%;
-    width: 100%;
-    position: absolute;
+export const TicketInfo = styled.div``;
+
+export const TicketDescription = styled.div`
+  margin-top: 15px;
+  font-size: 18px;
+  font-family: ${themes.primary.font.family.namu};
+
+  @media (max-width: 475px) {
+    width: 110%;
   }
+
+  @media (max-width: 474px) {
+    font-size: 14px;
+  }
+`;
+
+export const TicketAboutWork = styled.div`
+  display: flex;
+  margin-top: 25px;
+  margin-bottom: 10px;
+
+  @media (max-width: 496px) {
+    width: 130%;
+  }
+
+  @media (max-width: 475px) {
+    width: 130%;
+  }
+
+  @media (max-width: 474px) {
+    width: 150%;
+  }
+`;
+
+export const WorkLocation = styled.div`
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #000;
+  font-size: 18px;
+  font-weight: 900;
+  padding: 0px 15px;
+  margin-right: 20px;
+
+  @media (max-width: 474px) {
+    font-size: 14px;
+   
+  }
+`;
+
+export const WorkType = styled.div`
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #000;
+  font-size: 18px;
+  font-weight: 900;
+  padding: 0px 15px;
+
+  @media (max-width: 474px) {
+    font-size: 14px;
+  }
+`;
+
+export const TicketIcon = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+`;
+
+export const TicketApplyButton = styled.div`
+  height: 40px;
+  display: flex;
+  align-items: center;
+
+  p{
+    font-size: 16px;
+    font-family: ${themes.primary.font.family.namu};
+  }
+`;
+
+export const Shadow = styled.div<TicketHover>`
+  display: ${props => props.isTicketHover ? 'block' : 'none'};
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  box-shadow: 12px 12px 0px #000000;
 `;
 
 export const TicketContainer = styled.div`
-  background-image: url(/CareerDecorations/outer.svg);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-
-  width: 616px;
-  height: 265px;
-  padding: 16px;
-  position: relative;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 90em;
   cursor: pointer;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 13px;
-  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    height: 265px;
-    padding: 16px;
+    width: 70em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 50em;
   }
 
   @media (max-width: 710px) {
     max-width: none;
     width: 100%;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 350px;
-    height: 209px;
-    background-image: url(/CareerDecorations/outerMobile.svg);
-    padding: 10px;
-    right: 0;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    width: 300px;
-    height: 209px;
-    background-image: url(/CareerDecorations/outerMobile.svg);
-    padding: 10px;
-  }
-  &:hover ${TicketInnerSvgWrapper} {
-    svg,
-    path {
-      fill: none;
-    }
-  }
-`;
-
-export const TicketPosition = styled.div`
-  font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 1.8vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  transform: rotate(-180deg) translateX(20px);
-  writing-mode: vertical-lr;
-  text-orientation: mixed;
-  text-align: center;
-  margin: 0;
-  width: 90px;
-
-  @media (min-width: 1300px) {
-    font-size: 24px;
-
-    &.admin {
-      font-size: 22px;
-    }
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    padding-right: 10px;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    padding-right: 30px;
-    font-size: 24px;
-    width: 60px;
-  }
-
-  @media (max-width: 710px) {
-    font-size: 3.39vw;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    padding-right: 20px;
-    width: 50px;
-    font-size: 0.875rem;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    width: 40px;
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    width: 90px;
   }
 `;
 
@@ -365,48 +390,13 @@ export const RightDivider = styled.hr`
   }
 `;
 
-export const TicketPositionContainer = styled.div`
-  padding-top: 10px;
-  z-index: 2;
-  @media (max-width: 1360px) {
-    padding-top: 18px;
-  }
-  @media (max-width: 1250px) {
-    padding-top: 28px;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    padding-top: 13px;
-  }
-
-  @media (max-width: 1110px) {
-    padding-top: 23px;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    padding-top: 10px;
-  }
-
-  @media ${themes.primary.media.minTablet} {
-    padding-top: 20px;
-  }
-
-  @media (max-width: 575px) {
-    padding-top: 40px;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    padding-top: 20px;
-  }
-`;
-
-export const TicketPositionTitle = styled.p`
+export const TicketPositionTitle = styled.p<TicketHover>`
+  color: ${(props) => (props.isTicketHover ? '#5869DD' : '#000')};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 33px;
+  font-size: 22px;
+  line-height: 26px;
   text-transform: uppercase;
   margin: 0;
-  margin-top: 15px;
-  white-space: nowrap;
   text-overflow: ellipsis;
 
   @media (min-width: 1300px) {
@@ -415,45 +405,8 @@ export const TicketPositionTitle = styled.p`
     }
   }
 
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 34px;
-  }
-
-  @media (max-width: 710px) {
-    font-size: 4.79vw;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 1.25rem;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    font-size: 1rem;
-  }
-`;
-
-export const TicketPositionStack = styled.p`
-  font-weight: ${themes.primary.font.weight.heavy};
-  margin-top: 8px;
-  margin-bottom: 0;
-  text-transform: uppercase;
-  font-size: 20px;
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 20px;
-  }
-
-  @media (max-width: 710px) {
-    font-size: 3.41vw;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 0.875rem;
-    margin-top: 4px;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    font-size: 0.75rem;
+  @media (max-width: 474px) {
+    font-size: 18px;
   }
 `;
 
@@ -531,11 +484,9 @@ export const TicketDataBackground = styled.div`
 `;
 
 export const TicketArrow = styled.img`
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  right: -27px;
-  top: 39%;
+  width: 35px;
+  height: 35px;
+  margin-left: 4px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 45px;
