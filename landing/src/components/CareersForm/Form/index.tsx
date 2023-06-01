@@ -4,7 +4,7 @@ import * as Styled from "./Form.styled";
 import FormField from "./FormField2/index";
 import ThankYouModal from "../../Careers/ThankYouModal";
 import Clip from "../../../../public/CareerDecorations/clip.svg";
-import ClipError from "../../../../public/CareerDecorations/clipError.svg";
+import ClipError from "../../../../public/CareerDecorations/ClipError.svg";
 import { IDataCareersResponse } from "../../../types/Admin/Response.types";
 import { useMutation } from "@tanstack/react-query";
 import { adminCareersService } from "../../../services/adminCareersPage";
