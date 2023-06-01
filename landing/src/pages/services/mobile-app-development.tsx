@@ -22,10 +22,7 @@ import { Layout, PageArticle } from "../../styles/Layout.styled";
 import { LocalLayout } from "../../styles/MobileService/Layout";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
-<<<<<<< HEAD
 import TeamMembers from "../../components/TeamMembers";
-=======
->>>>>>> staging
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 
