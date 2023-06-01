@@ -17,7 +17,7 @@ export const FormField = styled(Field)`
   }
 
   &::placeholder {
-    color: ${themes.primary.colors.careersPlaceholder};
+    color: ${({ toError }) => (toError ? "#F84A3F" : "rgba(0, 0, 0, 0.5)")};
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -32,7 +32,11 @@ export const FormField = styled(Field)`
 export const FormFieldContainer = styled.div`
   width: 100%;
   height: 78px;
+  background-color: ${themes.primary.colors.careerBackground};
   position: relative;
+  margin-top: 16px;
+  border: 1.5px solid #000;
+  box-shadow: 5px 5px 0 #000;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     height: 66px;

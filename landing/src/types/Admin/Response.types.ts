@@ -118,6 +118,9 @@ export interface IInfo {
 
 export interface ITicket {
   id?: string;
+  description: string;
+  location: string;
+  time:string;
   vacancy: string;
   position: string;
   image?: { url: string };
@@ -390,6 +393,24 @@ export interface IService {
   headerBlock: IIntroWithImage;
 }
 
+export interface IWorthBlock {
+  subtitle: string;
+  textBlock?: {
+    accessibility: ISubtitleWithText;
+    marketing: ISubtitleWithText;
+    brand: ISubtitleWithText;
+  };
+  collaboration?: ISubtitleWithText;
+  dataSecurity?: ISubtitleWithText;
+  mobility?: ISubtitleWithText;
+}
+
+export interface IDomain {
+  _id?: string;
+  name: string;
+  image: { url: string } | null;
+}
+
 export interface IServiceMobile {
   headerBlock: IIntroWithImage;
   worthBlock: {
@@ -412,6 +433,11 @@ export interface IServiceMobile {
     subtitle: string;
     text: string;
   };
+  domainNew: {
+    name: string;
+    image: { url: string } | null;
+  };
+  domains: IDomain[];
   projects: string[];
   howDoWeWork: {
     subtitle: string;
@@ -815,8 +841,20 @@ export interface IServiceMobileAudit {
   };
   whenDoYouNeed: {
     subtitle: string;
-    description: string;
-    points: string[];
+    textBlock: {
+      metrics: {
+        subtitle: string;
+        text: string;
+      };
+      bugs: {
+        subtitle: string;
+        text: string;
+      };
+      profit: {
+        subtitle: string;
+        text: string;
+      };
+    };
   };
   projects: string[];
   howDoWeAudit: {

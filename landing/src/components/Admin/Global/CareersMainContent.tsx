@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Form, Formik } from "formik";
 import { useMutation, useQuery } from "@tanstack/react-query";
-
 import Careers from "../Careers";
 import CareersContactForm from "../CareersContactForm";
 import { adminCareersService } from "../../../services/adminCareersPage";
@@ -10,12 +9,15 @@ import { IDataCareersResponse } from "../../../types/Admin/Response.types";
 import * as Styled from "../../../styles/AdminPage";
 import MetaTagsBlock from "../MetaTagsBlock";
 import { newVacancy } from "../../../consts";
+import AdminBlockDropDown from "./AdminBlockDropDown";
+import * as AdminPageStyled from "../../../styles/AdminPage";
+import CareersTitleBlock from "../Careers/CareersTitleBlock";
 
 interface IMainProps {
   data: IDataCareersResponse | undefined;
   isLoading: boolean;
   refetch: () => Promise<IMainProps>;
-}
+};
 
 const CareersMainContent = () => {
   const [isNewTicket, setIsNewTicket] = useState(false);
@@ -49,24 +51,27 @@ const CareersMainContent = () => {
     <Formik initialValues={data} onSubmit={(values) => submitForm(values)}>
       {() => {
         return (
+          <AdminPageStyled.AdminPaddedBlock theme="light">
           <Styled.AdminContentBlock>
             <Form>
-              <Careers
-                refetch={refetch}
-                isNewTicket={isNewTicket}
-                setIsNewTicket={setIsNewTicket}
-                ticket={ticket}
-                setTicket={setTicket}
-              />
-              <CareersContactForm />
+              <AdminPageStyled.AdminHeader>Careers</AdminPageStyled.AdminHeader>
+              <CareersTitleBlock />
+              <AdminBlockDropDown title="ADD A NEW VACANCY">
+                <Careers
+                  refetch={refetch}
+                  isNewTicket={isNewTicket}
+                  setIsNewTicket={setIsNewTicket}
+                  ticket={ticket}
+                  setTicket={setTicket}
+                />
+              </AdminBlockDropDown>
+              <AdminBlockDropDown title="CONTACT FORM">
+                <CareersContactForm/>
+              </AdminBlockDropDown>
               <MetaTagsBlock sitemap="careers" />
-              <Styled.AdminPaddedBlock>
-                <Styled.AdminBigButton type="submit">
-                  Submit
-                </Styled.AdminBigButton>
-              </Styled.AdminPaddedBlock>
             </Form>
           </Styled.AdminContentBlock>
+          </AdminPageStyled.AdminPaddedBlock>
         );
       }}
     </Formik>

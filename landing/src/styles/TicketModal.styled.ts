@@ -87,7 +87,7 @@ export const ListItem = styled.li`
 
   &::marker {
     color: black;
-    font-size: 1.2em;
+    font-size: 1.8em;
     margin: 0;
   }
 
@@ -112,7 +112,7 @@ export const SubmitButtonContainer = styled.div`
   height: 50px;
   width: 172px;
   position: relative;
-  margin: 38px 0 40px 36px;
+  margin: 38px 0px 40px 36px;
   & path {
     transition: all 1s ease-in-out;
   }

@@ -6,15 +6,13 @@ import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import { IServicesClassnameProps } from "../../types/Services.types";
-import { Subtitle, VisibleSubtitle } from "../../styles/MobileService/Layout";
-import { SplitBrackets } from "../../utils/splitBrackets";
+import { VisibleSubtitle } from "../../styles/MobileService/Layout";
 
-import WhoNeedAppsMobile from "../../../public/MobileSevice/whoNeedApps/whoNeedAppsImgMobile.svg";
 import WhyWorthItMobile from "../../../public/MobileSevice/whoNeedApps/whyWorthItMobile.svg";
 import TextTypingAnimation from "../Typewrite";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useOnScreen } from "../../hooks/useOnScreen";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+import NeedsAppsBenefitComponent from "../Services/NeedsAppsBenefitComponent";
 
 const WhoNeedAppBlock = ({ className }: IServicesClassnameProps) => {
   const { width } = useWindowDimension();
@@ -42,7 +40,15 @@ const WhoNeedAppBlock = ({ className }: IServicesClassnameProps) => {
 
   return (
     <Styled.Wrapper className={className}>
+      {data && <NeedsAppsBenefitComponent data={data} />}
       <Styled.WhatDoWeUse>
+        <Styled.ImageWrapper className="whatDoWeUse">
+          <Styled.Image
+            className="whatDoWeUse"
+            src={WhyWorthItMobile.src}
+            alt="what do we use img"
+          />
+        </Styled.ImageWrapper>
         <Styled.WhatDoWeUseContainer>
           {data && (
             <VisibleSubtitle ref={elRef}>
@@ -56,27 +62,7 @@ const WhoNeedAppBlock = ({ className }: IServicesClassnameProps) => {
             {data && parse(data?.whatDoWeUse.text.replace("[arrow]", arrow))}
           </Styled.SubText>
         </Styled.WhatDoWeUseContainer>
-        <Styled.ImageWrapper className="whatDoWeUse">
-          <Styled.Image
-            className="whatDoWeUse"
-            src={WhyWorthItMobile.src}
-            alt="what do we use img"
-          />
-        </Styled.ImageWrapper>
       </Styled.WhatDoWeUse>
-      <Styled.WhoNeedAppsBlocks>
-        <Styled.WhoNeedAppsWrapper>
-          <MobileInfiniteText title={data?.whoNeedApps.subtitle} />
-          <Subtitle>{data?.whoNeedApps.subtitle}</Subtitle>
-          <Styled.WhoNeedSubText>
-            <SplitBrackets text={data?.whoNeedApps.text} />
-          </Styled.WhoNeedSubText>
-        </Styled.WhoNeedAppsWrapper>
-
-        <Styled.ImageWrapper>
-          <Styled.Image src={WhoNeedAppsMobile.src} alt="who need apps img" />
-        </Styled.ImageWrapper>
-      </Styled.WhoNeedAppsBlocks>
     </Styled.Wrapper>
   );
 };

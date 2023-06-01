@@ -82,6 +82,7 @@ export interface IPortfolioReviewsDataResponse {
 export interface IPortfolioReviewsResponse {
   data?: IPortfolioReviewsDataResponse;
   isLoading: boolean;
+  isFetching: boolean;
 }
 
 export interface IPortfolioProjectResponse {

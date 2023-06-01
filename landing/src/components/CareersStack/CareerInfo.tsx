@@ -107,7 +107,7 @@ const CareerInfo: FC<IBlogTags> = ({
               />
             ))}
         <Styles.AddTag onClick={addTagOnClick}>
-          <Styles.PlusIcon src={Plus.src} />
+          <Styles.Plus>+</Styles.Plus>
         </Styles.AddTag>
         <Styles.AddTag onClick={deleteItem}>
           <Styles.Minus>-</Styles.Minus>

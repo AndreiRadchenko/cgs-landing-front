@@ -220,7 +220,6 @@ export const AdminFreeServicesCard = styled.div`
 `;
 
 export const AdminContentBlock = styled.div`
-  padding: ${themes.primary.spacing.septenary} 0 0 0;
   font-family: ${themes.primary.font.family.namu};
 `;
 
@@ -601,6 +600,40 @@ export const AdminPhotoGrid = styled.div`
   }
 `;
 
+export const AdminPageNeedWrapper = styled.div`
+  width: 100%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding-top: 30px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  input {
+    width: 275px;
+    border: 1px solid ${themes.primary.colors.adminInputBorder};
+    background: transparent;
+    height: 56px;
+    padding: 17px;
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 14px;
+  }
+  .plus {
+    background: ${themes.primary.colors.primary};
+    width: 58px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    font-family: ${themes.primary.font.family.namu};
+    font-size: 35px;
+    color: ${themes.primary.colors.secondary};
+    line-height: 42px;
+    cursor: pointer;
+  }
+
+  border-top: 1px solid ${themes.primary.colors.comment};
+`;
 export const AdminDashedPositionGrid = styled.div`
   height: 100%;
   justify-content: center;

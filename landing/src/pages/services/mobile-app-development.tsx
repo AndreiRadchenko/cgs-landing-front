@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import parse from "html-react-parser";
-import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import {
+  dehydrate,
+  QueryClient,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import HeadBlock from "../../components/MobileService/HeadBlock";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import WorthIt from "../../components/MobileService/WorthIt";
 import StrongBlock from "../../components/MobileService/StrongBlock";
 import WhoNeedAppBlock from "../../components/MobileService/WhoNeedAppBlock";
 import HowDoWeWork from "../../components/MobileService/HowDoWeWork";
@@ -18,7 +22,10 @@ import { Layout, PageArticle } from "../../styles/Layout.styled";
 import { LocalLayout } from "../../styles/MobileService/Layout";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+<<<<<<< HEAD
 import TeamMembers from "../../components/TeamMembers";
+=======
+>>>>>>> staging
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 
@@ -39,9 +46,16 @@ export async function getServerSideProps() {
   };
 }
 const MobileAppDevelopment: NextPage = () => {
+  const queryClient = useQueryClient();
+
   const { data } = useQuery([queryKeys.getServiceMobilePage], () =>
     adminMobileService.getMobileServicePage()
   );
+
+  const dataPerks = queryClient.getQueryData<IServiceMobile>([
+    queryKeys.getServiceMobilePage,
+  ])?.worthBlock;
+
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
@@ -84,7 +98,7 @@ const MobileAppDevelopment: NextPage = () => {
         <Layout>
           <LocalLayout>
             <HeadBlock />
-            <WorthIt />
+            {dataPerks && <PerksOfCoopComponent data={dataPerks} />}
             <StrongBlock />
             <WhoNeedAppBlock
               className={

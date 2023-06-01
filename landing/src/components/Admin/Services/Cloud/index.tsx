@@ -8,6 +8,7 @@ import ProvidesBlock from "./ProvidesBlock";
 import WorkBlock from "./WorkBlock";
 import FooterBlock from "./FooterBlock";
 import ServiceShowCase from "../../ServiceShowCase";
+import BlockDropdown from "../../BlockDropdown";
 
 const ServiceCloudContentBlock = () => {
   const { handleSubmit } = useFormikContext();
@@ -15,7 +16,11 @@ const ServiceCloudContentBlock = () => {
   return (
     <div>
       <HeadBlock />
-      <WorthBlock />
+      <div style={{ marginInline: "40px" }}>
+        <BlockDropdown title={"Why it's worth it?"}>
+          <WorthBlock />
+        </BlockDropdown>
+      </div>
       <ProvidesBlock />
       <ServiceShowCase />
       <WorkBlock />

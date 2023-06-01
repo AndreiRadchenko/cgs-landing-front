@@ -64,7 +64,7 @@ export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
   line-height: 16.8px;
 
   &:hover {
-    transition: none;
+    transition: 0.15s ease-out;
     border-right-width: 2.5px;
     border-bottom-width: 4.5px;
   }

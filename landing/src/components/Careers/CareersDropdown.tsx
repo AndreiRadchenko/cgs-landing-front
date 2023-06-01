@@ -12,6 +12,7 @@ interface ICareersDropdown {
   type?: "button" | "submit";
   setEnable?: (val: boolean) => void;
   className?: string;
+  toFormError: boolean;
 }
 
 const CareersDropdown = ({
@@ -19,6 +20,7 @@ const CareersDropdown = ({
   positions,
   dropdownName,
   setEnable,
+  toFormError
 }: ICareersDropdown) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -30,8 +32,10 @@ const CareersDropdown = ({
   return (
     <Styled.Dropdown onBlur={onBlur}>
       <Styled.DropdownButton
+        type="button"
         className={isOpen ? "open" : "className"}
         onClick={() => setIsOpen(!isOpen)}
+        toFormError={toFormError}
       >
         <span>{dropdownName}</span>
         <img width={9} height={5} src={Arrow.src} alt="Arrow" />

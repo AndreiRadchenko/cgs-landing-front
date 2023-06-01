@@ -90,8 +90,8 @@ const MetaTagsBlock = ({
   }, [nameBefore, values, meta.length]);
 
   return (
-    <Styled.AdminPaddedBlock theme={theme}>
-      <div>
+    <Styled.MetaBlockWraper theme={theme}>
+      <div style={{ padding: "30px 30px"}}>
         <SubHeaderWithInput
           header="Meta Title"
           minRows={5}
@@ -166,8 +166,7 @@ const MetaTagsBlock = ({
           }
           onChangeFunction={handleChange}
         />
-      </div>
-      <BlackButton
+        <BlackButton
         type="submit"
         size={"1.5em"}
         padding={"1.11em 1.5em"}
@@ -178,7 +177,8 @@ const MetaTagsBlock = ({
           <ButtonArrow />
         </ArrowContainer>
       </BlackButton>
-    </Styled.AdminPaddedBlock>
+      </div>
+    </Styled.MetaBlockWraper>
   );
 };
 
