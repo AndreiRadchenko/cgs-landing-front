@@ -22,10 +22,7 @@ import { Layout, PageArticle } from "../../styles/Layout.styled";
 import HowDoWeAuditBlock from "../../components/MobileAuditService/HowDoWeAuditBlock";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
-import {
-  IServiceMobileAudit,
-  IWorthBlock,
-} from "../../types/Admin/Response.types";
+import { IServiceMobileAudit } from "../../types/Admin/Response.types";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
