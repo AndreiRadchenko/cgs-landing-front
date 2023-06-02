@@ -858,6 +858,7 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   padding: 0 12px;
 
   &:hover {
+    transition: 0.15s ease-out;
     padding: 0 8px 0 10px;
     border-right: 2px solid ${themes.primary.colors.primary} !important;
     border-bottom: 4px solid ${themes.primary.colors.primary} !important;
