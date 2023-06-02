@@ -5,11 +5,11 @@ import { float } from "./Animations.styled";
 
 export const Container = styled.section`
   margin-top: 50px;
-  margin-bottom: 60px;
+  margin-bottom: 140px;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 35px;
-    margin-bottom: 45px;
+    margin-bottom: 60px;
   }
 `;
 
@@ -21,11 +21,13 @@ export const ContentLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
 
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-inline: -75px;
+  }
   @media (max-width: 1141px) {
     margin-inline: -60px;
     grid-template-columns: repeat(1, minmax(375px, 1fr));
   }
-
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0px;
     margin-inline: -22px;
@@ -42,6 +44,15 @@ export const WorthTitleContainer = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
   -webkit-text-stroke: 0.2px black;
 
+  p {
+    font-size: 30px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    p {
+      font-size: 22px;
+    }
+  }
   @media ${themes.primary.media.maxLowScreenMobile} {
     column-gap: 0;
   }
@@ -50,7 +61,6 @@ export const WorthTitleContainer = styled.div`
 export const WorthCardTitle = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 12px;
   height: 121px;
   background: linear-gradient(
@@ -68,6 +78,14 @@ export const WorthCardTitle = styled.div`
     letter-spacing: 0.05em;
     color: ${themes.primary.colors.primary};
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding-inline: 20px;
+
+    p {
+      font-size: 18px;
+    }
+  }
 `;
 
 export const WorthCardInfo = styled.div`
@@ -79,6 +97,7 @@ export const WorthCardInfo = styled.div`
   top: 0;
   left: 0;
   opacity: 0;
+  scale: 0;
 `;
 
 export const WorthBlock = styled.div<ISlide>`
@@ -91,11 +110,14 @@ export const WorthBlock = styled.div<ISlide>`
   }
 
   &:hover ${WorthCardInfo} {
+    scale: 1;
     opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   &:hover ${WorthTitleContainer} {
     display: none;
+    transition-delay: 0.5s;
+    transition-property: display;
   }
 
   @media (max-width: 1141px) {
@@ -113,7 +135,7 @@ export const WorthBlock = styled.div<ISlide>`
 `;
 
 export const WorthText = styled.p`
-  padding: 28px 24px;
+  padding: 28px 51px;
   margin: 0;
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 18px;
@@ -135,7 +157,11 @@ export const WorthText = styled.p`
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 5px;
   }
-
+  @media ${themes.primary.media.maxMobile} {
+    margin: 0;
+    padding: 14px 20px;
+    font-size: 16px;
+  }
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-bottom: 1.28em;
     max-width: 20.5em;
@@ -153,23 +179,10 @@ export const Icon = styled.img<IIcon>`
   @media ${themes.primary.media.maxTabletLandScape} {
     animation: none;
   }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    margin-right: 0;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-right: 0.3em;
-    &:first-child {
+  @media ${themes.primary.media.maxMobile} {
+    &.iconCard {
       width: 17px;
-    }
-
-    &:nth-child(2) {
-      width: 21px;
-    }
-
-    &:nth-child(3) {
-      width: 29px;
+      height: 29px;
     }
   }
 `;
