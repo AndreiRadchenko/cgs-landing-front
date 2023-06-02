@@ -6,7 +6,6 @@ export const MovingText = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.bold} !important;
   text-transform: uppercase;
-  font-size: 20px;
   overflow: hidden;
   margin-left: -10%;
   width: 130%;
@@ -16,16 +15,14 @@ export const MovingText = styled.div`
   z-index: -5;
   background: linear-gradient(
     61.63deg,
-    ${themes.primary.colors.mainGradientColor1} 0%,
-    ${themes.primary.colors.mainGradientColor2} 100%
+    ${themes.primary.colors.mainGradientColor2} 0%,
+    ${themes.primary.colors.mainGradientColor1} 100%
   );
   border: 1px solid ${themes.primary.colors.headerBorder};
-  height: 2em;
-  display: flex;
+  height: 56px;
   align-items: center;
   background-size: cover;
   font-size: 2.5em;
-  font-weight: inherit;
   line-height: 140%;
 
   &.rateCard {

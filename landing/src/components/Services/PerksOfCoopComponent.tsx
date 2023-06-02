@@ -20,7 +20,7 @@ const PerksOfCoopComponent = ({ data }: { data: IWorthBlock }) => {
 
   return (
     <Styles.Container>
-      <Subtitle>{data?.subtitle}</Subtitle>
+      <Subtitle className={"perksTitle"}>{data?.subtitle}</Subtitle>
       <MobileInfiniteText withoutMargin title={data?.subtitle} />
       <Styles.ContentLayout>
         {dataWealth &&
@@ -37,6 +37,7 @@ const PerksOfCoopComponent = ({ data }: { data: IWorthBlock }) => {
               <Styles.WorthCardInfo>
                 <Styles.WorthCardTitle>
                   <Styles.Icon
+                    className={"iconCard"}
                     src={titleIllustration[idx].src}
                     alt="worth it title image"
                     xOffset={handleRandomOffset()}

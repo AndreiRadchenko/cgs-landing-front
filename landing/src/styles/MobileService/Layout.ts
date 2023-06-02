@@ -17,6 +17,10 @@ export const Subtitle = styled.h2`
   text-transform: uppercase;
   font-weight: inherit;
 
+  &.perksTitle {
+    font-size: 40px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 2.4em;
   }
