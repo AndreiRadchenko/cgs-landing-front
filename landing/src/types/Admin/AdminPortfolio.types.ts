@@ -29,6 +29,7 @@ export interface IPortfolioReview {
   projectDuration: string;
   projectTeam: string;
   title: string;
+  showCaseTitle: string;
   industry: string;
   technologies: ITechnology[];
   text: string;

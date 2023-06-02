@@ -301,6 +301,13 @@ const AddReview = ({
               name="feedback.feedbackText"
               style={{ height: "120px", overflow: "inherit" }}
             />
+            <Styled.AdminInput
+              placeholder="Show case title"
+              value={values.showCaseTitle || ""}
+              onChange={handleChange}
+              name="showCaseTitle"
+              style={{ height: "50px", overflow: "inherit" }}
+            />
           </Styled.AdminPageThirdBlockLayout>
           <Styled.AdminPageFourthBlockLayout>
             <h3 style={{ margin: "0 0 15px 0" }}>Technology</h3>
