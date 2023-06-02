@@ -25,6 +25,7 @@ export const AdminPortfolioValidation = () => {
       .string()
       .max(50, "Title can't be more than 50 symbols")
       .required(),
+    showCaseTitle: yup.string(),
     flag: yup.string().required(),
     country: yup.string().required(),
     projectDuration: yup.string().max(3).required(),

@@ -144,6 +144,7 @@ export const newPageReviewInit = {
   country: "",
   projectDuration: "",
   projectTeam: "",
+  showCaseTitle: "",
   industry: "",
   technologies: [],
   feedback: {
