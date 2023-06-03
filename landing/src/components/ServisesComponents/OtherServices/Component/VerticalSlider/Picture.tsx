@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { IImage } from "../../../../types/Admin/Admin.types";
+import { IImage } from "../../../../../types/Admin/Admin.types";
 
 import * as Styled from "./Picture.styled";
 

@@ -11,3 +11,13 @@ export interface IOtherServicesComponent {
   text: string;
   services: IOtherService[];
 }
+
+export interface IFreeService {
+  subtitle: string;
+  text: string;
+}
+
+export interface IfreeServicesComponent {
+  title: string;
+  services: IFreeService[];
+}

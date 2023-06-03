@@ -1,5 +1,8 @@
 import { IImage } from "./Admin.types";
-import { IOtherServicesComponent } from "../../types/ServicesComponent.types";
+import {
+  IOtherServicesComponent,
+  IfreeServicesComponent,
+} from "../../types/ServicesComponent.types";
 import { ITechnology } from "./AdminPortfolio.types";
 export interface IEditInformation {
   title: string;
@@ -489,6 +492,7 @@ export interface ICloudService {
     mobility: ISubtitleWithText;
     subtitle: string;
   };
+  freeServices?: IfreeServicesComponent;
 }
 export interface ISubtitleWithText {
   subtitle: string;
