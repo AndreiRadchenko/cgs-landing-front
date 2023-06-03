@@ -1,4 +1,5 @@
 import { IImage } from "./Admin.types";
+import { IOtherServicesComponent } from "../../types/ServicesComponent.types";
 import { ITechnology } from "./AdminPortfolio.types";
 export interface IEditInformation {
   title: string;
@@ -675,6 +676,7 @@ export interface IUxUiInterface {
     buttonLink: string;
     image: { url: string };
   };
+  otherServices?: IOtherServicesComponent;
   meta: IMetaBlock;
 }
 
