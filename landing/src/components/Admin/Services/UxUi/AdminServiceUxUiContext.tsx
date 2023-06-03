@@ -20,6 +20,7 @@ const AdminServiceUxUiContent = () => {
 
   const submitForm = async (values: IUxUiInterface) => {
     document.body.style.cursor = "wait";
+    console.log(values);
     await updateUxUiPage(values);
     await refetch();
     document.body.style.cursor = "auto";

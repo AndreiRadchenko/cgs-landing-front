@@ -1,4 +1,5 @@
 import { IImage } from "./Admin.types";
+import { IOtherServicesComponent } from "../../types/ServicesComponent.types";
 export interface IEditInformation {
   title: string;
   button: string;
@@ -120,7 +121,7 @@ export interface ITicket {
   id?: string;
   description: string;
   location: string;
-  time:string;
+  time: string;
   vacancy: string;
   position: string;
   image?: { url: string };
@@ -674,6 +675,7 @@ export interface IUxUiInterface {
     buttonLink: string;
     image: { url: string };
   };
+  otherServices?: IOtherServicesComponent;
   meta: IMetaBlock;
 }
 
