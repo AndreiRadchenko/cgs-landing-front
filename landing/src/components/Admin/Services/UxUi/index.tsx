@@ -9,7 +9,7 @@ import DesignBlock from "./DesignBlock";
 import EssentialBlock from "./EssentialBlock";
 import FooterBlock from "./FooterBlock";
 import ServiceShowCase from "../../ServiceShowCase";
-import OtherServices from "./OtherServicesAdminComponent";
+import OtherServices from "../../../ServisesComponents/OtherServices/AdminComponent";
 
 const ServiceUxUiContentBlock = () => {
   const { handleSubmit } = useFormikContext();

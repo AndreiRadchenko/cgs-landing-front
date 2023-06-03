@@ -2,21 +2,21 @@ import React from "react";
 import { useFormikContext, FieldArray } from "formik";
 import { useQueryClient } from "@tanstack/react-query";
 
-import SubHeaderWithInput from "../../../Global/SubHeaderWithInput";
-import PhotoBlockAddRemove from "../../../Global/PhotoBlockAddRemove";
+import SubHeaderWithInput from "../../../Admin/Global/SubHeaderWithInput";
+import PhotoBlockAddRemove from "../../../Admin/Global/PhotoBlockAddRemove";
 import {
   AddButton,
   ButtonsContainer,
   DeleteButton,
-} from "../../../FAQ/adminFaq.styled";
+} from "../../../Admin/FAQ/adminFaq.styled";
 
-import * as Styled from "../../../../../styles/AdminPage";
+import * as Styled from "../../../../styles/AdminPage";
 import * as Styles from "./OtherServices.styled";
-import { IUxUiInterface } from "../../../../../types/Admin/Response.types";
-import { IImage } from "../../../../../types/Admin/Admin.types";
-import useDeleteImageFunction from "../../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../../hooks/useUploadImageFunction";
-import { queryKeys } from "../../../../../consts/queryKeys";
+import { IUxUiInterface } from "../../../../types/Admin/Response.types";
+import { IImage } from "../../../../types/Admin/Admin.types";
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+import { queryKeys } from "../../../../consts/queryKeys";
 
 const ServicesSection = () => {
   const queryClient = useQueryClient();

@@ -2,14 +2,14 @@ import React from "react";
 import { useFormikContext } from "formik";
 
 import ServicesSection from "./ServicesSection";
-import ButtonArrow from "../../../../../utils/ButtonArrow";
+import ButtonArrow from "../../../../utils/ButtonArrow";
 
 import {
   ArrowContainer,
   BlackButton,
-} from "../../../../../styles/HomePage/General.styled";
+} from "../../../../styles/HomePage/General.styled";
 import * as Styled from "./OtherServices.styled";
-import { IUxUiInterface } from "../../../../../types/Admin/Response.types";
+import { IUxUiInterface } from "../../../../types/Admin/Response.types";
 
 const OtherServices = () => {
   const { handleSubmit } = useFormikContext<IUxUiInterface>();

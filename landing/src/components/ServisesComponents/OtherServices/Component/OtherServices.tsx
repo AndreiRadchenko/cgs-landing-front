@@ -6,7 +6,7 @@ import { VerticalSlider } from "./VerticalSlider";
 import { Picture } from "./VerticalSlider/Picture";
 
 import * as Styles from "./OtherServices.styled";
-import { IOtherServicesComponent } from "../../../types/ServicesComponent.types";
+import { IOtherServicesComponent } from "../../../../types/ServicesComponent.types";
 
 interface IServicesProps {
   otherServices?: IOtherServicesComponent;

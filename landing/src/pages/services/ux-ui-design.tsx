@@ -9,7 +9,7 @@ import HeadBlock from "../../components/UxUiService/HeadBlock";
 import WhatDoWeDoBlock from "../../components/UxUiService/WhatDoWeDoBlock";
 import DesignBlock from "../../components/UxUiService/DesignBlock";
 import EssentialBlock from "../../components/UxUiService/EsentialBlock";
-import OtherServices from "../../components/Services/OtherServices/OtherServices";
+import OtherServices from "../../components/ServisesComponents/OtherServices/Component/OtherServices";
 import FooterBlock from "../../components/UxUiService/FooterBlock";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
