@@ -3,39 +3,40 @@ import * as Styled from "../../styles/ShowCase.styled";
 import { IReviewProps as IReview } from "../../types/Admin/Response.types";
 import Image from "next/image";
 import Loader from "../Portfolio/Loader";
+import { useRouter } from "next/router";
 
 interface IReviewProps {
   review: IReview;
+  isActive: boolean;
 }
 
-const Slide = ({ review }: IReviewProps) => {
-  const [isHover, setIsHover] = useState<boolean>(false);
+const Slide = ({ review, isActive }: IReviewProps) => {
+  const router = useRouter();
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const onLoadCallBack = () => {
     setIsLoading(false);
   };
 
-  const handleHover = () => {
-    setIsHover(true);
+  const navigateToProjectPage = (url: string, id?: string) => {
+    const newUrl = url.toLowerCase().replace(/\s+/g, "-");
+    router.push(
+      {
+        pathname: `/portfolio/${newUrl}-${id}`,
+        query: { projectId: id },
+      },
+      `/portfolio/${newUrl}-${id}`
+    );
   };
 
-  const handleLeave = () => {
-    setIsHover(false);
-  };
   return (
-    <Styled.SlideContainer
-      onMouseEnter={handleHover}
-      onMouseLeave={handleLeave}
-    >
-      <Styled.TextWrapper className={isHover ? "hover" : undefined}>
-        <Styled.HoverText>{review.text}</Styled.HoverText>
-      </Styled.TextWrapper>
-      {review.imageBanner?.image?.url && (
-        <Styled.ImageWrapper>
+    <Styled.SlideContainer>
+      {review.imageProjectBanner?.image?.url && (
+        <Styled.ImageWrapper className={isActive ? "active" : undefined}>
           {isLoading && <Loader />}
           <Image
-            src={review.imageBanner?.image?.url}
+            src={review.imageProjectBanner?.image?.url}
             alt={"project image"}
             layout={"fill"}
             objectFit="contain"
@@ -45,21 +46,33 @@ const Slide = ({ review }: IReviewProps) => {
         </Styled.ImageWrapper>
       )}
       <Styled.ContentWrapper>
-        <Styled.ProjectTitle>{review.title}</Styled.ProjectTitle>
+        <Styled.ProjectTitle className={isActive ? "active" : undefined}>
+          {review.showCaseTitle}
+        </Styled.ProjectTitle>
         <Styled.BottomContent>
-          <span>
-            {review.industry && (
-              <Styled.ProjectScope>
-                {"// "}
-                {review.industry}
-              </Styled.ProjectScope>
-            )}
-          </span>
-          {review.button.length > 0 && (
-            <Styled.ProjectLinkButton href={review.button}>
-              project link
-            </Styled.ProjectLinkButton>
+          {review.title && (
+            <Styled.ProjectScope className={isActive ? "active" : undefined}>
+              <span>for </span>
+              {review.title}
+            </Styled.ProjectScope>
           )}
+          {review.text && (
+            <Styled.ProjectScopeText
+              className={isActive ? "active" : undefined}
+            >
+              {review.text}
+            </Styled.ProjectScopeText>
+          )}
+          <Styled.BottomSection>
+            <Styled.ReadMore
+              onClick={() => navigateToProjectPage(review.title, review._id)}
+            >
+              read more
+            </Styled.ReadMore>
+            <Styled.AllProjects onClick={() => router.push("/portfolio")}>
+              <span>All projects</span>
+            </Styled.AllProjects>
+          </Styled.BottomSection>
         </Styled.BottomContent>
       </Styled.ContentWrapper>
     </Styled.SlideContainer>

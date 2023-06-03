@@ -1,5 +1,6 @@
 import { IImage } from "./Admin.types";
 import { IOtherServicesComponent } from "../../types/ServicesComponent.types";
+import { ITechnology } from "./AdminPortfolio.types";
 export interface IEditInformation {
   title: string;
   button: string;
@@ -684,24 +685,36 @@ export interface IProjects {
 }
 
 export interface IReviewProps {
-  bgColor?: string;
-  button: string;
+  _id?: string;
+  imageBanner: IImage;
+  image: {
+    url: string;
+  };
+  imageProjectBanner: IImage;
+  NDA: boolean;
+  flag: string;
+  country: string;
+  projectDuration: string;
+  projectTeam: string;
+  title: string;
+  showCaseTitle: string;
+  industry: string;
+  technologies: ITechnology[];
+  text: string;
   categories: string[];
+  button: string;
   feedback: {
     name: string;
-    rating?: number | null;
     position: string;
-    company?: string;
     feedbackText: string;
   };
-  image?: { url: string } | null;
-
-  imageBanner?: IImage;
-
-  imageProjectBanner?: IImage;
-  text: string;
-  title: string;
-  industry: string;
+  technologyNew: {
+    name: string;
+    image: {
+      url: string;
+    };
+    main: boolean;
+  };
 }
 
 export interface ISitemapData {
