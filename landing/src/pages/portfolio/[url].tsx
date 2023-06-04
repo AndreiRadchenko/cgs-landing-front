@@ -66,10 +66,17 @@ const PortfolioProjectPage = () => {
   const [iconFirstSet, setIconFirstSet] = useState<ITechnology[]>([]);
   const [iconSecondSet, setIconSecondSet] = useState<ITechnology[]>([]);
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
-
+  const [isTechnolodyImagesLoaded, setIsTechnolodyImagesLoaded] =
+    useState(false);
+  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
+  const [onLoadCount, setOnLoadCount] = useState(0);
   const { width } = useWindowDimension();
 
-  const { data: project, isLoading }: IPortfolioProjectResponse = useQuery(
+  const {
+    data: project,
+    isLoading,
+    isFetching,
+  }: IPortfolioProjectResponse = useQuery(
     [queryKeys.getPortfolioProjectPage, customId],
     () => adminPortfolioService.getProjectData(customId as string),
     { enabled: !!customId }
@@ -95,7 +102,35 @@ const PortfolioProjectPage = () => {
     }
   );
 
+  const loadImages = async () => {
+    const images = project?.technologies.map((item) => item.image.url) || [];
+    if (images.length <= 1) return;
+
+    try {
+      await Promise.all(images);
+      setIsTechnolodyImagesLoaded(true);
+    } catch (error) {
+      console.error("Failed to load some images:", error);
+    }
+  };
+
+  const onMainImageLoad = (e: any) => {
+    setOnLoadCount((prev) => prev + 1);
+    if (onLoadCount === 1) {
+      setIsMainImagesLoaded(true);
+    }
+  };
+
   useEffect(() => {
+    setOnLoadCount(0);
+    setIsTechnolodyImagesLoaded(false);
+    setIsMainImagesLoaded(false);
+    loadImages();
+  }, [project?.technologies]);
+
+  useEffect(() => {
+    setIsMainImagesLoaded(false);
+
     const calendlyStatusFinder = (e: any) => {
       window.dataLayer = window.dataLayer || [];
 
@@ -116,19 +151,27 @@ const PortfolioProjectPage = () => {
   }, []);
 
   useEffect(() => {
-    if (project && project?.text.length <= 350) {
-      setIconFirstSet(project?.technologies.slice(0, 6));
-      setIconSecondSet(
-        project?.technologies.slice(6, project.technologies.length)
-      );
-    } else {
-      project && setIconFirstSet(project?.technologies);
+    if (project) {
+      if (project?.text.length <= 350) {
+        setIconFirstSet(project?.technologies.slice(0, 6));
+        setIconSecondSet(
+          project?.technologies.slice(6, project.technologies.length)
+        );
+      } else {
+        setIconFirstSet(project?.technologies);
+      }
     }
   }, [project]);
 
   useEffect(() => {
     setCustomId(extractedId);
   }, [extractedId]);
+
+  useEffect(() => {
+    if (isFetching && !isLoading) {
+      setIsMainImagesLoaded(true);
+    }
+  }, [isFetching]);
 
   breadcrumbs.push(
     <Link key="home" href="/">
@@ -145,7 +188,9 @@ const PortfolioProjectPage = () => {
   breadcrumbs.push(<span key="project">{project?.title}</span>);
 
   return (
-    <Loader active={isLoading}>
+    <Loader
+      active={isLoading || !isTechnolodyImagesLoaded || !isMainImageLoaded}
+    >
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -219,6 +264,7 @@ const PortfolioProjectPage = () => {
                     height={600}
                     width={600}
                     objectFit="contain"
+                    onLoad={(e) => onMainImageLoad(e)}
                   />
                 )}
               </Styled.HeaderImageContainer>

@@ -39,6 +39,14 @@ export const StyledLoader = styled(LoadingOverlay)`
     width: 100%;
     height: 100%;
   }
+  & .MyLoader_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+  }
 `;
 
 export const ComponentStyledLoader = styled(LoadingOverlay)`
