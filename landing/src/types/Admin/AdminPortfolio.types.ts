@@ -89,6 +89,7 @@ export interface IPortfolioReviewsResponse {
 export interface IPortfolioProjectResponse {
   data?: IPortfolioReview;
   isLoading: boolean;
+  isFetching: boolean;
 }
 
 export interface IAddAndEditProps {
