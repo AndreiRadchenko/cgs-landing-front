@@ -17,7 +17,7 @@ export interface IFreeService {
   text: string;
 }
 
-export interface IfreeServicesComponent {
+export interface IFreeServicesComponent {
   title: string;
   services: IFreeService[];
 }
