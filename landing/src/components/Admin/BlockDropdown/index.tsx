@@ -8,6 +8,7 @@ interface IDropdownProps {
   children: JSX.Element;
   styles?: any;
   isOpened?: boolean;
+  id?: string;
 }
 
 const BlockDropdown = ({
@@ -15,13 +16,14 @@ const BlockDropdown = ({
   children,
   styles,
   isOpened,
+  id,
 }: IDropdownProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(isOpened ?? true);
 
   const changeModalState = () => setIsOpen((prevState) => !prevState);
 
   return (
-    <Styled.BlockDropdown {...styles}>
+    <Styled.BlockDropdown id={id} {...styles}>
       <Styled.BlockDropdownHeader onClick={changeModalState}>
         <Styled.BlockDropdownHeaderTitle>
           {title}

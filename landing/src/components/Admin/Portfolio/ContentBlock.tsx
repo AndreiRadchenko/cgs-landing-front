@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { animateScroll as scroll, scroller } from "react-scroll";
 
 import AddAndEdit from "./AddAndEdit";
 import CallToAction from "./CallToAction";
 import TitleBlock from "./TitleBlock";
-import { useScrollTo } from "../../../hooks/useScrollTo";
 import MetaTagsBlock from "../MetaTagsBlock";
 import BlockDropdown from "../BlockDropdown";
 import IndividualProjectPageInfo from "./IndividualProjectPageInfo";
@@ -17,8 +17,6 @@ import { queryKeys } from "../../../consts/queryKeys";
 import * as Styled from "../../../styles/AdminPage";
 
 const AdminPortfolioContentBlock = () => {
-  const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
-
   const { data } = useQuery([queryKeys.getPortfolio], () =>
     adminPortfolioService.getReviews()
   );
@@ -31,15 +29,28 @@ const AdminPortfolioContentBlock = () => {
   const [current, setCurrent] = useState(0);
   const [isNewStatus, setIsNewStatus] = useState(true);
 
+  const scrollFunc = () => {
+    scroller.scrollTo("add-and-edit", {
+      duration: 500,
+      delay: 100,
+      smooth: true,
+      offset: -50,
+    });
+  };
+
   return (
     <div>
       <Styled.AdminPaddedBlock>
-        <Styled.AdminHeader ref={ref}>Portfolio</Styled.AdminHeader>
+        <Styled.AdminHeader>Portfolio</Styled.AdminHeader>
         <TitleBlock />
         <BlockDropdown title="Category">
           <AdminCategory />
         </BlockDropdown>
-        <BlockDropdown styles={{ marginTop: "50px" }} title="Add a new case">
+        <BlockDropdown
+          styles={{ marginTop: "50px" }}
+          title="Add a new case"
+          id="add-and-edit"
+        >
           <AddAndEdit
             current={current}
             isNewStatus={isNewStatus}
@@ -49,8 +60,8 @@ const AdminPortfolioContentBlock = () => {
         </BlockDropdown>
         <BlockDropdown title="Editing">
           <EditReview
+            scrollFunc={scrollFunc}
             setCurrent={setCurrent}
-            scrollHandler={scrollHandler}
             isNewStatus={isNewStatus}
             setIsNewStatus={setIsNewStatus}
           />

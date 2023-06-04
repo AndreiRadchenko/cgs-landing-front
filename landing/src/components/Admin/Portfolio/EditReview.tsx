@@ -15,16 +15,16 @@ import AdminDropDown from "../Global/AdminDropDown";
 
 interface IEditReview {
   setCurrent: (value: number) => void;
-  scrollHandler: () => void;
   isNewStatus: boolean;
   setIsNewStatus: Dispatch<SetStateAction<boolean>>;
+  scrollFunc: () => void;
 }
 
 const EditReview = ({
   setCurrent,
-  scrollHandler,
   isNewStatus,
   setIsNewStatus,
+  scrollFunc,
 }: IEditReview) => {
   const queryClient = useQueryClient();
   const { values } = useFormikContext<IPortfolioPageData>();
@@ -71,7 +71,7 @@ const EditReview = ({
     () =>
       catValue === "All Projects"
         ? data
-        : data?.filter((review) => review.categories[0] === catValue),
+        : data?.filter((review) => review.categories.includes(catValue)),
     [data, catValue]
   );
 
@@ -125,7 +125,7 @@ const EditReview = ({
                         review.imageProjectBanner.image?.url
                       )
                     }
-                    onScroll={scrollHandler}
+                    onScroll={scrollFunc}
                     editTrigger={setIsNewStatus}
                   />
                 </Styled.DraggableWrapper>

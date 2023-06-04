@@ -908,7 +908,7 @@ export const AdminDeleteReview = styled.span`
   position: relative;
   color: ${themes.primary.colors.errorText};
   padding-right: 13px;
-  font-size: ${themes.primary.font.size.tertiary};
+  font-size: 17.5px;
   font-weight: ${themes.primary.font.weight.light};
   cursor: pointer;
 `;
