@@ -20,6 +20,7 @@ export interface IMainBlogItem {
   article: IArticle;
   views?: number;
   filters?: string[];
+  setIsMainSliderImageLoaded?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface ISmallArticleItem {
