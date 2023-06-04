@@ -801,7 +801,7 @@ export const PagerText = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 10px 5px 10px 18px;
+    padding: 10px 0 10px 18px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
