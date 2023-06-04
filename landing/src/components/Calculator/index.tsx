@@ -65,6 +65,7 @@ const Calculator = ({
   const [calculateIsClicked, setCalculateIsClicked] = useState<boolean>(false);
   const [isQuitting, setIsQuitting] = useState<boolean>(false);
   const [warnIsShow, setWarnIsShow] = useState<boolean>(false);
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState<boolean>(false);
   const hoverRef = useRef<any>(null);
   const timeoutRef = useRef<any>(null);
 
@@ -350,8 +351,10 @@ const Calculator = ({
   };
 
   const handleMouseOver = () => {
+    if (window.innerWidth > 768) {
+      setIsHovered(true);
+    }
     clearTimeout(timeoutRef.current);
-    setIsHovered(true);
     setIsShowingBubble(false);
     setIsShowingCross(false);
   };
@@ -363,6 +366,11 @@ const Calculator = ({
   };
 
   const handleCloseChat = () => {
+    if (window.innerWidth < 768) {
+      setIsCalculatorOpen((prev) => !prev);
+      setIsHovered((prev) => !prev);
+    }
+
     setIsChatOpen(false);
   };
 
@@ -374,6 +382,7 @@ const Calculator = ({
     function handleClickOutside(event: { target: any }) {
       if (hoverRef.current && !hoverRef.current.contains(event.target)) {
         setIsHovered(false);
+        setIsCalculatorOpen(false);
       }
     }
 
@@ -394,6 +403,7 @@ const Calculator = ({
       <Styled.CalculatorPreviewCube className={hoverClassName}>
         <Styled.CalculatorPreview className={hoverClassName}>
           <Styled.CalculatorButton
+            isCalculatorOpen={isCalculatorOpen}
             isChatOpen={isChatOpen}
             onClick={handleCloseChat}
             isHovered={isHovered}
