@@ -81,6 +81,7 @@ export const CalculatorPreviewCube = styled.div`
 interface ICalculatorButton {
   isChatOpen?: boolean;
   isHovered?: boolean;
+  isCalculatorOpen?: boolean;
 }
 
 export const CalculatorButton = styled.div<ICalculatorButton>`
@@ -159,11 +160,22 @@ export const CalculatorButton = styled.div<ICalculatorButton>`
     background-size: 400% auto;
     animation: ${horizontalGlowReverse} 12s linear infinite;
 
-    &:hover + div,
-    .active + div {
-      left: auto;
-      top: -188px;
-    }
+    ${({ isCalculatorOpen }) =>
+      isCalculatorOpen
+        ? css`
+            &:hover + div,
+            .active + div {
+              left: auto;
+              top: -188px;
+            }
+          `
+        : css`
+            &:hover + div,
+            .active + div {
+              left: auto;
+              top: 0;
+            }
+          `}
 
     &::after {
       content: none;
