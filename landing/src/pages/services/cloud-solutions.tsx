@@ -6,22 +6,25 @@ import {
   useQuery,
   useQueryClient,
 } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminCloudService } from "../../services/services/AdminServicesCloudSolution";
-import { adminGlobalService } from "../../services/adminHomePage";
 import Head from "next/head";
+
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeadBlock from "../../components/CloudService/HeadBlock";
 import ProvidesBlock from "../../components/CloudService/ProvidesBlock";
 import WorkBlock from "../../components/CloudService/WorkBlock";
 import FooterBlock from "../../components/CloudService/FooterBlock";
-import * as Styled from "../../styles/CloudService/Layout";
-import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
-import { ICloudService } from "../../types/Admin/Response.types";
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
+import FreeService from "../../components/ServisesComponents/FreeServices/Component/FreeServices";
+
+import * as Styled from "../../styles/CloudService/Layout";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
+import { queryKeys } from "../../consts/queryKeys";
+import { adminCloudService } from "../../services/services/AdminServicesCloudSolution";
+import { adminGlobalService } from "../../services/adminHomePage";
+import { ICloudService } from "../../types/Admin/Response.types";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -108,6 +111,7 @@ const CloudService = () => {
         <Layout>
           <Styled.Layout>
             <WorkBlock />
+            <FreeService freeServices={data?.freeServices} />
             <FooterBlock />
           </Styled.Layout>
         </Layout>
