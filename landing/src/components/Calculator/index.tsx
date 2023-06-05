@@ -146,7 +146,25 @@ const Calculator = ({
       adminCalculatorService.sendResultsLeadEmail(answers)
   );
 
-  const stepsData = isBlockchain ? blockchainStepsData : classicStepsData;
+  const blockchainSortedData =
+    blockchainStepsData &&
+    blockchainStepsData.sort((a: any, b: any) => {
+      const numA = parseInt(a._id, 16);
+      const numB = parseInt(b._id, 16);
+
+      return numA - numB;
+    });
+
+  const classicSortedData =
+    classicStepsData &&
+    classicStepsData.sort((a: any, b: any) => {
+      const numA = parseInt(a._id, 16);
+      const numB = parseInt(b._id, 16);
+
+      return numA - numB;
+    });
+
+  const stepsData = isBlockchain ? blockchainSortedData : classicSortedData;
 
   const initialValues = stepsData && {
     questionsArr: stepsData.map((el) => {
@@ -399,7 +417,6 @@ const Calculator = ({
 
   return (
     <>
-      {/* <Styled.CalculatorPreviewWrapper> */}
       <Styled.CalculatorPreviewCube className={hoverClassName}>
         <Styled.CalculatorPreview className={hoverClassName}>
           <Styled.CalculatorButton
@@ -433,7 +450,6 @@ const Calculator = ({
           </Styled.CalculatorPreviewContentWrapper>
         </Styled.CalculatorPreview>
       </Styled.CalculatorPreviewCube>
-      {/* </Styled.CalculatorPreviewWrapper> */}
       {isCompleted ? (
         <CalculatorCompletedPager
           finishClick={finishPagerClick}
@@ -447,8 +463,8 @@ const Calculator = ({
         <>
           {(isChosen &&
             initialValues &&
-            blockchainStepsData &&
-            classicStepsData && (
+            blockchainSortedData &&
+            classicSortedData && (
               <Formik
                 initialValues={initialValues}
                 onSubmit={onSubmit}
@@ -522,8 +538,8 @@ const Calculator = ({
               handleClose={handleClose}
               buttonText={buttonText}
               startLoading={startLoading}
-              classicStepsData={classicStepsData}
-              blockchainStepsData={blockchainStepsData}
+              classicStepsData={classicSortedData}
+              blockchainStepsData={blockchainSortedData}
             />
           )}
         </>
