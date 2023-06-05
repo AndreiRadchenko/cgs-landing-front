@@ -24,12 +24,17 @@ export const Title = styled.h2`
 
 export const ServiceList = styled.ul`
   display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
   list-style: none;
+  @media ${themes.primary.media.maxServiceWeb} {
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
   @media ${themes.primary.media.maxMobile} {
+    gap: 18px;
     flex-direction: column;
     align-items: center;
   }

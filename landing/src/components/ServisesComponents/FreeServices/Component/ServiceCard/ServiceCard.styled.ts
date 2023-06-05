@@ -7,23 +7,26 @@ export const Card = styled.li`
   box-sizing: border-box;
   margin: 0;
   padding: 12px 21px 42px;
-  width: 242px;
+  width: 17vw;
   border: 1px solid #8f8e93;
-  transition: border-color 0.3s ease;
+  transform: translateY(0);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  @media (max-width: 1440px) {
+    width: 242px;
+  }
   :hover {
     border-color: transparent;
+    transform: translateY(-5px);
+    @media ${themes.primary.media.maxMobile} {
+      transform: translateY(0);
+    }
     .background {
       opacity: 1;
-    }
-    .card-content {
-      transform: translateY(-5px);
-      @media ${themes.primary.media.maxMobile} {
-        transform: translateY(0);
-      }
     }
   }
   @media ${themes.primary.media.maxMobile} {
     width: 335px;
+    padding: 12px 24px 24px;
   }
   @media ${themes.primary.media.maxLowestScreenMobile} {
     width: auto;
@@ -31,6 +34,7 @@ export const Card = styled.li`
 `;
 
 export const ItemBackground = styled.div`
+  z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -49,22 +53,24 @@ export const ItemBackground = styled.div`
 `;
 
 export const CardContent = styled.div`
-  transform: translateY(0);
-  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
 `;
 
 export const CardNumber = styled.p`
+  font-style: bold;
+  font-weight: 900;
   font-size: 62px;
   line-height: 74px;
   margin: 0 0 20px;
-  letter-spacing: 0.05em;
   color: #f1efed;
-  text-shadow: 5.6px 1.4px 0px #000000;
-  -webkit-text-stroke: 1.2px black;
+  text-shadow: 7px 2px 0px #000000, 5.3px 2px 0px #000000;
+  -webkit-text-stroke: 1px black;
   @media ${themes.primary.media.maxMobile} {
     font-size: 42.5672px;
     line-height: 51px;
-    text-shadow: 4.0597px 1.07313px 0px #000000;
+    text-shadow: 4.80597px 1.37313px 0px #000000,
+      3.80597px 1.37313px 0px #000000;
     -webkit-text-stroke: 0.687px solid #000000;
   }
 `;
@@ -75,7 +81,6 @@ export const CardTitle = styled.p`
   margin: 0 0 18px;
   @media ${themes.primary.media.maxMobile} {
     font-size: 18px;
-    line-height: 16px;
   }
 `;
 
@@ -85,6 +90,5 @@ export const CardText = styled.p`
   margin: 0;
   @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
-    line-height: 16px;
   }
 `;
