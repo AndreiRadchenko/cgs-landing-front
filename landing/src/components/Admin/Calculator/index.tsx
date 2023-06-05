@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminCalculatorService } from "../../../services/adminCalculator";
 import * as Styled from "../../../styles/AdminPage";
@@ -8,9 +8,16 @@ import CalculatorPagerForm from "./CalculatorPager";
 import CalculatorPriceForm from "./CalculatorPriceForm";
 import CalculatorResultsForm from "./CalculatorResultsForm";
 import CalculatorStepsForm from "./CalculatorStepsForm";
+import { ICalculatorStep } from "../../../types/Admin/Response.types";
 
 const AdminCalculatorContent = () => {
   const [isBlockchain, toogleBlockchain] = useState<boolean>(false);
+  const [sortedClassicSteps, setSortedClassicSteps] = useState<
+    ICalculatorStep[]
+  >([]);
+  const [sortedBlockchainSteps, setSortedBlockchainSteps] = useState<
+    ICalculatorStep[]
+  >([]);
 
   const { data, refetch, isLoading } = useQuery(
     [queryKeys.getCalculatorData],
@@ -33,8 +40,32 @@ const AdminCalculatorContent = () => {
     adminCalculatorService.getCalculatorBlockchainSteps()
   );
 
+  useEffect(() => {
+    if (classicSteps) {
+      const sortedClassicData = classicSteps.sort((a, b) => {
+        const numA = parseInt(a._id, 16);
+        const numB = parseInt(b._id, 16);
+
+        return numA - numB;
+      });
+      setSortedClassicSteps(sortedClassicData);
+    }
+  }, [classicSteps]);
+
+  useEffect(() => {
+    if (blockchainData) {
+      const sortedBlockchainData = blockchainData.sort((a, b) => {
+        const numA = parseInt(a._id, 16);
+        const numB = parseInt(b._id, 16);
+
+        return numA - numB;
+      });
+      setSortedBlockchainSteps(sortedBlockchainData);
+    }
+  }, [blockchainData]);
+
   return (
-    (classicSteps && blockchainData && (
+    (sortedClassicSteps && sortedBlockchainSteps && (
       <Styled.AdminContentBlock>
         <Styled.AdminBlocksContent>
           <Styled.AdminHeader>CALCULATOR</Styled.AdminHeader>
@@ -48,10 +79,10 @@ const AdminCalculatorContent = () => {
             null}
           <CalculatorStepsForm
             classicIsLoading={classicStepsIsLoading}
-            classicStepsData={classicSteps}
+            classicStepsData={sortedClassicSteps}
             classicRefetch={classicRefetch}
             blockchainIsLoading={blockchainIsLoading}
-            blockchainStepsData={blockchainData}
+            blockchainStepsData={sortedBlockchainSteps}
             blockchainRefetch={blockchainRefetch}
             isBlockchain={isBlockchain}
             toogleBlockchain={toogleBlockchain}

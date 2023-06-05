@@ -62,7 +62,7 @@ const CalculatorStepsForm = ({
     </>
   ) : (
     <AdminPageStyled.AdminUnauthorizedModal>
-      Something went wrong :(
+      {"Something went wrong :("}
     </AdminPageStyled.AdminUnauthorizedModal>
   );
 };
