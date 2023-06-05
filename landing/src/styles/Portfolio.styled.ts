@@ -220,6 +220,13 @@ export const PortfolioSearchWarning = styled.div`
   }
 `;
 
+export const PortfolioTemplateBlock = styled.div`
+  height: 1920px;
+
+  @media ${themes.primary.media.maxMobile} {
+    height: 2200px;
+  }
+`;
 interface IPortfolioIndustryTag {
   isArticlePage?: boolean;
 }
