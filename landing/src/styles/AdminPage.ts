@@ -299,6 +299,12 @@ export const AdminHalfGrid = styled.div`
   column-gap: 3rem;
 `;
 
+export const AdminQuarterGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 3rem;
+`;
+
 export const AdminRenderInputs = styled.div`
   &.cooperationBlock {
     margin-top: 2em;

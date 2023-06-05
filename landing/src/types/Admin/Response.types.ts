@@ -2,6 +2,7 @@ import { IImage } from "./Admin.types";
 import {
   IOtherServicesComponent,
   IFreeServicesComponent,
+  IAdvantagesServicesComponent,
 } from "../../types/ServicesComponent.types";
 import { ITechnology } from "./AdminPortfolio.types";
 export interface IEditInformation {
@@ -611,6 +612,7 @@ export interface IBlockchainService {
     subtitle: string;
     textSubBlock: string[];
   };
+  advantages: IAdvantagesServicesComponent;
   meta: IMetaBlock;
 }
 

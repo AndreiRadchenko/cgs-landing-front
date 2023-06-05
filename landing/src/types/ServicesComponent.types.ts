@@ -21,3 +21,10 @@ export interface IFreeServicesComponent {
   title: string;
   services: IFreeService[];
 }
+
+export interface IAdvantagesServicesComponent {
+  title: string;
+  content: [
+    { subtitle: string, text: string },
+  ];
+}
