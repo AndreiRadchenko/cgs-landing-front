@@ -8,13 +8,13 @@ export const PortfolioStyledLoader = styled(LoadingOverlay)`
     z-index: 1;
     background: ${themes.primary.colors.blogBackground};
     width: 100%;
-    min-height: 2161px;
+    min-height: 2130px;
   }
 
   &.MyLoader_wrapper--active {
     overflow: hidden;
     width: 100%;
-    min-height: 2161px;
+    min-height: 2130px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {

@@ -549,7 +549,7 @@ const PortfolioPage: NextPage = () => {
                         <li>Try checking out different industry options.</li>
                       </ul>
                     </Styles.PortfolioSearchWarning>
-                  ) : (
+                  ) : !reviewsIsLoading ? (
                     <Styles.PortfolioSearchWarning>
                       <div className="sorry-message">
                         <span>
@@ -564,6 +564,8 @@ const PortfolioPage: NextPage = () => {
                         <li>Try using other keywords.</li>
                       </ul>
                     </Styles.PortfolioSearchWarning>
+                  ) : (
+                    <Styles.PortfolioTemplateBlock />
                   )}
                 </Loader>
               </Styles.PortfolioProjectsWrapper>
