@@ -81,6 +81,7 @@ export const WorthCardTitle = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     padding-inline: 20px;
+    height: 80px;
 
     p {
       font-size: 18px;
@@ -128,6 +129,19 @@ export const WorthBlock = styled.div<ISlide>`
 
   @media ${themes.primary.media.maxMobile} {
     height: 240px;
+
+    &:first-child .iconCard {
+      width: 17px;
+      height: 29px;
+    }
+    &:nth-child(2) .iconCard {
+      width: 30px;
+      height: 30px;
+    }
+    &:last-child .iconCard {
+      width: 30px;
+      height: 40px;
+    }
   }
 `;
 
@@ -174,20 +188,6 @@ export const Icon = styled.img<IIcon>`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     animation: none;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    &.iconCard {
-      width: 17px;
-      height: 29px;
-    }
-    &.iconCard:nth-child(2) {
-      width: 21px;
-      height: 24px;
-    }
-    &.iconCard:last-child {
-      width: 22px;
-      height: 20px;
-    }
   }
 `;
 

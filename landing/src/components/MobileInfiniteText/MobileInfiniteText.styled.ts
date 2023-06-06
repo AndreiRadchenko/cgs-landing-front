@@ -14,11 +14,10 @@ export const MovingText = styled.div`
   flex-direction: row;
   z-index: -5;
   background: linear-gradient(
-    61.63deg,
+    90deg,
     ${themes.primary.colors.mainGradientColor2} 0%,
     ${themes.primary.colors.mainGradientColor1} 100%
   );
-  border: 1px solid ${themes.primary.colors.headerBorder};
   height: 56px;
   align-items: center;
   background-size: cover;
@@ -76,7 +75,5 @@ export const MovingText = styled.div`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
     line-height: 233%;
-    width: 200%;
-    margin-left: -50%;
   }
 `;
