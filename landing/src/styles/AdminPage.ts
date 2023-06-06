@@ -299,6 +299,12 @@ export const AdminHalfGrid = styled.div`
   column-gap: 3rem;
 `;
 
+export const AdminQuarterGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 3rem;
+`;
+
 export const AdminRenderInputs = styled.div`
   &.cooperationBlock {
     margin-top: 2em;
@@ -312,6 +318,11 @@ export const AdminFlexRow = styled.div<{ gap?: string }>`
   display: flex;
   flex-direction: row;
   gap: ${(props) => (props.gap ? props.gap : "4em")};
+`;
+
+export const AdminHomepageHeader = styled.div`
+  display: flex;
+  column-gap: 4em;
 `;
 
 export const AdminFlexColumn = styled(SortableList)`
@@ -1776,8 +1787,20 @@ export const RotateSvg = styled.svg`
   }
 `;
 
-export const RightSideBlock = styled.div`
-  padding-bottom: 100px;
+export const MainPhoto = styled.div``;
+
+export const AdminCalendlyPopup = styled.div``;
+
+export const AdminCalendlyPopupTitle = styled.div`
+  width: 336px;
+`;
+
+export const AdminCalendlyPopupDescription = styled.div`
+  margin-bottom: 0.8em;
+`;
+
+export const AdminCalendlyPopupButton = styled.div`
+  width: 336px;
 `;
 
 export const AdminCardsHeader = styled.h1`

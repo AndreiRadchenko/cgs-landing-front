@@ -17,6 +17,7 @@ import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import NeedsAppsBenefitComponent from "../../components/Services/NeedsAppsBenefitComponent";
+import Advantages from "../../components/ServisesComponents/Advantages/AdvantagesComponent/index";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -87,6 +88,7 @@ const BlockchainService = () => {
           <Styled.Layout>
             <HeadBlock />
             <ServicesBlock />
+            <Advantages advantages={data?.advantages}/>
             <YourWayBlock />
           </Styled.Layout>
         </Layout>

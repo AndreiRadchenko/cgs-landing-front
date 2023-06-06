@@ -1035,8 +1035,8 @@ export const CalendlyInfoModalNoticeText = styled.div`
   font-weight: 900;
   font-family: ${themes.primary.font.family.namu};
 
-  & span {
-    color: #5869dd;
+  & p {
+    margin: 0;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -1067,9 +1067,7 @@ export const CalendlyInfoModalNoticeButton = styled.button`
   font-size: 14px;
   align-items: center;
   border: none;
-  height: 31px;
-  padding: 0;
-  width: 110px;
+  padding: 7.1px 28.3px;
   background-color: black;
   color: white;
 `;

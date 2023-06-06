@@ -29,11 +29,28 @@ export const ArrowContainer = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  overflow: hidden;
+
+  svg path {
+    transition: transform 1s ease-in-out;
+  }
 
   &.prevBtn {
     width: 38px;
     height: 38px;
     border: 1.5px solid #000000;
+
+    & svg path:nth-child(1) {
+      transform: translateX(30px);
+    }
+    &:hover {
+      & path:nth-child(1) {
+        transform: translateX(0px);
+      }
+      & path:nth-child(2) {
+        transform: translateX(-30px);
+      }
+    }
   }
   &.nextBtn {
     width: 93px;
@@ -46,6 +63,18 @@ export const ArrowContainer = styled.div`
     text-transform: uppercase;
     color: ${themes.primary.colors.portfolioBg};
     gap: 10px;
+
+    & svg path:nth-child(1) {
+      transform: translateX(-30px);
+    }
+    &:hover {
+      & path:nth-child(1) {
+        transform: translateX(0px);
+      }
+      & path:nth-child(2) {
+        transform: translateX(30px);
+      }
+    }
   }
 
   & svg {
@@ -56,21 +85,21 @@ export const ArrowContainer = styled.div`
 
 export const SlideContainer = styled.div`
   margin-inline: 51px;
-  height: 600px;
+  height: 650px;
   position: relative;
 
   @media (max-width: 1055px) {
     margin-inline: 0;
-    height: 500px;
+    height: 600px;
   }
 `;
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  top: 150px;
-  right: 80px;
-  width: 450px;
-  height: 450px;
+  top: 60px;
+  right: 30px;
+  width: 650px;
+  height: 650px;
   transform: translateX(200px);
   opacity: 0;
   transition: all 1s;
@@ -81,17 +110,20 @@ export const ImageWrapper = styled.div`
     transition: all 1s;
   }
 
+  @media (max-width: 1355px) {
+    width: 450px;
+    height: 450px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     top: 100px;
-    right: 10px;
-    width: 350px;
-    height: 350px;
+    right: 0px;
+    width: 375px;
+    height: 375px;
   }
 
   @media (max-width: 1055px) {
     top: -200px;
-    width: 350px;
-    height: 350px;
   }
 `;
 
@@ -132,6 +164,16 @@ export const ProjectTitle = styled.h2`
 
   @media (max-width: 1055px) {
     font-size: 24px;
+    line-height: 132%;
+  }
+`;
+
+export const TitleContainer = styled.h2`
+  display: flex;
+  flex-direction: column;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column-reverse;
   }
 `;
 
@@ -158,6 +200,11 @@ export const ProjectScope = styled.div`
 
   @media (max-width: 1055px) {
     font-size: 18px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    span {
+      display: none;
+    }
   }
 `;
 
@@ -196,6 +243,10 @@ export const BottomSection = styled.div`
   display: flex;
   align-items: center;
   gap: 25px;
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 20px;
+  }
 `;
 
 export const ReadMore = styled.div`
@@ -203,9 +254,10 @@ export const ReadMore = styled.div`
   background: ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 18px;
+  font-size: 16px;
   line-height: 160%;
   text-transform: uppercase;
+  cursor: pointer;
   color: ${themes.primary.colors.portfolioBg};
 
   @media (max-width: 1055px) {
@@ -215,11 +267,12 @@ export const ReadMore = styled.div`
 
 export const AllProjects = styled.div`
   display: flex;
-  gap: 5px;
+  gap: 10px;
   align-items: center;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 18px;
   line-height: 120%;
   color: ${themes.primary.colors.primary};
+  cursor: pointer;
 `;

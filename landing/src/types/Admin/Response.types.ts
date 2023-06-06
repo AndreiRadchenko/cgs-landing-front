@@ -3,6 +3,7 @@ import {
   IOtherServicesComponent,
   IFreeServicesComponent,
   ITeamMembers,
+  IAdvantagesServicesComponent,
 } from "../../types/ServicesComponent.types";
 import { ITechnology } from "./AdminPortfolio.types";
 export interface IEditInformation {
@@ -42,6 +43,12 @@ export interface IFeedbackBlock {
   subtitle: string;
   text3: string;
   feedBacks: IFeedback[];
+}
+
+export interface ICalendlyPopupBlock {
+  title: string;
+  description: string;
+  buttonText: string;
 }
 
 export interface ITech {
@@ -106,6 +113,7 @@ export interface IDataResponse {
     images: { url: string }[];
   };
   CardsBlock: ICards;
+  CalendlyPopupBlock: ICalendlyPopupBlock;
   FeedbackBlock: IFeedbackBlock;
   TechnologyBlock: {
     items: ITech[];
@@ -612,6 +620,7 @@ export interface IBlockchainService {
     subtitle: string;
     textSubBlock: string[];
   };
+  advantages: IAdvantagesServicesComponent;
   meta: IMetaBlock;
 }
 

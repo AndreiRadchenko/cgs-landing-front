@@ -33,3 +33,9 @@ export interface IDataTeamMember {
   id?: string;
   member: string;
 }
+export interface IAdvantagesServicesComponent {
+  title: string;
+  content: [
+    { subtitle: string, text: string },
+  ];
+}
