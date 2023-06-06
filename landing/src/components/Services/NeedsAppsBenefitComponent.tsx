@@ -15,7 +15,7 @@ const NeedsAppsBenefitComponent = ({ data }: { data: any }) => {
         <MobileInfiniteText withoutMargin title={data.whoNeedApps.subtitle} />
       )}
       <Styles.WhoNeedAppsBlocks>
-        <Subtitle>{data.whoNeedApps.subtitle}</Subtitle>
+        <Subtitle className="needDomain">{data.whoNeedApps.subtitle}</Subtitle>
         <Styles.WhoNeedSubText>
           <SplitBrackets text={data.whoNeedApps.text} />
         </Styles.WhoNeedSubText>

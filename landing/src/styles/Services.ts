@@ -204,8 +204,10 @@ export const WhoNeedContainer = styled.div`
     background: transparent;
     flex-direction: column;
     gap: 20px;
-    padding: 0;
+    padding: 0 20px 60px;
     align-items: flex-start;
+    border-bottom: 1px solid ${themes.primary.colors.headerBorder};
+    margin-inline: -20px;
   }
 `;
 
@@ -213,6 +215,11 @@ export const WhoNeedAppsBlocks = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  min-width: auto;
+
+  @media ${themes.primary.media.minLaptop} {
+    min-width: 477px;
+  }
 `;
 
 export const WhoNeedSubText = styled.p`
@@ -259,5 +266,21 @@ export const WhoNeedAppsBlockImageCard = styled.div`
   gap: 10px;
   align-items: center;
   padding: 5px 10px;
+  height: 53px;
   border: 1px solid ${themes.primary.colors.primary};
+
+  span {
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 160%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    height: 48px;
+
+    span {
+      font-size: 16px;
+    }
+  }
 `;
