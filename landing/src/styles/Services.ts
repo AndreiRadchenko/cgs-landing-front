@@ -68,7 +68,7 @@ export const WorthCardTitle = styled.div`
     ${themes.primary.colors.gradientColor1RateCard} 0%,
     ${themes.primary.colors.gradientColor2RateCard} 100%
   );
-  padding-inline: 50px;
+  padding-inline: 24px;
 
   p {
     font-family: ${themes.primary.font.family.namu};
@@ -103,6 +103,37 @@ export const WorthCardInfo = styled.div`
   background: ${themes.primary.colors.portfolioBg};
 `;
 
+export const WorthText = styled.p`
+  padding: 28px 24px;
+  margin: 0;
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 18px;
+  line-height: 160%;
+  max-width: 440px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    & br {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1260px) {
+    & br {
+      display: none;
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 5px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    margin: 0;
+    padding: 14px 20px;
+    font-size: 16px;
+    max-width: 370px;
+  }
+`;
+
 export const WorthBlock = styled.div<ISlide>`
   position: relative;
   padding-top: 76px;
@@ -116,6 +147,13 @@ export const WorthBlock = styled.div<ISlide>`
     scale: 1;
     opacity: 1;
     transition: all 0.5s ease-in-out;
+  }
+  &:first-child ${WorthCardTitle} {
+    padding-inline: 51px;
+  }
+  &:first-child ${WorthText} {
+    padding: 28px 51px;
+    max-width: initial;
   }
 
   @media (max-width: 1141px) {
@@ -142,39 +180,13 @@ export const WorthBlock = styled.div<ISlide>`
       width: 30px;
       height: 40px;
     }
-  }
-`;
 
-export const WorthText = styled.p`
-  padding: 28px 51px;
-  margin: 0;
-  font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 18px;
-  line-height: 160%;
-
-  @media ${themes.primary.media.minPCFullHD} {
-    & br {
-      display: none;
+    &:first-child ${WorthCardTitle} {
+      padding-inline: 20px;
     }
-  }
-
-  @media (max-width: 1260px) {
-    & br {
-      display: none;
+    &:first-child ${WorthText} {
+      padding: 14px 20px;
     }
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    margin-top: 5px;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    margin: 0;
-    padding: 14px 20px;
-    font-size: 16px;
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-bottom: 1.28em;
-    max-width: 20.5em;
   }
 `;
 
