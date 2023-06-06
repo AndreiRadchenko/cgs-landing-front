@@ -21,3 +21,15 @@ export interface IFreeServicesComponent {
   title: string;
   services: IFreeService[];
 }
+
+export interface ITeamMembers {
+  title: string;
+  description: string;
+  members: IDataTeamMember[];
+  selectedMembers: IDataTeamMember[];
+}
+
+export interface IDataTeamMember {
+  id?: string;
+  member: string;
+}
