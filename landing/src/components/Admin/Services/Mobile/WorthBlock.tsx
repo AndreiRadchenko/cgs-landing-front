@@ -8,9 +8,18 @@ import {
 import { IServiceMobile } from "../../../../types/Admin/Response.types";
 import { renderInputs } from "../../../../utils/renderInputs";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../../styles/HomePage/General.styled";
+import ButtonArrow from "../../../../utils/ButtonArrow";
 
 const WorthBlock = () => {
-  const { values, handleChange } = useFormikContext<IServiceMobile>();
+  const { values, handleChange, handleSubmit } =
+    useFormikContext<IServiceMobile>();
+
+  const handleClick = () => handleSubmit();
+
   return (
     <AdminPaddedBlock theme="dark" style={{ padding: 0 }}>
       <AdminHalfGrid>
@@ -32,6 +41,17 @@ const WorthBlock = () => {
           </div>
         ))}
       </SubtitleGrid>
+      <BlackButton
+        size={"1.5em"}
+        padding={"1.11em 3em"}
+        style={{ marginTop: "2.33em", marginBottom: "2.78em" }}
+        onClick={handleClick}
+      >
+        Save Changes
+        <ArrowContainer>
+          <ButtonArrow />
+        </ArrowContainer>
+      </BlackButton>
     </AdminPaddedBlock>
   );
 };

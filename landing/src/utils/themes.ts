@@ -212,8 +212,8 @@ const themes = {
       modalWrapperEstimationForm: "rgba(241, 239, 237, 0.8)",
       loaderSpinner: "#8f8e93",
       borderRateCard: "#c0bfc0",
-      gradientColor1RateCard: "rgba(214, 255, 187, 0.3)",
-      gradientColor2RateCard: "rgba(88, 105, 221, 0.3)",
+      gradientColor1RateCard: "#d6ffbb4d",
+      gradientColor2RateCard: "#5869dd4d",
     },
     media: {
       minTabletPortrait: "(min-width: 768px)",
