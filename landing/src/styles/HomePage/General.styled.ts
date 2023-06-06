@@ -1007,29 +1007,31 @@ export const CalendlyInfoModalTitle = styled.div`
 
 export const CalendlyInfoModalNotice = styled.div`
   display: flex;
-  column-gap: 8px;
+  column-gap: 12px;
   margin-top: 20px;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 18px;
+    column-gap: 7px;
   }
 `;
+
+export const CalendlyInfoModalImageWrapper = styled.div``;
 
 export const CalendlyInfoModalImage = styled.div`
   background: url(${InfoIcon.src});
   background-repeat: no-repeat;
-  width: 86px;
+  width: 37px;
   height: 40px;
 
   @media ${themes.primary.media.maxMobile} {
     background: url(${MobileInfoIcon.src});
     background-repeat: no-repeat;
-    width: 140px;
+    width: 33px;
   }
 `;
 
 export const CalendlyInfoModalNoticeText = styled.div`
-  margin-top: 2px;
   font-size: 18px;
   line-height: 28.8px;
   font-weight: 900;
