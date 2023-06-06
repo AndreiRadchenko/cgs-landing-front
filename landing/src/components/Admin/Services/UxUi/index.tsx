@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormikContext } from "formik";
+
 import { AdminBigButton, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import AdminBlockDropDown from "../../../Admin/Global/AdminBlockDropDown";
 import MetaTagsBlock from "../../MetaTagsBlock";
@@ -10,6 +11,7 @@ import EssentialBlock from "./EssentialBlock";
 import FooterBlock from "./FooterBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import OtherServices from "../../../ServisesComponents/OtherServices/AdminComponent";
+import { queryKeys } from "../../../../consts/queryKeys";
 
 const ServiceUxUiContentBlock = () => {
   const { handleSubmit } = useFormikContext();
@@ -23,7 +25,7 @@ const ServiceUxUiContentBlock = () => {
       <EssentialBlock />
       <FooterBlock />
       <AdminBlockDropDown title="OTHER SERVICES">
-        <OtherServices />
+        <OtherServices queryKey={queryKeys.getServiceUxUiPage} />
       </AdminBlockDropDown>
       <MetaTagsBlock theme="dark" sitemap="services/ux-ui-design" />
       <AdminPaddedBlock>

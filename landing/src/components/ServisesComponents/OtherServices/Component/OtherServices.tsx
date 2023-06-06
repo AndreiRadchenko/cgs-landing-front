@@ -13,14 +13,14 @@ interface IServicesProps {
 }
 
 export const OtherServices = ({ otherServices }: IServicesProps) => {
-  const isDesktop = useMediaQuery("(min-width:1400px)");
+  const isMobile = useMediaQuery("(max-width:1400px)");
 
   return (
     <Styles.Container>
       <Styles.Carousel>
         {otherServices?.services && (
           <>
-            <VerticalSlider direction={!isDesktop ? "horizontal" : "vertical"}>
+            <VerticalSlider direction={isMobile ? "horizontal" : "vertical"}>
               {otherServices?.services.map((slide, idx) => (
                 <SwiperSlide key={idx}>
                   <Picture
@@ -31,7 +31,7 @@ export const OtherServices = ({ otherServices }: IServicesProps) => {
                 </SwiperSlide>
               ))}
             </VerticalSlider>
-            {isDesktop && (
+            {!isMobile && (
               <VerticalSlider isReverse={true}>
                 {otherServices?.services.map((slide, idx) => (
                   <SwiperSlide key={idx}>

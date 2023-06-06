@@ -18,7 +18,7 @@ export const VerticalSlider: FC<ISliderProps> = ({
   children,
 }) => {
   return (
-    <SliderWrapper>
+    <SliderWrapper isReverse={isReverse}>
       <Swiper
         direction={direction}
         spaceBetween={18}
@@ -27,11 +27,11 @@ export const VerticalSlider: FC<ISliderProps> = ({
         autoplay={{
           delay: 0,
           disableOnInteraction: false,
-          reverseDirection: isReverse,
+          // reverseDirection: isReverse,
         }}
         loop={true}
         modules={[Autoplay, Navigation]}
-        speed={7000}
+        speed={3000}
         className="mySwiper"
       >
         {children}
