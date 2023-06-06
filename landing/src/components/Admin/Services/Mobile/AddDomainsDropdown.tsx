@@ -34,7 +34,7 @@ const AddDomainsDropdown = ({ domains }: IDropdownProps) => {
     (id: string) => adminServices.removeDomain(id),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries([queryKeys.getServiceMobilePage]);
+        queryClient.invalidateQueries([queryKeys.getAllDomains]);
       },
     }
   );
@@ -42,7 +42,9 @@ const AddDomainsDropdown = ({ domains }: IDropdownProps) => {
   const changeTechHandler = (tech: IDomain) => {
     setIsOpen(false);
     setTechArr((prevState) =>
-      !prevState.includes(tech) ? [tech, ...prevState] : prevState
+      !prevState.includes(tech) && prevState.length <= 9
+        ? [tech, ...prevState]
+        : prevState
     );
   };
   const removeTagHandler = (idx: number) => {
@@ -53,7 +55,7 @@ const AddDomainsDropdown = ({ domains }: IDropdownProps) => {
   };
 
   useEffect(() => {
-    setTechArr.length < 10 && setFieldValue("domains", techArr);
+    setFieldValue("domains", techArr);
   }, [techArr]);
 
   return (

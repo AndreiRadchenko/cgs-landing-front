@@ -17,7 +17,8 @@ export const Subtitle = styled.h2`
   text-transform: uppercase;
   font-weight: inherit;
 
-  &.perksTitle {
+  &.perksTitle,
+  &.needDomain {
     font-size: 40px;
   }
 

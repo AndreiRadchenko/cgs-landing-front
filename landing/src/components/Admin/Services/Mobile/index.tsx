@@ -27,7 +27,7 @@ const ServiceMobileContentBlock = () => {
       <StrongBlock />
       <WhatDoWeUse />
       <div style={{ marginInline: "40px" }}>
-        <BlockDropdown title={"Why it's worth it?"}>
+        <BlockDropdown title={"Who needs apps?"}>
           <WhoNeedApps />
         </BlockDropdown>
       </div>

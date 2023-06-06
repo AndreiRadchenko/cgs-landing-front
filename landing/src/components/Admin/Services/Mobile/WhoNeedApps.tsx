@@ -42,7 +42,7 @@ const WhoNeedApps = () => {
       onSuccess: () => {
         values.domainNew.name = "";
         values.domainNew.image = null as any;
-        queryClient.invalidateQueries([queryKeys.getServiceMobilePage]);
+        queryClient.invalidateQueries([queryKeys.getAllDomains]);
       },
     }
   );
