@@ -107,7 +107,6 @@ const CloudService = () => {
             />
           </Styled.Layout>
         </Layout>
-        <ShowCase projects={data?.projects} />
         <Layout>
           <Styled.Layout>
             <WorkBlock />
