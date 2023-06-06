@@ -28,36 +28,38 @@ const CalendlyInfoModal = ({
   };
 
   return (
-    data && (
-      <BookModal isCalendly={true} isOpen={isOpen}>
-        <Styled.CalendlyInfoModalWrapper>
-          <Styled.CalendlyInfoModalWrapperCloseWrapper>
-            <Styled.CalendlyInfoModalWrapperCloseButton
-              src={CloseButton.src}
-              onClick={onClose}
-            />
-          </Styled.CalendlyInfoModalWrapperCloseWrapper>
-          <Styled.CalendlyInfoModalContent>
-            <Styled.CalendlyInfoModalTitle>
-              {data.title}
-            </Styled.CalendlyInfoModalTitle>
+    <>
+      {data && (
+        <BookModal isCalendly={true} isOpen={isOpen}>
+          <Styled.CalendlyInfoModalWrapper>
+            <Styled.CalendlyInfoModalWrapperCloseWrapper>
+              <Styled.CalendlyInfoModalWrapperCloseButton
+                src={CloseButton.src}
+                onClick={onClose}
+              />
+            </Styled.CalendlyInfoModalWrapperCloseWrapper>
+            <Styled.CalendlyInfoModalContent>
+              <Styled.CalendlyInfoModalTitle>
+                {data.title}
+              </Styled.CalendlyInfoModalTitle>
 
-            <Styled.CalendlyInfoModalNotice>
-              <Styled.CalendlyInfoModalImage />
-              <Styled.CalendlyInfoModalNoticeText>
-                {parse(data.description)}
-              </Styled.CalendlyInfoModalNoticeText>
-            </Styled.CalendlyInfoModalNotice>
+              <Styled.CalendlyInfoModalNotice>
+                <Styled.CalendlyInfoModalImage />
+                <Styled.CalendlyInfoModalNoticeText>
+                  {parse(data.description)}
+                </Styled.CalendlyInfoModalNoticeText>
+              </Styled.CalendlyInfoModalNotice>
 
-            <Styled.CalendlyInfoModalNoticeButtonWrapper>
-              <Styled.CalendlyInfoModalNoticeButton onClick={onClose}>
-                {data.buttonText}
-              </Styled.CalendlyInfoModalNoticeButton>
-            </Styled.CalendlyInfoModalNoticeButtonWrapper>
-          </Styled.CalendlyInfoModalContent>
-        </Styled.CalendlyInfoModalWrapper>
-      </BookModal>
-    )
+              <Styled.CalendlyInfoModalNoticeButtonWrapper>
+                <Styled.CalendlyInfoModalNoticeButton onClick={onClose}>
+                  {data.buttonText}
+                </Styled.CalendlyInfoModalNoticeButton>
+              </Styled.CalendlyInfoModalNoticeButtonWrapper>
+            </Styled.CalendlyInfoModalContent>
+          </Styled.CalendlyInfoModalWrapper>
+        </BookModal>
+      )}
+    </>
   );
 };
 
