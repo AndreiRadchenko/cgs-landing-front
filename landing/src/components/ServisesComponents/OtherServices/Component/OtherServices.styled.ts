@@ -5,7 +5,7 @@ export const Container = styled.div`
   box-sizing: border-box;
   margin-top: 139px;
   margin-bottom: 139px;
-  padding: 0 50px 0 50px;
+  padding: 0 68px 0 68px;
   height: 492px;
   width: 100vw;
   margin-left: -68px;
@@ -14,16 +14,37 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media ${themes.primary.media.maxServiceWeb} {
+  @media ${themes.primary.media.maxPCFullHD} {
+    margin-left: -57.8px;
+    padding: 0 57.8px;
+  }
+
+  @media ${themes.primary.media.maxLaptop} {
+    margin-left: -51px;
+    padding: 0 51px;
+  }
+
+  @media (${themes.primary.media.maxServiceWeb}) {
     flex-direction: column-reverse;
     margin-top: 80px;
     margin-bottom: 60px;
     height: 738px;
-    margin-left: -51px;
-    padding: 40px 20px;
+    padding: 40px 51px;
   }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-left: -57.8px;
+    padding: 40px 57.8px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-left: -51px;
+    padding: 40px 51px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-left: -20px;
+    padding: 40px 20px;
   }
 `;
 
@@ -35,6 +56,7 @@ export const Carousel = styled.div`
   @media ${themes.primary.media.maxServiceWeb} {
     display: block;
     width: 100%;
+    /* margin-left: -30px; */
   }
 `;
 

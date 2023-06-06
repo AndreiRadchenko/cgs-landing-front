@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import themes from "../../../../../utils/themes";
 
-export const SliderWrapper = styled("div")`
+interface ISliderProps {
+  isReverse: boolean;
+}
+
+export const SliderWrapper = styled("div")<ISliderProps>`
   position: relative;
   overflow: hidden;
   display: flex;
@@ -9,8 +13,11 @@ export const SliderWrapper = styled("div")`
   width: 335px;
   height: 100%;
 
+  transform: ${({ isReverse }) => (isReverse ? "rotate(180deg)" : "none")};
+
   @media ${themes.primary.media.maxServiceWeb} {
-    width: 100%;
+    margin-left: -61px;
+    width: 130%;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -29,5 +36,6 @@ export const SliderWrapper = styled("div")`
 
   .swiper-slide {
     width: 335px;
+    transform: ${({ isReverse }) => (isReverse ? "rotate(180deg)" : "none")};
   }
 `;
