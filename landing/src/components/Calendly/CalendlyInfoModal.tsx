@@ -44,7 +44,9 @@ const CalendlyInfoModal = ({
               </Styled.CalendlyInfoModalTitle>
 
               <Styled.CalendlyInfoModalNotice>
-                <Styled.CalendlyInfoModalImage />
+                <Styled.CalendlyInfoModalImageWrapper>
+                  <Styled.CalendlyInfoModalImage />
+                </Styled.CalendlyInfoModalImageWrapper>
                 <Styled.CalendlyInfoModalNoticeText>
                   {parse(data.description)}
                 </Styled.CalendlyInfoModalNoticeText>
