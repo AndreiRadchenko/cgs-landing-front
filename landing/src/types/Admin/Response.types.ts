@@ -44,6 +44,12 @@ export interface IFeedbackBlock {
   feedBacks: IFeedback[];
 }
 
+export interface ICalendlyPopupBlock {
+  title: string;
+  description: string;
+  buttonText: string;
+}
+
 export interface ITech {
   category: string;
   link?: string;
@@ -106,6 +112,7 @@ export interface IDataResponse {
     images: { url: string }[];
   };
   CardsBlock: ICards;
+  CalendlyPopupBlock: ICalendlyPopupBlock;
   FeedbackBlock: IFeedbackBlock;
   TechnologyBlock: {
     items: ITech[];
