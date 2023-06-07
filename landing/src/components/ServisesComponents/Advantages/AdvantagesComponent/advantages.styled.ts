@@ -61,6 +61,16 @@ export const Numbers = styled.div`
       }
   }
 
+  @media (min-width: 2561px) {
+    width: 100px;
+    div{
+      p{
+        margin-left: 1.2em;
+        bottom: -0.2em;
+      }
+    }
+  }
+
   @media (max-width: 2560px) {
     width: 100px;
     div{
@@ -146,7 +156,11 @@ export const BeforeBlock = styled.div<IsFirst>`
   height: 1px;
   background-color: #8F8E93;
   top: 50%;
-  margin: 0 17px;
+  margin: 0 17px 0 8px;
+
+  @media (min-width: 2561px) {
+    width: 10vw;
+  }
 
   @media (max-width: 2560px) {
     width: 10vw;
@@ -177,6 +191,7 @@ export const BeforeBlock = styled.div<IsFirst>`
   @media (max-width: 475px) {
     width: 1px;
     height: 24px;
+    margin: 3px 0;
   }
 `;
 
@@ -185,7 +200,11 @@ export const AfterBlock = styled.div`
   height: 1px;
   background-color: #8F8E93;
   top: 50%;
-  margin: 0 17px;
+  margin: 0 8px 0 17px;
+
+  @media (min-width: 2561px) {
+    width: 10vw;
+  }
 
   @media (max-width: 2560px) {
     width: 10vw;
@@ -216,11 +235,13 @@ export const AfterBlock = styled.div`
   @media (max-width: 475px) {
     width: 1px;
     height: 24px;
+    margin: 3px 0;
   }
 `;
 
 export const ContentItems = styled.div<ISlide>`
   width: 21vw;
+  opacity: 0;
 
   &.scrolled {
       transform-origin: left center;
@@ -230,33 +251,45 @@ export const ContentItems = styled.div<ISlide>`
       `};
   }
 
+  @media (min-width: 2561px) {
+      &:not(:first-child) {
+      margin-left: 3.1vw;
+      }
+  }
+
   @media (max-width: 2560px) {
       &:not(:first-child) {
-      margin-left: 4.7vw;
+      margin-left: 3.1vw;
       }
   }
 
   @media (max-width: 1920px) {
       &:not(:first-child) {
-      margin-left: 5vw;
+      margin-left: 2.5vw;
       }
   }
 
   @media (max-width: 1560px) {
       &:not(:first-child) {
-      margin-left: 3vw;
+      margin-left: 1.8vw;
       }
   }
 
   @media (max-width: 1440px) {
       &:not(:first-child) {
-      margin-left: 5.4vw;
+      margin-left: 2.4vw;
+      }
+  }
+
+  @media (max-width: 1200px) {
+      &:not(:first-child) {
+      margin-left: 1.85vw;
       }
   }
 
   @media (max-width: 992px) {
     width: 100%;
-    margin-bottom: 6em;
+    margin-bottom: 3.5em;
 
     &.scrolled {
       transform-origin: left center;
@@ -271,12 +304,8 @@ export const ContentItems = styled.div<ISlide>`
     }
   }
 
-  @media (max-width: 768px) {
-    margin-bottom: 6em;
-  }
-
   @media (max-width: 475px) {
-    margin-bottom: 2.6em;
+    margin-bottom: 1.5em;
   }
 `;
 
@@ -295,6 +324,7 @@ export const Subtitle = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.buttonText};
   font-weight: ${themes.primary.font.weight.heavy};
+  line-height: 160%;
   margin-bottom: 8px;
 
   @media (max-width: 992px) {
@@ -303,7 +333,7 @@ export const Subtitle = styled.div`
   }
 
   @media (max-width: 475px) {
-    margin-bottom: 12px;
+    margin-bottom: 0;
     font-size: 18px;
   }
 `;
@@ -312,6 +342,7 @@ export const Text = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.primary};
   font-weight: ${themes.primary.font.weight.heavy};
+  line-height: 160%;
 
   @media (max-width: 992px) {
     font-size: 28px;
