@@ -2,16 +2,36 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 export const SliderWrapper = styled.div`
-  width: 100%;
   position: relative;
+  margin-inline: 51px;
+
+  @media (max-width: 1055px) {
+    margin-inline: 0px;
+  }
+`;
+
+export const SliderContainerBg = styled.div`
+  background: linear-gradient(
+    90deg,
+    ${themes.primary.colors.gradientColor1RateCard} 0%,
+    ${themes.primary.colors.gradientColor2RateCard} 100%
+  );
+  height: 425px;
+  position: absolute;
+  width: 100%;
+
+  @media (max-width: 1055px) {
+    top: 200px;
+    height: 535px;
+  }
 `;
 
 export const SwiperArrowContainer = styled.div`
   display: flex;
-  margin-inline: 51px;
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 15px;
+  margin-inline: 51px;
 
   & > div {
     display: flex;
@@ -84,20 +104,20 @@ export const ArrowContainer = styled.div`
 `;
 
 export const SlideContainer = styled.div`
-  margin-inline: 51px;
-  height: 650px;
+  height: 680px;
   position: relative;
+  overflow: hidden;
 
   @media (max-width: 1055px) {
     margin-inline: 0;
-    height: 600px;
+    height: 800px;
   }
 `;
 
 export const ImageWrapper = styled.div`
   position: absolute;
   top: 60px;
-  right: 30px;
+  right: -30px;
   width: 650px;
   height: 650px;
   transform: translateX(200px);
@@ -117,22 +137,18 @@ export const ImageWrapper = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     top: 100px;
-    right: 0px;
+    right: -40px;
     width: 375px;
     height: 375px;
   }
 
   @media (max-width: 1055px) {
-    top: -200px;
+    top: 0px;
+    right: 0px;
   }
 `;
 
 export const ContentWrapper = styled.div`
-  background: linear-gradient(
-    90deg,
-    ${themes.primary.colors.gradientColor1RateCard} 0%,
-    ${themes.primary.colors.gradientColor2RateCard} 100%
-  );
   min-height: 425px;
   padding: 47px 30px 57px;
 
@@ -154,21 +170,26 @@ export const ProjectTitle = styled.h2`
 
   transform: translateY(200px);
   opacity: 0;
-  transition: all 1s;
+  transition: all 0.5s;
 
   &.active {
     transform: translateY(0px);
     opacity: 1;
-    transition: all 1s;
+    transition: all 0.5s;
   }
 
   @media (max-width: 1055px) {
     font-size: 24px;
     line-height: 132%;
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: 1000px;
+    font-size: 42px;
+  }
 `;
 
-export const TitleContainer = styled.h2`
+export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -190,21 +211,25 @@ export const ProjectScope = styled.div`
 
   transform: translateY(200px);
   opacity: 0;
-  transition: all 1s;
+  transition: all 0.1s 0.5s;
 
   &.active {
     transform: translateY(0px);
     opacity: 1;
-    transition: all 1s;
+    transition: all 0.1s 0.5s;
   }
 
   @media (max-width: 1055px) {
-    font-size: 18px;
+    font-size: 24px;
   }
   @media ${themes.primary.media.maxMobile} {
     span {
       display: none;
     }
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 36px;
   }
 `;
 
@@ -216,20 +241,29 @@ export const ProjectScopeText = styled.p`
   font-size: 18px;
   line-height: 160%;
   color: ${themes.primary.colors.primary};
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+  white-space: pre-wrap; /* let the text wrap preserving spaces */
 
   transform: translateY(200px);
   opacity: 0;
-  transition: all 1s 1s;
+  transition: all 0.3s 0.5s;
 
   &.active {
     transform: translateY(0px);
     opacity: 1;
-    transition-delay: 1s;
-    transition: all 1s;
+    transition: all 0.3s 0.5s;
   }
 
   @media (max-width: 1055px) {
     font-size: 16px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: 880px;
+    font-size: 34px;
   }
 `;
 
@@ -243,6 +277,16 @@ export const BottomSection = styled.div`
   display: flex;
   align-items: center;
   gap: 25px;
+
+  transform: translateY(200px);
+  opacity: 0;
+  transition: all 0.5s 0.5s;
+
+  &.active {
+    transform: translateY(0px);
+    opacity: 1;
+    transition: all 0.5s 0.5s;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 20px;

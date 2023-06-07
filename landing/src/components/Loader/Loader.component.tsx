@@ -11,12 +11,14 @@ interface ILoaderProps {
   children?: React.ReactNode;
   text?: string;
   isPortfolio?: boolean;
+  className?: string;
 }
 
 export const Loader: FC<ILoaderProps> = ({
   active,
   children,
   isPortfolio = false,
+  className,
 }) => {
   return isPortfolio ? (
     <PortfolioStyledLoader
@@ -33,6 +35,7 @@ export const Loader: FC<ILoaderProps> = ({
       fadeSpeed={200}
       spinner={<StyledSpinner />}
       classNamePrefix="MyLoader_"
+      className={className}
     >
       {children}
     </StyledLoader>
