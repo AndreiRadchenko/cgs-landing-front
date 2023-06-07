@@ -22,9 +22,9 @@ import { Layout, PageArticle } from "../../styles/Layout.styled";
 import { LocalLayout } from "../../styles/MobileService/Layout";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
-import TeamMembers from "../../components/TeamMembers";
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
 import { IServiceMobile } from "../../types/Admin/Response.types";
+import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -97,6 +97,7 @@ const MobileAppDevelopment: NextPage = () => {
             <HeadBlock />
             {dataPerks && <PerksOfCoopComponent data={dataPerks} />}
             <StrongBlock />
+            <TeamMembers teamMembers={data?.teamMembers} />
             <WhoNeedAppBlock
               className={
                 data && data.projects.length === 0
@@ -107,7 +108,6 @@ const MobileAppDevelopment: NextPage = () => {
           </LocalLayout>
         </Layout>
         <ShowCase projects={data?.projects} />
-        <TeamMembers />
         <Layout>
           <LocalLayout>
             <HowDoWeWork />

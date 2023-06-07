@@ -1,20 +1,23 @@
 import styled from "styled-components";
-import themes from "../utils/themes";
+import themes from "../../../../utils/themes";
 
 interface LastItem {
     lastItem: boolean;
 }
 
 export const Wrapper = styled.div`
-    width: 90vw;
-    margin: 100px auto;
+    width: 100%;
+    margin: 100px 0;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
 
     @media (max-width: 768px) {
         display: inline-block;
-        width: 100%;
+    }
+
+    @media (max-width: 400px) {
+        margin: 60px 0;
     }
 `;
 
@@ -26,9 +29,10 @@ export const TextContainer = styled.div`
     }
 `;
 
-export const Title = styled.div`
-    font-size: 40px;
-    margin-bottom: 30px;
+export const Title = styled.h2`
+    font-size: 3.4em;
+    margin: 0;
+    margin-bottom: 0.5em;
     text-transform: uppercase;
     line-height: 56px;
     font-family: ${themes.primary.font.family.namu};
@@ -36,7 +40,7 @@ export const Title = styled.div`
 `;
 
 export const Description = styled.div`
-    font-size: 18px;
+    font-size: 1.5em;
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
     line-height: 28px;
@@ -47,57 +51,71 @@ export const Description = styled.div`
 `;
 
 export const ScrollList = styled.div`
-    width: 40vw;
-    height: 200px;
+    width: 42vw;
+    height: 184px;
     position: relative;
     overflow-y: scroll;
+    direction: rtl;
 
-    ::-webkit-scrollbar{
-        display: none;
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #8F8E93;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #D9D9D9;
+        border-radius: 5px;
     }
 
     @media (max-width: 768px) {
         margin-top: 35px;
-        width: 90vw;
+        width: 97%;
+        padding-left: 12px;
         height: 200px;
-        padding-left: 20px;
+        direction: ltr;
     }
 
     @media (max-width: 475px) {
-       width: 86vw;
+       margin-top: 20px
+    }
+
+    @media (max-width: 400px) {
+        padding-left: 1px;
+        height: 180px;
     }
 `;
 
-export const StickyContainer = styled.div`
-    position: relative;
-    width: 0.5vw;
-    margin-right: 30px;
-    background-color: ${themes.primary.colors.lightGreyBorder};
-    border-radius: 5px;
-    height: 200px;
+export const ScrollContainer = styled.div`
+    margin-top: 5px;
+    direction: ltr;
+
+    @media (max-width: 2560px) {
+        width: 95%;
+    }
+
+    @media (max-width: 1440px) {
+        width: 44.3em;
+        margin-right: 30px;
+    }
+
+    @media (max-width: 1350px) {
+        width: 95%;
+        margin-right: 0;
+    }
 
     @media (max-width: 768px) {
-       position: absolute;
-       width: 1vw;
-       margin-top: 35px;
-       right: 0;
+        width: 97%;
     }
 
-    @media (max-width: 475px) {
-       width: 1.5vw;
+    @media (max-width: 400px) {
+        width: 32em;
+        margin-left: 12px;
     }
 `;
-
-export const StickyScroll = styled.div`
-    position: sticky;
-    background-color: #8F8E93;
-    height: 30%;
-    border-radius: 5px;
-    top: 0;
-`;
-
-
-export const ScrollContainer = styled.div``;
 
 export const ScrollItem = styled.div<LastItem>`
     font-size: 20px;
@@ -105,6 +123,12 @@ export const ScrollItem = styled.div<LastItem>`
     font-weight: ${themes.primary.font.weight.heavy};
     line-height: 32px;
     border-top: 2px solid ${themes.primary.colors.lightGreyBorder};
-    padding: 15px 0 15px 15px;
+    padding: 10px 0 8px 14px;
     border-bottom:   ${({ lastItem }) => lastItem ? '2px solid #D9D9D9' : 'none'};
+
+    @media (max-width: 400px) {
+        padding: 12px 0 12px 10px;
+        font-size: 16px;
+        line-height: 25.6px;
+    }
 `;

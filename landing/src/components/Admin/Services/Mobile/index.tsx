@@ -1,7 +1,7 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
 import { AdminBigButton, AdminPaddedBlock } from "../../../../styles/AdminPage";
-import TeamMembers from "../../TeamMembers";
+import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import FooterBlock from "./FooterBlock";

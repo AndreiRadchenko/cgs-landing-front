@@ -2,6 +2,7 @@ import { IImage } from "./Admin.types";
 import {
   IOtherServicesComponent,
   IFreeServicesComponent,
+  ITeamMembers,
   IAdvantagesServicesComponent,
 } from "../../types/ServicesComponent.types";
 import { ITechnology } from "./AdminPortfolio.types";
@@ -462,8 +463,8 @@ export interface IServiceMobile {
     };
   };
   footerBlock: IIntroWithImage;
+  teamMembers: ITeamMembers;
   meta: IMetaBlock;
-  teamMembersBlock: ITeamMembers;
 }
 // cloud Solution
 export interface ICloudService {
@@ -967,16 +968,4 @@ export interface IPrivacyPage {
   intro: string;
   content: { subtitle: string; text: string }[];
   meta: IMetaBlock;
-}
-
-export interface ITeamMembers {
-  title: string;
-  description: string;
-  members: IDataTeamMember[];
-  selectedMembers: IDataTeamMember[];
-}
-
-export interface IDataTeamMember {
-  id?: string;
-  member: string;
 }

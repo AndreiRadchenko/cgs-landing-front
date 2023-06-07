@@ -29,15 +29,7 @@ const AdminServiceMobileContent = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik
-      initialValues={{
-        ...data!,
-        teamMembersBlock: {
-          title: "",
-          description: "",
-          members: [],
-          selectedMembers: [],
-        },
-      }}
+      initialValues={ data! }
       onSubmit={submitForm}
     >
       <ServiceMobileContentBlock />
