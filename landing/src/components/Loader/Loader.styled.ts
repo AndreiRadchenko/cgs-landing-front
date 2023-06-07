@@ -34,7 +34,7 @@ export const StyledLoader = styled(LoadingOverlay)`
       background: transparent;
       height: 200px;
       width: 200px;
-      margin-top: 0px;
+      margin-top: -200px;
       margin-left: 250px;
     }
   }
@@ -56,6 +56,15 @@ export const StyledLoader = styled(LoadingOverlay)`
     margin: 0;
     height: 100vh;
     width: 100%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    &.showCase {
+      .MyLoader_overlay {
+        margin-top: 0px;
+        margin-left: 80px;
+      }
+    }
   }
 `;
 

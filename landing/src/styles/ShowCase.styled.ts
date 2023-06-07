@@ -24,6 +24,10 @@ export const SliderContainerBg = styled.div`
     top: 200px;
     height: 535px;
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 575px;
+  }
 `;
 
 export const SwiperArrowContainer = styled.div`
@@ -117,7 +121,7 @@ export const SlideContainer = styled.div`
 export const ImageWrapper = styled.div`
   position: absolute;
   top: 60px;
-  right: -30px;
+  right: 30px;
   width: 650px;
   height: 650px;
   transform: translateX(200px);
@@ -158,10 +162,10 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const ProjectTitle = styled.h2`
+export const ProjectTitle = styled.h2<{ isBig: boolean }>`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 40px;
+  font-size: ${({ isBig }) => (isBig ? "36px" : "40px")};
   line-height: 140%;
   text-transform: uppercase;
   color: ${themes.primary.colors.primary};
@@ -181,11 +185,20 @@ export const ProjectTitle = styled.h2`
   @media (max-width: 1055px) {
     font-size: 24px;
     line-height: 132%;
+    margin-bottom: 16px;
+
+    transition: all 0.1s 0.5s;
+
+    &.active {
+      transform: translateY(0px);
+      opacity: 1;
+      transition: all 0.1s 0.5s;
+    }
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 1000px;
-    font-size: 42px;
+    font-size: ${({ isBig }) => (isBig ? "38px" : "42px")};
   }
 `;
 
@@ -221,6 +234,16 @@ export const ProjectScope = styled.div`
 
   @media (max-width: 1055px) {
     font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 5px;
+
+    transition: all 0.5s;
+
+    &.active {
+      transform: translateY(0px);
+      opacity: 1;
+      transition: all 0.5s;
+    }
   }
   @media ${themes.primary.media.maxMobile} {
     span {
@@ -259,6 +282,7 @@ export const ProjectScopeText = styled.p`
 
   @media (max-width: 1055px) {
     font-size: 16px;
+    -webkit-line-clamp: 5;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
