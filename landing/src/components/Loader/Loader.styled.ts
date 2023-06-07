@@ -61,7 +61,7 @@ export const StyledLoader = styled(LoadingOverlay)`
   @media ${themes.primary.media.maxMobile} {
     &.showCase {
       .MyLoader_overlay {
-        margin-top: 0px;
+        margin-top: -250px;
         margin-left: 80px;
       }
     }
