@@ -20,11 +20,11 @@ SwiperCore.use([Scrollbar, Autoplay]);
 const SliderProps: SwiperProps = {
   slidesPerView: 1,
   loop: true,
-  /*autoplay: {
+  autoplay: {
     delay: 7000,
     disableOnInteraction: false,
     waitForTransition: false,
-  },*/
+  },
   className: "mySwiper",
   modules: [Navigation, Autoplay],
   navigation: {
@@ -49,7 +49,7 @@ const ShowCase = ({ projects }: IShowCaseProps) => {
     }
   }, [data, projects]);
 
-  return (
+  return projects && projects.length !== 0 ? (
     <div>
       <Styled.SwiperArrowContainer>
         <div>
@@ -96,25 +96,21 @@ const ShowCase = ({ projects }: IShowCaseProps) => {
           </Styled.ArrowContainer>
         </div>
       </Styled.SwiperArrowContainer>
-      {projects && projects.length !== 0 && (
-        <Styled.SliderWrapper>
-          <Styled.SliderContainerBg></Styled.SliderContainerBg>
-          <Swiper {...SliderProps}>
-            {currentProjects?.map(
-              (el, ind) =>
-                el && (
-                  <SwiperSlide key={ind}>
-                    {({ isActive }) => (
-                      <Slide review={el} isActive={isActive} />
-                    )}
-                  </SwiperSlide>
-                )
-            )}
-          </Swiper>
-        </Styled.SliderWrapper>
-      )}
+      <Styled.SliderWrapper>
+        <Styled.SliderContainerBg></Styled.SliderContainerBg>
+        <Swiper {...SliderProps}>
+          {currentProjects?.map(
+            (el, ind) =>
+              el && (
+                <SwiperSlide key={ind}>
+                  {({ isActive }) => <Slide review={el} isActive={isActive} />}
+                </SwiperSlide>
+              )
+          )}
+        </Swiper>
+      </Styled.SliderWrapper>
     </div>
-  );
+  ) : null;
 };
 
 export default ShowCase;

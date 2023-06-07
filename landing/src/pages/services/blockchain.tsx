@@ -88,7 +88,7 @@ const BlockchainService = () => {
           <Styled.Layout>
             <HeadBlock />
             <ServicesBlock />
-            <Advantages advantages={data?.advantages}/>
+            <Advantages advantages={data?.advantages} />
             <YourWayBlock />
           </Styled.Layout>
         </Layout>
