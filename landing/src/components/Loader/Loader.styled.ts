@@ -29,6 +29,16 @@ export const PortfolioStyledLoader = styled(LoadingOverlay)`
 `;
 
 export const StyledLoader = styled(LoadingOverlay)`
+  &.showCase {
+    .MyLoader_overlay {
+      background: transparent;
+      height: 200px;
+      width: 200px;
+      margin-top: 0px;
+      margin-left: 250px;
+    }
+  }
+
   .MyLoader_overlay {
     background: ${themes.primary.colors.blogBackground};
     width: 100%;

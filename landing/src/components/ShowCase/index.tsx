@@ -20,10 +20,11 @@ SwiperCore.use([Scrollbar, Autoplay]);
 const SliderProps: SwiperProps = {
   slidesPerView: 1,
   loop: true,
-  autoplay: {
+  /*autoplay: {
     delay: 7000,
     disableOnInteraction: false,
-  },
+    waitForTransition: false,
+  },*/
   className: "mySwiper",
   modules: [Navigation, Autoplay],
   navigation: {
@@ -49,7 +50,7 @@ const ShowCase = ({ projects }: IShowCaseProps) => {
   }, [data, projects]);
 
   return (
-    <>
+    <div>
       <Styled.SwiperArrowContainer>
         <div>
           <Styled.ArrowContainer className="prevBtn swiper-button-prev">
@@ -97,6 +98,7 @@ const ShowCase = ({ projects }: IShowCaseProps) => {
       </Styled.SwiperArrowContainer>
       {projects && projects.length !== 0 && (
         <Styled.SliderWrapper>
+          <Styled.SliderContainerBg></Styled.SliderContainerBg>
           <Swiper {...SliderProps}>
             {currentProjects?.map(
               (el, ind) =>
@@ -111,7 +113,7 @@ const ShowCase = ({ projects }: IShowCaseProps) => {
           </Swiper>
         </Styled.SliderWrapper>
       )}
-    </>
+    </div>
   );
 };
 
