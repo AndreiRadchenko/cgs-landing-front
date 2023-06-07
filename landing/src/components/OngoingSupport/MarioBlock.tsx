@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import * as Styled from "../../styles/OngoingSupport/ProvidesBlock.styled";
 import parse from "html-react-parser";
 
@@ -41,7 +41,9 @@ const MarioBlock = (data: MarioBlockProps) => {
     const [isJumping, setIsJumping] = useState(false);
     const [isRoadMoving, setIsRoadMoving] = useState(false);
     const [hintText, setHintText] = useState('');
-    const [viewHintText, setViewHintText] = useState(false)
+    const [viewHintText, setViewHintText] = useState(false);
+    const marioBlockRef = useRef<HTMLDivElement>(null);
+    const [threshold, setThreshold] = useState(0);
 
     const blocksSrc = [
         topLeftBlock.src,
@@ -59,61 +61,64 @@ const MarioBlock = (data: MarioBlockProps) => {
     };
 
     const handleMouseDown = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        if((event as React.MouseEvent<HTMLDivElement, MouseEvent>).buttons === 1) {
+        if ((event as React.MouseEvent<HTMLDivElement, MouseEvent>).buttons === 1) {
             jump();
             event.preventDefault();
             setIsRoadMoving(true);
-        }
+        };
     };
 
     const handleTouch = (event: React.TouchEvent<HTMLDivElement>) => {
-        if((event as React.TouchEvent<HTMLDivElement>).touches) {
+        if ((event as React.TouchEvent<HTMLDivElement>).touches) {
             jump();
             setIsRoadMoving(true);
-        }
+        };
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.code === "Space" || event.code === "") {
+            jump();
+            event.preventDefault();
+            setIsRoadMoving(true);
+        };
     };
 
     useEffect(() => {
-        if(isRoadMoving) {
-            setViewHintText(true)
-        }
-    }, [isRoadMoving])
-
-    useEffect(() => {
-        const is992px = window.matchMedia('(max-width: 992px)').matches;
-
-        if(is992px) {
-            setHintText('tap to start and jump')
-        } else {
-            setHintText('press space to start and jump')
-        }
-    }, [])
-
-    useEffect(() => {
-        const preventDefault = (event: KeyboardEvent) => {
-            if (event.code === "Space") {
-                event.preventDefault();
-            }
+        const handleMouseEnter = () => {
+            window.addEventListener("keydown", handleKeyDown);
         };
 
-        window.addEventListener("keydown", preventDefault);
+        const handleMouseLeave = () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+
+        if (marioBlockRef.current) {
+            marioBlockRef.current.addEventListener("mouseenter", handleMouseEnter);
+            marioBlockRef.current.addEventListener("mouseleave", handleMouseLeave);
+        };
+
         return () => {
-            window.removeEventListener("keydown", preventDefault);
+            if (marioBlockRef.current) {
+                marioBlockRef.current.removeEventListener("mouseenter", handleMouseEnter);
+                marioBlockRef.current.removeEventListener("mouseleave", handleMouseLeave);
+            }
         };
     }, []);
 
     useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
-            if (event.code === "Space" || event.code === '') {
-                jump();
-                setIsRoadMoving(true)
-            };
-        };
+        if (isRoadMoving) {
+            setViewHintText(true)
+        }
+    }, [isRoadMoving]);
 
-        window.addEventListener("keydown", handleKeyDown);
-        return () => {
-            window.removeEventListener("keydown", handleKeyDown);
-        };
+    useEffect(() => {
+        const is992px = window.matchMedia('(max-width: 992px)').matches;
+
+        if (is992px) {
+            setHintText('tap to start and jump')
+        } else {
+            setHintText('press space to start and jump')
+        }
     }, []);
 
     useEffect(() => {
@@ -123,17 +128,56 @@ const MarioBlock = (data: MarioBlockProps) => {
                 setMushroomIndex(prevIndex => (prevIndex >= mushroomsMovement.length - 1 ? 0 : prevIndex + 1));
             }, 400);
             const moving = setTimeout(() => {
-                setIsRoadMoving(false)
+                setIsRoadMoving(false);
             }, 10000);
             return () => {
                 clearInterval(timer);
-                clearTimeout(moving)
+                clearTimeout(moving);
             };
-        }
+        };
     }, [marioMovement, mushroomsMovement, isRoadMoving]);
 
+    useEffect(() => {
+        const is768px = window.matchMedia("(max-width: 768px)").matches;
+        
+        if(is768px) {
+            setThreshold(0.4)
+        } else {
+            setThreshold(0.9)
+        }
+    }, [])
+
+    useEffect(() => {
+        const options = {
+            root: null,
+            rootMargin: "0px",
+            threshold: threshold,
+        };
+
+        const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach(() => {
+                setIsRoadMoving(false);
+            });
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, options);
+
+        if (marioBlockRef.current) {
+            observer.observe(marioBlockRef.current);
+        }
+
+        return () => {
+            if (marioBlockRef.current) {
+                observer.unobserve(marioBlockRef.current);
+            }
+        };
+    }, [threshold]);
+
     return (
-        <Styled.MarioBlock onMouseDown={handleMouseDown}>
+        <Styled.MarioBlock
+            onMouseDown={handleMouseDown}
+            ref={marioBlockRef}
+        >
             <Styled.BlockContainer>
                 {data?.data?.map(({ subtitle, text }: MarioProp, index) => (
                     <div key={index}>
