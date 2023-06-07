@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Head from "next/head";
+import { animateScroll as scroll, scroller } from "react-scroll";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 
@@ -148,20 +149,16 @@ const PortfolioPage: NextPage = () => {
     }
   };
 
-  const scrollFunction = (isMobile = false) => {
-    if (
-      !contentRef.current ||
-      isFirstLoad ||
-      (isMobile && window.innerWidth > 992 && !isPaginationTriggered)
-    )
-      return;
+  const scrollFunction = () => {
+    if (window.innerWidth > 992 && !isPaginationTriggered) return;
 
-    const topHeight = window.innerWidth > 768 ? 70 : 100;
-    const scrollPosition = contentRef.current.offsetTop - topHeight;
+    const topHeight = window.innerWidth > 768 ? -70 : -100;
 
-    window.scrollTo({
-      top: scrollPosition,
-      behavior: "smooth",
+    scroller.scrollTo("portfolio-wrapper", {
+      duration: 0,
+      delay: 0,
+      smooth: false,
+      offset: topHeight,
     });
   };
 
@@ -239,7 +236,7 @@ const PortfolioPage: NextPage = () => {
   useEffect(() => {
     setCurrentPage(1);
     imagesCountNullifier();
-    scrollFunction(true);
+    scrollFunction();
   }, [selectedIndustries.length, searchTrigger, category]);
 
   useEffect(() => {
@@ -260,7 +257,7 @@ const PortfolioPage: NextPage = () => {
         };
         updateCategoryItemParams();
       } else {
-        scrollFunction(true);
+        scrollFunction();
       }
     }
   }, [isLoading, reviewsIsLoading, isFirstLoad]);
@@ -488,7 +485,7 @@ const PortfolioPage: NextPage = () => {
                 </Styles.PortfolioSearchAndInductriesWrapper>
               </Styles.PortfolioFiltersWrapper>
 
-              <Styles.PortfolioProjectsWrapper ref={contentRef}>
+              <Styles.PortfolioProjectsWrapper id="portfolio-wrapper">
                 <Loader
                   isPortfolio={true}
                   active={
@@ -527,7 +524,7 @@ const PortfolioPage: NextPage = () => {
                         setCurrentPage={setCurrentPage}
                         scrollFunction={() => {
                           imagesCountNullifier();
-                          scrollFunction(true);
+                          scrollFunction();
                         }}
                         setIsFirstLoad={setIsFirstLoad}
                         setIsPaginationTriggered={setIsPaginationTriggered}

@@ -12,10 +12,10 @@ export const Pagination = ({
   setIsPaginationTriggered,
 }: IPaginationProps) => {
   const handleClick = (pageNumber: number) => {
+    scrollFunction();
     setIsPaginationTriggered(true);
     setCurrentPage(pageNumber);
     setIsFirstLoad(false);
-    scrollFunction();
   };
 
   const handlePageClick = useCallback(
