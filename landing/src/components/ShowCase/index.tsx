@@ -31,6 +31,7 @@ const SliderProps: SwiperProps = {
     delay: 7000,
     disableOnInteraction: false,
   },
+  fadeEffect: { crossFade: true },
   className: "mySwiper",
   modules: [Navigation, Autoplay, EffectFade],
   navigation: {
