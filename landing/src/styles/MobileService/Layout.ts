@@ -36,6 +36,9 @@ export const Subtitle = styled.h2`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    &.needDomain {
+      display: none;
+    }
     line-height: 233%;
     white-space: normal;
     display: none;
