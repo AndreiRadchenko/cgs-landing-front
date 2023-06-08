@@ -22,6 +22,7 @@ import PodcastItem from "../../components/Blog/PodcastItem";
 import MainBlogItem from "../../components/Blog/MainBlogItem";
 import SmallArticleItem from "../../components/Blog/SmallArticleItem";
 import { BlogSwiper } from "../../components/Blog/BlogSlider/BlogSlider";
+import { Loader } from "../../components/Loader";
 
 import loading from "../../../public/CareerDecorations/loading.svg";
 import { useScrollTo } from "../../hooks/useScrollTo";
@@ -79,6 +80,8 @@ const BlogPage = () => {
   const [filteredData, setFilteredData] = useState<IArticle[] | null>(null);
   const [tags, setTags] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isMainSliderImageLoaded, setIsMainSliderImageLoaded] =
+    useState<boolean>(false);
 
   useEffect(() => {
     articles &&
@@ -169,128 +172,135 @@ const BlogPage = () => {
     }
   }, [router.query.page, router.query.filters, scrollHandler]);
 
-  return data && views.data ? (
-    <>
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      {isLoading && (
+  return (
+    <Loader active={!isMainSliderImageLoaded}>
+      {data && views.data ? (
+        <>
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
+          {isLoading && (
+            <Styled.LoaderContainer className={"loading"}>
+              <Loading src={loading.src} isLoading={true} />
+            </Styled.LoaderContainer>
+          )}
+          <HeaderNavNew />
+          <Styled.BlogContainer>
+            <Styled.LeftLine src={leftLine.src} />
+            {currentArticlesData && (
+              <Styled.RightLine
+                src={rightLine.src}
+                articles={currentArticlesData.length}
+              />
+            )}
+            <Styled.HeaderBlock>
+              <Styled.MainContainer>
+                {reversedArticles && (
+                  <BlogSwiper>
+                    {reversedArticles.slice(0, 3).map((article, idx) => (
+                      <SwiperSlide key={idx}>
+                        <MainBlogItem
+                          article={article}
+                          views={findViews(article.url)}
+                          filters={filters}
+                          setIsMainSliderImageLoaded={
+                            setIsMainSliderImageLoaded
+                          }
+                        />
+                      </SwiperSlide>
+                    ))}
+                  </BlogSwiper>
+                )}
+              </Styled.MainContainer>
+              <Styled.FlexColumnContainer className="header">
+                {reversedArticles &&
+                  reversedArticles
+                    .slice(1, 4)
+                    .map((article) => (
+                      <SmallArticleItem
+                        filters={filters}
+                        article={article}
+                        key={article._id}
+                      />
+                    ))}
+              </Styled.FlexColumnContainer>
+            </Styled.HeaderBlock>
+            <PodcastItem data={data.podcast} />
+            {(articles && (
+              <Styled.AllArticlesContainer articles={articles.length}>
+                <DropdownContainer>
+                  <>
+                    {filters.length > 0 &&
+                      filters.map((filter, index) => (
+                        <Tag key={index}>
+                          {filter}&nbsp;&nbsp;
+                          <span
+                            onClick={() => {
+                              const newFilters = filters.filter(
+                                (filter) => filter !== filters[index]
+                              );
+                              setFilters([...newFilters]);
+                            }}
+                          >
+                            x
+                          </span>
+                        </Tag>
+                      ))}
+                  </>
+                  <Dropdown
+                    filters={filters}
+                    className="blog"
+                    setFilters={setFilters}
+                    tags={tags}
+                    dropdownName="#TAGS"
+                    prefix={"#"}
+                    isTag={true}
+                  />
+                </DropdownContainer>
+                {currentArticlesData &&
+                  currentArticlesData.map((article, i) =>
+                    i === 0 ? (
+                      <div ref={ref} key={article._id}>
+                        <BlogItem
+                          article={article}
+                          views={findViews(article.url)}
+                          filters={filters}
+                        />
+                      </div>
+                    ) : (
+                      <BlogItem
+                        article={article}
+                        key={article._id}
+                        views={findViews(article.url)}
+                        filters={filters}
+                      />
+                    )
+                  )}
+                <PaginationBar
+                  currentPage={currentPage}
+                  totalCount={
+                    filters.length > 0 && filteredData
+                      ? filteredData.length
+                      : articles.length
+                  }
+                  pageSize={BlogPageSize}
+                  siblingCount={1}
+                  filters={filters}
+                />
+              </Styled.AllArticlesContainer>
+            )) ||
+              "no articles"}
+            <FooterNew />
+          </Styled.BlogContainer>
+        </>
+      ) : (
         <Styled.LoaderContainer className={"loading"}>
           <Loading src={loading.src} isLoading={true} />
         </Styled.LoaderContainer>
       )}
-      <HeaderNavNew />
-      <Styled.BlogContainer>
-        <Styled.LeftLine src={leftLine.src} />
-        {currentArticlesData && (
-          <Styled.RightLine
-            src={rightLine.src}
-            articles={currentArticlesData.length}
-          />
-        )}
-        <Styled.HeaderBlock>
-          <Styled.MainContainer>
-            {reversedArticles && (
-              <BlogSwiper>
-                {reversedArticles.slice(0, 3).map((article, idx) => (
-                  <SwiperSlide key={idx}>
-                    <MainBlogItem
-                      article={article}
-                      views={findViews(article.url)}
-                      filters={filters}
-                    />
-                  </SwiperSlide>
-                ))}
-              </BlogSwiper>
-            )}
-          </Styled.MainContainer>
-          <Styled.FlexColumnContainer className="header">
-            {reversedArticles &&
-              reversedArticles
-                .slice(1, 4)
-                .map((article) => (
-                  <SmallArticleItem
-                    filters={filters}
-                    article={article}
-                    key={article._id}
-                  />
-                ))}
-          </Styled.FlexColumnContainer>
-        </Styled.HeaderBlock>
-        <PodcastItem data={data.podcast} />
-        {(articles && (
-          <Styled.AllArticlesContainer articles={articles.length}>
-            <DropdownContainer>
-              <>
-                {filters.length > 0 &&
-                  filters.map((filter, index) => (
-                    <Tag key={index}>
-                      {filter}&nbsp;&nbsp;
-                      <span
-                        onClick={() => {
-                          const newFilters = filters.filter(
-                            (filter) => filter !== filters[index]
-                          );
-                          setFilters([...newFilters]);
-                        }}
-                      >
-                        x
-                      </span>
-                    </Tag>
-                  ))}
-              </>
-              <Dropdown
-                filters={filters}
-                className="blog"
-                setFilters={setFilters}
-                tags={tags}
-                dropdownName="#TAGS"
-                prefix={"#"}
-                isTag={true}
-              />
-            </DropdownContainer>
-            {currentArticlesData &&
-              currentArticlesData.map((article, i) =>
-                i === 0 ? (
-                  <div ref={ref} key={article._id}>
-                    <BlogItem
-                      article={article}
-                      views={findViews(article.url)}
-                      filters={filters}
-                    />
-                  </div>
-                ) : (
-                  <BlogItem
-                    article={article}
-                    key={article._id}
-                    views={findViews(article.url)}
-                    filters={filters}
-                  />
-                )
-              )}
-            <PaginationBar
-              currentPage={currentPage}
-              totalCount={
-                filters.length > 0 && filteredData
-                  ? filteredData.length
-                  : articles.length
-              }
-              pageSize={BlogPageSize}
-              siblingCount={1}
-              filters={filters}
-            />
-          </Styled.AllArticlesContainer>
-        )) ||
-          "no articles"}
-        <FooterNew />
-      </Styled.BlogContainer>
-    </>
-  ) : (
-    <Styled.LoaderContainer className={"loading"}>
-      <Loading src={loading.src} isLoading={true} />
-    </Styled.LoaderContainer>
+    </Loader>
   );
 };
 

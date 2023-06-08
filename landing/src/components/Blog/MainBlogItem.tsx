@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/Blog.styled";
 import Watch from "../../../public/Watch.svg";
@@ -6,8 +6,14 @@ import Timer from "../../../public/Timer.svg";
 import { useRouter } from "next/router";
 import { IMainBlogItem } from "../../types/Blog.types";
 
-const MainBlogItem = ({ article, views, filters }: IMainBlogItem) => {
+const MainBlogItem = ({
+  article,
+  views,
+  filters,
+  setIsMainSliderImageLoaded,
+}: IMainBlogItem) => {
   const router = useRouter();
+  const [onLoadCount, setOnLoadCount] = useState(0);
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     router.push(
@@ -19,12 +25,23 @@ const MainBlogItem = ({ article, views, filters }: IMainBlogItem) => {
     );
   };
 
+  const onMainImageLoad = () => {
+    setOnLoadCount((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    if (setIsMainSliderImageLoaded && onLoadCount === 1) {
+      setIsMainSliderImageLoaded(true);
+    }
+  }, [onLoadCount]);
+
   return (
     <>
       <Styled.MobileColumnReversedContainer>
         <Styled.MainBlogItemImage
           src={article.image?.url}
           alt="main blog image"
+          onLoad={onMainImageLoad}
         />
         <Styled.TechContainer>
           <Styled.MainBlogItemTag>{article.tags[0]}</Styled.MainBlogItemTag>
