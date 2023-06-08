@@ -11,6 +11,7 @@ import ServiceShowCase from "../../ServiceShowCase";
 import BlockDropdown from "../../BlockDropdown";
 import WhoNeedApps from "../Mobile/WhoNeedApps";
 import Advantages from "../../../ServisesComponents/Advantages/AdminAdvantages";
+import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
 
 const ServiceBlockchainContentBlock = () => {
   const { handleSubmit } = useFormikContext();
@@ -21,6 +22,7 @@ const ServiceBlockchainContentBlock = () => {
       <ServicesBlock />
       <WayBlock />
       <Advantages />
+      <TeamMembers />
       <ServiceShowCase />
       <AboutBlock />
       <div style={{ marginInline: "40px" }}>

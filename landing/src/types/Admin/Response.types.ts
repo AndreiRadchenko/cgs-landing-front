@@ -592,6 +592,7 @@ export interface IBlockchainService {
   };
   footerBlock: {
     button: string;
+    description: string;
     buttonLink: string;
     subtitle: string;
     image: {
@@ -613,6 +614,7 @@ export interface IBlockchainService {
       url: string;
     };
     subtitle: string;
+    descriptionSubtitle: string,
     text: string;
     textSubBlock: string[];
   };
@@ -621,6 +623,7 @@ export interface IBlockchainService {
     textSubBlock: string[];
   };
   advantages: IAdvantagesServicesComponent;
+  teamMembers: ITeamMembers;
   meta: IMetaBlock;
 }
 

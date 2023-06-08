@@ -6,8 +6,8 @@ interface LastItem {
 }
 
 export const Wrapper = styled.div`
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 11.65em;
+    margin-bottom: 11.65em;
     display: flex;
     justify-content: space-between;
 
@@ -16,7 +16,8 @@ export const Wrapper = styled.div`
     }
 
     @media (max-width: 400px) {
-        margin-top: 60px;
+        margin-top: 8.5em;
+        margin-bottom: 8.5em;
     }
 `;
 

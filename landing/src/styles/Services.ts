@@ -226,6 +226,7 @@ export const WhoNeedContainer = styled.div`
     align-items: flex-start;
     border-bottom: 1px solid ${themes.primary.colors.headerBorder};
     margin-inline: -20px;
+    margin-bottom: 0px;
   }
 `;
 
