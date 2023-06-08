@@ -29,6 +29,7 @@ export const ContentLayout = styled.div`
     grid-template-columns: repeat(1, minmax(375px, 1fr));
   }
   @media ${themes.primary.media.maxMobile} {
+    border-top: none;
     margin-top: 0px;
     margin-inline: -22px;
   }
@@ -51,6 +52,7 @@ export const WorthTitleContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     p {
       font-size: 22px;
+      margin-block: 16px;
     }
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -173,12 +175,12 @@ export const WorthBlock = styled.div<ISlide>`
       height: 29px;
     }
     &:nth-child(2) .iconCard {
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
     }
     &:last-child .iconCard {
-      width: 30px;
-      height: 40px;
+      width: 25px;
+      height: 35px;
     }
 
     &:first-child ${WorthCardTitle} {
