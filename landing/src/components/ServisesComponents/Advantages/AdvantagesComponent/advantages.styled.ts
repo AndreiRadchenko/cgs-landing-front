@@ -42,24 +42,34 @@ export const Content = styled.div`
   }
 `;
 
+export const NumberItems = styled.div<ISlide>`
+  opacity: 0;
+
+  &.scrolled {
+      transform-origin: left center;
+      animation: ${({ ind }) =>
+        css`
+          ${slideRight} 700ms ${ind * 100}ms ease-in forwards
+        `};
+    }
+
+    p{
+      font-family: ${themes.primary.font.family.namu};
+      font-size: ${themes.primary.font.size.secondary};
+      font-weight: ${themes.primary.font.weight.heavy};
+      position: absolute;
+      bottom: 0em;
+      margin-left: 1.5em;
+    }
+
+    img{
+      vertical-align: middle;
+    }
+`;
+
 export const Numbers = styled.div`
   display: flex;
   position: relative;
-
-  div{
-      p{
-        font-family: ${themes.primary.font.family.namu};
-        font-size: ${themes.primary.font.size.secondary};
-        font-weight: ${themes.primary.font.weight.heavy};
-        position: absolute;
-        bottom: 0em;
-        margin-left: 1.5em;
-      }
-
-      img{
-        vertical-align: middle;
-      }
-  }
 
   @media (min-width: 2561px) {
     width: 100px;
@@ -114,7 +124,7 @@ export const Numbers = styled.div`
   }
 
   @media (max-width: 475px) {
-    margin-left: -15px;
+    margin-left: -23px;
     div{
       p{
         font-size: 14px;
@@ -246,7 +256,7 @@ export const ContentItems = styled.div<ISlide>`
   &.scrolled {
       transform-origin: left center;
       animation: ${({ ind }) =>
-      css`
+    css`
           ${slideRight} 700ms ${ind * 100}ms ease-in forwards
       `};
   }
@@ -294,7 +304,7 @@ export const ContentItems = styled.div<ISlide>`
     &.scrolled {
       transform-origin: left center;
       animation: ${({ ind }) =>
-      css`
+    css`
           ${slideDownText} 700ms ${ind * 100}ms ease-in forwards
       `};
     }
@@ -316,7 +326,12 @@ export const TextContent = styled.div`
 
   @media (max-width: 992px) {
     flex-direction: column;
-    margin-top: 0px;
+    margin-top: -5px;
+    margin-left: -20px;
+  }
+
+  @media (max-width: 475px) {
+    
   }
 `;
 

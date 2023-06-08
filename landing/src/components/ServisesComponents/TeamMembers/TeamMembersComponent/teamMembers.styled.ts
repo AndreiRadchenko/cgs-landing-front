@@ -6,18 +6,17 @@ interface LastItem {
 }
 
 export const Wrapper = styled.div`
-    width: 100%;
-    margin: 100px 0;
+    margin-top: 100px;
+    margin-bottom: 100px;
     display: flex;
     justify-content: space-between;
-    overflow: hidden;
 
     @media (max-width: 768px) {
-        display: inline-block;
+        display: block;
     }
 
     @media (max-width: 400px) {
-        margin: 60px 0;
+        margin-top: 60px;
     }
 `;
 
@@ -45,8 +44,8 @@ export const Description = styled.div`
     font-weight: ${themes.primary.font.weight.heavy};
     line-height: 28px;
 
-    @media (max-width: 768px) {
-        padding: 0 20px;
+    @media (max-width: 475px) {
+        font-size: 18px;
     }
 `;
 
@@ -80,12 +79,10 @@ export const ScrollList = styled.div`
     }
 
     @media (max-width: 475px) {
-       margin-top: 20px
-    }
-
-    @media (max-width: 400px) {
-        padding-left: 1px;
-        height: 180px;
+       margin-top: 20px;
+       width: 105%;
+       height: 150px;
+       margin-left: -5%;
     }
 `;
 
@@ -111,9 +108,12 @@ export const ScrollContainer = styled.div`
         width: 97%;
     }
 
-    @media (max-width: 400px) {
-        width: 32em;
-        margin-left: 12px;
+    @media (max-width: 766px) {
+        width: 97%;
+    }
+
+    @media (max-width: 475px) {
+        width: 95%;
     }
 `;
 
@@ -127,7 +127,7 @@ export const ScrollItem = styled.div<LastItem>`
     border-bottom:   ${({ lastItem }) => lastItem ? '2px solid #D9D9D9' : 'none'};
 
     @media (max-width: 400px) {
-        padding: 12px 0 12px 10px;
+        padding: 8px 0 6px 10px;
         font-size: 16px;
         line-height: 25.6px;
     }
