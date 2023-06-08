@@ -26,6 +26,7 @@ export const TitleInput = styled.textarea`
     margin-bottom: 20px;
     background: none;
     border: 1px solid ${themes.primary.colors.adminInputBorder};
+    font-family: ${themes.primary.font.family.namu};
     resize: vertical;
     padding: ${themes.primary.spacing.primary};
     font-size: 16px;
@@ -46,6 +47,7 @@ export const DescriptionInput = styled.textarea`
     margin-bottom: 20px;
     background: none;
     border: 1px solid ${themes.primary.colors.adminInputBorder};
+    font-family: ${themes.primary.font.family.namu};
     resize: vertical;
     padding: ${themes.primary.spacing.primary};
     font-size: 16px;

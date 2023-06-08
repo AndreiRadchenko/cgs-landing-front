@@ -48,7 +48,7 @@ export const OtherServices = ({ otherServices }: IServicesProps) => {
         )}
       </Styles.Carousel>
       <Styles.Description>
-        <Styles.Title>{otherServices?.title}</Styles.Title>
+      <Styles.Title>{otherServices?.title.replace('|', '\n')}</Styles.Title>
         <Styles.Text>{otherServices?.text}</Styles.Text>
       </Styles.Description>
     </Styles.Container>

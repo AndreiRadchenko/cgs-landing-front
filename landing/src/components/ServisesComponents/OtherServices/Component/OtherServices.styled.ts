@@ -82,6 +82,8 @@ export const Title = styled.h2`
   font-size: 74px;
   line-height: 120%;
   text-transform: uppercase;
+  white-space: pre-line;
+
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 40px;
     line-height: 120%;
@@ -92,7 +94,7 @@ export const Text = styled.p`
   margin: 0 0 0 204px;
   padding: 0;
   font-size: 18px;
-  line-height: 160%;
+  line-height: 160%;    
   @media ${themes.primary.media.maxServiceWeb} {
     margin: 0;
   }
