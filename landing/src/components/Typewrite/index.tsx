@@ -1,5 +1,6 @@
+import { useMediaQuery } from "@mui/material";
 import parse from "html-react-parser";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useMemo } from "react";
 import * as Styled from "../../styles/TextTypewrite.styled";
 
 interface ITextTypingAnimationProps {
@@ -17,6 +18,8 @@ function TextTypingAnimation({ text, startPoint }: ITextTypingAnimationProps) {
     visibleText: text.slice(0, 1),
     hiddenText: text.slice(1, text.length),
   });
+
+  const is768px = useMediaQuery("(max-width:768px)");
 
   useEffect(() => {
     if (startPoint || startPoint === undefined) {
@@ -47,19 +50,39 @@ function TextTypingAnimation({ text, startPoint }: ITextTypingAnimationProps) {
     }
   }, [text, displayedText, startPoint]);
 
-  const splittedDisplayed = displayedText.visibleText.split("|");
+  const splittedDisplayed = useMemo(() => {
+    if (is768px) {
+      return displayedText.visibleText.split(/[\|^]/);
+    } else {
+      return displayedText.visibleText.split("|");
+    }
+  }, [displayedText.visibleText, is768px]);
 
-  const splittedHidden = displayedText.hiddenText.split("|");
+  const splittedHidden = useMemo(() => {
+    if (is768px) {
+      return displayedText.hiddenText.split(/[\|^]/);
+    } else {
+      return displayedText.hiddenText.split("|");
+    }
+  }, [displayedText.hiddenText, is768px]);
+
+  const formattedDisplayed = useMemo(() => {
+    return splittedDisplayed.map((el) => el.replace(/\^/g, ""));
+  }, [splittedDisplayed]);
+
+  const formattedHidden = useMemo(() => {
+    return splittedHidden.map((el) => el.replace(/\^/g, ""));
+  }, [splittedHidden]);
 
   return (
     <Styled.TypewriteTextWrapper>
       <Styled.DisplayedPart>
-        {splittedDisplayed.map((el, idx) =>
-          idx !== splittedDisplayed.length - 1 ? (
+        {formattedDisplayed.map((el, idx) =>
+          idx !== formattedDisplayed.length - 1 ? (
             <Fragment key={idx}>{parse(`<span>${el}</span><br/ >`)}</Fragment>
           ) : (
             <Styled.LastPart
-              className={splittedHidden.length === 1 ? "last-part" : undefined}
+              className={formattedHidden.length === 1 ? "last-part" : undefined}
               key={idx}
             >
               {parse(`<span>${el}</span>`)}
@@ -69,8 +92,8 @@ function TextTypingAnimation({ text, startPoint }: ITextTypingAnimationProps) {
         )}
       </Styled.DisplayedPart>
       <Styled.HiddenPart>
-        {splittedHidden.map((el, idx) =>
-          idx !== splittedHidden.length - 1 ? (
+        {formattedHidden.map((el, idx) =>
+          idx !== formattedHidden.length - 1 ? (
             <Fragment key={idx}>
               {parse(`<span key="${idx}">${el}</span><br/ >`)}
             </Fragment>

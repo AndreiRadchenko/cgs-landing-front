@@ -2,12 +2,12 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  margin-top: 11em;
-  padding-bottom: 21em;
+  margin-top: 8.8em;
+  padding-bottom: 9.4em;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 3.5em;
+    margin-top: 2em;
     padding-bottom: 18.2em;
 
     & > a {
@@ -31,13 +31,25 @@ export const Title = styled.h2`
   line-height: 140%;
   text-transform: uppercase;
   max-width: 28.75em;
-  margin: 0 0 1.3em;
+  margin-bottom: 20px;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.45em;
     line-height: 132%;
-    margin-bottom: 1.5em;
+    margin-bottom: 0.5em;
     width: 14.5em;
+  }
+`;
+
+export const Description = styled.p`
+  width: 55vw;
+  font-size: 1.375em;
+  line-height: 160%;
+  margin-block: 0 2em;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.125em;
+    width: 100%;
   }
 `;
 

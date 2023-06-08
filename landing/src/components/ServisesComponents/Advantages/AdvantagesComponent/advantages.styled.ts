@@ -8,13 +8,17 @@ interface IsFirst {
 }
 
 export const Wrapper = styled.div`
-  margin-top: 100px;
+  margin-bottom: 14.75em;
   width: 100%;
+
+  @media (max-width: 475px) {
+    margin-bottom: 6em;
+  }
 `;
 
 export const Title = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.serviceSubtitle};
+  font-size: ${themes.primary.font.size.webAuditSubtitle};
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 56px;
   text-transform: uppercase;
@@ -55,7 +59,7 @@ export const NumberItems = styled.div<ISlide>`
 
     p{
       font-family: ${themes.primary.font.family.namu};
-      font-size: ${themes.primary.font.size.secondary};
+      font-size: 2.667em;
       font-weight: ${themes.primary.font.weight.heavy};
       position: absolute;
       bottom: 0em;
@@ -106,7 +110,7 @@ export const Numbers = styled.div`
       p{
         position: relative;
         margin: 0;
-        margin-left: 1.3em;
+        margin-left: 0.7em;
         bottom: 0.1em;
       }
     }
@@ -299,7 +303,7 @@ export const ContentItems = styled.div<ISlide>`
 
   @media (max-width: 992px) {
     width: 100%;
-    margin-bottom: 3.5em;
+    margin-bottom: 5em;
 
     &.scrolled {
       transform-origin: left center;
@@ -315,7 +319,7 @@ export const ContentItems = styled.div<ISlide>`
   }
 
   @media (max-width: 475px) {
-    margin-bottom: 1.5em;
+    margin-bottom: 2.25em;
   }
 `;
 
@@ -326,18 +330,18 @@ export const TextContent = styled.div`
 
   @media (max-width: 992px) {
     flex-direction: column;
-    margin-top: -5px;
+    margin-top: 6px;
     margin-left: -20px;
   }
 
   @media (max-width: 475px) {
-    
+    margin-top: -5px;
   }
 `;
 
 export const Subtitle = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.buttonText};
+  font-size: 2em;
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 160%;
   margin-bottom: 8px;
@@ -355,7 +359,7 @@ export const Subtitle = styled.div`
 
 export const Text = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.primary};
+  font-size: 1.34em;
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 160%;
 

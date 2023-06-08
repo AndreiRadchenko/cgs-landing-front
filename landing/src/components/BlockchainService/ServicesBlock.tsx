@@ -5,6 +5,7 @@ import { IBlockchainService } from "../../types/Admin/Response.types";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/BlockchainService/ServicesBlock.styled";
 import { useOnScreen } from "../../hooks/useOnScreen";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const ServicesBlock = () => {
   const queryClient = useQueryClient();
@@ -33,8 +34,10 @@ const ServicesBlock = () => {
         </Styled.SubTextContent>
       </Styled.SubTextContainer>
       <Styled.DescriptionContainer>
+        <MobileInfiniteText title={data?.descriptionSubtitle}/>
         <Styled.Image src={data?.image.url} />
         <Styled.Description>
+          <Styled.Subtitle>{data?.descriptionSubtitle}</Styled.Subtitle>
           {data?.text && parse(data?.text)}
         </Styled.Description>
       </Styled.DescriptionContainer>
