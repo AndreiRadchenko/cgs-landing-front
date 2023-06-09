@@ -16,6 +16,7 @@ import HowDoProvideBlock from "../../components/Ai/HowDoProvideBlock";
 import ShowCase from "../../components/ShowCase";
 import FooterBlock from "../../components/Ai/FooterBlock";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -36,8 +37,11 @@ export async function getServerSideProps() {
 }
 
 const DappAuditPage: NextPage = () => {
-  const { data } = useQuery([queryKeys.getServiceDappAuditPage], () =>
-    adminDappAuditService.getDappAuditServicePage()
+  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
+
+  const { data, isLoading } = useQuery(
+    [queryKeys.getServiceDappAuditPage],
+    () => adminDappAuditService.getDappAuditServicePage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
@@ -66,36 +70,45 @@ const DappAuditPage: NextPage = () => {
   }, []);
 
   return (
-    <>
-      {isCalendlySuccessfull && (
-        <CalendlyInfoModal
-          isOpen={isCalendlySuccessfull}
-          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-        />
+    <Loader active={isLoading || !isFirstImageLoaded}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
+        <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+            />
+          )}
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
+          <HeaderNavNew />
+          <PageArticle>
+            <Layout>
+              <Styled.Layout>
+                <HeadBlock />
+                <FigureOutBlock />
+                <HowDoProvideBlock />
+              </Styled.Layout>
+            </Layout>
+            <ShowCase
+              setIsFirstImageLoaded={setIsFirstImageLoaded}
+              projects={data?.projects}
+            />
+            <Layout>
+              <Styled.Layout>
+                <FooterBlock />
+              </Styled.Layout>
+            </Layout>
+          </PageArticle>
+          <FooterNew />
+        </>
       )}
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      <HeaderNavNew />
-      <PageArticle>
-        <Layout>
-          <Styled.Layout>
-            <HeadBlock />
-            <FigureOutBlock />
-            <HowDoProvideBlock />
-          </Styled.Layout>
-        </Layout>
-        <ShowCase projects={data?.projects} />
-        <Layout>
-          <Styled.Layout>
-            <FooterBlock />
-          </Styled.Layout>
-        </Layout>
-      </PageArticle>
-      <FooterNew />
-    </>
+    </Loader>
   );
 };
 

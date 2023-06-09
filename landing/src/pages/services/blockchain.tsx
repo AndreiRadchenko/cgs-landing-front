@@ -19,6 +19,7 @@ import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import NeedsAppsBenefitComponent from "../../components/Services/NeedsAppsBenefitComponent";
 import Advantages from "../../components/ServisesComponents/Advantages/AdvantagesComponent/index";
 import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -40,7 +41,9 @@ export async function getServerSideProps() {
 }
 
 const BlockchainService = () => {
-  const { data } = useQuery(
+  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
+
+  const { data, isLoading } = useQuery(
     [queryKeys.getServiceBlockchainPage],
     async () => await adminBlockchainService.getBlockchainDevelopmentPage()
   );
@@ -71,39 +74,48 @@ const BlockchainService = () => {
   }, []);
 
   return (
-    <>
-      {isCalendlySuccessfull && (
-        <CalendlyInfoModal
-          isOpen={isCalendlySuccessfull}
-          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-        />
+    <Loader active={isLoading || !isFirstImageLoaded}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
+        <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+            />
+          )}
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
+          <HeaderNavNew />
+          <PageArticle>
+            <Layout>
+              <Styled.Layout>
+                <HeadBlock />
+                <ServicesBlock />
+                <YourWayBlock />
+              </Styled.Layout>
+              <TeamMembers teamMembers={data?.teamMembers} />
+            </Layout>
+            <ShowCase
+              setIsFirstImageLoaded={setIsFirstImageLoaded}
+              projects={data?.projects}
+            />
+            <Layout>
+              <Advantages advantages={data?.advantages} />
+              <>{data && <NeedsAppsBenefitComponent data={data} />}</>
+              <Styled.Layout className="mobile-visivble">
+                <FooterBlock />
+              </Styled.Layout>
+            </Layout>
+          </PageArticle>
+          <FooterNew />
+        </>
       )}
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      <HeaderNavNew />
-      <PageArticle>
-        <Layout>
-          <Styled.Layout>
-            <HeadBlock />
-            <ServicesBlock />
-            <YourWayBlock />
-          </Styled.Layout>
-          <TeamMembers teamMembers={data?.teamMembers}/>
-        </Layout>
-        <ShowCase projects={data?.projects} />
-        <Layout>
-        <Advantages advantages={data?.advantages} />
-        <>{data && <NeedsAppsBenefitComponent data={data} />}</>
-          <Styled.Layout className="mobile-visivble">
-            <FooterBlock />
-          </Styled.Layout>
-        </Layout>
-      </PageArticle>
-      <FooterNew />
-    </>
+    </Loader>
   );
 };
 

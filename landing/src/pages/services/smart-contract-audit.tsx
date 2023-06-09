@@ -300,7 +300,6 @@ const DappAuditPage: NextPage = () => {
             <HowDoProvideBlock />
           </Styled.Layout>
         </Layout>
-        <ShowCase projects={[]} />
         <Layout>
           <Styled.Layout>
             <FooterBlock />

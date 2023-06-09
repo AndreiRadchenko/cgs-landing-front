@@ -13,6 +13,7 @@ import FooterBlock from "../../components/OngoingSupport/FooterBlock";
 import ShowCase from "../../components/ShowCase";
 import BonusesComponent from "../../components/ServisesComponents/Bonuses/Component/BonusesComponent";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 import { queryKeys } from "../../consts/queryKeys";
 import { adminSupportService } from "../../services/services/adminServiceSupportPage";
@@ -39,7 +40,9 @@ export async function getServerSideProps() {
 }
 
 const OngoingSupport = () => {
-  const { data } = useQuery([queryKeys.getServiceSupportPage], () =>
+  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
+
+  const { data, isLoading } = useQuery([queryKeys.getServiceSupportPage], () =>
     adminSupportService.getSupportServicePage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
@@ -69,45 +72,54 @@ const OngoingSupport = () => {
   }, []);
 
   return (
-    <>
-      {isCalendlySuccessfull && (
-        <CalendlyInfoModal
-          isOpen={isCalendlySuccessfull}
-          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-        />
-      )}
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      <HeaderNavNew />
-      <PageArticle>
-        <Layout>
-          <Styled.Layout>
-            <HeadBlock />
-            <WorkBlock />
-            <ProvidesBlock
-              className={
-                data && data.projects.length === 0
-                  ? "withoutShowcase"
-                  : undefined
-              }
+    <Loader active={isLoading || !isFirstImageLoaded}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
+        <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />
-          </Styled.Layout>
-          <BonusesComponent bonuses={data?.bonuses} />
-        </Layout>
-        <ShowCase projects={data?.projects} />
-        <Layout>
-          <Styled.Layout>
-            <BonusesBlock />
-            <FooterBlock />
-          </Styled.Layout>
-        </Layout>
-      </PageArticle>
+          )}
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
+          <HeaderNavNew />
+          <PageArticle>
+            <Layout>
+              <Styled.Layout>
+                <HeadBlock />
+                <WorkBlock />
+                <ProvidesBlock
+                  className={
+                    data && data.projects.length === 0
+                      ? "withoutShowcase"
+                      : undefined
+                  }
+                />
+              </Styled.Layout>
+              <BonusesComponent bonuses={data?.bonuses} />
+            </Layout>
+            <ShowCase
+              setIsFirstImageLoaded={setIsFirstImageLoaded}
+              projects={data?.projects}
+            />
+            <Layout>
+              <Styled.Layout>
+                <BonusesBlock />
+                <FooterBlock />
+              </Styled.Layout>
+            </Layout>
+          </PageArticle>
 
-      <FooterNew />
-    </>
+          <FooterNew />
+        </>
+      )}
+    </Loader>
   );
 };
 
