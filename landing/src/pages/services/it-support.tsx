@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
-import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminSupportService } from "../../services/services/adminServiceSupportPage";
 import Head from "next/head";
-import { adminGlobalService } from "../../services/adminHomePage";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeadBlock from "../../components/OngoingSupport/HeadBlock";
@@ -12,11 +10,16 @@ import WorkBlock from "../../components/OngoingSupport/WorkBlock";
 import ProvidesBlock from "../../components/OngoingSupport/ProvidesBlock";
 import BonusesBlock from "../../components/OngoingSupport/BonusesBlock";
 import FooterBlock from "../../components/OngoingSupport/FooterBlock";
-import * as Styled from "../../styles/OngoingSupport/Layout";
-import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
+import BonusesComponent from "../../components/ServisesComponents/Bonuses/Component/BonusesComponent";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";
+
+import { queryKeys } from "../../consts/queryKeys";
+import { adminSupportService } from "../../services/services/adminServiceSupportPage";
+import { adminGlobalService } from "../../services/adminHomePage";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
+import * as Styled from "../../styles/OngoingSupport/Layout";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -99,6 +102,7 @@ const OngoingSupport = () => {
                   }
                 />
               </Styled.Layout>
+              <BonusesComponent bonuses={data?.bonuses} />
             </Layout>
             <ShowCase
               setIsFirstImageLoaded={setIsFirstImageLoaded}
