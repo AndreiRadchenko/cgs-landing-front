@@ -3,6 +3,7 @@ import {
   IOtherServicesComponent,
   IFreeServicesComponent,
   IAdvantagesServicesComponent,
+  IBonusesComponent,
 } from "../../types/ServicesComponent.types";
 import { ITechnology } from "./AdminPortfolio.types";
 export interface IEditInformation {
@@ -658,6 +659,7 @@ export interface IServiceSupport {
     buttonLink: string;
     image: { url: string };
   };
+  bonuses: IBonusesComponent;
   meta: IMetaBlock;
 }
 

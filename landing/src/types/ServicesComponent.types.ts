@@ -22,9 +22,16 @@ export interface IFreeServicesComponent {
   services: IFreeService[];
 }
 
+export interface IBonus {
+  subtitle: string;
+  text: string;
+}
+
+export interface IBonusesComponent {
+  title: string;
+  bonuses: IBonus[];
+}
 export interface IAdvantagesServicesComponent {
   title: string;
-  content: [
-    { subtitle: string, text: string },
-  ];
+  content: [{ subtitle: string; text: string }];
 }
