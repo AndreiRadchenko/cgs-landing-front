@@ -664,6 +664,8 @@ export interface IServiceSupport {
     image: { url: string };
   };
   bonuses: IBonusesComponent;
+  otherServices: IOtherServicesComponent;
+  teamMembers: ITeamMembers;
   meta: IMetaBlock;
 }
 

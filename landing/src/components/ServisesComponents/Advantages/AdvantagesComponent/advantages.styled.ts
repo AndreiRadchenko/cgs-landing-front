@@ -69,6 +69,13 @@ export const NumberItems = styled.div<ISlide>`
     img{
       vertical-align: middle;
     }
+
+  @media (max-width: 768px) {
+    opacity: 1;
+    &.scrolled {
+      animation: none;
+    }
+  }
 `;
 
 export const Numbers = styled.div`
@@ -185,7 +192,7 @@ export const BeforeBlock = styled.div<IsFirst>`
   }
 
   @media (max-width: 1560px) {
-    width: 8vw;
+    width: 8.4vw;
   }
 
   @media (max-width: 1200px) {
@@ -203,7 +210,7 @@ export const BeforeBlock = styled.div<IsFirst>`
   }
 
   @media (max-width: 475px) {
-    width: 1px;
+    width: 0.5px;
     height: 24px;
     margin: 3px 0;
   }
@@ -229,7 +236,7 @@ export const AfterBlock = styled.div`
   }
 
   @media (max-width: 1560px) {
-    width: 8vw;
+    width: 8.4vw;
   }
 
   @media (max-width: 1200px) {
@@ -247,7 +254,7 @@ export const AfterBlock = styled.div`
   }
 
   @media (max-width: 475px) {
-    width: 1px;
+    width: 0.5px;
     height: 24px;
     margin: 3px 0;
   }
@@ -319,7 +326,7 @@ export const ContentItems = styled.div<ISlide>`
   }
 
   @media (max-width: 475px) {
-    margin-bottom: 2.25em;
+    margin-bottom: 1.75em;
   }
 `;
 
@@ -352,7 +359,7 @@ export const Subtitle = styled.div`
   }
 
   @media (max-width: 475px) {
-    margin-bottom: 0;
+    margin-bottom: 5px;
     font-size: 18px;
   }
 `;

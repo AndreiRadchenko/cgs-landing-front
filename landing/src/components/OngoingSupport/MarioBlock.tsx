@@ -138,12 +138,16 @@ const MarioBlock = (data: MarioBlockProps) => {
     }, [marioMovement, mushroomsMovement, isRoadMoving]);
 
     useEffect(() => {
+        const isDesktop = window.matchMedia("(max-width: 2560px)").matches;
         const is768px = window.matchMedia("(max-width: 768px)").matches;
+        const is475px = window.matchMedia("(max-width: 475px)").matches;
         
-        if(is768px) {
-            setThreshold(0.4)
-        } else {
+        if(isDesktop) {
             setThreshold(0.9)
+        } if(is768px) {
+            setThreshold(0.7)
+        } if(is475px) {
+            setThreshold(0.4)
         }
     }, [])
 

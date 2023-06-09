@@ -8,7 +8,6 @@ import FooterNew from "../../components/FooterNew/FooterNew";
 import HeadBlock from "../../components/OngoingSupport/HeadBlock";
 import WorkBlock from "../../components/OngoingSupport/WorkBlock";
 import ProvidesBlock from "../../components/OngoingSupport/ProvidesBlock";
-import BonusesBlock from "../../components/OngoingSupport/BonusesBlock";
 import FooterBlock from "../../components/OngoingSupport/FooterBlock";
 import ShowCase from "../../components/ShowCase";
 import BonusesComponent from "../../components/ServisesComponents/Bonuses/Component/BonusesComponent";
@@ -20,6 +19,8 @@ import { adminSupportService } from "../../services/services/adminServiceSupport
 import { adminGlobalService } from "../../services/adminHomePage";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import * as Styled from "../../styles/OngoingSupport/Layout";
+import OtherServices from "../../components/ServisesComponents/OtherServices/Component/OtherServices";
+import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -77,12 +78,6 @@ const OngoingSupport = () => {
         <LoaderStub />
       ) : (
         <>
-          {isCalendlySuccessfull && (
-            <CalendlyInfoModal
-              isOpen={isCalendlySuccessfull}
-              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-            />
-          )}
           <Head>
             <title>{metaTitle}</title>
             <meta name="description" content={metaDescription} />
@@ -109,8 +104,9 @@ const OngoingSupport = () => {
               projects={data?.projects}
             />
             <Layout>
+              <TeamMembers teamMembers={data?.teamMembers} />
+              <OtherServices otherServices={data?.otherServices} />
               <Styled.Layout>
-                <BonusesBlock />
                 <FooterBlock />
               </Styled.Layout>
             </Layout>

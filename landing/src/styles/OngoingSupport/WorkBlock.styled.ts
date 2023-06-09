@@ -1,18 +1,21 @@
 import styled, { css } from "styled-components";
-import { IIcon, ISlide } from "../../types/Decoration.types";
+import { ISlide } from "../../types/Decoration.types";
 import themes from "../../utils/themes";
-import { float, slideRight } from "../Animations.styled";
+import { slideRight } from "../Animations.styled";
 
 export const Container = styled.section`
   margin-top: 11.875em;
+  display: flex;
 
   @media ${themes.primary.media.maxMobile} {
+    display: block;
     margin-top: 1.5em;
   }
 `;
 
 export const Title = styled.h2`
   font-weight: inherit;
+  max-width: 9.2em;
   font-size: 2.5em;
   line-height: 140%;
   text-transform: uppercase;
@@ -25,8 +28,6 @@ export const Title = styled.h2`
 `;
 
 export const TextWrapper = styled.div`
-  margin: 4.67em 4.94em 0 0;
-  padding: 0.75em 0 0 1.1875em;
   display: flex;
   justify-content: space-between;
 
@@ -39,44 +40,43 @@ export const TextWrapper = styled.div`
 `;
 
 export const Subtitle = styled.p`
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-size: ${themes.primary.font.size.linkText};
+  font-weight: ${themes.primary.font.weight.heavy};
   line-height: 160%;
+  display: grid;
+  grid-template-rows: 1.5fr 1fr;
   margin: 0;
-  padding-left: 1.8em;
   position: relative;
-  -webkit-text-stroke: 0.2px black;
+
+  @media (max-width: 992px) {
+    font-size: 20px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.25em;
   }
 `;
 
 export const Text = styled.p`
-  font-size: 1.125em;
+  font-size: 1em;
   line-height: 160%;
-  margin: 1.28em 0 0 1.05em;
+  margin: 0;
   max-width: 19.45em;
+
+  @media (max-width: 992px) {
+    font-size: 14px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    max-width: 95%;
+    max-width: 95vw;
+    width: 90vw;
     margin: 6px 0 0;
   }
 `;
 
-export const Svg = styled.img<IIcon>`
-  position: absolute;
-  top: -0.1em;
-  left: -0.5em;
+export const Svg = styled.img`
   max-width: 1.8em;
-
-  animation: ${({ xOffset }) =>
-    css`
-      ${float(xOffset)} 3s infinite linear
-    `};
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    animation: none;
-  }
 
   @media ${themes.primary.media.maxMobile} {
     max-width: 1.5em;
@@ -94,64 +94,23 @@ export const BackgroundContainer = styled.img`
 `;
 
 export const Wrapper = styled.div<ISlide>`
+  width: 17.5em;
+  margin-left: 2.5em;
   position: relative;
-  &:first-child {
-    margin-right: 6.1em;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
 
-    @media ${themes.primary.media.onlyTabletPortrait} {
-      margin-right: 1em;
-    }
-
-    @media ${themes.primary.media.maxMobile} {
-      margin: 0;
-    }
-    & img {
-      top: -0.4em;
-
-      @media ${themes.primary.media.maxMobile} {
-        max-width: 1.2em;
-        top: -0.3em;
-      }
-    }
-
-    & > img {
-      top: 14.85em;
-      left: 13.03em;
-
-      @media ${themes.primary.media.onlyTabletPortrait} {
-        left: 3em;
-      }
-
-      @media ${themes.primary.media.onlyTabletLandScape} {
-        left: 7em;
-      }
-    }
+  @media (max-width: 1200px) {
+    width: 14em;
   }
 
-  &:nth-child(2) {
-    margin-top: 13.67em;
-    margin-right: 4.8em;
+  @media (max-width: 992px) {
+    width: 9em;
+  }
 
-    @media ${themes.primary.media.onlyTabletPortrait} {
-      margin-right: 1em;
-    }
-
-    @media ${themes.primary.media.maxMobile} {
-      margin: 0;
-    }
-
-    & > img {
-      bottom: 15.1em;
-      left: 17em;
-
-      @media ${themes.primary.media.onlyTabletPortrait} {
-        left: 6em;
-      }
-
-      @media ${themes.primary.media.onlyTabletLandScape} {
-        left: 10em;
-      }
-    }
+  @media ${themes.primary.media.maxMobile} {
+    margin: 0;
+    grid-template-rows: 1fr 0.7fr;
   }
 
   @media ${themes.primary.media.maxMobile} {

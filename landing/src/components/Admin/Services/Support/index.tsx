@@ -11,6 +11,8 @@ import SubtitleBlock from "./SubtitleBlock";
 import AdminBlockDropDown from "../../../Admin/Global/AdminBlockDropDown";
 import Bonuses from "../../../ServisesComponents/Bonuses/AdminComponent";
 import { queryKeys } from "../../../../consts/queryKeys";
+import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
+import OtherServices from "../../../ServisesComponents/OtherServices/AdminComponent";
 
 const ServiceSupportContentBlock = () => {
   const { handleSubmit } = useFormikContext();
@@ -25,6 +27,8 @@ const ServiceSupportContentBlock = () => {
       <AdminBlockDropDown title="BONUSES">
         <Bonuses queryKey={queryKeys.getServiceSupportPage} />
       </AdminBlockDropDown>
+      <TeamMembers />
+      <OtherServices queryKey={queryKeys.getServiceSupportPage}/>
       <MetaTagsBlock theme="dark" sitemap="services/it-support" />
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>
