@@ -25,6 +25,7 @@ import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -45,7 +46,9 @@ export async function getServerSideProps() {
 const MobileAppDevelopment: NextPage = () => {
   const queryClient = useQueryClient();
 
-  const { data } = useQuery([queryKeys.getServiceMobilePage], () =>
+  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
+
+  const { data, isLoading } = useQuery([queryKeys.getServiceMobilePage], () =>
     adminMobileService.getMobileServicePage()
   );
 
@@ -76,47 +79,55 @@ const MobileAppDevelopment: NextPage = () => {
       window.removeEventListener("message", calendlyStatusFinder);
     };
   }, []);
-
   return (
-    <>
-      {isCalendlySuccessfull && (
-        <CalendlyInfoModal
-          isOpen={isCalendlySuccessfull}
-          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-        />
-      )}
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      <HeaderNavNew />
-      <PageArticle>
-        <Layout>
-          <LocalLayout>
-            <HeadBlock />
-            {dataPerks && <PerksOfCoopComponent data={dataPerks} />}
-            <StrongBlock />
-            <WhoNeedAppBlock
-              className={
-                data && data.projects.length === 0
-                  ? "withoutShowcase"
-                  : undefined
-              }
+    <Loader active={isLoading || !isFirstImageLoaded}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
+        <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />
-          </LocalLayout>
-          <TeamMembers teamMembers={data?.teamMembers} />
-        </Layout>
-        <ShowCase projects={data?.projects} />
-        <Layout>
-          <LocalLayout>
-            <HowDoWeWork />
-            <ProfBlock />
-          </LocalLayout>
-        </Layout>
-      </PageArticle>
-      <FooterNew />
-    </>
+          )}
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
+          <HeaderNavNew />
+          <PageArticle>
+            <Layout>
+              <LocalLayout>
+                <HeadBlock />
+                {dataPerks && <PerksOfCoopComponent data={dataPerks} />}
+                <StrongBlock />
+                <WhoNeedAppBlock
+                  className={
+                    data && data.projects.length === 0
+                      ? "withoutShowcase"
+                      : undefined
+                  }
+                />
+              </LocalLayout>
+              <TeamMembers teamMembers={data?.teamMembers} />
+            </Layout>
+            <ShowCase
+              setIsFirstImageLoaded={setIsFirstImageLoaded}
+              projects={data?.projects}
+            />
+            <Layout>
+              <LocalLayout>
+                <HowDoWeWork />
+                <ProfBlock />
+              </LocalLayout>
+            </Layout>
+          </PageArticle>
+          <FooterNew />
+        </>
+      )}
+    </Loader>
   );
 };
 export default MobileAppDevelopment;

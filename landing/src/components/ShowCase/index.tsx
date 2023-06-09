@@ -40,7 +40,7 @@ const SliderProps: SwiperProps = {
   },
 };
 
-const ShowCase = ({ projects }: IShowCaseProps) => {
+const ShowCase = ({ projects, setIsFirstImageLoaded }: IShowCaseProps) => {
   const [currentProjects, setCurrentProjects] = useState<
     (IReviewProps | undefined)[]
   >([]);
@@ -110,7 +110,14 @@ const ShowCase = ({ projects }: IShowCaseProps) => {
             (el, ind) =>
               el && (
                 <SwiperSlide key={ind}>
-                  {({ isActive }) => <Slide review={el} isActive={isActive} />}
+                  {({ isActive }) => (
+                    <Slide
+                      ind={ind}
+                      setIsFirstImageLoaded={setIsFirstImageLoaded}
+                      review={el}
+                      isActive={isActive}
+                    />
+                  )}
                 </SwiperSlide>
               )
           )}
