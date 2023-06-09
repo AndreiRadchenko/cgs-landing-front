@@ -35,7 +35,7 @@ export const SwiperArrowContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 15px;
-  margin-inline: 51px;
+  margin-inline: 41px;
 
   & > div {
     display: flex;
@@ -53,7 +53,11 @@ export const ArrowContainer = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  overflow: hidden;
+  position: relative !important;
+
+  &:after {
+    display: none;
+  }
 
   svg path {
     transition: transform 1s ease-in-out;
