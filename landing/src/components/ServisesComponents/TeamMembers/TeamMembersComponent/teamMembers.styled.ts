@@ -51,7 +51,7 @@ export const Description = styled.div`
 `;
 
 export const ScrollList = styled.div`
-    width: 42vw;
+    width: 44vw;
     height: 184px;
     position: relative;
     overflow-y: scroll;
@@ -84,6 +84,20 @@ export const ScrollList = styled.div`
        width: 105%;
        height: 150px;
        margin-left: -5%;
+
+       ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #8F8E93;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #D9D9D9;
+        border-radius: 5px;
+    }
     }
 `;
 
@@ -97,7 +111,7 @@ export const ScrollContainer = styled.div`
 
     @media (max-width: 1440px) {
         width: 44.3em;
-        margin-right: 30px;
+        margin-right: 60px;
     }
 
     @media (max-width: 1350px) {
@@ -123,9 +137,9 @@ export const ScrollItem = styled.div<LastItem>`
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
     line-height: 32px;
-    border-top: 2px solid ${themes.primary.colors.lightGreyBorder};
+    border-top: 2px solid rgb(192, 191, 192);
     padding: 10px 0 8px 14px;
-    border-bottom:   ${({ lastItem }) => lastItem ? '2px solid #D9D9D9' : 'none'};
+    border-bottom:   ${({ lastItem }) => lastItem ? '2px solid rgb(192, 191, 192)' : 'none'};
 
     @media (max-width: 400px) {
         padding: 8px 0 6px 10px;

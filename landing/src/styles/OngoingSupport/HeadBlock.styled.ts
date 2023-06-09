@@ -7,10 +7,14 @@ export const Container = styled.section`
 `;
 
 export const Content = styled.div`
-  padding-top: 9.56em;
+  padding-top: 8em;
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     max-width: 75%;
+  }
+
+  @media (max-width: 992px) {
+    padding-top: 5em;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -33,13 +37,18 @@ export const ButtonWrapper = styled.div`
 
 export const Title = styled.h1`
   font-weight: inherit;
+  width: 11em;
   font-size: 4.125em;
   line-height: 120%;
   text-transform: uppercase;
   margin: 0;
 
+  @media (max-width: 992px) {
+    font-size: 55px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
-    font-size: 2.375em;
+    font-size: 2.5em;
     width: 108.5%;
   }
 
@@ -66,6 +75,10 @@ export const Description = styled.p`
   max-width: 30em;
   margin: 1.275em 0 2.32em;
 
+  @media (max-width: 992px) {
+    font-size: 20px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     margin: 1.625em 0 1.75em;
@@ -85,7 +98,7 @@ export const Image = styled.img`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 25em;
-    top: 17em;
+    top: 1em;
   }
 
   @media ${themes.primary.media.maxMobile} {
