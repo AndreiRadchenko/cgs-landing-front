@@ -55,7 +55,6 @@ const ShowCase = ({ projects }: IShowCaseProps) => {
       );
     }
   }, [data, projects]);
-
   return projects && projects.length !== 0 ? (
     <div>
       <Styled.SwiperArrowContainer>
