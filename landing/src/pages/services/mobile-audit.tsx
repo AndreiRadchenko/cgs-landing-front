@@ -23,6 +23,7 @@ import HowDoWeAuditBlock from "../../components/MobileAuditService/HowDoWeAuditB
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
 import { IServiceMobileAudit } from "../../types/Admin/Response.types";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -43,13 +44,16 @@ export async function getServerSideProps() {
 }
 
 const MobileAuditService = () => {
+  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
+
   const queryClient = useQueryClient();
   const dataAudit = queryClient.getQueryData<IServiceMobileAudit>([
     queryKeys.getServiceMobileAuditPage,
   ])?.whenDoYouNeed;
 
-  const { data } = useQuery([queryKeys.getServiceMobileAuditPage], () =>
-    adminMobileAuditService.getMobileAuditServicePage()
+  const { data, isLoading } = useQuery(
+    [queryKeys.getServiceMobileAuditPage],
+    () => adminMobileAuditService.getMobileAuditServicePage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
@@ -78,38 +82,47 @@ const MobileAuditService = () => {
   }, []);
 
   return (
-    <>
-      {isCalendlySuccessfull && (
-        <CalendlyInfoModal
-          isOpen={isCalendlySuccessfull}
-          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-        />
+    <Loader active={isLoading || !isFirstImageLoaded}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
+        <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+            />
+          )}
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
+          <HeaderNavNew />
+          <PageArticle>
+            <Layout>
+              <Styled.Layout>
+                <HeadBlock />
+                <WhatAppBlock />
+                <WhatAppIncludeBlock />
+                {dataAudit && <PerksOfCoopComponent data={dataAudit as any} />}
+              </Styled.Layout>
+            </Layout>
+            <ShowCase
+              setIsFirstImageLoaded={setIsFirstImageLoaded}
+              projects={data?.projects}
+            />
+            <Layout>
+              <Styled.Layout>
+                <HowDoWeAuditBlock />
+                <FooterBlock />
+              </Styled.Layout>
+            </Layout>
+          </PageArticle>
+          <FooterNew />
+        </>
       )}
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      <HeaderNavNew />
-      <PageArticle>
-        <Layout>
-          <Styled.Layout>
-            <HeadBlock />
-            <WhatAppBlock />
-            <WhatAppIncludeBlock />
-            {dataAudit && <PerksOfCoopComponent data={dataAudit as any} />}
-          </Styled.Layout>
-        </Layout>
-        <ShowCase projects={data?.projects} />
-        <Layout>
-          <Styled.Layout>
-            <HowDoWeAuditBlock />
-            <FooterBlock />
-          </Styled.Layout>
-        </Layout>
-      </PageArticle>
-      <FooterNew />
-    </>
+    </Loader>
   );
 };
 

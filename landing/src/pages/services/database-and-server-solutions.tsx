@@ -17,6 +17,7 @@ import FooterBlock from "../../components/DbService/FooterBlock";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -37,7 +38,9 @@ export async function getServerSideProps() {
 }
 
 const DbSolutions: NextPage = () => {
-  const { data } = useQuery([queryKeys.getServiceDbPage], () =>
+  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
+
+  const { data, isLoading } = useQuery([queryKeys.getServiceDbPage], () =>
     adminDbService.getDbServicePage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
@@ -67,44 +70,53 @@ const DbSolutions: NextPage = () => {
   }, []);
 
   return (
-    <>
-      {isCalendlySuccessfull && (
-        <CalendlyInfoModal
-          isOpen={isCalendlySuccessfull}
-          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-        />
-      )}
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      <HeaderNavNew />
-      <PageArticle>
-        <Layout>
-          <Styled.Layout>
-            <HeadBlock />
-            <ExpertiseBlock />
-            <SelectBlock
-              className={
-                data && data.projects.length === 0
-                  ? "withoutServices"
-                  : undefined
-              }
+    <Loader active={isLoading || !isFirstImageLoaded}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
+        <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />
-          </Styled.Layout>
-        </Layout>
-        <ShowCase projects={data?.projects} />
-        <Layout>
-          <Styled.Layout>
-            <FeaturesBlock />
-            <FooterBlock />
-          </Styled.Layout>
-        </Layout>
-      </PageArticle>
+          )}
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
+          <HeaderNavNew />
+          <PageArticle>
+            <Layout>
+              <Styled.Layout>
+                <HeadBlock />
+                <ExpertiseBlock />
+                <SelectBlock
+                  className={
+                    data && data.projects.length === 0
+                      ? "withoutServices"
+                      : undefined
+                  }
+                />
+              </Styled.Layout>
+            </Layout>
+            <ShowCase
+              setIsFirstImageLoaded={setIsFirstImageLoaded}
+              projects={data?.projects}
+            />
+            <Layout>
+              <Styled.Layout>
+                <FeaturesBlock />
+                <FooterBlock />
+              </Styled.Layout>
+            </Layout>
+          </PageArticle>
 
-      <FooterNew />
-    </>
+          <FooterNew />
+        </>
+      )}
+    </Loader>
   );
 };
 

@@ -21,6 +21,7 @@ import {
   ShowcaseWithoutDataSpacing,
 } from "../../styles/WebAuditService/ShowcaseLayoutIgnore.styled";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -41,7 +42,9 @@ export async function getServerSideProps() {
 }
 
 const WebAuditPage: NextPage = () => {
-  const { data } = useQuery([queryKeys.getServiceWebAuditPage], () =>
+  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
+
+  const { data, isLoading } = useQuery([queryKeys.getServiceWebAuditPage], () =>
     adminWebAuditService.getWebAuditServicePage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
@@ -70,38 +73,47 @@ const WebAuditPage: NextPage = () => {
   }, []);
 
   return (
-    <>
-      {isCalendlySuccessfull && (
-        <CalendlyInfoModal
-          isOpen={isCalendlySuccessfull}
-          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-        />
-      )}
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      <HeaderNavNew />
-      <PageArticle>
-        <Layout>
-          <HeadBlock />
-          <WhatIsAuditBlock />
-          <WhichProblemBlock />
-          <TypesOfAuditBlock />
-          {data?.projects ? (
-            <ShowcaseLayoutIgnore>
-              <ShowCase projects={data?.projects} />
-            </ShowcaseLayoutIgnore>
-          ) : (
-            <ShowcaseWithoutDataSpacing />
+    <Loader active={isLoading || !isFirstImageLoaded}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
+        <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+            />
           )}
-          <HowToDoBlock />
-          <ProfessionalAuditBlock />
-        </Layout>
-      </PageArticle>
-      <FooterNew />
-    </>
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
+          <HeaderNavNew />
+          <PageArticle>
+            <Layout>
+              <HeadBlock />
+              <WhatIsAuditBlock />
+              <WhichProblemBlock />
+              <TypesOfAuditBlock />
+              {data?.projects ? (
+                <ShowcaseLayoutIgnore>
+                  <ShowCase
+                    setIsFirstImageLoaded={setIsFirstImageLoaded}
+                    projects={data?.projects}
+                  />
+                </ShowcaseLayoutIgnore>
+              ) : (
+                <ShowcaseWithoutDataSpacing />
+              )}
+              <HowToDoBlock />
+              <ProfessionalAuditBlock />
+            </Layout>
+          </PageArticle>
+          <FooterNew />
+        </>
+      )}
+    </Loader>
   );
 };
 

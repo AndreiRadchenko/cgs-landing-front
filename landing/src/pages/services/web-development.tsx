@@ -18,6 +18,7 @@ import FooterBlock from "../../components/WebService/FooterBlock";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -38,7 +39,9 @@ export async function getServerSideProps() {
 }
 
 const WebDevelopment: NextPage = () => {
-  const { data } = useQuery([queryKeys.getServiceWebPage], () =>
+  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
+
+  const { data, isLoading } = useQuery([queryKeys.getServiceWebPage], () =>
     adminWebService.getWebServicePage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
@@ -68,44 +71,53 @@ const WebDevelopment: NextPage = () => {
   }, []);
 
   return (
-    <>
-      {isCalendlySuccessfull && (
-        <CalendlyInfoModal
-          isOpen={isCalendlySuccessfull}
-          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-        />
-      )}
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      <HeaderNavNew />
-      <PageArticle>
-        <Layout>
-          <Styled.Layout>
-            <HeadBlock />
-            <WebPros />
-            <WhyIsWebAMust />
-            <SolutionBlock
-              className={
-                data && data?.projects.length === 0
-                  ? "withoutShowcase"
-                  : undefined
-              }
+    <Loader active={isLoading || !isFirstImageLoaded}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
+        <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />
-          </Styled.Layout>
-        </Layout>
-        <ShowCase projects={data?.projects} />
-        <Layout>
-          <Styled.Layout>
-            <PerksBlock />
-            <FooterBlock />
-          </Styled.Layout>
-        </Layout>
-      </PageArticle>
-      <FooterNew />
-    </>
+          )}
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
+          <HeaderNavNew />
+          <PageArticle>
+            <Layout>
+              <Styled.Layout>
+                <HeadBlock />
+                <WebPros />
+                <WhyIsWebAMust />
+                <SolutionBlock
+                  className={
+                    data && data?.projects.length === 0
+                      ? "withoutShowcase"
+                      : undefined
+                  }
+                />
+              </Styled.Layout>
+            </Layout>
+            <ShowCase
+              setIsFirstImageLoaded={setIsFirstImageLoaded}
+              projects={data?.projects}
+            />
+            <Layout>
+              <Styled.Layout>
+                <PerksBlock />
+                <FooterBlock />
+              </Styled.Layout>
+            </Layout>
+          </PageArticle>
+          <FooterNew />
+        </>
+      )}
+    </Loader>
   );
 };
 
