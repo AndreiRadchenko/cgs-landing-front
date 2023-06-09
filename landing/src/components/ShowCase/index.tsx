@@ -30,7 +30,6 @@ const ShowCase = ({ projects, setIsFirstImageLoaded }: IShowCaseProps) => {
       );
     }
   }, [data, projects]);
-
   return projects && projects.length !== 0 ? (
     <div>
       <Styled.SwiperArrowContainer>

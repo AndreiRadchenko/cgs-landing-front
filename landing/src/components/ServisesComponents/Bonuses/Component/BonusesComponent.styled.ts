@@ -23,8 +23,11 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
+  display: inline-block;
   margin: 0;
-  width: 35.5%;
+  margin-left: -1.276em;
+  width: 36.7vw;
+  padding: 28.5px 0 28.5px 1.276em;
   font-size: 3.33em;
   line-height: 1.4;
   text-transform: uppercase;
@@ -77,7 +80,7 @@ export const ServiceList = styled.ul`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    gap: 18px;
+    gap: 13px;
     flex-direction: column;
     align-items: center;
   }

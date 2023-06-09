@@ -27,10 +27,11 @@ export const BonusItem = ({
     <Styles.Card>
       <Styles.CardContent className="card-content">
         <Styles.CardTitle
+          isHilighted={isOpen}
           {...getToggleProps({ onClick: () => handleClick(index) })}
         >
           <Styles.CardTitleText>{subtitle}</Styles.CardTitleText>
-          <Styles.CardTitleImage>
+          <Styles.CardTitleImage className="arrowContainer">
             <svg
               width="36"
               height="36"
@@ -38,6 +39,11 @@ export const BonusItem = ({
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M24.4151 11.53L24.6177 26.1001L24.5995 26.1003L24.5997 26.1185L9.35174 26.2827L9.32314 24.1957L21.0288 24.0697L9.79799 13.1179L11.2537 11.626L22.4806 22.574L22.3275 11.5529L24.4151 11.53Z"
+              />
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
