@@ -2,6 +2,7 @@ import { IImage } from "./Admin.types";
 import {
   IOtherServicesComponent,
   IFreeServicesComponent,
+  ITeamMembers,
   IAdvantagesServicesComponent,
   IBonusesComponent,
 } from "../../types/ServicesComponent.types";
@@ -463,8 +464,8 @@ export interface IServiceMobile {
     };
   };
   footerBlock: IIntroWithImage;
+  teamMembers: ITeamMembers;
   meta: IMetaBlock;
-  teamMembersBlock: ITeamMembers;
 }
 // cloud Solution
 export interface ICloudService {
@@ -592,6 +593,7 @@ export interface IBlockchainService {
   };
   footerBlock: {
     button: string;
+    description: string;
     buttonLink: string;
     subtitle: string;
     image: {
@@ -613,6 +615,7 @@ export interface IBlockchainService {
       url: string;
     };
     subtitle: string;
+    descriptionSubtitle: string,
     text: string;
     textSubBlock: string[];
   };
@@ -621,6 +624,7 @@ export interface IBlockchainService {
     textSubBlock: string[];
   };
   advantages: IAdvantagesServicesComponent;
+  teamMembers: ITeamMembers;
   meta: IMetaBlock;
 }
 
@@ -969,16 +973,4 @@ export interface IPrivacyPage {
   intro: string;
   content: { subtitle: string; text: string }[];
   meta: IMetaBlock;
-}
-
-export interface ITeamMembers {
-  title: string;
-  description: string;
-  members: IDataTeamMember[];
-  selectedMembers: IDataTeamMember[];
-}
-
-export interface IDataTeamMember {
-  id?: string;
-  member: string;
 }

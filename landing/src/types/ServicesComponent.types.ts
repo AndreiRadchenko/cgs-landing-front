@@ -31,6 +31,17 @@ export interface IBonusesComponent {
   title: string;
   bonuses: IBonus[];
 }
+export interface ITeamMembers {
+  title: string;
+  description: string;
+  members: IDataTeamMember[];
+  selectedMembers: IDataTeamMember[];
+}
+
+export interface IDataTeamMember {
+  id?: string;
+  member: string;
+}
 export interface IAdvantagesServicesComponent {
   title: string;
   content: [{ subtitle: string; text: string }];

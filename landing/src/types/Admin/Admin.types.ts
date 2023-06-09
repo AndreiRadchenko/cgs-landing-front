@@ -1,8 +1,9 @@
 import { IPropsWithImage } from "./BlockProps";
-import { IEditInformation, IPointsData, ITeamMembers } from "./Response.types";
+import { IEditInformation, IPointsData} from "./Response.types";
 import { FieldArrayRenderProps } from "formik";
 import { IDataCareersResponse } from "./Response.types";
 import { CSSProperties } from "react";
+import { ITeamMembers } from "../ServicesComponent.types";
 export interface IAdmin {
   username: string;
   password: string;

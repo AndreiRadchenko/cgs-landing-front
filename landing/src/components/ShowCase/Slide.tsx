@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import * as Styled from "../../styles/ShowCase.styled";
 import { IReviewProps as IReview } from "../../types/Admin/Response.types";
 import Image from "next/image";
-import Loader from "../Portfolio/Loader";
-import { useRouter } from "next/router";
+import { Loader } from "../Loader";
 import { openInNewTab } from "../../utils/OpenInNewTab";
 
 interface IReviewProps {
@@ -27,7 +26,7 @@ const Slide = ({ review, isActive }: IReviewProps) => {
     <Styled.SlideContainer>
       {review.imageProjectBanner?.image?.url && (
         <Styled.ImageWrapper className={isActive ? "active" : undefined}>
-          {isLoading && <Loader />}
+          {isLoading && <Loader className="showCase" active={isLoading} />}
           <Image
             src={review.imageProjectBanner?.image?.url}
             alt={"project image"}
@@ -40,7 +39,10 @@ const Slide = ({ review, isActive }: IReviewProps) => {
       )}
       <Styled.ContentWrapper>
         <Styled.TitleContainer>
-          <Styled.ProjectTitle className={isActive ? "active" : undefined}>
+          <Styled.ProjectTitle
+            isBig={review.showCaseTitle.length > 46}
+            className={isActive ? "active" : undefined}
+          >
             {review.showCaseTitle}
           </Styled.ProjectTitle>
           {review.title && (
@@ -58,7 +60,7 @@ const Slide = ({ review, isActive }: IReviewProps) => {
               {review.text}
             </Styled.ProjectScopeText>
           )}
-          <Styled.BottomSection>
+          <Styled.BottomSection className={isActive ? "active" : undefined}>
             <Styled.ReadMore
               onClick={() => navigateToProjectPage(review.title, review._id)}
             >
@@ -68,16 +70,15 @@ const Slide = ({ review, isActive }: IReviewProps) => {
               onClick={() => openInNewTab(`https://cgsteam.io/portfolio`)}
             >
               <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
+                width="13"
+                height="13"
+                viewBox="0 0 13 13"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12.6965 0.383971V12.5585M12.6965 12.5585H0.521938M12.6965 12.5585L2.0768 1.93883"
+                  d="M10.8536 11.1464L1.70711 2L2 1.70711L11.1464 10.8536L12 11.7071V10.5V0.5H12.5V12.5H0.5V12H10.5H11.7071L10.8536 11.1464Z"
                   stroke="black"
-                  strokeWidth="1.5"
                 />
               </svg>
               <span>All projects</span>

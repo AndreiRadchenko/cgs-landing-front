@@ -29,6 +29,16 @@ export const PortfolioStyledLoader = styled(LoadingOverlay)`
 `;
 
 export const StyledLoader = styled(LoadingOverlay)`
+  &.showCase {
+    .MyLoader_overlay {
+      background: transparent;
+      height: 200px;
+      width: 200px;
+      margin-top: -200px;
+      margin-left: 250px;
+    }
+  }
+
   .MyLoader_overlay {
     background: ${themes.primary.colors.blogBackground};
     width: 100%;
@@ -46,6 +56,15 @@ export const StyledLoader = styled(LoadingOverlay)`
     margin: 0;
     height: 100vh;
     width: 100%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    &.showCase {
+      .MyLoader_overlay {
+        margin-top: -250px;
+        margin-left: 80px;
+      }
+    }
   }
 `;
 

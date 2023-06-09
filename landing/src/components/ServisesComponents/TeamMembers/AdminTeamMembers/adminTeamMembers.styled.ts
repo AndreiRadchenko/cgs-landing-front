@@ -1,15 +1,14 @@
 import styled from "styled-components";
-import themes from "../utils/themes";
+import themes from "../../../../utils/themes";
 
 interface IsOpen {
     isOpen: boolean;
 }
 
 export const Wrapper = styled.div`
-    display: flex;
-    width: 70vw;
-    margin: 0 auto;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 100%;
 `;
 
 export const TextBlock = styled.div``;
@@ -23,10 +22,11 @@ export const Subtitle = styled.div`
 
 export const TitleInput = styled.textarea`
     width: 40vw;
-    height: 50px;
+    height: 55px;
     margin-bottom: 20px;
     background: none;
     border: 1px solid ${themes.primary.colors.adminInputBorder};
+    font-family: ${themes.primary.font.family.namu};
     resize: vertical;
     padding: ${themes.primary.spacing.primary};
     font-size: 16px;
@@ -41,8 +41,23 @@ export const Description = styled.div`
     font-family: ${themes.primary.font.family.namu};
 `;
 
+export const DescriptionInput = styled.textarea`
+    width: 40vw;
+    height: fit-content;
+    margin-bottom: 20px;
+    background: none;
+    border: 1px solid ${themes.primary.colors.adminInputBorder};
+    font-family: ${themes.primary.font.family.namu};
+    resize: vertical;
+    padding: ${themes.primary.spacing.primary};
+    font-size: 16px;
+    line-height: 160%;
+    outline: none;
+`;
+
 export const MembersBlock = styled.div`
-    margin-top: 45px;
+    margin-top: 56px;
+    margin-left: 60px;
 `;
 
 export const MembersInput = styled.input`
@@ -138,21 +153,8 @@ export const SelectedContent = styled.div<IsOpen>`
     width: 30em;
 `;
 
-export const SubmitButton = styled.button`
-    font-size: ${themes.primary.font.size.adminButton};
-    color: #fff;
-    font-weight: ${themes.primary.font.weight.heavy};
-    font-family: ${themes.primary.font.family.namu};
-    border: 1px solid black;
-    background-color: black;
-    padding: 15px 30px;
+export const SubmitButton = styled.div`
     margin-top: 20px;
     margin-left: 6vw;
     margin-bottom: 20px;
-    cursor: pointer;
-    transition: all .1s linear;
-
-    &:hover{
-        background-color: #333;
-    }
 `;

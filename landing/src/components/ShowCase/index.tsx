@@ -5,7 +5,12 @@ import { queryKeys } from "../../consts/queryKeys";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { IReviewProps } from "../../types/Admin/Response.types";
 import { IShowCaseProps } from "../../types/Services.types";
-import SwiperCore, { Autoplay, Navigation, Scrollbar } from "swiper";
+import SwiperCore, {
+  Autoplay,
+  Navigation,
+  Scrollbar,
+  EffectFade,
+} from "swiper";
 
 import { Swiper, SwiperProps, SwiperSlide } from "swiper/react";
 
@@ -13,19 +18,22 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
+import "swiper/css/effect-fade";
 import Slide from "./Slide";
 
-SwiperCore.use([Scrollbar, Autoplay]);
+SwiperCore.use([Scrollbar, Autoplay, EffectFade]);
 
 const SliderProps: SwiperProps = {
   slidesPerView: 1,
+  effect: "fade",
   loop: true,
   autoplay: {
     delay: 7000,
     disableOnInteraction: false,
   },
+  fadeEffect: { crossFade: true },
   className: "mySwiper",
-  modules: [Navigation, Autoplay],
+  modules: [Navigation, Autoplay, EffectFade],
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
@@ -48,8 +56,8 @@ const ShowCase = ({ projects }: IShowCaseProps) => {
     }
   }, [data, projects]);
 
-  return (
-    <>
+  return projects && projects.length !== 0 ? (
+    <div>
       <Styled.SwiperArrowContainer>
         <div>
           <Styled.ArrowContainer className="prevBtn swiper-button-prev">
@@ -95,24 +103,21 @@ const ShowCase = ({ projects }: IShowCaseProps) => {
           </Styled.ArrowContainer>
         </div>
       </Styled.SwiperArrowContainer>
-      {projects && projects.length !== 0 && (
-        <Styled.SliderWrapper>
-          <Swiper {...SliderProps}>
-            {currentProjects?.map(
-              (el, ind) =>
-                el && (
-                  <SwiperSlide key={ind}>
-                    {({ isActive }) => (
-                      <Slide review={el} isActive={isActive} />
-                    )}
-                  </SwiperSlide>
-                )
-            )}
-          </Swiper>
-        </Styled.SliderWrapper>
-      )}
-    </>
-  );
+      <Styled.SliderWrapper>
+        <Styled.SliderContainerBg></Styled.SliderContainerBg>
+        <Swiper {...SliderProps}>
+          {currentProjects?.map(
+            (el, ind) =>
+              el && (
+                <SwiperSlide key={ind}>
+                  {({ isActive }) => <Slide review={el} isActive={isActive} />}
+                </SwiperSlide>
+              )
+          )}
+        </Swiper>
+      </Styled.SliderWrapper>
+    </div>
+  ) : null;
 };
 
 export default ShowCase;

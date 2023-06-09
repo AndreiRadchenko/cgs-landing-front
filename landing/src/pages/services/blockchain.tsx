@@ -18,6 +18,7 @@ import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import NeedsAppsBenefitComponent from "../../components/Services/NeedsAppsBenefitComponent";
 import Advantages from "../../components/ServisesComponents/Advantages/AdvantagesComponent/index";
+import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -88,15 +89,15 @@ const BlockchainService = () => {
           <Styled.Layout>
             <HeadBlock />
             <ServicesBlock />
-            <Advantages advantages={data?.advantages}/>
             <YourWayBlock />
           </Styled.Layout>
+          <TeamMembers teamMembers={data?.teamMembers}/>
         </Layout>
         <ShowCase projects={data?.projects} />
         <Layout>
+        <Advantages advantages={data?.advantages} />
+        <>{data && <NeedsAppsBenefitComponent data={data} />}</>
           <Styled.Layout className="mobile-visivble">
-            <AboutBlock />
-            <>{data && <NeedsAppsBenefitComponent data={data} />}</>
             <FooterBlock />
           </Styled.Layout>
         </Layout>

@@ -29,6 +29,7 @@ export const ContentLayout = styled.div`
     grid-template-columns: repeat(1, minmax(375px, 1fr));
   }
   @media ${themes.primary.media.maxMobile} {
+    border-top: none;
     margin-top: 0px;
     margin-inline: -22px;
   }
@@ -51,6 +52,7 @@ export const WorthTitleContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     p {
       font-size: 22px;
+      margin-block: 16px;
     }
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -173,12 +175,12 @@ export const WorthBlock = styled.div<ISlide>`
       height: 29px;
     }
     &:nth-child(2) .iconCard {
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
     }
     &:last-child .iconCard {
-      width: 30px;
-      height: 40px;
+      width: 25px;
+      height: 35px;
     }
 
     &:first-child ${WorthCardTitle} {
@@ -213,7 +215,7 @@ export const WhoNeedContainer = styled.div`
   );
   margin-bottom: 70px;
   display: flex;
-  gap: 70px;
+  gap: 97px;
   align-items: center;
 
   @media ${themes.primary.media.maxMobile} {
@@ -224,6 +226,7 @@ export const WhoNeedContainer = styled.div`
     align-items: flex-start;
     border-bottom: 1px solid ${themes.primary.colors.headerBorder};
     margin-inline: -20px;
+    margin-bottom: 0px;
   }
 `;
 
@@ -275,13 +278,17 @@ export const WhoNeedAppsBlockImageContainer = styled.div`
   flex-wrap: wrap;
   gap: 20px;
   align-items: center;
+
+  @media ${themes.primary.media.maxMobile} {
+    gap: 12px;
+  }
 `;
 
 export const WhoNeedAppsBlockImageCard = styled.div`
   display: flex;
   gap: 10px;
   align-items: center;
-  padding: 5px 10px;
+  padding: 5px 17px;
   height: 53px;
   border: 1px solid ${themes.primary.colors.primary};
 
@@ -294,6 +301,7 @@ export const WhoNeedAppsBlockImageCard = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     height: 48px;
+    padding: 5px 13px;
 
     span {
       font-size: 16px;
