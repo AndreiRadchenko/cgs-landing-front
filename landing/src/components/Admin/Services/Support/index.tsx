@@ -10,6 +10,7 @@ import ProvideBlock from "./ProvideBlock";
 import SubtitleBlock from "./SubtitleBlock";
 import AdminBlockDropDown from "../../../Admin/Global/AdminBlockDropDown";
 import Bonuses from "../../../ServisesComponents/Bonuses/AdminComponent";
+import { queryKeys } from "../../../../consts/queryKeys";
 
 const ServiceSupportContentBlock = () => {
   const { handleSubmit } = useFormikContext();
@@ -22,7 +23,7 @@ const ServiceSupportContentBlock = () => {
       <BonusesBlock />
       <FooterBlock />
       <AdminBlockDropDown title="BONUSES">
-        <Bonuses />
+        <Bonuses queryKey={queryKeys.getServiceSupportPage} />
       </AdminBlockDropDown>
       <MetaTagsBlock theme="dark" sitemap="services/it-support" />
       <AdminPaddedBlock>
