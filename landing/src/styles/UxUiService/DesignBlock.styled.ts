@@ -3,7 +3,8 @@ import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin-block: 12.5em 10.625em;
+  margin-block: 8.75em 10.625em;
+  /* margin: 140px 0 163px; */
   padding-bottom: 20px;
   position: relative;
 
@@ -17,8 +18,8 @@ export const Container = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 0;
-    margin-top: 6.25em;
-    margin-bottom: 3.5em;
+    margin-top: 7.5em;
+    margin-bottom: 7.5em;
 
     &.withoutShowcase {
       padding-bottom: 3.75em;

@@ -5,46 +5,26 @@ export const Container = styled.div`
   box-sizing: border-box;
   margin-top: 139px;
   margin-bottom: 139px;
-  padding: 0 68px 0 68px;
+  padding: 0 4.25em;
   height: 492px;
   width: 100vw;
-  margin-left: -68px;
+  margin-left: -4.25em;
   background-color: rgba(143, 142, 147, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @media ${themes.primary.media.maxPCFullHD} {
-    margin-left: -57.8px;
-    padding: 0 57.8px;
-  }
-
-  @media ${themes.primary.media.maxLaptop} {
-    margin-left: -51px;
-    padding: 0 51px;
-  }
 
   @media (${themes.primary.media.maxServiceWeb}) {
     flex-direction: column-reverse;
     margin-top: 80px;
     margin-bottom: 60px;
     height: 738px;
-    padding: 40px 51px;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    margin-left: -57.8px;
-    padding: 40px 57.8px;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    margin-left: -51px;
-    padding: 40px 51px;
+    padding-top: 40px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-left: -20px;
-    padding: 40px 20px;
+    margin-left: -1.925em;
+    padding: 40px 1.925em;
   }
 `;
 
@@ -56,7 +36,6 @@ export const Carousel = styled.div`
   @media ${themes.primary.media.maxServiceWeb} {
     display: block;
     width: 100%;
-    /* margin-left: -30px; */
   }
 `;
 
@@ -69,6 +48,7 @@ export const Description = styled.div`
   justify-content: space-between;
   @media ${themes.primary.media.maxServiceWeb} {
     width: 100%;
+    height: auto;
     padding: 0px 0px 20px;
     justify-content: start;
     gap: 14px;
@@ -79,7 +59,7 @@ export const Title = styled.h2`
   margin: 0;
   padding: 0;
   text-align: left;
-  font-size: 74px;
+  font-size: 6.16em;
   line-height: 120%;
   text-transform: uppercase;
   white-space: pre-line;
@@ -94,8 +74,10 @@ export const Text = styled.p`
   margin: 0 0 0 204px;
   padding: 0;
   font-size: 18px;
-  line-height: 160%;    
+  font-size: 1.5em;
+  line-height: 160%;
   @media ${themes.primary.media.maxServiceWeb} {
+    font-size: 18px;
     margin: 0;
   }
 `;
