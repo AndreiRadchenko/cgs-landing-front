@@ -3,7 +3,9 @@ import themes from "../../utils/themes";
 import { essentialImageShake } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin: 0 2.1em 0 1.56em;
+  /* margin: 0 2.1em 0 1.56em; */
+  margin: 8.75em 0 0;
+  /* margin: 140px 0; */
   display: flex;
   position: relative;
 
@@ -12,7 +14,7 @@ export const Container = styled.section`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 0;
+    margin: 5.5em 0 0;
     flex-direction: column-reverse;
     position: relative;
     ::after {
@@ -21,7 +23,7 @@ export const Container = styled.section`
       position: absolute;
       background-color: ${themes.primary.colors.headerBorder};
       width: 130%;
-      bottom: -10%;
+      bottom: -5.625em;
       left: -10%;
     }
   }

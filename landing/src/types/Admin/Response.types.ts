@@ -615,7 +615,7 @@ export interface IBlockchainService {
       url: string;
     };
     subtitle: string;
-    descriptionSubtitle: string,
+    descriptionSubtitle: string;
     text: string;
     textSubBlock: string[];
   };
@@ -697,6 +697,7 @@ export interface IUxUiInterface {
     buttonLink: string;
     image: { url: string };
   };
+  teamMembers?: ITeamMembers;
   otherServices?: IOtherServicesComponent;
   meta: IMetaBlock;
 }

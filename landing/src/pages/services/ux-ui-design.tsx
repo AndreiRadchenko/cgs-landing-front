@@ -9,7 +9,10 @@ import HeadBlock from "../../components/UxUiService/HeadBlock";
 import WhatDoWeDoBlock from "../../components/UxUiService/WhatDoWeDoBlock";
 import DesignBlock from "../../components/UxUiService/DesignBlock";
 import EssentialBlock from "../../components/UxUiService/EsentialBlock";
-import OtherServices from "../../components/ServisesComponents/OtherServices/Component/OtherServices";
+import {
+  TeamMembers,
+  OtherServices,
+} from "../../components/ServisesComponents";
 import FooterBlock from "../../components/UxUiService/FooterBlock";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
@@ -39,6 +42,7 @@ export async function getServerSideProps() {
 }
 
 const UxUiDesign = () => {
+  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
   const { data } = useQuery(
     [queryKeys.getServiceUxUiPage],
     async () => await adminUxUiService.getUxUiServicePage()
@@ -89,13 +93,21 @@ const UxUiDesign = () => {
           <Styled.Layout>
             <HeadBlock />
             <WhatDoWeDoBlock />
+            <EssentialBlock />
             <DesignBlock withoutShowcase={data?.projects.length === 0} />
           </Styled.Layout>
         </Layout>
+        <ShowCase
+          setIsFirstImageLoaded={setIsFirstImageLoaded}
+          projects={data?.projects}
+        />
         <Layout>
+          <Styled.TeamMembersAlign>
+            <TeamMembers teamMembers={data?.teamMembers} />
+          </Styled.TeamMembersAlign>
+          <OtherServices otherServices={data?.otherServices} />
+
           <Styled.Layout>
-            <EssentialBlock />
-            <OtherServices otherServices={data?.otherServices} />
             <FooterBlock />
           </Styled.Layout>
         </Layout>

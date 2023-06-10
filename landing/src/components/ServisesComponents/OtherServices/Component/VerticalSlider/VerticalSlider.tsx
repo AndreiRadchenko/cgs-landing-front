@@ -25,7 +25,7 @@ export const VerticalSlider: FC<ISliderProps> = ({
         slidesPerView={"auto"}
         centeredSlides={true}
         autoplay={{
-          delay: 0,
+          delay: 1,
           disableOnInteraction: false,
           // reverseDirection: isReverse,
         }}

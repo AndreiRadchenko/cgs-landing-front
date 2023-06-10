@@ -2,13 +2,27 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  margin-top: 12.5em;
+  margin-top: 8.75em;
   position: relative;
-  padding-bottom: 19.25em;
+  padding-bottom: 9.375em;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding-bottom: 1.25em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 6.25em;
-    padding-bottom: 6em;
+    margin-top: 5.5em;
+    padding-bottom: 0;
+    ::before {
+      content: "";
+      position: absolute;
+      top: -28px;
+      left: -30px;
+      width: 150%;
+      height: 1px;
+      background-color: #8f8e93;
+      color: black;
+    }
   }
 `;
 
@@ -34,12 +48,11 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const Title = styled.h2`
-  margin: 0 0 1.375em;
+  margin: 0;
   font-weight: inherit;
   font-size: ${themes.primary.font.size.reviewTitle};
   line-height: 140%;
   text-transform: uppercase;
-
   br {
     display: none;
   }
@@ -47,7 +60,7 @@ export const Title = styled.h2`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
     margin: 0 0 1.46em;
-    white-space: nowrap;
+    white-space: wrap;
 
     br {
       display: block;
@@ -55,15 +68,33 @@ export const Title = styled.h2`
   }
 `;
 
+export const Text = styled.p`
+  margin: 0;
+  padding: 0;
+  font-size: 1.375em;
+  line-height: 160%;
+  margin: 1.25em 0 2.75em;
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1em;
+    margin: 1em 0 1.75em;
+    max-width: 94%;
+  }
+`;
+
 export const Image = styled.img`
   position: absolute;
-  bottom: 6.44em;
+  top: 0;
   right: 2.56em;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    position: relative;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
+    transform: translateY(0);
     top: 0.31em;
-    left: 4.44em;
+    left: 1.44em;
     width: 22.88em;
   }
 `;

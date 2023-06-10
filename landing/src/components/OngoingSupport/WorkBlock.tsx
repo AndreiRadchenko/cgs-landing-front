@@ -33,9 +33,7 @@ const WorkBlock = () => {
             className={isScrolled ? "scrolled" : undefined}
           >
             <Styled.Subtitle>
-              <Styled.Svg
-                src={figures[idx].src}
-              />
+              <Styled.Svg src={figures[idx].src} />
               {el.subtitle}
             </Styled.Subtitle>
             <Styled.Text>{el.text}</Styled.Text>

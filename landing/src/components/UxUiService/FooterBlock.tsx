@@ -21,6 +21,10 @@ const FooterBlock = () => {
         <Styled.Title>
           <SplitBrackets text={data?.title} />
         </Styled.Title>
+        <Styled.Text>
+          Design can make your product a leader or a loser. Ensure quality
+          within the entire process, from research to development.
+        </Styled.Text>
         {data && (
           <Styled.ButtonWrapper ref={elRef}>
             <GetEstimationButton
