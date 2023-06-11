@@ -1,30 +1,23 @@
 import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
-import {
-  dehydrate,
-  QueryClient,
-  useQuery,
-  useQueryClient,
-} from "@tanstack/react-query";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import Head from "next/head";
 
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeadBlock from "../../components/CloudService/HeadBlock";
 import ProvidesBlock from "../../components/CloudService/ProvidesBlock";
-import WorkBlock from "../../components/CloudService/WorkBlock";
 import FooterBlock from "../../components/CloudService/FooterBlock";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
-import FreeService from "../../components/ServisesComponents/FreeServices/Component/FreeServices";
+import { TeamMembers, FreeService } from "../../components/ServisesComponents";
 
 import * as Styled from "../../styles/CloudService/Layout";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCloudService } from "../../services/services/AdminServicesCloudSolution";
 import { adminGlobalService } from "../../services/adminHomePage";
-import { ICloudService } from "../../types/Admin/Response.types";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -45,15 +38,11 @@ export async function getServerSideProps() {
 }
 
 const CloudService = () => {
-  const queryClient = useQueryClient();
-  const dataWorth = queryClient.getQueryData<ICloudService>([
-    queryKeys.getServiceCloudPage,
-  ])?.worthBlock;
-
   const { data } = useQuery([queryKeys.getServiceCloudPage], () =>
     adminCloudService.getCloudSolutionPage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
+  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
@@ -97,7 +86,6 @@ const CloudService = () => {
         <Layout>
           <Styled.Layout>
             <HeadBlock />
-            {dataWorth && <PerksOfCoopComponent data={dataWorth} />}
             <ProvidesBlock
               className={
                 data && data.projects.length === 0
@@ -107,10 +95,23 @@ const CloudService = () => {
             />
           </Styled.Layout>
         </Layout>
+        <Styled.ShowCaseAlign>
+          <ShowCase
+            setIsFirstImageLoaded={setIsFirstImageLoaded}
+            projects={data?.projects}
+          />
+        </Styled.ShowCaseAlign>
         <Layout>
           <Styled.Layout>
-            <WorkBlock />
-            <FreeService freeServices={data?.freeServices} />
+            {data?.worthBlock && (
+              <PerksOfCoopComponent data={data?.worthBlock} />
+            )}
+          </Styled.Layout>
+          <Styled.TeamMembersAlign>
+            <TeamMembers teamMembers={data?.teamMembers} />
+          </Styled.TeamMembersAlign>
+          <FreeService freeServices={data?.freeServices} />
+          <Styled.Layout>
             <FooterBlock />
           </Styled.Layout>
         </Layout>

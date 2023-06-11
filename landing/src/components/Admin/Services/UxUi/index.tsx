@@ -40,7 +40,7 @@ const ServiceUxUiContentBlock = () => {
         </AdminBlockDropDown>
       </AdminPaddedBlock>
 
-      <div style={{ marginTop: "-36px" }}>
+      <div style={{ marginTop: "-3.8em" }}>
         <ServiceShowCase />
       </div>
       <TeamMembers />
