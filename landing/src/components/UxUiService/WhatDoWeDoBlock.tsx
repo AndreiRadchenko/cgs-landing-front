@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
+
 import { IUxUiInterface } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/UxUiService/WhatDoWeDo.styled";
 import cd from "../../../public/MobileSevice/worthIt/cd.svg";
@@ -10,6 +11,7 @@ import downDashed from "../../../public/CloudServicePage/downDashed.svg";
 import upDashed from "../../../public/CloudServicePage/upDashed.svg";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const WhatDoWeDoBlock = () => {
   const queryClient = useQueryClient();
@@ -41,7 +43,9 @@ const WhatDoWeDoBlock = () => {
               <Styled.Svg src={figures[idx].src} />
               {el.subtitle}
             </Styled.Subtitle>
-            <Styled.Text>{el.text}</Styled.Text>
+            <Styled.Text>
+              <SplitBrackets text={el.text} />
+            </Styled.Text>
           </Styled.Wrapper>
         ))}
       </Styled.TextWrapper>

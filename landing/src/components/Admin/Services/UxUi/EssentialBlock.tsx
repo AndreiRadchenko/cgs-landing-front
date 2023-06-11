@@ -1,6 +1,6 @@
 import React from "react";
 import { useFormikContext } from "formik";
-import { IUxUiInterface } from "../../../../types/Admin/Response.types";
+
 import {
   AdminPaddedBlock,
   AdminHalfGrid,
@@ -10,13 +10,23 @@ import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+import ButtonArrow from "../../../../utils/ButtonArrow";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../../styles/HomePage/General.styled";
+
 import { IImage } from "../../../../types/Admin/Admin.types";
+import { IUxUiInterface } from "../../../../types/Admin/Response.types";
 
 const EssentialBlock = () => {
-  const { values, handleChange } = useFormikContext<IUxUiInterface>();
+  const { values, handleChange, handleSubmit } =
+    useFormikContext<IUxUiInterface>();
 
   const deleteMainImage = useDeleteImageFunction(values.essentialBlock);
   const uploadMainImage = useUploadImageFunction(values.essentialBlock);
+
+  const handleClick = () => handleSubmit();
 
   return (
     <AdminPaddedBlock>
@@ -45,6 +55,19 @@ const EssentialBlock = () => {
           />
         </AdminContentBlock>
       </AdminHalfGrid>
+      <div>
+        <BlackButton
+          size={"1.5em"}
+          padding={"1.11em 3em"}
+          style={{ marginTop: "1.33em" }}
+          onClick={handleClick}
+        >
+          Save Changes
+          <ArrowContainer>
+            <ButtonArrow />
+          </ArrowContainer>
+        </BlackButton>
+      </div>
     </AdminPaddedBlock>
   );
 };
