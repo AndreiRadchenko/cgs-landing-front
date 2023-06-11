@@ -469,11 +469,11 @@ export interface IServiceMobile {
 }
 // cloud Solution
 export interface ICloudService {
-  meta: IMetaBlock;
   footerBlock: {
     button: string;
     buttonLink: string;
     subtitle: string;
+    text: string;
     image: { url: string };
   };
   headerBlock: {
@@ -502,7 +502,9 @@ export interface ICloudService {
     mobility: ISubtitleWithText;
     subtitle: string;
   };
+  teamMembers: ITeamMembers;
   freeServices?: IFreeServicesComponent;
+  meta: IMetaBlock;
 }
 export interface ISubtitleWithText {
   subtitle: string;
@@ -693,6 +695,7 @@ export interface IUxUiInterface {
   };
   footerBlock: {
     title: string;
+    text: string;
     button: string;
     buttonLink: string;
     image: { url: string };

@@ -26,3 +26,23 @@ export const Subtitle = styled.h2`
     display: none;
   }
 `;
+
+export const ShowCaseAlign = styled.div`
+  @media ${themes.primary.media.maxPCFullHD} {
+    margin-bottom: -9.33em;
+  }
+  @media (max-width: 1055px) {
+    margin-bottom: 0;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: -12px;
+  }
+`;
+
+export const TeamMembersAlign = styled.div`
+  margin-top: 0em;
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: -3em;
+    margin-bottom: -3em;
+  }
+`;

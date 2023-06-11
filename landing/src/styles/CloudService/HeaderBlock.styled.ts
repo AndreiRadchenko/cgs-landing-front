@@ -12,7 +12,7 @@ export const Container = styled.section`
 
 export const ContentWrapper = styled.div`
   padding-top: 9.5em;
-  margin-bottom: 11.875em;
+  /* margin-bottom: 11.875em; */
 
   @media ${themes.primary.media.maxTabletLandScape} {
     max-width: 60%;
