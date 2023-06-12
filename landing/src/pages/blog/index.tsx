@@ -53,7 +53,6 @@ export async function getServerSideProps() {
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
-      // revalidate: 60,
     },
   };
 }
@@ -65,12 +64,9 @@ const BlogPage = () => {
     adminBlogService.getBlogPageData()
   );
 
-  const {
-    data: articles,
-    isLoading: areArticlesLoading,
-    isFetching: areArticlesFetching,
-  }: IArticlesData = useQuery([queryKeys.getBlogArticles], () =>
-    adminBlogService.getArticles()
+  const { data: articles }: IArticlesData = useQuery(
+    [queryKeys.getBlogArticles],
+    () => adminBlogService.getArticles()
   );
 
   const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
@@ -83,7 +79,7 @@ const BlogPage = () => {
   const [filters, setFilters] = useState<string[]>([]);
   const [filteredData, setFilteredData] = useState<IArticle[] | null>(null);
   const [tags, setTags] = useState<string[]>([]);
-  // const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isMainSliderImageLoaded, setIsMainSliderImageLoaded] =
     useState<boolean>(false);
 
@@ -131,12 +127,11 @@ const BlogPage = () => {
         !filters.includes(tagParams as string) &&
         setFilters([...filters, tagParams as string]);
       setCurrentPage(currentPage);
-      // if (tagParams) {
-      //   scrollHandler();
-      // }
+      if (tagParams) {
+        scrollHandler();
+      }
     }
-    // }, [tagParams, scrollHandler, router.query.page, data, articles, filters]);
-  }, [tagParams, router.query.page, data, articles, filters]);
+  }, [tagParams, scrollHandler, router.query.page, data, articles, filters]);
 
   const currentArticlesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * BlogPageSize;
@@ -154,19 +149,19 @@ const BlogPage = () => {
       return views.data.find((view) => view.articleUrl === url)?.views;
   };
 
-  // useEffect(() => {
-  //   if (router.query.page !== "1" && filters.length) {
-  //     setIsLoading(true);
-  //     setCurrentPage(1);
-  //     router.push("/blog?page=1").then(() => {
-  //       setIsLoading(false);
-  //       scrollHandler();
-  //     });
-  //   }
-  // }, [filters.length]);
+  useEffect(() => {
+    if (router.query.page !== "1" && filters.length) {
+      setIsLoading(true);
+      setCurrentPage(1);
+      router.push("/blog?page=1").then(() => {
+        setIsLoading(false);
+        scrollHandler();
+      });
+    }
+  }, [filters.length]);
 
   useEffect(() => {
-    // if (router.query.page) scrollHandler();
+    if (router.query.page) scrollHandler();
 
     if (router.query.filters) {
       if (typeof router.query.filters === "string") {
@@ -175,18 +170,7 @@ const BlogPage = () => {
         setFilters(router.query.filters);
       }
     }
-    // }, [router.query.page, router.query.filters, scrollHandler]);
-  }, [router.query.page, router.query.filters]);
-
-  // useEffect(() => {
-  //   if (areArticlesFetching && !areArticlesLoading) {
-  //     setIsMainSliderImageLoaded(true);
-  //   }
-  // }, [areArticlesFetching]);
-
-  // useEffect(() => {
-  //   console.log("Loaded: ", isMainSliderImageLoaded);
-  // }, [isMainSliderImageLoaded]);
+  }, [router.query.page, router.query.filters, scrollHandler]);
 
   return (
     <Loader active={!isMainSliderImageLoaded}>
@@ -197,11 +181,11 @@ const BlogPage = () => {
             <meta name="description" content={metaDescription} />
             {customHead && parse(customHead)}
           </Head>
-          {/* {isLoading && (
+          {isLoading && (
             <Styled.LoaderContainer className={"loading"}>
               <Loading src={loading.src} isLoading={true} />
             </Styled.LoaderContainer>
-          )} */}
+          )}
           <HeaderNavNew />
           <Styled.BlogContainer>
             <Styled.LeftLine src={leftLine.src} />
