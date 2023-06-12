@@ -23,3 +23,9 @@ export const Layout = styled.div`
     font-weight: inherit;
   }
 `;
+export const TeamMembersAlign = styled.div`
+  margin-top: -12.32em;
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: -8.5em;
+  }
+`;

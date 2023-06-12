@@ -1,12 +1,21 @@
 import React from "react";
 import { useFormikContext } from "formik";
-import { IUxUiInterface } from "../../../../types/Admin/Response.types";
+
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import { SubtitleGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
+import ButtonArrow from "../../../../utils/ButtonArrow";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../../styles/HomePage/General.styled";
+
+import { IUxUiInterface } from "../../../../types/Admin/Response.types";
 
 const DesignBlock = () => {
-  const { values, handleChange } = useFormikContext<IUxUiInterface>();
+  const { values, handleChange, handleSubmit } =
+    useFormikContext<IUxUiInterface>();
 
+  const handleClick = () => handleSubmit();
   return (
     <AdminPaddedBlock>
       <SubtitleGrid>
@@ -28,6 +37,19 @@ const DesignBlock = () => {
           />
         ))}
       </SubtitleGrid>
+      <div>
+        <BlackButton
+          size={"1.5em"}
+          padding={"1.11em 3em"}
+          style={{ marginTop: "1.33em" }}
+          onClick={handleClick}
+        >
+          Save Changes
+          <ArrowContainer>
+            <ButtonArrow />
+          </ArrowContainer>
+        </BlackButton>
+      </div>
     </AdminPaddedBlock>
   );
 };

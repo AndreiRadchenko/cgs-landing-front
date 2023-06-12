@@ -4,6 +4,7 @@ import {
   IFreeServicesComponent,
   ITeamMembers,
   IAdvantagesServicesComponent,
+  IBonusesComponent,
 } from "../../types/ServicesComponent.types";
 import { ITechnology } from "./AdminPortfolio.types";
 export interface IEditInformation {
@@ -468,11 +469,11 @@ export interface IServiceMobile {
 }
 // cloud Solution
 export interface ICloudService {
-  meta: IMetaBlock;
   footerBlock: {
     button: string;
     buttonLink: string;
     subtitle: string;
+    text: string;
     image: { url: string };
   };
   headerBlock: {
@@ -501,7 +502,9 @@ export interface ICloudService {
     mobility: ISubtitleWithText;
     subtitle: string;
   };
+  teamMembers: ITeamMembers;
   freeServices?: IFreeServicesComponent;
+  meta: IMetaBlock;
 }
 export interface ISubtitleWithText {
   subtitle: string;
@@ -592,6 +595,7 @@ export interface IBlockchainService {
   };
   footerBlock: {
     button: string;
+    description: string;
     buttonLink: string;
     subtitle: string;
     image: {
@@ -613,6 +617,7 @@ export interface IBlockchainService {
       url: string;
     };
     subtitle: string;
+    descriptionSubtitle: string;
     text: string;
     textSubBlock: string[];
   };
@@ -621,6 +626,7 @@ export interface IBlockchainService {
     textSubBlock: string[];
   };
   advantages: IAdvantagesServicesComponent;
+  teamMembers: ITeamMembers;
   meta: IMetaBlock;
 }
 
@@ -659,6 +665,9 @@ export interface IServiceSupport {
     buttonLink: string;
     image: { url: string };
   };
+  bonuses: IBonusesComponent;
+  otherServices: IOtherServicesComponent;
+  teamMembers: ITeamMembers;
   meta: IMetaBlock;
 }
 
@@ -686,10 +695,12 @@ export interface IUxUiInterface {
   };
   footerBlock: {
     title: string;
+    text: string;
     button: string;
     buttonLink: string;
     image: { url: string };
   };
+  teamMembers?: ITeamMembers;
   otherServices?: IOtherServicesComponent;
   meta: IMetaBlock;
 }

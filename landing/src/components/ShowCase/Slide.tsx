@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import * as Styled from "../../styles/ShowCase.styled";
 import { IReviewProps as IReview } from "../../types/Admin/Response.types";
 import Image from "next/image";
-import { Loader } from "../Loader";
 import { openInNewTab } from "../../utils/OpenInNewTab";
 
 interface IReviewProps {
   review: IReview;
   isActive: boolean;
+  setIsFirstImageLoaded: Dispatch<SetStateAction<boolean>>;
+  ind: number;
 }
 
-const Slide = ({ review, isActive }: IReviewProps) => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  const onLoadCallBack = () => {
-    setIsLoading(false);
-  };
-
+const Slide = ({
+  review,
+  isActive,
+  setIsFirstImageLoaded,
+  ind,
+}: IReviewProps) => {
   const navigateToProjectPage = (url: string, id?: string) => {
     const newUrl = url.toLowerCase().replace(/\s+/g, "-");
     openInNewTab(`https://cgsteam.io/portfolio/${newUrl}-${id}`);
@@ -26,14 +26,16 @@ const Slide = ({ review, isActive }: IReviewProps) => {
     <Styled.SlideContainer>
       {review.imageProjectBanner?.image?.url && (
         <Styled.ImageWrapper className={isActive ? "active" : undefined}>
-          {isLoading && <Loader className="showCase" active={isLoading} />}
           <Image
             src={review.imageProjectBanner?.image?.url}
             alt={"project image"}
             layout={"fill"}
             objectFit="contain"
-            onLoadingComplete={onLoadCallBack}
-            style={{ opacity: isLoading ? "0" : "1" }}
+            priority
+            loading={"eager"}
+            onLoad={() => {
+              if (ind === 1) setIsFirstImageLoaded(true);
+            }}
           />
         </Styled.ImageWrapper>
       )}

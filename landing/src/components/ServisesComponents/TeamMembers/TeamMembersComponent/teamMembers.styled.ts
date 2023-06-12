@@ -6,18 +6,18 @@ interface LastItem {
 }
 
 export const Wrapper = styled.div`
-    width: 100%;
-    margin: 100px 0;
+    margin-top: 12.4em;
+    margin-bottom: 11.65em;
     display: flex;
     justify-content: space-between;
-    overflow: hidden;
 
     @media (max-width: 768px) {
-        display: inline-block;
+        display: block;
     }
 
     @media (max-width: 400px) {
-        margin: 60px 0;
+        margin-top: 8.5em;
+        margin-bottom: 8.5em;
     }
 `;
 
@@ -45,13 +45,13 @@ export const Description = styled.div`
     font-weight: ${themes.primary.font.weight.heavy};
     line-height: 28px;
 
-    @media (max-width: 768px) {
-        padding: 0 20px;
+    @media (max-width: 475px) {
+        font-size: 18px;
     }
 `;
 
 export const ScrollList = styled.div`
-    width: 42vw;
+    width: 44vw;
     height: 184px;
     position: relative;
     overflow-y: scroll;
@@ -80,12 +80,24 @@ export const ScrollList = styled.div`
     }
 
     @media (max-width: 475px) {
-       margin-top: 20px
+       margin-top: 20px;
+       width: 105%;
+       height: 150px;
+       margin-left: -5%;
+
+       ::-webkit-scrollbar {
+        width: 6px;
     }
 
-    @media (max-width: 400px) {
-        padding-left: 1px;
-        height: 180px;
+    ::-webkit-scrollbar-thumb {
+        background-color: #8F8E93;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #D9D9D9;
+        border-radius: 5px;
+    }
     }
 `;
 
@@ -99,7 +111,7 @@ export const ScrollContainer = styled.div`
 
     @media (max-width: 1440px) {
         width: 44.3em;
-        margin-right: 30px;
+        margin-right: 60px;
     }
 
     @media (max-width: 1350px) {
@@ -111,9 +123,13 @@ export const ScrollContainer = styled.div`
         width: 97%;
     }
 
-    @media (max-width: 400px) {
-        width: 32em;
-        margin-left: 12px;
+    @media (max-width: 766px) {
+        width: 97%;
+    }
+
+    @media (max-width: 475px) {
+        width: 95%;
+        margin-top: 3px;
     }
 `;
 
@@ -122,12 +138,12 @@ export const ScrollItem = styled.div<LastItem>`
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
     line-height: 32px;
-    border-top: 2px solid ${themes.primary.colors.lightGreyBorder};
-    padding: 10px 0 8px 14px;
-    border-bottom:   ${({ lastItem }) => lastItem ? '2px solid #D9D9D9' : 'none'};
+    border-top: 1px solid rgb(192, 191, 192);
+    padding: 11px 0 9px 14px;
+    border-bottom:   ${({ lastItem }) => lastItem ? '1px solid rgb(192, 191, 192)' : 'none'};
 
     @media (max-width: 400px) {
-        padding: 12px 0 12px 10px;
+        padding: 10px 0 8px 10px;
         font-size: 16px;
         line-height: 25.6px;
     }

@@ -60,8 +60,8 @@ export const CardContent = styled.div`
 export const CardNumber = styled.p`
   font-style: bold;
   font-weight: 900;
-  font-size: 62px;
-  line-height: 74px;
+  font-size: 5.166em;
+  line-height: 120%;
   margin: 0 0 20px;
   color: #f1efed;
   text-shadow: 7px 2px 0px #000000, 5.3px 2px 0px #000000;
@@ -76,7 +76,7 @@ export const CardNumber = styled.p`
 `;
 
 export const CardTitle = styled.p`
-  font-size: 20px;
+  font-size: 1.67em;
   line-height: 120%;
   margin: 0 0 18px;
   @media ${themes.primary.media.maxMobile} {
@@ -85,7 +85,7 @@ export const CardTitle = styled.p`
 `;
 
 export const CardText = styled.p`
-  font-size: 14px;
+  font-size: 1.17em;
   line-height: 150%;
   margin: 0;
   @media ${themes.primary.media.maxMobile} {

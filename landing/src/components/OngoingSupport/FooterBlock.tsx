@@ -16,6 +16,7 @@ const FooterBlock = () => {
   return (
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
+      <Styled.Text>{data?.text}</Styled.Text>
       {data && (
         <Styled.ButtonWrapper ref={elRef}>
           <GetEstimationButton

@@ -2,13 +2,13 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  margin-top: 11.94em;
-  padding-bottom: 15.69em;
+  margin-top: 8.8em;
+  padding-bottom: 9.5em;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 5.56em;
-    padding-bottom: 20.63em;
+    padding-bottom: 16.5em;
 
     & > a {
       font-size: 1em !important;
@@ -29,7 +29,7 @@ export const Title = styled.h2`
   font-weight: inherit;
   font-size: 2.5em;
   line-height: 140%;
-  margin: 0 0 1.375em;
+  margin: 0 0 0.5em;
   text-transform: uppercase;
   max-width: 22em;
 
@@ -39,14 +39,25 @@ export const Title = styled.h2`
   }
 `;
 
+export const Text = styled.p`
+  width: 64.2vw;
+  font-size: 1.5em;
+  line-height: 160%;
+  margin-block: 0 1.85em;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.125em;
+    width: 100%;
+  }
+`;
 export const Image = styled.img`
   position: absolute;
   right: 2.375em;
   bottom: 3.81em;
-  width: 30.3em;
+  width: 26.3em;
 
   @media ${themes.primary.media.onlyTabletPortrait} {
-    width: 28.3em;
+    width: 20.3em;
   }
 
   @media ${themes.primary.media.maxMobile} {

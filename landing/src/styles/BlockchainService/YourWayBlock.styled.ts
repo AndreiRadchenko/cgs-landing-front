@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin-block: 12.7em 12.5em;
+  margin-top: 5.9em;
   position: relative;
   padding-bottom: 20px;
 
@@ -14,7 +14,7 @@ export const Container = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 40px;
-    margin-block: 5.375em 4.38em;
+    margin-block: 2em 4.38em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -103,15 +103,18 @@ export const Title = styled.h2`
   font-size: 2.5em;
   line-height: 140%;
   text-transform: uppercase;
-  max-width: 15em;
-  margin-bottom: 2.775em;
+  margin-bottom: 2em;
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.45em;
+    font-size: 1.5em;
     line-height: 132%;
     width: 15em;
     margin-bottom: 0.6em;
     margin-left: -5px;
+  }
+
+  @media (max-width: 475px) {
+    width: 14em;
   }
 `;
 
@@ -124,7 +127,11 @@ export const SubTextWrapper = styled.div`
     display: flex;
     justify-content: start;
     position: absolute;
-    top: 3.9em;
+    top: 4.9em;
+  }
+
+  @media (max-width: 475px) {
+    top: 5.3em;
   }
 `;
 

@@ -35,7 +35,7 @@ export const SwiperArrowContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 15px;
-  margin-inline: 51px;
+  margin-inline: 41px;
 
   & > div {
     display: flex;
@@ -53,7 +53,11 @@ export const ArrowContainer = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  overflow: hidden;
+  position: relative !important;
+
+  &:after {
+    display: none;
+  }
 
   svg path {
     transition: transform 1s ease-in-out;
@@ -120,18 +124,18 @@ export const SlideContainer = styled.div`
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  top: 60px;
-  right: 30px;
+  top: -10px;
+  right: 10px;
   width: 650px;
   height: 650px;
-  transform: translateX(200px);
+  transform: translateX(130px);
   opacity: 0;
-  transition: all 1s;
+  transition: all 0.3s;
 
   &.active {
-    transform: translateX(0px);
     opacity: 1;
-    transition: all 1s;
+    transform: translateX(0);
+    transition-delay: 0.3s;
   }
 
   @media (max-width: 1355px) {
@@ -172,9 +176,8 @@ export const ProjectTitle = styled.h2<{ isBig: boolean }>`
   max-width: 700px;
   margin: 0;
 
-  transform: translateY(200px);
+  transform: translateY(55px);
   opacity: 0;
-  transition: all 0.5s;
 
   &.active {
     transform: translateY(0px);
@@ -187,12 +190,10 @@ export const ProjectTitle = styled.h2<{ isBig: boolean }>`
     line-height: 132%;
     margin-bottom: 16px;
 
-    transition: all 0.1s 0.5s;
-
     &.active {
       transform: translateY(0px);
       opacity: 1;
-      transition: all 0.1s 0.5s;
+      transition: all 0.5s 0.1s;
     }
   }
 
@@ -222,22 +223,19 @@ export const ProjectScope = styled.div`
     color: ${themes.primary.colors.primary};
   }
 
-  transform: translateY(200px);
+  transform: translateY(55px);
   opacity: 0;
-  transition: all 0.1s 0.5s;
 
   &.active {
     transform: translateY(0px);
     opacity: 1;
-    transition: all 0.1s 0.5s;
+    transition: all 0.5s 0.2s;
   }
 
   @media (max-width: 1055px) {
     font-size: 24px;
     line-height: 24px;
     margin-bottom: 5px;
-
-    transition: all 0.5s;
 
     &.active {
       transform: translateY(0px);
@@ -270,14 +268,13 @@ export const ProjectScopeText = styled.p`
   -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
   white-space: pre-wrap; /* let the text wrap preserving spaces */
 
-  transform: translateY(200px);
+  transform: translateY(55px);
   opacity: 0;
-  transition: all 0.3s 0.5s;
 
   &.active {
     transform: translateY(0px);
     opacity: 1;
-    transition: all 0.3s 0.5s;
+    transition: all 0.5s 0.3s;
   }
 
   @media (max-width: 1055px) {
@@ -302,9 +299,8 @@ export const BottomSection = styled.div`
   align-items: center;
   gap: 25px;
 
-  transform: translateY(200px);
+  transform: translateY(55px);
   opacity: 0;
-  transition: all 0.5s 0.5s;
 
   &.active {
     transform: translateY(0px);

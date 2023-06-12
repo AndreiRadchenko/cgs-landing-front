@@ -226,6 +226,7 @@ export const WhoNeedContainer = styled.div`
     align-items: flex-start;
     border-bottom: 1px solid ${themes.primary.colors.headerBorder};
     margin-inline: -20px;
+    margin-bottom: 0px;
   }
 `;
 
@@ -268,7 +269,7 @@ export const WhoNeedSubText = styled.p`
     max-width: none;
 
     padding: 0;
-    margin: 0;
+    margin-top: 1.2em;
   }
 `;
 

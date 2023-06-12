@@ -6,7 +6,7 @@ import { slideDownText } from "../Animations.styled";
 import { ISlide } from "../../types/Decoration.types";
 
 export const Container = styled.section`
-  margin-top: 11.94em;
+  margin-top: 9.8em;
   @media ${themes.primary.media.maxMobile} {
     margin-top: 4em;
   }
@@ -100,6 +100,18 @@ export const SubTextContainer = styled.div`
     height: 260px;
   }
 `;
+
+export const Subtitle = styled.h2`
+  margin: 20px 0;
+  text-transform: uppercase;
+  font-weight: ${themes.primary.font.weight.heavy};
+  font-size: 1.82em;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
 
 export const SubTextContent = styled.div`
   display: grid;
@@ -212,7 +224,7 @@ export const SubText = styled.p<ISlide>`
 `;
 
 export const DescriptionContainer = styled.div`
-  margin-top: 12.5em;
+  margin-top: 7.95em;
   padding: 0 2.75em;
   display: flex;
   justify-content: center;
@@ -226,6 +238,9 @@ export const DescriptionContainer = styled.div`
     align-items: center;
     padding: 0;
     margin-top: 2.81em;
+    border-bottom: 1px solid ${themes.primary.colors.headerBorder};
+    padding-bottom: 60px;
+    margin-inline: -20px;
   }
 `;
 
@@ -247,7 +262,7 @@ export const Image = styled.img`
 export const Description = styled.div`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 6.1em 0 0;
+  margin: 4em 0 0;
   max-width: 27.95em;
 
   p {
@@ -267,5 +282,9 @@ export const Description = styled.div`
     p {
       display: block;
     }
+  }
+
+  @media (max-width: 475px) {
+    margin-top: 1em;
   }
 `;

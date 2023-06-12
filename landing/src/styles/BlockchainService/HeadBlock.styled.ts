@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  margin-top: 9.5em;
+  margin-top: 7em;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
@@ -32,7 +32,7 @@ export const ButtonWrapper = styled.div`
 
 export const Title = styled.h1`
   font-size: 4.125em;
-  line-height: 120%;
+  line-height: 132%;
   display: inline-block;
 
   margin: 0;
@@ -52,7 +52,7 @@ export const Title = styled.h1`
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
     line-height: 100%;
-
+    
     & .last-part {
       top: 14px;
     }
@@ -68,7 +68,7 @@ export const Title = styled.h1`
 export const Description = styled.p`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 1.279em 0 2.365em;
+  margin: 1em 0 1.9em;
   max-width: 600px;
 
   @media ${themes.primary.media.minPC} {
@@ -84,11 +84,15 @@ export const Description = styled.p`
     max-width: 95%;
     margin: 2.5em 0 1.75em;
   }
+
+  @media (max-width: 475px) {
+    max-width: 100%;
+  }
 `;
 
 export const Image = styled.div`
   position: absolute;
-  top: -8.2em;
+  top: -7.8em;
   right: -5.3em;
   width: 42em;
 
@@ -99,11 +103,11 @@ export const Image = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
-    left: 1px;
+    left: 25px;
     top: 1em;
     width: 22.3em;
     height: 19.125em;
-    margin-bottom: 1.5em;
+    margin-bottom: 5em;
   }
 `;
 

@@ -4,9 +4,9 @@ import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin-top: 12.8em;
+  margin-top: 4.625em;
   position: relative;
-  margin-bottom: 12.5em;
+  margin-bottom: 10em;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     h2 {
@@ -16,7 +16,7 @@ export const Container = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 3.75em;
-    margin-block: 4.75em 1.75em;
+    margin-block: 1.875em 4em;
 
     ::after {
       content: "";

@@ -26,7 +26,7 @@ const Advantages = ({ advantages }: IAdvantagesProps) => {
             <Styled.Content>
                 <Styled.Numbers>
                     {numbers.map((number, idx) => (
-                        <div key={idx}>
+                        <Styled.NumberItems key={idx} ind={idx} className={isScrolled ? "scrolled" : undefined}>
                             <p>{number}</p>
                             <Styled.ImageWrapper>
                                 {idx === numbers.length - 1 ? (
@@ -49,7 +49,7 @@ const Advantages = ({ advantages }: IAdvantagesProps) => {
                                     </>
                                 )}
                             </Styled.ImageWrapper>
-                        </div>
+                        </Styled.NumberItems>
                     ))}
                 </Styled.Numbers>
                 <Styled.TextContent ref={elRef}>

@@ -5,35 +5,17 @@ import { queryKeys } from "../../consts/queryKeys";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { IReviewProps } from "../../types/Admin/Response.types";
 import { IShowCaseProps } from "../../types/Services.types";
-import SwiperCore, { Autoplay, Navigation, Scrollbar } from "swiper";
+import { Autoplay, Navigation, EffectFade } from "swiper";
 
-import { Swiper, SwiperProps, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import "swiper/css/navigation";
 import "swiper/css/autoplay";
+import "swiper/css/effect-fade";
 import Slide from "./Slide";
 
-SwiperCore.use([Scrollbar, Autoplay]);
-
-const SliderProps: SwiperProps = {
-  slidesPerView: 1,
-  loop: true,
-  autoplay: {
-    delay: 7000,
-    disableOnInteraction: false,
-    waitForTransition: false,
-  },
-  className: "mySwiper",
-  modules: [Navigation, Autoplay],
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-};
-
-const ShowCase = ({ projects }: IShowCaseProps) => {
+const ShowCase = ({ projects, setIsFirstImageLoaded }: IShowCaseProps) => {
   const [currentProjects, setCurrentProjects] = useState<
     (IReviewProps | undefined)[]
   >([]);
@@ -48,7 +30,6 @@ const ShowCase = ({ projects }: IShowCaseProps) => {
       );
     }
   }, [data, projects]);
-
   return projects && projects.length !== 0 ? (
     <div>
       <Styled.SwiperArrowContainer>
@@ -98,12 +79,30 @@ const ShowCase = ({ projects }: IShowCaseProps) => {
       </Styled.SwiperArrowContainer>
       <Styled.SliderWrapper>
         <Styled.SliderContainerBg></Styled.SliderContainerBg>
-        <Swiper {...SliderProps}>
+        <Swiper
+          modules={[Navigation, Autoplay, EffectFade]}
+          autoplay={{ delay: 7000, disableOnInteraction: false }}
+          slidesPerView={1}
+          effect={"fade"}
+          fadeEffect={{ crossFade: true }}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          className="mySwiper"
+        >
           {currentProjects?.map(
             (el, ind) =>
               el && (
                 <SwiperSlide key={ind}>
-                  {({ isActive }) => <Slide review={el} isActive={isActive} />}
+                  {({ isActive }) => (
+                    <Slide
+                      ind={ind}
+                      setIsFirstImageLoaded={setIsFirstImageLoaded}
+                      review={el}
+                      isActive={isActive}
+                    />
+                  )}
                 </SwiperSlide>
               )
           )}

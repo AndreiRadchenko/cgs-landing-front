@@ -20,6 +20,9 @@ const FooterBlock = () => {
         <Styled.Title>
           <SplitBrackets text={data?.subtitle} />
         </Styled.Title>
+        <Styled.Text>
+          <SplitBrackets text={data?.text} />
+        </Styled.Text>
         {data && (
           <Styled.ButtonWrapper ref={elRef}>
             <GetEstimationButton

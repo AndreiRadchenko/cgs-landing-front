@@ -7,6 +7,7 @@ import { Picture } from "./VerticalSlider/Picture";
 
 import * as Styles from "./OtherServices.styled";
 import { IOtherServicesComponent } from "../../../../types/ServicesComponent.types";
+import TextTypingAnimation from "../../../Typewrite";
 
 interface IServicesProps {
   otherServices?: IOtherServicesComponent;
@@ -48,7 +49,7 @@ export const OtherServices = ({ otherServices }: IServicesProps) => {
         )}
       </Styles.Carousel>
       <Styles.Description>
-        <Styles.Title>{otherServices?.title}</Styles.Title>
+        <Styles.Title>{otherServices && <TextTypingAnimation text={otherServices?.title} />}</Styles.Title>
         <Styles.Text>{otherServices?.text}</Styles.Text>
       </Styles.Description>
     </Styles.Container>

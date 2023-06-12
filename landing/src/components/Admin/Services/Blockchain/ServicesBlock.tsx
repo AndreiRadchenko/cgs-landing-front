@@ -52,7 +52,15 @@ const ServicesBlock = () => {
           style={{ maxWidth: "364px", maxHeight: "364px" }}
           deleteFlag={true}
         />
+        <div style={{display: 'block'}}>
+        <SubHeaderWithInput 
+          header="Subtitle"
+          inputValue={values.servicesBlock.descriptionSubtitle}
+          name="servicesBlock.descriptionSubtitle"
+          onChangeFunction={handleChange}
+        />
         <TextEditor header="Text" name="servicesBlock.text" />
+        </div>
       </AdminHalfGrid>
     </AdminPaddedBlock>
   );
