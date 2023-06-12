@@ -55,8 +55,8 @@ const DbSolutions: NextPage = () => {
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
-  // useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
-  // useQuery([queryKeys.getPortfolio], () => adminPortfolioService.getReviews());
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getPortfolio], () => adminPortfolioService.getReviews());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
@@ -81,7 +81,7 @@ const DbSolutions: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={false}>
+    <Loader active={isLoading || !isFirstImageLoaded}>
       {isLoading ? (
         <LoaderStub />
       ) : (
