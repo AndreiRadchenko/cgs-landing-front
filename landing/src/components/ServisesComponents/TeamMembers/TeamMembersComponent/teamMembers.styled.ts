@@ -57,19 +57,22 @@ export const ScrollList = styled.div`
     overflow-y: scroll;
     direction: rtl;
 
-    ::-webkit-scrollbar {
+    &::-webkit-scrollbar {
         width: 6px;
     }
 
-    ::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb {
         background-color: #8F8E93;
         border-radius: 5px;
     }
 
-    ::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track {
         background-color: #D9D9D9;
         border-radius: 5px;
     }
+
+    scrollbar-color: #8F8E93 #D9D9D9;
+    scrollbar-width: thin;
 
     @media (max-width: 768px) {
         margin-top: 35px;
@@ -84,20 +87,6 @@ export const ScrollList = styled.div`
        width: 105%;
        height: 150px;
        margin-left: -5%;
-
-       ::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: #8F8E93;
-        border-radius: 5px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: #D9D9D9;
-        border-radius: 5px;
-    }
     }
 `;
 
