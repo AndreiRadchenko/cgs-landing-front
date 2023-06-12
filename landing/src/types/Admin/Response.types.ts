@@ -566,6 +566,7 @@ export interface IServiceDb {
   };
   projects: string[];
   featuresBlock: {
+    subtitle: string;
     databases: {
       subtitle: string;
       text1: string;
@@ -580,10 +581,13 @@ export interface IServiceDb {
   };
   footerBlock: {
     subtitle: string;
+    text: string;
     button: string;
     buttonLink: string;
     image: { url: string };
   };
+  bonuses: IBonusesComponent;
+  otherServices: IOtherServicesComponent;
   meta: IMetaBlock;
 }
 

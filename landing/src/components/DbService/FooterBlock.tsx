@@ -1,11 +1,14 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
+
+import { SplitBrackets } from "../../utils/splitBrackets";
+import GetEstimationButton from "../GetEstimationButton";
+import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+
 import { queryKeys } from "../../consts/queryKeys";
 import { VisibleSubtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/DbService/FooterBlock.styled";
 import { IServiceDb } from "../../types/Admin/Response.types";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -20,6 +23,9 @@ const FooterBlock = () => {
         <Styled.SubtitleWrapper>
           <VisibleSubtitle>{data?.subtitle}</VisibleSubtitle>
         </Styled.SubtitleWrapper>
+        <Styled.Text>
+          <SplitBrackets text={data?.text} />
+        </Styled.Text>
         {data && (
           <Styled.ButtonWrapper ref={elRef}>
             <GetEstimationButton

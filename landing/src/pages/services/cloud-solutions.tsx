@@ -18,6 +18,7 @@ import { Layout, PageArticle } from "../../styles/Layout.styled";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminCloudService } from "../../services/services/AdminServicesCloudSolution";
 import { adminGlobalService } from "../../services/adminHomePage";
+import { adminPortfolioService } from "../../services/adminPortfolioPage";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -28,6 +29,10 @@ export async function getServerSideProps() {
 
   await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
+  );
+
+  await queryClient.prefetchQuery([queryKeys.getPortfolio], () =>
+    adminPortfolioService.getReviews()
   );
 
   return {

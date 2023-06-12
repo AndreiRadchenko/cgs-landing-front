@@ -6,7 +6,7 @@ export const Container = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 9.3em 0 0;
+  padding: 8em 0 0;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
@@ -102,8 +102,8 @@ export const Description = styled.div`
 
 export const Image = styled.img`
   position: absolute;
-  top: 13.56em;
-  right: -1.44em;
+  top: 8em;
+  right: -3.5em;
   max-width: 55em;
   width: 45vw;
 
