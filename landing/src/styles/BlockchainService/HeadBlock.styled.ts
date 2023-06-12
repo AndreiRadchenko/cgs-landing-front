@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  margin-top: 7.6em;
+  margin-top: 7em;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
@@ -68,7 +68,7 @@ export const Title = styled.h1`
 export const Description = styled.p`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 1.279em 0 2.365em;
+  margin: 1em 0 1.9em;
   max-width: 600px;
 
   @media ${themes.primary.media.minPC} {
@@ -84,11 +84,15 @@ export const Description = styled.p`
     max-width: 95%;
     margin: 2.5em 0 1.75em;
   }
+
+  @media (max-width: 475px) {
+    max-width: 100%;
+  }
 `;
 
 export const Image = styled.div`
   position: absolute;
-  top: -8.2em;
+  top: -7.8em;
   right: -5.3em;
   width: 42em;
 

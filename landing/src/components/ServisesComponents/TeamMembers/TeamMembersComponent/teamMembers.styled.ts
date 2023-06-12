@@ -6,7 +6,7 @@ interface LastItem {
 }
 
 export const Wrapper = styled.div`
-    margin-top: 11.65em;
+    margin-top: 12.4em;
     margin-bottom: 11.65em;
     display: flex;
     justify-content: space-between;
@@ -129,6 +129,7 @@ export const ScrollContainer = styled.div`
 
     @media (max-width: 475px) {
         width: 95%;
+        margin-top: 3px;
     }
 `;
 
@@ -137,12 +138,12 @@ export const ScrollItem = styled.div<LastItem>`
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
     line-height: 32px;
-    border-top: 2px solid rgb(192, 191, 192);
-    padding: 10px 0 8px 14px;
-    border-bottom:   ${({ lastItem }) => lastItem ? '2px solid rgb(192, 191, 192)' : 'none'};
+    border-top: 1px solid rgb(192, 191, 192);
+    padding: 11px 0 9px 14px;
+    border-bottom:   ${({ lastItem }) => lastItem ? '1px solid rgb(192, 191, 192)' : 'none'};
 
     @media (max-width: 400px) {
-        padding: 8px 0 6px 10px;
+        padding: 10px 0 8px 10px;
         font-size: 16px;
         line-height: 25.6px;
     }
