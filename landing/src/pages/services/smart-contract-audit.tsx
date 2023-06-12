@@ -7,16 +7,17 @@ import parse from "html-react-parser";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import React, { useEffect, useState } from "react";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import { Layout, PageArticle } from "../../styles/Layout.styled";
+import { Layout } from "../../styles/Layout.styled";
 import * as Styled from "../../styles/DappAuditService/Common.styled";
 import HeadBlock from "../../components/DappAuditService/HeadBlock";
-import FigureOutBlock from "../../components/DappAuditService/FigureOutBlock";
 import HowDoProvideBlock from "../../components/DappAuditService/HowDoProvideBlock";
 import ShowCase from "../../components/ShowCase";
 import FooterBlock from "../../components/DappAuditService/FooterBlock";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
 import { adminDappAuditService } from "../../services/services/adminServicesDappAuditPage";
+import { adminAiService } from "../../services/services/AdminServiceAiSolution";
+import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -38,9 +39,10 @@ export async function getServerSideProps() {
 
 const DappAuditPage: NextPage = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
-  const { data } = useQuery([queryKeys.getServiceDappAuditPage], () =>
-    adminDappAuditService.getDappAuditServicePage()
+  const { data } = useQuery([queryKeys.getServiceAiPage], () =>
+    adminAiService.getAiServicePage()
   );
+  console.log(data);
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
@@ -81,21 +83,22 @@ const DappAuditPage: NextPage = () => {
         {customHead && parse(customHead)}
       </Head>
       <HeaderNavNew />
-      <PageArticle>
+      <>
         <Layout>
           <Styled.Layout>
             <HeadBlock />
-            <FigureOutBlock />
+            {data ? <PerksOfCoopComponent data={data.worthBlock} /> : null}
             <HowDoProvideBlock />
           </Styled.Layout>
         </Layout>
-        <ShowCase projects={[]} />
+        {data && <ShowCase projects={data.projects} />}
         <Layout>
           <Styled.Layout>
+            <TeamMembers teamMembers={data?.teamMembers} />
             <FooterBlock />
           </Styled.Layout>
         </Layout>
-      </PageArticle>
+      </>
       <FooterNew />
     </>
   );

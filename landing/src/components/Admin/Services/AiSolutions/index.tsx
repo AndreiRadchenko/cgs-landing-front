@@ -5,16 +5,22 @@ import {
 } from "../../../../styles/AdminPage";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
+import BringYourAppBlock from "./BringYourAppBlock";
 import FigureOutTermsBlock from "./FigureOutTermsBlock";
 import HeadBlock from "./HeadBlock";
+import HowDoWeProvideBlock from "./HowDoWeProvideBlock";
+import WhyIsDappsBlock from "./WhyIsDappsBlock";
 
-const ServiceAiSolutionsContentBlock = () => {
+const ServiceDappAuditContentBlock = () => {
   return (
     <div>
       <AdminBlocksContent>
         <HeadBlock />
         <FigureOutTermsBlock />
+        <WhyIsDappsBlock />
+        <HowDoWeProvideBlock />
         <ServiceShowCase noMargin />
+        <BringYourAppBlock />
       </AdminBlocksContent>
       <MetaBlockWraper>
         <MetaTagsBlock sitemap="services/smart-contract-audit" />
@@ -23,4 +29,4 @@ const ServiceAiSolutionsContentBlock = () => {
   );
 };
 
-export default ServiceAiSolutionsContentBlock;
+export default ServiceDappAuditContentBlock;

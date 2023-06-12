@@ -5,18 +5,17 @@ import ServiceAiSolutionsContentBlock from ".";
 import { queryKeys } from "../../../../consts/queryKeys";
 import * as Styled from "../../../../styles/AdminPage";
 import { IServiceDappAudit } from "../../../../types/Admin/Response.types";
-import { adminDappAuditService } from "../../../../services/services/adminServicesDappAuditPage";
+import { adminAiService } from "../../../../services/services/AdminServiceAiSolution";
 
 const AdminServiceAiSolutionsContent = () => {
   const { data, isLoading, refetch } = useQuery(
-    [queryKeys.getServiceDappAuditPage],
-    () => adminDappAuditService.getDappAuditServicePage()
+    [queryKeys.getServiceAiPage],
+    () => adminAiService.getAiServicePage()
   );
 
   const { mutateAsync: updateFaqPage } = useMutation(
-    [queryKeys.updateServiceDappAuditPage],
-    (data: IServiceDappAudit) =>
-      adminDappAuditService.updateDappAuditServicePage(data)
+    [queryKeys.updateServiceAiPage],
+    (data: IServiceDappAudit) => adminAiService.updateAiServicePage(data)
   );
 
   const submitForm = async (values: IServiceDappAudit) => {
