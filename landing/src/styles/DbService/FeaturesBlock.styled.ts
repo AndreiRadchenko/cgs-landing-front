@@ -6,17 +6,37 @@ import { slideDownText } from "../Animations.styled";
 export const Container = styled.section`
   position: relative;
   width: 100%;
+  margin-top: 1.875em;
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
+    margin-top: 50px;
     ::after {
       content: "";
       height: 1px;
       position: absolute;
       background-color: ${themes.primary.colors.headerBorder};
       width: 130%;
-      bottom: -10%;
+      bottom: -135px;
       left: -10%;
+    }
+  }
+`;
+
+export const Title = styled.h2`
+  margin: 4.325em 0 0;
+  line-height: 140%;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  width: fit-content;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 1.5em;
+    line-height: 132%;
+    margin-top: 88px;
+
+    & .last-part > div {
+      top: 20%;
     }
   }
 `;
@@ -24,22 +44,23 @@ export const Container = styled.section`
 export const Subtitle = styled.h2`
   margin: 0;
   font-size: 2.125em;
-  text-transform: uppercase;
   width: fit-content;
   margin-bottom: 0.5;
-
-  @media (max-width: 1300px) {
-    margin-bottom: 0.6em;
-  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 0.3em;
   }
 
+  @media (max-width: 1300px) {
+    margin-bottom: 0.6em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
+    position: absolute;
+    top: -28px;
+    left: -48px;
     font-size: 1.67em;
     margin: 0;
-    display: none;
   }
 `;
 
@@ -103,6 +124,9 @@ export const TextContent = styled.div<ISlide>`
     &:not(:first-child) {
       padding-top: 1.8em;
     }
+    /* &:nth-child(1) {
+      padding-top: 28px;
+    } */
 
     &:nth-child(2) {
       padding-top: 1em;
@@ -148,14 +172,12 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     max-width: 100%;
-    row-gap: 5.5em;
+    row-gap: 10.5em;
     padding: 0 0 0 3.75em;
-    padding-bottom: 8em;
+    padding-bottom: 30px;
+    position: relative;
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    row-gap: 4.5em;
-  }
   @media (min-width: 1550px) {
     padding-top: 0.8em;
     & span:not(:first-child) br {
@@ -204,6 +226,6 @@ export const BgImageMobile = styled.img`
   @media ${themes.primary.media.maxMobile} {
     width: 56em;
     left: -1.5em;
-    top: 7.5em;
+    top: 1.5em;
   }
 `;
