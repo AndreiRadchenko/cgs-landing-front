@@ -4,7 +4,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import ServiceAiSolutionsContentBlock from ".";
 import { queryKeys } from "../../../../consts/queryKeys";
 import * as Styled from "../../../../styles/AdminPage";
-import { IServiceDappAudit } from "../../../../types/Admin/Response.types";
+import { IServiceAi } from "../../../../types/Admin/Response.types";
 import { adminAiService } from "../../../../services/services/AdminServiceAiSolution";
 
 const AdminServiceAiSolutionsContent = () => {
@@ -15,10 +15,10 @@ const AdminServiceAiSolutionsContent = () => {
 
   const { mutateAsync: updateFaqPage } = useMutation(
     [queryKeys.updateServiceAiPage],
-    (data: IServiceDappAudit) => adminAiService.updateAiServicePage(data)
+    (data: IServiceAi) => adminAiService.updateAiServicePage(data)
   );
 
-  const submitForm = async (values: IServiceDappAudit) => {
+  const submitForm = async (values: IServiceAi) => {
     document.body.style.cursor = "wait";
     await updateFaqPage(values);
     await refetch();

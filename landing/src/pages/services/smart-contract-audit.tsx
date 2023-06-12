@@ -18,6 +18,7 @@ import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent
 import { adminDappAuditService } from "../../services/services/adminServicesDappAuditPage";
 import { adminAiService } from "../../services/services/AdminServiceAiSolution";
 import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -38,11 +39,13 @@ export async function getServerSideProps() {
 }
 
 const DappAuditPage: NextPage = () => {
+  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
+
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
-  const { data } = useQuery([queryKeys.getServiceAiPage], () =>
+  const { data, isLoading } = useQuery([queryKeys.getServiceAiPage], () =>
     adminAiService.getAiServicePage()
   );
-  console.log(data);
+
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
@@ -70,37 +73,48 @@ const DappAuditPage: NextPage = () => {
   }, []);
 
   return (
-    <>
-      {isCalendlySuccessfull && (
-        <CalendlyInfoModal
-          isOpen={isCalendlySuccessfull}
-          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-        />
+    <Loader active={isLoading || !isFirstImageLoaded}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
+        <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+            />
+          )}
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
+          <HeaderNavNew />
+          <>
+            <Layout>
+              <Styled.Layout>
+                <HeadBlock />
+                {data ? <PerksOfCoopComponent data={data.worthBlock} /> : null}
+                <HowDoProvideBlock />
+              </Styled.Layout>
+            </Layout>
+            {data && (
+              <ShowCase
+                setIsFirstImageLoaded={setIsFirstImageLoaded}
+                projects={data.projects}
+              />
+            )}
+            <Layout>
+              <Styled.Layout>
+                <TeamMembers teamMembers={data?.teamMembers} />
+                <FooterBlock />
+              </Styled.Layout>
+            </Layout>
+          </>
+          <FooterNew />
+        </>
       )}
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      <HeaderNavNew />
-      <>
-        <Layout>
-          <Styled.Layout>
-            <HeadBlock />
-            {data ? <PerksOfCoopComponent data={data.worthBlock} /> : null}
-            <HowDoProvideBlock />
-          </Styled.Layout>
-        </Layout>
-        {data && <ShowCase projects={data.projects} />}
-        <Layout>
-          <Styled.Layout>
-            <TeamMembers teamMembers={data?.teamMembers} />
-            <FooterBlock />
-          </Styled.Layout>
-        </Layout>
-      </>
-      <FooterNew />
-    </>
+    </Loader>
   );
 };
 
