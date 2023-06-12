@@ -106,11 +106,15 @@ export const Title = styled.h2`
   margin-bottom: 2em;
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.45em;
+    font-size: 1.5em;
     line-height: 132%;
     width: 15em;
     margin-bottom: 0.6em;
     margin-left: -5px;
+  }
+
+  @media (max-width: 475px) {
+    width: 14em;
   }
 `;
 
@@ -123,7 +127,11 @@ export const SubTextWrapper = styled.div`
     display: flex;
     justify-content: start;
     position: absolute;
-    top: 3.9em;
+    top: 4.9em;
+  }
+
+  @media (max-width: 475px) {
+    top: 5.3em;
   }
 `;
 
