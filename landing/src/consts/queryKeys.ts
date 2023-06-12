@@ -87,6 +87,8 @@ export const queryKeys = {
   updateServiceWebAuditPage: "updateServiceWebAuditPage",
   getServiceDappAuditPage: "getServiceDappAuditPage",
   updateServiceDappAuditPage: "updateServiceDappAuditPage",
+  getServiceAiPage: "getServiceAiPage",
+  updateServiceAiPage: "updateServiceAiPage",
   getPrivacyPage: "getPrivacyPage",
   updatePrivacyPage: "updatePrivacyPage",
   supportChat: "SupportChat",

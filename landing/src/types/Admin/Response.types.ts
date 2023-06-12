@@ -980,3 +980,117 @@ export interface IPrivacyPage {
   content: { subtitle: string; text: string }[];
   meta: IMetaBlock;
 }
+
+export interface IServiceAi {
+  headerBlock: HeaderBlock;
+  figureOutBlock: FigureOutBlock;
+  worthBlock: WorthBlock;
+  howDoWeProvideBlock: HowDoWeProvideBlock;
+  projects: string[];
+  footerBlock: FooterBlock;
+  teamMembers: TeamMembers;
+  meta: IMetaBlock;
+}
+
+export interface HeaderBlock {
+  title: string;
+  text: string;
+  button: string;
+  buttonLink: string;
+  image: Image;
+}
+
+export interface Image {
+  url: string;
+}
+
+export interface FigureOutBlock {
+  subtitle: string;
+  textBlock: string[];
+  image: Image2;
+}
+
+export interface Image2 {
+  url: string;
+}
+
+export interface WorthBlock {
+  subtitle: string;
+  textBlock: TextBlock;
+}
+
+export interface TextBlock {
+  accessibility: Accessibility;
+  marketing: Marketing;
+  brand: Brand;
+}
+
+export interface Accessibility {
+  subtitle: string;
+  text: string;
+}
+
+export interface Marketing {
+  subtitle: string;
+  text: string;
+}
+
+export interface Brand {
+  subtitle: string;
+  text: string;
+}
+
+export interface HowDoWeProvideBlock {
+  subtitle: string;
+  image: Image3;
+  textBlock: TextBlock2[];
+}
+
+export interface Image3 {
+  url: string;
+}
+
+export interface TextBlock2 {
+  title: string;
+  text: string;
+  subContent: SubContent[];
+  _id: string;
+}
+
+export interface SubContent {
+  title: string;
+  text: string;
+  _id: string;
+}
+
+export interface FooterBlock {
+  title: string;
+  button: string;
+  buttonLink: string;
+  text: string;
+  image: Image4;
+}
+
+export interface Image4 {
+  url: string;
+}
+
+export interface TeamMembers {
+  title: string;
+  description: string;
+  members: Member[];
+  selectedMembers: SelectedMember[];
+  _id: string;
+}
+
+export interface Member {
+  id: string;
+  member: string;
+  _id: string;
+}
+
+export interface SelectedMember {
+  id: string;
+  member: string;
+  _id: string;
+}

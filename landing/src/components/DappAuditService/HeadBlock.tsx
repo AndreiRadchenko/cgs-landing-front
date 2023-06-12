@@ -8,20 +8,21 @@ import { replaceAt } from "../../utils/replaceStrByInd";
 import GetEstimationButton from "../GetEstimationButton";
 import { getPosition } from "../../utils/getPosition";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import {
+  IServiceAi,
+  IServiceDappAudit,
+} from "../../types/Admin/Response.types";
+import { queryKeys } from "../../consts/queryKeys";
+import { useQueryClient } from "@tanstack/react-query";
 
 const HeadBlock = () => {
+  const queryClient = useQueryClient();
+
   const { width } = useWindowDimension();
   const elRef = useRef<HTMLDivElement>(null);
-  const data = {
-    title: "Dapp audit | // | Tokenomic | planning",
-    text: "Ensure data and workflow security of your dapp, | providing smart contract security and dapp audit. | Take care of an essential part of the blockchain business | model — tokenomic.",
-    button: "Book a consultation",
-    buttonLink:
-      "https://calendly.com/d/dwn-9yc-22t/client-meets-daniel-and-tech-department",
-    image: {
-      url: "https://landing-cgs.s3.amazonaws.com/68e2d183-35ef-4ce9-9467-0af327958123.svg",
-    },
-  };
+  const data = queryClient.getQueryData<IServiceAi>([
+    queryKeys.getServiceAiPage,
+  ])?.headerBlock;
 
   const title =
     data &&

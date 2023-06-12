@@ -137,6 +137,14 @@ const AdminSidebar = () => {
               Dapp audit + Tokenomic planning
             </Styled.AdminListSubItem>
           </Link>
+          <Link href={ROUTE_KEYS.AdminServiceAiSolutions} passHref>
+            <Styled.AdminListSubItem
+              itemProp={currentPath}
+              property={ROUTE_KEYS.AdminServiceAiSolutions}
+            >
+              AI solutions
+            </Styled.AdminListSubItem>
+          </Link>
         </DropDownElement>
         <DropDownElement value="company" Icon={CompanyIcon}>
           <Link href={ROUTE_KEYS.AdminAboutUs} passHref>

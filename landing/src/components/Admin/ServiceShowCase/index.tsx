@@ -22,7 +22,7 @@ import { IProjects } from "../../../types/Admin/Response.types";
 import ButtonArrow from "../../../utils/ButtonArrow";
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 
-const ServiceShowCase = () => {
+const ServiceShowCase = ({ noMargin }: { noMargin?: boolean }) => {
   const { values, setFieldValue, handleSubmit } = useFormikContext<IProjects>();
   const [category, setCategory] = useState("");
   const [projectIsOpen, setProjectIsOpen] = useState<boolean>(false);
@@ -77,7 +77,7 @@ const ServiceShowCase = () => {
   }, [choosenProjects, setFieldValue, handleSubmit]);
 
   return (
-    <div style={{ marginInline: "40px" }}>
+    <div style={{ marginInline: noMargin ? "0" : "40px" }}>
       <AdminBlockDropDown title="BLOCK OUR WORK">
         <AdminShowCaseServiceGrid>
           <AdminBlockWrapper>

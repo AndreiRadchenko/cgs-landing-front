@@ -4,10 +4,10 @@ import { queryKeys } from "../../consts/queryKeys";
 import { validTokenGlobal } from "../../services/validToken";
 import AdminSidebar from "../../components/Admin/SideBar/AdminSidebar";
 import * as Styled from "../../styles/AdminPage";
+import AdminServiceDappAuditContent from "../../components/Admin/Services/AiSolutions/AdminServiceDappAuditContent";
 import AdminHeader from "../../components/Admin/Header/AdminHeader";
-import AdminServiceAiSolutionsContent from "../../components/Admin/Services/DappAudit/AdminServiceAiSolutionsContent";
 
-const AdminServiceDappAudit = () => {
+const AdminServiceAiSolutions = () => {
   const { data } = useQuery([queryKeys.validToken], () =>
     validTokenGlobal.validToken()
   );
@@ -17,7 +17,7 @@ const AdminServiceDappAudit = () => {
       <AdminHeader />
       <Styled.AdminWrapper>
         <AdminSidebar />
-        <AdminServiceAiSolutionsContent />
+        <AdminServiceDappAuditContent />
       </Styled.AdminWrapper>
     </>
   ) : (
@@ -27,4 +27,4 @@ const AdminServiceDappAudit = () => {
   );
 };
 
-export default AdminServiceDappAudit;
+export default AdminServiceAiSolutions;
