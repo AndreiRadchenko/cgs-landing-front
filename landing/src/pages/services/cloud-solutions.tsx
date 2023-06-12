@@ -12,6 +12,7 @@ import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
 import { TeamMembers, FreeService } from "../../components/ServisesComponents";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 import * as Styled from "../../styles/CloudService/Layout";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
@@ -43,13 +44,14 @@ export async function getServerSideProps() {
 }
 
 const CloudService = () => {
-  const { data } = useQuery([queryKeys.getServiceCloudPage], () =>
+  const { data, isLoading } = useQuery([queryKeys.getServiceCloudPage], () =>
     adminCloudService.getCloudSolutionPage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
   const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getPortfolio], () => adminPortfolioService.getReviews());
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 
@@ -74,56 +76,62 @@ const CloudService = () => {
   }, []);
 
   return (
-    <>
-      {isCalendlySuccessfull && (
-        <CalendlyInfoModal
-          isOpen={isCalendlySuccessfull}
-          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-        />
-      )}
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      <HeaderNavNew />
-      <PageArticle>
-        <Layout>
-          <Styled.Layout>
-            <HeadBlock />
-            <ProvidesBlock
-              className={
-                data && data.projects.length === 0
-                  ? "withoutShowcase"
-                  : undefined
-              }
+    <Loader active={isLoading || !isFirstImageLoaded}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
+        <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />
-          </Styled.Layout>
-        </Layout>
-        <Styled.ShowCaseAlign>
-          <ShowCase
-            setIsFirstImageLoaded={setIsFirstImageLoaded}
-            projects={data?.projects}
-          />
-        </Styled.ShowCaseAlign>
-        <Layout>
-          <Styled.Layout>
-            {data?.worthBlock && (
-              <PerksOfCoopComponent data={data?.worthBlock} />
-            )}
-          </Styled.Layout>
-          <Styled.TeamMembersAlign>
-            <TeamMembers teamMembers={data?.teamMembers} />
-          </Styled.TeamMembersAlign>
-          <FreeService freeServices={data?.freeServices} />
-          <Styled.Layout>
-            <FooterBlock />
-          </Styled.Layout>
-        </Layout>
-      </PageArticle>
+          )}
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
+          <HeaderNavNew />
+          <PageArticle>
+            <Layout>
+              <Styled.Layout>
+                <HeadBlock />
+                <ProvidesBlock
+                  className={
+                    data && data.projects.length === 0
+                      ? "withoutShowcase"
+                      : undefined
+                  }
+                />
+              </Styled.Layout>
+            </Layout>
+            <Styled.ShowCaseAlign>
+              <ShowCase
+                setIsFirstImageLoaded={setIsFirstImageLoaded}
+                projects={data?.projects}
+              />
+            </Styled.ShowCaseAlign>
+            <Layout>
+              <Styled.Layout>
+                {data?.worthBlock && (
+                  <PerksOfCoopComponent data={data?.worthBlock} />
+                )}
+              </Styled.Layout>
+              <Styled.TeamMembersAlign>
+                <TeamMembers teamMembers={data?.teamMembers} />
+              </Styled.TeamMembersAlign>
+              <FreeService freeServices={data?.freeServices} />
+              <Styled.Layout>
+                <FooterBlock />
+              </Styled.Layout>
+            </Layout>
+          </PageArticle>
 
-      <FooterNew />
-    </>
+          <FooterNew />
+        </>
+      )}
+    </Loader>
   );
 };
 
