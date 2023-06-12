@@ -3,13 +3,17 @@ import themes from "../../utils/themes";
 import { cursorBlinking } from "../Animations.styled";
 
 export const ContentContainer = styled.section`
+  display: flex;
+  align-items: center;
   margin-top: 15.1em;
+  margin-bottom: 50px;
   h2 {
     line-height: 132%;
   }
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 6.8em;
+    flex-direction: column;
   }
 `;
 
@@ -32,12 +36,10 @@ export const ProfText = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  padding-bottom: 21.1em;
   display: flex;
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
-    padding-bottom: 28.5em;
     & > a {
       font-size: 1.54em !important;
       padding: 1.195em 2.93em !important;
@@ -46,14 +48,16 @@ export const ButtonWrapper = styled.div`
 `;
 export const ImageWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 500px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+  }
 `;
 export const Image = styled.img`
-  position: absolute;
-  right: -0.7%;
-  bottom: 200%;
-  width: 36.3%;
-  height: 29.16em;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transform: rotate(2.06deg);
 
   @media ${themes.primary.media.maxMobile} {

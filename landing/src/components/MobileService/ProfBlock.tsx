@@ -44,21 +44,23 @@ const ProfBlock = () => {
 
   return (
     <Styled.ContentContainer>
-      <VisibleSubtitle className="footer">{data?.title}</VisibleSubtitle>
-      <Styled.ProfText>
-        {data && parse(data.text.replace("|", "<br />"), options)}
-      </Styled.ProfText>
-      {data && (
-        <Styled.ButtonWrapper ref={elRef}>
-          <GetEstimationButton
-            buttonLink={data?.buttonLink}
-            buttonText={data.button}
-            withEstimation
-            buttonClassName="social-button"
-          />
-          <ButtonShareComponent />
-        </Styled.ButtonWrapper>
-      )}
+      <div>
+        <VisibleSubtitle className="footer">{data?.title}</VisibleSubtitle>
+        <Styled.ProfText>
+          {data && parse(data.text.replace("|", "<br />"), options)}
+        </Styled.ProfText>
+        {data && (
+          <Styled.ButtonWrapper ref={elRef}>
+            <GetEstimationButton
+              buttonLink={data?.buttonLink}
+              buttonText={data.button}
+              withEstimation
+              buttonClassName="social-button"
+            />
+            <ButtonShareComponent />
+          </Styled.ButtonWrapper>
+        )}
+      </div>
       <Styled.ImageWrapper>
         <Styled.Image src={data?.image.url} alt="prof block img" />
       </Styled.ImageWrapper>

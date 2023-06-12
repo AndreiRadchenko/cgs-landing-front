@@ -5,7 +5,7 @@ export const Container = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 6.25em 0 3.1em 0;
+  padding: 6.25em 0 0.5em 0;
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;

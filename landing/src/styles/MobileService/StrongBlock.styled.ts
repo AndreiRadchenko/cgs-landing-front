@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 import { float } from "../Animations.styled";
 
 export const StrongContainer = styled.section`
-  margin-top: 16.15em;
+  margin-top: 140px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 8em;
@@ -22,7 +22,7 @@ export const StrongContainer = styled.section`
 export const ContentContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 4.3em 1.75em 0 -2.6em;
+  margin: 35px 1.75em 0 -2.6em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
