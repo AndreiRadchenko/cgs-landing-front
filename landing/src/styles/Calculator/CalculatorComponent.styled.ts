@@ -1236,8 +1236,6 @@ export const CalculatorFieldWrapper = styled.div`
     }
     @supports (-webkit-hyphens: none) {
       & #input-email {
-        padding-bottom: 21px;
-
         & #user-email {
           line-height: 46px;
         }
@@ -1250,6 +1248,12 @@ export const CalculatorFieldWrapper = styled.div`
     & #input-email {
       padding-top: 24px;
       padding-bottom: 25px;
+    }
+
+    @media ${themes.primary.media.maxMobile} {
+      & #input-email {
+        padding-bottom: 23px;
+      }
     }
   }
 `;
