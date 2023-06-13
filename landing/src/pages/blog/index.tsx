@@ -60,14 +60,13 @@ export async function getServerSideProps() {
 const BlogPage = () => {
   const router = useRouter();
 
-  const { data }: IBlogPageData = useQuery([queryKeys.getBlogPage], () =>
-    adminBlogService.getBlogPageData()
+  const { data, isLoading: areBlogsLoading }: IBlogPageData = useQuery(
+    [queryKeys.getBlogPage],
+    () => adminBlogService.getBlogPageData()
   );
 
-  const { data: articles }: IArticlesData = useQuery(
-    [queryKeys.getBlogArticles],
-    () => adminBlogService.getArticles()
-  );
+  const { data: articles, isLoading: areArticlesLoading }: IArticlesData =
+    useQuery([queryKeys.getBlogArticles], () => adminBlogService.getArticles());
 
   const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
@@ -172,8 +171,27 @@ const BlogPage = () => {
     }
   }, [router.query.page, router.query.filters, scrollHandler]);
 
+  useEffect(() => {
+    console.log("Loaded Main Image: ", isMainSliderImageLoaded);
+  }, [isMainSliderImageLoaded]);
+
+  useEffect(() => {
+    console.log("Loaded Articles: ", areArticlesLoading);
+  }, [areArticlesLoading]);
+
+  useEffect(() => {
+    console.log("Loaded Blog: ", areBlogsLoading);
+  }, [areBlogsLoading]);
+
   return (
-    <Loader active={!isMainSliderImageLoaded}>
+    <Loader
+      active={
+        !isMainSliderImageLoaded ||
+        !views.data ||
+        areArticlesLoading ||
+        areBlogsLoading
+      }
+    >
       {data && views.data ? (
         <>
           <Head>
