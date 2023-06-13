@@ -118,10 +118,10 @@ export const ImageWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 2.625em;
     position: relative;
-    right: 6%;
+    right: 0%;
 
-    width: 22.3em;
-    height: 19.125em;
+    width: 100%;
+    height: 320px;
   }
 `;
 

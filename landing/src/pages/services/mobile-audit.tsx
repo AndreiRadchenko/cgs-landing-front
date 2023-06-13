@@ -99,26 +99,27 @@ const MobileAuditService = () => {
             {customHead && parse(customHead)}
           </Head>
           <HeaderNavNew />
-          <PageArticle>
+          <>
             <Layout>
-              <Styled.Layout>
-                <HeadBlock />
-                <WhatAppBlock />
-                <WhatAppIncludeBlock />
-                {dataAudit && <PerksOfCoopComponent data={dataAudit as any} />}
-              </Styled.Layout>
+              <HeadBlock />
+              <WhatAppBlock />
+              <WhatAppIncludeBlock />
+              {dataAudit && (
+                <PerksOfCoopComponent
+                  className={"mobileAudit"}
+                  data={dataAudit as any}
+                />
+              )}
             </Layout>
             <ShowCase
               setIsFirstImageLoaded={setIsFirstImageLoaded}
               projects={data?.projects}
             />
             <Layout>
-              <Styled.Layout>
-                <HowDoWeAuditBlock />
-                <FooterBlock />
-              </Styled.Layout>
+              <HowDoWeAuditBlock />
+              <FooterBlock />
             </Layout>
-          </PageArticle>
+          </>
           <FooterNew />
         </>
       )}
