@@ -224,7 +224,7 @@ export const SubText = styled.p<ISlide>`
 `;
 
 export const DescriptionContainer = styled.div`
-  margin-top: 7.95em;
+  margin-top: 7.5em;
   padding: 0 2.75em;
   display: flex;
   justify-content: center;

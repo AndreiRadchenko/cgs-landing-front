@@ -37,7 +37,6 @@ export const ButtonWrapper = styled.div`
 
 export const Title = styled.h1`
   font-weight: inherit;
-  width: 11em;
   font-size: 4.125em;
   line-height: 120%;
   text-transform: uppercase;

@@ -52,7 +52,7 @@ function TextTypingAnimation({ text, startPoint }: ITextTypingAnimationProps) {
 
   const splittedDisplayed = useMemo(() => {
     if (is768px) {
-      return displayedText.visibleText.split(/[\|^]/);
+      return displayedText.visibleText.split(/[\^]/);
     } else {
       return displayedText.visibleText.split("|");
     }
@@ -60,18 +60,18 @@ function TextTypingAnimation({ text, startPoint }: ITextTypingAnimationProps) {
 
   const splittedHidden = useMemo(() => {
     if (is768px) {
-      return displayedText.hiddenText.split(/[\|^]/);
+      return displayedText.hiddenText.split(/[\^]/);
     } else {
       return displayedText.hiddenText.split("|");
     }
   }, [displayedText.hiddenText, is768px]);
 
   const formattedDisplayed = useMemo(() => {
-    return splittedDisplayed.map((el) => el.replace(/\^/g, ""));
+    return splittedDisplayed.map((el) => el.replace(/[\^|]/g, ""));
   }, [splittedDisplayed]);
 
   const formattedHidden = useMemo(() => {
-    return splittedHidden.map((el) => el.replace(/\^/g, ""));
+    return splittedHidden.map((el) => el.replace(/[\^|]/g, ""));
   }, [splittedHidden]);
 
   return (

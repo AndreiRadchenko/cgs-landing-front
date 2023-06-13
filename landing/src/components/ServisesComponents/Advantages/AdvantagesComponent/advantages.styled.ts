@@ -8,9 +8,12 @@ interface IsFirst {
 }
 
 export const Wrapper = styled.div`
-  margin-top: -17px;
   margin-bottom: 14.75em;
   width: 100%;
+
+  @media (max-width: 1440px) {
+    margin-top: -17px;
+  }
 
   @media (max-width: 475px) {
     margin-top: 2em;
