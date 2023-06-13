@@ -269,7 +269,7 @@ export const WhoNeedSubText = styled.p`
     max-width: none;
 
     padding: 0;
-    margin-top: 1.2em;
+    margin-top: 0.6em;
   }
 `;
 
@@ -288,14 +288,14 @@ export const WhoNeedAppsBlockImageCard = styled.div`
   display: flex;
   gap: 10px;
   align-items: center;
-  padding: 5px 17px;
+  padding: 0.417em 1.42em;
   height: 53px;
   border: 1px solid ${themes.primary.colors.primary};
 
   span {
     font-family: ${themes.primary.font.family.namu};
     font-weight: 900;
-    font-size: 18px;
+    font-size: 1.5em;
     line-height: 160%;
   }
 

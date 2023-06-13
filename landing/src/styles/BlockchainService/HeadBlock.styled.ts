@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  margin-top: 7em;
+  margin-top: 7.75em;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
@@ -92,7 +92,7 @@ export const Description = styled.p`
 
 export const Image = styled.div`
   position: absolute;
-  top: -7.8em;
+  top: -7.79em;
   right: -5.3em;
   width: 42em;
 
