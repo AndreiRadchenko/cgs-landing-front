@@ -18,7 +18,7 @@ const ServiceWebAuditContentBlock = () => {
         <HeaderBlock />
         <WhatIsBlock />
         <TypesBlock />
-        <ServiceShowCase />
+        <ServiceShowCase noMargin />
         <HowToDoBlock />
         <BringYourAppBlock />
       </AdminBlocksContent>
