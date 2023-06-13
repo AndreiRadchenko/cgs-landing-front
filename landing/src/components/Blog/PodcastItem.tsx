@@ -122,7 +122,6 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
               <Styled.RightArrow onClick={handleForw}>
                 <Styled.SecondsRight>15</Styled.SecondsRight>
               </Styled.RightArrow>
-              <Styled.SmallNavigation>+</Styled.SmallNavigation>
             </Styled.PodcastNavigation>
           </Styled.PodcastCard>
           <Styled.BackgroundCard>
