@@ -8,7 +8,6 @@ export interface IBlogPageData {
 export interface IArticlesData {
   data: IArticle[] | undefined;
   isLoading: boolean;
-  isFetching: boolean;
 }
 
 export interface IArticleData {

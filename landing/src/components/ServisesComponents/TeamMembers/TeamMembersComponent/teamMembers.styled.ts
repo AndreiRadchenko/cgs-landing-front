@@ -5,24 +5,36 @@ interface LastItem {
     lastItem: boolean;
 }
 
+interface ScrollBar {
+    top: number;
+}
+
 export const Wrapper = styled.div`
     margin-top: 12.4em;
     margin-bottom: 11.65em;
     display: flex;
     justify-content: space-between;
+    overflow: scroll;
+    scroll-behavior: smooth;
+
+    ::-webkit-scrollbar{
+        display: none;
+    }
 
     @media (max-width: 768px) {
+        margin-top: 0;
         display: block;
     }
 
     @media (max-width: 400px) {
-        margin-top: 8.5em;
         margin-bottom: 8.5em;
     }
 `;
 
 export const TextContainer = styled.div`
     width: 50vw;
+    top: 0;
+    position: sticky;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -37,6 +49,10 @@ export const Title = styled.h2`
     line-height: 56px;
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 export const Description = styled.div`
@@ -54,56 +70,32 @@ export const ScrollList = styled.div`
     width: 44vw;
     height: 184px;
     position: relative;
-    overflow-y: scroll;
-    direction: rtl;
-
-    ::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: #8F8E93;
-        border-radius: 5px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: #D9D9D9;
-        border-radius: 5px;
-    }
 
     @media (max-width: 768px) {
         margin-top: 35px;
         width: 97%;
         padding-left: 12px;
-        height: 200px;
-        direction: ltr;
+        height: 180px;
+        overflow: scroll;
+
+        ::-webkit-scrollbar{
+            display: none;
+        }
     }
 
     @media (max-width: 475px) {
        margin-top: 20px;
        width: 105%;
-       height: 150px;
        margin-left: -5%;
-
-       ::-webkit-scrollbar {
-        width: 6px;
     }
 
-    ::-webkit-scrollbar-thumb {
-        background-color: #8F8E93;
-        border-radius: 5px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: #D9D9D9;
-        border-radius: 5px;
-    }
+    @media (max-width: 400px) {
+        height: 150px;
     }
 `;
 
 export const ScrollContainer = styled.div`
     margin-top: 5px;
-    direction: ltr;
 
     @media (max-width: 2560px) {
         width: 95%;
@@ -147,4 +139,49 @@ export const ScrollItem = styled.div<LastItem>`
         font-size: 16px;
         line-height: 25.6px;
     }
+`;
+
+export const ScrollbarContainer = styled.div`
+    position: sticky;
+    top: 0;
+    width: 6px;
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    margin-right: 32px;
+
+    @media (max-width: 1200px) {
+        margin-right: 15px;
+    }
+
+    @media (max-width: 768px) {
+        position: absolute;
+        right: 10px;
+        top: 90px;
+        height: 184px;
+    }
+
+    @media (max-width: 766px) {
+        top: 179px;
+        height: 185px;
+    }
+
+    @media (max-width: 475px) {
+        top: 185px;
+        height: 185px;
+    }
+
+    @media (max-width: 400px) {
+        margin-right: 5px;
+        top: 188px;
+        height: 155px;
+    }
+`;
+
+export const Scrollbar = styled.div<ScrollBar>`
+    position: absolute;
+    top: ${props => props.top}px;
+    height: 30%;
+    width: 6px;
+    border-radius: 5px;
+    background-color: #8F8E93;
 `;

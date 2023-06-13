@@ -2,8 +2,8 @@ import styled from "styled-components";
 import themes from "../../../../utils/themes";
 
 export const Container = styled.div`
-  margin-top: 90px;
-  margin-bottom: 140px;
+  margin-top: 7.5em;
+  margin-bottom: 11.66em;
   padding: 0 4.25em;
   width: 100vw;
   margin-left: -4.25em;
@@ -31,11 +31,12 @@ export const Title = styled.h2`
   font-size: 3.33em;
   line-height: 1.4;
   text-transform: uppercase;
+  /* background-color: #f1efed; */
   background: linear-gradient(
     353.75deg,
-    #f1efed -1.56%,
+    rgb(236, 234, 232) -1.56%,
     rgba(221, 221, 221, 0.22) 52.39%,
-    #f1efed 127.64%
+    rgb(236, 234, 232) 127.64%
   );
   border-right: 1px solid #8f8e93;
   @media ${themes.primary.media.maxTabletLandScape} {

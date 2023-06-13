@@ -4,6 +4,7 @@ import themes from "../utils/themes";
 export const SliderWrapper = styled.div`
   position: relative;
   margin-inline: 51px;
+  user-select: none;
 
   @media (max-width: 1055px) {
     margin-inline: 0px;
@@ -35,7 +36,14 @@ export const SwiperArrowContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 15px;
-  margin-inline: 41px;
+  margin-inline: 51px;
+  user-select: none;
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    right: initial;
+    left: initial;
+  }
 
   & > div {
     display: flex;

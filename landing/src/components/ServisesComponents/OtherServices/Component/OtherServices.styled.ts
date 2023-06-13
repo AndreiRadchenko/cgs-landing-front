@@ -3,8 +3,8 @@ import themes from "../../../../utils/themes";
 
 export const Container = styled.div`
   box-sizing: border-box;
-  margin-top: 139px;
-  margin-bottom: 139px;
+  margin-top: 11.66em;
+  margin-bottom: 11.66em;
   padding: 0 4.25em;
   height: 492px;
   width: 100vw;

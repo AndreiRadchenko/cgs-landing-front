@@ -28,3 +28,15 @@ export const Subtitle = styled.h2`
     display: none;
   }
 `;
+
+export const BonusesAlign = styled.div`
+  @media ${themes.primary.media.maxPCFullHD} {
+    margin-top: -9.16em;
+  }
+  @media (max-width: 1050px) {
+    margin-top: -6em;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 17px;
+  }
+`;

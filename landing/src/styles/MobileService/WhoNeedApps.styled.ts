@@ -2,10 +2,8 @@
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-top: 10.8em;
-  padding-bottom: 8.5em;
+  margin-top: 144px;
   position: relative;
-  margin-bottom: 16.7em;
 
   &.withoutShowcase {
     margin-bottom: 12.9em;
@@ -57,6 +55,8 @@ export const Wrapper = styled.section`
 
 export const WhatDoWeUse = styled.div`
   display: flex;
+  gap: 10px;
+  align-items: center;
   position: relative;
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -65,6 +65,7 @@ export const WhatDoWeUse = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 70px;
+    flex-direction: column-reverse;
   }
 `;
 
@@ -180,6 +181,11 @@ export const ImageWrapper = styled.div`
       height: 500px;
     }
   }
+  @media ${themes.primary.media.maxMobile} {
+    &.whatDoWeUse {
+      width: 100%;
+    }
+  }
   @media ${themes.primary.media.maxLowScreenMobile} {
     height: 91vw;
     width: 100%;
@@ -193,4 +199,8 @@ export const ImageWrapper = styled.div`
 export const Image = styled.img`
   width: 500px;
   height: 500px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+  }
 `;

@@ -100,6 +100,6 @@ export const CardText = styled.p`
   line-height: 150%;
   margin: 0 0 10px 0;
   @media ${themes.primary.media.maxMobile} {
-    font-size: 14px;
+    font-size: 16px;
   }
 `;
