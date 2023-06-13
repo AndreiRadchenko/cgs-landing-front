@@ -2,15 +2,12 @@ import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceMobileAudit } from "../../types/Admin/Response.types";
-import crystal from "../../../public/MobileSevice/worthIt/crystal.svg";
-import cube from "../../../public/MobileSevice/worthIt/cube.svg";
-import cylinder from "../../../public/MobileSevice/worthIt/cylinder.svg";
-import secondTextPhoto from "../../../public/MobileSevice/worthIt/marketingTextPhoto.svg";
-import thirdTextPhoto from "../../../public/MobileSevice/worthIt/brandTextPhoto.svg";
 import * as Styled from "../../styles/MobileAuditService/WhatAppBlock.styled";
-import { useOnScreen } from "../../hooks/useOnScreen";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
-import WhatAppBlockItem from "./WhatAppBlockItem";
+import disk from "../../../public/MobileAuditService/disk.svg";
+import window from "../../../public/MobileAuditService/window.svg";
+import tree from "../../../public/MobileAuditService/tree.svg";
+import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 
 const WhatAppBlock = () => {
   const queryClient = useQueryClient();
@@ -18,31 +15,28 @@ const WhatAppBlock = () => {
     queryKeys.getServiceMobileAuditPage,
   ])?.whatAppBlock;
 
-  const textBlock = data?.textBlock;
-
-  const titleIllustrations = [crystal, cube, cylinder];
-  const textIllustrations = [null, secondTextPhoto, thirdTextPhoto];
+  const titleIllustration = [disk, tree, window];
 
   const elRef = useRef<HTMLDivElement>(null);
 
-  const isScrolled = useOnScreen(elRef, true);
-
   return (
     <Styled.Container>
-      <Styled.Title>{data?.subtitle}</Styled.Title>
       {data && <MobileInfiniteText title={data.subtitle} />}
       <Styled.ContentLayout ref={elRef}>
-        {textBlock &&
-          Object.values(textBlock).map((el, idx) => (
-            <WhatAppBlockItem
-              idx={idx}
-              content={el}
-              key={idx}
-              isScrolled={isScrolled}
-              textImg={textIllustrations[idx]}
-              titleImg={titleIllustrations[idx]}
-            />
-          ))}
+        <Styled.Title>{data?.subtitle}</Styled.Title>
+        <Styled.HaveContainer>
+          {data?.textBlock &&
+            Object.values(data.textBlock).map((item, idx) => (
+              <Styled.ItemApp key={`${item.subtitle}${idx}`}>
+                <Styled.Icon
+                  src={titleIllustration[idx].src}
+                  alt="worth it title image"
+                />
+                <h3>{item.subtitle}</h3>
+                <p>{item.text}</p>
+              </Styled.ItemApp>
+            ))}
+        </Styled.HaveContainer>
       </Styled.ContentLayout>
     </Styled.Container>
   );

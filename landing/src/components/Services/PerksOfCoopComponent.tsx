@@ -9,7 +9,13 @@ import cube from "../../../public/MobileSevice/worthIt/cube.svg";
 import cylinder from "../../../public/MobileSevice/worthIt/cylinder.svg";
 import { IWorthBlock } from "../../types/Admin/Response.types";
 
-const PerksOfCoopComponent = ({ data }: { data: IWorthBlock }) => {
+const PerksOfCoopComponent = ({
+  data,
+  className,
+}: {
+  data: IWorthBlock;
+  className?: string;
+}) => {
   const titleIllustration = [crystal, cube, cylinder];
 
   const { subtitle, ...blocks } = { ...data };
@@ -20,7 +26,9 @@ const PerksOfCoopComponent = ({ data }: { data: IWorthBlock }) => {
 
   return (
     <Styles.Container>
-      <Subtitle className={"perksTitle"}>{data?.subtitle}</Subtitle>
+      <Subtitle className={`perksTitle ${className}`}>
+        {data?.subtitle}
+      </Subtitle>
       <MobileInfiniteText withoutMargin title={data?.subtitle} />
       <Styles.ContentLayout>
         {dataWealth &&

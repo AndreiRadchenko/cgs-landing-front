@@ -22,6 +22,9 @@ export const Subtitle = styled.h2`
     font-size: 40px;
     width: 11.9em;
   }
+  &.mobileAudit {
+    width: 100%;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 2.4em;
