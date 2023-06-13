@@ -75,7 +75,6 @@ export const ArrowContainer = styled.div`
     width: 3.159em;
     height: 3.159em;
     border: 1.5px solid #000000;
-    margin-right: 1.7em;
 
     & svg path:nth-child(1) {
       transform: translateX(30px);

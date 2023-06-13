@@ -2,10 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-block: calc(
-      2 * ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks}
-    )
-    ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks};
+  margin-block: 10.4em 9.5em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: calc(
@@ -14,7 +11,7 @@ export const Wrapper = styled.section`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin-block: 6.25em 5.25em;
+    margin-block: 3.75em 6.25em;
   }
 `;
 
@@ -121,6 +118,10 @@ export const Description = styled.div`
   margin-top: 5px;
   font-size: 1.125em;
   line-height: 160%;
+
+  &.first {
+    max-width: 32.2em;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1em;

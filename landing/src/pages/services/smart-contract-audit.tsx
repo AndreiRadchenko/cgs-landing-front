@@ -19,6 +19,7 @@ import { adminDappAuditService } from "../../services/services/adminServicesDapp
 import { adminAiService } from "../../services/services/AdminServiceAiSolution";
 import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
 import { Loader, LoaderStub } from "../../components/Loader";
+import FigureOutBlock from "../../components/DappAuditService/FigureOutBlock";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -94,6 +95,7 @@ const DappAuditPage: NextPage = () => {
             <Layout>
               <Styled.Layout>
                 <HeadBlock />
+                <FigureOutBlock />
                 {data ? <PerksOfCoopComponent data={data.worthBlock} /> : null}
                 <HowDoProvideBlock />
               </Styled.Layout>
@@ -106,7 +108,10 @@ const DappAuditPage: NextPage = () => {
             )}
             <Layout>
               <Styled.Layout>
-                <TeamMembers teamMembers={data?.teamMembers} />
+                <TeamMembers
+                  className={"dappAuditTeam"}
+                  teamMembers={data?.teamMembers}
+                />
                 <FooterBlock />
               </Styled.Layout>
             </Layout>
