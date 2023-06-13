@@ -76,21 +76,3 @@ export const Subtitle = styled.h3`
     font-size: ${themes.primary.font.size.oneAndHalf};
   }
 `;
-
-export const Text = styled.div`
-  font-size: ${themes.primary.font.size.oneAndHalf};
-  line-height: 160%;
-  white-space: nowrap;
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.tertiary};
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: ${themes.primary.font.size.oneAndHalf};
-    white-space: pre-line;
-    br {
-      display: none;
-    }
-  }
-`;

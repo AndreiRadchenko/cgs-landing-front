@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
   position: relative;
-  margin-top: 9.375em;
+  margin-top: 7.8em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1em;
@@ -39,8 +39,12 @@ export const Title = styled.h1`
   text-transform: uppercase;
   font-size: 4.125em;
   font-weight: ${themes.primary.font.weight.heavy};
-  line-height: 120%;
+  line-height: 132%;
   max-width: 900px;
+
+  &.dappAuditTitle {
+    max-width: 12.3em;
+  }
 
   @media ${themes.primary.media.minPC} {
     max-width: 900px;
@@ -81,14 +85,16 @@ export const Title = styled.h1`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 2.375em;
+    font-size: 40px;
+    line-height: 48px;
   }
 `;
 
 export const Text = styled.p`
-  margin-block: 1.27em 2.36em;
+  margin-block: 0.9em 1.8em;
   font-size: 1.375em;
   line-height: 160%;
+  max-width: 28em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.25em;
@@ -119,13 +125,9 @@ export const Text = styled.p`
 export const ImageWrapper = styled.div`
   position: absolute;
   bottom: -1%;
-  right: 1.375em;
+  right: 1.25em;
   width: 597px;
   height: 524px;
-
-  @media (min-width: 1050px) {
-    right: 0.5em;
-  }
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 50%;
