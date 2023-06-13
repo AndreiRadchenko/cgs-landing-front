@@ -189,7 +189,7 @@ const BlogPage = () => {
   // }, [isMainSliderImageLoaded]);
 
   return (
-    <Loader active={!isMainSliderImageLoaded}>
+    <Loader active={false}>
       {data && views.data ? (
         <>
           <Head>
@@ -212,7 +212,7 @@ const BlogPage = () => {
               />
             )}
             <Styled.HeaderBlock>
-              <Styled.MainContainer>
+              {/* <Styled.MainContainer>
                 {reversedArticles && (
                   <BlogSwiper>
                     {reversedArticles.slice(0, 3).map((article, idx) => (
@@ -229,7 +229,7 @@ const BlogPage = () => {
                     ))}
                   </BlogSwiper>
                 )}
-              </Styled.MainContainer>
+              </Styled.MainContainer> */}
               <Styled.FlexColumnContainer className="header">
                 {reversedArticles &&
                   reversedArticles
@@ -312,9 +312,7 @@ const BlogPage = () => {
           </Styled.BlogContainer>
         </>
       ) : (
-        <Styled.LoaderContainer className={"loading"}>
-          <Loading src={loading.src} isLoading={true} />
-        </Styled.LoaderContainer>
+        <></>
       )}
     </Loader>
   );
