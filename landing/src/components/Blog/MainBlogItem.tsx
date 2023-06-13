@@ -31,7 +31,9 @@ const MainBlogItem = ({
 
   useEffect(() => {
     if (setIsMainSliderImageLoaded && onLoadCount === 1) {
-      setIsMainSliderImageLoaded(true);
+      setTimeout(() => {
+        setIsMainSliderImageLoaded(true);
+      }, 1000);
     }
   }, [onLoadCount]);
 
