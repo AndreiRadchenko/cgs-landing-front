@@ -372,7 +372,7 @@ export const HeadBlockRow = styled.section`
 `;
 
 interface ISubtitle {
-  homepageFooter: boolean;
+  homepageFooter?: boolean;
 }
 
 export const Subtitle = styled.div<ISubtitle>`
