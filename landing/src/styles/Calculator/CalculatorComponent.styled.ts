@@ -1236,7 +1236,7 @@ export const CalculatorFieldWrapper = styled.div`
     }
     @supports (-webkit-hyphens: none) {
       & #input-email {
-        padding-bottom: 23px;
+        padding-bottom: 21px;
 
         & #user-email {
           line-height: 46px;
