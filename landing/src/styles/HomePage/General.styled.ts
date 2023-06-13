@@ -405,7 +405,6 @@ export const Subtitle = styled.div<ISubtitle>`
       color: ${themes.primary.colors.darkBlue};
       height: 5vw;
       white-space: nowrap;
-      font-size: ${({ homepageFooter }) => homepageFooter && "32px"};
     }
 
     &.tech {
@@ -504,6 +503,7 @@ export const Subtitle = styled.div<ISubtitle>`
       }
 
       &.tech {
+        font-size: ${({ homepageFooter }) => homepageFooter && "8.5vw"};
         width: 5.8em;
         height: 5vw;
       }
