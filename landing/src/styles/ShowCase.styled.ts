@@ -72,8 +72,8 @@ export const ArrowContainer = styled.div`
   }
 
   &.prevBtn {
-    width: 38px;
-    height: 38px;
+    width: 3.159em;
+    height: 3.159em;
     border: 1.5px solid #000000;
 
     & svg path:nth-child(1) {
@@ -89,12 +89,12 @@ export const ArrowContainer = styled.div`
     }
   }
   &.nextBtn {
-    width: 93px;
-    height: 38px;
+    width: 6.63em;
+    height: 2.7em;
     background: ${themes.primary.colors.primary};
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
-    font-size: 14px;
+    font-size: 1.17em;
     line-height: 17px;
     text-transform: uppercase;
     color: ${themes.primary.colors.portfolioBg};
@@ -322,11 +322,11 @@ export const BottomSection = styled.div`
 `;
 
 export const ReadMore = styled.div`
-  padding: 8px 20px;
+  padding: 0.5em 1.245em;
   background: ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 16px;
+  font-size: 1.34em;
   line-height: 160%;
   text-transform: uppercase;
   cursor: pointer;
@@ -343,7 +343,7 @@ export const AllProjects = styled.div`
   align-items: center;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 18px;
+  font-size: 1.5em;
   line-height: 120%;
   color: ${themes.primary.colors.primary};
   cursor: pointer;

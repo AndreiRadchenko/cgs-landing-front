@@ -10,7 +10,7 @@ interface ScrollBar {
 }
 
 export const Wrapper = styled.div`
-  margin-top: 12.4em;
+  margin-top: 13.2em;
   margin-bottom: 11.65em;
   display: flex;
   justify-content: space-between;
@@ -130,6 +130,7 @@ export const ScrollContainer = styled.div`
 `;
 
 export const ScrollItem = styled.div<LastItem>`
+<<<<<<< HEAD
   font-size: 20px;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
@@ -138,6 +139,16 @@ export const ScrollItem = styled.div<LastItem>`
   padding: 11px 0 9px 14px;
   border-bottom: ${({ lastItem }) =>
     lastItem ? "1px solid rgb(192, 191, 192)" : "none"};
+=======
+    font-size: 1.667em;
+    font-family: ${themes.primary.font.family.namu};
+    font-weight: ${themes.primary.font.weight.heavy};
+    line-height: 32px;
+    border-top: 1px solid rgb(192, 191, 192);
+    padding: 11px 0 9px 14px;
+    border-bottom:   ${({ lastItem }) =>
+      lastItem ? "1px solid rgb(192, 191, 192)" : "none"};
+>>>>>>> staging
 
   @media (max-width: 400px) {
     padding: 10px 0 8px 10px;
@@ -147,6 +158,7 @@ export const ScrollItem = styled.div<LastItem>`
 `;
 
 export const ScrollbarContainer = styled.div`
+<<<<<<< HEAD
   position: sticky;
   top: 0;
   width: 6px;
@@ -180,6 +192,42 @@ export const ScrollbarContainer = styled.div`
     top: 188px;
     height: 155px;
   }
+=======
+    position: sticky;
+    width: 6px;
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    margin-right: 32px;
+
+    @media (min-width: 769px) {
+        top: 0;
+    }
+
+    @media (max-width: 1200px) {
+        margin-right: 15px;
+    }
+
+    @media (max-width: 768px) {
+        position: absolute;
+        right: 10px;
+        margin-top: 35px;
+        height: 184px;
+    }
+
+    @media (max-width: 766px) {
+        height: 185px;
+    }
+
+    @media (max-width: 475px) {
+        margin-top: 17px;
+        height: 185px;
+    }
+
+    @media (max-width: 400px) {
+        margin-right: 5px;
+        height: 155px;
+    }
+>>>>>>> staging
 `;
 
 export const Scrollbar = styled.div<ScrollBar>`
