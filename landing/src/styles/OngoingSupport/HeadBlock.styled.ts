@@ -48,7 +48,7 @@ export const Title = styled.h1`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
-    width: 108.5%;
+    width: 100%;
   }
 
   & > span:last-child {
@@ -71,8 +71,8 @@ export const Title = styled.h1`
 export const Description = styled.p`
   font-size: 1.375em;
   line-height: 160%;
-  max-width: 30em;
-  margin: 1.275em 0 2.32em;
+  max-width: 27.19em;
+  margin: 1.275em 0 1.85em;
 
   @media (max-width: 992px) {
     font-size: 20px;
@@ -80,7 +80,7 @@ export const Description = styled.p`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 1.625em 0 1.75em;
+    margin: 1em 0 2.1em;
   }
 `;
 
@@ -104,7 +104,7 @@ export const Image = styled.img`
     position: relative;
     width: 22.125em;
     height: auto;
-    top: -3em;
+    top: -2em;
     left: -0.81em;
   }
 `;
