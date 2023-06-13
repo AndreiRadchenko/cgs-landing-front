@@ -127,12 +127,11 @@ const BlogPage = () => {
         !filters.includes(tagParams as string) &&
         setFilters([...filters, tagParams as string]);
       setCurrentPage(currentPage);
-      // if (tagParams) {
-      //   scrollHandler();
-      // }
+      if (tagParams) {
+        scrollHandler();
+      }
     }
-    // }, [tagParams, scrollHandler, router.query.page, data, articles, filters]);
-  }, [tagParams, router.query.page, data, articles, filters]);
+  }, [tagParams, scrollHandler, router.query.page, data, articles, filters]);
 
   const currentArticlesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * BlogPageSize;
@@ -150,19 +149,19 @@ const BlogPage = () => {
       return views.data.find((view) => view.articleUrl === url)?.views;
   };
 
-  // useEffect(() => {
-  //   if (router.query.page !== "1" && filters.length) {
-  //     setIsLoading(true);
-  //     setCurrentPage(1);
-  //     router.push("/blog?page=1").then(() => {
-  //       setIsLoading(false);
-  //       scrollHandler();
-  //     });
-  //   }
-  // }, [filters.length]);
+  useEffect(() => {
+    if (router.query.page !== "1" && filters.length) {
+      setIsLoading(true);
+      setCurrentPage(1);
+      router.push("/blog?page=1").then(() => {
+        setIsLoading(false);
+        scrollHandler();
+      });
+    }
+  }, [filters.length]);
 
   useEffect(() => {
-    // if (router.query.page) scrollHandler();
+    if (router.query.page) scrollHandler();
 
     if (router.query.filters) {
       if (typeof router.query.filters === "string") {
@@ -171,8 +170,7 @@ const BlogPage = () => {
         setFilters(router.query.filters);
       }
     }
-    // }, [router.query.page, router.query.filters, scrollHandler]);
-  }, [router.query.page, router.query.filters]);
+  }, [router.query.page, router.query.filters, scrollHandler]);
 
   return (
     <Loader active={!isMainSliderImageLoaded}>
