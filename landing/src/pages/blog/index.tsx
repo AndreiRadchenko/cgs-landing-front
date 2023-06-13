@@ -60,13 +60,14 @@ export async function getServerSideProps() {
 const BlogPage = () => {
   const router = useRouter();
 
-  const { data, isLoading: areBlogsLoading }: IBlogPageData = useQuery(
-    [queryKeys.getBlogPage],
-    () => adminBlogService.getBlogPageData()
+  const { data }: IBlogPageData = useQuery([queryKeys.getBlogPage], () =>
+    adminBlogService.getBlogPageData()
   );
 
-  const { data: articles, isLoading: areArticlesLoading }: IArticlesData =
-    useQuery([queryKeys.getBlogArticles], () => adminBlogService.getArticles());
+  const { data: articles }: IArticlesData = useQuery(
+    [queryKeys.getBlogArticles],
+    () => adminBlogService.getArticles()
+  );
 
   const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
@@ -126,11 +127,12 @@ const BlogPage = () => {
         !filters.includes(tagParams as string) &&
         setFilters([...filters, tagParams as string]);
       setCurrentPage(currentPage);
-      if (tagParams) {
-        scrollHandler();
-      }
+      // if (tagParams) {
+      //   scrollHandler();
+      // }
     }
-  }, [tagParams, scrollHandler, router.query.page, data, articles, filters]);
+    // }, [tagParams, scrollHandler, router.query.page, data, articles, filters]);
+  }, [tagParams, router.query.page, data, articles, filters]);
 
   const currentArticlesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * BlogPageSize;
@@ -148,19 +150,19 @@ const BlogPage = () => {
       return views.data.find((view) => view.articleUrl === url)?.views;
   };
 
-  useEffect(() => {
-    if (router.query.page !== "1" && filters.length) {
-      setIsLoading(true);
-      setCurrentPage(1);
-      router.push("/blog?page=1").then(() => {
-        setIsLoading(false);
-        scrollHandler();
-      });
-    }
-  }, [filters.length]);
+  // useEffect(() => {
+  //   if (router.query.page !== "1" && filters.length) {
+  //     setIsLoading(true);
+  //     setCurrentPage(1);
+  //     router.push("/blog?page=1").then(() => {
+  //       setIsLoading(false);
+  //       scrollHandler();
+  //     });
+  //   }
+  // }, [filters.length]);
 
   useEffect(() => {
-    if (router.query.page) scrollHandler();
+    // if (router.query.page) scrollHandler();
 
     if (router.query.filters) {
       if (typeof router.query.filters === "string") {
@@ -169,29 +171,11 @@ const BlogPage = () => {
         setFilters(router.query.filters);
       }
     }
-  }, [router.query.page, router.query.filters, scrollHandler]);
-
-  useEffect(() => {
-    console.log("Loaded Main Image: ", isMainSliderImageLoaded);
-  }, [isMainSliderImageLoaded]);
-
-  useEffect(() => {
-    console.log("Loaded Articles: ", areArticlesLoading);
-  }, [areArticlesLoading]);
-
-  useEffect(() => {
-    console.log("Loaded Blog: ", areBlogsLoading);
-  }, [areBlogsLoading]);
+    // }, [router.query.page, router.query.filters, scrollHandler]);
+  }, [router.query.page, router.query.filters]);
 
   return (
-    <Loader
-      active={
-        !isMainSliderImageLoaded ||
-        !views.data ||
-        areArticlesLoading ||
-        areBlogsLoading
-      }
-    >
+    <Loader active={!isMainSliderImageLoaded}>
       {data && views.data ? (
         <>
           <Head>
