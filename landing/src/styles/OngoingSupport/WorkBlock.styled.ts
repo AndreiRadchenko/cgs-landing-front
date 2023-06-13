@@ -42,7 +42,7 @@ export const TextWrapper = styled.div`
 export const Subtitle = styled.p`
   font-size: ${themes.primary.font.size.linkText};
   font-weight: ${themes.primary.font.weight.heavy};
-  line-height: 160%;
+  line-height: 120%;
   display: grid;
   grid-template-rows: 1.5fr 1fr;
   margin: 0;
@@ -76,10 +76,11 @@ export const Text = styled.p`
 `;
 
 export const Svg = styled.img`
-  max-width: 1.8em;
+  max-width: 1.92em;
+  margin-bottom: 16px;
 
   @media ${themes.primary.media.maxMobile} {
-    max-width: 1.5em;
+    max-width: 2.15em;
     left: 0;
   }
 `;

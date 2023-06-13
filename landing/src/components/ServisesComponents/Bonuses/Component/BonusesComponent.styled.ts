@@ -3,7 +3,7 @@ import themes from "../../../../utils/themes";
 
 export const Container = styled.div`
   margin-top: 7.5em;
-  margin-bottom: 11.66em;
+  margin-bottom: 13.6em;
   padding: 0 4.25em;
   width: 100vw;
   margin-left: -4.25em;
