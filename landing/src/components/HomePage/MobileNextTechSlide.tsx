@@ -35,7 +35,11 @@ const MobileNextTechSlide = ({
 
   return (
     <Link href={`/services/${mobileServicesRoutes[idx]}`} passHref>
-      <StyledThisComp.ServiceLink ref={elRef}>
+      <StyledThisComp.ServiceLink
+        target="_blank"
+        rel="noopener noreferrer"
+        ref={elRef}
+      >
         <StyledThisComp.ServiceWrapper>
           <TextTypingAnimation text={convertedTitle} startPoint={isOnScreen} />
           <StyledThisComp.ImageWrapper>
