@@ -371,7 +371,11 @@ export const HeadBlockRow = styled.section`
   }
 `;
 
-export const Subtitle = styled.div`
+interface ISubtitle {
+  homepageFooter: boolean;
+}
+
+export const Subtitle = styled.div<ISubtitle>`
   text-transform: uppercase;
   font-size: 5.14vw;
   letter-spacing: 0.05em;
@@ -401,6 +405,7 @@ export const Subtitle = styled.div`
       color: ${themes.primary.colors.darkBlue};
       height: 5vw;
       white-space: nowrap;
+      font-size: ${({ homepageFooter }) => homepageFooter && "32px"};
     }
 
     &.tech {
