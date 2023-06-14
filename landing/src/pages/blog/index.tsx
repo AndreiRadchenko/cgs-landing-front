@@ -172,6 +172,10 @@ const BlogPage = () => {
     }
   }, [router.query.page, router.query.filters, scrollHandler]);
 
+  useEffect(() => {
+    console.log("Things are happening!");
+  }, []);
+
   return (
     <Loader active={!isMainSliderImageLoaded}>
       {data && views.data ? (
