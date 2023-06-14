@@ -4,20 +4,11 @@ import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
 export const Container = styled.section`
-  /* margin-top: 11.875em; */
   margin-top: 14.125em;
   display: flex;
   position: relative;
-  /* ::after {
-    content: "";
-    width: 150%;
-    margin-left: -30px;
-    height: 1px;
-    background-color: #8f8e93;
-  } */
   @media ${themes.primary.media.maxMobile} {
     display: block;
-    /* margin-top: 1.5em; */
     margin-top: 5em;
     ::after {
       content: "";
@@ -60,7 +51,7 @@ export const TextWrapper = styled.div`
 export const Subtitle = styled.p`
   font-size: ${themes.primary.font.size.linkText};
   font-weight: ${themes.primary.font.weight.heavy};
-  line-height: 160%;
+  line-height: 120%;
   display: grid;
   grid-template-rows: 1.5fr 1fr;
   margin: 0;
@@ -79,6 +70,8 @@ export const Text = styled.p`
   font-size: 1em;
   line-height: 160%;
   margin: 0;
+  padding: 0;
+  height: auto;
   max-width: 19.45em;
 
   @media (max-width: 992px) {
@@ -94,10 +87,11 @@ export const Text = styled.p`
 `;
 
 export const Svg = styled.img`
-  max-width: 1.8em;
+  width: 43px;
+  height: 43px;
+  margin-bottom: 0.714em;
 
   @media ${themes.primary.media.maxMobile} {
-    max-width: 1.5em;
     left: 0;
   }
 `;
@@ -116,7 +110,8 @@ export const Wrapper = styled.div<ISlide>`
   margin-left: 2.5em;
   position: relative;
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 5px;
 
   @media (max-width: 1200px) {
     width: 14em;
@@ -129,9 +124,6 @@ export const Wrapper = styled.div<ISlide>`
   @media ${themes.primary.media.maxMobile} {
     margin: 0;
     grid-template-rows: 1fr 0.7fr;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
     opacity: 0;
 
     &.scrolled {

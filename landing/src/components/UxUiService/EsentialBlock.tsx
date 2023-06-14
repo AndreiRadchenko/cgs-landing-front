@@ -7,7 +7,7 @@ import * as Styled from "../../styles/UxUiService/EssentialBlock.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import TextTypingAnimation from "../Typewrite";
-import EssentialImage from "./EssentialImage";
+import Image from "next/image";
 
 const EssentialBlock = () => {
   const { width } = useWindowDimension();
@@ -17,12 +17,19 @@ const EssentialBlock = () => {
     queryKeys.getServiceUxUiPage,
   ])?.essentialBlock;
   const elRef = useRef<HTMLDivElement>(null);
-
+  console.log(data?.image.url);
   const isScrolled = useOnScreen(elRef, true);
   return (
     <Styled.Container>
       <Styled.ImageWrapper>
-        <EssentialImage />
+        <div style={{ position: "relative", width: "100%", height: "100%" }}>
+          <Image
+            src={data?.image ? data.image.url : ""}
+            alt="Essential Image"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
       </Styled.ImageWrapper>
       <Styled.ContentWrapper>
         {data && (
