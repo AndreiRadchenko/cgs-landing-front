@@ -20,6 +20,7 @@ const FooterBlock = () => {
         <Styled.SubtitleWrapper>
           <VisibleSubtitle>{data?.subtitle}</VisibleSubtitle>
         </Styled.SubtitleWrapper>
+        <Styled.TextWrapper>{data?.text}</Styled.TextWrapper>
         {data && (
           <Styled.ButtonWrapper ref={elRef}>
             <GetEstimationButton
