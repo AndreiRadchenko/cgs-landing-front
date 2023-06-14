@@ -84,10 +84,10 @@ export const Title = styled.h2`
 
 export const MobileTitle = styled.div`
   &.blockchainTeam {
-    margin-top: 9em;
+    margin-top: 7.7em;
   }
   &.supportTeam {
-    margin-top: 3em;
+    margin-top: 2.27em;
   }
 `;
 

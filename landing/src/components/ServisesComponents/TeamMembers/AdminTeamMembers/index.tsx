@@ -112,7 +112,7 @@ const TeamMembers = <T extends ITeamMembersComponent>() => {
   };
 
   return (
-    <>
+    <div style={{marginBottom: 50}}>
       <Styled.Wrapper>
         <Styled.TextBlock>
           <Styled.Subtitle>Subtitle</Styled.Subtitle>
@@ -179,7 +179,7 @@ const TeamMembers = <T extends ITeamMembersComponent>() => {
           <ButtonArrow />
         </ArrowContainer>
       </BlackButton>
-    </>
+    </div>
   );
 };
 
