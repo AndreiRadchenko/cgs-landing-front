@@ -932,6 +932,12 @@ export interface IServiceWebAudit {
     text: string;
     image: { url: string };
   };
+  problemsAuditSolve: {
+    subtitle: string;
+    text: string;
+    problems: [string];
+  };
+  teamMembers: TeamMembers;
   typesOfAuditBlock: [{ _id: string; title: string; text: string }];
   projects: [string];
   howToDoAudit: {

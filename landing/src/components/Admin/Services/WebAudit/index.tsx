@@ -10,6 +10,8 @@ import HeaderBlock from "./HeaderBlock";
 import HowToDoBlock from "./HowToDoBlock";
 import TypesBlock from "./TypesBlock";
 import WhatIsBlock from "./WhatIsBlock";
+import ProblemsAuditSolve from "./ProblemsAuditSolve";
+import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
 
 const ServiceWebAuditContentBlock = () => {
   return (
@@ -17,7 +19,9 @@ const ServiceWebAuditContentBlock = () => {
       <AdminBlocksContent>
         <HeaderBlock />
         <WhatIsBlock />
+        <ProblemsAuditSolve />
         <TypesBlock />
+        <TeamMembers />
         <ServiceShowCase noMargin />
         <HowToDoBlock />
         <BringYourAppBlock />

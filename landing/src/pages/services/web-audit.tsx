@@ -22,6 +22,7 @@ import {
 } from "../../styles/WebAuditService/ShowcaseLayoutIgnore.styled";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";
+import { TeamMembers } from "../../components/ServisesComponents";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -96,6 +97,7 @@ const WebAuditPage: NextPage = () => {
               <WhatIsAuditBlock />
               <WhichProblemBlock />
               <TypesOfAuditBlock />
+              <TeamMembers teamMembers={data?.teamMembers} />
               {data?.projects ? (
                 <ShowcaseLayoutIgnore>
                   <ShowCase
