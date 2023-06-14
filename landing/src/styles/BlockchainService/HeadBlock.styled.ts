@@ -82,7 +82,7 @@ export const Description = styled.p`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     max-width: 95%;
-    margin: 2.5em 0 1.75em;
+    margin: 1em 0 1.75em;
   }
 
   @media (max-width: 475px) {

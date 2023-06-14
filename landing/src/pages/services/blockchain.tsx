@@ -20,6 +20,7 @@ import NeedsAppsBenefitComponent from "../../components/Services/NeedsAppsBenefi
 import Advantages from "../../components/ServisesComponents/Advantages/AdvantagesComponent/index";
 import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
 import { Loader, LoaderStub } from "../../components/Loader";
+import { useMediaQuery } from "@mui/material";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -95,17 +96,21 @@ const BlockchainService = () => {
             <Layout>
               <Styled.Layout>
                 <HeadBlock />
-                <ServicesBlock />
+                <ServicesBlock className={"blockchainServices"}/>
                 <YourWayBlock />
               </Styled.Layout>
-              <TeamMembers teamMembers={data?.teamMembers} />
+              <TeamMembers 
+              className={"blockchainTeam"}
+              teamMembers={data?.teamMembers} />
             </Layout>
             <ShowCase
               setIsFirstImageLoaded={setIsFirstImageLoaded}
               projects={data?.projects}
             />
             <Layout>
-              <Advantages advantages={data?.advantages} />
+              <Advantages 
+              className={"blockchainAdvantages"}
+              advantages={data?.advantages} />
               <>{data && <NeedsAppsBenefitComponent data={data} />}</>
               <Styled.Layout className="mobile-visivble">
                 <FooterBlock />

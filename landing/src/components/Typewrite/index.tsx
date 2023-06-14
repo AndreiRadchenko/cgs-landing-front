@@ -79,7 +79,7 @@ function TextTypingAnimation({ text, startPoint }: ITextTypingAnimationProps) {
       <Styled.DisplayedPart>
         {formattedDisplayed.map((el, idx) =>
           idx !== formattedDisplayed.length - 1 ? (
-            <Fragment key={idx}>{parse(`<span>${el}</span><br/ >`)}</Fragment>
+            <Fragment key={idx}><Styled.FirstPart>{parse(`<span>${el}</span><br/ >`)}</Styled.FirstPart></Fragment>
           ) : (
             <Styled.LastPart
               className={formattedHidden.length === 1 ? "last-part" : undefined}

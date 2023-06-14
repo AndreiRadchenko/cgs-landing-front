@@ -7,7 +7,11 @@ import * as Styled from "../../styles/BlockchainService/ServicesBlock.styled";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
-const ServicesBlock = () => {
+interface ServicesProps {
+  className?: string;
+}
+
+const ServicesBlock = (className: ServicesProps) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IBlockchainService>([
     queryKeys.getServiceBlockchainPage,
