@@ -13,6 +13,7 @@ import WhatDoWeUse from "./WhatDoWeUse";
 import WhoNeedApps from "./WhoNeedApps";
 import WorthBlock from "./WorthBlock";
 import BlockDropdown from "../../BlockDropdown";
+import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 
 const ServiceMobileContentBlock = () => {
   const { handleSubmit } = useFormikContext();
@@ -34,7 +35,11 @@ const ServiceMobileContentBlock = () => {
       <ServiceShowCase />
       <HowDoWeWork />
       <FooterBlock />
-      <TeamMembers />
+      <AdminPaddedBlock>
+        <AdminBlockDropDown title="TEAM MEMBERS">
+          <TeamMembers />
+        </AdminBlockDropDown>
+      </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/mobile-app-development" />
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>

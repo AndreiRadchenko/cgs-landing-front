@@ -81,7 +81,9 @@ const TeamMembers = ({ teamMembers, className }: ITeamMembersProps) => {
 
   return (
     <>
-      <MobileInfiniteText title={title} />
+      <Styled.MobileTitle className={className}>
+        <MobileInfiniteText title={title} />
+      </Styled.MobileTitle>
       <Styled.Wrapper ref={wrapperRef} className={className}>
         <Styled.TextContainer>
           <Styled.Title>{title}</Styled.Title>

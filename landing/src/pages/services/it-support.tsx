@@ -101,7 +101,7 @@ const OngoingSupport = () => {
               </Styled.Layout>
               <BonusesComponent bonuses={data?.bonuses} />
             </Layout>
-            <div style={{marginBottom: is768px ? '0em' : '-17em'}}>
+            <div style={{marginBottom: is768px ? '0em' : '-17em', marginTop: is768px ? '-1.8em' : '0em'}}>
             <ShowCase
               setIsFirstImageLoaded={setIsFirstImageLoaded}
               projects={data?.projects}
@@ -115,7 +115,6 @@ const OngoingSupport = () => {
               </Styled.Layout>
             </Layout>
           </PageArticle>
-
           <FooterNew />
         </>
       )}

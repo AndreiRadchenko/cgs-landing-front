@@ -35,7 +35,7 @@ export const Wrapper = styled.div`
     display: block;
 
     &.blockchainTeam {
-      margin-top: 10px;
+      margin-top: 0px;
     }
   }
 
@@ -67,6 +67,13 @@ export const Title = styled.h2`
     display: none;
   }
 `;
+
+export const MobileTitle = styled.div`
+  &.blockchainTeam {
+    margin-top: 10px;
+  }
+`;
+
 
 export const Description = styled.div`
   font-size: 1.5em;

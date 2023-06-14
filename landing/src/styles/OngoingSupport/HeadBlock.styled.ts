@@ -49,6 +49,7 @@ export const Title = styled.h1`
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
     width: 100%;
+    height: 144px;
   }
 
   & > span:last-child {

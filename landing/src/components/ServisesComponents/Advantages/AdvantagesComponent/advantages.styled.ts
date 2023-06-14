@@ -11,13 +11,7 @@ export const Wrapper = styled.div`
   margin-bottom: 14.75em;
   width: 100%;
 
-  @media (min-width: 1921px) {
-    &.blockchainAdvantages {
-      margin-top: 100px;
-    }
-  }
-
-  @media (max-width: 1920px) {
+  @media (min-width: 1920px) {
     &.blockchainAdvantages {
       margin-top: 100px;
     }

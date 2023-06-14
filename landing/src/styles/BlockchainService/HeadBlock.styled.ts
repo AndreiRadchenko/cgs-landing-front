@@ -38,11 +38,17 @@ export const Title = styled.h1`
   margin: 0;
   text-transform: uppercase;
   font-weight: inherit;
+  width: 12.3em;
+  height: 2.7em;
 
   span:first-child {
     br {
       display: none;
     }
+  }
+
+  @media (min-width: 1920px) {
+    height: 4em;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
@@ -51,7 +57,9 @@ export const Title = styled.h1`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
-    line-height: 100%;
+    line-height: 48px;
+    width: 100%;
+    height: 145px;
     
     & .last-part {
       top: 14px;
@@ -70,6 +78,10 @@ export const Description = styled.p`
   line-height: 160%;
   margin: 1em 0 1.9em;
   max-width: 600px;
+
+  @media (min-width: 1920px) {
+    margin-top: -3em;
+  }
 
   @media ${themes.primary.media.minPC} {
     max-width: 40%;
