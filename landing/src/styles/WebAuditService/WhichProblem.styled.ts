@@ -4,6 +4,8 @@ import themes from "../../utils/themes";
 export const Wrapper = styled.section`
   margin-top: 201px;
   position: relative;
+  display: flex;
+  gap: 32px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
@@ -11,6 +13,7 @@ export const Wrapper = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
+    flex-direction: column;
 
     &:before {
       content: "";
@@ -29,8 +32,7 @@ export const Subtitle = styled.h3`
   font-size: ${themes.primary.font.size.webAuditSubtitle};
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 0.775em 0;
-  padding-bottom: 20vw;
+  margin: 0 0 0.5em 0;
 
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.webAuditSubtitlePC};
@@ -54,18 +56,49 @@ export const Subtitle = styled.h3`
   }
 `;
 
-export const Image = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 28vw;
+export const Text = styled.p`
+  font-size: 1.5em;
+  line-height: 160%;
+  font-weight: ${themes.primary.font.weight.heavy};
 
   @media ${themes.primary.media.maxMobile} {
-    position: relative;
-    top: 0;
-    right: 20px;
-    width: 100vw;
-    height: 100vw;
+    br {
+      display: none;
+    }
+  }
+`;
+
+export const TextContainer = styled.div`
+  max-width: 41em;
+`;
+
+export const ProblemsContainer = styled.div`
+  width: 100%;
+  padding: 5.8em 4.2em;
+  background: linear-gradient(
+    90deg,
+    ${themes.primary.colors.gradientColor1RateCard} 0%,
+    ${themes.primary.colors.gradientColor2RateCard} 100%
+  );
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.3em;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+    padding: 22px 20px;
+    margin-inline: -20px;
+    width: 113%;
+  }
+`;
+
+export const ProblemContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  span {
+    font-size: 1.5em;
+    font-weight: ${themes.primary.font.weight.heavy};
   }
 `;
