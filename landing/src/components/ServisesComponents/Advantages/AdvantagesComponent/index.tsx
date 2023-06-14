@@ -7,9 +7,10 @@ import { IAdvantagesServicesComponent } from "../../../../types/ServicesComponen
 
 interface IAdvantagesProps {
     advantages?: IAdvantagesServicesComponent;
+    className?: string;
 }
 
-const Advantages = ({ advantages }: IAdvantagesProps) => {
+const Advantages = ({ advantages, className }: IAdvantagesProps) => {
     const elRef = useRef<HTMLDivElement>(null);
     const isScrolled = useOnScreen(elRef, true);
 
@@ -21,7 +22,7 @@ const Advantages = ({ advantages }: IAdvantagesProps) => {
     });
 
     return (
-        <Styled.Wrapper>
+        <Styled.Wrapper className={className}>
             <Styled.Title>{advantages?.title}</Styled.Title>
             <Styled.Content>
                 <Styled.Numbers>

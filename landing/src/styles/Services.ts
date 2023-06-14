@@ -270,6 +270,7 @@ export const WhoNeedSubText = styled.p`
 
     padding: 0;
     margin-top: 0.6em;
+    margin-bottom: -3px;
   }
 `;
 

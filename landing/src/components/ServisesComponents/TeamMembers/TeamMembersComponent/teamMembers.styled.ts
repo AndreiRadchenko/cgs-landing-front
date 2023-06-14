@@ -21,6 +21,10 @@ export const Wrapper = styled.div`
     margin-top: 0.5em;
   }
 
+  &.blockchainTeam {
+    margin-top: 12.45em;
+  }
+
   ::-webkit-scrollbar {
     display: none;
   }
@@ -28,6 +32,10 @@ export const Wrapper = styled.div`
   @media (max-width: 768px) {
     margin-top: 0;
     display: block;
+
+    &.blockchainTeam {
+      margin-top: 10px;
+    }
   }
 
   @media (max-width: 400px) {

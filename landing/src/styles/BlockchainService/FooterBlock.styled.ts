@@ -67,7 +67,7 @@ export const Image = styled.img`
   @media ${themes.primary.media.maxMobile} {
     width: 18.44em;
     height: auto;
-    bottom: 3em;
+    bottom: 1.56em;
     right: -0.9em;
   }
 `;
