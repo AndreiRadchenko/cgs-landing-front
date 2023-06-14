@@ -101,23 +101,29 @@ const MobileAuditService = () => {
           <HeaderNavNew />
           <>
             <Layout>
-              <HeadBlock />
+              <Styled.Layout>
+                <HeadBlock />
+              </Styled.Layout>
               <WhatAppBlock />
-              <WhatAppIncludeBlock />
-              {dataAudit && (
-                <PerksOfCoopComponent
-                  className={"mobileAudit"}
-                  data={dataAudit as any}
-                />
-              )}
+              <Styled.Layout>
+                <WhatAppIncludeBlock />
+                {dataAudit && (
+                  <PerksOfCoopComponent
+                    className={"mobileAudit"}
+                    data={dataAudit as any}
+                  />
+                )}
+              </Styled.Layout>
             </Layout>
             <ShowCase
               setIsFirstImageLoaded={setIsFirstImageLoaded}
               projects={data?.projects}
             />
             <Layout>
-              <HowDoWeAuditBlock />
-              <FooterBlock />
+              <Styled.Layout>
+                <HowDoWeAuditBlock />
+                <FooterBlock />
+              </Styled.Layout>
             </Layout>
           </>
           <FooterNew />
