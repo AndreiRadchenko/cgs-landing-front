@@ -66,6 +66,7 @@ export const Description = styled.p`
   font-size: 1.375em;
   line-height: 160%;
   margin: 1.279em 0 2.365em;
+  max-width: 27.3em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.175em;
@@ -84,6 +85,7 @@ export const Description = styled.p`
     font-size: 1em;
     max-width: 95%;
     margin: 1.5em 0 1.75em;
+    max-width: 100%;
   }
 `;
 
