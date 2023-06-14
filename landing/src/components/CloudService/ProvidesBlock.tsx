@@ -27,7 +27,7 @@ const ProvidesBlock = ({ className }: IServicesClassnameProps) => {
   return (
     <Styled.Container className={className}>
       <Subtitle>{subtitle}</Subtitle>
-      <MobileInfiniteText title={subtitle} />
+      <MobileInfiniteText withoutMargin title={subtitle} />
       <Styled.BGImage src={cloudProvidesBgi.src} />
       <Styled.BGImageMobile src={cloudProvidesMobile.src} alt="bg image" />
       <Styled.BlockWrapper ref={elRef}>

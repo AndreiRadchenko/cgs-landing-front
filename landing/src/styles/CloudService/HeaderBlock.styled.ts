@@ -46,9 +46,9 @@ export const Title = styled.h1`
   margin: 0;
   white-space: nowrap;
 
-  br {
+  /* br {
     display: none;
-  }
+  } */
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
@@ -64,12 +64,12 @@ export const Title = styled.h1`
 export const Description = styled.p`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 1.28em 0 2.365em;
+  margin: 1.28em 0 1.81em;
   max-width: 27.27em;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 0.75em 0 1.75em;
+    margin: 18px 0 1.75em;
   }
 `;
 

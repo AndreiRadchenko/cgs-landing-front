@@ -29,23 +29,15 @@ const ServiceCloudContentBlock = () => {
         <AdminBlockDropDown title="TEAM PROVIDES">
           <ProvidesBlock />
         </AdminBlockDropDown>
-      </AdminPaddedBlock>
-
-      <div style={{ marginTop: "-3.8em" }}>
-        <ServiceShowCase />
-      </div>
-      <div style={{ marginInline: "40px" }}>
+        <AdminBlockDropDown title="SHOWCASE">
+          <ServiceShowCase />
+        </AdminBlockDropDown>
         <AdminBlockDropDown title={"Why it's worth it?"}>
           <WorthBlock />
         </AdminBlockDropDown>
-      </div>
-      <AdminPaddedBlock>
         <AdminBlockDropDown title="TEAM MEMBERS">
           <TeamMembers />
         </AdminBlockDropDown>
-      </AdminPaddedBlock>
-
-      <AdminPaddedBlock style={{ margin: "-3em 0 0", paddingTop: "0" }}>
         <AdminBlockDropDown title="FREE SERVICES">
           <FreeServices />
         </AdminBlockDropDown>
