@@ -26,9 +26,11 @@ const ServiceMobileContentBlock = () => {
           <FreeServices />
         </AdminBlockDropDown>
       </AdminPaddedBlock>
-      <div style={{ marginTop: "-40px" }}>
-        <TeamMembers />
-      </div>
+      <AdminPaddedBlock>
+        <AdminBlockDropDown title="TEAM MEMBERS">
+          <TeamMembers />
+        </AdminBlockDropDown>
+      </AdminPaddedBlock>
       <FooterBlock />
       <MetaTagsBlock theme="dark" sitemap="services/web-development" />
       <AdminPaddedBlock>
