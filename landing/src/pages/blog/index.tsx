@@ -4,6 +4,7 @@ import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { SwiperSlide } from "swiper/react";
+import { animateScroll as scroll, scroller } from "react-scroll";
 
 import { IArticle } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
@@ -25,7 +26,6 @@ import { BlogSwiper } from "../../components/Blog/BlogSlider/BlogSlider";
 import { Loader } from "../../components/Loader";
 
 import loading from "../../../public/CareerDecorations/loading.svg";
-import { useScrollTo } from "../../hooks/useScrollTo";
 import { isNumeric } from "../../utils/isNumeric";
 import { Loading } from "../../components/CareersForm/Form/Form.styled";
 import { IArticlesData, IBlogPageData } from "../../types/Blog.types";
@@ -71,7 +71,6 @@ const BlogPage = () => {
 
   const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
-  const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
   const [reversedArticles, setReversedArticles] = useState<IArticle[] | null>(
     null
   );
@@ -82,6 +81,16 @@ const BlogPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isMainSliderImageLoaded, setIsMainSliderImageLoaded] =
     useState<boolean>(false);
+  const [pageNumber, setPageNumber] = useState("");
+
+  const scrollFunc = () => {
+    scroller.scrollTo("articles-container", {
+      duration: 0,
+      delay: 0,
+      smooth: false,
+      offset: 0,
+    });
+  };
 
   useEffect(() => {
     articles &&
@@ -128,10 +137,10 @@ const BlogPage = () => {
         setFilters([...filters, tagParams as string]);
       setCurrentPage(currentPage);
       if (tagParams) {
-        scrollHandler();
+        scrollFunc();
       }
     }
-  }, [tagParams, scrollHandler, router.query.page, data, articles, filters]);
+  }, [tagParams, scrollFunc, router.query.page, data, articles, filters]);
 
   const currentArticlesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * BlogPageSize;
@@ -155,13 +164,19 @@ const BlogPage = () => {
       setCurrentPage(1);
       router.push("/blog?page=1").then(() => {
         setIsLoading(false);
-        scrollHandler();
+        scrollFunc();
       });
     }
   }, [filters.length]);
 
   useEffect(() => {
-    if (router.query.page) scrollHandler();
+    if (router.query.page && !Array.isArray(router.query.page)) {
+      if (router.query.page !== pageNumber) {
+        scrollFunc();
+      }
+
+      setPageNumber(router.query.page);
+    }
 
     if (router.query.filters) {
       if (typeof router.query.filters === "string") {
@@ -170,11 +185,7 @@ const BlogPage = () => {
         setFilters(router.query.filters);
       }
     }
-  }, [router.query.page, router.query.filters, scrollHandler]);
-
-  useEffect(() => {
-    console.log("Things are happening!");
-  }, []);
+  }, [router.query.page, router.query.filters, scrollFunc]);
 
   return (
     <Loader active={!isMainSliderImageLoaded}>
@@ -233,7 +244,10 @@ const BlogPage = () => {
             </Styled.HeaderBlock>
             <PodcastItem data={data.podcast} />
             {(articles && (
-              <Styled.AllArticlesContainer articles={articles.length}>
+              <Styled.AllArticlesContainer
+                id="articles-container"
+                articles={articles.length}
+              >
                 <DropdownContainer>
                   <>
                     {filters.length > 0 &&
@@ -266,7 +280,7 @@ const BlogPage = () => {
                 {currentArticlesData &&
                   currentArticlesData.map((article, i) =>
                     i === 0 ? (
-                      <div ref={ref} key={article._id}>
+                      <div key={article._id}>
                         <BlogItem
                           article={article}
                           views={findViews(article.url)}
