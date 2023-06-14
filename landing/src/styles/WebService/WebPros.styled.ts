@@ -78,7 +78,7 @@ export const BgMobileImage = styled.img`
 
   @media ${themes.primary.media.maxMobilePortrait} {
     height: 97%;
-    top: 4.4em;
+    top: 5.4em;
   }
 `;
 

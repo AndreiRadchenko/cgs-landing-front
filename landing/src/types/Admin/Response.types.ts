@@ -540,9 +540,12 @@ export interface IServiceWeb {
   footerBlock: {
     subtitle: string;
     button: string;
+    text: string;
     buttonLink: string;
     image: { url: string };
   };
+  teamMembers: ITeamMembers;
+  freeServices: IFreeServicesComponent;
   meta: IMetaBlock;
 }
 
