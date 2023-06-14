@@ -29,7 +29,7 @@ export const Subtitle = styled.h2`
 
 export const ShowCaseAlign = styled.div`
   @media ${themes.primary.media.maxPCFullHD} {
-    margin-bottom: -9.33em;
+    margin-bottom: -5em;
   }
   @media (max-width: 1055px) {
     margin-bottom: 0;

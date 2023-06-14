@@ -13,7 +13,6 @@ import WorthBlock from "./WorthBlock";
 import ProvidesBlock from "./ProvidesBlock";
 import FooterBlock from "./FooterBlock";
 import ServiceShowCase from "../../ServiceShowCase";
-import BlockDropdown from "../../BlockDropdown";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
 import FreeServices from "../../../ServisesComponents/FreeServices/AdminComponent";
 
@@ -30,19 +29,15 @@ const ServiceCloudContentBlock = () => {
         <AdminBlockDropDown title="TEAM PROVIDES">
           <ProvidesBlock />
         </AdminBlockDropDown>
-      </AdminPaddedBlock>
-
-      <div style={{ marginTop: "-3.8em" }}>
-        <ServiceShowCase />
-      </div>
-      <div style={{ marginInline: "40px" }}>
+        <AdminBlockDropDown title="SHOWCASE">
+          <ServiceShowCase />
+        </AdminBlockDropDown>
         <AdminBlockDropDown title={"Why it's worth it?"}>
           <WorthBlock />
         </AdminBlockDropDown>
-      </div>
-      <TeamMembers />
-
-      <AdminPaddedBlock style={{ margin: "-3em 0 0", paddingTop: "0" }}>
+        <AdminBlockDropDown title="TEAM MEMBERS">
+          <TeamMembers />
+        </AdminBlockDropDown>
         <AdminBlockDropDown title="FREE SERVICES">
           <FreeServices />
         </AdminBlockDropDown>

@@ -1,11 +1,14 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { ICloudService } from "../../types/Admin/Response.types";
-import { queryKeys } from "../../consts/queryKeys";
-import * as Styled from "../../styles/CloudService/HeaderBlock.styled";
+
+import { SplitBrackets } from "../../utils/splitBrackets";
 import TextTypingAnimation from "../Typewrite";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+
+import { ICloudService } from "../../types/Admin/Response.types";
+import { queryKeys } from "../../consts/queryKeys";
+import * as Styled from "../../styles/CloudService/HeaderBlock.styled";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -20,7 +23,9 @@ const HeadBlock = () => {
         <Styled.Title>
           {data && <TextTypingAnimation text={data?.title} />}
         </Styled.Title>
-        <Styled.Description>{data?.text}</Styled.Description>
+        <Styled.Description>
+          <SplitBrackets text={data?.text} />
+        </Styled.Description>
         {data && (
           <Styled.ButtonWrapper ref={elRef}>
             <GetEstimationButton

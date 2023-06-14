@@ -38,13 +38,6 @@ const FooterBlock = () => {
               />
             </div>
           ))}
-          <SubHeaderWithInput
-            onChangeFunction={handleChange}
-            header={`Footer text`}
-            inputValue={values.footerBlock.text}
-            name={`footerBlock.text`}
-            minRows={3}
-          />
         </div>
         <PhotoBlockDashed
           photo={image}
