@@ -3,13 +3,17 @@ import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin-block: 8.75em 10.625em;
+  margin-block: 8.75em 9.625em;
   /* margin: 140px 0 163px; */
   padding-bottom: 20px;
   position: relative;
 
   &.withoutShowcase {
     margin-bottom: 12.5em;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    padding-bottom: 40px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -19,15 +23,11 @@ export const Container = styled.section`
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 0;
     margin-top: 7.5em;
-    margin-bottom: 7.5em;
+    margin-bottom: 6.5em;
 
     &.withoutShowcase {
       padding-bottom: 3.75em;
     }
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    padding-bottom: 40px;
   }
 `;
 

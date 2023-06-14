@@ -3,9 +3,7 @@ import themes from "../../utils/themes";
 import { essentialImageShake } from "../Animations.styled";
 
 export const Container = styled.section`
-  /* margin: 0 2.1em 0 1.56em; */
   margin: 8.75em 0 0;
-  /* margin: 140px 0; */
   display: flex;
   position: relative;
 
@@ -31,22 +29,23 @@ export const Container = styled.section`
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  width: 27.5em;
+  width: 30.5vw;
+  height: 20vw;
+  left: 0.625em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 25em;
     left: -2em;
     top: 2em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 20em;
     top: 12em;
   }
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
-    width: 20.44em;
+    width: 100%;
+    height: 216px;
     top: 0;
     left: 0;
   }
@@ -78,10 +77,11 @@ export const EssentialPopoverGroup = styled.g`
 export const ContentWrapper = styled.div`
   padding-top: 1.125em;
   padding-right: 0.8em;
-  margin-left: auto;
+  margin-left: calc(30.5vw + 5em);
   max-width: 55%;
 
   @media ${themes.primary.media.maxMobile} {
+    margin-left: 0;
     padding: 0;
     max-width: 100%;
   }

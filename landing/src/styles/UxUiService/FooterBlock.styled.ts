@@ -27,7 +27,7 @@ export const Container = styled.section`
 `;
 
 export const ContentWrapper = styled.div`
-  max-width: 61%;
+  max-width: 66%;
 
   @media ${themes.primary.media.maxMobile} {
     max-width: 100%;

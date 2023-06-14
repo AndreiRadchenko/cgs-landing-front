@@ -24,6 +24,7 @@ export const BonusItem = ({
     easing: "linear",
     isExpanded: isOpen,
     collapsedHeight: 0,
+    duration: 300,
   });
   return (
     <Styles.Card>
