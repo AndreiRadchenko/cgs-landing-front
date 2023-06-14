@@ -26,8 +26,18 @@ export const Wrapper = styled.div`
     margin-top: 12.45em;
   }
 
+  &.supportTeam {
+    margin-top: 16em;
+  }
+
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (min-width: 1920px) {
+    &.supportTeam {
+      margin-top: 20em;
+    }
   }
 
   @media (max-width: 768px) {
@@ -37,6 +47,10 @@ export const Wrapper = styled.div`
     &.blockchainTeam {
       margin-top: 0px;
     }
+
+    &.supportTeam {
+    margin-top: 0;
+  }
   }
 
   @media (max-width: 400px) {
@@ -70,7 +84,10 @@ export const Title = styled.h2`
 
 export const MobileTitle = styled.div`
   &.blockchainTeam {
-    margin-top: 10px;
+    margin-top: 9em;
+  }
+  &.supportTeam {
+    margin-top: 3em;
   }
 `;
 

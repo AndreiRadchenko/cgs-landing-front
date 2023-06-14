@@ -108,7 +108,7 @@ const OngoingSupport = () => {
             />
             </div>
             <Layout>
-              <TeamMembers teamMembers={data?.teamMembers} />
+              <TeamMembers teamMembers={data?.teamMembers} className={"supportTeam"}/>
               <OtherServices otherServices={data?.otherServices} />
               <Styled.Layout>
                 <FooterBlock />
