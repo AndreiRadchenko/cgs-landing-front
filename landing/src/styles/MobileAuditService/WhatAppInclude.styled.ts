@@ -222,7 +222,7 @@ export const GlassItem = styled.div<{ top: number; left: number; }>`
   top: 20%;
 
   translate: ${props => props.left}px ${props => props.top}px; 
-  transition: 0.1s linear;
+  transition: 0.05s linear;
 
   @media (min-width: 2561px) {
     top: 35%;
