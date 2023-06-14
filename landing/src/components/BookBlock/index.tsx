@@ -47,7 +47,7 @@ const BookBlock = () => {
 
   return (
     <FooterSection>
-      <Subtitle className="foooter">
+      <Subtitle className="foooter" homepageFooter={true}>
         {subtitleText && parse(subtitleText.title, options)}
       </Subtitle>
 

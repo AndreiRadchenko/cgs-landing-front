@@ -6,6 +6,7 @@ import * as Styled from "../../styles/OngoingSupport/HeadBlock.styled";
 import TextTypingAnimation from "../Typewrite";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -20,7 +21,9 @@ const HeadBlock = () => {
         <Styled.Title>
           {data && <TextTypingAnimation text={data?.title} />}
         </Styled.Title>
-        <Styled.Description>{data?.text}</Styled.Description>
+        <Styled.Description>
+          <SplitBrackets text={data?.text} />
+        </Styled.Description>
         {data && (
           <Styled.ButtonWrapper ref={elRef}>
             <GetEstimationButton

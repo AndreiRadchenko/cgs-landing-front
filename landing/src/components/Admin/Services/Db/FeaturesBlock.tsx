@@ -1,14 +1,30 @@
 import { useFormikContext } from "formik";
 import React from "react";
+
+import ButtonArrow from "../../../../utils/ButtonArrow";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../../styles/HomePage/General.styled";
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { IServiceDb } from "../../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import * as Styled from "../../../../styles/AdminPage";
 
 const FeaturesBlock = () => {
-  const { values, handleChange } = useFormikContext<IServiceDb>();
+  const { values, handleChange, handleSubmit } = useFormikContext<IServiceDb>();
+
+  const handleClick = () => handleSubmit();
+
   return (
     <AdminPaddedBlock theme="dark">
+      <SubHeaderWithInput
+        header="Title"
+        inputValue={values.featuresBlock.subtitle}
+        onChangeFunction={handleChange}
+        name="featuresBlock.subtitle"
+        width="48%"
+      />
       <AdminHalfGrid>
         <div>
           <SubHeaderWithInput
@@ -55,6 +71,19 @@ const FeaturesBlock = () => {
           })}
         </div>
       </AdminHalfGrid>
+      <div>
+        <BlackButton
+          size={"1.5em"}
+          padding={"1.11em 3em"}
+          style={{ marginTop: "1.33em" }}
+          onClick={handleClick}
+        >
+          Save Changes
+          <ArrowContainer>
+            <ButtonArrow />
+          </ArrowContainer>
+        </BlackButton>
+      </div>
     </AdminPaddedBlock>
   );
 };

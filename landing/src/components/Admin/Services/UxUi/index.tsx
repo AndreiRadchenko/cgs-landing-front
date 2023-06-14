@@ -5,7 +5,6 @@ import {
   AdminBigButton,
   AdminPaddedBlock,
   AdminHeader,
-  AdminBlocksContent,
 } from "../../../../styles/AdminPage";
 import AdminBlockDropDown from "../../../Admin/Global/AdminBlockDropDown";
 import MetaTagsBlock from "../../MetaTagsBlock";
@@ -43,7 +42,11 @@ const ServiceUxUiContentBlock = () => {
       <div style={{ marginTop: "-3.8em" }}>
         <ServiceShowCase />
       </div>
-      <TeamMembers />
+      <AdminPaddedBlock>
+        <AdminBlockDropDown title="TEAM MEMBERS">
+          <TeamMembers />
+        </AdminBlockDropDown>
+      </AdminPaddedBlock>
 
       <AdminPaddedBlock style={{ margin: "-3em 0 0", paddingTop: "0" }}>
         <AdminBlockDropDown title="OTHER SERVICES">

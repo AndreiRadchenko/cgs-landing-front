@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 
 export const ContentWrapper = styled.section`
   position: relative;
-  padding-bottom: 15.6875em;
+  padding-bottom: 8em;
 
   @media ${themes.primary.media.maxMobile} {
     padding: 0;
@@ -16,6 +16,13 @@ export const ContentWrapper = styled.section`
 export const TitleWrapper = styled.div`
   max-width: 80%;
   margin-bottom: 3.1875em;
+
+  p {
+    max-width: 38.5em;
+    font-size: 1.5em;
+    line-height: 160%;
+  }
+
   & br {
     display: none;
   }
@@ -26,6 +33,11 @@ export const TitleWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 2.125em;
+
+    p {
+      max-width: 100%;
+      font-size: 18px;
+    }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -45,8 +57,8 @@ export const ButtonWrapper = styled.div`
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  top: 12%;
-  right: 4.5625em;
+  top: -5%;
+  right: 0.5em;
   width: 457px;
   height: 323px;
 

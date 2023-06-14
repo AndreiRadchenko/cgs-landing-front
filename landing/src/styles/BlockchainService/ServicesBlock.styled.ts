@@ -91,8 +91,8 @@ export const SubTextContainer = styled.div`
     height: 500px;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 475px;
-    height: 330px;
+    width: 385px;
+    height: 267px;
     margin-left: -1.2em;
   }
   @media ${themes.primary.media.maxLowestScreenMobile} {
@@ -210,10 +210,10 @@ export const SubText = styled.p<ISlide>`
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 1em;
     padding-left: 3.5em;
-    margin-bottom: 32px;
+    margin-bottom: 22px;
 
     &:first-child {
-      padding-top: 9px;
+      padding-top: 0px;
     }
   }
 
@@ -224,7 +224,7 @@ export const SubText = styled.p<ISlide>`
 `;
 
 export const DescriptionContainer = styled.div`
-  margin-top: 12.5em;
+  margin-top: 7.5em;
   padding: 0 2.75em;
   display: flex;
   justify-content: center;
@@ -282,5 +282,9 @@ export const Description = styled.div`
     p {
       display: block;
     }
+  }
+
+  @media (max-width: 475px) {
+    margin-top: 1em;
   }
 `;

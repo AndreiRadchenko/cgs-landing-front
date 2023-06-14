@@ -1,17 +1,26 @@
 import { useFormikContext } from "formik";
 import React from "react";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
+import ButtonArrow from "../../../../utils/ButtonArrow";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../../styles/HomePage/General.styled";
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
-import { IImage } from "../../../../types/Admin/Admin.types";
-import { IServiceDb } from "../../../../types/Admin/Response.types";
 import { renderInputs } from "../../../../utils/renderInputs";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+import { IImage } from "../../../../types/Admin/Admin.types";
+import { IServiceDb } from "../../../../types/Admin/Response.types";
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 
 const FooterBlock = () => {
-  const { values, handleChange } = useFormikContext<IServiceDb>();
+  const { values, handleChange, handleSubmit } = useFormikContext<IServiceDb>();
   const deleteMainImage = useDeleteImageFunction(values.footerBlock);
   const uploadMainImage = useUploadImageFunction(values.footerBlock);
+
+  const handleClick = () => handleSubmit();
+
   return (
     <AdminPaddedBlock className="withoutMargin">
       <AdminHalfGrid>
@@ -30,6 +39,19 @@ const FooterBlock = () => {
           deleteFlag={true}
         />
       </AdminHalfGrid>
+      <div>
+        <BlackButton
+          size={"1.5em"}
+          padding={"1.11em 3em"}
+          style={{ marginTop: "1.33em" }}
+          onClick={handleClick}
+        >
+          Save Changes
+          <ArrowContainer>
+            <ButtonArrow />
+          </ArrowContainer>
+        </BlackButton>
+      </div>
     </AdminPaddedBlock>
   );
 };

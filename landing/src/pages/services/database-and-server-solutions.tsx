@@ -2,22 +2,28 @@ import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import parse from "html-react-parser";
 import { useQuery, QueryClient, dehydrate } from "@tanstack/react-query";
-import * as Styled from "../../styles/DbService/Layout";
 import Head from "next/head";
+
 import HeadBlock from "../../components/DbService/HeadBlock";
-import ExpertiseBlock from "../../components/DbService/ExpertiseBlock";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminDbService } from "../../services/services/adminServicesDbPage";
+import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import SelectBlock from "../../components/DbService/SelectBlock";
 import FeaturesBlock from "../../components/DbService/FeaturesBlock";
 import FooterBlock from "../../components/DbService/FooterBlock";
-import { Layout, PageArticle } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
+import {
+  BonusesComponent,
+  OtherServices,
+} from "../../components/ServisesComponents";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";
+
+import * as Styled from "../../styles/DbService/Layout";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
+import { queryKeys } from "../../consts/queryKeys";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -28,6 +34,10 @@ export async function getServerSideProps() {
 
   await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
+  );
+
+  await queryClient.prefetchQuery([queryKeys.getPortfolio], () =>
+    adminPortfolioService.getReviews()
   );
 
   return {
@@ -46,6 +56,7 @@ const DbSolutions: NextPage = () => {
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getPortfolio], () => adminPortfolioService.getReviews());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
@@ -91,7 +102,7 @@ const DbSolutions: NextPage = () => {
             <Layout>
               <Styled.Layout>
                 <HeadBlock />
-                <ExpertiseBlock />
+                <FeaturesBlock />
                 <SelectBlock
                   className={
                     data && data.projects.length === 0
@@ -105,9 +116,11 @@ const DbSolutions: NextPage = () => {
               setIsFirstImageLoaded={setIsFirstImageLoaded}
               projects={data?.projects}
             />
+            <Styled.BonusesAlign />
             <Layout>
+              <BonusesComponent bonuses={data?.bonuses} />
+              <OtherServices otherServices={data?.otherServices} />
               <Styled.Layout>
-                <FeaturesBlock />
                 <FooterBlock />
               </Styled.Layout>
             </Layout>

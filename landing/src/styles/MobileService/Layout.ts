@@ -20,6 +20,10 @@ export const Subtitle = styled.h2`
   &.perksTitle,
   &.needDomain {
     font-size: 40px;
+    width: 11.9em;
+  }
+  &.mobileAudit {
+    width: 100%;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {

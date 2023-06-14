@@ -2,7 +2,7 @@
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  padding-top: 13.19em;
+  padding-top: 1em;
   display: flex;
   justify-content: space-between;
   padding-bottom: 15.75em;
@@ -54,6 +54,16 @@ export const Image = styled.img`
 export const SubtitleWrapper = styled.div`
   margin-bottom: 2.5em;
   max-width: 65%;
+
+  @media ${themes.primary.media.maxServiceWeb} {
+    font-size: 0.85em;
+  }
+`;
+
+export const TextWrapper = styled.div`
+  margin-bottom: 2.5em;
+  max-width: 38.5em;
+  font-size: 1.5em;
 
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 0.85em;

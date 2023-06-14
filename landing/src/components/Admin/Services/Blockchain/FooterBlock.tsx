@@ -15,7 +15,6 @@ const FooterBlock = () => {
   const { image, ...blocks } = values.footerBlock;
 
   return (
-    <AdminPaddedBlock>
       <AdminHalfGrid>
         {renderInputs({
           props: { name: "footerBlock" },
@@ -30,7 +29,6 @@ const FooterBlock = () => {
           deleteFlag={true}
         />
       </AdminHalfGrid>
-    </AdminPaddedBlock>
   );
 };
 

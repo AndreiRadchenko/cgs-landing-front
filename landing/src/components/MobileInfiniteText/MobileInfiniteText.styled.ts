@@ -44,6 +44,11 @@ export const MovingText = styled.div`
     &.withoutMargin {
       margin-bottom: 0 !important;
     }
+
+    &.webDev {
+      margin-left: -35%;
+      width: 140%;
+    }
   }
 
   @media ${themes.primary.media.minMobile} {

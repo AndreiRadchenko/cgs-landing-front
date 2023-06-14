@@ -26,6 +26,6 @@ export const Layout = styled.div`
 export const TeamMembersAlign = styled.div`
   margin-top: -12.32em;
   @media ${themes.primary.media.maxMobile} {
-    margin-top: -8.5em;
+    margin-top: 1.8em;
   }
 `;

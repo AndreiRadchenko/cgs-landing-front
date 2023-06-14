@@ -7,6 +7,7 @@ import { Picture } from "./VerticalSlider/Picture";
 
 import * as Styles from "./OtherServices.styled";
 import { IOtherServicesComponent } from "../../../../types/ServicesComponent.types";
+import { SplitBrackets } from "../../../../utils/splitBrackets";
 
 interface IServicesProps {
   otherServices?: IOtherServicesComponent;
@@ -48,8 +49,8 @@ export const OtherServices = ({ otherServices }: IServicesProps) => {
         )}
       </Styles.Carousel>
       <Styles.Description>
-        <Styles.Title>{otherServices?.title.replace("|", "\n")}</Styles.Title>
-        <Styles.Text>{otherServices?.text}</Styles.Text>
+        <Styles.Title> <SplitBrackets text={otherServices?.title} /> </Styles.Title>
+        <Styles.Text> <SplitBrackets text={otherServices?.text} /> </Styles.Text>
       </Styles.Description>
     </Styles.Container>
   );

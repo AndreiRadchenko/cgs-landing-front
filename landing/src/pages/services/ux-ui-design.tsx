@@ -16,12 +16,14 @@ import {
 import FooterBlock from "../../components/UxUiService/FooterBlock";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import { Loader, LoaderStub } from "../../components/Loader";
 
 import * as Styled from "../../styles/UxUiService/Layout.styled";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminUxUiService } from "../../services/services/AdminServiceUxUiPage";
 import { adminGlobalService } from "../../services/adminHomePage";
+import { adminPortfolioService } from "../../services/adminPortfolioPage";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -34,6 +36,10 @@ export async function getServerSideProps() {
   await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );
+
+  await queryClient.prefetchQuery([queryKeys.getPortfolio], () =>
+    adminPortfolioService.getReviews()
+  );
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
@@ -43,7 +49,7 @@ export async function getServerSideProps() {
 
 const UxUiDesign = () => {
   const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
-  const { data } = useQuery(
+  const { data, isLoading } = useQuery(
     [queryKeys.getServiceUxUiPage],
     async () => await adminUxUiService.getUxUiServicePage()
   );
@@ -51,6 +57,7 @@ const UxUiDesign = () => {
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
+  useQuery([queryKeys.getPortfolio], () => adminPortfolioService.getReviews());
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 
@@ -75,45 +82,51 @@ const UxUiDesign = () => {
   }, []);
 
   return (
-    <>
-      {isCalendlySuccessfull && (
-        <CalendlyInfoModal
-          isOpen={isCalendlySuccessfull}
-          setIsCalendlySuccessfull={setIsCalendlySuccessfull}
-        />
-      )}
-      <Head>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        {customHead && parse(customHead)}
-      </Head>
-      <HeaderNavNew />
-      <PageArticle>
-        <Layout>
-          <Styled.Layout>
-            <HeadBlock />
-            <WhatDoWeDoBlock />
-            <EssentialBlock />
-            <DesignBlock withoutShowcase={data?.projects.length === 0} />
-          </Styled.Layout>
-        </Layout>
-        <ShowCase
-          setIsFirstImageLoaded={setIsFirstImageLoaded}
-          projects={data?.projects}
-        />
-        <Layout>
-          <Styled.TeamMembersAlign>
-            <TeamMembers teamMembers={data?.teamMembers} />
-          </Styled.TeamMembersAlign>
-          <OtherServices otherServices={data?.otherServices} />
+    <Loader active={isLoading || !isFirstImageLoaded}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : (
+        <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+            />
+          )}
+          <Head>
+            <title>{metaTitle}</title>
+            <meta name="description" content={metaDescription} />
+            {customHead && parse(customHead)}
+          </Head>
+          <HeaderNavNew />
+          <PageArticle>
+            <Layout>
+              <Styled.Layout>
+                <HeadBlock />
+                <WhatDoWeDoBlock />
+                <EssentialBlock />
+                <DesignBlock withoutShowcase={data?.projects.length === 0} />
+              </Styled.Layout>
+            </Layout>
+            <ShowCase
+              setIsFirstImageLoaded={setIsFirstImageLoaded}
+              projects={data?.projects}
+            />
+            <Layout>
+              <Styled.TeamMembersAlign>
+                <TeamMembers teamMembers={data?.teamMembers} />
+              </Styled.TeamMembersAlign>
+              <OtherServices otherServices={data?.otherServices} />
 
-          <Styled.Layout>
-            <FooterBlock />
-          </Styled.Layout>
-        </Layout>
-      </PageArticle>
-      <FooterNew />
-    </>
+              <Styled.Layout>
+                <FooterBlock />
+              </Styled.Layout>
+            </Layout>
+          </PageArticle>
+          <FooterNew />
+        </>
+      )}
+    </Loader>
   );
 };
 

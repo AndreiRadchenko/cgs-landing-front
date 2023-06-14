@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 export const Container = styled.section`
   margin-top: 18.31em;
   margin-left: 4.25em;
-  margin: 18.31em 0 9.625em 4.25em;
+  margin: 17.75em 0 6.625em 1.75em;
   position: relative;
   padding-bottom: 8em;
 
@@ -18,7 +18,7 @@ export const Container = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 0;
-    margin: 4.625em 0 4.375em;
+    margin: 150px 0 100px;
     &.withoutServices {
       margin-bottom: 5.625em;
     }

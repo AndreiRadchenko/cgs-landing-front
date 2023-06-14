@@ -28,7 +28,7 @@ const HowToProvideBlockItem = ({
           </Styled.OptionalText>
         </Styled.OptionalContainer>
       </Styled.ItemTitleContainer>
-      <Styled.Description>
+      <Styled.Description className={number === 1 ? "first" : undefined}>
         <SplitBrackets text={text} />
       </Styled.Description>
     </Styled.ItemContainer>

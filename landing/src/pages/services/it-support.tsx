@@ -21,6 +21,7 @@ import { Layout, PageArticle } from "../../styles/Layout.styled";
 import * as Styled from "../../styles/OngoingSupport/Layout";
 import OtherServices from "../../components/ServisesComponents/OtherServices/Component/OtherServices";
 import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
+import { useMediaQuery } from "@mui/material";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ export async function getServerSideProps() {
 
 const OngoingSupport = () => {
   const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
+  const is768px = useMediaQuery("(max-width:768px)");
 
   const { data, isLoading } = useQuery([queryKeys.getServiceSupportPage], () =>
     adminSupportService.getSupportServicePage()
@@ -99,19 +101,20 @@ const OngoingSupport = () => {
               </Styled.Layout>
               <BonusesComponent bonuses={data?.bonuses} />
             </Layout>
+            <div style={{marginBottom: is768px ? '0em' : '-17em', marginTop: is768px ? '-1.8em' : '0em'}}>
             <ShowCase
               setIsFirstImageLoaded={setIsFirstImageLoaded}
               projects={data?.projects}
             />
+            </div>
             <Layout>
-              <TeamMembers teamMembers={data?.teamMembers} />
+              <TeamMembers teamMembers={data?.teamMembers} className={"supportTeam"}/>
               <OtherServices otherServices={data?.otherServices} />
               <Styled.Layout>
                 <FooterBlock />
               </Styled.Layout>
             </Layout>
           </PageArticle>
-
           <FooterNew />
         </>
       )}

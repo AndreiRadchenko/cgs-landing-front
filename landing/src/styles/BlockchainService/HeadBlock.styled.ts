@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  margin-top: 7.6em;
+  margin-top: 7.75em;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
@@ -38,11 +38,17 @@ export const Title = styled.h1`
   margin: 0;
   text-transform: uppercase;
   font-weight: inherit;
+  width: 12.3em;
+  height: 2.7em;
 
   span:first-child {
     br {
       display: none;
     }
+  }
+
+  @media (min-width: 1920px) {
+    height: 4em;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
@@ -51,7 +57,9 @@ export const Title = styled.h1`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
-    line-height: 100%;
+    line-height: 48px;
+    width: 100%;
+    height: 145px;
     
     & .last-part {
       top: 14px;
@@ -68,8 +76,12 @@ export const Title = styled.h1`
 export const Description = styled.p`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 1.279em 0 2.365em;
+  margin: 1em 0 1.9em;
   max-width: 600px;
+
+  @media (min-width: 1920px) {
+    margin-top: -3em;
+  }
 
   @media ${themes.primary.media.minPC} {
     max-width: 40%;
@@ -82,13 +94,17 @@ export const Description = styled.p`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     max-width: 95%;
-    margin: 2.5em 0 1.75em;
+    margin: 1em 0 1.75em;
+  }
+
+  @media (max-width: 475px) {
+    max-width: 100%;
   }
 `;
 
 export const Image = styled.div`
   position: absolute;
-  top: -8.2em;
+  top: -7.79em;
   right: -5.3em;
   width: 42em;
 

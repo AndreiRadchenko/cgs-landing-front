@@ -1,6 +1,8 @@
 import React from "react";
 import { useCollapse } from "react-collapsed";
 
+import { SplitBrackets } from "../../../../../utils/splitBrackets";
+
 import * as Styles from "./BonusItem.styled";
 
 interface ICardProps {
@@ -22,6 +24,7 @@ export const BonusItem = ({
     easing: "linear",
     isExpanded: isOpen,
     collapsedHeight: 0,
+    duration: 300,
   });
   return (
     <Styles.Card>
@@ -53,7 +56,9 @@ export const BonusItem = ({
           </Styles.CardTitleImage>
         </Styles.CardTitle>
         <div {...getCollapseProps()}>
-          <Styles.CardText>{text}</Styles.CardText>
+          <Styles.CardText>
+            <SplitBrackets text={text} />
+          </Styles.CardText>
         </div>
       </Styles.CardContent>
     </Styles.Card>

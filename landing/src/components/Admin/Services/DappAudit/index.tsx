@@ -1,25 +1,35 @@
 import React from "react";
+
+import MetaTagsBlock from "../../MetaTagsBlock";
+import ServiceShowCase from "../../ServiceShowCase";
+import FigureOutTermsBlock from "./FigureOutTermsBlock";
+import HeadBlock from "./HeadBlock";
+import WorthBlock from "../Mobile/WorthBlock";
+import BlockDropdown from "../../BlockDropdown";
+import HowDoWeProvideBlock from "../AiSolutions/HowDoWeProvideBlock";
+import BringYourAppBlock from "../AiSolutions/BringYourAppBlock";
+import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
+
 import {
   AdminBlocksContent,
   MetaBlockWraper,
 } from "../../../../styles/AdminPage";
-import MetaTagsBlock from "../../MetaTagsBlock";
-import ServiceShowCase from "../../ServiceShowCase";
-import BringYourAppBlock from "./BringYourAppBlock";
-import FigureOutTermsBlock from "./FigureOutTermsBlock";
-import HeadBlock from "./HeadBlock";
-import HowDoWeProvideBlock from "./HowDoWeProvideBlock";
-import WhyIsDappsBlock from "./WhyIsDappsBlock";
+import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 
-const ServiceDappAuditContentBlock = () => {
+const ServiceAiSolutionsContentBlock = () => {
   return (
     <div>
       <AdminBlocksContent>
         <HeadBlock />
         <FigureOutTermsBlock />
-        <WhyIsDappsBlock />
+        <BlockDropdown title={"Why it's worth it?"}>
+          <WorthBlock />
+        </BlockDropdown>
         <HowDoWeProvideBlock />
-        <ServiceShowCase />
+        <ServiceShowCase noMargin />
+          <AdminBlockDropDown title="TEAM MEMBERS">
+            <TeamMembers />
+          </AdminBlockDropDown>
         <BringYourAppBlock />
       </AdminBlocksContent>
       <MetaBlockWraper>
@@ -29,4 +39,4 @@ const ServiceDappAuditContentBlock = () => {
   );
 };
 
-export default ServiceDappAuditContentBlock;
+export default ServiceAiSolutionsContentBlock;

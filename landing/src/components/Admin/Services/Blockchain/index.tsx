@@ -12,25 +12,39 @@ import BlockDropdown from "../../BlockDropdown";
 import WhoNeedApps from "../Mobile/WhoNeedApps";
 import Advantages from "../../../ServisesComponents/Advantages/AdminAdvantages";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
+import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 
 const ServiceBlockchainContentBlock = () => {
   const { handleSubmit } = useFormikContext();
 
   return (
     <div>
-      <HeadBlock />
-      <ServicesBlock />
-      <WayBlock />
-      <Advantages />
-      <TeamMembers />
-      <ServiceShowCase />
-      <AboutBlock />
-      <div style={{ marginInline: "40px" }}>
-        <BlockDropdown title={"Why it's worth it?"}>
+      <AdminPaddedBlock>
+        <AdminBlockDropDown title="HEAD BLOCK">
+          <HeadBlock />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="SERVICES BLOCK">
+          <ServicesBlock />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="WAY BLOCK">
+          <WayBlock />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="TEAM MEMBERS">
+          <TeamMembers />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="BLOCK OUR WORK">
+          <ServiceShowCase />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="ADVANTAGES">
+          <Advantages />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="WHO NEED APPS BLOCK">
           <WhoNeedApps />
-        </BlockDropdown>
-      </div>
-      <FooterBlock />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="FOOTER BLOCK">
+          <FooterBlock />
+        </AdminBlockDropDown>
+      </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/blockchain" />
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>

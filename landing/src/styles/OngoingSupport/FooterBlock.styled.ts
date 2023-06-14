@@ -9,6 +9,16 @@ export const Container = styled.section`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 5.56em;
     padding-bottom: 16.5em;
+    ::before {
+      content: "";
+      position: absolute;
+      top: -28px;
+      left: -30px;
+      width: 150%;
+      height: 1px;
+      background-color: #8f8e93;
+      color: black;
+    }
 
     & > a {
       font-size: 1em !important;
@@ -52,7 +62,7 @@ export const Text = styled.p`
 `;
 export const Image = styled.img`
   position: absolute;
-  right: 2.375em;
+  right: 0;
   bottom: 3.81em;
   width: 26.3em;
 

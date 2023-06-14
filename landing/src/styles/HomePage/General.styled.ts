@@ -48,9 +48,9 @@ export const BlackButton = styled.a<IFontSize>`
     justify-content: center;
     padding: 0;
     align-items: center;
-    min-width: 224px;
-    height: 58px;
-    font-size: 18px;
+    min-width: 12.45em;
+    height: 3.225em;
+    font-size: 1.125em;
   }
 
   &.cta-button {
@@ -371,7 +371,11 @@ export const HeadBlockRow = styled.section`
   }
 `;
 
-export const Subtitle = styled.div`
+interface ISubtitle {
+  homepageFooter?: boolean;
+}
+
+export const Subtitle = styled.div<ISubtitle>`
   text-transform: uppercase;
   font-size: 5.14vw;
   letter-spacing: 0.05em;
@@ -499,6 +503,7 @@ export const Subtitle = styled.div`
       }
 
       &.tech {
+        font-size: ${({ homepageFooter }) => homepageFooter && "8.5vw"};
         width: 5.8em;
         height: 5vw;
       }
@@ -712,7 +717,7 @@ export const WhatsAppWrapper = styled.div`
   align-items: center;
   column-gap: 0.444em;
   color: ${themes.primary.colors.primary};
-  font-size: 18px;
+  font-size: 1.125em;
 
   &:hover {
     color: ${themes.primary.colors.darkBlue};
@@ -734,7 +739,7 @@ export const TelegramWrapper = styled.div`
   align-items: center;
   column-gap: 0.444em;
   color: ${themes.primary.colors.primary};
-  font-size: 18px;
+  font-size: 1.125em;
   transition: color 0.3s;
   margin-left: 0.778em;
 

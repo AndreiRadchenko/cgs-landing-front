@@ -11,8 +11,19 @@ export const Wrapper = styled.div`
   margin-bottom: 14.75em;
   width: 100%;
 
+  @media (min-width: 1920px) {
+    &.blockchainAdvantages {
+      margin-top: 100px;
+    }
+  }
+
+  @media (max-width: 1440px) {
+    margin-top: -17px;
+  }
+
   @media (max-width: 475px) {
-    margin-bottom: 6em;
+    margin-top: 2em;
+    margin-bottom: 3.5em;
   }
 `;
 
@@ -292,13 +303,13 @@ export const ContentItems = styled.div<ISlide>`
 
   @media (max-width: 1560px) {
       &:not(:first-child) {
-      margin-left: 1.8vw;
+      margin-left: 2.6vw;
       }
   }
 
   @media (max-width: 1440px) {
       &:not(:first-child) {
-      margin-left: 2.4vw;
+      margin-left: 3.8vw;
       }
   }
 

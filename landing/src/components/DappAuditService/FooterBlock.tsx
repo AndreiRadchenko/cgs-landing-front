@@ -8,19 +8,17 @@ import {
 import Image from "next/image";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { useQueryClient } from "@tanstack/react-query";
+import { IServiceAi } from "../../types/Admin/Response.types";
+import { queryKeys } from "../../consts/queryKeys";
 
 const FooterBlock = () => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IServiceAi>([
+    queryKeys.getServiceAiPage,
+  ])?.footerBlock;
+
   const elRef = useRef<HTMLDivElement>(null);
-  const data = {
-    title:
-      "Secure your dapp | and develop | a tokenomic model | with the CGS-team.",
-    button: "Start with a call",
-    buttonLink:
-      "https://calendly.com/d/dwn-9yc-22t/client-meets-daniel-and-tech-department",
-    image: {
-      url: "https://landing-cgs.s3.amazonaws.com/016fcfc8-0eaa-452d-a663-9b74d9b601e1.svg",
-    },
-  };
 
   return (
     <Styled.ContentWrapper>
@@ -39,6 +37,7 @@ const FooterBlock = () => {
                   )
               )}
           </Subtitle>
+          <p>{data?.text}</p>
         </Styled.TitleWrapper>
         {data && (
           <Styled.ButtonWrapper ref={elRef}>

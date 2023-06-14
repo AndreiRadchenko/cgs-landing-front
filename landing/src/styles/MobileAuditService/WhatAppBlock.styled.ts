@@ -1,33 +1,42 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import themes from "../../utils/themes";
-import { IIcon, ISlide } from "../../types/Decoration.types";
-import { float, slideRight } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin-top: 14.06em;
+  margin-top: 25em;
   @media ${themes.primary.media.maxMobile} {
     margin-block: 4em 3.375em;
   }
 `;
 
 export const Title = styled.h2`
+  margin: 0;
+  font-size: 3.3em;
+  font-weight: inherit;
+  line-height: 140%;
+  text-transform: uppercase;
+  max-width: 9.3em;
+
   @media ${themes.primary.media.maxMobile} {
     display: none;
     font-size: 1.5em;
     line-height: 132%;
   }
-  margin: 0;
-  font-size: 2.5em;
-  font-weight: inherit;
-  line-height: 140%;
-  text-transform: uppercase;
-  max-width: 13.75em;
+`;
+
+export const Icon = styled.img`
+  display: flex;
+  margin-right: 0.3em;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    animation: none;
+  }
 `;
 
 export const ContentLayout = styled.div`
   margin-top: 3.5em;
-  width: 98.4%;
+  width: 100%;
   display: flex;
+  gap: 2em;
 
   @media ${themes.primary.media.maxServiceWeb} {
     justify-content: space-between;
@@ -55,165 +64,37 @@ export const ContentLayout = styled.div`
   }
 `;
 
-export const WhatAppBlock = styled.div<ISlide>`
-  position: relative;
-  margin-left: 5px;
+export const HaveContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 40px;
+  flex: 1 1 33.33%;
+`;
 
-  &:nth-child(3) {
-    margin-left: 6%;
-    img {
-      top: 17%;
-      left: -43%;
+export const ItemApp = styled.div`
+  width: 285px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+
+  h3 {
+    font-weight: ${themes.primary.font.weight.heavy};
+    font-size: 1.85em;
+    line-height: 120%;
+  }
+  p {
+    font-size: 1.35em;
+    line-height: 160%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 335px;
+
+    h3 {
+      font-size: 22px;
     }
     p {
-      margin-left: 20px;
-    }
-
-    @media ${themes.primary.media.maxMobile} {
-      margin: 0;
-
-      p {
-        margin: 0;
-      }
-    }
-  }
-  &:nth-child(2) {
-    margin-left: 5%;
-    margin-top: 12%;
-    img {
-      top: 16%;
-      left: -65%;
-    }
-    p {
-      margin-left: 20px;
-      margin-bottom: 7px;
-    }
-
-    @media ${themes.primary.media.maxMobile} {
-      margin: 0;
-
-      p {
-        margin: 0;
-      }
-    }
-  }
-  @media ${themes.primary.media.maxServiceWeb} {
-    &:nth-child(3) {
-      margin-left: 2%;
-      img {
-        top: 17%;
-        left: -43%;
-      }
-      p {
-        margin-left: 20px;
-      }
-    }
-    &:nth-child(2) {
-      margin-left: 3%;
-      margin-top: 12%;
-      img {
-        top: 16%;
-        left: -65%;
-      }
-      p {
-        margin-left: 20px;
-      }
-    }
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    margin: 0;
-    opacity: 0;
-    &.scrolled {
-      animation: ${({ ind }) => css`
-        ${slideRight} 1.5s ${ind * 200}ms forwards
-      `};
-    }
-
-    &:nth-child(n) {
-      margin: 0;
-
-      p {
-        margin-left: 0;
-      }
-    }
-  }
-`;
-
-export const WhatAppTitleContainer = styled.div`
-  font-size: 1.5em;
-  letter-spacing: 0.05em;
-  display: flex;
-  column-gap: 11px;
-  align-items: center;
-  -webkit-text-stroke: 0.2px black;
-
-  @media (max-width: 1400px) {
-    font-size: 1.7em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.25em;
-    list-style: 160%;
-    column-gap: 5px;
-    width: 16em;
-  }
-`;
-
-export const BlockImage = styled.img`
-  position: absolute;
-
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
-  }
-`;
-
-export const Icon = styled.img<IIcon>`
-  display: flex;
-  margin-right: 0.3em;
-  animation: ${({ xOffset }) =>
-    css`
-      ${float(xOffset)} 3s infinite linear
-    `};
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    animation: none;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 1.6em;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 1em;
-  }
-`;
-
-export const WhatAppText = styled.p`
-  margin-top: 1.28em;
-  line-height: 160%;
-  margin-left: 10px;
-  font-size: 1.125em;
-
-  @media ${themes.primary.media.maxServiceMobile} {
-    br {
-      display: none;
-    }
-  }
-
-  @media ${themes.primary.media.maxServiceWeb} {
-    font-size: 1.2em;
-  }
-  @media ${themes.primary.media.minPC} {
-    font-size: 1.15em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
-    margin: 0;
-
-    & br {
-      display: none;
+      font-size: 16px;
     }
   }
 `;

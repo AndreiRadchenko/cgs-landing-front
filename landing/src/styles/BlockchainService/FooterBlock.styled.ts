@@ -42,8 +42,8 @@ export const Title = styled.h2`
 `;
 
 export const Description = styled.p`
-  width: 55vw;
-  font-size: 1.375em;
+  width: 60vw;
+  font-size: 1.5em;
   line-height: 160%;
   margin-block: 0 2em;
 
@@ -55,7 +55,7 @@ export const Description = styled.p`
 
 export const Image = styled.img`
   position: absolute;
-  right: 0;
+  right: -2em;
   bottom: 7.35em;
   width: 25.5em;
   height: 17em;
@@ -67,7 +67,7 @@ export const Image = styled.img`
   @media ${themes.primary.media.maxMobile} {
     width: 18.44em;
     height: auto;
-    bottom: 3em;
-    right: 0.44em;
+    bottom: 1.56em;
+    right: -0.9em;
   }
 `;

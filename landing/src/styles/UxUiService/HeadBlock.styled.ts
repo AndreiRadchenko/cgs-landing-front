@@ -7,7 +7,7 @@ export const Container = styled.section`
 `;
 
 export const ContentWrapper = styled.div`
-  padding-top: 9.56em;
+  padding-top: 9.3em;
   max-width: 50%;
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -67,9 +67,10 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.p`
-  margin: 1.63em 0 1.75em;
+  margin: 0.9em 0 1.75em;
   font-size: 1.375em;
   line-height: 160%;
+  width: 41.5vw;
 
   @media ${themes.primary.media.maxServiceWeb} {
     & br {
@@ -78,14 +79,16 @@ export const Description = styled.p`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     font-size: 1em;
   }
 `;
 
 export const Image = styled.img`
   position: absolute;
-  top: 5.31em;
-  right: -0.81em;
+  top: 4.31em;
+  right: 2.81em;
+  /* right: 0; */
   width: 35vw;
 
   @media ${themes.primary.media.maxTabletLandScape} {

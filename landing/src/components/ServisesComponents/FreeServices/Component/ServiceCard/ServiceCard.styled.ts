@@ -69,6 +69,7 @@ export const CardNumber = styled.p`
   @media ${themes.primary.media.maxMobile} {
     font-size: 42.5672px;
     line-height: 51px;
+    margin: 0 0 16px;
     text-shadow: 4.80597px 1.37313px 0px #000000,
       3.80597px 1.37313px 0px #000000;
     -webkit-text-stroke: 0.687px solid #000000;
@@ -81,6 +82,7 @@ export const CardTitle = styled.p`
   margin: 0 0 18px;
   @media ${themes.primary.media.maxMobile} {
     font-size: 18px;
+    margin: 0 0 10px;
   }
 `;
 
@@ -88,6 +90,8 @@ export const CardText = styled.p`
   font-size: 1.17em;
   line-height: 150%;
   margin: 0;
+  transform: translateY(0);
+  will-change: transform;
   @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
   }

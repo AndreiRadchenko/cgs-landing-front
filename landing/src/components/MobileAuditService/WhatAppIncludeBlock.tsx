@@ -114,7 +114,7 @@ const WhatAppIncludeBlock = () => {
         y: (targetPicturePosition?.top ?? 0) - glassCenterPosition.y,
       };
 
-      if (newPosition) {
+      if (newPosition && coordinates.x == initialCoordinates.x && coordinates.y == initialCoordinates.y) {
         setCoordinates(newPosition);
         const iconKey = targetIcon?.key;
         setActiveIcon(iconKey || '');
@@ -123,12 +123,9 @@ const WhatAppIncludeBlock = () => {
   };
 
   const onMouseOut = () => {
-    setHoverOut(true)
     setActiveIcon('');
-    setCoordinates(initialCoordinates);
-    setTimeout(() => {
-      setHoverOut(false)
-    }, 150);
+    setCoordinates(initialCoordinates);  
+    setHoverOut(false)
   };
 
   return (

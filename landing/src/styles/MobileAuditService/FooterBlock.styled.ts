@@ -44,6 +44,7 @@ export const Description = styled.p`
   font-size: 1.375em;
   line-height: 160%;
   margin-block: 0 1.91em;
+  max-width: 42em;
 
   @media ${themes.primary.media.minPCFullHD} {
   }
@@ -57,10 +58,10 @@ export const Description = styled.p`
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  top: -5em;
-  right: 8.75em;
-  width: 496px;
-  height: 441px;
+  top: -7em;
+  right: 6em;
+  width: 430px;
+  height: 395px;
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 40%;

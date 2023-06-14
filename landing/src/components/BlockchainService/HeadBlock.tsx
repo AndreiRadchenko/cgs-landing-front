@@ -9,6 +9,7 @@ import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 import TV from "../../../public/BlockchainServicePage/HeadImage/TV.svg";
 import { cryptoTVImages } from "../../consts/cryptoTV";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -46,9 +47,11 @@ const HeadBlock = () => {
     <Styled.Container>
       <Styled.Content>
         <Styled.Title>
-          {data && <TextTypingAnimation text={data?.title} />}
+          {data && <TextTypingAnimation text={data?.title}/>}
         </Styled.Title>
-        <Styled.Description>{data?.text}</Styled.Description>
+        <Styled.Description>
+          <SplitBrackets text={data?.text} />
+        </Styled.Description>
         {data && (
           <Styled.ButtonWrapper ref={elRef}>
             <GetEstimationButton

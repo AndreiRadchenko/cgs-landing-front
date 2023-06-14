@@ -18,8 +18,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminMobileService } from "../../services/services/adminServicesMobilePage";
 import Head from "next/head";
-import { Layout, PageArticle } from "../../styles/Layout.styled";
-import { LocalLayout } from "../../styles/MobileService/Layout";
+import { Layout } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
@@ -97,20 +96,18 @@ const MobileAppDevelopment: NextPage = () => {
             {customHead && parse(customHead)}
           </Head>
           <HeaderNavNew />
-          <PageArticle>
+          <>
             <Layout>
-              <LocalLayout>
-                <HeadBlock />
-                {dataPerks && <PerksOfCoopComponent data={dataPerks} />}
-                <StrongBlock />
-                <WhoNeedAppBlock
-                  className={
-                    data && data.projects.length === 0
-                      ? "withoutShowcase"
-                      : undefined
-                  }
-                />
-              </LocalLayout>
+              <HeadBlock />
+              {dataPerks && <PerksOfCoopComponent data={dataPerks} />}
+              <StrongBlock />
+              <WhoNeedAppBlock
+                className={
+                  data && data.projects.length === 0
+                    ? "withoutShowcase"
+                    : undefined
+                }
+              />
               <TeamMembers teamMembers={data?.teamMembers} />
             </Layout>
             <ShowCase
@@ -118,12 +115,10 @@ const MobileAppDevelopment: NextPage = () => {
               projects={data?.projects}
             />
             <Layout>
-              <LocalLayout>
-                <HowDoWeWork />
-                <ProfBlock />
-              </LocalLayout>
+              <HowDoWeWork />
+              <ProfBlock />
             </Layout>
-          </PageArticle>
+          </>
           <FooterNew />
         </>
       )}

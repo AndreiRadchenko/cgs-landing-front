@@ -10,12 +10,12 @@ interface Moving {
 }
 
 export const Container = styled.section`
-  margin-block: 3em 10.625em;
+  margin-block: 3em -0.8em;
   position: relative;
   width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 4.6875em;
+    margin-bottom: 11em;
     margin-top: 4.75em;
 
     &.withoutShowcase {
@@ -31,7 +31,7 @@ export const BlockContainer = styled.div`
   margin: 0 auto;
   justify-content: space-around;
   row-gap: 2em;
-  margin-top: 4em;
+  margin-top: -2em;
   margin-bottom: 3em;
   column-gap: 3em;
 
@@ -46,7 +46,7 @@ export const BlockContainer = styled.div`
     font-size: 1rem;
     font-weight: bold;
     flex-direction: column;
-    margin-top: 1em;
+    margin-top: -2.5em;
     row-gap: 2.5em;
   }
   

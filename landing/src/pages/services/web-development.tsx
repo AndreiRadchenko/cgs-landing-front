@@ -10,15 +10,14 @@ import { adminGlobalService } from "../../services/adminHomePage";
 import { adminWebService } from "../../services/services/adminServicesWebPage";
 import HeadBlock from "../../components/WebService/HeadBlock";
 import * as Styled from "../../styles/WebService/Layout";
-import WhyIsWebAMust from "../../components/WebService/WhyIsWebAMust";
 import WebPros from "../../components/WebService/WebPros";
 import SolutionBlock from "../../components/WebService/SolutionBlock";
-import PerksBlock from "../../components/WebService/PerksBlock";
 import FooterBlock from "../../components/WebService/FooterBlock";
-import { Layout, PageArticle } from "../../styles/Layout.styled";
+import { Layout } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";
+import { FreeService, TeamMembers } from "../../components/ServisesComponents";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -88,12 +87,11 @@ const WebDevelopment: NextPage = () => {
             {customHead && parse(customHead)}
           </Head>
           <HeaderNavNew />
-          <PageArticle>
+          <>
             <Layout>
               <Styled.Layout>
                 <HeadBlock />
                 <WebPros />
-                <WhyIsWebAMust />
                 <SolutionBlock
                   className={
                     data && data?.projects.length === 0
@@ -108,12 +106,13 @@ const WebDevelopment: NextPage = () => {
               projects={data?.projects}
             />
             <Layout>
+              <TeamMembers className="webDev" teamMembers={data?.teamMembers} />
+              <FreeService freeServices={data?.freeServices} />
               <Styled.Layout>
-                <PerksBlock />
                 <FooterBlock />
               </Styled.Layout>
             </Layout>
-          </PageArticle>
+          </>
           <FooterNew />
         </>
       )}

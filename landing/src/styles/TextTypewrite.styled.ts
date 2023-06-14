@@ -12,6 +12,11 @@ export const Cursor = styled.div`
   position: absolute;
   bottom: -0.2em;
   right: -0.2em;
+
+  @media (max-width: 768px) {
+    width: 1.4px;
+    height: 1.23em;
+  }
 `;
 
 export const DisplayedPart = styled.div`
@@ -26,5 +31,8 @@ export const HiddenPart = styled.div`
 
 export const LastPart = styled.span`
   display: inline-block;
-  position: relative;
+
+  @media (min-width: 769px) {
+    position: relative;
+  }
 `;
