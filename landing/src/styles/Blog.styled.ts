@@ -896,6 +896,7 @@ export const MainContainer = styled.div`
   border-right: 1px solid ${themes.primary.colors.comment};
 
   @media ${themes.primary.media.maxMobile} {
+    margin-top: 2px;
     box-sizing: border-box;
     border: 1px solid ${themes.primary.colors.comment};
   }
