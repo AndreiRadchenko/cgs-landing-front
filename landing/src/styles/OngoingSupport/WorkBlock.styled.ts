@@ -48,12 +48,16 @@ export const Subtitle = styled.p`
   margin: 0;
   position: relative;
 
+  @media (min-width: 1920px) {
+    margin-bottom: 10px;
+  }
+
   @media (max-width: 992px) {
     font-size: 20px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.25em;
+    font-size: 1.38em;
   }
 `;
 

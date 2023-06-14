@@ -5,6 +5,7 @@ import { IServiceSupport } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/OngoingSupport/FooterBlock.styled";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -16,7 +17,9 @@ const FooterBlock = () => {
   return (
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
-      <Styled.Text>{data?.text}</Styled.Text>
+      <Styled.Text>
+        <SplitBrackets text={data?.text} />
+      </Styled.Text>
       {data && (
         <Styled.ButtonWrapper ref={elRef}>
           <GetEstimationButton

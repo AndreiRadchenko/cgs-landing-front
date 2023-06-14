@@ -29,22 +29,10 @@ export const HiddenPart = styled.div`
   opacity: 0;
 `;
 
-export const FirstPart = styled.span`
-  @media (max-width: 768px) {
-    &:first-child{ 
-    line-height: 48px;
-    }
-  }
-`;
-
 export const LastPart = styled.span`
   display: inline-block;
 
   @media (min-width: 769px) {
     position: relative;
-  }
-
-  @media (max-width: 768px) {
-    margin-top: 8px;
   }
 `;

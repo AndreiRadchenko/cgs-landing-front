@@ -18,17 +18,32 @@ const ServiceSupportContentBlock = () => {
   const { handleSubmit } = useFormikContext();
   return (
     <div>
-      <MainBlock />
-      <SubtitleBlock />
-      <ProvideBlock />
-      <ServiceShowCase />
-      <BonusesBlock />
-      <FooterBlock />
-      <AdminBlockDropDown title="BONUSES">
-        <Bonuses queryKey={queryKeys.getServiceSupportPage} />
-      </AdminBlockDropDown>
-      <TeamMembers />
-      <OtherServices queryKey={queryKeys.getServiceSupportPage}/>
+      <AdminPaddedBlock>
+        <AdminBlockDropDown title="HEAD BLOCK">
+          <MainBlock />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="WHAT DO WE DO">
+          <SubtitleBlock />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="PROVIDE">
+          <ProvideBlock />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="SHOWCASE">
+          <ServiceShowCase />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="BONUSES">
+          <Bonuses queryKey={queryKeys.getServiceSupportPage} />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="TEAM MEMBERS">
+          <TeamMembers />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="OTHER SERVICES">
+          <OtherServices queryKey={queryKeys.getServiceSupportPage} />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="FOOTER BLOCK">
+          <FooterBlock />
+        </AdminBlockDropDown>
+      </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/it-support" />
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>
