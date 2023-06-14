@@ -2,7 +2,7 @@ import React from "react";
 import * as Styled from "./MobileInfiniteText.styled";
 
 interface IInfiniteTextProps {
-  className: string;
+  className?: string;
   isRateCard?: boolean;
   title?: string;
   withoutMargin?: boolean;
