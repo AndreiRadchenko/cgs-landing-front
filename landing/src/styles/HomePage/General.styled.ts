@@ -705,6 +705,10 @@ export const ButtonShareTextWrapper = styled.div`
     margin-top: 20px;
     margin-left: 1px;
 
+    &.dappAuditShare a {
+      padding: 0 !important;
+    }
+
     &.footer {
       margin-inline: 0;
     }

@@ -14,7 +14,8 @@ export const Layout = styled.div`
 `;
 
 export const Wrapper = styled.section`
-  margin-top: ${themes.primary.spacing.servicesGlobalMarginBetweenBlocks};
+  margin-top: 9.8em;
+  margin-bottom: 250px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
@@ -22,6 +23,7 @@ export const Wrapper = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
+    margin-bottom: 60px;
   }
 `;
 
