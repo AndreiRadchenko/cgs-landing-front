@@ -52,7 +52,7 @@ const PerksOfCoopComponent = ({
                   />
                   <p>{el[1].subtitle}</p>
                 </Styles.WorthCardTitle>
-                <Styles.WorthText>
+                <Styles.WorthText className={className}>
                   <SplitBrackets text={el[1].text} />
                 </Styles.WorthText>
               </Styles.WorthCardInfo>

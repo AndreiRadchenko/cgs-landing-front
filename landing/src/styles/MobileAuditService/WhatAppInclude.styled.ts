@@ -4,13 +4,12 @@ import themes from "../../utils/themes";
 import { ILine } from "../../types/Decoration.types";
 
 export const Container = styled.section`
-  margin-top: 10.5em;
+  margin-top: 7.9em;
   position: relative;
   height: 805px;
 
   @media ${themes.primary.media.maxMobile} {
     margin: 0;
-    margin-bottom: 3.5em;
     padding-top: 1.75em;
     height: auto;
   }
