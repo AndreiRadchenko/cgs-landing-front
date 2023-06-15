@@ -112,27 +112,24 @@ const PublishedArticles: FC<IArticles> = ({
   };
 
   const deactivateArticle = async (i: number, isPublished: boolean) => {
-    if (data) {
-      console.log(isPublished);
-      if (!isPublished) return;
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    if (data && isPublished) {
       const disabledArticle = data[i];
       disabledArticle.disabled = true;
       disabledArticle.publishedDate = "";
       disabledArticle.scheduleArticle = "";
+
       await updateArticle(disabledArticle);
     }
   };
 
   const publishArticle = async (i: number, isPublished: boolean) => {
-    if (data) {
-      if (isPublished) return;
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    if (data && !isPublished) {
       const publishArticle = data[i];
       publishArticle.publishedDate = formatsDateWithTime();
       publishArticle.scheduleArticle = "";
       publishArticle.draft = false;
       publishArticle.disabled = false;
+
       await updateArticle(publishArticle);
     }
   };
@@ -182,7 +179,7 @@ const PublishedArticles: FC<IArticles> = ({
             delete article
           </Styles.DeleteButton>
           <Styles.InternalButtonWrapper>
-            {isScheduledDateExpired && item.publishedDate && (
+            {isScheduledDateExpired && item.publishedDate && !item.draft && (
               <Styles.TimeStamp>
                 <strong>Published </strong>
                 {item.publishedDate}
@@ -195,16 +192,18 @@ const PublishedArticles: FC<IArticles> = ({
               </Styles.TimeStamp>
             )}
             <Styles.DeactivateButton
-              disabled={!isPublishedScheduled}
+              disabled={!isPublishedScheduled || item.draft}
               onClick={() => deactivateArticle(i, isPublishedScheduled)}
             >
               Deactivate
             </Styles.DeactivateButton>
             <Styles.PublishButton
-              disabled={isPublishedScheduled}
-              onClick={() => publishArticle(i, isPublishedScheduled)}
+              disabled={!!item.publishedDate}
+              onClick={() =>
+                publishArticle(i, isPublishedScheduled && !item.draft)
+              }
             >
-              <p>{isPublishedScheduled ? "Published" : "Publish now"}</p>
+              <p>{item.publishedDate ? "Published" : "Publish now"}</p>
             </Styles.PublishButton>
           </Styles.InternalButtonWrapper>
         </Styles.ButtonWrapper>
