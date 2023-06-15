@@ -188,8 +188,8 @@ const BlogPage = () => {
   }, [router.query.page, router.query.filters, scrollFunc]);
 
   return (
-    <Loader active={!isMainSliderImageLoaded}>
-      {data && views.data ? (
+    <Loader active={!isMainSliderImageLoaded || !reversedArticles?.length}>
+      {data && articles && views.data ? (
         <>
           <Head>
             <title>{metaTitle}</title>
