@@ -36,7 +36,7 @@ const HeadBlock = () => {
               buttonText={data.button}
               buttonClassName="social-button"
             />
-            <ButtonShareComponent />
+            <ButtonShareComponent className="dappAuditShare" />
           </Styled.ButtonWrapper>
         )}
       </Styled.TextContent>

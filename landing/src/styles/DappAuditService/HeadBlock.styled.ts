@@ -124,7 +124,7 @@ export const Text = styled.p`
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  bottom: -1%;
+  bottom: -2.5em;
   right: 1.25em;
   width: 597px;
   height: 524px;
