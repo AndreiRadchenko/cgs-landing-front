@@ -17,6 +17,10 @@ export const Wrapper = styled.div`
   overflow: scroll;
   scroll-behavior: smooth;
 
+  &.webAudit {
+    margin-top: 11.8em;
+    margin-bottom: 9em;
+  }
   &.dappAuditTeam,
   &.webDev {
     margin-top: 0;
@@ -44,7 +48,8 @@ export const Wrapper = styled.div`
     margin-top: 0;
     display: block;
 
-    &.blockchainTeam {
+    &.blockchainTeam,
+    &.webAudit {
       margin-top: 0px;
     }
 
@@ -55,6 +60,9 @@ export const Wrapper = styled.div`
 
   @media (max-width: 400px) {
     margin-bottom: 8.5em;
+    &.webAudit {
+      margin-bottom: 8.5em;
+    }
   }
 `;
 

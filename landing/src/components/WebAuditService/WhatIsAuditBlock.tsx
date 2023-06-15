@@ -15,13 +15,13 @@ const WhatIsAuditBlock = () => {
 
   return (
     <Styled.Wrapper>
-      <Subtitle>{data?.subtitle}</Subtitle>
       <MobileInfiniteText title={data?.subtitle} />
       <Styled.ContentWrapper>
         {data?.image && (
           <Styled.Image src={data?.image.url} alt="what is web audit image" />
         )}
         <Styled.TextWrapper>
+          <Subtitle>{data?.subtitle}</Subtitle>
           <SplitBrackets text={data?.text} />
         </Styled.TextWrapper>
       </Styled.ContentWrapper>

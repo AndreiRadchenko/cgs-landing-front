@@ -33,7 +33,7 @@ const HeadBlock = () => {
                 buttonText={data.button}
                 buttonClassName="social-button"
               />
-              <ButtonShareComponent />
+              <ButtonShareComponent className="webAudit" />
             </Styled.ButtonWrapper>
           )}
         </Styled.TextContainer>

@@ -60,7 +60,7 @@ const ButtonShareComponent = ({ className }: IButtonShareComponentProps) => {
         rel="noopener noreferrer"
         onClick={handleWhatsAppClick}
       >
-        <WhatsAppWrapper>
+        <WhatsAppWrapper className={className}>
           <WhatsAppIconWrapper>
             <Image
               src={WhatsUpGradIcon}
@@ -78,7 +78,7 @@ const ButtonShareComponent = ({ className }: IButtonShareComponentProps) => {
         rel="noopener noreferrer"
         onClick={handleTelegramClick}
       >
-        <TelegramWrapper>
+        <TelegramWrapper className={className}>
           <TelegramIconWrapper>
             <Image
               src={TelegramGradIcon}

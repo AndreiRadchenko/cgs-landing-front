@@ -97,7 +97,10 @@ const WebAuditPage: NextPage = () => {
               <WhatIsAuditBlock />
               <WhichProblemBlock />
               <TypesOfAuditBlock />
-              <TeamMembers teamMembers={data?.teamMembers} />
+              <TeamMembers
+                className="webAudit"
+                teamMembers={data?.teamMembers}
+              />
               {data?.projects ? (
                 <ShowcaseLayoutIgnore>
                   <ShowCase
