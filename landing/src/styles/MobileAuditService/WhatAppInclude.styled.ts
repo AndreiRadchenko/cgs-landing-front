@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 import { ILine } from "../../types/Decoration.types";
 
 export const Container = styled.section`
-  margin-top: 12.5em;
+  margin-top: 10.5em;
   position: relative;
   height: 805px;
 
@@ -70,8 +70,8 @@ export const MobileAuditBgiContainer = styled.div<ILine>`
   @media ${themes.primary.media.maxMobile} {
     background: linear-gradient(
       0deg,
-      ${themes.primary.colors.mainGradientColor1},
-      ${themes.primary.colors.mainGradientColor2}
+      ${themes.primary.colors.mainGradientColor2},
+      ${themes.primary.colors.mainGradientColor1}
     );
   }
 `;
@@ -109,10 +109,10 @@ export const ListItem = styled.div`
 
 export const ListText = styled.span`
   position: relative;
-  transition: .1s linear;
+  transition: 0.1s linear;
 
   &:hover {
-    color: #5869DD;
+    color: #5869dd;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -213,7 +213,7 @@ export const GlassContainer = styled.div`
 
 export const IconContainer = styled.div``;
 
-export const GlassItem = styled.div<{ top: number; left: number; }>`
+export const GlassItem = styled.div<{ top: number; left: number }>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -221,7 +221,7 @@ export const GlassItem = styled.div<{ top: number; left: number; }>`
   left: 30%;
   top: 20%;
 
-  translate: ${props => props.left}px ${props => props.top}px; 
+  translate: ${(props) => props.left}px ${(props) => props.top}px;
   transition: 0.05s linear;
 
   @media (min-width: 2561px) {
@@ -310,12 +310,12 @@ export const IconItems = styled.div`
     column-gap: 3em;
 
     div:nth-child(2) {
-    margin-top: -4em;
-  }
+      margin-top: -4em;
+    }
 
-  div:nth-child(5) {
-    margin-top: 4em;
-  }
+    div:nth-child(5) {
+      margin-top: 4em;
+    }
   }
 
   @media ${themes.primary.media.maxPCTwoThousand} {
@@ -325,11 +325,11 @@ export const IconItems = styled.div`
     column-gap: 5em;
 
     div:nth-child(2) {
-    margin-top: -5em;
+      margin-top: -5em;
     }
 
     div:nth-child(5) {
-    margin-top: 5em;
+      margin-top: 5em;
     }
   }
 
@@ -358,11 +358,11 @@ export const IconItems = styled.div`
     margin-top: 4em;
 
     div:nth-child(2) {
-    margin-top: -5em;
+      margin-top: -5em;
     }
 
     div:nth-child(5) {
-    margin-top: 5em;
+      margin-top: 5em;
     }
   }
 
@@ -370,11 +370,11 @@ export const IconItems = styled.div`
     margin-left: 0em;
 
     div:nth-child(2) {
-    margin-top: -4em;
+      margin-top: -4em;
     }
 
     div:nth-child(5) {
-    margin-top: 4em;
+      margin-top: 4em;
     }
   }
 
@@ -389,11 +389,11 @@ export const IconItems = styled.div`
     margin-top: -1em;
 
     div:nth-child(2) {
-    margin-top: -6em;
+      margin-top: -6em;
     }
 
     div:nth-child(5) {
-    margin-top: 6em;
+      margin-top: 6em;
     }
   }
 
@@ -402,11 +402,11 @@ export const IconItems = styled.div`
     column-gap: 3em;
 
     div:nth-child(2) {
-    margin-top: -5em;
+      margin-top: -5em;
     }
 
     div:nth-child(5) {
-    margin-top: 5em;
+      margin-top: 5em;
     }
   }
 
@@ -417,25 +417,25 @@ export const IconItems = styled.div`
     column-gap: 3em;
 
     div:nth-child(2) {
-    margin-top: -4em;
+      margin-top: -4em;
     }
 
     div:nth-child(5) {
-    margin-top: 4em;
+      margin-top: 4em;
     }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-   column-gap: 4em;
+    column-gap: 4em;
 
-   div:nth-child(2) {
-    margin-top: -5em;
+    div:nth-child(2) {
+      margin-top: -5em;
     }
 
     div:nth-child(5) {
-    margin-top: 5em;
+      margin-top: 5em;
     }
-  } 
+  }
 `;
 
 export const IconItem = styled.div`
@@ -503,7 +503,7 @@ export const Subtext = styled.div`
   text-transform: none;
   white-space: nowrap;
   position: absolute;
-  font-size: 0.92em;
+  font-size: 0.83em;
 
   @media ${themes.primary.media.minPCFullHD} {
     top: -60%;
