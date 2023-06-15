@@ -116,9 +116,12 @@ const DbSolutions: NextPage = () => {
               setIsFirstImageLoaded={setIsFirstImageLoaded}
               projects={data?.projects}
             />
-            <Styled.BonusesAlign />
+
             <Layout>
-              <BonusesComponent bonuses={data?.bonuses} />
+              <Styled.BonusesAlign>
+                <BonusesComponent bonuses={data?.bonuses} />
+              </Styled.BonusesAlign>
+
               <OtherServices otherServices={data?.otherServices} />
               <Styled.Layout>
                 <FooterBlock />
