@@ -5,6 +5,9 @@ export const Wrapper = styled.section`
   margin-top: 144px;
   position: relative;
 
+  &.mobileDev {
+    margin-top: 11.1em;
+  }
   &.withoutShowcase {
     margin-bottom: 12.9em;
   }
@@ -26,26 +29,6 @@ export const Wrapper = styled.section`
     &.withoutShowcase {
       margin-bottom: 1.82em;
     }
-
-    ::before {
-      content: "";
-      height: 1px;
-      position: absolute;
-      background-color: ${themes.primary.colors.headerBorder};
-      width: 130%;
-      top: -2.5%;
-      left: -10%;
-    }
-
-    ::after {
-      content: "";
-      height: 1px;
-      position: absolute;
-      background-color: ${themes.primary.colors.headerBorder};
-      width: 130%;
-      bottom: 0%;
-      left: -10%;
-    }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -55,7 +38,7 @@ export const Wrapper = styled.section`
 
 export const WhatDoWeUse = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 30px;
   align-items: center;
   position: relative;
 
@@ -66,11 +49,12 @@ export const WhatDoWeUse = styled.div`
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 70px;
     flex-direction: column-reverse;
+    gap: 10px;
   }
 `;
 
 export const WhatDoWeUseContainer = styled.div`
-  margin-top: 13.2em;
+  margin-top: 10.2em;
   margin-right: 1.1em;
   width: 50%;
 

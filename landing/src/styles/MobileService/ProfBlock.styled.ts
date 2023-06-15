@@ -5,8 +5,8 @@ import { cursorBlinking } from "../Animations.styled";
 export const ContentContainer = styled.section`
   display: flex;
   align-items: center;
-  margin-top: 15.1em;
-  margin-bottom: 50px;
+  margin-top: 10.5em;
+  margin-bottom: 12.5em;
   h2 {
     line-height: 132%;
   }
@@ -14,6 +14,7 @@ export const ContentContainer = styled.section`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 6.8em;
     flex-direction: column;
+    margin-bottom: 0px;
   }
 `;
 
@@ -23,6 +24,7 @@ export const ProfText = styled.div`
   margin-bottom: 2.17em;
   font-size: ${themes.primary.font.size.secondary};
   line-height: 160%;
+  max-width: 38.5em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     & br {
@@ -52,6 +54,7 @@ export const ImageWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
+    margin-top: 20px;
   }
 `;
 export const Image = styled.img`
@@ -68,8 +71,8 @@ export const Image = styled.img`
     bottom: 1rem;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 113.5%;
-    height: 24.8em;
+    width: 376px;
+    height: 258px;
   }
 `;
 

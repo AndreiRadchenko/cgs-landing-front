@@ -25,7 +25,7 @@ const PerksOfCoopComponent = ({
     : blocks;
 
   return (
-    <Styles.Container>
+    <Styles.Container className={className}>
       <Subtitle className={`perksTitle ${className}`}>
         {data?.subtitle}
       </Subtitle>

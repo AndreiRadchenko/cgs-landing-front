@@ -7,6 +7,10 @@ export const Container = styled.section`
   margin-top: 50px;
   margin-bottom: 140px;
 
+  &.mobileDev {
+    margin-top: 3.5em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-top: 35px;
     margin-bottom: 60px;

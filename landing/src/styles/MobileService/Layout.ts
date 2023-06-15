@@ -17,6 +17,9 @@ export const Subtitle = styled.h2`
   text-transform: uppercase;
   font-weight: inherit;
 
+  &.mobileDev {
+    font-size: 3.33em;
+  }
   &.perksTitle,
   &.needDomain {
     font-size: 40px;
@@ -58,4 +61,8 @@ export const Subtitle = styled.h2`
 
 export const VisibleSubtitle = styled(Subtitle)`
   display: block;
+
+  .mobileDev {
+    font-size: 3.33em;
+  }
 `;

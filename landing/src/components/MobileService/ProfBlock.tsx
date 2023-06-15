@@ -45,7 +45,9 @@ const ProfBlock = () => {
   return (
     <Styled.ContentContainer>
       <div>
-        <VisibleSubtitle className="footer">{data?.title}</VisibleSubtitle>
+        <VisibleSubtitle className="footer mobileDev">
+          {data?.title}
+        </VisibleSubtitle>
         <Styled.ProfText>
           {data && parse(data.text.replace("|", "<br />"), options)}
         </Styled.ProfText>
