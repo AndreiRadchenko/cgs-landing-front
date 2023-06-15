@@ -96,8 +96,7 @@ const BlogPage = () => {
     articles &&
       setReversedArticles(
         articles
-          .slice(0, 3)
-          // .reverse()
+          .reverse()
           .filter(
             (el) =>
               !el.disabled &&
