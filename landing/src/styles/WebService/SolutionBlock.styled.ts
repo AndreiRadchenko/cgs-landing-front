@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 
 export const Container = styled.section`
   position: relative;
-  margin-top: 9.625em;
+  margin-top: 9em;
   padding-bottom: 13%;
   background-image: url(${solutionBg.src});
   background-size: 100% 100%;
@@ -20,7 +20,7 @@ export const Container = styled.section`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 5.7em;
+    margin-top: 88px;
     background: none;
     padding-bottom: 0;
     margin-bottom: 5.65em;
@@ -59,7 +59,6 @@ export const LeftSideText = styled.div`
   font-size: 2.5em;
   line-height: 140%;
   width: 40%;
-  white-space: nowrap;
   padding-top: 0.34em;
 
   @media (max-width: 1400px) {
@@ -79,6 +78,7 @@ export const LeftSideText = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     font-size: 1.5em;
     padding: 0;
     margin-bottom: 1.6em;
