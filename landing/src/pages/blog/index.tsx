@@ -32,31 +32,6 @@ import { IArticlesData, IBlogPageData } from "../../types/Blog.types";
 import { BlogPageSize } from "../../consts";
 import Dropdown from "../../utils/Select/Dropdown";
 
-export async function getServerSideProps() {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery([queryKeys.getBlogPage], () =>
-    adminBlogService.getBlogPageData()
-  );
-
-  await queryClient.prefetchQuery([queryKeys.getBlogArticles], () =>
-    adminBlogService.getArticles()
-  );
-
-  await queryClient.prefetchQuery([queryKeys.views], () =>
-    adminBlogService.getViews()
-  );
-
-  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
-    adminGlobalService.getFullPage()
-  );
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-}
-
 const BlogPage = () => {
   const router = useRouter();
 
@@ -187,17 +162,6 @@ const BlogPage = () => {
       setFilteredData(newData ? newData : null);
     }
   }, [data, filters, filters.length, reversedArticles]);
-
-  useEffect(() => {
-    const scroll = (message: string) => {
-      console.log(`${message}`);
-      window.scroll(0, 0);
-    };
-
-    scroll("First scroll");
-
-    return scroll("The last scroll");
-  }, []);
 
   return (
     <Loader active={!isMainSliderImageLoaded || !reversedArticles?.length}>
