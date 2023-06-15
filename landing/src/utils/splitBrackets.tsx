@@ -10,7 +10,7 @@ export const SplitBrackets = ({ text, onMouseOut, onMouseEnter }: ISplitBrackets
   const splited = text?.split("|");
 
   return (
-    <div onMouseLeave={onMouseOut}>
+    <section onMouseLeave={onMouseOut}>
       {splited?.map(
         (el, idx) =>
           el !== "" && (
@@ -20,6 +20,6 @@ export const SplitBrackets = ({ text, onMouseOut, onMouseEnter }: ISplitBrackets
             </span>
           )
       )}
-    </div>
+    </section>
   );
 };
