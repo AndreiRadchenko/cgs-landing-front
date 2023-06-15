@@ -28,13 +28,13 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const TextContainer = styled.div`
-  padding-top: 9.5em;
+  padding-top: 8em;
   width: 50%;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     padding-top: 4em;
   }
-  
+
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     padding-top: 0;
@@ -65,7 +65,7 @@ export const Description = styled.div`
   margin-top: 1em;
   font-size: 1.833em;
   line-height: 160%;
-  max-width: 100%;
+  max-width: 27.25em;
   white-space: nowrap;
 
   @media ${themes.primary.media.minPCFullHD} {

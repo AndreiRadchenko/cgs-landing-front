@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
   margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
-  margin-bottom: ${themes.primary.spacing.servicesMarginBetweenFooter};
+  margin-bottom: 5rem;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
@@ -157,7 +157,7 @@ export const Subtitle = styled.h3`
     font-size: ${themes.primary.font.size.webAuditSubtitleMobile};
     margin: 0;
     padding-bottom: 0;
-    max-width: 90%;
+    max-width: 100%;
     br {
       display: none;
     }
@@ -180,7 +180,7 @@ export const TextWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.73em;
     margin-bottom: 1.89em;
-    margin-top: 0.89em;
+    margin-top: 0.55em;
     white-space: pre-line;
     br {
       display: none;
