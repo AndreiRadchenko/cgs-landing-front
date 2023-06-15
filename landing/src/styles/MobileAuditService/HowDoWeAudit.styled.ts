@@ -3,6 +3,7 @@ import themes from "../../utils/themes";
 
 export const Container = styled.section`
   position: relative;
+  margin-top: -15px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     padding-bottom: 50px;
@@ -10,7 +11,7 @@ export const Container = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 0;
-    margin-top: 50px;
+    margin-top: 23px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -40,6 +41,7 @@ export const Description = styled.p`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
+    font-size: 20px;
   }
 `;
 

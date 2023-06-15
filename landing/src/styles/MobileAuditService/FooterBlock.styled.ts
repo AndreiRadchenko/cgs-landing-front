@@ -7,7 +7,7 @@ export const Container = styled.section`
   padding-bottom: 9.5em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 6.25em;
+    margin-top: 88px;
     padding-bottom: 0;
   }
 `;
@@ -66,7 +66,7 @@ export const Description = styled.p`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;
     max-width: 100%;
-    margin: 1em 0 1.9em;
+    margin: 10px 0 1.9em;
   }
 `;
 

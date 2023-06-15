@@ -73,7 +73,7 @@ export const HaveContainer = styled.div`
 `;
 
 export const ItemApp = styled.div`
-  width: 285px;
+  max-width: 23.6em;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
 
