@@ -190,7 +190,7 @@ const BlogPage = () => {
 
   return (
     <Loader active={!isMainSliderImageLoaded || !reversedArticles?.length}>
-      {data && views.data ? (
+      {data && articles && views.data ? (
         <>
           <Head>
             <title>{metaTitle}</title>
