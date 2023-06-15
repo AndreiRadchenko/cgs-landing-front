@@ -99,14 +99,16 @@ const MobileAppDevelopment: NextPage = () => {
           <>
             <Layout>
               <HeadBlock />
-              {dataPerks && <PerksOfCoopComponent data={dataPerks} />}
+              {dataPerks && (
+                <PerksOfCoopComponent className="mobileDev" data={dataPerks} />
+              )}
               <StrongBlock />
               <WhoNeedAppBlock
-                className={
+                className={`${
                   data && data.projects.length === 0
                     ? "withoutShowcase"
                     : undefined
-                }
+                } mobileDev`}
               />
               <TeamMembers teamMembers={data?.teamMembers} />
             </Layout>
