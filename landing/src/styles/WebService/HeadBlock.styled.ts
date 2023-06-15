@@ -60,7 +60,6 @@ export const Title = styled.h1`
   font-size: 4.125em;
   font-weight: inherit;
   position: relative;
-  white-space: nowrap;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 3em;

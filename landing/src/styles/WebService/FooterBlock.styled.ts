@@ -53,7 +53,7 @@ export const Image = styled.img`
 
 export const SubtitleWrapper = styled.div`
   margin-bottom: 2.5em;
-  max-width: 65%;
+  max-width: 85%;
 
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 0.85em;
@@ -66,6 +66,6 @@ export const TextWrapper = styled.div`
   font-size: 1.5em;
 
   @media ${themes.primary.media.maxServiceWeb} {
-    font-size: 0.85em;
+    font-size: 18px;
   }
 `;
