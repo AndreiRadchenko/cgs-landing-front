@@ -96,7 +96,8 @@ const BlogPage = () => {
     articles &&
       setReversedArticles(
         articles
-          .reverse()
+          .slice(0, 3)
+          // .reverse()
           .filter(
             (el) =>
               !el.disabled &&
@@ -188,7 +189,7 @@ const BlogPage = () => {
   }, [router.query.page, router.query.filters, scrollFunc]);
 
   return (
-    <Loader active={!isMainSliderImageLoaded}>
+    <Loader active={!isMainSliderImageLoaded || !reversedArticles?.length}>
       {data && views.data ? (
         <>
           <Head>
