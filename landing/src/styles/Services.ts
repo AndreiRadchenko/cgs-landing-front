@@ -12,6 +12,9 @@ export const Container = styled.section`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    &.mobileAudit {
+      margin-bottom: 108px;
+    }
     margin-top: 35px;
     margin-bottom: 60px;
   }
