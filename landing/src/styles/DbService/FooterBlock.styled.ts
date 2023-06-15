@@ -4,11 +4,12 @@ import themes from "../../utils/themes";
 export const Container = styled.section`
   display: flex;
   justify-content: space-between;
+  margin-bottom: -3.5em;
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     margin-top: 88px;
-    margin-bottom: 3.125em;
+    margin-bottom: -2em;
     flex-direction: column;
     ::before {
       position: absolute;
@@ -51,20 +52,20 @@ export const Image = styled.img`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 20em;
-    right: 15em;
+    right: 10em;
     bottom: 3em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    right: 6em;
+    right: 0em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    top: 0.94em;
+    bottom: 2em;
     left: 2.81em;
 
-    width: 19.31em;
-    height: 21.3em;
+    width: 309px;
+    height: 340px;
   }
 `;
 
@@ -81,7 +82,7 @@ export const SubtitleWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 28em;
+    width: 100%;
     font-size: 0.6em;
 
     h2 {
@@ -97,7 +98,7 @@ export const Text = styled.p`
   line-height: 160%;
   margin: 0.5em 0 2em;
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
+    font-size: 18px;
     margin: 1em 0 1.75em;
     max-width: 94%;
   }

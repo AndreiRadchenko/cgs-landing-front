@@ -32,13 +32,9 @@ const ServiceDbContentBlock = () => {
         <AdminBlockDropDown title="Select block">
           <SelectBlock />
         </AdminBlockDropDown>
-      </AdminPaddedBlock>
-
-      <div style={{ marginTop: "-3.8em" }}>
-        <ServiceShowCase />
-      </div>
-
-      <AdminPaddedBlock>
+        <AdminBlockDropDown title="Showcase">
+          <ServiceShowCase />
+        </AdminBlockDropDown>
         <AdminBlockDropDown title="Bonuses component">
           <Bonuses queryKey={queryKeys.getServiceDbPage} />
         </AdminBlockDropDown>

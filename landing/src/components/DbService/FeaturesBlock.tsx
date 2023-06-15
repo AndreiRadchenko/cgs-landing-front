@@ -4,7 +4,8 @@ import { useQueryClient } from "@tanstack/react-query";
 import { IServiceDb } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import bgImage from "../../../public/DbService/featuresBg.svg";
-import bgImageMobile from "../../../public/DbService/database-mobile-svg.svg";
+// import bgImageMobile from "../../../public/DbService/database-mobile-svg.svg";
+import bgImageMobile from "../../../public/DbService/feature-mobile-bg.svg";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 import * as Styled from "../../styles/DbService/FeaturesBlock.styled";

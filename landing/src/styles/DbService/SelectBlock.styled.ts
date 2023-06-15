@@ -43,10 +43,11 @@ export const Subtitle = styled.h2`
 `;
 
 export const TextContent = styled.div`
-  font-size: 1.5em;
+  font-size: 1.375em;
   line-height: 160%;
-  margin-top: 1.67em;
-  width: fit-content;
+  margin-top: 0.9em;
+  max-width: 37.36vw;
+  /* width: fit-content; */
 
   @media ${themes.primary.media.maxTabletLandScape} {
     max-width: 20em;
