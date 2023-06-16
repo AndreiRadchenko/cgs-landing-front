@@ -65,7 +65,8 @@ export const Title = styled.h1`
 export const Description = styled.p`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 1.279em 0 2.365em;
+  margin: 0.9em 0 1.8em;
+  max-width: 27.3em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.175em;
@@ -83,7 +84,8 @@ export const Description = styled.p`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     max-width: 95%;
-    margin: 1.5em 0 1.75em;
+    margin: 16px 0 34px;
+    max-width: 100%;
   }
 `;
 
@@ -99,7 +101,7 @@ export const ImageWrapper = styled.div`
   }
 
   @media (max-width: 2200px) {
-    top: -10%;
+    top: -6em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {

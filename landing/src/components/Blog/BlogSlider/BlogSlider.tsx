@@ -19,10 +19,10 @@ export const BlogSwiper: FC<ISliderProps> = ({ children }) => {
         spaceBetween={50}
         centeredSlides={true}
         autoplay={{
-          delay: 20000,
+          delay: 10000,
           disableOnInteraction: false,
         }}
-        loop={true}
+        loop={false}
         pagination={{
           clickable: true,
         }}

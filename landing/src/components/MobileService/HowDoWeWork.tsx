@@ -59,7 +59,7 @@ const HowDoWeWork = () => {
 
   return (
     <Styled.ContentWrapper>
-      <VisibleSubtitle>{data?.subtitle}</VisibleSubtitle>
+      <VisibleSubtitle className="mobileDev">{data?.subtitle}</VisibleSubtitle>
       <Styled.PointsWrapper ref={elRef}>
         <Styled.Line angle={gradientAngle} />
         {width &&

@@ -20,7 +20,7 @@ export const SliderWrapper = styled("div")`
     height: 100%;
     overflow: hidden;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     @media ${themes.primary.media.maxMobile} {
       overflow: visible;
     }

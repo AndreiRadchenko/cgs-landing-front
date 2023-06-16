@@ -5,6 +5,7 @@ import { IBlockchainService } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/BlockchainService/FooterBlock.styled";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -16,7 +17,9 @@ const FooterBlock = () => {
   return (
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
-      <Styled.Description>{data?.description}</Styled.Description>
+      <Styled.Description>
+        <SplitBrackets text={data?.description}/>
+      </Styled.Description>
       {data && (
         <Styled.ButtonWrapper ref={elRef}>
           <GetEstimationButton

@@ -705,6 +705,10 @@ export const ButtonShareTextWrapper = styled.div`
     margin-top: 20px;
     margin-left: 1px;
 
+    &.dappAuditShare a {
+      padding: 0 !important;
+    }
+
     &.footer {
       margin-inline: 0;
     }
@@ -719,6 +723,10 @@ export const WhatsAppWrapper = styled.div`
   color: ${themes.primary.colors.primary};
   font-size: 1.125em;
 
+  &.webAudit {
+    font-size: 1.1rem;
+  }
+
   &:hover {
     color: ${themes.primary.colors.darkBlue};
 
@@ -731,6 +739,9 @@ export const WhatsAppWrapper = styled.div`
     font-size: 16px;
     line-height: 19px;
     column-gap: 3px;
+    &.webAudit {
+      font-size: 16px;
+    }
   }
 `;
 
@@ -742,6 +753,10 @@ export const TelegramWrapper = styled.div`
   font-size: 1.125em;
   transition: color 0.3s;
   margin-left: 0.778em;
+
+  &.webAudit {
+    font-size: 1.1rem;
+  }
 
   &:hover {
     color: ${themes.primary.colors.darkBlue};
@@ -756,6 +771,9 @@ export const TelegramWrapper = styled.div`
     line-height: 19px;
     column-gap: 3px;
     margin-left: 0.875em;
+    &.webAudit {
+      font-size: 16px;
+    }
   }
 `;
 

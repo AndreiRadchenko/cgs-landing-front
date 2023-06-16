@@ -43,9 +43,9 @@ export const Content = styled.div``;
 export const Image = styled.img`
   position: absolute;
   right: 1.625em;
-  bottom: 0em;
-  width: 32.25em;
-  height: 34em;
+  bottom: 1em;
+  width: 25.75em;
+  height: 25em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     position: relative;
@@ -56,7 +56,6 @@ export const Image = styled.img`
     height: auto;
     top: 1em;
     left: -1.25em;
-    /* margin-bottom: 2.56em; */
   }
 `;
 
@@ -66,7 +65,7 @@ export const Title = styled.h3`
   line-height: 140%;
   text-transform: uppercase;
   margin: 0 0 0.5em;
-  max-width: 18.225em;
+  max-width: 70%;
 
   br {
     display: none;
@@ -75,7 +74,7 @@ export const Title = styled.h3`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
     line-height: 132%;
-    margin-bottom: 1.46em;
+    margin-bottom: 10px;
 
     br {
       display: block;
@@ -89,9 +88,10 @@ export const Text = styled.p`
   font-size: 1.375em;
   line-height: 160%;
   margin: 0.5em 0 2em;
+  max-width: 70%;
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
-    margin: 1em 0 1.75em;
+    font-size: 1.125em;
+    margin: 10px 0 1.75em;
     max-width: 94%;
   }
 `;

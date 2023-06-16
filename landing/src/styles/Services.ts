@@ -6,8 +6,20 @@ import { float } from "./Animations.styled";
 export const Container = styled.section`
   margin-top: 50px;
   margin-bottom: 140px;
+  &.mobileAudit {
+    margin-top: 8rem;
+    margin-bottom: 9.25em;
+  }
+
+  &.mobileDev {
+    margin-top: 3.5em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
+    &.mobileAudit {
+      margin-top: 26px;
+      margin-bottom: 108px;
+    }
     margin-top: 35px;
     margin-bottom: 60px;
   }
@@ -113,6 +125,10 @@ export const WorthText = styled.p`
   line-height: 160%;
   max-width: 440px;
 
+  &.mobileAudit {
+    font-size: 1.15rem;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     & br {
       display: none;
@@ -133,6 +149,9 @@ export const WorthText = styled.p`
     padding: 14px 20px;
     font-size: 16px;
     max-width: 370px;
+    &.mobileAudit {
+      font-size: 16px;
+    }
   }
 `;
 
@@ -270,6 +289,7 @@ export const WhoNeedSubText = styled.p`
 
     padding: 0;
     margin-top: 0.6em;
+    margin-bottom: -3px;
   }
 `;
 

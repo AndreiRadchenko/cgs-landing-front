@@ -51,7 +51,7 @@ const WhoNeedAppBlock = ({ className }: IServicesClassnameProps) => {
         </Styled.ImageWrapper>
         <Styled.WhatDoWeUseContainer>
           {data && (
-            <VisibleSubtitle ref={elRef}>
+            <VisibleSubtitle className="mobileDev" ref={elRef}>
               {(width && width <= 767 && isScrolled && (
                 <TextTypingAnimation text={data.whatDoWeUse.subtitle} />
               )) ||

@@ -31,7 +31,10 @@ const WebPros = () => {
               <Styled.CategorySubtitle>
                 {category.subtitle}
               </Styled.CategorySubtitle>
-              <MobileInfiniteText title={category.subtitle} />
+              <MobileInfiniteText
+                className="webDev"
+                title={category.subtitle}
+              />
 
               {category.list.map((el, index) => (
                 <Styled.CategoryListItem

@@ -10,12 +10,12 @@ interface Moving {
 }
 
 export const Container = styled.section`
-  margin-block: 4em 10.625em;
+  margin-block: 3em -0.8em;
   position: relative;
   width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 9.6875em;
+    margin-bottom: 11em;
     margin-top: 4.75em;
 
     &.withoutShowcase {

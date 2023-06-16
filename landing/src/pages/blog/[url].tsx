@@ -23,6 +23,7 @@ import ArticleReadMore from "../../components/ArticleReadMore/ArticleReadMore";
 import { useRouter } from "next/router";
 import { adminBlogService } from "../../services/adminBlogPage";
 import * as Styled from "../../styles/AdminPage";
+import * as Style from "../../styles/PortfolioPage.styled";
 import { adminGlobalService } from "../../services/adminHomePage";
 import Head from "next/head";
 import Image from "next/image";
@@ -30,6 +31,7 @@ import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import NotFoundPage from "../404";
 import { IArticleData } from "../../types/Blog.types";
+import Link from "next/link";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -52,6 +54,7 @@ export async function getServerSideProps() {
 const ArticlePage = () => {
   const queryClient = useQueryClient();
   const router = useRouter();
+  const breadcrumbs: any[] = [];
   const [readMore, setReadMore] = useState<IArticle[] | null>(null);
   const [isFromArticle, setIsFromArticle] = useState<boolean>(false);
   const [filters, setFilters] = useState<string | string[]>([]);
@@ -140,6 +143,27 @@ const ArticlePage = () => {
         );
   };
 
+  breadcrumbs.push(
+    <Link key="home" href="/">
+      <a>Homepage</a>
+    </Link>
+  );
+
+  breadcrumbs.push(
+    <Link key="blog" href="/blog">
+      <a>Blog</a>
+    </Link>
+  );
+
+  article &&
+    breadcrumbs.push(
+      <span key="project">
+        {article.title.length > 20
+          ? article.title.substring(0, 20) + "..."
+          : article.title}
+      </span>
+    );
+
   if (isLoading)
     return (
       <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
@@ -154,6 +178,16 @@ const ArticlePage = () => {
       </Head>
       <Styles.Background>
         <HeaderNavNew />
+        <Style.Breadcrumbs isBlog={true}>
+          {breadcrumbs.map((breadcrumb, index) => (
+            <React.Fragment key={index}>
+              {breadcrumb}
+              {index < breadcrumbs.length - 1 && (
+                <Style.BreadcrumbSeparator>&gt;</Style.BreadcrumbSeparator>
+              )}
+            </React.Fragment>
+          ))}
+        </Style.Breadcrumbs>
         <Styles.Cont>
           <Styles.PageWrapper>
             <Styles.Article>
@@ -161,30 +195,6 @@ const ArticlePage = () => {
               <Styles.TitleBg>
                 <Image src={titleBg} alt="top title bg" />
               </Styles.TitleBg>
-              <Styles.ArrowBackButton>
-                <svg
-                  onClick={handleArrowClick}
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 72 72"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M45.8359 18.2751C36.0298 12.7913 23.6766 16.2219 18.2443 25.9376C12.812 35.6533 16.3577 47.9749 26.1639 53.4588C35.97 58.9426 48.3232 55.512 53.7554 45.7963C59.1877 36.0806 55.642 23.759 45.8359 18.2751Z"
-                    fill="none"
-                    stroke="#272C2F"
-                    strokeWidth="1.45455"
-                    strokeMiterlimit="10"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M29.1197 36.9997L37.6998 45.5058L36.506 46.71L25.8802 36.1761L25.8937 36.1624L25.8802 36.149L36.9197 25.0177L38.1237 26.2118L29.1065 35.304L46.1183 35.2302L46.1257 36.9259L29.1197 36.9997Z"
-                    fill="black"
-                  />
-                </svg>
-              </Styles.ArrowBackButton>
             </Styles.Article>
             <Styles.BannerWrapper>
               <Styles.TagWrapper>

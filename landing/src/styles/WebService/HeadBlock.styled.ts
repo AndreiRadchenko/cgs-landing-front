@@ -6,7 +6,7 @@ export const Container = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding-top: 9.5em;
+  padding-top: 7.7em;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
@@ -60,7 +60,6 @@ export const Title = styled.h1`
   font-size: 4.125em;
   font-weight: inherit;
   position: relative;
-  white-space: nowrap;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 3em;
@@ -90,7 +89,7 @@ export const Title = styled.h1`
 export const Description = styled.div`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 1.27em 0 2.41em;
+  margin: 0.9em 0 1.8em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndHalf};

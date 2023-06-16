@@ -101,21 +101,20 @@ const OngoingSupport = () => {
               </Styled.Layout>
               <BonusesComponent bonuses={data?.bonuses} />
             </Layout>
-            <div style={{marginBottom: is768px ? '0em' : '-17em'}}>
+            <div style={{marginBottom: is768px ? '0em' : '-17em', marginTop: is768px ? '-1.8em' : '0em'}}>
             <ShowCase
               setIsFirstImageLoaded={setIsFirstImageLoaded}
               projects={data?.projects}
             />
             </div>
             <Layout>
-              <TeamMembers teamMembers={data?.teamMembers} />
+              <TeamMembers teamMembers={data?.teamMembers} className={"supportTeam"}/>
               <OtherServices otherServices={data?.otherServices} />
               <Styled.Layout>
                 <FooterBlock />
               </Styled.Layout>
             </Layout>
           </PageArticle>
-
           <FooterNew />
         </>
       )}

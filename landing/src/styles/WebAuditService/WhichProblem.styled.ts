@@ -2,15 +2,20 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-top: 201px;
+  margin-top: 11.6em;
   position: relative;
+  display: flex;
+  gap: 32px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
+    margin-top: 28px;
+    margin-bottom: 80px;
+    flex-direction: column;
+    gap: 10px;
 
     &:before {
       content: "";
@@ -29,8 +34,7 @@ export const Subtitle = styled.h3`
   font-size: ${themes.primary.font.size.webAuditSubtitle};
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 0.775em 0;
-  padding-bottom: 20vw;
+  margin: 0 0 0.5em 0;
 
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.webAuditSubtitlePC};
@@ -46,7 +50,7 @@ export const Subtitle = styled.h3`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.webAuditSubtitleMobile};
-    margin-bottom: 1em;
+    margin-bottom: 14px;
     padding-bottom: 0;
     br {
       display: none;
@@ -54,18 +58,51 @@ export const Subtitle = styled.h3`
   }
 `;
 
-export const Image = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 28vw;
+export const Text = styled.p`
+  font-size: 1.5em;
+  line-height: 160%;
+  font-weight: ${themes.primary.font.weight.heavy};
+  margin: 14px 0 18px;
 
   @media ${themes.primary.media.maxMobile} {
-    position: relative;
-    top: 0;
-    right: 20px;
-    width: 100vw;
-    height: 100vw;
+    font-size: 18px;
+    br {
+      display: none;
+    }
+  }
+`;
+
+export const TextContainer = styled.div`
+  max-width: 41em;
+`;
+
+export const ProblemsContainer = styled.div`
+  width: 100%;
+  padding: 5.8em 4.2em;
+  background: linear-gradient(
+    90deg,
+    ${themes.primary.colors.gradientColor1RateCard} 0%,
+    ${themes.primary.colors.gradientColor2RateCard} 100%
+  );
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.3em;
+
+  @media ${themes.primary.media.maxMobile} {
+    flex-direction: column;
+    padding: 22px 20px;
+    margin-inline: -20px;
+    width: 113%;
+  }
+`;
+
+export const ProblemContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  span {
+    font-size: 1.5em;
+    font-weight: ${themes.primary.font.weight.heavy};
   }
 `;

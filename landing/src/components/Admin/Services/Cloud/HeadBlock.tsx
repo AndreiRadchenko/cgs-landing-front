@@ -30,7 +30,6 @@ const HeadBlock = () => {
 
   return (
     <AdminPaddedBlock>
-      <AdminHeader>Cloud Solutions</AdminHeader>
       <AdminHalfGrid>
         {renderInputs({
           props: { name: "headerBlock" },

@@ -31,12 +31,14 @@ export const Subtitle = styled.h2`
 
 export const BonusesAlign = styled.div`
   @media ${themes.primary.media.maxPCFullHD} {
-    margin-top: -9.16em;
+    margin-top: -8em;
+    margin-bottom: -2em;
   }
   @media (max-width: 1050px) {
     margin-top: -6em;
   }
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 17px;
+    margin-top: -55px;
+    margin-bottom: -10px;
   }
 `;

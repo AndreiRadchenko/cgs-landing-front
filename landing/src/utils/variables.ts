@@ -99,14 +99,13 @@ export const DEFAULT_REVEAL_SPEED = 100;
 export const DEFAULT_REVEAL_DELAY = 1000;
 
 export const mobileServicesRoutes = [
-  "mobile-app-development",
-  "web-development",
-  "database-and-server-solutions",
-  "it-support",
-  "ux-ui-design",
-  "cloud-solutions",
   "blockchain",
-  "mobile-audit",
+  "web-development",
+  "mobile-app-development",
+  "cloud-solutions",
+  "it-support",
+  "database-and-server-solutions",
+  "ux-ui-design",
   "web-audit",
   "mobile-audit",
   "smart-contract-audit",

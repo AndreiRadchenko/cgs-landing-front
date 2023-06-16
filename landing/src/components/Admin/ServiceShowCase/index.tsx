@@ -20,7 +20,6 @@ import {
 } from "../../../styles/HomePage/General.styled";
 import { IProjects } from "../../../types/Admin/Response.types";
 import ButtonArrow from "../../../utils/ButtonArrow";
-import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 
 const ServiceShowCase = ({ noMargin }: { noMargin?: boolean }) => {
   const { values, setFieldValue, handleSubmit } = useFormikContext<IProjects>();
@@ -78,7 +77,6 @@ const ServiceShowCase = ({ noMargin }: { noMargin?: boolean }) => {
 
   return (
     <div style={{ marginInline: noMargin ? "0" : "40px" }}>
-      <AdminBlockDropDown title="BLOCK OUR WORK">
         <AdminShowCaseServiceGrid>
           <AdminBlockWrapper>
             <AdminBlockWrapper>
@@ -179,7 +177,6 @@ const ServiceShowCase = ({ noMargin }: { noMargin?: boolean }) => {
             ))}
           </AdminShowCaseProjectsWrapper>
         </AdminShowCaseServiceGrid>
-      </AdminBlockDropDown>
     </div>
   );
 };

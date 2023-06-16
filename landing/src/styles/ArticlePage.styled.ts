@@ -63,7 +63,7 @@ export const Background = styled.div`
 export const PageWrapper = styled.div`
   max-width: 973px;
   position: relative;
-  margin: 88px 0 0 22px;
+  margin: 23px 0 0 22px;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -94,11 +94,12 @@ export const PageWrapper = styled.div`
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 40px;
+    padding-top: 0;
   }
 
   @media ${themes.primary.media.maxMobile} {
     margin: 0;
-    padding: 80px 20px 0;
+    padding: 10px 20px 0;
   }
 `;
 
@@ -152,58 +153,6 @@ export const BannerWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 0;
-  }
-`;
-
-export const ArrowBackButton = styled.div`
-  width: 72px;
-  height: 72px;
-  &:hover {
-    cursor: pointer;
-    & path:first-child {
-      fill: ${themes.primary.colors.headerBorderHover};
-    }
-  }
-  position: absolute;
-  top: -63px;
-  left: -215px;
-
-  @media ${themes.primary.media.minPCFullHD} {
-    top: -50px;
-    left: -100px;
-  }
-  @media (max-width: 1280px) {
-    left: -120px;
-  }
-  @media (max-width: 1370px) {
-    left: -150px;
-  }
-  @media (max-width: 1250px) {
-    left: -90px;
-  }
-  @media (max-width: 1160px) {
-    left: -50px;
-  }
-  @media (max-width: 1080px) {
-    left: 0;
-  }
-  @media (max-width: 1025px) {
-    left: 0;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    left: 0px;
-    top: -120px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    left: -16px;
-    top: -75px;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    left: -11px;
-    width: 50px;
-    height: 50px;
   }
 `;
 

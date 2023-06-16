@@ -47,7 +47,7 @@ const HeadBlock = () => {
     <Styled.Container>
       <Styled.Content>
         <Styled.Title>
-          {data && <TextTypingAnimation text={data?.title} />}
+          {data && <TextTypingAnimation text={data?.title}/>}
         </Styled.Title>
         <Styled.Description>
           <SplitBrackets text={data?.text} />

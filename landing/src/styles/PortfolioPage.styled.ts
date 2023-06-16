@@ -16,7 +16,11 @@ export const PortfolioPageWrapper = styled.div`
   }
 `;
 
-export const Breadcrumbs = styled.div`
+interface IBreadcrumbs {
+  isBlog?: boolean;
+}
+
+export const Breadcrumbs = styled.div<IBreadcrumbs>`
   font-family: ${themes.primary.font.family.namu};
   margin: 32px 0 16px 51px;
   font-size: 16px;
@@ -40,9 +44,14 @@ export const Breadcrumbs = styled.div`
     color: black;
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin: ${({ isBlog }) => isBlog && "32px 0 16px 65px"};
+  }
+
   @media ${themes.primary.media.maxMobile} {
-    margin: 0 19px 22px 19px;
     font-size: 14px;
+    margin: ${({ isBlog }) =>
+      isBlog ? "0 19px 12px 23px" : "0 19px 22px 19px"};
 
     & a:first-child {
       display: none;

@@ -14,6 +14,7 @@ import {
   AdminBlocksContent,
   MetaBlockWraper,
 } from "../../../../styles/AdminPage";
+import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 
 const ServiceAiSolutionsContentBlock = () => {
   return (
@@ -26,9 +27,9 @@ const ServiceAiSolutionsContentBlock = () => {
         </BlockDropdown>
         <HowDoWeProvideBlock />
         <ServiceShowCase noMargin />
-        <div style={{ margin: "0 -3em -2.5em" }}>
-          <TeamMembers />
-        </div>
+          <AdminBlockDropDown title="TEAM MEMBERS">
+            <TeamMembers />
+          </AdminBlockDropDown>
         <BringYourAppBlock />
       </AdminBlocksContent>
       <MetaBlockWraper>

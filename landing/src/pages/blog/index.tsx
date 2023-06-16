@@ -4,6 +4,7 @@ import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { SwiperSlide } from "swiper/react";
+import { animateScroll as scroll, scroller } from "react-scroll";
 
 import { IArticle } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
@@ -25,37 +26,11 @@ import { BlogSwiper } from "../../components/Blog/BlogSlider/BlogSlider";
 import { Loader } from "../../components/Loader";
 
 import loading from "../../../public/CareerDecorations/loading.svg";
-import { useScrollTo } from "../../hooks/useScrollTo";
 import { isNumeric } from "../../utils/isNumeric";
 import { Loading } from "../../components/CareersForm/Form/Form.styled";
 import { IArticlesData, IBlogPageData } from "../../types/Blog.types";
 import { BlogPageSize } from "../../consts";
 import Dropdown from "../../utils/Select/Dropdown";
-
-export async function getServerSideProps() {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery([queryKeys.getBlogPage], () =>
-    adminBlogService.getBlogPageData()
-  );
-
-  await queryClient.prefetchQuery([queryKeys.getBlogArticles], () =>
-    adminBlogService.getArticles()
-  );
-
-  await queryClient.prefetchQuery([queryKeys.views], () =>
-    adminBlogService.getViews()
-  );
-
-  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
-    adminGlobalService.getFullPage()
-  );
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-}
 
 const BlogPage = () => {
   const router = useRouter();
@@ -71,7 +46,6 @@ const BlogPage = () => {
 
   const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
-  const [ref, scrollHandler] = useScrollTo<HTMLDivElement>();
   const [reversedArticles, setReversedArticles] = useState<IArticle[] | null>(
     null
   );
@@ -82,6 +56,83 @@ const BlogPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isMainSliderImageLoaded, setIsMainSliderImageLoaded] =
     useState<boolean>(false);
+  const [pageNumber, setPageNumber] = useState("");
+
+  const tagParams = router.query.tag;
+
+  const currentArticlesData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * BlogPageSize;
+    const lastPageIndex = firstPageIndex + BlogPageSize;
+    if (filters.length > 0 && filteredData) {
+      return filteredData?.slice(firstPageIndex, lastPageIndex);
+    }
+    return reversedArticles?.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, filteredData, reversedArticles, filters]);
+
+  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
+  const findViews = (url: string) => {
+    if (views.data)
+      return views.data.find((view) => view.articleUrl === url)?.views;
+  };
+
+  const scrollFunc = () => {
+    scroller.scrollTo("articles-container", {
+      duration: 0,
+      delay: 0,
+      smooth: false,
+      offset: 0,
+    });
+  };
+
+  useEffect(() => {
+    if (router.query.page !== "1" && filters.length) {
+      setIsLoading(true);
+      setCurrentPage(1);
+      router.push("/blog?page=1").then(() => {
+        setIsLoading(false);
+        scrollFunc();
+      });
+    }
+  }, [filters.length]);
+
+  useEffect(() => {
+    if (router.query.page && !Array.isArray(router.query.page)) {
+      if (router.query.page !== pageNumber) {
+        scrollFunc();
+      }
+
+      setPageNumber(router.query.page);
+    }
+
+    if (router.query.filters) {
+      if (typeof router.query.filters === "string") {
+        setFilters([router.query.filters]);
+      } else {
+        setFilters(router.query.filters);
+      }
+    }
+  }, [router.query.page, router.query.filters, scrollFunc]);
+
+  useEffect(() => {
+    if (articles) {
+      const page = router.query.page;
+      const maxPage = Math.ceil(articles.length / BlogPageSize);
+      const currentPage =
+        page !== "0" && isNumeric(page as string)
+          ? Number(page) <= maxPage
+            ? Number(page)
+            : maxPage
+          : 1;
+      tagParams &&
+        !filters.includes(tagParams as string) &&
+        setFilters([...filters, tagParams as string]);
+      setCurrentPage(currentPage);
+      if (tagParams) {
+        scrollFunc();
+      }
+    }
+  }, [tagParams, scrollFunc, router.query.page, data, articles, filters]);
 
   useEffect(() => {
     articles &&
@@ -112,69 +163,9 @@ const BlogPage = () => {
     }
   }, [data, filters, filters.length, reversedArticles]);
 
-  const tagParams = router.query.tag;
-  useEffect(() => {
-    if (articles) {
-      const page = router.query.page;
-      const maxPage = Math.ceil(articles.length / BlogPageSize);
-      const currentPage =
-        page !== "0" && isNumeric(page as string)
-          ? Number(page) <= maxPage
-            ? Number(page)
-            : maxPage
-          : 1;
-      tagParams &&
-        !filters.includes(tagParams as string) &&
-        setFilters([...filters, tagParams as string]);
-      setCurrentPage(currentPage);
-      if (tagParams) {
-        scrollHandler();
-      }
-    }
-  }, [tagParams, scrollHandler, router.query.page, data, articles, filters]);
-
-  const currentArticlesData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * BlogPageSize;
-    const lastPageIndex = firstPageIndex + BlogPageSize;
-    if (filters.length > 0 && filteredData) {
-      return filteredData?.slice(firstPageIndex, lastPageIndex);
-    }
-    return reversedArticles?.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, filteredData, reversedArticles, filters]);
-
-  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
-
-  const findViews = (url: string) => {
-    if (views.data)
-      return views.data.find((view) => view.articleUrl === url)?.views;
-  };
-
-  useEffect(() => {
-    if (router.query.page !== "1" && filters.length) {
-      setIsLoading(true);
-      setCurrentPage(1);
-      router.push("/blog?page=1").then(() => {
-        setIsLoading(false);
-        scrollHandler();
-      });
-    }
-  }, [filters.length]);
-
-  useEffect(() => {
-    if (router.query.page) scrollHandler();
-
-    if (router.query.filters) {
-      if (typeof router.query.filters === "string") {
-        setFilters([router.query.filters]);
-      } else {
-        setFilters(router.query.filters);
-      }
-    }
-  }, [router.query.page, router.query.filters, scrollHandler]);
-
   return (
-    <Loader active={!isMainSliderImageLoaded}>
-      {data && views.data ? (
+    <Loader active={!isMainSliderImageLoaded || !reversedArticles?.length}>
+      {data && articles && views.data ? (
         <>
           <Head>
             <title>{metaTitle}</title>
@@ -229,7 +220,10 @@ const BlogPage = () => {
             </Styled.HeaderBlock>
             <PodcastItem data={data.podcast} />
             {(articles && (
-              <Styled.AllArticlesContainer articles={articles.length}>
+              <Styled.AllArticlesContainer
+                id="articles-container"
+                articles={articles.length}
+              >
                 <DropdownContainer>
                   <>
                     {filters.length > 0 &&
@@ -262,7 +256,7 @@ const BlogPage = () => {
                 {currentArticlesData &&
                   currentArticlesData.map((article, i) =>
                     i === 0 ? (
-                      <div ref={ref} key={article._id}>
+                      <div key={article._id}>
                         <BlogItem
                           article={article}
                           views={findViews(article.url)}

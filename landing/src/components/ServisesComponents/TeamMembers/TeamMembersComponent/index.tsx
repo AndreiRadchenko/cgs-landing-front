@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as Styled from "./teamMembers.styled";
 import { MobileInfiniteText } from "../../../MobileInfiniteText/MobileInfiniteText";
 import { ITeamMembers } from "../../../../types/ServicesComponent.types";
+import { SplitBrackets } from "../../../../utils/splitBrackets";
 
 interface ITeamMembersProps {
   teamMembers?: ITeamMembers;
@@ -80,11 +81,15 @@ const TeamMembers = ({ teamMembers, className }: ITeamMembersProps) => {
 
   return (
     <>
-      <MobileInfiniteText title={title} />
+      <Styled.MobileTitle className={className}>
+        <MobileInfiniteText title={title} />
+      </Styled.MobileTitle>
       <Styled.Wrapper ref={wrapperRef} className={className}>
         <Styled.TextContainer>
           <Styled.Title>{title}</Styled.Title>
-          <Styled.Description>{description}</Styled.Description>
+          <Styled.Description>
+            <SplitBrackets text={description}/>
+          </Styled.Description>
         </Styled.TextContainer>
         <Styled.ScrollbarContainer>
           <Styled.Scrollbar top={scrollPosition}></Styled.Scrollbar>

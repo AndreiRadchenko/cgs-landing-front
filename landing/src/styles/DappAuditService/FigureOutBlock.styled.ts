@@ -76,7 +76,7 @@ export const Text = styled.p`
   margin: 0;
 
   &:first-child {
-    margin-block: 0 1.625em;
+    margin-block: 0 0.65em;
   }
 
   @media (max-width: 1390px) {
@@ -124,7 +124,7 @@ export const WhyIsAuditImportantImageWrapper = styled.div`
     right: 4em;
     top: -70%;
   }
-  
+
   @media ${themes.primary.media.minPCFullHD} {
     height: 670px;
     width: 1600px;

@@ -107,11 +107,11 @@ const DappAuditPage: NextPage = () => {
               />
             )}
             <Layout>
+              <TeamMembers
+                className={"dappAuditTeam"}
+                teamMembers={data?.teamMembers}
+              />
               <Styled.Layout>
-                <TeamMembers
-                  className={"dappAuditTeam"}
-                  teamMembers={data?.teamMembers}
-                />
                 <FooterBlock />
               </Styled.Layout>
             </Layout>

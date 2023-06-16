@@ -25,7 +25,7 @@ const PerksOfCoopComponent = ({
     : blocks;
 
   return (
-    <Styles.Container>
+    <Styles.Container className={className}>
       <Subtitle className={`perksTitle ${className}`}>
         {data?.subtitle}
       </Subtitle>
@@ -52,7 +52,7 @@ const PerksOfCoopComponent = ({
                   />
                   <p>{el[1].subtitle}</p>
                 </Styles.WorthCardTitle>
-                <Styles.WorthText>
+                <Styles.WorthText className={className}>
                   <SplitBrackets text={el[1].text} />
                 </Styles.WorthText>
               </Styles.WorthCardInfo>

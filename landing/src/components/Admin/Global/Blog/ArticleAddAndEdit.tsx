@@ -166,6 +166,7 @@ const ArticleAddAndEdit = ({
 
   const handleDraftClick = () => {
     setFieldValue("draft", true);
+    setFieldValue("disabled", true);
     handleSubmit();
   };
 

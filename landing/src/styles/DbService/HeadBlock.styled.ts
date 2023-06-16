@@ -6,7 +6,7 @@ export const Container = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 8em 0 0;
+  padding: 7.5em 0 0;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
@@ -88,11 +88,13 @@ export const Title = styled.h1`
 export const Description = styled.div`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 1.27em 0 2.36em;
+  margin: 0.9em 0 1.82em;
+  max-width: 41.5vw;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 1.625em 0 1.75em;
+    margin: 16px 0 34px;
+    max-width: 100%;
 
     & br {
       display: none;
