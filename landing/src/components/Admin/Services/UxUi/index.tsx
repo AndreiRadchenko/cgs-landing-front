@@ -37,14 +37,12 @@ const ServiceUxUiContentBlock = () => {
         <AdminBlockDropDown title="DESIGN BLOCK">
           <DesignBlock />
         </AdminBlockDropDown>
-      </AdminPaddedBlock>
-
-      <div style={{ marginTop: "-3.8em" }}>
-        <ServiceShowCase />
-      </div>
-      <TeamMembers />
-
-      <AdminPaddedBlock style={{ margin: "-3em 0 0", paddingTop: "0" }}>
+        <AdminBlockDropDown title="SHOWCASE">
+          <ServiceShowCase />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="TEAM MEMBERS">
+          <TeamMembers />
+        </AdminBlockDropDown>
         <AdminBlockDropDown title="OTHER SERVICES">
           <OtherServices queryKey={queryKeys.getServiceUxUiPage} />
         </AdminBlockDropDown>
