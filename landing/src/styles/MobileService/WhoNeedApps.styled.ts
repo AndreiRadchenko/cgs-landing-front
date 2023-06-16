@@ -26,6 +26,10 @@ export const Wrapper = styled.section`
     margin-top: 8em;
     padding-bottom: 9.5em;
 
+    &.mobileDev {
+      margin-top: 60px;
+    }
+
     &.withoutShowcase {
       margin-bottom: 1.82em;
     }
@@ -47,14 +51,13 @@ export const WhatDoWeUse = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding-bottom: 70px;
+    padding-bottom: 10px;
     flex-direction: column-reverse;
     gap: 10px;
   }
 `;
 
 export const WhatDoWeUseContainer = styled.div`
-  margin-top: 10.2em;
   margin-right: 1.1em;
   width: 50%;
 
@@ -156,9 +159,12 @@ export const WhoNeedAppsWrapper = styled.div`
   }
 `;
 export const ImageWrapper = styled.div`
+  position: relative;
+  height: 689px;
+  width: 640px;
+
   @media ${themes.primary.media.maxTabletLandScape} {
     display: block;
-    position: relative;
     height: 250px;
 
     &.whatDoWeUse {
@@ -171,20 +177,22 @@ export const ImageWrapper = styled.div`
     }
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 91vw;
+    height: 465px;
     width: 100%;
 
     &.whatDoWeUse {
-      height: 121vw;
+      height: 465px;
       width: 100%;
     }
   }
 `;
 export const Image = styled.img`
-  width: 500px;
-  height: 500px;
+  position: absolute;
+  width: 855px;
+  height: 689px;
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
+    height: 100%;
   }
 `;

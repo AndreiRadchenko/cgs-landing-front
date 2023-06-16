@@ -30,9 +30,9 @@ const HeadBlock = () => {
               buttonLink={data?.buttonLink}
               withEstimation
               buttonText={data.button}
-              buttonClassName="social-button"
+              buttonClassName="social-button services"
             />
-            <ButtonShareComponent />
+            <ButtonShareComponent className={"mobileDev"} />
           </Styled.ButtonWrapper>
         )}
       </Styled.ContentContainer>

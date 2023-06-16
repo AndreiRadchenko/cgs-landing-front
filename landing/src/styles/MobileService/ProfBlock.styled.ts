@@ -5,8 +5,8 @@ import { cursorBlinking } from "../Animations.styled";
 export const ContentContainer = styled.section`
   display: flex;
   align-items: center;
-  margin-top: 10.5em;
-  margin-bottom: 12.5em;
+  margin-top: 7.8em;
+  margin-bottom: 9.67em;
   h2 {
     line-height: 132%;
   }
@@ -51,9 +51,11 @@ export const ButtonWrapper = styled.div`
 export const ImageWrapper = styled.div`
   position: relative;
   width: 500px;
+  height: 352px;
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
+    height: 230px;
     margin-top: 20px;
   }
 `;
@@ -62,13 +64,12 @@ export const Image = styled.img`
   height: 100%;
   object-fit: cover;
   transform: rotate(2.06deg);
+  position: absolute;
+  top: 70px;
 
   @media ${themes.primary.media.maxMobile} {
-    width: 94%;
-    height: 28em;
     transform: rotate(-11.06deg);
-    right: -20%;
-    bottom: 1rem;
+    top: -10px;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 376px;
