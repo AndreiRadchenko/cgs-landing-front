@@ -67,7 +67,7 @@ export const List = styled.ul`
 `;
 export const ListTitle = styled.span`
   margin: 0 0 7px 0;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
   line-height: 33px;
@@ -83,7 +83,7 @@ export const ListItem = styled.li`
   font-size: 16px;
   line-height: 28px;
   font-weight: ${themes.primary.font.weight.heavy};
-  color: gray;
+  color: #535557;
 
   &::marker {
     color: black;
@@ -113,6 +113,7 @@ export const SubmitButtonContainer = styled.div`
   width: 172px;
   position: relative;
   margin: 38px 0px 40px 36px;
+  
   & path {
     transition: all 1s ease-in-out;
   }
@@ -140,6 +141,8 @@ export const SubmitButtonContainer = styled.div`
 `;
 
 export const SubmitButton = styled.button`
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
   height: 100%;
   width: 100%;
   border: 0;

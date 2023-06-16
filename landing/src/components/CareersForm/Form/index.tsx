@@ -61,6 +61,14 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
         return setButtonState({ ...buttonState, triedSubmit: true });
       }
       validateForm();
+
+      const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+      
+      if (!emailPattern.test(values.contact)) {
+        setButtonState({ disabled: true, triedSubmit: true });
+        return;
+      }
+
       if (!values.position) return;
       if (values.cvfile) {
         const formData = new FormData();
@@ -80,6 +88,7 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
 
       setIsOpen(true);
       resetForm();
+      setButtonState({ disabled: false, triedSubmit: false });
     },
   });
 
@@ -194,8 +203,8 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
           />
         </Styled.PositionSelect>
         <div ref={scrollToRef} />
-        {Object.entries(fieldContent).map(([key, label]) => (
-          <FormField name={key} key={key} label={label} toFormError={buttonState.disabled && buttonState.triedSubmit} />
+        {Object.entries(fieldContent).map(([key, label], idx) => (
+          <FormField name={key} key={key} label={label} toFormError={buttonState.disabled && buttonState.triedSubmit} className={idx == 1 ? "formEmail" : ""}/>
         ))}
         <Styled.FormFieldContainer>
           <Styled.TitleContainer isCvIn={!!cvName.length}>

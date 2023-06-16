@@ -9,15 +9,19 @@ export const FormField = styled(Field)`
   border: none;
   border-bottom: 1px solid black;
   font-family: ${themes.primary.font.family.namu};
-  font-size: 16px;
+  font-size: 1.2em;
   color: black;
   padding: 0 0 0 12px;
   &:focus {
     outline: none;
   }
 
+  &.formEmail {
+    color: ${({ toError }) => (toError ? "#F84A3F" : "black")};
+  }
+
   &::placeholder {
-    color: ${({ toError }) => (toError ? "#F84A3F" : "rgba(0, 0, 0, 0.5)")};
+    color: ${({ toError }) => (toError ? "#F84A3F" : "8F8E93")};
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
