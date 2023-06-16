@@ -53,6 +53,10 @@ export const BlackButton = styled.a<IFontSize>`
     font-size: 1.125em;
   }
 
+  &.services {
+    font-size: 1.5em;
+  }
+
   &.cta-button {
     padding: 18px 17px;
 
@@ -733,7 +737,8 @@ export const WhatsAppWrapper = styled.div`
   color: ${themes.primary.colors.primary};
   font-size: 1.125em;
 
-  &.webAudit {
+  &.webAudit,
+  &.mobileDev {
     font-size: 1.1rem;
   }
 
@@ -764,7 +769,8 @@ export const TelegramWrapper = styled.div`
   transition: color 0.3s;
   margin-left: 0.778em;
 
-  &.webAudit {
+  &.webAudit,
+  &.mobileDev {
     font-size: 1.1rem;
   }
 

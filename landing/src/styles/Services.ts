@@ -12,13 +12,16 @@ export const Container = styled.section`
   }
 
   &.mobileDev {
-    margin-top: 3.5em;
+    margin-top: 1.4em;
   }
 
   @media ${themes.primary.media.maxMobile} {
     &.mobileAudit {
       margin-top: 26px;
       margin-bottom: 108px;
+    }
+    &.mobileDev {
+      margin-top: 30px;
     }
     margin-top: 35px;
     margin-bottom: 60px;

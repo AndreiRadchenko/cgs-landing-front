@@ -83,7 +83,7 @@ export const Description = styled.div`
     font-size: 1rem;
     white-space: pre-wrap;
     margin-bottom: 1.815em;
-    margin-top: 1.625em;
+    margin-top: 19px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {

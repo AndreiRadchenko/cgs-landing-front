@@ -57,9 +57,9 @@ const ProfBlock = () => {
               buttonLink={data?.buttonLink}
               buttonText={data.button}
               withEstimation
-              buttonClassName="social-button"
+              buttonClassName="social-button services"
             />
-            <ButtonShareComponent />
+            <ButtonShareComponent className={"mobileDev"} />
           </Styled.ButtonWrapper>
         )}
       </div>
