@@ -163,6 +163,10 @@ const BlogPage = () => {
     }
   }, [data, filters, filters.length, reversedArticles]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Loader active={!isMainSliderImageLoaded || !reversedArticles?.length}>
       {data && articles && views.data ? (
