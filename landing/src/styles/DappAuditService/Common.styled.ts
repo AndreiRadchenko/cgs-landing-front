@@ -23,7 +23,7 @@ export const Wrapper = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
-    margin-bottom: 60px;
+    margin-bottom: 51px;
   }
 `;
 
