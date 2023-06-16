@@ -90,7 +90,7 @@ export const ItemApp = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 335px;
+    max-width: 100%;
 
     h3 {
       font-size: 22px;

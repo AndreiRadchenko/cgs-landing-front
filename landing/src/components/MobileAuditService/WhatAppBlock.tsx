@@ -8,6 +8,7 @@ import disk from "../../../public/MobileAuditService/disk.svg";
 import window from "../../../public/MobileAuditService/window.svg";
 import tree from "../../../public/MobileAuditService/tree.svg";
 import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const WhatAppBlock = () => {
   const queryClient = useQueryClient();
@@ -33,7 +34,9 @@ const WhatAppBlock = () => {
                   alt="worth it title image"
                 />
                 <h3>{item.subtitle}</h3>
-                <p>{item.text}</p>
+                <p>
+                  <SplitBrackets text={item.text} />
+                </p>
               </Styled.ItemApp>
             ))}
         </Styled.HaveContainer>

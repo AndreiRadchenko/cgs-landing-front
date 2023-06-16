@@ -7,7 +7,7 @@ export const Container = styled.section`
   display: flex;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 1.4em;
+    margin-top: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;

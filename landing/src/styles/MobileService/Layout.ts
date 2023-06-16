@@ -27,6 +27,7 @@ export const Subtitle = styled.h2`
   }
   &.mobileAudit {
     width: 100%;
+    font-size: 2.5em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {

@@ -7,8 +7,8 @@ export const Container = styled.section`
   margin-top: 50px;
   margin-bottom: 140px;
   &.mobileAudit {
-    margin-top: 8rem;
-    margin-bottom: 9.25em;
+    margin-top: 8.95rem;
+    margin-bottom: 10.2em;
   }
 
   &.mobileDev {
@@ -93,6 +93,10 @@ export const WorthCardTitle = styled.div`
     color: ${themes.primary.colors.primary};
   }
 
+  &.mobileAudit p {
+    font-size: 1.5em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     padding-inline: 20px;
     height: 80px;
@@ -126,10 +130,11 @@ export const WorthText = styled.p`
   max-width: 440px;
 
   &.mobileAudit {
-    font-size: 1.15rem;
+    font-size: 1.15em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    max-width: 100%;
     & br {
       display: none;
     }
