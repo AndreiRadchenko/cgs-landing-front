@@ -43,7 +43,7 @@ const PerksOfCoopComponent = ({
                 <p>{el[1].subtitle}</p>
               </Styles.WorthTitleContainer>
               <Styles.WorthCardInfo>
-                <Styles.WorthCardTitle>
+                <Styles.WorthCardTitle className={className}>
                   <Styles.Icon
                     className={"iconCard"}
                     src={titleIllustration[idx].src}
