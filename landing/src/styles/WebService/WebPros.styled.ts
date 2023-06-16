@@ -19,7 +19,7 @@ export const Container = styled.section`
       position: absolute;
       background-color: ${themes.primary.colors.headerBorder};
       width: 130%;
-      bottom: -7%;
+      bottom: -8.25%;
       left: -10%;
     }
   }

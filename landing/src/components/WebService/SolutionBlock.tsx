@@ -6,15 +6,12 @@ import { useQueryClient } from "@tanstack/react-query";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import { IServicesClassnameProps } from "../../types/Services.types";
 import { queryKeys } from "../../consts/queryKeys";
-import { SplitBrackets } from "../../utils/splitBrackets";
 import firsMobileBg from "../../../public/WebService/first-mobile.svg";
 import secondMobileBg from "../../../public/WebService/second-mobile.svg";
-import { useOnScreen } from "../../hooks/useOnScreen";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
+
 import TextTypingAnimation from "../Typewrite";
 
 const SolutionBlock = ({ className }: IServicesClassnameProps) => {
-  const { width } = useWindowDimension();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceWeb>([
     queryKeys.getServiceWebPage,
@@ -27,15 +24,11 @@ const SolutionBlock = ({ className }: IServicesClassnameProps) => {
 
   const elRef = useRef<HTMLDivElement>(null);
 
-  const isScrolled = useOnScreen(elRef, true);
-
   return (
     <Styled.Container className={className}>
       {data && (
         <Styled.LeftSideText ref={elRef}>
-          {(width && width <= 767 && isScrolled && (
-            <TextTypingAnimation text={data.subtitle} />
-          )) || <SplitBrackets text={data.subtitle} />}
+          <TextTypingAnimation text={data.subtitle} />
         </Styled.LeftSideText>
       )}
       <Styled.BgImageFirst src={firsMobileBg.src} />
