@@ -112,6 +112,7 @@ const DbSolutions: NextPage = () => {
                 />
               </Styled.Layout>
             </Layout>
+            <Styled.ShowCaseAlign></Styled.ShowCaseAlign>
             <ShowCase
               setIsFirstImageLoaded={setIsFirstImageLoaded}
               projects={data?.projects}

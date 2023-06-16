@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 export const Container = styled.section`
   display: flex;
   justify-content: space-between;
-  margin-bottom: -3.5em;
+  margin-bottom: 1em;
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
@@ -45,10 +45,10 @@ export const ButtonWrapper = styled.div`
 
 export const Image = styled.img`
   position: relative;
-  right: 3.875em;
-  width: 26.4em;
-  height: 29em;
-  bottom: 4.625em;
+  right: 0;
+  width: 22em;
+  height: auto;
+  bottom: 2.2em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 20em;
@@ -63,7 +63,6 @@ export const Image = styled.img`
   @media ${themes.primary.media.maxMobile} {
     bottom: 2em;
     left: 2.81em;
-
     width: 309px;
     height: 340px;
   }
@@ -94,12 +93,12 @@ export const SubtitleWrapper = styled.div`
 export const Text = styled.p`
   margin: 0;
   padding: 0;
-  font-size: 1.375em;
+  font-size: 1.5em;
   line-height: 160%;
-  margin: 0.5em 0 2em;
+  margin: 0.833em 0 1.833em;
   @media ${themes.primary.media.maxMobile} {
     font-size: 18px;
-    margin: 1em 0 1.75em;
-    max-width: 94%;
+    margin: 1em 0 2em;
+    max-width: 100%;
   }
 `;

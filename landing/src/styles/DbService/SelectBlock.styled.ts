@@ -34,7 +34,8 @@ export const Subtitle = styled.h2`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
-    line-height: 233%;
+    line-height: 132%;
+    margin-bottom: 14px;
 
     & .last-part > div {
       top: 20%;
