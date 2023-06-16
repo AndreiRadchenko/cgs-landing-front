@@ -73,7 +73,7 @@ export const Text = styled.p`
   padding: 0;
   font-size: 1.5em;
   line-height: 160%;
-  margin: 1.25em 0 2.75em;
+  margin: 0.833em 0 1.833em;
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;
     margin: 10px 0 2em;

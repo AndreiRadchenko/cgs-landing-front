@@ -64,7 +64,7 @@ export const Title = styled.h3`
   font-weight: inherit;
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 0.5em;
+  margin: 0;
   max-width: 70%;
 
   br {
@@ -75,6 +75,7 @@ export const Title = styled.h3`
     font-size: 1.5em;
     line-height: 132%;
     margin-bottom: 10px;
+    max-width: 100%;
 
     br {
       display: block;
@@ -85,13 +86,13 @@ export const Title = styled.h3`
 export const Text = styled.p`
   margin: 0;
   padding: 0;
-  font-size: 1.375em;
+  font-size: 1.5em;
   line-height: 160%;
-  margin: 0.5em 0 2em;
+  margin: 0.833em 0 1.833em;
   max-width: 70%;
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;
-    margin: 10px 0 1.75em;
-    max-width: 94%;
+    margin: 10px 0 2em;
+    max-width: 100%;
   }
 `;

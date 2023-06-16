@@ -12,7 +12,6 @@ export const Container = styled.section`
 
 export const ContentWrapper = styled.div`
   padding-top: 9.5em;
-  /* margin-bottom: 11.875em; */
 
   @media ${themes.primary.media.maxTabletLandScape} {
     max-width: 60%;
@@ -45,10 +44,6 @@ export const Title = styled.h1`
   text-transform: uppercase;
   margin: 0;
   white-space: nowrap;
-
-  /* br {
-    display: none;
-  } */
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 2.5em;
@@ -92,8 +87,8 @@ export const Image = styled.img`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 21.44em;
+    width: 23.9em;
     height: auto;
-    margin: 0.19em 0 0 0.75em;
+    margin: 0.19em 0 0 0.85em;
   }
 `;

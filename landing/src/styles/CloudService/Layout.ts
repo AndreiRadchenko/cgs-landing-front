@@ -42,7 +42,7 @@ export const ShowCaseAlign = styled.div`
 export const TeamMembersAlign = styled.div`
   margin-top: 0em;
   @media ${themes.primary.media.maxMobile} {
-    margin-top: -3em;
-    margin-bottom: -3em;
+    margin-top: 0em;
+    margin-bottom: -2.5em;
   }
 `;
