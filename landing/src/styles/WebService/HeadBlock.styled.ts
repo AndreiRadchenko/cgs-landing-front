@@ -6,7 +6,7 @@ export const Container = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding-top: 7.7em;
+  padding-top: 8.8em;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
@@ -27,7 +27,7 @@ export const ButtonWrapper = styled.div`
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   width: 44.5%;
 
@@ -105,7 +105,7 @@ export const Description = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 1.625em 0 1.75em;
+    margin: 16px 0 1.75em;
 
     & br {
       display: none;
@@ -133,13 +133,9 @@ export const Image = styled.img`
     right: -2em;
   }
 
-  @media ${themes.primary.media.minPC} {
-    width: 50%;
-  }
-
   @media ${themes.primary.media.maxMobile} {
     position: relative;
-    left: 0;
+    right: -20px;
     top: 0;
     width: 24.28em;
     height: auto;
