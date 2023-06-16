@@ -17,7 +17,7 @@ export const Container = styled.section`
       position: absolute;
       background-color: ${themes.primary.colors.headerBorder};
       width: 130%;
-      bottom: -135px;
+      bottom: -130px;
       left: -10%;
     }
   }
@@ -124,9 +124,11 @@ export const TextContent = styled.div<ISlide>`
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 16px;
+    line-height: 22.4px;
     padding-top: 14px;
+
     &:not(:first-child) {
-      padding-top: 0.5em;
+      padding-top: 1.3em;
     }
 
     &:nth-child(2) {
@@ -136,20 +138,19 @@ export const TextContent = styled.div<ISlide>`
 `;
 
 export const ContentWrapper = styled.div`
-  padding-left: 7.25em;
+  padding-left: 8.25em;
   padding-right: 6em;
   display: flex;
-  justify-content: space-between;
-  column-gap: 10em;
+  column-gap: 20vw;
   z-index: 5;
 
   @media (min-width: 2200px) {
+    padding-top: 3em;
     font-size: 0.9em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 0.8em;
-    justify-content: space-around;
   }
 
   @media (min-width: 1550px) {
@@ -159,7 +160,19 @@ export const ContentWrapper = styled.div`
     }
   }
 
+  @media (max-width: 1920px) {
+    column-gap: 15vw;
+  }
+
+  @media (max-width: 1450px) {
+    column-gap: 12.3em;
+    justify-content: start;
+  }
+
   @media ${themes.primary.media.maxServiceMobile} {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 15em;
     & span:not(:first-child) br {
       display: none;
     }
@@ -189,7 +202,7 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     max-width: 100%;
-    row-gap: 5em;
+    row-gap: 6em;
     padding: 0 0 0 3.75em;
     padding-bottom: 30px;
     position: relative;
@@ -198,10 +211,14 @@ export const ContentWrapper = styled.div`
 
 export const BgImage = styled.img`
   position: absolute;
-  top: -1.1em;
+  top: -2em;
   left: -9.5vw;
   width: 115vw;
   z-index: -1;
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    top: -1.1em;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 140%;
@@ -218,9 +235,7 @@ export const BgImageMobile = styled.img`
   @media ${themes.primary.media.maxTabletPortrait} {
     position: absolute;
     display: block;
-    /* width: 60%; */
     width: 525px;
-    /* height: 70em; */
     height: 1129px;
     left: -3.3em;
     top: -1em;

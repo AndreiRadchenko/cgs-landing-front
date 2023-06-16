@@ -42,3 +42,5 @@ export const BonusesAlign = styled.div`
     margin-bottom: -10px;
   }
 `;
+
+export const ShowCaseAlign = styled.div``;
