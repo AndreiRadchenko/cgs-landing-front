@@ -6,7 +6,11 @@ interface ISplitBracketsProps {
   onMouseEnter?: (text: string, event: React.MouseEvent) => void;
 }
 
-export const SplitBrackets = ({ text, onMouseOut, onMouseEnter }: ISplitBracketsProps) => {
+export const SplitBrackets = ({
+  text,
+  onMouseOut,
+  onMouseEnter,
+}: ISplitBracketsProps) => {
   const splited = text?.split("|");
 
   return (
@@ -14,7 +18,10 @@ export const SplitBrackets = ({ text, onMouseOut, onMouseEnter }: ISplitBrackets
       {splited?.map(
         (el, idx) =>
           el !== "" && (
-            <span key={idx} onMouseEnter={(event) => onMouseEnter?.(text as string, event)}>
+            <span
+              key={idx}
+              onMouseEnter={(event) => onMouseEnter?.(text as string, event)}
+            >
               {el}
               {splited.length - 1 !== idx && <br />}
             </span>

@@ -59,7 +59,7 @@ export const Title = styled.h2`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
-    margin: 0 0 1.46em;
+    margin: 0;
     white-space: wrap;
 
     br {
@@ -71,13 +71,13 @@ export const Title = styled.h2`
 export const Text = styled.p`
   margin: 0;
   padding: 0;
-  font-size: 1.375em;
+  font-size: 1.5em;
   line-height: 160%;
   margin: 1.25em 0 2.75em;
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
-    margin: 1em 0 1.75em;
-    max-width: 94%;
+    font-size: 1.125em;
+    margin: 10px 0 2em;
+    width: 100%;
   }
 `;
 

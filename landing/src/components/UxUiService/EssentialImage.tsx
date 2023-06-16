@@ -1013,6 +1013,8 @@ const EssentialImage = () => {
           href="https://www.behance.net/cgsteam"
           target="_blank"
           rel="noreferrer noopener"
+          aria-label="Our works on behance.net"
+          title="Our works on behance.net"
         >
           <path
             d="M404.685 156.567L403.786 193.721L411.165 196.645L412.064 159.491C412.167 155.237 409.605 151.567 405.935 150.025L398.733 147.177C402.308 148.761 404.786 152.382 404.685 156.567Z"
