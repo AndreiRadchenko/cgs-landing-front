@@ -25,7 +25,7 @@ const CareersTicket: FC<ITicketProps> = ({
   const [hoverTicket, setHoverTicket] = useState<boolean>(!isAdminPanel && false);
 
   const onTicketView = () => {
-    if(!isAdminPanel) {
+    if (!isAdminPanel) {
       setIsOpen(true);
     };
   };
@@ -39,14 +39,14 @@ const CareersTicket: FC<ITicketProps> = ({
   const ticketHoverOut = () => setHoverTicket(false);
 
   const onSubmitClick = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
-    e.preventDefault();
+    e.stopPropagation();
 
     setIsOpen(false);
     if (scrollTo) scrollTo();
   };
 
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper onClick={onTicketView}>
       <Styled.TicketContainer>
         <Styled.TicketInner
           isTicketHover={hoverTicket}
@@ -70,13 +70,15 @@ const CareersTicket: FC<ITicketProps> = ({
               </Styled.WorkType>
             </Styled.TicketAboutWork>
           </Styled.TicketInfo>
-          <Styled.TicketApplyButton onClick={onTicketView}>
+          <Styled.TicketApplyButton onClick={onSubmitClick}>
             <p>Apply</p>
-            <Styled.TicketArrow src={Arrow.src} />
+            <ArrowContainer className="careersTicketArrow">
+              <ButtonArrow />
+            </ArrowContainer>
           </Styled.TicketApplyButton>
           <Styled.Shadow isTicketHover={hoverTicket}>
           </Styled.Shadow>
-        </Styled.TicketInner>     
+        </Styled.TicketInner>
         <TicketModal isOpen={isOpen} onClose={onClose}>
           <Styles.ButtonWrapper>
             <Styles.CloseButton src={CloseButton.src} onClick={onClose} />
@@ -97,7 +99,7 @@ const CareersTicket: FC<ITicketProps> = ({
                 <Styles.SubmitButton onClick={onSubmitClick}>
                   SUBMIT FORM
                 </Styles.SubmitButton>
-                <ArrowContainer>
+                <ArrowContainer className="ticketModalArrowSubmit">
                   <ButtonArrow />
                 </ArrowContainer>
               </Styles.SubmitButtonContainer>

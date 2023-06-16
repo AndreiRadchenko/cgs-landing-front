@@ -57,10 +57,10 @@ export const AboutWork = styled.div`
   display: flex;
 `;
 export const Location = styled.div`
-  width: 48%;
+  width: 34.2%;
 `;
 export const TypeOfWork = styled.div`
-  width: 50%;
+  width: 34.2%;
   margin-left: 15px;
 `;
 
@@ -226,6 +226,7 @@ export const TicketEditAndDeleteButtons = styled.div`
 
 export const DeleteBtn = styled.button`
   border: 0;
+  background: transparent;
   padding: 0;
   color: red;
   font-weight: ${themes.primary.font.weight.medium};

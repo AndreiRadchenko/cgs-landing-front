@@ -6,18 +6,20 @@ interface IFieldProps {
   label: string;
   type?: string;
   toFormError: boolean;
+  className: string;
 }
 
 const TextFieldWrapper: FC<IFieldProps> = ({
   name,
   label,
   type = "text",
-  toFormError
+  toFormError,
+  className,
 }: IFieldProps) => {
   return (
     <>
       <Styled.FormFieldContainer>
-        <Styled.FormField placeholder={label} type={type} name={name} toError={toFormError}/>
+        <Styled.FormField placeholder={label} type={type} name={name} toError={toFormError} className={className}/>
       </Styled.FormFieldContainer>
     </>
   );

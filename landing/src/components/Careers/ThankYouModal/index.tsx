@@ -16,7 +16,7 @@ const ThankYouModal: FC<ThankYouModalProps> = ({ isOpen, setIsOpen }) => {
     <>
       <Styles.ThankYouModal isOpen={isOpen} onClick={() => setIsOpen(false)}>
         <Styles.ThankYouModalContainer>
-          <Styles.ThankYouModalContent onClick={(e) => e.stopPropagation()}>
+          <Styles.ThankYouModalContent>
             <Styles.Container>
               <Styles.WhiteBox />
               <Styles.BlackBox />

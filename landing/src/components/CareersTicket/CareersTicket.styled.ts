@@ -281,9 +281,14 @@ export const WorkLocation = styled.div`
   align-items: center;
   border: 1.5px solid #000;
   font-size: 18px;
+  height: 46px;
   font-weight: 900;
-  padding: 0px 15px;
+  padding: 0px 14px;
   margin-right: 20px;
+  
+  p{
+    margin: 0;
+  }
 
   @media (max-width: 474px) {
     font-size: 14px;
@@ -296,8 +301,13 @@ export const WorkType = styled.div`
   align-items: center;
   border: 1.5px solid #000;
   font-size: 18px;
+  height: 46px;
   font-weight: 900;
   padding: 0px 15px;
+
+  p{
+    margin: 0;
+  }
 
   @media (max-width: 474px) {
     font-size: 14px;
@@ -312,12 +322,39 @@ export const TicketIcon = styled.img`
 
 export const TicketApplyButton = styled.div`
   height: 40px;
+  position: relative;
   display: flex;
   align-items: center;
 
+  & path {
+    transition: all 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    z-index: -1;
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
+
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+  }
+
+
   p{
-    font-size: 16px;
+    font-size: 18px;
+    margin: 0;
+    margin-right: 5px;
     font-family: ${themes.primary.font.family.namu};
+  }
+
+  @media (max-width: 475px) {
+    p{
+      font-size: 14px;
+    }
   }
 `;
 

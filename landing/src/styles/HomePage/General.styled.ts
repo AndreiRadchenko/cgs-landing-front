@@ -646,6 +646,16 @@ export const ArrowContainer = styled.div`
     height: 25px;
   }
 
+  &.ticketModalArrowSubmit {
+    will-change: transform;
+  }
+
+  &.careersTicketArrow {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+
   @media (min-width: 2200px) {
     width: 45px;
     height: 45px;

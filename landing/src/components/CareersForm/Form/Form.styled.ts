@@ -58,7 +58,7 @@ export const FormField = styled(Field)<IFormField>`
 
   font-family: ${themes.primary.font.family.namu};
 
-  font-size: 16px;
+  font-size: 1.2em;
   padding: 0 0 0 12px;
 
   &:focus {
@@ -325,7 +325,7 @@ export const FormSentText = styled.span`
   border: 0;
   background: black;
   color: white;
-  padding-top: 5%;
+  padding-top: 6.5%;
 
   @media (max-width: 768px) {
     padding-top: 7%;
@@ -372,6 +372,10 @@ export const Shadow = styled.div<IEnableGlare>`
     rgba(241, 239, 237, 0) 114.26%
   );
   position: absolute;
+
+  @media (max-width: 768px) {
+    height: 130%;
+  }
 `;
 
 export const PositionSelect = styled.div<IEnableGlare>`
@@ -422,13 +426,18 @@ export const PositionSelect = styled.div<IEnableGlare>`
 
     &:last-child {
       div:last-child {
-        color: grey;
+        color: #8F8E93;
       }
 
       border-bottom: 10px solid black;
       border-right: 1px solid black !important;
       box-shadow: 13px 0px 0px 0px black;
       border-left: none;
+      overflow: scroll;
+    }
+
+    @media (max-width: 768px) {
+      height: 172px;
     }
   }
 
@@ -461,7 +470,7 @@ export const Cvfield = styled.div<IFormField>`
 
     &::placeholder {
       color: ${({ isEmpty, toFormError }) =>
-        isEmpty ? themes.primary.colors.darkBlue : toFormError ? "#F84A3F" : "grey"};
+        isEmpty ? themes.primary.colors.darkBlue : toFormError ? "#F84A3F" : "8F8E93"};
     }
   }
 `;
@@ -475,7 +484,7 @@ export const Label = styled.label<ILabelOptions>`
   position: absolute;
   right: 3em;
   bottom: 1.9em;
-  color: ${({ toFormError }) => (toFormError ? "#F84A3F" : "grey")};
+  color: ${({ toFormError }) => (toFormError ? "#F84A3F" : "black")};
   cursor: pointer;
   width: 90px;
 
