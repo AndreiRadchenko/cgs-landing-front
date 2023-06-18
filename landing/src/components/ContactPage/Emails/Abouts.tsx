@@ -22,8 +22,8 @@ export const Abouts = ({ abouts }: MessengersProps) => {
               key={idx}
               style={{ width: "58px", height: "58px" }}
               picture={item.image?.url ? item.image.url : ""}
-              pictureWidth="32px"
-              pictureHeight="32px"
+              pictureWidth="41px"
+              pictureHeight="41px"
               link={item.link}
             />
           ))}

@@ -48,7 +48,6 @@ export const TextContent = styled.div`
   line-height: 160%;
   margin-top: 0.9em;
   max-width: 37.36vw;
-  /* width: fit-content; */
 
   @media ${themes.primary.media.maxTabletLandScape} {
     max-width: 20em;

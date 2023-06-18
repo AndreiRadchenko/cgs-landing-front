@@ -2,10 +2,9 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Layout = styled.div`
-  box-sizing: border-box;
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 113px);
   margin: 0 auto;
   padding: 0 50px;
   overflow: hidden;
@@ -26,6 +25,8 @@ export const MediaContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 60px;
+  margin-left: -50px;
+  width: 100vw;
 
   @media ${themes.primary.media.maxServiceWeb} {
     margin-top: 90px;
@@ -43,5 +44,8 @@ export const MediaContainer = styled.div`
     & > :nth-child(4) {
       grid-row: 4;
     }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    margin-left: -20px;
   }
 `;

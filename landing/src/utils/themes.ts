@@ -221,6 +221,7 @@ const themes = {
       minMiniTabletLandScape: "(min-width: 840px)",
       minTablet: "(max-width: 625px)",
       minLaptop: "(min-width: 1200px)",
+      minServiceWeb: "(min-width: 1400px)",
       minPC: "(min-width: 1500px)",
       minPCFullHD: "(min-width: 1800px)",
       minPCTwoThousand: "(min-width: 2560px)",
