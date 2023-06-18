@@ -7,8 +7,22 @@ export const EmailsContainer = styled.div`
   align-items: center;
   margin: 0;
   position: relative;
-  height: 222px;
+  min-height: 222px;
+  height: 15.4vw;
   padding: 0 64px 0 13px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  padding-inline: 50px;
+  & .persist-popup {
+    color: #8f8e93;
+    transition: color 0.5s ease;
+  }
+  :hover {
+    color: white;
+    background-color: ${themes.primary.colors.darkBlue};
+    & .persist-popup {
+      color: white;
+    }
+  }
   &:nth-child(2n + 1) {
     border-right: 1px solid ${themes.primary.colors.loaderSpinner};
   }
@@ -72,6 +86,9 @@ export const EmailsContainer = styled.div`
       }
     }
   }
+  @media ${themes.primary.media.maxMobile} {
+    padding-inline: 20px;
+  }
 `;
 
 export const EmailsTitle = styled.h3`
@@ -79,10 +96,16 @@ export const EmailsTitle = styled.h3`
   padding: 0;
   font-weight: 900;
   font-size: 26px;
-  line-height: 31px;
+  font-size: 2.16em;
+  line-height: 1.2;
   text-transform: uppercase;
-  color: ${themes.primary.colors.black};
+  color: currentColor;
   text-align: center;
+  @media ${themes.primary.media.maxServiceWeb} {
+    &.emails-title {
+      margin-bottom: 78px;
+    }
+  }
   @media ${themes.primary.media.maxMobile} {
   }
 `;
@@ -93,6 +116,9 @@ export const ButtonWrapper = styled.div`
   gap: 33px;
   @media ${themes.primary.media.maxServiceWeb} {
     flex-direction: column;
+    &.emails {
+      gap: 78px;
+    }
   }
 `;
 

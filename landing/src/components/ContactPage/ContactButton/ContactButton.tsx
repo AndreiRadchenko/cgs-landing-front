@@ -39,11 +39,11 @@ export const ContactButton = ({
             alt="messenger icon"
             layout="fill"
             objectFit="contain"
-            objectPosition="top"
+            objectPosition="center"
             priority
           />
         </Styled.ImageWrapper>
-        <Styled.ButtonText>{text}</Styled.ButtonText>
+        {text && <Styled.ButtonText>{text}</Styled.ButtonText>}
       </Styled.ButtonContent>
     </Styled.ButtonWrapper>
   );

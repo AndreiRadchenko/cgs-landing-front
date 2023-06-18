@@ -14,6 +14,7 @@ export interface IFieldProps {
   label: string;
   btnIsClicked: boolean;
   type?: string;
+  idx?: number;
 }
 
 const TextFieldWrapper: FC<IFieldProps> = ({
@@ -24,6 +25,7 @@ const TextFieldWrapper: FC<IFieldProps> = ({
   label,
   btnIsClicked,
   type = "text",
+  idx,
 }: IFieldProps) => {
   const { errors } = useFormikContext<IFormState>();
 
@@ -38,10 +40,10 @@ const TextFieldWrapper: FC<IFieldProps> = ({
     <CSS.FormFieldWrapper>
       <CSS.FormFieldLabel htmlFor={label}>
         {label}
-        {PHONE_OPTIONAL === label && <span> (Optional)</span>}
+        {idx === 2 && <span> (Optional)</span>}
       </CSS.FormFieldLabel>
       <CSS.FormFieldContainer>
-        {PHONE_OPTIONAL === label ? (
+        {idx === 2 ? (
           <PhoneInput
             country={"us"}
             placeholder={label}

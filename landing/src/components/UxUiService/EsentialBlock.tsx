@@ -24,15 +24,7 @@ const EssentialBlock = () => {
   return (
     <Styled.Container>
       <Styled.ImageWrapper>
-        {/* <div style={{ position: "relative", width: "100%", height: "100%" }}> */}
-        {/* <Image
-            src={data?.image ? data.image.url : ""}
-            alt="Essential Image"
-            layout="fill"
-            objectFit="contain"
-          /> */}
         <EssentialImage />
-        {/* </div> */}
       </Styled.ImageWrapper>
       <Styled.ContentWrapper>
         {data && (

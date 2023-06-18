@@ -6,6 +6,7 @@ import parse from "html-react-parser";
 
 import Title from "./Title";
 import BookForm from "./BookForm";
+import Map from "./Map";
 import { Emails, Messengers, Socials, Abouts } from "./Emails";
 
 import * as Styled from "./Contact.styled";
@@ -29,6 +30,7 @@ const Contact = ({ data }: IContact) => {
         <Messengers messengers={messengers} />
         <Abouts abouts={abouts} />
       </Styled.MediaContainer>
+      <Map location={location} />
     </Styled.Layout>
   );
 };
