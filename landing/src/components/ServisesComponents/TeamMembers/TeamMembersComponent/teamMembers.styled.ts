@@ -14,8 +14,6 @@ export const Wrapper = styled.div`
   margin-bottom: 11.65em;
   display: flex;
   justify-content: space-between;
-  overflow: scroll;
-  scroll-behavior: smooth;
 
   &.webAudit {
     margin-top: 11.8em;
@@ -32,10 +30,6 @@ export const Wrapper = styled.div`
 
   &.supportTeam {
     margin-top: 16em;
-  }
-
-  ::-webkit-scrollbar {
-    display: none;
   }
 
   @media (min-width: 1920px) {
@@ -117,9 +111,31 @@ export const Description = styled.div`
 `;
 
 export const ScrollList = styled.div`
-  width: 44vw;
+  width: 45vw;
   height: 184px;
   position: relative;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+  direction: rtl;
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track{
+    background-color: #d9d9d9;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb{
+    background-color: #8f8e93;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 992px) {
+    width: 42vw;
+  }
 
   @media (max-width: 768px) {
     margin-top: 35px;
@@ -127,6 +143,7 @@ export const ScrollList = styled.div`
     padding-left: 12px;
     height: 180px;
     overflow: scroll;
+    direction: ltr;
 
     ::-webkit-scrollbar {
       display: none;
@@ -146,6 +163,7 @@ export const ScrollList = styled.div`
 
 export const ScrollContainer = styled.div`
   margin-top: 5px;
+  direction: ltr;
 
   @media (max-width: 2560px) {
     width: 95%;
@@ -193,7 +211,6 @@ export const ScrollItem = styled.div<LastItem>`
 `;
 
 export const ScrollbarContainer = styled.div`
-  position: sticky;
   width: 6px;
   border-radius: 5px;
   background-color: #d9d9d9;
@@ -201,11 +218,7 @@ export const ScrollbarContainer = styled.div`
   overflow: hidden;
 
   @media (min-width: 769px) {
-    top: 0;
-  }
-
-  @media (max-width: 1200px) {
-    margin-right: 15px;
+    display: none;
   }
 
   @media (max-width: 768px) {

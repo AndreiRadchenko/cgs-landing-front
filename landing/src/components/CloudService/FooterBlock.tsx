@@ -35,7 +35,7 @@ const FooterBlock = () => {
           </Styled.ButtonWrapper>
         )}
       </Styled.Content>
-      <Styled.Image src={data?.image.url} />
+      <Styled.Image src={data?.image?.url} alt="Footer Cloud Service image" />
     </Styled.Container>
   );
 };

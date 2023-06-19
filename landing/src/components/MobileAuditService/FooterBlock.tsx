@@ -34,7 +34,7 @@ const FooterBlock = () => {
       {data && (
         <Styled.ImageWrapper>
           <Image
-            src={data.image.url}
+            src={data?.image?.url}
             alt="footer image img"
             layout="fill"
             objectFit="contain"
