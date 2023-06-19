@@ -34,7 +34,7 @@ export const OtherServices = ({ otherServices }: IServicesProps) => {
             </VerticalSlider>
             {!isMobile && (
               <VerticalSlider isReverse={true}>
-                {otherServices?.services.map((slide, idx) => (
+                {otherServices?.services.reverse().map((slide, idx) => (
                   <SwiperSlide key={idx}>
                     <Picture
                       imageColor={slide.imageColor}
@@ -49,8 +49,12 @@ export const OtherServices = ({ otherServices }: IServicesProps) => {
         )}
       </Styles.Carousel>
       <Styles.Description>
-        <Styles.Title> <SplitBrackets text={otherServices?.title} /> </Styles.Title>
-        <Styles.Text> <SplitBrackets text={otherServices?.text} /> </Styles.Text>
+        <Styles.Title>
+          <SplitBrackets text={otherServices?.title} />
+        </Styles.Title>
+        <Styles.Text>
+          <SplitBrackets text={otherServices?.text} />
+        </Styles.Text>
       </Styles.Description>
     </Styles.Container>
   );

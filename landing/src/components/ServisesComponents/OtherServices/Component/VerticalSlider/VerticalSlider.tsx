@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { FC, useRef } from "react";
 import { Autoplay, Navigation } from "swiper";
-import { Swiper } from "swiper/react";
+import { Swiper, SwiperRef } from "swiper/react";
 import "swiper/css";
 import "swiper/css/bundle";
 
@@ -17,18 +17,34 @@ export const VerticalSlider: FC<ISliderProps> = ({
   direction = "vertical",
   children,
 }) => {
+  const swiperRef = useRef<SwiperRef | null>(null);
+
+  const handleMouseEnter = () => {
+    swiperRef.current?.swiper.autoplay.stop();
+    swiperRef.current?.swiper.slidePrev();
+  };
+
+  const handleMouseLeave = () => {
+    swiperRef.current?.swiper.autoplay.start();
+  };
   return (
-    <SliderWrapper isReverse={isReverse}>
+    <SliderWrapper
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      isReverse={isReverse}
+    >
       <Swiper
+        ref={swiperRef}
         direction={direction}
         spaceBetween={18}
         slidesPerView={"auto"}
         centeredSlides={true}
+        threshold={50}
         autoplay={{
           delay: 1,
           disableOnInteraction: false,
-          // reverseDirection: isReverse,
         }}
+        loopPreventsSliding={true}
         loop={true}
         modules={[Autoplay, Navigation]}
         speed={3000}
