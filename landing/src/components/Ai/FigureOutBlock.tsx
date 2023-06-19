@@ -14,6 +14,7 @@ import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 import WhyIsAuditImportant from "/public/DappAuditService/WhyIsAuditImportant.svg";
 import WhyIsAuditImportantMobile from "/public/DappAuditService/WhyIsAuditImportantMobile.svg";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import parse from "html-react-parser";
 
 const FigureOutBlock = () => {
   const { width } = useWindowDimension();
@@ -46,7 +47,7 @@ const FigureOutBlock = () => {
         <Styled.TextWrapper>
           {figureOutBlockData?.textBlock.map((text, index) => (
             <Styled.Text key={index}>
-              <SplitBrackets text={text} />
+              {text && parse(text)}
             </Styled.Text>
           ))}
         </Styled.TextWrapper>

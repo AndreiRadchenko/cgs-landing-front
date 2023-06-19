@@ -122,21 +122,29 @@ export const WhyIsAuditImportantImageWrapper = styled.div`
     width: 100%;
     height: 470px;
     right: 4em;
-    top: -70%;
+    top: -9.3em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     height: 670px;
     width: 1600px;
     right: 5vw;
-    top: -95%;
+    top: -11em;
   }
 
   @media (min-width: 2200px) {
     height: 670px;
     width: 90%;
     right: 10vw;
-    top: -5em;
+    top: -6.8em;
+  }
+
+  @media (max-width: 1500px) {
+    top: -8em;
+  }
+
+  @media (max-width: 1440px) {
+    top: -7.5em;
   }
 
   @media (max-width: 1390px) {
@@ -148,12 +156,12 @@ export const WhyIsAuditImportantImageWrapper = styled.div`
     height: 470px;
     width: 992px;
     right: 1vw;
-    top: -155px;
+    top: -160px;
   }
 
   @media (max-width: 1100px) {
-    right: 0vw;
-    top: -145px;
+    right: -1vw;
+    top: -185px;
   }
 
   @media (max-width: 1050px) {

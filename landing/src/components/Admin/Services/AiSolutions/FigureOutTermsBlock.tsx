@@ -13,6 +13,11 @@ import ButtonArrow from "../../../../utils/ButtonArrow";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import dynamic from "next/dynamic";
+
+const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 const FigureOutTermsBlock = () => {
   const { values, handleSubmit, handleChange } =
@@ -33,16 +38,10 @@ const FigureOutTermsBlock = () => {
             name="figureOutBlock.subtitle"
             placeholder="Title"
           />
-          {values.figureOutBlock.textBlock.map((item, idx) => (
-            <SubHeaderWithInput
-              key={idx}
-              inputValue={item}
-              onChangeFunction={handleChange}
-              header="Text"
-              height="113px"
-              name={`figureOutBlock.textBlock[${idx}]`}
-              placeholder="Text"
-            />
+          {Object.entries(values.figureOutBlock.textBlock).map((el, idx) => (
+            <div>
+              <TextEditor header="Text" name={`figureOutBlock.textBlock[${idx}]`}/>
+            </div>
           ))}
         </Styled.InputsWrapper>
         <PhotoBlockDashed
