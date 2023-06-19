@@ -21,7 +21,7 @@ export const FormField = styled(Field)`
   }
 
   &::placeholder {
-    color: ${({ toError }) => (toError ? "#F84A3F" : "8F8E93")};
+    color: ${({ toError }) => (toError ? "#F84A3F" : "#8F8E93")};
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -34,15 +34,20 @@ export const FormField = styled(Field)`
 `;
 
 export const FormFieldContainer = styled.div`
-  width: 100%;
-  height: 78px;
+  height: 68px;
+  width: 557px;
   background-color: ${themes.primary.colors.careerBackground};
   position: relative;
   margin-top: 16px;
   border: 1.5px solid #000;
   box-shadow: 5px 5px 0 #000;
 
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 66px;
+    width: 335px;
+    height: 54px;
   }
 `;

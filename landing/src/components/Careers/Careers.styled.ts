@@ -189,6 +189,10 @@ export const Title = styled.header`
     line-height: 39px;
     margin-left: 0;
     width: 335px;
+
+    span:last-child{
+      font-size: 30px;
+    }
   }
 `;
 
@@ -341,13 +345,13 @@ export const FormTitle = styled.span`
   p{
     margin: 0;
     margin-bottom: 30px;
-
+    padding-top: 50px;
     @media (max-width: 475px) {
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
 
     @media (max-width: 400px) {
-      margin-bottom: 10px;
+      margin-bottom: 4px;
     }
   }
 
@@ -377,7 +381,7 @@ export const FormTitle = styled.span`
   }
 
   @media (max-width: 386px) {
-    font-size: 23px;
+    font-size: 21px;
   }
 `;
 

@@ -31,8 +31,8 @@ export const ThankYouModalContainer = styled.div`
 
 export const ThankYouModalContent = styled.div`
   width: 613px;
-  height: 388px;
-  background: ${themes.primary.colors.grayBack};
+  height: 364px;
+  background: #F1EFED;
   position: relative;
   border: 2px solid ${themes.primary.colors.primary};
 
@@ -68,6 +68,7 @@ export const ThankContainer = styled.div`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin: 32px 0 0 11px;
+    width: 280px;
   }
 `;
 
@@ -81,7 +82,7 @@ export const ThankMessage = styled.span`
 `;
 
 export const CloseButton = styled.img`
-  margin: 51px 46px 0 0;
+  margin: 24px 25px 0 0;
   width: 22px;
   height: 22px;
   position: absolute;
@@ -90,7 +91,7 @@ export const CloseButton = styled.img`
   cursor: pointer;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    margin: 19px 21px 0 0;
+    margin: 20px 26px 0 0;
   }
 `;
 
@@ -100,6 +101,17 @@ export const Thing = styled.img`
   position: absolute;
   bottom: 3em;
   right: 0;
+
+  @media (max-width: 768px) {
+    width: 250px;
+    height: 250px;
+    bottom: 0;
+  }
+
+  @media (max-width: 475px) {
+    width: 210px;
+    height: 210px;
+  }
 `;
 
 export const Cube = styled.img`
@@ -109,6 +121,16 @@ export const Cube = styled.img`
   bottom: 78px;
   right: 130px;
   z-index: 2;
+
+  @media (max-width: 768px) {
+    bottom: 43px;
+  }
+
+  @media (max-width: 475px) {
+    bottom: 49px;
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 export const Container = styled.div`

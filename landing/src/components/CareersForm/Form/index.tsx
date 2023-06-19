@@ -18,7 +18,6 @@ import { ArrowContainer } from "../../../styles/HomePage/General.styled";
 interface FormProps {
   positions: string[];
   data: IDataCareersResponse;
-  ourRef: RefObject<HTMLDivElement>;
 }
 
 interface FormState {
@@ -29,7 +28,7 @@ interface FormState {
   cvfile: File | string;
 }
 
-const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
+const Form: FC<FormProps> = ({ positions, data }) => {
   const { contact, name, CV, position: formPosition } = data.form;
   const [enable, setEnable] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -202,7 +201,7 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
             setEnable={setEnable}
           />
         </Styled.PositionSelect>
-        <div ref={scrollToRef} />
+        <div/>
         {Object.entries(fieldContent).map(([key, label], idx) => (
           <FormField name={key} key={key} label={label} toFormError={buttonState.disabled && buttonState.triedSubmit} className={idx == 1 ? "formEmail" : ""}/>
         ))}
