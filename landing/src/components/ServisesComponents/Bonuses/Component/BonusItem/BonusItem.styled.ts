@@ -28,7 +28,7 @@ interface ITitleProps {
   isHilighted: boolean;
 }
 
-const arrowOne = keyframes`
+export const arrowOne = keyframes`
   0% {
     transform: translate(-30px, -30px);
   }
@@ -36,7 +36,7 @@ const arrowOne = keyframes`
     transform: translate(0px, 0px);;
   }
 `;
-const arrowTwo = keyframes`
+export const arrowTwo = keyframes`
   0% {
     transform: translate(0px, 0px);
   }

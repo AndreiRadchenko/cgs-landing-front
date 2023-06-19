@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
+import {
+  arrowOne,
+  arrowTwo,
+} from "../components/ServisesComponents/Bonuses/Component/BonusItem/BonusItem.styled";
 
 export const SliderWrapper = styled.div`
   position: relative;
@@ -331,6 +335,14 @@ export const ReadMore = styled.div`
   text-transform: uppercase;
   cursor: pointer;
   color: ${themes.primary.colors.portfolioBg};
+  border: 2px solid ${themes.primary.colors.primary};
+  transition: all 0.3s;
+
+  &:hover {
+    transition-delay: unset;
+    background: none;
+    color: ${themes.primary.colors.primary};
+  }
 
   @media (max-width: 1055px) {
     font-size: 16px;
@@ -347,4 +359,27 @@ export const AllProjects = styled.div`
   line-height: 120%;
   color: ${themes.primary.colors.primary};
   cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #5869dd;
+    svg {
+      & path:nth-child(1) {
+        stroke: #5869dd;
+        animation: ${arrowOne} 1s 1 forwards ease;
+      }
+      & path:nth-child(2) {
+        stroke: #5869dd;
+        animation: ${arrowTwo} 1s 1 forwards ease;
+      }
+    }
+  }
+  svg {
+    & path:nth-child(1) {
+      transform: translate(-13px, -13px);
+    }
+    & path:nth-child(2) {
+      transform: translate(0px, 0px);
+    }
+  }
 `;

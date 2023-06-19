@@ -82,6 +82,10 @@ const Slide = ({
                   d="M10.8536 11.1464L1.70711 2L2 1.70711L11.1464 10.8536L12 11.7071V10.5V0.5H12.5V12.5H0.5V12H10.5H11.7071L10.8536 11.1464Z"
                   stroke="black"
                 />
+                <path
+                  d="M10.8536 11.1464L1.70711 2L2 1.70711L11.1464 10.8536L12 11.7071V10.5V0.5H12.5V12.5H0.5V12H10.5H11.7071L10.8536 11.1464Z"
+                  stroke="black"
+                />
               </svg>
               <span>All projects</span>
             </Styled.AllProjects>
