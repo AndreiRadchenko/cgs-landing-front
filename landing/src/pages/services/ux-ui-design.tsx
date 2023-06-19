@@ -112,16 +112,15 @@ const UxUiDesign = () => {
               setIsFirstImageLoaded={setIsFirstImageLoaded}
               projects={data?.projects}
             />
-            <Layout>
+            <Styled.LayoutLocal>
               <Styled.TeamMembersAlign>
                 <TeamMembers teamMembers={data?.teamMembers} />
               </Styled.TeamMembersAlign>
               <OtherServices otherServices={data?.otherServices} />
-
               <Styled.Layout>
                 <FooterBlock />
               </Styled.Layout>
-            </Layout>
+            </Styled.LayoutLocal>
           </PageArticle>
           <FooterNew />
         </>

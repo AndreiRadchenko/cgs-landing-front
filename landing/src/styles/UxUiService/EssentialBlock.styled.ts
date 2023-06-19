@@ -123,11 +123,11 @@ export const Title = styled.h2`
 export const Text = styled.p`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 1.82em 0 0;
+  margin: 0.91em 0 0;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     margin: 1em 0 2.3em;
-    max-width: 94%;
+    max-width: 100%;
   }
 `;

@@ -1,6 +1,28 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
+export const LayoutLocal = styled.article`
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  padding-inline: 4.25em;
+  overflow: visible;
+  font-family: ${themes.primary.font.family.namu};
+
+  @media (min-width: 2560px) {
+    max-width: 2560px;
+    margin: 0 auto;
+  }
+
+  @media ${themes.primary.media.maxServiceWeb} {
+    overflow: hidden;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 0 1.925em;
+  }
+`;
+
 export const Layout = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
   overflow-clip-margin: 51px;
@@ -24,7 +46,13 @@ export const Layout = styled.div`
   }
 `;
 export const TeamMembersAlign = styled.div`
-  margin-top: -14.32em;
+  margin-top: -10.32em;
+  @media ${themes.primary.media.maxPCFullHD} {
+    margin-top: -15.32em;
+  }
+  @media ${themes.primary.media.maxServiceWeb} {
+    margin-top: -14.32em;
+  }
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.8em;
   }
