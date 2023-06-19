@@ -4,13 +4,13 @@ import themes from "../../utils/themes";
 import { slideDownText } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin-top: 11.875em;
+  margin-top: 6.8em;
   position: relative;
   background-color: ${themes.primary.colors.blogBackground};
   padding-bottom: 4.8%;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 4.44em;
+    margin-top: 65px;
     padding: 0;
 
     ::after {
@@ -77,16 +77,18 @@ export const BgMobileImage = styled.img`
   }
 
   @media ${themes.primary.media.maxMobilePortrait} {
-    height: 97%;
+    height: 93%;
     top: 5.4em;
   }
 `;
 
 export const CategorySubtitle = styled.h3`
   font-weight: inherit;
-  font-size: 2.125em;
+  font-size: 2.5em;
+  line-height: 48px;
   text-transform: uppercase;
   margin-top: 0;
+  margin-bottom: 0;
 
   @media (max-width: 1250px) {
     font-size: 1.8em;
@@ -142,11 +144,7 @@ export const CategoryListItem = styled.p<ISlide>`
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1em;
     line-height: 132%;
-    margin-top: 1.63em;
-
-    &:nth-child(3) {
-      margin-top: 0;
-    }
+    margin-top: 1.6em;
   }
 `;
 
@@ -194,7 +192,7 @@ export const ContentWrapper = styled.div`
       position: relative;
 
       &:first-child {
-        margin-bottom: 2.5em;
+        margin-bottom: 60px;
       }
     }
   }

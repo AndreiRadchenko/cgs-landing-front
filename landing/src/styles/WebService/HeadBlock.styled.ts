@@ -6,7 +6,7 @@ export const Container = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding-top: 8.8em;
+  padding-top: 7.7em;
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
@@ -45,7 +45,7 @@ export const ContentContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    padding-bottom: 5.25em;
+    padding-bottom: 48px;
 
     & a {
       font-size: 1em !important;
@@ -116,6 +116,7 @@ export const Description = styled.div`
 export const Image = styled.img`
   top: 8.75em;
   right: -0.2em;
+  margin-top: 12px;
   width: 45.31em;
   height: 29.19em;
 
@@ -139,5 +140,6 @@ export const Image = styled.img`
     top: 0;
     width: 24.28em;
     height: auto;
+    margin-top: 0;
   }
 `;

@@ -16,11 +16,31 @@ const ServiceMobileContentBlock = () => {
   const { handleSubmit } = useFormikContext();
   return (
     <div>
-      <MainBlock />
-      <ComparisonBlock />
-      <WhyIsWebBlock />
-      <SolutionBlock />
-      <ServiceShowCase />
+      <AdminPaddedBlock>
+        <AdminBlockDropDown title="Head Block">
+          <MainBlock />
+        </AdminBlockDropDown>
+      </AdminPaddedBlock>
+      <AdminPaddedBlock>
+        <AdminBlockDropDown title="Comparison Block">
+          <ComparisonBlock />
+        </AdminBlockDropDown>
+      </AdminPaddedBlock>
+      <AdminPaddedBlock>
+        <AdminBlockDropDown title="Why Is Web Block">
+          <WhyIsWebBlock />
+        </AdminBlockDropDown>
+      </AdminPaddedBlock>
+      <AdminPaddedBlock>
+        <AdminBlockDropDown title="Solution Block">
+          <SolutionBlock />
+        </AdminBlockDropDown>
+      </AdminPaddedBlock>
+      <AdminPaddedBlock>
+        <AdminBlockDropDown title="Service ShowCase">
+          <ServiceShowCase />
+        </AdminBlockDropDown>
+      </AdminPaddedBlock>
       <AdminPaddedBlock>
         <AdminBlockDropDown title="FREE SERVICES">
           <FreeServices />
@@ -31,7 +51,11 @@ const ServiceMobileContentBlock = () => {
           <TeamMembers />
         </AdminBlockDropDown>
       </AdminPaddedBlock>
-      <FooterBlock />
+      <AdminPaddedBlock>
+        <AdminBlockDropDown title="Footer block">
+          <FooterBlock />
+        </AdminBlockDropDown>
+      </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/web-development" />
       <AdminPaddedBlock>
         <AdminBigButton type="submit" onClick={() => handleSubmit()}>
