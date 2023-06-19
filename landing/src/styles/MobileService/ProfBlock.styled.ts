@@ -26,6 +26,10 @@ export const ProfText = styled.div`
   line-height: 160%;
   max-width: 38.5em;
 
+  p {
+    margin: 0;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     & br {
       display: none;
@@ -33,7 +37,7 @@ export const ProfText = styled.div`
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125rem;
-    margin-block: 1rem 2.56rem;
+    margin-block: 10px 2.56rem;
   }
 `;
 

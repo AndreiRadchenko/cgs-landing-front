@@ -120,7 +120,7 @@ export const SubText = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 1em;
+    margin-top: 21px;
     & svg {
       transform: translateY(4px);
       width: 51px;
@@ -128,7 +128,7 @@ export const SubText = styled.div`
     }
 
     & p {
-      margin-top: 20px;
+      margin-top: 15px;
     }
   }
 

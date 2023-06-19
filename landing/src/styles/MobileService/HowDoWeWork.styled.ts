@@ -230,7 +230,7 @@ export const TextContent = styled.p`
 `;
 
 export const PointsWrapper = styled.div`
-  margin-top: 2.5em;
+  margin-top: 0.5em;
   position: relative;
   display: flex;
   flex-wrap: wrap;

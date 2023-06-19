@@ -110,7 +110,10 @@ const MobileAppDevelopment: NextPage = () => {
                     : undefined
                 } mobileDev`}
               />
-              <TeamMembers teamMembers={data?.teamMembers} />
+              <TeamMembers
+                className="mobileDev"
+                teamMembers={data?.teamMembers}
+              />
             </Layout>
             <ShowCase
               setIsFirstImageLoaded={setIsFirstImageLoaded}

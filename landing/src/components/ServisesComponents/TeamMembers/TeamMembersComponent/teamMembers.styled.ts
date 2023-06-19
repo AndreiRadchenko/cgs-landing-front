@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
 
+  &.mobileDev {
+    margin-top: 10.2em;
+  }
+
   &.webAudit {
     margin-top: 11.8em;
     margin-bottom: 9em;
@@ -43,7 +47,8 @@ export const Wrapper = styled.div`
     display: block;
 
     &.blockchainTeam,
-    &.webAudit {
+    &.webAudit,
+    &.mobileDev {
       margin-top: 0px;
     }
 
