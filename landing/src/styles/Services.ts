@@ -120,7 +120,7 @@ export const WorthCardInfo = styled.div`
   left: 0;
   opacity: 0;
   scale: 0;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.7s linear;
   background: ${themes.primary.colors.portfolioBg};
 `;
 
@@ -177,6 +177,9 @@ export const WorthBlock = styled.div<ISlide>`
     opacity: 1;
     transition: all 0.5s ease-in-out;
   }
+  &:hover ${WorthTitleContainer} {
+    opacity: 0;
+  }
   &:first-child ${WorthCardTitle} {
     padding-inline: 51px;
   }
@@ -226,6 +229,10 @@ export const Icon = styled.img<IIcon>`
     css`
       ${float(xOffset)} 3s infinite linear
     `};
+
+  &.iconCard {
+    animation: none;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     animation: none;
