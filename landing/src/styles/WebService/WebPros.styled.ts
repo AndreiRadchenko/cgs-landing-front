@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 import { slideDownText } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin-top: 6.8em;
+  margin-top: 6em;
   position: relative;
   background-color: ${themes.primary.colors.blogBackground};
   padding-bottom: 4.8%;
@@ -89,6 +89,10 @@ export const CategorySubtitle = styled.h3`
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 1.15em;
+  }
 
   @media (max-width: 1250px) {
     font-size: 1.8em;
