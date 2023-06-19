@@ -71,7 +71,8 @@ export const AuditBox = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 100%;
+    margin: 0 -6px;
+    width: 110%;
   }
 `;
 
@@ -82,7 +83,8 @@ export const ListWrapper = styled.div`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    padding-bottom: 11px;
+    width: 100%;
+    padding-bottom: 0px;
   }
 `;
 
@@ -202,7 +204,7 @@ export const Shadow = styled.div`
   @media ${themes.primary.media.maxLowScreenMobile} {
     height: 836px;
     &.webAudit {
-      height: 854px;
+      height: 842.5px;
     }
   }
 

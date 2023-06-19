@@ -34,8 +34,7 @@ export const ContentWrapper = styled.div`
   margin-top: 2.5em;
   position: relative;
   display: flex;
-  justify-content: space-between;
-  gap: 26px;
+  gap: 35px;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
