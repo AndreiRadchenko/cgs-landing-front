@@ -41,10 +41,14 @@ export const BGImage = styled.img`
   position: absolute;
   width: 96.5625em;
   left: -8vw;
-  top: 0.8em;
+  top: 0.5em;
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 90em;
+  }
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    top: -1em;
   }
 
   @media (max-width: 1400px) {
@@ -68,6 +72,7 @@ export const BGImageMobile = styled.img`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    top: 3em;
     left: -1.2em;
     height: 44em;
     z-index: -1;
@@ -75,7 +80,7 @@ export const BGImageMobile = styled.img`
 `;
 
 export const BlockWrapper = styled.div`
-  padding: 4.027vw 0 0 11vw;
+  padding: 2em 0 0 11vw;
   position: relative;
   display: grid;
   row-gap: 50px;
@@ -89,24 +94,24 @@ export const BlockWrapper = styled.div`
   }
 
   @media (max-width: 1400px) {
-    padding-top: 3.8em;
+    padding-left: 9em;
     row-gap: 56px;
     font-size: 0.8em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 3.25em 0 0;
-    max-width: fit-content;
+    padding: 1.5em 0 0;
     row-gap: 95px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 3.25em 0.8em 0;
-    row-gap: 85px;
+    padding: 3.5em 2.8em 0;
+    row-gap: 65px;
+    width: 100%;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    padding: 3.9em 0.8em 0;
+    padding: 55px 0em 0;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
@@ -200,8 +205,7 @@ export const Description = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.25em !important;
-    /* font-size: 2em !important; */
-    max-width: 20em;
+    max-width: 100%;
     margin-top: 0.81em;
   }
 `;

@@ -75,6 +75,7 @@ export const Title = styled.h3`
     font-size: 1.5em;
     line-height: 132%;
     margin-bottom: 10px;
+    max-width: 100%;
 
     br {
       display: block;
@@ -92,6 +93,6 @@ export const Text = styled.p`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;
     margin: 10px 0 1.75em;
-    max-width: 94%;
+    max-width: 100%;
   }
 `;

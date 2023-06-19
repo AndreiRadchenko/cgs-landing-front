@@ -17,7 +17,7 @@ export const Container = styled.section`
       position: absolute;
       background-color: ${themes.primary.colors.headerBorder};
       width: 130%;
-      bottom: -130px;
+      bottom: -110px;
       left: -10%;
     }
   }
@@ -138,8 +138,8 @@ export const TextContent = styled.div<ISlide>`
 `;
 
 export const ContentWrapper = styled.div`
-  padding-left: 8.25em;
-  padding-right: 6em;
+  padding-left: 7.25em;
+  padding-right: 7.25em;
   display: flex;
   column-gap: 20vw;
   z-index: 5;

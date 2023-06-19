@@ -18,7 +18,7 @@ export const Container = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 0;
-    margin: 150px 0 100px;
+    margin: 130px 0 100px;
     &.withoutServices {
       margin-bottom: 5.625em;
     }
@@ -48,7 +48,6 @@ export const TextContent = styled.div`
   line-height: 160%;
   margin-top: 0.9em;
   max-width: 37.36vw;
-  /* width: fit-content; */
 
   @media ${themes.primary.media.maxTabletLandScape} {
     max-width: 20em;
@@ -58,6 +57,7 @@ export const TextContent = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    max-width: 100%;
     font-size: 1em;
     margin: 0 0 1.75em;
   }

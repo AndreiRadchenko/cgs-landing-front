@@ -24,7 +24,13 @@ export const Layout = styled.div`
   }
 `;
 export const TeamMembersAlign = styled.div`
-  margin-top: -12.32em;
+  margin-top: -10.32em;
+  @media ${themes.primary.media.maxPCFullHD} {
+    margin-top: -14.32em;
+  }
+  @media ${themes.primary.media.maxServiceWeb} {
+    margin-top: -14.32em;
+  }
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1.8em;
   }
