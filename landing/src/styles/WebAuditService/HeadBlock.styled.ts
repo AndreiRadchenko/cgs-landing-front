@@ -6,7 +6,7 @@ export const Wrapper = styled.section`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 3.17em;
+    margin-top: 1.25em;
   }
 `;
 
@@ -65,8 +65,7 @@ export const Description = styled.div`
   margin-top: 1em;
   font-size: 1.833em;
   line-height: 160%;
-  max-width: 27.25em;
-  white-space: nowrap;
+  max-width: 27.2em;
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.menuElement};

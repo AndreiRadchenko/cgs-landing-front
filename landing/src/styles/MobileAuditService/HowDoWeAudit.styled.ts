@@ -150,6 +150,10 @@ export const ListText = styled.div`
     font-size: 1em;
     margin-left: 13px;
     max-width: 85%;
+
+    &.webAudit {
+      font-size: 16px;
+    }
   }
 `;
 
@@ -197,6 +201,9 @@ export const Shadow = styled.div`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     height: 836px;
+    &.webAudit {
+      height: 854px;
+    }
   }
 
   @media (max-width: 360px) {
