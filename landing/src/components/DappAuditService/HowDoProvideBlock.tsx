@@ -6,7 +6,7 @@ import {
 } from "../../styles/DappAuditService/Common.styled";
 import * as Styled from "../../styles/DappAuditService/HowDoProvideBlock.styled";
 import HowToProvideBlockItem from "./HowDoProvideBlockItem";
-import HowDoWeProvideBg from "../../../public/DappAuditService/HowDoWeProvide.svg";
+import HowDoWeProvideBg from "../../../public/DappAuditService/HowDoWeProvideItDapp.svg";
 import HowDoProvideSubItem from "./HowDoProvideSubItem";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 import { useQueryClient } from "@tanstack/react-query";

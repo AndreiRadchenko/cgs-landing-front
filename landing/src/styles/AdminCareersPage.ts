@@ -57,10 +57,10 @@ export const AboutWork = styled.div`
   display: flex;
 `;
 export const Location = styled.div`
-  width: 48%;
+  width: 34.2%;
 `;
 export const TypeOfWork = styled.div`
-  width: 50%;
+  width: 34.2%;
   margin-left: 15px;
 `;
 
@@ -200,7 +200,7 @@ export const TicketEditAndDeleteButtons = styled.div`
 
   @media (max-width: 2560px) {
     left: 113em;
-    margin-top: 12em;
+    margin-top: 10em;
   }
 
   @media (max-width: 1920px) {
@@ -209,23 +209,23 @@ export const TicketEditAndDeleteButtons = styled.div`
 
   @media (max-width: 1560px) {
     left: 101.5em;
-    margin-top: 14em;
+    margin-top: 12em;
   }
 
   @media (max-width: 1440px) {
     left: 103em;
-    margin-top: 16em;
+    margin-top: 14em;
   }
 
   @media (max-width: 1200px) {
     left: 104.5em;
-    margin-top: 15em;
   }
 `;
 
 
 export const DeleteBtn = styled.button`
   border: 0;
+  background: transparent;
   padding: 0;
   color: red;
   font-weight: ${themes.primary.font.weight.medium};

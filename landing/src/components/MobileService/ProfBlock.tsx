@@ -45,7 +45,9 @@ const ProfBlock = () => {
   return (
     <Styled.ContentContainer>
       <div>
-        <VisibleSubtitle className="footer">{data?.title}</VisibleSubtitle>
+        <VisibleSubtitle className="footer mobileDev">
+          {data?.title}
+        </VisibleSubtitle>
         <Styled.ProfText>
           {data && parse(data.text.replace("|", "<br />"), options)}
         </Styled.ProfText>
@@ -55,14 +57,14 @@ const ProfBlock = () => {
               buttonLink={data?.buttonLink}
               buttonText={data.button}
               withEstimation
-              buttonClassName="social-button"
+              buttonClassName="social-button services"
             />
-            <ButtonShareComponent />
+            <ButtonShareComponent className={"mobileDev"} />
           </Styled.ButtonWrapper>
         )}
       </div>
       <Styled.ImageWrapper>
-        <Styled.Image src={data?.image.url} alt="prof block img" />
+      <Styled.Image src={data?.image?.url} alt="Footer image"/>
       </Styled.ImageWrapper>
     </Styled.ContentContainer>
   );

@@ -31,8 +31,8 @@ export const ThankYouModalContainer = styled.div`
 
 export const ThankYouModalContent = styled.div`
   width: 613px;
-  height: 388px;
-  background: ${themes.primary.colors.grayBack};
+  height: 364px;
+  background: #F1EFED;
   position: relative;
   border: 2px solid ${themes.primary.colors.primary};
 
@@ -56,7 +56,7 @@ export const ThankContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin: 47px 55px 0 55px;
+  margin: 47px 64px 0 36px;
 
   span {
     line-height: 160%;
@@ -68,6 +68,7 @@ export const ThankContainer = styled.div`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin: 32px 0 0 11px;
+    width: 280px;
   }
 `;
 
@@ -81,7 +82,7 @@ export const ThankMessage = styled.span`
 `;
 
 export const CloseButton = styled.img`
-  margin: 51px 46px 0 0;
+  margin: 24px 25px 0 0;
   width: 22px;
   height: 22px;
   position: absolute;
@@ -90,25 +91,46 @@ export const CloseButton = styled.img`
   cursor: pointer;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    margin: 19px 21px 0 0;
+    margin: 20px 26px 0 0;
   }
 `;
 
 export const Thing = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   position: absolute;
-  bottom: 0;
+  bottom: 3em;
   right: 0;
+
+  @media (max-width: 768px) {
+    width: 250px;
+    height: 250px;
+    bottom: 0;
+  }
+
+  @media (max-width: 475px) {
+    width: 210px;
+    height: 210px;
+  }
 `;
 
 export const Cube = styled.img`
-  width: 38px;
-  height: 38px;
+  width: 50px;
+  height: 50px;
   position: absolute;
-  bottom: 32px;
-  right: 98px;
+  bottom: 78px;
+  right: 130px;
   z-index: 2;
+
+  @media (max-width: 768px) {
+    bottom: 43px;
+  }
+
+  @media (max-width: 475px) {
+    bottom: 49px;
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 export const Container = styled.div`

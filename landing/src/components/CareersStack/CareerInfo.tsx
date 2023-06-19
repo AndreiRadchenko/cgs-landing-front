@@ -68,6 +68,7 @@ const CareerInfo: FC<IBlogTags> = ({
   return (
     <Styles.CareerInfo>
       <VacancyInput
+        style={{width: '70%'}}
         type="text"
         name={
           isNewTicket
@@ -80,6 +81,7 @@ const CareerInfo: FC<IBlogTags> = ({
         }
         onChange={handleChange}
       />
+      <div style={{width: '70%'}}>
       <Styled.ButtonsContainer>
         <Styled.AddButton onClick={() => addNextHeading()}>
           [ + add next heading ]
@@ -88,6 +90,7 @@ const CareerInfo: FC<IBlogTags> = ({
           delete
         </Styled.DeleteButton>
       </Styled.ButtonsContainer>
+      </div>
       <Styles.TagsWrapper>
         {!isNewTicket
           ? values.vacancy.info[infoIndex].values.map((el, index) => (

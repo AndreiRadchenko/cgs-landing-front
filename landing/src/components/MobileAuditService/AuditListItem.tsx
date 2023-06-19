@@ -20,7 +20,7 @@ const AuditListItem = ({ item, idx }: IAuditLisItemProps) => {
           objectFit="contain"
         />
       </Styled.CheckMarkWrapper>
-      <Styled.ListText>
+      <Styled.ListText className={"webAudit"}>
         <SplitBrackets text={item} />
       </Styled.ListText>
       {idx !== null && <Styled.ItemBottomLine />}

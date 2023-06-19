@@ -32,31 +32,6 @@ import { IArticlesData, IBlogPageData } from "../../types/Blog.types";
 import { BlogPageSize } from "../../consts";
 import Dropdown from "../../utils/Select/Dropdown";
 
-export async function getServerSideProps() {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery([queryKeys.getBlogPage], () =>
-    adminBlogService.getBlogPageData()
-  );
-
-  await queryClient.prefetchQuery([queryKeys.getBlogArticles], () =>
-    adminBlogService.getArticles()
-  );
-
-  await queryClient.prefetchQuery([queryKeys.views], () =>
-    adminBlogService.getViews()
-  );
-
-  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
-    adminGlobalService.getFullPage()
-  );
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-}
-
 const BlogPage = () => {
   const router = useRouter();
 
@@ -83,64 +58,7 @@ const BlogPage = () => {
     useState<boolean>(false);
   const [pageNumber, setPageNumber] = useState("");
 
-  const scrollFunc = () => {
-    scroller.scrollTo("articles-container", {
-      duration: 0,
-      delay: 0,
-      smooth: false,
-      offset: 0,
-    });
-  };
-
-  useEffect(() => {
-    articles &&
-      setReversedArticles(
-        articles
-          .reverse()
-          .filter(
-            (el) =>
-              !el.disabled &&
-              !el.draft &&
-              (!el.scheduleArticle ||
-                new Date() >= new Date(el.scheduleArticle))
-          )
-      );
-  }, [articles]);
-
-  useEffect(() => {
-    const newTags = reversedArticles?.map((article) => article.tags).flat();
-    setTags(Array.from(new Set<string>(newTags)));
-  }, [data, reversedArticles]);
-
-  useEffect(() => {
-    if (filters.length > 0) {
-      const newData = reversedArticles?.filter((article) =>
-        article.tags.find((tag) => filters.includes(tag))
-      );
-      setFilteredData(newData ? newData : null);
-    }
-  }, [data, filters, filters.length, reversedArticles]);
-
   const tagParams = router.query.tag;
-  useEffect(() => {
-    if (articles) {
-      const page = router.query.page;
-      const maxPage = Math.ceil(articles.length / BlogPageSize);
-      const currentPage =
-        page !== "0" && isNumeric(page as string)
-          ? Number(page) <= maxPage
-            ? Number(page)
-            : maxPage
-          : 1;
-      tagParams &&
-        !filters.includes(tagParams as string) &&
-        setFilters([...filters, tagParams as string]);
-      setCurrentPage(currentPage);
-      if (tagParams) {
-        scrollFunc();
-      }
-    }
-  }, [tagParams, scrollFunc, router.query.page, data, articles, filters]);
 
   const currentArticlesData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * BlogPageSize;
@@ -156,6 +74,15 @@ const BlogPage = () => {
   const findViews = (url: string) => {
     if (views.data)
       return views.data.find((view) => view.articleUrl === url)?.views;
+  };
+
+  const scrollFunc = () => {
+    scroller.scrollTo("articles-container", {
+      duration: 0,
+      delay: 0,
+      smooth: false,
+      offset: 0,
+    });
   };
 
   useEffect(() => {
@@ -187,9 +114,62 @@ const BlogPage = () => {
     }
   }, [router.query.page, router.query.filters, scrollFunc]);
 
+  useEffect(() => {
+    if (articles) {
+      const page = router.query.page;
+      const maxPage = Math.ceil(articles.length / BlogPageSize);
+      const currentPage =
+        page !== "0" && isNumeric(page as string)
+          ? Number(page) <= maxPage
+            ? Number(page)
+            : maxPage
+          : 1;
+      tagParams &&
+        !filters.includes(tagParams as string) &&
+        setFilters([...filters, tagParams as string]);
+      setCurrentPage(currentPage);
+      if (tagParams) {
+        scrollFunc();
+      }
+    }
+  }, [tagParams, scrollFunc, router.query.page, data, articles, filters]);
+
+  useEffect(() => {
+    articles &&
+      setReversedArticles(
+        articles
+          .reverse()
+          .filter(
+            (el) =>
+              !el.disabled &&
+              !el.draft &&
+              (!el.scheduleArticle ||
+                new Date() >= new Date(el.scheduleArticle))
+          )
+      );
+  }, [articles]);
+
+  useEffect(() => {
+    const newTags = reversedArticles?.map((article) => article.tags).flat();
+    setTags(Array.from(new Set<string>(newTags)));
+  }, [data, reversedArticles]);
+
+  useEffect(() => {
+    if (filters.length > 0) {
+      const newData = reversedArticles?.filter((article) =>
+        article.tags.find((tag) => filters.includes(tag))
+      );
+      setFilteredData(newData ? newData : null);
+    }
+  }, [data, filters, filters.length, reversedArticles]);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [isMainSliderImageLoaded]);
+
   return (
-    <Loader active={!isMainSliderImageLoaded}>
-      {data && views.data ? (
+    <Loader active={!isMainSliderImageLoaded || !reversedArticles?.length}>
+      {data && articles && views.data ? (
         <>
           <Head>
             <title>{metaTitle}</title>

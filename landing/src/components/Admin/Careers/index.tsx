@@ -45,12 +45,16 @@ const Careers = ({
   );
 
   const deleteTicket = async (index: number) => {
-    const id = values.tickets[ticket]?.id;
-    id && (await mutateAsync(id));
-
-    const updatedTickets = values.tickets.filter((_, i) => i !== index);
-    setTicket(0);
-    values.tickets = updatedTickets;
+    const id = values.tickets[index]?.id;
+    if (id) {
+      await mutateAsync(id.toString());
+    
+      const updatedTickets = [...values.tickets];
+      updatedTickets.splice(index, 1);
+    
+      setTicket(0);
+      values.tickets = updatedTickets;
+    }
   };
 
   const { mutateAsync: putData } = useMutation(
@@ -92,6 +96,7 @@ const Careers = ({
         <Styled.CareersContainer>
           <Styled.SubTitle>Speciality</Styled.SubTitle>
           <Styled.VacancyInput
+            style={{width: '40%'}}
             type="text"
             name={
               isNewTicket ? `tickets[${ticket}].vacancy` : "vacancy.vacancy"
@@ -106,6 +111,7 @@ const Careers = ({
           />
           <Styled.SubTitle>Small description</Styled.SubTitle>
           <Styled.VacancyInput
+            style={{width: '70%'}}
             type="text"
             name={
               isNewTicket ? `tickets[${ticket}].description` : "vacancy.description"

@@ -59,6 +59,10 @@ export const StyledLoader = styled(LoadingOverlay)`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    & .MyLoader_content {
+      position: fixed;
+    }
+
     &.showCase {
       .MyLoader_overlay {
         margin-top: -250px;

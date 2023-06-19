@@ -2,15 +2,24 @@
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  padding-top: 1em;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 15.75em;
+  padding-bottom: 9.35em;
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 6.25em 0 0;
+    padding: 8px 0 197px;
     flex-direction: column;
     position: relative;
+
+    ::before {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 130%;
+      top: -18px;
+      left: -10%;
+    }
 
     a {
       font-size: 1em;
@@ -18,7 +27,6 @@ export const Container = styled.section`
 
     h2 {
       line-height: 132%;
-      width: 13em;
     }
   }
 `;
@@ -36,27 +44,32 @@ export const TextContent = styled.div``;
 export const Image = styled.img`
   position: absolute;
   right: 0.56em;
-  bottom: 1.875em;
+  bottom: -2.2em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 20.875em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    position: relative;
     width: 16.875em;
-    left: 2.44em;
-    top: 0;
+    left: 20%;
+    bottom: -165px;
     margin: 1.64em auto 1em;
   }
 `;
 
 export const SubtitleWrapper = styled.div`
   margin-bottom: 2.5em;
-  max-width: 65%;
+  max-width: 85%;
 
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 0.85em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 10px;
+    font-size: 24px;
+    max-width: 100%;
   }
 `;
 
@@ -64,8 +77,9 @@ export const TextWrapper = styled.div`
   margin-bottom: 2.5em;
   max-width: 38.5em;
   font-size: 1.5em;
+  line-height: 160%;
 
   @media ${themes.primary.media.maxServiceWeb} {
-    font-size: 0.85em;
+    font-size: 18px;
   }
 `;

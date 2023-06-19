@@ -18,9 +18,13 @@ export const ButtonWrapper = styled.a`
   align-items: center;
   justify-content: center;
   transform: translateY(0);
-  transition: transform 0.3s linear;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: ${themes.primary.colors.black};
   :hover {
     transform: translateY(-5px);
+    &.telegram {
+      color: ${themes.primary.colors.darkBlue};
+    }
   }
   :active {
   }
@@ -29,23 +33,24 @@ export const ButtonWrapper = styled.a`
 export const ButtonContent = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   gap: 8px;
-  /* @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
-  } */
+  color: currentColor;
 `;
 
 export const ImageWrapper = styled.div<IImageWrapperProps>`
   position: relative;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
+  display: flex;
+  align-items: center;
 `;
 
 export const ButtonText = styled.p`
+  color: currentColor;
   margin: 0;
   padding: 0;
   font-weight: 900;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 1.66em;
+  line-height: 1.5;
 `;

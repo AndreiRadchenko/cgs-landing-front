@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-block: 10.4em 9.5em;
+  margin-block: 10.4em 7.75em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: calc(
@@ -11,7 +11,7 @@ export const Wrapper = styled.section`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin-block: 3.75em 6.25em;
+    margin-block: 3.75em 111px;
   }
 `;
 
@@ -19,7 +19,7 @@ export const ItemContainer = styled.div`
   z-index: 2;
 
   &.first {
-    margin-top: 1.3em;
+    margin-top: 0.3em;
   }
 
   @media (min-width: 1650px) {
@@ -44,6 +44,10 @@ export const ItemContainer = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1em;
+
+    &.first {
+      margin-top: 0.1em;
+    }
   }
 `;
 
@@ -118,6 +122,7 @@ export const Description = styled.div`
   margin-top: 5px;
   font-size: 1.125em;
   line-height: 160%;
+  max-width: 34.1em;
 
   &.first {
     max-width: 32.2em;
@@ -128,9 +133,6 @@ export const Description = styled.div`
     & br {
       display: none;
     }
-  }
-  @media (max-width: 1600px) {
-    max-width: 614px;
   }
 `;
 
@@ -195,9 +197,9 @@ export const BgImage = styled.img`
 `;
 
 export const SubContentWrapper = styled.div`
-  margin-inline: 6em 7.5em;
+  margin-inline: 4.5em 5.3em;
   position: relative;
-  top: -6px;
+  top: -8px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -252,7 +254,7 @@ export const SubContentWrapper = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     row-gap: 1.75em;
-    margin-bottom: 2.5em;
+    margin-bottom: 27px;
   }
 `;
 
@@ -284,7 +286,6 @@ export const SubContainer = styled.div`
   }
   &:last-child {
     margin-right: 15px;
-    margin-bottom: 5px;
   }
 `;
 
@@ -316,7 +317,7 @@ export const SubText = styled.div`
 `;
 
 export const SecondSubtitleContainer = styled.div`
-  margin-top: 50px;
+  margin-top: 76px;
 
   @media (min-width: 2000px) {
     margin-top: 150px;
@@ -333,8 +334,8 @@ export const SecondSubtitleContainer = styled.div`
 
 export const ThirdSubtitleContainer = styled.div`
   position: relative;
-  top: -90px;
-  margin-left: 49%;
+  top: -50px;
+  margin-left: 56%;
 
   @media ${themes.primary.media.minPC} {
     top: -3%;
@@ -352,7 +353,7 @@ export const ThirdSubtitleContainer = styled.div`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     top: 0;
-    margin: 2.3125em 0 0 0;
+    margin: 14px 0 0 0;
   }
 `;
 

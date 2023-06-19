@@ -4,12 +4,12 @@ import themes from "../../utils/themes";
 
 export const Container = styled.section`
   position: relative;
-  margin-top: 9.625em;
+  margin-top: 9em;
   padding-bottom: 13%;
   background-image: url(${solutionBg.src});
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  margin-bottom: 6em;
+  margin-bottom: 2.45em;
 
   @media ${themes.primary.media.maxServiceWeb} {
     margin-top: 6.4em;
@@ -20,10 +20,19 @@ export const Container = styled.section`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 5.7em;
+    margin-top: 88px;
     background: none;
-    padding-bottom: 0;
-    margin-bottom: 5.65em;
+    margin-bottom: 92px;
+
+    ::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      background-color: ${themes.primary.colors.headerBorder};
+      width: 130%;
+      bottom: -1%;
+      left: -10%;
+    }
 
     &.withoutShowcase {
       margin-bottom: 4.25em;
@@ -59,7 +68,6 @@ export const LeftSideText = styled.div`
   font-size: 2.5em;
   line-height: 140%;
   width: 40%;
-  white-space: nowrap;
   padding-top: 0.34em;
 
   @media (max-width: 1400px) {
@@ -79,6 +87,7 @@ export const LeftSideText = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    width: 100%;
     font-size: 1.5em;
     padding: 0;
     margin-bottom: 1.6em;
@@ -126,7 +135,8 @@ export const RightSideText = styled.div`
   margin-right: 1em;
   width: 50%;
   & p {
-    margin: 1.4em 0 0;
+    margin: 0.85em 0 0;
+    line-height: 160%;
   }
 
   svg {
@@ -142,6 +152,9 @@ export const RightSideText = styled.div`
     line-height: 21.12px;
     width: 102.1%;
     margin: 0;
+    p {
+      margin: 14px 0 0;
+    }
 
     svg {
       width: 35px;

@@ -31,15 +31,18 @@ const CareersDropdown = ({
 
   return (
     <Styled.Dropdown onBlur={onBlur}>
+      <div style={{borderLeft: '1.5px solid black'}}>
       <Styled.DropdownButton
         type="button"
         className={isOpen ? "open" : "className"}
         onClick={() => setIsOpen(!isOpen)}
-        toFormError={toFormError}
+        toFormError={toFormError && dropdownName === "Position"}
+        toSelectPosition={dropdownName !== "Position"}
       >
         <span>{dropdownName}</span>
         <img width={9} height={5} src={Arrow.src} alt="Arrow" />
       </Styled.DropdownButton>
+      </div>
       <Styled.DropdownContent className={isOpen ? `open ` : undefined}>
         {positions.map((option) => (
           <div

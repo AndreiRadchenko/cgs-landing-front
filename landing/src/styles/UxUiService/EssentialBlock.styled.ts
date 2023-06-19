@@ -31,7 +31,8 @@ export const ImageWrapper = styled.div`
   position: absolute;
   width: 30.5vw;
   height: 20vw;
-  left: 0.625em;
+  left: 2.5em;
+  transform: scale(1.15);
 
   @media ${themes.primary.media.maxTabletLandScape} {
     left: -2em;
@@ -39,15 +40,18 @@ export const ImageWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
+    transform: scale(1.5);
     top: 12em;
+    left: 2em;
   }
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
+    transform: scale(1.15);
     width: 100%;
     height: 216px;
     top: 0;
-    left: 0;
+    left: 1.5em;
   }
 `;
 
@@ -78,7 +82,15 @@ export const ContentWrapper = styled.div`
   padding-top: 1.125em;
   padding-right: 0.8em;
   margin-left: calc(30.5vw + 5em);
-  max-width: 55%;
+  max-width: 60%;
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    max-width: 51.8%;
+  }
+
+  @media ${themes.primary.media.maxServiceWeb} {
+    max-width: 60%;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-left: 0;
@@ -101,7 +113,6 @@ export const Title = styled.h2`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
-    white-space: nowrap;
 
     br {
       display: block;
@@ -112,15 +123,11 @@ export const Title = styled.h2`
 export const Text = styled.p`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 1.82em 0 0;
-
-  br {
-    display: none;
-  }
+  margin: 0.91em 0 0;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 1em 0 1.75em;
-    max-width: 94%;
+    margin: 1em 0 2.3em;
+    max-width: 100%;
   }
 `;

@@ -1,7 +1,5 @@
-import React, { useRef } from "react";
-import * as Styled from "../../styles/WebAuditService/HowTodoDynamicMobileList.styles";
-import HowTodoDynamicMobileListItem from "./HowTodoDynamicMobileListItem";
-import { useOnScreen } from "../../hooks/useOnScreen";
+import React from "react";
+import AuditBox from "../MobileAuditService/AuditBox";
 
 interface IHowTodoDynamicMobileListProps {
   points: Array<string>;
@@ -10,19 +8,7 @@ interface IHowTodoDynamicMobileListProps {
 const HowTodoDynamicMobileList: React.FC<IHowTodoDynamicMobileListProps> = ({
   points,
 }) => {
-  const elRef = useRef<HTMLDivElement>(null);
-  const isScrolled = useOnScreen(elRef, true);
-
-  const items = points.map((text, ind) => (
-    <HowTodoDynamicMobileListItem
-      key={text + "mobile"}
-      ind={ind}
-      text={text}
-      isScrolled={isScrolled}
-    />
-  ));
-
-  return <Styled.ListWrapper ref={elRef}>{items}</Styled.ListWrapper>;
+  return <AuditBox data={points} />;
 };
 
 export default HowTodoDynamicMobileList;

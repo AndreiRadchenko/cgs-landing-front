@@ -9,6 +9,7 @@ import { IServicesClassnameProps } from "../../types/Services.types";
 import { VisibleSubtitle } from "../../styles/MobileService/Layout";
 
 import WhyWorthItMobile from "../../../public/MobileSevice/whoNeedApps/whyWorthItMobile.svg";
+import WhyWorthIt from "../../../public/MobileSevice/whoNeedApps/whyWorthIt.svg";
 import TextTypingAnimation from "../Typewrite";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useOnScreen } from "../../hooks/useOnScreen";
@@ -45,13 +46,13 @@ const WhoNeedAppBlock = ({ className }: IServicesClassnameProps) => {
         <Styled.ImageWrapper className="whatDoWeUse">
           <Styled.Image
             className="whatDoWeUse"
-            src={WhyWorthItMobile.src}
+            src={width && width <= 767 ? WhyWorthItMobile.src : WhyWorthIt.src}
             alt="what do we use img"
           />
         </Styled.ImageWrapper>
         <Styled.WhatDoWeUseContainer>
           {data && (
-            <VisibleSubtitle ref={elRef}>
+            <VisibleSubtitle className="mobileDev" ref={elRef}>
               {(width && width <= 767 && isScrolled && (
                 <TextTypingAnimation text={data.whatDoWeUse.subtitle} />
               )) ||

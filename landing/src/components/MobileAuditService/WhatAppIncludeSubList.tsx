@@ -5,7 +5,7 @@ import WhatAppIncludeSubListItem from "./WhatAppIncludeSubListItem";
 
 interface ISubListProps {
   item: { text: string; subtext: string[] };
-  onMouseEnter?: (title: string) => void;
+  onMouseEnter?: (title: string, event: React.MouseEvent) => void;
   onMouseOut?: () => void;
 }
 
@@ -17,15 +17,17 @@ const WhatAppIncludeSubList = ({ item, onMouseOut, onMouseEnter }: ISubListProps
         <Styled.PointCircle />
       </Styled.PointWrapper>
       <Styled.ListText>
-        <SplitBrackets text={item.text} onMouseOut={onMouseOut} onMouseEnter={() => {
-          onMouseEnter?.(item?.text as string)
+        <SplitBrackets text={item.text} onMouseOut={onMouseOut} onMouseEnter={(text, event) => {
+          onMouseEnter?.(text as string, event)
         }} />
         {item.subtext.length !== 0 && (
           <Styled.SubtextContainer>
             <Styled.ConectLine />
             <Styled.SubtextContentWrapper>
               {item.subtext.map((subItem, idx) => (
-                <WhatAppIncludeSubListItem subItem={subItem} key={idx} onMouseEnter={onMouseEnter} onMouseOut={onMouseOut} />
+                <WhatAppIncludeSubListItem subItem={subItem} key={idx} onMouseEnter={(text, event) => {
+                  onMouseEnter?.(text as string, event)
+                }} onMouseOut={onMouseOut} />
               ))}
             </Styled.SubtextContentWrapper>
           </Styled.SubtextContainer>

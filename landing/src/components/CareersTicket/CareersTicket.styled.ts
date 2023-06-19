@@ -200,7 +200,7 @@ export const TicketInner = styled.div<TicketHover>`
   z-index: 1;
   margin-top: 33px;
   background-color: ${themes.primary.colors.careerBackground};
-  padding: 25px 20px;
+  padding: 20px 20px 23px 20px;
 
     &:after {
     display: ${props => props.isTicketHover ? 'block' : 'none'};
@@ -245,7 +245,7 @@ export const TicketInner = styled.div<TicketHover>`
 export const TicketInfo = styled.div``;
 
 export const TicketDescription = styled.div`
-  margin-top: 15px;
+  margin-top: 13px;
   font-size: 18px;
   font-family: ${themes.primary.font.family.namu};
 
@@ -260,8 +260,7 @@ export const TicketDescription = styled.div`
 
 export const TicketAboutWork = styled.div`
   display: flex;
-  margin-top: 25px;
-  margin-bottom: 10px;
+  margin-top: 23px;
 
   @media (max-width: 496px) {
     width: 130%;
@@ -281,12 +280,19 @@ export const WorkLocation = styled.div`
   align-items: center;
   border: 1.5px solid #000;
   font-size: 18px;
+  height: 46px;
   font-weight: 900;
-  padding: 0px 15px;
+  padding: 0px 14px;
   margin-right: 20px;
+  
+  p{
+    margin: 0;
+  }
 
   @media (max-width: 474px) {
     font-size: 14px;
+    height: 41px;
+    padding: 0 9.1px;
    
   }
 `;
@@ -296,11 +302,18 @@ export const WorkType = styled.div`
   align-items: center;
   border: 1.5px solid #000;
   font-size: 18px;
+  height: 46px;
   font-weight: 900;
   padding: 0px 15px;
 
+  p{
+    margin: 0;
+  }
+
   @media (max-width: 474px) {
     font-size: 14px;
+    height: 41px;
+    padding: 0 9.1px;
   }
 `;
 
@@ -312,12 +325,39 @@ export const TicketIcon = styled.img`
 
 export const TicketApplyButton = styled.div`
   height: 40px;
+  position: relative;
   display: flex;
   align-items: center;
 
+  & path {
+    transition: all 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    z-index: -1;
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
+
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+  }
+
+
   p{
-    font-size: 16px;
+    font-size: 18px;
+    margin: 0;
+    margin-right: 5px;
     font-family: ${themes.primary.font.family.namu};
+  }
+
+  @media (max-width: 475px) {
+    p{
+      font-size: 14px;
+    }
   }
 `;
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-top: 201px;
+  margin-top: 14.2em;
   position: relative;
   display: flex;
   gap: 32px;
@@ -12,8 +12,10 @@ export const Wrapper = styled.section`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
+    margin-top: 61px;
+    margin-bottom: 80px;
     flex-direction: column;
+    gap: 10px;
 
     &:before {
       content: "";
@@ -23,7 +25,7 @@ export const Wrapper = styled.section`
       position: relative;
       right: 10%;
       background: ${themes.primary.colors.headerBorder};
-      margin-bottom: 2.69em;
+      margin-bottom: 1.7em;
     }
   }
 `;
@@ -48,7 +50,7 @@ export const Subtitle = styled.h3`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.webAuditSubtitleMobile};
-    margin-bottom: 1em;
+    margin-bottom: 14px;
     padding-bottom: 0;
     br {
       display: none;
@@ -60,8 +62,10 @@ export const Text = styled.p`
   font-size: 1.5em;
   line-height: 160%;
   font-weight: ${themes.primary.font.weight.heavy};
+  margin: 14px 0 18px;
 
   @media ${themes.primary.media.maxMobile} {
+    font-size: 18px;
     br {
       display: none;
     }

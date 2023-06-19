@@ -27,7 +27,7 @@ export const ButtonWrapper = styled.div`
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   width: 44.5%;
 
@@ -45,7 +45,7 @@ export const ContentContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    padding-bottom: 5.25em;
+    padding-bottom: 48px;
 
     & a {
       font-size: 1em !important;
@@ -60,7 +60,6 @@ export const Title = styled.h1`
   font-size: 4.125em;
   font-weight: inherit;
   position: relative;
-  white-space: nowrap;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 3em;
@@ -106,7 +105,7 @@ export const Description = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
-    margin: 1.625em 0 1.75em;
+    margin: 16px 0 1.75em;
 
     & br {
       display: none;
@@ -117,6 +116,7 @@ export const Description = styled.div`
 export const Image = styled.img`
   top: 8.75em;
   right: -0.2em;
+  margin-top: 12px;
   width: 45.31em;
   height: 29.19em;
 
@@ -134,15 +134,12 @@ export const Image = styled.img`
     right: -2em;
   }
 
-  @media ${themes.primary.media.minPC} {
-    width: 50%;
-  }
-
   @media ${themes.primary.media.maxMobile} {
     position: relative;
-    left: 0;
+    right: -20px;
     top: 0;
     width: 24.28em;
     height: auto;
+    margin-top: 0;
   }
 `;

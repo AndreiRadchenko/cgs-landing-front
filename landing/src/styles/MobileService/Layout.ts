@@ -24,6 +24,7 @@ export const Subtitle = styled.h2`
   }
   &.mobileAudit {
     width: 100%;
+    font-size: 2.5em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -58,4 +59,16 @@ export const Subtitle = styled.h2`
 
 export const VisibleSubtitle = styled(Subtitle)`
   display: block;
+
+  &.mobileDev {
+    font-size: 3.33em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    &.mobileDev {
+      margin-top: 28px;
+      font-size: 24px;
+      line-height: 29px;
+    }
+  }
 `;

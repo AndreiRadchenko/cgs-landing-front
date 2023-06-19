@@ -5,8 +5,8 @@ import { cursorBlinking } from "../Animations.styled";
 export const ContentContainer = styled.section`
   display: flex;
   align-items: center;
-  margin-top: 15.1em;
-  margin-bottom: 50px;
+  margin-top: 7.8em;
+  margin-bottom: 9.67em;
   h2 {
     line-height: 132%;
   }
@@ -14,6 +14,7 @@ export const ContentContainer = styled.section`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 6.8em;
     flex-direction: column;
+    margin-bottom: 0px;
   }
 `;
 
@@ -23,6 +24,7 @@ export const ProfText = styled.div`
   margin-bottom: 2.17em;
   font-size: ${themes.primary.font.size.secondary};
   line-height: 160%;
+  max-width: 38.5em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     & br {
@@ -49,9 +51,12 @@ export const ButtonWrapper = styled.div`
 export const ImageWrapper = styled.div`
   position: relative;
   width: 500px;
+  height: 352px;
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
+    height: 230px;
+    margin-top: 20px;
   }
 `;
 export const Image = styled.img`
@@ -59,17 +64,16 @@ export const Image = styled.img`
   height: 100%;
   object-fit: cover;
   transform: rotate(2.06deg);
+  position: absolute;
+  top: 70px;
 
   @media ${themes.primary.media.maxMobile} {
-    width: 94%;
-    height: 28em;
     transform: rotate(-11.06deg);
-    right: -20%;
-    bottom: 1rem;
+    top: -10px;
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 113.5%;
-    height: 24.8em;
+    width: 376px;
+    height: 258px;
   }
 `;
 

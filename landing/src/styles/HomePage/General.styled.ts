@@ -53,6 +53,10 @@ export const BlackButton = styled.a<IFontSize>`
     font-size: 1.125em;
   }
 
+  &.services {
+    font-size: 1.5em;
+  }
+
   &.cta-button {
     padding: 18px 17px;
 
@@ -646,6 +650,16 @@ export const ArrowContainer = styled.div`
     height: 25px;
   }
 
+  &.ticketModalArrowSubmit {
+    will-change: transform;
+  }
+
+  &.careersTicketArrow {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+
   @media (min-width: 2200px) {
     width: 45px;
     height: 45px;
@@ -705,6 +719,10 @@ export const ButtonShareTextWrapper = styled.div`
     margin-top: 20px;
     margin-left: 1px;
 
+    &.dappAuditShare a {
+      padding: 0 !important;
+    }
+
     &.footer {
       margin-inline: 0;
     }
@@ -719,6 +737,11 @@ export const WhatsAppWrapper = styled.div`
   color: ${themes.primary.colors.primary};
   font-size: 1.125em;
 
+  &.webAudit,
+  &.mobileDev {
+    font-size: 1.1rem;
+  }
+
   &:hover {
     color: ${themes.primary.colors.darkBlue};
 
@@ -731,6 +754,9 @@ export const WhatsAppWrapper = styled.div`
     font-size: 16px;
     line-height: 19px;
     column-gap: 3px;
+    &.webAudit {
+      font-size: 16px;
+    }
   }
 `;
 
@@ -742,6 +768,11 @@ export const TelegramWrapper = styled.div`
   font-size: 1.125em;
   transition: color 0.3s;
   margin-left: 0.778em;
+
+  &.webAudit,
+  &.mobileDev {
+    font-size: 1.1rem;
+  }
 
   &:hover {
     color: ${themes.primary.colors.darkBlue};
@@ -756,6 +787,9 @@ export const TelegramWrapper = styled.div`
     line-height: 19px;
     column-gap: 3px;
     margin-left: 0.875em;
+    &.webAudit {
+      font-size: 16px;
+    }
   }
 `;
 

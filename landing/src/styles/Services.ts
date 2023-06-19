@@ -6,8 +6,23 @@ import { float } from "./Animations.styled";
 export const Container = styled.section`
   margin-top: 50px;
   margin-bottom: 140px;
+  &.mobileAudit {
+    margin-top: 8.95rem;
+    margin-bottom: 10.2em;
+  }
+
+  &.mobileDev {
+    margin-top: 1.4em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
+    &.mobileAudit {
+      margin-top: 26px;
+      margin-bottom: 108px;
+    }
+    &.mobileDev {
+      margin-top: 30px;
+    }
     margin-top: 35px;
     margin-bottom: 60px;
   }
@@ -81,6 +96,10 @@ export const WorthCardTitle = styled.div`
     color: ${themes.primary.colors.primary};
   }
 
+  &.mobileAudit p {
+    font-size: 1.5em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     padding-inline: 20px;
     height: 80px;
@@ -101,7 +120,7 @@ export const WorthCardInfo = styled.div`
   left: 0;
   opacity: 0;
   scale: 0;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.7s linear;
   background: ${themes.primary.colors.portfolioBg};
 `;
 
@@ -113,7 +132,12 @@ export const WorthText = styled.p`
   line-height: 160%;
   max-width: 440px;
 
+  &.mobileAudit {
+    font-size: 1.15em;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
+    max-width: 100%;
     & br {
       display: none;
     }
@@ -133,6 +157,9 @@ export const WorthText = styled.p`
     padding: 14px 20px;
     font-size: 16px;
     max-width: 370px;
+    &.mobileAudit {
+      font-size: 16px;
+    }
   }
 `;
 
@@ -149,6 +176,9 @@ export const WorthBlock = styled.div<ISlide>`
     scale: 1;
     opacity: 1;
     transition: all 0.5s ease-in-out;
+  }
+  &:hover ${WorthTitleContainer} {
+    opacity: 0;
   }
   &:first-child ${WorthCardTitle} {
     padding-inline: 51px;
@@ -199,6 +229,10 @@ export const Icon = styled.img<IIcon>`
     css`
       ${float(xOffset)} 3s infinite linear
     `};
+
+  &.iconCard {
+    animation: none;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     animation: none;

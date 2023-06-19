@@ -47,23 +47,26 @@ const WhatAppIncludeBlock = () => {
   const glassRef = useRef<HTMLDivElement>(null);
 
   const listInformation = [
-    { key: 'MOBILE APPLICATION SECURITY TEST', ref: securityTestIconRef },
-    { key: 'ENCRYPTION DEFINITION', ref: encryptionDefinitionIconRef },
-    { key: 'MOBILE APP OPERATING SYSTEM', ref: operatingSystemIconRef },
-    { key: 'ANDROID/IOS APPS STATIC', ref: appsStaticIconRef },
-    { key: 'DISCOVERING DATA', ref: discoveringDataIconRef },
-    { key: 'MIGRATION AUDIT', ref: migrationAuditIconRef }
+    { key: data?.textBlock[0], ref: securityTestIconRef },
+    { key: data?.textBlock[1], ref: encryptionDefinitionIconRef },
+    { key: data?.textBlock[2], ref: operatingSystemIconRef },
+    { key: data?.textBlock[3], ref: appsStaticIconRef },
+    { key: data?.textBlock[4], ref: discoveringDataIconRef },
+    { key: data?.textBlock[5], ref: migrationAuditIconRef }
   ];
 
   const iconPosition = useMemo(() => {
     return listInformation?.map(it => ({
       key: it.key,
       ref: it.ref,
-      bullets: data?.textBlock?.find(block => block.text?.toUpperCase()?.includes(it?.key?.toUpperCase()))?.subtext
+      bullets: data?.textBlock?.find(block => {
+        return block.text?.toUpperCase()?.includes(it?.key?.text!?.toUpperCase()) || block.subtext?.some(subtextLine => it?.key?.subtext?.includes(subtextLine))
+      })?.subtext
     }));
   }, []);
 
-  const onMouseEnter = (title: string) => {
+  const onMouseEnter = (title: string, event: React.MouseEvent) => {
+    event?.stopPropagation();
     if (!hoverOut) {
       const is1200px = window.matchMedia('(max-width: 1200px)').matches;
       const is992px = window.matchMedia('(max-width: 992px)').matches;
@@ -74,7 +77,7 @@ const WhatAppIncludeBlock = () => {
       const glassPositionAndSize = glassRef?.current?.getBoundingClientRect();
       const targetIcon = iconPosition?.find(it => {
         const isBulletHovered = it.bullets?.some(bullet => title?.toUpperCase()?.includes(bullet?.toUpperCase()));
-        return title?.toUpperCase()?.includes(it.key?.toUpperCase()) || isBulletHovered;
+        return title?.toUpperCase()?.includes(it.key?.text!?.toUpperCase()) || isBulletHovered;
       });
 
       const targetPictureRef = targetIcon?.ref;
@@ -90,23 +93,23 @@ const WhatAppIncludeBlock = () => {
 
       if (is1200px) {
         glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.27),
-        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.4)
+          glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.4)
       }
       if (is992px) {
         glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.25),
-        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.3)
+          glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.3)
       }
       if (is768px) {
         glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.28),
-        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.5)
+          glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.5)
       }
       if (is475px) {
         glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.3),
-        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.4)
+          glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.4)
       }
       if (is375px) {
         glassCenterPosition.x = glassPositionAndSize.left + (glassPositionAndSize?.width * 0.27),
-        glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.32)
+          glassCenterPosition.y = glassPositionAndSize?.top + (glassPositionAndSize?.height * 0.32)
       }
 
       const newPosition = {
@@ -117,14 +120,14 @@ const WhatAppIncludeBlock = () => {
       if (newPosition && coordinates.x == initialCoordinates.x && coordinates.y == initialCoordinates.y) {
         setCoordinates(newPosition);
         const iconKey = targetIcon?.key;
-        setActiveIcon(iconKey || '');
+        setActiveIcon(iconKey?.text || '');
       };
     };
   };
 
   const onMouseOut = () => {
     setActiveIcon('');
-    setCoordinates(initialCoordinates);  
+    setCoordinates(initialCoordinates);
     setHoverOut(false)
   };
 

@@ -5,7 +5,7 @@ export const Container = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 6.25em 0 0.5em 0;
+  padding: 4.2em 0 0.5em 0;
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
@@ -65,8 +65,9 @@ export const Title = styled.h1`
 export const Description = styled.div`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
-  margin: 1.3em 0 2.4em;
-  white-space: nowrap;
+  margin: 0.9em 0 1.8em;
+  max-width: 27.5em;
+
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.oneAndHalf};
   }
@@ -82,7 +83,7 @@ export const Description = styled.div`
     font-size: 1rem;
     white-space: pre-wrap;
     margin-bottom: 1.815em;
-    margin-top: 1.625em;
+    margin-top: 19px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {

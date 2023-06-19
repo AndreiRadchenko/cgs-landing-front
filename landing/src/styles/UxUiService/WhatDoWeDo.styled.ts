@@ -62,7 +62,7 @@ export const Subtitle = styled.p`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.25em;
+    font-size: 1.375em;
   }
 `;
 
@@ -82,7 +82,7 @@ export const Text = styled.p`
     font-size: 1em;
     max-width: 95vw;
     width: 90vw;
-    margin: 6px 0 0;
+    margin: 0;
   }
 `;
 
@@ -111,7 +111,6 @@ export const Wrapper = styled.div<ISlide>`
   position: relative;
   display: grid;
   grid-template-rows: 1fr 1fr;
-  row-gap: 5px;
 
   @media (max-width: 1200px) {
     width: 14em;
@@ -125,6 +124,7 @@ export const Wrapper = styled.div<ISlide>`
     margin: 0;
     grid-template-rows: 1fr 0.7fr;
     opacity: 0;
+    row-gap: 0;
 
     &.scrolled {
       animation: ${({ ind }) => css`

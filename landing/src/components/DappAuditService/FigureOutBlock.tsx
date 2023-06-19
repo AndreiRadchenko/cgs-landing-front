@@ -26,7 +26,7 @@ const FigureOutBlock = () => {
   const { width } = useWindowDimension();
 
   return (
-    <Wrapper style={{ marginBottom: "250px" }}>
+    <Wrapper>
       <Subtitle className="mobileDissapear">
         {figureOutBlockData?.subtitle}
       </Subtitle>
@@ -54,7 +54,6 @@ const FigureOutBlock = () => {
           ))}
         </Styled.TextWrapper>
       </Styled.ContentWrapper>
-      <WrapperWithLine />
     </Wrapper>
   );
 };

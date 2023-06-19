@@ -3,6 +3,7 @@ import themes from "../../utils/themes";
 
 export const Container = styled.section`
   position: relative;
+  margin-top: -15px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     padding-bottom: 50px;
@@ -10,6 +11,7 @@ export const Container = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 0;
+    margin-top: 23px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -33,12 +35,13 @@ export const Title = styled.h2`
 export const Description = styled.p`
   width: 80%;
   font-family: ${themes.primary.font.family.namu};
-  font-size: 1.25em;
+  font-size: 1.5em;
   line-height: 24px;
   margin-bottom: 1.5em;
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
+    font-size: 20px;
   }
 `;
 
@@ -147,6 +150,10 @@ export const ListText = styled.div`
     font-size: 1em;
     margin-left: 13px;
     max-width: 85%;
+
+    &.webAudit {
+      font-size: 16px;
+    }
   }
 `;
 
@@ -194,6 +201,9 @@ export const Shadow = styled.div`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     height: 836px;
+    &.webAudit {
+      height: 854px;
+    }
   }
 
   @media (max-width: 360px) {

@@ -6,7 +6,7 @@ export const Wrapper = styled.section`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 3.17em;
+    margin-top: 1.25em;
   }
 `;
 
@@ -28,13 +28,13 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const TextContainer = styled.div`
-  padding-top: 9.5em;
+  padding-top: 8em;
   width: 50%;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     padding-top: 4em;
   }
-  
+
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     padding-top: 0;
@@ -65,8 +65,7 @@ export const Description = styled.div`
   margin-top: 1em;
   font-size: 1.833em;
   line-height: 160%;
-  max-width: 100%;
-  white-space: nowrap;
+  max-width: 27.2em;
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.menuElement};

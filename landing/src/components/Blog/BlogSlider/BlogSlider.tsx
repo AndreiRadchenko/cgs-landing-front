@@ -22,7 +22,7 @@ export const BlogSwiper: FC<ISliderProps> = ({ children }) => {
           delay: 10000,
           disableOnInteraction: false,
         }}
-        loop={true}
+        loop={false}
         pagination={{
           clickable: true,
         }}

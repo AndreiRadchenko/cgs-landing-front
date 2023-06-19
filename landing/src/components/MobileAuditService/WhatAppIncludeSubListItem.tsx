@@ -4,7 +4,7 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 
 interface ISubListItemProps {
   subItem: string;
-  onMouseEnter?: (title: string) => void;
+  onMouseEnter?: (title: string, event: React.MouseEvent) => void;
   onMouseOut?: () => void;
 }
 

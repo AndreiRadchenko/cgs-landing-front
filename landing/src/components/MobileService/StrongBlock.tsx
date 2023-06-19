@@ -17,7 +17,7 @@ const StrongBlock = () => {
   const blockPhotoArr = [android, apple];
   return (
     <Styled.StrongContainer>
-      <Subtitle>{data?.subtitle}</Subtitle>
+      <Subtitle className={"mobileDev"}>{data?.subtitle}</Subtitle>
       <MobileInfiniteText title={data?.subtitle} />
       <Styled.ContentContainer>
         {data &&

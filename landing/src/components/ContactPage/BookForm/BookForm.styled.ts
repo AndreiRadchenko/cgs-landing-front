@@ -2,6 +2,14 @@ import styled from "styled-components";
 import { Field } from "formik";
 import themes from "../../../utils/themes";
 
+export const FormMobileAlign = styled.div`
+  @media ${themes.primary.media.maxServiceWeb} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
 export const Form = styled.form`
   display: flex;
   margin-top: 26px;
@@ -14,20 +22,20 @@ export const Form = styled.form`
 
   @media (${themes.primary.media.maxServiceWeb}) {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 0;
   }
 `;
 
 export const FormFieldLabel = styled.label`
   font-family: ${themes.primary.font.family.namu};
-  font-size: 16px;
+  font-size: 1.33em;
+  line-height: 1.1875;
   color: ${themes.primary.colors.black};
 
-  @media ${themes.primary.media.estiomationFormWidth} {
-    font-size: 12px;
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 16px;
   }
-
   span {
     color: ${themes.primary.colors.comment};
   }
@@ -57,12 +65,18 @@ export const FormFieldContainer = styled.div`
     background: none;
     border: 1px solid ${themes.primary.colors.inputGrey};
     font-family: ${themes.primary.font.family.namu};
-    font-size: 16px;
+    font-size: 1.33em;
+    line-height: 1.1875;
     color: ${themes.primary.colors.black};
     border-radius: 0;
 
     @media ${themes.primary.media.maxPCFullHD} {
       height: 54px;
+    }
+
+    .form-control {
+      font-size: inherit;
+      line-height: 1.1875;
     }
 
     &::placeholder {
@@ -106,7 +120,8 @@ export const FormFieldContainer = styled.div`
       height: 100%;
       width: 100%;
       border: none;
-      font-size: 16px;
+      /* font-size: 16px; */
+
       font-family: ${themes.primary.font.family.namu};
       background: ${themes.primary.colors.blogBackground};
 
@@ -114,8 +129,8 @@ export const FormFieldContainer = styled.div`
         color: ${themes.primary.colors.comment};
       }
 
-      @media ${themes.primary.media.estiomationFormWidth} {
-        font-size: 12px;
+      @media ${themes.primary.media.maxMobile} {
+        font-size: 16px;
       }
 
       @media ${themes.primary.media.minMobile} {
@@ -157,7 +172,8 @@ export const FormField = styled(Field)`
   border: none;
   border: 1px solid ${themes.primary.colors.inputGrey};
   font-family: ${themes.primary.font.family.namu};
-  font-size: 16px;
+  font-size: 1.33em;
+  line-height: 1.1875;
   color: ${themes.primary.colors.black};
   padding-left: 12px;
   border-radius: 0;
@@ -175,14 +191,15 @@ export const FormField = styled(Field)`
   @media ${themes.primary.media.maxPCFullHD} {
     height: 54px;
   }
-  @media ${themes.primary.media.estiomationFormWidth} {
-    font-size: 12px;
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 16px;
   }
 `;
 
 export const ErrorField = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-size: 12px;
+  font-size: 1em;
+  line-height: 1.6;
   color: ${themes.primary.colors.adminRed};
   line-height: 19px;
   text-align: right;
@@ -211,9 +228,8 @@ export const FormSentContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxServiceWeb} {
-    margin-top: 4px;
+    margin-top: 2px;
     margin-left: -2px;
-    transform: translateX(-71px);
   }
 `;
 
@@ -221,13 +237,4 @@ export const ButtonWrapper = styled.div`
   padding: 0;
   margin: 0;
   display: flex;
-  button {
-    width: 196px !important;
-    @media ${themes.primary.media.maxMobile} {
-      height: 58px !important;
-    }
-  }
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
-  }
 `;

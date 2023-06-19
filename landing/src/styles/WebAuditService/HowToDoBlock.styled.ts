@@ -1,20 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Wrapper = styled.section`
-  @media ${themes.primary.media.maxMobile} {
-    &:before {
-      content: "";
-      display: block;
-      height: 1px;
-      width: 120vw;
-      position: relative;
-      right: 10%;
-      background: ${themes.primary.colors.headerBorder};
-      margin-bottom: 2.69em;
-    }
-  }
-`;
+export const Wrapper = styled.section``;
 
 export const Subtitle = styled.h3`
   font-size: ${themes.primary.font.size.webAuditSubtitle};
@@ -44,11 +31,11 @@ export const Subtitle = styled.h3`
 `;
 
 export const ContentWrapper = styled.div`
-  margin-top: 4.5em;
+  margin-top: 2.5em;
   position: relative;
   display: flex;
   justify-content: space-between;
-  gap: 50px;
+  gap: 26px;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;

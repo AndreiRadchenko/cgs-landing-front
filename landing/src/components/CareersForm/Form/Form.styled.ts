@@ -38,14 +38,19 @@ interface IEnableGlare {
 }
 
 export const FormFieldContainer = styled.div`
-  width: 100%;
-  height: 78px;
+  height: 67px;
+  width: 556px;
   position: relative;
   margin-top: 16px;
   border: 1px solid black;
 
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 66px;
+    width: 335px;
+    height: 54px;
   }
 `;
 
@@ -58,7 +63,7 @@ export const FormField = styled(Field)<IFormField>`
 
   font-family: ${themes.primary.font.family.namu};
 
-  font-size: 16px;
+  font-size: 1.2em;
   padding: 0 0 0 12px;
 
   &:focus {
@@ -325,7 +330,7 @@ export const FormSentText = styled.span`
   border: 0;
   background: black;
   color: white;
-  padding-top: 5%;
+  padding-top: 6.5%;
 
   @media (max-width: 768px) {
     padding-top: 7%;
@@ -372,11 +377,15 @@ export const Shadow = styled.div<IEnableGlare>`
     rgba(241, 239, 237, 0) 114.26%
   );
   position: absolute;
+
+  @media (max-width: 768px) {
+    height: 130%;
+  }
 `;
 
 export const PositionSelect = styled.div<IEnableGlare>`
-  height: 78px;
-  width: 100%;
+  height: 68px;
+  width: 557px;
 
   div {
     z-index: ${({ enabled }) => (enabled ? "2" : "1")};
@@ -418,22 +427,32 @@ export const PositionSelect = styled.div<IEnableGlare>`
   }
 
   div:nth-child(2) {
-    height: auto;
+    height: 204px;
 
     &:last-child {
       div:last-child {
-        color: grey;
+        color: #8F8E93;
       }
 
       border-bottom: 10px solid black;
       border-right: 1px solid black !important;
       box-shadow: 13px 0px 0px 0px black;
       border-left: none;
+      overflow: scroll;
+    }
+
+    @media (max-width: 768px) {
+      height: 172px;
     }
   }
 
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 66px;
+    width: 335px;
+    height: 54px;
   }
 `;
 
@@ -461,7 +480,7 @@ export const Cvfield = styled.div<IFormField>`
 
     &::placeholder {
       color: ${({ isEmpty, toFormError }) =>
-        isEmpty ? themes.primary.colors.darkBlue : toFormError ? "#F84A3F" : "grey"};
+        isEmpty ? themes.primary.colors.darkBlue : toFormError ? "#F84A3F" : "#8F8E93"};
     }
   }
 `;
@@ -473,9 +492,9 @@ export const Label = styled.label<ILabelOptions>`
   border: ${({ toFormError }) => (toFormError ? "1px solid #F84A3F" : "1px solid black")};
   padding: 7px 12px;
   position: absolute;
-  right: 3em;
-  bottom: 1.9em;
-  color: ${({ toFormError }) => (toFormError ? "#F84A3F" : "grey")};
+  right: 2em;
+  bottom: 1.5em;
+  color: ${({ toFormError }) => (toFormError ? "#F84A3F" : "black")};
   cursor: pointer;
   width: 90px;
 

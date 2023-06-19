@@ -56,7 +56,7 @@ export const DeleteButton = styled.div`
   color: ${themes.primary.colors.deleteButton};
 `;
 
-export const DeactivateButton = styled.div<IDisabled>`
+export const DeactivateButton = styled.button<IDisabled>`
   cursor: pointer;
   margin-right: 12px;
   padding: 7px 12px;
@@ -68,7 +68,7 @@ export const DeactivateButton = styled.div<IDisabled>`
   border: 1px solid ${themes.primary.colors.darkBlue};
 `;
 
-export const PublishButton = styled.div<IDisabled>`
+export const PublishButton = styled.button<IDisabled>`
   cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
   padding: 7px;
   background-color: ${themes.primary.colors.primary};

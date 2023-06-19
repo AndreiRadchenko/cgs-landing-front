@@ -2,14 +2,14 @@ import React from "react";
 import Image from "next/image";
 
 import * as Styled from "../../../styles/Logo.styled";
-import logoMobile from "../../../../public/HomePageDecoration/logo-mobile.svg";
+import logo from "../../../../public/HomePageDecoration/logo-versatile.svg";
 
 const Logo = () => {
   return (
     <Styled.LogoWrapper>
       <Styled.ImageWrapper>
         <Image
-          src={logoMobile}
+          src={logo}
           alt="logo"
           layout="fill"
           objectFit="contain"

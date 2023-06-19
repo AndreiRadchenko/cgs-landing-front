@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
-export const DropdownButton = styled.button<{ isHeader?: boolean; toFormError?: boolean }>`
+export const DropdownButton = styled.button<{ isHeader?: boolean; toFormError?: boolean; toSelectPosition?: boolean }>`
   cursor: pointer;
-  color: ${({ toFormError }) => (toFormError ? "#F84A3F" : "black")};
+  color: ${({ toFormError, toSelectPosition }) => (toFormError ? "#F84A3F" : toSelectPosition ? "#000" : "#8F8E93")};
   background-color: ${themes.primary.colors.blogBackground};
   box-sizing: border-box;
   border: ${(props) =>
@@ -53,6 +53,7 @@ export const Dropdown = styled.div`
   display: inline-block;
   background-color: ${themes.primary.colors.blogBackground};
   border: 1.5px solid #000;
+  border-left: none;
   box-shadow: 5px 5px 0 #000;
 `;
 
@@ -72,9 +73,11 @@ export const DropdownContent = styled.div`
   div {
     color: ${themes.primary.colors.primary};
     font-family: ${themes.primary.font.family.namu};
-    font-size: ${themes.primary.font.size.vistaco};
+    font-size: 1.35em;
+    border-left: 1.5px solid black;
     border-bottom: 1px solid ${themes.primary.colors.comment};
-    padding: 30px 20px;
+    padding: 23px 28px;
+    height: 64px;
     text-decoration: none;
     text-align: left;
     cursor: pointer;
@@ -83,6 +86,25 @@ export const DropdownContent = styled.div`
     }
     &:last-child {
       border-bottom: 0;
+    }
+
+    &:nth-child(2){
+        &:nth-child(2) {
+          height: 64px;
+        }
+      }
+  }
+
+  @media (max-width: 768px) {
+    div{
+      height: 55px;
+      padding: 16px 20px;
+
+      &:nth-child(2){
+        &:nth-child(2){
+          height: 55px;
+        }
+      }
     }
   }
 `;

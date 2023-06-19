@@ -99,6 +99,7 @@ const Careers: FC<ICareersProps> = ({ data }) => {
         <Styles.TicketsWrapper>
           <Styles.TicketsContainer>{mapTickets()}</Styles.TicketsContainer>
         </Styles.TicketsWrapper>
+        <p ref={ref} />
         <Styles.FormTitle>
           {data && parse(subtitle2, options2)}
         </Styles.FormTitle>
@@ -107,7 +108,7 @@ const Careers: FC<ICareersProps> = ({ data }) => {
           <Styles.BottomLeftImageGlass src={leftGlass.src} />
           <Styles.FormContainer>
             <Styles.Form>
-              <CareersForm positions={positions} data={data} ourRef={ref} />
+              <CareersForm positions={positions} data={data} />
             </Styles.Form>
           </Styles.FormContainer>
         </Styles.FormAndImageContainer>

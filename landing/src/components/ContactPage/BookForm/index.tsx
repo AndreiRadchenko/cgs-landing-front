@@ -110,37 +110,40 @@ const BookForm = ({ header }: IFormProps) => {
 
   return (
     <Styled.FormProvider value={formik}>
-      <CSS.Form
-        onSubmit={formik.handleSubmit}
-        encType="multipart/form-data"
-        id="launch_our_cooperation_form"
-      >
-        {Object.entries(fieldContent).map(([key, label]) => (
-          <FormField
-            value={value}
-            setValue={setValue}
-            setCountry={setCountry}
-            btnIsClicked={btnState.isClicked}
-            name={key as keyof IFormState}
-            key={key}
-            label={label}
-          />
-        ))}
-        <CSS.FormSentContainer>
-          <CSS.ButtonWrapper onClick={checkIfButtonIsDisabled}>
-            <BookACallButton
-              name={name}
-              email={email}
-              buttonText={button.name}
-              buttonLink={button.calendly}
-              buttonClassName={"calendly"}
-              handleClose={handleClose}
-              calendlyIsOpen={calendlyIsOpen}
-              setCalendlyIsOpen={setCalendlyIsOpen}
+      <CSS.FormMobileAlign>
+        <CSS.Form
+          onSubmit={formik.handleSubmit}
+          encType="multipart/form-data"
+          id="contact_page_form"
+        >
+          {Object.entries(fieldContent).map(([key, label], idx) => (
+            <FormField
+              value={value}
+              setValue={setValue}
+              setCountry={setCountry}
+              btnIsClicked={btnState.isClicked}
+              name={key as keyof IFormState}
+              key={key}
+              label={label}
+              idx={idx}
             />
-          </CSS.ButtonWrapper>
-        </CSS.FormSentContainer>
-      </CSS.Form>
+          ))}
+          <CSS.FormSentContainer>
+            <CSS.ButtonWrapper onClick={checkIfButtonIsDisabled}>
+              <BookACallButton
+                name={name}
+                email={email}
+                buttonText={button.name}
+                buttonLink={button.calendly}
+                buttonClassName={"calendly"}
+                handleClose={handleClose}
+                calendlyIsOpen={calendlyIsOpen}
+                setCalendlyIsOpen={setCalendlyIsOpen}
+              />
+            </CSS.ButtonWrapper>
+          </CSS.FormSentContainer>
+        </CSS.Form>
+      </CSS.FormMobileAlign>
     </Styled.FormProvider>
   );
 };
