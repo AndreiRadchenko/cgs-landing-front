@@ -114,30 +114,16 @@ export const Description = styled.div`
 `;
 
 export const Image = styled.img`
-  top: 8.75em;
-  right: -0.2em;
   margin-top: 12px;
   width: 45.31em;
   height: 29.19em;
 
-  @media (max-width: 1360px) {
-    width: 45%;
-  }
-
   @media ${themes.primary.media.maxTabletLandScape} {
-    width: 50%;
+    margin-top: 50px;
+    width: 35em;
+    height: 20em;
   }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    width: 60%;
-    top: 13em;
-    right: -2em;
-  }
-
   @media ${themes.primary.media.maxMobile} {
-    position: relative;
-    right: -20px;
-    top: 0;
     width: 24.28em;
     height: auto;
     margin-top: 0;
