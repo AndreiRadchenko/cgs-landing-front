@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-top: 4.5%;
+  margin-top: 3%;
 
   @media (min-width: 1560px) {
     margin-top: 3.5%;
@@ -30,10 +30,6 @@ export const Subtitle = styled.h3`
   line-height: 140%;
   text-transform: uppercase;
   margin: 0 0 0.775em 0;
-
-  @media ${themes.primary.media.minPC} {
-    font-size: ${themes.primary.font.size.webAuditSubtitlePC};
-  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.webAuditSubtitleTabletLandscape};
@@ -86,7 +82,7 @@ export const TextWrapper = styled.div`
   font-size: 2em;
   margin: 0 auto;
   line-height: 160%;
-  max-width: 100%;
+  max-width: 26.1em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tertiary};
@@ -94,8 +90,9 @@ export const TextWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.oneAndHalf};
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     white-space: pre-line;
+    max-width: 100%;
     br {
       display: none;
     }

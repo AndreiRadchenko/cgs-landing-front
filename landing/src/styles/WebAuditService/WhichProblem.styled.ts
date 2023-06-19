@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-top: 11.6em;
+  margin-top: 14.2em;
   position: relative;
   display: flex;
   gap: 32px;
@@ -12,7 +12,7 @@ export const Wrapper = styled.section`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 28px;
+    margin-top: 61px;
     margin-bottom: 80px;
     flex-direction: column;
     gap: 10px;
@@ -25,7 +25,7 @@ export const Wrapper = styled.section`
       position: relative;
       right: 10%;
       background: ${themes.primary.colors.headerBorder};
-      margin-bottom: 2.69em;
+      margin-bottom: 1.7em;
     }
   }
 `;

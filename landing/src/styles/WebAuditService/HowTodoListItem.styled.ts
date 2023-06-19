@@ -51,7 +51,7 @@ export const Text = styled.div`
 export const BottomLine = styled.div`
   position: absolute;
   bottom: 0;
-  left: 10%;
+  left: 5.5%;
   border-bottom: 2px solid ${themes.primary.colors.comment};
-  width: 80%;
+  width: 95%;
 `;

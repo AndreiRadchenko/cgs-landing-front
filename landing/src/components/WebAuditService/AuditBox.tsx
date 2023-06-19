@@ -18,7 +18,7 @@ const AuditBox = ({ data }: IAuditBoxProps) => {
           />
         ))}
       </Styled.ListWrapper>
-      <Styled.Shadow className={"webAudit"} />
+      <Styled.Shadow />
     </Styled.AuditBox>
   );
 };
