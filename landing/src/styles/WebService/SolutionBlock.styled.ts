@@ -9,7 +9,7 @@ export const Container = styled.section`
   background-image: url(${solutionBg.src});
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  margin-bottom: 3.5em;
+  margin-bottom: 2.45em;
 
   @media ${themes.primary.media.maxServiceWeb} {
     margin-top: 6.4em;
@@ -22,7 +22,7 @@ export const Container = styled.section`
   @media ${themes.primary.media.maxMobile} {
     margin-top: 88px;
     background: none;
-    margin-bottom: 120px;
+    margin-bottom: 92px;
 
     ::after {
       content: "";
@@ -136,6 +136,7 @@ export const RightSideText = styled.div`
   width: 50%;
   & p {
     margin: 0.85em 0 0;
+    line-height: 160%;
   }
 
   svg {
