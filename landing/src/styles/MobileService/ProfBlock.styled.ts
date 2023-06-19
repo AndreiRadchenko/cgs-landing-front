@@ -12,7 +12,7 @@ export const ContentContainer = styled.section`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 6.8em;
+    margin-top: 40px;
     flex-direction: column;
     margin-bottom: 0px;
   }
@@ -20,7 +20,7 @@ export const ContentContainer = styled.section`
 
 export const ProfText = styled.div`
   position: relative;
-  margin-top: 1.7em;
+  margin-top: 0.835em;
   margin-bottom: 2.17em;
   font-size: ${themes.primary.font.size.secondary};
   line-height: 160%;

@@ -22,12 +22,12 @@ export const Wrapper = styled.section`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 2.7em;
+    margin-bottom: 3px;
     margin-top: 8em;
     padding-bottom: 9.5em;
 
     &.mobileDev {
-      margin-top: 60px;
+      margin-top: 50px;
     }
 
     &.withoutShowcase {
@@ -84,7 +84,7 @@ export const WhatDoWeUseContainer = styled.div`
 `;
 
 export const SubText = styled.div`
-  margin-top: 2.5rem;
+  margin-top: 1.25rem;
   margin-bottom: 0;
   line-height: 160%;
   font-size: ${themes.primary.font.size.secondary};
@@ -96,7 +96,7 @@ export const SubText = styled.div`
 
   & p {
     margin-bottom: 0;
-    margin-top: 26px;
+    margin-top: 0.6em;
 
     &:first-child {
       margin-top: 0;
