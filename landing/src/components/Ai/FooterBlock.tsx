@@ -52,7 +52,7 @@ const FooterBlock = () => {
       {data && (
         <Styled.ImageWrapper>
           <Image
-            src={data?.image.url}
+            src={data?.image?.url}
             alt="dapp audit footer image"
             layout="fill"
             objectFit="contain"
