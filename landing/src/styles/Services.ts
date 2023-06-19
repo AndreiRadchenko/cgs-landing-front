@@ -96,7 +96,8 @@ export const WorthCardTitle = styled.div`
     color: ${themes.primary.colors.primary};
   }
 
-  &.mobileAudit p {
+  &.mobileAudit p,
+  &.mobileDev p {
     font-size: 1.5em;
   }
 
@@ -104,6 +105,8 @@ export const WorthCardTitle = styled.div`
     padding-inline: 20px;
     height: 80px;
 
+    &.mobileAudit p,
+    &.mobileDev p,
     p {
       font-size: 18px;
     }
@@ -132,7 +135,8 @@ export const WorthText = styled.p`
   line-height: 160%;
   max-width: 440px;
 
-  &.mobileAudit {
+  &.mobileAudit,
+  &.mobileDev {
     font-size: 1.15em;
   }
 
@@ -157,7 +161,8 @@ export const WorthText = styled.p`
     padding: 14px 20px;
     font-size: 16px;
     max-width: 370px;
-    &.mobileAudit {
+    &.mobileAudit,
+    &.mobileDev {
       font-size: 16px;
     }
   }

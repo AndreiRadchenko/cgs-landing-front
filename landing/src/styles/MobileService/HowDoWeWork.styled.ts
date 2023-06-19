@@ -12,7 +12,7 @@ export const ContentWrapper = styled.section`
       position: absolute;
       background-color: ${themes.primary.colors.headerBorder};
       width: 130%;
-      bottom: -5%;
+      bottom: -6.6%;
       left: -10%;
     }
   }
@@ -230,7 +230,7 @@ export const TextContent = styled.p`
 `;
 
 export const PointsWrapper = styled.div`
-  margin-top: 4em;
+  margin-top: 2.5em;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -251,7 +251,7 @@ export const PointsWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 1.5em;
+    margin-top: 28px;
     row-gap: 1.3em;
   }
 `;
