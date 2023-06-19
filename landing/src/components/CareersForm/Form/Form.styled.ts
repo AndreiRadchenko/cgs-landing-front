@@ -38,14 +38,19 @@ interface IEnableGlare {
 }
 
 export const FormFieldContainer = styled.div`
-  width: 100%;
-  height: 78px;
+  height: 67px;
+  width: 556px;
   position: relative;
   margin-top: 16px;
   border: 1px solid black;
 
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 66px;
+    width: 335px;
+    height: 54px;
   }
 `;
 
@@ -379,8 +384,8 @@ export const Shadow = styled.div<IEnableGlare>`
 `;
 
 export const PositionSelect = styled.div<IEnableGlare>`
-  height: 78px;
-  width: 100%;
+  height: 68px;
+  width: 557px;
 
   div {
     z-index: ${({ enabled }) => (enabled ? "2" : "1")};
@@ -422,7 +427,7 @@ export const PositionSelect = styled.div<IEnableGlare>`
   }
 
   div:nth-child(2) {
-    height: auto;
+    height: 204px;
 
     &:last-child {
       div:last-child {
@@ -441,8 +446,13 @@ export const PositionSelect = styled.div<IEnableGlare>`
     }
   }
 
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 66px;
+    width: 335px;
+    height: 54px;
   }
 `;
 
@@ -470,7 +480,7 @@ export const Cvfield = styled.div<IFormField>`
 
     &::placeholder {
       color: ${({ isEmpty, toFormError }) =>
-        isEmpty ? themes.primary.colors.darkBlue : toFormError ? "#F84A3F" : "8F8E93"};
+        isEmpty ? themes.primary.colors.darkBlue : toFormError ? "#F84A3F" : "#8F8E93"};
     }
   }
 `;
@@ -482,8 +492,8 @@ export const Label = styled.label<ILabelOptions>`
   border: ${({ toFormError }) => (toFormError ? "1px solid #F84A3F" : "1px solid black")};
   padding: 7px 12px;
   position: absolute;
-  right: 3em;
-  bottom: 1.9em;
+  right: 2em;
+  bottom: 1.5em;
   color: ${({ toFormError }) => (toFormError ? "#F84A3F" : "black")};
   cursor: pointer;
   width: 90px;

@@ -37,6 +37,7 @@ const CareersDropdown = ({
         className={isOpen ? "open" : "className"}
         onClick={() => setIsOpen(!isOpen)}
         toFormError={toFormError && dropdownName === "Position"}
+        toSelectPosition={dropdownName !== "Position"}
       >
         <span>{dropdownName}</span>
         <img width={9} height={5} src={Arrow.src} alt="Arrow" />

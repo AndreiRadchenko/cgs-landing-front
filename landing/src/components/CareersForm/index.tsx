@@ -6,14 +6,13 @@ import Form from "./Form/index";
 interface ICareersForm {
   positions: string[];
   data: IDataCareersResponse;
-  ourRef: RefObject<HTMLDivElement>;
 }
 
-const CareersForm: FC<ICareersForm> = ({ positions = [], data, ourRef }) => {
+const CareersForm: FC<ICareersForm> = ({ positions = [], data }) => {
   return (
     <>
       <Styled.FormContainter>
-        <Form positions={positions} data={data} ourRef={ourRef} />
+        <Form positions={positions} data={data}/>
       </Styled.FormContainter>
     </>
   );

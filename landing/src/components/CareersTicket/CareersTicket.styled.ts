@@ -200,7 +200,7 @@ export const TicketInner = styled.div<TicketHover>`
   z-index: 1;
   margin-top: 33px;
   background-color: ${themes.primary.colors.careerBackground};
-  padding: 25px 20px;
+  padding: 20px 20px 23px 20px;
 
     &:after {
     display: ${props => props.isTicketHover ? 'block' : 'none'};
@@ -245,7 +245,7 @@ export const TicketInner = styled.div<TicketHover>`
 export const TicketInfo = styled.div``;
 
 export const TicketDescription = styled.div`
-  margin-top: 15px;
+  margin-top: 13px;
   font-size: 18px;
   font-family: ${themes.primary.font.family.namu};
 
@@ -260,8 +260,7 @@ export const TicketDescription = styled.div`
 
 export const TicketAboutWork = styled.div`
   display: flex;
-  margin-top: 25px;
-  margin-bottom: 10px;
+  margin-top: 23px;
 
   @media (max-width: 496px) {
     width: 130%;
@@ -292,6 +291,8 @@ export const WorkLocation = styled.div`
 
   @media (max-width: 474px) {
     font-size: 14px;
+    height: 41px;
+    padding: 0 9.1px;
    
   }
 `;
@@ -311,6 +312,8 @@ export const WorkType = styled.div`
 
   @media (max-width: 474px) {
     font-size: 14px;
+    height: 41px;
+    padding: 0 9.1px;
   }
 `;
 
