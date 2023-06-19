@@ -104,6 +104,11 @@ export const Description = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 28px;
+  padding-right: 20px;
+
+  @media (max-width: 768px) {
+    padding-right: 0;
+  }
 
   @media (max-width: 475px) {
     font-size: 18px;
@@ -131,6 +136,10 @@ export const ScrollList = styled.div`
   ::-webkit-scrollbar-thumb{
     background-color: #8f8e93;
     border-radius: 5px;
+  }
+
+  @media (max-width: 1370px) {
+    width: 44vw;
   }
 
   @media (max-width: 992px) {
@@ -172,6 +181,11 @@ export const ScrollContainer = styled.div`
   @media (max-width: 1440px) {
     width: 44.3em;
     margin-right: 60px;
+  }
+
+  @media (max-width: 1370px) {
+    width: 90%;
+    margin-right: 40px;
   }
 
   @media (max-width: 1350px) {
