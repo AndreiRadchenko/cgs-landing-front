@@ -36,7 +36,7 @@ export const ContentContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 104%;
+    width: 100%;
   }
 `;
 

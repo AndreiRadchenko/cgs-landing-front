@@ -29,7 +29,8 @@ export const Picture = ({
           layout="fill"
           objectFit="contain"
           objectPosition="top"
-          priority
+          loading="eager"
+          // priority
         />
       </Styled.GrayscalePictureWrapper>
       <Styled.ColorPictureWrapper className="color">
@@ -39,7 +40,8 @@ export const Picture = ({
           layout="fill"
           objectFit="contain"
           objectPosition="top"
-          priority
+          loading="eager"
+          // priority
         />
       </Styled.ColorPictureWrapper>
     </Styled.PictureContainer>

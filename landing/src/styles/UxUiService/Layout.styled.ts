@@ -48,7 +48,7 @@ export const Layout = styled.div`
 export const TeamMembersAlign = styled.div`
   margin-top: -10.32em;
   @media ${themes.primary.media.maxPCFullHD} {
-    margin-top: -15.32em;
+    margin-top: -14.32em;
   }
   @media ${themes.primary.media.maxServiceWeb} {
     margin-top: -14.32em;

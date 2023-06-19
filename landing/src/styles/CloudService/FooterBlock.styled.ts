@@ -92,7 +92,7 @@ export const Text = styled.p`
   max-width: 70%;
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;
-    margin: 10px 0 2em;
+    margin: 10px 0 1.75em;
     max-width: 100%;
   }
 `;
