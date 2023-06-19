@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
   margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
-  margin-bottom: 4em;
+  margin-bottom: 5.2em;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
@@ -11,7 +11,7 @@ export const Wrapper = styled.section`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksMobile};
+    margin-top: 60px;
     margin-bottom: ${themes.primary.spacing.servicesMarginBetweenFooterMobile};
     &:before {
       content: "";

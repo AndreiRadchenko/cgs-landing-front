@@ -55,7 +55,7 @@ export const Wrapper = styled.div`
   @media (max-width: 400px) {
     margin-bottom: 8.5em;
     &.webAudit {
-      margin-bottom: 8.5em;
+      margin-bottom: 106px;
     }
   }
 `;
@@ -128,12 +128,12 @@ export const ScrollList = styled.div`
     width: 6px;
   }
 
-  ::-webkit-scrollbar-track{
+  ::-webkit-scrollbar-track {
     background-color: #d9d9d9;
     border-radius: 5px;
   }
 
-  ::-webkit-scrollbar-thumb{
+  ::-webkit-scrollbar-thumb {
     background-color: #8f8e93;
     border-radius: 5px;
   }

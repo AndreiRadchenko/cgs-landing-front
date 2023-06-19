@@ -13,7 +13,7 @@ export const Wrapper = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 61px;
-    margin-bottom: 80px;
+    margin-bottom: 89px;
     flex-direction: column;
     gap: 10px;
 
@@ -66,6 +66,7 @@ export const Text = styled.p`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 18px;
+    margin: 14px 0 9px;
     br {
       display: none;
     }

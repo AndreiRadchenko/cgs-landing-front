@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const ListWrapper = styled.div`
-  width: 100%;
+  width: 53em;
   height: 100%;
   position: relative;
   margin-bottom: 20px;

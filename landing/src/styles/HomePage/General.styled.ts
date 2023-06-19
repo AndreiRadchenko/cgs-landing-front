@@ -739,7 +739,7 @@ export const WhatsAppWrapper = styled.div`
 
   &.webAudit,
   &.mobileDev {
-    font-size: 1.1rem;
+    font-size: 1.5em;
   }
 
   &:hover {
@@ -772,7 +772,7 @@ export const TelegramWrapper = styled.div`
 
   &.webAudit,
   &.mobileDev {
-    font-size: 1.1rem;
+    font-size: 1.5em;
   }
 
   &:hover {

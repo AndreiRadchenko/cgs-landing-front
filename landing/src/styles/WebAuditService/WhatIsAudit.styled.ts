@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-top: 3%;
+  margin-top: 4.4em;
 
   @media (min-width: 1560px) {
     margin-top: 3.5%;
