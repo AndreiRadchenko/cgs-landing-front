@@ -73,6 +73,7 @@ export const TicketsContainer = styled.div`
 
 export const TicketsButton = styled.button`
   width: 100%;
+  font-family: ${themes.primary.font.family.namu};
   background: ${themes.primary.colors.primary};
   border: 0;
   color: #fff;
@@ -193,7 +194,7 @@ export const TicketChange = styled.div`
 export const TicketEditAndDeleteButtons = styled.div`
   position: absolute;
   left: 103em;
-  z-index: 100;
+  z-index: 10;
   margin-top: 16em;
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -203,13 +204,39 @@ export const TicketEditAndDeleteButtons = styled.div`
     margin-top: 10em;
   }
 
+  @media (max-width: 2400px) {
+    left: 110em;
+  }
+
+  @media (max-width: 2125px) {
+    left: 108em;
+  }
+
   @media (max-width: 1920px) {
     left: 106em;
+  }
+
+  @media (max-width: 1850px) {
+    left: 103em;
+  }
+
+  @media (max-width: 1800px) {
+    margin-top: 12em;
+    left: 106em;
+  }
+
+  @media (max-width: 1620px) {
+    left: 103em;
   }
 
   @media (max-width: 1560px) {
     left: 101.5em;
     margin-top: 12em;
+  }
+
+  @media (max-width: 1500px) {
+    left: 103em;
+    margin-top: 13em;
   }
 
   @media (max-width: 1440px) {

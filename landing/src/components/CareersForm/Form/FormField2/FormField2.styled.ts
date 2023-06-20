@@ -8,6 +8,7 @@ export const FormField = styled(Field)`
   background: none;
   border: none;
   border-bottom: 1px solid black;
+  border-radius: 0;
   font-family: ${themes.primary.font.family.namu};
   font-size: 1.2em;
   color: black;
@@ -35,7 +36,7 @@ export const FormField = styled(Field)`
 
 export const FormFieldContainer = styled.div`
   height: 68px;
-  width: 557px;
+  width: 46.45em;
   background-color: ${themes.primary.colors.careerBackground};
   position: relative;
   margin-top: 16px;
