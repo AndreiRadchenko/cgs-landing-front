@@ -1,5 +1,5 @@
 import React from "react";
-import * as Styled from "../../styles/DappAuditService/HowDoProvideBlock.styled";
+import * as Styled from "../../styles/AiService/HowDoProvideBlock.styled";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
 interface HowDoProvideSubItemProps {

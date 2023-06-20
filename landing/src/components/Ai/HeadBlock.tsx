@@ -1,6 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import React, { useRef } from "react";
-import * as Styled from "../../styles/DappAuditService/HeadBlock.styled";
+import * as Styled from "../../styles/AiService/HeadBlock.styled";
 import { queryKeys } from "../../consts/queryKeys";
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
 import Image from "next/image";

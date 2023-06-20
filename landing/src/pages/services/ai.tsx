@@ -9,7 +9,7 @@ import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import React, { useEffect, useState } from "react";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
-import * as Styled from "../../styles/DappAuditService/Common.styled";
+import * as Styled from "../../styles/AiService/Common.styled";
 import HeadBlock from "../../components/Ai/HeadBlock";
 import FigureOutBlock from "../../components/Ai/FigureOutBlock";
 import HowDoProvideBlock from "../../components/Ai/HowDoProvideBlock";

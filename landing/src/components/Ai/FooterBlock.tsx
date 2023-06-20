@@ -2,7 +2,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import React, { useRef } from "react";
 import parse from "html-react-parser";
 import { queryKeys } from "../../consts/queryKeys";
-import * as Styled from "../../styles/DappAuditService/Footer.styled";
+import * as Styled from "../../styles/AiService/Footer.styled";
 import {
   Subtitle,
   WrapperWithLine,

@@ -5,8 +5,8 @@ import { queryKeys } from "../../consts/queryKeys";
 import {
   Subtitle,
   WrapperWithLine,
-} from "../../styles/DappAuditService/Common.styled";
-import * as Styled from "../../styles/DappAuditService/HowDoProvideBlock.styled";
+} from "../../styles/AiService/Common.styled";
+import * as Styled from "../../styles/AiService/HowDoProvideBlock.styled";
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
 import HowToProvideBlockItem from "./HowDoProvideBlockItem";
 import HowDoWeProvideBg from "../../../public/DappAuditService/HowDoWeProvide.svg";
