@@ -71,7 +71,7 @@ export const TextWrapper = styled.div`
 `;
 
 export const Text = styled.p`
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-size: 1.5em;
   line-height: 160%;
   margin: 0;
 

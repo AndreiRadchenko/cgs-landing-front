@@ -229,8 +229,13 @@ export const SubContentWrapper = styled.div`
     margin-inline: 3em 7em;
   }
 
+  @media (max-width: 1300px) {
+    margin-inline: 4em 1em;
+  }
+
   @media (max-width: 1280px) {
     padding-top: 0.4%;
+    margin-inline: 3em 2em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
