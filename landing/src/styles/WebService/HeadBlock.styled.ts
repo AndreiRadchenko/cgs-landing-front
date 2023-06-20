@@ -127,5 +127,6 @@ export const Image = styled.img`
     width: 24.28em;
     height: auto;
     margin-top: 0;
+    margin-left: 14%;
   }
 `;

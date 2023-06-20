@@ -47,7 +47,7 @@ export const MovingText = styled.div`
 
     &.webDev {
       margin-left: -35%;
-      width: 140%;
+      width: 150%;
     }
   }
 
