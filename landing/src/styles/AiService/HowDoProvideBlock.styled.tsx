@@ -87,7 +87,7 @@ export const OptionalContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 1.375em;
-  margin-top: 15px;
+  margin-top: 7px;
   position: relative;
   top: 13px;
 
@@ -119,7 +119,7 @@ export const OptionalText = styled.div`
 `;
 
 export const Description = styled.div`
-  margin-top: -3px;
+  margin-top: 5px;
   font-size: 1.125em;
   line-height: 160%;
   max-width: 34.1em;
@@ -184,8 +184,8 @@ export const BackgroundContainer = styled.div`
 export const BgImage = styled.img`
   object-fit: contain;
   position: absolute;
-  left: -51px;
-  width: 100vw;
+  left: -93px;
+  width: 110vw;
 
   @media (min-width: 2560px) {
     width: 100%;
@@ -202,7 +202,12 @@ export const SubContentWrapper = styled.div`
   top: -8px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  height: 300px;
+
+  @media (min-width: 1480px) {
+    margin-inline: 6em 6.5em;
+    padding-top: 0.2%;
+  }
 
   @media (min-width: 1650px) {
     margin-inline: 5em 10em;
@@ -210,11 +215,19 @@ export const SubContentWrapper = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     padding: 0;
-    margin-inline: 5em;
+    margin-inline: 7em 6em;
   }
 
   @media (min-width: 2000px) {
     margin-inline: 7em 8em;
+  }
+
+  @media (min-width: 2100px) {
+    margin-inline: 7em 10em;
+  }
+
+  @media (min-width: 2200px) {
+    margin-inline: 7em 6em;
   }
 
   @media (min-width: 2400px) {
@@ -222,30 +235,42 @@ export const SubContentWrapper = styled.div`
   }
 
   @media (min-width: 2560px) {
-    margin-inline: 6% 16%;
+    margin-inline: 6% 20%;
+  }
+
+  @media (max-width: 1440px) {
+    margin-inline: 4.5em 4.5em;
   }
 
   @media (max-width: 1400px) {
-    margin-inline: 3em 7em;
+    margin-inline: 4em 3.5em;
   }
 
-  @media (max-width: 1300px) {
-    margin-inline: 4em 1em;
+  @media (max-width: 1350px) {
+    margin-inline: 4em 2em;
   }
 
   @media (max-width: 1280px) {
     padding-top: 0.4%;
-    margin-inline: 3em 2em;
+    margin-inline: 3em 3em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     padding-top: 0.2%;
-    margin-inline: 2em 4em;
+    margin-inline: 2.5em 2em;
+  }
+
+  @media (max-width: 1199px) {
+    margin-inline: 2.5em 1em;
+  }
+
+  @media (max-width: 1150px) {
+    margin-inline: 2.5em -0.5em;
   }
 
   @media (max-width: 1100px) {
     padding-top: 0;
-    margin-inline: 2em;
+    margin-inline: 2em 0;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -253,16 +278,32 @@ export const SubContentWrapper = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    row-gap: 20px;
+    row-gap: 1.75em;
     margin-bottom: 27px;
   }
 `;
 
 export const SubContainer = styled.div`
-  max-width: 32.3em;
+  max-width: 30em;
 
-  @media (min-width: 1650px) {
+  @media (min-width: 1601px) {
     font-size: 1.1em;
+    &:nth-child(2){
+      margin-top: 60px;
+    }
+  }
+
+  @media (min-width: 1800px) {
+    &:nth-child(2){
+      margin-top: 75px;
+    }
+  }
+
+  @media (max-width: 1600px) {
+    max-width: 513px;
+    &:nth-child(2){
+      margin-top: 55px;
+    }
   }
 
   @media (max-width: 1400px) {
@@ -271,10 +312,15 @@ export const SubContainer = styled.div`
 
   @media (max-width: 1280px) {
     font-size: 0.8em;
+    max-width: 450px;
+    &:nth-child(2){
+      margin-top: 45px;
+    }
   }
 
   @media (max-width: 1100px) {
     font-size: 0.7em;
+    max-width: 400px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -319,15 +365,35 @@ export const SecondSubtitleContainer = styled.div`
   margin-top: 76px;
 
   @media (min-width: 2000px) {
-    margin-top: 150px;
+    margin-top: 110px;
+  }
+
+  @media (max-width: 1920px) {
+    margin-top: 55px;
+  }
+
+  @media (max-width: 1800px) {
+    margin-top: 2em;
+  }
+
+  @media (max-width: 1600px) {
+    margin-top: -0.7em;
+  }
+
+  @media (max-width: 1440px) {
+    margin-top: -2.5em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    margin-top: 50px;
+    margin-top: -5.5em;
+  }
+
+  @media (max-width: 1100px) {
+    margin-top: -6.5em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin-top: -1.75em;
+    margin-top: 6em;
   }
 `;
 

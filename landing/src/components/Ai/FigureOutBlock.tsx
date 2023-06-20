@@ -6,8 +6,8 @@ import {
   Wrapper,
   Subtitle,
   WrapperWithLine,
-} from "../../styles/DappAuditService/Common.styled";
-import * as Styled from "../../styles/DappAuditService/FigureOutBlock.styled";
+} from "../../styles/AiService/Common.styled";
+import * as Styled from "../../styles/AiService/FigureOutBlock.styled";
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
@@ -46,9 +46,7 @@ const FigureOutBlock = () => {
         )}
         <Styled.TextWrapper>
           {figureOutBlockData?.textBlock.map((text, index) => (
-            <Styled.Text key={index}>
-              {text && parse(text)}
-            </Styled.Text>
+            <Styled.Text key={index}>{text && parse(text)}</Styled.Text>
           ))}
         </Styled.TextWrapper>
       </Styled.ContentWrapper>

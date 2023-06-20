@@ -96,7 +96,12 @@ const DappAuditPage: NextPage = () => {
               <Styled.Layout>
                 <HeadBlock />
                 <FigureOutBlock />
-                {data ? <PerksOfCoopComponent data={data.worthBlock} /> : null}
+                {data ? (
+                  <PerksOfCoopComponent
+                    className="dappAudit"
+                    data={data.worthBlock}
+                  />
+                ) : null}
                 <HowDoProvideBlock />
               </Styled.Layout>
             </Layout>
