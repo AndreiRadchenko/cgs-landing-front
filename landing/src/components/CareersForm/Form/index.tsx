@@ -62,7 +62,7 @@ const Form: FC<FormProps> = ({ positions, data }) => {
       validateForm();
 
       const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-      
+
       if (!emailPattern.test(values.contact)) {
         setButtonState({ disabled: true, triedSubmit: true });
         return;
@@ -87,6 +87,7 @@ const Form: FC<FormProps> = ({ positions, data }) => {
 
       setIsOpen(true);
       resetForm();
+      setPosition("");
       setButtonState({ disabled: false, triedSubmit: false });
     },
   });
@@ -207,25 +208,31 @@ const Form: FC<FormProps> = ({ positions, data }) => {
         ))}
         <Styled.FormFieldContainer>
           <Styled.TitleContainer isCvIn={!!cvName.length}>
+            <Styled.Format>{cvName.split('.').pop()}</Styled.Format>
             <Styled.Title>{cvName}</Styled.Title>
             <Styled.DeleteCv onClick={onFileRemove} src={Close.src} />
           </Styled.TitleContainer>
           <Styled.Cvfield isEmpty={checkEmpty()} isCvIn={!!cvName.length} toFormError={buttonState.disabled && buttonState.triedSubmit} >
-            <Styled.FormField
-              placeholder={CV.place}
-              type={"text"}
-              name={"cvlink"}
-              onFocus={() => setInCvInput(true)}
-              onBlur={() => {
-                setCvText(CV.place);
-                setInCvInput(false);
-              }}
-              onClick={() => {
-                setCvText("");
-                setIsLoading(false);
-              }}
-              onChange={onCVlinkChange}
-            />
+              <Styled.FormField
+                placeholder={CV.place}
+                type={"text"}
+                name={"cvlink"}
+                onFocus={() => setInCvInput(true)}
+                onBlur={() => {
+                  setCvText(CV.place);
+                  setInCvInput(false);
+                }}
+                onClick={() => {
+                  setCvText("");
+                  setIsLoading(false);
+                }}
+                onChange={onCVlinkChange}
+              />
+              <Styled.DeleteCvLink 
+                src={Close.src} 
+                cvlink={!!formik.values.cvlink?.length}
+                onClick={() => formik.setFieldValue("cvlink", "")}
+              />
             <Styled.Label
               inCvInput={inCvInput}
               cvlink={!!formik.values.cvlink?.length}
@@ -252,7 +259,7 @@ const Form: FC<FormProps> = ({ positions, data }) => {
             </Styled.Label>
           </Styled.Cvfield>
         </Styled.FormFieldContainer>
-        <Styled.FormSentContainer>
+        <Styled.FormSentContainer isCvIn={!!cvName.length} >
           <Styled.FormSentButton
             type="submit"
             isDisabled={buttonState.disabled}

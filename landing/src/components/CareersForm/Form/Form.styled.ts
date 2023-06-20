@@ -39,10 +39,11 @@ interface IEnableGlare {
 
 export const FormFieldContainer = styled.div`
   height: 67px;
-  width: 556px;
+  width: 46.37em;
   position: relative;
   margin-top: 16px;
   border: 1px solid black;
+  box-shadow: 6px 6px 0 #000;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -60,6 +61,7 @@ export const FormField = styled(Field)<IFormField>`
   background: none;
   border: 0.5px solid #000;
   box-shadow: 6px 6px 0 #000;
+  border-radius: 0;
 
   font-family: ${themes.primary.font.family.namu};
 
@@ -337,7 +339,7 @@ export const FormSentText = styled.span`
   }
 `;
 
-export const FormSentContainer = styled.div`
+export const FormSentContainer = styled.div<{isCvIn: boolean}>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -359,6 +361,10 @@ export const FormSentContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     align-items: flex-start;
     margin-top: 60px;
+  }
+
+  @media (max-width: 475px) {
+    margin-top: ${({isCvIn}) => isCvIn ? "10px" : "60px"};
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -385,7 +391,7 @@ export const Shadow = styled.div<IEnableGlare>`
 
 export const PositionSelect = styled.div<IEnableGlare>`
   height: 68px;
-  width: 557px;
+  width: 46.45em;
 
   div {
     z-index: ${({ enabled }) => (enabled ? "2" : "1")};
@@ -438,11 +444,14 @@ export const PositionSelect = styled.div<IEnableGlare>`
       border-right: 1px solid black !important;
       box-shadow: 13px 0px 0px 0px black;
       border-left: none;
-      overflow: scroll;
+      overflow-y: scroll;
     }
 
     @media (max-width: 768px) {
       height: 172px;
+      ::-webkit-scrollbar{ 
+        display: none;
+      }
     }
   }
 
@@ -498,6 +507,14 @@ export const Label = styled.label<ILabelOptions>`
   cursor: pointer;
   width: 90px;
 
+  @media (min-width: 1560px) {
+    bottom: 1.2em;
+  }
+
+  @media (min-width: 2000px) {
+    bottom: 1em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     bottom: -4em;
     left: 0;
@@ -543,6 +560,15 @@ export const TitleContainer = styled.div<ITitle>`
   align-items: center;
 `;
 
+export const Format = styled.div`
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #5869DD;
+  padding: 8px 4px;
+  border-radius: 6px;
+  margin-left: 10px;
+`;
+
 export const Title = styled.span`
   color: ${themes.primary.colors.darkBlue};
   margin-left: 15px;
@@ -554,6 +580,34 @@ export const DeleteCv = styled.img`
   margin-left: 10px;
   margin-top: 2px;
   cursor: pointer;
+`;
+
+export const DeleteCvLink = styled.img<{cvlink: boolean}>`
+  cursor: pointer;
+  position: absolute;
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    display: ${({cvlink}) => cvlink ? 'block' : 'none'};
+    width: 20px;
+    height: 20px;
+    top: 2em;
+    right: 1.6em;
+  }
+
+  @media (max-width: 767px) {
+    top: 2.3em;
+  }
+
+  @media (max-width: 474px) {
+    width: 16px;
+    height: 16px;
+    top: 1.9em;
+    right: 1.4em;
+    }
 `;
 
 const rotate360 = keyframes`

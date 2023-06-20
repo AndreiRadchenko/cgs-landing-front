@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useRef } from "react";
 import * as Styles from "./Careers.styled";
 import { IDataCareersResponse } from "../../types/Admin/Response.types";
 import leftGlass from "../../../public/CareerDecorations/leftGlass.svg";
@@ -21,7 +21,21 @@ interface ICareersProps {
 }
 const Careers: FC<ICareersProps> = ({ data }) => {
   const { width } = useWindowDimension();
-  const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
+
+  const scrollTo = () => {
+    if (ref && ref.current) {
+      const element = ref.current;
+      const rect = element.getBoundingClientRect();
+      const lineHeight = parseInt(window.getComputedStyle(element).lineHeight);
+      const secondLineTop = rect.top + lineHeight -150;
+  
+      window.scroll({
+        top: window.pageYOffset + secondLineTop,
+        behavior: 'smooth',
+      });
+    }
+  };
   const positions = data?.tickets?.length
     ? data.tickets.map(({ vacancy, position }) => `${position} ${vacancy}`)
     : [];
@@ -99,8 +113,7 @@ const Careers: FC<ICareersProps> = ({ data }) => {
         <Styles.TicketsWrapper>
           <Styles.TicketsContainer>{mapTickets()}</Styles.TicketsContainer>
         </Styles.TicketsWrapper>
-        <p ref={ref} />
-        <Styles.FormTitle>
+        <Styles.FormTitle ref={ref}>
           {data && parse(subtitle2, options2)}
         </Styles.FormTitle>
         <Styles.FormAndImageContainer>

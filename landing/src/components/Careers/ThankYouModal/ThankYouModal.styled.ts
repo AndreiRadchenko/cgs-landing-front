@@ -99,7 +99,7 @@ export const Thing = styled.img`
   width: 300px;
   height: 300px;
   position: absolute;
-  bottom: 3em;
+  bottom: 1em;
   right: 0;
 
   @media (max-width: 768px) {
@@ -118,7 +118,7 @@ export const Cube = styled.img`
   width: 50px;
   height: 50px;
   position: absolute;
-  bottom: 78px;
+  bottom: 54px;
   right: 130px;
   z-index: 2;
 

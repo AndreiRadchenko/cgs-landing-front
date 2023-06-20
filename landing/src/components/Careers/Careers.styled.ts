@@ -40,6 +40,13 @@ export const BottomRightImageText = styled.img`
   @media (max-width: 768px) {
     right: 3em;
   }
+
+  @media (max-width: 475px) {
+    width: 322px;
+    height: 197px;
+    right: -4em;
+    bottom: 3em;
+  }
 `;
 export const BottomLeftImageText = styled.img`
   position: absolute;
@@ -57,10 +64,15 @@ export const BottomRightImageGlass = styled.img`
   height: 330px;
   bottom: -2%;
   right: 0;
+
+  @media (max-width: 475px) {
+    width: 230px;
+    height: 260px;
+  }
 `;
 export const BottomLeftImageGlass = styled.img`
   position: absolute;
-  bottom: 420px;
+  bottom: 335px;
   left: 20em;
 
   @media (max-width: 2560px) {
@@ -189,6 +201,8 @@ export const Title = styled.header`
     line-height: 39px;
     margin-left: 0;
     width: 335px;
+    margin-top: 0.5em;
+    margin-bottom: 0.7em;
 
     span:last-child{
       font-size: 30px;
@@ -318,7 +332,7 @@ export const TicketsContainer = styled.div`
 export const FormAndImageContainer = styled.section`
   display: flex;
   justify-content: center;
-  margin: 0 0 115px 0;
+  margin: 0 0 30px 0;
   align-self: normal;
   min-height: 550px;
   overflow: hidden;
@@ -345,7 +359,6 @@ export const FormTitle = styled.span`
   p{
     margin: 0;
     margin-bottom: 30px;
-    padding-top: 50px;
     @media (max-width: 475px) {
       margin-bottom: 14px;
     }
@@ -402,7 +415,7 @@ export const FormContainer = styled.div`
   }
 
   @media (max-width: 475px) {
-    margin-bottom: 47em;
+    margin-bottom: 28em;
   }
 `;
 
