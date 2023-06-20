@@ -17,7 +17,7 @@ const AdminServiceMobileAudit = () => {
       <AdminHeader />
       <Styled.AdminWrapper>
         <AdminSidebar />
-        <AdminSeсвrviceMobileAuditContent />
+        <AdminServiceMobileAuditContent />
       </Styled.AdminWrapper>
     </>
   ) : (
