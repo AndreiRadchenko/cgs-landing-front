@@ -4,9 +4,10 @@ import AuditListItem from "./AuditListItem";
 
 interface IAuditBoxProps {
   data: string[];
+  className?: string;
 }
 
-const AuditBox = ({ data }: IAuditBoxProps) => {
+const AuditBox = ({ data, className }: IAuditBoxProps) => {
   return (
     <Styled.AuditBox>
       <Styled.ListWrapper>
@@ -18,7 +19,7 @@ const AuditBox = ({ data }: IAuditBoxProps) => {
           />
         ))}
       </Styled.ListWrapper>
-      <Styled.Shadow className={"webAudit"} />
+      <Styled.Shadow className={className} />
     </Styled.AuditBox>
   );
 };

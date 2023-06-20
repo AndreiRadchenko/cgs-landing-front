@@ -70,6 +70,10 @@ export const HaveContainer = styled.div`
   width: 100%;
   gap: 40px;
   flex: 1 1 33.33%;
+
+  @media ${themes.primary.media.maxMobile} {
+    gap: 20px;
+  }
 `;
 
 export const ItemApp = styled.div`
@@ -93,10 +97,12 @@ export const ItemApp = styled.div`
     max-width: 100%;
 
     h3 {
+      margin-top: 16px;
       font-size: 22px;
     }
     p {
       font-size: 16px;
+      margin-bottom: 0px;
     }
   }
 `;

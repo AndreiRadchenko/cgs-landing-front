@@ -137,7 +137,8 @@ export const ImageMobile = styled.img`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 90%;
+    width: 100%;
+    height: 100%;
   }
 `;
 
@@ -161,6 +162,6 @@ export const ImageSearch = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: -1%;
-    margin-right: 8%;
+    margin-right: 4%;
   }
 `;

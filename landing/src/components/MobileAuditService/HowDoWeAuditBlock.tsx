@@ -26,7 +26,7 @@ const HowDoWeAuditBlock = () => {
         )}
       </Styled.ListContainer>
       <Styled.MobileListContainer>
-        {data && <AuditBox data={data.points} />}
+        {data && <AuditBox className="mobileAudit" data={data.points} />}
       </Styled.MobileListContainer>
     </Styled.Container>
   );
