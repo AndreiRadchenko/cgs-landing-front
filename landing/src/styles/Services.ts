@@ -97,7 +97,8 @@ export const WorthCardTitle = styled.div`
   }
 
   &.mobileAudit p,
-  &.mobileDev p {
+  &.mobileDev p,
+  &.dappAudit p {
     font-size: 1.5em;
   }
 
@@ -136,7 +137,8 @@ export const WorthText = styled.p`
   max-width: 440px;
 
   &.mobileAudit,
-  &.mobileDev {
+  &.mobileDev,
+  &.dappAudit {
     font-size: 1.15em;
   }
 

@@ -738,7 +738,8 @@ export const WhatsAppWrapper = styled.div`
   font-size: 1.125em;
 
   &.webAudit,
-  &.mobileDev {
+  &.mobileDev,
+  &.dappAuditShare {
     font-size: 1.5em;
   }
 
@@ -755,7 +756,8 @@ export const WhatsAppWrapper = styled.div`
     line-height: 19px;
     column-gap: 3px;
     &.webAudit,
-    &.mobileDev {
+    &.mobileDev,
+    &.dappAuditShare {
       font-size: 16px;
     }
   }
@@ -771,7 +773,8 @@ export const TelegramWrapper = styled.div`
   margin-left: 0.778em;
 
   &.webAudit,
-  &.mobileDev {
+  &.mobileDev,
+  &.dappAuditShare {
     font-size: 1.5em;
   }
 
@@ -789,7 +792,8 @@ export const TelegramWrapper = styled.div`
     column-gap: 3px;
     margin-left: 0.875em;
     &.webAudit,
-    &.mobileDev {
+    &.mobileDev,
+    &.dappAuditShare {
       font-size: 16px;
     }
   }

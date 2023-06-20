@@ -204,18 +204,13 @@ export const SubContentWrapper = styled.div`
   justify-content: space-between;
   align-items: flex-end;
 
-  @media (min-width: 1480px) {
-    margin-inline: 6em 9em;
-    padding-top: 0.2%;
-  }
-
   @media (min-width: 1650px) {
     margin-inline: 5em 10em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     padding: 0;
-    margin-inline: 8em;
+    margin-inline: 5em;
   }
 
   @media (min-width: 2000px) {
@@ -259,6 +254,8 @@ export const SubContentWrapper = styled.div`
 `;
 
 export const SubContainer = styled.div`
+  max-width: 32.3em;
+
   @media (min-width: 1650px) {
     font-size: 1.1em;
   }
@@ -273,9 +270,6 @@ export const SubContainer = styled.div`
 
   @media (max-width: 1100px) {
     font-size: 0.7em;
-  }
-  @media (max-width: 1600px) {
-    max-width: 513px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -308,7 +302,7 @@ export const SubTitle = styled.div`
 `;
 
 export const SubText = styled.div`
-  font-size: 18px;
+  font-size: 1.125em;
   line-height: 160%;
 
   @media ${themes.primary.media.maxTabletPortrait} {
