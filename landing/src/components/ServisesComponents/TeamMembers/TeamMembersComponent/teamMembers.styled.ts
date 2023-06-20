@@ -17,6 +17,7 @@ export const Wrapper = styled.div`
 
   &.mobileDev {
     margin-top: 10.2em;
+    margin-bottom: 13.75em;
   }
 
   &.webAudit {
@@ -59,6 +60,10 @@ export const Wrapper = styled.div`
 
   @media (max-width: 400px) {
     margin-bottom: 8.5em;
+
+    &.mobileDev {
+      margin-bottom: 10.5em;
+    }
     &.webAudit {
       margin-bottom: 106px;
     }

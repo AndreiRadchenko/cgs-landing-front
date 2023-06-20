@@ -96,8 +96,10 @@ export const WorthCardTitle = styled.div`
     color: ${themes.primary.colors.primary};
   }
 
+  &.mobileDev p {
+    font-size: 2em;
+  }
   &.mobileAudit p,
-  &.mobileDev p,
   &.dappAudit p {
     font-size: 1.5em;
   }
@@ -108,6 +110,7 @@ export const WorthCardTitle = styled.div`
 
     &.mobileAudit p,
     &.mobileDev p,
+    &.dappAudit p,
     p {
       font-size: 18px;
     }
@@ -136,8 +139,10 @@ export const WorthText = styled.p`
   line-height: 160%;
   max-width: 440px;
 
+  &.mobileDev {
+    font-size: 1.5em;
+  }
   &.mobileAudit,
-  &.mobileDev,
   &.dappAudit {
     font-size: 1.15em;
   }
