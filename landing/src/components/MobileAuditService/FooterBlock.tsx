@@ -6,6 +6,7 @@ import * as Styled from "../../styles/MobileAuditService/FooterBlock.styled";
 import Image from "next/image";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -18,7 +19,9 @@ const FooterBlock = () => {
     <Styled.Container>
       <Styled.ContentWrapper>
         <Styled.Title>{data?.title}</Styled.Title>
-        <Styled.Description>{data?.text}</Styled.Description>
+        <Styled.Description>
+          <SplitBrackets text={data?.text} />
+        </Styled.Description>
         {data && (
           <Styled.ButtonWrapper ref={elRef}>
             <GetEstimationButton

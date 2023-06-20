@@ -11,6 +11,7 @@ import HowDoWeAuditBlock from "./HowDoWeAuditBlock";
 import TeamProvides from "./TeamProvides";
 import WhatAppBlock from "./WhatAppBlock";
 import WhenDoYouNeedBlock from "./WhenDoYouNeedBlock";
+import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 
 const ServiceMobileAuditContentBlock = () => {
   return (
@@ -20,7 +21,9 @@ const ServiceMobileAuditContentBlock = () => {
         <WhatAppBlock />
         <TeamProvides />
         <WhenDoYouNeedBlock />
-        <ServiceShowCase noMargin />
+        <AdminBlockDropDown title="Show Case">
+          <ServiceShowCase noMargin />
+        </AdminBlockDropDown>
         <HowDoWeAuditBlock />
         <BringAppBlock />
       </AdminBlocksContent>

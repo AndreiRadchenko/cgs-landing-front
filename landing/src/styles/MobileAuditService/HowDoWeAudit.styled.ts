@@ -72,7 +72,7 @@ export const AuditBox = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin: 0 -6px;
-    width: 110%;
+    width: 105%;
   }
 `;
 
@@ -149,13 +149,10 @@ export const ListText = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
+    font-size: 16px;
     margin-left: 13px;
     max-width: 85%;
-
-    &.webAudit {
-      font-size: 16px;
-    }
+    line-height: 19px;
   }
 `;
 
@@ -202,7 +199,9 @@ export const Shadow = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 836px;
+    &.mobileAudit {
+      height: 727.5px;
+    }
     &.webAudit {
       height: 842.5px;
     }

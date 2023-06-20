@@ -451,7 +451,7 @@ export const IconItem = styled.div`
 
 export const SubtextContainer = styled.div`
   position: absolute;
-  top: 23px;
+  top: 13px;
   right: -43%;
   display: flex;
 
