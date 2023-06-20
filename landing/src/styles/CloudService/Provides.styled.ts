@@ -48,7 +48,7 @@ export const BGImage = styled.img`
   }
 
   @media ${themes.primary.media.maxPCFullHD} {
-    top: -1em;
+    top: -1.35em;
   }
 
   @media (max-width: 1400px) {
@@ -72,7 +72,7 @@ export const BGImageMobile = styled.img`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    top: 3em;
+    top: 3.5em;
     left: -1.2em;
     height: 44em;
     z-index: -1;
@@ -80,7 +80,7 @@ export const BGImageMobile = styled.img`
 `;
 
 export const BlockWrapper = styled.div`
-  padding: 2em 0 0 11vw;
+  padding: 1.25em 0 0 11vw;
   position: relative;
   display: grid;
   row-gap: 50px;
@@ -105,17 +105,18 @@ export const BlockWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 3.5em 2.8em 0;
-    row-gap: 65px;
+    padding: 55px 2.8em 0;
+    row-gap: 60px;
     width: 100%;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     padding: 55px 0em 0;
+    row-gap: 60px;
   }
 
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    row-gap: 82px;
+  @media (max-width: 344px) {
+    row-gap: 50px;
   }
 `;
 
@@ -136,6 +137,12 @@ export const Block = styled.div<ISlide>`
   @media ${themes.primary.media.maxTabletLandScape} {
     position: static;
   }
+  @media ${themes.primary.media.maxMobile} {
+    min-height: 150px;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    min-height: 140px;
+  }
 
   & p {
     margin: 0;
@@ -147,6 +154,9 @@ export const Block = styled.div<ISlide>`
 
   &:nth-child(2) {
     left: 16.8vw;
+    @media ${themes.primary.media.maxLowScreenMobile} {
+      min-height: 188px;
+    }
   }
 
   &:nth-child(3) {
