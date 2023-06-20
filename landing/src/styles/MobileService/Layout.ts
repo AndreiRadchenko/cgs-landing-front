@@ -22,6 +22,9 @@ export const Subtitle = styled.h2`
     font-size: 40px;
     width: 11.9em;
   }
+  &.mobileDev {
+    font-size: 3.35em;
+  }
   &.mobileAudit {
     width: 100%;
     font-size: 2.5em;
