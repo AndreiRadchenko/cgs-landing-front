@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 import * as Styled from "../../../styles/Logo.styled";
-import logo from "../../../../public/HomePageDecoration/logo-versatile.svg";
+import logo from "../../../../public/HomePageDecoration/LOGO.svg";
 
 const Logo = () => {
   return (

@@ -4,7 +4,7 @@ import themes from "../utils/themes";
 export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 127px;
+  width: 106px;
   height: 38px;
 
   &.calculator {
@@ -28,8 +28,8 @@ export const LogoWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 142px;
     height: 29px;
+    width: 96px;
   }
 `;
 
