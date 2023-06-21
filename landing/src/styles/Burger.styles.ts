@@ -137,7 +137,9 @@ export const FooterIconsWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+  height: 32px;
+`;
 
 export const BurgerPrivacy = styled.a`
   margin-left: 20px;
