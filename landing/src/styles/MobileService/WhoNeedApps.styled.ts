@@ -190,8 +190,19 @@ export const Image = styled.img`
   position: absolute;
   width: 855px;
   height: 689px;
+  z-index: -1;
 
   @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
+`;
+
+export const ImagePhone = styled.img`
+  display: none;
+
+  @media ${themes.primary.media.maxMobile} {
+    display: block;
+    position: absolute;
     width: 100%;
     height: 100%;
   }

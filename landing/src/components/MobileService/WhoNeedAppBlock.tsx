@@ -46,7 +46,12 @@ const WhoNeedAppBlock = ({ className }: IServicesClassnameProps) => {
         <Styled.ImageWrapper className="whatDoWeUse">
           <Styled.Image
             className="whatDoWeUse"
-            src={width && width <= 767 ? WhyWorthItMobile.src : WhyWorthIt.src}
+            src={WhyWorthIt.src}
+            alt="what do we use img"
+          />
+          <Styled.ImagePhone
+            className="whatDoWeUse"
+            src={WhyWorthItMobile.src}
             alt="what do we use img"
           />
         </Styled.ImageWrapper>

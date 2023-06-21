@@ -157,7 +157,7 @@ export const ImageWrapper = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     top: 100px;
-    right: -40px;
+    right: -5px;
     width: 375px;
     height: 375px;
   }

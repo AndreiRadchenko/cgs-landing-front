@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 export const Container = styled.section`
   margin-top: 21.75em;
   @media ${themes.primary.media.maxMobile} {
-    margin-block: 4em 3.375em;
+    margin-block: 4em 60px;
   }
 `;
 
