@@ -48,14 +48,6 @@ export const Subtitle = styled.h2`
   width: fit-content;
   margin-bottom: 0.5;
 
-  @media (max-width: 1300px) {
-    margin-bottom: 0.6em;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    margin-bottom: 0.3em;
-  }
-
   @media ${themes.primary.media.maxMobile} {
     position: absolute;
     top: -28px;
@@ -70,12 +62,28 @@ export const TextContent = styled.div<ISlide>`
   font-size: 1.125em;
   line-height: 160%;
   padding-top: 1.11em;
-  max-width: 30em;
+  max-width: 40em;
   opacity: 0;
 
+  &:nth-child(n + 3) {
+    padding-top: 1.45em;
+  }
+
   @media (min-width: 2200px) {
+    &:nth-child(2) {
+      padding-top: 0.5em;
+    }
     &:nth-child(n + 3) {
-      padding-top: 3.3em;
+      padding-top: 2.3em;
+    }
+  }
+
+  @media (min-width: 2200px) {
+    &:nth-child(2) {
+      padding-top: 0.5em;
+    }
+    &:nth-child(n + 3) {
+      padding-top: 2.3em;
     }
   }
 
@@ -98,15 +106,15 @@ export const TextContent = styled.div<ISlide>`
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    padding-top: 1.4em;
+    padding-top: 0.5em;
   }
 
   @media (max-width: 1150px) {
-    padding-top: 1.2em;
+    padding-top: 0.5em;
   }
 
   @media (max-width: 1100px) {
-    padding-top: 0.9em;
+    padding-top: 0.5em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -145,26 +153,10 @@ export const TextContent = styled.div<ISlide>`
 
 export const ContentWrapper = styled.div`
   padding-left: 6.5em;
-  padding-right: 7.25em;
+  padding-right: 6.25em;
   display: flex;
   column-gap: 20vw;
   z-index: 5;
-
-  @media (min-width: 1800px) {
-    padding-top: 0px;
-    padding-left: 7.25em;
-    font-size: 0.9em;
-  }
-
-  @media (min-width: 2200px) {
-    padding-top: 1em;
-    font-size: 0.9em;
-    padding-left: 9.25em;
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 0.8em;
-  }
 
   @media (min-width: 1550px) {
     & span:not(:first-child) br {
@@ -172,13 +164,31 @@ export const ContentWrapper = styled.div`
     }
   }
 
-  @media (max-width: 1920px) {
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 0.8em;
+    padding-top: 0px;
+    padding-left: 9.25em;
+    padding-right: 5.25em;
+    font-size: 0.9em;
     column-gap: 15vw;
+  }
+
+  @media (min-width: 2200px) {
+    font-size: 0.9em;
+    padding-left: 9.25em;
+    column-gap: 15vw;
+    padding-top: 1.5em;
+  }
+
+  @media (max-width: 1920px) {
+    column-gap: 14vw;
+    padding-left: 8em;
   }
 
   @media (max-width: 1450px) {
     column-gap: 13em;
     justify-content: start;
+    padding-right: 3em;
   }
 
   @media ${themes.primary.media.maxServiceMobile} {
@@ -192,7 +202,8 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 0.9em;
-    padding-right: 4em;
+    padding-right: 0em;
+    column-gap: 12vw;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -204,6 +215,7 @@ export const ContentWrapper = styled.div`
 
   @media (max-width: 1100px) {
     font-size: 0.8em;
+    padding-left: 0;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -223,13 +235,13 @@ export const ContentWrapper = styled.div`
 
 export const BgImage = styled.img`
   position: absolute;
-  top: -2em;
+  top: -1.1em;
   left: -9.5vw;
   width: 115vw;
   z-index: -1;
 
   @media ${themes.primary.media.maxPCFullHD} {
-    top: -1.1em;
+    /* top: -1.1em; */
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
