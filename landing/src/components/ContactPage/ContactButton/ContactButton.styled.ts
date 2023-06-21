@@ -26,7 +26,9 @@ export const ButtonWrapper = styled.a`
       color: ${themes.primary.colors.darkBlue};
     }
   }
-  :active {
+  @media ${themes.primary.media.maxMobile} {
+    width: 54px;
+    height: 54px;
   }
 `;
 

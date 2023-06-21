@@ -12,6 +12,7 @@ export interface IContactButton {
   text?: string;
   link?: string;
   style?: CSSProperties;
+  newTab?: boolean;
 }
 
 export const ContactButton = ({
@@ -23,12 +24,7 @@ export const ContactButton = ({
   link,
 }: IContactButton) => {
   return (
-    <Styled.ButtonWrapper
-      style={style}
-      href={link}
-      rel="noopener noreferrer"
-      target="blank"
-    >
+    <Styled.ButtonWrapper style={style} href={link}>
       <Styled.ButtonContent>
         <Styled.ImageWrapper
           width={pictureWidth ? pictureWidth : "24px"}
