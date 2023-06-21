@@ -32,14 +32,19 @@ export const TicketModalContentContainer = styled.div`
 
 export const TicketModalContent = styled.div`
   width: 535px;
-  height: 647px;
+  height: 590px;
   background: ${themes.primary.colors.blogBackground};
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
 
+  @media (min-width: 1920px) {
+    width: 585px;
+    height: 640px;
+  }
+
   @media (max-width: 570px) {
     width: 345px;
-    height: 660px;
+    height: 623px;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
@@ -58,7 +63,12 @@ export const TicketModalContent = styled.div`
 
 export const List = styled.ul`
   list-style-type: square;
-  margin: 48px 5px 0 0;
+  margin: 24px 5px 0 0;
+
+  &:first-child{
+    margin: 50px 5px 0 0;
+
+  }
 
   @media (max-width: 570px) {
     margin-top: 24px;
@@ -66,11 +76,13 @@ export const List = styled.ul`
   }
 `;
 export const ListTitle = styled.span`
-  margin: 0 0 7px 0;
+  position: relative;
+  bottom: 10px;
+  left: -3px;
   font-size: 26px;
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
-  line-height: 33px;
+  line-height: 29px;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5rem;
@@ -78,12 +90,17 @@ export const ListTitle = styled.span`
 `;
 export const ListItem = styled.li`
   margin: 0;
-  margin-top: 9px;
+  margin-top: 0px;
   margin-left: 22px;
   font-size: 16px;
   line-height: 28px;
   font-weight: ${themes.primary.font.weight.heavy};
   color: #535557;
+
+  span{
+    position: relative;
+    top: -3px;
+  }
 
   &::marker {
     color: black;
@@ -112,7 +129,7 @@ export const SubmitButtonContainer = styled.div`
   height: 50px;
   width: 172px;
   position: relative;
-  margin: 38px 0px 40px 36px;
+  margin: 23px 0px 20px 36px;
   
   & path {
     transition: all 1s ease-in-out;
@@ -154,7 +171,6 @@ export const SubmitButton = styled.button`
 
   @media (max-width: 570px) {
     font-size: 1rem;
-    padding: 17px;
   }
 `;
 
@@ -168,8 +184,8 @@ export const SubmitArrow = styled.img`
 `;
 
 export const CloseButton = styled.img`
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   position: absolute;
   right: 0;
   top: 0;

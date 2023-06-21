@@ -28,6 +28,8 @@ interface FormState {
   cvfile: File | string;
 }
 
+const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
 const Form: FC<FormProps> = ({ positions, data }) => {
   const { contact, name, CV, position: formPosition } = data.form;
   const [enable, setEnable] = useState(false);
@@ -60,8 +62,6 @@ const Form: FC<FormProps> = ({ positions, data }) => {
         return setButtonState({ ...buttonState, triedSubmit: true });
       }
       validateForm();
-
-      const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
       if (!emailPattern.test(values.contact)) {
         setButtonState({ disabled: true, triedSubmit: true });
@@ -156,7 +156,7 @@ const Form: FC<FormProps> = ({ positions, data }) => {
   };
 
   useEffect(() => {
-    document.body.onfocus = () => setTimeout(checkCancel, 100);
+    document.body.ontouchstart = () => setTimeout(checkCancel, 100);
   }, []);
 
   useEffect(() => {
@@ -202,9 +202,14 @@ const Form: FC<FormProps> = ({ positions, data }) => {
             setEnable={setEnable}
           />
         </Styled.PositionSelect>
-        <div/>
         {Object.entries(fieldContent).map(([key, label], idx) => (
-          <FormField name={key} key={key} label={label} toFormError={buttonState.disabled && buttonState.triedSubmit} className={idx == 1 ? "formEmail" : ""}/>
+          <FormField 
+            name={key} 
+            key={key} 
+            label={label} 
+            toFormError={buttonState.disabled && buttonState.triedSubmit} 
+            toFormErrorEmail={buttonState.disabled && buttonState.triedSubmit && !emailPattern.test(formik.values.contact)} 
+            className={idx == 1 ? "formEmail" : ""}/>
         ))}
         <Styled.FormFieldContainer>
           <Styled.TitleContainer isCvIn={!!cvName.length}>

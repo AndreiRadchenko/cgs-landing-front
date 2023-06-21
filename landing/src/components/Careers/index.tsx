@@ -15,12 +15,14 @@ import Image from "next/image";
 import * as CSS from "../../styles/Portfolio/title.styled";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
 import shortArrow from "../../../public/HomePageDecoration/longArrow.svg";
+import { useMediaQuery } from "@mui/material";
 
 interface ICareersProps {
   data: IDataCareersResponse;
 }
 const Careers: FC<ICareersProps> = ({ data }) => {
   const { width } = useWindowDimension();
+  const is768px = useMediaQuery('(max-width: 768px)');
   const ref = useRef<HTMLDivElement>(null);
 
   const scrollTo = () => {
@@ -28,8 +30,8 @@ const Careers: FC<ICareersProps> = ({ data }) => {
       const element = ref.current;
       const rect = element.getBoundingClientRect();
       const lineHeight = parseInt(window.getComputedStyle(element).lineHeight);
-      const secondLineTop = rect.top + lineHeight -150;
-  
+      const secondLineTop = rect.top + lineHeight - 150;
+
       window.scroll({
         top: window.pageYOffset + secondLineTop,
         behavior: 'smooth',
@@ -43,6 +45,7 @@ const Careers: FC<ICareersProps> = ({ data }) => {
   positions.length && positions.push("None of the above");
 
   const subtitle = data?.subtitle;
+  // const subtitle2Mobile = '<' + data?.subtitle2 + '>';
   const subtitle2 = data?.subtitle2;
 
   const options: HTMLReactParserOptions = {
@@ -113,9 +116,17 @@ const Careers: FC<ICareersProps> = ({ data }) => {
         <Styles.TicketsWrapper>
           <Styles.TicketsContainer>{mapTickets()}</Styles.TicketsContainer>
         </Styles.TicketsWrapper>
-        <Styles.FormTitle ref={ref}>
-          {data && parse(subtitle2, options2)}
-        </Styles.FormTitle>
+        {is768px ? (
+          <Styles.FormTitle ref={ref} className='mobile'>
+            <h5>{'<'}</h5>
+            {data && parse(subtitle2, options2)}
+            <h4>{'>'}</h4>
+          </Styles.FormTitle>
+        ) : (
+          <Styles.FormTitle ref={ref}>
+            {data && parse(subtitle2, options2)}
+          </Styles.FormTitle>
+        )}
         <Styles.FormAndImageContainer>
           <Styles.BottomLeftImageText src={bottomLeftText.src} />
           <Styles.BottomLeftImageGlass src={leftGlass.src} />
