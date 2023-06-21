@@ -10,7 +10,7 @@ import { useWindowDimension } from "../../../hooks/useWindowDimension";
 type MessengersProps = Pick<IContactPageData, "messengers">;
 
 export const Messengers = ({ messengers }: MessengersProps) => {
-  const { width: screenWidth } = useWindowDimension();
+  const { width } = useWindowDimension();
   const { subtitle, messenger } = messengers;
 
   return (
@@ -25,12 +25,9 @@ export const Messengers = ({ messengers }: MessengersProps) => {
               href={item.link}
               rel="noopener noreferrer"
               target="blank"
-              style={{
-                width: "322px",
-                height: screenWidth! < 768 ? "54px" : "58px",
-              }}
+              style={{ width: "322px", height: "58px" }}
             >
-              <Styles.ButtonContent>
+              <Styles.ButtonContent style={{ alignItems: "center" }}>
                 <Styles.ImageWrapper width="24px" height="24px">
                   {idx === 0 ? (
                     <svg

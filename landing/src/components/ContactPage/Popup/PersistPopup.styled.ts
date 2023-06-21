@@ -22,6 +22,9 @@ export const PersistPopupText = styled.p`
   @media ${themes.primary.media.maxServiceWeb} {
     display: block;
   }
+  @media ${themes.primary.media.maxMobile} {
+    padding-bottom: 10px;
+  }
 `;
 
 export const PersistPopupWrapper = styled.div`
