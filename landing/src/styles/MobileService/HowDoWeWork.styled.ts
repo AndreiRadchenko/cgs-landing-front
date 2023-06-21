@@ -242,9 +242,6 @@ export const PointsWrapper = styled.div`
 
     column-gap: 16em;
   }
-  @media ${themes.primary.media.minPCFullHD} {
-    column-gap: 2em;
-  }
   @media ${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
     column-gap: 0;

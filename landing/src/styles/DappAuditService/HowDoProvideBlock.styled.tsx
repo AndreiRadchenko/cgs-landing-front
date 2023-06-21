@@ -205,7 +205,7 @@ export const SubContentWrapper = styled.div`
   align-items: flex-end;
 
   @media (min-width: 1650px) {
-    margin-inline: 5em 10em;
+    margin-inline: 5em 9em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -226,7 +226,7 @@ export const SubContentWrapper = styled.div`
   }
 
   @media (max-width: 1400px) {
-    margin-inline: 3em 7em;
+    margin-inline: 3em 6em;
   }
 
   @media (max-width: 1300px) {
@@ -240,7 +240,7 @@ export const SubContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     padding-top: 0.2%;
-    margin-inline: 2em 4em;
+    margin-inline: 2em 2em;
   }
 
   @media (max-width: 1100px) {
@@ -254,7 +254,7 @@ export const SubContentWrapper = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     row-gap: 20px;
-    margin-bottom: 27px;
+    margin-bottom: 19px;
   }
 `;
 

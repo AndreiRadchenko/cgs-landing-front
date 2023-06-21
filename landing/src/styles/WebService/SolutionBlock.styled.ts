@@ -150,7 +150,7 @@ export const RightSideText = styled.div`
   @media ${themes.primary.media.maxMobile} {
     font-size: 16px;
     line-height: 21.12px;
-    width: 102.1%;
+    width: 100%;
     margin: 0;
     p {
       margin: 14px 0 0;

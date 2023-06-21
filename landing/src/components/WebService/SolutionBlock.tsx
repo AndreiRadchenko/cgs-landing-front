@@ -28,7 +28,7 @@ const SolutionBlock = ({ className }: IServicesClassnameProps) => {
     <Styled.Container className={className}>
       {data && (
         <Styled.LeftSideText ref={elRef}>
-          <TextTypingAnimation text={data.subtitle} />
+          <TextTypingAnimation miliseconds={250} text={data.subtitle} />
         </Styled.LeftSideText>
       )}
       <Styled.BgImageFirst src={firsMobileBg.src} />

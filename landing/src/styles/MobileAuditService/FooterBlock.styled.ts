@@ -72,7 +72,7 @@ export const Description = styled.p`
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  top: -7em;
+  top: -4.5em;
   right: 6em;
   width: 430px;
   height: 395px;
