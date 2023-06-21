@@ -45,7 +45,6 @@ const Careers: FC<ICareersProps> = ({ data }) => {
   positions.length && positions.push("None of the above");
 
   const subtitle = data?.subtitle;
-  // const subtitle2Mobile = '<' + data?.subtitle2 + '>';
   const subtitle2 = data?.subtitle2;
 
   const options: HTMLReactParserOptions = {
