@@ -226,7 +226,7 @@ export const ContentWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     max-width: 100%;
-    row-gap: 6em;
+    row-gap: 5.5em;
     padding: 0 0 0 3.75em;
     padding-bottom: 30px;
     position: relative;
