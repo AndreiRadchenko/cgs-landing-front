@@ -8,7 +8,7 @@ interface IHowTodoDynamicMobileListProps {
 const HowTodoDynamicMobileList: React.FC<IHowTodoDynamicMobileListProps> = ({
   points,
 }) => {
-  return <AuditBox data={points} />;
+  return <AuditBox className={"webAudit"} data={points} />;
 };
 
 export default HowTodoDynamicMobileList;
