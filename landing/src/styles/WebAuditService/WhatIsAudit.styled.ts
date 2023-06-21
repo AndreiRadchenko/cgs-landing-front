@@ -89,7 +89,7 @@ export const TextWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: ${themes.primary.font.size.oneAndHalf};
+    font-size: 16px;
     margin-bottom: 10px;
     white-space: pre-line;
     max-width: 100%;

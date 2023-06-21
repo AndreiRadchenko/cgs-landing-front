@@ -72,7 +72,7 @@ export const AuditBox = styled.div`
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin: 0 -6px;
-    width: 120%;
+    width: 105%;
   }
 `;
 

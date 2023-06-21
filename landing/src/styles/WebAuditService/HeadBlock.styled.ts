@@ -80,7 +80,7 @@ export const Description = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: ${themes.primary.font.size.oneAndHalf};
+    font-size: 16px;
     margin-bottom: 1.78em;
     margin-top: 1.25em;
   }

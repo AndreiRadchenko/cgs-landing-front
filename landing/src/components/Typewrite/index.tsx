@@ -6,6 +6,7 @@ import * as Styled from "../../styles/TextTypewrite.styled";
 interface ITextTypingAnimationProps {
   text: string;
   startPoint?: boolean;
+  miliseconds?: number;
 }
 
 interface IDisplayedTextProps {
@@ -13,7 +14,11 @@ interface IDisplayedTextProps {
   hiddenText: string;
 }
 
-function TextTypingAnimation({ text, startPoint }: ITextTypingAnimationProps) {
+function TextTypingAnimation({
+  text,
+  startPoint,
+  miliseconds,
+}: ITextTypingAnimationProps) {
   const [displayedText, setDisplayedText] = useState<IDisplayedTextProps>({
     visibleText: text.slice(0, 1),
     hiddenText: text.slice(1, text.length),
@@ -23,28 +28,33 @@ function TextTypingAnimation({ text, startPoint }: ITextTypingAnimationProps) {
 
   useEffect(() => {
     if (startPoint || startPoint === undefined) {
-      const timer = setTimeout(() => {
-        if (
-          displayedText.visibleText.length !== 0 &&
-          displayedText.visibleText !== text &&
-          displayedText.visibleText.length < text.length
-        ) {
-          const visiblePart = text.slice(
-            0,
-            displayedText.visibleText.length + 1
-          );
+      const timer = setTimeout(
+        () => {
+          if (
+            displayedText.visibleText.length !== 0 &&
+            displayedText.visibleText !== text &&
+            displayedText.visibleText.length < text.length
+          ) {
+            const visiblePart = text.slice(
+              0,
+              displayedText.visibleText.length + 1
+            );
 
-          const hiddenPart = text.slice(
-            displayedText.visibleText.length + 1,
-            text.length
-          );
+            const hiddenPart = text.slice(
+              displayedText.visibleText.length + 1,
+              text.length
+            );
 
-          setDisplayedText({
-            visibleText: visiblePart,
-            hiddenText: hiddenPart,
-          });
-        }
-      }, 150 - Math.random() * 100);
+            setDisplayedText({
+              visibleText: visiblePart,
+              hiddenText: hiddenPart,
+            });
+          }
+        },
+        miliseconds
+          ? 150 - Math.random() * miliseconds
+          : 150 - Math.random() * 100
+      );
 
       return () => clearTimeout(timer);
     }
