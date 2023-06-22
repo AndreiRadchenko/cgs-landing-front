@@ -36,11 +36,11 @@ export const ContentContainer = styled.div`
   }
 
   @media ${themes.primary.media.minPC} {
-    width: auto;
+    width: 48%;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 100%;
+    width: 46.5%;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -113,11 +113,16 @@ export const Description = styled.div`
   }
 `;
 
-export const Image = styled.img`
+export const ImageWrapper = styled.div`
+  position: relative;
   margin-top: 12px;
   width: 45.31em;
   height: 29.19em;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    position: absolute;
+    right: -10.5%;
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: 50px;
     width: 35em;
@@ -125,7 +130,6 @@ export const Image = styled.img`
   }
   @media ${themes.primary.media.maxMobile} {
     width: 24.28em;
-    height: auto;
     margin-top: 0;
     margin-left: 14%;
   }

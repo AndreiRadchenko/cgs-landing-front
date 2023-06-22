@@ -48,7 +48,6 @@ export async function getServerSideProps() {
 }
 
 const UxUiDesign = () => {
-  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
   const { data, isLoading } = useQuery(
     [queryKeys.getServiceUxUiPage],
     async () => await adminUxUiService.getUxUiServicePage()
@@ -82,7 +81,7 @@ const UxUiDesign = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isFirstImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -108,10 +107,7 @@ const UxUiDesign = () => {
                 <DesignBlock withoutShowcase={data?.projects.length === 0} />
               </Styled.Layout>
             </Layout>
-            <ShowCase
-              setIsFirstImageLoaded={setIsFirstImageLoaded}
-              projects={data?.projects}
-            />
+            <ShowCase projects={data?.projects} />
             <Styled.LayoutLocal>
               <Styled.TeamMembersAlign>
                 <TeamMembers teamMembers={data?.teamMembers} />

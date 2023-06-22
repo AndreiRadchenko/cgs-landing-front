@@ -38,8 +38,6 @@ export async function getServerSideProps() {
 }
 
 const WebDevelopment: NextPage = () => {
-  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
-
   const { data, isLoading } = useQuery([queryKeys.getServiceWebPage], () =>
     adminWebService.getWebServicePage()
   );
@@ -70,7 +68,7 @@ const WebDevelopment: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isFirstImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -101,10 +99,7 @@ const WebDevelopment: NextPage = () => {
                 />
               </Styled.Layout>
             </Layout>
-            <ShowCase
-              setIsFirstImageLoaded={setIsFirstImageLoaded}
-              projects={data?.projects}
-            />
+            <ShowCase projects={data?.projects} />
             <Layout>
               <TeamMembers className="webDev" teamMembers={data?.teamMembers} />
               <FreeService freeServices={data?.freeServices} />

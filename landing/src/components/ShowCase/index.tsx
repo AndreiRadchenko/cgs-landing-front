@@ -15,7 +15,7 @@ import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
 import Slide from "./Slide";
 
-const ShowCase = ({ projects, setIsFirstImageLoaded }: IShowCaseProps) => {
+const ShowCase = ({ projects }: IShowCaseProps) => {
   const [currentProjects, setCurrentProjects] = useState<
     (IReviewProps | undefined)[]
   >([]);
@@ -96,12 +96,7 @@ const ShowCase = ({ projects, setIsFirstImageLoaded }: IShowCaseProps) => {
               el && (
                 <SwiperSlide key={ind}>
                   {({ isActive }) => (
-                    <Slide
-                      ind={ind}
-                      setIsFirstImageLoaded={setIsFirstImageLoaded}
-                      review={el}
-                      isActive={isActive}
-                    />
+                    <Slide ind={ind} review={el} isActive={isActive} />
                   )}
                 </SwiperSlide>
               )
