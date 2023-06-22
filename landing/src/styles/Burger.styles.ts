@@ -139,6 +139,8 @@ export const FooterIconsWrapper = styled.div`
 
 export const Image = styled.img`
   height: 32px;
+  max-width: 12vw;
+  object-fit: contain;
 `;
 
 export const BurgerPrivacy = styled.a`
