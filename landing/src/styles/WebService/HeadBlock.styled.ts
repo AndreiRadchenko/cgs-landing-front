@@ -124,15 +124,17 @@ export const ImageWrapper = styled.div`
     right: -10.5%;
   }
 
-  @media ${themes.primary.media.maxTabletLandScape} {
+  @media (max-width: 1370px) {
+    width: 24em;
+    height: 15.5em;
     margin-top: 50px;
-    width: 35em;
-    height: 20em;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 24.28em;
+    position: relative;
+    width: 385px;
+    height: 249px;
     margin-top: 0;
-    margin-left: 14%;
+    margin-left: 17%;
   }
 `;
