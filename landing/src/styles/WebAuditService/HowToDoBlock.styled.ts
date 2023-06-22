@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const Wrapper = styled.section``;
+export const Wrapper = styled.section`
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 25px;
+  }
+`;
 
 export const Subtitle = styled.h3`
   font-size: ${themes.primary.font.size.webAuditSubtitle};
