@@ -29,7 +29,8 @@ interface IconsProps {
     migrationAuditIconRef: React.RefObject<HTMLDivElement>,
     glassRef: React.RefObject<HTMLDivElement>,
     iconPositions: { key: { text: string; subtext: string[]; } | undefined; ref: React.RefObject<any> }[],
-    activeIcon: string
+    activeIcon: string,
+    transitionTime: number
 }
 
 const MobileAuditIcons = ({
@@ -43,11 +44,12 @@ const MobileAuditIcons = ({
     migrationAuditIconRef,
     glassRef,
     iconPositions,
-    activeIcon
+    activeIcon,
+    transitionTime
 }: IconsProps) => {
     return (
         <Styled.IconContainer>
-            <Styled.GlassItem top={top} left={left} ref={glassRef}>
+            <Styled.GlassItem top={top} left={left} ref={glassRef} transitionTime={transitionTime}>
                 <Image src={Glass} alt='magnifying glass image' />
             </Styled.GlassItem>
             <Styled.IconItems>

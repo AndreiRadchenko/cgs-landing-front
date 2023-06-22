@@ -167,8 +167,8 @@ export const PointCircle = styled.div`
 
 export const GlassContainer = styled.div`
   position: absolute;
-  right: 20%;
-  bottom: 0;
+  right: 17.5%;
+  bottom: -2em;
   width: 421px;
   height: 415px;
 
@@ -212,7 +212,7 @@ export const GlassContainer = styled.div`
 
 export const IconContainer = styled.div``;
 
-export const GlassItem = styled.div<{ top: number; left: number }>`
+export const GlassItem = styled.div<{ top: number; left: number; transitionTime: number }>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -221,7 +221,7 @@ export const GlassItem = styled.div<{ top: number; left: number }>`
   top: 20%;
 
   translate: ${(props) => props.left}px ${(props) => props.top}px;
-  transition: 0.05s linear;
+  transition: ${(props) => props.transitionTime}s linear;
 
   @media (min-width: 2561px) {
     top: 35%;
