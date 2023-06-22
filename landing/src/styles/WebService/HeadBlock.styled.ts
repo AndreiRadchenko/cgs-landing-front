@@ -123,11 +123,13 @@ export const ImageWrapper = styled.div`
     position: absolute;
     right: -10.5%;
   }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: 50px;
     width: 35em;
     height: 20em;
   }
+
   @media ${themes.primary.media.maxMobile} {
     width: 24.28em;
     margin-top: 0;
