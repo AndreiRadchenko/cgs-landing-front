@@ -45,8 +45,6 @@ export async function getServerSideProps() {
 const MobileAppDevelopment: NextPage = () => {
   const queryClient = useQueryClient();
 
-  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
-
   const { data, isLoading } = useQuery([queryKeys.getServiceMobilePage], () =>
     adminMobileService.getMobileServicePage()
   );
@@ -79,7 +77,7 @@ const MobileAppDevelopment: NextPage = () => {
     };
   }, []);
   return (
-    <Loader active={isLoading || !isFirstImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -115,10 +113,7 @@ const MobileAppDevelopment: NextPage = () => {
                 teamMembers={data?.teamMembers}
               />
             </Layout>
-            <ShowCase
-              setIsFirstImageLoaded={setIsFirstImageLoaded}
-              projects={data?.projects}
-            />
+            <ShowCase projects={data?.projects} />
             <Layout>
               <HowDoWeWork />
               <ProfBlock />

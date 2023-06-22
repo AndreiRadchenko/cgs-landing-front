@@ -48,8 +48,6 @@ export async function getServerSideProps() {
 }
 
 const DbSolutions: NextPage = () => {
-  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
-
   const { data, isLoading } = useQuery([queryKeys.getServiceDbPage], () =>
     adminDbService.getDbServicePage()
   );
@@ -81,7 +79,7 @@ const DbSolutions: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isFirstImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -113,10 +111,7 @@ const DbSolutions: NextPage = () => {
               </Styled.Layout>
             </Layout>
             <Styled.ShowCaseAlign></Styled.ShowCaseAlign>
-            <ShowCase
-              setIsFirstImageLoaded={setIsFirstImageLoaded}
-              projects={data?.projects}
-            />
+            <ShowCase projects={data?.projects} />
 
             <Layout>
               <Styled.BonusesAlign>

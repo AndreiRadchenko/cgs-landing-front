@@ -7,16 +7,10 @@ import { openInNewTab } from "../../utils/OpenInNewTab";
 interface IReviewProps {
   review: IReview;
   isActive: boolean;
-  setIsFirstImageLoaded: Dispatch<SetStateAction<boolean>>;
   ind: number;
 }
 
-const Slide = ({
-  review,
-  isActive,
-  setIsFirstImageLoaded,
-  ind,
-}: IReviewProps) => {
+const Slide = ({ review, isActive, ind }: IReviewProps) => {
   const navigateToProjectPage = (url: string, id?: string) => {
     const newUrl = url.toLowerCase().replace(/\s+/g, "-");
     openInNewTab(`https://cgsteam.io/portfolio/${newUrl}-${id}`);
@@ -31,11 +25,7 @@ const Slide = ({
             alt={"project image"}
             layout={"fill"}
             objectFit="contain"
-            priority
-            loading={"eager"}
-            onLoad={() => {
-              if (ind === 1) setIsFirstImageLoaded(true);
-            }}
+            loading={"lazy"}
           />
         </Styled.ImageWrapper>
       )}

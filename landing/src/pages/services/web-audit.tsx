@@ -43,8 +43,6 @@ export async function getServerSideProps() {
 }
 
 const WebAuditPage: NextPage = () => {
-  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
-
   const { data, isLoading } = useQuery([queryKeys.getServiceWebAuditPage], () =>
     adminWebAuditService.getWebAuditServicePage()
   );
@@ -74,7 +72,7 @@ const WebAuditPage: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isFirstImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -103,10 +101,7 @@ const WebAuditPage: NextPage = () => {
               />
               {data?.projects ? (
                 <ShowcaseLayoutIgnore>
-                  <ShowCase
-                    setIsFirstImageLoaded={setIsFirstImageLoaded}
-                    projects={data?.projects}
-                  />
+                  <ShowCase projects={data?.projects} />
                 </ShowcaseLayoutIgnore>
               ) : (
                 <ShowcaseWithoutDataSpacing />

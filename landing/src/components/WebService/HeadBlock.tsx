@@ -8,12 +8,13 @@ import {
   ContentContainer,
   Title,
   Description,
-  Image,
   ButtonWrapper,
+  ImageWrapper,
 } from "../../styles/WebService/HeadBlock.styled";
 import TextTypingAnimation from "../Typewrite";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import Image from "next/image";
 
 const HeadBlock = () => {
   const queryClient = useQueryClient();
@@ -41,7 +42,17 @@ const HeadBlock = () => {
           </ButtonWrapper>
         )}
       </ContentContainer>
-      <Image src={data?.image.url} alt="hero image" />
+      <ImageWrapper>
+        {data?.image && (
+          <Image
+            src={data?.image.url}
+            alt={"main image"}
+            layout={"fill"}
+            objectFit={"cover"}
+            priority
+          />
+        )}
+      </ImageWrapper>
     </Container>
   );
 };

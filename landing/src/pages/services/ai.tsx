@@ -37,8 +37,6 @@ export async function getServerSideProps() {
 }
 
 const DappAuditPage: NextPage = () => {
-  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
-
   const { data, isLoading } = useQuery(
     [queryKeys.getServiceDappAuditPage],
     () => adminDappAuditService.getDappAuditServicePage()
@@ -70,7 +68,7 @@ const DappAuditPage: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isFirstImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -95,10 +93,7 @@ const DappAuditPage: NextPage = () => {
                 <HowDoProvideBlock />
               </Styled.Layout>
             </Layout>
-            <ShowCase
-              setIsFirstImageLoaded={setIsFirstImageLoaded}
-              projects={data?.projects}
-            />
+            <ShowCase projects={data?.projects} />
             <Layout>
               <Styled.Layout>
                 <FooterBlock />

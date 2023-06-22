@@ -10,7 +10,6 @@ import FooterNew from "../../components/FooterNew/FooterNew";
 import HeadBlock from "../../components/BlockchainService/HeadBlock";
 import ServicesBlock from "../../components/BlockchainService/ServicesBlock";
 import YourWayBlock from "../../components/BlockchainService/YourWayBlock";
-import AboutBlock from "../../components/BlockchainService/AboutBlock";
 import FooterBlock from "../../components/BlockchainService/FooterBlock";
 import * as Styled from "../../styles/BlockchainService/Layout";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
@@ -20,7 +19,6 @@ import NeedsAppsBenefitComponent from "../../components/Services/NeedsAppsBenefi
 import Advantages from "../../components/ServisesComponents/Advantages/AdvantagesComponent/index";
 import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
 import { Loader, LoaderStub } from "../../components/Loader";
-import { useMediaQuery } from "@mui/material";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -42,8 +40,6 @@ export async function getServerSideProps() {
 }
 
 const BlockchainService = () => {
-  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
-
   const { data, isLoading } = useQuery(
     [queryKeys.getServiceBlockchainPage],
     async () => await adminBlockchainService.getBlockchainDevelopmentPage()
@@ -75,7 +71,7 @@ const BlockchainService = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isFirstImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -96,21 +92,20 @@ const BlockchainService = () => {
             <Layout>
               <Styled.Layout>
                 <HeadBlock />
-                <ServicesBlock className={"blockchainServices"}/>
+                <ServicesBlock className={"blockchainServices"} />
                 <YourWayBlock />
               </Styled.Layout>
-              <TeamMembers 
-              className={"blockchainTeam"}
-              teamMembers={data?.teamMembers} />
+              <TeamMembers
+                className={"blockchainTeam"}
+                teamMembers={data?.teamMembers}
+              />
             </Layout>
-            <ShowCase
-              setIsFirstImageLoaded={setIsFirstImageLoaded}
-              projects={data?.projects}
-            />
+            <ShowCase projects={data?.projects} />
             <Layout>
-              <Advantages 
-              className={"blockchainAdvantages"}
-              advantages={data?.advantages} />
+              <Advantages
+                className={"blockchainAdvantages"}
+                advantages={data?.advantages}
+              />
               <>{data && <NeedsAppsBenefitComponent data={data} />}</>
               <Styled.Layout className="mobile-visivble">
                 <FooterBlock />

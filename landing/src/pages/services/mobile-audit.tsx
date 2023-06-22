@@ -18,7 +18,7 @@ import WhatAppIncludeBlock from "../../components/MobileAuditService/WhatAppIncl
 import ShowCase from "../../components/ShowCase";
 import FooterBlock from "../../components/MobileAuditService/FooterBlock";
 import * as Styled from "../../styles/MobileAuditService/Layout";
-import { Layout, PageArticle } from "../../styles/Layout.styled";
+import { Layout } from "../../styles/Layout.styled";
 import HowDoWeAuditBlock from "../../components/MobileAuditService/HowDoWeAuditBlock";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
@@ -44,8 +44,6 @@ export async function getServerSideProps() {
 }
 
 const MobileAuditService = () => {
-  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
-
   const queryClient = useQueryClient();
   const dataAudit = queryClient.getQueryData<IServiceMobileAudit>([
     queryKeys.getServiceMobileAuditPage,
@@ -82,7 +80,7 @@ const MobileAuditService = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isFirstImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -115,10 +113,7 @@ const MobileAuditService = () => {
                 )}
               </Styled.Layout>
             </Layout>
-            <ShowCase
-              setIsFirstImageLoaded={setIsFirstImageLoaded}
-              projects={data?.projects}
-            />
+            <ShowCase projects={data?.projects} />
             <Layout>
               <Styled.Layout>
                 <HowDoWeAuditBlock />

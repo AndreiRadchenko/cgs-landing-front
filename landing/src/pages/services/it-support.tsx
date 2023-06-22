@@ -42,7 +42,6 @@ export async function getServerSideProps() {
 }
 
 const OngoingSupport = () => {
-  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
   const is768px = useMediaQuery("(max-width:768px)");
 
   const { data, isLoading } = useQuery([queryKeys.getServiceSupportPage], () =>
@@ -75,7 +74,7 @@ const OngoingSupport = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isFirstImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -101,14 +100,19 @@ const OngoingSupport = () => {
               </Styled.Layout>
               <BonusesComponent bonuses={data?.bonuses} />
             </Layout>
-            <div style={{marginBottom: is768px ? '0em' : '-17em', marginTop: is768px ? '-1.8em' : '0em'}}>
-            <ShowCase
-              setIsFirstImageLoaded={setIsFirstImageLoaded}
-              projects={data?.projects}
-            />
+            <div
+              style={{
+                marginBottom: is768px ? "0em" : "-17em",
+                marginTop: is768px ? "-1.8em" : "0em",
+              }}
+            >
+              <ShowCase projects={data?.projects} />
             </div>
             <Layout>
-              <TeamMembers teamMembers={data?.teamMembers} className={"supportTeam"}/>
+              <TeamMembers
+                teamMembers={data?.teamMembers}
+                className={"supportTeam"}
+              />
               <OtherServices otherServices={data?.otherServices} />
               <Styled.Layout>
                 <FooterBlock />

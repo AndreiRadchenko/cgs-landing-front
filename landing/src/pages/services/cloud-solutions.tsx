@@ -48,7 +48,6 @@ const CloudService = () => {
     adminCloudService.getCloudSolutionPage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
-  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
   useQuery([queryKeys.getPortfolio], () => adminPortfolioService.getReviews());
@@ -76,7 +75,7 @@ const CloudService = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isFirstImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -107,10 +106,7 @@ const CloudService = () => {
               </Styled.Layout>
             </Layout>
             <Styled.ShowCaseAlign>
-              <ShowCase
-                setIsFirstImageLoaded={setIsFirstImageLoaded}
-                projects={data?.projects}
-              />
+              <ShowCase projects={data?.projects} />
             </Styled.ShowCaseAlign>
             <Layout>
               <Styled.Layout>
