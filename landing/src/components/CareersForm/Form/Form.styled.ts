@@ -467,6 +467,10 @@ export const PositionSelect = styled.div<IEnableGlare>`
       &::-webkit-scrollbar-thumb {
         background-color: transparent;
         border-left: 5px solid ;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 20px;
       }
 
       scrollbar-color: ${themes.primary.colors.primary} transparent;
