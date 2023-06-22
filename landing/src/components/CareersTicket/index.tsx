@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent, useState } from "react";
+import React, { FC, MouseEvent, useEffect, useRef, useState } from "react";
 import * as Styled from "./CareersTicket.styled";
 import Arrow from "../../../public/CareerDecorations/ticketArrow.svg";
 import TicketModal from "../Careers/TicketModal";
@@ -23,6 +23,7 @@ const CareersTicket: FC<ITicketProps> = ({
 }: ITicketProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoverTicket, setHoverTicket] = useState<boolean>(!isAdminPanel && false);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const onTicketView = () => {
     if (!isAdminPanel) {
@@ -45,13 +46,37 @@ const CareersTicket: FC<ITicketProps> = ({
     if (scrollTo) scrollTo();
   };
 
+  useEffect(() => {
+    const handleModalScroll = (event: Event) => {
+      event.stopPropagation();
+    };
+  
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      modalRef.current?.addEventListener("scroll", handleModalScroll, {
+        passive: false,
+      });
+    } else {
+      document.body.style.overflow = "auto";
+      modalRef.current?.removeEventListener("scroll", handleModalScroll);
+    }
+  
+    return () => {
+      document.body.style.overflow = "auto";
+      modalRef.current?.removeEventListener("scroll", handleModalScroll);
+    };
+  }, [isOpen]);
+
   return (
     <Styled.Wrapper onClick={onTicketView}>
       <Styled.TicketContainer>
         <Styled.TicketInner
           isTicketHover={hoverTicket}
           onMouseMove={!isAdminPanel ? onTicketHover : undefined}
-          onMouseOut={!isAdminPanel ? ticketHoverOut : undefined}>
+          onMouseOut={!isAdminPanel ? ticketHoverOut : undefined}
+          onTouchStart={onTicketHover} 
+          onTouchEnd={ticketHoverOut}
+          >
           <Styled.TicketInfo>
             <Styled.TicketPositionTitle isTicketHover={hoverTicket}>
               {vacancy}
@@ -79,7 +104,7 @@ const CareersTicket: FC<ITicketProps> = ({
           <Styled.Shadow isTicketHover={hoverTicket}>
           </Styled.Shadow>
         </Styled.TicketInner>
-        <TicketModal isOpen={isOpen} onClose={onClose}>
+        <TicketModal isOpen={isOpen} onClose={onClose} ref={modalRef}>
           <Styles.ButtonWrapper>
             <Styles.CloseButton src={CloseButton.src} onClick={onClose} />
           </Styles.ButtonWrapper>

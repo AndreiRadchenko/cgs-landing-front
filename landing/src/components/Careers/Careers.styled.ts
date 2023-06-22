@@ -29,7 +29,9 @@ export const TopRightImageText = styled.img`
   top: 20%;
 
   @media (max-width: 768px) {
-    display: none;
+    width: 200px;
+    top: 35%;
+    right: -10%;
   }
 `;
 export const BottomRightImageText = styled.img`
@@ -55,7 +57,9 @@ export const BottomLeftImageText = styled.img`
   left: 0;
 
   @media (max-width: 768px) {
-    display: none;
+    width: 400px;
+    left: -10%;
+    bottom: 70%;
   }
 `;
 export const BottomRightImageGlass = styled.img`
@@ -140,7 +144,7 @@ export const Title = styled.header`
   text-transform: uppercase;
   font-size: 6.167em;
   margin-top: 75px;
-  margin-bottom: 75px;
+  margin-bottom: 40px;
 
   p{
     margin: 0;
@@ -332,7 +336,7 @@ export const TicketsContainer = styled.div`
 export const FormAndImageContainer = styled.section`
   display: flex;
   justify-content: center;
-  margin: 0 0 30px 0;
+  margin: 0 0 44px 0;
   align-self: normal;
   min-height: 550px;
   overflow: hidden;
@@ -355,6 +359,25 @@ export const FormTitle = styled.span`
   color: ${themes.primary.colors.primary};
   align-self: normal;
   text-transform: uppercase;
+
+  &.mobile{
+    display: flex;
+    flex-direction: row;
+
+    p{
+    }
+  }
+
+  h4{
+    margin-bottom: 0;
+    margin-top: 30px;
+    margin-left: -8px;
+  }
+
+  h5{
+    margin-top: 0;
+    font-size: 21px;
+  }
 
   p{
     margin: 0;

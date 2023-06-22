@@ -10,7 +10,7 @@ export const FormField = styled(Field)`
   border-bottom: 1px solid black;
   border-radius: 0;
   font-family: ${themes.primary.font.family.namu};
-  font-size: 1.2em;
+  font-size: 1.34em;
   color: black;
   padding: 0 0 0 12px;
   &:focus {
@@ -18,7 +18,7 @@ export const FormField = styled(Field)`
   }
 
   &.formEmail {
-    color: ${({ toError }) => (toError ? "#F84A3F" : "black")};
+    color: ${({ toErrorEmail }) => (toErrorEmail ? "#F84A3F" : "black")};
   }
 
   &::placeholder {
@@ -48,7 +48,15 @@ export const FormFieldContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 335px;
+    width: 90%;
     height: 54px;
+  }
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+
+  @media (max-width: 380px) {
+    width: 335px;
   }
 `;

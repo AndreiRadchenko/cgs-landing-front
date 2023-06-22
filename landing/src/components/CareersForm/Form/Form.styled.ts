@@ -50,12 +50,20 @@ export const FormFieldContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 335px;
+    width: 90%;
     height: 54px;
+  }
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+
+  @media (max-width: 380px) {
+    width: 335px;
   }
 `;
 
-export const FormField = styled(Field)<IFormField>`
+export const FormField = styled(Field) <IFormField>`
   height: 100%;
   width: 100%;
   background: none;
@@ -65,7 +73,7 @@ export const FormField = styled(Field)<IFormField>`
 
   font-family: ${themes.primary.font.family.namu};
 
-  font-size: 1.2em;
+  font-size: 1.34em;
   padding: 0 0 0 12px;
 
   &:focus {
@@ -110,7 +118,7 @@ export const Form = styled.form`
 
   @media (max-width: 474px) {
     width: 94vw;
-    margin-left: 0;
+    margin-left: 2em;
   }
 
   @media (max-width: 400px) {
@@ -287,7 +295,7 @@ export const FormSentFillText = styled.span<IFillAllFields>`
   font-size: 12px;
   bottom: 0;
   margin-top: 10px;
-  animation: ${({toDisplay}) => (toDisplay ? "move .5s linear" : "none")};
+  animation: ${({ toDisplay }) => (toDisplay ? "move .5s linear" : "none")};
 
   @keyframes move {
     0% {
@@ -339,7 +347,7 @@ export const FormSentText = styled.span`
   }
 `;
 
-export const FormSentContainer = styled.div<{isCvIn: boolean}>`
+export const FormSentContainer = styled.div<{ isCvIn: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -364,7 +372,7 @@ export const FormSentContainer = styled.div<{isCvIn: boolean}>`
   }
 
   @media (max-width: 475px) {
-    margin-top: ${({isCvIn}) => isCvIn ? "10px" : "60px"};
+    margin-top: ${({ isCvIn }) => isCvIn ? "10px" : "60px"};
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -420,6 +428,7 @@ export const PositionSelect = styled.div<IEnableGlare>`
         box-shadow: 13px 0px 0px 0px black;
 
         border-bottom: none !important;
+        border-radius: 0;
         border-right: 1px solid black !important;
         transition: none;
       }
@@ -445,6 +454,27 @@ export const PositionSelect = styled.div<IEnableGlare>`
       box-shadow: 13px 0px 0px 0px black;
       border-left: none;
       overflow-y: scroll;
+      padding-right: 7px;
+
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-left: 5px solid ;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 20px;
+      }
+
+      scrollbar-color: ${themes.primary.colors.primary} transparent;
+      scrollbar-width: thin;
     }
 
     @media (max-width: 768px) {
@@ -460,8 +490,16 @@ export const PositionSelect = styled.div<IEnableGlare>`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 335px;
+    width: 90%;
     height: 54px;
+  }
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+
+  @media (max-width: 380px) {
+    width: 335px;
   }
 `;
 
@@ -485,11 +523,11 @@ export const Cvfield = styled.div<IFormField>`
 
   input {
     color: ${({ isEmpty }) =>
-      isEmpty ? themes.primary.colors.darkBlue : "black"};
+    isEmpty ? themes.primary.colors.darkBlue : "black"};
 
     &::placeholder {
       color: ${({ isEmpty, toFormError }) =>
-        isEmpty ? themes.primary.colors.darkBlue : toFormError ? "#F84A3F" : "#8F8E93"};
+    isEmpty ? themes.primary.colors.darkBlue : toFormError ? "#F84A3F" : "#8F8E93"};
     }
   }
 `;
@@ -567,11 +605,21 @@ export const Format = styled.div`
   padding: 8px 4px;
   border-radius: 6px;
   margin-left: 10px;
+  font-size: 0.85em;
+
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
 `;
 
 export const Title = styled.span`
-  color: ${themes.primary.colors.darkBlue};
+  font-size: 1.35em;
+  color: #8F8E93;
   margin-left: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export const DeleteCv = styled.img`
@@ -582,7 +630,7 @@ export const DeleteCv = styled.img`
   cursor: pointer;
 `;
 
-export const DeleteCvLink = styled.img<{cvlink: boolean}>`
+export const DeleteCvLink = styled.img<{ cvlink: boolean }>`
   cursor: pointer;
   position: absolute;
 
@@ -591,7 +639,7 @@ export const DeleteCvLink = styled.img<{cvlink: boolean}>`
   }
 
   @media (max-width: 768px) {
-    display: ${({cvlink}) => cvlink ? 'block' : 'none'};
+    display: ${({ cvlink }) => cvlink ? 'block' : 'none'};
     width: 20px;
     height: 20px;
     top: 2em;

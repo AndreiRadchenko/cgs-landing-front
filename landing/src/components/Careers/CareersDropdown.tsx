@@ -49,7 +49,7 @@ const CareersDropdown = ({
         const maxScrollHeight =
           ScrollRef.current.scrollHeight - ScrollRef.current.clientHeight;
         const scrollPercentage = (scrollTop / maxScrollHeight) * 100;
-        const maxTop = 250;
+        const maxTop = 300;
         const calculatedTop = Math.min(
           scrollPercentage * (maxTop / 100),
           maxTop

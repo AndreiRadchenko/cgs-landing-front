@@ -6,6 +6,7 @@ interface IFieldProps {
   label: string;
   type?: string;
   toFormError: boolean;
+  toFormErrorEmail: boolean;
   className: string;
 }
 
@@ -14,12 +15,13 @@ const TextFieldWrapper: FC<IFieldProps> = ({
   label,
   type = "text",
   toFormError,
+  toFormErrorEmail,
   className,
 }: IFieldProps) => {
   return (
     <>
       <Styled.FormFieldContainer>
-        <Styled.FormField placeholder={label} type={type} name={name} toError={toFormError} className={className}/>
+        <Styled.FormField placeholder={label} type={type} name={name} toError={toFormError} toErrorEmail={toFormErrorEmail} className={className}/>
       </Styled.FormFieldContainer>
     </>
   );
