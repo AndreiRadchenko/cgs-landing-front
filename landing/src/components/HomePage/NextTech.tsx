@@ -27,7 +27,7 @@ const NextTech = () => {
         domNode.attribs.style.includes("color: rgb(88, 105, 221)")
       ) {
         return (
-          <span className="blue tech">
+          <span className="blue">
             <ScrambleText
               text={
                 domNode.children[0].type === "text" &&
