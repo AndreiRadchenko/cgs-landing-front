@@ -91,7 +91,7 @@ export const BgiContainer = styled.div<ILine>`
   height: 115px;
   position: absolute;
   left: -6%;
-  top: 50%;
+  top: 58%;
   transform: translateY(-50%);
   background: ${({ angle }) =>
     css`radial-gradient(
@@ -141,6 +141,7 @@ export const LogosContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     grid-template-columns: 1fr 1fr;
+    margin-top: 48px;
     row-gap: 30px;
     padding: 0;
   }

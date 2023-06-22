@@ -9,6 +9,7 @@ import { IImage } from "../../../types/Admin/Admin.types";
 import { IDataResponse } from "../../../types/Admin/Response.types";
 
 import * as Styled from "../../../styles/AdminPage";
+import removeLink from "../../../../public/linkIcon.svg"
 
 const BadgeLogoBlock = () => {
   const deleteImageFunction = useDeleteImageFunction();
@@ -22,6 +23,15 @@ const BadgeLogoBlock = () => {
     values: { BadgesBlock: data },
     handleChange,
   } = useFormikContext<IDataResponse>();
+
+  const clearInput = (index: number) => {
+    handleChange({
+      target: {
+        name: `BadgesBlock.badges[${index}].link`,
+        value: "",
+      },
+    });
+  };
 
   return (
     <Styled.AdminFreeServicesWrapper>
@@ -44,14 +54,19 @@ const BadgeLogoBlock = () => {
               header="Drop new image here"
               deleteFlag={true}
             />
-            <Styled.AdminInput
-              value={elem.link}
-              onChange={handleChange}
-              name={`BadgesBlock.badges[${idx}].link`}
-              style={{
-                marginBottom: "0",
-              }}
-            />
+              <Styled.AdminInput
+                value={elem.link}
+                onChange={handleChange}
+                name={`BadgesBlock.badges[${idx}].link`}
+                style={{
+                  marginBottom: "0",
+                }}
+                className="badgesInput"
+              />
+              <Styled.AdminRemoveLinkImage
+                src={removeLink.src}
+                onClick={() => clearInput(idx)}
+              />
           </Styled.AdminFreeServicesCard>
         ))}
       </Styled.AdminFreeServicesContent>

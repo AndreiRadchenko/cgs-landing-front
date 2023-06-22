@@ -257,6 +257,11 @@ export const Subtitle = styled.div`
       flex-wrap: wrap;
     }
 
+    &.techMobile {
+      font-size: 32px;
+      width: 100px;
+    }
+
     span {
       &.range {
         display: inline-block;

@@ -433,6 +433,10 @@ export const AdminInput = styled(TextareaAutosize)<IAdminInput>`
   &.metaField {
     background-color: ${themes.primary.colors.careerBackground};
   }
+
+  &.badgesInput{
+    padding-right: 30px;
+  }
 `;
 
 export const CategoryWrapper = styled.div`
@@ -2237,4 +2241,22 @@ export const AdminTechSeparator = styled.div`
   height: 1px;
   background-color: ${themes.primary.colors.primary};
   margin-top: 1.8333em;
+`;
+
+export const AdminRemoveLinkImage = styled.img`
+  position: absolute;
+  margin-top: 19em;
+  margin-left: 12vw;
+
+  @media (min-width: 1560px) {
+    margin-top: 17em;
+  }
+
+  @media (min-width: 1920px) {
+    margin-top: 15em;
+  }
+
+  @media (max-width: 1200px) {
+    margin-left: 10vw;
+  }
 `;
