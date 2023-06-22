@@ -37,6 +37,8 @@ const WhatAppIncludeBlock = () => {
   const [coordinates, setCoordinates] = useState(initialCoordinates);
   const [hoverOut, setHoverOut] = useState(false);
   const [activeIcon, setActiveIcon] = useState('');
+  const [animationCompleted, setAnimationCompleted] = useState(true);
+  const [transitionTime, setTransitionTime] = useState(0);
 
   const securityTestIconRef = useRef<HTMLDivElement>(null);
   const encryptionDefinitionIconRef = useRef<HTMLDivElement>(null);
@@ -67,7 +69,7 @@ const WhatAppIncludeBlock = () => {
 
   const onMouseEnter = (title: string, event: React.MouseEvent) => {
     event?.stopPropagation();
-    if (!hoverOut) {
+    if (!hoverOut && coordinates.x === initialCoordinates.x && coordinates.y === initialCoordinates.y && animationCompleted) {
       const is1200px = window.matchMedia('(max-width: 1200px)').matches;
       const is992px = window.matchMedia('(max-width: 992px)').matches;
       const is768px = window.matchMedia('(max-width: 768px)').matches;
@@ -117,19 +119,30 @@ const WhatAppIncludeBlock = () => {
         y: (targetPicturePosition?.top ?? 0) - glassCenterPosition.y,
       };
 
-      if (newPosition && coordinates.x == initialCoordinates.x && coordinates.y == initialCoordinates.y) {
+      if (newPosition) {
         setCoordinates(newPosition);
         const iconKey = targetIcon?.key;
         setActiveIcon(iconKey?.text || '');
-      };
+        setHoverOut(true)
+        setTransitionTime(0.1)
+      }
     };
   };
 
   const onMouseOut = () => {
     setActiveIcon('');
     setCoordinates(initialCoordinates);
-    setHoverOut(false)
+    setHoverOut(false);
+    setTransitionTime(0)
   };
+
+  useEffect(() => {
+    if (coordinates.x === initialCoordinates.x && coordinates.y === initialCoordinates.y) {
+      setAnimationCompleted(true);
+    } else {
+      setAnimationCompleted(false);
+    }
+  }, [coordinates]);
 
   return (
     <Styled.Container>
@@ -147,6 +160,7 @@ const WhatAppIncludeBlock = () => {
       </Styled.GradientLineContainer>
       <Styled.GlassContainer>
         <MobileAuditIcons
+          transitionTime={transitionTime}
           top={coordinates.y}
           left={coordinates.x}
           securityTestIconRef={securityTestIconRef}
