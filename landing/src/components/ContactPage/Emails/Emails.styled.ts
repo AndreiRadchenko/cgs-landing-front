@@ -95,7 +95,6 @@ export const EmailsTitle = styled.h3`
   margin: 0px auto 34px;
   padding: 0;
   font-weight: 900;
-  font-size: 26px;
   font-size: 2.16em;
   line-height: 1.2;
   text-transform: uppercase;
@@ -107,6 +106,7 @@ export const EmailsTitle = styled.h3`
     }
   }
   @media ${themes.primary.media.maxMobile} {
+    font-size: 26px;
   }
 `;
 

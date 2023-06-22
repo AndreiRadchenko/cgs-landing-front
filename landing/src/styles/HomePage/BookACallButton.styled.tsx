@@ -54,6 +54,10 @@ export const BlackButton = styled.button`
     width: 188px;
     font-size: 22px;
     padding: 0;
+    &.contactPage {
+      width: 196px;
+      height: 58px;
+    }
   }
 
   &:hover {
@@ -69,6 +73,11 @@ export const BlackButton = styled.button`
       width: 252px;
       height: 80px;
       font-size: 26px;
+      &.contactPage {
+        width: 252px;
+        height: 80px;
+        font-size: 26px;
+      }
     }
   }
 
@@ -86,6 +95,11 @@ export const BlackButton = styled.button`
     &.calendly {
       width: 153px;
       height: 49px;
+      font-size: 16px;
+    }
+    &.calendly.contactPage {
+      width: 178px;
+      height: 55px;
       font-size: 16px;
     }
   }

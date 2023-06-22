@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { useMutation } from "@tanstack/react-query";
 
 import FormField from "./FormField";
-import BookACallButton from "../../BookACallButton";
+import ContactPageButton from "./ContactPageButton";
 
 import * as Styled from "../../../styles/BookModalForm/Form.styled";
 import * as CSS from "./BookForm.styled";
@@ -130,12 +130,12 @@ const BookForm = ({ header }: IFormProps) => {
           ))}
           <CSS.FormSentContainer>
             <CSS.ButtonWrapper onClick={checkIfButtonIsDisabled}>
-              <BookACallButton
+              <ContactPageButton
                 name={name}
                 email={email}
                 buttonText={button.name}
                 buttonLink={button.calendly}
-                buttonClassName={"calendly"}
+                buttonClassName={"calendly contactPage"}
                 handleClose={handleClose}
                 calendlyIsOpen={calendlyIsOpen}
                 setCalendlyIsOpen={setCalendlyIsOpen}

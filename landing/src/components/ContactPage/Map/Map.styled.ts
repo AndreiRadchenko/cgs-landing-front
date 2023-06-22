@@ -41,5 +41,6 @@ export const PointerImage = styled.div`
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 18px;
+    color: ${themes.primary.colors.darkBlue};
   }
 `;

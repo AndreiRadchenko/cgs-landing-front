@@ -46,6 +46,7 @@ export const MediaContainer = styled.div`
     }
   }
   @media ${themes.primary.media.maxMobile} {
+    margin-top: 60px;
     margin-left: -20px;
   }
 `;

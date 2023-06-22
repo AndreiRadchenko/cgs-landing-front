@@ -27,7 +27,7 @@ export const Messengers = ({ messengers }: MessengersProps) => {
               target="blank"
               style={{ width: "322px", height: "58px" }}
             >
-              <Styles.ButtonContent>
+              <Styles.ButtonContent style={{ alignItems: "center" }}>
                 <Styles.ImageWrapper width="24px" height="24px">
                   {idx === 0 ? (
                     <svg

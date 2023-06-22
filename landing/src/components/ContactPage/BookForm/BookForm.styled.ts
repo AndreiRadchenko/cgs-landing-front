@@ -120,7 +120,6 @@ export const FormFieldContainer = styled.div`
       height: 100%;
       width: 100%;
       border: none;
-      /* font-size: 16px; */
 
       font-family: ${themes.primary.font.family.namu};
       background: ${themes.primary.colors.blogBackground};
