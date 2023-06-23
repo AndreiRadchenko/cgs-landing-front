@@ -11,6 +11,7 @@ import ScrambleText from "./ScrambleText";
 import FreeServices from "../FreeServices/FreeServices";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
+import * as CSS from "../../styles/Portfolio/title.styled";
 import Badges from "./Badges";
 
 import * as Styled from "../../styles/HomePage/General.styled";
@@ -20,6 +21,47 @@ const NextTech = () => {
 
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(88, 105, 221)")
+      ) {
+        return (
+          <span className="blue">
+            <ScrambleText
+              text={
+                domNode.children[0].type === "text" &&
+                (domNode.children[0] as any).data
+              }
+            />
+          </span>
+        );
+      }
+    },
+  };
+
+  const options2: HTMLReactParserOptions = {
+    replace: (domNode) => {
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(221, 105, 88)")
+      ) {
+        return (
+          <>
+            <CSS.ArrowWrapper className="nextTech">
+              <Image
+                src={longArrow.src}
+                alt="wide tech long arrow"
+                layout="fill"
+                objectFit="contain"
+              />
+            </CSS.ArrowWrapper>
+          </>
+        );
+      }
       if (
         domNode instanceof Element &&
         domNode.attribs &&
@@ -54,52 +96,10 @@ const NextTech = () => {
 
   return (
     <Styled.NextTech>
-      <Styled.Subtitle>{text && parse(text.title, options)}</Styled.Subtitle>
+      <Styled.Subtitle className="nextTech">{text && parse(text.title, options)}</Styled.Subtitle>
       <Badges />
       <FreeServices />
-      <Styled.Subtitle className="small">
-        {width && width < 475 ? (
-          <>
-            wide
-            <span className={"blue range"}>
-              <ScrambleText text={"tech-range"} />
-            </span>
-            <Styled.RowContainer>
-              <Styled.LongArrowWrapper>
-                <Image
-                  src={longArrow.src}
-                  alt="wide tech long arrow"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Styled.LongArrowWrapper>
-              Innovative
-            </Styled.RowContainer>
-            customer-value
-          </>
-        ) : (
-          <>
-            <Styled.RowContainer>
-              wide
-              <span className={"blue"}>
-                {typeof window !== "undefined" && (
-                  <ScrambleText text={"tech-range"} />
-                )}
-              </span>
-              <Styled.LongArrowWrapper>
-                <Image
-                  src={longArrow.src}
-                  alt="wide tech long arrow"
-                  layout="fill"
-                  objectFit="contain"
-                  objectPosition={"50% 57%"}
-                />
-              </Styled.LongArrowWrapper>
-            </Styled.RowContainer>
-            <Styled.RowContainer>Innovative customer-value</Styled.RowContainer>
-          </>
-        )}
-      </Styled.Subtitle>
+      <Styled.Subtitle className="textOnFilm">{data?.textOnFilm && parse(data?.textOnFilm, options2)}</Styled.Subtitle>
       <Styled.RightContainer>
         <Styled.BlackButton
           target="_blank"

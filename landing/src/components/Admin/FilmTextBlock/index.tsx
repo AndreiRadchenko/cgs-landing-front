@@ -1,21 +1,14 @@
-﻿import { useFormikContext } from "formik";
-import React from "react";
-import * as Styled from "../../../styles/AdminPage";
-import { IDataResponse } from "../../../types/Admin/Response.types";
-import Inputs from "../../../utils/Inputs";
+﻿import React from "react";
+import dynamic from "next/dynamic";
+
+const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 const FilmTextBlock = () => {
-  const { values, handleChange } = useFormikContext<IDataResponse>();
   return (
     <div>
-      <Styled.AdminHalfGrid>
-        <Inputs
-          customProps={{ isAdmin: true }}
-          onChangeFunction={handleChange}
-          name="FilmBlock"
-          state={values.FilmBlock}
-        />
-      </Styled.AdminHalfGrid>
+      <TextEditor header="Subtitle" name="FilmBlock.textOnFilm" />
     </div>
   );
 };

@@ -153,4 +153,34 @@ export const ArrowWrapper = styled.div`
     font-size: 0.7em;
     width: 10vw;
   }
+
+  &.nextTech {
+  width: 35vw;
+  position: relative;
+
+  @media (min-width: 2560px) {
+    width: 45vw;
+  }
+  
+  @media (min-width: 1500px) and (max-width: 1597px) {
+    width: 34vw;
+  }
+
+  @media (min-width: 1371px) and (max-width: 1436px) {
+    width: 34vw;
+  }
+
+  @media (max-width: 768px) {
+    width: 33.5vw;
+    height: 1.8em;
+    margin-bottom: -1px;
+    margin-left: 10px;
+  }
+
+  @media (max-width: 474px) {
+    width: 119px;
+    margin-left: -1px;
+    margin-bottom: -8px;
+  }
+  }
 `;

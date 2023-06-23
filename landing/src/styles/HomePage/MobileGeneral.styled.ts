@@ -219,6 +219,14 @@ export const Subtitle = styled.div`
       text-underline-offset: 5px;
     }
 
+    &.mobileTextOnFilm {
+      p{
+        margin: 0;
+        font-size: 5vw;
+        width: 100%;
+      }  
+    }
+
     &.small {
       margin-top: 0;
       font-size: 5vw;
@@ -255,6 +263,14 @@ export const Subtitle = styled.div`
     }
     &.small div {
       flex-wrap: wrap;
+    }
+
+    &.mobileTextOnFilm {
+      p{
+        margin: 0;
+        font-size: 32px;
+        width: 353px;
+      }  
     }
 
     &.techMobile {
