@@ -42,28 +42,35 @@ const HeadBlock = () => {
           <Styled.RowContainer>
             <div>WEB3-focused, WEB2-bolstered</div>
             <Styled.LeftArrowWrapper>
-              {width && width > 768 && (
-                <Image
-                  src={leftArrow.src}
-                  alt="head block left arrow"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              )}
+              <Image
+                src={leftArrow.src}
+                alt="head block left arrow"
+                layout="fill"
+                objectFit="contain"
+                priority
+              />
             </Styled.LeftArrowWrapper>
           </Styled.RowContainer>
           <Styled.RowContainer>
             <div>TODAY BRIEFED</div>
             <Styled.RightArrowWrapper>
               <Image
-                src={
-                  width && width > 768 ? rightArrow.src : boldRightArrowMobile
-                }
+                src={rightArrow.src}
                 alt="head block left arrow"
                 layout="fill"
                 objectFit="contain"
+                priority
               />
             </Styled.RightArrowWrapper>
+            <Styled.RightArrowWrapperMobile>
+              <Image
+                src={boldRightArrowMobile}
+                alt="head block left arrow"
+                layout="fill"
+                objectFit="contain"
+                priority
+              />
+            </Styled.RightArrowWrapperMobile>
             <div>YESTERDAY DONE</div>
           </Styled.RowContainer>
         </Styled.MainSubtitle>

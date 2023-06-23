@@ -238,6 +238,16 @@ export const RightArrowWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    display: none;
+  }
+`;
+
+export const RightArrowWrapperMobile = styled.div`
+  position: relative;
+  display: none;
+
+  @media ${themes.primary.media.maxMobile} {
+    display: inline-block;
     width: 4.8vw;
   }
 
