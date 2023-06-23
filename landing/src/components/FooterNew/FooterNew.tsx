@@ -58,7 +58,7 @@ const FooterNew = ({
           }}
           href={"/"}
         >
-          <Logo />
+          <Logo cssClass={"footer"} />
         </StyledThisComp.LogoLinkWrapper>
         <StyledThisComp.MiddleTextWrapper>
           <StyledThisComp.MailsWrapper>
