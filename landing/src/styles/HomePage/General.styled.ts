@@ -414,7 +414,7 @@ export const Subtitle = styled.div<ISubtitle>`
   }
 
   &.nextTech {
-    height: 2.5em;
+    height: 2.5em   
   }
 
   &.footer {
