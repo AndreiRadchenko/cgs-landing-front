@@ -83,11 +83,12 @@ const Form: FC<FormProps> = ({ positions, data }) => {
           position: values.position,
           cvlink: values.cvlink,
         });
+
+        resetForm();
+        setPosition("");
       }
 
       setIsOpen(true);
-      resetForm();
-      setPosition("");
       setButtonState({ disabled: false, triedSubmit: false });
     },
   });
@@ -100,6 +101,9 @@ const Form: FC<FormProps> = ({ positions, data }) => {
         const { contact, name, position } = formik.values;
 
         mutate({ contact, name, position, cvpath: data.filename });
+
+        formik.resetForm();
+        setPosition("");
       },
       onError: (data) => {
         console.log(data);
@@ -203,13 +207,13 @@ const Form: FC<FormProps> = ({ positions, data }) => {
           />
         </Styled.PositionSelect>
         {Object.entries(fieldContent).map(([key, label], idx) => (
-          <FormField 
-            name={key} 
-            key={key} 
-            label={label} 
-            toFormError={buttonState.disabled && buttonState.triedSubmit} 
-            toFormErrorEmail={buttonState.disabled && buttonState.triedSubmit && !emailPattern.test(formik.values.contact)} 
-            className={idx == 1 ? "formEmail" : ""}/>
+          <FormField
+            name={key}
+            key={key}
+            label={label}
+            toFormError={buttonState.disabled && buttonState.triedSubmit}
+            toFormErrorEmail={buttonState.disabled && buttonState.triedSubmit && !emailPattern.test(formik.values.contact)}
+            className={idx == 1 ? "formEmail" : ""} />
         ))}
         <Styled.FormFieldContainer>
           <Styled.TitleContainer isCvIn={!!cvName.length}>
@@ -218,26 +222,26 @@ const Form: FC<FormProps> = ({ positions, data }) => {
             <Styled.DeleteCv onClick={onFileRemove} src={Close.src} />
           </Styled.TitleContainer>
           <Styled.Cvfield isEmpty={checkEmpty()} isCvIn={!!cvName.length} toFormError={buttonState.disabled && buttonState.triedSubmit} >
-              <Styled.FormField
-                placeholder={CV.place}
-                type={"text"}
-                name={"cvlink"}
-                onFocus={() => setInCvInput(true)}
-                onBlur={() => {
-                  setCvText(CV.place);
-                  setInCvInput(false);
-                }}
-                onClick={() => {
-                  setCvText("");
-                  setIsLoading(false);
-                }}
-                onChange={onCVlinkChange}
-              />
-              <Styled.DeleteCvLink 
-                src={Close.src} 
-                cvlink={!!formik.values.cvlink?.length}
-                onClick={() => formik.setFieldValue("cvlink", "")}
-              />
+            <Styled.FormField
+              placeholder={CV.place}
+              type={"text"}
+              name={"cvlink"}
+              onFocus={() => setInCvInput(true)}
+              onBlur={() => {
+                setCvText(CV.place);
+                setInCvInput(false);
+              }}
+              onClick={() => {
+                setCvText("");
+                setIsLoading(false);
+              }}
+              onChange={onCVlinkChange}
+            />
+            <Styled.DeleteCvLink
+              src={Close.src}
+              cvlink={!!formik.values.cvlink?.length}
+              onClick={() => formik.setFieldValue("cvlink", "")}
+            />
             <Styled.Label
               inCvInput={inCvInput}
               cvlink={!!formik.values.cvlink?.length}
@@ -248,7 +252,7 @@ const Form: FC<FormProps> = ({ positions, data }) => {
                   <Styled.DropCv
                     type="file"
                     name={"cvfile"}
-                    accept=".pdf,.jpeg"
+                    accept=".pdf,.jpeg,.doc,.jpg,.png"
                     onChange={onFileSubmit}
                     onClick={() => setIsLoading(true)}
                     value={""}

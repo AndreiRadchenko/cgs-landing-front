@@ -112,14 +112,13 @@ export const DropdownContent = styled.div`
 `;
 
 export const DropdownScrollbarContainer = styled.section`
-  width: 14px;
+  width: 10px;
   background-color: #F0EFED;
   z-index: 5;
   height: 274px;
   position: absolute;
   top: 0;
   right: 0;
-  overflow: hidden;
 
   @media (min-width: 769px) {
     display: none;
@@ -133,6 +132,7 @@ export const DropdownScrollbar = styled.section<{top: number}>`
   transform: translateY(${(props) => props.top}px);
   right: 20%;
   width: 4px;
+  margin-right: 1px;
   height: 25px;
   border-radius: 5px;
   background-color: black;

@@ -74,7 +74,7 @@ export const FormField = styled(Field) <IFormField>`
   font-family: ${themes.primary.font.family.namu};
 
   font-size: 1.34em;
-  padding: 0 0 0 12px;
+  padding: 0 0 0 33px;
 
   &:focus {
     outline: none;
@@ -292,7 +292,7 @@ export const FormSentFillText = styled.span<IFillAllFields>`
   color: red;
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.namu};
-  font-size: 12px;
+  font-size: 16px;
   bottom: 0;
   margin-top: 10px;
   animation: ${({ toDisplay }) => (toDisplay ? "move .5s linear" : "none")};
@@ -320,6 +320,10 @@ export const FormSentFillText = styled.span<IFillAllFields>`
 
   @media (max-width: 1200px) {
     margin-top: 2px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 `;
 
@@ -414,7 +418,7 @@ export const PositionSelect = styled.div<IEnableGlare>`
       border-bottom: 1px solid black !important;
       display: flex;
       align-items: center;
-      padding: 0 18px;
+      padding: 0 33px;
       height: 100%;
       width: 100%;
       position: relative;
@@ -454,7 +458,7 @@ export const PositionSelect = styled.div<IEnableGlare>`
       box-shadow: 13px 0px 0px 0px black;
       border-left: none;
       overflow-y: scroll;
-      padding-right: 7px;
+      padding-right: 10px;
 
       &::-webkit-scrollbar {
         width: 10px;
@@ -604,7 +608,7 @@ export const Format = styled.div`
   background-color: #5869DD;
   padding: 8px 4px;
   border-radius: 6px;
-  margin-left: 10px;
+  margin-left: 33px;
   font-size: 0.85em;
 
   @media (max-width: 768px) {
