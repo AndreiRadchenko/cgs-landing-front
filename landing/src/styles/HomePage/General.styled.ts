@@ -403,6 +403,16 @@ export const Subtitle = styled.div<ISubtitle>`
     text-underline-offset: 7px;
   }
 
+  &.textOnFilm {
+    p{
+      margin: 0;
+      span:first-child{
+        display: inline-flex;
+        height: 90px;
+      }
+    }
+  }
+
   &.nextTech {
     height: 2.5em   
   }

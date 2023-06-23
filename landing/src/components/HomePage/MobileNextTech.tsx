@@ -1,5 +1,6 @@
 import React from "react";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
+import Image from "next/image";
 
 import * as Styled from "../../styles/HomePage/MobileGeneral.styled";
 import longArrowMobile from "../../../public/HomePageDecoration/longArrowMobile.svg";
@@ -9,6 +10,7 @@ import { IDataResponse } from "../../types/Admin/Response.types";
 import ScrambleText from "./ScrambleText";
 import MobileServices from "./MobileServices";
 import Badges from "./Badges";
+import * as CSS from "../../styles/Portfolio/title.styled";
 
 import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import FreeServices from "../FreeServices/FreeServices";
@@ -40,6 +42,30 @@ const MobileNextTech = () => {
     },
   };
 
+  const options2: HTMLReactParserOptions = {
+    replace: (domNode) => {
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(221, 105, 88)")
+      ) {
+        return (
+          <>
+            <CSS.ArrowWrapper className="nextTech">
+              <Image
+                src={longArrowMobile.src}
+                alt="wide tech long arrow"
+                layout="fill"
+                objectFit="contain"
+              />
+            </CSS.ArrowWrapper>
+          </>
+        );
+      }
+    },
+  };
+
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>([
     queryKeys.getFullHomePage,
@@ -58,34 +84,7 @@ const MobileNextTech = () => {
       </Styled.Subtitle>
       <Badges />
       <MobileServices />
-      <Styled.Subtitle className="small">
-        {width && width < 475 ? (
-          <>
-            wide&nbsp;
-            <span className={"blue range"}>
-              <ScrambleText text={"tech-range"} />
-            </span>
-            <Styled.RowContainer>
-              <Styled.LongArrow src={longArrowMobile.src} />
-              Innovative
-            </Styled.RowContainer>
-            customer-value
-          </>
-        ) : (
-          <>
-            <Styled.RowContainer>
-              wide
-              <span className={"blue"}>
-                {typeof window !== "undefined" && (
-                  <ScrambleText text={"tech-range"} />
-                )}
-              </span>
-              <Styled.LongArrow src={longArrowMobile.src} />
-            </Styled.RowContainer>
-            <Styled.RowContainer>Innovative customer-value</Styled.RowContainer>
-          </>
-        )}
-      </Styled.Subtitle>
+      <Styled.Subtitle className="mobileTextOnFilm">{data?.textOnFilm && parse(data?.textOnFilm, options2)}</Styled.Subtitle>
       <Styled.SideOppositeContainer>
         <Styled.BlackButton
           target="_blank"
