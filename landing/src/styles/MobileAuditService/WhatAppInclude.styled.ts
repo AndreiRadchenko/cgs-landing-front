@@ -174,23 +174,44 @@ export const GlassContainer = styled.div`
 
   @media (min-width: 2561px) {
     top: 45%;
-    right: 25%;
+    right: 18%;
+  }
+
+  @media (max-width: 2560px) {
+    top: 55%;
+    right: 19%;
+  }
+
+  @media (max-width: 1920px) {
+    top: 50%;
+    right: 14%;
+  }
+
+  @media (max-width: 1440px) {
+    top: 52%;
+    right: 17.5%;
+  }
+
+  @media (max-width: 1380px) {
+    top: 52%;
+    right: 12.5%;
   }
 
   @media (max-width: 1250px) {
-    right: 15%;
+    right: 4%;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 35%;
     height: 37%;
     bottom: 10%;
-    right: 3.5em;
+    right: 1em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 271px;
     height: 265px;
+    right: 3.5em;
   }
 
   @media ${themes.primary.media.maxMobile} {
