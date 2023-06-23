@@ -54,7 +54,7 @@ const NextTech = () => {
 
   return (
     <Styled.NextTech>
-      <Styled.Subtitle>{text && parse(text.title, options)}</Styled.Subtitle>
+      <Styled.Subtitle className="nextTech">{text && parse(text.title, options)}</Styled.Subtitle>
       <Badges />
       <FreeServices />
       <Styled.Subtitle className="small">

@@ -403,6 +403,10 @@ export const Subtitle = styled.div<ISubtitle>`
     text-underline-offset: 7px;
   }
 
+  &.nextTech {
+    height: 2.5em   
+  }
+
   &.footer {
     margin-block: ${themes.primary.spacing.tertiary} 0;
     line-height: 132%;
