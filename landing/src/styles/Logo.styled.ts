@@ -4,32 +4,44 @@ import themes from "../utils/themes";
 export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 106px;
+  width: 149px;
   height: 38px;
+
+  @media (max-width: 1799px) {
+    width: 126px;
+    height: 32px;
+  }
+
+  @media (max-width: 1200px) {
+    width: 102px;
+    height: 26px;
+  }
+
+  @media (max-width: 768px) {
+    width: 126px;
+    height: 32px;
+  }
 
   &.calculator {
     width: 106px !important;
     height: 100% !important;
   }
 
-  @media ${themes.primary.media.maxPCFullHD} {
-    width: 106px;
-    height: 32px;
-  }
-
-  @media (max-width: 1280px) {
-    width: 95px;
-    height: 26px;
-  }
-
-  @media (max-width: 1110px) {
-    width: 85px;
-    height: 22px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    height: 29px;
-    width: 96px;
+  &.footer {
+    width: 149px;
+    height: 38px;
+    @media (max-width: 1799px) {
+      width: 126px;
+      height: 32px;
+    }
+    @media (max-width: 1280px) {
+      width: 102px;
+      height: 26px;
+    }
+    @media (max-width: 1110px) {
+      width: 89.7px;
+      height: 23px;
+    }
   }
 `;
 

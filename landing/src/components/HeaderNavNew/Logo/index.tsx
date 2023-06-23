@@ -2,11 +2,15 @@ import React from "react";
 import Image from "next/image";
 
 import * as Styled from "../../../styles/Logo.styled";
-import logo from "../../../../public/HomePageDecoration/logo-mobile-desktop.svg";
+import logo from "../../../../public/HomePageDecoration/logo230623.svg";
 
-const Logo = () => {
+interface ILogoProps {
+  cssClass?: string;
+}
+
+const Logo = ({ cssClass }: ILogoProps) => {
   return (
-    <Styled.LogoWrapper>
+    <Styled.LogoWrapper className={cssClass}>
       <Styled.ImageWrapper>
         <Image
           src={logo}
