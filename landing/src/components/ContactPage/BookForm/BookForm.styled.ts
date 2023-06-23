@@ -3,27 +3,10 @@ import { Field } from "formik";
 import themes from "../../../utils/themes";
 
 export const FormMobileAlign = styled.div`
-  @media ${themes.primary.media.maxServiceWeb} {
+  @media ${themes.primary.media.maxMobile} {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-`;
-
-export const Form = styled.form`
-  display: flex;
-  margin-top: 26px;
-  align-items: flex-end;
-  gap: 20px;
-
-  @media (${themes.primary.media.maxLaptop}) {
-    gap: 14px;
-  }
-
-  @media (${themes.primary.media.maxServiceWeb}) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
   }
 `;
 
@@ -209,7 +192,54 @@ export const FormFieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
+  &:nth-child(3) {
+    margin-right: 9px;
+    @media ${themes.primary.media.maxTabletLandScape} {
+      margin-right: 0px;
+    }
+  }
+
   @media ${themes.primary.media.maxServiceWeb} {
+  }
+`;
+
+export const Form = styled.form`
+  display: flex;
+  margin-top: 26px;
+  align-items: flex-end;
+  gap: 20px;
+
+  @media (${themes.primary.media.maxLaptop}) {
+    gap: 14px;
+  }
+
+  @media (${themes.primary.media.maxServiceWeb}) {
+    flex-wrap: wrap;
+  }
+
+  @media (${themes.primary.media.maxMobile}) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+`;
+
+export const InputsWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  @media (${themes.primary.media.maxLaptop}) {
+    gap: 14px;
+  }
+
+  @media (${themes.primary.media.maxServiceWeb}) {
+    flex-wrap: wrap;
+  }
+
+  @media (${themes.primary.media.maxMobile}) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
   }
 `;
 
@@ -220,15 +250,20 @@ export const FormSentContainer = styled.div`
   flex-direction: column;
   height: 102px;
   padding: 0;
-  margin: 0 0 0 7px;
+  margin: 0 0 0 -2px;
 
   @media ${themes.primary.media.maxPCFullHD} {
     height: 73px;
   }
 
   @media ${themes.primary.media.maxServiceWeb} {
+    /* margin-top: 2px;
+    margin-left: -2px; */
+  }
+
+  @media ${themes.primary.media.maxMobile} {
     margin-top: 2px;
-    margin-left: -2px;
+    /* margin-left: -2px; */
   }
 `;
 

@@ -35,7 +35,7 @@ export const ButtonWrapper = styled.a`
 export const ButtonContent = styled.div`
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: flex-end;
   gap: 8px;
   color: currentColor;
 `;

@@ -25,7 +25,7 @@ export const Messengers = ({ messengers }: MessengersProps) => {
               href={item.link}
               rel="noopener noreferrer"
               target="blank"
-              style={{ width: "322px", height: "58px" }}
+              style={{ width: "322px", height: "54px" }}
             >
               <Styles.ButtonContent style={{ alignItems: "center" }}>
                 <Styles.ImageWrapper width="24px" height="24px">

@@ -8,7 +8,7 @@ export const TextWrapper = styled.div`
   z-index: 1;
   transform: translate(50%, -100%);
   text-align: center;
-  padding: 8px 0;
+  padding: 0 0 5px;
   @media ${themes.primary.media.maxMobile} {
   }
 `;
@@ -23,7 +23,7 @@ export const PersistPopupText = styled.p`
     display: block;
   }
   @media ${themes.primary.media.maxMobile} {
-    padding-bottom: 10px;
+    padding-bottom: 7px;
   }
 `;
 

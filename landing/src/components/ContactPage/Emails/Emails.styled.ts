@@ -106,7 +106,10 @@ export const EmailsTitle = styled.h3`
     }
   }
   @media ${themes.primary.media.maxMobile} {
-    font-size: 26px;
+    font-size: 24px;
+    &.emails-title {
+      font-size: 26px;
+    }
   }
 `;
 
@@ -117,7 +120,7 @@ export const ButtonWrapper = styled.div`
   @media ${themes.primary.media.maxServiceWeb} {
     flex-direction: column;
     &.emails {
-      gap: 78px;
+      gap: 76px;
     }
   }
 `;

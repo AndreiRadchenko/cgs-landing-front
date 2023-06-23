@@ -116,18 +116,21 @@ const BookForm = ({ header }: IFormProps) => {
           encType="multipart/form-data"
           id="contact_page_form"
         >
-          {Object.entries(fieldContent).map(([key, label], idx) => (
-            <FormField
-              value={value}
-              setValue={setValue}
-              setCountry={setCountry}
-              btnIsClicked={btnState.isClicked}
-              name={key as keyof IFormState}
-              key={key}
-              label={label}
-              idx={idx}
-            />
-          ))}
+          <CSS.InputsWrapper>
+            {Object.entries(fieldContent).map(([key, label], idx) => (
+              <FormField
+                value={value}
+                setValue={setValue}
+                setCountry={setCountry}
+                btnIsClicked={btnState.isClicked}
+                name={key as keyof IFormState}
+                key={key}
+                label={label}
+                idx={idx}
+              />
+            ))}
+          </CSS.InputsWrapper>
+
           <CSS.FormSentContainer>
             <CSS.ButtonWrapper onClick={checkIfButtonIsDisabled}>
               <ContactPageButton
