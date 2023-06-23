@@ -85,34 +85,6 @@ const MobileNextTech = () => {
       <Badges />
       <MobileServices />
       <Styled.Subtitle className="mobileTextOnFilm">{data?.textOnFilm && parse(data?.textOnFilm, options2)}</Styled.Subtitle>
-      {/* <Styled.Subtitle className="small">
-        {width && width < 475 ? (
-          <>
-            wide&nbsp;
-            <span className={"blue range"}>
-              <ScrambleText text={"tech-range"} />
-            </span>
-            <Styled.RowContainer>
-              <Styled.LongArrow src={longArrowMobile.src} />
-              Innovative
-            </Styled.RowContainer>
-            customer-value
-          </>
-        ) : (
-          <>
-            <Styled.RowContainer>
-              wide
-              <span className={"blue"}>
-                {typeof window !== "undefined" && (
-                  <ScrambleText text={"tech-range"} />
-                )}
-              </span>
-              <Styled.LongArrow src={longArrowMobile.src} />
-            </Styled.RowContainer>
-            <Styled.RowContainer>Innovative customer-value</Styled.RowContainer>
-          </>
-        )}
-      </Styled.Subtitle> */}
       <Styled.SideOppositeContainer>
         <Styled.BlackButton
           target="_blank"
