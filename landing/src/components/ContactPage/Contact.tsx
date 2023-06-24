@@ -1,8 +1,4 @@
 import React from "react";
-import Image from "next/image";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useQueryClient } from "@tanstack/react-query";
-import parse from "html-react-parser";
 
 import Title from "./Title";
 import BookForm from "./BookForm";
@@ -17,7 +13,6 @@ interface IContact {
 }
 
 const Contact = ({ data }: IContact) => {
-  const isMobile = useMediaQuery("(max-width:768px)");
   const { header, emails, messengers, socials, abouts, location } = data;
 
   return (

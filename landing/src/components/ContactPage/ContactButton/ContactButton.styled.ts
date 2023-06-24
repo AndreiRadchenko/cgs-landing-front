@@ -38,6 +38,9 @@ export const ButtonContent = styled.div`
   align-items: flex-end;
   gap: 8px;
   color: currentColor;
+  @media (min-width: 1500px) {
+    align-items: baseline;
+  }
 `;
 
 export const ImageWrapper = styled.div<IImageWrapperProps>`

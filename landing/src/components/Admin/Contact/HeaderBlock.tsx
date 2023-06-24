@@ -24,8 +24,7 @@ const HeaderBlock = () => {
     useFormikContext<IContactPageData>();
 
   const {
-    title,
-    placeholders: { name, email, service },
+    placeholders: { name, email },
     button: { name: buttonName, calendly },
   } = values.header ?? {
     title: "",
@@ -41,7 +40,7 @@ const HeaderBlock = () => {
       </Styles.TitleWrapper>
 
       <Styles.Headlines>
-        <div>
+        <div style={{ flexGrow: "0" }}>
           <SubHeaderWithInput
             placeholder="Name"
             header="Form placeholders"
@@ -56,15 +55,20 @@ const HeaderBlock = () => {
             onChangeFunction={handleChange}
             name="header.placeholders.email"
           />
-          <SubHeaderWithInput
+          {/* <SubHeaderWithInput
             placeholder="Choose a service"
             header=""
             inputValue={service}
             onChangeFunction={handleChange}
             name="header.placeholders.service"
+          /> */}
+          <TextEditor
+            props={{ width: "600px" }}
+            header="Phone number label"
+            name="header.placeholders.service"
           />
         </div>
-        <div>
+        <div style={{ flexGrow: "2" }}>
           <SubHeaderWithInput
             placeholder="Button name"
             header="Form submit button"

@@ -15,6 +15,10 @@ export const FormFieldLabel = styled.label`
   font-size: 1.33em;
   line-height: 1.1875;
   color: ${themes.primary.colors.black};
+  & p {
+    margin: 0;
+    padding: 0;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 16px;

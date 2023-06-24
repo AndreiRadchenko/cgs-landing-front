@@ -1,6 +1,8 @@
 import { useFormikContext } from "formik";
 import React, { Dispatch, FC, SetStateAction } from "react";
 import PhoneInput from "react-phone-input-2";
+import parse from "html-react-parser";
+
 import { IFormState } from "./";
 
 import * as CSS from "./BookForm.styled";
@@ -39,8 +41,7 @@ const TextFieldWrapper: FC<IFieldProps> = ({
   return (
     <CSS.FormFieldWrapper>
       <CSS.FormFieldLabel htmlFor={label}>
-        {label}
-        {idx === 2 && <span> (Optional)</span>}
+        {idx === 2 ? parse(label) : label}
       </CSS.FormFieldLabel>
       <CSS.FormFieldContainer>
         {idx === 2 ? (
