@@ -65,6 +65,12 @@ export const EmailsContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxServiceWeb} {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 44px 30px 55px 30px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
     width: 100%;
     height: auto;
     padding: 50px 0px 60px 0px;
@@ -100,13 +106,12 @@ export const EmailsTitle = styled.h3`
   text-transform: uppercase;
   color: currentColor;
   text-align: center;
-  @media ${themes.primary.media.maxServiceWeb} {
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 24px;
     &.emails-title {
       margin-bottom: 78px;
+      font-size: 26px;
     }
-  }
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 26px;
   }
 `;
 
@@ -116,8 +121,10 @@ export const ButtonWrapper = styled.div`
   gap: 33px;
   @media ${themes.primary.media.maxServiceWeb} {
     flex-direction: column;
+  }
+  @media ${themes.primary.media.maxMobile} {
     &.emails {
-      gap: 78px;
+      gap: 76px;
     }
   }
 `;

@@ -28,7 +28,7 @@ export const MediaContainer = styled.div`
   margin-left: -50px;
   width: 100vw;
 
-  @media ${themes.primary.media.maxServiceWeb} {
+  @media ${themes.primary.media.maxMobile} {
     margin-top: 90px;
     display: grid;
     grid-template-columns: 1fr;

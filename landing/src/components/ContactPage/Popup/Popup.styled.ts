@@ -48,7 +48,7 @@ export const EmailPopup = styled.div`
   padding: 8px 0;
   opacity: 0;
   transition: all 0.5s ease;
-  @media ${themes.primary.media.maxServiceWeb} {
+  @media ${themes.primary.media.maxMobile} {
     display: none;
   }
 
@@ -76,7 +76,7 @@ export const PopupText = styled.p`
 export const PopupWrapper = styled.div`
   position: relative;
 
-  @media ${themes.primary.media.minServiceWeb} {
+  @media ${themes.primary.media.minTabletPortrait} {
     transition: color 0.3s ease;
     :hover {
       color: ${themes.primary.colors.darkBlue};

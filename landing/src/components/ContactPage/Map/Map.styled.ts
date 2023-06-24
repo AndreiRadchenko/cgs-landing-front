@@ -13,10 +13,10 @@ export const MapContainer = styled.div`
     display: flex;
     justify-content: center;
     height: 305px;
-    border-top: 1px solid ${themes.primary.colors.loaderSpinner};
   }
   @media ${themes.primary.media.maxMobile} {
     margin-left: -20px;
+    border-top: 1px solid ${themes.primary.colors.loaderSpinner};
   }
 `;
 
