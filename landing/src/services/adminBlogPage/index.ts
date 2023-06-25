@@ -19,8 +19,18 @@ export class AdminBlogPage {
     return this.httpService.get<IArticle[]>("api/blog/article");
   }
 
-  public getFilteredArticles() {
-    return this.httpService.get<IArticle[]>("api/blog/filtered");
+  public getPaginatedAndFilteredReviews(
+    tags: string[],
+    page: number,
+    limit: number
+  ) {
+    return this.httpService.get<IArticle[]>(
+      `api/blog/acticles?tags=${tags}&page=${page}&limit=${limit}`
+    );
+  }
+
+  public getBlogSwiperData() {
+    return this.httpService.get<IArticle[]>(`api/blog/swiper`);
   }
 
   public getArticleByUrl(url: string) {

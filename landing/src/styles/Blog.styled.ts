@@ -2,14 +2,6 @@ import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 import { infiniteBlogText } from "./Animations.styled";
 
-interface IArticlesOnPage {
-  articles: number;
-}
-
-interface IAllArticles {
-  articles: number;
-}
-
 interface ITrack {
   range: number;
 }
@@ -81,7 +73,7 @@ export const BlogContainer = styled.article`
   }
 `;
 
-export const AllArticlesContainer = styled.section<IAllArticles>`
+export const AllArticlesContainer = styled.section`
   padding: 90px 70px 0;
   margin-bottom: 180px;
   max-width: 1200px;
@@ -98,6 +90,10 @@ export const AllArticlesContainer = styled.section<IAllArticles>`
     padding: 38px 8px 0;
     margin-bottom: 175px;
   }
+`;
+
+export const BlogArticlesTemplate = styled.div`
+  min-height: 2074px;
 `;
 
 export const Separator = styled.div`
@@ -490,7 +486,7 @@ export const LeftLine = styled.img`
   }
 `;
 
-export const RightLine = styled.img<IArticlesOnPage>`
+export const RightLine = styled.img`
   position: absolute;
   width: 651.29px;
   height: 1032.31px;
@@ -853,6 +849,12 @@ export const PlayTag = styled.div`
 export const PlayTriangle = styled.img`
   width: 12px;
   height: 15px;
+`;
+
+export const BlogArticlesWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
 `;
 
 export const HeaderBlock = styled.header`

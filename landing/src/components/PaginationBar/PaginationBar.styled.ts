@@ -32,6 +32,12 @@ export const PaginationItem = styled(FontSettings)`
     color: ${themes.primary.colors.secondary};
   }
 
+  &.active {
+    background-color: ${themes.primary.colors.blogDarkText};
+    border: 1px solid ${themes.primary.colors.primary};
+    color: ${themes.primary.colors.secondary};
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     width: 2em;
     height: 2em;

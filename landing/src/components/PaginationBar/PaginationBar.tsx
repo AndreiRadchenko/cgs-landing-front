@@ -1,52 +1,48 @@
-import React, { FC } from "react";
+import React, { useCallback, useEffect } from "react";
 import * as Styles from "./PaginationBar.styled";
-import { usePagination } from "../../hooks/usePagination";
-import Link from "next/link";
-
 interface IPaginationBar {
-  totalCount: number;
-  pageSize: number;
-  siblingCount: number;
+  totalPages: number;
   currentPage: number;
-  filters: string[];
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  scrollFunction: () => void;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const DOTS = "...";
-
-const PaginationBar: FC<IPaginationBar> = ({
-  totalCount,
-  pageSize,
+const PaginationBar = ({
+  totalPages,
   currentPage,
-}) => {
-  const paginationRange = usePagination({
-    currentPage,
-    totalCount,
-    pageSize,
-  });
+  setCurrentPage,
+  scrollFunction,
+  setLoading,
+}: IPaginationBar) => {
+  const handleClick = (pageNumber: number) => {
+    setLoading(true);
+    setCurrentPage(pageNumber);
+    scrollFunction();
+  };
+
+  const handlePageClick = useCallback(
+    (pageNumber: number) => {
+      if (pageNumber + 1 !== currentPage) {
+        handleClick(pageNumber + 1);
+      }
+    },
+    [handleClick, currentPage]
+  );
 
   return (
     <Styles.PaginationWrapper>
       <Styles.PaginationItemsWrapper>
-        {paginationRange?.map((pageNumber) => {
-          if (pageNumber === DOTS) {
-            return (
-              <Styles.Dots className="pagination-item dots" key={pageNumber}>
-                {DOTS}
-              </Styles.Dots>
-            );
-          }
-          return currentPage === pageNumber ? (
-            <Styles.CurrentPaginationItem key={pageNumber}>
-              {pageNumber}
-            </Styles.CurrentPaginationItem>
-          ) : (
-            <Link href={`/blog?page=${pageNumber}`} key={pageNumber}>
-              <a>
-                <Styles.PaginationItem>{pageNumber}</Styles.PaginationItem>
-              </a>
-            </Link>
-          );
-        })}
+        {totalPages &&
+          Array.from(Array(totalPages).keys()).map((pageNumber) => (
+            <Styles.PaginationItem
+              key={pageNumber}
+              onClick={() => handlePageClick(pageNumber)}
+              className={pageNumber + 1 === currentPage ? "active" : ""}
+            >
+              {pageNumber + 1}
+            </Styles.PaginationItem>
+          ))}
       </Styles.PaginationItemsWrapper>
     </Styles.PaginationWrapper>
   );

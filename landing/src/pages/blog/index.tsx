@@ -23,25 +23,24 @@ import PodcastItem from "../../components/Blog/PodcastItem";
 import MainBlogItem from "../../components/Blog/MainBlogItem";
 import SmallArticleItem from "../../components/Blog/SmallArticleItem";
 import { BlogSwiper } from "../../components/Blog/BlogSlider/BlogSlider";
-import { Loader } from "../../components/Loader";
+import { Loader, LoaderStub } from "../../components/Loader";
 
-import loading from "../../../public/CareerDecorations/loading.svg";
-import { isNumeric } from "../../utils/isNumeric";
-import { Loading } from "../../components/CareersForm/Form/Form.styled";
-import { IArticlesData, IBlogPageData } from "../../types/Blog.types";
+import {
+  IArticlesDataResponse,
+  IBlogPageData,
+  ISwiperArticlesDataResponse,
+} from "../../types/Blog.types";
 import { BlogPageSize } from "../../consts";
 import Dropdown from "../../utils/Select/Dropdown";
 
 const BlogPage = () => {
-  const router = useRouter();
-
   const { data }: IBlogPageData = useQuery([queryKeys.getBlogPage], () =>
     adminBlogService.getBlogPageData()
   );
 
-  const { data: articles }: IArticlesData = useQuery(
-    [queryKeys.getBlogArticles],
-    () => adminBlogService.getArticles()
+  const { data: swiperData }: ISwiperArticlesDataResponse = useQuery(
+    [queryKeys.getBlogSwiperData],
+    () => adminBlogService.getBlogSwiperData()
   );
 
   const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
@@ -51,23 +50,34 @@ const BlogPage = () => {
   );
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [filters, setFilters] = useState<string[]>([]);
-  const [filteredData, setFilteredData] = useState<IArticle[] | null>(null);
-  const [tags, setTags] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isMainSliderImageLoaded, setIsMainSliderImageLoaded] =
     useState<boolean>(false);
-  const [pageNumber, setPageNumber] = useState("");
+  const [loadedImagesCount, setLoadedImagesCount] = useState(0);
+  const [isImagesLoaded, setIsImagesLoaded] = useState(false);
+  const [isTagsLoaded, setIsTagsLoaded] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const tagParams = router.query.tag;
-
-  const currentArticlesData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * BlogPageSize;
-    const lastPageIndex = firstPageIndex + BlogPageSize;
-    if (filters.length > 0 && filteredData) {
-      return filteredData?.slice(firstPageIndex, lastPageIndex);
+  const {
+    data: articles,
+    isLoading,
+    isFetching,
+  }: IArticlesDataResponse = useQuery(
+    [
+      queryKeys.getBlogPaginatedAndFilteredArticles,
+      filters,
+      currentPage,
+      BlogPageSize,
+    ],
+    () =>
+      adminBlogService.getPaginatedAndFilteredReviews(
+        filters,
+        currentPage,
+        BlogPageSize
+      ),
+    {
+      refetchOnWindowFocus: false,
     }
-    return reversedArticles?.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, filteredData, reversedArticles, filters]);
+  );
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
@@ -85,116 +95,72 @@ const BlogPage = () => {
     });
   };
 
-  useEffect(() => {
-    if (router.query.page !== "1" && filters.length) {
-      setIsLoading(true);
-      setCurrentPage(1);
-      router.push("/blog?page=1").then(() => {
-        setIsLoading(false);
-        scrollFunc();
-      });
+  const loadedImagesCounter = () => {
+    const articlesCount = articles && articles.reviews.length;
+
+    setLoadedImagesCount((prev) => prev + 1);
+
+    if (loadedImagesCount + 1 === articlesCount) {
+      filters.length && scrollFunc();
+      setIsImagesLoaded(true);
     }
+  };
+
+  const imagesCountNullifier = () => {
+    setIsImagesLoaded(false);
+    setLoadedImagesCount(0);
+  };
+
+  useEffect(() => {
+    scrollFunc();
+    setIsTagsLoaded(false);
+    imagesCountNullifier();
+    setCurrentPage(1);
   }, [filters.length]);
 
   useEffect(() => {
-    if (router.query.page && !Array.isArray(router.query.page)) {
-      if (router.query.page !== pageNumber) {
-        scrollFunc();
-      }
-
-      setPageNumber(router.query.page);
-    }
-
-    if (router.query.filters) {
-      if (typeof router.query.filters === "string") {
-        setFilters([router.query.filters]);
-      } else {
-        setFilters(router.query.filters);
-      }
-    }
-  }, [router.query.page, router.query.filters, scrollFunc]);
+    setIsTagsLoaded(false);
+    imagesCountNullifier();
+  }, [currentPage]);
 
   useEffect(() => {
-    if (articles) {
-      const page = router.query.page;
-      const maxPage = Math.ceil(articles.length / BlogPageSize);
-      const currentPage =
-        page !== "0" && isNumeric(page as string)
-          ? Number(page) <= maxPage
-            ? Number(page)
-            : maxPage
-          : 1;
-      tagParams &&
-        !filters.includes(tagParams as string) &&
-        setFilters([...filters, tagParams as string]);
-      setCurrentPage(currentPage);
-      if (tagParams) {
-        scrollFunc();
-      }
-    }
-  }, [tagParams, scrollFunc, router.query.page, data, articles, filters]);
+    if (!isLoading && isFetching) setIsImagesLoaded(true);
+  }, [isFetching]);
+
+  useEffect(() => {
+    if (!isLoading && !isFetching) setLoading(false);
+  }, [isLoading, isFetching]);
 
   useEffect(() => {
     articles &&
-      setReversedArticles(
-        articles
-          .reverse()
-          .filter(
-            (el) =>
-              !el.disabled &&
-              !el.draft &&
-              (!el.scheduleArticle ||
-                new Date() >= new Date(el.scheduleArticle))
-          )
-      );
+      articles.reviews.length &&
+      setReversedArticles(articles.reviews);
   }, [articles]);
 
   useEffect(() => {
-    const newTags = reversedArticles?.map((article) => article.tags).flat();
-    setTags(Array.from(new Set<string>(newTags)));
-  }, [data, reversedArticles]);
-
-  useEffect(() => {
-    if (filters.length > 0) {
-      const newData = reversedArticles?.filter((article) =>
-        article.tags.find((tag) => filters.includes(tag))
-      );
-      setFilteredData(newData ? newData : null);
-    }
-  }, [data, filters, filters.length, reversedArticles]);
-
-  useEffect(() => {
-    window.scroll(0, 0);
+    if (window.innerWidth < 769) window.scroll(0, 0);
   }, [isMainSliderImageLoaded]);
 
   return (
-    <Loader active={!isMainSliderImageLoaded || !reversedArticles?.length}>
-      {data && articles && views.data ? (
+    <Loader active={!isMainSliderImageLoaded}>
+      {isLoading ? (
+        <LoaderStub />
+      ) : data ? (
         <>
           <Head>
             <title>{metaTitle}</title>
             <meta name="description" content={metaDescription} />
             {customHead && parse(customHead)}
           </Head>
-          {isLoading && (
-            <Styled.LoaderContainer className={"loading"}>
-              <Loading src={loading.src} isLoading={true} />
-            </Styled.LoaderContainer>
-          )}
           <HeaderNavNew />
           <Styled.BlogContainer>
             <Styled.LeftLine src={leftLine.src} />
-            {currentArticlesData && (
-              <Styled.RightLine
-                src={rightLine.src}
-                articles={currentArticlesData.length}
-              />
-            )}
+            <Styled.RightLine src={rightLine.src} />
             <Styled.HeaderBlock>
               <Styled.MainContainer>
-                {reversedArticles && (
+                {swiperData && (
                   <BlogSwiper>
-                    {reversedArticles.slice(0, 3).map((article, idx) => (
+                    {swiperData.reviews.map((article, idx) => (
                       <SwiperSlide key={idx}>
                         <MainBlogItem
                           article={article}
@@ -210,93 +176,102 @@ const BlogPage = () => {
                 )}
               </Styled.MainContainer>
               <Styled.FlexColumnContainer className="header">
-                {reversedArticles &&
-                  reversedArticles
-                    .slice(1, 4)
-                    .map((article) => (
-                      <SmallArticleItem
-                        filters={filters}
-                        article={article}
-                        key={article._id}
-                      />
-                    ))}
+                {swiperData &&
+                  swiperData.reviews.map((article) => (
+                    <SmallArticleItem
+                      filters={filters}
+                      article={article}
+                      key={article._id}
+                    />
+                  ))}
               </Styled.FlexColumnContainer>
             </Styled.HeaderBlock>
             <PodcastItem data={data.podcast} />
-            {(articles && (
-              <Styled.AllArticlesContainer
-                id="articles-container"
-                articles={articles.length}
-              >
-                <DropdownContainer>
-                  <>
-                    {filters.length > 0 &&
-                      filters.map((filter, index) => (
-                        <Tag key={index}>
-                          {filter}&nbsp;&nbsp;
-                          <span
-                            onClick={() => {
-                              const newFilters = filters.filter(
-                                (filter) => filter !== filters[index]
-                              );
-                              setFilters([...newFilters]);
-                            }}
-                          >
-                            x
-                          </span>
-                        </Tag>
-                      ))}
-                  </>
-                  <Dropdown
-                    filters={filters}
-                    className="blog"
-                    setFilters={setFilters}
-                    tags={tags}
-                    dropdownName="#TAGS"
-                    prefix={"#"}
-                    isTag={true}
-                  />
-                </DropdownContainer>
-                {currentArticlesData &&
-                  currentArticlesData.map((article, i) =>
-                    i === 0 ? (
-                      <div key={article._id}>
-                        <BlogItem
-                          article={article}
-                          views={findViews(article.url)}
-                          filters={filters}
-                        />
-                      </div>
-                    ) : (
-                      <BlogItem
-                        article={article}
-                        key={article._id}
-                        views={findViews(article.url)}
-                        filters={filters}
-                      />
-                    )
-                  )}
-                <PaginationBar
-                  currentPage={currentPage}
-                  totalCount={
-                    filters.length > 0 && filteredData
-                      ? filteredData.length
-                      : articles.length
+            <Styled.BlogArticlesWrapper>
+              {
+                <Loader
+                  active={
+                    loading ||
+                    isLoading ||
+                    !isTagsLoaded ||
+                    !articles ||
+                    !views ||
+                    (articles?.reviews &&
+                      articles.reviews.length > 0 &&
+                      !isImagesLoaded)
                   }
-                  pageSize={BlogPageSize}
-                  siblingCount={1}
-                  filters={filters}
-                />
-              </Styled.AllArticlesContainer>
-            )) ||
-              "no articles"}
+                >
+                  <Styled.AllArticlesContainer id="articles-container">
+                    {articles && articles.tags && articles.tags.length && (
+                      <DropdownContainer>
+                        <>
+                          {filters.length > 0 &&
+                            filters.map((filter, index) => (
+                              <Tag key={index}>
+                                {filter}&nbsp;&nbsp;
+                                <span
+                                  onClick={() => {
+                                    const newFilters = filters.filter(
+                                      (filter) => filter !== filters[index]
+                                    );
+                                    setFilters([...newFilters]);
+                                  }}
+                                >
+                                  x
+                                </span>
+                              </Tag>
+                            ))}
+                        </>
+                        <Dropdown
+                          filters={filters}
+                          className="blog"
+                          setFilters={setFilters}
+                          tags={articles.tags}
+                          dropdownName="#TAGS"
+                          prefix={"#"}
+                          isTag={true}
+                        />
+                      </DropdownContainer>
+                    )}
+                    {loading || isLoading || !articles || !views ? (
+                      <LoaderStub />
+                    ) : articles.reviews.length ? (
+                      <>
+                        {reversedArticles &&
+                          reversedArticles.map((article) => (
+                            <BlogItem
+                              article={article}
+                              key={article._id}
+                              views={findViews(article.url)}
+                              filters={filters}
+                              loadedImagesCounter={loadedImagesCounter}
+                              setIsTagsLoaded={setIsTagsLoaded}
+                            />
+                          ))}
+                        {!!articles.totalPages && (
+                          <PaginationBar
+                            totalPages={articles.totalPages}
+                            currentPage={currentPage}
+                            setCurrentPage={setCurrentPage}
+                            scrollFunction={scrollFunc}
+                            setLoading={setLoading}
+                          />
+                        )}
+                      </>
+                    ) : (
+                      <Styled.BlogArticlesTemplate>
+                        {"no articles"}
+                      </Styled.BlogArticlesTemplate>
+                    )}
+                  </Styled.AllArticlesContainer>
+                </Loader>
+              }
+            </Styled.BlogArticlesWrapper>
             <FooterNew />
           </Styled.BlogContainer>
         </>
       ) : (
-        <Styled.LoaderContainer className={"loading"}>
-          <Loading src={loading.src} isLoading={true} />
-        </Styled.LoaderContainer>
+        <>{"Test"}</>
       )}
     </Loader>
   );

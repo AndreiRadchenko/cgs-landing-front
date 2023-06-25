@@ -6,14 +6,26 @@ export interface IBlogPageData {
 }
 
 export interface IArticlesData {
-  data: IArticle[] | undefined;
-  isLoading: boolean;
+  reviews: IArticle[];
+  currentPage: number;
+  totalPages: number;
+  tags: string[];
 }
 
-export interface IArticleData {
-  data: IArticle[] | undefined;
+export interface IArticlesDataResponse {
+  data?: IArticlesData;
   isLoading: boolean;
-  isSuccess: boolean;
+  isFetching: boolean;
+}
+
+export interface ISwiperArticlesData {
+  reviews: IArticle[];
+}
+
+export interface ISwiperArticlesDataResponse {
+  data?: ISwiperArticlesData;
+  isLoading: boolean;
+  isFetching: boolean;
 }
 
 export interface IMainBlogItem {
@@ -40,4 +52,6 @@ export interface IBlogItem {
   article: IArticle;
   views?: number;
   filters?: string[];
+  loadedImagesCounter?: () => void;
+  setIsTagsLoaded?: React.Dispatch<React.SetStateAction<boolean>>;
 }
