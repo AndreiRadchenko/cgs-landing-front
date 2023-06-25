@@ -33,11 +33,6 @@ import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactPr
 import { Plugin } from "suneditor/src/plugins/Plugin";
 import { IArticleAddAndEdit } from "../../../../types/Admin/Blog.types";
 
-const TITLE_MIN = 10;
-const TITLE_MAX = 60;
-const DESCRIPTION_MIN = 20;
-const DESCRIPTION_MAX = 160;
-
 const ArticleAddAndEdit = ({
   isNewArticle,
   setIsNewArticle,
@@ -47,6 +42,7 @@ const ArticleAddAndEdit = ({
 }: IArticleAddAndEdit) => {
   const [descLength, setDescLength] = useState(0);
   const [titleLength, setTitleLength] = useState(0);
+  const [shouldValidate, setShouldValidate] = useState(false);
   const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
   const { mutateAsync } = useMutation([queryKeys.uploadImage], (data: any) =>
     adminGlobalService.uploadImage(data)
@@ -121,8 +117,14 @@ const ArticleAddAndEdit = ({
     },
   };
 
-  const { values, handleSubmit, handleChange, resetForm, setFieldValue } =
-    useFormikContext<IArticle>();
+  const {
+    values,
+    handleSubmit,
+    handleChange,
+    resetForm,
+    setFieldValue,
+    errors,
+  } = useFormikContext<IArticle>();
 
   useEffect(() => {
     setDescLength(values.description.length);
@@ -167,6 +169,7 @@ const ArticleAddAndEdit = ({
   const handleDraftClick = () => {
     setFieldValue("draft", true);
     setFieldValue("disabled", true);
+    setShouldValidate(true);
     handleSubmit();
   };
 
@@ -174,7 +177,11 @@ const ArticleAddAndEdit = ({
     <>
       <Styled.AdminBlocksContent ref={ref}>
         <Styled.AdminHeader>BLOG</Styled.AdminHeader>
-        <AdminBlockDropDown title="Add Article" defaultOpen={!isNewArticle}>
+        <AdminBlockDropDown
+          title="Add Article"
+          defaultOpen={!isNewArticle}
+          onClickLogic={() => reset()}
+        >
           <Styles.AdminBlogGrid>
             <div style={{ width: "100%", maxHeight: "249px" }}>
               <Styles.AdminSubTitle>Banner</Styles.AdminSubTitle>
@@ -185,29 +192,53 @@ const ArticleAddAndEdit = ({
                 deleteFunction={deleteBannerFunc}
                 header="Drop new image here"
               />
+              {errors.image && shouldValidate && (
+                <Styled.AdminBlogErrorMessage>
+                  {errors.image && "Can not be empty"}
+                </Styled.AdminBlogErrorMessage>
+              )}
             </div>
             <Styles.ArticleInputsWrapper style={{ marginLeft: "40px" }}>
               <SubHeaderWithInput
+                isAdminBlog={true}
                 inputValue={values.author.name}
                 onChangeFunction={handleChange}
                 name="author.name"
                 header="Author's name"
                 placeholder="Author's name"
               />
+              {errors.author?.name && shouldValidate && (
+                <Styled.AdminBlogErrorMessage>
+                  {errors.author.name}
+                </Styled.AdminBlogErrorMessage>
+              )}
               <SubHeaderWithInput
+                isAdminBlog={true}
                 inputValue={values.url}
                 onChangeFunction={handleChange}
                 name="url"
                 header="Url"
                 placeholder="Url"
               />
-              <InputWithType
-                type="date"
-                value={values.date}
-                onChange={handleChange}
-                name="date"
-                header="Date"
-              />
+              {errors.url && shouldValidate && (
+                <Styled.AdminBlogErrorMessage>
+                  {errors.url}
+                </Styled.AdminBlogErrorMessage>
+              )}
+              <Styled.ExtraMargin>
+                <InputWithType
+                  type="date"
+                  value={values.date}
+                  onChange={handleChange}
+                  name="date"
+                  header="Date"
+                />
+                {errors.date && shouldValidate && (
+                  <Styled.AdminBlogErrorMessage>
+                    {errors.date}
+                  </Styled.AdminBlogErrorMessage>
+                )}
+              </Styled.ExtraMargin>
               <InputWithType
                 type="date"
                 value={values.updatedOn}
@@ -232,27 +263,46 @@ const ArticleAddAndEdit = ({
             </Styles.ArticleInputsWrapper>
             <Styles.ArticleInputsWrapper style={{ marginLeft: "24px" }}>
               <SubHeaderWithInput
+                isAdminBlog={true}
                 inputValue={values.author.specialization}
                 onChangeFunction={handleChange}
                 name="author.specialization"
                 header="Specialization (writer, other...)"
                 placeholder="writer, other..."
               />
-              <InputWithType
-                value={values.minutesToRead.toString()}
-                onChange={handleChange}
-                name="minutesToRead"
-                header="Time to read"
-                type="number"
-              />
+              {errors.author?.specialization && shouldValidate && (
+                <Styled.AdminBlogErrorMessage>
+                  {errors.author.specialization}
+                </Styled.AdminBlogErrorMessage>
+              )}
+              <Styled.ExtraMargin>
+                <InputWithType
+                  value={values.minutesToRead.toString()}
+                  onChange={handleChange}
+                  name="minutesToRead"
+                  header="Time to read"
+                  type="number"
+                />
+                {errors.minutesToRead && shouldValidate && (
+                  <Styled.AdminBlogErrorMessage>
+                    {errors.minutesToRead}
+                  </Styled.AdminBlogErrorMessage>
+                )}
+              </Styled.ExtraMargin>
               <Styled.TagContainer>
                 <Styles.AdminSubTitle>Tags</Styles.AdminSubTitle>
                 <AddTag possibleTags={possibleTags} />
               </Styled.TagContainer>
               <BlogTags possibleTags={possibleTags} />
+              {errors.tags && shouldValidate && (
+                <Styled.AdminBlogErrorMessage>
+                  {errors.tags}
+                </Styled.AdminBlogErrorMessage>
+              )}
             </Styles.ArticleInputsWrapper>
           </Styles.AdminBlogGrid>
           <SubHeaderWithInput
+            isAdminBlog={true}
             onInputFunction={handleTitle}
             inputValue={values.title}
             onChangeFunction={handleChange}
@@ -260,40 +310,56 @@ const ArticleAddAndEdit = ({
             header="Title"
             placeholder="title"
           />
-          <Styles.Text>
-            <Styles.Message>
-              {(titleLength > TITLE_MAX || titleLength < TITLE_MIN) &&
-                "Title should be between 10 and 60 characters"}
-            </Styles.Message>
-            <Styles.Counter
-              className={
-                titleLength > TITLE_MAX || titleLength < TITLE_MIN
-                  ? "error"
-                  : undefined
-              }
-            >
-              {titleLength}
-            </Styles.Counter>
-          </Styles.Text>
-          <TextEditor header="Description" name="description" />
-          <Styles.Text className="blog">
-            <Styles.Message>
-              {(descLength > DESCRIPTION_MAX || descLength < DESCRIPTION_MIN) &&
-                "Description should be between 20 and 160 characters"}
-            </Styles.Message>
-            <Styles.Counter
-              className={
-                descLength > DESCRIPTION_MAX || descLength < DESCRIPTION_MIN
-                  ? "error"
-                  : undefined
-              }
-            >
-              {descLength}
-            </Styles.Counter>
-          </Styles.Text>
-          {textEditorProps && (
-            <TextEditor header="Text" name="content" props={textEditorProps} />
+          {errors.title && shouldValidate && (
+            <Styled.AdminBlogErrorMessage>
+              {errors.title}
+            </Styled.AdminBlogErrorMessage>
           )}
+          <Styled.ExtraMargin>
+            <TextEditor header="Description" name="description" />
+            {errors.description && shouldValidate && (
+              <Styled.AdminBlogErrorMessage>
+                {errors.description}
+              </Styled.AdminBlogErrorMessage>
+            )}
+          </Styled.ExtraMargin>
+          {textEditorProps && (
+            <Styled.ExtraMargin>
+              <TextEditor
+                header="Text"
+                name="content"
+                props={textEditorProps}
+              />
+            </Styled.ExtraMargin>
+          )}
+          <Styles.BlogButtonWrapper>
+            <Styles.SubmitButtonWrapper>
+              <BlackButton
+                size={"1.5em"}
+                padding={"1em 3.25em"}
+                onClick={() => {
+                  setShouldValidate(true);
+                  handleSubmit();
+                }}
+              >
+                {`${isNewArticle ? "Save" : "Edit"} Article`}
+                <ArrowContainer>
+                  <ButtonArrow />
+                </ArrowContainer>
+              </BlackButton>
+              {isNewArticle && (
+                <Styles.DraftButton type={"button"} onClick={handleDraftClick}>
+                  Add to draft
+                </Styles.DraftButton>
+              )}
+            </Styles.SubmitButtonWrapper>
+            <Styles.BlogCancelButton
+              type={"button"}
+              onClick={isNewArticle ? reset : cancelArticle}
+            >
+              {isNewArticle ? "Reset" : "Cancel"}
+            </Styles.BlogCancelButton>
+          </Styles.BlogButtonWrapper>
         </AdminBlockDropDown>
       </Styled.AdminBlocksContent>
       <Styled.MetaBlockWraper>
@@ -302,31 +368,6 @@ const ArticleAddAndEdit = ({
           sitemap={(values.url !== "" && `blog/${values.url}`) || undefined}
         />
       </Styled.MetaBlockWraper>
-      <Styles.BlogButtonWrapper>
-        <Styles.SubmitButtonWrapper>
-          <BlackButton
-            size={"1.5em"}
-            padding={"1em 3.25em"}
-            onClick={() => handleSubmit()}
-          >
-            {`${isNewArticle ? "Save" : "Edit"} Article`}
-            <ArrowContainer>
-              <ButtonArrow />
-            </ArrowContainer>
-          </BlackButton>
-          {isNewArticle && (
-            <Styles.DraftButton type={"button"} onClick={handleDraftClick}>
-              Add to draft
-            </Styles.DraftButton>
-          )}
-        </Styles.SubmitButtonWrapper>
-        <Styles.BlogCancelButton
-          type={"button"}
-          onClick={isNewArticle ? reset : cancelArticle}
-        >
-          {isNewArticle ? "Reset" : "Cancel"}
-        </Styles.BlogCancelButton>
-      </Styles.BlogButtonWrapper>
     </>
   );
 };

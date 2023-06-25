@@ -11,11 +11,13 @@ const AdminBlockDropDown = ({
   nextBtn = false,
   onNextClick,
   defaultOpen = false,
+  onClickLogic,
 }: IBlockDropDownProps) => {
   const [isShown, setIsShown] = useState(defaultOpen);
 
   const onClick = () => {
     setIsShown(!isShown);
+    onClickLogic && onClickLogic();
   };
 
   return (
