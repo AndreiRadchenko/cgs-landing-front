@@ -66,8 +66,7 @@ export const BlogButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 37px;
-  margin-inline: 45px;
+  margin: 37px 0;
 `;
 
 export const AdminBlogGrid = styled.div`

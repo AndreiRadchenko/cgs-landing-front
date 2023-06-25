@@ -14,6 +14,7 @@ import {
 import ArticleAddAndEdit from "./ArticleAddAndEdit";
 import { IArticleForm } from "../../../../types/Admin/Blog.types";
 import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
+import { AdminBlogValidation } from "../../../../validations/AdminBlogValidation";
 
 const META_TITLE_MAX = 60;
 const META_DESCRIPTION_MAX = 160;
@@ -153,6 +154,7 @@ const ArticleForm = ({
             : articles[article]
         }
         onSubmit={submitFunc}
+        validationSchema={AdminBlogValidation}
         validateOnBlur={false}
       >
         <Form>

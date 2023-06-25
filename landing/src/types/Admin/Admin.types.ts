@@ -1,5 +1,5 @@
 import { IPropsWithImage } from "./BlockProps";
-import { IEditInformation, IPointsData} from "./Response.types";
+import { IEditInformation, IPointsData } from "./Response.types";
 import { FieldArrayRenderProps } from "formik";
 import { IDataCareersResponse } from "./Response.types";
 import { CSSProperties } from "react";
@@ -44,6 +44,7 @@ export interface IBlockDropDownProps {
   children: any;
   onNextClick?: () => void;
   defaultOpen?: boolean;
+  onClickLogic?: () => void;
 }
 
 export interface InputWithHeader extends InputPropsInterface {
@@ -56,6 +57,7 @@ export interface InputWithHeader extends InputPropsInterface {
   width?: string;
   id?: string;
   inputStyle?: any;
+  isAdminBlog?: boolean;
 }
 
 export interface InputWithImage extends InputPropsInterface {

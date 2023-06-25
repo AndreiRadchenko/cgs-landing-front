@@ -42,6 +42,7 @@ interface IAdminInput {
   height?: string;
   width?: string;
   isAdmin?: string;
+  isAdminBlog?: boolean;
 }
 
 interface IBox {
@@ -263,12 +264,20 @@ export const AdminHeader = styled.h2`
   margin-bottom: 1.21em;
 `;
 
-export const AdminSubTitle = styled.h3<{ isBlog?: boolean; size?: string }>`
+export const ExtraMargin = styled.div`
+  margin-top: 10px;
+`;
+
+export const AdminSubTitle = styled.h3<{
+  isBlog?: boolean;
+  isAdminBlog?: boolean;
+  size?: string;
+}>`
   font-size: ${(props) =>
     props.size ? props.size : themes.primary.font.size.oneAndHalf};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  margin: 0 0 10px 0;
+  margin: ${({ isAdminBlog }) => (isAdminBlog ? "10px 0" : "0 0 10px 0")};
 
   &.imageUploader {
     margin-top: 22%;
@@ -409,7 +418,8 @@ export const AdminInput = styled(TextareaAutosize)<IAdminInput>`
   height: ${({ height }) => height};
   line-height: 160%;
 
-  margin-bottom: ${themes.primary.spacing.primary};
+  margin-bottom: ${({ isAdminBlog }) =>
+    isAdminBlog ? "0" : themes.primary.spacing.primary};
 
   &::-webkit-scrollbar {
     display: none;
@@ -434,7 +444,7 @@ export const AdminInput = styled(TextareaAutosize)<IAdminInput>`
     background-color: ${themes.primary.colors.careerBackground};
   }
 
-  &.badgesInput{
+  &.badgesInput {
     padding-right: 30px;
   }
 `;
@@ -1392,6 +1402,11 @@ export const AdminEditIcon = styled.span`
 export const AdminFullImage = styled.img`
   max-width: 100%;
   max-height: 100%;
+`;
+
+export const AdminBlogErrorMessage = styled.div`
+  /* margin-top: -15px; */
+  color: ${themes.primary.colors.errorText};
 `;
 
 export const TextEditorContainer = styled.div<ITextEditorContainer>`

@@ -11,6 +11,7 @@ const SubHeaderWithInput = ({
   placeholder,
   minRows,
   isBlog = false,
+  isAdminBlog,
   height,
   width,
   id,
@@ -19,7 +20,9 @@ const SubHeaderWithInput = ({
 }: InputWithHeader) => {
   return (
     <div>
-      <Styled.AdminSubTitle isBlog={isBlog}>{header}</Styled.AdminSubTitle>
+      <Styled.AdminSubTitle isAdminBlog={isAdminBlog} isBlog={isBlog}>
+        {header}
+      </Styled.AdminSubTitle>
       <Styled.AdminInput
         className={isMetaField ? "metaField" : undefined}
         onInput={onInputFunction}
@@ -32,6 +35,7 @@ const SubHeaderWithInput = ({
         width={width}
         id={id}
         style={inputStyle}
+        isAdminBlog={isAdminBlog}
       />
     </div>
   );
