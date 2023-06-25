@@ -45,6 +45,8 @@ export const StyledLoader = styled(LoadingOverlay)`
     height: 100%;
   }
   &.MyLoader_wrapper--active {
+    display: flex;
+    justify-content: center;
     overflow: hidden;
     width: 100%;
     height: 100%;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/Blog.styled";
 import Watch from "../../../public/Watch.svg";
@@ -7,13 +7,25 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useRouter } from "next/router";
 import { IBlogItem } from "../../types/Blog.types";
 
-const BlogItem = ({ article, views, filters }: IBlogItem) => {
+const BlogItem = ({
+  article,
+  views,
+  filters,
+  loadedImagesCounter,
+  setIsTagsLoaded,
+}: IBlogItem) => {
   const { width } = useWindowDimension();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [displayedTag, setDisplayedTag] = useState("");
   const parseDate = (date: string) => {
     return date.split("-").reverse().join(".");
   };
 
   const router = useRouter();
+
+  const handleImageLoad = () => {
+    setIsLoaded(true);
+  };
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -25,6 +37,24 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
       `/blog/${article.url}`
     );
   };
+
+  useEffect(() => {
+    if (isLoaded) {
+      loadedImagesCounter && loadedImagesCounter();
+    }
+  }, [isLoaded]);
+
+  useEffect(() => {
+    const result =
+      filters && filters?.length > 0
+        ? filters.find((tag) => article.tags.includes(tag))
+        : article.tags[0];
+
+    if (result) {
+      setIsTagsLoaded && setIsTagsLoaded(true);
+      setDisplayedTag(result);
+    }
+  }, [article]);
 
   return (
     article && (
@@ -94,11 +124,7 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
                         )}
                       </Styled.Date>
                     )}
-                    <Styled.Tag className="preview">
-                      {filters && filters?.length > 0
-                        ? filters.find((tag) => article.tags.includes(tag))
-                        : article.tags[0]}
-                    </Styled.Tag>
+                    <Styled.Tag className="preview">{displayedTag}</Styled.Tag>
                   </Styled.FlexRowContainer>
                   <Styled.BlogItemTitle>{article.title}</Styled.BlogItemTitle>
                   <Styled.BlogItemDescription>
@@ -106,7 +132,10 @@ const BlogItem = ({ article, views, filters }: IBlogItem) => {
                   </Styled.BlogItemDescription>
                 </Styled.BlogItemContent>
                 {article.image?.url ? (
-                  <Styled.BlogItemImage src={article.image.url} />
+                  <Styled.BlogItemImage
+                    src={article.image.url}
+                    onLoad={handleImageLoad}
+                  />
                 ) : (
                   <Styled.NoBlogItemImage />
                 )}
