@@ -25,7 +25,9 @@ const Slide = ({ review, isActive, ind }: IReviewProps) => {
             alt={"project image"}
             layout={"fill"}
             objectFit="contain"
-            loading={"lazy"}
+            quality={10}
+            priority
+            loading={"eager"}
           />
         </Styled.ImageWrapper>
       )}
