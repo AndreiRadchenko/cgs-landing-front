@@ -21,6 +21,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import Image from "next/image";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+import * as Styled from "../../styles/ShowCase.styled";
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -58,26 +59,49 @@ const CarouselFeedback: FC = () => {
           <Swiper {...params}>
             <Navigationwrapper>
               <FeedbackIntro title={data?.subtitle} subtitle={data?.text3} />
-              <ButtonWrapper>
-                <ArrowContainer>
-                  <LeftArrowWrapper>
-                    <Image
-                      className="swiper-button-prev"
-                      src={LeftArrow.src}
-                      alt="left arrow feedback"
-                      layout="fill"
+              <Styled.FeedbackButtonWrapper>
+                <Styled.ArrowContainer className="prevBtn swiper-button-prev">
+                  <svg
+                    width="20"
+                    height="18"
+                    viewBox="0 0 20 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10.25 1.39844L2 9.39844M2 9.39844L10.25 17.3984M2 9.39844L20 9.39844"
+                      stroke="black"
+                      strokeWidth="1.5"
                     />
-                  </LeftArrowWrapper>
-                  <RightArrowWrapper>
-                    <Image
-                      className="swiper-button-next"
-                      src={RightArrow.src}
-                      alt="right arrow feedback"
-                      layout="fill"
+                    <path
+                      d="M10.25 1.39844L2 9.39844M2 9.39844L10.25 17.3984M2 9.39844L20 9.39844"
+                      stroke="black"
+                      strokeWidth="1.5"
                     />
-                  </RightArrowWrapper>
-                </ArrowContainer>
-              </ButtonWrapper>
+                  </svg>
+                </Styled.ArrowContainer>
+                <Styled.ArrowContainer className="nextBtn swiper-button-next">
+                  <span>next</span>
+                  <svg
+                    width="20"
+                    height="18"
+                    viewBox="0 0 20 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.75 16.6016L18 8.60156M18 8.60156L9.75 0.601563M18 8.60156L-6.84812e-07 8.60156"
+                      stroke="#F1EFED"
+                      strokeWidth="1.5"
+                    />
+                    <path
+                      d="M9.75 16.6016L18 8.60156M18 8.60156L9.75 0.601563M18 8.60156L-6.84812e-07 8.60156"
+                      stroke="#F1EFED"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                </Styled.ArrowContainer>
+              </Styled.FeedbackButtonWrapper>
             </Navigationwrapper>
             {renderSliderSlides}
           </Swiper>
