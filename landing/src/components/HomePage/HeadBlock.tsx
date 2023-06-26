@@ -9,7 +9,6 @@ import { IDataResponse } from "../../types/Admin/Response.types";
 import Tetris from "./Tetris";
 import Image from "next/image";
 import { useOnScreen } from "../../hooks/useOnScreen";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ButtonShareComponent from "./ButtonShareComponent";
 import GetEstimationButton from "../GetEstimationButton";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
