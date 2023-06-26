@@ -60,6 +60,10 @@ export const SwiperArrowContainer = styled.div`
   }
 `;
 
+export const FeedbackButtonWrapper = styled.div`
+  display: flex;
+`;
+
 export const ArrowContainer = styled.div`
   display: flex;
   justify-content: center;
