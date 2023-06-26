@@ -204,11 +204,33 @@ export const MainSubtitle = styled.div`
   row-gap: 7px;
   margin: 28px 0 40px;
 
+  &.homePage {
+    p{
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 2560px) {
+    &.homePage {
+    width: 22em;
+    }
+  }
+
+  @media (max-width: 1800px) {
+    &.homePage {
+    width: 24em;
+    }
+  }
+
   @media (max-width: 1320px) {
     margin-top: ${themes.primary.spacing.small};
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 20px;
+
+    &.homePage {
+    width: 26em;
+    }
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -218,6 +240,9 @@ export const MainSubtitle = styled.div`
   @media ${themes.primary.media.maxMobile} {
     font-size: 4.8vw;
     margin: 10px 0 35px;
+    &.homePage {
+    width: 100%;
+    }
   }
 
   @media (max-width: 360px) {
@@ -1163,7 +1188,7 @@ export const Tag = styled.button<ITag>`
   z-index: 1;
   &:hover {
     background-color: ${(props) =>
-      props.isArticlePage && themes.primary.colors.hoveredBlogTag};
+    props.isArticlePage && themes.primary.colors.hoveredBlogTag};
     cursor: ${(props) => props.isArticlePage && "pointer"};
   }
   span {

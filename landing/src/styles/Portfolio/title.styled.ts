@@ -122,6 +122,18 @@ export const ArrowWrapper = styled.div`
   position: relative;
   margin-bottom: 12px;
 
+  &.homePageSubtitleLeftArrow {
+    width: 97px;
+    height: 2.2em;
+    top: 13px;
+  }
+
+  &.homePageSubtitleRightArrow {
+    width: 122px;
+    height: 2.4em;
+    top: 15px;
+  }
+
   @media (max-width: 2560px) {
     font-size: 0.4em;
     width: 11vw;
@@ -136,6 +148,18 @@ export const ArrowWrapper = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-bottom: 7px;
     width: 10vw;
+
+    &.homePageSubtitleLeftArrow {
+    width: 70px;
+    height: 2.2em;
+    top: 10px;
+  }
+
+  &.homePageSubtitleRightArrow {
+    width: 80px;
+    height: 2.4em;
+    top: 10px;
+  }
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -146,12 +170,25 @@ export const ArrowWrapper = styled.div`
     width: 15vw;
     margin-left: 10px;
     margin-right: 5px;
+
+    &.homePageSubtitleRightArrow {
+    width: 4.8vw;
+    height: 4.8vw;
+    top: 12px;
+    margin-left: -5px;
+    margin-right: -5px;
+  }
   }
 
   @media (max-width: 475px) {
     margin-bottom: 2px;
     font-size: 0.7em;
     width: 10vw;
+
+    &.homePageSubtitleRightArrow {
+      top: 5px;
+      margin-left: -2px;
+    }
   }
 
   &.nextTech {
