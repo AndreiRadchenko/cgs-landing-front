@@ -219,6 +219,12 @@ export const Subtitle = styled.div`
       text-underline-offset: 5px;
     }
 
+    &.techMobile {
+      br{
+        display: none;
+      }
+    }
+
     &.mobileTextOnFilm {
       p{
         margin: 0;

@@ -23,12 +23,16 @@ export const BadgesContainer = styled.div`
 `;
 
 export const BadgesData = styled.div<BadgesData>`
-  display: grid;
-  grid-template-columns: repeat(${(props) => props.columnsNumber}, 1fr);
-  gap: 14.5px;
+  display: flex;
+  justify-content: space-around;
+  width: 87vw;
+  margin: 0 auto;
 
   @media ${themes.primary.media.maxMobile} {
+    padding-top: 40px;
+    display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 30px;
     & > :nth-child(1) {
       grid-row: 1;
       grid-column: 1;
@@ -136,7 +140,7 @@ export const MobileLine = styled.div<IMobileLine>`
 export const LogosContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 14.5px;
+  column-gap: 100px;
   margin-top: 67px;
 
   @media ${themes.primary.media.maxMobile} {
@@ -152,7 +156,7 @@ export const LogoImageWrapper = styled.div`
   align-self: center;
   position: relative;
   height: 115px;
-  width: 250px;
+  width: 227px;
 
   @media ${themes.primary.media.maxServiceWeb} {
     height: 80px;

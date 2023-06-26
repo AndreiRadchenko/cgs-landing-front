@@ -62,6 +62,10 @@ export const SwiperArrowContainer = styled.div`
 
 export const FeedbackButtonWrapper = styled.div`
   display: flex;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const ArrowContainer = styled.div`
@@ -96,6 +100,11 @@ export const ArrowContainer = styled.div`
       }
     }
   }
+
+  &.feedbackPrevBtn {
+    border: 1.8px solid #000000;
+  }
+
   &.nextBtn {
     width: 6.63em;
     height: 2.7em;

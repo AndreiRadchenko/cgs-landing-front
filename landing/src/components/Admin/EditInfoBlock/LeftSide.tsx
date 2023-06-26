@@ -13,8 +13,6 @@ interface ILeftSideProps {
 }
 
 const LeftSideBlock = ({ state, onChangeFunction }: ILeftSideProps) => {
-
-  console.log('qwe', state.title)
   return (
     <div style={{width: '28em'}}>
       <SubHeaderWithInput
