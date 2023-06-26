@@ -22,6 +22,12 @@ export interface ISwiperArticlesData {
   reviews: IArticle[];
 }
 
+export interface IArticleData {
+  data: IArticle[] | undefined;
+  isLoading: boolean;
+  isSuccess: boolean;
+}
+
 export interface ISwiperArticlesDataResponse {
   data?: ISwiperArticlesData;
   isLoading: boolean;
