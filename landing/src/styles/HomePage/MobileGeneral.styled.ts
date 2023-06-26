@@ -275,7 +275,12 @@ export const Subtitle = styled.div`
 
     &.techMobile {
       font-size: 32px;
-      width: 100px;
+      width: 100%;
+      line-height: 113%;
+      letter-spacing: 1.6px;
+      p{
+        margin: 0;
+      }
     }
 
     span {

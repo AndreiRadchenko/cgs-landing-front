@@ -12,9 +12,12 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ButtonShareComponent from "./ButtonShareComponent";
 import GetEstimationButton from "../GetEstimationButton";
+import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
+import * as CSS from "../../styles/Portfolio/title.styled";
+import { useMediaQuery } from "@mui/material";
 
 const HeadBlock = () => {
-  const { width } = useWindowDimension();
+  const is768px = useMediaQuery("(max-width: 768px)")
 
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>([
@@ -24,6 +27,82 @@ const HeadBlock = () => {
   const [buttonClassName, setButtonClassName] = useState<string>("main");
   const elRef = useRef<HTMLDivElement>(null);
   const isOnScreen = useOnScreen(elRef, true);
+
+  const options: HTMLReactParserOptions = {
+    replace: (domNode) => {
+      if (!is768px) {
+        if (
+          domNode instanceof Element &&
+          domNode.attribs &&
+          domNode.attribs.style &&
+          domNode.attribs.style.includes("color: rgb(88, 24, 14)")
+        ) {
+          return (
+            <>
+              <CSS.ArrowWrapper className="homePageSubtitleLeftArrow">
+                <Image
+                  src={leftArrow.src}
+                  alt="wide tech long arrow"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </CSS.ArrowWrapper>
+            </>
+          );
+        }
+        if (
+          domNode instanceof Element &&
+          domNode.attribs &&
+          domNode.attribs.style &&
+          domNode.attribs.style.includes("color: rgb(221, 105, 88)")
+        ) {
+          return (
+            <>
+              <CSS.ArrowWrapper className="homePageSubtitleRightArrow">
+                <Image
+                  src={rightArrow.src}
+                  alt="wide tech long arrow"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </CSS.ArrowWrapper>
+            </>
+          );
+        }
+      }
+      if (is768px) {
+        if (
+          domNode instanceof Element &&
+          domNode.attribs &&
+          domNode.attribs.style &&
+          domNode.attribs.style.includes("color: rgb(88, 24, 14)")
+        ) {
+          return (
+            <></>
+          );
+        }
+        if (
+          domNode instanceof Element &&
+          domNode.attribs &&
+          domNode.attribs.style &&
+          domNode.attribs.style.includes("color: rgb(221, 105, 88)")
+        ) {
+          return (
+            <>
+              <CSS.ArrowWrapper className="homePageSubtitleRightArrow">
+                <Image
+                  src={boldRightArrowMobile.src}
+                  alt="wide tech long arrow"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </CSS.ArrowWrapper>
+            </>
+          );
+        }
+      }
+    },
+  };
 
   useEffect(() => {
     if (isOnScreen) {
@@ -38,41 +117,8 @@ const HeadBlock = () => {
     <Styled.HeadBlockRow>
       <Styled.HeadBlockContent>
         <Styled.Title>{data?.title}</Styled.Title>
-        <Styled.MainSubtitle>
-          <Styled.RowContainer>
-            <div>WEB3-focused, WEB2-bolstered</div>
-            <Styled.LeftArrowWrapper>
-              <Image
-                src={leftArrow.src}
-                alt="head block left arrow"
-                layout="fill"
-                objectFit="contain"
-                priority
-              />
-            </Styled.LeftArrowWrapper>
-          </Styled.RowContainer>
-          <Styled.RowContainer>
-            <div>TODAY BRIEFED</div>
-            <Styled.RightArrowWrapper>
-              <Image
-                src={rightArrow.src}
-                alt="head block left arrow"
-                layout="fill"
-                objectFit="contain"
-                priority
-              />
-            </Styled.RightArrowWrapper>
-            <Styled.RightArrowWrapperMobile>
-              <Image
-                src={boldRightArrowMobile}
-                alt="head block left arrow"
-                layout="fill"
-                objectFit="contain"
-                priority
-              />
-            </Styled.RightArrowWrapperMobile>
-            <div>YESTERDAY DONE</div>
-          </Styled.RowContainer>
+        <Styled.MainSubtitle className="homePage">
+          {data && parse(data?.subtitle, options)}
         </Styled.MainSubtitle>
         {data && (
           <Styled.ButtonWrapper ref={elRef}>

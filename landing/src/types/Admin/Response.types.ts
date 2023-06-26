@@ -9,6 +9,7 @@ import {
 import { ITechnology } from "./AdminPortfolio.types";
 export interface IEditInformation {
   title: string;
+  subtitle: string;
   button: string;
   buttonLink: string;
   whatsAppLink: string;
