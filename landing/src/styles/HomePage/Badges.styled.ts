@@ -147,6 +147,7 @@ export const LogosContainer = styled.div`
     grid-template-columns: 1fr 1fr;
     margin-top: 48px;
     row-gap: 30px;
+    column-gap: 40px;
     padding: 0;
   }
 `;

@@ -136,7 +136,7 @@ export const FormFieldLabel = styled.label`
 `;
 
 export const FormFieldContainer = styled.div`
-  width: 100%;
+  width: 103.75%;
   position: relative;
   margin-top: 10px;
   margin-bottom: 12px;

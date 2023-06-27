@@ -68,7 +68,6 @@ const Content = () => {
             <MobileNextTech />
           </LocalLayout>
         </Layout>
-        <Separator />
         <Layout>
           <LocalLayout>
             <MobileReverseLayout>

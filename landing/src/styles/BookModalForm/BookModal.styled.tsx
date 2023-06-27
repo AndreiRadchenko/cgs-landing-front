@@ -9,6 +9,7 @@ export const BookModal = styled.div<IBookModalContent>`
   position: fixed;
   z-index: ${({ isCalendly }) => (isCalendly ? "99999" : "36")};
   left: 0;
+  font-size: 0.7em;
   top: 0;
   width: 100%;
   height: 100%;
@@ -39,6 +40,11 @@ export const BookModalContent = styled.div<IBookModalContent>`
   background: ${themes.primary.colors.blogBackground};
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
+
+  @media (orientation: landscape) {
+    height: 100vh;
+    overflow: scroll;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     width: ${({ isCalendly }) => (isCalendly ? "345px" : "699px")};

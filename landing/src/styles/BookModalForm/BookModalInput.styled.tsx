@@ -73,14 +73,14 @@ export const List = styled.ul`
 
 export const ListTitle = styled.span`
   margin-bottom: 7px;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: ${themes.primary.font.weight.heavy};
   font-family: ${themes.primary.font.family.namu};
   text-transform: uppercase;
   line-height: 21px;
 
   @media ${themes.primary.media.estiomationFormWidth} {
-    font-size: 17.5px;
+    font-size: 18px;
     text-align: center;
   }
 

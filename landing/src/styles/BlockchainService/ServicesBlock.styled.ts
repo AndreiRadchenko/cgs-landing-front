@@ -279,6 +279,10 @@ export const Description = styled.div`
     margin: 1.565em 0 0;
     width: 21em;
 
+    br {
+      display: none;
+    }
+
     p {
       display: block;
     }
