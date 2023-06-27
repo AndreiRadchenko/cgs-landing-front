@@ -42,6 +42,22 @@ export const WrapperWithLine = styled.div`
   }
 `;
 
+export const WrapperWithLineProvideBlock = styled.div`
+  @media ${themes.primary.media.maxMobile} {
+    &:before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 120vw;
+      position: relative;
+      right: 10%;
+      background: ${themes.primary.colors.headerBorder};
+      margin-bottom: 1.75em;
+      margin-top: 160px;
+    }
+  }
+`;
+
 export const Subtitle = styled.h3`
   font-size: 40px;
   line-height: 140%;

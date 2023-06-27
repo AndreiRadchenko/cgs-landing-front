@@ -288,20 +288,20 @@ export const SubContainer = styled.div`
 
   @media (min-width: 1601px) {
     font-size: 1.1em;
-    &:nth-child(2){
+    &:nth-child(2) {
       margin-top: 60px;
     }
   }
 
   @media (min-width: 1800px) {
-    &:nth-child(2){
+    &:nth-child(2) {
       margin-top: 75px;
     }
   }
 
   @media (max-width: 1600px) {
     max-width: 513px;
-    &:nth-child(2){
+    &:nth-child(2) {
       margin-top: 55px;
     }
   }
@@ -313,8 +313,8 @@ export const SubContainer = styled.div`
   @media (max-width: 1280px) {
     font-size: 0.8em;
     max-width: 450px;
-    &:nth-child(2){
-      margin-top: 45px;
+    &:nth-child(2) {
+      margin-top: 0px;
     }
   }
 
@@ -393,7 +393,7 @@ export const SecondSubtitleContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin-top: 6em;
+    margin-top: 0.1em;
   }
 `;
 

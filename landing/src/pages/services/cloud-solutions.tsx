@@ -44,8 +44,10 @@ export async function getServerSideProps() {
 }
 
 const CloudService = () => {
-  const { data, isLoading } = useQuery([queryKeys.getServiceCloudPage], () =>
-    adminCloudService.getCloudSolutionPage()
+  const { data, isSuccess, isFetching } = useQuery(
+    [queryKeys.getServiceCloudPage],
+    () => adminCloudService.getCloudSolutionPage(),
+    { refetchOnWindowFocus: false }
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
@@ -75,8 +77,8 @@ const CloudService = () => {
   }, []);
 
   return (
-    <Loader active={isLoading}>
-      {isLoading ? (
+    <Loader active={isFetching}>
+      {!isSuccess ? (
         <LoaderStub />
       ) : (
         <>

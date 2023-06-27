@@ -31,6 +31,7 @@ export const Wrapper = styled.div`
 
   &.blockchainTeam {
     margin-top: 12.45em;
+    margin-bottom: 13.917em;
   }
 
   &.supportTeam {
@@ -55,6 +56,10 @@ export const Wrapper = styled.div`
 
     &.supportTeam {
       margin-top: 0;
+    }
+
+    &.blockchainTeam {
+      margin-bottom: 108px;
     }
   }
 
@@ -105,6 +110,9 @@ export const MobileTitle = styled.div`
   @media (max-width: 768px) {
     &.dappAuditTeam {
       margin-top: 25px;
+    }
+    &.webDev {
+      margin-top: 24px;
     }
   }
 `;

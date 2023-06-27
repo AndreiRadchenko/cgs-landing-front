@@ -29,9 +29,9 @@ const EssentialBlock = () => {
       <Styled.ContentWrapper>
         {data && (
           <Styled.Title ref={elRef}>
-            {(width && width <= 767 && isScrolled && (
-              <TextTypingAnimation text={data.title} />
-            )) || <SplitBrackets text={data?.title} />}
+            {isScrolled && (
+              <TextTypingAnimation miliseconds={250} text={data.title} />
+            )}
           </Styled.Title>
         )}
         <Styled.Text>

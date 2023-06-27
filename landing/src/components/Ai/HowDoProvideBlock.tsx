@@ -4,7 +4,7 @@ import React from "react";
 import { queryKeys } from "../../consts/queryKeys";
 import {
   Subtitle,
-  WrapperWithLine,
+  WrapperWithLineProvideBlock,
 } from "../../styles/AiService/Common.styled";
 import * as Styled from "../../styles/AiService/HowDoProvideBlock.styled";
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
@@ -58,7 +58,7 @@ const HowDoProvideBlock = () => {
             />
           ))}
         </Styled.SubContentWrapper>
-        <WrapperWithLine />
+        <WrapperWithLineProvideBlock />
         {data && (
           <Styled.SecondSubtitleContainer>
             <HowToProvideBlockItem
