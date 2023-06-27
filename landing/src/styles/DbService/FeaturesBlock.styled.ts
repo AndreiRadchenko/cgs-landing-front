@@ -34,10 +34,6 @@ export const Title = styled.h2`
     font-size: 1.5em;
     line-height: 132%;
     margin-top: 88px;
-
-    & .last-part > div {
-      top: 20%;
-    }
   }
 `;
 

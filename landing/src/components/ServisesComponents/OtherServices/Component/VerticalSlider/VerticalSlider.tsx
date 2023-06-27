@@ -49,6 +49,8 @@ export const VerticalSlider: FC<ISliderProps> = ({
         modules={[Autoplay, Navigation]}
         speed={3000}
         className="mySwiper"
+        observeParents={true}
+        observer={true}
       >
         {children}
       </Swiper>

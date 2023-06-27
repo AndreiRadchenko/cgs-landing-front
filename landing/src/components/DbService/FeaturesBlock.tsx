@@ -37,10 +37,7 @@ const FeaturesBlock = () => {
     <>
       {data && (
         <Styled.Title ref={elRef}>
-          {(width && width <= 767 && isScrolled && (
-            <TextTypingAnimation text={data.subtitle} />
-          )) ||
-            data.subtitle}
+          {isScrolled && <TextTypingAnimation text={data.subtitle} />}
         </Styled.Title>
       )}
       <Styled.Container ref={elRef}>
