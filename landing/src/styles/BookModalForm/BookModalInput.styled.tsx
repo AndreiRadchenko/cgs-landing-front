@@ -63,7 +63,7 @@ export const Content = styled.div`
 export const List = styled.ul`
   list-style-type: square;
   margin: 55px 5px 0 0;
-  padding: 0 64px 0 50px;
+  padding: 0 30px 0 50px;
 
   @media ${themes.primary.media.estiomationFormWidth} {
     margin-top: 42px;
