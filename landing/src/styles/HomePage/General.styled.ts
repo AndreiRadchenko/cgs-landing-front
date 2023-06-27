@@ -431,6 +431,7 @@ export const Subtitle = styled.div<ISubtitle>`
   &.textOnFilm {
     p{
       margin: 0;
+      line-height: 160%;
       span:first-child{
         display: inline-flex;
         height: 90px;
