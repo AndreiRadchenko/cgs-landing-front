@@ -55,7 +55,7 @@ export const FormSentContainer = styled.div`
 
   @media ${themes.primary.media.estiomationFormWidth} {
     height: 50px;
-    margin-top: 26px;
+    margin-top: 18.5px;
     margin-bottom: 26px;
   }
 `;
