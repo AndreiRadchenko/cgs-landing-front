@@ -41,13 +41,13 @@ export const BookModalContent = styled.div<IBookModalContent>`
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
 
-  @media (orientation: landscape) {
+  @media ${themes.primary.media.maxMobile} {
+    width: ${({ isCalendly }) => (isCalendly ? "345px" : "699px")};
+
+    @media (orientation: landscape) {
     height: 100vh;
     overflow: scroll;
   }
-
-  @media ${themes.primary.media.maxMobile} {
-    width: ${({ isCalendly }) => (isCalendly ? "345px" : "699px")};
   }
 
   @media ${themes.primary.media.minPCFullHD} {
