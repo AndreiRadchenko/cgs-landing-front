@@ -33,7 +33,7 @@ export const OtherServices = ({ otherServices }: IServicesProps) => {
               ))}
             </VerticalSlider>
             {!isMobile && (
-              <VerticalSlider isReverse={true}>
+              <VerticalSlider slidesPerView={1} isReverse={true}>
                 {otherServices?.services.reverse().map((slide, idx) => (
                   <SwiperSlide key={idx}>
                     <Picture

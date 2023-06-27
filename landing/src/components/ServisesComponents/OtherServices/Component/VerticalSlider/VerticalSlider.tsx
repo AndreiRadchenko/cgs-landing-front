@@ -10,12 +10,14 @@ interface ISliderProps {
   children?: React.ReactNode;
   isReverse?: boolean;
   direction?: "vertical" | "horizontal" | undefined;
+  slidesPerView?: number;
 }
 
 export const VerticalSlider: FC<ISliderProps> = ({
   isReverse = false,
   direction = "vertical",
   children,
+  slidesPerView,
 }) => {
   const swiperRef = useRef<SwiperRef | null>(null);
 
@@ -37,7 +39,7 @@ export const VerticalSlider: FC<ISliderProps> = ({
         ref={swiperRef}
         direction={direction}
         spaceBetween={18}
-        slidesPerView={"auto"}
+        slidesPerView={slidesPerView ? slidesPerView : "auto"}
         centeredSlides={true}
         threshold={50}
         autoplay={{
