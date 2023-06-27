@@ -1,25 +1,18 @@
-import React, { FC, useRef } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import {
   Navigationwrapper,
-  ArrowContainer,
-  LeftArrowWrapper,
-  RightArrowWrapper,
-  ButtonWrapper,
 } from "../../styles/HomePage/Feedback.styled";
 import FeedbackCard from "../FeedbackCard/FeedbackCard";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/bundle";
-import LeftArrow from "../../../public/HomePageDecoration/leftArrowFeedback.svg";
-import RightArrow from "../../../public/HomePageDecoration/rightArrowFeedback.svg";
 import FeedbackIntro from "./FeedbackIntro";
 import * as StyledThisComp from "../../styles/Feedback.styled";
 import params from "../../mock/FeedbackSwiperParams";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
-import Image from "next/image";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 import * as Styled from "../../styles/ShowCase.styled";
 
@@ -36,19 +29,18 @@ const CarouselFeedback: FC = () => {
   let feedbacks, renderSliderSlides;
   if (data?.feedBacks) {
     feedbacks = data.feedBacks;
-    renderSliderSlides = [...feedbacks]
-      .reverse()
-      .map(({ name, text, link, companyName, stars }, idx) => (
-        <SwiperSlide key={idx}>
-          <FeedbackCard
-            name={name}
-            description={text}
-            company={companyName}
-            link={link}
-            rates={stars}
-          />
-        </SwiperSlide>
-      ));
+    const duplicatedSlides = [...feedbacks];
+    renderSliderSlides = duplicatedSlides.concat(feedbacks).map(({ name, text, link, companyName, stars }, idx) => (
+      <SwiperSlide key={idx}>
+        <FeedbackCard
+          name={name}
+          description={text}
+          company={companyName}
+          link={link}
+          rates={stars}
+        />
+      </SwiperSlide>
+    ));
   }
 
   return (
