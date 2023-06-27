@@ -6,16 +6,13 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 import bgImage from "../../../public/DbService/featuresBg.svg";
 // import bgImageMobile from "../../../public/DbService/database-mobile-svg.svg";
 import bgImageMobile from "../../../public/DbService/feature-mobile-bg.svg";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 import * as Styled from "../../styles/DbService/FeaturesBlock.styled";
 import { useOnScreen } from "../../hooks/useOnScreen";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { queryKeys } from "../../consts/queryKeys";
 import TextTypingAnimation from "../Typewrite";
 
 const FeaturesBlock = () => {
-  const { width } = useWindowDimension();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceDb>([
     queryKeys.getServiceDbPage,
@@ -37,7 +34,9 @@ const FeaturesBlock = () => {
     <>
       {data && (
         <Styled.Title ref={elRef}>
-          {isScrolled && <TextTypingAnimation text={data.subtitle} />}
+          {isScrolled && (
+            <TextTypingAnimation miliseconds={250} text={data.subtitle} />
+          )}
         </Styled.Title>
       )}
       <Styled.Container ref={elRef}>
