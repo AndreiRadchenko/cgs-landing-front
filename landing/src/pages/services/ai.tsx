@@ -37,9 +37,10 @@ export async function getServerSideProps() {
 }
 
 const DappAuditPage: NextPage = () => {
-  const { data, isLoading } = useQuery(
+  const { data, isSuccess, isFetching } = useQuery(
     [queryKeys.getServiceDappAuditPage],
-    () => adminDappAuditService.getDappAuditServicePage()
+    () => adminDappAuditService.getDappAuditServicePage(),
+    { refetchOnWindowFocus: false }
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
@@ -68,8 +69,8 @@ const DappAuditPage: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={isLoading}>
-      {isLoading ? (
+    <Loader active={isFetching}>
+      {!isSuccess ? (
         <LoaderStub />
       ) : (
         <>

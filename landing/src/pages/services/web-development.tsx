@@ -38,8 +38,10 @@ export async function getServerSideProps() {
 }
 
 const WebDevelopment: NextPage = () => {
-  const { data, isLoading } = useQuery([queryKeys.getServiceWebPage], () =>
-    adminWebService.getWebServicePage()
+  const { data, isSuccess, isFetching } = useQuery(
+    [queryKeys.getServiceWebPage],
+    () => adminWebService.getWebServicePage(),
+    { refetchOnWindowFocus: false }
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 
@@ -68,8 +70,8 @@ const WebDevelopment: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={isLoading}>
-      {isLoading ? (
+    <Loader active={isFetching}>
+      {!isSuccess ? (
         <LoaderStub />
       ) : (
         <>
