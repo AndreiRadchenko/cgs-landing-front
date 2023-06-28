@@ -73,7 +73,7 @@ const BlockchainService = () => {
 
   return (
     <Loader active={isFetching}>
-      {isFetching && !isSuccess ? (
+      {isFetching ? (
         <LoaderStub />
       ) : (
         <>
