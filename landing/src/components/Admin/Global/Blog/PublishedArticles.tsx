@@ -122,8 +122,8 @@ const PublishedArticles: FC<IArticles> = ({
     }
   };
 
-  const publishArticle = async (i: number, isPublished: boolean) => {
-    if (data && !isPublished) {
+  const publishArticle = async (i: number) => {
+    if (data) {
       const publishArticle = data[i];
       publishArticle.publishedDate = formatsDateWithTime();
       publishArticle.scheduleArticle = "";
@@ -157,9 +157,6 @@ const PublishedArticles: FC<IArticles> = ({
     const isScheduledDateExpired = item.scheduleArticle
       ? new Date() > new Date(item.scheduleArticle)
       : true;
-    const isPublishedScheduled = item.scheduleArticle
-      ? isScheduledDateExpired
-      : !item.disabled;
 
     return (
       <BlogItem isAdmin item={item}>
@@ -192,16 +189,14 @@ const PublishedArticles: FC<IArticles> = ({
               </Styles.TimeStamp>
             )}
             <Styles.DeactivateButton
-              disabled={!isPublishedScheduled || item.draft}
-              onClick={() => deactivateArticle(i, isPublishedScheduled)}
+              disabled={!isScheduledDateExpired || item.draft || item.disabled}
+              onClick={() => deactivateArticle(i, isScheduledDateExpired)}
             >
               Deactivate
             </Styles.DeactivateButton>
             <Styles.PublishButton
               disabled={!!item.publishedDate}
-              onClick={() =>
-                publishArticle(i, isPublishedScheduled && !item.draft)
-              }
+              onClick={() => publishArticle(i)}
             >
               <p>{item.publishedDate ? "Published" : "Publish now"}</p>
             </Styles.PublishButton>
