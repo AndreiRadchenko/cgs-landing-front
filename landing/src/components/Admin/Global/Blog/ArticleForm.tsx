@@ -103,6 +103,10 @@ const ArticleForm = ({
       values.disabled = false;
     }
 
+    if (!values.publishedDate) {
+      values.publishedDate = formatsDateWithTime();
+    }
+
     if (isNewArticle) {
       await postArticle(values);
       setIsNewArticle(false);
