@@ -80,7 +80,7 @@ const MobileAppDevelopment: NextPage = () => {
   }, []);
   return (
     <Loader active={isFetching}>
-      {!isSuccess ? (
+      {isFetching && !isSuccess ? (
         <LoaderStub />
       ) : (
         <>

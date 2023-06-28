@@ -45,7 +45,7 @@ export const Title = styled.h2`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5em;
-    margin-bottom: 1.46em;
+    margin-bottom: 10px;
   }
 `;
 

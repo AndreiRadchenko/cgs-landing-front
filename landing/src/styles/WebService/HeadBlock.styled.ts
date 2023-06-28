@@ -40,7 +40,7 @@ export const ContentContainer = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 46.5%;
+    width: 53%;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -121,7 +121,9 @@ export const ImageWrapper = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     position: absolute;
-    right: -10.5%;
+    right: -7%;
+    width: 36em;
+    height: 23.1em;
   }
 
   @media (max-width: 1370px) {

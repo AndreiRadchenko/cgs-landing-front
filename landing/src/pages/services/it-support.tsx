@@ -77,7 +77,7 @@ const OngoingSupport = () => {
 
   return (
     <Loader active={isFetching}>
-      {!isSuccess ? (
+      {isFetching && !isSuccess ? (
         <LoaderStub />
       ) : (
         <>
