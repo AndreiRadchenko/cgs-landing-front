@@ -71,6 +71,10 @@ export const BlackButton = styled.a<IFontSize>`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     &.seeAll {
+      width: 178px;
+      padding-top: 18px;
+      height: 54px;
+      text-align: center;
       & > div {
         width: 25px;
         height: 25px;
@@ -230,6 +234,7 @@ export const Subtitle = styled.div`
         margin: 0;
         font-size: 5vw;
         width: 100%;
+        line-height: 132%;
       }  
     }
 
@@ -326,7 +331,7 @@ export const NextTech = styled.section`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-top: 10.5em;
+    margin-top: 8.7em;
   }
 `;
 

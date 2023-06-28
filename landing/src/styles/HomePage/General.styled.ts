@@ -202,11 +202,12 @@ export const MainSubtitle = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 7px;
-  margin: 28px 0 40px;
+  margin: 17px 0 40px;
 
   &.homePage {
     p{
       margin: 0;
+      line-height: 0;
     }
   }
 
@@ -241,7 +242,12 @@ export const MainSubtitle = styled.div`
     font-size: 4.8vw;
     margin: 10px 0 35px;
     &.homePage {
-    width: 100%;
+      width: 100%;
+      margin-bottom: 22px;
+
+      p{
+        line-height: 141%;
+      }
     }
   }
 
@@ -431,7 +437,7 @@ export const Subtitle = styled.div<ISubtitle>`
   &.textOnFilm {
     p{
       margin: 0;
-      line-height: 160%;
+      line-height: 146%;
       span:first-child{
         display: inline-flex;
         height: 90px;
@@ -441,6 +447,9 @@ export const Subtitle = styled.div<ISubtitle>`
 
   &.nextTech {
     height: 2.5em;
+    p {
+      margin: 0;
+    }
   }
 
   &.footer {
@@ -566,16 +575,12 @@ export const Subtitle = styled.div<ISubtitle>`
 `;
 
 export const NextTech = styled.section`
-  margin-top: 24.5em;
+  margin-top: 18.5em;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 20.5em;
+    margin-top: 10.5em;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
-    margin-top: 18.5em;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 10.5em;
   }
 

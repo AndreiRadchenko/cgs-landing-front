@@ -9,16 +9,21 @@ type BadgesData = {
 };
 
 export const BadgesBlockContainer = styled.div`
-  margin: 120px auto;
-  @media ${themes.primary.media.maxTabletPortrait} {
-    margin: 80px auto;
+  margin: 120px auto 90px ;
+
+  @media (max-width: 1200px) {
+    margin: 80px auto 60px;
+  }
+
+  @media (max-width: 768px) {
+    margin: 32px auto 45px;
   }
 `;
 
 export const BadgesContainer = styled.div`
   position: relative;
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 50px;
+    margin-top: 32px;
   }
 `;
 

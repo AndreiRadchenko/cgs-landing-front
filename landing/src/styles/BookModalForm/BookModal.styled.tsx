@@ -45,8 +45,9 @@ export const BookModalContent = styled.div<IBookModalContent>`
     width: ${({ isCalendly }) => (isCalendly ? "345px" : "699px")};
 
     @media (orientation: landscape) {
-    height: 100vh;
-    overflow: scroll;
+      margin-top: 40px;
+      height: 100vh;
+      overflow: scroll;
   }
   }
 
