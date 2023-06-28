@@ -8,7 +8,10 @@ export const AdminBlogValidation = () => {
     }),
     url: yup.string().required("Can not be empty"),
     date: yup.string().required("Can not be empty"),
-    minutesToRead: yup.number().required("Can not be empty"),
+    minutesToRead: yup
+      .number()
+      .positive("Minutes to read must be a positive number")
+      .required("Can not be empty"),
     image: yup.object().required(),
     title: yup
       .string()
@@ -17,6 +20,7 @@ export const AdminBlogValidation = () => {
       .required("Can not be empty"),
     description: yup
       .string()
+      .transform((value) => value.replace(/<[^>]+>|&nbsp;/g, ""))
       .min(20, "Description can't be less than 20 symbols")
       .max(160, "Description can't be more than 160 symbols")
       .required("Can not be empty"),
