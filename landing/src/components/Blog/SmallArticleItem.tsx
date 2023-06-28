@@ -1,9 +1,9 @@
 import React from "react";
 import parse from "html-react-parser";
 import * as Styled from "../../styles/Blog.styled";
-import Arrow from "../../../public/BlogDecorations/MainPage/Arrow.svg";
 import { useRouter } from "next/router";
 import { ISmallArticleItem } from "../../types/Blog.types";
+import ButtonArrow from "../../utils/ButtonArrow";
 
 const SmallArticleItem = ({ article, filters }: ISmallArticleItem) => {
   const parseDate = (date: string) => {
@@ -26,9 +26,13 @@ const SmallArticleItem = ({ article, filters }: ISmallArticleItem) => {
     <Styled.SmallArticleContainer>
       <Styled.SmallGeneralInfo>
         <Styled.Date>{parseDate(article.date)}</Styled.Date>
-        <a href={`/blog/${article.url}`} onClick={handleClick}>
-          <Styled.Arrow src={Arrow.src} alt="arrow image" />
-        </a>
+        <Styled.ArrowIconLink>
+          <a href={`/blog/${article.url}`} onClick={handleClick}>
+            <Styled.ArrowContainer>
+              <ButtonArrow />
+            </Styled.ArrowContainer>
+          </a>
+        </Styled.ArrowIconLink>
       </Styled.SmallGeneralInfo>
       <Styled.SmallArticleItemTitle>
         <a href={`/blog/${article.url}`} onClick={handleClick}>
