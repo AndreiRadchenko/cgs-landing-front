@@ -41,7 +41,11 @@ const MobileNextTechSlide = ({
         ref={elRef}
       >
         <StyledThisComp.ServiceWrapper>
-          <TextTypingAnimation text={convertedTitle} startPoint={isOnScreen} />
+          <TextTypingAnimation
+            miliseconds={250}
+            text={convertedTitle}
+            startPoint={isOnScreen}
+          />
           <StyledThisComp.ImageWrapper>
             <Image
               src={item.image}

@@ -76,6 +76,10 @@ export const EssentialPopoverGroup = styled.g`
   &:hover {
     opacity: 1;
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    transform: translateX(-40px);
+  }
 `;
 
 export const ContentWrapper = styled.div`

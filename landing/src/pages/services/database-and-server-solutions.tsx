@@ -82,7 +82,7 @@ const DbSolutions: NextPage = () => {
 
   return (
     <Loader active={isFetching}>
-      {!isSuccess ? (
+      {isFetching && !isSuccess ? (
         <LoaderStub />
       ) : (
         <>

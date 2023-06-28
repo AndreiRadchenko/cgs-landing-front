@@ -24,10 +24,9 @@ const SelectBlock = ({ className }: IServicesClassnameProps) => {
     <Styled.Container className={className}>
       {data && (
         <Styled.Subtitle ref={elRef}>
-          {(width && width <= 767 && isScrolled && (
-            <TextTypingAnimation text={data.subtitle} />
-          )) ||
-            data.subtitle}
+          {isScrolled && (
+            <TextTypingAnimation miliseconds={250} text={data.subtitle} />
+          )}
         </Styled.Subtitle>
       )}
       <Styled.TextContent>

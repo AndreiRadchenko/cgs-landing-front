@@ -70,7 +70,7 @@ const DappAuditPage: NextPage = () => {
 
   return (
     <Loader active={isFetching}>
-      {!isSuccess ? (
+      {isFetching && !isSuccess ? (
         <LoaderStub />
       ) : (
         <>

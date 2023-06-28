@@ -99,6 +99,7 @@ export const WorthCardTitle = styled.div`
   &.mobileDev p {
     font-size: 2em;
   }
+  &.cloudSolutions p,
   &.mobileAudit p,
   &.dappAudit p {
     font-size: 1.5em;
@@ -108,6 +109,7 @@ export const WorthCardTitle = styled.div`
     padding-inline: 20px;
     height: 80px;
 
+    &.cloudSolutions p,
     &.mobileAudit p,
     &.mobileDev p,
     &.dappAudit p,
@@ -142,6 +144,7 @@ export const WorthText = styled.p`
   &.mobileDev {
     font-size: 1.5em;
   }
+  &.cloudSolutions,
   &.mobileAudit,
   &.dappAudit {
     font-size: 1.15em;
@@ -167,7 +170,9 @@ export const WorthText = styled.p`
     margin: 0;
     padding: 14px 20px;
     font-size: 16px;
-    max-width: 370px;
+    max-width: 100%;
+
+    &.cloudSolutions,
     &.mobileAudit,
     &.mobileDev {
       font-size: 16px;

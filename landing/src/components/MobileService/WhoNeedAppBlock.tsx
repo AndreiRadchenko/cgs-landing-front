@@ -11,12 +11,10 @@ import { VisibleSubtitle } from "../../styles/MobileService/Layout";
 import WhyWorthItMobile from "../../../public/MobileSevice/whoNeedApps/whyWorthItMobile.svg";
 import WhyWorthIt from "../../../public/MobileSevice/whoNeedApps/whyWorthIt.svg";
 import TextTypingAnimation from "../Typewrite";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import NeedsAppsBenefitComponent from "../Services/NeedsAppsBenefitComponent";
 
 const WhoNeedAppBlock = ({ className }: IServicesClassnameProps) => {
-  const { width } = useWindowDimension();
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceMobile>([
     queryKeys.getServiceMobilePage,
@@ -58,10 +56,12 @@ const WhoNeedAppBlock = ({ className }: IServicesClassnameProps) => {
         <Styled.WhatDoWeUseContainer>
           {data && (
             <VisibleSubtitle className="mobileDev" ref={elRef}>
-              {(width && width <= 767 && isScrolled && (
-                <TextTypingAnimation text={data.whatDoWeUse.subtitle} />
-              )) ||
-                data.whatDoWeUse.subtitle}
+              {isScrolled && (
+                <TextTypingAnimation
+                  miliseconds={250}
+                  text={data.whatDoWeUse.subtitle}
+                />
+              )}
             </VisibleSubtitle>
           )}
           <Styled.SubText>

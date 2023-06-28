@@ -78,7 +78,7 @@ const CloudService = () => {
 
   return (
     <Loader active={isFetching}>
-      {!isSuccess ? (
+      {isFetching && !isSuccess ? (
         <LoaderStub />
       ) : (
         <>
@@ -113,7 +113,10 @@ const CloudService = () => {
             <Layout>
               <Styled.Layout>
                 {data?.worthBlock && (
-                  <PerksOfCoopComponent data={data?.worthBlock} />
+                  <PerksOfCoopComponent
+                    className={"cloudSolutions"}
+                    data={data?.worthBlock}
+                  />
                 )}
               </Styled.Layout>
               <Styled.TeamMembersAlign>
