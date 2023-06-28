@@ -75,7 +75,7 @@ const WebAuditPage: NextPage = () => {
 
   return (
     <Loader active={isFetching}>
-      {isFetching && !isSuccess ? (
+      {isFetching ? (
         <LoaderStub />
       ) : (
         <>

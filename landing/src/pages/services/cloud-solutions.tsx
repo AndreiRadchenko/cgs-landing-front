@@ -78,7 +78,7 @@ const CloudService = () => {
 
   return (
     <Loader active={isFetching}>
-      {isFetching && !isSuccess ? (
+      {isFetching ? (
         <LoaderStub />
       ) : (
         <>

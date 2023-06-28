@@ -83,7 +83,7 @@ const UxUiDesign = () => {
 
   return (
     <Loader active={isFetching}>
-      {isFetching && !isSuccess ? (
+      {isFetching ? (
         <LoaderStub />
       ) : (
         <>

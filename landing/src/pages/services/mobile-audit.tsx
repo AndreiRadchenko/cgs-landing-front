@@ -82,7 +82,7 @@ const MobileAuditService = () => {
 
   return (
     <Loader active={isFetching}>
-      {isFetching && !isSuccess ? (
+      {isFetching ? (
         <LoaderStub />
       ) : (
         <>

@@ -70,8 +70,8 @@ const WebDevelopment: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={isFetching && !isSuccess}>
-      {isFetching && !isSuccess ? (
+    <Loader active={isFetching}>
+      {isFetching ? (
         <LoaderStub />
       ) : (
         <>
