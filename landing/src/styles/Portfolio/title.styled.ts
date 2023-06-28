@@ -126,12 +126,22 @@ export const ArrowWrapper = styled.div`
     width: 97px;
     height: 2.2em;
     top: 13px;
+    margin-left: -1px;
   }
 
   &.homePageSubtitleRightArrow {
     width: 122px;
     height: 2.4em;
     top: 15px;
+    margin-right: -1px;
+    margin-left: -1px;
+  }
+
+  @media (min-width: 1800px) {
+    &.homePageSubtitleRightArrow {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
   }
 
   @media (max-width: 2560px) {
