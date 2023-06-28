@@ -96,6 +96,61 @@ export const BlogArticlesTemplate = styled.div`
   min-height: 2074px;
 `;
 
+export const ArrowContainer = styled.div`
+  width: 28px;
+  height: 28px;
+  background-color: ${themes.primary.colors.headerBorderHover};
+  border: 1.7px solid ${themes.primary.colors.primary};
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  & svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  &.ticketModalArrowSubmit {
+    will-change: transform;
+  }
+
+  &.careersTicketArrow {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+
+  @media (min-width: 2200px) {
+    width: 45px;
+    height: 45px;
+    right: -17px;
+    top: -17px;
+
+    & svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 40px;
+    height: 40px;
+    right: -15px;
+    top: -15px;
+
+    &.mobileAudit {
+      font-size: 1.5em;
+    }
+
+    & svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+`;
+
 export const Separator = styled.div`
   width: 100%;
   height: 1px;
@@ -354,6 +409,8 @@ export const Date = styled.div`
     font-size: 0.875rem;
   }
 `;
+
+export const ArrowIconLink = styled.div``;
 
 export const MainBlogAuthor = styled(GrayText)`
   font-weight: ${themes.primary.font.weight.medium};
@@ -1000,6 +1057,7 @@ export const SmallArticleItemTitle = styled(BlogItemTitle)`
 
 export const SmallGeneralInfo = styled(GeneralInfo)`
   margin-top: 0;
+  height: 36px;
 `;
 
 export const SmallArticleItemDescription = styled(BlogItemDescription)`
@@ -1037,6 +1095,21 @@ export const SmallArticleContainer = styled.div`
   border-bottom: 1px solid ${themes.primary.colors.comment};
   &:last-child {
     border-bottom: 0;
+  }
+
+  & path {
+    transition: transform 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
