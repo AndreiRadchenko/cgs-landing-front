@@ -38,7 +38,7 @@ const HeadBlock = () => {
         ) {
           return (
             <>
-              <CSS.ArrowWrapper className="homePageSubtitleLeftArrow">
+              <CSS.HomePageArrowWrapper className="homePageSubtitleLeftArrow">
                 <Image
                   src={leftArrow.src}
                   alt="wide tech long arrow"
@@ -46,7 +46,7 @@ const HeadBlock = () => {
                   objectFit="contain"
                   priority
                 />
-              </CSS.ArrowWrapper>
+              </CSS.HomePageArrowWrapper>
             </>
           );
         }
@@ -58,7 +58,7 @@ const HeadBlock = () => {
         ) {
           return (
             <>
-              <CSS.ArrowWrapper className="homePageSubtitleRightArrow">
+              <CSS.HomePageArrowWrapper className="homePageSubtitleRightArrow">
                 <Image
                   src={rightArrow.src}
                   alt="wide tech long arrow"
@@ -66,7 +66,7 @@ const HeadBlock = () => {
                   objectFit="contain"
                   priority
                 />
-              </CSS.ArrowWrapper>
+              </CSS.HomePageArrowWrapper>
             </>
           );
         }
@@ -90,14 +90,14 @@ const HeadBlock = () => {
         ) {
           return (
             <>
-              <CSS.ArrowWrapper className="homePageSubtitleRightArrow">
+              <CSS.HomePageArrowWrapper className="homePageSubtitleRightArrow">
                 <Image
                   src={boldRightArrowMobile.src}
                   alt="wide tech long arrow"
                   layout="fill"
                   objectFit="contain"
                 />
-              </CSS.ArrowWrapper>
+              </CSS.HomePageArrowWrapper>
             </>
           );
         }
