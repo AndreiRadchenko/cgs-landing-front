@@ -410,7 +410,22 @@ export const Date = styled.div`
   }
 `;
 
-export const ArrowIconLink = styled.div``;
+export const ArrowIconLink = styled.div`
+  & path {
+    transition: transform 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
+  }
+`;
 
 export const MainBlogAuthor = styled(GrayText)`
   font-weight: ${themes.primary.font.weight.medium};
@@ -1095,21 +1110,6 @@ export const SmallArticleContainer = styled.div`
   border-bottom: 1px solid ${themes.primary.colors.comment};
   &:last-child {
     border-bottom: 0;
-  }
-
-  & path {
-    transition: transform 1s ease-in-out;
-  }
-  & path:nth-child(1) {
-    transform: translate(-36px, 36px);
-  }
-  &:hover {
-    & path:nth-child(1) {
-      transform: translate(0px, 0px);
-    }
-    & path:nth-child(2) {
-      transform: translate(36px, -36px);
-    }
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
