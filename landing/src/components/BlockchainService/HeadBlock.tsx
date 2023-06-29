@@ -12,22 +12,15 @@ import { cryptoTVImages } from "../../consts/cryptoTV";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({
-  setOnLoadCount,
-  onLoadCount,
-  setIsMainImagesLoaded,
-}: IHeadServicesProps) => {
+const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IBlockchainService>([
     queryKeys.getServiceBlockchainPage,
   ])?.headerBlock;
 
-  const onMainImageLoad = (e: any) => {
-    setOnLoadCount((prev) => prev + 1);
-    if (onLoadCount === 1) {
-      setIsMainImagesLoaded(true);
-    }
+  const onMainImageLoad = () => {
+    setIsMainImagesLoaded(true);
   };
 
   const [imageIndex, setImageIndex] = useState(0);
@@ -77,7 +70,7 @@ const HeadBlock = ({
         )}
       </Styled.Content>
       <Styled.Image>
-        <Styled.ImageTV onLoad={(e) => onMainImageLoad(e)} src={TV.src} />
+        <Styled.ImageTV onLoad={() => onMainImageLoad()} src={TV.src} />
         <Styled.ImageCrypto src={cryptoTVImages[imageIndex]} />
       </Styled.Image>
     </Styled.Container>

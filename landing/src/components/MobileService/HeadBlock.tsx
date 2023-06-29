@@ -9,22 +9,15 @@ import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({
-  setOnLoadCount,
-  onLoadCount,
-  setIsMainImagesLoaded,
-}: IHeadServicesProps) => {
+const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceMobile>([
     queryKeys.getServiceMobilePage,
   ])?.headerBlock;
 
-  const onMainImageLoad = (e: any) => {
-    setOnLoadCount((prev) => prev + 1);
-    if (onLoadCount === 1) {
-      setIsMainImagesLoaded(true);
-    }
+  const onMainImageLoad = () => {
+    setIsMainImagesLoaded(true);
   };
 
   return (
@@ -49,7 +42,7 @@ const HeadBlock = ({
         )}
       </Styled.ContentContainer>
       <Styled.Telephone
-        onLoad={(e) => onMainImageLoad(e)}
+        onLoad={() => onMainImageLoad()}
         src={data?.image.url}
       />
     </Styled.Container>

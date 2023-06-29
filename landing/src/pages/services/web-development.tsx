@@ -38,7 +38,7 @@ export async function getServerSideProps() {
 }
 
 const WebDevelopment: NextPage = () => {
-  const { data, isLoading, isFetching } = useQuery(
+  const { data, isLoading } = useQuery(
     [queryKeys.getServiceWebPage],
     () => adminWebService.getWebServicePage(),
     { refetchOnWindowFocus: false }
@@ -49,7 +49,6 @@ const WebDevelopment: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  const [onLoadCount, setOnLoadCount] = useState(0);
   const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
 
   useEffect(() => {
@@ -72,12 +71,6 @@ const WebDevelopment: NextPage = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (isFetching && !isLoading) {
-      setIsMainImagesLoaded(true);
-    }
-  }, [isFetching]);
-
   return (
     <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
@@ -99,11 +92,7 @@ const WebDevelopment: NextPage = () => {
           <>
             <Layout>
               <Styled.Layout>
-                <HeadBlock
-                  setOnLoadCount={setOnLoadCount}
-                  onLoadCount={onLoadCount}
-                  setIsMainImagesLoaded={setIsMainImagesLoaded}
-                />
+                <HeadBlock setIsMainImagesLoaded={setIsMainImagesLoaded} />
                 <WebPros />
                 <SolutionBlock
                   className={

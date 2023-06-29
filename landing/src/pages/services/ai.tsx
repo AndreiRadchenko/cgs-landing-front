@@ -37,7 +37,7 @@ export async function getServerSideProps() {
 }
 
 const DappAuditPage: NextPage = () => {
-  const { data, isLoading, isFetching } = useQuery(
+  const { data, isLoading } = useQuery(
     [queryKeys.getServiceDappAuditPage],
     () => adminDappAuditService.getDappAuditServicePage(),
     { refetchOnWindowFocus: false }
@@ -48,7 +48,6 @@ const DappAuditPage: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  const [onLoadCount, setOnLoadCount] = useState(0);
   const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
 
   useEffect(() => {
@@ -71,12 +70,6 @@ const DappAuditPage: NextPage = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (isFetching && !isLoading) {
-      setIsMainImagesLoaded(true);
-    }
-  }, [isFetching]);
-
   return (
     <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
@@ -98,11 +91,7 @@ const DappAuditPage: NextPage = () => {
           <PageArticle>
             <Layout>
               <Styled.Layout>
-                <HeadBlock
-                  setOnLoadCount={setOnLoadCount}
-                  onLoadCount={onLoadCount}
-                  setIsMainImagesLoaded={setIsMainImagesLoaded}
-                />
+                <HeadBlock setIsMainImagesLoaded={setIsMainImagesLoaded} />
                 <FigureOutBlock />
                 <HowDoProvideBlock />
               </Styled.Layout>

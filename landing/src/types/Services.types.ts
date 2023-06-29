@@ -13,7 +13,5 @@ export interface IServicesShowcaseProps {
 }
 
 export interface IHeadServicesProps {
-  setOnLoadCount: Dispatch<SetStateAction<number>>;
-  onLoadCount: number;
   setIsMainImagesLoaded: Dispatch<SetStateAction<boolean>>;
 }

@@ -17,22 +17,15 @@ import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import Image from "next/image";
 import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({
-  setOnLoadCount,
-  onLoadCount,
-  setIsMainImagesLoaded,
-}: IHeadServicesProps) => {
+const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceWeb>([
     queryKeys.getServiceWebPage,
   ])?.headerBlock;
 
-  const onMainImageLoad = (e: any) => {
-    setOnLoadCount((prev) => prev + 1);
-    if (onLoadCount === 1) {
-      setIsMainImagesLoaded(true);
-    }
+  const onMainImageLoad = () => {
+    setIsMainImagesLoaded(true);
   };
 
   return (
@@ -57,7 +50,7 @@ const HeadBlock = ({
       <ImageWrapper>
         {data?.image && (
           <Image
-            onLoad={(e) => onMainImageLoad(e)}
+            onLoadingComplete={() => onMainImageLoad()}
             src={data?.image.url}
             alt={"main image"}
             layout={"fill"}
