@@ -40,10 +40,9 @@ export async function getServerSideProps() {
 }
 
 const BlockchainService = () => {
-  const { data, isLoading, isFetching } = useQuery(
+  const { data, isLoading } = useQuery(
     [queryKeys.getServiceBlockchainPage],
-    async () => await adminBlockchainService.getBlockchainDevelopmentPage(),
-    { refetchOnWindowFocus: false }
+    async () => await adminBlockchainService.getBlockchainDevelopmentPage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 

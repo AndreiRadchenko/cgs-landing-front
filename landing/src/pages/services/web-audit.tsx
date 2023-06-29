@@ -43,10 +43,8 @@ export async function getServerSideProps() {
 }
 
 const WebAuditPage: NextPage = () => {
-  const { data, isLoading } = useQuery(
-    [queryKeys.getServiceWebAuditPage],
-    () => adminWebAuditService.getWebAuditServicePage(),
-    { refetchOnWindowFocus: false }
+  const { data, isLoading } = useQuery([queryKeys.getServiceWebAuditPage], () =>
+    adminWebAuditService.getWebAuditServicePage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 

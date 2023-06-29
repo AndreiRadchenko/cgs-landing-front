@@ -41,10 +41,8 @@ export async function getServerSideProps() {
 
 const DappAuditPage: NextPage = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
-  const { data, isLoading } = useQuery(
-    [queryKeys.getServiceAiPage],
-    () => adminAiService.getAiServicePage(),
-    { refetchOnWindowFocus: false }
+  const { data, isLoading } = useQuery([queryKeys.getServiceAiPage], () =>
+    adminAiService.getAiServicePage()
   );
 
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);

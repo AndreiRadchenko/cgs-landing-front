@@ -51,8 +51,7 @@ const MobileAuditService = () => {
 
   const { data, isLoading } = useQuery(
     [queryKeys.getServiceMobileAuditPage],
-    () => adminMobileAuditService.getMobileAuditServicePage(),
-    { refetchOnWindowFocus: false }
+    () => adminMobileAuditService.getMobileAuditServicePage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 

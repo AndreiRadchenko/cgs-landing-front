@@ -45,10 +45,8 @@ export async function getServerSideProps() {
 const MobileAppDevelopment: NextPage = () => {
   const queryClient = useQueryClient();
 
-  const { data, isLoading } = useQuery(
-    [queryKeys.getServiceMobilePage],
-    () => adminMobileService.getMobileServicePage(),
-    { refetchOnWindowFocus: false }
+  const { data, isLoading } = useQuery([queryKeys.getServiceMobilePage], () =>
+    adminMobileService.getMobileServicePage()
   );
 
   const dataPerks = queryClient.getQueryData<IServiceMobile>([

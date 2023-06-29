@@ -48,10 +48,8 @@ export async function getServerSideProps() {
 }
 
 const DbSolutions: NextPage = () => {
-  const { data, isLoading } = useQuery(
-    [queryKeys.getServiceDbPage],
-    () => adminDbService.getDbServicePage(),
-    { refetchOnWindowFocus: false }
+  const { data, isLoading } = useQuery([queryKeys.getServiceDbPage], () =>
+    adminDbService.getDbServicePage()
   );
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
 

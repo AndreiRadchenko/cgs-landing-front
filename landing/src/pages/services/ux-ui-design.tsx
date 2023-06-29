@@ -50,8 +50,7 @@ export async function getServerSideProps() {
 const UxUiDesign = () => {
   const { data, isLoading } = useQuery(
     [queryKeys.getServiceUxUiPage],
-    async () => await adminUxUiService.getUxUiServicePage(),
-    { refetchOnWindowFocus: false }
+    async () => await adminUxUiService.getUxUiServicePage()
   );
 
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
