@@ -7,13 +7,25 @@ import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = () => {
+const HeadBlock = ({
+  setOnLoadCount,
+  onLoadCount,
+  setIsMainImagesLoaded,
+}: IHeadServicesProps) => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceWebAudit>([
     queryKeys.getServiceWebAuditPage,
   ])?.headerBlock;
+
+  const onMainImageLoad = (e: any) => {
+    setOnLoadCount((prev) => prev + 1);
+    if (onLoadCount === 1) {
+      setIsMainImagesLoaded(true);
+    }
+  };
 
   return (
     <Styled.Wrapper>
@@ -38,7 +50,11 @@ const HeadBlock = () => {
           )}
         </Styled.TextContainer>
         {data?.image && (
-          <Styled.Image src={data?.image.url} alt="web audit hero image" />
+          <Styled.Image
+            onLoad={(e) => onMainImageLoad(e)}
+            src={data?.image.url}
+            alt="web audit hero image"
+          />
         )}
       </Styled.ContentContainer>
     </Styled.Wrapper>

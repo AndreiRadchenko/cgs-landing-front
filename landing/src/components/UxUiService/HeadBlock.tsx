@@ -7,14 +7,26 @@ import * as Styled from "../../styles/UxUiService/HeadBlock.styled";
 import TextTypingAnimation from "../Typewrite";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = () => {
+const HeadBlock = ({
+  setOnLoadCount,
+  onLoadCount,
+  setIsMainImagesLoaded,
+}: IHeadServicesProps) => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
 
   const data = queryClient.getQueryData<IUxUiInterface>([
     queryKeys.getServiceUxUiPage,
   ])?.headerBlock;
+
+  const onMainImageLoad = (e: any) => {
+    setOnLoadCount((prev) => prev + 1);
+    if (onLoadCount === 1) {
+      setIsMainImagesLoaded(true);
+    }
+  };
 
   return (
     <Styled.Container>
@@ -37,7 +49,7 @@ const HeadBlock = () => {
           </Styled.ButtonWrapper>
         )}
       </Styled.ContentWrapper>
-      <Styled.Image src={data?.image.url} />
+      <Styled.Image onLoad={(e) => onMainImageLoad(e)} src={data?.image.url} />
     </Styled.Container>
   );
 };

@@ -60,6 +60,9 @@ const DbSolutions: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
+  const [onLoadCount, setOnLoadCount] = useState(0);
+  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
+
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
       window.dataLayer = window.dataLayer || [];
@@ -80,8 +83,14 @@ const DbSolutions: NextPage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isFetching && !isLoading) {
+      setIsMainImagesLoaded(true);
+    }
+  }, [isFetching]);
+
   return (
-    <Loader active={isLoading}>
+    <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -101,7 +110,11 @@ const DbSolutions: NextPage = () => {
           <PageArticle>
             <Layout>
               <Styled.Layout>
-                <HeadBlock />
+                <HeadBlock
+                  setOnLoadCount={setOnLoadCount}
+                  onLoadCount={onLoadCount}
+                  setIsMainImagesLoaded={setIsMainImagesLoaded}
+                />
                 <FeaturesBlock />
                 <SelectBlock
                   className={

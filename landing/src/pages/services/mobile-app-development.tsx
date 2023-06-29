@@ -45,7 +45,7 @@ export async function getServerSideProps() {
 const MobileAppDevelopment: NextPage = () => {
   const queryClient = useQueryClient();
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [queryKeys.getServiceMobilePage],
     () => adminMobileService.getMobileServicePage(),
     { refetchOnWindowFocus: false }
@@ -58,6 +58,9 @@ const MobileAppDevelopment: NextPage = () => {
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
+  const [onLoadCount, setOnLoadCount] = useState(0);
+  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
 
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
@@ -78,8 +81,15 @@ const MobileAppDevelopment: NextPage = () => {
       window.removeEventListener("message", calendlyStatusFinder);
     };
   }, []);
+
+  useEffect(() => {
+    if (isFetching && !isLoading) {
+      setIsMainImagesLoaded(true);
+    }
+  }, [isFetching]);
+
   return (
-    <Loader active={isLoading}>
+    <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -98,7 +108,11 @@ const MobileAppDevelopment: NextPage = () => {
           <HeaderNavNew />
           <>
             <Layout>
-              <HeadBlock />
+              <HeadBlock
+                setOnLoadCount={setOnLoadCount}
+                onLoadCount={onLoadCount}
+                setIsMainImagesLoaded={setIsMainImagesLoaded}
+              />
               {dataPerks && (
                 <PerksOfCoopComponent className="mobileDev" data={dataPerks} />
               )}

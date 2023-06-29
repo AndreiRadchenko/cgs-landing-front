@@ -37,7 +37,7 @@ export async function getServerSideProps() {
 }
 
 const DappAuditPage: NextPage = () => {
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [queryKeys.getServiceDappAuditPage],
     () => adminDappAuditService.getDappAuditServicePage(),
     { refetchOnWindowFocus: false }
@@ -47,6 +47,9 @@ const DappAuditPage: NextPage = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
+  const [onLoadCount, setOnLoadCount] = useState(0);
+  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
 
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
@@ -68,8 +71,14 @@ const DappAuditPage: NextPage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isFetching && !isLoading) {
+      setIsMainImagesLoaded(true);
+    }
+  }, [isFetching]);
+
   return (
-    <Loader active={isLoading}>
+    <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -89,7 +98,11 @@ const DappAuditPage: NextPage = () => {
           <PageArticle>
             <Layout>
               <Styled.Layout>
-                <HeadBlock />
+                <HeadBlock
+                  setOnLoadCount={setOnLoadCount}
+                  onLoadCount={onLoadCount}
+                  setIsMainImagesLoaded={setIsMainImagesLoaded}
+                />
                 <FigureOutBlock />
                 <HowDoProvideBlock />
               </Styled.Layout>

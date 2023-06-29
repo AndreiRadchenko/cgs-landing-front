@@ -8,14 +8,24 @@ import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import { IServiceAi } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { useQueryClient } from "@tanstack/react-query";
+import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = () => {
+const HeadBlock = ({
+  setOnLoadCount,
+  onLoadCount,
+  setIsMainImagesLoaded,
+}: IHeadServicesProps) => {
   const queryClient = useQueryClient();
 
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceAi>([
     queryKeys.getServiceAiPage,
   ])?.headerBlock;
+
+  const onMainImageLoad = (e: any) => {
+    setOnLoadCount((prev) => prev + 1);
+    setIsMainImagesLoaded(true);
+  };
 
   return (
     <Styled.Wrapper>
@@ -40,17 +50,19 @@ const HeadBlock = () => {
           </Styled.ButtonWrapper>
         )}
       </Styled.TextContent>
-      {data && (
-        <Styled.ImageWrapper>
+      <Styled.ImageWrapper>
+        {data?.image && (
           <Image
+            onLoad={(e) => onMainImageLoad(e)}
             src={data?.image.url}
             alt="dapp service hero img"
             layout="fill"
+            loading={"eager"}
             objectFit="contain"
             priority
           />
-        </Styled.ImageWrapper>
-      )}
+        )}
+      </Styled.ImageWrapper>
     </Styled.Wrapper>
   );
 };

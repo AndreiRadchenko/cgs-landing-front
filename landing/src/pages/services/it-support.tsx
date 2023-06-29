@@ -44,7 +44,7 @@ export async function getServerSideProps() {
 const OngoingSupport = () => {
   const is768px = useMediaQuery("(max-width:768px)");
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [queryKeys.getServiceSupportPage],
     () => adminSupportService.getSupportServicePage(),
     { refetchOnWindowFocus: false }
@@ -54,6 +54,9 @@ const OngoingSupport = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
+
+  const [onLoadCount, setOnLoadCount] = useState(0);
+  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
 
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
@@ -75,8 +78,14 @@ const OngoingSupport = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isFetching && !isLoading) {
+      setIsMainImagesLoaded(true);
+    }
+  }, [isFetching]);
+
   return (
-    <Loader active={isLoading}>
+    <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -90,7 +99,11 @@ const OngoingSupport = () => {
           <PageArticle>
             <Layout>
               <Styled.Layout>
-                <HeadBlock />
+                <HeadBlock
+                  setOnLoadCount={setOnLoadCount}
+                  onLoadCount={onLoadCount}
+                  setIsMainImagesLoaded={setIsMainImagesLoaded}
+                />
                 <WorkBlock />
                 <ProvidesBlock
                   className={

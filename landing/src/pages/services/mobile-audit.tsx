@@ -49,7 +49,7 @@ const MobileAuditService = () => {
     queryKeys.getServiceMobileAuditPage,
   ])?.whenDoYouNeed;
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [queryKeys.getServiceMobileAuditPage],
     () => adminMobileAuditService.getMobileAuditServicePage(),
     { refetchOnWindowFocus: false }
@@ -59,6 +59,9 @@ const MobileAuditService = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
+
+  const [onLoadCount, setOnLoadCount] = useState(0);
+  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
 
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
@@ -80,8 +83,14 @@ const MobileAuditService = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isFetching && !isLoading) {
+      setIsMainImagesLoaded(true);
+    }
+  }, [isFetching]);
+
   return (
-    <Loader active={isLoading}>
+    <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -101,7 +110,11 @@ const MobileAuditService = () => {
           <>
             <Layout>
               <Styled.Layout>
-                <HeadBlock />
+                <HeadBlock
+                  setOnLoadCount={setOnLoadCount}
+                  onLoadCount={onLoadCount}
+                  setIsMainImagesLoaded={setIsMainImagesLoaded}
+                />
               </Styled.Layout>
               <WhatAppBlock />
               <Styled.Layout>

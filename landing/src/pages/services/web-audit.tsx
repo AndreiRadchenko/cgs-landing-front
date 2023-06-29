@@ -43,7 +43,7 @@ export async function getServerSideProps() {
 }
 
 const WebAuditPage: NextPage = () => {
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [queryKeys.getServiceWebAuditPage],
     () => adminWebAuditService.getWebAuditServicePage(),
     { refetchOnWindowFocus: false }
@@ -52,6 +52,9 @@ const WebAuditPage: NextPage = () => {
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
+
+  const [onLoadCount, setOnLoadCount] = useState(0);
+  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
 
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
@@ -73,8 +76,14 @@ const WebAuditPage: NextPage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isFetching && !isLoading) {
+      setIsMainImagesLoaded(true);
+    }
+  }, [isFetching]);
+
   return (
-    <Loader active={isLoading}>
+    <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -93,7 +102,11 @@ const WebAuditPage: NextPage = () => {
           <HeaderNavNew />
           <PageArticle>
             <Layout>
-              <HeadBlock />
+              <HeadBlock
+                setOnLoadCount={setOnLoadCount}
+                onLoadCount={onLoadCount}
+                setIsMainImagesLoaded={setIsMainImagesLoaded}
+              />
               <WhatIsAuditBlock />
               <WhichProblemBlock />
               <TypesOfAuditBlock />

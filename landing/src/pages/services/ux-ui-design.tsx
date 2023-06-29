@@ -48,7 +48,7 @@ export async function getServerSideProps() {
 }
 
 const UxUiDesign = () => {
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [queryKeys.getServiceUxUiPage],
     async () => await adminUxUiService.getUxUiServicePage(),
     { refetchOnWindowFocus: false }
@@ -60,6 +60,9 @@ const UxUiDesign = () => {
   useQuery([queryKeys.getPortfolio], () => adminPortfolioService.getReviews());
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
+
+  const [onLoadCount, setOnLoadCount] = useState(0);
+  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
 
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
@@ -81,8 +84,14 @@ const UxUiDesign = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isFetching && !isLoading) {
+      setIsMainImagesLoaded(true);
+    }
+  }, [isFetching]);
+
   return (
-    <Loader active={isLoading}>
+    <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -102,7 +111,11 @@ const UxUiDesign = () => {
           <PageArticle>
             <Layout>
               <Styled.Layout>
-                <HeadBlock />
+                <HeadBlock
+                  setOnLoadCount={setOnLoadCount}
+                  onLoadCount={onLoadCount}
+                  setIsMainImagesLoaded={setIsMainImagesLoaded}
+                />
                 <WhatDoWeDoBlock />
                 <EssentialBlock />
                 <DesignBlock withoutShowcase={data?.projects.length === 0} />
