@@ -8,6 +8,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 
 import * as Styled from "../../styles/HomePage/FreeServices.styled";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const FreeServices = () => {
   const queryClient = useQueryClient();
@@ -44,7 +45,7 @@ const FreeServices = () => {
               </Styled.FreeServicesImageWrapper>
 
               <Styled.FreeServicesText className="text">
-                {elem.subtitle}
+                <SplitBrackets text={elem.subtitle}/>
               </Styled.FreeServicesText>
             </Styled.FreeServicesCard>
           ) : (

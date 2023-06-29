@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@mui/material";
 import React from "react";
 
 interface ISplitBracketsProps {
@@ -11,7 +12,9 @@ export const SplitBrackets = ({
   onMouseOut,
   onMouseEnter,
 }: ISplitBracketsProps) => {
-  const splited = text?.split("|");
+  const is768px = useMediaQuery("(max-width:768px)");
+
+  const splited = is768px ? text?.split("^") : text?.split("|");
 
   return (
     <section onMouseLeave={onMouseOut}>
@@ -22,7 +25,7 @@ export const SplitBrackets = ({
               key={idx}
               onMouseEnter={(event) => onMouseEnter?.(text as string, event)}
             >
-              {el}
+              {el.replace(/[\^|]/g, "")}
               {splited.length - 1 !== idx && <br />}
             </span>
           )

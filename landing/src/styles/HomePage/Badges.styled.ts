@@ -151,7 +151,7 @@ export const LogosContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     grid-template-columns: 1fr 1fr;
     margin-top: 48px;
-    row-gap: 30px;
+    row-gap: 20px;
     column-gap: 40px;
     padding: 0;
   }
