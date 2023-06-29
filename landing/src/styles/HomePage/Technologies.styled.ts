@@ -13,7 +13,7 @@ export const TechnologyContainer = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 4.375rem;
-    margin-top: 7.9em;
+    margin-top: 6em;
   }
 `;
 
