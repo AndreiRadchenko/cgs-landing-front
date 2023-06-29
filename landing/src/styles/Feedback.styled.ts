@@ -63,7 +63,7 @@ export const FeedbackRow = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 30px;
+    margin-bottom: 90px;
     margin-top: -30px;
   }
 `;

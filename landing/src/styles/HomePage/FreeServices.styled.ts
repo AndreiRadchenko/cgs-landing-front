@@ -7,7 +7,7 @@ type FreeServicesData = {
 
 export const FreeServicesContainer = styled.div`
   @media (max-width: 768px) {
-    margin-top: 50px;
+    margin-top: 60px;
   }
 `;
 
@@ -53,11 +53,24 @@ export const FreeServicesData = styled.div<FreeServicesData>`
   @media (max-width: 768px) {
     grid-template-columns: 1fr 1fr;
     margin-bottom: 8px;
+    column-gap: 60px;
+
+    & div:nth-child(1) {
+      & div .dashed {
+        right: 50%;
+        margin-left: 7px;
+        width: 60%;
+      }
+    }
 
     & div:nth-child(2) {
       & div .dashed {
         right: 50%;
-        width: 50%;
+        width: 70%;
+      }
+
+      & div .arrow {
+        left: -40px;
       }
     }
 
@@ -65,12 +78,12 @@ export const FreeServicesData = styled.div<FreeServicesData>`
       grid-column: 1 / 3;
 
       & div .arrow {
-        left: 17%;
+        left: 12%;
       }
 
       & div .additionalArrow {
         display: flex;
-        right: 19%;
+        right: 11%;
       }
 
       & .text {
@@ -80,12 +93,27 @@ export const FreeServicesData = styled.div<FreeServicesData>`
 
     & div:nth-child(4) {
       & div .dashed {
-        left: 50%;
-        width: 50%;
+        left: 45%;
+        width: 70%;
       }
 
       & div .arrow {
         display: none;
+      }
+    }
+
+    & div:last-of-type {
+      & div .arrow {
+        left: -40px;
+      }
+
+      & div .dashed {
+      right: 70%;
+      width: 50%;
+      }
+
+      & .text {
+        width: 120%;
       }
     }
   }
@@ -204,14 +232,16 @@ export const FreeServicesText = styled.div`
   justify-content: center;
   text-align: center;
   align-items: center;
-  padding-top: 15px;
   max-height: 8em;
+  top: -10px;
   position: relative;
   font-size: 22px;
   line-height: 30.8px;
 
   @media (max-width: 768px) {
     font-size: 16px;
+    width: 110%;
+    top: -15px;
     padding: 0;
     line-height: 22.4px;
   }

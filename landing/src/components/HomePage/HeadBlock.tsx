@@ -44,6 +44,7 @@ const HeadBlock = () => {
                   alt="wide tech long arrow"
                   layout="fill"
                   objectFit="contain"
+                  priority
                 />
               </CSS.ArrowWrapper>
             </>
@@ -63,6 +64,7 @@ const HeadBlock = () => {
                   alt="wide tech long arrow"
                   layout="fill"
                   objectFit="contain"
+                  priority
                 />
               </CSS.ArrowWrapper>
             </>

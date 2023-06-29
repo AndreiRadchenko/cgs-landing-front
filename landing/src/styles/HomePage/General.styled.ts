@@ -205,9 +205,9 @@ export const MainSubtitle = styled.div`
   margin: 17px 0 40px;
 
   &.homePage {
+    margin-top: 25px;
     p{
       margin: 0;
-      line-height: 0;
     }
   }
 
@@ -360,6 +360,7 @@ export const Tetris = styled.div`
   position: absolute;
   width: 33.7%;
   right: 122px;
+  top: 18px;
 
   @media ${themes.primary.media.minPCFullHD} {
     top: 80px;
