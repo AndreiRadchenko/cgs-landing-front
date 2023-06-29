@@ -37,20 +37,24 @@ const TextEditor = ({ name = "", header, props }: ITextEditorProps) => {
       ["codeView"],
     ],
   };
+
   return (
     <div>
       <Styled.AdminSubTitle>{header}</Styled.AdminSubTitle>
       <Styled.TextEditorContainer>
         <Field name={name}>
           {({ field }: FieldProps) => (
-            <SunEditor
-              name={field.name}
-              defaultValue={field.value}
-              onChange={field.onChange(field.name)}
-              lang="en"
-              setOptions={options}
-              {...props}
-            />
+            <>
+              <SunEditor
+                name={field.name}
+                defaultValue={field.value}
+                setContents={field.value}
+                onChange={field.onChange(field.name)}
+                lang="en"
+                setOptions={options}
+                {...props}
+              />
+            </>
           )}
         </Field>
       </Styled.TextEditorContainer>
