@@ -53,8 +53,6 @@ const OngoingSupport = () => {
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 
-  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
-
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
       window.dataLayer = window.dataLayer || [];
@@ -76,11 +74,17 @@ const OngoingSupport = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isMainImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
         <>
+          {isCalendlySuccessfull && (
+            <CalendlyInfoModal
+              isOpen={isCalendlySuccessfull}
+              setIsCalendlySuccessfull={setIsCalendlySuccessfull}
+            />
+          )}
           <Head>
             <title>{metaTitle}</title>
             <meta name="description" content={metaDescription} />
@@ -90,7 +94,7 @@ const OngoingSupport = () => {
           <PageArticle>
             <Layout>
               <Styled.Layout>
-                <HeadBlock setIsMainImagesLoaded={setIsMainImagesLoaded} />
+                <HeadBlock />
                 <WorkBlock />
                 <ProvidesBlock
                   className={

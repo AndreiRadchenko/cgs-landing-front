@@ -9,18 +9,13 @@ import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import { ICloudService } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/CloudService/HeaderBlock.styled";
-import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
+const HeadBlock = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<ICloudService>([
     queryKeys.getServiceCloudPage,
   ])?.headerBlock;
-
-  const onMainImageLoad = () => {
-    setIsMainImagesLoaded(true);
-  };
 
   return (
     <Styled.Container>
@@ -43,7 +38,7 @@ const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
           </Styled.ButtonWrapper>
         )}
       </Styled.ContentWrapper>
-      <Styled.Image onLoad={() => onMainImageLoad()} src={data?.image.url} />
+      <Styled.Image src={data?.image.url} />
     </Styled.Container>
   );
 };

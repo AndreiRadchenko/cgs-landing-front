@@ -51,8 +51,6 @@ const WebAuditPage: NextPage = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
-
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
       window.dataLayer = window.dataLayer || [];
@@ -74,7 +72,7 @@ const WebAuditPage: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isMainImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -93,7 +91,7 @@ const WebAuditPage: NextPage = () => {
           <HeaderNavNew />
           <PageArticle>
             <Layout>
-              <HeadBlock setIsMainImagesLoaded={setIsMainImagesLoaded} />
+              <HeadBlock />
               <WhatIsAuditBlock />
               <WhichProblemBlock />
               <TypesOfAuditBlock />

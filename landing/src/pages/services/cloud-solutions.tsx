@@ -54,8 +54,6 @@ const CloudService = () => {
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 
-  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
-
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
       window.dataLayer = window.dataLayer || [];
@@ -77,7 +75,7 @@ const CloudService = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isMainImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -97,7 +95,7 @@ const CloudService = () => {
           <PageArticle>
             <Layout>
               <Styled.Layout>
-                <HeadBlock setIsMainImagesLoaded={setIsMainImagesLoaded} />
+                <HeadBlock />
                 <ProvidesBlock
                   className={
                     data && data.projects.length === 0

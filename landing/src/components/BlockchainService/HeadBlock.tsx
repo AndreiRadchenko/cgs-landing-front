@@ -10,18 +10,13 @@ import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import TV from "../../../public/BlockchainServicePage/HeadImage/TV.svg";
 import { cryptoTVImages } from "../../consts/cryptoTV";
 import { SplitBrackets } from "../../utils/splitBrackets";
-import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
+const HeadBlock = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IBlockchainService>([
     queryKeys.getServiceBlockchainPage,
   ])?.headerBlock;
-
-  const onMainImageLoad = () => {
-    setIsMainImagesLoaded(true);
-  };
 
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -70,7 +65,7 @@ const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
         )}
       </Styled.Content>
       <Styled.Image>
-        <Styled.ImageTV onLoad={() => onMainImageLoad()} src={TV.src} />
+        <Styled.ImageTV src={TV.src} />
         <Styled.ImageCrypto src={cryptoTVImages[imageIndex]} />
       </Styled.Image>
     </Styled.Container>

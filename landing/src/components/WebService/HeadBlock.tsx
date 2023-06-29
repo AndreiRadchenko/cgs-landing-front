@@ -15,18 +15,13 @@ import TextTypingAnimation from "../Typewrite";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import Image from "next/image";
-import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
+const HeadBlock = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceWeb>([
     queryKeys.getServiceWebPage,
   ])?.headerBlock;
-
-  const onMainImageLoad = () => {
-    setIsMainImagesLoaded(true);
-  };
 
   return (
     <Container>
@@ -50,7 +45,6 @@ const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
       <ImageWrapper>
         {data?.image && (
           <Image
-            onLoadingComplete={() => onMainImageLoad()}
             src={data?.image.url}
             alt={"main image"}
             layout={"fill"}

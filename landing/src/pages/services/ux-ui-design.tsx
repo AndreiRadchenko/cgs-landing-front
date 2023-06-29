@@ -60,8 +60,6 @@ const UxUiDesign = () => {
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 
-  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
-
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
       window.dataLayer = window.dataLayer || [];
@@ -83,7 +81,7 @@ const UxUiDesign = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isMainImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -103,7 +101,7 @@ const UxUiDesign = () => {
           <PageArticle>
             <Layout>
               <Styled.Layout>
-                <HeadBlock setIsMainImagesLoaded={setIsMainImagesLoaded} />
+                <HeadBlock />
                 <WhatDoWeDoBlock />
                 <EssentialBlock />
                 <DesignBlock withoutShowcase={data?.projects.length === 0} />
