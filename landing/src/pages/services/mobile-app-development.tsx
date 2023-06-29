@@ -45,7 +45,7 @@ export async function getServerSideProps() {
 const MobileAppDevelopment: NextPage = () => {
   const queryClient = useQueryClient();
 
-  const { data, isLoading, isFetching } = useQuery(
+  const { data, isLoading } = useQuery(
     [queryKeys.getServiceMobilePage],
     () => adminMobileService.getMobileServicePage(),
     { refetchOnWindowFocus: false }
@@ -79,8 +79,8 @@ const MobileAppDevelopment: NextPage = () => {
     };
   }, []);
   return (
-    <Loader active={isFetching || isLoading}>
-      {isFetching || isLoading ? (
+    <Loader active={isLoading}>
+      {isLoading ? (
         <LoaderStub />
       ) : (
         <>

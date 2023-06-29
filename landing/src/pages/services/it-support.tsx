@@ -44,7 +44,7 @@ export async function getServerSideProps() {
 const OngoingSupport = () => {
   const is768px = useMediaQuery("(max-width:768px)");
 
-  const { data, isLoading, isFetching } = useQuery(
+  const { data, isLoading } = useQuery(
     [queryKeys.getServiceSupportPage],
     () => adminSupportService.getSupportServicePage(),
     { refetchOnWindowFocus: false }
@@ -76,8 +76,8 @@ const OngoingSupport = () => {
   }, []);
 
   return (
-    <Loader active={isFetching || isLoading}>
-      {isFetching || isLoading ? (
+    <Loader active={isLoading}>
+      {isLoading ? (
         <LoaderStub />
       ) : (
         <>
