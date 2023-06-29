@@ -37,6 +37,7 @@ const TextEditor = ({ name = "", header, props }: ITextEditorProps) => {
       ["codeView"],
     ],
   };
+
   return (
     <div>
       <Styled.AdminSubTitle>{header}</Styled.AdminSubTitle>
@@ -46,6 +47,7 @@ const TextEditor = ({ name = "", header, props }: ITextEditorProps) => {
             <SunEditor
               name={field.name}
               defaultValue={field.value}
+              setContents={field.value}
               onChange={field.onChange(field.name)}
               lang="en"
               setOptions={options}
