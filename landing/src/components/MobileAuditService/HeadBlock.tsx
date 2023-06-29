@@ -15,13 +15,8 @@ import secondSearch from "../../../public/MobileAuditService/search-2.svg";
 import thirdSearch from "../../../public/MobileAuditService/search-3.svg";
 import fourthSearch from "../../../public/MobileAuditService/search-4.svg";
 import { IHeadServicesProps } from "../../types/Services.types";
-import TV from "../../../public/BlockchainServicePage/HeadImage/TV.svg";
 
-const HeadBlock = ({
-  setOnLoadCount,
-  onLoadCount,
-  setIsMainImagesLoaded,
-}: IHeadServicesProps) => {
+const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceMobileAudit>([
@@ -48,11 +43,8 @@ const HeadBlock = ({
     };
   }, [searchImageIndex]);
 
-  const onMainImageLoad = (e: any) => {
-    setOnLoadCount((prev) => prev + 1);
-    if (onLoadCount === 1) {
-      setIsMainImagesLoaded(true);
-    }
+  const onMainImageLoad = () => {
+    setIsMainImagesLoaded(true);
   };
 
   return (
@@ -78,7 +70,7 @@ const HeadBlock = ({
       </Styled.Content>
       <Styled.ImageWrapper>
         <Styled.ImageMobile
-          onLoad={(e) => onMainImageLoad(e)}
+          onLoad={() => onMainImageLoad()}
           src={MobileImage.src}
           alt="hero mobile audit image"
         />

@@ -55,7 +55,6 @@ const OngoingSupport = () => {
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 
-  const [onLoadCount, setOnLoadCount] = useState(0);
   const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
 
   useEffect(() => {
@@ -78,12 +77,6 @@ const OngoingSupport = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (isFetching && !isLoading) {
-      setIsMainImagesLoaded(true);
-    }
-  }, [isFetching]);
-
   return (
     <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
@@ -99,11 +92,7 @@ const OngoingSupport = () => {
           <PageArticle>
             <Layout>
               <Styled.Layout>
-                <HeadBlock
-                  setOnLoadCount={setOnLoadCount}
-                  onLoadCount={onLoadCount}
-                  setIsMainImagesLoaded={setIsMainImagesLoaded}
-                />
+                <HeadBlock setIsMainImagesLoaded={setIsMainImagesLoaded} />
                 <WorkBlock />
                 <ProvidesBlock
                   className={

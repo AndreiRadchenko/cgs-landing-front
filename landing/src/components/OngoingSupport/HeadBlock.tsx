@@ -9,22 +9,15 @@ import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({
-  setOnLoadCount,
-  onLoadCount,
-  setIsMainImagesLoaded,
-}: IHeadServicesProps) => {
+const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceSupport>([
     queryKeys.getServiceSupportPage,
   ])?.headerBlock;
 
-  const onMainImageLoad = (e: any) => {
-    setOnLoadCount((prev) => prev + 1);
-    if (onLoadCount === 1) {
-      setIsMainImagesLoaded(true);
-    }
+  const onMainImageLoad = () => {
+    setIsMainImagesLoaded(true);
   };
 
   return (
@@ -51,7 +44,7 @@ const HeadBlock = ({
           </Styled.ButtonWrapper>
         )}
       </Styled.Content>
-      <Styled.Image onLoad={(e) => onMainImageLoad(e)} src={data?.image.url} />
+      <Styled.Image onLoad={() => onMainImageLoad()} src={data?.image.url} />
     </Styled.Container>
   );
 };

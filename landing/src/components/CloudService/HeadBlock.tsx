@@ -11,22 +11,15 @@ import { queryKeys } from "../../consts/queryKeys";
 import * as Styled from "../../styles/CloudService/HeaderBlock.styled";
 import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({
-  setOnLoadCount,
-  onLoadCount,
-  setIsMainImagesLoaded,
-}: IHeadServicesProps) => {
+const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<ICloudService>([
     queryKeys.getServiceCloudPage,
   ])?.headerBlock;
 
-  const onMainImageLoad = (e: any) => {
-    setOnLoadCount((prev) => prev + 1);
-    if (onLoadCount === 1) {
-      setIsMainImagesLoaded(true);
-    }
+  const onMainImageLoad = () => {
+    setIsMainImagesLoaded(true);
   };
 
   return (
@@ -50,7 +43,7 @@ const HeadBlock = ({
           </Styled.ButtonWrapper>
         )}
       </Styled.ContentWrapper>
-      <Styled.Image onLoad={(e) => onMainImageLoad(e)} src={data?.image.url} />
+      <Styled.Image onLoad={() => onMainImageLoad()} src={data?.image.url} />
     </Styled.Container>
   );
 };

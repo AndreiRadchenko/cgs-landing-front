@@ -10,11 +10,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { useQueryClient } from "@tanstack/react-query";
 import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({
-  setOnLoadCount,
-  onLoadCount,
-  setIsMainImagesLoaded,
-}: IHeadServicesProps) => {
+const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
   const queryClient = useQueryClient();
 
   const elRef = useRef<HTMLDivElement>(null);
@@ -22,8 +18,7 @@ const HeadBlock = ({
     queryKeys.getServiceAiPage,
   ])?.headerBlock;
 
-  const onMainImageLoad = (e: any) => {
-    setOnLoadCount((prev) => prev + 1);
+  const onMainImageLoad = () => {
     setIsMainImagesLoaded(true);
   };
 
@@ -53,7 +48,7 @@ const HeadBlock = ({
       <Styled.ImageWrapper>
         {data?.image && (
           <Image
-            onLoad={(e) => onMainImageLoad(e)}
+            onLoadingComplete={() => onMainImageLoad()}
             src={data?.image.url}
             alt="dapp service hero img"
             layout="fill"

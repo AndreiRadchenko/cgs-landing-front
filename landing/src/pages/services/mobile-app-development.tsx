@@ -45,7 +45,7 @@ export async function getServerSideProps() {
 const MobileAppDevelopment: NextPage = () => {
   const queryClient = useQueryClient();
 
-  const { data, isLoading, isFetching } = useQuery(
+  const { data, isLoading } = useQuery(
     [queryKeys.getServiceMobilePage],
     () => adminMobileService.getMobileServicePage(),
     { refetchOnWindowFocus: false }
@@ -59,7 +59,6 @@ const MobileAppDevelopment: NextPage = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  const [onLoadCount, setOnLoadCount] = useState(0);
   const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
 
   useEffect(() => {
@@ -82,12 +81,6 @@ const MobileAppDevelopment: NextPage = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (isFetching && !isLoading) {
-      setIsMainImagesLoaded(true);
-    }
-  }, [isFetching]);
-
   return (
     <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
@@ -108,11 +101,7 @@ const MobileAppDevelopment: NextPage = () => {
           <HeaderNavNew />
           <>
             <Layout>
-              <HeadBlock
-                setOnLoadCount={setOnLoadCount}
-                onLoadCount={onLoadCount}
-                setIsMainImagesLoaded={setIsMainImagesLoaded}
-              />
+              <HeadBlock setIsMainImagesLoaded={setIsMainImagesLoaded} />
               {dataPerks && (
                 <PerksOfCoopComponent className="mobileDev" data={dataPerks} />
               )}

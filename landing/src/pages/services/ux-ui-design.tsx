@@ -48,7 +48,7 @@ export async function getServerSideProps() {
 }
 
 const UxUiDesign = () => {
-  const { data, isLoading, isFetching } = useQuery(
+  const { data, isLoading } = useQuery(
     [queryKeys.getServiceUxUiPage],
     async () => await adminUxUiService.getUxUiServicePage(),
     { refetchOnWindowFocus: false }
@@ -61,7 +61,6 @@ const UxUiDesign = () => {
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 
-  const [onLoadCount, setOnLoadCount] = useState(0);
   const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
 
   useEffect(() => {
@@ -84,12 +83,6 @@ const UxUiDesign = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (isFetching && !isLoading) {
-      setIsMainImagesLoaded(true);
-    }
-  }, [isFetching]);
-
   return (
     <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
@@ -111,11 +104,7 @@ const UxUiDesign = () => {
           <PageArticle>
             <Layout>
               <Styled.Layout>
-                <HeadBlock
-                  setOnLoadCount={setOnLoadCount}
-                  onLoadCount={onLoadCount}
-                  setIsMainImagesLoaded={setIsMainImagesLoaded}
-                />
+                <HeadBlock setIsMainImagesLoaded={setIsMainImagesLoaded} />
                 <WhatDoWeDoBlock />
                 <EssentialBlock />
                 <DesignBlock withoutShowcase={data?.projects.length === 0} />
