@@ -17,6 +17,11 @@ export const FreeServicesTitle = styled.div`
   font-size: 40px;
   row-gap: 10px;
 
+  & u {
+    text-decoration-thickness: 3px;
+    text-underline-offset: 7px;
+  }
+
   & > p {
     margin-top: 1em;
     margin-bottom: 0;
@@ -24,6 +29,10 @@ export const FreeServicesTitle = styled.div`
 
   @media (max-width: 768px) {
     font-size: 28px;
+
+    & u {
+    text-decoration-thickness: 1.5px;
+    }
   }
 `;
 
@@ -31,7 +40,7 @@ export const FreeServicesData = styled.div<FreeServicesData>`
   display: grid;
   grid-template-columns: repeat(${(props) => props.columnsNumber}, 1fr);
   column-gap: 14.5px;
-  margin: 37px 0 138px;
+  margin: 25px 0 138px;
 
   & div:first-of-type {
     & div .dashed {
@@ -52,6 +61,7 @@ export const FreeServicesData = styled.div<FreeServicesData>`
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
     margin-bottom: 8px;
     column-gap: 60px;
 
@@ -66,11 +76,11 @@ export const FreeServicesData = styled.div<FreeServicesData>`
     & div:nth-child(2) {
       & div .dashed {
         right: 50%;
-        width: 70%;
+        width: 80%;
       }
 
       & div .arrow {
-        left: -40px;
+        left: -55px;
       }
     }
 
@@ -168,6 +178,20 @@ export const FreeServicesCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 768px) {
+    &:nth-child(2) {
+      margin-left: 15px;
+
+      div:last-child {
+        width: 120%;
+        left: -15px;
+      }
+    }
+    &:nth-child(3) {
+      margin-bottom: -10px;
+    }
+  }
 `;
 
 export const DashedLine = styled.div`

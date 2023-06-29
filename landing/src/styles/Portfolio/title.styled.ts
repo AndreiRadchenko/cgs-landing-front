@@ -319,7 +319,8 @@ export const HomePageArrowWrapper = styled.span`
 
     &.homePageSubtitleRightArrow {
       width: 6vw;
-      top: 8px;
+      height: 3vw;
+      top: 5px;
       margin-left: -2px;
     }
   }
