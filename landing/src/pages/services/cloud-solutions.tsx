@@ -44,7 +44,7 @@ export async function getServerSideProps() {
 }
 
 const CloudService = () => {
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [queryKeys.getServiceCloudPage],
     () => adminCloudService.getCloudSolutionPage(),
     { refetchOnWindowFocus: false }
@@ -55,6 +55,9 @@ const CloudService = () => {
   useQuery([queryKeys.getPortfolio], () => adminPortfolioService.getReviews());
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
+
+  const [onLoadCount, setOnLoadCount] = useState(0);
+  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
 
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
@@ -76,8 +79,14 @@ const CloudService = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isFetching && !isLoading) {
+      setIsMainImagesLoaded(true);
+    }
+  }, [isFetching]);
+
   return (
-    <Loader active={isLoading}>
+    <Loader active={isLoading || !isMainImageLoaded}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -97,7 +106,11 @@ const CloudService = () => {
           <PageArticle>
             <Layout>
               <Styled.Layout>
-                <HeadBlock />
+                <HeadBlock
+                  setOnLoadCount={setOnLoadCount}
+                  onLoadCount={onLoadCount}
+                  setIsMainImagesLoaded={setIsMainImagesLoaded}
+                />
                 <ProvidesBlock
                   className={
                     data && data.projects.length === 0

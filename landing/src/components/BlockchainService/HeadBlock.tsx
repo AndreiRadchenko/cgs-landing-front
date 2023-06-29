@@ -10,13 +10,25 @@ import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import TV from "../../../public/BlockchainServicePage/HeadImage/TV.svg";
 import { cryptoTVImages } from "../../consts/cryptoTV";
 import { SplitBrackets } from "../../utils/splitBrackets";
+import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = () => {
+const HeadBlock = ({
+  setOnLoadCount,
+  onLoadCount,
+  setIsMainImagesLoaded,
+}: IHeadServicesProps) => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IBlockchainService>([
     queryKeys.getServiceBlockchainPage,
   ])?.headerBlock;
+
+  const onMainImageLoad = (e: any) => {
+    setOnLoadCount((prev) => prev + 1);
+    if (onLoadCount === 1) {
+      setIsMainImagesLoaded(true);
+    }
+  };
 
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -29,25 +41,25 @@ const HeadBlock = () => {
         setImageIndex((prevIndex) =>
           prevIndex === cryptoTVImages.length - 1 ? 0 : prevIndex + 1
         );
-      }, 1000)
+      }, 1000);
     } else {
       timer = setTimeout(() => {
         setImageIndex((prevIndex) =>
           prevIndex === cryptoTVImages.length - 1 ? 0 : prevIndex + 1
         );
-      }, 250)
+      }, 250);
     }
 
     return () => {
       clearTimeout(timer);
-    }
+    };
   }, [imageIndex]);
 
   return (
     <Styled.Container>
       <Styled.Content>
         <Styled.Title>
-          {data && <TextTypingAnimation text={data?.title}/>}
+          {data && <TextTypingAnimation text={data?.title} />}
         </Styled.Title>
         <Styled.Description>
           <SplitBrackets text={data?.text} />
@@ -65,7 +77,7 @@ const HeadBlock = () => {
         )}
       </Styled.Content>
       <Styled.Image>
-        <Styled.ImageTV src={TV.src} />
+        <Styled.ImageTV onLoad={(e) => onMainImageLoad(e)} src={TV.src} />
         <Styled.ImageCrypto src={cryptoTVImages[imageIndex]} />
       </Styled.Image>
     </Styled.Container>

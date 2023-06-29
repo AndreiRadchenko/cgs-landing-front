@@ -11,3 +11,9 @@ export interface IServicesClassnameProps {
 export interface IServicesShowcaseProps {
   withoutShowcase?: boolean;
 }
+
+export interface IHeadServicesProps {
+  setOnLoadCount: Dispatch<SetStateAction<number>>;
+  onLoadCount: number;
+  setIsMainImagesLoaded: Dispatch<SetStateAction<boolean>>;
+}

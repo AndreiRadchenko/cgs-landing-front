@@ -14,8 +14,14 @@ import firstSearch from "../../../public/MobileAuditService/search-1.svg";
 import secondSearch from "../../../public/MobileAuditService/search-2.svg";
 import thirdSearch from "../../../public/MobileAuditService/search-3.svg";
 import fourthSearch from "../../../public/MobileAuditService/search-4.svg";
+import { IHeadServicesProps } from "../../types/Services.types";
+import TV from "../../../public/BlockchainServicePage/HeadImage/TV.svg";
 
-const HeadBlock = () => {
+const HeadBlock = ({
+  setOnLoadCount,
+  onLoadCount,
+  setIsMainImagesLoaded,
+}: IHeadServicesProps) => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceMobileAudit>([
@@ -28,17 +34,26 @@ const HeadBlock = () => {
     firstSearch.src,
     secondSearch.src,
     thirdSearch.src,
-    fourthSearch.src
+    fourthSearch.src,
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setSearchImageIndex(prevIndex => (prevIndex === searchImages.length - 1 ? 0 : prevIndex + 1));
+      setSearchImageIndex((prevIndex) =>
+        prevIndex === searchImages.length - 1 ? 0 : prevIndex + 1
+      );
     }, 500);
     return () => {
       clearInterval(timer);
     };
   }, [searchImageIndex]);
+
+  const onMainImageLoad = (e: any) => {
+    setOnLoadCount((prev) => prev + 1);
+    if (onLoadCount === 1) {
+      setIsMainImagesLoaded(true);
+    }
+  };
 
   return (
     <Styled.Container>
@@ -62,8 +77,15 @@ const HeadBlock = () => {
         )}
       </Styled.Content>
       <Styled.ImageWrapper>
-        <Styled.ImageMobile src={MobileImage.src} alt="hero mobile audit image" />
-        <Styled.ImageSearch src={searchImages[searchImageIndex]} alt="mobile audit search image"/>    
+        <Styled.ImageMobile
+          onLoad={(e) => onMainImageLoad(e)}
+          src={MobileImage.src}
+          alt="hero mobile audit image"
+        />
+        <Styled.ImageSearch
+          src={searchImages[searchImageIndex]}
+          alt="mobile audit search image"
+        />
       </Styled.ImageWrapper>
     </Styled.Container>
   );
