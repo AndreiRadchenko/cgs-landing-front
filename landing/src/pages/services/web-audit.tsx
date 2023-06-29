@@ -43,7 +43,7 @@ export async function getServerSideProps() {
 }
 
 const WebAuditPage: NextPage = () => {
-  const { data, isSuccess, isFetching } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [queryKeys.getServiceWebAuditPage],
     () => adminWebAuditService.getWebAuditServicePage(),
     { refetchOnWindowFocus: false }
@@ -74,8 +74,8 @@ const WebAuditPage: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={isFetching}>
-      {isFetching ? (
+    <Loader active={isFetching || isLoading}>
+      {isFetching || isLoading ? (
         <LoaderStub />
       ) : (
         <>

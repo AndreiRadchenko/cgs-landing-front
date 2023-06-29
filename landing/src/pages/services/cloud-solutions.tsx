@@ -44,7 +44,7 @@ export async function getServerSideProps() {
 }
 
 const CloudService = () => {
-  const { data, isSuccess, isFetching } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [queryKeys.getServiceCloudPage],
     () => adminCloudService.getCloudSolutionPage(),
     { refetchOnWindowFocus: false }
@@ -77,8 +77,8 @@ const CloudService = () => {
   }, []);
 
   return (
-    <Loader active={isFetching}>
-      {isFetching ? (
+    <Loader active={isFetching || isLoading}>
+      {isFetching || isLoading ? (
         <LoaderStub />
       ) : (
         <>

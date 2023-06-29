@@ -49,7 +49,7 @@ const MobileAuditService = () => {
     queryKeys.getServiceMobileAuditPage,
   ])?.whenDoYouNeed;
 
-  const { data, isSuccess, isFetching } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [queryKeys.getServiceMobileAuditPage],
     () => adminMobileAuditService.getMobileAuditServicePage(),
     { refetchOnWindowFocus: false }
@@ -81,8 +81,8 @@ const MobileAuditService = () => {
   }, []);
 
   return (
-    <Loader active={isFetching}>
-      {isFetching ? (
+    <Loader active={isFetching || isLoading}>
+      {isFetching || isLoading ? (
         <LoaderStub />
       ) : (
         <>

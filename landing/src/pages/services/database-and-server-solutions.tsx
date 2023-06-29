@@ -48,7 +48,7 @@ export async function getServerSideProps() {
 }
 
 const DbSolutions: NextPage = () => {
-  const { data, isSuccess, isFetching } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [queryKeys.getServiceDbPage],
     () => adminDbService.getDbServicePage(),
     { refetchOnWindowFocus: false }
@@ -81,8 +81,8 @@ const DbSolutions: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={isFetching}>
-      {isFetching ? (
+    <Loader active={isFetching || isLoading}>
+      {isFetching || isLoading ? (
         <LoaderStub />
       ) : (
         <>

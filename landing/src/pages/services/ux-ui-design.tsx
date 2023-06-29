@@ -48,7 +48,7 @@ export async function getServerSideProps() {
 }
 
 const UxUiDesign = () => {
-  const { data, isSuccess, isFetching } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     [queryKeys.getServiceUxUiPage],
     async () => await adminUxUiService.getUxUiServicePage(),
     { refetchOnWindowFocus: false }
@@ -82,8 +82,8 @@ const UxUiDesign = () => {
   }, []);
 
   return (
-    <Loader active={isFetching}>
-      {isFetching ? (
+    <Loader active={isFetching || isLoading}>
+      {isFetching || isLoading ? (
         <LoaderStub />
       ) : (
         <>
