@@ -11,7 +11,3 @@ export interface IServicesClassnameProps {
 export interface IServicesShowcaseProps {
   withoutShowcase?: boolean;
 }
-
-export interface IHeadServicesProps {
-  setIsMainImagesLoaded: Dispatch<SetStateAction<boolean>>;
-}

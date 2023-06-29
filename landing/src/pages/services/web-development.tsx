@@ -47,8 +47,6 @@ const WebDevelopment: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
-
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
       window.dataLayer = window.dataLayer || [];
@@ -70,7 +68,7 @@ const WebDevelopment: NextPage = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isMainImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -90,7 +88,7 @@ const WebDevelopment: NextPage = () => {
           <>
             <Layout>
               <Styled.Layout>
-                <HeadBlock setIsMainImagesLoaded={setIsMainImagesLoaded} />
+                <HeadBlock />
                 <WebPros />
                 <SolutionBlock
                   className={

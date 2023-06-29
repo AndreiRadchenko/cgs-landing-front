@@ -59,8 +59,6 @@ const MobileAuditService = () => {
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 
-  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
-
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
       window.dataLayer = window.dataLayer || [];
@@ -82,7 +80,7 @@ const MobileAuditService = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isMainImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -102,7 +100,7 @@ const MobileAuditService = () => {
           <>
             <Layout>
               <Styled.Layout>
-                <HeadBlock setIsMainImagesLoaded={setIsMainImagesLoaded} />
+                <HeadBlock />
               </Styled.Layout>
               <WhatAppBlock />
               <Styled.Layout>

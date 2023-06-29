@@ -8,18 +8,13 @@ import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
-import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
+const HeadBlock = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceDappAudit>([
     queryKeys.getServiceDappAuditPage,
   ])?.headerBlock;
-
-  const onMainImageLoad = () => {
-    setIsMainImagesLoaded(true);
-  };
 
   return (
     <Styled.Wrapper>
@@ -50,7 +45,6 @@ const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
             layout="fill"
             objectFit="contain"
             loading={"eager"}
-            onLoadingComplete={() => onMainImageLoad()}
           />
         </Styled.ImageWrapper>
       )}

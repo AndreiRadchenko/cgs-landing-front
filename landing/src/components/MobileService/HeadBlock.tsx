@@ -7,18 +7,13 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 import TextTypingAnimation from "../Typewrite";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
-import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
+const HeadBlock = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceMobile>([
     queryKeys.getServiceMobilePage,
   ])?.headerBlock;
-
-  const onMainImageLoad = () => {
-    setIsMainImagesLoaded(true);
-  };
 
   return (
     <Styled.Container>
@@ -41,10 +36,7 @@ const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
           </Styled.ButtonWrapper>
         )}
       </Styled.ContentContainer>
-      <Styled.Telephone
-        onLoad={() => onMainImageLoad()}
-        src={data?.image.url}
-      />
+      <Styled.Telephone src={data?.image.url} />
     </Styled.Container>
   );
 };

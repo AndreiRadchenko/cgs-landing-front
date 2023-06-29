@@ -50,8 +50,6 @@ const BlockchainService = () => {
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 
-  const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
-
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
       window.dataLayer = window.dataLayer || [];
@@ -73,7 +71,7 @@ const BlockchainService = () => {
   }, []);
 
   return (
-    <Loader active={isLoading || !isMainImageLoaded}>
+    <Loader active={isLoading}>
       {isLoading ? (
         <LoaderStub />
       ) : (
@@ -93,7 +91,7 @@ const BlockchainService = () => {
           <PageArticle>
             <Layout>
               <Styled.Layout>
-                <HeadBlock setIsMainImagesLoaded={setIsMainImagesLoaded} />
+                <HeadBlock />
                 <ServicesBlock className={"blockchainServices"} />
                 <YourWayBlock />
               </Styled.Layout>

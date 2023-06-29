@@ -14,9 +14,8 @@ import {
 import TextTypingAnimation from "../Typewrite";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
-import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
+const HeadBlock = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceDb>([
@@ -26,10 +25,6 @@ const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
   const lastIndex = data!.title.lastIndexOf("|");
   const title =
     data?.title.substr(0, lastIndex) + data!.title.substring(lastIndex + 1);
-
-  const onMainImageLoad = () => {
-    setIsMainImagesLoaded(true);
-  };
 
   return (
     <Container>
@@ -50,11 +45,7 @@ const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
           </ButtonWrapper>
         )}
       </ContentContainer>
-      <Image
-        onLoad={() => onMainImageLoad()}
-        src={data?.image.url}
-        alt="hero image"
-      />
+      <Image src={data?.image.url} alt="hero image" />
     </Container>
   );
 };

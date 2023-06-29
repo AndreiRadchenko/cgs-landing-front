@@ -7,18 +7,13 @@ import TextTypingAnimation from "../Typewrite";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import { SplitBrackets } from "../../utils/splitBrackets";
-import { IHeadServicesProps } from "../../types/Services.types";
 
-const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
+const HeadBlock = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceSupport>([
     queryKeys.getServiceSupportPage,
   ])?.headerBlock;
-
-  const onMainImageLoad = () => {
-    setIsMainImagesLoaded(true);
-  };
 
   return (
     <Styled.Container>
@@ -44,7 +39,7 @@ const HeadBlock = ({ setIsMainImagesLoaded }: IHeadServicesProps) => {
           </Styled.ButtonWrapper>
         )}
       </Styled.Content>
-      <Styled.Image onLoad={() => onMainImageLoad()} src={data?.image.url} />
+      <Styled.Image src={data?.image.url} />
     </Styled.Container>
   );
 };
