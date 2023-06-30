@@ -243,6 +243,7 @@ export const MainSubtitle = styled.div`
     margin: 10px 0 35px;
     &.homePage {
       width: 100%;
+      margin-top: 10px;
       margin-bottom: 22px;
 
       p{
@@ -435,6 +436,14 @@ export const Subtitle = styled.div<ISubtitle>`
     text-underline-offset: 7px;
   }
 
+  &.foooter {
+    margin-top: 76px;
+    margin-bottom: 14px;
+    p{
+      margin-bottom: 0;
+    }
+  }
+
   &.textOnFilm {
     p{
       margin: 0;
@@ -530,6 +539,10 @@ export const Subtitle = styled.div<ISubtitle>`
       text-decoration-thickness: 1px;
       text-underline-offset: 5px;
     }
+
+    &.foooter {
+    margin-top: 60px;
+  }
 
     &.small {
       margin-top: 0;
@@ -680,7 +693,7 @@ export const FooterButtonWrapper = styled.span`
 `;
 
 export const FooterWhatsAppContainer = styled.div`
-  margin-bottom: 135px;
+  margin-bottom: 162px;
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 6em;
@@ -793,6 +806,10 @@ export const WhatsAppWrapper = styled.div`
   color: ${themes.primary.colors.primary};
   font-size: 1.125em;
 
+  &.homePage {
+    font-size: 1.62em;
+  }
+
   &.webAudit,
   &.mobileDev,
   &.dappAuditShare {
@@ -827,6 +844,10 @@ export const TelegramWrapper = styled.div`
   font-size: 1.125em;
   transition: color 0.3s;
   margin-left: 0.778em;
+
+  &.homePage {
+    font-size: 1.62em;
+  }
 
   &.webAudit,
   &.mobileDev,

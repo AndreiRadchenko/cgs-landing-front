@@ -60,7 +60,7 @@ const BookBlock = () => {
               buttonText={data.button}
               buttonClassName="homepage-footer-button"
             />
-            <ButtonShareComponent className="footer" />
+            <ButtonShareComponent className=" homePage footer" />
           </FooterButtonWrapper>
         )}
       </FooterWhatsAppContainer>
