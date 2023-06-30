@@ -6,6 +6,7 @@ import {
   IResponse,
 } from "../types/Admin";
 import { ErrorMessage } from "../consts";
+import Router from "next/router";
 
 export class HttpService implements IHttpClient {
   constructor(
@@ -67,6 +68,11 @@ export class HttpService implements IHttpClient {
 
   private errorHandler(error: AxiosError<IErrorResponse>) {
     const errorResponse = error.response;
+
+    if (errorResponse?.status === 401) {
+      Router.push("/401")
+      return;
+    }
 
     const errorData: IErrorResponse = {
       statusCode: errorResponse?.data.statusCode || 404,
