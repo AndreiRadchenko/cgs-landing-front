@@ -27,9 +27,8 @@ const HeadBlock = () => {
   const elRef = useRef<HTMLDivElement>(null);
   const isOnScreen = useOnScreen(elRef, true);
 
-  const options: HTMLReactParserOptions = {
+  const optionsDesktop: HTMLReactParserOptions = {
     replace: (domNode) => {
-      if (!is768px) {
         if (
           domNode instanceof Element &&
           domNode.attribs &&
@@ -70,40 +69,45 @@ const HeadBlock = () => {
             </>
           );
         }
-      }
-      if (is768px) {
-        if (
-          domNode instanceof Element &&
-          domNode.attribs &&
-          domNode.attribs.style &&
-          domNode.attribs.style.includes("color: rgb(88, 24, 14)")
-        ) {
-          return (
-            <></>
-          );
-        }
-        if (
-          domNode instanceof Element &&
-          domNode.attribs &&
-          domNode.attribs.style &&
-          domNode.attribs.style.includes("color: rgb(221, 105, 88)")
-        ) {
-          return (
-            <>
-              <CSS.HomePageArrowWrapper className="homePageSubtitleRightArrow">
-                <Image
-                  src={boldRightArrowMobile.src}
-                  alt="wide tech long arrow"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </CSS.HomePageArrowWrapper>
-            </>
-          );
-        }
-      }
     },
   };
+
+  const optionsMobile: HTMLReactParserOptions = {
+    replace: (domNode) => {
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(88, 24, 14)")
+      ) {
+        return (
+          <></>
+        );
+      }
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(221, 105, 88)")
+      ) {
+        return (
+          <>
+            <CSS.HomePageArrowWrapper className="homePageSubtitleRightArrow">
+              <Image
+                src={boldRightArrowMobile.src}
+                alt="wide tech long arrow"
+                layout="fill"
+                objectFit="contain"
+                priority
+              />
+            </CSS.HomePageArrowWrapper>
+          </>
+        );
+      }
+    }
+  };
+
+  const options = is768px ? optionsMobile : optionsDesktop;
 
   useEffect(() => {
     if (isOnScreen) {
@@ -129,7 +133,7 @@ const HeadBlock = () => {
               withEstimation
               buttonClassName={buttonClassName}
             />
-            <ButtonShareComponent />
+            <ButtonShareComponent className="homePage"/>
           </Styled.ButtonWrapper>
         )}
       </Styled.HeadBlockContent>

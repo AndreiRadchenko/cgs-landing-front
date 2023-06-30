@@ -45,7 +45,7 @@ export const BigDigit = styled.p`
     line-height: 89px;
     transform: translateY(2px);
     padding-right: 10px;
-    margin-right: 15px;
+    margin-right: 4px;
 
     filter: drop-shadow(
       4.1358px 1.18166px 0px ${themes.primary.colors.primary}
@@ -342,6 +342,7 @@ export const CardContent = styled.p`
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 0;
     max-width: 380px;
+    margin-top: 22px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
