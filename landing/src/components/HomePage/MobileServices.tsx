@@ -36,8 +36,8 @@ const MobileServices = () => {
   useEffect(() => {
     if (data) {
       const services = data.map((service) => ({
-        image: service.headerBlock.image.url,
-        title: service.headerBlock.title,
+        image: service.headerBlock.image?.url,
+        title: service.headerBlock?.title,
       }));
       setSlidesData(services);
     }
