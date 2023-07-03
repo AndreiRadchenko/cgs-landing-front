@@ -274,7 +274,7 @@ export const CardContainer = styled.article`
 
     padding-top: 0px;
     margin-bottom: 30px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 
     :last-child {
       ::after {
@@ -284,7 +284,7 @@ export const CardContainer = styled.article`
     }
 
     :first-child {
-      margin-top: -10px;
+      margin-top: -18px;
     }
   }
 `;
