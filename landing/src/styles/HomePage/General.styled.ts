@@ -806,10 +806,7 @@ export const WhatsAppWrapper = styled.div`
   color: ${themes.primary.colors.primary};
   font-size: 1.125em;
 
-  &.homePage {
-    font-size: 1.62em;
-  }
-
+  &.homePage,
   &.webAudit,
   &.mobileDev,
   &.dappAuditShare {
@@ -847,10 +844,7 @@ export const TelegramWrapper = styled.div`
   transition: color 0.3s;
   margin-left: 0.778em;
 
-  &.homePage {
-    font-size: 1.62em;
-  }
-
+  &.homePage,
   &.webAudit,
   &.mobileDev,
   &.dappAuditShare {
