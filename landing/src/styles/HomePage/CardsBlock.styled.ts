@@ -13,9 +13,7 @@ export const BigDigit = styled.p`
   color: ${themes.primary.colors.blogBackground};
   -webkit-text-stroke: 2px ${themes.primary.colors.primary};
   transition: all 0.3s;
-  filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary})
-    grayscale(100%);
-  transition: filter 1s;
+  filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary});
 
   &.scrolled {
     background: linear-gradient(
@@ -23,8 +21,7 @@ export const BigDigit = styled.p`
       ${themes.primary.colors.mainGradientColor1} 20%,
       ${themes.primary.colors.mainGradientColor2} 100%
     );
-    filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary})
-      grayscale(0%);
+    filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary});
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
