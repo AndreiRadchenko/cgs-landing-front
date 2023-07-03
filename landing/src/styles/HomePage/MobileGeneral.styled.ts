@@ -72,6 +72,7 @@ export const BlackButton = styled.a<IFontSize>`
   @media ${themes.primary.media.maxLowScreenMobile} {
     &.seeAll {
       width: 178px;
+      font-size: 16px;
       padding-top: 18px;
       height: 54px;
       text-align: center;

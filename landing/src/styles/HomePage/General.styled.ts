@@ -114,6 +114,13 @@ export const BlackButton = styled.a<IFontSize>`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    &.homePage {
+      width: 178px;
+      height: 54px;
+      font-size: 16px;
+      padding-left: 2em;
+    }
+
     &.social-button {
       min-width: 178px;
       height: 54px;

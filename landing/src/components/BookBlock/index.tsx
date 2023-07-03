@@ -58,7 +58,7 @@ const BookBlock = () => {
               buttonLink={data?.buttonLink}
               withEstimation
               buttonText={data.button}
-              buttonClassName="homepage-footer-button"
+              buttonClassName="homePage"
             />
             <ButtonShareComponent className=" homePage footer" />
           </FooterButtonWrapper>
