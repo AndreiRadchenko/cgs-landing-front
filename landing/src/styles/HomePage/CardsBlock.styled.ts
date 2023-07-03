@@ -274,9 +274,10 @@ export const CardContainer = styled.article`
 
     padding-top: 0px;
     margin-bottom: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 
     :last-child {
+      padding-bottom: 30px;
       ::after {
         content: none;
       }
