@@ -40,9 +40,9 @@ const TextFieldWrapper: FC<IFieldProps> = ({
 
   return (
     <CSS.FormFieldWrapper>
-      <CSS.FormFieldLabel htmlFor={label}>
+      {/* <CSS.FormFieldLabel htmlFor={label}>
         {idx === 2 ? parse(label) : label}
-      </CSS.FormFieldLabel>
+      </CSS.FormFieldLabel> */}
       <CSS.FormFieldContainer>
         {idx === 2 ? (
           <PhoneInput
@@ -58,8 +58,8 @@ const TextFieldWrapper: FC<IFieldProps> = ({
             className={
               btnIsClicked && errors[name] ? "formikErrors" : "default"
             }
-            placeholder={label}
-            type={type}
+            label={label}
+            // type={type}
             name={name}
           />
         )}

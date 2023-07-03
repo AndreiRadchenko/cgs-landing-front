@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Field } from "formik";
+import TextField from "@mui/material/TextField";
 import themes from "../../../utils/themes";
 
 export const FormMobileAlign = styled.div`
@@ -151,18 +152,47 @@ export const FormFieldContainer = styled.div`
   }
 `;
 
-export const FormField = styled(Field)`
+export const FormField = styled(TextField)`
   height: 76px;
   width: 100%;
   background: none;
   border: none;
-  border: 1px solid ${themes.primary.colors.inputGrey};
+  /* border: 1px solid tomato; */
   font-family: ${themes.primary.font.family.namu};
   font-size: 1.33em;
   line-height: 1.1875;
   color: ${themes.primary.colors.black};
-  padding-left: 12px;
+  /* padding-left: 12px; */
   border-radius: 0;
+
+  .MuiOutlinedInput-notchedOutline {
+    border: 1px solid ${themes.primary.colors.inputGrey};
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .MuiInputBase-root.MuiOutlinedInput-root {
+    /* color: tomato; */
+  }
+
+  .MuiInputBase-root.MuiOutlinedInput-root:hover
+    .MuiOutlinedInput-notchedOutline {
+    border: 1px solid ${themes.primary.colors.inputGrey};
+  }
+
+  .MuiInputBase-root.MuiOutlinedInput-root:focus-within
+    .MuiOutlinedInput-notchedOutline {
+    border: 1px solid ${themes.primary.colors.inputGrey};
+  }
+
+  .MuiInputLabel-root {
+    color: ${themes.primary.colors.darkGrey};
+  }
+
+  .MuiInputLabel-root.Mui-focused {
+    /* font-size: 18px; */
+    color: ${themes.primary.colors.darkGrey};
+  }
 
   &::placeholder {
     color: ${themes.primary.colors.comment};

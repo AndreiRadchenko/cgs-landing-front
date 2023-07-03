@@ -134,6 +134,7 @@ const themes = {
     colors: {
       mainGradientColor1: "#89A3D1",
       mainGradientColor2: "#C7ECC0",
+      darkGrey: "#8F8E93",
       headerBorder: "#8F8E93",
       headerBorderHover: "#F2EA86",
       attachmentIcon: "#5869DD",
