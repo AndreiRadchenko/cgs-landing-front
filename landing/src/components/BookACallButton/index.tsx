@@ -1,11 +1,6 @@
-import React, {
-  Dispatch,
-  MouseEvent,
-  SetStateAction,
-  useRef,
-  useState,
-} from "react";
+import React, { SetStateAction, useRef } from "react";
 import { PopupModal } from "react-calendly";
+
 import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { recoverLink } from "../../utils/recoverLink";
