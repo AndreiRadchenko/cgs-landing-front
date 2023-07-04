@@ -267,8 +267,8 @@ const BlogPage = () => {
                 </Loader>
               }
             </Styled.BlogArticlesWrapper>
-            <FooterNew />
           </Styled.BlogContainer>
+          <FooterNew />
         </>
       ) : (
         <>{"Test"}</>
