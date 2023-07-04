@@ -12,7 +12,6 @@ export const BigDigit = styled.p`
   margin-right: 25px;
   color: ${themes.primary.colors.blogBackground};
   -webkit-text-stroke: 2px ${themes.primary.colors.primary};
-  transition: all 0.3s;
   filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary});
 
   &.scrolled {
