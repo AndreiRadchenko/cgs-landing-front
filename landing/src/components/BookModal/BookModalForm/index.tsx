@@ -1,18 +1,15 @@
-import React, { useEffect, useState, MouseEvent } from "react";
+import React, { useEffect, useState, MouseEvent, useCallback } from "react";
 import { useFormik } from "formik";
-import * as Styled from "../../../styles/BookModalForm/Form.styled";
+import { useMutation } from "@tanstack/react-query";
+
 import FormField from "./FormField/index";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import ServiceDropdown from "./ServiceDropdown";
-import * as Styles from "../../../styles/HomePage/General.styled";
 import BookACallButton from "../../BookACallButton";
-import { queryKeys } from "../../../consts/queryKeys";
+
+import * as Styled from "../../../styles/BookModalForm/Form.styled";
+import * as Styles from "../../../styles/HomePage/General.styled";
 import { IBookModalData } from "../../../types/Mail.types";
 import { adminBookService } from "../../../services/adminBookServiceModal";
-import { adminServices } from "../../../services/services/commonServices";
 import { BookModalValidation } from "../../../validations/BookModalValidation";
-import { navigationRoutesNamesNew } from "../../../utils/variables";
-import { FormFieldDetails } from "./FormFieldDetails/FormFiledDetails";
 
 export interface IFormState {
   name: string;
@@ -34,15 +31,7 @@ declare global {
   }
 }
 
-function split(text: string) {
-  const splited = text?.split("|");
-
-  return splited.join("").toString();
-}
-
 const BookForm = ({ onClose, isOpen }: IFormProps) => {
-  const [service, setService] = useState<string>("");
-  const [serviceIsOpen, setServiceIsOpen] = useState<boolean>(false);
   const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
   const [country, setCountry] = useState<string>("");
@@ -53,10 +42,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     isClicked: false,
     link: "https://calendly.com/d/y5z-x7b-5ys/30min",
   });
-
-  const { data: ServiceData } = useQuery([queryKeys.getAllServices], () =>
-    adminServices.getAllServices()
-  );
 
   const fieldContent = {
     name: "Your name",
@@ -81,15 +66,12 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
     validateOnBlur: true,
     onSubmit(values, { resetForm, setErrors }) {
       values.details = values.details.replace(/^\s*$/, "");
-      // if (!values.email || !values.service) return;
       if (!values.email) return;
       sendTeamEmail.mutate({
         name: values.name,
         email: values.email,
         phone: value,
         country: country,
-        // service: values.service,
-        // details: values.details,
         service: "Mobile Development",
         details: "",
       });
@@ -105,7 +87,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       setName(values.name);
       setEmail(values.email);
       setErrors({});
-      setService("");
       resetForm();
       setCountry("");
       setValue("");
@@ -113,48 +94,12 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
   });
 
   useEffect(() => {
-    if (!isOpen) {
-      formik.setErrors({});
-      setService("");
-      setBtnState({
-        isDisabled: true,
-        isClicked: false,
-        link: "https://calendly.com/d/y5z-x7b-5ys/30min",
-      });
-      setServiceIsOpen(false);
-      formik.resetForm();
-    }
-  }, [isOpen]);
-
-  useEffect(() => {
     if (isOpen) {
       setBtnState((old) => {
         return { ...old, isDisabled: Object.keys(formik.errors).length !== 0 };
       });
     }
-  }, [formik.errors]);
-
-  // useEffect(() => {
-  //   setBtnState((old) => {
-  //     const ind =
-  //       navigationRoutesNamesNew[1].tags &&
-  //       navigationRoutesNamesNew[1].tags.findIndex((serv) => serv === service);
-  //     if (
-  //       ServiceData &&
-  //       navigationRoutesNamesNew[1].tags &&
-  //       typeof ind === "number" &&
-  //       ind !== -1
-  //     ) {
-  //       const tempLink = ServiceData[ind].headerBlock.buttonLink;
-  //       if (tempLink)
-  //         return {
-  //           ...old,
-  //           link: tempLink,
-  //         };
-  //     }
-  //     return old;
-  //   });
-  // }, [service, ServiceData]);
+  }, [formik.errors, isOpen]);
 
   const checkIfButtonIsDisabled = () => {
     setBtnState((old) => {
@@ -192,22 +137,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
             label={label}
           />
         ))}
-        {/* <Styled.ServiceSelect>
-          <ServiceDropdown
-            btnIsClicked={btnState.isClicked}
-            serviceIsOpen={serviceIsOpen}
-            setServiceIsOpen={setServiceIsOpen}
-            setService={setService}
-            dropdownName={split(service)}
-          />
-        </Styled.ServiceSelect> */}
-        {/* <FormFieldDetails
-          btnIsClicked={btnState.isClicked}
-          name={"details"}
-          label={"Any details"}
-          placeholder={"Your idea description, requirements, etc."}
-          maxLength={1000}
-        /> */}
         <Styled.FormSentContainer>
           <Styles.ButtonWrapper onClick={checkIfButtonIsDisabled}>
             <BookACallButton
