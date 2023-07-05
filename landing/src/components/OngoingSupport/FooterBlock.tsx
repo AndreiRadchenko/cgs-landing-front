@@ -26,6 +26,7 @@ const FooterBlock = () => {
             buttonLink={data?.buttonLink}
             buttonText={data.button}
             withEstimation
+            style={{ zIndex: 2 }}
             buttonClassName="social-button"
           />
           <ButtonShareComponent />
