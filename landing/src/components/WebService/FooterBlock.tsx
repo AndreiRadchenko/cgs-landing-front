@@ -6,6 +6,7 @@ import * as Styled from "../../styles/WebService/FooterBlock.styled";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const FooterBlock = () => {
   const queryClient = useQueryClient();
@@ -18,7 +19,9 @@ const FooterBlock = () => {
     <Styled.Container>
       <Styled.TextContent>
         <Styled.SubtitleWrapper>
-          <VisibleSubtitle>{data?.subtitle}</VisibleSubtitle>
+          <VisibleSubtitle>
+            <SplitBrackets text={data?.subtitle} />
+          </VisibleSubtitle>
         </Styled.SubtitleWrapper>
         <Styled.TextWrapper>{data?.text}</Styled.TextWrapper>
         {data && (
@@ -33,7 +36,7 @@ const FooterBlock = () => {
           </Styled.ButtonWrapper>
         )}
       </Styled.TextContent>
-      <Styled.Image src={data?.image?.url} alt="Footer WebService image"/>
+      <Styled.Image src={data?.image?.url} alt="Footer WebService image" />
     </Styled.Container>
   );
 };
