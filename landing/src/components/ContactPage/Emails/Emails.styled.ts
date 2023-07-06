@@ -10,19 +10,26 @@ export const EmailsContainer = styled.div`
   min-height: 222px;
   height: 15.4vw;
   padding: 0 64px 0 13px;
-  transition: background-color 0.5s ease, color 0.5s ease;
   padding-inline: 50px;
   & .persist-popup {
     color: #8f8e93;
-    transition: color 0.5s ease;
   }
-  :hover {
-    color: white;
-    background-color: ${themes.primary.colors.darkBlue};
-    & .persist-popup {
-      color: white;
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background: linear-gradient(90deg, #c7ecc0 0%, #89a3d1 100%), #f1efed;
+    transition: opacity 0.5s ease;
+    z-index: -1;
   }
+  :hover::before {
+    opacity: 1;
+  }
+
   &:nth-child(2n + 1) {
     border-right: 1px solid ${themes.primary.colors.loaderSpinner};
   }
@@ -37,15 +44,6 @@ export const EmailsContainer = styled.div`
       content: "";
       position: absolute;
       bottom: 0;
-      left: -70px;
-      height: 1px;
-      width: 250%;
-      background-color: ${themes.primary.colors.loaderSpinner};
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
       left: -70px;
       height: 1px;
       width: 250%;
@@ -79,9 +77,6 @@ export const EmailsContainer = styled.div`
     }
     &:nth-child(n) {
       &::after {
-        content: none;
-      }
-      &::before {
         content: "";
         position: absolute;
         top: 0;

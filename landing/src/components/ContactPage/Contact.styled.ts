@@ -27,8 +27,10 @@ export const MediaContainer = styled.div`
   margin-top: 60px;
   margin-left: -50px;
   width: 100vw;
+  border-top: 1px solid ${themes.primary.colors.loaderSpinner};
 
   @media ${themes.primary.media.maxMobile} {
+    border-top: none;
     margin-top: 90px;
     display: grid;
     grid-template-columns: 1fr;
