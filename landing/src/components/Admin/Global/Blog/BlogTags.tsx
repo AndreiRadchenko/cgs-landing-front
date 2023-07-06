@@ -8,15 +8,20 @@ import TagItem from "./TagItem";
 
 interface IBlogTags {
   possibleTags: string[];
+  resetTrigger: boolean;
 }
 
-const BlogTags: FC<IBlogTags> = ({ possibleTags }) => {
+const BlogTags: FC<IBlogTags> = ({ possibleTags, resetTrigger }) => {
   const { values, setFieldValue } = useFormikContext<IArticle>();
   const [tags, setTags] = useState<string[]>(values.tags);
 
   useEffect(() => {
     setFieldValue("tags", tags);
   }, [tags, setFieldValue]);
+
+  useEffect(() => {
+    setTags([]);
+  }, [resetTrigger]);
 
   return (
     <Styles.TagsWrapper>
