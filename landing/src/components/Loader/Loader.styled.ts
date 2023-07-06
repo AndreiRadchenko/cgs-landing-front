@@ -28,6 +28,53 @@ export const PortfolioStyledLoader = styled(LoadingOverlay)`
   }
 `;
 
+export const BlogStyledLoader = styled(LoadingOverlay)`
+  &.showCase {
+    .MyLoader_overlay {
+      background: transparent;
+      height: 200px;
+      width: 200px;
+      margin-top: -200px;
+      margin-left: 250px;
+    }
+  }
+
+  .MyLoader_overlay {
+    background: ${themes.primary.colors.blogBackground};
+    width: 100%;
+    z-index: 20;
+    height: 100%;
+  }
+  &.MyLoader_wrapper--active {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+  & .MyLoader_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    & .MyLoader_content {
+      position: fixed;
+    }
+
+    &.showCase {
+      .MyLoader_overlay {
+        margin-top: -250px;
+        margin-left: 80px;
+      }
+    }
+  }
+`;
+
 export const StyledLoader = styled(LoadingOverlay)`
   &.showCase {
     .MyLoader_overlay {
