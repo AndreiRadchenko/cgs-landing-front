@@ -13,6 +13,7 @@ export const EmailsContainer = styled.div`
   padding-inline: 50px;
   & .persist-popup {
     color: #8f8e93;
+    transition: color 0.5s ease;
   }
   &::before {
     content: "";
@@ -28,6 +29,9 @@ export const EmailsContainer = styled.div`
   }
   :hover::before {
     opacity: 1;
+  }
+  :hover .persist-popup {
+    color: black;
   }
 
   &:nth-child(2n + 1) {

@@ -58,7 +58,7 @@ export const FormFieldContainer = styled.div`
     color: ${themes.primary.colors.black};
     border-radius: 0;
 
-    @media ${themes.primary.media.maxPCFullHD} {
+    @media (max-width: 1799px) {
       height: 54px;
     }
 
@@ -81,7 +81,7 @@ export const FormFieldContainer = styled.div`
       font-size: 16px;
       transition: transform 200ms ease 0ms;
       @media ${themes.primary.media.minPCFullHD} {
-        font-size: 1.33em;
+        font-size: 1.2em;
         top: 18px;
         left: 70px;
       }
@@ -91,7 +91,7 @@ export const FormFieldContainer = styled.div`
     &.filled .special-label {
       transform: translate(-70px, -27px) scale(0.75);
       @media ${themes.primary.media.minPCFullHD} {
-        transform: translate(-100px, -39px) scale(0.75);
+        transform: translate(-100px, -37px) scale(0.75);
       }
     }
 
@@ -196,7 +196,8 @@ export const FormField = styled(TextField)`
     height: 76px;
     display: flex;
     align-items: center;
-    @media ${themes.primary.media.maxPCFullHD} {
+    font-family: ${themes.primary.font.family.namu};
+    @media (max-width: 1799px) {
       height: 54px;
     }
   }
@@ -209,13 +210,14 @@ export const FormField = styled(TextField)`
 
   .MuiInputBase-input.MuiOutlinedInput-input {
     @media ${themes.primary.media.minPCFullHD} {
-      font-size: 1.33em;
+      font-size: 1.65em;
     }
   }
 
   label {
+    font-family: ${themes.primary.font.family.namu};
     @media ${themes.primary.media.minPCFullHD} {
-      font-size: 1.33em;
+      font-size: 1.2em;
     }
   }
 
@@ -244,7 +246,7 @@ export const FormField = styled(TextField)`
 
   .MuiFormLabel-root.MuiInputLabel-root {
     @media ${themes.primary.media.minPCFullHD} {
-      font-size: 1.33em;
+      font-size: 1.2em;
     }
   }
 
@@ -267,7 +269,10 @@ export const FormField = styled(TextField)`
     color: ${themes.primary.colors.comment};
   }
 
-  @media ${themes.primary.media.maxPCFullHD} {
+  /* @media ${themes.primary.media.maxPCFullHD} {
+    height: 54px;
+  } */
+  @media (max-width: 1799px) {
     height: 54px;
   }
   @media ${themes.primary.media.maxMobile} {
