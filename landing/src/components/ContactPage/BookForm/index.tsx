@@ -80,6 +80,7 @@ const BookForm = ({ header }: IFormProps) => {
       setName(values.name);
       setEmail(values.email);
       resetForm();
+      setErrors({});
     },
   });
 

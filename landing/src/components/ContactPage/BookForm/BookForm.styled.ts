@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Field } from "formik";
+import TextField from "@mui/material/TextField";
 import themes from "../../../utils/themes";
 
 export const FormMobileAlign = styled.div`
@@ -64,6 +65,34 @@ export const FormFieldContainer = styled.div`
     .form-control {
       font-size: inherit;
       line-height: 1.1875;
+      border-radius: 0;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+    }
+
+    .special-label {
+      color: ${themes.primary.colors.comment};
+      background-color: ${themes.primary.colors.blogBackground};
+      top: 15px;
+      left: 55px;
+      pointer-events: none;
+      font-size: 16px;
+      transition: transform 200ms ease 0ms;
+      @media ${themes.primary.media.minPCFullHD} {
+        font-size: 1.33em;
+        top: 18px;
+        left: 70px;
+      }
+    }
+
+    &:focus-within .special-label,
+    &.filled .special-label {
+      transform: translate(-70px, -27px) scale(0.75);
+      @media ${themes.primary.media.minPCFullHD} {
+        transform: translate(-100px, -39px) scale(0.75);
+      }
     }
 
     &::placeholder {
@@ -80,12 +109,10 @@ export const FormFieldContainer = styled.div`
     .flag-dropdown,
     .selected-flag,
     .flag-dropdown.open .selected-flag {
-      background: ${themes.primary.colors.blogBackground};
     }
 
     .flag-dropdown {
       border: 0;
-      border-right: 1px solid ${themes.primary.colors.inputGrey};
     }
 
     .selected-flag {
@@ -120,7 +147,10 @@ export const FormFieldContainer = styled.div`
       }
 
       @media ${themes.primary.media.minMobile} {
-        padding-left: 55px;
+        padding-left: 65px;
+      }
+      @media ${themes.primary.media.minPCFullHD} {
+        padding-left: 75px;
       }
     }
     .country-list {
@@ -151,29 +181,92 @@ export const FormFieldContainer = styled.div`
   }
 `;
 
-export const FormField = styled(Field)`
+export const FormField = styled(TextField)`
   height: 76px;
   width: 100%;
   background: none;
   border: none;
-  border: 1px solid ${themes.primary.colors.inputGrey};
   font-family: ${themes.primary.font.family.namu};
   font-size: 1.33em;
   line-height: 1.1875;
   color: ${themes.primary.colors.black};
-  padding-left: 12px;
   border-radius: 0;
+
+  .MuiInputBase-root.MuiOutlinedInput-root {
+    height: 76px;
+    display: flex;
+    align-items: center;
+    @media ${themes.primary.media.maxPCFullHD} {
+      height: 54px;
+    }
+  }
+
+  .MuiOutlinedInput-notchedOutline {
+    border: 1px solid ${themes.primary.colors.inputGrey};
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .MuiInputBase-input.MuiOutlinedInput-input {
+    @media ${themes.primary.media.minPCFullHD} {
+      font-size: 1.33em;
+    }
+  }
+
+  label {
+    @media ${themes.primary.media.minPCFullHD} {
+      font-size: 1.33em;
+    }
+  }
+
+  &.formikErrors .MuiOutlinedInput-notchedOutline,
+  &.formikErrors
+    .MuiInputBase-root.MuiOutlinedInput-root:hover
+    .MuiOutlinedInput-notchedOutline,
+  &.formikErrors
+    .MuiInputBase-root.MuiOutlinedInput-root:focus-within
+    .MuiOutlinedInput-notchedOutline {
+    border: 1px solid ${themes.primary.colors.adminRed};
+  }
+
+  .MuiOutlinedInput-notchedOutline > legend {
+    @media ${themes.primary.media.minPCFullHD} {
+      font-size: 1.33em;
+    }
+  }
+
+  .MuiInputBase-root.MuiOutlinedInput-root:hover
+    .MuiOutlinedInput-notchedOutline,
+  .MuiInputBase-root.MuiOutlinedInput-root:focus-within
+    .MuiOutlinedInput-notchedOutline {
+    border: 1px solid ${themes.primary.colors.inputGrey};
+  }
+
+  .MuiFormLabel-root.MuiInputLabel-root {
+    @media ${themes.primary.media.minPCFullHD} {
+      font-size: 1.33em;
+    }
+  }
+
+  .MuiFormLabel-root.MuiInputLabel-root.Mui-focused,
+  .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-shrink {
+    @media ${themes.primary.media.minPCFullHD} {
+      transform: translate(14px, -16px) scale(0.75);
+    }
+  }
+
+  .MuiInputLabel-root {
+    color: ${themes.primary.colors.darkGrey};
+  }
+
+  .MuiInputLabel-root.Mui-focused {
+    color: ${themes.primary.colors.darkGrey};
+  }
 
   &::placeholder {
     color: ${themes.primary.colors.comment};
   }
 
-  &:focus {
-    outline: none;
-  }
-  &.formikErrors {
-    border: 1px solid ${themes.primary.colors.adminRed};
-  }
   @media ${themes.primary.media.maxPCFullHD} {
     height: 54px;
   }
@@ -260,14 +353,8 @@ export const FormSentContainer = styled.div`
     height: 73px;
   }
 
-  @media ${themes.primary.media.maxServiceWeb} {
-    /* margin-top: 2px;
-    margin-left: -2px; */
-  }
-
   @media ${themes.primary.media.maxMobile} {
     margin-top: 2px;
-    /* margin-left: -2px; */
   }
 `;
 
