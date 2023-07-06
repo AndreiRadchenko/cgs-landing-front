@@ -42,6 +42,7 @@ const ArticleAddAndEdit = ({
 }: IArticleAddAndEdit) => {
   const [descLength, setDescLength] = useState(0);
   const [titleLength, setTitleLength] = useState(0);
+  const [resetTrigger, setResetTrigger] = useState(false);
   const [shouldValidate, setShouldValidate] = useState(false);
   const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
   const { mutateAsync } = useMutation([queryKeys.uploadImage], (data: any) =>
@@ -156,6 +157,7 @@ const ArticleAddAndEdit = ({
   const uploadBannerFunc = (image: IImage) => uploadBanner(image);
 
   const reset = () => {
+    setResetTrigger((prev) => !prev);
     resetForm();
     scrollTo();
   };
@@ -293,7 +295,10 @@ const ArticleAddAndEdit = ({
                 <Styles.AdminSubTitle>Tags</Styles.AdminSubTitle>
                 <AddTag possibleTags={possibleTags} />
               </Styled.TagContainer>
-              <BlogTags possibleTags={possibleTags} />
+              <BlogTags
+                resetTrigger={resetTrigger}
+                possibleTags={possibleTags}
+              />
               {errors.tags && shouldValidate && (
                 <Styled.AdminBlogErrorMessage>
                   {errors.tags}
