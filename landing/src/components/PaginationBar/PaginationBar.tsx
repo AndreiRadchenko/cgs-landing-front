@@ -6,6 +6,7 @@ interface IPaginationBar {
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
   scrollFunction: () => void;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsFirstLoad: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const PaginationBar = ({
@@ -14,8 +15,10 @@ const PaginationBar = ({
   setCurrentPage,
   scrollFunction,
   setLoading,
+  setIsFirstLoad,
 }: IPaginationBar) => {
   const handleClick = (pageNumber: number) => {
+    setIsFirstLoad(false);
     setLoading(true);
     setCurrentPage(pageNumber);
     scrollFunction();

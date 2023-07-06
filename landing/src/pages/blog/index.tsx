@@ -50,6 +50,7 @@ const BlogPage = () => {
   );
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [filters, setFilters] = useState<string[]>([]);
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isMainSliderImageLoaded, setIsMainSliderImageLoaded] =
     useState<boolean>(false);
   const [loadedImagesCount, setLoadedImagesCount] = useState(0);
@@ -142,8 +143,8 @@ const BlogPage = () => {
   }, [isMainSliderImageLoaded]);
 
   return (
-    <Loader active={!isMainSliderImageLoaded}>
-      {isLoading ? (
+    <Loader active={!isMainSliderImageLoaded && isFirstLoad}>
+      {isLoading && isFirstLoad ? (
         <LoaderStub />
       ) : data ? (
         <>
@@ -190,15 +191,17 @@ const BlogPage = () => {
             <Styled.BlogArticlesWrapper>
               {
                 <Loader
+                  isBlog={true}
                   active={
-                    loading ||
-                    isLoading ||
-                    !isTagsLoaded ||
-                    !articles ||
-                    !views ||
-                    (articles?.reviews &&
-                      articles.reviews.length > 0 &&
-                      !isImagesLoaded)
+                    (loading ||
+                      isLoading ||
+                      !isTagsLoaded ||
+                      !articles ||
+                      !views ||
+                      (articles?.reviews &&
+                        articles.reviews.length > 0 &&
+                        !isImagesLoaded)) &&
+                    !isFirstLoad
                   }
                 >
                   <Styled.AllArticlesContainer id="articles-container">
@@ -230,6 +233,7 @@ const BlogPage = () => {
                           dropdownName="#TAGS"
                           prefix={"#"}
                           isTag={true}
+                          setIsFirstLoad={setIsFirstLoad}
                         />
                       </DropdownContainer>
                     )}
@@ -255,6 +259,7 @@ const BlogPage = () => {
                             setCurrentPage={setCurrentPage}
                             scrollFunction={scrollFunc}
                             setLoading={setLoading}
+                            setIsFirstLoad={setIsFirstLoad}
                           />
                         )}
                       </>

@@ -16,6 +16,7 @@ interface IDropdown {
   className?: string;
   prefix?: string;
   additionalLogic?: () => void;
+  setIsFirstLoad?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Dropdown = ({
@@ -30,6 +31,7 @@ const Dropdown = ({
   className,
   prefix = "",
   additionalLogic,
+  setIsFirstLoad,
 }: IDropdown) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -57,6 +59,7 @@ const Dropdown = ({
               !filters.includes(tag) && setFilters([...filters, tag]);
               additionalLogic && additionalLogic();
               setIsOpen(false);
+              setIsFirstLoad && setIsFirstLoad(false);
             }}
             key={tag}
             onMouseDown={(e) => e.preventDefault()}
