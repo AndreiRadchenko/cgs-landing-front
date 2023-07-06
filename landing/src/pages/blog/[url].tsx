@@ -86,14 +86,6 @@ const ArticlePage = () => {
       return views.data.find((view) => view.articleUrl === url)?.views;
   };
 
-  useEffect(() => {
-    console.log("Url: ", url);
-  }, [url]);
-
-  useEffect(() => {
-    console.log("Article: ", article);
-  }, [article]);
-
   const { mutateAsync: updateViews } = useMutation(
     [queryKeys.updateViews],
     (dataToUpdate: IView) => adminBlogService.updateViews(dataToUpdate),
