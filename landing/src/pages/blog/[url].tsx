@@ -120,7 +120,14 @@ const ArticlePage = () => {
   useEffect(() => {
     const getMultipleRandom = (arr: IArticle[], num: number) => {
       const shuffled = [...arr]
-        .filter((article) => article.url !== url)
+        .filter(
+          (article) =>
+            article.url !== url &&
+            !article.disabled &&
+            !article.draft &&
+            (!article.scheduleArticle ||
+              new Date() >= new Date(article.scheduleArticle))
+        )
         .sort(() => 0.5 - Math.random());
       return shuffled.slice(0, num);
     };
