@@ -16,11 +16,21 @@ export const Wrapper = styled.div`
   margin-bottom: 50px;
 `;
 
-export const ChangeIcon = styled.img`
+export const ChangeIconWrapper = styled.div`
   cursor: pointer;
   position: absolute;
-  top: 16px;
-  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 50px;
+  top: 0;
+  right: 0;
+`;
+
+export const ChangeIcon = styled.img`
+  width: 25px;
+  height: 25px;
 `;
 
 export const EmptyArticles = styled.div`
