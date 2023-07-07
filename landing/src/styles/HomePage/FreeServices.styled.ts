@@ -257,6 +257,7 @@ export const FreeServicesText = styled.div`
   text-align: center;
   align-items: center;
   max-height: 8em;
+  font-weight: 900;
   top: -10px;
   position: relative;
   font-size: 22px;

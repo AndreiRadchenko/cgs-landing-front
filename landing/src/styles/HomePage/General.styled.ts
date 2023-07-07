@@ -43,6 +43,16 @@ export const BlackButton = styled.a<IFontSize>`
   width: fit-content;
   white-space: nowrap;
 
+  &.portfolio-button {
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    align-items: center;
+    min-width: 12.45em;
+    height: 3.225em;
+  }
+
   &.social-button {
     display: flex;
     justify-content: center;
@@ -62,7 +72,7 @@ export const BlackButton = styled.a<IFontSize>`
 
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
-    font-size: 22px;
+    font-size: 1.5em;
 
     text-transform: uppercase;
   }
@@ -115,10 +125,14 @@ export const BlackButton = styled.a<IFontSize>`
 
   @media ${themes.primary.media.maxMobile} {
     &.homePage {
-      width: 178px;
       height: 54px;
       font-size: 16px;
-      padding-left: 2em;
+    }
+
+    &.portfolio-button {
+      min-width: 178px;
+      height: 54px;
+      font-size: 16px;
     }
 
     &.social-button {
@@ -674,7 +688,7 @@ export const FooterButtonWrapper = styled.span`
   margin-right: 28px;
 
   &.btn {
-    margin-top: 1rem;
+    margin-top: 2.4rem;
     margin-left: 0;
   }
 
