@@ -28,7 +28,7 @@ export const CTABlock = ({ initValues }: ICallToActionProps) => {
           buttonLink={initValues.buttonLink}
           buttonText={initValues.button}
           withEstimation
-          buttonClassName="social-button"
+          buttonClassName="portfolio-button"
         />
         <ButtonShareComponent />
       </Styles.ButtonWrapper>
