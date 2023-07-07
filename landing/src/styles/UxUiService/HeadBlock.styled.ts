@@ -66,7 +66,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const Description = styled.p`
+export const Description = styled.div`
   margin: 0.9em 0 1.75em;
   font-size: 1.375em;
   line-height: 160%;
