@@ -315,15 +315,16 @@ export const Form = styled.form`
   align-items: flex-start;
   gap: 20px;
 
-  @media (${themes.primary.media.maxLaptop}) {
+  @media ${themes.primary.media.maxLaptop} {
     gap: 14px;
   }
 
-  @media (${themes.primary.media.maxServiceWeb}) {
+  @media ${themes.primary.media.maxServiceWeb} {
     flex-wrap: wrap;
   }
 
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
+    flex-wrap: nowrap;
     flex-direction: column;
     align-items: flex-start;
     margin-top: 24px;
@@ -335,15 +336,16 @@ export const InputsWrapper = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  @media (${themes.primary.media.maxLaptop}) {
+  @media ${themes.primary.media.maxLaptop} {
     gap: 14px;
   }
 
-  @media (${themes.primary.media.maxServiceWeb}) {
+  @media ${themes.primary.media.maxServiceWeb} {
     flex-wrap: wrap;
   }
 
-  @media (${themes.primary.media.maxMobile}) {
+  @media ${themes.primary.media.maxMobile} {
+    flex-wrap: nowrap;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
