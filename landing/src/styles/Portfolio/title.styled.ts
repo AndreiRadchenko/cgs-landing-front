@@ -191,7 +191,7 @@ export const HomePageArrowWrapper = styled.span`
   margin-bottom: 12px;
 
   &.homePageSubtitleLeftArrow {
-    width: 97px;
+    width: 138px;
     height: 2.2em;
     top: 8px;
     margin-left: -1px;

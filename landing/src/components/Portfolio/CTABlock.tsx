@@ -30,7 +30,7 @@ export const CTABlock = ({ initValues }: ICallToActionProps) => {
           withEstimation
           buttonClassName="portfolio-button"
         />
-        <ButtonShareComponent />
+        <ButtonShareComponent className="portfolio-share-button"/>
       </Styles.ButtonWrapper>
     </Styled.CTACont>
   );

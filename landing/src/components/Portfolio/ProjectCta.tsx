@@ -75,7 +75,7 @@ const ProjectCta = ({ projectInfo }: { projectInfo: IIPPData }) => {
             withEstimation
             buttonClassName="cta-button"
           />
-          <ButtonShareComponent />
+          <ButtonShareComponent className="cta-share-button"/>
         </Styles.ButtonWrapper>
       </Styled.ProjectCtaContainer>
     </Styled.ProjectCta>

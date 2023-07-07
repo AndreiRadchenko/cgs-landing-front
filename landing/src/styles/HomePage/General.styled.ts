@@ -43,6 +43,10 @@ export const BlackButton = styled.a<IFontSize>`
   width: fit-content;
   white-space: nowrap;
 
+  &.homePage {
+    font-size: 1.835em;
+  }
+
   &.portfolio-button {
     font-size: 1.5em;
     display: flex;
@@ -222,7 +226,6 @@ export const MainSubtitle = styled.div`
   line-height: 99%;
   display: flex;
   flex-direction: column;
-  row-gap: 7px;
   margin: 17px 0 40px;
 
   &.homePage {
@@ -829,8 +832,16 @@ export const WhatsAppWrapper = styled.div`
 
   &.homePage,
   &.webAudit,
-  &.mobileDev,
+  &.mobileDev {
+    font-size: 1.5em;
+  }
+
   &.dappAuditShare {
+    font-size: 1.125em;
+  }
+
+  &.portfolio-share-button,
+  &.cta-share-button {
     font-size: 1.5em;
   }
 
@@ -847,6 +858,8 @@ export const WhatsAppWrapper = styled.div`
     line-height: 19px;
     column-gap: 3px;
 
+    &.cta-share-button,
+    &.portfolio-share-button,
     &.homePage,
     &.webAudit,
     &.mobileDev,
@@ -867,8 +880,16 @@ export const TelegramWrapper = styled.div`
 
   &.homePage,
   &.webAudit,
-  &.mobileDev,
+  &.mobileDev {
+    font-size: 1.5em;
+  }
+
   &.dappAuditShare {
+    font-size: 1.125em;
+  }
+
+  &.portfolio-share-button,
+  &.cta-share-button {
     font-size: 1.5em;
   }
 
@@ -886,6 +907,8 @@ export const TelegramWrapper = styled.div`
     column-gap: 3px;
     margin-left: 0.875em;
 
+    &.cta-share-button,
+    &.portfolio-share-button,
     &.homePage,
     &.webAudit,
     &.mobileDev,
