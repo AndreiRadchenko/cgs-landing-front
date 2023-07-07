@@ -34,17 +34,6 @@ import { BlogPageSize } from "../../consts";
 import Dropdown from "../../utils/Select/Dropdown";
 
 const BlogPage = () => {
-  const { data }: IBlogPageData = useQuery([queryKeys.getBlogPage], () =>
-    adminBlogService.getBlogPageData()
-  );
-
-  const { data: swiperData }: ISwiperArticlesDataResponse = useQuery(
-    [queryKeys.getBlogSwiperData],
-    () => adminBlogService.getBlogSwiperData()
-  );
-
-  const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
-  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
   const [reversedArticles, setReversedArticles] = useState<IArticle[] | null>(
     null
   );
@@ -55,8 +44,21 @@ const BlogPage = () => {
     useState<boolean>(false);
   const [loadedImagesCount, setLoadedImagesCount] = useState(0);
   const [isImagesLoaded, setIsImagesLoaded] = useState(false);
-  const [isTagsLoaded, setIsTagsLoaded] = useState(false);
+  const [isTagsLoaded, setIsTagLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const { data }: IBlogPageData = useQuery([queryKeys.getBlogPage], () =>
+    adminBlogService.getBlogPageData()
+  );
+
+  const { data: swiperData }: ISwiperArticlesDataResponse = useQuery(
+    [queryKeys.getBlogSwiperData],
+    () => adminBlogService.getBlogSwiperData()
+  );
+
+  const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
+
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const {
     data: articles,
@@ -114,13 +116,13 @@ const BlogPage = () => {
 
   useEffect(() => {
     scrollFunc();
-    setIsTagsLoaded(false);
+    setIsTagLoaded(false);
     imagesCountNullifier();
     setCurrentPage(1);
   }, [filters.length]);
 
   useEffect(() => {
-    setIsTagsLoaded(false);
+    setIsTagLoaded(false);
     imagesCountNullifier();
   }, [currentPage]);
 
@@ -204,71 +206,75 @@ const BlogPage = () => {
                     !isFirstLoad
                   }
                 >
-                  <Styled.AllArticlesContainer id="articles-container">
-                    {articles && articles.tags && articles.tags.length && (
-                      <DropdownContainer>
-                        <>
-                          {filters.length > 0 &&
-                            filters.map((filter, index) => (
-                              <Tag key={index}>
-                                {filter}&nbsp;&nbsp;
-                                <span
-                                  onClick={() => {
-                                    const newFilters = filters.filter(
-                                      (filter) => filter !== filters[index]
-                                    );
-                                    setFilters([...newFilters]);
-                                  }}
-                                >
-                                  x
-                                </span>
-                              </Tag>
-                            ))}
-                        </>
-                        <Dropdown
-                          filters={filters}
-                          className="blog"
-                          setFilters={setFilters}
-                          tags={articles.tags}
-                          dropdownName="#TAGS"
-                          prefix={"#"}
-                          isTag={true}
-                          setIsFirstLoad={setIsFirstLoad}
-                        />
-                      </DropdownContainer>
-                    )}
-                    {loading || isLoading || !articles || !views ? (
-                      <LoaderStub />
-                    ) : articles.reviews.length ? (
-                      <>
-                        {reversedArticles &&
-                          reversedArticles.map((article) => (
-                            <BlogItem
-                              article={article}
-                              key={article._id}
-                              views={findViews(article.url)}
-                              filters={filters}
-                              loadedImagesCounter={loadedImagesCounter}
-                              setIsTagsLoaded={setIsTagsLoaded}
-                            />
-                          ))}
-                        {!!articles.totalPages && (
-                          <PaginationBar
-                            totalPages={articles.totalPages}
-                            currentPage={currentPage}
-                            setCurrentPage={setCurrentPage}
-                            scrollFunction={scrollFunc}
-                            setLoading={setLoading}
+                  {isLoading && !isFirstLoad ? (
+                    <LoaderStub />
+                  ) : (
+                    <Styled.AllArticlesContainer id="articles-container">
+                      {articles && articles.tags && articles.tags.length && (
+                        <DropdownContainer>
+                          <>
+                            {filters.length > 0 &&
+                              filters.map((filter, index) => (
+                                <Tag key={index}>
+                                  {filter}&nbsp;&nbsp;
+                                  <span
+                                    onClick={() => {
+                                      const newFilters = filters.filter(
+                                        (filter) => filter !== filters[index]
+                                      );
+                                      setFilters([...newFilters]);
+                                    }}
+                                  >
+                                    x
+                                  </span>
+                                </Tag>
+                              ))}
+                          </>
+                          <Dropdown
+                            filters={filters}
+                            className="blog"
+                            setFilters={setFilters}
+                            tags={articles.tags}
+                            dropdownName="#TAGS"
+                            prefix={"#"}
+                            isTag={true}
                             setIsFirstLoad={setIsFirstLoad}
                           />
-                        )}
-                      </>
-                    ) : (
-                      <Styled.BlogArticlesTemplate>
-                        {"no articles"}
-                      </Styled.BlogArticlesTemplate>
-                    )}
-                  </Styled.AllArticlesContainer>
+                        </DropdownContainer>
+                      )}
+                      {loading || isLoading || !articles || !views ? (
+                        <LoaderStub />
+                      ) : articles.reviews.length ? (
+                        <>
+                          {reversedArticles &&
+                            reversedArticles.map((article) => (
+                              <BlogItem
+                                article={article}
+                                key={article._id}
+                                views={findViews(article.url)}
+                                filters={filters}
+                                loadedImagesCounter={loadedImagesCounter}
+                                setIsTagLoaded={setIsTagLoaded}
+                              />
+                            ))}
+                          {!!articles.totalPages && (
+                            <PaginationBar
+                              totalPages={articles.totalPages}
+                              currentPage={currentPage}
+                              setCurrentPage={setCurrentPage}
+                              scrollFunction={scrollFunc}
+                              setLoading={setLoading}
+                              setIsFirstLoad={setIsFirstLoad}
+                            />
+                          )}
+                        </>
+                      ) : (
+                        <Styled.BlogArticlesTemplate>
+                          {"no articles"}
+                        </Styled.BlogArticlesTemplate>
+                      )}
+                    </Styled.AllArticlesContainer>
+                  )}
                 </Loader>
               }
             </Styled.BlogArticlesWrapper>
