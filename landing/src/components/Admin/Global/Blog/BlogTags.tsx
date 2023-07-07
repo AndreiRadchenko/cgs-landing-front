@@ -7,21 +7,17 @@ import Dropdown from "./Dropdown";
 import TagItem from "./TagItem";
 
 interface IBlogTags {
+  tags: string[];
+  setTags: React.Dispatch<React.SetStateAction<string[]>>;
   possibleTags: string[];
-  resetTrigger: boolean;
 }
 
-const BlogTags: FC<IBlogTags> = ({ possibleTags, resetTrigger }) => {
-  const { values, setFieldValue } = useFormikContext<IArticle>();
-  const [tags, setTags] = useState<string[]>(values.tags);
+const BlogTags: FC<IBlogTags> = ({ tags, setTags, possibleTags }) => {
+  const { setFieldValue } = useFormikContext<IArticle>();
 
   useEffect(() => {
     setFieldValue("tags", tags);
   }, [tags, setFieldValue]);
-
-  useEffect(() => {
-    setTags([]);
-  }, [resetTrigger]);
 
   return (
     <Styles.TagsWrapper>

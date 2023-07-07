@@ -161,16 +161,17 @@ const PublishedArticles: FC<IArticles> = ({
     return (
       <BlogItem isAdmin item={item}>
         {item.draft && <Styles.DraftMark>DRAFT</Styles.DraftMark>}
-        <Styles.ChangeIcon
-          src={
-            isNewArticle
-              ? ChangeIconImg.src
-              : !isNewArticle && article === i
-              ? close.src
-              : ""
-          }
-          onClick={() => toggleEditPost(i)}
-        />
+        <Styles.ChangeIconWrapper onClick={() => toggleEditPost(i)}>
+          <Styles.ChangeIcon
+            src={
+              isNewArticle
+                ? ChangeIconImg.src
+                : !isNewArticle && article === i
+                ? close.src
+                : ""
+            }
+          />
+        </Styles.ChangeIconWrapper>
         <Styles.ButtonWrapper>
           <Styles.DeleteButton onClick={() => deleteArticle(i)}>
             delete article

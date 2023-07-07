@@ -42,7 +42,6 @@ const ArticleAddAndEdit = ({
 }: IArticleAddAndEdit) => {
   const [descLength, setDescLength] = useState(0);
   const [titleLength, setTitleLength] = useState(0);
-  const [resetTrigger, setResetTrigger] = useState(false);
   const [shouldValidate, setShouldValidate] = useState(false);
   const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
   const { mutateAsync } = useMutation([queryKeys.uploadImage], (data: any) =>
@@ -127,6 +126,8 @@ const ArticleAddAndEdit = ({
     errors,
   } = useFormikContext<IArticle>();
 
+  const [tags, setTags] = useState<string[]>(values.tags);
+
   useEffect(() => {
     setDescLength(values.description.length);
     setTitleLength(values.title.length);
@@ -157,7 +158,6 @@ const ArticleAddAndEdit = ({
   const uploadBannerFunc = (image: IImage) => uploadBanner(image);
 
   const reset = () => {
-    setResetTrigger((prev) => !prev);
     resetForm();
     scrollTo();
   };
@@ -296,7 +296,8 @@ const ArticleAddAndEdit = ({
                 <AddTag possibleTags={possibleTags} />
               </Styled.TagContainer>
               <BlogTags
-                resetTrigger={resetTrigger}
+                tags={tags}
+                setTags={setTags}
                 possibleTags={possibleTags}
               />
               {errors.tags && shouldValidate && (
@@ -360,7 +361,14 @@ const ArticleAddAndEdit = ({
             </Styles.SubmitButtonWrapper>
             <Styles.BlogCancelButton
               type={"button"}
-              onClick={isNewArticle ? reset : cancelArticle}
+              onClick={
+                isNewArticle
+                  ? () => {
+                      setTags([]);
+                      reset();
+                    }
+                  : cancelArticle
+              }
             >
               {isNewArticle ? "Reset" : "Cancel"}
             </Styles.BlogCancelButton>
