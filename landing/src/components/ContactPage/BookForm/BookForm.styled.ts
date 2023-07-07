@@ -31,18 +31,18 @@ export const FormFieldLabel = styled.label`
 
 export const FormFieldContainer = styled.div`
   position: relative;
-  margin-top: 10px;
   width: 447px;
-  height: 102px;
+  /* height: 102px; */
 
-  @media ${themes.primary.media.maxPCFullHD} {
+  @media (max-width: 1799px) {
     width: 318px;
-    height: 73px;
+    /* height: 73px; */
   }
 
   @media ${themes.primary.media.maxServiceWeb} {
     width: 335px;
-    height: 73px;
+    /* height: 54px; */
+    margin-bottom: 16px;
     flex-direction: column;
   }
 
@@ -53,6 +53,7 @@ export const FormFieldContainer = styled.div`
     background: none;
     border: 1px solid ${themes.primary.colors.inputGrey};
     font-family: ${themes.primary.font.family.namu};
+    font-weight: 900;
     font-size: 1.33em;
     line-height: 1.1875;
     color: ${themes.primary.colors.black};
@@ -66,6 +67,8 @@ export const FormFieldContainer = styled.div`
       font-size: inherit;
       line-height: 1.1875;
       border-radius: 0;
+      font-family: ${themes.primary.font.family.namu};
+      font-weight: 900;
     }
 
     .form-control:focus {
@@ -80,6 +83,7 @@ export const FormFieldContainer = styled.div`
       pointer-events: none;
       font-size: 16px;
       transition: transform 200ms ease 0ms;
+      transform-origin: center left;
       @media ${themes.primary.media.minPCFullHD} {
         font-size: 1.2em;
         top: 18px;
@@ -89,9 +93,9 @@ export const FormFieldContainer = styled.div`
 
     &:focus-within .special-label,
     &.filled .special-label {
-      transform: translate(-70px, -27px) scale(0.75);
+      transform: translate(-45px, -27px) scale(0.75);
       @media ${themes.primary.media.minPCFullHD} {
-        transform: translate(-100px, -37px) scale(0.75);
+        transform: translate(-60px, -37px) scale(0.75);
       }
     }
 
@@ -197,6 +201,7 @@ export const FormField = styled(TextField)`
     display: flex;
     align-items: center;
     font-family: ${themes.primary.font.family.namu};
+    font-weight: 900;
     @media (max-width: 1799px) {
       height: 54px;
     }
@@ -216,6 +221,7 @@ export const FormField = styled(TextField)`
 
   label {
     font-family: ${themes.primary.font.family.namu};
+    font-weight: 900;
     @media ${themes.primary.media.minPCFullHD} {
       font-size: 1.2em;
     }
@@ -269,9 +275,6 @@ export const FormField = styled(TextField)`
     color: ${themes.primary.colors.comment};
   }
 
-  /* @media ${themes.primary.media.maxPCFullHD} {
-    height: 54px;
-  } */
   @media (max-width: 1799px) {
     height: 54px;
   }
@@ -282,7 +285,7 @@ export const FormField = styled(TextField)`
 
 export const ErrorField = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-size: 1em;
+  font-size: 12px;
   line-height: 1.6;
   color: ${themes.primary.colors.adminRed};
   line-height: 19px;
@@ -298,6 +301,7 @@ export const FormFieldWrapper = styled.div`
     margin-right: 9px;
     @media ${themes.primary.media.maxTabletLandScape} {
       margin-right: 0px;
+      margin-bottom: 12px;
     }
   }
 
@@ -307,8 +311,8 @@ export const FormFieldWrapper = styled.div`
 
 export const Form = styled.form`
   display: flex;
-  margin-top: 26px;
-  align-items: flex-end;
+  margin-top: 48px;
+  align-items: flex-start;
   gap: 20px;
 
   @media (${themes.primary.media.maxLaptop}) {
@@ -322,13 +326,14 @@ export const Form = styled.form`
   @media (${themes.primary.media.maxMobile}) {
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 24px;
     gap: 0;
   }
 `;
 
 export const InputsWrapper = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 20px;
   @media (${themes.primary.media.maxLaptop}) {
     gap: 14px;
@@ -354,7 +359,7 @@ export const FormSentContainer = styled.div`
   padding: 0;
   margin: 0 0 0 -2px;
 
-  @media ${themes.primary.media.maxPCFullHD} {
+  @media (max-width: 1799px) {
     height: 73px;
   }
 

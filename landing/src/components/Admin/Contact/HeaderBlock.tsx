@@ -2,8 +2,6 @@ import React from "react";
 import { useFormikContext } from "formik";
 import dynamic from "next/dynamic";
 
-import { ComponentLoader } from "../../Loader";
-
 import ButtonArrow from "../../../utils/ButtonArrow";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
@@ -24,7 +22,7 @@ const HeaderBlock = () => {
     useFormikContext<IContactPageData>();
 
   const {
-    placeholders: { name, email },
+    placeholders: { name, email, service },
     button: { name: buttonName, calendly },
   } = values.header ?? {
     title: "",
@@ -40,7 +38,7 @@ const HeaderBlock = () => {
       </Styles.TitleWrapper>
 
       <Styles.Headlines>
-        <div style={{ flexGrow: "0" }}>
+        <div style={{ flexGrow: "1" }}>
           <SubHeaderWithInput
             placeholder="Name"
             header="Form placeholders"
@@ -55,20 +53,20 @@ const HeaderBlock = () => {
             onChangeFunction={handleChange}
             name="header.placeholders.email"
           />
-          {/* <SubHeaderWithInput
-            placeholder="Choose a service"
+          <SubHeaderWithInput
+            placeholder="Phone number"
             header=""
             inputValue={service}
             onChangeFunction={handleChange}
             name="header.placeholders.service"
-          /> */}
-          <TextEditor
+          />
+          {/* <TextEditor
             props={{ width: "600px" }}
             header="Phone number label"
             name="header.placeholders.service"
-          />
+          /> */}
         </div>
-        <div style={{ flexGrow: "2" }}>
+        <div style={{ flexGrow: "1" }}>
           <SubHeaderWithInput
             placeholder="Button name"
             header="Form submit button"

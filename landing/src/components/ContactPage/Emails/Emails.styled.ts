@@ -31,7 +31,7 @@ export const EmailsContainer = styled.div`
     opacity: 1;
   }
   :hover .persist-popup {
-    color: black;
+    color: rgba(0, 0, 0, 0.5);
   }
 
   &:nth-child(2n + 1) {

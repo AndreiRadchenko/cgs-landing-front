@@ -68,6 +68,7 @@ export const PopupText = styled.p`
   margin: 0;
   padding: 0;
   line-height: 150%;
+  color: #f1efed;
   @media ${themes.primary.media.maxMobile} {
     font-size: 12px;
   }
