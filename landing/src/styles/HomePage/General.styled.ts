@@ -45,6 +45,8 @@ export const BlackButton = styled.a<IFontSize>`
 
   &.homePage {
     font-size: 1.835em;
+    padding: 16px 15.4px;
+    font-weight: 400px;
   }
 
   &.portfolio-button {
@@ -72,11 +74,11 @@ export const BlackButton = styled.a<IFontSize>`
   }
 
   &.cta-button {
-    padding: 18px 17px;
+    padding: 16px 15px;
 
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
-    font-size: 1.5em;
+    font-size: 1.84em;
 
     text-transform: uppercase;
   }
@@ -453,7 +455,7 @@ export const Subtitle = styled.div<ISubtitle>`
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-  margin: 32px 0 40px;
+  margin: 32px 0 20px;
 
   & u {
     text-decoration-thickness: 3px;

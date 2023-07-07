@@ -45,7 +45,7 @@ const FooterBlock = () => {
               buttonLink={data?.buttonLink}
               buttonText={data.button}
               withEstimation
-              buttonClassName="social-button services"
+              buttonClassName="social-button"
             />
             <ButtonShareComponent className="dappAuditShare" />
           </Styled.ButtonWrapper>
