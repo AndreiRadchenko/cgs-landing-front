@@ -10,6 +10,7 @@ import * as CSS from "./BookForm.styled";
 import "react-phone-input-2/lib/material.css";
 
 export interface IFieldProps {
+  country: string;
   setCountry: Dispatch<SetStateAction<string>>;
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
@@ -21,18 +22,16 @@ export interface IFieldProps {
 }
 
 const TextFieldWrapper: FC<IFieldProps> = ({
+  country = "us",
   setCountry,
   value,
   setValue,
   name,
   label,
   btnIsClicked,
-  type = "text",
   idx,
 }: IFieldProps) => {
   const { errors, values, handleChange } = useFormikContext<IFormState>();
-
-  const PHONE_OPTIONAL = "Phone number";
 
   const handleOnChange = (...args: any[]) => {
     setCountry(args[1].name);
@@ -47,8 +46,8 @@ const TextFieldWrapper: FC<IFieldProps> = ({
       <CSS.FormFieldContainer>
         {idx === 2 ? (
           <PhoneInput
-            country={"us"}
-            specialLabel={"Phone number (optional)"}
+            country={country}
+            specialLabel={label}
             value={value}
             onChange={handleOnChange}
             enableSearch={true}

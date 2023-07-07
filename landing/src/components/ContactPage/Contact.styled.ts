@@ -31,7 +31,8 @@ export const MediaContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     border-top: none;
-    margin-top: 90px;
+    margin-top: 35px;
+    margin-left: -20px;
     display: grid;
     grid-template-columns: 1fr;
     & > :nth-child(1) {
@@ -46,9 +47,5 @@ export const MediaContainer = styled.div`
     & > :nth-child(4) {
       grid-row: 4;
     }
-  }
-  @media ${themes.primary.media.maxMobile} {
-    margin-top: 60px;
-    margin-left: -20px;
   }
 `;

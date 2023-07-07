@@ -23,7 +23,7 @@ export const ButtonWrapper = styled.a`
   :hover {
     transform: translateY(-5px);
     &.telegram {
-      color: ${themes.primary.colors.darkBlue};
+      /* color: ${themes.primary.colors.darkBlue}; */
     }
   }
   @media ${themes.primary.media.maxMobile} {
@@ -58,4 +58,8 @@ export const ButtonText = styled.p`
   font-weight: 900;
   font-size: 1.66em;
   line-height: 1;
+  will-change: transform;
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 18px;
+  }
 `;

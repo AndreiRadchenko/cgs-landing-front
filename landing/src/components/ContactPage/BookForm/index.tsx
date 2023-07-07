@@ -32,7 +32,7 @@ declare global {
 const BookForm = ({ header }: IFormProps) => {
   const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
-  const [country, setCountry] = useState<string>("");
+  const [country, setCountry] = useState<string>("us");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [btnState, setBtnState] = useState({
@@ -77,10 +77,12 @@ const BookForm = ({ header }: IFormProps) => {
 
       setCalendlyIsOpen(true);
 
-      setName(values.name);
-      setEmail(values.email);
       resetForm();
       setErrors({});
+      setName(values.name);
+      setEmail(values.email);
+      setCountry("us");
+      setValue("");
     },
   });
 
@@ -120,6 +122,7 @@ const BookForm = ({ header }: IFormProps) => {
           <CSS.InputsWrapper>
             {Object.entries(fieldContent).map(([key, label], idx) => (
               <FormField
+                country={country}
                 value={value}
                 setValue={setValue}
                 setCountry={setCountry}
