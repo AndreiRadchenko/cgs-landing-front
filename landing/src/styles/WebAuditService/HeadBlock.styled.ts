@@ -67,12 +67,12 @@ export const Description = styled.div`
   line-height: 160%;
   max-width: 27.2em;
 
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: ${themes.primary.font.size.menuElement};
-  }
-
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.oneAndHalf};
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.menuElement};
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -96,9 +96,27 @@ export const Description = styled.div`
 export const Image = styled.img`
   width: 61em;
   position: relative;
+  height: 47.6em;
+
+  @media (min-width: 1560px) {
+    height: 48.4em;
+  }
+
+  @media (min-width: 2400px) {
+    height: 52em;
+  }
 
   @media ${themes.primary.media.maxLaptop} {
     width: 50%;
+  }
+
+  @media (max-width: 1200px) {
+    height: 38.9em;
+  }
+
+  @media (max-width: 992px) {
+    right: -4em;
+    height: 25em;
   }
 
   @media ${themes.primary.media.maxMobile} {

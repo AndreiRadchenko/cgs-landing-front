@@ -60,9 +60,11 @@ export const ContentWrapper = styled.div`
 export const Image = styled.img`
   width: 43.58em;
   position: relative;
+  height: 25.4em;
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 47em;
+    height: 27.3em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {

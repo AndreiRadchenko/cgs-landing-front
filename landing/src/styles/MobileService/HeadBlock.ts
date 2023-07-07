@@ -100,9 +100,11 @@ export const Telephone = styled.img`
   margin-bottom: 0.2rem;
   margin-right: 2rem;
   width: 48.92em;
+  height: 50.8em;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 38%;
+    height: 33.5em;
   }
 
   @media ${themes.primary.media.maxMobile} {

@@ -66,7 +66,7 @@ export const Image = styled.img`
 
 export const SubtitleWrapper = styled.div`
   margin-bottom: 2.5em;
-  max-width: 85%;
+  max-width: 70vw;
 
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 0.85em;
