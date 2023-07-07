@@ -927,6 +927,15 @@ export const BlogArticlesWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
+
+  @media ${themes.primary.media.maxMobile} {
+    & .blog {
+      & .MyLoader_content {
+        position: relative;
+        margin-top: 35px;
+      }
+    }
+  }
 `;
 
 export const HeaderBlock = styled.header`
