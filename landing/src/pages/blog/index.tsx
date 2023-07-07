@@ -194,6 +194,7 @@ const BlogPage = () => {
               {
                 <Loader
                   isBlog={true}
+                  className="blog"
                   active={
                     (loading ||
                       isLoading ||
