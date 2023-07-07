@@ -12,7 +12,7 @@ const BlogItem = ({
   views,
   filters,
   loadedImagesCounter,
-  setIsTagsLoaded,
+  setIsTagLoaded,
 }: IBlogItem) => {
   const { width } = useWindowDimension();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -51,7 +51,7 @@ const BlogItem = ({
         : article.tags[0];
 
     if (result) {
-      setIsTagsLoaded && setIsTagsLoaded(true);
+      setIsTagLoaded && setIsTagLoaded(true);
       setDisplayedTag(result);
     }
   }, [article]);

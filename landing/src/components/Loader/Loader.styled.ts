@@ -63,7 +63,8 @@ export const BlogStyledLoader = styled(LoadingOverlay)`
 
   @media ${themes.primary.media.maxMobile} {
     & .MyLoader_content {
-      position: fixed;
+      position: relative;
+      margin-top: 35px;
     }
 
     &.showCase {

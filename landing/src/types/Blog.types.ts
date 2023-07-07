@@ -59,5 +59,5 @@ export interface IBlogItem {
   views?: number;
   filters?: string[];
   loadedImagesCounter?: () => void;
-  setIsTagsLoaded?: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsTagLoaded?: React.Dispatch<React.SetStateAction<boolean>>;
 }
