@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Field } from "formik";
 import TextField from "@mui/material/TextField";
 import themes from "../../../utils/themes";
 
@@ -32,17 +31,15 @@ export const FormFieldLabel = styled.label`
 export const FormFieldContainer = styled.div`
   position: relative;
   width: 447px;
-  /* height: 102px; */
 
   @media (max-width: 1799px) {
     width: 318px;
-    /* height: 73px; */
   }
 
   @media ${themes.primary.media.maxServiceWeb} {
     width: 335px;
-    /* height: 54px; */
-    margin-bottom: 16px;
+    height: 75px;
+    margin-bottom: 5px;
     flex-direction: column;
   }
 
@@ -291,6 +288,9 @@ export const ErrorField = styled.div`
   line-height: 19px;
   text-align: right;
   font-weight: ${themes.primary.font.weight.heavy};
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 16px;
+  }
 `;
 
 export const FormFieldWrapper = styled.div`
@@ -314,6 +314,11 @@ export const Form = styled.form`
   margin-top: 48px;
   align-items: flex-start;
   gap: 20px;
+  height: 95px;
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    height: 73px;
+  }
 
   @media ${themes.primary.media.maxLaptop} {
     gap: 14px;
@@ -321,6 +326,7 @@ export const Form = styled.form`
 
   @media ${themes.primary.media.maxServiceWeb} {
     flex-wrap: wrap;
+    height: auto;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -357,12 +363,12 @@ export const FormSentContainer = styled.div`
   align-items: flex-start;
   justify-content: start;
   flex-direction: column;
-  height: 102px;
+  /* height: 102px; */
   padding: 0;
   margin: 0 0 0 -2px;
 
   @media (max-width: 1799px) {
-    height: 73px;
+    /* height: 73px; */
   }
 
   @media ${themes.primary.media.maxMobile} {

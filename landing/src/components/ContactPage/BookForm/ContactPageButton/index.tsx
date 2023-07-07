@@ -1,17 +1,11 @@
-import React, {
-  Dispatch,
-  MouseEvent,
-  SetStateAction,
-  useRef,
-  useState,
-} from "react";
+import React, { SetStateAction, useRef } from "react";
 import { PopupModal } from "react-calendly";
-import { ArrowContainer } from "../../../../styles/HomePage/General.styled";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
-import { recoverLink } from "../../../../utils/recoverLink";
+
+import { ArrowContainer } from "../../../../styles/HomePage/General.styled";
 import * as Styled from "../../../../styles/HomePage/BookACallButton.styled";
-import { useFormikContext } from "formik";
-import { IFormData } from "../../../../types/EstimationForm.types";
+import { recoverLink } from "../../../../utils/recoverLink";
 
 interface IBookACallButtonProps {
   name: string;
