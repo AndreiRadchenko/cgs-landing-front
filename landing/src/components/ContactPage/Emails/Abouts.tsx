@@ -25,6 +25,7 @@ export const Abouts = ({ abouts }: MessengersProps) => {
               pictureWidth="41px"
               pictureHeight="41px"
               link={item.link}
+              newTab
             />
           ))}
         </Styled.ButtonWrapperHorizontal>

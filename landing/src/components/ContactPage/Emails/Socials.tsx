@@ -26,6 +26,7 @@ export const Socials = ({ socials }: MessengersProps) => {
               pictureHeight="32px"
               //   text={item.name}
               link={item.link}
+              newTab
             />
           ))}
         </Styled.ButtonWrapperHorizontal>

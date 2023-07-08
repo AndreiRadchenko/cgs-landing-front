@@ -6,6 +6,7 @@ import * as Styled from "./ContactButton.styled";
 import Image from "next/image";
 
 export interface IContactButton {
+  className?: string;
   picture?: string;
   pictureWidth?: string;
   pictureHeight?: string;
@@ -16,15 +17,23 @@ export interface IContactButton {
 }
 
 export const ContactButton = ({
+  className,
   picture,
   text,
   style,
   pictureWidth,
   pictureHeight,
   link,
+  newTab,
 }: IContactButton) => {
   return (
-    <Styled.ButtonWrapper style={style} href={link}>
+    <Styled.ButtonWrapper
+      className={className}
+      style={style}
+      href={link}
+      target={newTab ? "_blank" : "_self"}
+      rel="noreferrer noopener"
+    >
       <Styled.ButtonContent>
         <Styled.ImageWrapper
           width={pictureWidth ? pictureWidth : "24px"}
