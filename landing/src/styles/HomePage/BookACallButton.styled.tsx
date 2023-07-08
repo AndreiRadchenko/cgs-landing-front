@@ -56,7 +56,7 @@ export const BlackButton = styled.button`
     padding: 0;
     &.contactPage {
       width: 196px;
-      height: 58px;
+      height: 54px;
     }
   }
 
@@ -75,7 +75,7 @@ export const BlackButton = styled.button`
       font-size: 26px;
       &.contactPage {
         width: 252px;
-        height: 80px;
+        height: 76px;
         font-size: 26px;
       }
     }

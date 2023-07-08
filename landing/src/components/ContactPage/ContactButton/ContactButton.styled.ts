@@ -20,26 +20,25 @@ export const ButtonWrapper = styled.a`
   transform: translateY(0);
   transition: transform 0.3s ease, color 0.3s ease;
   color: ${themes.primary.colors.black};
+  &.telegram > div {
+    align-items: center;
+  }
   :hover {
     transform: translateY(-5px);
-    &.telegram {
-      /* color: ${themes.primary.colors.darkBlue}; */
-    }
-  }
-  @media ${themes.primary.media.maxMobile} {
-    width: 54px;
-    height: 54px;
   }
 `;
 
 export const ButtonContent = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: normal;
   gap: 8px;
   color: currentColor;
-  @media (min-width: 1500px) {
+  @media (max-width: 1799px) {
     align-items: baseline;
+  }
+  @media (max-width: 991px) {
+    align-items: flex-end;
   }
 `;
 

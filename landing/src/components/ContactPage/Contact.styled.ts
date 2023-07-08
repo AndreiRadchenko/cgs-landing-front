@@ -24,14 +24,14 @@ export const MediaContainer = styled.div`
   height: max-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 60px;
+  margin-top: 68px;
   margin-left: -50px;
   width: 100vw;
   border-top: 1px solid ${themes.primary.colors.loaderSpinner};
 
   @media ${themes.primary.media.maxMobile} {
     border-top: none;
-    margin-top: 35px;
+    margin-top: 60px;
     margin-left: -20px;
     display: grid;
     grid-template-columns: 1fr;
