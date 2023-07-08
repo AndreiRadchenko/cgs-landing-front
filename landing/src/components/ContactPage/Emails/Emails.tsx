@@ -26,8 +26,8 @@ export const Emails = ({ emails }: EmailProps) => {
               <ContactButton
                 key={idx}
                 style={{ width: "322px", height: "58px" }}
-                pictureWidth="20px"
-                pictureHeight="14px"
+                pictureWidth={displayWidth! < 1800 ? "20px" : "37px"}
+                pictureHeight={displayWidth! < 1800 ? "14px" : "29px"}
                 text={item.email}
                 link={"mailto: " + item.email}
               />

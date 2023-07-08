@@ -31,9 +31,12 @@ export const ButtonWrapper = styled.a`
 export const ButtonContent = styled.div`
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: normal;
   gap: 8px;
   color: currentColor;
+  @media (max-width: 1799px) {
+    align-items: baseline;
+  }
   @media (max-width: 991px) {
     align-items: flex-end;
   }
