@@ -260,8 +260,8 @@ export const FreeServicesText = styled.div`
   font-weight: 900;
   top: -10px;
   position: relative;
-  font-size: 22px;
-  line-height: 30.8px;
+  font-size: 1.845em;
+  line-height: 140%;
 
   @media (max-width: 768px) {
     font-size: 16px;
