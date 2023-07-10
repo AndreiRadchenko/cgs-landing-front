@@ -71,7 +71,7 @@ export const Description = styled.div`
 export const Image = styled.img`
   margin: 0.5em -2.84em 0 0;
   max-width: 40em;
-  height: 40.31em;
+  height: 40.3em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 30em;
@@ -88,7 +88,7 @@ export const Image = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     width: 23.9em;
-    height: auto;
+    height: 400px;
     margin: 0.19em 0 0 0.85em;
   }
 `;

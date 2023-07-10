@@ -88,7 +88,6 @@ export const Image = styled.img`
   position: absolute;
   top: 4.31em;
   right: 2.81em;
-  /* right: 0; */
   width: 35vw;
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -104,6 +103,7 @@ export const Image = styled.img`
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     width: 22em;
+    height: 365px;
     top: 2.3em;
     left: 0;
   }

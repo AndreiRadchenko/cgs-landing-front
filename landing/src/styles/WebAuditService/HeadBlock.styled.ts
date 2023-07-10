@@ -124,6 +124,10 @@ export const Image = styled.img`
     right: 13.5%;
   }
 
+  @media (max-width: 475px) {
+    height: 345.5px;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     margin-left: 4em;
   }
