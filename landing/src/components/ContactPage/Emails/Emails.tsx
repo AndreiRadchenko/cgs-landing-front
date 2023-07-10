@@ -15,7 +15,7 @@ export const Emails = ({ emails }: EmailProps) => {
   const { subtitle, email } = emails;
 
   return (
-    <Styled.EmailsContainer>
+    <Styled.EmailsContainer className="emails-messenger-container">
       <div>
         <Styled.EmailsTitle className="emails-title">
           {subtitle}

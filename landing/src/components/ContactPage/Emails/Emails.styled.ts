@@ -11,6 +11,13 @@ export const EmailsContainer = styled.div`
   height: 15.4vw;
   padding: 0 64px 0 13px;
   padding-inline: 50px;
+
+  @media (min-width: 1400px) {
+    &.emails-messenger-container {
+      padding-inline: 62px;
+    }
+  }
+
   & .persist-popup {
     color: #8f8e93;
     transition: color 0.5s ease;
@@ -117,7 +124,8 @@ export const EmailsTitle = styled.h3`
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
-  gap: 33px;
+  row-gap: 28px;
+  column-gap: 33px;
   @media ${themes.primary.media.maxServiceWeb} {
     flex-direction: column;
   }
