@@ -204,14 +204,12 @@ export const Mario = styled.img<MarioJump>`
   }
 
   @media (max-width: 475px) {
-    width: 53px;
-    height: 100px;
+    width: 45.5px;
+    height: 85px;
     bottom: -1.2%;
   }
 
   @media (max-width: 375px) {
-    width: 45.5px;
-    height: 85px;
     bottom: 0%;
 
     transition: transform 0.2s ease-out;
