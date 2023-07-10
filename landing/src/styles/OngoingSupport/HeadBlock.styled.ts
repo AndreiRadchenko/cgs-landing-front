@@ -104,7 +104,7 @@ export const Image = styled.img`
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     width: 22.125em;
-    height: auto;
+    height: 331px;
     top: -2em;
     left: -0.81em;
   }
