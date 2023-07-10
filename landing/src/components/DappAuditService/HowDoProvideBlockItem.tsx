@@ -7,17 +7,19 @@ interface IHowToProvideBlockItemProps {
   title: string;
   text: string;
   optional?: boolean;
+  className?: string;
 }
 
 const HowToProvideBlockItem = ({
   number,
   title,
   text,
+  className,
   optional = false,
 }: IHowToProvideBlockItemProps) => {
   return (
     <Styled.ItemContainer className={number === 1 ? "first" : undefined}>
-      <Styled.ItemTitleContainer>
+      <Styled.ItemTitleContainer className={className}>
         <Styled.BigDigit>{number}</Styled.BigDigit>
         <Styled.OptionalContainer>
           <Styled.ItemTitle className={optional ? "optional" : undefined}>

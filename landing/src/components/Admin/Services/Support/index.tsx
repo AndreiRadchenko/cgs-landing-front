@@ -1,9 +1,12 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
-import { AdminBigButton, AdminPaddedBlock } from "../../../../styles/AdminPage";
+import {
+  AdminBigButton,
+  AdminHeader,
+  AdminPaddedBlock,
+} from "../../../../styles/AdminPage";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
-import BonusesBlock from "./BonusesBlock";
 import FooterBlock from "./FooterBlock";
 import MainBlock from "./MainBlock";
 import ProvideBlock from "./ProvideBlock";
@@ -19,6 +22,7 @@ const ServiceSupportContentBlock = () => {
   return (
     <div>
       <AdminPaddedBlock>
+        <AdminHeader>Ongoing Support // Maintenance</AdminHeader>
         <AdminBlockDropDown title="HEAD BLOCK">
           <MainBlock />
         </AdminBlockDropDown>

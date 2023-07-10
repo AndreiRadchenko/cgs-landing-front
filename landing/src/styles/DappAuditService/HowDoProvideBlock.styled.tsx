@@ -55,6 +55,16 @@ export const ItemTitleContainer = styled.div`
   display: flex;
   width: fit-content;
   align-items: center;
+
+  &.gapBottom {
+    margin-bottom: 0.75em;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    &.gapBottom {
+      margin-bottom: 0px;
+    }
+  }
 `;
 
 export const BigDigit = styled.div`

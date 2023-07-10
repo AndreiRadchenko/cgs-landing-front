@@ -18,7 +18,6 @@ const MainBlock = () => {
   const uploadMainImage = useUploadImageFunction(values.headerBlock);
   return (
     <AdminPaddedBlock>
-      <AdminHeader>Mobile Development</AdminHeader>
       <AdminHalfGrid>
         {renderInputs({
           props: { name: "headerBlock" },

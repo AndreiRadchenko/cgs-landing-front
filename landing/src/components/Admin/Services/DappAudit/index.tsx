@@ -5,7 +5,6 @@ import ServiceShowCase from "../../ServiceShowCase";
 import FigureOutTermsBlock from "./FigureOutTermsBlock";
 import HeadBlock from "./HeadBlock";
 import WorthBlock from "../Mobile/WorthBlock";
-import BlockDropdown from "../../BlockDropdown";
 import HowDoWeProvideBlock from "../AiSolutions/HowDoWeProvideBlock";
 import BringYourAppBlock from "../AiSolutions/BringYourAppBlock";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
@@ -22,14 +21,16 @@ const ServiceAiSolutionsContentBlock = () => {
       <AdminBlocksContent>
         <HeadBlock />
         <FigureOutTermsBlock />
-        <BlockDropdown title={"Why it's worth it?"}>
+        <AdminBlockDropDown title={"Why it's worth it?"}>
           <WorthBlock />
-        </BlockDropdown>
+        </AdminBlockDropDown>
         <HowDoWeProvideBlock />
-        <ServiceShowCase noMargin />
-          <AdminBlockDropDown title="TEAM MEMBERS">
-            <TeamMembers />
-          </AdminBlockDropDown>
+        <AdminBlockDropDown title="Showcase">
+          <ServiceShowCase noMargin />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="TEAM MEMBERS">
+          <TeamMembers />
+        </AdminBlockDropDown>
         <BringYourAppBlock />
       </AdminBlocksContent>
       <MetaBlockWraper>

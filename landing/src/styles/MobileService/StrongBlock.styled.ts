@@ -97,10 +97,6 @@ export const BlockTitle = styled.h3`
     font-size: ${themes.primary.font.size.oneAndNine};
   }
 
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: ${themes.primary.font.size.oneAndHalf};
-  }
-
   @media ${themes.primary.media.maxServiceMobile} {
     font-size: 1.6em;
   }

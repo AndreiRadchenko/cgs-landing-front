@@ -34,7 +34,7 @@ const HeadBlock = () => {
             buttonText={data.button}
             buttonClassName="social-button"
           />
-          <ButtonShareComponent />
+          <ButtonShareComponent className="aiService" />
         </Styled.ButtonWrapper>
       )}
       {data && (

@@ -10,6 +10,7 @@ import FigureOutTermsBlock from "./FigureOutTermsBlock";
 import HeadBlock from "./HeadBlock";
 import HowDoWeProvideBlock from "./HowDoWeProvideBlock";
 import WhyIsDappsBlock from "./WhyIsDappsBlock";
+import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 
 const ServiceDappAuditContentBlock = () => {
   return (
@@ -19,7 +20,9 @@ const ServiceDappAuditContentBlock = () => {
         <FigureOutTermsBlock />
         <WhyIsDappsBlock />
         <HowDoWeProvideBlock />
-        <ServiceShowCase noMargin />
+        <AdminBlockDropDown title="Showcase">
+          <ServiceShowCase noMargin />
+        </AdminBlockDropDown>
         <BringYourAppBlock />
       </AdminBlocksContent>
       <MetaBlockWraper>

@@ -232,20 +232,20 @@ export const MainSubtitle = styled.div`
 
   &.homePage {
     margin-top: 25px;
-    p{
+    p {
       margin: 0;
     }
   }
 
   @media (max-width: 2560px) {
     &.homePage {
-    width: 22em;
+      width: 22em;
     }
   }
 
   @media (max-width: 1800px) {
     &.homePage {
-    width: 24em;
+      width: 24em;
     }
   }
 
@@ -256,7 +256,7 @@ export const MainSubtitle = styled.div`
     font-size: 20px;
 
     &.homePage {
-    width: 26em;
+      width: 26em;
     }
   }
 
@@ -272,7 +272,7 @@ export const MainSubtitle = styled.div`
       margin-top: 10px;
       margin-bottom: 22px;
 
-      p{
+      p {
         line-height: 141%;
       }
     }
@@ -465,16 +465,16 @@ export const Subtitle = styled.div<ISubtitle>`
   &.foooter {
     margin-top: 76px;
     margin-bottom: 14px;
-    p{
+    p {
       margin-bottom: 0;
     }
   }
 
   &.textOnFilm {
-    p{
+    p {
       margin: 0;
       line-height: 146%;
-      span:first-child{
+      span:first-child {
         display: inline-flex;
         height: 90px;
       }
@@ -567,8 +567,8 @@ export const Subtitle = styled.div<ISubtitle>`
     }
 
     &.foooter {
-    margin-top: 60px;
-  }
+      margin-top: 60px;
+    }
 
     &.small {
       margin-top: 0;
@@ -937,6 +937,11 @@ export const TelegramIconWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     width: 14px;
     height: 14px;
+
+    &.aiService {
+      width: 14.5px;
+      height: 14.5px;
+    }
   }
 `;
 
@@ -1260,7 +1265,7 @@ export const Tag = styled.button<ITag>`
   z-index: 1;
   &:hover {
     background-color: ${(props) =>
-    props.isArticlePage && themes.primary.colors.hoveredBlogTag};
+      props.isArticlePage && themes.primary.colors.hoveredBlogTag};
     cursor: ${(props) => props.isArticlePage && "pointer"};
   }
   span {
