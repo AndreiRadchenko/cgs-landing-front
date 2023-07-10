@@ -80,6 +80,7 @@ export const StatisticWrapper = styled.div`
 `;
 
 export const SpaceBetween = styled.div`
+  font-family: ${themes.primary.font.family.openSans};
   display: flex;
   justify-content: flex-start;
   column-gap: 25px;

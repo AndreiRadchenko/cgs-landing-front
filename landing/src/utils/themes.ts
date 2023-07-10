@@ -74,6 +74,7 @@ const themes = {
         careersFormLaptop: "1.3em",
         adminButton: "1.8em",
         faqQuestion: "1.669em",
+        articleDesktopTag: "1.335em",
         faqAnswer: "1.335em",
         oneAndNine: "1.9em",
         secondary: "2em",

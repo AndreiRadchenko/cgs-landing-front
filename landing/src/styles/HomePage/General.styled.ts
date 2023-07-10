@@ -569,13 +569,13 @@ export const Subtitle = styled.div<ISubtitle>`
     font-size: 4vw;
 
     &.textOnFilm {
-    p{
-      span:first-child{
-        display: inline-flex;
-        height: 10px;
+      p {
+        span:first-child {
+          display: inline-flex;
+          height: 10px;
+        }
       }
     }
-  }
 
     &.small {
       font-size: 3.75vw;
@@ -1100,16 +1100,18 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
       transform: rotate(180deg);
     }
   }
+
+  &.blog {
+    font-size: 1.1667em;
+
+    @media ${themes.primary.media.maxMobile} {
+      font-size: 0.875rem;
+    }
+  }
+
   & > img,
   & > span {
     vertical-align: middle;
-    /* @media ${themes.primary.media.minLaptop} {
-      font-size: ${themes.primary.font.size.careersFormLaptop};
-    }
-
-    @media ${themes.primary.media.minPC} {
-      font-size: ${themes.primary.font.size.vistaco};
-    } */
   }
 
   img {
