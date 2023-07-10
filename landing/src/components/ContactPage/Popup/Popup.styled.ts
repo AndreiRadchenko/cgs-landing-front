@@ -18,7 +18,7 @@ export const PointerPopup = styled.div`
   transition: all 0.5s ease;
   @media ${themes.primary.media.maxMobile} {
     width: 239px;
-    height: 82px;
+    height: 72px;
     visibility: visible;
     opacity: 1;
   }
