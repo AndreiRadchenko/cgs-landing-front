@@ -130,9 +130,8 @@ export const BlackButton = styled.a<IFontSize>`
   @media ${themes.primary.media.minPCFullHD} {
     padding: 0.8em 1em;
 
-    &.main {
-      padding: 0.8em 1em;
-    }
+    &.homePage,
+    &.main,
     &.scrolled {
       padding: 0.8em 1em;
     }
@@ -143,6 +142,8 @@ export const BlackButton = styled.a<IFontSize>`
   }
 
   @media (max-width: 992px) {
+    &.seeAll,
+    &.homePage,
     &.main,
     &.scrolled {
       font-size: 1.33em;
@@ -154,6 +155,12 @@ export const BlackButton = styled.a<IFontSize>`
     &.scrolled {
       height: 54px;
       font-size: 16px;
+    }
+
+    &.homePage {
+      height: 54px;
+      font-size: 16px;
+      padding: 17px 35px;
     }
 
     &.portfolio-button {
@@ -560,6 +567,15 @@ export const Subtitle = styled.div<ISubtitle>`
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 4vw;
+
+    &.textOnFilm {
+    p{
+      span:first-child{
+        display: inline-flex;
+        height: 10px;
+      }
+    }
+  }
 
     &.small {
       font-size: 3.75vw;
