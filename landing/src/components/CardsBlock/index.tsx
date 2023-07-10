@@ -14,8 +14,8 @@ const CardsBlock = () => {
 
   return (
     <>
-      <Styled.Title>Our Process</Styled.Title>
-      <MobileInfiniteText title={"Our Process"} />
+      <Styled.Title>FOLLOWING SUCH A FLOW:</Styled.Title>
+      <MobileInfiniteText title={"FOLLOWING SUCH A FLOW:"} />
       <Styled.CardsWrapper>
         {data &&
           Object.entries(data).map((item, idx) => (

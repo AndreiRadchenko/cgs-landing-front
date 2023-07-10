@@ -296,8 +296,13 @@ export const CardTitle = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    max-width: 700px;
+  }
+
+  @media (max-width: 475px) {
     max-width: 350px;
   }
+
   @media ${themes.primary.media.maxLowestScreenMobile} {
     max-width: 300px;
   }
@@ -338,8 +343,9 @@ export const CardContent = styled.p`
   }
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 0;
-    max-width: 380px;
+    max-width: 800px;
     margin-top: 22px;
+    font-size: 1rem;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
