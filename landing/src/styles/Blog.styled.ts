@@ -568,6 +568,7 @@ export const RightLine = styled.img`
   @media ${themes.primary.media.maxMobile} {
     transform-origin: 100% 50%;
     transform: scale(0.65);
+    bottom: -144px;
   }
 `;
 
@@ -1059,7 +1060,12 @@ export const MainBlogItemDescription = styled(BlogItemDescription)`
 
 export const SmallArticleItemTitle = styled(BlogItemTitle)`
   font-size: ${themes.primary.font.size.menuElement};
-  margin-top: 14px;
+  margin-top: 6.8px;
+
+  & a {
+    line-height: 27.3px;
+  }
+
   &:hover {
     color: ${themes.primary.colors.darkBlue};
   }
