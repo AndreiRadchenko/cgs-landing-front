@@ -347,6 +347,11 @@ const PortfolioPage: NextPage = () => {
     <Loader
       active={(isLoading || reviewsIsLoading || !isImagesLoaded) && isFirstLoad}
     >
+      <Head>
+        <title>{metaTitle || "Portfolio | CGS-team"}</title>
+        <meta name="description" content={metaDescription} />
+        {customHead && parse(customHead)}
+      </Head>
       {(isLoading || reviewsIsLoading) && isFirstLoad ? (
         <LoaderStub />
       ) : data ? (
@@ -357,11 +362,6 @@ const PortfolioPage: NextPage = () => {
               setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />
           )}
-          <Head>
-            <title>{metaTitle}</title>
-            <meta name="description" content={metaDescription} />
-            {customHead && parse(customHead)}
-          </Head>
           <Styles.PortfolioContainer>
             <HeaderNavNew />
             <Styles.PortfolioWrapper>

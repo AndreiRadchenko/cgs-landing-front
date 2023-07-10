@@ -12,6 +12,7 @@ import HeaderNavNew from "../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../components/FooterNew/FooterNew";
 import Content from "../components/HomePage/Content";
 import CalendlyInfoModal from "../components/Calendly/CalendlyInfoModal";
+
 interface IHomeData {
   data: IDataResponse | undefined;
   isLoading: boolean;
