@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import Image from "next/image";
 
 import { SplitBrackets } from "../../utils/splitBrackets";
 import TextTypingAnimation from "../Typewrite";
@@ -9,11 +8,9 @@ import EssentialImage from "./EssentialImage";
 import * as Styled from "../../styles/UxUiService/EssentialBlock.styled";
 import { queryKeys } from "../../consts/queryKeys";
 import { IUxUiInterface } from "../../types/Admin/Response.types";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useOnScreen } from "../../hooks/useOnScreen";
 
 const EssentialBlock = () => {
-  const { width } = useWindowDimension();
   const queryClient = useQueryClient();
 
   const data = queryClient.getQueryData<IUxUiInterface>([

@@ -12,6 +12,7 @@ import TypesBlock from "./TypesBlock";
 import WhatIsBlock from "./WhatIsBlock";
 import ProblemsAuditSolve from "./ProblemsAuditSolve";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
+import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 
 const ServiceWebAuditContentBlock = () => {
   return (
@@ -21,8 +22,12 @@ const ServiceWebAuditContentBlock = () => {
         <WhatIsBlock />
         <ProblemsAuditSolve />
         <TypesBlock />
-        <TeamMembers />
-        <ServiceShowCase noMargin />
+        <AdminBlockDropDown title="Team Members">
+          <TeamMembers />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="Showcase">
+          <ServiceShowCase noMargin />
+        </AdminBlockDropDown>
         <HowToDoBlock />
         <BringYourAppBlock />
       </AdminBlocksContent>

@@ -79,7 +79,7 @@ const ButtonShareComponent = ({ className }: IButtonShareComponentProps) => {
         onClick={handleTelegramClick}
       >
         <TelegramWrapper className={className}>
-          <TelegramIconWrapper>
+          <TelegramIconWrapper className={className}>
             <Image
               src={TelegramGradIcon}
               alt="Icon"

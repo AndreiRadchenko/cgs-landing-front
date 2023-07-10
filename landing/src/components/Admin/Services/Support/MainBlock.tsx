@@ -21,7 +21,6 @@ const MainBlock = () => {
   const { title, ...headerBlock } = values.headerBlock;
   return (
     <AdminPaddedBlock>
-      <AdminHeader>Ongoing Support // Maintenance</AdminHeader>
       <AdminHalfGrid>
         <div>
           <SubHeaderWithInput

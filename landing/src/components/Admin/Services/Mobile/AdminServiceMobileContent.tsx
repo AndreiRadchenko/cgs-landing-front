@@ -28,10 +28,7 @@ const AdminServiceMobileContent = () => {
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
-    <Formik
-      initialValues={ data! }
-      onSubmit={submitForm}
-    >
+    <Formik initialValues={data!} onSubmit={submitForm}>
       <ServiceMobileContentBlock />
     </Formik>
   ) : (

@@ -132,6 +132,15 @@ export const ImageWrapper = styled.div`
     margin-top: 50px;
   }
 
+  @media (max-width: 915px) {
+    width: 20em;
+    height: 13em;
+  }
+  @media (max-width: 784px) {
+    width: 19em;
+    height: 12em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     position: relative;
     width: 385px;

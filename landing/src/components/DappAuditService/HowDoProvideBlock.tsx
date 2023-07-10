@@ -63,6 +63,7 @@ const HowDoProvideBlock = () => {
         {data && (
           <Styled.SecondSubtitleContainer>
             <HowToProvideBlockItem
+              className={"gapBottom"}
               optional
               number={2}
               title={data.textBlock[1].title}
@@ -73,6 +74,7 @@ const HowDoProvideBlock = () => {
         {data && (
           <Styled.ThirdSubtitleContainer>
             <HowToProvideBlockItem
+              className={"gapBottom"}
               number={3}
               title={data.textBlock[2].title}
               text={data.textBlock[2].text}

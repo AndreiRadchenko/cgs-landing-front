@@ -8,7 +8,7 @@ import { IServicesClassnameProps } from "../../types/Services.types";
 import { queryKeys } from "../../consts/queryKeys";
 import firsMobileBg from "../../../public/WebService/first-mobile.svg";
 import secondMobileBg from "../../../public/WebService/second-mobile.svg";
-
+import { useOnScreen } from "../../hooks/useOnScreen";
 import TextTypingAnimation from "../Typewrite";
 
 const SolutionBlock = ({ className }: IServicesClassnameProps) => {
@@ -23,12 +23,15 @@ const SolutionBlock = ({ className }: IServicesClassnameProps) => {
 `;
 
   const elRef = useRef<HTMLDivElement>(null);
+  const isScrolled = useOnScreen(elRef, true);
 
   return (
     <Styled.Container className={className}>
       {data && (
         <Styled.LeftSideText ref={elRef}>
-          <TextTypingAnimation miliseconds={250} text={data.subtitle} />
+          {isScrolled && (
+            <TextTypingAnimation miliseconds={250} text={data.subtitle} />
+          )}
         </Styled.LeftSideText>
       )}
       <Styled.BgImageFirst src={firsMobileBg.src} />
