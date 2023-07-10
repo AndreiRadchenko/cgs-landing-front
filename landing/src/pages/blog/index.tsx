@@ -1,7 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
-import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/router";
+import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
 import Head from "next/head";
 import { SwiperSlide } from "swiper/react";
 import { animateScroll as scroll, scroller } from "react-scroll";
@@ -146,147 +145,165 @@ const BlogPage = () => {
 
   return (
     <Loader active={!isMainSliderImageLoaded && isFirstLoad}>
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        {customHead && parse(customHead)}
+      </Head>
       {isLoading && isFirstLoad ? (
         <LoaderStub />
-      ) : data ? (
-        <>
-          <Head>
-            <title>{metaTitle}</title>
-            <meta name="description" content={metaDescription} />
-            {customHead && parse(customHead)}
-          </Head>
-          <HeaderNavNew />
-          <Styled.BlogContainer>
-            <Styled.LeftLine src={leftLine.src} />
-            <Styled.RightLine src={rightLine.src} />
-            <Styled.HeaderBlock>
-              <Styled.MainContainer>
-                {swiperData && (
-                  <BlogSwiper>
-                    {swiperData.reviews.map((article, idx) => (
-                      <SwiperSlide key={idx}>
-                        <MainBlogItem
-                          article={article}
-                          views={findViews(article.url)}
-                          filters={filters}
-                          setIsMainSliderImageLoaded={
-                            setIsMainSliderImageLoaded
-                          }
-                        />
-                      </SwiperSlide>
-                    ))}
-                  </BlogSwiper>
-                )}
-              </Styled.MainContainer>
-              <Styled.FlexColumnContainer className="header">
-                {swiperData &&
-                  swiperData.reviews.map((article) => (
-                    <SmallArticleItem
-                      filters={filters}
-                      article={article}
-                      key={article._id}
-                    />
-                  ))}
-              </Styled.FlexColumnContainer>
-            </Styled.HeaderBlock>
-            <PodcastItem data={data.podcast} />
-            <Styled.BlogArticlesWrapper>
-              {
-                <Loader
-                  isBlog={true}
-                  className="blog"
-                  active={
-                    (loading ||
-                      isLoading ||
-                      !isTagsLoaded ||
-                      !articles ||
-                      !views ||
-                      (articles?.reviews &&
-                        articles.reviews.length > 0 &&
-                        !isImagesLoaded)) &&
-                    !isFirstLoad
-                  }
-                >
-                  {isLoading && !isFirstLoad ? (
-                    <LoaderStub />
-                  ) : (
-                    <Styled.AllArticlesContainer id="articles-container">
-                      {articles && articles.tags && articles.tags.length && (
-                        <DropdownContainer>
-                          <>
-                            {filters.length > 0 &&
-                              filters.map((filter, index) => (
-                                <Tag key={index}>
-                                  {filter}&nbsp;&nbsp;
-                                  <span
-                                    onClick={() => {
-                                      const newFilters = filters.filter(
-                                        (filter) => filter !== filters[index]
-                                      );
-                                      setFilters([...newFilters]);
-                                    }}
-                                  >
-                                    x
-                                  </span>
-                                </Tag>
-                              ))}
-                          </>
-                          <Dropdown
+      ) : (
+        data && (
+          <>
+            <HeaderNavNew />
+            <Styled.BlogContainer>
+              <Styled.LeftLine src={leftLine.src} />
+              <Styled.RightLine src={rightLine.src} />
+              <Styled.HeaderBlock>
+                <Styled.MainContainer>
+                  {swiperData && (
+                    <BlogSwiper>
+                      {swiperData.reviews.map((article, idx) => (
+                        <SwiperSlide key={idx}>
+                          <MainBlogItem
+                            article={article}
+                            views={findViews(article.url)}
                             filters={filters}
-                            className="blog"
-                            setFilters={setFilters}
-                            tags={articles.tags}
-                            dropdownName="#TAGS"
-                            prefix={"#"}
-                            isTag={true}
-                            setIsFirstLoad={setIsFirstLoad}
+                            setIsMainSliderImageLoaded={
+                              setIsMainSliderImageLoaded
+                            }
                           />
-                        </DropdownContainer>
-                      )}
-                      {loading || isLoading || !articles || !views ? (
-                        <LoaderStub />
-                      ) : articles.reviews.length ? (
-                        <>
-                          {reversedArticles &&
-                            reversedArticles.map((article) => (
-                              <BlogItem
-                                article={article}
-                                key={article._id}
-                                views={findViews(article.url)}
-                                filters={filters}
-                                loadedImagesCounter={loadedImagesCounter}
-                                setIsTagLoaded={setIsTagLoaded}
-                              />
-                            ))}
-                          {!!articles.totalPages && (
-                            <PaginationBar
-                              totalPages={articles.totalPages}
-                              currentPage={currentPage}
-                              setCurrentPage={setCurrentPage}
-                              scrollFunction={scrollFunc}
-                              setLoading={setLoading}
+                        </SwiperSlide>
+                      ))}
+                    </BlogSwiper>
+                  )}
+                </Styled.MainContainer>
+                <Styled.FlexColumnContainer className="header">
+                  {swiperData &&
+                    swiperData.reviews.map((article) => (
+                      <SmallArticleItem
+                        filters={filters}
+                        article={article}
+                        key={article._id}
+                      />
+                    ))}
+                </Styled.FlexColumnContainer>
+              </Styled.HeaderBlock>
+              <PodcastItem data={data.podcast} />
+              <Styled.BlogArticlesWrapper>
+                {
+                  <Loader
+                    isBlog={true}
+                    className="blog"
+                    active={
+                      (loading ||
+                        isLoading ||
+                        !isTagsLoaded ||
+                        !articles ||
+                        !views ||
+                        (articles?.reviews &&
+                          articles.reviews.length > 0 &&
+                          !isImagesLoaded)) &&
+                      !isFirstLoad
+                    }
+                  >
+                    {isLoading && !isFirstLoad ? (
+                      <LoaderStub />
+                    ) : (
+                      <Styled.AllArticlesContainer id="articles-container">
+                        {articles && articles.tags && articles.tags.length && (
+                          <DropdownContainer>
+                            <>
+                              {filters.length > 0 &&
+                                filters.map((filter, index) => (
+                                  <Tag key={index}>
+                                    {filter}&nbsp;&nbsp;
+                                    <span
+                                      onClick={() => {
+                                        const newFilters = filters.filter(
+                                          (filter) => filter !== filters[index]
+                                        );
+                                        setFilters([...newFilters]);
+                                      }}
+                                    >
+                                      x
+                                    </span>
+                                  </Tag>
+                                ))}
+                            </>
+                            <Dropdown
+                              filters={filters}
+                              className="blog"
+                              setFilters={setFilters}
+                              tags={articles.tags}
+                              dropdownName="#TAGS"
+                              prefix={"#"}
+                              isTag={true}
                               setIsFirstLoad={setIsFirstLoad}
                             />
-                          )}
-                        </>
-                      ) : (
-                        <Styled.BlogArticlesTemplate>
-                          {"no articles"}
-                        </Styled.BlogArticlesTemplate>
-                      )}
-                    </Styled.AllArticlesContainer>
-                  )}
-                </Loader>
-              }
-            </Styled.BlogArticlesWrapper>
-          </Styled.BlogContainer>
-          <FooterNew />
-        </>
-      ) : (
-        <>{"Test"}</>
+                          </DropdownContainer>
+                        )}
+                        {loading || isLoading || !articles || !views ? (
+                          <LoaderStub />
+                        ) : articles.reviews.length ? (
+                          <>
+                            {reversedArticles &&
+                              reversedArticles.map((article) => (
+                                <BlogItem
+                                  article={article}
+                                  key={article._id}
+                                  views={findViews(article.url)}
+                                  filters={filters}
+                                  loadedImagesCounter={loadedImagesCounter}
+                                  setIsTagLoaded={setIsTagLoaded}
+                                />
+                              ))}
+                            {!!articles.totalPages && (
+                              <PaginationBar
+                                totalPages={articles.totalPages}
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                scrollFunction={scrollFunc}
+                                setLoading={setLoading}
+                                setIsFirstLoad={setIsFirstLoad}
+                              />
+                            )}
+                          </>
+                        ) : (
+                          <Styled.BlogArticlesTemplate>
+                            {"no articles"}
+                          </Styled.BlogArticlesTemplate>
+                        )}
+                      </Styled.AllArticlesContainer>
+                    )}
+                  </Loader>
+                }
+              </Styled.BlogArticlesWrapper>
+            </Styled.BlogContainer>
+            <FooterNew />
+          </>
+        )
       )}
     </Loader>
   );
 };
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
+    adminGlobalService.getFullPage()
+  );
+
+  await queryClient.prefetchQuery([queryKeys.getBlogPage], () =>
+    adminBlogService.getBlogPageData()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 
 export default BlogPage;
