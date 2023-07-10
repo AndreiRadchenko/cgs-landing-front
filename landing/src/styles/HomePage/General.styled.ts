@@ -100,6 +100,9 @@ export const BlackButton = styled.a<IFontSize>`
     color: ${themes.primary.colors.primary};
     background-size: 229px;
     transition-delay: unset;
+    font-size: 1.835em;
+    padding: 16px 15.4px;
+    font-weight: 400px;
   }
 
   &.scrolled {
@@ -108,6 +111,9 @@ export const BlackButton = styled.a<IFontSize>`
     transition-delay: 0.8s;
     background-size: 229px;
     animation: ${buttonHover} 1s steps(8) forwards;
+    font-size: 1.835em;
+    padding: 16px 15.4px;
+    font-weight: 400px;
 
     &.removeBg {
       transition-delay: unset;
@@ -123,14 +129,29 @@ export const BlackButton = styled.a<IFontSize>`
 
   @media ${themes.primary.media.minPCFullHD} {
     padding: 0.8em 1em;
+
+    &.main {
+      padding: 0.8em 1em;
+    }
+    &.scrolled {
+      padding: 0.8em 1em;
+    }
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 14px;
   }
 
+  @media (max-width: 992px) {
+    &.main,
+    &.scrolled {
+      font-size: 1.33em;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
-    &.homePage {
+    &.main,
+    &.scrolled {
       height: 54px;
       font-size: 16px;
     }
@@ -855,6 +876,12 @@ export const WhatsAppWrapper = styled.div`
     }
   }
 
+  @media (max-width: 992px) {
+    &.homePage {
+      font-size: 1.33em;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 16px;
     line-height: 19px;
@@ -900,6 +927,12 @@ export const TelegramWrapper = styled.div`
 
     & > div {
       filter: none;
+    }
+  }
+
+  @media (max-width: 992px) {
+    &.homePage {
+      font-size: 1.33em;
     }
   }
 
