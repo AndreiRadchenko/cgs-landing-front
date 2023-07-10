@@ -448,6 +448,10 @@ export const PortfolioProjectsContainer = styled.div<{ isSeeMore: boolean }>`
     margin-top: ${({ isSeeMore }) => isSeeMore && "30px"};
     margin-bottom: ${({ isSeeMore }) => isSeeMore && "60px"};
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: ${({ isSeeMore }) => (isSeeMore ? "30px" : "0")};
+  }
 `;
 
 export const PortfolioPaginationWrapper = styled.div`
