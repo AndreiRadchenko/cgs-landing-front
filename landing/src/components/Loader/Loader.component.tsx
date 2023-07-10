@@ -29,6 +29,7 @@ export const Loader: FC<ILoaderProps> = ({
       fadeSpeed={200}
       spinner={<StyledSpinner />}
       classNamePrefix="MyLoader_"
+      className={className}
     >
       {children}
     </PortfolioStyledLoader>

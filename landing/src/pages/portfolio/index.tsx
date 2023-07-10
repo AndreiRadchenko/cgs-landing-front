@@ -488,6 +488,7 @@ const PortfolioPage: NextPage = () => {
               <Styles.PortfolioProjectsWrapper id="portfolio-wrapper">
                 <Loader
                   isPortfolio={true}
+                  className="portfolio"
                   active={
                     (isLoading ||
                       reviewsIsLoading ||

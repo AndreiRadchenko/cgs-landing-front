@@ -387,6 +387,15 @@ export const PortfolioFiltersWrapper = styled.div`
 
 export const PortfolioProjectsWrapper = styled.div`
   margin-top: 29px;
+
+  @media ${themes.primary.media.maxMobile} {
+    & .portfolio {
+      & .MyLoader_content {
+        position: relative;
+        padding-bottom: 110px;
+      }
+    }
+  }
 `;
 
 export const PortfolioSearchAndInductriesWrapper = styled.div`
