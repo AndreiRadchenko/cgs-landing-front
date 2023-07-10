@@ -58,6 +58,7 @@ export const TitleRef = styled.a`
 `;
 
 export const TechnologyRow = styled.div`
+  margin-left: 1.5em;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
@@ -68,6 +69,7 @@ export const TechnologyRow = styled.div`
     column-gap: 60px;
   }
   @media ${themes.primary.media.maxMobile} {
+    margin-left: 0;
     grid-template-columns: 1fr;
     row-gap: 0;
     column-gap: 0;
@@ -214,7 +216,7 @@ export const CategoryImgWrapper = styled.div`
 
 export const ArrowContainer = styled.div`
   position: absolute;
-  left: 47%;
+  left: 49%;
   top: calc(50% + 40px);
   display: flex;
   justify-content: center;
