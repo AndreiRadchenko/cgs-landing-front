@@ -21,10 +21,6 @@ import { Loader, LoaderStub } from "../../components/Loader";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery([queryKeys.getServiceDappAuditPage], () =>
-    adminDappAuditService.getDappAuditServicePage()
-  );
-
   await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );
