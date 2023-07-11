@@ -439,7 +439,7 @@ export const PortfolioSearchAndInductries = styled.div`
 
 export const PortfolioProjectsContainer = styled.div<{
   isSeeMore: boolean;
-  isTagSelected: boolean;
+  isTagSelected?: boolean;
 }>`
   display: grid;
   justify-content: center;
