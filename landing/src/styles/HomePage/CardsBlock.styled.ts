@@ -317,7 +317,7 @@ export const CardSubtitle = styled.div`
   }
 `;
 
-export const CardContent = styled.p`
+export const CardContent = styled.div`
   line-height: 160%;
   margin-top: 10px;
   font-weight: ${themes.primary.font.weight.heavy};
