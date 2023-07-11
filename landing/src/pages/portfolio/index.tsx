@@ -336,9 +336,15 @@ const PortfolioPage: NextPage = () => {
       }
     };
 
+    const handleRouteChange = () => {
+      window.scroll(0, 0);
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
     window.addEventListener("message", calendlyStatusFinder);
 
     return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
       window.removeEventListener("message", calendlyStatusFinder);
     };
   }, []);
