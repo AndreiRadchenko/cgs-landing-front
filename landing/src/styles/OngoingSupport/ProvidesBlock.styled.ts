@@ -104,7 +104,7 @@ export const Mario = styled.img<MarioJump>`
   position: absolute;
   z-index: 3;
   transition: transform 0.2s ease-out;
-  transform: ${(props) => (props.isJumping == true ? 'translateY(-140px)' : 'none')};
+  transform: ${(props) => (props.isJumping ? 'translateY(-140px)' : 'none')};
 
   @media (min-width: 2200px) {
     height: 25%;
@@ -188,7 +188,7 @@ export const Mario = styled.img<MarioJump>`
     bottom: -10%;
 
     transition: transform 0.2s ease-out;
-    transform: ${(props) => (props.isJumping == true ? 'translateY(-80px)' : 'none')};
+    transform: ${(props) => (props.isJumping ? 'translateY(-80px)' : 'none')};
   }
 
   @media (max-width: 710px) {
@@ -209,11 +209,10 @@ export const Mario = styled.img<MarioJump>`
     bottom: -1.2%;
   }
 
-  @media (max-width: 375px) {
-    bottom: 0%;
-
+  @media (max-width: 400px) {
+    bottom: 0;
     transition: transform 0.2s ease-out;
-    transform: ${(props) => (props.isJumping == true ? 'translateY(-70px)' : 'none')};
+    transform: ${(props) => (props.isJumping ? 'translateY(-70px)' : 'none')};
   }
 `;
 
