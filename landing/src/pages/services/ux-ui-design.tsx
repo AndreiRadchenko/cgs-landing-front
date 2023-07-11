@@ -58,7 +58,7 @@ const UxUiDesign = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
   useQuery([queryKeys.getPortfolio], () => adminPortfolioService.getReviews());
 
-  const { customHead, metaDescription, metaTitle } = { ...data?.meta };
+  const { customHead, metaDescription, metaTitle } = data?.meta ?? {};
 
   useEffect(() => {
     const calendlyStatusFinder = (e: any) => {
