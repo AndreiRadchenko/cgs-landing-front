@@ -10,18 +10,23 @@ import * as StyledThisComp from "./Footer.styled";
 import Link from "next/link";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
-import { useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import Image from "next/image";
 import smallMountain from "/public/smallMountain.svg";
 import Logo from "../HeaderNavNew/Logo";
 import ExplanationEmailField from "./ExplanationEmailField/ExplanationEmailField";
+import { adminGlobalService } from "../../services/adminHomePage";
 
 interface IFooterProps {
   className?: string;
   setOpenFailedModal?: Dispatch<SetStateAction<boolean>>;
   clickFromEstimationForm?: boolean;
+}
+
+interface IHomePage {
+  data: IDataResponse | undefined;
 }
 
 const useInViewport = <T extends Element>(ref: MutableRefObject<T | null>) => {
@@ -76,10 +81,10 @@ const FooterNew = ({
     isOpen && width && width >= 768 && setIsOpen(false);
   }, [width, isOpen]);
 
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IDataResponse>([
-    queryKeys.getFullHomePage,
-  ])?.FooterBlock;
+  const { data }: IHomePage = useQuery(
+    [queryKeys.getFullHomePage],
+    () => adminGlobalService.getFullPage()
+  );
 
   DisableScrollBarHandler(isOpen);
   return (
@@ -98,7 +103,7 @@ const FooterNew = ({
         </StyledThisComp.LogoLinkWrapper>
         <StyledThisComp.MiddleTextWrapper>
           <StyledThisComp.MailsWrapper>
-            <StyledThisComp.Email href={`mailto:${data?.email}`}>
+            <StyledThisComp.Email href={`mailto:${data?.FooterBlock?.email}`}>
               <StyledThisComp.MailIcon
                 width="100%"
                 height="100%"
@@ -109,14 +114,14 @@ const FooterNew = ({
               >
                 <path d="M1.90909 2.88889H3.72727M3.72727 4.77778H5.54545M5.54545 6.66667H7.36364M7.36364 8.55556H9.18182M9.18182 10.4444H11M25.0909 2.88889H23.2727M23.2727 4.77778H21.4545M21.4545 6.66667H19.6364M19.6364 8.55556H17.8182M11 12.3333H12.8182H14.1818H16M17.8182 10.4444H16M1 1V18H26V1H1Z" />
               </StyledThisComp.MailIcon>
-              <StyledThisComp.EmailText>{data?.email}</StyledThisComp.EmailText>
-              {data?.email && (
+              <StyledThisComp.EmailText>{data?.FooterBlock?.email}</StyledThisComp.EmailText>
+              {data?.FooterBlock?.email && (
                 <ExplanationEmailField
                   text={"If you want to become our client"}
                 />
               )}
             </StyledThisComp.Email>
-            <StyledThisComp.Email href={`mailto:${data?.hrEmail}`}>
+            <StyledThisComp.Email href={`mailto:${data?.FooterBlock?.hrEmail}`}>
               <StyledThisComp.MailIcon
                 width="100%"
                 height="100%"
@@ -128,9 +133,9 @@ const FooterNew = ({
                 <path d="M1.90909 2.88889H3.72727M3.72727 4.77778H5.54545M5.54545 6.66667H7.36364M7.36364 8.55556H9.18182M9.18182 10.4444H11M25.0909 2.88889H23.2727M23.2727 4.77778H21.4545M21.4545 6.66667H19.6364M19.6364 8.55556H17.8182M11 12.3333H12.8182H14.1818H16M17.8182 10.4444H16M1 1V18H26V1H1Z" />
               </StyledThisComp.MailIcon>
               <StyledThisComp.EmailText>
-                {data?.hrEmail}
+                {data?.FooterBlock?.hrEmail}
               </StyledThisComp.EmailText>
-              {data?.email && (
+              {data?.FooterBlock?.email && (
                 <ExplanationEmailField
                   text={"If you want to become our colleague"}
                 />
@@ -143,7 +148,7 @@ const FooterNew = ({
         </StyledThisComp.MiddleTextWrapper>
       </StyledThisComp.FlexRowContainer>
       <StyledThisComp.NavList>
-        {data?.links.map((link, ind) => (
+        {data?.FooterBlock?.links.map((link, ind) => (
           <Link key={link.link + ind} href={link.link} passHref>
             <StyledThisComp.ListItemNav
               key={link.link + ind}
@@ -154,8 +159,8 @@ const FooterNew = ({
               <StyledThisComp.FooterImageWrapper>
                 <Image
                   src={
-                    data.images[ind]
-                      ? data.images[ind].image?.url
+                    data?.FooterBlock?.images[ind]
+                      ? data.FooterBlock.images[ind].image?.url
                       : smallMountain
                   }
                   alt="footer icons img"
