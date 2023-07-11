@@ -18,7 +18,7 @@ const FigureOutBlock = () => {
 
   return (
     <Wrapper>
-      <Subtitle className="mobileDissapear">
+      <Subtitle className="mobileDissapear dappAudit">
         {figureOutBlockData?.subtitle}
       </Subtitle>
       <MobileInfiniteText title={figureOutBlockData?.subtitle} />
@@ -35,7 +35,7 @@ const FigureOutBlock = () => {
         )}
         <Styled.TextWrapper>
           {figureOutBlockData?.textBlock.map((text, index) => (
-            <Styled.Text key={index}>
+            <Styled.Text key={`${index}${text.length}`}>
               <SplitBrackets text={text} />
             </Styled.Text>
           ))}

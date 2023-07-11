@@ -15,7 +15,6 @@ import ShowCase from "../../components/ShowCase";
 import FooterBlock from "../../components/DappAuditService/FooterBlock";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
-import { adminDappAuditService } from "../../services/services/adminServicesDappAuditPage";
 import { adminAiService } from "../../services/services/AdminServiceAiSolution";
 import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
 import { Loader, LoaderStub } from "../../components/Loader";
@@ -24,8 +23,8 @@ import FigureOutBlock from "../../components/DappAuditService/FigureOutBlock";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery([queryKeys.getServiceDappAuditPage], () =>
-    adminDappAuditService.getDappAuditServicePage()
+  await queryClient.prefetchQuery([queryKeys.getServiceAiPage], () =>
+    adminAiService.getAiServicePage()
   );
 
   await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>

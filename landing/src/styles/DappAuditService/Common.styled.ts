@@ -52,6 +52,10 @@ export const Subtitle = styled.h3`
   text-transform: uppercase;
   margin: 0;
 
+  &.dappAudit {
+    font-size: 2.5em;
+  }
+
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.webAuditSubtitlePC};
   }
@@ -70,6 +74,9 @@ export const Subtitle = styled.h3`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: ${themes.primary.font.size.webAuditSubtitleMobile};
+    &.dappAudit {
+      font-size: ${themes.primary.font.size.webAuditSubtitleMobile};
+    }
     br {
       display: none;
     }

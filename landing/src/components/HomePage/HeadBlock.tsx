@@ -16,7 +16,7 @@ import * as CSS from "../../styles/Portfolio/title.styled";
 import { useMediaQuery } from "@mui/material";
 
 const HeadBlock = () => {
-  const is768px = useMediaQuery("(max-width: 768px)")
+  const is768px = useMediaQuery("(max-width: 768px)");
 
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>([
@@ -29,46 +29,46 @@ const HeadBlock = () => {
 
   const optionsDesktop: HTMLReactParserOptions = {
     replace: (domNode) => {
-        if (
-          domNode instanceof Element &&
-          domNode.attribs &&
-          domNode.attribs.style &&
-          domNode.attribs.style.includes("color: rgb(88, 24, 14)")
-        ) {
-          return (
-            <>
-              <CSS.HomePageArrowWrapper className="homePageSubtitleLeftArrow">
-                <Image
-                  src={leftArrow.src}
-                  alt="wide tech long arrow"
-                  layout="fill"
-                  objectFit="contain"
-                  priority
-                />
-              </CSS.HomePageArrowWrapper>
-            </>
-          );
-        }
-        if (
-          domNode instanceof Element &&
-          domNode.attribs &&
-          domNode.attribs.style &&
-          domNode.attribs.style.includes("color: rgb(221, 105, 88)")
-        ) {
-          return (
-            <>
-              <CSS.HomePageArrowWrapper className="homePageSubtitleRightArrow">
-                <Image
-                  src={rightArrow.src}
-                  alt="wide tech long arrow"
-                  layout="fill"
-                  objectFit="contain"
-                  priority
-                />
-              </CSS.HomePageArrowWrapper>
-            </>
-          );
-        }
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(88, 24, 14)")
+      ) {
+        return (
+          <>
+            <CSS.HomePageArrowWrapper className="homePageSubtitleLeftArrow">
+              <Image
+                src={leftArrow.src}
+                alt="wide tech long arrow"
+                layout="fill"
+                objectFit="contain"
+                priority
+              />
+            </CSS.HomePageArrowWrapper>
+          </>
+        );
+      }
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(221, 105, 88)")
+      ) {
+        return (
+          <>
+            <CSS.HomePageArrowWrapper className="homePageSubtitleRightArrow">
+              <Image
+                src={rightArrow.src}
+                alt="wide tech long arrow"
+                layout="fill"
+                objectFit="contain"
+                priority
+              />
+            </CSS.HomePageArrowWrapper>
+          </>
+        );
+      }
     },
   };
 
@@ -80,9 +80,7 @@ const HeadBlock = () => {
         domNode.attribs.style &&
         domNode.attribs.style.includes("color: rgb(88, 24, 14)")
       ) {
-        return (
-          <></>
-        );
+        return <></>;
       }
       if (
         domNode instanceof Element &&
@@ -104,7 +102,7 @@ const HeadBlock = () => {
           </>
         );
       }
-    }
+    },
   };
 
   const options = is768px ? optionsMobile : optionsDesktop;
@@ -133,7 +131,7 @@ const HeadBlock = () => {
               withEstimation
               buttonClassName={buttonClassName}
             />
-            <ButtonShareComponent className="homePage"/>
+            <ButtonShareComponent className="homePage" />
           </Styled.ButtonWrapper>
         )}
       </Styled.HeadBlockContent>
