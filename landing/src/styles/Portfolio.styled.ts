@@ -200,7 +200,8 @@ export const PortfolioSearchWarning = styled.div`
   flex-direction: column;
   color: #8f8e93;
   margin-bottom: 134px;
-  margin-top: 50px;
+  margin-top: 0;
+  padding-top: 21px;
 
   & .sorry-message {
     margin-bottom: 18px;
@@ -389,6 +390,8 @@ export const PortfolioProjectsWrapper = styled.div`
   margin-top: 29px;
 
   @media ${themes.primary.media.maxMobile} {
+    margin-top: 28px;
+
     & .portfolio {
       & .MyLoader_content {
         position: relative;
@@ -434,23 +437,28 @@ export const PortfolioSearchAndInductries = styled.div`
   }
 `;
 
-export const PortfolioProjectsContainer = styled.div<{ isSeeMore: boolean }>`
+export const PortfolioProjectsContainer = styled.div<{
+  isSeeMore: boolean;
+  isTagSelected?: boolean;
+}>`
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(355px, 652px));
   gap: 52px 34px;
-  margin-top: 60px;
+  margin-top: ${({ isSeeMore }) => (isSeeMore ? "29px" : "0")};
+  padding-top: ${({ isTagSelected }) => (isTagSelected ? "0" : "31px")};
   margin-bottom: ${({ isSeeMore }) => isSeeMore && "100px"};
 
   @media ${themes.primary.media.maxTabletPortrait} {
     gap: 20px;
     margin-inline: 10px;
-    margin-top: ${({ isSeeMore }) => isSeeMore && "30px"};
+    padding-top: ${({ isSeeMore }) => isSeeMore && "30px"};
     margin-bottom: ${({ isSeeMore }) => isSeeMore && "60px"};
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: ${({ isSeeMore }) => (isSeeMore ? "30px" : "0")};
+    padding-top: ${({ isSeeMore }) => (isSeeMore ? "30px" : "0")};
+    margin-top: ${({ isSeeMore }) => isSeeMore && "0"};
   }
 `;
 

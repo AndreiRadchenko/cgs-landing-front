@@ -515,7 +515,10 @@ const PortfolioPage: NextPage = () => {
                           </div>
                         </Styles.PortfolioFilterWarning>
                       )}
-                      <Styles.PortfolioProjectsContainer isSeeMore={false}>
+                      <Styles.PortfolioProjectsContainer
+                        isTagSelected={!!selectedIndustries.length}
+                        isSeeMore={false}
+                      >
                         {reviewsData?.reviews &&
                           reviewsData.reviews.map((project) => (
                             <PortfolioProjectComponent
