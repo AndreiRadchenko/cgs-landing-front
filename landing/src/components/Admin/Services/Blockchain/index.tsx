@@ -1,10 +1,5 @@
 import React from "react";
-import { useFormikContext } from "formik";
-import {
-  AdminBigButton,
-  AdminHeader,
-  AdminPaddedBlock,
-} from "../../../../styles/AdminPage";
+import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import HeadBlock from "./HeadBlock";
 import ServicesBlock from "./ServicesBlock";
@@ -17,8 +12,6 @@ import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMember
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 
 const ServiceBlockchainContentBlock = () => {
-  const { handleSubmit } = useFormikContext();
-
   return (
     <div>
       <AdminPaddedBlock>
@@ -49,11 +42,6 @@ const ServiceBlockchainContentBlock = () => {
         </AdminBlockDropDown>
       </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/blockchain" />
-      <AdminPaddedBlock>
-        <AdminBigButton type="submit" onClick={() => handleSubmit()}>
-          SaveChanges
-        </AdminBigButton>
-      </AdminPaddedBlock>
     </div>
   );
 };
