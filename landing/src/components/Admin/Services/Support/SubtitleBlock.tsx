@@ -8,9 +8,17 @@ import {
 import { IServiceSupport } from "../../../../types/Admin/Response.types";
 import { renderInputs } from "../../../../utils/renderInputs";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../../styles/HomePage/General.styled";
+import ButtonArrow from "../../../../utils/ButtonArrow";
 
 const SubtitleBlock = () => {
-  const { values, handleChange } = useFormikContext<IServiceSupport>();
+  const { values, handleChange, handleSubmit } =
+    useFormikContext<IServiceSupport>();
+
+  const handleClick = () => handleSubmit();
   return (
     <AdminPaddedBlock theme="dark">
       <AdminHalfGrid>
@@ -36,6 +44,17 @@ const SubtitleBlock = () => {
           );
         })}
       </SubtitleGrid>
+      <BlackButton
+        size={"1.5em"}
+        padding={"1.11em 3em"}
+        style={{ marginTop: "1.33em" }}
+        onClick={handleClick}
+      >
+        Save Changes
+        <ArrowContainer>
+          <ButtonArrow />
+        </ArrowContainer>
+      </BlackButton>
     </AdminPaddedBlock>
   );
 };

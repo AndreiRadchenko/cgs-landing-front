@@ -7,11 +7,20 @@ import { IImage } from "../../../../types/Admin/Admin.types";
 import { IServiceSupport } from "../../../../types/Admin/Response.types";
 import { renderInputs } from "../../../../utils/renderInputs";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../../styles/HomePage/General.styled";
+import ButtonArrow from "../../../../utils/ButtonArrow";
 
 const FooterBlock = () => {
-  const { values, handleChange } = useFormikContext<IServiceSupport>();
+  const { values, handleChange, handleSubmit } =
+    useFormikContext<IServiceSupport>();
   const deleteMainImage = useDeleteImageFunction(values.footerBlock);
   const uploadMainImage = useUploadImageFunction(values.footerBlock);
+
+  const handleClick = () => handleSubmit();
+
   return (
     <AdminPaddedBlock>
       <AdminHalfGrid>
@@ -30,6 +39,17 @@ const FooterBlock = () => {
           deleteFlag={true}
         />
       </AdminHalfGrid>
+      <BlackButton
+        size={"1.5em"}
+        padding={"1.11em 3em"}
+        style={{ marginTop: "1.33em" }}
+        onClick={handleClick}
+      >
+        Save Changes
+        <ArrowContainer>
+          <ButtonArrow />
+        </ArrowContainer>
+      </BlackButton>
     </AdminPaddedBlock>
   );
 };

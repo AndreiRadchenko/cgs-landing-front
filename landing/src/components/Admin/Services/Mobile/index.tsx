@@ -1,10 +1,5 @@
-﻿import { useFormikContext } from "formik";
-import React from "react";
-import {
-  AdminBigButton,
-  AdminHeader,
-  AdminPaddedBlock,
-} from "../../../../styles/AdminPage";
+﻿import React from "react";
+import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
@@ -20,7 +15,6 @@ import BlockDropdown from "../../BlockDropdown";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 
 const ServiceMobileContentBlock = () => {
-  const { handleSubmit } = useFormikContext();
   return (
     <div>
       <AdminPaddedBlock>
@@ -34,12 +28,15 @@ const ServiceMobileContentBlock = () => {
         <BlockDropdown title={"Strong block"}>
           <StrongBlock />
         </BlockDropdown>
-        <BlockDropdown title={"What do we use"}>
-          <WhatDoWeUse />
-        </BlockDropdown>
         <BlockDropdown title={"Who needs apps?"}>
           <WhoNeedApps />
         </BlockDropdown>
+        <BlockDropdown title={"What do we use"}>
+          <WhatDoWeUse />
+        </BlockDropdown>
+        <AdminBlockDropDown title="TEAM MEMBERS">
+          <TeamMembers />
+        </AdminBlockDropDown>
         <BlockDropdown title={"Showcase"}>
           <ServiceShowCase />
         </BlockDropdown>
@@ -49,16 +46,8 @@ const ServiceMobileContentBlock = () => {
         <BlockDropdown title={"Footer Block"}>
           <FooterBlock />
         </BlockDropdown>
-        <AdminBlockDropDown title="TEAM MEMBERS">
-          <TeamMembers />
-        </AdminBlockDropDown>
       </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/mobile-app-development" />
-      <AdminPaddedBlock>
-        <AdminBigButton type="submit" onClick={() => handleSubmit()}>
-          Save changes
-        </AdminBigButton>
-      </AdminPaddedBlock>
     </div>
   );
 };

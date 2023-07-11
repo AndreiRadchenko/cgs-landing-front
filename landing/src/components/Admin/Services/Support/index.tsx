@@ -1,10 +1,5 @@
-﻿import { useFormikContext } from "formik";
-import React from "react";
-import {
-  AdminBigButton,
-  AdminHeader,
-  AdminPaddedBlock,
-} from "../../../../styles/AdminPage";
+﻿import React from "react";
+import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import FooterBlock from "./FooterBlock";
@@ -18,7 +13,6 @@ import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMember
 import OtherServices from "../../../ServisesComponents/OtherServices/AdminComponent";
 
 const ServiceSupportContentBlock = () => {
-  const { handleSubmit } = useFormikContext();
   return (
     <div>
       <AdminPaddedBlock>
@@ -32,11 +26,11 @@ const ServiceSupportContentBlock = () => {
         <AdminBlockDropDown title="PROVIDE">
           <ProvideBlock />
         </AdminBlockDropDown>
-        <AdminBlockDropDown title="SHOWCASE">
-          <ServiceShowCase />
-        </AdminBlockDropDown>
         <AdminBlockDropDown title="BONUSES">
           <Bonuses queryKey={queryKeys.getServiceSupportPage} />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="SHOWCASE">
+          <ServiceShowCase />
         </AdminBlockDropDown>
         <AdminBlockDropDown title="TEAM MEMBERS">
           <TeamMembers />
@@ -49,11 +43,6 @@ const ServiceSupportContentBlock = () => {
         </AdminBlockDropDown>
       </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/it-support" />
-      <AdminPaddedBlock>
-        <AdminBigButton type="submit" onClick={() => handleSubmit()}>
-          Save changes
-        </AdminBigButton>
-      </AdminPaddedBlock>
     </div>
   );
 };

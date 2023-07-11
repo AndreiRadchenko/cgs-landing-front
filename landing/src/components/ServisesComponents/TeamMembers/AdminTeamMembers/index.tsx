@@ -5,7 +5,10 @@ import Arrow from "../../../../../public/upArrowSidebar.svg";
 import TrashIcon from "../../../Admin/Portfolio/TrashIcon";
 import { AdminShowCaseServiceButton } from "../../../../styles/AdminPage";
 import { ITeamMembers } from "../../../../types/ServicesComponent.types";
-import { ArrowContainer, BlackButton } from "../../../../styles/HomePage/General.styled";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../../styles/HomePage/General.styled";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 
 interface ITeamMembersComponent {
@@ -17,12 +20,13 @@ const TeamMembers = <T extends ITeamMembersComponent>() => {
   const [newMember, setNewMember] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
-  const { title, description, members, selectedMembers } = values.teamMembers ?? {
-    title: '',
-    description: '',
-    members: [{ id: '', member: '' }],
-    selectedMembers: [{ id: '', member: '' }],
-  }
+  const { title, description, members, selectedMembers } =
+    values.teamMembers ?? {
+      title: "",
+      description: "",
+      members: [{ id: "", member: "" }],
+      selectedMembers: [{ id: "", member: "" }],
+    };
 
   const handleClick = () => handleSubmit();
 
@@ -55,7 +59,9 @@ const TeamMembers = <T extends ITeamMembersComponent>() => {
       return;
     }
 
-    const existingMemberIndex = members.findIndex((member) => member.member === newMember);
+    const existingMemberIndex = members.findIndex(
+      (member) => member.member === newMember
+    );
 
     if (existingMemberIndex !== -1) {
       const updatedMembers = [...members];
@@ -112,7 +118,7 @@ const TeamMembers = <T extends ITeamMembersComponent>() => {
   };
 
   return (
-    <div style={{marginBottom: 50}}>
+    <div style={{ marginBottom: 50 }}>
       <Styled.Wrapper>
         <Styled.TextBlock>
           <Styled.Subtitle>Subtitle</Styled.Subtitle>
@@ -135,21 +141,28 @@ const TeamMembers = <T extends ITeamMembersComponent>() => {
               value={newMember}
               onChange={(e) => setNewMember(e.target.value)}
             />
-            <Styled.AddMembersButton onClick={addMember}>+</Styled.AddMembersButton>
+            <Styled.AddMembersButton onClick={addMember}>
+              +
+            </Styled.AddMembersButton>
           </Styled.AddMembers>
           <Styled.MembersDropdown>
-            <Styled.DropdownButton onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
-                                            // Choose one member
+            <Styled.DropdownButton
+              onClick={() => setIsOpen(!isOpen)}
+              isOpen={isOpen}
+            >
+              // Choose one member
               <img width={9} height={5} src={Arrow.src} alt="Arrow" />
             </Styled.DropdownButton>
             <Styled.DropdownContent isOpen={isOpen}>
               {members?.map((member, index) => (
                 <div key={member.id} onClick={() => selectMember(member.id)}>
                   <p>{member.member}</p>
-                  <Styled.DeleteMember onClick={(e) => {
-                    e.stopPropagation()
-                    deleteMember(index)
-                  }}>
+                  <Styled.DeleteMember
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      deleteMember(index);
+                    }}
+                  >
                     <TrashIcon />
                   </Styled.DeleteMember>
                 </div>
