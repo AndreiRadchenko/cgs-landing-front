@@ -33,7 +33,7 @@ const CardItem = ({ item, idx }: ICardItemProps) => {
           loading="lazy"
         />
       )}
-      <Styled.CardTitle>
+      <Styled.CardTitle className={idx === 3 ? "last" : undefined}>
         <BigNumber idx={idx} />
         <Styled.CardSubtitle>{item[1].subtitle}</Styled.CardSubtitle>
       </Styled.CardTitle>

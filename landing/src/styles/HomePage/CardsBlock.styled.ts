@@ -130,10 +130,6 @@ export const CardContainer = styled.article`
       top: -70%;
       left: 30%;
     }
-
-    & div {
-      margin-top: -20px;
-    }
   }
 
   &:nth-child(4) {
@@ -143,7 +139,7 @@ export const CardContainer = styled.article`
     }
 
     & div {
-      margin-top: 33.7px;
+      margin-top: 10px;
     }
   }
 
@@ -237,7 +233,7 @@ export const CardContainer = styled.article`
       }
 
       & div {
-        margin-top: 0px !important;
+        margin-top: 0px;
       }
     }
   }
@@ -262,7 +258,6 @@ export const CardContainer = styled.article`
     }
 
     &:nth-child(3) {
-      margin-top: 2em;
       ::after {
         bottom: -1em;
       }
@@ -297,6 +292,10 @@ export const CardTitle = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     max-width: 700px;
+
+    &.last {
+      margin-bottom: 22px;
+    }
   }
 
   @media (max-width: 475px) {
