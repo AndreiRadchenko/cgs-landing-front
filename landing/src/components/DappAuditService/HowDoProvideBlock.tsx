@@ -25,7 +25,9 @@ const HowDoProvideBlock = () => {
       <Styled.SubtitleWrapper>
         <div>
           <MobileInfiniteText title={data?.subtitle} withoutMargin />
-          <Subtitle className="mobileDissapear">{data?.subtitle}</Subtitle>
+          <Subtitle className="mobileDissapear dappAudit">
+            {data?.subtitle}
+          </Subtitle>
           {data && (
             <HowToProvideBlockItem
               number={1}

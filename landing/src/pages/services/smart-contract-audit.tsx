@@ -23,10 +23,6 @@ import FigureOutBlock from "../../components/DappAuditService/FigureOutBlock";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery([queryKeys.getServiceAiPage], () =>
-    adminAiService.getAiServicePage()
-  );
-
   await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );

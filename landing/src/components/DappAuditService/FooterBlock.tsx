@@ -25,7 +25,7 @@ const FooterBlock = () => {
       <WrapperWithLine />
       <div>
         <Styled.TitleWrapper>
-          <Subtitle>
+          <Subtitle className={"dappAudit"}>
             {data &&
               parse(
                 data.title
