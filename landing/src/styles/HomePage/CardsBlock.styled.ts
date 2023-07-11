@@ -130,10 +130,6 @@ export const CardContainer = styled.article`
       top: -70%;
       left: 30%;
     }
-
-    & div {
-      margin-top: -20px;
-    }
   }
 
   &:nth-child(4) {
@@ -143,7 +139,7 @@ export const CardContainer = styled.article`
     }
 
     & div {
-      margin-top: 33.7px;
+      margin-top: 10px;
     }
   }
 
