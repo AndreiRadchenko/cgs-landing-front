@@ -13,12 +13,6 @@ export const Wrapper = styled.section`
 `;
 
 export const TextContent = styled.div`
-  @media ${themes.primary.media.minPCFullHD} {
-    a {
-      padding: 1em 1.43em !important;
-    }
-  }
-
   @media ${themes.primary.media.maxLowScreenMobile} {
     a {
       padding: 1.1875em 0.75em !important;

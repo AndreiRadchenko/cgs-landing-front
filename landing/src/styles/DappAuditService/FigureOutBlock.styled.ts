@@ -17,27 +17,17 @@ export const ContentWrapper = styled.div`
 export const ImageWrapper = styled.div`
   position: absolute;
   top: 0;
-  left: 0;
-  width: 678px;
-  height: 432px;
+  left: -0.5em;
+  width: 36em;
+  height: 20em;
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: 40%;
+    height: 120%;
+  }
   @media ${themes.primary.media.minPCFullHD} {
     width: 50%;
     height: 150%;
-  }
-
-  @media (max-width: 1390px) {
-    width: 600px;
-    height: 140%;
-  }
-  @media ${themes.primary.media.onlyLaptop} {
-    top: 20px;
-    left: 40px;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 550px;
-    height: 130%;
   }
 
   @media (max-width: 1060px) {

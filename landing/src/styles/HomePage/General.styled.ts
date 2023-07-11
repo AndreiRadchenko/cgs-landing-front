@@ -244,6 +244,7 @@ export const Title = styled.h1`
 
 export const ButtonWrapper = styled.div`
   display: flex;
+  width: 100%;
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
@@ -876,7 +877,7 @@ export const WhatsAppWrapper = styled.div`
   }
 
   &.dappAuditShare {
-    font-size: 1.125em;
+    font-size: 1.5em;
   }
 
   &.portfolio-share-button,
@@ -930,7 +931,7 @@ export const TelegramWrapper = styled.div`
   }
 
   &.dappAuditShare {
-    font-size: 1.125em;
+    font-size: 1.5em;
   }
 
   &.portfolio-share-button,
