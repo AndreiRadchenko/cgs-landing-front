@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import Head from "next/head";
 import parse from "html-react-parser";
 import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
-import Head from "next/head";
-import { SwiperSlide } from "swiper/react";
 import { animateScroll as scroll, scroller } from "react-scroll";
+import { SwiperSlide } from "swiper/react";
 
-import { IArticle } from "../../types/Admin/Response.types";
-import { queryKeys } from "../../consts/queryKeys";
 import PaginationBar from "../../components/PaginationBar/PaginationBar";
 import BlogItem from "../../components/Blog/BlogItem";
-
 import { adminBlogService } from "../../services/adminBlogPage";
 import { adminGlobalService } from "../../services/adminHomePage";
-import * as Styled from "../../styles/Blog.styled";
-import { Tag, DropdownContainer } from "../../styles/HomePage/General.styled";
-import leftLine from "../../../public/BlogDecorations/MainPage/leftLine.png";
-import rightLine from "../../../public/BlogDecorations/MainPage/rightLine.png";
+import Dropdown from "../../utils/Select/Dropdown";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import PodcastItem from "../../components/Blog/PodcastItem";
@@ -29,10 +24,17 @@ import {
   IBlogPageData,
   ISwiperArticlesDataResponse,
 } from "../../types/Blog.types";
+import { IArticle } from "../../types/Admin/Response.types";
+import { queryKeys } from "../../consts/queryKeys";
+import { Tag, DropdownContainer } from "../../styles/HomePage/General.styled";
+import leftLine from "../../../public/BlogDecorations/MainPage/leftLine.png";
+import rightLine from "../../../public/BlogDecorations/MainPage/rightLine.png";
+import * as Styled from "../../styles/Blog.styled";
 import { BlogPageSize } from "../../consts";
-import Dropdown from "../../utils/Select/Dropdown";
 
 const BlogPage = () => {
+  const router = useRouter();
+
   const [reversedArticles, setReversedArticles] = useState<IArticle[] | null>(
     null
   );
@@ -112,6 +114,18 @@ const BlogPage = () => {
     setIsImagesLoaded(false);
     setLoadedImagesCount(0);
   };
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      window.scroll(0, 0);
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, []);
 
   useEffect(() => {
     scrollFunc();
