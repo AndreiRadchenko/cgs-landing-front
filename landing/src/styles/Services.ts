@@ -174,7 +174,8 @@ export const WorthText = styled.p`
 
     &.cloudSolutions,
     &.mobileAudit,
-    &.mobileDev {
+    &.mobileDev,
+    &.dappAudit {
       font-size: 16px;
     }
   }
