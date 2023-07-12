@@ -4,7 +4,7 @@ import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import ScrambleText from "../../../components/HomePage/ScrambleText";
 
 import * as CSS from "./Title.styled";
-import { useSplitBracketsAdvanced } from "../../../hooks/useSplitBracketsAdvanced";
+// import { useSplitBracketsAdvanced } from "../../../hooks/useSplitBracketsAdvanced";
 
 interface ITitle {
   title: string;
