@@ -84,7 +84,7 @@ export const Description = styled.div`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1em;
     max-width: 95%;
-    margin: 16px 0 34px;
+    margin: 16px 0 28px;
     max-width: 100%;
   }
 `;

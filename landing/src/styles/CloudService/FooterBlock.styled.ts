@@ -88,11 +88,11 @@ export const Text = styled.p`
   padding: 0;
   font-size: 1.5em;
   line-height: 160%;
-  margin: 0.833em 0 1.833em;
+  margin: 0.833em 0 1.66em;
   max-width: 70%;
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;
-    margin: 10px 0 1.75em;
+    margin: 10px 0 28px;
     max-width: 100%;
   }
 `;

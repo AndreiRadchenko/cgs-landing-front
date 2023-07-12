@@ -53,11 +53,12 @@ export const Text = styled.p`
   width: 64.2vw;
   font-size: 1.5em;
   line-height: 160%;
-  margin-block: 0 1.85em;
+  margin-block: 0 1.7em;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;
     width: 100%;
+    margin-bottom: 28px;
   }
 `;
 export const Image = styled.img`

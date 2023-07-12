@@ -15,7 +15,7 @@ export const ContentWrapper = styled.section`
 
 export const TitleWrapper = styled.div`
   max-width: 80%;
-  margin-bottom: 3.1875em;
+  margin-bottom: 2.5em;
 
   p {
     max-width: 38.5em;
@@ -32,7 +32,7 @@ export const TitleWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 2.125em;
+    margin-bottom: 28px;
 
     p {
       max-width: 100%;

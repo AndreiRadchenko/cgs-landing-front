@@ -67,7 +67,7 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.div`
-  margin: 0.9em 0 1.75em;
+  margin: 0.9em 0 1.83em;
   font-size: 1.375em;
   line-height: 160%;
   width: 41.5vw;
@@ -81,6 +81,7 @@ export const Description = styled.div`
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     font-size: 1em;
+    margin-bottom: 28px;
   }
 `;
 

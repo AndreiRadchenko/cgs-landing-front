@@ -57,7 +57,7 @@ export const Title = styled.h2`
 export const Description = styled.p`
   font-size: 1.5em;
   line-height: 160%;
-  margin-block: 0 1.91em;
+  margin-block: 0 1.7em;
   max-width: 38.5em;
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -66,7 +66,7 @@ export const Description = styled.p`
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;
     max-width: 100%;
-    margin: 10px 0 1.9em;
+    margin: 10px 0 28px;
   }
 `;
 
