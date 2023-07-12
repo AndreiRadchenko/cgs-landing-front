@@ -14,7 +14,7 @@ export const Subtitle = styled.div`
   font-weight: 900;
   font-size: 96px;
   line-height: 89px;
-  width: 90%;
+  width: 95%;
   height: auto;
 
   @media ${themes.primary.media.maxPCFullHD} {

@@ -72,7 +72,7 @@ const BookForm = ({ header }: IFormProps) => {
         phone: value,
         country: country,
         service: "Mobile Development",
-        details: "",
+        details: "new contact form",
       });
 
       setCalendlyIsOpen(true);
