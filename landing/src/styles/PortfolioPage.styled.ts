@@ -252,7 +252,6 @@ export const InfoContainerText = styled.p`
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 20px;
   line-height: 160%;
-  max-height: 320px;
   color: ${themes.primary.colors.primary};
   margin: 0 0 28px 0;
 
