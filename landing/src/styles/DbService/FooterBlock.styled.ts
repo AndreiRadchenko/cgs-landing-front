@@ -95,10 +95,10 @@ export const Text = styled.p`
   padding: 0;
   font-size: 1.5em;
   line-height: 160%;
-  margin: 0.833em 0 1.833em;
+  margin: 0.833em 0 1.7em;
   @media ${themes.primary.media.maxMobile} {
     font-size: 18px;
-    margin: 1em 0 2em;
+    margin: 1em 0 28px;
     max-width: 100%;
   }
 `;

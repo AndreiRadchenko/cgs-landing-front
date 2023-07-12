@@ -45,11 +45,12 @@ export const Description = styled.p`
   width: 60vw;
   font-size: 1.5em;
   line-height: 160%;
-  margin-block: 0 2em;
+  margin-block: 0 1.7em;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;
     width: 100%;
+    margin-bottom: 28px;
   }
 `;
 

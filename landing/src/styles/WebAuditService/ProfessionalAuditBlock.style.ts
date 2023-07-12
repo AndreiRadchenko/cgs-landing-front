@@ -168,6 +168,7 @@ export const TextWrapper = styled.div`
   font-size: 2em;
   line-height: 160%;
   max-width: 36em;
+  margin-bottom: 0.7em;
 
   & br {
     display: none;
@@ -179,7 +180,7 @@ export const TextWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.73em;
-    margin-bottom: 1.89em;
+    margin-bottom: 28px;
     margin-top: 0.55em;
     white-space: pre-line;
     max-width: 100%;

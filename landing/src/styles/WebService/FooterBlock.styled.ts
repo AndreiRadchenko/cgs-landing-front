@@ -88,4 +88,8 @@ export const TextWrapper = styled.div`
   @media ${themes.primary.media.maxServiceWeb} {
     font-size: 18px;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 28px;
+  }
 `;

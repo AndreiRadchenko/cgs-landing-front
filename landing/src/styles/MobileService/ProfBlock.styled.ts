@@ -21,7 +21,7 @@ export const ContentContainer = styled.section`
 export const ProfText = styled.div`
   position: relative;
   margin-top: 0.835em;
-  margin-bottom: 2.17em;
+  margin-bottom: 1.67em;
   font-size: ${themes.primary.font.size.secondary};
   line-height: 160%;
   max-width: 38.5em;
@@ -37,7 +37,7 @@ export const ProfText = styled.div`
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125rem;
-    margin-block: 10px 2.56rem;
+    margin-block: 10px 28px;
   }
 `;
 
