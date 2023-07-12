@@ -29,7 +29,7 @@ const HeadBlock = () => {
       <Styled.AdminHeader>
         Dapp audit <br />+ Tokenomic planning
       </Styled.AdminHeader>
-      <AdminBlockDropDown title="BLOCK 1 (MAIN)">
+      <AdminBlockDropDown title="HEAD BLOCK">
         <Styled.HeaderGrid>
           <Styled.AdminHeaderPhotoWrapper>
             <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>

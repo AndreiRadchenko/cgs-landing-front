@@ -15,7 +15,7 @@ const WhyIsDappsBlock = () => {
   const handleClick = () => handleSubmit();
 
   return (
-    <AdminBlockDropDown title="Why is a dapps audit important?">
+    <AdminBlockDropDown title="how can you benefit from AI">
       <SubHeaderWithInput
         inputValue={values.whyIsDappsBlock.subtitle}
         onChangeFunction={handleChange}

@@ -24,7 +24,7 @@ const BringAppBlock = () => {
   const deleteFunc = async () => (await deleteImageFunction)();
 
   return (
-    <AdminBlockDropDown title="LET'S BRING YOU APP TO..">
+    <AdminBlockDropDown title="FOOTER BLOCK">
       <Styled.HeaderGrid>
         <div>
           <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>

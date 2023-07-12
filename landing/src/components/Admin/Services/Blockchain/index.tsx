@@ -28,7 +28,7 @@ const ServiceBlockchainContentBlock = () => {
         <AdminBlockDropDown title="TEAM MEMBERS">
           <TeamMembers />
         </AdminBlockDropDown>
-        <AdminBlockDropDown title="BLOCK OUR WORK">
+        <AdminBlockDropDown title="Showcase">
           <ServiceShowCase />
         </AdminBlockDropDown>
         <AdminBlockDropDown title="ADVANTAGES">

@@ -26,7 +26,7 @@ const TeamProvides = () => {
   const deleteFunc = async () => (await deleteImageFunction)();
 
   return (
-    <AdminBlockDropDown title="CGS-TEAM PROVIDES:">
+    <AdminBlockDropDown title="WHAT DOES A MOBILE APP AUDIT INCLUDE?">
       <SubHeaderWithInput
         header="Subtitle 1"
         width="350px"

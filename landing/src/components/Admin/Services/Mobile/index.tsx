@@ -11,7 +11,6 @@ import StrongBlock from "./StrongBlock";
 import WhatDoWeUse from "./WhatDoWeUse";
 import WhoNeedApps from "./WhoNeedApps";
 import WorthBlock from "./WorthBlock";
-import BlockDropdown from "../../BlockDropdown";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 
 const ServiceMobileContentBlock = () => {
@@ -19,33 +18,33 @@ const ServiceMobileContentBlock = () => {
     <div>
       <AdminPaddedBlock>
         <AdminHeader>Mobile Development</AdminHeader>
-        <BlockDropdown title={"Main Block"}>
+        <AdminBlockDropDown title={"HEAD BLOCK"}>
           <MainBlock />
-        </BlockDropdown>
-        <BlockDropdown title={"Why it's worth it?"}>
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title={"Why it's worth it?"}>
           <WorthBlock />
-        </BlockDropdown>
-        <BlockDropdown title={"Strong block"}>
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title={"Strong block"}>
           <StrongBlock />
-        </BlockDropdown>
-        <BlockDropdown title={"Who needs apps?"}>
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title={"Who needs apps?"}>
           <WhoNeedApps />
-        </BlockDropdown>
-        <BlockDropdown title={"What do we use"}>
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title={"What do we use"}>
           <WhatDoWeUse />
-        </BlockDropdown>
+        </AdminBlockDropDown>
         <AdminBlockDropDown title="TEAM MEMBERS">
           <TeamMembers />
         </AdminBlockDropDown>
-        <BlockDropdown title={"Showcase"}>
+        <AdminBlockDropDown title={"Showcase"}>
           <ServiceShowCase />
-        </BlockDropdown>
-        <BlockDropdown title={"How do we work"}>
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title={"How do we work"}>
           <HowDoWeWork />
-        </BlockDropdown>
-        <BlockDropdown title={"Footer Block"}>
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title={"Footer Block"}>
           <FooterBlock />
-        </BlockDropdown>
+        </AdminBlockDropDown>
       </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/mobile-app-development" />
     </div>

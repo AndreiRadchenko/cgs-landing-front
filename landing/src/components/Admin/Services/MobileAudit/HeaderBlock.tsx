@@ -26,7 +26,7 @@ const HeaderBlock = () => {
   return (
     <>
       <Styled.AdminHeader>Mobile app audit</Styled.AdminHeader>
-      <AdminBlockDropDown title="BLOCK 1 (MAIN PAGE)">
+      <AdminBlockDropDown title="HEAD BLOCK">
         <Styled.HeaderGrid>
           <Styled.AdminHeaderPhotoWrapper>
             <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>

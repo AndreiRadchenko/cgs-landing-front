@@ -27,7 +27,7 @@ const HeadBlock = () => {
   return (
     <>
       <Styled.AdminHeader>Ai Solutions</Styled.AdminHeader>
-      <AdminBlockDropDown title="BLOCK 1 (MAIN)">
+      <AdminBlockDropDown title="head block">
         <Styled.HeaderGrid>
           <Styled.AdminHeaderPhotoWrapper>
             <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>
