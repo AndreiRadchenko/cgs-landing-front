@@ -171,9 +171,6 @@ export const CategorySubtitle = styled.p`
   font-size: ${themes.primary.font.size.oneAndHalf};
   line-height: 160%;
   margin-bottom: 0.2em;
-  &.blockchain {
-    margin-bottom: 50px;
-  }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.vistaco};
   }
