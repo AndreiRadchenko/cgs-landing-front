@@ -299,7 +299,7 @@ export const MainSubtitle = styled.div`
     &.homePage {
       width: 100%;
       margin-top: 10px;
-      margin-bottom: 22px;
+      margin-bottom: 27px;
 
       p {
         line-height: 141%;
@@ -732,7 +732,7 @@ export const FooterButtonWrapper = styled.span`
   margin-right: 28px;
 
   &.btn {
-    margin-top: 2.375rem;
+    margin-top: 2.7rem;
     margin-left: 0;
   }
 
