@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import ReactDomServer from "react-dom/server";
 
@@ -54,3 +54,4 @@ export const useSplitBracketsAdvanced = (htmlString: string) => {
 
   return parsedString.replace(/color:r/g, "color: r");
 };
+ */
