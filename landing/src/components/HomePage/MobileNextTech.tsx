@@ -29,7 +29,7 @@ const MobileNextTech = () => {
         domNode.attribs.style.includes("color: rgb(88, 105, 221)")
       ) {
         return (
-          <span className="blue tech">
+          <span className="blue nextTechMobile">
             <ScrambleText
               text={
                 domNode.children[0].type === "text" &&
@@ -63,6 +63,23 @@ const MobileNextTech = () => {
           </>
         );
       }
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(88, 105, 221)")
+      ) {
+        return (
+          <span className="blue">
+            <ScrambleText
+              text={
+                domNode.children[0].type === "text" &&
+                (domNode.children[0] as any).data
+              }
+            />
+          </span>
+        );
+      }
     },
   };
 
@@ -80,7 +97,7 @@ const MobileNextTech = () => {
   return (
     <Styled.NextTech>
       <Styled.Subtitle className="techMobile">
-        {text && parse(text.title)}
+        {text && parse(text.title, options)}
       </Styled.Subtitle>
       <Badges />
       <MobileServices />
