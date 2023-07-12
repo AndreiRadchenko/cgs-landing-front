@@ -26,6 +26,14 @@ export const ButtonWrapper = styled.a`
   :hover {
     transform: translateY(-5px);
   }
+  &.email-button #img-wrapper {
+    width: 37px;
+    height: 29px;
+    @media (max-width: 1799px) {
+      width: 20px;
+      height: 14px;
+    }
+  }
 `;
 
 export const ButtonContent = styled.div`

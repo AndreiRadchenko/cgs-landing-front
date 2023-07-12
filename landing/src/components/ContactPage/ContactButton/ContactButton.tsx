@@ -21,8 +21,8 @@ export const ContactButton = ({
   picture,
   text,
   style,
-  pictureWidth,
-  pictureHeight,
+  pictureWidth = "24px",
+  pictureHeight = "24px",
   link,
   newTab,
 }: IContactButton) => {
@@ -36,8 +36,9 @@ export const ContactButton = ({
     >
       <Styled.ButtonContent>
         <Styled.ImageWrapper
-          width={pictureWidth ? pictureWidth : "24px"}
-          height={pictureHeight ? pictureHeight : "24px"}
+          id="img-wrapper"
+          width={pictureWidth}
+          height={pictureHeight}
         >
           <Image
             src={picture ? picture : emailIcon}

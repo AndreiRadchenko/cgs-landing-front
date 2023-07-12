@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 import { ContactButton } from "../ContactButton";
 import { EmailPopup, PopupWrapper, PersistPopup } from "../Popup";
@@ -26,8 +25,7 @@ export const Emails = ({ emails }: EmailProps) => {
               <ContactButton
                 key={idx}
                 style={{ width: "322px", height: "58px" }}
-                pictureWidth={displayWidth! < 1800 ? "20px" : "37px"}
-                pictureHeight={displayWidth! < 1800 ? "14px" : "29px"}
+                className={"email-button"}
                 text={item.email}
                 link={"mailto: " + item.email}
               />
