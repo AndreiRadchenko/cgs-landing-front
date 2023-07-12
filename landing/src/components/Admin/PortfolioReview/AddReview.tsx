@@ -196,7 +196,7 @@ const AddReview = ({
                 minRows={4}
                 placeholder="About project:"
                 value={values.text}
-                maxLength={625}
+                maxLength={1200}
                 onChange={handleChange}
                 name="text"
                 className="withBottomButtons"
@@ -204,7 +204,7 @@ const AddReview = ({
               <Styled.BottomText>
                 <Styled.ErrorText>{errors["text"]}</Styled.ErrorText>
                 <Styled.TextCounter>
-                  {values.text.length}/625
+                  {values.text.length}/1200
                 </Styled.TextCounter>
               </Styled.BottomText>
               <Styled.FlagSelector>
