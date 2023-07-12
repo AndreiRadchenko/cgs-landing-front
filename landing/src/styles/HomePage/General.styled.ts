@@ -500,6 +500,7 @@ export const Subtitle = styled.div<ISubtitle>`
   }
 
   &.textOnFilm {
+    margin-bottom: 29px;
     p {
       margin: 0;
       line-height: 146%;
@@ -731,27 +732,15 @@ export const FooterButtonWrapper = styled.span`
   margin-right: 28px;
 
   &.btn {
-    margin-top: 2.4rem;
+    margin-top: 2.375rem;
     margin-left: 0;
-  }
-
-  & .homepage-footer-button {
-    display: flex;
-    min-width: 188px;
-    min-height: 58px;
-    align-items: center;
-    justify-content: center;
   }
 
   @media ${themes.primary.media.maxMobile} {
     &.btn {
+      margin-top: 28px;
       justify-content: flex-end;
       flex-direction: column;
-    }
-
-    & .homepage-footer-button {
-      height: 54px;
-      width: 178px;
     }
   }
 `;
@@ -849,7 +838,7 @@ export const ButtonShareTextWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 20px;
+    margin-top: 16px;
     margin-left: 1px;
 
     &.dappAuditShare a {
