@@ -11,7 +11,7 @@ interface ITitle {
 }
 
 const Title = ({ title }: ITitle) => {
-  const htmlString = useSplitBracketsAdvanced(title);
+  // const htmlString = useSplitBracketsAdvanced(title);
 
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
@@ -35,7 +35,7 @@ const Title = ({ title }: ITitle) => {
     },
   };
 
-  return <CSS.Subtitle>{parse(htmlString, options)}</CSS.Subtitle>;
+  return <CSS.Subtitle>{parse(title, options)}</CSS.Subtitle>;
 };
 
 export default Title;
