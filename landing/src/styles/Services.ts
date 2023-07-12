@@ -293,7 +293,7 @@ export const WhoNeedAppsBlocks = styled.div`
   }
 `;
 
-export const WhoNeedSubText = styled.p`
+export const WhoNeedSubText = styled.div`
   max-width: 477px;
   margin-top: 20px;
   padding-top: 20px;
