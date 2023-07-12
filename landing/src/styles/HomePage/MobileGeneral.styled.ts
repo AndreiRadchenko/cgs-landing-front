@@ -225,8 +225,12 @@ export const Subtitle = styled.div`
     }
 
     &.techMobile {
+      line-height: 113%;
       br{
         display: none;
+      }
+      p{
+        width: 450px;
       }
     }
 
@@ -266,6 +270,22 @@ export const Subtitle = styled.div`
     }
   }
 
+  @media (max-width: 600px) {
+    &.techMobile {
+      p{
+        width: 340px;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    &.techMobile {
+      p{
+        width: 320px;
+      }
+    }
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 1.75rem;
     &.small {
@@ -293,6 +313,7 @@ export const Subtitle = styled.div`
       letter-spacing: 1.6px;
       p{
         margin: 0;
+        width: 280px;
       }
     }
 
