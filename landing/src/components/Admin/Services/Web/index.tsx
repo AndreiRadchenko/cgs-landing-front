@@ -27,16 +27,16 @@ const ServiceMobileContentBlock = () => {
           <SolutionBlock />
         </AdminBlockDropDown>
 
-        <AdminBlockDropDown title="Service ShowCase">
+        <AdminBlockDropDown title="Showcase">
           <ServiceShowCase />
-        </AdminBlockDropDown>
-
-        <AdminBlockDropDown title="FREE SERVICES">
-          <FreeServices />
         </AdminBlockDropDown>
 
         <AdminBlockDropDown title="TEAM MEMBERS">
           <TeamMembers />
+        </AdminBlockDropDown>
+
+        <AdminBlockDropDown title="FREE SERVICES">
+          <FreeServices />
         </AdminBlockDropDown>
 
         <AdminBlockDropDown title="Footer block">

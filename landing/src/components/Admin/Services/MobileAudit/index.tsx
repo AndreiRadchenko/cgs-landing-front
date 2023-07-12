@@ -21,7 +21,7 @@ const ServiceMobileAuditContentBlock = () => {
         <WhatAppBlock />
         <TeamProvides />
         <WhenDoYouNeedBlock />
-        <AdminBlockDropDown title="Show Case">
+        <AdminBlockDropDown title="Showcase">
           <ServiceShowCase noMargin />
         </AdminBlockDropDown>
         <HowDoWeAuditBlock />
