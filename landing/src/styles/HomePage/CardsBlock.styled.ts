@@ -117,6 +117,7 @@ export const CardContainer = styled.article`
     justify-self: flex-end;
     & img {
     }
+    margin-right: 47px;
   }
 
   &:nth-child(2) {

@@ -236,6 +236,7 @@ export const Subtitle = styled.div`
 
     &.mobileTextOnFilm {
       margin-top: 66px;
+      margin-bottom: 27px;
       p{
         margin: 0;
         font-size: 5vw;
