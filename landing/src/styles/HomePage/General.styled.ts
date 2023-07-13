@@ -974,8 +974,8 @@ export const TelegramIconWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
 
     &.aiService {
       width: 14.5px;
@@ -1000,8 +1000,8 @@ export const WhatsAppIconWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
   }
 `;
 
