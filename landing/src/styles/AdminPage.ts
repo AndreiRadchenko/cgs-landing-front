@@ -618,7 +618,6 @@ export const AdminPhotoBlock = styled.div`
 `;
 
 export const ImageErrorBox = styled.div`
-  /* margin-top: 25px; */
   position: absolute;
   border: 2px solid red;
   height: 265.5px;
