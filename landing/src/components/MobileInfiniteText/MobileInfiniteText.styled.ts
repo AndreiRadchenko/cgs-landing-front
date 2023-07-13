@@ -55,9 +55,6 @@ export const MovingText = styled.div`
     display: none;
   }
 
-  & > span {
-    animation: 50s linear infinite ${infiniteText};
-  }
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 25px;
   }
