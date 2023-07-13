@@ -131,46 +131,61 @@ const AddReview = ({
     <>
       <Styled.AdminPageFirstBlockLayout>
         <Styled.AdminPortfolioImage>
-          <Styled.AdminPortfolioImageText>
-            <h2>
-              Banner <span>(project page)</span>
-            </h2>
-          </Styled.AdminPortfolioImageText>
-          <PhotoBlockDashedHorizontal
-            emptyHeader="Drop new image here"
-            photo={values.image ? values.image : values.imageBanner.image}
-            deleteFunction={deleteFuncBanner}
-            uploadFunction={uploadFuncBanner}
-          />
-          <Styled.AdminPortfolioImageText>
-            <h2>
-              Project banner <span>(Separate page)</span>
-            </h2>
-          </Styled.AdminPortfolioImageText>
-          <PhotoBlockDashedHorizontal
-            emptyHeader="Drop new image here"
-            photo={
-              values.image ? values.image : values.imageProjectBanner.image
-            }
-            deleteFunction={deleteFuncProjectBanner}
-            uploadFunction={uploadFuncProjectBanner}
-          />
+          <Styled.AdminPortfolioImageContainer>
+            <Styled.AdminPortfolioImageText>
+              <h2>
+                Banner <span>(project page)</span>
+              </h2>
+            </Styled.AdminPortfolioImageText>
+            {!!errors.imageBanner?.image && !values.imageBanner?.image && (
+              <Styled.ImageErrorBox />
+            )}
+            <PhotoBlockDashedHorizontal
+              emptyHeader="Drop new image here"
+              photo={values.image ? values.image : values.imageBanner.image}
+              deleteFunction={deleteFuncBanner}
+              uploadFunction={uploadFuncBanner}
+            />
+          </Styled.AdminPortfolioImageContainer>
+
+          <Styled.AdminPortfolioImageContainer>
+            <Styled.AdminPortfolioImageText>
+              <h2>
+                Project banner <span>(Separate page)</span>
+              </h2>
+            </Styled.AdminPortfolioImageText>
+            {!!errors.imageProjectBanner?.image &&
+              !values.imageProjectBanner?.image && <Styled.ImageErrorBox />}
+            <PhotoBlockDashedHorizontal
+              emptyHeader="Drop new image here"
+              photo={
+                values.image ? values.image : values.imageProjectBanner.image
+              }
+              deleteFunction={deleteFuncProjectBanner}
+              uploadFunction={uploadFuncProjectBanner}
+            />
+          </Styled.AdminPortfolioImageContainer>
         </Styled.AdminPortfolioImage>
         <Styled.AdminPageReviewBlock>
           <Styled.AdminCategoryWrapper>
-            <DropdownCategory categories={categories} />
+            <DropdownCategory
+              isError={!!errors.categories && !values.categories.length}
+              categories={categories}
+            />
           </Styled.AdminCategoryWrapper>
           <h3 style={{ margin: 0 }}>About Project</h3>
           <Styled.AdminPageSecondBlockLayout>
             <div>
               <Styled.AdminNDAWrapper>
                 <Styled.AdminField
+                  isError={!!errors.button && !values.button && !values.NDA}
                   placeholder="Link"
                   value={values.button}
                   onChange={handleChange}
                   name="button"
                 />
                 <Styled.AdminCheckboxField
+                  isError={!!errors.NDA && !values.NDA && !values.button}
                   checked={values.NDA}
                   type="checkbox"
                   id="NDA"
@@ -187,6 +202,7 @@ const AddReview = ({
               </Styled.AdminNDAWrapper>
 
               <Styled.AdminInput
+                isError={!!errors.title && !values.title}
                 placeholder="Name project"
                 value={values.title}
                 onChange={handleChange}
@@ -199,6 +215,7 @@ const AddReview = ({
                 maxLength={1200}
                 onChange={handleChange}
                 name="text"
+                isError={!!errors.text && !values.text}
                 className="withBottomButtons"
               />
               <Styled.BottomText>
@@ -223,6 +240,10 @@ const AddReview = ({
                       width: "200px",
                       borderRadius: 0,
                       background: "transparent",
+                      borderColor:
+                        !!errors.country && !values.country
+                          ? "red"
+                          : "rgb(204, 204, 204)",
                     }),
                   }}
                   value={{ label: values.country }}
@@ -255,17 +276,24 @@ const AddReview = ({
                   </div>
                 </Styled.IndustryWrapper>
                 {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
-                <DropdownIndustry industries={industries} />
+                <DropdownIndustry
+                  isError={!!errors.industry && !values.industry}
+                  industries={industries}
+                />
               </div>
               <Styled.SmallProjectInfoWrapper>
-                <Styled.SmallInputWrapper>
+                <Styled.SmallInputWrapper
+                  isError={!!errors.projectDuration && !values.projectDuration}
+                >
                   <p>Project Duration</p>
                   <label>
                     <Field type="text" placeholder="0" name="projectDuration" />
                     months
                   </label>
                 </Styled.SmallInputWrapper>
-                <Styled.SmallInputWrapper>
+                <Styled.SmallInputWrapper
+                  isError={!!errors.projectTeam && !values.projectTeam}
+                >
                   <p>Team members</p>
                   <label>
                     <Field type="text" placeholder="0" name="projectTeam" />
@@ -279,6 +307,7 @@ const AddReview = ({
             <h3 style={{ margin: "0 0 15px 0" }}>Add review</h3>
             <Styled.AdminPageThirdBlockFlex>
               <Styled.AdminInput
+                isError={!!errors.feedback?.name && !values.feedback.name}
                 placeholder="Name"
                 value={values.feedback.name}
                 onChange={handleChange}
@@ -294,6 +323,10 @@ const AddReview = ({
               />
             </Styled.AdminPageThirdBlockFlex>
             <Styled.AdminInput
+              isError={
+                !!errors.feedback?.feedbackText &&
+                !values.feedback?.feedbackText
+              }
               minRows={4}
               placeholder="Text review"
               value={values.feedback.feedbackText}
@@ -311,7 +344,13 @@ const AddReview = ({
           </Styled.AdminPageThirdBlockLayout>
           <Styled.AdminPageFourthBlockLayout>
             <h3 style={{ margin: "0 0 15px 0" }}>Technology</h3>
-            <DropdownTechnology technologies={technologies} />
+            <DropdownTechnology
+              isError={
+                !!errors.technologies &&
+                (!values.technologies.length || values.technologies.length > 6)
+              }
+              technologies={technologies}
+            />
             {errorMsgTech && <p>{errorMsgTech}</p>}
             <Styled.AdminPageAddTechnologyWrapper>
               <Field

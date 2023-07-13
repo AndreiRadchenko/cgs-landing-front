@@ -7,7 +7,13 @@ import * as Styles from "../../../styles/AdminPage";
 import { useFormikContext } from "formik";
 import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio.types";
 
-const DropdownCategory = ({ categories }: { categories: string[] }) => {
+const DropdownCategory = ({
+  categories,
+  isError = false,
+}: {
+  categories: string[];
+  isError?: boolean;
+}) => {
   const { values, errors, setFieldValue } =
     useFormikContext<IPortfolioReview>();
 
@@ -33,6 +39,7 @@ const DropdownCategory = ({ categories }: { categories: string[] }) => {
     <>
       <Styled.DropdownWrapperTechnology>
         <Styled.DropdownBanner
+          isError={isError}
           onClick={() => setIsOpen(!isOpen)}
           className={isOpen ? "open" : undefined}
         >
