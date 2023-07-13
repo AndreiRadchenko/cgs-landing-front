@@ -17,13 +17,14 @@ export const SplitBrackets = ({
   const splited = is768px ? text?.split("^") : text?.split("|");
 
   return (
-    <section onMouseLeave={onMouseOut}>
+    <section onMouseLeave={onMouseOut} onTouchEnd={onMouseOut}>
       {splited?.map(
         (el, idx) =>
           el !== "" && (
             <span
               key={idx}
               onMouseEnter={(event) => onMouseEnter?.(text as string, event)}
+              onTouchStart={(e: any) => onMouseEnter?.(text as string, e)} 
             >
               {el.replace(/[\^|]/g, "")}
               {splited.length - 1 !== idx && <br />}
