@@ -120,8 +120,9 @@ export const CardContainer = styled.article`
   }
 
   &:nth-child(2) {
+    margin-top: 1em;
     & img {
-      top: -85%;
+      top: -95%;
       right: 60%;
     }
   }
@@ -133,9 +134,10 @@ export const CardContainer = styled.article`
   }
 
   &:nth-child(4) {
+    margin-top: 2.5em;
     & img {
-      top: -80%;
-      right: 40%;
+      top: -97%;
+      right: 35%;
     }
 
     & div {
@@ -323,6 +325,10 @@ export const CardContent = styled.div`
   max-width: 720px;
   font-size: ${themes.primary.font.size.feedbackName};
   display: inline-block;
+
+  &.third {
+    max-width: 690px;
+  }
 
   @media ${themes.primary.media.minPC} {
     max-width: 800px;

@@ -9,7 +9,7 @@ export const TechnologyContainer = styled.section`
   position: relative;
   user-select: none;
   font-family: ${themes.primary.font.family.namu};
-  margin-bottom: 10em;
+  margin-bottom: 14.167em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 4.375rem;
@@ -58,9 +58,9 @@ export const TitleRef = styled.a`
 `;
 
 export const TechnologyRow = styled.div`
-  margin-left: 1.5em;
+  margin-inline: 2.4em;
   display: grid;
-  width: 100%;
+  width: 96%;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 40px;
   column-gap: 260px;
@@ -69,7 +69,8 @@ export const TechnologyRow = styled.div`
     column-gap: 60px;
   }
   @media ${themes.primary.media.maxMobile} {
-    margin-left: 0;
+    width: 100%;
+    margin-inline: 0;
     grid-template-columns: 1fr;
     row-gap: 0;
     column-gap: 0;
@@ -171,6 +172,11 @@ export const CategorySubtitle = styled.p`
   font-size: ${themes.primary.font.size.oneAndHalf};
   line-height: 160%;
   margin-bottom: 0.2em;
+
+  &.blockchain {
+    max-width: 505px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.vistaco};
   }
@@ -189,7 +195,7 @@ export const CategorySubtitle = styled.p`
 export const CategoryImgWrapper = styled.div`
   max-width: 98.9%;
   width: 100%;
-  height: 25.4vw;
+  height: 23.5vw;
 
   position: relative;
 
