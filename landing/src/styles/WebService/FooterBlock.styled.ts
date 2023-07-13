@@ -80,7 +80,7 @@ export const SubtitleWrapper = styled.div`
 `;
 
 export const TextWrapper = styled.div`
-  margin-bottom: 1.65em;
+  margin-bottom: 1.667em;
   max-width: 38.5em;
   font-size: 1.5em;
   line-height: 160%;

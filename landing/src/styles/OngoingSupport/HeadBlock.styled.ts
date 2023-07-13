@@ -73,7 +73,7 @@ export const Description = styled.div`
   font-size: 1.375em;
   line-height: 160%;
   max-width: 27.19em;
-  margin: 1.275em 0 1.85em;
+  margin: 1.275em 0 1.8184em;
 
   @media (max-width: 992px) {
     font-size: 20px;

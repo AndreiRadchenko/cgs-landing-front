@@ -732,7 +732,7 @@ export const FooterButtonWrapper = styled.span`
   margin-right: 28px;
 
   &.btn {
-    margin-top: 2.7rem;
+    margin-top: 2.5rem;
     margin-left: 0;
   }
 

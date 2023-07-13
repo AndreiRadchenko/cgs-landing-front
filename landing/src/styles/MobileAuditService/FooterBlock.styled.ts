@@ -57,7 +57,7 @@ export const Title = styled.h2`
 export const Description = styled.p`
   font-size: 1.5em;
   line-height: 160%;
-  margin-block: 0 1.7em;
+  margin-block: 0 1.667em;
   max-width: 38.5em;
 
   @media ${themes.primary.media.minPCFullHD} {
