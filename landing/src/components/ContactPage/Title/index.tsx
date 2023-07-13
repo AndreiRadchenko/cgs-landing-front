@@ -4,14 +4,16 @@ import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import ScrambleText from "../../../components/HomePage/ScrambleText";
 
 import * as CSS from "./Title.styled";
-// import { useSplitBracketsAdvanced } from "../../../hooks/useSplitBracketsAdvanced";
+import { useWindowDimension } from "../../../hooks/useWindowDimension";
+import { splitBracketsAdvanced } from "../../../utils/splitBracketsAdvanced";
 
 interface ITitle {
   title: string;
 }
 
 const Title = ({ title }: ITitle) => {
-  // const htmlString = useSplitBracketsAdvanced(title);
+  const { width } = useWindowDimension();
+  const parsedTitle = splitBracketsAdvanced(title, width);
 
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
@@ -35,7 +37,7 @@ const Title = ({ title }: ITitle) => {
     },
   };
 
-  return <CSS.Subtitle>{parse(title, options)}</CSS.Subtitle>;
+  return <CSS.Subtitle>{parse(parsedTitle, options)}</CSS.Subtitle>;
 };
 
 export default Title;
