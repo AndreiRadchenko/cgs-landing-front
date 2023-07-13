@@ -53,7 +53,7 @@ export const Text = styled.p`
   width: 64.2vw;
   font-size: 1.5em;
   line-height: 160%;
-  margin-block: 0 1.7em;
+  margin-block: 0 1.667em;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;

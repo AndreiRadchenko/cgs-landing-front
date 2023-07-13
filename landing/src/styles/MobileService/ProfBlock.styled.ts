@@ -21,7 +21,7 @@ export const ContentContainer = styled.section`
 export const ProfText = styled.div`
   position: relative;
   margin-top: 0.835em;
-  margin-bottom: 1.67em;
+  margin-bottom: 1.667em;
   font-size: ${themes.primary.font.size.secondary};
   line-height: 160%;
   max-width: 38.5em;

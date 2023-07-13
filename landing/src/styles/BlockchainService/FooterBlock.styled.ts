@@ -45,7 +45,7 @@ export const Description = styled.p`
   width: 60vw;
   font-size: 1.5em;
   line-height: 160%;
-  margin-block: 0 1.7em;
+  margin-block: 0 1.667em;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125em;

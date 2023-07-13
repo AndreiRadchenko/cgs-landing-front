@@ -65,7 +65,7 @@ export const Title = styled.h1`
 export const Description = styled.div`
   font-size: ${themes.primary.font.size.feedbackName};
   line-height: 160%;
-  margin: 0.9em 0 1.8em;
+  margin: 0.9em 0 1.8215em;
   max-width: 27.5em;
 
   @media ${themes.primary.media.minPC} {

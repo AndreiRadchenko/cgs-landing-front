@@ -85,7 +85,7 @@ export const Title = styled.h1`
 `;
 
 export const Text = styled.p`
-  margin-block: 0.9em 1.8em;
+  margin-block: 0.9em 1.8183em;
   font-size: 1.375em;
   line-height: 160%;
   max-width: 28em;

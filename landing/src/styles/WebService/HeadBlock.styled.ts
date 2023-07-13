@@ -89,7 +89,7 @@ export const Title = styled.h1`
 export const Description = styled.div`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 0.9em 0 1.8em;
+  margin: 0.9em 0 1.8184em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndHalf};
