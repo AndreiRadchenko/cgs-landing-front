@@ -909,11 +909,15 @@ export const CTAText = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
   max-width: 827px;
   line-height: 26px;
-  margin-bottom: 34px;
+  margin-bottom: 40px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 18px;
     line-height: 26px;
     max-width: 100%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 28px;
   }
 `;

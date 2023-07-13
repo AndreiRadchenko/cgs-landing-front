@@ -168,7 +168,7 @@ export const TextWrapper = styled.div`
   font-size: 2em;
   line-height: 160%;
   max-width: 36em;
-  margin-bottom: 0.7em;
+  margin-bottom: 0.53em;
 
   & br {
     display: none;
