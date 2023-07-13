@@ -605,6 +605,9 @@ export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
 `;
 
 export const ProjectsContainerInfoBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   margin: 0 20px;
   font-family: ${themes.primary.font.family.namu};
