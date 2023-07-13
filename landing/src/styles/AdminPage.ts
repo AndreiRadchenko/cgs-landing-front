@@ -43,6 +43,7 @@ interface IAdminInput {
   width?: string;
   isAdmin?: string;
   isAdminBlog?: boolean;
+  isError?: boolean;
 }
 
 interface IBox {
@@ -379,9 +380,11 @@ export const SmallProjectInfoWrapper = styled.div`
   gap: 40px;
 `;
 
-export const SmallInputWrapper = styled.div`
+export const SmallInputWrapper = styled.div<{ isError?: boolean }>`
   input {
-    border: 1px solid ${themes.primary.colors.adminInputBorder};
+    border: 1px solid
+      ${({ isError }) =>
+        isError ? "red" : themes.primary.colors.adminInputBorder};
     background: transparent;
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
@@ -391,6 +394,13 @@ export const SmallInputWrapper = styled.div`
     padding-left: 12px;
     margin-right: 10px;
   }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   div {
     background: ${themes.primary.colors.primary};
     width: 58px;
@@ -408,7 +418,9 @@ export const SmallInputWrapper = styled.div`
 export const AdminInput = styled(TextareaAutosize)<IAdminInput>`
   resize: vertical;
   width: ${({ width }) => (width ? width : "100%")};
-  border: 1px solid ${themes.primary.colors.adminInputBorder};
+  border: 1px solid
+    ${({ isError }) =>
+      isError ? "red" : themes.primary.colors.adminInputBorder};
   background-color: ${themes.primary.colors.blogBackground};
   outline: ${({ isAdmin }) =>
     isAdmin ? `1px solid ${themes.primary.colors.comment}` : null};
@@ -537,9 +549,10 @@ export const AdminCategoryDescriptionInput = styled.input`
   max-width: 97%;
 `;
 
-export const AdminField = styled(Field)`
+export const AdminField = styled(Field)<{ isError?: boolean }>`
   height: 56px;
-  border: 1px solid ${themes.primary.colors.comment};
+  border: 1px solid
+    ${({ isError }) => (isError ? "red" : themes.primary.colors.comment)};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 16px;
@@ -550,14 +563,15 @@ export const AdminField = styled(Field)`
   min-width: 350px;
 `;
 
-export const AdminCheckboxField = styled(Field)`
+export const AdminCheckboxField = styled(Field)<{ isError?: boolean }>`
   /* removing default appearance */
   -webkit-appearance: none;
   appearance: none;
 
   /* creating a custom design */
   border-radius: 0;
-  border: 1px solid ${themes.primary.colors.comment};
+  border: 1px solid
+    ${({ isError }) => (isError ? "red" : themes.primary.colors.comment)};
   width: 19px;
   height: 19px;
   margin: 0;
@@ -601,6 +615,15 @@ export const AdminPhotoBlock = styled.div`
     height: 390px;
     width: 370px;
   }
+`;
+
+export const ImageErrorBox = styled.div`
+  /* margin-top: 25px; */
+  position: absolute;
+  border: 2px solid red;
+  height: 265.5px;
+  width: 235px;
+  pointer-events: none;
 `;
 
 export const AdminPhotoGrid = styled.div`
@@ -1305,7 +1328,13 @@ export const AdminPortfolioReviewArrowContainer = styled.div<IAdminPortfolioRevi
 export const AdminPortfolioImage = styled.div`
   max-height: 450px;
   display: grid;
+
+  & > div:last-child {
+    margin-top: 25px;
+  }
 `;
+
+export const AdminPortfolioImageContainer = styled.div``;
 
 export const AdminPortfolioPaginationWrapper = styled.div`
   margin-top: 10px;

@@ -14,9 +14,10 @@ import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 
 interface IDropdownProps {
   industries: string[];
+  isError?: boolean;
 }
 
-const DropdownIndustry = ({ industries }: IDropdownProps) => {
+const DropdownIndustry = ({ industries, isError }: IDropdownProps) => {
   const queryClient = useQueryClient();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -41,6 +42,7 @@ const DropdownIndustry = ({ industries }: IDropdownProps) => {
   return (
     <Styled.DropdownWrapper>
       <Styled.DropdownBanner
+        isError={isError}
         onClick={() => setIsOpen(!isOpen)}
         className={isOpen ? "open" : undefined}
       >

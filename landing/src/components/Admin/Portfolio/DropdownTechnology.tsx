@@ -18,9 +18,10 @@ import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 
 interface IDropdownProps {
   technologies: ITechnology[];
+  isError?: boolean;
 }
 
-const DropdownTechnology = ({ technologies }: IDropdownProps) => {
+const DropdownTechnology = ({ technologies, isError }: IDropdownProps) => {
   const queryClient = useQueryClient();
 
   const { values, setFieldValue } = useFormikContext<IPortfolioReview>();
@@ -88,6 +89,7 @@ const DropdownTechnology = ({ technologies }: IDropdownProps) => {
     <>
       <Styled.DropdownWrapperTechnology>
         <Styled.DropdownBanner
+          isError={isError}
           onClick={() => setIsOpen(!isOpen)}
           className={isOpen ? "open" : undefined}
         >

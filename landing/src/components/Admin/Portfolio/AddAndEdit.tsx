@@ -1,4 +1,4 @@
-import { Formik, useFormikContext } from "formik";
+import { Formik, FormikHelpers, useFormikContext } from "formik";
 import React from "react";
 import { newPageReviewInit } from "../../../consts";
 import AddReview from "../PortfolioReview/AddReview";
@@ -42,6 +42,24 @@ const AddAndEdit = ({
     }
   );
 
+  const handleSubmit = (values: any, action: FormikHelpers<any>) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { __v, image, bgColor, feedback, ...data } = values;
+    const clearedFeedback = {
+      position: values.feedback.position,
+      name: values.feedback.name,
+      feedbackText: values.feedback.feedbackText,
+    };
+    isNewStatus
+      ? addReview({ ...data, feedback: clearedFeedback })
+      : editReview({ ...data, feedback: clearedFeedback });
+    action.resetForm();
+    action.setFieldValue("categories", []);
+    action.setFieldValue("imageBanner.image", null);
+    action.setFieldValue("imageProjectBanner.image", null);
+    setIsNewStatus(true);
+  };
+
   return (
     <Formik
       key={`Form${isNewStatus}${
@@ -65,23 +83,7 @@ const AddAndEdit = ({
                   },
                 })
       }
-      onSubmit={(values, action) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { __v, image, bgColor, feedback, ...data } = values;
-        const clearedFeedback = {
-          position: values.feedback.position,
-          name: values.feedback.name,
-          feedbackText: values.feedback.feedbackText,
-        };
-        isNewStatus
-          ? addReview({ ...data, feedback: clearedFeedback })
-          : editReview({ ...data, feedback: clearedFeedback });
-        action.resetForm();
-        action.setFieldValue("categories", []);
-        action.setFieldValue("imageBanner.image", null);
-        action.setFieldValue("imageProjectBanner.image", null);
-        setIsNewStatus(true);
-      }}
+      onSubmit={handleSubmit}
       validationSchema={AdminPortfolioValidation}
     >
       <AddReview
