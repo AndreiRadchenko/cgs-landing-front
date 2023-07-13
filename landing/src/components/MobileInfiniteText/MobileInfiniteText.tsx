@@ -1,6 +1,8 @@
 import React from "react";
 import * as Styled from "./MobileInfiniteText.styled";
 
+import Marquee from "react-fast-marquee";
+
 interface IInfiniteTextProps {
   className?: string;
   isRateCard?: boolean;
@@ -26,27 +28,29 @@ export const MobileInfiniteText: React.FC<IInfiniteTextProps> = ({
           : undefined
       } ${className}`}
     >
-      <span>
-        {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;{title}
-        &nbsp;&nbsp;&nbsp;
-        {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;{title}
-        &nbsp;&nbsp;&nbsp;
-        {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;
-      </span>
-      <span>
-        {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;{title}
-        &nbsp;&nbsp;&nbsp;
-        {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;{title}
-        &nbsp;&nbsp;&nbsp;
-        {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;
-      </span>
-      <span>
-        {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;{title}
-        &nbsp;&nbsp;&nbsp;;
-        {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;{title}
-        &nbsp;&nbsp;&nbsp;;
-        {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;
-      </span>
+      <Marquee direction={"right"}>
+        <span>
+          {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;{title}
+          &nbsp;&nbsp;&nbsp;
+          {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;{title}
+          &nbsp;&nbsp;&nbsp;
+          {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+          {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;{title}
+          &nbsp;&nbsp;&nbsp;
+          {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;{title}
+          &nbsp;&nbsp;&nbsp;
+          {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+          {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;{title}
+          &nbsp;&nbsp;&nbsp;
+          {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;{title}
+          &nbsp;&nbsp;&nbsp;
+          {title}&nbsp;&nbsp;&nbsp;{title}&nbsp;&nbsp;&nbsp;
+        </span>
+      </Marquee>
     </Styled.MovingText>
   );
 };
