@@ -65,8 +65,11 @@ const HeadBlock = () => {
         )}
       </Styled.Content>
       <Styled.Image>
-        <Styled.ImageTV src={TV.src} />
-        <Styled.ImageCrypto src={cryptoTVImages[imageIndex]} />
+        <Styled.ImageTV src={TV.src} alt="Old TV" />
+        <Styled.ImageCrypto
+          src={cryptoTVImages[imageIndex]}
+          alt="Grey Square"
+        />
       </Styled.Image>
     </Styled.Container>
   );
