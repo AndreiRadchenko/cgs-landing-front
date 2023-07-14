@@ -12,7 +12,7 @@ export const TechnologyContainer = styled.section`
   margin-bottom: 14.167em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 4.375rem;
+    margin-bottom: 1.3rem;
     margin-top: 6em;
   }
 `;
@@ -74,7 +74,7 @@ export const TechnologyRow = styled.div`
     grid-template-columns: 1fr;
     row-gap: 0;
     column-gap: 0;
-    margin-top: 14em;
+    margin-top: 14.5em;
 
     & > article:last-child > div:nth-child(5) {
       padding-bottom: 0;

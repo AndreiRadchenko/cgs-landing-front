@@ -5,10 +5,11 @@ import * as Styled from "../../styles/HomePage/TechModal.styled";
 interface ITechModalProps {
   isOpen: boolean;
   data: string[];
+  idx: number;
 }
-const TechModal = ({ isOpen, data }: ITechModalProps) => {
+const TechModal = ({ isOpen, data, idx }: ITechModalProps) => {
   return (
-    <Styled.TicketModal className={isOpen ? "block" : undefined}>
+    <Styled.TicketModal idx={idx === 3} className={isOpen ? "block" : undefined}>
       <Styled.TicketModalContentContainer>
         <Styled.TicketModalContent onClick={(e) => e.stopPropagation()}>
           <Styled.Container>
