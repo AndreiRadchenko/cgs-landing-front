@@ -1,7 +1,6 @@
 import React, { ReactNode, CSSProperties } from "react";
 
 import * as Styled from "./PersistPopup.styled";
-import { useWindowDimension } from "../../../hooks/useWindowDimension";
 
 interface Props {
   style?: CSSProperties;
@@ -9,8 +8,6 @@ interface Props {
 }
 
 export const PersistPopup = ({ children, style }: Props) => {
-  const { width } = useWindowDimension();
-
   return (
     <Styled.TextWrapper style={style} className="persist-popup">
       <Styled.PersistPopupText>{children}</Styled.PersistPopupText>

@@ -1,10 +1,10 @@
 import React from "react";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
+import { useMediaQuery } from "@mui/material";
 
 import ScrambleText from "../../../components/HomePage/ScrambleText";
 
 import * as CSS from "./Title.styled";
-import { useWindowDimension } from "../../../hooks/useWindowDimension";
 import { splitBracketsAdvanced } from "../../../utils/splitBracketsAdvanced";
 
 interface ITitle {
@@ -12,8 +12,8 @@ interface ITitle {
 }
 
 const Title = ({ title }: ITitle) => {
-  const { width } = useWindowDimension();
-  const parsedTitle = splitBracketsAdvanced(title, width);
+  const isMobile = useMediaQuery("(max-width:768px)");
+  const parsedTitle = splitBracketsAdvanced(title, isMobile);
 
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {

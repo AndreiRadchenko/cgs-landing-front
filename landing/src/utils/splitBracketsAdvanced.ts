@@ -4,12 +4,11 @@ import * as DomSerializer from "dom-serializer";
 
 export const splitBracketsAdvanced = (
   htmlString: string,
-  width: number | null
+  isMobile: boolean
 ) => {
-  let stringWithBr =
-    width! < 768
-      ? htmlString.replace(/[|]/g, "")
-      : htmlString.replace(/[\^]/g, "");
+  let stringWithBr = isMobile
+    ? htmlString.replace(/[|]/g, "")
+    : htmlString.replace(/[\^]/g, "");
 
   stringWithBr = stringWithBr.replace(/[\^|]/g, "<br>");
 
