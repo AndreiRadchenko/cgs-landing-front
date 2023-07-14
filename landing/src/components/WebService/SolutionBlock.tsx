@@ -34,13 +34,16 @@ const SolutionBlock = ({ className }: IServicesClassnameProps) => {
           )}
         </Styled.LeftSideText>
       )}
-      <Styled.BgImageFirst src={firsMobileBg.src} />
+      <Styled.BgImageFirst
+        src={firsMobileBg.src}
+        alt="The Best Solution for Your Idea"
+      />
       <Styled.RightSideContainer>
         <Styled.RightSideText>
           {data && parse(data?.text.replace("[arrow]", arrow))}
         </Styled.RightSideText>
       </Styled.RightSideContainer>
-      <Styled.BgImageSecond src={secondMobileBg.src} />
+      <Styled.BgImageSecond src={secondMobileBg.src} alt="Camping" />
     </Styled.Container>
   );
 };

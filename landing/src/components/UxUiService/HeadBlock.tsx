@@ -37,7 +37,7 @@ const HeadBlock = () => {
           </Styled.ButtonWrapper>
         )}
       </Styled.ContentWrapper>
-      <Styled.Image src={data?.image.url} />
+      <Styled.Image src={data?.image.url} alt="Polaroid" />
     </Styled.Container>
   );
 };

@@ -22,13 +22,15 @@ const CareersTicket: FC<ITicketProps> = ({
   isAdminPanel,
 }: ITicketProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [hoverTicket, setHoverTicket] = useState<boolean>(!isAdminPanel && false);
+  const [hoverTicket, setHoverTicket] = useState<boolean>(
+    !isAdminPanel && false
+  );
   const modalRef = useRef<HTMLDivElement>(null);
 
   const onTicketView = () => {
     if (!isAdminPanel) {
       setIsOpen(true);
-    };
+    }
   };
 
   const onClose = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
@@ -50,7 +52,7 @@ const CareersTicket: FC<ITicketProps> = ({
     const handleModalScroll = (event: Event) => {
       event.stopPropagation();
     };
-  
+
     if (isOpen) {
       document.body.style.overflow = "hidden";
       modalRef.current?.addEventListener("scroll", handleModalScroll, {
@@ -60,7 +62,7 @@ const CareersTicket: FC<ITicketProps> = ({
       document.body.style.overflow = "auto";
       modalRef.current?.removeEventListener("scroll", handleModalScroll);
     }
-  
+
     return () => {
       document.body.style.overflow = "auto";
       modalRef.current?.removeEventListener("scroll", handleModalScroll);
@@ -74,16 +76,14 @@ const CareersTicket: FC<ITicketProps> = ({
           isTicketHover={hoverTicket}
           onMouseMove={!isAdminPanel ? onTicketHover : undefined}
           onMouseOut={!isAdminPanel ? ticketHoverOut : undefined}
-          onTouchStart={onTicketHover} 
+          onTouchStart={onTicketHover}
           onTouchEnd={ticketHoverOut}
-          >
+        >
           <Styled.TicketInfo>
             <Styled.TicketPositionTitle isTicketHover={hoverTicket}>
               {vacancy}
             </Styled.TicketPositionTitle>
-            <Styled.TicketDescription>
-              {description}
-            </Styled.TicketDescription>
+            <Styled.TicketDescription>{description}</Styled.TicketDescription>
             <Styled.TicketAboutWork>
               <Styled.WorkLocation>
                 <Styled.TicketIcon src={locationImage.src} />
@@ -101,12 +101,15 @@ const CareersTicket: FC<ITicketProps> = ({
               <ButtonArrow />
             </ArrowContainer>
           </Styled.TicketApplyButton>
-          <Styled.Shadow isTicketHover={hoverTicket}>
-          </Styled.Shadow>
+          <Styled.Shadow isTicketHover={hoverTicket}></Styled.Shadow>
         </Styled.TicketInner>
         <TicketModal isOpen={isOpen} onClose={onClose} ref={modalRef}>
           <Styles.ButtonWrapper>
-            <Styles.CloseButton src={CloseButton.src} onClick={onClose} />
+            <Styles.CloseButton
+              src={CloseButton.src}
+              onClick={onClose}
+              alt="Close Button"
+            />
           </Styles.ButtonWrapper>
           <Styles.HiddenWrapper>
             <Styles.Content>
