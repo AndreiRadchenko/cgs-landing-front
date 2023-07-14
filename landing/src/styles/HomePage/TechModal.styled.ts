@@ -1,7 +1,11 @@
 ﻿import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const TicketModal = styled.div`
+interface IModalProps {
+  idx: boolean;
+}
+
+export const TicketModal = styled.div<IModalProps>`
   margin-top: calc(2.5em + 42px);
   position: absolute;
   z-index: 12;
@@ -38,17 +42,28 @@ export const TicketModal = styled.div`
     position: relative;
     max-height: 0;
     width: 100%;
-    margin-top: 0;
     transition: 0.3s;
-    border-radius: 8px;
-    z-index: -2;
-    margin-top: -0.6em;
-    border: solid 2.4px ${themes.primary.colors.primary};
+    margin-top: ${idx => idx ? "-7em" : "-5em"};
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: solid 2.6px ${themes.primary.colors.primary};
+    width: 429px;
 
     &.block {
       max-height: 650px;
-      padding-bottom: 7em;
+      background-color: ${themes.primary.colors.blogBackground};
     }
+  }
+
+  @media (max-width: 474px) {
+    border: solid 2.6px ${themes.primary.colors.primary};
+    width: 378.55px;
+    margin-top: -5em;
+  }
+
+  @media (max-width: 410px) {
+    border: solid 2.4px ${themes.primary.colors.primary};
+    width: 335px;
   }
 `;
 
@@ -56,6 +71,12 @@ export const TicketModalContentContainer = styled.div`
   width: 100%;
   height: 100%;
   cursor: default;
+
+  @media (max-width: 768px) {
+    position: relative;
+    z-index: 100;
+    top: -8em;
+  }
 `;
 
 export const TicketModalContent = styled.div`
