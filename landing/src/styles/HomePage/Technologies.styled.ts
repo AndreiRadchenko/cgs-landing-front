@@ -172,6 +172,7 @@ export const CategorySubtitle = styled.p`
   font-size: ${themes.primary.font.size.oneAndHalf};
   line-height: 160%;
   margin-bottom: 0.2em;
+  width: 505px;
 
   &.blockchain {
     max-width: 505px;
