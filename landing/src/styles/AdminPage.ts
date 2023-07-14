@@ -620,7 +620,7 @@ export const AdminPhotoBlock = styled.div`
 export const ImageErrorBox = styled.div`
   position: absolute;
   border: 2px solid red;
-  height: 265.5px;
+  height: 265px;
   width: 235px;
   pointer-events: none;
 `;
