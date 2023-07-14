@@ -33,9 +33,9 @@ const Advantages = ({ advantages, className }: IAdvantagesProps) => {
                                 {idx === numbers.length - 1 ? (
                                     <>
                                         <Styled.BlockContainer>
-                                            <img src={circle.src} />
+                                            <img src={circle.src} alt="Yellow Circle"/>
                                             <Styled.AfterBlock />
-                                            <img src={smallCircle.src} />
+                                            <img src={smallCircle.src} alt="Dot"/>
                                         </Styled.BlockContainer>
                                         <Styled.BeforeBlock isFirst={true} />
                                     </>

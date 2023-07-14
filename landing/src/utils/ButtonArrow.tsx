@@ -3,6 +3,7 @@
 const ButtonArrow = () => {
   return (
     <svg viewBox="5 5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>an arrow</title>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

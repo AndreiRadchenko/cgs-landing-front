@@ -119,12 +119,12 @@ const Form: FC<FormProps> = ({ positions, data }) => {
     if (!event.target.value?.length) {
       setIsLoading(false);
       return;
-    };
+    }
 
     if (!event.target.files?.length) {
       setIsLoading(false);
       return;
-    };
+    }
 
     const file = event.target.files[0];
 
@@ -175,8 +175,8 @@ const Form: FC<FormProps> = ({ positions, data }) => {
     filledFields < 4 && !buttonState.disabled
       ? setButtonState({ ...buttonState, disabled: true })
       : filledFields >= 4
-        ? setButtonState({ ...buttonState, disabled: false })
-        : null;
+      ? setButtonState({ ...buttonState, disabled: false })
+      : null;
   }, [formik.values]);
 
   useEffect(() => {
@@ -188,10 +188,7 @@ const Form: FC<FormProps> = ({ positions, data }) => {
     <Styled.FormProvider value={formik}>
       <ThankYouModal isOpen={isOpen} setIsOpen={(val) => setIsOpen(val)} />
       <Styled.Shadow enabled={enable} />
-      <Styled.Form
-        onSubmit={formik.handleSubmit}
-        encType="multipart/form-data"
-      >
+      <Styled.Form onSubmit={formik.handleSubmit} encType="multipart/form-data">
         <Styled.PositionSelect
           onClick={() => setEnable(!enable)}
           enabled={enable}
@@ -212,16 +209,25 @@ const Form: FC<FormProps> = ({ positions, data }) => {
             key={key}
             label={label}
             toFormError={buttonState.disabled && buttonState.triedSubmit}
-            toFormErrorEmail={buttonState.disabled && buttonState.triedSubmit && !emailPattern.test(formik.values.contact)}
-            className={idx == 1 ? "formEmail" : ""} />
+            toFormErrorEmail={
+              buttonState.disabled &&
+              buttonState.triedSubmit &&
+              !emailPattern.test(formik.values.contact)
+            }
+            className={idx == 1 ? "formEmail" : ""}
+          />
         ))}
         <Styled.FormFieldContainer>
           <Styled.TitleContainer isCvIn={!!cvName.length}>
-            <Styled.Format>{cvName.split('.').pop()}</Styled.Format>
+            <Styled.Format>{cvName.split(".").pop()}</Styled.Format>
             <Styled.Title>{cvName}</Styled.Title>
             <Styled.DeleteCv onClick={onFileRemove} src={Close.src} />
           </Styled.TitleContainer>
-          <Styled.Cvfield isEmpty={checkEmpty()} isCvIn={!!cvName.length} toFormError={buttonState.disabled && buttonState.triedSubmit} >
+          <Styled.Cvfield
+            isEmpty={checkEmpty()}
+            isCvIn={!!cvName.length}
+            toFormError={buttonState.disabled && buttonState.triedSubmit}
+          >
             <Styled.FormField
               placeholder={CV.place}
               type={"text"}
@@ -260,15 +266,26 @@ const Form: FC<FormProps> = ({ positions, data }) => {
                   />
                 )}
               </Field>
-              <Styled.Loading src={Loading.src} isLoading={isLoading} />
+              <Styled.Loading
+                src={Loading.src}
+                alt="Load in Progress"
+                isLoading={isLoading}
+              />
               <Styled.LabelWithClipContainer isLoading={isLoading}>
-                <Styled.Clip src={buttonState.disabled && buttonState.triedSubmit ? ClipError.src : Clip.src} />
+                <Styled.Clip
+                  src={
+                    buttonState.disabled && buttonState.triedSubmit
+                      ? ClipError.src
+                      : Clip.src
+                  }
+                  alt="Staple"
+                />
                 <Styled.LabelTitle>add file</Styled.LabelTitle>
               </Styled.LabelWithClipContainer>
             </Styled.Label>
           </Styled.Cvfield>
         </Styled.FormFieldContainer>
-        <Styled.FormSentContainer isCvIn={!!cvName.length} >
+        <Styled.FormSentContainer isCvIn={!!cvName.length}>
           <Styled.FormSentButton
             type="submit"
             isDisabled={buttonState.disabled}

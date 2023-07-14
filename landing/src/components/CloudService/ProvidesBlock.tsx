@@ -6,7 +6,6 @@ import { IServicesClassnameProps } from "../../types/Services.types";
 import { Subtitle } from "../../styles/CloudService/Layout";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import cloudProvidesBgi from "../../../public/CloudServicePage/cloudProvidesBgi.svg";
-// import cloudProvidesMobile from "../../../public/CloudServicePage/cloud-provides-mobile.svg";
 import cloudProvidesMobile from "../../../public/CloudServicePage/cloud-provides-mobile-new.svg";
 import * as Styled from "../../styles/CloudService/Provides.styled";
 import parse from "html-react-parser";
@@ -29,8 +28,8 @@ const ProvidesBlock = ({ className }: IServicesClassnameProps) => {
     <Styled.Container className={className}>
       <Subtitle>{subtitle}</Subtitle>
       <MobileInfiniteText withoutMargin title={subtitle} />
-      <Styled.BGImage src={cloudProvidesBgi.src} />
-      <Styled.BGImageMobile src={cloudProvidesMobile.src} alt="bg image" />
+      <Styled.BGImage src={cloudProvidesBgi.src} alt="Scheme" />
+      <Styled.BGImageMobile src={cloudProvidesMobile.src} alt="Scheme" />
       <Styled.BlockWrapper ref={elRef}>
         {Object.values(blocks).map((el, index) => (
           <Styled.Block
