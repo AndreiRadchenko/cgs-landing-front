@@ -38,11 +38,9 @@ export const Emails = ({ emails }: EmailProps) => {
               >
                 {item.popup}
               </EmailPopup>
-              {displayWidth! <= 768 && (
-                <PersistPopup style={{ width: "100%" }}>
-                  {item.popup}
-                </PersistPopup>
-              )}
+              <PersistPopup style={{ width: "100%" }}>
+                {item.popup}
+              </PersistPopup>
             </PopupWrapper>
           ))}
         </Styled.ButtonWrapper>

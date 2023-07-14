@@ -9,7 +9,9 @@ export const TextWrapper = styled.div`
   transform: translate(50%, -100%);
   text-align: center;
   padding: 0 0 5px;
+  display: none;
   @media ${themes.primary.media.maxMobile} {
+    display: block;
   }
 `;
 
@@ -18,10 +20,6 @@ export const PersistPopupText = styled.p`
   padding: 0;
   font-size: 16px;
   line-height: 19px;
-  display: none;
-  @media ${themes.primary.media.maxServiceWeb} {
-    display: block;
-  }
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 7px;
   }
