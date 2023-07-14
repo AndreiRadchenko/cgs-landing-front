@@ -97,7 +97,7 @@ interface IProps {
 }
 
 export const HoveredImage = styled.div<IProps>`
-  @keyframes scroll {
+  @keyframes scrollTimer {
     0% {
       transform: translateX(100%);
     }
@@ -105,7 +105,7 @@ export const HoveredImage = styled.div<IProps>`
       transform: translateX(-120%);
     }
   }
-  @keyframes fade-in {
+  @keyframes fade-in-timer {
     0% {
       opacity: 0;
     }
@@ -117,11 +117,10 @@ export const HoveredImage = styled.div<IProps>`
   transform: translateX(-20%);
   opacity: ${({ delay }) => (delay ? "0" : "100")};
 
-  animation: ${({ delay }) => {
-    return delay
-      ? "scroll 6s infinite linear, fade-in 1s ease-out forwards;"
-      : "scroll 6s infinite linear;";
-  }};
+  animation: ${({ delay }) =>
+    delay
+      ? "6s linear infinite scrollTimer, fade-in-timer 1s ease-out forwards;"
+      : "6s linear infinite 3s scrollTimer;"};
   flex-shrink: 0;
   display: flex;
   justify-content: space-around;

@@ -977,9 +977,19 @@ export const TelegramIconWrapper = styled.div`
     width: 15px;
     height: 15px;
 
+    span {
+      width: 14px !important;
+      height: 14px !important;
+    }
+
     &.aiService {
-      width: 14.5px;
+      width: 14px;
       height: 14.5px;
+
+      span {
+        width: 14px !important;
+        height: 15px !important;
+      }
     }
   }
 `;
@@ -1002,6 +1012,11 @@ export const WhatsAppIconWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     width: 15px;
     height: 15px;
+
+    span {
+      width: 14px !important;
+      height: 14px !important;
+    }
   }
 `;
 
