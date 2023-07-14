@@ -2134,6 +2134,10 @@ export const BottomText = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.5em;
+
+  &.portfolio-admin-description {
+    justify-content: flex-end;
+  }
 `;
 
 export const FlagSelector = styled.div`

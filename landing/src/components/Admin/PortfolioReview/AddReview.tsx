@@ -218,8 +218,7 @@ const AddReview = ({
                 isError={!!errors.text && !values.text}
                 className="withBottomButtons"
               />
-              <Styled.BottomText>
-                <Styled.ErrorText>{errors["text"]}</Styled.ErrorText>
+              <Styled.BottomText className="portfolio-admin-description">
                 <Styled.TextCounter>
                   {values.text.length}/1200
                 </Styled.TextCounter>
@@ -283,7 +282,12 @@ const AddReview = ({
               </div>
               <Styled.SmallProjectInfoWrapper>
                 <Styled.SmallInputWrapper
-                  isError={!!errors.projectDuration && !values.projectDuration}
+                  isError={
+                    !!errors.projectDuration &&
+                    (values.projectDuration === "" ||
+                      +values.projectDuration < 1 ||
+                      +values.projectDuration > 999)
+                  }
                 >
                   <p>Project Duration</p>
                   <label>
@@ -292,7 +296,12 @@ const AddReview = ({
                   </label>
                 </Styled.SmallInputWrapper>
                 <Styled.SmallInputWrapper
-                  isError={!!errors.projectTeam && !values.projectTeam}
+                  isError={
+                    !!errors.projectTeam &&
+                    (values.projectTeam === "" ||
+                      +values.projectTeam < 1 ||
+                      +values.projectTeam > 99)
+                  }
                 >
                   <p>Team members</p>
                   <label>
