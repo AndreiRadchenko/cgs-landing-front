@@ -10,12 +10,15 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import Head from "next/head";
+import { useHistoryGesture } from "../hooks/useHistoryGesture";
 
 function MyApp({
   Component,
   pageProps,
 }: AppProps<{ dehydratedState: DehydratedState }>): JSX.Element {
   const [queryClient] = useState(() => new QueryClient());
+  useHistoryGesture();
+
   return (
     <>
       <QueryClientProvider client={queryClient}>
