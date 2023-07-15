@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import debounce from "lodash.debounce";
+import { debounce } from "lodash";
 
 const handleSwipeGesture = (event: WheelEvent) => {
   if (event.deltaX > 0) {
