@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
 import InfoIcon from "../../../public/Calendly/InfoIcon.svg";
@@ -25,6 +25,23 @@ export const LocalLayout = styled.div`
 
   @media (min-width: 2200px) {
     font-size: 1.4rem;
+  }
+`;
+
+export const arrowOne = keyframes`
+  0% {
+    transform: translate(-36px, 36px);
+  }
+  100% {
+    transform: translate(0px, 0px);;
+  }
+`;
+export const arrowTwo = keyframes`
+  0% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(36px, -36px);;
   }
 `;
 
@@ -197,17 +214,19 @@ export const BlackButton = styled.a<IFontSize>`
   }
 
   & path {
-    transition: transform 1s ease-in-out;
+    /* transition: transform 1s ease-in-out; */
   }
   & path:nth-child(1) {
     transform: translate(-36px, 36px);
   }
   &:hover {
     & path:nth-child(1) {
-      transform: translate(0px, 0px);
+      /* transform: translate(0px, 0px); */
+      animation: ${arrowOne} 1s 1 forwards ease-in-out;
     }
     & path:nth-child(2) {
-      transform: translate(36px, -36px);
+      /* transform: translate(36px, -36px); */
+      animation: ${arrowTwo} 1s 1 forwards ease-in-out;
     }
   }
 `;
