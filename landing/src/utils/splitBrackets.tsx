@@ -24,7 +24,7 @@ export const SplitBrackets = ({
             <span
               key={idx}
               onMouseEnter={(event) => onMouseEnter?.(text as string, event)}
-              onTouchStart={(e: any) => onMouseEnter?.(text as string, e)} 
+              onTouchStart={(e: any) => onMouseEnter?.(text as string, e)}
             >
               {el.replace(/[\^|]/g, "")}
               {splited.length - 1 !== idx && <br />}

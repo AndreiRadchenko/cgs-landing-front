@@ -10,14 +10,14 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import Head from "next/head";
-import { useHistoryGesture } from "../hooks/useHistoryGesture";
+
+import { GestureNavigation } from "../components/Gesturenavigation";
 
 function MyApp({
   Component,
   pageProps,
 }: AppProps<{ dehydratedState: DehydratedState }>): JSX.Element {
   const [queryClient] = useState(() => new QueryClient());
-  useHistoryGesture();
 
   return (
     <>
@@ -32,6 +32,7 @@ function MyApp({
         </Head>
         <Hydrate state={pageProps.dehydratedState}>
           <Component {...pageProps} />
+          <GestureNavigation />
         </Hydrate>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

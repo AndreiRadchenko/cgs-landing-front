@@ -1,17 +1,20 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { debounce } from "lodash";
 import { isSafari } from "react-device-detect";
 
-export const useHistoryGesture = () => {
-  const [showArrow, setShowArrow] = useState(false);
+import * as Styled from "./GestureNavigation.styled";
+
+const GestureNavigation = () => {
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(false);
 
   const handleSwipeGesture = useCallback((event: WheelEvent) => {
     if (event.deltaX > 0) {
       window.history.forward();
-      setShowArrow(true);
+      setShowRightArrow(true);
     } else if (event.deltaX < 0) {
       window.history.back();
-      setShowArrow(true);
+      setShowLeftArrow(true);
     }
   }, []);
 
@@ -33,9 +36,19 @@ export const useHistoryGesture = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowArrow(false);
+      setShowLeftArrow(false);
+      setShowRightArrow(false);
     }, 1500);
 
     return () => clearTimeout(timer);
-  }, [showArrow]);
+  }, [showLeftArrow, showRightArrow]);
+
+  return (
+    <>
+      {showLeftArrow && <Styled.LeftArrow>&larr;</Styled.LeftArrow>}
+      {showRightArrow && <Styled.RightArrow>&rarr;</Styled.RightArrow>}
+    </>
+  );
 };
+
+export default GestureNavigation;
