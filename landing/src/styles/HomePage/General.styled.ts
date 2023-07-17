@@ -511,7 +511,7 @@ export const Subtitle = styled.div<ISubtitle>`
   }
 
   &.foooter {
-    margin-top: 76px;
+    margin-top: 96px;
     margin-bottom: 14px;
     p {
       margin-bottom: 0;

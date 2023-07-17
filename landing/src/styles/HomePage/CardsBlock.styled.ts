@@ -128,8 +128,9 @@ export const CardContainer = styled.article`
     }
   }
   &:nth-child(3) {
+    margin-top: -4em;
     & img {
-      top: -68%;
+      top: -55%;
       left: 30%;
     }
   }
