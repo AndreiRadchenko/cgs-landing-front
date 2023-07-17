@@ -63,6 +63,7 @@ export const ContentTextWrapper = styled.div<ISlide>`
 
   &.open {
     transform-origin: top center;
+    opacity: 0;
     animation: ${({ ind }) =>
       css`
         ${slideDown} 300ms ${ind * 60}ms ease-in forwards
