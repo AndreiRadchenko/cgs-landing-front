@@ -1,6 +1,6 @@
 import React from "react";
 import * as Styled from "../../styles/MobileAuditService/WhatAppInclude.styled";
-import { SplitBrackets } from "../../utils/splitBrackets";
+import { MobileAuditSplitBrackets } from "./MobileAuditSplit";
 
 interface ISubListItemProps {
   subItem: string;
@@ -16,7 +16,7 @@ const WhatAppIncludeSubListItem = ({ subItem, onMouseEnter, onMouseOut }: ISubLi
         <Styled.PointCircle />
       </Styled.PointWrapper>
       <Styled.Subtext>
-        <SplitBrackets text={subItem} onMouseEnter={onMouseEnter} onMouseOut={onMouseOut} />
+        <MobileAuditSplitBrackets text={subItem} onMouseEnter={onMouseEnter} onMouseOut={onMouseOut} />
       </Styled.Subtext>
     </Styled.SubtextWrapper>
   );
