@@ -1315,8 +1315,12 @@ export const AdminPortfolioReviewArrowContainer = styled.div<IAdminPortfolioRevi
   border: 2.26667px solid ${themes.primary.colors.primary};
   border-radius: 50%;
   overflow: hidden;
-
   opacity: ${({ isProjectLink }) => !isProjectLink && 0.6};
+
+  & svg {
+    width: 35px;
+    height: 35px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 26px;
