@@ -48,7 +48,7 @@ export const TextWrapper = styled.div`
   }
 `;
 
-export const Subtitle = styled.p`
+export const Subtitle = styled.div`
   font-size: ${themes.primary.font.size.linkText};
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 120%;
@@ -66,7 +66,7 @@ export const Subtitle = styled.p`
   }
 `;
 
-export const Text = styled.p`
+export const Text = styled.div`
   font-size: 1em;
   line-height: 160%;
   margin: 0;

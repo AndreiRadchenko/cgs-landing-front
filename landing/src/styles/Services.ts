@@ -209,6 +209,7 @@ export const WorthBlock = styled.div<ISlide>`
     &.mobileAudit {
       padding-inline: 101px;
       text-align: center;
+      line-height: 120%;
     }
   }
 

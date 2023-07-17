@@ -6,6 +6,7 @@ export const Container = styled.div`
   margin-bottom: 13.6em;
   padding: 0 4.25em;
   width: 100vw;
+  height: 14em;
   margin-left: -4.25em;
   display: flex;
   align-items: flex-start;
@@ -27,7 +28,7 @@ export const Title = styled.h2`
   margin: 0;
   margin-left: -1.276em;
   width: 36.7vw;
-  padding: 5px 0 28.5px 1.276em;
+  padding: 5px 0 5px 1.276em;
   font-size: 3.33em;
   line-height: 1.4;
   text-transform: uppercase;
