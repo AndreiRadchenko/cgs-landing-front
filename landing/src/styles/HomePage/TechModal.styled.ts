@@ -63,7 +63,8 @@ export const TicketModal = styled.div<IModalProps>`
 
   @media (max-width: 410px) {
     border: solid 2.4px ${themes.primary.colors.primary};
-    width: 335px;
+    width: 347px;
+    margin-left: -8px;
   }
 `;
 
