@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import Arrow from "../../../public/upArrowSidebar.svg";
@@ -33,6 +33,7 @@ const Dropdown = ({
   additionalLogic,
   setIsFirstLoad,
 }: IDropdown) => {
+  const modalRef = useRef<any>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const onBlur = () => {
@@ -40,8 +41,22 @@ const Dropdown = ({
     if (setEnable) setEnable(false);
   };
 
+  useEffect(() => {
+    function handleClickOutside(event: { target: any }) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        onBlur();
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [modalRef]);
+
   return (
-    <Styled.DropdownWrapper onBlur={onBlur}>
+    <Styled.DropdownWrapper ref={modalRef}>
       <Styled.DropdownButton
         className={isOpen ? `open ${className}` : className}
         onClick={() => setIsOpen(!isOpen)}

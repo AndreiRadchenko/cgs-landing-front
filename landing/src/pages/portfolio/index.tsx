@@ -88,7 +88,6 @@ const PortfolioPage: NextPage = () => {
   const [searchTrigger, setSearchTrigger] = useState<string>("");
   const [activeCategory, setActiveCategory] = useState<number>(0);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
-  const contentRef = useRef<HTMLDivElement>(null);
   const [isPaginationTriggered, setIsPaginationTriggered] = useState(true);
   const categoryItemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [categoryItemWidths, setCategoryItemWidths] = useState<string[]>([]);
