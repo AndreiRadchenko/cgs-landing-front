@@ -267,12 +267,33 @@ export const CardContainer = styled.article`
     }
   }
 
+  @media (max-width: 1100px) {
+    &:nth-child(2) {
+      & img {
+        top: -85%;
+        right: 35%;
+      }
+    }
+    &:nth-child(3) {
+      & img {
+        width: 15em;
+        top: -70%;
+        left: 10%;
+      }
+    }
+    &:nth-child(4) {
+      & img {
+        top: -90%;
+        right: 30%;
+      }
+    }
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     &:nth-child(2n-1) {
       & > img {
-        transform: scale(0.8);
-        top: -92%;
-        left: 8%;
+        top: -80%;
+        left: 13%;
       }
     }
 
@@ -294,6 +315,48 @@ export const CardContainer = styled.article`
       }
     }
   }
+
+  @media (max-width: 870px) {
+    &:nth-child(2) {
+      & img {
+        right: 10%;
+      }
+    }
+    &:nth-child(3) {
+      & img {
+        top: -72%;
+        left: 5%;
+      }
+    }
+    &:nth-child(4) {
+      & img {
+        right: 10%;
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    &:nth-child(2) {
+      & img {
+        top: -80%;
+        right: 5%;
+      }
+    }
+    &:nth-child(3) {
+      & img {
+        width: 13em;
+        left: 3%;
+      }
+    }
+    &:nth-child(4) {
+      & img {
+        width: 15em;
+        top: -95%;
+        right: 5%;
+      }
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     justify-self: start !important;
     ::after {
@@ -325,7 +388,7 @@ export const CardContainer = styled.article`
     }
 
     padding-top: 0px;
-    margin-bottom: 30px;
+    margin-bottom: 38px;
     padding-bottom: 20px;
 
     :last-child {
@@ -396,9 +459,6 @@ export const CardContent = styled.div`
   }
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 1000px;
-    & br {
-      display: none;
-    }
   }
   @media (min-width: 2400px) {
     max-width: 1200px;
@@ -420,9 +480,6 @@ export const CardContent = styled.div`
   @media ${themes.primary.media.maxLowScreenMobile} {
     max-width: 335px;
     font-size: 1rem;
-    & br {
-      display: none;
-    }
   }
 `;
 
