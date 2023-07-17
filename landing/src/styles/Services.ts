@@ -205,6 +205,12 @@ export const WorthBlock = styled.div<ISlide>`
     padding: 28px 51px;
     max-width: initial;
   }
+  &:last-child ${WorthTitleContainer} {
+    &.mobileAudit {
+      padding-inline: 101px;
+      text-align: center;
+    }
+  }
 
   @media (max-width: 1141px) {
     &:not(:last-child) {
@@ -236,6 +242,13 @@ export const WorthBlock = styled.div<ISlide>`
     }
     &:first-child ${WorthText} {
       padding: 14px 20px;
+    }
+
+    &:last-child ${WorthTitleContainer} {
+      &.mobileAudit {
+        padding-inline: 61px;
+        text-align: center;
+      }
     }
   }
 `;
