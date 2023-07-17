@@ -35,7 +35,9 @@ const CardItem = ({ item, idx }: ICardItemProps) => {
       )}
       <Styled.CardTitle className={idx === 3 ? "last" : undefined}>
         <BigNumber idx={idx} />
-        <Styled.CardSubtitle>{item[1].subtitle}</Styled.CardSubtitle>
+        <Styled.CardSubtitle>
+          <SplitBrackets text={item[1].subtitle}/>
+        </Styled.CardSubtitle>
       </Styled.CardTitle>
       <Styled.CardContent className={idx === 2 ? "third" : undefined}>
         <SplitBrackets text={item[1].text} />

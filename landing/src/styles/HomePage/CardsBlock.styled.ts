@@ -114,30 +114,30 @@ export const CardContainer = styled.article`
   }
 
   &:nth-child(2n) {
+    top: -1em;
     justify-self: flex-end;
     & img {
     }
   }
 
   &:nth-child(2) {
-    margin-top: 1em;
+    margin-top: -4em;
     & img {
-      top: -95%;
+      top: -80%;
       right: 60%;
     }
   }
   &:nth-child(3) {
     & img {
-      top: -70%;
+      top: -68%;
       left: 30%;
     }
   }
 
   &:nth-child(4) {
-    margin-top: 2.5em;
     & img {
-      top: -97%;
-      right: 35%;
+      top: -105%;
+      right: 40%;
     }
 
     & div {
@@ -146,31 +146,70 @@ export const CardContainer = styled.article`
   }
 
   @media ${themes.primary.media.minPC} {
-    &:nth-child(4) {
-      & img {
-        top: -70%;
-        right: 30%;
-      }
-    }
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
     &:nth-child(2) {
+      margin-top: 0;
       & img {
-        top: -85%;
-        right: 40%;
+        top: -87%;
+        right: 30%;
       }
     }
     &:nth-child(3) {
       & img {
-        top: -70%;
+        top: -77%;
         left: 20%;
       }
     }
     &:nth-child(4) {
       & img {
-        top: -60%;
-        right: 10%;
+        top: -97%;
+        right: 45%;
+      }
+    }
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    & img {
+      width: 20em;
+    }
+    &:nth-child(2) {
+      & img {
+        width: 27em;
+        top: -107%;
+        right: 30%;
+      }
+    }
+    &:nth-child(3) {
+      & img {
+        top: -73%;
+        left: 20%;
+      }
+    }
+    &:nth-child(4) {
+      & img {
+        width: 25em;
+        top: -120%;
+        right: 45%;
+      }
+    }
+  }
+
+  @media (min-width: 2400px) {
+    &:nth-child(2) {
+      & img {
+        top: -110%;
+        right: 50%;
+      }
+    }
+    &:nth-child(3) {
+      & img {
+        top: -72%;
+        left: 25%;
+      }
+    }
+    &:nth-child(4) {
+      & img {
+        top: -125%;
+        right: 50%;
       }
     }
   }
@@ -178,28 +217,44 @@ export const CardContainer = styled.article`
   @media (max-width: 1350px) {
     &:nth-child(2) {
       & img {
-        right: 20%;
+        right: 40%;
+      }
+    }
+
+    &:nth-child(3) {
+      & img {
+        left: 25%;
       }
     }
 
     &:nth-child(4) {
       & img {
-        right: 10%;
+        right: 30%;
       }
     }
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
+    & img {
+      width: 18em;
+    }
     &:nth-child(2n-1) {
       & img {
-        top: -100%;
-        left: 15%;
+        top: -80%;
+        left: 18%;
       }
     }
 
     &:nth-child(2n) {
       & img {
-        right: 10%;
+        top: -80%;
+        right: 45%;
+      }
+    }
+
+    &:nth-child(2) {
+      & img {
+        top: -60%;
       }
     }
 
@@ -216,22 +271,22 @@ export const CardContainer = styled.article`
     &:nth-child(2n-1) {
       & > img {
         transform: scale(0.8);
-        top: -100%;
-        left: 3%;
+        top: -92%;
+        left: 8%;
       }
     }
 
     &:nth-child(2) {
       & img {
-        transform: scale(0.8);
-        right: -1%;
+        right: 20%;
+        top: -75%;
       }
     }
 
     &:nth-child(4) {
       & img {
-        top: -80%;
-        right: 40%;
+        top: -100%;
+        right: 10%;
       }
 
       & div {
@@ -255,11 +310,15 @@ export const CardContainer = styled.article`
       bottom: -1em;
     }
 
-    &:nth-child(2)::after {
-      bottom: -1em;
+    &:nth-child(2) {
+      margin-top: 0;
+      ::after  {
+        bottom: -1em;
+      }
     }
 
     &:nth-child(3) {
+      margin-top: -2em;
       ::after {
         bottom: -1em;
       }
@@ -270,7 +329,6 @@ export const CardContainer = styled.article`
     padding-bottom: 20px;
 
     :last-child {
-      padding-bottom: 30px;
       ::after {
         content: none;
       }
@@ -288,6 +346,11 @@ export const CardTitle = styled.div`
   font-size: ${themes.primary.font.size.homeCardSubtitle};
   display: flex;
   align-items: flex-end;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 4.45em;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.bigTitle};
   }
@@ -310,6 +373,8 @@ export const CardTitle = styled.div`
 `;
 
 export const CardSubtitle = styled.div`
+  line-height: 110%;
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 34px;
   }
@@ -322,13 +387,9 @@ export const CardContent = styled.div`
   line-height: 160%;
   margin-top: 10px;
   font-weight: ${themes.primary.font.weight.heavy};
-  max-width: 720px;
+  max-width: 595px;
   font-size: ${themes.primary.font.size.feedbackName};
   display: inline-block;
-
-  &.third {
-    max-width: 690px;
-  }
 
   @media ${themes.primary.media.minPC} {
     max-width: 800px;
@@ -338,6 +399,9 @@ export const CardContent = styled.div`
     & br {
       display: none;
     }
+  }
+  @media (min-width: 2400px) {
+    max-width: 1200px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     max-width: 600px;
