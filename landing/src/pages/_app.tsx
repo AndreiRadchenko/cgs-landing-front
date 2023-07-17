@@ -11,8 +11,6 @@ import {
 } from "@tanstack/react-query";
 import Head from "next/head";
 
-import { GestureNavigation } from "../components/Gesturenavigation";
-
 function MyApp({
   Component,
   pageProps,
@@ -32,7 +30,6 @@ function MyApp({
         </Head>
         <Hydrate state={pageProps.dehydratedState}>
           <Component {...pageProps} />
-          <GestureNavigation />
         </Hydrate>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
