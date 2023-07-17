@@ -30,7 +30,7 @@ export const TitleInnerWrapper = styled.div<PropsWithId>`
   align-items: center;
   justify-content: space-between;
   font-size: 1.2em;
-  column-gap: 5px;
+  column-gap: 12px;
   -webkit-tap-highlight-color: transparent;
 
   @media (min-width: 475px) {
@@ -103,14 +103,15 @@ export const CategoryTitle = styled.h2`
   }
 
   @media (max-width: 410px) {
-    margin-left: 4px;
+    margin-top: 5px;
+    margin-left: -5px;
 
     &.server {
-      margin-left: 8px;
+      margin-left: 0px;
     }
 
     &.mobile {
-      margin-left: -13px;
+      margin-left: -20px;
     }
   }
 `;
@@ -143,11 +144,15 @@ export const Arrow = styled.svg`
   @media ${themes.primary.media.maxMobile} {
     display: block;
     transition: 0.3s;
-    margin-top: -7px;
+    margin-top: -2px;
 
     &.open {
       transform: rotate(180deg);
     }
+  }
+
+  @media (max-width: 410px) {
+    margin-top: -8px;
   }
 `;
 
