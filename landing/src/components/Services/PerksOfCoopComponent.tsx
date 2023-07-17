@@ -34,7 +34,7 @@ const PerksOfCoopComponent = ({
         {dataWealth &&
           Object.entries(dataWealth).map((el: any, idx) => (
             <Styles.WorthBlock key={`${el[0]} ${idx}`} ind={idx}>
-              <Styles.WorthTitleContainer>
+              <Styles.WorthTitleContainer className={className}>
                 <Styles.Icon
                   src={titleIllustration[idx].src}
                   alt="worth it title image"

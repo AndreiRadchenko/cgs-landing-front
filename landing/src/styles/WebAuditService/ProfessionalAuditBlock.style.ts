@@ -119,8 +119,8 @@ export const HoveredImage = styled.div<IProps>`
 
   animation: ${({ delay }) =>
     delay
-      ? "6s linear infinite scrollTimer, fade-in-timer 1s ease-out forwards;"
-      : "6s linear infinite 3s scrollTimer;"};
+      ? "6s linear infinite 3s scrollTimer, 1s forwards 3s fade-in-timer;"
+      : "6s linear infinite scrollTimer;"};
   flex-shrink: 0;
   display: flex;
   justify-content: space-around;

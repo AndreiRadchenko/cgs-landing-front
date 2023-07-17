@@ -27,7 +27,7 @@ export const Title = styled.h2`
   margin: 0;
   margin-left: -1.276em;
   width: 36.7vw;
-  padding: 28.5px 0 28.5px 1.276em;
+  padding: 5px 0 28.5px 1.276em;
   font-size: 3.33em;
   line-height: 1.4;
   text-transform: uppercase;
@@ -56,7 +56,7 @@ export const RelativePositioner = styled.div`
 
 export const ListsWrapper = styled.div`
   position: absolute;
-  top: 0;
+  top: 15px;
   left: 0;
   width: 100%;
   display: flex;
