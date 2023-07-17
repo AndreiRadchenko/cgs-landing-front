@@ -154,7 +154,12 @@ const WhatAppIncludeBlock = () => {
         <Styled.MobileAuditBgiContainer angle={gradientPosition} ref={elRef} />
         <Styled.SubtitlesList>
           {data?.textBlock.map((item, idx) => (
-            <WhatAppIncludeSubListItem item={item} key={idx} onMouseEnter={onMouseEnter} onMouseOut={onMouseOut} />
+            <WhatAppIncludeSubListItem 
+              item={item} 
+              key={idx} 
+              onMouseEnter={onMouseEnter} 
+              onMouseOut={onMouseOut}
+              />
           ))}
         </Styled.SubtitlesList>
       </Styled.GradientLineContainer>
