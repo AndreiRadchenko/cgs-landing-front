@@ -164,7 +164,8 @@ export const BorderSvg = styled.svg`
   }
 
   @media (max-width: 410px) {
-    width: 335px;
+    margin-left: -8px;
+    width: 347px;
     height: 143px;
   }
 `;
