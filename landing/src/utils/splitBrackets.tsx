@@ -3,29 +3,21 @@ import React from "react";
 
 interface ISplitBracketsProps {
   text?: string;
-  onMouseOut?: () => void;
-  onMouseEnter?: (text: string, event: React.MouseEvent) => void;
 }
 
 export const SplitBrackets = ({
   text,
-  onMouseOut,
-  onMouseEnter,
 }: ISplitBracketsProps) => {
   const is768px = useMediaQuery("(max-width:768px)");
 
   const splited = is768px ? text?.split("^") : text?.split("|");
 
   return (
-    <section onMouseLeave={onMouseOut} onTouchEnd={onMouseOut}>
+    <section>
       {splited?.map(
         (el, idx) =>
           el !== "" && (
-            <span
-              key={idx}
-              onMouseEnter={(event) => onMouseEnter?.(text as string, event)}
-              onTouchStart={(e: any) => onMouseEnter?.(text as string, e)}
-            >
+            <span key={idx}>
               {el.replace(/[\^|]/g, "")}
               {splited.length - 1 !== idx && <br />}
             </span>
