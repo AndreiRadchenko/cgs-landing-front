@@ -430,6 +430,7 @@ export const EstimationTooltipText = styled.span`
     }
   }
 `;
+
 export const EstimationTooltip = styled.div`
   position: relative;
   width: 25px;

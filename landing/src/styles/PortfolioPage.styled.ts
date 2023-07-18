@@ -108,6 +108,7 @@ export const HeaderContainerBlock = styled.div`
     }
   }
 `;
+
 export const HeaderImageContainer = styled.div`
   position: absolute;
   right: 0;
@@ -343,6 +344,7 @@ export const SeeMoreProjectsArrowFirst = styled.div`
     width: 70%;
   }
 `;
+
 export const SeeMoreProjectsArrowSecond = styled.div`
   padding-top: 13px;
   svg {
@@ -437,6 +439,7 @@ export const FeedbackStarContainer = styled.div`
     }
   }
 `;
+
 export const FeedbackInfoContainer = styled.div`
   padding: 34px 50px;
 

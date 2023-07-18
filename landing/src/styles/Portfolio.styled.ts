@@ -83,30 +83,6 @@ export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
   }
 `;
 
-export const PortfolioCommentWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-export const PortfolioComment = styled.div`
-  font-family: ${themes.primary.font.family.namu};
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  font-size: 18px;
-  margin-top: 18px;
-  width: 607px;
-  line-height: 28.8px;
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    text-align: start;
-    margin-top: 26px;
-    font-size: 16px;
-    line-height: 25.6px;
-  }
-`;
-
 export const PortfolioSearchWrapper = styled.div`
   display: flex;
   align-items: flex-end;
@@ -228,6 +204,7 @@ export const PortfolioTemplateBlock = styled.div`
     height: 2200px;
   }
 `;
+
 interface IPortfolioIndustryTag {
   isArticlePage?: boolean;
 }
@@ -315,21 +292,6 @@ export const PortfolioInputWrapper = styled.div<IPortfolioSearch>`
       width: 298px;
     }
   }
-`;
-
-export const PortfolioSearchElement = styled.div`
-  display: flex;
-  white-space: nowrap;
-  border-radius: 2px;
-  height: 34px;
-  background-color: #dfe1e6;
-  align-items: center;
-  margin-left: 8px;
-  padding: 0 10px;
-`;
-
-export const PortfolioSearchElementText = styled.div`
-  padding-bottom: 1px;
 `;
 
 export const PortfolioSearchButton = styled.div`

@@ -74,6 +74,7 @@ export const List = styled.ul`
     padding-left: 11px;
   }
 `;
+
 export const ListTitle = styled.span`
   position: relative;
   bottom: 10px;
@@ -87,6 +88,7 @@ export const ListTitle = styled.span`
     font-size: 1.5rem;
   }
 `;
+
 export const ListItem = styled.li`
   margin: 0;
   margin-top: 0px;
@@ -171,15 +173,6 @@ export const SubmitButton = styled.button`
   @media (max-width: 570px) {
     font-size: 1rem;
   }
-`;
-
-export const SubmitArrow = styled.img`
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  right: -15px;
-  top: -12px;
-  cursor: pointer;
 `;
 
 export const CloseButton = styled.img`
