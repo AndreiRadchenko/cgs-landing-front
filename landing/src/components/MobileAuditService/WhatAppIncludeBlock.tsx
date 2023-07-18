@@ -69,7 +69,7 @@ const WhatAppIncludeBlock = () => {
       ref: it.ref,
       bullets: data?.textBlock?.find((block) => {
         return (
-          block.text?.toUpperCase()?.includes(it?.key?.text?.toUpperCase()) ||
+          block.text?.toUpperCase()?.includes(it!.key!.text!.toUpperCase()) ||
           block.subtext?.some((subtextLine) =>
             it?.key?.subtext?.includes(subtextLine)
           )
@@ -98,7 +98,7 @@ const WhatAppIncludeBlock = () => {
           title?.toUpperCase()?.includes(bullet?.toUpperCase())
         );
         return (
-          title?.toUpperCase()?.includes(it.key?.text?.toUpperCase()) ||
+          title?.toUpperCase()?.includes(it!.key!.text!.toUpperCase()) ||
           isBulletHovered
         );
       });
