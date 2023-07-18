@@ -7,7 +7,7 @@ export const HeaderNavContainer = styled.div`
   justify-content: space-between;
   position: fixed;
   right: 0;
-  top: 0;
+  top: -1px;
   z-index: 36;
   background-color: ${themes.primary.colors.blogBackground};
   border-bottom: 1px solid ${themes.primary.colors.headerBorder};
