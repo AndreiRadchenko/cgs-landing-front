@@ -17,7 +17,7 @@ export const BurgerWrapper = styled.div`
     right: 0;
     top: 0;
     transition: transform 0.3s ease-in;
-    padding-top: 80px;
+    padding-top: 81px;
     background-color: ${themes.primary.colors.blogBackground};
     z-index: 35;
 
