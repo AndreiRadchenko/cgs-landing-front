@@ -92,7 +92,7 @@ const BlockchainService = () => {
             <Layout>
               <Styled.Layout>
                 <HeadBlock />
-                <ServicesBlock className={"blockchainServices"} />
+                <ServicesBlock />
                 <YourWayBlock />
               </Styled.Layout>
               <TeamMembers

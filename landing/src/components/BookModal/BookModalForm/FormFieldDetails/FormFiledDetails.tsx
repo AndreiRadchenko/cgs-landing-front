@@ -1,4 +1,4 @@
-import { useFormikContext, useField, ErrorMessage } from "formik";
+import { useFormikContext, useField } from "formik";
 import React, { FC, useState, useEffect } from "react";
 import { IFormState } from "..";
 import * as Styled from "../../../../styles/BookModalForm/FormField.styled";
@@ -20,7 +20,7 @@ export const FormFieldDetails: FC<IDetailsFieldProps> = ({
 }) => {
   const [usedChars, setUsedChars] = useState(maxLength);
   const { errors } = useFormikContext<IFormState>();
-  const [field, meta, helpers] = useField(name);
+  const [field, meta] = useField(name);
 
   useEffect(() => {
     setUsedChars(meta.value.length);

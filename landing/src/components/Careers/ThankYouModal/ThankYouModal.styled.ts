@@ -32,7 +32,7 @@ export const ThankYouModalContainer = styled.div`
 export const ThankYouModalContent = styled.div`
   width: 613px;
   height: 364px;
-  background: #F1EFED;
+  background: #f1efed;
   position: relative;
   border: 2px solid ${themes.primary.colors.primary};
 

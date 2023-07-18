@@ -39,8 +39,11 @@ const FigureOutTermsBlock = () => {
             placeholder="Title"
           />
           {Object.entries(values.figureOutBlock.textBlock).map((el, idx) => (
-            <div>
-              <TextEditor header="Text" name={`figureOutBlock.textBlock[${idx}]`}/>
+            <div key={idx}>
+              <TextEditor
+                header="Text"
+                name={`figureOutBlock.textBlock[${idx}]`}
+              />
             </div>
           ))}
         </Styled.InputsWrapper>

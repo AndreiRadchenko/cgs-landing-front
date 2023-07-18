@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
-export const DropdownButton = styled.button<{ isHeader?: boolean; toFormError?: boolean; toSelectPosition?: boolean }>`
+export const DropdownButton = styled.button<{
+  isHeader?: boolean;
+  toFormError?: boolean;
+  toSelectPosition?: boolean;
+}>`
   cursor: pointer;
-  color: ${({ toFormError, toSelectPosition }) => (toFormError ? "#F84A3F" : toSelectPosition ? "#000" : "#8F8E93")};
+  color: ${({ toFormError, toSelectPosition }) =>
+    toFormError ? "#F84A3F" : toSelectPosition ? "#000" : "#8F8E93"};
   background-color: ${themes.primary.colors.blogBackground};
   box-sizing: border-box;
   border: ${(props) =>
@@ -85,25 +90,25 @@ export const DropdownContent = styled.div`
 
     &:last-of-type {
       border-bottom: 0;
-      color: #8F8E93;
+      color: #8f8e93;
     }
-    
+
     &:hover {
       background-color: ${themes.primary.colors.blogDropdownHover};
     }
 
-    &:nth-child(2){
+    &:nth-child(2) {
       height: 65px;
     }
   }
 
   @media (max-width: 768px) {
-    div{
+    div {
       height: 55px;
       padding: 16px 20px;
 
-      &:nth-child(2){
-        &:nth-child(2){
+      &:nth-child(2) {
+        &:nth-child(2) {
           height: 55px;
         }
       }
@@ -113,7 +118,7 @@ export const DropdownContent = styled.div`
 
 export const DropdownScrollbarContainer = styled.section`
   width: 10px;
-  background-color: #F0EFED;
+  background-color: #f0efed;
   z-index: 5;
   height: 274px;
   position: absolute;
@@ -125,7 +130,7 @@ export const DropdownScrollbarContainer = styled.section`
   }
 `;
 
-export const DropdownScrollbar = styled.section<{top: number}>`
+export const DropdownScrollbar = styled.section<{ top: number }>`
   position: absolute;
   top: 0;
   transition: transform ease;
@@ -138,4 +143,3 @@ export const DropdownScrollbar = styled.section<{top: number}>`
   background-color: black;
   z-index: 100;
 `;
-

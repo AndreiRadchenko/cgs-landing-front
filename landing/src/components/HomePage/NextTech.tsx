@@ -6,7 +6,6 @@ import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import Partners from "../Partners/Partners";
 import { queryKeys } from "../../consts/queryKeys";
 import ButtonArrow from "../../utils/ButtonArrow";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ScrambleText from "./ScrambleText";
 import FreeServices from "../FreeServices/FreeServices";
 import { IDataResponse } from "../../types/Admin/Response.types";
@@ -17,8 +16,6 @@ import Badges from "./Badges";
 import * as Styled from "../../styles/HomePage/General.styled";
 
 const NextTech = () => {
-  const { width } = useWindowDimension();
-
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
       if (
@@ -96,10 +93,14 @@ const NextTech = () => {
 
   return (
     <Styled.NextTech>
-      <Styled.Subtitle className="nextTech">{text && parse(text.title, options)}</Styled.Subtitle>
+      <Styled.Subtitle className="nextTech">
+        {text && parse(text.title, options)}
+      </Styled.Subtitle>
       <Badges />
       <FreeServices />
-      <Styled.Subtitle className="textOnFilm">{data?.textOnFilm && parse(data?.textOnFilm, options2)}</Styled.Subtitle>
+      <Styled.Subtitle className="textOnFilm">
+        {data?.textOnFilm && parse(data?.textOnFilm, options2)}
+      </Styled.Subtitle>
       <Styled.RightContainer>
         <Styled.BlackButton
           target="_blank"

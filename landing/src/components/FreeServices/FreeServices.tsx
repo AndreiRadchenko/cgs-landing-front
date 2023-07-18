@@ -45,7 +45,7 @@ const FreeServices = () => {
               </Styled.FreeServicesImageWrapper>
 
               <Styled.FreeServicesText className="text">
-                <SplitBrackets text={elem.subtitle}/>
+                <SplitBrackets text={elem.subtitle} />
               </Styled.FreeServicesText>
             </Styled.FreeServicesCard>
           ) : (

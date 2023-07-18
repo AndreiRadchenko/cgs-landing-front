@@ -91,7 +91,7 @@ const MetaTagsBlock = ({
 
   return (
     <Styled.MetaBlockWraper theme={theme}>
-      <div style={{ padding: "30px 30px"}}>
+      <div style={{ padding: "30px 30px" }}>
         <SubHeaderWithInput
           header="Meta Title"
           minRows={5}
@@ -167,16 +167,16 @@ const MetaTagsBlock = ({
           onChangeFunction={handleChange}
         />
         <BlackButton
-        type="submit"
-        size={"1.5em"}
-        padding={"1.11em 1.5em"}
-        onClick={handleClick}
-      >
-        Update meta tags
-        <ArrowContainer>
-          <ButtonArrow />
-        </ArrowContainer>
-      </BlackButton>
+          type="submit"
+          size={"1.5em"}
+          padding={"1.11em 1.5em"}
+          onClick={handleClick}
+        >
+          Update meta tags
+          <ArrowContainer>
+            <ButtonArrow />
+          </ArrowContainer>
+        </BlackButton>
       </div>
     </Styled.MetaBlockWraper>
   );

@@ -8,7 +8,11 @@ interface ISubListItemProps {
   onMouseOut?: () => void;
 }
 
-const WhatAppIncludeSubListItem = ({ subItem, onMouseEnter, onMouseOut }: ISubListItemProps) => {
+const WhatAppIncludeSubListItem = ({
+  subItem,
+  onMouseEnter,
+  onMouseOut,
+}: ISubListItemProps) => {
   return (
     <Styled.SubtextWrapper>
       <Styled.PointWrapper className="subtext">
@@ -16,7 +20,11 @@ const WhatAppIncludeSubListItem = ({ subItem, onMouseEnter, onMouseOut }: ISubLi
         <Styled.PointCircle />
       </Styled.PointWrapper>
       <Styled.Subtext>
-        <MobileAuditSplitBrackets text={subItem} onMouseEnter={onMouseEnter} onMouseOut={onMouseOut} />
+        <MobileAuditSplitBrackets
+          text={subItem}
+          onMouseEnter={onMouseEnter}
+          onMouseOut={onMouseOut}
+        />
       </Styled.Subtext>
     </Styled.SubtextWrapper>
   );

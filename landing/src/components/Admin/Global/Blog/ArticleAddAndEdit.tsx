@@ -40,8 +40,8 @@ const ArticleAddAndEdit = ({
   setArticle,
   scrollHandler,
 }: IArticleAddAndEdit) => {
-  const [descLength, setDescLength] = useState(0);
-  const [titleLength, setTitleLength] = useState(0);
+  const [, setDescLength] = useState(0);
+  const [, setTitleLength] = useState(0);
   const [shouldValidate, setShouldValidate] = useState(false);
   const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
   const { mutateAsync } = useMutation([queryKeys.uploadImage], (data: any) =>

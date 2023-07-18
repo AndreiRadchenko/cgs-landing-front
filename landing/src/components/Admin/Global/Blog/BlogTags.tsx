@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect } from "react";
 
 import * as Styles from "../../../../styles/BlogTags.styled";
 import { useFormikContext } from "formik";

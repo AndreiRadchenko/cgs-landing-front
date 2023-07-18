@@ -1,6 +1,5 @@
 import React, { FC, MouseEvent, useEffect, useRef, useState } from "react";
 import * as Styled from "./CareersTicket.styled";
-import Arrow from "../../../public/CareerDecorations/ticketArrow.svg";
 import TicketModal from "../Careers/TicketModal";
 import { ITicket } from "../../types/Admin/Response.types";
 import * as Styles from "../../styles/TicketModal.styled";

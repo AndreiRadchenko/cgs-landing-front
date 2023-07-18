@@ -12,15 +12,17 @@ interface IBurgerFooter {
 }
 
 const BurgerFooter = () => {
-  const { data }: IBurgerFooter = useQuery(
-    [queryKeys.getFullHomePage],
-    () => adminGlobalService.getFullPage()
+  const { data }: IBurgerFooter = useQuery([queryKeys.getFullHomePage], () =>
+    adminGlobalService.getFullPage()
   );
 
   return (
     <StyledThisComp.FooterWrapper>
       <StyledThisComp.MailsWrapper>
-        <StyledThisComp.Mail href={`mailto:${data?.FooterBlock?.email}`} className="upper">
+        <StyledThisComp.Mail
+          href={`mailto:${data?.FooterBlock?.email}`}
+          className="upper"
+        >
           <SplitBrackets text={data?.FooterBlock?.email} />
         </StyledThisComp.Mail>
         <StyledThisComp.Mail href={`mailto:${data?.FooterBlock?.hrEmail}`}>

@@ -1,11 +1,7 @@
 import React from "react";
 import { useFormikContext } from "formik";
 
-import {
-  AdminHalfGrid,
-  AdminHeader,
-  AdminPaddedBlock,
-} from "../../../../styles/AdminPage";
+import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 import {
   ArrowContainer,

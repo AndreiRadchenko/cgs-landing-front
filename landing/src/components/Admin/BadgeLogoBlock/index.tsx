@@ -1,5 +1,4 @@
 import React from "react";
-import dynamic from "next/dynamic";
 import { useFormikContext } from "formik";
 
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
@@ -9,7 +8,7 @@ import { IImage } from "../../../types/Admin/Admin.types";
 import { IDataResponse } from "../../../types/Admin/Response.types";
 
 import * as Styled from "../../../styles/AdminPage";
-import removeLink from "../../../../public/linkIcon.svg"
+import removeLink from "../../../../public/linkIcon.svg";
 
 const BadgeLogoBlock = () => {
   const deleteImageFunction = useDeleteImageFunction();
@@ -54,19 +53,19 @@ const BadgeLogoBlock = () => {
               header="Drop new image here"
               deleteFlag={true}
             />
-              <Styled.AdminInput
-                value={elem.link}
-                onChange={handleChange}
-                name={`BadgesBlock.badges[${idx}].link`}
-                style={{
-                  marginBottom: "0",
-                }}
-                className="badgesInput"
-              />
-              <Styled.AdminRemoveLinkImage
-                src={removeLink.src}
-                onClick={() => clearInput(idx)}
-              />
+            <Styled.AdminInput
+              value={elem.link}
+              onChange={handleChange}
+              name={`BadgesBlock.badges[${idx}].link`}
+              style={{
+                marginBottom: "0",
+              }}
+              className="badgesInput"
+            />
+            <Styled.AdminRemoveLinkImage
+              src={removeLink.src}
+              onClick={() => clearInput(idx)}
+            />
           </Styled.AdminFreeServicesCard>
         ))}
       </Styled.AdminFreeServicesContent>

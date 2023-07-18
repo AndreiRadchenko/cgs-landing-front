@@ -14,14 +14,14 @@ interface ILeftSideProps {
 
 const LeftSideBlock = ({ state, onChangeFunction }: ILeftSideProps) => {
   return (
-    <div style={{width: '28em'}}>
+    <div style={{ width: "28em" }}>
       <SubHeaderWithInput
         header="Title"
         name="EditInformationBlock.title"
         inputValue={state.title}
         onChangeFunction={onChangeFunction}
       />
-      <TextEditor 
+      <TextEditor
         header="Subtitle"
         name="EditInformationBlock.subtitle"
         props={{
@@ -57,7 +57,3 @@ const LeftSideBlock = ({ state, onChangeFunction }: ILeftSideProps) => {
 };
 
 export default LeftSideBlock;
-
-
-
- 

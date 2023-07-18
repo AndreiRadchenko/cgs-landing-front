@@ -1,6 +1,5 @@
 import React from "react";
 import * as Styled from "../../../../styles/BookModalForm/ServiceDropDown.styled";
-import Arrow from "../../../../../public/upArrowSidebar.svg";
 import { SplitBrackets } from "../../../../utils/splitBrackets";
 import { useFormikContext } from "formik";
 import { navigationRoutesNamesNew } from "../../../../utils/variables";

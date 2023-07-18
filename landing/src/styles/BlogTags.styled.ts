@@ -1,7 +1,6 @@
 import themes from "../utils/themes";
 import styled from "styled-components";
 import { Field } from "formik";
-import Arrow from "../../public/upArrowSidebar.svg";
 
 export const TagsWrapper = styled.div`
   display: flex;
@@ -44,7 +43,7 @@ export const AddTag = styled.div`
   cursor: pointer;
   &:first-child {
     margin-left: 0;
-    background-color: #5869DD;
+    background-color: #5869dd;
     border: none;
     color: #fff;
   }

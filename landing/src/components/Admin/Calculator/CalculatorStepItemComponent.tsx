@@ -32,7 +32,6 @@ interface ICalculatorStepItemComponentProps {
 }
 
 const CalculatorStepItemComponent = ({
-  isBlockchain,
   data,
   index,
   submitKey,

@@ -14,8 +14,7 @@ const DropdownCategory = ({
   categories: string[];
   isError?: boolean;
 }) => {
-  const { values, errors, setFieldValue } =
-    useFormikContext<IPortfolioReview>();
+  const { values, setFieldValue } = useFormikContext<IPortfolioReview>();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [catArr, setCatArr] = useState<string[]>(values.categories || []);

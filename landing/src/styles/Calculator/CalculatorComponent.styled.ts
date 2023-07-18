@@ -1,11 +1,7 @@
 import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 import LoaderImg from "../../../public/Calculator/calculatorLoader.gif";
-import {
-  glow,
-  horizontalGlow,
-  horizontalGlowReverse,
-} from "../Animations.styled";
+import { glow, horizontalGlowReverse } from "../Animations.styled";
 
 export const CalculatorPreviewWrapper = styled.div`
   position: fixed;

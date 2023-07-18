@@ -15,11 +15,8 @@ import * as CSS from "../../styles/Portfolio/title.styled";
 import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import FreeServices from "../FreeServices/FreeServices";
 import ButtonArrow from "../../utils/ButtonArrow";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const MobileNextTech = () => {
-  const { width } = useWindowDimension();
-
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
       if (
@@ -101,7 +98,9 @@ const MobileNextTech = () => {
       </Styled.Subtitle>
       <Badges />
       <MobileServices />
-      <Styled.Subtitle className="mobileTextOnFilm">{data?.textOnFilm && parse(data?.textOnFilm, options2)}</Styled.Subtitle>
+      <Styled.Subtitle className="mobileTextOnFilm">
+        {data?.textOnFilm && parse(data?.textOnFilm, options2)}
+      </Styled.Subtitle>
       <Styled.SideOppositeContainer>
         <Styled.BlackButton
           target="_blank"

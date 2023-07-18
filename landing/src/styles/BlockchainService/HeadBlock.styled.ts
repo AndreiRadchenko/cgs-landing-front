@@ -60,7 +60,7 @@ export const Title = styled.h1`
     line-height: 48px;
     width: 100%;
     height: 145px;
-    
+
     & .last-part {
       top: 14px;
     }
@@ -170,5 +170,5 @@ export const ImageCrypto = styled.img`
     height: 7em;
     top: 6.5em;
     left: 4em;
-}
+  }
 `;
