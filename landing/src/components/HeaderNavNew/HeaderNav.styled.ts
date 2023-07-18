@@ -25,6 +25,7 @@ export const HeaderNavContainer = styled.div`
 `;
 
 export const NavBarWrapper = styled.div`
+padding-top: 1px;
   @media ${themes.primary.media.maxMobile} {
     display: flex;
     justify-content: space-between;
@@ -127,7 +128,8 @@ export const ListItemNav = styled.a`
 export const NavList = styled.menu`
   margin: 0;
   display: flex;
-  height: 56px;
+  height: 57px;
+  padding-top: 1px;
   padding-left: 0;
   @media ${themes.primary.media.maxLaptop} {
     margin-right: 0;
