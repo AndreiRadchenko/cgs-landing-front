@@ -45,6 +45,10 @@ export const Title = styled.h2`
     width: 100%;
     border: none;
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const RelativePositioner = styled.div`
