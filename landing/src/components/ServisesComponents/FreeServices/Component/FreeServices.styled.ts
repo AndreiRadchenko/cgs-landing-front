@@ -20,6 +20,10 @@ export const Title = styled.h2`
   font-size: 3.33em;
   line-height: 1.4;
   text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const ServiceList = styled.ul`

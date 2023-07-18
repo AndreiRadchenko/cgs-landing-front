@@ -12,7 +12,6 @@ interface IServicesProps {
 }
 
 export const FreeServices = ({ freeServices }: IServicesProps) => {
-  const isMobile = useMediaQuery("(max-width:768px)");
   const { title, services } = freeServices ?? {
     title: "",
     services: [{ subtitle: "", text: "" }],
@@ -20,21 +19,22 @@ export const FreeServices = ({ freeServices }: IServicesProps) => {
 
   return (
     <Styles.Container>
-      {isMobile ? (
+      <div>
         <MobileInfiniteText title={title} />
-      ) : (
+      </div>
+      <div>
         <Styles.Title>{title}</Styles.Title>
-      )}
-      <Styles.ServiceList>
-        {services.map((item, idx) => (
-          <ServiceCard
-            key={idx}
-            idx={idx}
-            subtitle={item.subtitle}
-            text={item.text}
-          />
-        ))}
-      </Styles.ServiceList>
+        <Styles.ServiceList>
+          {services.map((item, idx) => (
+            <ServiceCard
+              key={idx}
+              idx={idx}
+              subtitle={item.subtitle}
+              text={item.text}
+            />
+          ))}
+        </Styles.ServiceList>
+      </div>
     </Styles.Container>
   );
 };
