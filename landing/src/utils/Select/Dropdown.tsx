@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
+import { onBlurHandler } from "../onBlurHandler";
 
 import Arrow from "../../../public/upArrowSidebar.svg";
 import * as Styled from "../../styles/HomePage/General.styled";
@@ -41,19 +42,7 @@ const Dropdown = ({
     if (setEnable) setEnable(false);
   };
 
-  useEffect(() => {
-    function handleClickOutside(event: { target: any }) {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        onBlur();
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [modalRef]);
+  onBlurHandler(modalRef, onBlur);
 
   return (
     <Styled.DropdownWrapper ref={modalRef}>
