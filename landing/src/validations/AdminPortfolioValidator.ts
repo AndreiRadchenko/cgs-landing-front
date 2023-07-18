@@ -23,8 +23,7 @@ export const AdminPortfolioValidation = () => {
     technologies: yup
       .array()
       .of(yup.object().required("Can not be empty"))
-      .min(1, "Can not be empty")
-      .max(6, "Can not be more than 6"),
+      .min(1, "Can not be empty"),
     industry: yup.string().required(),
     title: yup
       .string()
