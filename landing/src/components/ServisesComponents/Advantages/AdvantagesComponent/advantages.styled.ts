@@ -1,10 +1,13 @@
 import styled, { css } from "styled-components";
 import themes from "../../../../utils/themes";
-import { slideRight, slideDownText } from "../../../../styles/Animations.styled";
+import {
+  slideRight,
+  slideDownText,
+} from "../../../../styles/Animations.styled";
 import { ISlide } from "../../../../types/Decoration.types";
 
 interface IsFirst {
-  isFirst: boolean
+  isFirst: boolean;
 }
 
 export const Wrapper = styled.div`
@@ -18,7 +21,7 @@ export const Wrapper = styled.div`
   }
 
   @media (max-width: 1440px) {
-    margin-top: -17px;
+    margin-top: -14px;
   }
 
   @media (max-width: 475px) {
@@ -61,25 +64,25 @@ export const NumberItems = styled.div<ISlide>`
   opacity: 0;
 
   &.scrolled {
-      transform-origin: left center;
-      animation: ${({ ind }) =>
-        css`
-          ${slideRight} 700ms ${ind * 100}ms ease-in forwards
-        `};
-    }
+    transform-origin: left center;
+    animation: ${({ ind }) =>
+      css`
+        ${slideRight} 700ms ${ind * 100}ms ease-in forwards
+      `};
+  }
 
-    p{
-      font-family: ${themes.primary.font.family.namu};
-      font-size: 2.667em;
-      font-weight: ${themes.primary.font.weight.heavy};
-      position: absolute;
-      bottom: 0em;
-      margin-left: 1.5em;
-    }
+  p {
+    font-family: ${themes.primary.font.family.namu};
+    font-size: 2.667em;
+    font-weight: ${themes.primary.font.weight.heavy};
+    position: absolute;
+    bottom: 0em;
+    margin-left: 1.5em;
+  }
 
-    img{
-      vertical-align: middle;
-    }
+  img {
+    vertical-align: middle;
+  }
 
   @media (max-width: 768px) {
     opacity: 1;
@@ -95,8 +98,8 @@ export const Numbers = styled.div`
 
   @media (min-width: 2561px) {
     width: 100px;
-    div{
-      p{
+    div {
+      p {
         margin-left: 1.2em;
         bottom: -0.2em;
       }
@@ -105,8 +108,8 @@ export const Numbers = styled.div`
 
   @media (max-width: 2560px) {
     width: 100px;
-    div{
-      p{
+    div {
+      p {
         margin-left: 1.2em;
         bottom: -0.2em;
       }
@@ -114,8 +117,8 @@ export const Numbers = styled.div`
   }
 
   @media (max-width: 1560px) {
-    div{
-      p{
+    div {
+      p {
         margin-left: 1.5em;
         bottom: 0;
       }
@@ -124,8 +127,8 @@ export const Numbers = styled.div`
 
   @media (max-width: 992px) {
     flex-direction: column;
-    div{
-      p{
+    div {
+      p {
         position: relative;
         margin: 0;
         margin-left: 0.7em;
@@ -137,8 +140,8 @@ export const Numbers = styled.div`
   @media (max-width: 768px) {
     width: 50px;
 
-    div{
-      p{
+    div {
+      p {
         margin: 0;
         margin-left: 8px;
       }
@@ -147,8 +150,8 @@ export const Numbers = styled.div`
 
   @media (max-width: 475px) {
     margin-left: -23px;
-    div{
-      p{
+    div {
+      p {
         font-size: 14px;
         margin-left: 16px;
       }
@@ -162,11 +165,11 @@ export const ImageWrapper = styled.div`
   align-items: center;
 
   @media (max-width: 475px) {
-    img:first-child{
+    img:first-child {
       width: 22px;
     }
 
-    img:last-of-type{
+    img:last-of-type {
       width: 4px;
     }
   }
@@ -186,7 +189,7 @@ export const BeforeBlock = styled.div<IsFirst>`
   display: ${({ isFirst }) => (isFirst ? "none" : "block")};
   content: "";
   height: 1px;
-  background-color: #8F8E93;
+  background-color: #8f8e93;
   top: 50%;
   margin: 0 17px 0 8px;
 
@@ -230,7 +233,7 @@ export const BeforeBlock = styled.div<IsFirst>`
 export const AfterBlock = styled.div`
   content: "";
   height: 1px;
-  background-color: #8F8E93;
+  background-color: #8f8e93;
   top: 50%;
   margin: 0 8px 0 17px;
 
@@ -276,47 +279,47 @@ export const ContentItems = styled.div<ISlide>`
   opacity: 0;
 
   &.scrolled {
-      transform-origin: left center;
-      animation: ${({ ind }) =>
-    css`
-          ${slideRight} 700ms ${ind * 100}ms ease-in forwards
+    transform-origin: left center;
+    animation: ${({ ind }) =>
+      css`
+        ${slideRight} 700ms ${ind * 100}ms ease-in forwards
       `};
   }
 
   @media (min-width: 2561px) {
-      &:not(:first-child) {
+    &:not(:first-child) {
       margin-left: 3.1vw;
-      }
+    }
   }
 
   @media (max-width: 2560px) {
-      &:not(:first-child) {
+    &:not(:first-child) {
       margin-left: 3.1vw;
-      }
+    }
   }
 
   @media (max-width: 1920px) {
-      &:not(:first-child) {
+    &:not(:first-child) {
       margin-left: 2.5vw;
-      }
+    }
   }
 
   @media (max-width: 1560px) {
-      &:not(:first-child) {
+    &:not(:first-child) {
       margin-left: 2.6vw;
-      }
+    }
   }
 
   @media (max-width: 1440px) {
-      &:not(:first-child) {
+    &:not(:first-child) {
       margin-left: 3.8vw;
-      }
+    }
   }
 
   @media (max-width: 1200px) {
-      &:not(:first-child) {
+    &:not(:first-child) {
       margin-left: 1.85vw;
-      }
+    }
   }
 
   @media (max-width: 992px) {
@@ -326,13 +329,13 @@ export const ContentItems = styled.div<ISlide>`
     &.scrolled {
       transform-origin: left center;
       animation: ${({ ind }) =>
-    css`
+        css`
           ${slideDownText} 700ms ${ind * 100}ms ease-in forwards
-      `};
+        `};
     }
 
     &:not(:first-child) {
-    margin-left: 0;
+      margin-left: 0;
     }
   }
 
