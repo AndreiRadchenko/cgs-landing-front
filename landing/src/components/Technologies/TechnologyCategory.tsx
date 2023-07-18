@@ -74,7 +74,7 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
       <StyledThisComp.CategorySubtitle className={className}>
         <SplitBrackets text={text} />
       </StyledThisComp.CategorySubtitle>
-      <TechModal data={stack} isOpen={isOpen} idx={idx}/>
+      <TechModal data={stack} isOpen={isOpen} idx={idx} />
       <StyledThisComp.CategoryImgWrapper
         className={width && width < 767 && isOpen ? "open" : undefined}
       >

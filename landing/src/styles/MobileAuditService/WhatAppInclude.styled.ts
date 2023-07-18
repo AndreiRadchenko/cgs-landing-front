@@ -233,7 +233,11 @@ export const GlassContainer = styled.div`
 
 export const IconContainer = styled.div``;
 
-export const GlassItem = styled.div<{ top: number; left: number; transitionTime: number }>`
+export const GlassItem = styled.div<{
+  top: number;
+  left: number;
+  transitionTime: number;
+}>`
   position: absolute;
   width: 100%;
   height: 100%;

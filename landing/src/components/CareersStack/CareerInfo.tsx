@@ -1,5 +1,4 @@
 import React, { Dispatch, FC, SetStateAction, useState } from "react";
-import Plus from "../../../public/plus.svg";
 import * as Styles from "../../../src/styles/BlogTags.styled";
 import { useFormikContext } from "formik";
 import { IDataCareersResponse } from "../../types/Admin/Response.types";
@@ -68,7 +67,7 @@ const CareerInfo: FC<IBlogTags> = ({
   return (
     <Styles.CareerInfo>
       <VacancyInput
-        style={{width: '70%'}}
+        style={{ width: "70%" }}
         type="text"
         name={
           isNewTicket
@@ -81,15 +80,15 @@ const CareerInfo: FC<IBlogTags> = ({
         }
         onChange={handleChange}
       />
-      <div style={{width: '70%'}}>
-      <Styled.ButtonsContainer>
-        <Styled.AddButton onClick={() => addNextHeading()}>
-          [ + add next heading ]
-        </Styled.AddButton>
-        <Styled.DeleteButton onClick={() => deleteHeading()}>
-          delete
-        </Styled.DeleteButton>
-      </Styled.ButtonsContainer>
+      <div style={{ width: "70%" }}>
+        <Styled.ButtonsContainer>
+          <Styled.AddButton onClick={() => addNextHeading()}>
+            [ + add next heading ]
+          </Styled.AddButton>
+          <Styled.DeleteButton onClick={() => deleteHeading()}>
+            delete
+          </Styled.DeleteButton>
+        </Styled.ButtonsContainer>
       </div>
       <Styles.TagsWrapper>
         {!isNewTicket

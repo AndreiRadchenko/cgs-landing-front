@@ -7,11 +7,7 @@ import * as Styled from "../../styles/BlockchainService/ServicesBlock.styled";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
-interface ServicesProps {
-  className?: string;
-}
-
-const ServicesBlock = (className: ServicesProps) => {
+const ServicesBlock = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IBlockchainService>([
     queryKeys.getServiceBlockchainPage,
@@ -38,7 +34,7 @@ const ServicesBlock = (className: ServicesProps) => {
         </Styled.SubTextContent>
       </Styled.SubTextContainer>
       <Styled.DescriptionContainer>
-        <MobileInfiniteText title={data?.descriptionSubtitle}/>
+        <MobileInfiniteText title={data?.descriptionSubtitle} />
         <Styled.Image src={data?.image.url} />
         <Styled.Description>
           <Styled.Subtitle>{data?.descriptionSubtitle}</Styled.Subtitle>

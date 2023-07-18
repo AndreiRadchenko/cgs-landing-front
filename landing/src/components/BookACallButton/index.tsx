@@ -5,8 +5,6 @@ import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
 import { recoverLink } from "../../utils/recoverLink";
 import * as Styled from "../../styles/HomePage/BookACallButton.styled";
-import { useFormikContext } from "formik";
-import { IFormData } from "../../types/EstimationForm.types";
 
 interface IBookACallButtonProps {
   name: string;

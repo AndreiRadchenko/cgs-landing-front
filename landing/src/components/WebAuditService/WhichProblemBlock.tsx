@@ -4,7 +4,6 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 import { useQueryClient } from "@tanstack/react-query";
 import { IServiceWebAudit } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
-import Image from "next/image";
 
 const WhichProblemBlock = () => {
   const queryClient = useQueryClient();

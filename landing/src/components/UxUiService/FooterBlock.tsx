@@ -38,7 +38,7 @@ const FooterBlock = () => {
           </Styled.ButtonWrapper>
         )}
       </Styled.ContentWrapper>
-      <Styled.Image src={data?.image?.url} alt="Footer UxUi image"/>
+      <Styled.Image src={data?.image?.url} alt="Footer UxUi image" />
     </Styled.Container>
   );
 };

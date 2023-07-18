@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { infiniteText } from "../../styles/Animations.styled";
 import themes from "../../utils/themes";
 
 export const MovingText = styled.div`

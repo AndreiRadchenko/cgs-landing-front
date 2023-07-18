@@ -73,7 +73,7 @@ const FooterNew = ({
 
       return () => clearInterval(interval);
     } else {
-      setAnimationPlay(false)
+      setAnimationPlay(false);
     }
   }, [isScrolled]);
 
@@ -81,9 +81,8 @@ const FooterNew = ({
     isOpen && width && width >= 768 && setIsOpen(false);
   }, [width, isOpen]);
 
-  const { data }: IHomePage = useQuery(
-    [queryKeys.getFullHomePage],
-    () => adminGlobalService.getFullPage()
+  const { data }: IHomePage = useQuery([queryKeys.getFullHomePage], () =>
+    adminGlobalService.getFullPage()
   );
 
   DisableScrollBarHandler(isOpen);
@@ -114,7 +113,9 @@ const FooterNew = ({
               >
                 <path d="M1.90909 2.88889H3.72727M3.72727 4.77778H5.54545M5.54545 6.66667H7.36364M7.36364 8.55556H9.18182M9.18182 10.4444H11M25.0909 2.88889H23.2727M23.2727 4.77778H21.4545M21.4545 6.66667H19.6364M19.6364 8.55556H17.8182M11 12.3333H12.8182H14.1818H16M17.8182 10.4444H16M1 1V18H26V1H1Z" />
               </StyledThisComp.MailIcon>
-              <StyledThisComp.EmailText>{data?.FooterBlock?.email}</StyledThisComp.EmailText>
+              <StyledThisComp.EmailText>
+                {data?.FooterBlock?.email}
+              </StyledThisComp.EmailText>
               {data?.FooterBlock?.email && (
                 <ExplanationEmailField
                   text={"If you want to become our client"}

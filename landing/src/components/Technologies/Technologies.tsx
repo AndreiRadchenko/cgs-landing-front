@@ -48,15 +48,15 @@ const Technologies = () => {
                 item.image && (
                   <React.Fragment key={idx + `_fragment`}>
                     {(width < 768 && (
-                        <MobileTechnologyCategory
-                          idx={idx}
-                          className={idx === 0 ? "blockchain" : undefined}
-                          key={idx + "_mobile"}
-                          img={item.image.url}
-                          text={item.text}
-                          stack={item.stack}
-                          title={item.category}
-                        />
+                      <MobileTechnologyCategory
+                        idx={idx}
+                        className={idx === 0 ? "blockchain" : undefined}
+                        key={idx + "_mobile"}
+                        img={item.image.url}
+                        text={item.text}
+                        stack={item.stack}
+                        title={item.category}
+                      />
                     )) || (
                         <TechnologyCategory
                           idx={idx}

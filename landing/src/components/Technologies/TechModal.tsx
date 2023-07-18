@@ -9,7 +9,10 @@ interface ITechModalProps {
 }
 const TechModal = ({ isOpen, data, idx }: ITechModalProps) => {
   return (
-    <Styled.TicketModal idx={idx === 3} className={isOpen ? "block" : undefined}>
+    <Styled.TicketModal
+      idx={idx === 3}
+      className={isOpen ? "block" : undefined}
+    >
       <Styled.TicketModalContentContainer>
         <Styled.TicketModalContent onClick={(e) => e.stopPropagation()}>
           <Styled.Container>

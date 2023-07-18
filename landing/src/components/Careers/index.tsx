@@ -8,8 +8,6 @@ import bottomLeftText from "../../../public/CareerDecorations/bottomLeftText.svg
 import bottomRightText from "../../../public/CareerDecorations/bottomRightText.svg";
 import CareersTicket from "../../components/CareersTicket";
 import CareersForm from "../CareersForm";
-import { useScrollTo } from "../../hooks/useScrollTo";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import Image from "next/image";
 import * as CSS from "../../styles/Portfolio/title.styled";
@@ -21,8 +19,7 @@ interface ICareersProps {
   data: IDataCareersResponse;
 }
 const Careers: FC<ICareersProps> = ({ data }) => {
-  const { width } = useWindowDimension();
-  const is768px = useMediaQuery('(max-width: 768px)');
+  const is768px = useMediaQuery("(max-width: 768px)");
   const ref = useRef<HTMLDivElement>(null);
 
   const scrollTo = () => {
@@ -34,7 +31,7 @@ const Careers: FC<ICareersProps> = ({ data }) => {
 
       window.scroll({
         top: window.pageYOffset + secondLineTop,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
@@ -109,17 +106,15 @@ const Careers: FC<ICareersProps> = ({ data }) => {
         <Styles.TopRightImageText src={topRightText.src} />
         <Styles.BottomRightImageText src={bottomRightText.src} />
         <Styles.BottomRightImageGlass src={rightGlass.src} />
-        <Styles.Title>
-          {data && parse(subtitle, options)}
-        </Styles.Title>
+        <Styles.Title>{data && parse(subtitle, options)}</Styles.Title>
         <Styles.TicketsWrapper>
           <Styles.TicketsContainer>{mapTickets()}</Styles.TicketsContainer>
         </Styles.TicketsWrapper>
         {is768px ? (
-          <Styles.FormTitle ref={ref} className='mobile'>
-            <h5>{'<'}</h5>
+          <Styles.FormTitle ref={ref} className="mobile">
+            <h5>{"<"}</h5>
             {data && parse(subtitle2, options2)}
-            <h4>{'>'}</h4>
+            <h4>{">"}</h4>
           </Styles.FormTitle>
         ) : (
           <Styles.FormTitle ref={ref}>

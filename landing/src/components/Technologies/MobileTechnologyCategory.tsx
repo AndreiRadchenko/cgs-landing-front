@@ -43,34 +43,58 @@ const MobileTechnologyCategory: FC<ITechnologyCategoryProps> = ({
   const svgPath = svgPaths[idx];
 
   return (
-    <div style={{margin: is410px ? 0 : "0 auto"}}>
-    <StyledThisComp.CategoryContainer
-      className={`${isOpen ? "open-catrgory" : ""}`}
-      onMouseOver={width && width >= 768 ? onOpen : undefined}
-      onMouseLeave={width && width >= 768 ? onClose : undefined}
-    >
-      <StyledThisComp.BorderSvg 
-        xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 0 347 143" 
-        fill="none">
-        <path 
-          d={svgPath} 
-          fill="#F1EFED" 
-          stroke="black" 
-          stroke-width="2" 
-        />
-      </StyledThisComp.BorderSvg>
-      <StyledThisComp.CategoryTitleWrapper
-        idx={idx}
-        onClick={width && width < 767 ? () => setIsOpen(!isOpen) : undefined}
-        className={className}
+    <div style={{ margin: is410px ? 0 : "0 auto" }}>
+      <StyledThisComp.CategoryContainer
+        className={`${isOpen ? "open-catrgory" : ""}`}
+        onMouseOver={width && width >= 768 ? onOpen : undefined}
+        onMouseLeave={width && width >= 768 ? onClose : undefined}
       >
-        <StyledThisComp.InvisibleTitle
+        <StyledThisComp.BorderSvg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 347 143"
+          fill="none"
+        >
+          <path d={svgPath} fill="#F1EFED" stroke="black" strokeWidth="2" />
+        </StyledThisComp.BorderSvg>
+        <StyledThisComp.CategoryTitleWrapper
+          idx={idx}
           onClick={width && width < 767 ? () => setIsOpen(!isOpen) : undefined}
           className={className}
         >
-          <h2>{title}</h2>
+          <StyledThisComp.InvisibleTitle
+            onClick={
+              width && width < 767 ? () => setIsOpen(!isOpen) : undefined
+            }
+            className={className}
+          >
+            <h2>{title}</h2>
 
+            <StyledThisComp.Arrow
+              width="15"
+              height="8"
+              viewBox="0 0 15 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className={isOpen ? "open" : undefined}
+            >
+              <path
+                d="M7.5 7.99994L0.138784 0.499939L14.8612 0.499939L7.5 7.99994Z"
+                fill="black"
+              />
+            </StyledThisComp.Arrow>
+          </StyledThisComp.InvisibleTitle>
+        </StyledThisComp.CategoryTitleWrapper>
+        <StyledThisComp.TitleInnerWrapper
+          idx={idx}
+          onClick={width && width < 767 ? () => setIsOpen(!isOpen) : undefined}
+          className={`${isOpen ? "open-title" : ""} 
+        ${className}`}
+        >
+          <StyledThisComp.CategoryTitle
+            className={idx === 3 ? "mobile" : idx === 2 ? "server" : undefined}
+          >
+            {title}
+          </StyledThisComp.CategoryTitle>
           <StyledThisComp.Arrow
             width="15"
             height="8"
@@ -84,36 +108,14 @@ const MobileTechnologyCategory: FC<ITechnologyCategoryProps> = ({
               fill="black"
             />
           </StyledThisComp.Arrow>
-        </StyledThisComp.InvisibleTitle>
-      </StyledThisComp.CategoryTitleWrapper>
-      <StyledThisComp.TitleInnerWrapper
-        idx={idx}
-        onClick={width && width < 767 ? () => setIsOpen(!isOpen) : undefined}
-        className={`${isOpen ? "open-title" : ""} 
-        ${className}`}
-      >
-        <StyledThisComp.CategoryTitle className={idx === 3 ? "mobile" : idx === 2 ? "server" : undefined}>{title}</StyledThisComp.CategoryTitle>
-        <StyledThisComp.Arrow
-          width="15"
-          height="8"
-          viewBox="0 0 15 8"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className={isOpen ? "open" : undefined}
-        >
-          <path
-            d="M7.5 7.99994L0.138784 0.499939L14.8612 0.499939L7.5 7.99994Z"
-            fill="black"
-          />
-        </StyledThisComp.Arrow>
-      </StyledThisComp.TitleInnerWrapper>
-      <StyledThisComp.CategorySubtitle className={className}>
-        <SplitBrackets text={text} />
-      </StyledThisComp.CategorySubtitle>
-      <div style={{marginTop: idx === 3 ? "-1.5em" : "-1em"}}>
-      <TechModal data={stack} isOpen={isOpen} idx={idx}/>
-      </div>
-    </StyledThisComp.CategoryContainer>
+        </StyledThisComp.TitleInnerWrapper>
+        <StyledThisComp.CategorySubtitle className={className}>
+          <SplitBrackets text={text} />
+        </StyledThisComp.CategorySubtitle>
+        <div style={{ marginTop: idx === 3 ? "-1.5em" : "-1em" }}>
+          <TechModal data={stack} isOpen={isOpen} idx={idx} />
+        </div>
+      </StyledThisComp.CategoryContainer>
     </div>
   );
 };

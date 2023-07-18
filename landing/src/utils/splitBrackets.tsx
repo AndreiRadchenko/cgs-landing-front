@@ -5,9 +5,7 @@ interface ISplitBracketsProps {
   text?: string;
 }
 
-export const SplitBrackets = ({
-  text,
-}: ISplitBracketsProps) => {
+export const SplitBrackets = ({ text }: ISplitBracketsProps) => {
   const is768px = useMediaQuery("(max-width:768px)");
 
   const splited = is768px ? text?.split("^") : text?.split("|");

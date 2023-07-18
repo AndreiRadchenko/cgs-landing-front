@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
-import { buttonHover, cursorBlinking } from "../Animations.styled";
+import { buttonHover } from "../Animations.styled";
 
 export interface IFontSize {
   size: string;
@@ -226,10 +226,10 @@ export const Subtitle = styled.div`
 
     &.techMobile {
       line-height: 113%;
-      br{
+      br {
         display: none;
       }
-      p{
+      p {
         width: 450px;
       }
     }
@@ -237,12 +237,12 @@ export const Subtitle = styled.div`
     &.mobileTextOnFilm {
       margin-top: 66px;
       margin-bottom: 27px;
-      p{
+      p {
         margin: 0;
         font-size: 5vw;
         width: 100%;
         line-height: 132%;
-      }  
+      }
     }
 
     &.small {
@@ -273,7 +273,7 @@ export const Subtitle = styled.div`
 
   @media (max-width: 600px) {
     &.techMobile {
-      p{
+      p {
         width: 340px;
       }
     }
@@ -281,7 +281,7 @@ export const Subtitle = styled.div`
 
   @media (max-width: 500px) {
     &.techMobile {
-      p{
+      p {
         width: 320px;
       }
     }
@@ -300,11 +300,11 @@ export const Subtitle = styled.div`
     }
 
     &.mobileTextOnFilm {
-      p{
+      p {
         margin: 0;
         font-size: 32px;
         width: 353px;
-      }  
+      }
     }
 
     &.techMobile {
@@ -312,7 +312,7 @@ export const Subtitle = styled.div`
       width: 100%;
       line-height: 113%;
       letter-spacing: 1.6px;
-      p{
+      p {
         margin: 0;
         width: 280px;
       }

@@ -65,9 +65,8 @@ export const List = styled.ul`
   list-style-type: square;
   margin: 24px 5px 0 0;
 
-  &:first-child{
+  &:first-child {
     margin: 50px 5px 0 0;
-
   }
 
   @media (max-width: 570px) {
@@ -97,7 +96,7 @@ export const ListItem = styled.li`
   font-weight: ${themes.primary.font.weight.heavy};
   color: #535557;
 
-  span{
+  span {
     position: relative;
     top: -3px;
   }
@@ -130,7 +129,7 @@ export const SubmitButtonContainer = styled.div`
   width: 172px;
   position: relative;
   margin: 23px 0px 20px 36px;
-  
+
   & path {
     transition: all 1s ease-in-out;
   }

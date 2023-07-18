@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import parse from "html-react-parser";
 import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
-import { animateScroll as scroll, scroller } from "react-scroll";
+import { scroller } from "react-scroll";
 import { SwiperSlide } from "swiper/react";
 
 import PaginationBar from "../../components/PaginationBar/PaginationBar";

@@ -10,7 +10,7 @@ import { IPodcastItemProps } from "../../types/Blog.types";
 const PodcastItem = ({ data }: IPodcastItemProps) => {
   const [playbackRate, setPlaybackRate] = useState(1);
   const [playing, setPlaying] = useState(false);
-  const [seeking, setSeeking] = useState(false);
+  const [, setSeeking] = useState(false);
   const [played, setPlayed] = useState(0);
   const [playedSeconds, setPlayedSeconds] = useState("0");
   const [duration, setDuration] = useState(0);

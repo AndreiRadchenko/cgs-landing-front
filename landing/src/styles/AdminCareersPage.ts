@@ -64,7 +64,6 @@ export const TypeOfWork = styled.div`
   margin-left: 15px;
 `;
 
-
 export const TicketsContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -249,7 +248,6 @@ export const TicketEditAndDeleteButtons = styled.div`
   }
 `;
 
-
 export const DeleteBtn = styled.button`
   border: 0;
   background: transparent;
@@ -261,7 +259,7 @@ export const DeleteBtn = styled.button`
 `;
 
 export const TicketBox = styled.div`
-  display: flex;  
+  display: flex;
   flex-direction: column;
   font-family: ${themes.primary.font.family.namu};
 `;

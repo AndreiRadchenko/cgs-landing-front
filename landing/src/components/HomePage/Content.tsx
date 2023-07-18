@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   LocalLayout,
   MobileReverseLayout,
-  Separator,
 } from "../../styles/HomePage/General.styled";
 import HeadBlock from "./HeadBlock";
 import NextTech from "./NextTech";

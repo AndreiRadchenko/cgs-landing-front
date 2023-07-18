@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
 import { ResultImageWrapper } from "../../styles/Calculator/CalculatorComponent.styled";
 
 interface ICalculatorResultProps {

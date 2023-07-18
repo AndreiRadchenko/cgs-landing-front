@@ -32,7 +32,7 @@ const FooterBlock = () => {
           <ButtonShareComponent />
         </Styled.ButtonWrapper>
       )}
-      <Styled.Image src={data?.image?.url} alt="Footer Supports image"/>
+      <Styled.Image src={data?.image?.url} alt="Footer Supports image" />
     </Styled.Container>
   );
 };

@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 import * as Styled from "../../styles/ShowCase.styled";
 import { IReviewProps as IReview } from "../../types/Admin/Response.types";
 import Image from "next/image";
@@ -10,7 +10,7 @@ interface IReviewProps {
   ind: number;
 }
 
-const Slide = ({ review, isActive, ind }: IReviewProps) => {
+const Slide = ({ review, isActive }: IReviewProps) => {
   const navigateToProjectPage = (url: string, id?: string) => {
     const newUrl = url.toLowerCase().replace(/\s+/g, "-");
     openInNewTab(`https://cgsteam.io/portfolio/${newUrl}-${id}`);

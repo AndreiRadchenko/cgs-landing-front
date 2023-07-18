@@ -20,7 +20,7 @@ const CareersDropdown = ({
   positions,
   dropdownName,
   setEnable,
-  toFormError
+  toFormError,
 }: ICareersDropdown) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const ScrollRef = useRef<HTMLDivElement>(null);
@@ -29,16 +29,19 @@ const CareersDropdown = ({
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
         if (setEnable) setEnable(false);
       }
     };
-  
-    document.addEventListener('click', handleClickOutside);
-  
+
+    document.addEventListener("click", handleClickOutside);
+
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
@@ -57,11 +60,11 @@ const CareersDropdown = ({
         setScrollPosition(calculatedTop);
       }
     };
-  
+
     if (ScrollRef.current) {
       ScrollRef.current.addEventListener("scroll", handleScroll);
     }
-  
+
     return () => {
       if (ScrollRef.current) {
         ScrollRef.current.removeEventListener("scroll", handleScroll);
@@ -71,19 +74,22 @@ const CareersDropdown = ({
 
   return (
     <Styled.Dropdown ref={dropdownRef}>
-      <div style={{borderLeft: '1.5px solid black'}}>
-      <Styled.DropdownButton
-        type="button"
-        className={isOpen ? "open" : "className"}
-        onClick={() => setIsOpen(!isOpen)}
-        toFormError={toFormError && dropdownName === "Position"}
-        toSelectPosition={dropdownName !== "Position"}
-      >
-        <span>{dropdownName}</span>
-        <img width={13} height={7} src={Arrow.src} alt="Arrow" />
-      </Styled.DropdownButton>
+      <div style={{ borderLeft: "1.5px solid black" }}>
+        <Styled.DropdownButton
+          type="button"
+          className={isOpen ? "open" : "className"}
+          onClick={() => setIsOpen(!isOpen)}
+          toFormError={toFormError && dropdownName === "Position"}
+          toSelectPosition={dropdownName !== "Position"}
+        >
+          <span>{dropdownName}</span>
+          <img width={13} height={7} src={Arrow.src} alt="Arrow" />
+        </Styled.DropdownButton>
       </div>
-      <Styled.DropdownContent className={isOpen ? `open ` : undefined} ref={ScrollRef}>
+      <Styled.DropdownContent
+        className={isOpen ? `open ` : undefined}
+        ref={ScrollRef}
+      >
         {positions.map((option) => (
           <div
             onClick={() => {
@@ -97,7 +103,7 @@ const CareersDropdown = ({
           </div>
         ))}
         <Styled.DropdownScrollbarContainer>
-          <Styled.DropdownScrollbar top={scrollPosition}/>
+          <Styled.DropdownScrollbar top={scrollPosition} />
         </Styled.DropdownScrollbarContainer>
       </Styled.DropdownContent>
     </Styled.Dropdown>

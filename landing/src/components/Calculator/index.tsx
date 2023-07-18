@@ -25,7 +25,6 @@ import {
   ICalculatorFormValuesProps,
   ICalculatorPostEmailResultsProps,
   ICalculatorPostLeadEmailResultsProps,
-  ILeadMailData,
   IRoles,
   IStepOptions,
   ICalculatorStep,
