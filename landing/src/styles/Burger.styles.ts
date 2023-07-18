@@ -97,20 +97,6 @@ export const SocialLinksBurgerRow = styled.div`
   margin-top: 2.375rem;
 `;
 
-export const StyledLinksBurgerDecoration = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-`;
-
-export const StyledFooterLink = styled.a`
-  display: block;
-  margin-top: 1.3em;
-  font-size: 1.4em;
-  font-family: ${themes.primary.font.family.mulish};
-  text-align: center;
-`;
-
 export const FooterWrapper = styled.div`
   width: fit-content;
 `;

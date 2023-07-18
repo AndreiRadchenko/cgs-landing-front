@@ -7,26 +7,10 @@ export const AdminSubTitle = styled.h3`
   margin: 0 0 10px 0;
 `;
 
-export const TextEditorWrapper = styled.div`
-  width: 1100px;
-`;
-
-export const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 45%;
-`;
-
 export const SubmitButtonWrapper = styled.div`
   display: flex;
   width: fit-content;
   column-gap: 30px;
-`;
-
-export const DropdownWrapper = styled.div`
-  margin: 0 20px;
-  transform: translateY(20px);
-  width: 100px;
 `;
 
 export const Message = styled.span`

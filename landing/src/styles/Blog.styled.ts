@@ -53,6 +53,7 @@ export const ArticlePreview = styled(FlexRowContainer)`
     flex-direction: column-reverse;
   }
 `;
+
 export const BlogContainer = styled.article`
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.normal};
@@ -148,18 +149,6 @@ export const ArrowContainer = styled.div`
       width: 30px;
       height: 30px;
     }
-  }
-`;
-
-export const Separator = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: ${themes.primary.colors.comment};
-
-  &.portfolio {
-    z-index: 5;
-    width: 100%;
-    position: absolute;
   }
 `;
 
@@ -572,29 +561,13 @@ export const RightLine = styled.img`
   }
 `;
 
-export const LoaderContainer = styled.div`
-  width: 100%;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  background: linear-gradient(
-    180deg,
-    rgba(241, 239, 237, 0.8) 100%,
-    rgba(241, 239, 237, 0) 114.26%
-  );
-`;
-
 export const PodcastContainer = styled.section`
   padding: 70px 50px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F1EFED;
+  background-color: #f1efed;
   column-gap: 50px;
   border-block: 1px solid ${themes.primary.colors.comment};
 
@@ -987,27 +960,6 @@ export const MainContainer = styled.div`
   }
 `;
 
-export const MainBlogItemContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 31px 33px 32px 51px;
-  width: 67vw;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 21px 23px 22px 41px;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    padding: 15px 18px 17px 31px;
-  }
-  @media ${themes.primary.media.minPC} {
-    padding: 41px 43px 42px 71px;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    position: relative;
-    padding: 50px 0.75rem 25px;
-    width: 100%;
-  }
-`;
-
 export const MainBlogItemImage = styled.img`
   max-width: 55vw;
   width: 100%;
@@ -1136,30 +1088,6 @@ export const SmallArticleContainer = styled.div`
   }
   @media ${themes.primary.media.minPC} {
     padding: 40px 60px 40px 40px;
-  }
-`;
-
-export const Arrow = styled.img``;
-
-export const SliderDot = styled.div`
-  height: 0.905em;
-  width: 0.83em;
-  border: 1px solid ${themes.primary.colors.primary};
-  &.current {
-    background-color: ${themes.primary.colors.primary};
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    height: 8.5px;
-    width: 8px;
-  }
-`;
-
-export const SliderDotsContainer = styled(FlexRowContainer)`
-  column-gap: 0.83em;
-  margin-top: 20px;
-
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
   }
 `;
 

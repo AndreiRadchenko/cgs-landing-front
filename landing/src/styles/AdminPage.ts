@@ -3,7 +3,7 @@ import { TextareaAutosize } from "@mui/material";
 import styled, { css } from "styled-components";
 
 import themes from "../utils/themes";
-import { CheckBoxType } from "./../types/Admin/AdminEstimationForm.types";
+import { CheckBoxType } from "../types/Admin/AdminEstimationForm.types";
 import articleIntro from "../../public/BlogDecorations/Formatting/articleIntro.svg";
 import RightArrow from "../../public/AdminPortfolio/RightArrow.svg";
 import LeftArrow from "../../public/AdminPortfolio/LeftArrow.svg";
@@ -467,23 +467,6 @@ export const CategoryWrapper = styled.div`
   row-gap: 14px;
 `;
 
-export const AddCategoryBtn = styled.div``;
-
-export const AdminTemplateField = styled.div`
-  & input {
-    height: 56px;
-    border: 1px solid ${themes.primary.colors.comment};
-    font-family: ${themes.primary.font.family.namu};
-    font-weight: ${themes.primary.font.weight.heavy};
-    font-size: 16px;
-    line-height: 19px;
-    color: ${themes.primary.colors.comment};
-    padding: 18px 14px;
-    background: transparent;
-    min-width: 350px;
-  }
-`;
-
 export const AdminNewCategoryInputWrapper = styled.div`
   display: flex;
 `;
@@ -869,16 +852,6 @@ export const AdminFeedbackFrame = styled.div`
   position: relative;
   border: 1px solid ${themes.primary.colors.primary};
   padding: 5em 5em 4em 5em;
-`;
-
-export const AdminParagraph = styled.p`
-  font-family: ${themes.primary.font.family.mulish};
-  font-size: ${themes.primary.font.size.tertiary};
-  letter-spacing: 1px;
-
-  &.namu {
-    font-family: ${themes.primary.font.family.namu};
-  }
 `;
 
 export const AdminButton = styled.button`
@@ -1339,39 +1312,6 @@ export const AdminPortfolioImage = styled.div`
 
 export const AdminPortfolioImageContainer = styled.div``;
 
-export const AdminPortfolioPaginationWrapper = styled.div`
-  margin-top: 10px;
-  display: flex;
-  justify-content: flex-end;
-
-  & .disabled {
-    opacity: 0.5;
-  }
-`;
-
-export const AdminPortfolioRightArrowButton = styled.div`
-  background-image: url(${RightArrow.src});
-  margin-left: 23px;
-  width: 44px;
-  height: 49px;
-  cursor: pointer;
-  position: relative;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-`;
-
-export const AdminPortfolioLeftArrowButton = styled.div`
-  background-image: url(${LeftArrow.src});
-  width: 44px;
-  height: 49px;
-  cursor: pointer;
-  position: relative;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-`;
-
 export const AdminPortfolioReviewImage = styled.div`
   display: flex;
   justify-content: center;
@@ -1412,13 +1352,6 @@ export const AdminPortfolioImageText = styled.div`
     color: ${themes.primary.colors.headerBorder};
     font-size: 12px;
   }
-`;
-
-export const AdminPortfolioReviewLayout = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 4em;
-  padding: 20px;
 `;
 
 export const AdminPortfolioReviewFrame = styled.div`
@@ -1722,71 +1655,9 @@ export const AdminPageThirdBlockFlex = styled.div`
   align-items: center;
 `;
 
-export const InputAndStars = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  column-gap: 20px;
-`;
-
-export const StartsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  padding-top: 25px;
-`;
-
 export const ProjectInfo = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-export const ProjectHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const PortfolioProjectHeader = styled.div`
-  font-size: ${themes.primary.font.size.quaternary};
-  font-family: ${themes.primary.font.family.mulish};
-  font-weight: ${themes.primary.font.weight.normal};
-`;
-
-export const Separator = styled.div`
-  background-color: #cdcdcd;
-  width: 100%;
-  height: 1px;
-  margin-bottom: 20px;
-`;
-
-export const PortfolioReviewHeader = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-`;
-
-export const AuthorName = styled.div`
-  font-size: ${themes.primary.font.size.articleTagDescription};
-  font-family: ${themes.primary.font.family.mulish};
-  font-weight: ${themes.primary.font.weight.normal};
-  margin-right: 25px;
-`;
-
-export const CompanyName = styled.div`
-  color: #8f8e93;
-  font-size: ${themes.primary.font.size.linkText};
-  font-family: ${themes.primary.font.family.mulish};
-  font-weight: ${themes.primary.font.weight.normal};
-`;
-
-export const Subtitle = styled.div`
-  font-family: ${themes.primary.font.family.gilroy};
-  font-weight: ${themes.primary.font.weight.medium};
-  font-size: 52px;
-  letter-spacing: 2px;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-top: 70px;
-  margin-bottom: 40px;
 `;
 
 export const TagContainer = styled.div`
@@ -1797,21 +1668,6 @@ export const TagContainer = styled.div`
 
 export const Counter = styled.span`
   display: none;
-`;
-
-export const AdminMarginBlock = styled.div`
-  margin-bottom: 120px;
-
-  &.top {
-    margin-top: 100px;
-    margin-bottom: 0;
-  }
-`;
-
-export const AdminAboutUsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  column-gap: 3rem;
 `;
 
 export const ListItemName = styled.span`
@@ -1867,6 +1723,7 @@ export const AdminFrameSubTitle = styled.h3`
   font-weight: ${themes.primary.font.weight.extraBold};
   margin: 0;
 `;
+
 export const AdminCompanyName = styled.p`
   font-family: ${themes.primary.font.family.namu};
   font-size: ${themes.primary.font.size.tertiary};
@@ -2101,13 +1958,6 @@ export const AdminMobileAuditWhatAppWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const AdminMobileAuditGrid = styled.div`
-  display: grid;
-  column-gap: 40px;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: space-between;
-`;
-
 export const ListInput = styled.li`
   list-style: none;
 `;
@@ -2126,10 +1976,6 @@ export const ButtonWrapper = styled.div`
 export const BringAppButtonLinkWrapper = styled.div`
   display: flex;
   align-items: flex-end;
-`;
-
-export const ErrorText = styled.div`
-  color: ${themes.primary.colors.errorText};
 `;
 
 export const TextCounter = styled.div``;
@@ -2214,6 +2060,7 @@ export const AuthorPhotoGrid = styled.div`
 export const AuthorPhotoTextWrapper = styled.div`
   margin-left: 18px;
 `;
+
 export const BlockDropdown = styled.div<IBlockDropdownProps>`
   margin-top: ${(props) => props.marginTop};
 `;
@@ -2279,12 +2126,6 @@ export const AdminImageWrapper = styled.div`
   position: relative;
   height: 180px;
   width: 100%;
-`;
-
-export const AdminPortfolioImageWrapper = styled.div`
-  position: relative;
-  height: 357px;
-  width: 100px;
 `;
 
 export const AdminTechSeparator = styled.div`

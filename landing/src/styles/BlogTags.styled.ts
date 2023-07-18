@@ -84,17 +84,6 @@ export const TagInputSubmit = styled.button`
   border: 0;
 `;
 
-export const InputWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100%;
-`;
-
-export const HiddenField = styled(Field)`
-  display: none;
-  visibility: hidden;
-`;
-
 export const DropdownBanner = styled.div`
   display: flex;
   align-items: center;
