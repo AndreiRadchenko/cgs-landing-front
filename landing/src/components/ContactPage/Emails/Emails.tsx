@@ -5,12 +5,10 @@ import { EmailPopup, PopupWrapper, PersistPopup } from "../Popup";
 
 import * as Styled from "./Emails.styled";
 import { IContactPageData } from "../../../types/Admin/AdminContact.types";
-import { useWindowDimension } from "../../../hooks/useWindowDimension";
 
 type EmailProps = Pick<IContactPageData, "emails">;
 
 export const Emails = ({ emails }: EmailProps) => {
-  const { width: displayWidth } = useWindowDimension();
   const { subtitle, email } = emails;
 
   return (

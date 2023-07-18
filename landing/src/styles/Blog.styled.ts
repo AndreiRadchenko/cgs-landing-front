@@ -594,6 +594,7 @@ export const PodcastContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #F1EFED;
   column-gap: 50px;
   border-block: 1px solid ${themes.primary.colors.comment};
 

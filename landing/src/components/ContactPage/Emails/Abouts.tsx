@@ -4,12 +4,10 @@ import { ContactButton } from "../ContactButton";
 
 import * as Styled from "./Emails.styled";
 import { IContactPageData } from "../../../types/Admin/AdminContact.types";
-import { useWindowDimension } from "../../../hooks/useWindowDimension";
 
 type MessengersProps = Pick<IContactPageData, "abouts">;
 
 export const Abouts = ({ abouts }: MessengersProps) => {
-  const { width } = useWindowDimension();
   const { subtitle, about } = abouts;
 
   return (

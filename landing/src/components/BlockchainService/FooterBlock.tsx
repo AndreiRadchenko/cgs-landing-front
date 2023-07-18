@@ -18,7 +18,7 @@ const FooterBlock = () => {
     <Styled.Container>
       <Styled.Title>{data?.subtitle}</Styled.Title>
       <Styled.Description>
-        <SplitBrackets text={data?.description}/>
+        <SplitBrackets text={data?.description} />
       </Styled.Description>
       {data && (
         <Styled.ButtonWrapper ref={elRef}>
@@ -31,7 +31,7 @@ const FooterBlock = () => {
           <ButtonShareComponent />
         </Styled.ButtonWrapper>
       )}
-      <Styled.Image src={data?.image?.url} alt="Footer Crypto image"/>
+      <Styled.Image src={data?.image?.url} alt="Footer Crypto image" />
     </Styled.Container>
   );
 };

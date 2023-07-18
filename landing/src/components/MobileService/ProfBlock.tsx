@@ -64,7 +64,7 @@ const ProfBlock = () => {
         )}
       </div>
       <Styled.ImageWrapper>
-      <Styled.Image src={data?.image?.url} alt="Footer image"/>
+        <Styled.Image src={data?.image?.url} alt="Footer image" />
       </Styled.ImageWrapper>
     </Styled.ContentContainer>
   );

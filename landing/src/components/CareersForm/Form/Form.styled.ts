@@ -63,7 +63,7 @@ export const FormFieldContainer = styled.div`
   }
 `;
 
-export const FormField = styled(Field) <IFormField>`
+export const FormField = styled(Field)<IFormField>`
   height: 100%;
   width: 100%;
   background: none;
@@ -299,24 +299,24 @@ export const FormSentFillText = styled.span<IFillAllFields>`
 
   @keyframes move {
     0% {
-        transform: translateX(0);
-      }
-      20% {
-        transform: translateX(5px);
-      }
-      40% {
-        transform: translateX(0);
-      }
-      60% {
-        transform: translateX(-5px);
-      }
-      80% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(0);
-      }
+      transform: translateX(0);
     }
+    20% {
+      transform: translateX(5px);
+    }
+    40% {
+      transform: translateX(0);
+    }
+    60% {
+      transform: translateX(-5px);
+    }
+    80% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 
   @media (max-width: 1200px) {
     margin-top: 2px;
@@ -376,7 +376,7 @@ export const FormSentContainer = styled.div<{ isCvIn: boolean }>`
   }
 
   @media (max-width: 475px) {
-    margin-top: ${({ isCvIn }) => isCvIn ? "10px" : "60px"};
+    margin-top: ${({ isCvIn }) => (isCvIn ? "10px" : "60px")};
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -450,7 +450,7 @@ export const PositionSelect = styled.div<IEnableGlare>`
 
     &:last-child {
       div:last-child {
-        color: #8F8E93;
+        color: #8f8e93;
       }
 
       border-bottom: 10px solid black;
@@ -470,7 +470,7 @@ export const PositionSelect = styled.div<IEnableGlare>`
 
       &::-webkit-scrollbar-thumb {
         background-color: transparent;
-        border-left: 5px solid ;
+        border-left: 5px solid;
         border-top-left-radius: 5px;
         border-top-right-radius: 20px;
         border-bottom-left-radius: 5px;
@@ -483,7 +483,7 @@ export const PositionSelect = styled.div<IEnableGlare>`
 
     @media (max-width: 768px) {
       height: 172px;
-      ::-webkit-scrollbar{ 
+      ::-webkit-scrollbar {
         display: none;
       }
     }
@@ -521,17 +521,21 @@ export const Cvfield = styled.div<IFormField>`
   height: 100%;
   width: 100%;
   position: relative;
-  background-color: #F1EFED;
+  background-color: #f1efed;
 
   display: ${({ isCvIn }) => (isCvIn ? "none" : "inline-block")};
 
   input {
     color: ${({ isEmpty }) =>
-    isEmpty ? themes.primary.colors.darkBlue : "black"};
+      isEmpty ? themes.primary.colors.darkBlue : "black"};
 
     &::placeholder {
       color: ${({ isEmpty, toFormError }) =>
-    isEmpty ? themes.primary.colors.darkBlue : toFormError ? "#F84A3F" : "#8F8E93"};
+        isEmpty
+          ? themes.primary.colors.darkBlue
+          : toFormError
+          ? "#F84A3F"
+          : "#8F8E93"};
     }
   }
 `;
@@ -540,7 +544,8 @@ export const Label = styled.label<ILabelOptions>`
   display: ${({ inCvInput, cvlink }) =>
     inCvInput || cvlink ? "none" : "flex"};
   justify-content: center;
-  border: ${({ toFormError }) => (toFormError ? "1px solid #F84A3F" : "1px solid black")};
+  border: ${({ toFormError }) =>
+    toFormError ? "1px solid #F84A3F" : "1px solid black"};
   padding: 7px 12px;
   position: absolute;
   right: 2em;
@@ -605,7 +610,7 @@ export const TitleContainer = styled.div<ITitle>`
 export const Format = styled.div`
   text-transform: uppercase;
   color: #fff;
-  background-color: #5869DD;
+  background-color: #5869dd;
   padding: 8px 4px;
   border-radius: 6px;
   margin-left: 33px;
@@ -618,7 +623,7 @@ export const Format = styled.div`
 
 export const Title = styled.span`
   font-size: 1.35em;
-  color: #8F8E93;
+  color: #8f8e93;
   margin-left: 15px;
 
   @media (max-width: 768px) {
@@ -643,7 +648,7 @@ export const DeleteCvLink = styled.img<{ cvlink: boolean }>`
   }
 
   @media (max-width: 768px) {
-    display: ${({ cvlink }) => cvlink ? 'block' : 'none'};
+    display: ${({ cvlink }) => (cvlink ? "block" : "none")};
     width: 20px;
     height: 20px;
     top: 2em;
@@ -659,7 +664,7 @@ export const DeleteCvLink = styled.img<{ cvlink: boolean }>`
     height: 16px;
     top: 1.9em;
     right: 1.4em;
-    }
+  }
 `;
 
 const rotate360 = keyframes`

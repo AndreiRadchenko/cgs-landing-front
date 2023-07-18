@@ -17,7 +17,7 @@ interface IMainProps {
   data: IDataCareersResponse | undefined;
   isLoading: boolean;
   refetch: () => Promise<IMainProps>;
-};
+}
 
 const CareersMainContent = () => {
   const [isNewTicket, setIsNewTicket] = useState(false);
@@ -52,25 +52,27 @@ const CareersMainContent = () => {
       {() => {
         return (
           <AdminPageStyled.AdminPaddedBlock theme="light">
-          <Styled.AdminContentBlock>
-            <Form>
-              <AdminPageStyled.AdminHeader>Careers</AdminPageStyled.AdminHeader>
-              <CareersTitleBlock />
-              <AdminBlockDropDown title="ADD A NEW VACANCY">
-                <Careers
-                  refetch={refetch}
-                  isNewTicket={isNewTicket}
-                  setIsNewTicket={setIsNewTicket}
-                  ticket={ticket}
-                  setTicket={setTicket}
-                />
-              </AdminBlockDropDown>
-              <AdminBlockDropDown title="CONTACT FORM">
-                <CareersContactForm/>
-              </AdminBlockDropDown>
-              <MetaTagsBlock sitemap="careers" />
-            </Form>
-          </Styled.AdminContentBlock>
+            <Styled.AdminContentBlock>
+              <Form>
+                <AdminPageStyled.AdminHeader>
+                  Careers
+                </AdminPageStyled.AdminHeader>
+                <CareersTitleBlock />
+                <AdminBlockDropDown title="ADD A NEW VACANCY">
+                  <Careers
+                    refetch={refetch}
+                    isNewTicket={isNewTicket}
+                    setIsNewTicket={setIsNewTicket}
+                    ticket={ticket}
+                    setTicket={setTicket}
+                  />
+                </AdminBlockDropDown>
+                <AdminBlockDropDown title="CONTACT FORM">
+                  <CareersContactForm />
+                </AdminBlockDropDown>
+                <MetaTagsBlock sitemap="careers" />
+              </Form>
+            </Styled.AdminContentBlock>
           </AdminPageStyled.AdminPaddedBlock>
         );
       }}

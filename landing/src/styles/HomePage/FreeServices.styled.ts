@@ -31,7 +31,7 @@ export const FreeServicesTitle = styled.div`
     font-size: 28px;
 
     & u {
-    text-decoration-thickness: 1.5px;
+      text-decoration-thickness: 1.5px;
     }
   }
 `;
@@ -118,8 +118,8 @@ export const FreeServicesData = styled.div<FreeServicesData>`
       }
 
       & div .dashed {
-      right: 70%;
-      width: 50%;
+        right: 70%;
+        width: 50%;
       }
 
       & .text {

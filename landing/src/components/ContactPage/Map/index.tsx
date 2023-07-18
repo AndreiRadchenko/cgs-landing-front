@@ -11,7 +11,7 @@ type MapProps = Pick<IContactPageData, "location">;
 
 export const Map = ({ location }: MapProps) => {
   const { width: displayWidth } = useWindowDimension();
-  const { map, pointer, address } = location;
+  const { map, address } = location;
 
   return (
     <Styled.MapContainer>

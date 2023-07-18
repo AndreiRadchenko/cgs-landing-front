@@ -10,7 +10,7 @@ import { IPodcastItemProps } from "../../types/Blog.types";
 const PodcastItem = ({ data }: IPodcastItemProps) => {
   const [playbackRate, setPlaybackRate] = useState(1);
   const [playing, setPlaying] = useState(false);
-  const [seeking, setSeeking] = useState(false);
+  const [, setSeeking] = useState(false);
   const [played, setPlayed] = useState(0);
   const [playedSeconds, setPlayedSeconds] = useState("0");
   const [duration, setDuration] = useState(0);
@@ -67,7 +67,7 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
   return (
     <>
       <ReactPlayer
-        style={{ display: "none", opacity: "0" }}
+        style={{ maxWidth: 1, maxHeight: 1, position: 'absolute', zIndex: '-9999999999'}}
         ref={playerRef}
         controls
         url={data.link}
@@ -116,7 +116,9 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
                 <Styled.SecondsLeft>15</Styled.SecondsLeft>
               </Styled.LeftArrow>
               <Styled.PlayButton
-                onClick={() => setPlaying((prevState) => !prevState)}
+                onClick={() => {
+                  setPlaying((prevState) => !prevState)
+                }}
                 src={playing ? StopButton.src : PlayButton.src}
               />
               <Styled.RightArrow onClick={handleForw}>

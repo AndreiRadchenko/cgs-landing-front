@@ -16,7 +16,8 @@ import { ArrowContainer } from "../../../styles/HomePage/General.styled";
 import ButtonArrow from "../../../utils/ButtonArrow";
 
 const CareersContactForm = () => {
-  const { values, handleChange, handleSubmit } = useFormikContext<IDataCareersResponse>();
+  const { values, handleChange, handleSubmit } =
+    useFormikContext<IDataCareersResponse>();
   const { CV, image, text, ...otheForm } = values.form;
 
   const onSubmit = () => {

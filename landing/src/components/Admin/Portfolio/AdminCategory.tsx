@@ -82,7 +82,7 @@ const AdminCategory = () => {
       <Styled.AdminCategoryBlock>
         {newCategories.length > 0 &&
           newCategories.map((elem, index) => (
-            <Styled.CategoryWrapper>
+            <Styled.CategoryWrapper key={`${elem.name}${index}`}>
               <Styled.AdminNewCategoryInputWrapper>
                 <Styled.AdminCategoryNameInput
                   placeholder="Add new category"

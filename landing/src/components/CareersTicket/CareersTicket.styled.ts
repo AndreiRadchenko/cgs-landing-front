@@ -7,7 +7,7 @@ interface IImageProps {
 }
 
 interface TicketHover {
-  isTicketHover: boolean
+  isTicketHover: boolean;
 }
 
 export const Wrapper = styled.div`
@@ -202,19 +202,19 @@ export const TicketInner = styled.div<TicketHover>`
   background-color: ${themes.primary.colors.careerBackground};
   padding: 20px 20px 23px 20px;
 
-    &:after {
-    display: ${props => props.isTicketHover ? 'block' : 'none'};
+  &:after {
+    display: ${(props) => (props.isTicketHover ? "block" : "none")};
     position: absolute;
-    content: '';
+    content: "";
     background-color: ${themes.primary.colors.careerBackground};
     width: 8px;
-    height: 50%; 
+    height: 50%;
     top: 9px;
     right: -12px;
     border: 2px solid #000;
     z-index: 0;
-    }
-    
+  }
+
   @media (max-width: 768px) {
     width: 113%;
   }
@@ -284,8 +284,8 @@ export const WorkLocation = styled.div`
   font-weight: 900;
   padding: 0px 14px;
   margin-right: 20px;
-  
-  p{
+
+  p {
     margin: 0;
   }
 
@@ -293,7 +293,6 @@ export const WorkLocation = styled.div`
     font-size: 14px;
     height: 41px;
     padding: 0 9.1px;
-   
   }
 `;
 
@@ -306,7 +305,7 @@ export const WorkType = styled.div`
   font-weight: 900;
   padding: 0px 15px;
 
-  p{
+  p {
     margin: 0;
   }
 
@@ -346,8 +345,7 @@ export const TicketApplyButton = styled.div`
     }
   }
 
-
-  p{
+  p {
     font-size: 18px;
     margin: 0;
     margin-right: 5px;
@@ -355,14 +353,14 @@ export const TicketApplyButton = styled.div`
   }
 
   @media (max-width: 475px) {
-    p{
+    p {
       font-size: 14px;
     }
   }
 `;
 
 export const Shadow = styled.div<TicketHover>`
-  display: ${props => props.isTicketHover ? 'block' : 'none'};
+  display: ${(props) => (props.isTicketHover ? "block" : "none")};
   position: absolute;
   top: 50%;
   left: 0;
@@ -431,7 +429,7 @@ export const RightDivider = styled.hr`
 `;
 
 export const TicketPositionTitle = styled.p<TicketHover>`
-  color: ${(props) => (props.isTicketHover ? '#5869DD' : '#000')};
+  color: ${(props) => (props.isTicketHover ? "#5869DD" : "#000")};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 22px;
   line-height: 26px;

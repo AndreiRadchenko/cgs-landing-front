@@ -8,7 +8,12 @@ interface ITicketModalProps {
   ref: React.RefObject<HTMLDivElement>;
 }
 
-const TicketModal: FC<ITicketModalProps> = ({ isOpen, onClose, children, ref }) => {
+const TicketModal: FC<ITicketModalProps> = ({
+  isOpen,
+  onClose,
+  children,
+  ref,
+}) => {
   return (
     <Styles.TicketModal isOpen={isOpen} onClick={onClose} ref={ref}>
       <Styles.TicketModalContentContainer>

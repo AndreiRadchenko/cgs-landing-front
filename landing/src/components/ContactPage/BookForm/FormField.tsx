@@ -1,7 +1,6 @@
 import { useFormikContext } from "formik";
 import React, { Dispatch, FC, SetStateAction } from "react";
 import PhoneInput from "react-phone-input-2";
-import parse from "html-react-parser";
 
 import { IFormState } from "./";
 

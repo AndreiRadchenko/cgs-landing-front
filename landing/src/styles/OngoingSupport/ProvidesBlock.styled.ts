@@ -2,11 +2,11 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 interface MarioJump {
-  isJumping: boolean
+  isJumping: boolean;
 }
 
 interface Moving {
-  isMoving: boolean
+  isMoving: boolean;
 }
 
 export const Container = styled.section`
@@ -39,7 +39,7 @@ export const BlockContainer = styled.div`
     p {
       margin-left: -1.2em;
     }
-    }
+  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
@@ -49,7 +49,7 @@ export const BlockContainer = styled.div`
     margin-top: -2.5em;
     row-gap: 2.5em;
   }
-  
+
   @media ${themes.primary.media.minMiniTabletLandScape} {
     & > div:nth-child(2) {
       margin-top: 8rem;
@@ -104,7 +104,7 @@ export const Mario = styled.img<MarioJump>`
   position: absolute;
   z-index: 3;
   transition: transform 0.2s ease-out;
-  transform: ${(props) => (props.isJumping ? 'translateY(-140px)' : 'none')};
+  transform: ${(props) => (props.isJumping ? "translateY(-140px)" : "none")};
 
   @media (min-width: 2200px) {
     height: 25%;
@@ -115,7 +115,7 @@ export const Mario = styled.img<MarioJump>`
     margin-bottom: 0.8%;
   }
 
-   @media (min-width: 3300px) {
+  @media (min-width: 3300px) {
     bottom: -48%;
   }
 
@@ -188,7 +188,7 @@ export const Mario = styled.img<MarioJump>`
     bottom: -10%;
 
     transition: transform 0.2s ease-out;
-    transform: ${(props) => (props.isJumping ? 'translateY(-80px)' : 'none')};
+    transform: ${(props) => (props.isJumping ? "translateY(-80px)" : "none")};
   }
 
   @media (max-width: 710px) {
@@ -212,7 +212,7 @@ export const Mario = styled.img<MarioJump>`
   @media (max-width: 400px) {
     bottom: 0;
     transition: transform 0.2s ease-out;
-    transform: ${(props) => (props.isJumping ? 'translateY(-70px)' : 'none')};
+    transform: ${(props) => (props.isJumping ? "translateY(-70px)" : "none")};
   }
 `;
 
@@ -244,15 +244,15 @@ export const Text = styled.p`
   margin-block: 0.3em 1em;
   padding-right: 2.8rem;
 
-  @media screen and (min-width: 1723px) and (max-width: 1799px){
+  @media screen and (min-width: 1723px) and (max-width: 1799px) {
     padding-right: 7rem;
   }
 
-  @media screen and (min-width: 1800px) and (max-width: 1871px){
+  @media screen and (min-width: 1800px) and (max-width: 1871px) {
     padding-right: 0rem;
   }
 
-  @media screen and (min-width: 1872px) and (max-width: 1943px){
+  @media screen and (min-width: 1872px) and (max-width: 1943px) {
     padding-right: 1.5rem;
   }
 
@@ -323,19 +323,19 @@ export const BlockSrc = styled.img`
 export const RoadMove = styled.div<Moving>`
   display: flex;
   width: 400%;
-  animation: ${props => (props.isMoving ? "moveRoad 10s linear" : "none")};
+  animation: ${(props) => (props.isMoving ? "moveRoad 10s linear" : "none")};
 
   @keyframes moveRoad {
     0% {
-    -webkit-transform: translateX(0%);
-  }
-  100% {
-    -webkit-transform: translateX(-50%);
-  }
+      -webkit-transform: translateX(0%);
+    }
+    100% {
+      -webkit-transform: translateX(-50%);
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
-   width: 600%;
+    width: 600%;
   }
 
   @media (max-width: 475px) {
@@ -439,11 +439,11 @@ export const MushroomsImages = styled.div`
 
   @media (max-width: 1209px) {
     padding-left: 300px;
-    top: 1%; 
+    top: 1%;
   }
 
   @media (max-width: 1000px) {
-    top: 2%; 
+    top: 2%;
   }
 
   @media (max-width: 992px) {
@@ -451,7 +451,7 @@ export const MushroomsImages = styled.div`
   }
 
   @media (max-width: 858px) {
-    top: -4%; 
+    top: -4%;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -468,7 +468,7 @@ export const MushroomsImages = styled.div`
     padding-left: 70px;
     top: -4%;
   }
-  
+
   @media (max-width: 475px) {
     padding-left: 80px;
     top: 1%;
@@ -533,7 +533,7 @@ export const MushroomsImage = styled.img`
 `;
 
 export const Hint = styled.div<Moving>`
-  display: ${props => props.isMoving ? 'none' : ''};
+  display: ${(props) => (props.isMoving ? "none" : "")};
   position: absolute;
   margin-top: 1.8em;
   left: 6em;
@@ -546,8 +546,8 @@ export const Hint = styled.div<Moving>`
   animation: blinker 1s linear infinite;
 
   @keyframes blinker {
-  50% {
-    opacity: 0;
+    50% {
+      opacity: 0;
     }
   }
 

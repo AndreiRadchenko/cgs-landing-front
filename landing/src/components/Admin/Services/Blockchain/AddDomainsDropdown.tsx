@@ -10,7 +10,6 @@ import Arrow from "../../../../../public/upArrowSidebar.svg";
 
 import TrashIconBtn from "../../RateCard/trashIconBtn";
 import { queryKeys } from "../../../../consts/queryKeys";
-import { adminPortfolioService } from "../../../../services/adminPortfolioPage";
 import {
   IDomain,
   IServiceMobile,

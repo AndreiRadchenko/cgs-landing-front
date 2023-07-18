@@ -21,7 +21,14 @@ const TextFieldWrapper: FC<IFieldProps> = ({
   return (
     <>
       <Styled.FormFieldContainer>
-        <Styled.FormField placeholder={label} type={type} name={name} toError={toFormError} toErrorEmail={toFormErrorEmail} className={className}/>
+        <Styled.FormField
+          placeholder={label}
+          type={type}
+          name={name}
+          toError={toFormError}
+          toErrorEmail={toFormErrorEmail}
+          className={className}
+        />
       </Styled.FormFieldContainer>
     </>
   );

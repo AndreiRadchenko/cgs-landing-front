@@ -116,7 +116,6 @@ export const BottomLeftImageGlass = styled.img`
     left: 4em;
   }
 
-
   @media (max-width: 1024px) {
     left: 2em;
   }
@@ -138,7 +137,6 @@ export const BottomLeftImageGlass = styled.img`
   }
 `;
 
-
 export const Title = styled.header`
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
@@ -146,7 +144,7 @@ export const Title = styled.header`
   margin-top: 75px;
   margin-bottom: 40px;
 
-  p{
+  p {
     margin: 0;
   }
 
@@ -208,7 +206,7 @@ export const Title = styled.header`
     margin-top: 0.5em;
     margin-bottom: 0.7em;
 
-    span:last-child{
+    span:last-child {
       font-size: 30px;
     }
   }
@@ -229,7 +227,6 @@ export const FormTitleArrow = styled.img`
   height: 24px;
   margin: 0 0 5px 15px;
 `;
-
 
 export const TitleArrow = styled.img`
   width: 175px;
@@ -360,26 +357,26 @@ export const FormTitle = styled.span`
   align-self: normal;
   text-transform: uppercase;
 
-  &.mobile{
+  &.mobile {
     display: flex;
     flex-direction: row;
 
-    p{
+    p {
     }
   }
 
-  h4{
+  h4 {
     margin-bottom: 0;
     margin-top: 30px;
     margin-left: -8px;
   }
 
-  h5{
+  h5 {
     margin-top: 0;
     font-size: 21px;
   }
 
-  p{
+  p {
     margin: 0;
     margin-bottom: 30px;
     @media (max-width: 475px) {

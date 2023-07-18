@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import BaseButton from "../../components/BaseButton/BaseButton";
 import { IBaseButtonProps } from "../../types/Button.types";
-import themes from "../themes";
 
 const ButtonSeeAllWorks: FC<IBaseButtonProps> = ({ children, onClick }) => {
   return (
