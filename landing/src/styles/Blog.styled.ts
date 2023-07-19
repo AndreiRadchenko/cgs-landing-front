@@ -299,7 +299,7 @@ export const BlogItemTitle = styled.p`
 
   font-weight: 700;
   font-size: 34px;
-  line-height: 99%;
+  line-height: 130%;
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 2.3em;
   }
@@ -1014,10 +1014,6 @@ export const MainBlogItemDescription = styled(BlogItemDescription)`
 export const SmallArticleItemTitle = styled(BlogItemTitle)`
   font-size: ${themes.primary.font.size.menuElement};
   margin-top: 6.8px;
-
-  & a {
-    line-height: 27.3px;
-  }
 
   &:hover {
     color: ${themes.primary.colors.darkBlue};
