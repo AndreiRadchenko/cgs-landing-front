@@ -21,6 +21,7 @@ export interface IAbout extends IImage {
 
 export interface IContactPageData {
   header: {
+    lastModified?: string;
     title: string;
     placeholders: {
       name: string;
@@ -33,22 +34,27 @@ export interface IContactPageData {
     };
   };
   emails: {
+    lastModified?: string;
     subtitle: string;
     email: IEmail[];
   };
   messengers: {
+    lastModified?: string;
     subtitle: string;
     messenger: IMessenger[];
   };
   socials: {
+    lastModified?: string;
     subtitle: string;
     social: ISocial[];
   };
   abouts: {
+    lastModified?: string;
     subtitle: string;
     about: IAbout[];
   };
   location: {
+    lastModified?: string;
     map: IImage;
     pointer: IImage;
     address: string;
