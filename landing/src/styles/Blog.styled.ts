@@ -555,9 +555,9 @@ export const RightLine = styled.img`
   bottom: -60px;
 
   @media ${themes.primary.media.maxMobile} {
-    transform-origin: 100% 50%;
-    transform: scale(0.65);
-    bottom: -163px;
+    width: 430px;
+    height: 930px;
+    bottom: -40px;
   }
 `;
 
