@@ -1028,7 +1028,7 @@ export const DropdownContent = styled.div`
   div {
     color: ${themes.primary.colors.primary};
     font-family: ${themes.primary.font.family.namu};
-    font-size: 14px;
+    font-size: 1.167em;
     border-bottom: 1px solid ${themes.primary.colors.comment};
     padding: 12px 10px 11px;
     text-decoration: none;
