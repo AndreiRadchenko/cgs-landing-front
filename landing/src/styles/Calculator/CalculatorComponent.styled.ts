@@ -3,22 +3,6 @@ import themes from "../../utils/themes";
 import LoaderImg from "../../../public/Calculator/calculatorLoader.gif";
 import { glow, horizontalGlowReverse } from "../Animations.styled";
 
-export const CalculatorPreviewWrapper = styled.div`
-  position: fixed;
-  right: 0;
-  top: 50%;
-  transform: translateY(-70px);
-  height: 18.833em;
-  z-index: 13;
-
-  @media ${themes.primary.media.maxMobile} {
-    position: fixed;
-    height: auto;
-    top: auto;
-    bottom: 0;
-  }
-`;
-
 export const CalculatorPreview = styled.div`
   height: 100%;
   display: flex;
@@ -833,6 +817,7 @@ export const CalculatorPagerLeftButton = styled.g`
     opacity: 0.3;
   }
 `;
+
 export const CalculatorPagerRightButton = styled.g`
   cursor: pointer;
   &.disabled {
@@ -1586,21 +1571,6 @@ export const ResultImageWrapper = styled.div`
 
 export const LastStepBackButton = styled(StepButton)`
   color: ${themes.primary.colors.primary};
-`;
-
-export const ErrorMessage = styled.div`
-  position: absolute;
-  font-size: 14px;
-  padding-left: 2.8em;
-  font-family: ${themes.primary.font.family.namu};
-  line-height: 150%;
-  bottom: -1.5em;
-  color: ${themes.primary.colors.adminRed};
-
-  @media ${themes.primary.media.maxMobile} {
-    bottom: -1.35em;
-    padding-left: 1.6em;
-  }
 `;
 
 export const EmailInputWrapper = styled.div`

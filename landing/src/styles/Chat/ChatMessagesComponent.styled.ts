@@ -104,10 +104,6 @@ export const MessagesWrapper = styled.div<IMessagesWrapper>`
   width: 75%;
 `;
 
-export const DisplayedMessagesWrapper = styled.div`
-  padding-right: 10px;
-`;
-
 export const MessageSender = styled.p`
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
@@ -170,16 +166,6 @@ export const RecievdMessageTime = styled.span`
 `;
 
 export const SendedMessageTime = styled(RecievdMessageTime)`
-  margin-left: auto;
-`;
-
-export const RecivedMessageAttachments = styled.img`
-  display: block;
-  height: 60px;
-  width: 60px;
-`;
-
-export const SendedMessageAttachments = styled(RecivedMessageAttachments)`
   margin-left: auto;
 `;
 

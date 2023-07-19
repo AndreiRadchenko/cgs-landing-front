@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export interface IFontSize {
-  size?: string;
-  padding?: string;
-}
-
 export const Subtitle = styled.div`
   text-transform: uppercase;
   margin: 32px 0 0;

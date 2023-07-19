@@ -1,30 +1,6 @@
 import styled from "styled-components";
-import { FormikProvider, Field } from "formik";
+import { FormikProvider } from "formik";
 import themes from "../../utils/themes";
-
-export const FormField = styled(Field)`
-  height: 100%;
-  width: 100%;
-  background: none;
-  border: none;
-  border-bottom: 1px solid black;
-
-  font-family: ${themes.primary.font.family.namu};
-
-  font-size: 16px;
-  padding-left: 12px;
-
-  &:focus {
-    outline: none;
-  }
-  &::placeholder {
-    opacity: 1;
-  }
-
-  @media ${themes.primary.media.estiomationFormWidth} {
-    font-size: 0.75rem;
-  }
-`;
 
 export const Form = styled.form`
   margin-top: 20px;
@@ -71,32 +47,5 @@ export const Shadow = styled.div`
   position: absolute;
   &.enabled {
     display: none;
-  }
-`;
-
-export const ServiceSelect = styled.div`
-  height: 54px;
-  width: 100%;
-  margin-bottom: 12px;
-
-  & > div {
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
-
-  & > div:nth-child(2) {
-    height: auto;
-
-    &:last-child {
-      div:last-child {
-        color: ${themes.primary.colors.black};
-      }
-    }
-  }
-
-  @media ${themes.primary.media.estiomationFormWidth} {
-    height: 44px;
-    margin-bottom: 12px;
   }
 `;
