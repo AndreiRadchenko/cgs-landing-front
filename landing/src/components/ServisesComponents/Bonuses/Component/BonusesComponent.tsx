@@ -33,61 +33,60 @@ export const BonusesComponent = ({ bonuses }: IBonusesProps) => {
 
   return (
     <Styles.Container>
-      <div>
-        <MobileInfiniteText title={title} />
-      </div>
-      <div>
+      {isMobile ?
+        <MobileInfiniteText title={title}/>
+        :
         <Styles.Title>{title}</Styles.Title>
-        <Styles.RelativePositioner>
-          <Styles.ListsWrapper>
-            {isMobile ? (
+      }
+      <Styles.RelativePositioner>
+        <Styles.ListsWrapper>
+          {isMobile ? (
+            <Styles.ServiceList>
+              {bonusesWithIdx.map((item, idx) => (
+                <BonusItem
+                  key={idx}
+                  subtitle={item.subtitle}
+                  text={item.text}
+                  index={item.index}
+                  isOpen={isOpenItems[item.index]}
+                  handleClick={handleOpenText}
+                />
+              ))}
+            </Styles.ServiceList>
+          ) : (
+            <>
               <Styles.ServiceList>
-                {bonusesWithIdx.map((item, idx) => (
-                  <BonusItem
-                    key={idx}
-                    subtitle={item.subtitle}
-                    text={item.text}
-                    index={item.index}
-                    isOpen={isOpenItems[item.index]}
-                    handleClick={handleOpenText}
-                  />
-                ))}
+                {bonusesWithIdx
+                  .filter((item, idx) => idx % 2 === 0)
+                  .map((item, idx) => (
+                    <BonusItem
+                      key={idx}
+                      subtitle={item.subtitle}
+                      text={item.text}
+                      index={item.index}
+                      isOpen={isOpenItems[item.index]}
+                      handleClick={handleOpenText}
+                    />
+                  ))}
               </Styles.ServiceList>
-            ) : (
-              <>
-                <Styles.ServiceList>
-                  {bonusesWithIdx
-                    .filter((item, idx) => idx % 2 === 0)
-                    .map((item, idx) => (
-                      <BonusItem
-                        key={idx}
-                        subtitle={item.subtitle}
-                        text={item.text}
-                        index={item.index}
-                        isOpen={isOpenItems[item.index]}
-                        handleClick={handleOpenText}
-                      />
-                    ))}
-                </Styles.ServiceList>
-                <Styles.ServiceList>
-                  {bonusesWithIdx
-                    .filter((item, idx) => idx % 2 !== 0)
-                    .map((item, idx) => (
-                      <BonusItem
-                        key={idx}
-                        subtitle={item.subtitle}
-                        text={item.text}
-                        index={item.index}
-                        isOpen={isOpenItems[item.index]}
-                        handleClick={handleOpenText}
-                      />
-                    ))}
-                </Styles.ServiceList>
-              </>
-            )}
-          </Styles.ListsWrapper>
-        </Styles.RelativePositioner>
-      </div>
+              <Styles.ServiceList>
+                {bonusesWithIdx
+                  .filter((item, idx) => idx % 2 !== 0)
+                  .map((item, idx) => (
+                    <BonusItem
+                      key={idx}
+                      subtitle={item.subtitle}
+                      text={item.text}
+                      index={item.index}
+                      isOpen={isOpenItems[item.index]}
+                      handleClick={handleOpenText}
+                    />
+                  ))}
+              </Styles.ServiceList>
+            </>
+          )}
+        </Styles.ListsWrapper>
+      </Styles.RelativePositioner>
     </Styles.Container>
   );
 };
