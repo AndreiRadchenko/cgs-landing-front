@@ -557,7 +557,7 @@ export const RightLine = styled.img`
   @media ${themes.primary.media.maxMobile} {
     transform-origin: 100% 50%;
     transform: scale(0.65);
-    bottom: -144px;
+    bottom: -163px;
   }
 `;
 
