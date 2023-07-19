@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormikContext, FieldArray } from "formik";
+import { useQueryClient } from "@tanstack/react-query";
 
 import ButtonArrow from "../../../utils/ButtonArrow";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
@@ -15,10 +16,18 @@ import { IContactPageData } from "../../../types/Admin/AdminContact.types";
 import { IImage } from "../../../types/Admin/Admin.types";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
+import { queryKeys } from "../../../consts/queryKeys";
 
 const EmailBlock = () => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IContactPageData>([
+    queryKeys.getContactPage,
+  ])?.emails;
+
   const { values, handleChange, handleSubmit } =
     useFormikContext<IContactPageData>();
+
+  values.emails.lastModified = data?.lastModified;
 
   const { subtitle: emailSubtitle, email } = values.emails ?? {
     subtitle: "",
@@ -49,6 +58,7 @@ const EmailBlock = () => {
 
   return (
     <Styled.ContentWrapper>
+      <p>{`Last modified: ${data?.lastModified}`}</p>
       <SubHeaderWithInput
         width="48%"
         placeholder="Emails subtitle"

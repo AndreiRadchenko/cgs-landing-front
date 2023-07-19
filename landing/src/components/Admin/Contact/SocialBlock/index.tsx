@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormikContext } from "formik";
+import { useQueryClient } from "@tanstack/react-query";
 
 import SocialSection from "./SocialSection";
 import AboutSection from "./AboutSection";
@@ -11,9 +12,21 @@ import {
 } from "../../../../styles/HomePage/General.styled";
 import * as Styled from "../../../../styles/AdminPage";
 import { IContactPageData } from "../../../../types/Admin/AdminContact.types";
+import { queryKeys } from "../../../../consts/queryKeys";
 
 const SocialBlock = () => {
-  const { handleSubmit } = useFormikContext<IContactPageData>();
+  const queryClient = useQueryClient();
+  const socials = queryClient.getQueryData<IContactPageData>([
+    queryKeys.getContactPage,
+  ])?.socials;
+  const abouts = queryClient.getQueryData<IContactPageData>([
+    queryKeys.getContactPage,
+  ])?.abouts;
+
+  const { values, handleSubmit } = useFormikContext<IContactPageData>();
+
+  values.socials.lastModified = socials?.lastModified;
+  values.abouts.lastModified = abouts?.lastModified;
 
   const handleClick = () => handleSubmit();
 

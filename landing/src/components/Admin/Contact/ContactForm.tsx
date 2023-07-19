@@ -9,8 +9,9 @@ import MetaTagsBlock from "../MetaTagsBlock";
 import AdminBlockDropDown from "../../Admin/Global/AdminBlockDropDown";
 
 import * as Styled from "../../../styles/AdminPage";
+import { IContactPageData } from "../../../types/Admin/AdminContact.types";
 
-const ContactForm = () => {
+const ContactForm = ({ data }: { data: IContactPageData }) => {
   return (
     <Styled.AdminContentBlock>
       <Form>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormikContext } from "formik";
 import dynamic from "next/dynamic";
+import { useQueryClient } from "@tanstack/react-query";
 
 import ButtonArrow from "../../../utils/ButtonArrow";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
@@ -12,16 +13,25 @@ import {
 import * as Styles from "../../../styles/AdminContact.styled";
 import * as Styled from "../../../styles/AdminPage";
 import { IContactPageData } from "../../../types/Admin/AdminContact.types";
+import { queryKeys } from "../../../consts/queryKeys";
 
 const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
   ssr: false,
 });
 
 const HeaderBlock = () => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IContactPageData>([
+    queryKeys.getContactPage,
+  ])?.header;
+
   const { values, handleChange, handleSubmit } =
     useFormikContext<IContactPageData>();
 
+  values.header.lastModified = data?.lastModified;
+
   const {
+    lastModified = "",
     placeholders: { name, email, service },
     button: { name: buttonName, calendly },
   } = values.header ?? {
@@ -33,6 +43,7 @@ const HeaderBlock = () => {
   const handleClick = () => handleSubmit();
   return (
     <Styled.ContentWrapper>
+      <p>{`Last modified: ${data?.lastModified}`}</p>
       <Styles.TitleWrapper>
         <TextEditor header="Title" name="header.title" />
       </Styles.TitleWrapper>
