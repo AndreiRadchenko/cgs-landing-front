@@ -386,7 +386,7 @@ export const GrayText = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 0.875rem;
+    font-size: 12px;
   }
 `;
 
