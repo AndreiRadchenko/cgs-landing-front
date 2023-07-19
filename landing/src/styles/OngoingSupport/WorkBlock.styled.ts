@@ -89,15 +89,6 @@ export const Svg = styled.img`
   }
 `;
 
-export const BackgroundContainer = styled.img`
-  display: block;
-  position: absolute;
-
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
-  }
-`;
-
 export const Wrapper = styled.div<ISlide>`
   width: 17.5em;
   margin-left: 2.5em;

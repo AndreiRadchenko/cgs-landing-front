@@ -4,19 +4,11 @@ import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png"
 import InfoIcon from "../../../public/Calendly/InfoIcon.svg";
 import MobileInfoIcon from "../../../public/Calendly/MobileInfoIcon.svg";
 import { buttonHover } from "../Animations.styled";
+
 export interface IFontSize {
   size?: string;
   padding?: string;
 }
-
-export const RowContainer = styled.div`
-  display: flex;
-  gap: 0.5em;
-
-  @media ${themes.primary.media.maxMobile} {
-    gap: 2px;
-  }
-`;
 
 export const LocalLayout = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
@@ -36,6 +28,7 @@ export const arrowOne = keyframes`
     transform: translate(0px, 0px);;
   }
 `;
+
 export const arrowTwo = keyframes`
   0% {
     transform: translate(0px, 0px);
@@ -331,95 +324,6 @@ export const MainSubtitle = styled.div`
   }
 `;
 
-export const RightArrowWrapper = styled.div`
-  display: inline-block;
-  position: relative;
-  width: 165px;
-  @media ${themes.primary.media.onlyLaptop} {
-    width: 115px;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 65px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
-  }
-`;
-
-export const RightArrowWrapperMobile = styled.div`
-  position: relative;
-  display: none;
-
-  @media ${themes.primary.media.maxMobile} {
-    display: inline-block;
-    width: 4.8vw;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 20px;
-  }
-`;
-
-export const LeftArrowWrapper = styled.div`
-  display: inline-block;
-  position: relative;
-  width: 115px;
-
-  @media ${themes.primary.media.onlyPC} {
-    width: 145px;
-  }
-
-  @media ${themes.primary.media.maxLaptop} {
-    width: 90px;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 55px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
-  }
-`;
-
-export const LongArrowWrapper = styled.div`
-  display: inline-block;
-  margin-left: auto;
-  width: 30vw;
-  position: relative;
-  flex-grow: 1;
-
-  @media ${themes.primary.media.minLaptop} {
-    width: 20vw;
-  }
-  @media ${themes.primary.media.minPCFullHD} {
-    width: 524px;
-  }
-  @media (max-width: 1360px) {
-    width: 35vw;
-  }
-  @media (max-width: 1370px) {
-    width: 28vw;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    margin-left: 10px;
-    width: 22vw;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-left: 0;
-    margin-right: 5px;
-    width: 110px;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    width: 28vw;
-  }
-`;
-
 export const HeadBlockContent = styled.header`
   display: flex;
   flex-direction: column;
@@ -692,57 +596,10 @@ export const NextTech = styled.section`
   }
 `;
 
-export const FilmContainer = styled.div`
-  position: relative;
-`;
-
-export const Film = styled.img`
-  width: 91%;
-`;
-
-export const FilmText = styled.div`
-  position: absolute;
-  top: 37.5%;
-  left: 2.7%;
-  max-width: 42%;
-  line-height: 160%;
-  font-size: 1.22vw;
-
-  @media (min-width: 847px) {
-    font-size: 1.24vw;
-  }
-  @media (min-width: 960px) {
-    font-size: 1.25vw;
-  }
-  @media (min-width: 1170px) {
-    font-size: 1.27vw;
-  }
-  @media (min-width: 1210px) {
-    font-size: 1.29vw;
-  }
-  @media (min-width: 1560px) {
-    font-size: 1.3vw;
-  }
-  @media (min-width: 1890px) {
-    font-size: 1.33vw;
-  }
-`;
-
 export const RightContainer = styled.div`
   display: flex;
   justify-content: right;
   margin-right: 25px;
-`;
-
-export const Separator = styled.div`
-  height: 1px;
-  width: 100%;
-  margin-block: 41.5px;
-  background-color: ${themes.primary.colors.headerBorder};
-
-  @media ${themes.primary.media.maxMobile} {
-    opacity: 0;
-  }
 `;
 
 export const FooterButtonWrapper = styled.span`
@@ -869,6 +726,7 @@ export const ButtonShareTextWrapper = styled.div`
     }
   }
 `;
+
 export const ButtonShareText = styled.a``;
 
 export const WhatsAppWrapper = styled.div`
