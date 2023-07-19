@@ -8,6 +8,7 @@ export const Title = styled.h1`
   color: ${themes.primary.colors.blogDarkText};
   margin: 0;
   width: 90%;
+  line-height: 130%;
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.bigTitle};
   }
