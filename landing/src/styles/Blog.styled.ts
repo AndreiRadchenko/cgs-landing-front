@@ -385,6 +385,18 @@ export const GrayText = styled.div`
     font-size: 1.34em;
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 0.887em;
+  }
+
+  @media (min-width: 2400px) {
+    font-size: 1.1em;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    font-size: 1.05em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 12px;
   }
@@ -453,7 +465,6 @@ export const ArticleTimerContainer = styled.div`
   display: flex;
   align-items: center;
   column-gap: 5px;
-  margin-left: 70px;
 
   @media ${themes.primary.media.maxMobile} {
     margin-left: 0;
@@ -492,6 +503,18 @@ export const WatchCount = styled(GrayText)`
 
 export const WatchCountArticle = styled(GrayText)`
   font-size: ${themes.primary.font.size.articleViews};
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 0.887em;
+  }
+
+  @media (min-width: 2400px) {
+    font-size: 1.1em;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    font-size: 1.05em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;

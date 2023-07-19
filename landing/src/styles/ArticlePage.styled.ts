@@ -147,8 +147,15 @@ export const BannerWrapper = styled.div`
   column-gap: 20px;
   max-width: 965px;
   margin-top: 6px;
+
+  @media ${themes.primary.media.minPC} {
+    column-gap: 50px;
+  }
+
+
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 70.416em;
+    column-gap: 20px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;

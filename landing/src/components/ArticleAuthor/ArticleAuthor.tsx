@@ -41,7 +41,6 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
               By {author.name} / {author.specialization}
             </Styles.AuthorName>
             <Styles.SpaceBetween>
-              {width && width > 767 && (
                 <Styles.DatesContainer>
                   {(update && (
                     <Styled.GrayText>
@@ -55,7 +54,6 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
                     </Styled.GrayText>
                   )}
                 </Styles.DatesContainer>
-              )}
               <Styles.StatisticWrapper>
                 <Styled.ArticleWatchContainer>
                   <Styled.WatchIcon src={Watch.src} alt="watch icon" />
@@ -74,19 +72,6 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
           </Styles.Container>
         </Styles.AuthorInfoWrapper>
       </Styles.Wrapper>
-      {width && width <= 767 && (
-        <Styles.DatesContainer>
-          {(update && (
-            <Styled.GrayText>
-              Updated on <Styled.TimeText>{formatDate(update)}</Styled.TimeText>
-            </Styled.GrayText>
-          )) || (
-            <Styled.GrayText>
-              Published on <Styled.TimeText>{formatDate(date)}</Styled.TimeText>
-            </Styled.GrayText>
-          )}
-        </Styles.DatesContainer>
-      )}
     </>
   );
 };
