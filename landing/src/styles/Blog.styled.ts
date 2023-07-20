@@ -399,6 +399,10 @@ export const GrayText = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 12px;
+
+    &.big {
+      font-size: 14px;
+    }
   }
 `;
 
