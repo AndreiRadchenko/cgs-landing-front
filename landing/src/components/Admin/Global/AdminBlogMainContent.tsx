@@ -45,17 +45,13 @@ const AdminBlogMainContent = () => {
     adminBlogService.getArticles()
   );
 
-  const { data: views } = useQuery([queryKeys.views], () =>
-    adminBlogService.getViews()
-  );
-
   const { data: sitemap } = useQuery([queryKeys.getSitemapData], () =>
     adminSitemapService.getSitemapData()
   );
 
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
-  ) : data && views && articles ? (
+  ) : data && articles ? (
     <Styled.AdminContentBlock>
       <Formik
         key="blogPageData"
@@ -71,13 +67,11 @@ const AdminBlogMainContent = () => {
             setArticle={setArticle}
             isNewArticle={isNewArticle}
             setIsNewArticle={setIsNewArticle}
-            views={views}
             sitemap={sitemap}
             scrollHandler={scrollTo}
           />
           <PublishedArticles
             scrollRef={ref}
-            views={views}
             article={article}
             setArticle={setArticle}
             isNewArticle={isNewArticle}
