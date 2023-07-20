@@ -9,7 +9,6 @@ import { IBlogItem } from "../../types/Blog.types";
 
 const BlogItem = ({
   article,
-  views,
   filters,
   loadedImagesCounter,
   setIsTagLoaded,
@@ -76,7 +75,7 @@ const BlogItem = ({
                                 alt="views icon"
                               />
                               <Styled.WatchCount>
-                                {views || 0}
+                                {article.views || 0}
                               </Styled.WatchCount>
                             </Styled.WatchContainer>
                             <Styled.WatchContainer>
@@ -145,7 +144,7 @@ const BlogItem = ({
                   <Styled.SecondaryAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.SecondaryAuthor>
                   <Styled.WatchContainer>
                     <Styled.BlogItemWatchIcon src={Watch.src} />
-                    <Styled.WatchCount>{views || 0}</Styled.WatchCount>
+                    <Styled.WatchCount>{article.views || 0}</Styled.WatchCount>
                   </Styled.WatchContainer>
                 </Styled.BlogItemRowContainer>
                 <Styled.WatchContainer>

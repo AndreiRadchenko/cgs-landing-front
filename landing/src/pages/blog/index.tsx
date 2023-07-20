@@ -57,8 +57,6 @@ const BlogPage = () => {
     () => adminBlogService.getBlogSwiperData()
   );
 
-  const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
-
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const {
@@ -84,11 +82,6 @@ const BlogPage = () => {
   );
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
-
-  const findViews = (url: string) => {
-    if (views.data)
-      return views.data.find((view) => view.articleUrl === url)?.views;
-  };
 
   const scrollFunc = () => {
     scroller.scrollTo("articles-container", {
@@ -181,7 +174,6 @@ const BlogPage = () => {
                         <SwiperSlide key={idx}>
                           <MainBlogItem
                             article={article}
-                            views={findViews(article.url)}
                             filters={filters}
                             setIsMainSliderImageLoaded={
                               setIsMainSliderImageLoaded
@@ -214,7 +206,6 @@ const BlogPage = () => {
                         isLoading ||
                         !isTagsLoaded ||
                         !articles ||
-                        !views ||
                         (articles?.reviews &&
                           articles.reviews.length > 0 &&
                           !isImagesLoaded)) &&
@@ -257,7 +248,7 @@ const BlogPage = () => {
                             />
                           </DropdownContainer>
                         )}
-                        {loading || isLoading || !articles || !views ? (
+                        {loading || isLoading || !articles ? (
                           <LoaderStub />
                         ) : articles.reviews.length ? (
                           <>
@@ -266,7 +257,6 @@ const BlogPage = () => {
                                 <BlogItem
                                   article={article}
                                   key={article._id}
-                                  views={findViews(article.url)}
                                   filters={filters}
                                   loadedImagesCounter={loadedImagesCounter}
                                   setIsTagLoaded={setIsTagLoaded}

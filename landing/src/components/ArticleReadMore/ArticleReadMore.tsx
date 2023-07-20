@@ -7,10 +7,9 @@ import BlogItem from "../Blog/BlogItem";
 
 interface IArticleReadMore {
   readMore: IArticle[];
-  findViews: (url: string) => number | undefined;
 }
 
-const ArticleReadMore = ({ readMore, findViews }: IArticleReadMore) => {
+const ArticleReadMore = ({ readMore }: IArticleReadMore) => {
   const { width } = useWindowDimension();
 
   return readMore.length > 0 ? (
@@ -24,12 +23,10 @@ const ArticleReadMore = ({ readMore, findViews }: IArticleReadMore) => {
             <ArticleReadMoreItem
               key={article._id}
               article={article}
-              view={findViews(article.url)}
             />
           ) : (
             <BlogItem
               article={article}
-              views={findViews(article.url)}
               key={article._id}
             />
           )

@@ -270,6 +270,7 @@ export interface IArticle {
   date: string;
   publishedDate: string;
   minutesToRead: number;
+  views: number;
   content: string;
   tags: string[];
   disabled: boolean;
@@ -311,12 +312,6 @@ export interface IBlogPageResponse {
   };
   meta: IMetaBlock;
 }
-export interface IView {
-  _id?: string;
-  views: number;
-  articleUrl: string;
-}
-
 export interface IHomeData {
   data: IDataCareersResponse | undefined;
   isLoading: boolean;

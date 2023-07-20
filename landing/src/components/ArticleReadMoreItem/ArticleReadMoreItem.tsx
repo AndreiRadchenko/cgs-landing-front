@@ -6,10 +6,9 @@ import { useRouter } from "next/router";
 
 interface IArticleReadMore {
   article: IArticle;
-  view: number | undefined;
 }
 
-const ArticleReadMoreItem = ({ article, view }: IArticleReadMore) => {
+const ArticleReadMoreItem = ({ article }: IArticleReadMore) => {
   const router = useRouter();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -35,7 +34,7 @@ const ArticleReadMoreItem = ({ article, view }: IArticleReadMore) => {
       )}
       <Styles.ViewsWrapper>
         <Styles.ArticleWatchIcon src={viewsIcon.src} alt="views icon" />
-        <Styles.AmountViews>{view || 0}</Styles.AmountViews>
+        <Styles.AmountViews>{article.views || 0}</Styles.AmountViews>
       </Styles.ViewsWrapper>
       <Styles.TitleWrapper>
         <Styles.Title>
