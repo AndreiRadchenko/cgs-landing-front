@@ -84,7 +84,6 @@ export const SpaceBetween = styled.div`
   column-gap: 16px;
   align-items: center;
   flex-wrap: wrap;
-  z-index: 1000;
   width: 322px;
   margin-top: 4px;
   margin-bottom: 6px;
