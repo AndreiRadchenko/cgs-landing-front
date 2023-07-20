@@ -10,7 +10,7 @@ import {
   useQuery,
   useQueryClient,
 } from "@tanstack/react-query";
-import { IArticle, IView } from "../../types/Admin/Response.types";
+import { IArticle } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import titleBg from "../../../public/articleTitleBgImg.svg";
 import headerBottomBg from "../../../public/articleHeaderBottomBg.svg";
@@ -40,10 +40,6 @@ export async function getServerSideProps() {
     adminBlogService.getArticles()
   );
 
-  await queryClient.prefetchQuery([queryKeys.views], () =>
-    adminBlogService.getViews()
-  );
-
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
@@ -52,7 +48,6 @@ export async function getServerSideProps() {
 }
 
 const ArticlePage = () => {
-  const queryClient = useQueryClient();
   const router = useRouter();
   const breadcrumbs: any[] = [];
   const [readMore, setReadMore] = useState<IArticle[] | null>(null);
@@ -68,7 +63,6 @@ const ArticlePage = () => {
   );
 
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
-  const views = useQuery([queryKeys.views], () => adminBlogService.getViews());
 
   const article =
     data &&
@@ -81,31 +75,18 @@ const ArticlePage = () => {
           new Date() >= new Date(article.scheduleArticle))
     );
 
-  const findViews = (url: string) => {
-    if (views.data)
-      return views.data.find((view) => view.articleUrl === url)?.views;
-  };
-
   const { mutateAsync: updateViews } = useMutation(
     [queryKeys.updateViews],
-    (dataToUpdate: IView) => adminBlogService.updateViews(dataToUpdate),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries([queryKeys.views]);
-      },
-    }
+    (dataToUpdate: IArticle) => adminBlogService.updateById(dataToUpdate),
   );
 
   useEffect(() => {
     const plusView = async () => {
-      if (!views.data) return;
+      if (!article ) return;
 
-      const viewToUpdate = views.data.find((el) => el.articleUrl === url);
+      const updatedArticle = { ...article, views: article.views += 1 };
 
-      if (viewToUpdate) {
-        viewToUpdate.views += 1;
-        await updateViews(viewToUpdate);
-      }
+      await updateViews(updatedArticle);
     };
     plusView();
   }, [article, url]);
@@ -211,7 +192,7 @@ const ArticlePage = () => {
                   author={article.author}
                   date={article.date}
                   time={article.minutesToRead}
-                  views={findViews(article.url)}
+                  views={article.views}
                   update={article.updatedOn}
                 />
               </Styles.TagWrapper>
@@ -241,7 +222,7 @@ const ArticlePage = () => {
               <>
                 <ArticleDescription content={article.content} />
                 <ShareOn title={article.title} className="mobile" />
-                <ArticleReadMore readMore={readMore} findViews={findViews} />
+                <ArticleReadMore readMore={readMore} />
               </>
             )}
           </Styles.PageWrapper>

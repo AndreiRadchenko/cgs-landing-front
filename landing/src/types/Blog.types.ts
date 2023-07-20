@@ -36,7 +36,6 @@ export interface ISwiperArticlesDataResponse {
 
 export interface IMainBlogItem {
   article: IArticle;
-  views?: number;
   filters?: string[];
   setIsMainSliderImageLoaded?: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -56,7 +55,6 @@ export interface IPodcastItemProps {
 
 export interface IBlogItem {
   article: IArticle;
-  views?: number;
   filters?: string[];
   loadedImagesCounter?: () => void;
   setIsTagLoaded?: React.Dispatch<React.SetStateAction<boolean>>;
