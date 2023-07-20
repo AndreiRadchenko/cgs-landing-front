@@ -512,6 +512,12 @@ export const ProjectCtaContainer = styled.div`
     color: ${themes.primary.colors.primary};
   }
 
+  @media ${themes.primary.media.minLaptop} {
+    h3 {
+      white-space: nowrap;
+    }
+  }
+
   @media (max-width: 1351px) {
     h3 {
       font-size: 26px;
