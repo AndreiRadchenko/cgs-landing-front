@@ -192,6 +192,10 @@ export const BlackButton = styled.a<IFontSize>`
       padding: 18px 33px;
     }
 
+    &.seeAll {
+      font-size: 14px;
+    }
+
     &.footer-home {
       margin-top: 1em;
     }
