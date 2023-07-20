@@ -231,7 +231,7 @@ export const MarginContainer = styled.div`
   margin-bottom: 44px;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 50px;
+    margin-bottom: 24px;
   }
 `;
 
