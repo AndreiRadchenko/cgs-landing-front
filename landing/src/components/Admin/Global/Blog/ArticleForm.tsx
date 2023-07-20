@@ -9,7 +9,6 @@ import {
   IArticle,
   IBlogPageResponse,
   ISitemapData,
-  IView,
 } from "../../../../types/Admin/Response.types";
 import ArticleAddAndEdit from "./ArticleAddAndEdit";
 import { IArticleForm } from "../../../../types/Admin/Blog.types";
@@ -25,7 +24,6 @@ const ArticleForm = ({
   setIsNewArticle,
   isNewArticle,
   setArticle,
-  views,
   sitemap,
   scrollHandler,
 }: IArticleForm) => {
@@ -59,21 +57,6 @@ const ArticleForm = ({
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getSitemapData]);
-      },
-    }
-  );
-
-  const { mutateAsync: updateViews } = useMutation(
-    [queryKeys.updateViews],
-    (dataToUpdate: IView) => adminBlogService.updateViews(dataToUpdate)
-  );
-
-  const { mutateAsync: addViews } = useMutation(
-    [queryKeys.addViews],
-    (dataToUpdate: IView) => adminBlogService.addViews(dataToUpdate),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries([queryKeys.views]);
       },
     }
   );
@@ -112,21 +95,6 @@ const ArticleForm = ({
       setIsNewArticle(false);
     } else {
       await editArticle(values);
-    }
-    if (views) {
-      const updatedViews = views.find(
-        (view) => view.articleUrl === articles[article].url
-      );
-
-      if (isNewArticle) {
-        await addViews({
-          articleUrl: values.url,
-          views: 231,
-        });
-      } else if (updatedViews) {
-        updatedViews.articleUrl = values.url;
-        updatedViews && (await updateViews(updatedViews));
-      }
     }
 
     if (sitemap && !isNewArticle && values.url !== articles[article].url) {
