@@ -11,7 +11,7 @@ export const Wrapper = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 100px;
-    margin-bottom: 17px;
+    margin-bottom: 26px;
   }
 `;
 
