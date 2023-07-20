@@ -443,7 +443,7 @@ const Calculator = ({
               <BlackButtonComponent
                 onClick={handleOpen}
                 text="Start calculation"
-                style={{ padding: "1em 2.15em" }}
+                style={{ padding: "1em 2.15em", fontSize: "14px" }}
               />
             </div>
           </Styled.CalculatorPreviewContentWrapper>
