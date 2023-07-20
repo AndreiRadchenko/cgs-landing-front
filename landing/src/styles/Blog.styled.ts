@@ -200,12 +200,14 @@ export const Tag = styled.button<ITag>`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    height: 26px;
     &.preview {
       position: absolute;
       top: 0;
       left: 0;
       border: 0;
-      font-size: 1.35em;
+      height: 26px;
+      font-size: 14px;
       margin-left: -1px;
     }
   }
