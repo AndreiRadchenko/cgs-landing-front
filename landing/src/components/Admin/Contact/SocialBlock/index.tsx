@@ -5,6 +5,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import SocialSection from "./SocialSection";
 import AboutSection from "./AboutSection";
 import ButtonArrow from "../../../../utils/ButtonArrow";
+import HistoryLink from "../../HistoryLink";
 
 import {
   ArrowContainer,
@@ -32,6 +33,13 @@ const SocialBlock = () => {
 
   return (
     <Styled.ContentWrapper>
+      {socials?.lastModified && (
+        <HistoryLink
+          sectionName="Header"
+          lastModified={socials?.lastModified}
+          link={"/history/contacts/header"}
+        />
+      )}
       <SocialSection />
       <AboutSection />
       <div>
