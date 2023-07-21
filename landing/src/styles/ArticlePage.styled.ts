@@ -149,7 +149,7 @@ export const BannerWrapper = styled.div`
   margin-top: 6px;
 
   @media ${themes.primary.media.minPC} {
-    column-gap: 50px;
+    column-gap: 40px;
   }
 
 
@@ -157,6 +157,15 @@ export const BannerWrapper = styled.div`
     max-width: 70.416em;
     column-gap: 20px;
   }
+
+  @media (min-width: 2400px) {
+    column-gap: 40px;
+  }
+
+  @media (max-width: 1199px) {
+    column-gap: 40px;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
     align-items: center;
