@@ -193,6 +193,11 @@ export const Tag = styled.button<ITag>`
   span {
     cursor: pointer;
   }
+
+  &.preview {
+    font-size: ${themes.primary.font.size.articleDesktopTag};
+  }
+
   @media ${themes.primary.media.minPC} {
     height: 2.333em;
     padding: 0.5em ${themes.primary.font.size.primary};
@@ -1001,7 +1006,7 @@ export const MainBlogItemImage = styled.img`
 
 export const MainBlogItemTag = styled(Tag)`
   margin-top: 25px;
-  font-size: ${themes.primary.font.size.primary};
+  font-size: ${themes.primary.font.size.articleDesktopTag};
   padding: 0.5em 1em;
 
   @media ${themes.primary.media.maxMobile} {
@@ -1010,7 +1015,7 @@ export const MainBlogItemTag = styled(Tag)`
     position: absolute;
     top: -30px;
     left: -12px;
-    font-size: 0.875rem;
+    font-size: 14px;
     padding: 0.166em 0.835em;
     line-height: 160%;
     z-index: 100;
