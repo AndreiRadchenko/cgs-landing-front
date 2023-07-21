@@ -44,7 +44,7 @@ export const TagItem = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 0.875rem;
+    font-size: 14px;
     padding: 4px 12px;
     height: 24px;
   }
