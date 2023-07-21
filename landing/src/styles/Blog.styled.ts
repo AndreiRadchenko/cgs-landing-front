@@ -381,7 +381,7 @@ export const LoopContainer = styled.div`
 `;
 
 export const GrayText = styled.div`
-  color: ${themes.primary.colors.authorGrey};
+  color: #8F8E93;
   font-size: ${themes.primary.font.size.articleViews};
   &.big {
     font-size: 1.34em;
