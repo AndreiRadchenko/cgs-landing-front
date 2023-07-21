@@ -89,7 +89,7 @@ export const SpaceBetween = styled.div`
   margin-bottom: 6px;
 
   @media ${themes.primary.media.minPC} {
-    width: 340px;
+    width: 370px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -109,11 +109,13 @@ export const SpaceBetween = styled.div`
     & > div:first-child {
       div {
         font-size: 12px;
+        font-weight: 400;
         white-space: nowrap;
       }
     }
     & > div:not(:first-child) div {
       font-size: 14px;
+      font-weight: 600;
     }
   }
 

@@ -470,10 +470,11 @@ export const DataContainer = styled.div`
 export const ArticleTimerContainer = styled.div`
   display: flex;
   align-items: center;
-  column-gap: 5px;
+  column-gap: 8px;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-left: 0;
+    column-gap: 8px;
+    min-width: 70px;
   }
 `;
 
@@ -493,7 +494,11 @@ export const WatchContainer = styled.div`
 export const ArticleWatchContainer = styled.div`
   display: flex;
   align-items: center;
-  column-gap: 5px;
+  column-gap: 8px;
+
+  @media ${themes.primary.media.maxMobile} {
+    column-gap: 8px;
+  }
 `;
 
 export const WatchCount = styled(GrayText)`
