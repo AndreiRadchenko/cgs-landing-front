@@ -104,9 +104,7 @@ const OngoingSupport = () => {
                   }
                 />
               </Styled.Layout>
-              <>
               <BonusesComponent bonuses={data?.bonuses} />
-              </>
             </Layout>
             <div
               style={{

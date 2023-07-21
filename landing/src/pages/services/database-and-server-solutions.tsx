@@ -115,11 +115,8 @@ const DbSolutions: NextPage = () => {
 
             <Layout>
               <Styled.BonusesAlign>
-                <>
-                  <BonusesComponent bonuses={data?.bonuses} />
-                </>
+              <BonusesComponent bonuses={data?.bonuses}/>
               </Styled.BonusesAlign>
-
               <OtherServices otherServices={data?.otherServices} />
               <Styled.Layout>
                 <FooterBlock />

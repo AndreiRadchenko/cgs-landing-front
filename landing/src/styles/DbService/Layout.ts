@@ -38,7 +38,7 @@ export const BonusesAlign = styled.div`
     margin-top: -6em;
   }
   @media ${themes.primary.media.maxMobile} {
-    margin-top: -55px;
+    margin-top: 0px;
     margin-bottom: -10px;
   }
 `;
