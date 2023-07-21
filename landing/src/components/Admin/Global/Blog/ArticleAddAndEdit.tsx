@@ -171,6 +171,7 @@ const ArticleAddAndEdit = ({
   const handleDraftClick = () => {
     setFieldValue("draft", true);
     setFieldValue("disabled", true);
+    setFieldValue("publishedDate", "draft");
     setShouldValidate(true);
     handleSubmit();
   };

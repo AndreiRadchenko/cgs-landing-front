@@ -88,6 +88,8 @@ const ArticleForm = ({
 
     if (!values.publishedDate) {
       values.publishedDate = formatsDateWithTime();
+    } else if (values.publishedDate === "draft") {
+      values.publishedDate = "";
     }
 
     if (isNewArticle) {
