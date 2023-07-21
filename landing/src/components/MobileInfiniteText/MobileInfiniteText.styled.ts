@@ -35,8 +35,8 @@ export const MovingText = styled.div`
     width: inherit;
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 24px !important;
+  /* @media ${themes.primary.media.maxMobile} {
+    font-size: 24px;
     line-height: 233% !important;
     margin-bottom: 30px !important;
 
@@ -48,7 +48,7 @@ export const MovingText = styled.div`
       margin-left: -35%;
       width: 150%;
     }
-  }
+  } */
 
   @media ${themes.primary.media.minMobile} {
     display: none;
@@ -74,7 +74,17 @@ export const MovingText = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 1.5em;
+    font-size: 24px;
     line-height: 233%;
+    margin-bottom: 30px !important;
+
+    &.withoutMargin {
+      margin-bottom: 0 !important;
+    }
+
+    &.webDev {
+      margin-left: -35%;
+      width: 150%;
+    }
   }
 `;

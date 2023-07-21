@@ -11,11 +11,22 @@ export const Container = styled.div`
   display: flex;
   align-items: flex-start;
 
+  /* @media ${themes.primary.media.maxPCFullHD} {
+    margin-top: 1em;
+    margin-bottom: -2em;
+  } */
+
   @media ${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
     height: 330px;
   }
+
+  /* @media (max-width: 1050px) {
+    margin-top: -6em;
+  } */
+
   @media ${themes.primary.media.maxMobile} {
+    margin-top: 0;
     height: auto;
     margin-left: -1.925em;
     padding: 0 1.925em;
@@ -89,5 +100,11 @@ export const ServiceList = styled.ul`
     gap: 13px;
     flex-direction: column;
     align-items: center;
+  }
+`;
+
+export const MobileTitle = styled.div`
+  @media (min-width: 769px) {
+    display: none;
   }
 `;
