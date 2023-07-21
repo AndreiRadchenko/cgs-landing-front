@@ -70,7 +70,7 @@ export class HttpService implements IHttpClient {
     const errorResponse = error.response;
 
     if (errorResponse?.status === 401) {
-      Router.push("/401")
+      Router.push("/401");
       return;
     }
 
