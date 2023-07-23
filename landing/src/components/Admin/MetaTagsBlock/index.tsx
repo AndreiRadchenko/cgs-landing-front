@@ -1,23 +1,34 @@
-﻿import React, { useEffect, useState } from "react";
-import * as Styled from "../../../styles/AdminPage";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+﻿import React, { useEffect, useState, FC } from "react";
 import { useFormikContext } from "formik";
-import { IMetaBlock, ISitemapData } from "../../../types/Admin/Response.types";
-import { Counter, Message, Text } from "../../../styles/AdminBlogPage";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../../consts/queryKeys";
-import { adminSitemapService } from "../../../services/adminSitemapPage";
+
+import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+import { Counter, Message, Text } from "../../../styles/AdminBlogPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../styles/HomePage/General.styled";
 import ButtonArrow from "../../../utils/ButtonArrow";
+import HistoryLink from "../HistoryLink";
+
+import * as Styled from "../../../styles/AdminPage";
+import { IMetaBlock, ISitemapData } from "../../../types/Admin/Response.types";
+import { queryKeys } from "../../../consts/queryKeys";
+import { adminSitemapService } from "../../../services/adminSitemapPage";
+
+interface IMetaHistory {
+  meta: {
+    lastModified?: string;
+  };
+}
 
 interface IMetaBlockProps {
   theme?: string;
   nestedMeta?: { meta: IMetaBlock };
   nameBefore?: string;
   sitemap?: string;
+  queryKey?: string;
+  historyLink?: string;
 }
 
 const META_TITLE_MIN = 10;
@@ -30,8 +41,15 @@ const MetaTagsBlock = ({
   nestedMeta,
   nameBefore = "",
   sitemap,
+  queryKey = "",
+  historyLink,
 }: IMetaBlockProps) => {
   const queryClient = useQueryClient();
+  let metaData = null;
+  if (queryKey !== "") {
+    metaData = queryClient.getQueryData<IMetaHistory>([queryKey])?.meta;
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { values, handleChange, handleSubmit } = useFormikContext<any>();
   const { meta } = nestedMeta ? nestedMeta : values;
@@ -91,7 +109,14 @@ const MetaTagsBlock = ({
 
   return (
     <Styled.MetaBlockWraper theme={theme}>
-      <div style={{ padding: "30px 30px"}}>
+      <div style={{ padding: "30px 30px" }}>
+        {metaData?.lastModified && historyLink && (
+          <HistoryLink
+            sectionName="Meta"
+            lastModified={metaData?.lastModified}
+            link={historyLink}
+          />
+        )}
         <SubHeaderWithInput
           header="Meta Title"
           minRows={5}
@@ -167,16 +192,16 @@ const MetaTagsBlock = ({
           onChangeFunction={handleChange}
         />
         <BlackButton
-        type="submit"
-        size={"1.5em"}
-        padding={"1.11em 1.5em"}
-        onClick={handleClick}
-      >
-        Update meta tags
-        <ArrowContainer>
-          <ButtonArrow />
-        </ArrowContainer>
-      </BlackButton>
+          type="submit"
+          size={"1.5em"}
+          padding={"1.11em 1.5em"}
+          onClick={handleClick}
+        >
+          Update meta tags
+          <ArrowContainer>
+            <ButtonArrow />
+          </ArrowContainer>
+        </BlackButton>
       </div>
     </Styled.MetaBlockWraper>
   );

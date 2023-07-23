@@ -34,7 +34,7 @@ const AdminContactContent = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik initialValues={data} onSubmit={submitForm}>
-      <ContactForm data={data} />
+      <ContactForm />
     </Formik>
   ) : (
     <Styled.AdminUnauthorizedModal>

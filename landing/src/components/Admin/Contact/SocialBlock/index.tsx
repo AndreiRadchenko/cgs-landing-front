@@ -26,21 +26,25 @@ const SocialBlock = () => {
 
   const { values, handleSubmit } = useFormikContext<IContactPageData>();
 
-  values.socials.lastModified = socials?.lastModified;
-  values.abouts.lastModified = abouts?.lastModified;
-
   const handleClick = () => handleSubmit();
 
   return (
     <Styled.ContentWrapper>
       {socials?.lastModified && (
         <HistoryLink
-          sectionName="Header"
+          sectionName="Social"
           lastModified={socials?.lastModified}
-          link={"/history/contacts/header"}
+          link={"/history/contacts/socials"}
         />
       )}
       <SocialSection />
+      {abouts?.lastModified && (
+        <HistoryLink
+          sectionName="Our works"
+          lastModified={abouts?.lastModified}
+          link={"/history/contacts/abouts"}
+        />
+      )}
       <AboutSection />
       <div>
         <BlackButton
