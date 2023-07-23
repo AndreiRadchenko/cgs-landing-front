@@ -62,6 +62,10 @@ export const ExplanationEmailFieldTooltip = styled.div`
     bottom: 45px;
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    display: none;
+  }
+
   &:after {
     content: "";
     position: absolute;
