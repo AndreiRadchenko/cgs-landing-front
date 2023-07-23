@@ -79,6 +79,7 @@ export interface IMetaBlock {
   metaTitle: string;
   metaDescription: string;
   customHead: string;
+  lastModified?: string;
 }
 
 // completed

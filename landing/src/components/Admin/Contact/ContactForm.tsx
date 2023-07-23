@@ -9,9 +9,9 @@ import MetaTagsBlock from "../MetaTagsBlock";
 import AdminBlockDropDown from "../../Admin/Global/AdminBlockDropDown";
 
 import * as Styled from "../../../styles/AdminPage";
-import { IContactPageData } from "../../../types/Admin/AdminContact.types";
+import { queryKeys } from "../../../consts/queryKeys";
 
-const ContactForm = ({ data }: { data: IContactPageData }) => {
+const ContactForm = () => {
   return (
     <Styled.AdminContentBlock>
       <Form>
@@ -31,7 +31,12 @@ const ContactForm = ({ data }: { data: IContactPageData }) => {
           </AdminBlockDropDown>
         </Styled.AdminBlocksContent>
         <Styled.MetaBlockWraper>
-          <MetaTagsBlock theme="dark" sitemap="/" />
+          <MetaTagsBlock
+            theme="dark"
+            sitemap="/"
+            queryKey={queryKeys.getContactPage}
+            historyLink="/history/contacts/meta"
+          />
         </Styled.MetaBlockWraper>
       </Form>
     </Styled.AdminContentBlock>

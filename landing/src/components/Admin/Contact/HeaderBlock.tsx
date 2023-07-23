@@ -29,8 +29,6 @@ const HeaderBlock = () => {
   const { values, handleChange, handleSubmit } =
     useFormikContext<IContactPageData>();
 
-  values.header.lastModified = data?.lastModified;
-
   const {
     placeholders: { name, email, service },
     button: { name: buttonName, calendly },

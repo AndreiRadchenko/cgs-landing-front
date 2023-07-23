@@ -1,9 +1,11 @@
 import React from "react";
 import { useFormikContext, FieldArray } from "formik";
+import { useQueryClient } from "@tanstack/react-query";
 
 import ButtonArrow from "../../../utils/ButtonArrow";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import PhotoBlockAddRemove from "../Global/PhotoBlockAddRemove";
+import HistoryLink from "../HistoryLink";
 
 import {
   ArrowContainer,
@@ -15,8 +17,13 @@ import { IContactPageData } from "../../../types/Admin/AdminContact.types";
 import { IImage } from "../../../types/Admin/Admin.types";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
+import { queryKeys } from "../../../consts/queryKeys";
 
 const LocationBlock = () => {
+  const queryClient = useQueryClient();
+  const location = queryClient.getQueryData<IContactPageData>([
+    queryKeys.getContactPage,
+  ])?.location;
   const { values, handleChange, handleSubmit } =
     useFormikContext<IContactPageData>();
 
@@ -45,6 +52,13 @@ const LocationBlock = () => {
 
   return (
     <Styled.ContentWrapper>
+      {location?.lastModified && (
+        <HistoryLink
+          sectionName="Location"
+          lastModified={location?.lastModified}
+          link={"/history/contacts/location"}
+        />
+      )}
       <Styles.LocationWrapper>
         <div>
           <Styled.AdminSubTitle>Map 1440 x 305</Styled.AdminSubTitle>
